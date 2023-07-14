@@ -324,6 +324,10 @@ class AnalyticsHelper {
     }
   }
 
+  static void sendException(dynamic throwable, {dynamic stackTrace}) {
+    Sentry.captureException(throwable, stackTrace: stackTrace);
+  }
+
   static String? get matomoVisitorId => MatomoTracker.instance.visitor.id;
 }
 

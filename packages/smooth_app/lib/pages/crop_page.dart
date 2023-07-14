@@ -17,6 +17,7 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/database_helper.dart';
 import 'package:smooth_app/helpers/image_compute_container.dart';
 import 'package:smooth_app/helpers/image_field_extension.dart';
@@ -227,7 +228,7 @@ class _CropPageState extends State<CropPage> {
   /// Returns a small file with the cropped image, for the transient image.
   ///
   /// Here we use BMP format as it's faster to encode.
-  Future<File> _getCroppedImageFile(
+  Future<File?> _getCroppedImageFile(
     final Directory directory,
     final int sequenceNumber,
   ) async {
@@ -239,7 +240,17 @@ class _CropPageState extends State<CropPage> {
       maxSize: _screenSize.longestSide,
     );
     setState(() => _progress = appLocalizations.crop_page_action_local);
-    await saveBmp(file: result, source: cropped);
+
+    try {
+      await saveBmp(file: result, source: cropped)
+          .timeout(const Duration(seconds: 10));
+    } catch (e, trace) {
+      setState(
+          () => _progress = appLocalizations.crop_page_action_local_failed);
+      AnalyticsHelper.sendException(e, stackTrace: trace);
+      return null;
+    }
+
     return result;
   }
 
@@ -305,10 +316,14 @@ class _CropPageState extends State<CropPage> {
         await getNextSequenceNumber(daoInt, _CROP_PAGE_SEQUENCE_KEY);
     final Directory directory = await getApplicationSupportDirectory();
 
-    final File croppedFile = await _getCroppedImageFile(
+    final File? croppedFile = await _getCroppedImageFile(
       directory,
       sequenceNumber,
     );
+
+    if (croppedFile == null) {
+      return null;
+    }
 
     setState(
       () => _progress = appLocalizations.crop_page_action_server,

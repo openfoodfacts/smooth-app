@@ -538,6 +538,10 @@
     "@crop_page_action_local": {
         "description": "Action being performed on the crop page"
     },
+    "crop_page_action_local_failed": "An error occurred while saving the image. Please try again later.",
+    "@crop_page_action_local_failed": {
+        "description": "The save of the picture locally failed"
+    },
     "crop_page_too_small_image_title": "The image is too small!",
     "@crop_page_too_small_image_title": {
         "description": "Title of a dialog warning the user that the image is too small for upload"
