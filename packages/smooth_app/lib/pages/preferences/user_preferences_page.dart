@@ -18,7 +18,6 @@ import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_faq.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_food.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_settings.dart';
-import 'package:smooth_app/pages/preferences/user_preferences_user_lists.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
@@ -26,7 +25,6 @@ import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 enum PreferencePageType {
   ACCOUNT('account'),
-  LISTS('lists'),
   FOOD('food'),
   DEV_MODE('dev_mode'),
   SETTINGS('settings'),
@@ -74,7 +72,6 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
     if (widget.type == null) {
       final List<PreferencePageType> items = <PreferencePageType>[
         PreferencePageType.ACCOUNT,
-        PreferencePageType.LISTS,
         PreferencePageType.FOOD,
         PreferencePageType.SETTINGS,
         PreferencePageType.CONTRIBUTE,
@@ -194,14 +191,6 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
     switch (type) {
       case PreferencePageType.ACCOUNT:
         return UserPreferencesAccount(
-          setState: setState,
-          context: context,
-          userPreferences: userPreferences,
-          appLocalizations: appLocalizations,
-          themeData: themeData,
-        );
-      case PreferencePageType.LISTS:
-        return UserPreferencesUserLists(
           setState: setState,
           context: context,
           userPreferences: userPreferences,
