@@ -29,8 +29,6 @@ class NextButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(Directionality.of(context));
-
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final UserPreferences userPreferences = context.watch<UserPreferences>();
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
