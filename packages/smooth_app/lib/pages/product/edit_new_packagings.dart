@@ -139,10 +139,10 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
     );
     children.add(
       Padding(
-        padding: const EdgeInsets.only(
+        padding: const EdgeInsetsDirectional.only(
           top: VERY_LARGE_SPACE,
-          left: SMALL_SPACE,
-          right: SMALL_SPACE,
+          start: SMALL_SPACE,
+          end: SMALL_SPACE,
         ),
         child: addPanelButton(
           appLocalizations.edit_packagings_element_add.toUpperCase(),
@@ -158,10 +158,10 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
     );
     children.add(
       Padding(
-        padding: const EdgeInsets.only(
+        padding: const EdgeInsetsDirectional.only(
           bottom: VERY_LARGE_SPACE,
-          left: SMALL_SPACE,
-          right: SMALL_SPACE,
+          start: SMALL_SPACE,
+          end: SMALL_SPACE,
         ),
         child: addPanelButton(
           appLocalizations.add_packaging_photo_button_label.toUpperCase(),

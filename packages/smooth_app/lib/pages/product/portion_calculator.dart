@@ -70,7 +70,7 @@ class _PortionCalculatorState extends State<PortionCalculator> {
             ),
             Text(UnitHelper.unitToString(Unit.G)!),
             Padding(
-              padding: const EdgeInsets.only(left: SMALL_SPACE),
+              padding: const EdgeInsetsDirectional.only(start: SMALL_SPACE),
               child: ElevatedButton(
                 onPressed: () async => _computeAndShow(),
                 child: Text(appLocalizations.calculate),

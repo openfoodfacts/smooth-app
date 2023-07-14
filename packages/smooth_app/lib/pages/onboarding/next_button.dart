@@ -29,6 +29,8 @@ class NextButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(Directionality.of(context));
+
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final UserPreferences userPreferences = context.watch<UserPreferences>();
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
@@ -36,7 +38,7 @@ class NextButton extends StatelessWidget {
         OnboardingFlowNavigator(userPreferences);
     final OnboardingPage previousPage = currentPage.getPrevPage();
     return OnboardingBottomBar(
-      leftButton: previousPage.isOnboardingNotStarted()
+      startButton: previousPage.isOnboardingNotStarted()
           ? null
           : OnboardingBottomIcon(
               onPressed: () async => navigator.navigateToPage(
@@ -50,7 +52,7 @@ class NextButton extends StatelessWidget {
                   ? const EdgeInsetsDirectional.only(end: 2.5)
                   : EdgeInsets.zero,
             ),
-      rightButton: OnboardingBottomButton(
+      endButton: OnboardingBottomButton(
         onPressed: () async {
           await OnboardingLoader(localDatabase)
               .runAtNextTime(currentPage, context);

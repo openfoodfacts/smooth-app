@@ -231,7 +231,7 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
           Flexible(
             flex: 1,
             child: Align(
-              alignment: Alignment.bottomRight,
+              alignment: AlignmentDirectional.bottomEnd,
               child: Padding(
                 padding: const EdgeInsetsDirectional.only(
                   bottom: LARGE_SPACE,
@@ -280,9 +280,9 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
             child: Container(
               decoration: BoxDecoration(
                   color: Theme.of(context).colorScheme.background,
-                  borderRadius: const BorderRadius.only(
-                    topLeft: ANGULAR_RADIUS,
-                    topRight: ANGULAR_RADIUS,
+                  borderRadius: const BorderRadiusDirectional.only(
+                    topStart: ANGULAR_RADIUS,
+                    topEnd: ANGULAR_RADIUS,
                   )),
               child: SingleChildScrollView(
                 child: Padding(

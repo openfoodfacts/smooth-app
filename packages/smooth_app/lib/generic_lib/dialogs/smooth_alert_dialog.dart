@@ -40,24 +40,25 @@ class SmoothAlertDialog extends StatelessWidget {
   final SmoothButtonsBarOrder? actionsOrder;
   final EdgeInsets? contentPadding;
 
-  static const EdgeInsets _smallContentPadding = EdgeInsets.only(
-    left: SMALL_SPACE,
+  static const EdgeInsetsGeometry _smallContentPadding =
+      EdgeInsetsDirectional.only(
+    start: SMALL_SPACE,
     top: MEDIUM_SPACE,
-    right: SMALL_SPACE,
+    end: SMALL_SPACE,
     bottom: SMALL_SPACE,
   );
 
-  static const EdgeInsets _contentPadding = EdgeInsets.only(
-    left: 22.0,
+  static const EdgeInsetsGeometry _contentPadding = EdgeInsetsDirectional.only(
+    start: 22.0,
     top: VERY_LARGE_SPACE,
-    right: 22.0,
+    end: 22.0,
     bottom: 22.0,
   );
 
   @override
   Widget build(BuildContext context) {
     final Widget content = _buildContent(context);
-    final EdgeInsets padding = contentPadding ??
+    final EdgeInsetsGeometry padding = contentPadding ??
         (context.isSmallDevice() ? _smallContentPadding : _contentPadding);
 
     return AlertDialog(
@@ -84,10 +85,19 @@ class SmoothAlertDialog extends StatelessWidget {
     );
   }
 
-  Padding _buildBottomBar(EdgeInsets padding) {
+  Padding _buildBottomBar(EdgeInsetsGeometry padding) {
+    final double topPadding;
+    if (padding is EdgeInsetsDirectional) {
+      topPadding = padding.bottom;
+    } else if (padding is EdgeInsets) {
+      topPadding = padding.bottom;
+    } else {
+      topPadding = 0.0;
+    }
+
     return Padding(
       padding: EdgeInsetsDirectional.only(
-        top: padding.bottom,
+        top: topPadding,
         start: SMALL_SPACE,
         end: positiveAction != null && negativeAction != null
             ? 0.0

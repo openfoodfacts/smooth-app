@@ -92,10 +92,10 @@ class _PermissionsPageState extends State<PermissionsPage> {
               ),
             )),
             OnboardingBottomBar(
-              leftButton: _IgnoreButton(
+              startButton: _IgnoreButton(
                 onPermissionIgnored: () => _moveToNextScreen(context),
               ),
-              rightButton: _AskPermissionButton(
+              endButton: _AskPermissionButton(
                 onPermissionIgnored: () => _moveToNextScreen(context),
               ),
               backgroundColor: widget.backgroundColor,
