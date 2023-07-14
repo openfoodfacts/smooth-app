@@ -92,6 +92,7 @@ class UserPreferencesSwitchItem extends StatelessWidget {
           style: const TextStyle(height: 1.5),
         ),
       ),
+      activeColor: Theme.of(context).primaryColor,
       value: value,
       onChanged: onChanged,
       isThreeLine: true,
