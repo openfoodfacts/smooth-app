@@ -35,18 +35,13 @@ class SmoothDraggableBottomSheetState
     extends State<SmoothDraggableBottomSheet> {
   late final DraggableScrollableController _controller;
 
-  late final WidgetsBinding _widgetBinding;
-  late double _childSize = widget.initHeightFraction;
-
   bool _isClosing = false;
-  bool _isAnimatingToMaxHeight = false;
 
   @override
   void initState() {
     super.initState();
     _controller =
         widget.draggableScrollableController ?? DraggableScrollableController();
-    _widgetBinding = WidgetsBinding.instance;
     widget.animationController?.addStatusListener(_animationStatusListener);
   }
 
@@ -105,8 +100,6 @@ class SmoothDraggableBottomSheetState
     if (_isClosing) {
       return false;
     }
-
-    _childSize = notification.extent;
 
     if (notification.extent <= 0.005) {
       _isClosing = true;

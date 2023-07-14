@@ -321,7 +321,6 @@ class _ChooseAccentColor extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final ThemeProvider themeProvider = context.watch<ThemeProvider>();
     final ColorProvider colorProvider = context.watch<ColorProvider>();
     final Map<String, String> labels = localizedNames(appLocalizations);
 
