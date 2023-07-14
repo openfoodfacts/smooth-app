@@ -125,53 +125,50 @@ class _ProductListPageState extends State<ProductListPage>
                 ),
       appBar: SmoothAppBar(
         centerTitle: _selectionMode ? false : null,
-        actions: !(enableClear || enableRename)
-            ? null
-            : <Widget>[
-                IconButton(
-                  icon: const Icon(CupertinoIcons.square_list),
-                  onPressed: () async {
-                    final ProductList? selected =
-                        await Navigator.push<ProductList>(
-                      context,
-                      MaterialPageRoute<ProductList>(
-                        builder: (BuildContext context) =>
-                            const AllProductListPage(),
-                        fullscreenDialog: true,
-                      ),
-                    );
-                    if (selected == null) {
-                      return;
-                    }
-                    if (context.mounted) {
-                      await DaoProductList(localDatabase).get(selected);
-                      if (context.mounted) {
-                        setState(() => productList = selected);
-                      }
-                    }
-                  },
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(CupertinoIcons.square_list),
+            onPressed: () async {
+              final ProductList? selected = await Navigator.push<ProductList>(
+                context,
+                MaterialPageRoute<ProductList>(
+                  builder: (BuildContext context) => const AllProductListPage(),
+                  fullscreenDialog: true,
                 ),
-                PopupMenuButton<ProductListPopupItem>(
-                  onSelected: (final ProductListPopupItem action) async {
-                    final ProductList? differentProductList =
-                        await action.doSomething(
-                      productList: productList,
-                      localDatabase: localDatabase,
-                      context: context,
-                    );
-                    if (differentProductList != null) {
-                      setState(() => productList = differentProductList);
-                    }
-                  },
-                  itemBuilder: (BuildContext context) =>
-                      <PopupMenuEntry<ProductListPopupItem>>[
-                    if (enableRename) _rename.getMenuItem(appLocalizations),
-                    _share.getMenuItem(appLocalizations),
-                    _openInWeb.getMenuItem(appLocalizations),
-                    if (enableClear) _clear.getMenuItem(appLocalizations),
-                  ],
-                ),
+              );
+              if (selected == null) {
+                return;
+              }
+              if (context.mounted) {
+                await DaoProductList(localDatabase).get(selected);
+                if (context.mounted) {
+                  setState(() => productList = selected);
+                }
+              }
+            },
+          ),
+          if (enableClear || enableRename)
+            PopupMenuButton<ProductListPopupItem>(
+              onSelected: (final ProductListPopupItem action) async {
+                final ProductList? differentProductList =
+                    await action.doSomething(
+                  productList: productList,
+                  localDatabase: localDatabase,
+                  context: context,
+                );
+                if (differentProductList != null) {
+                  setState(() => productList = differentProductList);
+                }
+              },
+              itemBuilder: (BuildContext context) =>
+                  <PopupMenuEntry<ProductListPopupItem>>[
+                if (enableRename) _rename.getMenuItem(appLocalizations),
+                _share.getMenuItem(appLocalizations),
+                _openInWeb.getMenuItem(appLocalizations),
+                if (enableClear) _clear.getMenuItem(appLocalizations),
               ],
+            ),
+        ],
         title: AutoSizeText(
           ProductQueryPageHelper.getProductListLabel(
             productList,
