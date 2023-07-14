@@ -46,8 +46,8 @@ class NextButton extends StatelessWidget {
               backgroundColor: Colors.white,
               foregroundColor: Colors.black,
               icon: ConstantIcons.instance.getBackIcon(),
-              iconPadding: Platform.isIOS
-                  ? const EdgeInsetsDirectional.only(end: 2.5)
+              iconPadding: Platform.isIOS || Platform.isMacOS
+                  ? const EdgeInsetsDirectional.only(end: 2.0)
                   : EdgeInsets.zero,
             ),
       rightButton: OnboardingBottomButton(
