@@ -177,91 +177,15 @@ class _ApplicationSettings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final ThemeProvider themeProvider = context.watch<ThemeProvider>();
     final ThemeData themeData = Theme.of(context);
     final UserPreferences userPreferences = context.watch<UserPreferences>();
 
     return Column(
       children: <Widget>[
-        UserPreferencesTitle(
+        UserPreferencesTitle.firstItem(
           label: appLocalizations.settings_app_app,
         ),
-        Padding(
-          padding: const EdgeInsetsDirectional.only(
-            start: LARGE_SPACE,
-            top: MEDIUM_SPACE,
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              Text(
-                appLocalizations.darkmode,
-                style: themeData.textTheme.headlineMedium,
-              ),
-            ],
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsetsDirectional.only(
-            end: LARGE_SPACE,
-            bottom: MEDIUM_SPACE,
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: <Widget>[
-              DropdownButton<String>(
-                value: themeProvider.currentTheme,
-                elevation: 16,
-                onChanged: (String? newValue) {
-                  themeProvider.setTheme(newValue!);
-                },
-                items: <DropdownMenuItem<String>>[
-                  DropdownMenuItem<String>(
-                    value: THEME_SYSTEM_DEFAULT,
-                    child: Text(appLocalizations.darkmode_system_default),
-                  ),
-                  DropdownMenuItem<String>(
-                    value: THEME_LIGHT,
-                    child: Text(appLocalizations.darkmode_light),
-                  ),
-                  DropdownMenuItem<String>(
-                    value: THEME_DARK,
-                    child: Text(appLocalizations.darkmode_dark),
-                  ),
-                  DropdownMenuItem<String>(
-                    value: THEME_AMOLED,
-                    child: Text(appLocalizations.theme_amoled),
-                  )
-                ],
-              ),
-            ],
-          ),
-        ),
-        if (themeProvider.currentTheme == THEME_AMOLED)
-          Column(
-            children: <Widget>[
-              ListTile(
-                title: Text(
-                  appLocalizations.select_accent_color,
-                  style: themeData.textTheme.headlineMedium,
-                ),
-                subtitle: ChooseAccentColor(
-                  appLocalizations: appLocalizations,
-                ),
-                minLeadingWidth: MEDIUM_SPACE,
-              ),
-              ListTile(
-                title: Text(
-                  appLocalizations.text_contrast_mode,
-                  style: themeData.textTheme.headlineMedium,
-                ),
-                subtitle: TextColorContrast(appLocalizations: appLocalizations),
-                minLeadingWidth: MEDIUM_SPACE,
-              ),
-            ],
-          )
-        else
-          const SizedBox.shrink(),
+        const _ChooseAppTheme(),
         const UserPreferencesListItemDivider(),
         ListTile(
           title: Text(
@@ -272,10 +196,13 @@ class _ApplicationSettings extends StatelessWidget {
             padding: const EdgeInsetsDirectional.only(
               top: SMALL_SPACE,
               bottom: SMALL_SPACE,
-              start: SMALL_SPACE,
             ),
             child: CountrySelector(
               textStyle: themeData.textTheme.bodyMedium,
+              icon: Icons.edit,
+              padding: const EdgeInsetsDirectional.only(
+                start: SMALL_SPACE,
+              ),
             ),
           ),
           minVerticalPadding: MEDIUM_SPACE,
@@ -283,14 +210,13 @@ class _ApplicationSettings extends StatelessWidget {
         const UserPreferencesListItemDivider(),
         ListTile(
           title: Text(
-            appLocalizations.choose_app_language,
+            appLocalizations.language_picker_label,
             style: themeData.textTheme.headlineMedium,
           ),
           subtitle: Padding(
             padding: const EdgeInsetsDirectional.only(
               top: SMALL_SPACE,
               bottom: SMALL_SPACE,
-              start: SMALL_SPACE,
             ),
             child: LanguageSelector(
               setLanguage: (final OpenFoodFactsLanguage? language) async {
@@ -305,179 +231,156 @@ class _ApplicationSettings extends StatelessWidget {
               selectedLanguages: <OpenFoodFactsLanguage>[
                 ProductQuery.getLanguage(),
               ],
+              icon: Icons.edit,
+              padding: const EdgeInsetsDirectional.only(
+                start: SMALL_SPACE,
+              ),
             ),
           ),
           minVerticalPadding: MEDIUM_SPACE,
         ),
         const UserPreferencesListItemDivider(),
-        Padding(
-          padding: const EdgeInsetsDirectional.only(
-            start: LARGE_SPACE,
-            top: MEDIUM_SPACE,
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              Text(
-                appLocalizations.choose_image_source_title,
-                style: themeData.textTheme.headlineMedium,
-              ),
-            ],
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsetsDirectional.only(
-            end: LARGE_SPACE,
-            bottom: MEDIUM_SPACE,
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: <Widget>[
-              DropdownButton<UserPictureSource>(
-                value: userPreferences.userPictureSource,
-                style: themeData.textTheme.bodyMedium,
-                elevation: 16,
-                onChanged: (final UserPictureSource? newValue) async =>
-                    userPreferences.setUserPictureSource(newValue!),
-                items: <DropdownMenuItem<UserPictureSource>>[
-                  DropdownMenuItem<UserPictureSource>(
-                    value: UserPictureSource.SELECT,
-                    child: Text(appLocalizations.user_picture_source_select),
-                  ),
-                  DropdownMenuItem<UserPictureSource>(
-                    value: UserPictureSource.CAMERA,
-                    child: Text(appLocalizations.settings_app_camera),
-                  ),
-                  DropdownMenuItem<UserPictureSource>(
-                    value: UserPictureSource.GALLERY,
-                    child: Text(appLocalizations.gallery_source_label),
-                  )
-                ],
-              ),
-            ],
-          ),
+        UserPreferencesMultipleChoicesItem<UserPictureSource>(
+          title: appLocalizations.choose_image_source_title,
+          leadingBuilder: <WidgetBuilder>[
+            (_) => const Icon(Icons.edit_note_rounded),
+            (_) => const Icon(Icons.camera),
+            (_) => const Icon(Icons.image),
+          ],
+          labels: <String>[
+            appLocalizations.user_picture_source_select,
+            appLocalizations.settings_app_camera,
+            appLocalizations.gallery_source_label,
+          ],
+          values: const <UserPictureSource>[
+            UserPictureSource.SELECT,
+            UserPictureSource.CAMERA,
+            UserPictureSource.GALLERY,
+          ],
+          currentValue: userPreferences.userPictureSource,
+          onChanged: (final UserPictureSource? newValue) async =>
+              userPreferences.setUserPictureSource(newValue!),
         ),
       ],
     );
   }
 }
 
-class ChooseAccentColor extends StatelessWidget {
-  const ChooseAccentColor({required this.appLocalizations});
-
-  final AppLocalizations appLocalizations;
+class _ChooseAppTheme extends StatelessWidget {
+  const _ChooseAppTheme();
 
   @override
   Widget build(BuildContext context) {
-    final ColorProvider colorProvider = context.watch<ColorProvider>();
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final ThemeProvider themeProvider = context.watch<ThemeProvider>();
 
-    final Map<String, String> localizedNames = <String, String>{
-      'Blue': appLocalizations.color_blue,
-      'Cyan': appLocalizations.color_cyan,
-      'Green': appLocalizations.color_green,
-      'Default': appLocalizations.color_light_brown,
-      'Magenta': appLocalizations.color_magenta,
-      'Orange': appLocalizations.color_orange,
-      'Pink': appLocalizations.color_pink,
-      'Red': appLocalizations.color_red,
-      'Rust': appLocalizations.color_rust,
-      'Teal': appLocalizations.color_teal,
-    };
-
-    String getLocalizedColorName(String colorName) {
-      if (localizedNames.containsKey(colorName)) {
-        return localizedNames[colorName]!;
-      }
-      return localizedNames[COLOR_DEFAULT_NAME]!;
-    }
-
-    return Padding(
-      padding: const EdgeInsetsDirectional.only(
-        end: LARGE_SPACE,
-        bottom: MEDIUM_SPACE,
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: <Widget>[
-          DropdownButton<String>(
-            value: getLocalizedColorName(colorProvider.currentColor),
-            style: Theme.of(context).textTheme.bodyMedium,
-            onChanged: (String? value) {
-              colorProvider.setColor(value!);
-            },
-            items: colorNamesValue.keys
-                .map(
-                  (String colorName) => DropdownMenuItem<String>(
-                    value: colorName,
-                    child: Row(
-                      children: <Widget>[
-                        CircleAvatar(
-                          backgroundColor: getColorValue(colorName),
-                          radius: SMALL_SPACE,
-                        ),
-                        const SizedBox(width: SMALL_SPACE),
-                        Text(getLocalizedColorName(colorName))
-                      ],
-                    ),
-                  ),
-                )
-                .toList(),
-          ),
-        ],
-      ),
+    final Widget child = UserPreferencesMultipleChoicesItem<String>(
+      title: appLocalizations.darkmode,
+      leadingBuilder: <WidgetBuilder>[
+        (_) => const Icon(Icons.brightness_medium),
+        (_) => const Icon(Icons.light_mode),
+        (_) => const Icon(Icons.dark_mode_outlined),
+        (_) => const Icon(Icons.dark_mode),
+      ],
+      labels: <String>[
+        appLocalizations.darkmode_system_default,
+        appLocalizations.darkmode_light,
+        appLocalizations.darkmode_dark,
+        appLocalizations.theme_amoled,
+      ],
+      values: const <String>[
+        THEME_SYSTEM_DEFAULT,
+        THEME_LIGHT,
+        THEME_DARK,
+        THEME_AMOLED,
+      ],
+      currentValue: themeProvider.currentTheme,
+      onChanged: (String? newValue) {
+        themeProvider.setTheme(newValue!);
+      },
     );
+
+    if (themeProvider.currentTheme == THEME_AMOLED) {
+      return Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          child,
+          const _ChooseAccentColor(),
+          const _ChooseTextColorContrast(),
+        ],
+      );
+    } else {
+      return child;
+    }
   }
 }
 
-class TextColorContrast extends StatelessWidget {
-  const TextColorContrast({super.key, required this.appLocalizations});
-
-  final AppLocalizations appLocalizations;
+class _ChooseAccentColor extends StatelessWidget {
+  const _ChooseAccentColor();
 
   @override
   Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final ThemeProvider themeProvider = context.watch<ThemeProvider>();
+    final ColorProvider colorProvider = context.watch<ColorProvider>();
+    final Map<String, String> labels = localizedNames(appLocalizations);
+
+    return UserPreferencesMultipleChoicesItem<String>(
+      title: appLocalizations.select_accent_color,
+      leadingBuilder: labels.keys.map(
+        (String key) => (_) => CircleAvatar(
+              backgroundColor: getColorValue(labels[key]!),
+              radius: SMALL_SPACE,
+            ),
+      ),
+      labels: labels.values,
+      values: labels.keys,
+      currentValue: labels[colorProvider.currentColor],
+      onChanged: (String? newValue) {
+        colorProvider.setColor(newValue!);
+      },
+    );
+  }
+
+  Map<String, String> localizedNames(AppLocalizations appLocalizations) =>
+      <String, String>{
+        'Blue': appLocalizations.color_blue,
+        'Cyan': appLocalizations.color_cyan,
+        'Green': appLocalizations.color_green,
+        'Default': appLocalizations.color_light_brown,
+        'Magenta': appLocalizations.color_magenta,
+        'Orange': appLocalizations.color_orange,
+        'Pink': appLocalizations.color_pink,
+        'Red': appLocalizations.color_red,
+        'Rust': appLocalizations.color_rust,
+        'Teal': appLocalizations.color_teal,
+      };
+}
+
+class _ChooseTextColorContrast extends StatelessWidget {
+  const _ChooseTextColorContrast();
+
+  @override
+  Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final TextContrastProvider textContrastProvider =
         context.watch<TextContrastProvider>();
 
-    return Padding(
-      padding: const EdgeInsets.only(
-        right: LARGE_SPACE,
-        bottom: MEDIUM_SPACE,
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: <Widget>[
-          DropdownButton<String>(
-            value: textContrastProvider.currentContrastLevel,
-            style: Theme.of(context).textTheme.bodyMedium,
-            onChanged: (String? contrast) =>
-                textContrastProvider.setContrast(contrast!),
-            items: <DropdownMenuItem<String>>[
-              DropdownMenuItem<String>(
-                value: CONTRAST_HIGH,
-                child: Text(
-                  appLocalizations.contrast_high,
-                  style: const TextStyle(color: HIGH_CONTRAST_TEXT_COLOR),
-                ),
-              ),
-              DropdownMenuItem<String>(
-                value: CONTRAST_MEDIUM,
-                child: Text(
-                  appLocalizations.contrast_medium,
-                  style: const TextStyle(color: MEDIUM_CONTRAST_TEXT_COLOR),
-                ),
-              ),
-              DropdownMenuItem<String>(
-                value: CONTRAST_LOW,
-                child: Text(
-                  appLocalizations.contrast_low,
-                  style: const TextStyle(color: LOW_CONTRAST_TEXT_COLOR),
-                ),
-              )
-            ],
-          )
-        ],
-      ),
+    return UserPreferencesMultipleChoicesItem<String>(
+      title: appLocalizations.text_contrast_mode,
+      values: const <String>[
+        CONTRAST_HIGH,
+        CONTRAST_MEDIUM,
+        CONTRAST_LOW,
+      ],
+      labels: <String>[
+        appLocalizations.contrast_high,
+        appLocalizations.contrast_medium,
+        appLocalizations.contrast_low,
+      ],
+      currentValue: textContrastProvider.currentContrastLevel,
+      onChanged: (String? contrast) =>
+          textContrastProvider.setContrast(contrast!),
     );
   }
 }
