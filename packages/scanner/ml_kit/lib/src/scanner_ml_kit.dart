@@ -126,11 +126,17 @@ class _SmoothBarcodeScannerMLKitState extends State<_SmoothBarcodeScannerMLKit>
 
   void _checkIfAppIsRestarting([int retry = 0]) {
     /// When the app is resumed (from the launcher for example), the camera is
-    /// always started and we can't prevent this behavior.
+    /// always started due to the [autostart] feature and we can't
+    /// prevent this behavior.
     ///
     /// To fix it, we check when the app is resumed if the camera is the
     /// visible page and if that's not the case, we wait for the camera to be
-    /// initialized to stop it
+    /// initialized to stop it.
+    ///
+    /// Comment from @g123k: This is a very hacky way (temporary I hope) and
+    /// more explanation are available on the PR:
+    /// [https://github.com/openfoodfacts/smooth-app/pull/4292]
+    ///
     // ignore: prefer_function_declarations_over_variables
     final Function fn = () {
       if (ScreenVisibilityDetector.invisible(context)) {
