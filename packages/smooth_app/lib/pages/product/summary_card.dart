@@ -316,11 +316,12 @@ class _SummaryCardState extends State<SummaryCard> {
             localizations.product_search_same_category,
             iconData: Icons.leaderboard,
             onPressed: () async => ProductQueryPageHelper().openBestChoice(
-                name: categoryLabel!,
-                localDatabase: _localDatabase,
-                productQuery: CategoryProductQuery(categoryTag!),
-                context: context,
-                searchResult: false),
+              name: categoryLabel!,
+              localDatabase: _localDatabase,
+              productQuery: CategoryProductQuery(categoryTag!),
+              context: context,
+              searchResult: false,
+            ),
           ),
         );
       }

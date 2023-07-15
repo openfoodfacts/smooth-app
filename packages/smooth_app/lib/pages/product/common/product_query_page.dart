@@ -160,7 +160,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
               : MainAxisAlignment.center,
           children: <Widget>[
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 5),
+              padding: const EdgeInsets.symmetric(vertical: 5.0),
               child: RankingFloatingActionButton(
                 onPressed: () => Navigator.push<Widget>(
                   context,
@@ -538,7 +538,9 @@ class _AppBarTitle extends StatelessWidget {
             Navigator.of(context).pop(ProductQueryPageResult.editProductQuery);
           },
           child: Tooltip(
-              message: appLocalizations.tap_to_edit_search, child: child));
+            message: appLocalizations.tap_to_edit_search,
+            child: child,
+          ));
     } else {
       return child;
     }
