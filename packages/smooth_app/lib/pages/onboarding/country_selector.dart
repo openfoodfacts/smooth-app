@@ -81,7 +81,7 @@ class _CountrySelectorState extends State<CountrySelector> {
                   builder: (BuildContext context,
                       void Function(VoidCallback fn) setState) {
                     return SmoothAlertDialog(
-                      contentPadding: const EdgeInsets.symmetric(
+                      contentPadding: const EdgeInsetsDirectional.symmetric(
                         horizontal: 0.0,
                         vertical: SMALL_SPACE,
                       ),
