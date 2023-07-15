@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
+import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 
 /// A common Widget for carrousel item cards.
 /// It allows to have the correct width/height and also a scale down feature,
@@ -66,7 +67,10 @@ class ProductCardCloseButton extends StatelessWidget {
 
     return InkWell(
       customBorder: const CircleBorder(),
-      onTap: () => onRemove?.call(context),
+      onTap: () {
+        onRemove?.call(context);
+        SmoothHapticFeedback.lightNotification();
+      },
       child: Tooltip(
         message: appLocalizations.product_card_remove_product_tooltip,
         child: Padding(
