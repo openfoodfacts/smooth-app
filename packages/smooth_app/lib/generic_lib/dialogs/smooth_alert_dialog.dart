@@ -31,8 +31,12 @@ class SmoothAlertDialog extends StatelessWidget {
     this.actionsAxis,
     this.actionsOrder,
     this.close = false,
+    this.margin,
     this.contentPadding,
-  });
+  }) : assert(
+          body is! LayoutBuilder,
+          "LayoutBuilder isn't supported with Dialogs",
+        );
 
   final String? title;
   final bool close;
@@ -41,7 +45,14 @@ class SmoothAlertDialog extends StatelessWidget {
   final SmoothActionButton? negativeAction;
   final Axis? actionsAxis;
   final SmoothButtonsBarOrder? actionsOrder;
+  final EdgeInsets? margin;
   final EdgeInsetsDirectional? contentPadding;
+
+  /// Default value [_defaultInsetPadding] in dialog.dart
+  static const EdgeInsets defaultMargin = EdgeInsets.symmetric(
+    horizontal: 40.0,
+    vertical: 24.0,
+  );
 
   static const EdgeInsetsDirectional _smallContentPadding =
       EdgeInsetsDirectional.only(
@@ -62,12 +73,13 @@ class SmoothAlertDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Widget content = _buildContent(context);
-    final EdgeInsetsDirectional padding = contentPadding ??
-        (context.isSmallDevice() ? _smallContentPadding : _contentPadding);
+    final EdgeInsetsDirectional padding =
+        contentPadding ?? defaultContentPadding(context);
 
     return AlertDialog(
       scrollable: false,
       elevation: 4.0,
+      insetPadding: margin ?? defaultMargin,
       contentPadding: EdgeInsets.zero,
       shape: const RoundedRectangleBorder(borderRadius: ROUNDED_BORDER_RADIUS),
       content: ClipRRect(
@@ -93,7 +105,7 @@ class SmoothAlertDialog extends StatelessWidget {
     return Padding(
       padding: EdgeInsetsDirectional.only(
         top: padding.bottom,
-        start: SMALL_SPACE,
+        start: actionsAxis == Axis.horizontal ? SMALL_SPACE : 0.0,
         end: positiveAction != null && negativeAction != null
             ? 0.0
             : SMALL_SPACE,
@@ -119,6 +131,10 @@ class SmoothAlertDialog extends StatelessWidget {
           ],
         ),
       );
+
+  static EdgeInsetsDirectional defaultContentPadding(BuildContext context) {
+    return (context.isSmallDevice() ? _smallContentPadding : _contentPadding);
+  }
 }
 
 class _SmoothDialogTitle extends StatelessWidget {
