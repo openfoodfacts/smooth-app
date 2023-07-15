@@ -46,7 +46,7 @@ Starting this April, we invite all users and contributors to build a vision for 
 
 - This new mobile application aims to showcase Open Food Facts's power to a broad range of users through a smooth user experience and sleek user interface. It is a <b> Flutter application </b> by [Open Food Facts](https://github.com/openfoodfacts).
 - We pioneered the collaborative scanning app in 2012. With this experimental app, we’re reinventing it from the ground up.
-- Install it on [Android](https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner) or [iPhone/iPad](https://apps.apple.com/app/open-food-facts/id588797948). Note that a internal development build ([Android](https://play.google.com/apps/internaltest/4699092342921529278) or [iPhone/iPad](https://testflight.apple.com/join/c2tiBHgd)) if you'd like to use the results of your PRs quicker.
+- Install it on **Android** ([Google Play](https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner), [F-Droid](https://f-droid.org/fr/packages/openfoodfacts.github.scrachx.openfood/) or [Amazon App Store](https://www.amazon.com/Open-Food-Facts-food-Nutriscore/dp/B00U49IVIU)) or [iPhone/iPad](https://apps.apple.com/app/open-food-facts/id588797948). Note that a internal development build ([Android](https://play.google.com/apps/internaltest/4699092342921529278) or **iPhone/iPad** ([App Store](https://testflight.apple.com/join/c2tiBHgd)) if you'd like to use the results of your PRs quicker.
 
 <img alt="app showcase" height='175' src="https://user-images.githubusercontent.com/1689815/168430524-3adc923a-1ce3-4233-9af5-02e9d49a76ca.png" align="left" hspace="1" vspace="1">
 
