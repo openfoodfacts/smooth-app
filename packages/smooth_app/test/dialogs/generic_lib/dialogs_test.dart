@@ -10,6 +10,7 @@ import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/themes/color_provider.dart';
 import 'package:smooth_app/themes/contrast_provider.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
+
 import '../../tests_utils/goldens.dart';
 import '../../tests_utils/mocks.dart';
 
