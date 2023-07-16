@@ -449,7 +449,7 @@
     "@search": {
         "description": "Hint text of a search text input field"
     },
-    "tab_for_more": "Kliknij, aby wyświetlić więcej informacji…",
+    "tap_for_more": "Kliknij, aby wyświetlić więcej informacji…",
     "@Product": {},
     "product": "Produkt",
     "@product": {},

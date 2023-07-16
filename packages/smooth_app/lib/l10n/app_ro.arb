@@ -449,7 +449,7 @@
     "@search": {
         "description": "Hint text of a search text input field"
     },
-    "tab_for_more": "Atingeți pentru a vedea mai multe informații…",
+    "tap_for_more": "Atingeți pentru a vedea mai multe informații…",
     "@Product": {},
     "product": "Produs",
     "@product": {},

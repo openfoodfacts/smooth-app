@@ -449,7 +449,7 @@
     "@search": {
         "description": "Hint text of a search text input field"
     },
-    "tab_for_more": "詳細情報を表示するにはタップしてください…",
+    "tap_for_more": "詳細情報を表示するにはタップしてください…",
     "@Product": {},
     "product": "製品",
     "@product": {},

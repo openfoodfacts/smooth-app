@@ -449,7 +449,7 @@
     "@search": {
         "description": "Hint text of a search text input field"
     },
-    "tab_for_more": "Bakstelėkite, kad pamatytumėte daugiau informacijos…",
+    "tap_for_more": "Bakstelėkite, kad pamatytumėte daugiau informacijos…",
     "@Product": {},
     "product": "Produktas",
     "@product": {},
