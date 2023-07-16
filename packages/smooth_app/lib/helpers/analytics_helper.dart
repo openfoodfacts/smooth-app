@@ -199,7 +199,7 @@ class AnalyticsHelper {
       _analyticsReporting = _AnalyticsTrackingMode.anonymous;
     }
 
-    await MatomoTracker.instance.setOptOut(optout: false);
+    await MatomoTracker.instance.setOptOut(optOut: false);
 
     if (MatomoTracker.instance.initialized) {
       MatomoTracker.instance.setVisitorUserId(_uuid);
