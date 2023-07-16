@@ -51,7 +51,7 @@ dependencies:
   image: ^4.0.17
   auto_size_text: 3.0.0
   crop_image: 1.0.10
-  shared_preferences: 2.1.1
+  shared_preferences: 2.2.0
   intl: 0.18.0
   collection: 1.17.1
   path: 1.8.3
