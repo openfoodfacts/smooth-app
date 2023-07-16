@@ -449,7 +449,7 @@
     "@search": {
         "description": "Hint text of a search text input field"
     },
-    "tab_for_more": "Toqueu per veure més informació…",
+    "tap_for_more": "Toqueu per veure més informació…",
     "@Product": {},
     "product": "Producte",
     "@product": {},

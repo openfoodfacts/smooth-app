@@ -166,7 +166,7 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
                 ),
                 child: Center(
                   child: Text(
-                    AppLocalizations.of(context).tab_for_more,
+                    AppLocalizations.of(context).tap_for_more,
                     style:
                         Theme.of(context).primaryTextTheme.bodyLarge?.copyWith(
                               color: PRIMARY_BLUE_COLOR,

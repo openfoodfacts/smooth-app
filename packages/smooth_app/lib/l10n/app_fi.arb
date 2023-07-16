@@ -449,7 +449,7 @@
     "@search": {
         "description": "Hint text of a search text input field"
     },
-    "tab_for_more": "Lisätietoja…",
+    "tap_for_more": "Lisätietoja…",
     "@Product": {},
     "product": "Tuote",
     "@product": {},

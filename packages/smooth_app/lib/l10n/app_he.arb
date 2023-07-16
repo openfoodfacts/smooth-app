@@ -449,7 +449,7 @@
     "@search": {
         "description": "Hint text of a search text input field"
     },
-    "tab_for_more": "נגיעה לצפייה פרטים נוספים…",
+    "tap_for_more": "נגיעה לצפייה פרטים נוספים…",
     "@Product": {},
     "product": "מוצר",
     "@product": {},
