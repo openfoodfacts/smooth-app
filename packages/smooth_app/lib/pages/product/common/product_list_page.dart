@@ -7,6 +7,7 @@ import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_list.dart';
+import 'package:smooth_app/data_models/up_to_date_product_list_mixin.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
@@ -38,8 +39,7 @@ class ProductListPage extends StatefulWidget {
 }
 
 class _ProductListPageState extends State<ProductListPage>
-    with TraceableClientMixin {
-  late ProductList productList;
+    with TraceableClientMixin, UpToDateProductListMixin {
   final Set<String> _selectedBarcodes = <String>{};
   bool _selectionMode = false;
 
@@ -52,7 +52,7 @@ class _ProductListPageState extends State<ProductListPage>
   @override
   void initState() {
     super.initState();
-    productList = widget.productList;
+    initUpToDate(widget.productList, context.read<LocalDatabase>());
   }
 
   final ProductListPopupItem _rename = ProductListPopupRename();
@@ -81,6 +81,7 @@ class _ProductListPageState extends State<ProductListPage>
     final DaoProductList daoProductList = DaoProductList(localDatabase);
     final ThemeData themeData = Theme.of(context);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    refreshUpToDate();
     final List<String> products = productList.getList();
     final bool dismissible;
     switch (productList.listType) {
@@ -140,7 +141,7 @@ class _ProductListPageState extends State<ProductListPage>
                 return;
               }
               if (context.mounted) {
-                await DaoProductList(localDatabase).get(selected);
+                await daoProductList.get(selected);
                 if (context.mounted) {
                   setState(() => productList = selected);
                 }

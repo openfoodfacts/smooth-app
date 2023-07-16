@@ -84,8 +84,16 @@ class DaoProductList extends AbstractDao {
 
   LazyBox<_BarcodeList> _getBox() => Hive.lazyBox<_BarcodeList>(_hiveBoxName);
 
-  Future<_BarcodeList?> _get(final ProductList productList) =>
-      _getBox().get(_getKey(productList));
+  Future<_BarcodeList?> _get(final ProductList productList) async {
+    final _BarcodeList? result = await _getBox().get(getKey(productList));
+    if (result != null) {
+      localDatabase.upToDateProductList.setLocalUpToDate(
+        getKey(productList),
+        result.barcodes,
+      );
+    }
+    return result;
+  }
 
   Future<int?> getTimestamp(final ProductList productList) async =>
       (await _get(productList))?.timestamp;
@@ -95,7 +103,7 @@ class DaoProductList extends AbstractDao {
   // Encoding the parameter part in base64 makes us safe regarding ASCII.
   // As it's a list of keywords, there's a fairly high probability
   // that we'll be under the 255 character length.
-  static String _getKey(final ProductList productList) =>
+  static String getKey(final ProductList productList) =>
       '${productList.listType.key}'
       '$_keySeparator'
       '${base64.encode(utf8.encode(productList.getParametersKey()))}';
@@ -126,15 +134,21 @@ class DaoProductList extends AbstractDao {
     throw Exception('Unknown product list type: "$value" from "$key"');
   }
 
-  Future<void> _put(final String key, final _BarcodeList barcodeList) async =>
-      _getBox().put(key, barcodeList);
+  Future<void> _put(final String key, final _BarcodeList barcodeList) async {
+    await _getBox().put(key, barcodeList);
+    localDatabase.upToDateProductList.setLocalUpToDate(
+      key,
+      barcodeList.barcodes,
+    );
+  }
 
   Future<void> put(final ProductList productList) async =>
-      _put(_getKey(productList), _BarcodeList.fromProductList(productList));
+      _put(getKey(productList), _BarcodeList.fromProductList(productList));
 
   Future<bool> delete(final ProductList productList) async {
     final LazyBox<_BarcodeList> box = _getBox();
-    final String key = _getKey(productList);
+    final String key = getKey(productList);
+    localDatabase.upToDateProductList.setLocalUpToDate(key, <String>[]);
     if (!box.containsKey(key)) {
       return false;
     }
@@ -182,12 +196,12 @@ class DaoProductList extends AbstractDao {
     barcodes.remove(barcode); // removes a potential duplicate
     barcodes.add(barcode);
     final _BarcodeList newList = _BarcodeList.now(barcodes);
-    await _put(_getKey(productList), newList);
+    await _put(getKey(productList), newList);
   }
 
   Future<void> clear(final ProductList productList) async {
     final _BarcodeList newList = _BarcodeList.now(<String>[]);
-    await _put(_getKey(productList), newList);
+    await _put(getKey(productList), newList);
   }
 
   /// Adds or removes a barcode within a product list (depending on [include])
@@ -217,7 +231,7 @@ class DaoProductList extends AbstractDao {
       barcodes.add(barcode);
     }
     final _BarcodeList newList = _BarcodeList.now(barcodes);
-    await _put(_getKey(productList), newList);
+    await _put(getKey(productList), newList);
     return true;
   }
 
@@ -249,7 +263,7 @@ class DaoProductList extends AbstractDao {
     }
 
     final _BarcodeList newList = _BarcodeList.now(allBarcodes);
-    await _put(_getKey(productList), newList);
+    await _put(getKey(productList), newList);
   }
 
   Future<ProductList> rename(
@@ -259,7 +273,7 @@ class DaoProductList extends AbstractDao {
     final ProductList newList = ProductList.user(newName);
     final _BarcodeList list =
         await _get(initialList) ?? _BarcodeList.now(<String>[]);
-    await _put(_getKey(newList), list);
+    await _put(getKey(newList), list);
     await delete(initialList);
     await get(newList);
     return newList;

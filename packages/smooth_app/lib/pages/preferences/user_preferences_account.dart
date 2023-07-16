@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
-import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_simple_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -17,7 +15,6 @@ import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/account_deletion_webview.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
-import 'package:smooth_app/pages/product/common/product_list_page.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/user_management/login_page.dart';
 import 'package:smooth_app/query/paged_product_query.dart';
@@ -290,12 +287,6 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
           context: context,
           localDatabase: localDatabase,
         ),
-        _buildProductLocalTile(
-          productList: ProductList.scanHistory(),
-          iconData: Icons.history,
-          context: context,
-          localDatabase: localDatabase,
-        ),
         _getListTile(
           appLocalizations.view_profile,
           () async => LaunchUrlHelper.launchURL(
@@ -399,14 +390,6 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
     }
   }
 
-  Future<int?> _getMyLocalCount(
-    final ProductList productList,
-    final LocalDatabase localDatabase,
-  ) async {
-    await DaoProductList(localDatabase).get(productList);
-    return productList.barcodes.length;
-  }
-
   Widget _buildProductQueryTile({
     required final PagedProductQuery productQuery,
     required final String title,
@@ -426,33 +409,6 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
         ),
         iconData,
         myCount: myCount,
-      );
-
-  Widget _buildProductLocalTile({
-    required final ProductList productList,
-    required final IconData iconData,
-    required final BuildContext context,
-    required final LocalDatabase localDatabase,
-  }) =>
-      _getListTile(
-        ProductQueryPageHelper.getProductListLabel(
-          productList,
-          AppLocalizations.of(context),
-        ),
-        () async {
-          await DaoProductList(localDatabase).get(productList);
-          if (!mounted) {
-            return;
-          }
-          await Navigator.push<void>(
-            context,
-            MaterialPageRoute<void>(
-              builder: (BuildContext context) => ProductListPage(productList),
-            ),
-          );
-        },
-        iconData,
-        myCount: _getMyLocalCount(productList, localDatabase),
       );
 
   Widget _getListTile(
