@@ -1,16 +1,19 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
-import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:mockito/mockito.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/themes/color_provider.dart';
 import 'package:smooth_app/themes/contrast_provider.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
@@ -18,7 +21,7 @@ import 'package:smooth_app/themes/theme_provider.dart';
 
 /// A wrapper for testing various pages of the app with a simple state.
 class MockSmoothApp extends StatelessWidget {
-  const MockSmoothApp(
+  MockSmoothApp(
     this.userPreferences,
     this.userManagementProvider,
     this.productPreferences,
@@ -27,7 +30,9 @@ class MockSmoothApp extends StatelessWidget {
     this.colorProvider,
     this.child, {
     this.localDatabase,
-  });
+  }) {
+    mockMatomo();
+  }
 
   final UserPreferences userPreferences;
   final UserManagementProvider userManagementProvider;
@@ -173,4 +178,47 @@ class _MockHttpClientSVGResponse extends Mock implements HttpClientResponse {
   ''';
 
   final Uint8List svgBytes = utf8.encode(svgStr) as Uint8List;
+}
+
+Future<void> mockMatomo() async {
+  TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+      .setMockMethodCallHandler(
+          const MethodChannel('dev.fluttercommunity.plus/device_info'),
+          (MethodCall call) async {
+    if (call.method == 'getDeviceInfo') {
+      return <String, dynamic>{
+        'computerName': '_',
+        'hostName': '_',
+        'arch': '_',
+        'model': '_',
+        'kernelVersion': '_',
+        'osRelease': '_',
+        'activeCPUs': 1,
+        'memorySize': 1,
+        'cpuFrequency': 1,
+      };
+    }
+    return null;
+  });
+
+  TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+      .setMockMethodCallHandler(
+          const MethodChannel('dev.fluttercommunity.plus/package_info'),
+          (MethodCall call) async {
+    if (call.method == 'getAll') {
+      return <String, dynamic>{
+        'appName': '_',
+        'packageName': '_',
+        'version': '_',
+        'buildNumber': '_',
+        'buildSignature': '_',
+        'installerStore': '_',
+      };
+    }
+    return null;
+  });
+
+  await AnalyticsHelper.initMatomo(false);
+  MatomoTracker.instance.setOptOut(optOut: true);
+  MatomoTracker.instance.timer.cancel();
 }
