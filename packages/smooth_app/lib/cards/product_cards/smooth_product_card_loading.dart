@@ -131,6 +131,11 @@ class _SmoothProductCardLoadingState extends State<SmoothProductCardLoading> {
                                     ],
                                   ),
                                   onPressed: () {
+                                    AnalyticsHelper.trackEvent(
+                                      AnalyticsEvent.restartProductLoading,
+                                      barcode: widget.barcode,
+                                    );
+
                                     final ContinuousScanModel model =
                                         context.read<ContinuousScanModel>();
 
@@ -164,7 +169,7 @@ class _SmoothProductCardLoadingState extends State<SmoothProductCardLoading> {
                   child: ProductCardCloseButton(
                     onRemove: (BuildContext context) {
                       AnalyticsHelper.trackEvent(
-                        AnalyticsEvent.ignoreProductNotFound,
+                        AnalyticsEvent.ignoreProductLoading,
                         barcode: widget.barcode,
                       );
 

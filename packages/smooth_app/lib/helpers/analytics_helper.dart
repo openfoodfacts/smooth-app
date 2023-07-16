@@ -13,6 +13,7 @@ enum AnalyticsCategory {
   userManagement(tag: 'user management'),
   scanning(tag: 'scanning'),
   share(tag: 'share'),
+  loadingProduct(tag: 'loading product'),
   couldNotFindProduct(tag: 'could not find product'),
   productEdit(tag: 'product edit'),
   productFastTrackEdit(tag: 'product fast track edit'),
@@ -39,6 +40,14 @@ enum AnalyticsEvent {
   couldNotFindProduct(
     tag: 'could not find product',
     category: AnalyticsCategory.couldNotFindProduct,
+  ),
+  ignoreProductLoading(
+    tag: 'ignore product',
+    category: AnalyticsCategory.loadingProduct,
+  ),
+  restartProductLoading(
+    tag: 'restart request',
+    category: AnalyticsCategory.loadingProduct,
   ),
   ignoreProductNotFound(
     tag: 'ignore product',
