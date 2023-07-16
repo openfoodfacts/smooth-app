@@ -193,7 +193,8 @@ class _ProductListPageState extends State<ProductListPage>
                   builder: (BuildContext context) {
                     return SmoothAlertDialog(
                       body: Container(
-                        padding: const EdgeInsets.only(left: SMALL_SPACE),
+                        padding: const EdgeInsetsDirectional.only(
+                            start: SMALL_SPACE),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
@@ -321,8 +322,8 @@ class _ProductListPageState extends State<ProductListPage>
     final Widget child = InkWell(
       onTap: _selectionMode ? onTap : null,
       child: Container(
-        padding: EdgeInsets.only(
-          left: _selectionMode ? SMALL_SPACE : 0,
+        padding: EdgeInsetsDirectional.only(
+          start: _selectionMode ? SMALL_SPACE : 0,
         ),
         child: Row(
           children: <Widget>[
@@ -354,7 +355,7 @@ class _ProductListPageState extends State<ProductListPage>
       return Dismissible(
         direction: DismissDirection.endToStart,
         background: Container(
-          alignment: Alignment.centerRight,
+          alignment: AlignmentDirectional.centerEnd,
           margin: const EdgeInsets.symmetric(vertical: 14),
           color: RED_COLOR,
           padding: const EdgeInsetsDirectional.only(end: 30),

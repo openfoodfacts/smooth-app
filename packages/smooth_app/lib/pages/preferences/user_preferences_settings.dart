@@ -187,8 +187,8 @@ class _ApplicationSettings extends StatelessWidget {
           label: appLocalizations.settings_app_app,
         ),
         Padding(
-          padding: const EdgeInsets.only(
-            left: LARGE_SPACE,
+          padding: const EdgeInsetsDirectional.only(
+            start: LARGE_SPACE,
             top: MEDIUM_SPACE,
           ),
           child: Row(
@@ -202,8 +202,8 @@ class _ApplicationSettings extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(
-            right: LARGE_SPACE,
+          padding: const EdgeInsetsDirectional.only(
+            end: LARGE_SPACE,
             bottom: MEDIUM_SPACE,
           ),
           child: Row(
@@ -269,10 +269,10 @@ class _ApplicationSettings extends StatelessWidget {
             style: themeData.textTheme.headlineMedium,
           ),
           subtitle: Padding(
-            padding: const EdgeInsets.only(
+            padding: const EdgeInsetsDirectional.only(
               top: SMALL_SPACE,
               bottom: SMALL_SPACE,
-              left: SMALL_SPACE,
+              start: SMALL_SPACE,
             ),
             child: CountrySelector(
               textStyle: themeData.textTheme.bodyMedium,
@@ -287,10 +287,10 @@ class _ApplicationSettings extends StatelessWidget {
             style: themeData.textTheme.headlineMedium,
           ),
           subtitle: Padding(
-            padding: const EdgeInsets.only(
+            padding: const EdgeInsetsDirectional.only(
               top: SMALL_SPACE,
               bottom: SMALL_SPACE,
-              left: SMALL_SPACE,
+              start: SMALL_SPACE,
             ),
             child: LanguageSelector(
               setLanguage: (final OpenFoodFactsLanguage? language) async {
@@ -311,8 +311,8 @@ class _ApplicationSettings extends StatelessWidget {
         ),
         const UserPreferencesListItemDivider(),
         Padding(
-          padding: const EdgeInsets.only(
-            left: LARGE_SPACE,
+          padding: const EdgeInsetsDirectional.only(
+            start: LARGE_SPACE,
             top: MEDIUM_SPACE,
           ),
           child: Row(
@@ -326,8 +326,8 @@ class _ApplicationSettings extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(
-            right: LARGE_SPACE,
+          padding: const EdgeInsetsDirectional.only(
+            end: LARGE_SPACE,
             bottom: MEDIUM_SPACE,
           ),
           child: Row(
@@ -392,8 +392,8 @@ class ChooseAccentColor extends StatelessWidget {
     }
 
     return Padding(
-      padding: const EdgeInsets.only(
-        right: LARGE_SPACE,
+      padding: const EdgeInsetsDirectional.only(
+        end: LARGE_SPACE,
         bottom: MEDIUM_SPACE,
       ),
       child: Row(

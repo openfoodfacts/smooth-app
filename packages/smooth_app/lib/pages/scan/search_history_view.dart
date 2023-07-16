@@ -52,7 +52,7 @@ class _SearchHistoryViewState extends State<SearchHistoryView> {
       child: InkWell(
         onTap: () => widget.onTap?.call(query),
         child: Padding(
-          padding: const EdgeInsets.only(left: 18.0, right: 13.0),
+          padding: const EdgeInsetsDirectional.only(start: 18.0, end: 13.0),
           child: ListTile(
             leading: const Padding(
               padding: EdgeInsetsDirectional.only(top: VERY_SMALL_SPACE),

@@ -46,7 +46,7 @@ class SimpleInputTextField extends StatelessWidget {
           );
 
     return Padding(
-      padding: const EdgeInsets.only(left: LARGE_SPACE),
+      padding: const EdgeInsetsDirectional.only(start: LARGE_SPACE),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,

@@ -130,7 +130,7 @@ class _ProductTitleCardTrailing extends StatelessWidget {
 
     if (removable && !selectable) {
       return Align(
-        alignment: Alignment.centerRight,
+        alignment: AlignmentDirectional.centerEnd,
         child: ProductCardCloseButton(
           onRemove: onRemove,
         ),

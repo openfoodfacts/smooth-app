@@ -107,7 +107,7 @@ class _ProductPageState extends State<ProductPage>
             child: _buildProductBody(context),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: SMALL_SPACE),
+            padding: const EdgeInsetsDirectional.only(start: SMALL_SPACE),
             child: SafeArea(
               child: AnimatedContainer(
                 duration: SmoothAnimationsDuration.short,
@@ -228,12 +228,12 @@ class _ProductPageState extends State<ProductPage>
           borderRadius: ROUNDED_BORDER_RADIUS,
           child: Container(
             width: double.infinity,
-            padding: const EdgeInsets.only(
-              left: LARGE_SPACE,
+            padding: const EdgeInsetsDirectional.only(
+              start: LARGE_SPACE,
               top: LARGE_SPACE,
               bottom: LARGE_SPACE,
               // To be perfectly aligned with arrows
-              right: 21.0,
+              end: 21.0,
             ),
             child: Row(
               children: <Widget>[
@@ -424,9 +424,9 @@ class _ProductPageState extends State<ProductPage>
     for (final String productListName in productListNames) {
       children.add(
         Padding(
-          padding: const EdgeInsets.only(
+          padding: const EdgeInsetsDirectional.only(
             top: VERY_SMALL_SPACE,
-            right: VERY_SMALL_SPACE,
+            end: VERY_SMALL_SPACE,
           ),
           child: ElevatedButton(
             style: ButtonStyle(
