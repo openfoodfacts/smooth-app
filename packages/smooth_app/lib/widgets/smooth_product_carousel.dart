@@ -178,7 +178,10 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
       case ScannedProductState.CACHED:
         return ScanProductCardLoader(barcode);
       case ScannedProductState.LOADING:
-        return SmoothProductCardLoading(barcode: barcode);
+        return SmoothProductCardLoading(
+          barcode: barcode,
+          onRemoveProduct: (_) => _model.removeBarcode(barcode),
+        );
       case ScannedProductState.NOT_FOUND:
         return SmoothProductCardNotFound(
           barcode: barcode,
