@@ -538,9 +538,13 @@
     "@crop_page_action_local": {
         "description": "Action being performed on the crop page"
     },
-    "crop_page_action_local_failed": "An error occurred while saving the image. Please try again later.",
-    "@crop_page_action_local_failed": {
-        "description": "The save of the picture locally failed"
+    "crop_page_action_local_failed_title": "Oops… there's something with your photo!",
+    "@crop_page_action_local_title": {
+        "description": "The save of the picture locally failed - error dialog message"
+    },
+    "crop_page_action_local_failed_message": "We are unable to process the image locally, before sending it to our server. Please try again later or contact-us if the issue persists.",
+    "@crop_page_action_local_message": {
+        "description": "The save of the picture locally failed - error dialog message"
     },
     "crop_page_too_small_image_title": "The image is too small!",
     "@crop_page_too_small_image_title": {

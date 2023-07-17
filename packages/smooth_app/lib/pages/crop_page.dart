@@ -245,10 +245,8 @@ class _CropPageState extends State<CropPage> {
       await saveBmp(file: result, source: cropped)
           .timeout(const Duration(seconds: 10));
     } catch (e, trace) {
-      setState(
-          () => _progress = appLocalizations.crop_page_action_local_failed);
       AnalyticsHelper.sendException(e, stackTrace: trace);
-      return null;
+      rethrow;
     }
 
     return result;
@@ -402,6 +400,7 @@ class _CropPageState extends State<CropPage> {
         return true;
       }
     } catch (e) {
+      _showErrorDialog();
       return false;
     } finally {
       _progress = null;
@@ -507,6 +506,20 @@ class _CropPageState extends State<CropPage> {
       }
       return false;
     }
+  }
+
+  void _showErrorDialog() {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+    showDialog<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return SmoothSimpleErrorAlertDialog(
+          title: appLocalizations.crop_page_action_local_failed_title,
+          message: appLocalizations.crop_page_action_local_failed_message,
+        );
+      },
+    );
   }
 }
 
