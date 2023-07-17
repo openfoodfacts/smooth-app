@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_simple_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_responsive.dart';
+import 'package:smooth_app/helpers/app_helper.dart';
 
 /// Custom Dialog to use in the app
 ///
@@ -463,6 +466,71 @@ class _SmoothActionFlatButton extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+/// A custom dialog where you only have to pass a [title] and a [message].
+/// By default an "OK" button will be show., but you can override it by passing
+/// a [positiveAction] and/or [negativeAction]
+class SmoothSimpleErrorAlertDialog extends StatelessWidget {
+  const SmoothSimpleErrorAlertDialog({
+    required this.title,
+    required this.message,
+    this.positiveAction,
+    this.negativeAction,
+    this.actionsAxis,
+    this.actionsOrder,
+    this.contentPadding,
+  });
+
+  final String title;
+  final String message;
+  final SmoothActionButton? positiveAction;
+  final SmoothActionButton? negativeAction;
+  final Axis? actionsAxis;
+  final SmoothButtonsBarOrder? actionsOrder;
+  final EdgeInsetsDirectional? contentPadding;
+
+  @override
+  Widget build(BuildContext context) {
+    final Widget content = Column(
+      children: <Widget>[
+        SvgPicture.asset(
+          'assets/misc/error.svg',
+          width: MINIMUM_TOUCH_SIZE * 2,
+          package: AppHelper.APP_PACKAGE,
+        ),
+        const SizedBox(height: MEDIUM_SPACE),
+        Text(
+          title,
+          textAlign: TextAlign.center,
+          style: Theme.of(context).textTheme.titleLarge,
+        ),
+        const SizedBox(height: LARGE_SPACE),
+        Text(
+          message,
+          textAlign: TextAlign.center,
+          style: Theme.of(context).textTheme.bodyMedium?.copyWith(height: 1.3),
+        ),
+      ],
+    );
+
+    SmoothActionButton? positiveButton = positiveAction;
+    if (positiveAction == null && negativeAction == null) {
+      final AppLocalizations appLocalizations = AppLocalizations.of(context);
+      positiveButton = SmoothActionButton(
+        text: appLocalizations.okay,
+        onPressed: () => Navigator.of(context).maybePop(),
+      );
+    }
+
+    return SmoothAlertDialog(
+      body: content,
+      positiveAction: positiveButton,
+      negativeAction: negativeAction,
+      actionsOrder: actionsOrder,
+      contentPadding: contentPadding,
     );
   }
 }
