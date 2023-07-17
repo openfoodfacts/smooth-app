@@ -5,7 +5,9 @@ import 'package:smooth_app/main.dart';
 
 /// App Store/TestFlight version with:
 /// - Barcode decoding algorithm: MLKit
-/// - iOS SDK to open the store
+/// - iOS/macOS SDK to open the store
+///
+/// This version is compatible both with iOS and macOS
 void main() {
   launchSmoothApp(
     barcodeScanner: const ScannerMLKit(),

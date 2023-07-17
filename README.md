@@ -52,10 +52,11 @@ Starting this April, we invite all users and contributors to build a vision for 
 
 - Smooth-app is developed in parallel to the [openfoodfacts-dart](https://github.com/openfoodfacts/openfoodfacts-dart) plugin, which provides a high level interface with the Open Food Facts API and [openfoodfacts_flutter_lints](https://github.com/openfoodfacts/openfoodfacts_flutter_lints) which provides specific linting
 - Every new interaction with the API should be implemented in the plugin in order to provide these new features to other developers.
+- We support desktop platforms (Linux, macOS and Windows), but **only for development**
 
 <br>
 
-<details><summary><h2> Features of the app </h2></summary>
+<details><summary><h2>Features of the app</h2></summary>
 
 ## Features
 
@@ -101,7 +102,7 @@ In order to run the application, make sure you are in the `packages/smooth_app` 
 
 - On Android 🤖: `flutter run -t lib/entrypoints/android/main_google_play.dart`
 
-- On iOS 🍎: `flutter run -t lib/entrypoints/ios/main_ios.dart`
+- On iOS/macOS 🍎: `flutter run -t lib/entrypoints/ios/main_ios.dart`
 
 - Troubleshooting🚀: If you get an error like `App depends on scanner shared from path which depends on camera_platform_interface from git, version solving failed.`  then run
   - `flutter pub cache clean` or manually delete  the  

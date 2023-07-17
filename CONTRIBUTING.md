@@ -7,7 +7,7 @@ In order to run the application, make sure you are in the `packages/smooth_app` 
 
 - `flutter pub get .`
 - On Android 🤖: flutter run -t lib/entrypoints/android/main_google_play.dart
-- On iOS 🍎: flutter run -t lib/entrypoints/ios/main_ios.dart
+- On iOS/macOS 🍎: flutter run -t lib/entrypoints/ios/main_ios.dart
 
 ## Contributing
 
