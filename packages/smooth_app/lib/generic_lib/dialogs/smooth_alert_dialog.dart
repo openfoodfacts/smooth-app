@@ -490,7 +490,7 @@ class SmoothSimpleErrorAlertDialog extends StatelessWidget {
   final SmoothActionButton? negativeAction;
   final Axis? actionsAxis;
   final SmoothButtonsBarOrder? actionsOrder;
-  final EdgeInsets? contentPadding;
+  final EdgeInsetsDirectional? contentPadding;
 
   @override
   Widget build(BuildContext context) {
