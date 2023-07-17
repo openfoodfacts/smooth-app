@@ -1,16 +1,16 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:lottie/lottie.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
+import 'package:rive/rive.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_simple_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
-import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
-import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/pages/user_management/login_page.dart';
 
 class CongratsWidget extends StatelessWidget {
@@ -34,13 +34,15 @@ class CongratsWidget extends StatelessWidget {
       child: SmoothCard(
         ignoreDefaultSemantics: true,
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: MEDIUM_SPACE),
+          padding: const EdgeInsetsDirectional.symmetric(
+            horizontal: MEDIUM_SPACE,
+          ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               const Padding(
-                padding: EdgeInsets.only(top: SMALL_SPACE),
+                padding: EdgeInsetsDirectional.only(top: SMALL_SPACE),
                 child: _Header(),
               ),
               FractionallySizedBox(
@@ -151,65 +153,14 @@ class CongratsWidget extends StatelessWidget {
   }
 }
 
-class _Header extends StatefulWidget {
+class _Header extends StatelessWidget {
   const _Header();
-
-  @override
-  State<_Header> createState() => _HeaderState();
-}
-
-class _HeaderState extends State<_Header> with TickerProviderStateMixin {
-  late AnimationController _controller1;
-  late Animation<double> _star1;
-  late AnimationController _controller2;
-  late Animation<double> _star2;
-  late AnimationController _controller3;
-  late Animation<double> _star3;
-
-  @override
-  void initState() {
-    super.initState();
-    // We create a custom animation, to add a slight delay between each
-    // apparition of a star
-
-    _controller1 = AnimationController(
-      vsync: this,
-      duration: const Duration(seconds: 1),
-    );
-    _star1 = Tween<double>(begin: 0.0, end: 1.0).animate(_controller1);
-
-    _controller2 = AnimationController(
-      vsync: this,
-      duration: const Duration(seconds: 1),
-    );
-    _star2 = Tween<double>(begin: 0.0, end: 1.0).animate(_controller2);
-
-    _controller3 = AnimationController(
-      vsync: this,
-      duration: const Duration(seconds: 1),
-    );
-    _star3 = Tween<double>(begin: 0.0, end: 1.0).animate(_controller3);
-
-    _controller1.addListener(() {
-      if (!_controller2.isAnimating && _controller1.value > 0.25) {
-        _controller2.repeat();
-        setState(() {});
-      }
-    });
-
-    _controller2.addListener(() {
-      if (!_controller3.isAnimating && _controller2.value > 0.25) {
-        _controller3.repeat();
-        setState(() {});
-      }
-    });
-
-    _controller1.repeat();
-  }
 
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final double multiplier =
+        math.min(350, MediaQuery.of(context).size.height * 0.3) / 235;
 
     return Semantics(
       enabled: true,
@@ -218,51 +169,24 @@ class _HeaderState extends State<_Header> with TickerProviderStateMixin {
       excludeSemantics: true,
       child: Column(
         children: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Transform.scale(
-                scale: 2.0,
-                child: Lottie.asset(
-                  'assets/animations/stars.json',
-                  controller: _star1,
-                  package: AppHelper.APP_PACKAGE,
-                  height: 70.0,
-                  width: 70.0,
-                ),
+          Padding(
+            padding: const EdgeInsetsDirectional.symmetric(
+              vertical: SMALL_SPACE,
+            ),
+            child: SizedBox(
+              width: 230 * multiplier,
+              height: 235 * multiplier,
+              child: const RiveAnimation.asset(
+                'assets/animations/off.riv',
+                artboard: 'Success',
+                stateMachines: <String>['Animation'],
               ),
-              AnimatedOpacity(
-                opacity: _controller2.isAnimating ? 1.0 : 0.0,
-                duration: SmoothAnimationsDuration.short,
-                child: Transform.scale(
-                  scale: 2.0,
-                  child: Lottie.asset(
-                    'assets/animations/stars.json',
-                    controller: _star2,
-                    package: AppHelper.APP_PACKAGE,
-                    height: 70.0,
-                    width: 70.0,
-                  ),
-                ),
-              ),
-              AnimatedOpacity(
-                opacity: _controller3.isAnimating ? 1.0 : 0.0,
-                duration: SmoothAnimationsDuration.short,
-                child: Transform.scale(
-                  scale: 2.0,
-                  child: Lottie.asset(
-                    'assets/animations/stars.json',
-                    controller: _star3,
-                    package: AppHelper.APP_PACKAGE,
-                    height: 70.0,
-                    width: 70.0,
-                  ),
-                ),
-              ),
-            ],
+            ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: MEDIUM_SPACE),
+            padding: const EdgeInsetsDirectional.symmetric(
+              vertical: MEDIUM_SPACE,
+            ),
             child: Text(
               appLocalizations.thanks_for_contributing,
               style: Theme.of(context).textTheme.titleLarge,
@@ -271,13 +195,5 @@ class _HeaderState extends State<_Header> with TickerProviderStateMixin {
         ],
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    _controller1.dispose();
-    _controller2.dispose();
-    _controller3.dispose();
-    super.dispose();
   }
 }
