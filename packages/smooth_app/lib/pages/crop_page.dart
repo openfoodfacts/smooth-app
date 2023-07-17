@@ -504,10 +504,10 @@ class _CropPageState extends State<CropPage> {
     }
   }
 
-  void _showErrorDialog() {
+  Future<void> _showErrorDialog() {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-    showDialog<void>(
+    return showDialog<void>(
       context: context,
       builder: (BuildContext context) {
         return SmoothSimpleErrorAlertDialog(
