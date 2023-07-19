@@ -38,32 +38,39 @@ class AttributeButton extends StatelessWidget {
     for (final String importanceId in _importanceIds) {
       children.add(
         Expanded(
-          child: InkWell(
-            onTap: () async => productPreferences.setImportance(
-              attribute.id!,
-              importanceId,
-            ),
-            child: Container(
-              width: importanceWidth,
-              constraints: const BoxConstraints(minHeight: MINIMUM_TOUCH_SIZE),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  Icon(
-                    currentImportanceId == importanceId
-                        ? Icons.radio_button_checked
-                        : Icons.radio_button_off,
-                    color: themeData.colorScheme.primary,
-                  ),
-                  AutoSizeText(
-                    productPreferences
-                        .getPreferenceImportanceFromImportanceId(importanceId)!
-                        .name!,
-                    maxLines: 2,
-                    textAlign: TextAlign.center,
-                  ),
-                ],
+          child: Material(
+            type: MaterialType.transparency,
+            child: InkWell(
+              onTap: () async => productPreferences.setImportance(
+                attribute.id!,
+                importanceId,
+              ),
+              child: Container(
+                width: importanceWidth,
+                margin: const EdgeInsets.symmetric(horizontal: 2.0),
+                constraints:
+                    const BoxConstraints(minHeight: MINIMUM_TOUCH_SIZE),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Icon(
+                      currentImportanceId == importanceId
+                          ? Icons.radio_button_checked
+                          : Icons.radio_button_off,
+                      color: themeData.colorScheme.primary,
+                    ),
+                    const SizedBox(height: VERY_SMALL_SPACE),
+                    AutoSizeText(
+                      productPreferences
+                          .getPreferenceImportanceFromImportanceId(
+                              importanceId)!
+                          .name!,
+                      maxLines: 2,
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
               ),
             ),
           ),

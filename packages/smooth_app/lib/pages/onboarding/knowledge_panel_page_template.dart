@@ -98,36 +98,39 @@ class _KnowledgePanelPageTemplateState
                     children: <Widget>[
                       Flexible(
                         flex: 1,
-                        child: ListView(
-                          children: <Widget>[
-                            SvgPicture.asset(
-                              widget.svgAsset,
-                              height: MediaQuery.of(context).size.height * .25,
-                              package: AppHelper.APP_PACKAGE,
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: LARGE_SPACE,
+                        child: Scrollbar(
+                          child: ListView(
+                            children: <Widget>[
+                              SvgPicture.asset(
+                                widget.svgAsset,
+                                height:
+                                    MediaQuery.of(context).size.height * .25,
+                                package: AppHelper.APP_PACKAGE,
                               ),
-                              child: Text(
-                                widget.headerTitle,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .displayMedium
-                                    ?.wellSpaced,
+                              Padding(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: LARGE_SPACE,
+                                ),
+                                child: Text(
+                                  widget.headerTitle,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .displayMedium
+                                      ?.wellSpaced,
+                                ),
                               ),
-                            ),
-                            if (children.isNotEmpty)
-                              KnowledgePanelProductCards(
-                                <Widget>[
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: children,
-                                  ),
-                                ],
-                              ),
-                          ],
+                              if (children.isNotEmpty)
+                                KnowledgePanelProductCards(
+                                  <Widget>[
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: children,
+                                    ),
+                                  ],
+                                ),
+                            ],
+                          ),
                         ),
                       ),
                       NextButton(
