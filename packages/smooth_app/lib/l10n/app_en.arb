@@ -1292,9 +1292,9 @@
     "edit_product_form_item_exit_confirmation": "Do you want to save your changes before leaving this page?",
     "edit_product_form_item_exit_confirmation_positive_button": "Save changes",
     "edit_product_form_item_exit_confirmation_negative_button": "Discard changes",
-    "edit_product_form_item_ingredients_title": "Ingredients & Origins",
+    "edit_product_form_item_ingredients_title": "Ingredients",
     "@edit_product_form_item_ingredients_title": {
-        "description": "Product edition - Ingredients - Title"
+        "description": "Product edition - Ingredients - Title (note: this section was previously called Ingredients & Origins)"
     },
     "edit_product_form_item_add_valid_item_tooltip": "Add",
     "edit_product_form_item_add_invalid_item_tooltip": "Please enter a text first",
