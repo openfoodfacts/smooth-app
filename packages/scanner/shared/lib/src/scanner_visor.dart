@@ -174,7 +174,10 @@ class VisorButton extends StatelessWidget {
           enableFeedback: true,
           child: Padding(
             padding: const EdgeInsets.all(12.0),
-            child: child,
+            child: IconTheme(
+              data: const IconThemeData(color: Colors.white),
+              child: child,
+            ),
           ),
         ),
       ),
