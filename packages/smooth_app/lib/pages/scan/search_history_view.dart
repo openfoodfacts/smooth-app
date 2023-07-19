@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/database/dao_string_list.dart';
 import 'package:smooth_app/database/local_database.dart';
@@ -43,12 +44,22 @@ class _SearchHistoryViewState extends State<SearchHistoryView> {
   }
 
   Widget _buildSearchHistoryTile(BuildContext context, String query) {
+    final AppLocalizations localizations = AppLocalizations.of(context);
+
     return Dismissible(
       key: Key(query),
       direction: DismissDirection.endToStart,
       onDismissed: (DismissDirection direction) async =>
           _handleDismissed(context, query),
-      background: Container(color: RED_COLOR),
+      background: Container(
+        color: RED_COLOR,
+        alignment: AlignmentDirectional.centerEnd,
+        padding: const EdgeInsetsDirectional.only(end: LARGE_SPACE * 2),
+        child: const Icon(
+          Icons.delete,
+          color: Colors.white,
+        ),
+      ),
       child: InkWell(
         onTap: () => widget.onTap?.call(query),
         child: Padding(
@@ -83,12 +94,16 @@ class _SearchHistoryViewState extends State<SearchHistoryView> {
                   });
                 }
               },
-              child: const Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Icon(Icons.edit, size: 18.0),
+              child: Tooltip(
+                message: localizations.search_history_item_edit_tooltip,
+                enableFeedback: true,
+                child: const Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Icon(Icons.edit, size: 18.0),
+                ),
               ),
             ),
-            minLeadingWidth: 10,
+            minLeadingWidth: 10.0,
             title: Text(query, style: const TextStyle(fontSize: 20.0)),
           ),
         ),
