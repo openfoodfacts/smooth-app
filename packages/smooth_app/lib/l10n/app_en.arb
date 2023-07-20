@@ -1588,6 +1588,10 @@
     "@dev_mode_scan_scan_half_image": {
         "description": "Scan mode - Scan half image"
     },
+    "search_history_item_edit_tooltip": "Reuse and edit this search",
+    "@search_history_item_edit_tooltip": {
+        "description": "A tooltip to explain the Pen button near a search term -> it allows to reuse the item"
+    },
     "product_search_no_more_results": "You've downloaded all the {totalSize} products.",
     "@product_search_no_more_results": {
         "description": "Product search list - No more results available",
@@ -1735,6 +1739,10 @@
     "basic_details_add_error": "Unable to add basic details. Please try again after some time",
     "@basic_details_add_error": {
         "description": "Error message when error occurs while submitting basic details"
+    },
+    "clear_search": "Clear your search",
+    "@confirm_clearclear_search": {
+        "description": "Tooltip to explain that the X button clears the content of the search"
     },
     "confirm_clear": "You're about to clear your entire history: are you sure you want to continue?",
     "@confirm_clear": {
