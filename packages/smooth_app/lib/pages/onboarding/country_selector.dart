@@ -8,6 +8,7 @@ import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
+import 'package:smooth_app/helpers/keyboard_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 /// A selector for selecting user's country.
@@ -23,6 +24,7 @@ class CountrySelector extends StatefulWidget {
 }
 
 class _CountrySelectorState extends State<CountrySelector> {
+  final TextEditingController _countryController = TextEditingController();
   late List<Country> _countryList;
   late Future<void> _initFuture;
 
@@ -55,7 +57,6 @@ class _CountrySelectorState extends State<CountrySelector> {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final TextEditingController countryController = TextEditingController();
     return FutureBuilder<void>(
       future: _initFuture,
       builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
@@ -80,24 +81,43 @@ class _CountrySelectorState extends State<CountrySelector> {
                 return StatefulBuilder(
                   builder: (BuildContext context,
                       void Function(VoidCallback fn) setState) {
+                    const double horizontalPadding = 16.0 + SMALL_SPACE;
+
                     return SmoothAlertDialog(
                       contentPadding: const EdgeInsetsDirectional.symmetric(
                         horizontal: 0.0,
                         vertical: SMALL_SPACE,
                       ),
                       body: SizedBox(
-                        height: MediaQuery.of(context).size.height / 2,
+                        height: MediaQuery.of(context).size.height /
+                            (context.keyboardVisible ? 1.0 : 1.5),
                         width: MediaQuery.of(context).size.width,
                         child: Column(
                           children: <Widget>[
+                            Container(
+                              alignment: AlignmentDirectional.centerStart,
+                              padding: const EdgeInsetsDirectional.only(
+                                start: horizontalPadding - 1.0,
+                                end: horizontalPadding,
+                                top: SMALL_SPACE,
+                              ),
+                              child: Text(
+                                appLocalizations.country_selector_title,
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 20.0,
+                                ),
+                              ),
+                            ),
                             Padding(
                               padding: const EdgeInsets.symmetric(
                                 horizontal: SMALL_SPACE,
+                                vertical: MEDIUM_SPACE,
                               ),
                               child: SmoothTextFormField(
                                 type: TextFieldTypes.PLAIN_TEXT,
                                 prefixIcon: const Icon(Icons.search),
-                                controller: countryController,
+                                controller: _countryController,
                                 onChanged: (String? query) {
                                   setState(
                                     () {
@@ -124,7 +144,7 @@ class _CountrySelectorState extends State<CountrySelector> {
                             ),
                             Expanded(
                               child: Scrollbar(
-                                child: ListView.builder(
+                                child: ListView.separated(
                                   itemBuilder:
                                       (BuildContext context, int index) {
                                     final Country country = filteredList[index];
@@ -134,25 +154,25 @@ class _CountrySelectorState extends State<CountrySelector> {
                                       dense: true,
                                       contentPadding:
                                           const EdgeInsets.symmetric(
-                                        horizontal: 16.0 + SMALL_SPACE,
+                                        horizontal: horizontalPadding,
                                       ),
                                       trailing: selected
                                           ? const Icon(Icons.check)
                                           : null,
-                                      title: Text(
-                                        country.name,
-                                        softWrap: false,
-                                        overflow: TextOverflow.fade,
-                                        style: selected
-                                            ? const TextStyle(
-                                                fontWeight: FontWeight.bold,
-                                              )
-                                            : null,
+                                      title: _FilterableText(
+                                        text: country.name,
+                                        filter: _countryController.text,
+                                        selected: selected,
                                       ),
-                                      onTap: () =>
-                                          Navigator.of(context).pop(country),
+                                      onTap: () {
+                                        Navigator.of(context).pop(country);
+                                        _countryController.clear();
+                                      },
                                     );
                                   },
+                                  separatorBuilder: (_, __) => const Divider(
+                                    height: 1.0,
+                                  ),
                                   itemCount: filteredList.length,
                                   shrinkWrap: true,
                                 ),
@@ -162,7 +182,10 @@ class _CountrySelectorState extends State<CountrySelector> {
                         ),
                       ),
                       positiveAction: SmoothActionButton(
-                        onPressed: () => Navigator.pop(context),
+                        onPressed: () {
+                          Navigator.pop(context);
+                          _countryController.clear();
+                        },
                         text: appLocalizations.cancel,
                       ),
                     );
@@ -295,5 +318,88 @@ class _CountrySelectorState extends State<CountrySelector> {
         return a.name.compareTo(b.name);
       },
     );
+  }
+
+  @override
+  void dispose() {
+    _countryController.dispose();
+    super.dispose();
+  }
+}
+
+class _FilterableText extends StatelessWidget {
+  const _FilterableText({
+    required this.text,
+    required this.filter,
+    required this.selected,
+  });
+
+  final String text;
+  final String filter;
+  final bool selected;
+
+  @override
+  Widget build(BuildContext context) {
+    final List<(String, TextStyle?)> parts = _getParts(
+      defaultStyle: TextStyle(fontWeight: selected ? FontWeight.bold : null),
+      highlightedStyle: TextStyle(
+        fontWeight: selected ? FontWeight.bold : null,
+        backgroundColor: Theme.of(context).primaryColor.withOpacity(0.2),
+      ),
+    );
+
+    final TextStyle defaultTextStyle = DefaultTextStyle.of(context).style;
+
+    return Text.rich(
+      TextSpan(
+        children: parts.map(((String, TextStyle?) part) {
+          return TextSpan(
+            text: part.$1,
+            style: defaultTextStyle.merge(part.$2),
+          );
+        }).toList(growable: false),
+      ),
+      softWrap: false,
+      overflow: TextOverflow.fade,
+    );
+  }
+
+  /// Returns a List containing parts of the text with the right style
+  /// according to the [filter]
+  List<(String, TextStyle?)> _getParts({
+    required TextStyle? defaultStyle,
+    required TextStyle? highlightedStyle,
+  }) {
+    final Iterable<RegExpMatch> highlightedParts =
+        RegExp(filter.toLowerCase()).allMatches(
+      text.toLowerCase(),
+    );
+
+    final List<(String, TextStyle?)> parts = <(String, TextStyle?)>[];
+
+    if (highlightedParts.isEmpty) {
+      parts.add((text, defaultStyle));
+    } else {
+      parts
+          .add((text.substring(0, highlightedParts.first.start), defaultStyle));
+      for (int i = 0; i != highlightedParts.length; i++) {
+        final RegExpMatch subPart = highlightedParts.elementAt(i);
+
+        parts.add(
+          (text.substring(subPart.start, subPart.end), highlightedStyle),
+        );
+
+        if (i < highlightedParts.length - 1) {
+          parts.add((
+            text.substring(
+                subPart.end, highlightedParts.elementAt(i + 1).start),
+            defaultStyle
+          ));
+        } else if (subPart.end < text.length) {
+          parts.add((text.substring(subPart.end, text.length), defaultStyle));
+        }
+      }
+    }
+    return parts;
   }
 }
