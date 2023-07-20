@@ -12,6 +12,7 @@ import 'package:smooth_app/helpers/permission_helper.dart';
 import 'package:smooth_app/helpers/provider_helper.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_bottom_bar.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
+import 'package:smooth_app/widgets/smooth_text.dart';
 
 class PermissionsPage extends StatefulWidget {
   const PermissionsPage(
@@ -80,12 +81,14 @@ class _PermissionsPageState extends State<PermissionsPage> {
                       appLocalizations.permissions_page_body1,
                       maxLines: 2,
                       textAlign: TextAlign.center,
+                      style: WellSpacedTextHelper.TEXT_STYLE_WITH_WELL_SPACED,
                     ),
                     const SizedBox(height: MEDIUM_SPACE),
                     AutoSizeText(
                       appLocalizations.permissions_page_body2,
                       maxLines: 3,
                       textAlign: TextAlign.center,
+                      style: WellSpacedTextHelper.TEXT_STYLE_WITH_WELL_SPACED,
                     ),
                   ],
                 ),
