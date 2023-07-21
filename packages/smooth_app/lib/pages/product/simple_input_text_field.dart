@@ -84,8 +84,7 @@ class _SimpleInputTextFieldState extends State<SimpleInputTextField> {
       }
     }
 
-    if (_suggestions[search]?.isEmpty == true &&
-        widget.controller.text == _searchInput) {
+    if (_suggestions[search]?.isEmpty == true && search == _searchInput) {
       _hideLoading();
     }
 
