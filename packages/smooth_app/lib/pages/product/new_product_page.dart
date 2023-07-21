@@ -264,6 +264,10 @@ class _ProductPageState extends State<ProductPage>
             ),
           ),
         ),
+        margin: const EdgeInsets.symmetric(
+          horizontal: SMALL_SPACE,
+          vertical: MEDIUM_SPACE
+        ) // Added a vertical margin instead of using default
       );
 
   Widget _buildKnowledgePanelCards() {
