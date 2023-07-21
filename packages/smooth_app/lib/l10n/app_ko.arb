@@ -449,7 +449,7 @@
     "@search": {
         "description": "Hint text of a search text input field"
     },
-    "tab_for_more": "Tap to see more info…",
+    "tap_for_more": "Tap to see more info…",
     "@Product": {},
     "product": "생성물",
     "@product": {},
@@ -587,6 +587,7 @@
     "new_product_desc_nova_unknown": "식품 가공 수준을 알 수 없음",
     "new_product_title_pictures": "Let's take some pictures!",
     "new_product_title_misc": "And some basic data…",
+    "hey_incomplete_product_message": "Tap to answer 3 questions NOW to compute Nutri-Score, Eco-Score & Ultra-processing (NOVA)!",
     "nutritional_facts_photo_uploaded": "영양 성분 사진을 올렸습니다",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "재활용 정보 사진",
@@ -1365,7 +1366,7 @@
     "@user_list_popup_rename": {
         "description": "Short label of a 'rename list' popup"
     },
-    "user_list_name_hint": "내 목록",
+    "user_list_name_hint": "My list",
     "@user_list_name_hint": {
         "description": "Hint of a user list name text-field in a 'user list' dialog"
     },

@@ -449,7 +449,7 @@
     "@search": {
         "description": "Hint text of a search text input field"
     },
-    "tab_for_more": "Tap to see more info…",
+    "tap_for_more": "Tap to see more info…",
     "@Product": {},
     "product": "Sản phẩm",
     "@product": {},
@@ -587,6 +587,7 @@
     "new_product_desc_nova_unknown": "Mức độ chế biến thực phẩm không xác định",
     "new_product_title_pictures": "Hãy chụp một vài bức ảnh!",
     "new_product_title_misc": "Và một số dữ liệu cơ bản…",
+    "hey_incomplete_product_message": "Tap to answer 3 questions NOW to compute Nutri-Score, Eco-Score & Ultra-processing (NOVA)!",
     "nutritional_facts_photo_uploaded": "Ảnh thông tin dinh dưỡng đã được tải lên",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "Ảnh thông tin tái chế",
@@ -1365,7 +1366,7 @@
     "@user_list_popup_rename": {
         "description": "Short label of a 'rename list' popup"
     },
-    "user_list_name_hint": "Danh sách của tôi",
+    "user_list_name_hint": "My list",
     "@user_list_name_hint": {
         "description": "Hint of a user list name text-field in a 'user list' dialog"
     },

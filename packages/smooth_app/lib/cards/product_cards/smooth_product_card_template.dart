@@ -66,7 +66,8 @@ class SmoothProductCardTemplate extends StatelessWidget {
                 height: screenSize.width * 0.20,
                 color: itemColor,
               ),
-              const Padding(padding: EdgeInsets.only(left: VERY_SMALL_SPACE)),
+              const Padding(
+                  padding: EdgeInsetsDirectional.only(start: VERY_SMALL_SPACE)),
               Expanded(
                 child: SizedBox(
                   height: screenSize.width * 0.2,
@@ -83,7 +84,8 @@ class SmoothProductCardTemplate extends StatelessWidget {
                       if (message == null) textWidget,
                       if (message != null)
                         Padding(
-                          padding: const EdgeInsets.only(top: SMALL_SPACE),
+                          padding: const EdgeInsetsDirectional.only(
+                              top: SMALL_SPACE),
                           child: AutoSizeText(
                             message!,
                             maxLines: 3,
@@ -94,7 +96,8 @@ class SmoothProductCardTemplate extends StatelessWidget {
                   ),
                 ),
               ),
-              const Padding(padding: EdgeInsets.only(left: VERY_SMALL_SPACE)),
+              const Padding(
+                  padding: EdgeInsetsDirectional.only(start: VERY_SMALL_SPACE)),
               Padding(
                 padding: const EdgeInsets.all(VERY_SMALL_SPACE),
                 child: actionButton == null

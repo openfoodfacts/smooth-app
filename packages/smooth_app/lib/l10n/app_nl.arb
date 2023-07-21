@@ -449,7 +449,7 @@
     "@search": {
         "description": "Hint text of a search text input field"
     },
-    "tab_for_more": "Tik om meer info te zien…",
+    "tap_for_more": "Tik om meer info te zien…",
     "@Product": {},
     "product": "Product",
     "@product": {},
@@ -587,6 +587,7 @@
     "new_product_desc_nova_unknown": "Voedselverwerkingsniveau onbekend",
     "new_product_title_pictures": "Laten we wat foto's maken!",
     "new_product_title_misc": "En enkele basisgegevens…",
+    "hey_incomplete_product_message": "Tik om 3 vragen NU te beantwoorden om de Nutri-Score, de Eco-Score & de Ultra-verwerking (NOVA) te berekenen!",
     "nutritional_facts_photo_uploaded": "Foto van voedingswaarden geüpload",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "Foto van recyclen",
@@ -1979,7 +1980,7 @@
     "@robotoff_continue": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering"
     },
-    "robotoff_next_n_questions": "Volgende {count,plural,  one {}=1{vraag} other{{count} vragen}}",
+    "robotoff_next_n_questions": "Volgende {count,plural, =1{vraag} other{{count} vragen}}",
     "@robotoff_next_n_questions": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering",
         "placeholders": {

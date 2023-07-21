@@ -209,7 +209,7 @@
     "@sign_up_page_action_doing_it": {
         "description": "Progress indicator dialog during the actual signing up process"
     },
-    "sign_up_page_action_ok": "Toutes nos félicitations! Votre compte vient d'être créé.",
+    "sign_up_page_action_ok": "Toutes nos félicitations ! Votre compte vient d'être créé.",
     "sign_up_page_display_name_hint": "Nom",
     "sign_up_page_display_name_error_empty": "Veuillez saisir le nom d'affichage que vous souhaitez utiliser",
     "sign_up_page_email_hint": "Courriel",
@@ -449,7 +449,7 @@
     "@search": {
         "description": "Hint text of a search text input field"
     },
-    "tab_for_more": "Appuyez pour plus d'informations...",
+    "tap_for_more": "Appuyez pour plus d'informations...",
     "@Product": {},
     "product": "Produit",
     "@product": {},
@@ -587,6 +587,7 @@
     "new_product_desc_nova_unknown": "Degré de transformation des aliments inconnu",
     "new_product_title_pictures": "Prenons quelques photos !",
     "new_product_title_misc": "Et quelques données de base…",
+    "hey_incomplete_product_message": "Appuyez pour répondre MAINTENANT à 3 questions pour calculer le Nutri-Score, l'Eco-Score et le niveau d'ultra-transformation NOVA.",
     "nutritional_facts_photo_uploaded": "Photo des informations nutritionnelles téléchargée",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "Photo des informations de recyclage",
@@ -1345,7 +1346,7 @@
     "@user_list_button_new": {
         "description": "Short label of a 'create a new list' button"
     },
-    "user_list_empty_label": "Aucune liste disponible pour le moment,\nveuillez commencer par en créer une",
+    "user_list_empty_label": "Aucune liste disponible pour le moment, veuillez commencer par en créer une",
     "@user_list_empty_label": {
         "description": "Content displayed when there is no list"
     },

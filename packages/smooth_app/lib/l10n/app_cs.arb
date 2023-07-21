@@ -449,7 +449,7 @@
     "@search": {
         "description": "Hint text of a search text input field"
     },
-    "tab_for_more": "Klepnutím zobrazíte více informací…",
+    "tap_for_more": "Klepnutím zobrazíte více informací…",
     "@Product": {},
     "product": "Produkt",
     "@product": {},
@@ -587,6 +587,7 @@
     "new_product_desc_nova_unknown": "Neznámá úroveň průmyslového zpracování potraviny",
     "new_product_title_pictures": "Pojďme udělat pár fotek!",
     "new_product_title_misc": "A pár základních údajů…",
+    "hey_incomplete_product_message": "Klepnutím odpovězte na 3 otázky HNED k výpočtu Nutri-Score, Eco-Score & Ultra-processing (NOVA)!",
     "nutritional_facts_photo_uploaded": "Fotografie nutričních údajů byla nahrána",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "Informační fotografie o recyklaci",
@@ -764,35 +765,35 @@
             "percent": {}
         }
     },
-    "plural_ago_days": "{count,plural,  one {}  few {před {count} dny}  many {před {count} dny}=1{před jedním dnem} other{před {count} dny}}",
+    "plural_ago_days": "{count,plural,  =1{před {count} dny} other{před {count} dny}}",
     "@plural_ago_days": {
         "description": "Cached results from: x days ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_hours": "{count,plural,  one {}  few {před {count} hodinami}  many {před {count} hodinami}=1{před hodinou} other{před {count} hodinami}}",
+    "plural_ago_hours": "{count,plural,  =1{před {count} hodinami} many{před {count} hodinami} other{před {count} hodinami}}",
     "@plural_ago_hours": {
         "description": "Cached results from: x hours ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_minutes": "{count,plural,  one {}  few {před {count} minutami}  many {před {count} minutami}=0{před méně než minutou} =1{před minutou} other{před {count} minutami}}",
+    "plural_ago_minutes": "{count,plural, =0{před méně než minutou} =1{před minutou} many{před {count} minutami} other{před {count} minutami}}",
     "@plural_ago_minutes": {
         "description": "Cached results from: x minutes ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_months": "{count,plural,  one {}  few {před {count} měsíci}  many {před {count} měsíci}=1{před měsícem} other{před {count} měsíci}}",
+    "plural_ago_months": "{count,plural, =1{před měsícem} other{před {count} měsíci}}",
     "@plural_ago_months": {
         "description": "Cached results from: x months ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_weeks": "před {count,plural,  one {}  few {{count} týdny}  many {před {count} týdny}=1{týdnem} other{{count} týdny}}",
+    "plural_ago_weeks": "před {count,plural, =1{týdnem} other{{count} týdny}}",
     "@plural_ago_weeks": {
         "description": "Cached results from: x weeks ago",
         "placeholders": {
@@ -1764,7 +1765,7 @@
     "@user_list_all_empty": {
         "description": "Small message when there are no user lists"
     },
-    "user_list_length": "{count,plural, few {{count} produkty} many {{count} produktů}=0{Prázdný seznam} =1{1 produkt} other{{count} produktů}}",
+    "user_list_length": "{count,plural, =0{Prázdný seznam} =1{1 produkt} other{{count} produktů}}",
     "@user_list_length": {
         "description": "Length of a user product list",
         "placeholders": {
@@ -1979,7 +1980,7 @@
     "@robotoff_continue": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering"
     },
-    "robotoff_next_n_questions": "Další {count,plural,  one {}  few {{count} otázky}  many {{count} otázek}=1{otázka} other{{count} otázek}}",
+    "robotoff_next_n_questions": "Další {count,plural,  =1{otázka} other{{count} otázek}}",
     "@robotoff_next_n_questions": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering",
         "placeholders": {

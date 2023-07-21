@@ -449,7 +449,7 @@
     "@search": {
         "description": "Hint text of a search text input field"
     },
-    "tab_for_more": "Tap to see more info…",
+    "tap_for_more": "Tap to see more info…",
     "@Product": {},
     "product": "نتاج",
     "@product": {},
@@ -587,6 +587,7 @@
     "new_product_desc_nova_unknown": "مستوى معالجة الطعام غير معروف",
     "new_product_title_pictures": "Let's take some pictures!",
     "new_product_title_misc": "And some basic data…",
+    "hey_incomplete_product_message": "Tap to answer 3 questions NOW to compute Nutri-Score, Eco-Score & Ultra-processing (NOVA)!",
     "nutritional_facts_photo_uploaded": "Nutrition facts photo uploaded",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "صورة معلومات إعادة التدوير",

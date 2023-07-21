@@ -17,6 +17,7 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/database_helper.dart';
 import 'package:smooth_app/helpers/image_compute_container.dart';
 import 'package:smooth_app/helpers/image_field_extension.dart';
@@ -239,7 +240,15 @@ class _CropPageState extends State<CropPage> {
       maxSize: _screenSize.longestSide,
     );
     setState(() => _progress = appLocalizations.crop_page_action_local);
-    await saveBmp(file: result, source: cropped);
+
+    try {
+      await saveBmp(file: result, source: cropped)
+          .timeout(const Duration(seconds: 10));
+    } catch (e, trace) {
+      AnalyticsHelper.sendException(e, stackTrace: trace);
+      rethrow;
+    }
+
     return result;
   }
 
@@ -387,6 +396,7 @@ class _CropPageState extends State<CropPage> {
         return true;
       }
     } catch (e) {
+      _showErrorDialog();
       return false;
     } finally {
       _progress = null;
@@ -492,6 +502,20 @@ class _CropPageState extends State<CropPage> {
       }
       return false;
     }
+  }
+
+  Future<void> _showErrorDialog() {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+    return showDialog<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return SmoothSimpleErrorAlertDialog(
+          title: appLocalizations.crop_page_action_local_failed_title,
+          message: appLocalizations.crop_page_action_local_failed_message,
+        );
+      },
+    );
   }
 }
 

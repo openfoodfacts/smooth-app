@@ -449,7 +449,7 @@
     "@search": {
         "description": "Hint text of a search text input field"
     },
-    "tab_for_more": "Antippen, um mehr Infos anzuzeigen …",
+    "tap_for_more": "Antippen, um mehr Infos anzuzeigen …",
     "@Product": {},
     "product": "Produkt",
     "@product": {},
@@ -587,6 +587,7 @@
     "new_product_desc_nova_unknown": "Grad der Lebensmittelverarbeitung unbekannt",
     "new_product_title_pictures": "Lassen Sie uns ein paar Fotos aufnehmen!",
     "new_product_title_misc": "Und einige grundlegende Daten …",
+    "hey_incomplete_product_message": "Tippen Sie JETZT auf die Antwort auf 3 Fragen, um Nutri-Score, Eco-Score und Ultra-Processing (NOVA) zu berechnen!",
     "nutritional_facts_photo_uploaded": "Foto mit Nährwertangaben hochgeladen",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "Foto mit Informationen zum Recycling",

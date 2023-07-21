@@ -231,7 +231,8 @@ class _SearchFieldState extends State<SearchField> {
         vertical: 17.0,
       ),
       hintText: localizations.search,
-      suffixIcon: widget.showClearButton ? _buildClearButton() : null,
+      suffixIcon:
+          widget.showClearButton ? _buildClearButton(localizations) : null,
     );
 
     const TextStyle textStyle = TextStyle(fontSize: 18.0);
@@ -282,19 +283,32 @@ class _SearchFieldState extends State<SearchField> {
     }
   }
 
-  Widget _buildClearButton() {
+  Widget _buildClearButton(AppLocalizations localizations) {
     return Padding(
       padding: const EdgeInsetsDirectional.only(end: MEDIUM_SPACE),
-      child: IconButton(
-        onPressed: _handleClear,
-        icon: AnimatedCrossFade(
-          duration: SmoothAnimationsDuration.brief,
-          crossFadeState:
-              _isEmpty ? CrossFadeState.showFirst : CrossFadeState.showSecond,
-          // Closes the page.
-          firstChild: const Icon(Icons.close),
-          // Clears the text.
-          secondChild: const Icon(Icons.cancel),
+      child: ClipOval(
+        child: Material(
+          type: MaterialType.transparency,
+          child: IconButton(
+            tooltip: localizations.clear_search,
+            onPressed: _handleClear,
+            icon: AnimatedCrossFade(
+              duration: SmoothAnimationsDuration.short,
+              crossFadeState: _isEmpty
+                  ? CrossFadeState.showFirst
+                  : CrossFadeState.showSecond,
+              // Closes the page.
+              firstChild: Icon(
+                Icons.close,
+                semanticLabel: localizations.clear_search,
+              ),
+              // Clears the text.
+              secondChild: Icon(
+                Icons.cancel,
+                semanticLabel: localizations.clear_search,
+              ),
+            ),
+          ),
         ),
       ),
     );

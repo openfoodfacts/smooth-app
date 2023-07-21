@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/database/dao_string_list.dart';
 import 'package:smooth_app/database/local_database.dart';
@@ -43,47 +44,69 @@ class _SearchHistoryViewState extends State<SearchHistoryView> {
   }
 
   Widget _buildSearchHistoryTile(BuildContext context, String query) {
+    final AppLocalizations localizations = AppLocalizations.of(context);
+
     return Dismissible(
       key: Key(query),
       direction: DismissDirection.endToStart,
       onDismissed: (DismissDirection direction) async =>
           _handleDismissed(context, query),
-      background: Container(color: RED_COLOR),
-      child: ListTile(
-        leading: const Padding(
-          padding: EdgeInsetsDirectional.only(top: VERY_SMALL_SPACE),
-          child: Icon(Icons.search, size: 18.0),
+      background: Container(
+        color: RED_COLOR,
+        alignment: AlignmentDirectional.centerEnd,
+        padding: const EdgeInsetsDirectional.only(end: LARGE_SPACE * 2),
+        child: const Icon(
+          Icons.delete,
+          color: Colors.white,
         ),
-        trailing: InkWell(
-          customBorder: const CircleBorder(),
-          onTap: () {
-            final TextEditingController controller =
-                Provider.of<TextEditingController>(
-              context,
-              listen: false,
-            );
+      ),
+      child: InkWell(
+        onTap: () => widget.onTap?.call(query),
+        child: Padding(
+          padding: const EdgeInsetsDirectional.only(start: 18.0, end: 13.0),
+          child: ListTile(
+            leading: const Padding(
+              padding: EdgeInsetsDirectional.only(top: VERY_SMALL_SPACE),
+              child: Icon(
+                Icons.search,
+                size: 18.0,
+              ),
+            ),
+            trailing: InkWell(
+              customBorder: const CircleBorder(),
+              onTap: () {
+                final TextEditingController controller =
+                    Provider.of<TextEditingController>(
+                  context,
+                  listen: false,
+                );
 
-            controller.text = query;
-            controller.selection =
-                TextSelection.fromPosition(TextPosition(offset: query.length));
+                controller.text = query;
+                controller.selection = TextSelection.fromPosition(
+                    TextPosition(offset: query.length));
 
-            // If the keyboard is hidden, show it.
-            if (View.of(context).viewInsets.bottom == 0) {
-              widget.focusNode?.unfocus();
+                // If the keyboard is hidden, show it.
+                if (View.of(context).viewInsets.bottom == 0) {
+                  widget.focusNode?.unfocus();
 
-              WidgetsBinding.instance.addPostFrameCallback((_) {
-                FocusScope.of(context).requestFocus(widget.focusNode);
-              });
-            }
-          },
-          child: const Padding(
-            padding: EdgeInsets.all(SMALL_SPACE),
-            child: Icon(Icons.edit, size: 18.0),
+                  WidgetsBinding.instance.addPostFrameCallback((_) {
+                    FocusScope.of(context).requestFocus(widget.focusNode);
+                  });
+                }
+              },
+              child: Tooltip(
+                message: localizations.search_history_item_edit_tooltip,
+                enableFeedback: true,
+                child: const Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Icon(Icons.edit, size: 18.0),
+                ),
+              ),
+            ),
+            minLeadingWidth: 10.0,
+            title: Text(query, style: const TextStyle(fontSize: 20.0)),
           ),
         ),
-        minLeadingWidth: 10,
-        title: Text(query, style: const TextStyle(fontSize: 20.0)),
-        onTap: () => widget.onTap?.call(query),
       ),
     );
   }

@@ -449,7 +449,7 @@
     "@search": {
         "description": "Hint text of a search text input field"
     },
-    "tab_for_more": "נגיעה לצפייה פרטים נוספים…",
+    "tap_for_more": "נגיעה לצפייה פרטים נוספים…",
     "@Product": {},
     "product": "מוצר",
     "@product": {},
@@ -587,6 +587,7 @@
     "new_product_desc_nova_unknown": "רמת עיבוד המזון אינה ידועה",
     "new_product_title_pictures": "בואו נצלם קצת!",
     "new_product_title_misc": "וכמה נתונים בסיסיים…",
+    "hey_incomplete_product_message": "נא לגעת כאן כדי לענות על 3 שאלות כעת ולחשב את ה־Nutri-Score,‏ Eco-Score ואולטרא עיבוד (NOVA) כעת!",
     "nutritional_facts_photo_uploaded": "תמונת הפירוט התזונתי נשלחה",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "תמונת פרטי המיחזור",

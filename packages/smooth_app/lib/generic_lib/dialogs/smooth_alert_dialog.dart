@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_simple_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_responsive.dart';
+import 'package:smooth_app/helpers/app_helper.dart';
 
 /// Custom Dialog to use in the app
 ///
@@ -28,6 +31,7 @@ class SmoothAlertDialog extends StatelessWidget {
     this.actionsAxis,
     this.actionsOrder,
     this.close = false,
+    this.contentPadding,
   });
 
   final String? title;
@@ -37,26 +41,29 @@ class SmoothAlertDialog extends StatelessWidget {
   final SmoothActionButton? negativeAction;
   final Axis? actionsAxis;
   final SmoothButtonsBarOrder? actionsOrder;
+  final EdgeInsetsDirectional? contentPadding;
 
-  static const EdgeInsets _smallContentPadding = EdgeInsets.only(
-    left: SMALL_SPACE,
+  static const EdgeInsetsDirectional _smallContentPadding =
+      EdgeInsetsDirectional.only(
+    start: SMALL_SPACE,
     top: MEDIUM_SPACE,
-    right: SMALL_SPACE,
+    end: SMALL_SPACE,
     bottom: SMALL_SPACE,
   );
 
-  static const EdgeInsets _contentPadding = EdgeInsets.only(
-    left: 22.0,
+  static const EdgeInsetsDirectional _contentPadding =
+      EdgeInsetsDirectional.only(
+    start: 22.0,
     top: VERY_LARGE_SPACE,
-    right: 22.0,
+    end: 22.0,
     bottom: 22.0,
   );
 
   @override
   Widget build(BuildContext context) {
     final Widget content = _buildContent(context);
-    final EdgeInsets padding =
-        context.isSmallDevice() ? _smallContentPadding : _contentPadding;
+    final EdgeInsetsDirectional padding = contentPadding ??
+        (context.isSmallDevice() ? _smallContentPadding : _contentPadding);
 
     return AlertDialog(
       scrollable: false,
@@ -82,11 +89,14 @@ class SmoothAlertDialog extends StatelessWidget {
     );
   }
 
-  Padding _buildBottomBar(EdgeInsets padding) {
+  Padding _buildBottomBar(EdgeInsetsDirectional padding) {
     return Padding(
       padding: EdgeInsetsDirectional.only(
         top: padding.bottom,
         start: SMALL_SPACE,
+        end: positiveAction != null && negativeAction != null
+            ? 0.0
+            : SMALL_SPACE,
       ),
       child: SmoothActionButtonsBar(
         positiveAction: positiveAction,
@@ -197,8 +207,9 @@ class _SmoothDialogCrossButton extends StatelessWidget {
 }
 
 enum SmoothButtonsBarOrder {
-  /// If the [axis] is [Axis.horizontal], the positive button will be on the end
-  /// If the [axis] is [Axis.vertical], the positive button will be on the start
+  /// If the [axis] is [Axis.horizontal], the positive button will be at the end
+  /// If the [axis] is [Axis.vertical], the positive button will be at the first
+  /// position
   auto,
 
   /// Whatever the [axis] is, the positive button will always be at first place
@@ -455,6 +466,71 @@ class _SmoothActionFlatButton extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+/// A custom dialog where you only have to pass a [title] and a [message].
+/// By default an "OK" button will be show., but you can override it by passing
+/// a [positiveAction] and/or [negativeAction]
+class SmoothSimpleErrorAlertDialog extends StatelessWidget {
+  const SmoothSimpleErrorAlertDialog({
+    required this.title,
+    required this.message,
+    this.positiveAction,
+    this.negativeAction,
+    this.actionsAxis,
+    this.actionsOrder,
+    this.contentPadding,
+  });
+
+  final String title;
+  final String message;
+  final SmoothActionButton? positiveAction;
+  final SmoothActionButton? negativeAction;
+  final Axis? actionsAxis;
+  final SmoothButtonsBarOrder? actionsOrder;
+  final EdgeInsetsDirectional? contentPadding;
+
+  @override
+  Widget build(BuildContext context) {
+    final Widget content = Column(
+      children: <Widget>[
+        SvgPicture.asset(
+          'assets/misc/error.svg',
+          width: MINIMUM_TOUCH_SIZE * 2,
+          package: AppHelper.APP_PACKAGE,
+        ),
+        const SizedBox(height: MEDIUM_SPACE),
+        Text(
+          title,
+          textAlign: TextAlign.center,
+          style: Theme.of(context).textTheme.titleLarge,
+        ),
+        const SizedBox(height: LARGE_SPACE),
+        Text(
+          message,
+          textAlign: TextAlign.center,
+          style: Theme.of(context).textTheme.bodyMedium?.copyWith(height: 1.3),
+        ),
+      ],
+    );
+
+    SmoothActionButton? positiveButton = positiveAction;
+    if (positiveAction == null && negativeAction == null) {
+      final AppLocalizations appLocalizations = AppLocalizations.of(context);
+      positiveButton = SmoothActionButton(
+        text: appLocalizations.okay,
+        onPressed: () => Navigator.of(context).maybePop(),
+      );
+    }
+
+    return SmoothAlertDialog(
+      body: content,
+      positiveAction: positiveButton,
+      negativeAction: negativeAction,
+      actionsOrder: actionsOrder,
+      contentPadding: contentPadding,
     );
   }
 }

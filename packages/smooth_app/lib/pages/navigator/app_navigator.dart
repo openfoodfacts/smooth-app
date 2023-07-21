@@ -35,10 +35,7 @@ class AppNavigator extends InheritedWidget {
   AppNavigator({
     Key? key,
     required Widget child,
-    List<NavigatorObserver>? observers,
-  })  : _router = _SmoothGoRouter(
-          observers: observers,
-        ),
+  })  : _router = _SmoothGoRouter(),
         super(key: key, child: child);
 
   // GoRouter is never accessible directly
@@ -89,7 +86,11 @@ class AppNavigator extends InheritedWidget {
 /// One drawback of the implementation is that we never know the base URL of the
 /// deep link (eg: es.openfoodfacts.org)
 class _SmoothGoRouter {
-  _SmoothGoRouter({
+  factory _SmoothGoRouter() {
+    return _singleton;
+  }
+
+  _SmoothGoRouter._internal({
     List<NavigatorObserver>? observers,
   }) {
     router = GoRouter(
@@ -213,6 +214,8 @@ class _SmoothGoRouter {
             } else {
               return _openExternalLink(path);
             }
+          } else if (path == _ExternalRoutes.MOBILE_APP_DOWNLOAD.path) {
+            return AppRoutes.HOME;
           } else if (path != _InternalAppRoutes.HOME_PAGE.path) {
             return _openExternalLink(path);
           }
@@ -237,6 +240,7 @@ class _SmoothGoRouter {
     );
   }
 
+  static final _SmoothGoRouter _singleton = _SmoothGoRouter._internal();
   late GoRouter router;
 
   // Indicates whether [_initAppLanguage] was already called
@@ -319,11 +323,14 @@ enum _InternalAppRoutes {
   const _InternalAppRoutes(this.path);
 
   final String path;
+}
 
-  @override
-  String toString() {
-    return path;
-  }
+enum _ExternalRoutes {
+  MOBILE_APP_DOWNLOAD('/open-food-facts-mobile-app');
+
+  const _ExternalRoutes(this.path);
+
+  final String path;
 }
 
 /// A list of internal routes to use with [AppNavigator]
@@ -341,21 +348,21 @@ class AppRoutes {
     bool useHeroAnimation = true,
     String? heroTag = '',
   }) =>
-      '/${_InternalAppRoutes.PRODUCT_DETAILS_PAGE}/$barcode'
+      '/${_InternalAppRoutes.PRODUCT_DETAILS_PAGE.path}/$barcode'
       '?heroAnimation=$useHeroAnimation'
       '&heroTag=$heroTag';
 
   // Product loader (= when a product is not in the database) - typical use case: deep links
   static String PRODUCT_LOADER(String barcode) =>
-      '/${_InternalAppRoutes.PRODUCT_LOADER_PAGE}/$barcode';
+      '/${_InternalAppRoutes.PRODUCT_LOADER_PAGE.path}/$barcode';
 
   // Product creator or "add product" feature
   static String PRODUCT_CREATOR(String barcode) =>
-      '/${_InternalAppRoutes.PRODUCT_CREATOR_PAGE}/$barcode';
+      '/${_InternalAppRoutes.PRODUCT_CREATOR_PAGE.path}/$barcode';
 
   // App preferences
   static String PREFERENCES(PreferencePageType type) =>
-      '/${_InternalAppRoutes.PREFERENCES_PAGE}/${type.name}';
+      '/${_InternalAppRoutes.PREFERENCES_PAGE.path}/${type.name}';
 
   // Search view
   static String get SEARCH => '/${_InternalAppRoutes.SEARCH_PAGE.path}';

@@ -449,7 +449,7 @@
     "@search": {
         "description": "Hint text of a search text input field"
     },
-    "tab_for_more": "Bakstelėkite, kad pamatytumėte daugiau informacijos…",
+    "tap_for_more": "Bakstelėkite, kad pamatytumėte daugiau informacijos…",
     "@Product": {},
     "product": "Produktas",
     "@product": {},
@@ -587,6 +587,7 @@
     "new_product_desc_nova_unknown": "Maisto perdirbimo lygis nežinomas",
     "new_product_title_pictures": "Nufotografuokime kelias nuotraukas!",
     "new_product_title_misc": "Ir kai kurie pagrindiniai duomenys…",
+    "hey_incomplete_product_message": "Tap to answer 3 questions NOW to compute Nutri-Score, Eco-Score & Ultra-processing (NOVA)!",
     "nutritional_facts_photo_uploaded": "Įkelta Maistingumo lentelės nuotrauka",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "Perdirbimo informacijos nuotrauka",
@@ -1365,7 +1366,7 @@
     "@user_list_popup_rename": {
         "description": "Short label of a 'rename list' popup"
     },
-    "user_list_name_hint": "Mano sąrašas",
+    "user_list_name_hint": "My list",
     "@user_list_name_hint": {
         "description": "Hint of a user list name text-field in a 'user list' dialog"
     },
@@ -1398,11 +1399,11 @@
             }
         }
     },
-    "camera_toggle_camera": "Switch between back and front camera",
+    "camera_toggle_camera": "Perjungti galinę kamerą į priekinę ir atvirkščiai",
     "@camera_toggle_camera": {
         "description": "Explanation for the icon to switch between cameras"
     },
-    "camera_toggle_flash": "Turn ON or OFF the flash of the camera",
+    "camera_toggle_flash": "Įjungti arba išjungti kameros blykstę",
     "@camera_toggle_flash": {
         "description": "Explanation for the icon to turn on/off the flash"
     },
@@ -1723,9 +1724,9 @@
     "@confirm_clear": {
         "description": "Asking about whether to clear the history list or not"
     },
-    "alert_clear_selected_user_list": "You're about to clear selected items in your history",
-    "confirm_clear_selected_user_list": "Are you sure you want to continue?",
-    "alert_select_items_to_clear": "Please select one or more items to clear",
+    "alert_clear_selected_user_list": "Ketinate išvalyti pasirinktus elementus savo istorijoje",
+    "confirm_clear_selected_user_list": "Ar tikrai norite tęsti?",
+    "alert_select_items_to_clear": "Pasirinkite vieną ar kelis elementus išvalyti",
     "confirm_clear_user_list": "Ketinate išvalyti šį sąrašą ({name}): ar tikrai norite tęsti?",
     "@confirm_clear_user_list": {
         "description": "Asking about whether to clear the list or not",

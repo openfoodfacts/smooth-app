@@ -449,7 +449,7 @@
     "@search": {
         "description": "Hint text of a search text input field"
     },
-    "tab_for_more": "Atingeți pentru a vedea mai multe informații…",
+    "tap_for_more": "Atingeți pentru a vedea mai multe informații…",
     "@Product": {},
     "product": "Produs",
     "@product": {},
@@ -587,6 +587,7 @@
     "new_product_desc_nova_unknown": "Nivel de procesare a alimentelor necunoscut",
     "new_product_title_pictures": "Hai să facem niște poze!",
     "new_product_title_misc": "Și câteva date de bază…",
+    "hey_incomplete_product_message": "Atingeți pentru a răspunde la 3 întrebări ACUM pentru a calcula Nutri-Score, Eco-Score și Ultra-processing (NOVA)!",
     "nutritional_facts_photo_uploaded": "Fotografie cu informații nutriționale încărcate",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "Fotografia cu informații despre reciclare",
@@ -1979,7 +1980,7 @@
     "@robotoff_continue": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering"
     },
-    "robotoff_next_n_questions": "Următorul {count,plural,  one {}  few {{count} întrebări}=1{intrebare} other{{count} întrebări}}",
+    "robotoff_next_n_questions": "Următorul {count,plural, =1{intrebare} other{{count} întrebări}}",
     "@robotoff_next_n_questions": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering",
         "placeholders": {

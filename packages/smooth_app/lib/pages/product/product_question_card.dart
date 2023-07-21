@@ -39,7 +39,7 @@ class ProductQuestionCard extends StatelessWidget {
     final ThemeData theme = Theme.of(context);
     final bool isDarkMode = theme.brightness == Brightness.dark;
     return Padding(
-      padding: const EdgeInsets.only(left: SMALL_SPACE),
+      padding: const EdgeInsetsDirectional.only(start: SMALL_SPACE),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[

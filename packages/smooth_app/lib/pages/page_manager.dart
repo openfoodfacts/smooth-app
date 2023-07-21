@@ -9,7 +9,7 @@ import 'package:smooth_app/widgets/tab_navigator.dart';
 enum BottomNavigationTab {
   Profile,
   Scan,
-  History,
+  List,
 }
 
 /// Here the different tabs in the bottom navigation bar are taken care of,
@@ -27,14 +27,14 @@ class PageManagerState extends State<PageManager> {
   static const List<BottomNavigationTab> _pageKeys = <BottomNavigationTab>[
     BottomNavigationTab.Profile,
     BottomNavigationTab.Scan,
-    BottomNavigationTab.History,
+    BottomNavigationTab.List,
   ];
 
   final Map<BottomNavigationTab, GlobalKey<NavigatorState>> _navigatorKeys =
       <BottomNavigationTab, GlobalKey<NavigatorState>>{
     BottomNavigationTab.Profile: GlobalKey<NavigatorState>(),
     BottomNavigationTab.Scan: GlobalKey<NavigatorState>(),
-    BottomNavigationTab.History: GlobalKey<NavigatorState>(),
+    BottomNavigationTab.List: GlobalKey<NavigatorState>(),
   };
 
   BottomNavigationTab _currentPage = BottomNavigationTab.Scan;
@@ -76,7 +76,7 @@ class PageManagerState extends State<PageManager> {
     final List<Widget> tabs = <Widget>[
       _buildOffstageNavigator(BottomNavigationTab.Profile),
       _buildOffstageNavigator(BottomNavigationTab.Scan),
-      _buildOffstageNavigator(BottomNavigationTab.History),
+      _buildOffstageNavigator(BottomNavigationTab.List),
     ];
 
     final UserPreferences userPreferences = context.watch<UserPreferences>();
@@ -111,8 +111,8 @@ class PageManagerState extends State<PageManager> {
           label: appLocalizations.scan_navbar_label,
         ),
         BottomNavigationBarItem(
-          icon: const Icon(Icons.history),
-          label: appLocalizations.history_navbar_label,
+          icon: const Icon(Icons.list),
+          label: appLocalizations.list_navbar_label,
         ),
       ],
     );
