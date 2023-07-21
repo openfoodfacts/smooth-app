@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -39,11 +41,14 @@ class _SimpleInputTextFieldState extends State<SimpleInputTextField> {
   final Map<String, _SearchResults> _suggestions = <String, _SearchResults>{};
   bool _loading = false;
 
+  late _DebouncedTextEditingController _debouncedController;
   late SuggestionManager? _manager;
 
   @override
   void initState() {
     super.initState();
+
+    _debouncedController = _DebouncedTextEditingController(widget.controller);
 
     _manager = widget.tagType == null
         ? null
@@ -57,6 +62,12 @@ class _SimpleInputTextFieldState extends State<SimpleInputTextField> {
             // number of suggestions the user can scroll through: compromise between quantity and readability of the suggestions
             limit: 15,
           );
+  }
+
+  @override
+  void didUpdateWidget(SimpleInputTextField oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    _debouncedController.replaceWith(widget.controller);
   }
 
   Future<_SearchResults> _getSuggestions(String search) async {
@@ -100,7 +111,7 @@ class _SimpleInputTextFieldState extends State<SimpleInputTextField> {
             child: RawAutocomplete<String>(
               key: widget.autocompleteKey,
               focusNode: widget.focusNode,
-              textEditingController: widget.controller,
+              textEditingController: _debouncedController,
               optionsBuilder: (final TextEditingValue value) {
                 return _getSuggestions(value.text);
               },
@@ -109,7 +120,7 @@ class _SimpleInputTextFieldState extends State<SimpleInputTextField> {
                       FocusNode focusNode,
                       VoidCallback onFieldSubmitted) =>
                   TextField(
-                controller: textEditingController,
+                controller: widget.controller,
                 onChanged: (_) => setState(() => _loading = true),
                 decoration: InputDecoration(
                   filled: true,
@@ -193,6 +204,12 @@ class _SimpleInputTextFieldState extends State<SimpleInputTextField> {
       );
     }
   }
+
+  @override
+  void dispose() {
+    _debouncedController.dispose();
+    super.dispose();
+  }
 }
 
 @immutable
@@ -233,5 +250,51 @@ class UnfocusWhenTapOutside extends StatelessWidget {
       },
       child: child,
     );
+  }
+}
+
+class _DebouncedTextEditingController extends TextEditingController {
+  _DebouncedTextEditingController(TextEditingController controller) {
+    replaceWith(controller);
+  }
+
+  TextEditingController? _controller;
+  Timer? _debounce;
+
+  void replaceWith(TextEditingController controller) {
+    _controller?.removeListener(_onWrappedTextEditingControllerChanged);
+    _controller = controller;
+    _controller?.addListener(_onWrappedTextEditingControllerChanged);
+  }
+
+  void _onWrappedTextEditingControllerChanged() {
+    if (_debounce?.isActive == true) {
+      _debounce!.cancel();
+    }
+
+    _debounce = Timer(const Duration(milliseconds: 500), () {
+      super.notifyListeners();
+    });
+  }
+
+  @override
+  set text(String newText) => _controller?.value = value;
+
+  @override
+  String get text => _controller?.text ?? '';
+
+  @override
+  TextEditingValue get value => _controller?.value ?? TextEditingValue.empty;
+
+  @override
+  set value(TextEditingValue newValue) => _controller?.value = newValue;
+
+  @override
+  void clear() => _controller?.clear();
+
+  @override
+  void dispose() {
+    _debounce?.cancel();
+    super.dispose();
   }
 }
