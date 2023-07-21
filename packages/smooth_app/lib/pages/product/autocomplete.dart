@@ -98,10 +98,7 @@ class _AutocompleteOptionsItem<T extends Object> extends StatelessWidget {
     return Material(
       type: MaterialType.transparency,
       child: InkWell(
-        onTap: () {
-          print('selected');
-          onSelected(option);
-        },
+        onTap: () => onSelected(option),
         child: Ink(
           color: highlight ? Theme.of(context).focusColor : null,
           padding: const EdgeInsets.all(LARGE_SPACE),
