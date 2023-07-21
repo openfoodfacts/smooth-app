@@ -157,7 +157,8 @@ class _SmoothGoRouter {
               },
             ),
             GoRoute(
-              path: '${_InternalAppRoutes.PREFERENCES_PAGE}/:preferenceType',
+              path:
+                  '${_InternalAppRoutes.PREFERENCES_PAGE.path}/:preferenceType',
               builder: (BuildContext context, GoRouterState state) {
                 final String? type = state.pathParameters['preferenceType'];
 
