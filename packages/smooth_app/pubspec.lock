@@ -73,10 +73,10 @@ packages:
     dependency: "direct main"
     description:
       name: assorted_layout_widgets
-      sha256: ca9f5c77689cfb3437cdabb2afc9ce477e275b319e68a7d21f774e9a5478a827
+      sha256: "14f470159ca13e84d860553ee6eca02aa4f4a1b14e29c088a58d99aacf8db5df"
       url: "https://pub.dev"
     source: hosted
-    version: "7.0.0"
+    version: "8.0.4"
   async:
     dependency: transitive
     description:
