@@ -185,13 +185,15 @@ class _PortionCalculatorState extends State<PortionCalculator> {
                       horizontal: VERY_LARGE_SPACE,
                       vertical: LARGE_SPACE,
                     ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: <Widget>[
-                        Text(helper.getName(position)),
-                        Text(helper.getValue(position)),
-                      ],
+                    child: MergeSemantics(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: <Widget>[
+                          Text(helper.getName(position)),
+                          Text(helper.getValue(position)),
+                        ],
+                      ),
                     ),
                   ),
                   if (position < helper.length - 1) const Divider(height: 1.0)
