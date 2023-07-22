@@ -388,19 +388,22 @@ class _SmoothActionElevatedButton extends StatelessWidget {
       value: buttonData.text,
       button: true,
       excludeSemantics: true,
-      child: SmoothSimpleButton(
-        onPressed: buttonData.onPressed,
-        minWidth: buttonData.minWidth ?? 20.0,
-        child: FittedBox(
-          fit: BoxFit.scaleDown,
-          child: Text(
-            buttonData.text.toUpperCase(),
-            textAlign: TextAlign.center,
-            overflow: TextOverflow.ellipsis,
-            maxLines: buttonData.lines ?? 2,
-            style: themeData.textTheme.bodyMedium!.copyWith(
-              fontWeight: FontWeight.bold,
-              color: buttonData.textColor ?? themeData.colorScheme.onPrimary,
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(minHeight: 30.0),
+        child: SmoothSimpleButton(
+          onPressed: buttonData.onPressed,
+          minWidth: buttonData.minWidth ?? 20.0,
+          child: FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Text(
+              buttonData.text.toUpperCase(),
+              textAlign: TextAlign.center,
+              overflow: TextOverflow.ellipsis,
+              maxLines: buttonData.lines ?? 2,
+              style: themeData.textTheme.bodyMedium!.copyWith(
+                fontWeight: FontWeight.bold,
+                color: buttonData.textColor ?? themeData.colorScheme.onPrimary,
+              ),
             ),
           ),
         ),
@@ -444,6 +447,7 @@ class _SmoothActionFlatButton extends StatelessWidget {
             padding: const EdgeInsets.symmetric(
               horizontal: SMALL_SPACE,
             ),
+            minimumSize: const Size(0, 50.0),
           ),
           child: SizedBox(
             height: buttonData.lines != null

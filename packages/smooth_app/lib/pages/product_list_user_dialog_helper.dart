@@ -8,6 +8,7 @@ import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
+import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 
 /// Dialog helper class for user product list.
 class ProductListUserDialogHelper {
@@ -155,18 +156,22 @@ class ProductListUserDialogHelper {
       context: context,
       builder: (final BuildContext context) => SmoothAlertDialog(
         body: Text(
-          appLocalizations.confirm_delete_user_list(productList.parameters),
+          appLocalizations.confirm_delete_user_list(
+            ProductQueryPageHelper.getProductListLabel(
+              productList,
+              appLocalizations,
+            ),
+          ),
         ),
         negativeAction: SmoothActionButton(
           onPressed: () => Navigator.pop(context),
-          text: appLocalizations.cancel,
+          text: appLocalizations.no,
         ),
         positiveAction: SmoothActionButton(
-          onPressed: () {
-            Navigator.pop(context, true);
-          },
-          text: appLocalizations.okay,
+          onPressed: () => Navigator.pop(context, true),
+          text: appLocalizations.confirm_delete_user_list_button,
         ),
+        actionsAxis: Axis.vertical,
       ),
     );
     if (deleted == null) {

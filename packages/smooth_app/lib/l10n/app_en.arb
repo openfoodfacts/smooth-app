@@ -1764,7 +1764,7 @@
             }
         }
     },
-    "confirm_delete_user_list": "You're about to delete this list ({name}): are you sure you want to continue?",
+    "confirm_delete_user_list": "You're about to delete the list \"{name}\".\nAre you sure you want to continue?",
     "@confirm_delete_user_list": {
         "description": "Asking about whether to delete the list or not",
         "placeholders": {
@@ -1772,6 +1772,10 @@
                 "type": "String"
             }
         }
+    },
+    "confirm_delete_user_list_button": "Delete list",
+    "@confirm_delete_user_list_button": {
+        "description": "Button to delete a list"
     },
     "importance_label": "{name} importance: {id}",
     "@importance_label": {

@@ -56,9 +56,25 @@ class AllProductListPage extends StatelessWidget {
                 return EMPTY_WIDGET;
               },
             ),
+            trailing: PopupMenuButton<PopupMenuEntries>(
+              itemBuilder: (BuildContext context) {
+                return <PopupMenuEntry<PopupMenuEntries>>[
+                  PopupMenuItem<PopupMenuEntries>(
+                    value: PopupMenuEntries.deleteList,
+                    child: const ListTile(
+                      leading: Icon(Icons.delete),
+                      title: Text('Delete'),
+                      contentPadding: EdgeInsets.zero,
+                    ),
+                    onTap: () async =>
+                        ProductListUserDialogHelper(daoProductList)
+                            .showDeleteUserListDialog(context, productList),
+                  )
+                ];
+              },
+              icon: const Icon(Icons.more_vert),
+            ),
             onTap: () => Navigator.of(context).pop(productList),
-            onLongPress: () async => ProductListUserDialogHelper(daoProductList)
-                .showDeleteUserListDialog(context, productList),
           );
         },
       ),
@@ -75,3 +91,5 @@ class AllProductListPage extends StatelessWidget {
     );
   }
 }
+
+enum PopupMenuEntries { deleteList }
