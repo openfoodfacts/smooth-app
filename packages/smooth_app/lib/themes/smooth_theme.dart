@@ -39,6 +39,7 @@ class SmoothTheme {
 
     return ThemeData(
       primaryColor: const Color(0xFF341100),
+      fontFamily: 'PlusJakartaSans',
       colorScheme: myColorScheme,
       canvasColor: themeProvider.currentTheme == THEME_AMOLED
           ? myColorScheme.background
