@@ -423,17 +423,21 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
         return SizedBox(
           width: constraints.maxWidth / 2,
           child: InkWell(
+            borderRadius: ANGULAR_BORDER_RADIUS,
             enableFeedback: _isAttributeOpeningAllowed(attribute),
             onTap: () async => _openFullKnowledgePanel(
               attribute: attribute,
             ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                attributeIcon,
-                Expanded(child: Text(attributeDisplayTitle)),
-              ],
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  attributeIcon,
+                  Expanded(child: Text(attributeDisplayTitle)),
+                ],
+              ),
             ),
           ),
         );
