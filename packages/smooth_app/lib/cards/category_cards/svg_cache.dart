@@ -1,6 +1,7 @@
 import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_app/cards/category_cards/abstract_cache.dart';
 import 'package:smooth_app/cards/category_cards/asset_cache_helper.dart';
@@ -62,6 +63,7 @@ class SvgCache extends AbstractCache {
       width: width,
       height: height,
       fit: BoxFit.contain,
+      semanticsLabel: getSemanticsLabel(context, iconUrl!),
       placeholderBuilder: (BuildContext context) => displayAssetWhileWaiting
           ? SvgAsyncAsset(
               AssetCacheHelper(
@@ -74,5 +76,23 @@ class SvgCache extends AbstractCache {
             )
           : getCircularProgressIndicator(),
     );
+  }
+
+  static String? getSemanticsLabel(BuildContext context, String iconUrl) {
+    final AppLocalizations localizations = AppLocalizations.of(context);
+
+    return switch (Uri.parse(iconUrl).pathSegments.last) {
+      'nutriscore-a.svg' => localizations.nutriscore_a,
+      'nutriscore-b.svg' => localizations.nutriscore_b,
+      'nutriscore-c.svg' => localizations.nutriscore_c,
+      'nutriscore-d.svg' => localizations.nutriscore_d,
+      'nutriscore-e.svg' => localizations.nutriscore_e,
+      'ecoscore-a.svg' => localizations.ecoscore_e,
+      'ecoscore-b.svg' => localizations.ecoscore_e,
+      'ecoscore-c.svg' => localizations.ecoscore_e,
+      'ecoscore-d.svg' => localizations.ecoscore_e,
+      'ecoscore-e.svg' => localizations.ecoscore_e,
+      _ => null,
+    };
   }
 }

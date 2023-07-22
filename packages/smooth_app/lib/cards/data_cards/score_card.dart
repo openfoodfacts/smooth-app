@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/cards/category_cards/svg_cache.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/svg_icon_chip.dart';
 import 'package:smooth_app/helpers/score_card_helper.dart';
@@ -89,37 +90,42 @@ class ScoreCard extends StatelessWidget {
     final SvgIconChip? iconChip =
         iconUrl == null ? null : SvgIconChip(iconUrl!, height: iconHeight);
 
-    return Padding(
-      padding: margin ?? const EdgeInsets.symmetric(vertical: SMALL_SPACE),
-      child: Ink(
-        padding: const EdgeInsets.all(SMALL_SPACE),
-        decoration: BoxDecoration(
-          color: backgroundColor,
-          borderRadius: ANGULAR_BORDER_RADIUS,
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            if (iconChip != null)
+    return Semantics(
+      value: '${SvgCache.getSemanticsLabel(context, iconUrl!)} $description',
+      excludeSemantics: true,
+      button: true,
+      child: Padding(
+        padding: margin ?? const EdgeInsets.symmetric(vertical: SMALL_SPACE),
+        child: Ink(
+          padding: const EdgeInsets.all(SMALL_SPACE),
+          decoration: BoxDecoration(
+            color: backgroundColor,
+            borderRadius: ANGULAR_BORDER_RADIUS,
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              if (iconChip != null)
+                Expanded(
+                  flex: 1,
+                  child: Padding(
+                    padding: const EdgeInsetsDirectional.only(end: SMALL_SPACE),
+                    child: iconChip,
+                  ),
+                ),
               Expanded(
-                flex: 1,
-                child: Padding(
-                  padding: const EdgeInsetsDirectional.only(end: SMALL_SPACE),
-                  child: iconChip,
+                flex: 3,
+                child: Center(
+                  child: Text(
+                    description,
+                    style: themeData.textTheme.headlineMedium!
+                        .apply(color: textColor),
+                  ),
                 ),
               ),
-            Expanded(
-              flex: 3,
-              child: Center(
-                child: Text(
-                  description,
-                  style: themeData.textTheme.headlineMedium!
-                      .apply(color: textColor),
-                ),
-              ),
-            ),
-            if (isClickable) Icon(ConstantIcons.instance.getForwardIcon()),
-          ],
+              if (isClickable) Icon(ConstantIcons.instance.getForwardIcon()),
+            ],
+          ),
         ),
       ),
     );
