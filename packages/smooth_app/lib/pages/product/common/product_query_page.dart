@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:iso_countries/iso_countries.dart';
@@ -208,17 +207,13 @@ class _ProductQueryPageState extends State<ProductQueryPage>
           automaticallyImplyLeading: false,
           leading: const SmoothBackButton(),
           title: _AppBarTitle(
-            name: widget.searchResult
+            title: widget.searchResult
                 ? widget.name
                 : appLocalizations.product_search_same_category,
-            editableAppBarTitle: widget.editableAppBarTitle,
+            editableAppBarTitle:
+                widget.searchResult && widget.editableAppBarTitle,
           ),
-          subTitle: !widget.searchResult
-              ? _AppBarTitle(
-                  name: widget.name,
-                  editableAppBarTitle: widget.editableAppBarTitle,
-                )
-              : null,
+          subTitle: !widget.searchResult ? Text(widget.name) : null,
           actions: _getAppBarButtons(),
         ),
         body: RefreshIndicator(
@@ -504,7 +499,7 @@ class _EmptyScreen extends StatelessWidget {
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         leading: const SmoothBackButton(),
         title: _AppBarTitle(
-          name: name,
+          title: name,
           editableAppBarTitle: false,
         ),
         actions: actions,
@@ -516,31 +511,38 @@ class _EmptyScreen extends StatelessWidget {
 
 class _AppBarTitle extends StatelessWidget {
   const _AppBarTitle({
-    required this.name,
+    required this.title,
+    this.multiLines = true,
     required this.editableAppBarTitle,
     Key? key,
   }) : super(key: key);
 
-  final String name;
+  final String title;
+  final bool multiLines;
   final bool editableAppBarTitle;
+
   @override
   Widget build(BuildContext context) {
-    final Widget child = AutoSizeText(
-      name,
-      maxLines: 2,
+    final Widget child = Text(
+      title,
+      maxLines: multiLines ? 2 : 1,
     );
 
     if (editableAppBarTitle) {
       final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-      return GestureDetector(
-          onTap: () {
-            Navigator.of(context).pop(ProductQueryPageResult.editProductQuery);
-          },
-          child: Tooltip(
-            message: appLocalizations.tap_to_edit_search,
+      return InkWell(
+        onTap: () {
+          Navigator.of(context).pop(ProductQueryPageResult.editProductQuery);
+        },
+        child: Tooltip(
+          message: appLocalizations.tap_to_edit_search,
+          child: SizedBox(
+            width: double.infinity,
             child: child,
-          ));
+          ),
+        ),
+      );
     } else {
       return child;
     }
