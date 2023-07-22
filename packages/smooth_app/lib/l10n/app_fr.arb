@@ -1927,6 +1927,26 @@
     "@scan_header_compare_button_valid_state_tooltip": {
         "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is at least two prodiucts"
     },
+    "scan_product_loading": "Vous avez scanné\nle code-barres :",
+    "@scan_product_loading": {
+        "description": "Title when a product is loading (carousel card). Please ensure to keep the line break."
+    },
+    "scan_product_loading_initial": "Nous cherchons ce produit !\nMerci de patienter quelques instants…",
+    "@scan_product_loading_initial": {
+        "description": "Message when a product is loading (carousel card). Please ensure to keep the line break."
+    },
+    "scan_product_loading_long_request": "Nous cherchons toujours ce produit !\nLe chargement vous paraît long ? Nous aussi…",
+    "@scan_product_loading_long_request": {
+        "description": "Message when a product is long to load (carousel card). Please ensure to keep the line break."
+    },
+    "scan_product_loading_unresponsive": "Nous cherchons toujours ce produit !\nVoulez-vous relancer la recherche ?",
+    "@scan_product_loading_unresponsive": {
+        "description": "Message when a product is too long to load (carousel card). Please ensure to keep the line break."
+    },
+    "scan_product_loading_restart_button": "Relancer la recherche",
+    "@scan_product_loading_restart_button": {
+        "description": "Button to force restart a product search"
+    },
     "portion_calculator_description": "Calculer les valeurs nutritionnelles pour une quantité spécifique",
     "@portion_calculator_description": {
         "description": "Sort of title that describes the portion calculator."

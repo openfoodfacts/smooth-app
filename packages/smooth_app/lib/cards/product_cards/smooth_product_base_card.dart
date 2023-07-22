@@ -68,19 +68,22 @@ class ProductCardCloseButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-    return InkWell(
-      customBorder: const CircleBorder(),
-      onTap: () {
-        onRemove?.call(context);
-        SmoothHapticFeedback.lightNotification();
-      },
-      child: Tooltip(
-        message: appLocalizations.product_card_remove_product_tooltip,
-        child: Padding(
-          padding: const EdgeInsets.all(SMALL_SPACE),
-          child: Icon(
-            iconData,
-            size: DEFAULT_ICON_SIZE,
+    return Material(
+      type: MaterialType.transparency,
+      child: InkWell(
+        customBorder: const CircleBorder(),
+        onTap: () {
+          onRemove?.call(context);
+          SmoothHapticFeedback.lightNotification();
+        },
+        child: Tooltip(
+          message: appLocalizations.product_card_remove_product_tooltip,
+          child: Padding(
+            padding: const EdgeInsets.all(SMALL_SPACE),
+            child: Icon(
+              iconData,
+              size: DEFAULT_ICON_SIZE,
+            ),
           ),
         ),
       ),
