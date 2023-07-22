@@ -91,7 +91,7 @@ class ScoreCard extends StatelessWidget {
         iconUrl == null ? null : SvgIconChip(iconUrl!, height: iconHeight);
 
     return Semantics(
-      value: '${SvgCache.getSemanticsLabel(context, iconUrl!)} $description',
+      value: _generateSemanticsValue(context),
       excludeSemantics: true,
       button: true,
       child: Padding(
@@ -129,5 +129,15 @@ class ScoreCard extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  String _generateSemanticsValue(BuildContext context) {
+    final String? iconLabel = SvgCache.getSemanticsLabel(context, iconUrl!);
+
+    if (iconLabel == null) {
+      return description;
+    } else {
+      return '$iconLabel: $description';
+    }
   }
 }
