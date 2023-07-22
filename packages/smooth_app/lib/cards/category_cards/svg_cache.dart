@@ -80,7 +80,6 @@ class SvgCache extends AbstractCache {
 
   static String? getSemanticsLabel(BuildContext context, String iconUrl) {
     final AppLocalizations localizations = AppLocalizations.of(context);
-    print(iconUrl);
 
     return switch (Uri.parse(iconUrl).pathSegments.last) {
       'ecoscore-a.svg' => localizations.ecoscore_a,
