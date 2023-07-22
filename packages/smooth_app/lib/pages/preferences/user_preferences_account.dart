@@ -134,7 +134,11 @@ class UserPreferencesAccount extends AbstractUserPreferences {
     final ThemeData theme = Theme.of(context);
     final Size size = MediaQuery.of(context).size;
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: size.width / 4),
+      margin: EdgeInsets.only(
+        left: size.width / 4,
+        right: size.width / 4,
+        bottom: SMALL_SPACE,
+      ),
       child: SmoothSimpleButton(
         child: Text(
           appLocalizations.sign_in,
