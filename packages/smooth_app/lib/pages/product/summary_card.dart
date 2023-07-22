@@ -314,6 +314,7 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
               localDatabase: context.read<LocalDatabase>(),
               productQuery: CategoryProductQuery(categoryTag!),
               context: context,
+              searchResult: false,
             ),
           ),
         );
