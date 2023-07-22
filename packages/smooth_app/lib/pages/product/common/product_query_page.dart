@@ -212,6 +212,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
                 : appLocalizations.product_search_same_category,
             editableAppBarTitle:
                 widget.searchResult && widget.editableAppBarTitle,
+            multiLines: !widget.searchResult,
           ),
           subTitle: !widget.searchResult ? Text(widget.name) : null,
           actions: _getAppBarButtons(),
