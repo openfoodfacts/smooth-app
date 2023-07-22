@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -17,6 +19,7 @@ class SmoothTheme {
     final ThemeProvider themeProvider,
     final ColorProvider colorProvider,
     final TextContrastProvider textContrastProvider,
+    final String? languageCode,
   ) {
     ColorScheme myColorScheme;
 
@@ -39,7 +42,7 @@ class SmoothTheme {
 
     return ThemeData(
       primaryColor: const Color(0xFF341100),
-      fontFamily: 'PlusJakartaSans',
+      fontFamily: _getFontFamily(languageCode),
       colorScheme: myColorScheme,
       canvasColor: themeProvider.currentTheme == THEME_AMOLED
           ? myColorScheme.background
@@ -139,6 +142,90 @@ class SmoothTheme {
         }),
       ),
     );
+  }
+
+  // Adyghe                     ady
+  // Avaric                     ava, av
+  // Azerbaijani (Cyrillic)     aze, az
+  // Bosnian (Cyrillic)         bos, bs
+  // Bulgarian                  bul, bg
+  // Chechen                    che, ce
+  // Chuvash                    chv, cv
+  // Dargwa                     dar
+  // Erzya                      myv
+  // Interlingua                ile, ie, ina, ia
+  // Kabardian                  kbd
+  // Karachay-Balkar            krc
+  // Komi                       kom, kv
+  // Kumyk                      kum
+  // Kurdish                    kur, ku
+  // Lezghian                   lez
+  // Macedonian                 mac, mkd, mk
+  // Mari                       chm
+  // Modern Greek               gre, ell, el
+  // Moksha                     mdf
+  // Mongolian                  mon, mn
+  // Ossetic                    oss, os
+  // Romanian                   ro, rn
+  // Russian                    ru
+  // Southern Altai             alt
+  // Udmurt                     udm
+  // Ukrainian                  uk, ukr
+  static String? _getFontFamily(String? languageCode) {
+    final String locale = languageCode ?? Platform.localeName;
+
+    if (<String>[
+      'ady',
+      'ava',
+      'av',
+      'aze',
+      'az',
+      'bos',
+      'bs',
+      'bul',
+      'bg',
+      'che',
+      'ce',
+      'chv',
+      'cv',
+      'dar',
+      'myv',
+      'ile',
+      'ie',
+      'ina',
+      'ia',
+      'kbd',
+      'krc',
+      'kom',
+      'kv',
+      'kum',
+      'kur',
+      'ku',
+      'lez',
+      'mac',
+      'mkd',
+      'mk',
+      'chm',
+      'gre',
+      'ell',
+      'el',
+      'mdf',
+      'mon',
+      'mn',
+      'oss',
+      'os',
+      'ro',
+      'rn',
+      'ru',
+      'alt',
+      'udm',
+      'uk',
+      'ukr'
+    ].contains(locale)) {
+      return null;
+    }
+
+    return 'PlusJakartaSans';
   }
 
   static TextTheme getTextTheme(
