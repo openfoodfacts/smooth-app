@@ -249,9 +249,19 @@ class _SmoothAppState extends State<SmoothApp> {
       supportedLocales: AppLocalizations.supportedLocales,
       debugShowCheckedModeBanner: !(kReleaseMode || _screenshots),
       theme: SmoothTheme.getThemeData(
-          Brightness.light, themeProvider, colorProvider, textContrastProvider),
+        Brightness.light,
+        themeProvider,
+        colorProvider,
+        textContrastProvider,
+        languageCode,
+      ),
       darkTheme: SmoothTheme.getThemeData(
-          Brightness.dark, themeProvider, colorProvider, textContrastProvider),
+        Brightness.dark,
+        themeProvider,
+        colorProvider,
+        textContrastProvider,
+        languageCode,
+      ),
       themeMode: themeProvider.currentThemeMode,
       routerConfig: AppNavigator.of(context).router,
     );
