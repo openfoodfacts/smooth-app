@@ -11,6 +11,8 @@ class UserPreferencesListTile extends StatelessWidget {
     this.onTap,
     this.onLongPress,
     this.shape,
+    this.selected,
+    this.selectedColor,
   });
 
   final Widget title;
@@ -20,6 +22,8 @@ class UserPreferencesListTile extends StatelessWidget {
   final VoidCallback? onTap;
   final VoidCallback? onLongPress;
   final ShapeBorder? shape;
+  final bool? selected;
+  final Color? selectedColor;
 
   /// Icon (leading or trailing) with the standard color.
   static Icon getTintedIcon(
@@ -38,6 +42,8 @@ class UserPreferencesListTile extends StatelessWidget {
           style: Theme.of(context).textTheme.headlineMedium,
           child: title,
         ),
+        selected: selected ?? false,
+        selectedTileColor: selectedColor,
         contentPadding: EdgeInsets.symmetric(
           horizontal: LARGE_SPACE,
           vertical: subtitle != null ? VERY_SMALL_SPACE : 2.0,

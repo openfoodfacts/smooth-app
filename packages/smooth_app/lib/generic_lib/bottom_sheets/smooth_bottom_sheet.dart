@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import 'package:flutter/semantics.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_draggable_bottom_sheet_route.dart';
@@ -27,30 +29,36 @@ Future<T?> showSmoothDraggableModalSheet<T>({
 
   /// You must return a Sliver Widget
   required WidgetBuilder bodyBuilder,
+  double? initHeight,
 }) {
   return showDraggableModalSheet<T>(
     context: context,
     borderRadius: const BorderRadius.vertical(top: ROUNDED_RADIUS),
     headerBuilder: (_) => header,
-    headerHeight:
-        SmoothModalSheetHeader.computeHeight(context, header.closeButton),
+    headerHeight: header.computeHeight(context),
     bodyBuilder: bodyBuilder,
+    initHeight: initHeight,
   );
 }
 
 /// A non scrollable modal sheet
 class SmoothModalSheet extends StatelessWidget {
-  const SmoothModalSheet({
-    required this.title,
+  SmoothModalSheet({
+    required String title,
     required this.body,
-    this.closeButton = true,
+    bool closeButton = true,
     this.bodyPadding,
-    this.closeButtonSemanticsOrder,
-  });
+    double? closeButtonSemanticsOrder,
+  }) : header = SmoothModalSheetHeader(
+          title: title,
+          suffix: closeButton
+              ? SmoothModalSheetHeaderCloseButton(
+                  semanticsOrder: closeButtonSemanticsOrder,
+                )
+              : null,
+        );
 
-  final String title;
-  final bool closeButton;
-  final double? closeButtonSemanticsOrder;
+  final SmoothModalSheetHeader header;
   final Widget body;
   final EdgeInsetsGeometry? bodyPadding;
 
@@ -65,11 +73,7 @@ class SmoothModalSheet extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              SmoothModalSheetHeader(
-                title: title,
-                closeButton: closeButton,
-                closeButtonSemanticsOrder: closeButtonSemanticsOrder,
-              ),
+              header,
               Padding(
                 padding: bodyPadding ?? const EdgeInsets.all(MEDIUM_SPACE),
                 child: body,
@@ -78,81 +82,191 @@ class SmoothModalSheet extends StatelessWidget {
           )),
     );
   }
+
+  double computeHeaderHeight(BuildContext context) =>
+      header.computeHeight(context);
 }
 
-class SmoothModalSheetHeader extends StatelessWidget {
+class SmoothModalSheetHeader extends StatelessWidget implements SizeWidget {
   const SmoothModalSheetHeader({
     required this.title,
-    this.closeButton = true,
-    this.closeButtonSemanticsOrder,
+    this.suffix,
   });
 
+  static const double MIN_HEIGHT = 50.0;
+
   final String title;
-  final bool closeButton;
-  final double? closeButtonSemanticsOrder;
+  final SizeWidget? suffix;
 
   @override
   Widget build(BuildContext context) {
     final Color primaryColor = Theme.of(context).primaryColor;
 
     return Container(
+      height: suffix is SmoothModalSheetHeaderButton ? double.infinity : null,
       color: primaryColor.withOpacity(0.2),
+      constraints: const BoxConstraints(minHeight: MIN_HEIGHT),
       padding: EdgeInsetsDirectional.only(
         start: VERY_LARGE_SPACE,
         top: VERY_SMALL_SPACE,
         bottom: VERY_SMALL_SPACE,
-        end: VERY_LARGE_SPACE - (closeButton ? LARGE_SPACE : 0),
+        end: VERY_LARGE_SPACE - (suffix != null ? LARGE_SPACE : 0),
       ),
-      child: Row(
-        children: <Widget>[
-          Expanded(
-            child: Semantics(
-              sortKey: const OrdinalSortKey(1.0),
-              child: Text(
-                title,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: Theme.of(context).textTheme.titleLarge,
-              ),
-            ),
-          ),
-          if (closeButton)
-            Semantics(
-              value: MaterialLocalizations.of(context).closeButtonTooltip,
-              button: true,
-              excludeSemantics: true,
-              onScrollDown: () {},
-              sortKey: OrdinalSortKey(closeButtonSemanticsOrder ?? 2.0),
-              child: Tooltip(
-                message: MaterialLocalizations.of(context).closeButtonTooltip,
-                enableFeedback: true,
-                child: InkWell(
-                  onTap: () => Navigator.of(context).pop(),
-                  customBorder: const CircleBorder(),
-                  child: const Padding(
-                    padding: EdgeInsets.all(MEDIUM_SPACE),
-                    child: Icon(Icons.clear),
-                  ),
+      child: IntrinsicHeight(
+        child: Row(
+          children: <Widget>[
+            Expanded(
+              child: Semantics(
+                sortKey: const OrdinalSortKey(1.0),
+                child: Text(
+                  title,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: Theme.of(context).textTheme.titleLarge,
                 ),
               ),
-            )
-        ],
+            ),
+            if (suffix != null) suffix!
+          ],
+        ),
       ),
     );
   }
 
-  static double computeHeight(
-    BuildContext context,
-    bool hasCloseButton,
-  ) {
-    double size = VERY_SMALL_SPACE * 2;
-
-    if (hasCloseButton == true) {
-      size += (MEDIUM_SPACE * 2) + (Theme.of(context).iconTheme.size ?? 20.0);
-    } else {
-      size += Theme.of(context).textTheme.titleLarge?.fontSize ?? 15.0;
-    }
-
-    return size;
+  double computeHeight(BuildContext context) {
+    return math.max(
+      widgetHeight(context),
+      suffix?.widgetHeight(context) ?? 0.0,
+    );
   }
+
+  @override
+  double widgetHeight(BuildContext context) {
+    final double size = VERY_SMALL_SPACE * 2 +
+        (Theme.of(context).textTheme.titleLarge?.fontSize ?? 15.0);
+
+    return math.max(MIN_HEIGHT, size);
+  }
+}
+
+class SmoothModalSheetHeaderButton extends StatelessWidget
+    implements SizeWidget {
+  const SmoothModalSheetHeaderButton({
+    required this.label,
+    this.prefix,
+    this.suffix,
+    this.onTap,
+    this.tooltip,
+  });
+
+  static const EdgeInsetsGeometry _padding = EdgeInsetsDirectional.symmetric(
+    horizontal: 15.0,
+    vertical: 20.0,
+  );
+
+  final String label;
+  final Widget? prefix;
+  final Widget? suffix;
+  final String? tooltip;
+  final VoidCallback? onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Semantics(
+      value: tooltip,
+      button: true,
+      excludeSemantics: true,
+      child: Tooltip(
+        message: tooltip ?? '',
+        child: TextButton(
+          onPressed: onTap,
+          style: TextButton.styleFrom(
+            padding: _padding,
+            shape: const RoundedRectangleBorder(
+              borderRadius: ROUNDED_BORDER_RADIUS,
+            ),
+            foregroundColor: Colors.white,
+            backgroundColor: Theme.of(context).primaryColor,
+            iconColor: Colors.white,
+          ),
+          child: IconTheme(
+            data: const IconThemeData(
+              color: Colors.white,
+              size: 20.0,
+            ),
+            child: Row(
+              children: <Widget>[
+                if (prefix != null) ...<Widget>[
+                  prefix!,
+                  const SizedBox(
+                    width: SMALL_SPACE,
+                  ),
+                ],
+                Text(
+                  label,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 17.0,
+                  ),
+                  maxLines: 1,
+                ),
+                if (suffix != null) ...<Widget>[
+                  const SizedBox(
+                    width: SMALL_SPACE,
+                  ),
+                  suffix!,
+                ],
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  @override
+  double widgetHeight(BuildContext context) {
+    return math.max(17.0 * MediaQuery.textScaleFactorOf(context),
+            suffix is Icon || prefix is Icon ? 20.0 : 0.0) +
+        _padding.vertical;
+  }
+}
+
+class SmoothModalSheetHeaderCloseButton extends StatelessWidget
+    implements SizeWidget {
+  const SmoothModalSheetHeaderCloseButton({
+    this.semanticsOrder,
+  });
+
+  final double? semanticsOrder;
+
+  @override
+  Widget build(BuildContext context) {
+    return Semantics(
+      value: MaterialLocalizations.of(context).closeButtonTooltip,
+      button: true,
+      excludeSemantics: true,
+      sortKey: OrdinalSortKey(semanticsOrder ?? 2.0),
+      child: Tooltip(
+        message: MaterialLocalizations.of(context).closeButtonTooltip,
+        enableFeedback: true,
+        child: InkWell(
+          onTap: () => Navigator.of(context).pop(),
+          customBorder: const CircleBorder(),
+          child: const Padding(
+            padding: EdgeInsets.all(MEDIUM_SPACE),
+            child: Icon(Icons.clear),
+          ),
+        ),
+      ),
+    );
+  }
+
+  @override
+  double widgetHeight(BuildContext context) =>
+      (MEDIUM_SPACE * 2) + (Theme.of(context).iconTheme.size ?? 20.0);
+}
+
+abstract class SizeWidget implements Widget {
+  double widgetHeight(BuildContext context);
 }

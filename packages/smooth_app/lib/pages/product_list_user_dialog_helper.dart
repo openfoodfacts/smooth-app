@@ -155,8 +155,9 @@ class ProductListUserDialogHelper {
     final bool? deleted = await showDialog<bool>(
       context: context,
       builder: (final BuildContext context) => SmoothAlertDialog(
+        title: appLocalizations.confirm_delete_user_list_title,
         body: Text(
-          appLocalizations.confirm_delete_user_list(
+          appLocalizations.confirm_delete_user_list_message(
             ProductQueryPageHelper.getProductListLabel(
               productList,
               appLocalizations,

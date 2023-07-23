@@ -8,85 +8,96 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
-import 'package:smooth_app/widgets/smooth_app_bar.dart';
-import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Page that lists all product lists.
-class AllProductListPage extends StatelessWidget {
-  const AllProductListPage();
+class AllProductListModal extends StatelessWidget {
+  AllProductListModal({
+    required this.currentList,
+  });
+
+  final ProductList currentList;
+
+  final List<ProductList> hardcodedProductLists = <ProductList>[
+    ProductList.scanSession(),
+    ProductList.scanHistory(),
+    ProductList.history(),
+  ];
 
   @override
   Widget build(BuildContext context) {
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     final DaoProductList daoProductList = DaoProductList(localDatabase);
-    final List<ProductList> productLists = <ProductList>[
-      ProductList.scanSession(),
-      ProductList.scanHistory(),
-      ProductList.history(),
-    ];
+
     final List<String> userLists = daoProductList.getUserLists();
+    final List<ProductList> productLists =
+        List<ProductList>.from(hardcodedProductLists);
     for (final String userList in userLists) {
       productLists.add(ProductList.user(userList));
     }
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    return SmoothScaffold(
-      appBar: SmoothAppBar(title: Text(appLocalizations.product_list_select)),
-      body: ListView.builder(
-        itemCount: productLists.length,
-        itemBuilder: (final BuildContext context, final int index) {
+
+    return SliverList(
+      delegate: SliverChildBuilderDelegate(
+        childCount: productLists.length,
+        (final BuildContext context, final int index) {
           final ProductList productList = productLists[index];
-          return UserPreferencesListTile(
-            title: Text(
-              ProductQueryPageHelper.getProductListLabel(
-                productList,
-                appLocalizations,
+          return Column(
+            children: <Widget>[
+              UserPreferencesListTile(
+                title: Text(
+                  ProductQueryPageHelper.getProductListLabel(
+                    productList,
+                    appLocalizations,
+                  ),
+                ),
+                subtitle: FutureBuilder<int>(
+                  future: daoProductList.getLength(productList),
+                  builder: (
+                    final BuildContext context,
+                    final AsyncSnapshot<int> snapshot,
+                  ) {
+                    if (snapshot.data != null) {
+                      return Text(
+                        appLocalizations.user_list_length(snapshot.data!),
+                      );
+                    }
+                    return EMPTY_WIDGET;
+                  },
+                ),
+                trailing: productList.isEditable
+                    ? PopupMenuButton<PopupMenuEntries>(
+                        itemBuilder: (BuildContext context) {
+                          return <PopupMenuEntry<PopupMenuEntries>>[
+                            PopupMenuItem<PopupMenuEntries>(
+                                value: PopupMenuEntries.deleteList,
+                                child: ListTile(
+                                  leading: const Icon(Icons.delete),
+                                  title:
+                                      Text(appLocalizations.action_delete_list),
+                                  contentPadding: EdgeInsets.zero,
+                                ),
+                                onTap: () {
+                                  WidgetsBinding.instance
+                                      .addPostFrameCallback((_) {
+                                    ProductListUserDialogHelper(daoProductList)
+                                        .showDeleteUserListDialog(
+                                            context, productList);
+                                  });
+                                })
+                          ];
+                        },
+                        icon: const Icon(Icons.more_vert),
+                      )
+                    : null,
+                selected: productList.listType == currentList.listType &&
+                    productList.parameters == currentList.parameters,
+                selectedColor: Theme.of(context).primaryColor.withOpacity(0.2),
+                onTap: () => Navigator.of(context).pop(productList),
               ),
-            ),
-            subtitle: FutureBuilder<int>(
-              future: daoProductList.getLength(productList),
-              builder: (
-                final BuildContext context,
-                final AsyncSnapshot<int> snapshot,
-              ) {
-                if (snapshot.data != null) {
-                  return Text(
-                    appLocalizations.user_list_length(snapshot.data!),
-                  );
-                }
-                return EMPTY_WIDGET;
-              },
-            ),
-            trailing: PopupMenuButton<PopupMenuEntries>(
-              itemBuilder: (BuildContext context) {
-                return <PopupMenuEntry<PopupMenuEntries>>[
-                  PopupMenuItem<PopupMenuEntries>(
-                    value: PopupMenuEntries.deleteList,
-                    child: const ListTile(
-                      leading: Icon(Icons.delete),
-                      title: Text('Delete'),
-                      contentPadding: EdgeInsets.zero,
-                    ),
-                    onTap: () async =>
-                        ProductListUserDialogHelper(daoProductList)
-                            .showDeleteUserListDialog(context, productList),
-                  )
-                ];
-              },
-              icon: const Icon(Icons.more_vert),
-            ),
-            onTap: () => Navigator.of(context).pop(productList),
+              if (index < productLists.length - 1) const Divider(height: 1.0),
+            ],
           );
         },
-      ),
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: () async => ProductListUserDialogHelper(daoProductList)
-            .showCreateUserListDialog(context),
-        label: Row(
-          children: <Widget>[
-            const Icon(Icons.add),
-            Text(appLocalizations.add_list_label),
-          ],
-        ),
       ),
     );
   }
