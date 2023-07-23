@@ -92,6 +92,12 @@ class AllProductListModal extends StatelessWidget {
                 selected: productList.listType == currentList.listType &&
                     productList.parameters == currentList.parameters,
                 selectedColor: Theme.of(context).primaryColor.withOpacity(0.2),
+                contentPadding: const EdgeInsetsDirectional.only(
+                  start: VERY_LARGE_SPACE,
+                  end: LARGE_SPACE,
+                  top: VERY_SMALL_SPACE,
+                  bottom: VERY_SMALL_SPACE,
+                ),
                 onTap: () => Navigator.of(context).pop(productList),
               ),
               if (index < productLists.length - 1) const Divider(height: 1.0),

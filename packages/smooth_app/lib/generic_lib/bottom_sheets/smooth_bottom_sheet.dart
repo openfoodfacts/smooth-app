@@ -110,7 +110,8 @@ class SmoothModalSheetHeader extends StatelessWidget implements SizeWidget {
         start: VERY_LARGE_SPACE,
         top: VERY_SMALL_SPACE,
         bottom: VERY_SMALL_SPACE,
-        end: VERY_LARGE_SPACE - (suffix != null ? LARGE_SPACE : 0),
+        end: VERY_LARGE_SPACE -
+            (suffix?.requiresPadding == true ? 0 : LARGE_SPACE),
       ),
       child: IntrinsicHeight(
         child: Row(
@@ -147,6 +148,9 @@ class SmoothModalSheetHeader extends StatelessWidget implements SizeWidget {
 
     return math.max(MIN_HEIGHT, size);
   }
+
+  @override
+  bool get requiresPadding => true;
 }
 
 class SmoothModalSheetHeaderButton extends StatelessWidget
@@ -230,6 +234,9 @@ class SmoothModalSheetHeaderButton extends StatelessWidget
             suffix is Icon || prefix is Icon ? 20.0 : 0.0) +
         _padding.vertical;
   }
+
+  @override
+  bool get requiresPadding => true;
 }
 
 class SmoothModalSheetHeaderCloseButton extends StatelessWidget
@@ -265,8 +272,13 @@ class SmoothModalSheetHeaderCloseButton extends StatelessWidget
   @override
   double widgetHeight(BuildContext context) =>
       (MEDIUM_SPACE * 2) + (Theme.of(context).iconTheme.size ?? 20.0);
+
+  @override
+  bool get requiresPadding => false;
 }
 
 abstract class SizeWidget implements Widget {
   double widgetHeight(BuildContext context);
+
+  bool get requiresPadding;
 }
