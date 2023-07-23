@@ -734,7 +734,11 @@
     },
     "country_chooser_label": "Please choose a country",
     "@country_chooser_label": {
-        "description": "Label shown above a selector where the user can select their country"
+        "description": "Label shown above a selector where the user can select their country (in the onboarding)"
+    },
+    "country_chooser_label_from_settings": "Your country",
+    "@country_chooser_label_from_settings": {
+        "description": "Label to use in the settings to change the user country"
     },
     "country_selection_explanation": "Some environmental features are location-specific",
     "@country_label": {
@@ -748,7 +752,7 @@
     "@native_app_settings": {
         "description": "Native App Settings in app settings"
     },
-    "native_app_description": "Open systems settings for Open Food Facts",
+    "native_app_description": "Open system settings for Open Food Facts",
     "@native_app_description": {
         "description": "Native App description in app settings"
     },
@@ -1907,8 +1911,8 @@
         }
     },
     "clipboard_barcode_copied": "Barcode {barcode} copied to the clipboard!",
-    "choose_app_language": "Choose App Language",
-    "@choose_app_language": {
+    "language_picker_label": "Your language",
+    "@language_picker_label": {
         "description": "Choose Application Language"
     },
     "help_with_openfoodfacts": "Help with OpenFoodFacts",
@@ -1955,7 +1959,27 @@
     "@scan_header_compare_button_valid_state_tooltip": {
         "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is at least two prodiucts"
     },
-    "portion_calculator_description": "Calculate nutrition facts for a specific quantity:",
+    "scan_product_loading": "You have scanned\nthe barcode:",
+    "@scan_product_loading": {
+        "description": "Title when a product is loading (carousel card). Please ensure to keep the line break."
+    },
+    "scan_product_loading_initial": "We're looking for this product!\nPlease wait a few seconds…",
+    "@scan_product_loading_initial": {
+        "description": "Message when a product is loading (carousel card). Please ensure to keep the line break."
+    },
+    "scan_product_loading_long_request": "We're still looking for this product!\nDo you find it takes a long time to load? So are we…",
+    "@scan_product_loading_long_request": {
+        "description": "Message when a product is long to load (carousel card). Please ensure to keep the line break."
+    },
+    "scan_product_loading_unresponsive": "We're still looking for this product.\nWould you like to restart the search?",
+    "@scan_product_loading_unresponsive": {
+        "description": "Message when a product is too long to load (carousel card). Please ensure to keep the line break."
+    },
+    "scan_product_loading_restart_button": "Restart search",
+    "@scan_product_loading_restart_button": {
+        "description": "Button to force restart a product search"
+    },
+    "portion_calculator_description": "Calculate nutrition facts for a specific quantity",
     "@portion_calculator_description": {
         "description": "Sort of title that describes the portion calculator."
     },

@@ -15,9 +15,13 @@ import 'package:smooth_app/query/product_query.dart';
 class CountrySelector extends StatefulWidget {
   const CountrySelector({
     this.textStyle,
+    this.padding,
+    this.icon,
   });
 
   final TextStyle? textStyle;
+  final EdgeInsetsGeometry? padding;
+  final IconData? icon;
 
   @override
   State<CountrySelector> createState() => _CountrySelectorState();
@@ -206,7 +210,7 @@ class _CountrySelectorState extends State<CountrySelector> {
             ),
             padding: const EdgeInsets.symmetric(
               vertical: SMALL_SPACE,
-            ),
+            ).add(widget.padding ?? EdgeInsets.zero),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -224,7 +228,7 @@ class _CountrySelectorState extends State<CountrySelector> {
                     ),
                   ),
                 ),
-                const Icon(Icons.arrow_drop_down),
+                Icon(widget.icon ?? Icons.arrow_drop_down),
               ],
             ),
           ),

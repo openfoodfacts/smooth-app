@@ -20,6 +20,8 @@ PODS:
   - path_provider_foundation (0.0.1):
     - Flutter
     - FlutterMacOS
+  - rive_common (0.0.1):
+    - FlutterMacOS
   - Sentry/HybridSDK (7.31.5)
   - sentry_flutter (0.0.1):
     - Flutter
@@ -46,6 +48,7 @@ DEPENDENCIES:
   - mobile_scanner (from `Flutter/ephemeral/.symlinks/plugins/mobile_scanner/macos`)
   - package_info_plus (from `Flutter/ephemeral/.symlinks/plugins/package_info_plus/macos`)
   - path_provider_foundation (from `Flutter/ephemeral/.symlinks/plugins/path_provider_foundation/darwin`)
+  - rive_common (from `Flutter/ephemeral/.symlinks/plugins/rive_common/macos`)
   - sentry_flutter (from `Flutter/ephemeral/.symlinks/plugins/sentry_flutter/macos`)
   - share_plus (from `Flutter/ephemeral/.symlinks/plugins/share_plus/macos`)
   - shared_preferences_foundation (from `Flutter/ephemeral/.symlinks/plugins/shared_preferences_foundation/darwin`)
@@ -76,6 +79,8 @@ EXTERNAL SOURCES:
     :path: Flutter/ephemeral/.symlinks/plugins/package_info_plus/macos
   path_provider_foundation:
     :path: Flutter/ephemeral/.symlinks/plugins/path_provider_foundation/darwin
+  rive_common:
+    :path: Flutter/ephemeral/.symlinks/plugins/rive_common/macos
   sentry_flutter:
     :path: Flutter/ephemeral/.symlinks/plugins/sentry_flutter/macos
   share_plus:
@@ -98,6 +103,7 @@ SPEC CHECKSUMS:
   mobile_scanner: ed7618fb749adc6574563e053f3b8e5002c13994
   package_info_plus: 02d7a575e80f194102bef286361c6c326e4c29ce
   path_provider_foundation: eaf5b3e458fc0e5fbb9940fb09980e853fe058b8
+  rive_common: acedcab7802c0ece4b0d838b71d7deb637e1309a
   Sentry: 4c9babff9034785067c896fd580b1f7de44da020
   sentry_flutter: 1346a880b24c0240807b53b10cf50ddad40f504e
   share_plus: 76dd39142738f7a68dd57b05093b5e8193f220f7

@@ -15,6 +15,7 @@ class ProductQueryPageHelper {
     required final String name,
     required final BuildContext context,
     bool editableAppBarTitle = true,
+    bool searchResult = true,
     EditProductQueryCallback? editQueryCallback,
   }) async {
     final ProductListSupplier supplier =
@@ -31,6 +32,7 @@ class ProductQueryPageHelper {
           productListSupplier: supplier,
           name: name,
           editableAppBarTitle: editableAppBarTitle,
+          searchResult: searchResult,
         ),
       ),
     );
