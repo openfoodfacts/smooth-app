@@ -2382,7 +2382,7 @@
     "ecoscore_d": "Eco-Score D",
     "ecoscore_e": "Eco-Score E",
     "ecoscore_unknown": "Unknown Eco-Score",
-    "ecoscore_not_applicable": "Not applicable Eco-Score",
+    "ecoscore_not_applicable": "Eco-Score is not applicable",
     "nova_group_1": "NOVA Group 1",
     "nova_group_2": "NOVA Group 2",
     "nova_group_3": "NOVA Group 3",
