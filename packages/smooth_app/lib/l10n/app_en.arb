@@ -2375,7 +2375,7 @@
     "nutriscore_d": "Nutri-Score D",
     "nutriscore_e": "Nutri-Score E",
     "nutriscore_unknown": "Unknown Nutri-Score",
-    "nutriscore_not_applicable": "Not applicable Nutri-Score",
+    "nutriscore_not_applicable": "Nutri-Score is not applicable",
     "ecoscore_a": "Eco-Score A",
     "ecoscore_b": "Eco-Score B",
     "ecoscore_c": "Eco-Score C",
