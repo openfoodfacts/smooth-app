@@ -448,8 +448,10 @@ class _ProductPageState extends State<ProductPage>
               await Navigator.push<void>(
                 context,
                 MaterialPageRoute<void>(
-                  builder: (BuildContext context) =>
-                      ProductListPage(productList),
+                  builder: (BuildContext context) => ProductListPage(
+                    productList,
+                    allowToSwitchBetweenLists: false,
+                  ),
                 ),
               );
               setState(() {});

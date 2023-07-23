@@ -33,9 +33,13 @@ import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Displays the products of a product list, with access to other lists.
 class ProductListPage extends StatefulWidget {
-  const ProductListPage(this.productList);
+  const ProductListPage(
+    this.productList, {
+    this.allowToSwitchBetweenLists = true,
+  });
 
   final ProductList productList;
+  final bool allowToSwitchBetweenLists;
 
   @override
   State<ProductListPage> createState() => _ProductListPageState();
@@ -130,41 +134,42 @@ class _ProductListPageState extends State<ProductListPage>
       appBar: SmoothAppBar(
         centerTitle: false,
         actions: <Widget>[
-          IconButton(
-            icon: const Icon(CupertinoIcons.square_list),
-            tooltip: appLocalizations.action_change_list,
-            onPressed: () async {
-              final ProductList? selected =
-                  await showSmoothDraggableModalSheet<ProductList>(
-                context: context,
-                header: SmoothModalSheetHeader(
-                  title: appLocalizations.product_list_select,
-                  suffix: SmoothModalSheetHeaderButton(
-                    label: appLocalizations.product_list_create,
-                    prefix: const Icon(Icons.add_circle_outline_sharp),
-                    tooltip: appLocalizations.product_list_create_tooltip,
-                    onTap: () async =>
-                        ProductListUserDialogHelper(daoProductList)
-                            .showCreateUserListDialog(context),
+          if (widget.allowToSwitchBetweenLists)
+            IconButton(
+              icon: const Icon(CupertinoIcons.square_list),
+              tooltip: appLocalizations.action_change_list,
+              onPressed: () async {
+                final ProductList? selected =
+                    await showSmoothDraggableModalSheet<ProductList>(
+                  context: context,
+                  header: SmoothModalSheetHeader(
+                    title: appLocalizations.product_list_select,
+                    suffix: SmoothModalSheetHeaderButton(
+                      label: appLocalizations.product_list_create,
+                      prefix: const Icon(Icons.add_circle_outline_sharp),
+                      tooltip: appLocalizations.product_list_create_tooltip,
+                      onTap: () async =>
+                          ProductListUserDialogHelper(daoProductList)
+                              .showCreateUserListDialog(context),
+                    ),
                   ),
-                ),
-                bodyBuilder: (BuildContext context) => AllProductListModal(
-                  currentList: productList,
-                ),
-                initHeight: _computeModalInitHeight(context),
-              );
+                  bodyBuilder: (BuildContext context) => AllProductListModal(
+                    currentList: productList,
+                  ),
+                  initHeight: _computeModalInitHeight(context),
+                );
 
-              if (selected == null) {
-                return;
-              }
-              if (context.mounted) {
-                await daoProductList.get(selected);
-                if (context.mounted) {
-                  setState(() => productList = selected);
+                if (selected == null) {
+                  return;
                 }
-              }
-            },
-          ),
+                if (context.mounted) {
+                  await daoProductList.get(selected);
+                  if (context.mounted) {
+                    setState(() => productList = selected);
+                  }
+                }
+              },
+            ),
           PopupMenuButton<ProductListPopupItem>(
             onSelected: (final ProductListPopupItem action) async {
               final ProductList? differentProductList =
