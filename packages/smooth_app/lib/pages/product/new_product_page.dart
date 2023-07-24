@@ -23,7 +23,7 @@ import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_product_cards.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
 import 'package:smooth_app/pages/inherited_data_manager.dart';
-import 'package:smooth_app/pages/product/common/product_list_page.dart';
+import 'package:smooth_app/pages/product/common/product_list_modal.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/edit_product_page.dart';
 import 'package:smooth_app/pages/product/product_questions_widget.dart';
@@ -328,44 +328,47 @@ class _ProductPageState extends State<ProductPage>
 
   Widget _buildActionBar(final AppLocalizations appLocalizations) => Padding(
         padding: const EdgeInsets.all(SMALL_SPACE),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            _buildActionBarItem(
-              Icons.bookmark_border,
-              appLocalizations.user_list_button_add_product,
-              _editList,
-            ),
-            _buildActionBarItem(
-              Icons.edit,
-              appLocalizations.edit_product_label,
-              () async {
-                setState(() => _keepRobotoffQuestionsAlive = false);
+        child: Semantics(
+          explicitChildNodes: true,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              _buildActionBarItem(
+                Icons.bookmark_border,
+                appLocalizations.user_list_button_add_product,
+                _editList,
+              ),
+              _buildActionBarItem(
+                Icons.edit,
+                appLocalizations.edit_product_label,
+                () async {
+                  setState(() => _keepRobotoffQuestionsAlive = false);
 
-                AnalyticsHelper.trackEvent(
-                  AnalyticsEvent.openProductEditPage,
-                  barcode: barcode,
-                );
+                  AnalyticsHelper.trackEvent(
+                    AnalyticsEvent.openProductEditPage,
+                    barcode: barcode,
+                  );
 
-                await Navigator.push<void>(
-                  context,
-                  MaterialPageRoute<void>(
-                    builder: (BuildContext context) =>
-                        EditProductPage(upToDateProduct),
-                  ),
-                );
+                  await Navigator.push<void>(
+                    context,
+                    MaterialPageRoute<void>(
+                      builder: (BuildContext context) =>
+                          EditProductPage(upToDateProduct),
+                    ),
+                  );
 
-                // Force Robotoff questions to be reloaded
-                setState(() => _keepRobotoffQuestionsAlive = true);
-              },
-            ),
-            _buildActionBarItem(
-              ConstantIcons.instance.getShareIcon(),
-              appLocalizations.share,
-              _shareProduct,
-            ),
-          ],
+                  // Force Robotoff questions to be reloaded
+                  setState(() => _keepRobotoffQuestionsAlive = true);
+                },
+              ),
+              _buildActionBarItem(
+                ConstantIcons.instance.getShareIcon(),
+                appLocalizations.share,
+                _shareProduct,
+              ),
+            ],
+          ),
         ),
       );
 
@@ -377,24 +380,32 @@ class _ProductPageState extends State<ProductPage>
     final ThemeData themeData = Theme.of(context);
     final ColorScheme colorScheme = themeData.colorScheme;
     return Expanded(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          ElevatedButton(
-            onPressed: onPressed,
-            style: ElevatedButton.styleFrom(
-              shape: const CircleBorder(),
-              padding: const EdgeInsets.all(
-                18,
-              ), // TODO(monsieurtanuki): cf. FloatingActionButton
-              backgroundColor: colorScheme.primary,
+      child: Semantics(
+        value: label,
+        button: true,
+        excludeSemantics: true,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            ElevatedButton(
+              onPressed: onPressed,
+              style: ElevatedButton.styleFrom(
+                shape: const CircleBorder(),
+                padding: const EdgeInsets.all(
+                  18,
+                ), // TODO(monsieurtanuki): cf. FloatingActionButton
+                backgroundColor: colorScheme.primary,
+              ),
+              child: Icon(iconData, color: colorScheme.onPrimary),
             ),
-            child: Icon(iconData, color: colorScheme.onPrimary),
-          ),
-          const SizedBox(height: VERY_SMALL_SPACE),
-          AutoSizeText(label, textAlign: TextAlign.center),
-        ],
+            const SizedBox(height: VERY_SMALL_SPACE),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 2.0),
+              child: AutoSizeText(label, textAlign: TextAlign.center),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -453,8 +464,10 @@ class _ProductPageState extends State<ProductPage>
               await Navigator.push<void>(
                 context,
                 MaterialPageRoute<void>(
-                  builder: (BuildContext context) =>
-                      ProductListPage(productList),
+                  builder: (BuildContext context) => ProductListPage(
+                    productList,
+                    allowToSwitchBetweenLists: false,
+                  ),
                 ),
               );
               setState(() {});

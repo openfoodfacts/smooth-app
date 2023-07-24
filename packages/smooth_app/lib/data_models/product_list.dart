@@ -254,4 +254,6 @@ class ProductList {
             ',${country?.offTag ?? ''}';
     }
   }
+
+  bool get isEditable => listType == ProductListType.USER;
 }

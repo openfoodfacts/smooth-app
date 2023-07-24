@@ -194,8 +194,9 @@ class UserPreferencesMultipleChoicesItem<T> extends StatelessWidget {
 
         // If there is not enough space, we use the scrolling sheet
         final T? res;
-        if ((itemHeight * labels.length +
-                SmoothModalSheetHeader.computeHeight(context, true)) >
+        final SmoothModalSheetHeader header =
+            SmoothModalSheetHeader(title: title);
+        if ((itemHeight * labels.length + header.computeHeight(context)) >
             (queryData.size.height * 0.9) - queryData.viewPadding.top) {
           res = await showSmoothDraggableModalSheet<T>(
               context: context,
@@ -224,39 +225,40 @@ class UserPreferencesMultipleChoicesItem<T> extends StatelessWidget {
                 );
               });
         } else {
+          final SmoothModalSheet smoothModalSheet = SmoothModalSheet(
+            title: title,
+            bodyPadding: EdgeInsets.zero,
+            body: SizedBox(
+              height: itemHeight * labels.length,
+              child: ListView.separated(
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: labels.length,
+                itemBuilder: (BuildContext context, int position) {
+                  final bool selected =
+                      currentValue == values.elementAt(position);
+
+                  return _ChoiceItem<T>(
+                    selected: selected,
+                    label: labels.elementAt(position),
+                    value: values.elementAt(position),
+                    description: descriptions?.elementAt(position),
+                    leading: leadingBuilder != null
+                        ? Builder(builder: leadingBuilder!.elementAt(position))
+                        : null,
+                    hasDivider: false,
+                  );
+                },
+                separatorBuilder: (_, __) => const Divider(height: 1.0),
+              ),
+            ),
+          );
+
           res = await showSmoothModalSheet<T>(
             context: context,
-            minHeight: SmoothModalSheetHeader.computeHeight(context, false) +
+            minHeight: smoothModalSheet.computeHeaderHeight(context) +
                 itemHeight * labels.length,
             builder: (BuildContext context) {
-              return SmoothModalSheet(
-                title: title,
-                bodyPadding: EdgeInsets.zero,
-                body: SizedBox(
-                  height: itemHeight * labels.length,
-                  child: ListView.separated(
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemCount: labels.length,
-                    itemBuilder: (BuildContext context, int position) {
-                      final bool selected =
-                          currentValue == values.elementAt(position);
-
-                      return _ChoiceItem<T>(
-                        selected: selected,
-                        label: labels.elementAt(position),
-                        value: values.elementAt(position),
-                        description: descriptions?.elementAt(position),
-                        leading: leadingBuilder != null
-                            ? Builder(
-                                builder: leadingBuilder!.elementAt(position))
-                            : null,
-                        hasDivider: false,
-                      );
-                    },
-                    separatorBuilder: (_, __) => const Divider(height: 1.0),
-                  ),
-                ),
-              );
+              return smoothModalSheet;
             },
           );
         }
