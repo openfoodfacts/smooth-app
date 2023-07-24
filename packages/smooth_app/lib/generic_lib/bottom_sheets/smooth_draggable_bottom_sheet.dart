@@ -157,6 +157,7 @@ class _SmoothDraggableContentState extends State<_SmoothDraggableContent> {
   @override
   Widget build(BuildContext context) {
     return Scrollbar(
+      controller: widget.scrollController,
       child: CustomScrollView(
         cacheExtent: widget.cacheExtent,
         key: _contentKey,
@@ -178,15 +179,18 @@ class _SmoothDraggableContentState extends State<_SmoothDraggableContent> {
 
 /// A fixed header
 class _SliverHeader extends SliverPersistentHeaderDelegate {
-  _SliverHeader({required this.child, required this.height})
-      : assert(height > 0.0);
+  _SliverHeader({
+    required this.child,
+    required this.height,
+  }) : assert(height > 0.0);
 
   final Widget child;
   final double height;
 
   @override
   Widget build(BuildContext context, _, __) {
-    return child;
+    // Align is mandatory here (a known-bug in the framework)
+    return Align(child: child);
   }
 
   @override
