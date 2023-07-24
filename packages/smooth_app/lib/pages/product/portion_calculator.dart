@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/pages/product/ordered_nutrients_cache.dart';
 import 'package:smooth_app/pages/product/portion_helper.dart';
@@ -167,28 +167,42 @@ class _PortionCalculatorState extends State<PortionCalculator> {
     if (helper.isEmpty) {
       return;
     }
-    await showDialog<void>(
+    await showSmoothDraggableModalSheet<void>(
       context: context,
-      builder: (final BuildContext context) => SmoothAlertDialog(
+      header: SmoothModalSheetHeader(
         title: appLocalizations.portion_calculator_result_title(quantity),
-        body: Column(
-          children: List<Widget>.generate(
-            helper.length,
-            (final int index) => Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Text(helper.getName(index)),
-                Text(helper.getValue(index)),
-              ],
-            ),
-          ),
-        ),
-        positiveAction: SmoothActionButton(
-          text: appLocalizations.okay,
-          onPressed: () => Navigator.of(context).pop(),
-        ),
       ),
+      initHeight: 0.7,
+      bodyBuilder: (BuildContext context) {
+        return SliverList(
+          delegate: SliverChildBuilderDelegate(
+            childCount: helper.length,
+            (BuildContext context, int position) {
+              return Column(
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: VERY_LARGE_SPACE,
+                      vertical: LARGE_SPACE,
+                    ),
+                    child: MergeSemantics(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: <Widget>[
+                          Text(helper.getName(position)),
+                          Text(helper.getValue(position)),
+                        ],
+                      ),
+                    ),
+                  ),
+                  if (position < helper.length - 1) const Divider(height: 1.0)
+                ],
+              );
+            },
+          ),
+        );
+      },
     );
   }
 
