@@ -216,7 +216,6 @@ class _ProductPageState extends State<ProductPage>
               upToDateProduct.website!.trim().isNotEmpty)
             _buildWebsiteWidget(upToDateProduct.website!.trim()),
         ],
-
       ),
     );
   }
