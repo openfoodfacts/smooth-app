@@ -163,56 +163,61 @@ class _ProductPageState extends State<ProductPage>
         barcode: barcode,
         widget: this,
       ),
-      child: ListView(
-        // /!\ Smart Dart
-        // `physics: const AlwaysScrollableScrollPhysics()`
-        // means that we will always scroll, even if it's pointless.
-        // Why do we need to? For the RefreshIndicator, that wouldn't be
-        // triggered on a ListView smaller than the screen
-        // (as there will be no scroll).
-        physics: const AlwaysScrollableScrollPhysics(),
-        children: <Widget>[
-          Align(
-            heightFactor: 0.7,
-            alignment: AlignmentDirectional.topStart,
-            child: ProductImageCarousel(
-              upToDateProduct,
-              height: 200,
-              controller: _carouselController,
-              onUpload: _refreshProduct,
+      child: Padding(
+        padding: const EdgeInsets.only(
+          bottom: SMALL_SPACE,
+        ),
+        child: ListView(
+          // /!\ Smart Dart
+          // `physics: const AlwaysScrollableScrollPhysics()`
+          // means that we will always scroll, even if it's pointless.
+          // Why do we need to? For the RefreshIndicator, that wouldn't be
+          // triggered on a ListView smaller than the screen
+          // (as there will be no scroll).
+          physics: const AlwaysScrollableScrollPhysics(),
+          children: <Widget>[
+            Align(
+              heightFactor: 0.7,
+              alignment: AlignmentDirectional.topStart,
+              child: ProductImageCarousel(
+                upToDateProduct,
+                height: 200,
+                controller: _carouselController,
+                onUpload: _refreshProduct,
+              ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: SMALL_SPACE,
-            ),
-            child: HeroMode(
-              enabled: widget.withHeroAnimation &&
-                  widget.heroTag?.isNotEmpty == true,
-              child: Hero(
-                tag: widget.heroTag ?? '',
-                child: KeepQuestionWidgetAlive(
-                  keepWidgetAlive: _keepRobotoffQuestionsAlive,
-                  child: SummaryCard(
-                    upToDateProduct,
-                    _productPreferences,
-                    isFullVersion: true,
-                    showUnansweredQuestions: true,
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: SMALL_SPACE,
+              ),
+              child: HeroMode(
+                enabled: widget.withHeroAnimation &&
+                    widget.heroTag?.isNotEmpty == true,
+                child: Hero(
+                  tag: widget.heroTag ?? '',
+                  child: KeepQuestionWidgetAlive(
+                    keepWidgetAlive: _keepRobotoffQuestionsAlive,
+                    child: SummaryCard(
+                      upToDateProduct,
+                      _productPreferences,
+                      isFullVersion: true,
+                      showUnansweredQuestions: true,
+                    ),
                   ),
                 ),
               ),
             ),
-          ),
-          _buildActionBar(appLocalizations),
-          _buildListIfRelevantWidget(
-            appLocalizations,
-            daoProductList,
-          ),
-          _buildKnowledgePanelCards(),
-          if (upToDateProduct.website != null &&
-              upToDateProduct.website!.trim().isNotEmpty)
-            _buildWebsiteWidget(upToDateProduct.website!.trim()),
-        ],
+            _buildActionBar(appLocalizations),
+            _buildListIfRelevantWidget(
+              appLocalizations,
+              daoProductList,
+            ),
+            _buildKnowledgePanelCards(),
+            if (upToDateProduct.website != null &&
+                upToDateProduct.website!.trim().isNotEmpty)
+              _buildWebsiteWidget(upToDateProduct.website!.trim()),
+          ],
+        ),
       ),
     );
   }
@@ -264,10 +269,6 @@ class _ProductPageState extends State<ProductPage>
             ),
           ),
         ),
-        margin: const EdgeInsets.symmetric(
-          horizontal: SMALL_SPACE,
-          vertical: MEDIUM_SPACE
-        ) // Added a vertical margin instead of using default
       );
 
   Widget _buildKnowledgePanelCards() {
