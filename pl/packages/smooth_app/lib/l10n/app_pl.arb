@@ -183,8 +183,8 @@
     "@reset_password": {
         "description": "Forgot password page title"
     },
-    "reset_password_explanation_text": "W przypadku zapomnienia hasła wprowadź swoją nazwę użytkownika lub adres e-mail, aby otrzymać instrukcje do resetowania hasła. Pamiętaj o sprawdzeniu folderu \"Spam\".",
-    "username_or_email": "Nazwa użytkownika / użytkowniczki lub e-mail",
+    "reset_password_explanation_text": "W przypadku zapomnienia hasła wpisz swoją nazwę użytkownika lub adres e-mail, aby otrzymać instrukcje do resetowania hasła. Pamiętaj o sprawdzeniu folderu \"Spam\".",
+    "username_or_email": "Nazwa użytkownika lub e-mail",
     "@username_or_email": {
         "description": "Text field hint for password reset"
     },
@@ -209,7 +209,7 @@
     "@sign_up_page_action_doing_it": {
         "description": "Progress indicator dialog during the actual signing up process"
     },
-    "sign_up_page_action_ok": "Gratulacje! Twoje konto zostało stworzone.",
+    "sign_up_page_action_ok": "Gratulacje! Twoje konto zostało utworzone.",
     "sign_up_page_display_name_hint": "Nazwa",
     "sign_up_page_display_name_error_empty": "Wprowadź nazwę, której chcesz użyć",
     "sign_up_page_email_hint": "E-mail",
@@ -315,8 +315,8 @@
     "contribute_develop_text_2": "Możesz dołączyć do Open Food Facts Slack, który jest preferowanym sposobem na zadawanie pytań.",
     "@contribute_develop_text_2": {},
     "contribute_develop_dev_mode_title": "Tryb deweloperski (DEV)?",
-    "contribute_develop_dev_mode_subtitle": "Aktywuj tryb deweloperski (DEV)",
-    "contribute_donate_header": "Wesprzyj Open Food Facts",
+    "contribute_develop_dev_mode_subtitle": "Aktywuj tryb deweloperski",
+    "contribute_donate_header": "Przekaż darowiznę na Open Food Facts",
     "@contribute_donate_header": {},
     "contribute_improve_ProductsToBeCompleted": "Produkty do uzupełnienia",
     "@contribute_improve_ProductsToBeCompleted": {
@@ -326,7 +326,7 @@
     "@contribute_improve_header": {
         "description": "Button label + page title: Ways to improve the database"
     },
-    "contribute_improve_text": "Baza danych jest rdzeniem projektu. Pomoc jest łatwa i bardzo szybka. Możesz pobrać aplikację mobilną na swój telefon i zacząć dodawać lub ulepszać produkty.\n\nZ drugiej strony, witryna Open Food Facts oferuje wiele sposobów, aby przyczynić się do wkładu: ",
+    "contribute_improve_text": "Podstawą projektu jest baza danych. Pomoc jest łatwa i bardzo szybka. Możesz pobrać aplikację mobilną na swój telefon i zacząć dodawać lub ulepszać produkty.\n\nZ drugiej strony, witryna Open Food Facts oferuje wiele sposobów na wniesienie wkładu: ",
     "@contribute_improve_text": {},
     "contribute_translate_header": "Przetłumacz",
     "@contribute_translate_header": {
@@ -648,7 +648,7 @@
     },
     "score_add_missing_ingredients": "Dodaj brakujące składniki",
     "score_add_missing_packaging_image": "Dodaj brakujący obraz opakowania",
-    "score_add_missing_nutrition_facts": "Dodaj brakujące informacje o pożywieniu",
+    "score_add_missing_nutrition_facts": "Dodaj brakujące informacje o wartościach odżywczych",
     "score_add_missing_product_category": "Dodaj brakującą kategorię produktu",
     "score_add_missing_product_countries": "Dodaj brakujące kraje pochodzenia produktów",
     "score_add_missing_product_emb": "Dodaj brakujące kody identyfikacji produktów",
@@ -1390,7 +1390,7 @@
     "@user_list_name_hint": {
         "description": "Hint of a user list name text-field in a 'user list' dialog"
     },
-    "user_list_name_error_empty": "Nazwa jest obowiązkowe",
+    "user_list_name_error_empty": "Nazwa jest obowiązkowa",
     "@user_list_name_error_empty": {
         "description": "Validation error about the name that cannot be empty"
     },
@@ -2189,7 +2189,7 @@
     "@color_blue": {
         "description": "Color Blue"
     },
-    "color_cyan": "Błękitny",
+    "color_cyan": "Cyjan",
     "@color_cyan": {
         "description": "Color Cyan"
     },
@@ -2201,7 +2201,7 @@
     "@color_light_brown": {
         "description": "Color Light Brown, Default Open Food Facts Color"
     },
-    "color_magenta": "Karmazynowy",
+    "color_magenta": "Magenta",
     "@color_magenta": {
         "description": "Color Magenta"
     },
@@ -2241,7 +2241,7 @@
     "@contrast_low": {
         "description": "Low Contrast Text Color"
     },
-    "product_loader_not_found_title": "Produkt nie znaleziony!",
+    "product_loader_not_found_title": "Nie znaleziono produktu!",
     "@product_loader_not_found_title": {
         "description": "When fetching a product opened via a link and it doesn't exist"
     },
@@ -2262,7 +2262,7 @@
     "@product_loader_network_error_message": {
         "description": "When fetching a product opened via a link and there is no connection"
     },
-    "page_not_found_title": "Strona nie znaleziona!",
+    "page_not_found_title": "Nie znaleziono strony!",
     "@page_not_found_title": {
         "description": "Title for a page not found (when an URL is not recognized)"
     },
