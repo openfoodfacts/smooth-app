@@ -827,11 +827,11 @@
             "count": {}
         }
     },
-    "compare_products_mode": "Compare products",
+    "compare_products_mode": "Palyginkite produktus",
     "@compare_products_mode": {
         "description": "Button to switch to 'compare products mode'"
     },
-    "compare_products_appbar_title": "Compare products",
+    "compare_products_appbar_title": "Palyginkite produktus",
     "@compare_products_appbar_title": {
         "description": "AppBar title when in comparison mode "
     },
