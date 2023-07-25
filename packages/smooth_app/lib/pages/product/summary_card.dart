@@ -6,6 +6,7 @@ import 'package:smooth_app/cards/data_cards/score_card.dart';
 import 'package:smooth_app/cards/product_cards/product_title_card.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
+import 'package:smooth_app/data_models/up_to_date_mixin.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -47,6 +48,7 @@ class SummaryCard extends StatefulWidget {
     this.isSettingClickable = true,
     this.isProductEditable = true,
     this.attributeGroupsClickable = true,
+    this.padding,
   });
 
   final Product _product;
@@ -74,51 +76,41 @@ class SummaryCard extends StatefulWidget {
   /// If true, all chips / groups are clickable
   final bool attributeGroupsClickable;
 
+  final EdgeInsetsGeometry? padding;
+
   @override
   State<SummaryCard> createState() => _SummaryCardState();
 }
 
-class _SummaryCardState extends State<SummaryCard> {
-  late Product _product;
-  late final Product _initialProduct;
-  late final LocalDatabase _localDatabase;
-
+class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
   // For some reason, special case for "label" attributes
   final Set<String> _attributesToExcludeIfStatusIsUnknown = <String>{};
 
   @override
   void initState() {
     super.initState();
-    _initialProduct = widget._product;
-    _localDatabase = context.read<LocalDatabase>();
-    _localDatabase.upToDate.showInterest(_initialProduct.barcode!);
-    if (ProductIncompleteCard.isProductIncomplete(_initialProduct)) {
+    initUpToDate(widget._product, context.read<LocalDatabase>());
+    if (ProductIncompleteCard.isProductIncomplete(initialProduct)) {
       AnalyticsHelper.trackEvent(
         AnalyticsEvent.showFastTrackProductEditCard,
-        barcode: _initialProduct.barcode,
+        barcode: barcode,
       );
     }
   }
 
   @override
-  void dispose() {
-    _localDatabase.upToDate.loseInterest(_initialProduct.barcode!);
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     context.watch<LocalDatabase>();
-    _product = _localDatabase.upToDate.getLocalUpToDate(_initialProduct);
+    refreshUpToDate();
     if (widget.isFullVersion) {
       return buildProductSmoothCard(
         header: ProductCompatibilityHeader(
-          product: _product,
+          product: upToDateProduct,
           productPreferences: widget._productPreferences,
           isSettingClickable: widget.isSettingClickable,
         ),
         body: Padding(
-          padding: SMOOTH_CARD_PADDING,
+          padding: widget.padding ?? SMOOTH_CARD_PADDING,
           child: _buildSummaryCardContent(context),
         ),
         margin: EdgeInsets.zero,
@@ -132,10 +124,11 @@ class _SummaryCardState extends State<SummaryCard> {
 
   Widget _buildLimitedSizeSummaryCard(double parentHeight) {
     return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: SMALL_SPACE,
-        vertical: VERY_SMALL_SPACE,
-      ),
+      padding: widget.padding ??
+          const EdgeInsets.symmetric(
+            horizontal: SMALL_SPACE,
+            vertical: VERY_SMALL_SPACE,
+          ),
       child: Stack(
         children: <Widget>[
           ClipRRect(
@@ -146,7 +139,7 @@ class _SummaryCardState extends State<SummaryCard> {
               maxHeight: double.infinity,
               child: buildProductSmoothCard(
                 header: ProductCompatibilityHeader(
-                  product: _product,
+                  product: upToDateProduct,
                   productPreferences: widget._productPreferences,
                   isSettingClickable: widget.isSettingClickable,
                 ),
@@ -173,7 +166,7 @@ class _SummaryCardState extends State<SummaryCard> {
                 ),
                 child: Center(
                   child: Text(
-                    AppLocalizations.of(context).tab_for_more,
+                    AppLocalizations.of(context).tap_for_more,
                     style:
                         Theme.of(context).primaryTextTheme.bodyLarge?.copyWith(
                               color: PRIMARY_BLUE_COLOR,
@@ -195,7 +188,7 @@ class _SummaryCardState extends State<SummaryCard> {
     final List<String> excludedAttributeIds =
         userPreferences.getExcludedAttributeIds();
     final List<Attribute> scoreAttributes = getPopulatedAttributes(
-      _product,
+      upToDateProduct,
       SCORE_ATTRIBUTE_IDS,
       excludedAttributeIds,
     );
@@ -205,7 +198,7 @@ class _SummaryCardState extends State<SummaryCard> {
     // First, a virtual group with mandatory attributes of all groups
     final List<Widget> attributeChips = _buildAttributeChips(
       getMandatoryAttributes(
-        _product,
+        upToDateProduct,
         _ATTRIBUTE_GROUP_ORDER,
         _attributesToExcludeIfStatusIsUnknown,
         widget._productPreferences,
@@ -223,10 +216,11 @@ class _SummaryCardState extends State<SummaryCard> {
     }
     // Then, all groups, each with very important and important attributes
     for (final String groupId in _ATTRIBUTE_GROUP_ORDER) {
-      if (_product.attributeGroups == null) {
+      if (upToDateProduct.attributeGroups == null) {
         continue;
       }
-      final Iterable<AttributeGroup> groupIterable = _product.attributeGroups!
+      final Iterable<AttributeGroup> groupIterable = upToDateProduct
+          .attributeGroups!
           .where((AttributeGroup group) => group.id == groupId);
 
       if (groupIterable.isEmpty) {
@@ -266,13 +260,13 @@ class _SummaryCardState extends State<SummaryCard> {
     String? categoryTag;
     String? categoryLabel;
     final List<String>? labels =
-        _product.categoriesTagsInLanguages?[ProductQuery.getLanguage()];
-    final List<String>? tags = _product.categoriesTags;
+        upToDateProduct.categoriesTagsInLanguages?[ProductQuery.getLanguage()];
+    final List<String>? tags = upToDateProduct.categoriesTags;
     if (tags != null &&
         labels != null &&
         tags.isNotEmpty &&
         tags.length == labels.length) {
-      categoryTag = _product.comparedToCategory;
+      categoryTag = upToDateProduct.comparedToCategory;
       if (categoryTag == null || blackListedCategories.contains(categoryTag)) {
         // fallback algorithm
         int index = tags.length - 1;
@@ -292,7 +286,8 @@ class _SummaryCardState extends State<SummaryCard> {
         }
       }
     }
-    final List<String> statesTags = _product.statesTags ?? List<String>.empty();
+    final List<String> statesTags =
+        upToDateProduct.statesTags ?? List<String>.empty();
 
     final List<Widget> summaryCardButtons = <Widget>[];
 
@@ -302,7 +297,7 @@ class _SummaryCardState extends State<SummaryCard> {
           .contains(ProductState.CATEGORIES_COMPLETED.toBeCompletedTag)) {
         summaryCardButtons.add(
           AddSimpleInputButton(
-            product: _product,
+            product: upToDateProduct,
             helper: SimpleInputPageCategoryHelper(),
           ),
         );
@@ -316,9 +311,10 @@ class _SummaryCardState extends State<SummaryCard> {
             iconData: Icons.leaderboard,
             onPressed: () async => ProductQueryPageHelper().openBestChoice(
               name: categoryLabel!,
-              localDatabase: _localDatabase,
+              localDatabase: context.read<LocalDatabase>(),
               productQuery: CategoryProductQuery(categoryTag!),
               context: context,
+              searchResult: false,
             ),
           ),
         );
@@ -334,10 +330,7 @@ class _SummaryCardState extends State<SummaryCard> {
           addPanelButton(
             editor.getLabel(localizations),
             onPressed: () async => widget.isProductEditable
-                ? editor.edit(
-                    context: context,
-                    product: _product,
-                  )
+                ? editor.edit(context: context, product: upToDateProduct)
                 : null,
           ),
         );
@@ -347,24 +340,24 @@ class _SummaryCardState extends State<SummaryCard> {
     return Column(
       children: <Widget>[
         ProductTitleCard(
-          _product,
+          upToDateProduct,
           widget.isFullVersion,
           isRemovable: widget.isRemovable,
           onRemove: (BuildContext context) async {
             HideableContainerState.of(context).hide(() async {
               final ContinuousScanModel model =
                   context.read<ContinuousScanModel>();
-              await model.removeBarcode(_product.barcode!);
+              await model.removeBarcode(barcode);
 
               // Vibrate twice
               SmoothHapticFeedback.confirm();
             });
           },
         ),
-        if (ProductIncompleteCard.isProductIncomplete(_product))
-          ProductIncompleteCard(product: _product),
+        if (ProductIncompleteCard.isProductIncomplete(upToDateProduct))
+          ProductIncompleteCard(product: upToDateProduct),
         ..._getAttributes(scoreAttributes),
-        if (widget.isFullVersion) ProductQuestionsWidget(_product),
+        if (widget.isFullVersion) ProductQuestionsWidget(upToDateProduct),
         attributesContainer,
         ...summaryCardButtons,
       ],
@@ -451,7 +444,7 @@ class _SummaryCardState extends State<SummaryCard> {
 
   bool _isAttributeOpeningAllowed(Attribute attribute) =>
       widget.isFullVersion &&
-      _product.knowledgePanels != null &&
+      upToDateProduct.knowledgePanels != null &&
       attribute.panelId != null;
 
   Future<void> _openFullKnowledgePanel({
@@ -467,7 +460,7 @@ class _SummaryCardState extends State<SummaryCard> {
     }
     final KnowledgePanel? knowledgePanel =
         KnowledgePanelWidget.getKnowledgePanel(
-      _product,
+      upToDateProduct,
       panelId,
     );
     if (knowledgePanel == null) {
@@ -479,7 +472,7 @@ class _SummaryCardState extends State<SummaryCard> {
       MaterialPageRoute<void>(
         builder: (BuildContext context) => KnowledgePanelPage(
           panelId: panelId,
-          product: _product,
+          product: upToDateProduct,
         ),
       ),
     );

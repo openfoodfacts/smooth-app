@@ -97,7 +97,7 @@ class _ScanPageState extends State<ScanPage> {
             Expanded(
               flex: _carouselHeightPct,
               child: Padding(
-                padding: const EdgeInsetsDirectional.only(bottom: 10),
+                padding: const EdgeInsetsDirectional.only(bottom: 10.0),
                 child: SmoothProductCarousel(
                   containSearchCard: true,
                   onPageChangedTo: (int page, String? barcode) async {
@@ -187,11 +187,9 @@ class _PermissionDeniedCard extends StatelessWidget {
           return Container(
             alignment: Alignment.topCenter,
             constraints: BoxConstraints.tightForFinite(
-              width: constraints.maxWidth *
-                  SmoothProductCarousel.carouselViewPortFraction,
+              width: constraints.maxWidth,
               height: math.min(constraints.maxHeight * 0.9, 200),
             ),
-            padding: SmoothProductCarousel.carouselItemInternalPadding,
             child: SmoothCard(
               padding: const EdgeInsetsDirectional.only(
                 top: 10.0,

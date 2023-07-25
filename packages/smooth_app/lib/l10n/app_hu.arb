@@ -258,7 +258,7 @@
     "sign_up_page_producer_error_empty": "Kérjük, adjon meg egy termelő vagy egy márkanevet",
     "sign_up_page_subscribe_checkbox": "Szeretnék feliratkozni az Open Food Facts hírlevélre (bármikor leiratkozhat róla)",
     "sign_up_page_user_name_already_used": "A felhasználónév már létezik, kérjük válassz másik felhasználónevet.",
-    "sign_up_page_email_already_exists": "already exists, login to the account or try with another email.",
+    "sign_up_page_email_already_exists": "már létezik, jelentkezzen be a fiókba, vagy próbálja meg másik e-mail címmel.",
     "sign_up_page_provide_valid_email": "Kérem adjon meg valós email címet.",
     "@Settings": {},
     "settingsTitle": "Beállítások",
@@ -290,11 +290,11 @@
     "@support": {
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
     },
-    "support_join_slack": "Ask for help in our Slack channel",
+    "support_join_slack": "Kérjen segítséget Slack csatornánkon.",
     "support_via_forum": "Kérj segítséget a fórumonkon",
     "support_via_email": "Küldj nekünk emailt",
     "support_via_email_include_logs_dialog_title": "Elküldi az alkalmazásnaplókat?",
-    "support_via_email_include_logs_dialog_body": "Do you wish to include application logs in attachment to your email?",
+    "support_via_email_include_logs_dialog_body": "Szeretné csatolni a jelentkezési naplókat az e-mail mellékleteként?",
     "termsOfUse": "Felhasználási feltételek (ToU) (angolul)",
     "@termsOfUse": {},
     "about_this_app": "Az alkalmazásról",
@@ -340,9 +340,9 @@
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "A fordítás a projekt egyik legfontosabb feladatai közé tartozik",
     "@contribute_translate_text_2": {},
-    "contribute_share_header": "Share Open Food Facts with your friends",
+    "contribute_share_header": "Ossza meg barátaival az Open Food Facts-t.",
     "@contribute_share_header": {},
-    "contribute_share_content": "I wanted to let you know about the app I've been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it's free, does not require registration, and you can even help increase the number of products decyphered. Here's the link to get it for your phone: https://openfoodfacts.app",
+    "contribute_share_content": "Szerettem volna, ha tudsz az általam használt Open Food Facts nevű alkalmazásról, amely lehetővé teszi, hogy személyre szabott módon megismerd az ételek egészségügyi és környezeti hatásait. A csomagoláson található vonalkódok beolvasásával működik. Végre ingyenes, nem igényel regisztrációt, és még segíthetsz is növelni a megfejtett termékek számát. Itt a link, hogy beszerezd a telefonodra: https://openfoodfacts.app",
     "@contribute_share_content": {
         "description": "Content that will be shared, don't forget to include the URL"
     },
@@ -350,11 +350,11 @@
     "@tap_to_answer": {
         "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
-    "tap_to_answer_hint": "Tap here to answer questions about this product",
+    "tap_to_answer_hint": "Koppintson ide a termékkel kapcsolatos kérdések megválaszolásához",
     "@tap_to_answer_hint": {
         "description": "Hint for accessibility readers to answer Robotoff questions."
     },
-    "robotoff_questions_loading_hint": "Please wait while questions about this product are loaded",
+    "robotoff_questions_loading_hint": "Kérjük, várjon, amíg a termékkel kapcsolatos kérdések betöltődnek",
     "@robotoff_questions_loading_hint": {
         "description": "Hint for accessibility readers while Robotoff questions are loaded"
     },
@@ -362,21 +362,21 @@
     "@saving_answer": {
         "description": "Dialog shown to users after they have answered a question, while the answer is being saved in the BE."
     },
-    "contribute_to_get_rewards": "Help improve food transparency and get rewards",
+    "contribute_to_get_rewards": "Segítsen az élelmiszerek átláthatóságának javításában és kapjon jutalmat",
     "@contribute_to_get_rewards": {
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
-    "question_sign_in_text": "Sign in to your Open Food Facts account to get credit for your contributions",
-    "question_yes_button_accessibility_value": "Answer with yes",
-    "question_no_button_accessibility_value": "Answer with no",
-    "question_skip_button_accessibility_value": "Skip this question",
-    "tap_to_edit_search": "Tap to edit search",
+    "question_sign_in_text": "Jelentkezzen be az Open Food Facts fiókjába, hogy jóváírást kapjon hozzájárulásaiért",
+    "question_yes_button_accessibility_value": "Válaszoljon igennel",
+    "question_no_button_accessibility_value": "Válaszoljon nemmel",
+    "question_skip_button_accessibility_value": "Ezt a kérdést kihagyhatja",
+    "tap_to_edit_search": "Koppintson a keresés szerkesztéséhez",
     "@Personal preferences": {},
     "myPreferences": "Saját beállítások",
     "@myPreferences": {
         "description": "Page title: Page where the ranking preferences can be changed"
     },
-    "account_create_message": "Create your account and join the Open Food Facts community to help build food knowledge all over the world!",
+    "account_create_message": "Hozzon létre fiókot, és csatlakozzon az Open Food Facts közösséghez, hogy segítsen az élelmiszerekkel kapcsolatos ismeretek bővítésében az egész világon!",
     "@account_create_message": {
         "description": "The Message to be displayed if the user does not have an account and wants to contribute"
     },
@@ -449,7 +449,7 @@
     "@search": {
         "description": "Hint text of a search text input field"
     },
-    "tab_for_more": "Tap to see more info…",
+    "tap_for_more": "Tap to see more info…",
     "@Product": {},
     "product": "Termék",
     "@product": {},

@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="iOS app" type="FlutterRunConfigurationType" factoryName="Flutter" folderName="iOS">
+  <configuration default="false" name="iOS/macOS app" type="FlutterRunConfigurationType" factoryName="Flutter" folderName="iOS / macOS">
     <option name="filePath" value="$PROJECT_DIR$/packages/smooth_app/lib/entrypoints/ios/main_ios.dart" />
     <method v="2" />
   </configuration>

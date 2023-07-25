@@ -449,7 +449,7 @@
     "@search": {
         "description": "Hint text of a search text input field"
     },
-    "tab_for_more": "Atingeți pentru a vedea mai multe informații…",
+    "tap_for_more": "Atingeți pentru a vedea mai multe informații…",
     "@Product": {},
     "product": "Produs",
     "@product": {},
@@ -1366,7 +1366,7 @@
     "@user_list_popup_rename": {
         "description": "Short label of a 'rename list' popup"
     },
-    "user_list_name_hint": "My list",
+    "user_list_name_hint": "Lista mea",
     "@user_list_name_hint": {
         "description": "Hint of a user list name text-field in a 'user list' dialog"
     },
@@ -1980,7 +1980,7 @@
     "@robotoff_continue": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering"
     },
-    "robotoff_next_n_questions": "Următorul {count,plural,  one {}  few {{count} întrebări}=1{intrebare} other{{count} întrebări}}",
+    "robotoff_next_n_questions": "Următorul {count,plural, =1{intrebare} other{{count} întrebări}}",
     "@robotoff_next_n_questions": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering",
         "placeholders": {

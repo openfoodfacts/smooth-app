@@ -95,9 +95,13 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
       return Column(
         children: <Widget>[
           for (List<Widget> row in rowsWidgets)
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: row,
+            Semantics(
+              excludeSemantics: true,
+              value: _buildSemanticsValue(row),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: row,
+              ),
             ),
           if (withPortionCalculator) const Divider(),
           if (withPortionCalculator) PortionCalculator(widget.product)
@@ -252,6 +256,21 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
         index++;
       }
     }
+  }
+
+  String _buildSemanticsValue(List<Widget> row) {
+    final StringBuffer buffer = StringBuffer();
+
+    for (final Widget widget in row) {
+      if (widget is TableCellWidget && widget.cell.text.isNotEmpty) {
+        if (buffer.isNotEmpty) {
+          buffer.write(' - ');
+        }
+        buffer.write(widget.cell.text);
+      }
+    }
+
+    return buffer.toString();
   }
 }
 

@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:iso_countries/iso_countries.dart';
@@ -25,6 +24,7 @@ import 'package:smooth_app/pages/product/common/product_list_item_simple.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/query/paged_product_query.dart';
 import 'package:smooth_app/widgets/ranking_floating_action_button.dart';
+import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class ProductQueryPage extends StatefulWidget {
@@ -32,11 +32,13 @@ class ProductQueryPage extends StatefulWidget {
     required this.productListSupplier,
     required this.name,
     required this.editableAppBarTitle,
+    this.searchResult = true,
   });
 
   final ProductListSupplier productListSupplier;
   final String name;
   final bool editableAppBarTitle;
+  final bool searchResult;
 
   @override
   State<ProductQueryPage> createState() => _ProductQueryPageState();
@@ -156,13 +158,16 @@ class _ProductQueryPageState extends State<ProductQueryPage>
               ? MainAxisAlignment.spaceBetween
               : MainAxisAlignment.center,
           children: <Widget>[
-            RankingFloatingActionButton(
-              onPressed: () => Navigator.push<Widget>(
-                context,
-                MaterialPageRoute<Widget>(
-                  builder: (BuildContext context) => PersonalizedRankingPage(
-                    barcodes: _model.displayBarcodes,
-                    title: widget.name,
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 5.0),
+              child: RankingFloatingActionButton(
+                onPressed: () => Navigator.push<Widget>(
+                  context,
+                  MaterialPageRoute<Widget>(
+                    builder: (BuildContext context) => PersonalizedRankingPage(
+                      barcodes: _model.displayBarcodes,
+                      title: widget.name,
+                    ),
                   ),
                 ),
               ),
@@ -196,15 +201,20 @@ class _ProductQueryPageState extends State<ProductQueryPage>
             ),
           ],
         ),
-        appBar: AppBar(
+        appBar: SmoothAppBar(
           backgroundColor: themeData.scaffoldBackgroundColor,
           elevation: 2,
           automaticallyImplyLeading: false,
           leading: const SmoothBackButton(),
           title: _AppBarTitle(
-            name: widget.name,
-            editableAppBarTitle: widget.editableAppBarTitle,
+            title: widget.searchResult
+                ? widget.name
+                : appLocalizations.product_search_same_category,
+            editableAppBarTitle:
+                widget.searchResult && widget.editableAppBarTitle,
+            multiLines: !widget.searchResult,
           ),
+          subTitle: !widget.searchResult ? Text(widget.name) : null,
           actions: _getAppBarButtons(),
         ),
         body: RefreshIndicator(
@@ -490,7 +500,7 @@ class _EmptyScreen extends StatelessWidget {
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         leading: const SmoothBackButton(),
         title: _AppBarTitle(
-          name: name,
+          title: name,
           editableAppBarTitle: false,
         ),
         actions: actions,
@@ -502,31 +512,36 @@ class _EmptyScreen extends StatelessWidget {
 
 class _AppBarTitle extends StatelessWidget {
   const _AppBarTitle({
-    required this.name,
+    required this.title,
+    this.multiLines = true,
     required this.editableAppBarTitle,
     Key? key,
   }) : super(key: key);
 
-  final String name;
+  final String title;
+  final bool multiLines;
   final bool editableAppBarTitle;
 
   @override
   Widget build(BuildContext context) {
-    final Widget child = AutoSizeText(
-      name,
-      maxLines: 2,
+    final Widget child = Text(
+      title,
+      maxLines: multiLines ? 2 : 1,
     );
 
     if (editableAppBarTitle) {
       final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-      return GestureDetector(
+      return InkWell(
         onTap: () {
           Navigator.of(context).pop(ProductQueryPageResult.editProductQuery);
         },
         child: Tooltip(
           message: appLocalizations.tap_to_edit_search,
-          child: child,
+          child: SizedBox(
+            width: double.infinity,
+            child: child,
+          ),
         ),
       );
     } else {

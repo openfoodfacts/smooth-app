@@ -449,7 +449,7 @@
     "@search": {
         "description": "Hint text of a search text input field"
     },
-    "tab_for_more": "Kliknij, aby wyświetlić więcej informacji…",
+    "tap_for_more": "Kliknij, aby wyświetlić więcej informacji…",
     "@Product": {},
     "product": "Produkt",
     "@product": {},
@@ -534,11 +534,11 @@
     "@crop_page_action_local": {
         "description": "Action being performed on the crop page"
     },
-    "crop_page_too_small_image_title": "The image is too small!",
+    "crop_page_too_small_image_title": "Obraz jest za mały!",
     "@crop_page_too_small_image_title": {
         "description": "Title of a dialog warning the user that the image is too small for upload"
     },
-    "crop_page_too_small_image_message": "The minimum size in pixels for picture upload is {expectedMinWidth}x{expectedMinHeight}. The current picture is {actualWidth}x{actualHeight}.",
+    "crop_page_too_small_image_message": "Minimalny rozmiar obrazu w pikselach wynosi: {expectedMinWidth}x{expectedMinHeight}. Obecne wymiary obrazu wynoszą: {actualWidth}x{actualHeight}.",
     "@crop_page_too_small_image_message": {
         "description": "Message of a dialog warning the user that the image is too small for upload",
         "placeholders": {
@@ -581,13 +581,13 @@
     "new_product_subtitle_nutriscore": "Otrzymaj go, wypełniając kategorię żywności oraz wartości odżywcze",
     "new_product_title_ecoscore": "Obliczanie Eco-Score",
     "new_product_subtitle_ecoscore": "Otrzymaj go, wypełniając przynajmniej jedną kategorię",
-    "new_product_additional_ecoscore": "Make Eco-Score computation more precise with origins, packaging & more",
-    "new_product_title_nova": "Compute the food processing level (NOVA)",
+    "new_product_additional_ecoscore": "Spraw, by Eko-Wynik był bardziej precyzyjny dzięki pochodzeniu, pakowaniu & więcej",
+    "new_product_title_nova": "Oblicz stopień przetworzenia jedzenia (NOVA)",
     "new_product_subtitle_nova": "Otrzymaj go, wypełniając kategorię żywności oraz składniki",
     "new_product_desc_nova_unknown": "Poziom przetwarzania żywności nieznany",
     "new_product_title_pictures": "Zróbmy kilka zdjęć!",
     "new_product_title_misc": "I trochę podstawowych danych…",
-    "hey_incomplete_product_message": "Tap to answer 3 questions NOW to compute Nutri-Score, Eco-Score & Ultra-processing (NOVA)!",
+    "hey_incomplete_product_message": "Dotknij, aby odpowiedzieć na 3 pytania TERAZ, aby obliczyć wskaźnik odżywczości, Eko-wynik & Ultra-przetwarzanie (NOVA)!",
     "nutritional_facts_photo_uploaded": "Przesłano zdjęcie z listą wartości odżywczych",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "Zdjęcie informacji dotyczących Recyklingu",
@@ -1366,7 +1366,7 @@
     "@user_list_popup_rename": {
         "description": "Short label of a 'rename list' popup"
     },
-    "user_list_name_hint": "My list",
+    "user_list_name_hint": "Moja lista",
     "@user_list_name_hint": {
         "description": "Hint of a user list name text-field in a 'user list' dialog"
     },
@@ -1399,11 +1399,11 @@
             }
         }
     },
-    "camera_toggle_camera": "Switch between back and front camera",
+    "camera_toggle_camera": "Przerzuć między tylną a przednią kamerą",
     "@camera_toggle_camera": {
         "description": "Explanation for the icon to switch between cameras"
     },
-    "camera_toggle_flash": "Turn ON or OFF the flash of the camera",
+    "camera_toggle_flash": "Włącz lub wyłącz lampę w kamerze",
     "@camera_toggle_flash": {
         "description": "Explanation for the icon to turn on/off the flash"
     },
@@ -1724,9 +1724,9 @@
     "@confirm_clear": {
         "description": "Asking about whether to clear the history list or not"
     },
-    "alert_clear_selected_user_list": "You're about to clear selected items in your history",
-    "confirm_clear_selected_user_list": "Are you sure you want to continue?",
-    "alert_select_items_to_clear": "Please select one or more items to clear",
+    "alert_clear_selected_user_list": "Za moment wyczyścisz wybrane przedmioty w twojej historii",
+    "confirm_clear_selected_user_list": "Na pewno chcesz kontynuować?",
+    "alert_select_items_to_clear": "Proszę wybrać jeden lub więcej przedmiotów do wyczyszczenia",
     "confirm_clear_user_list": "Zamierzasz wyczyścić tę listę ({name}): czy na pewno chcesz kontynuować?",
     "@confirm_clear_user_list": {
         "description": "Asking about whether to clear the list or not",
@@ -1834,11 +1834,11 @@
     "@image_upload_queued": {
         "description": "Message when a photo is queued for upload"
     },
-    "background_task_title_full_refresh": "Starting the refresh of all the products locally stored",
+    "background_task_title_full_refresh": "Rozpoczynanie odświeżania wszystkich lokalnie przechowywanych produktów",
     "@background_task_title_full_refresh": {
         "description": "Snackbar message when a full refresh is started"
     },
-    "background_task_title_top_n": "Starting the download of the most popular products",
+    "background_task_title_top_n": "Rozpoczynanie pobierania najbardziej popularnych produktów",
     "@background_task_title_top_n": {
         "description": "Snackbar message when a download of the most popular products is started"
     },
@@ -1905,7 +1905,7 @@
     "@product_card_remove_product_tooltip": {
         "description": "Tooltip (message visible with a long-press) on a product item in the carousel"
     },
-    "scan_announce_new_barcode": "New barcode scanned: {barcode}",
+    "scan_announce_new_barcode": "Nowy kod kreskowy: {barcode}",
     "@scan_announce_new_barcode": {
         "description": "Text to pronounce by the Accessibility tool when a new barcode is decoded",
         "placeholders": {
@@ -1980,7 +1980,7 @@
     "@robotoff_continue": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering"
     },
-    "robotoff_next_n_questions": "Next {count,plural,  =1{question} other{{count} questions}}",
+    "robotoff_next_n_questions": "Następne {count,plural, =1{pytanie}other{{count} pytania}}",
     "@robotoff_next_n_questions": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering",
         "placeholders": {
@@ -2079,7 +2079,7 @@
     "background_task_title": "Oczekujące wpisy",
     "background_task_subtitle": "Twój wkład zapisywany jest automatycznie, jednak wprowadzone zmiany nie będą widoczne natychmiast.",
     "background_task_list_empty": "Brak oczekujących zadań w tle",
-    "background_task_error_server_time_out": "Server timeout",
+    "background_task_error_server_time_out": "Przerwa serwera",
     "background_task_error_no_internet": "Błąd połączenia internetowego. Spróbuj ponownie później.",
     "background_task_operation_unknown": "Nieznany typ żądania",
     "background_task_operation_details": "szczegółowe zmiany",
@@ -2198,7 +2198,7 @@
     "@download_top_products": {
         "description": "Download the top 1000 products in your country for instant scanning"
     },
-    "download_top_n_products": "Download the top {count,plural,  other{{count} products}} in your country for instant scanning",
+    "download_top_n_products": "Pobierz topowe {count,plural,  one {}  few {{count} produkty}  many {{count} produkty}other{{count} produkty}} w twoim kraju dla natychmiastowego skanowania",
     "@download_top_n_products": {
         "placeholders": {
             "count": {

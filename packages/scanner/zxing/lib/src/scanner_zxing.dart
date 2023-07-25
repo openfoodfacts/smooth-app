@@ -78,8 +78,6 @@ class _SmoothBarcodeScannerZXingState
     BarcodeFormat.upcE,
   ];
 
-  static const double _cornerPadding = 26;
-
   bool _visible = false;
   final GlobalKey _qrKey = GlobalKey(debugLabel: 'QR');
   QRViewController? _controller;
@@ -131,14 +129,15 @@ class _SmoothBarcodeScannerZXingState
             ),
             Center(
               child: SmoothBarcodeScannerVisor(
-                cornerRadius: _cornerPadding,
                 contentPadding: widget.contentPadding,
               ),
             ),
             Align(
               alignment: Alignment.bottomCenter,
               child: Padding(
-                padding: const EdgeInsets.all(_cornerPadding),
+                padding: const EdgeInsets.all(
+                  SmoothBarcodeScannerVisor.CORNER_PADDING,
+                ),
                 child: Row(
                   mainAxisAlignment: _showFlipCameraButton
                       ? MainAxisAlignment.spaceBetween
@@ -146,16 +145,15 @@ class _SmoothBarcodeScannerZXingState
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     if (_showFlipCameraButton)
-                      IconButton(
-                        icon: Icon(getCameraFlip()),
+                      VisorButton(
                         tooltip: widget.toggleCameraModeTooltip ??
                             'Switch between back and front camera',
-                        color: Colors.white,
-                        onPressed: () async {
+                        onTap: () async {
                           widget.hapticFeedback.call();
                           await _controller?.flipCamera();
                           setState(() {});
                         },
+                        child: Icon(getCameraFlip()),
                       ),
                     FutureBuilder<bool?>(
                       future: _controller?.getFlashStatus(),
@@ -164,14 +162,10 @@ class _SmoothBarcodeScannerZXingState
                         if (flashOn == null) {
                           return EMPTY_WIDGET;
                         }
-                        return IconButton(
-                          icon:
-                              Icon(flashOn ? Icons.flash_on : Icons.flash_off),
-                          enableFeedback: true,
+                        return VisorButton(
                           tooltip: widget.toggleFlashModeTooltip ??
                               'Turn ON or OFF the flash of the camera',
-                          color: Colors.white,
-                          onPressed: () async {
+                          onTap: () async {
                             widget.hapticFeedback.call();
 
                             try {
@@ -181,6 +175,9 @@ class _SmoothBarcodeScannerZXingState
                               widget.onCameraFlashError?.call(context);
                             }
                           },
+                          child: Icon(
+                            flashOn ? Icons.flash_on : Icons.flash_off,
+                          ),
                         );
                       },
                     ),

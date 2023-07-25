@@ -42,7 +42,7 @@ class KnowledgePanelWorldMapCard extends StatelessWidget {
             AttributionWidget(
               attributionBuilder: (BuildContext context) {
                 return Align(
-                  alignment: Alignment.bottomRight,
+                  alignment: AlignmentDirectional.bottomEnd,
                   child: ColoredBox(
                     color: const Color(0xCCFFFFFF),
                     child: GestureDetector(

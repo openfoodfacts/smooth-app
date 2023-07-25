@@ -25,6 +25,9 @@ class SmoothProductCardNotFound extends StatelessWidget {
     final TextTheme textTheme = Theme.of(context).textTheme;
 
     return SmoothProductBaseCard(
+      margin: const EdgeInsets.symmetric(
+        vertical: VERY_SMALL_SPACE,
+      ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.center,
