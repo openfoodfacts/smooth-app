@@ -3,28 +3,40 @@ import 'package:smooth_app/helpers/analytics_helper.dart';
 
 void main() {
   group('AnalyticsHelper', () {
-    test('linkPreferences', () {
+    test('linkPreferences', () async {
       // TODO: Write test
+      // Ensure that the function is being awaited properly
+      await AnalyticsHelper.linkPreferences();
     });
 
-    test('initSentry', () {
+    test('initSentry', () async {
       // TODO: Write test
+      // Ensure that the function is being awaited properly
+      await AnalyticsHelper.initSentry();
     });
 
-    test('_setCrashReports', () {
+    test('_setCrashReports', () async {
       // TODO: Write test
+      // Ensure that the function is being awaited properly
+      await AnalyticsHelper._setCrashReports();
     });
 
-    test('_setAnalyticsReports', () {
+    test('_setAnalyticsReports', () async {
       // TODO: Write test
+      // Ensure that the function is being awaited properly
+      await AnalyticsHelper._setAnalyticsReports();
     });
 
-    test('_beforeSend', () {
+    test('_beforeSend', () async {
       // TODO: Write test
+      // Ensure that the function is being awaited properly
+      await AnalyticsHelper._beforeSend();
     });
 
-    test('initMatomo', () {
+    test('initMatomo', () async {
       // TODO: Write test
+      // Ensure that the function is being awaited properly
+      await AnalyticsHelper.initMatomo();
     });
   });
 }
