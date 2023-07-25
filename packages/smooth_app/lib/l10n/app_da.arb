@@ -205,7 +205,7 @@
     "@sign_up_page_action_button": {
         "description": "Button for signing up"
     },
-    "sign_up_page_action_doing_it": "Signing up…",
+    "sign_up_page_action_doing_it": "Tilmelder…",
     "@sign_up_page_action_doing_it": {
         "description": "Progress indicator dialog during the actual signing up process"
     },
@@ -424,6 +424,10 @@
     "@history_navbar_label": {
         "description": "BottomNavigationBarLabel: For the history and compare mode"
     },
+    "list_navbar_label": "Lister",
+    "@list_navbar_label": {
+        "description": "BottomNavigationBarLabel: For the lists"
+    },
     "category": "Filtrér efter kategori",
     "@category": {
         "description": "From a product list, there's a category filter: this is its title"
@@ -449,7 +453,7 @@
     "@search": {
         "description": "Hint text of a search text input field"
     },
-    "tap_for_more": "Tap to see more info…",
+    "tap_for_more": "Tryk for flere oplysninger…",
     "@Product": {},
     "product": "Produkt",
     "@product": {},
@@ -533,6 +537,14 @@
     "crop_page_action_local": "Gemmer en lokal version…",
     "@crop_page_action_local": {
         "description": "Action being performed on the crop page"
+    },
+    "crop_page_action_local_failed_title": "Hovsa… der er et problem med fotoet!",
+    "@crop_page_action_local_title": {
+        "description": "The save of the picture locally failed - error dialog message"
+    },
+    "crop_page_action_local_failed_message": "Ude af stand til stand at behandle fotoet lokalt, før det indsendes til vores server. Forsøg igen senere, eller kontakt os, hvis problemet fortsætter.",
+    "@crop_page_action_local_message": {
+        "description": "The save of the picture locally failed - error dialog message"
     },
     "crop_page_too_small_image_title": "Foto for lille!",
     "@crop_page_too_small_image_title": {
@@ -651,7 +663,7 @@
     "nutrition_page_add_nutrient": "Tilføj et næringsstof",
     "nutrition_page_serving_size": "Portionsstørrelse",
     "nutrition_page_invalid_number": "Ugyldigt nummer",
-    "nutrition_page_update_running": "Updating the product on the server…",
+    "nutrition_page_update_running": "Opdaterer produktet på serveren…",
     "nutrition_page_update_done": "Produkt opdateret!",
     "more_photos": "Flere interessante fotos",
     "@more_photos": {},
@@ -722,7 +734,11 @@
     },
     "country_chooser_label": "Vælg land",
     "@country_chooser_label": {
-        "description": "Label shown above a selector where the user can select their country"
+        "description": "Label shown above a selector where the user can select their country (in the onboarding)"
+    },
+    "country_chooser_label_from_settings": "Dit land",
+    "@country_chooser_label_from_settings": {
+        "description": "Label to use in the settings to change the user country"
     },
     "country_selection_explanation": "Visse miljømæssige egenskaber er stedbestemte",
     "@country_label": {
@@ -743,6 +759,10 @@
     "product_removed_history": "Produkt fjernet fra historik",
     "@product_removed_history": {
         "description": "Product got removed from history"
+    },
+    "product_removed_list": "Produkt fjernet fra liste",
+    "@product_removed_list": {
+        "description": "Product got removed from list"
     },
     "product_could_not_remove": "Produkt kunne ikke fjernes",
     "@product_could_not_remove": {
@@ -807,7 +827,7 @@
             "count": {}
         }
     },
-    "compare_products_mode": "Sammenlign",
+    "compare_products_mode": "Sammenlign produkter",
     "@compare_products_mode": {
         "description": "Button to switch to 'compare products mode'"
     },
@@ -1276,9 +1296,9 @@
     "edit_product_form_item_exit_confirmation": "Gem ændringerne, inden siden forlades?",
     "edit_product_form_item_exit_confirmation_positive_button": "Gem ændringer",
     "edit_product_form_item_exit_confirmation_negative_button": "Kassér ændringer",
-    "edit_product_form_item_ingredients_title": "Ingredienser og Oprindelser",
+    "edit_product_form_item_ingredients_title": "Ingredienser",
     "@edit_product_form_item_ingredients_title": {
-        "description": "Product edition - Ingredients - Title"
+        "description": "Product edition - Ingredients - Title (note: this section was previously called Ingredients & Origins)"
     },
     "edit_product_form_item_add_valid_item_tooltip": "Tilføj",
     "edit_product_form_item_add_invalid_item_tooltip": "Angiv først en tekst",
@@ -1346,7 +1366,7 @@
     "@user_list_button_new": {
         "description": "Short label of a 'create a new list' button"
     },
-    "user_list_empty_label": "Ingen list tilgængelig endnu,\nstart med at oprette én",
+    "user_list_empty_label": "Ingen liste tilgængelig endnu. Start med at oprette én",
     "@user_list_empty_label": {
         "description": "Content displayed when there is no list"
     },
@@ -1572,6 +1592,10 @@
     "@dev_mode_scan_scan_half_image": {
         "description": "Scan mode - Scan half image"
     },
+    "search_history_item_edit_tooltip": "Genbrug og redigér denne søgning",
+    "@search_history_item_edit_tooltip": {
+        "description": "A tooltip to explain the Pen button near a search term -> it allows to reuse the item"
+    },
     "product_search_no_more_results": "Alle {totalSize} produkter er downloadet.",
     "@product_search_no_more_results": {
         "description": "Product search list - No more results available",
@@ -1678,7 +1702,7 @@
     "@edit_photo_select_existing_all_label": {
         "description": "Page title"
     },
-    "edit_photo_select_existing_download_label": "Retrieving existing images…",
+    "edit_photo_select_existing_download_label": "Henter eksisterende fotos…",
     "@edit_photo_select_existing_download_label": {
         "description": "Dialog label"
     },
@@ -1720,6 +1744,10 @@
     "@basic_details_add_error": {
         "description": "Error message when error occurs while submitting basic details"
     },
+    "clear_search": "Ryd søgning",
+    "@confirm_clearclear_search": {
+        "description": "Tooltip to explain that the X button clears the content of the search"
+    },
     "confirm_clear": "Hele historikken er ved at blive ryddet. Sikker på, at du vil fortsætte?",
     "@confirm_clear": {
         "description": "Asking about whether to clear the history list or not"
@@ -1736,14 +1764,22 @@
             }
         }
     },
-    "confirm_delete_user_list": "Listen ({name}) er ved at blive slettet. Sikker på, at du vil fortsætte?",
-    "@confirm_delete_user_list": {
-        "description": "Asking about whether to delete the list or not",
+    "confirm_delete_user_list_title": "Slet listen?",
+    "@confirm_delete_user_list_title": {
+        "description": "Title when asking about whether to delete the list or not"
+    },
+    "confirm_delete_user_list_message": "Listen \"{name}\" er ved at blive slettet.\nSikker på, at du vil fortsætte?",
+    "@confirm_delete_user_list_message": {
+        "description": "Message when asking about whether to delete the list or not",
         "placeholders": {
             "name": {
                 "type": "String"
             }
         }
+    },
+    "confirm_delete_user_list_button": "Ja, jeg er sikker",
+    "@confirm_delete_user_list_button": {
+        "description": "Button to delete a list"
     },
     "importance_label": "{name}-vigtighed: {id}",
     "@importance_label": {
@@ -1764,6 +1800,10 @@
     "user_list_all_empty": "Opret din første liste",
     "@user_list_all_empty": {
         "description": "Small message when there are no user lists"
+    },
+    "product_list_select": "Vælg en liste",
+    "@product_list_select": {
+        "description": "Top title for the selection of a list"
     },
     "user_list_length": "{count,plural, =0{Tom liste} =1{Et produkt} other{{count} produkter}}",
     "@user_list_length": {
@@ -1879,8 +1919,8 @@
         }
     },
     "clipboard_barcode_copied": "Stregkoden {barcode} kopieret til udklipsholderen!",
-    "choose_app_language": "Vælg app-sprog",
-    "@choose_app_language": {
+    "language_picker_label": "Dit sprog",
+    "@language_picker_label": {
         "description": "Choose Application Language"
     },
     "help_with_openfoodfacts": "Hjælp med OpenFoodFacts",
@@ -1927,9 +1967,49 @@
     "@scan_header_compare_button_valid_state_tooltip": {
         "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is at least two prodiucts"
     },
+    "scan_product_loading": "Flg. stregkode er\nblevet skannet:",
+    "@scan_product_loading": {
+        "description": "Title when a product is loading (carousel card). Please ensure to keep the line break."
+    },
+    "scan_product_loading_initial": "Productet fremsøges!\nVent venligst et øjeblik…",
+    "@scan_product_loading_initial": {
+        "description": "Message when a product is loading (carousel card). Please ensure to keep the line break."
+    },
+    "scan_product_loading_long_request": "Der søges stadig efter dette produkt!\nSynes det tager for langt tid at finde? Det gør vi også…",
+    "@scan_product_loading_long_request": {
+        "description": "Message when a product is long to load (carousel card). Please ensure to keep the line break."
+    },
+    "scan_product_loading_unresponsive": "Der søges stadig efter dette produkt.\nØnsker at genstarte søgningen?",
+    "@scan_product_loading_unresponsive": {
+        "description": "Message when a product is too long to load (carousel card). Please ensure to keep the line break."
+    },
+    "scan_product_loading_restart_button": "Genstart søgning",
+    "@scan_product_loading_restart_button": {
+        "description": "Button to force restart a product search"
+    },
     "portion_calculator_description": "Beregn ernæringfakta for en bestemt mængde",
     "@portion_calculator_description": {
         "description": "Sort of title that describes the portion calculator."
+    },
+    "portion_calculator_hint": "Mængde i",
+    "@portion_calculator_hint": {
+        "description": "Hint to show when a quantity is empty in the portion calculator."
+    },
+    "portion_calculator_accessibility": "Angiv mængde for at beregne ernæringsfakta",
+    "@portion_calculator_accessibility": {
+        "description": "Hint for the acessibility to explain to enter a quantity."
+    },
+    "portion_calculator_error": "Angiv en mængde mellem {min} og {max} g",
+    "@portion_calculator_error": {
+        "description": "Error message to explain that the quantity is invalid.",
+        "placeholders": {
+            "min": {
+                "type": "int"
+            },
+            "max": {
+                "type": "int"
+            }
+        }
     },
     "portion_calculator_result_title": "Næringsfakta for {grams} g (eller ml)",
     "@portion_calculator_result_title": {
@@ -2268,5 +2348,25 @@
                 "type": "int"
             }
         }
+    },
+    "country_selector_title": "Vælg dit land:",
+    "@country_selector_title": {
+        "description": "Label written as the title of the dialog to select the user country"
+    },
+    "action_delete_list": "Slet",
+    "@action_delete_list": {
+        "description": "Delete a list action in a menu"
+    },
+    "action_change_list": "Ændrer den aktuelle liste",
+    "@action_change_list": {
+        "description": "Action to change the current visible list"
+    },
+    "product_list_create": "Opret",
+    "@product_list_create": {
+        "description": "Button label to create a new list (short word)"
+    },
+    "product_list_create_tooltip": "Opret ny liste",
+    "@product_list_create_tooltip": {
+        "description": "Button description to create a new list (long sentence)"
     }
 }
