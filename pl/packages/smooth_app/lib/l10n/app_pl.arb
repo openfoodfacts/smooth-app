@@ -46,7 +46,7 @@
     "@calculate": {
         "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
     },
-    "reset_food_prefs": "Wyzeruj swoje preferencje",
+    "reset_food_prefs": "Zresetuj preferencje żywieniowe",
     "@reset": {
         "description": "Button label, clicking on the button will reset user's food preferences."
     },
@@ -142,7 +142,7 @@
         "description": "Description of what a user can use the Eco data in a product for."
     },
     "@user_management": {},
-    "sign_in_text": "Zaloguj się na swoje konto Open Food Facts i zapisz swój wkład",
+    "sign_in_text": "Zaloguj się na swoje konto Open Food Facts, aby zapisać swój wkład",
     "incorrect_credentials": "Nieprawidłowa nazwa użytkownika lub hasło.",
     "login": "Nazwa użytkownika",
     "@login": {
@@ -166,7 +166,7 @@
     "@sign_out": {
         "description": "Button label: For sign out"
     },
-    "sign_out_confirmation": "Na pewno chcesz się wylogować?",
+    "sign_out_confirmation": "Jesteś pewny, że chcesz się wylogować?",
     "@sign_out_confirmation": {
         "description": "Pop up title: Reassuring if the user really want to sign out"
     },
@@ -175,7 +175,7 @@
     "@forgot_password": {
         "description": "Button label: Opens a page where a password reset e-mail can be requested"
     },
-    "view_profile": "Profil",
+    "view_profile": "Zobacz profil",
     "@view_profile": {
         "description": "Button label: For to show your account"
     },
@@ -1764,11 +1764,11 @@
             }
         }
     },
-    "confirm_delete_user_list_title": "Delete the list?",
+    "confirm_delete_user_list_title": "Usunąć listę?",
     "@confirm_delete_user_list_title": {
         "description": "Title when asking about whether to delete the list or not"
     },
-    "confirm_delete_user_list_message": "You're about to delete the list \"{name}\".\nAre you sure you want to continue?",
+    "confirm_delete_user_list_message": "Zamierzasz usunąć listę \"{name}\". \nCzy na pewno chcesz kontynuować?",
     "@confirm_delete_user_list_message": {
         "description": "Message when asking about whether to delete the list or not",
         "placeholders": {
@@ -1777,7 +1777,7 @@
             }
         }
     },
-    "confirm_delete_user_list_button": "Yes, I confirm",
+    "confirm_delete_user_list_button": "Tak, potwierdzam",
     "@confirm_delete_user_list_button": {
         "description": "Button to delete a list"
     },
@@ -2096,7 +2096,7 @@
             }
         }
     },
-    "edit_packagings_element_field_units": "Number of units",
+    "edit_packagings_element_field_units": "Liczba jednostek",
     "@edit_packagings_element_field_units": {
         "description": "Field label"
     },
@@ -2357,7 +2357,7 @@
     "@action_delete_list": {
         "description": "Delete a list action in a menu"
     },
-    "action_change_list": "Change the current list",
+    "action_change_list": "Zmień bieżącą listę",
     "@action_change_list": {
         "description": "Action to change the current visible list"
     },
