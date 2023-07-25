@@ -10,6 +10,7 @@ on:
 jobs:
   build:
     runs-on: macos-latest
+    if: "!contains(github.event.pull_request.title, 'chore(deps):')"
     defaults:
       run:
         shell: bash
@@ -56,6 +57,6 @@ jobs:
       - name: Write comment
         uses: mshick/add-pr-comment@v2
         with:
-          message: "You can test this PR on: [https://app.waldo.com/applications/app-19d476740ba1bb36/sessions](Android)"
+          message: "You can test this PR on: [Android](https://app.waldo.com/applications/app-19d476740ba1bb36/sessions])"
 
       # TODO Build the iOS variant and upload it
