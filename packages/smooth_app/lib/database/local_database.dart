@@ -6,6 +6,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:smooth_app/background/background_task_manager.dart';
+import 'package:smooth_app/data_models/up_to_date_product_list_provider.dart';
 import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/database/abstract_dao.dart';
 import 'package:smooth_app/database/dao_hive_product.dart';
@@ -25,14 +26,18 @@ import 'package:sqflite/sqflite.dart';
 class LocalDatabase extends ChangeNotifier {
   LocalDatabase._(final Database database) : _database = database {
     _upToDateProductProvider = UpToDateProductProvider(this);
+    _upToDateProductListProvider = UpToDateProductListProvider(this);
   }
 
   final Database _database;
   late final UpToDateProductProvider _upToDateProductProvider;
+  late final UpToDateProductListProvider _upToDateProductListProvider;
 
   Database get database => _database;
 
   UpToDateProductProvider get upToDate => _upToDateProductProvider;
+  UpToDateProductListProvider get upToDateProductList =>
+      _upToDateProductListProvider;
 
   @override
   void notifyListeners() {

@@ -7,6 +7,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
+import 'package:scanner_shared/scanner_shared.dart' hide EMPTY_WIDGET;
 import 'package:smooth_app/cards/product_cards/smooth_product_base_card.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_error.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_loading.dart';
@@ -32,22 +33,13 @@ class SmoothProductCarousel extends StatefulWidget {
   final bool containSearchCard;
   final Function(int page, String? productBarcode)? onPageChangedTo;
 
-  static const EdgeInsetsGeometry carouselItemHorizontalPadding =
-      EdgeInsetsDirectional.only(
-    top: LARGE_SPACE,
-    start: VERY_LARGE_SPACE,
-    end: VERY_LARGE_SPACE,
-    bottom: VERY_LARGE_SPACE,
-  );
-  static const EdgeInsetsGeometry carouselItemInternalPadding =
-      EdgeInsets.symmetric(horizontal: 2.0);
-  static const double carouselViewPortFraction = 0.91;
-
   @override
   State<SmoothProductCarousel> createState() => _SmoothProductCarouselState();
 }
 
 class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
+  static const double HORIZONTAL_SPACE_BETWEEN_CARDS = 5.0;
+
   final CarouselController _controller = CarouselController();
   List<String> barcodes = <String>[];
   bool _returnToSearchCard = false;
@@ -128,17 +120,21 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
           itemCount: barcodes.length + _searchCardAdjustment,
           itemBuilder:
               (BuildContext context, int itemIndex, int itemRealIndex) {
-            return Padding(
-              padding: SmoothProductCarousel.carouselItemInternalPadding,
-              child: widget.containSearchCard && itemIndex == 0
-                  ? SearchCard(height: constraints.maxHeight)
-                  : _getWidget(itemIndex - _searchCardAdjustment),
+            return SizedBox.expand(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: HORIZONTAL_SPACE_BETWEEN_CARDS,
+                ),
+                child: widget.containSearchCard && itemIndex == 0
+                    ? SearchCard(height: constraints.maxHeight)
+                    : _getWidget(itemIndex - _searchCardAdjustment),
+              ),
             );
           },
           carouselController: _controller,
           options: CarouselOptions(
             enlargeCenterPage: false,
-            viewportFraction: SmoothProductCarousel.carouselViewPortFraction,
+            viewportFraction: _computeViewPortFraction(),
             height: constraints.maxHeight,
             enableInfiniteScroll: false,
             onPageChanged: (int index, CarouselPageChangedReason reason) {
@@ -182,7 +178,10 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
       case ScannedProductState.CACHED:
         return ScanProductCardLoader(barcode);
       case ScannedProductState.LOADING:
-        return SmoothProductCardLoading(barcode: barcode);
+        return SmoothProductCardLoading(
+          barcode: barcode,
+          onRemoveProduct: (_) => _model.removeBarcode(barcode),
+        );
       case ScannedProductState.NOT_FOUND:
         return SmoothProductCardNotFound(
           barcode: barcode,
@@ -206,6 +205,15 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
         );
     }
   }
+
+  double _computeViewPortFraction() {
+    final double screenWidth = MediaQuery.of(context).size.width;
+    return (screenWidth -
+            (SmoothBarcodeScannerVisor.CORNER_PADDING * 2) -
+            (SmoothBarcodeScannerVisor.STROKE_WIDTH * 2) +
+            (HORIZONTAL_SPACE_BETWEEN_CARDS * 4)) /
+        screenWidth;
+  }
 }
 
 class SearchCard extends StatelessWidget {
@@ -223,6 +231,9 @@ class SearchCard extends StatelessWidget {
 
     return SmoothProductBaseCard(
       backgroundColorOpacity: OPACITY,
+      margin: const EdgeInsets.symmetric(
+        vertical: VERY_SMALL_SPACE,
+      ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,

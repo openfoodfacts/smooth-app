@@ -7,7 +7,7 @@
       "program": "packages/smooth_app/lib/entrypoints/android/main_google_play.dart"
     },
     {
-      "name": "iOS",
+      "name": "iOS/macOS",
       "type": "dart",
       "request": "launch",
       "program": "packages/smooth_app/lib/entrypoints/ios/main_ios.dart"

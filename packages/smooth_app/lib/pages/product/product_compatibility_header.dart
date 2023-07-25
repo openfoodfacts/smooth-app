@@ -35,9 +35,9 @@ class ProductCompatibilityHeader extends StatelessWidget {
       decoration: BoxDecoration(
         color: helper.getHeaderBackgroundColor(isDarkMode),
         // Ensure that the header has the same circular radius as the SmoothCard.
-        borderRadius: const BorderRadius.only(
-          topLeft: ROUNDED_RADIUS,
-          topRight: ROUNDED_RADIUS,
+        borderRadius: const BorderRadiusDirectional.only(
+          topStart: ROUNDED_RADIUS,
+          topEnd: ROUNDED_RADIUS,
         ),
       ),
       child: Row(

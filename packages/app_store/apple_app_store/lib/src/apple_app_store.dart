@@ -9,7 +9,7 @@ class AppleAppStore extends AppStore {
   AppleAppStore(this.appId)
       : assert(appId.isNotEmpty),
         assert(!appId.startsWith('id')),
-        assert(Platform.isIOS);
+        assert(Platform.isIOS || Platform.isMacOS);
 
   final String appId;
   final InAppReview _inAppReview = InAppReview.instance;

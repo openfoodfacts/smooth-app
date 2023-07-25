@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/picture_not_found.dart';
 
@@ -32,6 +33,7 @@ class SmoothImage extends StatelessWidget {
             image: imageProvider!,
             fit: fit ?? BoxFit.cover,
             loadingBuilder: _loadingBuilder,
+            errorBuilder: _errorBuilder,
           );
 
     if (heroTag != null) {
@@ -51,24 +53,45 @@ class SmoothImage extends StatelessWidget {
   }
 
   Widget _loadingBuilder(
-    BuildContext _,
+    BuildContext context,
     Widget child,
     ImageChunkEvent? progress,
   ) {
-    if (progress == null) {
-      return child;
+    final double? progressValue;
+
+    if (progress != null) {
+      progressValue =
+          progress.cumulativeBytesLoaded / progress.expectedTotalBytes!;
+    } else {
+      progressValue = null;
     }
 
-    final double progressValue =
-        progress.cumulativeBytesLoaded / progress.expectedTotalBytes!;
+    final ThemeData theme = Theme.of(context);
 
-    return Center(
-      child: CircularProgressIndicator(
-        strokeWidth: 2.5,
-        valueColor: const AlwaysStoppedAnimation<Color>(
-          Colors.white,
+    return Container(
+      color: theme.primaryColor.withOpacity(0.1),
+      child: Center(
+        child: CircularProgressIndicator(
+          strokeWidth: 2.5,
+          valueColor: theme.brightness == Brightness.dark
+              ? const AlwaysStoppedAnimation<Color>(Colors.white)
+              : null,
+          value: progressValue,
         ),
-        value: progressValue,
+      ),
+    );
+  }
+
+  Widget _errorBuilder(
+    BuildContext context,
+    Object _,
+    StackTrace? __,
+  ) {
+    return Container(
+      color: Theme.of(context).primaryColor.withOpacity(0.1),
+      padding: const EdgeInsets.all(MEDIUM_SPACE),
+      child: Center(
+        child: SvgPicture.asset('assets/misc/error.svg'),
       ),
     );
   }

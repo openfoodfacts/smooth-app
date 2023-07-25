@@ -179,9 +179,13 @@ class _ProductQuestionsWidgetState extends State<ProductQuestionsWidget>
 
   Future<List<RobotoffQuestion>?> _loadProductQuestions() async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    final List<RobotoffQuestion> questions =
-        await ProductQuestionsQuery(widget.product.barcode!)
-            .getQuestions(localDatabase, 3);
+    final List<RobotoffQuestion> questions;
+    try {
+      questions = await ProductQuestionsQuery(widget.product.barcode!)
+          .getQuestions(localDatabase, 3);
+    } catch (e) {
+      return null;
+    }
     if (!mounted) {
       return null;
     }

@@ -25,7 +25,7 @@ class SummaryAttributeGroup extends StatelessWidget {
               groupName: groupName,
             ),
             Container(
-              alignment: Alignment.topLeft,
+              alignment: AlignmentDirectional.topStart,
               child: Wrap(
                 runSpacing: 16,
                 children: attributeChips,
@@ -48,7 +48,7 @@ class _SummaryAttributeGroupHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) => groupName != null
       ? Container(
-          alignment: Alignment.topLeft,
+          alignment: AlignmentDirectional.topStart,
           padding: const EdgeInsetsDirectional.only(
             top: SMALL_SPACE,
             bottom: LARGE_SPACE,

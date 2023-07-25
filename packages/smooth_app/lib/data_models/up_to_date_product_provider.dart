@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/up_to_date_changes.dart';
+import 'package:smooth_app/data_models/up_to_date_interest.dart';
 import 'package:smooth_app/database/dao_transient_operation.dart';
 import 'package:smooth_app/database/local_database.dart';
 
@@ -26,7 +27,7 @@ class UpToDateProductProvider {
   /// We need to know which barcodes are "interesting" because we need to cache
   /// products in memory for instant access. And we should cache only them,
   /// because we cannot cache all products in memory.
-  final Map<String, int> _interestingBarcodes = <String, int>{};
+  final UpToDateInterest _interest = UpToDateInterest();
 
   /// Returns true if at least one barcode was refreshed after the [timestamp].
   bool needsRefresh(final int? latestTimestamp, final List<String> barcodes) {
@@ -46,23 +47,18 @@ class UpToDateProductProvider {
   /// Shows an interest for a barcode.
   ///
   /// Typically, to be used by a widget in `initState`.
-  void showInterest(final String barcode) {
-    final int result = (_interestingBarcodes[barcode] ?? 0) + 1;
-    _interestingBarcodes[barcode] = result;
-  }
+  void showInterest(final String barcode) => _interest.add(barcode);
 
   /// Loses interest for a barcode.
   ///
   /// Typically, to be used by a widget in `dispose`.
   void loseInterest(final String barcode) {
-    final int result = (_interestingBarcodes[barcode] ?? 0) - 1;
-    if (result <= 0) {
-      _interestingBarcodes.remove(barcode);
-      _latestDownloadedProducts.remove(barcode);
-      _timestamps.remove(barcode);
-    } else {
-      _interestingBarcodes[barcode] = result;
+    final bool lostInterest = _interest.remove(barcode);
+    if (!lostInterest) {
+      return;
     }
+    _latestDownloadedProducts.remove(barcode);
+    _timestamps.remove(barcode);
   }
 
   /// Typical use-case: a product page is refreshed through a pull-gesture.
@@ -82,12 +78,12 @@ class UpToDateProductProvider {
     final Iterable<Product> products, {
     final bool notify = true,
   }) {
-    if (_interestingBarcodes.isEmpty) {
+    if (_interest.isEmpty) {
       return;
     }
     bool atLeastOne = false;
     for (final Product product in products) {
-      if (_interestingBarcodes.containsKey(product.barcode)) {
+      if (_interest.containsKey(product.barcode!)) {
         atLeastOne = true;
         setLatestDownloadedProduct(product, notify: false);
       }

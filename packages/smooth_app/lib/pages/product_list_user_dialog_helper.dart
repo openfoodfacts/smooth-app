@@ -2,11 +2,13 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
+import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 
 /// Dialog helper class for user product list.
 class ProductListUserDialogHelper {
@@ -22,7 +24,7 @@ class ProductListUserDialogHelper {
     final TextEditingController textEditingController = TextEditingController();
     final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
-    final List<String> lists = await daoProductList.getUserLists();
+    final List<String> lists = daoProductList.getUserLists();
     final String? title = await showDialog<String>(
       context: context,
       builder: (final BuildContext context) {
@@ -93,7 +95,7 @@ class ProductListUserDialogHelper {
 
     final String initialName = initialProductList.parameters;
     textEditingController.text = initialName;
-    final List<String> lists = await daoProductList.getUserLists();
+    final List<String> lists = daoProductList.getUserLists();
     final String? newName = await showDialog<String>(
       context: context,
       builder: (final BuildContext context) => SmoothAlertDialog(
@@ -153,19 +155,24 @@ class ProductListUserDialogHelper {
     final bool? deleted = await showDialog<bool>(
       context: context,
       builder: (final BuildContext context) => SmoothAlertDialog(
+        title: appLocalizations.confirm_delete_user_list_title,
         body: Text(
-          appLocalizations.confirm_delete_user_list(productList.parameters),
+          appLocalizations.confirm_delete_user_list_message(
+            ProductQueryPageHelper.getProductListLabel(
+              productList,
+              appLocalizations,
+            ),
+          ),
         ),
         negativeAction: SmoothActionButton(
           onPressed: () => Navigator.pop(context),
-          text: appLocalizations.cancel,
+          text: appLocalizations.no,
         ),
         positiveAction: SmoothActionButton(
-          onPressed: () {
-            Navigator.pop(context, true);
-          },
-          text: appLocalizations.okay,
+          onPressed: () => Navigator.pop(context, true),
+          text: appLocalizations.confirm_delete_user_list_button,
         ),
+        actionsAxis: Axis.vertical,
       ),
     );
     if (deleted == null) {
@@ -185,7 +192,7 @@ class ProductListUserDialogHelper {
     final BuildContext context,
     final Set<String> barcodes,
   ) async {
-    final List<String> lists = await daoProductList.getUserLists();
+    final List<String> lists = daoProductList.getUserLists();
 
     if (lists.isEmpty) {
       final bool? newListCreated = await showDialog<bool>(
@@ -198,8 +205,9 @@ class ProductListUserDialogHelper {
       return false;
     }
 
-    final List<String> selectedLists = await daoProductList.getUserLists(
-      withBarcodes: barcodes.toList(growable: false),
+    final List<String> selectedLists =
+        await daoProductList.getUserListsWithBarcodes(
+      barcodes.toList(growable: false),
     );
 
     return showDialog<bool?>(
@@ -324,8 +332,8 @@ class _UserEmptyListsState extends State<_UserEmptyLists> {
     return SmoothAlertDialog(
       body: Column(
         children: <Widget>[
-          const Icon(Icons.warning),
-          const SizedBox(height: VERY_SMALL_SPACE),
+          SvgPicture.asset('assets/misc/error.svg'),
+          const SizedBox(height: LARGE_SPACE),
           Container(
             alignment: Alignment.center,
             padding: const EdgeInsets.symmetric(
@@ -337,12 +345,15 @@ class _UserEmptyListsState extends State<_UserEmptyLists> {
               textAlign: TextAlign.center,
               style: const TextStyle(
                 fontWeight: FontWeight.bold,
+                fontSize: 18.0,
               ),
             ),
           ),
-          const SizedBox(height: LARGE_SPACE * 2.5),
+          const SizedBox(height: LARGE_SPACE),
         ],
       ),
+      actionsAxis: Axis.vertical,
+      actionsOrder: SmoothButtonsBarOrder.auto,
       positiveAction: SmoothActionButton(
         onPressed: () async {
           final ProductList? productList =

@@ -13,6 +13,8 @@ class LanguageSelector extends StatelessWidget {
     this.selectedLanguages,
     this.displayedLanguage,
     this.foregroundColor,
+    this.icon,
+    this.padding,
   });
 
   /// What to do when the language is selected.
@@ -25,6 +27,8 @@ class LanguageSelector extends StatelessWidget {
   final OpenFoodFactsLanguage? displayedLanguage;
 
   final Color? foregroundColor;
+  final IconData? icon;
+  final EdgeInsetsGeometry? padding;
 
   static const Languages _languages = Languages();
 
@@ -50,35 +54,40 @@ class LanguageSelector extends StatelessWidget {
           await setLanguage(language);
         },
         borderRadius: ANGULAR_BORDER_RADIUS,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Icon(
-              Icons.language,
-              color: foregroundColor,
-            ),
-            Expanded(
-              flex: 1,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: LARGE_SPACE),
-                child: Text(
-                  '$nameInLanguage ($nameInEnglish)',
-                  softWrap: false,
-                  overflow: TextOverflow.fade,
-                  style: Theme.of(context)
-                          .textTheme
-                          .bodyMedium
-                          ?.copyWith(color: foregroundColor) ??
-                      TextStyle(color: foregroundColor),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(
+            vertical: SMALL_SPACE,
+          ).add(padding ?? EdgeInsets.zero),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Icon(
+                Icons.language,
+                color: foregroundColor,
+              ),
+              Expanded(
+                flex: 1,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: LARGE_SPACE),
+                  child: Text(
+                    '$nameInLanguage ($nameInEnglish)',
+                    softWrap: false,
+                    overflow: TextOverflow.fade,
+                    style: Theme.of(context)
+                            .textTheme
+                            .bodyMedium
+                            ?.copyWith(color: foregroundColor) ??
+                        TextStyle(color: foregroundColor),
+                  ),
                 ),
               ),
-            ),
-            Icon(
-              Icons.arrow_drop_down,
-              color: foregroundColor,
-            ),
-          ],
+              Icon(
+                icon ?? Icons.arrow_drop_down,
+                color: foregroundColor,
+              ),
+            ],
+          ),
         ),
       ),
     );

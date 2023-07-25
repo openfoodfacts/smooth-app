@@ -219,10 +219,10 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
       Dismissible(
         direction: DismissDirection.endToStart,
         background: Container(
-          alignment: Alignment.centerRight,
-          margin: const EdgeInsets.symmetric(vertical: 14),
+          alignment: AlignmentDirectional.centerEnd,
+          margin: const EdgeInsets.symmetric(vertical: 14.0),
           color: RED_COLOR,
-          padding: const EdgeInsetsDirectional.only(end: 30),
+          padding: const EdgeInsetsDirectional.only(end: 30.0),
           child: const Icon(
             Icons.delete,
             color: Colors.white,

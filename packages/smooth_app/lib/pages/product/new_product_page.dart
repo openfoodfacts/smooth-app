@@ -7,10 +7,10 @@ import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
-import 'package:smooth_app/background/background_task_manager.dart';
 import 'package:smooth_app/cards/product_cards/product_image_carousel.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
+import 'package:smooth_app/data_models/up_to_date_mixin.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -23,7 +23,7 @@ import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_product_cards.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
 import 'package:smooth_app/pages/inherited_data_manager.dart';
-import 'package:smooth_app/pages/product/common/product_list_page.dart';
+import 'package:smooth_app/pages/product/common/product_list_modal.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/edit_product_page.dart';
 import 'package:smooth_app/pages/product/product_questions_widget.dart';
@@ -51,12 +51,10 @@ class ProductPage extends StatefulWidget {
   State<ProductPage> createState() => _ProductPageState();
 }
 
-class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
+class _ProductPageState extends State<ProductPage>
+    with TraceableClientMixin, UpToDateMixin {
   final ScrollController _carouselController = ScrollController();
 
-  late Product _product;
-  late final Product _initialProduct;
-  late final LocalDatabase _localDatabase;
   late ProductPreferences _productPreferences;
   bool _keepRobotoffQuestionsAlive = true;
 
@@ -68,35 +66,24 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
   @override
   String get traceTitle => 'product_page';
 
-  String get _barcode => _initialProduct.barcode!;
-
   @override
   void initState() {
     super.initState();
-    _initialProduct = widget.product;
-    _localDatabase = context.read<LocalDatabase>();
-    _localDatabase.upToDate.showInterest(_barcode);
+    initUpToDate(widget.product, context.read<LocalDatabase>());
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _updateLocalDatabaseWithProductHistory(context);
     });
   }
 
   @override
-  void dispose() {
-    _localDatabase.upToDate.loseInterest(_barcode);
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    BackgroundTaskManager.getInstance(_localDatabase).run(); // no await
     final InheritedDataManagerState inheritedDataManager =
         InheritedDataManager.of(context);
-    inheritedDataManager.setCurrentBarcode(_barcode);
+    inheritedDataManager.setCurrentBarcode(barcode);
     final ThemeData themeData = Theme.of(context);
     _productPreferences = context.watch<ProductPreferences>();
     context.watch<LocalDatabase>();
-    _product = _localDatabase.upToDate.getLocalUpToDate(_initialProduct);
+    refreshUpToDate();
 
     return SmoothScaffold(
       contentBehindStatusBar: true,
@@ -120,7 +107,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
             child: _buildProductBody(context),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: SMALL_SPACE),
+            padding: const EdgeInsetsDirectional.only(start: SMALL_SPACE),
             child: SafeArea(
               child: AnimatedContainer(
                 duration: SmoothAnimationsDuration.short,
@@ -145,7 +132,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
 
   Future<void> _refreshProduct(BuildContext context) async {
     final bool success = await ProductRefresher().fetchAndRefresh(
-      barcode: _product.barcode!,
+      barcode: barcode,
       widget: this,
     );
     if (context.mounted) {
@@ -162,7 +149,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     await DaoProductList(localDatabase).push(
       ProductList.history(),
-      _barcode,
+      barcode,
     );
     localDatabase.notifyListeners();
   }
@@ -173,7 +160,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
     final DaoProductList daoProductList = DaoProductList(localDatabase);
     return RefreshIndicator(
       onRefresh: () => ProductRefresher().fetchAndRefresh(
-        barcode: _barcode,
+        barcode: barcode,
         widget: this,
       ),
       child: ListView(
@@ -189,7 +176,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
             heightFactor: 0.7,
             alignment: AlignmentDirectional.topStart,
             child: ProductImageCarousel(
-              _product,
+              upToDateProduct,
               height: 200,
               controller: _carouselController,
               onUpload: _refreshProduct,
@@ -207,7 +194,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
                 child: KeepQuestionWidgetAlive(
                   keepWidgetAlive: _keepRobotoffQuestionsAlive,
                   child: SummaryCard(
-                    _product,
+                    upToDateProduct,
                     _productPreferences,
                     isFullVersion: true,
                     showUnansweredQuestions: true,
@@ -222,8 +209,9 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
             daoProductList,
           ),
           _buildKnowledgePanelCards(),
-          if (_product.website != null && _product.website!.trim().isNotEmpty)
-            _buildWebsiteWidget(_product.website!.trim()),
+          if (upToDateProduct.website != null &&
+              upToDateProduct.website!.trim().isNotEmpty)
+            _buildWebsiteWidget(upToDateProduct.website!.trim()),
         ],
       ),
     );
@@ -240,12 +228,12 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
           borderRadius: ROUNDED_BORDER_RADIUS,
           child: Container(
             width: double.infinity,
-            padding: const EdgeInsets.only(
-              left: LARGE_SPACE,
+            padding: const EdgeInsetsDirectional.only(
+              start: LARGE_SPACE,
               top: LARGE_SPACE,
               bottom: LARGE_SPACE,
               // To be perfectly aligned with arrows
-              right: 21.0,
+              end: 21.0,
             ),
             child: Row(
               children: <Widget>[
@@ -280,14 +268,14 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
 
   Widget _buildKnowledgePanelCards() {
     final List<Widget> knowledgePanelWidgets = <Widget>[];
-    if (_product.knowledgePanels != null) {
+    if (upToDateProduct.knowledgePanels != null) {
       final List<KnowledgePanelElement> elements =
-          KnowledgePanelWidget.getPanelElements(_product);
+          KnowledgePanelWidget.getPanelElements(upToDateProduct);
       for (final KnowledgePanelElement panelElement in elements) {
         final List<Widget> children = KnowledgePanelWidget.getChildren(
           context,
           panelElement: panelElement,
-          product: _product,
+          product: upToDateProduct,
           onboardingMode: false,
         );
         if (children.isNotEmpty) {
@@ -319,14 +307,14 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
   Future<void> _shareProduct() async {
     AnalyticsHelper.trackEvent(
       AnalyticsEvent.shareProduct,
-      barcode: _barcode,
+      barcode: barcode,
     );
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     // We need to provide a sharePositionOrigin to make the plugin work on ipad
     final RenderBox? box = context.findRenderObject() as RenderBox?;
     final String url = 'https://'
         '${ProductQuery.getCountry()!.offTag}.openfoodfacts.org'
-        '/product/$_barcode';
+        '/product/$barcode';
     Share.share(
       appLocalizations.share_product_text(url),
       sharePositionOrigin: box!.localToGlobal(Offset.zero) & box.size,
@@ -335,44 +323,47 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
 
   Widget _buildActionBar(final AppLocalizations appLocalizations) => Padding(
         padding: const EdgeInsets.all(SMALL_SPACE),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            _buildActionBarItem(
-              Icons.bookmark_border,
-              appLocalizations.user_list_button_add_product,
-              _editList,
-            ),
-            _buildActionBarItem(
-              Icons.edit,
-              appLocalizations.edit_product_label,
-              () async {
-                setState(() => _keepRobotoffQuestionsAlive = false);
+        child: Semantics(
+          explicitChildNodes: true,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              _buildActionBarItem(
+                Icons.bookmark_border,
+                appLocalizations.user_list_button_add_product,
+                _editList,
+              ),
+              _buildActionBarItem(
+                Icons.edit,
+                appLocalizations.edit_product_label,
+                () async {
+                  setState(() => _keepRobotoffQuestionsAlive = false);
 
-                AnalyticsHelper.trackEvent(
-                  AnalyticsEvent.openProductEditPage,
-                  barcode: _barcode,
-                );
+                  AnalyticsHelper.trackEvent(
+                    AnalyticsEvent.openProductEditPage,
+                    barcode: barcode,
+                  );
 
-                await Navigator.push<void>(
-                  context,
-                  MaterialPageRoute<void>(
-                    builder: (BuildContext context) =>
-                        EditProductPage(_product),
-                  ),
-                );
+                  await Navigator.push<void>(
+                    context,
+                    MaterialPageRoute<void>(
+                      builder: (BuildContext context) =>
+                          EditProductPage(upToDateProduct),
+                    ),
+                  );
 
-                // Force Robotoff questions to be reloaded
-                setState(() => _keepRobotoffQuestionsAlive = true);
-              },
-            ),
-            _buildActionBarItem(
-              ConstantIcons.instance.getShareIcon(),
-              appLocalizations.share,
-              _shareProduct,
-            ),
-          ],
+                  // Force Robotoff questions to be reloaded
+                  setState(() => _keepRobotoffQuestionsAlive = true);
+                },
+              ),
+              _buildActionBarItem(
+                ConstantIcons.instance.getShareIcon(),
+                appLocalizations.share,
+                _shareProduct,
+              ),
+            ],
+          ),
         ),
       );
 
@@ -384,24 +375,32 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
     final ThemeData themeData = Theme.of(context);
     final ColorScheme colorScheme = themeData.colorScheme;
     return Expanded(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          ElevatedButton(
-            onPressed: onPressed,
-            style: ElevatedButton.styleFrom(
-              shape: const CircleBorder(),
-              padding: const EdgeInsets.all(
-                18,
-              ), // TODO(monsieurtanuki): cf. FloatingActionButton
-              backgroundColor: colorScheme.primary,
+      child: Semantics(
+        value: label,
+        button: true,
+        excludeSemantics: true,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            ElevatedButton(
+              onPressed: onPressed,
+              style: ElevatedButton.styleFrom(
+                shape: const CircleBorder(),
+                padding: const EdgeInsets.all(
+                  18,
+                ), // TODO(monsieurtanuki): cf. FloatingActionButton
+                backgroundColor: colorScheme.primary,
+              ),
+              child: Icon(iconData, color: colorScheme.onPrimary),
             ),
-            child: Icon(iconData, color: colorScheme.onPrimary),
-          ),
-          const SizedBox(height: VERY_SMALL_SPACE),
-          AutoSizeText(label, textAlign: TextAlign.center),
-        ],
+            const SizedBox(height: VERY_SMALL_SPACE),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 2.0),
+              child: AutoSizeText(label, textAlign: TextAlign.center),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -411,7 +410,7 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
     final DaoProductList daoProductList,
   ) =>
       FutureBuilder<List<String>>(
-        future: daoProductList.getUserLists(withBarcodes: <String>[_barcode]),
+        future: daoProductList.getUserListsWithBarcodes(<String>[barcode]),
         builder: (
           final BuildContext context,
           final AsyncSnapshot<List<String>> snapshot,
@@ -436,9 +435,9 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
     for (final String productListName in productListNames) {
       children.add(
         Padding(
-          padding: const EdgeInsets.only(
+          padding: const EdgeInsetsDirectional.only(
             top: VERY_SMALL_SPACE,
-            right: VERY_SMALL_SPACE,
+            end: VERY_SMALL_SPACE,
           ),
           child: ElevatedButton(
             style: ButtonStyle(
@@ -460,8 +459,10 @@ class _ProductPageState extends State<ProductPage> with TraceableClientMixin {
               await Navigator.push<void>(
                 context,
                 MaterialPageRoute<void>(
-                  builder: (BuildContext context) =>
-                      ProductListPage(productList),
+                  builder: (BuildContext context) => ProductListPage(
+                    productList,
+                    allowToSwitchBetweenLists: false,
+                  ),
                 ),
               );
               setState(() {});

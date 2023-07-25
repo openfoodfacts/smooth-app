@@ -49,10 +49,16 @@ Future<void> saveBmp({
     height: source.height,
   );
   if (container.isIsolatePossible) {
-    await compute(_saveBmp, container);
-  } else {
-    await _saveBmp(container);
+    try {
+      // with an isolate if possible
+      await compute(_saveBmp, container);
+    } catch (e) {
+      // fallback version: async (cf. https://github.com/openfoodfacts/smooth-app/issues/4304)
+      await _saveBmp(container, withIsolate: false);
+    }
+    return;
   }
+  await _saveBmp(container, withIsolate: false);
 }
 
 /// Saves an image to a JPEG file.
@@ -76,10 +82,16 @@ Future<void> saveJpeg({
     height: source.height,
   );
   if (container.isIsolatePossible) {
-    await compute(_saveJpeg, container);
-  } else {
-    await _saveJpeg(container);
+    try {
+      // with an isolate if possible
+      await compute(_saveJpeg, container);
+    } catch (e) {
+      // fallback version: async (cf. https://github.com/openfoodfacts/smooth-app/issues/4304)
+      await _saveJpeg(container, withIsolate: false);
+    }
+    return;
   }
+  await _saveJpeg(container, withIsolate: false);
 }
 
 Future<image.Image> _convertImageFromUI(
@@ -96,8 +108,13 @@ Future<image.Image> _convertImageFromUI(
     );
 
 /// Saves an image to a BMP file. As BMP for better performances.
-Future<void> _saveBmp(final _ImageComputeContainer container) async {
-  container.ensureIsolate();
+Future<void> _saveBmp(
+  final _ImageComputeContainer container, {
+  final bool withIsolate = true,
+}) async {
+  if (withIsolate) {
+    container.ensureIsolate();
+  }
   final image.Image rawImage = await _convertImageFromUI(
     container.rawData,
     container.width,
@@ -113,8 +130,13 @@ Future<void> _saveBmp(final _ImageComputeContainer container) async {
 ///
 /// It's faster to encode as BMP and then compress to JPEG, instead of directly
 /// compressing the image to JPEG (standard flutter being slow).
-Future<void> _saveJpeg(final _ImageComputeContainer container) async {
-  container.ensureIsolate();
+Future<void> _saveJpeg(
+  final _ImageComputeContainer container, {
+  final bool withIsolate = true,
+}) async {
+  if (withIsolate) {
+    container.ensureIsolate();
+  }
   image.Image? rawImage = await _convertImageFromUI(
     container.rawData,
     container.width,
