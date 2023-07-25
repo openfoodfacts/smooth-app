@@ -1764,11 +1764,11 @@
             }
         }
     },
-    "confirm_delete_user_list_title": "Delete the list?",
+    "confirm_delete_user_list_title": "למחוק את הרשימה?",
     "@confirm_delete_user_list_title": {
         "description": "Title when asking about whether to delete the list or not"
     },
-    "confirm_delete_user_list_message": "You're about to delete the list \"{name}\".\nAre you sure you want to continue?",
+    "confirm_delete_user_list_message": "פעולה זו תמחק את הרשימה „{name}”.\nלהמשיך?",
     "@confirm_delete_user_list_message": {
         "description": "Message when asking about whether to delete the list or not",
         "placeholders": {
@@ -1777,7 +1777,7 @@
             }
         }
     },
-    "confirm_delete_user_list_button": "Yes, I confirm",
+    "confirm_delete_user_list_button": "כן, מקובל עליי",
     "@confirm_delete_user_list_button": {
         "description": "Button to delete a list"
     },
@@ -2357,7 +2357,7 @@
     "@action_delete_list": {
         "description": "Delete a list action in a menu"
     },
-    "action_change_list": "Change the current list",
+    "action_change_list": "החלפת הרשימה הנוכחית",
     "@action_change_list": {
         "description": "Action to change the current visible list"
     },
