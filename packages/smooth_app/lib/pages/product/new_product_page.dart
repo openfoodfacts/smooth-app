@@ -171,6 +171,9 @@ class _ProductPageState extends State<ProductPage>
         // triggered on a ListView smaller than the screen
         // (as there will be no scroll).
         physics: const AlwaysScrollableScrollPhysics(),
+        padding: const EdgeInsets.only(
+          bottom: SMALL_SPACE,
+        ),
         children: <Widget>[
           Align(
             heightFactor: 0.7,
