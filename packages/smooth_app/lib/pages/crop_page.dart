@@ -166,46 +166,48 @@ class _CropPageState extends State<CropPage> {
                   style: const TextStyle(color: Colors.white),
                 ),
               )
-            : Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      _IconButton(
-                        iconData: Icons.rotate_90_degrees_ccw_outlined,
-                        onPressed: () => setState(
-                          () => _controller.rotateLeft(),
+            : SafeArea(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        _IconButton(
+                          iconData: Icons.rotate_90_degrees_ccw_outlined,
+                          onPressed: () => setState(
+                            () => _controller.rotateLeft(),
+                          ),
                         ),
-                      ),
-                      _IconButton(
-                        iconData: Icons.rotate_90_degrees_cw_outlined,
-                        onPressed: () => setState(
-                          () => _controller.rotateRight(),
+                        _IconButton(
+                          iconData: Icons.rotate_90_degrees_cw_outlined,
+                          onPressed: () => setState(
+                            () => _controller.rotateRight(),
+                          ),
                         ),
+                      ],
+                    ),
+                    Expanded(
+                      child: CropImage(
+                        controller: _controller,
+                        image: Image.file(widget.inputFile),
+                        minimumImageSize: MINIMUM_TOUCH_SIZE,
+                        gridCornerSize: MINIMUM_TOUCH_SIZE * .75,
+                        touchSize: MINIMUM_TOUCH_SIZE,
+                        paddingSize: MINIMUM_TOUCH_SIZE * .5,
+                        alwaysMove: true,
                       ),
-                    ],
-                  ),
-                  Expanded(
-                    child: CropImage(
-                      controller: _controller,
-                      image: Image.file(widget.inputFile),
-                      minimumImageSize: MINIMUM_TOUCH_SIZE,
-                      gridCornerSize: MINIMUM_TOUCH_SIZE * .75,
-                      touchSize: MINIMUM_TOUCH_SIZE,
-                      paddingSize: MINIMUM_TOUCH_SIZE * .5,
-                      alwaysMove: true,
                     ),
-                  ),
-                  Center(
-                    child: EditImageButton(
-                      iconData: Icons.send,
-                      label: appLocalizations.send_image_button_label,
-                      onPressed: () async => _mayExitPage(saving: true),
+                    Center(
+                      child: EditImageButton(
+                        iconData: Icons.send,
+                        label: appLocalizations.send_image_button_label,
+                        onPressed: () async => _mayExitPage(saving: true),
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
       ),
     );
