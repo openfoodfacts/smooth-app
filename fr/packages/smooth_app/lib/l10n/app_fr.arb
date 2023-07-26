@@ -144,7 +144,7 @@
     "@user_management": {},
     "sign_in_text": "Connectez-vous à votre compte Open Food Facts pour enregistrer vos contributions",
     "incorrect_credentials": "Nom d'utilisateur ou mot de passe incorrect.",
-    "login": "Nom d'utilisateur",
+    "login": "Connexion",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
