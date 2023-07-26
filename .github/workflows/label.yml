@@ -5,9 +5,13 @@
 # file with configuration.  For more information, see:
 # https://github.com/actions/labeler
 
-name: Labeler
+name: Automatically add relevant labels to Pull Requests
 on:
 - pull_request_target
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   label:

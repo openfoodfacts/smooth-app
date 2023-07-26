@@ -2,6 +2,10 @@ name: SmoothApp Pre-Submit Tests
 
 on:
   pull_request:
+  
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -16,7 +20,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Get the flutter version from ./flutter-version.txt
+      # Get the Flutter version from ./flutter-version.txt
       - run: echo "FLUTTER_VERSION=$(cat flutter-version.txt)" >> $GITHUB_OUTPUT
         id: flutter-version
 
@@ -30,7 +34,7 @@ jobs:
 
       - run: flutter --version
 
-      # Get dependencies.
+      # Get dependencies
       - name: Get dependencies
         run: ci/pub_upgrade.sh
 
@@ -38,7 +42,7 @@ jobs:
       - name: Check for formatting issues (run "dart format . ")
         run: dart format --set-exit-if-changed .
 
-      # analyze Dart for errors
+      # Analyze Dart for errors
       - name: Analyze code
         run: flutter analyze --fatal-infos --fatal-warnings .
 
