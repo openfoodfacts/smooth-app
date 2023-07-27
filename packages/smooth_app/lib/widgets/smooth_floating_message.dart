@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/duration_constants.dart';
 
 class SmoothFloatingMessage {
   SmoothFloatingMessage({
@@ -88,7 +89,7 @@ class _SmoothFloatingMessageViewState extends State<_SmoothFloatingMessageView>
 
     return AnimatedOpacity(
       opacity: initial ? 0.0 : 1.0,
-      duration: const Duration(milliseconds: 200),
+      duration: SmoothAnimationsDuration.short,
       child: SafeArea(
         top: false,
         child: Container(
