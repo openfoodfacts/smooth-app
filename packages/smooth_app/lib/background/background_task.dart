@@ -7,6 +7,7 @@ import 'package:smooth_app/background/background_task_manager.dart';
 import 'package:smooth_app/background/background_task_refresh_later.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
+import 'package:smooth_app/widgets/smooth_floating_message.dart';
 
 /// Abstract background task.
 abstract class BackgroundTask {
@@ -96,11 +97,11 @@ abstract class BackgroundTask {
   /// [BackgroundTaskRefreshLater].
   bool mayRunNow() => true;
 
-  /// SnackBar message when we add the task, like "Added to the task queue!"
+  /// Floating message when we add the task, like "Added to the task queue!"
   ///
-  /// Null if no SnackBar message wanted (like, stealth mode).
+  /// Null if no message wanted (like, stealth mode).
   @protected
-  String? getSnackBarMessage(final AppLocalizations appLocalizations);
+  String? getFloatingMessage(final AppLocalizations appLocalizations);
 
   /// Adds this task to the [BackgroundTaskManager].
   @protected
@@ -116,14 +117,13 @@ abstract class BackgroundTask {
     if (!showSnackBar) {
       return;
     }
-    final String? snackBarMessage =
-        getSnackBarMessage(AppLocalizations.of(widget.context));
-    if (snackBarMessage != null) {
-      ScaffoldMessenger.of(widget.context).showSnackBar(
-        SnackBar(
-          content: Text(snackBarMessage),
-          duration: SnackBarDuration.medium,
-        ),
+    final String? floatingMessage =
+        getFloatingMessage(AppLocalizations.of(widget.context));
+    if (floatingMessage != null) {
+      SmoothFloatingMessage(message: floatingMessage).show(
+        widget.context,
+        duration: SnackBarDuration.medium,
+        alignment: Alignment.topCenter,
       );
     }
   }

@@ -26,6 +26,7 @@ import 'package:smooth_app/pages/product/product_image_gallery_view.dart';
 import 'package:smooth_app/pages/product/simple_input_page.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
+import 'package:smooth_app/widgets/smooth_floating_message.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Page where we can indirectly edit all data about a product.
@@ -99,22 +100,21 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
             button: true,
             value: appLocalizations.clipboard_barcode_copy,
             excludeSemantics: true,
-            child: IconButton(
-              icon: const Icon(Icons.copy),
-              tooltip: appLocalizations.clipboard_barcode_copy,
-              onPressed: () {
-                Clipboard.setData(
-                  ClipboardData(text: barcode),
-                );
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text(
-                      appLocalizations.clipboard_barcode_copied(barcode),
-                    ),
-                  ),
-                );
-              },
-            ),
+            child: Builder(builder: (BuildContext context) {
+              return IconButton(
+                icon: const Icon(Icons.copy),
+                tooltip: appLocalizations.clipboard_barcode_copy,
+                onPressed: () {
+                  Clipboard.setData(
+                    ClipboardData(text: barcode),
+                  );
+
+                  SmoothFloatingMessage(
+                    message: appLocalizations.clipboard_barcode_copied(barcode),
+                  ).show(context, alignment: AlignmentDirectional.bottomCenter);
+                },
+              );
+            }),
           )
         ],
       ),

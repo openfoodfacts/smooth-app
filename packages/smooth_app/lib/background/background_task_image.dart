@@ -99,7 +99,7 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
   }
 
   @override
-  String? getSnackBarMessage(final AppLocalizations appLocalizations) =>
+  String? getFloatingMessage(final AppLocalizations appLocalizations) =>
       appLocalizations.image_upload_queued;
 
   /// Returns a new background task about changing a product.
