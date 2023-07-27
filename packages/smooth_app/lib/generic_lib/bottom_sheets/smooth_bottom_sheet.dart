@@ -165,7 +165,7 @@ class SmoothModalSheetHeaderButton extends StatelessWidget
 
   static const EdgeInsetsGeometry _padding = EdgeInsetsDirectional.symmetric(
     horizontal: 15.0,
-    vertical: 20.0,
+    vertical: 10.0,
   );
 
   final String label;
