@@ -114,7 +114,7 @@
     },
     "licenses": "Lisenser",
     "@licenses": {},
-    "looking_for": "Looking for",
+    "looking_for": "Leter etter",
     "@looking_for": {
         "description": "Looking for: BARCODE"
     },
@@ -171,7 +171,7 @@
         "description": "Pop up title: Reassuring if the user really want to sign out"
     },
     "password": "Passord",
-    "forgot_password": "Forgot password",
+    "forgot_password": "Glemt passordet",
     "@forgot_password": {
         "description": "Button label: Opens a page where a password reset e-mail can be requested"
     },
@@ -183,43 +183,43 @@
     "@reset_password": {
         "description": "Forgot password page title"
     },
-    "reset_password_explanation_text": "In case of a forgotten password, enter your username or e-mail address to receive instructions for a password reset. Also, remember to check the Spam folder.",
-    "username_or_email": "Username or e-mail",
+    "reset_password_explanation_text": "I tilfelle du har glemt passordet ditt, skriv inn brukernavnet eller e-postadressen din for å motta instruksjoner for tilbakestilling av passordet. Husk å sjekke Spam-mappen om du ikke mottar e-posten.",
+    "username_or_email": "Brukernavn eller e-post",
     "@username_or_email": {
         "description": "Text field hint for password reset"
     },
-    "reset_password_done": "An e-mail with a link to reset your password has been sent to the e-mail address associated with your account. Also check your spam",
-    "send_reset_password_mail": "Change password",
+    "reset_password_done": "En e-post med en lenke for å tilbakestille passordet ditt er sendt til e-posten knyttet til kontoen din. Sjekk også spam-mappen din",
+    "send_reset_password_mail": "Bytt passord",
     "@send_reset_password_mail": {
         "description": "Button label: Submit the password reset e-mail request"
     },
-    "enter_some_text": "Please enter some text",
+    "enter_some_text": "Skriv inn tekst",
     "@enter_some_text": {
         "description": "Error when a required text field is empty"
     },
-    "sign_up_page_title": "Sign Up",
+    "sign_up_page_title": "Registrer deg",
     "@sign_up_page_title": {
         "description": "Header"
     },
-    "sign_up_page_action_button": "Sign Up",
+    "sign_up_page_action_button": "Registrer deg",
     "@sign_up_page_action_button": {
         "description": "Button for signing up"
     },
-    "sign_up_page_action_doing_it": "Signing up…",
+    "sign_up_page_action_doing_it": "Registrerer…",
     "@sign_up_page_action_doing_it": {
         "description": "Progress indicator dialog during the actual signing up process"
     },
-    "sign_up_page_action_ok": "Congratulations! Your account has just been created.",
+    "sign_up_page_action_ok": "Gratulerer! Kontoen din er nå opprettet.",
     "sign_up_page_display_name_hint": "Navn",
-    "sign_up_page_display_name_error_empty": "Please enter the display name you want to use",
-    "sign_up_page_email_hint": "E-mail",
-    "sign_up_page_email_error_empty": "E-mail is required",
-    "sign_up_page_email_error_invalid": "Invalid e-mail",
-    "sign_up_page_username_hint": "Username: Publicly visible",
-    "sign_up_page_username_error_empty": "Please enter a username",
-    "sign_up_page_username_error_invalid": "Please enter a valid username",
-    "sign_up_page_username_description": "Username cannot contains spaces, caps or special characters.",
-    "sign_up_page_username_length_invalid": "Username cannot exceed {value} characters",
+    "sign_up_page_display_name_error_empty": "Vennligst skriv inn navnet du vil andre skal se deg som",
+    "sign_up_page_email_hint": "E-post",
+    "sign_up_page_email_error_empty": "E-post er påkrevd",
+    "sign_up_page_email_error_invalid": "Ugyldig e-postadresse",
+    "sign_up_page_username_hint": "Brukernavn: Synlig offentlig",
+    "sign_up_page_username_error_empty": "Skriv inn et brukernavn",
+    "sign_up_page_username_error_invalid": "Vennligst skriv inn et gyldig brukernavn",
+    "sign_up_page_username_description": "Brukernavnet kan ikke inneholde mellomrom, store bokstaver eller spesialtegn.",
+    "sign_up_page_username_length_invalid": "Brukernavnet kan ikke være på over {value} tegn totalt",
     "@sign_up_page_username_length_invalid": {
         "placeholders": {
             "value": {
@@ -229,15 +229,15 @@
     },
     "sign_up_page_password_hint": "Passord",
     "sign_up_page_password_error_empty": "Vennligst angi passord",
-    "sign_up_page_password_error_invalid": "Please enter a valid password (at least 6 characters)",
-    "sign_up_page_confirm_password_hint": "Confirm Password",
-    "sign_up_page_confirm_password_error_empty": "Please confirm the password",
-    "sign_up_page_confirm_password_error_invalid": "Passwords don't match",
-    "sign_up_page_agree_text": "I agree to the Open Food Facts",
+    "sign_up_page_password_error_invalid": "Vennligst skriv inn et gyldig passord (minst 6 tegn)",
+    "sign_up_page_confirm_password_hint": "Bekreft passord",
+    "sign_up_page_confirm_password_error_empty": "Vennligst bekreft passordet ditt",
+    "sign_up_page_confirm_password_error_invalid": "Passordene er ikke like",
+    "sign_up_page_agree_text": "Jeg godtar Open Food Facts'",
     "@sign_up_page_agree_text": {
         "description": "I agree to the Open Food Facts is followed by sign_up_page_terms_text"
     },
-    "sign_up_page_terms_text": "terms of use and contribution",
+    "sign_up_page_terms_text": "vilkår for bruk og bidrag",
     "@sign_up_page_terms_text": {
         "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
     },
@@ -253,19 +253,19 @@
     "@sign_up_page_agree_error_invalid": {
         "description": "Error message: You have to agree to the terms-of-use (A checkbox to do so is above this error message)"
     },
-    "sign_up_page_producer_checkbox": "I am a food producer",
-    "sign_up_page_producer_hint": "Producer/brand",
-    "sign_up_page_producer_error_empty": "Please enter a producer or a brand name",
-    "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at any time)",
-    "sign_up_page_user_name_already_used": "The user name already exists, please choose another username.",
-    "sign_up_page_email_already_exists": "already exists, login to the account or try with another email.",
-    "sign_up_page_provide_valid_email": "Please provide a valid email address.",
+    "sign_up_page_producer_checkbox": "Jeg er en matprodusent",
+    "sign_up_page_producer_hint": "Produsent/merke",
+    "sign_up_page_producer_error_empty": "Skriv inn navnet på produsenten eller et merkenavn",
+    "sign_up_page_subscribe_checkbox": "Jeg vil abonnere på nyhetsbrevet til Open Food Facts (du kan melde deg av det når som helst)",
+    "sign_up_page_user_name_already_used": "Brukernavnet er allerede i bruk, velg et annet brukernavn.",
+    "sign_up_page_email_already_exists": "er allerede i bruk, logg inn på kontoen eller prøv med en annen e-post.",
+    "sign_up_page_provide_valid_email": "Vennligst skriv inn en gyldig epostadresse.",
     "@Settings": {},
     "settingsTitle": "Innstillinger",
     "@settingsTitle": {
         "description": "The title of the Settings page"
     },
-    "darkmode": "Theme",
+    "darkmode": "Tema",
     "@darkmode": {
         "description": "The name of the darkmode on off switch"
     },
@@ -281,7 +281,7 @@
     "@darkmode_system_default": {
         "description": "Indicator inside the darkmode switch (system default)"
     },
-    "thanks_for_contributing": "Thanks for contributing",
+    "thanks_for_contributing": "Takk for at du bidrar",
     "@contributors": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
     },
@@ -291,10 +291,10 @@
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
     },
     "support_join_slack": "Be om hjelp i vår Slack-kanal",
-    "support_via_forum": "Ask for help on our forum",
+    "support_via_forum": "Be om hjelp på forumet vårt",
     "support_via_email": "Send oss en e-post",
-    "support_via_email_include_logs_dialog_title": "Send app logs?",
-    "support_via_email_include_logs_dialog_body": "Do you wish to include application logs in attachment to your email?",
+    "support_via_email_include_logs_dialog_title": "Sende app-logger til support?",
+    "support_via_email_include_logs_dialog_body": "Ønsker du å inkludere applikasjonslogger som vedlegg til e-posten din?",
     "termsOfUse": "Bruksvilkår",
     "@termsOfUse": {},
     "about_this_app": "Om denne appen",
@@ -1656,7 +1656,7 @@
     "@signup_page_terms_of_use_line1": {
         "description": "User consent for terms of use (line 1)"
     },
-    "signup_page_terms_of_use_line2": "terms of use and contribution",
+    "signup_page_terms_of_use_line2": "vilkår for bruk og bidrag",
     "@signup_page_terms_of_use_line2": {
         "description": "User consent for terms of use (line 2)"
     },
