@@ -7,6 +7,7 @@ import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/pages/product/nutrition_container.dart';
 import 'package:smooth_app/pages/text_field_helper.dart';
+import 'package:smooth_app/widgets/smooth_text.dart';
 
 /// Button that opens an "add nutrient" dialog.
 ///
@@ -36,6 +37,8 @@ class NutritionAddNutrientButton extends StatelessWidget {
             List<OrderedNutrient>.from(leftovers);
         final TextEditingControllerWithInitialValue nutritionTextController =
             TextEditingControllerWithInitialValue();
+        final ScrollController _controller = ScrollController();
+
         final OrderedNutrient? selected = await showDialog<OrderedNutrient>(
           context: context,
           builder: (BuildContext context) => StatefulBuilder(
@@ -43,41 +46,37 @@ class NutritionAddNutrientButton extends StatelessWidget {
               BuildContext context,
               void Function(VoidCallback fn) setState,
             ) =>
-                SmoothAlertDialog(
-              body: SizedBox(
-                height: MediaQuery.of(context).size.height / 2,
-                width: MediaQuery.of(context).size.width,
-                child: Column(
-                  children: <Widget>[
-                    SmoothTextFormField(
-                      prefixIcon: const Icon(Icons.search),
-                      hintText: appLocalizations.search,
-                      type: TextFieldTypes.PLAIN_TEXT,
-                      controller: nutritionTextController,
-                      onChanged: (String? query) => setState(
-                        () => filteredList = leftovers
-                            .where((OrderedNutrient item) =>
-                                removeDiacritics(item.name!)
-                                    .toLowerCase()
-                                    .contains(
-                                        removeDiacritics(query!).toLowerCase()))
-                            .toList(),
-                      ),
+                SmoothListAlertDialog(
+              title: appLocalizations.nutrition_page_add_nutrient,
+              header: SmoothTextFormField(
+                prefixIcon: const Icon(Icons.search),
+                hintText: appLocalizations.search,
+                type: TextFieldTypes.PLAIN_TEXT,
+                controller: nutritionTextController,
+                onChanged: (String? query) => setState(
+                  () => filteredList = leftovers
+                      .where((OrderedNutrient item) =>
+                          removeDiacritics(item.name!).toLowerCase().contains(
+                              removeDiacritics(query!).toLowerCase().trim()))
+                      .toList(),
+                ),
+              ),
+              scrollController: _controller,
+              list: ListView.separated(
+                itemBuilder: (BuildContext context, int index) {
+                  final OrderedNutrient nutrient = filteredList[index];
+                  return ListTile(
+                    title: TextHighlighter(
+                      text: nutrient.name!,
+                      filter: nutritionTextController.text,
                     ),
-                    Expanded(
-                      child: ListView.builder(
-                        itemBuilder: (BuildContext context, int index) {
-                          final OrderedNutrient nutrient = filteredList[index];
-                          return ListTile(
-                            title: Text(nutrient.name!),
-                            onTap: () => Navigator.of(context).pop(nutrient),
-                          );
-                        },
-                        itemCount: filteredList.length,
-                        shrinkWrap: true,
-                      ),
-                    ),
-                  ],
+                    onTap: () => Navigator.of(context).pop(nutrient),
+                  );
+                },
+                itemCount: filteredList.length,
+                shrinkWrap: true,
+                separatorBuilder: (_, __) => const Divider(
+                  height: 1.0,
                 ),
               ),
               positiveAction: SmoothActionButton(

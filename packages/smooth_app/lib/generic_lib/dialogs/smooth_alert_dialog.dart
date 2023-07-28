@@ -5,6 +5,7 @@ import 'package:smooth_app/generic_lib/buttons/smooth_simple_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_responsive.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
+import 'package:smooth_app/helpers/keyboard_helper.dart';
 
 /// Custom Dialog to use in the app
 ///
@@ -535,6 +536,80 @@ class SmoothSimpleErrorAlertDialog extends StatelessWidget {
       negativeAction: negativeAction,
       actionsOrder: actionsOrder,
       contentPadding: contentPadding,
+    );
+  }
+}
+
+class SmoothListAlertDialog extends StatelessWidget {
+  SmoothListAlertDialog({
+    required this.title,
+    required this.list,
+    this.header,
+    ScrollController? scrollController,
+    this.positiveAction,
+    this.negativeAction,
+    this.actionsAxis,
+    this.actionsOrder,
+  }) : _scrollController = scrollController ?? ScrollController();
+
+  final String title;
+  final Widget? header;
+  final Widget list;
+  final SmoothActionButton? positiveAction;
+  final SmoothActionButton? negativeAction;
+  final Axis? actionsAxis;
+  final SmoothButtonsBarOrder? actionsOrder;
+  final ScrollController _scrollController;
+
+  @override
+  Widget build(BuildContext context) {
+    return SmoothAlertDialog(
+      contentPadding: const EdgeInsetsDirectional.symmetric(
+        horizontal: 0.0,
+        vertical: SMALL_SPACE,
+      ),
+      body: SizedBox(
+        height: MediaQuery.of(context).size.height /
+            (context.keyboardVisible ? 1.0 : 1.5),
+        width: MediaQuery.of(context).size.width,
+        child: Column(
+          children: <Widget>[
+            Container(
+              alignment: AlignmentDirectional.centerStart,
+              padding: const EdgeInsetsDirectional.only(
+                start: 23.0,
+                end: 24.0,
+                top: SMALL_SPACE,
+              ),
+              child: Text(
+                title,
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20.0,
+                ),
+              ),
+            ),
+            if (header != null)
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: SMALL_SPACE,
+                  vertical: MEDIUM_SPACE,
+                ),
+                child: header,
+              ),
+            Expanded(
+              child: Scrollbar(
+                controller: _scrollController,
+                child: list,
+              ),
+            )
+          ],
+        ),
+      ),
+      positiveAction: positiveAction,
+      negativeAction: negativeAction,
+      actionsAxis: actionsAxis,
+      actionsOrder: actionsOrder,
     );
   }
 }
