@@ -37,7 +37,7 @@ class NutritionAddNutrientButton extends StatelessWidget {
             List<OrderedNutrient>.from(leftovers);
         final TextEditingControllerWithInitialValue nutritionTextController =
             TextEditingControllerWithInitialValue();
-        final ScrollController _controller = ScrollController();
+        final ScrollController controller = ScrollController();
 
         final OrderedNutrient? selected = await showDialog<OrderedNutrient>(
           context: context,
@@ -61,7 +61,7 @@ class NutritionAddNutrientButton extends StatelessWidget {
                       .toList(),
                 ),
               ),
-              scrollController: _controller,
+              scrollController: controller,
               list: ListView.separated(
                 itemBuilder: (BuildContext context, int index) {
                   final OrderedNutrient nutrient = filteredList[index];
@@ -80,7 +80,10 @@ class NutritionAddNutrientButton extends StatelessWidget {
                 ),
               ),
               positiveAction: SmoothActionButton(
-                onPressed: () => Navigator.pop(context),
+                onPressed: () {
+                  nutritionTextController.clear();
+                  Navigator.pop(context);
+                },
                 text: appLocalizations.cancel,
               ),
             ),

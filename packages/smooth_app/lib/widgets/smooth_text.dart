@@ -86,7 +86,7 @@ class TextHighlighter extends StatelessWidget {
     required TextStyle? highlightedStyle,
   }) {
     final Iterable<RegExpMatch> highlightedParts =
-        RegExp(filter.toLowerCase()).allMatches(
+        RegExp(filter.toLowerCase().trim()).allMatches(
       text.toLowerCase(),
     );
 

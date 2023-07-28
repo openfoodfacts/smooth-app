@@ -194,7 +194,10 @@ class LanguageSelector extends StatelessWidget {
             shrinkWrap: true,
           ),
           positiveAction: SmoothActionButton(
-            onPressed: () => Navigator.of(context).pop(),
+            onPressed: () {
+              languageSelectorController.clear();
+              Navigator.of(context).pop();
+            },
             text: appLocalizations.cancel,
           ),
         ),
