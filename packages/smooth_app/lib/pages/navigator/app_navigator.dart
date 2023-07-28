@@ -34,8 +34,11 @@ import 'package:smooth_app/query/product_query.dart';
 class AppNavigator extends InheritedWidget {
   AppNavigator({
     Key? key,
+    List<NavigatorObserver>? observers,
     required Widget child,
-  })  : _router = _SmoothGoRouter(),
+  })  : _router = _SmoothGoRouter(
+          observers: observers,
+        ),
         super(key: key, child: child);
 
   // GoRouter is never accessible directly
@@ -86,8 +89,14 @@ class AppNavigator extends InheritedWidget {
 /// One drawback of the implementation is that we never know the base URL of the
 /// deep link (eg: es.openfoodfacts.org)
 class _SmoothGoRouter {
-  factory _SmoothGoRouter() {
-    return _singleton;
+  factory _SmoothGoRouter({
+    List<NavigatorObserver>? observers,
+  }) {
+    _singleton ??= _SmoothGoRouter._internal(
+      observers: observers,
+    );
+
+    return _singleton!;
   }
 
   _SmoothGoRouter._internal({
@@ -241,7 +250,7 @@ class _SmoothGoRouter {
     );
   }
 
-  static final _SmoothGoRouter _singleton = _SmoothGoRouter._internal();
+  static _SmoothGoRouter? _singleton;
   late GoRouter router;
 
   // Indicates whether [_initAppLanguage] was already called
