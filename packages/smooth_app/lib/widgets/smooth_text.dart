@@ -1,4 +1,4 @@
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 
 /// An extension on [TextStyle] that allows to have "well spaced" variant
 extension TextStyleExtension on TextStyle {
@@ -40,4 +40,81 @@ class WellSpacedTextHelper {
         maxLines: maxLines,
         textWidthBasis: textWidthBasis,
       );
+}
+
+class TextHighlighter extends StatelessWidget {
+  const TextHighlighter({
+    required this.text,
+    required this.filter,
+    this.selected = false,
+  });
+
+  final String text;
+  final String filter;
+  final bool selected;
+
+  @override
+  Widget build(BuildContext context) {
+    final List<(String, TextStyle?)> parts = _getParts(
+      defaultStyle: TextStyle(fontWeight: selected ? FontWeight.bold : null),
+      highlightedStyle: TextStyle(
+        fontWeight: selected ? FontWeight.bold : null,
+        backgroundColor: Theme.of(context).primaryColor.withOpacity(0.2),
+      ),
+    );
+
+    final TextStyle defaultTextStyle = DefaultTextStyle.of(context).style;
+
+    return Text.rich(
+      TextSpan(
+        children: parts.map(((String, TextStyle?) part) {
+          return TextSpan(
+            text: part.$1,
+            style: defaultTextStyle.merge(part.$2),
+          );
+        }).toList(growable: false),
+      ),
+      softWrap: false,
+      overflow: TextOverflow.fade,
+    );
+  }
+
+  /// Returns a List containing parts of the text with the right style
+  /// according to the [filter]
+  List<(String, TextStyle?)> _getParts({
+    required TextStyle? defaultStyle,
+    required TextStyle? highlightedStyle,
+  }) {
+    final Iterable<RegExpMatch> highlightedParts =
+        RegExp(filter.toLowerCase().trim()).allMatches(
+      text.toLowerCase(),
+    );
+
+    final List<(String, TextStyle?)> parts = <(String, TextStyle?)>[];
+
+    if (highlightedParts.isEmpty) {
+      parts.add((text, defaultStyle));
+    } else {
+      parts
+          .add((text.substring(0, highlightedParts.first.start), defaultStyle));
+      for (int i = 0; i != highlightedParts.length; i++) {
+        final RegExpMatch subPart = highlightedParts.elementAt(i);
+
+        parts.add(
+          (text.substring(subPart.start, subPart.end), highlightedStyle),
+        );
+
+        if (i < highlightedParts.length - 1) {
+          parts.add((
+            text.substring(
+                subPart.end, highlightedParts.elementAt(i + 1).start),
+            defaultStyle
+          ));
+        } else if (subPart.end < text.length) {
+          parts.add((text.substring(subPart.end, text.length), defaultStyle));
+        }
+      }
+    }
+    return parts;
+  }
 }
