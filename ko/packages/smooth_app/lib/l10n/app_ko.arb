@@ -2353,6 +2353,10 @@
     "@country_selector_title": {
         "description": "Label written as the title of the dialog to select the user country"
     },
+    "language_selector_title": "Select your language:",
+    "@language_selector_title": {
+        "description": "Label written as the title of the dialog to select the user language"
+    },
     "action_delete_list": "삭제",
     "@action_delete_list": {
         "description": "Delete a list action in a menu"
