@@ -328,7 +328,7 @@ class _ChooseAccentColor extends StatelessWidget {
       title: appLocalizations.select_accent_color,
       leadingBuilder: labels.keys.map(
         (String key) => (_) => CircleAvatar(
-              backgroundColor: getColorValue(labels[key]!),
+              backgroundColor: getColorValue(key),
               radius: SMALL_SPACE,
             ),
       ),
