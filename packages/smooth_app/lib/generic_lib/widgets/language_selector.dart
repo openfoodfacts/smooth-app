@@ -9,7 +9,7 @@ import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_text.dart';
 
 class LanguageSelector extends StatelessWidget {
-  LanguageSelector({
+  const LanguageSelector({
     required this.setLanguage,
     this.selectedLanguages,
     this.displayedLanguage,
