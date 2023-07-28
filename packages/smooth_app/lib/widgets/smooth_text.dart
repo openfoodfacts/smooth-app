@@ -1,3 +1,4 @@
+import 'package:diacritic/diacritic.dart';
 import 'package:flutter/material.dart';
 
 /// An extension on [TextStyle] that allows to have "well spaced" variant
@@ -86,8 +87,8 @@ class TextHighlighter extends StatelessWidget {
     required TextStyle? highlightedStyle,
   }) {
     final Iterable<RegExpMatch> highlightedParts =
-        RegExp(filter.toLowerCase().trim()).allMatches(
-      text.toLowerCase(),
+        RegExp(removeDiacritics(filter).toLowerCase().trim()).allMatches(
+      removeDiacritics(text).toLowerCase(),
     );
 
     final List<(String, TextStyle?)> parts = <(String, TextStyle?)>[];
