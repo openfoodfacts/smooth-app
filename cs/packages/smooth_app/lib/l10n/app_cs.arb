@@ -2353,7 +2353,7 @@
     "@country_selector_title": {
         "description": "Label written as the title of the dialog to select the user country"
     },
-    "language_selector_title": "Select your language:",
+    "language_selector_title": "Vyberte svůj jazyk:",
     "@language_selector_title": {
         "description": "Label written as the title of the dialog to select the user language"
     },
