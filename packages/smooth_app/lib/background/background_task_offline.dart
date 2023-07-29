@@ -51,8 +51,12 @@ class BackgroundTaskOffline extends BackgroundTaskProgressing {
   }
 
   @override
-  String? getFloatingMessage(final AppLocalizations appLocalizations) =>
-      appLocalizations.background_task_title_top_n;
+  (String, AlignmentGeometry)? getFloatingMessage(
+          final AppLocalizations appLocalizations) =>
+      (
+        appLocalizations.background_task_title_top_n,
+        AlignmentDirectional.bottomCenter,
+      );
 
   static BackgroundTaskOffline _getNewTask(
     final String uniqueId,

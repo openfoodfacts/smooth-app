@@ -25,7 +25,7 @@ class SmoothFloatingMessage {
 
     final double appBarHeight = Scaffold.maybeOf(context)?.hasAppBar == true
         ? (Scaffold.of(context).appBarMaxHeight ?? kToolbarHeight)
-        : 0.0;
+        : MediaQuery.paddingOf(context).top;
 
     _entry = OverlayEntry(builder: (BuildContext context) {
       return _SmoothFloatingMessageView(

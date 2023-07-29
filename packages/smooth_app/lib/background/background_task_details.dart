@@ -91,8 +91,12 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode {
   }
 
   @override
-  String? getFloatingMessage(final AppLocalizations appLocalizations) =>
-      appLocalizations.product_task_background_schedule;
+  (String, AlignmentGeometry)? getFloatingMessage(
+          final AppLocalizations appLocalizations) =>
+      (
+        appLocalizations.product_task_background_schedule,
+        AlignmentDirectional.bottomCenter,
+      );
 
   /// Returns a new background task about changing a product.
   static BackgroundTaskDetails _getNewTask(

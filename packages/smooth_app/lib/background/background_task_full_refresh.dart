@@ -47,8 +47,12 @@ class BackgroundTaskFullRefresh extends BackgroundTaskPaged {
   }
 
   @override
-  String? getFloatingMessage(final AppLocalizations appLocalizations) =>
-      appLocalizations.background_task_title_full_refresh;
+  (String, AlignmentGeometry)? getFloatingMessage(
+          final AppLocalizations appLocalizations) =>
+      (
+        appLocalizations.background_task_title_full_refresh,
+        AlignmentDirectional.bottomCenter,
+      );
 
   static BackgroundTaskFullRefresh _getNewTask(
     final String uniqueId,

@@ -65,8 +65,12 @@ class BackgroundTaskUnselect extends BackgroundTaskBarcode {
   }
 
   @override
-  String? getFloatingMessage(final AppLocalizations appLocalizations) =>
-      appLocalizations.product_task_background_schedule;
+  (String, AlignmentGeometry)? getFloatingMessage(
+          final AppLocalizations appLocalizations) =>
+      (
+        appLocalizations.product_task_background_schedule,
+        AlignmentDirectional.topCenter,
+      );
 
   /// Returns a new background task about unselecting a product image.
   static BackgroundTaskUnselect _getNewTask(
