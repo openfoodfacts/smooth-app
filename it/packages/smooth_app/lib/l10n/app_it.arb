@@ -1764,11 +1764,11 @@
             }
         }
     },
-    "confirm_delete_user_list_title": "Delete the list?",
+    "confirm_delete_user_list_title": "Eliminare la lista?",
     "@confirm_delete_user_list_title": {
         "description": "Title when asking about whether to delete the list or not"
     },
-    "confirm_delete_user_list_message": "You're about to delete the list \"{name}\".\nAre you sure you want to continue?",
+    "confirm_delete_user_list_message": "Stai per eliminare la lista \"{name}\".\nSei sicuro di voler continuare?",
     "@confirm_delete_user_list_message": {
         "description": "Message when asking about whether to delete the list or not",
         "placeholders": {
@@ -1777,7 +1777,7 @@
             }
         }
     },
-    "confirm_delete_user_list_button": "Yes, I confirm",
+    "confirm_delete_user_list_button": "Sì, confermo",
     "@confirm_delete_user_list_button": {
         "description": "Button to delete a list"
     },
@@ -2353,11 +2353,15 @@
     "@country_selector_title": {
         "description": "Label written as the title of the dialog to select the user country"
     },
+    "language_selector_title": "Seleziona la tua lingua:",
+    "@language_selector_title": {
+        "description": "Label written as the title of the dialog to select the user language"
+    },
     "action_delete_list": "Elimina",
     "@action_delete_list": {
         "description": "Delete a list action in a menu"
     },
-    "action_change_list": "Change the current list",
+    "action_change_list": "Modifica la lista corrente",
     "@action_change_list": {
         "description": "Action to change the current visible list"
     },
