@@ -45,7 +45,7 @@ class SummaryCard extends StatefulWidget {
     this.isFullVersion = false,
     this.showUnansweredQuestions = false,
     this.isRemovable = true,
-    this.isSettingClickable = true,
+    this.isSettingVisible = true,
     this.isProductEditable = true,
     this.attributeGroupsClickable = true,
     this.padding,
@@ -68,7 +68,7 @@ class SummaryCard extends StatefulWidget {
   final bool isRemovable;
 
   /// If true, the icon setting will be clickable.
-  final bool isSettingClickable;
+  final bool isSettingVisible;
 
   /// If true, the product will be editable
   final bool isProductEditable;
@@ -107,7 +107,7 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
         header: ProductCompatibilityHeader(
           product: upToDateProduct,
           productPreferences: widget._productPreferences,
-          isSettingClickable: widget.isSettingClickable,
+          isSettingVisible: widget.isSettingVisible,
         ),
         body: Padding(
           padding: widget.padding ?? SMOOTH_CARD_PADDING,
@@ -141,7 +141,7 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
                 header: ProductCompatibilityHeader(
                   product: upToDateProduct,
                   productPreferences: widget._productPreferences,
-                  isSettingClickable: widget.isSettingClickable,
+                  isSettingVisible: widget.isSettingVisible,
                 ),
                 body: Padding(
                   padding: SMOOTH_CARD_PADDING,
