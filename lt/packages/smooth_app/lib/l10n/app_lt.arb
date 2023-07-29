@@ -472,7 +472,7 @@
     },
     "ingredients": "Sudėtis",
     "@ingredients": {},
-    "ingredients_editing_instructions": "Išsaugokite originalų užsakymą. Nurodykite procentus jei tai reikalinga. Atskirkite kableliu arba brūkšneliu, naudokite skliaustus ingrediento sudedamosioms dalims, o apatiniais brūkšniais nurodykite alergenus.",
+    "ingredients_editing_instructions": "Išsaugokite originalų eiliškumą. Įveskite procentus jei nurodyta. Atskirkite kableliu arba brūkšneliu, naudokite skliaustus ingrediento sudedamosioms dalims, o apatiniais brūkšniais nurodykite alergenus.",
     "ingredients_editing_error": "Nepavyko išsaugoti ingredientų.",
     "ingredients_editing_image_error": "Nepavyko gauti naujo ingredientų nuotraukos.",
     "ingredients_editing_title": "Redaguoti sudėtį",
@@ -550,7 +550,7 @@
     "@crop_page_too_small_image_title": {
         "description": "Title of a dialog warning the user that the image is too small for upload"
     },
-    "crop_page_too_small_image_message": "The minimum size in pixels for picture upload is {expectedMinWidth}x{expectedMinHeight}. The current picture is {actualWidth}x{actualHeight}.",
+    "crop_page_too_small_image_message": "Mažiausias įkeliamų nuotraukų dydis pikseliais yra {expectedMinWidth}x{expectedMinHeight}. Dabartinė nuotrauka yra {actualWidth}x{actualHeight}.",
     "@crop_page_too_small_image_message": {
         "description": "Message of a dialog warning the user that the image is too small for upload",
         "placeholders": {
@@ -1148,11 +1148,11 @@
     "@permission_photo_denied": {
         "description": "When the camera/photo permission is denied by user"
     },
-    "edit_product_label": "Edit product",
+    "edit_product_label": "Redaguoti produktą",
     "@edit_product_label": {
         "description": "Edit product button label"
     },
-    "edit_product_form_item_add_action": "Add a new {itemType}",
+    "edit_product_form_item_add_action": "Pridėkite naują {itemType}",
     "description": "Tooltip to show when the user long presses the (+) button",
     "@edit_product_form_item_add_action": {
         "placeholders": {
@@ -1181,7 +1181,7 @@
     "@edit_product_form_item_other_details_subtitle": {
         "description": "Product edition - Other Details - Subtitle"
     },
-    "edit_product_form_item_photos_title": "Photos",
+    "edit_product_form_item_photos_title": "Nuotraukos",
     "@edit_product_form_item_photos_title": {
         "description": "Product edition - Photos - Title"
     },
@@ -1386,7 +1386,7 @@
     "@user_list_popup_rename": {
         "description": "Short label of a 'rename list' popup"
     },
-    "user_list_name_hint": "My list",
+    "user_list_name_hint": "Mano sąrašas",
     "@user_list_name_hint": {
         "description": "Hint of a user list name text-field in a 'user list' dialog"
     },
@@ -1764,11 +1764,11 @@
             }
         }
     },
-    "confirm_delete_user_list_title": "Delete the list?",
+    "confirm_delete_user_list_title": "Ištrinti sąrašą?",
     "@confirm_delete_user_list_title": {
         "description": "Title when asking about whether to delete the list or not"
     },
-    "confirm_delete_user_list_message": "You're about to delete the list \"{name}\".\nAre you sure you want to continue?",
+    "confirm_delete_user_list_message": "Jūs ketinate ištrinti sąrašą „{name}“.\nAr tikrai norite tęsti?",
     "@confirm_delete_user_list_message": {
         "description": "Message when asking about whether to delete the list or not",
         "placeholders": {
@@ -1777,7 +1777,7 @@
             }
         }
     },
-    "confirm_delete_user_list_button": "Yes, I confirm",
+    "confirm_delete_user_list_button": "Taip, patvirtinu",
     "@confirm_delete_user_list_button": {
         "description": "Button to delete a list"
     },
@@ -2258,7 +2258,7 @@
     "@product_loader_network_error_title": {
         "description": "When fetching a product opened via a link and there is no connection"
     },
-    "product_loader_network_error_message": "Please check that your smartphone is on a WiFi network or has mobile data enabled",
+    "product_loader_network_error_message": "Pasitikrinkite, ar jūsų išmanusis telefonas yra prijungtas prie „WiFi“ tinklo arba įjungti mobilieji duomenys",
     "@product_loader_network_error_message": {
         "description": "When fetching a product opened via a link and there is no connection"
     },
@@ -2266,7 +2266,7 @@
     "@page_not_found_title": {
         "description": "Title for a page not found (when an URL is not recognized)"
     },
-    "page_not_found_button": "Go back to the homepage",
+    "page_not_found_button": "Grįžti į pagrindinį puslapį",
     "@page_not_found_button": {
         "description": "Button to go back to the homepage"
     },
@@ -2361,7 +2361,7 @@
     "@action_delete_list": {
         "description": "Delete a list action in a menu"
     },
-    "action_change_list": "Change the current list",
+    "action_change_list": "Pakeiskite dabartinį sąrašą",
     "@action_change_list": {
         "description": "Action to change the current visible list"
     },
