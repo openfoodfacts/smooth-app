@@ -85,11 +85,13 @@ class SummaryCard extends StatefulWidget {
 class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
   // For some reason, special case for "label" attributes
   final Set<String> _attributesToExcludeIfStatusIsUnknown = <String>{};
+  late ProductQuestionsLayout _questionsLayout;
 
   @override
   void initState() {
     super.initState();
     initUpToDate(widget._product, context.read<LocalDatabase>());
+    _questionsLayout = getUserQuestionsLayout(context.read<UserPreferences>());
     if (ProductIncompleteCard.isProductIncomplete(initialProduct)) {
       AnalyticsHelper.trackEvent(
         AnalyticsEvent.showFastTrackProductEditCard,
@@ -357,7 +359,12 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
         if (ProductIncompleteCard.isProductIncomplete(upToDateProduct))
           ProductIncompleteCard(product: upToDateProduct),
         ..._getAttributes(scoreAttributes),
-        if (widget.isFullVersion) ProductQuestionsWidget(upToDateProduct),
+        if (widget.isFullVersion &&
+            _questionsLayout == ProductQuestionsLayout.button)
+          ProductQuestionsWidget(
+            upToDateProduct,
+            layout: ProductQuestionsLayout.button,
+          ),
         attributesContainer,
         ...summaryCardButtons,
       ],
