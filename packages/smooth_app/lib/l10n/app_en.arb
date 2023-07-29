@@ -2071,6 +2071,7 @@
     "@show_password": {
         "description": "Show hidden password in password field"
     },
+    "rate_app": "Rate the app",
     "app_rating_dialog_title": "Great! Let others know what you think of this app!",
     "app_rating_dialog_positive_action": "Rate the app",
     "app_rating_dialog_negative_action": "Later",
