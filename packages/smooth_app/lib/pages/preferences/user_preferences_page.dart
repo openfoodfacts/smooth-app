@@ -52,6 +52,8 @@ class UserPreferencesPage extends StatefulWidget {
 
 class _UserPreferencesPageState extends State<UserPreferencesPage>
     with TraceableClientMixin {
+  final ScrollController _controller = ScrollController();
+
   @override
   String get traceTitle => 'user_preferences_page';
 
@@ -120,6 +122,7 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
     final ListView list;
     if (addDividers) {
       list = ListView.separated(
+        controller: _controller,
         padding: padding,
         itemCount: children.length,
         itemBuilder: (BuildContext context, int position) => children[position],
@@ -128,6 +131,7 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
       );
     } else {
       list = ListView.builder(
+        controller: _controller,
         padding: padding,
         itemCount: children.length,
         itemBuilder: (BuildContext context, int position) => children[position],
@@ -143,7 +147,10 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
           ),
           leading: const SmoothBackButton(),
         ),
-        body: Scrollbar(child: list),
+        body: Scrollbar(
+          controller: _controller,
+          child: list,
+        ),
       );
     }
     final bool dark = Theme.of(context).brightness == Brightness.dark;
@@ -174,7 +181,10 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
           maxLines: 2,
         ),
       ),
-      body: ListView(children: children),
+      body: ListView(
+        controller: _controller,
+        children: children,
+      ),
     );
   }
 
