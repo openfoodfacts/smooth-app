@@ -121,7 +121,7 @@
     "@Introduction screen": {},
     "welcomeToOpenFoodFacts": "Willkommen bei Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
-    "whatIsOff": "Open Food Facts is a global non-profit powered by local communities.",
+    "whatIsOff": "Open Food Facts ist eine globale, gemeinnützige Organisation, die von lokalen Gemeinschaften getragen wird.",
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
@@ -142,7 +142,7 @@
         "description": "Description of what a user can use the Eco data in a product for."
     },
     "@user_management": {},
-    "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
+    "sign_in_text": "Melden Sie sich bei Ihrem Open Food Facts-Konto an, um Ihre Beiträge speichern zu können",
     "incorrect_credentials": "Ungültiger Benutzername oder Passwort.",
     "login": "Benutzername",
     "@login": {
@@ -233,7 +233,7 @@
     "sign_up_page_confirm_password_hint": "Passwort bestätigen",
     "sign_up_page_confirm_password_error_empty": "Bitte bestätigen Sie Ihr Passwort",
     "sign_up_page_confirm_password_error_invalid": "Passwörter stimmen nicht überein",
-    "sign_up_page_agree_text": "I agree to the Open Food Facts",
+    "sign_up_page_agree_text": "Ich akzeptiere die Open Food Facts",
     "@sign_up_page_agree_text": {
         "description": "I agree to the Open Food Facts is followed by sign_up_page_terms_text"
     },
@@ -256,7 +256,7 @@
     "sign_up_page_producer_checkbox": "Ich bin Lebensmittelproduzent",
     "sign_up_page_producer_hint": "Hersteller/Marke",
     "sign_up_page_producer_error_empty": "Bitte geben Sie einen Hersteller oder Markennamen ein",
-    "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at any time)",
+    "sign_up_page_subscribe_checkbox": "Ich möchte den Newsletter von Open Food Facts abonnieren (Er kann jederzeit wieder abbestellt werden)",
     "sign_up_page_user_name_already_used": "Der Benutzername existiert bereits. Bitte wählen Sie einen anderen Benutzernamen.",
     "sign_up_page_email_already_exists": "existiert bereits. Melden Sie sich bei diesem Konto an oder versuchen Sie es mit einer anderen E-Mail-Adresse.",
     "sign_up_page_provide_valid_email": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
@@ -281,7 +281,7 @@
     "@darkmode_system_default": {
         "description": "Indicator inside the darkmode switch (system default)"
     },
-    "thanks_for_contributing": "Thanks for contributing!",
+    "thanks_for_contributing": "Vielen Dank für Ihren Beitrag!",
     "@contributors": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
     },
@@ -310,13 +310,13 @@
     "@contribute_sw_development": {
         "description": "Button label + page title: Ways to help"
     },
-    "contribute_develop_text": "The code for every Open Food Facts product is available on GitHub. You are welcome to reuse the code (it's open source) and help us improve it, for everyone, on all the planet.",
+    "contribute_develop_text": "Der Code für jedes Open Food Facts-Produkt ist auf GitHub verfügbar. Sie können den Code (Open Source) gerne wiederverwenden und uns dabei helfen, ihn für alle auf der ganzen Welt zu verbessern.",
     "@contribute_develop_text": {},
-    "contribute_develop_text_2": "You can join the Open Food Facts Slack chatroom which is the preferred way to ask questions.",
+    "contribute_develop_text_2": "Du kannst dem Open Food Facts Slack Chatroom beitreten, was der bevorzugte Weg ist, Fragen zu stellen.",
     "@contribute_develop_text_2": {},
     "contribute_develop_dev_mode_title": "Entwicklermodus?",
     "contribute_develop_dev_mode_subtitle": "Entwicklermodus aktivieren",
-    "contribute_donate_header": "Donate to Open Food Facts",
+    "contribute_donate_header": "Spenden Sie für Open Food Facts",
     "@contribute_donate_header": {},
     "contribute_improve_ProductsToBeCompleted": "Noch abzuschließende Produkte",
     "@contribute_improve_ProductsToBeCompleted": {
@@ -326,7 +326,7 @@
     "@contribute_improve_header": {
         "description": "Button label + page title: Ways to improve the database"
     },
-    "contribute_improve_text": "The database is the core of the project. It's easy and very quick to help. You can download the mobile app for your phone, and start adding or improving products.\n\nOn the other hand, Open Food Facts website offers many ways to contribute: ",
+    "contribute_improve_text": "Die Datenbank ist der Kern des Projekts. Sie können einfach und schnell helfen. Sie können die mobile App für Ihr Telefon herunterladen und Produkte hinzufügen oder verbessern.\n\nAuf der anderen Seite bietet die Webseite Open Food Facts viele Möglichkeiten, einen Beitrag zu leisten: ",
     "@contribute_improve_text": {},
     "contribute_translate_header": "Übersetzen",
     "@contribute_translate_header": {
@@ -336,13 +336,13 @@
     "@contribute_translate_link_text": {
         "description": "Button label: Opens the Crowdin translation portal"
     },
-    "contribute_translate_text": "Open Food Facts is a global project, containing products from more than 160 countries. Open Food Facts is translated into dozens of languages, with constantly evolving content.",
+    "contribute_translate_text": "Open Food Facts ist ein globales Projekt, das Produkte aus über 160 Länder enthält. Open Food Facts wird in eine Vielzahl von Sprachen, mit ständig wachsendem Inhalt übersetzt.",
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "Übersetzungen sind eine der Hauptaufgaben des Projekts",
     "@contribute_translate_text_2": {},
-    "contribute_share_header": "Share Open Food Facts with your friends",
+    "contribute_share_header": "Teilen Sie Open Food Facts mit Ihren Freunden",
     "@contribute_share_header": {},
-    "contribute_share_content": "I wanted to let you know about the app I've been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it's free, does not require registration, and you can even help increase the number of products decyphered. Here's the link to get it for your phone: https://openfoodfacts.app",
+    "contribute_share_content": "Ich möchte Ihnen die App Open Food Facts vorstellen, mit der Sie die Gesundheits- und Umweltauswirkungen Ihrer Lebensmittel auf personalisierte Weise ermitteln können. Es funktioniert durch das Einlesen der Barcodes auf den Verpackungen. Es ist kostenlos, erfordert keine Registrierung und Sie können sogar dazu beitragen, die Zahl der entschlüsselten Produkte zu erhöhen. Hier ist der Link, über den Sie die Software für Ihr Handy erhalten: https://openfoodfacts.app",
     "@contribute_share_content": {
         "description": "Content that will be shared, don't forget to include the URL"
     },
