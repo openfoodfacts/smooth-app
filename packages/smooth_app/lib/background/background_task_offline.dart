@@ -51,7 +51,7 @@ class BackgroundTaskOffline extends BackgroundTaskProgressing {
   }
 
   @override
-  String? getSnackBarMessage(final AppLocalizations appLocalizations) =>
+  String? getFloatingMessage(final AppLocalizations appLocalizations) =>
       appLocalizations.background_task_title_top_n;
 
   static BackgroundTaskOffline _getNewTask(
