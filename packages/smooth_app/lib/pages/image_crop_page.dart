@@ -132,6 +132,7 @@ class _ImageSourcePickerState extends State<_ImageSourcePicker> {
                     shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(6.0)),
                     ),
+                    activeColor: Theme.of(context).primaryColor,
                     materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                     value: rememberChoice,
                     onChanged: (final bool? value) => setState(
