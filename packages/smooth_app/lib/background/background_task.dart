@@ -120,14 +120,16 @@ abstract class BackgroundTask {
     if (!showSnackBar) {
       return;
     }
-    final (String, AlignmentGeometry)? floatingMessage = getFloatingMessage(
-      AppLocalizations.of(widget.context),
-    );
-    if (floatingMessage != null) {
-      SmoothFloatingMessage(message: floatingMessage.$1).show(
+
+    if (getFloatingMessage(AppLocalizations.of(widget.context))
+        case (
+          final String message,
+          final AlignmentGeometry alignment,
+        )) {
+      SmoothFloatingMessage(message: message).show(
         widget.context,
         duration: SnackBarDuration.medium,
-        alignment: floatingMessage.$2,
+        alignment: alignment,
       );
     }
   }
