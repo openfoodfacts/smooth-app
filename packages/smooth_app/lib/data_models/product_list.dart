@@ -255,5 +255,6 @@ class ProductList {
     }
   }
 
+  /// Can be edited or renamed
   bool get isEditable => listType == ProductListType.USER;
 }
