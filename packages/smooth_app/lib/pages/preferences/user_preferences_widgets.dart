@@ -379,16 +379,20 @@ class UserPreferenceListTile extends StatelessWidget {
     required this.leading,
     required this.onTap,
     required this.showDivider,
+    this.subTitle,
     super.key,
   });
 
   final String title;
+  final String? subTitle;
   final Widget leading;
   final Future<void> Function(BuildContext) onTap;
   final bool showDivider;
 
   @override
   Widget build(BuildContext context) {
+    final TextTheme textTheme = Theme.of(context).textTheme;
+
     return Column(
       children: <Widget>[
         ListTile(
@@ -398,9 +402,19 @@ class UserPreferenceListTile extends StatelessWidget {
           ),
           title: Text(
             title,
-            style: const TextStyle(fontWeight: FontWeight.bold),
+            style: textTheme.headlineMedium,
           ),
+          subtitle: subTitle != null
+              ? Text(
+                  subTitle!,
+                  style: textTheme.bodyMedium,
+                )
+              : null,
           onTap: () => onTap(context),
+          contentPadding: const EdgeInsetsDirectional.symmetric(
+            horizontal: LARGE_SPACE,
+            vertical: SMALL_SPACE,
+          ),
         ),
         if (showDivider) const UserPreferencesListItemDivider(),
       ],
