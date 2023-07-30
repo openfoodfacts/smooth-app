@@ -18,7 +18,7 @@ import 'package:smooth_app/data_models/tagline.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
-import 'package:smooth_app/pages/inherited_data_manager.dart';
+import 'package:smooth_app/pages/carousel_manager.dart';
 import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/scan/scan_product_card_loader.dart';
 import 'package:smooth_app/pages/scan/search_page.dart';
@@ -40,9 +40,7 @@ class SmoothProductCarousel extends StatefulWidget {
 class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
   static const double HORIZONTAL_SPACE_BETWEEN_CARDS = 5.0;
 
-  final CarouselController _controller = CarouselController();
   List<String> barcodes = <String>[];
-  bool _returnToSearchCard = false;
   String? _lastConsultedBarcode;
   int? _carrouselMovingTo;
   int _lastIndex = 0;
@@ -55,7 +53,7 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
     super.didChangeDependencies();
     _model = context.watch<ContinuousScanModel>();
 
-    if (!_controller.ready) {
+    if (!ExternalCarouselManager.read(context).controller.ready) {
       return;
     }
 
@@ -73,11 +71,9 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
     }
 
     _lastConsultedBarcode = _model.latestConsultedBarcode;
-    _returnToSearchCard = InheritedDataManager.of(context).showSearchCard;
     final int cardsCount = barcodes.length + _searchCardAdjustment;
-    if (_returnToSearchCard && widget.containSearchCard && _lastIndex > 0) {
-      _moveControllerTo(0);
-    } else if (_model.latestConsultedBarcode != null &&
+
+    if (_model.latestConsultedBarcode != null &&
         _model.latestConsultedBarcode!.isNotEmpty) {
       final int indexBarcode = barcodes.indexOf(_model.latestConsultedBarcode!);
       if (indexBarcode >= 0) {
@@ -105,7 +101,7 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
       );
 
       _carrouselMovingTo = page;
-      _controller.animateToPage(page);
+      ExternalCarouselManager.read(context).animatePageTo(page);
       _carrouselMovingTo = null;
     }
   }
@@ -131,7 +127,7 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
               ),
             );
           },
-          carouselController: _controller,
+          carouselController: ExternalCarouselManager.watch(context).controller,
           options: CarouselOptions(
             enlargeCenterPage: false,
             viewportFraction: _computeViewPortFraction(),
@@ -139,11 +135,6 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
             enableInfiniteScroll: false,
             onPageChanged: (int index, CarouselPageChangedReason reason) {
               _lastIndex = index;
-              final InheritedDataManagerState inheritedDataManager =
-                  InheritedDataManager.of(context);
-              if (inheritedDataManager.showSearchCard) {
-                inheritedDataManager.resetShowSearchCard(false);
-              }
 
               if (index > 0) {
                 if (reason == CarouselPageChangedReason.manual) {

@@ -20,7 +20,7 @@ import 'package:smooth_app/generic_lib/widgets/smooth_responsive.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
 import 'package:smooth_app/pages/all_product_list_page.dart';
-import 'package:smooth_app/pages/inherited_data_manager.dart';
+import 'package:smooth_app/pages/carousel_manager.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/pages/product/common/product_list_item_simple.dart';
 import 'package:smooth_app/pages/product/common/product_list_popup_items.dart';
@@ -116,7 +116,7 @@ class _ProductListPageState extends State<ProductListPage>
               icon: const Icon(CupertinoIcons.barcode),
               label: Text(appLocalizations.product_list_empty_title),
               onPressed: () =>
-                  InheritedDataManager.of(context).resetShowSearchCard(true),
+                  ExternalCarouselManager.read(context).showSearchCard(),
             )
           : _selectionMode || products.length <= 1
               ? _CompareProductsButton(
