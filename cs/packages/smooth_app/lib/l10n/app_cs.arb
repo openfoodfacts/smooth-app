@@ -121,7 +121,7 @@
     "@Introduction screen": {},
     "welcomeToOpenFoodFacts": "Vítejte v Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
-    "whatIsOff": "Open Food Facts is a global non-profit powered by local communities.",
+    "whatIsOff": "Open Food Facts je globální nezisková organizace tvořená místními komunitami.",
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
@@ -142,7 +142,7 @@
         "description": "Description of what a user can use the Eco data in a product for."
     },
     "@user_management": {},
-    "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
+    "sign_in_text": "Pro uložení vašich příspěvků se přihlaste ke svému účtu Open Food Facts",
     "incorrect_credentials": "Nesprávné uživatelské jméno nebo heslo.",
     "login": "Uživatelské jméno",
     "@login": {
@@ -233,7 +233,7 @@
     "sign_up_page_confirm_password_hint": "Potvrzení hesla",
     "sign_up_page_confirm_password_error_empty": "Potvrďte prosím heslo",
     "sign_up_page_confirm_password_error_invalid": "Hesla se neshodují",
-    "sign_up_page_agree_text": "I agree to the Open Food Facts",
+    "sign_up_page_agree_text": "Souhlasím s Open Food Facts",
     "@sign_up_page_agree_text": {
         "description": "I agree to the Open Food Facts is followed by sign_up_page_terms_text"
     },
@@ -281,7 +281,7 @@
     "@darkmode_system_default": {
         "description": "Indicator inside the darkmode switch (system default)"
     },
-    "thanks_for_contributing": "Thanks for contributing!",
+    "thanks_for_contributing": "Děkujeme za příspěvek!",
     "@contributors": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
     },
@@ -1043,7 +1043,7 @@
         "description": "When the user is not connected"
     },
     "user_profile_subtitle_guest": "Sign-in or sign-up to join the Open Food Facts community",
-    "user_profile_title_id_email": "Open Food Facts login: {email}",
+    "user_profile_title_id_email": "Open Food Facts přihlášení: {email}",
     "@user_profile_title_id_email": {
         "description": "User login (when it's an email)",
         "placeholders": {
@@ -2379,18 +2379,18 @@
     "nutriscore_c": "Nutri-Score C",
     "nutriscore_d": "Nutri-Score D",
     "nutriscore_e": "Nutri-Score E",
-    "nutriscore_unknown": "Unknown Nutri-Score",
-    "nutriscore_not_applicable": "Nutri-Score is not applicable",
+    "nutriscore_unknown": "Neznámé Nutri-Score",
+    "nutriscore_not_applicable": "Nutri-Score nelze použít",
     "ecoscore_a": "Eco-Score A",
     "ecoscore_b": "Eco-Score B",
     "ecoscore_c": "Eco-Score C",
     "ecoscore_d": "Eco-Score D",
     "ecoscore_e": "Eco-Score E",
-    "ecoscore_unknown": "Unknown Eco-Score",
-    "ecoscore_not_applicable": "Eco-Score is not applicable",
-    "nova_group_1": "NOVA Group 1",
-    "nova_group_2": "NOVA Group 2",
-    "nova_group_3": "NOVA Group 3",
-    "nova_group_4": "NOVA Group 4",
-    "nova_group_unknown": "Unknown NOVA Group"
+    "ecoscore_unknown": "Neznámé Eco-Score",
+    "ecoscore_not_applicable": "Eco-Score nelze použít",
+    "nova_group_1": "Skupina NOVA 1",
+    "nova_group_2": "Skupina NOVA 2",
+    "nova_group_3": "Skupina NOVA 3",
+    "nova_group_4": "Skupina NOVA 4",
+    "nova_group_unknown": "Neznámá skupina NOVA"
 }
