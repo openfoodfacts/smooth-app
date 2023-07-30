@@ -121,7 +121,7 @@
     "@Introduction screen": {},
     "welcomeToOpenFoodFacts": "Open Food Facts'e Hoş Geldiniz",
     "@welcomeToOpenFoodFacts": {},
-    "whatIsOff": "Open Food Facts is a global non-profit powered by local communities.",
+    "whatIsOff": "Open Food Facts, yerel topluluklar tarafından desteklenen küresel, kar amacı gütmeyen bir kuruluştur.",
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
@@ -233,7 +233,7 @@
     "sign_up_page_confirm_password_hint": "Şifreyi Doğrula",
     "sign_up_page_confirm_password_error_empty": "Lütfen parolayı doğrulayın",
     "sign_up_page_confirm_password_error_invalid": "Parolalar eşleşmiyor",
-    "sign_up_page_agree_text": "I agree to the Open Food Facts",
+    "sign_up_page_agree_text": "Open Food Facts'i kabul ediyorum",
     "@sign_up_page_agree_text": {
         "description": "I agree to the Open Food Facts is followed by sign_up_page_terms_text"
     },
@@ -281,7 +281,7 @@
     "@darkmode_system_default": {
         "description": "Indicator inside the darkmode switch (system default)"
     },
-    "thanks_for_contributing": "Thanks for contributing!",
+    "thanks_for_contributing": "Katkıda bulunduğunuz için teşekkürler!",
     "@contributors": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
     },
@@ -316,7 +316,7 @@
     "@contribute_develop_text_2": {},
     "contribute_develop_dev_mode_title": "Geliştirici Modu?",
     "contribute_develop_dev_mode_subtitle": "DEV Modunu Etkinleştirin",
-    "contribute_donate_header": "Donate to Open Food Facts",
+    "contribute_donate_header": "OpenFoodFacts'e bağış yapın",
     "@contribute_donate_header": {},
     "contribute_improve_ProductsToBeCompleted": "Tamamlanacak ürünler",
     "@contribute_improve_ProductsToBeCompleted": {
@@ -340,7 +340,7 @@
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "Çeviriler, projenin temel görevlerinden biridir",
     "@contribute_translate_text_2": {},
-    "contribute_share_header": "Share Open Food Facts with your friends",
+    "contribute_share_header": "Open Food Facts'ı arkadaşlarınızla paylaşın",
     "@contribute_share_header": {},
     "contribute_share_content": "I wanted to let you know about the app I've been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it's free, does not require registration, and you can even help increase the number of products decyphered. Here's the link to get it for your phone: https://openfoodfacts.app",
     "@contribute_share_content": {
@@ -366,7 +366,7 @@
     "@contribute_to_get_rewards": {
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts and gain rewards."
     },
-    "question_sign_in_text": "Sign in to your Open Food Facts account to get credit for your contributions",
+    "question_sign_in_text": "Katkılarınız için kredi almak üzere OpenFoodFacts hesabınızda oturum açın",
     "question_yes_button_accessibility_value": "Evet ile cevapla",
     "question_no_button_accessibility_value": "Hayır ile cevapla",
     "question_skip_button_accessibility_value": "Bu soruyu atla",
@@ -642,7 +642,7 @@
     "@uploading_image_type_other": {
         "description": "Message when a new other picture is being uploaded to the server"
     },
-    "uploading_image_type_generic": "Uploading image to Open Food Facts",
+    "uploading_image_type_generic": "Görsel Open Food Facts'e yükleniyor",
     "@uploading_image_type_generic": {
         "description": "Message when a new picture is being uploaded to the server"
     },
@@ -1043,7 +1043,7 @@
         "description": "When the user is not connected"
     },
     "user_profile_subtitle_guest": "Sign-in or sign-up to join the Open Food Facts community",
-    "user_profile_title_id_email": "Open Food Facts login: {email}",
+    "user_profile_title_id_email": "Open Food Facts giriş: {email}",
     "@user_profile_title_id_email": {
         "description": "User login (when it's an email)",
         "placeholders": {
@@ -1652,7 +1652,7 @@
     "@edit_product_action_confirm": {
         "description": "Product edition - FAB actions - confirm"
     },
-    "signup_page_terms_of_use_line1": "I agree to the Open Food Facts ",
+    "signup_page_terms_of_use_line1": "Open Food Facts'i kabul ediyorum ",
     "@signup_page_terms_of_use_line1": {
         "description": "User consent for terms of use (line 1)"
     },
@@ -2388,9 +2388,9 @@
     "ecoscore_e": "Eco-Score E",
     "ecoscore_unknown": "Unknown Eco-Score",
     "ecoscore_not_applicable": "Eco-Score is not applicable",
-    "nova_group_1": "NOVA Group 1",
-    "nova_group_2": "NOVA Group 2",
-    "nova_group_3": "NOVA Group 3",
-    "nova_group_4": "NOVA Group 4",
-    "nova_group_unknown": "Unknown NOVA Group"
+    "nova_group_1": "NOVA Grup 1",
+    "nova_group_2": "NOVA Grup 2",
+    "nova_group_3": "NOVA Grup 3",
+    "nova_group_4": "NOVA Grup 4",
+    "nova_group_unknown": "Bilinmeyen NOVA Grubu"
 }
