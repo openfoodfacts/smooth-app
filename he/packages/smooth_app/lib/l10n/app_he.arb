@@ -233,7 +233,7 @@
     "sign_up_page_confirm_password_hint": "אימות סיסמה",
     "sign_up_page_confirm_password_error_empty": "נא לאשר את הסיסמה",
     "sign_up_page_confirm_password_error_invalid": "הסיסמאות שונות זו מזו",
-    "sign_up_page_agree_text": "I agree to the Open Food Facts",
+    "sign_up_page_agree_text": "אני מסכים ל־Open Food Facts",
     "@sign_up_page_agree_text": {
         "description": "I agree to the Open Food Facts is followed by sign_up_page_terms_text"
     },
@@ -256,7 +256,7 @@
     "sign_up_page_producer_checkbox": "עיסוקי הוא ייצור מזון",
     "sign_up_page_producer_hint": "יצרן/מותג",
     "sign_up_page_producer_error_empty": "נא למלא יצרן או שם מותג",
-    "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at any time)",
+    "sign_up_page_subscribe_checkbox": "אשמח להירשם לקבוצת הדיוור של Open Food Facts (ניתן לצאת ממנה בכל רגע נתון)",
     "sign_up_page_user_name_already_used": "שם המשתמש כבר קיים, נא לבחור בשם משתמש אחר.",
     "sign_up_page_email_already_exists": "כבר קיים, יש להיכנס לחשבון או לנסות עם כתובת דוא״ל אחרת.",
     "sign_up_page_provide_valid_email": "נא לספק כתובת דוא״ל תקפה.",
@@ -281,7 +281,7 @@
     "@darkmode_system_default": {
         "description": "Indicator inside the darkmode switch (system default)"
     },
-    "thanks_for_contributing": "Thanks for contributing!",
+    "thanks_for_contributing": "תודה על תרומתך!",
     "@contributors": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
     },
@@ -310,13 +310,13 @@
     "@contribute_sw_development": {
         "description": "Button label + page title: Ways to help"
     },
-    "contribute_develop_text": "The code for every Open Food Facts product is available on GitHub. You are welcome to reuse the code (it's open source) and help us improve it, for everyone, on all the planet.",
+    "contribute_develop_text": "הקוד של כל אחד ממוצרי Open Food Facts זמין ב־GitHub. אנו מזמינים אותך לגזור מהקוד הזה (הוא בקוד פתוח) ולסייע לשפר אותו, עבור כולם, בכל רחבי העולם.",
     "@contribute_develop_text": {},
-    "contribute_develop_text_2": "You can join the Open Food Facts Slack chatroom which is the preferred way to ask questions.",
+    "contribute_develop_text_2": "ניתן להצטרף לחדר השיח של Open Food Facts ב־Slack שהיא הדרך המומלצת לשאול שאלות.",
     "@contribute_develop_text_2": {},
     "contribute_develop_dev_mode_title": "מצב למפתחים?",
     "contribute_develop_dev_mode_subtitle": "הפעלת המצב למפתחים",
-    "contribute_donate_header": "Donate to Open Food Facts",
+    "contribute_donate_header": "תרומה ל־Open Food Facts",
     "@contribute_donate_header": {},
     "contribute_improve_ProductsToBeCompleted": "מוצרים שדורשים השלמה",
     "@contribute_improve_ProductsToBeCompleted": {
@@ -326,7 +326,7 @@
     "@contribute_improve_header": {
         "description": "Button label + page title: Ways to improve the database"
     },
-    "contribute_improve_text": "The database is the core of the project. It's easy and very quick to help. You can download the mobile app for your phone, and start adding or improving products.\n\nOn the other hand, Open Food Facts website offers many ways to contribute: ",
+    "contribute_improve_text": "מסד הנתונים הוא ליבת המיזם. פשוט וקל מאוד לסייע בשיפורו. ניתן להוריד את היישומון לטלפון שלך ולהתחיל להוסיף ולשפר מוצרים.\n\nמצד שני, האתר של Open Food Facts מציע מגוון דרכים לתרום: ",
     "@contribute_improve_text": {},
     "contribute_translate_header": "תרגום",
     "@contribute_translate_header": {
@@ -336,13 +336,13 @@
     "@contribute_translate_link_text": {
         "description": "Button label: Opens the Crowdin translation portal"
     },
-    "contribute_translate_text": "Open Food Facts is a global project, containing products from more than 160 countries. Open Food Facts is translated into dozens of languages, with constantly evolving content.",
+    "contribute_translate_text": "‏Open Food Facts הוא מיזם גלובלי שמכיל מוצרים מלמעלה מ־160 מדינות. Open Food Facts מתורגם לעשרות שפות עם תוכן שהולך ומצטבר.",
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "תרגומים הם אחת ממשימות המפתח של המיזם",
     "@contribute_translate_text_2": {},
-    "contribute_share_header": "Share Open Food Facts with your friends",
+    "contribute_share_header": "שיתוף Open Food Facts עם חברים",
     "@contribute_share_header": {},
-    "contribute_share_content": "I wanted to let you know about the app I've been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it's free, does not require registration, and you can even help increase the number of products decyphered. Here's the link to get it for your phone: https://openfoodfacts.app",
+    "contribute_share_content": "רציתי לספר לך על יישומון שמותקן אצלי. Open Food Facts, שמאפשר לקבל את ההשפעות הבריאותיות והסביבתיות של המזון שלך, בדרך מותאמת אישית. הוא עובד עם סריקת ברקודים על האריזה. בסופו של דבר זה בחינם ולא נדרשת הרשמה ואפשר גם לסייע להגדיר את מספר המוצרים המפוענחים. הנה הקישור להורדה והתקנה בטלפון: https://openfoodfacts.app",
     "@contribute_share_content": {
         "description": "Content that will be shared, don't forget to include the URL"
     },
@@ -366,7 +366,7 @@
     "@contribute_to_get_rewards": {
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts and gain rewards."
     },
-    "question_sign_in_text": "Sign in to your Open Food Facts account to get credit for your contributions",
+    "question_sign_in_text": "כדאי להיכנס לחשבונך ב־Open Food Facts כדי לקבל הוקרה על התרומות שלך",
     "question_yes_button_accessibility_value": "לענות בכן",
     "question_no_button_accessibility_value": "לענות בלא",
     "question_skip_button_accessibility_value": "לדלג על השאלה הזאת",
@@ -376,7 +376,7 @@
     "@myPreferences": {
         "description": "Page title: Page where the ranking preferences can be changed"
     },
-    "account_create_message": "Create your account and join the Open Food Facts community to help build food knowledge all over the world!",
+    "account_create_message": "מזמינים אותך ליצור חשבון ולהצטרף לקהילת Open Food Facts כדי לסייע בבניית מידע על מזון בכל רחבי העולם!",
     "@account_create_message": {
         "description": "The Message to be displayed if the user does not have an account and wants to contribute"
     },
@@ -385,12 +385,12 @@
         "description": "Join which is actually Signup"
     },
     "myPreferences_profile_title": "הפרופיל שלך",
-    "myPreferences_profile_subtitle": "Manage your Open Food Facts contributor account.",
+    "myPreferences_profile_subtitle": "ניהול חשבון התרומה שלך ב־Open Food Facts.",
     "myPreferences_settings_title": "הגדרות היישומון",
     "myPreferences_settings_subtitle": "מצב כהה, ניתוח נתונים…",
     "myPreferences_food_title": "העדפות מזון",
     "myPreferences_food_subtitle": "נא לבחור איזה מידע על מזון הכי חשוב לך.",
-    "myPreferences_food_comment": "Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.",
+    "myPreferences_food_comment": "נא לבחור איזה מידע על מזון מעניין אותך, כדי לדרג מזון לפי העדפותיך, לראות את המידע שמעניין אותך תחילה ולקבל תקציר תאימות. העדפות המזון האלו נשארות במכשיר שלך ואינן משויכות לחשבון התרומה שלך ל־Open Food Facts, אם יש לך חשבון כזה.",
     "confirmResetPreferences": "לאפס את העדפות המזון שלך?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -498,7 +498,7 @@
     "@packaging_information_photo": {},
     "missing_product": "מצאת מוצר חדש!",
     "@missing_product": {},
-    "add_product_take_photos": "Take photos of the packaging to add this product to Open Food Facts",
+    "add_product_take_photos": "יש לצלם את האריזה כדי להוסיף את המוצר הזה ל־Open Food Facts",
     "@add_product_take_photos": {},
     "add_product_take_photos_descriptive": "נא לצלם תחילה מספר תמונות. תמיד ניתן להשלים את המוצר בהמשך.",
     "@add_product_take_photos_descriptive": {},
@@ -622,27 +622,27 @@
     "@uploading_image": {
         "description": "Message when a new picture is uploading to the server"
     },
-    "uploading_image_type_front": "Uploading front image to Open Food Facts",
+    "uploading_image_type_front": "תמונת החזית נשלחת ל־Open Food Facts",
     "@uploading_image_type_front": {
         "description": "Message when a new front picture is being uploaded to the server"
     },
-    "uploading_image_type_ingredients": "Uploading ingredients image to Open Food Facts",
+    "uploading_image_type_ingredients": "תמונת הרכיבים נשלחת ל־Open Food Facts",
     "@uploading_image_type_ingredients": {
         "description": "Message when a new ingredients picture is being uploaded to the server"
     },
-    "uploading_image_type_nutrition": "Uploading nutrition image to Open Food Facts",
+    "uploading_image_type_nutrition": "תמונת הערכים התזונתיים נשלחת ל־Open Food Facts",
     "@uploading_image_type_nutrition": {
         "description": "Message when a new nutrition picture is being uploaded to the server"
     },
-    "uploading_image_type_packaging": "Uploading packaging image to Open Food Facts",
+    "uploading_image_type_packaging": "תמונת האריזה נשלחת ל־Open Food Facts",
     "@uploading_image_type_packaging": {
         "description": "Message when a new packaging picture is being uploaded to the server"
     },
-    "uploading_image_type_other": "Uploading other image to Open Food Facts",
+    "uploading_image_type_other": "תמונה אחרת נשלחת ל־Open Food Facts",
     "@uploading_image_type_other": {
         "description": "Message when a new other picture is being uploaded to the server"
     },
-    "uploading_image_type_generic": "Uploading image to Open Food Facts",
+    "uploading_image_type_generic": "תמונה נשלחת ל־Open Food Facts",
     "@uploading_image_type_generic": {
         "description": "Message when a new picture is being uploaded to the server"
     },
@@ -752,7 +752,7 @@
     "@native_app_settings": {
         "description": "Native App Settings in app settings"
     },
-    "native_app_description": "Open systems settings for Open Food Facts",
+    "native_app_description": "פתיחת הגדרות המערכת עבור Open Food Facts",
     "@native_app_description": {
         "description": "Native App description in app settings"
     },
@@ -857,7 +857,7 @@
     "@consent_analytics_title": {
         "description": "Title for the consent analytics UI Page"
     },
-    "consent_analytics_body1": "Help the Open Food Facts volunteers to improve the app. You decide whether to submit anonymous analytics.",
+    "consent_analytics_body1": "סיוע למתנדבי Open Food Facts בשיפור היישומון. לבחירתך אם מקובל עליך להגיש מדדים בעילום שם.",
     "@conset_analytics_body1": {
         "description": "first paragraph for the consent analytics UI Page"
     },
@@ -1042,8 +1042,8 @@
     "@user_profile_title_guest": {
         "description": "When the user is not connected"
     },
-    "user_profile_subtitle_guest": "Sign-in or sign-up to join the Open Food Facts community",
-    "user_profile_title_id_email": "Open Food Facts login: {email}",
+    "user_profile_subtitle_guest": "יש להיכנס או להירשם כדי להצטרף ל־Open Food Facts",
+    "user_profile_title_id_email": "כניסה ל־Open Food Facts‏: {email}",
     "@user_profile_title_id_email": {
         "description": "User login (when it's an email)",
         "placeholders": {
@@ -1065,7 +1065,7 @@
     "@email_subject_account_deletion": {
         "description": "Email subject for an account deletion"
     },
-    "email_body_account_deletion": "Hi there, please delete my Open Food Facts account: {userId}",
+    "email_body_account_deletion": "היי, נא למחוק את החשבון שלי ב־Open Food Facts‏: {userId}",
     "@email_body_account_deletion": {
         "description": "Email body for an account deletion",
         "placeholders": {
@@ -1102,7 +1102,7 @@
     "@crash_reporting_toggle_title": {
         "description": "Title for the Crash reporting toggle"
     },
-    "crash_reporting_toggle_subtitle": "When enabled, crash reports are automatically submitted to Open Food Facts' error tracking system, so that bugs can be fixed and thus improve the app.",
+    "crash_reporting_toggle_subtitle": "כשהאפשרות פעילה, דוחות קריסה מוגשות אוטומטית למערכת מעקב השגיאות של Open Food Facts, כדי שניתן יהיה לתקן תקלות ובכך לשפר את היישומון.",
     "@crash_reporting_toggle_subtitle": {
         "description": "SubTitle for the Crash reporting toggle"
     },
@@ -1110,7 +1110,7 @@
     "@send_anonymous_toggle_title": {
         "description": "Title for the Send anonymous data toggle"
     },
-    "send_anonymous_data_toggle_subtitle": "When enabled, some anonymous information regarding app usage will be sent to the Open Food Facts servers, so that we can understand how and how much features are used in order to improve them.",
+    "send_anonymous_data_toggle_subtitle": "כאשר האפשרות פעילה, יישלח מידע אלמוני כלשהו בנוגע ליישומון אל השרתים של Open Food Facts כדי שנוכל להבין איך וכמה תכונות נמצאות בשימוש כדי לשפר אותן.",
     "@send_anonymous_toggle_subtitle": {
         "description": "SubTitle for the Send anonymous data toggle"
     },
@@ -1285,7 +1285,7 @@
     "@edit_product_form_item_categories_explainer_1": {
         "description": "Product edition - Categories - input explainer, part 1"
     },
-    "edit_product_form_item_categories_explainer_2": "In case a category is not available in autocomplete, feel free to add it anyway, that will help us improve Open Food Facts in your country.",
+    "edit_product_form_item_categories_explainer_2": "אם הקטגוריה לא קיימת בהשלמה האוטומטית, אפשר פשוט להוסיף אותה בכל מקרה, פעולה זו תסייע לנו לשפר את Open Food Facts במדינה שלך.",
     "@edit_product_form_item_categories_explainer_2": {
         "description": "Product edition - Categories - input explainer, part 2"
     },
