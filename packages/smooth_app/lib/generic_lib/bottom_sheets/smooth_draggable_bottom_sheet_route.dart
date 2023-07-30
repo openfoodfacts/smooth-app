@@ -81,6 +81,7 @@ class _FlexibleBottomSheetRoute<T> extends PopupRoute<T> {
     Animation<double> secondaryAnimation,
   ) {
     final Widget bottomSheet = MediaQuery.removePadding(
+      removeBottom: false,
       context: context,
       child: SmoothDraggableBottomSheet(
         initHeightFraction: initHeight,

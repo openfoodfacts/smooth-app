@@ -47,44 +47,60 @@ class SmoothDraggableBottomSheetState
 
   @override
   Widget build(BuildContext context) {
+    final Color backgroundColor = widget.bottomSheetColor ??
+        Theme.of(context).bottomSheetTheme.backgroundColor ??
+        Theme.of(context).scaffoldBackgroundColor;
+    final double bottomPaddingHeight = MediaQuery.paddingOf(context).bottom;
+
     return NotificationListener<DraggableScrollableNotification>(
       onNotification: _scrolling,
-      child: SafeArea(
-        child: DraggableScrollableSheet(
-          minChildSize: 0.0,
-          maxChildSize: widget.maxHeightFraction,
-          initialChildSize: widget.initHeightFraction,
-          snap: true,
-          controller: _controller,
-          builder: (BuildContext context, ScrollController controller) {
-            return DecoratedBox(
-              decoration: BoxDecoration(
-                borderRadius: widget.borderRadius,
-                color: widget.bottomSheetColor ??
-                    Theme.of(context).bottomSheetTheme.backgroundColor ??
-                    Theme.of(context).scaffoldBackgroundColor,
-              ),
-              child: Material(
-                type: MaterialType.transparency,
-                child: ClipRRect(
-                  borderRadius: widget.borderRadius,
-                  child: _SmoothDraggableContent(
-                    bodyBuilder: widget.bodyBuilder,
-                    headerBuilder: widget.headerBuilder,
-                    headerHeight: widget.headerHeight,
-                    currentExtent: _controller.isAttached
-                        ? _controller.size
-                        : widget.initHeightFraction,
-                    scrollController: controller,
-                    cacheExtent: _calculateCacheExtent(
-                      MediaQuery.of(context).viewInsets.bottom,
+      child: Column(
+        children: <Widget>[
+          Expanded(
+            child: SafeArea(
+              bottom: false,
+              child: DraggableScrollableSheet(
+                minChildSize: 0.0,
+                maxChildSize: widget.maxHeightFraction,
+                initialChildSize: widget.initHeightFraction,
+                snap: true,
+                controller: _controller,
+                builder: (BuildContext context, ScrollController controller) {
+                  return DecoratedBox(
+                    decoration: BoxDecoration(
+                      borderRadius: widget.borderRadius,
+                      color: backgroundColor,
                     ),
-                  ),
-                ),
+                    child: Material(
+                      type: MaterialType.transparency,
+                      child: ClipRRect(
+                        borderRadius: widget.borderRadius,
+                        child: _SmoothDraggableContent(
+                          bodyBuilder: widget.bodyBuilder,
+                          headerBuilder: widget.headerBuilder,
+                          headerHeight: widget.headerHeight,
+                          currentExtent: _controller.isAttached
+                              ? _controller.size
+                              : widget.initHeightFraction,
+                          scrollController: controller,
+                          cacheExtent: _calculateCacheExtent(
+                            MediaQuery.of(context).viewInsets.bottom,
+                          ),
+                        ),
+                      ),
+                    ),
+                  );
+                },
               ),
-            );
-          },
-        ),
+            ),
+          ),
+          if (bottomPaddingHeight > 0)
+            SizedBox(
+              width: double.infinity,
+              height: bottomPaddingHeight,
+              child: ColoredBox(color: backgroundColor),
+            ),
+        ],
       ),
     );
   }
