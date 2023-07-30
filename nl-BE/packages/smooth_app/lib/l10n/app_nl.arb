@@ -256,7 +256,7 @@
     "sign_up_page_producer_checkbox": "Ik ben een voedselproducent",
     "sign_up_page_producer_hint": "Producent/merk",
     "sign_up_page_producer_error_empty": "Voer een producent of een merknaam in",
-    "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at any time)",
+    "sign_up_page_subscribe_checkbox": "Ik wil me graag inschrijven voor de nieuwsbrief van Open Food Facts (u kunt zich op elk moment afmelden)",
     "sign_up_page_user_name_already_used": "De gebruikersnaam bestaat al, kies een andere gebruikersnaam.",
     "sign_up_page_email_already_exists": "bestaat al, log in op het account of probeer het met een ander e-mailadres.",
     "sign_up_page_provide_valid_email": "Voer een geldig e-mailadres in alsjeblieft.",
@@ -310,9 +310,9 @@
     "@contribute_sw_development": {
         "description": "Button label + page title: Ways to help"
     },
-    "contribute_develop_text": "The code for every Open Food Facts product is available on GitHub. You are welcome to reuse the code (it's open source) and help us improve it, for everyone, on all the planet.",
+    "contribute_develop_text": "De code voor elk Open Food Facts-product is beschikbaar op GitHub. Je bent van harte welkom om de code te hergebruiken (hij is open source) en ons te helpen deze te verbeteren, voor iedereen, op de hele planeet.",
     "@contribute_develop_text": {},
-    "contribute_develop_text_2": "You can join the Open Food Facts Slack chatroom which is the preferred way to ask questions.",
+    "contribute_develop_text_2": "U kunt deelnemen aan de Open Food Facts Slack-chatroom, wat de beste manier is om vragen te stellen.",
     "@contribute_develop_text_2": {},
     "contribute_develop_dev_mode_title": "DEV-modus?",
     "contribute_develop_dev_mode_subtitle": "Activeer de DEV-modus",
@@ -326,7 +326,7 @@
     "@contribute_improve_header": {
         "description": "Button label + page title: Ways to improve the database"
     },
-    "contribute_improve_text": "The database is the core of the project. It's easy and very quick to help. You can download the mobile app for your phone, and start adding or improving products.\n\nOn the other hand, Open Food Facts website offers many ways to contribute: ",
+    "contribute_improve_text": "De database is het hart van het project. Je kan ons makkelijk en heel snel helpen: door de app voor je telefoon te downloaden en te beginnen met het toevoegen of verbeteren van producten.\n\nDe Open Food Facts-website biedt vele andere manieren om bij te dragen: ",
     "@contribute_improve_text": {},
     "contribute_translate_header": "Vertaal",
     "@contribute_translate_header": {
@@ -336,13 +336,13 @@
     "@contribute_translate_link_text": {
         "description": "Button label: Opens the Crowdin translation portal"
     },
-    "contribute_translate_text": "Open Food Facts is a global project, containing products from more than 160 countries. Open Food Facts is translated into dozens of languages, with constantly evolving content.",
+    "contribute_translate_text": "Open Food Facts is een wereldwijd project met producten uit meer dan 160 landen. Open Food Facts is in tientallen talen vertaald, met voortdurend wijzigende inhoud.",
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "Vertalingen zijn een van de belangrijkste taken van het project",
     "@contribute_translate_text_2": {},
     "contribute_share_header": "Deel Open Food Facts met je vrienden",
     "@contribute_share_header": {},
-    "contribute_share_content": "I wanted to let you know about the app I've been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it's free, does not require registration, and you can even help increase the number of products decyphered. Here's the link to get it for your phone: https://openfoodfacts.app",
+    "contribute_share_content": "Ik wil je laten weten dat ik de app Open Food Facts gebruik, waarmee je op een gepersonaliseerde manier de gezondheids- en milieueffecten van je eten kunt zien. Het werkt door de barcodes op de verpakking te scannen. Het is gratis, vereist geen registratie en je kunt zelfs helpen het aantal ontcijferde producten te vergroten. Download de app voor jouw telefoon via deze link: https://openfoodfacts.app",
     "@contribute_share_content": {
         "description": "Content that will be shared, don't forget to include the URL"
     },
@@ -390,7 +390,7 @@
     "myPreferences_settings_subtitle": "Donkere modus, Analytics…",
     "myPreferences_food_title": "Voedselvoorkeuren",
     "myPreferences_food_subtitle": "Kies welke informatie over voedsel voor u het belangrijkst is.",
-    "myPreferences_food_comment": "Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.",
+    "myPreferences_food_comment": "Kies welke informatie over voedsel voor u het belangrijkst is, om voedsel te rangschikken volgens uw voorkeuren, bekijk eerst de informatie die u belangrijk vindt en ontvang een compatibiliteitsoverzicht. Die voedselvoorkeuren blijven op uw apparaat staan en zijn niet gekoppeld aan uw Open Food Facts-bijdragersaccount, als u er een heeft.",
     "confirmResetPreferences": "Voedselvoorkeuren resetten?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
