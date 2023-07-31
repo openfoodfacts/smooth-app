@@ -326,7 +326,7 @@
     "@contribute_improve_header": {
         "description": "Button label + page title: Ways to improve the database"
     },
-    "contribute_improve_text": "The database is the core of the project. It's easy and very quick to help. You can download the mobile app for your phone, and start adding or improving products.\n\nOn the other hand, Open Food Facts website offers many ways to contribute: ",
+    "contribute_improve_text": "A base de dados é a parte central do projeto. É muito fácil e rápido colaborar. Pode descarregar a aplicação móvel para o seu telemóvel e começar a adicionar ou a melhorar produtos.\n\nPor outro lado, o website Open Food Facts permite contribuir de várias formas: ",
     "@contribute_improve_text": {},
     "contribute_translate_header": "Traduzir",
     "@contribute_translate_header": {
