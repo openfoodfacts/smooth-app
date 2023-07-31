@@ -23,7 +23,7 @@ import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_product_cards.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
-import 'package:smooth_app/pages/inherited_data_manager.dart';
+import 'package:smooth_app/pages/carousel_manager.dart';
 import 'package:smooth_app/pages/product/common/product_list_modal.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/edit_product_page.dart';
@@ -82,9 +82,9 @@ class _ProductPageState extends State<ProductPage>
 
   @override
   Widget build(BuildContext context) {
-    final InheritedDataManagerState inheritedDataManager =
-        InheritedDataManager.of(context);
-    inheritedDataManager.setCurrentBarcode(barcode);
+    final ExternalCarouselManagerState carouselManager =
+        ExternalCarouselManager.read(context);
+    carouselManager.currentBarcode = barcode;
     final ThemeData themeData = Theme.of(context);
     _productPreferences = context.watch<ProductPreferences>();
     context.watch<LocalDatabase>();

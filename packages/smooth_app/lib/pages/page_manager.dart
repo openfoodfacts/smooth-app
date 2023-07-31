@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
-import 'package:smooth_app/pages/inherited_data_manager.dart';
+import 'package:smooth_app/pages/carousel_manager.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/widgets/tab_navigator.dart';
 
@@ -59,18 +59,6 @@ class PageManagerState extends State<PageManager> {
   }
 
   @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    final InheritedDataManagerState inheritedDataManager =
-        InheritedDataManager.of(context);
-    if (inheritedDataManager.showSearchCard &&
-        _currentPage != BottomNavigationTab.Scan) {
-      _currentPage = BottomNavigationTab.Scan;
-      _selectTab(_currentPage, 1);
-    }
-  }
-
-  @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final List<Widget> tabs = <Widget>[
@@ -85,20 +73,14 @@ class PageManagerState extends State<PageManager> {
         true;
     final BottomNavigationBar bar = BottomNavigationBar(
       onTap: (int index) {
-        final InheritedDataManagerState inheritedDataManager =
-            InheritedDataManager.of(context);
+        final ExternalCarouselManagerState carouselManager =
+            ExternalCarouselManager.read(context);
         if (_currentPage == BottomNavigationTab.Scan &&
             _pageKeys[index] == BottomNavigationTab.Scan) {
-          if (!inheritedDataManager.showSearchCard) {
-            inheritedDataManager.resetShowSearchCard(true);
-          }
-          _selectTab(_pageKeys[index], index);
-        } else {
-          if (inheritedDataManager.showSearchCard) {
-            inheritedDataManager.resetShowSearchCard(false);
-          }
-          _selectTab(_pageKeys[index], index);
+          carouselManager.showSearchCard();
         }
+
+        _selectTab(_pageKeys[index], index);
       },
       currentIndex: _currentPage.index,
       items: <BottomNavigationBarItem>[

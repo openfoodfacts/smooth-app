@@ -8,7 +8,7 @@ import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/data_importer/smooth_app_data_importer.dart';
 import 'package:smooth_app/helpers/extension_on_text_helper.dart';
-import 'package:smooth_app/pages/inherited_data_manager.dart';
+import 'package:smooth_app/pages/carousel_manager.dart';
 import 'package:smooth_app/pages/navigator/error_page.dart';
 import 'package:smooth_app/pages/navigator/external_page.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
@@ -136,8 +136,8 @@ class _SmoothGoRouter {
                   heroTag: state.queryParameters['heroTag'],
                 );
 
-                if (InheritedDataManager.find(context) == null) {
-                  return InheritedDataManager(child: widget);
+                if (ExternalCarouselManager.find(context) == null) {
+                  return ExternalCarouselManager(child: widget);
                 } else {
                   return widget;
                 }
