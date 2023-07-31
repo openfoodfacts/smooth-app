@@ -121,7 +121,7 @@
     "@Introduction screen": {},
     "welcomeToOpenFoodFacts": "Bem-vindo ao Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
-    "whatIsOff": "Open Food Facts is a global non-profit powered by local communities.",
+    "whatIsOff": "Open Food Facts é uma organização global sem fins lucrativos dinamizada pelas comunidades locais.",
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
@@ -142,7 +142,7 @@
         "description": "Description of what a user can use the Eco data in a product for."
     },
     "@user_management": {},
-    "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
+    "sign_in_text": "Inicie sessão na sua conta Open Food Facts para guardar as suas contribuições",
     "incorrect_credentials": "Nome de utilizador ou palavra-passe incorrectos.",
     "login": "Iniciar sessão",
     "@login": {
@@ -233,7 +233,7 @@
     "sign_up_page_confirm_password_hint": "Confirme a palavra-passe",
     "sign_up_page_confirm_password_error_empty": "Por favor, confirme a palavra-passe",
     "sign_up_page_confirm_password_error_invalid": "As palavras-passe não coincidem",
-    "sign_up_page_agree_text": "I agree to the Open Food Facts",
+    "sign_up_page_agree_text": "Concordo com Open Food Facts",
     "@sign_up_page_agree_text": {
         "description": "I agree to the Open Food Facts is followed by sign_up_page_terms_text"
     },
@@ -256,7 +256,7 @@
     "sign_up_page_producer_checkbox": "Sou um produtor de alimentos",
     "sign_up_page_producer_hint": "Produtor/marca",
     "sign_up_page_producer_error_empty": "Por favor, introduza o nome de um produtor ou de uma marca",
-    "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at any time)",
+    "sign_up_page_subscribe_checkbox": "Gostaria de subscrever o boletim informativo (newsletter) Open Food Facts (pode cancelar a sua subscrição em qualquer momento)",
     "sign_up_page_user_name_already_used": "Este nome já existe; escolha outro.",
     "sign_up_page_email_already_exists": "já existe, faça o login na conta ou tente com outro e-mail.",
     "sign_up_page_provide_valid_email": "Por favor, indique um endereço de email válido.",
@@ -281,7 +281,7 @@
     "@darkmode_system_default": {
         "description": "Indicator inside the darkmode switch (system default)"
     },
-    "thanks_for_contributing": "Thanks for contributing!",
+    "thanks_for_contributing": "Obrigado pela sua contribuição!",
     "@contributors": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
     },
@@ -310,13 +310,13 @@
     "@contribute_sw_development": {
         "description": "Button label + page title: Ways to help"
     },
-    "contribute_develop_text": "The code for every Open Food Facts product is available on GitHub. You are welcome to reuse the code (it's open source) and help us improve it, for everyone, on all the planet.",
+    "contribute_develop_text": "O código de cada produto Open Food Facts está disponível em GitHub. Pode reutilizar o código (é de fonte aberta) e ajudar-nos a melhorá-lo, para todos, em todo o planeta.",
     "@contribute_develop_text": {},
-    "contribute_develop_text_2": "You can join the Open Food Facts Slack chatroom which is the preferred way to ask questions.",
+    "contribute_develop_text_2": "Pode juntar-se à sala de chat Slack da Open Food Facts, que é a opção preferida para colocar questões.",
     "@contribute_develop_text_2": {},
     "contribute_develop_dev_mode_title": "Modo DEV?",
     "contribute_develop_dev_mode_subtitle": "Ativar o modo DEV",
-    "contribute_donate_header": "Donate to Open Food Facts",
+    "contribute_donate_header": "Fazer um donativo à Open Food Facts",
     "@contribute_donate_header": {},
     "contribute_improve_ProductsToBeCompleted": "Produtos que precisam ser completados",
     "@contribute_improve_ProductsToBeCompleted": {
