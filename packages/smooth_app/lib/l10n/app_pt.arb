@@ -424,6 +424,10 @@
     "@history_navbar_label": {
         "description": "BottomNavigationBarLabel: For the history and compare mode"
     },
+    "list_navbar_label": "Listas",
+    "@list_navbar_label": {
+        "description": "BottomNavigationBarLabel: For the lists"
+    },
     "category": "Filtrar por categoria",
     "@category": {
         "description": "From a product list, there's a category filter: this is its title"
@@ -534,6 +538,14 @@
     "@crop_page_action_local": {
         "description": "Action being performed on the crop page"
     },
+    "crop_page_action_local_failed_title": "Ops… há algo com a sua foto!",
+    "@crop_page_action_local_title": {
+        "description": "The save of the picture locally failed - error dialog message"
+    },
+    "crop_page_action_local_failed_message": "Não foi possível processar a imagem localmente, antes de enviá-la para nosso servidor. Por favor, tente novamente mais tarde ou entre em contato conosco se o problema persistir.",
+    "@crop_page_action_local_message": {
+        "description": "The save of the picture locally failed - error dialog message"
+    },
     "crop_page_too_small_image_title": "A imagem é muito pequena!",
     "@crop_page_too_small_image_title": {
         "description": "Title of a dialog warning the user that the image is too small for upload"
@@ -581,12 +593,12 @@
     "new_product_subtitle_nutriscore": "Obtenha preenchendo a categoria de alimentos e valores nutricionais",
     "new_product_title_ecoscore": "Calcular o Eco-Score",
     "new_product_subtitle_ecoscore": "Obtenha preenchendo pelo menos uma categoria",
-    "new_product_additional_ecoscore": "Make Eco-Score computation more precise with origins, packaging & more",
+    "new_product_additional_ecoscore": "Torne o cálculo do Eco-Score mais preciso com as origens, embalagens & muito mais",
     "new_product_title_nova": "Compute o nível de processamento alimentar (NOVA)",
     "new_product_subtitle_nova": "Ganhe em preencher a categoria e ingredientes alimentares",
     "new_product_desc_nova_unknown": "Nível desconhecido de processamento do alimento",
-    "new_product_title_pictures": "Let's take some pictures!",
-    "new_product_title_misc": "And some basic data…",
+    "new_product_title_pictures": "Vamos tirar algumas fotos!",
+    "new_product_title_misc": "E alguns dados básicos…",
     "hey_incomplete_product_message": "Toque para responder a 3 perguntas AGORA para avaliar o Nutri-Score, o Eco-Score e o Ultra-processamento (NOVA)!",
     "nutritional_facts_photo_uploaded": "Foto das informações nutricionais enviada",
     "@nutritional_facts_photo_uploaded": {},
@@ -722,7 +734,11 @@
     },
     "country_chooser_label": "Por favor, escolha um país",
     "@country_chooser_label": {
-        "description": "Label shown above a selector where the user can select their country"
+        "description": "Label shown above a selector where the user can select their country (in the onboarding)"
+    },
+    "country_chooser_label_from_settings": "Seu país",
+    "@country_chooser_label_from_settings": {
+        "description": "Label to use in the settings to change the user country"
     },
     "country_selection_explanation": "Algumas funções ambientais são específicas do local",
     "@country_label": {
@@ -736,13 +752,17 @@
     "@native_app_settings": {
         "description": "Native App Settings in app settings"
     },
-    "native_app_description": "Abrir configurações de sistemas para Open Food Facts",
+    "native_app_description": "Abrir configurações do sistema para Open Food Facts",
     "@native_app_description": {
         "description": "Native App description in app settings"
     },
     "product_removed_history": "Produto removido do histórico",
     "@product_removed_history": {
         "description": "Product got removed from history"
+    },
+    "product_removed_list": "Produto removido da lista",
+    "@product_removed_list": {
+        "description": "Product got removed from list"
     },
     "product_could_not_remove": "Não foi possível remover o produto",
     "@product_could_not_remove": {
@@ -807,7 +827,7 @@
             "count": {}
         }
     },
-    "compare_products_mode": "Comparar",
+    "compare_products_mode": "Comparar produtos",
     "@compare_products_mode": {
         "description": "Button to switch to 'compare products mode'"
     },
@@ -976,7 +996,7 @@
     "@product_list_icon_desc": {
         "description": "When the history list is empty, icon description (for accessibility) of the message explaining to start scanning"
     },
-    "product_list_empty_title": "Start scanning",
+    "product_list_empty_title": "Comece a escanear",
     "@product_list_empty_title": {
         "description": "When the history list is empty, title of the message explaining to start scanning"
     },
@@ -1132,8 +1152,8 @@
     "@edit_product_label": {
         "description": "Edit product button label"
     },
-    "edit_product_form_item_add_action": "Add a new {itemType}",
-    "description": "Tooltip to show when the user long presses the (+) button",
+    "edit_product_form_item_add_action": "Adicione um novo {itemType}",
+    "description": "Dica de ferramenta para mostrar quando o usuário pressiona longamente o botão (+)",
     "@edit_product_form_item_add_action": {
         "placeholders": {
             "itemType": {
@@ -1276,9 +1296,9 @@
     "edit_product_form_item_exit_confirmation": "Deseja salvar suas alterações antes de sair desta página?",
     "edit_product_form_item_exit_confirmation_positive_button": "Salvar as alterações",
     "edit_product_form_item_exit_confirmation_negative_button": "Descartar alterações",
-    "edit_product_form_item_ingredients_title": "Ingredientes e origens",
+    "edit_product_form_item_ingredients_title": "Ingredientes",
     "@edit_product_form_item_ingredients_title": {
-        "description": "Product edition - Ingredients - Title"
+        "description": "Product edition - Ingredients - Title (note: this section was previously called Ingredients & Origins)"
     },
     "edit_product_form_item_add_valid_item_tooltip": "Adicione",
     "edit_product_form_item_add_invalid_item_tooltip": "Por favor, digite um texto primeiro",
@@ -1346,7 +1366,7 @@
     "@user_list_button_new": {
         "description": "Short label of a 'create a new list' button"
     },
-    "user_list_empty_label": "Não há lista disponível ainda.\nPor favor, comece criando uma",
+    "user_list_empty_label": "Não há lista disponível ainda, por favor inicie criando uma lista nova",
     "@user_list_empty_label": {
         "description": "Content displayed when there is no list"
     },
@@ -1572,6 +1592,10 @@
     "@dev_mode_scan_scan_half_image": {
         "description": "Scan mode - Scan half image"
     },
+    "search_history_item_edit_tooltip": "Reutilizar e editar esta pesquisa",
+    "@search_history_item_edit_tooltip": {
+        "description": "A tooltip to explain the Pen button near a search term -> it allows to reuse the item"
+    },
     "product_search_no_more_results": "Você baixou todos os {totalSize} produtos.",
     "@product_search_no_more_results": {
         "description": "Product search list - No more results available",
@@ -1720,6 +1744,10 @@
     "@basic_details_add_error": {
         "description": "Error message when error occurs while submitting basic details"
     },
+    "clear_search": "Limpe a sua busca",
+    "@confirm_clearclear_search": {
+        "description": "Tooltip to explain that the X button clears the content of the search"
+    },
     "confirm_clear": "Você está prestes a excluir todo o seu histórico. Tem certeza que quer continuar?",
     "@confirm_clear": {
         "description": "Asking about whether to clear the history list or not"
@@ -1736,14 +1764,22 @@
             }
         }
     },
-    "confirm_delete_user_list": "Você está prestes a excluir esta lista ({name}). Tem certeza que quer continuar?",
-    "@confirm_delete_user_list": {
-        "description": "Asking about whether to delete the list or not",
+    "confirm_delete_user_list_title": "Delete the list?",
+    "@confirm_delete_user_list_title": {
+        "description": "Title when asking about whether to delete the list or not"
+    },
+    "confirm_delete_user_list_message": "You're about to delete the list \"{name}\".\nAre you sure you want to continue?",
+    "@confirm_delete_user_list_message": {
+        "description": "Message when asking about whether to delete the list or not",
         "placeholders": {
             "name": {
                 "type": "String"
             }
         }
+    },
+    "confirm_delete_user_list_button": "Yes, I confirm",
+    "@confirm_delete_user_list_button": {
+        "description": "Button to delete a list"
     },
     "importance_label": "Importância de {name}: {id}",
     "@importance_label": {
@@ -1764,6 +1800,10 @@
     "user_list_all_empty": "Crie sua primeira lista",
     "@user_list_all_empty": {
         "description": "Small message when there are no user lists"
+    },
+    "product_list_select": "Selecione uma lista",
+    "@product_list_select": {
+        "description": "Top title for the selection of a list"
     },
     "user_list_length": "{count,plural, =0{Lista vazia} =1{Um produto} other{{count} produtos}}",
     "@user_list_length": {
@@ -1879,8 +1919,8 @@
         }
     },
     "clipboard_barcode_copied": "Código de barras {barcode} copiado para a área de transferência!",
-    "choose_app_language": "Escolha o idioma do aplicativo",
-    "@choose_app_language": {
+    "language_picker_label": "Your language",
+    "@language_picker_label": {
         "description": "Choose Application Language"
     },
     "help_with_openfoodfacts": "Uma ajuda com OpenFoodFacts",
@@ -1927,9 +1967,49 @@
     "@scan_header_compare_button_valid_state_tooltip": {
         "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is at least two prodiucts"
     },
+    "scan_product_loading": "You have scanned\nthe barcode:",
+    "@scan_product_loading": {
+        "description": "Title when a product is loading (carousel card). Please ensure to keep the line break."
+    },
+    "scan_product_loading_initial": "We're looking for this product!\nPlease wait a few seconds…",
+    "@scan_product_loading_initial": {
+        "description": "Message when a product is loading (carousel card). Please ensure to keep the line break."
+    },
+    "scan_product_loading_long_request": "We're still looking for this product!\nDo you find it takes a long time to load? So are we…",
+    "@scan_product_loading_long_request": {
+        "description": "Message when a product is long to load (carousel card). Please ensure to keep the line break."
+    },
+    "scan_product_loading_unresponsive": "We're still looking for this product.\nWould you like to restart the search?",
+    "@scan_product_loading_unresponsive": {
+        "description": "Message when a product is too long to load (carousel card). Please ensure to keep the line break."
+    },
+    "scan_product_loading_restart_button": "Restart search",
+    "@scan_product_loading_restart_button": {
+        "description": "Button to force restart a product search"
+    },
     "portion_calculator_description": "Calcular as informações nutricionais para uma quantidade específica",
     "@portion_calculator_description": {
         "description": "Sort of title that describes the portion calculator."
+    },
+    "portion_calculator_hint": "Quantidade",
+    "@portion_calculator_hint": {
+        "description": "Hint to show when a quantity is empty in the portion calculator."
+    },
+    "portion_calculator_accessibility": "Insira a quantidade para calcular os dados nutriciais",
+    "@portion_calculator_accessibility": {
+        "description": "Hint for the acessibility to explain to enter a quantity."
+    },
+    "portion_calculator_error": "Por favor, insira uma quantidade entre {min} e {max} g",
+    "@portion_calculator_error": {
+        "description": "Error message to explain that the quantity is invalid.",
+        "placeholders": {
+            "min": {
+                "type": "int"
+            },
+            "max": {
+                "type": "int"
+            }
+        }
     },
     "portion_calculator_result_title": "Informações nutricionais em {grams} g (ou ml)",
     "@portion_calculator_result_title": {
@@ -1994,7 +2074,7 @@
     "app_rating_dialog_title": "Ótimo! Conte aos outros o que você acha deste aplicativo!",
     "app_rating_dialog_positive_action": "Avalie o aplicativo",
     "app_rating_dialog_negative_action": "Mais tarde",
-    "app_rating_dialog_title_enjoying_app": "Are you enjoying this app?",
+    "app_rating_dialog_title_enjoying_app": "Você está gostando deste aplicativo?",
     "app_rating_dialog_title_enjoying_positive_actions": "Isso!",
     "not_really": "Não muito",
     "app_rating_dialog_title_not_enjoying_app": "Lamentamos ouvir isso! Poderia nos dizer o que aconteceu?",
@@ -2161,11 +2241,11 @@
     "@contrast_low": {
         "description": "Low Contrast Text Color"
     },
-    "product_loader_not_found_title": "Product not found!",
+    "product_loader_not_found_title": "Produto não encontrado!",
     "@product_loader_not_found_title": {
         "description": "When fetching a product opened via a link and it doesn't exist"
     },
-    "product_loader_not_found_message": "A product with the following barcode doesn't exist in our database: {barcode}",
+    "product_loader_not_found_message": "Não existe nenhum produto em nosso banco de dados com o seguinte código de barras: {barcode}",
     "@product_loader_not_found_message": {
         "description": "When fetching a product opened via a link, it doesn't exist",
         "placeholders": {
@@ -2174,27 +2254,27 @@
             }
         }
     },
-    "product_loader_network_error_title": "No internet connection!",
+    "product_loader_network_error_title": "Sem conexão com a internet!",
     "@product_loader_network_error_title": {
         "description": "When fetching a product opened via a link and there is no connection"
     },
-    "product_loader_network_error_message": "Please check that your smartphone is on a WiFi network or has mobile data enabled",
+    "product_loader_network_error_message": "Por favor, verifique se seu smartphone está em uma rede WiFi ou se os dados móveis estão ativados",
     "@product_loader_network_error_message": {
         "description": "When fetching a product opened via a link and there is no connection"
     },
-    "page_not_found_title": "Page not found!",
+    "page_not_found_title": "Página não encontrada!",
     "@page_not_found_title": {
         "description": "Title for a page not found (when an URL is not recognized)"
     },
-    "page_not_found_button": "Go back to the homepage",
+    "page_not_found_button": "Volte à página inicial",
     "@page_not_found_button": {
         "description": "Button to go back to the homepage"
     },
-    "download_data": "Download data",
+    "download_data": "Dados de download",
     "@download_data": {
         "description": "App bar title for the download data page"
     },
-    "download_top_products": "Download the top 1000 products in your country for instant scanning",
+    "download_top_products": "Faça o download dos melhores 1000 produtos do seu país para escaneamento instantâneo",
     "@download_top_products": {
         "description": "Download the top 1000 products in your country for instant scanning"
     },
@@ -2206,11 +2286,11 @@
             }
         }
     },
-    "download_in_progress": "Downloading data\nThis may take a while",
+    "download_in_progress": "Baixando os dados\nIsso demorar algum tempo",
     "@download_in_progress": {
         "description": "Download in progress"
     },
-    "downloaded_products": "{num} products added",
+    "downloaded_products": "{num} produtos adicionados",
     "@downloaded_products": {
         "description": "text to show when products added",
         "placeholders": {
@@ -2219,23 +2299,23 @@
             }
         }
     },
-    "update_offline_data": "Update offline product data",
+    "update_offline_data": "Atualizar dados de produto offline",
     "@update_offline_data": {
         "description": "List tile title for the update offline data page"
     },
-    "update_local_database_sub": "Update the local product database with the latest data from Open Food Facts",
+    "update_local_database_sub": "Atualize o banco de dados de produtos locais com os últimos dados do Open Food Facts",
     "@update_local_database_sub": {
         "description": "Update the local product database with the latest data from server"
     },
-    "clear_local_database": "Clear offline product data",
+    "clear_local_database": "Limpe dados de produtos offline",
     "@clear_local_database": {
         "description": "List tile title for the clear local database page"
     },
-    "clear_local_database_sub": "Clear all local product data from your app to free up space",
+    "clear_local_database_sub": "Limpe todos os dados de produtos locais do seu aplicativo para liberar espaço",
     "@clear_local_database_sub": {
         "description": "Clear all local product data from your app to free up space"
     },
-    "deleted_products": "{num} products deleted",
+    "deleted_products": "{num} produtos excluídos",
     "@deleted_products": {
         "description": "text to show when products are deleted from local databse",
         "placeholders": {
@@ -2248,19 +2328,19 @@
     "@loading": {
         "description": "Loading…"
     },
-    "know_more": "Know More",
+    "know_more": "Saiba Mais",
     "@know_more": {
         "description": "Know More"
     },
-    "offline_data_desc": "Click to know more about offline data",
+    "offline_data_desc": "Clique para saber mais sobre dados offline",
     "@offline_data_desc": {
         "description": "Click to know more about offline data"
     },
-    "offline_product_data_title": "Offline product data",
+    "offline_product_data_title": "Dados de produtos offline",
     "@offline_product_data_title": {
         "description": "Offline Product Data"
     },
-    "available_for_download": "{num} products available for immediate scaning",
+    "available_for_download": "{num} produtos disponíveis para escaneamento imediato",
     "@available_for_download": {
         "description": "text to show details of products available for download",
         "placeholders": {
@@ -2268,5 +2348,25 @@
                 "type": "int"
             }
         }
+    },
+    "country_selector_title": "Selecione seu país:",
+    "@country_selector_title": {
+        "description": "Label written as the title of the dialog to select the user country"
+    },
+    "action_delete_list": "Eliminar",
+    "@action_delete_list": {
+        "description": "Delete a list action in a menu"
+    },
+    "action_change_list": "Change the current list",
+    "@action_change_list": {
+        "description": "Action to change the current visible list"
+    },
+    "product_list_create": "Criar",
+    "@product_list_create": {
+        "description": "Button label to create a new list (short word)"
+    },
+    "product_list_create_tooltip": "Criar uma nova lista",
+    "@product_list_create_tooltip": {
+        "description": "Button description to create a new list (long sentence)"
     }
 }
