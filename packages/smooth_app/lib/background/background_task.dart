@@ -98,10 +98,13 @@ abstract class BackgroundTask {
   bool mayRunNow() => true;
 
   /// Floating message when we add the task, like "Added to the task queue!"
+  /// Also pass an [AlignmentGeometry] to express where it should be displayed
   ///
   /// Null if no message wanted (like, stealth mode).
   @protected
-  String? getFloatingMessage(final AppLocalizations appLocalizations);
+  (String, AlignmentGeometry)? getFloatingMessage(
+    final AppLocalizations appLocalizations,
+  );
 
   /// Adds this task to the [BackgroundTaskManager].
   @protected
@@ -117,13 +120,16 @@ abstract class BackgroundTask {
     if (!showSnackBar) {
       return;
     }
-    final String? floatingMessage =
-        getFloatingMessage(AppLocalizations.of(widget.context));
-    if (floatingMessage != null) {
-      SmoothFloatingMessage(message: floatingMessage).show(
+
+    if (getFloatingMessage(AppLocalizations.of(widget.context))
+        case (
+          final String message,
+          final AlignmentGeometry alignment,
+        )) {
+      SmoothFloatingMessage(message: message).show(
         widget.context,
         duration: SnackBarDuration.medium,
-        alignment: Alignment.topCenter,
+        alignment: alignment,
       );
     }
   }

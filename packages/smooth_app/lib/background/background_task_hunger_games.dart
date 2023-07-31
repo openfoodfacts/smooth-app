@@ -67,7 +67,10 @@ class BackgroundTaskHungerGames extends BackgroundTaskBarcode {
   }
 
   @override
-  String? getFloatingMessage(final AppLocalizations appLocalizations) => null;
+  (String, AlignmentGeometry)? getFloatingMessage(
+    final AppLocalizations appLocalizations,
+  ) =>
+      null;
 
   /// Returns a new background task about hunger games.
   static BackgroundTaskHungerGames _getNewTask(
