@@ -13,6 +13,7 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 import 'package:scanner_shared/scanner_shared.dart';
+import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
@@ -219,7 +220,10 @@ class _SmoothAppState extends State<SmoothApp> {
             provide<SmoothAppDataImporter>(_appDataImporter),
             provide<PermissionListener>(_permissionListener),
           ],
-          child: AppNavigator(child: Builder(builder: _buildApp)),
+          child: AppNavigator(
+            observers: <NavigatorObserver>[SentryNavigatorObserver()],
+            child: Builder(builder: _buildApp),
+          ),
         );
       },
     );

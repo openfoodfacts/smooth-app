@@ -168,6 +168,10 @@ class DaoProductList extends AbstractDao {
     productList.set(list.barcodes);
   }
 
+  /// Checks if a list exists in the database.
+  bool exist(final ProductList productList) =>
+      _getBox().containsKey(getKey(productList));
+
   /// Returns the number of barcodes quickly but without product check.
   Future<int> getLength(final ProductList productList) async {
     final _BarcodeList? list = await _get(productList);

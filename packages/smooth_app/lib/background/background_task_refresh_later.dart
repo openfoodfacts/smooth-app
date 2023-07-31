@@ -1,4 +1,5 @@
 import 'dart:convert';
+
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/background/background_task_barcode.dart';
@@ -64,7 +65,7 @@ class BackgroundTaskRefreshLater extends BackgroundTaskBarcode {
   }
 
   @override
-  String? getSnackBarMessage(final AppLocalizations appLocalizations) => null;
+  String? getFloatingMessage(final AppLocalizations appLocalizations) => null;
 
   /// Returns a new background task about refreshing a product later.
   static BackgroundTaskRefreshLater _getNewTask(

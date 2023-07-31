@@ -117,7 +117,7 @@ class _RateUs extends StatelessWidget {
       child: Image.asset(getImagePath()),
     );
 
-    final String title = appLocalizations.app_rating_dialog_positive_action;
+    final String title = appLocalizations.rate_app;
 
     return UserPreferenceListTile(
       title: title,
@@ -328,7 +328,7 @@ class _ChooseAccentColor extends StatelessWidget {
       title: appLocalizations.select_accent_color,
       leadingBuilder: labels.keys.map(
         (String key) => (_) => CircleAvatar(
-              backgroundColor: getColorValue(labels[key]!),
+              backgroundColor: getColorValue(key),
               radius: SMALL_SPACE,
             ),
       ),
@@ -421,28 +421,14 @@ class _AdvancedSettings extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
         Expanded(
-          child: ListTile(
-            onTap: () async {
+          child: UserPreferenceListTile(
+            onTap: (_) async {
               await AppSettings.openAppSettings();
             },
-            title: Text(
-              appLocalizations.native_app_settings,
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-            subtitle: Padding(
-              padding: const EdgeInsets.only(top: SMALL_SPACE),
-              child: Text(
-                appLocalizations.native_app_description,
-                style: Theme.of(context).textTheme.bodyMedium,
-              ),
-            ),
-            leading: const Padding(
-              padding: EdgeInsets.all(VERY_SMALL_SPACE),
-              child: Icon(
-                CupertinoIcons.settings_solid,
-              ),
-            ),
-            minVerticalPadding: MEDIUM_SPACE,
+            title: appLocalizations.native_app_settings,
+            subTitle: appLocalizations.native_app_description,
+            leading: const Icon(CupertinoIcons.settings_solid),
+            showDivider: true,
           ),
         ),
       ],

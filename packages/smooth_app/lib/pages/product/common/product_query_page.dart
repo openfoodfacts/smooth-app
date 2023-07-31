@@ -15,6 +15,7 @@ import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dar
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
+import 'package:smooth_app/generic_lib/widgets/images/smooth_image.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_error_card.dart';
@@ -152,115 +153,118 @@ class _ProductQueryPageState extends State<ProductQueryPage>
     final ThemeData themeData,
     final AppLocalizations appLocalizations,
   ) =>
-      SmoothScaffold(
-        floatingActionButton: Row(
-          mainAxisAlignment: _showBackToTopButton
-              ? MainAxisAlignment.spaceBetween
-              : MainAxisAlignment.center,
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 5.0),
-              child: RankingFloatingActionButton(
-                onPressed: () => Navigator.push<Widget>(
-                  context,
-                  MaterialPageRoute<Widget>(
-                    builder: (BuildContext context) => PersonalizedRankingPage(
-                      barcodes: _model.displayBarcodes,
-                      title: widget.name,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            Visibility(
-              visible: _showBackToTopButton,
-              child: AnimatedOpacity(
-                duration: SmoothAnimationsDuration.short,
-                opacity: _showBackToTopButton ? 1.0 : 0.0,
-                child: SmoothRevealAnimation(
-                  animationCurve: Curves.easeInOutBack,
-                  startOffset: const Offset(0.0, 1.0),
-                  child: Padding(
-                    padding: const EdgeInsetsDirectional.only(
-                      start: SMALL_SPACE,
-                    ),
-                    child: FloatingActionButton(
-                      backgroundColor: themeData.colorScheme.secondary,
-                      onPressed: () {
-                        _scrollToTop();
-                      },
-                      tooltip: appLocalizations.go_back_to_top,
-                      child: Icon(
-                        Icons.arrow_upward,
-                        color: themeData.colorScheme.onSecondary,
+      SmoothSharedAnimationController(
+        child: SmoothScaffold(
+          floatingActionButton: Row(
+            mainAxisAlignment: _showBackToTopButton
+                ? MainAxisAlignment.spaceBetween
+                : MainAxisAlignment.center,
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 5.0),
+                child: RankingFloatingActionButton(
+                  onPressed: () => Navigator.push<Widget>(
+                    context,
+                    MaterialPageRoute<Widget>(
+                      builder: (BuildContext context) =>
+                          PersonalizedRankingPage(
+                        barcodes: _model.displayBarcodes,
+                        title: widget.name,
                       ),
                     ),
                   ),
                 ),
               ),
-            ),
-          ],
-        ),
-        appBar: SmoothAppBar(
-          backgroundColor: themeData.scaffoldBackgroundColor,
-          elevation: 2,
-          automaticallyImplyLeading: false,
-          leading: const SmoothBackButton(),
-          title: _AppBarTitle(
-            title: widget.searchResult
-                ? widget.name
-                : appLocalizations.product_search_same_category,
-            editableAppBarTitle:
-                widget.searchResult && widget.editableAppBarTitle,
-            multiLines: !widget.searchResult,
+              Visibility(
+                visible: _showBackToTopButton,
+                child: AnimatedOpacity(
+                  duration: SmoothAnimationsDuration.short,
+                  opacity: _showBackToTopButton ? 1.0 : 0.0,
+                  child: SmoothRevealAnimation(
+                    animationCurve: Curves.easeInOutBack,
+                    startOffset: const Offset(0.0, 1.0),
+                    child: Padding(
+                      padding: const EdgeInsetsDirectional.only(
+                        start: SMALL_SPACE,
+                      ),
+                      child: FloatingActionButton(
+                        backgroundColor: themeData.colorScheme.secondary,
+                        onPressed: () {
+                          _scrollToTop();
+                        },
+                        tooltip: appLocalizations.go_back_to_top,
+                        child: Icon(
+                          Icons.arrow_upward,
+                          color: themeData.colorScheme.onSecondary,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
-          subTitle: !widget.searchResult ? Text(widget.name) : null,
-          actions: _getAppBarButtons(),
-        ),
-        body: RefreshIndicator(
-          onRefresh: () async => _refreshList(),
-          child: ListView.builder(
-            controller: _scrollController,
-            // To allow refresh even when not the whole page is filled
-            physics: const AlwaysScrollableScrollPhysics(),
-            itemBuilder: (BuildContext context, int index) {
-              if (index == 0) {
-                // on top, a message
-                return _getTopMessagesCard();
-              }
-              index--;
-
-              final int barcodesCount = _model.displayBarcodes.length;
-
-              // TODO(monsieurtanuki): maybe call it earlier, like for first unknown page index - 5?
-              if (index >= barcodesCount) {
-                _downloadNextPage();
-              }
-
-              if (index >= barcodesCount) {
-                // When scrolling below the last loaded item (index > barcodesCount)
-                // We first show a [SmoothProductCardTemplate]
-                // and after that a loading indicator + some space below it as the next item.
-
-                // The amount you scrolled over the index
-                final int overscrollIndex =
-                    index - barcodesCount + 1 - _OVERSCROLL_TEMPLATE_COUNT;
-
-                if (overscrollIndex <= 0) {
-                  return const SmoothProductCardTemplate();
+          appBar: SmoothAppBar(
+            backgroundColor: themeData.scaffoldBackgroundColor,
+            elevation: 2,
+            automaticallyImplyLeading: false,
+            leading: const SmoothBackButton(),
+            title: _AppBarTitle(
+              title: widget.searchResult
+                  ? widget.name
+                  : appLocalizations.product_search_same_category,
+              editableAppBarTitle:
+                  widget.searchResult && widget.editableAppBarTitle,
+              multiLines: !widget.searchResult,
+            ),
+            subTitle: !widget.searchResult ? Text(widget.name) : null,
+            actions: _getAppBarButtons(),
+          ),
+          body: RefreshIndicator(
+            onRefresh: () async => _refreshList(),
+            child: ListView.builder(
+              controller: _scrollController,
+              // To allow refresh even when not the whole page is filled
+              physics: const AlwaysScrollableScrollPhysics(),
+              itemBuilder: (BuildContext context, int index) {
+                if (index == 0) {
+                  // on top, a message
+                  return _getTopMessagesCard();
                 }
-                if (overscrollIndex == 1) {
-                  return const Center(child: CircularProgressIndicator());
+                index--;
+
+                final int barcodesCount = _model.displayBarcodes.length;
+
+                // TODO(monsieurtanuki): maybe call it earlier, like for first unknown page index - 5?
+                if (index >= barcodesCount) {
+                  _downloadNextPage();
                 }
-                return SizedBox(
-                  height: MediaQuery.of(context).size.height / 4,
+
+                if (index >= barcodesCount) {
+                  // When scrolling below the last loaded item (index > barcodesCount)
+                  // We first show a [SmoothProductCardTemplate]
+                  // and after that a loading indicator + some space below it as the next item.
+
+                  // The amount you scrolled over the index
+                  final int overscrollIndex =
+                      index - barcodesCount + 1 - _OVERSCROLL_TEMPLATE_COUNT;
+
+                  if (overscrollIndex <= 0) {
+                    return const SmoothProductCardTemplate();
+                  }
+                  if (overscrollIndex == 1) {
+                    return const Center(child: CircularProgressIndicator());
+                  }
+                  return SizedBox(
+                    height: MediaQuery.of(context).size.height / 4,
+                  );
+                }
+                return ProductListItemSimple(
+                  barcode: _model.displayBarcodes[index],
                 );
-              }
-              return ProductListItemSimple(
-                barcode: _model.displayBarcodes[index],
-              );
-            },
-            itemCount: _getItemCount(),
+              },
+              itemCount: _getItemCount(),
+            ),
           ),
         ),
       );

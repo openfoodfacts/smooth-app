@@ -65,7 +65,7 @@ class BackgroundTaskUnselect extends BackgroundTaskBarcode {
   }
 
   @override
-  String? getSnackBarMessage(final AppLocalizations appLocalizations) =>
+  String? getFloatingMessage(final AppLocalizations appLocalizations) =>
       appLocalizations.product_task_background_schedule;
 
   /// Returns a new background task about unselecting a product image.

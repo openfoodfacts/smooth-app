@@ -47,7 +47,7 @@ class BackgroundTaskFullRefresh extends BackgroundTaskPaged {
   }
 
   @override
-  String? getSnackBarMessage(final AppLocalizations appLocalizations) =>
+  String? getFloatingMessage(final AppLocalizations appLocalizations) =>
       appLocalizations.background_task_title_full_refresh;
 
   static BackgroundTaskFullRefresh _getNewTask(

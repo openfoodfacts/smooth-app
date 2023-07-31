@@ -123,7 +123,9 @@ class SmoothModalSheetHeader extends StatelessWidget implements SizeWidget {
                   title,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
-                  style: Theme.of(context).textTheme.titleLarge,
+                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                        fontWeight: FontWeight.bold,
+                      ),
                 ),
               ),
             ),
@@ -165,7 +167,7 @@ class SmoothModalSheetHeaderButton extends StatelessWidget
 
   static const EdgeInsetsGeometry _padding = EdgeInsetsDirectional.symmetric(
     horizontal: 15.0,
-    vertical: 20.0,
+    vertical: 10.0,
   );
 
   final String label;

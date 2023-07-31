@@ -45,7 +45,7 @@ class SummaryCard extends StatefulWidget {
     this.isFullVersion = false,
     this.showUnansweredQuestions = false,
     this.isRemovable = true,
-    this.isSettingClickable = true,
+    this.isSettingVisible = true,
     this.isProductEditable = true,
     this.attributeGroupsClickable = true,
     this.padding,
@@ -68,7 +68,7 @@ class SummaryCard extends StatefulWidget {
   final bool isRemovable;
 
   /// If true, the icon setting will be clickable.
-  final bool isSettingClickable;
+  final bool isSettingVisible;
 
   /// If true, the product will be editable
   final bool isProductEditable;
@@ -85,11 +85,13 @@ class SummaryCard extends StatefulWidget {
 class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
   // For some reason, special case for "label" attributes
   final Set<String> _attributesToExcludeIfStatusIsUnknown = <String>{};
+  late ProductQuestionsLayout _questionsLayout;
 
   @override
   void initState() {
     super.initState();
     initUpToDate(widget._product, context.read<LocalDatabase>());
+    _questionsLayout = getUserQuestionsLayout(context.read<UserPreferences>());
     if (ProductIncompleteCard.isProductIncomplete(initialProduct)) {
       AnalyticsHelper.trackEvent(
         AnalyticsEvent.showFastTrackProductEditCard,
@@ -107,7 +109,7 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
         header: ProductCompatibilityHeader(
           product: upToDateProduct,
           productPreferences: widget._productPreferences,
-          isSettingClickable: widget.isSettingClickable,
+          isSettingVisible: widget.isSettingVisible,
         ),
         body: Padding(
           padding: widget.padding ?? SMOOTH_CARD_PADDING,
@@ -141,7 +143,7 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
                 header: ProductCompatibilityHeader(
                   product: upToDateProduct,
                   productPreferences: widget._productPreferences,
-                  isSettingClickable: widget.isSettingClickable,
+                  isSettingVisible: widget.isSettingVisible,
                 ),
                 body: Padding(
                   padding: SMOOTH_CARD_PADDING,
@@ -357,7 +359,12 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
         if (ProductIncompleteCard.isProductIncomplete(upToDateProduct))
           ProductIncompleteCard(product: upToDateProduct),
         ..._getAttributes(scoreAttributes),
-        if (widget.isFullVersion) ProductQuestionsWidget(upToDateProduct),
+        if (widget.isFullVersion &&
+            _questionsLayout == ProductQuestionsLayout.button)
+          ProductQuestionsWidget(
+            upToDateProduct,
+            layout: ProductQuestionsLayout.button,
+          ),
         attributesContainer,
         ...summaryCardButtons,
       ],

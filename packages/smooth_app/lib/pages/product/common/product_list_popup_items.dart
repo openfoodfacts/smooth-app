@@ -52,6 +52,7 @@ class ProductListPopupClear extends ProductListPopupItem {
     final bool? ok = await showDialog<bool>(
       context: context,
       builder: (BuildContext context) => SmoothAlertDialog(
+        title: getTitle(appLocalizations),
         body: Text(
           productList.listType == ProductListType.USER
               ? appLocalizations.confirm_clear_user_list(productList.parameters)

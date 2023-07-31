@@ -89,8 +89,20 @@ class _ProductListPageState extends State<ProductListPage>
     final ThemeData themeData = Theme.of(context);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     refreshUpToDate();
+
+    /// If we were on a user list, but it has been deleted, we switch to history
+    if (!daoProductList.exist(productList) &&
+        productList.listType == ProductListType.USER) {
+      WidgetsBinding.instance.addPostFrameCallback((_) => setState(
+            () => productList = ProductList.history(),
+          ));
+
+      return EMPTY_WIDGET;
+    }
+
     final List<String> products = productList.getList();
     final bool dismissible;
+
     switch (productList.listType) {
       case ProductListType.SCAN_SESSION:
       case ProductListType.SCAN_HISTORY:

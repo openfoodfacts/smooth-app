@@ -71,7 +71,7 @@ class BackgroundTaskDownloadProducts extends BackgroundTaskProgressing {
   }
 
   @override
-  String? getSnackBarMessage(final AppLocalizations appLocalizations) => null;
+  String? getFloatingMessage(final AppLocalizations appLocalizations) => null;
 
   static BackgroundTask _getNewTask(
     final String uniqueId,
