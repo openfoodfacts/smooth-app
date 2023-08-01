@@ -1075,6 +1075,9 @@
             "level" : "info",
             "title_element" : {
                "grade" : "a",
+               "icon_color_from_evaluation" : true,
+               "icon_size" : "small",
+               "icon_url" : "https://static.openfoodfacts.org/images/icons/dist/lca.svg",
                "subtitle" : "Category: Soup, mixed vegetables, prepacked, to be reheated",
                "title" : "Average impact of products of the same category: A (Score: 98/100)",
                "type" : "grade"
@@ -1272,6 +1275,7 @@
             "level" : "info",
             "title_element" : {
                "grade" : "a",
+               "icon_url" : "https://static.openfoodfacts.org/images/attributes/ecoscore-a.svg",
                "subtitle" : "Product: A good product for you - Open Food Facts - 100 g",
                "title" : "Impact for this product: A (Score: 115/100)",
                "type" : "grade"
@@ -1823,6 +1827,13 @@
                            "type" : "text"
                         },
                         {
+                           "column_group_id" : "product",
+                           "shown_by_default" : true,
+                           "text" : "As sold<br>for 100 g / 100 ml",
+                           "text_for_small_screens" : "100g",
+                           "type" : "text"
+                        },
+                        {
                            "column_group_id" : "comparisons",
                            "shown_by_default" : true,
                            "text" : "Compared to: Vegetable soups",
@@ -1839,8 +1850,11 @@
                                  "text" : "Energy"
                               },
                               {
+                                 "text" : "120 kj<br>(29 kcal)"
+                              },
+                              {
                                  "evaluation" : "good",
-                                 "text" : "-50%"
+                                 "text" : "-51%"
                               }
                            ]
                         },
@@ -1852,8 +1866,11 @@
                                  "text" : "Fat"
                               },
                               {
+                                 "text" : "0.5 g"
+                              },
+                              {
                                  "evaluation" : "good",
-                                 "text" : "-68%"
+                                 "text" : "-69%"
                               }
                            ]
                         },
@@ -1865,8 +1882,11 @@
                                  "text" : "Saturated fat"
                               },
                               {
+                                 "text" : "0.2 g"
+                              },
+                              {
                                  "evaluation" : "good",
-                                 "text" : "-40%"
+                                 "text" : "-44%"
                               }
                            ]
                         },
@@ -1876,6 +1896,9 @@
                                  "level" : 0,
                                  "style" : "max-width:15rem",
                                  "text" : "Salt"
+                              },
+                              {
+                                 "text" : "0.4 g"
                               },
                               {
                                  "evaluation" : "good",
@@ -1891,6 +1914,9 @@
                                  "text" : "Carbohydrates"
                               },
                               {
+                                 "text" : "4 g"
+                              },
+                              {
                                  "text" : "-58%"
                               }
                            ]
@@ -1903,8 +1929,11 @@
                                  "text" : "Fiber"
                               },
                               {
+                                 "text" : "3 g"
+                              },
+                              {
                                  "evaluation" : "good",
-                                 "text" : "+113%"
+                                 "text" : "+108%"
                               }
                            ]
                         },
@@ -1914,6 +1943,9 @@
                                  "level" : 1,
                                  "style" : "max-width:15rem",
                                  "text" : "Sugars"
+                              },
+                              {
+                                 "text" : "0.5 g"
                               },
                               {
                                  "evaluation" : "good",
@@ -1929,8 +1961,11 @@
                                  "text" : "Proteins"
                               },
                               {
+                                 "text" : "1 g"
+                              },
+                              {
                                  "evaluation" : "bad",
-                                 "text" : "-48%"
+                                 "text" : "-49%"
                               }
                            ]
                         },
@@ -1940,6 +1975,9 @@
                                  "level" : 0,
                                  "style" : "max-width:15rem",
                                  "text" : "Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (estimate from ingredients list analysis)"
+                              },
+                              {
+                                 "text" : "60 %"
                               },
                               {
                                  "text" : ""
@@ -2020,7 +2058,7 @@
                "environment"
             ]
          },
-         "packaging_recycling" : {
+         "packaging_components" : {
             "elements" : [
                {
                   "element_type" : "text",
@@ -2031,6 +2069,118 @@
                      "icon_color_from_evaluation" : true,
                      "icon_url" : "https://static.openfoodfacts.org/images/icons/dist/recycle-variant.svg",
                      "type" : "summary"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "level" : "info",
+            "title_element" : {
+               "title" : "Packaging parts"
+            },
+            "topics" : [
+               "environment"
+            ]
+         },
+         "packaging_materials" : {
+            "elements" : [
+               {
+                  "element_type" : "table",
+                  "table_element" : {
+                     "columns" : [
+                        {
+                           "text" : "Material",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "%",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "Packaging weight",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "Packaging weight per 100 g of product",
+                           "type" : "text"
+                        }
+                     ],
+                     "id" : "packaging_materials",
+                     "rows" : [
+                        {
+                           "values" : [
+                              {
+                                 "text" : "Glass"
+                              },
+                              {
+                                 "text" : ""
+                              },
+                              {
+                                 "text" : ""
+                              },
+                              {
+                                 "text" : ""
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "text" : "Metal"
+                              },
+                              {
+                                 "text" : ""
+                              },
+                              {
+                                 "text" : ""
+                              },
+                              {
+                                 "text" : ""
+                              }
+                           ]
+                        },
+                        {
+                           "style" : "font-weight: bold",
+                           "values" : [
+                              {
+                                 "text" : "Total"
+                              },
+                              {
+                                 "text" : ""
+                              },
+                              {
+                                 "text" : ""
+                              },
+                              {
+                                 "text" : ""
+                              }
+                           ]
+                        }
+                     ],
+                     "title" : "Packaging materials"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "level" : "info",
+            "title_element" : {
+               "title" : "Packaging materials"
+            },
+            "topics" : [
+               "environment"
+            ]
+         },
+         "packaging_recycling" : {
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "packaging_components"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "packaging_materials"
                   }
                }
             ],
