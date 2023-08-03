@@ -25,7 +25,7 @@ dependencies:
   hive: 2.2.3
   hive_flutter: 1.1.0
   http: 0.13.5
-  image_picker: ^0.8.9
+  image_picker: ^1.0.1
   iso_countries: 2.1.0
   latlong2: 0.8.1
   matomo_tracker: 3.1.0
