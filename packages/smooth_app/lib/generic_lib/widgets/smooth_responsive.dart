@@ -40,6 +40,18 @@ extension MediaQueryResponsiveExtensions on MediaQueryData {
   bool isLargeDevice() {
     return size.width > _MAX_TABLET_WIDTH;
   }
+
+  DeviceType get _deviceType {
+    if (size.width <= _MAX_SMALL_DEVICE_WIDTH) {
+      return DeviceType.small;
+    } else if (size.width <= _MAX_SMARTPHONE_WIDTH) {
+      return DeviceType.smartphone;
+    } else if (size.width <= _MAX_TABLET_WIDTH) {
+      return DeviceType.tablet;
+    } else {
+      return DeviceType.large;
+    }
+  }
 }
 
 extension BuildContextResponsiveExtensions on BuildContext {
@@ -58,6 +70,8 @@ extension BuildContextResponsiveExtensions on BuildContext {
   bool isLargeDevice() {
     return SmoothResponsive.isLargeDevice(this);
   }
+
+  DeviceType get deviceType => MediaQuery.of(this)._deviceType;
 }
 
 /// Custom Widget to provide a responsive behavior.
@@ -88,4 +102,11 @@ class SmoothResponsiveBuilder extends StatelessWidget {
       return defaultDeviceBuilder(context);
     }
   }
+}
+
+enum DeviceType {
+  small,
+  smartphone,
+  tablet,
+  large,
 }
