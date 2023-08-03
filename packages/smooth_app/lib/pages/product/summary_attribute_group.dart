@@ -16,24 +16,30 @@ class SummaryAttributeGroup extends StatelessWidget {
   final String? groupName;
 
   @override
-  Widget build(BuildContext context) => AbsorbPointer(
-        absorbing: !isClickable,
-        child: Column(
-          children: <Widget>[
-            _SummaryAttributeGroupHeader(
-              isFirstGroup: isFirstGroup,
-              groupName: groupName,
-            ),
-            Container(
-              alignment: AlignmentDirectional.topStart,
-              child: Wrap(
-                runSpacing: 16,
-                children: attributeChips,
-              ),
-            ),
-          ],
-        ),
-      );
+  Widget build(BuildContext context) {
+    return AbsorbPointer(
+      absorbing: !isClickable,
+      child: Column(
+        children: <Widget>[
+          _SummaryAttributeGroupHeader(
+            isFirstGroup: isFirstGroup,
+            groupName: groupName,
+          ),
+          Align(
+            alignment: AlignmentDirectional.topStart,
+            child: attributeChips.length == 1
+                ? SizedBox(
+                    width: double.infinity,
+                    child: attributeChips.first,
+                  )
+                : Wrap(
+                    children: attributeChips,
+                  ),
+          ),
+        ],
+      ),
+    );
+  }
 }
 
 class _SummaryAttributeGroupHeader extends StatelessWidget {
@@ -62,7 +68,10 @@ class _SummaryAttributeGroupHeader extends StatelessWidget {
           ),
         )
       : Padding(
-          padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
+          padding: const EdgeInsetsDirectional.only(
+            top: VERY_SMALL_SPACE,
+            bottom: SMALL_SPACE,
+          ),
           child: isFirstGroup
               ? EMPTY_WIDGET
               : const Divider(
