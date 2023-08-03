@@ -157,19 +157,6 @@ class _ProductPageState extends State<ProductPage>
     );
   }
 
-  Future<void> _refreshProduct(BuildContext context) async {
-    final bool success = await ProductRefresher().fetchAndRefresh(
-      barcode: barcode,
-      widget: this,
-    );
-    if (context.mounted) {
-      if (success) {
-        // Reset the carousel to the beginning
-        _carouselController.jumpTo(0.0);
-      }
-    }
-  }
-
   Future<void> _updateLocalDatabaseWithProductHistory(
     final BuildContext context,
   ) async {
@@ -209,7 +196,6 @@ class _ProductPageState extends State<ProductPage>
               upToDateProduct,
               height: 200,
               controller: _carouselController,
-              onUpload: _refreshProduct,
             ),
           ),
           Padding(
