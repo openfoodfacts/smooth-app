@@ -121,13 +121,13 @@
     "@Introduction screen": {},
     "welcomeToOpenFoodFacts": "ברוך בואך ל־Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
-    "whatIsOff": "Open Food Facts הוא ארגון כלל עולמי ללא מטרות רווח שמופעל על ידי קהילות מקומיות.",
+    "whatIsOff": "Open Food Facts is a global non-profit powered by local communities.",
     "@whatIsOff": {
-        "description": "Description of Open Food Facts organization."
+        "description": "Description of Open Food Facts organization."
     },
     "offUtility": "בחירה במזון שטוב לך ולכדור הארץ.",
     "@offUtility": {
-        "description": "Description of what a user can use Open Food Facts for."
+        "description": "Description of what a user can use Open Food Facts for."
     },
     "productDataUtility": "הצגת נתוני המזון שתואמים להעדפות שלך.",
     "@productDataUtility": {
@@ -142,7 +142,7 @@
         "description": "Description of what a user can use the Eco data in a product for."
     },
     "@user_management": {},
-    "sign_in_text": "ניתן להיכנס לחשבונך ב־Open Food Facts כדי לשמור את התרומות שלך",
+    "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
     "incorrect_credentials": "שם משתמש או סיסמה שגויים.",
     "login": "שם משתמש",
     "@login": {
@@ -233,9 +233,9 @@
     "sign_up_page_confirm_password_hint": "אימות סיסמה",
     "sign_up_page_confirm_password_error_empty": "נא לאשר את הסיסמה",
     "sign_up_page_confirm_password_error_invalid": "הסיסמאות שונות זו מזו",
-    "sign_up_page_agree_text": "מוסכמים עלי",
+    "sign_up_page_agree_text": "אני מסכים ל־Open Food Facts",
     "@sign_up_page_agree_text": {
-        "description": "I agree to the Open Food Facts is followed by sign_up_page_terms_text"
+        "description": "I agree to the Open Food Facts is followed by sign_up_page_terms_text"
     },
     "sign_up_page_terms_text": "תנאי השימוש והתרומה של Open Food Facts",
     "@sign_up_page_terms_text": {
@@ -243,7 +243,7 @@
     },
     "sign_up_page_agree_url": "https://world-he.openfoodfacts.org/terms-of-use",
     "@sign_up_page_agree_url": {
-        "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
+        "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
     },
     "donate_url": "https://world-he.openfoodfacts.org/donate",
     "@donate_url": {
@@ -281,7 +281,7 @@
     "@darkmode_system_default": {
         "description": "Indicator inside the darkmode switch (system default)"
     },
-    "thanks_for_contributing": "תודה על תרומתך",
+    "thanks_for_contributing": "תודה על תרומתך!",
     "@contributors": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
     },
@@ -348,7 +348,7 @@
     },
     "tap_to_answer": "יש לגעת כאן כדי לענות על שאלות",
     "@tap_to_answer": {
-        "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
+        "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts and gain rewards."
     },
     "tap_to_answer_hint": "נא לגעת כאן כדי לענות על שאלות בנוגע למוצר",
     "@tap_to_answer_hint": {
@@ -364,7 +364,7 @@
     },
     "contribute_to_get_rewards": "מסייעים בשיפור שקיפות המזון ומקבלים פרסים",
     "@contribute_to_get_rewards": {
-        "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
+        "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts and gain rewards."
     },
     "question_sign_in_text": "כדאי להיכנס לחשבונך ב־Open Food Facts כדי לקבל הוקרה על התרומות שלך",
     "question_yes_button_accessibility_value": "לענות בכן",
@@ -1652,7 +1652,7 @@
     "@edit_product_action_confirm": {
         "description": "Product edition - FAB actions - confirm"
     },
-    "signup_page_terms_of_use_line1": "מוסכמים עלי ",
+    "signup_page_terms_of_use_line1": "נתתי ל־Open Food Facts את הסכמתי ",
     "@signup_page_terms_of_use_line1": {
         "description": "User consent for terms of use (line 1)"
     },
@@ -1764,11 +1764,11 @@
             }
         }
     },
-    "confirm_delete_user_list_title": "Delete the list?",
+    "confirm_delete_user_list_title": "למחוק את הרשימה?",
     "@confirm_delete_user_list_title": {
         "description": "Title when asking about whether to delete the list or not"
     },
-    "confirm_delete_user_list_message": "You're about to delete the list \"{name}\".\nAre you sure you want to continue?",
+    "confirm_delete_user_list_message": "פעולה זו תמחק את הרשימה „{name}”.\nלהמשיך?",
     "@confirm_delete_user_list_message": {
         "description": "Message when asking about whether to delete the list or not",
         "placeholders": {
@@ -1777,7 +1777,7 @@
             }
         }
     },
-    "confirm_delete_user_list_button": "Yes, I confirm",
+    "confirm_delete_user_list_button": "כן, מקובל עליי",
     "@confirm_delete_user_list_button": {
         "description": "Button to delete a list"
     },
@@ -2071,6 +2071,7 @@
     "@show_password": {
         "description": "Show hidden password in password field"
     },
+    "rate_app": "דירוג היישומון",
     "app_rating_dialog_title": "מצוין! אנו בטוחים שכולם ישמחו לשמוע מה דעתך על היישומון!",
     "app_rating_dialog_positive_action": "דירוג היישומון",
     "app_rating_dialog_negative_action": "אחר כך",
@@ -2199,7 +2200,7 @@
     },
     "color_light_brown": "ברירת מחדל",
     "@color_light_brown": {
-        "description": "Color Light Brown, Default Open Food Facts Color"
+        "description": "Color Light Brown, Default Open Food Facts Color"
     },
     "color_magenta": "ארגמן",
     "@color_magenta": {
@@ -2353,11 +2354,15 @@
     "@country_selector_title": {
         "description": "Label written as the title of the dialog to select the user country"
     },
+    "language_selector_title": "נא לבחור את השפה שלך:",
+    "@language_selector_title": {
+        "description": "Label written as the title of the dialog to select the user language"
+    },
     "action_delete_list": "מחיקה",
     "@action_delete_list": {
         "description": "Delete a list action in a menu"
     },
-    "action_change_list": "Change the current list",
+    "action_change_list": "החלפת הרשימה הנוכחית",
     "@action_change_list": {
         "description": "Action to change the current visible list"
     },
@@ -2368,5 +2373,24 @@
     "product_list_create_tooltip": "יצירת רשימה חדשה",
     "@product_list_create_tooltip": {
         "description": "Button description to create a new list (long sentence)"
-    }
+    },
+    "nutriscore_a": "Nutri-Score A",
+    "nutriscore_b": "Nutri-Score B",
+    "nutriscore_c": "Nutri-Score C",
+    "nutriscore_d": "Nutri-Score D",
+    "nutriscore_e": "Nutri-Score E",
+    "nutriscore_unknown": "Nutri-Score לא ידוע",
+    "nutriscore_not_applicable": "Nutri-Score לא ניתן ליישום",
+    "ecoscore_a": "Eco-Score A",
+    "ecoscore_b": "Eco-Score B",
+    "ecoscore_c": "Eco-Score C",
+    "ecoscore_d": "Eco-Score D",
+    "ecoscore_e": "Eco-Score E",
+    "ecoscore_unknown": "Eco-Score לא ידוע",
+    "ecoscore_not_applicable": "Eco-Score לא ניתן ליישום",
+    "nova_group_1": "קבוצת NOVA‏ 1",
+    "nova_group_2": "NOVA Group 2",
+    "nova_group_3": "NOVA Group 3",
+    "nova_group_4": "NOVA Group 4",
+    "nova_group_unknown": "Unknown NOVA Group"
 }
