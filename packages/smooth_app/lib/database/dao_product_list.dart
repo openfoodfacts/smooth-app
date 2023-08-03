@@ -84,8 +84,16 @@ class DaoProductList extends AbstractDao {
 
   LazyBox<_BarcodeList> _getBox() => Hive.lazyBox<_BarcodeList>(_hiveBoxName);
 
-  Future<_BarcodeList?> _get(final ProductList productList) =>
-      _getBox().get(_getKey(productList));
+  Future<_BarcodeList?> _get(final ProductList productList) async {
+    final _BarcodeList? result = await _getBox().get(getKey(productList));
+    if (result != null) {
+      localDatabase.upToDateProductList.setLocalUpToDate(
+        getKey(productList),
+        result.barcodes,
+      );
+    }
+    return result;
+  }
 
   Future<int?> getTimestamp(final ProductList productList) async =>
       (await _get(productList))?.timestamp;
@@ -95,7 +103,7 @@ class DaoProductList extends AbstractDao {
   // Encoding the parameter part in base64 makes us safe regarding ASCII.
   // As it's a list of keywords, there's a fairly high probability
   // that we'll be under the 255 character length.
-  static String _getKey(final ProductList productList) =>
+  static String getKey(final ProductList productList) =>
       '${productList.listType.key}'
       '$_keySeparator'
       '${base64.encode(utf8.encode(productList.getParametersKey()))}';
@@ -126,15 +134,21 @@ class DaoProductList extends AbstractDao {
     throw Exception('Unknown product list type: "$value" from "$key"');
   }
 
-  Future<void> _put(final String key, final _BarcodeList barcodeList) async =>
-      _getBox().put(key, barcodeList);
+  Future<void> _put(final String key, final _BarcodeList barcodeList) async {
+    await _getBox().put(key, barcodeList);
+    localDatabase.upToDateProductList.setLocalUpToDate(
+      key,
+      barcodeList.barcodes,
+    );
+  }
 
   Future<void> put(final ProductList productList) async =>
-      _put(_getKey(productList), _BarcodeList.fromProductList(productList));
+      _put(getKey(productList), _BarcodeList.fromProductList(productList));
 
   Future<bool> delete(final ProductList productList) async {
     final LazyBox<_BarcodeList> box = _getBox();
-    final String key = _getKey(productList);
+    final String key = getKey(productList);
+    localDatabase.upToDateProductList.setLocalUpToDate(key, <String>[]);
     if (!box.containsKey(key)) {
       return false;
     }
@@ -153,6 +167,10 @@ class DaoProductList extends AbstractDao {
     }
     productList.set(list.barcodes);
   }
+
+  /// Checks if a list exists in the database.
+  bool exist(final ProductList productList) =>
+      _getBox().containsKey(getKey(productList));
 
   /// Returns the number of barcodes quickly but without product check.
   Future<int> getLength(final ProductList productList) async {
@@ -182,12 +200,12 @@ class DaoProductList extends AbstractDao {
     barcodes.remove(barcode); // removes a potential duplicate
     barcodes.add(barcode);
     final _BarcodeList newList = _BarcodeList.now(barcodes);
-    await _put(_getKey(productList), newList);
+    await _put(getKey(productList), newList);
   }
 
   Future<void> clear(final ProductList productList) async {
     final _BarcodeList newList = _BarcodeList.now(<String>[]);
-    await _put(_getKey(productList), newList);
+    await _put(getKey(productList), newList);
   }
 
   /// Adds or removes a barcode within a product list (depending on [include])
@@ -217,7 +235,7 @@ class DaoProductList extends AbstractDao {
       barcodes.add(barcode);
     }
     final _BarcodeList newList = _BarcodeList.now(barcodes);
-    await _put(_getKey(productList), newList);
+    await _put(getKey(productList), newList);
     return true;
   }
 
@@ -249,7 +267,7 @@ class DaoProductList extends AbstractDao {
     }
 
     final _BarcodeList newList = _BarcodeList.now(allBarcodes);
-    await _put(_getKey(productList), newList);
+    await _put(getKey(productList), newList);
   }
 
   Future<ProductList> rename(
@@ -259,7 +277,7 @@ class DaoProductList extends AbstractDao {
     final ProductList newList = ProductList.user(newName);
     final _BarcodeList list =
         await _get(initialList) ?? _BarcodeList.now(<String>[]);
-    await _put(_getKey(newList), list);
+    await _put(getKey(newList), list);
     await delete(initialList);
     await get(newList);
     return newList;
@@ -287,10 +305,7 @@ class DaoProductList extends AbstractDao {
   }
 
   /// Returns the names of the user lists.
-  ///
-  /// Possibly restricted to the user lists that contains ALL the given barcodes.
-  Future<List<String>> getUserLists({List<String>? withBarcodes}) async {
-    // TODO(m123): change return type to a set
+  List<String> getUserLists() {
     final List<String> result = <String>[];
     for (final dynamic key in _getBox().keys) {
       final String tmp = key.toString();
@@ -298,22 +313,34 @@ class DaoProductList extends AbstractDao {
       if (productListType != ProductListType.USER) {
         continue;
       }
-      if (withBarcodes != null) {
-        final _BarcodeList? barcodeList = await _getBox().get(key);
-        if (barcodeList == null) {
-          continue;
+      result.add(getProductListParameters(tmp));
+    }
+    return result;
+  }
+
+  /// Returns the names of the user lists that contains ALL the given barcodes.
+  Future<List<String>> getUserListsWithBarcodes(
+    final List<String> withBarcodes,
+  ) async {
+    final List<String> result = <String>[];
+    for (final dynamic key in _getBox().keys) {
+      final String tmp = key.toString();
+      final ProductListType productListType = getProductListType(tmp);
+      if (productListType != ProductListType.USER) {
+        continue;
+      }
+      final _BarcodeList? barcodeList = await _getBox().get(key);
+      if (barcodeList == null) {
+        continue;
+      }
+      for (final String barcode in withBarcodes) {
+        if (!barcodeList.barcodes.contains(barcode)) {
+          break;
         }
-        for (final String barcode in withBarcodes) {
-          if (!barcodeList.barcodes.contains(barcode)) {
-            break;
-          }
-          if (withBarcodes.last == barcode) {
-            result.add(getProductListParameters(tmp));
-            break;
-          }
+        if (withBarcodes.last == barcode) {
+          result.add(getProductListParameters(tmp));
+          break;
         }
-      } else {
-        result.add(getProductListParameters(tmp));
       }
     }
     return result;

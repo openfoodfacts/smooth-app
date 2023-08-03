@@ -12,12 +12,12 @@ class ProductCompatibilityHeader extends StatelessWidget {
   const ProductCompatibilityHeader({
     required this.product,
     required this.productPreferences,
-    required this.isSettingClickable,
+    required this.isSettingVisible,
   });
 
   final Product product;
   final ProductPreferences productPreferences;
-  final bool isSettingClickable;
+  final bool isSettingVisible;
 
   @override
   Widget build(BuildContext context) {
@@ -35,9 +35,9 @@ class ProductCompatibilityHeader extends StatelessWidget {
       decoration: BoxDecoration(
         color: helper.getHeaderBackgroundColor(isDarkMode),
         // Ensure that the header has the same circular radius as the SmoothCard.
-        borderRadius: const BorderRadius.only(
-          topLeft: ROUNDED_RADIUS,
-          topRight: ROUNDED_RADIUS,
+        borderRadius: const BorderRadiusDirectional.only(
+          topStart: ROUNDED_RADIUS,
+          topEnd: ROUNDED_RADIUS,
         ),
       ),
       child: Row(
@@ -57,21 +57,27 @@ class ProductCompatibilityHeader extends StatelessWidget {
               ),
             ),
           ),
-          InkWell(
-            borderRadius: const BorderRadius.only(topRight: ROUNDED_RADIUS),
-            onTap: isSettingClickable
-                ? () => AppNavigator.of(context).push(
-                      AppRoutes.PREFERENCES(PreferencePageType.FOOD),
-                    )
-                : null,
-            child: Tooltip(
-              message: appLocalizations.open_food_preferences_tooltip,
-              triggerMode: isSettingClickable
-                  ? TooltipTriggerMode.longPress
-                  : TooltipTriggerMode.tap,
-              child: const SizedBox.square(
-                dimension: kMinInteractiveDimension,
-                child: Icon(Icons.settings),
+          Opacity(
+            opacity: isSettingVisible ? 1.0 : 0.0,
+            child: IgnorePointer(
+              ignoring: !isSettingVisible,
+              child: InkWell(
+                borderRadius: const BorderRadius.only(topRight: ROUNDED_RADIUS),
+                onTap: isSettingVisible
+                    ? () => AppNavigator.of(context).push(
+                          AppRoutes.PREFERENCES(PreferencePageType.FOOD),
+                        )
+                    : null,
+                child: Tooltip(
+                  message: appLocalizations.open_food_preferences_tooltip,
+                  triggerMode: isSettingVisible
+                      ? TooltipTriggerMode.longPress
+                      : TooltipTriggerMode.tap,
+                  child: const SizedBox.square(
+                    dimension: kMinInteractiveDimension,
+                    child: Icon(Icons.settings),
+                  ),
+                ),
               ),
             ),
           ),

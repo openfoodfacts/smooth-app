@@ -113,9 +113,9 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
             child: Container(
               alignment: Alignment.topCenter,
               width: double.infinity,
-              padding: EdgeInsets.only(
-                left: size.width * 0.15,
-                right: size.width * 0.15,
+              padding: EdgeInsetsDirectional.only(
+                start: size.width * 0.15,
+                end: size.width * 0.15,
                 bottom: size.width * 0.05,
               ),
               child: AutofillGroup(

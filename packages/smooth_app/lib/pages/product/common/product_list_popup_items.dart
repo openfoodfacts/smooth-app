@@ -7,7 +7,6 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/temp_product_list_share_helper.dart';
-import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -40,7 +39,7 @@ abstract class ProductListPopupItem {
 class ProductListPopupClear extends ProductListPopupItem {
   @override
   String getTitle(final AppLocalizations appLocalizations) =>
-      appLocalizations.user_list_popup_clear;
+      appLocalizations.clear;
 
   @override
   Future<ProductList?> doSomething({
@@ -53,6 +52,7 @@ class ProductListPopupClear extends ProductListPopupItem {
     final bool? ok = await showDialog<bool>(
       context: context,
       builder: (BuildContext context) => SmoothAlertDialog(
+        title: getTitle(appLocalizations),
         body: Text(
           productList.listType == ProductListType.USER
               ? appLocalizations.confirm_clear_user_list(productList.parameters)
@@ -135,29 +135,5 @@ class ProductListPopupOpenInWeb extends ProductListPopupItem {
     AnalyticsHelper.trackEvent(AnalyticsEvent.openListWeb);
     await launchUrl(shareProductList(products));
     return null;
-  }
-}
-
-/// Popup menu item for the product list page: switch to another list.
-class ProductListPopupList extends ProductListPopupItem {
-  ProductListPopupList(this.newProductList);
-
-  final ProductList newProductList;
-
-  @override
-  String getTitle(final AppLocalizations appLocalizations) =>
-      ProductQueryPageHelper.getProductListLabel(
-        newProductList,
-        appLocalizations,
-      );
-
-  @override
-  Future<ProductList?> doSomething({
-    required final ProductList productList,
-    required final LocalDatabase localDatabase,
-    required final BuildContext context,
-  }) async {
-    await DaoProductList(localDatabase).get(newProductList);
-    return newProductList;
   }
 }

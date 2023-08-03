@@ -12,6 +12,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
+import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 import 'package:smooth_app/helpers/permission_helper.dart';
 import 'package:smooth_app/pages/scan/camera_scan_page.dart';
@@ -65,6 +66,7 @@ class _ScanPageState extends State<ScanPage> {
 
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final TextDirection direction = Directionality.of(context);
+    final bool hasACamera = CameraHelper.hasACamera;
 
     return SmoothScaffold(
       brightness:
@@ -74,30 +76,31 @@ class _ScanPageState extends State<ScanPage> {
       body: SafeArea(
         child: Column(
           children: <Widget>[
-            Expanded(
-              flex: 100 - _carouselHeightPct,
-              child: Consumer<PermissionListener>(
-                builder: (
-                  BuildContext context,
-                  PermissionListener listener,
-                  _,
-                ) {
-                  switch (listener.value.status) {
-                    case DevicePermissionStatus.checking:
-                      return EMPTY_WIDGET;
-                    case DevicePermissionStatus.granted:
-                      // TODO(m123): change
-                      return const CameraScannerPage();
-                    default:
-                      return const _PermissionDeniedCard();
-                  }
-                },
+            if (hasACamera)
+              Expanded(
+                flex: 100 - _carouselHeightPct,
+                child: Consumer<PermissionListener>(
+                  builder: (
+                    BuildContext context,
+                    PermissionListener listener,
+                    _,
+                  ) {
+                    switch (listener.value.status) {
+                      case DevicePermissionStatus.checking:
+                        return EMPTY_WIDGET;
+                      case DevicePermissionStatus.granted:
+                        // TODO(m123): change
+                        return const CameraScannerPage();
+                      default:
+                        return const _PermissionDeniedCard();
+                    }
+                  },
+                ),
               ),
-            ),
             Expanded(
               flex: _carouselHeightPct,
               child: Padding(
-                padding: const EdgeInsetsDirectional.only(bottom: 10),
+                padding: const EdgeInsetsDirectional.only(bottom: 10.0),
                 child: SmoothProductCarousel(
                   containSearchCard: true,
                   onPageChangedTo: (int page, String? barcode) async {
@@ -187,11 +190,9 @@ class _PermissionDeniedCard extends StatelessWidget {
           return Container(
             alignment: Alignment.topCenter,
             constraints: BoxConstraints.tightForFinite(
-              width: constraints.maxWidth *
-                  SmoothProductCarousel.carouselViewPortFraction,
+              width: constraints.maxWidth,
               height: math.min(constraints.maxHeight * 0.9, 200),
             ),
-            padding: SmoothProductCarousel.carouselItemInternalPadding,
             child: SmoothCard(
               padding: const EdgeInsetsDirectional.only(
                 top: 10.0,

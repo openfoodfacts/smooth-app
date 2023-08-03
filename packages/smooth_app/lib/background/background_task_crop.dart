@@ -85,8 +85,12 @@ class BackgroundTaskCrop extends BackgroundTaskUpload {
   }
 
   @override
-  String? getSnackBarMessage(final AppLocalizations appLocalizations) =>
-      appLocalizations.product_task_background_schedule;
+  (String, AlignmentGeometry)? getFloatingMessage(
+          final AppLocalizations appLocalizations) =>
+      (
+        appLocalizations.product_task_background_schedule,
+        AlignmentDirectional.topCenter,
+      );
 
   /// Returns a new background task about cropping an existing image.
   static BackgroundTaskCrop _getNewTask(

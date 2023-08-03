@@ -4,13 +4,13 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 /// Bottom Bar during onboarding. Typical use case: previous/next buttons.
 class OnboardingBottomBar extends StatelessWidget {
   const OnboardingBottomBar({
-    required this.rightButton,
+    required this.endButton,
     required this.backgroundColor,
-    this.leftButton,
+    this.startButton,
   });
 
-  final Widget rightButton;
-  final Widget? leftButton;
+  final Widget endButton;
+  final Widget? startButton;
 
   /// Color of the background where we put the buttons.
   ///
@@ -22,7 +22,7 @@ class OnboardingBottomBar extends StatelessWidget {
     final Size screenSize = MediaQuery.of(context).size;
     // Side padding is 8% of total width.
     final double sidePadding = screenSize.width * .08;
-    final bool hasPrevious = leftButton != null;
+    final bool hasPrevious = startButton != null;
     return Column(
       children: <Widget>[
         Container(
@@ -43,8 +43,8 @@ class OnboardingBottomBar extends StatelessWidget {
                 : MainAxisAlignment.end,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              if (leftButton != null) leftButton!,
-              rightButton,
+              if (startButton != null) startButton!,
+              endButton,
             ],
           ),
         ),

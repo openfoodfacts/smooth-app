@@ -1,3 +1,4 @@
+import 'package:diacritic/diacritic.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -6,6 +7,7 @@ import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_languages_list.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/widgets/smooth_text.dart';
 
 class LanguageSelector extends StatelessWidget {
   const LanguageSelector({
@@ -13,6 +15,8 @@ class LanguageSelector extends StatelessWidget {
     this.selectedLanguages,
     this.displayedLanguage,
     this.foregroundColor,
+    this.icon,
+    this.padding,
   });
 
   /// What to do when the language is selected.
@@ -25,6 +29,8 @@ class LanguageSelector extends StatelessWidget {
   final OpenFoodFactsLanguage? displayedLanguage;
 
   final Color? foregroundColor;
+  final IconData? icon;
+  final EdgeInsetsGeometry? padding;
 
   static const Languages _languages = Languages();
 
@@ -50,35 +56,40 @@ class LanguageSelector extends StatelessWidget {
           await setLanguage(language);
         },
         borderRadius: ANGULAR_BORDER_RADIUS,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Icon(
-              Icons.language,
-              color: foregroundColor,
-            ),
-            Expanded(
-              flex: 1,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: LARGE_SPACE),
-                child: Text(
-                  '$nameInLanguage ($nameInEnglish)',
-                  softWrap: false,
-                  overflow: TextOverflow.fade,
-                  style: Theme.of(context)
-                          .textTheme
-                          .bodyMedium
-                          ?.copyWith(color: foregroundColor) ??
-                      TextStyle(color: foregroundColor),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(
+            vertical: SMALL_SPACE,
+          ).add(padding ?? EdgeInsets.zero),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Icon(
+                Icons.language,
+                color: foregroundColor,
+              ),
+              Expanded(
+                flex: 1,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: LARGE_SPACE),
+                  child: Text(
+                    '$nameInLanguage ($nameInEnglish)',
+                    softWrap: false,
+                    overflow: TextOverflow.fade,
+                    style: Theme.of(context)
+                            .textTheme
+                            .bodyMedium
+                            ?.copyWith(color: foregroundColor) ??
+                        TextStyle(color: foregroundColor),
+                  ),
                 ),
               ),
-            ),
-            Icon(
-              Icons.arrow_drop_down,
-              color: foregroundColor,
-            ),
-          ],
+              Icon(
+                icon ?? Icons.arrow_drop_down,
+                color: foregroundColor,
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -91,6 +102,7 @@ class LanguageSelector extends StatelessWidget {
     final BuildContext context, {
     final Iterable<OpenFoodFactsLanguage>? selectedLanguages,
   }) async {
+    final ScrollController scrollController = ScrollController();
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final TextEditingController languageSelectorController =
         TextEditingController();
@@ -126,70 +138,67 @@ class LanguageSelector extends StatelessWidget {
           BuildContext context,
           void Function(VoidCallback fn) setState,
         ) =>
-            SmoothAlertDialog(
-          body: SizedBox(
-            height: MediaQuery.of(context).size.height / 2,
-            width: MediaQuery.of(context).size.width,
-            child: Column(
-              children: <Widget>[
-                SmoothTextFormField(
-                  type: TextFieldTypes.PLAIN_TEXT,
-                  hintText: appLocalizations.search,
-                  prefixIcon: const Icon(Icons.search),
-                  controller: languageSelectorController,
-                  onChanged: (String? query) {
-                    setState(
-                      () {
-                        filteredList = leftovers
-                            .where((OpenFoodFactsLanguage item) =>
-                                _languages
-                                    .getNameInEnglish(item)
-                                    .toLowerCase()
-                                    .contains(query!.toLowerCase()) ||
-                                _languages
-                                    .getNameInLanguage(item)
-                                    .toLowerCase()
-                                    .contains(query.toLowerCase()) ||
-                                item.code.contains(query))
-                            .toList();
-                      },
-                    );
-                  },
+            SmoothListAlertDialog(
+          title: appLocalizations.language_selector_title,
+          header: SmoothTextFormField(
+            type: TextFieldTypes.PLAIN_TEXT,
+            hintText: appLocalizations.search,
+            prefixIcon: const Icon(Icons.search),
+            controller: languageSelectorController,
+            onChanged: (String? query) {
+              query = removeDiacritics(query!.trim().toLowerCase());
+
+              setState(
+                () {
+                  filteredList = leftovers
+                      .where((OpenFoodFactsLanguage item) =>
+                          removeDiacritics(_languages
+                                  .getNameInEnglish(item)
+                                  .toLowerCase())
+                              .contains(query!.toLowerCase()) ||
+                          removeDiacritics(_languages
+                                  .getNameInLanguage(item)
+                                  .toLowerCase())
+                              .contains(query.toLowerCase()) ||
+                          item.code.contains(query))
+                      .toList();
+                },
+              );
+            },
+          ),
+          scrollController: scrollController,
+          list: ListView.separated(
+            controller: scrollController,
+            itemBuilder: (BuildContext context, int index) {
+              final OpenFoodFactsLanguage language = filteredList[index];
+              final String nameInLanguage =
+                  _languages.getNameInLanguage(language);
+              final String nameInEnglish =
+                  _languages.getNameInEnglish(language);
+              final bool selected = selectedLanguages != null &&
+                  selectedLanguages.contains(language);
+              return ListTile(
+                dense: true,
+                trailing: selected ? const Icon(Icons.check) : null,
+                title: TextHighlighter(
+                  text: '$nameInLanguage ($nameInEnglish)',
+                  filter: languageSelectorController.text,
+                  selected: selected,
                 ),
-                Expanded(
-                  child: ListView.builder(
-                    itemBuilder: (BuildContext context, int index) {
-                      final OpenFoodFactsLanguage language =
-                          filteredList[index];
-                      final String nameInLanguage =
-                          _languages.getNameInLanguage(language);
-                      final String nameInEnglish =
-                          _languages.getNameInEnglish(language);
-                      final bool selected = selectedLanguages != null &&
-                          selectedLanguages.contains(language);
-                      return ListTile(
-                        dense: true,
-                        trailing: selected ? const Icon(Icons.check) : null,
-                        title: Text(
-                          '$nameInLanguage ($nameInEnglish)',
-                          softWrap: false,
-                          overflow: TextOverflow.fade,
-                          style: selected
-                              ? const TextStyle(fontWeight: FontWeight.bold)
-                              : null,
-                        ),
-                        onTap: () => Navigator.of(context).pop(language),
-                      );
-                    },
-                    itemCount: filteredList.length,
-                    shrinkWrap: true,
-                  ),
-                ),
-              ],
+                onTap: () => Navigator.of(context).pop(language),
+              );
+            },
+            separatorBuilder: (_, __) => const Divider(
+              height: 1.0,
             ),
+            itemCount: filteredList.length,
+            shrinkWrap: true,
           ),
           positiveAction: SmoothActionButton(
-            onPressed: () => Navigator.of(context).pop(),
+            onPressed: () {
+              languageSelectorController.clear();
+              Navigator.of(context).pop();
+            },
             text: appLocalizations.cancel,
           ),
         ),

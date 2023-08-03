@@ -424,6 +424,10 @@
     "@history_navbar_label": {
         "description": "BottomNavigationBarLabel: For the history and compare mode"
     },
+    "list_navbar_label": "רשימות",
+    "@list_navbar_label": {
+        "description": "BottomNavigationBarLabel: For the lists"
+    },
     "category": "סינון לפי קטגוריה",
     "@category": {
         "description": "From a product list, there's a category filter: this is its title"
@@ -449,7 +453,7 @@
     "@search": {
         "description": "Hint text of a search text input field"
     },
-    "tab_for_more": "נגיעה לצפייה פרטים נוספים…",
+    "tap_for_more": "מידע נוסף יופיע בנגיעה…",
     "@Product": {},
     "product": "מוצר",
     "@product": {},
@@ -533,6 +537,14 @@
     "crop_page_action_local": "גרסה מקומית נשמרת…",
     "@crop_page_action_local": {
         "description": "Action being performed on the crop page"
+    },
+    "crop_page_action_local_failed_title": "אבוי… יש איזה עניין עם התמונה שלך!",
+    "@crop_page_action_local_title": {
+        "description": "The save of the picture locally failed - error dialog message"
+    },
+    "crop_page_action_local_failed_message": "לא הצלחנו לעבד את התמונה מקומית, בטרם שליחתה לשרתינו. נא לנסות שוב מאוחר יותר או ליצור אתנו קשר אם התקלה נמשכת.",
+    "@crop_page_action_local_message": {
+        "description": "The save of the picture locally failed - error dialog message"
     },
     "crop_page_too_small_image_title": "התמונה קטנה מדי!",
     "@crop_page_too_small_image_title": {
@@ -722,7 +734,11 @@
     },
     "country_chooser_label": "נא לבחור מדינה",
     "@country_chooser_label": {
-        "description": "Label shown above a selector where the user can select their country"
+        "description": "Label shown above a selector where the user can select their country (in the onboarding)"
+    },
+    "country_chooser_label_from_settings": "המדינה שלך",
+    "@country_chooser_label_from_settings": {
+        "description": "Label to use in the settings to change the user country"
     },
     "country_selection_explanation": "חלק מהמאפיינים הסביבתיים הם נקודתיים למיקום",
     "@country_label": {
@@ -743,6 +759,10 @@
     "product_removed_history": "המוצר הוסר מההיסטוריה",
     "@product_removed_history": {
         "description": "Product got removed from history"
+    },
+    "product_removed_list": "המוצר הוסר מהרשימה",
+    "@product_removed_list": {
+        "description": "Product got removed from list"
     },
     "product_could_not_remove": "לא ניתן להסיר מוצר",
     "@product_could_not_remove": {
@@ -807,7 +827,7 @@
             "count": {}
         }
     },
-    "compare_products_mode": "השוואה",
+    "compare_products_mode": "השוואת מוצרים",
     "@compare_products_mode": {
         "description": "Button to switch to 'compare products mode'"
     },
@@ -1276,9 +1296,9 @@
     "edit_product_form_item_exit_confirmation": "לשמור את השינויים שלך בטרם יציאה מהעמוד הזה?",
     "edit_product_form_item_exit_confirmation_positive_button": "שמירת שינויים",
     "edit_product_form_item_exit_confirmation_negative_button": "התעלמות מהשינויים",
-    "edit_product_form_item_ingredients_title": "רכיבים ומקורות",
+    "edit_product_form_item_ingredients_title": "רכיבים",
     "@edit_product_form_item_ingredients_title": {
-        "description": "Product edition - Ingredients - Title"
+        "description": "Product edition - Ingredients - Title (note: this section was previously called Ingredients & Origins)"
     },
     "edit_product_form_item_add_valid_item_tooltip": "הוספה",
     "edit_product_form_item_add_invalid_item_tooltip": "נא למלא טקסט תחילה",
@@ -1346,7 +1366,7 @@
     "@user_list_button_new": {
         "description": "Short label of a 'create a new list' button"
     },
-    "user_list_empty_label": "אין עדיין רשימות זמינות,\nעדיף ליצור אחת בתור התחלה",
+    "user_list_empty_label": "אין עדיין רשימות זמינות, עדיף ליצור אחת בתור התחלה",
     "@user_list_empty_label": {
         "description": "Content displayed when there is no list"
     },
@@ -1572,6 +1592,10 @@
     "@dev_mode_scan_scan_half_image": {
         "description": "Scan mode - Scan half image"
     },
+    "search_history_item_edit_tooltip": "שימוש בחיפוש ועריכתו",
+    "@search_history_item_edit_tooltip": {
+        "description": "A tooltip to explain the Pen button near a search term -> it allows to reuse the item"
+    },
     "product_search_no_more_results": "הורדת את כל {totalSize} המוצרים.",
     "@product_search_no_more_results": {
         "description": "Product search list - No more results available",
@@ -1720,6 +1744,10 @@
     "@basic_details_add_error": {
         "description": "Error message when error occurs while submitting basic details"
     },
+    "clear_search": "פינוי החיפוש שלך",
+    "@confirm_clearclear_search": {
+        "description": "Tooltip to explain that the X button clears the content of the search"
+    },
     "confirm_clear": "פעולה זו תרוקן את כל ההיסטוריה שלך, להמשיך?",
     "@confirm_clear": {
         "description": "Asking about whether to clear the history list or not"
@@ -1736,14 +1764,22 @@
             }
         }
     },
-    "confirm_delete_user_list": "פעולה זו תמחק את הרשימה הזאת ({name}), להמשיך?",
-    "@confirm_delete_user_list": {
-        "description": "Asking about whether to delete the list or not",
+    "confirm_delete_user_list_title": "Delete the list?",
+    "@confirm_delete_user_list_title": {
+        "description": "Title when asking about whether to delete the list or not"
+    },
+    "confirm_delete_user_list_message": "You're about to delete the list \"{name}\".\nAre you sure you want to continue?",
+    "@confirm_delete_user_list_message": {
+        "description": "Message when asking about whether to delete the list or not",
         "placeholders": {
             "name": {
                 "type": "String"
             }
         }
+    },
+    "confirm_delete_user_list_button": "Yes, I confirm",
+    "@confirm_delete_user_list_button": {
+        "description": "Button to delete a list"
     },
     "importance_label": "חשיבות {name}: {id}",
     "@importance_label": {
@@ -1764,6 +1800,10 @@
     "user_list_all_empty": "כאן ניתן ליצור את הרשימה הראשונה שלך",
     "@user_list_all_empty": {
         "description": "Small message when there are no user lists"
+    },
+    "product_list_select": "נא לבחור רשימה",
+    "@product_list_select": {
+        "description": "Top title for the selection of a list"
     },
     "user_list_length": "{count,plural, two {שני מוצרים} many {{count} מוצרים} =0{רשימה ריקה} =1{מוצר אחד} other{{count} מוצרים}}",
     "@user_list_length": {
@@ -1879,8 +1919,8 @@
         }
     },
     "clipboard_barcode_copied": "הברקוד {barcode} הועתק ללוח הגזירים!",
-    "choose_app_language": "בחירת שפה ליישומון",
-    "@choose_app_language": {
+    "language_picker_label": "השפה שלך",
+    "@language_picker_label": {
         "description": "Choose Application Language"
     },
     "help_with_openfoodfacts": "עזרה עם OpenFoodFacts",
@@ -1927,9 +1967,49 @@
     "@scan_header_compare_button_valid_state_tooltip": {
         "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is at least two prodiucts"
     },
+    "scan_product_loading": "סרקת את\nהברקוד:",
+    "@scan_product_loading": {
+        "description": "Title when a product is loading (carousel card). Please ensure to keep the line break."
+    },
+    "scan_product_loading_initial": "אנו ממתינים למוצר הזה!\nנא להמתין מספר שניות…",
+    "@scan_product_loading_initial": {
+        "description": "Message when a product is loading (carousel card). Please ensure to keep the line break."
+    },
+    "scan_product_loading_long_request": "אנחנו עדיין מחפשים את המוצר הזה!\nלהערכתך, לוקח לו יותר מדי זמן להיטען? גם אנחנו חושבים כך…",
+    "@scan_product_loading_long_request": {
+        "description": "Message when a product is long to load (carousel card). Please ensure to keep the line break."
+    },
+    "scan_product_loading_unresponsive": "אנחנו עדיין מחפשים את המוצר הזה.\nלהפעיל את החיפוש מחדש?",
+    "@scan_product_loading_unresponsive": {
+        "description": "Message when a product is too long to load (carousel card). Please ensure to keep the line break."
+    },
+    "scan_product_loading_restart_button": "לחפש מחדש",
+    "@scan_product_loading_restart_button": {
+        "description": "Button to force restart a product search"
+    },
     "portion_calculator_description": "חישוב עובדות תזונתיות לכמות מסוימת",
     "@portion_calculator_description": {
         "description": "Sort of title that describes the portion calculator."
+    },
+    "portion_calculator_hint": "כמות בתוך",
+    "@portion_calculator_hint": {
+        "description": "Hint to show when a quantity is empty in the portion calculator."
+    },
+    "portion_calculator_accessibility": "יש למלא כמות כדי לחשב את העובדות התזונתיות",
+    "@portion_calculator_accessibility": {
+        "description": "Hint for the acessibility to explain to enter a quantity."
+    },
+    "portion_calculator_error": "נא למלא כמות בין {min} ל־{max} גרם",
+    "@portion_calculator_error": {
+        "description": "Error message to explain that the quantity is invalid.",
+        "placeholders": {
+            "min": {
+                "type": "int"
+            },
+            "max": {
+                "type": "int"
+            }
+        }
     },
     "portion_calculator_result_title": "עובדות תזונתיות ל־{grams} ג׳ (או מ״ל)",
     "@portion_calculator_result_title": {
@@ -2268,5 +2348,25 @@
                 "type": "int"
             }
         }
+    },
+    "country_selector_title": "נא לבחור את המדינה שלך:",
+    "@country_selector_title": {
+        "description": "Label written as the title of the dialog to select the user country"
+    },
+    "action_delete_list": "מחיקה",
+    "@action_delete_list": {
+        "description": "Delete a list action in a menu"
+    },
+    "action_change_list": "Change the current list",
+    "@action_change_list": {
+        "description": "Action to change the current visible list"
+    },
+    "product_list_create": "יצירה",
+    "@product_list_create": {
+        "description": "Button label to create a new list (short word)"
+    },
+    "product_list_create_tooltip": "יצירת רשימה חדשה",
+    "@product_list_create_tooltip": {
+        "description": "Button description to create a new list (long sentence)"
     }
 }

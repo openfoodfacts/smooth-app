@@ -23,6 +23,16 @@ class ProductTitleCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Widget title = _ProductTitleCardTrailing(
+      removable: isRemovable,
+      selectable: isSelectable,
+      onRemove: onRemove,
+    );
+
+    if (!(isRemovable && !isSelectable)) {
+      title = Expanded(child: title);
+    }
+
     return Provider<Product>.value(
       value: product,
       child: Align(
@@ -38,13 +48,7 @@ class ProductTitleCard extends StatelessWidget {
                     selectable: isSelectable,
                   ),
                 ),
-                Expanded(
-                  child: _ProductTitleCardTrailing(
-                    removable: isRemovable,
-                    selectable: isSelectable,
-                    onRemove: onRemove,
-                  ),
-                )
+                title,
               ],
             ),
             _ProductTitleCardBrand(
@@ -130,7 +134,7 @@ class _ProductTitleCardTrailing extends StatelessWidget {
 
     if (removable && !selectable) {
       return Align(
-        alignment: Alignment.centerRight,
+        alignment: AlignmentDirectional.centerEnd,
         child: ProductCardCloseButton(
           onRemove: onRemove,
         ),

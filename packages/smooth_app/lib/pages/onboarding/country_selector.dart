@@ -1,3 +1,4 @@
+import 'package:diacritic/diacritic.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -9,20 +10,27 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/widgets/smooth_text.dart';
 
 /// A selector for selecting user's country.
 class CountrySelector extends StatefulWidget {
   const CountrySelector({
     this.textStyle,
+    this.padding,
+    this.icon,
   });
 
   final TextStyle? textStyle;
+  final EdgeInsetsGeometry? padding;
+  final IconData? icon;
 
   @override
   State<CountrySelector> createState() => _CountrySelectorState();
 }
 
 class _CountrySelectorState extends State<CountrySelector> {
+  final ScrollController _scrollController = ScrollController();
+  final TextEditingController _countryController = TextEditingController();
   late List<Country> _countryList;
   late Future<void> _initFuture;
 
@@ -55,7 +63,6 @@ class _CountrySelectorState extends State<CountrySelector> {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final TextEditingController countryController = TextEditingController();
     return FutureBuilder<void>(
       future: _initFuture,
       builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
@@ -80,89 +87,73 @@ class _CountrySelectorState extends State<CountrySelector> {
                 return StatefulBuilder(
                   builder: (BuildContext context,
                       void Function(VoidCallback fn) setState) {
-                    return SmoothAlertDialog(
-                      contentPadding: const EdgeInsets.symmetric(
-                        horizontal: 0.0,
-                        vertical: SMALL_SPACE,
+                    const double horizontalPadding = 16.0 + SMALL_SPACE;
+
+                    return SmoothListAlertDialog(
+                      title: appLocalizations.country_selector_title,
+                      header: SmoothTextFormField(
+                        type: TextFieldTypes.PLAIN_TEXT,
+                        prefixIcon: const Icon(Icons.search),
+                        controller: _countryController,
+                        onChanged: (String? query) {
+                          query = removeDiacritics(query!.trim().toLowerCase());
+
+                          setState(
+                            () {
+                              filteredList = _countryList
+                                  .where(
+                                    (Country item) =>
+                                        removeDiacritics(
+                                                item.name.toLowerCase())
+                                            .contains(
+                                          query!,
+                                        ) ||
+                                        removeDiacritics(
+                                                item.countryCode.toLowerCase())
+                                            .contains(
+                                          query,
+                                        ),
+                                  )
+                                  .toList(growable: false);
+                            },
+                          );
+                        },
+                        hintText: appLocalizations.search,
                       ),
-                      body: SizedBox(
-                        height: MediaQuery.of(context).size.height / 2,
-                        width: MediaQuery.of(context).size.width,
-                        child: Column(
-                          children: <Widget>[
-                            Padding(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: SMALL_SPACE,
-                              ),
-                              child: SmoothTextFormField(
-                                type: TextFieldTypes.PLAIN_TEXT,
-                                prefixIcon: const Icon(Icons.search),
-                                controller: countryController,
-                                onChanged: (String? query) {
-                                  setState(
-                                    () {
-                                      filteredList = _countryList
-                                          .where(
-                                            (Country item) =>
-                                                item.name
-                                                    .toLowerCase()
-                                                    .contains(
-                                                      query!.toLowerCase(),
-                                                    ) ||
-                                                item.countryCode
-                                                    .toLowerCase()
-                                                    .contains(
-                                                      query.toLowerCase(),
-                                                    ),
-                                          )
-                                          .toList(growable: false);
-                                    },
-                                  );
-                                },
-                                hintText: appLocalizations.search,
-                              ),
+                      scrollController: _scrollController,
+                      list: ListView.separated(
+                        controller: _scrollController,
+                        itemBuilder: (BuildContext context, int index) {
+                          final Country country = filteredList[index];
+                          final bool selected = country == selectedCountry;
+                          return ListTile(
+                            dense: true,
+                            contentPadding: const EdgeInsets.symmetric(
+                              horizontal: horizontalPadding,
                             ),
-                            Expanded(
-                              child: Scrollbar(
-                                child: ListView.builder(
-                                  itemBuilder:
-                                      (BuildContext context, int index) {
-                                    final Country country = filteredList[index];
-                                    final bool selected =
-                                        country == selectedCountry;
-                                    return ListTile(
-                                      dense: true,
-                                      contentPadding:
-                                          const EdgeInsets.symmetric(
-                                        horizontal: 16.0 + SMALL_SPACE,
-                                      ),
-                                      trailing: selected
-                                          ? const Icon(Icons.check)
-                                          : null,
-                                      title: Text(
-                                        country.name,
-                                        softWrap: false,
-                                        overflow: TextOverflow.fade,
-                                        style: selected
-                                            ? const TextStyle(
-                                                fontWeight: FontWeight.bold,
-                                              )
-                                            : null,
-                                      ),
-                                      onTap: () =>
-                                          Navigator.of(context).pop(country),
-                                    );
-                                  },
-                                  itemCount: filteredList.length,
-                                  shrinkWrap: true,
-                                ),
-                              ),
-                            )
-                          ],
+                            trailing: selected ? const Icon(Icons.check) : null,
+                            title: TextHighlighter(
+                              text: country.name,
+                              filter: _countryController.text,
+                              selected: selected,
+                            ),
+                            onTap: () {
+                              Navigator.of(context).pop(country);
+                              _countryController.clear();
+                            },
+                          );
+                        },
+                        separatorBuilder: (_, __) => const Divider(
+                          height: 1.0,
                         ),
+                        itemCount: filteredList.length,
+                        shrinkWrap: true,
                       ),
                       positiveAction: SmoothActionButton(
-                        onPressed: () => Navigator.pop(context),
+                        onPressed: () {
+                          Navigator.pop(context);
+                          _countryController.clear();
+                        },
                         text: appLocalizations.cancel,
                       ),
                     );
@@ -183,7 +174,7 @@ class _CountrySelectorState extends State<CountrySelector> {
             ),
             padding: const EdgeInsets.symmetric(
               vertical: SMALL_SPACE,
-            ),
+            ).add(widget.padding ?? EdgeInsets.zero),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -201,7 +192,7 @@ class _CountrySelectorState extends State<CountrySelector> {
                     ),
                   ),
                 ),
-                const Icon(Icons.arrow_drop_down),
+                Icon(widget.icon ?? Icons.arrow_drop_down),
               ],
             ),
           ),
@@ -295,5 +286,11 @@ class _CountrySelectorState extends State<CountrySelector> {
         return a.name.compareTo(b.name);
       },
     );
+  }
+
+  @override
+  void dispose() {
+    _countryController.dispose();
+    super.dispose();
   }
 }

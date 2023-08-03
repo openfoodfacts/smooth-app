@@ -19,6 +19,7 @@ class SmoothCard extends StatelessWidget {
     this.padding = const EdgeInsets.all(5.0),
     this.elevation = 8,
     this.borderRadius,
+    this.ignoreDefaultSemantics = false,
   });
 
   const SmoothCard.angular({
@@ -30,6 +31,7 @@ class SmoothCard extends StatelessWidget {
     ),
     this.padding = const EdgeInsets.all(5.0),
     this.elevation = 8,
+    this.ignoreDefaultSemantics = false,
   }) : borderRadius = ANGULAR_BORDER_RADIUS;
 
   const SmoothCard.flat({
@@ -44,6 +46,7 @@ class SmoothCard extends StatelessWidget {
     this.padding = const EdgeInsets.all(5.0),
     this.elevation = 0,
     this.borderRadius,
+    this.ignoreDefaultSemantics = false,
   });
 
   final Widget child;
@@ -52,10 +55,24 @@ class SmoothCard extends StatelessWidget {
   final EdgeInsetsGeometry? padding;
   final BorderRadiusGeometry? borderRadius;
   final double elevation;
+  final bool ignoreDefaultSemantics;
 
   @override
   Widget build(BuildContext context) {
-    final Widget result = Material(
+    Widget result = Container(
+      padding: padding,
+      child: child,
+    );
+
+    if (ignoreDefaultSemantics) {
+      result = Semantics(
+        container: false,
+        explicitChildNodes: true,
+        child: child,
+      );
+    }
+
+    result = Material(
       elevation: elevation,
       shadowColor: const Color.fromARGB(25, 0, 0, 0),
       borderRadius: borderRadius ?? ROUNDED_BORDER_RADIUS,
@@ -63,11 +80,9 @@ class SmoothCard extends StatelessWidget {
           (Theme.of(context).brightness == Brightness.light
               ? Colors.white
               : Colors.black),
-      child: Container(
-        padding: padding,
-        child: child,
-      ),
+      child: result,
     );
+
     return margin == null
         ? result
         : Padding(

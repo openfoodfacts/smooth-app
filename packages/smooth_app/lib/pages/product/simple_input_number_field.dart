@@ -39,7 +39,7 @@ class SimpleInputNumberField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Padding(
-        padding: const EdgeInsets.only(left: LARGE_SPACE),
+        padding: const EdgeInsetsDirectional.only(start: LARGE_SPACE),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,

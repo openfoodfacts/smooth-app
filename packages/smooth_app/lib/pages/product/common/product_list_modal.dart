@@ -7,39 +7,46 @@ import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_list.dart';
+import 'package:smooth_app/data_models/up_to_date_product_list_mixin.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/generic_lib/buttons/smooth_simple_button.dart';
+import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_bottom_sheet.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_responsive.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
-import 'package:smooth_app/pages/inherited_data_manager.dart';
+import 'package:smooth_app/pages/all_product_list_page.dart';
+import 'package:smooth_app/pages/carousel_manager.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/pages/product/common/product_list_item_simple.dart';
 import 'package:smooth_app/pages/product/common/product_list_popup_items.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
+import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
+/// Displays the products of a product list, with access to other lists.
 class ProductListPage extends StatefulWidget {
-  const ProductListPage(this.productList);
+  const ProductListPage(
+    this.productList, {
+    this.allowToSwitchBetweenLists = true,
+  });
 
   final ProductList productList;
+  final bool allowToSwitchBetweenLists;
 
   @override
   State<ProductListPage> createState() => _ProductListPageState();
 }
 
 class _ProductListPageState extends State<ProductListPage>
-    with TraceableClientMixin {
-  late ProductList productList;
+    with TraceableClientMixin, UpToDateProductListMixin {
   final Set<String> _selectedBarcodes = <String>{};
   bool _selectionMode = false;
 
@@ -52,19 +59,13 @@ class _ProductListPageState extends State<ProductListPage>
   @override
   void initState() {
     super.initState();
-    productList = widget.productList;
+    initUpToDate(widget.productList, context.read<LocalDatabase>());
   }
 
   final ProductListPopupItem _rename = ProductListPopupRename();
   final ProductListPopupItem _clear = ProductListPopupClear();
   final ProductListPopupItem _openInWeb = ProductListPopupOpenInWeb();
   final ProductListPopupItem _share = ProductListPopupShare();
-  final ProductListPopupList _listScanSession =
-      ProductListPopupList(ProductList.scanSession());
-  final ProductListPopupList _listScanHistory =
-      ProductListPopupList(ProductList.scanHistory());
-  final ProductListPopupList _listHistory =
-      ProductListPopupList(ProductList.history());
 
   //returns bool to handle WillPopScope
   Future<bool> _handleUserBacktap() async {
@@ -87,8 +88,21 @@ class _ProductListPageState extends State<ProductListPage>
     final DaoProductList daoProductList = DaoProductList(localDatabase);
     final ThemeData themeData = Theme.of(context);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    refreshUpToDate();
+
+    /// If we were on a user list, but it has been deleted, we switch to history
+    if (!daoProductList.exist(productList) &&
+        productList.listType == ProductListType.USER) {
+      WidgetsBinding.instance.addPostFrameCallback((_) => setState(
+            () => productList = ProductList.history(),
+          ));
+
+      return EMPTY_WIDGET;
+    }
+
     final List<String> products = productList.getList();
     final bool dismissible;
+
     switch (productList.listType) {
       case ProductListType.SCAN_SESSION:
       case ProductListType.SCAN_HISTORY:
@@ -114,7 +128,7 @@ class _ProductListPageState extends State<ProductListPage>
               icon: const Icon(CupertinoIcons.barcode),
               label: Text(appLocalizations.product_list_empty_title),
               onPressed: () =>
-                  InheritedDataManager.of(context).resetShowSearchCard(true),
+                  ExternalCarouselManager.read(context).showSearchCard(),
             )
           : _selectionMode || products.length <= 1
               ? _CompareProductsButton(
@@ -130,87 +144,65 @@ class _ProductListPageState extends State<ProductListPage>
                   icon: const Icon(Icons.compare_arrows),
                 ),
       appBar: SmoothAppBar(
-        centerTitle: _selectionMode ? false : null,
-        actions: !(enableClear || enableRename)
-            ? null
-            : <Widget>[
-                IconButton(
-                  icon: const Icon(CupertinoIcons.square_list),
-                  onPressed: () async {
-                    final ProductListPopupItem? action =
-                        await showSmoothModalSheet<ProductListPopupItem>(
-                      context: context,
-                      builder: (final BuildContext context) {
-                        final List<Widget> children = <Widget>[];
-                        final List<ProductListPopupList> orderedItems =
-                            <ProductListPopupList>[
-                          _listScanSession,
-                          _listScanHistory,
-                          _listHistory,
-                        ];
-                        // do not add the same type
-                        for (final ProductListPopupList item in orderedItems) {
-                          if (item.newProductList.listType !=
-                              productList.listType) {
-                            children.add(
-                              SmoothSimpleButton(
-                                child: Text(item.getTitle(appLocalizations)),
-                                onPressed: () =>
-                                    Navigator.of(context).pop(item),
-                              ),
-                            );
-                          }
-                        }
-                        return SmoothModalSheet(
-                          closeButton: true,
-                          title: appLocalizations.list_navbar_label,
-                          body: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.stretch,
-                            children: children,
-                          ),
-                        );
-                      },
-                    );
-                    if (action == null) {
-                      return;
-                    }
-                    if (context.mounted) {
-                      final ProductList? differentProductList =
-                          await action.doSomething(
-                        productList: productList,
-                        localDatabase: localDatabase,
-                        context: context,
-                      );
-                      if (context.mounted) {
-                        if (differentProductList != null) {
-                          setState(() => productList = differentProductList);
-                        }
-                      }
-                    }
-                  },
-                ),
-                PopupMenuButton<ProductListPopupItem>(
-                  onSelected: (final ProductListPopupItem action) async {
-                    final ProductList? differentProductList =
-                        await action.doSomething(
-                      productList: productList,
-                      localDatabase: localDatabase,
-                      context: context,
-                    );
-                    if (differentProductList != null) {
-                      setState(() => productList = differentProductList);
-                    }
-                  },
-                  itemBuilder: (BuildContext context) =>
-                      <PopupMenuEntry<ProductListPopupItem>>[
-                    if (enableRename) _rename.getMenuItem(appLocalizations),
-                    _share.getMenuItem(appLocalizations),
-                    _openInWeb.getMenuItem(appLocalizations),
-                    if (enableClear) _clear.getMenuItem(appLocalizations),
-                  ],
-                ),
-              ],
+        centerTitle: false,
+        actions: <Widget>[
+          if (widget.allowToSwitchBetweenLists)
+            IconButton(
+              icon: const Icon(CupertinoIcons.square_list),
+              tooltip: appLocalizations.action_change_list,
+              onPressed: () async {
+                final ProductList? selected =
+                    await showSmoothDraggableModalSheet<ProductList>(
+                  context: context,
+                  header: SmoothModalSheetHeader(
+                    title: appLocalizations.product_list_select,
+                    suffix: SmoothModalSheetHeaderButton(
+                      label: appLocalizations.product_list_create,
+                      prefix: const Icon(Icons.add_circle_outline_sharp),
+                      tooltip: appLocalizations.product_list_create_tooltip,
+                      onTap: () async =>
+                          ProductListUserDialogHelper(daoProductList)
+                              .showCreateUserListDialog(context),
+                    ),
+                  ),
+                  bodyBuilder: (BuildContext context) => AllProductListModal(
+                    currentList: productList,
+                  ),
+                  initHeight: _computeModalInitHeight(context),
+                );
+
+                if (selected == null) {
+                  return;
+                }
+                if (context.mounted) {
+                  await daoProductList.get(selected);
+                  if (context.mounted) {
+                    setState(() => productList = selected);
+                  }
+                }
+              },
+            ),
+          PopupMenuButton<ProductListPopupItem>(
+            onSelected: (final ProductListPopupItem action) async {
+              final ProductList? differentProductList =
+                  await action.doSomething(
+                productList: productList,
+                localDatabase: localDatabase,
+                context: context,
+              );
+              if (differentProductList != null) {
+                setState(() => productList = differentProductList);
+              }
+            },
+            itemBuilder: (BuildContext context) =>
+                <PopupMenuEntry<ProductListPopupItem>>[
+              if (enableRename) _rename.getMenuItem(appLocalizations),
+              _share.getMenuItem(appLocalizations),
+              _openInWeb.getMenuItem(appLocalizations),
+              if (enableClear) _clear.getMenuItem(appLocalizations),
+            ],
+          ),
+        ],
         title: AutoSizeText(
           ProductQueryPageHelper.getProductListLabel(
             productList,
@@ -235,7 +227,8 @@ class _ProductListPageState extends State<ProductListPage>
                   builder: (BuildContext context) {
                     return SmoothAlertDialog(
                       body: Container(
-                        padding: const EdgeInsets.only(left: SMALL_SPACE),
+                        padding: const EdgeInsetsDirectional.only(
+                            start: SMALL_SPACE),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
@@ -295,25 +288,27 @@ class _ProductListPageState extends State<ProductListPage>
         ],
       ),
       body: products.isEmpty
-          ? Padding(
-              padding: const EdgeInsets.all(SMALL_SPACE),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: <Widget>[
-                  SvgPicture.asset(
-                    'assets/misc/empty-list.svg',
-                    package: AppHelper.APP_PACKAGE,
-                    width: MediaQuery.of(context).size.width / 2,
-                  ),
-                  Text(
-                    appLocalizations.product_list_empty_message,
-                    textAlign: TextAlign.center,
-                    style: themeData.textTheme.bodyMedium?.apply(
-                      color: themeData.colorScheme.onBackground,
+          ? Center(
+              child: Padding(
+                padding: const EdgeInsets.all(SMALL_SPACE),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: <Widget>[
+                    SvgPicture.asset(
+                      'assets/misc/empty-list.svg',
+                      package: AppHelper.APP_PACKAGE,
+                      width: MediaQuery.of(context).size.width / 2,
                     ),
-                  ),
-                  EMPTY_WIDGET,
-                ],
+                    Text(
+                      appLocalizations.product_list_empty_message,
+                      textAlign: TextAlign.center,
+                      style: themeData.textTheme.bodyMedium?.apply(
+                        color: themeData.colorScheme.onBackground,
+                      ),
+                    ),
+                    EMPTY_WIDGET,
+                  ],
+                ),
               ),
             )
           : WillPopScope(
@@ -342,6 +337,16 @@ class _ProductListPageState extends State<ProductListPage>
     );
   }
 
+  double _computeModalInitHeight(BuildContext context) {
+    if (context.isSmallDevice()) {
+      return 0.7;
+    } else if (context.isSmartphoneDevice()) {
+      return 0.55;
+    } else {
+      return 0.45;
+    }
+  }
+
   Widget _buildItem(
     final bool dismissible,
     final List<String> barcodes,
@@ -363,8 +368,8 @@ class _ProductListPageState extends State<ProductListPage>
     final Widget child = InkWell(
       onTap: _selectionMode ? onTap : null,
       child: Container(
-        padding: EdgeInsets.only(
-          left: _selectionMode ? SMALL_SPACE : 0,
+        padding: EdgeInsetsDirectional.only(
+          start: _selectionMode ? SMALL_SPACE : 0,
         ),
         child: Row(
           children: <Widget>[
@@ -396,7 +401,7 @@ class _ProductListPageState extends State<ProductListPage>
       return Dismissible(
         direction: DismissDirection.endToStart,
         background: Container(
-          alignment: Alignment.centerRight,
+          alignment: AlignmentDirectional.centerEnd,
           margin: const EdgeInsets.symmetric(vertical: 14),
           color: RED_COLOR,
           padding: const EdgeInsetsDirectional.only(end: 30),

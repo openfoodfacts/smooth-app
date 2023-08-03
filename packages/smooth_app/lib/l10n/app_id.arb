@@ -64,23 +64,23 @@
     "@unknown": {
         "description": "Short label for product list view: the compatibility of that product with your preferences is unknown"
     },
-    "match_very_good": "Very good match",
+    "match_very_good": "Sangat sesuai",
     "@match_very_good": {
         "description": "Label for product page regarding product compatibility with the user preferences: very good match"
     },
-    "match_good": "Good match",
+    "match_good": "Sesuai",
     "@match_good": {
         "description": "Label for product page regarding product compatibility with the user preferences: good match"
     },
-    "match_poor": "Poor match",
+    "match_poor": "Buruk",
     "@match_poor": {
         "description": "Label for product page regarding product compatibility with the user preferences: poor match"
     },
-    "match_may_not": "May not match",
+    "match_may_not": "Mungkin tidak sesuai",
     "@match_may_not": {
         "description": "Label for product page regarding product compatibility with the user preferences: may not match"
     },
-    "match_does_not": "Does not match",
+    "match_does_not": "Tidak sesuai",
     "@match_does_not": {
         "description": "Label for product page regarding product compatibility with the user preferences: does not match"
     },
@@ -88,23 +88,23 @@
     "@match_unknown": {
         "description": "Label for product page regarding product compatibility with the user preferences: unknown match"
     },
-    "match_short_very_good": "Very good match",
+    "match_short_very_good": "Sangat sesuai",
     "@match_short_very_good": {
         "description": "Short label for product list view regarding product compatibility with the user preferences: very good match"
     },
-    "match_short_good": "Good match",
+    "match_short_good": "Sesuai",
     "@match_short_good": {
         "description": "Short label for product list view regarding product compatibility with the user preferences: good match"
     },
-    "match_short_poor": "Poor match",
+    "match_short_poor": "Buruk",
     "@match_short_poor": {
         "description": "Short label for product list view regarding product compatibility with the user preferences: poor match"
     },
-    "match_short_may_not": "May not match",
+    "match_short_may_not": "Mungkin tidak sesuai",
     "@match_short_may_not": {
         "description": "Short label for product list view regarding product compatibility with the user preferences: may not match"
     },
-    "match_short_does_not": "Does not match",
+    "match_short_does_not": "Tidak sesuai",
     "@match_short_does_not": {
         "description": "Short label for product list view regarding product compatibility with the user preferences: does not match"
     },
@@ -350,11 +350,11 @@
     "@tap_to_answer": {
         "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
     },
-    "tap_to_answer_hint": "Tap here to answer questions about this product",
+    "tap_to_answer_hint": "Ketuk di sini untuk menjawab pertanyaan terkait produk ",
     "@tap_to_answer_hint": {
         "description": "Hint for accessibility readers to answer Robotoff questions."
     },
-    "robotoff_questions_loading_hint": "Please wait while questions about this product are loaded",
+    "robotoff_questions_loading_hint": "Harap tunggu sejenak selagi informasi produk dimuat",
     "@robotoff_questions_loading_hint": {
         "description": "Hint for accessibility readers while Robotoff questions are loaded"
     },
@@ -424,6 +424,10 @@
     "@history_navbar_label": {
         "description": "BottomNavigationBarLabel: For the history and compare mode"
     },
+    "list_navbar_label": "Daftar",
+    "@list_navbar_label": {
+        "description": "BottomNavigationBarLabel: For the lists"
+    },
     "category": "Saring berdasarkan kategori",
     "@category": {
         "description": "From a product list, there's a category filter: this is its title"
@@ -449,7 +453,7 @@
     "@search": {
         "description": "Hint text of a search text input field"
     },
-    "tab_for_more": "Ketuk untuk lihat info selengkapnya…",
+    "tap_for_more": "Ketuk untuk lihat info selengkapnya…",
     "@Product": {},
     "product": "Produk",
     "@product": {},
@@ -506,7 +510,7 @@
     "@new_product_dialog_title": {
         "description": "Please keep it short, like 50 characters. Title of the dialog when the user searched for an unknown barcode."
     },
-    "new_product_leave_message": "It looks like you didn't input anything. Do you really want to leave this page?",
+    "new_product_leave_message": "Anda tidak memasukan informasi apapun, apakah Anda yakin ingin meninggalkan halaman ini?",
     "@new_product_leave_message": {
         "description": "Alert dialog message when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
     },
@@ -533,6 +537,14 @@
     "crop_page_action_local": "Menyimpan versi lokal…",
     "@crop_page_action_local": {
         "description": "Action being performed on the crop page"
+    },
+    "crop_page_action_local_failed_title": "Ups... ada yang salah dengan foto Anda!",
+    "@crop_page_action_local_title": {
+        "description": "The save of the picture locally failed - error dialog message"
+    },
+    "crop_page_action_local_failed_message": "Kami tidak dapat memproses gambar pada perangkat, sebelum mengirimkannya ke server kami. Harap coba lagi nanti atau hubungi kami jika masalah berlanjut.",
+    "@crop_page_action_local_message": {
+        "description": "The save of the picture locally failed - error dialog message"
     },
     "crop_page_too_small_image_title": "Gambar terlalu kecil!",
     "@crop_page_too_small_image_title": {
@@ -576,17 +588,17 @@
     "@nutritional_facts_photo_button_label": {},
     "nutritional_facts_input_button_label": "Masukkan informasi nilai gizi",
     "nutritional_facts_added": "Informasi nilai gizi ditambahkan",
-    "categories_added": "Categories added",
+    "categories_added": "Kategori ditambahkan",
     "new_product_title_nutriscore": "Compute the Nutri-Score",
-    "new_product_subtitle_nutriscore": "Get it by filling the food category and nutritional values",
+    "new_product_subtitle_nutriscore": "Dapatkan dengan mengisi kategori makanan dan nilai gizi",
     "new_product_title_ecoscore": "Compute the Eco-Score",
-    "new_product_subtitle_ecoscore": "Get it by filling at least a category",
+    "new_product_subtitle_ecoscore": "Dapatkan dengan mengisi minimal satu kategori",
     "new_product_additional_ecoscore": "Membuat perhitungan Eco-Score lebih akurat dengan keaslian, kemasan dan lainnya",
     "new_product_title_nova": "Compute the food processing level (NOVA)",
-    "new_product_subtitle_nova": "Get it by filling the food category and ingredients",
+    "new_product_subtitle_nova": "Dapatkan dengan mengisi kategori makanan dan bahan makanan",
     "new_product_desc_nova_unknown": "Tingkat pemrosesan makanan tidak diketahui",
-    "new_product_title_pictures": "Let's take some pictures!",
-    "new_product_title_misc": "And some basic data…",
+    "new_product_title_pictures": "Ambil beberapa foto!",
+    "new_product_title_misc": "Dan beberapa informasi dasar…",
     "hey_incomplete_product_message": "Ketuk untuk menjawab 3 pertanyaan SEKARANG untuk menghitung Nutri-Score, Eco-Score & Ultra-processing (NOVA)!",
     "nutritional_facts_photo_uploaded": "Foto informasi nilai gizi telah diunggah",
     "@nutritional_facts_photo_uploaded": {},
@@ -672,7 +684,7 @@
     "@deprecated_header": {
         "description": "Confirmation, that the user can upgrade to new version of the app"
     },
-    "click_here": "Click here",
+    "click_here": "Klik di sini",
     "@click_here": {
         "description": "Confirmation click to download new version of the app"
     },
@@ -722,7 +734,11 @@
     },
     "country_chooser_label": "Silakan pilih negara",
     "@country_chooser_label": {
-        "description": "Label shown above a selector where the user can select their country"
+        "description": "Label shown above a selector where the user can select their country (in the onboarding)"
+    },
+    "country_chooser_label_from_settings": "Negara Anda",
+    "@country_chooser_label_from_settings": {
+        "description": "Label to use in the settings to change the user country"
     },
     "country_selection_explanation": "Beberapa fitur lingkungan bersifat khusus tergantung lokasi",
     "@country_label": {
@@ -736,13 +752,17 @@
     "@native_app_settings": {
         "description": "Native App Settings in app settings"
     },
-    "native_app_description": "Open systems settings for Open Food Facts",
+    "native_app_description": "Pengaturan sistem terbuka untuk Open Food Facts",
     "@native_app_description": {
         "description": "Native App description in app settings"
     },
     "product_removed_history": "Produk telah dihapus dari riwayat",
     "@product_removed_history": {
         "description": "Product got removed from history"
+    },
+    "product_removed_list": "Produk telah dihapus dari daftar",
+    "@product_removed_list": {
+        "description": "Product got removed from list"
     },
     "product_could_not_remove": "Tidak dapat menghapus produk",
     "@product_could_not_remove": {
@@ -807,7 +827,7 @@
             "count": {}
         }
     },
-    "compare_products_mode": "Bandingkan",
+    "compare_products_mode": "Bandingkan produk - produk",
     "@compare_products_mode": {
         "description": "Button to switch to 'compare products mode'"
     },
@@ -827,7 +847,7 @@
     "twitter_link": "https://www.twitter.com/openfoodfacts",
     "blog": "Blog",
     "faq": "FAQ",
-    "discover": "Temukan",
+    "discover": "Jelajahi",
     "how_to_contribute": "Cara Berkontribusi",
     "hint_knowledge_panel_message": "Anda dapat mengetuk bagian mana pun kartu untuk mendapatkan keterangan lebih lanjut tentang apa yang Anda lihat. Coba sekarang!",
     "@hint_knowledge_panel_message": {
@@ -939,7 +959,7 @@
     "@ask_me_later": {
         "description": "Button to ignore the camera permission request"
     },
-    "are_you_sure": "Are you sure?",
+    "are_you_sure": "Apakah Anda yakin?",
     "@are_you_sure": {
         "description": "Are you sure?"
     },
@@ -976,7 +996,7 @@
     "@product_list_icon_desc": {
         "description": "When the history list is empty, icon description (for accessibility) of the message explaining to start scanning"
     },
-    "product_list_empty_title": "Start scanning",
+    "product_list_empty_title": "Mulai memindai",
     "@product_list_empty_title": {
         "description": "When the history list is empty, title of the message explaining to start scanning"
     },
@@ -1010,7 +1030,7 @@
     "@account_delete": {
         "description": "Delete account button (user profile)"
     },
-    "account_deletion_subject": "Delete my account",
+    "account_deletion_subject": "Hapus akun saya",
     "@account_deletion_subject": {
         "description": "Subject of the webview open when the user wants to delete his account"
     },
@@ -1120,7 +1140,7 @@
     "permission_photo_denied_dialog_settings_message": "Karena sebelumnya Anda telah menolak izin kamera, Anda harus mengizinkannya secara manual dari Pengaturan.",
     "permission_photo_denied_dialog_settings_button_open": "Buka pengaturan",
     "permission_photo_denied_dialog_settings_button_cancel": "Batalkan",
-    "permission_photo_none_found": "No camera detected",
+    "permission_photo_none_found": "Kamera tidak terdeksi",
     "@permission_photo_none_found": {
         "description": "Message for the user when no camera was detected, replacing the barcode scanner"
     },
@@ -1153,7 +1173,7 @@
     "@edit_product_form_item_details_subtitle": {
         "description": "Product edition - Basic Details - Subtitle"
     },
-    "edit_product_form_item_other_details_title": "Additional details",
+    "edit_product_form_item_other_details_title": "Detail tambahan",
     "@edit_product_form_item_other_details_title": {
         "description": "Product edition - Other Details - Title"
     },
@@ -1274,15 +1294,15 @@
         "description": "Product edition - Categories - input explainer, part 3"
     },
     "edit_product_form_item_exit_confirmation": "Apa Anda ingin menyimpan perubahan sebelum meninggalkan halaman ini?",
-    "edit_product_form_item_exit_confirmation_positive_button": "Save changes",
-    "edit_product_form_item_exit_confirmation_negative_button": "Discard changes",
-    "edit_product_form_item_ingredients_title": "Bahan & Asal",
+    "edit_product_form_item_exit_confirmation_positive_button": "Simpan perubahan",
+    "edit_product_form_item_exit_confirmation_negative_button": "Batalkan perubahan",
+    "edit_product_form_item_ingredients_title": "bahan",
     "@edit_product_form_item_ingredients_title": {
-        "description": "Product edition - Ingredients - Title"
+        "description": "Product edition - Ingredients - Title (note: this section was previously called Ingredients & Origins)"
     },
     "edit_product_form_item_add_valid_item_tooltip": "Tambahkan",
-    "edit_product_form_item_add_invalid_item_tooltip": "Please enter a text first",
-    "edit_product_form_item_remove_item_tooltip": "Remove",
+    "edit_product_form_item_add_invalid_item_tooltip": "Harap masukkan teks",
+    "edit_product_form_item_remove_item_tooltip": "Hapus",
     "edit_product_form_item_packaging_title": "Recycling instructions photo",
     "@edit_product_form_item_packaging_title": {
         "description": "Product edition - Packaging - Title"
@@ -1299,7 +1319,7 @@
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
     },
-    "product_field_website_title": "Website",
+    "product_field_website_title": "Situs Web",
     "@product_field_website_title": {
         "description": "Title of a product field: website"
     },
@@ -1322,31 +1342,31 @@
     "@edit_packaging_refresh_photo_btn_text": {
         "description": "Packaging edition - Refresh photo"
     },
-    "edit_ocr_extract_failed": "Failed to detect text in image.",
+    "edit_ocr_extract_failed": "Gagal mendeteksi teks dalam gambar.",
     "@edit_ocr_extract_failed": {
         "description": "OCR extraction - message for failed"
     },
-    "user_list_dialog_new_title": "New list of products",
+    "user_list_dialog_new_title": "Daftar produk baru",
     "@user_list_dialog_new_title": {
         "description": "Title of the 'new user list' dialog"
     },
-    "user_list_dialog_rename_title": "Rename list",
+    "user_list_dialog_rename_title": "Ubah nama daftar",
     "@user_list_dialog_rename_title": {
         "description": "Title of the 'rename user list' dialog"
     },
-    "user_list_subtitle_product": "Lists",
+    "user_list_subtitle_product": "Daftar",
     "@user_list_subtitle_product": {
         "description": "Subtitle of a paragraph about user lists in a product context"
     },
-    "user_list_add_product": "Add the product to your lists",
+    "user_list_add_product": "Tambahkan produk ke daftar anda",
     "@user_list_add_product": {
         "description": "Label for the dialog to add a product to a list"
     },
-    "user_list_button_new": "Create a new list",
+    "user_list_button_new": "Buat daftar baru",
     "@user_list_button_new": {
         "description": "Short label of a 'create a new list' button"
     },
-    "user_list_empty_label": "No list available yet,\nplease start by creating one",
+    "user_list_empty_label": "No list available yet, please start by creating one",
     "@user_list_empty_label": {
         "description": "Content displayed when there is no list"
     },
@@ -1354,15 +1374,15 @@
     "@user_list_button_add_product": {
         "description": "Short label of an 'add to list' button from a product context"
     },
-    "added_to_list_msg": "Added to list",
+    "added_to_list_msg": "Ditambahkan ke daftar",
     "@added_to_list_msg": {
         "description": "Message when products have been successfully added to a list"
     },
-    "user_list_popup_clear": "Clear your history",
+    "user_list_popup_clear": "Hapus riwayat",
     "@user_list_popup_clear": {
         "description": "Short label of a 'clear your history list' popup"
     },
-    "user_list_popup_rename": "Rename",
+    "user_list_popup_rename": "Ubah Nama",
     "@user_list_popup_rename": {
         "description": "Short label of a 'rename list' popup"
     },
@@ -1514,11 +1534,11 @@
         }
     },
     "dev_preferences_migration_status_already_done": "success or fresh install",
-    "dev_preferences_migration_status_success": "success",
-    "dev_preferences_migration_status_error": "error",
-    "dev_preferences_migration_status_in_progress": "in progress",
+    "dev_preferences_migration_status_success": "berhasil",
+    "dev_preferences_migration_status_error": "kesalahan",
+    "dev_preferences_migration_status_in_progress": "dalam proses",
     "dev_preferences_migration_status_required": "required (click to start)",
-    "dev_preferences_migration_status_not_started": "unknown",
+    "dev_preferences_migration_status_not_started": "tidak diketahui",
     "dev_preferences_import_history_title": "Import History",
     "@dev_preferences_import_history_title": {
         "description": "User dev preferences - Import history - Title"
@@ -1531,7 +1551,7 @@
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"
     },
-    "dev_mode_scan_mode_title": "Scan Mode",
+    "dev_mode_scan_mode_title": "Mode pemindaian",
     "@dev_mode_scan_mode_title": {
         "description": "User dev preferences - Scan mode - Title"
     },
@@ -1544,7 +1564,7 @@
             }
         }
     },
-    "dev_mode_scan_mode_dialog_title": "Scan Mode",
+    "dev_mode_scan_mode_dialog_title": "Mode pemindaian",
     "@dev_mode_scan_mode_dialog_title": {
         "description": "User dev preferences - Scan mode - Dialog Title"
     },
@@ -1571,6 +1591,10 @@
     "dev_mode_scan_scan_half_image": "Half image scanning",
     "@dev_mode_scan_scan_half_image": {
         "description": "Scan mode - Scan half image"
+    },
+    "search_history_item_edit_tooltip": "Gunakan kembali dan sunting pencarian ini",
+    "@search_history_item_edit_tooltip": {
+        "description": "A tooltip to explain the Pen button near a search term -> it allows to reuse the item"
     },
     "product_search_no_more_results": "You've downloaded all the {totalSize} products.",
     "@product_search_no_more_results": {
@@ -1720,6 +1744,10 @@
     "@basic_details_add_error": {
         "description": "Error message when error occurs while submitting basic details"
     },
+    "clear_search": "Hapus pencarian Anda",
+    "@confirm_clearclear_search": {
+        "description": "Tooltip to explain that the X button clears the content of the search"
+    },
     "confirm_clear": "You're about to clear your entire history: are you sure you want to continue?",
     "@confirm_clear": {
         "description": "Asking about whether to clear the history list or not"
@@ -1736,14 +1764,22 @@
             }
         }
     },
-    "confirm_delete_user_list": "You're about to delete this list ({name}): are you sure you want to continue?",
-    "@confirm_delete_user_list": {
-        "description": "Asking about whether to delete the list or not",
+    "confirm_delete_user_list_title": "Hapus daftar?",
+    "@confirm_delete_user_list_title": {
+        "description": "Title when asking about whether to delete the list or not"
+    },
+    "confirm_delete_user_list_message": "Anda akan menghapus daftar “{name}”.\nApakah Anda yakin ingin melanjutkan?",
+    "@confirm_delete_user_list_message": {
+        "description": "Message when asking about whether to delete the list or not",
         "placeholders": {
             "name": {
                 "type": "String"
             }
         }
+    },
+    "confirm_delete_user_list_button": "Ya, saya ingin melanjutkan",
+    "@confirm_delete_user_list_button": {
+        "description": "Button to delete a list"
     },
     "importance_label": "{name} pentingnya: {id}",
     "@importance_label": {
@@ -1757,13 +1793,17 @@
             }
         }
     },
-    "user_list_all_title": "Lists",
+    "user_list_all_title": "Daftar",
     "@user_list_all_title": {
         "description": "Title about the user lists in the user preferences"
     },
     "user_list_all_empty": "Create your first list",
     "@user_list_all_empty": {
         "description": "Small message when there are no user lists"
+    },
+    "product_list_select": "Select a list",
+    "@product_list_select": {
+        "description": "Top title for the selection of a list"
     },
     "user_list_length": "{count,plural, =0{Empty list} =1{One product} other{{count} products}}",
     "@user_list_length": {
@@ -1879,8 +1919,8 @@
         }
     },
     "clipboard_barcode_copied": "Barcode {barcode} copied to the clipboard!",
-    "choose_app_language": "Choose App Language",
-    "@choose_app_language": {
+    "language_picker_label": "Bahasa Anda",
+    "@language_picker_label": {
         "description": "Choose Application Language"
     },
     "help_with_openfoodfacts": "Help with OpenFoodFacts",
@@ -1927,9 +1967,49 @@
     "@scan_header_compare_button_valid_state_tooltip": {
         "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is at least two prodiucts"
     },
+    "scan_product_loading": "Anda telah memindai barcode:",
+    "@scan_product_loading": {
+        "description": "Title when a product is loading (carousel card). Please ensure to keep the line break."
+    },
+    "scan_product_loading_initial": "Kami sedang memuat produk ini!\nMohon tunggu beberapa saat…",
+    "@scan_product_loading_initial": {
+        "description": "Message when a product is loading (carousel card). Please ensure to keep the line break."
+    },
+    "scan_product_loading_long_request": "Kami masih mencoba memuat produk ini!\nApakah prosesnya terlalu lama? Mohon tunggu…",
+    "@scan_product_loading_long_request": {
+        "description": "Message when a product is long to load (carousel card). Please ensure to keep the line break."
+    },
+    "scan_product_loading_unresponsive": "Kami masih mencoba memuat produk ini.\nApakah Anda ingin mengulang pencarian?",
+    "@scan_product_loading_unresponsive": {
+        "description": "Message when a product is too long to load (carousel card). Please ensure to keep the line break."
+    },
+    "scan_product_loading_restart_button": "Mengulang pencarian",
+    "@scan_product_loading_restart_button": {
+        "description": "Button to force restart a product search"
+    },
     "portion_calculator_description": "Hitung informasi nilai gizi untuk jumlah tertentu",
     "@portion_calculator_description": {
         "description": "Sort of title that describes the portion calculator."
+    },
+    "portion_calculator_hint": "Jumlah dalam",
+    "@portion_calculator_hint": {
+        "description": "Hint to show when a quantity is empty in the portion calculator."
+    },
+    "portion_calculator_accessibility": "Masukkan kuantitas untuk menghitung informasi nilai nutrisi",
+    "@portion_calculator_accessibility": {
+        "description": "Hint for the acessibility to explain to enter a quantity."
+    },
+    "portion_calculator_error": "Silakan masukkan jumlah antara {min} dan {max} g",
+    "@portion_calculator_error": {
+        "description": "Error message to explain that the quantity is invalid.",
+        "placeholders": {
+            "min": {
+                "type": "int"
+            },
+            "max": {
+                "type": "int"
+            }
+        }
     },
     "portion_calculator_result_title": "Informasi nilai gizi untuk {grams} g (or ml)",
     "@portion_calculator_result_title": {
@@ -2268,5 +2348,25 @@
                 "type": "int"
             }
         }
+    },
+    "country_selector_title": "Pilih negara Anda:",
+    "@country_selector_title": {
+        "description": "Label written as the title of the dialog to select the user country"
+    },
+    "action_delete_list": "Hapus",
+    "@action_delete_list": {
+        "description": "Delete a list action in a menu"
+    },
+    "action_change_list": "Mengubah daftar saat ini",
+    "@action_change_list": {
+        "description": "Action to change the current visible list"
+    },
+    "product_list_create": "Buat",
+    "@product_list_create": {
+        "description": "Button label to create a new list (short word)"
+    },
+    "product_list_create_tooltip": "Buat daftar baru",
+    "@product_list_create_tooltip": {
+        "description": "Button description to create a new list (long sentence)"
     }
 }

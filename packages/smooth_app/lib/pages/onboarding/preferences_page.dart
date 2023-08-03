@@ -73,8 +73,6 @@ class _Helper extends StatefulWidget {
 }
 
 class _HelperState extends State<_Helper> {
-  bool _isProductExpanded = false;
-
   @override
   Widget build(BuildContext context) {
     final ProductPreferences productPreferences =
@@ -98,23 +96,19 @@ class _HelperState extends State<_Helper> {
           style: Theme.of(context).textTheme.displayMedium,
         ),
       ),
-      Container(
-        height: _isProductExpanded ? null : 180,
+      Padding(
         padding: const EdgeInsetsDirectional.only(
           bottom: LARGE_SPACE,
           start: LARGE_SPACE,
           end: LARGE_SPACE,
         ),
-        child: GestureDetector(
-          onTap: () => _expandProductCard(),
-          child: SummaryCard(
-            widget.product,
-            productPreferences,
-            isFullVersion: _isProductExpanded,
-            isRemovable: false,
-            isSettingClickable: false,
-            isProductEditable: false,
-          ),
+        child: SummaryCard(
+          widget.product,
+          productPreferences,
+          isFullVersion: true,
+          isRemovable: false,
+          isSettingVisible: false,
+          isProductEditable: false,
         ),
       ),
     ];
@@ -138,11 +132,13 @@ class _HelperState extends State<_Helper> {
           children: <Widget>[
             Flexible(
               flex: 1,
-              child: ListView.builder(
-                padding: const EdgeInsetsDirectional.only(top: LARGE_SPACE),
-                itemCount: pageData.length,
-                itemBuilder: (BuildContext context, int position) =>
-                    pageData[position],
+              child: Scrollbar(
+                child: ListView.builder(
+                  padding: const EdgeInsetsDirectional.only(top: LARGE_SPACE),
+                  itemCount: pageData.length,
+                  itemBuilder: (BuildContext context, int position) =>
+                      pageData[position],
+                ),
               ),
             ),
             NextButton(
@@ -154,11 +150,5 @@ class _HelperState extends State<_Helper> {
         ),
       ),
     );
-  }
-
-  void _expandProductCard() {
-    if (!_isProductExpanded) {
-      setState(() => _isProductExpanded = true);
-    }
   }
 }

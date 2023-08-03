@@ -45,9 +45,10 @@ class SummaryCard extends StatefulWidget {
     this.isFullVersion = false,
     this.showUnansweredQuestions = false,
     this.isRemovable = true,
-    this.isSettingClickable = true,
+    this.isSettingVisible = true,
     this.isProductEditable = true,
     this.attributeGroupsClickable = true,
+    this.padding,
   });
 
   final Product _product;
@@ -67,13 +68,15 @@ class SummaryCard extends StatefulWidget {
   final bool isRemovable;
 
   /// If true, the icon setting will be clickable.
-  final bool isSettingClickable;
+  final bool isSettingVisible;
 
   /// If true, the product will be editable
   final bool isProductEditable;
 
   /// If true, all chips / groups are clickable
   final bool attributeGroupsClickable;
+
+  final EdgeInsetsGeometry? padding;
 
   @override
   State<SummaryCard> createState() => _SummaryCardState();
@@ -82,11 +85,13 @@ class SummaryCard extends StatefulWidget {
 class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
   // For some reason, special case for "label" attributes
   final Set<String> _attributesToExcludeIfStatusIsUnknown = <String>{};
+  late ProductQuestionsLayout _questionsLayout;
 
   @override
   void initState() {
     super.initState();
     initUpToDate(widget._product, context.read<LocalDatabase>());
+    _questionsLayout = getUserQuestionsLayout(context.read<UserPreferences>());
     if (ProductIncompleteCard.isProductIncomplete(initialProduct)) {
       AnalyticsHelper.trackEvent(
         AnalyticsEvent.showFastTrackProductEditCard,
@@ -104,10 +109,10 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
         header: ProductCompatibilityHeader(
           product: upToDateProduct,
           productPreferences: widget._productPreferences,
-          isSettingClickable: widget.isSettingClickable,
+          isSettingVisible: widget.isSettingVisible,
         ),
         body: Padding(
-          padding: SMOOTH_CARD_PADDING,
+          padding: widget.padding ?? SMOOTH_CARD_PADDING,
           child: _buildSummaryCardContent(context),
         ),
         margin: EdgeInsets.zero,
@@ -121,10 +126,11 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
 
   Widget _buildLimitedSizeSummaryCard(double parentHeight) {
     return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: SMALL_SPACE,
-        vertical: VERY_SMALL_SPACE,
-      ),
+      padding: widget.padding ??
+          const EdgeInsets.symmetric(
+            horizontal: SMALL_SPACE,
+            vertical: VERY_SMALL_SPACE,
+          ),
       child: Stack(
         children: <Widget>[
           ClipRRect(
@@ -137,7 +143,7 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
                 header: ProductCompatibilityHeader(
                   product: upToDateProduct,
                   productPreferences: widget._productPreferences,
-                  isSettingClickable: widget.isSettingClickable,
+                  isSettingVisible: widget.isSettingVisible,
                 ),
                 body: Padding(
                   padding: SMOOTH_CARD_PADDING,
@@ -162,7 +168,7 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
                 ),
                 child: Center(
                   child: Text(
-                    AppLocalizations.of(context).tab_for_more,
+                    AppLocalizations.of(context).tap_for_more,
                     style:
                         Theme.of(context).primaryTextTheme.bodyLarge?.copyWith(
                               color: PRIMARY_BLUE_COLOR,
@@ -310,6 +316,7 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
               localDatabase: context.read<LocalDatabase>(),
               productQuery: CategoryProductQuery(categoryTag!),
               context: context,
+              searchResult: false,
             ),
           ),
         );
@@ -352,7 +359,12 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
         if (ProductIncompleteCard.isProductIncomplete(upToDateProduct))
           ProductIncompleteCard(product: upToDateProduct),
         ..._getAttributes(scoreAttributes),
-        if (widget.isFullVersion) ProductQuestionsWidget(upToDateProduct),
+        if (widget.isFullVersion &&
+            _questionsLayout == ProductQuestionsLayout.button)
+          ProductQuestionsWidget(
+            upToDateProduct,
+            layout: ProductQuestionsLayout.button,
+          ),
         attributesContainer,
         ...summaryCardButtons,
       ],
@@ -419,17 +431,21 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
         return SizedBox(
           width: constraints.maxWidth / 2,
           child: InkWell(
+            borderRadius: ANGULAR_BORDER_RADIUS,
             enableFeedback: _isAttributeOpeningAllowed(attribute),
             onTap: () async => _openFullKnowledgePanel(
               attribute: attribute,
             ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                attributeIcon,
-                Expanded(child: Text(attributeDisplayTitle)),
-              ],
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  attributeIcon,
+                  Expanded(child: Text(attributeDisplayTitle)),
+                ],
+              ),
             ),
           ),
         );

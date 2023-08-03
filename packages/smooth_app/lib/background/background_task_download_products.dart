@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/painting.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/background/background_task.dart';
@@ -71,7 +72,9 @@ class BackgroundTaskDownloadProducts extends BackgroundTaskProgressing {
   }
 
   @override
-  String? getSnackBarMessage(final AppLocalizations appLocalizations) => null;
+  (String, AlignmentGeometry)? getFloatingMessage(
+          final AppLocalizations appLocalizations) =>
+      null;
 
   static BackgroundTask _getNewTask(
     final String uniqueId,

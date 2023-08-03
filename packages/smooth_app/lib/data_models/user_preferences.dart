@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -57,7 +59,7 @@ class UserPreferences extends ChangeNotifier {
 
   /// The current version of preferences (1)
   static const String _TAG_VERSION = 'prefs_version';
-  static const int _PREFS_CURRENT_VERSION = 1;
+  static const int _PREFS_CURRENT_VERSION = 2;
   static const String _TAG_PREFIX_IMPORTANCE = 'IMPORTANCE_AS_STRING';
   static const String _TAG_CURRENT_THEME_MODE = 'currentThemeMode';
   static const String _TAG_CURRENT_COLOR_SCHEME = 'currentColorScheme';
@@ -70,6 +72,7 @@ class UserPreferences extends ChangeNotifier {
   static const String _TAG_USER_TRACKING = 'user_tracking';
   static const String _TAG_CRASH_REPORTS = 'crash_reports';
   static const String _TAG_EXCLUDED_ATTRIBUTE_IDS = 'excluded_attributes';
+  static const String _TAG_USER_GROUP = '_user_group';
 
   /// Camera preferences
   // Detect if a first successful scan was achieved (condition to show the
@@ -108,6 +111,9 @@ class UserPreferences extends ChangeNotifier {
   /// Allow to migrate between versions
   Future<void> _onMigrate() async {
     final int? currentVersion = _sharedPreferences.getInt(_TAG_VERSION);
+    if (currentVersion == _PREFS_CURRENT_VERSION) {
+      return;
+    }
 
     /// With version == null (or 0), [_TAG_USER_TRACKING] didn't exist
     if (currentVersion == null) {
@@ -116,10 +122,20 @@ class UserPreferences extends ChangeNotifier {
       if (crashReporting != null) {
         await setUserTracking(crashReporting);
       }
-
-      await _sharedPreferences.setInt(
-          _TAG_VERSION, UserPreferences._PREFS_CURRENT_VERSION);
     }
+
+    /// With version == null and 1, [_TAG_USER_GROUP] is missing
+    if (_sharedPreferences.getInt(_TAG_USER_GROUP) == null) {
+      await _sharedPreferences.setInt(
+        _TAG_USER_GROUP,
+        Random().nextInt(10),
+      );
+    }
+
+    await _sharedPreferences.setInt(
+      _TAG_VERSION,
+      UserPreferences._PREFS_CURRENT_VERSION,
+    );
   }
 
   String _getImportanceTag(final String variable) =>
@@ -162,6 +178,9 @@ class UserPreferences extends ChangeNotifier {
 
   bool get userTracking =>
       _sharedPreferences.getBool(_TAG_USER_TRACKING) ?? false;
+
+  /// A random int between 0 and 10 (a naive implementation to allow A/B testing)
+  int get userGroup => _sharedPreferences.getInt(_TAG_USER_GROUP)!;
 
   Future<void> setCrashReports(final bool state) async {
     await _sharedPreferences.setBool(_TAG_CRASH_REPORTS, state);

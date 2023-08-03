@@ -10,9 +10,9 @@ import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/dao_int.dart';
+import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/helpers/database_helper.dart';
 import 'package:smooth_app/pages/crop_page.dart';
@@ -132,6 +132,7 @@ class _ImageSourcePickerState extends State<_ImageSourcePicker> {
                     shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(6.0)),
                     ),
+                    activeColor: Theme.of(context).primaryColor,
                     materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                     value: rememberChoice,
                     onChanged: (final bool? value) => setState(

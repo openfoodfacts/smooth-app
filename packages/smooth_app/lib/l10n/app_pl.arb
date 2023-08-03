@@ -424,6 +424,10 @@
     "@history_navbar_label": {
         "description": "BottomNavigationBarLabel: For the history and compare mode"
     },
+    "list_navbar_label": "Listy",
+    "@list_navbar_label": {
+        "description": "BottomNavigationBarLabel: For the lists"
+    },
     "category": "Filtruj według kategorii",
     "@category": {
         "description": "From a product list, there's a category filter: this is its title"
@@ -449,7 +453,7 @@
     "@search": {
         "description": "Hint text of a search text input field"
     },
-    "tab_for_more": "Kliknij, aby wyświetlić więcej informacji…",
+    "tap_for_more": "Kliknij, aby wyświetlić więcej informacji…",
     "@Product": {},
     "product": "Produkt",
     "@product": {},
@@ -533,6 +537,14 @@
     "crop_page_action_local": "Zapisywanie lokalnej wersji…",
     "@crop_page_action_local": {
         "description": "Action being performed on the crop page"
+    },
+    "crop_page_action_local_failed_title": "Ups… coś jest nie tak z twoim zdjęciem!",
+    "@crop_page_action_local_title": {
+        "description": "The save of the picture locally failed - error dialog message"
+    },
+    "crop_page_action_local_failed_message": "Nie możemy przetworzyć obrazu lokalnie, przed wysłaniem go na nasz serwer. Spróbuj ponownie później lub skontaktuj się z nami, jeśli problem będzie się powtarzał.",
+    "@crop_page_action_local_message": {
+        "description": "The save of the picture locally failed - error dialog message"
     },
     "crop_page_too_small_image_title": "Obraz jest za mały!",
     "@crop_page_too_small_image_title": {
@@ -722,7 +734,11 @@
     },
     "country_chooser_label": "Proszę wybrać kraj",
     "@country_chooser_label": {
-        "description": "Label shown above a selector where the user can select their country"
+        "description": "Label shown above a selector where the user can select their country (in the onboarding)"
+    },
+    "country_chooser_label_from_settings": "Twój kraj",
+    "@country_chooser_label_from_settings": {
+        "description": "Label to use in the settings to change the user country"
     },
     "country_selection_explanation": "Niektóre elementy środowiskowe są zależne od lokalizacji",
     "@country_label": {
@@ -736,13 +752,17 @@
     "@native_app_settings": {
         "description": "Native App Settings in app settings"
     },
-    "native_app_description": "Otwórz ustawienia systemu dla Open Food Facts",
+    "native_app_description": "Otwórz ustawienia systemowe dla Open Food Facts",
     "@native_app_description": {
         "description": "Native App description in app settings"
     },
     "product_removed_history": "Produkt usunięty z historii",
     "@product_removed_history": {
         "description": "Product got removed from history"
+    },
+    "product_removed_list": "Produkt usunięty z listy",
+    "@product_removed_list": {
+        "description": "Product got removed from list"
     },
     "product_could_not_remove": "Nie udało się usunąć produktu",
     "@product_could_not_remove": {
@@ -807,7 +827,7 @@
             "count": {}
         }
     },
-    "compare_products_mode": "Porównaj",
+    "compare_products_mode": "Porównaj produkty",
     "@compare_products_mode": {
         "description": "Button to switch to 'compare products mode'"
     },
@@ -1276,9 +1296,9 @@
     "edit_product_form_item_exit_confirmation": "Czy chcesz zapisać zmiany przed opuszczeniem tej strony?",
     "edit_product_form_item_exit_confirmation_positive_button": "Zapisz zmiany",
     "edit_product_form_item_exit_confirmation_negative_button": "Odrzuć zmiany",
-    "edit_product_form_item_ingredients_title": "Składniki i pochodzenie",
+    "edit_product_form_item_ingredients_title": "Składniki",
     "@edit_product_form_item_ingredients_title": {
-        "description": "Product edition - Ingredients - Title"
+        "description": "Product edition - Ingredients - Title (note: this section was previously called Ingredients & Origins)"
     },
     "edit_product_form_item_add_valid_item_tooltip": "Dodaj",
     "edit_product_form_item_add_invalid_item_tooltip": "Proszę najpierw wpisać tekst",
@@ -1346,7 +1366,7 @@
     "@user_list_button_new": {
         "description": "Short label of a 'create a new list' button"
     },
-    "user_list_empty_label": "Brak dostępnych list.\nProszę zacząć od utworzenia nowej.",
+    "user_list_empty_label": "Brak dostępnej listy, proszę zacząć od utworzenia listy",
     "@user_list_empty_label": {
         "description": "Content displayed when there is no list"
     },
@@ -1572,6 +1592,10 @@
     "@dev_mode_scan_scan_half_image": {
         "description": "Scan mode - Scan half image"
     },
+    "search_history_item_edit_tooltip": "Użyj ponownie i edytuj to wyszukiwanie",
+    "@search_history_item_edit_tooltip": {
+        "description": "A tooltip to explain the Pen button near a search term -> it allows to reuse the item"
+    },
     "product_search_no_more_results": "Pobrałeś wszystkie {totalSize} produkty.",
     "@product_search_no_more_results": {
         "description": "Product search list - No more results available",
@@ -1720,6 +1744,10 @@
     "@basic_details_add_error": {
         "description": "Error message when error occurs while submitting basic details"
     },
+    "clear_search": "Wyczyść wyszukiwanie",
+    "@confirm_clearclear_search": {
+        "description": "Tooltip to explain that the X button clears the content of the search"
+    },
     "confirm_clear": "Zamierzasz wyczyścić całą swoją historię: czy na pewno chcesz kontynuować?",
     "@confirm_clear": {
         "description": "Asking about whether to clear the history list or not"
@@ -1736,14 +1764,22 @@
             }
         }
     },
-    "confirm_delete_user_list": "Zamierzasz usunąć tę listę ({name}): czy na pewno chcesz kontynuować?",
-    "@confirm_delete_user_list": {
-        "description": "Asking about whether to delete the list or not",
+    "confirm_delete_user_list_title": "Delete the list?",
+    "@confirm_delete_user_list_title": {
+        "description": "Title when asking about whether to delete the list or not"
+    },
+    "confirm_delete_user_list_message": "You're about to delete the list \"{name}\".\nAre you sure you want to continue?",
+    "@confirm_delete_user_list_message": {
+        "description": "Message when asking about whether to delete the list or not",
         "placeholders": {
             "name": {
                 "type": "String"
             }
         }
+    },
+    "confirm_delete_user_list_button": "Yes, I confirm",
+    "@confirm_delete_user_list_button": {
+        "description": "Button to delete a list"
     },
     "importance_label": "Kryterium - {name}: {id}",
     "@importance_label": {
@@ -1764,6 +1800,10 @@
     "user_list_all_empty": "Utwórz pierwszą listę",
     "@user_list_all_empty": {
         "description": "Small message when there are no user lists"
+    },
+    "product_list_select": "Wybierz listę",
+    "@product_list_select": {
+        "description": "Top title for the selection of a list"
     },
     "user_list_length": "{count,plural, few {{count} produkty} many {{count} produktów} =0{Lista pusta} =1{Jeden produkt} other{{count} produktów}}",
     "@user_list_length": {
@@ -1879,8 +1919,8 @@
         }
     },
     "clipboard_barcode_copied": "Kod kreskowy {barcode} skopiowany do schowka!",
-    "choose_app_language": "Wybierz język aplikacji",
-    "@choose_app_language": {
+    "language_picker_label": "Twój język",
+    "@language_picker_label": {
         "description": "Choose Application Language"
     },
     "help_with_openfoodfacts": "Pomoc z OpenFoodFacts",
@@ -1927,9 +1967,49 @@
     "@scan_header_compare_button_valid_state_tooltip": {
         "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is at least two prodiucts"
     },
+    "scan_product_loading": "Zeskanowano\nkod kreskowy:",
+    "@scan_product_loading": {
+        "description": "Title when a product is loading (carousel card). Please ensure to keep the line break."
+    },
+    "scan_product_loading_initial": "Szukamy tego produktu!\nProszę zaczekać kilka sekund…",
+    "@scan_product_loading_initial": {
+        "description": "Message when a product is loading (carousel card). Please ensure to keep the line break."
+    },
+    "scan_product_loading_long_request": "Nadal szukamy tego produktu!\nCzy uważasz, że ładowanie zajmuje dużo czasu? My też…",
+    "@scan_product_loading_long_request": {
+        "description": "Message when a product is long to load (carousel card). Please ensure to keep the line break."
+    },
+    "scan_product_loading_unresponsive": "Nadal szukamy tego produktu.\nCzy chcesz ponownie uruchomić wyszukiwanie?",
+    "@scan_product_loading_unresponsive": {
+        "description": "Message when a product is too long to load (carousel card). Please ensure to keep the line break."
+    },
+    "scan_product_loading_restart_button": "Uruchom ponownie wyszukiwanie",
+    "@scan_product_loading_restart_button": {
+        "description": "Button to force restart a product search"
+    },
     "portion_calculator_description": "Oblicz wartość odżywczą dla określonej ilości",
     "@portion_calculator_description": {
         "description": "Sort of title that describes the portion calculator."
+    },
+    "portion_calculator_hint": "Ilość w",
+    "@portion_calculator_hint": {
+        "description": "Hint to show when a quantity is empty in the portion calculator."
+    },
+    "portion_calculator_accessibility": "Wprowadź ilość, aby obliczyć wartości odżywcze",
+    "@portion_calculator_accessibility": {
+        "description": "Hint for the acessibility to explain to enter a quantity."
+    },
+    "portion_calculator_error": "Wprowadź ilość pomiędzy {min} a {max} g",
+    "@portion_calculator_error": {
+        "description": "Error message to explain that the quantity is invalid.",
+        "placeholders": {
+            "min": {
+                "type": "int"
+            },
+            "max": {
+                "type": "int"
+            }
+        }
     },
     "portion_calculator_result_title": "Wartości odżywcze dla {grams} g (lub ml)",
     "@portion_calculator_result_title": {
@@ -2268,5 +2348,25 @@
                 "type": "int"
             }
         }
+    },
+    "country_selector_title": "Wybierz swój kraj:",
+    "@country_selector_title": {
+        "description": "Label written as the title of the dialog to select the user country"
+    },
+    "action_delete_list": "Usuń",
+    "@action_delete_list": {
+        "description": "Delete a list action in a menu"
+    },
+    "action_change_list": "Change the current list",
+    "@action_change_list": {
+        "description": "Action to change the current visible list"
+    },
+    "product_list_create": "Stwórz",
+    "@product_list_create": {
+        "description": "Button label to create a new list (short word)"
+    },
+    "product_list_create_tooltip": "Stwórz nową listę",
+    "@product_list_create_tooltip": {
+        "description": "Button description to create a new list (long sentence)"
     }
 }

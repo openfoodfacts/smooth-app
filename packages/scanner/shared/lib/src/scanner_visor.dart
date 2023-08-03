@@ -3,12 +3,13 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 class SmoothBarcodeScannerVisor extends StatelessWidget {
   const SmoothBarcodeScannerVisor({
-    required this.cornerRadius,
     this.contentPadding,
     super.key,
   });
 
-  final double cornerRadius;
+  static const double CORNER_PADDING = 26.0;
+  static const double STROKE_WIDTH = 3.0;
+
   final EdgeInsetsGeometry? contentPadding;
 
   @override
@@ -19,7 +20,7 @@ class SmoothBarcodeScannerVisor extends StatelessWidget {
       padding: contentPadding,
       // The duration is twice the time required to hide the header
       duration: const Duration(milliseconds: 250),
-      curve: contentPadding.horizontal > cornerRadius * 2
+      curve: contentPadding.horizontal > CORNER_PADDING * 2
           ? Curves.easeOutQuad
           : Curves.decelerate,
       child: SizedBox.expand(
@@ -39,13 +40,13 @@ class SmoothBarcodeScannerVisor extends StatelessWidget {
 
   EdgeInsetsGeometry _computePadding() {
     if (contentPadding == null) {
-      return EdgeInsets.all(cornerRadius);
+      return const EdgeInsets.all(CORNER_PADDING);
     } else {
-      return EdgeInsets.only(
-        top: cornerRadius / 4.0,
-        left: cornerRadius,
-        right: cornerRadius,
-        bottom: cornerRadius,
+      return const EdgeInsets.only(
+        top: CORNER_PADDING / 4.0,
+        left: CORNER_PADDING,
+        right: CORNER_PADDING,
+        bottom: CORNER_PADDING,
       ).add(contentPadding!);
     }
   }
@@ -54,13 +55,12 @@ class SmoothBarcodeScannerVisor extends StatelessWidget {
 class _ScanVisorPainter extends CustomPainter {
   _ScanVisorPainter();
 
-  static const double strokeWidth = 3.0;
   static const double _fullCornerSize = 31.0;
   static const double _halfCornerSize = _fullCornerSize / 2;
   static const Radius _borderRadius = Radius.circular(_halfCornerSize);
 
   final Paint _paint = Paint()
-    ..strokeWidth = strokeWidth
+    ..strokeWidth = SmoothBarcodeScannerVisor.STROKE_WIDTH
     ..color = Colors.white
     ..style = PaintingStyle.stroke;
 
@@ -79,7 +79,7 @@ class _ScanVisorPainter extends CustomPainter {
   static Path getPath(Rect rect, bool includeLineBetweenCorners) {
     final double bottomPosition;
     if (includeLineBetweenCorners) {
-      bottomPosition = rect.bottom - strokeWidth;
+      bottomPosition = rect.bottom - SmoothBarcodeScannerVisor.STROKE_WIDTH;
     } else {
       bottomPosition = rect.bottom;
     }
@@ -144,5 +144,43 @@ class _ScanVisorPainter extends CustomPainter {
     }
 
     return path;
+  }
+}
+
+class VisorButton extends StatelessWidget {
+  const VisorButton({
+    required this.child,
+    required this.onTap,
+    required this.tooltip,
+  });
+
+  final VoidCallback onTap;
+  final String tooltip;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      type: MaterialType.transparency,
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: const BorderRadius.all(
+          Radius.circular(
+            SmoothBarcodeScannerVisor.CORNER_PADDING,
+          ),
+        ),
+        child: Tooltip(
+          message: tooltip,
+          enableFeedback: true,
+          child: Padding(
+            padding: const EdgeInsets.all(12.0),
+            child: IconTheme(
+              data: const IconThemeData(color: Colors.white),
+              child: child,
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }

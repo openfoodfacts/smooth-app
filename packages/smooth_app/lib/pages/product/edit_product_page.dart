@@ -26,6 +26,7 @@ import 'package:smooth_app/pages/product/product_image_gallery_view.dart';
 import 'package:smooth_app/pages/product/simple_input_page.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
+import 'package:smooth_app/widgets/smooth_floating_message.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Page where we can indirectly edit all data about a product.
@@ -99,22 +100,21 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
             button: true,
             value: appLocalizations.clipboard_barcode_copy,
             excludeSemantics: true,
-            child: IconButton(
-              icon: const Icon(Icons.copy),
-              tooltip: appLocalizations.clipboard_barcode_copy,
-              onPressed: () {
-                Clipboard.setData(
-                  ClipboardData(text: barcode),
-                );
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text(
-                      appLocalizations.clipboard_barcode_copied(barcode),
-                    ),
-                  ),
-                );
-              },
-            ),
+            child: Builder(builder: (BuildContext context) {
+              return IconButton(
+                icon: const Icon(Icons.copy),
+                tooltip: appLocalizations.clipboard_barcode_copy,
+                onPressed: () {
+                  Clipboard.setData(
+                    ClipboardData(text: barcode),
+                  );
+
+                  SmoothFloatingMessage(
+                    message: appLocalizations.clipboard_barcode_copied(barcode),
+                  ).show(context, alignment: AlignmentDirectional.bottomCenter);
+                },
+              );
+            }),
           )
         ],
       ),
@@ -123,111 +123,72 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
           barcode: barcode,
           widget: this,
         ),
-        child: PrimaryScrollController(
+        child: Scrollbar(
           controller: _controller,
-          child: Scrollbar(
-            child: ListView(
-              children: <Widget>[
-                if (_ProductBarcode.isAValidBarcode(barcode))
-                  _ProductBarcode(product: upToDateProduct),
-                _ListTitleItem(
-                  title: appLocalizations.edit_product_form_item_details_title,
-                  subtitle:
-                      appLocalizations.edit_product_form_item_details_subtitle,
-                  onTap: () async => ProductFieldDetailsEditor().edit(
-                    context: context,
-                    product: upToDateProduct,
-                  ),
+          child: ListView(
+            controller: _controller,
+            children: <Widget>[
+              if (_ProductBarcode.isAValidBarcode(barcode))
+                _ProductBarcode(product: upToDateProduct),
+              _ListTitleItem(
+                title: appLocalizations.edit_product_form_item_details_title,
+                subtitle:
+                    appLocalizations.edit_product_form_item_details_subtitle,
+                onTap: () async => ProductFieldDetailsEditor().edit(
+                  context: context,
+                  product: upToDateProduct,
                 ),
-                _ListTitleItem(
-                  leading: const Icon(Icons.add_a_photo_rounded),
-                  title: appLocalizations.edit_product_form_item_photos_title,
-                  subtitle:
-                      appLocalizations.edit_product_form_item_photos_subtitle,
-                  onTap: () async {
-                    AnalyticsHelper.trackProductEdit(
-                      AnalyticsEditEvents.photos,
-                      barcode,
-                    );
+              ),
+              _ListTitleItem(
+                leading: const Icon(Icons.add_a_photo_rounded),
+                title: appLocalizations.edit_product_form_item_photos_title,
+                subtitle:
+                    appLocalizations.edit_product_form_item_photos_subtitle,
+                onTap: () async {
+                  AnalyticsHelper.trackProductEdit(
+                    AnalyticsEditEvents.photos,
+                    barcode,
+                  );
 
-                    await Navigator.push<void>(
-                      context,
-                      MaterialPageRoute<void>(
-                        builder: (BuildContext context) =>
-                            ProductImageGalleryView(
-                          product: upToDateProduct,
-                        ),
-                        fullscreenDialog: true,
-                      ),
-                    );
-                  },
-                ),
-                _getMultipleListTileItem(
-                  <AbstractSimpleInputPageHelper>[
-                    SimpleInputPageLabelHelper(),
-                    SimpleInputPageStoreHelper(),
-                    SimpleInputPageOriginHelper(),
-                    SimpleInputPageEmbCodeHelper(),
-                    SimpleInputPageCountryHelper(),
-                    SimpleInputPageCategoryHelper(),
-                  ],
-                ),
-                _ListTitleItem(
-                  leading:
-                      const _SvgIcon('assets/cacheTintable/ingredients.svg'),
-                  title:
-                      appLocalizations.edit_product_form_item_ingredients_title,
-                  onTap: () async => ProductFieldOcrIngredientEditor().edit(
-                    context: context,
-                    product: upToDateProduct,
-                  ),
-                ),
-                _getSimpleListTileItem(SimpleInputPageCategoryHelper()),
-                _ListTitleItem(
-                    leading: const _SvgIcon(
-                        'assets/cacheTintable/scale-balance.svg'),
-                    title: appLocalizations
-                        .edit_product_form_item_nutrition_facts_title,
-                    subtitle: appLocalizations
-                        .edit_product_form_item_nutrition_facts_subtitle,
-                    onTap: () async {
-                      AnalyticsHelper.trackProductEdit(
-                        AnalyticsEditEvents.nutrition_Facts,
-                        barcode,
-                      );
-                      await NutritionPageLoaded.showNutritionPage(
+                  await Navigator.push<void>(
+                    context,
+                    MaterialPageRoute<void>(
+                      builder: (BuildContext context) =>
+                          ProductImageGalleryView(
                         product: upToDateProduct,
-                        isLoggedInMandatory: true,
-                        context: context,
-                      );
-                    }),
-                _getSimpleListTileItem(SimpleInputPageLabelHelper()),
-                _ListTitleItem(
-                  leading: const _SvgIcon('assets/cacheTintable/packaging.svg'),
-                  title: appLocalizations.edit_packagings_title,
-                  onTap: () async => ProductFieldPackagingEditor().edit(
-                    context: context,
-                    product: upToDateProduct,
-                  ),
+                      ),
+                      fullscreenDialog: true,
+                    ),
+                  );
+                },
+              ),
+              _getMultipleListTileItem(
+                <AbstractSimpleInputPageHelper>[
+                  SimpleInputPageLabelHelper(),
+                  SimpleInputPageStoreHelper(),
+                  SimpleInputPageOriginHelper(),
+                  SimpleInputPageEmbCodeHelper(),
+                  SimpleInputPageCountryHelper(),
+                  SimpleInputPageCategoryHelper(),
+                ],
+              ),
+              _ListTitleItem(
+                leading: const _SvgIcon('assets/cacheTintable/ingredients.svg'),
+                title:
+                    appLocalizations.edit_product_form_item_ingredients_title,
+                onTap: () async => ProductFieldOcrIngredientEditor().edit(
+                  context: context,
+                  product: upToDateProduct,
                 ),
-                _ListTitleItem(
-                  leading: const Icon(Icons.recycling),
-                  title:
-                      appLocalizations.edit_product_form_item_packaging_title,
-                  onTap: () async => ProductFieldOcrPackagingEditor().edit(
-                    context: context,
-                    product: upToDateProduct,
-                  ),
-                ),
-                _getSimpleListTileItem(SimpleInputPageStoreHelper()),
-                _getSimpleListTileItem(SimpleInputPageOriginHelper()),
-                _getSimpleListTileItem(SimpleInputPageEmbCodeHelper()),
-                _getSimpleListTileItem(SimpleInputPageCountryHelper()),
-                _ListTitleItem(
+              ),
+              _getSimpleListTileItem(SimpleInputPageCategoryHelper()),
+              _ListTitleItem(
+                  leading:
+                      const _SvgIcon('assets/cacheTintable/scale-balance.svg'),
                   title: appLocalizations
-                      .edit_product_form_item_other_details_title,
+                      .edit_product_form_item_nutrition_facts_title,
                   subtitle: appLocalizations
-                      .edit_product_form_item_other_details_subtitle,
+                      .edit_product_form_item_nutrition_facts_subtitle,
                   onTap: () async {
                     if (!await ProductRefresher().checkIfLoggedIn(
                       context,
@@ -236,20 +197,59 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
                       return;
                     }
                     AnalyticsHelper.trackProductEdit(
-                      AnalyticsEditEvents.otherDetails,
+                      AnalyticsEditEvents.nutrition_Facts,
                       barcode,
                     );
-                    await Navigator.push<void>(
-                      context,
-                      MaterialPageRoute<void>(
-                        builder: (_) => AddOtherDetailsPage(upToDateProduct),
-                        fullscreenDialog: true,
-                      ),
+                    await NutritionPageLoaded.showNutritionPage(
+                      product: upToDateProduct,
+                      isLoggedInMandatory: true,
+                      context: context,
                     );
-                  },
+                  }),
+              _getSimpleListTileItem(SimpleInputPageLabelHelper()),
+              _ListTitleItem(
+                leading: const _SvgIcon('assets/cacheTintable/packaging.svg'),
+                title: appLocalizations.edit_packagings_title,
+                onTap: () async => ProductFieldPackagingEditor().edit(
+                  context: context,
+                  product: upToDateProduct,
                 ),
-              ],
-            ),
+              ),
+              _ListTitleItem(
+                leading: const Icon(Icons.recycling),
+                title: appLocalizations.edit_product_form_item_packaging_title,
+                onTap: () async => ProductFieldOcrPackagingEditor().edit(
+                  context: context,
+                  product: upToDateProduct,
+                ),
+              ),
+              _getSimpleListTileItem(SimpleInputPageStoreHelper()),
+              _getSimpleListTileItem(SimpleInputPageOriginHelper()),
+              _getSimpleListTileItem(SimpleInputPageEmbCodeHelper()),
+              _getSimpleListTileItem(SimpleInputPageCountryHelper()),
+              _ListTitleItem(
+                title:
+                    appLocalizations.edit_product_form_item_other_details_title,
+                subtitle: appLocalizations
+                    .edit_product_form_item_other_details_subtitle,
+                onTap: () async {
+                  if (!await ProductRefresher().checkIfLoggedIn(context)) {
+                    return;
+                  }
+                  AnalyticsHelper.trackProductEdit(
+                    AnalyticsEditEvents.otherDetails,
+                    barcode,
+                  );
+                  await Navigator.push<void>(
+                    context,
+                    MaterialPageRoute<void>(
+                      builder: (_) => AddOtherDetailsPage(upToDateProduct),
+                      fullscreenDialog: true,
+                    ),
+                  );
+                },
+              ),
+            ],
           ),
         ),
       ),

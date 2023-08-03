@@ -8,7 +8,7 @@ import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/data_importer/smooth_app_data_importer.dart';
 import 'package:smooth_app/helpers/extension_on_text_helper.dart';
-import 'package:smooth_app/pages/inherited_data_manager.dart';
+import 'package:smooth_app/pages/carousel_manager.dart';
 import 'package:smooth_app/pages/navigator/error_page.dart';
 import 'package:smooth_app/pages/navigator/external_page.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
@@ -34,8 +34,8 @@ import 'package:smooth_app/query/product_query.dart';
 class AppNavigator extends InheritedWidget {
   AppNavigator({
     Key? key,
-    required Widget child,
     List<NavigatorObserver>? observers,
+    required Widget child,
   })  : _router = _SmoothGoRouter(
           observers: observers,
         ),
@@ -89,14 +89,24 @@ class AppNavigator extends InheritedWidget {
 /// One drawback of the implementation is that we never know the base URL of the
 /// deep link (eg: es.openfoodfacts.org)
 class _SmoothGoRouter {
-  _SmoothGoRouter({
+  factory _SmoothGoRouter({
+    List<NavigatorObserver>? observers,
+  }) {
+    _singleton ??= _SmoothGoRouter._internal(
+      observers: observers,
+    );
+
+    return _singleton!;
+  }
+
+  _SmoothGoRouter._internal({
     List<NavigatorObserver>? observers,
   }) {
     router = GoRouter(
       observers: observers,
       routes: <GoRoute>[
         GoRoute(
-          path: _InternalAppRoutes.HOME_PAGE.path,
+          path: _InternalAppRoutes.HOME_PAGE,
           builder: (BuildContext context, GoRouterState state) {
             if (!isInitialized) {
               _initAppLanguage(context);
@@ -109,8 +119,7 @@ class _SmoothGoRouter {
           // for deep links to go back to the homepage
           routes: <GoRoute>[
             GoRoute(
-              path:
-                  '${_InternalAppRoutes.PRODUCT_DETAILS_PAGE.path}/:productId',
+              path: '${_InternalAppRoutes.PRODUCT_DETAILS_PAGE}/:productId',
               builder: (BuildContext context, GoRouterState state) {
                 Product product;
 
@@ -127,30 +136,29 @@ class _SmoothGoRouter {
                   heroTag: state.queryParameters['heroTag'],
                 );
 
-                if (InheritedDataManager.find(context) == null) {
-                  return InheritedDataManager(child: widget);
+                if (ExternalCarouselManager.find(context) == null) {
+                  return ExternalCarouselManager(child: widget);
                 } else {
                   return widget;
                 }
               },
             ),
             GoRoute(
-              path: '${_InternalAppRoutes.PRODUCT_LOADER_PAGE.path}/:productId',
+              path: '${_InternalAppRoutes.PRODUCT_LOADER_PAGE}/:productId',
               builder: (BuildContext context, GoRouterState state) {
                 final String barcode = state.pathParameters['productId']!;
                 return ProductLoaderPage(barcode: barcode);
               },
             ),
             GoRoute(
-              path:
-                  '${_InternalAppRoutes.PRODUCT_CREATOR_PAGE.path}/:productId',
+              path: '${_InternalAppRoutes.PRODUCT_CREATOR_PAGE}/:productId',
               builder: (BuildContext context, GoRouterState state) {
                 final String barcode = state.pathParameters['productId']!;
                 return AddNewProductPage.fromBarcode(barcode);
               },
             ),
             GoRoute(
-              path: _InternalAppRoutes.SEARCH_PAGE.path,
+              path: _InternalAppRoutes.SEARCH_PAGE,
               builder: (_, __) {
                 return SearchPage();
               },
@@ -173,7 +181,7 @@ class _SmoothGoRouter {
               },
             ),
             GoRoute(
-              path: _InternalAppRoutes.EXTERNAL_PAGE.path,
+              path: _InternalAppRoutes.EXTERNAL_PAGE,
               builder: (BuildContext context, GoRouterState state) {
                 return ExternalPage(path: state.queryParameters['path']!);
               },
@@ -185,9 +193,9 @@ class _SmoothGoRouter {
         final String path = state.matchedLocation;
 
         // Ignore deep links if the onboarding is not yet completed
-        if (state.location != _InternalAppRoutes.HOME_PAGE.path &&
+        if (state.location != _InternalAppRoutes.HOME_PAGE &&
             !_isOnboardingComplete(context)) {
-          return _InternalAppRoutes.HOME_PAGE.path;
+          return _InternalAppRoutes.HOME_PAGE;
         } else if (_isAnInternalRoute(path)) {
           return null;
         }
@@ -213,7 +221,9 @@ class _SmoothGoRouter {
             } else {
               return _openExternalLink(path);
             }
-          } else if (path != _InternalAppRoutes.HOME_PAGE.path) {
+          } else if (path == _ExternalRoutes.MOBILE_APP_DOWNLOAD) {
+            return AppRoutes.HOME;
+          } else if (path != _InternalAppRoutes.HOME_PAGE) {
             return _openExternalLink(path);
           }
         }
@@ -237,6 +247,7 @@ class _SmoothGoRouter {
     );
   }
 
+  static _SmoothGoRouter? _singleton;
   late GoRouter router;
 
   // Indicates whether [_initAppLanguage] was already called
@@ -276,7 +287,7 @@ class _SmoothGoRouter {
   }
 
   bool _isAnInternalRoute(String path) {
-    if (path == _InternalAppRoutes.HOME_PAGE.path) {
+    if (path == _InternalAppRoutes.HOME_PAGE) {
       return true;
     } else {
       return path.startsWith('/_');
@@ -307,23 +318,18 @@ class _SmoothGoRouter {
 /// Internal routes
 /// To differentiate external routes (eg: /product/12345678), we prefix all
 /// internal routes with an underscore
-enum _InternalAppRoutes {
-  HOME_PAGE('/'),
-  PRODUCT_DETAILS_PAGE('_product'),
-  PRODUCT_LOADER_PAGE('_product_loader'),
-  PRODUCT_CREATOR_PAGE('_product_creator'),
-  PREFERENCES_PAGE('_preferences'),
-  SEARCH_PAGE('_search'),
-  EXTERNAL_PAGE('_external');
+class _InternalAppRoutes {
+  static const String HOME_PAGE = '/';
+  static const String PRODUCT_DETAILS_PAGE = '_product';
+  static const String PRODUCT_LOADER_PAGE = '_product_loader';
+  static const String PRODUCT_CREATOR_PAGE = '_product_creator';
+  static const String PREFERENCES_PAGE = '_preferences';
+  static const String SEARCH_PAGE = '_search';
+  static const String EXTERNAL_PAGE = '_external';
+}
 
-  const _InternalAppRoutes(this.path);
-
-  final String path;
-
-  @override
-  String toString() {
-    return path;
-  }
+class _ExternalRoutes {
+  static const String MOBILE_APP_DOWNLOAD = '/open-food-facts-mobile-app';
 }
 
 /// A list of internal routes to use with [AppNavigator]
@@ -333,7 +339,7 @@ class AppRoutes {
   AppRoutes._();
 
   // Home page (or walkthrough during the onboarding)
-  static String get HOME => _InternalAppRoutes.HOME_PAGE.path;
+  static String get HOME => _InternalAppRoutes.HOME_PAGE;
 
   // Product details (a [Product] is mandatory in the extra)
   static String PRODUCT(
@@ -358,7 +364,7 @@ class AppRoutes {
       '/${_InternalAppRoutes.PREFERENCES_PAGE}/${type.name}';
 
   // Search view
-  static String get SEARCH => '/${_InternalAppRoutes.SEARCH_PAGE.path}';
+  static String get SEARCH => '/${_InternalAppRoutes.SEARCH_PAGE}';
 
   // Open an external link (where path is relative to the OFF website)
   static String EXTERNAL(String path) =>

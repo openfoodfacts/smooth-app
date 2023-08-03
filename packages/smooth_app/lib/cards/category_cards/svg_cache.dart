@@ -1,6 +1,7 @@
 import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_app/cards/category_cards/abstract_cache.dart';
 import 'package:smooth_app/cards/category_cards/asset_cache_helper.dart';
@@ -62,6 +63,7 @@ class SvgCache extends AbstractCache {
       width: width,
       height: height,
       fit: BoxFit.contain,
+      semanticsLabel: getSemanticsLabel(context, iconUrl!),
       placeholderBuilder: (BuildContext context) => displayAssetWhileWaiting
           ? SvgAsyncAsset(
               AssetCacheHelper(
@@ -74,5 +76,32 @@ class SvgCache extends AbstractCache {
             )
           : getCircularProgressIndicator(),
     );
+  }
+
+  static String? getSemanticsLabel(BuildContext context, String iconUrl) {
+    final AppLocalizations localizations = AppLocalizations.of(context);
+
+    return switch (Uri.parse(iconUrl).pathSegments.last) {
+      'ecoscore-a.svg' => localizations.ecoscore_a,
+      'ecoscore-b.svg' => localizations.ecoscore_b,
+      'ecoscore-c.svg' => localizations.ecoscore_c,
+      'ecoscore-d.svg' => localizations.ecoscore_d,
+      'ecoscore-e.svg' => localizations.ecoscore_e,
+      'ecoscore-unknown.svg' => localizations.ecoscore_unknown,
+      'ecoscore-not-applicable.svg' => localizations.ecoscore_not_applicable,
+      'nova-group-1.svg' => localizations.nova_group_1,
+      'nova-group-2.svg' => localizations.nova_group_2,
+      'nova-group-3.svg' => localizations.nova_group_3,
+      'nova-group-4.svg' => localizations.nova_group_4,
+      'nova-group-unknown.svg' => localizations.nova_group_unknown,
+      'nutriscore-a.svg' => localizations.nutriscore_a,
+      'nutriscore-b.svg' => localizations.nutriscore_b,
+      'nutriscore-c.svg' => localizations.nutriscore_c,
+      'nutriscore-d.svg' => localizations.nutriscore_d,
+      'nutriscore-e.svg' => localizations.nutriscore_e,
+      'nutriscore-unknown.svg' => localizations.nutriscore_unknown,
+      'nutriscore-not-applicable.svg' => localizations.ecoscore_not_applicable,
+      _ => null,
+    };
   }
 }

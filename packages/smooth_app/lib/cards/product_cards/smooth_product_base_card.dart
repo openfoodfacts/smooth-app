@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
+import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 
 /// A common Widget for carrousel item cards.
 /// It allows to have the correct width/height and also a scale down feature,
@@ -12,11 +13,13 @@ class SmoothProductBaseCard extends StatelessWidget {
   const SmoothProductBaseCard({
     required this.child,
     this.backgroundColorOpacity,
+    this.margin,
     super.key,
   });
 
   final Widget child;
   final double? backgroundColorOpacity;
+  final EdgeInsets? margin;
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +37,7 @@ class SmoothProductBaseCard extends StatelessWidget {
             color: themeData.brightness == Brightness.light
                 ? Colors.white.withOpacity(backgroundColorOpacity ?? 1.0)
                 : Colors.black.withOpacity(backgroundColorOpacity ?? 1.0),
+            margin: margin,
             padding: padding,
             child: FittedBox(
               fit: BoxFit.scaleDown,
@@ -64,16 +68,22 @@ class ProductCardCloseButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-    return InkWell(
-      customBorder: const CircleBorder(),
-      onTap: () => onRemove?.call(context),
-      child: Tooltip(
-        message: appLocalizations.product_card_remove_product_tooltip,
-        child: Padding(
-          padding: const EdgeInsets.all(SMALL_SPACE),
-          child: Icon(
-            iconData,
-            size: DEFAULT_ICON_SIZE,
+    return Material(
+      type: MaterialType.transparency,
+      child: InkWell(
+        customBorder: const CircleBorder(),
+        onTap: () {
+          onRemove?.call(context);
+          SmoothHapticFeedback.lightNotification();
+        },
+        child: Tooltip(
+          message: appLocalizations.product_card_remove_product_tooltip,
+          child: Padding(
+            padding: const EdgeInsets.all(SMALL_SPACE),
+            child: Icon(
+              iconData,
+              size: DEFAULT_ICON_SIZE,
+            ),
           ),
         ),
       ),

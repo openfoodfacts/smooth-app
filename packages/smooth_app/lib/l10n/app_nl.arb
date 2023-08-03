@@ -424,6 +424,10 @@
     "@history_navbar_label": {
         "description": "BottomNavigationBarLabel: For the history and compare mode"
     },
+    "list_navbar_label": "Lijsten",
+    "@list_navbar_label": {
+        "description": "BottomNavigationBarLabel: For the lists"
+    },
     "category": "Filter op categorie",
     "@category": {
         "description": "From a product list, there's a category filter: this is its title"
@@ -449,7 +453,7 @@
     "@search": {
         "description": "Hint text of a search text input field"
     },
-    "tab_for_more": "Tik om meer info te zien…",
+    "tap_for_more": "Tik om meer info te zien…",
     "@Product": {},
     "product": "Product",
     "@product": {},
@@ -533,6 +537,14 @@
     "crop_page_action_local": "Een lokale versie opslaan…",
     "@crop_page_action_local": {
         "description": "Action being performed on the crop page"
+    },
+    "crop_page_action_local_failed_title": "Oeps… er is iets met je foto!",
+    "@crop_page_action_local_title": {
+        "description": "The save of the picture locally failed - error dialog message"
+    },
+    "crop_page_action_local_failed_message": "We kunnen de afbeelding niet lokaal verwerken voordat deze naar onze server wordt verzonden. Probeer het later opnieuw of neem contact met ons op als het probleem aanhoudt.",
+    "@crop_page_action_local_message": {
+        "description": "The save of the picture locally failed - error dialog message"
     },
     "crop_page_too_small_image_title": "De afbeelding is te klein!",
     "@crop_page_too_small_image_title": {
@@ -722,7 +734,11 @@
     },
     "country_chooser_label": "Kies een land a.u.b.",
     "@country_chooser_label": {
-        "description": "Label shown above a selector where the user can select their country"
+        "description": "Label shown above a selector where the user can select their country (in the onboarding)"
+    },
+    "country_chooser_label_from_settings": "Uw land",
+    "@country_chooser_label_from_settings": {
+        "description": "Label to use in the settings to change the user country"
     },
     "country_selection_explanation": "Sommige omgevingskenmerken zijn locatiespecifiek",
     "@country_label": {
@@ -743,6 +759,10 @@
     "product_removed_history": "Product verwijderd uit geschiedenis",
     "@product_removed_history": {
         "description": "Product got removed from history"
+    },
+    "product_removed_list": "Product verwijderd uit de lijst",
+    "@product_removed_list": {
+        "description": "Product got removed from list"
     },
     "product_could_not_remove": "Kon product niet verwijderen",
     "@product_could_not_remove": {
@@ -807,7 +827,7 @@
             "count": {}
         }
     },
-    "compare_products_mode": "Vergelijken",
+    "compare_products_mode": "Producten vergelijken",
     "@compare_products_mode": {
         "description": "Button to switch to 'compare products mode'"
     },
@@ -1276,9 +1296,9 @@
     "edit_product_form_item_exit_confirmation": "Wilt u uw wijzigingen opslaan voordat u deze pagina verlaat?",
     "edit_product_form_item_exit_confirmation_positive_button": "Wijzigingen opslaan",
     "edit_product_form_item_exit_confirmation_negative_button": "Wijzigingen negeren",
-    "edit_product_form_item_ingredients_title": "Ingrediënten & Oorsprong",
+    "edit_product_form_item_ingredients_title": "Ingrediënten",
     "@edit_product_form_item_ingredients_title": {
-        "description": "Product edition - Ingredients - Title"
+        "description": "Product edition - Ingredients - Title (note: this section was previously called Ingredients & Origins)"
     },
     "edit_product_form_item_add_valid_item_tooltip": "Toevoegen",
     "edit_product_form_item_add_invalid_item_tooltip": "Voer eerst een tekst in alsjeblieft",
@@ -1346,7 +1366,7 @@
     "@user_list_button_new": {
         "description": "Short label of a 'create a new list' button"
     },
-    "user_list_empty_label": "Er is nog geen lijst beschikbaar,\nBegin met het maken van een nieuwe",
+    "user_list_empty_label": "Er is nog geen lijst beschikbaar, maak er eerst een aan",
     "@user_list_empty_label": {
         "description": "Content displayed when there is no list"
     },
@@ -1572,6 +1592,10 @@
     "@dev_mode_scan_scan_half_image": {
         "description": "Scan mode - Scan half image"
     },
+    "search_history_item_edit_tooltip": "Hergebruik en bewerk deze zoekopdracht",
+    "@search_history_item_edit_tooltip": {
+        "description": "A tooltip to explain the Pen button near a search term -> it allows to reuse the item"
+    },
     "product_search_no_more_results": "Je hebt alle {totalSize} producten gedownload.",
     "@product_search_no_more_results": {
         "description": "Product search list - No more results available",
@@ -1720,6 +1744,10 @@
     "@basic_details_add_error": {
         "description": "Error message when error occurs while submitting basic details"
     },
+    "clear_search": "Wis je zoekopdracht",
+    "@confirm_clearclear_search": {
+        "description": "Tooltip to explain that the X button clears the content of the search"
+    },
     "confirm_clear": "Je staat op het punt je hele geschiedenis te wissen: weet je zeker dat je wilt doorgaan?",
     "@confirm_clear": {
         "description": "Asking about whether to clear the history list or not"
@@ -1736,14 +1764,22 @@
             }
         }
     },
-    "confirm_delete_user_list": "U staat op het punt deze lijst te verwijderen ({name}): weet u zeker dat u wilt doorgaan?",
-    "@confirm_delete_user_list": {
-        "description": "Asking about whether to delete the list or not",
+    "confirm_delete_user_list_title": "De lijst verwijderen?",
+    "@confirm_delete_user_list_title": {
+        "description": "Title when asking about whether to delete the list or not"
+    },
+    "confirm_delete_user_list_message": "U staat op het punt de lijst \"{name}\" te verwijderen.\nWeet u zeker dat u wilt doorgaan?",
+    "@confirm_delete_user_list_message": {
+        "description": "Message when asking about whether to delete the list or not",
         "placeholders": {
             "name": {
                 "type": "String"
             }
         }
+    },
+    "confirm_delete_user_list_button": "Ja, ik bevestig",
+    "@confirm_delete_user_list_button": {
+        "description": "Button to delete a list"
     },
     "importance_label": "{name} belangrijkheid: {id}",
     "@importance_label": {
@@ -1764,6 +1800,10 @@
     "user_list_all_empty": "Maak je eerste lijst aan",
     "@user_list_all_empty": {
         "description": "Small message when there are no user lists"
+    },
+    "product_list_select": "Selecteer een lijst",
+    "@product_list_select": {
+        "description": "Top title for the selection of a list"
     },
     "user_list_length": "{count,plural, =0{Lege lijst} =1{Een product} other{{count} producten}}",
     "@user_list_length": {
@@ -1879,8 +1919,8 @@
         }
     },
     "clipboard_barcode_copied": "Barcode {barcode} gekopieerd naar het klembord!",
-    "choose_app_language": "Kies de app-taal",
-    "@choose_app_language": {
+    "language_picker_label": "Uw taal",
+    "@language_picker_label": {
         "description": "Choose Application Language"
     },
     "help_with_openfoodfacts": "Help met OpenFoodFacts",
@@ -1927,9 +1967,49 @@
     "@scan_header_compare_button_valid_state_tooltip": {
         "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is at least two prodiucts"
     },
+    "scan_product_loading": "U heeft\nde barcode gescand:",
+    "@scan_product_loading": {
+        "description": "Title when a product is loading (carousel card). Please ensure to keep the line break."
+    },
+    "scan_product_loading_initial": "We zijn op zoek naar dit product!\nWacht een paar seconden…",
+    "@scan_product_loading_initial": {
+        "description": "Message when a product is loading (carousel card). Please ensure to keep the line break."
+    },
+    "scan_product_loading_long_request": "We zijn nog steeds op zoek naar dit product!\nVindt u dat het laden lang duurt? Wij ook…",
+    "@scan_product_loading_long_request": {
+        "description": "Message when a product is long to load (carousel card). Please ensure to keep the line break."
+    },
+    "scan_product_loading_unresponsive": "We zijn nog steeds op zoek naar dit product.\nWilt u het zoeken opnieuw starten?",
+    "@scan_product_loading_unresponsive": {
+        "description": "Message when a product is too long to load (carousel card). Please ensure to keep the line break."
+    },
+    "scan_product_loading_restart_button": "Zoek opnieuw",
+    "@scan_product_loading_restart_button": {
+        "description": "Button to force restart a product search"
+    },
     "portion_calculator_description": "Bereken voedingsfeiten voor een specifieke hoeveelheid",
     "@portion_calculator_description": {
         "description": "Sort of title that describes the portion calculator."
+    },
+    "portion_calculator_hint": "Hoeveelheid in",
+    "@portion_calculator_hint": {
+        "description": "Hint to show when a quantity is empty in the portion calculator."
+    },
+    "portion_calculator_accessibility": "Voer een hoeveelheid in om de voedingswaarden te berekenen",
+    "@portion_calculator_accessibility": {
+        "description": "Hint for the acessibility to explain to enter a quantity."
+    },
+    "portion_calculator_error": "Vul een hoeveelheid in tussen {min} en {max} g",
+    "@portion_calculator_error": {
+        "description": "Error message to explain that the quantity is invalid.",
+        "placeholders": {
+            "min": {
+                "type": "int"
+            },
+            "max": {
+                "type": "int"
+            }
+        }
     },
     "portion_calculator_result_title": "Voedingswaarden voor {grams} g (of ml)",
     "@portion_calculator_result_title": {
@@ -2020,7 +2100,7 @@
     "@edit_packagings_element_field_units": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_units": "Enter the number of packaging units of the same shape and material contained in the product.",
+    "edit_packagings_element_hint_units": "Voer het aantal verpakkingseenheden van dezelfde vorm en hetzelfde materiaal in het product in.",
     "@edit_packagings_element_hint_units": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
@@ -2028,7 +2108,7 @@
     "@edit_packagings_element_field_shape": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_shape": "Enter the shape name listed in the recycling instructions if they are available, or select a shape.",
+    "edit_packagings_element_hint_shape": "Voer de vormnaam in die wordt vermeld in de recyclinginstructies als deze beschikbaar zijn, of selecteer een vorm.",
     "@edit_packagings_element_hint_shape": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
@@ -2040,7 +2120,7 @@
     "@edit_packagings_element_field_material": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_material": "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure.",
+    "edit_packagings_element_hint_material": "Voer het specifieke materiaal in als dit kan worden bepaald (een materiaalcode in een driehoek is vaak te vinden op verpakkingsonderdelen), of een algemener materiaal (bijvoorbeeld plastic of metaal) als u het niet zeker weet.",
     "@edit_packagings_element_hint_material": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
@@ -2072,12 +2152,12 @@
     "@edit_packagings_element_field_weight": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_weight": "Remove any remaining food and wash and dry the packaging part before weighing. If possible, use a scale with 0.1g or 0.01g precision.",
+    "edit_packagings_element_hint_weight": "Verwijder alle resterende levensmiddelen en droog de verpakking af voor het wegen. Gebruik indien mogelijk een schaal met 0,1g of 0,01g precisie.",
     "@edit_packagings_element_hint_weight": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
     "background_task_title": "In afwachting van bijdragen",
-    "background_task_subtitle": "Your contributions are automatically saved to our server, but not always in real-time.",
+    "background_task_subtitle": "Uw bijdragen worden automatisch opgeslagen op onze server, maar niet altijd in realtime.",
     "background_task_list_empty": "Geen lopende achtergrondtaken",
     "background_task_error_server_time_out": "Server time-out",
     "background_task_error_no_internet": "Fout met internetverbinding. Probeer het later.",
@@ -2268,5 +2348,25 @@
                 "type": "int"
             }
         }
+    },
+    "country_selector_title": "Selecteer uw land:",
+    "@country_selector_title": {
+        "description": "Label written as the title of the dialog to select the user country"
+    },
+    "action_delete_list": "Verwijder",
+    "@action_delete_list": {
+        "description": "Delete a list action in a menu"
+    },
+    "action_change_list": "Wijzig de huidige lijst",
+    "@action_change_list": {
+        "description": "Action to change the current visible list"
+    },
+    "product_list_create": "Aanmaken",
+    "@product_list_create": {
+        "description": "Button label to create a new list (short word)"
+    },
+    "product_list_create_tooltip": "Maak een nieuwe lijst aan",
+    "@product_list_create_tooltip": {
+        "description": "Button description to create a new list (long sentence)"
     }
 }

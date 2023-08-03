@@ -90,6 +90,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
       <Nutrient, TextEditingControllerWithInitialValue>{};
   TextEditingControllerWithInitialValue? _servingController;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final List<FocusNode> _focusNodes = <FocusNode>[];
 
   @override
   void initState() {
@@ -99,12 +100,15 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
       orderedNutrients: widget.orderedNutrients,
       product: initialProduct,
     );
+
     _decimalNumberFormat =
         SimpleInputNumberField.getNumberFormat(decimal: true);
   }
 
   @override
   void dispose() {
+    _focusNodes.clear();
+
     for (final TextEditingControllerWithInitialValue controller
         in _controllers.values) {
       controller.dispose();
@@ -122,7 +126,6 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
     final List<Widget> children = <Widget>[];
 
     // List of focus nodes for all text fields except the serving one.
-    final List<FocusNode> focusNodes;
 
     children.add(_switchNoNutrition(appLocalizations));
 
@@ -143,11 +146,16 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
       final Iterable<OrderedNutrient> displayableNutrients =
           _nutritionContainer.getDisplayableNutrients();
 
-      focusNodes = List<FocusNode>.generate(
-        displayableNutrients.length,
-        (_) => FocusNode(),
-        growable: false,
-      );
+      if (_focusNodes.length != displayableNutrients.length) {
+        _focusNodes.clear();
+        _focusNodes.addAll(
+          List<FocusNode>.generate(
+            displayableNutrients.length,
+            (_) => FocusNode(),
+            growable: false,
+          ),
+        );
+      }
 
       for (int i = 0; i != displayableNutrients.length; i++) {
         final OrderedNutrient orderedNutrient =
@@ -178,7 +186,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
         ),
       );
     } else {
-      focusNodes = <FocusNode>[];
+      _focusNodes.clear();
     }
 
     return WillPopScope(
@@ -206,7 +214,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
           child: Form(
             key: _formKey,
             child: Provider<List<FocusNode>>.value(
-              value: focusNodes,
+              value: _focusNodes,
               child: ListView(children: children),
             ),
           ),

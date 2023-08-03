@@ -13,10 +13,12 @@ enum AnalyticsCategory {
   userManagement(tag: 'user management'),
   scanning(tag: 'scanning'),
   share(tag: 'share'),
+  loadingProduct(tag: 'loading product'),
   couldNotFindProduct(tag: 'could not find product'),
   productEdit(tag: 'product edit'),
   productFastTrackEdit(tag: 'product fast track edit'),
   newProduct(tag: 'new product'),
+  robotoff(tag: 'robotoff'),
   list(tag: 'list'),
   deepLink(tag: 'deep link');
 
@@ -39,6 +41,14 @@ enum AnalyticsEvent {
   couldNotFindProduct(
     tag: 'could not find product',
     category: AnalyticsCategory.couldNotFindProduct,
+  ),
+  ignoreProductLoading(
+    tag: 'ignore product',
+    category: AnalyticsCategory.loadingProduct,
+  ),
+  restartProductLoading(
+    tag: 'restart request',
+    category: AnalyticsCategory.loadingProduct,
   ),
   ignoreProductNotFound(
     tag: 'ignore product',
@@ -96,12 +106,30 @@ enum AnalyticsEvent {
     tag: 'closed new product page without any input',
     category: AnalyticsCategory.newProduct,
   ),
-  shareList(tag: 'shared a list', category: AnalyticsCategory.list),
-  openListWeb(tag: 'open a list in wbe', category: AnalyticsCategory.list),
+  shareList(
+    tag: 'shared a list',
+    category: AnalyticsCategory.list,
+  ),
+  openListWeb(
+    tag: 'open a list in wbe',
+    category: AnalyticsCategory.list,
+  ),
   productDeepLink(
-      tag: 'open a product from an URL', category: AnalyticsCategory.deepLink),
+    tag: 'open a product from an URL',
+    category: AnalyticsCategory.deepLink,
+  ),
   genericDeepLink(
-      tag: 'generic deep link', category: AnalyticsCategory.deepLink);
+    tag: 'generic deep link',
+    category: AnalyticsCategory.deepLink,
+  ),
+  questionVisible(
+    tag: 'question visible',
+    category: AnalyticsCategory.robotoff,
+  ),
+  questionClicked(
+    tag: 'question clicked',
+    category: AnalyticsCategory.robotoff,
+  );
 
   const AnalyticsEvent({required this.tag, required this.category});
 
@@ -198,8 +226,6 @@ class AnalyticsHelper {
     } else {
       _analyticsReporting = _AnalyticsTrackingMode.anonymous;
     }
-
-    await MatomoTracker.instance.setOptOut(optout: false);
 
     if (MatomoTracker.instance.initialized) {
       MatomoTracker.instance.setVisitorUserId(_uuid);
@@ -322,6 +348,10 @@ class AnalyticsHelper {
     } on FormatException {
       return fallback;
     }
+  }
+
+  static void sendException(dynamic throwable, {dynamic stackTrace}) {
+    Sentry.captureException(throwable, stackTrace: stackTrace);
   }
 
   static String? get matomoVisitorId => MatomoTracker.instance.visitor.id;

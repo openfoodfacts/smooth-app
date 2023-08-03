@@ -258,21 +258,6 @@ List<MapEntry<ProductImageData, ImageProvider?>> getSelectedImages(
   return result.entries.toList();
 }
 
-// TODO(monsieurtanuki): move to off-dart in ImageHelper
-String _getBarcodeSubPath(final String barcode) {
-  if (barcode.length < 9) {
-    return barcode;
-  }
-  final String p1 = barcode.substring(0, 3);
-  final String p2 = barcode.substring(3, 6);
-  final String p3 = barcode.substring(6, 9);
-  if (barcode.length == 9) {
-    return '$p1/$p2/$p3';
-  }
-  final String p4 = barcode.substring(9);
-  return '$p1/$p2/$p3/$p4';
-}
-
 String _getImageRoot() =>
     OpenFoodAPIConfiguration.globalQueryType == QueryType.PROD
         ? 'https://images.openfoodfacts.org/images/products'
@@ -283,7 +268,7 @@ String getLocalizedProductImageUrl(
   final ProductImage productImage,
 ) =>
     '${_getImageRoot()}/'
-    '${_getBarcodeSubPath(product.barcode!)}/'
+    '${ImageHelper.getBarcodeSubPath(product.barcode!)}/'
     '${ImageHelper.getProductImageFilename(productImage, imageSize: ImageSize.DISPLAY)}';
 
 /// Returns the languages for which [imageField] has images for that [product].

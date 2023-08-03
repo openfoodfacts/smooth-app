@@ -11,13 +11,11 @@ class ProductImageCarousel extends StatelessWidget {
     this.product, {
     required this.height,
     this.controller,
-    this.onUpload,
   });
 
   final Product product;
   final double height;
   final ScrollController? controller;
-  final Function(BuildContext)? onUpload;
 
   @override
   Widget build(BuildContext context) {
