@@ -121,13 +121,13 @@
     "@Introduction screen": {},
     "welcomeToOpenFoodFacts": "Chào mừng đến với Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
-    "whatIsOff": "Open Food Facts là dự án toàn cầu phi lợi nhuận được bảo trợ bởi các cộng đồng địa phương.",
+    "whatIsOff": "Open Food Facts is a global non-profit powered by local communities.",
     "@whatIsOff": {
-        "description": "Description of Open Food Facts organization."
+        "description": "Description of Open Food Facts organization."
     },
     "offUtility": "Lựa chọn thực phẩm tốt cho bạn và hành tinh này.",
     "@offUtility": {
-        "description": "Description of what a user can use Open Food Facts for."
+        "description": "Description of what a user can use Open Food Facts for."
     },
     "productDataUtility": "Xem dữ liệu thực phẩm liên quan đến sở thích của bạn.",
     "@productDataUtility": {
@@ -142,7 +142,7 @@
         "description": "Description of what a user can use the Eco data in a product for."
     },
     "@user_management": {},
-    "sign_in_text": "Đăng nhập vào tài khoản Open Foof Facts của bạn để lưu những đóng góp của mình",
+    "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
     "incorrect_credentials": "Tên đăng nhập hoặc mật khẩu không đúng.",
     "login": "Tên người dùng",
     "@login": {
@@ -233,9 +233,9 @@
     "sign_up_page_confirm_password_hint": "Xác nhận mật khẩu",
     "sign_up_page_confirm_password_error_empty": "Vui lòng xác nhận mật khẩu",
     "sign_up_page_confirm_password_error_invalid": "Mật khẩu không khớp",
-    "sign_up_page_agree_text": "Tôi đồng ý với Open Food Facts",
+    "sign_up_page_agree_text": "I agree to the Open Food Facts",
     "@sign_up_page_agree_text": {
-        "description": "I agree to the Open Food Facts is followed by sign_up_page_terms_text"
+        "description": "I agree to the Open Food Facts is followed by sign_up_page_terms_text"
     },
     "sign_up_page_terms_text": "điều khoản sử dụng và đóng góp",
     "@sign_up_page_terms_text": {
@@ -243,7 +243,7 @@
     },
     "sign_up_page_agree_url": "https://world-en.openfoodfacts.org/terms-of-use",
     "@sign_up_page_agree_url": {
-        "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
+        "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
     },
     "donate_url": "https://donate.openfoodfacts.org/",
     "@donate_url": {
@@ -256,7 +256,7 @@
     "sign_up_page_producer_checkbox": "Tôi là nhà sản xuất thực phẩm",
     "sign_up_page_producer_hint": "Nhà sản xuất/thương hiệu",
     "sign_up_page_producer_error_empty": "Vui lòng nhập tên nhà sản xuất hoặc thương hiệu",
-    "sign_up_page_subscribe_checkbox": "Tôi muốn đăng kí nhận bản tin từ Open Food Facts (bạn có thể hủy đăng kí bất kì lúc nào)",
+    "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at any time)",
     "sign_up_page_user_name_already_used": "Tên người dùng đã tồn tại, vui lòng chọn tên người dùng khác.",
     "sign_up_page_email_already_exists": "đã tồn tại, đăng nhập vào tài khoản hoặc thử với một email khác.",
     "sign_up_page_provide_valid_email": "Vui lòng cung cấp một địa chỉ email hợp lệ.",
@@ -281,7 +281,7 @@
     "@darkmode_system_default": {
         "description": "Indicator inside the darkmode switch (system default)"
     },
-    "thanks_for_contributing": "Cảm ơn sự đóng góp của bạn",
+    "thanks_for_contributing": "Thanks for contributing!",
     "@contributors": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
     },
@@ -310,13 +310,13 @@
     "@contribute_sw_development": {
         "description": "Button label + page title: Ways to help"
     },
-    "contribute_develop_text": "Mã nguồn của mọi sản phẩm Open Food Facts đều ở trên GitHub. Chúng tôi hoan nghênh việc bạn sử dụng lại mã nguồn (vì mã nguồn mở) và giúp chúng tôi cải thiện nó, cho mọi người, và trên cả hành tinh.",
+    "contribute_develop_text": "The code for every Open Food Facts product is available on GitHub. You are welcome to reuse the code (it's open source) and help us improve it, for everyone, on all the planet.",
     "@contribute_develop_text": {},
-    "contribute_develop_text_2": "Bạn có thể tham gia phòng trò chuyện Slack của Open Food Facts, đây là cách đặt câu hỏi được ưu tiên.",
+    "contribute_develop_text_2": "You can join the Open Food Facts Slack chatroom which is the preferred way to ask questions.",
     "@contribute_develop_text_2": {},
     "contribute_develop_dev_mode_title": "Chế độ DEV?",
     "contribute_develop_dev_mode_subtitle": "Kích hoạt Chế độ DEV",
-    "contribute_donate_header": "Đóng góp cho Open Food Facts",
+    "contribute_donate_header": "Donate to Open Food Facts",
     "@contribute_donate_header": {},
     "contribute_improve_ProductsToBeCompleted": "Các sản phẩm cần được hoàn thành",
     "@contribute_improve_ProductsToBeCompleted": {
@@ -326,7 +326,7 @@
     "@contribute_improve_header": {
         "description": "Button label + page title: Ways to improve the database"
     },
-    "contribute_improve_text": "Cơ sở dữ liệu là phần cốt lõi của dự án. Hoàn toàn dễ dàng và nhanh chóng để bạn có thể tham gia hỗ trợ. Bạn có thể tải ứng dụng về điện thoại của mình, và bắt đầu thêm hoặc bổ sung về sản phẩm.\nMặt khác, website của Open Food Facts còn cung cấp thêm nhiều cách khác để bạn có thể tham gia đóng góp: ",
+    "contribute_improve_text": "The database is the core of the project. It's easy and very quick to help. You can download the mobile app for your phone, and start adding or improving products.\n\nOn the other hand, Open Food Facts website offers many ways to contribute: ",
     "@contribute_improve_text": {},
     "contribute_translate_header": "Dịch",
     "@contribute_translate_header": {
@@ -336,19 +336,19 @@
     "@contribute_translate_link_text": {
         "description": "Button label: Opens the Crowdin translation portal"
     },
-    "contribute_translate_text": "Open Food Fact là một dự án toàn cầu, bao gồm các sản phẩm từ hơn 160 quốc gia. Open Food Facrs được dịch ra hàng chục ngôn ngữ, với nội dung không ngừng phát triển.",
+    "contribute_translate_text": "Open Food Facts is a global project, containing products from more than 160 countries. Open Food Facts is translated into dozens of languages, with constantly evolving content.",
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "Phiên dịch là một trong những nhiệm vụ trọng tâm của dự án",
     "@contribute_translate_text_2": {},
-    "contribute_share_header": "Chia sẻ Open Food Facts với bạn bè",
+    "contribute_share_header": "Share Open Food Facts with your friends",
     "@contribute_share_header": {},
-    "contribute_share_content": "Tôi muốn giới thiệu với bạn về ứng dụng mà tôi đang sử dụng, Open Food Facts, một ứng dụng cho phép bạn biết thêm về tác động của thực phẩm đến sức khỏe và môi trường, theo cách thức được cá nhân hóa. Ứng dụng hoạt động dựa trên việc quét mã vạch trên bao big. Hơn cả nó hoàn toàn miễn phí, không yêu cầu đăng kí, và bạn vẫn có thể giúp đỡ làm gia tăng thêm số lượng sản phẩm được lấy thông tin. Bạn có thể dùng đường dẫn này để tải ứng dụng về điện thoại: https://openfoodfacts.app",
+    "contribute_share_content": "I wanted to let you know about the app I've been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it's free, does not require registration, and you can even help increase the number of products decyphered. Here's the link to get it for your phone: https://openfoodfacts.app",
     "@contribute_share_content": {
         "description": "Content that will be shared, don't forget to include the URL"
     },
     "tap_to_answer": "Nhấn vào đây để trả lời câu hỏi",
     "@tap_to_answer": {
-        "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
+        "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts and gain rewards."
     },
     "tap_to_answer_hint": "Tap here to answer questions about this product",
     "@tap_to_answer_hint": {
@@ -364,9 +364,9 @@
     },
     "contribute_to_get_rewards": "Giúp cải thiện tính minh bạch của thực phẩm và nhận phần thưởng",
     "@contribute_to_get_rewards": {
-        "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
+        "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts and gain rewards."
     },
-    "question_sign_in_text": "Đăng nhập vào tài khoản Open Food Facts của bạn để những đóng góp của bạn được công nhận",
+    "question_sign_in_text": "Sign in to your Open Food Facts account to get credit for your contributions",
     "question_yes_button_accessibility_value": "Có",
     "question_no_button_accessibility_value": "Không",
     "question_skip_button_accessibility_value": "Bỏ qua câu hỏi này",
@@ -376,7 +376,7 @@
     "@myPreferences": {
         "description": "Page title: Page where the ranking preferences can be changed"
     },
-    "account_create_message": "Tạo tài khoản của bạn và tham gia cộng đồng Open Food Facts để giúp xây dựng kiến thức về thực phẩm trên toàn thế giới!",
+    "account_create_message": "Create your account and join the Open Food Facts community to help build food knowledge all over the world!",
     "@account_create_message": {
         "description": "The Message to be displayed if the user does not have an account and wants to contribute"
     },
@@ -385,12 +385,12 @@
         "description": "Join which is actually Signup"
     },
     "myPreferences_profile_title": "Thông tin của bạn",
-    "myPreferences_profile_subtitle": "Quản lý tài khoản người đóng góp thông tin cho Open Food Facts của bạn.",
+    "myPreferences_profile_subtitle": "Manage your Open Food Facts contributor account.",
     "myPreferences_settings_title": "Cài đặt ứng dụng",
     "myPreferences_settings_subtitle": "Dark mode, Analytics…",
     "myPreferences_food_title": "Sở thích ăn uống",
     "myPreferences_food_subtitle": "Chọn loại thông tin về thực phẩm quan trọng nhất đối với bạn.",
-    "myPreferences_food_comment": "Chọn thông tin về thực phẩm đóng vai trò quan trọng nhất đối với bạn, để xếp loại thực phẩm theo tiêu chí của mình, xem thông tin bạn quan tâm đầu tiên, và có bản tóm tắt về độ phù hợp. Những tiêu chí về thực phẩm sẽ luôn ở trên thiết bị của bạn, và không liên kết với tài khoản người đóng góp cho Open Food Facts mà bạn có.",
+    "myPreferences_food_comment": "Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.",
     "confirmResetPreferences": "Đặt lại sở thích ăn uống của bạn?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -498,7 +498,7 @@
     "@packaging_information_photo": {},
     "missing_product": "Bạn đã tìm thấy một sản phẩm mới!",
     "@missing_product": {},
-    "add_product_take_photos": "Chụp ảnh bao bì để thêm sản phẩm này vào Open Food Facts",
+    "add_product_take_photos": "Take photos of the packaging to add this product to Open Food Facts",
     "@add_product_take_photos": {},
     "add_product_take_photos_descriptive": "Đầu tiên xin vui lòng chụp một số hình ảnh. Bạn luôn có thể hoàn thiện thông tin sản phẩm sau đó.",
     "@add_product_take_photos_descriptive": {},
@@ -622,27 +622,27 @@
     "@uploading_image": {
         "description": "Message when a new picture is uploading to the server"
     },
-    "uploading_image_type_front": "Tải hình ảnh mặt trước lên Open Food Facts",
+    "uploading_image_type_front": "Uploading front image to Open Food Facts",
     "@uploading_image_type_front": {
         "description": "Message when a new front picture is being uploaded to the server"
     },
-    "uploading_image_type_ingredients": "Tải hình ảnh nguyên liệu lên Open Food Facts",
+    "uploading_image_type_ingredients": "Uploading ingredients image to Open Food Facts",
     "@uploading_image_type_ingredients": {
         "description": "Message when a new ingredients picture is being uploaded to the server"
     },
-    "uploading_image_type_nutrition": "Tải hình ảnh thông tin dinh dưỡng lên Open Food Facts",
+    "uploading_image_type_nutrition": "Uploading nutrition image to Open Food Facts",
     "@uploading_image_type_nutrition": {
         "description": "Message when a new nutrition picture is being uploaded to the server"
     },
-    "uploading_image_type_packaging": "Tải hình ảnh bao bì lên Open Food Facts",
+    "uploading_image_type_packaging": "Uploading packaging image to Open Food Facts",
     "@uploading_image_type_packaging": {
         "description": "Message when a new packaging picture is being uploaded to the server"
     },
-    "uploading_image_type_other": "Tải hình ảnh khác lên Open Food Facts",
+    "uploading_image_type_other": "Uploading other image to Open Food Facts",
     "@uploading_image_type_other": {
         "description": "Message when a new other picture is being uploaded to the server"
     },
-    "uploading_image_type_generic": "Tải hình ảnh lên Open Food Facts",
+    "uploading_image_type_generic": "Uploading image to Open Food Facts",
     "@uploading_image_type_generic": {
         "description": "Message when a new picture is being uploaded to the server"
     },
@@ -752,7 +752,7 @@
     "@native_app_settings": {
         "description": "Native App Settings in app settings"
     },
-    "native_app_description": "Open system settings for Open Food Facts",
+    "native_app_description": "Open systems settings for Open Food Facts",
     "@native_app_description": {
         "description": "Native App description in app settings"
     },
@@ -857,7 +857,7 @@
     "@consent_analytics_title": {
         "description": "Title for the consent analytics UI Page"
     },
-    "consent_analytics_body1": "Giúp các tình nguyện viên của Open Food Facts cải thiện ứng dụng. Bạn có quyền lựa chọn ẩn danh hoặc không.",
+    "consent_analytics_body1": "Help the Open Food Facts volunteers to improve the app. You decide whether to submit anonymous analytics.",
     "@conset_analytics_body1": {
         "description": "first paragraph for the consent analytics UI Page"
     },
@@ -1042,8 +1042,8 @@
     "@user_profile_title_guest": {
         "description": "When the user is not connected"
     },
-    "user_profile_subtitle_guest": "Đăng nhập hoặc đăng kí để tham gia cộng đồng Open Food Facts",
-    "user_profile_title_id_email": "Đăng nhập Open Food Facts: {email}",
+    "user_profile_subtitle_guest": "Sign-in or sign-up to join the Open Food Facts community",
+    "user_profile_title_id_email": "Open Food Facts login: {email}",
     "@user_profile_title_id_email": {
         "description": "User login (when it's an email)",
         "placeholders": {
@@ -1065,7 +1065,7 @@
     "@email_subject_account_deletion": {
         "description": "Email subject for an account deletion"
     },
-    "email_body_account_deletion": "Xin chào, vui lòng xóa tài khoản Open Food Facts của tôi: {userId}",
+    "email_body_account_deletion": "Hi there, please delete my Open Food Facts account: {userId}",
     "@email_body_account_deletion": {
         "description": "Email body for an account deletion",
         "placeholders": {
@@ -1102,7 +1102,7 @@
     "@crash_reporting_toggle_title": {
         "description": "Title for the Crash reporting toggle"
     },
-    "crash_reporting_toggle_subtitle": "Khi được bật, báo cáo sự cố sẽ tự động được gửi đến hệ thống theo dõi lỗi của Open Food Facts, để các lỗi có thể được sửa và từ đó cải thiện ứng dụng.",
+    "crash_reporting_toggle_subtitle": "When enabled, crash reports are automatically submitted to Open Food Facts' error tracking system, so that bugs can be fixed and thus improve the app.",
     "@crash_reporting_toggle_subtitle": {
         "description": "SubTitle for the Crash reporting toggle"
     },
@@ -1110,7 +1110,7 @@
     "@send_anonymous_toggle_title": {
         "description": "Title for the Send anonymous data toggle"
     },
-    "send_anonymous_data_toggle_subtitle": "Khi được bật, một số thông tin ẩn danh liên quan đến việc sử dụng ứng dụng sẽ được gửi đến máy chủ Open Food Facts, để chúng tôi có thể hiểu cách thức và mức độ sử dụng các tính năng để cải thiện chúng.",
+    "send_anonymous_data_toggle_subtitle": "When enabled, some anonymous information regarding app usage will be sent to the Open Food Facts servers, so that we can understand how and how much features are used in order to improve them.",
     "@send_anonymous_toggle_subtitle": {
         "description": "SubTitle for the Send anonymous data toggle"
     },
@@ -1285,7 +1285,7 @@
     "@edit_product_form_item_categories_explainer_1": {
         "description": "Product edition - Categories - input explainer, part 1"
     },
-    "edit_product_form_item_categories_explainer_2": "Trong trường hợp một danh mục không có sẵn chế độ tự thêm, bạn hoàn toàn có thể thêm nó vào, điều này sẽ giúp chúng tôi cải tiến Open Food Facts tại quốc gia của bạn.",
+    "edit_product_form_item_categories_explainer_2": "In case a category is not available in autocomplete, feel free to add it anyway, that will help us improve Open Food Facts in your country.",
     "@edit_product_form_item_categories_explainer_2": {
         "description": "Product edition - Categories - input explainer, part 2"
     },
@@ -1652,7 +1652,7 @@
     "@edit_product_action_confirm": {
         "description": "Product edition - FAB actions - confirm"
     },
-    "signup_page_terms_of_use_line1": "Tôi đồng ý với Open Food Facts ",
+    "signup_page_terms_of_use_line1": "I agree to the Open Food Facts ",
     "@signup_page_terms_of_use_line1": {
         "description": "User consent for terms of use (line 1)"
     },
@@ -1844,7 +1844,7 @@
     "@share": {
         "description": "Button label for sharing something on another app. For example sharing the link to a product via Email"
     },
-    "share_product_text": "Xem sản phẩm trên Open Food Facts: {url}",
+    "share_product_text": "Have a look at this product on Open Food Facts: {url}",
     "@share_product_text": {
         "description": "The content which is send, when sharing a product",
         "placeholders": {
@@ -1853,7 +1853,7 @@
             }
         }
     },
-    "share_product_list_text": "Hãy xem danh sách các sản phẩm của tôi trên Open Food Facts: {url}",
+    "share_product_list_text": "Have a look at my list of products on Open Food Facts: {url}",
     "@share_product_list_text": {
         "description": "The content which is send, when sharing a product list",
         "placeholders": {
@@ -2071,6 +2071,7 @@
     "@show_password": {
         "description": "Show hidden password in password field"
     },
+    "rate_app": "Rate the app",
     "app_rating_dialog_title": "Tuyệt quá! Hãy cho người khác biết bạn nghĩ gì về ứng dụng này nhé!",
     "app_rating_dialog_positive_action": "Rate the app",
     "app_rating_dialog_negative_action": "Để sau",
@@ -2199,7 +2200,7 @@
     },
     "color_light_brown": "Mặc định",
     "@color_light_brown": {
-        "description": "Color Light Brown, Default Open Food Facts Color"
+        "description": "Color Light Brown, Default Open Food Facts Color"
     },
     "color_magenta": "Đỏ tươi",
     "@color_magenta": {
@@ -2303,7 +2304,7 @@
     "@update_offline_data": {
         "description": "List tile title for the update offline data page"
     },
-    "update_local_database_sub": "Cập nhật cơ sở dữ liệu sản phẩm địa phương với dữ liệu mới nhất từ Open Food Facts",
+    "update_local_database_sub": "Update the local product database with the latest data from Open Food Facts",
     "@update_local_database_sub": {
         "description": "Update the local product database with the latest data from server"
     },
@@ -2353,6 +2354,10 @@
     "@country_selector_title": {
         "description": "Label written as the title of the dialog to select the user country"
     },
+    "language_selector_title": "Select your language:",
+    "@language_selector_title": {
+        "description": "Label written as the title of the dialog to select the user language"
+    },
     "action_delete_list": "Xóa",
     "@action_delete_list": {
         "description": "Delete a list action in a menu"
@@ -2368,5 +2373,24 @@
     "product_list_create_tooltip": "Tạo danh sách mới",
     "@product_list_create_tooltip": {
         "description": "Button description to create a new list (long sentence)"
-    }
+    },
+    "nutriscore_a": "Nutri-Score A",
+    "nutriscore_b": "Nutri-Score B",
+    "nutriscore_c": "Nutri-Score C",
+    "nutriscore_d": "Nutri-Score D",
+    "nutriscore_e": "Nutri-Score E",
+    "nutriscore_unknown": "Unknown Nutri-Score",
+    "nutriscore_not_applicable": "Nutri-Score is not applicable",
+    "ecoscore_a": "Eco-Score A",
+    "ecoscore_b": "Eco-Score B",
+    "ecoscore_c": "Eco-Score C",
+    "ecoscore_d": "Eco-Score D",
+    "ecoscore_e": "Eco-Score E",
+    "ecoscore_unknown": "Unknown Eco-Score",
+    "ecoscore_not_applicable": "Eco-Score is not applicable",
+    "nova_group_1": "NOVA Group 1",
+    "nova_group_2": "NOVA Group 2",
+    "nova_group_3": "NOVA Group 3",
+    "nova_group_4": "NOVA Group 4",
+    "nova_group_unknown": "Unknown NOVA Group"
 }
