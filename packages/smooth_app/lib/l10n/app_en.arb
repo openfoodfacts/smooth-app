@@ -854,6 +854,14 @@
     "@compare_products_appbar_subtitle": {
         "description": "AppBar subtitle when in comparison mode"
     },
+    "compare_products_select_all_items": "Select all items",
+    "@compare_products_select_all_items": {
+        "description": "A button to select all products in a list"
+    },
+    "compare_products_unselect_all_items": "Unselect all items",
+    "@compare_products_unselect_all_items": {
+        "description": "A button to unselect all products in a list"
+    },
     "retry_button_label": "Retry",
     "connect_with_us": "Connect with us",
     "instagram": "Instagram",

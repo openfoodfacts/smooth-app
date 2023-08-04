@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
+import 'package:smooth_app/widgets/smooth_text.dart';
 
 /// A custom [AppBar] with an action mode.
 /// If [action mode] is true, please provide at least an [actionModeTitle].
@@ -248,14 +249,29 @@ class _AppBarTitle extends StatelessWidget {
       children: <Widget>[
         title,
         if (subTitle != null)
-          DefaultTextStyle(
-            style: Theme.of(context).textTheme.bodyMedium ?? const TextStyle(),
-            child: ExcludeSemantics(
-              excluding: ignoreSemanticsForSubtitle ?? false,
-              child: subTitle,
+          Padding(
+            // The kind of padding brought to you by @g123k to ensure we have a
+            // pixel perfect AppBar ;)
+            padding: const EdgeInsets.only(bottom: 3.0),
+            child: DefaultTextStyle(
+              style:
+                  Theme.of(context).textTheme.bodyMedium ?? const TextStyle(),
+              maxLines: 2,
+              child: ExcludeSemantics(
+                excluding: ignoreSemanticsForSubtitle ?? false,
+                child: _transformSubTitle(),
+              ),
             ),
           ),
       ],
     );
+  }
+
+  Widget? _transformSubTitle() {
+    if (subTitle is Text) {
+      return (subTitle! as Text).toAutoSizeText();
+    } else {
+      return subTitle;
+    }
   }
 }

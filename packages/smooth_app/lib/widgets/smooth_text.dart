@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:diacritic/diacritic.dart';
 import 'package:flutter/material.dart';
 
@@ -11,6 +12,40 @@ extension TextStyleExtension on TextStyle {
 /// An extension on [DefaultTextStyle] that allows to have "well spaced" variant
 extension DefaultTextStyleExtension on DefaultTextStyle {
   TextStyle get wellSpacedTextStyle => style.wellSpaced;
+}
+
+/// An extension on [Text] to transform it to [AutoSizeText]
+extension TextExtension on Text {
+  AutoSizeText toAutoSizeText({
+    double? minFontSize,
+    double? maxFontSize,
+    double? stepGranularity,
+    List<double>? presetFontSizes,
+    AutoSizeGroup? group,
+    bool? wrapWords,
+    Widget? overflowReplacement,
+  }) =>
+      AutoSizeText(
+        data!,
+        textKey: key,
+        style: style,
+        strutStyle: strutStyle,
+        minFontSize: minFontSize = 12,
+        maxFontSize: maxFontSize = double.infinity,
+        stepGranularity: stepGranularity = 1,
+        presetFontSizes: presetFontSizes,
+        group: group,
+        textAlign: textAlign,
+        textDirection: textDirection,
+        locale: locale,
+        softWrap: softWrap,
+        wrapWords: wrapWords ?? true,
+        overflow: overflow,
+        overflowReplacement: overflowReplacement,
+        textScaleFactor: textScaleFactor,
+        maxLines: maxLines,
+        semanticsLabel: semanticsLabel,
+      );
 }
 
 class WellSpacedTextHelper {

@@ -219,6 +219,17 @@ class _ProductListPageState extends State<ProductListPage>
             Text(appLocalizations.compare_products_appbar_subtitle),
         actionModeActions: <Widget>[
           IconButton(
+            onPressed: () => _toggleAllSelection(),
+            tooltip: _allItemsSelected
+                ? appLocalizations.compare_products_unselect_all_items
+                : appLocalizations.compare_products_select_all_items,
+            icon: Icon(
+              _allItemsSelected
+                  ? Icons.library_add_check_rounded
+                  : Icons.library_add_rounded,
+            ),
+          ),
+          IconButton(
             icon: const Icon(Icons.delete),
             onPressed: () async {
               if (_selectedBarcodes.isNotEmpty) {
@@ -228,7 +239,8 @@ class _ProductListPageState extends State<ProductListPage>
                     return SmoothAlertDialog(
                       body: Container(
                         padding: const EdgeInsetsDirectional.only(
-                            start: SMALL_SPACE),
+                          start: SMALL_SPACE,
+                        ),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
@@ -521,6 +533,19 @@ class _ProductListPageState extends State<ProductListPage>
       //
     }
     return false;
+  }
+
+  bool get _allItemsSelected =>
+      _selectedBarcodes.length == productList.barcodes.length;
+
+  void _toggleAllSelection() {
+    if (_allItemsSelected) {
+      _selectedBarcodes.clear();
+    } else {
+      _selectedBarcodes.addAll(productList.barcodes);
+    }
+
+    setState(() {});
   }
 }
 
