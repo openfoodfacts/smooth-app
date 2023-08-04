@@ -774,7 +774,11 @@
     "recently_seen_products": "History",
     "clear": "Clear",
     "@clear": {
-        "description": "Clears a product list"
+        "description": "Clears a product list (short label)"
+    },
+    "clear_long": "Empty the list",
+    "@clear_long": {
+        "description": "Clears a product list (long label)"
     },
     "really_clear": "Do you really want to delete this list?",
     "@Plural": {},

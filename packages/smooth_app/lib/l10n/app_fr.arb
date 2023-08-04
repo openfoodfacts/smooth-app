@@ -776,6 +776,10 @@
     "@clear": {
         "description": "Clears a product list"
     },
+    "clear_long": "Vider la liste",
+    "@clear_long": {
+        "description": "Clears a product list (long label)"
+    },
     "really_clear": "Voulez-vous vraiment supprimer cette liste ?",
     "@Plural": {},
     "pct_match": "{percent}% de correspondance",
