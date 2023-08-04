@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -8,6 +10,7 @@ import 'package:smooth_app/background/background_task_badge.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
@@ -18,6 +21,8 @@ import 'package:smooth_app/pages/offline_tasks_page.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_debug_info.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
+import 'package:smooth_app/pages/product/compare_products3_page.dart';
+import 'package:smooth_app/pages/product/ordered_nutrients_cache.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 /// Full page display of "dev mode" for the preferences page.
@@ -336,6 +341,67 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           onTap: () async {
             userPreferences.setAppLanguageCode(null);
             ProductQuery.setLanguage(context, userPreferences);
+          },
+        ),
+        ListTile(
+          title: const Text('Side by side comparison: 3 random products'),
+          onTap: () async {
+            final LocalDatabase localDatabase = context.read<LocalDatabase>();
+            final DaoProduct daoProduct = DaoProduct(localDatabase);
+            final List<String> allBarcodes = await daoProduct.getAllKeys();
+            final int length = allBarcodes.length;
+            if (length < 3) {
+              if (context.mounted) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text(
+                      'We need at least 3 products in the local database!',
+                    ),
+                  ),
+                );
+              }
+              return;
+            }
+            final Random random = Random();
+            final int index1 = random.nextInt(length);
+            final int index2 = (index1 + 1) % length;
+            final int index3 = (index1 + 2) % length;
+            final Product product1 =
+                (await daoProduct.get(allBarcodes[index1]))!;
+            final Product product2 =
+                (await daoProduct.get(allBarcodes[index2]))!;
+            final Product product3 =
+                (await daoProduct.get(allBarcodes[index3]))!;
+            if (context.mounted) {
+              final OrderedNutrientsCache? cache =
+                  await OrderedNutrientsCache.getCache(context);
+              if (context.mounted) {
+                if (cache == null) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(
+                        AppLocalizations.of(context)
+                            .nutrition_cache_loading_error,
+                      ),
+                    ),
+                  );
+                  return;
+                }
+                await Navigator.push<void>(
+                  context,
+                  MaterialPageRoute<void>(
+                    builder: (BuildContext context) => CompareProducts3Page(
+                      products: <Product>[
+                        product1,
+                        product2,
+                        product3,
+                      ],
+                      orderedNutrientsCache: cache,
+                    ),
+                  ),
+                );
+              }
+            }
           },
         ),
         ListTile(
