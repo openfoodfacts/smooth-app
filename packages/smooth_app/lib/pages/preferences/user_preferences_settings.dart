@@ -334,7 +334,7 @@ class _ChooseAccentColor extends StatelessWidget {
       ),
       labels: labels.values,
       values: labels.keys,
-      currentValue: labels[colorProvider.currentColor],
+      currentValue: colorProvider.currentColor,
       onChanged: (String? newValue) {
         colorProvider.setColor(newValue!);
       },
