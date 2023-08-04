@@ -29,7 +29,7 @@ class ProductTitleCard extends StatelessWidget {
       onRemove: onRemove,
     );
 
-    if (!(isRemovable && !isSelectable)) {
+    if (!dense && !(isRemovable && !isSelectable)) {
       title = Expanded(child: title);
     }
 
@@ -46,6 +46,7 @@ class ProductTitleCard extends StatelessWidget {
                 Expanded(
                   child: _ProductTitleCardName(
                     selectable: isSelectable,
+                    dense: dense,
                   ),
                 ),
                 title,
@@ -65,8 +66,10 @@ class ProductTitleCard extends StatelessWidget {
 class _ProductTitleCardName extends StatelessWidget {
   const _ProductTitleCardName({
     required this.selectable,
+    this.dense = false,
   });
 
+  final bool dense;
   final bool selectable;
 
   @override
@@ -78,7 +81,7 @@ class _ProductTitleCardName extends StatelessWidget {
       getProductName(product, appLocalizations),
       style: Theme.of(context).textTheme.headlineMedium,
       textAlign: TextAlign.start,
-      maxLines: 3,
+      maxLines: dense ? 2 : 3,
       overflow: TextOverflow.ellipsis,
     ).selectable(isSelectable: selectable);
   }

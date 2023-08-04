@@ -13,6 +13,8 @@ import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/pages/user_management/login_page.dart';
 
+typedef AnonymousAnnotationList = Map<String, InsightAnnotation>;
+
 class CongratsWidget extends StatelessWidget {
   const CongratsWidget({
     required this.continueButtonLabel,
@@ -22,7 +24,7 @@ class CongratsWidget extends StatelessWidget {
 
   final String? continueButtonLabel;
   final VoidCallback? onContinue;
-  final Map<String, InsightAnnotation> anonymousAnnotationList;
+  final AnonymousAnnotationList anonymousAnnotationList;
 
   @override
   Widget build(BuildContext context) {
@@ -69,9 +71,12 @@ class CongratsWidget extends StatelessWidget {
                 ),
               Align(
                 alignment: AlignmentDirectional.bottomEnd,
-                child: SmoothSimpleButton(
-                  child: Text(appLocalizations.close),
-                  onPressed: () => Navigator.maybePop<Widget>(context),
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: MEDIUM_SPACE),
+                  child: SmoothSimpleButton(
+                    child: Text(appLocalizations.close),
+                    onPressed: () => Navigator.maybePop<Widget>(context),
+                  ),
                 ),
               ),
             ],
