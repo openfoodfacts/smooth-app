@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 
 class SmoothSimpleButton extends StatelessWidget {
   const SmoothSimpleButton({
@@ -35,6 +37,18 @@ class SmoothSimpleButton extends StatelessWidget {
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(borderRadius: borderRadius),
           ),
+          overlayColor: context.read<ThemeProvider>().isAmoledTheme
+              ? MaterialStateProperty.resolveWith((Set<MaterialState> states) {
+                  return states.contains(MaterialState.pressed)
+                      ? Theme.of(context).colorScheme.primary.withOpacity(0.3)
+                      : null;
+                })
+              : null,
+          side: context.read<ThemeProvider>().isAmoledTheme
+              ? MaterialStateProperty.all<BorderSide>(
+                  const BorderSide(color: Colors.white),
+                )
+              : null,
         ),
         onPressed: onPressed,
         child: Padding(

@@ -10,6 +10,7 @@ class ThemeProvider with ChangeNotifier {
   ThemeProvider(this._userPreferences);
 
   final UserPreferences _userPreferences;
+
   // The onboarding needs the light mode.
   bool _forceLight = false;
 
@@ -19,6 +20,12 @@ class ThemeProvider with ChangeNotifier {
   void setOnboardingComplete(final bool onboardingComplete) {
     _forceLight = !onboardingComplete;
   }
+
+  bool get isLightTheme => _forceLight || currentTheme == THEME_LIGHT;
+
+  bool get isDarkTheme => !_forceLight && currentTheme == THEME_DARK;
+
+  bool get isAmoledTheme => !_forceLight && currentTheme == THEME_AMOLED;
 
   void finishOnboarding() {
     setOnboardingComplete(true);
