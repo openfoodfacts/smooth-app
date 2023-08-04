@@ -34,7 +34,7 @@ class ExternalCarouselManager extends StatefulWidget {
 class ExternalCarouselManagerState extends State<ExternalCarouselManager> {
   final CarouselController _controller = CarouselController();
 
-  String? _currentBarcode;
+  String? currentBarcode;
 
   @override
   Widget build(BuildContext context) {
@@ -60,13 +60,8 @@ class ExternalCarouselManagerState extends State<ExternalCarouselManager> {
 
   CarouselController get controller => _controller;
 
-  String? get currentBarcode => _currentBarcode;
-
-  set currentBarcode(String? barcode) =>
-      setState(() => _currentBarcode = barcode);
-
   bool updateShouldNotify(ExternalCarouselManagerState oldState) {
-    return oldState.currentBarcode != _currentBarcode;
+    return oldState.currentBarcode != currentBarcode;
   }
 }
 
