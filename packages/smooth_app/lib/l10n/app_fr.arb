@@ -281,11 +281,26 @@
     "@darkmode_system_default": {
         "description": "Indicator inside the darkmode switch (system default)"
     },
-    "thanks_for_contributing": "Merci pour votre contribution !",
-    "@contributors": {
+    "thanks_for_contributing": "Merci pour votre contribution",
+    "contributors_label": "They are building the app",
+    "@contributors_label": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
     },
-    "contributors": "Contributeurs",
+    "contributors_dialog_title": "Contributeurs",
+    "@contributors_dialog_title": {
+        "description": "Dialog title: A list of all contributors of this app"
+    },
+    "contributors_dialog_entry_description": "Contributor: {name}",
+    "@contributors_dialog_entry_description": {
+        "description": "The user id of the contributor.",
+        "placeholders": {
+            "name": {}
+        }
+    },
+    "contributors_description": "A list of all contributors of this app",
+    "@contributors_description": {
+        "description": "Button description for accessibility purposes to explain what the Contributors button do"
+    },
     "support": "Assistance",
     "@support": {
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
@@ -316,7 +331,7 @@
     "@contribute_develop_text_2": {},
     "contribute_develop_dev_mode_title": "Mode de développement ? ",
     "contribute_develop_dev_mode_subtitle": "Activer le mode de développement",
-    "contribute_donate_header": "Donner à Open Food Facts",
+    "contribute_donate_header": "Faire un don à l'association Open Food Facts",
     "@contribute_donate_header": {},
     "contribute_improve_ProductsToBeCompleted": "Produits à compléter",
     "@contribute_improve_ProductsToBeCompleted": {
@@ -342,7 +357,7 @@
     "@contribute_translate_text_2": {},
     "contribute_share_header": "Partagez Open Food Facts avec vos amis",
     "@contribute_share_header": {},
-    "contribute_share_content": "Je voudrais te faire découvrir l'app que j'utilise, Open Food Facts, qui te permet de voir l'impact de ton alimentation sur la santé et l'environnement, de manière personnalisée. Elle fonctionne en scannant les codes barres des emballages. Et en plus c'est gratuit, sans inscription obligatoire, et tu peux même aider à augmenter le nombre de produits décryptés. Voilà le lien pour la télécharger: https://openfoodfacts.app",
+    "contribute_share_content": "Je voulais te signaler l'app que j'utilise, Open Food Facts, qui te permet de voir l'impact de ton alimentation sur la santé et l'environnement, de manière personnalisée. Elle fonctionne en scannant les codes barres des emballages. Et en plus c'est gratuit, sans inscription obligatoire, et tu peux même aider à augmenter le nombre de produits décryptés. Voilà le lien pour la télécharger: https://openfoodfacts.app",
     "@contribute_share_content": {
         "description": "Content that will be shared, don't forget to include the URL"
     },
@@ -752,7 +767,7 @@
     "@native_app_settings": {
         "description": "Native App Settings in app settings"
     },
-    "native_app_description": "Ouvrir les paramètres systèmes pour Open Food Facts",
+    "native_app_description": "Open system settings for Open Food Facts",
     "@native_app_description": {
         "description": "Native App description in app settings"
     },
@@ -774,7 +789,11 @@
     "recently_seen_products": "Historique",
     "clear": "Effacer",
     "@clear": {
-        "description": "Clears a product list"
+        "description": "Clears a product list (short label)"
+    },
+    "clear_long": "Vider la liste",
+    "@clear_long": {
+        "description": "Clears a product list (long label)"
     },
     "really_clear": "Voulez-vous vraiment supprimer cette liste ?",
     "@Plural": {},
@@ -2392,5 +2411,9 @@
     "nova_group_2": "Groupe NOVA 2",
     "nova_group_3": "Groupe NOVA 3",
     "nova_group_4": "Groupe NOVA 4",
-    "nova_group_unknown": "Groupe NOVA inconnu"
+    "nova_group_unknown": "Groupe NOVA inconnu",
+    "hunger_games_loading_line1": "Please let us a few seconds…",
+    "hunger_games_loading_line2": "We're downloading the questions!",
+    "hunger_games_error_label": "Argh! Something went wrong… and we couldn't load the questions.",
+    "hunger_games_error_retry_button": "Let's retry!"
 }
