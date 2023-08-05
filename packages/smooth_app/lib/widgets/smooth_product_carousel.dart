@@ -95,7 +95,7 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
     if (_carrouselMovingTo == null && _lastIndex != page) {
       widget.onPageChangedTo?.call(
         page,
-        page > _searchCardAdjustment
+        page >= _searchCardAdjustment
             ? barcodes[page - _searchCardAdjustment]
             : null,
       );
