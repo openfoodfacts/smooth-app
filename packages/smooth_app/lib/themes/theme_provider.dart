@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 
 const String THEME_SYSTEM_DEFAULT = 'System Default';
 const String THEME_LIGHT = 'Light';

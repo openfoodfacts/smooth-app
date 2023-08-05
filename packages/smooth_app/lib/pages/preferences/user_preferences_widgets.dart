@@ -5,15 +5,19 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 /// A dashed line
 class UserPreferencesListItemDivider extends StatelessWidget {
   const UserPreferencesListItemDivider({
+    this.margin,
     Key? key,
   }) : super(key: key);
+
+  final EdgeInsetsGeometry? margin;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: LARGE_SPACE,
-      ),
+      padding: margin ??
+          const EdgeInsets.symmetric(
+            horizontal: LARGE_SPACE,
+          ),
       child: CustomPaint(
         size: const Size(
           double.infinity,

@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/global_vars.dart';
 import 'package:smooth_app/query/product_query.dart';
