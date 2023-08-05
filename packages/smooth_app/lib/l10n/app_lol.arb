@@ -695,18 +695,14 @@
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
-    "deprecated_header": "crwdns221173:0crwdne221173:0",
-    "@deprecated_header": {
-        "description": "Confirmation, that the user can upgrade to new version of the app"
-    },
-    "click_here": "crwdns221175:0crwdne221175:0",
-    "@click_here": {
-        "description": "Confirmation click to download new version of the app"
-    },
-    "download_new_version": "crwdns221177:0crwdne221177:0",
-    "@download_new_version": {
-        "description": "Download new version of the app text"
-    },
+    "tagline_app_review": "crwdns244943:0crwdne244943:0",
+    "tagline_app_review_button_positive": "crwdns244945:0crwdne244945:0",
+    "tagline_app_review_button_negative": "crwdns244947:0crwdne244947:0",
+    "tagline_app_review_button_later": "crwdns244949:0crwdne244949:0",
+    "app_review_negative_modal_title": "crwdns244951:0crwdne244951:0",
+    "app_review_negative_modal_text": "crwdns244953:0crwdne244953:0",
+    "app_review_negative_modal_positive_button": "crwdns244955:0crwdne244955:0",
+    "app_review_negative_modal_negative_button": "crwdns244957:0crwdne244957:0",
     "could_not_refresh": "crwdns221179:0crwdne221179:0",
     "@could_not_refresh": {
         "description": "The product data couldn't be refreshed"
