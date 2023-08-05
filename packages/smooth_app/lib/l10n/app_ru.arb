@@ -282,10 +282,25 @@
         "description": "Indicator inside the darkmode switch (system default)"
     },
     "thanks_for_contributing": "Thanks for contributing!",
-    "@contributors": {
+    "contributors_label": "They are building the app",
+    "@contributors_label": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
     },
-    "contributors": "Участники",
+    "contributors_dialog_title": "Участники",
+    "@contributors_dialog_title": {
+        "description": "Dialog title: A list of all contributors of this app"
+    },
+    "contributors_dialog_entry_description": "Contributor: {name}",
+    "@contributors_dialog_entry_description": {
+        "description": "The user id of the contributor.",
+        "placeholders": {
+            "name": {}
+        }
+    },
+    "contributors_description": "A list of all contributors of this app",
+    "@contributors_description": {
+        "description": "Button description for accessibility purposes to explain what the Contributors button do"
+    },
     "support": "Поддержка",
     "@support": {
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
@@ -774,7 +789,11 @@
     "recently_seen_products": "История",
     "clear": "Очистить",
     "@clear": {
-        "description": "Clears a product list"
+        "description": "Clears a product list (short label)"
+    },
+    "clear_long": "Empty the list",
+    "@clear_long": {
+        "description": "Clears a product list (long label)"
     },
     "really_clear": "Вы действительно хотите удалить этот список?",
     "@Plural": {},
@@ -1221,7 +1240,7 @@
     "@edit_product_form_item_origins_title": {
         "description": "Product edition - Origins - Title"
     },
-    "edit_product_form_item_origins_hint": "Испания",
+    "edit_product_form_item_origins_hint": "Input an origin",
     "@edit_product_form_item_origins_hint": {
         "description": "Product edition - Origins - input textfield hint"
     },
@@ -1241,7 +1260,7 @@
     "@edit_product_form_item_countries_title": {
         "description": "Product edition - Countries - Title"
     },
-    "edit_product_form_item_countries_hint": "Испания",
+    "edit_product_form_item_countries_hint": "Input a country",
     "@edit_product_form_item_countries_hint": {
         "description": "Product edition - Countries - input textfield hint"
     },
@@ -2392,5 +2411,9 @@
     "nova_group_2": "NOVA Group 2",
     "nova_group_3": "NOVA Group 3",
     "nova_group_4": "NOVA Group 4",
-    "nova_group_unknown": "Unknown NOVA Group"
+    "nova_group_unknown": "Unknown NOVA Group",
+    "hunger_games_loading_line1": "Please let us a few seconds…",
+    "hunger_games_loading_line2": "We're downloading the questions!",
+    "hunger_games_error_label": "Argh! Something went wrong… and we couldn't load the questions.",
+    "hunger_games_error_retry_button": "Let's retry!"
 }
