@@ -695,13 +695,13 @@
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
-    "tagline_app_review": "Do you like the app?",
-    "tagline_app_review_button_positive": "I love it! 😍",
-    "tagline_app_review_button_negative": "Not really…",
-    "tagline_app_review_button_later": "Ask me later",
-    "app_review_negative_modal_title": "You don't like our app?",
-    "app_review_negative_modal_text": "Could you take a few seconds to tell us why?",
-    "app_review_negative_modal_positive_button": "Yes, absolutely!",
+    "tagline_app_review": "Ti piace l'app?",
+    "tagline_app_review_button_positive": "La adoro! 😍",
+    "tagline_app_review_button_negative": "Non proprio…",
+    "tagline_app_review_button_later": "Chiedimelo più tardi",
+    "app_review_negative_modal_title": "Non ti piace la nostra app?",
+    "app_review_negative_modal_text": "Potrebbe dedicarci qualche secondo per dirci perché?",
+    "app_review_negative_modal_positive_button": "Sì, assolutamente!",
     "app_review_negative_modal_negative_button": "No",
     "could_not_refresh": "Impossibile aggiornare il prodotto",
     "@could_not_refresh": {
