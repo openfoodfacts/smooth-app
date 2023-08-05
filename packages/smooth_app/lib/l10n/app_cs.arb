@@ -282,7 +282,7 @@
         "description": "Indicator inside the darkmode switch (system default)"
     },
     "thanks_for_contributing": "Děkujeme za příspěvek!",
-    "contributors_label": "They are building the app",
+    "contributors_label": "Vytvářejí aplikaci",
     "@contributors_label": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
     },
@@ -290,14 +290,14 @@
     "@contributors_dialog_title": {
         "description": "Dialog title: A list of all contributors of this app"
     },
-    "contributors_dialog_entry_description": "Contributor: {name}",
+    "contributors_dialog_entry_description": "Přispěvatel: {name}",
     "@contributors_dialog_entry_description": {
         "description": "The user id of the contributor.",
         "placeholders": {
             "name": {}
         }
     },
-    "contributors_description": "A list of all contributors of this app",
+    "contributors_description": "Seznam všech přispěvatelů této aplikace",
     "@contributors_description": {
         "description": "Button description for accessibility purposes to explain what the Contributors button do"
     },
@@ -645,19 +645,19 @@
     "@uploading_image_type_ingredients": {
         "description": "Message when a new ingredients picture is being uploaded to the server"
     },
-    "uploading_image_type_nutrition": "Uploading nutrition image to Open Food Facts",
+    "uploading_image_type_nutrition": "Nahrávání obrázku výživových údajů do Open Food Facts",
     "@uploading_image_type_nutrition": {
         "description": "Message when a new nutrition picture is being uploaded to the server"
     },
-    "uploading_image_type_packaging": "Uploading packaging image to Open Food Facts",
+    "uploading_image_type_packaging": "Nahrávání obrázku balení do Open Food Facts",
     "@uploading_image_type_packaging": {
         "description": "Message when a new packaging picture is being uploaded to the server"
     },
-    "uploading_image_type_other": "Uploading other image to Open Food Facts",
+    "uploading_image_type_other": "Nahrání jiného obrázku do Open Food Facts",
     "@uploading_image_type_other": {
         "description": "Message when a new other picture is being uploaded to the server"
     },
-    "uploading_image_type_generic": "Uploading image to Open Food Facts",
+    "uploading_image_type_generic": "Nahrávání obrázku do Open Food Facts",
     "@uploading_image_type_generic": {
         "description": "Message when a new picture is being uploaded to the server"
     },
@@ -695,13 +695,13 @@
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
-    "tagline_app_review": "Do you like the app?",
-    "tagline_app_review_button_positive": "I love it! 😍",
-    "tagline_app_review_button_negative": "Not really…",
-    "tagline_app_review_button_later": "Ask me later",
-    "app_review_negative_modal_title": "You don't like our app?",
-    "app_review_negative_modal_text": "Could you take a few seconds to tell us why?",
-    "app_review_negative_modal_positive_button": "Yes, absolutely!",
+    "tagline_app_review": "Líbí se vám aplikace?",
+    "tagline_app_review_button_positive": "Miluji to! 😍",
+    "tagline_app_review_button_negative": "Ani ne...",
+    "tagline_app_review_button_later": "Zeptejte se mě později",
+    "app_review_negative_modal_title": "Nelíbí se vám naše aplikace?",
+    "app_review_negative_modal_text": "Mohl byste nám dát pár sekund a říct nám proč?",
+    "app_review_negative_modal_positive_button": "Ano, samozřejmě!",
     "app_review_negative_modal_negative_button": "Ne",
     "could_not_refresh": "Produkt se nepodařilo obnovit",
     "@could_not_refresh": {
@@ -763,7 +763,7 @@
     "@native_app_settings": {
         "description": "Native App Settings in app settings"
     },
-    "native_app_description": "Open systems settings for Open Food Facts",
+    "native_app_description": "Otevřít systémová nastavení pro Open Food Facts",
     "@native_app_description": {
         "description": "Native App description in app settings"
     },
@@ -787,7 +787,7 @@
     "@clear": {
         "description": "Clears a product list (short label)"
     },
-    "clear_long": "Empty the list",
+    "clear_long": "Vyprázdnit seznam",
     "@clear_long": {
         "description": "Clears a product list (long label)"
     },
@@ -872,7 +872,7 @@
     "@consent_analytics_title": {
         "description": "Title for the consent analytics UI Page"
     },
-    "consent_analytics_body1": "Help the Open Food Facts volunteers to improve the app. You decide whether to submit anonymous analytics.",
+    "consent_analytics_body1": "Pomozte dobrovolníkům Open Food Facts vylepšit aplikaci. Vy se rozhodnete, zda odeslat anonymní analýzu.",
     "@conset_analytics_body1": {
         "description": "first paragraph for the consent analytics UI Page"
     },
@@ -1057,7 +1057,7 @@
     "@user_profile_title_guest": {
         "description": "When the user is not connected"
     },
-    "user_profile_subtitle_guest": "Sign-in or sign-up to join the Open Food Facts community",
+    "user_profile_subtitle_guest": "Přihlaste se nebo se zaregistrujte a připojte se ke komunitě Open Food Facts",
     "user_profile_title_id_email": "Open Food Facts přihlášení: {email}",
     "@user_profile_title_id_email": {
         "description": "User login (when it's an email)",
@@ -1080,7 +1080,7 @@
     "@email_subject_account_deletion": {
         "description": "Email subject for an account deletion"
     },
-    "email_body_account_deletion": "Hi there, please delete my Open Food Facts account: {userId}",
+    "email_body_account_deletion": "Dobrý den, smažte prosím můj účet Open Food Facts: {userId}",
     "@email_body_account_deletion": {
         "description": "Email body for an account deletion",
         "placeholders": {
@@ -1117,7 +1117,7 @@
     "@crash_reporting_toggle_title": {
         "description": "Title for the Crash reporting toggle"
     },
-    "crash_reporting_toggle_subtitle": "When enabled, crash reports are automatically submitted to Open Food Facts' error tracking system, so that bugs can be fixed and thus improve the app.",
+    "crash_reporting_toggle_subtitle": "Pokud je tato možnost povolena, zprávy o selhání se automaticky odesílají do systému sledování chyb Open Food Facts, aby bylo možné opravit chyby a vylepšit tak aplikaci.",
     "@crash_reporting_toggle_subtitle": {
         "description": "SubTitle for the Crash reporting toggle"
     },
@@ -1125,7 +1125,7 @@
     "@send_anonymous_toggle_title": {
         "description": "Title for the Send anonymous data toggle"
     },
-    "send_anonymous_data_toggle_subtitle": "When enabled, some anonymous information regarding app usage will be sent to the Open Food Facts servers, so that we can understand how and how much features are used in order to improve them.",
+    "send_anonymous_data_toggle_subtitle": "Pokud je povoleno, některé anonymní informace o používání aplikace a jejích funkcích budou odeslány na server Open Food Facts, abychom mohli aplikaci dále vylepšovat.",
     "@send_anonymous_toggle_subtitle": {
         "description": "SubTitle for the Send anonymous data toggle"
     },
@@ -1236,7 +1236,7 @@
     "@edit_product_form_item_origins_title": {
         "description": "Product edition - Origins - Title"
     },
-    "edit_product_form_item_origins_hint": "Input an origin",
+    "edit_product_form_item_origins_hint": "Zadejte původ",
     "@edit_product_form_item_origins_hint": {
         "description": "Product edition - Origins - input textfield hint"
     },
@@ -1256,7 +1256,7 @@
     "@edit_product_form_item_countries_title": {
         "description": "Product edition - Countries - Title"
     },
-    "edit_product_form_item_countries_hint": "Input a country",
+    "edit_product_form_item_countries_hint": "Zadejte zemi",
     "@edit_product_form_item_countries_hint": {
         "description": "Product edition - Countries - input textfield hint"
     },
@@ -1300,7 +1300,7 @@
     "@edit_product_form_item_categories_explainer_1": {
         "description": "Product edition - Categories - input explainer, part 1"
     },
-    "edit_product_form_item_categories_explainer_2": "In case a category is not available in autocomplete, feel free to add it anyway, that will help us improve Open Food Facts in your country.",
+    "edit_product_form_item_categories_explainer_2": "V případě, že kategorie není k dispozici v automatickém doplňování, klidně ji přidejte, pomůže nám to zlepšit Open Food Facts ve vaší zemi.",
     "@edit_product_form_item_categories_explainer_2": {
         "description": "Product edition - Categories - input explainer, part 2"
     },
@@ -1667,7 +1667,7 @@
     "@edit_product_action_confirm": {
         "description": "Product edition - FAB actions - confirm"
     },
-    "signup_page_terms_of_use_line1": "I agree to the Open Food Facts ",
+    "signup_page_terms_of_use_line1": "Souhlasím s Open Food Facts ",
     "@signup_page_terms_of_use_line1": {
         "description": "User consent for terms of use (line 1)"
     },
@@ -1859,7 +1859,7 @@
     "@share": {
         "description": "Button label for sharing something on another app. For example sharing the link to a product via Email"
     },
-    "share_product_text": "Have a look at this product on Open Food Facts: {url}",
+    "share_product_text": "Podívejte se na tento produkt na Open Food Facts: {url}",
     "@share_product_text": {
         "description": "The content which is send, when sharing a product",
         "placeholders": {
@@ -1868,7 +1868,7 @@
             }
         }
     },
-    "share_product_list_text": "Have a look at my list of products on Open Food Facts: {url}",
+    "share_product_list_text": "Podívejte se na můj seznam produktů na Open Food Facts: {url}",
     "@share_product_list_text": {
         "description": "The content which is send, when sharing a product list",
         "placeholders": {
@@ -2319,7 +2319,7 @@
     "@update_offline_data": {
         "description": "List tile title for the update offline data page"
     },
-    "update_local_database_sub": "Update the local product database with the latest data from Open Food Facts",
+    "update_local_database_sub": "Aktualizujte místní databázi produktů nejnovějšími údaji z Open Food Facts",
     "@update_local_database_sub": {
         "description": "Update the local product database with the latest data from server"
     },
@@ -2408,8 +2408,8 @@
     "nova_group_3": "Skupina NOVA 3",
     "nova_group_4": "Skupina NOVA 4",
     "nova_group_unknown": "Neznámá skupina NOVA",
-    "hunger_games_loading_line1": "Please let us a few seconds…",
-    "hunger_games_loading_line2": "We're downloading the questions!",
-    "hunger_games_error_label": "Argh! Something went wrong… and we couldn't load the questions.",
-    "hunger_games_error_retry_button": "Let's retry!"
+    "hunger_games_loading_line1": "Dejte nám prosím pár sekund…",
+    "hunger_games_loading_line2": "Stahujeme otázky!",
+    "hunger_games_error_label": "Argh! Něco se pokazilo… a otázky se nepodařilo načíst.",
+    "hunger_games_error_retry_button": "Zkusme to znovu!"
 }
