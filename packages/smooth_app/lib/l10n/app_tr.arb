@@ -290,14 +290,14 @@
     "@contributors_dialog_title": {
         "description": "Dialog title: A list of all contributors of this app"
     },
-    "contributors_dialog_entry_description": "Contributor: {name}",
+    "contributors_dialog_entry_description": "Katılımcı: {name}",
     "@contributors_dialog_entry_description": {
         "description": "The user id of the contributor.",
         "placeholders": {
             "name": {}
         }
     },
-    "contributors_description": "A list of all contributors of this app",
+    "contributors_description": "Bu uygulamaya tüm katkıda bulunanlarının listesi",
     "@contributors_description": {
         "description": "Button description for accessibility purposes to explain what the Contributors button do"
     },
@@ -695,13 +695,13 @@
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
-    "tagline_app_review": "Do you like the app?",
-    "tagline_app_review_button_positive": "I love it! 😍",
-    "tagline_app_review_button_negative": "Not really…",
-    "tagline_app_review_button_later": "Ask me later",
-    "app_review_negative_modal_title": "You don't like our app?",
-    "app_review_negative_modal_text": "Could you take a few seconds to tell us why?",
-    "app_review_negative_modal_positive_button": "Yes, absolutely!",
+    "tagline_app_review": "Uygulamayı beğendiniz mi?",
+    "tagline_app_review_button_positive": "Bayıldım! 😍",
+    "tagline_app_review_button_negative": "Pek sayılmaz…",
+    "tagline_app_review_button_later": "Daha sonra sor",
+    "app_review_negative_modal_title": "Uygulamamızı beğenmediniz mi?",
+    "app_review_negative_modal_text": "Bize nedenini söylemek için birkaç saniyenizi ayırabilir misiniz?",
+    "app_review_negative_modal_positive_button": "Evet kesinlikle!",
     "app_review_negative_modal_negative_button": "Hayır",
     "could_not_refresh": "Ürün yenilenemedi",
     "@could_not_refresh": {
@@ -787,7 +787,7 @@
     "@clear": {
         "description": "Clears a product list (short label)"
     },
-    "clear_long": "Empty the list",
+    "clear_long": "Listeyi boşalt",
     "@clear_long": {
         "description": "Clears a product list (long label)"
     },
@@ -1256,7 +1256,7 @@
     "@edit_product_form_item_countries_title": {
         "description": "Product edition - Countries - Title"
     },
-    "edit_product_form_item_countries_hint": "Input a country",
+    "edit_product_form_item_countries_hint": "Bir ülke girin",
     "@edit_product_form_item_countries_hint": {
         "description": "Product edition - Countries - input textfield hint"
     },
@@ -2408,8 +2408,8 @@
     "nova_group_3": "NOVA Grup 3",
     "nova_group_4": "NOVA Grup 4",
     "nova_group_unknown": "Bilinmeyen NOVA Grubu",
-    "hunger_games_loading_line1": "Please let us a few seconds…",
-    "hunger_games_loading_line2": "We're downloading the questions!",
-    "hunger_games_error_label": "Argh! Something went wrong… and we couldn't load the questions.",
-    "hunger_games_error_retry_button": "Let's retry!"
+    "hunger_games_loading_line1": "Lütfen bize birkaç saniye izin verin…",
+    "hunger_games_loading_line2": "Soruları indiriyoruz!",
+    "hunger_games_error_label": "Ah! Bir şeyler ters gitti… ve soruları yükleyemedik.",
+    "hunger_games_error_retry_button": "Tekrar deneyelim!"
 }
