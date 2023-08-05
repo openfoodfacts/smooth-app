@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 
 const String THEME_SYSTEM_DEFAULT = 'System Default';
 const String THEME_LIGHT = 'Light';
@@ -10,6 +10,7 @@ class ThemeProvider with ChangeNotifier {
   ThemeProvider(this._userPreferences);
 
   final UserPreferences _userPreferences;
+
   // The onboarding needs the light mode.
   bool _forceLight = false;
 
@@ -19,6 +20,12 @@ class ThemeProvider with ChangeNotifier {
   void setOnboardingComplete(final bool onboardingComplete) {
     _forceLight = !onboardingComplete;
   }
+
+  bool get isLightTheme => _forceLight || currentTheme == THEME_LIGHT;
+
+  bool get isDarkTheme => !_forceLight && currentTheme == THEME_DARK;
+
+  bool get isAmoledTheme => !_forceLight && currentTheme == THEME_AMOLED;
 
   void finishOnboarding() {
     setOnboardingComplete(true);

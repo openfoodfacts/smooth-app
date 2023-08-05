@@ -1,5 +1,5 @@
 import 'package:flutter/services.dart';
-import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 
 /// Haptic feedback/vibrations in the app
 /// Managed by a preference in the user's preferences

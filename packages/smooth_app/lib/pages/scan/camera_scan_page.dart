@@ -6,7 +6,7 @@ import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:provider/provider.dart';
 import 'package:scanner_shared/scanner_shared.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
-import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
@@ -96,7 +96,7 @@ class CameraScannerPageState extends State<CameraScannerPage>
       return false;
     }
 
-    _userPreferences.setFirstScanAchieved();
+    _userPreferences.incrementScanCount();
     return true;
   }
 
