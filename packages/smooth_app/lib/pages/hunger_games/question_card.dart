@@ -67,8 +67,12 @@ class QuestionCard extends StatelessWidget {
                         : QuestionImageThumbnail(question),
                   ),
                   Padding(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
+                    padding: const EdgeInsetsDirectional.only(
+                      start: SMALL_SPACE,
+                      end: SMALL_SPACE,
+                      top: SMALL_SPACE,
+                      bottom: VERY_SMALL_SPACE,
+                    ),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[

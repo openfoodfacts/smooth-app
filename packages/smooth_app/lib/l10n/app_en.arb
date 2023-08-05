@@ -2407,5 +2407,9 @@
     "nova_group_2": "NOVA Group 2",
     "nova_group_3": "NOVA Group 3",
     "nova_group_4": "NOVA Group 4",
-    "nova_group_unknown": "Unknown NOVA Group"
+    "nova_group_unknown": "Unknown NOVA Group",
+    "hunger_games_loading_line1": "Please let us a few seconds…",
+    "hunger_games_loading_line2": "We're downloading the questions!",
+    "hunger_games_error_label": "Argh! Something went wrong… and we couldn't load the questions.",
+    "hunger_games_error_retry_button": "Let's retry!"
 }
