@@ -1,8 +1,7 @@
 name: Run release-please
+
 on:
-   push:
-     branches:
-       - develop
+  workflow_dispatch:
 
 env:
   RUBY_VERSION: 3.2.0
@@ -11,7 +10,7 @@ env:
 jobs:
   release-please:
     runs-on: ubuntu-latest
-    if: github.repository_owner == 'openfoodfacts'
+    if: github.triggering_actor == 'teolemon' || github.triggering_actor == 'stephanegigandet' || github.triggering_actor == 'g123k' || github.triggering_actor == 'monsieurtanuki' ||github.triggering_actor == 'M123-dev'
     outputs:
       release_created: ${{ steps.release_please.outputs.release_created }}
       major: ${{ steps.release_please.outputs.major }}
