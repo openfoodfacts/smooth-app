@@ -72,38 +72,34 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
         if (explanations != null) ExplanationWidget(explanations),
         LayoutBuilder(
           builder: (_, BoxConstraints constraints) {
-            return Padding(
-              padding: const EdgeInsetsDirectional.symmetric(
-                horizontal: VERY_SMALL_SPACE,
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  Flexible(
-                    flex: 1,
-                    child: SimpleInputTextField(
-                      autocompleteKey: _autocompleteKey,
-                      focusNode: _focusNode,
-                      constraints: constraints,
-                      tagType: widget.helper.getTagType(),
-                      hintText: widget.helper.getAddHint(appLocalizations),
-                      controller: widget.controller,
-                      padding: const EdgeInsetsDirectional.only(
-                        start: 4.5,
-                      ),
+            return Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Flexible(
+                  flex: 1,
+                  child: SimpleInputTextField(
+                    autocompleteKey: _autocompleteKey,
+                    focusNode: _focusNode,
+                    constraints: constraints,
+                    tagType: widget.helper.getTagType(),
+                    hintText: widget.helper.getAddHint(appLocalizations),
+                    controller: widget.controller,
+                    padding: const EdgeInsetsDirectional.only(
+                      start: 9.0,
                     ),
                   ),
-                  Tooltip(
-                    message: appLocalizations.edit_product_form_item_add_action(
-                        widget.helper.getTypeLabel(appLocalizations)),
-                    child: IconButton(
-                      onPressed: _onAddItem,
-                      icon: const Icon(Icons.add_circle),
-                    ),
-                  )
-                ],
-              ),
+                ),
+                Tooltip(
+                  message: appLocalizations.edit_product_form_item_add_action(
+                      widget.helper.getTypeLabel(appLocalizations)),
+                  child: IconButton(
+                    onPressed: _onAddItem,
+                    icon: const Icon(Icons.add_circle),
+                    splashRadius: 20,
+                  ),
+                )
+              ],
             );
           },
         ),
@@ -130,10 +126,7 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
                       customBorder: const CircleBorder(),
                       onTap: () => _onRemoveItem(term, child),
                       child: const Padding(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: MEDIUM_SPACE,
-                          vertical: SMALL_SPACE,
-                        ),
+                        padding: EdgeInsets.all(SMALL_SPACE),
                         child: Icon(Icons.delete),
                       ),
                     ),
