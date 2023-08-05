@@ -498,7 +498,7 @@
     "@packaging_information_photo": {},
     "missing_product": "Našli jste nový produkt!",
     "@missing_product": {},
-    "add_product_take_photos": "Take photos of the packaging to add this product to Open Food Facts",
+    "add_product_take_photos": "Vyfoťte obal a přidejte tento produkt do Open Food Facts",
     "@add_product_take_photos": {},
     "add_product_take_photos_descriptive": "Nejprve prosím udělejte nějaké fotky. Produkt můžete vždy dokončit později.",
     "@add_product_take_photos_descriptive": {},
@@ -622,7 +622,7 @@
     "@uploading_image": {
         "description": "Message when a new picture is uploading to the server"
     },
-    "uploading_image_type_front": "Uploading front image to Open Food Facts",
+    "uploading_image_type_front": "Nahrávání předního obrázku do Open Food Facts",
     "@uploading_image_type_front": {
         "description": "Message when a new front picture is being uploaded to the server"
     },
