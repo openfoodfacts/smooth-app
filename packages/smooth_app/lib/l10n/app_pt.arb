@@ -282,7 +282,7 @@
         "description": "Indicator inside the darkmode switch (system default)"
     },
     "thanks_for_contributing": "Obrigado por sua contribuição!",
-    "contributors_label": "They are building the app",
+    "contributors_label": "Estão construindo o aplicativo",
     "@contributors_label": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
     },
@@ -290,14 +290,14 @@
     "@contributors_dialog_title": {
         "description": "Dialog title: A list of all contributors of this app"
     },
-    "contributors_dialog_entry_description": "Contributor: {name}",
+    "contributors_dialog_entry_description": "Colaborador: {name}",
     "@contributors_dialog_entry_description": {
         "description": "The user id of the contributor.",
         "placeholders": {
             "name": {}
         }
     },
-    "contributors_description": "A list of all contributors of this app",
+    "contributors_description": "Uma lista de todos os colaboradores deste aplicativo",
     "@contributors_description": {
         "description": "Button description for accessibility purposes to explain what the Contributors button do"
     },
@@ -1236,7 +1236,7 @@
     "@edit_product_form_item_origins_title": {
         "description": "Product edition - Origins - Title"
     },
-    "edit_product_form_item_origins_hint": "Input an origin",
+    "edit_product_form_item_origins_hint": "Insira uma origem",
     "@edit_product_form_item_origins_hint": {
         "description": "Product edition - Origins - input textfield hint"
     },
@@ -1256,7 +1256,7 @@
     "@edit_product_form_item_countries_title": {
         "description": "Product edition - Countries - Title"
     },
-    "edit_product_form_item_countries_hint": "Input a country",
+    "edit_product_form_item_countries_hint": "Insira um país",
     "@edit_product_form_item_countries_hint": {
         "description": "Product edition - Countries - input textfield hint"
     },
