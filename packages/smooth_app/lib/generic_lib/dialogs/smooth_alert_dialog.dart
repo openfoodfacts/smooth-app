@@ -103,10 +103,16 @@ class SmoothAlertDialog extends StatelessWidget {
   }
 
   Padding _buildBottomBar(EdgeInsetsDirectional padding) {
+    final bool singleButton =
+        positiveAction != null && negativeAction == null ||
+            negativeAction != null && positiveAction == null;
+
     return Padding(
       padding: EdgeInsetsDirectional.only(
         top: padding.bottom,
-        start: actionsAxis == Axis.horizontal ? SMALL_SPACE : 0.0,
+        start: (actionsAxis == Axis.horizontal || singleButton)
+            ? SMALL_SPACE
+            : 0.0,
         end: positiveAction != null && negativeAction != null
             ? 0.0
             : SMALL_SPACE,

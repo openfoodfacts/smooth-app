@@ -8,7 +8,6 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
 import 'package:smooth_app/pages/product/common/product_list_popup_items.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
-import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
 
 /// Page that lists all product lists.
 class AllProductListModal extends StatelessWidget {
@@ -18,7 +17,7 @@ class AllProductListModal extends StatelessWidget {
 
   final ProductList currentList;
 
-  final List<ProductList> hardcodedProductLists = <ProductList>[
+  final List<ProductList> _hardcodedProductLists = <ProductList>[
     ProductList.scanSession(),
     ProductList.scanHistory(),
     ProductList.history(),
@@ -31,7 +30,7 @@ class AllProductListModal extends StatelessWidget {
 
     final List<String> userLists = daoProductList.getUserLists();
     final List<ProductList> productLists =
-        List<ProductList>.from(hardcodedProductLists);
+        List<ProductList>.from(_hardcodedProductLists);
     for (final String userList in userLists) {
       productLists.add(ProductList.user(userList));
     }
@@ -62,39 +61,42 @@ class AllProductListModal extends StatelessWidget {
                     subtitle: Text(
                       appLocalizations.user_list_length(productsLength),
                     ),
-                    trailing: PopupMenuButton<PopupMenuEntries>(
+                    trailing: PopupMenuButton<ProductListPopupMenuEntry>(
                       itemBuilder: (BuildContext context) {
-                        return <PopupMenuEntry<PopupMenuEntries>>[
-                          _shareMenu(
-                            appLocalizations,
-                            daoProductList,
-                            localDatabase,
-                            context,
-                            productList,
-                          ),
-                          _openInWebMenu(
-                            appLocalizations,
-                            daoProductList,
-                            localDatabase,
-                            context,
-                            productList,
-                          ),
-                          if (productsLength > 0)
-                            _clearListMenu(
-                              appLocalizations,
-                              daoProductList,
-                              localDatabase,
-                              context,
-                              productList,
-                            ),
-                          if (productList.isEditable)
-                            _deleteListMenu(
-                              appLocalizations,
-                              daoProductList,
-                              context,
-                              productList,
-                            ),
+                        final bool enableRename =
+                            productList.listType == ProductListType.USER;
+                        final List<ProductListPopupItem> list =
+                            <ProductListPopupItem>[
+                          if (enableRename) ProductListPopupRename(),
+                          ProductListPopupShare(),
+                          ProductListPopupOpenInWeb(),
+                          if (productsLength > 0) ProductListPopupClear(),
+                          if (productList.isEditable) ProductListPopupDelete(),
                         ];
+                        final List<PopupMenuEntry<ProductListPopupMenuEntry>>
+                            result =
+                            <PopupMenuEntry<ProductListPopupMenuEntry>>[];
+                        for (final ProductListPopupItem item in list) {
+                          result.add(
+                            PopupMenuItem<ProductListPopupMenuEntry>(
+                              value: item.getEntry(),
+                              child: ListTile(
+                                leading: Icon(item.getIconData()),
+                                title: Text(item.getTitle(appLocalizations)),
+                                contentPadding: EdgeInsets.zero,
+                                onTap: () async {
+                                  Navigator.of(context).pop();
+                                  await item.doSomething(
+                                    productList: productList,
+                                    localDatabase: localDatabase,
+                                    context: context,
+                                  );
+                                },
+                              ),
+                            ),
+                          );
+                        }
+                        return result;
                       },
                       icon: const Icon(Icons.more_vert),
                     ),
@@ -119,112 +121,4 @@ class AllProductListModal extends StatelessWidget {
       ),
     );
   }
-
-  PopupMenuItem<PopupMenuEntries> _shareMenu(
-    AppLocalizations appLocalizations,
-    DaoProductList daoProductList,
-    LocalDatabase localDatabase,
-    BuildContext context,
-    ProductList productList,
-  ) {
-    final ProductListPopupShare popupShare = ProductListPopupShare();
-    return PopupMenuItem<PopupMenuEntries>(
-      value: PopupMenuEntries.shareList,
-      child: ListTile(
-        leading: const Icon(Icons.share),
-        title: Text(popupShare.getTitle(appLocalizations)),
-        contentPadding: EdgeInsets.zero,
-        onTap: () {
-          Navigator.of(context).pop();
-          popupShare.doSomething(
-            productList: productList,
-            localDatabase: localDatabase,
-            context: context,
-          );
-        },
-      ),
-    );
-  }
-
-  PopupMenuItem<PopupMenuEntries> _openInWebMenu(
-    AppLocalizations appLocalizations,
-    DaoProductList daoProductList,
-    LocalDatabase localDatabase,
-    BuildContext context,
-    ProductList productList,
-  ) {
-    final ProductListPopupOpenInWeb webItem = ProductListPopupOpenInWeb();
-    return PopupMenuItem<PopupMenuEntries>(
-      value: PopupMenuEntries.openListInBrowser,
-      child: ListTile(
-        leading: const Icon(Icons.public),
-        title: Text(webItem.getTitle(appLocalizations)),
-        contentPadding: EdgeInsets.zero,
-        onTap: () {
-          Navigator.of(context).pop();
-          webItem.doSomething(
-            productList: productList,
-            localDatabase: localDatabase,
-            context: context,
-          );
-        },
-      ),
-    );
-  }
-
-  PopupMenuItem<PopupMenuEntries> _clearListMenu(
-    AppLocalizations appLocalizations,
-    DaoProductList daoProductList,
-    LocalDatabase localDatabase,
-    BuildContext context,
-    ProductList productList,
-  ) {
-    final ProductListPopupClear clearItem = ProductListPopupClear();
-    return PopupMenuItem<PopupMenuEntries>(
-      value: PopupMenuEntries.clearList,
-      child: ListTile(
-        leading: const Icon(Icons.delete_sweep),
-        title: Text(clearItem.getTitle(appLocalizations)),
-        contentPadding: EdgeInsets.zero,
-        onTap: () async {
-          Navigator.of(context).pop();
-
-          clearItem.doSomething(
-            productList: productList,
-            localDatabase: localDatabase,
-            context: context,
-          );
-        },
-      ),
-    );
-  }
-
-  PopupMenuItem<PopupMenuEntries> _deleteListMenu(
-    AppLocalizations appLocalizations,
-    DaoProductList daoProductList,
-    BuildContext context,
-    ProductList productList,
-  ) {
-    return PopupMenuItem<PopupMenuEntries>(
-        value: PopupMenuEntries.deleteList,
-        child: ListTile(
-          leading: const Icon(Icons.delete),
-          title: Text(appLocalizations.action_delete_list),
-          contentPadding: EdgeInsets.zero,
-        ),
-        onTap: () {
-          WidgetsBinding.instance.addPostFrameCallback((_) {
-            ProductListUserDialogHelper(daoProductList)
-                .showDeleteUserListDialog(context, productList);
-          });
-        });
-  }
-}
-
-enum PopupMenuEntries {
-  shareList,
-  openListInBrowser,
-  renameList,
-  clearList,
-  deleteList,
 }
