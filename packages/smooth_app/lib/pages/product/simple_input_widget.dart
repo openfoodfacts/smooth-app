@@ -72,34 +72,41 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
         if (explanations != null) ExplanationWidget(explanations),
         LayoutBuilder(
           builder: (_, BoxConstraints constraints) {
-            return Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Flexible(
-                  flex: 1,
-                  child: SimpleInputTextField(
-                    autocompleteKey: _autocompleteKey,
-                    focusNode: _focusNode,
-                    constraints: constraints,
-                    tagType: widget.helper.getTagType(),
-                    hintText: widget.helper.getAddHint(appLocalizations),
-                    controller: widget.controller,
+            return Padding(
+              padding: const EdgeInsetsDirectional.symmetric(
+                horizontal: VERY_SMALL_SPACE,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Flexible(
+                    flex: 1,
+                    child: SimpleInputTextField(
+                      autocompleteKey: _autocompleteKey,
+                      focusNode: _focusNode,
+                      constraints: constraints,
+                      tagType: widget.helper.getTagType(),
+                      hintText: widget.helper.getAddHint(appLocalizations),
+                      controller: widget.controller,
+                      padding: const EdgeInsetsDirectional.only(
+                        start: 4.5,
+                      ),
+                    ),
                   ),
-                ),
-                Tooltip(
-                  message: appLocalizations.edit_product_form_item_add_action(
-                      widget.helper.getTypeLabel(appLocalizations)),
-                  child: IconButton(
-                    onPressed: _onAddItem,
-                    icon: const Icon(Icons.add_circle),
-                  ),
-                )
-              ],
+                  Tooltip(
+                    message: appLocalizations.edit_product_form_item_add_action(
+                        widget.helper.getTypeLabel(appLocalizations)),
+                    child: IconButton(
+                      onPressed: _onAddItem,
+                      icon: const Icon(Icons.add_circle),
+                    ),
+                  )
+                ],
+              ),
             );
           },
         ),
-        Divider(color: themeData.colorScheme.onBackground),
         AnimatedList(
           key: _listKey,
           initialItemCount: _localTerms.length,
