@@ -1,16 +1,20 @@
 name: Upload builds to Waldo
 
 on:
-  pull_request_target:
-    types:
-      - opened
-      - edited
-      - synchronize
-    
+  workflow_dispatch:
+    inputs: 
+      repo:
+        description: 'Repo name (eg: openfoodfacts/smooth-app)'
+        required: true
+        type: string
+      branch:
+        description: 'Branch name (eg: my-awesome-feature)'
+        required: true
+        type: string
+
 jobs:
   build:
     runs-on: macos-latest
-    if: "!contains(github.event.pull_request.title, 'chore(deps):')"
     defaults:
       run:
         shell: bash
@@ -18,6 +22,8 @@ jobs:
       - name: "Checkout code"
         uses: actions/checkout@v3
         with:
+          repository: ${{ github.event.inputs.repo }}
+          ref: ${{ github.event.inputs.branch }}
           fetch-depth: 0
 
       - name: Setup Java JDK
@@ -53,10 +59,3 @@ jobs:
         with:
           build_path: packages/smooth_app/build/app/outputs/flutter-apk/app-debug.apk
           upload_token: ${{ secrets.WALDO_SESSIONS_ANDROID }}
-
-      - name: Write comment
-        uses: mshick/add-pr-comment@v2
-        with:
-          message: "You can test this PR on: [Android](https://app.waldo.com/applications/app-19d476740ba1bb36/sessions])"
-
-      # TODO Build the iOS variant and upload it
