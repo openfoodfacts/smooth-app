@@ -287,12 +287,11 @@ class _SearchCardContentState extends State<_SearchCardContent>
     } else {
       _content = _SearchCardContentType.TAG_LINE;
     }
-
-    _content = _SearchCardContentType.REVIEW_APP;
   }
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     final ThemeData themeData = Theme.of(context);
     final bool darkMode = themeData.brightness == Brightness.dark;
 
