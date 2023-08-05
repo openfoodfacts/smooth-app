@@ -100,81 +100,43 @@ class UserPreferencesFaq extends AbstractUserPreferences {
   Future<void> _about() async {
     final PackageInfo packageInfo = await PackageInfo.fromPlatform();
     // ignore: use_build_context_synchronously
-    showDialog<void>(
+    showModalBottomSheet<void>(
       context: context,
       builder: (BuildContext context) {
         final String logo = Theme.of(context).brightness == Brightness.light
             ? _iconLightAssetPath
             : _iconDarkAssetPath;
-
-        return SmoothAlertDialog(
-          body: Column(
+        return FractionallySizedBox(
+          heightFactor: 0.6,
+          child: Column(
             children: <Widget>[
-              Row(
-                children: <Widget>[
-                  SvgPicture.asset(
-                    logo,
-                    width: MediaQuery.of(context).size.width * 0.1,
-                    package: AppHelper.APP_PACKAGE,
-                  ),
-                  const SizedBox(width: SMALL_SPACE),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        FittedBox(
-                          child: Text(
-                            packageInfo.appName,
-                            style: themeData.textTheme.displayLarge,
-                          ),
-                        ),
-                        Text(
-                          '${packageInfo.version}+${packageInfo.buildNumber}-${GlobalVars.scannerLabel.name}-${GlobalVars.storeLabel.name}',
-                          style: themeData.textTheme.titleSmall,
-                        )
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-              Divider(color: themeData.colorScheme.onSurface),
-              const SizedBox(height: VERY_LARGE_SPACE),
-              SingleChildScrollView(
-                child: Column(
+              Padding(
+                padding: const EdgeInsetsDirectional.only(
+                  top: MEDIUM_SPACE,
+                  end: LARGE_SPACE,
+                  start: LARGE_SPACE,
+                ),
+                child: Row(
                   children: <Widget>[
-                    Text(appLocalizations.whatIsOff),
-                    const SizedBox(height: LARGE_SPACE),
-                    IntrinsicHeight(
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        mainAxisAlignment: MainAxisAlignment.center,
+                    SvgPicture.asset(
+                      logo,
+                      width: MINIMUM_TOUCH_SIZE,
+                      package: AppHelper.APP_PACKAGE,
+                    ),
+                    const SizedBox(width: SMALL_SPACE),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          Expanded(
-                            child: TextButton(
-                              onPressed: () => LaunchUrlHelper.launchURL(
-                                  'https://openfoodfacts.org/who-we-are', true),
-                              child: Text(
-                                appLocalizations.learnMore,
-                                textAlign: TextAlign.center,
-                                style: const TextStyle(
-                                  color: Colors.blue,
-                                ),
-                              ),
+                          FittedBox(
+                            child: Text(
+                              packageInfo.appName,
+                              style: themeData.textTheme.displayLarge,
                             ),
                           ),
-                          Expanded(
-                            child: TextButton(
-                              onPressed: () => LaunchUrlHelper.launchURL(
-                                  'https://openfoodfacts.org/terms-of-use',
-                                  true),
-                              child: Text(
-                                appLocalizations.termsOfUse,
-                                textAlign: TextAlign.center,
-                                style: const TextStyle(
-                                  color: Colors.blue,
-                                ),
-                              ),
-                            ),
+                          Text(
+                            '${packageInfo.version}+${packageInfo.buildNumber}-${GlobalVars.scannerLabel.name}-${GlobalVars.storeLabel.name}',
+                            style: themeData.textTheme.titleSmall,
                           )
                         ],
                       ),
@@ -182,27 +144,76 @@ class UserPreferencesFaq extends AbstractUserPreferences {
                   ],
                 ),
               ),
+              Divider(color: themeData.colorScheme.onBackground),
+              Column(
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsetsDirectional.only(
+                      top: VERY_SMALL_SPACE,
+                      end: LARGE_SPACE,
+                      start: LARGE_SPACE,
+                    ),
+                    child: Text(appLocalizations.whatIsOff),
+                  ),
+                  IntrinsicHeight(
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Expanded(
+                          child: TextButton(
+                            onPressed: () => LaunchUrlHelper.launchURL(
+                                'https://openfoodfacts.org/who-we-are', true),
+                            child: Text(
+                              appLocalizations.learnMore,
+                              textAlign: TextAlign.center,
+                              style: const TextStyle(
+                                color: Colors.blue,
+                              ),
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          child: TextButton(
+                            onPressed: () => LaunchUrlHelper.launchURL(
+                                'https://openfoodfacts.org/terms-of-use', true),
+                            child: Text(
+                              appLocalizations.termsOfUse,
+                              textAlign: TextAlign.center,
+                              style: const TextStyle(
+                                color: Colors.blue,
+                              ),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: MEDIUM_SPACE),
+                  TextButton(
+                    onPressed: () async {
+                      Navigator.of(context).pop();
+                      showLicensePage(
+                        context: context,
+                        applicationName: packageInfo.appName,
+                        applicationVersion: packageInfo.version,
+                        applicationIcon: SvgPicture.asset(
+                          logo,
+                          height: MediaQuery.of(context).size.height * 0.1,
+                        ),
+                      );
+                    },
+                    child: Text(
+                      appLocalizations.licenses,
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        color: Colors.blue,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ],
-          ),
-          positiveAction: SmoothActionButton(
-            onPressed: () => Navigator.of(context, rootNavigator: true).pop(),
-            text: appLocalizations.okay,
-          ),
-          negativeAction: SmoothActionButton(
-            onPressed: () async {
-              Navigator.of(context).pop();
-
-              showLicensePage(
-                context: context,
-                applicationName: packageInfo.appName,
-                applicationVersion: packageInfo.version,
-                applicationIcon: SvgPicture.asset(
-                  logo,
-                  height: MediaQuery.of(context).size.height * 0.1,
-                ),
-              );
-            },
-            text: appLocalizations.licenses,
           ),
         );
       },
