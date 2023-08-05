@@ -695,18 +695,14 @@
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
-    "deprecated_header": "더 이상 사용되지 않는 버전의 앱을 사용하고 있습니다.",
-    "@deprecated_header": {
-        "description": "Confirmation, that the user can upgrade to new version of the app"
-    },
-    "click_here": "여기를 클릭",
-    "@click_here": {
-        "description": "Confirmation click to download new version of the app"
-    },
-    "download_new_version": "새 버전의 앱 다운로드",
-    "@download_new_version": {
-        "description": "Download new version of the app text"
-    },
+    "tagline_app_review": "이 앱이 마음에 드시나요?",
+    "tagline_app_review_button_positive": "최고에요! 😍",
+    "tagline_app_review_button_negative": "별로...",
+    "tagline_app_review_button_later": "나중에 물어봐 주세요",
+    "app_review_negative_modal_title": "저희 앱이 맘에 안드세요?",
+    "app_review_negative_modal_text": "잠시 시간을 내어 이유를 말씀해 주실래요?",
+    "app_review_negative_modal_positive_button": "예, 물론입니다!",
+    "app_review_negative_modal_negative_button": "아니요",
     "could_not_refresh": "상품을 새로고침할 수 없음",
     "@could_not_refresh": {
         "description": "The product data couldn't be refreshed"
