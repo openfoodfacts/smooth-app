@@ -60,6 +60,8 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
       upToDateProduct,
       appLocalizations,
     );
+    final String productBrand =
+        getProductBrands(upToDateProduct, appLocalizations);
 
     return SmoothScaffold(
       appBar: SmoothAppBar(
@@ -72,7 +74,7 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 AutoSizeText(
-                  productName,
+                  '$productBrand,$productName',
                   minFontSize:
                       theme.textTheme.titleLarge?.fontSize?.clamp(13.0, 17.0) ??
                           13.0,
