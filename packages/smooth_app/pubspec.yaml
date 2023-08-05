@@ -56,7 +56,7 @@ dependencies:
   intl: 0.18.0
   collection: 1.17.1
   path: 1.8.3
-  path_provider: 2.0.13
+  path_provider: 2.0.15
   data_importer_shared:
     path: ../data_importer_shared
   data_importer:
