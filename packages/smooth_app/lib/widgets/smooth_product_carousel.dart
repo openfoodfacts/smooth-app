@@ -269,7 +269,8 @@ class _SearchCardContent extends StatefulWidget {
   State<_SearchCardContent> createState() => _SearchCardContentState();
 }
 
-class _SearchCardContentState extends State<_SearchCardContent> {
+class _SearchCardContentState extends State<_SearchCardContent>
+    with AutomaticKeepAliveClientMixin {
   late _SearchCardContentType _content;
 
   @override
@@ -342,6 +343,9 @@ class _SearchCardContentState extends State<_SearchCardContent> {
   void _openSearchPage(BuildContext context) {
     AppNavigator.of(context).push(AppRoutes.SEARCH);
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }
 
 enum _SearchCardContentType {
