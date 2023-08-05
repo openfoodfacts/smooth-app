@@ -695,18 +695,14 @@
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
-    "deprecated_header": "Den anvendte app-version er forældet.",
-    "@deprecated_header": {
-        "description": "Confirmation, that the user can upgrade to new version of the app"
-    },
-    "click_here": "Klik hér",
-    "@click_here": {
-        "description": "Confirmation click to download new version of the app"
-    },
-    "download_new_version": "Download seneste app-version",
-    "@download_new_version": {
-        "description": "Download new version of the app text"
-    },
+    "tagline_app_review": "Kan du lide appen?",
+    "tagline_app_review_button_positive": "Jeg elsker det! 😍",
+    "tagline_app_review_button_negative": "Ikke rigtigt…",
+    "tagline_app_review_button_later": "Spørg mig senere",
+    "app_review_negative_modal_title": "Kan du ikke lide vores app?",
+    "app_review_negative_modal_text": "Vil du bruge et par sekunder på at fortælle os hvorfor?",
+    "app_review_negative_modal_positive_button": "Ja, selvfølgelig!",
+    "app_review_negative_modal_negative_button": "Nej",
     "could_not_refresh": "Kunne ikke opfriske produkt",
     "@could_not_refresh": {
         "description": "The product data couldn't be refreshed"
