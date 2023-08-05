@@ -173,7 +173,7 @@ class _ProductPageState extends State<ProductPage>
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final DaoProductList daoProductList = DaoProductList(localDatabase);
     return RefreshIndicator(
-      onRefresh: () => ProductRefresher().fetchAndRefresh(
+      onRefresh: () async => ProductRefresher().fetchAndRefresh(
         barcode: barcode,
         widget: this,
       ),
@@ -266,7 +266,7 @@ class _ProductPageState extends State<ProductPage>
       context,
       <String>{widget.product.barcode!},
     );
-    if (refreshed != null && refreshed) {
+    if (refreshed == true) {
       setState(() {});
     }
   }
