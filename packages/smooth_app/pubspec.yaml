@@ -67,7 +67,7 @@ dependencies:
   lottie: 2.2.0
   rive: 0.11.4
   sensors_plus: 3.0.3
-  webview_flutter: 3.0.4
+  webview_flutter: 4.2.2
   flutter_custom_tabs: ^1.0.4
   flutter_image_compress: 2.0.4
 
