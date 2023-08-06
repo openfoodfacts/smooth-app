@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:app_store_shared/app_store_shared.dart';
+import 'package:dart_ping_ios/dart_ping_ios.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -120,6 +121,7 @@ Future<bool> _init1() async {
     return false;
   }
 
+  DartPingIOS.register();
   await SmoothServices().init(GlobalVars.appStore);
   await setupAppNetworkConfig();
   await UserManagementProvider.mountCredentials();

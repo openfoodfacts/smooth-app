@@ -18,6 +18,7 @@ class FetchedProduct {
     this.product,
     this.connectivityResult,
     this.exceptionString,
+    this.failedPingedHost,
   });
 
   // The reason behind the "ignore": I want to force "product" to be not null
@@ -40,15 +41,23 @@ class FetchedProduct {
   const FetchedProduct.error({
     required final String exceptionString,
     required final ConnectivityResult connectivityResult,
+    final String? failedPingedHost,
   }) : this._(
           status: FetchedProductStatus.internetError,
           connectivityResult: connectivityResult,
           exceptionString: exceptionString,
+          failedPingedHost: failedPingedHost,
         );
 
   final Product? product;
   final FetchedProductStatus status;
+
+  /// When relevant, result of the connectivity check.
   final ConnectivityResult? connectivityResult;
+
+  /// When relevant, string of the exception.
   final String? exceptionString;
-  // TODO(monsieurtanuki): add a "ping" action in order to check if the server is alive?
+
+  /// When relevant, host of the query that we couldn't even ping.
+  final String? failedPingedHost;
 }

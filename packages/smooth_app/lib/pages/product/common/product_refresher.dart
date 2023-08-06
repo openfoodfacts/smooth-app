@@ -1,4 +1,5 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:dart_ping/dart_ping.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/svg.dart';
@@ -147,6 +148,9 @@ class ProductRefresher {
                   ConnectivityResult.none) {
                 return 'You are not connected to the internet!';
               }
+              if (fetchAndRefreshed.failedPingedHost != null) {
+                return 'Server down (${fetchAndRefreshed.failedPingedHost})';
+              }
               return 'Server error (${fetchAndRefreshed.exceptionString})';
           }
         }
@@ -188,9 +192,22 @@ class ProductRefresher {
       Logs.e('Refresh from server error', ex: e);
       final ConnectivityResult connectivityResult =
           await Connectivity().checkConnectivity();
+      if (connectivityResult == ConnectivityResult.none) {
+        return FetchedProduct.error(
+          exceptionString: e.toString(),
+          connectivityResult: connectivityResult,
+        );
+      }
+      // TODO(monsieurtanuki): make things cleaner with off-dart
+      final String host =
+          OpenFoodAPIConfiguration.globalQueryType == QueryType.PROD
+              ? OpenFoodAPIConfiguration.uriProdHost
+              : OpenFoodAPIConfiguration.uriTestHost;
+      final PingData result = await Ping(host, count: 1).stream.first;
       return FetchedProduct.error(
         exceptionString: e.toString(),
         connectivityResult: connectivityResult,
+        failedPingedHost: result.error == null ? null : host,
       );
     }
   }

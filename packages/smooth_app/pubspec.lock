@@ -357,6 +357,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.5"
+  dart_ping:
+    dependency: "direct main"
+    description:
+      name: dart_ping
+      sha256: dd3a93d9b986565cb2fadd0c9277cf9880298634ccc9588e353e63c6f736a386
+      url: "https://pub.dev"
+    source: hosted
+    version: "9.0.0"
+  dart_ping_ios:
+    dependency: "direct main"
+    description:
+      name: dart_ping_ios
+      sha256: ba60bcd1ef8f13d564e9490197fb32c34d38fd1c10a890143a52f5b71d82ea95
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.0.0"
   dart_style:
     dependency: transitive
     description:
@@ -541,6 +557,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.0.1"
+  flutter_icmp_ping:
+    dependency: transitive
+    description:
+      name: flutter_icmp_ping
+      sha256: a06c2255a857c8f9d1b0a68f546b113557e48e7a543f91e38bd66aeab296f3a6
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.1.2"
   flutter_image_compress:
     dependency: "direct main"
     description:
