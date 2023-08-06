@@ -8,6 +8,8 @@ import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/themes/color_schemes.dart';
 
+part 'package:smooth_app/data_models/preferences/migration/user_preferences_migration.dart';
+
 /// User choice regarding the picture source.
 enum UserPictureSource {
   /// Always select between Gallery and Camera
@@ -57,9 +59,9 @@ class UserPreferences extends ChangeNotifier {
   /// Whether the preferences are empty or not
   static const String _TAG_INIT = 'init';
 
-  /// The current version of preferences (1)
+  /// The current version of preferences
   static const String _TAG_VERSION = 'prefs_version';
-  static const int _PREFS_CURRENT_VERSION = 2;
+  static const int _PREFS_CURRENT_VERSION = 3;
   static const String _TAG_PREFIX_IMPORTANCE = 'IMPORTANCE_AS_STRING';
   static const String _TAG_CURRENT_THEME_MODE = 'currentThemeMode';
   static const String _TAG_CURRENT_COLOR_SCHEME = 'currentColorScheme';
@@ -75,9 +77,6 @@ class UserPreferences extends ChangeNotifier {
   static const String _TAG_USER_GROUP = '_user_group';
 
   /// Camera preferences
-  // Detect if a first successful scan was achieved (condition to show the
-  // tagline)
-  static const String _TAG_IS_FIRST_SCAN = 'is_first_scan';
 
   // Use the flash/torch with the camera
   static const String _TAG_USE_FLASH_WITH_CAMERA = 'enable_flash_with_camera';
@@ -98,6 +97,8 @@ class UserPreferences extends ChangeNotifier {
   static const String _TAG_IN_APP_REVIEW_ALREADY_DISPLAYED =
       'inAppReviewAlreadyAsked';
 
+  static const String _TAG_NUMBER_OF_SCANS = 'numberOfScans';
+
   Future<void> init(final ProductPreferences productPreferences) async {
     await _onMigrate();
 
@@ -110,27 +111,11 @@ class UserPreferences extends ChangeNotifier {
 
   /// Allow to migrate between versions
   Future<void> _onMigrate() async {
-    final int? currentVersion = _sharedPreferences.getInt(_TAG_VERSION);
-    if (currentVersion == _PREFS_CURRENT_VERSION) {
-      return;
-    }
-
-    /// With version == null (or 0), [_TAG_USER_TRACKING] didn't exist
-    if (currentVersion == null) {
-      final bool? crashReporting =
-          _sharedPreferences.getBool(_TAG_CRASH_REPORTS);
-      if (crashReporting != null) {
-        await setUserTracking(crashReporting);
-      }
-    }
-
-    /// With version == null and 1, [_TAG_USER_GROUP] is missing
-    if (_sharedPreferences.getInt(_TAG_USER_GROUP) == null) {
-      await _sharedPreferences.setInt(
-        _TAG_USER_GROUP,
-        Random().nextInt(10),
-      );
-    }
+    await UserPreferencesMigrationTool.onUpgrade(
+      this,
+      _sharedPreferences.getInt(_TAG_VERSION),
+      _PREFS_CURRENT_VERSION,
+    );
 
     await _sharedPreferences.setInt(
       _TAG_VERSION,
@@ -232,15 +217,12 @@ class UserPreferences extends ChangeNotifier {
         : OnboardingPage.values[pageIndex];
   }
 
-  Future<void> setFirstScanAchieved() async {
-    if (isFirstScan) {
-      await _sharedPreferences.setBool(_TAG_IS_FIRST_SCAN, false);
-      notifyListeners();
-    }
+  Future<void> incrementScanCount() async {
+    await _sharedPreferences.setInt(_TAG_NUMBER_OF_SCANS, numberOfScans + 1);
+    notifyListeners();
   }
 
-  bool get isFirstScan =>
-      _sharedPreferences.getBool(_TAG_IS_FIRST_SCAN) ?? true;
+  int get numberOfScans => _sharedPreferences.getInt(_TAG_NUMBER_OF_SCANS) ?? 0;
 
   Future<void> markInAppReviewAsShown() async {
     await _sharedPreferences.setBool(
