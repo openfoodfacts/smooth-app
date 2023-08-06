@@ -501,6 +501,40 @@ class _SmoothActionFlatButton extends StatelessWidget {
   }
 }
 
+/// A [Button] that can be displayed in the [body] of a [SmoothAlertDialog].
+class SmoothAlertContentButton extends StatelessWidget {
+  const SmoothAlertContentButton({
+    required this.label,
+    required this.onPressed,
+    this.icon,
+  });
+
+  final String label;
+  final IconData? icon;
+  final VoidCallback onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return TextButton(
+      onPressed: onPressed,
+      child: FractionallySizedBox(
+        widthFactor: 0.8,
+        child: Row(
+          children: <Widget>[
+            Expanded(
+              child: Text(label),
+            ),
+            if (icon != null)
+              ExcludeSemantics(
+                child: Icon(icon),
+              ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
 /// A custom dialog where you only have to pass a [title] and a [message].
 /// By default an "OK" button will be show., but you can override it by passing
 /// a [positiveAction] and/or [negativeAction]
