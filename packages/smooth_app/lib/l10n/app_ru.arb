@@ -695,13 +695,13 @@
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
-    "tagline_app_review": "Do you like the app?",
-    "tagline_app_review_button_positive": "I love it! 😍",
-    "tagline_app_review_button_negative": "Not really…",
-    "tagline_app_review_button_later": "Ask me later",
-    "app_review_negative_modal_title": "You don't like our app?",
-    "app_review_negative_modal_text": "Could you take a few seconds to tell us why?",
-    "app_review_negative_modal_positive_button": "Yes, absolutely!",
+    "tagline_app_review": "Нравится приложение?",
+    "tagline_app_review_button_positive": "Конечно! 😍",
+    "tagline_app_review_button_negative": "Не очень…",
+    "tagline_app_review_button_later": "Позже",
+    "app_review_negative_modal_title": "Не нравится наше приложение?",
+    "app_review_negative_modal_text": "Пожалуйста, напишите, почему.",
+    "app_review_negative_modal_positive_button": "Да, конечно!",
     "app_review_negative_modal_negative_button": "Нет",
     "could_not_refresh": "Не удалось обновить продукт",
     "@could_not_refresh": {
@@ -787,7 +787,7 @@
     "@clear": {
         "description": "Clears a product list (short label)"
     },
-    "clear_long": "Empty the list",
+    "clear_long": "Очистить список",
     "@clear_long": {
         "description": "Clears a product list (long label)"
     },
@@ -2408,7 +2408,7 @@
     "nova_group_3": "NOVA Group 3",
     "nova_group_4": "NOVA Group 4",
     "nova_group_unknown": "Unknown NOVA Group",
-    "hunger_games_loading_line1": "Please let us a few seconds…",
+    "hunger_games_loading_line1": "Ещё несколько секунд…",
     "hunger_games_loading_line2": "We're downloading the questions!",
     "hunger_games_error_label": "Argh! Something went wrong… and we couldn't load the questions.",
     "hunger_games_error_retry_button": "Let's retry!"
