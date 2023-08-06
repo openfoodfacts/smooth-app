@@ -458,39 +458,77 @@ class _SmoothActionFlatButton extends StatelessWidget {
         value: buttonData.text,
         button: true,
         excludeSemantics: true,
-        child: TextButton(
-          onPressed: buttonData.onPressed,
-          style: TextButton.styleFrom(
-            shape: const RoundedRectangleBorder(
-              borderRadius: ROUNDED_BORDER_RADIUS,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 2.0),
+          child: TextButton(
+            onPressed: buttonData.onPressed,
+            style: TextButton.styleFrom(
+              shape: const RoundedRectangleBorder(
+                borderRadius: ROUNDED_BORDER_RADIUS,
+              ),
+              textStyle: themeData.textTheme.bodyMedium!.copyWith(
+                color: themeData.colorScheme.onPrimary,
+              ),
+              padding: const EdgeInsets.symmetric(
+                horizontal: SMALL_SPACE,
+              ),
+              minimumSize: const Size(0, 46.0),
             ),
-            textStyle: themeData.textTheme.bodyMedium!.copyWith(
-              color: themeData.colorScheme.onPrimary,
-            ),
-            padding: const EdgeInsets.symmetric(
-              horizontal: SMALL_SPACE,
-            ),
-            minimumSize: const Size(0, 50.0),
-          ),
-          child: SizedBox(
-            height: buttonData.lines != null
-                ? VERY_LARGE_SPACE * buttonData.lines!
-                : null,
-            width: buttonData.minWidth,
-            child: FittedBox(
-              fit: BoxFit.scaleDown,
-              child: Text(
-                buttonData.text.toUpperCase(),
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: buttonData.textColor ?? themeData.colorScheme.primary,
+            child: SizedBox(
+              height: buttonData.lines != null
+                  ? VERY_LARGE_SPACE * buttonData.lines!
+                  : null,
+              width: buttonData.minWidth,
+              child: FittedBox(
+                fit: BoxFit.scaleDown,
+                child: Text(
+                  buttonData.text.toUpperCase(),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color:
+                        buttonData.textColor ?? themeData.colorScheme.primary,
+                  ),
+                  textAlign: TextAlign.center,
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: buttonData.lines ?? 2,
                 ),
-                textAlign: TextAlign.center,
-                overflow: TextOverflow.ellipsis,
-                maxLines: buttonData.lines ?? 2,
               ),
             ),
           ),
+        ),
+      ),
+    );
+  }
+}
+
+/// A [Button] that can be displayed in the [body] of a [SmoothAlertDialog].
+class SmoothAlertContentButton extends StatelessWidget {
+  const SmoothAlertContentButton({
+    required this.label,
+    required this.onPressed,
+    this.icon,
+  });
+
+  final String label;
+  final IconData? icon;
+  final VoidCallback onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return TextButton(
+      onPressed: onPressed,
+      child: FractionallySizedBox(
+        widthFactor: 0.8,
+        child: Row(
+          children: <Widget>[
+            Expanded(
+              child: Text(label),
+            ),
+            if (icon != null)
+              ExcludeSemantics(
+                child: Icon(icon),
+              ),
+          ],
         ),
       ),
     );
