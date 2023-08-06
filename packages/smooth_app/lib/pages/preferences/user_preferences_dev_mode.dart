@@ -10,7 +10,6 @@ import 'package:smooth_app/background/background_task_badge.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/product_list.dart';
-import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
