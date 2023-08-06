@@ -97,14 +97,19 @@ class UserPreferencesFaq extends AbstractUserPreferences {
     final IconData? trailing,
     final String? url,
     final VoidCallback? onTap,
-  }) =>
-      UserPreferencesListTile(
-        title: Text(title),
-        onTap: onTap ?? () async => LaunchUrlHelper.launchURL(url!, false),
-        trailing: trailing != null
-            ? Icon(trailing) // Use the Icon widget directly with the IconData.
-            : null,
-      );
+  }) {
+    final IconData trailingIcon = trailing ?? Icons.open_in_new;
+
+    return UserPreferencesListTile(
+      title: Text(title),
+      onTap: onTap ??
+          (url != null
+              ? () async => LaunchUrlHelper.launchURL(url, false)
+              : null),
+      trailing: Icon(trailingIcon),
+    );
+  }
+
   ConstantIcons constantIcons = ConstantIcons.instance;
   static const String _iconLightAssetPath =
       'assets/app/release_icon_light_transparent_no_border.svg';
@@ -162,7 +167,6 @@ class UserPreferencesFaq extends AbstractUserPreferences {
                   ),
                   _getAboutListTile(
                     title: appLocalizations.learnMore,
-                    trailing: constantIcons.getForwardIcon(),
                     onTap: () => LaunchUrlHelper.launchURL(
                       'https://openfoodfacts.org/who-we-are',
                       true,
@@ -170,7 +174,6 @@ class UserPreferencesFaq extends AbstractUserPreferences {
                   ),
                   _getAboutListTile(
                     title: appLocalizations.termsOfUse,
-                    trailing: constantIcons.getForwardIcon(),
                     onTap: () => LaunchUrlHelper.launchURL(
                       'https://openfoodfacts.org/terms-of-use',
                       false,
