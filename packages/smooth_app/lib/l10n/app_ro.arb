@@ -123,11 +123,11 @@
     "@welcomeToOpenFoodFacts": {},
     "whatIsOff": "Open Food Facts este o organizație non-profit globală susținută de comunitățile locale.",
     "@whatIsOff": {
-        "description": "Description of Open Food Facts organization."
+        "description": "Description of Open Food Facts organization."
     },
     "offUtility": "Alege alimente care sunt bune pentru tine și planetă.",
     "@offUtility": {
-        "description": "Description of what a user can use Open Food Facts for."
+        "description": "Description of what a user can use Open Food Facts for."
     },
     "productDataUtility": "Vedeți datele despre alimente relevante pentru preferințele dvs.",
     "@productDataUtility": {
@@ -235,7 +235,7 @@
     "sign_up_page_confirm_password_error_invalid": "Parolele nu se potrivesc",
     "sign_up_page_agree_text": "Sunt de acord cu Open Food Facts",
     "@sign_up_page_agree_text": {
-        "description": "I agree to the Open Food Facts is followed by sign_up_page_terms_text"
+        "description": "I agree to the Open Food Facts is followed by sign_up_page_terms_text"
     },
     "sign_up_page_terms_text": "termeni de utilizare și contribuție",
     "@sign_up_page_terms_text": {
@@ -243,7 +243,7 @@
     },
     "sign_up_page_agree_url": "https://world-ro.openfoodfacts.org/terms-of-use",
     "@sign_up_page_agree_url": {
-        "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
+        "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
     },
     "donate_url": "https://donate.openfoodfacts.org/",
     "@donate_url": {
@@ -256,7 +256,7 @@
     "sign_up_page_producer_checkbox": "Sunt un producător de alimente",
     "sign_up_page_producer_hint": "Producător/marcă",
     "sign_up_page_producer_error_empty": "Vă rugăm să introduceţi un producător sau un nume de marcă",
-    "sign_up_page_subscribe_checkbox": "Aș dori să mă abonez la buletinul informativ Open Food Facts (vă puteți dezabona de la acesta în orice moment)",
+    "sign_up_page_subscribe_checkbox": "Aș dori să mă abonez la buletinul informativ Open Food Facts (vă puteți dezabona de la acesta oricând)",
     "sign_up_page_user_name_already_used": "Numele de utilizator există deja, vă rugăm să alegeți un alt nume de utilizator.",
     "sign_up_page_email_already_exists": "există deja, conectați-vă la cont sau încercați cu un alt e-mail.",
     "sign_up_page_provide_valid_email": "Vă rugăm să furnizați o adresă de e-mail validă.",
@@ -281,11 +281,26 @@
     "@darkmode_system_default": {
         "description": "Indicator inside the darkmode switch (system default)"
     },
-    "thanks_for_contributing": "Mulțumim pentru contribuție",
-    "@contributors": {
+    "thanks_for_contributing": "Mulțumesc pentru contribuție!",
+    "contributors_label": "They are building the app",
+    "@contributors_label": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
     },
-    "contributors": "Colaboratori",
+    "contributors_dialog_title": "Colaboratori",
+    "@contributors_dialog_title": {
+        "description": "Dialog title: A list of all contributors of this app"
+    },
+    "contributors_dialog_entry_description": "Contributor: {name}",
+    "@contributors_dialog_entry_description": {
+        "description": "The user id of the contributor.",
+        "placeholders": {
+            "name": {}
+        }
+    },
+    "contributors_description": "A list of all contributors of this app",
+    "@contributors_description": {
+        "description": "Button description for accessibility purposes to explain what the Contributors button do"
+    },
     "support": "Suport",
     "@support": {
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
@@ -310,9 +325,9 @@
     "@contribute_sw_development": {
         "description": "Button label + page title: Ways to help"
     },
-    "contribute_develop_text": "Codul pentru fiecare produs Open Food Facts este disponibil pe GitHub. Sunteți bineveniți să reutilizați codul (este în acces liber) și să ne ajutați să îl îmbunătățim pentru toată lumea.",
+    "contribute_develop_text": "Codul pentru fiecare produs Open Food Facts este disponibil pe GitHub. Sunteți binevenit să-l reutilizați (este open source) și să ne ajutați să-l îmbunătățim, pentru toată lumea, pe toată planeta.",
     "@contribute_develop_text": {},
-    "contribute_develop_text_2": "Puteți să vă alăturați sălilor de discuții Open Food Facts Slack care este modul preferat de a pune întrebări.",
+    "contribute_develop_text_2": "Vă puteți înscrie în sala de chat Open Food Facts Slack, care este modalitatea preferată de a pune întrebări.",
     "@contribute_develop_text_2": {},
     "contribute_develop_dev_mode_title": "Modul DEV?",
     "contribute_develop_dev_mode_subtitle": "Activați modul DEV",
@@ -326,7 +341,7 @@
     "@contribute_improve_header": {
         "description": "Button label + page title: Ways to improve the database"
     },
-    "contribute_improve_text": "Baza de date reprezinta nucleul proiectului. Puteți ajuta ușor si foarte rapid. Puteți descărca aplicația pentru mobilul dvs. și să incepeți sa adaugați sau sa ameliorați produsele: ",
+    "contribute_improve_text": "Baza de date este nucleul proiectului. Este ușor și foarte rapid să ajutați. Puteți descărca aplicația mobilă pentru telefon și puteți începe să adăugați sau să îmbunătățiți produse.\n\nPe de altă parte, site-ul Open Food Facts oferă multe modalități de a contribui: ",
     "@contribute_improve_text": {},
     "contribute_translate_header": "Tradu",
     "@contribute_translate_header": {
@@ -348,7 +363,7 @@
     },
     "tap_to_answer": "Atingeți aici pentru a răspunde la întrebări",
     "@tap_to_answer": {
-        "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
+        "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts and gain rewards."
     },
     "tap_to_answer_hint": "Atingeți aici pentru a răspunde la întrebări despre acest produs",
     "@tap_to_answer_hint": {
@@ -364,7 +379,7 @@
     },
     "contribute_to_get_rewards": "Ajută la îmbunătățirea transparenței produselor și primește recompense",
     "@contribute_to_get_rewards": {
-        "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
+        "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts and gain rewards."
     },
     "question_sign_in_text": "Conectați-vă la contul dvs. Open Food Facts pentru a obține credit pentru contribuțiile dvs",
     "question_yes_button_accessibility_value": "Raspunde cu da",
@@ -385,12 +400,12 @@
         "description": "Join which is actually Signup"
     },
     "myPreferences_profile_title": "Profilul tău",
-    "myPreferences_profile_subtitle": "Gestionați-vă contul de colaborator Open Food Facts.",
+    "myPreferences_profile_subtitle": "Gestionați contul dvs. de colaborator Open Food Facts.",
     "myPreferences_settings_title": "Setările aplicației",
     "myPreferences_settings_subtitle": "Mod întunecat, Analiză…",
     "myPreferences_food_title": "Preferințe alimentare",
     "myPreferences_food_subtitle": "Alegeți ce informații despre alimente contează cel mai mult pentru dvs.",
-    "myPreferences_food_comment": "Alegeți ce informații despre alimente contează cel mai mult pentru dvs., pentru a clasifica alimentele în funcție de preferințele dvs., vedeți mai întâi informațiile care vă interesează și obțineți un rezumat de compatibilitate. Aceste preferințe alimentare rămân pe dispozitivul dvs. și nu sunt asociate cu contul dvs. de colaborator Open Food Facts, dacă aveți unul.",
+    "myPreferences_food_comment": "Alegeți ce informații despre alimente contează cel mai mult pentru dvs., pentru a clasifica alimentele în funcție de preferințele dvs., pentru a vedea mai întâi informațiile care vă interesează și pentru a obține un rezumat de compatibilitate. Aceste preferințe alimentare rămân pe dispozitivul dvs. și nu sunt asociate cu contul dvs. de colaborator Open Food Facts, dacă aveți unul.",
     "confirmResetPreferences": "Resetați preferințele alimentare?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -498,7 +513,7 @@
     "@packaging_information_photo": {},
     "missing_product": "Ai gasit un produs nou!",
     "@missing_product": {},
-    "add_product_take_photos": "Faceți fotografii ale ambalajului pentru a adăuga acest produs în Open Food Facts",
+    "add_product_take_photos": "Faceți fotografii ale ambalajului pentru a adăuga acest produs la Open Food Facts",
     "@add_product_take_photos": {},
     "add_product_take_photos_descriptive": "Vă rugăm să faceți mai întâi câteva fotografii. Puteți completa întotdeauna produsul mai târziu.",
     "@add_product_take_photos_descriptive": {},
@@ -630,7 +645,7 @@
     "@uploading_image_type_ingredients": {
         "description": "Message when a new ingredients picture is being uploaded to the server"
     },
-    "uploading_image_type_nutrition": "Se încarcă imaginea nutrițională în Open Food Facts",
+    "uploading_image_type_nutrition": "Se încarcă imaginea informațiilor nutriționale în Open Food Facts",
     "@uploading_image_type_nutrition": {
         "description": "Message when a new nutrition picture is being uploaded to the server"
     },
@@ -680,18 +695,14 @@
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
-    "deprecated_header": "Utilizați o versiune învechită a aplicației.",
-    "@deprecated_header": {
-        "description": "Confirmation, that the user can upgrade to new version of the app"
-    },
-    "click_here": "Click aici",
-    "@click_here": {
-        "description": "Confirmation click to download new version of the app"
-    },
-    "download_new_version": "Descărcați noua versiune a aplicației",
-    "@download_new_version": {
-        "description": "Download new version of the app text"
-    },
+    "tagline_app_review": "Do you like the app?",
+    "tagline_app_review_button_positive": "I love it! 😍",
+    "tagline_app_review_button_negative": "Not really…",
+    "tagline_app_review_button_later": "Ask me later",
+    "app_review_negative_modal_title": "You don't like our app?",
+    "app_review_negative_modal_text": "Could you take a few seconds to tell us why?",
+    "app_review_negative_modal_positive_button": "Yes, absolutely!",
+    "app_review_negative_modal_negative_button": "Nu",
     "could_not_refresh": "Produsul nu a putut fi reîmprospătat",
     "@could_not_refresh": {
         "description": "The product data couldn't be refreshed"
@@ -774,7 +785,11 @@
     "recently_seen_products": "Istoric",
     "clear": "Ștergeți",
     "@clear": {
-        "description": "Clears a product list"
+        "description": "Clears a product list (short label)"
+    },
+    "clear_long": "Empty the list",
+    "@clear_long": {
+        "description": "Clears a product list (long label)"
     },
     "really_clear": "Sigur doriți să ștergeți această listă?",
     "@Plural": {},
@@ -1065,7 +1080,7 @@
     "@email_subject_account_deletion": {
         "description": "Email subject for an account deletion"
     },
-    "email_body_account_deletion": "Bună ziua, vă rog să ștergeți contul meu Open Food Facts: {userId}",
+    "email_body_account_deletion": "Bună ziua, vă rugăm să ștergeți contul meu Open Food Facts: {userId}",
     "@email_body_account_deletion": {
         "description": "Email body for an account deletion",
         "placeholders": {
@@ -1221,7 +1236,7 @@
     "@edit_product_form_item_origins_title": {
         "description": "Product edition - Origins - Title"
     },
-    "edit_product_form_item_origins_hint": "Spania",
+    "edit_product_form_item_origins_hint": "Input an origin",
     "@edit_product_form_item_origins_hint": {
         "description": "Product edition - Origins - input textfield hint"
     },
@@ -1241,7 +1256,7 @@
     "@edit_product_form_item_countries_title": {
         "description": "Product edition - Countries - Title"
     },
-    "edit_product_form_item_countries_hint": "Spania",
+    "edit_product_form_item_countries_hint": "Input a country",
     "@edit_product_form_item_countries_hint": {
         "description": "Product edition - Countries - input textfield hint"
     },
@@ -2071,6 +2086,7 @@
     "@show_password": {
         "description": "Show hidden password in password field"
     },
+    "rate_app": "Evaluează aplicația",
     "app_rating_dialog_title": "Grozav! Împărtășeste cu ceilalți ce crezi despre această aplicație!",
     "app_rating_dialog_positive_action": "Evaluează aplicația",
     "app_rating_dialog_negative_action": "Mai târziu",
@@ -2199,7 +2215,7 @@
     },
     "color_light_brown": "Implicit",
     "@color_light_brown": {
-        "description": "Color Light Brown, Default Open Food Facts Color"
+        "description": "Color Light Brown, Default Open Food Facts Color"
     },
     "color_magenta": "Magenta",
     "@color_magenta": {
@@ -2353,6 +2369,10 @@
     "@country_selector_title": {
         "description": "Label written as the title of the dialog to select the user country"
     },
+    "language_selector_title": "Selectați limba dvs.:",
+    "@language_selector_title": {
+        "description": "Label written as the title of the dialog to select the user language"
+    },
     "action_delete_list": "Ştergeţi",
     "@action_delete_list": {
         "description": "Delete a list action in a menu"
@@ -2368,5 +2388,28 @@
     "product_list_create_tooltip": "Creați o listă nouă",
     "@product_list_create_tooltip": {
         "description": "Button description to create a new list (long sentence)"
-    }
+    },
+    "nutriscore_a": "Scor nutrițional A",
+    "nutriscore_b": "Scor nutrițional B",
+    "nutriscore_c": "Scor nutrițional C",
+    "nutriscore_d": "Scor nutrițional D",
+    "nutriscore_e": "Scor nutrițional E",
+    "nutriscore_unknown": "Scor nutrițional necunoscut",
+    "nutriscore_not_applicable": "Scorul nutrițional nu se aplică",
+    "ecoscore_a": "Scor Ecologic A",
+    "ecoscore_b": "Scor Ecologic B",
+    "ecoscore_c": "Scor Ecologic C",
+    "ecoscore_d": "Scor Ecologic D",
+    "ecoscore_e": "Scor Ecologic E",
+    "ecoscore_unknown": "Scor ecologic necunoscut",
+    "ecoscore_not_applicable": "Scorul Ecologic nu se aplică",
+    "nova_group_1": "Grupa 1 NOVA",
+    "nova_group_2": "Grupa 2 NOVA",
+    "nova_group_3": "Grupa 3 NOVA",
+    "nova_group_4": "Grupa 4 NOVA",
+    "nova_group_unknown": "Grupul NOVA necunoscut",
+    "hunger_games_loading_line1": "Please let us a few seconds…",
+    "hunger_games_loading_line2": "We're downloading the questions!",
+    "hunger_games_error_label": "Argh! Something went wrong… and we couldn't load the questions.",
+    "hunger_games_error_retry_button": "Let's retry!"
 }
