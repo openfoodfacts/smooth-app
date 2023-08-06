@@ -1,1 +1,1 @@
-NSCameraUsageDescription = "This app needs camera access to scan barcodes and to take product photos";
+NSCameraUsageDescription = "Kameratilgang er nødvendig for å skanne strekkoder og ta produktbilder";
