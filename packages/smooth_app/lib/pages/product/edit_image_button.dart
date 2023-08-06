@@ -35,9 +35,12 @@ class EditImageButton extends StatelessWidget {
               ),
       ),
       onPressed: onPressed,
-      label: Padding(
-        padding: EdgeInsets.all(borderWidth ?? 0),
-        child: Text(label),
+      label: SizedBox(
+        width: double.infinity,
+        child: Padding(
+          padding: EdgeInsets.all(borderWidth ?? 0),
+          child: Text(label),
+        ),
       ),
     );
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 
 /// Widget that displays explanations as a list, with expand/collapse mode.
 class ExplanationWidget extends StatefulWidget {
@@ -55,6 +56,10 @@ class _CollapsedExplanation extends StatelessWidget {
         overflow: TextOverflow.ellipsis,
       ),
       trailing: const Icon(Icons.info_outline),
+      contentPadding: const EdgeInsetsDirectional.only(
+        start: SMALL_SPACE * 2,
+        end: SMALL_SPACE,
+      ),
     );
   }
 }
@@ -82,6 +87,10 @@ class _ExpandedExplanation extends StatelessWidget {
             trailing: const RotatedBox(
               quarterTurns: 2,
               child: Icon(Icons.expand_circle_down_outlined),
+            ),
+            contentPadding: const EdgeInsetsDirectional.only(
+              start: SMALL_SPACE * 2,
+              end: SMALL_SPACE,
             ),
           ),
         );
