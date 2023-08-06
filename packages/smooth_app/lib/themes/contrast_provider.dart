@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:smooth_app/data_models/user_preferences.dart';
+import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 
 /// Only available for AMOLED as of Now.
 class TextContrastProvider with ChangeNotifier {

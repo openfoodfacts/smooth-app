@@ -10,11 +10,24 @@ import 'package:smooth_app/helpers/temp_product_list_share_helper.dart';
 import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+enum ProductListPopupMenuEntry {
+  share,
+  openInBrowser,
+  rename,
+  clear,
+  delete,
+}
+
 /// Popup menu items for the product list page.
 abstract class ProductListPopupItem {
   /// Title of the popup menu item.
-  @protected
   String getTitle(final AppLocalizations appLocalizations);
+
+  /// IconData of the popup menu item.
+  IconData getIconData();
+
+  /// Popup menu entry of the popup menu item.
+  ProductListPopupMenuEntry getEntry();
 
   /// Action of the popup menu item.
   ///
@@ -39,7 +52,13 @@ abstract class ProductListPopupItem {
 class ProductListPopupClear extends ProductListPopupItem {
   @override
   String getTitle(final AppLocalizations appLocalizations) =>
-      appLocalizations.clear;
+      appLocalizations.clear_long;
+
+  @override
+  IconData getIconData() => Icons.delete_sweep;
+
+  @override
+  ProductListPopupMenuEntry getEntry() => ProductListPopupMenuEntry.clear;
 
   @override
   Future<ProductList?> doSomething({
@@ -84,6 +103,12 @@ class ProductListPopupRename extends ProductListPopupItem {
       appLocalizations.user_list_popup_rename;
 
   @override
+  IconData getIconData() => Icons.edit;
+
+  @override
+  ProductListPopupMenuEntry getEntry() => ProductListPopupMenuEntry.rename;
+
+  @override
   Future<ProductList?> doSomething({
     required final ProductList productList,
     required final LocalDatabase localDatabase,
@@ -98,6 +123,12 @@ class ProductListPopupShare extends ProductListPopupItem {
   @override
   String getTitle(final AppLocalizations appLocalizations) =>
       appLocalizations.share;
+
+  @override
+  IconData getIconData() => Icons.share;
+
+  @override
+  ProductListPopupMenuEntry getEntry() => ProductListPopupMenuEntry.share;
 
   @override
   Future<ProductList?> doSomething({
@@ -126,6 +157,13 @@ class ProductListPopupOpenInWeb extends ProductListPopupItem {
       appLocalizations.label_web;
 
   @override
+  IconData getIconData() => Icons.public;
+
+  @override
+  ProductListPopupMenuEntry getEntry() =>
+      ProductListPopupMenuEntry.openInBrowser;
+
+  @override
   Future<ProductList?> doSomething({
     required final ProductList productList,
     required final LocalDatabase localDatabase,
@@ -135,5 +173,30 @@ class ProductListPopupOpenInWeb extends ProductListPopupItem {
     AnalyticsHelper.trackEvent(AnalyticsEvent.openListWeb);
     await launchUrl(shareProductList(products));
     return null;
+  }
+}
+
+/// Popup menu item for the product list page: delete.
+class ProductListPopupDelete extends ProductListPopupItem {
+  @override
+  String getTitle(final AppLocalizations appLocalizations) =>
+      appLocalizations.action_delete_list;
+
+  @override
+  IconData getIconData() => Icons.delete;
+
+  @override
+  ProductListPopupMenuEntry getEntry() => ProductListPopupMenuEntry.delete;
+
+  @override
+  Future<ProductList?> doSomething({
+    required final ProductList productList,
+    required final LocalDatabase localDatabase,
+    required final BuildContext context,
+  }) async {
+    final bool deleted =
+        await ProductListUserDialogHelper(DaoProductList(localDatabase))
+            .showDeleteUserListDialog(context, productList);
+    return deleted ? null : productList;
   }
 }

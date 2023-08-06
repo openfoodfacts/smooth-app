@@ -12,6 +12,7 @@ class SmoothLargeButtonWithIcon extends StatelessWidget {
     this.backgroundColor,
     this.foregroundColor,
     this.textAlign,
+    this.textStyle,
   });
 
   final String text;
@@ -22,6 +23,7 @@ class SmoothLargeButtonWithIcon extends StatelessWidget {
   final Color? backgroundColor;
   final Color? foregroundColor;
   final TextAlign? textAlign;
+  final TextStyle? textStyle;
 
   Color _getBackgroundColor(final ThemeData themeData) =>
       backgroundColor ?? themeData.colorScheme.secondary;
@@ -32,6 +34,12 @@ class SmoothLargeButtonWithIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeData themeData = Theme.of(context);
+    TextStyle style = textStyle ?? themeData.textTheme.bodyMedium!;
+
+    if (style.color == null) {
+      style = style.copyWith(color: _getForegroundColor(themeData));
+    }
+
     return SmoothSimpleButton(
       minWidth: double.infinity,
       padding: padding ?? const EdgeInsets.all(10),
@@ -51,9 +59,7 @@ class SmoothLargeButtonWithIcon extends StatelessWidget {
               text,
               maxLines: 2,
               textAlign: textAlign,
-              style: themeData.textTheme.bodyMedium!.copyWith(
-                color: _getForegroundColor(themeData),
-              ),
+              style: style,
             ),
           ),
           const Spacer(),
