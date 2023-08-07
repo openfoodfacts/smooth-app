@@ -282,7 +282,7 @@
         "description": "Indicator inside the darkmode switch (system default)"
     },
     "thanks_for_contributing": "Thanks for contributing!",
-    "contributors_label": "They are building the app",
+    "contributors_label": "Estan construint l'aplicació",
     "@contributors_label": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
     },
@@ -290,14 +290,14 @@
     "@contributors_dialog_title": {
         "description": "Dialog title: A list of all contributors of this app"
     },
-    "contributors_dialog_entry_description": "Contributor: {name}",
+    "contributors_dialog_entry_description": "Col·laborador/a: {name}",
     "@contributors_dialog_entry_description": {
         "description": "The user id of the contributor.",
         "placeholders": {
             "name": {}
         }
     },
-    "contributors_description": "A list of all contributors of this app",
+    "contributors_description": "Una llista de tothom qui col·labora amb aquesta app",
     "@contributors_description": {
         "description": "Button description for accessibility purposes to explain what the Contributors button do"
     },
@@ -695,13 +695,13 @@
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
-    "tagline_app_review": "Do you like the app?",
-    "tagline_app_review_button_positive": "I love it! 😍",
-    "tagline_app_review_button_negative": "Not really…",
-    "tagline_app_review_button_later": "Ask me later",
-    "app_review_negative_modal_title": "You don't like our app?",
-    "app_review_negative_modal_text": "Could you take a few seconds to tell us why?",
-    "app_review_negative_modal_positive_button": "Yes, absolutely!",
+    "tagline_app_review": "Us agrada l'aplicació?",
+    "tagline_app_review_button_positive": "M'encanta! 😍",
+    "tagline_app_review_button_negative": "No gaire…",
+    "tagline_app_review_button_later": "Pregunta-m'ho després",
+    "app_review_negative_modal_title": "No us agrada, la nostra aplicació?",
+    "app_review_negative_modal_text": "Podríeu emprar uns minuts per a dir-nos el per què?",
+    "app_review_negative_modal_positive_button": "I tant!",
     "app_review_negative_modal_negative_button": "No",
     "could_not_refresh": "Impossible d'actualitzar el producte",
     "@could_not_refresh": {
@@ -787,7 +787,7 @@
     "@clear": {
         "description": "Clears a product list (short label)"
     },
-    "clear_long": "Empty the list",
+    "clear_long": "Buida la llista",
     "@clear_long": {
         "description": "Clears a product list (long label)"
     },
@@ -1236,7 +1236,7 @@
     "@edit_product_form_item_origins_title": {
         "description": "Product edition - Origins - Title"
     },
-    "edit_product_form_item_origins_hint": "Input an origin",
+    "edit_product_form_item_origins_hint": "Introduïu un origen",
     "@edit_product_form_item_origins_hint": {
         "description": "Product edition - Origins - input textfield hint"
     },
@@ -1256,7 +1256,7 @@
     "@edit_product_form_item_countries_title": {
         "description": "Product edition - Countries - Title"
     },
-    "edit_product_form_item_countries_hint": "Input a country",
+    "edit_product_form_item_countries_hint": "Introduïu un país",
     "@edit_product_form_item_countries_hint": {
         "description": "Product edition - Countries - input textfield hint"
     },
@@ -2408,8 +2408,8 @@
     "nova_group_3": "NOVA Group 3",
     "nova_group_4": "NOVA Group 4",
     "nova_group_unknown": "Unknown NOVA Group",
-    "hunger_games_loading_line1": "Please let us a few seconds…",
-    "hunger_games_loading_line2": "We're downloading the questions!",
-    "hunger_games_error_label": "Argh! Something went wrong… and we couldn't load the questions.",
-    "hunger_games_error_retry_button": "Let's retry!"
+    "hunger_games_loading_line1": "Si us plau, deixeu-nos uns segons…",
+    "hunger_games_loading_line2": "Estem descarregant les preguntes!",
+    "hunger_games_error_label": "Ui! Alguna cosa no ha funcionat… i no hem pogut carregar les preguntes.",
+    "hunger_games_error_retry_button": "Tornem-ho a provar!"
 }
