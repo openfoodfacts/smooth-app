@@ -114,14 +114,8 @@ class UserPreferencesContribute extends AbstractUserPreferences {
               ],
             ),
             positiveAction: SmoothActionButton(
-              text: appLocalizations.okay,
-              minWidth: 100,
-              onPressed: () => Navigator.pop(context),
-            ),
-            negativeAction: SmoothActionButton(
               text: AppLocalizations.of(context)
                   .contribute_improve_ProductsToBeCompleted,
-              minWidth: 150,
               onPressed: () async {
                 final LocalDatabase localDatabase =
                     context.read<LocalDatabase>();
@@ -136,8 +130,15 @@ class UserPreferencesContribute extends AbstractUserPreferences {
                 );
               },
             ),
+            negativeAction: SmoothActionButton(
+              onPressed: () {
+                Navigator.of(context, rootNavigator: true).pop('dialog');
+              },
+              text: appLocalizations.close,
+              minWidth: 100,
+            ),
             actionsAxis: Axis.vertical,
-            actionsOrder: SmoothButtonsBarOrder.numerical,
+            actionsOrder: SmoothButtonsBarOrder.auto,
           );
         },
       );
@@ -155,34 +156,28 @@ class UserPreferencesContribute extends AbstractUserPreferences {
                 const SizedBox(height: VERY_LARGE_SPACE),
                 Text(appLocalizations.contribute_develop_text_2),
                 const SizedBox(height: 10),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    TextButton(
-                      onPressed: () => LaunchUrlHelper.launchURL(
-                          'https://slack.openfoodfacts.org/', false),
-                      child: const Text(
-                        'Slack',
-                        style: TextStyle(color: Colors.blue),
-                      ),
-                    ),
-                    TextButton(
-                      onPressed: () => LaunchUrlHelper.launchURL(
-                          'https://github.com/openfoodfacts', false),
-                      child: const Text(
-                        'Github',
-                        style: TextStyle(color: Colors.blue),
-                      ),
-                    ),
-                  ],
+                SmoothAlertContentButton(
+                  label: 'Slack',
+                  icon: Icons.open_in_new,
+                  onPressed: () => LaunchUrlHelper.launchURL(
+                      'https://slack.openfoodfacts.org/', false),
+                ),
+                const SizedBox(height: SMALL_SPACE),
+                SmoothAlertContentButton(
+                  label: 'GitHub',
+                  icon: Icons.open_in_new,
+                  onPressed: () => LaunchUrlHelper.launchURL(
+                      'https://github.com/openfoodfacts', false),
                 ),
                 const SizedBox(height: 10),
                 const _DevModeSetting(),
               ],
             ),
-            positiveAction: SmoothActionButton(
-              onPressed: () => Navigator.pop(context),
-              text: appLocalizations.okay,
+            negativeAction: SmoothActionButton(
+              onPressed: () {
+                Navigator.of(context, rootNavigator: true).pop('dialog');
+              },
+              text: appLocalizations.close,
               minWidth: 100,
             ),
           );
@@ -211,6 +206,15 @@ class UserPreferencesContribute extends AbstractUserPreferences {
                   'https://translate.openfoodfacts.org/', false),
               text: appLocalizations.contribute_translate_link_text,
             ),
+            negativeAction: SmoothActionButton(
+              onPressed: () {
+                Navigator.of(context, rootNavigator: true).pop('dialog');
+              },
+              text: appLocalizations.close,
+              minWidth: 100,
+            ),
+            actionsAxis: Axis.vertical,
+            actionsOrder: SmoothButtonsBarOrder.auto,
           );
         },
       );
@@ -338,20 +342,20 @@ class _ContributorsDialog extends StatelessWidget {
         },
       ),
       positiveAction: SmoothActionButton(
+        onPressed: () => LaunchUrlHelper.launchURL(
+            'https://github.com/openfoodfacts/smooth-app', false),
+        text: AppLocalizations.of(context).contribute,
+        minWidth: 150,
+      ),
+      negativeAction: SmoothActionButton(
         onPressed: () {
           Navigator.of(context, rootNavigator: true).pop('dialog');
         },
         text: appLocalizations.close,
         minWidth: 100,
       ),
-      negativeAction: SmoothActionButton(
-        onPressed: () => LaunchUrlHelper.launchURL(
-            'https://github.com/openfoodfacts/smooth-app', false),
-        text: AppLocalizations.of(context).contribute,
-        minWidth: 150,
-      ),
       actionsAxis: Axis.vertical,
-      actionsOrder: SmoothButtonsBarOrder.numerical,
+      actionsOrder: SmoothButtonsBarOrder.auto,
     );
   }
 }
