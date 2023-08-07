@@ -2411,5 +2411,5 @@
     "hunger_games_loading_line1": "Bitte einen kurzen Moment Geduld …",
     "hunger_games_loading_line2": "Die Fragen werden gerade heruntergeladen!",
     "hunger_games_error_label": "Leider ist ein Problem aufgetreten … und die Fragen konnten nicht geladen werden.",
-    "hunger_games_error_retry_button": "Bitte erneut versuchen!"
+    "hunger_games_error_retry_button": "Erneut versuchen"
 }
