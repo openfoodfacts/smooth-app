@@ -410,7 +410,7 @@
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
     },
-    "myPersonalizedRanking": "My personalized ranking",
+    "myPersonalizedRanking": "My personalised ranking",
     "@myPersonalizedRanking": {
         "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
     },
@@ -695,14 +695,14 @@
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
-    "tagline_app_review":"Do you like the app?",
-    "tagline_app_review_button_positive":"I love it! 😍",
-    "tagline_app_review_button_negative":"Not really…",
-    "tagline_app_review_button_later":"Ask me later",
-    "app_review_negative_modal_title":"You don't like our app?",
-    "app_review_negative_modal_text":"Could you take a few seconds to tell us why?",
-    "app_review_negative_modal_positive_button":"Yes, absolutely!",
-    "app_review_negative_modal_negative_button":"No",
+    "tagline_app_review": "Do you like the app?",
+    "tagline_app_review_button_positive": "I love it! 😍",
+    "tagline_app_review_button_negative": "Not really…",
+    "tagline_app_review_button_later": "Ask me later",
+    "app_review_negative_modal_title": "You don't like our app?",
+    "app_review_negative_modal_text": "Could you take a few seconds to tell us why?",
+    "app_review_negative_modal_positive_button": "Yes, absolutely!",
+    "app_review_negative_modal_negative_button": "No",
     "could_not_refresh": "Could not refresh product",
     "@could_not_refresh": {
         "description": "The product data couldn't be refreshed"
@@ -1531,7 +1531,7 @@
     "@dev_preferences_export_history_dialog_title": {
         "description": "User dev preferences - Export history - Dialog title"
     },
-    "dev_preferences_button_positive": "OK",
+    "dev_preferences_button_positive": "Ok",
     "@dev_preferences_button_positive": {
         "description": "User dev preferences - Positive button label"
     },
@@ -2340,7 +2340,7 @@
             }
         }
     },
-    "loading": "Loading…",
+    "loading": "Loading...",
     "@loading": {
         "description": "Loading…"
     },
