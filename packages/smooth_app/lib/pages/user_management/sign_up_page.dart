@@ -375,7 +375,7 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
         } else {
           // Let's try to find the error in
           final Iterable<RegExpMatch> allMatches =
-              RegExp('(<li class=\"error\">)(.*?)(</li>)')
+              RegExp('(<li class="error">)(.*?)(</li>)')
                   .allMatches(status.error!);
           if (allMatches.isNotEmpty) {
             final StringBuffer buffer = StringBuffer();
