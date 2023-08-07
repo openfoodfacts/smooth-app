@@ -282,7 +282,7 @@
         "description": "Indicator inside the darkmode switch (system default)"
     },
     "thanks_for_contributing": "Merci pour votre contribution",
-    "contributors_label": "They are building the app",
+    "contributors_label": "Ils/Elles bâtissent l'appli",
     "@contributors_label": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
     },
@@ -290,14 +290,14 @@
     "@contributors_dialog_title": {
         "description": "Dialog title: A list of all contributors of this app"
     },
-    "contributors_dialog_entry_description": "Contributor: {name}",
+    "contributors_dialog_entry_description": "Contributeur: {name}",
     "@contributors_dialog_entry_description": {
         "description": "The user id of the contributor.",
         "placeholders": {
             "name": {}
         }
     },
-    "contributors_description": "A list of all contributors of this app",
+    "contributors_description": "Une liste de tous les contributeurs de cette appli",
     "@contributors_description": {
         "description": "Button description for accessibility purposes to explain what the Contributors button do"
     },
@@ -695,13 +695,13 @@
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
-    "tagline_app_review": "Do you like the app?",
-    "tagline_app_review_button_positive": "I love it! 😍",
-    "tagline_app_review_button_negative": "Not really…",
-    "tagline_app_review_button_later": "Ask me later",
-    "app_review_negative_modal_title": "You don't like our app?",
-    "app_review_negative_modal_text": "Could you take a few seconds to tell us why?",
-    "app_review_negative_modal_positive_button": "Yes, absolutely!",
+    "tagline_app_review": "Aimez-vous cette appli ?",
+    "tagline_app_review_button_positive": "Je l'adore! 😍",
+    "tagline_app_review_button_negative": "Pas vraiment…",
+    "tagline_app_review_button_later": "Me demander plus tard",
+    "app_review_negative_modal_title": "Vous n'aimez pas notre application ?",
+    "app_review_negative_modal_text": "Pourriez-vous prendre quelques secondes pour nous dire pourquoi ?",
+    "app_review_negative_modal_positive_button": "Oui, absolument !",
     "app_review_negative_modal_negative_button": "Non",
     "could_not_refresh": "Impossible d'actualiser le produit",
     "@could_not_refresh": {
@@ -786,10 +786,6 @@
     "clear": "Effacer",
     "@clear": {
         "description": "Clears a product list (short label)"
-    },
-    "clear_long": "Vider la liste",
-    "@clear_long": {
-        "description": "Clears a product list (long label)"
     },
     "clear_long": "Vider la liste",
     "@clear_long": {
@@ -2152,7 +2148,7 @@
     "@edit_packagings_element_field_recycling": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_recycling": "Saisissez les instructions de recyclage uniquement si elles figurent sur le produit.",
+    "edit_packagings_element_hint_recycling": "Enter recycling instructions only if they are listed on the product.",
     "@edit_packagings_element_hint_recycling": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
@@ -2412,8 +2408,8 @@
     "nova_group_3": "Groupe NOVA 3",
     "nova_group_4": "Groupe NOVA 4",
     "nova_group_unknown": "Groupe NOVA inconnu",
-    "hunger_games_loading_line1": "Please let us a few seconds…",
-    "hunger_games_loading_line2": "We're downloading the questions!",
+    "hunger_games_loading_line1": "Veuillez nous laisser quelques secondes…",
+    "hunger_games_loading_line2": "Nous téléchargeons les questions !",
     "hunger_games_error_label": "Argh! Something went wrong… and we couldn't load the questions.",
-    "hunger_games_error_retry_button": "Let's retry!"
+    "hunger_games_error_retry_button": "Réessayons !"
 }
