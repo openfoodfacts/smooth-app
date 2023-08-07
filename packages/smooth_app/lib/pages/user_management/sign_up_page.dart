@@ -373,7 +373,23 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
           _userFocusNode.requestFocus();
           errorMessage = appLocalisations.sign_up_page_user_name_already_used;
         } else {
-          errorMessage = status.error;
+          // Let's try to find the error in
+          final Iterable<RegExpMatch> allMatches =
+              RegExp('(<li class=\"error\">)(.*?)(</li>)')
+                  .allMatches(status.error!);
+          if (allMatches.isNotEmpty) {
+            final StringBuffer buffer = StringBuffer();
+            for (final RegExpMatch match in allMatches) {
+              if (buffer.isNotEmpty) {
+                buffer.write('\n\n');
+              }
+
+              buffer.write(match.group(2));
+            }
+            errorMessage = buffer.toString();
+          } else {
+            errorMessage = status.error;
+          }
         }
       }
 
