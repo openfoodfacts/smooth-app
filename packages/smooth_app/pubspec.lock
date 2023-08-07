@@ -985,12 +985,11 @@ packages:
   mobile_scanner:
     dependency: transitive
     description:
-      path: "."
-      ref: "5aa2c11915467b19dfc5fd3a9e59641d2958ffeb"
-      resolved-ref: "5aa2c11915467b19dfc5fd3a9e59641d2958ffeb"
-      url: "https://github.com/openfoodfacts/mobile_scanner.git"
-    source: git
-    version: "3.2.1"
+      name: mobile_scanner
+      sha256: "9b3d6fb0407f749eb157432b049924277b43ff6948546eeff76260593ad6eca9"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.4.0"
   mockito:
     dependency: "direct dev"
     description:
@@ -1124,10 +1123,10 @@ packages:
     dependency: "direct main"
     description:
       name: permission_handler
-      sha256: "1b6b3e73f0bcbc856548bbdfb1c33084a401c4f143e220629a9055233d76c331"
+      sha256: "63e5216aae014a72fe9579ccd027323395ce7a98271d9defa9d57320d001af81"
       url: "https://pub.dev"
     source: hosted
-    version: "10.3.0"
+    version: "10.4.3"
   permission_handler_android:
     dependency: transitive
     description:

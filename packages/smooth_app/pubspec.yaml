@@ -32,7 +32,7 @@ dependencies:
   matomo_tracker: 3.1.0
   package_info_plus: 3.0.3
   device_info_plus: 8.1.0
-  permission_handler: 10.3.0
+  permission_handler: 10.4.3
   photo_view: 0.14.0
   uuid: 3.0.7
   provider: 6.0.5
