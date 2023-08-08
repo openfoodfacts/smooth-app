@@ -290,7 +290,7 @@
     "@contributors_dialog_title": {
         "description": "Dialog title: A list of all contributors of this app"
     },
-    "contributors_dialog_entry_description": "Contributeur : {name}",
+    "contributors_dialog_entry_description": "Contributeur: {name}",
     "@contributors_dialog_entry_description": {
         "description": "The user id of the contributor.",
         "placeholders": {
@@ -696,7 +696,7 @@
         "description": "Confirmation, that the product data refresh is done"
     },
     "tagline_app_review": "Aimez-vous cette appli ?",
-    "tagline_app_review_button_positive": "Je l'adore ! 😍",
+    "tagline_app_review_button_positive": "Je l'adore! 😍",
     "tagline_app_review_button_negative": "Pas vraiment…",
     "tagline_app_review_button_later": "Me demander plus tard",
     "app_review_negative_modal_title": "Vous n'aimez pas notre application ?",
@@ -1855,6 +1855,18 @@
     "@gallery_source_label": {
         "description": "Label for the gallery image source"
     },
+    "gallery_source_access_denied_dialog_title": "Access denied",
+    "@gallery_source_access_denied_dialog_title": {
+        "description": "On iOS, the user has refused to give the permission (title of the dialog)"
+    },
+    "gallery_source_access_denied_dialog_message_ios": "Unfortunately, the application can't access your gallery, as you have previously denied the permission.\n\nPlease go to the app settings in your phone Settings -> Photos",
+    "@gallery_source_access_denied_dialog_message_ios": {
+        "description": "On iOS, the user has refused to give the permission"
+    },
+    "gallery_source_access_denied_dialog_button": "Open the Settings",
+    "@gallery_source_access_denied_dialog_button": {
+        "description": "Button to open the app settings"
+    },
     "share": "Partager",
     "@share": {
         "description": "Button label for sharing something on another app. For example sharing the link to a product via Email"
@@ -2148,7 +2160,7 @@
     "@edit_packagings_element_field_recycling": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_recycling": "Saisissez les consignes de tri uniquement si elles figurent sur le produit.",
+    "edit_packagings_element_hint_recycling": "Enter recycling instructions only if they are listed on the product.",
     "@edit_packagings_element_hint_recycling": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
@@ -2411,5 +2423,5 @@
     "hunger_games_loading_line1": "Veuillez nous laisser quelques secondes…",
     "hunger_games_loading_line2": "Nous téléchargeons les questions !",
     "hunger_games_error_label": "Argh! Something went wrong… and we couldn't load the questions.",
-    "hunger_games_error_retry_button": "Recharger"
+    "hunger_games_error_retry_button": "Réessayons !"
 }
