@@ -594,6 +594,7 @@ class SmoothSimpleErrorAlertDialog extends StatelessWidget {
       body: content,
       positiveAction: positiveButton,
       negativeAction: negativeAction,
+      actionsAxis: actionsAxis,
       actionsOrder: actionsOrder,
       contentPadding: contentPadding,
     );
