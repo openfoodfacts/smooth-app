@@ -266,7 +266,7 @@ class _ProductPageState extends State<ProductPage>
       context,
       <String>{widget.product.barcode!},
     );
-    if (refreshed != null && refreshed) {
+    if (refreshed == true) {
       setState(() {});
     }
   }
