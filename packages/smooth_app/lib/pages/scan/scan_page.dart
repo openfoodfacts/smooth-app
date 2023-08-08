@@ -115,7 +115,7 @@ class _ScanPageState extends State<ScanPage> {
                       await _initSoundManagerIfNecessary();
                       await _musicPlayer!.stop();
                       await _musicPlayer!.play(
-                        AssetSource('audio/beep.ogg'),
+                        AssetSource('audio/beep.wav'),
                         volume: 0.5,
                         ctx: const AudioContext(
                           android: AudioContextAndroid(
@@ -129,7 +129,6 @@ class _ScanPageState extends State<ScanPage> {
                             category: AVAudioSessionCategory.soloAmbient,
                             options: <AVAudioSessionOptions>[
                               AVAudioSessionOptions.mixWithOthers,
-                              AVAudioSessionOptions.defaultToSpeaker,
                             ],
                           ),
                         ),
