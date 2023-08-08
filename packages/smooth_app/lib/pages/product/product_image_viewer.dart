@@ -154,13 +154,14 @@ class _ProductImageViewerState extends State<ProductImageViewer>
                         width: 3,
                       ),
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(SMALL_SPACE),
-                      child: LanguageSelector(
-                        setLanguage: widget.setLanguage,
-                        displayedLanguage: widget.language,
-                        selectedLanguages: selectedLanguages,
-                        foregroundColor: Colors.white,
+                    child: LanguageSelector(
+                      setLanguage: widget.setLanguage,
+                      displayedLanguage: widget.language,
+                      selectedLanguages: selectedLanguages,
+                      foregroundColor: Colors.white,
+                      padding: const EdgeInsetsDirectional.symmetric(
+                        horizontal: 13.0,
+                        vertical: SMALL_SPACE,
                       ),
                     ),
                   ),

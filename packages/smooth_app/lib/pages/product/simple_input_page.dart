@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -94,9 +93,10 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
           fixKeyboard: true,
           appBar: SmoothAppBar(
             centerTitle: false,
-            title: AutoSizeText(
+            title: Text(
               getProductName(widget.product, appLocalizations),
               maxLines: widget.product.barcode?.isNotEmpty == true ? 1 : 2,
+              overflow: TextOverflow.ellipsis,
             ),
             subTitle: widget.product.barcode != null
                 ? ExcludeSemantics(

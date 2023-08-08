@@ -20,6 +20,7 @@ class SimpleInputTextField extends StatefulWidget {
     this.minLengthForSuggestions = 1,
     this.categories,
     this.shapeProvider,
+    this.padding,
   });
 
   final FocusNode focusNode;
@@ -32,6 +33,7 @@ class SimpleInputTextField extends StatefulWidget {
   final int minLengthForSuggestions;
   final String? categories;
   final String? Function()? shapeProvider;
+  final EdgeInsetsGeometry? padding;
 
   @override
   State<SimpleInputTextField> createState() => _SimpleInputTextFieldState();
@@ -100,7 +102,8 @@ class _SimpleInputTextFieldState extends State<SimpleInputTextField> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsetsDirectional.only(start: LARGE_SPACE),
+      padding: widget.padding ??
+          const EdgeInsetsDirectional.only(start: LARGE_SPACE),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
