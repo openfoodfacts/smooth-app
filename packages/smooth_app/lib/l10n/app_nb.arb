@@ -260,6 +260,7 @@
     "sign_up_page_user_name_already_used": "Brukernavnet er allerede i bruk, velg et annet brukernavn.",
     "sign_up_page_email_already_exists": "er allerede i bruk, logg inn på kontoen eller prøv med en annen e-post.",
     "sign_up_page_provide_valid_email": "Vennligst skriv inn en gyldig epostadresse.",
+    "sign_up_page_server_busy": "We are deeply sorry, we have some technical difficulties to create your account. Please try again later.",
     "@Settings": {},
     "settingsTitle": "Innstillinger",
     "@settingsTitle": {
