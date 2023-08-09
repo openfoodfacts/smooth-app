@@ -260,6 +260,7 @@
     "sign_up_page_user_name_already_used": "Il nome utente esiste già, ti preghiamo di sceglierne un altro.",
     "sign_up_page_email_already_exists": "esiste già, accedi al profilo o prova con un'altra email.",
     "sign_up_page_provide_valid_email": "Ti preghiamo di fornire un indirizzo email valido.",
+    "sign_up_page_server_busy": "Ci scusiamo profondamente, stiamo riscontrando delle difficoltà tecniche nella creazione del tuo account. Ti invitiamo a riprovare più tardi.",
     "@Settings": {},
     "settingsTitle": "Impostazioni",
     "@settingsTitle": {
