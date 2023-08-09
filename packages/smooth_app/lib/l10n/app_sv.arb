@@ -144,6 +144,8 @@
     "@user_management": {},
     "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
     "incorrect_credentials": "Felaktigt användarnamn eller lösenord.",
+    "password_lost_incorrect_credentials": "This email or username doesn't exist. Please check your credentials.",
+    "password_lost_server_unavailable": "We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.",
     "login": "Användarnamn",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
@@ -260,7 +262,7 @@
     "sign_up_page_user_name_already_used": "The user name already exists, please choose another username.",
     "sign_up_page_email_already_exists": "already exists, login to the account or try with another email.",
     "sign_up_page_provide_valid_email": "Ange en giltig e-postadress.",
-    "sign_up_page_server_busy": "We are deeply sorry, we have some technical difficulties to create your account. Please try again later.",
+    "sign_up_page_server_busy": "Vi är ledsna, men det uppstod ett tekniskt problem när du skulle skapa ditt konto. Vänligen försök igen senare.",
     "@Settings": {},
     "settingsTitle": "Inställningar",
     "@settingsTitle": {
@@ -783,7 +785,7 @@
     "@Lists": {},
     "no_prodcut_in_list": "Det finns ingen produkt i denna lista",
     "no_product_in_section": "Det finns ingen produkt i detta avsnitt",
-    "recently_seen_products": "All viewed products",
+    "recently_seen_products": "Alla visade produkter",
     "clear": "Rensa",
     "@clear": {
         "description": "Clears a product list (short label)"
