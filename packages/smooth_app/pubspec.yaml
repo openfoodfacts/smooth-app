@@ -22,7 +22,7 @@ dependencies:
   flutter_map: 2.2.0
   flutter_widget_from_html_core: 0.8.3+1
   fwfh_selectable_text: 0.8.3+1
-  flutter_secure_storage: 5.1.2
+  flutter_secure_storage: 8.0.0
   hive: 2.2.3
   hive_flutter: 1.1.0
   http: 0.13.5
@@ -99,7 +99,7 @@ dependencies:
 
 
 
-  openfoodfacts: 2.7.4
+  openfoodfacts: 2.8.0
   # openfoodfacts:
   #   path: ../../../openfoodfacts-dart
 
