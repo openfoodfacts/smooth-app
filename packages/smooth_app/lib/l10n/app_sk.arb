@@ -260,6 +260,7 @@
     "sign_up_page_user_name_already_used": "Toto meno už existuje, prosím zadajte iné.",
     "sign_up_page_email_already_exists": "už existuje, prihláste sa do účtu alebo skúste použiť iný e-mail.",
     "sign_up_page_provide_valid_email": "Prosím zadajte platnú e-mailovú adresu.",
+    "sign_up_page_server_busy": "We are deeply sorry, we have some technical difficulties to create your account. Please try again later.",
     "@Settings": {},
     "settingsTitle": "Nastavenia",
     "@settingsTitle": {
