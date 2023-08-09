@@ -99,7 +99,7 @@ dependencies:
 
 
 
-  openfoodfacts: 2.7.4
+  openfoodfacts: 2.8.0
   # openfoodfacts:
   #   path: ../../../openfoodfacts-dart
 
