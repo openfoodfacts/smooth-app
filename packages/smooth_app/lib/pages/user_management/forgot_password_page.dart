@@ -37,13 +37,15 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage>
     } catch (e) {
       status = null;
     }
-    if (status == null) {
+    if (status == null || status is! int) {
       _message = appLocalizations.error;
     } else if (status.status == 200) {
       _send = true;
       _message = appLocalizations.reset_password_done;
     } else if (status.status == 400) {
-      _message = appLocalizations.incorrect_credentials;
+      _message = appLocalizations.password_lost_incorrect_credentials;
+    } else if (status.status as int >= 500) {
+      _message = appLocalizations.password_lost_server_unavailable;
     } else {
       _message = appLocalizations.error;
     }
