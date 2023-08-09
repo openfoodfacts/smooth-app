@@ -260,6 +260,7 @@
     "sign_up_page_user_name_already_used": "Erabiltzaile-izena jada badago, mesedez, erabili beste bat.",
     "sign_up_page_email_already_exists": "jada badago, hasi saioa kontuarekin edo saiatu beste helbide-elektroniko batekin.",
     "sign_up_page_provide_valid_email": "Mesedez, sartu baliozko helbide-elektroniko bat.",
+    "sign_up_page_server_busy": "We are deeply sorry, we have some technical difficulties to create your account. Please try again later.",
     "@Settings": {},
     "settingsTitle": "Ezarpenak",
     "@settingsTitle": {
