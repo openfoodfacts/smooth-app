@@ -260,6 +260,7 @@
     "sign_up_page_user_name_already_used": "Ce nom d'utilisateur existe déjà, veuillez en choisir un autre.",
     "sign_up_page_email_already_exists": "existe déjà, connectez-vous au compte ou essayez avec une autre adresse e-mail.",
     "sign_up_page_provide_valid_email": "Veuillez fournir une adresse e-mail valide.",
+    "sign_up_page_server_busy": "We are deeply sorry, we have some technical difficulties to create your account. Please try again later.",
     "@Settings": {},
     "settingsTitle": "Paramètres",
     "@settingsTitle": {
