@@ -6,6 +6,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/up_to_date_product_list_mixin.dart';
 import 'package:smooth_app/database/dao_product.dart';
@@ -417,6 +418,12 @@ class _ProductListPageState extends State<ProductListPage>
           if (removed) {
             await DaoProductList(localDatabase).put(productList);
             removedFromSelectedBarcodes = _selectedBarcodes.remove(barcode);
+
+            if (productList.listType == ProductListType.SCAN_SESSION &&
+                mounted) {
+              context.read<ContinuousScanModel>().removeBarcode(barcode);
+            }
+
             setState(() => barcodes.removeAt(index));
           }
           if (!mounted) {
