@@ -144,8 +144,8 @@
     "@user_management": {},
     "sign_in_text": "Log in op je Open Food Facts account om je bijdragen op te slaan",
     "incorrect_credentials": "Onjuiste gebruikersnaam of wachtwoord.",
-    "password_lost_incorrect_credentials": "This email or username doesn't exist. Please check your credentials.",
-    "password_lost_server_unavailable": "We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.",
+    "password_lost_incorrect_credentials": "Dit e-mailadres of deze gebruikersnaam bestaat niet. Controleer uw inloggegevens.",
+    "password_lost_server_unavailable": "We ondervinden momenteel vertragingen op onze servers en bieden hiervoor onze excuses aan. Probeer het later opnieuw.",
     "login": "Log in",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
@@ -459,7 +459,7 @@
     "@filter": {
         "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
     },
-    "scan": "Products from the Scan screen",
+    "scan": "Producten uit het scanscherm",
     "@scan": {
         "description": "Page title: List type: Products in the scan session"
     },
@@ -785,7 +785,7 @@
     "@Lists": {},
     "no_prodcut_in_list": "Er is geen product in deze lijst",
     "no_product_in_section": "Er is geen product in deze sectie",
-    "recently_seen_products": "All viewed products",
+    "recently_seen_products": "Alle bekeken producten",
     "clear": "Wissen",
     "@clear": {
         "description": "Clears a product list (short label)"

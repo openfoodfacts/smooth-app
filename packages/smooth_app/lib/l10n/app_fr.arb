@@ -144,8 +144,8 @@
     "@user_management": {},
     "sign_in_text": "Connectez-vous à votre compte Open Food Facts pour enregistrer vos contributions",
     "incorrect_credentials": "Nom d'utilisateur ou mot de passe incorrect.",
-    "password_lost_incorrect_credentials": "This email or username doesn't exist. Please check your credentials.",
-    "password_lost_server_unavailable": "We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.",
+    "password_lost_incorrect_credentials": "Cet e-mail ou ce nom d'utilisateur n'existe pas. Veuillez vérifier vos informations d'identification.",
+    "password_lost_server_unavailable": "Nous subissons actuellement des ralentissements sur nos serveurs et nous nous en excusons. Veuillez réessayer plus tard.",
     "login": "Connexion",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
@@ -262,7 +262,7 @@
     "sign_up_page_user_name_already_used": "Ce nom d'utilisateur existe déjà, veuillez en choisir un autre.",
     "sign_up_page_email_already_exists": "existe déjà, connectez-vous au compte ou essayez avec une autre adresse e-mail.",
     "sign_up_page_provide_valid_email": "Veuillez fournir une adresse e-mail valide.",
-    "sign_up_page_server_busy": "We are deeply sorry, we have some technical difficulties to create your account. Please try again later.",
+    "sign_up_page_server_busy": "Nous sommes profondément désolés, nous rencontrons quelques difficultés techniques pour créer votre compte. Veuillez réessayer plus tard.",
     "@Settings": {},
     "settingsTitle": "Paramètres",
     "@settingsTitle": {
@@ -1858,15 +1858,15 @@
     "@gallery_source_label": {
         "description": "Label for the gallery image source"
     },
-    "gallery_source_access_denied_dialog_title": "Access denied",
+    "gallery_source_access_denied_dialog_title": "Accès refusé",
     "@gallery_source_access_denied_dialog_title": {
         "description": "On iOS, the user has refused to give the permission (title of the dialog)"
     },
-    "gallery_source_access_denied_dialog_message_ios": "Unfortunately, the application can't access your gallery, as you have previously denied the permission.\n\nPlease go to the app settings in your phone Settings -> Photos",
+    "gallery_source_access_denied_dialog_message_ios": "Malheureusement, l'application ne peut pas accéder à votre galerie, car vous avez précédemment refusé l'autorisation.\n\nVeuillez accéder aux paramètres de l'application dans les Paramètres de votre téléphone -> Photos",
     "@gallery_source_access_denied_dialog_message_ios": {
         "description": "On iOS, the user has refused to give the permission"
     },
-    "gallery_source_access_denied_dialog_button": "Open the Settings",
+    "gallery_source_access_denied_dialog_button": "Ouvrir les Paramètres",
     "@gallery_source_access_denied_dialog_button": {
         "description": "Button to open the app settings"
     },
@@ -2425,6 +2425,6 @@
     "nova_group_unknown": "Groupe NOVA inconnu",
     "hunger_games_loading_line1": "Veuillez nous laisser quelques secondes…",
     "hunger_games_loading_line2": "Nous téléchargeons les questions !",
-    "hunger_games_error_label": "Argh! Something went wrong… and we couldn't load the questions.",
+    "hunger_games_error_label": "Argh ! Quelque chose s'est mal passé… et nous n'avons pas pu charger les questions.",
     "hunger_games_error_retry_button": "Réessayons !"
 }
