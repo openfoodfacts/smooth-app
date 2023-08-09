@@ -260,6 +260,7 @@
     "sign_up_page_user_name_already_used": "ชื่อผู้ใช้นี้มีอยู่แล้ว โปรดเลือกชื่อผู้ใช้อื่น",
     "sign_up_page_email_already_exists": "มีอยู่แล้ว โปรดเข้าสู่ระบบหรือลองด้วยอีเมลอื่น",
     "sign_up_page_provide_valid_email": "โปรดใส่ที่อยู่อีเมลที่ถูกต้อง",
+    "sign_up_page_server_busy": "We are deeply sorry, we have some technical difficulties to create your account. Please try again later.",
     "@Settings": {},
     "settingsTitle": "ตั้งค่า",
     "@settingsTitle": {
