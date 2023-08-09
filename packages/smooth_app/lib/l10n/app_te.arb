@@ -457,7 +457,7 @@
     "@filter": {
         "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
     },
-    "scan": "Scan session",
+    "scan": "Products from the Scan screen",
     "@scan": {
         "description": "Page title: List type: Products in the scan session"
     },
@@ -783,7 +783,7 @@
     "@Lists": {},
     "no_prodcut_in_list": "There is no product in this list",
     "no_product_in_section": "There is no product in this section",
-    "recently_seen_products": "చరిత్ర",
+    "recently_seen_products": "All viewed products",
     "clear": "తొలగింపు పూర్తయింది",
     "@clear": {
         "description": "Clears a product list (short label)"
