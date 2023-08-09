@@ -34,6 +34,10 @@ class ExternalCarouselManager extends StatefulWidget {
 class ExternalCarouselManagerState extends State<ExternalCarouselManager> {
   final CarouselController _controller = CarouselController();
 
+  /// A hidden attribute to force to return to the Scanner tab
+  /// This value should only be accessed via [forceShowScannerTab], as it will
+  /// consume this value (= turn it to false) when it is read.
+  bool _forceShowScannerTab = false;
   String? currentBarcode;
 
   @override
@@ -44,12 +48,23 @@ class ExternalCarouselManagerState extends State<ExternalCarouselManager> {
     );
   }
 
-  void showSearchCard({bool notify = false}) {
+  void showSearchCard({
+    bool notify = false,
+  }) {
     animatePageTo(0);
 
     if (notify) {
       SmoothHapticFeedback.lightNotification();
     }
+
+    setState(() => _forceShowScannerTab = true);
+  }
+
+  /// Get the info and consume it immediately
+  bool get forceShowScannerTab {
+    final bool value = _forceShowScannerTab;
+    _forceShowScannerTab = false;
+    return value;
   }
 
   // With an animation
@@ -61,7 +76,7 @@ class ExternalCarouselManagerState extends State<ExternalCarouselManager> {
   CarouselController get controller => _controller;
 
   bool updateShouldNotify(ExternalCarouselManagerState oldState) {
-    return oldState.currentBarcode != currentBarcode;
+    return oldState.currentBarcode != currentBarcode || _forceShowScannerTab;
   }
 }
 
