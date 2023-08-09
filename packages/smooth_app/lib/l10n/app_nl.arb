@@ -144,6 +144,8 @@
     "@user_management": {},
     "sign_in_text": "Log in op je Open Food Facts account om je bijdragen op te slaan",
     "incorrect_credentials": "Onjuiste gebruikersnaam of wachtwoord.",
+    "password_lost_incorrect_credentials": "This email or username doesn't exist. Please check your credentials.",
+    "password_lost_server_unavailable": "We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.",
     "login": "Inloggen",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
