@@ -144,6 +144,8 @@
     "@user_management": {},
     "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
     "incorrect_credentials": "আপনি ভুল ইউজারনেম অথবা পাসওয়ার্ড দিয়েছেন।",
+    "password_lost_incorrect_credentials": "This email or username doesn't exist. Please check your credentials.",
+    "password_lost_server_unavailable": "We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.",
     "login": "Login",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"

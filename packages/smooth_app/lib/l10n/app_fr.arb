@@ -144,6 +144,8 @@
     "@user_management": {},
     "sign_in_text": "Connectez-vous à votre compte Open Food Facts pour enregistrer vos contributions",
     "incorrect_credentials": "Nom d'utilisateur ou mot de passe incorrect.",
+    "password_lost_incorrect_credentials": "This email or username doesn't exist. Please check your credentials.",
+    "password_lost_server_unavailable": "We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.",
     "login": "Connexion",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
@@ -2426,4 +2428,3 @@
     "hunger_games_error_label": "Argh! Something went wrong… and we couldn't load the questions.",
     "hunger_games_error_retry_button": "Réessayons !"
 }
-
