@@ -260,6 +260,7 @@
     "sign_up_page_user_name_already_used": "Toks vartotojo vardas jau užimtas, prašome pasirinkti kitą.",
     "sign_up_page_email_already_exists": "jau egzistuoja, prisijunkite prie paskyros arba pabandykite naudodami kitą el.",
     "sign_up_page_provide_valid_email": "Nurodykite teisingą el. pašto adresą.",
+    "sign_up_page_server_busy": "We are deeply sorry, we have some technical difficulties to create your account. Please try again later.",
     "@Settings": {},
     "settingsTitle": "Settings",
     "@settingsTitle": {
