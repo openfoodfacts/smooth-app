@@ -457,7 +457,7 @@
     "@filter": {
         "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
     },
-    "scan": "Scan-Sitzung",
+    "scan": "Products from the Scan screen",
     "@scan": {
         "description": "Page title: List type: Products in the scan session"
     },
@@ -783,7 +783,7 @@
     "@Lists": {},
     "no_prodcut_in_list": "Liste enthält noch keine Produkte",
     "no_product_in_section": "Bereich enthält noch kein Produkt",
-    "recently_seen_products": "Verlauf",
+    "recently_seen_products": "All viewed products",
     "clear": "Leeren",
     "@clear": {
         "description": "Clears a product list (short label)"
