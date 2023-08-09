@@ -144,8 +144,8 @@
     "@user_management": {},
     "sign_in_text": "Pro uložení vašich příspěvků se přihlaste ke svému účtu Open Food Facts",
     "incorrect_credentials": "Nesprávné uživatelské jméno nebo heslo.",
-    "password_lost_incorrect_credentials": "This email or username doesn't exist. Please check your credentials.",
-    "password_lost_server_unavailable": "We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.",
+    "password_lost_incorrect_credentials": "Tento e-mail nebo uživatelské jméno neexistuje. Zkontrolujte prosím své přihlašovací údaje.",
+    "password_lost_server_unavailable": "Momentálně dochází ke zpomalení na našich serverech a omlouváme se za to. Prosím zkuste to znovu později.",
     "login": "Uživatelské jméno",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
