@@ -260,6 +260,7 @@
     "sign_up_page_user_name_already_used": "Tên người dùng đã tồn tại, vui lòng chọn tên người dùng khác.",
     "sign_up_page_email_already_exists": "đã tồn tại, đăng nhập vào tài khoản hoặc thử với một email khác.",
     "sign_up_page_provide_valid_email": "Vui lòng cung cấp một địa chỉ email hợp lệ.",
+    "sign_up_page_server_busy": "We are deeply sorry, we have some technical difficulties to create your account. Please try again later.",
     "@Settings": {},
     "settingsTitle": "Cài đặt",
     "@settingsTitle": {
