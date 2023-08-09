@@ -260,6 +260,7 @@
     "sign_up_page_user_name_already_used": "このユーザー名は既に存在します。別のユーザー名を入力してください。",
     "sign_up_page_email_already_exists": "既に存在します。アカウントにログインするか、別のメールアドレスをお試しください。",
     "sign_up_page_provide_valid_email": "有効なメールアドレスを入力してください。",
+    "sign_up_page_server_busy": "We are deeply sorry, we have some technical difficulties to create your account. Please try again later.",
     "@Settings": {},
     "settingsTitle": "設定",
     "@settingsTitle": {
@@ -456,7 +457,7 @@
     "@filter": {
         "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
     },
-    "scan": "スキャンセッション",
+    "scan": "Products from the Scan screen",
     "@scan": {
         "description": "Page title: List type: Products in the scan session"
     },
@@ -782,7 +783,7 @@
     "@Lists": {},
     "no_prodcut_in_list": "このリストには製品がありません",
     "no_product_in_section": "このリストには製品がありません",
-    "recently_seen_products": "履歴",
+    "recently_seen_products": "All viewed products",
     "clear": "クリア",
     "@clear": {
         "description": "Clears a product list (short label)"
@@ -1854,6 +1855,18 @@
     "gallery_source_label": "ギャラリー",
     "@gallery_source_label": {
         "description": "Label for the gallery image source"
+    },
+    "gallery_source_access_denied_dialog_title": "アクセス拒否",
+    "@gallery_source_access_denied_dialog_title": {
+        "description": "On iOS, the user has refused to give the permission (title of the dialog)"
+    },
+    "gallery_source_access_denied_dialog_message_ios": "残念ながら、以前に許可を拒否されたため、アプリケーションはギャラリーにアクセスできません。\n\n携帯電話の [設定] -> [写真] のアプリ設定に移動してください。",
+    "@gallery_source_access_denied_dialog_message_ios": {
+        "description": "On iOS, the user has refused to give the permission"
+    },
+    "gallery_source_access_denied_dialog_button": "設定を開く",
+    "@gallery_source_access_denied_dialog_button": {
+        "description": "Button to open the app settings"
     },
     "share": "共有",
     "@share": {

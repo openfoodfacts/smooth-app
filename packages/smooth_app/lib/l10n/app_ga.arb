@@ -260,6 +260,7 @@
     "sign_up_page_user_name_already_used": "The user name already exists, please choose another username.",
     "sign_up_page_email_already_exists": "already exists, login to the account or try with another email.",
     "sign_up_page_provide_valid_email": "Please provide a valid email address.",
+    "sign_up_page_server_busy": "We are deeply sorry, we have some technical difficulties to create your account. Please try again later.",
     "@Settings": {},
     "settingsTitle": "Socruithe",
     "@settingsTitle": {
@@ -456,7 +457,7 @@
     "@filter": {
         "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
     },
-    "scan": "Scan session",
+    "scan": "Products from the Scan screen",
     "@scan": {
         "description": "Page title: List type: Products in the scan session"
     },
@@ -782,7 +783,7 @@
     "@Lists": {},
     "no_prodcut_in_list": "There is no product in this list",
     "no_product_in_section": "There is no product in this section",
-    "recently_seen_products": "Stair",
+    "recently_seen_products": "All viewed products",
     "clear": "Glan",
     "@clear": {
         "description": "Clears a product list (short label)"
@@ -1854,6 +1855,18 @@
     "gallery_source_label": "Gallery",
     "@gallery_source_label": {
         "description": "Label for the gallery image source"
+    },
+    "gallery_source_access_denied_dialog_title": "Access denied",
+    "@gallery_source_access_denied_dialog_title": {
+        "description": "On iOS, the user has refused to give the permission (title of the dialog)"
+    },
+    "gallery_source_access_denied_dialog_message_ios": "Unfortunately, the application can't access your gallery, as you have previously denied the permission.\n\nPlease go to the app settings in your phone Settings -> Photos",
+    "@gallery_source_access_denied_dialog_message_ios": {
+        "description": "On iOS, the user has refused to give the permission"
+    },
+    "gallery_source_access_denied_dialog_button": "Open the Settings",
+    "@gallery_source_access_denied_dialog_button": {
+        "description": "Button to open the app settings"
     },
     "share": "Comhroinn",
     "@share": {

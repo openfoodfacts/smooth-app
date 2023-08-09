@@ -260,6 +260,7 @@
     "sign_up_page_user_name_already_used": "Ім'я користувача вже існує, будь ласка, виберіть інше ім'я користувача.",
     "sign_up_page_email_already_exists": "вже існує, увійдіть до облікового запису або спробуйте іншу електронну адресу.",
     "sign_up_page_provide_valid_email": "Будь ласка, вкажіть дійсну адресу електронної пошти.",
+    "sign_up_page_server_busy": "Нам дуже прикро, у нас виникли деякі технічні труднощі зі створенням вашого облікового запису. Будь-ласка спробуйте пізніше.",
     "@Settings": {},
     "settingsTitle": "Налаштування",
     "@settingsTitle": {
@@ -456,7 +457,7 @@
     "@filter": {
         "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
     },
-    "scan": "Сканування сеансу",
+    "scan": "Products from the Scan screen",
     "@scan": {
         "description": "Page title: List type: Products in the scan session"
     },
@@ -782,7 +783,7 @@
     "@Lists": {},
     "no_prodcut_in_list": "В цьому списку немає такого товару",
     "no_product_in_section": "У цьому розділі немає товару",
-    "recently_seen_products": "Історія",
+    "recently_seen_products": "All viewed products",
     "clear": "Очистити",
     "@clear": {
         "description": "Clears a product list (short label)"
@@ -1854,6 +1855,18 @@
     "gallery_source_label": "Галерея",
     "@gallery_source_label": {
         "description": "Label for the gallery image source"
+    },
+    "gallery_source_access_denied_dialog_title": "Доступ заборонено",
+    "@gallery_source_access_denied_dialog_title": {
+        "description": "On iOS, the user has refused to give the permission (title of the dialog)"
+    },
+    "gallery_source_access_denied_dialog_message_ios": "На жаль, програма не може отримати доступ до вашої галереї, оскільки ви раніше відмовили в дозволі.\n\nБудь ласка, перейдіть до налаштувань програми у своєму телефоні Налаштування -> Фотографії",
+    "@gallery_source_access_denied_dialog_message_ios": {
+        "description": "On iOS, the user has refused to give the permission"
+    },
+    "gallery_source_access_denied_dialog_button": "Відкрийте Налаштування",
+    "@gallery_source_access_denied_dialog_button": {
+        "description": "Button to open the app settings"
     },
     "share": "Поділитися",
     "@share": {
