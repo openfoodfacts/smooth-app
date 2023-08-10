@@ -262,7 +262,7 @@
     "sign_up_page_user_name_already_used": "שם המשתמש כבר קיים, נא לבחור בשם משתמש אחר.",
     "sign_up_page_email_already_exists": "כבר קיים, יש להיכנס לחשבון או לנסות עם כתובת דוא״ל אחרת.",
     "sign_up_page_provide_valid_email": "נא לספק כתובת דוא״ל תקפה.",
-    "sign_up_page_server_busy": "We are deeply sorry, we have some technical difficulties to create your account. Please try again later.",
+    "sign_up_page_server_busy": "אנו מתנצלים מעומק הלב, נתקלנו בקשיים טכניים ביצירת החשבון שלך. נא לנסות שוב מאוחר יותר.",
     "@Settings": {},
     "settingsTitle": "הגדרות",
     "@settingsTitle": {
