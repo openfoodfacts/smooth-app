@@ -490,7 +490,7 @@
     },
     "ingredients": "Zutaten",
     "@ingredients": {},
-    "ingredients_editing_instructions": "Originalbestellung beibehalten. Geben Sie den Prozentsatz an, wenn angegeben. Trennen Sie mit einem Komma oder Bindestrich, verwenden Sie Klammern für Inhaltsstoffe einer Zutat, und zeigen Sie Allergene zwischen Unterstrichen an.",
+    "ingredients_editing_instructions": "Behalten Sie die ursprüngliche Reihenfolge. Geben Sie, wenn angegeben, den Prozentsatz an. Trennen Sie mit einem Komma oder Bindestrich, verwenden Sie Klammern für Bestandteile einer Zutat und geben Sie Allergene zwischen Unterstrichen an.",
     "ingredients_editing_error": "Die Zutaten konnten nicht gespeichert werden.",
     "ingredients_editing_image_error": "Fehler beim Abrufen eines neuen Zutatenbildes.",
     "ingredients_editing_title": "Zutaten bearbeiten",
@@ -2117,7 +2117,7 @@
     "@edit_packagings_element_add": {
         "description": "Button label"
     },
-    "edit_packagings_completed": "Die Verpackung ist abgeschlossen",
+    "edit_packagings_completed": "Die Verpackung ist vollständig",
     "edit_packagings_element_title": "Verpackungsbestandteil #{index}",
     "@edit_packagings_element_title": {
         "description": "Element title. Please do not change the index placeholder",
