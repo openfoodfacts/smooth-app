@@ -121,13 +121,13 @@
     "@Introduction screen": {},
     "welcomeToOpenFoodFacts": "Vítejte v Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
-    "whatIsOff": "Open Food Facts je globální nezisková organizace založená na místních komunitách.",
+    "whatIsOff": "Open Food Facts je globální nezisková organizace tvořená místními komunitami.",
     "@whatIsOff": {
-        "description": "Description of Open Food Facts organization."
+        "description": "Description of Open Food Facts organization."
     },
     "offUtility": "Vyberte si jídlo, které je dobré pro vás i planetu.",
     "@offUtility": {
-        "description": "Description of what a user can use Open Food Facts for."
+        "description": "Description of what a user can use Open Food Facts for."
     },
     "productDataUtility": "Podívejte se na údaje o jídle relevantní pro vaše preference.",
     "@productDataUtility": {
@@ -144,6 +144,8 @@
     "@user_management": {},
     "sign_in_text": "Pro uložení vašich příspěvků se přihlaste ke svému účtu Open Food Facts",
     "incorrect_credentials": "Nesprávné uživatelské jméno nebo heslo.",
+    "password_lost_incorrect_credentials": "This email or username doesn't exist. Please check your credentials.",
+    "password_lost_server_unavailable": "We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.",
     "login": "Uživatelské jméno",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
@@ -235,7 +237,7 @@
     "sign_up_page_confirm_password_error_invalid": "Hesla se neshodují",
     "sign_up_page_agree_text": "Souhlasím s Open Food Facts",
     "@sign_up_page_agree_text": {
-        "description": "I agree to the Open Food Facts is followed by sign_up_page_terms_text"
+        "description": "I agree to the Open Food Facts is followed by sign_up_page_terms_text"
     },
     "sign_up_page_terms_text": "podmínky použití a příspěvek",
     "@sign_up_page_terms_text": {
@@ -243,7 +245,7 @@
     },
     "sign_up_page_agree_url": "https://cz.openfoodfacts.org/terms-of-use",
     "@sign_up_page_agree_url": {
-        "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
+        "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
     },
     "donate_url": "https://donate.openfoodfacts.org/",
     "@donate_url": {
@@ -260,6 +262,7 @@
     "sign_up_page_user_name_already_used": "Uživatelské jméno již existuje, zvolte prosím jiné uživatelské jméno.",
     "sign_up_page_email_already_exists": "již existuje, přihlaste se k účtu nebo zkuste jiný e-mail.",
     "sign_up_page_provide_valid_email": "Zadejte platnou e-mailovou adresu.",
+    "sign_up_page_server_busy": "We are deeply sorry, we have some technical difficulties to create your account. Please try again later.",
     "@Settings": {},
     "settingsTitle": "Nastavení",
     "@settingsTitle": {
@@ -281,11 +284,26 @@
     "@darkmode_system_default": {
         "description": "Indicator inside the darkmode switch (system default)"
     },
-    "thanks_for_contributing": "Děkujeme, že přispíváte",
-    "@contributors": {
+    "thanks_for_contributing": "Děkujeme za příspěvek!",
+    "contributors_label": "Vytvářejí aplikaci",
+    "@contributors_label": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
     },
-    "contributors": "Přispěvatelé",
+    "contributors_dialog_title": "Přispěvatelé",
+    "@contributors_dialog_title": {
+        "description": "Dialog title: A list of all contributors of this app"
+    },
+    "contributors_dialog_entry_description": "Přispěvatel: {name}",
+    "@contributors_dialog_entry_description": {
+        "description": "The user id of the contributor.",
+        "placeholders": {
+            "name": {}
+        }
+    },
+    "contributors_description": "Seznam všech přispěvatelů této aplikace",
+    "@contributors_description": {
+        "description": "Button description for accessibility purposes to explain what the Contributors button do"
+    },
     "support": "Podpora",
     "@support": {
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
@@ -312,7 +330,7 @@
     },
     "contribute_develop_text": "Kód pro každý produkt Open Food Facts je k dispozici na GitHubu. Můžete znovu použít kód (je to open source) a pomoci nám jej vylepšit, pro každého na celé planetě.",
     "@contribute_develop_text": {},
-    "contribute_develop_text_2": "Můžete se připojit k chatovací místnosti Open Food Facts Slack, což je preferovaný způsob, kde klást otázky.",
+    "contribute_develop_text_2": "Můžete se připojit k chatovací místnosti Open Food Facts Slack, což je preferovaný způsob, jak klást otázky.",
     "@contribute_develop_text_2": {},
     "contribute_develop_dev_mode_title": "DEV režim?",
     "contribute_develop_dev_mode_subtitle": "Aktivovat DEV režim",
@@ -348,7 +366,7 @@
     },
     "tap_to_answer": "Klepnutím sem odpovíte na otázky",
     "@tap_to_answer": {
-        "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
+        "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts and gain rewards."
     },
     "tap_to_answer_hint": "Klepnutím sem odpovězte na otázky týkající se tohoto produktu",
     "@tap_to_answer_hint": {
@@ -364,7 +382,7 @@
     },
     "contribute_to_get_rewards": "Pomozte zlepšit transparentnost potravin a získat odměny",
     "@contribute_to_get_rewards": {
-        "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
+        "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts and gain rewards."
     },
     "question_sign_in_text": "Přihlaste se ke svému účtu Open Food Facts a získejte kredit za vaše příspěvky",
     "question_yes_button_accessibility_value": "Odpovězte ano",
@@ -441,7 +459,7 @@
     "@filter": {
         "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
     },
-    "scan": "Skenovací párty",
+    "scan": "Products from the Scan screen",
     "@scan": {
         "description": "Page title: List type: Products in the scan session"
     },
@@ -630,7 +648,7 @@
     "@uploading_image_type_ingredients": {
         "description": "Message when a new ingredients picture is being uploaded to the server"
     },
-    "uploading_image_type_nutrition": "Nahrávání obrázku výživy do Open Food Facts",
+    "uploading_image_type_nutrition": "Nahrávání obrázku výživových údajů do Open Food Facts",
     "@uploading_image_type_nutrition": {
         "description": "Message when a new nutrition picture is being uploaded to the server"
     },
@@ -680,18 +698,14 @@
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
-    "deprecated_header": "Používáte zastaralou verzi aplikace.",
-    "@deprecated_header": {
-        "description": "Confirmation, that the user can upgrade to new version of the app"
-    },
-    "click_here": "Klikněte zde",
-    "@click_here": {
-        "description": "Confirmation click to download new version of the app"
-    },
-    "download_new_version": "Stáhněte si novou verzi aplikace",
-    "@download_new_version": {
-        "description": "Download new version of the app text"
-    },
+    "tagline_app_review": "Líbí se vám aplikace?",
+    "tagline_app_review_button_positive": "Miluji to! 😍",
+    "tagline_app_review_button_negative": "Ani ne...",
+    "tagline_app_review_button_later": "Zeptejte se mě později",
+    "app_review_negative_modal_title": "Nelíbí se vám naše aplikace?",
+    "app_review_negative_modal_text": "Mohl byste nám dát pár sekund a říct nám proč?",
+    "app_review_negative_modal_positive_button": "Ano, samozřejmě!",
+    "app_review_negative_modal_negative_button": "Ne",
     "could_not_refresh": "Produkt se nepodařilo obnovit",
     "@could_not_refresh": {
         "description": "The product data couldn't be refreshed"
@@ -752,7 +766,7 @@
     "@native_app_settings": {
         "description": "Native App Settings in app settings"
     },
-    "native_app_description": "Otevřít systémové nastavení pro Open Food Facts",
+    "native_app_description": "Otevřít systémová nastavení pro Open Food Facts",
     "@native_app_description": {
         "description": "Native App description in app settings"
     },
@@ -771,10 +785,14 @@
     "@Lists": {},
     "no_prodcut_in_list": "V tomto seznamu není žádný produkt",
     "no_product_in_section": "V této sekci není žádný produkt",
-    "recently_seen_products": "Historie",
+    "recently_seen_products": "All viewed products",
     "clear": "Vymazat",
     "@clear": {
-        "description": "Clears a product list"
+        "description": "Clears a product list (short label)"
+    },
+    "clear_long": "Vyprázdnit seznam",
+    "@clear_long": {
+        "description": "Clears a product list (long label)"
     },
     "really_clear": "Opravdu chcete tento seznam smazat?",
     "@Plural": {},
@@ -1043,7 +1061,7 @@
         "description": "When the user is not connected"
     },
     "user_profile_subtitle_guest": "Přihlaste se nebo se zaregistrujte a připojte se ke komunitě Open Food Facts",
-    "user_profile_title_id_email": "Open Food Facts login: {email}",
+    "user_profile_title_id_email": "Open Food Facts přihlášení: {email}",
     "@user_profile_title_id_email": {
         "description": "User login (when it's an email)",
         "placeholders": {
@@ -1221,7 +1239,7 @@
     "@edit_product_form_item_origins_title": {
         "description": "Product edition - Origins - Title"
     },
-    "edit_product_form_item_origins_hint": "Španělsko",
+    "edit_product_form_item_origins_hint": "Zadejte původ",
     "@edit_product_form_item_origins_hint": {
         "description": "Product edition - Origins - input textfield hint"
     },
@@ -1241,7 +1259,7 @@
     "@edit_product_form_item_countries_title": {
         "description": "Product edition - Countries - Title"
     },
-    "edit_product_form_item_countries_hint": "Španělsko",
+    "edit_product_form_item_countries_hint": "Zadejte zemi",
     "@edit_product_form_item_countries_hint": {
         "description": "Product edition - Countries - input textfield hint"
     },
@@ -1840,6 +1858,18 @@
     "@gallery_source_label": {
         "description": "Label for the gallery image source"
     },
+    "gallery_source_access_denied_dialog_title": "Přístup odepřen",
+    "@gallery_source_access_denied_dialog_title": {
+        "description": "On iOS, the user has refused to give the permission (title of the dialog)"
+    },
+    "gallery_source_access_denied_dialog_message_ios": "Aplikace bohužel nemá přístup k vaší galerii, protože jste již dříve odepřeli oprávnění.\n\nPřejděte do nastavení aplikace v nastavení telefonu -> Fotky",
+    "@gallery_source_access_denied_dialog_message_ios": {
+        "description": "On iOS, the user has refused to give the permission"
+    },
+    "gallery_source_access_denied_dialog_button": "Otevřít nastavení",
+    "@gallery_source_access_denied_dialog_button": {
+        "description": "Button to open the app settings"
+    },
     "share": "Sdílet",
     "@share": {
         "description": "Button label for sharing something on another app. For example sharing the link to a product via Email"
@@ -2071,6 +2101,7 @@
     "@show_password": {
         "description": "Show hidden password in password field"
     },
+    "rate_app": "Ohodnoťte aplikaci",
     "app_rating_dialog_title": "Skvěle! Dejte ostatním vědět, co si o aplikaci myslíte!",
     "app_rating_dialog_positive_action": "Ohodnoťte aplikaci",
     "app_rating_dialog_negative_action": "Později",
@@ -2199,7 +2230,7 @@
     },
     "color_light_brown": "Výchozí",
     "@color_light_brown": {
-        "description": "Color Light Brown, Default Open Food Facts Color"
+        "description": "Color Light Brown, Default Open Food Facts Color"
     },
     "color_magenta": "Purpurová",
     "@color_magenta": {
@@ -2303,7 +2334,7 @@
     "@update_offline_data": {
         "description": "List tile title for the update offline data page"
     },
-    "update_local_database_sub": "Aktualizovat místní databázi produktů o nejnovější data z Open Food Facts",
+    "update_local_database_sub": "Aktualizujte místní databázi produktů nejnovějšími údaji z Open Food Facts",
     "@update_local_database_sub": {
         "description": "Update the local product database with the latest data from server"
     },
@@ -2353,6 +2384,10 @@
     "@country_selector_title": {
         "description": "Label written as the title of the dialog to select the user country"
     },
+    "language_selector_title": "Vyberte svůj jazyk:",
+    "@language_selector_title": {
+        "description": "Label written as the title of the dialog to select the user language"
+    },
     "action_delete_list": "Odstranit",
     "@action_delete_list": {
         "description": "Delete a list action in a menu"
@@ -2368,5 +2403,28 @@
     "product_list_create_tooltip": "Vytvořit nový seznam",
     "@product_list_create_tooltip": {
         "description": "Button description to create a new list (long sentence)"
-    }
+    },
+    "nutriscore_a": "Nutri-Score A",
+    "nutriscore_b": "Nutri-Score B",
+    "nutriscore_c": "Nutri-Score C",
+    "nutriscore_d": "Nutri-Score D",
+    "nutriscore_e": "Nutri-Score E",
+    "nutriscore_unknown": "Neznámé Nutri-Score",
+    "nutriscore_not_applicable": "Nutri-Score nelze použít",
+    "ecoscore_a": "Eco-Score A",
+    "ecoscore_b": "Eco-Score B",
+    "ecoscore_c": "Eco-Score C",
+    "ecoscore_d": "Eco-Score D",
+    "ecoscore_e": "Eco-Score E",
+    "ecoscore_unknown": "Neznámé Eco-Score",
+    "ecoscore_not_applicable": "Eco-Score nelze použít",
+    "nova_group_1": "Skupina NOVA 1",
+    "nova_group_2": "Skupina NOVA 2",
+    "nova_group_3": "Skupina NOVA 3",
+    "nova_group_4": "Skupina NOVA 4",
+    "nova_group_unknown": "Neznámá skupina NOVA",
+    "hunger_games_loading_line1": "Dejte nám prosím pár sekund…",
+    "hunger_games_loading_line2": "Stahujeme otázky!",
+    "hunger_games_error_label": "Argh! Něco se pokazilo… a otázky se nepodařilo načíst.",
+    "hunger_games_error_retry_button": "Zkusme to znovu!"
 }

@@ -123,11 +123,11 @@
     "@welcomeToOpenFoodFacts": {},
     "whatIsOff": "Open Food Facts ist eine globale, gemeinnützige Organisation, die von lokalen Gemeinschaften getragen wird.",
     "@whatIsOff": {
-        "description": "Description of Open Food Facts organization."
+        "description": "Description of Open Food Facts organization."
     },
     "offUtility": "Wählen Sie die Lebensmittel, die gut für Sie und für den Planeten sind.",
     "@offUtility": {
-        "description": "Description of what a user can use Open Food Facts for."
+        "description": "Description of what a user can use Open Food Facts for."
     },
     "productDataUtility": "Lassen Sie sich die für Ihre Vorlieben relevanten Lebensmitteldaten anzeigen.",
     "@productDataUtility": {
@@ -144,6 +144,8 @@
     "@user_management": {},
     "sign_in_text": "Melden Sie sich bei Ihrem Open Food Facts-Konto an, um Ihre Beiträge speichern zu können",
     "incorrect_credentials": "Ungültiger Benutzername oder Passwort.",
+    "password_lost_incorrect_credentials": "This email or username doesn't exist. Please check your credentials.",
+    "password_lost_server_unavailable": "We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.",
     "login": "Benutzername",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
@@ -233,9 +235,9 @@
     "sign_up_page_confirm_password_hint": "Passwort bestätigen",
     "sign_up_page_confirm_password_error_empty": "Bitte bestätigen Sie Ihr Passwort",
     "sign_up_page_confirm_password_error_invalid": "Passwörter stimmen nicht überein",
-    "sign_up_page_agree_text": "Ich stimme den",
+    "sign_up_page_agree_text": "Ich akzeptiere die Open Food Facts",
     "@sign_up_page_agree_text": {
-        "description": "I agree to the Open Food Facts is followed by sign_up_page_terms_text"
+        "description": "I agree to the Open Food Facts is followed by sign_up_page_terms_text"
     },
     "sign_up_page_terms_text": "Nutzungsbedingungen von Open Food Facts zu",
     "@sign_up_page_terms_text": {
@@ -243,7 +245,7 @@
     },
     "sign_up_page_agree_url": "https://de.openfoodfacts.org/terms-of-use",
     "@sign_up_page_agree_url": {
-        "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
+        "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
     },
     "donate_url": "https://world-de.openfoodfacts.org/spenden",
     "@donate_url": {
@@ -260,6 +262,7 @@
     "sign_up_page_user_name_already_used": "Der Benutzername existiert bereits. Bitte wählen Sie einen anderen Benutzernamen.",
     "sign_up_page_email_already_exists": "existiert bereits. Melden Sie sich bei diesem Konto an oder versuchen Sie es mit einer anderen E-Mail-Adresse.",
     "sign_up_page_provide_valid_email": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+    "sign_up_page_server_busy": "Es tut uns sehr leid, wir haben technische Schwierigkeiten, Ihr Konto zu erstellen. Bitte versuchen Sie es später noch einmal.",
     "@Settings": {},
     "settingsTitle": "Einstellungen",
     "@settingsTitle": {
@@ -281,11 +284,26 @@
     "@darkmode_system_default": {
         "description": "Indicator inside the darkmode switch (system default)"
     },
-    "thanks_for_contributing": "Vielen Dank für Ihren Beitrag",
-    "@contributors": {
+    "thanks_for_contributing": "Vielen Dank für Ihren Beitrag!",
+    "contributors_label": "Diese Leute entwickeln die App",
+    "@contributors_label": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
     },
-    "contributors": "Mitwirkende",
+    "contributors_dialog_title": "Mitwirkende",
+    "@contributors_dialog_title": {
+        "description": "Dialog title: A list of all contributors of this app"
+    },
+    "contributors_dialog_entry_description": "Mitwirkende: {name}",
+    "@contributors_dialog_entry_description": {
+        "description": "The user id of the contributor.",
+        "placeholders": {
+            "name": {}
+        }
+    },
+    "contributors_description": "Eine Liste aller Mitwirkenden an dieser App",
+    "@contributors_description": {
+        "description": "Button description for accessibility purposes to explain what the Contributors button do"
+    },
     "support": "Support",
     "@support": {
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
@@ -316,7 +334,7 @@
     "@contribute_develop_text_2": {},
     "contribute_develop_dev_mode_title": "Entwicklermodus?",
     "contribute_develop_dev_mode_subtitle": "Entwicklermodus aktivieren",
-    "contribute_donate_header": "An Open Food Facts spenden",
+    "contribute_donate_header": "Spenden Sie für Open Food Facts",
     "@contribute_donate_header": {},
     "contribute_improve_ProductsToBeCompleted": "Noch abzuschließende Produkte",
     "@contribute_improve_ProductsToBeCompleted": {
@@ -348,7 +366,7 @@
     },
     "tap_to_answer": "Tippen Sie hier, um Fragen zu beantworten",
     "@tap_to_answer": {
-        "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
+        "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts and gain rewards."
     },
     "tap_to_answer_hint": "Tippe hier, um Fragen zu diesem Produkt zu beantworten",
     "@tap_to_answer_hint": {
@@ -364,7 +382,7 @@
     },
     "contribute_to_get_rewards": "Helfen Sie mit, die Lebensmitteltransparenz zu verbessern und erhalten Sie dafür Belohnungen",
     "@contribute_to_get_rewards": {
-        "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
+        "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts and gain rewards."
     },
     "question_sign_in_text": "Melden Sie sich bei Ihrem Open Food Facts-Konto an, um eine Gutschrift für Ihre Beiträge zu erhalten",
     "question_yes_button_accessibility_value": "Mit „Ja” antworten",
@@ -441,7 +459,7 @@
     "@filter": {
         "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
     },
-    "scan": "Scan-Sitzung",
+    "scan": "Products from the Scan screen",
     "@scan": {
         "description": "Page title: List type: Products in the scan session"
     },
@@ -498,7 +516,7 @@
     "@packaging_information_photo": {},
     "missing_product": "Sie haben eine neues Produkt gefunden!",
     "@missing_product": {},
-    "add_product_take_photos": "Nimm Fotos von der Verpackung auf, um dieses Produkt zu Open Food Facts hinzuzufügen",
+    "add_product_take_photos": "Fotografieren Sie die Verpackung, um dieses Produkt zu Open Food Facts hinzuzufügen",
     "@add_product_take_photos": {},
     "add_product_take_photos_descriptive": "Bitte nehmen Sie zuerst ein paar Fotos auf. Sie können das Produkt jederzeit zu einem späteren Zeitpunkt vervollständigen.",
     "@add_product_take_photos_descriptive": {},
@@ -680,18 +698,14 @@
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
-    "deprecated_header": "Sie verwenden eine veraltete Version der App.",
-    "@deprecated_header": {
-        "description": "Confirmation, that the user can upgrade to new version of the app"
-    },
-    "click_here": "Hier klicken",
-    "@click_here": {
-        "description": "Confirmation click to download new version of the app"
-    },
-    "download_new_version": "Laden sie die neue Version der App herunter",
-    "@download_new_version": {
-        "description": "Download new version of the app text"
-    },
+    "tagline_app_review": "Gefällt Ihnen die App?",
+    "tagline_app_review_button_positive": "Ich liebe sie! 😍",
+    "tagline_app_review_button_negative": "Nicht wirklich …",
+    "tagline_app_review_button_later": "Später erneut fragen",
+    "app_review_negative_modal_title": "Gefällt Ihnen diese App?",
+    "app_review_negative_modal_text": "Könnten Sie sich ein paar Sekunden Zeit nehmen und uns sagen, warum?",
+    "app_review_negative_modal_positive_button": "Ja, natürlich!",
+    "app_review_negative_modal_negative_button": "Nein",
     "could_not_refresh": "Produkt konnte nicht aktualisiert werden",
     "@could_not_refresh": {
         "description": "The product data couldn't be refreshed"
@@ -752,7 +766,7 @@
     "@native_app_settings": {
         "description": "Native App Settings in app settings"
     },
-    "native_app_description": "Systemeinstellungen für Open Food Facts öffnen",
+    "native_app_description": "Einstellungen für offene Systeme für Open Food Facts",
     "@native_app_description": {
         "description": "Native App description in app settings"
     },
@@ -771,10 +785,14 @@
     "@Lists": {},
     "no_prodcut_in_list": "Liste enthält noch keine Produkte",
     "no_product_in_section": "Bereich enthält noch kein Produkt",
-    "recently_seen_products": "Verlauf",
+    "recently_seen_products": "All viewed products",
     "clear": "Leeren",
     "@clear": {
-        "description": "Clears a product list"
+        "description": "Clears a product list (short label)"
+    },
+    "clear_long": "Liste leeren",
+    "@clear_long": {
+        "description": "Clears a product list (long label)"
     },
     "really_clear": "Möchten Sie diese Liste wirklich löschen?",
     "@Plural": {},
@@ -1102,7 +1120,7 @@
     "@crash_reporting_toggle_title": {
         "description": "Title for the Crash reporting toggle"
     },
-    "crash_reporting_toggle_subtitle": "Wenn diese Funktion aktiviert ist, werden Absturzberichte automatisch an das Fehlertrackingsystem von Open Food Facts übermittelt, sodass Fehler behoben und die App verbessert werden kann.",
+    "crash_reporting_toggle_subtitle": "Wenn aktiviert, werden Absturzberichte automatisch an das Fehlerverfolgungssystem von Open Food Facts übermittelt, so dass Fehler behoben werden können und die App dadurch verbessert wird.",
     "@crash_reporting_toggle_subtitle": {
         "description": "SubTitle for the Crash reporting toggle"
     },
@@ -1221,7 +1239,7 @@
     "@edit_product_form_item_origins_title": {
         "description": "Product edition - Origins - Title"
     },
-    "edit_product_form_item_origins_hint": "Spanien",
+    "edit_product_form_item_origins_hint": "Herkunft angeben",
     "@edit_product_form_item_origins_hint": {
         "description": "Product edition - Origins - input textfield hint"
     },
@@ -1241,7 +1259,7 @@
     "@edit_product_form_item_countries_title": {
         "description": "Product edition - Countries - Title"
     },
-    "edit_product_form_item_countries_hint": "Spanien",
+    "edit_product_form_item_countries_hint": "Land eingeben",
     "@edit_product_form_item_countries_hint": {
         "description": "Product edition - Countries - input textfield hint"
     },
@@ -1652,7 +1670,7 @@
     "@edit_product_action_confirm": {
         "description": "Product edition - FAB actions - confirm"
     },
-    "signup_page_terms_of_use_line1": "Ich stimme den Open Food Facts zu ",
+    "signup_page_terms_of_use_line1": "Ich akzeptiere die Open Food Facts ",
     "@signup_page_terms_of_use_line1": {
         "description": "User consent for terms of use (line 1)"
     },
@@ -1839,6 +1857,18 @@
     "gallery_source_label": "Galerie",
     "@gallery_source_label": {
         "description": "Label for the gallery image source"
+    },
+    "gallery_source_access_denied_dialog_title": "Zugriff verweigert",
+    "@gallery_source_access_denied_dialog_title": {
+        "description": "On iOS, the user has refused to give the permission (title of the dialog)"
+    },
+    "gallery_source_access_denied_dialog_message_ios": "Leider kann die Anwendung nicht auf Ihre Galerie zugreifen, da Sie die Erlaubnis zuvor verweigert haben.\n\nBitte öffnen Sie die App-Einstellungen in Ihrem Telefon unter „Einstellungen” ➜ „Fotos”",
+    "@gallery_source_access_denied_dialog_message_ios": {
+        "description": "On iOS, the user has refused to give the permission"
+    },
+    "gallery_source_access_denied_dialog_button": "Einstellungen öffnen",
+    "@gallery_source_access_denied_dialog_button": {
+        "description": "Button to open the app settings"
     },
     "share": "Teilen",
     "@share": {
@@ -2071,6 +2101,7 @@
     "@show_password": {
         "description": "Show hidden password in password field"
     },
+    "rate_app": "App bewerten",
     "app_rating_dialog_title": "Großartig! Lassen Sie andere wissen, was Sie von dieser App halten!",
     "app_rating_dialog_positive_action": "App bewerten",
     "app_rating_dialog_negative_action": "Später",
@@ -2199,7 +2230,7 @@
     },
     "color_light_brown": "Standard",
     "@color_light_brown": {
-        "description": "Color Light Brown, Default Open Food Facts Color"
+        "description": "Color Light Brown, Default Open Food Facts Color"
     },
     "color_magenta": "Magenta",
     "@color_magenta": {
@@ -2353,6 +2384,10 @@
     "@country_selector_title": {
         "description": "Label written as the title of the dialog to select the user country"
     },
+    "language_selector_title": "Sprache auswählen:",
+    "@language_selector_title": {
+        "description": "Label written as the title of the dialog to select the user language"
+    },
     "action_delete_list": "Löschen",
     "@action_delete_list": {
         "description": "Delete a list action in a menu"
@@ -2368,5 +2403,28 @@
     "product_list_create_tooltip": "Neue Liste erstellen",
     "@product_list_create_tooltip": {
         "description": "Button description to create a new list (long sentence)"
-    }
+    },
+    "nutriscore_a": "Nutri-Score A",
+    "nutriscore_b": "Nutri-Score B",
+    "nutriscore_c": "Nutri-Score C",
+    "nutriscore_d": "Nutri-Score D",
+    "nutriscore_e": "Nutri-Score E",
+    "nutriscore_unknown": "Unbekannter Nutri-Score",
+    "nutriscore_not_applicable": "Nutri-Score nicht zutreffend",
+    "ecoscore_a": "Eco-Score A",
+    "ecoscore_b": "Eco-Score B",
+    "ecoscore_c": "Eco-Score C",
+    "ecoscore_d": "Eco-Score D",
+    "ecoscore_e": "Eco-Score E",
+    "ecoscore_unknown": "Unbekannter Eco-Score",
+    "ecoscore_not_applicable": "Eco-Score nicht zutreffend",
+    "nova_group_1": "Nova-Gruppe 1",
+    "nova_group_2": "Nova-Gruppe 2",
+    "nova_group_3": "Nova-Gruppe 3",
+    "nova_group_4": "Nova-Gruppe 4",
+    "nova_group_unknown": "Unbekannt NOVA-Gruppe",
+    "hunger_games_loading_line1": "Bitte einen kurzen Moment Geduld …",
+    "hunger_games_loading_line2": "Die Fragen werden gerade heruntergeladen!",
+    "hunger_games_error_label": "Leider ist ein Problem aufgetreten … und die Fragen konnten nicht geladen werden.",
+    "hunger_games_error_retry_button": "Erneut versuchen"
 }

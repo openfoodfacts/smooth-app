@@ -78,7 +78,7 @@ packages:
     source: hosted
     version: "7.0.0"
   async:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: async
       sha256: "947bfcf187f74dbc5e146c9eb9c0f10c9f8b30743e341481c1e2ed3ecc18c20c"
@@ -598,10 +598,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_secure_storage
-      sha256: "5abe3d5c25ab435e48c47fb61bac25606062a305fac637c2f020e25abd30014a"
+      sha256: "98352186ee7ad3639ccc77ad7924b773ff6883076ab952437d20f18a61f0a7c5"
       url: "https://pub.dev"
     source: hosted
-    version: "5.1.2"
+    version: "8.0.0"
   flutter_secure_storage_linux:
     dependency: transitive
     description:
@@ -614,10 +614,10 @@ packages:
     dependency: transitive
     description:
       name: flutter_secure_storage_macos
-      sha256: "388f76fd0f093e7415a39ec4c169ae7cceeee6d9f9ba529d788a13f2be4de7bd"
+      sha256: "083add01847fc1c80a07a08e1ed6927e9acd9618a35e330239d4422cd2a58c50"
       url: "https://pub.dev"
     source: hosted
-    version: "1.1.2"
+    version: "3.0.0"
   flutter_secure_storage_platform_interface:
     dependency: transitive
     description:
@@ -638,10 +638,10 @@ packages:
     dependency: transitive
     description:
       name: flutter_secure_storage_windows
-      sha256: ca89c8059cf439985aa83c59619b3674c7ef6cc2e86943d169a7369d6a69cab5
+      sha256: fc2910ec9b28d60598216c29ea763b3a96c401f0ce1d13cdf69ccb0e5c93c3ee
       url: "https://pub.dev"
     source: hosted
-    version: "1.1.3"
+    version: "2.0.0"
   flutter_svg:
     dependency: "direct main"
     description:
@@ -985,12 +985,11 @@ packages:
   mobile_scanner:
     dependency: transitive
     description:
-      path: "."
-      ref: "5aa2c11915467b19dfc5fd3a9e59641d2958ffeb"
-      resolved-ref: "5aa2c11915467b19dfc5fd3a9e59641d2958ffeb"
-      url: "https://github.com/openfoodfacts/mobile_scanner.git"
-    source: git
-    version: "3.2.1"
+      name: mobile_scanner
+      sha256: "9b3d6fb0407f749eb157432b049924277b43ff6948546eeff76260593ad6eca9"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.4.0"
   mockito:
     dependency: "direct dev"
     description:
@@ -1011,10 +1010,10 @@ packages:
     dependency: "direct main"
     description:
       name: openfoodfacts
-      sha256: "86ef1dc9a3cbb464cb020d6bdd87e52c9115df26cc04ac6144eb80d79a0972e2"
+      sha256: "4c3e095a20bca11006c957ec37d83fda1178dc03bde0254d4cc29d0eb09ebb3b"
       url: "https://pub.dev"
     source: hosted
-    version: "2.7.4"
+    version: "2.8.0"
   openfoodfacts_flutter_lints:
     dependency: "direct dev"
     description:

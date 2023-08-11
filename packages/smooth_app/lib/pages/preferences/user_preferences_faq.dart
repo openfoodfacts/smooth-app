@@ -137,72 +137,54 @@ class UserPreferencesFaq extends AbstractUserPreferences {
                   ),
                 ],
               ),
-              Divider(color: themeData.colorScheme.onSurface),
               const SizedBox(height: VERY_LARGE_SPACE),
               SingleChildScrollView(
-                child: Column(
-                  children: <Widget>[
-                    Text(appLocalizations.whatIsOff),
-                    const SizedBox(height: LARGE_SPACE),
-                    IntrinsicHeight(
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Expanded(
-                            child: TextButton(
-                              onPressed: () => LaunchUrlHelper.launchURL(
-                                  'https://openfoodfacts.org/who-we-are', true),
-                              child: Text(
-                                appLocalizations.learnMore,
-                                textAlign: TextAlign.center,
-                                style: const TextStyle(
-                                  color: Colors.blue,
-                                ),
-                              ),
-                            ),
-                          ),
-                          Expanded(
-                            child: TextButton(
-                              onPressed: () => LaunchUrlHelper.launchURL(
-                                  'https://openfoodfacts.org/terms-of-use',
-                                  true),
-                              child: Text(
-                                appLocalizations.termsOfUse,
-                                textAlign: TextAlign.center,
-                                style: const TextStyle(
-                                  color: Colors.blue,
-                                ),
-                              ),
-                            ),
-                          )
-                        ],
+                child: IconTheme(
+                  data: const IconThemeData(size: 16.0),
+                  child: Column(
+                    children: <Widget>[
+                      FractionallySizedBox(
+                        widthFactor: 0.9,
+                        child: Text(appLocalizations.whatIsOff),
                       ),
-                    ),
-                  ],
+                      const SizedBox(height: LARGE_SPACE),
+                      SmoothAlertContentButton(
+                        onPressed: () => LaunchUrlHelper.launchURL(
+                            'https://openfoodfacts.org/who-we-are', true),
+                        label: appLocalizations.learnMore,
+                        icon: Icons.open_in_new,
+                      ),
+                      const SizedBox(height: SMALL_SPACE),
+                      SmoothAlertContentButton(
+                        onPressed: () => LaunchUrlHelper.launchURL(
+                            'https://openfoodfacts.org/terms-of-', true),
+                        label: appLocalizations.termsOfUse,
+                        icon: Icons.open_in_new,
+                      ),
+                      const SizedBox(height: SMALL_SPACE),
+                      SmoothAlertContentButton(
+                        onPressed: () => showLicensePage(
+                          context: context,
+                          applicationName: packageInfo.appName,
+                          applicationVersion: packageInfo.version,
+                          applicationIcon: SvgPicture.asset(
+                            logo,
+                            height: MediaQuery.of(context).size.height * 0.1,
+                          ),
+                        ),
+                        label: appLocalizations.licenses,
+                        icon: Icons.info,
+                      ),
+                      const SizedBox(height: SMALL_SPACE),
+                    ],
+                  ),
                 ),
               ),
             ],
           ),
-          positiveAction: SmoothActionButton(
-            onPressed: () => Navigator.of(context, rootNavigator: true).pop(),
-            text: appLocalizations.okay,
-          ),
           negativeAction: SmoothActionButton(
-            onPressed: () async {
-              Navigator.of(context).pop();
-
-              showLicensePage(
-                context: context,
-                applicationName: packageInfo.appName,
-                applicationVersion: packageInfo.version,
-                applicationIcon: SvgPicture.asset(
-                  logo,
-                  height: MediaQuery.of(context).size.height * 0.1,
-                ),
-              );
-            },
-            text: appLocalizations.licenses,
+            onPressed: () => Navigator.of(context, rootNavigator: true).pop(),
+            text: appLocalizations.close,
           ),
         );
       },
