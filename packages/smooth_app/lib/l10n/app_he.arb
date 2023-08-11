@@ -121,7 +121,7 @@
     "@Introduction screen": {},
     "welcomeToOpenFoodFacts": "ברוך בואך ל־Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
-    "whatIsOff": "Open Food Facts is a global non-profit powered by local communities.",
+    "whatIsOff": "Open Food Facts הוא ארגון כלל עולמי ללא מטרות רווח שמופעל על ידי קהילות מקומיות.",
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
@@ -142,7 +142,7 @@
         "description": "Description of what a user can use the Eco data in a product for."
     },
     "@user_management": {},
-    "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
+    "sign_in_text": "ניתן להיכנס לחשבונך ב־Open Food Facts כדי לשמור את התרומות שלך",
     "incorrect_credentials": "שם משתמש או סיסמה שגויים.",
     "password_lost_incorrect_credentials": "כתובת הדוא״ל או שם המשתמש הזה אינם קיימים. נא לבדוק את פרטי הגישה שלך.",
     "password_lost_server_unavailable": "אנו חווים כעת האטות בשרתים שלנו ואנו מצרים על כך. נא לנסות שוב מאוחר יותר.",
@@ -2419,10 +2419,10 @@
     "ecoscore_unknown": "Eco-Score לא ידוע",
     "ecoscore_not_applicable": "Eco-Score לא ניתן ליישום",
     "nova_group_1": "קבוצת NOVA‏ 1",
-    "nova_group_2": "NOVA Group 2",
-    "nova_group_3": "NOVA Group 3",
-    "nova_group_4": "NOVA Group 4",
-    "nova_group_unknown": "Unknown NOVA Group",
+    "nova_group_2": "קבוצת NOVA‏ 2",
+    "nova_group_3": "קבוצת NOVA‏ 3",
+    "nova_group_4": "קבוצת NOVA‏ 4",
+    "nova_group_unknown": "קבוצת NOVA לא ידועה",
     "hunger_games_loading_line1": "נא להמתין מספר שניות…",
     "hunger_games_loading_line2": "אנו מורידים את השאלות!",
     "hunger_games_error_label": "געוואלד! משהו השתבש… לא הצלחנו לטעון את השאלות.",
