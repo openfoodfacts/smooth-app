@@ -121,7 +121,7 @@
     "@Introduction screen": {},
     "welcomeToOpenFoodFacts": "ברוך בואך ל־Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
-    "whatIsOff": "Open Food Facts is a global non-profit powered by local communities.",
+    "whatIsOff": "Open Food Facts הוא ארגון כלל עולמי ללא מטרות רווח שמופעל על ידי קהילות מקומיות.",
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
@@ -142,10 +142,10 @@
         "description": "Description of what a user can use the Eco data in a product for."
     },
     "@user_management": {},
-    "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
+    "sign_in_text": "ניתן להיכנס לחשבונך ב־Open Food Facts כדי לשמור את התרומות שלך",
     "incorrect_credentials": "שם משתמש או סיסמה שגויים.",
-    "password_lost_incorrect_credentials": "This email or username doesn't exist. Please check your credentials.",
-    "password_lost_server_unavailable": "We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.",
+    "password_lost_incorrect_credentials": "כתובת הדוא״ל או שם המשתמש הזה אינם קיימים. נא לבדוק את פרטי הגישה שלך.",
+    "password_lost_server_unavailable": "אנו חווים כעת האטות בשרתים שלנו ואנו מצרים על כך. נא לנסות שוב מאוחר יותר.",
     "login": "שם משתמש",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
@@ -262,7 +262,7 @@
     "sign_up_page_user_name_already_used": "שם המשתמש כבר קיים, נא לבחור בשם משתמש אחר.",
     "sign_up_page_email_already_exists": "כבר קיים, יש להיכנס לחשבון או לנסות עם כתובת דוא״ל אחרת.",
     "sign_up_page_provide_valid_email": "נא לספק כתובת דוא״ל תקפה.",
-    "sign_up_page_server_busy": "We are deeply sorry, we have some technical difficulties to create your account. Please try again later.",
+    "sign_up_page_server_busy": "אנו מתנצלים מעומק הלב, נתקלנו בקשיים טכניים ביצירת החשבון שלך. נא לנסות שוב מאוחר יותר.",
     "@Settings": {},
     "settingsTitle": "הגדרות",
     "@settingsTitle": {
@@ -1858,15 +1858,15 @@
     "@gallery_source_label": {
         "description": "Label for the gallery image source"
     },
-    "gallery_source_access_denied_dialog_title": "Access denied",
+    "gallery_source_access_denied_dialog_title": "הגישה נדחתה",
     "@gallery_source_access_denied_dialog_title": {
         "description": "On iOS, the user has refused to give the permission (title of the dialog)"
     },
-    "gallery_source_access_denied_dialog_message_ios": "Unfortunately, the application can't access your gallery, as you have previously denied the permission.\n\nPlease go to the app settings in your phone Settings -> Photos",
+    "gallery_source_access_denied_dialog_message_ios": "למרבה הצער, היישום לא מצליח לגשת לגלריה שלך, כיוון שדחית את ההרשאה בעבר.\n\nנא לגשת להגדרות היישום תחת הגדרות -> תמונות בטלפון שלך",
     "@gallery_source_access_denied_dialog_message_ios": {
         "description": "On iOS, the user has refused to give the permission"
     },
-    "gallery_source_access_denied_dialog_button": "Open the Settings",
+    "gallery_source_access_denied_dialog_button": "פתיחת ההגדרות",
     "@gallery_source_access_denied_dialog_button": {
         "description": "Button to open the app settings"
     },
@@ -2419,10 +2419,10 @@
     "ecoscore_unknown": "Eco-Score לא ידוע",
     "ecoscore_not_applicable": "Eco-Score לא ניתן ליישום",
     "nova_group_1": "קבוצת NOVA‏ 1",
-    "nova_group_2": "NOVA Group 2",
-    "nova_group_3": "NOVA Group 3",
-    "nova_group_4": "NOVA Group 4",
-    "nova_group_unknown": "Unknown NOVA Group",
+    "nova_group_2": "קבוצת NOVA‏ 2",
+    "nova_group_3": "קבוצת NOVA‏ 3",
+    "nova_group_4": "קבוצת NOVA‏ 4",
+    "nova_group_unknown": "קבוצת NOVA לא ידועה",
     "hunger_games_loading_line1": "נא להמתין מספר שניות…",
     "hunger_games_loading_line2": "אנו מורידים את השאלות!",
     "hunger_games_error_label": "געוואלד! משהו השתבש… לא הצלחנו לטעון את השאלות.",

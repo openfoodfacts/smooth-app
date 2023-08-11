@@ -144,8 +144,8 @@
     "@user_management": {},
     "sign_in_text": "Melden Sie sich bei Ihrem Open Food Facts-Konto an, um Ihre Beiträge speichern zu können",
     "incorrect_credentials": "Ungültiger Benutzername oder Passwort.",
-    "password_lost_incorrect_credentials": "This email or username doesn't exist. Please check your credentials.",
-    "password_lost_server_unavailable": "We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.",
+    "password_lost_incorrect_credentials": "Diese E-Mail-Adresse oder dieser Benutzername existiert nicht. Bitte überprüfen Sie Ihre Anmeldedaten.",
+    "password_lost_server_unavailable": "Zurzeit kommt es auf unseren Servern zu Verzögerungen, für die wir uns entschuldigen. Bitte versuchen Sie es später noch einmal.",
     "login": "Benutzername",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
@@ -490,7 +490,7 @@
     },
     "ingredients": "Zutaten",
     "@ingredients": {},
-    "ingredients_editing_instructions": "Originalbestellung beibehalten. Geben Sie den Prozentsatz an, wenn angegeben. Trennen Sie mit einem Komma oder Bindestrich, verwenden Sie Klammern für Inhaltsstoffe einer Zutat, und zeigen Sie Allergene zwischen Unterstrichen an.",
+    "ingredients_editing_instructions": "Behalten Sie die ursprüngliche Reihenfolge. Geben Sie, wenn angegeben, den Prozentsatz an. Trennen Sie mit einem Komma oder Bindestrich, verwenden Sie Klammern für Bestandteile einer Zutat und geben Sie Allergene zwischen Unterstrichen an.",
     "ingredients_editing_error": "Die Zutaten konnten nicht gespeichert werden.",
     "ingredients_editing_image_error": "Fehler beim Abrufen eines neuen Zutatenbildes.",
     "ingredients_editing_title": "Zutaten bearbeiten",
@@ -2117,7 +2117,7 @@
     "@edit_packagings_element_add": {
         "description": "Button label"
     },
-    "edit_packagings_completed": "Die Verpackung ist abgeschlossen",
+    "edit_packagings_completed": "Die Verpackung ist vollständig",
     "edit_packagings_element_title": "Verpackungsbestandteil #{index}",
     "@edit_packagings_element_title": {
         "description": "Element title. Please do not change the index placeholder",

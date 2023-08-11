@@ -262,7 +262,7 @@
     "sign_up_page_user_name_already_used": "O nome de usuário já existe, por favor escolha outro nome.",
     "sign_up_page_email_already_exists": "já existe, faça o login na conta ou tente com outro e-mail.",
     "sign_up_page_provide_valid_email": "Por favor, forneça um endereço de e-mail válido.",
-    "sign_up_page_server_busy": "We are deeply sorry, we have some technical difficulties to create your account. Please try again later.",
+    "sign_up_page_server_busy": "Lamentamos profundamente, tivemos algumas dificuldades técnicas para criar sua conta. Por favor, tente novamente mais tarde.",
     "@Settings": {},
     "settingsTitle": "Definições",
     "@settingsTitle": {

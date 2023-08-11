@@ -262,7 +262,7 @@
     "sign_up_page_user_name_already_used": "The user name already exists, please choose another username.",
     "sign_up_page_email_already_exists": "already exists, login to the account or try with another email.",
     "sign_up_page_provide_valid_email": "Please provide a valid email address.",
-    "sign_up_page_server_busy": "We are deeply sorry, we have some technical difficulties to create your account. Please try again later.",
+    "sign_up_page_server_busy": "대단히 죄송합니다. 귀하의 계정을 만드는 데 기술적인 문제가 있습니다. 나중에 다시 시도 해주십시오.",
     "@Settings": {},
     "settingsTitle": "설정",
     "@settingsTitle": {
