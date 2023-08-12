@@ -200,7 +200,7 @@ class ProductListUserDialogHelper {
         builder: (BuildContext context) => _UserEmptyLists(daoProductList),
       );
       if (newListCreated != null && newListCreated) {
-        showUserAddProductsDialog(context, barcodes);
+        return showUserAddProductsDialog(context, barcodes);
       }
       return false;
     }
@@ -216,6 +216,8 @@ class ProductListUserDialogHelper {
         lists: lists.toSet(),
         selectedLists: selectedLists.toSet(),
         onListsSubmitted: (Set<String> newSelectedLists) async {
+          bool hasChanged = false;
+
           for (final String list in lists) {
             // Nothing changed
             if (selectedLists.contains(list) &&
@@ -226,6 +228,7 @@ class ProductListUserDialogHelper {
             // List got selected
             if (!selectedLists.contains(list) &&
                 newSelectedLists.contains(list)) {
+              hasChanged = true;
               await daoProductList.bulkSet(
                 ProductList.user(list),
                 barcodes.toList(),
@@ -235,6 +238,7 @@ class ProductListUserDialogHelper {
             // List got unselected
             if (selectedLists.contains(list) &&
                 !newSelectedLists.contains(list)) {
+              hasChanged = true;
               await daoProductList.bulkSet(
                 ProductList.user(list),
                 barcodes.toList(),
@@ -242,6 +246,8 @@ class ProductListUserDialogHelper {
               );
             }
           }
+
+          return hasChanged;
         },
       ),
     );
@@ -260,7 +266,7 @@ class _UserLists extends StatefulWidget {
 
   final Set<String> lists;
   final Set<String> selectedLists;
-  final void Function(Set<String> selectedLists) onListsSubmitted;
+  final Future<bool> Function(Set<String> selectedLists) onListsSubmitted;
 
   @override
   State<_UserLists> createState() => _UserListsState();
@@ -285,9 +291,10 @@ class _UserListsState extends State<_UserLists> {
       negativeAction: _cancelButton(appLocalizations, context),
       positiveAction: SmoothActionButton(
         text: appLocalizations.save,
-        onPressed: () {
-          widget.onListsSubmitted.call(selectedLists);
-          Navigator.of(context).pop();
+        onPressed: () async {
+          Navigator.of(context).pop(
+            await widget.onListsSubmitted(selectedLists),
+          );
         },
       ),
       body: Column(

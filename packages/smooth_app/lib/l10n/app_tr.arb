@@ -144,6 +144,8 @@
     "@user_management": {},
     "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
     "incorrect_credentials": "Hatalı kullanıcı adı veya parola.",
+    "password_lost_incorrect_credentials": "This email or username doesn't exist. Please check your credentials.",
+    "password_lost_server_unavailable": "We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.",
     "login": "Kullanıcı adı",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
@@ -260,6 +262,7 @@
     "sign_up_page_user_name_already_used": "Kullanıcı adı zaten var, lütfen başka bir kullanıcı adı seçin.",
     "sign_up_page_email_already_exists": "zaten var, hesaba giriş yapın veya başka bir e-posta ile deneyin.",
     "sign_up_page_provide_valid_email": "Lütfen geçerli bir e-posta adresi girin.",
+    "sign_up_page_server_busy": "We are deeply sorry, we have some technical difficulties to create your account. Please try again later.",
     "@Settings": {},
     "settingsTitle": "Ayarlar",
     "@settingsTitle": {
@@ -456,7 +459,7 @@
     "@filter": {
         "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
     },
-    "scan": "Tarama oturumu",
+    "scan": "Products from the Scan screen",
     "@scan": {
         "description": "Page title: List type: Products in the scan session"
     },
@@ -782,7 +785,7 @@
     "@Lists": {},
     "no_prodcut_in_list": "Bu listede ürün yok",
     "no_product_in_section": "Bu bölümde ürün bulunmamaktadır",
-    "recently_seen_products": "Geçmiş",
+    "recently_seen_products": "All viewed products",
     "clear": "Temizle",
     "@clear": {
         "description": "Clears a product list (short label)"
@@ -1854,6 +1857,18 @@
     "gallery_source_label": "Galeri",
     "@gallery_source_label": {
         "description": "Label for the gallery image source"
+    },
+    "gallery_source_access_denied_dialog_title": "Erişim reddedildi",
+    "@gallery_source_access_denied_dialog_title": {
+        "description": "On iOS, the user has refused to give the permission (title of the dialog)"
+    },
+    "gallery_source_access_denied_dialog_message_ios": "Ne yazık ki, daha önce izin vermediğiniz için uygulama galerinize erişemiyor.\n\nLütfen telefonunuzun Ayarlar -> Fotoğraflar kısmından uygulama ayarlarına gidin",
+    "@gallery_source_access_denied_dialog_message_ios": {
+        "description": "On iOS, the user has refused to give the permission"
+    },
+    "gallery_source_access_denied_dialog_button": "Ayarları Aç",
+    "@gallery_source_access_denied_dialog_button": {
+        "description": "Button to open the app settings"
     },
     "share": "Paylaş",
     "@share": {

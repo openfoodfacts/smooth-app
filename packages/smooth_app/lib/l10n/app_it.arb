@@ -144,6 +144,8 @@
     "@user_management": {},
     "sign_in_text": "Accedi al tuo profilo di Open Food Facts per salvare i tuoi contributi",
     "incorrect_credentials": "Nome utente o password errati.",
+    "password_lost_incorrect_credentials": "Questo indirizzo email o nome utente non esiste. Controlla le tue credenziali.",
+    "password_lost_server_unavailable": "Al momento stiamo riscontrando rallentamenti sui nostri server e ce ne scusiamo. Per favore riprova più tardi.",
     "login": "Nome utente",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
@@ -260,6 +262,7 @@
     "sign_up_page_user_name_already_used": "Il nome utente esiste già, ti preghiamo di sceglierne un altro.",
     "sign_up_page_email_already_exists": "esiste già, accedi al profilo o prova con un'altra email.",
     "sign_up_page_provide_valid_email": "Ti preghiamo di fornire un indirizzo email valido.",
+    "sign_up_page_server_busy": "Ci scusiamo profondamente, stiamo riscontrando delle difficoltà tecniche nella creazione del tuo account. Ti invitiamo a riprovare più tardi.",
     "@Settings": {},
     "settingsTitle": "Impostazioni",
     "@settingsTitle": {
@@ -456,7 +459,7 @@
     "@filter": {
         "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
     },
-    "scan": "Sessione di scansione",
+    "scan": "Prodotti dalla schermata Scansione",
     "@scan": {
         "description": "Page title: List type: Products in the scan session"
     },
@@ -782,7 +785,7 @@
     "@Lists": {},
     "no_prodcut_in_list": "Non ci sono prodotti nella tua lista.",
     "no_product_in_section": "Non ci sono prodotti in questa sezione",
-    "recently_seen_products": "Cronologia",
+    "recently_seen_products": "Tutti i prodotti visualizzati",
     "clear": "Cancella",
     "@clear": {
         "description": "Clears a product list (short label)"
@@ -1854,6 +1857,18 @@
     "gallery_source_label": "Galleria",
     "@gallery_source_label": {
         "description": "Label for the gallery image source"
+    },
+    "gallery_source_access_denied_dialog_title": "Accesso negato",
+    "@gallery_source_access_denied_dialog_title": {
+        "description": "On iOS, the user has refused to give the permission (title of the dialog)"
+    },
+    "gallery_source_access_denied_dialog_message_ios": "Sfortunatamente, l'applicazione non può accedere alla tua galleria, poiché in precedenza hai negato il permesso.\n\nVai alle impostazioni dell'app nelle impostazioni del telefono -> Foto",
+    "@gallery_source_access_denied_dialog_message_ios": {
+        "description": "On iOS, the user has refused to give the permission"
+    },
+    "gallery_source_access_denied_dialog_button": "Apri le impostazioni",
+    "@gallery_source_access_denied_dialog_button": {
+        "description": "Button to open the app settings"
     },
     "share": "Condividi",
     "@share": {

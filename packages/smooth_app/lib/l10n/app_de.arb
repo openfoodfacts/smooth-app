@@ -144,6 +144,8 @@
     "@user_management": {},
     "sign_in_text": "Melden Sie sich bei Ihrem Open Food Facts-Konto an, um Ihre Beiträge speichern zu können",
     "incorrect_credentials": "Ungültiger Benutzername oder Passwort.",
+    "password_lost_incorrect_credentials": "Diese E-Mail-Adresse oder dieser Benutzername existiert nicht. Bitte überprüfen Sie Ihre Anmeldedaten.",
+    "password_lost_server_unavailable": "Zurzeit kommt es auf unseren Servern zu Verzögerungen, für die wir uns entschuldigen. Bitte versuchen Sie es später noch einmal.",
     "login": "Benutzername",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
@@ -260,6 +262,7 @@
     "sign_up_page_user_name_already_used": "Der Benutzername existiert bereits. Bitte wählen Sie einen anderen Benutzernamen.",
     "sign_up_page_email_already_exists": "existiert bereits. Melden Sie sich bei diesem Konto an oder versuchen Sie es mit einer anderen E-Mail-Adresse.",
     "sign_up_page_provide_valid_email": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+    "sign_up_page_server_busy": "Es tut uns sehr leid, wir haben technische Schwierigkeiten, Ihr Konto zu erstellen. Bitte versuchen Sie es später noch einmal.",
     "@Settings": {},
     "settingsTitle": "Einstellungen",
     "@settingsTitle": {
@@ -456,7 +459,7 @@
     "@filter": {
         "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
     },
-    "scan": "Scan-Sitzung",
+    "scan": "Products from the Scan screen",
     "@scan": {
         "description": "Page title: List type: Products in the scan session"
     },
@@ -487,7 +490,7 @@
     },
     "ingredients": "Zutaten",
     "@ingredients": {},
-    "ingredients_editing_instructions": "Originalbestellung beibehalten. Geben Sie den Prozentsatz an, wenn angegeben. Trennen Sie mit einem Komma oder Bindestrich, verwenden Sie Klammern für Inhaltsstoffe einer Zutat, und zeigen Sie Allergene zwischen Unterstrichen an.",
+    "ingredients_editing_instructions": "Behalten Sie die ursprüngliche Reihenfolge. Geben Sie, wenn angegeben, den Prozentsatz an. Trennen Sie mit einem Komma oder Bindestrich, verwenden Sie Klammern für Bestandteile einer Zutat und geben Sie Allergene zwischen Unterstrichen an.",
     "ingredients_editing_error": "Die Zutaten konnten nicht gespeichert werden.",
     "ingredients_editing_image_error": "Fehler beim Abrufen eines neuen Zutatenbildes.",
     "ingredients_editing_title": "Zutaten bearbeiten",
@@ -782,7 +785,7 @@
     "@Lists": {},
     "no_prodcut_in_list": "Liste enthält noch keine Produkte",
     "no_product_in_section": "Bereich enthält noch kein Produkt",
-    "recently_seen_products": "Verlauf",
+    "recently_seen_products": "All viewed products",
     "clear": "Leeren",
     "@clear": {
         "description": "Clears a product list (short label)"
@@ -1855,6 +1858,18 @@
     "@gallery_source_label": {
         "description": "Label for the gallery image source"
     },
+    "gallery_source_access_denied_dialog_title": "Zugriff verweigert",
+    "@gallery_source_access_denied_dialog_title": {
+        "description": "On iOS, the user has refused to give the permission (title of the dialog)"
+    },
+    "gallery_source_access_denied_dialog_message_ios": "Leider kann die Anwendung nicht auf Ihre Galerie zugreifen, da Sie die Erlaubnis zuvor verweigert haben.\n\nBitte öffnen Sie die App-Einstellungen in Ihrem Telefon unter „Einstellungen” ➜ „Fotos”",
+    "@gallery_source_access_denied_dialog_message_ios": {
+        "description": "On iOS, the user has refused to give the permission"
+    },
+    "gallery_source_access_denied_dialog_button": "Einstellungen öffnen",
+    "@gallery_source_access_denied_dialog_button": {
+        "description": "Button to open the app settings"
+    },
     "share": "Teilen",
     "@share": {
         "description": "Button label for sharing something on another app. For example sharing the link to a product via Email"
@@ -2102,7 +2117,7 @@
     "@edit_packagings_element_add": {
         "description": "Button label"
     },
-    "edit_packagings_completed": "Die Verpackung ist abgeschlossen",
+    "edit_packagings_completed": "Die Verpackung ist vollständig",
     "edit_packagings_element_title": "Verpackungsbestandteil #{index}",
     "@edit_packagings_element_title": {
         "description": "Element title. Please do not change the index placeholder",
@@ -2411,5 +2426,5 @@
     "hunger_games_loading_line1": "Bitte einen kurzen Moment Geduld …",
     "hunger_games_loading_line2": "Die Fragen werden gerade heruntergeladen!",
     "hunger_games_error_label": "Leider ist ein Problem aufgetreten … und die Fragen konnten nicht geladen werden.",
-    "hunger_games_error_retry_button": "Bitte erneut versuchen!"
+    "hunger_games_error_retry_button": "Erneut versuchen"
 }

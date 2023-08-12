@@ -144,6 +144,8 @@
     "@user_management": {},
     "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
     "incorrect_credentials": "Neteisingas prisijungimo vardas arba slaptažodis.",
+    "password_lost_incorrect_credentials": "This email or username doesn't exist. Please check your credentials.",
+    "password_lost_server_unavailable": "We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.",
     "login": "Login",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
@@ -260,6 +262,7 @@
     "sign_up_page_user_name_already_used": "Toks vartotojo vardas jau užimtas, prašome pasirinkti kitą.",
     "sign_up_page_email_already_exists": "jau egzistuoja, prisijunkite prie paskyros arba pabandykite naudodami kitą el.",
     "sign_up_page_provide_valid_email": "Nurodykite teisingą el. pašto adresą.",
+    "sign_up_page_server_busy": "We are deeply sorry, we have some technical difficulties to create your account. Please try again later.",
     "@Settings": {},
     "settingsTitle": "Settings",
     "@settingsTitle": {
@@ -456,7 +459,7 @@
     "@filter": {
         "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
     },
-    "scan": "Nuskaitymo seansas",
+    "scan": "Products from the Scan screen",
     "@scan": {
         "description": "Page title: List type: Products in the scan session"
     },
@@ -699,7 +702,7 @@
     "tagline_app_review_button_positive": "Man ji labai patinka! 😍",
     "tagline_app_review_button_negative": "Nelabai…",
     "tagline_app_review_button_later": "Paklauskite manęs vėliau",
-    "app_review_negative_modal_title": "Jums epatinka mūsų programėlė?",
+    "app_review_negative_modal_title": "Jums nepatinka mūsų programėlė?",
     "app_review_negative_modal_text": "Ar galėtumėte skirti kelias sekundes ir pasakyti kodėl?",
     "app_review_negative_modal_positive_button": "Taip, žinoma!",
     "app_review_negative_modal_negative_button": "Ne",
@@ -782,7 +785,7 @@
     "@Lists": {},
     "no_prodcut_in_list": "Šiame sąraše nėra produkto",
     "no_product_in_section": "Šiame skyriuje nėra produkto",
-    "recently_seen_products": "Istorija",
+    "recently_seen_products": "All viewed products",
     "clear": "Clear",
     "@clear": {
         "description": "Clears a product list (short label)"
@@ -1855,6 +1858,18 @@
     "@gallery_source_label": {
         "description": "Label for the gallery image source"
     },
+    "gallery_source_access_denied_dialog_title": "Access denied",
+    "@gallery_source_access_denied_dialog_title": {
+        "description": "On iOS, the user has refused to give the permission (title of the dialog)"
+    },
+    "gallery_source_access_denied_dialog_message_ios": "Unfortunately, the application can't access your gallery, as you have previously denied the permission.\n\nPlease go to the app settings in your phone Settings -> Photos",
+    "@gallery_source_access_denied_dialog_message_ios": {
+        "description": "On iOS, the user has refused to give the permission"
+    },
+    "gallery_source_access_denied_dialog_button": "Open the Settings",
+    "@gallery_source_access_denied_dialog_button": {
+        "description": "Button to open the app settings"
+    },
     "share": "Dalintis",
     "@share": {
         "description": "Button label for sharing something on another app. For example sharing the link to a product via Email"
@@ -2410,6 +2425,6 @@
     "nova_group_unknown": "Unknown NOVA Group",
     "hunger_games_loading_line1": "Skirkite mums kelias sekundes…",
     "hunger_games_loading_line2": "Mes atsisiunčiame klausimus!",
-    "hunger_games_error_label": "Argh! Something went wrong… and we couldn't load the questions.",
-    "hunger_games_error_retry_button": "Let's retry!"
+    "hunger_games_error_label": "Po galais! Kažkas atsitiko… ir mums nepavyko įkelti klausimų.",
+    "hunger_games_error_retry_button": "Pabandykime dar kartą!"
 }
