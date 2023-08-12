@@ -28,7 +28,7 @@ dependencies:
   http: 0.13.5
   image_picker: ^1.0.1
   iso_countries: 2.1.0
-  latlong2: 0.8.1
+  latlong2: 0.8.2
   matomo_tracker: 3.1.0
   package_info_plus: 3.0.3
   device_info_plus: 8.1.0
