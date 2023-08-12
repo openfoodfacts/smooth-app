@@ -121,13 +121,13 @@
     "@Introduction screen": {},
     "welcomeToOpenFoodFacts": "Open Food Facts 사용을 환영합니다",
     "@welcomeToOpenFoodFacts": {},
-    "whatIsOff": "Open Food Facts는 지역사회 커뮤니티의 기여를 바탕으로 하는 글로벌 비영리 활동입니다.",
+    "whatIsOff": "Open Food Facts is a global non-profit powered by local communities.",
     "@whatIsOff": {
-        "description": "Description of Open Food Facts organization."
+        "description": "Description of Open Food Facts organization."
     },
     "offUtility": "당신과 지구에 좋은 음식을 고르세요.",
     "@offUtility": {
-        "description": "Description of what a user can use Open Food Facts for."
+        "description": "Description of what a user can use Open Food Facts for."
     },
     "productDataUtility": "당신의 선호도와 관련된 식품 데이터를 확인하세요.",
     "@productDataUtility": {
@@ -142,8 +142,10 @@
         "description": "Description of what a user can use the Eco data in a product for."
     },
     "@user_management": {},
-    "sign_in_text": "기여를 저장하려면 Open Food Facts 계정에 로그인하세요",
+    "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
     "incorrect_credentials": "잘못된 사용자 이름 또는 암호입니다.",
+    "password_lost_incorrect_credentials": "This email or username doesn't exist. Please check your credentials.",
+    "password_lost_server_unavailable": "We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.",
     "login": "Username",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
@@ -233,9 +235,9 @@
     "sign_up_page_confirm_password_hint": "비밀번호 확인",
     "sign_up_page_confirm_password_error_empty": "비밀번호를 확인하십시오",
     "sign_up_page_confirm_password_error_invalid": "비밀번호가 일치하지 않습니다",
-    "sign_up_page_agree_text": "Open Food Facts 약관에 동의합니다",
+    "sign_up_page_agree_text": "I agree to the Open Food Facts",
     "@sign_up_page_agree_text": {
-        "description": "I agree to the Open Food Facts is followed by sign_up_page_terms_text"
+        "description": "I agree to the Open Food Facts is followed by sign_up_page_terms_text"
     },
     "sign_up_page_terms_text": "이용 및 기여 약관",
     "@sign_up_page_terms_text": {
@@ -243,7 +245,7 @@
     },
     "sign_up_page_agree_url": "https://world-ko.openfoodfacts.org/terms-of-use",
     "@sign_up_page_agree_url": {
-        "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
+        "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
     },
     "donate_url": "https://donate.openfoodfacts.org/",
     "@donate_url": {
@@ -256,10 +258,11 @@
     "sign_up_page_producer_checkbox": "저는 식품 생산자입니다",
     "sign_up_page_producer_hint": "생산자/브랜드",
     "sign_up_page_producer_error_empty": "생산자 또는 브랜드 이름을 입력해주십시오",
-    "sign_up_page_subscribe_checkbox": "Open Food Facts 뉴스레터를 구독하고 싶습니다 (언제든지 구독을 취소할 수 있습니다)",
+    "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at any time)",
     "sign_up_page_user_name_already_used": "The user name already exists, please choose another username.",
     "sign_up_page_email_already_exists": "already exists, login to the account or try with another email.",
     "sign_up_page_provide_valid_email": "Please provide a valid email address.",
+    "sign_up_page_server_busy": "대단히 죄송합니다. 귀하의 계정을 만드는 데 기술적인 문제가 있습니다. 나중에 다시 시도 해주십시오.",
     "@Settings": {},
     "settingsTitle": "설정",
     "@settingsTitle": {
@@ -281,11 +284,26 @@
     "@darkmode_system_default": {
         "description": "Indicator inside the darkmode switch (system default)"
     },
-    "thanks_for_contributing": "기여해주셔서 감사합니다",
-    "@contributors": {
+    "thanks_for_contributing": "Thanks for contributing!",
+    "contributors_label": "They are building the app",
+    "@contributors_label": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
     },
-    "contributors": "기여자",
+    "contributors_dialog_title": "기여자",
+    "@contributors_dialog_title": {
+        "description": "Dialog title: A list of all contributors of this app"
+    },
+    "contributors_dialog_entry_description": "Contributor: {name}",
+    "@contributors_dialog_entry_description": {
+        "description": "The user id of the contributor.",
+        "placeholders": {
+            "name": {}
+        }
+    },
+    "contributors_description": "A list of all contributors of this app",
+    "@contributors_description": {
+        "description": "Button description for accessibility purposes to explain what the Contributors button do"
+    },
     "support": "Support",
     "@support": {
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
@@ -310,13 +328,13 @@
     "@contribute_sw_development": {
         "description": "Button label + page title: Ways to help"
     },
-    "contribute_develop_text": "모든 Open Food Facts 제품의 코드는 GitHub에서 볼 수 있습니다. 코드를 재사용하거나(오픈 소스입니다), 지구의 모든 이들을 위해 앱 개선에 기여하는 것을 환영합니다.",
+    "contribute_develop_text": "The code for every Open Food Facts product is available on GitHub. You are welcome to reuse the code (it's open source) and help us improve it, for everyone, on all the planet.",
     "@contribute_develop_text": {},
-    "contribute_develop_text_2": "궁금한 점을 물어볼 수 있는 Open Food Facts Slack 채팅방에 참여하실 수 있습니다.",
+    "contribute_develop_text_2": "You can join the Open Food Facts Slack chatroom which is the preferred way to ask questions.",
     "@contribute_develop_text_2": {},
     "contribute_develop_dev_mode_title": "개발자 모드를 활성화할까요?",
     "contribute_develop_dev_mode_subtitle": "개발자 모드 활성화",
-    "contribute_donate_header": "Open Beauty Facts에게 기부하기",
+    "contribute_donate_header": "Donate to Open Food Facts",
     "@contribute_donate_header": {},
     "contribute_improve_ProductsToBeCompleted": "완제품",
     "@contribute_improve_ProductsToBeCompleted": {
@@ -326,7 +344,7 @@
     "@contribute_improve_header": {
         "description": "Button label + page title: Ways to improve the database"
     },
-    "contribute_improve_text": "데이터베이스는 이 프로젝트의 핵심입니다. 쉽고 빠르게 도움을 줄 수 있습니다. 모바일 앱을 내려받고, 제품을 추가하거나 개선할 수 있습니다.\n\n또한 Open Food Facts 웹 사이트에서는 아래와 같은 다양한 방법으로 기여할 수 있습니다: ",
+    "contribute_improve_text": "The database is the core of the project. It's easy and very quick to help. You can download the mobile app for your phone, and start adding or improving products.\n\nOn the other hand, Open Food Facts website offers many ways to contribute: ",
     "@contribute_improve_text": {},
     "contribute_translate_header": "번역하기",
     "@contribute_translate_header": {
@@ -336,19 +354,19 @@
     "@contribute_translate_link_text": {
         "description": "Button label: Opens the Crowdin translation portal"
     },
-    "contribute_translate_text": "Open Food Facts는 160개 이상의 국가에서 생산된 상품을 포함하는 글로벌 프로젝트입니다. Open Food Facts는 지속적으로 진화하는 콘텐츠와 함께 수십 개의 언어로 번역됩니다.",
+    "contribute_translate_text": "Open Food Facts is a global project, containing products from more than 160 countries. Open Food Facts is translated into dozens of languages, with constantly evolving content.",
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "번역은 프로젝트의 핵심 작업 중 하나입니다",
     "@contribute_translate_text_2": {},
-    "contribute_share_header": "Open Food Facts를 친구들과 공유하세요",
+    "contribute_share_header": "Share Open Food Facts with your friends",
     "@contribute_share_header": {},
-    "contribute_share_content": "제가 사용하고 있는 앱인 Open Food Facts에 대해 알려드리고 싶었습니다. 음식이 건강과 환경에 미치는 영향을 개인화된 방식으로 얻을 수 있습니다. 포장의 바코드를 스캔하여 작동합니다. 마지막으로 무료이며 등록이 필요하지 않으며 해독되는 제품의 수를 늘리는 데 도움을 줄 수도 있습니다. 휴대폰용으로 다운로드할 수 있는 링크는 다음과 같습니다. https://openfoodfacts.app",
+    "contribute_share_content": "I wanted to let you know about the app I've been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it's free, does not require registration, and you can even help increase the number of products decyphered. Here's the link to get it for your phone: https://openfoodfacts.app",
     "@contribute_share_content": {
         "description": "Content that will be shared, don't forget to include the URL"
     },
     "tap_to_answer": "여기를 눌러 질문에 답하세요",
     "@tap_to_answer": {
-        "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
+        "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts and gain rewards."
     },
     "tap_to_answer_hint": "Tap here to answer questions about this product",
     "@tap_to_answer_hint": {
@@ -364,9 +382,9 @@
     },
     "contribute_to_get_rewards": "식품 투명성을 개선하고 보상을 받으세요",
     "@contribute_to_get_rewards": {
-        "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open food facts and gain rewards."
+        "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts and gain rewards."
     },
-    "question_sign_in_text": "기여에 대한 크레딧을 받으려면 Open Food Facts 계정에 로그인하세요.",
+    "question_sign_in_text": "Sign in to your Open Food Facts account to get credit for your contributions",
     "question_yes_button_accessibility_value": "Answer with yes",
     "question_no_button_accessibility_value": "Answer with no",
     "question_skip_button_accessibility_value": "Skip this question",
@@ -376,7 +394,7 @@
     "@myPreferences": {
         "description": "Page title: Page where the ranking preferences can be changed"
     },
-    "account_create_message": "Create your account and join the Open Food Facts community to help build food knowledge all over the world!",
+    "account_create_message": "Create your account and join the Open Food Facts community to help build food knowledge all over the world!",
     "@account_create_message": {
         "description": "The Message to be displayed if the user does not have an account and wants to contribute"
     },
@@ -385,12 +403,12 @@
         "description": "Join which is actually Signup"
     },
     "myPreferences_profile_title": "내 프로필",
-    "myPreferences_profile_subtitle": "Open Food Facts 기여자 계정을 관리합니다.",
+    "myPreferences_profile_subtitle": "Manage your Open Food Facts contributor account.",
     "myPreferences_settings_title": "앱 설정",
     "myPreferences_settings_subtitle": "Dark mode, Analytics…",
     "myPreferences_food_title": "식품 설정",
     "myPreferences_food_subtitle": "당신에게 가장 중요한 음식 정보를 선택하십시오.",
-    "myPreferences_food_comment": "음식에 대해 가장 중요한 정보를 선택하여 선호도에 따라 음식 순위를 매기고 관심 있는 정보를 먼저 보고 호환성 요약을 받으세요. 이러한 선호하는 음식은 기기에 남아 있으며 Open Food Facts 기고자 계정이 있는 경우 해당 계정과 연결되지 않습니다.",
+    "myPreferences_food_comment": "Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.",
     "confirmResetPreferences": "식품 설정을 초기화하시겠습니까?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -441,7 +459,7 @@
     "@filter": {
         "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
     },
-    "scan": "스캔 세션",
+    "scan": "Products from the Scan screen",
     "@scan": {
         "description": "Page title: List type: Products in the scan session"
     },
@@ -498,7 +516,7 @@
     "@packaging_information_photo": {},
     "missing_product": "새 상품을 찾았습니다!",
     "@missing_product": {},
-    "add_product_take_photos": "이 제품을 Open Food Facts에 추가하려면 포장 사진을 찍으세요.",
+    "add_product_take_photos": "Take photos of the packaging to add this product to Open Food Facts",
     "@add_product_take_photos": {},
     "add_product_take_photos_descriptive": "사진을 먼저 찍어주세요. 나중에 언제든지 제품을 완성할 수 있습니다.",
     "@add_product_take_photos_descriptive": {},
@@ -622,27 +640,27 @@
     "@uploading_image": {
         "description": "Message when a new picture is uploading to the server"
     },
-    "uploading_image_type_front": "전면 사진을 Open Food Facts에 올리는 중",
+    "uploading_image_type_front": "Uploading front image to Open Food Facts",
     "@uploading_image_type_front": {
         "description": "Message when a new front picture is being uploaded to the server"
     },
-    "uploading_image_type_ingredients": "재료 사진을 Open Food Facts에 올리는 중",
+    "uploading_image_type_ingredients": "Uploading ingredients image to Open Food Facts",
     "@uploading_image_type_ingredients": {
         "description": "Message when a new ingredients picture is being uploaded to the server"
     },
-    "uploading_image_type_nutrition": "영양 성분 사진을 Open Food Facts에 올리는 중",
+    "uploading_image_type_nutrition": "Uploading nutrition image to Open Food Facts",
     "@uploading_image_type_nutrition": {
         "description": "Message when a new nutrition picture is being uploaded to the server"
     },
-    "uploading_image_type_packaging": "포장 사진을 Open Food Facts에 올리는 중",
+    "uploading_image_type_packaging": "Uploading packaging image to Open Food Facts",
     "@uploading_image_type_packaging": {
         "description": "Message when a new packaging picture is being uploaded to the server"
     },
-    "uploading_image_type_other": "기타 사진을 Open Food Facts에 올리는 중",
+    "uploading_image_type_other": "Uploading other image to Open Food Facts",
     "@uploading_image_type_other": {
         "description": "Message when a new other picture is being uploaded to the server"
     },
-    "uploading_image_type_generic": "사진을 Open Food Facts에 올리는 중",
+    "uploading_image_type_generic": "Uploading image to Open Food Facts",
     "@uploading_image_type_generic": {
         "description": "Message when a new picture is being uploaded to the server"
     },
@@ -680,18 +698,14 @@
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
-    "deprecated_header": "더 이상 사용되지 않는 버전의 앱을 사용하고 있습니다.",
-    "@deprecated_header": {
-        "description": "Confirmation, that the user can upgrade to new version of the app"
-    },
-    "click_here": "여기를 클릭",
-    "@click_here": {
-        "description": "Confirmation click to download new version of the app"
-    },
-    "download_new_version": "새 버전의 앱 다운로드",
-    "@download_new_version": {
-        "description": "Download new version of the app text"
-    },
+    "tagline_app_review": "이 앱이 마음에 드시나요?",
+    "tagline_app_review_button_positive": "최고에요! 😍",
+    "tagline_app_review_button_negative": "별로...",
+    "tagline_app_review_button_later": "나중에 물어봐 주세요",
+    "app_review_negative_modal_title": "저희 앱이 맘에 안드세요?",
+    "app_review_negative_modal_text": "잠시 시간을 내어 이유를 말씀해 주실래요?",
+    "app_review_negative_modal_positive_button": "예, 물론입니다!",
+    "app_review_negative_modal_negative_button": "아니요",
     "could_not_refresh": "상품을 새로고침할 수 없음",
     "@could_not_refresh": {
         "description": "The product data couldn't be refreshed"
@@ -752,7 +766,7 @@
     "@native_app_settings": {
         "description": "Native App Settings in app settings"
     },
-    "native_app_description": "Open system settings for Open Food Facts",
+    "native_app_description": "Open systems settings for Open Food Facts",
     "@native_app_description": {
         "description": "Native App description in app settings"
     },
@@ -771,10 +785,14 @@
     "@Lists": {},
     "no_prodcut_in_list": "목록에 상품이 없습니다",
     "no_product_in_section": "이 섹션에는 상품이 없습니다",
-    "recently_seen_products": "최근 기록",
+    "recently_seen_products": "All viewed products",
     "clear": "지우기",
     "@clear": {
-        "description": "Clears a product list"
+        "description": "Clears a product list (short label)"
+    },
+    "clear_long": "Empty the list",
+    "@clear_long": {
+        "description": "Clears a product list (long label)"
     },
     "really_clear": "정말로 목록을 삭제하시겠습니까?",
     "@Plural": {},
@@ -857,7 +875,7 @@
     "@consent_analytics_title": {
         "description": "Title for the consent analytics UI Page"
     },
-    "consent_analytics_body1": "Open Food Facts 자원 봉사자가 앱을 개선하도록 도와주세요. 익명 분석 보고서을 제출할지 여부는 귀하가 결정합니다.",
+    "consent_analytics_body1": "Help the Open Food Facts volunteers to improve the app. You decide whether to submit anonymous analytics.",
     "@conset_analytics_body1": {
         "description": "first paragraph for the consent analytics UI Page"
     },
@@ -1042,8 +1060,8 @@
     "@user_profile_title_guest": {
         "description": "When the user is not connected"
     },
-    "user_profile_subtitle_guest": "Open Food Facts 커뮤니티에 가입하려면 로그인 또는 가입하세요.",
-    "user_profile_title_id_email": "Open Food Facts 로그인: {email}",
+    "user_profile_subtitle_guest": "Sign-in or sign-up to join the Open Food Facts community",
+    "user_profile_title_id_email": "Open Food Facts login: {email}",
     "@user_profile_title_id_email": {
         "description": "User login (when it's an email)",
         "placeholders": {
@@ -1065,7 +1083,7 @@
     "@email_subject_account_deletion": {
         "description": "Email subject for an account deletion"
     },
-    "email_body_account_deletion": "안녕하세요, 제 Open Food Facts 계정을 삭제해주세요: {userId}",
+    "email_body_account_deletion": "Hi there, please delete my Open Food Facts account: {userId}",
     "@email_body_account_deletion": {
         "description": "Email body for an account deletion",
         "placeholders": {
@@ -1102,7 +1120,7 @@
     "@crash_reporting_toggle_title": {
         "description": "Title for the Crash reporting toggle"
     },
-    "crash_reporting_toggle_subtitle": "활성화되면 충돌 보고서가 Open Food Facts의 오류 추적 시스템에 자동으로 제출되므로 버그를 수정하여 앱을 개선할 수 있습니다.",
+    "crash_reporting_toggle_subtitle": "When enabled, crash reports are automatically submitted to Open Food Facts' error tracking system, so that bugs can be fixed and thus improve the app.",
     "@crash_reporting_toggle_subtitle": {
         "description": "SubTitle for the Crash reporting toggle"
     },
@@ -1110,7 +1128,7 @@
     "@send_anonymous_toggle_title": {
         "description": "Title for the Send anonymous data toggle"
     },
-    "send_anonymous_data_toggle_subtitle": "When enabled, some anonymous information regarding app usage will be sent to the Open Food Facts servers, so that we can understand how and how much features are used in order to improve them.",
+    "send_anonymous_data_toggle_subtitle": "When enabled, some anonymous information regarding app usage will be sent to the Open Food Facts servers, so that we can understand how and how much features are used in order to improve them.",
     "@send_anonymous_toggle_subtitle": {
         "description": "SubTitle for the Send anonymous data toggle"
     },
@@ -1221,7 +1239,7 @@
     "@edit_product_form_item_origins_title": {
         "description": "Product edition - Origins - Title"
     },
-    "edit_product_form_item_origins_hint": "스페인",
+    "edit_product_form_item_origins_hint": "Input an origin",
     "@edit_product_form_item_origins_hint": {
         "description": "Product edition - Origins - input textfield hint"
     },
@@ -1241,7 +1259,7 @@
     "@edit_product_form_item_countries_title": {
         "description": "Product edition - Countries - Title"
     },
-    "edit_product_form_item_countries_hint": "스페인",
+    "edit_product_form_item_countries_hint": "Input a country",
     "@edit_product_form_item_countries_hint": {
         "description": "Product edition - Countries - input textfield hint"
     },
@@ -1285,7 +1303,7 @@
     "@edit_product_form_item_categories_explainer_1": {
         "description": "Product edition - Categories - input explainer, part 1"
     },
-    "edit_product_form_item_categories_explainer_2": "자동 완성에서 카테고리를 사용할 수 없는 경우에도 자유롭게 추가하면 귀하의 국가에서 Open Food Facts를 개선하는 데 도움이 됩니다.",
+    "edit_product_form_item_categories_explainer_2": "In case a category is not available in autocomplete, feel free to add it anyway, that will help us improve Open Food Facts in your country.",
     "@edit_product_form_item_categories_explainer_2": {
         "description": "Product edition - Categories - input explainer, part 2"
     },
@@ -1652,7 +1670,7 @@
     "@edit_product_action_confirm": {
         "description": "Product edition - FAB actions - confirm"
     },
-    "signup_page_terms_of_use_line1": "Open Food Facts 약관에 동의합니다 ",
+    "signup_page_terms_of_use_line1": "I agree to the Open Food Facts ",
     "@signup_page_terms_of_use_line1": {
         "description": "User consent for terms of use (line 1)"
     },
@@ -1840,11 +1858,23 @@
     "@gallery_source_label": {
         "description": "Label for the gallery image source"
     },
+    "gallery_source_access_denied_dialog_title": "Access denied",
+    "@gallery_source_access_denied_dialog_title": {
+        "description": "On iOS, the user has refused to give the permission (title of the dialog)"
+    },
+    "gallery_source_access_denied_dialog_message_ios": "Unfortunately, the application can't access your gallery, as you have previously denied the permission.\n\nPlease go to the app settings in your phone Settings -> Photos",
+    "@gallery_source_access_denied_dialog_message_ios": {
+        "description": "On iOS, the user has refused to give the permission"
+    },
+    "gallery_source_access_denied_dialog_button": "Open the Settings",
+    "@gallery_source_access_denied_dialog_button": {
+        "description": "Button to open the app settings"
+    },
     "share": "공유하기",
     "@share": {
         "description": "Button label for sharing something on another app. For example sharing the link to a product via Email"
     },
-    "share_product_text": "Open Food Facts에서 상품을 확인하세요: {url}",
+    "share_product_text": "Have a look at this product on Open Food Facts: {url}",
     "@share_product_text": {
         "description": "The content which is send, when sharing a product",
         "placeholders": {
@@ -1853,7 +1883,7 @@
             }
         }
     },
-    "share_product_list_text": "Have a look at my list of products on Open Food Facts: {url}",
+    "share_product_list_text": "Have a look at my list of products on Open Food Facts: {url}",
     "@share_product_list_text": {
         "description": "The content which is send, when sharing a product list",
         "placeholders": {
@@ -2071,6 +2101,7 @@
     "@show_password": {
         "description": "Show hidden password in password field"
     },
+    "rate_app": "앱 평가하기",
     "app_rating_dialog_title": "좋아요! 다른 사람들에게 당신이 이 앱에 대해 어떻게 생각하는지 알려주세요!",
     "app_rating_dialog_positive_action": "앱 평가하기",
     "app_rating_dialog_negative_action": "다음에",
@@ -2199,7 +2230,7 @@
     },
     "color_light_brown": "Default",
     "@color_light_brown": {
-        "description": "Color Light Brown, Default Open Food Facts Color"
+        "description": "Color Light Brown, Default Open Food Facts Color"
     },
     "color_magenta": "Magenta",
     "@color_magenta": {
@@ -2303,7 +2334,7 @@
     "@update_offline_data": {
         "description": "List tile title for the update offline data page"
     },
-    "update_local_database_sub": "Update the local product database with the latest data from Open Food Facts",
+    "update_local_database_sub": "Update the local product database with the latest data from Open Food Facts",
     "@update_local_database_sub": {
         "description": "Update the local product database with the latest data from server"
     },
@@ -2353,6 +2384,10 @@
     "@country_selector_title": {
         "description": "Label written as the title of the dialog to select the user country"
     },
+    "language_selector_title": "Select your language:",
+    "@language_selector_title": {
+        "description": "Label written as the title of the dialog to select the user language"
+    },
     "action_delete_list": "삭제",
     "@action_delete_list": {
         "description": "Delete a list action in a menu"
@@ -2368,5 +2403,28 @@
     "product_list_create_tooltip": "Create a new list",
     "@product_list_create_tooltip": {
         "description": "Button description to create a new list (long sentence)"
-    }
+    },
+    "nutriscore_a": "Nutri-Score A",
+    "nutriscore_b": "Nutri-Score B",
+    "nutriscore_c": "Nutri-Score C",
+    "nutriscore_d": "Nutri-Score D",
+    "nutriscore_e": "Nutri-Score E",
+    "nutriscore_unknown": "Unknown Nutri-Score",
+    "nutriscore_not_applicable": "Nutri-Score is not applicable",
+    "ecoscore_a": "Eco-Score A",
+    "ecoscore_b": "Eco-Score B",
+    "ecoscore_c": "Eco-Score C",
+    "ecoscore_d": "Eco-Score D",
+    "ecoscore_e": "Eco-Score E",
+    "ecoscore_unknown": "Unknown Eco-Score",
+    "ecoscore_not_applicable": "Eco-Score is not applicable",
+    "nova_group_1": "NOVA Group 1",
+    "nova_group_2": "NOVA Group 2",
+    "nova_group_3": "NOVA Group 3",
+    "nova_group_4": "NOVA Group 4",
+    "nova_group_unknown": "Unknown NOVA Group",
+    "hunger_games_loading_line1": "Please let us a few seconds…",
+    "hunger_games_loading_line2": "We're downloading the questions!",
+    "hunger_games_error_label": "Argh! Something went wrong… and we couldn't load the questions.",
+    "hunger_games_error_retry_button": "Let's retry!"
 }

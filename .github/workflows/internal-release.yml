@@ -1,9 +1,7 @@
 name: Create internal releases
 on:
-   push:
-     branches:
-       - develop
-       - deploy_from_pr/*
+  workflow_dispatch:
+
 env:
  RUBY_VERSION: 3.2.0
 
@@ -12,7 +10,7 @@ jobs:
     concurrency: 
       group: release
       cancel-in-progress: true
-    if: "!contains(github.event.commits[0].message, 'chore(develop): release') && github.repository_owner == 'openfoodfacts'"
+    if: github.triggering_actor == 'teolemon' || github.triggering_actor == 'stephanegigandet' || github.triggering_actor == 'g123k' || github.triggering_actor == 'monsieurtanuki' || github.triggering_actor == 'M123-dev'
     runs-on: ubuntu-latest
     outputs:
       VERSION_NAME: ${{ steps.set_output.outputs.VERSION_NAME }}
