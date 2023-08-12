@@ -44,7 +44,10 @@ abstract class ProductListPopupItem {
   ) =>
       PopupMenuItem<ProductListPopupItem>(
         value: this,
-        child: Text(getTitle(appLocalizations)),
+        child: ListTile(
+          leading: Icon(getIconData()),
+          title: Text(getTitle(appLocalizations)),
+        ),
       );
 }
 
