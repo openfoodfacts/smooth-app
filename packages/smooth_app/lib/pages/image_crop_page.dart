@@ -1,7 +1,9 @@
 import 'dart:io';
 
+import 'package:app_settings/app_settings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:http/http.dart' as http;
 import 'package:image_picker/image_picker.dart';
@@ -12,20 +14,36 @@ import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/database/dao_int.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/helpers/database_helper.dart';
 import 'package:smooth_app/pages/crop_page.dart';
 
 /// Picks an image file from gallery or camera.
-Future<XFile?> _pickImageFile(final State<StatefulWidget> widget) async {
+Future<XFile?> pickImageFile(
+  final State<StatefulWidget> widget, {
+  bool ignorePlatformException = false,
+}) async {
   final UserPictureSource? source = await _getUserPictureSource(widget.context);
   if (source == null) {
     return null;
   }
   final ImagePicker picker = ImagePicker();
   if (source == UserPictureSource.GALLERY) {
-    return picker.pickImage(source: ImageSource.gallery);
+    try {
+      return picker.pickImage(source: ImageSource.gallery);
+    } on PlatformException catch (e) {
+      // On debug builds this catch won't work.
+      // Please run on profile/release modes to test it
+      if (ignorePlatformException) {
+        return null;
+      } else if (e.code == 'photo_access_denied') {
+        throw PhotoAccessDenied();
+      } else {
+        rethrow;
+      }
+    }
   }
   return picker.pickImage(source: ImageSource.camera);
 }
@@ -216,7 +234,20 @@ Future<File?> confirmAndUploadNewPicture(
   required final OpenFoodFactsLanguage language,
   required final bool isLoggedInMandatory,
 }) async {
-  final XFile? croppedPhoto = await _pickImageFile(widget);
+  XFile? croppedPhoto;
+  try {
+    croppedPhoto = await pickImageFile(widget);
+  } on PhotoAccessDenied catch (_) {
+    final bool? res = await _onGalleryAccessDenied(widget);
+    if (res == true) {
+      // Let's retry
+      croppedPhoto = await pickImageFile(
+        widget,
+        ignorePlatformException: true,
+      );
+    }
+  }
+
   if (croppedPhoto == null) {
     return null;
   }
@@ -229,7 +260,7 @@ Future<File?> confirmAndUploadNewPicture(
       builder: (BuildContext context) => CropPage(
         barcode: barcode,
         imageField: imageField,
-        inputFile: File(croppedPhoto.path),
+        inputFile: File(croppedPhoto!.path),
         initiallyDifferent: true,
         language: language,
         isLoggedInMandatory: isLoggedInMandatory,
@@ -237,6 +268,36 @@ Future<File?> confirmAndUploadNewPicture(
       fullscreenDialog: true,
     ),
   );
+}
+
+Future<bool?> _onGalleryAccessDenied(State<StatefulWidget> widget) {
+  return showDialog<bool>(
+      context: widget.context,
+      builder: (BuildContext context) {
+        final AppLocalizations appLocalizations = AppLocalizations.of(context);
+        return SmoothSimpleErrorAlertDialog(
+          title: appLocalizations.gallery_source_access_denied_dialog_title,
+          message:
+              appLocalizations.gallery_source_access_denied_dialog_message_ios,
+          positiveAction: SmoothActionButton(
+            text: appLocalizations.gallery_source_access_denied_dialog_button,
+            onPressed: () {
+              AppSettings.openAppSettings(callback: () {
+                if (widget.mounted) {
+                  Navigator.of(context).maybePop(true);
+                }
+              });
+            },
+          ),
+          negativeAction: SmoothActionButton(
+            text: appLocalizations.close,
+            onPressed: () {
+              Navigator.of(context).maybePop(false);
+            },
+          ),
+          actionsAxis: Axis.vertical,
+        );
+      });
 }
 
 /// Downloads an image URL into a file, with a dialog.
@@ -289,3 +350,5 @@ Future<File?> _downloadImageFile(DaoInt daoInt, String url) async {
 
   return file.writeAsBytes(response.bodyBytes);
 }
+
+class PhotoAccessDenied implements Exception {}

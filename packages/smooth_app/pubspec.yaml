@@ -22,13 +22,13 @@ dependencies:
   flutter_map: 2.2.0
   flutter_widget_from_html_core: 0.8.3+1
   fwfh_selectable_text: 0.8.3+1
-  flutter_secure_storage: 5.1.2
+  flutter_secure_storage: 8.0.0
   hive: 2.2.3
   hive_flutter: 1.1.0
   http: 0.13.5
-  image_picker: ^0.8.9
+  image_picker: ^1.0.1
   iso_countries: 2.1.0
-  latlong2: 0.8.1
+  latlong2: 0.8.2
   matomo_tracker: 3.1.0
   package_info_plus: 3.0.3
   device_info_plus: 8.1.0
@@ -42,13 +42,13 @@ dependencies:
   visibility_detector: 0.4.0+2
   assorted_layout_widgets: 7.0.0
   app_settings: 4.2.0
-  diacritic: 0.1.3
+  diacritic: 0.1.4
   app_store_shared:
     path: ../app_store/shared
   audioplayers: 5.0.0
   percent_indicator: 4.2.3
   flutter_email_sender: ^6.0.0
-  flutter_native_splash: 2.2.19
+  flutter_native_splash: 2.3.1
   image: ^4.0.17
   auto_size_text: 3.0.0
   crop_image: 1.0.10
@@ -56,7 +56,7 @@ dependencies:
   intl: 0.18.0
   collection: 1.17.1
   path: 1.8.3
-  path_provider: 2.0.13
+  path_provider: 2.0.15
   data_importer_shared:
     path: ../data_importer_shared
   data_importer:
@@ -66,7 +66,7 @@ dependencies:
   shimmer: ^3.0.0
   lottie: 2.2.0
   rive: 0.11.4
-  sensors_plus: 3.0.2
+  sensors_plus: 3.0.3
   webview_flutter: 3.0.4
   flutter_custom_tabs: ^1.0.4
   flutter_image_compress: 2.0.4
@@ -98,8 +98,7 @@ dependencies:
 
 
 
-
-  openfoodfacts: 2.7.4
+  openfoodfacts: 2.9.0
   # openfoodfacts:
   #   path: ../../../openfoodfacts-dart
 

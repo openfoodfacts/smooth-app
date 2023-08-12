@@ -85,6 +85,9 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
                     tagType: widget.helper.getTagType(),
                     hintText: widget.helper.getAddHint(appLocalizations),
                     controller: widget.controller,
+                    padding: const EdgeInsetsDirectional.only(
+                      start: 9.0,
+                    ),
                   ),
                 ),
                 Tooltip(
@@ -93,13 +96,13 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
                   child: IconButton(
                     onPressed: _onAddItem,
                     icon: const Icon(Icons.add_circle),
+                    splashRadius: 20,
                   ),
                 )
               ],
             );
           },
         ),
-        Divider(color: themeData.colorScheme.onBackground),
         AnimatedList(
           key: _listKey,
           initialItemCount: _localTerms.length,
@@ -123,10 +126,7 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
                       customBorder: const CircleBorder(),
                       onTap: () => _onRemoveItem(term, child),
                       child: const Padding(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: MEDIUM_SPACE,
-                          vertical: SMALL_SPACE,
-                        ),
+                        padding: EdgeInsets.all(SMALL_SPACE),
                         child: Icon(Icons.delete),
                       ),
                     ),
