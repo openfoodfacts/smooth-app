@@ -32,7 +32,6 @@ class _ScanPageState extends State<ScanPage> {
   AudioPlayer? _musicPlayer;
 
   late UserPreferences _userPreferences;
-  ContinuousScanModel? _model;
 
   /// Percentage of the bottom part of the screen that hosts the carousel.
   static const int _carouselHeightPct = 55;
@@ -44,22 +43,11 @@ class _ScanPageState extends State<ScanPage> {
     if (mounted) {
       _userPreferences = context.watch<UserPreferences>();
     }
-
-    _updateModel();
-  }
-
-  Future<void> _updateModel() async {
-    if (_model == null) {
-      _model = context.read<ContinuousScanModel>();
-    } else {
-      await _model!.refresh();
-    }
-    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
-    if (_model == null) {
+    if (context.watch<ContinuousScanModel?>() == null) {
       return const Center(child: CircularProgressIndicator.adaptive());
     }
 
