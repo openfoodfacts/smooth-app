@@ -1858,15 +1858,15 @@
     "@gallery_source_label": {
         "description": "Label for the gallery image source"
     },
-    "gallery_source_access_denied_dialog_title": "Access denied",
+    "gallery_source_access_denied_dialog_title": "Sarbidea ukatuta",
     "@gallery_source_access_denied_dialog_title": {
         "description": "On iOS, the user has refused to give the permission (title of the dialog)"
     },
-    "gallery_source_access_denied_dialog_message_ios": "Unfortunately, the application can't access your gallery, as you have previously denied the permission.\n\nPlease go to the app settings in your phone Settings -> Photos",
+    "gallery_source_access_denied_dialog_message_ios": "Tamalez, aplikazioak ezin du zure galeria atzitu, lehenik baimena ukatu duzulako.\n\nJoan zure mugikorreko aplikazioaren ezarpenetara: Ezarpenak -> Argazkiak",
     "@gallery_source_access_denied_dialog_message_ios": {
         "description": "On iOS, the user has refused to give the permission"
     },
-    "gallery_source_access_denied_dialog_button": "Open the Settings",
+    "gallery_source_access_denied_dialog_button": "Ireki ezarpenak",
     "@gallery_source_access_denied_dialog_button": {
         "description": "Button to open the app settings"
     },
