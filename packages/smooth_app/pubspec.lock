@@ -89,26 +89,26 @@ packages:
     dependency: "direct main"
     description:
       name: audioplayers
-      sha256: "2f4c0da9b483b45695d01dc738e1597d7137ae40fc2fa702f13ccc10efc706a2"
+      sha256: "8e94499b5c123df14cf17c16639de5ff3373e57e537f727e367487fbb7491363"
       url: "https://pub.dev"
     source: hosted
-    version: "5.0.0"
+    version: "5.1.0"
   audioplayers_android:
     dependency: transitive
     description:
       name: audioplayers_android
-      sha256: "7f18bb6c7de01684444e8cba577e3c3aee0ec379897f62ad4b8259d1e22f8c61"
+      sha256: "1c12b60cc10a3b8617ca3f88b927e7e03768f470d9b4f747efd3d58a8a07ee1b"
       url: "https://pub.dev"
     source: hosted
-    version: "4.0.0"
+    version: "4.0.1"
   audioplayers_darwin:
     dependency: transitive
     description:
       name: audioplayers_darwin
-      sha256: "80e341e6b2b364420516f2707271ec47f63b9b22766aa7f7d484601190c316a7"
+      sha256: "2fb6133ffcf28fb3f9d3e11f8a3ef190e5fedb2b7b95ea865b56a21d1163e670"
       url: "https://pub.dev"
     source: hosted
-    version: "5.0.0"
+    version: "5.0.1"
   audioplayers_linux:
     dependency: transitive
     description:
@@ -985,11 +985,12 @@ packages:
   mobile_scanner:
     dependency: transitive
     description:
-      name: mobile_scanner
-      sha256: "9b3d6fb0407f749eb157432b049924277b43ff6948546eeff76260593ad6eca9"
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.4.0"
+      path: "."
+      ref: custom_release
+      resolved-ref: "031ff428687e56e2a1ef94eea8c62a2d43093b56"
+      url: "https://github.com/openfoodfacts/mobile_scanner.git"
+    source: git
+    version: "3.4.1"
   mockito:
     dependency: "direct dev"
     description:
