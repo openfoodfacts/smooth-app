@@ -1,5 +1,20 @@
 # Changelog
 
+## [4.10.0](https://github.com/openfoodfacts/smooth-app/compare/v4.9.0...v4.10.0) (2023-08-14)
+
+
+### 🚀 Features
+
+* New Crowdin updates ([#4502](https://github.com/openfoodfacts/smooth-app/issues/4502)) ([06c503c](https://github.com/openfoodfacts/smooth-app/commit/06c503c385a390448aa17b8d53005517133d1bee))
+
+
+### 🛠 Miscellaneous
+
+* **deps:** bump diacritic from 0.1.3 to 0.1.4 in /packages/smooth_app ([#4478](https://github.com/openfoodfacts/smooth-app/issues/4478)) ([568f23e](https://github.com/openfoodfacts/smooth-app/commit/568f23e36bd04a94b9d644781a58d2340e0bf3dc))
+* **deps:** bump latlong2 from 0.8.1 to 0.8.2 in /packages/smooth_app ([#4477](https://github.com/openfoodfacts/smooth-app/issues/4477)) ([ccab7d5](https://github.com/openfoodfacts/smooth-app/commit/ccab7d567832804979fe733fef0a71a7245cabe0))
+* **deps:** bump permission_handler in /packages/smooth_app ([#4476](https://github.com/openfoodfacts/smooth-app/issues/4476)) ([439aeb4](https://github.com/openfoodfacts/smooth-app/commit/439aeb4b3f104a5cc25df53bfb07df33fda2db81))
+* release 4.9.1 ([#4521](https://github.com/openfoodfacts/smooth-app/issues/4521)) ([b719fcc](https://github.com/openfoodfacts/smooth-app/commit/b719fcc78cc524eb3811660b08f78135015334be))
+
 ## [4.9.0](https://github.com/openfoodfacts/smooth-app/compare/v4.8.0...v4.9.0) (2023-08-09)
 
 
