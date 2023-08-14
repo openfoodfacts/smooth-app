@@ -1,6 +1,6 @@
 # Changelog
 
-## [4.10.0](https://github.com/openfoodfacts/smooth-app/compare/v4.9.0...v4.10.0) (2023-08-14)
+## [4.9.1](https://github.com/openfoodfacts/smooth-app/compare/v4.9.0...v4.9.1) (2023-08-14)
 
 
 ### 🚀 Features
