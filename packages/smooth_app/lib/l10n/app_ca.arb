@@ -164,7 +164,7 @@
     "@sign_in_mandatory": {
         "description": "Error message: for some features like product edits you need to be signed in"
     },
-    "sign_out": "Tancar la sessió",
+    "sign_out": "Tanca la sessió",
     "@sign_out": {
         "description": "Button label: For sign out"
     },
@@ -516,7 +516,7 @@
     "@packaging_information_photo": {},
     "missing_product": "Heu trobat un nou producte!",
     "@missing_product": {},
-    "add_product_take_photos": "Take photos of the packaging to add this product to Open Food Facts",
+    "add_product_take_photos": "Feu fotos de l'embalatge per afegir aquest producte a Open Food Facts",
     "@add_product_take_photos": {},
     "add_product_take_photos_descriptive": "Si us plau, feu algunes fotos primer. Sempre podeu completar el producte més endavant.",
     "@add_product_take_photos_descriptive": {},
@@ -969,7 +969,7 @@
     "@authorize": {
         "description": "Button to accept the request of sending the anonymous analytics or authorize the camera permission"
     },
-    "refuse_button_label": "Denegar",
+    "refuse_button_label": "Denega",
     "@refuse": {
         "description": "Button to decline the request of sending the anonymous analytics"
     },
@@ -1044,7 +1044,7 @@
     "@loading_dialog_default_error_message": {
         "description": "Default loading dialog error message"
     },
-    "account_delete": "Eliminar compte",
+    "account_delete": "Elimina el compte",
     "@account_delete": {
         "description": "Delete account button (user profile)"
     },
@@ -1079,7 +1079,7 @@
             }
         }
     },
-    "email_subject_account_deletion": "Eliminar compte",
+    "email_subject_account_deletion": "Elimina el compte",
     "@email_subject_account_deletion": {
         "description": "Email subject for an account deletion"
     },
