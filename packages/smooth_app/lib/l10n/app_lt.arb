@@ -2425,6 +2425,6 @@
     "nova_group_unknown": "Unknown NOVA Group",
     "hunger_games_loading_line1": "Skirkite mums kelias sekundes…",
     "hunger_games_loading_line2": "Mes atsisiunčiame klausimus!",
-    "hunger_games_error_label": "Po galais! Kažkas atsitiko… ir mums nepavymo įkelti klausimų.",
+    "hunger_games_error_label": "Po galais! Kažkas atsitiko… ir mums nepavyko įkelti klausimų.",
     "hunger_games_error_retry_button": "Pabandykime dar kartą!"
 }

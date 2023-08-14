@@ -144,8 +144,8 @@
     "@user_management": {},
     "sign_in_text": "Pro uložení vašich příspěvků se přihlaste ke svému účtu Open Food Facts",
     "incorrect_credentials": "Nesprávné uživatelské jméno nebo heslo.",
-    "password_lost_incorrect_credentials": "This email or username doesn't exist. Please check your credentials.",
-    "password_lost_server_unavailable": "We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.",
+    "password_lost_incorrect_credentials": "Tento e-mail nebo uživatelské jméno neexistuje. Zkontrolujte prosím své přihlašovací údaje.",
+    "password_lost_server_unavailable": "Momentálně dochází ke zpomalení na našich serverech a omlouváme se za to. Prosím zkuste to znovu později.",
     "login": "Uživatelské jméno",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
@@ -262,7 +262,7 @@
     "sign_up_page_user_name_already_used": "Uživatelské jméno již existuje, zvolte prosím jiné uživatelské jméno.",
     "sign_up_page_email_already_exists": "již existuje, přihlaste se k účtu nebo zkuste jiný e-mail.",
     "sign_up_page_provide_valid_email": "Zadejte platnou e-mailovou adresu.",
-    "sign_up_page_server_busy": "We are deeply sorry, we have some technical difficulties to create your account. Please try again later.",
+    "sign_up_page_server_busy": "Velmi se omlouváme, máme technické potíže s vytvořením vašeho účtu. Prosím zkuste to znovu později.",
     "@Settings": {},
     "settingsTitle": "Nastavení",
     "@settingsTitle": {
@@ -459,7 +459,7 @@
     "@filter": {
         "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
     },
-    "scan": "Products from the Scan screen",
+    "scan": "Produkty z obrazovky skenování",
     "@scan": {
         "description": "Page title: List type: Products in the scan session"
     },
@@ -785,7 +785,7 @@
     "@Lists": {},
     "no_prodcut_in_list": "V tomto seznamu není žádný produkt",
     "no_product_in_section": "V této sekci není žádný produkt",
-    "recently_seen_products": "All viewed products",
+    "recently_seen_products": "Všechny prohlížené produkty",
     "clear": "Vymazat",
     "@clear": {
         "description": "Clears a product list (short label)"
