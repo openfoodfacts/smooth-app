@@ -144,6 +144,8 @@
     "@user_management": {},
     "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
     "incorrect_credentials": "Usuari o contrasenya incorrectes.",
+    "password_lost_incorrect_credentials": "This email or username doesn't exist. Please check your credentials.",
+    "password_lost_server_unavailable": "We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.",
     "login": "Nom d'usuari",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
@@ -260,6 +262,7 @@
     "sign_up_page_user_name_already_used": "El nom d'usuari ja existeix, trieu-ne un altre.",
     "sign_up_page_email_already_exists": "ja existeix, inicieu sessió amb el compte o proveu amb un altre correu electrònic.",
     "sign_up_page_provide_valid_email": "Introduïu una adreça electrònica vàlida.",
+    "sign_up_page_server_busy": "We are deeply sorry, we have some technical difficulties to create your account. Please try again later.",
     "@Settings": {},
     "settingsTitle": "Preferències",
     "@settingsTitle": {
@@ -282,7 +285,7 @@
         "description": "Indicator inside the darkmode switch (system default)"
     },
     "thanks_for_contributing": "Thanks for contributing!",
-    "contributors_label": "They are building the app",
+    "contributors_label": "Estan construint l'aplicació",
     "@contributors_label": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
     },
@@ -290,14 +293,14 @@
     "@contributors_dialog_title": {
         "description": "Dialog title: A list of all contributors of this app"
     },
-    "contributors_dialog_entry_description": "Contributor: {name}",
+    "contributors_dialog_entry_description": "Col·laborador/a: {name}",
     "@contributors_dialog_entry_description": {
         "description": "The user id of the contributor.",
         "placeholders": {
             "name": {}
         }
     },
-    "contributors_description": "A list of all contributors of this app",
+    "contributors_description": "Una llista de tothom qui col·labora amb aquesta app",
     "@contributors_description": {
         "description": "Button description for accessibility purposes to explain what the Contributors button do"
     },
@@ -456,7 +459,7 @@
     "@filter": {
         "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
     },
-    "scan": "Sessió d'escaneig",
+    "scan": "Products from the Scan screen",
     "@scan": {
         "description": "Page title: List type: Products in the scan session"
     },
@@ -695,13 +698,13 @@
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
-    "tagline_app_review": "Do you like the app?",
-    "tagline_app_review_button_positive": "I love it! 😍",
-    "tagline_app_review_button_negative": "Not really…",
-    "tagline_app_review_button_later": "Ask me later",
-    "app_review_negative_modal_title": "You don't like our app?",
-    "app_review_negative_modal_text": "Could you take a few seconds to tell us why?",
-    "app_review_negative_modal_positive_button": "Yes, absolutely!",
+    "tagline_app_review": "Us agrada l'aplicació?",
+    "tagline_app_review_button_positive": "M'encanta! 😍",
+    "tagline_app_review_button_negative": "No gaire…",
+    "tagline_app_review_button_later": "Pregunta-m'ho després",
+    "app_review_negative_modal_title": "No us agrada, la nostra aplicació?",
+    "app_review_negative_modal_text": "Podríeu emprar uns minuts per a dir-nos el per què?",
+    "app_review_negative_modal_positive_button": "I tant!",
     "app_review_negative_modal_negative_button": "No",
     "could_not_refresh": "Impossible d'actualitzar el producte",
     "@could_not_refresh": {
@@ -782,12 +785,12 @@
     "@Lists": {},
     "no_prodcut_in_list": "No hi ha cap producte en aquesta llista",
     "no_product_in_section": "No hi ha cap producte en aquesta secció",
-    "recently_seen_products": "Historial",
+    "recently_seen_products": "All viewed products",
     "clear": "Esborra",
     "@clear": {
         "description": "Clears a product list (short label)"
     },
-    "clear_long": "Empty the list",
+    "clear_long": "Buida la llista",
     "@clear_long": {
         "description": "Clears a product list (long label)"
     },
@@ -1236,7 +1239,7 @@
     "@edit_product_form_item_origins_title": {
         "description": "Product edition - Origins - Title"
     },
-    "edit_product_form_item_origins_hint": "Input an origin",
+    "edit_product_form_item_origins_hint": "Introduïu un origen",
     "@edit_product_form_item_origins_hint": {
         "description": "Product edition - Origins - input textfield hint"
     },
@@ -1256,7 +1259,7 @@
     "@edit_product_form_item_countries_title": {
         "description": "Product edition - Countries - Title"
     },
-    "edit_product_form_item_countries_hint": "Input a country",
+    "edit_product_form_item_countries_hint": "Introduïu un país",
     "@edit_product_form_item_countries_hint": {
         "description": "Product edition - Countries - input textfield hint"
     },
@@ -1855,6 +1858,18 @@
     "@gallery_source_label": {
         "description": "Label for the gallery image source"
     },
+    "gallery_source_access_denied_dialog_title": "Accés denegat",
+    "@gallery_source_access_denied_dialog_title": {
+        "description": "On iOS, the user has refused to give the permission (title of the dialog)"
+    },
+    "gallery_source_access_denied_dialog_message_ios": "Malauradament, l'aplicació no pot accedir a la vostra galeria, ja que prèviament heu denegat el permís.\n\nAneu a la configuració de les aplicacions al vostre telèfon Configuració -> Fotos",
+    "@gallery_source_access_denied_dialog_message_ios": {
+        "description": "On iOS, the user has refused to give the permission"
+    },
+    "gallery_source_access_denied_dialog_button": "Obre la Configuració",
+    "@gallery_source_access_denied_dialog_button": {
+        "description": "Button to open the app settings"
+    },
     "share": "Comparteix",
     "@share": {
         "description": "Button label for sharing something on another app. For example sharing the link to a product via Email"
@@ -2408,8 +2423,8 @@
     "nova_group_3": "NOVA Group 3",
     "nova_group_4": "NOVA Group 4",
     "nova_group_unknown": "Unknown NOVA Group",
-    "hunger_games_loading_line1": "Please let us a few seconds…",
-    "hunger_games_loading_line2": "We're downloading the questions!",
-    "hunger_games_error_label": "Argh! Something went wrong… and we couldn't load the questions.",
-    "hunger_games_error_retry_button": "Let's retry!"
+    "hunger_games_loading_line1": "Si us plau, deixeu-nos uns segons…",
+    "hunger_games_loading_line2": "Estem descarregant les preguntes!",
+    "hunger_games_error_label": "Ui! Alguna cosa no ha funcionat… i no hem pogut carregar les preguntes.",
+    "hunger_games_error_retry_button": "Tornem-ho a provar!"
 }

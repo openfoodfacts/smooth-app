@@ -144,6 +144,8 @@
     "@user_management": {},
     "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
     "incorrect_credentials": "Nama pengguna atau kata sandi Anda salah.",
+    "password_lost_incorrect_credentials": "This email or username doesn't exist. Please check your credentials.",
+    "password_lost_server_unavailable": "We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.",
     "login": "Masuk",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
@@ -260,6 +262,7 @@
     "sign_up_page_user_name_already_used": "Username telah terdaftar, silahkan pilih nama lain.",
     "sign_up_page_email_already_exists": "telah terdaftar, masuk ke akun atau coba dengan email lain.",
     "sign_up_page_provide_valid_email": "Mohon berikan alamat email yang benar.",
+    "sign_up_page_server_busy": "We are deeply sorry, we have some technical difficulties to create your account. Please try again later.",
     "@Settings": {},
     "settingsTitle": "Pengaturan",
     "@settingsTitle": {
@@ -456,7 +459,7 @@
     "@filter": {
         "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
     },
-    "scan": "Sesi pemindaian",
+    "scan": "Products from the Scan screen",
     "@scan": {
         "description": "Page title: List type: Products in the scan session"
     },
@@ -782,7 +785,7 @@
     "@Lists": {},
     "no_prodcut_in_list": "Tidak ada produk di daftar ini",
     "no_product_in_section": "Tidak ada produk di bagian ini",
-    "recently_seen_products": "Riwayat",
+    "recently_seen_products": "All viewed products",
     "clear": "Hapus",
     "@clear": {
         "description": "Clears a product list (short label)"
@@ -1854,6 +1857,18 @@
     "gallery_source_label": "Gallery",
     "@gallery_source_label": {
         "description": "Label for the gallery image source"
+    },
+    "gallery_source_access_denied_dialog_title": "Access denied",
+    "@gallery_source_access_denied_dialog_title": {
+        "description": "On iOS, the user has refused to give the permission (title of the dialog)"
+    },
+    "gallery_source_access_denied_dialog_message_ios": "Unfortunately, the application can't access your gallery, as you have previously denied the permission.\n\nPlease go to the app settings in your phone Settings -> Photos",
+    "@gallery_source_access_denied_dialog_message_ios": {
+        "description": "On iOS, the user has refused to give the permission"
+    },
+    "gallery_source_access_denied_dialog_button": "Open the Settings",
+    "@gallery_source_access_denied_dialog_button": {
+        "description": "Button to open the app settings"
     },
     "share": "Bagikan",
     "@share": {

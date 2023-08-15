@@ -16,7 +16,7 @@ dependencies:
   mobile_scanner:
     git:
       url: https://github.com/openfoodfacts/mobile_scanner.git
-      ref: 5aa2c11915467b19dfc5fd3a9e59641d2958ffeb
+      ref: custom_release
   scanner_shared:
     path: ../shared
 

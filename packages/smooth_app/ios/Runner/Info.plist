@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSCameraUsageDescription</key>
+	<string>This app needs camera access to scan barcodes and to take product photos</string>
 	<key>CADisableMinimumFrameDurationOnPhone</key>
 	<true/>
 	<key>CFBundleDevelopmentRegion</key>
@@ -32,8 +34,6 @@
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSCameraUsageDescription</key>
-	<string>This app needs Camera Usage for scanning barcodes and cropping photos</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>This app needs to access photo library for product photos uploads</string>
 	<key>UILaunchStoryboardName</key>
@@ -60,6 +60,6 @@
 	<key>FlutterDeepLinkingEnabled</key>
 	<true/>
 	<key>ITSAppUsesNonExemptEncryption</key>
-    <false/>
+	<false/>
 </dict>
 </plist>

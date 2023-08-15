@@ -144,6 +144,8 @@
     "@user_management": {},
     "sign_in_text": "Log in op je Open Food Facts account om je bijdragen op te slaan",
     "incorrect_credentials": "Onjuiste gebruikersnaam of wachtwoord.",
+    "password_lost_incorrect_credentials": "Dit e-mailadres of deze gebruikersnaam bestaat niet. Controleer uw inloggegevens.",
+    "password_lost_server_unavailable": "We ondervinden momenteel vertragingen op onze servers en bieden hiervoor onze excuses aan. Probeer het later opnieuw.",
     "login": "Log in",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
@@ -260,6 +262,7 @@
     "sign_up_page_user_name_already_used": "De gebruikersnaam bestaat al, kies een andere gebruikersnaam.",
     "sign_up_page_email_already_exists": "bestaat al, log in op het account of probeer het met een ander e-mailadres.",
     "sign_up_page_provide_valid_email": "Voer een geldig e-mailadres in alsjeblieft.",
+    "sign_up_page_server_busy": "Het spijt ons zeer erg, we hebben wat technische problemen bij het aanmaken van uw account. Probeer het later opnieuw.",
     "@Settings": {},
     "settingsTitle": "Instellingen",
     "@settingsTitle": {
@@ -456,7 +459,7 @@
     "@filter": {
         "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
     },
-    "scan": "Scansessie",
+    "scan": "Producten uit het scanscherm",
     "@scan": {
         "description": "Page title: List type: Products in the scan session"
     },
@@ -782,7 +785,7 @@
     "@Lists": {},
     "no_prodcut_in_list": "Er is geen product in deze lijst",
     "no_product_in_section": "Er is geen product in deze sectie",
-    "recently_seen_products": "Geschiedenis",
+    "recently_seen_products": "Alle bekeken producten",
     "clear": "Wissen",
     "@clear": {
         "description": "Clears a product list (short label)"
@@ -1854,6 +1857,18 @@
     "gallery_source_label": "Gallerij",
     "@gallery_source_label": {
         "description": "Label for the gallery image source"
+    },
+    "gallery_source_access_denied_dialog_title": "Toegang geweigerd",
+    "@gallery_source_access_denied_dialog_title": {
+        "description": "On iOS, the user has refused to give the permission (title of the dialog)"
+    },
+    "gallery_source_access_denied_dialog_message_ios": "Helaas kan de app geen toegang krijgen tot je galerij, omdat je de toestemming al eerder hebt geweigerd.\n\nGa naar de app instellingen in je telefoon instellingen -> Foto's",
+    "@gallery_source_access_denied_dialog_message_ios": {
+        "description": "On iOS, the user has refused to give the permission"
+    },
+    "gallery_source_access_denied_dialog_button": "Open de instellingen",
+    "@gallery_source_access_denied_dialog_button": {
+        "description": "Button to open the app settings"
     },
     "share": "Delen",
     "@share": {
