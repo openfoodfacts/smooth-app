@@ -5,6 +5,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
+import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
@@ -33,7 +34,11 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage>
 
     Status? status;
     try {
-      status = await OpenFoodAPIClient.resetPassword(_userIdController.text);
+      status = await OpenFoodAPIClient.resetPassword(
+        _userIdController.text,
+        country: ProductQuery.getCountry(),
+        language: ProductQuery.getLanguage(),
+      );
     } catch (e) {
       status = null;
     }
