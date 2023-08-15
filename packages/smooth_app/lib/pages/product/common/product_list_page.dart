@@ -7,6 +7,7 @@ import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
+import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/up_to_date_product_list_mixin.dart';
 import 'package:smooth_app/database/dao_product.dart';
@@ -23,10 +24,13 @@ import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
 import 'package:smooth_app/pages/all_product_list_modal.dart';
 import 'package:smooth_app/pages/carousel_manager.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/product/common/product_list_item_simple.dart';
 import 'package:smooth_app/pages/product/common/product_list_popup_items.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
+import 'package:smooth_app/pages/product/compare_products3_page.dart';
+import 'package:smooth_app/pages/product/ordered_nutrients_cache.dart';
 import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
@@ -89,6 +93,7 @@ class _ProductListPageState extends State<ProductListPage>
     final DaoProductList daoProductList = DaoProductList(localDatabase);
     final ThemeData themeData = Theme.of(context);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final UserPreferences userPreferences = context.watch<UserPreferences>();
     refreshUpToDate();
 
     /// If we were on a user list, but it has been deleted, we switch to history
@@ -122,6 +127,7 @@ class _ProductListPageState extends State<ProductListPage>
     }
     final bool enableClear = products.isNotEmpty;
     final bool enableRename = productList.listType == ProductListType.USER;
+    final bool enableComparison = _selectedBarcodes.length >= 2;
 
     return SmoothScaffold(
       floatingActionButton: products.isEmpty
@@ -131,18 +137,12 @@ class _ProductListPageState extends State<ProductListPage>
               onPressed: () =>
                   ExternalCarouselManager.read(context).showSearchCard(),
             )
-          : _selectionMode || products.length <= 1
-              ? _CompareProductsButton(
-                  selectedBarcodes: _selectedBarcodes,
-                  barcodes: products,
-                  onComparisonEnded: () {
-                    setState(() => _selectionMode = false);
-                  },
-                )
+          : _selectionMode
+              ? null
               : FloatingActionButton.extended(
                   onPressed: () => setState(() => _selectionMode = true),
-                  label: Text(appLocalizations.compare_products_mode),
-                  icon: const Icon(Icons.compare_arrows),
+                  label: Text('Multi-select'),
+                  icon: const Icon(Icons.checklist),
                 ),
       appBar: SmoothAppBar(
         centerTitle: false,
@@ -215,76 +215,111 @@ class _ProductListPageState extends State<ProductListPage>
         onLeaveActionMode: () {
           setState(() => _selectionMode = false);
         },
-        actionModeTitle: Text(appLocalizations.compare_products_appbar_title),
-        actionModeSubTitle:
-            Text(appLocalizations.compare_products_appbar_subtitle),
+        actionModeTitle: Text('${_selectedBarcodes.length}'),
         actionModeActions: <Widget>[
-          IconButton(
-            icon: const Icon(Icons.delete),
-            onPressed: () async {
-              if (_selectedBarcodes.isNotEmpty) {
-                await showDialog<void>(
-                  context: context,
-                  builder: (BuildContext context) {
-                    return SmoothAlertDialog(
-                      body: Container(
-                        padding: const EdgeInsetsDirectional.only(
-                            start: SMALL_SPACE),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Text(
-                              appLocalizations.alert_clear_selected_user_list,
-                            ),
-                            const SizedBox(
-                              height: SMALL_SPACE,
-                            ),
-                            Text(
-                              appLocalizations.confirm_clear_selected_user_list,
-                            ),
-                          ],
+          if (userPreferences.getFlag(UserPreferencesDevMode
+                      .userPreferencesFlagBoostedComparison) ==
+                  true &&
+              _selectedBarcodes.length >= 2 &&
+              _selectedBarcodes.length <= 3)
+            IconButton(
+              icon: const Icon(Icons.star_half),
+              tooltip: 'Side by side comparison',
+              onPressed: () async {
+                final OrderedNutrientsCache? cache =
+                    await OrderedNutrientsCache.getCache(context);
+                if (context.mounted) {
+                  if (cache == null) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text(
+                          AppLocalizations.of(context)
+                              .nutrition_cache_loading_error,
                         ),
                       ),
-                      positiveAction: SmoothActionButton(
-                        onPressed: () async {
-                          await daoProductList.bulkSet(
-                            productList,
-                            _selectedBarcodes.toList(growable: false),
-                            include: false,
-                          );
-                          await daoProductList.get(productList);
-                          if (!mounted) {
-                            return;
-                          }
-                          setState(() {});
-                          Navigator.of(context).maybePop();
-                        },
-                        text: appLocalizations.yes,
-                      ),
-                      negativeAction: SmoothActionButton(
-                        onPressed: () => Navigator.of(context).maybePop(),
-                        text: appLocalizations.no,
+                    );
+                    return;
+                  }
+                  final DaoProduct daoProduct = DaoProduct(localDatabase);
+                  final List<Product> list = <Product>[];
+                  for (final String barcode in _selectedBarcodes) {
+                    list.add((await daoProduct.get(barcode))!);
+                  }
+                  if (context.mounted) {
+                    await Navigator.push<void>(
+                      context,
+                      MaterialPageRoute<void>(
+                        builder: (BuildContext context) => CompareProducts3Page(
+                          products: list,
+                          orderedNutrientsCache: cache,
+                        ),
                       ),
                     );
-                  },
-                );
-              } else {
-                await showDialog<void>(
-                  context: context,
-                  builder: (BuildContext context) {
-                    return SmoothAlertDialog(
-                      body: Text(
-                        appLocalizations.alert_select_items_to_clear,
+                  }
+                }
+              },
+            ),
+          IconButton(
+            icon: const Icon(Icons.compare_arrows),
+            tooltip: appLocalizations.compare_products_mode,
+            onPressed: !enableComparison
+                ? null
+                : () async => Navigator.push<void>(
+                      context,
+                      MaterialPageRoute<void>(
+                        builder: (_) => PersonalizedRankingPage(
+                          barcodes: _selectedBarcodes.toList(),
+                          title: appLocalizations.product_list_your_ranking,
+                        ),
                       ),
-                      positiveAction: SmoothActionButton(
-                        onPressed: () => Navigator.of(context).maybePop(),
-                        text: appLocalizations.okay,
+                    ),
+          ),
+          IconButton(
+            icon: const Icon(Icons.delete),
+            onPressed: _selectedBarcodes.isEmpty
+                ? null
+                : () async => showDialog<void>(
+                      context: context,
+                      builder: (BuildContext context) => SmoothAlertDialog(
+                        body: Container(
+                          padding: const EdgeInsetsDirectional.only(
+                              start: SMALL_SPACE),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Text(
+                                appLocalizations.alert_clear_selected_user_list,
+                              ),
+                              const SizedBox(height: SMALL_SPACE),
+                              Text(
+                                appLocalizations
+                                    .confirm_clear_selected_user_list,
+                              ),
+                            ],
+                          ),
+                        ),
+                        positiveAction: SmoothActionButton(
+                          onPressed: () async {
+                            await daoProductList.bulkSet(
+                              productList,
+                              _selectedBarcodes.toList(growable: false),
+                              include: false,
+                            );
+                            await daoProductList.get(productList);
+                            if (!mounted) {
+                              return;
+                            }
+                            setState(() {});
+                            Navigator.of(context).maybePop();
+                          },
+                          text: appLocalizations.yes,
+                        ),
+                        negativeAction: SmoothActionButton(
+                          onPressed: () => Navigator.of(context).maybePop(),
+                          text: appLocalizations.no,
+                        ),
                       ),
-                    );
-                  },
-                );
-              }
-            },
+                    ),
           ),
         ],
       ),
@@ -390,7 +425,12 @@ class _ProductListPageState extends State<ProductListPage>
                 barcode: barcode,
                 onTap: _selectionMode ? onTap : null,
                 onLongPress: !_selectionMode
-                    ? () => setState(() => _selectionMode = true)
+                    ? () => setState(
+                          () {
+                            _selectedBarcodes.add(barcode);
+                            _selectionMode = true;
+                          },
+                        )
                     : null,
               ),
             ),
@@ -528,61 +568,5 @@ class _ProductListPageState extends State<ProductListPage>
       //
     }
     return false;
-  }
-}
-
-class _CompareProductsButton extends StatelessWidget {
-  const _CompareProductsButton({
-    required this.selectedBarcodes,
-    required this.barcodes,
-    this.onComparisonEnded,
-    Key? key,
-  }) : super(key: key);
-
-  final Set<String> selectedBarcodes;
-  final List<String> barcodes;
-  final VoidCallback? onComparisonEnded;
-
-  @override
-  Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-
-    final bool enabled = selectedBarcodes.length >= 2;
-
-    return AnimatedOpacity(
-      opacity: enabled ? 1.0 : 0.5,
-      duration: SmoothAnimationsDuration.brief,
-      child: FloatingActionButton.extended(
-        label: Text(appLocalizations.compare_products_mode),
-        icon: const Icon(Icons.compare_arrows),
-        tooltip: enabled
-            ? appLocalizations.plural_compare_x_products(
-                selectedBarcodes.length,
-              )
-            : appLocalizations.compare_products_appbar_subtitle,
-        onPressed: enabled
-            ? () async {
-                final List<String> list = <String>[];
-                for (final String barcode in barcodes) {
-                  if (selectedBarcodes.contains(barcode)) {
-                    list.add(barcode);
-                  }
-                }
-
-                await Navigator.push<void>(
-                  context,
-                  MaterialPageRoute<void>(
-                    builder: (_) => PersonalizedRankingPage(
-                      barcodes: list,
-                      title: appLocalizations.product_list_your_ranking,
-                    ),
-                  ),
-                );
-
-                onComparisonEnded?.call();
-              }
-            : null,
-      ),
-    );
   }
 }
