@@ -62,18 +62,32 @@ class _KnowledgePanelPageState extends State<KnowledgePanelPage>
       ),
       body: RefreshIndicator(
         onRefresh: () => _refreshProduct(context),
-        child: SingleChildScrollView(
+        child: CustomScrollView(
           physics: const AlwaysScrollableScrollPhysics(),
-          child: SmoothCard(
-            padding: const EdgeInsets.all(
-              SMALL_SPACE,
-            ),
-            child: KnowledgePanelExpandedCard(
-              panelId: widget.panelId,
-              product: upToDateProduct,
-              isInitiallyExpanded: true,
-            ),
-          ),
+          slivers: <Widget>[
+            SliverToBoxAdapter(
+              child: Column(
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      bottom: SMALL_SPACE,
+                      top: SMALL_SPACE,
+                    ),
+                    child: SmoothCard(
+                      padding: const EdgeInsets.all(
+                        SMALL_SPACE,
+                      ),
+                      child: KnowledgePanelExpandedCard(
+                        panelId: widget.panelId,
+                        product: upToDateProduct,
+                        isInitiallyExpanded: true,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            )
+          ],
         ),
       ),
     );
