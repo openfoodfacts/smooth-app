@@ -1,3 +1,5 @@
+import 'dart:ui' as ui;
+
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -64,8 +66,12 @@ class UserPreferencesConnect extends AbstractUserPreferences {
           title: appLocalizations.twitter,
           url: appLocalizations.twitter_link,
           leading: SvgPicture.asset(
-            'assets/preferences/twitter-bird.svg',
+            'assets/preferences/x-logo.svg',
             width: DEFAULT_ICON_SIZE,
+            colorFilter: ui.ColorFilter.mode(
+              Theme.of(context).colorScheme.onBackground,
+              ui.BlendMode.srcIn,
+            ),
             package: AppHelper.APP_PACKAGE,
           ),
         ),
