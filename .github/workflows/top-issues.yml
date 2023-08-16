@@ -18,6 +18,7 @@ jobs:
       with:
         label: true
         dashboard: true
+        dashboard_title: 👍 Top Issues Dashboard
         dashboard_show_total_reactions: true
         top_issues: true
         top_bugs: true
