@@ -1465,6 +1465,10 @@
     "@category_picker_no_category_found_button": {
         "description": "Button label when no category is available"
     },
+    "user_preferences_item_accessibility_hint": "Click to open in your browser or in the application (if installed)",
+    "@user_preferences_item_accessibility_hint": {
+        "description": "A hint for screen readers to explain how external links work"
+    },
     "dev_preferences_screen_title": "Kehittäjätila",
     "@dev_preferences_screen_title": {
         "description": "User dev preferences - Title"
@@ -2271,6 +2275,32 @@
     "contrast_low": "Matala",
     "@contrast_low": {
         "description": "Low Contrast Text Color"
+    },
+    "product_refresher_internet_not_found": "Tuotetta ei löydy!",
+    "@product_refresher_internet_not_found": {
+        "description": "When refreshing a product that does not exist on the server. Label is the body of a dialog."
+    },
+    "product_refresher_internet_not_connected": "You are not connected to internet!",
+    "@product_refresher_internet_not_connected": {
+        "description": "When refreshing a product and you're not even connected to internet. Label is the body of a dialog."
+    },
+    "product_refresher_internet_no_ping": "Server down ({host})",
+    "@product_refresher_internet_no_ping": {
+        "description": "When refreshing a product and you cannot even ping the server. Label is the body of a dialog.",
+        "placeholders": {
+            "host": {
+                "type": "String?"
+            }
+        }
+    },
+    "product_refresher_internet_error": "Server error ({exception})",
+    "@product_refresher_internet_error": {
+        "description": "When refreshing a product and the server returned an exception. Label is the body of a dialog.",
+        "placeholders": {
+            "exception": {
+                "type": "String?"
+            }
+        }
     },
     "product_loader_not_found_title": "Tuotetta ei löydy!",
     "@product_loader_not_found_title": {
