@@ -245,5 +245,6 @@ class UserPreferencesConnect extends AbstractUserPreferences {
         trailing:
             UserPreferencesListTile.getTintedIcon(Icons.open_in_new, context),
         leading: leading,
+        externalLink: true,
       );
 }

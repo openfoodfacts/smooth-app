@@ -1465,6 +1465,10 @@
     "@category_picker_no_category_found_button": {
         "description": "Button label when no category is available"
     },
+    "user_preferences_item_accessibility_hint": "Click to open in your browser or in the application (if installed)",
+    "@user_preferences_item_accessibility_hint":{
+        "description": "A hint for screen readers to explain how external links work"
+    },
     "dev_preferences_screen_title": "DEV Mode",
     "@dev_preferences_screen_title": {
         "description": "User dev preferences - Title"
