@@ -100,8 +100,6 @@ class _ProductListItemSimpleState extends State<ProductListItemSimple> {
     switch (_model.downloadingStatus) {
       case null:
         break;
-      case FetchedProductStatus.codeInvalid:
-        return appLocalizations.barcode_invalid_error;
       case FetchedProductStatus.internetNotFound:
         return appLocalizations.product_internet_error;
       default:

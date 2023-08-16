@@ -70,6 +70,9 @@ dependencies:
   webview_flutter: 3.0.4
   flutter_custom_tabs: ^1.0.4
   flutter_image_compress: 2.0.4
+  connectivity_plus: ^4.0.2
+  dart_ping: 9.0.0
+  dart_ping_ios: 4.0.0
 
   # According to the build variant, only one "app store" implementation must be added when building a release
   # Call "flutter pub remove xxxx" to remove unused dependencies
@@ -95,7 +98,6 @@ dependencies:
 
   scanner_zxing:
     path: ../scanner/zxing
-
 
 
   openfoodfacts: 2.10.0
