@@ -136,22 +136,24 @@ class ProductRefresher {
       if (widget.mounted) {
         String getTitle(final FetchedProduct fetchedProduct) {
           switch (fetchAndRefreshed.status) {
-            // TODO(monsieurtanuki): refine and localize
             case FetchedProductStatus.ok:
               return 'Not supposed to happen...';
             case FetchedProductStatus.userCancelled:
               return 'Not supposed to happen either...';
             case FetchedProductStatus.internetNotFound:
-              return 'Product not found';
+              return appLocalizations.product_refresher_internet_not_found;
             case FetchedProductStatus.internetError:
               if (fetchAndRefreshed.connectivityResult ==
                   ConnectivityResult.none) {
-                return 'You are not connected to the internet!';
+                return appLocalizations
+                    .product_refresher_internet_not_connected;
               }
               if (fetchAndRefreshed.failedPingedHost != null) {
-                return 'Server down (${fetchAndRefreshed.failedPingedHost})';
+                return appLocalizations.product_refresher_internet_no_ping(
+                    fetchAndRefreshed.failedPingedHost);
               }
-              return 'Server error (${fetchAndRefreshed.exceptionString})';
+              return appLocalizations.product_refresher_internet_no_ping(
+                  fetchAndRefreshed.exceptionString);
           }
         }
 
