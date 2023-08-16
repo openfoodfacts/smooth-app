@@ -141,7 +141,7 @@ class _ProductListPageState extends State<ProductListPage>
               ? null
               : FloatingActionButton.extended(
                   onPressed: () => setState(() => _selectionMode = true),
-                  label: Text('Multi-select'),
+                  label: const Text('Multi-select'),
                   icon: const Icon(Icons.checklist),
                 ),
       appBar: SmoothAppBar(
