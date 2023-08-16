@@ -41,32 +41,42 @@ class UserPreferencesListTile extends StatelessWidget {
       );
 
   @override
-  Widget build(BuildContext context) => Semantics(
-        value: title is Text ? (title as Text).data : null,
+  Widget build(BuildContext context) {
+    final String? titleAsText = title is Text ? (title as Text).data : null;
+
+    final Widget child = ListTile(
+      leading: leading,
+      title: DefaultTextStyle.merge(
+        style: Theme.of(context).textTheme.headlineMedium,
+        child: title,
+      ),
+      selected: selected ?? false,
+      selectedTileColor: selectedColor,
+      contentPadding: contentPadding ??
+          EdgeInsets.symmetric(
+            horizontal: LARGE_SPACE,
+            vertical: subtitle != null ? VERY_SMALL_SPACE : 2.0,
+          ),
+      trailing: trailing,
+      onTap: onTap,
+      onLongPress: onLongPress,
+      subtitle: subtitle,
+      shape: shape,
+    );
+
+    if (titleAsText != null) {
+      return Semantics(
+        label: titleAsText,
         hint: externalLink == true
             ? AppLocalizations.of(context)
                 .user_preferences_item_accessibility_hint
             : null,
         button: true,
         excludeSemantics: true,
-        child: ListTile(
-          leading: leading,
-          title: DefaultTextStyle.merge(
-            style: Theme.of(context).textTheme.headlineMedium,
-            child: title,
-          ),
-          selected: selected ?? false,
-          selectedTileColor: selectedColor,
-          contentPadding: contentPadding ??
-              EdgeInsets.symmetric(
-                horizontal: LARGE_SPACE,
-                vertical: subtitle != null ? VERY_SMALL_SPACE : 2.0,
-              ),
-          trailing: trailing,
-          onTap: onTap,
-          onLongPress: onLongPress,
-          subtitle: subtitle,
-          shape: shape,
-        ),
+        child: child,
       );
+    } else {
+      return child;
+    }
+  }
 }
