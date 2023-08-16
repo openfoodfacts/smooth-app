@@ -3,6 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/data_models/fetched_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -42,28 +43,31 @@ class _ProductLoaderPageState extends State<ProductLoaderPage> {
       _state = _ProductLoaderState.loading;
     });
 
-    try {
-      final Product? product =
-          await ProductRefresher().silentFetchAndRefreshWithException(
-        barcode: widget.barcode,
-        localDatabase: context.read<LocalDatabase>(),
-      );
+    final FetchedProduct fetchedProduct =
+        await ProductRefresher().silentFetchAndRefresh(
+      barcode: widget.barcode,
+      localDatabase: context.read<LocalDatabase>(),
+    );
 
-      if (product != null && mounted) {
+    if (mounted) {
+      if (fetchedProduct.product != null) {
         navigator.pushReplacement(
           AppRoutes.PRODUCT(
             widget.barcode,
             heroTag: 'product_${widget.barcode}',
           ),
-          extra: product,
+          extra: fetchedProduct.product,
         );
-      } else {
+        return;
+      }
+      if (fetchedProduct.status == FetchedProductStatus.internetNotFound) {
         setState(() {
           _state = _ProductLoaderState.productNotFound;
         });
+        return;
       }
-    } catch (err) {
       setState(() {
+        // TODO(monsieurtanuki): put more details from FetchedProduct?
         _state = _ProductLoaderState.serverError;
       });
     }
