@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 
 /// Custom [ListTile] for preferences.
@@ -14,6 +15,7 @@ class UserPreferencesListTile extends StatelessWidget {
     this.selected,
     this.selectedColor,
     this.contentPadding,
+    this.externalLink,
   });
 
   final Widget title;
@@ -24,6 +26,7 @@ class UserPreferencesListTile extends StatelessWidget {
   final VoidCallback? onLongPress;
   final ShapeBorder? shape;
   final bool? selected;
+  final bool? externalLink;
   final Color? selectedColor;
   final EdgeInsetsGeometry? contentPadding;
 
@@ -38,23 +41,32 @@ class UserPreferencesListTile extends StatelessWidget {
       );
 
   @override
-  Widget build(BuildContext context) => ListTile(
-        leading: leading,
-        title: DefaultTextStyle.merge(
-          style: Theme.of(context).textTheme.headlineMedium,
-          child: title,
+  Widget build(BuildContext context) => Semantics(
+        value: title is Text ? (title as Text).data : null,
+        hint: externalLink == true
+            ? AppLocalizations.of(context)
+                .user_preferences_item_accessibility_hint
+            : null,
+        button: true,
+        excludeSemantics: true,
+        child: ListTile(
+          leading: leading,
+          title: DefaultTextStyle.merge(
+            style: Theme.of(context).textTheme.headlineMedium,
+            child: title,
+          ),
+          selected: selected ?? false,
+          selectedTileColor: selectedColor,
+          contentPadding: contentPadding ??
+              EdgeInsets.symmetric(
+                horizontal: LARGE_SPACE,
+                vertical: subtitle != null ? VERY_SMALL_SPACE : 2.0,
+              ),
+          trailing: trailing,
+          onTap: onTap,
+          onLongPress: onLongPress,
+          subtitle: subtitle,
+          shape: shape,
         ),
-        selected: selected ?? false,
-        selectedTileColor: selectedColor,
-        contentPadding: contentPadding ??
-            EdgeInsets.symmetric(
-              horizontal: LARGE_SPACE,
-              vertical: subtitle != null ? VERY_SMALL_SPACE : 2.0,
-            ),
-        trailing: trailing,
-        onTap: onTap,
-        onLongPress: onLongPress,
-        subtitle: subtitle,
-        shape: shape,
       );
 }

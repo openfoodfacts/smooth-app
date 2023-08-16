@@ -53,21 +53,25 @@ class UserPreferencesFaq extends AbstractUserPreferences {
           title: appLocalizations.faq,
           leading: Icons.question_mark,
           url: 'https://support.openfoodfacts.org/help',
+          externalLink: true,
         ),
         _getListTile(
           title: appLocalizations.discover,
           leading: Icons.travel_explore,
           url: 'https://world.openfoodfacts.org/discover',
+          externalLink: true,
         ),
         _getListTile(
           title: appLocalizations.how_to_contribute,
           leading: Icons.volunteer_activism,
           url: 'https://world.openfoodfacts.org/contribute',
+          externalLink: true,
         ),
         _getListTile(
           title: appLocalizations.feed_back,
           leading: Icons.feedback_sharp,
           url: UserFeedbackHelper.getFeedbackFormLink(),
+          externalLink: true,
         ),
         _getListTile(
           title: appLocalizations.about_this_app,
@@ -83,6 +87,7 @@ class UserPreferencesFaq extends AbstractUserPreferences {
     final String? url,
     final VoidCallback? onTap,
     final Icon? icon,
+    final bool? externalLink,
   }) =>
       UserPreferencesListTile(
         title: Text(title),
@@ -90,6 +95,7 @@ class UserPreferencesFaq extends AbstractUserPreferences {
         trailing: icon ??
             UserPreferencesListTile.getTintedIcon(Icons.open_in_new, context),
         leading: UserPreferencesListTile.getTintedIcon(leading, context),
+        externalLink: externalLink,
       );
 
   static const String _iconLightAssetPath =

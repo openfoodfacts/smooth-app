@@ -86,6 +86,7 @@ class UserPreferencesContribute extends AbstractUserPreferences {
         () => _donate(),
         Icons.volunteer_activism,
         icon: UserPreferencesListTile.getTintedIcon(Icons.open_in_new, context),
+        externalLink: true,
       ),
       _getListTile(
         appLocalizations.contributors_label,
@@ -239,12 +240,14 @@ class UserPreferencesContribute extends AbstractUserPreferences {
     final IconData leading, {
     final Icon? icon,
     final String? description,
+    final bool? externalLink = false,
   }) {
     final Widget tile = UserPreferencesListTile(
       title: Text(title),
       onTap: onTap,
       trailing: icon ?? getForwardIcon(),
       leading: UserPreferencesListTile.getTintedIcon(leading, context),
+      externalLink: externalLink,
     );
 
     if (description != null) {
