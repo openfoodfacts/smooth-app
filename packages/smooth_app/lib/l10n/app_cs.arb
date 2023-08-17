@@ -315,7 +315,7 @@
     "support_via_email_include_logs_dialog_body": "Přejete si zahrnout protokoly aplikace do přílohy vašeho e-mailu?",
     "termsOfUse": "Podmínky použití",
     "@termsOfUse": {},
-    "legalNotices": "Legal notices",
+    "legalNotices": "Právní upozornění",
     "@legalNotices": {
         "description": "A link to open the legal notices on the website"
     },
