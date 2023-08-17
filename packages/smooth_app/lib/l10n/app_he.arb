@@ -315,7 +315,7 @@
     "support_via_email_include_logs_dialog_body": "לצרף את יומני היישום להודעת הדוא״ל שלך?",
     "termsOfUse": "תנאי שימוש",
     "@termsOfUse": {},
-    "legalNotices": "Legal notices",
+    "legalNotices": "הודעות משפטיות",
     "@legalNotices": {
         "description": "A link to open the legal notices on the website"
     },
