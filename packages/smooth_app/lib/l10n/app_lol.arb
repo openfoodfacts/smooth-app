@@ -315,6 +315,10 @@
     "support_via_email_include_logs_dialog_body": "crwdns220769:0crwdne220769:0",
     "termsOfUse": "crwdns220771:0crwdne220771:0",
     "@termsOfUse": {},
+    "legalNotices": "crwdns245021:0crwdne245021:0",
+    "@legalNotices": {
+        "description": "A link to open the legal notices on the website"
+    },
     "about_this_app": "crwdns220773:0crwdne220773:0",
     "@about_this_app": {
         "description": "Button label: Opens a pop up window which shows information about the app"
