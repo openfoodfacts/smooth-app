@@ -315,6 +315,10 @@
     "support_via_email_include_logs_dialog_body": "Bạn có muốn đính kèm nhật ký ứng dụng vào email của mình không?",
     "termsOfUse": "Điều khoản sử dụng",
     "@termsOfUse": {},
+    "legalNotices": "Legal notices",
+    "@legalNotices": {
+        "description": "A link to open the legal notices on the website"
+    },
     "about_this_app": "Thông tin về ứng dụng",
     "@about_this_app": {
         "description": "Button label: Opens a pop up window which shows information about the app"
