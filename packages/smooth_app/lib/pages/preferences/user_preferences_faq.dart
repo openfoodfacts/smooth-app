@@ -153,21 +153,32 @@ class UserPreferencesFaq extends AbstractUserPreferences {
                         widthFactor: 0.9,
                         child: Text(appLocalizations.whatIsOff),
                       ),
-                      const SizedBox(height: LARGE_SPACE),
+                      const SizedBox(height: VERY_SMALL_SPACE),
                       SmoothAlertContentButton(
                         onPressed: () => LaunchUrlHelper.launchURL(
                             'https://openfoodfacts.org/who-we-are', true),
                         label: appLocalizations.learnMore,
                         icon: Icons.open_in_new,
                       ),
-                      const SizedBox(height: SMALL_SPACE),
+                      const SizedBox(height: VERY_SMALL_SPACE),
                       SmoothAlertContentButton(
                         onPressed: () => LaunchUrlHelper.launchURL(
-                            'https://openfoodfacts.org/terms-of-', true),
+                          'https://openfoodfacts.org/terms-of-use',
+                          true,
+                        ),
                         label: appLocalizations.termsOfUse,
                         icon: Icons.open_in_new,
                       ),
-                      const SizedBox(height: SMALL_SPACE),
+                      const SizedBox(height: VERY_SMALL_SPACE),
+                      SmoothAlertContentButton(
+                        onPressed: () => LaunchUrlHelper.launchURL(
+                          'https://openfoodfacts.org/legal',
+                          true,
+                        ),
+                        label: appLocalizations.legalNotices,
+                        icon: Icons.open_in_new,
+                      ),
+                      const SizedBox(height: VERY_SMALL_SPACE),
                       SmoothAlertContentButton(
                         onPressed: () => showLicensePage(
                           context: context,
