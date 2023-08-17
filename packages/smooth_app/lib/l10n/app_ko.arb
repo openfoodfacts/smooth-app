@@ -315,6 +315,10 @@
     "support_via_email_include_logs_dialog_body": "이메일에 앱 로그 파일을 첨부하시겠습니까?",
     "termsOfUse": "이용 약관",
     "@termsOfUse": {},
+    "legalNotices": "Legal notices",
+    "@legalNotices": {
+        "description": "A link to open the legal notices on the website"
+    },
     "about_this_app": "앱 정보",
     "@about_this_app": {
         "description": "Button label: Opens a pop up window which shows information about the app"
