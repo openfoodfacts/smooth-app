@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:package_info_plus/package_info_plus.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/helpers/global_vars.dart';
@@ -195,8 +194,6 @@ class AnalyticsHelper {
   static Future<void> initSentry({
     required Function()? appRunner,
   }) async {
-    final PackageInfo packageInfo = await PackageInfo.fromPlatform();
-
     await SentryFlutter.init(
       (SentryOptions options) {
         options
