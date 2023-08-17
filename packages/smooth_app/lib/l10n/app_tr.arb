@@ -146,7 +146,7 @@
     "incorrect_credentials": "Hatalı kullanıcı adı veya parola.",
     "password_lost_incorrect_credentials": "Bu e-posta veya kullanıcı adı mevcut değil. Lütfen kimlik bilgilerinizi kontrol edin.",
     "password_lost_server_unavailable": "Şu anda sunucularımızda yavaşlamalar yaşıyoruz ve bunun için özür dileriz. Lütfen daha sonra tekrar deneyiniz.",
-    "login": "Kullanıcı adı",
+    "login": "Oturumu Başlat",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
@@ -315,6 +315,10 @@
     "support_via_email_include_logs_dialog_body": "E-postanıza ek olarak uygulama günlüklerini eklemek ister misiniz?",
     "termsOfUse": "Kullanım Koşulları",
     "@termsOfUse": {},
+    "legalNotices": "Legal notices",
+    "@legalNotices": {
+        "description": "A link to open the legal notices on the website"
+    },
     "about_this_app": "Bu uygulama hakkında",
     "@about_this_app": {
         "description": "Button label: Opens a pop up window which shows information about the app"
