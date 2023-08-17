@@ -315,6 +315,10 @@
     "support_via_email_include_logs_dialog_body": "メールの添付ファイルにアプリのログを含めますか？",
     "termsOfUse": "利用規約",
     "@termsOfUse": {},
+    "legalNotices": "Legal notices",
+    "@legalNotices": {
+        "description": "A link to open the legal notices on the website"
+    },
     "about_this_app": "このアプリについて",
     "@about_this_app": {
         "description": "Button label: Opens a pop up window which shows information about the app"
