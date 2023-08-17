@@ -249,17 +249,19 @@ class _SmoothAppState extends State<SmoothApp> {
     final String? languageCode =
         context.select((UserPreferences up) => up.appLanguageCode);
 
-    return MaterialApp.router(
-      locale: languageCode != null ? Locale(languageCode) : null,
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      supportedLocales: AppLocalizations.supportedLocales,
-      debugShowCheckedModeBanner: !(kReleaseMode || _screenshots),
-      theme: SmoothTheme.getThemeData(
-          Brightness.light, themeProvider, colorProvider, textContrastProvider),
-      darkTheme: SmoothTheme.getThemeData(
-          Brightness.dark, themeProvider, colorProvider, textContrastProvider),
-      themeMode: themeProvider.currentThemeMode,
-      routerConfig: AppNavigator.of(context).router,
+    return SentryScreenshotWidget(
+      child: MaterialApp.router(
+        locale: languageCode != null ? Locale(languageCode) : null,
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        debugShowCheckedModeBanner: !(kReleaseMode || _screenshots),
+        theme: SmoothTheme.getThemeData(Brightness.light, themeProvider,
+            colorProvider, textContrastProvider),
+        darkTheme: SmoothTheme.getThemeData(Brightness.dark, themeProvider,
+            colorProvider, textContrastProvider),
+        themeMode: themeProvider.currentThemeMode,
+        routerConfig: AppNavigator.of(context).router,
+      ),
     );
   }
 
