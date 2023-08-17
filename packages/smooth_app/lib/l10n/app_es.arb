@@ -315,6 +315,10 @@
     "support_via_email_include_logs_dialog_body": "¿Quieres enviar los registros internos de la aplicación como adjunto en tu correo?",
     "termsOfUse": "Condiciones de uso",
     "@termsOfUse": {},
+    "legalNotices": "Legal notices",
+    "@legalNotices": {
+        "description": "A link to open the legal notices on the website"
+    },
     "about_this_app": "Sobre la aplicación",
     "@about_this_app": {
         "description": "Button label: Opens a pop up window which shows information about the app"
