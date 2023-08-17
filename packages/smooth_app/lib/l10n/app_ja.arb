@@ -315,7 +315,7 @@
     "support_via_email_include_logs_dialog_body": "メールの添付ファイルにアプリのログを含めますか？",
     "termsOfUse": "利用規約",
     "@termsOfUse": {},
-    "legalNotices": "Legal notices",
+    "legalNotices": "法的通知",
     "@legalNotices": {
         "description": "A link to open the legal notices on the website"
     },
