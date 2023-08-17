@@ -315,6 +315,10 @@
     "support_via_email_include_logs_dialog_body": "Voleu incloure els registres de l'aplicació al fitxer adjunt al vostre correu electrònic?",
     "termsOfUse": "Condicions d'ús",
     "@termsOfUse": {},
+    "legalNotices": "Legal notices",
+    "@legalNotices": {
+        "description": "A link to open the legal notices on the website"
+    },
     "about_this_app": "Quant a aquesta aplicació",
     "@about_this_app": {
         "description": "Button label: Opens a pop up window which shows information about the app"
