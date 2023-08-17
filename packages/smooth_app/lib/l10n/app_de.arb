@@ -315,6 +315,10 @@
     "support_via_email_include_logs_dialog_body": "Möchten Sie Ihrer E-Mail ein Protokoll der Anwendung als Anhang beifügen?",
     "termsOfUse": "Nutzungsbedingungen",
     "@termsOfUse": {},
+    "legalNotices": "Legal notices",
+    "@legalNotices": {
+        "description": "A link to open the legal notices on the website"
+    },
     "about_this_app": "Über diese App",
     "@about_this_app": {
         "description": "Button label: Opens a pop up window which shows information about the app"
