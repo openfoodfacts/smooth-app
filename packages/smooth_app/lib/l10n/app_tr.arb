@@ -315,7 +315,7 @@
     "support_via_email_include_logs_dialog_body": "E-postanıza ek olarak uygulama günlüklerini eklemek ister misiniz?",
     "termsOfUse": "Kullanım Koşulları",
     "@termsOfUse": {},
-    "legalNotices": "Legal notices",
+    "legalNotices": "Yasal uyarılar",
     "@legalNotices": {
         "description": "A link to open the legal notices on the website"
     },
