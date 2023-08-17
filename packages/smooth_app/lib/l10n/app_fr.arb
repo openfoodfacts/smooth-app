@@ -315,6 +315,10 @@
     "support_via_email_include_logs_dialog_body": "Souhaitez-vous inclure les journaux d'application en pièce jointe à votre e-mail ?",
     "termsOfUse": "Conditions d'utilisation",
     "@termsOfUse": {},
+    "legalNotices": "Legal notices",
+    "@legalNotices": {
+        "description": "A link to open the legal notices on the website"
+    },
     "about_this_app": "À propos de cette appli",
     "@about_this_app": {
         "description": "Button label: Opens a pop up window which shows information about the app"
