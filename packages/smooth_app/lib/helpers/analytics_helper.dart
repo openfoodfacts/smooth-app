@@ -199,15 +199,26 @@ class AnalyticsHelper {
 
     await SentryFlutter.init(
       (SentryOptions options) {
-        options.dsn =
-            'https://22ec5d0489534b91ba455462d3736680@o241488.ingest.sentry.io/5376745';
-        options.sentryClientName =
-            'sentry.dart.smoothie/${packageInfo.version}';
+        options
+          ..dsn =
+              'https://22ec5d0489534b91ba455462d3736680@o241488.ingest.sentry.io/5376745'
+          ..beforeSend = (
+            SentryEvent event, {
+            Hint? hint,
+          }) async {
+            return event.copyWith(
+              tags: <String, String>{
+                'store': GlobalVars.storeLabel.name,
+                'scanner': GlobalVars.scannerLabel.name,
+              },
+            );
+          };
         // To set a uniform sample rate
-        options.tracesSampleRate = 1.0;
-        options.beforeSend = _beforeSend;
-        options.environment =
-            '${GlobalVars.storeLabel.name}-${GlobalVars.scannerLabel.name}';
+        options
+          ..tracesSampleRate = 1.0
+          ..beforeSend = _beforeSend
+          ..environment =
+              '${GlobalVars.storeLabel.name}-${GlobalVars.scannerLabel.name}';
       },
       appRunner: appRunner,
     );
