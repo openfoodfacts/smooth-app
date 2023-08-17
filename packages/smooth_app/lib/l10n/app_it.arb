@@ -315,7 +315,7 @@
     "support_via_email_include_logs_dialog_body": "Desideri includere i log dell'app in allegato alla tua e-mail?",
     "termsOfUse": "Condizioni d'uso",
     "@termsOfUse": {},
-    "legalNotices": "Legal notices",
+    "legalNotices": "Note legali",
     "@legalNotices": {
         "description": "A link to open the legal notices on the website"
     },
