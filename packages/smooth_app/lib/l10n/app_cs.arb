@@ -315,6 +315,10 @@
     "support_via_email_include_logs_dialog_body": "Přejete si zahrnout protokoly aplikace do přílohy vašeho e-mailu?",
     "termsOfUse": "Podmínky použití",
     "@termsOfUse": {},
+    "legalNotices": "Legal notices",
+    "@legalNotices": {
+        "description": "A link to open the legal notices on the website"
+    },
     "about_this_app": "O této aplikaci",
     "@about_this_app": {
         "description": "Button label: Opens a pop up window which shows information about the app"
