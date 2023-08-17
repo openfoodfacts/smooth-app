@@ -315,6 +315,10 @@
     "support_via_email_include_logs_dialog_body": "Do you wish to include application logs in attachment to your email?",
     "termsOfUse": "ଵ୍ୟଵହାର ସର୍ତ୍ତାଵଳୀ",
     "@termsOfUse": {},
+    "legalNotices": "Legal notices",
+    "@legalNotices": {
+        "description": "A link to open the legal notices on the website"
+    },
     "about_this_app": "ଏହି ଆପ୍ ଵିଷୟରେ",
     "@about_this_app": {
         "description": "Button label: Opens a pop up window which shows information about the app"
