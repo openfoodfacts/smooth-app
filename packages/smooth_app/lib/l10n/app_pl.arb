@@ -315,6 +315,10 @@
     "support_via_email_include_logs_dialog_body": "Czy chcesz dołączyć logi aplikacji do wiadomości e-mail?",
     "termsOfUse": "Zasady korzystania",
     "@termsOfUse": {},
+    "legalNotices": "Legal notices",
+    "@legalNotices": {
+        "description": "A link to open the legal notices on the website"
+    },
     "about_this_app": "O tej aplikacji",
     "@about_this_app": {
         "description": "Button label: Opens a pop up window which shows information about the app"
