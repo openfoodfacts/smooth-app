@@ -38,7 +38,7 @@ class ProductDialogHelper {
   Future<FetchedProduct> openBestChoice() async {
     final Product? product = await DaoProduct(localDatabase).get(barcode);
     if (product != null) {
-      return FetchedProduct(product);
+      return FetchedProduct.found(product);
     }
     return openUniqueProductSearch();
   }
@@ -52,7 +52,7 @@ class ProductDialogHelper {
             isScanned: false,
           ).getFetchedProduct(),
           title: '${AppLocalizations.of(context).looking_for}: $barcode') ??
-      FetchedProduct.error(FetchedProductStatus.userCancelled);
+      const FetchedProduct.userCancelled();
 
   void _openProductNotFoundDialog() => showDialog<Widget>(
       context: context,
@@ -174,9 +174,6 @@ class ProductDialogHelper {
         return;
       case FetchedProductStatus.internetNotFound:
         _openProductNotFoundDialog();
-        return;
-      case FetchedProductStatus.codeInvalid:
-        _openErrorMessage(appLocalizations.barcode_invalid_error);
         return;
     }
   }

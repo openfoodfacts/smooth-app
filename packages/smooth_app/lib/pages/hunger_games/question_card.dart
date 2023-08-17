@@ -3,6 +3,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:smooth_app/cards/product_cards/product_title_card.dart';
+import 'package:smooth_app/data_models/fetched_product.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -24,22 +25,22 @@ class QuestionCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Future<Product?> productFuture = _getProduct(
+    final Future<FetchedProduct> productFuture = _getProduct(
       question.barcode!,
       context.read<LocalDatabase>(),
     );
 
     final Size screenSize = MediaQuery.of(context).size;
 
-    return FutureBuilder<Product?>(
+    return FutureBuilder<FetchedProduct>(
       future: productFuture,
       builder: (
         BuildContext context,
-        AsyncSnapshot<Product?> snapshot,
+        AsyncSnapshot<FetchedProduct> snapshot,
       ) {
         Product? product;
         if (snapshot.connectionState == ConnectionState.done) {
-          product = snapshot.data;
+          product = snapshot.data?.product;
           // TODO(monsieurtanuki): do something aggressive if product is null here and we don't have a fallback value - like an error widget
         }
         // fallback version
@@ -131,13 +132,13 @@ class QuestionCard extends StatelessWidget {
     );
   }
 
-  Future<Product?> _getProduct(
+  Future<FetchedProduct> _getProduct(
     final String barcode,
     final LocalDatabase localDatabase,
   ) async {
     final Product? result = await DaoProduct(localDatabase).get(barcode);
     if (result != null) {
-      return result;
+      return FetchedProduct.found(result);
     }
     return ProductRefresher().silentFetchAndRefresh(
       barcode: question.barcode!,

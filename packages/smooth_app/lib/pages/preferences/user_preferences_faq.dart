@@ -55,6 +55,7 @@ class UserPreferencesFaq extends AbstractUserPreferences {
           title: appLocalizations.faq,
           leading: Icons.question_mark,
           url: 'https://support.openfoodfacts.org/help',
+          externalLink: true,
         ),
         _getNutriListTile(
           title: appLocalizations.nutriscore_generic,
@@ -75,16 +76,19 @@ class UserPreferencesFaq extends AbstractUserPreferences {
           title: appLocalizations.discover,
           leading: Icons.travel_explore,
           url: 'https://world.openfoodfacts.org/discover',
+          externalLink: true,
         ),
         _getListTile(
           title: appLocalizations.how_to_contribute,
           leading: Icons.volunteer_activism,
           url: 'https://world.openfoodfacts.org/contribute',
+          externalLink: true,
         ),
         _getListTile(
           title: appLocalizations.feed_back,
           leading: Icons.feedback_sharp,
           url: UserFeedbackHelper.getFeedbackFormLink(),
+          externalLink: true,
         ),
         _getListTile(
           title: appLocalizations.about_this_app,
@@ -100,6 +104,7 @@ class UserPreferencesFaq extends AbstractUserPreferences {
     final String? url,
     final VoidCallback? onTap,
     final Icon? icon,
+    final bool? externalLink,
     final Widget? subtitle,
   }) =>
       UserPreferencesListTile(
@@ -108,6 +113,7 @@ class UserPreferencesFaq extends AbstractUserPreferences {
         trailing: icon ??
             UserPreferencesListTile.getTintedIcon(Icons.open_in_new, context),
         leading: UserPreferencesListTile.getTintedIcon(leading, context),
+        externalLink: externalLink,
         subtitle: subtitle,
       );
 
@@ -185,21 +191,32 @@ class UserPreferencesFaq extends AbstractUserPreferences {
                         widthFactor: 0.9,
                         child: Text(appLocalizations.whatIsOff),
                       ),
-                      const SizedBox(height: LARGE_SPACE),
+                      const SizedBox(height: VERY_SMALL_SPACE),
                       SmoothAlertContentButton(
                         onPressed: () => LaunchUrlHelper.launchURL(
                             'https://openfoodfacts.org/who-we-are', true),
                         label: appLocalizations.learnMore,
                         icon: Icons.open_in_new,
                       ),
-                      const SizedBox(height: SMALL_SPACE),
+                      const SizedBox(height: VERY_SMALL_SPACE),
                       SmoothAlertContentButton(
                         onPressed: () => LaunchUrlHelper.launchURL(
-                            'https://openfoodfacts.org/terms-of-', true),
+                          'https://openfoodfacts.org/terms-of-use',
+                          true,
+                        ),
                         label: appLocalizations.termsOfUse,
                         icon: Icons.open_in_new,
                       ),
-                      const SizedBox(height: SMALL_SPACE),
+                      const SizedBox(height: VERY_SMALL_SPACE),
+                      SmoothAlertContentButton(
+                        onPressed: () => LaunchUrlHelper.launchURL(
+                          'https://openfoodfacts.org/legal',
+                          true,
+                        ),
+                        label: appLocalizations.legalNotices,
+                        icon: Icons.open_in_new,
+                      ),
+                      const SizedBox(height: VERY_SMALL_SPACE),
                       SmoothAlertContentButton(
                         onPressed: () => showLicensePage(
                           context: context,
