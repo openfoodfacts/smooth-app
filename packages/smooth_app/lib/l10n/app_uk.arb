@@ -315,6 +315,10 @@
     "support_via_email_include_logs_dialog_body": "Чи бажаєте додати записи аплікації до Вашого повідомлення?",
     "termsOfUse": "Умови використання",
     "@termsOfUse": {},
+    "legalNotices": "Legal notices",
+    "@legalNotices": {
+        "description": "A link to open the legal notices on the website"
+    },
     "about_this_app": "Про додаток",
     "@about_this_app": {
         "description": "Button label: Opens a pop up window which shows information about the app"
