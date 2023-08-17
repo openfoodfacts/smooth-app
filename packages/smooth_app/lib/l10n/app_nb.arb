@@ -315,6 +315,10 @@
     "support_via_email_include_logs_dialog_body": "Ønsker du å inkludere applikasjonslogger som vedlegg til e-posten din?",
     "termsOfUse": "Bruksvilkår",
     "@termsOfUse": {},
+    "legalNotices": "Legal notices",
+    "@legalNotices": {
+        "description": "A link to open the legal notices on the website"
+    },
     "about_this_app": "Om denne appen",
     "@about_this_app": {
         "description": "Button label: Opens a pop up window which shows information about the app"
