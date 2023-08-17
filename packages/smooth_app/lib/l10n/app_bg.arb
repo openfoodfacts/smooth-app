@@ -315,6 +315,10 @@
     "support_via_email_include_logs_dialog_body": "Искаш ли да включиш логовете на приложението като прикачен файл към твоя имейл?",
     "termsOfUse": "Условия за ползване",
     "@termsOfUse": {},
+    "legalNotices": "Legal notices",
+    "@legalNotices": {
+        "description": "A link to open the legal notices on the website"
+    },
     "about_this_app": "Относно приложението",
     "@about_this_app": {
         "description": "Button label: Opens a pop up window which shows information about the app"
