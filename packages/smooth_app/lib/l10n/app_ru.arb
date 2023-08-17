@@ -315,6 +315,10 @@
     "support_via_email_include_logs_dialog_body": "Вы хотите включить журналы приложений во вложение к вашему электронному письму?",
     "termsOfUse": "Условия использования",
     "@termsOfUse": {},
+    "legalNotices": "Legal notices",
+    "@legalNotices": {
+        "description": "A link to open the legal notices on the website"
+    },
     "about_this_app": "О приложении",
     "@about_this_app": {
         "description": "Button label: Opens a pop up window which shows information about the app"
