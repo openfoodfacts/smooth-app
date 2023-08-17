@@ -315,7 +315,7 @@
     "support_via_email_include_logs_dialog_body": "Do you wish to include application logs in attachment to your email?",
     "termsOfUse": "Terms of use",
     "@termsOfUse": {},
-    "legalNotices": "Legal notices",
+    "legalNotices": "சட்ட அறிவிப்புகள்",
     "@legalNotices": {
         "description": "A link to open the legal notices on the website"
     },
