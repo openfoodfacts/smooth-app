@@ -315,6 +315,10 @@
     "support_via_email_include_logs_dialog_body": "Doriți să includeți jurnalele aplicației în atașamentul de la e-mailul dvs.?",
     "termsOfUse": "Condiții de utilizare",
     "@termsOfUse": {},
+    "legalNotices": "Legal notices",
+    "@legalNotices": {
+        "description": "A link to open the legal notices on the website"
+    },
     "about_this_app": "Despre această aplicație",
     "@about_this_app": {
         "description": "Button label: Opens a pop up window which shows information about the app"
