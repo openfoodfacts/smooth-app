@@ -315,6 +315,10 @@
     "support_via_email_include_logs_dialog_body": "คุณต้องการแนบบันทึกการใช้งานไปกับอีเมลหรือไม่?",
     "termsOfUse": "ข้อกำหนดการใช้งาน",
     "@termsOfUse": {},
+    "legalNotices": "Legal notices",
+    "@legalNotices": {
+        "description": "A link to open the legal notices on the website"
+    },
     "about_this_app": "เกี่ยวกับแอพนี้",
     "@about_this_app": {
         "description": "Button label: Opens a pop up window which shows information about the app"
