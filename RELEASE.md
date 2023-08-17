@@ -1,0 +1,59 @@
+# Open Food Facts - Flutter App - Release Guide
+
+Welcome to the release guide for the Open Food Facts Flutter App. Below are the steps to guide you through our 2 weeks release process.
+
+## 1. Pre-release Checklist
+
+Before you proceed with the release, ensure the following:
+
+- [ ] All the features and fixes planned for this release are merged into the `main` branch.
+- [ ] All merged features and fixes have corresponding unit and integration tests.
+- [ ] Update version number in the `pubspec.yaml` according to [semantic versioning](https://semver.org/). (Mergin Release Please should take care of that, and also provoke a F-Droid release up to a week later.)
+
+## 2. QA Testing
+
+- [ ] Refer to our QA Document to ensure that the app has been thoroughly tested against all release criteria. You can access the QA document [here](https://fake-url-to-QA-document.com).
+  
+## 3. Run Automated CI for Deployment
+
+1. Run the CI GitHub Action to release to Internal and Testflight using this URL.
+2. Trigger the automated CI process which will handle the build and deployment for both iOS and Android.
+3. Go to the Play Console, and add a changelog
+4. Go to App Store Connect, and select audiences to distribute to in the Testflight section, and add a Testflight changelog
+
+> **Note**: If there are any failures during the CI process, they must be addressed before proceeding.
+
+## 4. Verify Deployment
+
+- [ ] Once CI indicates successful internal deployment, download the app from both the Apple App Store and Google Play Store to ensure it's the latest version. Note that you need to register to Testflight or Play Console Internal to do that.
+- [ ] Perform quick tests on both platforms to confirm basic functionality, you can use the release process
+
+## 5. Post-release
+
+1. **Documentation**:
+    - Ensure that all documentation is up-to-date. This includes user manuals, developer guides, and in-code documentation.
+    - Open a new Release train in the App Store developper console
+    
+2. **Announce**:
+    - Post the release notes on the Open Food Facts GitHub release page, detailing the new features, fixes, and any known issues.
+    - Create a blogpost on the Open Food Facts blog , detailing the new features, fixes, focusing on the user visible changes, with nice screenshots centered on the feature
+    - Create social media assets detailing the changes
+    - Set up the blog post for translation on openfoodfacts-translations using this [Guide](https://fake-url-to-guide.com)
+    - Publish translations as they arrive back on openfoodfacts-translations
+    - Update the tagline in the app for android and ios on openfoodfacts-server (it's the app's in-built update notification system).
+    - Inform the community through our regular communication channels, such as our Slack, Forum, Facebook, Twitter.
+
+3. **Roadmap Review**:
+    - With the release out, it's a good time to look ahead. Visit our [Roadmap Issue](https://fake-url-to-roadmap-issue.com) to see what's planned for the next sprint and adjust priorities if needed.
+    
+## 6. Troubleshooting
+
+If any issues arise during the release process:
+
+1. Pause if possible the release on the respective app store(s).
+2. Address the issue in our codebase in a branch, have it reviewed and merge.
+3. Once fixed, return to the QA Testing phase to ensure stability before re-initiating the release process.
+
+---
+
+Thank you for ensuring the smooth (ha ha) release of the Open Food Facts Flutter App. Your diligence helps us maintain a high standard for the large number of users who depend on the app. If you have suggestions for improving this guide or the release process, please submit your feedback via our regular communication channels.
