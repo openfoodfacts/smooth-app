@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -12,6 +13,7 @@ import 'package:smooth_app/helpers/user_feedback_helper.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
+import 'package:smooth_app/query/product_query.dart';
 
 /// Display of "FAQ" for the preferences page.
 class UserPreferencesFaq extends AbstractUserPreferences {
@@ -54,6 +56,21 @@ class UserPreferencesFaq extends AbstractUserPreferences {
           leading: Icons.question_mark,
           url: 'https://support.openfoodfacts.org/help',
         ),
+        _getNutriListTile(
+          title: appLocalizations.nutriscore_generic,
+          url: 'https://world.openfoodfacts.org/nutriscore',
+          svg: 'assets/cache/nutriscore-b.svg',
+        ),
+        _getNutriListTile(
+          title: appLocalizations.ecoscore_generic,
+          url: 'https://world.openfoodfacts.org/ecoscore',
+          svg: 'assets/cache/ecoscore-b.svg',
+        ),
+        _getNutriListTile(
+          title: appLocalizations.nova_group_generic,
+          url: 'https://world.openfoodfacts.org/nova',
+          svg: 'assets/cache/nova-group-4.svg',
+        ),
         _getListTile(
           title: appLocalizations.discover,
           leading: Icons.travel_explore,
@@ -83,6 +100,7 @@ class UserPreferencesFaq extends AbstractUserPreferences {
     final String? url,
     final VoidCallback? onTap,
     final Icon? icon,
+    final Widget? subtitle,
   }) =>
       UserPreferencesListTile(
         title: Text(title),
@@ -90,6 +108,26 @@ class UserPreferencesFaq extends AbstractUserPreferences {
         trailing: icon ??
             UserPreferencesListTile.getTintedIcon(Icons.open_in_new, context),
         leading: UserPreferencesListTile.getTintedIcon(leading, context),
+        subtitle: subtitle,
+      );
+
+  Widget _getNutriListTile({
+    required final String title,
+    required final String url,
+    required final String svg,
+  }) =>
+      _getListTile(
+        title: title,
+        leading: CupertinoIcons.lightbulb,
+        url: ProductQuery.replaceSubdomain(Uri.parse(url)).toString(),
+        subtitle: Align(
+          alignment: Alignment.topLeft,
+          child: SvgPicture.asset(
+            svg,
+            height: MINIMUM_TOUCH_SIZE,
+            package: AppHelper.APP_PACKAGE,
+          ),
+        ),
       );
 
   static const String _iconLightAssetPath =
