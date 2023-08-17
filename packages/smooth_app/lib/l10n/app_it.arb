@@ -315,6 +315,10 @@
     "support_via_email_include_logs_dialog_body": "Desideri includere i log dell'app in allegato alla tua e-mail?",
     "termsOfUse": "Condizioni d'uso",
     "@termsOfUse": {},
+    "legalNotices": "Legal notices",
+    "@legalNotices": {
+        "description": "A link to open the legal notices on the website"
+    },
     "about_this_app": "Su quest'app",
     "@about_this_app": {
         "description": "Button label: Opens a pop up window which shows information about the app"
