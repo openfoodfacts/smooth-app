@@ -315,7 +315,7 @@
     "support_via_email_include_logs_dialog_body": "Ar norite įtraukti programos išrašą į savo el. pašto priedą?",
     "termsOfUse": "Naudojimo sąlygos",
     "@termsOfUse": {},
-    "legalNotices": "Legal notices",
+    "legalNotices": "Teisinė informacija",
     "@legalNotices": {
         "description": "A link to open the legal notices on the website"
     },
