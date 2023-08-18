@@ -15,6 +15,13 @@ abstract class ProductQuery {
 
   static OpenFoodFactsCountry? _country;
 
+  static String replaceSubdomain(final String url) =>
+      UriHelper.replaceSubdomain(
+        Uri.parse(url),
+        language: getLanguage(),
+        country: getCountry(),
+      ).toString();
+
   /// Returns the global language for API queries.
   static OpenFoodFactsLanguage getLanguage() {
     final List<OpenFoodFactsLanguage> languages =
