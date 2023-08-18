@@ -165,16 +165,22 @@ class UserPreferencesFaq extends AbstractUserPreferences {
         onTap: onTap ?? () async => LaunchUrlHelper.launchURL(url!, false),
         trailing: icon ??
             UserPreferencesListTile.getTintedIcon(Icons.open_in_new, context),
-        leading: leadingIconData != null
-            ? UserPreferencesListTile.getTintedIcon(leadingIconData, context)
-            : leadingSvg == null
-                ? null
-                : SvgPicture.asset(
-                    leadingSvg,
-                    // standard icon size
-                    width: 24,
-                    package: AppHelper.APP_PACKAGE,
-                  ),
+        leading: SizedBox(
+          width: 48,
+          height: 48,
+          child: Center(
+            child: leadingIconData != null
+                ? UserPreferencesListTile.getTintedIcon(
+                    leadingIconData, context)
+                : leadingSvg == null
+                    ? null
+                    : SvgPicture.asset(
+                        leadingSvg,
+                        width: 48,
+                        package: AppHelper.APP_PACKAGE,
+                      ),
+          ),
+        ),
         externalLink: url != null,
       );
 
