@@ -144,8 +144,8 @@
     "@user_management": {},
     "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
     "incorrect_credentials": "Hatalı kullanıcı adı veya parola.",
-    "password_lost_incorrect_credentials": "This email or username doesn't exist. Please check your credentials.",
-    "password_lost_server_unavailable": "We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.",
+    "password_lost_incorrect_credentials": "Bu e-posta veya kullanıcı adı mevcut değil. Lütfen kimlik bilgilerinizi kontrol edin.",
+    "password_lost_server_unavailable": "Şu anda sunucularımızda yavaşlamalar yaşıyoruz ve bunun için özür dileriz. Lütfen daha sonra tekrar deneyiniz.",
     "login": "Kullanıcı adı",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
@@ -262,7 +262,7 @@
     "sign_up_page_user_name_already_used": "Kullanıcı adı zaten var, lütfen başka bir kullanıcı adı seçin.",
     "sign_up_page_email_already_exists": "zaten var, hesaba giriş yapın veya başka bir e-posta ile deneyin.",
     "sign_up_page_provide_valid_email": "Lütfen geçerli bir e-posta adresi girin.",
-    "sign_up_page_server_busy": "We are deeply sorry, we have some technical difficulties to create your account. Please try again later.",
+    "sign_up_page_server_busy": "Çok üzgünüz, hesabınızı oluştururken bazı teknik sorunlar yaşıyoruz. Lütfen daha sonra tekrar deneyiniz.",
     "@Settings": {},
     "settingsTitle": "Ayarlar",
     "@settingsTitle": {
@@ -459,7 +459,7 @@
     "@filter": {
         "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
     },
-    "scan": "Products from the Scan screen",
+    "scan": "Tarama ekranındaki ürünler",
     "@scan": {
         "description": "Page title: List type: Products in the scan session"
     },
@@ -785,7 +785,7 @@
     "@Lists": {},
     "no_prodcut_in_list": "Bu listede ürün yok",
     "no_product_in_section": "Bu bölümde ürün bulunmamaktadır",
-    "recently_seen_products": "All viewed products",
+    "recently_seen_products": "Görüntülenen tüm ürünler",
     "clear": "Temizle",
     "@clear": {
         "description": "Clears a product list (short label)"
@@ -861,7 +861,7 @@
     "connect_with_us": "Bizimle iletişime geçin",
     "instagram": "Instagram",
     "instagram_link": "https://instagram.com/open.food.facts",
-    "twitter": "Twitter",
+    "twitter": "X (eski adıyla Twitter)",
     "twitter_link": "https://www.twitter.com/openfoodfacts",
     "blog": "Blog",
     "faq": "SSS",

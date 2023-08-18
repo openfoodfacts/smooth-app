@@ -315,6 +315,10 @@
     "support_via_email_include_logs_dialog_body": "Do you wish to include application logs in attachment to your email?",
     "termsOfUse": "Terms of use",
     "@termsOfUse": {},
+    "legalNotices": "Legal notices",
+    "@legalNotices": {
+        "description": "A link to open the legal notices on the website"
+    },
     "about_this_app": "About this app",
     "@about_this_app": {
         "description": "Button label: Opens a pop up window which shows information about the app"
@@ -861,7 +865,7 @@
     "connect_with_us": "Connect with us",
     "instagram": "Instagram",
     "instagram_link": "https://instagram.com/open.food.facts",
-    "twitter": "Twitter",
+    "twitter": "X (formerly Twitter)",
     "twitter_link": "https://www.twitter.com/openfoodfacts",
     "blog": "Blog",
     "faq": "FAQ",
@@ -1464,6 +1468,10 @@
     "category_picker_no_category_found_button": "Back",
     "@category_picker_no_category_found_button": {
         "description": "Button label when no category is available"
+    },
+    "user_preferences_item_accessibility_hint": "Click to open in your browser or in the application (if installed)",
+    "@user_preferences_item_accessibility_hint":{
+        "description": "A hint for screen readers to explain how external links work"
     },
     "dev_preferences_screen_title": "DEV Mode",
     "@dev_preferences_screen_title": {
@@ -2271,6 +2279,32 @@
     "contrast_low": "Low",
     "@contrast_low": {
         "description": "Low Contrast Text Color"
+    },
+    "product_refresher_internet_not_found": "Product not found!",
+    "@product_refresher_internet_not_found": {
+        "description": "When refreshing a product that does not exist on the server. Label is the body of a dialog."
+    },
+    "product_refresher_internet_not_connected": "You are not connected to internet!",
+    "@product_refresher_internet_not_connected": {
+        "description": "When refreshing a product and you're not even connected to internet. Label is the body of a dialog."
+    },
+    "product_refresher_internet_no_ping": "Server down ({host})",
+    "@product_refresher_internet_no_ping": {
+        "description": "When refreshing a product and you cannot even ping the server. Label is the body of a dialog.",
+        "placeholders": {
+            "host": {
+                "type": "String?"
+            }
+        }
+    },
+    "product_refresher_internet_error": "Server error ({exception})",
+    "@product_refresher_internet_error": {
+        "description": "When refreshing a product and the server returned an exception. Label is the body of a dialog.",
+        "placeholders": {
+            "exception": {
+                "type": "String?"
+            }
+        }
     },
     "product_loader_not_found_title": "Product not found!",
     "@product_loader_not_found_title": {

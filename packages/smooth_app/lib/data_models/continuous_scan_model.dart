@@ -224,9 +224,6 @@ class ContinuousScanModel with ChangeNotifier {
       case FetchedProductStatus.internetError:
         _setBarcodeState(barcode, ScannedProductState.ERROR_INTERNET);
         return;
-      case FetchedProductStatus.codeInvalid:
-        _setBarcodeState(barcode, ScannedProductState.ERROR_INVALID_CODE);
-        return;
       case FetchedProductStatus.userCancelled:
         // we do nothing
         return;
@@ -246,9 +243,6 @@ class ContinuousScanModel with ChangeNotifier {
         return;
       case FetchedProductStatus.internetError:
         _setBarcodeState(barcode, ScannedProductState.ERROR_INTERNET);
-        return;
-      case FetchedProductStatus.codeInvalid:
-        _setBarcodeState(barcode, ScannedProductState.ERROR_INVALID_CODE);
         return;
       case FetchedProductStatus.userCancelled:
         // we do nothing
