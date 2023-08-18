@@ -50,6 +50,8 @@ class UserPreferencesFaq extends AbstractUserPreferences {
   @override
   Color? getHeaderColor() => const Color(0xFFDFF7E8);
 
+  bool get _isDark => Theme.of(context).brightness == Brightness.dark;
+
   @override
   List<Widget> getBody() => <Widget>[
         _getListTile(
@@ -113,7 +115,13 @@ class UserPreferencesFaq extends AbstractUserPreferences {
         if (Platform.isAndroid || Platform.isIOS)
           _getListTile(
             title: appLocalizations.faq_title_install_beauty,
-            leadingIconData: Icons.woman,
+            // for the record those svg files were edited, because svg flutter
+            // does not support the styles
+            // eg. <style>.b{fill:#008c8c;}.c{fill:#fff;}</style> is not taken into account
+            // and the initial rect creates a background we don't need
+            leadingSvg: _isDark
+                ? 'assets/app/RVB_ICON_BLACK_BG_OBF.svg'
+                : 'assets/app/RVB_ICON_WHITE_BG_OBF.svg',
             url: Platform.isAndroid
                 ? 'https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=${ProductQuery.getLanguage().offTag}'
                 : 'https://apps.apple.com/${ProductQuery.getLanguage().offTag}/app/open-beauty-facts/id1122926380',
@@ -121,14 +129,18 @@ class UserPreferencesFaq extends AbstractUserPreferences {
         if (Platform.isAndroid)
           _getListTile(
             title: appLocalizations.faq_title_install_pet,
-            leadingIconData: Icons.pets,
+            leadingSvg: _isDark
+                ? 'assets/app/RVB_ICON_BLACK_BG_OPFF.svg'
+                : 'assets/app/RVB_ICON_WHITE_BG_OPFF.svg',
             url:
                 'https://play.google.com/store/apps/details?id=org.openpetfoodfacts.scanner&hl=${ProductQuery.getLanguage().offTag}',
           ),
         if (Platform.isAndroid)
           _getListTile(
             title: appLocalizations.faq_title_install_product,
-            leadingIconData: Icons.build,
+            leadingSvg: _isDark
+                ? 'assets/app/RVB_ICON_BLACK_BG_OPF.svg'
+                : 'assets/app/RVB_ICON_WHITE_BG_OPF.svg',
             url:
                 'https://play.google.com/store/apps/details?id=org.openpetfoodfacts.scanner&hl=${ProductQuery.getLanguage().offTag}',
           ),
@@ -143,7 +155,7 @@ class UserPreferencesFaq extends AbstractUserPreferences {
   Widget _getListTile({
     required final String title,
     final IconData? leadingIconData,
-    final Widget? leadingWidget,
+    final String? leadingSvg,
     final String? url,
     final VoidCallback? onTap,
     final Icon? icon,
@@ -155,7 +167,14 @@ class UserPreferencesFaq extends AbstractUserPreferences {
             UserPreferencesListTile.getTintedIcon(Icons.open_in_new, context),
         leading: leadingIconData != null
             ? UserPreferencesListTile.getTintedIcon(leadingIconData, context)
-            : leadingWidget,
+            : leadingSvg == null
+                ? null
+                : SvgPicture.asset(
+                    leadingSvg,
+                    // standard icon size
+                    width: 24,
+                    package: AppHelper.APP_PACKAGE,
+                  ),
         externalLink: url != null,
       );
 
@@ -166,12 +185,7 @@ class UserPreferencesFaq extends AbstractUserPreferences {
   }) =>
       _getListTile(
         title: title,
-        leadingWidget: SvgPicture.asset(
-          svg,
-          // standard icon size
-          width: 24,
-          package: AppHelper.APP_PACKAGE,
-        ),
+        leadingSvg: svg,
         url: ProductQuery.replaceSubdomain(url),
       );
 
