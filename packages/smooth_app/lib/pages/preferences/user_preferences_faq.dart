@@ -166,8 +166,8 @@ class UserPreferencesFaq extends AbstractUserPreferences {
         trailing: icon ??
             UserPreferencesListTile.getTintedIcon(Icons.open_in_new, context),
         leading: SizedBox(
-          width: 48,
-          height: 48,
+          width: 2 * DEFAULT_ICON_SIZE,
+          height: 2 * DEFAULT_ICON_SIZE,
           child: Center(
             child: leadingIconData != null
                 ? UserPreferencesListTile.getTintedIcon(
@@ -176,7 +176,7 @@ class UserPreferencesFaq extends AbstractUserPreferences {
                     ? null
                     : SvgPicture.asset(
                         leadingSvg,
-                        width: 48,
+                        width: 2 * DEFAULT_ICON_SIZE,
                         package: AppHelper.APP_PACKAGE,
                       ),
           ),
