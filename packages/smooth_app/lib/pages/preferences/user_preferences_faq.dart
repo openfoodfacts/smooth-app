@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -12,6 +14,7 @@ import 'package:smooth_app/helpers/user_feedback_helper.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
+import 'package:smooth_app/query/product_query.dart';
 
 /// Display of "FAQ" for the preferences page.
 class UserPreferencesFaq extends AbstractUserPreferences {
@@ -47,31 +50,103 @@ class UserPreferencesFaq extends AbstractUserPreferences {
   @override
   Color? getHeaderColor() => const Color(0xFFDFF7E8);
 
+  bool get _isDark => Theme.of(context).brightness == Brightness.dark;
+
   @override
   List<Widget> getBody() => <Widget>[
         _getListTile(
           title: appLocalizations.faq,
-          leading: Icons.question_mark,
+          leadingIconData: Icons.question_mark,
           url: 'https://support.openfoodfacts.org/help',
+        ),
+        _getNutriListTile(
+          title: appLocalizations.nutriscore_generic,
+          url: 'https://world.openfoodfacts.org/nutriscore',
+          svg: 'assets/cache/nutriscore-b.svg',
+        ),
+        _getNutriListTile(
+          title: appLocalizations.ecoscore_generic,
+          url: 'https://world.openfoodfacts.org/ecoscore',
+          svg: 'assets/cache/ecoscore-b.svg',
+        ),
+        _getNutriListTile(
+          title: appLocalizations.nova_group_generic,
+          url: 'https://world.openfoodfacts.org/nova',
+          svg: 'assets/cache/nova-group-4.svg',
+        ),
+        _getNutriListTile(
+          title: appLocalizations.nutrition_facts,
+          url: 'https://world.openfoodfacts.org/traffic-lights',
+          svg: 'assets/cache/low.svg',
         ),
         _getListTile(
           title: appLocalizations.discover,
-          leading: Icons.travel_explore,
-          url: 'https://world.openfoodfacts.org/discover',
+          leadingIconData: Icons.travel_explore,
+          url: ProductQuery.replaceSubdomain(
+            'https://world.openfoodfacts.org/discover',
+          ),
         ),
         _getListTile(
           title: appLocalizations.how_to_contribute,
-          leading: Icons.volunteer_activism,
-          url: 'https://world.openfoodfacts.org/contribute',
+          leadingIconData: Icons.volunteer_activism,
+          url: ProductQuery.replaceSubdomain(
+            'https://world.openfoodfacts.org/contribute',
+          ),
         ),
         _getListTile(
           title: appLocalizations.feed_back,
-          leading: Icons.feedback_sharp,
+          leadingIconData: Icons.feedback_sharp,
           url: UserFeedbackHelper.getFeedbackFormLink(),
         ),
         _getListTile(
+          title: appLocalizations.faq_title_partners,
+          leadingIconData: Icons.handshake_outlined,
+          url: ProductQuery.replaceSubdomain(
+            'https://world.openfoodfacts.org/partners',
+          ),
+        ),
+        _getListTile(
+          title: appLocalizations.faq_title_vision,
+          leadingIconData: Icons.remove_red_eye_outlined,
+          url: ProductQuery.replaceSubdomain(
+            'https://world.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs',
+          ),
+        ),
+        if (Platform.isAndroid || Platform.isIOS)
+          _getListTile(
+            title: appLocalizations.faq_title_install_beauty,
+            // for the record those svg files were edited, because svg flutter
+            // does not support the styles
+            // eg. <style>.b{fill:#008c8c;}.c{fill:#fff;}</style> is not taken into account
+            // and the initial rect creates a background we don't need
+            leadingSvg: _isDark
+                ? 'assets/app/RVB_ICON_BLACK_BG_OBF.svg'
+                : 'assets/app/RVB_ICON_WHITE_BG_OBF.svg',
+            url: Platform.isAndroid
+                ? 'https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=${ProductQuery.getLanguage().offTag}'
+                : 'https://apps.apple.com/${ProductQuery.getLanguage().offTag}/app/open-beauty-facts/id1122926380',
+          ),
+        if (Platform.isAndroid)
+          _getListTile(
+            title: appLocalizations.faq_title_install_pet,
+            leadingSvg: _isDark
+                ? 'assets/app/RVB_ICON_BLACK_BG_OPFF.svg'
+                : 'assets/app/RVB_ICON_WHITE_BG_OPFF.svg',
+            url:
+                'https://play.google.com/store/apps/details?id=org.openpetfoodfacts.scanner&hl=${ProductQuery.getLanguage().offTag}',
+          ),
+        if (Platform.isAndroid)
+          _getListTile(
+            title: appLocalizations.faq_title_install_product,
+            leadingSvg: _isDark
+                ? 'assets/app/RVB_ICON_BLACK_BG_OPF.svg'
+                : 'assets/app/RVB_ICON_WHITE_BG_OPF.svg',
+            url:
+                'https://play.google.com/store/apps/details?id=org.openpetfoodfacts.scanner&hl=${ProductQuery.getLanguage().offTag}',
+          ),
+        _getListTile(
           title: appLocalizations.about_this_app,
-          leading: Icons.info,
+          leadingIconData: Icons.info,
           onTap: () async => _about(),
           icon: getForwardIcon(),
         ),
@@ -79,7 +154,8 @@ class UserPreferencesFaq extends AbstractUserPreferences {
 
   Widget _getListTile({
     required final String title,
-    required final IconData leading,
+    final IconData? leadingIconData,
+    final String? leadingSvg,
     final String? url,
     final VoidCallback? onTap,
     final Icon? icon,
@@ -89,7 +165,34 @@ class UserPreferencesFaq extends AbstractUserPreferences {
         onTap: onTap ?? () async => LaunchUrlHelper.launchURL(url!, false),
         trailing: icon ??
             UserPreferencesListTile.getTintedIcon(Icons.open_in_new, context),
-        leading: UserPreferencesListTile.getTintedIcon(leading, context),
+        leading: SizedBox(
+          width: 2 * DEFAULT_ICON_SIZE,
+          height: 2 * DEFAULT_ICON_SIZE,
+          child: Center(
+            child: leadingIconData != null
+                ? UserPreferencesListTile.getTintedIcon(
+                    leadingIconData, context)
+                : leadingSvg == null
+                    ? null
+                    : SvgPicture.asset(
+                        leadingSvg,
+                        width: 2 * DEFAULT_ICON_SIZE,
+                        package: AppHelper.APP_PACKAGE,
+                      ),
+          ),
+        ),
+        externalLink: url != null,
+      );
+
+  Widget _getNutriListTile({
+    required final String title,
+    required final String url,
+    required final String svg,
+  }) =>
+      _getListTile(
+        title: title,
+        leadingSvg: svg,
+        url: ProductQuery.replaceSubdomain(url),
       );
 
   static const String _iconLightAssetPath =
@@ -147,21 +250,32 @@ class UserPreferencesFaq extends AbstractUserPreferences {
                         widthFactor: 0.9,
                         child: Text(appLocalizations.whatIsOff),
                       ),
-                      const SizedBox(height: LARGE_SPACE),
+                      const SizedBox(height: VERY_SMALL_SPACE),
                       SmoothAlertContentButton(
                         onPressed: () => LaunchUrlHelper.launchURL(
                             'https://openfoodfacts.org/who-we-are', true),
                         label: appLocalizations.learnMore,
                         icon: Icons.open_in_new,
                       ),
-                      const SizedBox(height: SMALL_SPACE),
+                      const SizedBox(height: VERY_SMALL_SPACE),
                       SmoothAlertContentButton(
                         onPressed: () => LaunchUrlHelper.launchURL(
-                            'https://openfoodfacts.org/terms-of-', true),
+                          'https://openfoodfacts.org/terms-of-use',
+                          true,
+                        ),
                         label: appLocalizations.termsOfUse,
                         icon: Icons.open_in_new,
                       ),
-                      const SizedBox(height: SMALL_SPACE),
+                      const SizedBox(height: VERY_SMALL_SPACE),
+                      SmoothAlertContentButton(
+                        onPressed: () => LaunchUrlHelper.launchURL(
+                          'https://openfoodfacts.org/legal',
+                          true,
+                        ),
+                        label: appLocalizations.legalNotices,
+                        icon: Icons.open_in_new,
+                      ),
+                      const SizedBox(height: VERY_SMALL_SPACE),
                       SmoothAlertContentButton(
                         onPressed: () => showLicensePage(
                           context: context,

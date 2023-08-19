@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/fetched_product.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
@@ -19,33 +18,31 @@ class BarcodeProductQuery {
   final bool isScanned;
 
   Future<FetchedProduct> getFetchedProduct() async {
-    try {
-      ProductQuery.setUserAgentComment(isScanned ? 'scan' : 'search');
-      final Product? product = await ProductRefresher().silentFetchAndRefresh(
-        barcode: barcode,
-        localDatabase: daoProduct.localDatabase,
-      );
-      if (product != null) {
-        return FetchedProduct(product);
+    ProductQuery.setUserAgentComment(isScanned ? 'scan' : 'search');
+    final FetchedProduct fetchedProduct =
+        await ProductRefresher().silentFetchAndRefresh(
+      barcode: barcode,
+      localDatabase: daoProduct.localDatabase,
+    );
+    ProductQuery.setUserAgentComment('');
+    if (fetchedProduct.product != null) {
+      return fetchedProduct;
+    }
+
+    if (fetchedProduct.status == FetchedProductStatus.internetNotFound) {
+      if (isScanned) {
+        AnalyticsHelper.trackEvent(
+          AnalyticsEvent.couldNotScanProduct,
+          barcode: barcode,
+        );
+      } else {
+        AnalyticsHelper.trackEvent(
+          AnalyticsEvent.couldNotFindProduct,
+          barcode: barcode,
+        );
       }
-    } catch (e) {
-      return FetchedProduct.error(FetchedProductStatus.internetError);
-    } finally {
-      ProductQuery.setUserAgentComment('');
     }
 
-    if (isScanned) {
-      AnalyticsHelper.trackEvent(
-        AnalyticsEvent.couldNotScanProduct,
-        barcode: barcode,
-      );
-    } else {
-      AnalyticsHelper.trackEvent(
-        AnalyticsEvent.couldNotFindProduct,
-        barcode: barcode,
-      );
-    }
-
-    return FetchedProduct.error(FetchedProductStatus.internetNotFound);
+    return fetchedProduct;
   }
 }
