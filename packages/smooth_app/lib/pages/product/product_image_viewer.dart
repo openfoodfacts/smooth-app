@@ -179,8 +179,8 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
               )
             ],
           ),
-          Container(
-            margin: EdgeInsets.only(bottom: SMALL_SPACE),
+          Padding(
+            padding: const EdgeInsets.only(bottom: SMALL_SPACE),
             child: IntrinsicHeight(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -202,7 +202,9 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
                   Expanded(
                     child: Padding(
                       padding:
-                          const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
+                          const EdgeInsets.symmetric(
+                              horizontal: SMALL_SPACE,
+                            ),
                       child: ProductImageLocalButton(
                         firstPhoto: imageProvider == null,
                         barcode: _barcode,
@@ -233,7 +235,9 @@ class _ProductImageViewerState extends State<ProductImageViewer> {
                   Expanded(
                     child: Padding(
                       padding:
-                          const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
+                          const EdgeInsets.symmetric(
+                              horizontal: SMALL_SPACE,
+                            ),
                       child: _getEditImageButton(appLocalizations),
                     ),
                   ),

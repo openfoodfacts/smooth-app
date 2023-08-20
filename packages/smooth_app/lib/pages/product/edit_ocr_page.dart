@@ -258,7 +258,8 @@ class _EditOcrPageState extends State<EditOcrPage> {
                       Expanded(
                         child: Padding(
                           padding: const EdgeInsets.symmetric(
-                              horizontal: SMALL_SPACE),
+                              horizontal: SMALL_SPACE,
+                              ),
                           child: ProductImageServerButton(
                             product: _product,
                             imageField: _helper.getImageField(),
@@ -271,7 +272,8 @@ class _EditOcrPageState extends State<EditOcrPage> {
                       Expanded(
                         child: Padding(
                           padding: const EdgeInsets.symmetric(
-                              horizontal: SMALL_SPACE),
+                              horizontal: SMALL_SPACE,
+                              ),
                           child: ProductImageLocalButton(
                             firstPhoto: !transientFile.isImageAvailable(),
                             barcode: widget.product.barcode!,
