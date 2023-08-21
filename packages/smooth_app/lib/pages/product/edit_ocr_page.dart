@@ -148,7 +148,7 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
         ),
         subTitle: upToDateProduct.productName != null
             ? Text(
-                upToDateProduct.productName!,
+                '${upToDateProduct.productName!.trim()}, ${upToDateProduct.brands!.trim()}',
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 style: appbarTextStyle,

@@ -62,8 +62,10 @@ class _AddOtherDetailsPageState extends State<AddOtherDetailsPage> {
           title:
               Text(appLocalizations.edit_product_form_item_other_details_title),
           subTitle: widget.product.productName != null
-              ? Text(widget.product.productName!,
-                  overflow: TextOverflow.ellipsis, maxLines: 1)
+              ? Text(
+                  '${widget.product.productName!.trim()}, ${widget.product.brands!.trim()}',
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 1)
               : null,
           ignoreSemanticsForSubtitle: true,
         ),

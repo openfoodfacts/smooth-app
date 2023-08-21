@@ -56,7 +56,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView>
         subTitle: upToDateProduct.productName == null
             ? null
             : Text(
-                upToDateProduct.productName!,
+                '${upToDateProduct.productName!.trim()}, ${upToDateProduct.brands!.trim()}',
                 overflow: TextOverflow.ellipsis,
                 maxLines: 1,
               ),

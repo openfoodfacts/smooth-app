@@ -74,7 +74,7 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 AutoSizeText(
-                  '$productBrand,$productName',
+                  '${productName.trim()}, ${productBrand.trim()}',
                   minFontSize:
                       theme.textTheme.titleLarge?.fontSize?.clamp(13.0, 17.0) ??
                           13.0,
