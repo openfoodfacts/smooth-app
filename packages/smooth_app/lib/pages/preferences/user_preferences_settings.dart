@@ -75,19 +75,21 @@ class _RateUs extends StatelessWidget {
     try {
       await ApplicationStore.openAppDetails();
     } on PlatformException {
-      final AppLocalizations appLocalizations = AppLocalizations.of(context);
-      final ThemeData themeData = Theme.of(context);
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(
-            appLocalizations.error_occurred,
-            textAlign: TextAlign.center,
-            style: TextStyle(color: themeData.colorScheme.background),
+      if (context.mounted) {
+        final AppLocalizations appLocalizations = AppLocalizations.of(context);
+        final ThemeData themeData = Theme.of(context);
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(
+              appLocalizations.error_occurred,
+              textAlign: TextAlign.center,
+              style: TextStyle(color: themeData.colorScheme.background),
+            ),
+            behavior: SnackBarBehavior.floating,
+            backgroundColor: themeData.colorScheme.onBackground,
           ),
-          behavior: SnackBarBehavior.floating,
-          backgroundColor: themeData.colorScheme.onBackground,
-        ),
-      );
+        );
+      }
     }
   }
 
@@ -137,19 +139,21 @@ class _ShareWithFriends extends StatelessWidget {
     try {
       await Share.share(appLocalizations.contribute_share_content);
     } on PlatformException {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(
-            appLocalizations.error,
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              color: themeData.colorScheme.background,
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(
+              appLocalizations.error,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: themeData.colorScheme.background,
+              ),
             ),
+            behavior: SnackBarBehavior.floating,
+            backgroundColor: themeData.colorScheme.onBackground,
           ),
-          behavior: SnackBarBehavior.floating,
-          backgroundColor: themeData.colorScheme.onBackground,
-        ),
-      );
+        );
+      }
     }
   }
 

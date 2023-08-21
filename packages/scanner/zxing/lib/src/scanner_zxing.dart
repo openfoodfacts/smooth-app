@@ -172,7 +172,9 @@ class _SmoothBarcodeScannerZXingState
                               await _controller?.toggleFlash();
                               setState(() {});
                             } catch (err) {
-                              widget.onCameraFlashError?.call(context);
+                              if (context.mounted) {
+                                widget.onCameraFlashError?.call(context);
+                              }
                             }
                           },
                           child: Icon(

@@ -438,10 +438,12 @@ class _ProductQueryPageState extends State<ProductQueryPage>
     try {
       successfullyLoaded = await _model.loadFromTop();
     } catch (e) {
-      await LoadingDialog.error(
-        context: context,
-        title: _model.loadingError,
-      );
+      if (mounted) {
+        await LoadingDialog.error(
+          context: context,
+          title: _model.loadingError,
+        );
+      }
     } finally {
       if (successfullyLoaded) {
         _scrollToTop(instant: true);
