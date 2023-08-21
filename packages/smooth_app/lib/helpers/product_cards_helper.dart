@@ -9,9 +9,12 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/image_field_extension.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
+import 'package:smooth_app/query/product_query.dart';
 
 String getProductName(Product product, AppLocalizations appLocalizations) =>
-    product.productName ?? appLocalizations.unknownProductName;
+    product.productName ??
+    product.productNameInLanguages?[ProductQuery.getLanguage()] ??
+    appLocalizations.unknownProductName;
 
 String getProductBrands(Product product, AppLocalizations appLocalizations) {
   final String? brands = product.brands;
