@@ -46,7 +46,7 @@ class _CountrySelectorState extends State<CountrySelector> {
 
     try {
       localizedCountries =
-          await IsoCountries.iso_countries_for_locale(languageCode);
+          await IsoCountries.isoCountriesForLocale(languageCode);
     } on MissingPluginException catch (_) {
       // Locales are not implemented on desktop and web
       // TODO(g123k): Add a complete list

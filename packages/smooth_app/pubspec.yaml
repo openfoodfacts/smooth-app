@@ -4,7 +4,7 @@ version: 0.0.0+734
 publish_to: "none"
 
 environment:
-  sdk: '>=3.0.0 <4.0.0'
+  sdk: '>=3.1.0 <4.0.0'
 
 dependencies:
   flutter:
@@ -26,8 +26,8 @@ dependencies:
   hive: 2.2.3
   hive_flutter: 1.1.0
   http: 0.13.5
-  image_picker: ^1.0.1
-  iso_countries: 2.1.0
+  image_picker: 1.0.1
+  iso_countries: 2.2.0
   latlong2: 0.8.2
   matomo_tracker: 3.1.0
   package_info_plus: 3.0.3
@@ -47,14 +47,14 @@ dependencies:
     path: ../app_store/shared
   audioplayers: 5.0.0
   percent_indicator: 4.2.3
-  flutter_email_sender: ^6.0.0
+  flutter_email_sender: 6.0.0
   flutter_native_splash: 2.3.1
   image: ^4.0.17
   auto_size_text: 3.0.0
   crop_image: 1.0.10
   shared_preferences: 2.1.1
-  intl: 0.18.0
-  collection: 1.17.1
+  intl: 0.18.1
+  collection: 1.17.2
   path: 1.8.3
   path_provider: 2.0.15
   data_importer_shared:
@@ -68,9 +68,9 @@ dependencies:
   rive: 0.11.4
   sensors_plus: 3.0.3
   webview_flutter: 3.0.4
-  flutter_custom_tabs: ^1.0.4
+  flutter_custom_tabs: 1.0.4
   flutter_image_compress: 2.0.4
-  connectivity_plus: ^4.0.2
+  connectivity_plus: 4.0.2
   dart_ping: 9.0.0
   dart_ping_ios: 4.0.0
 
@@ -115,7 +115,7 @@ dev_dependencies:
   mockito: 5.4.2
   path_provider_platform_interface: 2.0.6
   plugin_platform_interface: 2.1.4
-  flutter_lints: 2.0.1
+  flutter_lints: 2.0.2
   openfoodfacts_flutter_lints:
     git: https://github.com/openfoodfacts/openfoodfacts_flutter_lints.git
 
