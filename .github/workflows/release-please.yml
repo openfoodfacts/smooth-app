@@ -107,7 +107,6 @@ jobs:
     with:
       VERSION_NAME: ${{ needs.create-release.outputs.VERSION_NAME}}
       VERSION_CODE: ${{ needs.create-release.outputs.VERSION_CODE}}
-      FLUTTER-CACHE-KEY: '3.3.x'
       RELEASE_TYPE: 'PLAY'
       BUILD_TYPE: 'appbundle'
       FLAVOR: 'main_google_play'
@@ -131,7 +130,6 @@ jobs:
     with:
       VERSION_NAME: ${{ needs.create-release.outputs.VERSION_NAME}}
       VERSION_CODE: ${{ needs.create-release.outputs.VERSION_CODE}}
-      FLUTTER-CACHE-KEY: '3.3.x'
     secrets:
       SENTRY_AUTH_TOKEN: ${{secrets.SENTRY_AUTH_TOKEN }}
       FASTLANE_USER: ${{secrets.FASTLANE_USER }}
@@ -155,7 +153,6 @@ jobs:
     with:
       VERSION_NAME: ${{ needs.create-release.outputs.VERSION_NAME}}
       VERSION_CODE: ${{ needs.create-release.outputs.VERSION_CODE}}
-      FLUTTER-CACHE-KEY: '3.3.x'
       RELEASE_TYPE: 'GITHUB'
       BUILD_TYPE: 'apk'
       TAG_NAME: ${{ needs.release-please.outputs.tag_name}}
@@ -180,7 +177,6 @@ jobs:
     with:
       VERSION_NAME: ${{ needs.create-release.outputs.VERSION_NAME}}
       VERSION_CODE: ${{ needs.create-release.outputs.VERSION_CODE}}
-      FLUTTER-CACHE-KEY: '3.3.x'
       RELEASE_TYPE: 'GITHUB'
       BUILD_TYPE: 'apk'
       TAG_NAME: ${{ needs.release-please.outputs.tag_name}}
