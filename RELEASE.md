@@ -25,7 +25,7 @@ Before you proceed with the release, ensure the following:
 
 ## 4. Verify Deployment
 
-- [ ] Once CI indicates successful internal deployment, download the app from both the Apple App Store and Google Play Store to ensure it's the latest version. Note that you need to register to Testflight or Play Console Internal to do that.
+- [ ] Once CI indicates successful internal deployment, download the app from both the Apple App Store and Google Play Store to ensure it's the latest version. Note that you need to register to [TestFlight](https://appstoreconnect.apple.com/apps/588797948/testflight/ios) or [Play Console Internal](https://play.google.com/console/u/0/developers/4712693179220384697/app/4972942602078310258/tracks/internal-testing) to do that.
 - [ ] Perform quick tests on both platforms to confirm basic functionality, you can use the release process
 
 ## 5. Post-release
