@@ -95,7 +95,7 @@ class UserPreferencesFaq extends AbstractUserPreferences {
         ),
         _getListTile(
           title: appLocalizations.feed_back,
-          leadingIconData: Icons.feedback_sharp,
+          leadingIconData: Icons.add_comment,
           url: UserFeedbackHelper.getFeedbackFormLink(),
         ),
         _getListTile(

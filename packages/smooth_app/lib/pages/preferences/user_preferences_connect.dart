@@ -83,6 +83,7 @@ class UserPreferencesConnect extends AbstractUserPreferences {
           url: 'https://blog.openfoodfacts.org',
           leadingIconData: Icons.newspaper,
         ),
+        const Divider(),
         _getListTile(
           title: appLocalizations.support_via_forum,
           url: 'https://forum.openfoodfacts.org/',
@@ -93,6 +94,7 @@ class UserPreferencesConnect extends AbstractUserPreferences {
           url: 'https://slack.openfoodfacts.org/',
           leadingIconData: Icons.chat,
         ),
+        const Divider(),
         _getListTile(
           title: appLocalizations.contact_title_pro_page,
           url: ProductQuery.replaceSubdomain(
@@ -102,7 +104,7 @@ class UserPreferencesConnect extends AbstractUserPreferences {
         ),
         _getListTile(
           title: appLocalizations.contact_title_pro_email,
-          leadingIconData: Icons.drafts_outlined,
+          leadingIconData: Icons.drafts,
           onTap: () async => _sendEmail(
             recipient:
                 ProductQuery.getLanguage() == OpenFoodFactsLanguage.FRENCH
@@ -110,6 +112,7 @@ class UserPreferencesConnect extends AbstractUserPreferences {
                     : 'producers@openfoodfacts.org',
           ),
         ),
+        const Divider(),
         _getListTile(
           title: appLocalizations.contact_title_press_page,
           url: ProductQuery.replaceSubdomain(
@@ -119,7 +122,7 @@ class UserPreferencesConnect extends AbstractUserPreferences {
         ),
         _getListTile(
           title: appLocalizations.contact_title_press_email,
-          leadingIconData: Icons.drafts_outlined,
+          leadingIconData: Icons.drafts,
           onTap: () async => _sendEmail(
             recipient:
                 ProductQuery.getLanguage() == OpenFoodFactsLanguage.FRENCH
@@ -127,10 +130,11 @@ class UserPreferencesConnect extends AbstractUserPreferences {
                     : 'press@openfoodfacts.org',
           ),
         ),
+        const Divider(),
         _getListTile(
           title: appLocalizations.contact_title_newsletter,
           url: 'https://link.openfoodfacts.org/newsletter-en',
-          leadingIconData: Icons.subscriptions_outlined,
+          leadingIconData: CupertinoIcons.news_solid,
         ),
         _getListTile(
           title: appLocalizations.support_via_email,
