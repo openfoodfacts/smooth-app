@@ -78,6 +78,7 @@ class UserPreferencesFaq extends AbstractUserPreferences {
           title: appLocalizations.nutrition_facts,
           url: 'https://world.openfoodfacts.org/traffic-lights',
           svg: 'assets/cache/low.svg',
+          leadingSvgWidth: 1.5 * DEFAULT_ICON_SIZE,
         ),
         _getListTile(
           title: appLocalizations.discover,
@@ -156,6 +157,7 @@ class UserPreferencesFaq extends AbstractUserPreferences {
     required final String title,
     final IconData? leadingIconData,
     final String? leadingSvg,
+    final double? leadingSvgWidth,
     final String? url,
     final VoidCallback? onTap,
     final Icon? icon,
@@ -176,7 +178,7 @@ class UserPreferencesFaq extends AbstractUserPreferences {
                     ? null
                     : SvgPicture.asset(
                         leadingSvg,
-                        width: 2 * DEFAULT_ICON_SIZE,
+                        width: leadingSvgWidth ?? 2 * DEFAULT_ICON_SIZE,
                         package: AppHelper.APP_PACKAGE,
                       ),
           ),
@@ -188,10 +190,12 @@ class UserPreferencesFaq extends AbstractUserPreferences {
     required final String title,
     required final String url,
     required final String svg,
+    final double? leadingSvgWidth,
   }) =>
       _getListTile(
         title: title,
         leadingSvg: svg,
+        leadingSvgWidth: leadingSvgWidth,
         url: ProductQuery.replaceSubdomain(url),
       );
 
