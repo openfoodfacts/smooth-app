@@ -315,7 +315,7 @@
     "support_via_email_include_logs_dialog_body": "Souhaitez-vous inclure les journaux d'application en pièce jointe à votre e-mail ?",
     "termsOfUse": "Conditions d'utilisation",
     "@termsOfUse": {},
-    "legalNotices": "Legal notices",
+    "legalNotices": "Mentions légales",
     "@legalNotices": {
         "description": "A link to open the legal notices on the website"
     },
@@ -865,7 +865,7 @@
     "connect_with_us": "Nous contacter",
     "instagram": "Instagram",
     "instagram_link": "https://instagram.com/openfoodfacts.fr",
-    "twitter": "X (formerly Twitter)",
+    "twitter": "X (anciennement Twitter)",
     "twitter_link": "https://www.twitter.com/openfoodfactsfr",
     "blog": "Blog",
     "faq": "FAQ",
@@ -1469,7 +1469,7 @@
     "@category_picker_no_category_found_button": {
         "description": "Button label when no category is available"
     },
-    "user_preferences_item_accessibility_hint": "Click to open in your browser or in the application (if installed)",
+    "user_preferences_item_accessibility_hint": "Cliquez pour ouvrir dans votre navigateur ou dans l'application (si installée)",
     "@user_preferences_item_accessibility_hint": {
         "description": "A hint for screen readers to explain how external links work"
     },
@@ -2284,11 +2284,11 @@
     "@product_refresher_internet_not_found": {
         "description": "When refreshing a product that does not exist on the server. Label is the body of a dialog."
     },
-    "product_refresher_internet_not_connected": "You are not connected to internet!",
+    "product_refresher_internet_not_connected": "Vous n'êtes pas connecté à Internet !",
     "@product_refresher_internet_not_connected": {
         "description": "When refreshing a product and you're not even connected to internet. Label is the body of a dialog."
     },
-    "product_refresher_internet_no_ping": "Server down ({host})",
+    "product_refresher_internet_no_ping": "Serveur en panne ({host})",
     "@product_refresher_internet_no_ping": {
         "description": "When refreshing a product and you cannot even ping the server. Label is the body of a dialog.",
         "placeholders": {
@@ -2297,7 +2297,7 @@
             }
         }
     },
-    "product_refresher_internet_error": "Server error ({exception})",
+    "product_refresher_internet_error": "Erreur de serveur ({exception})",
     "@product_refresher_internet_error": {
         "description": "When refreshing a product and the server returned an exception. Label is the body of a dialog.",
         "placeholders": {
@@ -2460,16 +2460,16 @@
     "nova_group_3": "Groupe NOVA 3",
     "nova_group_4": "Groupe NOVA 4",
     "nova_group_unknown": "Groupe NOVA inconnu",
-    "nutrition_facts": "Nutrient Levels",
-    "faq_title_partners": "Partners & Patrons of the NGO",
-    "faq_title_vision": "The Open Food Facts Vision, Mission, Values and Programs",
-    "faq_title_install_beauty": "Install Open Beauty Facts to create a cosmetic database",
-    "faq_title_install_pet": "Install Open Pet Food Facts to create a pet food database",
-    "faq_title_install_product": "Install Open Products Facts to create a products database to extend the life of objects",
-    "contact_title_pro_page": "Pro? Import your products in Open Food Facts",
-    "contact_title_pro_email": "Producer Contact",
-    "contact_title_press_page": "Press Page",
-    "contact_title_press_email": "Press Contact",
+    "nutrition_facts": "Valeurs nutritionnelles",
+    "faq_title_partners": "Partenaires et Patrons de l'ONG",
+    "faq_title_vision": "La vision, la mission, les valeurs et les programmes d’Open Food Facts",
+    "faq_title_install_beauty": "Installez Open Beauty Facts pour créer une base de données cosmétiques",
+    "faq_title_install_pet": "Installez Open Pet Food Facts pour créer une base de données sur les aliments pour animaux de compagnie",
+    "faq_title_install_product": "Installez Open Products Facts pour créer une base de données de produits afin de prolonger la durée de vie des objets",
+    "contact_title_pro_page": "Pro? Importez vos produits dans Open Food Facts",
+    "contact_title_pro_email": "Contact producteur",
+    "contact_title_press_page": "Page de presse",
+    "contact_title_press_email": "Contact de presse",
     "contact_title_newsletter": "S'abonner à notre newsletter",
     "hunger_games_loading_line1": "Veuillez nous laisser quelques secondes…",
     "hunger_games_loading_line2": "Nous téléchargeons les questions !",
