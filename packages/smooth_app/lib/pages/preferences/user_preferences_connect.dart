@@ -118,7 +118,7 @@ class UserPreferencesConnect extends AbstractUserPreferences {
           url: ProductQuery.replaceSubdomain(
             'https://world.openfoodfacts.org/press',
           ),
-          leadingIconData: CupertinoIcons.news,
+          leadingIconData: CupertinoIcons.news_solid,
         ),
         _getListTile(
           title: appLocalizations.contact_title_press_email,
