@@ -20,7 +20,7 @@ Before you proceed with the release, ensure the following:
 2. Trigger the automated CI process which will handle the build and deployment for both iOS and Android.
 3. [Go to the Play Console](https://play.google.com/console/u/0/developers/4712693179220384697/app/4972942602078310258/tracks/internal-testing), and add a changelog
 4. [Go to App Store Connect](https://appstoreconnect.apple.com/apps/588797948/testflight/ios), and select audiences to distribute to in the Testflight section, and add a Testflight changelog
-
+5. You can't test F-Droid until the APK is built. This requires monitoring their GitLab, and dowloading the APK from there after it's generated. Alternatively, you can download the generated vanilla APK from Open Food Facts' GitHub releases which should be relatively close to that.
 > **Note**: If there are any failures during the CI process, they must be addressed before proceeding.
 
 ## 4. Verify Deployment
