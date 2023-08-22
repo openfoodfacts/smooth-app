@@ -6,7 +6,7 @@ Welcome to the release guide for the Open Food Facts Flutter App. Below are the 
 
 Before you proceed with the release, ensure the following:
 
-- [ ] All the features and fixes planned for this release are merged into the `main` branch.
+- [ ] All the features and fixes planned for this release are merged into the `develop` branch.
 - [ ] All merged features and fixes have corresponding unit and integration tests.
 - [ ] Update version number in the `pubspec.yaml` according to [semantic versioning](https://semver.org/). (Mergin Release Please should take care of that, and also provoke a F-Droid release up to a week later.)
 
