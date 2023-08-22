@@ -8,7 +8,7 @@ Before you proceed with the release, ensure the following:
 
 - [ ] All the features and fixes planned for this release are merged into the `develop` branch.
 - [ ] All merged features and fixes have corresponding unit and integration tests.
-- [ ] Update version number in the `pubspec.yaml` according to [semantic versioning](https://semver.org/). (Mergin Release Please should take care of that, and also provoke a F-Droid release up to a week later.)
+- [ ] Merge the Release Please PR to update version number in the `pubspec.yaml` according to [semantic versioning](https://semver.org/). This will provoke a F-Droid release up to a week later.
 
 ## 2. QA Testing
 
