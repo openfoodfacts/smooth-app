@@ -16,7 +16,7 @@ Before you proceed with the release, ensure the following:
   
 ## 3. Run Automated CI for Deployment
 
-1. [Run the CI GitHub Action to release to Internal and Testflight using this URL](https://github.com/openfoodfacts/smooth-app/actions/workflows/internal-release.yml).
+1. [Run the CI GitHub Action to release to Internal and Testflight using this URL](https://github.com/openfoodfacts/smooth-app/actions/workflows/internal-release.yml) (only admins can do that).
 2. Trigger the automated CI process which will handle the build and deployment for both iOS and Android.
 3. [Go to the Play Console](https://play.google.com/console/u/0/developers/4712693179220384697/app/4972942602078310258/tracks/internal-testing), and add a changelog
 4. [Go to App Store Connect](https://appstoreconnect.apple.com/apps/588797948/testflight/ios), and select audiences to distribute to in the Testflight section, and add a Testflight changelog
