@@ -315,7 +315,7 @@
     "support_via_email_include_logs_dialog_body": "Doriți să includeți jurnalele aplicației în atașamentul de la e-mailul dvs.?",
     "termsOfUse": "Condiții de utilizare",
     "@termsOfUse": {},
-    "legalNotices": "Legal notices",
+    "legalNotices": "Mențiuni legale",
     "@legalNotices": {
         "description": "A link to open the legal notices on the website"
     },
@@ -362,7 +362,7 @@
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "Traducerile sunt una dintre sarcinile cheie ale proiectului",
     "@contribute_translate_text_2": {},
-    "contribute_join_skill_pool": "Contribute your skills to Open Food Facts. Join the skill pool!",
+    "contribute_join_skill_pool": "Contribuiți cu abilitățile la Open Food Facts. Alăturați-vă grupului de abilități!",
     "contribute_share_header": "Distribuie Open Food Facts prietenilor tăi",
     "@contribute_share_header": {},
     "contribute_share_content": "Am vrut să vă anunț despre aplicația pe care am folosit-o, Open Food Facts, care vă permite să obțineți impactul asupra sănătății și asupra mediului al alimentelor dvs., într-un mod personalizat. Funcționează prin scanarea codurilor de bare de pe ambalaj. În sfârșit, este gratuit, nu necesită înregistrare și poți chiar contribui la creșterea numărului de produse descifrate. Iată linkul pentru a-l obține pentru telefonul tău: https://openfoodfacts.app",
@@ -864,9 +864,9 @@
     },
     "retry_button_label": "Reîncercați",
     "connect_with_us": "Conectați-vă cu noi",
-    "instagram": "Follow us on Instagram",
+    "instagram": "Urmăriți-ne pe Instagram",
     "instagram_link": "https://instagram.com/open.food.facts",
-    "twitter": "Follow us on X (formerly Twitter)",
+    "twitter": "Urmăriți-ne pe X (fostul Twitter)",
     "twitter_link": "https://www.twitter.com/openfoodfacts",
     "blog": "Blog",
     "faq": "Întrebări frecvente",
@@ -1470,7 +1470,7 @@
     "@category_picker_no_category_found_button": {
         "description": "Button label when no category is available"
     },
-    "user_preferences_item_accessibility_hint": "Click to open in your browser or in the application (if installed)",
+    "user_preferences_item_accessibility_hint": "Faceți clic pentru a deschide în browser sau în aplicație (dacă este instalată)",
     "@user_preferences_item_accessibility_hint": {
         "description": "A hint for screen readers to explain how external links work"
     },
@@ -2285,11 +2285,11 @@
     "@product_refresher_internet_not_found": {
         "description": "When refreshing a product that does not exist on the server. Label is the body of a dialog."
     },
-    "product_refresher_internet_not_connected": "You are not connected to internet!",
+    "product_refresher_internet_not_connected": "Nu ești conectat la internet!",
     "@product_refresher_internet_not_connected": {
         "description": "When refreshing a product and you're not even connected to internet. Label is the body of a dialog."
     },
-    "product_refresher_internet_no_ping": "Server down ({host})",
+    "product_refresher_internet_no_ping": "Server inactiv ({host})",
     "@product_refresher_internet_no_ping": {
         "description": "When refreshing a product and you cannot even ping the server. Label is the body of a dialog.",
         "placeholders": {
@@ -2298,7 +2298,7 @@
             }
         }
     },
-    "product_refresher_internet_error": "Server error ({exception})",
+    "product_refresher_internet_error": "Eroare de server ({exception})",
     "@product_refresher_internet_error": {
         "description": "When refreshing a product and the server returned an exception. Label is the body of a dialog.",
         "placeholders": {
@@ -2455,22 +2455,22 @@
     "ecoscore_e": "Scor Ecologic E",
     "ecoscore_unknown": "Scor ecologic necunoscut",
     "ecoscore_not_applicable": "Scorul Ecologic nu se aplică",
-    "nova_group_generic": "Ultra-processing - NOVA groups",
+    "nova_group_generic": "Ultra-procesare - grupuri NOVA",
     "nova_group_1": "Grupa 1 NOVA",
     "nova_group_2": "Grupa 2 NOVA",
     "nova_group_3": "Grupa 3 NOVA",
     "nova_group_4": "Grupa 4 NOVA",
     "nova_group_unknown": "Grupul NOVA necunoscut",
-    "nutrition_facts": "Nutrient Levels",
-    "faq_title_partners": "Partners & Patrons of the NGO",
-    "faq_title_vision": "The Open Food Facts Vision, Mission, Values and Programs",
-    "faq_title_install_beauty": "Install Open Beauty Facts to create a cosmetic database",
-    "faq_title_install_pet": "Install Open Pet Food Facts to create a pet food database",
-    "faq_title_install_product": "Install Open Products Facts to create a products database to extend the life of objects",
-    "contact_title_pro_page": "Pro? Import your products in Open Food Facts",
-    "contact_title_pro_email": "Producer Contact",
-    "contact_title_press_page": "Press Page",
-    "contact_title_press_email": "Press Contact",
+    "nutrition_facts": "Nivelurile de nutrienți",
+    "faq_title_partners": "Partenerii și Patronii ONG-ului",
+    "faq_title_vision": "The Open Food Facts Viziune, misiune, valori și programe",
+    "faq_title_install_beauty": "Instalați Open Beauty Facts pentru a crea o bază de date cu produse cosmetice",
+    "faq_title_install_pet": "Instalați Open Pet Food Facts pentru a crea o bază de date cu alimente pentru animalele de companie",
+    "faq_title_install_product": "Instalați Open Products Facts pentru a crea o bază de date de produse pentru a prelungi durata de viață a obiectelor",
+    "contact_title_pro_page": "Pro? Importați-vă produsele în Open Food Facts",
+    "contact_title_pro_email": "Contact producător",
+    "contact_title_press_page": "Apăsați Pagina",
+    "contact_title_press_email": "Apăsați Contact",
     "contact_title_newsletter": "Abonează-te la newsletter-ul nostru",
     "hunger_games_loading_line1": "Please let us a few seconds…",
     "hunger_games_loading_line2": "We're downloading the questions!",
