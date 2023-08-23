@@ -53,8 +53,8 @@ dependencies:
   auto_size_text: 3.0.0
   crop_image: 1.0.10
   shared_preferences: 2.1.1
-  intl: 0.18.0
-  collection: 1.17.1
+  intl: 0.18.1
+  collection: 1.17.2
   path: 1.8.3
   path_provider: 2.0.15
   data_importer_shared:
@@ -67,7 +67,7 @@ dependencies:
   lottie: 2.2.0
   rive: 0.11.4
   sensors_plus: 3.0.3
-  webview_flutter: 3.0.4
+  webview_flutter: 4.2.3
   flutter_custom_tabs: ^1.0.4
   flutter_image_compress: 2.0.4
   connectivity_plus: ^4.0.2
