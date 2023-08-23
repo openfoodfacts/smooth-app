@@ -85,7 +85,7 @@ class BackgroundTaskHungerGames extends BackgroundTaskBarcode {
         barcode: barcode,
         languageCode: ProductQuery.getLanguage().offTag,
         user: jsonEncode(ProductQuery.getUser().toJson()),
-        country: ProductQuery.getCountry()!.offTag,
+        country: ProductQuery.getCountry().offTag,
         stamp: _getStamp(barcode, insightId),
         insightId: insightId,
         insightAnnotation: insightAnnotation,

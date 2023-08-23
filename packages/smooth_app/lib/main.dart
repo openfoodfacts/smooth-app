@@ -141,7 +141,7 @@ Future<bool> _init1() async {
 
   AnalyticsHelper.linkPreferences(_userPreferences);
 
-  await ProductQuery.setCountry(_userPreferences);
+  await ProductQuery.initCountry(_userPreferences);
   _themeProvider = ThemeProvider(_userPreferences);
   _colorProvider = ColorProvider(_userPreferences);
   _textContrastProvider = TextContrastProvider(_userPreferences);

@@ -111,7 +111,7 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode {
         languageCode: ProductQuery.getLanguage().code,
         inputMap: jsonEncode(minimalistProduct.toJson()),
         user: jsonEncode(ProductQuery.getUser().toJson()),
-        country: ProductQuery.getCountry()!.offTag,
+        country: ProductQuery.getCountry().offTag,
         stamp: getStamp(minimalistProduct.barcode!, stamp.tag),
       );
 
