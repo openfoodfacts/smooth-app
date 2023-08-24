@@ -146,7 +146,7 @@
     "incorrect_credentials": "Hatalı kullanıcı adı veya parola.",
     "password_lost_incorrect_credentials": "Bu e-posta veya kullanıcı adı mevcut değil. Lütfen kimlik bilgilerinizi kontrol edin.",
     "password_lost_server_unavailable": "Şu anda sunucularımızda yavaşlamalar yaşıyoruz ve bunun için özür dileriz. Lütfen daha sonra tekrar deneyiniz.",
-    "login": "Kullanıcı adı",
+    "login": "Oturumu Başlat",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
@@ -315,6 +315,10 @@
     "support_via_email_include_logs_dialog_body": "E-postanıza ek olarak uygulama günlüklerini eklemek ister misiniz?",
     "termsOfUse": "Kullanım Koşulları",
     "@termsOfUse": {},
+    "legalNotices": "Yasal uyarılar",
+    "@legalNotices": {
+        "description": "A link to open the legal notices on the website"
+    },
     "about_this_app": "Bu uygulama hakkında",
     "@about_this_app": {
         "description": "Button label: Opens a pop up window which shows information about the app"
@@ -358,6 +362,7 @@
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "Çeviriler, projenin temel görevlerinden biridir",
     "@contribute_translate_text_2": {},
+    "contribute_join_skill_pool": "Open Food Facts'e becerilerinizle katkıda bulunun. Beceri havuzuna katılın!",
     "contribute_share_header": "Open Food Facts'ı arkadaşlarınızla paylaşın",
     "@contribute_share_header": {},
     "contribute_share_content": "I wanted to let you know about the app I've been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it's free, does not require registration, and you can even help increase the number of products decyphered. Here's the link to get it for your phone: https://openfoodfacts.app",
@@ -859,9 +864,9 @@
     },
     "retry_button_label": "Tekrar dene",
     "connect_with_us": "Bizimle iletişime geçin",
-    "instagram": "Instagram",
+    "instagram": "Bizi Instagram'da takip edin",
     "instagram_link": "https://instagram.com/open.food.facts",
-    "twitter": "X (eski adıyla Twitter)",
+    "twitter": "Bizi X'te takip edin (eski adıyla Twitter)",
     "twitter_link": "https://www.twitter.com/openfoodfacts",
     "blog": "Blog",
     "faq": "SSS",
@@ -1464,6 +1469,10 @@
     "category_picker_no_category_found_button": "Geri",
     "@category_picker_no_category_found_button": {
         "description": "Button label when no category is available"
+    },
+    "user_preferences_item_accessibility_hint": "Tarayıcınızda veya uygulamada (yüklüyse) açmak için tıklayın",
+    "@user_preferences_item_accessibility_hint": {
+        "description": "A hint for screen readers to explain how external links work"
     },
     "dev_preferences_screen_title": "Geliştirici Modu",
     "@dev_preferences_screen_title": {
@@ -2272,6 +2281,32 @@
     "@contrast_low": {
         "description": "Low Contrast Text Color"
     },
+    "product_refresher_internet_not_found": "Ürün bulunamadı!",
+    "@product_refresher_internet_not_found": {
+        "description": "When refreshing a product that does not exist on the server. Label is the body of a dialog."
+    },
+    "product_refresher_internet_not_connected": "İnternete bağlı değilsiniz!",
+    "@product_refresher_internet_not_connected": {
+        "description": "When refreshing a product and you're not even connected to internet. Label is the body of a dialog."
+    },
+    "product_refresher_internet_no_ping": "Sunucu kapalı ({host})",
+    "@product_refresher_internet_no_ping": {
+        "description": "When refreshing a product and you cannot even ping the server. Label is the body of a dialog.",
+        "placeholders": {
+            "host": {
+                "type": "String?"
+            }
+        }
+    },
+    "product_refresher_internet_error": "Sunucu hatası ({exception})",
+    "@product_refresher_internet_error": {
+        "description": "When refreshing a product and the server returned an exception. Label is the body of a dialog.",
+        "placeholders": {
+            "exception": {
+                "type": "String?"
+            }
+        }
+    },
     "product_loader_not_found_title": "Ürün bulunamadı!",
     "@product_loader_not_found_title": {
         "description": "When fetching a product opened via a link and it doesn't exist"
@@ -2404,6 +2439,7 @@
     "@product_list_create_tooltip": {
         "description": "Button description to create a new list (long sentence)"
     },
+    "nutriscore_generic": "Nutri-Score",
     "nutriscore_a": "Nutri-Score A",
     "nutriscore_b": "Nutri-Score B",
     "nutriscore_c": "Nutri-Score C",
@@ -2411,6 +2447,7 @@
     "nutriscore_e": "Nutri-Score E",
     "nutriscore_unknown": "Unknown Nutri-Score",
     "nutriscore_not_applicable": "Nutri-Score is not applicable",
+    "ecoscore_generic": "Eco-Score",
     "ecoscore_a": "Eco-Score A",
     "ecoscore_b": "Eco-Score B",
     "ecoscore_c": "Eco-Score C",
@@ -2418,11 +2455,23 @@
     "ecoscore_e": "Eco-Score E",
     "ecoscore_unknown": "Unknown Eco-Score",
     "ecoscore_not_applicable": "Eco-Score is not applicable",
+    "nova_group_generic": "Ultra işleme - NOVA grupları",
     "nova_group_1": "NOVA Grup 1",
     "nova_group_2": "NOVA Grup 2",
     "nova_group_3": "NOVA Grup 3",
     "nova_group_4": "NOVA Grup 4",
     "nova_group_unknown": "Bilinmeyen NOVA Grubu",
+    "nutrition_facts": "Besin Düzeyleri",
+    "faq_title_partners": "STK'nın Ortakları ve Patronları",
+    "faq_title_vision": "Open Food Facts Vizyon, Misyon, Değerler ve Programlar",
+    "faq_title_install_beauty": "Bir kozmetik veritabanı oluşturmak için Open Beauty Facts'i yükleyin",
+    "faq_title_install_pet": "Bir evcil hayvan maması veri tabanı oluşturmak için Open Pet Food Facts'i kurun",
+    "faq_title_install_product": "Nesnelerin ömrünü uzatmak amacıyla bir ürün veritabanı oluşturmak için Open Products Facts'i kurun",
+    "contact_title_pro_page": "Profesyonel mi? Open Food Facts'te ürünlerinizi içe aktarın",
+    "contact_title_pro_email": "Üretici İletişim",
+    "contact_title_press_page": "Basın Sayfası",
+    "contact_title_press_email": "Basın İletişim",
+    "contact_title_newsletter": "Haber bültenimize abone olun",
     "hunger_games_loading_line1": "Lütfen bize birkaç saniye izin verin…",
     "hunger_games_loading_line2": "Soruları indiriyoruz!",
     "hunger_games_error_label": "Ah! Bir şeyler ters gitti… ve soruları yükleyemedik.",
