@@ -20,11 +20,13 @@ class UploadedImageGallery extends StatelessWidget {
     required this.imageIds,
     required this.imageField,
     required this.language,
+    required this.isLoggedInMandatory,
   });
 
   final String barcode;
   final List<int> imageIds;
   final ImageField imageField;
+  final bool isLoggedInMandatory;
 
   /// Language for which we'll save the cropped image.
   final OpenFoodFactsLanguage language;
@@ -83,6 +85,7 @@ class UploadedImageGallery extends StatelessWidget {
                     imageId: imageId,
                     initiallyDifferent: true,
                     language: language,
+                    isLoggedInMandatory: isLoggedInMandatory,
                   ),
                   fullscreenDialog: true,
                 ),
