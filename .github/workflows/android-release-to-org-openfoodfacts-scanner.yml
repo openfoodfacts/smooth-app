@@ -6,6 +6,9 @@ on:
       VERSION_NAME:
         required: true
         type: string
+      FLUTTER-CACHE-KEY:
+        required: true
+        type: string
       VERSION_CODE:
         required: true
         type: string
