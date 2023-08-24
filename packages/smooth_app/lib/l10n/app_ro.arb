@@ -144,8 +144,8 @@
     "@user_management": {},
     "sign_in_text": "Conectați-vă la contul Open Food Facts pentru a vă salva contribuțiile",
     "incorrect_credentials": "Numele de utilizator sau parola incorectă.",
-    "password_lost_incorrect_credentials": "This email or username doesn't exist. Please check your credentials.",
-    "password_lost_server_unavailable": "We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.",
+    "password_lost_incorrect_credentials": "Acest e-mail sau nume de utilizator nu există. Vă rugăm să vă verificați acreditările.",
+    "password_lost_server_unavailable": "În prezent, întâmpinăm încetiniri pe serverele noastre și ne cerem scuze pentru asta. Vă rugăm să încercați din nou mai târziu.",
     "login": "Nume de utilizator",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
@@ -262,7 +262,7 @@
     "sign_up_page_user_name_already_used": "Numele de utilizator există deja, vă rugăm să alegeți un alt nume de utilizator.",
     "sign_up_page_email_already_exists": "există deja, conectați-vă la cont sau încercați cu un alt e-mail.",
     "sign_up_page_provide_valid_email": "Vă rugăm să furnizați o adresă de e-mail validă.",
-    "sign_up_page_server_busy": "We are deeply sorry, we have some technical difficulties to create your account. Please try again later.",
+    "sign_up_page_server_busy": "Ne pare rău, avem unele dificultăți tehnice pentru a vă crea contul. Vă rugăm să încercați din nou mai târziu.",
     "@Settings": {},
     "settingsTitle": "Configurări",
     "@settingsTitle": {
@@ -459,7 +459,7 @@
     "@filter": {
         "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
     },
-    "scan": "Products from the Scan screen",
+    "scan": "Produse din ecranul de scanare",
     "@scan": {
         "description": "Page title: List type: Products in the scan session"
     },
@@ -785,7 +785,7 @@
     "@Lists": {},
     "no_prodcut_in_list": "Nu există niciun produs în această listă",
     "no_product_in_section": "Nu există niciun produs în această secțiune",
-    "recently_seen_products": "All viewed products",
+    "recently_seen_products": "Toate produsele vizualizate",
     "clear": "Ștergeți",
     "@clear": {
         "description": "Clears a product list (short label)"
@@ -861,7 +861,7 @@
     "connect_with_us": "Conectați-vă cu noi",
     "instagram": "Instagram",
     "instagram_link": "https://instagram.com/open.food.facts",
-    "twitter": "Twitter",
+    "twitter": "X (formerly Twitter)",
     "twitter_link": "https://www.twitter.com/openfoodfacts",
     "blog": "Blog",
     "faq": "Întrebări frecvente",

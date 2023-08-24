@@ -293,6 +293,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.17.1"
+  connectivity_plus:
+    dependency: "direct main"
+    description:
+      name: connectivity_plus
+      sha256: "77a180d6938f78ca7d2382d2240eb626c0f6a735d0bfdce227d8ffb80f95c48b"
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.0.2"
+  connectivity_plus_platform_interface:
+    dependency: transitive
+    description:
+      name: connectivity_plus_platform_interface
+      sha256: cf1d1c28f4416f8c654d7dc3cd638ec586076255d407cef3ddbdaf178272a71a
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.2.4"
   convert:
     dependency: transitive
     description:
@@ -341,6 +357,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.5"
+  dart_ping:
+    dependency: "direct main"
+    description:
+      name: dart_ping
+      sha256: dd3a93d9b986565cb2fadd0c9277cf9880298634ccc9588e353e63c6f736a386
+      url: "https://pub.dev"
+    source: hosted
+    version: "9.0.0"
+  dart_ping_ios:
+    dependency: "direct main"
+    description:
+      name: dart_ping_ios
+      sha256: ba60bcd1ef8f13d564e9490197fb32c34d38fd1c10a890143a52f5b71d82ea95
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.0.0"
   dart_style:
     dependency: transitive
     description:
@@ -363,6 +395,14 @@ packages:
       relative: true
     source: path
     version: "0.0.0"
+  dbus:
+    dependency: transitive
+    description:
+      name: dbus
+      sha256: "6f07cba3f7b3448d42d015bfd3d53fe12e5b36da2423f23838efc1d5fb31a263"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.7.8"
   device_frame:
     dependency: transitive
     description:
@@ -517,6 +557,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.0.1"
+  flutter_icmp_ping:
+    dependency: transitive
+    description:
+      name: flutter_icmp_ping
+      sha256: a06c2255a857c8f9d1b0a68f546b113557e48e7a543f91e38bd66aeab296f3a6
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.1.2"
   flutter_image_compress:
     dependency: "direct main"
     description:
@@ -985,11 +1033,12 @@ packages:
   mobile_scanner:
     dependency: transitive
     description:
-      name: mobile_scanner
-      sha256: "9b3d6fb0407f749eb157432b049924277b43ff6948546eeff76260593ad6eca9"
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.4.0"
+      path: "."
+      ref: custom_release
+      resolved-ref: "031ff428687e56e2a1ef94eea8c62a2d43093b56"
+      url: "https://github.com/openfoodfacts/mobile_scanner.git"
+    source: git
+    version: "3.4.1"
   mockito:
     dependency: "direct dev"
     description:
@@ -1006,14 +1055,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.0"
+  nm:
+    dependency: transitive
+    description:
+      name: nm
+      sha256: "2c9aae4127bdc8993206464fcc063611e0e36e72018696cd9631023a31b24254"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.5.0"
   openfoodfacts:
     dependency: "direct main"
     description:
       name: openfoodfacts
-      sha256: "4c3e095a20bca11006c957ec37d83fda1178dc03bde0254d4cc29d0eb09ebb3b"
+      sha256: "25d4906abb23c8f2667f3b97e5c787b7d3e02082456da7a82fad38518c04489a"
       url: "https://pub.dev"
     source: hosted
-    version: "2.8.0"
+    version: "2.10.0"
   openfoodfacts_flutter_lints:
     dependency: "direct dev"
     description:
@@ -1123,10 +1180,10 @@ packages:
     dependency: "direct main"
     description:
       name: permission_handler
-      sha256: "1b6b3e73f0bcbc856548bbdfb1c33084a401c4f143e220629a9055233d76c331"
+      sha256: "63e5216aae014a72fe9579ccd027323395ce7a98271d9defa9d57320d001af81"
       url: "https://pub.dev"
     source: hosted
-    version: "10.3.0"
+    version: "10.4.3"
   permission_handler_android:
     dependency: transitive
     description:
@@ -1328,18 +1385,18 @@ packages:
     dependency: transitive
     description:
       name: sentry
-      sha256: a1529c545fcbc899e5dcc7c94ff1c6ad0c334dfc99a3cda366b1da98af7c5678
+      sha256: "39c23342fc96105da449914f7774139a17a0ca8a4e70d9ad5200171f7e47d6ba"
       url: "https://pub.dev"
     source: hosted
-    version: "6.22.0"
+    version: "7.9.0"
   sentry_flutter:
     dependency: "direct main"
     description:
       name: sentry_flutter
-      sha256: cab07e99a8f27af94f399cabceaff6968011660505b30a0e2286728a81bc476c
+      sha256: ff68ab31918690da004a42e20204242a3ad9ad57da7e2712da8487060ac9767f
       url: "https://pub.dev"
     source: hosted
-    version: "6.22.0"
+    version: "7.9.0"
   share_plus:
     dependency: "direct main"
     description:

@@ -5,6 +5,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
+import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
@@ -31,24 +32,26 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage>
     }
     setState(() => _runningQuery = true);
 
-    Status? status;
     try {
-      status = await OpenFoodAPIClient.resetPassword(_userIdController.text);
-    } catch (e) {
-      status = null;
+      final Status status = await OpenFoodAPIClient.resetPassword(
+        _userIdController.text,
+        country: ProductQuery.getCountry(),
+        language: ProductQuery.getLanguage(),
+      );
+      if (status.status == 200) {
+        _send = true;
+        _message = appLocalizations.reset_password_done;
+      } else if (status.status == 400) {
+        _message = appLocalizations.password_lost_incorrect_credentials;
+      } else if (status.status as int >= 500) {
+        _message = appLocalizations.password_lost_server_unavailable;
+      } else {
+        _message = '${appLocalizations.error} (${status.status})';
+      }
+    } catch (exception) {
+      _message = '${appLocalizations.error} ($exception)';
     }
-    if (status == null || status is! int) {
-      _message = appLocalizations.error;
-    } else if (status.status == 200) {
-      _send = true;
-      _message = appLocalizations.reset_password_done;
-    } else if (status.status == 400) {
-      _message = appLocalizations.password_lost_incorrect_credentials;
-    } else if (status.status as int >= 500) {
-      _message = appLocalizations.password_lost_server_unavailable;
-    } else {
-      _message = appLocalizations.error;
-    }
+
     setState(() => _runningQuery = false);
   }
 

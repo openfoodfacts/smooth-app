@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:package_info_plus/package_info_plus.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/helpers/global_vars.dart';
@@ -195,19 +194,28 @@ class AnalyticsHelper {
   static Future<void> initSentry({
     required Function()? appRunner,
   }) async {
-    final PackageInfo packageInfo = await PackageInfo.fromPlatform();
-
     await SentryFlutter.init(
       (SentryOptions options) {
-        options.dsn =
-            'https://22ec5d0489534b91ba455462d3736680@o241488.ingest.sentry.io/5376745';
-        options.sentryClientName =
-            'sentry.dart.smoothie/${packageInfo.version}';
+        options
+          ..dsn =
+              'https://22ec5d0489534b91ba455462d3736680@o241488.ingest.sentry.io/5376745'
+          ..beforeSend = (
+            SentryEvent event, {
+            Hint? hint,
+          }) async {
+            return event.copyWith(
+              tags: <String, String>{
+                'store': GlobalVars.storeLabel.name,
+                'scanner': GlobalVars.scannerLabel.name,
+              },
+            );
+          };
         // To set a uniform sample rate
-        options.tracesSampleRate = 1.0;
-        options.beforeSend = _beforeSend;
-        options.environment =
-            '${GlobalVars.storeLabel.name}-${GlobalVars.scannerLabel.name}';
+        options
+          ..tracesSampleRate = 1.0
+          ..beforeSend = _beforeSend
+          ..environment =
+              '${GlobalVars.storeLabel.name}-${GlobalVars.scannerLabel.name}';
       },
       appRunner: appRunner,
     );

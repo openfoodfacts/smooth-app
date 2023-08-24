@@ -18,6 +18,7 @@ import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/query/paged_to_be_completed_product_query.dart';
+import 'package:smooth_app/query/product_query.dart';
 
 /// Display of "Contribute" for the preferences page.
 class UserPreferencesContribute extends AbstractUserPreferences {
@@ -58,38 +59,62 @@ class UserPreferencesContribute extends AbstractUserPreferences {
     return <Widget>[
       _getListTile(
         'Hunger Games',
-        () => _hungerGames(),
+        () async => _hungerGames(),
         Icons.games,
       ),
       _getListTile(
         appLocalizations.contribute_improve_header,
-        () => _contribute(),
+        () async => _contribute(),
         Icons.data_saver_on,
       ),
       _getListTile(
         appLocalizations.contribute_sw_development,
-        () => _develop(),
+        () async => _develop(),
         Icons.app_shortcut,
       ),
       _getListTile(
         appLocalizations.contribute_translate_header,
-        () => _translate(),
+        () async => _translate(),
         Icons.translate,
       ),
       _getListTile(
+        appLocalizations.how_to_contribute,
+        () async => LaunchUrlHelper.launchURL(
+          ProductQuery.replaceSubdomain(
+            'https://world.openfoodfacts.org/contribute',
+          ),
+          false,
+        ),
+        Icons.volunteer_activism_outlined,
+        externalLink: true,
+      ),
+      _getListTile(
+        appLocalizations.contribute_join_skill_pool,
+        () async => LaunchUrlHelper.launchURL(
+          'https://docs.google.com/forms/d/e/1FAIpQLSfGHAn5KxW7ko3_GlDfQpVGKpPAMHMbDvY2IjtxfJSXxKJQ2A/viewform?usp=sf_link',
+          false,
+        ),
+        Icons.group,
+        externalLink: true,
+      ),
+      _getListTile(
         appLocalizations.contribute_share_header,
-        () => _share(appLocalizations.contribute_share_content),
+        () async => _share(appLocalizations.contribute_share_content),
         Icons.adaptive.share,
       ),
       _getListTile(
         appLocalizations.contribute_donate_header,
-        () => _donate(),
+        () async => LaunchUrlHelper.launchURL(
+          AppLocalizations.of(context).donate_url,
+          false,
+        ),
         Icons.volunteer_activism,
         icon: UserPreferencesListTile.getTintedIcon(Icons.open_in_new, context),
+        externalLink: true,
       ),
       _getListTile(
         appLocalizations.contributors_label,
-        () => _contributors(),
+        () async => _contributors(),
         Icons.emoji_people,
         description: appLocalizations.contributors_description,
       ),
@@ -221,11 +246,6 @@ class UserPreferencesContribute extends AbstractUserPreferences {
 
   Future<void> _share(String content) async => Share.share(content);
 
-  Future<void> _donate() async => LaunchUrlHelper.launchURL(
-        AppLocalizations.of(context).donate_url,
-        false,
-      );
-
   Future<void> _contributors() => showDialog<void>(
         context: context,
         builder: (BuildContext context) => _ContributorsDialog(),
@@ -239,12 +259,14 @@ class UserPreferencesContribute extends AbstractUserPreferences {
     final IconData leading, {
     final Icon? icon,
     final String? description,
+    final bool? externalLink = false,
   }) {
     final Widget tile = UserPreferencesListTile(
       title: Text(title),
       onTap: onTap,
       trailing: icon ?? getForwardIcon(),
       leading: UserPreferencesListTile.getTintedIcon(leading, context),
+      externalLink: externalLink,
     );
 
     if (description != null) {

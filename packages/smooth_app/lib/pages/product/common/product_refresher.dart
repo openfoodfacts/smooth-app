@@ -1,8 +1,11 @@
+import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:dart_ping/dart_ping.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/data_models/fetched_product.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
@@ -99,14 +102,11 @@ class ProductRefresher {
   /// Fetches the product from the server and refreshes the local database.
   ///
   /// Silent version.
-  Future<Product?> silentFetchAndRefresh({
+  Future<FetchedProduct> silentFetchAndRefresh({
     required final String barcode,
     required final LocalDatabase localDatabase,
-  }) async {
-    final _MetaProductRefresher meta =
-        await _fetchAndRefresh(localDatabase, barcode);
-    return meta.product;
-  }
+  }) async =>
+      _fetchAndRefresh(localDatabase, barcode);
 
   /// Fetches the products from the server and refreshes the local database.
   ///
@@ -116,23 +116,6 @@ class ProductRefresher {
     required final LocalDatabase localDatabase,
   }) async =>
       _fetchAndRefreshList(localDatabase, barcodes);
-
-  /// Fetches the product from the server and refreshes the local database.
-  /// In the case of an error, it will be send throw an [Exception]
-  /// Silent version.
-  Future<Product?> silentFetchAndRefreshWithException({
-    required final String barcode,
-    required final LocalDatabase localDatabase,
-  }) async {
-    final _MetaProductRefresher meta =
-        await _fetchAndRefresh(localDatabase, barcode);
-
-    if (meta.error != null) {
-      throw Exception(meta.error);
-    }
-
-    return meta.product;
-  }
 
   /// Fetches the product from the server and refreshes the local database.
   ///
@@ -145,18 +128,45 @@ class ProductRefresher {
     final LocalDatabase localDatabase = widget.context.read<LocalDatabase>();
     final AppLocalizations appLocalizations =
         AppLocalizations.of(widget.context);
-    final _MetaProductRefresher? fetchAndRefreshed =
-        await LoadingDialog.run<_MetaProductRefresher>(
+    final FetchedProduct? fetchAndRefreshed =
+        await LoadingDialog.run<FetchedProduct>(
       future: _fetchAndRefresh(localDatabase, barcode),
       context: widget.context,
       title: appLocalizations.refreshing_product,
     );
     if (fetchAndRefreshed == null) {
+      // the user probably cancelled
       return false;
     }
     if (fetchAndRefreshed.product == null) {
       if (widget.mounted) {
-        await LoadingDialog.error(context: widget.context);
+        String getTitle(final FetchedProduct fetchedProduct) {
+          switch (fetchAndRefreshed.status) {
+            case FetchedProductStatus.ok:
+              return 'Not supposed to happen...';
+            case FetchedProductStatus.userCancelled:
+              return 'Not supposed to happen either...';
+            case FetchedProductStatus.internetNotFound:
+              return appLocalizations.product_refresher_internet_not_found;
+            case FetchedProductStatus.internetError:
+              if (fetchAndRefreshed.connectivityResult ==
+                  ConnectivityResult.none) {
+                return appLocalizations
+                    .product_refresher_internet_not_connected;
+              }
+              if (fetchAndRefreshed.failedPingedHost != null) {
+                return appLocalizations.product_refresher_internet_no_ping(
+                    fetchAndRefreshed.failedPingedHost);
+              }
+              return appLocalizations.product_refresher_internet_no_ping(
+                  fetchAndRefreshed.exceptionString);
+          }
+        }
+
+        await LoadingDialog.error(
+          context: widget.context,
+          title: getTitle(fetchAndRefreshed),
+        );
       }
       return false;
     }
@@ -171,7 +181,7 @@ class ProductRefresher {
     return true;
   }
 
-  Future<_MetaProductRefresher> _fetchAndRefresh(
+  Future<FetchedProduct> _fetchAndRefresh(
     final LocalDatabase localDatabase,
     final String barcode,
   ) async {
@@ -183,12 +193,30 @@ class ProductRefresher {
         await DaoProduct(localDatabase).put(result.product!);
         localDatabase.upToDate.setLatestDownloadedProduct(result.product!);
         localDatabase.notifyListeners();
-        return _MetaProductRefresher.product(result.product);
+        return FetchedProduct.found(result.product!);
       }
-      return const _MetaProductRefresher.error(null);
+      return const FetchedProduct.internetNotFound();
     } catch (e) {
       Logs.e('Refresh from server error', ex: e);
-      return _MetaProductRefresher.error(e.toString());
+      final ConnectivityResult connectivityResult =
+          await Connectivity().checkConnectivity();
+      if (connectivityResult == ConnectivityResult.none) {
+        return FetchedProduct.error(
+          exceptionString: e.toString(),
+          connectivityResult: connectivityResult,
+        );
+      }
+      // TODO(monsieurtanuki): make things cleaner with off-dart
+      final String host =
+          OpenFoodAPIConfiguration.globalQueryType == QueryType.PROD
+              ? OpenFoodAPIConfiguration.uriProdHost
+              : OpenFoodAPIConfiguration.uriTestHost;
+      final PingData result = await Ping(host, count: 1).stream.first;
+      return FetchedProduct.error(
+        exceptionString: e.toString(),
+        connectivityResult: connectivityResult,
+        failedPingedHost: result.error == null ? null : host,
+      );
     }
   }
 
@@ -217,13 +245,4 @@ class ProductRefresher {
       return null;
     }
   }
-}
-
-class _MetaProductRefresher {
-  const _MetaProductRefresher.error(this.error) : product = null;
-
-  const _MetaProductRefresher.product(this.product) : error = null;
-
-  final String? error;
-  final Product? product;
 }

@@ -21,7 +21,7 @@ class SentryFimberTree extends BaseFimberTree {
       Sentry.captureException(
         ex,
         stackTrace: stacktrace,
-        hint: tag,
+        hint: tag != null ? Hint.withMap(<String, Object>{'tag': tag}) : null,
       );
     } else {
       Sentry.addBreadcrumb(
@@ -30,7 +30,7 @@ class SentryFimberTree extends BaseFimberTree {
           timestamp: DateTime.now(),
           level: _convertLevel(level),
         ),
-        hint: tag,
+        hint: tag != null ? Hint.withMap(<String, Object>{'tag': tag}) : null,
       );
     }
   }
