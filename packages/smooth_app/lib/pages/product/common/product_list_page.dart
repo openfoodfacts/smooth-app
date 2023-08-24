@@ -15,7 +15,6 @@ import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_responsive.dart';
@@ -23,14 +22,12 @@ import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
 import 'package:smooth_app/pages/all_product_list_modal.dart';
 import 'package:smooth_app/pages/carousel_manager.dart';
-import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
+import 'package:smooth_app/pages/product/common/product_list_item_popup_items.dart';
 import 'package:smooth_app/pages/product/common/product_list_item_simple.dart';
 import 'package:smooth_app/pages/product/common/product_list_popup_items.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
-import 'package:smooth_app/pages/product/compare_products3_page.dart';
-import 'package:smooth_app/pages/product/ordered_nutrients_cache.dart';
 import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
@@ -71,6 +68,10 @@ class _ProductListPageState extends State<ProductListPage>
   final ProductListPopupItem _clear = ProductListPopupClear();
   final ProductListPopupItem _openInWeb = ProductListPopupOpenInWeb();
   final ProductListPopupItem _share = ProductListPopupShare();
+  final ProductListItemPopupItem _deleteItems = ProductListItemPopupDelete();
+  final ProductListItemPopupItem _rankItems = ProductListItemPopupRank();
+  final ProductListItemPopupItem _sideBySideItems =
+      ProductListItemPopupSideBySide();
 
   //returns bool to handle WillPopScope
   Future<bool> _handleUserBacktap() async {
@@ -127,7 +128,6 @@ class _ProductListPageState extends State<ProductListPage>
     }
     final bool enableClear = products.isNotEmpty;
     final bool enableRename = productList.listType == ProductListType.USER;
-    final bool enableComparison = _selectedBarcodes.length >= 2;
 
     return SmoothScaffold(
       floatingActionButton: products.isEmpty
@@ -217,109 +217,39 @@ class _ProductListPageState extends State<ProductListPage>
         },
         actionModeTitle: Text('${_selectedBarcodes.length}'),
         actionModeActions: <Widget>[
-          if (userPreferences.getFlag(UserPreferencesDevMode
-                      .userPreferencesFlagBoostedComparison) ==
-                  true &&
-              _selectedBarcodes.length >= 2 &&
-              _selectedBarcodes.length <= 3)
-            IconButton(
-              icon: const Icon(Icons.star_half),
-              tooltip: 'Side by side comparison',
-              onPressed: () async {
-                final OrderedNutrientsCache? cache =
-                    await OrderedNutrientsCache.getCache(context);
+          PopupMenuButton<ProductListItemPopupItem>(
+            onSelected: (final ProductListItemPopupItem action) async {
+              final bool andThenSetState = await action.doSomething(
+                productList: productList,
+                localDatabase: localDatabase,
+                context: context,
+                selectedBarcodes: _selectedBarcodes,
+              );
+              if (andThenSetState) {
                 if (context.mounted) {
-                  if (cache == null) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: Text(
-                          AppLocalizations.of(context)
-                              .nutrition_cache_loading_error,
-                        ),
-                      ),
-                    );
-                    return;
-                  }
-                  final DaoProduct daoProduct = DaoProduct(localDatabase);
-                  final List<Product> list = <Product>[];
-                  for (final String barcode in _selectedBarcodes) {
-                    list.add((await daoProduct.get(barcode))!);
-                  }
-                  if (context.mounted) {
-                    await Navigator.push<void>(
-                      context,
-                      MaterialPageRoute<void>(
-                        builder: (BuildContext context) => CompareProducts3Page(
-                          products: list,
-                          orderedNutrientsCache: cache,
-                        ),
-                      ),
-                    );
-                  }
+                  setState(() {});
                 }
-              },
-            ),
-          IconButton(
-            icon: const Icon(Icons.compare_arrows),
-            tooltip: appLocalizations.compare_products_mode,
-            onPressed: !enableComparison
-                ? null
-                : () async => Navigator.push<void>(
-                      context,
-                      MaterialPageRoute<void>(
-                        builder: (_) => PersonalizedRankingPage(
-                          barcodes: _selectedBarcodes.toList(),
-                          title: appLocalizations.product_list_your_ranking,
-                        ),
-                      ),
-                    ),
-          ),
-          IconButton(
-            icon: const Icon(Icons.delete),
-            onPressed: _selectedBarcodes.isEmpty
-                ? null
-                : () async => showDialog<void>(
-                      context: context,
-                      builder: (BuildContext context) => SmoothAlertDialog(
-                        body: Container(
-                          padding: const EdgeInsetsDirectional.only(
-                              start: SMALL_SPACE),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Text(
-                                appLocalizations.alert_clear_selected_user_list,
-                              ),
-                              const SizedBox(height: SMALL_SPACE),
-                              Text(
-                                appLocalizations
-                                    .confirm_clear_selected_user_list,
-                              ),
-                            ],
-                          ),
-                        ),
-                        positiveAction: SmoothActionButton(
-                          onPressed: () async {
-                            await daoProductList.bulkSet(
-                              productList,
-                              _selectedBarcodes.toList(growable: false),
-                              include: false,
-                            );
-                            await daoProductList.get(productList);
-                            if (!mounted) {
-                              return;
-                            }
-                            setState(() {});
-                            Navigator.of(context).maybePop();
-                          },
-                          text: appLocalizations.yes,
-                        ),
-                        negativeAction: SmoothActionButton(
-                          onPressed: () => Navigator.of(context).maybePop(),
-                          text: appLocalizations.no,
-                        ),
-                      ),
-                    ),
+              }
+            },
+            itemBuilder: (BuildContext context) =>
+                <PopupMenuEntry<ProductListItemPopupItem>>[
+              if (userPreferences.getFlag(UserPreferencesDevMode
+                      .userPreferencesFlagBoostedComparison) ==
+                  true)
+                _sideBySideItems.getMenuItem(
+                  appLocalizations,
+                  _selectedBarcodes.length >= 2 &&
+                      _selectedBarcodes.length <= 3,
+                ),
+              _rankItems.getMenuItem(
+                appLocalizations,
+                _selectedBarcodes.length >= 2,
+              ),
+              _deleteItems.getMenuItem(
+                appLocalizations,
+                _selectedBarcodes.isNotEmpty,
+              ),
+            ],
           ),
         ],
       ),
