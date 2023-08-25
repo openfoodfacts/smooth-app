@@ -22,7 +22,7 @@ import 'package:smooth_app/widgets/smooth_scaffold.dart';
 class AddBasicDetailsPage extends StatefulWidget {
   const AddBasicDetailsPage(
     this.product, {
-    this.isLoggedInMandatory = true,
+    required this.isLoggedInMandatory,
   });
 
   final Product product;
@@ -202,14 +202,14 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
       }
     }
 
-    if (widget.isLoggedInMandatory) {
-      if (!mounted) {
-        return false;
-      }
-      final bool loggedIn = await ProductRefresher().checkIfLoggedIn(context);
-      if (!loggedIn) {
-        return false;
-      }
+    if (!mounted) {
+      return false;
+    }
+    if (!await ProductRefresher().checkIfLoggedIn(
+      context,
+      isLoggedInMandatory: widget.isLoggedInMandatory,
+    )) {
+      return false;
     }
 
     AnalyticsHelper.trackProductEdit(

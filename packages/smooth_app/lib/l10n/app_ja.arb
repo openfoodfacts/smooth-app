@@ -315,6 +315,10 @@
     "support_via_email_include_logs_dialog_body": "メールの添付ファイルにアプリのログを含めますか？",
     "termsOfUse": "利用規約",
     "@termsOfUse": {},
+    "legalNotices": "法的通知",
+    "@legalNotices": {
+        "description": "A link to open the legal notices on the website"
+    },
     "about_this_app": "このアプリについて",
     "@about_this_app": {
         "description": "Button label: Opens a pop up window which shows information about the app"
@@ -358,6 +362,7 @@
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "翻訳はプロジェクトの重要なタスクの1つです",
     "@contribute_translate_text_2": {},
+    "contribute_join_skill_pool": "スキルをオープンフードファクトに貢献しましょう。スキルプールに参加しましょう！",
     "contribute_share_header": "Share Open Food Facts with your friends",
     "@contribute_share_header": {},
     "contribute_share_content": "I wanted to let you know about the app I've been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it's free, does not require registration, and you can even help increase the number of products decyphered. Here's the link to get it for your phone: https://openfoodfacts.app",
@@ -859,9 +864,9 @@
     },
     "retry_button_label": "再試行",
     "connect_with_us": "私たちとつながる",
-    "instagram": "Instagram",
+    "instagram": "Instagram でフォロー",
     "instagram_link": "https://instagram.com/open.food.facts",
-    "twitter": "X (旧 Twitter)",
+    "twitter": "X (旧 Twitter) でフォローしてください",
     "twitter_link": "https://www.twitter.com/openfoodfacts",
     "blog": "ブログ",
     "faq": "FAQ",
@@ -1464,6 +1469,10 @@
     "category_picker_no_category_found_button": "戻る",
     "@category_picker_no_category_found_button": {
         "description": "Button label when no category is available"
+    },
+    "user_preferences_item_accessibility_hint": "クリックしてブラウザまたはアプリケーションで開く（インストールされている場合）",
+    "@user_preferences_item_accessibility_hint": {
+        "description": "A hint for screen readers to explain how external links work"
     },
     "dev_preferences_screen_title": "開発者モード",
     "@dev_preferences_screen_title": {
@@ -2272,6 +2281,32 @@
     "@contrast_low": {
         "description": "Low Contrast Text Color"
     },
+    "product_refresher_internet_not_found": "商品が見つかりませんでした",
+    "@product_refresher_internet_not_found": {
+        "description": "When refreshing a product that does not exist on the server. Label is the body of a dialog."
+    },
+    "product_refresher_internet_not_connected": "インターネットに接続されていません。",
+    "@product_refresher_internet_not_connected": {
+        "description": "When refreshing a product and you're not even connected to internet. Label is the body of a dialog."
+    },
+    "product_refresher_internet_no_ping": "サーバーダウン ({host})",
+    "@product_refresher_internet_no_ping": {
+        "description": "When refreshing a product and you cannot even ping the server. Label is the body of a dialog.",
+        "placeholders": {
+            "host": {
+                "type": "String?"
+            }
+        }
+    },
+    "product_refresher_internet_error": "サーバーエラー ({exception})",
+    "@product_refresher_internet_error": {
+        "description": "When refreshing a product and the server returned an exception. Label is the body of a dialog.",
+        "placeholders": {
+            "exception": {
+                "type": "String?"
+            }
+        }
+    },
     "product_loader_not_found_title": "商品が見つかりませんでした",
     "@product_loader_not_found_title": {
         "description": "When fetching a product opened via a link and it doesn't exist"
@@ -2404,6 +2439,7 @@
     "@product_list_create_tooltip": {
         "description": "Button description to create a new list (long sentence)"
     },
+    "nutriscore_generic": "Nutri-Score",
     "nutriscore_a": "Nutri-Score A",
     "nutriscore_b": "Nutri-Score B",
     "nutriscore_c": "Nutri-Score C",
@@ -2411,6 +2447,7 @@
     "nutriscore_e": "Nutri-Score E",
     "nutriscore_unknown": "Unknown Nutri-Score",
     "nutriscore_not_applicable": "Nutri-Score is not applicable",
+    "ecoscore_generic": "Eco-Score",
     "ecoscore_a": "Eco-Score A",
     "ecoscore_b": "Eco-Score B",
     "ecoscore_c": "Eco-Score C",
@@ -2418,11 +2455,23 @@
     "ecoscore_e": "Eco-Score E",
     "ecoscore_unknown": "Unknown Eco-Score",
     "ecoscore_not_applicable": "Eco-Score is not applicable",
+    "nova_group_generic": "超処理 - NOVA グループ",
     "nova_group_1": "NOVA Group 1",
     "nova_group_2": "NOVA Group 2",
     "nova_group_3": "NOVA Group 3",
     "nova_group_4": "NOVA Group 4",
     "nova_group_unknown": "Unknown NOVA Group",
+    "nutrition_facts": "栄養レベル",
+    "faq_title_partners": "NGO のパートナーと後援者",
+    "faq_title_vision": "Open Food Facts ビジョン、使命、価値観、プログラム",
+    "faq_title_install_beauty": "Open Beauty Facts をインストールして化粧品データベースを作成する",
+    "faq_title_install_pet": "Open Pet Food Facts をインストールしてペットフード データベースを作成する",
+    "faq_title_install_product": "Open Products Facts をインストールして製品データベースを作成し、オブジェクトの寿命を延ばす",
+    "contact_title_pro_page": "プロ？ Open Food Facts に製品をインポートします",
+    "contact_title_pro_email": "プロデューサー連絡先",
+    "contact_title_press_page": "プレスページ",
+    "contact_title_press_email": "報道関係者向けのお問い合わせ先",
+    "contact_title_newsletter": "Subscribe to our newsletter",
     "hunger_games_loading_line1": "数秒お待ちください…",
     "hunger_games_loading_line2": "質問をダウンロード中です！",
     "hunger_games_error_label": "ああ！問題が発生した… 、質問を読み込むことができませんでした。",

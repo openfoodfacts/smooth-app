@@ -315,6 +315,10 @@
     "support_via_email_include_logs_dialog_body": "Desideri includere i log dell'app in allegato alla tua e-mail?",
     "termsOfUse": "Condizioni d'uso",
     "@termsOfUse": {},
+    "legalNotices": "Note legali",
+    "@legalNotices": {
+        "description": "A link to open the legal notices on the website"
+    },
     "about_this_app": "Su quest'app",
     "@about_this_app": {
         "description": "Button label: Opens a pop up window which shows information about the app"
@@ -358,6 +362,7 @@
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "Le traduzioni sono tra i compiti chiave del progetto",
     "@contribute_translate_text_2": {},
+    "contribute_join_skill_pool": "Contribuisci con le tue abilità a Open Food Facts. Unisciti al pool di abilità!",
     "contribute_share_header": "Condividi Open Food Facts con i tuoi amici",
     "@contribute_share_header": {},
     "contribute_share_content": "Volevo farti conoscere l'app che sto utilizzando, Open Food Facts, che ti consente di ottenere la salute e gli impatti ambientali dei tuo alimenti, in un modo personalizzato. Funziona scansionando i codici a barre sull'imballaggio. Infine, è gratuita, non richiede la registrazione e puoi persino aiutare a incrementare il numero di prodotti decifratii. Ecco il link per scaricarla sul tuo telefono: https://openfoodfacts.app",
@@ -859,9 +864,9 @@
     },
     "retry_button_label": "Riprova",
     "connect_with_us": "Connettiti con noi",
-    "instagram": "Instagram",
+    "instagram": "Seguici su Instagram",
     "instagram_link": "https://instagram.com/open.food.facts",
-    "twitter": "X (ex Twitter)",
+    "twitter": "Seguici su X (ex Twitter)",
     "twitter_link": "https://www.twitter.com/openfoodfacts",
     "blog": "Blog",
     "faq": "FAQ",
@@ -1464,6 +1469,10 @@
     "category_picker_no_category_found_button": "Indietro",
     "@category_picker_no_category_found_button": {
         "description": "Button label when no category is available"
+    },
+    "user_preferences_item_accessibility_hint": "Fare clic per aprire nel browser o nell'applicazione (se installata)",
+    "@user_preferences_item_accessibility_hint": {
+        "description": "A hint for screen readers to explain how external links work"
     },
     "dev_preferences_screen_title": "Modalità sviluppatore",
     "@dev_preferences_screen_title": {
@@ -2272,6 +2281,32 @@
     "@contrast_low": {
         "description": "Low Contrast Text Color"
     },
+    "product_refresher_internet_not_found": "Prodotto non trovato!",
+    "@product_refresher_internet_not_found": {
+        "description": "When refreshing a product that does not exist on the server. Label is the body of a dialog."
+    },
+    "product_refresher_internet_not_connected": "Non sei connesso a internet!",
+    "@product_refresher_internet_not_connected": {
+        "description": "When refreshing a product and you're not even connected to internet. Label is the body of a dialog."
+    },
+    "product_refresher_internet_no_ping": "Server inattivo ({host})",
+    "@product_refresher_internet_no_ping": {
+        "description": "When refreshing a product and you cannot even ping the server. Label is the body of a dialog.",
+        "placeholders": {
+            "host": {
+                "type": "String?"
+            }
+        }
+    },
+    "product_refresher_internet_error": "Errore del server ({exception})",
+    "@product_refresher_internet_error": {
+        "description": "When refreshing a product and the server returned an exception. Label is the body of a dialog.",
+        "placeholders": {
+            "exception": {
+                "type": "String?"
+            }
+        }
+    },
     "product_loader_not_found_title": "Prodotto non trovato!",
     "@product_loader_not_found_title": {
         "description": "When fetching a product opened via a link and it doesn't exist"
@@ -2404,6 +2439,7 @@
     "@product_list_create_tooltip": {
         "description": "Button description to create a new list (long sentence)"
     },
+    "nutriscore_generic": "Nutri-Score",
     "nutriscore_a": "Nutri-Score A",
     "nutriscore_b": "Nutri-Score B",
     "nutriscore_c": "Nutri-Score C",
@@ -2411,6 +2447,7 @@
     "nutriscore_e": "Nutri-Score E",
     "nutriscore_unknown": "Nutri-Score Sconosciuto",
     "nutriscore_not_applicable": "Nutri-Score non applicabile",
+    "ecoscore_generic": "Eco-Score",
     "ecoscore_a": "Eco-Score A",
     "ecoscore_b": "Eco-Score B",
     "ecoscore_c": "Eco-Score C",
@@ -2418,11 +2455,23 @@
     "ecoscore_e": "Eco-Score E",
     "ecoscore_unknown": "Eco-Score Sconosciuto",
     "ecoscore_not_applicable": "Eco-Score non applicabile",
+    "nova_group_generic": "Ultra-trasformazione - Gruppi NOVA",
     "nova_group_1": "Gruppo NOVA 1",
     "nova_group_2": "Gruppo NOVA 2",
     "nova_group_3": "Gruppo NOVA 3",
     "nova_group_4": "Gruppo NOVA 4",
     "nova_group_unknown": "Gruppo NOVA Sconosciuto",
+    "nutrition_facts": "Livelli di nutrienti",
+    "faq_title_partners": "Partner e sostenitori della ONG",
+    "faq_title_vision": "Visione, Missione, Valori e Programmi di Open Food Facts",
+    "faq_title_install_beauty": "Installa Open Beauty Facts per creare un database cosmetico",
+    "faq_title_install_pet": "Installa Open Pet Food Facts per creare un database di alimenti per animali domestici",
+    "faq_title_install_product": "Installa Open Products Facts per creare un database di prodotti per prolungare la vita degli oggetti",
+    "contact_title_pro_page": "Pro? Importa i tuoi prodotti in Open Food Facts",
+    "contact_title_pro_email": "Contatto Produttore",
+    "contact_title_press_page": "Pagina ufficio stampa",
+    "contact_title_press_email": "Contatto ufficio stampa",
+    "contact_title_newsletter": "Iscriviti alla nostra newsletter",
     "hunger_games_loading_line1": "Per favore lasciaci qualche secondo…",
     "hunger_games_loading_line2": "Stiamo scaricando le domande!",
     "hunger_games_error_label": "Argh! Qualcosa è andato storto… e non siamo riusciti a caricare le domande.",

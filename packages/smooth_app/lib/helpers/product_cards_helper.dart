@@ -173,7 +173,7 @@ Widget addPanelButton(
 List<ProductImageData> getProductMainImagesData(
   final Product product,
   final OpenFoodFactsLanguage language, {
-  final bool includeOther = true,
+  required final bool includeOther,
 }) {
   final List<ImageField> imageFields = List<ImageField>.of(
     ImageFieldSmoothieExtension.orderedMain,
