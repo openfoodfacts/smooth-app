@@ -10,13 +10,12 @@ import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/product_image_gallery_view.dart';
 import 'package:smooth_app/query/product_query.dart';
 
-// TODO(monsieurtanuki): rename that class, like `ProductImageCarouselItem`
 /// Displays a product image in the carousel: access to gallery, or new image.
 ///
 /// If the image exists, it's displayed and a tap gives access to the gallery.
 /// If not, a "add image" button is displayed.
-class ImageUploadCard extends StatefulWidget {
-  const ImageUploadCard({
+class ProductImageCarouselItem extends StatefulWidget {
+  const ProductImageCarouselItem({
     required this.product,
     required this.productImageData,
   });
@@ -25,10 +24,11 @@ class ImageUploadCard extends StatefulWidget {
   final ProductImageData productImageData;
 
   @override
-  State<ImageUploadCard> createState() => _ImageUploadCardState();
+  State<ProductImageCarouselItem> createState() =>
+      _ProductImageCarouselItemState();
 }
 
-class _ImageUploadCardState extends State<ImageUploadCard> {
+class _ProductImageCarouselItemState extends State<ProductImageCarouselItem> {
   @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
@@ -47,6 +47,7 @@ class _ImageUploadCardState extends State<ImageUploadCard> {
           barcode: widget.product.barcode!,
           imageField: widget.productImageData.imageField,
           language: ProductQuery.getLanguage(),
+          isLoggedInMandatory: true,
         ),
         icon: const Icon(Icons.add_a_photo),
         label: Text(

@@ -190,6 +190,12 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
                   subtitle: appLocalizations
                       .edit_product_form_item_nutrition_facts_subtitle,
                   onTap: () async {
+                    if (!await ProductRefresher().checkIfLoggedIn(
+                      context,
+                      isLoggedInMandatory: true,
+                    )) {
+                      return;
+                    }
                     AnalyticsHelper.trackProductEdit(
                       AnalyticsEditEvents.nutrition_Facts,
                       barcode,
@@ -227,7 +233,10 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
                 subtitle: appLocalizations
                     .edit_product_form_item_other_details_subtitle,
                 onTap: () async {
-                  if (!await ProductRefresher().checkIfLoggedIn(context)) {
+                  if (!await ProductRefresher().checkIfLoggedIn(
+                    context,
+                    isLoggedInMandatory: true,
+                  )) {
                     return;
                   }
                   AnalyticsHelper.trackProductEdit(
@@ -276,7 +285,10 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
       leading: const Icon(Icons.interests),
       title: titles.join(', '),
       onTap: () async {
-        if (!await ProductRefresher().checkIfLoggedIn(context)) {
+        if (!await ProductRefresher().checkIfLoggedIn(
+          context,
+          isLoggedInMandatory: true,
+        )) {
           return;
         }
         AnalyticsHelper.trackProductEdit(
