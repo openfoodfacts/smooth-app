@@ -65,6 +65,14 @@ enum AnalyticsEvent {
     tag: 'showed fast-track product edit card',
     category: AnalyticsCategory.productFastTrackEdit,
   ),
+  notShowFastTrackProductEditCardNutriscore(
+    tag: 'nutriscore not applicable - no fast-track product edit card',
+    category: AnalyticsCategory.productFastTrackEdit,
+  ),
+  notShowFastTrackProductEditCardEcoscore(
+    tag: 'ecoscore not applicable - no fast-track product edit card',
+    category: AnalyticsCategory.productFastTrackEdit,
+  ),
   categoriesFastTrackProductPage(
     tag: 'set categories on fast track product page',
     category: AnalyticsCategory.productFastTrackEdit,
