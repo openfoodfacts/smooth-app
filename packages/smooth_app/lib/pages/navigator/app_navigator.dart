@@ -14,6 +14,7 @@ import 'package:smooth_app/pages/navigator/external_page.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/product/add_new_product_page.dart';
+import 'package:smooth_app/pages/product/edit_product_page.dart';
 import 'package:smooth_app/pages/product/new_product_page.dart';
 import 'package:smooth_app/pages/product/product_loader_page.dart';
 import 'package:smooth_app/pages/scan/search_page.dart';
@@ -144,10 +145,29 @@ class _SmoothGoRouter {
               },
             ),
             GoRoute(
+              path: '${_InternalAppRoutes.PRODUCT_EDITOR_PAGE}/:productId',
+              builder: (BuildContext context, GoRouterState state) {
+                Product product;
+
+                if (state.extra is Product) {
+                  product = state.extra! as Product;
+                } else {
+                  throw Exception('No product provided!');
+                }
+
+                return EditProductPage(product);
+              },
+            ),
+            GoRoute(
               path: '${_InternalAppRoutes.PRODUCT_LOADER_PAGE}/:productId',
               builder: (BuildContext context, GoRouterState state) {
                 final String barcode = state.pathParameters['productId']!;
-                return ProductLoaderPage(barcode: barcode);
+                return ProductLoaderPage(
+                  barcode: barcode,
+                  mode: state.queryParameters['edit'] == 'true'
+                      ? ProductLoaderMode.editProduct
+                      : ProductLoaderMode.viewProduct,
+                );
               },
             ),
             GoRoute(
@@ -200,6 +220,8 @@ class _SmoothGoRouter {
           return null;
         }
 
+        bool externalLink = false;
+
         // If a barcode is in the URL, ensure to manually fetch the product
         if (path.isNotEmpty) {
           final int subPaths = path.count('/');
@@ -218,17 +240,30 @@ class _SmoothGoRouter {
               } else {
                 return AppRoutes.PRODUCT_LOADER(barcode);
               }
+            } else if (path == _ExternalRoutes.PRODUCT_EDITION) {
+              // Support cgi/product.pl?type=edit&code=XXXX
+              final String? barcode = state.queryParameters['code'];
+
+              if (barcode != null && state.queryParameters['type'] == 'edit') {
+                return AppRoutes.PRODUCT_LOADER(barcode, edit: true);
+              } else {
+                externalLink = true;
+              }
             } else {
-              return _openExternalLink(path);
+              externalLink = true;
             }
           } else if (path == _ExternalRoutes.MOBILE_APP_DOWNLOAD) {
             return AppRoutes.HOME;
           } else if (path != _InternalAppRoutes.HOME_PAGE) {
-            return _openExternalLink(path);
+            externalLink = true;
           }
         }
 
-        return state.location;
+        if (externalLink) {
+          return _openExternalLink(path);
+        } else {
+          return state.location;
+        }
       },
       errorBuilder: (_, GoRouterState state) => ErrorPage(
         url: state.location,
@@ -323,6 +358,7 @@ class _InternalAppRoutes {
   static const String PRODUCT_DETAILS_PAGE = '_product';
   static const String PRODUCT_LOADER_PAGE = '_product_loader';
   static const String PRODUCT_CREATOR_PAGE = '_product_creator';
+  static const String PRODUCT_EDITOR_PAGE = '_product_editor';
   static const String PREFERENCES_PAGE = '_preferences';
   static const String SEARCH_PAGE = '_search';
   static const String EXTERNAL_PAGE = '_external';
@@ -330,6 +366,7 @@ class _InternalAppRoutes {
 
 class _ExternalRoutes {
   static const String MOBILE_APP_DOWNLOAD = '/open-food-facts-mobile-app';
+  static const String PRODUCT_EDITION = '/cgi/product.pl';
 }
 
 /// A list of internal routes to use with [AppNavigator]
@@ -352,12 +389,16 @@ class AppRoutes {
       '&heroTag=$heroTag';
 
   // Product loader (= when a product is not in the database) - typical use case: deep links
-  static String PRODUCT_LOADER(String barcode) =>
-      '/${_InternalAppRoutes.PRODUCT_LOADER_PAGE}/$barcode';
+  static String PRODUCT_LOADER(String barcode, {bool edit = false}) =>
+      '/${_InternalAppRoutes.PRODUCT_LOADER_PAGE}/$barcode?edit=$edit';
 
   // Product creator or "add product" feature
   static String PRODUCT_CREATOR(String barcode) =>
       '/${_InternalAppRoutes.PRODUCT_CREATOR_PAGE}/$barcode';
+
+  // Product creator or "add product" feature
+  static String PRODUCT_EDITOR(String barcode) =>
+      '/${_InternalAppRoutes.PRODUCT_EDITOR_PAGE}/$barcode';
 
   // App preferences
   static String PREFERENCES(PreferencePageType type) =>

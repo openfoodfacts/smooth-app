@@ -3,9 +3,6 @@ name: App Store release to org.openfoodfacts.scanner
 on:
   workflow_call:
     inputs:
-      FLUTTER-CACHE-KEY:
-        required: true
-        type: string
       VERSION_NAME:
         required: true
         type: string
