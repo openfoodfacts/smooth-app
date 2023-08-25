@@ -20,6 +20,9 @@ class ProductIncompleteCard extends StatelessWidget {
   final bool isLoggedInMandatory;
 
   static bool isProductIncomplete(final Product product) {
+    if (_isNutriscoreNotApplicable(product)) {
+      return false;
+    }
     final List<ProductFieldEditor> editors = <ProductFieldEditor>[
       ProductFieldSimpleEditor(SimpleInputPageCategoryHelper()),
       ProductFieldNutritionEditor(),
@@ -29,6 +32,24 @@ class ProductIncompleteCard extends StatelessWidget {
     for (final ProductFieldEditor editor in editors) {
       if (!editor.isPopulated(product)) {
         return true;
+      }
+    }
+    return false;
+  }
+
+  static bool _isNutriscoreNotApplicable(final Product product) {
+    if (product.attributeGroups == null) {
+      return false;
+    }
+    for (final AttributeGroup attributeGroup in product.attributeGroups!) {
+      if (attributeGroup.attributes == null) {
+        continue;
+      }
+      for (final Attribute attribute in attributeGroup.attributes!) {
+        if (attribute.id == 'nutriscore') {
+          return attribute.iconUrl ==
+              'https://static.openfoodfacts.org/images/attributes/nutriscore-not-applicable.svg';
+        }
       }
     }
     return false;
