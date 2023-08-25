@@ -85,6 +85,10 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
         ),
       );
     }
+    final String productName = getProductName(
+      widget.product,
+      appLocalizations,
+    );
 
     return WillPopScope(
       onWillPop: () async => _mayExitPage(saving: false),
@@ -94,7 +98,7 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
           appBar: SmoothAppBar(
             centerTitle: false,
             title: Text(
-              getProductName(widget.product, appLocalizations),
+              '${productName.trim()}, ${widget.product.brands!.trim()}',
               maxLines: widget.product.barcode?.isNotEmpty == true ? 1 : 2,
               overflow: TextOverflow.ellipsis,
             ),

@@ -192,7 +192,7 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
             title: Text(appLocalizations.edit_packagings_title),
             subTitle: upToDateProduct.productName != null
                 ? Text(
-                    upToDateProduct.productName!,
+                    '${upToDateProduct.productName!.trim()}, ${upToDateProduct.brands!.trim()}',
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   )
