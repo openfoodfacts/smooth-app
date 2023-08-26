@@ -52,7 +52,7 @@ class OrderedNutrientsCache {
   /// Downloads the ordered nutrients and caches them in the database.
   Future<OrderedNutrients> _download() async {
     final String string = await OpenFoodAPIClient.getOrderedNutrientsJsonString(
-      country: ProductQuery.getCountry()!,
+      country: ProductQuery.getCountry(),
       language: ProductQuery.getLanguage(),
     );
     final OrderedNutrients result = OrderedNutrients.fromJson(
@@ -64,7 +64,7 @@ class OrderedNutrientsCache {
 
   /// Database key.
   String _getKey() {
-    final OpenFoodFactsCountry country = ProductQuery.getCountry()!;
+    final OpenFoodFactsCountry country = ProductQuery.getCountry();
     final OpenFoodFactsLanguage language = ProductQuery.getLanguage();
     return 'nutrients.pl'
         '/${country.offTag}'
