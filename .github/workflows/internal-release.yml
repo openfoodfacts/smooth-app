@@ -77,7 +77,6 @@ jobs:
     with:
       VERSION_NAME: ${{ needs.tag-commit.outputs.VERSION_NAME}}
       VERSION_CODE: ${{ needs.tag-commit.outputs.VERSION_CODE}}
-      FLUTTER-CACHE-KEY: '3.3.x'
       RELEASE_TYPE: 'PLAY'
       BUILD_TYPE: 'appbundle'
       FLAVOR: 'main_google_play'
@@ -100,7 +99,6 @@ jobs:
     with:
       VERSION_NAME: ${{ needs.tag-commit.outputs.VERSION_NAME}}
       VERSION_CODE: ${{ needs.tag-commit.outputs.VERSION_CODE}}
-      FLUTTER-CACHE-KEY: '3.3.x'
     secrets:
       SENTRY_AUTH_TOKEN: ${{secrets.SENTRY_AUTH_TOKEN }}
       FASTLANE_USER: ${{secrets.FASTLANE_USER }}

@@ -56,7 +56,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView>
         subTitle: upToDateProduct.productName == null
             ? null
             : Text(
-                upToDateProduct.productName!,
+                '${upToDateProduct.productName!.trim()}, ${upToDateProduct.brands!.trim()}',
                 overflow: TextOverflow.ellipsis,
                 maxLines: 1,
               ),
@@ -73,6 +73,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView>
             imageField: ImageField.OTHER,
             barcode: barcode,
             language: ProductQuery.getLanguage(),
+            isLoggedInMandatory: true,
           );
         },
         label: Text(appLocalizations.add_photo_button_label),
@@ -117,6 +118,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView>
           builder: (_) => ProductImageSwipeableView(
             initialImageIndex: initialImageIndex,
             product: upToDateProduct,
+            isLoggedInMandatory: true,
           ),
         ),
       );
