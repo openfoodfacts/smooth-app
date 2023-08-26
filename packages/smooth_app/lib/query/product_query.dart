@@ -59,8 +59,9 @@ abstract class ProductQuery {
   static Future<void> initCountry(
     final UserPreferences userPreferences,
   ) async {
+    // not ideal, but we have many contributors monitoring France
     const OpenFoodFactsCountry defaultCountry =
-        OpenFoodFactsCountry.SWITZERLAND; // why not?
+        OpenFoodFactsCountry.FRANCE;
     final String? isoCode = userPreferences.userCountryCode ??
         PlatformDispatcher.instance.locale.countryCode?.toLowerCase();
     final OpenFoodFactsCountry country =
