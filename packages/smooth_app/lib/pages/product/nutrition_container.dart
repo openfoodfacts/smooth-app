@@ -38,6 +38,8 @@ class NutritionContainer {
   /// All the nutrients (country-related) that do match [Nutrient]s.
   final List<OrderedNutrient> _nutrients = <OrderedNutrient>[];
 
+  List<OrderedNutrient> get allNutrients => _nutrients;
+
   /// Nutrient values.
   final Map<Nutrient, double?> _values = <Nutrient, double?>{};
 

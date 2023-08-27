@@ -42,6 +42,8 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
   static const String userPreferencesFlagProd = '__devWorkingOnProd';
   static const String userPreferencesTestEnvHost = '__testEnvHost';
   static const String userPreferencesFlagEditIngredients = '__editIngredients';
+  static const String userPreferencesFlagBoostedComparison =
+      '__boostedComparison';
   static const String userPreferencesEnumScanMode = '__scanMode';
   static const String userPreferencesAppLanguageCode = '__appLanguage';
   static const String userPreferencesFlagAccessibilityNoColor =
@@ -336,6 +338,17 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           onTap: () async {
             userPreferences.setAppLanguageCode(null);
             ProductQuery.setLanguage(context, userPreferences);
+          },
+        ),
+        SwitchListTile(
+          title: const Text('Side by side comparison for 2 or 3 products'),
+          value:
+              userPreferences.getFlag(userPreferencesFlagBoostedComparison) ??
+                  false,
+          onChanged: (bool value) async {
+            await userPreferences.setFlag(
+                userPreferencesFlagBoostedComparison, value);
+            _showSuccessMessage();
           },
         ),
         ListTile(
