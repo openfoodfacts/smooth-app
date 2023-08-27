@@ -98,7 +98,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
     initUpToDate(widget.product, context.read<LocalDatabase>());
     _nutritionContainer = NutritionContainer(
       orderedNutrients: widget.orderedNutrients,
-      product: initialProduct,
+      product: upToDateProduct,
     );
 
     _decimalNumberFormat =
