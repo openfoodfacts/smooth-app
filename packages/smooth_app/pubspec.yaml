@@ -53,8 +53,8 @@ dependencies:
   auto_size_text: 3.0.0
   crop_image: 1.0.10
   shared_preferences: 2.1.1
-  intl: 0.18.0
-  collection: 1.17.1
+  intl: 0.18.1
+  collection: 1.17.2
   path: 1.8.3
   path_provider: 2.0.15
   data_importer_shared:
@@ -113,7 +113,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   mockito: 5.4.2
-  path_provider_platform_interface: 2.0.6
+  path_provider_platform_interface: 2.1.0
   plugin_platform_interface: 2.1.4
   flutter_lints: 2.0.1
   openfoodfacts_flutter_lints:
