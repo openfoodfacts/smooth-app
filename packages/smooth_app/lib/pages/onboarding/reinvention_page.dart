@@ -30,10 +30,10 @@ class ReinventionPage extends StatelessWidget {
     final Size screenSize = MediaQuery.of(context).size;
     final double animHeight = 352.0 * screenSize.width / 375.0;
 
-    return SafeArea(
-      bottom: false,
-      child: Container(
-        color: backgroundColor,
+    return Container(
+      color: backgroundColor,
+      child: SafeArea(
+        bottom: false,
         child: Stack(
           children: <Widget>[
             Positioned(
