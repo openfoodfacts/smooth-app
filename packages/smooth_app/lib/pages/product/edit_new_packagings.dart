@@ -75,10 +75,10 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
     _unitNumberFormat = SimpleInputNumberField.getNumberFormat(
       decimal: false,
     );
-    if (initialProduct.packagings != null) {
-      initialProduct.packagings!.forEach(_addPackagingToControllers);
+    if (upToDateProduct.packagings != null) {
+      upToDateProduct.packagings!.forEach(_addPackagingToControllers);
     }
-    _packagingsComplete = initialProduct.packagingsComplete;
+    _packagingsComplete = upToDateProduct.packagingsComplete;
   }
 
   @override
