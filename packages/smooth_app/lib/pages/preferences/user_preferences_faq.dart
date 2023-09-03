@@ -1,10 +1,8 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:package_info_plus/package_info_plus.dart';
-import 'package:smooth_app/data_models/preferences/user_preferences.dart';
+import 'package:smooth_app/data_models/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
@@ -14,7 +12,6 @@ import 'package:smooth_app/helpers/user_feedback_helper.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
-import 'package:smooth_app/query/product_query.dart';
 
 /// Display of "FAQ" for the preferences page.
 class UserPreferencesFaq extends AbstractUserPreferences {
@@ -50,104 +47,31 @@ class UserPreferencesFaq extends AbstractUserPreferences {
   @override
   Color? getHeaderColor() => const Color(0xFFDFF7E8);
 
-  bool get _isDark => Theme.of(context).brightness == Brightness.dark;
-
   @override
   List<Widget> getBody() => <Widget>[
         _getListTile(
           title: appLocalizations.faq,
-          leadingIconData: Icons.question_mark,
+          leading: Icons.question_mark,
           url: 'https://support.openfoodfacts.org/help',
-        ),
-        _getNutriListTile(
-          title: appLocalizations.nutriscore_generic,
-          url: 'https://world.openfoodfacts.org/nutriscore',
-          svg: 'assets/cache/nutriscore-b.svg',
-        ),
-        _getNutriListTile(
-          title: appLocalizations.ecoscore_generic,
-          url: 'https://world.openfoodfacts.org/ecoscore',
-          svg: 'assets/cache/ecoscore-b.svg',
-        ),
-        _getNutriListTile(
-          title: appLocalizations.nova_group_generic,
-          url: 'https://world.openfoodfacts.org/nova',
-          svg: 'assets/cache/nova-group-4.svg',
-        ),
-        _getNutriListTile(
-          title: appLocalizations.nutrition_facts,
-          url: 'https://world.openfoodfacts.org/traffic-lights',
-          svg: 'assets/cache/low.svg',
-          leadingSvgWidth: 1.5 * DEFAULT_ICON_SIZE,
         ),
         _getListTile(
           title: appLocalizations.discover,
-          leadingIconData: Icons.travel_explore,
-          url: ProductQuery.replaceSubdomain(
-            'https://world.openfoodfacts.org/discover',
-          ),
+          leading: Icons.travel_explore,
+          url: 'https://world.openfoodfacts.org/discover',
         ),
         _getListTile(
           title: appLocalizations.how_to_contribute,
-          leadingIconData: Icons.volunteer_activism,
-          url: ProductQuery.replaceSubdomain(
-            'https://world.openfoodfacts.org/contribute',
-          ),
+          leading: Icons.volunteer_activism,
+          url: 'https://world.openfoodfacts.org/contribute',
         ),
         _getListTile(
           title: appLocalizations.feed_back,
-          leadingIconData: Icons.add_comment,
+          leading: Icons.feedback_sharp,
           url: UserFeedbackHelper.getFeedbackFormLink(),
         ),
         _getListTile(
-          title: appLocalizations.faq_title_partners,
-          leadingIconData: Icons.handshake_outlined,
-          url: ProductQuery.replaceSubdomain(
-            'https://world.openfoodfacts.org/partners',
-          ),
-        ),
-        _getListTile(
-          title: appLocalizations.faq_title_vision,
-          leadingIconData: Icons.remove_red_eye_outlined,
-          url: ProductQuery.replaceSubdomain(
-            'https://world.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs',
-          ),
-        ),
-        if (Platform.isAndroid || Platform.isIOS)
-          _getListTile(
-            title: appLocalizations.faq_title_install_beauty,
-            // for the record those svg files were edited, because svg flutter
-            // does not support the styles
-            // eg. <style>.b{fill:#008c8c;}.c{fill:#fff;}</style> is not taken into account
-            // and the initial rect creates a background we don't need
-            leadingSvg: _isDark
-                ? 'assets/app/RVB_ICON_BLACK_BG_OBF.svg'
-                : 'assets/app/RVB_ICON_WHITE_BG_OBF.svg',
-            url: Platform.isAndroid
-                ? 'https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=${ProductQuery.getLanguage().offTag}'
-                : 'https://apps.apple.com/${ProductQuery.getLanguage().offTag}/app/open-beauty-facts/id1122926380',
-          ),
-        if (Platform.isAndroid)
-          _getListTile(
-            title: appLocalizations.faq_title_install_pet,
-            leadingSvg: _isDark
-                ? 'assets/app/RVB_ICON_BLACK_BG_OPFF.svg'
-                : 'assets/app/RVB_ICON_WHITE_BG_OPFF.svg',
-            url:
-                'https://play.google.com/store/apps/details?id=org.openpetfoodfacts.scanner&hl=${ProductQuery.getLanguage().offTag}',
-          ),
-        if (Platform.isAndroid)
-          _getListTile(
-            title: appLocalizations.faq_title_install_product,
-            leadingSvg: _isDark
-                ? 'assets/app/RVB_ICON_BLACK_BG_OPF.svg'
-                : 'assets/app/RVB_ICON_WHITE_BG_OPF.svg',
-            url:
-                'https://play.google.com/store/apps/details?id=org.openpetfoodfacts.scanner&hl=${ProductQuery.getLanguage().offTag}',
-          ),
-        _getListTile(
           title: appLocalizations.about_this_app,
-          leadingIconData: Icons.info,
+          leading: Icons.info,
           onTap: () async => _about(),
           icon: getForwardIcon(),
         ),
@@ -155,9 +79,7 @@ class UserPreferencesFaq extends AbstractUserPreferences {
 
   Widget _getListTile({
     required final String title,
-    final IconData? leadingIconData,
-    final String? leadingSvg,
-    final double? leadingSvgWidth,
+    required final IconData leading,
     final String? url,
     final VoidCallback? onTap,
     final Icon? icon,
@@ -167,36 +89,7 @@ class UserPreferencesFaq extends AbstractUserPreferences {
         onTap: onTap ?? () async => LaunchUrlHelper.launchURL(url!, false),
         trailing: icon ??
             UserPreferencesListTile.getTintedIcon(Icons.open_in_new, context),
-        leading: SizedBox(
-          width: 2 * DEFAULT_ICON_SIZE,
-          height: 2 * DEFAULT_ICON_SIZE,
-          child: Center(
-            child: leadingIconData != null
-                ? UserPreferencesListTile.getTintedIcon(
-                    leadingIconData, context)
-                : leadingSvg == null
-                    ? null
-                    : SvgPicture.asset(
-                        leadingSvg,
-                        width: leadingSvgWidth ?? 2 * DEFAULT_ICON_SIZE,
-                        package: AppHelper.APP_PACKAGE,
-                      ),
-          ),
-        ),
-        externalLink: url != null,
-      );
-
-  Widget _getNutriListTile({
-    required final String title,
-    required final String url,
-    required final String svg,
-    final double? leadingSvgWidth,
-  }) =>
-      _getListTile(
-        title: title,
-        leadingSvg: svg,
-        leadingSvgWidth: leadingSvgWidth,
-        url: ProductQuery.replaceSubdomain(url),
+        leading: UserPreferencesListTile.getTintedIcon(leading, context),
       );
 
   static const String _iconLightAssetPath =
@@ -207,102 +100,120 @@ class UserPreferencesFaq extends AbstractUserPreferences {
   Future<void> _about() async {
     final PackageInfo packageInfo = await PackageInfo.fromPlatform();
     // ignore: use_build_context_synchronously
-    showDialog<void>(
+    showModalBottomSheet<void>(
       context: context,
       builder: (BuildContext context) {
         final String logo = Theme.of(context).brightness == Brightness.light
             ? _iconLightAssetPath
             : _iconDarkAssetPath;
-
-        return SmoothAlertDialog(
-          body: Column(
+        return FractionallySizedBox(
+          heightFactor: 0.6,
+          child: Column(
             children: <Widget>[
-              Row(
+              Padding(
+                padding: const EdgeInsetsDirectional.only(
+                  top: MEDIUM_SPACE,
+                  end: LARGE_SPACE,
+                  start: LARGE_SPACE,
+                ),
+                child: Row(
+                  children: <Widget>[
+                    SvgPicture.asset(
+                      logo,
+                      width: MINIMUM_TOUCH_SIZE,
+                      package: AppHelper.APP_PACKAGE,
+                    ),
+                    const SizedBox(width: SMALL_SPACE),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          FittedBox(
+                            child: Text(
+                              packageInfo.appName,
+                              style: themeData.textTheme.displayLarge,
+                            ),
+                          ),
+                          Text(
+                            '${packageInfo.version}+${packageInfo.buildNumber}-${GlobalVars.scannerLabel.name}-${GlobalVars.storeLabel.name}',
+                            style: themeData.textTheme.titleSmall,
+                          )
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Divider(color: themeData.colorScheme.onBackground),
+              Column(
                 children: <Widget>[
-                  SvgPicture.asset(
-                    logo,
-                    width: MediaQuery.of(context).size.width * 0.1,
-                    package: AppHelper.APP_PACKAGE,
+                  Padding(
+                    padding: const EdgeInsetsDirectional.only(
+                      top: VERY_SMALL_SPACE,
+                      end: LARGE_SPACE,
+                      start: LARGE_SPACE,
+                    ),
+                    child: Text(appLocalizations.whatIsOff),
                   ),
-                  const SizedBox(width: SMALL_SPACE),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                  IntrinsicHeight(
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        FittedBox(
-                          child: Text(
-                            packageInfo.appName,
-                            style: themeData.textTheme.displayLarge,
+                        Expanded(
+                          child: TextButton(
+                            onPressed: () => LaunchUrlHelper.launchURL(
+                                'https://openfoodfacts.org/who-we-are', true),
+                            child: Text(
+                              appLocalizations.learnMore,
+                              textAlign: TextAlign.center,
+                              style: const TextStyle(
+                                color: Colors.blue,
+                              ),
+                            ),
                           ),
                         ),
-                        Text(
-                          '${packageInfo.version}+${packageInfo.buildNumber}-${GlobalVars.scannerLabel.name}-${GlobalVars.storeLabel.name}',
-                          style: themeData.textTheme.titleSmall,
+                        Expanded(
+                          child: TextButton(
+                            onPressed: () => LaunchUrlHelper.launchURL(
+                                'https://openfoodfacts.org/terms-of-use', true),
+                            child: Text(
+                              appLocalizations.termsOfUse,
+                              textAlign: TextAlign.center,
+                              style: const TextStyle(
+                                color: Colors.blue,
+                              ),
+                            ),
+                          ),
                         )
                       ],
                     ),
                   ),
+                  const SizedBox(height: MEDIUM_SPACE),
+                  TextButton(
+                    onPressed: () async {
+                      Navigator.of(context).pop();
+                      showLicensePage(
+                        context: context,
+                        applicationName: packageInfo.appName,
+                        applicationVersion: packageInfo.version,
+                        applicationIcon: SvgPicture.asset(
+                          logo,
+                          height: MediaQuery.of(context).size.height * 0.1,
+                        ),
+                      );
+                    },
+                    child: Text(
+                      appLocalizations.licenses,
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        color: Colors.blue,
+                      ),
+                    ),
+                  ),
                 ],
               ),
-              const SizedBox(height: VERY_LARGE_SPACE),
-              SingleChildScrollView(
-                child: IconTheme(
-                  data: const IconThemeData(size: 16.0),
-                  child: Column(
-                    children: <Widget>[
-                      FractionallySizedBox(
-                        widthFactor: 0.9,
-                        child: Text(appLocalizations.whatIsOff),
-                      ),
-                      const SizedBox(height: VERY_SMALL_SPACE),
-                      SmoothAlertContentButton(
-                        onPressed: () => LaunchUrlHelper.launchURL(
-                            'https://openfoodfacts.org/who-we-are', true),
-                        label: appLocalizations.learnMore,
-                        icon: Icons.open_in_new,
-                      ),
-                      const SizedBox(height: VERY_SMALL_SPACE),
-                      SmoothAlertContentButton(
-                        onPressed: () => LaunchUrlHelper.launchURL(
-                          'https://openfoodfacts.org/terms-of-use',
-                          true,
-                        ),
-                        label: appLocalizations.termsOfUse,
-                        icon: Icons.open_in_new,
-                      ),
-                      const SizedBox(height: VERY_SMALL_SPACE),
-                      SmoothAlertContentButton(
-                        onPressed: () => LaunchUrlHelper.launchURL(
-                          'https://openfoodfacts.org/legal',
-                          true,
-                        ),
-                        label: appLocalizations.legalNotices,
-                        icon: Icons.open_in_new,
-                      ),
-                      const SizedBox(height: VERY_SMALL_SPACE),
-                      SmoothAlertContentButton(
-                        onPressed: () => showLicensePage(
-                          context: context,
-                          applicationName: packageInfo.appName,
-                          applicationVersion: packageInfo.version,
-                          applicationIcon: SvgPicture.asset(
-                            logo,
-                            height: MediaQuery.of(context).size.height * 0.1,
-                          ),
-                        ),
-                        label: appLocalizations.licenses,
-                        icon: Icons.info,
-                      ),
-                      const SizedBox(height: SMALL_SPACE),
-                    ],
-                  ),
-                ),
-              ),
             ],
-          ),
-          negativeAction: SmoothActionButton(
-            onPressed: () => Navigator.of(context, rootNavigator: true).pop(),
-            text: appLocalizations.close,
           ),
         );
       },
