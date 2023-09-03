@@ -144,8 +144,8 @@
     "@user_management": {},
     "sign_in_text": "Inicie sessão na sua conta Open Food Facts para guardar as suas contribuições",
     "incorrect_credentials": "Nome de utilizador ou palavra-passe incorrectos.",
-    "password_lost_incorrect_credentials": "This email or username doesn't exist. Please check your credentials.",
-    "password_lost_server_unavailable": "We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.",
+    "password_lost_incorrect_credentials": "Este endereço eletrónico ou este nome de utilizador não existe. Por favor, verifique as suas credenciais.",
+    "password_lost_server_unavailable": "De momento enfrentamos uma demora dos nossos servidores e pedimos desculpa por este facto. Por favor, tente de novo mais tarde.",
     "login": "Iniciar sessão",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
@@ -315,7 +315,7 @@
     "support_via_email_include_logs_dialog_body": "Quer incluir os registos da aplicação anexados ao seu e-mail?",
     "termsOfUse": "Termos de utilização",
     "@termsOfUse": {},
-    "legalNotices": "Legal notices",
+    "legalNotices": "Avisos legais",
     "@legalNotices": {
         "description": "A link to open the legal notices on the website"
     },
@@ -362,7 +362,7 @@
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "A tradução é uma das principais tarefas do projeto",
     "@contribute_translate_text_2": {},
-    "contribute_join_skill_pool": "Contribute your skills to Open Food Facts. Join the skill pool!",
+    "contribute_join_skill_pool": "Contribua com as suas habilitações com o Open Food Facts. Junte-se à piscina de habilidades!",
     "contribute_share_header": "Partilhe Open Food Facts com os amigos",
     "@contribute_share_header": {},
     "contribute_share_content": "Quero dar-vos a conhecer a aplicação que tenho vindo a utilizar, Open Food Facts, que permite conhecer os impactos dos alimentos na saúde e no ambiente, de forma personalizada. Funciona através da leitura dos códigos de barras das embalagens. É gratuito, não requer registo e pode mesmo contribuir para aumentar o número de produtos descodificados. Este é o link para instalar no seu telemóvel: https://openfoodfacts.app",
@@ -464,7 +464,7 @@
     "@filter": {
         "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
     },
-    "scan": "Products from the Scan screen",
+    "scan": "Produtos do ecrã de digitalização",
     "@scan": {
         "description": "Page title: List type: Products in the scan session"
     },
@@ -703,13 +703,13 @@
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
-    "tagline_app_review": "Do you like the app?",
-    "tagline_app_review_button_positive": "I love it! 😍",
-    "tagline_app_review_button_negative": "Not really…",
-    "tagline_app_review_button_later": "Ask me later",
-    "app_review_negative_modal_title": "You don't like our app?",
-    "app_review_negative_modal_text": "Could you take a few seconds to tell us why?",
-    "app_review_negative_modal_positive_button": "Yes, absolutely!",
+    "tagline_app_review": "Gosta da aplicação?",
+    "tagline_app_review_button_positive": "Adoro! 😍",
+    "tagline_app_review_button_negative": "Nem por isso…",
+    "tagline_app_review_button_later": "Pergunte-me mais tarde",
+    "app_review_negative_modal_title": "Não gosta da nossa aplicação?",
+    "app_review_negative_modal_text": "Pode tirar uns segundos e dizer-no o porquê por favor?",
+    "app_review_negative_modal_positive_button": "Sim, absolutamente!",
     "app_review_negative_modal_negative_button": "Não",
     "could_not_refresh": "Não foi possível atualizar o produto",
     "@could_not_refresh": {
@@ -790,12 +790,12 @@
     "@Lists": {},
     "no_prodcut_in_list": "Não há nenhum produto nesta lista",
     "no_product_in_section": "Não há nenhum produto nesta lista",
-    "recently_seen_products": "All viewed products",
+    "recently_seen_products": "Todos os produtos visualizados",
     "clear": "Limpar",
     "@clear": {
         "description": "Clears a product list (short label)"
     },
-    "clear_long": "Empty the list",
+    "clear_long": "Esvazie a lista",
     "@clear_long": {
         "description": "Clears a product list (long label)"
     },
@@ -864,9 +864,9 @@
     },
     "retry_button_label": "Repetir",
     "connect_with_us": "Lige-se a nós",
-    "instagram": "Follow us on Instagram",
+    "instagram": "Siga-nos no Instagram",
     "instagram_link": "https://instagram.com/open.food.facts",
-    "twitter": "Follow us on X (formerly Twitter)",
+    "twitter": "Siga-nos no X (antigo Twitter)",
     "twitter_link": "https://www.twitter.com/openfoodfacts",
     "blog": "Blogue",
     "faq": "Perguntas frequentes",
