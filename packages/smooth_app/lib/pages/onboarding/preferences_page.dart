@@ -7,14 +7,12 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/onboarding_data_product.dart';
-import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/pages/onboarding/next_button.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
-import 'package:smooth_app/pages/preferences/user_preferences_food.dart';
 import 'package:smooth_app/pages/product/summary_card.dart';
 
 class PreferencesPage extends StatefulWidget {
@@ -77,7 +75,6 @@ class _HelperState extends State<_Helper> {
   Widget build(BuildContext context) {
     final ProductPreferences productPreferences =
         context.watch<ProductPreferences>();
-    final UserPreferences userPreferences = context.watch<UserPreferences>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final List<Widget> pageData = <Widget>[
       SvgPicture.asset(
@@ -112,16 +109,6 @@ class _HelperState extends State<_Helper> {
         ),
       ),
     ];
-    pageData.addAll(
-      UserPreferencesFood(
-        productPreferences: productPreferences,
-        setState: setState,
-        context: context,
-        userPreferences: userPreferences,
-        appLocalizations: appLocalizations,
-        themeData: Theme.of(context),
-      ).getOnboardingContent(),
-    );
     return ColoredBox(
       color: widget.backgroundColor,
       child: SafeArea(

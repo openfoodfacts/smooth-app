@@ -92,7 +92,8 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
     super.initState();
     initUpToDate(widget._product, context.read<LocalDatabase>());
     _questionsLayout = getUserQuestionsLayout(context.read<UserPreferences>());
-    if (ProductIncompleteCard.isProductIncomplete(initialProduct)) {
+    if (widget.isProductEditable &&
+        ProductIncompleteCard.isProductIncomplete(initialProduct)) {
       AnalyticsHelper.trackEvent(
         AnalyticsEvent.showFastTrackProductEditCard,
         barcode: barcode,
@@ -356,7 +357,8 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
             });
           },
         ),
-        if (ProductIncompleteCard.isProductIncomplete(upToDateProduct))
+        if (widget.isProductEditable &&
+            ProductIncompleteCard.isProductIncomplete(upToDateProduct))
           ProductIncompleteCard(product: upToDateProduct),
         ..._getAttributes(scoreAttributes),
         if (widget.isFullVersion &&
