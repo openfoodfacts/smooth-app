@@ -8,15 +8,11 @@ import 'package:smooth_app/themes/constant_icons.dart';
 /// Abstraction of a display for the preference pages.
 abstract class AbstractUserPreferences {
   AbstractUserPreferences({
-    required this.setState,
     required this.context,
     required this.userPreferences,
     required this.appLocalizations,
     required this.themeData,
   });
-
-  /// Function that refreshes the page.
-  final Function(Function()) setState;
 
   final BuildContext context;
   final UserPreferences userPreferences;
@@ -24,7 +20,8 @@ abstract class AbstractUserPreferences {
   final ThemeData themeData;
 
   /// Returns the type of the corresponding page if relevant, or else null.
-  PreferencePageType? getPreferencePageType();
+  @protected
+  PreferencePageType getPreferencePageType();
 
   /// Title of the header, always visible.
   String getTitleString();
@@ -45,6 +42,7 @@ abstract class AbstractUserPreferences {
         child: getHeaderHelper(false),
       );
 
+  @protected
   Icon? getForwardIcon() => UserPreferencesListTile.getTintedIcon(
         ConstantIcons.instance.getForwardIcon(),
         context,
@@ -71,25 +69,10 @@ abstract class AbstractUserPreferences {
   IconData getLeadingIconData();
 
   /// Body of the content.
-  @protected
   List<Widget> getBody();
 
-  /// Returns possibly the header and the body.
-  List<Widget> getContent({
-    final bool withHeader = true,
-    final bool withBody = true,
-  }) {
-    final List<Widget> result = <Widget>[];
-    if (withHeader) {
-      result.add(getHeader());
-    }
-    if (withBody) {
-      result.addAll(getBody());
-    }
-    return result;
-  }
-
   /// Returns the action when we tap on the header.
+  @protected
   Future<void> runHeaderAction() async => Navigator.push<Widget>(
         context,
         MaterialPageRoute<Widget>(

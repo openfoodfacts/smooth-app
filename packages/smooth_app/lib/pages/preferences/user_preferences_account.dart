@@ -25,13 +25,11 @@ import 'package:smooth_app/services/smooth_services.dart';
 
 class UserPreferencesAccount extends AbstractUserPreferences {
   UserPreferencesAccount({
-    required final Function(Function()) setState,
     required final BuildContext context,
     required final UserPreferences userPreferences,
     required final AppLocalizations appLocalizations,
     required final ThemeData themeData,
   }) : super(
-          setState: setState,
           context: context,
           userPreferences: userPreferences,
           appLocalizations: appLocalizations,
@@ -39,18 +37,7 @@ class UserPreferencesAccount extends AbstractUserPreferences {
         );
 
   @override
-  List<Widget> getBody() {
-    return <Widget>[
-      UserPreferencesSection(
-        userPreferences: userPreferences,
-        appLocalizations: appLocalizations,
-        themeData: themeData,
-      ),
-    ];
-  }
-
-  @override
-  PreferencePageType? getPreferencePageType() => PreferencePageType.ACCOUNT;
+  PreferencePageType getPreferencePageType() => PreferencePageType.ACCOUNT;
 
   String? _getUserId() => OpenFoodAPIConfiguration.globalUser?.userId;
 
@@ -74,47 +61,24 @@ class UserPreferencesAccount extends AbstractUserPreferences {
   }
 
   @override
-  String getTitleString() {
-    return appLocalizations.myPreferences_profile_title;
-  }
+  String getTitleString() => appLocalizations.myPreferences_profile_title;
 
   @override
-  Widget? getSubtitle() {
-    if (!_isUserConnected()) {
-      return const _UserPreferencesAccountSubTitleSignOut();
-    } else {
-      return Text(appLocalizations.myPreferences_profile_subtitle);
-    }
-  }
+  Widget? getSubtitle() => _isUserConnected()
+      ? Text(appLocalizations.myPreferences_profile_subtitle)
+      : Text(appLocalizations.user_profile_subtitle_guest);
 
   @override
   IconData getLeadingIconData() => Icons.face;
 
   // No arrow
   @override
-  Icon? getForwardIcon() {
-    if (_isUserConnected()) {
-      return super.getForwardIcon();
-    } else {
-      return null;
-    }
-  }
+  Icon? getForwardIcon() => _isUserConnected() ? super.getForwardIcon() : null;
 
   @override
-  Future<void> runHeaderAction() async {
-    if (_isUserConnected(readOnly: true)) {
-      return super.runHeaderAction();
-    } else {
-      return Navigator.of(
-        context,
-        rootNavigator: true,
-      ).push<dynamic>(
-        MaterialPageRoute<dynamic>(
-          builder: (BuildContext context) => const LoginPage(),
-        ),
-      );
-    }
-  }
+  Future<void> runHeaderAction() async => _isUserConnected(readOnly: true)
+      ? super.runHeaderAction()
+      : _goToLoginPage();
 
   bool _isUserConnected({bool readOnly = false}) {
     // Ensure to be notified after a sign-in/sign-out
@@ -126,10 +90,10 @@ class UserPreferencesAccount extends AbstractUserPreferences {
   }
 
   @override
-  Widget getAdditionalSubtitle() {
+  Widget? getAdditionalSubtitle() {
     if (_getUserId() != null) {
       // we are already connected: no "LOGIN" button
-      return EMPTY_WIDGET;
+      return null;
     }
     final ThemeData theme = Theme.of(context);
     final Size size = MediaQuery.of(context).size;
@@ -148,199 +112,32 @@ class UserPreferencesAccount extends AbstractUserPreferences {
             color: theme.colorScheme.onPrimary,
           ),
         ),
-        onPressed: () async {
-          Navigator.of(
-            context,
-            rootNavigator: true,
-          ).push<dynamic>(
-            MaterialPageRoute<dynamic>(
-              builder: (BuildContext context) => const LoginPage(),
-            ),
-          );
-        },
+        onPressed: () async => _goToLoginPage(),
       ),
     );
   }
-}
 
-class _UserPreferencesAccountSubTitleSignOut extends StatelessWidget {
-  const _UserPreferencesAccountSubTitleSignOut({Key? key}) : super(key: key);
+  Future<void> _goToLoginPage() async => Navigator.of(
+        context,
+        rootNavigator: true,
+      ).push<dynamic>(
+        MaterialPageRoute<dynamic>(
+          builder: (BuildContext context) => const LoginPage(),
+        ),
+      );
 
   @override
-  Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-
-    return Text(appLocalizations.user_profile_subtitle_guest);
-  }
-}
-
-// Put into it's own widget in order for provider.watch() to work
-class UserPreferencesSection extends StatefulWidget {
-  const UserPreferencesSection({
-    Key? key,
-    required this.userPreferences,
-    required this.appLocalizations,
-    required this.themeData,
-  }) : super(key: key);
-
-  final UserPreferences userPreferences;
-  final AppLocalizations appLocalizations;
-  final ThemeData themeData;
-
-  @override
-  State<UserPreferencesSection> createState() => _UserPreferencesPageState();
-}
-
-class _UserPreferencesPageState extends State<UserPreferencesSection> {
-  Future<bool?> _confirmLogout(BuildContext context) {
-    final AppLocalizations localizations = AppLocalizations.of(context);
-
-    return showDialog<bool>(
-      context: context,
-      builder: (BuildContext context) {
-        return SmoothAlertDialog(
-          title: localizations.sign_out,
-          body: Text(
-            localizations.sign_out_confirmation,
-          ),
-          positiveAction: SmoothActionButton(
-            text: localizations.yes,
-            onPressed: () async {
-              context.read<UserManagementProvider>().logout();
-              AnalyticsHelper.trackEvent(AnalyticsEvent.logoutAction);
-              Navigator.pop(context, true);
-            },
-          ),
-          negativeAction: SmoothActionButton(
-            text: localizations.no,
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
-        );
-      },
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    // We need to listen to reflect login's from outside of the preferences page
-    // e.g. question card, ...
-    context.watch<UserManagementProvider>();
-    final LocalDatabase localDatabase = context.read<LocalDatabase>();
-
-    final ThemeData theme = Theme.of(context);
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final Size size = MediaQuery.of(context).size;
-
-    final List<Widget> result;
-
-    if (OpenFoodAPIConfiguration.globalUser != null) {
-      // Credentials
-      final String userId = OpenFoodAPIConfiguration.globalUser!.userId;
-
-      result = <Widget>[
-        _buildProductQueryTile(
-          productQuery: PagedUserProductQuery(
-            userId: userId,
-            type: UserSearchType.CONTRIBUTOR,
-          ),
-          title: appLocalizations.user_search_contributor_title,
-          iconData: Icons.add_circle_outline,
-          context: context,
-          localDatabase: localDatabase,
-          myCount: _getMyCount(UserSearchType.CONTRIBUTOR),
-        ),
-        _buildProductQueryTile(
-          productQuery: PagedUserProductQuery(
-            userId: userId,
-            type: UserSearchType.INFORMER,
-          ),
-          title: appLocalizations.user_search_informer_title,
-          iconData: Icons.edit,
-          context: context,
-          localDatabase: localDatabase,
-          myCount: _getMyCount(UserSearchType.INFORMER),
-        ),
-        _buildProductQueryTile(
-          productQuery: PagedUserProductQuery(
-            userId: userId,
-            type: UserSearchType.PHOTOGRAPHER,
-          ),
-          title: appLocalizations.user_search_photographer_title,
-          iconData: Icons.add_a_photo,
-          context: context,
-          localDatabase: localDatabase,
-          myCount: _getMyCount(UserSearchType.PHOTOGRAPHER),
-        ),
-        _buildProductQueryTile(
-          productQuery: PagedUserProductQuery(
-            userId: userId,
-            type: UserSearchType.TO_BE_COMPLETED,
-          ),
-          title: appLocalizations.user_search_to_be_completed_title,
-          iconData: Icons.more_horiz,
-          context: context,
-          localDatabase: localDatabase,
-          myCount: _getMyCount(UserSearchType.TO_BE_COMPLETED),
-        ),
-        _buildProductQueryTile(
-          productQuery: PagedToBeCompletedProductQuery(),
-          title: appLocalizations.all_search_to_be_completed_title,
-          iconData: Icons.more_outlined,
-          context: context,
-          localDatabase: localDatabase,
-        ),
-        _getListTile(
-          appLocalizations.view_profile,
-          () async => LaunchUrlHelper.launchURL(
-            'https://openfoodfacts.org/editor/$userId',
-            true,
-          ),
-          Icons.open_in_new,
-        ),
-        _getListTile(
-          appLocalizations.account_delete,
-          () {
-            Navigator.push<void>(
-              context,
-              MaterialPageRoute<void>(
-                builder: (BuildContext context) => AccountDeletionWebview(),
-              ),
-            );
-          },
-          Icons.delete,
-        ),
-        _getListTile(
-          appLocalizations.sign_out,
-          () async {
-            // ignore: use_build_context_synchronously
-            if (await _confirmLogout(context) == true) {
-              // ignore: use_build_context_synchronously
-              Navigator.pop(context);
-            }
-          },
-          Icons.clear,
-        ),
-      ];
-    } else {
+  List<Widget> getBody() {
+    if (OpenFoodAPIConfiguration.globalUser == null) {
       // No credentials
-      result = <Widget>[
+      final Size size = MediaQuery.of(context).size;
+      return <Widget>[
         Center(
           child: ElevatedButton(
-            onPressed: () async {
-              Navigator.of(
-                context,
-                rootNavigator: true,
-              ).push<dynamic>(
-                MaterialPageRoute<dynamic>(
-                  builder: (BuildContext context) => const LoginPage(),
-                ),
-              );
-            },
+            onPressed: () async => _goToLoginPage(),
             style: ButtonStyle(
               minimumSize: MaterialStateProperty.all<Size>(
-                Size(size.width * 0.5, theme.buttonTheme.height + 10),
+                Size(size.width * 0.5, themeData.buttonTheme.height + 10),
               ),
               shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                 const RoundedRectangleBorder(
@@ -350,10 +147,10 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
             ),
             child: Text(
               appLocalizations.sign_in,
-              style: theme.textTheme.bodyMedium?.copyWith(
+              style: themeData.textTheme.bodyMedium?.copyWith(
                 fontSize: 18.0,
                 fontWeight: FontWeight.bold,
-                color: theme.colorScheme.onPrimary,
+                color: themeData.colorScheme.onPrimary,
               ),
             ),
           ),
@@ -361,8 +158,116 @@ class _UserPreferencesPageState extends State<UserPreferencesSection> {
       ];
     }
 
-    return Column(children: result);
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
+    // Credentials
+    final String userId = OpenFoodAPIConfiguration.globalUser!.userId;
+    return <Widget>[
+      _buildProductQueryTile(
+        productQuery: PagedUserProductQuery(
+          userId: userId,
+          type: UserSearchType.CONTRIBUTOR,
+        ),
+        title: appLocalizations.user_search_contributor_title,
+        iconData: Icons.add_circle_outline,
+        context: context,
+        localDatabase: localDatabase,
+        myCount: _getMyCount(UserSearchType.CONTRIBUTOR),
+      ),
+      _buildProductQueryTile(
+        productQuery: PagedUserProductQuery(
+          userId: userId,
+          type: UserSearchType.INFORMER,
+        ),
+        title: appLocalizations.user_search_informer_title,
+        iconData: Icons.edit,
+        context: context,
+        localDatabase: localDatabase,
+        myCount: _getMyCount(UserSearchType.INFORMER),
+      ),
+      _buildProductQueryTile(
+        productQuery: PagedUserProductQuery(
+          userId: userId,
+          type: UserSearchType.PHOTOGRAPHER,
+        ),
+        title: appLocalizations.user_search_photographer_title,
+        iconData: Icons.add_a_photo,
+        context: context,
+        localDatabase: localDatabase,
+        myCount: _getMyCount(UserSearchType.PHOTOGRAPHER),
+      ),
+      _buildProductQueryTile(
+        productQuery: PagedUserProductQuery(
+          userId: userId,
+          type: UserSearchType.TO_BE_COMPLETED,
+        ),
+        title: appLocalizations.user_search_to_be_completed_title,
+        iconData: Icons.more_horiz,
+        context: context,
+        localDatabase: localDatabase,
+        myCount: _getMyCount(UserSearchType.TO_BE_COMPLETED),
+      ),
+      _buildProductQueryTile(
+        productQuery: PagedToBeCompletedProductQuery(),
+        title: appLocalizations.all_search_to_be_completed_title,
+        iconData: Icons.more_outlined,
+        context: context,
+        localDatabase: localDatabase,
+      ),
+      _getListTile(
+        appLocalizations.view_profile,
+        () async => LaunchUrlHelper.launchURL(
+          'https://openfoodfacts.org/editor/$userId',
+          true,
+        ),
+        Icons.open_in_new,
+      ),
+      _getListTile(
+        appLocalizations.account_delete,
+        () async => Navigator.push<void>(
+          context,
+          MaterialPageRoute<void>(
+            builder: (BuildContext context) => AccountDeletionWebview(),
+          ),
+        ),
+        Icons.delete,
+      ),
+      _getListTile(
+        appLocalizations.sign_out,
+        () async {
+          if (await _confirmLogout() == true) {
+            if (context.mounted) {
+              await context.read<UserManagementProvider>().logout();
+              AnalyticsHelper.trackEvent(AnalyticsEvent.logoutAction);
+              if (context.mounted) {
+                Navigator.pop(context);
+              }
+            }
+          }
+        },
+        Icons.clear,
+      ),
+    ];
   }
+
+  Future<bool?> _confirmLogout() async => showDialog<bool>(
+        context: context,
+        builder: (BuildContext context) {
+          return SmoothAlertDialog(
+            title: appLocalizations.sign_out,
+            body: Text(
+              appLocalizations.sign_out_confirmation,
+            ),
+            positiveAction: SmoothActionButton(
+              text: appLocalizations.yes,
+              onPressed: () async => Navigator.pop(context, true),
+            ),
+            negativeAction: SmoothActionButton(
+              text: appLocalizations.no,
+              onPressed: () => Navigator.pop(context, false),
+            ),
+          );
+        },
+      );
 
   Future<int?> _getMyCount(
     final UserSearchType type,

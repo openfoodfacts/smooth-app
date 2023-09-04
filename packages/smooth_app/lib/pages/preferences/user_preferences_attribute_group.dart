@@ -4,55 +4,49 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/attribute_group_list_tile.dart';
-import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/widgets/attribute_button.dart';
 
 /// Collapsed/expanded display of an attribute group for the preferences page.
-class UserPreferencesAttributeGroup extends AbstractUserPreferences {
+class UserPreferencesAttributeGroup {
   UserPreferencesAttributeGroup({
     required this.productPreferences,
     required this.group,
-    required final Function(Function()) setState,
-    required final BuildContext context,
-    required final UserPreferences userPreferences,
-    required final AppLocalizations appLocalizations,
-    required final ThemeData themeData,
-  }) : super(
-          setState: setState,
-          context: context,
-          userPreferences: userPreferences,
-          appLocalizations: appLocalizations,
-          themeData: themeData,
-        );
+    required this.context,
+    required this.userPreferences,
+    required this.appLocalizations,
+    required this.themeData,
+  });
+
+  final BuildContext context;
+  final UserPreferences userPreferences;
+  final AppLocalizations appLocalizations;
+  final ThemeData themeData;
 
   final ProductPreferences productPreferences;
   final AttributeGroup group;
 
-  @override
-  PreferencePageType? getPreferencePageType() => null;
+  bool get _isCollapsed => userPreferences.activeAttributeGroup != group.id;
 
-  @override
-  String getTitleString() => group.name ?? appLocalizations.unknown;
-
-  @override
-  Widget getTitle() => Text(
-        getTitleString(),
-        style: themeData.textTheme.titleLarge,
-      );
-
-  @override
-  Widget? getSubtitle() =>
-      null; // TODO(monsieurtanuki): useless here, we should refactor, one day
-
-  @override
-  IconData getLeadingIconData() => Icons
-      .question_mark; // TODO(monsieurtanuki): useless here, we should refactor, one day
-
-  @override
-  List<Widget> getBody() {
+  List<Widget> getContent() {
     final List<Widget> result = <Widget>[];
+    result.add(
+      InkWell(
+        onTap: () async => userPreferences.setActiveAttributeGroup(group.id!),
+        child: AttributeGroupListTile(
+          title: Text(
+            group.name ?? appLocalizations.unknown,
+            style: themeData.textTheme.titleLarge,
+          ),
+          icon: _isCollapsed
+              ? const Icon(Icons.keyboard_arrow_right)
+              : const Icon(Icons.keyboard_arrow_down),
+        ),
+      ),
+    );
+    if (_isCollapsed) {
+      return result;
+    }
     if (group.warning != null) {
       result.add(
         Container(
@@ -78,35 +72,5 @@ class UserPreferencesAttributeGroup extends AbstractUserPreferences {
       result.add(AttributeButton(attribute, productPreferences));
     }
     return result;
-  }
-
-  @override
-  Widget getHeader() =>
-      _isCollapsed() ? super.getHeader() : getHeaderHelper(false);
-
-  @override
-  Widget getHeaderHelper(final bool? collapsed) => AttributeGroupListTile(
-        title: getTitle(),
-        icon: collapsed!
-            ? const Icon(Icons.keyboard_arrow_right)
-            : const Icon(Icons.keyboard_arrow_down),
-      );
-
-  bool _isCollapsed() => userPreferences.activeAttributeGroup != group.id;
-
-  @override
-  List<Widget> getContent({
-    final bool withHeader = true,
-    final bool withBody = true,
-  }) =>
-      super.getContent(
-        withHeader: withHeader,
-        withBody: !_isCollapsed(),
-      );
-
-  @override
-  Future<void> runHeaderAction() async {
-    await userPreferences.setActiveAttributeGroup(group.id!);
-    setState(() {});
   }
 }

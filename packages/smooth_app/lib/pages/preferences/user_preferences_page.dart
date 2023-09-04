@@ -7,6 +7,7 @@ import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
+import 'package:smooth_app/data_models/user_management_provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
@@ -108,7 +109,7 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
         userPreferences: userPreferences,
       );
 
-      children.addAll(abstractUserPreferences.getContent(withHeader: false));
+      children.addAll(abstractUserPreferences.getBody());
       appBarTitle = abstractUserPreferences.getTitleString();
       addDividers = false;
 
@@ -197,11 +198,11 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
     final ThemeData themeData = Theme.of(context);
     final ProductPreferences productPreferences =
         context.watch<ProductPreferences>();
+    context.watch<UserManagementProvider>();
 
     switch (type) {
       case PreferencePageType.ACCOUNT:
         return UserPreferencesAccount(
-          setState: setState,
           context: context,
           userPreferences: userPreferences,
           appLocalizations: appLocalizations,
@@ -210,7 +211,6 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
       case PreferencePageType.FOOD:
         return UserPreferencesFood(
           productPreferences: productPreferences,
-          setState: setState,
           context: context,
           userPreferences: userPreferences,
           appLocalizations: appLocalizations,
@@ -219,7 +219,6 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
       case PreferencePageType.SETTINGS:
         return UserPreferencesSettings(
           themeProvider: themeProvider,
-          setState: setState,
           context: context,
           userPreferences: userPreferences,
           appLocalizations: appLocalizations,
@@ -227,7 +226,6 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
         );
       case PreferencePageType.DEV_MODE:
         return UserPreferencesDevMode(
-          setState: setState,
           context: context,
           userPreferences: userPreferences,
           appLocalizations: appLocalizations,
@@ -235,7 +233,6 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
         );
       case PreferencePageType.CONTRIBUTE:
         return UserPreferencesContribute(
-          setState: setState,
           context: context,
           userPreferences: userPreferences,
           appLocalizations: appLocalizations,
@@ -243,7 +240,6 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
         );
       case PreferencePageType.FAQ:
         return UserPreferencesFaq(
-          setState: setState,
           context: context,
           userPreferences: userPreferences,
           appLocalizations: appLocalizations,
@@ -251,7 +247,6 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
         );
       case PreferencePageType.CONNECT:
         return UserPreferencesConnect(
-          setState: setState,
           context: context,
           userPreferences: userPreferences,
           appLocalizations: appLocalizations,
