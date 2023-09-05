@@ -149,44 +149,51 @@ class _KnowledgePanelPageTemplateState
       );
 
   List<Widget> _buildHintPopup() {
-    final Widget hintPopup = Card(
-      key: const Key('toolTipPopUp'),
-      margin: const EdgeInsets.symmetric(horizontal: 30),
-      color: Theme.of(context).hintColor.withOpacity(0.9),
-      shape: const TooltipShapeBorder(arrowArc: 0.5),
-      child: Container(
-        margin: const EdgeInsetsDirectional.only(
-          start: VERY_LARGE_SPACE,
-          top: 10,
-          end: 10,
-          bottom: 10,
-        ),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Expanded(
-              child: Text(
-                appLocalizations.hint_knowledge_panel_message,
-                style: TextStyle(color: Theme.of(context).cardColor),
+    final Widget hintPopup = InkWell(
+      child: Card(
+        key: const Key('toolTipPopUp'),
+        margin: const EdgeInsets.symmetric(horizontal: 30),
+        color: Theme.of(context).hintColor.withOpacity(0.9),
+        shape: const TooltipShapeBorder(arrowArc: 0.5),
+        child: Container(
+          margin: const EdgeInsetsDirectional.only(
+            start: VERY_LARGE_SPACE,
+            top: 10,
+            end: 10,
+            bottom: 10,
+          ),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Expanded(
+                child: Text(
+                  appLocalizations.hint_knowledge_panel_message,
+                  style: TextStyle(color: Theme.of(context).cardColor),
+                ),
               ),
-            ),
-            const SizedBox(width: VERY_LARGE_SPACE),
-            InkWell(
-              onTap: () {
-                setState(() {
-                  _isHintDismissed = true;
-                });
-              },
-              splashColor: Theme.of(context).splashColor,
-              child: const Icon(
-                Icons.close,
-                color: WHITE_COLOR,
-                // size: LARGE_SPACE,
+              const SizedBox(width: VERY_LARGE_SPACE),
+              InkWell(
+                onTap: () {
+                  setState(() {
+                    _isHintDismissed = true;
+                  });
+                },
+                splashColor: Theme.of(context).splashColor,
+                child: const Icon(
+                  Icons.close,
+                  color: WHITE_COLOR,
+                  // size: LARGE_SPACE,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
+      onTap: () {
+        setState(() {
+          _isHintDismissed = true;
+        });
+      },
     );
     final List<Widget> hitPopup = <Widget>[];
     if (!_isHintDismissed &&
