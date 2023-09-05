@@ -182,7 +182,6 @@ class _KnowledgePanelPageTemplateState
                 child: const Icon(
                   Icons.close,
                   color: WHITE_COLOR,
-                  // size: LARGE_SPACE,
                 ),
               ),
             ],
