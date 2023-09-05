@@ -43,7 +43,7 @@ jobs:
     runs-on: macos-12 #macos-12-xl
     steps:
       - name: Checkout sources
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
