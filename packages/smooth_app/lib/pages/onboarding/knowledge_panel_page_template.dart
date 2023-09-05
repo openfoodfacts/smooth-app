@@ -150,8 +150,8 @@ class _KnowledgePanelPageTemplateState
 
   List<Widget> _buildHintPopup() {
     final Widget hintPopup = InkWell(
+      key: const Key('toolTipPopUp'),
       child: Card(
-        key: const Key('toolTipPopUp'),
         margin: const EdgeInsets.symmetric(horizontal: 30),
         color: Theme.of(context).hintColor.withOpacity(0.9),
         shape: const TooltipShapeBorder(arrowArc: 0.5),
