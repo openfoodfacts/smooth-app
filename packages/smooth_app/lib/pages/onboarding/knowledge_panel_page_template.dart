@@ -174,7 +174,7 @@ class _KnowledgePanelPageTemplateState
               const SizedBox(width: VERY_LARGE_SPACE),
               const Icon(
                 Icons.close,
-                color: WHITE_COLOR,
+                color: Theme.of(context).cardColor,
               ),
             ],
           ),
