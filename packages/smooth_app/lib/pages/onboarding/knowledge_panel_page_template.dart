@@ -172,17 +172,9 @@ class _KnowledgePanelPageTemplateState
                 ),
               ),
               const SizedBox(width: VERY_LARGE_SPACE),
-              InkWell(
-                onTap: () {
-                  setState(() {
-                    _isHintDismissed = true;
-                  });
-                },
-                splashColor: Theme.of(context).splashColor,
-                child: const Icon(
-                  Icons.close,
-                  color: WHITE_COLOR,
-                ),
+              const Icon(
+                Icons.close,
+                color: WHITE_COLOR,
               ),
             ],
           ),
