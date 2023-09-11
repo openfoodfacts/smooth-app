@@ -1753,7 +1753,7 @@
     "product_name": "اسم المنتج",
     "add_basic_details_product_name_error": "Please enter the product name",
     "brand_name": "اسم العلامة التجارية",
-    "add_basic_details_brand_name_error": "Starbucks",
+    "add_basic_details_brand_name_error": "Please enter the brand name",
     "quantity": "الكمية و الوزن",
     "barcode": "الرمز الشريطي",
     "barcode_barcode": "Barcode: {barcode}",
