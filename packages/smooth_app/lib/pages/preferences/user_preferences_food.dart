@@ -16,13 +16,11 @@ import 'package:smooth_app/widgets/smooth_text.dart';
 class UserPreferencesFood extends AbstractUserPreferences {
   UserPreferencesFood({
     required this.productPreferences,
-    required final Function(Function()) setState,
     required final BuildContext context,
     required final UserPreferences userPreferences,
     required final AppLocalizations appLocalizations,
     required final ThemeData themeData,
   }) : super(
-          setState: setState,
           context: context,
           userPreferences: userPreferences,
           appLocalizations: appLocalizations,
@@ -41,7 +39,7 @@ class UserPreferencesFood extends AbstractUserPreferences {
   ];
 
   @override
-  PreferencePageType? getPreferencePageType() => PreferencePageType.FOOD;
+  PreferencePageType getPreferencePageType() => PreferencePageType.FOOD;
 
   @override
   String getTitleString() => appLocalizations.myPreferences_food_title;
@@ -131,18 +129,16 @@ class UserPreferencesFood extends AbstractUserPreferences {
       ),
     ];
     for (final AttributeGroup group in groups) {
-      final AbstractUserPreferences abstractUserPreferences =
-          UserPreferencesAttributeGroup(
-        productPreferences: productPreferences,
-        group: group,
-        setState: setState,
-        context: context,
-        userPreferences: userPreferences,
-        appLocalizations: appLocalizations,
-        themeData: themeData,
+      result.addAll(
+        UserPreferencesAttributeGroup(
+          productPreferences: productPreferences,
+          group: group,
+          context: context,
+          userPreferences: userPreferences,
+          appLocalizations: appLocalizations,
+          themeData: themeData,
+        ).getContent(),
       );
-
-      result.addAll(abstractUserPreferences.getContent());
     }
     return result;
   }

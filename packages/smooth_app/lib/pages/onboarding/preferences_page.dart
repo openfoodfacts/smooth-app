@@ -115,7 +115,6 @@ class _HelperState extends State<_Helper> {
     pageData.addAll(
       UserPreferencesFood(
         productPreferences: productPreferences,
-        setState: setState,
         context: context,
         userPreferences: userPreferences,
         appLocalizations: appLocalizations,

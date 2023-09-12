@@ -26,13 +26,11 @@ import 'package:smooth_app/query/product_query.dart';
 /// Settings => FAQ => Develop => Clicking switch
 class UserPreferencesDevMode extends AbstractUserPreferences {
   UserPreferencesDevMode({
-    required final Function(Function()) setState,
     required final BuildContext context,
     required final UserPreferences userPreferences,
     required final AppLocalizations appLocalizations,
     required final ThemeData themeData,
   }) : super(
-          setState: setState,
           context: context,
           userPreferences: userPreferences,
           appLocalizations: appLocalizations,
@@ -57,7 +55,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
       GlobalMaterialLocalizations.delegate;
 
   @override
-  PreferencePageType? getPreferencePageType() => PreferencePageType.DEV_MODE;
+  PreferencePageType getPreferencePageType() => PreferencePageType.DEV_MODE;
 
   @override
   String getTitleString() => appLocalizations.dev_preferences_screen_title;
@@ -117,7 +115,6 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
             onChanged: (bool? newValue) async {
               await userPreferences.setFlag(userPreferencesFlagProd, newValue);
               ProductQuery.setQueryType(userPreferences);
-              setState(() {});
             },
             items: const <DropdownMenuItem<bool>>[
               DropdownMenuItem<bool>(
@@ -329,7 +326,6 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
               list.add(tag);
             }
             await userPreferences.setExcludedAttributeIds(list);
-            setState(() {});
           },
         ),
         ListTile(
@@ -383,14 +379,11 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
   }
 
   ScaffoldFeatureController<SnackBar, SnackBarClosedReason>
-      _showSuccessMessage() {
-    setState(() {});
-    return ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(appLocalizations.dev_preferences_button_positive),
-      ),
-    );
-  }
+      _showSuccessMessage() => ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(appLocalizations.dev_preferences_button_positive),
+            ),
+          );
 
   Future<void> _changeTestEnvHost() async {
     _textFieldController.text =
@@ -415,7 +408,6 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
       await userPreferences.setDevModeString(
           userPreferencesTestEnvHost, _textFieldController.text);
       ProductQuery.setQueryType(userPreferences);
-      setState(() {});
     }
   }
 }
