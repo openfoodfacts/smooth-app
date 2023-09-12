@@ -63,7 +63,7 @@ class BackgroundTaskFullRefresh extends BackgroundTaskPaged {
         uniqueId: uniqueId,
         languageCode: ProductQuery.getLanguage().offTag,
         user: jsonEncode(ProductQuery.getUser().toJson()),
-        country: ProductQuery.getCountry()!.offTag,
+        country: ProductQuery.getCountry().offTag,
         stamp: ';fullRefresh',
         pageSize: pageSize,
       );

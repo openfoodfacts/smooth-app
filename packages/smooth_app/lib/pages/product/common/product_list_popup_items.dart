@@ -10,6 +10,7 @@ import 'package:smooth_app/helpers/temp_product_list_share_helper.dart';
 import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+/// Popup menu item entries for the product list page.
 enum ProductListPopupMenuEntry {
   share,
   openInBrowser,

@@ -23,13 +23,11 @@ import 'package:smooth_app/query/product_query.dart';
 /// Display of "Contribute" for the preferences page.
 class UserPreferencesContribute extends AbstractUserPreferences {
   UserPreferencesContribute({
-    required final Function(Function()) setState,
     required final BuildContext context,
     required final UserPreferences userPreferences,
     required final AppLocalizations appLocalizations,
     required final ThemeData themeData,
   }) : super(
-          setState: setState,
           context: context,
           userPreferences: userPreferences,
           appLocalizations: appLocalizations,
@@ -37,7 +35,7 @@ class UserPreferencesContribute extends AbstractUserPreferences {
         );
 
   @override
-  PreferencePageType? getPreferencePageType() => PreferencePageType.CONTRIBUTE;
+  PreferencePageType getPreferencePageType() => PreferencePageType.CONTRIBUTE;
 
   @override
   String getTitleString() => appLocalizations.contribute;

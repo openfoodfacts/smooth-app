@@ -19,13 +19,11 @@ import 'package:smooth_app/query/product_query.dart';
 /// Display of "FAQ" for the preferences page.
 class UserPreferencesFaq extends AbstractUserPreferences {
   UserPreferencesFaq({
-    required final Function(Function()) setState,
     required final BuildContext context,
     required final UserPreferences userPreferences,
     required final AppLocalizations appLocalizations,
     required final ThemeData themeData,
   }) : super(
-          setState: setState,
           context: context,
           userPreferences: userPreferences,
           appLocalizations: appLocalizations,
@@ -33,7 +31,7 @@ class UserPreferencesFaq extends AbstractUserPreferences {
         );
 
   @override
-  PreferencePageType? getPreferencePageType() => PreferencePageType.FAQ;
+  PreferencePageType getPreferencePageType() => PreferencePageType.FAQ;
 
   @override
   String getTitleString() => appLocalizations.faq;

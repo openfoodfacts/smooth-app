@@ -13,7 +13,7 @@ import 'package:uuid/uuid.dart';
 abstract class ProductQuery {
   static const ProductQueryVersion productQueryVersion = ProductQueryVersion.v3;
 
-  static OpenFoodFactsCountry? _country;
+  static late OpenFoodFactsCountry _country;
 
   static String replaceSubdomain(final String url) =>
       UriHelper.replaceSubdomain(
@@ -53,29 +53,64 @@ abstract class ProductQuery {
   }
 
   /// Returns the global country for API queries.
-  static OpenFoodFactsCountry? getCountry() => _country;
+  static OpenFoodFactsCountry getCountry() => _country;
+
+  /// Sets the global country for API queries: implicit choice at init time.
+  static Future<void> initCountry(
+    final UserPreferences userPreferences,
+  ) async {
+    // not ideal, but we have many contributors monitoring France
+    const OpenFoodFactsCountry defaultCountry = OpenFoodFactsCountry.FRANCE;
+    final String? isoCode = userPreferences.userCountryCode ??
+        PlatformDispatcher.instance.locale.countryCode?.toLowerCase();
+    final OpenFoodFactsCountry country =
+        _countryFromJsonFix(isoCode) ?? defaultCountry;
+    await _setCountry(userPreferences, country);
+  }
+
+  /// Sets the global country for API queries: explicit choice by the user.
+  ///
+  /// Returns true if the [isoCode] was correctly detected.
+  static Future<bool> setCountry(
+    final UserPreferences userPreferences,
+    final String isoCode,
+  ) async {
+    final OpenFoodFactsCountry? country = _countryFromJsonFix(isoCode);
+    if (country == null) {
+      return false;
+    }
+    await _setCountry(userPreferences, country);
+    return true;
+  }
 
   /// Sets the global country for API queries.
-  static Future<void> setCountry(
-    final UserPreferences userPreferences, {
-    String? isoCode,
-  }) async {
-    isoCode ??= userPreferences.userCountryCode ??
-        PlatformDispatcher.instance.locale.countryCode?.toLowerCase();
-    _country = CountryHelper.fromJson(isoCode);
+  static Future<void> _setCountry(
+    final UserPreferences userPreferences,
+    final OpenFoodFactsCountry country,
+  ) async {
+    _country = country;
     // we need this to run "world" queries
     OpenFoodAPIConfiguration.globalCountry = null;
 
-    isoCode = _country?.offTag;
-    if (isoCode != null && isoCode != userPreferences.userCountryCode) {
+    final String isoCode = country.offTag;
+    if (isoCode != userPreferences.userCountryCode) {
       await userPreferences.setUserCountryCode(isoCode);
     }
+  }
+
+  // TODO(monsieurtanuki): move to off-dart
+  static OpenFoodFactsCountry? _countryFromJsonFix(final String? isoCode) {
+    // special case as we use 'uk' in off-dart
+    if (isoCode == 'gb') {
+      return OpenFoodFactsCountry.UNITED_KINGDOM;
+    }
+    return CountryHelper.fromJson(isoCode);
   }
 
   /// Returns the global locale string (e.g. 'pt_BR')
   static String getLocaleString() => '${getLanguage().code}'
       '_'
-      '${getCountry()!.offTag.toUpperCase()}';
+      '${getCountry().offTag.toUpperCase()}';
 
   /// Sets a comment for the user agent.
   ///

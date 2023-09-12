@@ -23,13 +23,11 @@ import 'package:smooth_app/services/smooth_services.dart';
 /// Display of "Connect" for the preferences page.
 class UserPreferencesConnect extends AbstractUserPreferences {
   UserPreferencesConnect({
-    required final Function(Function()) setState,
     required final BuildContext context,
     required final UserPreferences userPreferences,
     required final AppLocalizations appLocalizations,
     required final ThemeData themeData,
   }) : super(
-          setState: setState,
           context: context,
           userPreferences: userPreferences,
           appLocalizations: appLocalizations,
@@ -37,7 +35,7 @@ class UserPreferencesConnect extends AbstractUserPreferences {
         );
 
   @override
-  PreferencePageType? getPreferencePageType() => PreferencePageType.CONNECT;
+  PreferencePageType getPreferencePageType() => PreferencePageType.CONNECT;
 
   @override
   String getTitleString() => appLocalizations.connect_with_us;
