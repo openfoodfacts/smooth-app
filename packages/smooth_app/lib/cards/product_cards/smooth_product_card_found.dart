@@ -4,7 +4,6 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
-import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/svg_icon_chip.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
@@ -154,23 +153,13 @@ class SmoothProductCardFound extends StatelessWidget {
         ),
       ),
     );
-    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
-    final bool withBanner = localDatabase.upToDate.hasPendingChanges(
-      product.barcode!,
-    );
+    // TODO(monsieurtanuki): check localDatabase.upToDate.hasPendingChanges and display a "pending changes" mark if relevant
     return Padding(
       padding: const EdgeInsets.symmetric(
         horizontal: MEDIUM_SPACE,
         vertical: SMALL_SPACE,
       ),
-      child: withBanner
-          ? Banner(
-              location: BannerLocation.topStart,
-              message: 'PENDING...',
-              color: Colors.blueGrey,
-              child: child,
-            )
-          : child,
+      child: child,
     );
   }
 }
