@@ -1,4 +1,3 @@
-import 'package:diacritic/diacritic.dart';
 import 'package:flutter/material.dart';
 
 /// An extension on [TextStyle] that allows to have "well spaced" variant
@@ -92,8 +91,8 @@ class TextHighlighter extends StatelessWidget {
     required TextStyle? highlightedStyle,
   }) {
     final Iterable<RegExpMatch> highlightedParts =
-        RegExp(removeDiacritics(filter).toLowerCase().trim()).allMatches(
-      removeDiacritics(text).toLowerCase(),
+        RegExp(_removeAccents(filter).toLowerCase().trim()).allMatches(
+      _removeAccents(text).toLowerCase(),
     );
 
     final List<(String, TextStyle?)> parts = <(String, TextStyle?)>[];
@@ -122,5 +121,21 @@ class TextHighlighter extends StatelessWidget {
       }
     }
     return parts;
+  }
+
+  /// We can't rely on [removeDiacritics] here, as it replaces some characters
+  /// of 1 letter into 2 or more.
+  /// That's why this simpler algorithm is used instead.
+  String _removeAccents(String str) {
+    const String withAccents =
+        'ÀÁÂÃÄÅàáâãäåÒÓÔÕÕÖØòóôõöøÈÉÊËèéêëðÇçÐÌÍÎÏìíîïÙÚÛÜùúûüÑñŠšŸÿýŽž';
+    const String withoutAccents =
+        'AAAAAAaaaaaaOOOOOOOooooooEEEEeeeeeCcDIIIIiiiiUUUUuuuuNnSsYyyZz';
+
+    for (int i = 0; i < withAccents.length; i++) {
+      str = str.replaceAll(withAccents[i], withoutAccents[i]);
+    }
+
+    return str;
   }
 }
