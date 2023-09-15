@@ -15,6 +15,7 @@ import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/query/product_query.dart';
@@ -41,9 +42,6 @@ class UserPreferencesConnect extends AbstractUserPreferences {
   String getTitleString() => appLocalizations.connect_with_us;
 
   @override
-  Widget? getSubtitle() => null;
-
-  @override
   IconData getLeadingIconData() => Icons.alternate_email;
 
   @override
@@ -53,7 +51,7 @@ class UserPreferencesConnect extends AbstractUserPreferences {
   Color? getHeaderColor() => const Color(0xFFDDE7FF);
 
   @override
-  List<Widget> getBody() => <Widget>[
+  List<UserPreferencesItem> getChildren() => <UserPreferencesItem>[
         _getListTile(
           title: appLocalizations.instagram,
           url: appLocalizations.instagram_link,
@@ -81,7 +79,7 @@ class UserPreferencesConnect extends AbstractUserPreferences {
           url: 'https://blog.openfoodfacts.org',
           leadingIconData: Icons.newspaper,
         ),
-        const Divider(),
+        _getDivider(),
         _getListTile(
           title: appLocalizations.support_via_forum,
           url: 'https://forum.openfoodfacts.org/',
@@ -92,7 +90,7 @@ class UserPreferencesConnect extends AbstractUserPreferences {
           url: 'https://slack.openfoodfacts.org/',
           leadingIconData: Icons.chat,
         ),
-        const Divider(),
+        _getDivider(),
         _getListTile(
           title: appLocalizations.contact_title_pro_page,
           url: ProductQuery.replaceSubdomain(
@@ -110,7 +108,7 @@ class UserPreferencesConnect extends AbstractUserPreferences {
                     : 'producers@openfoodfacts.org',
           ),
         ),
-        const Divider(),
+        _getDivider(),
         _getListTile(
           title: appLocalizations.contact_title_press_page,
           url: ProductQuery.replaceSubdomain(
@@ -128,7 +126,7 @@ class UserPreferencesConnect extends AbstractUserPreferences {
                     : 'press@openfoodfacts.org',
           ),
         ),
-        const Divider(),
+        _getDivider(),
         _getListTile(
           title: appLocalizations.contact_title_newsletter,
           url: 'https://link.openfoodfacts.org/newsletter-en',
@@ -207,22 +205,25 @@ class UserPreferencesConnect extends AbstractUserPreferences {
     return buffer.toString();
   }
 
-  Widget _getListTile({
+  UserPreferencesItem _getListTile({
     required final String title,
     final IconData? leadingIconData,
     final Widget? leadingWidget,
     final String? url,
     final VoidCallback? onTap,
   }) =>
-      UserPreferencesListTile(
-        title: Text(title),
-        onTap: onTap ?? () async => LaunchUrlHelper.launchURL(url!, false),
-        trailing:
-            UserPreferencesListTile.getTintedIcon(Icons.open_in_new, context),
-        leading: leadingIconData != null
-            ? UserPreferencesListTile.getTintedIcon(leadingIconData, context)
-            : leadingWidget,
-        externalLink: true,
+      UserPreferencesItemSimple(
+        labels: <String>[title],
+        builder: (_) => UserPreferencesListTile(
+          title: Text(title),
+          onTap: onTap ?? () async => LaunchUrlHelper.launchURL(url!, false),
+          trailing:
+              UserPreferencesListTile.getTintedIcon(Icons.open_in_new, context),
+          leading: leadingIconData != null
+              ? UserPreferencesListTile.getTintedIcon(leadingIconData, context)
+              : leadingWidget,
+          externalLink: true,
+        ),
       );
 
   Future<void> _sendEmail({
@@ -302,4 +303,9 @@ class UserPreferencesConnect extends AbstractUserPreferences {
       );
     }
   }
+
+  UserPreferencesItem _getDivider() => UserPreferencesItemSimple(
+        labels: <String>[],
+        builder: (_) => const Divider(),
+      );
 }
