@@ -142,7 +142,7 @@
         "description": "Description of what a user can use the Eco data in a product for."
     },
     "@user_management": {},
-    "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
+    "sign_in_text": "Влез в акаунта си в Open Food Facts, за да запазиш приноса си",
     "incorrect_credentials": "Грешно потребителско име или парола.",
     "password_lost_incorrect_credentials": "This email or username doesn't exist. Please check your credentials.",
     "password_lost_server_unavailable": "We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.",
@@ -262,7 +262,7 @@
     "sign_up_page_user_name_already_used": "Потребителското име вече съществува, моля избери друго потребителско име.",
     "sign_up_page_email_already_exists": "вече съществува, влез в акаунта или опитай с друг имейл.",
     "sign_up_page_provide_valid_email": "Моля, посочи валиден имейл адрес.",
-    "sign_up_page_server_busy": "We are deeply sorry, we have some technical difficulties to create your account. Please try again later.",
+    "sign_up_page_server_busy": "Много съжаляваме, но имаме някои технически затруднения при създаването на твоя акаунт. Моля, опитай отново по-късно.",
     "@Settings": {},
     "settingsTitle": "Настройки",
     "@settingsTitle": {
@@ -389,7 +389,7 @@
     "@contribute_to_get_rewards": {
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts and gain rewards."
     },
-    "question_sign_in_text": "Sign in to your Open Food Facts account to get credit for your contributions",
+    "question_sign_in_text": "Влез в акаунта си в Open Food Facts, за да запишеш своите приноси",
     "question_yes_button_accessibility_value": "Answer with yes",
     "question_no_button_accessibility_value": "Answer with no",
     "question_skip_button_accessibility_value": "Skip this question",
@@ -476,7 +476,7 @@
     "@search": {
         "description": "Hint text of a search text input field"
     },
-    "tap_for_more": "Tap to see more info…",
+    "tap_for_more": "Докосни, за повече информация…",
     "@Product": {},
     "product": "Продукт",
     "@product": {},
@@ -703,11 +703,11 @@
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
-    "tagline_app_review": "Do you like the app?",
-    "tagline_app_review_button_positive": "I love it! 😍",
-    "tagline_app_review_button_negative": "Not really…",
-    "tagline_app_review_button_later": "Ask me later",
-    "app_review_negative_modal_title": "You don't like our app?",
+    "tagline_app_review": "Харесваш ли приложението?",
+    "tagline_app_review_button_positive": "Обичам го! 😍",
+    "tagline_app_review_button_negative": "Не особено…",
+    "tagline_app_review_button_later": "Попитай по-късно",
+    "app_review_negative_modal_title": "Не харесваш приложението?",
     "app_review_negative_modal_text": "Could you take a few seconds to tell us why?",
     "app_review_negative_modal_positive_button": "Yes, absolutely!",
     "app_review_negative_modal_negative_button": "Не",
