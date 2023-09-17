@@ -76,9 +76,9 @@ class _KnowledgePanelPageTemplateState
           if (snapshot.connectionState != ConnectionState.done) {
             return const Center(child: CircularProgressIndicator.adaptive());
           }
-          final List<Widget> children = KnowledgePanelWidget.getChildren(
+          final List<Widget> children = KnowledgePanelsBuilder.getChildren(
             context,
-            panelElement: KnowledgePanelWidget.getPanelElement(
+            panelElement: KnowledgePanelsBuilder.getRootPanelElement(
               _product,
               widget.panelId,
             )!,

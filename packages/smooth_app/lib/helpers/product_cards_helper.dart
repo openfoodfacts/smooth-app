@@ -44,19 +44,18 @@ Widget buildProductSmoothCard({
   EdgeInsets? margin = const EdgeInsets.symmetric(
     horizontal: SMALL_SPACE,
   ),
-}) {
-  return SmoothCard(
-    margin: margin,
-    padding: padding,
-    child: Column(
-      mainAxisSize: MainAxisSize.min,
-      children: <Widget>[
-        if (header != null) header,
-        body,
-      ],
-    ),
-  );
-}
+}) =>
+    SmoothCard(
+      margin: margin,
+      padding: padding,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          if (header != null) header,
+          body,
+        ],
+      ),
+    );
 
 // used to be in now defunct `AttributeListExpandable`
 List<Attribute> getPopulatedAttributes(

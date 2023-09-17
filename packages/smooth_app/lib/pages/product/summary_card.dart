@@ -470,7 +470,7 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
       return;
     }
     final KnowledgePanel? knowledgePanel =
-        KnowledgePanelWidget.getKnowledgePanel(
+        KnowledgePanelsBuilder.getKnowledgePanel(
       upToDateProduct,
       panelId,
     );
@@ -478,7 +478,7 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
       return;
     }
 
-    Navigator.push<void>(
+    await Navigator.push<void>(
       context,
       MaterialPageRoute<void>(
         builder: (BuildContext context) => KnowledgePanelPage(
