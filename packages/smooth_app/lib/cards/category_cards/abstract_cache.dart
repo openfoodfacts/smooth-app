@@ -11,7 +11,6 @@ abstract class AbstractCache extends StatelessWidget {
     this.iconUrl, {
     this.width,
     this.height,
-    this.displayAssetWhileWaiting = true,
   });
 
   /// Returns the best cache possibility: none, svg or png/jpeg
@@ -33,7 +32,6 @@ abstract class AbstractCache extends StatelessWidget {
   final String? iconUrl;
   final double? width;
   final double? height;
-  final bool displayAssetWhileWaiting;
 
   /// Returns a list of possible related cached filenames.
   @protected
@@ -74,12 +72,5 @@ abstract class AbstractCache extends StatelessWidget {
         CupertinoIcons.question,
         size: width ?? height,
         color: Colors.red,
-      );
-
-  @protected
-  Widget getCircularProgressIndicator() => SizedBox(
-        width: width ?? height,
-        height: height ?? width,
-        child: const CircularProgressIndicator.adaptive(),
       );
 }

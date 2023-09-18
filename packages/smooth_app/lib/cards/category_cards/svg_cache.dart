@@ -1,11 +1,8 @@
-import 'dart:ui' as ui;
-
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_app/cards/category_cards/abstract_cache.dart';
 import 'package:smooth_app/cards/category_cards/asset_cache_helper.dart';
-import 'package:smooth_app/cards/category_cards/svg_async_asset.dart';
+import 'package:smooth_app/cards/category_cards/svg_safe_network.dart';
 
 /// Widget that displays a svg from network (and cache while waiting).
 class SvgCache extends AbstractCache {
@@ -14,7 +11,6 @@ class SvgCache extends AbstractCache {
     super.width,
     super.height,
     this.color,
-    super.displayAssetWhileWaiting = true,
   });
 
   final Color? color;
@@ -55,26 +51,14 @@ class SvgCache extends AbstractCache {
           ? Colors.white
           : Colors.black;
     }
-    return SvgPicture.network(
-      iconUrl!,
-      colorFilter: forcedColor == null
-          ? null
-          : ui.ColorFilter.mode(forcedColor, ui.BlendMode.srcIn),
-      width: width,
-      height: height,
-      fit: BoxFit.contain,
-      semanticsLabel: getSemanticsLabel(context, iconUrl!),
-      placeholderBuilder: (BuildContext context) => displayAssetWhileWaiting
-          ? SvgAsyncAsset(
-              AssetCacheHelper(
-                cachedFilenames,
-                iconUrl!,
-                width: width,
-                height: height,
-                color: forcedColor,
-              ),
-            )
-          : getCircularProgressIndicator(),
+    return SvgSafeNetwork(
+      AssetCacheHelper(
+        cachedFilenames,
+        iconUrl!,
+        width: width,
+        height: height,
+        color: forcedColor,
+      ),
     );
   }
 
