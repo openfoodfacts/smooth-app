@@ -18,6 +18,7 @@ import 'package:smooth_app/pages/preferences/user_preferences_contribute.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_faq.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_food.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_settings.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -38,6 +39,86 @@ enum PreferencePageType {
   /// A tag used when opening a new screen
   /// eg: preferences/account
   final String tag;
+
+  AbstractUserPreferences getUserPreferences({
+    required final UserPreferences userPreferences,
+    required final BuildContext context,
+  }) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final ThemeProvider themeProvider = context.read<ThemeProvider>();
+    final ThemeData themeData = Theme.of(context);
+    final ProductPreferences productPreferences =
+        context.read<ProductPreferences>();
+    // TODO(monsieurtanuki): the following line is probably useless - get rid of it if possible
+    context.read<UserManagementProvider>();
+
+    switch (this) {
+      case PreferencePageType.ACCOUNT:
+        return UserPreferencesAccount(
+          context: context,
+          userPreferences: userPreferences,
+          appLocalizations: appLocalizations,
+          themeData: themeData,
+        );
+      case PreferencePageType.FOOD:
+        return UserPreferencesFood(
+          productPreferences: productPreferences,
+          context: context,
+          userPreferences: userPreferences,
+          appLocalizations: appLocalizations,
+          themeData: themeData,
+        );
+      case PreferencePageType.SETTINGS:
+        return UserPreferencesSettings(
+          themeProvider: themeProvider,
+          context: context,
+          userPreferences: userPreferences,
+          appLocalizations: appLocalizations,
+          themeData: themeData,
+        );
+      case PreferencePageType.DEV_MODE:
+        return UserPreferencesDevMode(
+          context: context,
+          userPreferences: userPreferences,
+          appLocalizations: appLocalizations,
+          themeData: themeData,
+        );
+      case PreferencePageType.CONTRIBUTE:
+        return UserPreferencesContribute(
+          context: context,
+          userPreferences: userPreferences,
+          appLocalizations: appLocalizations,
+          themeData: themeData,
+        );
+      case PreferencePageType.FAQ:
+        return UserPreferencesFaq(
+          context: context,
+          userPreferences: userPreferences,
+          appLocalizations: appLocalizations,
+          themeData: themeData,
+        );
+      case PreferencePageType.CONNECT:
+        return UserPreferencesConnect(
+          context: context,
+          userPreferences: userPreferences,
+          appLocalizations: appLocalizations,
+          themeData: themeData,
+        );
+    }
+  }
+
+  static List<PreferencePageType> getPreferencePageTypes(
+    final UserPreferences userPreferences,
+  ) =>
+      <PreferencePageType>[
+        PreferencePageType.ACCOUNT,
+        PreferencePageType.FOOD,
+        PreferencePageType.SETTINGS,
+        PreferencePageType.CONTRIBUTE,
+        PreferencePageType.FAQ,
+        PreferencePageType.CONNECT,
+        if (userPreferences.devMode > 0) PreferencePageType.DEV_MODE,
+      ];
 }
 
 /// Preferences page: main or detailed.
@@ -73,21 +154,13 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
     final String? headerAsset;
     final Color? headerColor;
     if (widget.type == null) {
-      final List<PreferencePageType> items = <PreferencePageType>[
-        PreferencePageType.ACCOUNT,
-        PreferencePageType.FOOD,
-        PreferencePageType.SETTINGS,
-        PreferencePageType.CONTRIBUTE,
-        PreferencePageType.FAQ,
-        PreferencePageType.CONNECT,
-        if (userPreferences.devMode > 0) PreferencePageType.DEV_MODE,
-      ];
-
+      final List<PreferencePageType> items =
+          PreferencePageType.getPreferencePageTypes(userPreferences);
       for (final PreferencePageType type in items) {
         final AbstractUserPreferences abstractUserPreferences =
-            getUserPreferences(
-          type: type,
+            type.getUserPreferences(
           userPreferences: userPreferences,
+          context: context,
         );
         children.add(abstractUserPreferences.getOnlyHeader());
         final Widget? additionalSubtitle =
@@ -104,12 +177,15 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
       addDividers = true;
     } else {
       final AbstractUserPreferences abstractUserPreferences =
-          getUserPreferences(
-        type: widget.type!,
+          widget.type!.getUserPreferences(
         userPreferences: userPreferences,
+        context: context,
       );
 
-      children.addAll(abstractUserPreferences.getBody());
+      for (final UserPreferencesItem item
+          in abstractUserPreferences.getChildren()) {
+        children.add(item.builder(context));
+      }
       appBarTitle = abstractUserPreferences.getTitleString();
       addDividers = false;
 
@@ -187,71 +263,5 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
         children: children,
       ),
     );
-  }
-
-  AbstractUserPreferences getUserPreferences({
-    required final PreferencePageType type,
-    required final UserPreferences userPreferences,
-  }) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final ThemeProvider themeProvider = context.watch<ThemeProvider>();
-    final ThemeData themeData = Theme.of(context);
-    final ProductPreferences productPreferences =
-        context.watch<ProductPreferences>();
-    context.watch<UserManagementProvider>();
-
-    switch (type) {
-      case PreferencePageType.ACCOUNT:
-        return UserPreferencesAccount(
-          context: context,
-          userPreferences: userPreferences,
-          appLocalizations: appLocalizations,
-          themeData: themeData,
-        );
-      case PreferencePageType.FOOD:
-        return UserPreferencesFood(
-          productPreferences: productPreferences,
-          context: context,
-          userPreferences: userPreferences,
-          appLocalizations: appLocalizations,
-          themeData: themeData,
-        );
-      case PreferencePageType.SETTINGS:
-        return UserPreferencesSettings(
-          themeProvider: themeProvider,
-          context: context,
-          userPreferences: userPreferences,
-          appLocalizations: appLocalizations,
-          themeData: themeData,
-        );
-      case PreferencePageType.DEV_MODE:
-        return UserPreferencesDevMode(
-          context: context,
-          userPreferences: userPreferences,
-          appLocalizations: appLocalizations,
-          themeData: themeData,
-        );
-      case PreferencePageType.CONTRIBUTE:
-        return UserPreferencesContribute(
-          context: context,
-          userPreferences: userPreferences,
-          appLocalizations: appLocalizations,
-          themeData: themeData,
-        );
-      case PreferencePageType.FAQ:
-        return UserPreferencesFaq(
-          context: context,
-          userPreferences: userPreferences,
-          appLocalizations: appLocalizations,
-          themeData: themeData,
-        );
-      case PreferencePageType.CONNECT:
-        return UserPreferencesConnect(
-          context: context,
-          userPreferences: userPreferences,
-          appLocalizations: appLocalizations,
-          themeData: themeData,
-        );
-    }
   }
 }

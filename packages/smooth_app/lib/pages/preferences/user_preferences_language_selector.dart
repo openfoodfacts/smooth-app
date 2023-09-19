@@ -5,10 +5,23 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/language_selector.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 class UserPreferencesLanguageSelector extends StatelessWidget {
   const UserPreferencesLanguageSelector();
+
+  static UserPreferencesItem getUserPreferencesItem(
+    final BuildContext context,
+  ) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    return UserPreferencesItemSimple(
+      labels: <String>[
+        appLocalizations.language_picker_label,
+      ],
+      builder: (_) => const UserPreferencesLanguageSelector(),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
