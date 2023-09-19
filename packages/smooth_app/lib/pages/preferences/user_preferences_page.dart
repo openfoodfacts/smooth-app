@@ -49,6 +49,7 @@ enum PreferencePageType {
     final ThemeData themeData = Theme.of(context);
     final ProductPreferences productPreferences =
         context.read<ProductPreferences>();
+    // TODO(monsieurtanuki): the following line is probably useless - get rid of it if possible
     context.read<UserManagementProvider>();
 
     switch (this) {
