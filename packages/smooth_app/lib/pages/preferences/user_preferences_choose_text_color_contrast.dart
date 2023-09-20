@@ -1,12 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
 import 'package:smooth_app/themes/color_schemes.dart';
 import 'package:smooth_app/themes/contrast_provider.dart';
 
 class UserPreferencesChooseTextColorContrast extends StatelessWidget {
   const UserPreferencesChooseTextColorContrast();
+
+  static UserPreferencesItem getUserPreferencesItem(
+    final BuildContext context,
+  ) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    return UserPreferencesItemSimple(
+      labels: <String>[
+        appLocalizations.text_contrast_mode,
+        appLocalizations.contrast_high,
+        appLocalizations.contrast_medium,
+        appLocalizations.contrast_low,
+      ],
+      builder: (_) => const UserPreferencesChooseTextColorContrast(),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
@@ -23,6 +24,9 @@ abstract class AbstractUserPreferences {
   @protected
   PreferencePageType getPreferencePageType();
 
+  /// Title of the preference page.
+  String getPageTitleString() => getTitleString();
+
   /// Title of the header, always visible.
   String getTitleString();
 
@@ -35,7 +39,18 @@ abstract class AbstractUserPreferences {
 
   /// Subtitle of the header, always visible.
   @protected
-  Widget? getSubtitle();
+  String? getSubtitleString() => null;
+
+  /// Subtitle of the header, always visible.
+  @protected
+  Widget? getSubtitle() =>
+      getSubtitleString() == null ? null : Text(getSubtitleString()!);
+
+  List<String> getLabels() => <String>[
+        getPageTitleString(),
+        getTitleString(),
+        if (getSubtitleString() != null) getSubtitleString()!,
+      ];
 
   Widget getOnlyHeader() => InkWell(
         onTap: () async => runHeaderAction(),
@@ -69,7 +84,7 @@ abstract class AbstractUserPreferences {
   IconData getLeadingIconData();
 
   /// Body of the content.
-  List<Widget> getBody();
+  List<UserPreferencesItem> getChildren();
 
   /// Returns the action when we tap on the header.
   @protected
