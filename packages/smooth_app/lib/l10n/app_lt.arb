@@ -27,8 +27,8 @@
     "go_back_to_top": "Grįžti į viršų",
     "save": "Išsaugoti",
     "save_confirmation": "Ar tikrai norite išsaugoti?",
-    "skip": "Skip",
-    "cancel": "Cancel",
+    "skip": "Praleisti",
+    "cancel": "Atšaukti",
     "@cancel": {},
     "ignore": "Ignoruoti",
     "@ignore": {
@@ -1162,7 +1162,7 @@
     "permission_photo_denied_dialog_settings_title": "Leidimas atmestas",
     "permission_photo_denied_dialog_settings_message": "Kadangi anksčiau atmetėte fotoaparato leidimą, turite jį leisti rankiniu būdu nustatymuose.",
     "permission_photo_denied_dialog_settings_button_open": "Atidaryti nustatymus",
-    "permission_photo_denied_dialog_settings_button_cancel": "Cancel",
+    "permission_photo_denied_dialog_settings_button_cancel": "Atšaukti",
     "permission_photo_none_found": "Kamera neaptikta",
     "@permission_photo_none_found": {
         "description": "Message for the user when no camera was detected, replacing the barcode scanner"
@@ -1338,7 +1338,7 @@
     "@edit_product_form_item_nutrition_facts_subtitle": {
         "description": "Product edition - Nutrition facts - SubTitle"
     },
-    "edit_product_form_save": "Edit",
+    "edit_product_form_save": "Redaguoti",
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
     },
@@ -1547,7 +1547,7 @@
     "@dev_preferences_button_positive": {
         "description": "User dev preferences - Positive button label"
     },
-    "dev_preferences_button_negative": "Cancel",
+    "dev_preferences_button_negative": "Atšaukti",
     "@dev_preferences_button_negative": {
         "description": "User dev preferences - Negative button label"
     },
@@ -1713,7 +1713,7 @@
     "@summary_card_button_add_basic_details": {
         "description": "Summary card - Button to add details about the product"
     },
-    "edit_photo_button_label": "Edit",
+    "edit_photo_button_label": "Redaguoti",
     "@edit_photo_button_label": {
         "description": "Edit photo button label"
     },
