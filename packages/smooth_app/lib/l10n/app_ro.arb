@@ -703,13 +703,13 @@
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
-    "tagline_app_review": "Do you like the app?",
-    "tagline_app_review_button_positive": "I love it! 😍",
-    "tagline_app_review_button_negative": "Not really…",
-    "tagline_app_review_button_later": "Ask me later",
-    "app_review_negative_modal_title": "You don't like our app?",
-    "app_review_negative_modal_text": "Could you take a few seconds to tell us why?",
-    "app_review_negative_modal_positive_button": "Yes, absolutely!",
+    "tagline_app_review": "Îți place aplicația?",
+    "tagline_app_review_button_positive": "O ador! 😍",
+    "tagline_app_review_button_negative": "Nu chiar...",
+    "tagline_app_review_button_later": "Întreabă-mă mai târziu",
+    "app_review_negative_modal_title": "Nu îți place aplicația noastră?",
+    "app_review_negative_modal_text": "Poți să aloci câteva secunde pentru a ne spune de ce?",
+    "app_review_negative_modal_positive_button": "Da, cu siguranță!",
     "app_review_negative_modal_negative_button": "Nu",
     "could_not_refresh": "Produsul nu a putut fi reîmprospătat",
     "@could_not_refresh": {
@@ -795,7 +795,7 @@
     "@clear": {
         "description": "Clears a product list (short label)"
     },
-    "clear_long": "Empty the list",
+    "clear_long": "Golește lista",
     "@clear_long": {
         "description": "Clears a product list (long label)"
     },
@@ -2472,8 +2472,8 @@
     "contact_title_press_page": "Apăsați Pagina",
     "contact_title_press_email": "Apăsați Contact",
     "contact_title_newsletter": "Abonează-te la newsletter-ul nostru",
-    "hunger_games_loading_line1": "Please let us a few seconds…",
-    "hunger_games_loading_line2": "We're downloading the questions!",
-    "hunger_games_error_label": "Argh! Something went wrong… and we couldn't load the questions.",
-    "hunger_games_error_retry_button": "Let's retry!"
+    "hunger_games_loading_line1": "Te rugăm să ne lași câteva secunde...",
+    "hunger_games_loading_line2": "Descărcăm întrebările!",
+    "hunger_games_error_label": "Of! Ceva nu a mers bine...și nu am putut încărca întrebările.",
+    "hunger_games_error_retry_button": "Să reîncercăm!"
 }
