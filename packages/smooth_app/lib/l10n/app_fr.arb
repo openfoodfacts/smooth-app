@@ -892,7 +892,7 @@
     "@permissions_page_title": {
         "description": "Title for the camera permission's page (onboarding)"
     },
-    "permissions_page_body1": "Pour scanner un code-barre avec l'appareil photo de votre téléphone, veuillez autoriser l'accès.",
+    "permissions_page_body1": "Pour scanner un code-barres avec l'appareil photo de votre téléphone, veuillez autoriser l'accès.",
     "@permissions_page_body1": {
         "description": "first paragraph for the camera permission's page (onboarding)"
     },
@@ -1117,7 +1117,7 @@
     "@app_haptic_feedback_title": {
         "description": "Title for the Haptic feedback toggle"
     },
-    "app_haptic_feedback_subtitle": "Vibrations après l'exécution de certaines actions (décodé en code-barre, produit supprimé…).",
+    "app_haptic_feedback_subtitle": "Vibrations après l'exécution de certaines actions (code-barres décodé, produit supprimé…).",
     "@app_haptic_feedback_subtitle": {
         "description": "SubTitle for the Haptic feedback toggle"
     },
