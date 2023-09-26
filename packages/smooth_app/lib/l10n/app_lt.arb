@@ -1330,7 +1330,7 @@
     "@edit_product_form_item_packaging_title": {
         "description": "Product edition - Packaging - Title"
     },
-    "edit_product_form_item_nutrition_facts_title": "Nutrition facts",
+    "edit_product_form_item_nutrition_facts_title": "Maistingumas",
     "@edit_product_form_item_nutrition_facts_title": {
         "description": "Product edition - Nutrition facts - Title"
     },
