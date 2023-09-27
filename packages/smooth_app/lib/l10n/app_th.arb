@@ -1804,7 +1804,7 @@
             }
         }
     },
-    "confirm_delete_user_list_button": "Yes, I confirm",
+    "confirm_delete_user_list_button": "สวัสดี​",
     "@confirm_delete_user_list_button": {
         "description": "Button to delete a list"
     },
