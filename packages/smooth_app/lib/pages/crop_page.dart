@@ -21,6 +21,7 @@ import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/database_helper.dart';
 import 'package:smooth_app/helpers/image_compute_container.dart';
 import 'package:smooth_app/helpers/image_field_extension.dart';
+import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/edit_image_button.dart';
 import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
@@ -34,6 +35,7 @@ class CropPage extends StatefulWidget {
     required this.imageField,
     required this.language,
     required this.initiallyDifferent,
+    required this.isLoggedInMandatory,
     this.imageId,
     this.initialCropRect,
     this.initialRotation,
@@ -55,6 +57,8 @@ class CropPage extends StatefulWidget {
   final Rect? initialCropRect;
 
   final CropRotation? initialRotation;
+
+  final bool isLoggedInMandatory;
 
   @override
   State<CropPage> createState() => _CropPageState();
@@ -380,6 +384,13 @@ class _CropPageState extends State<CropPage> {
   }
 
   Future<bool> _saveFileAndExit() async {
+    if (!await ProductRefresher().checkIfLoggedIn(
+      context,
+      isLoggedInMandatory: widget.isLoggedInMandatory,
+    )) {
+      return false;
+    }
+
     setState(
       () => _progress = AppLocalizations.of(context).crop_page_action_saving,
     );

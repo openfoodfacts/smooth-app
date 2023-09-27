@@ -22,7 +22,7 @@ import 'package:smooth_app/widgets/smooth_scaffold.dart';
 class AddBasicDetailsPage extends StatefulWidget {
   const AddBasicDetailsPage(
     this.product, {
-    this.isLoggedInMandatory = true,
+    required this.isLoggedInMandatory,
   });
 
   final Product product;
@@ -87,8 +87,10 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
           centerTitle: false,
           title: Text(appLocalizations.basic_details),
           subTitle: widget.product.productName != null
-              ? Text(widget.product.productName!,
-                  overflow: TextOverflow.ellipsis, maxLines: 1)
+              ? Text(
+                  '${widget.product.productName!.trim()}, ${widget.product.brands!.trim()}',
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 1)
               : null,
         ),
         body: Form(
@@ -200,14 +202,14 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
       }
     }
 
-    if (widget.isLoggedInMandatory) {
-      if (!mounted) {
-        return false;
-      }
-      final bool loggedIn = await ProductRefresher().checkIfLoggedIn(context);
-      if (!loggedIn) {
-        return false;
-      }
+    if (!mounted) {
+      return false;
+    }
+    if (!await ProductRefresher().checkIfLoggedIn(
+      context,
+      isLoggedInMandatory: widget.isLoggedInMandatory,
+    )) {
+      return false;
     }
 
     AnalyticsHelper.trackProductEdit(

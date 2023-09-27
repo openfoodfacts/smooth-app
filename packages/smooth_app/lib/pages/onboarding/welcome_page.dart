@@ -84,7 +84,7 @@ class WelcomePage extends StatelessWidget {
                           decoration: BoxDecoration(
                             border: const Border.fromBorderSide(
                               BorderSide(
-                                color: Colors.white,
+                                color: Colors.black,
                                 width: 1,
                               ),
                             ),

@@ -119,6 +119,7 @@ extension ImageFieldSmoothieExtension on ImageField {
   Widget getPhotoButton(
     final BuildContext context,
     final Product product,
+    final bool isLoggedInMandatory,
   ) =>
       SmoothLargeButtonWithIcon(
         onPressed: () async => Navigator.push(
@@ -127,6 +128,7 @@ extension ImageFieldSmoothieExtension on ImageField {
             builder: (_) => ProductImageSwipeableView.imageField(
               imageField: this,
               product: product,
+              isLoggedInMandatory: isLoggedInMandatory,
             ),
           ),
         ),

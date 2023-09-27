@@ -88,7 +88,7 @@ class BackgroundTaskDownloadProducts extends BackgroundTaskProgressing {
         uniqueId: uniqueId,
         languageCode: ProductQuery.getLanguage().offTag,
         user: jsonEncode(ProductQuery.getUser().toJson()),
-        country: ProductQuery.getCountry()!.offTag,
+        country: ProductQuery.getCountry().offTag,
         stamp: ';offlineProducts;$work',
         work: work,
         pageSize: pageSize,

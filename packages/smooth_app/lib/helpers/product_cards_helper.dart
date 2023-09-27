@@ -9,9 +9,12 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/image_field_extension.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
+import 'package:smooth_app/query/product_query.dart';
 
 String getProductName(Product product, AppLocalizations appLocalizations) =>
-    product.productName ?? appLocalizations.unknownProductName;
+    product.productName ??
+    product.productNameInLanguages?[ProductQuery.getLanguage()] ??
+    appLocalizations.unknownProductName;
 
 String getProductBrands(Product product, AppLocalizations appLocalizations) {
   final String? brands = product.brands;
@@ -95,7 +98,24 @@ List<Attribute> getMandatoryAttributes(
   final List<String> attributeGroupOrder,
   final Set<String> attributesToExcludeIfStatusIsUnknown,
   final ProductPreferences preferences,
-) {
+) =>
+    getSortedAttributes(
+      product,
+      attributeGroupOrder,
+      attributesToExcludeIfStatusIsUnknown,
+      preferences,
+      PreferenceImportance.ID_MANDATORY,
+    );
+
+/// Returns the attributes, ordered by importance desc and attribute group order
+List<Attribute> getSortedAttributes(
+  final Product product,
+  final List<String> attributeGroupOrder,
+  final Set<String> attributesToExcludeIfStatusIsUnknown,
+  final ProductPreferences preferences,
+  final String importance, {
+  final bool excludeMainScoreAttributes = true,
+}) {
   final List<Attribute> result = <Attribute>[];
   if (product.attributeGroups == null) {
     return result;
@@ -106,9 +126,10 @@ List<Attribute> getMandatoryAttributes(
   for (final AttributeGroup attributeGroup in product.attributeGroups!) {
     mandatoryAttributesByGroup[attributeGroup.id!] = getFilteredAttributes(
       attributeGroup,
-      PreferenceImportance.ID_MANDATORY,
+      importance,
       attributesToExcludeIfStatusIsUnknown,
       preferences,
+      excludeMainScoreAttributes: excludeMainScoreAttributes,
     );
   }
 
@@ -131,15 +152,17 @@ List<Attribute> getFilteredAttributes(
   final AttributeGroup attributeGroup,
   final String importance,
   final Set<String> attributesToExcludeIfStatusIsUnknown,
-  final ProductPreferences preferences,
-) {
+  final ProductPreferences preferences, {
+  final bool excludeMainScoreAttributes = true,
+}) {
   final List<Attribute> result = <Attribute>[];
   if (attributeGroup.attributes == null) {
     return result;
   }
   for (final Attribute attribute in attributeGroup.attributes!) {
     final String attributeId = attribute.id!;
-    if (SCORE_ATTRIBUTE_IDS.contains(attributeId)) {
+    if (excludeMainScoreAttributes &&
+        SCORE_ATTRIBUTE_IDS.contains(attributeId)) {
       continue;
     }
     if (attributeGroup.id == AttributeGroup.ATTRIBUTE_GROUP_LABELS) {
@@ -173,7 +196,7 @@ Widget addPanelButton(
 List<ProductImageData> getProductMainImagesData(
   final Product product,
   final OpenFoodFactsLanguage language, {
-  final bool includeOther = true,
+  required final bool includeOther,
 }) {
   final List<ImageField> imageFields = List<ImageField>.of(
     ImageFieldSmoothieExtension.orderedMain,

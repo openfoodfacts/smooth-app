@@ -15,11 +15,13 @@ import 'package:smooth_app/pages/product/common/product_refresher.dart';
 class ProductLoaderPage extends StatefulWidget {
   const ProductLoaderPage({
     required this.barcode,
+    required this.mode,
     Key? key,
   })  : assert(barcode != ''),
         super(key: key);
 
   final String barcode;
+  final ProductLoaderMode mode;
 
   @override
   State<ProductLoaderPage> createState() => _ProductLoaderPageState();
@@ -51,13 +53,22 @@ class _ProductLoaderPageState extends State<ProductLoaderPage> {
 
     if (mounted) {
       if (fetchedProduct.product != null) {
-        navigator.pushReplacement(
-          AppRoutes.PRODUCT(
-            widget.barcode,
-            heroTag: 'product_${widget.barcode}',
-          ),
-          extra: fetchedProduct.product,
-        );
+        if (widget.mode == ProductLoaderMode.viewProduct) {
+          navigator.pushReplacement(
+            AppRoutes.PRODUCT(
+              widget.barcode,
+              heroTag: 'product_${widget.barcode}',
+            ),
+            extra: fetchedProduct.product,
+          );
+        } else if (widget.mode == ProductLoaderMode.editProduct) {
+          navigator.pushReplacement(
+            AppRoutes.PRODUCT_EDITOR(
+              widget.barcode,
+            ),
+            extra: fetchedProduct.product,
+          );
+        }
         return;
       }
       if (fetchedProduct.status == FetchedProductStatus.internetNotFound) {
@@ -200,4 +211,9 @@ enum _ProductLoaderState {
   loading,
   productNotFound,
   serverError;
+}
+
+enum ProductLoaderMode {
+  viewProduct,
+  editProduct,
 }

@@ -315,6 +315,10 @@
     "support_via_email_include_logs_dialog_body": "לצרף את יומני היישום להודעת הדוא״ל שלך?",
     "termsOfUse": "תנאי שימוש",
     "@termsOfUse": {},
+    "legalNotices": "הודעות משפטיות",
+    "@legalNotices": {
+        "description": "A link to open the legal notices on the website"
+    },
     "about_this_app": "על היישומון הזה",
     "@about_this_app": {
         "description": "Button label: Opens a pop up window which shows information about the app"
@@ -358,6 +362,7 @@
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "תרגומים הם אחת ממשימות המפתח של המיזם",
     "@contribute_translate_text_2": {},
+    "contribute_join_skill_pool": "מזמינים אותך לתרום את הכישורים שלך ל־Open Food Facts. מאגר הכשרונות מחכה רק לך!",
     "contribute_share_header": "שיתוף Open Food Facts עם חברים",
     "@contribute_share_header": {},
     "contribute_share_content": "רציתי לספר לך על יישומון שמותקן אצלי. Open Food Facts, שמאפשר לקבל את ההשפעות הבריאותיות והסביבתיות של המזון שלך, בדרך מותאמת אישית. הוא עובד עם סריקת ברקודים על האריזה. בסופו של דבר זה בחינם ולא נדרשת הרשמה ואפשר גם לסייע להגדיר את מספר המוצרים המפוענחים. הנה הקישור להורדה והתקנה בטלפון: https://openfoodfacts.app",
@@ -859,9 +864,9 @@
     },
     "retry_button_label": "ניסיון חוזר",
     "connect_with_us": "להתחבר אלינו",
-    "instagram": "אינסטגרם",
+    "instagram": "למעקב אחרינו באינסטגרם",
     "instagram_link": "https://instagram.com/open.food.facts",
-    "twitter": "X (formerly Twitter)",
+    "twitter": "למעקב אחרינו ב־X (לשעבר טוויטר)",
     "twitter_link": "https://www.twitter.com/openfoodfacts",
     "blog": "בלוג",
     "faq": "שו״ת",
@@ -1464,6 +1469,10 @@
     "category_picker_no_category_found_button": "חזרה",
     "@category_picker_no_category_found_button": {
         "description": "Button label when no category is available"
+    },
+    "user_preferences_item_accessibility_hint": "לחיצה תפתח בדפדפן שלך או ביישומון (אם מותקן)",
+    "@user_preferences_item_accessibility_hint": {
+        "description": "A hint for screen readers to explain how external links work"
     },
     "dev_preferences_screen_title": "מצב פיתוח",
     "@dev_preferences_screen_title": {
@@ -2272,6 +2281,32 @@
     "@contrast_low": {
         "description": "Low Contrast Text Color"
     },
+    "product_refresher_internet_not_found": "המוצר לא נמצא!",
+    "@product_refresher_internet_not_found": {
+        "description": "When refreshing a product that does not exist on the server. Label is the body of a dialog."
+    },
+    "product_refresher_internet_not_connected": "אין לך חיבור לאינטרנט!",
+    "@product_refresher_internet_not_connected": {
+        "description": "When refreshing a product and you're not even connected to internet. Label is the body of a dialog."
+    },
+    "product_refresher_internet_no_ping": "השרת מושבת ({host})",
+    "@product_refresher_internet_no_ping": {
+        "description": "When refreshing a product and you cannot even ping the server. Label is the body of a dialog.",
+        "placeholders": {
+            "host": {
+                "type": "String?"
+            }
+        }
+    },
+    "product_refresher_internet_error": "שגיאת שרת ({exception})",
+    "@product_refresher_internet_error": {
+        "description": "When refreshing a product and the server returned an exception. Label is the body of a dialog.",
+        "placeholders": {
+            "exception": {
+                "type": "String?"
+            }
+        }
+    },
     "product_loader_not_found_title": "המוצר לא נמצא!",
     "@product_loader_not_found_title": {
         "description": "When fetching a product opened via a link and it doesn't exist"
@@ -2404,6 +2439,7 @@
     "@product_list_create_tooltip": {
         "description": "Button description to create a new list (long sentence)"
     },
+    "nutriscore_generic": "Nutri-Score",
     "nutriscore_a": "Nutri-Score A",
     "nutriscore_b": "Nutri-Score B",
     "nutriscore_c": "Nutri-Score C",
@@ -2411,6 +2447,7 @@
     "nutriscore_e": "Nutri-Score E",
     "nutriscore_unknown": "Nutri-Score לא ידוע",
     "nutriscore_not_applicable": "Nutri-Score לא ניתן ליישום",
+    "ecoscore_generic": "Eco-Score",
     "ecoscore_a": "Eco-Score A",
     "ecoscore_b": "Eco-Score B",
     "ecoscore_c": "Eco-Score C",
@@ -2418,11 +2455,23 @@
     "ecoscore_e": "Eco-Score E",
     "ecoscore_unknown": "Eco-Score לא ידוע",
     "ecoscore_not_applicable": "Eco-Score לא ניתן ליישום",
+    "nova_group_generic": "אולטרה־עיבוד - קבוצות NOVA",
     "nova_group_1": "קבוצת NOVA‏ 1",
     "nova_group_2": "קבוצת NOVA‏ 2",
     "nova_group_3": "קבוצת NOVA‏ 3",
     "nova_group_4": "קבוצת NOVA‏ 4",
     "nova_group_unknown": "קבוצת NOVA לא ידועה",
+    "nutrition_facts": "רמות חומרים מזינים",
+    "faq_title_partners": "שותפים ומממנים של העמותה",
+    "faq_title_vision": "החזון, היעדים, הערכים והתוכניות של Open Food Facts",
+    "faq_title_install_beauty": "אפשר להתקין את Open Beauty Facts כדי ליצור מסד נתונים קוסמטי",
+    "faq_title_install_pet": "אפשר להתקין את Open Pet Food Facts כדי ליצור מסד נתוני מזון לחיות מחמד",
+    "faq_title_install_product": "אפשר להתקין את Open Products Facts כדי ליצור מסד נתונים של מוצרים להארכת חיי הפריטים",
+    "contact_title_pro_page": "יצרנים? אפשר לייבא את המוצרים שלכם ל־Open Food Facts",
+    "contact_title_pro_email": "איש קשר ליצרנים",
+    "contact_title_press_page": "עמוד לעיתונאים",
+    "contact_title_press_email": "יצירת קשר לעיתונאים",
+    "contact_title_newsletter": "הרשמה לרשימת התפוצה שלנו",
     "hunger_games_loading_line1": "נא להמתין מספר שניות…",
     "hunger_games_loading_line2": "אנו מורידים את השאלות!",
     "hunger_games_error_label": "געוואלד! משהו השתבש… לא הצלחנו לטעון את השאלות.",

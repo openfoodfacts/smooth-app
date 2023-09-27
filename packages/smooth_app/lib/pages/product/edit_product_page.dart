@@ -60,6 +60,8 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
       upToDateProduct,
       appLocalizations,
     );
+    final String productBrand =
+        getProductBrands(upToDateProduct, appLocalizations);
 
     return SmoothScaffold(
       appBar: SmoothAppBar(
@@ -72,7 +74,7 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 AutoSizeText(
-                  productName,
+                  '${productName.trim()}, ${productBrand.trim()}',
                   minFontSize:
                       theme.textTheme.titleLarge?.fontSize?.clamp(13.0, 17.0) ??
                           13.0,
@@ -190,6 +192,12 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
                   subtitle: appLocalizations
                       .edit_product_form_item_nutrition_facts_subtitle,
                   onTap: () async {
+                    if (!await ProductRefresher().checkIfLoggedIn(
+                      context,
+                      isLoggedInMandatory: true,
+                    )) {
+                      return;
+                    }
                     AnalyticsHelper.trackProductEdit(
                       AnalyticsEditEvents.nutrition_Facts,
                       barcode,
@@ -227,7 +235,10 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
                 subtitle: appLocalizations
                     .edit_product_form_item_other_details_subtitle,
                 onTap: () async {
-                  if (!await ProductRefresher().checkIfLoggedIn(context)) {
+                  if (!await ProductRefresher().checkIfLoggedIn(
+                    context,
+                    isLoggedInMandatory: true,
+                  )) {
                     return;
                   }
                   AnalyticsHelper.trackProductEdit(
@@ -276,7 +287,10 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
       leading: const Icon(Icons.interests),
       title: titles.join(', '),
       onTap: () async {
-        if (!await ProductRefresher().checkIfLoggedIn(context)) {
+        if (!await ProductRefresher().checkIfLoggedIn(
+          context,
+          isLoggedInMandatory: true,
+        )) {
           return;
         }
         AnalyticsHelper.trackProductEdit(

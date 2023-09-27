@@ -164,7 +164,7 @@ class _CountrySelectorState extends State<CountrySelector> {
             if (country != null) {
               await ProductQuery.setCountry(
                 userPreferences,
-                isoCode: country.countryCode,
+                country.countryCode,
               );
             }
           },

@@ -12,6 +12,7 @@ import 'package:smooth_app/helpers/global_vars.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/user_feedback_helper.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/query/product_query.dart';
@@ -19,13 +20,11 @@ import 'package:smooth_app/query/product_query.dart';
 /// Display of "FAQ" for the preferences page.
 class UserPreferencesFaq extends AbstractUserPreferences {
   UserPreferencesFaq({
-    required final Function(Function()) setState,
     required final BuildContext context,
     required final UserPreferences userPreferences,
     required final AppLocalizations appLocalizations,
     required final ThemeData themeData,
   }) : super(
-          setState: setState,
           context: context,
           userPreferences: userPreferences,
           appLocalizations: appLocalizations,
@@ -33,13 +32,10 @@ class UserPreferencesFaq extends AbstractUserPreferences {
         );
 
   @override
-  PreferencePageType? getPreferencePageType() => PreferencePageType.FAQ;
+  PreferencePageType getPreferencePageType() => PreferencePageType.FAQ;
 
   @override
   String getTitleString() => appLocalizations.faq;
-
-  @override
-  Widget? getSubtitle() => null;
 
   @override
   IconData getLeadingIconData() => Icons.question_mark;
@@ -53,7 +49,7 @@ class UserPreferencesFaq extends AbstractUserPreferences {
   bool get _isDark => Theme.of(context).brightness == Brightness.dark;
 
   @override
-  List<Widget> getBody() => <Widget>[
+  List<UserPreferencesItem> getChildren() => <UserPreferencesItem>[
         _getListTile(
           title: appLocalizations.faq,
           leadingIconData: Icons.question_mark,
@@ -78,6 +74,7 @@ class UserPreferencesFaq extends AbstractUserPreferences {
           title: appLocalizations.nutrition_facts,
           url: 'https://world.openfoodfacts.org/traffic-lights',
           svg: 'assets/cache/low.svg',
+          leadingSvgWidth: 1.5 * DEFAULT_ICON_SIZE,
         ),
         _getListTile(
           title: appLocalizations.discover,
@@ -95,7 +92,7 @@ class UserPreferencesFaq extends AbstractUserPreferences {
         ),
         _getListTile(
           title: appLocalizations.feed_back,
-          leadingIconData: Icons.feedback_sharp,
+          leadingIconData: Icons.add_comment,
           url: UserFeedbackHelper.getFeedbackFormLink(),
         ),
         _getListTile(
@@ -152,46 +149,52 @@ class UserPreferencesFaq extends AbstractUserPreferences {
         ),
       ];
 
-  Widget _getListTile({
+  UserPreferencesItem _getListTile({
     required final String title,
     final IconData? leadingIconData,
     final String? leadingSvg,
+    final double? leadingSvgWidth,
     final String? url,
     final VoidCallback? onTap,
     final Icon? icon,
   }) =>
-      UserPreferencesListTile(
-        title: Text(title),
-        onTap: onTap ?? () async => LaunchUrlHelper.launchURL(url!, false),
-        trailing: icon ??
-            UserPreferencesListTile.getTintedIcon(Icons.open_in_new, context),
-        leading: SizedBox(
-          width: 2 * DEFAULT_ICON_SIZE,
-          height: 2 * DEFAULT_ICON_SIZE,
-          child: Center(
-            child: leadingIconData != null
-                ? UserPreferencesListTile.getTintedIcon(
-                    leadingIconData, context)
-                : leadingSvg == null
-                    ? null
-                    : SvgPicture.asset(
-                        leadingSvg,
-                        width: 2 * DEFAULT_ICON_SIZE,
-                        package: AppHelper.APP_PACKAGE,
-                      ),
+      UserPreferencesItemSimple(
+        labels: <String>[title],
+        builder: (_) => UserPreferencesListTile(
+          title: Text(title),
+          onTap: onTap ?? () async => LaunchUrlHelper.launchURL(url!, false),
+          trailing: icon ??
+              UserPreferencesListTile.getTintedIcon(Icons.open_in_new, context),
+          leading: SizedBox(
+            width: 2 * DEFAULT_ICON_SIZE,
+            height: 2 * DEFAULT_ICON_SIZE,
+            child: Center(
+              child: leadingIconData != null
+                  ? UserPreferencesListTile.getTintedIcon(
+                      leadingIconData, context)
+                  : leadingSvg == null
+                      ? null
+                      : SvgPicture.asset(
+                          leadingSvg,
+                          width: leadingSvgWidth ?? 2 * DEFAULT_ICON_SIZE,
+                          package: AppHelper.APP_PACKAGE,
+                        ),
+            ),
           ),
+          externalLink: url != null,
         ),
-        externalLink: url != null,
       );
 
-  Widget _getNutriListTile({
+  UserPreferencesItem _getNutriListTile({
     required final String title,
     required final String url,
     required final String svg,
+    final double? leadingSvgWidth,
   }) =>
       _getListTile(
         title: title,
         leadingSvg: svg,
+        leadingSvgWidth: leadingSvgWidth,
         url: ProductQuery.replaceSubdomain(url),
       );
 

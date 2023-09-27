@@ -45,10 +45,11 @@ class NutritionPageLoaded extends StatefulWidget {
     required final bool isLoggedInMandatory,
     required final BuildContext context,
   }) async {
-    if (isLoggedInMandatory) {
-      if (!await ProductRefresher().checkIfLoggedIn(context)) {
-        return;
-      }
+    if (!await ProductRefresher().checkIfLoggedIn(
+      context,
+      isLoggedInMandatory: isLoggedInMandatory,
+    )) {
+      return;
     }
     if (context.mounted) {
       final OrderedNutrientsCache? cache =
@@ -97,7 +98,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
     initUpToDate(widget.product, context.read<LocalDatabase>());
     _nutritionContainer = NutritionContainer(
       orderedNutrients: widget.orderedNutrients,
-      product: initialProduct,
+      product: upToDateProduct,
     );
 
     _decimalNumberFormat =
@@ -132,7 +133,11 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
       children.add(
         Padding(
           padding: const EdgeInsets.symmetric(vertical: MEDIUM_SPACE),
-          child: ImageField.NUTRITION.getPhotoButton(context, upToDateProduct),
+          child: ImageField.NUTRITION.getPhotoButton(
+            context,
+            upToDateProduct,
+            widget.isLoggedInMandatory,
+          ),
         ),
       );
       children.add(_getServingField(appLocalizations));
@@ -195,7 +200,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
           ),
           subTitle: upToDateProduct.productName != null
               ? Text(
-                  upToDateProduct.productName!,
+                  '${upToDateProduct.productName!.trim()}, ${upToDateProduct.brands!.trim()}',
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 )

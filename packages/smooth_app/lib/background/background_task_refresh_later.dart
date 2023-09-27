@@ -81,7 +81,7 @@ class BackgroundTaskRefreshLater extends BackgroundTaskBarcode {
         barcode: barcode,
         languageCode: ProductQuery.getLanguage().code,
         user: jsonEncode(ProductQuery.getUser().toJson()),
-        country: ProductQuery.getCountry()!.offTag,
+        country: ProductQuery.getCountry().offTag,
         timestamp: LocalDatabase.nowInMillis(),
         stamp: _getStamp(barcode),
       );

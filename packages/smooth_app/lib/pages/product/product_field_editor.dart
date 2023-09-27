@@ -30,19 +30,6 @@ abstract class ProductFieldEditor {
     required final Product product,
     final bool isLoggedInMandatory = true,
   });
-
-  /// Returns true if no log-in required or if logged in
-  @protected
-  Future<bool> passedLoggedIn({
-    required final BuildContext context,
-    required final bool isLoggedInMandatory,
-  }) async {
-    if (!isLoggedInMandatory) {
-      return true;
-    }
-
-    return ProductRefresher().checkIfLoggedIn(context);
-  }
 }
 
 class ProductFieldSimpleEditor extends ProductFieldEditor {
@@ -63,11 +50,11 @@ class ProductFieldSimpleEditor extends ProductFieldEditor {
     required final Product product,
     final bool isLoggedInMandatory = true,
   }) async {
-    if (isLoggedInMandatory) {
-      // ignore: use_build_context_synchronously
-      if (!await ProductRefresher().checkIfLoggedIn(context)) {
-        return;
-      }
+    if (!await ProductRefresher().checkIfLoggedIn(
+      context,
+      isLoggedInMandatory: isLoggedInMandatory,
+    )) {
+      return;
     }
 
     AnalyticsHelper.trackProductEdit(
@@ -97,6 +84,7 @@ class ProductFieldDetailsEditor extends ProductFieldEditor {
   @override
   bool isPopulated(final Product product) =>
       _isProductFieldValid(product.productName) ||
+      (product.productNameInLanguages?.isNotEmpty == true) ||
       _isProductFieldValid(product.brands);
 
   @override
@@ -109,9 +97,8 @@ class ProductFieldDetailsEditor extends ProductFieldEditor {
     required final Product product,
     final bool isLoggedInMandatory = true,
   }) async {
-    // ignore: use_build_context_synchronously
-    if (!await passedLoggedIn(
-      context: context,
+    if (!await ProductRefresher().checkIfLoggedIn(
+      context,
       isLoggedInMandatory: isLoggedInMandatory,
     )) {
       return;
@@ -151,8 +138,8 @@ class ProductFieldPackagingEditor extends ProductFieldEditor {
     final bool isLoggedInMandatory = true,
   }) async {
     // ignore: use_build_context_synchronously
-    if (!await passedLoggedIn(
-      context: context,
+    if (!await ProductRefresher().checkIfLoggedIn(
+      context,
       isLoggedInMandatory: isLoggedInMandatory,
     )) {
       return;
@@ -169,6 +156,7 @@ class ProductFieldPackagingEditor extends ProductFieldEditor {
       MaterialPageRoute<void>(
         builder: (BuildContext context) => EditNewPackagings(
           product: product,
+          isLoggedInMandatory: isLoggedInMandatory,
         ),
         fullscreenDialog: true,
       ),
@@ -213,9 +201,8 @@ abstract class ProductFieldOcrEditor extends ProductFieldEditor {
     required final Product product,
     final bool isLoggedInMandatory = true,
   }) async {
-    // ignore: use_build_context_synchronously
-    if (!await passedLoggedIn(
-      context: context,
+    if (!await ProductRefresher().checkIfLoggedIn(
+      context,
       isLoggedInMandatory: isLoggedInMandatory,
     )) {
       return;

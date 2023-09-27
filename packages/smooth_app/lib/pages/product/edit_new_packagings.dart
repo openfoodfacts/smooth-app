@@ -27,9 +27,11 @@ import 'package:smooth_app/widgets/smooth_scaffold.dart';
 class EditNewPackagings extends StatefulWidget {
   const EditNewPackagings({
     required this.product,
+    required this.isLoggedInMandatory,
   });
 
   final Product product;
+  final bool isLoggedInMandatory;
 
   @override
   State<EditNewPackagings> createState() => _EditNewPackagingsState();
@@ -73,10 +75,10 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
     _unitNumberFormat = SimpleInputNumberField.getNumberFormat(
       decimal: false,
     );
-    if (initialProduct.packagings != null) {
-      initialProduct.packagings!.forEach(_addPackagingToControllers);
+    if (upToDateProduct.packagings != null) {
+      upToDateProduct.packagings!.forEach(_addPackagingToControllers);
     }
-    _packagingsComplete = initialProduct.packagingsComplete;
+    _packagingsComplete = upToDateProduct.packagingsComplete;
   }
 
   @override
@@ -96,7 +98,11 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
     children.add(
       Padding(
         padding: const EdgeInsets.all(SMALL_SPACE),
-        child: ImageField.PACKAGING.getPhotoButton(context, upToDateProduct),
+        child: ImageField.PACKAGING.getPhotoButton(
+          context,
+          upToDateProduct,
+          widget.isLoggedInMandatory,
+        ),
       ),
     );
     for (int index = 0; index < _helpers.length; index++) {
@@ -170,6 +176,7 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
             imageField: ImageField.OTHER,
             barcode: barcode,
             language: ProductQuery.getLanguage(),
+            isLoggedInMandatory: widget.isLoggedInMandatory,
           ),
           iconData: Icons.add_a_photo,
         ),
@@ -185,7 +192,7 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
             title: Text(appLocalizations.edit_packagings_title),
             subTitle: upToDateProduct.productName != null
                 ? Text(
-                    upToDateProduct.productName!,
+                    '${upToDateProduct.productName!.trim()}, ${upToDateProduct.brands!.trim()}',
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   )

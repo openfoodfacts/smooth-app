@@ -142,7 +142,7 @@
         "description": "Description of what a user can use the Eco data in a product for."
     },
     "@user_management": {},
-    "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
+    "sign_in_text": "Влез в акаунта си в Open Food Facts, за да запазиш приноса си",
     "incorrect_credentials": "Грешно потребителско име или парола.",
     "password_lost_incorrect_credentials": "This email or username doesn't exist. Please check your credentials.",
     "password_lost_server_unavailable": "We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.",
@@ -262,7 +262,7 @@
     "sign_up_page_user_name_already_used": "Потребителското име вече съществува, моля избери друго потребителско име.",
     "sign_up_page_email_already_exists": "вече съществува, влез в акаунта или опитай с друг имейл.",
     "sign_up_page_provide_valid_email": "Моля, посочи валиден имейл адрес.",
-    "sign_up_page_server_busy": "We are deeply sorry, we have some technical difficulties to create your account. Please try again later.",
+    "sign_up_page_server_busy": "Много съжаляваме, но имаме някои технически затруднения при създаването на твоя акаунт. Моля, опитай отново по-късно.",
     "@Settings": {},
     "settingsTitle": "Настройки",
     "@settingsTitle": {
@@ -315,6 +315,10 @@
     "support_via_email_include_logs_dialog_body": "Искаш ли да включиш логовете на приложението като прикачен файл към твоя имейл?",
     "termsOfUse": "Условия за ползване",
     "@termsOfUse": {},
+    "legalNotices": "Legal notices",
+    "@legalNotices": {
+        "description": "A link to open the legal notices on the website"
+    },
     "about_this_app": "Относно приложението",
     "@about_this_app": {
         "description": "Button label: Opens a pop up window which shows information about the app"
@@ -358,6 +362,7 @@
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "Преводите са една от ключовите задачи на проекта",
     "@contribute_translate_text_2": {},
+    "contribute_join_skill_pool": "Contribute your skills to Open Food Facts. Join the skill pool!",
     "contribute_share_header": "Share Open Food Facts with your friends",
     "@contribute_share_header": {},
     "contribute_share_content": "I wanted to let you know about the app I've been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it's free, does not require registration, and you can even help increase the number of products decyphered. Here's the link to get it for your phone: https://openfoodfacts.app",
@@ -384,7 +389,7 @@
     "@contribute_to_get_rewards": {
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts and gain rewards."
     },
-    "question_sign_in_text": "Sign in to your Open Food Facts account to get credit for your contributions",
+    "question_sign_in_text": "Влез в акаунта си в Open Food Facts, за да запишеш своите приноси",
     "question_yes_button_accessibility_value": "Answer with yes",
     "question_no_button_accessibility_value": "Answer with no",
     "question_skip_button_accessibility_value": "Skip this question",
@@ -459,11 +464,11 @@
     "@filter": {
         "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
     },
-    "scan": "Products from the Scan screen",
+    "scan": "Продукти от екрана за Сканиране",
     "@scan": {
         "description": "Page title: List type: Products in the scan session"
     },
-    "scan_history": "Scan history",
+    "scan_history": "История на сканиранията",
     "@scan_history": {
         "description": "Page title: List type: Products in the whole scan history"
     },
@@ -471,7 +476,7 @@
     "@search": {
         "description": "Hint text of a search text input field"
     },
-    "tap_for_more": "Tap to see more info…",
+    "tap_for_more": "Докосни, за повече информация…",
     "@Product": {},
     "product": "Продукт",
     "@product": {},
@@ -698,11 +703,11 @@
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
-    "tagline_app_review": "Do you like the app?",
-    "tagline_app_review_button_positive": "I love it! 😍",
-    "tagline_app_review_button_negative": "Not really…",
-    "tagline_app_review_button_later": "Ask me later",
-    "app_review_negative_modal_title": "You don't like our app?",
+    "tagline_app_review": "Харесваш ли приложението?",
+    "tagline_app_review_button_positive": "Обичам го! 😍",
+    "tagline_app_review_button_negative": "Не особено…",
+    "tagline_app_review_button_later": "Попитай по-късно",
+    "app_review_negative_modal_title": "Не харесваш приложението?",
     "app_review_negative_modal_text": "Could you take a few seconds to tell us why?",
     "app_review_negative_modal_positive_button": "Yes, absolutely!",
     "app_review_negative_modal_negative_button": "Не",
@@ -785,7 +790,7 @@
     "@Lists": {},
     "no_prodcut_in_list": "Няма продукт в този списък",
     "no_product_in_section": "Няма продукт в този раздел",
-    "recently_seen_products": "All viewed products",
+    "recently_seen_products": "Всички разгледани продукти",
     "clear": "Изчисти",
     "@clear": {
         "description": "Clears a product list (short label)"
@@ -859,9 +864,9 @@
     },
     "retry_button_label": "Повторен опит",
     "connect_with_us": "Свържи се с нас",
-    "instagram": "Instagram",
+    "instagram": "Follow us on Instagram",
     "instagram_link": "https://instagram.com/open.food.facts",
-    "twitter": "X (formerly Twitter)",
+    "twitter": "Follow us on X (formerly Twitter)",
     "twitter_link": "https://www.twitter.com/openfoodfacts",
     "blog": "Блог",
     "faq": "ЧЗВ",
@@ -1465,6 +1470,10 @@
     "@category_picker_no_category_found_button": {
         "description": "Button label when no category is available"
     },
+    "user_preferences_item_accessibility_hint": "Click to open in your browser or in the application (if installed)",
+    "@user_preferences_item_accessibility_hint": {
+        "description": "A hint for screen readers to explain how external links work"
+    },
     "dev_preferences_screen_title": "Режим на разработчик",
     "@dev_preferences_screen_title": {
         "description": "User dev preferences - Title"
@@ -1819,7 +1828,7 @@
     "@user_list_all_empty": {
         "description": "Small message when there are no user lists"
     },
-    "product_list_select": "Select a list",
+    "product_list_select": "Избери списък",
     "@product_list_select": {
         "description": "Top title for the selection of a list"
     },
@@ -2272,6 +2281,32 @@
     "@contrast_low": {
         "description": "Low Contrast Text Color"
     },
+    "product_refresher_internet_not_found": "Продъктът не е открит!",
+    "@product_refresher_internet_not_found": {
+        "description": "When refreshing a product that does not exist on the server. Label is the body of a dialog."
+    },
+    "product_refresher_internet_not_connected": "You are not connected to internet!",
+    "@product_refresher_internet_not_connected": {
+        "description": "When refreshing a product and you're not even connected to internet. Label is the body of a dialog."
+    },
+    "product_refresher_internet_no_ping": "Server down ({host})",
+    "@product_refresher_internet_no_ping": {
+        "description": "When refreshing a product and you cannot even ping the server. Label is the body of a dialog.",
+        "placeholders": {
+            "host": {
+                "type": "String?"
+            }
+        }
+    },
+    "product_refresher_internet_error": "Server error ({exception})",
+    "@product_refresher_internet_error": {
+        "description": "When refreshing a product and the server returned an exception. Label is the body of a dialog.",
+        "placeholders": {
+            "exception": {
+                "type": "String?"
+            }
+        }
+    },
     "product_loader_not_found_title": "Продъктът не е открит!",
     "@product_loader_not_found_title": {
         "description": "When fetching a product opened via a link and it doesn't exist"
@@ -2404,6 +2439,7 @@
     "@product_list_create_tooltip": {
         "description": "Button description to create a new list (long sentence)"
     },
+    "nutriscore_generic": "Nutri-Score",
     "nutriscore_a": "Nutri-Score A",
     "nutriscore_b": "Nutri-Score B",
     "nutriscore_c": "Nutri-Score C",
@@ -2411,6 +2447,7 @@
     "nutriscore_e": "Nutri-Score E",
     "nutriscore_unknown": "Unknown Nutri-Score",
     "nutriscore_not_applicable": "Nutri-Score is not applicable",
+    "ecoscore_generic": "Eco-Score",
     "ecoscore_a": "Eco-Score A",
     "ecoscore_b": "Eco-Score B",
     "ecoscore_c": "Eco-Score C",
@@ -2418,11 +2455,23 @@
     "ecoscore_e": "Eco-Score E",
     "ecoscore_unknown": "Unknown Eco-Score",
     "ecoscore_not_applicable": "Eco-Score is not applicable",
+    "nova_group_generic": "Свръх преработка - групи NOVA",
     "nova_group_1": "NOVA Group 1",
     "nova_group_2": "NOVA Group 2",
     "nova_group_3": "NOVA Group 3",
     "nova_group_4": "NOVA Group 4",
     "nova_group_unknown": "Unknown NOVA Group",
+    "nutrition_facts": "Nutrient Levels",
+    "faq_title_partners": "Partners & Patrons of the NGO",
+    "faq_title_vision": "Визията, мисията, ценностите и програмите на Open Food Facts",
+    "faq_title_install_beauty": "Инсталирай Open Beauty Facts, за да създадеш козметична база данни",
+    "faq_title_install_pet": "Инсталирай Open Pet Food Facts, за да създадеш база данни с храни за домашни любимци",
+    "faq_title_install_product": "Install Open Products Facts to create a products database to extend the life of objects",
+    "contact_title_pro_page": "Pro? Import your products in Open Food Facts",
+    "contact_title_pro_email": "Producer Contact",
+    "contact_title_press_page": "Press Page",
+    "contact_title_press_email": "Press Contact",
+    "contact_title_newsletter": "Абонирай се за нашия бюлетин",
     "hunger_games_loading_line1": "Please let us a few seconds…",
     "hunger_games_loading_line2": "We're downloading the questions!",
     "hunger_games_error_label": "Argh! Something went wrong… and we couldn't load the questions.",

@@ -25,6 +25,7 @@ jobs:
         with:
            token: ${{ secrets.GITHUB_TOKEN }}
            release-type: simple
+           pull-request-title-pattern: "chore${scope}: 🚀 Open Food Facts Mobile app - Release${component} ${version}."
            changelog-types: '[{"type":"feat","section":"🚀 Features","hidden":false},{"type":"fix","section":"🐛 Bug Fixes","hidden":false},{"type":"docs","section":"📖 Documentation","hidden":false},{"type":"ci","section":"🤖 Automation","hidden":false},{"type":"refactor","section":"👷 Refactoring","hidden":false},{"type":"chore","section":"🛠 Miscellaneous","hidden":false}]'
 
   create-release:
@@ -39,7 +40,7 @@ jobs:
       VERSION_CODE: ${{ steps.set_output.outputs.VERSION_CODE }}
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Set VERSION_NAME env
         run: echo "VERSION_NAME=${{ needs.release-please.outputs.major }}.${{ needs.release-please.outputs.minor }}.${{ needs.release-please.outputs.patch }}" >> $GITHUB_ENV
@@ -107,7 +108,6 @@ jobs:
     with:
       VERSION_NAME: ${{ needs.create-release.outputs.VERSION_NAME}}
       VERSION_CODE: ${{ needs.create-release.outputs.VERSION_CODE}}
-      FLUTTER-CACHE-KEY: '3.3.x'
       RELEASE_TYPE: 'PLAY'
       BUILD_TYPE: 'appbundle'
       FLAVOR: 'main_google_play'
@@ -131,7 +131,6 @@ jobs:
     with:
       VERSION_NAME: ${{ needs.create-release.outputs.VERSION_NAME}}
       VERSION_CODE: ${{ needs.create-release.outputs.VERSION_CODE}}
-      FLUTTER-CACHE-KEY: '3.3.x'
     secrets:
       SENTRY_AUTH_TOKEN: ${{secrets.SENTRY_AUTH_TOKEN }}
       FASTLANE_USER: ${{secrets.FASTLANE_USER }}
@@ -155,7 +154,6 @@ jobs:
     with:
       VERSION_NAME: ${{ needs.create-release.outputs.VERSION_NAME}}
       VERSION_CODE: ${{ needs.create-release.outputs.VERSION_CODE}}
-      FLUTTER-CACHE-KEY: '3.3.x'
       RELEASE_TYPE: 'GITHUB'
       BUILD_TYPE: 'apk'
       TAG_NAME: ${{ needs.release-please.outputs.tag_name}}
@@ -180,7 +178,6 @@ jobs:
     with:
       VERSION_NAME: ${{ needs.create-release.outputs.VERSION_NAME}}
       VERSION_CODE: ${{ needs.create-release.outputs.VERSION_CODE}}
-      FLUTTER-CACHE-KEY: '3.3.x'
       RELEASE_TYPE: 'GITHUB'
       BUILD_TYPE: 'apk'
       TAG_NAME: ${{ needs.release-please.outputs.tag_name}}

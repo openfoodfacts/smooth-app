@@ -32,17 +32,35 @@ enum AttributeEvaluation {
   }
 }
 
-Widget getAttributeDisplayIcon(final Attribute attribute) => Padding(
-      padding: const EdgeInsetsDirectional.only(end: VERY_SMALL_SPACE),
-      child: _attributeMatchComparison(
-        attribute,
-        const Icon(CupertinoIcons.question, color: RED_COLOR),
-        const Icon(Icons.lens, color: RED_COLOR),
-        const Icon(Icons.lens, color: LIGHT_ORANGE_COLOR),
-        const Icon(Icons.lens, color: LIGHT_ORANGE_COLOR),
-        const Icon(Icons.lens, color: LIGHT_GREEN_COLOR),
-        const Icon(Icons.lens, color: LIGHT_GREEN_COLOR),
-      ),
+Widget getAttributeDisplayIcon(final Attribute attribute) {
+  final Color color = getAttributeDisplayBackgroundColor(attribute);
+  final IconData iconData = getAttributeDisplayIconData(attribute);
+  return Padding(
+    padding: const EdgeInsetsDirectional.only(end: VERY_SMALL_SPACE),
+    child: Icon(iconData, color: color),
+  );
+}
+
+Color getAttributeDisplayBackgroundColor(final Attribute attribute) =>
+    _attributeMatchComparison<Color>(
+      attribute,
+      RED_COLOR,
+      RED_COLOR,
+      LIGHT_ORANGE_COLOR,
+      LIGHT_ORANGE_COLOR,
+      LIGHT_GREEN_COLOR,
+      LIGHT_GREEN_COLOR,
+    );
+
+IconData getAttributeDisplayIconData(final Attribute attribute) =>
+    _attributeMatchComparison<IconData>(
+      attribute,
+      CupertinoIcons.question,
+      Icons.lens,
+      Icons.lens,
+      Icons.lens,
+      Icons.lens,
+      Icons.lens,
     );
 
 bool isMatchAvailable(Attribute attribute) {

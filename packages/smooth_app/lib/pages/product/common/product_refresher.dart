@@ -18,7 +18,13 @@ import 'package:smooth_app/services/smooth_services.dart';
 /// Refreshes a product on the BE then on the local database.
 class ProductRefresher {
   /// Checks if the user is logged in and opens a "please log in" dialog if not.
-  Future<bool> checkIfLoggedIn(final BuildContext context) async {
+  Future<bool> checkIfLoggedIn(
+    final BuildContext context, {
+    required bool isLoggedInMandatory,
+  }) async {
+    if (!isLoggedInMandatory) {
+      return true;
+    }
     if (ProductQuery.isLoggedIn()) {
       return true;
     }
@@ -93,15 +99,6 @@ class ProductRefresher {
         version: ProductQuery.productQueryVersion,
       );
 
-  /// Fetches the product from the server and refreshes the local database.
-  ///
-  /// Silent version.
-  Future<FetchedProduct> silentFetchAndRefresh({
-    required final String barcode,
-    required final LocalDatabase localDatabase,
-  }) async =>
-      _fetchAndRefresh(localDatabase, barcode);
-
   /// Fetches the products from the server and refreshes the local database.
   ///
   /// Silent version.
@@ -124,7 +121,10 @@ class ProductRefresher {
         AppLocalizations.of(widget.context);
     final FetchedProduct? fetchAndRefreshed =
         await LoadingDialog.run<FetchedProduct>(
-      future: _fetchAndRefresh(localDatabase, barcode),
+      future: silentFetchAndRefresh(
+        localDatabase: localDatabase,
+        barcode: barcode,
+      ),
       context: widget.context,
       title: appLocalizations.refreshing_product,
     );
@@ -134,32 +134,9 @@ class ProductRefresher {
     }
     if (fetchAndRefreshed.product == null) {
       if (widget.mounted) {
-        String getTitle(final FetchedProduct fetchedProduct) {
-          switch (fetchAndRefreshed.status) {
-            case FetchedProductStatus.ok:
-              return 'Not supposed to happen...';
-            case FetchedProductStatus.userCancelled:
-              return 'Not supposed to happen either...';
-            case FetchedProductStatus.internetNotFound:
-              return appLocalizations.product_refresher_internet_not_found;
-            case FetchedProductStatus.internetError:
-              if (fetchAndRefreshed.connectivityResult ==
-                  ConnectivityResult.none) {
-                return appLocalizations
-                    .product_refresher_internet_not_connected;
-              }
-              if (fetchAndRefreshed.failedPingedHost != null) {
-                return appLocalizations.product_refresher_internet_no_ping(
-                    fetchAndRefreshed.failedPingedHost);
-              }
-              return appLocalizations.product_refresher_internet_no_ping(
-                  fetchAndRefreshed.exceptionString);
-          }
-        }
-
         await LoadingDialog.error(
           context: widget.context,
-          title: getTitle(fetchAndRefreshed),
+          title: fetchAndRefreshed.getErrorTitle(appLocalizations),
         );
       }
       return false;
@@ -175,10 +152,13 @@ class ProductRefresher {
     return true;
   }
 
-  Future<FetchedProduct> _fetchAndRefresh(
-    final LocalDatabase localDatabase,
-    final String barcode,
-  ) async {
+  /// Fetches the product from the server and refreshes the local database.
+  ///
+  /// Silent version.
+  Future<FetchedProduct> silentFetchAndRefresh({
+    required final LocalDatabase localDatabase,
+    required final String barcode,
+  }) async {
     try {
       final ProductResultV3 result = await OpenFoodAPIClient.getProductV3(
         getBarcodeQueryConfiguration(barcode),

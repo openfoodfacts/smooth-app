@@ -98,10 +98,11 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
     if (changedProduct == null) {
       return;
     }
-    if (widget.isLoggedInMandatory) {
-      if (!await ProductRefresher().checkIfLoggedIn(context)) {
-        return;
-      }
+    if (!await ProductRefresher().checkIfLoggedIn(
+      context,
+      isLoggedInMandatory: widget.isLoggedInMandatory,
+    )) {
+      return;
     }
     AnalyticsHelper.trackProductEdit(
       _helper.getEditEventAnalyticsTag(),
@@ -148,7 +149,7 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
         ),
         subTitle: upToDateProduct.productName != null
             ? Text(
-                upToDateProduct.productName!,
+                '${upToDateProduct.productName!.trim()}, ${upToDateProduct.brands!.trim()}',
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 style: appbarTextStyle,
@@ -330,6 +331,7 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
                               imageField: ImageField.OTHER,
                               barcode: widget.product.barcode!,
                               language: language,
+                              isLoggedInMandatory: widget.isLoggedInMandatory,
                             ),
                             iconData: Icons.add_a_photo,
                           ),
