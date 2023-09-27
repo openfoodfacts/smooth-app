@@ -4,11 +4,24 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/entry_points_helper.dart';
 import 'package:smooth_app/helpers/global_vars.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
 import 'package:smooth_app/services/smooth_services.dart';
 
 class UserPreferencesRateUs extends StatelessWidget {
   const UserPreferencesRateUs();
+
+  static UserPreferencesItem getUserPreferencesItem(
+    final BuildContext context,
+  ) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    return UserPreferencesItemSimple(
+      labels: <String>[
+        appLocalizations.rate_app,
+      ],
+      builder: (_) => const UserPreferencesRateUs(),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,8 +40,6 @@ class UserPreferencesRateUs extends StatelessWidget {
         try {
           await ApplicationStore.openAppDetails();
         } on PlatformException {
-          final AppLocalizations appLocalizations =
-              AppLocalizations.of(context);
           final ThemeData themeData = Theme.of(context);
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
