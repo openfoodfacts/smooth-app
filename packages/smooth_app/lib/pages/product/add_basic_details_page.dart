@@ -88,9 +88,11 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
           title: Text(appLocalizations.basic_details),
           subTitle: widget.product.productName != null
               ? Text(
-                  '${widget.product.productName!.trim()}, ${widget.product.brands!.trim()}',
+                  '${widget.product.productName!.trim()}'
+                  ', ${widget.product.brands?.trim() ?? appLocalizations.unknownBrand}',
                   overflow: TextOverflow.ellipsis,
-                  maxLines: 1)
+                  maxLines: 1,
+                )
               : null,
         ),
         body: Form(
