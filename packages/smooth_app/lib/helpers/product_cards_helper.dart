@@ -190,6 +190,7 @@ Widget addPanelButton(
         icon: iconData ?? Icons.add,
         onPressed: onPressed,
         textAlign: iconData == null ? TextAlign.center : null,
+        textStyle: const TextStyle(fontSize: 18,fontWeight: FontWeight.w300),
       ),
     );
 
