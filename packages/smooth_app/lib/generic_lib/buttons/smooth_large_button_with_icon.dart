@@ -58,6 +58,8 @@ class SmoothLargeButtonWithIcon extends StatelessWidget {
             child: AutoSizeText(
               text,
               maxLines: 2,
+              minFontSize: 10,
+              stepGranularity: 2,
               textAlign: textAlign,
               style: style,
             ),
