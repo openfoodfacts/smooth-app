@@ -79,6 +79,7 @@ class _SimpleInputTextFieldState extends State<SimpleInputTextField> {
       if (_manager == null || search.length < widget.minLengthForSuggestions) {
         _suggestions[search] = _SearchResults.empty();
       } else {
+        _setLoading(true);
         try {
           _suggestions[search] =
               _SearchResults(await _manager!.getSuggestions(search));
@@ -87,7 +88,7 @@ class _SimpleInputTextFieldState extends State<SimpleInputTextField> {
     }
 
     if (_suggestions[search]?.isEmpty == true && search == _searchInput) {
-      _hideLoading();
+      _setLoading(false);
     }
 
     if (_searchInput != search &&
@@ -123,7 +124,6 @@ class _SimpleInputTextFieldState extends State<SimpleInputTextField> {
                       VoidCallback onFieldSubmitted) =>
                   TextField(
                 controller: widget.controller,
-                onChanged: (_) => setState(() => _loading = true),
                 decoration: InputDecoration(
                   filled: true,
                   border: const OutlineInputBorder(
@@ -170,7 +170,7 @@ class _SimpleInputTextFieldState extends State<SimpleInputTextField> {
                 }
 
                 if (input == _searchInput) {
-                  _hideLoading();
+                  _setLoading(false);
                 }
 
                 return AutocompleteOptions<String>(
@@ -199,10 +199,10 @@ class _SimpleInputTextFieldState extends State<SimpleInputTextField> {
 
   String get _searchInput => widget.controller.text.trim();
 
-  void _hideLoading() {
-    if (_loading) {
+  void _setLoading(bool loading) {
+    if (_loading != loading) {
       WidgetsBinding.instance.addPostFrameCallback(
-        (_) => setState(() => _loading = false),
+        (_) => setState(() => _loading = loading),
       );
     }
   }
