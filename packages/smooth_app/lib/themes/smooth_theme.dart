@@ -38,6 +38,7 @@ class SmoothTheme {
     }
 
     return ThemeData(
+      useMaterial3: false,
       primaryColor: const Color(0xFF341100),
       colorScheme: myColorScheme,
       canvasColor: themeProvider.currentTheme == THEME_AMOLED
