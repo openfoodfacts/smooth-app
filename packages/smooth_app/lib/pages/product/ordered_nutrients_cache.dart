@@ -22,6 +22,7 @@ class OrderedNutrientsCache {
   ) async {
     final OrderedNutrientsCache cache = OrderedNutrientsCache._();
     cache._orderedNutrients = await cache._get() ??
+        // ignore: use_build_context_synchronously
         await LoadingDialog.run<OrderedNutrients>(
           context: context,
           future: cache._download(),

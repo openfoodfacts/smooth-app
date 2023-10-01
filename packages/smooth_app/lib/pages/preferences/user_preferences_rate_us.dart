@@ -40,6 +40,10 @@ class UserPreferencesRateUs extends StatelessWidget {
         try {
           await ApplicationStore.openAppDetails();
         } on PlatformException {
+          if (!context.mounted) {
+            return;
+          }
+
           final ThemeData themeData = Theme.of(context);
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(

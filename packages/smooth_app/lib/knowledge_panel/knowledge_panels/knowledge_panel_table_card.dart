@@ -94,7 +94,7 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
           _buildRowWidgets(_buildRowCells(), constraints);
       return Column(
         children: <Widget>[
-          for (List<Widget> row in rowsWidgets)
+          for (final List<Widget> row in rowsWidgets)
             Semantics(
               excludeSemantics: true,
               value: _buildSemanticsValue(row),
