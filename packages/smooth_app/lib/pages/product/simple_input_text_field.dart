@@ -75,19 +75,22 @@ class _SimpleInputTextFieldState extends State<SimpleInputTextField> {
   Future<_SearchResults> _getSuggestions(String search) async {
     final DateTime start = DateTime.now();
 
-    if (_suggestions[search] == null) {
-      if (_manager == null || search.length < widget.minLengthForSuggestions) {
-        _suggestions[search] = _SearchResults.empty();
-      } else {
-        _setLoading(true);
-        try {
-          _suggestions[search] =
-              _SearchResults(await _manager!.getSuggestions(search));
-        } catch (_) {}
-      }
+    if (_suggestions[search] != null) {
+      return _suggestions[search]!;
+    } else if (_manager == null ||
+        search.length < widget.minLengthForSuggestions) {
+      _suggestions[search] = _SearchResults.empty();
+      return _suggestions[search]!;
     }
 
-    if (_suggestions[search]?.isEmpty == true && search == _searchInput) {
+    _setLoading(true);
+
+    try {
+      _suggestions[search] =
+          _SearchResults(await _manager!.getSuggestions(search));
+    } catch (_) {}
+
+    if (_suggestions[search]?.isEmpty ?? true && search == _searchInput) {
       _setLoading(false);
     }
 
@@ -96,7 +99,7 @@ class _SimpleInputTextFieldState extends State<SimpleInputTextField> {
       // Ignore this request, it's too long and this is not even the current search
       return _SearchResults.empty();
     } else {
-      return _suggestions[search]!;
+      return _suggestions[search] ?? _SearchResults.empty();
     }
   }
 
