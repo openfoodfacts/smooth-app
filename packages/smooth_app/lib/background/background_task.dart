@@ -121,16 +121,20 @@ abstract class BackgroundTask {
       return;
     }
 
-    if (getFloatingMessage(AppLocalizations.of(widget.context))
-        case (
-          final String message,
-          final AlignmentGeometry alignment,
-        )) {
-      SmoothFloatingMessage(message: message).show(
-        widget.context,
-        duration: SnackBarDuration.medium,
-        alignment: alignment,
-      );
+    if (widget.context.mounted) {
+      // ignore: use_build_context_synchronously
+      if (getFloatingMessage(AppLocalizations.of(widget.context))
+          case (
+            final String message,
+            final AlignmentGeometry alignment,
+          )) {
+        // ignore: use_build_context_synchronously
+        SmoothFloatingMessage(message: message).show(
+          widget.context,
+          duration: SnackBarDuration.medium,
+          alignment: alignment,
+        );
+      }
     }
   }
 
