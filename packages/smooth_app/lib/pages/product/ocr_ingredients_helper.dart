@@ -3,6 +3,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/background/background_task_details.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/pages/product/ocr_helper.dart';
+import 'package:smooth_app/query/product_query.dart';
 
 /// OCR Helper for ingredients.
 class OcrIngredientsHelper extends OcrHelper {
@@ -73,6 +74,7 @@ class OcrIngredientsHelper extends OcrHelper {
       getUser(),
       product.barcode!,
       language,
+      uriHelper: ProductQuery.uriProductHelper,
     );
     return result.ingredientsTextFromImage;
   }

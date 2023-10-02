@@ -483,6 +483,7 @@ class _ProductListPageState extends State<ProductListPage>
       final SearchResult searchResult = await OpenFoodAPIClient.searchProducts(
         ProductQuery.getUser(),
         ProductRefresher().getBarcodeListQueryConfiguration(barcodes),
+        uriHelper: ProductQuery.uriProductHelper,
       );
       final List<Product>? freshProducts = searchResult.products;
       if (freshProducts == null) {
