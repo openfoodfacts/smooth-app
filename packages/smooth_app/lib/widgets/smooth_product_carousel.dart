@@ -311,8 +311,7 @@ class _SearchCardContentState extends State<_SearchCardContent>
               child: switch (_content) {
                 _SearchCardContentType.DEFAULT =>
                   const _SearchCardContentDefault(),
-                _SearchCardContentType.TAG_LINE =>
-                  const _SearchCardContentTagLine(),
+                _SearchCardContentType.TAG_LINE => _SearchCardContentTagLine(),
                 _SearchCardContentType.REVIEW_APP =>
                   _SearchCardContentAppReview(
                     onHideReview: () {
@@ -373,42 +372,38 @@ class _SearchCardContentDefault extends StatelessWidget {
   }
 }
 
-class _SearchCardContentTagLine extends StatelessWidget {
-  const _SearchCardContentTagLine();
-
-  @override
-  Widget build(BuildContext context) {
-    return FutureBuilder<TagLineItem?>(
-      future: fetchTagLine(),
-      builder: (BuildContext context, AsyncSnapshot<TagLineItem?> data) {
-        if (data.data != null) {
-          final TagLineItem tagLine = data.data!;
-          return InkWell(
-            borderRadius: ANGULAR_BORDER_RADIUS,
-            onTap: tagLine.hasLink
-                ? () async {
-                    await launchUrlString(
-                      tagLine.url,
-                      // forms.gle links are not handled by the WebView
-                      mode: LaunchMode.externalApplication,
-                    );
-                  }
-                : null,
-            child: Center(
-              child: AutoSizeText(
-                tagLine.message,
-                style: TextStyle(
-                  color: Theme.of(context).colorScheme.primary,
+class _SearchCardContentTagLine extends FutureBuilder<TagLineItem?> {
+  _SearchCardContentTagLine()
+      : super(
+          future: fetchTagLine(),
+          builder: (BuildContext context, AsyncSnapshot<TagLineItem?> data) {
+            if (data.data != null) {
+              final TagLineItem tagLine = data.data!;
+              return InkWell(
+                borderRadius: ANGULAR_BORDER_RADIUS,
+                onTap: tagLine.hasLink
+                    ? () async {
+                        await launchUrlString(
+                          tagLine.url,
+                          // forms.gle links are not handled by the WebView
+                          mode: LaunchMode.externalApplication,
+                        );
+                      }
+                    : null,
+                child: Center(
+                  child: AutoSizeText(
+                    tagLine.message,
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.primary,
+                    ),
+                  ),
                 ),
-              ),
-            ),
-          );
-        } else {
-          return const _SearchCardContentDefault();
-        }
-      },
-    );
-  }
+              );
+            } else {
+              return const _SearchCardContentDefault();
+            }
+          },
+        );
 }
 
 class _SearchCardContentAppReview extends StatelessWidget {
