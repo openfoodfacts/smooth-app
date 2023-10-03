@@ -81,7 +81,7 @@ extension ImageFieldSmoothieExtension on ImageField {
       case ImageField.PACKAGING:
         return appLocalizations.recycling_photo_title;
       case ImageField.OTHER:
-        return appLocalizations.other_interesting_photo_title;
+        return appLocalizations.take_more_photo_title;
     }
   }
 
@@ -112,7 +112,7 @@ extension ImageFieldSmoothieExtension on ImageField {
       case ImageField.PACKAGING:
         return appLocalizations.recycling_photo_button_label;
       case ImageField.OTHER:
-        return appLocalizations.other_interesting_photo_button_label;
+        return appLocalizations.take_more_photo_button_label;
     }
   }
 

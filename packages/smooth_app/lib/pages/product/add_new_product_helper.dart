@@ -50,7 +50,10 @@ class AddNewProductTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Text(
         label,
-        style: Theme.of(context).textTheme.displaySmall,
+        style: const TextStyle(
+          fontSize: 18.0,
+          fontWeight: FontWeight.bold,
+        ),
         maxLines: maxLines,
       );
 }
@@ -72,16 +75,18 @@ class AddNewProductButton extends StatelessWidget {
     this.iconData,
     this.onPressed, {
     required this.done,
+    this.showTrailing = true,
   });
 
   final String label;
   final IconData iconData;
   final VoidCallback? onPressed;
   final bool done;
+  final bool showTrailing;
 
   static const IconData doneIconData = Icons.check;
   static const IconData todoIconData = Icons.add;
-  static const IconData cameraIconData = Icons.camera_alt;
+  static IconData cameraIconData = Icons.add_a_photo_outlined;
 
   @override
   Widget build(BuildContext context) {
@@ -95,7 +100,7 @@ class AddNewProductButton extends StatelessWidget {
         text: label,
         icon: iconData,
         onPressed: onPressed,
-        trailing: Icons.edit,
+        trailing: showTrailing ? Icons.edit : null,
         backgroundColor: onPressed == null
             ? (dark ? darkGrey : lightGrey)
             : done
@@ -132,10 +137,7 @@ class AddNewProductEditorButton extends StatelessWidget {
     final bool done = editor.isPopulated(product);
     return AddNewProductButton(
       editor.getLabel(AppLocalizations.of(context)),
-      forceIconData ??
-          (done
-              ? AddNewProductButton.doneIconData
-              : AddNewProductButton.todoIconData),
+      forceIconData ?? (done ? AddNewProductButton.doneIconData : AddNewProductButton.todoIconData),
       disabled
           ? null
           : () async => editor.edit(
