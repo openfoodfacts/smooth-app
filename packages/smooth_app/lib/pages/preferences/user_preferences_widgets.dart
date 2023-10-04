@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
 
 /// A dashed line
 class UserPreferencesListItemDivider extends StatelessWidget {
@@ -62,45 +63,105 @@ class _DashedLinePainter extends CustomPainter {
   bool shouldRepaint(CustomPainter oldDelegate) => false;
 }
 
-class UserPreferencesSwitchItem extends StatelessWidget {
-  const UserPreferencesSwitchItem({
+class UserPreferencesSwitchWidget extends StatelessWidget {
+  const UserPreferencesSwitchWidget({
     required this.title,
     required this.subtitle,
     required this.value,
     required this.onChanged,
-    Key? key,
-  }) : super(key: key);
+  });
 
   final String title;
-  final String subtitle;
+  final String? subtitle;
   final bool value;
-  final ValueChanged<bool>? onChanged;
+  final ValueChanged<bool> onChanged;
 
   @override
-  Widget build(BuildContext context) {
-    return SwitchListTile.adaptive(
-      title: Padding(
-        padding: const EdgeInsetsDirectional.only(
-          top: SMALL_SPACE,
-          bottom: SMALL_SPACE,
+  Widget build(BuildContext context) => SwitchListTile.adaptive(
+        title: Padding(
+          padding: const EdgeInsetsDirectional.only(
+            top: SMALL_SPACE,
+            bottom: SMALL_SPACE,
+          ),
+          child: Text(title, style: Theme.of(context).textTheme.headlineMedium),
         ),
-        child: Text(title, style: Theme.of(context).textTheme.headlineMedium),
-      ),
-      subtitle: Padding(
-        padding: const EdgeInsetsDirectional.only(
-          bottom: SMALL_SPACE,
-        ),
-        child: Text(
-          subtitle,
-          style: const TextStyle(height: 1.5),
-        ),
-      ),
-      activeColor: Theme.of(context).primaryColor,
-      value: value,
-      onChanged: onChanged,
-      isThreeLine: true,
-    );
-  }
+        subtitle: subtitle == null
+            ? null
+            : Padding(
+                padding: const EdgeInsetsDirectional.only(
+                  bottom: SMALL_SPACE,
+                ),
+                child: Text(
+                  subtitle!,
+                  style: const TextStyle(height: 1.5),
+                ),
+              ),
+        activeColor: Theme.of(context).primaryColor,
+        value: value,
+        onChanged: onChanged,
+        isThreeLine: subtitle != null,
+      );
+}
+
+class UserPreferencesItemSwitch implements UserPreferencesItem {
+  const UserPreferencesItemSwitch({
+    required this.title,
+    this.subtitle,
+    required this.value,
+    required this.onChanged,
+  });
+
+  final String title;
+  final String? subtitle;
+  final bool value;
+  final ValueChanged<bool> onChanged;
+
+  @override
+  List<String> get labels => <String>[
+        title,
+        if (subtitle != null) subtitle!,
+      ];
+
+  @override
+  Widget Function(BuildContext) get builder =>
+      (final BuildContext context) => UserPreferencesSwitchWidget(
+            title: title,
+            subtitle: subtitle,
+            value: value,
+            onChanged: onChanged,
+          );
+}
+
+class UserPreferencesItemTile implements UserPreferencesItem {
+  const UserPreferencesItemTile({
+    required this.title,
+    this.subtitle,
+    this.onTap,
+    this.leading,
+    this.trailing,
+  });
+
+  final String title;
+  final String? subtitle;
+  final VoidCallback? onTap;
+  final Widget? leading;
+  final Widget? trailing;
+
+  @override
+  List<String> get labels => <String>[
+        title,
+        if (subtitle != null) subtitle!,
+      ];
+
+  @override
+  Widget Function(BuildContext) get builder =>
+      (final BuildContext context) => ListTile(
+            title: Text(title),
+            subtitle: subtitle == null ? null : Text(subtitle!),
+            onTap: onTap,
+            leading: leading,
+            trailing: trailing,
+          );
 }
 
 /// A preference allowing to choose between a list of items.
@@ -334,43 +395,6 @@ class _ChoiceItem<T> extends StatelessWidget {
             ),
             if (hasDivider) const Divider(height: 1.0),
           ],
-        ),
-      ),
-    );
-  }
-}
-
-class UserPreferencesTitle extends StatelessWidget {
-  const UserPreferencesTitle({
-    required this.label,
-    this.addExtraPadding = true,
-    Key? key,
-  })  : assert(label.length > 0),
-        super(key: key);
-
-  const UserPreferencesTitle.firstItem({
-    required String label,
-    Key? key,
-  }) : this(label: label, addExtraPadding: false, key: key);
-
-  final String label;
-  final bool addExtraPadding;
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: double.infinity,
-      child: Padding(
-        padding: EdgeInsetsDirectional.only(
-          top: addExtraPadding ? LARGE_SPACE : LARGE_SPACE,
-          bottom: SMALL_SPACE,
-          // Horizontal = same as ListTile
-          start: LARGE_SPACE,
-          end: LARGE_SPACE,
-        ),
-        child: Text(
-          label,
-          style: Theme.of(context).textTheme.displayLarge,
         ),
       ),
     );

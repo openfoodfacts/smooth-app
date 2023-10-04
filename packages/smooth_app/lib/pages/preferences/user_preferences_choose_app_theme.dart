@@ -1,11 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
 class UserPreferencesChooseAppTheme extends StatelessWidget {
   const UserPreferencesChooseAppTheme();
+
+  static UserPreferencesItem getUserPreferencesItem(
+    final BuildContext context,
+  ) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    return UserPreferencesItemSimple(
+      labels: <String>[
+        appLocalizations.darkmode,
+        appLocalizations.darkmode_system_default,
+        appLocalizations.darkmode_light,
+        appLocalizations.darkmode_dark,
+        appLocalizations.theme_amoled,
+      ],
+      builder: (_) => const UserPreferencesChooseAppTheme(),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {

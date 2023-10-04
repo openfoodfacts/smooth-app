@@ -13,6 +13,7 @@ import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/user_management_helper.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/account_deletion_webview.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
@@ -42,31 +43,31 @@ class UserPreferencesAccount extends AbstractUserPreferences {
   String? _getUserId() => OpenFoodAPIConfiguration.globalUser?.userId;
 
   @override
-  Widget getTitle() {
+  String getTitleString() {
     final String? userId = _getUserId();
-    final String title;
 
     if (userId == null) {
-      title = appLocalizations.user_profile_title_guest;
-    } else if (userId.isEmail) {
-      title = appLocalizations.user_profile_title_id_email(userId);
-    } else {
-      title = appLocalizations.user_profile_title_id_default(userId);
+      return appLocalizations.user_profile_title_guest;
     }
-
-    return Text(
-      title,
-      style: Theme.of(context).textTheme.displayMedium,
-    );
+    if (userId.isEmail) {
+      return appLocalizations.user_profile_title_id_email(userId);
+    }
+    return appLocalizations.user_profile_title_id_default(userId);
   }
 
   @override
-  String getTitleString() => appLocalizations.myPreferences_profile_title;
+  String getPageTitleString() => appLocalizations.myPreferences_profile_title;
 
   @override
-  Widget? getSubtitle() => _isUserConnected()
-      ? Text(appLocalizations.myPreferences_profile_subtitle)
-      : Text(appLocalizations.user_profile_subtitle_guest);
+  String getSubtitleString() => _isUserConnected()
+      ? appLocalizations.myPreferences_profile_subtitle
+      : appLocalizations.user_profile_subtitle_guest;
+
+  @override
+  List<String> getLabels() => <String>[
+        ...super.getLabels(),
+        if (_getUserId() == null) appLocalizations.sign_in,
+      ];
 
   @override
   IconData getLeadingIconData() => Icons.face;
@@ -127,30 +128,33 @@ class UserPreferencesAccount extends AbstractUserPreferences {
       );
 
   @override
-  List<Widget> getBody() {
+  List<UserPreferencesItem> getChildren() {
     if (OpenFoodAPIConfiguration.globalUser == null) {
       // No credentials
       final Size size = MediaQuery.of(context).size;
-      return <Widget>[
-        Center(
-          child: ElevatedButton(
-            onPressed: () async => _goToLoginPage(),
-            style: ButtonStyle(
-              minimumSize: MaterialStateProperty.all<Size>(
-                Size(size.width * 0.5, themeData.buttonTheme.height + 10),
-              ),
-              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                const RoundedRectangleBorder(
-                  borderRadius: CIRCULAR_BORDER_RADIUS,
+      return <UserPreferencesItem>[
+        UserPreferencesItemSimple(
+          labels: <String>[appLocalizations.sign_in],
+          builder: (_) => Center(
+            child: ElevatedButton(
+              onPressed: () async => _goToLoginPage(),
+              style: ButtonStyle(
+                minimumSize: MaterialStateProperty.all<Size>(
+                  Size(size.width * 0.5, themeData.buttonTheme.height + 10),
+                ),
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  const RoundedRectangleBorder(
+                    borderRadius: CIRCULAR_BORDER_RADIUS,
+                  ),
                 ),
               ),
-            ),
-            child: Text(
-              appLocalizations.sign_in,
-              style: themeData.textTheme.bodyMedium?.copyWith(
-                fontSize: 18.0,
-                fontWeight: FontWeight.bold,
-                color: themeData.colorScheme.onPrimary,
+              child: Text(
+                appLocalizations.sign_in,
+                style: themeData.textTheme.bodyMedium?.copyWith(
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.bold,
+                  color: themeData.colorScheme.onPrimary,
+                ),
               ),
             ),
           ),
@@ -161,7 +165,7 @@ class UserPreferencesAccount extends AbstractUserPreferences {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     // Credentials
     final String userId = OpenFoodAPIConfiguration.globalUser!.userId;
-    return <Widget>[
+    return <UserPreferencesItem>[
       _buildProductQueryTile(
         productQuery: PagedUserProductQuery(
           userId: userId,
@@ -299,7 +303,7 @@ class UserPreferencesAccount extends AbstractUserPreferences {
     }
   }
 
-  Widget _buildProductQueryTile({
+  UserPreferencesItem _buildProductQueryTile({
     required final PagedProductQuery productQuery,
     required final String title,
     required final IconData iconData,
@@ -320,42 +324,45 @@ class UserPreferencesAccount extends AbstractUserPreferences {
         myCount: myCount,
       );
 
-  Widget _getListTile(
+  UserPreferencesItem _getListTile(
     final String title,
     final VoidCallback onTap,
     final IconData leading, {
     final Future<int?>? myCount,
   }) =>
-      Card(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(15),
-        ),
-        elevation: 5,
-        color: Theme.of(context).cardColor,
-        child: UserPreferencesListTile(
-          title: Text(title),
-          onTap: onTap,
+      UserPreferencesItemSimple(
+        labels: <String>[title],
+        builder: (_) => Card(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15),
           ),
-          leading: UserPreferencesListTile.getTintedIcon(leading, context),
-          trailing: myCount == null
-              ? null
-              : FutureBuilder<int?>(
-                  future: myCount,
-                  builder:
-                      (BuildContext context, AsyncSnapshot<int?> snapshot) {
-                    if (snapshot.connectionState != ConnectionState.done) {
-                      return const SizedBox(
-                          height: LARGE_SPACE,
-                          width: LARGE_SPACE,
-                          child: CircularProgressIndicator.adaptive());
-                    }
-                    return snapshot.data == null
-                        ? EMPTY_WIDGET
-                        : Text(snapshot.data.toString());
-                  },
-                ),
+          elevation: 5,
+          color: Theme.of(context).cardColor,
+          child: UserPreferencesListTile(
+            title: Text(title),
+            onTap: onTap,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(15),
+            ),
+            leading: UserPreferencesListTile.getTintedIcon(leading, context),
+            trailing: myCount == null
+                ? null
+                : FutureBuilder<int?>(
+                    future: myCount,
+                    builder:
+                        (BuildContext context, AsyncSnapshot<int?> snapshot) {
+                      if (snapshot.connectionState != ConnectionState.done) {
+                        return const SizedBox(
+                            height: LARGE_SPACE,
+                            width: LARGE_SPACE,
+                            child: CircularProgressIndicator.adaptive());
+                      }
+                      return snapshot.data == null
+                          ? EMPTY_WIDGET
+                          : Text(snapshot.data.toString());
+                    },
+                  ),
+          ),
         ),
       );
 }

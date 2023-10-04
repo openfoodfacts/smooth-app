@@ -2,10 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
 
 class UserPreferencesShareWithFriends extends StatelessWidget {
   const UserPreferencesShareWithFriends();
+
+  static UserPreferencesItem getUserPreferencesItem(
+    final BuildContext context,
+  ) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    return UserPreferencesItemSimple(
+      labels: <String>[
+        appLocalizations.contribute_share_header,
+      ],
+      builder: (_) => const UserPreferencesShareWithFriends(),
+    );
+  }
 
   @override
   Widget build(BuildContext context) => UserPreferenceListTile(
