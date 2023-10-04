@@ -1947,7 +1947,7 @@
     "@copy_to_clipboard": {
         "description": "Copy to clipboard button description"
     },
-    "clipboard_barcode_copy": "Menyalin kode batang ke papan klip",
+    "clipboard_barcode_copy": "Salin kode batang ke papan klip",
     "@clipboard_barcode_copied": {
         "description": "Snackbar label after clipboard copy",
         "placeholders": {
@@ -1957,24 +1957,24 @@
             }
         }
     },
-    "clipboard_barcode_copied": "Barcode {barcode} copied to the clipboard!",
+    "clipboard_barcode_copied": "Kode batang {barcode} disalin ke papan klip!",
     "language_picker_label": "Bahasa Anda",
     "@language_picker_label": {
         "description": "Choose Application Language"
     },
-    "help_with_openfoodfacts": "Help with OpenFoodFacts",
+    "help_with_openfoodfacts": "Bantuan OpenFoodFacts",
     "@help_with_openfoodfacts": {
         "description": "Label for the email title"
     },
-    "product_task_background_schedule": "The product will be updated in the background as soon as possible.",
+    "product_task_background_schedule": "Produk akan diperbarui di latar belakang sesegera mungkin.",
     "@product_task_background_schedule": {
         "description": "Message when a product is scheduled for background update"
     },
-    "no_email_client_available_dialog_title": "No email apps!",
+    "no_email_client_available_dialog_title": "Tidak ada aplikasi email!",
     "@no_email_client_available_dialog_title": {
         "description": "Title for the dialog when no email client is installed on the device"
     },
-    "no_email_client_available_dialog_content": "Please send us manually an email to contact@openfoodfacts.org",
+    "no_email_client_available_dialog_content": "Silakan kirimkan email secara manual kepada kami ke contact@openfoodfacts.org",
     "@no_email_client_available_dialog_content": {
         "description": "Content for the dialog when no email client is installed on the device"
     },
@@ -1994,15 +1994,15 @@
             }
         }
     },
-    "scan_header_clear_button_tooltip": "Remove all products from the carousel",
+    "scan_header_clear_button_tooltip": "Hapus semua produk dari carousel",
     "@scan_header_clear_button_tooltip": {
         "description": "Tooltip (message visible with a long-press) on the Clear button on top of the scanner"
     },
-    "scan_header_compare_button_invalid_state_tooltip": "Please scan at least two products to compare them",
+    "scan_header_compare_button_invalid_state_tooltip": "Harap pindai setidaknya dua produk untuk membandingkannya",
     "@scan_header_compare_button_invalid_state_tooltip": {
         "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is just one product scanned"
     },
-    "scan_header_compare_button_valid_state_tooltip": "Click to compare the products you have scanned",
+    "scan_header_compare_button_valid_state_tooltip": "Klik untuk membandingkan produk yang telah Anda pindai",
     "@scan_header_compare_button_valid_state_tooltip": {
         "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is at least two prodiucts"
     },
@@ -2063,7 +2063,7 @@
     "@offline_data": {
         "description": "App bar title for the offline data page"
     },
-    "ocr_image_upload_instruction": "Upload an image to automatically extract the information it contains.",
+    "ocr_image_upload_instruction": "Unggah gambar untuk mengekstrak informasi yang dikandungnya secara otomatis.",
     "@ocr_image_upload_instruction": {
         "description": "Message shown when there is no image on the OCR extraction page for ingredients or recycling instructions"
     },
@@ -2083,7 +2083,7 @@
     "@image_download_error": {
         "description": "Error message, when image download fails"
     },
-    "image_edit_url_error": "Failed to edit image because the image URL was not set.",
+    "image_edit_url_error": "Gagal mengedit gambar karena URL gambar tidak ditetapkan.",
     "@image_edit_url_error": {
         "description": "Error message, when editing image fails, due to missing url."
     },
@@ -2099,7 +2099,7 @@
     "@robotoff_continue": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering"
     },
-    "robotoff_next_n_questions": "Next {count,plural,  =1{question} other{{count} questions}}",
+    "robotoff_next_n_questions": "{count,plural,  =1{pertanyaan} other{{count} pertanyaan}} berikutnya",
     "@robotoff_next_n_questions": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering",
         "placeholders": {
@@ -2110,24 +2110,24 @@
     "@show_password": {
         "description": "Show hidden password in password field"
     },
-    "rate_app": "Rate the app",
+    "rate_app": "Beri nilai aplikasi",
     "app_rating_dialog_title": "Hebat! Beri tahu orang lain pendapat Anda tentang aplikasi ini!",
-    "app_rating_dialog_positive_action": "Rate the app",
+    "app_rating_dialog_positive_action": "Beri nilai aplikasi",
     "app_rating_dialog_negative_action": "Nanti",
     "app_rating_dialog_title_enjoying_app": "Apakah Anda menyukai aplikasi ini?",
-    "app_rating_dialog_title_enjoying_positive_actions": "Yeah!",
-    "not_really": "Not really",
-    "app_rating_dialog_title_not_enjoying_app": "We are so sorry to hear that! Could you tell us what happened?",
-    "edit_packagings_title": "Packaging components",
+    "app_rating_dialog_title_enjoying_positive_actions": "Ya!",
+    "not_really": "Biasa saja",
+    "app_rating_dialog_title_not_enjoying_app": "Kami menyesal mendengarnya! Bisakah Anda memberi tahu kami apa yang terjadi?",
+    "edit_packagings_title": "Komponen pengemasan",
     "@edit_packagings_title": {
         "description": "Title of the structured packagings page"
     },
-    "edit_packagings_element_add": "Add a packaging component",
+    "edit_packagings_element_add": "Menambahkan komponen pengemasan",
     "@edit_packagings_element_add": {
         "description": "Button label"
     },
-    "edit_packagings_completed": "The packaging is complete",
-    "edit_packagings_element_title": "Packaging component #{index}",
+    "edit_packagings_completed": "Kemasannya sudah lengkap",
+    "edit_packagings_element_title": "Komponen kemasan #{index}",
     "@edit_packagings_element_title": {
         "description": "Element title. Please do not change the index placeholder",
         "placeholders": {
@@ -2136,11 +2136,11 @@
             }
         }
     },
-    "edit_packagings_element_field_units": "Number of units",
+    "edit_packagings_element_field_units": "Jumlah unit",
     "@edit_packagings_element_field_units": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_units": "Enter the number of packaging units of the same shape and material contained in the product.",
+    "edit_packagings_element_hint_units": "Masukkan jumlah unit kemasan dengan bentuk dan bahan yang sama yang terdapat dalam produk.",
     "@edit_packagings_element_hint_units": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
@@ -2148,11 +2148,11 @@
     "@edit_packagings_element_field_shape": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_shape": "Enter the shape name listed in the recycling instructions if they are available, or select a shape.",
+    "edit_packagings_element_hint_shape": "Masukkan nama bentuk yang tercantum dalam petunjuk daur ulang jika tersedia, atau pilih bentuk.",
     "@edit_packagings_element_hint_shape": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
-    "edit_packagings_element_example_shape": "Bottle",
+    "edit_packagings_element_example_shape": "Botol",
     "@edit_packagings_element_example_shape": {
         "description": "Text field hint"
     },
@@ -2160,50 +2160,50 @@
     "@edit_packagings_element_field_material": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_material": "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure.",
+    "edit_packagings_element_hint_material": "Masukkan bahan spesifik jika dapat ditentukan (kode bahan di dalam segitiga sering kali dapat ditemukan pada bagian kemasan), atau bahan umum (misalnya plastik atau logam) jika Anda tidak yakin.",
     "@edit_packagings_element_hint_material": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
-    "edit_packagings_element_example_material": "Glass",
+    "edit_packagings_element_example_material": "Kaca",
     "@edit_packagings_element_example_material": {
         "description": "Text field hint"
     },
-    "edit_packagings_element_field_recycling": "Recycling instruction",
+    "edit_packagings_element_field_recycling": "Instruksi daur ulang",
     "@edit_packagings_element_field_recycling": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_recycling": "Enter recycling instructions only if they are listed on the product.",
+    "edit_packagings_element_hint_recycling": "Masukkan petunjuk daur ulang hanya jika petunjuk tersebut tercantum pada produk.",
     "@edit_packagings_element_hint_recycling": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
-    "edit_packagings_element_example_recycling": "Recycle",
+    "edit_packagings_element_example_recycling": "Daur Ulang",
     "@edit_packagings_element_example_recycling": {
         "description": "Text field hint"
     },
-    "edit_packagings_element_field_quantity": "Net quantity of product per unit",
+    "edit_packagings_element_field_quantity": "Jumlah bersih produk per unit",
     "@edit_packagings_element_field_quantity": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_quantity": "Enter the net weight or net volume and indicate the unit (for example g or ml).",
+    "edit_packagings_element_hint_quantity": "Masukkan berat bersih atau volume bersih dan tunjukkan satuannya (misalnya g atau ml).",
     "@edit_packagings_element_hint_quantity": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
-    "edit_packagings_element_field_weight": "Weight of one empty unit (g)",
+    "edit_packagings_element_field_weight": "Berat satu unit kosong (g)",
     "@edit_packagings_element_field_weight": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_weight": "Remove any remaining food and wash and dry the packaging part before weighing. If possible, use a scale with 0.1g or 0.01g precision.",
+    "edit_packagings_element_hint_weight": "Buang makanan yang tersisa dan cuci serta keringkan bagian kemasan sebelum menimbang. Jika memungkinkan, gunakan timbangan dengan ketelitian 0,1 gram atau 0,01 gram.",
     "@edit_packagings_element_hint_weight": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
-    "background_task_title": "Pending contributions",
-    "background_task_subtitle": "Your contributions are automatically saved to our server, but not always in real-time.",
-    "background_task_list_empty": "No Pending Background Tasks",
+    "background_task_title": "Kontribusi yang tertunda",
+    "background_task_subtitle": "Kontribusi Anda secara otomatis disimpan di server kami, tetapi tidak selalu secara real-time.",
+    "background_task_list_empty": "Tidak Ada Tugas Latar Belakang yang Tertunda",
     "background_task_error_server_time_out": "Batas waktu server",
-    "background_task_error_no_internet": "Internet connection error. Try later.",
-    "background_task_operation_unknown": "unknown operation type",
-    "background_task_operation_details": "detailed changes",
-    "background_task_operation_image": "photo upload",
+    "background_task_error_no_internet": "Kesalahan koneksi internet. Coba lagi nanti.",
+    "background_task_operation_unknown": "jenis operasi yang tidak diketahui",
+    "background_task_operation_details": "perubahan terperinci",
+    "background_task_operation_image": "unggah foto",
     "background_task_operation_refresh": "penyegaran tertunda setelah unggahan foto",
     "background_task_run_started": "dimulai",
     "background_task_run_not_started": "belum dimulai",
