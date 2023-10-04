@@ -41,7 +41,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
         );
 
   static const String userPreferencesFlagProd = '__devWorkingOnProd';
-  static const String userPreferencesTestEnvHost = '__testEnvHost';
+  static const String userPreferencesTestEnvDomain = '__testEnvHost';
   static const String userPreferencesFlagEditIngredients = '__editIngredients';
   static const String userPreferencesFlagBoostedComparison =
       '__boostedComparison';
@@ -102,7 +102,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
         UserPreferencesItemTile(
           title: appLocalizations.dev_preferences_environment_switch_title,
           trailing: DropdownButton<bool>(
-            value: OpenFoodAPIConfiguration.globalQueryType == QueryType.PROD,
+            value: userPreferences.getFlag(userPreferencesFlagProd) ?? true,
             elevation: 16,
             onChanged: (bool? newValue) async {
               await userPreferences.setFlag(userPreferencesFlagProd, newValue);
@@ -123,9 +123,11 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
         UserPreferencesItemTile(
           title: appLocalizations.dev_preferences_test_environment_title,
           subtitle: appLocalizations.dev_preferences_test_environment_subtitle(
-            '${OpenFoodAPIConfiguration.uriScheme}://${OpenFoodAPIConfiguration.uriTestHost}/',
+            ProductQuery.getTestUriProductHelper(userPreferences)
+                .getPostUri(path: '')
+                .toString(),
           ),
-          onTap: () async => _changeTestEnvHost(),
+          onTap: () async => _changeTestEnvDomain(),
         ),
         UserPreferencesItemSwitch(
           title: appLocalizations.dev_preferences_edit_ingredients_title,
@@ -362,10 +364,10 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
             ),
           );
 
-  Future<void> _changeTestEnvHost() async {
+  Future<void> _changeTestEnvDomain() async {
     _textFieldController.text =
-        userPreferences.getDevModeString(userPreferencesTestEnvHost) ??
-            OpenFoodAPIConfiguration.uriTestHost;
+        userPreferences.getDevModeString(userPreferencesTestEnvDomain) ??
+            uriHelperFoodTest.domain;
     final bool? result = await showDialog<bool>(
       context: context,
       builder: (final BuildContext context) => SmoothAlertDialog(
@@ -383,7 +385,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
     );
     if (result == true) {
       await userPreferences.setDevModeString(
-          userPreferencesTestEnvHost, _textFieldController.text);
+          userPreferencesTestEnvDomain, _textFieldController.text);
       ProductQuery.setQueryType(userPreferences);
     }
   }

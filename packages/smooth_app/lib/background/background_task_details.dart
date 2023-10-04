@@ -141,6 +141,7 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode {
         packagingsComplete: product.packagingsComplete,
         language: getLanguage(),
         country: getCountry(),
+        uriHelper: uriProductHelper,
       );
       if (result.status != ProductResultV3.statusSuccess &&
           result.status != ProductResultV3.statusWarning) {
@@ -153,6 +154,7 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode {
       product,
       language: getLanguage(),
       country: getCountry(),
+      uriHelper: uriProductHelper,
     );
     if (status.status != 1) {
       throw Exception('Could not save product - ${status.error}');

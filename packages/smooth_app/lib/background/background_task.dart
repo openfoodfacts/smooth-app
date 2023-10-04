@@ -7,6 +7,7 @@ import 'package:smooth_app/background/background_task_manager.dart';
 import 'package:smooth_app/background/background_task_refresh_later.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
+import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_floating_message.dart';
 
 /// Abstract background task.
@@ -142,7 +143,8 @@ abstract class BackgroundTask {
   OpenFoodFactsLanguage getLanguage() => LanguageHelper.fromJson(languageCode);
 
   @protected
-  OpenFoodFactsCountry? getCountry() => CountryHelper.fromJson(country);
+  OpenFoodFactsCountry? getCountry() =>
+      OpenFoodFactsCountry.fromOffTag(country);
 
   @protected
   User getUser() => User.fromJson(jsonDecode(user) as Map<String, dynamic>);
@@ -160,4 +162,6 @@ abstract class BackgroundTask {
   /// We return true only in rare cases. Typically, when we split an task in
   /// subtasks that call the next one at the end.
   bool get hasImmediateNextTask => false;
+
+  UriProductHelper get uriProductHelper => ProductQuery.uriProductHelper;
 }
