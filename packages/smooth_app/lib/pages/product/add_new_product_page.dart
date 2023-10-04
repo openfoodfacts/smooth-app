@@ -296,7 +296,9 @@ class _AddNewProductPageState extends State<AddNewProductPage> with TraceableCli
               minimumSize: Size(MediaQuery.of(context).size.width * 0.35, 40),
               backgroundColor: Theme.of(context).colorScheme.secondary,
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
           child: const Text('Cancel', style: TextStyle(color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold)),
         ),
         const SizedBox(width: 10),
