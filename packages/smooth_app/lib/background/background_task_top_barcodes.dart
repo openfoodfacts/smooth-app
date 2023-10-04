@@ -112,6 +112,7 @@ class BackgroundTaskTopBarcodes extends BackgroundTaskProgressing {
         country: ProductQuery.getCountry(),
         version: ProductQuery.productQueryVersion,
       ),
+      uriHelper: uriProductHelper,
     );
     if (searchResult.products == null || searchResult.count == null) {
       throw Exception('Cannot download top barcodes');

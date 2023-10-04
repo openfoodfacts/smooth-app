@@ -14,7 +14,10 @@ class UserManagementProvider with ChangeNotifier {
   Future<bool> login(User user) async {
     final LoginStatus? loginStatus;
     try {
-      loginStatus = await OpenFoodAPIClient.login2(user);
+      loginStatus = await OpenFoodAPIClient.login2(
+        user,
+        uriHelper: ProductQuery.uriProductHelper,
+      );
     } catch (e) {
       throw Exception(e);
     }
@@ -107,6 +110,7 @@ class UserManagementProvider with ChangeNotifier {
             userId: user.userId,
             password: user.password,
           ),
+          uriHelper: ProductQuery.uriProductHelper,
         );
         if (loginStatus == null) {
           // No internet or sever down
