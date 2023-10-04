@@ -28,13 +28,25 @@ class _SvgSafeNetworkState extends State<SvgSafeNetwork> {
   String get _url => widget.helper.url;
 
   Future<String> _load() async {
-    String? cached = _networkCache[_url];
+    Map<String, String> cache = _getSafeCache();
+    String? cached = cache[_url];
     if (cached != null) {
       return cached;
     }
     final http.Response response = await http.get(Uri.parse(_url));
-    _networkCache[_url] = cached = response.body;
+    // in case we get gc'ed while await'ing
+    cache = _getSafeCache();
+    cache[_url] = cached = response.body;
     return cached;
+  }
+
+  Map<String, String> _getSafeCache() {
+    final Map<String, String>? cache = _networkCache.target;
+    if (cache != null) {
+      return cache;
+    }
+    _networkCache = _getNewCache();
+    return _networkCache.target!;
   }
 
   @override
@@ -76,4 +88,7 @@ class _SvgSafeNetworkState extends State<SvgSafeNetwork> {
 }
 
 /// Network cache, with url as key and SVG data as value.
-final Map<String, String> _networkCache = <String, String>{};
+WeakReference<Map<String, String>> _networkCache = _getNewCache();
+
+WeakReference<Map<String, String>> _getNewCache() =>
+    WeakReference<Map<String, String>>(<String, String>{});
