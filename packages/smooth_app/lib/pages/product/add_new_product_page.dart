@@ -150,9 +150,38 @@ class _AddNewProductPageState extends State<AddNewProductPage> with TraceableCli
     });
   }
 
+  Future<bool> _onWillPop() async {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    if (_isPopulated) {
+      return true;
+    }
+    final bool? leaveThePage = await showDialog<bool>(
+      context: context,
+      builder: (final BuildContext context) => SmoothAlertDialog(
+        title: appLocalizations.new_product,
+        actionsAxis: Axis.vertical,
+        body: Text(appLocalizations.new_product_leave_message),
+        positiveAction: SmoothActionButton(
+          text: appLocalizations.yes,
+          onPressed: () => Navigator.of(context).pop(true),
+        ),
+        negativeAction: SmoothActionButton(
+          text: appLocalizations.cancel,
+          onPressed: () => Navigator.of(context).pop(false),
+        ),
+      ),
+    );
+    if (leaveThePage == true) {
+      AnalyticsHelper.trackEvent(
+        widget.events[EditProductAction.leaveEmpty]!,
+        barcode: barcode,
+      );
+    }
+    return leaveThePage ?? false;
+  }
+
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     context.watch<LocalDatabase>();
     refreshUpToDate();
 
@@ -162,34 +191,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> with TraceableCli
     }
 
     return WillPopScope(
-      onWillPop: () async {
-        if (_isPopulated) {
-          return true;
-        }
-        final bool? leaveThePage = await showDialog<bool>(
-          context: context,
-          builder: (final BuildContext context) => SmoothAlertDialog(
-            title: appLocalizations.new_product,
-            actionsAxis: Axis.vertical,
-            body: Text(appLocalizations.new_product_leave_message),
-            positiveAction: SmoothActionButton(
-              text: appLocalizations.yes,
-              onPressed: () => Navigator.of(context).pop(true),
-            ),
-            negativeAction: SmoothActionButton(
-              text: appLocalizations.cancel,
-              onPressed: () => Navigator.of(context).pop(false),
-            ),
-          ),
-        );
-        if (leaveThePage == true) {
-          AnalyticsHelper.trackEvent(
-            widget.events[EditProductAction.leaveEmpty]!,
-            barcode: barcode,
-          );
-        }
-        return leaveThePage ?? false;
-      },
+      onWillPop: _onWillPop,
       child: SmoothScaffold(
         /*appBar: SmoothAppBar(
           title: ListTile(
@@ -287,6 +289,15 @@ class _AddNewProductPageState extends State<AddNewProductPage> with TraceableCli
 
   Attribute? _getAttribute(final String tag) => upToDateProduct.getAttributes(<String>[tag])[tag];
 
+  Widget _backButton() {
+    return Container(
+        margin: const EdgeInsets.only(right: 15),
+        width: 20,
+        height: 25,
+        child: IconButton(
+            onPressed: () => Navigator.of(context).pop(), alignment: Alignment.center, padding: EdgeInsets.zero, icon: const Icon(Icons.arrow_back)));
+  }
+
   Widget _getButtons({String doneBtnText = 'Next'}) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -297,7 +308,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> with TraceableCli
               backgroundColor: Theme.of(context).colorScheme.secondary,
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))),
           onPressed: () {
-            Navigator.pop(context);
+            _onWillPop().then((bool leaveThePage) => leaveThePage ? Navigator.of(context).pop() : null);
           },
           child: const Text('Cancel', style: TextStyle(color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold)),
         ),
@@ -437,7 +448,12 @@ class _AddNewProductPageState extends State<AddNewProductPage> with TraceableCli
   List<Widget> _getImageRows(final BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final List<Widget> rows = <Widget>[];
-    rows.add(AddNewProductTitle(appLocalizations.new_product_title_pictures));
+    rows.add(Row(
+      children: <Widget>[
+        _backButton(),
+        AddNewProductTitle(appLocalizations.new_product_title_pictures),
+      ],
+    ));
     rows.add(const SizedBox(height: 15));
     rows.add(AddNewProductSubTitle(appLocalizations.new_product_title_pictures_details));
 

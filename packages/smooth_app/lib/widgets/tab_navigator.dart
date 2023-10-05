@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:smooth_app/pages/history_page.dart';
 import 'package:smooth_app/pages/page_manager.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
+import 'package:smooth_app/pages/product/add_new_product_page.dart';
 import 'package:smooth_app/pages/scan/scan_page.dart';
 
 class TabNavigator extends StatelessWidget {
@@ -26,6 +27,7 @@ class TabNavigator extends StatelessWidget {
         break;
       case BottomNavigationTab.Scan:
         child = const ScanPage();
+        //child = AddNewProductPage.fromBarcode('1232234432');
         break;
     }
 
