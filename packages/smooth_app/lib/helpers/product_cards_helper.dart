@@ -231,7 +231,11 @@ ProductImageData getProductImageData(
   if (productImage != null) {
     // we found a localized version for this image
     imageLanguage = language;
-    imageUrl = getLocalizedProductImageUrl(product, productImage);
+    imageUrl = ImageHelper.getLocalizedProductImageUrl(
+      product.barcode!,
+      productImage,
+      imageSize: ImageSize.DISPLAY,
+    );
   } else {
     imageLanguage = null;
     imageUrl = forceLanguage ? null : imageField.getUrl(product);
@@ -280,19 +284,6 @@ List<MapEntry<ProductImageData, ImageProvider?>> getSelectedImages(
   }
   return result.entries.toList();
 }
-
-String _getImageRoot() =>
-    OpenFoodAPIConfiguration.globalQueryType == QueryType.PROD
-        ? 'https://images.openfoodfacts.org/images/products'
-        : 'https://images.openfoodfacts.net/images/products';
-
-String getLocalizedProductImageUrl(
-  final Product product,
-  final ProductImage productImage,
-) =>
-    '${_getImageRoot()}/'
-    '${ImageHelper.getBarcodeSubPath(product.barcode!)}/'
-    '${ImageHelper.getProductImageFilename(productImage, imageSize: ImageSize.DISPLAY)}';
 
 /// Returns the languages for which [imageField] has images for that [product].
 Iterable<OpenFoodFactsLanguage> getProductImageLanguages(

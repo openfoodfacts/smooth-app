@@ -14,7 +14,7 @@ class RandomQuestionsQuery extends QuestionsQuery {
     final RobotoffQuestionResult result = await RobotoffAPIClient.getQuestions(
       ProductQuery.getLanguage(),
       user: ProductQuery.getUser(),
-      country: ProductQuery.getCountry(),
+      countries: <OpenFoodFactsCountry>[ProductQuery.getCountry()],
       count: count,
       questionOrder: RobotoffQuestionOrder.random,
     );

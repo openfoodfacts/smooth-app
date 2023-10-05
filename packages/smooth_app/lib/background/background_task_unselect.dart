@@ -129,6 +129,7 @@ class BackgroundTaskUnselect extends BackgroundTaskBarcode {
         imageField: ImageField.fromOffTag(imageField)!,
         language: getLanguage(),
         user: getUser(),
+        uriHelper: uriProductHelper,
       );
 
   /// Returns a product with "unselected" image.

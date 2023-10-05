@@ -7,9 +7,9 @@ Future<T?> showDraggableModalSheet<T>({
   required WidgetBuilder headerBuilder,
   required double headerHeight,
   required WidgetBuilder bodyBuilder,
+  required BorderRadiusGeometry borderRadius,
   double? initHeight,
   double? maxHeight,
-  BorderRadius? borderRadius,
   Color? bottomSheetColor,
   Color? barrierColor,
 }) {
@@ -37,8 +37,8 @@ class _FlexibleBottomSheetRoute<T> extends PopupRoute<T> {
     required this.headerBuilder,
     required this.headerHeight,
     required this.bodyBuilder,
+    required this.borderRadius,
     this.barrierLabel,
-    this.borderRadius,
     this.bottomSheetBackgroundColor,
     RouteSettings? settings,
   }) : super(settings: settings);
@@ -47,7 +47,7 @@ class _FlexibleBottomSheetRoute<T> extends PopupRoute<T> {
   final double headerHeight;
   final WidgetBuilder bodyBuilder;
   final double initHeight;
-  final BorderRadius? borderRadius;
+  final BorderRadiusGeometry borderRadius;
   final Color? bottomSheetBackgroundColor;
 
   @override
