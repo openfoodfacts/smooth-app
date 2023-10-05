@@ -222,6 +222,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> with TraceableCli
                   progressColor: Theme.of(context).colorScheme.inversePrimary,
                 ),
               ),
+              _backButton(),
               Expanded(
                   child: PageView(
                 controller: _pageController,
@@ -291,11 +292,14 @@ class _AddNewProductPageState extends State<AddNewProductPage> with TraceableCli
 
   Widget _backButton() {
     return Container(
-        margin: const EdgeInsets.only(right: 15),
+        margin: const EdgeInsets.only(left: 10, right: 10, top: 10),
         width: 20,
-        height: 25,
+        height: 20,
         child: IconButton(
-            onPressed: () => Navigator.of(context).pop(), alignment: Alignment.center, padding: EdgeInsets.zero, icon: const Icon(Icons.arrow_back)));
+            onPressed: () => _onWillPop().then((bool leaveThePage) => leaveThePage ? Navigator.of(context).pop() : null),
+            alignment: Alignment.center,
+            padding: EdgeInsets.zero,
+            icon: const Icon(Icons.arrow_back)));
   }
 
   Widget _getButtons({String doneBtnText = 'Next'}) {
@@ -448,12 +452,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> with TraceableCli
   List<Widget> _getImageRows(final BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final List<Widget> rows = <Widget>[];
-    rows.add(Row(
-      children: <Widget>[
-        _backButton(),
-        AddNewProductTitle(appLocalizations.new_product_title_pictures),
-      ],
-    ));
+    rows.add(AddNewProductTitle(appLocalizations.new_product_title_pictures));
     rows.add(const SizedBox(height: 15));
     rows.add(AddNewProductSubTitle(appLocalizations.new_product_title_pictures_details));
 

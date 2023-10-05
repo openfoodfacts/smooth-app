@@ -6,7 +6,7 @@ import 'package:smooth_app/cards/product_cards/smooth_product_base_card.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
-import 'package:smooth_app/pages/product/add_new_product_page.dart';
+import 'package:smooth_app/pages/navigator/app_navigator.dart';
 
 class SmoothProductCardNotFound extends StatelessWidget {
   SmoothProductCardNotFound({
@@ -68,14 +68,15 @@ class SmoothProductCardNotFound extends StatelessWidget {
             icon: Icons.add,
             padding: const EdgeInsets.symmetric(vertical: LARGE_SPACE),
             onPressed: () async {
-              await Navigator.push<void>(
-                context,
-                MaterialPageRoute<void>(
-                  builder: (BuildContext context) =>
-                      AddNewProductPage.fromBarcode(barcode),
-                ),
+              await AppNavigator.of(context).push(
+                AppRoutes.PRODUCT_CREATOR(barcode),
               );
-
+              // await Navigator.push<void>(
+              //   context,
+              //   MaterialPageRoute<void>(
+              //     builder: (BuildContext context) => AddNewProductPage.fromBarcode(barcode),
+              //   ),
+              // );
               await onAddProduct?.call();
             },
           ),
