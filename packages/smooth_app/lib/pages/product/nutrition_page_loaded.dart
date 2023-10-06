@@ -12,6 +12,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/image_field_extension.dart';
+import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/helpers/text_input_formatters_helper.dart';
 import 'package:smooth_app/pages/product/common/product_buttons.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
@@ -198,13 +199,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
             appLocalizations.nutrition_page_title,
             maxLines: upToDateProduct.productName?.isNotEmpty == true ? 1 : 2,
           ),
-          subTitle: upToDateProduct.productName != null
-              ? Text(
-                  '${upToDateProduct.productName!.trim()}, ${upToDateProduct.brands!.trim()}',
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                )
-              : null,
+          subTitle: buildProductTitle(upToDateProduct, appLocalizations),
         ),
         body: Padding(
           padding: const EdgeInsets.symmetric(
