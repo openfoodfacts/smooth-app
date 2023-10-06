@@ -11,14 +11,32 @@ import 'package:smooth_app/helpers/image_field_extension.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/query/product_query.dart';
 
+Widget buildProductTitle(
+  final Product product,
+  final AppLocalizations appLocalizations,
+) =>
+    Text(
+      getProductNameAndBrands(product, appLocalizations),
+      overflow: TextOverflow.ellipsis,
+      maxLines: 1,
+    );
+
+String getProductNameAndBrands(
+    Product product, AppLocalizations appLocalizations) {
+  final String name =
+      product.productName?.trim() ?? appLocalizations.unknownProductName;
+  final String brands = product.brands?.trim() ?? appLocalizations.unknownBrand;
+  return '$name, $brands';
+}
+
 String getProductName(Product product, AppLocalizations appLocalizations) =>
     product.productName ??
     product.productNameInLanguages?[ProductQuery.getLanguage()] ??
     appLocalizations.unknownProductName;
 
 String getProductBrands(Product product, AppLocalizations appLocalizations) {
-  final String? brands = product.brands;
-  if (brands == null) {
+  final String? brands = product.brands?.trim();
+  if (brands == null || brands.isEmpty) {
     return appLocalizations.unknownBrand;
   } else {
     return formatProductBrands(brands);

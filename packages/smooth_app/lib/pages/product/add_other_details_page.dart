@@ -5,6 +5,7 @@ import 'package:smooth_app/background/background_task_details.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
+import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/product/common/product_buttons.dart';
 import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
 import 'package:smooth_app/pages/text_field_helper.dart';
@@ -61,12 +62,7 @@ class _AddOtherDetailsPageState extends State<AddOtherDetailsPage> {
           centerTitle: false,
           title:
               Text(appLocalizations.edit_product_form_item_other_details_title),
-          subTitle: widget.product.productName != null
-              ? Text(
-                  '${widget.product.productName!.trim()}, ${widget.product.brands!.trim()}',
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 1)
-              : null,
+          subTitle: buildProductTitle(widget.product, appLocalizations),
           ignoreSemanticsForSubtitle: true,
         ),
         body: Form(

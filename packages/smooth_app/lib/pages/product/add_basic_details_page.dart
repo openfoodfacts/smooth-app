@@ -84,17 +84,9 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
       child: SmoothScaffold(
         fixKeyboard: true,
         appBar: SmoothAppBar(
-          centerTitle: false,
-          title: Text(appLocalizations.basic_details),
-          subTitle: widget.product.productName != null
-              ? Text(
-                  '${widget.product.productName!.trim()}'
-                  ', ${widget.product.brands?.trim() ?? appLocalizations.unknownBrand}',
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 1,
-                )
-              : null,
-        ),
+            centerTitle: false,
+            title: Text(appLocalizations.basic_details),
+            subTitle: buildProductTitle(widget.product, appLocalizations)),
         body: Form(
           key: _formKey,
           child: Scrollbar(
