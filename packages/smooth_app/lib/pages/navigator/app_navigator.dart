@@ -46,7 +46,8 @@ class AppNavigator extends InheritedWidget {
   final _SmoothGoRouter _router;
 
   static AppNavigator of(BuildContext context) {
-    final AppNavigator? result = context.dependOnInheritedWidgetOfExactType<AppNavigator>();
+    final AppNavigator? result =
+        context.dependOnInheritedWidgetOfExactType<AppNavigator>();
     assert(result != null, 'No AppNavigator found in context');
     return result!;
   }
@@ -131,7 +132,8 @@ class _SmoothGoRouter {
 
                 final Widget widget = ProductPage(
                   product,
-                  withHeroAnimation: state.queryParameters['heroAnimation'] != 'false',
+                  withHeroAnimation:
+                      state.queryParameters['heroAnimation'] != 'false',
                   heroTag: state.queryParameters['heroTag'],
                 );
 
@@ -162,7 +164,9 @@ class _SmoothGoRouter {
                 final String barcode = state.pathParameters['productId']!;
                 return ProductLoaderPage(
                   barcode: barcode,
-                  mode: state.queryParameters['edit'] == 'true' ? ProductLoaderMode.editProduct : ProductLoaderMode.viewProduct,
+                  mode: state.queryParameters['edit'] == 'true'
+                      ? ProductLoaderMode.editProduct
+                      : ProductLoaderMode.viewProduct,
                 );
               },
             ),
@@ -184,7 +188,8 @@ class _SmoothGoRouter {
               builder: (BuildContext context, GoRouterState state) {
                 final String? type = state.pathParameters['preferenceType'];
 
-                final PreferencePageType? pageType = PreferencePageType.values.firstWhereOrNull((PreferencePageType e) => e.name == type);
+                final PreferencePageType? pageType = PreferencePageType.values
+                    .firstWhereOrNull((PreferencePageType e) => e.name == type);
 
                 if (pageType == null) {
                   throw Exception('Unsupported preference page type: $type');
@@ -208,7 +213,8 @@ class _SmoothGoRouter {
         final String path = state.matchedLocation;
 
         // Ignore deep links if the onboarding is not yet completed
-        if (state.location != _InternalAppRoutes.HOME_PAGE && !_isOnboardingComplete(context)) {
+        if (state.location != _InternalAppRoutes.HOME_PAGE &&
+            !_isOnboardingComplete(context)) {
           return _InternalAppRoutes.HOME_PAGE;
         } else if (_isAnInternalRoute(path)) {
           return null;
@@ -336,7 +342,8 @@ class _SmoothGoRouter {
   OnboardingPage _getCurrentOnboardingPage(BuildContext context) {
     final UserPreferences userPreferences = context.read<UserPreferences>();
 
-    final OnboardingPage lastVisitedOnboardingPage = userPreferences.lastVisitedOnboardingPage;
+    final OnboardingPage lastVisitedOnboardingPage =
+        userPreferences.lastVisitedOnboardingPage;
     return lastVisitedOnboardingPage;
   }
 
@@ -382,20 +389,25 @@ class AppRoutes {
       '&heroTag=$heroTag';
 
   // Product loader (= when a product is not in the database) - typical use case: deep links
-  static String PRODUCT_LOADER(String barcode, {bool edit = false}) => '/${_InternalAppRoutes.PRODUCT_LOADER_PAGE}/$barcode?edit=$edit';
+  static String PRODUCT_LOADER(String barcode, {bool edit = false}) =>
+      '/${_InternalAppRoutes.PRODUCT_LOADER_PAGE}/$barcode?edit=$edit';
 
   // Product creator or "add product" feature
-  static String PRODUCT_CREATOR(String barcode) => '/${_InternalAppRoutes.PRODUCT_CREATOR_PAGE}/$barcode';
+  static String PRODUCT_CREATOR(String barcode) =>
+      '/${_InternalAppRoutes.PRODUCT_CREATOR_PAGE}/$barcode';
 
   // Product creator or "add product" feature
-  static String PRODUCT_EDITOR(String barcode) => '/${_InternalAppRoutes.PRODUCT_EDITOR_PAGE}/$barcode';
+  static String PRODUCT_EDITOR(String barcode) =>
+      '/${_InternalAppRoutes.PRODUCT_EDITOR_PAGE}/$barcode';
 
   // App preferences
-  static String PREFERENCES(PreferencePageType type) => '/${_InternalAppRoutes.PREFERENCES_PAGE}/${type.name}';
+  static String PREFERENCES(PreferencePageType type) =>
+      '/${_InternalAppRoutes.PREFERENCES_PAGE}/${type.name}';
 
   // Search view
   static String get SEARCH => '/${_InternalAppRoutes.SEARCH_PAGE}';
 
   // Open an external link (where path is relative to the OFF website)
-  static String EXTERNAL(String path) => '/${_InternalAppRoutes.EXTERNAL_PAGE}/?path=$path';
+  static String EXTERNAL(String path) =>
+      '/${_InternalAppRoutes.EXTERNAL_PAGE}/?path=$path';
 }

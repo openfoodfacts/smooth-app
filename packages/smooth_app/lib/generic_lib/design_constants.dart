@@ -17,7 +17,7 @@ const double MINIMUM_TOUCH_SIZE = kMinInteractiveDimension;
 const double DEFAULT_ICON_SIZE = 24.0;
 
 /// Background, e.g SmoothCard
-const Radius ROUNDED_RADIUS = Radius.circular(10.0);
+const Radius ROUNDED_RADIUS = Radius.circular(20.0);
 //ignore: non_constant_identifier_names
 const BorderRadius ROUNDED_BORDER_RADIUS = BorderRadius.all(ROUNDED_RADIUS);
 

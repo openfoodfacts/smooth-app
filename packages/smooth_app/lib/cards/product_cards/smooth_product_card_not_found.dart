@@ -71,12 +71,6 @@ class SmoothProductCardNotFound extends StatelessWidget {
               await AppNavigator.of(context).push(
                 AppRoutes.PRODUCT_CREATOR(barcode),
               );
-              // await Navigator.push<void>(
-              //   context,
-              //   MaterialPageRoute<void>(
-              //     builder: (BuildContext context) => AddNewProductPage.fromBarcode(barcode),
-              //   ),
-              // );
               await onAddProduct?.call();
             },
           ),

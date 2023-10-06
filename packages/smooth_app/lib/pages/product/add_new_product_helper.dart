@@ -137,7 +137,10 @@ class AddNewProductEditorButton extends StatelessWidget {
     final bool done = editor.isPopulated(product);
     return AddNewProductButton(
       editor.getLabel(AppLocalizations.of(context)),
-      forceIconData ?? (done ? AddNewProductButton.doneIconData : AddNewProductButton.todoIconData),
+      forceIconData ??
+          (done
+              ? AddNewProductButton.doneIconData
+              : AddNewProductButton.todoIconData),
       disabled
           ? null
           : () async => editor.edit(
