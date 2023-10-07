@@ -43,7 +43,8 @@ class CameraScannerPageState extends State<CameraScannerPage>
       setState(() {
         _headerHeight =
             (_headerKey.currentContext?.findRenderObject() as RenderBox?)
-                ?.size?.height;
+                ?.size
+                ?.height;
       });
     });
   }
