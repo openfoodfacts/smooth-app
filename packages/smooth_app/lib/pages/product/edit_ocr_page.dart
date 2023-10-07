@@ -147,14 +147,9 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
           _helper.getTitle(appLocalizations),
           style: appbarTextStyle,
         ),
-        subTitle: upToDateProduct.productName != null
-            ? Text(
-                '${upToDateProduct.productName!.trim()}, ${upToDateProduct.brands!.trim()}',
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: appbarTextStyle,
-              )
-            : null,
+        subTitle: DefaultTextStyle(
+            style: appbarTextStyle,
+            child: buildProductTitle(upToDateProduct, appLocalizations)),
         backgroundColor: Colors.transparent,
         flexibleSpace: ClipRect(
           child: BackdropFilter(
