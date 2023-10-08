@@ -79,7 +79,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
   int _otherCount = 0;
   int _totalPages = 0;
   double _progress = 0.0;
-  String _doneButtonText = 'Next';
+  bool _isLastPage = false;
 
   late DaoProductList _daoProductList;
 
@@ -156,12 +156,11 @@ class _AddNewProductPageState extends State<AddNewProductPage>
     _totalPages =
         3 + (widget.displayMisc ? 1 : 0) + (widget.displayPictures ? 1 : 0);
     _progress = 1 / _totalPages;
+
     _pageController.addListener(() {
       setState(() {
         _progress = (_pageController.page!.round() + 1) / _totalPages;
-        _doneButtonText = (_pageController.page!.round() + 1) == _totalPages
-            ? 'Finish'
-            : 'Next';
+        _isLastPage = (_pageController.page!.round() + 1) == _totalPages;
       });
     });
   }
@@ -246,7 +245,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
                 elevation: 15,
                 child: SizedBox(
                   height: MediaQuery.of(context).size.height * 0.1,
-                  child: _getButtons(doneBtnText: _doneButtonText),
+                  child: _getButtons(),
                 ),
               )
             ],
@@ -301,27 +300,31 @@ class _AddNewProductPageState extends State<AddNewProductPage>
 
   Widget _backButton() {
     return Container(
-        margin: const EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
-        width: 20.0,
-        height: 20.0,
-        child: IconButton(
-            onPressed: () => _onWillPop().then((bool leaveThePage) =>
-                leaveThePage ? Navigator.of(context).pop() : null),
-            alignment: Alignment.center,
-            padding: EdgeInsets.zero,
-            icon: const Icon(Icons.arrow_back)));
+      margin: const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 0.0),
+      width: 20.0,
+      height: 20.0,
+      child: IconButton(
+        onPressed: () => _onWillPop().then((bool leaveThePage) =>
+            leaveThePage ? Navigator.of(context).pop() : null),
+        alignment: Alignment.center,
+        padding: EdgeInsets.zero,
+        icon: const Icon(Icons.arrow_back),
+      ),
+    );
   }
 
-  Widget _getButtons({String doneBtnText = 'Next'}) {
+  Widget _getButtons() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         ElevatedButton(
           style: ElevatedButton.styleFrom(
-              minimumSize: Size(MediaQuery.of(context).size.width * 0.35, 40),
-              backgroundColor: Theme.of(context).colorScheme.secondary,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20))),
+            minimumSize: Size(MediaQuery.of(context).size.width * 0.35, 40.0),
+            backgroundColor: Theme.of(context).colorScheme.secondary,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20.0),
+            ),
+          ),
           onPressed: () {
             _onWillPop().then((bool leaveThePage) =>
                 leaveThePage ? Navigator.of(context).pop() : null);
@@ -329,26 +332,32 @@ class _AddNewProductPageState extends State<AddNewProductPage>
           child: Text(AppLocalizations.of(context).cancel,
               style: const TextStyle(
                   color: Colors.black,
-                  fontSize: 20,
+                  fontSize: 20.0,
                   fontWeight: FontWeight.bold)),
         ),
-        const SizedBox(width: 10),
+        const SizedBox(width: 10.0),
         ElevatedButton(
           style: ElevatedButton.styleFrom(
-              minimumSize: Size(MediaQuery.of(context).size.width * 0.35, 40),
-              backgroundColor: const Color(0xFF341100),
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20))),
+            minimumSize: Size(MediaQuery.of(context).size.width * 0.35, 40.0),
+            backgroundColor: const Color(0xFF341100),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20.0),
+            ),
+          ),
           onPressed: () {
             _pageController.nextPage(
                 duration: const Duration(milliseconds: 200),
                 curve: Curves.easeOut);
           },
-          child: Text(doneBtnText,
-              style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold)),
+          child: Text(
+            _isLastPage
+                ? AppLocalizations.of(context).finish
+                : AppLocalizations.of(context).next_label,
+            style: const TextStyle(
+                color: Colors.white,
+                fontSize: 20.0,
+                fontWeight: FontWeight.bold),
+          ),
         )
       ],
     );
@@ -359,9 +368,9 @@ class _AddNewProductPageState extends State<AddNewProductPage>
     final Attribute? attribute = _getAttribute(Attribute.ATTRIBUTE_NUTRISCORE);
     return <Widget>[
       AddNewProductTitle(appLocalizations.new_product_title_nutriscore),
-      const SizedBox(height: 15),
+      const SizedBox(height: 15.0),
       AddNewProductSubTitle(appLocalizations.new_product_subtitle_nutriscore),
-      const SizedBox(height: 15),
+      const SizedBox(height: 15.0),
       _buildCategoriesButton(context),
       AddNewProductButton(
         AppLocalizations.of(context).nutritional_facts_input_button_label,
@@ -390,9 +399,9 @@ class _AddNewProductPageState extends State<AddNewProductPage>
     final Attribute? attribute = _getAttribute(Attribute.ATTRIBUTE_ECOSCORE);
     return <Widget>[
       AddNewProductTitle(appLocalizations.new_product_title_ecoscore),
-      const SizedBox(height: 15),
+      const SizedBox(height: 15.0),
       AddNewProductSubTitle(appLocalizations.new_product_subtitle_ecoscore),
-      const SizedBox(height: 15),
+      const SizedBox(height: 15.0),
       _buildCategoriesButton(context),
       Center(
         child: AddNewProductScoreIcon(
@@ -400,25 +409,25 @@ class _AddNewProductPageState extends State<AddNewProductPage>
           defaultIconUrl: ProductDialogHelper.unknownSvgEcoscore,
         ),
       ),
-      const SizedBox(height: 15),
+      const SizedBox(height: 15.0),
       GestureDetector(
         onTap: () {
           setState(() => _ecoscoreExpanded = !_ecoscoreExpanded);
         },
         child: Container(
-          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+          padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 15.0),
           decoration: BoxDecoration(
               borderRadius: ROUNDED_BORDER_RADIUS,
               color: Theme.of(context).colorScheme.surface),
           child: Row(children: <Widget>[
             Icon(Icons.filter_2,
                 color: Theme.of(context).colorScheme.onPrimary),
-            const SizedBox(width: 15),
+            const SizedBox(width: 15.0),
             Flexible(
                 child: Text(appLocalizations.new_product_additional_ecoscore,
                     style: TextStyle(
                         color: Theme.of(context).colorScheme.onPrimary))),
-            const SizedBox(width: 5),
+            const SizedBox(width: 5.0),
             Icon(_ecoscoreExpanded ? Icons.expand_less : Icons.expand_more,
                 color: Theme.of(context).colorScheme.onPrimary),
           ]),
@@ -451,9 +460,9 @@ class _AddNewProductPageState extends State<AddNewProductPage>
     final Attribute? attribute = _getAttribute(Attribute.ATTRIBUTE_NOVA);
     return <Widget>[
       AddNewProductTitle(appLocalizations.new_product_title_nova),
-      const SizedBox(height: 15),
+      const SizedBox(height: 15.0),
       AddNewProductSubTitle(appLocalizations.new_product_subtitle_nova),
-      const SizedBox(height: 15),
+      const SizedBox(height: 15.0),
       _buildCategoriesButton(context),
       _buildIngredientsButton(
         context,
@@ -484,7 +493,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final List<Widget> rows = <Widget>[];
     rows.add(AddNewProductTitle(appLocalizations.new_product_title_pictures));
-    rows.add(const SizedBox(height: 15));
+    rows.add(const SizedBox(height: 15.0));
     rows.add(AddNewProductSubTitle(
         appLocalizations.new_product_title_pictures_details));
 
@@ -498,7 +507,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
       // Everything else can only be uploaded once
       rows.add(_buildMainImageButton(context, data));
       rows.add(const Padding(
-          padding: EdgeInsets.symmetric(vertical: 10),
+          padding: EdgeInsets.symmetric(vertical: 10.0),
           child: UserPreferencesListItemDivider()));
     }
     // Then all the OTHERs.
