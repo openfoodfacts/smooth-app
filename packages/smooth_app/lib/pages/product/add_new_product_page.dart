@@ -13,6 +13,7 @@ import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/image_field_extension.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
@@ -214,12 +215,15 @@ class _AddNewProductPageState extends State<AddNewProductPage>
             children: <Widget>[
               Container(
                 decoration: BoxDecoration(
-                    gradient: LinearGradient(colors: <Color>[
-                  Theme.of(context).colorScheme.inversePrimary,
-                  Theme.of(context).colorScheme.secondary
-                ])),
+                  gradient: LinearGradient(
+                    colors: <Color>[
+                      Theme.of(context).colorScheme.inversePrimary,
+                      Theme.of(context).colorScheme.secondary
+                    ],
+                  ),
+                ),
                 child: FAProgressBar(
-                  animatedDuration: const Duration(milliseconds: 200),
+                  animatedDuration: SmoothAnimationsDuration.short,
                   backgroundColor: Theme.of(context).colorScheme.secondary,
                   size: 8,
                   currentValue: _progress,
@@ -229,20 +233,21 @@ class _AddNewProductPageState extends State<AddNewProductPage>
               ),
               _backButton(),
               Expanded(
-                  child: PageView(
-                controller: _pageController,
-                children: <Widget>[
-                  if (widget.displayPictures)
-                    _buildCard(_getImageRows(context)),
-                  _buildCard(_getNutriscoreRows(context)),
-                  _buildCard(_getEcoscoreRows(context)),
-                  _buildCard(_getNovaRows(context)),
-                  if (widget.displayMisc) _buildCard(_getMiscRows(context)),
-                ],
-              )),
+                child: PageView(
+                  controller: _pageController,
+                  children: <Widget>[
+                    if (widget.displayPictures)
+                      _buildCard(_getImageRows(context)),
+                    _buildCard(_getNutriscoreRows(context)),
+                    _buildCard(_getEcoscoreRows(context)),
+                    _buildCard(_getNovaRows(context)),
+                    if (widget.displayMisc) _buildCard(_getMiscRows(context)),
+                  ],
+                ),
+              ),
               Card(
                 margin: EdgeInsets.zero,
-                elevation: 15,
+                elevation: 15.0,
                 child: SizedBox(
                   height: MediaQuery.of(context).size.height * 0.1,
                   child: _getButtons(),
@@ -287,7 +292,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
   ) =>
       SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(LARGE_SPACE),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: children,
@@ -300,12 +305,15 @@ class _AddNewProductPageState extends State<AddNewProductPage>
 
   Widget _backButton() {
     return Container(
-      margin: const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 0.0),
+      margin: const EdgeInsetsDirectional.only(
+          start: 10.0, end: 10.0, top: 10.0, bottom: 0.0),
       width: 20.0,
       height: 20.0,
       child: IconButton(
-        onPressed: () => _onWillPop().then((bool leaveThePage) =>
-            leaveThePage ? Navigator.of(context).pop() : null),
+        onPressed: () => _onWillPop().then(
+          (bool leaveThePage) =>
+              leaveThePage ? Navigator.of(context).pop() : null,
+        ),
         alignment: Alignment.center,
         padding: EdgeInsets.zero,
         icon: const Icon(Icons.arrow_back),
@@ -321,32 +329,37 @@ class _AddNewProductPageState extends State<AddNewProductPage>
           style: ElevatedButton.styleFrom(
             minimumSize: Size(MediaQuery.of(context).size.width * 0.35, 40.0),
             backgroundColor: Theme.of(context).colorScheme.secondary,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20.0),
+            shape: const RoundedRectangleBorder(
+              borderRadius: ROUNDED_BORDER_RADIUS,
             ),
           ),
           onPressed: () {
-            _onWillPop().then((bool leaveThePage) =>
-                leaveThePage ? Navigator.of(context).pop() : null);
+            _onWillPop().then(
+              (bool leaveThePage) =>
+                  leaveThePage ? Navigator.of(context).pop() : null,
+            );
           },
-          child: Text(AppLocalizations.of(context).cancel,
-              style: const TextStyle(
-                  color: Colors.black,
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.bold)),
+          child: Text(
+            AppLocalizations.of(context).cancel,
+            style: const TextStyle(
+              color: Colors.black,
+              fontSize: 20.0,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
         ),
         const SizedBox(width: 10.0),
         ElevatedButton(
           style: ElevatedButton.styleFrom(
             minimumSize: Size(MediaQuery.of(context).size.width * 0.35, 40.0),
             backgroundColor: const Color(0xFF341100),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20.0),
+            shape: const RoundedRectangleBorder(
+              borderRadius: ROUNDED_BORDER_RADIUS,
             ),
           ),
           onPressed: () {
             _pageController.nextPage(
-                duration: const Duration(milliseconds: 200),
+                duration: SmoothAnimationsDuration.short,
                 curve: Curves.easeOut);
           },
           child: Text(
@@ -354,9 +367,10 @@ class _AddNewProductPageState extends State<AddNewProductPage>
                 ? AppLocalizations.of(context).finish
                 : AppLocalizations.of(context).next_label,
             style: const TextStyle(
-                color: Colors.white,
-                fontSize: 20.0,
-                fontWeight: FontWeight.bold),
+              color: Colors.white,
+              fontSize: 20.0,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         )
       ],
@@ -417,20 +431,31 @@ class _AddNewProductPageState extends State<AddNewProductPage>
         child: Container(
           padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 15.0),
           decoration: BoxDecoration(
-              borderRadius: ROUNDED_BORDER_RADIUS,
-              color: Theme.of(context).colorScheme.surface),
-          child: Row(children: <Widget>[
-            Icon(Icons.filter_2,
-                color: Theme.of(context).colorScheme.onPrimary),
-            const SizedBox(width: 15.0),
-            Flexible(
-                child: Text(appLocalizations.new_product_additional_ecoscore,
-                    style: TextStyle(
-                        color: Theme.of(context).colorScheme.onPrimary))),
-            const SizedBox(width: 5.0),
-            Icon(_ecoscoreExpanded ? Icons.expand_less : Icons.expand_more,
-                color: Theme.of(context).colorScheme.onPrimary),
-          ]),
+            borderRadius: ROUNDED_BORDER_RADIUS,
+            color: Theme.of(context).colorScheme.surface,
+          ),
+          child: Row(
+            children: <Widget>[
+              Icon(
+                Icons.filter_2,
+                color: Theme.of(context).colorScheme.onPrimary,
+              ),
+              const SizedBox(width: 15.0),
+              Flexible(
+                child: Text(
+                  appLocalizations.new_product_additional_ecoscore,
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.onPrimary,
+                  ),
+                ),
+              ),
+              const SizedBox(width: 5.0),
+              Icon(
+                _ecoscoreExpanded ? Icons.expand_less : Icons.expand_more,
+                color: Theme.of(context).colorScheme.onPrimary,
+              ),
+            ],
+          ),
         ),
       ),
       if (_ecoscoreExpanded)
@@ -492,10 +517,14 @@ class _AddNewProductPageState extends State<AddNewProductPage>
   List<Widget> _getImageRows(final BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final List<Widget> rows = <Widget>[];
-    rows.add(AddNewProductTitle(appLocalizations.new_product_title_pictures));
+    rows.add(
+      AddNewProductTitle(appLocalizations.new_product_title_pictures),
+    );
     rows.add(const SizedBox(height: 15.0));
-    rows.add(AddNewProductSubTitle(
-        appLocalizations.new_product_title_pictures_details));
+    rows.add(
+      AddNewProductSubTitle(
+          appLocalizations.new_product_title_pictures_details),
+    );
 
     // Main 4 images first.
     final List<ProductImageData> productImagesData = getProductMainImagesData(
@@ -506,9 +535,12 @@ class _AddNewProductPageState extends State<AddNewProductPage>
     for (final ProductImageData data in productImagesData) {
       // Everything else can only be uploaded once
       rows.add(_buildMainImageButton(context, data));
-      rows.add(const Padding(
+      rows.add(
+        const Padding(
           padding: EdgeInsets.symmetric(vertical: 10.0),
-          child: UserPreferencesListItemDivider()));
+          child: UserPreferencesListItemDivider(),
+        ),
+      );
     }
     // Then all the OTHERs.
     rows.add(_buildOtherImageButton(context, done: false));
