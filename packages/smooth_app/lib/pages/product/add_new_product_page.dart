@@ -36,11 +36,9 @@ class AddNewProductPage extends StatefulWidget {
         events = const <EditProductAction, AnalyticsEvent>{
           EditProductAction.openPage: AnalyticsEvent.openNewProductPage,
           EditProductAction.leaveEmpty: AnalyticsEvent.closeEmptyNewProductPage,
-          EditProductAction.ingredients:
-              AnalyticsEvent.ingredientsNewProductPage,
+          EditProductAction.ingredients: AnalyticsEvent.ingredientsNewProductPage,
           EditProductAction.category: AnalyticsEvent.categoriesNewProductPage,
-          EditProductAction.nutritionFacts:
-              AnalyticsEvent.nutritionNewProductPage,
+          EditProductAction.nutritionFacts: AnalyticsEvent.nutritionNewProductPage,
         },
         displayPictures = true,
         displayMisc = true,
@@ -50,16 +48,11 @@ class AddNewProductPage extends StatefulWidget {
     this.product, {
     required this.isLoggedInMandatory,
   })  : events = const <EditProductAction, AnalyticsEvent>{
-          EditProductAction.openPage:
-              AnalyticsEvent.openFastTrackProductEditPage,
-          EditProductAction.leaveEmpty:
-              AnalyticsEvent.closeEmptyFastTrackProductPage,
-          EditProductAction.ingredients:
-              AnalyticsEvent.ingredientsFastTrackProductPage,
-          EditProductAction.category:
-              AnalyticsEvent.categoriesFastTrackProductPage,
-          EditProductAction.nutritionFacts:
-              AnalyticsEvent.nutritionFastTrackProductPage,
+          EditProductAction.openPage: AnalyticsEvent.openFastTrackProductEditPage,
+          EditProductAction.leaveEmpty: AnalyticsEvent.closeEmptyFastTrackProductPage,
+          EditProductAction.ingredients: AnalyticsEvent.ingredientsFastTrackProductPage,
+          EditProductAction.category: AnalyticsEvent.categoriesFastTrackProductPage,
+          EditProductAction.nutritionFacts: AnalyticsEvent.nutritionFastTrackProductPage,
         },
         displayPictures = false,
         displayMisc = false;
@@ -74,27 +67,23 @@ class AddNewProductPage extends StatefulWidget {
   State<AddNewProductPage> createState() => _AddNewProductPageState();
 }
 
-class _AddNewProductPageState extends State<AddNewProductPage>
-    with TraceableClientMixin, UpToDateMixin {
+class _AddNewProductPageState extends State<AddNewProductPage> with TraceableClientMixin, UpToDateMixin {
   /// Count of "other" pictures uploaded.
   int _otherCount = 0;
   int _totalPages = 0;
   double _progress = 0.0;
   bool _isLastPage = false;
+  late ColorScheme _colorScheme;
 
   late DaoProductList _daoProductList;
 
   final ProductList _history = ProductList.history();
 
   final ProductFieldEditor _packagingEditor = ProductFieldPackagingEditor();
-  final ProductFieldEditor _ingredientsEditor =
-      ProductFieldOcrIngredientEditor();
-  final ProductFieldEditor _originEditor =
-      ProductFieldSimpleEditor(SimpleInputPageOriginHelper());
-  final ProductFieldEditor _categoryEditor =
-      ProductFieldSimpleEditor(SimpleInputPageCategoryHelper());
-  final ProductFieldEditor _labelEditor =
-      ProductFieldSimpleEditor(SimpleInputPageLabelHelper());
+  final ProductFieldEditor _ingredientsEditor = ProductFieldOcrIngredientEditor();
+  final ProductFieldEditor _originEditor = ProductFieldSimpleEditor(SimpleInputPageOriginHelper());
+  final ProductFieldEditor _categoryEditor = ProductFieldSimpleEditor(SimpleInputPageCategoryHelper());
+  final ProductFieldEditor _labelEditor = ProductFieldSimpleEditor(SimpleInputPageLabelHelper());
   final ProductFieldEditor _detailsEditor = ProductFieldDetailsEditor();
   final ProductFieldEditor _nutritionEditor = ProductFieldNutritionEditor();
   late final List<ProductFieldEditor> _editors;
@@ -145,8 +134,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
       AnalyticsProductTracker(
         analyticsEvent: AnalyticsEvent.imagesNewProductPage,
         barcode: barcode,
-        check: () =>
-            _otherCount > 0 || _helper.isOneMainImagePopulated(upToDateProduct),
+        check: () => _otherCount > 0 || _helper.isOneMainImagePopulated(upToDateProduct),
       ),
     ];
     _daoProductList = DaoProductList(localDatabase);
@@ -154,8 +142,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
       widget.events[EditProductAction.openPage]!,
       barcode: barcode,
     );
-    _totalPages =
-        3 + (widget.displayMisc ? 1 : 0) + (widget.displayPictures ? 1 : 0);
+    _totalPages = 3 + (widget.displayMisc ? 1 : 0) + (widget.displayPictures ? 1 : 0);
     _progress = 1 / _totalPages;
 
     _pageController.addListener(() {
@@ -197,6 +184,19 @@ class _AddNewProductPageState extends State<AddNewProductPage>
   }
 
   @override
+  void didChangeDependencies() {
+    print('Mummy di');
+    _colorScheme = _colorScheme = Theme.of(context).colorScheme;
+    super.didChangeDependencies();
+  }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     context.watch<LocalDatabase>();
     refreshUpToDate();
@@ -216,19 +216,16 @@ class _AddNewProductPageState extends State<AddNewProductPage>
               Container(
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
-                    colors: <Color>[
-                      Theme.of(context).colorScheme.inversePrimary,
-                      Theme.of(context).colorScheme.secondary
-                    ],
+                    colors: <Color>[_colorScheme.inversePrimary, _colorScheme.secondary],
                   ),
                 ),
                 child: FAProgressBar(
                   animatedDuration: SmoothAnimationsDuration.short,
-                  backgroundColor: Theme.of(context).colorScheme.secondary,
+                  backgroundColor: _colorScheme.secondary,
                   size: 8,
                   currentValue: _progress,
                   maxValue: 1,
-                  progressColor: Theme.of(context).colorScheme.inversePrimary,
+                  progressColor: _colorScheme.inversePrimary,
                 ),
               ),
               _backButton(),
@@ -236,8 +233,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
                 child: PageView(
                   controller: _pageController,
                   children: <Widget>[
-                    if (widget.displayPictures)
-                      _buildCard(_getImageRows(context)),
+                    if (widget.displayPictures) _buildCard(_getImageRows(context)),
                     _buildCard(_getNutriscoreRows(context)),
                     _buildCard(_getEcoscoreRows(context)),
                     _buildCard(_getNovaRows(context)),
@@ -249,7 +245,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
                 margin: EdgeInsets.zero,
                 elevation: 15.0,
                 child: SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.1,
+                  height: MediaQuery.sizeOf(context).height * 0.1,
                   child: _getButtons(),
                 ),
               )
@@ -281,8 +277,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
       }
     }
     if (widget.displayPictures) {
-      return _helper.isOneMainImagePopulated(upToDateProduct) ||
-          _otherCount > 0;
+      return _helper.isOneMainImagePopulated(upToDateProduct) || _otherCount > 0;
     }
     return false;
   }
@@ -300,19 +295,21 @@ class _AddNewProductPageState extends State<AddNewProductPage>
         ),
       );
 
-  Attribute? _getAttribute(final String tag) =>
-      upToDateProduct.getAttributes(<String>[tag])[tag];
+  Attribute? _getAttribute(final String tag) => upToDateProduct.getAttributes(<String>[tag])[tag];
 
   Widget _backButton() {
     return Container(
       margin: const EdgeInsetsDirectional.only(
-          start: 10.0, end: 10.0, top: 10.0, bottom: 0.0),
+        start: 10.0,
+        end: 10.0,
+        top: 10.0,
+        bottom: 0.0,
+      ),
       width: 20.0,
       height: 20.0,
       child: IconButton(
         onPressed: () => _onWillPop().then(
-          (bool leaveThePage) =>
-              leaveThePage ? Navigator.of(context).pop() : null,
+          (bool leaveThePage) => leaveThePage ? Navigator.of(context).pop() : null,
         ),
         alignment: Alignment.center,
         padding: EdgeInsets.zero,
@@ -327,16 +324,15 @@ class _AddNewProductPageState extends State<AddNewProductPage>
       children: <Widget>[
         ElevatedButton(
           style: ElevatedButton.styleFrom(
-            minimumSize: Size(MediaQuery.of(context).size.width * 0.35, 40.0),
-            backgroundColor: Theme.of(context).colorScheme.secondary,
+            minimumSize: Size(MediaQuery.sizeOf(context).width * 0.35, 40.0),
+            backgroundColor: _colorScheme.secondary,
             shape: const RoundedRectangleBorder(
               borderRadius: ROUNDED_BORDER_RADIUS,
             ),
           ),
           onPressed: () {
             _onWillPop().then(
-              (bool leaveThePage) =>
-                  leaveThePage ? Navigator.of(context).pop() : null,
+              (bool leaveThePage) => leaveThePage ? Navigator.of(context).pop() : null,
             );
           },
           child: Text(
@@ -351,21 +347,20 @@ class _AddNewProductPageState extends State<AddNewProductPage>
         const SizedBox(width: 10.0),
         ElevatedButton(
           style: ElevatedButton.styleFrom(
-            minimumSize: Size(MediaQuery.of(context).size.width * 0.35, 40.0),
-            backgroundColor: const Color(0xFF341100),
+            minimumSize: Size(MediaQuery.sizeOf(context).width * 0.35, 40.0),
+            backgroundColor: DARK_BROWN_COLOR,
             shape: const RoundedRectangleBorder(
               borderRadius: ROUNDED_BORDER_RADIUS,
             ),
           ),
           onPressed: () {
             _pageController.nextPage(
-                duration: SmoothAnimationsDuration.short,
-                curve: Curves.easeOut);
+              duration: SmoothAnimationsDuration.short,
+              curve: Curves.easeOut,
+            );
           },
           child: Text(
-            _isLastPage
-                ? AppLocalizations.of(context).finish
-                : AppLocalizations.of(context).next_label,
+            _isLastPage ? AppLocalizations.of(context).finish : AppLocalizations.of(context).next_label,
             style: const TextStyle(
               color: Colors.white,
               fontSize: 20.0,
@@ -432,27 +427,27 @@ class _AddNewProductPageState extends State<AddNewProductPage>
           padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 15.0),
           decoration: BoxDecoration(
             borderRadius: ROUNDED_BORDER_RADIUS,
-            color: Theme.of(context).colorScheme.surface,
+            color: _colorScheme.surface,
           ),
           child: Row(
             children: <Widget>[
               Icon(
                 Icons.filter_2,
-                color: Theme.of(context).colorScheme.onPrimary,
+                color: _colorScheme.onPrimary,
               ),
               const SizedBox(width: 15.0),
               Flexible(
                 child: Text(
                   appLocalizations.new_product_additional_ecoscore,
                   style: TextStyle(
-                    color: Theme.of(context).colorScheme.onPrimary,
+                    color: _colorScheme.onPrimary,
                   ),
                 ),
               ),
               const SizedBox(width: 5.0),
               Icon(
                 _ecoscoreExpanded ? Icons.expand_less : Icons.expand_more,
-                color: Theme.of(context).colorScheme.onPrimary,
+                color: _colorScheme.onPrimary,
               ),
             ],
           ),
@@ -504,8 +499,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
           ),
           Expanded(
             child: AddNewProductTitle(
-              attribute?.descriptionShort ??
-                  appLocalizations.new_product_desc_nova_unknown,
+              attribute?.descriptionShort ?? appLocalizations.new_product_desc_nova_unknown,
               maxLines: 5,
             ),
           )
@@ -522,8 +516,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
     );
     rows.add(const SizedBox(height: 15.0));
     rows.add(
-      AddNewProductSubTitle(
-          appLocalizations.new_product_title_pictures_details),
+      AddNewProductSubTitle(appLocalizations.new_product_title_pictures_details),
     );
 
     // Main 4 images first.
@@ -557,9 +550,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
   }) =>
       AddNewProductButton(
         ImageField.OTHER.getAddPhotoButtonText(AppLocalizations.of(context)),
-        done
-            ? AddNewProductButton.doneIconData
-            : AddNewProductButton.cameraIconData,
+        done ? AddNewProductButton.doneIconData : AddNewProductButton.cameraIconData,
         () async {
           final File? finalPhoto = await confirmAndUploadNewPicture(
             this,
@@ -583,11 +574,8 @@ class _AddNewProductPageState extends State<AddNewProductPage>
   ) {
     final bool done = _helper.isMainImagePopulated(productImageData, barcode);
     return AddNewProductButton(
-      productImageData.imageField
-          .getAddPhotoButtonText(AppLocalizations.of(context)),
-      done
-          ? AddNewProductButton.doneIconData
-          : AddNewProductButton.cameraIconData,
+      productImageData.imageField.getAddPhotoButtonText(AppLocalizations.of(context)),
+      done ? AddNewProductButton.doneIconData : AddNewProductButton.cameraIconData,
       () async => Navigator.push(
         context,
         MaterialPageRoute<void>(
@@ -603,8 +591,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
     );
   }
 
-  Widget _buildCategoriesButton(final BuildContext context) =>
-      AddNewProductEditorButton(
+  Widget _buildCategoriesButton(final BuildContext context) => AddNewProductEditorButton(
         upToDateProduct,
         _categoryEditor,
         forceIconData: Icons.filter_1,

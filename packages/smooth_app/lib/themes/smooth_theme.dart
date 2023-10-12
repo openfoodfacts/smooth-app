@@ -39,17 +39,13 @@ class SmoothTheme {
 
     return ThemeData(
       useMaterial3: false,
-      primaryColor: const Color(0xFF341100),
+      primaryColor: DARK_BROWN_COLOR,
       colorScheme: myColorScheme,
-      canvasColor: themeProvider.currentTheme == THEME_AMOLED
-          ? myColorScheme.background
-          : null,
+      canvasColor: themeProvider.currentTheme == THEME_AMOLED ? myColorScheme.background : null,
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         selectedIconTheme: const IconThemeData(size: 24.0),
         showSelectedLabels: true,
-        selectedItemColor: brightness == Brightness.dark
-            ? myColorScheme.primary
-            : const Color(0xFF341100),
+        selectedItemColor: brightness == Brightness.dark ? myColorScheme.primary : DARK_BROWN_COLOR,
         selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
         showUnselectedLabels: true,
         unselectedIconTheme: const IconThemeData(size: 20.0),
@@ -57,19 +53,12 @@ class SmoothTheme {
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ButtonStyle(
           backgroundColor: MaterialStateProperty.resolveWith<Color?>(
-            (Set<MaterialState> states) =>
-                states.contains(MaterialState.disabled)
-                    ? Colors.grey
-                    : myColorScheme.primary,
+            (Set<MaterialState> states) => states.contains(MaterialState.disabled) ? Colors.grey : myColorScheme.primary,
           ),
         ),
       ),
-      floatingActionButtonTheme: FloatingActionButtonThemeData(
-          backgroundColor: myColorScheme.primary,
-          foregroundColor: myColorScheme.onPrimary),
-      textTheme: brightness == Brightness.dark
-          ? getTextTheme(themeProvider, textContrastProvider)
-          : _TEXT_THEME,
+      floatingActionButtonTheme: FloatingActionButtonThemeData(backgroundColor: myColorScheme.primary, foregroundColor: myColorScheme.onPrimary),
+      textTheme: brightness == Brightness.dark ? getTextTheme(themeProvider, textContrastProvider) : _TEXT_THEME,
       appBarTheme: AppBarTheme(
         color: myColorScheme.background,
         foregroundColor: myColorScheme.onBackground,
@@ -83,8 +72,7 @@ class SmoothTheme {
         color: myColorScheme.onBackground,
       ),
       snackBarTheme: SnackBarThemeData(
-        contentTextStyle:
-            _TEXT_THEME.bodyMedium?.copyWith(color: myColorScheme.onPrimary),
+        contentTextStyle: _TEXT_THEME.bodyMedium?.copyWith(color: myColorScheme.onPrimary),
         actionTextColor: myColorScheme.onPrimary,
         backgroundColor: myColorScheme.onBackground,
       ),
@@ -93,8 +81,7 @@ class SmoothTheme {
         backgroundColor: myColorScheme.secondary,
       ),
       checkboxTheme: CheckboxThemeData(
-        fillColor: MaterialStateProperty.resolveWith<Color?>(
-            (Set<MaterialState> states) {
+        fillColor: MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
           if (states.contains(MaterialState.disabled)) {
             return null;
           }
@@ -105,8 +92,7 @@ class SmoothTheme {
         }),
       ),
       radioTheme: RadioThemeData(
-        fillColor: MaterialStateProperty.resolveWith<Color?>(
-            (Set<MaterialState> states) {
+        fillColor: MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
           if (states.contains(MaterialState.disabled)) {
             return null;
           }
@@ -117,8 +103,7 @@ class SmoothTheme {
         }),
       ),
       switchTheme: SwitchThemeData(
-        thumbColor: MaterialStateProperty.resolveWith<Color?>(
-            (Set<MaterialState> states) {
+        thumbColor: MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
           if (states.contains(MaterialState.disabled)) {
             return null;
           }
@@ -127,8 +112,7 @@ class SmoothTheme {
           }
           return null;
         }),
-        trackColor: MaterialStateProperty.resolveWith<Color?>(
-            (Set<MaterialState> states) {
+        trackColor: MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
           if (states.contains(MaterialState.disabled)) {
             return null;
           }
@@ -141,16 +125,13 @@ class SmoothTheme {
     );
   }
 
-  static TextTheme getTextTheme(
-      ThemeProvider themeProvider, TextContrastProvider textContrastProvider) {
-    final Color contrastLevel = themeProvider.currentTheme == THEME_AMOLED
-        ? getTextContrastLevel(textContrastProvider.currentContrastLevel)
-        : Colors.white;
+  static TextTheme getTextTheme(ThemeProvider themeProvider, TextContrastProvider textContrastProvider) {
+    final Color contrastLevel =
+        themeProvider.currentTheme == THEME_AMOLED ? getTextContrastLevel(textContrastProvider.currentContrastLevel) : Colors.white;
 
     return _TEXT_THEME.copyWith(
       displayMedium: _TEXT_THEME.displayMedium?.copyWith(color: contrastLevel),
-      headlineMedium:
-          _TEXT_THEME.headlineMedium?.copyWith(color: contrastLevel),
+      headlineMedium: _TEXT_THEME.headlineMedium?.copyWith(color: contrastLevel),
       bodyMedium: _TEXT_THEME.bodyMedium?.copyWith(color: contrastLevel),
       displaySmall: _TEXT_THEME.bodySmall?.copyWith(color: contrastLevel),
       titleLarge: _TEXT_THEME.titleLarge?.copyWith(color: contrastLevel),
@@ -211,9 +192,7 @@ class SmoothTheme {
     assert(value >= 0 && value <= 1);
 
     final HSLColor hsl = HSLColor.fromColor(color);
-    final HSLColor hslDark = hsl.withLightness(
-        (darker ? (hsl.lightness - value) : (hsl.lightness + value))
-            .clamp(0.0, 1.0));
+    final HSLColor hslDark = hsl.withLightness((darker ? (hsl.lightness - value) : (hsl.lightness + value)).clamp(0.0, 1.0));
 
     return hslDark.toColor();
   }
