@@ -184,13 +184,6 @@ class _AddNewProductPageState extends State<AddNewProductPage> with TraceableCli
   }
 
   @override
-  void didChangeDependencies() {
-    print('Mummy di');
-    _colorScheme = _colorScheme = Theme.of(context).colorScheme;
-    super.didChangeDependencies();
-  }
-
-  @override
   void dispose() {
     _pageController.dispose();
     super.dispose();
@@ -198,6 +191,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> with TraceableCli
 
   @override
   Widget build(BuildContext context) {
+    _colorScheme = _colorScheme = Theme.of(context).colorScheme;
     context.watch<LocalDatabase>();
     refreshUpToDate();
 
