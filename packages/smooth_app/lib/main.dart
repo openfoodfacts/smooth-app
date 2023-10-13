@@ -255,10 +255,18 @@ class _SmoothAppState extends State<SmoothApp> {
         localizationsDelegates: AppLocalizations.localizationsDelegates,
         supportedLocales: AppLocalizations.supportedLocales,
         debugShowCheckedModeBanner: !(kReleaseMode || _screenshots),
-        theme: SmoothTheme.getThemeData(Brightness.light, themeProvider,
-            colorProvider, textContrastProvider),
-        darkTheme: SmoothTheme.getThemeData(Brightness.dark, themeProvider,
-            colorProvider, textContrastProvider),
+        theme: SmoothTheme.getThemeData(
+          Brightness.light,
+          themeProvider,
+          colorProvider,
+          textContrastProvider,
+        ),
+        darkTheme: SmoothTheme.getThemeData(
+          Brightness.dark,
+          themeProvider,
+          colorProvider,
+          textContrastProvider,
+        ),
         themeMode: themeProvider.currentThemeMode,
         routerConfig: AppNavigator.of(context).router,
       ),
@@ -267,6 +275,7 @@ class _SmoothAppState extends State<SmoothApp> {
 
   Widget _buildError(AsyncSnapshot<void> snapshot) {
     return MaterialApp(
+      theme: ThemeData(useMaterial3: false),
       home: SmoothScaffold(
         body: Center(
           child: Text(

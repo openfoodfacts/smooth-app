@@ -291,7 +291,7 @@ class UserPreferencesAccount extends AbstractUserPreferences {
       final SearchResult result = await OpenFoodAPIClient.searchProducts(
         user,
         configuration,
-        queryType: OpenFoodAPIConfiguration.globalQueryType,
+        uriHelper: ProductQuery.uriProductHelper,
       );
       return result.count;
     } catch (e) {

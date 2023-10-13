@@ -91,7 +91,7 @@ Starting this April, we invite all users and contributors to build a vision for 
 
 - Make sure you have installed flutter and all the requirements
   - [Official flutter installation guide](https://docs.flutter.dev/get-started/install)
-- Currently, the app uses the previous version of Flutter (3.10). We plan to migrate soon.
+- Currently, the app uses the latest stable version of Flutter (3.13).
 
 
 We have predefined run configurations for Android Studio and Visual Studio Code
