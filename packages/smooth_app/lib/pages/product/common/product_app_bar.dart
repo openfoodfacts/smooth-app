@@ -2,20 +2,19 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
+import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_floating_message.dart';
 
 class ProductAppBar extends StatefulWidget implements PreferredSizeWidget {
-  const ProductAppBar(
-      {required this.barcodeVisibleInAppbar,
-      required this.productName,
-      required this.productBrand,
-      required this.barcode});
+  const ProductAppBar({
+    required this.barcodeVisibleInAppbar,
+    required this.product,
+  });
 
-  final String productName;
-  final String productBrand;
-  final String barcode;
+  final Product product;
   final bool barcodeVisibleInAppbar;
 
   @override
@@ -30,18 +29,25 @@ class _ProductAppBarState extends State<ProductAppBar> {
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final ThemeData theme = Theme.of(context);
+    final String productName = getProductName(
+      widget.product,
+      appLocalizations,
+    );
+    final String productBrand =
+        getProductBrands(widget.product, appLocalizations);
+    final String barcode = widget.product.barcode ?? '';
 
     return SmoothAppBar(
       centerTitle: false,
       leading: const SmoothBackButton(),
       title: Semantics(
-        value: widget.productName,
+        value: widget.product.productName,
         child: ExcludeSemantics(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               AutoSizeText(
-                '${widget.productName.trim()}, ${widget.productBrand.trim()}',
+                '${productName.trim()}, ${productBrand.trim()}',
                 minFontSize:
                     theme.textTheme.titleLarge?.fontSize?.clamp(13.0, 17.0) ??
                         13.0,
@@ -49,12 +55,12 @@ class _ProductAppBarState extends State<ProductAppBar> {
                 style: theme.textTheme.titleLarge
                     ?.copyWith(fontWeight: FontWeight.w500),
               ),
-              if (widget.barcode.isNotEmpty)
+              if (barcode.isNotEmpty)
                 AnimatedContainer(
                   duration: const Duration(milliseconds: 250),
                   height: widget.barcodeVisibleInAppbar ? 14.0 : 0.0,
                   child: Text(
-                    widget.barcode,
+                    barcode,
                     style: theme.textTheme.titleMedium?.copyWith(
                       fontWeight: FontWeight.normal,
                     ),
@@ -75,12 +81,11 @@ class _ProductAppBarState extends State<ProductAppBar> {
               tooltip: appLocalizations.clipboard_barcode_copy,
               onPressed: () {
                 Clipboard.setData(
-                  ClipboardData(text: widget.barcode),
+                  ClipboardData(text: barcode),
                 );
 
                 SmoothFloatingMessage(
-                  message:
-                      appLocalizations.clipboard_barcode_copied(widget.barcode),
+                  message: appLocalizations.clipboard_barcode_copied(barcode),
                 ).show(context, alignment: AlignmentDirectional.bottomCenter);
               },
             );

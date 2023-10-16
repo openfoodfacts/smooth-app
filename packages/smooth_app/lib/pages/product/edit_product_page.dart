@@ -1,20 +1,16 @@
 // ignore_for_file: use_build_context_synchronously
 
-import 'dart:ui' as ui;
-
 import 'package:barcode_widget/barcode_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/up_to_date_mixin.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_list_tile_card.dart';
+import 'package:smooth_app/generic_lib/widgets/svg_icon.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
-import 'package:smooth_app/helpers/app_helper.dart';
-import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/product/add_other_details_page.dart';
 import 'package:smooth_app/pages/product/common/product_app_bar.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
@@ -52,19 +48,11 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     context.watch<LocalDatabase>();
     refreshUpToDate();
-    final String productName = getProductName(
-      upToDateProduct,
-      appLocalizations,
-    );
-    final String productBrand =
-        getProductBrands(upToDateProduct, appLocalizations);
 
     return SmoothScaffold(
       appBar: ProductAppBar(
-        barcode: barcode,
+        product: upToDateProduct,
         barcodeVisibleInAppbar: _barcodeVisibleInAppbar,
-        productBrand: productBrand,
-        productName: productName,
       ),
       body: RefreshIndicator(
         onRefresh: () async => ProductRefresher().fetchAndRefresh(
@@ -201,7 +189,7 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
                 },
               ),
               ElevatedButton(
-                onPressed: () {
+                onPressed: () async {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
@@ -371,41 +359,6 @@ class _ProductBarcodeState extends State<_ProductBarcode> {
         return Barcode.ean13();
       default:
         throw Exception('Unknown barcode type!');
-    }
-  }
-}
-
-/// SVG that looks like a ListTile icon.
-class SvgIcon extends StatelessWidget {
-  const SvgIcon(this.assetName, {this.dontAddColor = false});
-
-  final String assetName;
-  final bool dontAddColor;
-
-  @override
-  Widget build(BuildContext context) => SvgPicture.asset(
-        assetName,
-        height: DEFAULT_ICON_SIZE,
-        width: DEFAULT_ICON_SIZE,
-        colorFilter: dontAddColor
-            ? null
-            : ui.ColorFilter.mode(
-                _iconColor(Theme.of(context)),
-                ui.BlendMode.srcIn,
-              ),
-        package: AppHelper.APP_PACKAGE,
-      );
-
-  /// Returns the standard icon color in a [ListTile].
-  ///
-  /// Simplified version from [ListTile], which was anyway not kind enough
-  /// to make it public.
-  Color _iconColor(ThemeData theme) {
-    switch (theme.brightness) {
-      case Brightness.light:
-        return Colors.black45;
-      case Brightness.dark:
-        return Colors.white;
     }
   }
 }

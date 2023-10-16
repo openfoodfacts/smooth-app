@@ -4,17 +4,17 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/up_to_date_mixin.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/generic_lib/widgets/svg_icon.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
-import 'package:smooth_app/helpers/product_cards_helper.dart';
+import 'package:smooth_app/pages/product/attribute_first_row_widget.dart';
 import 'package:smooth_app/pages/product/common/product_app_bar.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
-import 'package:smooth_app/pages/product/edit_product_page.dart';
 import 'package:smooth_app/pages/product/nutrition_page_loaded.dart';
 import 'package:smooth_app/pages/product/product_field_editor.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
-const String splitChar = ':';
+const String _SplitChar = ':';
 
 class ProductAttributesPage extends StatefulWidget {
   const ProductAttributesPage(this.product);
@@ -28,7 +28,6 @@ class ProductAttributesPage extends StatefulWidget {
 class _ProductAttributesPageState extends State<ProductAttributesPage>
     with UpToDateMixin {
   final ScrollController _controller = ScrollController();
-  // OrderedNutrientsCache? cache;
 
   @override
   void initState() {
@@ -38,58 +37,43 @@ class _ProductAttributesPageState extends State<ProductAttributesPage>
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     context.watch<LocalDatabase>();
     refreshUpToDate();
-    final String productName = getProductName(
-      upToDateProduct,
-      appLocalizations,
-    );
-    final String productBrand =
-        getProductBrands(upToDateProduct, appLocalizations);
 
     return SmoothScaffold(
       appBar: ProductAppBar(
-        barcode: barcode,
+        product: upToDateProduct,
         barcodeVisibleInAppbar: true,
-        productBrand: productBrand,
-        productName: productName,
       ),
-      body: RefreshIndicator(
-        onRefresh: () async => ProductRefresher().fetchAndRefresh(
-          barcode: barcode,
-          widget: this,
-        ),
-        child: Scrollbar(
+      body: Scrollbar(
+        controller: _controller,
+        child: ListView(
           controller: _controller,
-          child: ListView(
-            controller: _controller,
-            physics: const AlwaysScrollableScrollPhysics(),
-            children: <Widget>[
-              AttributeItems(
-                helper: SimpleInputPageCategoryHelper(),
-                product: upToDateProduct,
-              ),
-              AttributeItems(
-                helper: SimpleInputPageLabelHelper(),
-                product: upToDateProduct,
-              ),
-              NutritionFacts(
-                product: upToDateProduct,
-              ),
-              Ingredients(
-                product: upToDateProduct,
-              ),
-              AttributeItems(
-                helper: SimpleInputPageCountryHelper(),
-                product: upToDateProduct,
-              ),
-              AttributeItems(
-                helper: SimpleInputPageStoreHelper(),
-                product: upToDateProduct,
-              ),
-            ],
-          ),
+          physics: const AlwaysScrollableScrollPhysics(),
+          children: <Widget>[
+            AttributeItems(
+              helper: SimpleInputPageCategoryHelper(),
+              product: upToDateProduct,
+            ),
+            AttributeItems(
+              helper: SimpleInputPageLabelHelper(),
+              product: upToDateProduct,
+            ),
+            ProductAttributeNutritionFacts(
+              product: upToDateProduct,
+            ),
+            ProductAtrributeIngredients(
+              product: upToDateProduct,
+            ),
+            AttributeItems(
+              helper: SimpleInputPageCountryHelper(),
+              product: upToDateProduct,
+            ),
+            AttributeItems(
+              helper: SimpleInputPageStoreHelper(),
+              product: upToDateProduct,
+            ),
+          ],
         ),
       ),
     );
@@ -102,16 +86,24 @@ class _ProductAttributesPageState extends State<ProductAttributesPage>
   }
 }
 
-class NutritionFacts extends StatefulWidget {
-  const NutritionFacts({required this.product});
+class ProductAttributeNutritionFacts extends StatefulWidget {
+  const ProductAttributeNutritionFacts({required this.product});
 
   final Product product;
   @override
-  State<NutritionFacts> createState() => _NutritionFactsState();
+  State<ProductAttributeNutritionFacts> createState() =>
+      _ProductAttributeNutritionFactsState();
 }
 
-class _NutritionFactsState extends State<NutritionFacts> {
-  List<String> allTerms = <String>[];
+class _ProductAttributeNutritionFactsState
+    extends State<ProductAttributeNutritionFacts> {
+  List<String> _allNutrients = <String>[];
+
+  @override
+  void initState() {
+    _allNutrients.clear();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -119,28 +111,33 @@ class _NutritionFactsState extends State<NutritionFacts> {
         ?.elements
         ?.forEach((KnowledgePanelElement element) {
       element.tableElement?.rows.forEach((KnowledgePanelTableRowElement row) {
-        String term = '';
+        final StringBuffer buffer = StringBuffer('');
         for (int i = 0; i < row.values.length - 1; i++) {
-          term += row.values[i].text;
+          buffer.write(row.values[i].text);
           if (i == 0) {
-            term += splitChar;
+            buffer.write(_SplitChar);
           }
         }
-        if (term.contains('<br>')) {
-          final List<String> split = term.split('<br>');
-          term = '${split[0]}${split[1]}';
+
+        String nutrient = buffer.toString();
+
+        if (nutrient.contains('<br>')) {
+          final List<String> split = nutrient.split('<br>');
+          nutrient = '${split[0]}${split[1]}';
         }
-        allTerms.add(term);
+        _allNutrients.add(nutrient);
       });
     });
 
-    allTerms = allTerms.toSet().toList();
+    _allNutrients = _allNutrients.toSet().toList();
 
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    return _ListTile(
-      allTerms: allTerms,
-      leading: const SvgIcon('assets/cacheTintable/scale-balance.svg',
-          dontAddColor: true),
+    return AttributeFirstRowWidget(
+      allTerms: _allNutrients,
+      leading: const SvgIcon(
+        'assets/cacheTintable/scale-balance.svg',
+        dontAddColor: true,
+      ),
       title: appLocalizations.nutrition_page_title,
       hasTrailing: true,
       onTap: () async {
@@ -169,28 +166,37 @@ class _NutritionFactsState extends State<NutritionFacts> {
   }
 }
 
-class Ingredients extends StatefulWidget {
-  const Ingredients({super.key, required this.product});
+class ProductAtrributeIngredients extends StatefulWidget {
+  const ProductAtrributeIngredients({super.key, required this.product});
 
   final Product product;
 
   @override
-  State<Ingredients> createState() => _IngredientsState();
+  State<ProductAtrributeIngredients> createState() =>
+      _ProductAtrributeIngredientsState();
 }
 
-class _IngredientsState extends State<Ingredients> {
-  List<String> allIngredients = <String>[];
+class _ProductAtrributeIngredientsState
+    extends State<ProductAtrributeIngredients> {
+  final List<String> _allIngredients = <String>[];
+
+  @override
+  void initState() {
+    _allIngredients.clear();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     widget.product.ingredients?.forEach((Ingredient element) {
       if (element.text != null) {
-        allIngredients.add(element.text!);
+        _allIngredients.add(element.text!);
       }
     });
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-    return _ListTile(
-      allTerms: allIngredients,
+    return AttributeFirstRowWidget(
+      allTerms: _allIngredients,
       leading: const SvgIcon('assets/cacheTintable/ingredients.svg',
           dontAddColor: true),
       title: appLocalizations.ingredients,
@@ -224,7 +230,7 @@ class _AttributeItemsState extends State<AttributeItems> {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    return _ListTile(
+    return AttributeFirstRowWidget(
       allTerms: _localTerms,
       leading: widget.helper.getIcon(),
       title: widget.helper.getTitle(appLocalizations),
@@ -233,112 +239,5 @@ class _AttributeItemsState extends State<AttributeItems> {
         product: widget.product,
       ),
     );
-  }
-}
-
-class _ListTile extends StatefulWidget {
-  const _ListTile({
-    required this.allTerms,
-    required this.leading,
-    required this.title,
-    this.hasTrailing = false,
-    required this.onTap,
-  });
-
-  final Widget? leading;
-  final String title;
-  final List<String> allTerms;
-  final bool hasTrailing;
-  final Function()? onTap;
-
-  @override
-  State<_ListTile> createState() => __ListTileState();
-}
-
-class __ListTileState extends State<_ListTile> {
-  bool showAllTerms = false;
-
-  @override
-  Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final ThemeData theme = Theme.of(context);
-    final bool hasMoreThanFourTerms = widget.allTerms.length > 4;
-    final List<String> firstFourItems = widget.allTerms.take(4).toList();
-    if (firstFourItems.isEmpty) {
-      firstFourItems.add(appLocalizations.no_data_available);
-    }
-    return Column(
-      children: <Widget>[
-        ListTile(
-          leading: widget.leading,
-          title: Text(widget.title),
-          trailing: const Icon(Icons.edit),
-          titleTextStyle: TextStyle(
-            fontWeight: FontWeight.w500,
-            fontSize: 20.0,
-            color: theme.primaryColor,
-          ),
-          iconColor: theme.primaryColor,
-          tileColor: theme.colorScheme.secondary,
-          onTap: widget.onTap,
-        ),
-        _termsList(
-          firstFourItems,
-          hasTrailing: widget.hasTrailing,
-          borderFlag: !hasMoreThanFourTerms,
-        ),
-        Column(
-          children: [
-            if (hasMoreThanFourTerms) ...<Widget>[
-              if (showAllTerms) ...<Widget>[
-                _termsList(
-                  widget.allTerms.skip(firstFourItems.length).toList(),
-                  hasTrailing: widget.hasTrailing,
-                ),
-              ],
-              Padding(
-                padding: const EdgeInsets.only(left: 100.0),
-                child: ExpansionTile(
-                  onExpansionChanged: (bool value) => setState(() {
-                    showAllTerms = value;
-                  }),
-                  title: const Text(
-                    'Expand',
-                    style: TextStyle(
-                      decoration: TextDecoration.underline,
-                    ),
-                  ),
-                ),
-              )
-            ]
-          ],
-        )
-      ],
-    );
-  }
-
-  Widget _termsList(List<String> terms,
-      {bool hasTrailing = false, bool borderFlag = false}) {
-    return ListView.builder(
-        padding: const EdgeInsets.only(left: 100.0),
-        itemCount: terms.length,
-        scrollDirection: Axis.vertical,
-        shrinkWrap: true,
-        itemBuilder: (_, int index) {
-          return ListTile(
-            key: UniqueKey(),
-            title: Text(
-              terms[index].split(splitChar)[0],
-              style: const TextStyle(fontWeight: FontWeight.bold),
-            ),
-            shape: (index == terms.length - 1 && borderFlag)
-                ? null
-                : const Border(
-                    bottom: BorderSide(),
-                  ),
-            trailing:
-                hasTrailing ? Text(terms[index].split(splitChar)[1]) : null,
-          );
-        });
   }
 }
