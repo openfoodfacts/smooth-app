@@ -22,6 +22,7 @@ class OrderedNutrientsCache {
   ) async {
     final OrderedNutrientsCache cache = OrderedNutrientsCache._();
     cache._orderedNutrients = await cache._get() ??
+        // ignore: use_build_context_synchronously
         await LoadingDialog.run<OrderedNutrients>(
           context: context,
           future: cache._download(),
@@ -54,6 +55,7 @@ class OrderedNutrientsCache {
     final String string = await OpenFoodAPIClient.getOrderedNutrientsJsonString(
       country: ProductQuery.getCountry(),
       language: ProductQuery.getLanguage(),
+      uriHelper: ProductQuery.uriProductHelper,
     );
     final OrderedNutrients result = OrderedNutrients.fromJson(
       jsonDecode(string) as Map<String, dynamic>,
@@ -69,6 +71,6 @@ class OrderedNutrientsCache {
     return 'nutrients.pl'
         '/${country.offTag}'
         '/${language.code}'
-        '/${OpenFoodAPIConfiguration.globalQueryType}';
+        '/${ProductQuery.uriProductHelper.domain}';
   }
 }

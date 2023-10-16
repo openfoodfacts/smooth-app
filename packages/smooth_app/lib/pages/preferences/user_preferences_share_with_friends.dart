@@ -35,6 +35,9 @@ class UserPreferencesShareWithFriends extends StatelessWidget {
           try {
             await Share.share(appLocalizations.contribute_share_content);
           } on PlatformException {
+            if (!context.mounted) {
+              return;
+            }
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
                 content: Text(

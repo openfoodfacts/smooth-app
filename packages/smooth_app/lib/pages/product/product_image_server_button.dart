@@ -59,6 +59,7 @@ class ProductImageServerButton extends StatelessWidget {
         future: OpenFoodAPIClient.getProductImageIds(
           barcode,
           user: ProductQuery.getUser(),
+          uriHelper: ProductQuery.uriProductHelper,
         ),
         context: context,
         title: appLocalizations.edit_photo_select_existing_download_label,

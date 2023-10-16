@@ -53,13 +53,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView>
       appBar: SmoothAppBar(
         centerTitle: false,
         title: Text(appLocalizations.edit_product_form_item_photos_title),
-        subTitle: upToDateProduct.productName == null
-            ? null
-            : Text(
-                '${upToDateProduct.productName!.trim()}, ${upToDateProduct.brands!.trim()}',
-                overflow: TextOverflow.ellipsis,
-                maxLines: 1,
-              ),
+        subTitle: buildProductTitle(upToDateProduct, appLocalizations),
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () async {

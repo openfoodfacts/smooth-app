@@ -72,6 +72,7 @@ class ProductListImportExport {
       ProductRefresher().getBarcodeListQueryConfiguration(
         barcodes.toList(growable: false),
       ),
+      uriHelper: ProductQuery.uriProductHelper,
     );
 
     return searchResult.products ?? <Product>[];

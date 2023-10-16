@@ -321,7 +321,11 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
       imageUri: Uri.parse(path),
     );
 
-    final Status status = await OpenFoodAPIClient.addProductImage(user, image);
+    final Status status = await OpenFoodAPIClient.addProductImage(
+      user,
+      image,
+      uriHelper: uriProductHelper,
+    );
     if (status.status == 'status ok') {
       // successfully uploaded a new picture and set it as field+language
       return;
@@ -337,6 +341,7 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
         imgid: '$imageId',
         angle: ImageAngle.NOON,
         user: user,
+        uriHelper: uriProductHelper,
       );
       if (imageUrl == null) {
         throw Exception('Could not select picture');

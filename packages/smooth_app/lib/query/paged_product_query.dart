@@ -38,7 +38,7 @@ abstract class PagedProductQuery {
       OpenFoodAPIClient.searchProducts(
         ProductQuery.getUser(),
         getQueryConfiguration(),
-        queryType: OpenFoodAPIConfiguration.globalQueryType,
+        uriHelper: ProductQuery.uriProductHelper,
       );
 
   AbstractQueryConfiguration getQueryConfiguration();
