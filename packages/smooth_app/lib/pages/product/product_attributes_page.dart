@@ -101,12 +101,9 @@ class _ProductAttributeNutritionFactsState
 
   @override
   void initState() {
-    _allNutrients.clear();
     super.initState();
-  }
+    _allNutrients.clear();
 
-  @override
-  Widget build(BuildContext context) {
     widget.product.knowledgePanels?.panelIdToPanelMap['nutrition_facts_table']
         ?.elements
         ?.forEach((KnowledgePanelElement element) {
@@ -130,7 +127,10 @@ class _ProductAttributeNutritionFactsState
     });
 
     _allNutrients = _allNutrients.toSet().toList();
+  }
 
+  @override
+  Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return AttributeFirstRowWidget(
       allTerms: _allNutrients,
