@@ -62,6 +62,8 @@ class CameraScannerPageState extends State<CameraScannerPage>
 
       if (_headerHeight == null) {
         _detectHeaderHeight(retries + 1);
+      } else {
+        setState(() {});
       }
     });
   }
