@@ -62,6 +62,7 @@ class WebsiteCard extends StatelessWidget {
     );
   }
 
+  // TODO(g123k): That http is bothering me, what about switching to https?
   String _getWebsite() =>
       !website.startsWith('http') ? 'http://$website' : website;
 }

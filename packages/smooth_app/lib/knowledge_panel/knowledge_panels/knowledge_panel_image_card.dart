@@ -9,6 +9,7 @@ class KnowledgePanelImageCard extends StatelessWidget {
 
   final KnowledgePanelImageElement imageElement;
 
+  // TODO(g123k): It would be nice to provide a Placeholder
   @override
   Widget build(BuildContext context) => Image.network(
         imageElement.url,

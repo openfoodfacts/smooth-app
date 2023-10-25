@@ -33,6 +33,7 @@ class KnowledgePanelTextCard extends StatelessWidget {
       children: <Widget>[
         text,
         const SizedBox(height: MEDIUM_SPACE),
+        // TODO(g123k): Would it be difficult to remove the Icon directly?
         // Remove Icon
         IconTheme.merge(
           data: const IconThemeData(
