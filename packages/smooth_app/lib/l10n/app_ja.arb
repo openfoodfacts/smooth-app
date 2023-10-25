@@ -2475,5 +2475,9 @@
     "hunger_games_loading_line1": "数秒お待ちください…",
     "hunger_games_loading_line2": "質問をダウンロード中です！",
     "hunger_games_error_label": "ああ！問題が発生した… 、質問を読み込むことができませんでした。",
-    "hunger_games_error_retry_button": "再試行しましょう！"
+    "hunger_games_error_retry_button": "再試行しましょう！",
+    "link_cant_be_opened": "This link can't be opened on your device. Please check that you have a browser installed.",
+    "@link_cant_be_opened": {
+        "description": "An error may happen if the device doesn't have a browser installed."
+    }
 }
