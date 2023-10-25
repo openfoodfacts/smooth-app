@@ -29,7 +29,9 @@ class SmoothHtmlWidget extends StatelessWidget {
                 AppLocalizations.of(context);
 
             ScaffoldMessenger.maybeOf(context)?.showSnackBar(
-              SnackBar(content: appLocalizations.link_cant_be_opened),
+              SnackBar(
+                content: Text(appLocalizations.link_cant_be_opened),
+              ),
             );
           }
         }
