@@ -2475,5 +2475,9 @@
     "hunger_games_loading_line1": "Tolong beri kami waktu beberapa detik…",
     "hunger_games_loading_line2": "Kami mengunduh pertanyaannya!",
     "hunger_games_error_label": "Argh! Terjadi kesalahan… dan kami tidak bisa memuat pertanyaan.",
-    "hunger_games_error_retry_button": "Mari kita coba lagi!"
+    "hunger_games_error_retry_button": "Mari kita coba lagi!",
+    "link_cant_be_opened": "This link can't be opened on your device. Please check that you have a browser installed.",
+    "@link_cant_be_opened": {
+        "description": "An error may happen if the device doesn't have a browser installed."
+    }
 }
