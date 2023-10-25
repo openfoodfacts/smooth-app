@@ -2475,5 +2475,9 @@
     "hunger_games_loading_line1": "נא להמתין מספר שניות…",
     "hunger_games_loading_line2": "אנו מורידים את השאלות!",
     "hunger_games_error_label": "געוואלד! משהו השתבש… לא הצלחנו לטעון את השאלות.",
-    "hunger_games_error_retry_button": "מומלץ לנסות שוב!"
+    "hunger_games_error_retry_button": "מומלץ לנסות שוב!",
+    "link_cant_be_opened": "This link can't be opened on your device. Please check that you have a browser installed.",
+    "@link_cant_be_opened": {
+        "description": "An error may happen if the device doesn't have a browser installed."
+    }
 }
