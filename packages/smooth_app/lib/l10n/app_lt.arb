@@ -27,8 +27,8 @@
     "go_back_to_top": "Grįžti į viršų",
     "save": "Išsaugoti",
     "save_confirmation": "Ar tikrai norite išsaugoti?",
-    "skip": "Skip",
-    "cancel": "Cancel",
+    "skip": "Praleisti",
+    "cancel": "Atšaukti",
     "@cancel": {},
     "ignore": "Ignoruoti",
     "@ignore": {
@@ -146,7 +146,7 @@
     "incorrect_credentials": "Neteisingas prisijungimo vardas arba slaptažodis.",
     "password_lost_incorrect_credentials": "This email or username doesn't exist. Please check your credentials.",
     "password_lost_server_unavailable": "We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.",
-    "login": "Login",
+    "login": "Prisijungti",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
@@ -315,6 +315,10 @@
     "support_via_email_include_logs_dialog_body": "Ar norite įtraukti programos išrašą į savo el. pašto priedą?",
     "termsOfUse": "Naudojimo sąlygos",
     "@termsOfUse": {},
+    "legalNotices": "Teisinė informacija",
+    "@legalNotices": {
+        "description": "A link to open the legal notices on the website"
+    },
     "about_this_app": "Apie šią programėlę",
     "@about_this_app": {
         "description": "Button label: Opens a pop up window which shows information about the app"
@@ -358,6 +362,7 @@
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "Vertimai yra viena iš pagrindinių projekto užduočių",
     "@contribute_translate_text_2": {},
+    "contribute_join_skill_pool": "Papildykite savo įgūdžiais „Open Food Facts“. Prisijunkite prie bendraautorių bazės!",
     "contribute_share_header": "Share Open Food Facts with your friends",
     "@contribute_share_header": {},
     "contribute_share_content": "I wanted to let you know about the app I've been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it's free, does not require registration, and you can even help increase the number of products decyphered. Here's the link to get it for your phone: https://openfoodfacts.app",
@@ -859,9 +864,9 @@
     },
     "retry_button_label": "Bandyti dar kartą",
     "connect_with_us": "Susisiekite su mumis",
-    "instagram": "Instagram",
+    "instagram": "Sekite mus „Instagram“",
     "instagram_link": "https://instagram.com/open.food.facts",
-    "twitter": "X (anksčiau „Twitter“)",
+    "twitter": "Sekite mus X (anksčiau – „Twitter“)",
     "twitter_link": "https://www.twitter.com/openfoodfacts",
     "blog": "Blogas",
     "faq": "DUK",
@@ -1157,7 +1162,7 @@
     "permission_photo_denied_dialog_settings_title": "Leidimas atmestas",
     "permission_photo_denied_dialog_settings_message": "Kadangi anksčiau atmetėte fotoaparato leidimą, turite jį leisti rankiniu būdu nustatymuose.",
     "permission_photo_denied_dialog_settings_button_open": "Atidaryti nustatymus",
-    "permission_photo_denied_dialog_settings_button_cancel": "Cancel",
+    "permission_photo_denied_dialog_settings_button_cancel": "Atšaukti",
     "permission_photo_none_found": "Kamera neaptikta",
     "@permission_photo_none_found": {
         "description": "Message for the user when no camera was detected, replacing the barcode scanner"
@@ -1333,7 +1338,7 @@
     "@edit_product_form_item_nutrition_facts_subtitle": {
         "description": "Product edition - Nutrition facts - SubTitle"
     },
-    "edit_product_form_save": "Edit",
+    "edit_product_form_save": "Redaguoti",
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
     },
@@ -1465,6 +1470,10 @@
     "@category_picker_no_category_found_button": {
         "description": "Button label when no category is available"
     },
+    "user_preferences_item_accessibility_hint": "Spustelėkite, kad atidarytumėte naršyklėje arba programėlėje (jei įdiegta)",
+    "@user_preferences_item_accessibility_hint": {
+        "description": "A hint for screen readers to explain how external links work"
+    },
     "dev_preferences_screen_title": "Kurėjo režimas",
     "@dev_preferences_screen_title": {
         "description": "User dev preferences - Title"
@@ -1538,7 +1547,7 @@
     "@dev_preferences_button_positive": {
         "description": "User dev preferences - Positive button label"
     },
-    "dev_preferences_button_negative": "Cancel",
+    "dev_preferences_button_negative": "Atšaukti",
     "@dev_preferences_button_negative": {
         "description": "User dev preferences - Negative button label"
     },
@@ -1704,7 +1713,7 @@
     "@summary_card_button_add_basic_details": {
         "description": "Summary card - Button to add details about the product"
     },
-    "edit_photo_button_label": "Edit",
+    "edit_photo_button_label": "Redaguoti",
     "@edit_photo_button_label": {
         "description": "Edit photo button label"
     },
@@ -2272,6 +2281,32 @@
     "@contrast_low": {
         "description": "Low Contrast Text Color"
     },
+    "product_refresher_internet_not_found": "Produktas nerastas!",
+    "@product_refresher_internet_not_found": {
+        "description": "When refreshing a product that does not exist on the server. Label is the body of a dialog."
+    },
+    "product_refresher_internet_not_connected": "Jūs nesate prisijungę prie interneto!",
+    "@product_refresher_internet_not_connected": {
+        "description": "When refreshing a product and you're not even connected to internet. Label is the body of a dialog."
+    },
+    "product_refresher_internet_no_ping": "Serveris neveikia ({host})",
+    "@product_refresher_internet_no_ping": {
+        "description": "When refreshing a product and you cannot even ping the server. Label is the body of a dialog.",
+        "placeholders": {
+            "host": {
+                "type": "String?"
+            }
+        }
+    },
+    "product_refresher_internet_error": "Serverio klaida ({exception})",
+    "@product_refresher_internet_error": {
+        "description": "When refreshing a product and the server returned an exception. Label is the body of a dialog.",
+        "placeholders": {
+            "exception": {
+                "type": "String?"
+            }
+        }
+    },
     "product_loader_not_found_title": "Produktas nerastas!",
     "@product_loader_not_found_title": {
         "description": "When fetching a product opened via a link and it doesn't exist"
@@ -2404,6 +2439,7 @@
     "@product_list_create_tooltip": {
         "description": "Button description to create a new list (long sentence)"
     },
+    "nutriscore_generic": "Nutri-Score",
     "nutriscore_a": "Nutri-Score A",
     "nutriscore_b": "Nutri-Score B",
     "nutriscore_c": "Nutri-Score C",
@@ -2411,6 +2447,7 @@
     "nutriscore_e": "Nutri-Score E",
     "nutriscore_unknown": "Unknown Nutri-Score",
     "nutriscore_not_applicable": "Nutri-Score is not applicable",
+    "ecoscore_generic": "Eco-Score",
     "ecoscore_a": "Eco-Score A",
     "ecoscore_b": "Eco-Score B",
     "ecoscore_c": "Eco-Score C",
@@ -2418,11 +2455,23 @@
     "ecoscore_e": "Eco-Score E",
     "ecoscore_unknown": "Unknown Eco-Score",
     "ecoscore_not_applicable": "Eco-Score is not applicable",
+    "nova_group_generic": "Ultraapdorojimas – NOVA grupės",
     "nova_group_1": "NOVA Group 1",
     "nova_group_2": "NOVA Group 2",
     "nova_group_3": "NOVA Group 3",
     "nova_group_4": "NOVA Group 4",
     "nova_group_unknown": "Unknown NOVA Group",
+    "nutrition_facts": "Maistinių medžiagų lygiai",
+    "faq_title_partners": "NVO partneriai ir globėjai",
+    "faq_title_vision": "„Open Food Facts“ vizija, misija, vertybės ir programos",
+    "faq_title_install_beauty": "Įdiekite „Open Beauty Facts“, kad sukurtumėte kosmetikos duomenų bazę",
+    "faq_title_install_pet": "Įdiekite „Open Pet Food Facts“, kad sukurtumėte naminių gyvūnų pašarų duomenų bazę",
+    "faq_title_install_product": "Įdiekite „Open Products Facts“, kad sukurtumėte produktų duomenų bazę ir pailgintumėte objektų eksploatavimo laiką",
+    "contact_title_pro_page": "„Pro“? Importuokite savo produktus į „Open Food Facts“",
+    "contact_title_pro_email": "Gamintojo kontaktai",
+    "contact_title_press_page": "Spaudos puslapis",
+    "contact_title_press_email": "Kontaktai spaudai",
+    "contact_title_newsletter": "Prenumeruokite mūsų naujienlaiškį",
     "hunger_games_loading_line1": "Skirkite mums kelias sekundes…",
     "hunger_games_loading_line2": "Mes atsisiunčiame klausimus!",
     "hunger_games_error_label": "Po galais! Kažkas atsitiko… ir mums nepavyko įkelti klausimų.",

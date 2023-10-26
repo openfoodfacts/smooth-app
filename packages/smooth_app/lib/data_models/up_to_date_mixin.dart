@@ -15,25 +15,25 @@ import 'package:smooth_app/database/local_database.dart';
 /// * we track the barcodes currently "opened" by the app
 @optionalTypeArgs
 mixin UpToDateMixin<T extends StatefulWidget> on State<T> {
-  /// To be used in the `initState` method.
+  /// To be used in the `initState` method, just after `super.initState();`.
   void initUpToDate(
     final Product initialProduct,
     final LocalDatabase localDatabase,
   ) {
-    this.initialProduct = initialProduct;
+    _initialProduct = initialProduct;
     _localDatabase = localDatabase;
+    _refreshUpToDate();
     localDatabase.upToDate.showInterest(barcode);
   }
 
-  @protected
-  late final Product initialProduct;
+  late final Product _initialProduct;
 
   late final LocalDatabase _localDatabase;
 
   late Product _product;
 
   @protected
-  String get barcode => initialProduct.barcode!;
+  String get barcode => _initialProduct.barcode!;
 
   @protected
   Product get upToDateProduct => _product;
@@ -50,6 +50,9 @@ mixin UpToDateMixin<T extends StatefulWidget> on State<T> {
   /// `context.watch<LocalDatabase>()`.
   void refreshUpToDate() {
     BackgroundTaskManager.getInstance(_localDatabase).run(); // no await
-    _product = _localDatabase.upToDate.getLocalUpToDate(initialProduct);
+    _refreshUpToDate();
   }
+
+  void _refreshUpToDate() =>
+      _product = _localDatabase.upToDate.getLocalUpToDate(_initialProduct);
 }

@@ -13,22 +13,22 @@ import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/pages/hunger_games/question_page.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/query/paged_to_be_completed_product_query.dart';
+import 'package:smooth_app/query/product_query.dart';
 
 /// Display of "Contribute" for the preferences page.
 class UserPreferencesContribute extends AbstractUserPreferences {
   UserPreferencesContribute({
-    required final Function(Function()) setState,
     required final BuildContext context,
     required final UserPreferences userPreferences,
     required final AppLocalizations appLocalizations,
     required final ThemeData themeData,
   }) : super(
-          setState: setState,
           context: context,
           userPreferences: userPreferences,
           appLocalizations: appLocalizations,
@@ -36,13 +36,10 @@ class UserPreferencesContribute extends AbstractUserPreferences {
         );
 
   @override
-  PreferencePageType? getPreferencePageType() => PreferencePageType.CONTRIBUTE;
+  PreferencePageType getPreferencePageType() => PreferencePageType.CONTRIBUTE;
 
   @override
   String getTitleString() => appLocalizations.contribute;
-
-  @override
-  Widget? getSubtitle() => null;
 
   @override
   IconData getLeadingIconData() => Icons.emoji_people;
@@ -54,48 +51,70 @@ class UserPreferencesContribute extends AbstractUserPreferences {
   Color? getHeaderColor() => const Color(0xFFFFF2DF);
 
   @override
-  List<Widget> getBody() {
-    return <Widget>[
-      _getListTile(
-        'Hunger Games',
-        () => _hungerGames(),
-        Icons.games,
-      ),
-      _getListTile(
-        appLocalizations.contribute_improve_header,
-        () => _contribute(),
-        Icons.data_saver_on,
-      ),
-      _getListTile(
-        appLocalizations.contribute_sw_development,
-        () => _develop(),
-        Icons.app_shortcut,
-      ),
-      _getListTile(
-        appLocalizations.contribute_translate_header,
-        () => _translate(),
-        Icons.translate,
-      ),
-      _getListTile(
-        appLocalizations.contribute_share_header,
-        () => _share(appLocalizations.contribute_share_content),
-        Icons.adaptive.share,
-      ),
-      _getListTile(
-        appLocalizations.contribute_donate_header,
-        () => _donate(),
-        Icons.volunteer_activism,
-        icon: UserPreferencesListTile.getTintedIcon(Icons.open_in_new, context),
-        externalLink: true,
-      ),
-      _getListTile(
-        appLocalizations.contributors_label,
-        () => _contributors(),
-        Icons.emoji_people,
-        description: appLocalizations.contributors_description,
-      ),
-    ];
-  }
+  List<UserPreferencesItem> getChildren() => <UserPreferencesItem>[
+        _getListTile(
+          'Hunger Games',
+          () async => _hungerGames(),
+          Icons.games,
+        ),
+        _getListTile(
+          appLocalizations.contribute_improve_header,
+          () async => _contribute(),
+          Icons.data_saver_on,
+        ),
+        _getListTile(
+          appLocalizations.contribute_sw_development,
+          () async => _develop(),
+          Icons.app_shortcut,
+        ),
+        _getListTile(
+          appLocalizations.contribute_translate_header,
+          () async => _translate(),
+          Icons.translate,
+        ),
+        _getListTile(
+          appLocalizations.how_to_contribute,
+          () async => LaunchUrlHelper.launchURL(
+            ProductQuery.replaceSubdomain(
+              'https://world.openfoodfacts.org/contribute',
+            ),
+            false,
+          ),
+          Icons.volunteer_activism_outlined,
+          externalLink: true,
+        ),
+        _getListTile(
+          appLocalizations.contribute_join_skill_pool,
+          () async => LaunchUrlHelper.launchURL(
+            'https://docs.google.com/forms/d/e/1FAIpQLSfGHAn5KxW7ko3_GlDfQpVGKpPAMHMbDvY2IjtxfJSXxKJQ2A/viewform?usp=sf_link',
+            false,
+          ),
+          Icons.group,
+          externalLink: true,
+        ),
+        _getListTile(
+          appLocalizations.contribute_share_header,
+          () async => _share(appLocalizations.contribute_share_content),
+          Icons.adaptive.share,
+        ),
+        _getListTile(
+          appLocalizations.contribute_donate_header,
+          () async => LaunchUrlHelper.launchURL(
+            AppLocalizations.of(context).donate_url,
+            false,
+          ),
+          Icons.volunteer_activism,
+          icon:
+              UserPreferencesListTile.getTintedIcon(Icons.open_in_new, context),
+          externalLink: true,
+        ),
+        _getListTile(
+          appLocalizations.contributors_label,
+          () async => _contributors(),
+          Icons.emoji_people,
+          description: appLocalizations.contributors_description,
+        ),
+      ];
 
   Future<void> _contribute() => showDialog<void>(
         context: context,
@@ -149,6 +168,7 @@ class UserPreferencesContribute extends AbstractUserPreferences {
         builder: (BuildContext context) {
           final AppLocalizations appLocalizations =
               AppLocalizations.of(context);
+          context.watch<UserPreferences>();
           return SmoothAlertDialog(
             title: appLocalizations.contribute_sw_development,
             body: Column(
@@ -171,7 +191,14 @@ class UserPreferencesContribute extends AbstractUserPreferences {
                       'https://github.com/openfoodfacts', false),
                 ),
                 const SizedBox(height: 10),
-                const _DevModeSetting(),
+                UserPreferencesSwitchWidget(
+                  title: appLocalizations.contribute_develop_dev_mode_title,
+                  subtitle:
+                      appLocalizations.contribute_develop_dev_mode_subtitle,
+                  value: userPreferences.devMode != 0,
+                  onChanged: (final bool devMode) async =>
+                      userPreferences.setDevMode(devMode ? 1 : 0),
+                ),
               ],
             ),
             negativeAction: SmoothActionButton(
@@ -222,11 +249,6 @@ class UserPreferencesContribute extends AbstractUserPreferences {
 
   Future<void> _share(String content) async => Share.share(content);
 
-  Future<void> _donate() async => LaunchUrlHelper.launchURL(
-        AppLocalizations.of(context).donate_url,
-        false,
-      );
-
   Future<void> _contributors() => showDialog<void>(
         context: context,
         builder: (BuildContext context) => _ContributorsDialog(),
@@ -234,7 +256,7 @@ class UserPreferencesContribute extends AbstractUserPreferences {
 
   Future<void> _hungerGames() async => openQuestionPage(context);
 
-  Widget _getListTile(
+  UserPreferencesItem _getListTile(
     final String title,
     final VoidCallback onTap,
     final IconData leading, {
@@ -251,16 +273,21 @@ class UserPreferencesContribute extends AbstractUserPreferences {
     );
 
     if (description != null) {
-      return Semantics(
-        value: title,
-        hint: description,
-        button: true,
-        excludeSemantics: true,
-        child: tile,
+      return UserPreferencesItemSimple(
+        labels: <String>[title, description],
+        builder: (_) => Semantics(
+          value: title,
+          hint: description,
+          button: true,
+          excludeSemantics: true,
+          child: tile,
+        ),
       );
-    } else {
-      return tile;
     }
+    return UserPreferencesItemSimple(
+      labels: <String>[title],
+      builder: (_) => tile,
+    );
   }
 }
 
@@ -359,25 +386,6 @@ class _ContributorsDialog extends StatelessWidget {
       ),
       actionsAxis: Axis.vertical,
       actionsOrder: SmoothButtonsBarOrder.auto,
-    );
-  }
-}
-
-class _DevModeSetting extends StatelessWidget {
-  const _DevModeSetting({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final UserPreferences userPreferences = context.watch<UserPreferences>();
-
-    return UserPreferencesSwitchItem(
-      title: appLocalizations.contribute_develop_dev_mode_title,
-      subtitle: appLocalizations.contribute_develop_dev_mode_subtitle,
-      value: userPreferences.devMode != 0,
-      onChanged: (final bool devMode) async {
-        await userPreferences.setDevMode(devMode ? 1 : 0);
-      },
     );
   }
 }

@@ -13,7 +13,14 @@ import 'package:uuid/uuid.dart';
 abstract class ProductQuery {
   static const ProductQueryVersion productQueryVersion = ProductQueryVersion.v3;
 
-  static OpenFoodFactsCountry? _country;
+  static late OpenFoodFactsCountry _country;
+
+  static String replaceSubdomain(final String url) =>
+      UriHelper.replaceSubdomain(
+        Uri.parse(url),
+        language: getLanguage(),
+        country: getCountry(),
+      ).toString();
 
   /// Returns the global language for API queries.
   static OpenFoodFactsLanguage getLanguage() {
@@ -46,21 +53,48 @@ abstract class ProductQuery {
   }
 
   /// Returns the global country for API queries.
-  static OpenFoodFactsCountry? getCountry() => _country;
+  static OpenFoodFactsCountry getCountry() => _country;
+
+  /// Sets the global country for API queries: implicit choice at init time.
+  static Future<void> initCountry(
+    final UserPreferences userPreferences,
+  ) async {
+    // not ideal, but we have many contributors monitoring France
+    const OpenFoodFactsCountry defaultCountry = OpenFoodFactsCountry.FRANCE;
+    final String? isoCode = userPreferences.userCountryCode ??
+        PlatformDispatcher.instance.locale.countryCode?.toLowerCase();
+    final OpenFoodFactsCountry country =
+        OpenFoodFactsCountry.fromOffTag(isoCode) ?? defaultCountry;
+    await _setCountry(userPreferences, country);
+  }
+
+  /// Sets the global country for API queries: explicit choice by the user.
+  ///
+  /// Returns true if the [isoCode] was correctly detected.
+  static Future<bool> setCountry(
+    final UserPreferences userPreferences,
+    final String isoCode,
+  ) async {
+    final OpenFoodFactsCountry? country =
+        OpenFoodFactsCountry.fromOffTag(isoCode);
+    if (country == null) {
+      return false;
+    }
+    await _setCountry(userPreferences, country);
+    return true;
+  }
 
   /// Sets the global country for API queries.
-  static Future<void> setCountry(
-    final UserPreferences userPreferences, {
-    String? isoCode,
-  }) async {
-    isoCode ??= userPreferences.userCountryCode ??
-        PlatformDispatcher.instance.locale.countryCode?.toLowerCase();
-    _country = CountryHelper.fromJson(isoCode);
+  static Future<void> _setCountry(
+    final UserPreferences userPreferences,
+    final OpenFoodFactsCountry country,
+  ) async {
+    _country = country;
     // we need this to run "world" queries
     OpenFoodAPIConfiguration.globalCountry = null;
 
-    isoCode = _country?.offTag;
-    if (isoCode != null && isoCode != userPreferences.userCountryCode) {
+    final String isoCode = country.offTag;
+    if (isoCode != userPreferences.userCountryCode) {
       await userPreferences.setUserCountryCode(isoCode);
     }
   }
@@ -68,7 +102,7 @@ abstract class ProductQuery {
   /// Returns the global locale string (e.g. 'pt_BR')
   static String getLocaleString() => '${getLanguage().code}'
       '_'
-      '${getCountry()!.offTag.toUpperCase()}';
+      '${getCountry().offTag.toUpperCase()}';
 
   /// Sets a comment for the user agent.
   ///
@@ -116,20 +150,33 @@ abstract class ProductQuery {
         comment: 'Test user for project smoothie',
       );
 
+  static late UriProductHelper uriProductHelper;
+
   static bool isLoggedIn() => OpenFoodAPIConfiguration.globalUser != null;
 
   /// Sets the query type according to the current [UserPreferences]
   static void setQueryType(final UserPreferences userPreferences) {
-    OpenFoodAPIConfiguration.globalQueryType = userPreferences
-                .getFlag(UserPreferencesDevMode.userPreferencesFlagProd) ??
-            true
-        ? QueryType.PROD
-        : QueryType.TEST;
-    final String? testEnvHost = userPreferences
-        .getDevModeString(UserPreferencesDevMode.userPreferencesTestEnvHost);
-    if (testEnvHost != null) {
-      OpenFoodAPIConfiguration.uriTestHost = testEnvHost;
-    }
+    final bool queryTypeProd = userPreferences
+            .getFlag(UserPreferencesDevMode.userPreferencesFlagProd) ??
+        true;
+    uriProductHelper = queryTypeProd
+        ? uriHelperFoodProd
+        : getTestUriProductHelper(userPreferences);
+  }
+
+  /// Returns the standard test env, or the custom test env if relevant.
+  static UriProductHelper getTestUriProductHelper(
+      final UserPreferences userPreferences) {
+    final String testEnvDomain = userPreferences.getDevModeString(
+            UserPreferencesDevMode.userPreferencesTestEnvDomain) ??
+        '';
+    return testEnvDomain.isEmpty
+        ? uriHelperFoodTest
+        : UriProductHelper(
+            isTestMode: true,
+            userInfoForPatch: HttpHelper.userInfoForTest,
+            domain: testEnvDomain,
+          );
   }
 
   static List<ProductField> get fields => const <ProductField>[
@@ -149,7 +196,6 @@ abstract class ProductQuery {
         ProductField.SERVING_SIZE,
         ProductField.STORES,
         ProductField.PACKAGING_QUANTITY,
-        // ignore: deprecated_member_use
         ProductField.PACKAGING,
         ProductField.PACKAGINGS,
         ProductField.PACKAGINGS_COMPLETE,

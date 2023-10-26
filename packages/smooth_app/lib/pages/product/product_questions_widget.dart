@@ -83,10 +83,10 @@ class _ProductQuestionsWidgetState extends State<ProductQuestionsWidget>
     };
   }
 
-  void _openQuestions() {
+  Future<void> _openQuestions() async {
     _trackEvent(AnalyticsEvent.questionClicked);
 
-    openQuestionPage(
+    await openQuestionPage(
       context,
       product: widget.product,
       questions: (_state as _ProductQuestionsWithQuestions).questions.toList(
@@ -94,10 +94,19 @@ class _ProductQuestionsWidgetState extends State<ProductQuestionsWidget>
           ),
       updateProductUponAnswers: _updateProductUponAnswers,
     );
+
+    if (context.mounted) {
+      return _reloadQuestions(silentCheck: true);
+    }
   }
 
-  Future<void> _reloadQuestions() async {
-    setState(() => _state = const _ProductQuestionsLoading());
+  Future<void> _reloadQuestions({
+    bool silentCheck = false,
+  }) async {
+    if (!silentCheck) {
+      setState(() => _state = const _ProductQuestionsLoading());
+    }
+
     final List<RobotoffQuestion>? list = await _loadProductQuestions();
 
     if (!mounted) {

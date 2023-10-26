@@ -93,11 +93,7 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
           fixKeyboard: true,
           appBar: SmoothAppBar(
             centerTitle: false,
-            title: Text(
-              getProductName(widget.product, appLocalizations),
-              maxLines: widget.product.barcode?.isNotEmpty == true ? 1 : 2,
-              overflow: TextOverflow.ellipsis,
-            ),
+            title: buildProductTitle(widget.product, appLocalizations),
             subTitle: widget.product.barcode != null
                 ? ExcludeSemantics(
                     excluding: true, child: Text(widget.product.barcode!))

@@ -232,6 +232,7 @@ Future<File?> confirmAndUploadNewPicture(
   required final ImageField imageField,
   required final String barcode,
   required final OpenFoodFactsLanguage language,
+  required final bool isLoggedInMandatory,
 }) async {
   XFile? croppedPhoto;
   try {
@@ -262,6 +263,7 @@ Future<File?> confirmAndUploadNewPicture(
         inputFile: File(croppedPhoto!.path),
         initiallyDifferent: true,
         language: language,
+        isLoggedInMandatory: isLoggedInMandatory,
       ),
       fullscreenDialog: true,
     ),

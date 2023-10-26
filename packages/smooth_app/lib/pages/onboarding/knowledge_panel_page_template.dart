@@ -159,12 +159,24 @@ class _KnowledgePanelPageTemplateState
           margin: const EdgeInsetsDirectional.only(
             start: VERY_LARGE_SPACE,
             top: 10,
-            end: VERY_LARGE_SPACE,
+            end: 10,
             bottom: 10,
           ),
-          child: Text(
-            appLocalizations.hint_knowledge_panel_message,
-            style: TextStyle(color: Theme.of(context).cardColor),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Expanded(
+                child: Text(
+                  appLocalizations.hint_knowledge_panel_message,
+                  style: TextStyle(color: Theme.of(context).cardColor),
+                ),
+              ),
+              const SizedBox(width: VERY_LARGE_SPACE),
+              Icon(
+                Icons.close,
+                color: Theme.of(context).cardColor,
+              ),
+            ],
           ),
         ),
       ),

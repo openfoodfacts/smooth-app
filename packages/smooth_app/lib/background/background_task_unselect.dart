@@ -86,7 +86,7 @@ class BackgroundTaskUnselect extends BackgroundTaskBarcode {
         imageField: imageField.offTag,
         languageCode: language.code,
         user: jsonEncode(ProductQuery.getUser().toJson()),
-        country: ProductQuery.getCountry()!.offTag,
+        country: ProductQuery.getCountry().offTag,
         // same stamp as image upload
         stamp: BackgroundTaskUpload.getStamp(
           barcode,
@@ -129,6 +129,7 @@ class BackgroundTaskUnselect extends BackgroundTaskBarcode {
         imageField: ImageField.fromOffTag(imageField)!,
         language: getLanguage(),
         user: getUser(),
+        uriHelper: uriProductHelper,
       );
 
   /// Returns a product with "unselected" image.

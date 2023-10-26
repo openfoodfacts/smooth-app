@@ -57,10 +57,10 @@ packages:
     dependency: transitive
     description:
       name: archive
-      sha256: "0c8368c9b3f0abbc193b9d6133649a614204b528982bebc7026372d61677ce3a"
+      sha256: "49b1fad315e57ab0bbc15bcbb874e83116a1d78f77ebd500a4af6c9407d6b28e"
       url: "https://pub.dev"
     source: hosted
-    version: "3.3.7"
+    version: "3.3.8"
   args:
     dependency: transitive
     description:
@@ -321,10 +321,10 @@ packages:
     dependency: "direct main"
     description:
       name: crop_image
-      sha256: "2c70294bdcb0f2fd8b7d660535b314eb5d2477000057e1f30db8295d1588c422"
+      sha256: "12aada0b838365f9be08077814b75fe3113384987ad46119d56b042c1c613045"
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.10"
+    version: "1.0.11"
   cross_file:
     dependency: transitive
     description:
@@ -553,10 +553,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_email_sender
-      sha256: "52b713a67a966be4d9e6f68a323fc0a5bc2da71c567eb451af1aa90d30adbc3a"
+      sha256: "39398c3e6cf4fbe99798d3ac6ae7d229290d57f1504a4a9a0d35f3737dc28930"
       url: "https://pub.dev"
     source: hosted
-    version: "6.0.1"
+    version: "6.0.0"
   flutter_icmp_ping:
     dependency: transitive
     description:
@@ -609,10 +609,10 @@ packages:
     dependency: "direct dev"
     description:
       name: flutter_lints
-      sha256: aeb0b80a8b3709709c9cc496cdc027c5b3216796bc0af0ce1007eaf24464fd4c
+      sha256: "2118df84ef0c3ca93f96123a616ae8540879991b8b57af2f81b76a7ada49b2a4"
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.1"
+    version: "2.0.2"
   flutter_localizations:
     dependency: "direct main"
     description: flutter
@@ -914,10 +914,10 @@ packages:
     dependency: "direct main"
     description:
       name: iso_countries
-      sha256: "4b5e26f2281210505a4352e3a615a8b54fff0017250dfc7374466ac807462768"
+      sha256: efb2f1c69191c8071cf94d88e961501bfefead6753011544896cd2a3f504821e
       url: "https://pub.dev"
     source: hosted
-    version: "2.1.0"
+    version: "2.2.0"
   js:
     dependency: transitive
     description:
@@ -1067,10 +1067,10 @@ packages:
     dependency: "direct main"
     description:
       name: openfoodfacts
-      sha256: "25d4906abb23c8f2667f3b97e5c787b7d3e02082456da7a82fad38518c04489a"
+      sha256: afd34c76e60dddc614ebf1e370985548d58d5e15a007118f3c3e9d95a2728c6a
       url: "https://pub.dev"
     source: hosted
-    version: "2.10.0"
+    version: "3.0.0"
   openfoodfacts_flutter_lints:
     dependency: "direct dev"
     description:
@@ -1827,5 +1827,5 @@ packages:
     source: hosted
     version: "3.1.2"
 sdks:
-  dart: ">=3.0.0 <4.0.0"
+  dart: ">=3.1.0 <4.0.0"
   flutter: ">=3.10.0"

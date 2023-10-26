@@ -60,79 +60,86 @@ class _ScanPageState extends State<ScanPage> {
           Theme.of(context).brightness == Brightness.light && Platform.isIOS
               ? Brightness.dark
               : null,
-      body: SafeArea(
-        child: Column(
-          children: <Widget>[
-            if (hasACamera)
-              Expanded(
-                flex: 100 - _carouselHeightPct,
-                child: Consumer<PermissionListener>(
-                  builder: (
-                    BuildContext context,
-                    PermissionListener listener,
-                    _,
-                  ) {
-                    switch (listener.value.status) {
-                      case DevicePermissionStatus.checking:
-                        return EMPTY_WIDGET;
-                      case DevicePermissionStatus.granted:
-                        // TODO(m123): change
-                        return const CameraScannerPage();
-                      default:
-                        return const _PermissionDeniedCard();
-                    }
-                  },
+      body: Container(
+        color: Colors.white,
+        child: SafeArea(
+          child: Container(
+            color: Theme.of(context).colorScheme.background,
+            child: Column(
+              children: <Widget>[
+                if (hasACamera)
+                  Expanded(
+                    flex: 100 - _carouselHeightPct,
+                    child: Consumer<PermissionListener>(
+                      builder: (
+                        BuildContext context,
+                        PermissionListener listener,
+                        _,
+                      ) {
+                        switch (listener.value.status) {
+                          case DevicePermissionStatus.checking:
+                            return EMPTY_WIDGET;
+                          case DevicePermissionStatus.granted:
+                            // TODO(m123): change
+                            return const CameraScannerPage();
+                          default:
+                            return const _PermissionDeniedCard();
+                        }
+                      },
+                    ),
+                  ),
+                Expanded(
+                  flex: _carouselHeightPct,
+                  child: Padding(
+                    padding: const EdgeInsetsDirectional.only(bottom: 10.0),
+                    child: SmoothProductCarousel(
+                      containSearchCard: true,
+                      onPageChangedTo: (int page, String? barcode) async {
+                        if (barcode == null) {
+                          // We only notify for new products
+                          return;
+                        }
+
+                        // Both are Future methods, but it doesn't matter to wait here
+                        SmoothHapticFeedback.lightNotification();
+
+                        if (_userPreferences.playCameraSound) {
+                          await _initSoundManagerIfNecessary();
+                          await _musicPlayer!.stop();
+                          await _musicPlayer!.play(
+                            AssetSource('audio/beep.wav'),
+                            volume: 0.5,
+                            ctx: const AudioContext(
+                              android: AudioContextAndroid(
+                                isSpeakerphoneOn: false,
+                                stayAwake: false,
+                                contentType: AndroidContentType.sonification,
+                                usageType: AndroidUsageType.notification,
+                                audioFocus:
+                                    AndroidAudioFocus.gainTransientMayDuck,
+                              ),
+                              iOS: AudioContextIOS(
+                                category: AVAudioSessionCategory.soloAmbient,
+                                options: <AVAudioSessionOptions>[
+                                  AVAudioSessionOptions.mixWithOthers,
+                                ],
+                              ),
+                            ),
+                          );
+                        }
+
+                        SemanticsService.announce(
+                          appLocalizations.scan_announce_new_barcode(barcode),
+                          direction,
+                          assertiveness: Assertiveness.assertive,
+                        );
+                      },
+                    ),
+                  ),
                 ),
-              ),
-            Expanded(
-              flex: _carouselHeightPct,
-              child: Padding(
-                padding: const EdgeInsetsDirectional.only(bottom: 10.0),
-                child: SmoothProductCarousel(
-                  containSearchCard: true,
-                  onPageChangedTo: (int page, String? barcode) async {
-                    if (barcode == null) {
-                      // We only notify for new products
-                      return;
-                    }
-
-                    // Both are Future methods, but it doesn't matter to wait here
-                    SmoothHapticFeedback.lightNotification();
-
-                    if (_userPreferences.playCameraSound) {
-                      await _initSoundManagerIfNecessary();
-                      await _musicPlayer!.stop();
-                      await _musicPlayer!.play(
-                        AssetSource('audio/beep.wav'),
-                        volume: 0.5,
-                        ctx: const AudioContext(
-                          android: AudioContextAndroid(
-                            isSpeakerphoneOn: false,
-                            stayAwake: false,
-                            contentType: AndroidContentType.sonification,
-                            usageType: AndroidUsageType.notification,
-                            audioFocus: AndroidAudioFocus.gainTransientMayDuck,
-                          ),
-                          iOS: AudioContextIOS(
-                            category: AVAudioSessionCategory.soloAmbient,
-                            options: <AVAudioSessionOptions>[
-                              AVAudioSessionOptions.mixWithOthers,
-                            ],
-                          ),
-                        ),
-                      );
-                    }
-
-                    SemanticsService.announce(
-                      appLocalizations.scan_announce_new_barcode(barcode),
-                      direction,
-                      assertiveness: Assertiveness.assertive,
-                    );
-                  },
-                ),
-              ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );

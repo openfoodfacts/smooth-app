@@ -10,18 +10,16 @@ class AddSimpleInputButton extends StatelessWidget {
   const AddSimpleInputButton({
     required this.product,
     required this.helper,
-    this.isLoggedInMandatory = true,
   });
 
   final Product product;
   final AbstractSimpleInputPageHelper helper;
-  final bool isLoggedInMandatory;
 
   @override
   Widget build(BuildContext context) => addPanelButton(
         helper.getAddButtonLabel(AppLocalizations.of(context)),
         onPressed: () async => ProductFieldSimpleEditor(helper).edit(
-          isLoggedInMandatory: isLoggedInMandatory,
+          isLoggedInMandatory: true,
           context: context,
           product: product,
         ),

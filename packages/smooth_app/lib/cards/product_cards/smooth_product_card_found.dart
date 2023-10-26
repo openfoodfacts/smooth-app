@@ -56,111 +56,110 @@ class SmoothProductCardFound extends StatelessWidget {
     );
     final ProductCompatibilityHelper helper =
         ProductCompatibilityHelper.product(matchedProduct);
-    return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: MEDIUM_SPACE,
-        vertical: SMALL_SPACE,
-      ),
-      child: InkWell(
-        borderRadius: ROUNDED_BORDER_RADIUS,
-        onTap: onTap ??
-            () {
-              AppNavigator.of(context).push(
+    final Widget child = InkWell(
+      borderRadius: ROUNDED_BORDER_RADIUS,
+      onTap: onTap ??
+          () => AppNavigator.of(context).push(
                 AppRoutes.PRODUCT(
                   product.barcode!,
                   heroTag: heroTag,
                 ),
                 extra: product,
-              );
-            },
-        onLongPress: () {
-          onLongPress?.call();
-        },
-        child: Hero(
-          tag: heroTag,
-          child: Material(
-            type: MaterialType.transparency,
-            child: Ink(
-              decoration: BoxDecoration(
-                borderRadius: ROUNDED_BORDER_RADIUS,
-                color: backgroundColor ??
-                    (isDarkMode ? Colors.black : Colors.white),
               ),
-              child: SmoothCard(
-                elevation: elevation,
-                color: Colors.transparent,
-                padding: const EdgeInsets.all(VERY_SMALL_SPACE),
-                child: Row(
-                  children: <Widget>[
-                    SmoothMainProductImage(
-                      product: product,
-                      width: screenSize.width * 0.20,
-                      height: screenSize.width * 0.20,
-                    ),
-                    const Padding(
-                        padding: EdgeInsetsDirectional.only(
-                            start: VERY_SMALL_SPACE)),
-                    Expanded(
-                      child: SizedBox(
-                        height: screenSize.width * 0.2,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Text(
-                              getProductName(product, appLocalizations),
-                              overflow: TextOverflow.ellipsis,
-                              style: themeData.textTheme.headlineMedium,
-                            ),
-                            Text(
-                              getProductBrands(product, appLocalizations),
-                              overflow: TextOverflow.ellipsis,
-                              style: themeData.textTheme.titleMedium,
-                            ),
-                            Row(
-                              children: <Widget>[
-                                Icon(
-                                  Icons.circle,
-                                  size: 15,
-                                  color: helper.getButtonColor(isDarkMode),
-                                ),
-                                const Padding(
-                                  padding: EdgeInsetsDirectional.only(
-                                      start: VERY_SMALL_SPACE),
-                                ),
-                                Expanded(
-                                  child: FittedBox(
-                                    fit: BoxFit.scaleDown,
-                                    alignment: AlignmentDirectional.centerStart,
-                                    child: Text(
-                                      helper.getSubtitle(appLocalizations),
-                                      style: themeData.textTheme.bodyMedium,
-                                    ),
+      onLongPress: () => onLongPress?.call(),
+      child: Hero(
+        tag: heroTag,
+        child: Material(
+          type: MaterialType.transparency,
+          child: Ink(
+            decoration: BoxDecoration(
+              borderRadius: ROUNDED_BORDER_RADIUS,
+              color:
+                  backgroundColor ?? (isDarkMode ? Colors.black : Colors.white),
+            ),
+            child: SmoothCard(
+              elevation: elevation,
+              color: Colors.transparent,
+              padding: const EdgeInsets.all(VERY_SMALL_SPACE),
+              child: Row(
+                children: <Widget>[
+                  SmoothMainProductImage(
+                    product: product,
+                    width: screenSize.width * 0.20,
+                    height: screenSize.width * 0.20,
+                  ),
+                  const Padding(
+                    padding:
+                        EdgeInsetsDirectional.only(start: VERY_SMALL_SPACE),
+                  ),
+                  Expanded(
+                    child: SizedBox(
+                      height: screenSize.width * 0.2,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            getProductName(product, appLocalizations),
+                            overflow: TextOverflow.ellipsis,
+                            style: themeData.textTheme.headlineMedium,
+                          ),
+                          Text(
+                            getProductBrands(product, appLocalizations),
+                            overflow: TextOverflow.ellipsis,
+                            style: themeData.textTheme.titleMedium,
+                          ),
+                          Row(
+                            children: <Widget>[
+                              Icon(
+                                Icons.circle,
+                                size: 15,
+                                color: helper.getButtonColor(isDarkMode),
+                              ),
+                              const Padding(
+                                padding: EdgeInsetsDirectional.only(
+                                    start: VERY_SMALL_SPACE),
+                              ),
+                              Expanded(
+                                child: FittedBox(
+                                  fit: BoxFit.scaleDown,
+                                  alignment: AlignmentDirectional.centerStart,
+                                  child: Text(
+                                    helper.getSubtitle(appLocalizations),
+                                    style: themeData.textTheme.bodyMedium,
                                   ),
                                 ),
-                              ],
-                            ),
-                          ],
-                        ),
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
                     ),
-                    const Padding(
-                      padding:
-                          EdgeInsetsDirectional.only(start: VERY_SMALL_SPACE),
+                  ),
+                  const Padding(
+                    padding:
+                        EdgeInsetsDirectional.only(start: VERY_SMALL_SPACE),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(VERY_SMALL_SPACE),
+                    child: Column(
+                      children: scores,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(VERY_SMALL_SPACE),
-                      child: Column(
-                        children: scores,
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           ),
         ),
       ),
+    );
+    // TODO(monsieurtanuki): check localDatabase.upToDate.hasPendingChanges and display a "pending changes" mark if relevant
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+        horizontal: MEDIUM_SPACE,
+        vertical: SMALL_SPACE,
+      ),
+      child: child,
     );
   }
 }

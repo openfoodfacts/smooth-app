@@ -314,8 +314,10 @@ class UserPreferences extends ChangeNotifier {
   String? getDevModeString(final String tag) =>
       _sharedPreferences.getString(tag);
 
-  Future<void> setActiveAttributeGroup(final String value) async =>
-      _sharedPreferences.setString(_TAG_ACTIVE_ATTRIBUTE_GROUP, value);
+  Future<void> setActiveAttributeGroup(final String value) async {
+    await _sharedPreferences.setString(_TAG_ACTIVE_ATTRIBUTE_GROUP, value);
+    notifyListeners();
+  }
 
   String get activeAttributeGroup =>
       _sharedPreferences.getString(_TAG_ACTIVE_ATTRIBUTE_GROUP) ??

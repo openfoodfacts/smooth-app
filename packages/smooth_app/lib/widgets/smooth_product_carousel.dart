@@ -27,7 +27,6 @@ import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
 import 'package:smooth_app/pages/scan/scan_product_card_loader.dart';
 import 'package:smooth_app/pages/scan/search_page.dart';
 import 'package:smooth_app/services/smooth_services.dart';
-import 'package:url_launcher/url_launcher_string.dart';
 
 class SmoothProductCarousel extends StatefulWidget {
   const SmoothProductCarousel({
@@ -387,11 +386,7 @@ class _SearchCardContentTagLine extends StatelessWidget {
             borderRadius: ANGULAR_BORDER_RADIUS,
             onTap: tagLine.hasLink
                 ? () async {
-                    await launchUrlString(
-                      tagLine.url,
-                      // forms.gle links are not handled by the WebView
-                      mode: LaunchMode.externalApplication,
-                    );
+                    await LaunchUrlHelper.launchURL(tagLine.url, false);
                   }
                 : null,
             child: Center(

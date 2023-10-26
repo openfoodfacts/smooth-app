@@ -280,7 +280,7 @@ class _ProductPageState extends State<ProductPage>
     // We need to provide a sharePositionOrigin to make the plugin work on ipad
     final RenderBox? box = context.findRenderObject() as RenderBox?;
     final String url = 'https://'
-        '${ProductQuery.getCountry()!.offTag}.openfoodfacts.org'
+        '${ProductQuery.getCountry().offTag}.openfoodfacts.org'
         '/product/$barcode';
     Share.share(
       appLocalizations.share_product_text(url),
