@@ -264,7 +264,7 @@
     "sign_up_page_provide_valid_email": "Nurodykite teisingą el. pašto adresą.",
     "sign_up_page_server_busy": "We are deeply sorry, we have some technical difficulties to create your account. Please try again later.",
     "@Settings": {},
-    "settingsTitle": "Settings",
+    "settingsTitle": "Nustatymai",
     "@settingsTitle": {
         "description": "The title of the Settings page"
     },
@@ -1260,7 +1260,7 @@
     "@edit_product_form_item_origins_explainer_2": {
         "description": "Product edition - Origins - input explainer, part 2"
     },
-    "edit_product_form_item_countries_title": "Country",
+    "edit_product_form_item_countries_title": "Šalis",
     "@edit_product_form_item_countries_title": {
         "description": "Product edition - Countries - Title"
     },
@@ -1330,7 +1330,7 @@
     "@edit_product_form_item_packaging_title": {
         "description": "Product edition - Packaging - Title"
     },
-    "edit_product_form_item_nutrition_facts_title": "Nutrition facts",
+    "edit_product_form_item_nutrition_facts_title": "Maistingumas",
     "@edit_product_form_item_nutrition_facts_title": {
         "description": "Product edition - Nutrition facts - Title"
     },
@@ -2475,5 +2475,9 @@
     "hunger_games_loading_line1": "Skirkite mums kelias sekundes…",
     "hunger_games_loading_line2": "Mes atsisiunčiame klausimus!",
     "hunger_games_error_label": "Po galais! Kažkas atsitiko… ir mums nepavyko įkelti klausimų.",
-    "hunger_games_error_retry_button": "Pabandykime dar kartą!"
+    "hunger_games_error_retry_button": "Pabandykime dar kartą!",
+    "link_cant_be_opened": "This link can't be opened on your device. Please check that you have a browser installed.",
+    "@link_cant_be_opened": {
+        "description": "An error may happen if the device doesn't have a browser installed."
+    }
 }
