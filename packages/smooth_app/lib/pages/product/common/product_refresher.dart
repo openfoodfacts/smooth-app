@@ -108,6 +108,16 @@ class ProductRefresher {
   }) async =>
       _fetchAndRefreshList(localDatabase, barcodes);
 
+  Future<void> silentFetchAndRefreshAll({
+    required final LocalDatabase localDatabase,
+  }) async {
+    final Map<String, Product> localProducts =
+        await DaoProduct(localDatabase).getAllFromLocalDatabase();
+    final List<String> barcodes = localProducts.keys.toList();
+
+    await _fetchAndRefreshList(localDatabase, barcodes);
+  }
+
   /// Fetches the product from the server and refreshes the local database.
   ///
   /// With a waiting dialog.

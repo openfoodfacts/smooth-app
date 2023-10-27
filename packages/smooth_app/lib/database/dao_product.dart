@@ -87,6 +87,22 @@ class DaoProduct extends AbstractSqlDao
     return result;
   }
 
+  Future<Map<String, Product>> getAllFromLocalDatabase() async {
+    final Map<String, Product> result = <String, Product>{};
+    
+    final List<Map<String, dynamic>> queryResults =
+          await localDatabase.database.query(
+        _TABLE_PRODUCT,
+        columns: _columns,
+      );
+      for (final Map<String, dynamic> row in queryResults) {
+        result[row[_TABLE_PRODUCT_COLUMN_BARCODE] as String] =
+            _getProductFromQueryResult(row);
+      }
+    
+    return result;
+  }
+
   Future<void> put(final Product product) async => putAll(<Product>[product]);
 
   /// Replaces products in database

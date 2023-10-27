@@ -3,9 +3,11 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
+import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/language_selector.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
+import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 class UserPreferencesLanguageSelector extends StatelessWidget {
@@ -39,13 +41,17 @@ class UserPreferencesLanguageSelector extends StatelessWidget {
         ),
         child: LanguageSelector(
           setLanguage: (final OpenFoodFactsLanguage? language) async {
-            if (language != null) {
-              ProductQuery.setLanguage(
-                context,
-                userPreferences,
-                languageCode: language.code,
-              );
+            if (language == null) {
+              return;
             }
+            ProductQuery.setLanguage(
+              context,
+              userPreferences,
+              languageCode: language.code,
+            );
+            await ProductRefresher().silentFetchAndRefreshAll(
+              localDatabase: context.read<LocalDatabase>(),
+            );
           },
           selectedLanguages: <OpenFoodFactsLanguage>[
             ProductQuery.getLanguage(),
