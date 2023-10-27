@@ -42,11 +42,11 @@ class _ProductImageLocalButtonState extends State<ProductImageLocalButton> {
   }
 
   Future<void> _actionNewImage(final BuildContext context) async {
-    if (widget.isLoggedInMandatory) {
-      final bool loggedIn = await ProductRefresher().checkIfLoggedIn(context);
-      if (!loggedIn) {
-        return;
-      }
+    if (!await ProductRefresher().checkIfLoggedIn(
+      context,
+      isLoggedInMandatory: widget.isLoggedInMandatory,
+    )) {
+      return;
     }
     if (context.mounted) {
     } else {
@@ -57,6 +57,7 @@ class _ProductImageLocalButtonState extends State<ProductImageLocalButton> {
       imageField: widget.imageField,
       barcode: widget.barcode,
       language: widget.language,
+      isLoggedInMandatory: widget.isLoggedInMandatory,
     );
   }
 }

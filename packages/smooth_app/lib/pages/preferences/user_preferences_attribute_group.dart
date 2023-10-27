@@ -4,68 +4,112 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/attribute_group_list_tile.dart';
-import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
 import 'package:smooth_app/widgets/attribute_button.dart';
 
 /// Collapsed/expanded display of an attribute group for the preferences page.
-class UserPreferencesAttributeGroup extends AbstractUserPreferences {
+class UserPreferencesAttributeGroup {
   UserPreferencesAttributeGroup({
     required this.productPreferences,
     required this.group,
-    required final Function(Function()) setState,
-    required final BuildContext context,
-    required final UserPreferences userPreferences,
-    required final AppLocalizations appLocalizations,
-    required final ThemeData themeData,
-  }) : super(
-          setState: setState,
-          context: context,
-          userPreferences: userPreferences,
-          appLocalizations: appLocalizations,
-          themeData: themeData,
-        );
+    required this.context,
+    required this.userPreferences,
+    required this.appLocalizations,
+    required this.themeData,
+  });
+
+  final BuildContext context;
+  final UserPreferences userPreferences;
+  final AppLocalizations appLocalizations;
+  final ThemeData themeData;
 
   final ProductPreferences productPreferences;
   final AttributeGroup group;
 
-  @override
-  PreferencePageType? getPreferencePageType() => null;
+  bool get _isCollapsed => userPreferences.activeAttributeGroup != group.id;
 
-  @override
-  String getTitleString() => group.name ?? appLocalizations.unknown;
+  // TODO(monsieurtanuki): double-check if it could be used/useful
+  List<String> getLabels() {
+    final List<String> result = <String>[];
+    if (group.name != null) {
+      result.add(group.name!);
+    }
+    if (group.warning != null) {
+      result.add(group.warning!);
+    }
+    final List<String> excludedAttributeIds =
+        userPreferences.getExcludedAttributeIds();
+    for (final Attribute attribute in group.attributes!) {
+      if (excludedAttributeIds.contains(attribute.id)) {
+        continue;
+      }
+      if (attribute.settingNote != null) {
+        result.add(attribute.settingNote!);
+      }
+      if (attribute.settingName != null) {
+        result.add(attribute.settingName!);
+      }
+      if (attribute.id != null) {
+        result.add(attribute.id!);
+      }
+      if (attribute.name != null) {
+        result.add(attribute.name!);
+      }
+    }
+    return result;
+  }
 
-  @override
-  Widget getTitle() => Text(
-        getTitleString(),
-        style: themeData.textTheme.titleLarge,
-      );
-
-  @override
-  Widget? getSubtitle() =>
-      null; // TODO(monsieurtanuki): useless here, we should refactor, one day
-
-  @override
-  IconData getLeadingIconData() => Icons
-      .question_mark; // TODO(monsieurtanuki): useless here, we should refactor, one day
-
-  @override
-  List<Widget> getBody() {
+  List<Widget> getContent() {
     final List<Widget> result = <Widget>[];
+    for (final UserPreferencesItem item in getItems()) {
+      result.add(item.builder(context));
+    }
+    return result;
+  }
+
+  List<UserPreferencesItem> getItems({bool? collapsed}) {
+    collapsed ??= _isCollapsed;
+    final List<UserPreferencesItem> result = <UserPreferencesItem>[];
+    result.add(
+      UserPreferencesItemSimple(
+        labels: <String>[],
+        builder: (_) => InkWell(
+          onTap: () async => userPreferences.setActiveAttributeGroup(group.id!),
+          child: AttributeGroupListTile(
+            title: Text(
+              group.name ?? appLocalizations.unknown,
+              style: themeData.textTheme.titleLarge,
+            ),
+            icon: collapsed!
+                ? const Icon(Icons.keyboard_arrow_right)
+                : const Icon(Icons.keyboard_arrow_down),
+          ),
+        ),
+      ),
+    );
+    if (collapsed) {
+      return result;
+    }
     if (group.warning != null) {
       result.add(
-        Container(
-          color: Theme.of(context).colorScheme.error,
-          width: double.infinity,
-          padding: const EdgeInsets.all(LARGE_SPACE),
-          margin: const EdgeInsets.all(LARGE_SPACE),
-          child: Text(
-            group.warning ?? appLocalizations.unknown,
-            style: TextStyle(
-              color: Theme.of(context).colorScheme.onError,
-            ),
-          ),
+        UserPreferencesItemSimple(
+          labels: <String>[group.warning!],
+          builder: (final BuildContext context) {
+            final ColorScheme colorScheme = Theme.of(context).colorScheme;
+            return Container(
+              color: colorScheme.error,
+              width: double.infinity,
+              padding: const EdgeInsets.all(LARGE_SPACE),
+              margin: const EdgeInsets.all(LARGE_SPACE),
+              child: Text(
+                group.warning!,
+                style: TextStyle(
+                  color: colorScheme.onError,
+                ),
+              ),
+            );
+          },
         ),
       );
     }
@@ -75,38 +119,18 @@ class UserPreferencesAttributeGroup extends AbstractUserPreferences {
       if (excludedAttributeIds.contains(attribute.id)) {
         continue;
       }
-      result.add(AttributeButton(attribute, productPreferences));
+      result.add(
+        UserPreferencesItemSimple(
+          labels: <String>[
+            if (attribute.settingNote != null) attribute.settingNote!,
+            if (attribute.settingName != null) attribute.settingName!,
+            if (attribute.id != null) attribute.id!,
+            if (attribute.name != null) attribute.name!,
+          ],
+          builder: (_) => AttributeButton(attribute, productPreferences),
+        ),
+      );
     }
     return result;
-  }
-
-  @override
-  Widget getHeader() =>
-      _isCollapsed() ? super.getHeader() : getHeaderHelper(false);
-
-  @override
-  Widget getHeaderHelper(final bool? collapsed) => AttributeGroupListTile(
-        title: getTitle(),
-        icon: collapsed!
-            ? const Icon(Icons.keyboard_arrow_right)
-            : const Icon(Icons.keyboard_arrow_down),
-      );
-
-  bool _isCollapsed() => userPreferences.activeAttributeGroup != group.id;
-
-  @override
-  List<Widget> getContent({
-    final bool withHeader = true,
-    final bool withBody = true,
-  }) =>
-      super.getContent(
-        withHeader: withHeader,
-        withBody: !_isCollapsed(),
-      );
-
-  @override
-  Future<void> runHeaderAction() async {
-    await userPreferences.setActiveAttributeGroup(group.id!);
-    setState(() {});
   }
 }

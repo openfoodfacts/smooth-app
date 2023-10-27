@@ -31,7 +31,7 @@ class SmoothProductCardTemplate extends StatelessWidget {
     final Color backgroundColor = isDarkMode ? Colors.black : Colors.white;
     final double iconSize = IconWidgetSizer.getIconSizeFromContext(context);
     final Widget textWidget = Container(
-      width: screenSize.width * .4,
+      width: double.infinity,
       height: screenSize.width * .04,
       decoration: BoxDecoration(
         color: itemColor,
@@ -72,6 +72,7 @@ class SmoothProductCardTemplate extends StatelessWidget {
                 child: SizedBox(
                   height: screenSize.width * 0.2,
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       if (barcode == null)
@@ -81,8 +82,9 @@ class SmoothProductCardTemplate extends StatelessWidget {
                           barcode!,
                           style: const TextStyle(fontWeight: FontWeight.bold),
                         ),
-                      if (message == null) textWidget,
-                      if (message != null)
+                      if (message == null)
+                        textWidget
+                      else
                         Padding(
                           padding: const EdgeInsetsDirectional.only(
                               top: SMALL_SPACE),
@@ -92,6 +94,7 @@ class SmoothProductCardTemplate extends StatelessWidget {
                             minFontSize: 5,
                           ),
                         ),
+                      Opacity(opacity: 0, child: textWidget)
                     ],
                   ),
                 ),

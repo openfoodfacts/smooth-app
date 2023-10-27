@@ -1,4 +1,5 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 
 /// Status of a "fetch [Product]" operation
@@ -60,4 +61,29 @@ class FetchedProduct {
 
   /// When relevant, host of the query that we couldn't even ping.
   final String? failedPingedHost;
+
+  String getErrorTitle(
+    final AppLocalizations appLocalizations,
+  ) {
+    switch (status) {
+      case FetchedProductStatus.ok:
+        return 'Not supposed to happen...';
+      case FetchedProductStatus.userCancelled:
+        return 'Not supposed to happen either...';
+      case FetchedProductStatus.internetNotFound:
+        return appLocalizations.product_refresher_internet_not_found;
+      case FetchedProductStatus.internetError:
+        if (connectivityResult == ConnectivityResult.none) {
+          return appLocalizations.product_refresher_internet_not_connected;
+        }
+        if (failedPingedHost != null) {
+          return appLocalizations.product_refresher_internet_no_ping(
+            failedPingedHost,
+          );
+        }
+        return appLocalizations.product_refresher_internet_no_ping(
+          exceptionString,
+        );
+    }
+  }
 }

@@ -7,10 +7,10 @@ class SmoothDraggableBottomSheet extends StatefulWidget {
     required this.headerBuilder,
     required this.headerHeight,
     required this.bodyBuilder,
+    required this.borderRadius,
     this.initHeightFraction = 0.5,
     this.maxHeightFraction = 1.0,
     this.animationController,
-    this.borderRadius,
     this.bottomSheetColor,
     this.draggableScrollableController,
   })  : assert(maxHeightFraction > 0.0 && maxHeightFraction <= 1.0),
@@ -23,7 +23,7 @@ class SmoothDraggableBottomSheet extends StatefulWidget {
   final WidgetBuilder bodyBuilder;
   final DraggableScrollableController? draggableScrollableController;
   final AnimationController? animationController;
-  final BorderRadius? borderRadius;
+  final BorderRadiusGeometry borderRadius;
   final Color? bottomSheetColor;
 
   @override

@@ -134,7 +134,7 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
         cropY2: cropY2,
         languageCode: language.code,
         user: jsonEncode(ProductQuery.getUser().toJson()),
-        country: ProductQuery.getCountry()!.offTag,
+        country: ProductQuery.getCountry().offTag,
         stamp: BackgroundTaskUpload.getStamp(
           barcode,
           imageField.offTag,
@@ -321,7 +321,11 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
       imageUri: Uri.parse(path),
     );
 
-    final Status status = await OpenFoodAPIClient.addProductImage(user, image);
+    final Status status = await OpenFoodAPIClient.addProductImage(
+      user,
+      image,
+      uriHelper: uriProductHelper,
+    );
     if (status.status == 'status ok') {
       // successfully uploaded a new picture and set it as field+language
       return;
@@ -337,6 +341,7 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
         imgid: '$imageId',
         angle: ImageAngle.NOON,
         user: user,
+        uriHelper: uriProductHelper,
       );
       if (imageUrl == null) {
         throw Exception('Could not select picture');

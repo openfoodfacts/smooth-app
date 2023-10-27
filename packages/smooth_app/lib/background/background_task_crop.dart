@@ -120,7 +120,7 @@ class BackgroundTaskCrop extends BackgroundTaskUpload {
         cropY2: cropY2,
         languageCode: language.code,
         user: jsonEncode(ProductQuery.getUser().toJson()),
-        country: ProductQuery.getCountry()!.offTag,
+        country: ProductQuery.getCountry().offTag,
         stamp: BackgroundTaskUpload.getStamp(
           barcode,
           imageField.offTag,
@@ -191,6 +191,7 @@ class BackgroundTaskCrop extends BackgroundTaskUpload {
       x2: productImage.x2!,
       y2: productImage.y2!,
       user: getUser(),
+      uriHelper: uriProductHelper,
     );
     if (imageUrl == null) {
       throw Exception('Could not select picture');

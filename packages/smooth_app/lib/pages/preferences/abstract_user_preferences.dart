@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
@@ -8,15 +9,11 @@ import 'package:smooth_app/themes/constant_icons.dart';
 /// Abstraction of a display for the preference pages.
 abstract class AbstractUserPreferences {
   AbstractUserPreferences({
-    required this.setState,
     required this.context,
     required this.userPreferences,
     required this.appLocalizations,
     required this.themeData,
   });
-
-  /// Function that refreshes the page.
-  final Function(Function()) setState;
 
   final BuildContext context;
   final UserPreferences userPreferences;
@@ -24,7 +21,11 @@ abstract class AbstractUserPreferences {
   final ThemeData themeData;
 
   /// Returns the type of the corresponding page if relevant, or else null.
-  PreferencePageType? getPreferencePageType();
+  @protected
+  PreferencePageType getPreferencePageType();
+
+  /// Title of the preference page.
+  String getPageTitleString() => getTitleString();
 
   /// Title of the header, always visible.
   String getTitleString();
@@ -38,13 +39,25 @@ abstract class AbstractUserPreferences {
 
   /// Subtitle of the header, always visible.
   @protected
-  Widget? getSubtitle();
+  String? getSubtitleString() => null;
+
+  /// Subtitle of the header, always visible.
+  @protected
+  Widget? getSubtitle() =>
+      getSubtitleString() == null ? null : Text(getSubtitleString()!);
+
+  List<String> getLabels() => <String>[
+        getPageTitleString(),
+        getTitleString(),
+        if (getSubtitleString() != null) getSubtitleString()!,
+      ];
 
   Widget getOnlyHeader() => InkWell(
         onTap: () async => runHeaderAction(),
         child: getHeaderHelper(false),
       );
 
+  @protected
   Icon? getForwardIcon() => UserPreferencesListTile.getTintedIcon(
         ConstantIcons.instance.getForwardIcon(),
         context,
@@ -71,25 +84,10 @@ abstract class AbstractUserPreferences {
   IconData getLeadingIconData();
 
   /// Body of the content.
-  @protected
-  List<Widget> getBody();
-
-  /// Returns possibly the header and the body.
-  List<Widget> getContent({
-    final bool withHeader = true,
-    final bool withBody = true,
-  }) {
-    final List<Widget> result = <Widget>[];
-    if (withHeader) {
-      result.add(getHeader());
-    }
-    if (withBody) {
-      result.addAll(getBody());
-    }
-    return result;
-  }
+  List<UserPreferencesItem> getChildren();
 
   /// Returns the action when we tap on the header.
+  @protected
   Future<void> runHeaderAction() async => Navigator.push<Widget>(
         context,
         MaterialPageRoute<Widget>(

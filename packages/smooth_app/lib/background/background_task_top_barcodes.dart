@@ -83,7 +83,7 @@ class BackgroundTaskTopBarcodes extends BackgroundTaskProgressing {
         uniqueId: uniqueId,
         languageCode: ProductQuery.getLanguage().offTag,
         user: jsonEncode(ProductQuery.getUser().toJson()),
-        country: ProductQuery.getCountry()!.offTag,
+        country: ProductQuery.getCountry().offTag,
         stamp: ';offlineBarcodes;$work',
         work: work,
         pageSize: pageSize,
@@ -112,6 +112,7 @@ class BackgroundTaskTopBarcodes extends BackgroundTaskProgressing {
         country: ProductQuery.getCountry(),
         version: ProductQuery.productQueryVersion,
       ),
+      uriHelper: uriProductHelper,
     );
     if (searchResult.products == null || searchResult.count == null) {
       throw Exception('Cannot download top barcodes');

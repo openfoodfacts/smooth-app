@@ -27,7 +27,10 @@ class _UserPreferencesDebugInfoState extends State<UserPreferencesDebugInfo> {
     'IsLoggedIn': ProductQuery.isLoggedIn().toString(),
     'UUID': OpenFoodAPIConfiguration.uuid.toString(),
     'Matomo Visitor ID': AnalyticsHelper.matomoVisitorId,
-    'QueryType': OpenFoodAPIConfiguration.globalQueryType.toString(),
+    'QueryType': ProductQuery.uriProductHelper.isTestMode
+        ? 'QueryType.TEST'
+        : 'QueryType.PROD',
+    'Domain': ProductQuery.uriProductHelper.domain,
     'UserAgent-name': '${OpenFoodAPIConfiguration.userAgent?.name}',
     'UserAgent-system': '${OpenFoodAPIConfiguration.userAgent?.system}',
   };

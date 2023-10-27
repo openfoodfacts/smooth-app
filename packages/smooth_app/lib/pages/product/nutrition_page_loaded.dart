@@ -12,6 +12,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/image_field_extension.dart';
+import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/helpers/text_input_formatters_helper.dart';
 import 'package:smooth_app/pages/product/common/product_buttons.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
@@ -45,10 +46,11 @@ class NutritionPageLoaded extends StatefulWidget {
     required final bool isLoggedInMandatory,
     required final BuildContext context,
   }) async {
-    if (isLoggedInMandatory) {
-      if (!await ProductRefresher().checkIfLoggedIn(context)) {
-        return;
-      }
+    if (!await ProductRefresher().checkIfLoggedIn(
+      context,
+      isLoggedInMandatory: isLoggedInMandatory,
+    )) {
+      return;
     }
     if (context.mounted) {
       final OrderedNutrientsCache? cache =
@@ -97,7 +99,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
     initUpToDate(widget.product, context.read<LocalDatabase>());
     _nutritionContainer = NutritionContainer(
       orderedNutrients: widget.orderedNutrients,
-      product: initialProduct,
+      product: upToDateProduct,
     );
 
     _decimalNumberFormat =
@@ -132,7 +134,11 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
       children.add(
         Padding(
           padding: const EdgeInsets.symmetric(vertical: MEDIUM_SPACE),
-          child: ImageField.NUTRITION.getPhotoButton(context, upToDateProduct),
+          child: ImageField.NUTRITION.getPhotoButton(
+            context,
+            upToDateProduct,
+            widget.isLoggedInMandatory,
+          ),
         ),
       );
       children.add(_getServingField(appLocalizations));
@@ -193,13 +199,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
             appLocalizations.nutrition_page_title,
             maxLines: upToDateProduct.productName?.isNotEmpty == true ? 1 : 2,
           ),
-          subTitle: upToDateProduct.productName != null
-              ? Text(
-                  upToDateProduct.productName!,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                )
-              : null,
+          subTitle: buildProductTitle(upToDateProduct, appLocalizations),
         ),
         body: Padding(
           padding: const EdgeInsets.symmetric(

@@ -34,18 +34,16 @@ class _ExternalPageState extends State<ExternalPage> {
 
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       // First let's try with https://{country}.openfoodfacts.org
-      final OpenFoodFactsCountry? country = ProductQuery.getCountry();
+      final OpenFoodFactsCountry country = ProductQuery.getCountry();
 
       String? url;
-      if (country != null) {
-        url = path.join(
-          'https://${country.offTag}.openfoodfacts.org',
-          widget.path,
-        );
+      url = path.join(
+        'https://${country.offTag}.openfoodfacts.org',
+        widget.path,
+      );
 
-        if (await _testUrl(url)) {
-          url = null;
-        }
+      if (await _testUrl(url)) {
+        url = null;
       }
 
       // If that's not OK, let's try with world.openfoodfacts.org?lc={language}

@@ -162,7 +162,7 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                       //Login
                       SmoothTextFormField(
                         type: TextFieldTypes.PLAIN_TEXT,
-                        textInputType: TextInputType.name,
+                        textInputType: TextInputType.emailAddress,
                         controller: userIdController,
                         hintText: appLocalizations.username_or_email,
                         prefixIcon: const Icon(Icons.person),
