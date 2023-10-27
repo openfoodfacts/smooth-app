@@ -72,12 +72,14 @@ class AddNewProductButton extends StatelessWidget {
     this.iconData,
     this.onPressed, {
     required this.done,
+    this.trailingIconData,
   });
 
   final String label;
   final IconData iconData;
   final VoidCallback? onPressed;
   final bool done;
+  final IconData? trailingIconData;
 
   static const IconData doneIconData = Icons.check;
   static const IconData todoIconData = Icons.add;
@@ -95,7 +97,7 @@ class AddNewProductButton extends StatelessWidget {
         text: label,
         icon: iconData,
         onPressed: onPressed,
-        trailing: Icons.edit,
+        trailing: trailingIconData ?? Icons.edit,
         backgroundColor: onPressed == null
             ? (dark ? darkGrey : lightGrey)
             : done
@@ -144,6 +146,7 @@ class AddNewProductEditorButton extends StatelessWidget {
                 isLoggedInMandatory: isLoggedInMandatory,
               ),
       done: done,
+      trailingIconData: done ? AddNewProductButton.doneIconData : null,
     );
   }
 }
