@@ -2476,7 +2476,7 @@
     "hunger_games_loading_line2": "Mes atsisiunčiame klausimus!",
     "hunger_games_error_label": "Po galais! Kažkas atsitiko… ir mums nepavyko įkelti klausimų.",
     "hunger_games_error_retry_button": "Pabandykime dar kartą!",
-    "link_cant_be_opened": "This link can't be opened on your device. Please check that you have a browser installed.",
+    "link_cant_be_opened": "Šios nuorodos negalima atidaryti jūsų įrenginyje. Patikrinkite, ar įdiegta naršyklė.",
     "@link_cant_be_opened": {
         "description": "An error may happen if the device doesn't have a browser installed."
     }
