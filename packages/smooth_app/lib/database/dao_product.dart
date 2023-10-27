@@ -87,7 +87,8 @@ class DaoProduct extends AbstractSqlDao
     return result;
   }
 
-  Future<Map<String, Product>> getAllFromLocalDatabase() async {
+  /// Returns all the [Product]s.
+  Future<Map<String, Product>> getEvery() async {
     final Map<String, Product> result = <String, Product>{};
     
     final List<Map<String, dynamic>> queryResults =
