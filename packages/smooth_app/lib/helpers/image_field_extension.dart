@@ -12,29 +12,6 @@ extension ImageFieldSmoothieExtension on ImageField {
     ImageField.PACKAGING,
   ];
 
-  static const List<ImageField> orderedAll = <ImageField>[
-    ImageField.FRONT,
-    ImageField.INGREDIENTS,
-    ImageField.NUTRITION,
-    ImageField.PACKAGING,
-    ImageField.OTHER,
-  ];
-
-  String? getUrl(final Product product) {
-    switch (this) {
-      case ImageField.FRONT:
-        return product.imageFrontUrl;
-      case ImageField.INGREDIENTS:
-        return product.imageIngredientsUrl;
-      case ImageField.NUTRITION:
-        return product.imageNutritionUrl;
-      case ImageField.PACKAGING:
-        return product.imagePackagingUrl;
-      case ImageField.OTHER:
-        return null;
-    }
-  }
-
   void setUrl(final Product product, final String url) {
     switch (this) {
       case ImageField.FRONT:
