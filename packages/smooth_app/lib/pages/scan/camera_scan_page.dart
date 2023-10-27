@@ -39,13 +39,32 @@ class CameraScannerPageState extends State<CameraScannerPage>
       _userPreferences = context.watch<UserPreferences>();
     }
 
+    _detectHeaderHeight();
+  }
+
+  /// In some cases, the size may be null
+  /// (Mainly when the app is launched for the first time AND in release mode)
+  void _detectHeaderHeight([int retries = 0]) {
+    // Let's try during 5 frames (should be enough, as 2 or 3 seems to be an average)
+    if (retries > 5) {
+      return;
+    }
+
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      setState(() {
+      try {
         _headerHeight =
             (_headerKey.currentContext?.findRenderObject() as RenderBox?)
                 ?.size
                 .height;
-      });
+      } catch (_) {
+        _headerHeight = null;
+      }
+
+      if (_headerHeight == null) {
+        _detectHeaderHeight(retries + 1);
+      } else {
+        setState(() {});
+      }
     });
   }
 

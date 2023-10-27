@@ -18,7 +18,7 @@ dependencies:
   carousel_slider: 4.2.1
   cupertino_icons: 1.0.5
   device_preview: 1.1.0
-  flutter_svg: 2.0.5
+  flutter_svg: 2.0.8
   flutter_map: 2.2.0
   flutter_widget_from_html_core: 0.8.3+1
   fwfh_selectable_text: 0.8.3+1
@@ -26,7 +26,7 @@ dependencies:
   hive: 2.2.3
   hive_flutter: 1.1.0
   http: 0.13.5
-  image_picker: 1.0.1
+  image_picker: 1.0.2
   iso_countries: 2.2.0
   latlong2: 0.8.2
   matomo_tracker: 3.1.0
@@ -173,3 +173,14 @@ flutter:
     - assets/preferences/
     - assets/product/
     - assets/icons/
+
+  fonts:
+    - family: OpenSans
+      fonts:
+        - asset: assets/fonts/OpenSans-Regular.ttf
+        - asset: assets/fonts/OpenSans-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/OpenSans-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/OpenSans-Bold.ttf
+          weight: 700
