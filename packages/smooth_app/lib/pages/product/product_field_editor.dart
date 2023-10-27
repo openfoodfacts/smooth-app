@@ -84,6 +84,7 @@ class ProductFieldDetailsEditor extends ProductFieldEditor {
   @override
   bool isPopulated(final Product product) =>
       _isProductFieldValid(product.productName) ||
+      (product.productNameInLanguages?.isNotEmpty == true) ||
       _isProductFieldValid(product.brands);
 
   @override

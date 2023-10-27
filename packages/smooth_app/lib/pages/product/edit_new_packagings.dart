@@ -75,10 +75,10 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
     _unitNumberFormat = SimpleInputNumberField.getNumberFormat(
       decimal: false,
     );
-    if (initialProduct.packagings != null) {
-      initialProduct.packagings!.forEach(_addPackagingToControllers);
+    if (upToDateProduct.packagings != null) {
+      upToDateProduct.packagings!.forEach(_addPackagingToControllers);
     }
-    _packagingsComplete = initialProduct.packagingsComplete;
+    _packagingsComplete = upToDateProduct.packagingsComplete;
   }
 
   @override
@@ -189,15 +189,8 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
         child: SmoothScaffold(
           fixKeyboard: true,
           appBar: SmoothAppBar(
-            title: Text(appLocalizations.edit_packagings_title),
-            subTitle: upToDateProduct.productName != null
-                ? Text(
-                    '${upToDateProduct.productName!.trim()}, ${upToDateProduct.brands!.trim()}',
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                  )
-                : null,
-          ),
+              title: Text(appLocalizations.edit_packagings_title),
+              subTitle: buildProductTitle(upToDateProduct, appLocalizations)),
           body: ListView(
             padding: const EdgeInsets.only(top: LARGE_SPACE),
             children: children,

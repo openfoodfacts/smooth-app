@@ -304,7 +304,9 @@ class _SmoothBarcodeScannerMLKitState extends State<_SmoothBarcodeScannerMLKit>
                           try {
                             await _controller.toggleTorch();
                           } catch (err) {
-                            widget.onCameraFlashError?.call(context);
+                            if (context.mounted) {
+                              widget.onCameraFlashError?.call(context);
+                            }
                           }
                         },
                         child: ValueListenableBuilder<TorchState>(

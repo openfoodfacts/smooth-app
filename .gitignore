@@ -239,21 +239,21 @@ android_keys.zip
 .fvm/
 
 
-# Unsupported locals
-app_ach.arb 
-app_ast.arb
-app_ber.arb
-app_crs.arb 
-app_chr.arb 
-pp_fil.arb
-app_kab.arb 
-app_lol.arb 
-app_sat.arb 
-app_sco.arb 
-app_sma.arb 
-app_son.arb 
-app_tzl.arb 
-app_val.arb 
-app_vec.arb
-app_vls.arb
-app_zea.arb
+# Unsupported locales
+packages/smooth_app/lib/l10n/app_ach.arb
+packages/smooth_app/lib/l10n/app_ast.arb
+packages/smooth_app/lib/l10n/app_ber.arb
+packages/smooth_app/lib/l10n/app_crs.arb 
+packages/smooth_app/lib/l10n/app_chr.arb 
+packages/smooth_app/lib/l10n/app_fil.arb
+packages/smooth_app/lib/l10n/app_kab.arb 
+packages/smooth_app/lib/l10n/app_lol.arb 
+packages/smooth_app/lib/l10n/app_sat.arb 
+packages/smooth_app/lib/l10n/app_sco.arb 
+packages/smooth_app/lib/l10n/app_sma.arb 
+packages/smooth_app/lib/l10n/app_son.arb 
+packages/smooth_app/lib/l10n/app_tzl.arb 
+packages/smooth_app/lib/l10n/app_val.arb 
+packages/smooth_app/lib/l10n/app_vec.arb
+packages/smooth_app/lib/l10n/app_vls.arb
+packages/smooth_app/lib/l10n/app_zea.arb

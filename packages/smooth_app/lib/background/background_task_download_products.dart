@@ -133,6 +133,7 @@ class BackgroundTaskDownloadProducts extends BackgroundTaskProgressing {
         country: ProductQuery.getCountry(),
         version: ProductQuery.productQueryVersion,
       ),
+      uriHelper: uriProductHelper,
     );
     final List<Product>? downloadedProducts = searchResult.products;
     if (downloadedProducts == null) {

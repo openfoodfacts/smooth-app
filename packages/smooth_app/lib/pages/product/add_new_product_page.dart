@@ -110,6 +110,8 @@ class _AddNewProductPageState extends State<AddNewProductPage>
   @override
   void initState() {
     super.initState();
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
+    initUpToDate(widget.product, localDatabase);
     _editors = <ProductFieldEditor>[
       _packagingEditor,
       _ingredientsEditor,
@@ -142,8 +144,6 @@ class _AddNewProductPageState extends State<AddNewProductPage>
             _otherCount > 0 || _helper.isOneMainImagePopulated(upToDateProduct),
       ),
     ];
-    final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    initUpToDate(widget.product, localDatabase);
     _daoProductList = DaoProductList(localDatabase);
     AnalyticsHelper.trackEvent(
       widget.events[EditProductAction.openPage]!,

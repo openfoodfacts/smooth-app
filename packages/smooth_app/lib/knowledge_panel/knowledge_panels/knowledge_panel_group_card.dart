@@ -31,7 +31,7 @@ class KnowledgePanelGroupCard extends StatelessWidget {
                     themeData.textTheme.titleSmall!.apply(color: Colors.grey),
               ),
             ),
-          for (String panelId in groupElement.panelIds)
+          for (final String panelId in groupElement.panelIds)
             KnowledgePanelCard(
               panelId: panelId,
               product: product,

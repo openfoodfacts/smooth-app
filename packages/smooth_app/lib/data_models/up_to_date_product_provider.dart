@@ -101,6 +101,10 @@ class UpToDateProductProvider {
     return result;
   }
 
+  /// Returns true if there are pending operations for that [barcode].
+  bool hasPendingChanges(final String barcode) =>
+      _changes.hasNotTerminatedOperations(barcode);
+
   // TODO(monsieurtanuki): move code to off-dart Product?
   Product copy(final Product source) => Product.fromJson(
         jsonDecode(jsonEncode(source.toJson())) as Map<String, dynamic>,

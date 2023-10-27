@@ -9,13 +9,34 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/image_field_extension.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
+import 'package:smooth_app/query/product_query.dart';
+
+Widget buildProductTitle(
+  final Product product,
+  final AppLocalizations appLocalizations,
+) =>
+    Text(
+      getProductNameAndBrands(product, appLocalizations),
+      overflow: TextOverflow.ellipsis,
+      maxLines: 1,
+    );
+
+String getProductNameAndBrands(
+    Product product, AppLocalizations appLocalizations) {
+  final String name =
+      product.productName?.trim() ?? appLocalizations.unknownProductName;
+  final String brands = product.brands?.trim() ?? appLocalizations.unknownBrand;
+  return '$name, $brands';
+}
 
 String getProductName(Product product, AppLocalizations appLocalizations) =>
-    product.productName ?? appLocalizations.unknownProductName;
+    product.productName ??
+    product.productNameInLanguages?[ProductQuery.getLanguage()] ??
+    appLocalizations.unknownProductName;
 
 String getProductBrands(Product product, AppLocalizations appLocalizations) {
-  final String? brands = product.brands;
-  if (brands == null) {
+  final String? brands = product.brands?.trim();
+  if (brands == null || brands.isEmpty) {
     return appLocalizations.unknownBrand;
   } else {
     return formatProductBrands(brands);
@@ -228,7 +249,11 @@ ProductImageData getProductImageData(
   if (productImage != null) {
     // we found a localized version for this image
     imageLanguage = language;
-    imageUrl = getLocalizedProductImageUrl(product, productImage);
+    imageUrl = ImageHelper.getLocalizedProductImageUrl(
+      product.barcode!,
+      productImage,
+      imageSize: ImageSize.DISPLAY,
+    );
   } else {
     imageLanguage = null;
     imageUrl = forceLanguage ? null : imageField.getUrl(product);
@@ -277,19 +302,6 @@ List<MapEntry<ProductImageData, ImageProvider?>> getSelectedImages(
   }
   return result.entries.toList();
 }
-
-String _getImageRoot() =>
-    OpenFoodAPIConfiguration.globalQueryType == QueryType.PROD
-        ? 'https://images.openfoodfacts.org/images/products'
-        : 'https://images.openfoodfacts.net/images/products';
-
-String getLocalizedProductImageUrl(
-  final Product product,
-  final ProductImage productImage,
-) =>
-    '${_getImageRoot()}/'
-    '${ImageHelper.getBarcodeSubPath(product.barcode!)}/'
-    '${ImageHelper.getProductImageFilename(productImage, imageSize: ImageSize.DISPLAY)}';
 
 /// Returns the languages for which [imageField] has images for that [product].
 Iterable<OpenFoodFactsLanguage> getProductImageLanguages(

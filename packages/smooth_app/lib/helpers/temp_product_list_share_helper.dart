@@ -1,4 +1,5 @@
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/query/product_query.dart';
 
 // TODO(m123): Move this to off-dart
 Uri shareProductList(List<String> barcodes) {
@@ -9,7 +10,7 @@ Uri shareProductList(List<String> barcodes) {
   }
 
   return UriHelper.replaceSubdomain(
-    UriHelper.getUri(
+    ProductQuery.uriProductHelper.getUri(
       path: 'products/$buffer',
       addUserAgentParameters: false,
     ),

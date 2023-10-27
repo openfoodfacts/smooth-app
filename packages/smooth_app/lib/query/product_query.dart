@@ -64,7 +64,7 @@ abstract class ProductQuery {
     final String? isoCode = userPreferences.userCountryCode ??
         PlatformDispatcher.instance.locale.countryCode?.toLowerCase();
     final OpenFoodFactsCountry country =
-        _countryFromJsonFix(isoCode) ?? defaultCountry;
+        OpenFoodFactsCountry.fromOffTag(isoCode) ?? defaultCountry;
     await _setCountry(userPreferences, country);
   }
 
@@ -75,7 +75,8 @@ abstract class ProductQuery {
     final UserPreferences userPreferences,
     final String isoCode,
   ) async {
-    final OpenFoodFactsCountry? country = _countryFromJsonFix(isoCode);
+    final OpenFoodFactsCountry? country =
+        OpenFoodFactsCountry.fromOffTag(isoCode);
     if (country == null) {
       return false;
     }
@@ -96,15 +97,6 @@ abstract class ProductQuery {
     if (isoCode != userPreferences.userCountryCode) {
       await userPreferences.setUserCountryCode(isoCode);
     }
-  }
-
-  // TODO(monsieurtanuki): move to off-dart
-  static OpenFoodFactsCountry? _countryFromJsonFix(final String? isoCode) {
-    // special case as we use 'uk' in off-dart
-    if (isoCode == 'gb') {
-      return OpenFoodFactsCountry.UNITED_KINGDOM;
-    }
-    return CountryHelper.fromJson(isoCode);
   }
 
   /// Returns the global locale string (e.g. 'pt_BR')
@@ -158,20 +150,33 @@ abstract class ProductQuery {
         comment: 'Test user for project smoothie',
       );
 
+  static late UriProductHelper uriProductHelper;
+
   static bool isLoggedIn() => OpenFoodAPIConfiguration.globalUser != null;
 
   /// Sets the query type according to the current [UserPreferences]
   static void setQueryType(final UserPreferences userPreferences) {
-    OpenFoodAPIConfiguration.globalQueryType = userPreferences
-                .getFlag(UserPreferencesDevMode.userPreferencesFlagProd) ??
-            true
-        ? QueryType.PROD
-        : QueryType.TEST;
-    final String? testEnvHost = userPreferences
-        .getDevModeString(UserPreferencesDevMode.userPreferencesTestEnvHost);
-    if (testEnvHost != null) {
-      OpenFoodAPIConfiguration.uriTestHost = testEnvHost;
-    }
+    final bool queryTypeProd = userPreferences
+            .getFlag(UserPreferencesDevMode.userPreferencesFlagProd) ??
+        true;
+    uriProductHelper = queryTypeProd
+        ? uriHelperFoodProd
+        : getTestUriProductHelper(userPreferences);
+  }
+
+  /// Returns the standard test env, or the custom test env if relevant.
+  static UriProductHelper getTestUriProductHelper(
+      final UserPreferences userPreferences) {
+    final String testEnvDomain = userPreferences.getDevModeString(
+            UserPreferencesDevMode.userPreferencesTestEnvDomain) ??
+        '';
+    return testEnvDomain.isEmpty
+        ? uriHelperFoodTest
+        : UriProductHelper(
+            isTestMode: true,
+            userInfoForPatch: HttpHelper.userInfoForTest,
+            domain: testEnvDomain,
+          );
   }
 
   static List<ProductField> get fields => const <ProductField>[
@@ -191,7 +196,6 @@ abstract class ProductQuery {
         ProductField.SERVING_SIZE,
         ProductField.STORES,
         ProductField.PACKAGING_QUANTITY,
-        // ignore: deprecated_member_use
         ProductField.PACKAGING,
         ProductField.PACKAGINGS,
         ProductField.PACKAGINGS_COMPLETE,

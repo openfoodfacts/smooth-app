@@ -17,7 +17,10 @@ import 'package:smooth_app/pages/offline_data_page.dart';
 import 'package:smooth_app/pages/offline_tasks_page.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_debug_info.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_search_page.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 /// Full page display of "dev mode" for the preferences page.
@@ -26,13 +29,11 @@ import 'package:smooth_app/query/product_query.dart';
 /// Settings => FAQ => Develop => Clicking switch
 class UserPreferencesDevMode extends AbstractUserPreferences {
   UserPreferencesDevMode({
-    required final Function(Function()) setState,
     required final BuildContext context,
     required final UserPreferences userPreferences,
     required final AppLocalizations appLocalizations,
     required final ThemeData themeData,
   }) : super(
-          setState: setState,
           context: context,
           userPreferences: userPreferences,
           appLocalizations: appLocalizations,
@@ -40,7 +41,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
         );
 
   static const String userPreferencesFlagProd = '__devWorkingOnProd';
-  static const String userPreferencesTestEnvHost = '__testEnvHost';
+  static const String userPreferencesTestEnvDomain = '__testEnvHost';
   static const String userPreferencesFlagEditIngredients = '__editIngredients';
   static const String userPreferencesFlagBoostedComparison =
       '__boostedComparison';
@@ -57,7 +58,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
       GlobalMaterialLocalizations.delegate;
 
   @override
-  PreferencePageType? getPreferencePageType() => PreferencePageType.DEV_MODE;
+  PreferencePageType getPreferencePageType() => PreferencePageType.DEV_MODE;
 
   @override
   String getTitleString() => appLocalizations.dev_preferences_screen_title;
@@ -73,17 +74,12 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
       );
 
   @override
-  Widget? getSubtitle() => null;
-
-  @override
   IconData getLeadingIconData() => Icons.settings;
 
   @override
-  List<Widget> getBody() => <Widget>[
-        SwitchListTile(
-          title: Text(
-            appLocalizations.contribute_develop_dev_mode_title,
-          ),
+  List<UserPreferencesItem> getChildren() => <UserPreferencesItem>[
+        UserPreferencesItemSwitch(
+          title: appLocalizations.contribute_develop_dev_mode_title,
           onChanged: (bool value) async {
             final NavigatorState navigator = Navigator.of(context);
             // resetting back to "no dev mode"
@@ -95,29 +91,22 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           },
           value: userPreferences.devMode == 1,
         ),
-        ListTile(
-          title: Text(
-            appLocalizations.dev_preferences_reset_onboarding_title,
-          ),
-          subtitle: Text(
-            appLocalizations.dev_preferences_reset_onboarding_subtitle,
-          ),
+        UserPreferencesItemTile(
+          title: appLocalizations.dev_preferences_reset_onboarding_title,
+          subtitle: appLocalizations.dev_preferences_reset_onboarding_subtitle,
           onTap: () async {
             await userPreferences.resetOnboarding();
             _showSuccessMessage();
           },
         ),
-        ListTile(
-          title: Text(
-            appLocalizations.dev_preferences_environment_switch_title,
-          ),
+        UserPreferencesItemTile(
+          title: appLocalizations.dev_preferences_environment_switch_title,
           trailing: DropdownButton<bool>(
-            value: OpenFoodAPIConfiguration.globalQueryType == QueryType.PROD,
+            value: userPreferences.getFlag(userPreferencesFlagProd) ?? true,
             elevation: 16,
             onChanged: (bool? newValue) async {
               await userPreferences.setFlag(userPreferencesFlagProd, newValue);
               ProductQuery.setQueryType(userPreferences);
-              setState(() {});
             },
             items: const <DropdownMenuItem<bool>>[
               DropdownMenuItem<bool>(
@@ -131,21 +120,17 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
             ],
           ),
         ),
-        ListTile(
-          title: Text(
-            appLocalizations.dev_preferences_test_environment_title,
+        UserPreferencesItemTile(
+          title: appLocalizations.dev_preferences_test_environment_title,
+          subtitle: appLocalizations.dev_preferences_test_environment_subtitle(
+            ProductQuery.getTestUriProductHelper(userPreferences)
+                .getPostUri(path: '')
+                .toString(),
           ),
-          subtitle: Text(
-            appLocalizations.dev_preferences_test_environment_subtitle(
-              '${OpenFoodAPIConfiguration.uriScheme}://${OpenFoodAPIConfiguration.uriTestHost}/',
-            ),
-          ),
-          onTap: () async => _changeTestEnvHost(),
+          onTap: () async => _changeTestEnvDomain(),
         ),
-        SwitchListTile(
-          title: Text(
-            appLocalizations.dev_preferences_edit_ingredients_title,
-          ),
+        UserPreferencesItemSwitch(
+          title: appLocalizations.dev_preferences_edit_ingredients_title,
           value: userPreferences.getFlag(userPreferencesFlagEditIngredients) ??
               false,
           onChanged: (bool value) async {
@@ -154,10 +139,8 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
             _showSuccessMessage();
           },
         ),
-        SwitchListTile(
-          title: const Text(
-            'Accessibility: remove colors',
-          ),
+        UserPreferencesItemSwitch(
+          title: 'Accessibility: remove colors',
           value: userPreferences
                   .getFlag(userPreferencesFlagAccessibilityNoColor) ??
               false,
@@ -167,10 +150,8 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
             _showSuccessMessage();
           },
         ),
-        SwitchListTile(
-          title: const Text(
-            'Accessibility: show emoji',
-          ),
+        UserPreferencesItemSwitch(
+          title: 'Accessibility: show emoji',
           value:
               userPreferences.getFlag(userPreferencesFlagAccessibilityEmoji) ??
                   false,
@@ -180,11 +161,9 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
             _showSuccessMessage();
           },
         ),
-        ListTile(
-          title: Text(
-            appLocalizations.dev_preferences_export_history_title,
-          ),
-          subtitle: Text(appLocalizations.clipboard_barcode_copy),
+        UserPreferencesItemTile(
+          title: appLocalizations.dev_preferences_export_history_title,
+          subtitle: appLocalizations.clipboard_barcode_copy,
           onTap: () async {
             final LocalDatabase localDatabase = context.read<LocalDatabase>();
             final Map<String, dynamic> export =
@@ -248,20 +227,18 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           },
         ),
         _dataImporterTile(),
-        ListTile(
-          title: Text(appLocalizations.offline_data),
-          onTap: () {
-            Navigator.push<void>(
-              context,
-              MaterialPageRoute<void>(
-                builder: (BuildContext context) => const OfflineDataPage(),
-              ),
-            );
-          },
+        UserPreferencesItemTile(
+          title: appLocalizations.offline_data,
+          onTap: () => Navigator.push<void>(
+            context,
+            MaterialPageRoute<void>(
+              builder: (BuildContext context) => const OfflineDataPage(),
+            ),
+          ),
         ),
-        ListTile(
-          title: Text(appLocalizations.background_task_title),
-          subtitle: Text(appLocalizations.background_task_subtitle),
+        UserPreferencesItemTile(
+          title: appLocalizations.background_task_title,
+          subtitle: appLocalizations.background_task_subtitle,
           trailing: const BackgroundTaskBadge(
             child: Icon(Icons.edit_notifications_outlined),
           ),
@@ -272,13 +249,9 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
             ),
           ),
         ),
-        ListTile(
-          title: Text(
-            appLocalizations.dev_preferences_import_history_title,
-          ),
-          subtitle: Text(
-            appLocalizations.dev_preferences_import_history_subtitle,
-          ),
+        UserPreferencesItemTile(
+          title: appLocalizations.dev_preferences_import_history_title,
+          subtitle: appLocalizations.dev_preferences_import_history_subtitle,
           onTap: () async {
             final LocalDatabase localDatabase = context.read<LocalDatabase>();
             await ProductListImportExport().importFromJSON(
@@ -297,9 +270,9 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
             localDatabase.notifyListeners();
           },
         ),
-        ListTile(
-          title: const Text('Add cards to scanner'),
-          subtitle: const Text('Adds 3 sample products to the scanner'),
+        UserPreferencesItemTile(
+          title: 'Add cards to scanner',
+          subtitle: 'Adds 3 sample products to the scanner',
           onTap: () async {
             final ContinuousScanModel model =
                 context.read<ContinuousScanModel>();
@@ -314,10 +287,8 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
             }
           },
         ),
-        SwitchListTile(
-          title: Text(
-            appLocalizations.dev_mode_hide_ecoscore_title,
-          ),
+        UserPreferencesItemSwitch(
+          title: appLocalizations.dev_mode_hide_ecoscore_title,
           value: userPreferences
               .getExcludedAttributeIds()
               .contains(Attribute.ATTRIBUTE_ECOSCORE),
@@ -329,19 +300,18 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
               list.add(tag);
             }
             await userPreferences.setExcludedAttributeIds(list);
-            setState(() {});
           },
         ),
-        ListTile(
+        UserPreferencesItemTile(
           // Do not translate
-          title: const Text('Reset app language'),
+          title: 'Reset app language',
           onTap: () async {
             userPreferences.setAppLanguageCode(null);
             ProductQuery.setLanguage(context, userPreferences);
           },
         ),
-        SwitchListTile(
-          title: const Text('Side by side comparison for 2 or 3 products'),
+        UserPreferencesItemSwitch(
+          title: 'Side by side comparison for 2 or 3 products',
           value:
               userPreferences.getFlag(userPreferencesFlagBoostedComparison) ??
                   false,
@@ -351,26 +321,31 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
             _showSuccessMessage();
           },
         ),
-        ListTile(
-          title: const Text('Debugging information'),
+        UserPreferencesItemTile(
+          title: 'Debugging information',
           onTap: () async => Navigator.of(context).push(MaterialPageRoute<void>(
               builder: (BuildContext context) =>
                   const UserPreferencesDebugInfo())),
-        )
+        ),
+        UserPreferencesItemTile(
+          title: 'Preference Search...',
+          onTap: () async => Navigator.of(context).push(
+            MaterialPageRoute<void>(
+              builder: (BuildContext context) =>
+                  const UserPreferencesSearchPage(),
+            ),
+          ),
+        ),
       ];
 
-  ListTile _dataImporterTile() {
+  UserPreferencesItem _dataImporterTile() {
     final SmoothAppDataImporterStatus status =
         context.read<SmoothAppDataImporter>().status;
 
-    return ListTile(
-      title: Text(
-        appLocalizations.dev_preferences_migration_title,
-      ),
-      subtitle: Text(
-        appLocalizations.dev_preferences_migration_subtitle(
-          status.printableLabel(appLocalizations),
-        ),
+    return UserPreferencesItemTile(
+      title: appLocalizations.dev_preferences_migration_title,
+      subtitle: appLocalizations.dev_preferences_migration_subtitle(
+        status.printableLabel(appLocalizations),
       ),
       onTap: status.canInitiateMigration
           ? () {
@@ -383,19 +358,16 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
   }
 
   ScaffoldFeatureController<SnackBar, SnackBarClosedReason>
-      _showSuccessMessage() {
-    setState(() {});
-    return ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(appLocalizations.dev_preferences_button_positive),
-      ),
-    );
-  }
+      _showSuccessMessage() => ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(appLocalizations.dev_preferences_button_positive),
+            ),
+          );
 
-  Future<void> _changeTestEnvHost() async {
+  Future<void> _changeTestEnvDomain() async {
     _textFieldController.text =
-        userPreferences.getDevModeString(userPreferencesTestEnvHost) ??
-            OpenFoodAPIConfiguration.uriTestHost;
+        userPreferences.getDevModeString(userPreferencesTestEnvDomain) ??
+            uriHelperFoodTest.domain;
     final bool? result = await showDialog<bool>(
       context: context,
       builder: (final BuildContext context) => SmoothAlertDialog(
@@ -413,9 +385,8 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
     );
     if (result == true) {
       await userPreferences.setDevModeString(
-          userPreferencesTestEnvHost, _textFieldController.text);
+          userPreferencesTestEnvDomain, _textFieldController.text);
       ProductQuery.setQueryType(userPreferences);
-      setState(() {});
     }
   }
 }

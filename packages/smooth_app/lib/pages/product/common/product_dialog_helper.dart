@@ -40,6 +40,9 @@ class ProductDialogHelper {
     if (product != null) {
       return FetchedProduct.found(product);
     }
+    if (localDatabase.upToDate.hasPendingChanges(barcode)) {
+      return FetchedProduct.found(Product(barcode: barcode));
+    }
     return openUniqueProductSearch();
   }
 
