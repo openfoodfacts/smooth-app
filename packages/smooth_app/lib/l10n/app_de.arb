@@ -2475,5 +2475,9 @@
     "hunger_games_loading_line1": "Bitte einen kurzen Moment Geduld …",
     "hunger_games_loading_line2": "Die Fragen werden gerade heruntergeladen!",
     "hunger_games_error_label": "Leider ist ein Problem aufgetreten … und die Fragen konnten nicht geladen werden.",
-    "hunger_games_error_retry_button": "Erneut versuchen"
+    "hunger_games_error_retry_button": "Erneut versuchen",
+    "link_cant_be_opened": "Dieser Link kann auf Ihrem Gerät nicht geöffnet werden. Bitte überprüfen Sie, ob ein Browser installiert ist.",
+    "@link_cant_be_opened": {
+        "description": "An error may happen if the device doesn't have a browser installed."
+    }
 }

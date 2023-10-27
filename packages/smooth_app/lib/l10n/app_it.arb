@@ -2475,5 +2475,9 @@
     "hunger_games_loading_line1": "Per favore lasciaci qualche secondo…",
     "hunger_games_loading_line2": "Stiamo scaricando le domande!",
     "hunger_games_error_label": "Argh! Qualcosa è andato storto… e non siamo riusciti a caricare le domande.",
-    "hunger_games_error_retry_button": "Riproviamo!"
+    "hunger_games_error_retry_button": "Riproviamo!",
+    "link_cant_be_opened": "Questo collegamento non può essere aperto sul tuo dispositivo. Verifica di avere un browser installato.",
+    "@link_cant_be_opened": {
+        "description": "An error may happen if the device doesn't have a browser installed."
+    }
 }
