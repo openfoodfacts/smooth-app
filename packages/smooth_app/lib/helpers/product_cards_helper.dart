@@ -22,25 +22,42 @@ Widget buildProductTitle(
     );
 
 String getProductNameAndBrands(
-    Product product, AppLocalizations appLocalizations) {
-  final String name =
-      product.productName?.trim() ?? appLocalizations.unknownProductName;
-  final String brands = product.brands?.trim() ?? appLocalizations.unknownBrand;
+  final Product product,
+  final AppLocalizations appLocalizations,
+) {
+  final String name = getProductName(product, appLocalizations);
+  final String brands = getProductBrands(product, appLocalizations);
   return '$name, $brands';
 }
 
-String getProductName(Product product, AppLocalizations appLocalizations) =>
-    product.productName ??
-    product.productNameInLanguages?[ProductQuery.getLanguage()] ??
+/// Returns a trimmed version of the string, or null if null or empty.
+String? _clearString(final String? string) {
+  if (string == null) {
+    return null;
+  }
+  if (string.trim().isEmpty) {
+    return null;
+  }
+  return string.trim();
+}
+
+String getProductName(
+  final Product product,
+  final AppLocalizations appLocalizations,
+) =>
+    _clearString(product.productNameInLanguages?[ProductQuery.getLanguage()]) ??
+    _clearString(product.productName) ??
     appLocalizations.unknownProductName;
 
-String getProductBrands(Product product, AppLocalizations appLocalizations) {
-  final String? brands = product.brands?.trim();
-  if (brands == null || brands.isEmpty) {
+String getProductBrands(
+  final Product product,
+  final AppLocalizations appLocalizations,
+) {
+  final String? brands = _clearString(product.brands);
+  if (brands == null) {
     return appLocalizations.unknownBrand;
-  } else {
-    return formatProductBrands(brands);
   }
+  return formatProductBrands(brands);
 }
 
 /// Correctly format word separators between words.

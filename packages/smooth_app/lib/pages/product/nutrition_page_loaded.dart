@@ -197,7 +197,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
         appBar: SmoothAppBar(
           title: AutoSizeText(
             appLocalizations.nutrition_page_title,
-            maxLines: upToDateProduct.productName?.isNotEmpty == true ? 1 : 2,
+            maxLines: 1,
           ),
           subTitle: buildProductTitle(upToDateProduct, appLocalizations),
         ),
