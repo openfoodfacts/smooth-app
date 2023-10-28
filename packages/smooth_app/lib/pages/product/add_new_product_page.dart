@@ -373,7 +373,6 @@ class _AddNewProductPageState extends State<AddNewProductPage>
     final List<ProductImageData> productImagesData = getProductMainImagesData(
       upToDateProduct,
       ProductQuery.getLanguage(),
-      includeOther: false,
     );
     for (final ProductImageData data in productImagesData) {
       // Everything else can only be uploaded once
