@@ -7,7 +7,7 @@ class _IconsFont {
   _IconsFont._();
 
   /// Please ensure this font is embedded
-  static const _kFontFam = 'SmoothIcons';
+  static const String _kFontFam = 'SmoothIcons';
   static const String? _kFontPkg = null;
 
   static const IconData add_to_list =
