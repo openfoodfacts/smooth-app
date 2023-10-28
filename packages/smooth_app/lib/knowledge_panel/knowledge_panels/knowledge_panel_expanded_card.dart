@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_element_card.dart';
-import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_summary_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
 
 class KnowledgePanelExpandedCard extends StatelessWidget {
@@ -19,21 +17,31 @@ class KnowledgePanelExpandedCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final KnowledgePanel panel =
-        KnowledgePanelWidget.getKnowledgePanel(product, panelId)!;
+        KnowledgePanelsBuilder.getKnowledgePanel(product, panelId)!;
     final List<Widget> elementWidgets = <Widget>[];
-    elementWidgets.add(KnowledgePanelSummaryCard(panel, isClickable: false));
-    for (final KnowledgePanelElement element
-        in panel.elements ?? <KnowledgePanelElement>[]) {
-      elementWidgets.add(
-        Padding(
-          padding: const EdgeInsetsDirectional.only(top: VERY_SMALL_SPACE),
-          child: KnowledgePanelElementCard(
-            knowledgePanelElement: element,
-            product: product,
-            isInitiallyExpanded: isInitiallyExpanded,
-          ),
-        ),
-      );
+    final Widget? summary = KnowledgePanelsBuilder.getPanelSummaryWidget(
+      panel,
+      isClickable: false,
+    );
+    if (summary != null) {
+      elementWidgets.add(summary);
+    }
+    if (panel.elements != null) {
+      for (final KnowledgePanelElement element in panel.elements!) {
+        final Widget? elementWidget = KnowledgePanelsBuilder.getElementWidget(
+          knowledgePanelElement: element,
+          product: product,
+          isInitiallyExpanded: isInitiallyExpanded,
+        );
+        if (elementWidget != null) {
+          elementWidgets.add(
+            Padding(
+              padding: const EdgeInsetsDirectional.only(top: VERY_SMALL_SPACE),
+              child: elementWidget,
+            ),
+          );
+        }
+      }
     }
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
