@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="14px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Chevron down</title>
+    <g id="Chevron-down" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="arrow_down" transform="translate(0.0774, 3)" fill="#8F8F8F" fill-rule="nonzero">
+            <path d="M7,0 C6.69919445,0 6.39848611,0.111938 6.13715278,0.335938 L0.575737867,5.101563 C0.215626755,5.410563 0,5.930328 0,6.486328 C0,7.815328 1.15258158,8.608094 2.0128038,7.871094 L7,3.595703 L11.9871959,7.873047 C12.8474182,8.610047 14,7.815328 14,6.486328 C14,5.929328 13.7835958,5.410563 13.4242625,5.101563 L7.86284722,0.335938 C7.60151389,0.111938 7.30080556,0 7,0 Z" id="Path" transform="translate(7, 4.0774) rotate(180) translate(-7, -4.0774)"></path>
+        </g>
+    </g>
+</svg>

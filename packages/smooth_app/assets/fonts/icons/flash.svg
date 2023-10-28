@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="26px" viewBox="0 0 20 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Path</title>
+    <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Flash" transform="translate(-3, 0)" fill="#FFFFFF" fill-rule="nonzero">
+            <g id="flash" transform="translate(3, 0)">
+                <polygon id="Path" points="5 26 6.25 16.9 0 16.9 11.25 0 13.75 0 12.5 10.4 20 10.4 7.5 26"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>
