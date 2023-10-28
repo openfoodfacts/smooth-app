@@ -2476,7 +2476,7 @@
     "hunger_games_loading_line2": "Descărcăm întrebările!",
     "hunger_games_error_label": "Of! Ceva nu a mers bine...și nu am putut încărca întrebările.",
     "hunger_games_error_retry_button": "Să reîncercăm!",
-    "link_cant_be_opened": "This link can't be opened on your device. Please check that you have a browser installed.",
+    "link_cant_be_opened": "Acest link nu poate fi deschis pe dispozitivul dvs. Vă rugăm să verificați dacă aveți un browser instalat.",
     "@link_cant_be_opened": {
         "description": "An error may happen if the device doesn't have a browser installed."
     }
