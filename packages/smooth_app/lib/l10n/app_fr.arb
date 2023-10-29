@@ -2476,7 +2476,7 @@
     "hunger_games_loading_line2": "Nous téléchargeons les questions !",
     "hunger_games_error_label": "Argh ! Quelque chose s'est mal passé… et nous n'avons pas pu charger les questions.",
     "hunger_games_error_retry_button": "Réessayons !",
-    "link_cant_be_opened": "This link can't be opened on your device. Please check that you have a browser installed.",
+    "link_cant_be_opened": "Ce lien ne peut pas être ouvert sur votre appareil. Veuillez vérifier qu'un navigateur est installé.",
     "@link_cant_be_opened": {
         "description": "An error may happen if the device doesn't have a browser installed."
     }
