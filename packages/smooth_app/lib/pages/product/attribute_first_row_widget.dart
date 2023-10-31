@@ -56,7 +56,7 @@ class _AttributeFirstRowWidgetState extends State<AttributeFirstRowWidget> {
           borderFlag: !hasMoreThanFourTerms,
         ),
         Column(
-          children: [
+          children: <Widget>[
             if (hasMoreThanFourTerms) ...<Widget>[
               if (showAllTerms) ...<Widget>[
                 _termsList(
@@ -91,25 +91,26 @@ class _AttributeFirstRowWidgetState extends State<AttributeFirstRowWidget> {
     bool borderFlag = false,
   }) {
     return ListView.builder(
-        padding: const EdgeInsets.only(left: 100.0),
-        itemCount: terms.length,
-        scrollDirection: Axis.vertical,
-        shrinkWrap: true,
-        itemBuilder: (_, int index) {
-          return ListTile(
-            key: UniqueKey(),
-            title: Text(
-              terms[index].split(_SplitChar)[0],
-              style: const TextStyle(fontWeight: FontWeight.bold),
-            ),
-            shape: (index == terms.length - 1 && borderFlag)
-                ? null
-                : const Border(
-                    bottom: BorderSide(),
-                  ),
-            trailing:
-                hasTrailing ? Text(terms[index].split(_SplitChar)[1]) : null,
-          );
-        });
+      padding: const EdgeInsets.only(left: 100.0),
+      itemCount: terms.length,
+      scrollDirection: Axis.vertical,
+      shrinkWrap: true,
+      itemBuilder: (_, int index) {
+        return ListTile(
+          key: UniqueKey(),
+          title: Text(
+            terms[index].split(_SplitChar)[0],
+            style: const TextStyle(fontWeight: FontWeight.bold),
+          ),
+          shape: (index == terms.length - 1 && borderFlag)
+              ? null
+              : const Border(
+                  bottom: BorderSide(),
+                ),
+          trailing:
+              hasTrailing ? Text(terms[index].split(_SplitChar)[1]) : null,
+        );
+      },
+    );
   }
 }

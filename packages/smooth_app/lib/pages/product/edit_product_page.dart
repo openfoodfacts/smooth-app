@@ -192,7 +192,7 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
                 onPressed: () async {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(
+                    MaterialPageRoute<void>(
                       builder: (BuildContext context) =>
                           ProductAttributesPage(widget.product),
                     ),

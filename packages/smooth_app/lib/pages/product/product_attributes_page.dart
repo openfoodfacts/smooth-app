@@ -62,7 +62,7 @@ class _ProductAttributesPageState extends State<ProductAttributesPage>
             ProductAttributeNutritionFacts(
               product: upToDateProduct,
             ),
-            ProductAtrributeIngredients(
+            ProductAttributeIngredients(
               product: upToDateProduct,
             ),
             AttributeItems(
@@ -97,36 +97,24 @@ class ProductAttributeNutritionFacts extends StatefulWidget {
 
 class _ProductAttributeNutritionFactsState
     extends State<ProductAttributeNutritionFacts> {
-  List<String> _allNutrients = <String>[];
+  final List<String> _allNutrients = <String>[];
 
   @override
   void initState() {
     super.initState();
     _allNutrients.clear();
 
-    widget.product.knowledgePanels?.panelIdToPanelMap['nutrition_facts_table']
-        ?.elements
-        ?.forEach((KnowledgePanelElement element) {
-      element.tableElement?.rows.forEach((KnowledgePanelTableRowElement row) {
-        final StringBuffer buffer = StringBuffer('');
-        for (int i = 0; i < row.values.length - 1; i++) {
-          buffer.write(row.values[i].text);
-          if (i == 0) {
-            buffer.write(_SplitChar);
-          }
-        }
-
-        String nutrient = buffer.toString();
-
-        if (nutrient.contains('<br>')) {
-          final List<String> split = nutrient.split('<br>');
-          nutrient = '${split[0]}${split[1]}';
-        }
-        _allNutrients.add(nutrient);
-      });
+    widget.product.nutriments?.toData().forEach((String key, String value) {
+      final StringBuffer buffer = StringBuffer('');
+      String nutrient = key.split('_100g')[0];
+      nutrient =
+          '${nutrient[0].toUpperCase()}${nutrient.substring(1).toLowerCase()}';
+      buffer.write(nutrient);
+      buffer.write(_SplitChar);
+      buffer.write(value);
+      nutrient = buffer.toString();
+      _allNutrients.add(nutrient);
     });
-
-    _allNutrients = _allNutrients.toSet().toList();
   }
 
   @override
@@ -166,18 +154,18 @@ class _ProductAttributeNutritionFactsState
   }
 }
 
-class ProductAtrributeIngredients extends StatefulWidget {
-  const ProductAtrributeIngredients({super.key, required this.product});
+class ProductAttributeIngredients extends StatefulWidget {
+  const ProductAttributeIngredients({super.key, required this.product});
 
   final Product product;
 
   @override
-  State<ProductAtrributeIngredients> createState() =>
-      _ProductAtrributeIngredientsState();
+  State<ProductAttributeIngredients> createState() =>
+      _ProductAttributeIngredientsState();
 }
 
-class _ProductAtrributeIngredientsState
-    extends State<ProductAtrributeIngredients> {
+class _ProductAttributeIngredientsState
+    extends State<ProductAttributeIngredients> {
   final List<String> _allIngredients = <String>[];
 
   @override
