@@ -622,6 +622,21 @@
     "new_product_desc_nova_unknown": "Livello di trasformazione alimentare sconosciuto",
     "new_product_title_pictures": "Scattiamo delle foto!",
     "new_product_title_misc": "E dei dati essenziali…",
+    "new_product_done_msg": "Thanks for your contribution “{username}”!",
+    "@new_product_done_msg": {
+        "description": "Thank you message on the end of new producut page, after finish adding a new product.",
+        "placeholders": {
+            "username": {
+                "type": "String",
+                "example": "Bob"
+            }
+        }
+    },
+    "new_product_done_msg_no_user": "Thanks for your contribution!",
+    "new_product_done_button_label": "Discover the completed product",
+    "@new_product_done_button_label": {
+        "description": "Button at the end of new product page, that takes you to completed product"
+    },
     "hey_incomplete_product_message": "Tocca ORA per rispondere a 3 domande e calcolare il Nutri-Score, l'Eco-Score e l'Ultra-trasformazione (NOVA)!",
     "nutritional_facts_photo_uploaded": "Foto dei valori nutrizionali caricata",
     "@nutritional_facts_photo_uploaded": {},
