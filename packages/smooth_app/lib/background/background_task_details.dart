@@ -126,6 +126,8 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode {
     return result;
   }
 
+  static const String _invalidUserError = 'invalid_user_id_and_password';
+
   /// Uploads the product changes.
   @override
   Future<void> upload() async {
@@ -145,7 +147,19 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode {
       );
       if (result.status != ProductResultV3.statusSuccess &&
           result.status != ProductResultV3.statusWarning) {
-        throw Exception('Could not save product - ${result.errors}');
+        bool isInvalidUser = false;
+        if (result.errors != null) {
+          for (final ProductResultFieldAnswer answer in result.errors!) {
+            if (answer.message?.id == _invalidUserError) {
+              isInvalidUser = true;
+            }
+          }
+        }
+        throw Exception(
+          'Could not save product'
+          ' - '
+          '${result.errors}${isInvalidUser ? _getIncompleteUserData() : ''}',
+        );
       }
       return;
     }
@@ -157,7 +171,36 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode {
       uriHelper: uriProductHelper,
     );
     if (status.status != 1) {
-      throw Exception('Could not save product - ${status.error}');
+      bool isInvalidUser = false;
+      if (status.error != null) {
+        if (status.error!.contains(_invalidUserError)) {
+          isInvalidUser = true;
+        }
+      }
+      throw Exception(
+        'Could not save product'
+        ' - '
+        '${status.error}${isInvalidUser ? _getIncompleteUserData() : ''}',
+      );
     }
+  }
+
+  String _getIncompleteUserData() {
+    final User user = getUser();
+    final StringBuffer result = StringBuffer();
+    result.write(' [user:');
+    result.write(user.userId);
+    final int length = user.password.length;
+    result.write(' (');
+    if (length >= 8) {
+      result.write(user.password.substring(0, 2));
+      result.write('*' * (length - 4));
+      result.write(user.password.substring(length - 2));
+    } else {
+      result.write('passwordLength:$length');
+    }
+    result.write(')');
+    result.write('] ');
+    return result.toString();
   }
 }
