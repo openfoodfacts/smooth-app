@@ -36,7 +36,7 @@ class SmoothLargeButtonWithIcon extends StatelessWidget {
     final ThemeData themeData = Theme.of(context);
     TextStyle style = textStyle ?? themeData.textTheme.bodyMedium!;
 
-    if (style.color == null) {
+    if (foregroundColor != null) {
       style = style.copyWith(color: _getForegroundColor(themeData));
     }
 
