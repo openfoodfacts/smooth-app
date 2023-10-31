@@ -64,7 +64,7 @@ dependencies:
   share_plus: 6.3.4
   fimber: 0.6.6
   shimmer: ^3.0.0
-  lottie: 2.2.0
+  lottie: 2.7.0
   rive: 0.11.4
   sensors_plus: 3.0.3
   webview_flutter: 3.0.4
