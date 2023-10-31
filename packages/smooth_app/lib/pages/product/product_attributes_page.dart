@@ -170,17 +170,18 @@ class _ProductAttributeIngredientsState
 
   @override
   void initState() {
-    _allIngredients.clear();
     super.initState();
-  }
+    _allIngredients.clear();
 
-  @override
-  Widget build(BuildContext context) {
     widget.product.ingredients?.forEach((Ingredient element) {
       if (element.text != null) {
         _allIngredients.add(element.text!);
       }
     });
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     return AttributeFirstRowWidget(
