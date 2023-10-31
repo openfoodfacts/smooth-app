@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="14px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Chevron right</title>
+    <g id="Chevron-right" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="arrow_right" transform="translate(3, 0.0774)" fill="#8F8F8F" fill-rule="nonzero">
+            <path d="M4.07742128,2.92257872 C3.77661573,2.92257872 3.47590739,3.03451672 3.21457406,3.25851672 L-2.34684085,8.02414172 C-2.70695196,8.33314172 -2.92257872,8.85290672 -2.92257872,9.40890672 C-2.92257872,10.7379068 -1.76999714,11.5306728 -0.909774918,10.7936728 L4.07742128,6.51828172 L9.06461717,10.7956258 C9.92483939,11.5326258 11.0774213,10.7379068 11.0774213,9.40890672 C11.0774213,8.85190672 10.861017,8.33314172 10.5016837,8.02414172 L4.9402685,3.25851672 C4.67893517,3.03451672 4.37822684,2.92257872 4.07742128,2.92257872 Z" id="Path" transform="translate(4.0774, 7) rotate(90) translate(-4.0774, -7)"></path>
+        </g>
+    </g>
+</svg>
