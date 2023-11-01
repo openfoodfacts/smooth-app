@@ -622,7 +622,7 @@
     "new_product_desc_nova_unknown": "Neznámá úroveň průmyslového zpracování potraviny",
     "new_product_title_pictures": "Pojďme udělat pár fotek!",
     "new_product_title_misc": "A pár základních údajů…",
-    "new_product_done_msg": "Thanks for your contribution “{username}”!",
+    "new_product_done_msg": "Děkujeme „{username}“ za váš příspěvek!",
     "@new_product_done_msg": {
         "description": "Thank you message on the end of new producut page, after finish adding a new product.",
         "placeholders": {
@@ -632,8 +632,8 @@
             }
         }
     },
-    "new_product_done_msg_no_user": "Thanks for your contribution!",
-    "new_product_done_button_label": "Discover the completed product",
+    "new_product_done_msg_no_user": "Děkujeme vám za váš příspěvek!",
+    "new_product_done_button_label": "Objevte hotový produkt",
     "@new_product_done_button_label": {
         "description": "Button at the end of new product page, that takes you to completed product"
     },
