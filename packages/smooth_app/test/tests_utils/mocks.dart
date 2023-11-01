@@ -220,5 +220,5 @@ Future<void> mockMatomo() async {
 
   await AnalyticsHelper.initMatomo(false);
   MatomoTracker.instance.setOptOut(optOut: true);
-  MatomoTracker.instance.timer.cancel();
+  MatomoTracker.instance.dequeueTimer.cancel();
 }
