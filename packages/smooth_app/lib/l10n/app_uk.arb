@@ -622,7 +622,7 @@
     "new_product_desc_nova_unknown": "Рівень обробки їжі є невідомим",
     "new_product_title_pictures": "Let's take some pictures!",
     "new_product_title_misc": "And some basic data…",
-    "new_product_done_msg": "Thanks for your contribution “{username}”!",
+    "new_product_done_msg": "Дякуємо за ваш внесок «{username}»!",
     "@new_product_done_msg": {
         "description": "Thank you message on the end of new producut page, after finish adding a new product.",
         "placeholders": {
@@ -632,8 +632,8 @@
             }
         }
     },
-    "new_product_done_msg_no_user": "Thanks for your contribution!",
-    "new_product_done_button_label": "Discover the completed product",
+    "new_product_done_msg_no_user": "Дякуємо за Ваш внесок!",
+    "new_product_done_button_label": "Відкрийте для себе готовий продукт",
     "@new_product_done_button_label": {
         "description": "Button at the end of new product page, that takes you to completed product"
     },
