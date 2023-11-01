@@ -56,10 +56,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
   late final OpenFoodFactsCountry? _country;
 
   @override
-  String get traceTitle => 'search_page';
-
-  @override
-  String get traceName => 'Opened search_page';
+  String get actionName => 'Opened search_page';
 
   @override
   void initState() {

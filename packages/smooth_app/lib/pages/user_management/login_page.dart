@@ -77,10 +77,7 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
   }
 
   @override
-  String get traceTitle => 'login_page';
-
-  @override
-  String get traceName => 'Opened login_page';
+  String get actionName => 'Opened login_page';
 
   @override
   void dispose() {

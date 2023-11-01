@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:provider/provider.dart';
@@ -223,7 +224,10 @@ class _SmoothAppState extends State<SmoothApp> {
             provide<PermissionListener>(_permissionListener),
           ],
           child: AppNavigator(
-            observers: <NavigatorObserver>[SentryNavigatorObserver()],
+            observers: <NavigatorObserver>[
+              SentryNavigatorObserver(),
+              matomoObserver,
+            ],
             child: Builder(builder: _buildApp),
           ),
         );
