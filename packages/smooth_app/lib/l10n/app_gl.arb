@@ -27,7 +27,7 @@
     "go_back_to_top": "Go back to top",
     "save": "Gardar",
     "save_confirmation": "Are you sure you want to save?",
-    "skip": "Skip",
+    "skip": "Saltar",
     "cancel": "Cancel",
     "@cancel": {},
     "ignore": "Ignore",
@@ -146,7 +146,7 @@
     "incorrect_credentials": "Incorrect username or password.",
     "password_lost_incorrect_credentials": "This email or username doesn't exist. Please check your credentials.",
     "password_lost_server_unavailable": "We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.",
-    "login": "Login",
+    "login": "Acceder",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
@@ -484,7 +484,7 @@
     "@unknownBrand": {},
     "unknownProductName": "Unknown product name",
     "@unknownProductName": {},
-    "label_refresh": "Refresh",
+    "label_refresh": "Actualizar",
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
@@ -1275,7 +1275,7 @@
     "@edit_product_form_item_origins_explainer_2": {
         "description": "Product edition - Origins - input explainer, part 2"
     },
-    "edit_product_form_item_countries_title": "Country",
+    "edit_product_form_item_countries_title": "País",
     "@edit_product_form_item_countries_title": {
         "description": "Product edition - Countries - Title"
     },
