@@ -1357,6 +1357,10 @@
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
     },
+    "no_data_available": "No data available",
+    "@no_data_available": {
+        "description": "When there are no data to display"
+    },
     "product_field_website_title": "Сайт",
     "@product_field_website_title": {
         "description": "Title of a product field: website"
@@ -2486,7 +2490,7 @@
     "contact_title_pro_email": "Контакт виробника",
     "contact_title_press_page": "Інформація для преси",
     "contact_title_press_email": "Контакти для преси",
-    "contact_title_newsletter": "Subscribe to our newsletter",
+    "contact_title_newsletter": "Підпишіться на нашу розсилку новин",
     "hunger_games_loading_line1": "Будь ласка, дайте нам кілька секунд…",
     "hunger_games_loading_line2": "Ми завантажуємо питання!",
     "hunger_games_error_label": "Ох! Щось пішло не так… і ми не змогли завантажити питання.",
