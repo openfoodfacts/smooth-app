@@ -1357,6 +1357,10 @@
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
     },
+    "no_data_available": "No data available",
+    "@no_data_available": {
+        "description": "When there are no data to display"
+    },
     "product_field_website_title": "Strona",
     "@product_field_website_title": {
         "description": "Title of a product field: website"
