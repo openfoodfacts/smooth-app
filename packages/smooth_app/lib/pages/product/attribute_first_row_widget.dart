@@ -4,7 +4,10 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/pages/product/attribute_first_row_helper.dart';
 
 class AttributeFirstRowWidget extends StatefulWidget {
-  const AttributeFirstRowWidget({required this.helper, required this.product});
+  const AttributeFirstRowWidget({
+    required this.helper,
+    required this.product,
+  });
 
   final AttributeFirstRowHelper helper;
   final Product product;
@@ -15,8 +18,8 @@ class AttributeFirstRowWidget extends StatefulWidget {
 }
 
 class _AttributeFirstRowWidgetState extends State<AttributeFirstRowWidget> {
-  bool showAllTerms = false;
-  late List<StringPair> allTerms = <StringPair>[];
+  bool _showAllTerms = false;
+  late final List<StringPair> allTerms;
 
   @override
   void initState() {
@@ -65,7 +68,7 @@ class _AttributeFirstRowWidgetState extends State<AttributeFirstRowWidget> {
           ),
         ),
         _termsList(
-          showAllTerms ? allTerms : firstTerms,
+          _showAllTerms ? allTerms : firstTerms,
           borderFlag: !hasManyTerms,
         ),
         if (hasManyTerms) ...<Widget>[
@@ -73,7 +76,7 @@ class _AttributeFirstRowWidgetState extends State<AttributeFirstRowWidget> {
             padding: const EdgeInsets.only(left: 100.0),
             child: ExpansionTile(
               onExpansionChanged: (bool value) => setState(() {
-                showAllTerms = value;
+                _showAllTerms = value;
               }),
               title: const Text(
                 'Expand',
@@ -98,7 +101,6 @@ class _AttributeFirstRowWidgetState extends State<AttributeFirstRowWidget> {
       shrinkWrap: true,
       itemBuilder: (_, int index) {
         return ListTile(
-          key: UniqueKey(),
           title: Text(
             terms[index].first,
             style: const TextStyle(fontWeight: FontWeight.bold),
