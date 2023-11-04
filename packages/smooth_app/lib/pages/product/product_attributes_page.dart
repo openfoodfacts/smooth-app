@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/up_to_date_mixin.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/generic_lib/widgets/svg_icon.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
+import 'package:smooth_app/pages/product/atrribute_first_row_helper.dart';
 import 'package:smooth_app/pages/product/attribute_first_row_widget.dart';
 import 'package:smooth_app/pages/product/common/product_app_bar.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
@@ -13,8 +12,6 @@ import 'package:smooth_app/pages/product/nutrition_page_loaded.dart';
 import 'package:smooth_app/pages/product/product_field_editor.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
-
-const String _SplitChar = ':';
 
 class ProductAttributesPage extends StatefulWidget {
   const ProductAttributesPage(this.product);
@@ -59,11 +56,39 @@ class _ProductAttributesPageState extends State<ProductAttributesPage>
               helper: SimpleInputPageLabelHelper(),
               product: upToDateProduct,
             ),
-            ProductAttributeNutritionFacts(
-              product: upToDateProduct,
+            AttributeFirstRowWidget(
+              helper:
+                  AttributeFirstRowNutritionHelper(product: upToDateProduct),
+              onTap: () async {
+                if (!await ProductRefresher().checkIfLoggedIn(
+                  context,
+                  isLoggedInMandatory: true,
+                )) {
+                  return;
+                }
+                AnalyticsHelper.trackProductEdit(
+                  AnalyticsEditEvents.nutrition_Facts,
+                  upToDateProduct.barcode!,
+                );
+
+                if (!mounted) {
+                  return;
+                }
+
+                await NutritionPageLoaded.showNutritionPage(
+                  product: upToDateProduct,
+                  isLoggedInMandatory: true,
+                  context: context,
+                );
+              },
             ),
-            ProductAttributeIngredients(
-              product: upToDateProduct,
+            AttributeFirstRowWidget(
+              helper:
+                  AttributeFirstRowIngredientsHelper(product: upToDateProduct),
+              onTap: () async => ProductFieldOcrIngredientEditor().edit(
+                context: context,
+                product: upToDateProduct,
+              ),
             ),
             AttributeItems(
               helper: SimpleInputPageCountryHelper(),
@@ -86,117 +111,6 @@ class _ProductAttributesPageState extends State<ProductAttributesPage>
   }
 }
 
-class ProductAttributeNutritionFacts extends StatefulWidget {
-  const ProductAttributeNutritionFacts({required this.product});
-
-  final Product product;
-  @override
-  State<ProductAttributeNutritionFacts> createState() =>
-      _ProductAttributeNutritionFactsState();
-}
-
-class _ProductAttributeNutritionFactsState
-    extends State<ProductAttributeNutritionFacts> {
-  final List<String> _allNutrients = <String>[];
-
-  @override
-  void initState() {
-    super.initState();
-    _allNutrients.clear();
-
-    widget.product.nutriments?.toData().forEach((String key, String value) {
-      final StringBuffer buffer = StringBuffer('');
-      String nutrient = key.split('_100g')[0];
-      nutrient =
-          '${nutrient[0].toUpperCase()}${nutrient.substring(1).toLowerCase()}';
-      buffer.write(nutrient);
-      buffer.write(_SplitChar);
-      buffer.write(value);
-      nutrient = buffer.toString();
-      _allNutrients.add(nutrient);
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    return AttributeFirstRowWidget(
-      allTerms: _allNutrients,
-      leading: const SvgIcon(
-        'assets/cacheTintable/scale-balance.svg',
-        dontAddColor: true,
-      ),
-      title: appLocalizations.nutrition_page_title,
-      hasTrailing: true,
-      onTap: () async {
-        if (!await ProductRefresher().checkIfLoggedIn(
-          context,
-          isLoggedInMandatory: true,
-        )) {
-          return;
-        }
-        AnalyticsHelper.trackProductEdit(
-          AnalyticsEditEvents.nutrition_Facts,
-          widget.product.barcode!,
-        );
-
-        if (!mounted) {
-          return;
-        }
-
-        await NutritionPageLoaded.showNutritionPage(
-          product: widget.product,
-          isLoggedInMandatory: true,
-          context: context,
-        );
-      },
-    );
-  }
-}
-
-class ProductAttributeIngredients extends StatefulWidget {
-  const ProductAttributeIngredients({super.key, required this.product});
-
-  final Product product;
-
-  @override
-  State<ProductAttributeIngredients> createState() =>
-      _ProductAttributeIngredientsState();
-}
-
-class _ProductAttributeIngredientsState
-    extends State<ProductAttributeIngredients> {
-  final List<String> _allIngredients = <String>[];
-
-  @override
-  void initState() {
-    super.initState();
-    _allIngredients.clear();
-
-    widget.product.ingredients?.forEach((Ingredient element) {
-      if (element.text != null) {
-        _allIngredients.add(element.text!);
-      }
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-
-    return AttributeFirstRowWidget(
-      allTerms: _allIngredients,
-      leading: const SvgIcon('assets/cacheTintable/ingredients.svg',
-          dontAddColor: true),
-      title: appLocalizations.ingredients,
-      onTap: () async => ProductFieldOcrIngredientEditor().edit(
-        context: context,
-        product: widget.product,
-      ),
-    );
-  }
-}
-
 class AttributeItems extends StatefulWidget {
   const AttributeItems({required this.helper, required this.product});
   final AbstractSimpleInputPageHelper helper;
@@ -207,22 +121,10 @@ class AttributeItems extends StatefulWidget {
 }
 
 class _AttributeItemsState extends State<AttributeItems> {
-  late final List<String> _localTerms;
-
-  @override
-  void initState() {
-    super.initState();
-    widget.helper.reInit(widget.product);
-    _localTerms = List<String>.of(widget.helper.terms);
-  }
-
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return AttributeFirstRowWidget(
-      allTerms: _localTerms,
-      leading: widget.helper.getIcon(),
-      title: widget.helper.getTitle(appLocalizations),
+      helper: AttributeFirstRowSimpleHelper(helper: widget.helper),
       onTap: () async => ProductFieldSimpleEditor(widget.helper).edit(
         context: context,
         product: widget.product,
