@@ -1,25 +1,29 @@
 // ignore_for_file: use_build_context_synchronously
 
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:barcode_widget/barcode_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/up_to_date_mixin.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_list_tile_card.dart';
 import 'package:smooth_app/generic_lib/widgets/svg_icon.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
+import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/product/add_other_details_page.dart';
-import 'package:smooth_app/pages/product/common/product_app_bar.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/nutrition_page_loaded.dart';
-import 'package:smooth_app/pages/product/product_attributes_page.dart';
 import 'package:smooth_app/pages/product/product_field_editor.dart';
 import 'package:smooth_app/pages/product/product_image_gallery_view.dart';
 import 'package:smooth_app/pages/product/simple_input_page.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
+import 'package:smooth_app/widgets/smooth_app_bar.dart';
+import 'package:smooth_app/widgets/smooth_floating_message.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Page where we can indirectly edit all data about a product.
@@ -48,11 +52,70 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     context.watch<LocalDatabase>();
     refreshUpToDate();
+    final ThemeData theme = Theme.of(context);
+    final String productName = getProductName(
+      upToDateProduct,
+      appLocalizations,
+    );
+    final String productBrand =
+        getProductBrands(upToDateProduct, appLocalizations);
 
     return SmoothScaffold(
-      appBar: ProductAppBar(
-        product: upToDateProduct,
-        barcodeVisibleInAppbar: _barcodeVisibleInAppbar,
+      appBar: SmoothAppBar(
+        centerTitle: false,
+        leading: const SmoothBackButton(),
+        title: Semantics(
+          value: productName,
+          child: ExcludeSemantics(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                AutoSizeText(
+                  '${productName.trim()}, ${productBrand.trim()}',
+                  minFontSize:
+                      theme.textTheme.titleLarge?.fontSize?.clamp(13.0, 17.0) ??
+                          13.0,
+                  maxLines: !_barcodeVisibleInAppbar ? 2 : 1,
+                  style: theme.textTheme.titleLarge
+                      ?.copyWith(fontWeight: FontWeight.w500),
+                ),
+                if (barcode.isNotEmpty)
+                  AnimatedContainer(
+                    duration: const Duration(milliseconds: 250),
+                    height: _barcodeVisibleInAppbar ? 14.0 : 0.0,
+                    child: Text(
+                      barcode,
+                      style: theme.textTheme.titleMedium?.copyWith(
+                        fontWeight: FontWeight.normal,
+                      ),
+                    ),
+                  ),
+              ],
+            ),
+          ),
+        ),
+        actions: <Widget>[
+          Semantics(
+            button: true,
+            value: appLocalizations.clipboard_barcode_copy,
+            excludeSemantics: true,
+            child: Builder(builder: (BuildContext context) {
+              return IconButton(
+                icon: const Icon(Icons.copy),
+                tooltip: appLocalizations.clipboard_barcode_copy,
+                onPressed: () {
+                  Clipboard.setData(
+                    ClipboardData(text: barcode),
+                  );
+
+                  SmoothFloatingMessage(
+                    message: appLocalizations.clipboard_barcode_copied(barcode),
+                  ).show(context, alignment: AlignmentDirectional.bottomCenter);
+                },
+              );
+            }),
+          )
+        ],
       ),
       body: RefreshIndicator(
         onRefresh: () async => ProductRefresher().fetchAndRefresh(
@@ -188,18 +251,6 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
                   );
                 },
               ),
-              ElevatedButton(
-                onPressed: () async {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute<void>(
-                      builder: (BuildContext context) =>
-                          ProductAttributesPage(widget.product),
-                    ),
-                  );
-                },
-                child: const Text('Attributes'),
-              )
             ],
           ),
         ),

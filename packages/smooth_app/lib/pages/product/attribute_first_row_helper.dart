@@ -2,10 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/widgets/svg_icon.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
+import 'package:smooth_app/pages/product/common/product_refresher.dart';
+import 'package:smooth_app/pages/product/nutrition_page_loaded.dart';
+import 'package:smooth_app/pages/product/product_field_editor.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
 
 class StringPair {
-  StringPair({
+  const StringPair({
     required this.first,
     this.second,
   });
@@ -20,6 +24,12 @@ abstract class AttributeFirstRowHelper {
   Widget? getLeadingIcon();
 
   String getTitle(BuildContext context);
+
+  Function() onTap({
+    required BuildContext context,
+    required Product product,
+    bool mounted = false,
+  });
 }
 
 class AttributeFirstRowSimpleHelper extends AttributeFirstRowHelper {
@@ -55,6 +65,17 @@ class AttributeFirstRowSimpleHelper extends AttributeFirstRowHelper {
     return helper.getTitle(
       appLocalizations,
     );
+  }
+
+  @override
+  Function() onTap(
+      {required BuildContext context,
+      required Product product,
+      bool mounted = true}) {
+    return () async => ProductFieldSimpleEditor(helper).edit(
+          context: context,
+          product: product,
+        );
   }
 }
 
@@ -95,6 +116,37 @@ class AttributeFirstRowNutritionHelper extends AttributeFirstRowHelper {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return appLocalizations.nutrition_page_title;
   }
+
+  @override
+  Function() onTap({
+    required BuildContext context,
+    required Product product,
+    bool mounted = false,
+  }) {
+    return () async {
+      if (!await ProductRefresher().checkIfLoggedIn(
+        context,
+        isLoggedInMandatory: true,
+      )) {
+        return;
+      }
+
+      AnalyticsHelper.trackProductEdit(
+        AnalyticsEditEvents.nutrition_Facts,
+        product.barcode!,
+      );
+
+      if (!mounted) {
+        return;
+      }
+
+      await NutritionPageLoaded.showNutritionPage(
+        product: product,
+        isLoggedInMandatory: true,
+        context: context,
+      );
+    };
+  }
 }
 
 class AttributeFirstRowIngredientsHelper extends AttributeFirstRowHelper {
@@ -134,5 +186,17 @@ class AttributeFirstRowIngredientsHelper extends AttributeFirstRowHelper {
   String getTitle(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return appLocalizations.ingredients;
+  }
+
+  @override
+  Function() onTap({
+    required BuildContext context,
+    required Product product,
+    bool mounted = true,
+  }) {
+    return () async => ProductFieldOcrIngredientEditor().edit(
+          context: context,
+          product: product,
+        );
   }
 }
