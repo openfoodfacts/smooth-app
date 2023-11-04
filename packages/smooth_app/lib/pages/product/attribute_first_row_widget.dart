@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/pages/product/attribute_first_row_helper.dart';
 
 class AttributeFirstRowWidget extends StatefulWidget {
   const AttributeFirstRowWidget({
     required this.helper,
-    required this.product,
   });
 
   final AttributeFirstRowHelper helper;
-  final Product product;
 
   @override
   State<AttributeFirstRowWidget> createState() =>
@@ -61,11 +58,7 @@ class _AttributeFirstRowWidgetState extends State<AttributeFirstRowWidget> {
           ),
           iconColor: theme.primaryColor,
           tileColor: theme.colorScheme.secondary,
-          onTap: widget.helper.onTap(
-            context: context,
-            product: widget.product,
-            mounted: mounted,
-          ),
+          onTap: () async => widget.helper.onTap(context: context),
         ),
         _termsList(
           _showAllTerms ? allTerms : firstTerms,

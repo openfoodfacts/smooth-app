@@ -25,10 +25,8 @@ abstract class AttributeFirstRowHelper {
 
   String getTitle(BuildContext context);
 
-  Function() onTap({
+  Future<void> onTap({
     required BuildContext context,
-    required Product product,
-    bool mounted = false,
   });
 }
 
@@ -68,14 +66,13 @@ class AttributeFirstRowSimpleHelper extends AttributeFirstRowHelper {
   }
 
   @override
-  Function() onTap(
-      {required BuildContext context,
-      required Product product,
-      bool mounted = true}) {
-    return () async => ProductFieldSimpleEditor(helper).edit(
-          context: context,
-          product: product,
-        );
+  Future<void> onTap({
+    required BuildContext context,
+  }) {
+    return ProductFieldSimpleEditor(helper).edit(
+      context: context,
+      product: helper.product,
+    );
   }
 }
 
@@ -118,34 +115,30 @@ class AttributeFirstRowNutritionHelper extends AttributeFirstRowHelper {
   }
 
   @override
-  Function() onTap({
+  Future<void> onTap({
     required BuildContext context,
-    required Product product,
-    bool mounted = false,
-  }) {
-    return () async {
-      if (!await ProductRefresher().checkIfLoggedIn(
-        context,
-        isLoggedInMandatory: true,
-      )) {
-        return;
-      }
+  }) async {
+    if (!await ProductRefresher().checkIfLoggedIn(
+      context,
+      isLoggedInMandatory: true,
+    )) {
+      return;
+    }
 
-      AnalyticsHelper.trackProductEdit(
-        AnalyticsEditEvents.nutrition_Facts,
-        product.barcode!,
-      );
+    AnalyticsHelper.trackProductEdit(
+      AnalyticsEditEvents.nutrition_Facts,
+      product.barcode!,
+    );
 
-      if (!mounted) {
-        return;
-      }
+    if (!context.mounted) {
+      return;
+    }
 
-      await NutritionPageLoaded.showNutritionPage(
-        product: product,
-        isLoggedInMandatory: true,
-        context: context,
-      );
-    };
+    NutritionPageLoaded.showNutritionPage(
+      product: product,
+      isLoggedInMandatory: true,
+      context: context,
+    );
   }
 }
 
@@ -189,14 +182,12 @@ class AttributeFirstRowIngredientsHelper extends AttributeFirstRowHelper {
   }
 
   @override
-  Function() onTap({
+  Future<void> onTap({
     required BuildContext context,
-    required Product product,
-    bool mounted = true,
   }) {
-    return () async => ProductFieldOcrIngredientEditor().edit(
-          context: context,
-          product: product,
-        );
+    return ProductFieldOcrIngredientEditor().edit(
+      context: context,
+      product: product,
+    );
   }
 }
