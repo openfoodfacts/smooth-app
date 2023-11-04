@@ -134,7 +134,7 @@ class AttributeFirstRowNutritionHelper extends AttributeFirstRowHelper {
       return;
     }
 
-    NutritionPageLoaded.showNutritionPage(
+    await NutritionPageLoaded.showNutritionPage(
       product: product,
       isLoggedInMandatory: true,
       context: context,
