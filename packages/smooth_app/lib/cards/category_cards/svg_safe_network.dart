@@ -23,11 +23,27 @@ class SvgSafeNetwork extends StatefulWidget {
 }
 
 class _SvgSafeNetworkState extends State<SvgSafeNetwork> {
-  late final Future<String> _loading = _load();
+  late final Future<String?> _loading = _load();
 
   String get _url => widget.helper.url;
 
-  Future<String> _load() async {
+  /// List of files problematic on the server: we prefer the cached versions.
+  ///
+  /// cf. https://github.com/openfoodfacts/smooth-app/issues/4748
+  static const List<String> _ignoreNetworkFiles = <String>[
+    'nova-group-unknown.svg',
+  ];
+
+  /// Returns the downloaded SVG string.
+  ///
+  /// Will return null only if the file is notoriously wrong on the server; in
+  /// that case we force the cached version.
+  Future<String?> _load() async {
+    for (final String filename in _ignoreNetworkFiles) {
+      if (_url.endsWith(filename)) {
+        return null;
+      }
+    }
     String? cached = _networkCache[_url];
     if (cached != null) {
       return cached;
@@ -38,9 +54,9 @@ class _SvgSafeNetworkState extends State<SvgSafeNetwork> {
   }
 
   @override
-  Widget build(BuildContext context) => FutureBuilder<String>(
+  Widget build(BuildContext context) => FutureBuilder<String?>(
         future: _loading,
-        builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
+        builder: (BuildContext context, AsyncSnapshot<String?> snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
             if (snapshot.data != null) {
               return SvgPicture.string(
