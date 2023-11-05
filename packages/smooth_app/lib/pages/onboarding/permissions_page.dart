@@ -120,7 +120,8 @@ class _PermissionsPageState extends State<PermissionsPage> {
     if (!context.mounted) {
       return;
     }
-    OnboardingFlowNavigator(context.read<UserPreferences>()).navigateToPage(
+return OnboardingFlowNavigator(context.read<UserPreferences>())
+        .navigateToPage(
       context,
       _onboardingPage.getNextPage(),
     );
