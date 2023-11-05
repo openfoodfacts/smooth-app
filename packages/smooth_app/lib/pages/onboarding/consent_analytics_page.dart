@@ -106,12 +106,17 @@ class ConsentAnalyticsPage extends StatelessWidget {
     await userPreferences.setUserTracking(accept);
 
     themeProvider.finishOnboarding();
-    //ignore: use_build_context_synchronously
+    if (!context.mounted) {
+      return;
+    }
     await OnboardingLoader(localDatabase).runAtNextTime(
       _onboardingPage,
       context,
     );
-    //ignore: use_build_context_synchronously
+
+    if (!context.mounted) {
+      return;
+    }
     await OnboardingFlowNavigator(userPreferences).navigateToPage(
       context,
       _onboardingPage.getNextPage(),

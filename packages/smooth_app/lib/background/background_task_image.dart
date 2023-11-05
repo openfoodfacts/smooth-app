@@ -71,9 +71,9 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
     required final int y1,
     required final int x2,
     required final int y2,
-    required final State<StatefulWidget> widget,
+    required final BuildContext context,
   }) async {
-    final LocalDatabase localDatabase = widget.context.read<LocalDatabase>();
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final String uniqueId = await _operationType.getNewKey(
       localDatabase,
       barcode: barcode,
@@ -91,7 +91,10 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
       x2,
       y2,
     );
-    await task.addToManager(localDatabase, widget: widget);
+    if (!context.mounted) {
+      return;
+    }
+    await task.addToManager(localDatabase, context: context);
   }
 
   @override

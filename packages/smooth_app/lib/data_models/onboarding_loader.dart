@@ -30,7 +30,9 @@ class OnboardingLoader {
           dismissible: false,
         );
         if (downloaded != true) {
-          //ignore: use_build_context_synchronously
+          if (!context.mounted) {
+            return;
+          }
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text(appLocalizations.onboarding_welcome_loading_error),

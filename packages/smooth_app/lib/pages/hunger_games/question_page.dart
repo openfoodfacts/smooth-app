@@ -310,7 +310,7 @@ class _QuestionPageState extends State<_QuestionPage>
       barcode: barcode,
       insightId: insightId,
       insightAnnotation: insightAnnotation,
-      widget: this,
+      context: context,
     );
   }
 

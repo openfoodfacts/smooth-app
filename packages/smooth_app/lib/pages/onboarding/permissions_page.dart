@@ -117,9 +117,10 @@ class _PermissionsPageState extends State<PermissionsPage> {
       context,
     );
 
-    // ignore: use_build_context_synchronously
-    return OnboardingFlowNavigator(context.read<UserPreferences>())
-        .navigateToPage(
+    if (!context.mounted) {
+      return;
+    }
+    OnboardingFlowNavigator(context.read<UserPreferences>()).navigateToPage(
       context,
       _onboardingPage.getNextPage(),
     );

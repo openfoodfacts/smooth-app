@@ -339,38 +339,42 @@ class _CropPageState extends State<CropPage> {
         sequenceNumber,
       );
       final Rect cropRect = _getLocalCropRect();
-      await BackgroundTaskImage.addTask(
-        widget.barcode,
-        language: widget.language,
-        imageField: widget.imageField,
-        fullFile: fullFile,
-        croppedFile: croppedFile,
-        rotation: _controller.rotation.degrees,
-        x1: cropRect.left.ceil(),
-        y1: cropRect.top.ceil(),
-        x2: cropRect.right.floor(),
-        y2: cropRect.bottom.floor(),
-        widget: this,
-      );
+      if (context.mounted) {
+        await BackgroundTaskImage.addTask(
+          widget.barcode,
+          language: widget.language,
+          imageField: widget.imageField,
+          fullFile: fullFile,
+          croppedFile: croppedFile,
+          rotation: _controller.rotation.degrees,
+          x1: cropRect.left.ceil(),
+          y1: cropRect.top.ceil(),
+          x2: cropRect.right.floor(),
+          y2: cropRect.bottom.floor(),
+          context: context,
+        );
+      }
     } else {
       // in this case, it's an existing picture, with crop parameters.
       // we let the server do everything: better performance, and no privacy
       // issue here (we're cropping from an allegedly already privacy compliant
       // picture).
       final Rect cropRect = _getServerCropRect();
-      await BackgroundTaskCrop.addTask(
-        widget.barcode,
-        language: widget.language,
-        imageField: widget.imageField,
-        imageId: widget.imageId!,
-        croppedFile: croppedFile,
-        rotation: _controller.rotation.degrees,
-        x1: cropRect.left.ceil(),
-        y1: cropRect.top.ceil(),
-        x2: cropRect.right.floor(),
-        y2: cropRect.bottom.floor(),
-        widget: this,
-      );
+      if (context.mounted) {
+        await BackgroundTaskCrop.addTask(
+          widget.barcode,
+          language: widget.language,
+          imageField: widget.imageField,
+          imageId: widget.imageId!,
+          croppedFile: croppedFile,
+          rotation: _controller.rotation.degrees,
+          x1: cropRect.left.ceil(),
+          y1: cropRect.top.ceil(),
+          x2: cropRect.right.floor(),
+          y2: cropRect.bottom.floor(),
+          context: context,
+        );
+      }
     }
     localDatabase.notifyListeners();
     if (!mounted) {
