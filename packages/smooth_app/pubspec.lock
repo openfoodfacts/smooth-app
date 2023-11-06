@@ -757,10 +757,10 @@ packages:
     dependency: "direct main"
     description:
       name: go_router
-      sha256: b185cf91b5a6861f4c2a92ddaa65f8919909416ee033e00751f7c67ebee1588d
+      sha256: "5098760d7478aabfe682a462bf121d61bc5dbe5df5aac8dad733564a0aee33bc"
       url: "https://pub.dev"
     source: hosted
-    version: "7.0.2"
+    version: "12.1.0"
   graphs:
     dependency: transitive
     description:
