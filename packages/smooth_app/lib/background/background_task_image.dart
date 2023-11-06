@@ -56,12 +56,8 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
   }
 
   // cf. https://github.com/openfoodfacts/smooth-app/issues/4219
-  // TODO(monsieurtanuki): move to off-dart
-  static const int minimumWidth = 640;
-  static const int minimumHeight = 160;
-
   static bool isPictureBigEnough(final num width, final num height) =>
-      width >= minimumWidth || height >= minimumHeight;
+      width >= ImageHelper.minimumWidth || height >= ImageHelper.minimumHeight;
 
   /// Adds the background task about uploading a product image.
   static Future<void> addTask(
