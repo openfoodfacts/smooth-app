@@ -694,10 +694,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_svg
-      sha256: bfc7cc3c75fe1282e8ce2e056d8fd1533f1a6848b65c379b4a5e7a9b623d3371
+      sha256: d39e7f95621fc84376bc0f7d504f05c3a41488c562f4a8ad410569127507402c
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.8"
+    version: "2.0.9"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -1033,12 +1033,11 @@ packages:
   mobile_scanner:
     dependency: transitive
     description:
-      path: "."
-      ref: custom_release
-      resolved-ref: "031ff428687e56e2a1ef94eea8c62a2d43093b56"
-      url: "https://github.com/openfoodfacts/mobile_scanner.git"
-    source: git
-    version: "3.4.1"
+      name: mobile_scanner
+      sha256: cf978740676ba5b0c17399baf117984b31190bb7a6eaa43e51229ed46abc42ee
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.5.2"
   mockito:
     dependency: "direct dev"
     description:
