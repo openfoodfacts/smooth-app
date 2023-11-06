@@ -18,8 +18,8 @@ dependencies:
   carousel_slider: 4.2.1
   cupertino_icons: 1.0.5
   device_preview: 1.1.0
-  flutter_svg: 2.0.8
-  flutter_map: 2.2.0
+  flutter_svg: 2.0.9
+  flutter_map: 4.0.0
   flutter_widget_from_html_core: 0.8.3+1
   fwfh_selectable_text: 0.8.3+1
   flutter_secure_storage: 8.0.0
@@ -40,15 +40,15 @@ dependencies:
   sqflite: 2.2.5
   url_launcher: 6.1.3
   visibility_detector: 0.4.0+2
-  assorted_layout_widgets: 7.0.0
+  assorted_layout_widgets: 8.0.5
   app_settings: 4.2.0
   diacritic: 0.1.4
   app_store_shared:
     path: ../app_store/shared
   audioplayers: 5.2.0
   percent_indicator: 4.2.3
-  flutter_email_sender: 6.0.0
-  flutter_native_splash: 2.3.1
+  flutter_email_sender: 6.0.2
+  flutter_native_splash: 2.3.4
   image: ^4.0.17
   auto_size_text: 3.0.0
   crop_image: 1.0.11
@@ -174,6 +174,10 @@ flutter:
     - assets/product/
     - assets/icons/
 
+# /!\
+# Don't use icons SVGs (in assets/fonts/icons), but add them to the font
+# cf (assets/fonts/icons/README.md)
+
   fonts:
     - family: OpenSans
       fonts:
@@ -184,3 +188,7 @@ flutter:
           weight: 600
         - asset: assets/fonts/OpenSans-Bold.ttf
           weight: 700
+
+    - family: SmoothIcons
+      fonts:
+        - asset: assets/fonts/SmoothIcons.ttf

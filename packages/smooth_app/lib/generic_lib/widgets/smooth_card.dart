@@ -20,6 +20,7 @@ class SmoothCard extends StatelessWidget {
     this.elevation = 8,
     this.borderRadius,
     this.ignoreDefaultSemantics = false,
+    this.clipBehavior,
   });
 
   const SmoothCard.angular({
@@ -32,6 +33,7 @@ class SmoothCard extends StatelessWidget {
     this.padding = const EdgeInsets.all(5.0),
     this.elevation = 8,
     this.ignoreDefaultSemantics = false,
+    this.clipBehavior,
   }) : borderRadius = ANGULAR_BORDER_RADIUS;
 
   const SmoothCard.flat({
@@ -47,6 +49,7 @@ class SmoothCard extends StatelessWidget {
     this.elevation = 0,
     this.borderRadius,
     this.ignoreDefaultSemantics = false,
+    this.clipBehavior,
   });
 
   final Widget child;
@@ -56,6 +59,7 @@ class SmoothCard extends StatelessWidget {
   final BorderRadiusGeometry? borderRadius;
   final double elevation;
   final bool ignoreDefaultSemantics;
+  final Clip? clipBehavior;
 
   @override
   Widget build(BuildContext context) {
@@ -80,6 +84,7 @@ class SmoothCard extends StatelessWidget {
           (Theme.of(context).brightness == Brightness.light
               ? Colors.white
               : Colors.black),
+      clipBehavior: clipBehavior ?? Clip.none,
       child: result,
     );
 

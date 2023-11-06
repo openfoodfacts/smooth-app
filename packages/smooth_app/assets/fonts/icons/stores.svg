@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Stores</title>
+    <g id="Stores" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M1,3 L1,1 L17,1 L17,3 L1,3 Z M1,17 L1,11 L0,11 L0,9 L1,4 L17,4 L18,9 L18,11 L17,11 L17,17 L15,17 L15,11 L11,11 L11,17 L1,17 Z M3,15 L9,15 L9,11 L3,11 L3,15 Z M2.05,9.0375 L15.95,9.0375 L2.05,9.0375 Z M2.05,9 L15.95,9 L15.35,6 L2.65,6 L2.05,9 Z" id="Shape" fill="#000000" fill-rule="nonzero"></path>
+    </g>
+</svg>
