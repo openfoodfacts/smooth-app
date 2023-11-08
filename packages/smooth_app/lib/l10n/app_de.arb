@@ -624,7 +624,7 @@
     "new_product_title_misc": "Und einige grundlegende Daten …",
     "new_product_done_msg": "„{username}”, vielen Dank für Ihr Mitwirken!",
     "@new_product_done_msg": {
-        "description": "Thank you message on the end of new producut page, after finish adding a new product.",
+        "description": "Thank you message on the end of new product page, after finish adding a new product.",
         "placeholders": {
             "username": {
                 "type": "String",
