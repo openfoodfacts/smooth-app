@@ -624,7 +624,7 @@
     "new_product_title_misc": "And some basic data…",
     "new_product_done_msg": "Thanks for your contribution “{username}”!",
     "@new_product_done_msg": {
-        "description": "Thank you message on the end of new producut page, after finish adding a new product.",
+        "description": "Thank you message on the end of new product page, after finish adding a new product.",
         "placeholders": {
             "username": {
                 "type": "String",
@@ -1981,7 +1981,7 @@
     "@language_picker_label": {
         "description": "Choose Application Language"
     },
-    "help_with_openfoodfacts": "Help with OpenFoodFacts",
+    "help_with_openfoodfacts": "Said",
     "@help_with_openfoodfacts": {
         "description": "Label for the email title"
     },
