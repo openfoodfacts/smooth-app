@@ -137,7 +137,7 @@ class BackgroundTaskCrop extends BackgroundTaskUpload {
         images: <ProductImage>[_getProductImage()],
       ),
     );
-    putTransientImage(localDatabase);
+    await putTransientImage(localDatabase);
   }
 
   /// Returns the actual crop parameters.
@@ -163,7 +163,7 @@ class BackgroundTaskCrop extends BackgroundTaskUpload {
   ) async {
     await super.postExecute(localDatabase, success);
     try {
-      File(croppedPath).deleteSync();
+      (await getFile(croppedPath)).deleteSync();
     } catch (e) {
       // not likely, but let's not spoil the task for that either.
     }
