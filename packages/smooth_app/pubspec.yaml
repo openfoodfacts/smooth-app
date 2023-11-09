@@ -16,7 +16,7 @@ dependencies:
   go_router: 7.0.2
   barcode_widget: 2.0.4
   carousel_slider: 4.2.1
-  cupertino_icons: 1.0.5
+  cupertino_icons: 1.0.6
   device_preview: 1.1.0
   flutter_svg: 2.0.9
   flutter_map: 4.0.0
