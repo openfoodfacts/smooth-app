@@ -622,7 +622,7 @@
     "new_product_desc_nova_unknown": "Poziom przetwarzania żywności nieznany",
     "new_product_title_pictures": "Zróbmy kilka zdjęć!",
     "new_product_title_misc": "I trochę podstawowych danych…",
-    "new_product_done_msg": "Thanks for your contribution “{username}”!",
+    "new_product_done_msg": "Dziękujemy za Twój wkład \"{username}\"!",
     "@new_product_done_msg": {
         "description": "Thank you message on the end of new product page, after finish adding a new product.",
         "placeholders": {
@@ -632,8 +632,8 @@
             }
         }
     },
-    "new_product_done_msg_no_user": "Thanks for your contribution!",
-    "new_product_done_button_label": "Discover the completed product",
+    "new_product_done_msg_no_user": "Dzięki za twój wkład!",
+    "new_product_done_button_label": "Odkryj gotowy produkt",
     "@new_product_done_button_label": {
         "description": "Button at the end of new product page, that takes you to completed product"
     },
@@ -1357,7 +1357,7 @@
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
     },
-    "no_data_available": "No data available",
+    "no_data_available": "Brak dostępnych informacji",
     "@no_data_available": {
         "description": "When there are no data to display"
     },
