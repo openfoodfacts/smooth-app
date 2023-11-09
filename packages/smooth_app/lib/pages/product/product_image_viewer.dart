@@ -65,7 +65,6 @@ class _ProductImageViewerState extends State<ProductImageViewer>
       upToDateProduct,
       widget.imageField,
       widget.language,
-      forceLanguage: true,
     );
     final ImageProvider? imageProvider = _getTransientFile().getImageProvider();
     final Iterable<OpenFoodFactsLanguage> selectedLanguages =

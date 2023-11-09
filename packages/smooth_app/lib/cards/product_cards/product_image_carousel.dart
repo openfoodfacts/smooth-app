@@ -22,8 +22,8 @@ class ProductImageCarousel extends StatelessWidget {
     final List<ProductImageData> productImagesData = getProductMainImagesData(
       product,
       ProductQuery.getLanguage(),
-      includeOther: true,
     );
+    productImagesData.add(getEmptyProductImageData(ImageField.OTHER));
     return SizedBox(
       height: height,
       child: ListView.builder(

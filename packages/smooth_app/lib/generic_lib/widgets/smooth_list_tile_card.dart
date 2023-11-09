@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shimmer/shimmer.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/widgets/images/smooth_image.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
 
@@ -14,24 +12,6 @@ class SmoothListTileCard extends StatelessWidget {
     this.leading,
     Key? key,
   }) : super(key: key);
-
-  /// Displays a [ListTile] inside a [SmoothCard] with a leading [Column]
-  /// containing the specified [imageProvider]
-  SmoothListTileCard.image({
-    required ImageProvider? imageProvider,
-    Widget? title,
-    GestureTapCallback? onTap,
-    String? heroTag,
-  }) : this(
-          title: title,
-          onTap: onTap,
-          leading: SmoothImage(
-            width: VERY_LARGE_SPACE * 5,
-            height: MEDIUM_SPACE * 5,
-            imageProvider: imageProvider,
-            heroTag: heroTag,
-          ),
-        );
 
   /// Displays a [ListTile] inside a [SmoothCard] with a leading [Column]
   /// containing the specified [icon]
@@ -50,36 +30,6 @@ class SmoothListTileCard extends StatelessWidget {
           leading: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[icon ?? const Icon(Icons.edit)],
-          ),
-        );
-
-  /// Displays a loading card with a shimmering effect
-  SmoothListTileCard.loading()
-      : this(
-          title: Shimmer.fromColors(
-            baseColor: GREY_COLOR,
-            highlightColor: WHITE_COLOR,
-            child: Row(
-              children: <Widget>[
-                Expanded(
-                  child: Container(
-                    decoration: const BoxDecoration(
-                      color: GREY_COLOR,
-                      borderRadius: CIRCULAR_BORDER_RADIUS,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          leading: Shimmer.fromColors(
-            baseColor: GREY_COLOR,
-            highlightColor: WHITE_COLOR,
-            child: const SmoothImage(
-              width: VERY_LARGE_SPACE * 5,
-              height: MEDIUM_SPACE * 5,
-              color: GREY_COLOR,
-            ),
           ),
         );
 

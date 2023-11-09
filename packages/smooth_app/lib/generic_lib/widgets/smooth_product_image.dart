@@ -22,11 +22,18 @@ class SmoothMainProductImage extends StatelessWidget {
   Widget build(BuildContext context) {
     context.watch<LocalDatabase>();
     final OpenFoodFactsLanguage language = ProductQuery.getLanguage();
-    final ImageProvider? imageProvider = TransientFile.fromProduct(
+    ImageProvider? imageProvider = TransientFile.fromProduct(
       product,
       ImageField.FRONT,
       language,
     ).getImageProvider();
+    // if we couldn't find an image for that specific language, use the default.
+    if (imageProvider == null) {
+      final String? url = product.imageFrontUrl;
+      if (url != null) {
+        imageProvider = NetworkImage(url);
+      }
+    }
 
     return SmoothImage(
       width: width,
