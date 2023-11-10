@@ -36,9 +36,11 @@ class AddNewProductPage extends StatefulWidget {
         events = const <EditProductAction, AnalyticsEvent>{
           EditProductAction.openPage: AnalyticsEvent.openNewProductPage,
           EditProductAction.leaveEmpty: AnalyticsEvent.closeEmptyNewProductPage,
-          EditProductAction.ingredients: AnalyticsEvent.ingredientsNewProductPage,
+          EditProductAction.ingredients:
+              AnalyticsEvent.ingredientsNewProductPage,
           EditProductAction.category: AnalyticsEvent.categoriesNewProductPage,
-          EditProductAction.nutritionFacts: AnalyticsEvent.nutritionNewProductPage,
+          EditProductAction.nutritionFacts:
+              AnalyticsEvent.nutritionNewProductPage,
         },
         displayPictures = true,
         displayMisc = true,
@@ -48,11 +50,16 @@ class AddNewProductPage extends StatefulWidget {
     this.product, {
     required this.isLoggedInMandatory,
   })  : events = const <EditProductAction, AnalyticsEvent>{
-          EditProductAction.openPage: AnalyticsEvent.openFastTrackProductEditPage,
-          EditProductAction.leaveEmpty: AnalyticsEvent.closeEmptyFastTrackProductPage,
-          EditProductAction.ingredients: AnalyticsEvent.ingredientsFastTrackProductPage,
-          EditProductAction.category: AnalyticsEvent.categoriesFastTrackProductPage,
-          EditProductAction.nutritionFacts: AnalyticsEvent.nutritionFastTrackProductPage,
+          EditProductAction.openPage:
+              AnalyticsEvent.openFastTrackProductEditPage,
+          EditProductAction.leaveEmpty:
+              AnalyticsEvent.closeEmptyFastTrackProductPage,
+          EditProductAction.ingredients:
+              AnalyticsEvent.ingredientsFastTrackProductPage,
+          EditProductAction.category:
+              AnalyticsEvent.categoriesFastTrackProductPage,
+          EditProductAction.nutritionFacts:
+              AnalyticsEvent.nutritionFastTrackProductPage,
         },
         displayPictures = false,
         displayMisc = false;
@@ -67,7 +74,8 @@ class AddNewProductPage extends StatefulWidget {
   State<AddNewProductPage> createState() => _AddNewProductPageState();
 }
 
-class _AddNewProductPageState extends State<AddNewProductPage> with TraceableClientMixin, UpToDateMixin {
+class _AddNewProductPageState extends State<AddNewProductPage>
+    with TraceableClientMixin, UpToDateMixin {
   /// Count of "other" pictures uploaded.
   int _otherCount = 0;
   int _totalPages = 0;
@@ -80,10 +88,14 @@ class _AddNewProductPageState extends State<AddNewProductPage> with TraceableCli
   final ProductList _history = ProductList.history();
 
   final ProductFieldEditor _packagingEditor = ProductFieldPackagingEditor();
-  final ProductFieldEditor _ingredientsEditor = ProductFieldOcrIngredientEditor();
-  final ProductFieldEditor _originEditor = ProductFieldSimpleEditor(SimpleInputPageOriginHelper());
-  final ProductFieldEditor _categoryEditor = ProductFieldSimpleEditor(SimpleInputPageCategoryHelper());
-  final ProductFieldEditor _labelEditor = ProductFieldSimpleEditor(SimpleInputPageLabelHelper());
+  final ProductFieldEditor _ingredientsEditor =
+      ProductFieldOcrIngredientEditor();
+  final ProductFieldEditor _originEditor =
+      ProductFieldSimpleEditor(SimpleInputPageOriginHelper());
+  final ProductFieldEditor _categoryEditor =
+      ProductFieldSimpleEditor(SimpleInputPageCategoryHelper());
+  final ProductFieldEditor _labelEditor =
+      ProductFieldSimpleEditor(SimpleInputPageLabelHelper());
   final ProductFieldEditor _detailsEditor = ProductFieldDetailsEditor();
   final ProductFieldEditor _nutritionEditor = ProductFieldNutritionEditor();
   late final List<ProductFieldEditor> _editors;
@@ -134,7 +146,8 @@ class _AddNewProductPageState extends State<AddNewProductPage> with TraceableCli
       AnalyticsProductTracker(
         analyticsEvent: AnalyticsEvent.imagesNewProductPage,
         barcode: barcode,
-        check: () => _otherCount > 0 || _helper.isOneMainImagePopulated(upToDateProduct),
+        check: () =>
+            _otherCount > 0 || _helper.isOneMainImagePopulated(upToDateProduct),
       ),
     ];
     _daoProductList = DaoProductList(localDatabase);
@@ -142,7 +155,8 @@ class _AddNewProductPageState extends State<AddNewProductPage> with TraceableCli
       widget.events[EditProductAction.openPage]!,
       barcode: barcode,
     );
-    _totalPages = 3 + (widget.displayMisc ? 1 : 0) + (widget.displayPictures ? 1 : 0);
+    _totalPages =
+        3 + (widget.displayMisc ? 1 : 0) + (widget.displayPictures ? 1 : 0);
     _progress = 1 / _totalPages;
 
     _pageController.addListener(() {
@@ -191,7 +205,7 @@ class _AddNewProductPageState extends State<AddNewProductPage> with TraceableCli
 
   @override
   Widget build(BuildContext context) {
-    _colorScheme = _colorScheme = Theme.of(context).colorScheme;
+    _colorScheme = Theme.of(context).colorScheme;
     context.watch<LocalDatabase>();
     refreshUpToDate();
 
@@ -210,7 +224,10 @@ class _AddNewProductPageState extends State<AddNewProductPage> with TraceableCli
               Container(
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
-                    colors: <Color>[_colorScheme.inversePrimary, _colorScheme.secondary],
+                    colors: <Color>[
+                      _colorScheme.inversePrimary,
+                      _colorScheme.secondary
+                    ],
                   ),
                 ),
                 child: FAProgressBar(
@@ -227,7 +244,8 @@ class _AddNewProductPageState extends State<AddNewProductPage> with TraceableCli
                 child: PageView(
                   controller: _pageController,
                   children: <Widget>[
-                    if (widget.displayPictures) _buildCard(_getImageRows(context)),
+                    if (widget.displayPictures)
+                      _buildCard(_getImageRows(context)),
                     _buildCard(_getNutriscoreRows(context)),
                     _buildCard(_getEcoscoreRows(context)),
                     _buildCard(_getNovaRows(context)),
@@ -271,7 +289,8 @@ class _AddNewProductPageState extends State<AddNewProductPage> with TraceableCli
       }
     }
     if (widget.displayPictures) {
-      return _helper.isOneMainImagePopulated(upToDateProduct) || _otherCount > 0;
+      return _helper.isOneMainImagePopulated(upToDateProduct) ||
+          _otherCount > 0;
     }
     return false;
   }
@@ -289,7 +308,8 @@ class _AddNewProductPageState extends State<AddNewProductPage> with TraceableCli
         ),
       );
 
-  Attribute? _getAttribute(final String tag) => upToDateProduct.getAttributes(<String>[tag])[tag];
+  Attribute? _getAttribute(final String tag) =>
+      upToDateProduct.getAttributes(<String>[tag])[tag];
 
   Widget _backButton() {
     return Container(
@@ -303,7 +323,8 @@ class _AddNewProductPageState extends State<AddNewProductPage> with TraceableCli
       height: 20.0,
       child: IconButton(
         onPressed: () => _onWillPop().then(
-          (bool leaveThePage) => leaveThePage ? Navigator.of(context).pop() : null,
+          (bool leaveThePage) =>
+              leaveThePage ? Navigator.of(context).pop() : null,
         ),
         alignment: Alignment.center,
         padding: EdgeInsets.zero,
@@ -326,7 +347,8 @@ class _AddNewProductPageState extends State<AddNewProductPage> with TraceableCli
           ),
           onPressed: () {
             _onWillPop().then(
-              (bool leaveThePage) => leaveThePage ? Navigator.of(context).pop() : null,
+              (bool leaveThePage) =>
+                  leaveThePage ? Navigator.of(context).pop() : null,
             );
           },
           child: Text(
@@ -354,7 +376,9 @@ class _AddNewProductPageState extends State<AddNewProductPage> with TraceableCli
             );
           },
           child: Text(
-            _isLastPage ? AppLocalizations.of(context).finish : AppLocalizations.of(context).next_label,
+            _isLastPage
+                ? AppLocalizations.of(context).finish
+                : AppLocalizations.of(context).next_label,
             style: const TextStyle(
               color: Colors.white,
               fontSize: 20.0,
@@ -493,7 +517,8 @@ class _AddNewProductPageState extends State<AddNewProductPage> with TraceableCli
           ),
           Expanded(
             child: AddNewProductTitle(
-              attribute?.descriptionShort ?? appLocalizations.new_product_desc_nova_unknown,
+              attribute?.descriptionShort ??
+                  appLocalizations.new_product_desc_nova_unknown,
               maxLines: 5,
             ),
           )
@@ -510,7 +535,8 @@ class _AddNewProductPageState extends State<AddNewProductPage> with TraceableCli
     );
     rows.add(const SizedBox(height: 15.0));
     rows.add(
-      AddNewProductSubTitle(appLocalizations.new_product_title_pictures_details),
+      AddNewProductSubTitle(
+          appLocalizations.new_product_title_pictures_details),
     );
 
     // Main 4 images first.
@@ -544,7 +570,9 @@ class _AddNewProductPageState extends State<AddNewProductPage> with TraceableCli
   }) =>
       AddNewProductButton(
         ImageField.OTHER.getAddPhotoButtonText(AppLocalizations.of(context)),
-        done ? AddNewProductButton.doneIconData : AddNewProductButton.cameraIconData,
+        done
+            ? AddNewProductButton.doneIconData
+            : AddNewProductButton.cameraIconData,
         () async {
           final File? finalPhoto = await confirmAndUploadNewPicture(
             this,
@@ -568,8 +596,11 @@ class _AddNewProductPageState extends State<AddNewProductPage> with TraceableCli
   ) {
     final bool done = _helper.isMainImagePopulated(productImageData, barcode);
     return AddNewProductButton(
-      productImageData.imageField.getAddPhotoButtonText(AppLocalizations.of(context)),
-      done ? AddNewProductButton.doneIconData : AddNewProductButton.cameraIconData,
+      productImageData.imageField
+          .getAddPhotoButtonText(AppLocalizations.of(context)),
+      done
+          ? AddNewProductButton.doneIconData
+          : AddNewProductButton.cameraIconData,
       () async => Navigator.push(
         context,
         MaterialPageRoute<void>(
@@ -585,7 +616,8 @@ class _AddNewProductPageState extends State<AddNewProductPage> with TraceableCli
     );
   }
 
-  Widget _buildCategoriesButton(final BuildContext context) => AddNewProductEditorButton(
+  Widget _buildCategoriesButton(final BuildContext context) =>
+      AddNewProductEditorButton(
         upToDateProduct,
         _categoryEditor,
         forceIconData: Icons.filter_1,

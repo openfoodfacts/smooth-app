@@ -50,10 +50,10 @@ class AddNewProductTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Text(
         label,
-        style: const TextStyle(
-          fontSize: 18.0,
-          fontWeight: FontWeight.bold,
-        ),
+        style: Theme.of(context).textTheme.displaySmall?.copyWith(
+              fontSize: 18.0,
+              fontWeight: FontWeight.bold,
+            ),
         maxLines: maxLines,
       );
 }
