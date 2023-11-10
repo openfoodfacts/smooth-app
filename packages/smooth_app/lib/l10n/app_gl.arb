@@ -20,7 +20,7 @@
     },
     "applyButtonText": "Aplicar",
     "@applyButtonText": {},
-    "next_label": "Next",
+    "next_label": "Seguinte",
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
