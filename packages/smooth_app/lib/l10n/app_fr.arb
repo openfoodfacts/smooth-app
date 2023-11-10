@@ -362,7 +362,7 @@
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "Les traductions sont l'une des tâches clés du projet",
     "@contribute_translate_text_2": {},
-    "contribute_join_skill_pool": "Contribute your skills to Open Food Facts. Join the skill pool!",
+    "contribute_join_skill_pool": "Contribuez à Open Food Facts. Rejoignez la réserve de compétences !",
     "contribute_share_header": "Partagez Open Food Facts avec vos amis",
     "@contribute_share_header": {},
     "contribute_share_content": "Je voulais te signaler l'app que j'utilise, Open Food Facts, qui te permet de voir l'impact de ton alimentation sur la santé et l'environnement, de manière personnalisée. Elle fonctionne en scannant les codes barres des emballages. Et en plus c'est gratuit, sans inscription obligatoire, et tu peux même aider à augmenter le nombre de produits décryptés. Voilà le lien pour la télécharger: https://openfoodfacts.app",
@@ -743,7 +743,7 @@
     "@product_improvement_categories_but_no_nutriscore": {
         "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
     },
-    "product_improvement_obsolete_nutrition_image": "L'image des informations nutritionnelles est obsolète : veuillez la mettre à jour.",
+    "product_improvement_obsolete_nutrition_image": "L'image des informations nutritionnelles est obsolète : mettez-la à jour s'il-vous-plait.",
     "@product_improvement_obsolete_nutrition_image": {
         "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
     },
@@ -864,9 +864,9 @@
     },
     "retry_button_label": "Réessayer",
     "connect_with_us": "Nous contacter",
-    "instagram": "Follow us on Instagram",
+    "instagram": "Suivez-nous sur Instagram",
     "instagram_link": "https://instagram.com/openfoodfacts.fr",
-    "twitter": "Follow us on X (formerly Twitter)",
+    "twitter": "Suivez-nous sur X (anciennement Twitter)",
     "twitter_link": "https://www.twitter.com/openfoodfactsfr",
     "blog": "Blog",
     "faq": "FAQ",
@@ -892,7 +892,7 @@
     "@permissions_page_title": {
         "description": "Title for the camera permission's page (onboarding)"
     },
-    "permissions_page_body1": "Pour scanner un code-barre avec l'appareil photo de votre téléphone, veuillez autoriser l'accès.",
+    "permissions_page_body1": "Pour scanner un code-barres avec l'appareil photo de votre téléphone, veuillez autoriser l'accès.",
     "@permissions_page_body1": {
         "description": "first paragraph for the camera permission's page (onboarding)"
     },
@@ -1117,7 +1117,7 @@
     "@app_haptic_feedback_title": {
         "description": "Title for the Haptic feedback toggle"
     },
-    "app_haptic_feedback_subtitle": "Vibrations après l'exécution de certaines actions (décodé en code-barre, produit supprimé…).",
+    "app_haptic_feedback_subtitle": "Vibrations après l'exécution de certaines actions (code-barres décodé, produit supprimé…).",
     "@app_haptic_feedback_subtitle": {
         "description": "SubTitle for the Haptic feedback toggle"
     },
@@ -2475,5 +2475,9 @@
     "hunger_games_loading_line1": "Veuillez nous laisser quelques secondes…",
     "hunger_games_loading_line2": "Nous téléchargeons les questions !",
     "hunger_games_error_label": "Argh ! Quelque chose s'est mal passé… et nous n'avons pas pu charger les questions.",
-    "hunger_games_error_retry_button": "Réessayons !"
+    "hunger_games_error_retry_button": "Réessayons !",
+    "link_cant_be_opened": "This link can't be opened on your device. Please check that you have a browser installed.",
+    "@link_cant_be_opened": {
+        "description": "An error may happen if the device doesn't have a browser installed."
+    }
 }

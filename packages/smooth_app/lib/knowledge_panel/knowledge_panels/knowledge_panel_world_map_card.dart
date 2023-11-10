@@ -30,48 +30,27 @@ class KnowledgePanelWorldMapCard extends StatelessWidget {
             ),
             zoom: 6.0,
           ),
-          layers: <LayerOptions>[
-            TileLayerOptions(
-              urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-            ),
-            MarkerLayerOptions(
-              markers: getMarkers(mapElement.pointers),
+          nonRotatedChildren: <Widget>[
+            RichAttributionWidget(
+              popupInitialDisplayDuration: const Duration(seconds: 5),
+              animationConfig: const ScaleRAWA(),
+              attributions: <SourceAttribution>[
+                TextSourceAttribution(
+                  'OpenStreetMap contributors',
+                  onTap: () => LaunchUrlHelper.launchURL(
+                    'https://www.openstreetmap.org/copyright',
+                    false,
+                  ),
+                ),
+              ],
             ),
           ],
-          nonRotatedChildren: <Widget>[
-            AttributionWidget(
-              attributionBuilder: (BuildContext context) {
-                return Align(
-                  alignment: AlignmentDirectional.bottomEnd,
-                  child: ColoredBox(
-                    color: const Color(0xCCFFFFFF),
-                    child: GestureDetector(
-                      onTap: () => LaunchUrlHelper.launchURL(
-                        'https://www.openstreetmap.org/copyright',
-                        false,
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(3),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: <Widget>[
-                            Text(
-                              '© OpenStreetMap contributors',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyMedium!
-                                  .copyWith(
-                                    color: Colors.blue,
-                                  ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                );
-              },
-            )
+          children: <Widget>[
+            TileLayer(
+              urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+              userAgentPackageName: 'org.openfoodfacts.app',
+            ),
+            MarkerLayer(markers: getMarkers(mapElement.pointers)),
           ],
         ),
       ),

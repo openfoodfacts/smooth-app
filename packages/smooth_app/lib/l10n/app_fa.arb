@@ -2424,7 +2424,7 @@
     "@language_selector_title": {
         "description": "Label written as the title of the dialog to select the user language"
     },
-    "action_delete_list": "پاک کردن",
+    "action_delete_list": "Delet",
     "@action_delete_list": {
         "description": "Delete a list action in a menu"
     },
@@ -2476,5 +2476,9 @@
     "hunger_games_loading_line1": "Please let us a few seconds…",
     "hunger_games_loading_line2": "We're downloading the questions!",
     "hunger_games_error_label": "Argh! Something went wrong… and we couldn't load the questions.",
-    "hunger_games_error_retry_button": "Let's retry!"
+    "hunger_games_error_retry_button": "Let's retry!",
+    "link_cant_be_opened": "This link can't be opened on your device. Please check that you have a browser installed.",
+    "@link_cant_be_opened": {
+        "description": "An error may happen if the device doesn't have a browser installed."
+    }
 }

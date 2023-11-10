@@ -9,9 +9,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_svg: 2.0.5
+  flutter_svg: 2.0.9
   visibility_detector: 0.4.0+2
-  provider: 6.0.5
+  provider: 6.1.1
 
 dev_dependencies:
   flutter_test:

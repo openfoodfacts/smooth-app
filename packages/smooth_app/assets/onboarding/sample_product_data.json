@@ -11,7 +11,7 @@
                   "grade" : "a",
                   "icon_url" : "https://static.openfoodfacts.org/images/attributes/nutriscore-a.svg",
                   "id" : "nutriscore",
-                  "match" : 83.7142857142857,
+                  "match" : 85.0714285714286,
                   "name" : "Nutri-Score",
                   "panel_id" : "nutriscore",
                   "status" : "known",
@@ -348,7 +348,7 @@
                      "epi_score" : 93,
                      "origin" : "en:france",
                      "percent" : 100,
-                     "transportation_score" : ""
+                     "transportation_score" : 0
                   }
                ],
                "epi_score" : 93,
@@ -587,6 +587,7 @@
             "threatened_species" : {}
          },
          "agribalyse" : {
+            "agribalyse_food_code" : "25903",
             "agribalyse_proxy_food_code" : "25903",
             "co2_agriculture" : 0.10397607,
             "co2_consumption" : 0.011045523,
@@ -1163,7 +1164,7 @@
                            "type" : "text"
                         },
                         {
-                           "text" : "Recycling instruction",
+                           "text" : "Recycling",
                            "type" : "text"
                         },
                         {
@@ -1493,7 +1494,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "<span>Butternut squash</span> 50%, <span>water</span>, <span>carrots</span> 10%, <span>sweet potato</span>, <span>leeks</span>, <span>potatoes</span>, <span>salt</span>"
+                     "html" : ": <span>Butternut squash</span> 50%, <span>water</span>, <span>carrots</span> 10%, <span>sweet potato</span>, <span>leeks</span>, <span>potatoes</span>, <span>salt</span>"
                   }
                },
                {
@@ -1787,14 +1788,14 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: 60\n                    ",
+                     "html" : "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: 65\n                    ",
                      "type" : "warning"
                   }
                },
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "<!-- start templates/web/pages/product/includes/nutriscore_details.tt.html -->\n\n<p>This product is not considered a beverage for the calculation of the Nutri-Score.</p>\n\n\n\n\n\n  <p> \n    <strong>Positive points: 4</strong> \n  </p>\n\n  <ul>\n    \n      <li>\n        <strong>Proteins:\n0&nbsp;</strong>/&nbsp;5\n(value: 1, \n        rounded value: 1)\n      </li>\n    \n      <li>\n        <strong>Fiber:\n3&nbsp;</strong>/&nbsp;5\n(value: 3, \n        rounded value: 3)\n      </li>\n    \n      <li>\n        <strong>Fruits, vegetables, nuts, and colza/walnut/olive oils:\n1&nbsp;</strong>/&nbsp;5\n(value: 60, \n        rounded value: 60)\n      </li>\n    \n  </ul>\n\n\n\n  <p> \n    <strong>Negative points: 1</strong> \n  </p>\n\n  <ul>\n    \n      <li>\n        <strong>Energy:\n0&nbsp;</strong>/&nbsp;10\n(value: 120, \n        rounded value: 120)\n      </li>\n    \n      <li>\n        <strong>Sugars:\n0&nbsp;</strong>/&nbsp;10\n(value: 0.5, \n        rounded value: 0.5)\n      </li>\n    \n      <li>\n        <strong>Saturated fat:\n0&nbsp;</strong>/&nbsp;10\n(value: 0.2, \n        rounded value: 0.2)\n      </li>\n    \n      <li>\n        <strong>Sodium:\n1&nbsp;</strong>/&nbsp;10\n(value: 160, \n        rounded value: 160)\n      </li>\n    \n  </ul>\n\n\n\n<p>The points for proteins are counted because the negative points are less than 11.</p>\n\n<p>\n  <strong>Score nutritionnel: -3</strong>\n  (1 - 4)\n</p>\n<p><strong>Nutri-Score: A</strong></p>\n\n<!-- end templates/web/pages/product/includes/nutriscore_details.tt.html -->"
+                     "html" : "<!-- start templates/web/pages/product/includes/nutriscore_details.tt.html -->\n\n<p>This product is not considered a beverage for the calculation of the Nutri-Score.</p>\n\n\n\n\n\n  <p> \n    <strong>Positive points: 5</strong> \n  </p>\n\n  <ul>\n    \n      <li>\n        <strong>Proteins:\n0&nbsp;</strong>/&nbsp;5\n(value: 1, \n        rounded value: 1)\n      </li>\n    \n      <li>\n        <strong>Fiber:\n3&nbsp;</strong>/&nbsp;5\n(value: 3, \n        rounded value: 3)\n      </li>\n    \n      <li>\n        <strong>Fruits, vegetables, nuts, and colza/walnut/olive oils:\n2&nbsp;</strong>/&nbsp;5\n(value: 65, \n        rounded value: 65)\n      </li>\n    \n  </ul>\n\n\n\n  <p> \n    <strong>Negative points: 1</strong> \n  </p>\n\n  <ul>\n    \n      <li>\n        <strong>Energy:\n0&nbsp;</strong>/&nbsp;10\n(value: 120, \n        rounded value: 120)\n      </li>\n    \n      <li>\n        <strong>Sugars:\n0&nbsp;</strong>/&nbsp;10\n(value: 0.5, \n        rounded value: 0.5)\n      </li>\n    \n      <li>\n        <strong>Saturated fat:\n0&nbsp;</strong>/&nbsp;10\n(value: 0.2, \n        rounded value: 0.2)\n      </li>\n    \n      <li>\n        <strong>Sodium:\n1&nbsp;</strong>/&nbsp;10\n(value: 160, \n        rounded value: 160)\n      </li>\n    \n  </ul>\n\n\n\n<p>The points for proteins are counted because the negative points are less than 11.</p>\n\n<p>\n  <strong>Nutritional score: -4</strong>\n  (1 - 5)\n</p>\n<p><strong>Nutri-Score: A</strong></p>\n\n<!-- end templates/web/pages/product/includes/nutriscore_details.tt.html -->"
                   }
                },
                {
@@ -1854,7 +1855,7 @@
                               },
                               {
                                  "evaluation" : "good",
-                                 "text" : "-51%"
+                                 "text" : "-50%"
                               }
                            ]
                         },
@@ -1870,7 +1871,7 @@
                               },
                               {
                                  "evaluation" : "good",
-                                 "text" : "-69%"
+                                 "text" : "-68%"
                               }
                            ]
                         },
@@ -1886,7 +1887,7 @@
                               },
                               {
                                  "evaluation" : "good",
-                                 "text" : "-44%"
+                                 "text" : "-41%"
                               }
                            ]
                         },
@@ -1902,7 +1903,7 @@
                               },
                               {
                                  "evaluation" : "good",
-                                 "text" : "-39%"
+                                 "text" : "-38%"
                               }
                            ]
                         },
@@ -1933,7 +1934,7 @@
                               },
                               {
                                  "evaluation" : "good",
-                                 "text" : "+108%"
+                                 "text" : "+94%"
                               }
                            ]
                         },
@@ -1949,7 +1950,7 @@
                               },
                               {
                                  "evaluation" : "good",
-                                 "text" : "-82%"
+                                 "text" : "-81%"
                               }
                            ]
                         },
@@ -1965,7 +1966,7 @@
                               },
                               {
                                  "evaluation" : "bad",
-                                 "text" : "-49%"
+                                 "text" : "-53%"
                               }
                            ]
                         },
@@ -1977,7 +1978,7 @@
                                  "text" : "Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (estimate from ingredients list analysis)"
                               },
                               {
-                                 "text" : "60 %"
+                                 "text" : "65 %"
                               },
                               {
                                  "text" : ""
@@ -2260,13 +2261,15 @@
          "fiber_100g" : 3,
          "fiber_unit" : "g",
          "fiber_value" : 3,
-         "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 60,
-         "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 60,
+         "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 65,
+         "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 65,
+         "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 65,
+         "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 65,
          "nova-group" : 3,
          "nova-group_100g" : 3,
          "nova-group_serving" : 3,
-         "nutrition-score-fr" : -3,
-         "nutrition-score-fr_100g" : -3,
+         "nutrition-score-fr" : -4,
+         "nutrition-score-fr_100g" : -4,
          "proteins" : 1,
          "proteins_100g" : 1,
          "proteins_unit" : "g",
