@@ -2475,5 +2475,9 @@
     "hunger_games_loading_line1": "Please let us a few seconds…",
     "hunger_games_loading_line2": "Vi henter spørgsmålene!",
     "hunger_games_error_label": "Åh nej! Noget gik galt, og vi kunne ikke indlæse spørgsmålene.",
-    "hunger_games_error_retry_button": "Lad os prøve igen!"
+    "hunger_games_error_retry_button": "Lad os prøve igen!",
+    "link_cant_be_opened": "This link can't be opened on your device. Please check that you have a browser installed.",
+    "@link_cant_be_opened": {
+        "description": "An error may happen if the device doesn't have a browser installed."
+    }
 }

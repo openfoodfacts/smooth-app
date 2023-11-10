@@ -185,8 +185,8 @@ class AddNewProductHelper {
   bool isOneMainImagePopulated(final Product product) {
     final List<ProductImageData> productImagesData = getProductMainImagesData(
       product,
+      // TODO(monsieurtanuki): check somehow with all languages
       ProductQuery.getLanguage(),
-      includeOther: false,
     );
     for (final ProductImageData productImageData in productImagesData) {
       if (isMainImagePopulated(productImageData, product.barcode!)) {

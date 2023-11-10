@@ -13,6 +13,7 @@ import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
+/// Detail page of knowledge panels (if you click on the forward/more button).
 class KnowledgePanelPage extends StatefulWidget {
   const KnowledgePanelPage({
     required this.panelId,
@@ -116,7 +117,7 @@ class _KnowledgePanelPageState extends State<KnowledgePanelPage>
         groupElement?.title!.isNotEmpty == true) {
       return groupElement!.title!;
     }
-    final KnowledgePanel? panel = KnowledgePanelWidget.getKnowledgePanel(
+    final KnowledgePanel? panel = KnowledgePanelsBuilder.getKnowledgePanel(
       upToDateProduct,
       widget.panelId,
     );

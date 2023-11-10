@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Dots</title>
+    <g id="Dots" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icons8-menu_vertical" transform="translate(9, 1)" fill="#FFFFFF" fill-rule="nonzero">
+            <path d="M3,0 C1.34314575,0 0,1.34314575 0,3 C0,4.65685425 1.34314575,6 3,6 C4.65685425,6 6,4.65685425 6,3 C6,1.34314575 4.65685425,0 3,0 L3,0 Z M3,8 C1.34314575,8 0,9.34314575 0,11 C0,12.6568542 1.34314575,14 3,14 C4.65685425,14 6,12.6568542 6,11 C6,9.34314575 4.65685425,8 3,8 Z M3,16 C1.34314575,16 0,17.3431458 0,19 C0,20.6568542 1.34314575,22 3,22 C4.65685425,22 6,20.6568542 6,19 C6,17.3431458 4.65685425,16 3,16 Z" id="Shape"></path>
+        </g>
+    </g>
+</svg>

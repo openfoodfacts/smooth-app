@@ -2471,9 +2471,13 @@
     "contact_title_pro_email": "Producer Contact",
     "contact_title_press_page": "Press Page",
     "contact_title_press_email": "Press Contact",
-    "contact_title_newsletter": "Subscribe to our newsletter",
+    "contact_title_newsletter": "Subscriu-te al nostre butlletí",
     "hunger_games_loading_line1": "Si us plau, deixeu-nos uns segons…",
     "hunger_games_loading_line2": "Estem descarregant les preguntes!",
     "hunger_games_error_label": "Ui! Alguna cosa no ha funcionat… i no hem pogut carregar les preguntes.",
-    "hunger_games_error_retry_button": "Tornem-ho a provar!"
+    "hunger_games_error_retry_button": "Tornem-ho a provar!",
+    "link_cant_be_opened": "Aquest enllaç no es pot obrir al vostre dispositiu. Si us plau, comproveu que teniu un navegador instal·lat.",
+    "@link_cant_be_opened": {
+        "description": "An error may happen if the device doesn't have a browser installed."
+    }
 }

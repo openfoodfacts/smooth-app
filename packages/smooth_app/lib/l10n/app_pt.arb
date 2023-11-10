@@ -146,7 +146,7 @@
     "incorrect_credentials": "Nome do usuário ou senha incorretos.",
     "password_lost_incorrect_credentials": "This email or username doesn't exist. Please check your credentials.",
     "password_lost_server_unavailable": "We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.",
-    "login": "Nome de Utilizador",
+    "login": "Nome do Utilizador",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
@@ -1220,11 +1220,11 @@
     "@edit_product_form_item_labels_subtitle": {
         "description": "Product edition - Labels - SubTitle"
     },
-    "edit_product_form_item_labels_hint": "etiqueta",
+    "edit_product_form_item_labels_hint": "rótulo",
     "@edit_product_form_item_labels_hint": {
         "description": "Product edition - Labels - input textfield hint"
     },
-    "edit_product_form_item_labels_type": "etiqueta",
+    "edit_product_form_item_labels_type": "rótulo",
     "@edit_product_form_item_labels_type": {
         "description": "Product edition - Labels - input textfield label"
     },
@@ -1338,7 +1338,7 @@
     "@edit_product_form_item_nutrition_facts_subtitle": {
         "description": "Product edition - Nutrition facts - SubTitle"
     },
-    "edit_product_form_save": "Edite",
+    "edit_product_form_save": "Editar",
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
     },
@@ -1713,7 +1713,7 @@
     "@summary_card_button_add_basic_details": {
         "description": "Summary card - Button to add details about the product"
     },
-    "edit_photo_button_label": "Edite",
+    "edit_photo_button_label": "Editar",
     "@edit_photo_button_label": {
         "description": "Edit photo button label"
     },
@@ -2475,5 +2475,9 @@
     "hunger_games_loading_line1": "Please let us a few seconds…",
     "hunger_games_loading_line2": "We're downloading the questions!",
     "hunger_games_error_label": "Argh! Something went wrong… and we couldn't load the questions.",
-    "hunger_games_error_retry_button": "Let's retry!"
+    "hunger_games_error_retry_button": "Let's retry!",
+    "link_cant_be_opened": "Este link não pode ser aberto no seu dispositivo. Por favor, verifique se você tem um navegador instalado.",
+    "@link_cant_be_opened": {
+        "description": "An error may happen if the device doesn't have a browser installed."
+    }
 }

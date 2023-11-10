@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>ic_info</title>
+    <g id="Homepage-V2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Scanner-empty" transform="translate(-42, -804)" fill="#FFFFFF" fill-rule="nonzero">
+            <g id="Group" transform="translate(28, 779)">
+                <g id="icons8-info" transform="translate(14, 25)">
+                    <path d="M14,0 C6.2678,0 0,6.2678 0,14 C0,21.7322 6.2678,28 14,28 C21.7322,28 28,21.7322 28,14 C28,6.2678 21.7322,0 14,0 Z M14,21 L14,21 C13.2272,21 12.6,20.3728 12.6,19.6 L12.6,14 C12.6,13.2272 13.2272,12.6 14,12.6 L14,12.6 C14.7728,12.6 15.4,13.2272 15.4,14 L15.4,19.6 C15.4,20.3728 14.7728,21 14,21 Z M14.7,9.8 L13.3,9.8 C12.9136,9.8 12.6,9.4864 12.6,9.1 L12.6,7.7 C12.6,7.3136 12.9136,7 13.3,7 L14.7,7 C15.0864,7 15.4,7.3136 15.4,7.7 L15.4,9.1 C15.4,9.4864 15.0864,9.8 14.7,9.8 Z" id="Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

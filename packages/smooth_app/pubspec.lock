@@ -57,10 +57,10 @@ packages:
     dependency: transitive
     description:
       name: archive
-      sha256: "0c8368c9b3f0abbc193b9d6133649a614204b528982bebc7026372d61677ce3a"
+      sha256: "7e0d52067d05f2e0324268097ba723b71cb41ac8a6a2b24d1edf9c536b987b03"
       url: "https://pub.dev"
     source: hosted
-    version: "3.3.7"
+    version: "3.4.6"
   args:
     dependency: transitive
     description:
@@ -73,10 +73,10 @@ packages:
     dependency: "direct main"
     description:
       name: assorted_layout_widgets
-      sha256: ca9f5c77689cfb3437cdabb2afc9ce477e275b319e68a7d21f774e9a5478a827
+      sha256: "72893e0de0ba66a97d60ea54fd004f5ca8c13ff856c37adabfcf40a06aa4463f"
       url: "https://pub.dev"
     source: hosted
-    version: "7.0.0"
+    version: "8.0.5"
   async:
     dependency: "direct main"
     description:
@@ -89,58 +89,58 @@ packages:
     dependency: "direct main"
     description:
       name: audioplayers
-      sha256: "2f4c0da9b483b45695d01dc738e1597d7137ae40fc2fa702f13ccc10efc706a2"
+      sha256: d9f6ca8e9b3e5af5e73d4c814404566f72698ee7ba35487bdf2baa6749e7503f
       url: "https://pub.dev"
     source: hosted
-    version: "5.0.0"
+    version: "5.2.0"
   audioplayers_android:
     dependency: transitive
     description:
       name: audioplayers_android
-      sha256: "7f18bb6c7de01684444e8cba577e3c3aee0ec379897f62ad4b8259d1e22f8c61"
+      sha256: fb01b9481f431fe04ac60f1f97ce8158383f2dc754558820592f795d81ca9d53
       url: "https://pub.dev"
     source: hosted
-    version: "4.0.0"
+    version: "4.0.2"
   audioplayers_darwin:
     dependency: transitive
     description:
       name: audioplayers_darwin
-      sha256: "80e341e6b2b364420516f2707271ec47f63b9b22766aa7f7d484601190c316a7"
+      sha256: "3034e99a6df8d101da0f5082dcca0a2a99db62ab1d4ddb3277bed3f6f81afe08"
       url: "https://pub.dev"
     source: hosted
-    version: "5.0.0"
+    version: "5.0.2"
   audioplayers_linux:
     dependency: transitive
     description:
       name: audioplayers_linux
-      sha256: cca3f272c7186dd2e0025b8864e1413ac5e081d74b17e28b02ceb2df4c110235
+      sha256: "60787e73fefc4d2e0b9c02c69885402177e818e4e27ef087074cf27c02246c9e"
       url: "https://pub.dev"
     source: hosted
-    version: "3.0.0"
+    version: "3.1.0"
   audioplayers_platform_interface:
     dependency: transitive
     description:
       name: audioplayers_platform_interface
-      sha256: "47eae55e99ced11589998cf27e4eaabf5b475a7bd8bea7516ee6c2536a2e1abf"
+      sha256: "365c547f1bb9e77d94dd1687903a668d8f7ac3409e48e6e6a3668a1ac2982adb"
       url: "https://pub.dev"
     source: hosted
-    version: "6.0.0"
+    version: "6.1.0"
   audioplayers_web:
     dependency: transitive
     description:
       name: audioplayers_web
-      sha256: "9f155590c6ba9ba469df637f4729264e4234dc3941ece4690dad63ffac19b5af"
+      sha256: "22cd0173e54d92bd9b2c80b1204eb1eb159ece87475ab58c9788a70ec43c2a62"
       url: "https://pub.dev"
     source: hosted
-    version: "4.0.0"
+    version: "4.1.0"
   audioplayers_windows:
     dependency: transitive
     description:
       name: audioplayers_windows
-      sha256: "8813b712ba919bb324bde5e3ba97edc81bface945953a54a3dea70b5608bcc70"
+      sha256: "9536812c9103563644ada2ef45ae523806b0745f7a78e89d1b5fb1951de90e1a"
       url: "https://pub.dev"
     source: hosted
-    version: "3.0.0"
+    version: "3.1.0"
   auto_size_text:
     dependency: "direct main"
     description:
@@ -161,10 +161,10 @@ packages:
     dependency: "direct main"
     description:
       name: barcode_widget
-      sha256: ea0c0578b5db3ca3a583d80e05eb47bfb70419e3a23b920d93ae7968c45c20ce
+      sha256: "6f2c5b08659b1a5f4d88d183e6007133ea2f96e50e7b8bb628f03266c3931427"
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.3"
+    version: "2.0.4"
   boolean_selector:
     dependency: transitive
     description:
@@ -353,10 +353,10 @@ packages:
     dependency: "direct main"
     description:
       name: cupertino_icons
-      sha256: e35129dc44c9118cee2a5603506d823bab99c68393879edb440e0090d07586be
+      sha256: d57953e10f9f8327ce64a508a355f0b1ec902193f66288e8cb5070e7c47eeb2d
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.5"
+    version: "1.0.6"
   dart_ping:
     dependency: "direct main"
     description:
@@ -415,10 +415,10 @@ packages:
     dependency: "direct main"
     description:
       name: device_info_plus
-      sha256: "1d6e5a61674ba3a68fb048a7c7b4ff4bebfed8d7379dbe8f2b718231be9a7c95"
+      sha256: f52ab3b76b36ede4d135aab80194df8925b553686f0fa12226b4e2d658e45903
       url: "https://pub.dev"
     source: hosted
-    version: "8.1.0"
+    version: "8.2.2"
   device_info_plus_platform_interface:
     dependency: transitive
     description:
@@ -561,10 +561,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_email_sender
-      sha256: "39398c3e6cf4fbe99798d3ac6ae7d229290d57f1504a4a9a0d35f3737dc28930"
+      sha256: "5001e9158f91a8799140fb30a11ad89cd587244f30b4f848d87085985c49b60f"
       url: "https://pub.dev"
     source: hosted
-    version: "6.0.0"
+    version: "6.0.2"
   flutter_icmp_ping:
     dependency: transitive
     description:
@@ -630,18 +630,18 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_map
-      sha256: "09010e452bcd8c57ade1b936b79643c4fd599f93b00d1696630f0b919b6f374a"
+      sha256: "52c65a977daae42f9aae6748418dd1535eaf27186e9bac9bf431843082bc75a3"
       url: "https://pub.dev"
     source: hosted
-    version: "2.2.0"
+    version: "4.0.0"
   flutter_native_splash:
     dependency: "direct main"
     description:
       name: flutter_native_splash
-      sha256: ba45d8cfbd778478a74696b012f33ffb6b1760c9bc531b21e2964444a4870dae
+      sha256: "5bf4c3e5e5a0426c1e2fc8ca3555a9e617e76369c3442e1dae8385c7767ba97a"
       url: "https://pub.dev"
     source: hosted
-    version: "2.3.1"
+    version: "2.3.4"
   flutter_plugin_android_lifecycle:
     dependency: transitive
     description:
@@ -702,10 +702,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_svg
-      sha256: f991fdb1533c3caeee0cdc14b04f50f0c3916f0dbcbc05237ccbe4e3c6b93f3f
+      sha256: d39e7f95621fc84376bc0f7d504f05c3a41488c562f4a8ad410569127507402c
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.5"
+    version: "2.0.9"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -821,18 +821,18 @@ packages:
     dependency: "direct main"
     description:
       name: image
-      sha256: a72242c9a0ffb65d03de1b7113bc4e189686fc07c7147b8b41811d0dd0e0d9bf
+      sha256: "028f61960d56f26414eb616b48b04eb37d700cbe477b7fb09bf1d7ce57fd9271"
       url: "https://pub.dev"
     source: hosted
-    version: "4.0.17"
+    version: "4.1.3"
   image_picker:
     dependency: "direct main"
     description:
       name: image_picker
-      sha256: "6296e98782726d37f59663f0727d0e978eee1ced1ffed45ccaba591786a7f7b3"
+      sha256: "841837258e0b42c80946c43443054fc726f5e8aa84a97f363eb9ef0d45b33c14"
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.1"
+    version: "1.0.2"
   image_picker_android:
     dependency: transitive
     description:
@@ -1041,12 +1041,11 @@ packages:
   mobile_scanner:
     dependency: transitive
     description:
-      path: "."
-      ref: custom_release
-      resolved-ref: "031ff428687e56e2a1ef94eea8c62a2d43093b56"
-      url: "https://github.com/openfoodfacts/mobile_scanner.git"
-    source: git
-    version: "3.4.1"
+      name: mobile_scanner
+      sha256: cf978740676ba5b0c17399baf117984b31190bb7a6eaa43e51229ed46abc42ee
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.5.2"
   mockito:
     dependency: "direct dev"
     description:
@@ -1164,10 +1163,10 @@ packages:
     dependency: "direct dev"
     description:
       name: path_provider_platform_interface
-      sha256: "57585299a729335f1298b43245842678cb9f43a6310351b18fb577d6e33165ec"
+      sha256: bced5679c7df11190e1ddc35f3222c858f328fff85c3942e46e7f5589bf9eb84
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.6"
+    version: "2.1.0"
   path_provider_windows:
     dependency: transitive
     description:
@@ -1272,14 +1271,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.1"
-  positioned_tap_detector_2:
-    dependency: transitive
-    description:
-      name: positioned_tap_detector_2
-      sha256: "52e06863ad3e1f82b058fd05054fc8c9caeeb3b47d5cea7a24bd9320746059c1"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.4"
   process:
     dependency: transitive
     description:
@@ -1300,10 +1291,10 @@ packages:
     dependency: "direct main"
     description:
       name: provider
-      sha256: cdbe7530b12ecd9eb455bdaa2fcb8d4dad22e80b8afb4798b41479d5ce26847f
+      sha256: "9a96a0a19b594dbc5bf0f1f27d2bc67d5f95957359b461cd9feb44ed6ae75096"
       url: "https://pub.dev"
     source: hosted
-    version: "6.0.5"
+    version: "6.1.1"
   pub_semver:
     dependency: transitive
     description:
@@ -1694,26 +1685,26 @@ packages:
     dependency: transitive
     description:
       name: vector_graphics
-      sha256: "670f6e07aca990b4a2bcdc08a784193c4ccdd1932620244c3a86bb72a0eac67f"
+      sha256: "0f0c746dd2d6254a0057218ff980fc7f5670fd0fcf5e4db38a490d31eed4ad43"
       url: "https://pub.dev"
     source: hosted
-    version: "1.1.7"
+    version: "1.1.9+1"
   vector_graphics_codec:
     dependency: transitive
     description:
       name: vector_graphics_codec
-      sha256: "7451721781d967db9933b63f5733b1c4533022c0ba373a01bdd79d1a5457f69f"
+      sha256: "0edf6d630d1bfd5589114138ed8fada3234deacc37966bec033d3047c29248b7"
       url: "https://pub.dev"
     source: hosted
-    version: "1.1.7"
+    version: "1.1.9+1"
   vector_graphics_compiler:
     dependency: transitive
     description:
       name: vector_graphics_compiler
-      sha256: "80a13c613c8bde758b1464a1755a7b3a8f2b6cec61fbf0f5a53c94c30f03ba2e"
+      sha256: d24333727332d9bd20990f1483af4e09abdb9b1fc7c3db940b56ab5c42790c26
       url: "https://pub.dev"
     source: hosted
-    version: "1.1.7"
+    version: "1.1.9+1"
   vector_math:
     dependency: transitive
     description:
