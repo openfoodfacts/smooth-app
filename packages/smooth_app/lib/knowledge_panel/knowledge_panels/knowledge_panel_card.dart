@@ -12,10 +12,12 @@ class KnowledgePanelCard extends StatelessWidget {
   const KnowledgePanelCard({
     required this.panelId,
     required this.product,
+    required this.isClickable,
   });
 
   final String panelId;
   final Product product;
+  final bool isClickable;
 
   static const String PANEL_NUTRITION_TABLE_ID = 'nutrition_facts_table';
   static const String PANEL_INGREDIENTS_ID = 'ingredients';
@@ -36,6 +38,7 @@ class KnowledgePanelCard extends StatelessWidget {
         panelId: panelId,
         product: product,
         isInitiallyExpanded: false,
+        isClickable: isClickable,
       );
     }
 
@@ -43,22 +46,25 @@ class KnowledgePanelCard extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
       child: InkWell(
         borderRadius: ANGULAR_BORDER_RADIUS,
+        onTap: !isClickable
+            ? null
+            : () async => Navigator.push<Widget>(
+                  context,
+                  MaterialPageRoute<Widget>(
+                    builder: (BuildContext context) => SmoothBrightnessOverride(
+                      brightness:
+                          SmoothBrightnessOverride.of(context)?.brightness,
+                      child: KnowledgePanelPage(
+                        panelId: panelId,
+                        product: product,
+                      ),
+                    ),
+                  ),
+                ),
         child: KnowledgePanelsBuilder.getPanelSummaryWidget(
           panel,
-          isClickable: true,
+          isClickable: isClickable,
           margin: EdgeInsets.zero,
-        ),
-        onTap: () async => Navigator.push<Widget>(
-          context,
-          MaterialPageRoute<Widget>(
-            builder: (BuildContext context) => SmoothBrightnessOverride(
-              brightness: SmoothBrightnessOverride.of(context)?.brightness,
-              child: KnowledgePanelPage(
-                panelId: panelId,
-                product: product,
-              ),
-            ),
-          ),
         ),
       ),
     );
