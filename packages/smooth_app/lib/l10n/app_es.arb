@@ -121,7 +121,7 @@
     "@Introduction screen": {},
     "welcomeToOpenFoodFacts": "Bienvenido a Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
-    "whatIsOff": "Open Food Facts is a global non-profit powered by local communities.",
+    "whatIsOff": "Open Food Facts es una organización global sin ánimo de lucro impulsada por comunidades locales.",
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
@@ -142,9 +142,9 @@
         "description": "Description of what a user can use the Eco data in a product for."
     },
     "@user_management": {},
-    "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
+    "sign_in_text": "Inicia sesión en tu cuenta de Open Food Facts para guardar tus contribuciones",
     "incorrect_credentials": "Nombre de usuario o contraseña incorrecto.",
-    "password_lost_incorrect_credentials": "This email or username doesn't exist. Please check your credentials.",
+    "password_lost_incorrect_credentials": "Este correo electrónico o nombre de usuario no existe. Por favor, comprueba tus credenciales.",
     "password_lost_server_unavailable": "We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.",
     "login": "Usuario",
     "@login": {
