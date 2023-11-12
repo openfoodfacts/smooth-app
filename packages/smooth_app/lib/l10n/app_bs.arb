@@ -27,7 +27,7 @@
     "go_back_to_top": "Povratak na vrh",
     "save": "Save",
     "save_confirmation": "Jeste li sigurni da želite sačuvati?",
-    "skip": "Skip",
+    "skip": "Preskočite",
     "cancel": "Cancel",
     "@cancel": {},
     "ignore": "Zanemari",
@@ -146,7 +146,7 @@
     "incorrect_credentials": "Netačno korisničko ime ili lozinka.",
     "password_lost_incorrect_credentials": "This email or username doesn't exist. Please check your credentials.",
     "password_lost_server_unavailable": "We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.",
-    "login": "Login",
+    "login": "Prijava",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
@@ -422,7 +422,7 @@
     "@myPersonalizedRanking": {
         "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
     },
-    "ranking_tab_all": "All",
+    "ranking_tab_all": "Sve",
     "ranking_subtitle_match_yes": "A great match for you",
     "ranking_subtitle_match_no": "Very poor match",
     "ranking_subtitle_match_maybe": "Unknown match",
@@ -455,7 +455,7 @@
     "@category": {
         "description": "From a product list, there's a category filter: this is its title"
     },
-    "category_all": "All",
+    "category_all": "Sve",
     "@category_al": {
         "description": "Top meta-entry on a category filter"
     },
@@ -478,7 +478,7 @@
     },
     "tap_for_more": "Tap to see more info…",
     "@Product": {},
-    "product": "Product",
+    "product": "Proizvod",
     "@product": {},
     "unknownBrand": "Unknown brand",
     "@unknownBrand": {},
@@ -493,7 +493,7 @@
     "@front_photo": {
         "description": "Button label: For adding a picture of the front of a product"
     },
-    "ingredients": "Ingredients",
+    "ingredients": "Sastojci",
     "@ingredients": {},
     "ingredients_editing_instructions": "Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen, use parentheses for ingredients of an ingredient, and indicate allergens between underscores.",
     "ingredients_editing_error": "Failed to save the ingredients.",
@@ -1235,11 +1235,11 @@
     "@edit_product_form_item_labels_subtitle": {
         "description": "Product edition - Labels - SubTitle"
     },
-    "edit_product_form_item_labels_hint": "label",
+    "edit_product_form_item_labels_hint": "oznaka",
     "@edit_product_form_item_labels_hint": {
         "description": "Product edition - Labels - input textfield hint"
     },
-    "edit_product_form_item_labels_type": "label",
+    "edit_product_form_item_labels_type": "oznaka",
     "@edit_product_form_item_labels_type": {
         "description": "Product edition - Labels - input textfield label"
     },
@@ -1307,15 +1307,15 @@
     "@edit_product_form_item_emb_codes_examples": {
         "description": "Product edition - EMB Codes - explanations"
     },
-    "edit_product_form_item_categories_title": "Categories",
+    "edit_product_form_item_categories_title": "Kategorije",
     "@edit_product_form_item_categories_title": {
         "description": "Product edition - Categories - Title"
     },
-    "edit_product_form_item_categories_hint": "category",
+    "edit_product_form_item_categories_hint": "kategorija",
     "@edit_product_form_item_categories_hint": {
         "description": "Product edition - Categories - input textfield hint"
     },
-    "edit_product_form_item_categories_type": "category",
+    "edit_product_form_item_categories_type": "kategorija",
     "@edit_product_form_item_categories_type": {
         "description": "Product edition - Categories - input textfield type"
     },
@@ -1334,7 +1334,7 @@
     "edit_product_form_item_exit_confirmation": "Do you want to save your changes before leaving this page?",
     "edit_product_form_item_exit_confirmation_positive_button": "Save changes",
     "edit_product_form_item_exit_confirmation_negative_button": "Discard changes",
-    "edit_product_form_item_ingredients_title": "Ingredients",
+    "edit_product_form_item_ingredients_title": "Sastojci",
     "@edit_product_form_item_ingredients_title": {
         "description": "Product edition - Ingredients - Title (note: this section was previously called Ingredients & Origins)"
     },
@@ -1353,7 +1353,7 @@
     "@edit_product_form_item_nutrition_facts_subtitle": {
         "description": "Product edition - Nutrition facts - SubTitle"
     },
-    "edit_product_form_save": "Edit",
+    "edit_product_form_save": "Uredi",
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
     },
@@ -1367,7 +1367,7 @@
     },
     "completed_basic_details_btn_text": "Complete basic details",
     "not_implemented_snackbar_text": "Not implemented yet",
-    "category_picker_page_appbar_text": "Categories",
+    "category_picker_page_appbar_text": "Kategorije",
     "edit_ingredients_extrait_ingredients_btn_text": "Extract ingredients",
     "@edit_ingredients_extrait_ingredients_btn_text": {
         "description": "Ingredients edition - Extract ingredients"
@@ -1732,7 +1732,7 @@
     "@summary_card_button_add_basic_details": {
         "description": "Summary card - Button to add details about the product"
     },
-    "edit_photo_button_label": "Edit",
+    "edit_photo_button_label": "Uredi",
     "@edit_photo_button_label": {
         "description": "Edit photo button label"
     },
@@ -1764,7 +1764,7 @@
     "@edit_photo_language_none": {
         "description": "Warning message: for this product and this field, there are no images at all, in any language"
     },
-    "category_picker_screen_title": "Categories",
+    "category_picker_screen_title": "Kategorije",
     "@category_picker_screen_title": {
         "description": "Categories picker screen title"
     },
