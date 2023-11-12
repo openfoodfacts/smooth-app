@@ -8,7 +8,7 @@
     "@yes": {},
     "add": "Añadir",
     "@add": {},
-    "account_delete_message": "¿Estás seguro de querer eliminar tu cuenta?\nSi hay una razón específica, por favor detállalo abajo",
+    "account_delete_message": "¿Seguro que quieres eliminar tu cuenta?\nSi hay alguna una razón específica, por favor detállalo abajo",
     "@account_delete_message": {},
     "reason": "Razón",
     "@reason": {},
@@ -26,8 +26,8 @@
     },
     "go_back_to_top": "Volver al principio",
     "save": "Guardar",
-    "save_confirmation": "¿Estás seguro de que quieres guardar?",
-    "skip": "Omitir",
+    "save_confirmation": "¿Seguro que quieres guardar?",
+    "skip": "Saltar",
     "cancel": "Cancelar",
     "@cancel": {},
     "ignore": "Ignorar",
@@ -46,7 +46,7 @@
     "@calculate": {
         "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
     },
-    "reset_food_prefs": "Restablecer preferencias de alimentos",
+    "reset_food_prefs": "Restablecer preferencias alimentarias",
     "@reset": {
         "description": "Button label, clicking on the button will reset user's food preferences."
     },
@@ -119,7 +119,7 @@
         "description": "Looking for: BARCODE"
     },
     "@Introduction screen": {},
-    "welcomeToOpenFoodFacts": "Bienvenido a Open Food Facts",
+    "welcomeToOpenFoodFacts": "Te damos la bienvenida a Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
     "whatIsOff": "Open Food Facts es una organización global sin ánimo de lucro impulsada por comunidades locales.",
     "@whatIsOff": {
@@ -145,14 +145,14 @@
     "sign_in_text": "Inicia sesión en tu cuenta de Open Food Facts para guardar tus contribuciones",
     "incorrect_credentials": "Nombre de usuario o contraseña incorrecto.",
     "password_lost_incorrect_credentials": "Este correo electrónico o nombre de usuario no existe. Por favor, comprueba tus credenciales.",
-    "password_lost_server_unavailable": "We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.",
-    "login": "Usuario",
+    "password_lost_server_unavailable": "Estamos sufriendo retrasos en nuestros servidores y nos disculpamos por ello. Por favor, inténtalo de nuevo más tarde.",
+    "login": "Inicio de sesión",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
     "login_page_username_or_email": "Por favor, introduce tu nombre de usuario o correo electrónico",
     "login_page_password_error_empty": "Por favor, introduce una contraseña",
-    "create_account": "Crear una cuenta",
+    "create_account": "Crear cuenta",
     "@create_account": {
         "description": "Button label: Opens a page where a new user can register"
     },
@@ -168,12 +168,12 @@
     "@sign_out": {
         "description": "Button label: For sign out"
     },
-    "sign_out_confirmation": "¿Estás seguro de que quieres cerrar la sesión?",
+    "sign_out_confirmation": "¿Seguro que quieres cerrar la sesión?",
     "@sign_out_confirmation": {
         "description": "Pop up title: Reassuring if the user really want to sign out"
     },
     "password": "Contraseña",
-    "forgot_password": "He olvidado la contraseña",
+    "forgot_password": "Contraseña olvidada",
     "@forgot_password": {
         "description": "Button label: Opens a page where a password reset e-mail can be requested"
     },
@@ -185,12 +185,12 @@
     "@reset_password": {
         "description": "Forgot password page title"
     },
-    "reset_password_explanation_text": "En caso de que hayas olvidado la contraseña, introduce tu nombre de usuario o dirección de correo electrónico para recibir instrucciones de cómo restablecerla. No olvides revisar la carpeta de Spam.",
+    "reset_password_explanation_text": "En caso de que hayas olvidado la contraseña, introduce tu nombre de usuario o dirección de correo electrónico para recibir instrucciones de cómo restablecerla. No olvides revisar la carpeta de correo basura.",
     "username_or_email": "Nombre de usuario o correo electrónico",
     "@username_or_email": {
         "description": "Text field hint for password reset"
     },
-    "reset_password_done": "Se ha enviado un correo electrónico con un enlace a la dirección de correo electrónico vinculada a tu cuenta de usuario para que puedas restablecer tu contraseña. No olvides revisar la carpeta de Spam",
+    "reset_password_done": "Hemos enviado un correo electrónico con un enlace a la dirección de correo electrónico vinculada a tu cuenta de usuario para que puedas restablecer tu contraseña. No olvides revisar la carpeta de correo basura.",
     "send_reset_password_mail": "Cambiar contraseña",
     "@send_reset_password_mail": {
         "description": "Button label: Submit the password reset e-mail request"
@@ -239,7 +239,7 @@
     "@sign_up_page_agree_text": {
         "description": "I agree to the Open Food Facts is followed by sign_up_page_terms_text"
     },
-    "sign_up_page_terms_text": "los términos de uso y contribución de Open Food Facts",
+    "sign_up_page_terms_text": "las condiciones de uso y contribución de Open Food Facts",
     "@sign_up_page_terms_text": {
         "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
     },
@@ -1702,7 +1702,7 @@
     "@signup_page_terms_of_use_line1": {
         "description": "User consent for terms of use (line 1)"
     },
-    "signup_page_terms_of_use_line2": "los términos de uso y contribución de Open Food Facts",
+    "signup_page_terms_of_use_line2": "las condiciones de uso y contribución de Open Food Facts",
     "@signup_page_terms_of_use_line2": {
         "description": "User consent for terms of use (line 2)"
     },
