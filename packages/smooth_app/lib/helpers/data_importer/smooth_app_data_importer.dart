@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:openfoodfacts/openfoodfacts.dart' as off;
+import 'package:smooth_app/data_models/login_result.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/helpers/data_importer/product_list_import_export.dart';
@@ -68,14 +69,15 @@ class SmoothAppDataImporter extends ChangeNotifier {
     }
   }
 
-  Future<bool> _importUser(UserCredentials user) {
-    return UserManagementProvider().login(
-      off.User(
-        userId: user.userName,
-        password: user.password,
-      ),
-    );
-  }
+  Future<bool> _importUser(UserCredentials user) async =>
+      (await UserManagementProvider().login(
+        off.User(
+          userId: user.userName,
+          password: user.password,
+        ),
+      ))
+          .type ==
+      LoginResultType.successful;
 
   Future<bool> _importLists(UserListsData data) {
     return ProductListImportExport().import(
