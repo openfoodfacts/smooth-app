@@ -251,18 +251,18 @@
     "@donate_url": {
         "description": "Please insert the right url from the website here."
     },
-    "sign_up_page_agree_error_invalid": "Al crear una cuenta, es obligatorio aceptar los Términos de Uso. Sin embargo, aún se pueden hacer contribuciones anónimas a través de la aplicación",
+    "sign_up_page_agree_error_invalid": "Al crear una cuenta, es obligatorio aceptar las condiciones de uso. Sin embargo, aún se pueden hacer contribuciones anónimas a través de la aplicación.",
     "@sign_up_page_agree_error_invalid": {
         "description": "Error message: You have to agree to the terms-of-use (A checkbox to do so is above this error message)"
     },
-    "sign_up_page_producer_checkbox": "Soy productor de alimentos",
+    "sign_up_page_producer_checkbox": "Soy productor/a de alimentos",
     "sign_up_page_producer_hint": "Productor/marca",
     "sign_up_page_producer_error_empty": "Por favor, introduce un productor o una marca",
-    "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at any time)",
+    "sign_up_page_subscribe_checkbox": "Me gustaría suscribirme al boletín de noticias de Open Food Facts (podrás darte de baja en cualquier momento).",
     "sign_up_page_user_name_already_used": "Este nombre de usuario ya existe, por favor, elige uno nuevo.",
-    "sign_up_page_email_already_exists": "ya existe, inicia sesión en la cuenta o intenta con otro correo electrónico.",
+    "sign_up_page_email_already_exists": "ya existe, inicia sesión en la cuenta o prueba con otro correo electrónico.",
     "sign_up_page_provide_valid_email": "Por favor, proporciona una dirección de correo electrónico válida.",
-    "sign_up_page_server_busy": "We are deeply sorry, we have some technical difficulties to create your account. Please try again later.",
+    "sign_up_page_server_busy": "Lo sentimos, estamos teniendo algunas dificultades técnicas para crear tu cuenta. Por favor, inténtalo de nuevo más tarde.",
     "@Settings": {},
     "settingsTitle": "Configuración",
     "@settingsTitle": {
@@ -284,8 +284,8 @@
     "@darkmode_system_default": {
         "description": "Indicator inside the darkmode switch (system default)"
     },
-    "thanks_for_contributing": "Thanks for contributing!",
-    "contributors_label": "They are building the app",
+    "thanks_for_contributing": "¡Gracias por tu colaboración!",
+    "contributors_label": "Estas son las personas que están construyendo la aplicación",
     "@contributors_label": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
     },
@@ -293,14 +293,14 @@
     "@contributors_dialog_title": {
         "description": "Dialog title: A list of all contributors of this app"
     },
-    "contributors_dialog_entry_description": "Contributor: {name}",
+    "contributors_dialog_entry_description": "Colaborador/a: {name}",
     "@contributors_dialog_entry_description": {
         "description": "The user id of the contributor.",
         "placeholders": {
             "name": {}
         }
     },
-    "contributors_description": "A list of all contributors of this app",
+    "contributors_description": "Lista de todos los colaboradores de esta aplicación",
     "@contributors_description": {
         "description": "Button description for accessibility purposes to explain what the Contributors button do"
     },
@@ -309,9 +309,9 @@
         "description": "Button label: Opens a pop up window where all ways to get support are shown"
     },
     "support_join_slack": "Pide ayuda en nuestro canal de Slack",
-    "support_via_forum": "Ask for help on our forum",
+    "support_via_forum": "Pide ayuda en nuestro foro",
     "support_via_email": "Envíanos un correo electrónico",
-    "support_via_email_include_logs_dialog_title": "¿Enviar registros de errores?",
+    "support_via_email_include_logs_dialog_title": "¿Quieres enviar registros?",
     "support_via_email_include_logs_dialog_body": "¿Quieres enviar los registros internos de la aplicación como adjunto en tu correo?",
     "termsOfUse": "Condiciones de uso",
     "@termsOfUse": {},
@@ -332,23 +332,23 @@
     "@contribute_sw_development": {
         "description": "Button label + page title: Ways to help"
     },
-    "contribute_develop_text": "The code for every Open Food Facts product is available on GitHub. You are welcome to reuse the code (it's open source) and help us improve it, for everyone, on all the planet.",
+    "contribute_develop_text": "El código de todos los productos de Open Food Facts está disponible en GitHub. Si quieres, puedes reutilizarlo (es código abierto) o ayudarnos a mejorarlo. Para todos, en todo el planeta.",
     "@contribute_develop_text": {},
-    "contribute_develop_text_2": "You can join the Open Food Facts Slack chatroom which is the preferred way to ask questions.",
+    "contribute_develop_text_2": "Puedes unirte al canal de Slack de Open Food Facts, el mejor lugar para resolver tus dudas.",
     "@contribute_develop_text_2": {},
-    "contribute_develop_dev_mode_title": "¿Modo DEV?",
-    "contribute_develop_dev_mode_subtitle": "Activa el modo DEV",
-    "contribute_donate_header": "Donate to Open Food Facts",
+    "contribute_develop_dev_mode_title": "¿Modo desarrollador?",
+    "contribute_develop_dev_mode_subtitle": "Activa el modo de desarrollador",
+    "contribute_donate_header": "Dona a Open Food Facts",
     "@contribute_donate_header": {},
     "contribute_improve_ProductsToBeCompleted": "Productos por completar",
     "@contribute_improve_ProductsToBeCompleted": {
         "description": "Button label: Shows a list of products which aren't completed"
     },
-    "contribute_improve_header": "Aportando datos",
+    "contribute_improve_header": "Aportar datos",
     "@contribute_improve_header": {
         "description": "Button label + page title: Ways to improve the database"
     },
-    "contribute_improve_text": "The database is the core of the project. It's easy and very quick to help. You can download the mobile app for your phone, and start adding or improving products.\n\nOn the other hand, Open Food Facts website offers many ways to contribute: ",
+    "contribute_improve_text": "La base de datos es el núcleo del proyecto. Puedes ayudar de manera fácil y muy rápido. Descarga la aplicación en tu teléfono móvil y empieza a añadir productos o a mejorar los que ya están.\n\nPor otro lado, el sitio web de Open Food Facts ofrece muchas maneras de colaborar: ",
     "@contribute_improve_text": {},
     "contribute_translate_header": "Traducir",
     "@contribute_translate_header": {
