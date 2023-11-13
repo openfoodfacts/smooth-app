@@ -622,7 +622,7 @@
     "new_product_desc_nova_unknown": "Nivel de procesare a alimentelor necunoscut",
     "new_product_title_pictures": "Hai să facem niște poze!",
     "new_product_title_misc": "Și câteva date de bază…",
-    "new_product_done_msg": "Thanks for your contribution “{username}”!",
+    "new_product_done_msg": "Mulțumim pentru contribuția ta „{username}”!",
     "@new_product_done_msg": {
         "description": "Thank you message on the end of new product page, after finish adding a new product.",
         "placeholders": {
@@ -632,8 +632,8 @@
             }
         }
     },
-    "new_product_done_msg_no_user": "Thanks for your contribution!",
-    "new_product_done_button_label": "Discover the completed product",
+    "new_product_done_msg_no_user": "Vă mulțumim pentru contribuție!",
+    "new_product_done_button_label": "Descoperiți produsul finalizat",
     "@new_product_done_button_label": {
         "description": "Button at the end of new product page, that takes you to completed product"
     },
@@ -1357,7 +1357,7 @@
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
     },
-    "no_data_available": "No data available",
+    "no_data_available": "Nici o informație disponibilă",
     "@no_data_available": {
         "description": "When there are no data to display"
     },
