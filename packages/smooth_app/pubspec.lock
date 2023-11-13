@@ -381,20 +381,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.3.2"
-  data_importer:
-    dependency: "direct main"
-    description:
-      path: "../data_importer"
-      relative: true
-    source: path
-    version: "1.0.0"
-  data_importer_shared:
-    dependency: "direct main"
-    description:
-      path: "../data_importer_shared"
-      relative: true
-    source: path
-    version: "0.0.0"
   dbus:
     dependency: transitive
     description:
@@ -1283,10 +1269,10 @@ packages:
     dependency: "direct main"
     description:
       name: provider
-      sha256: "659adaefa8196fa2799d7ac3dca3c2e831e549dc40b082d07a599fe9150d75fc"
+      sha256: "9a96a0a19b594dbc5bf0f1f27d2bc67d5f95957359b461cd9feb44ed6ae75096"
       url: "https://pub.dev"
     source: hosted
-    version: "6.1.0"
+    version: "6.1.1"
   pub_semver:
     dependency: transitive
     description:

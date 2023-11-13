@@ -1,5 +1,0 @@
-include: ../smooth_app/analysis_options.yaml
-
-analyzer:
-  exclude:
-    - lib/ios/model/realm_history_item.g.dart

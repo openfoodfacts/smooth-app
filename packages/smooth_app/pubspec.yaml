@@ -57,10 +57,6 @@ dependencies:
   collection: 1.17.2
   path: 1.8.3
   path_provider: 2.0.15
-  data_importer_shared:
-    path: ../data_importer_shared
-  data_importer:
-    path: ../data_importer
   share_plus: 6.3.4
   fimber: 0.6.6
   shimmer: ^3.0.0
