@@ -358,26 +358,26 @@
     "@contribute_translate_link_text": {
         "description": "Button label: Opens the Crowdin translation portal"
     },
-    "contribute_translate_text": "Open Food Facts is a global project, containing products from more than 160 countries. Open Food Facts is translated into dozens of languages, with constantly evolving content.",
+    "contribute_translate_text": "Open Food Facts es un proyecto global que contiene productos de más de 160 países. Open Food Facts está traducido a docenas de idiomas, y su contenido está en constante evolución.",
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "La traducción es una de las tareas clave del proyecto.",
     "@contribute_translate_text_2": {},
-    "contribute_join_skill_pool": "Contribuye con tus habilidades en Open Food Facts. Únete al grupo!",
-    "contribute_share_header": "Share Open Food Facts with your friends",
+    "contribute_join_skill_pool": "Colabora con tus habilidades en Open Food Facts. ¡Únete al Grupo de Habilidades!",
+    "contribute_share_header": "Comparte Open Food Facts con tus amigos",
     "@contribute_share_header": {},
-    "contribute_share_content": "I wanted to let you know about the app I've been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it's free, does not require registration, and you can even help increase the number of products decyphered. Here's the link to get it for your phone: https://openfoodfacts.app",
+    "contribute_share_content": "Me gustaría enseñaros una aplicación que he estado utilizando, Open Food Facts, la cual permite conocer el impacto sobre la salud y el medioambiente de los alimentos que consumimos de una manera personalizada. Funciona escaneado los códigos de barra de los envases de los productos. Además de ser gratuita y de no necesitar registro, podréis colaborar y añadir productos a la base de datos. Aquí os dejo el enlace por si queréis descargarla en vuestro móvil: https://openfoodfacts.app",
     "@contribute_share_content": {
         "description": "Content that will be shared, don't forget to include the URL"
     },
-    "tap_to_answer": "Toca aquí para responder a las preguntas",
+    "tap_to_answer": "Toca aquí para responder preguntas",
     "@tap_to_answer": {
         "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts and gain rewards."
     },
-    "tap_to_answer_hint": "Tap here to answer questions about this product",
+    "tap_to_answer_hint": "Toca aquí para responder preguntas sobre el producto",
     "@tap_to_answer_hint": {
         "description": "Hint for accessibility readers to answer Robotoff questions."
     },
-    "robotoff_questions_loading_hint": "Please wait while questions about this product are loaded",
+    "robotoff_questions_loading_hint": "Por favor, espera mientras se cargan las preguntas sobre este producto.",
     "@robotoff_questions_loading_hint": {
         "description": "Hint for accessibility readers while Robotoff questions are loaded"
     },
@@ -389,26 +389,26 @@
     "@contribute_to_get_rewards": {
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts and gain rewards."
     },
-    "question_sign_in_text": "Sign in to your Open Food Facts account to get credit for your contributions",
-    "question_yes_button_accessibility_value": "Answer with yes",
-    "question_no_button_accessibility_value": "Answer with no",
-    "question_skip_button_accessibility_value": "Skip this question",
-    "tap_to_edit_search": "Tocar para editar la búsqueda",
+    "question_sign_in_text": "Inicia sesión en tu cuenta de Open Food Facts para obtener reconocimiento por tu colaboración.",
+    "question_yes_button_accessibility_value": "Responde con sí",
+    "question_no_button_accessibility_value": "Responde con no",
+    "question_skip_button_accessibility_value": "Saltar esta pregunta",
+    "tap_to_edit_search": "Toca para editar la búsqueda",
     "@Personal preferences": {},
     "myPreferences": "Mis preferencias",
     "@myPreferences": {
         "description": "Page title: Page where the ranking preferences can be changed"
     },
-    "account_create_message": "Create your account and join the Open Food Facts community to help build food knowledge all over the world!",
+    "account_create_message": "¡Crea una cuenta y únete a la comunidad de Open Food Facts para ayudar a crear conocimiento sobre los alimentos en todo el mundo!",
     "@account_create_message": {
         "description": "The Message to be displayed if the user does not have an account and wants to contribute"
     },
-    "join_us": "Únetenos",
+    "join_us": "Únete al equipo",
     "@join_us": {
         "description": "Join which is actually Signup"
     },
     "myPreferences_profile_title": "Tu perfil",
-    "myPreferences_profile_subtitle": "Manage your Open Food Facts contributor account.",
+    "myPreferences_profile_subtitle": "Administra tu cuenta de colaborador de Open Food Facts.",
     "myPreferences_settings_title": "Ajustes de la aplicación",
     "myPreferences_settings_subtitle": "Modo oscuro, analíticas,…",
     "myPreferences_food_title": "Preferencias alimentarias",
