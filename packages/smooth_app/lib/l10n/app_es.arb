@@ -410,10 +410,10 @@
     "myPreferences_profile_title": "Tu perfil",
     "myPreferences_profile_subtitle": "Administra tu cuenta de colaborador de Open Food Facts.",
     "myPreferences_settings_title": "Ajustes de la aplicación",
-    "myPreferences_settings_subtitle": "Modo oscuro, analíticas,…",
+    "myPreferences_settings_subtitle": "Modo oscuro, analíticas…",
     "myPreferences_food_title": "Preferencias alimentarias",
     "myPreferences_food_subtitle": "Elige qué tipo de información alimentaria es más importante para ti.",
-    "myPreferences_food_comment": "Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.",
+    "myPreferences_food_comment": "Elige qué información alimentaria es la que más te importan para que la aplicación pueda clasificar los alimentos según tus preferencias. Verás la información más relevante primero y obtendrás un resumen de compatibilidad. Esas preferencias alimentarias permanecen en tu dispositivo y no están asociadas a tu cuenta de colaborador de Open Food Facts, si es que la tienes.",
     "confirmResetPreferences": "¿Quieres restablecer tus preferencias alimentarias?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -424,9 +424,9 @@
     },
     "ranking_tab_all": "Todo",
     "ranking_subtitle_match_yes": "Una buena opción para ti",
-    "ranking_subtitle_match_no": "Muy poco adecuado",
+    "ranking_subtitle_match_no": "Muy poco recomendable",
     "ranking_subtitle_match_maybe": "Sin información suficiente",
-    "refresh_with_new_preferences": "Actualice la lista con sus nuevas preferencias",
+    "refresh_with_new_preferences": "Actualiza la lista con tus nuevas preferencias",
     "@refresh_with_new_preferences": {
         "description": "Action button label: Refresh the list with your new preferences"
     },
@@ -464,11 +464,11 @@
     "@filter": {
         "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
     },
-    "scan": "Products from the Scan screen",
+    "scan": "Productos de la pantalla de escaneo",
     "@scan": {
         "description": "Page title: List type: Products in the scan session"
     },
-    "scan_history": "Scan history",
+    "scan_history": "Historial de escaneo",
     "@scan_history": {
         "description": "Page title: List type: Products in the whole scan history"
     },
@@ -503,10 +503,10 @@
     "@ingredients_photo": {
         "description": "Button label: For adding a picture of the Ingredients of a product"
     },
-    "packaging_editing_instructions": "Enumere todas las partes del empaquetado separadas por una coma o salto de línea, con su cantidad (por ejemplo, 1 o 6), tipo (por ejemplo, botella, caja, lata), material (por ejemplo, plástico, metal, aluminio) y, si está disponible, su tamaño (por ejemplo, 33cl) y instrucciones de reciclaje.\nEjemplo: 1 botella de vidrio para reciclar, 1 corcho de plástico para tirar",
-    "packaging_editing_error": "No se pudo guardar el envase.",
-    "packaging_editing_image_error": "No se pudo obtener la nueva imagen del envase.",
-    "packaging_editing_title": "Editar el envase",
+    "packaging_editing_instructions": "Enumera todas las partes del envase separándolas con una coma o un salto de línea, incluyendo la cantidad (1,3,6…), el formato (botella, caja, lata…), el material (plástico, metal, aluminio…), y si están disponibles, el tamaño (por ejemplo, 33 cl) y las instrucciones de reciclaje.\nEjemplo: 1 botella de vidrio para reciclar, 1 corcho de plástico para tirar",
+    "packaging_editing_error": "No se ha podido guardar el envase.",
+    "packaging_editing_image_error": "No se ha podido obtener una nueva imagen del envase.",
+    "packaging_editing_title": "Editar envase",
     "nutrition": "Nutrición",
     "@nutrition": {},
     "nutrition_facts_photo": "Foto de la información nutricional",
