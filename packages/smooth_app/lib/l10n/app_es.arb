@@ -2179,7 +2179,7 @@
     "@edit_packagings_element_field_material": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_material": "Ingrese el material específico si se pudiera determinar (a menudo se puede encontrar un código de material dentro de un triángulo en las piezas del empaque), o un material genérico (por ejemplo, plástico o metal) si no está seguro.",
+    "edit_packagings_element_hint_material": "Si es posible, introduce el material específico, muchas veces, el código del material viene indicado dentro de un triángulo en el envase. Si tienes dudas, puedes introducir un material genérico (por ejemplo, plástico o metal).",
     "@edit_packagings_element_hint_material": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
@@ -2187,11 +2187,11 @@
     "@edit_packagings_element_example_material": {
         "description": "Text field hint"
     },
-    "edit_packagings_element_field_recycling": "Instrucción de reciclaje",
+    "edit_packagings_element_field_recycling": "Instrucciones de reciclaje",
     "@edit_packagings_element_field_recycling": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_recycling": "Ingrese las instrucciones de reciclaje solo si están enumeradas en el producto.",
+    "edit_packagings_element_hint_recycling": "Introduce las instrucciones de reciclaje solo si aparecen en el producto.",
     "@edit_packagings_element_hint_recycling": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
@@ -2203,7 +2203,7 @@
     "@edit_packagings_element_field_quantity": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_quantity": "Ingrese el peso neto o el volumen neto e indique la unidad (por ejemplo g o ml).",
+    "edit_packagings_element_hint_quantity": "Introduce el peso neto o el volumen neto y el tipo de unidad (por ejemplo, g o ml).",
     "@edit_packagings_element_hint_quantity": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
@@ -2211,18 +2211,18 @@
     "@edit_packagings_element_field_weight": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_weight": "Remove any remaining food and wash and dry the packaging part before weighing. If possible, use a scale with 0.1g or 0.01g precision.",
+    "edit_packagings_element_hint_weight": "Elimina cualquier resto de alimento y lava y seca el envase antes de pesarlo. Si es posible, usa una báscula con 0,1 g o 0,01 g de precisión.",
     "@edit_packagings_element_hint_weight": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
     "background_task_title": "Contribuciones pendientes",
-    "background_task_subtitle": "Sus contribuciones se guardan automáticamente en nuestro servidor, pero no siempre en tiempo real.",
-    "background_task_list_empty": "Sin tareas pendientes en segundo plano",
-    "background_task_error_server_time_out": "Server timeout",
+    "background_task_subtitle": "Tus contribuciones se guardan automáticamente en nuestro servidor, pero no siempre se hace en tiempo real.",
+    "background_task_list_empty": "No hay tareas pendientes en segundo plano",
+    "background_task_error_server_time_out": "Tiempo de espera del servidor",
     "background_task_error_no_internet": "Error de conexión a Internet. Inténtalo más tarde.",
-    "background_task_operation_unknown": "acción desconocida",
+    "background_task_operation_unknown": "tipo de operación desconocida",
     "background_task_operation_details": "cambios detallados",
-    "background_task_operation_image": "subir foto",
+    "background_task_operation_image": "carga de fotos",
     "background_task_operation_refresh": "actualización retrasada después de cargar la foto",
     "background_task_run_started": "iniciado",
     "background_task_run_not_started": "todavía no se ha iniciado",
