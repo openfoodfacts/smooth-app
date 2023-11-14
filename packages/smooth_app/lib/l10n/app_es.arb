@@ -1601,7 +1601,7 @@
     "@dev_mode_scan_mode_title": {
         "description": "User dev preferences - Scan mode - Title"
     },
-    "dev_mode_scan_mode_subtitle": "El modo de escaneo actual es: \"{mode}\"",
+    "dev_mode_scan_mode_subtitle": "El modo de escaneo actual es: «{mode}»",
     "@dev_mode_scan_mode_subtitle": {
         "description": "User dev preferences - Scan mode - Subtitle",
         "placeholders": {
@@ -1622,11 +1622,11 @@
     "@dev_mode_scan_camera_only": {
         "description": "Scan mode - Camera only"
     },
-    "dev_mode_scan_preprocess_full_image": "Flujo de cámara y preprocesamiento completo de imágenes, sin escaneo",
+    "dev_mode_scan_preprocess_full_image": "Transmisión de cámara y preprocesamiento completo de imágenes, sin escaneo",
     "@dev_mode_scan_preprocess_full_image": {
         "description": "Scan mode - Preprocess full image"
     },
-    "dev_mode_scan_preprocess_half_image": "Flujo de cámara y preprocesamiento de media imagen, sin escaneo",
+    "dev_mode_scan_preprocess_half_image": "Transmisión de cámara y preprocesamiento de media imagen, sin escaneo",
     "@dev_mode_scan_preprocess_half_image": {
         "description": "Scan mode - Preprocess half image"
     },
@@ -1686,11 +1686,11 @@
     "@all_search_to_be_completed_title": {
         "description": "All products to be completed: list tile title"
     },
-    "edit_product_action_retake_picture": "Volver a hacer la foto",
+    "edit_product_action_retake_picture": "Volver a sacar la foto",
     "@edit_product_action_retake_picture": {
         "description": "Product edition - FAB actions - retake a picture"
     },
-    "edit_product_action_take_picture": "Hacer una foto",
+    "edit_product_action_take_picture": "Sacar foto",
     "@edit_product_action_take_picture": {
         "description": "Product edition - FAB actions - take a picture"
     },
@@ -1698,7 +1698,7 @@
     "@edit_product_action_confirm": {
         "description": "Product edition - FAB actions - confirm"
     },
-    "signup_page_terms_of_use_line1": "I agree to the Open Food Facts ",
+    "signup_page_terms_of_use_line1": "Estoy de acuerdo con las condiciones de Open Food Facts ",
     "@signup_page_terms_of_use_line1": {
         "description": "User consent for terms of use (line 1)"
     },
@@ -1736,7 +1736,7 @@
     "@edit_photo_button_label": {
         "description": "Edit photo button label"
     },
-    "edit_photo_unselect_button_label": "Dejar de seleccionar la imagen",
+    "edit_photo_unselect_button_label": "Deseleccionar la foto",
     "@edit_photo_unselect_button_label": {
         "description": "Edit 'unselect photo' button label"
     },
@@ -1752,15 +1752,15 @@
     "@edit_photo_select_existing_download_label": {
         "description": "Dialog label"
     },
-    "edit_photo_select_existing_downloaded_none": "No existen imágenes previamente relacionadas con este producto.",
+    "edit_photo_select_existing_downloaded_none": "No existen imágenes anteriores relacionadas con este producto.",
     "@edit_photo_select_existing_downloaded_none": {
         "description": "Error message"
     },
-    "edit_photo_language_not_this_one": "No image in that language yet",
+    "edit_photo_language_not_this_one": "No hay imágenes en ese idioma",
     "@edit_photo_language_not_this_one": {
         "description": "Warning message: for this product and this field, there are 'translated' images, but not in that language"
     },
-    "edit_photo_language_none": "No image yet",
+    "edit_photo_language_none": "Todavía no hay imágenes",
     "@edit_photo_language_none": {
         "description": "Warning message: for this product and this field, there are no images at all, in any language"
     },
@@ -1768,9 +1768,9 @@
     "@category_picker_screen_title": {
         "description": "Categories picker screen title"
     },
-    "basic_details": "Detalles básicos",
+    "basic_details": "Aspectos básicos",
     "product_name": "Nombre del producto",
-    "add_basic_details_product_name_error": "Por favor, añade el nombre del producto",
+    "add_basic_details_product_name_error": "Por favor, introduce el nombre del producto",
     "brand_name": "Nombre de la marca",
     "add_basic_details_brand_name_error": "Por favor, introduce el nombre de la marca",
     "quantity": "Cantidad y peso",
@@ -1785,23 +1785,23 @@
         }
     },
     "barcode_invalid_error": "Código de barras no válido",
-    "basic_details_add_success": "Detalles básicos agregados con éxito",
-    "basic_details_add_error": "No hemos podido añadir los datos básicos. Vuelve a intentarlo en un rato",
+    "basic_details_add_success": "Aspectos básicos añadidos con éxito",
+    "basic_details_add_error": "No se han podido añadir los aspectos básicos. Vuelve a intentarlo en un rato.",
     "@basic_details_add_error": {
         "description": "Error message when error occurs while submitting basic details"
     },
-    "clear_search": "Borrar tu búsqueda",
+    "clear_search": "Limpiar tu búsqueda",
     "@confirm_clearclear_search": {
         "description": "Tooltip to explain that the X button clears the content of the search"
     },
-    "confirm_clear": "Está a punto de eliminar todo tu historial, ¿está seguro de que quiere continuar?",
+    "confirm_clear": "Estás a punto de eliminar todo tu historial, ¿seguro que deseas continuar?",
     "@confirm_clear": {
         "description": "Asking about whether to clear the history list or not"
     },
-    "alert_clear_selected_user_list": "You're about to clear selected items in your history",
-    "confirm_clear_selected_user_list": "Are you sure you want to continue?",
-    "alert_select_items_to_clear": "Please select one or more items to clear",
-    "confirm_clear_user_list": "Está a punto de borrar esta lista ({name}): ¿está seguro de que desea continuar?",
+    "alert_clear_selected_user_list": "Estás a punto de eliminar los ítems seleccionados de tu historial.",
+    "confirm_clear_selected_user_list": "¿Seguro que deseas continuar?",
+    "alert_select_items_to_clear": "Selecciona uno o más ítems para eliminar.",
+    "confirm_clear_user_list": "Estás a punto de eliminar esta lista ({name}), ¿seguro que deseas continuar?",
     "@confirm_clear_user_list": {
         "description": "Asking about whether to clear the list or not",
         "placeholders": {
@@ -1810,11 +1810,11 @@
             }
         }
     },
-    "confirm_delete_user_list_title": "Delete the list?",
+    "confirm_delete_user_list_title": "¿Eliminar la lista?",
     "@confirm_delete_user_list_title": {
         "description": "Title when asking about whether to delete the list or not"
     },
-    "confirm_delete_user_list_message": "You're about to delete the list \"{name}\".\nAre you sure you want to continue?",
+    "confirm_delete_user_list_message": "Estás a punto de eliminar la lista «{name}», ¿seguro que deseas continuar?",
     "@confirm_delete_user_list_message": {
         "description": "Message when asking about whether to delete the list or not",
         "placeholders": {
@@ -1823,11 +1823,11 @@
             }
         }
     },
-    "confirm_delete_user_list_button": "Yes, I confirm",
+    "confirm_delete_user_list_button": "Sí, seguro",
     "@confirm_delete_user_list_button": {
         "description": "Button to delete a list"
     },
-    "importance_label": "Importancia {name}: {id}",
+    "importance_label": "Importancia de {name}: {id}",
     "@importance_label": {
         "description": "Used when user selects a food preference. example: Vegan importance; mandatory",
         "placeholders": {
@@ -1847,7 +1847,7 @@
     "@user_list_all_empty": {
         "description": "Small message when there are no user lists"
     },
-    "product_list_select": "Select a list",
+    "product_list_select": "Selecciona una lista",
     "@product_list_select": {
         "description": "Top title for the selection of a list"
     },
@@ -1858,19 +1858,19 @@
             "count": {}
         }
     },
-    "add_list_label": "Agregar lista",
+    "add_list_label": "Añadir lista",
     "@add_list_label": {
         "description": "Label for the add list button"
     },
-    "open_food_preferences_tooltip": "Editar tus preferencias de alimentos",
+    "open_food_preferences_tooltip": "Edita tus preferencias alimentarias",
     "@open_food_preferences_tooltip": {
         "description": "Tooltip (message displayed on long press) to open the user food preferences"
     },
-    "add_photo_button_label": "Agregar foto",
+    "add_photo_button_label": "Añadir foto",
     "@add_photo_button_label": {
         "description": "Label for the add photo button"
     },
-    "add_packaging_photo_button_label": "Tome fotos de cualquier información del empaque/reciclaje",
+    "add_packaging_photo_button_label": "Saca fotos de cualquier información del envase/reciclaje",
     "@add_packaging_photo_button_label": {
         "description": "Label for the add PACKAGING photo button"
     },
@@ -1878,7 +1878,7 @@
     "@choose_image_source_title": {
         "description": "Title for the image source chooser"
     },
-    "choose_image_source_body": "Por favor, elija una fuente de la imagen",
+    "choose_image_source_body": "Por favor, elige la fuente de la imagen",
     "@choose_image_source_body": {
         "description": "Body for the image source chooser"
     },
@@ -1886,15 +1886,15 @@
     "@gallery_source_label": {
         "description": "Label for the gallery image source"
     },
-    "gallery_source_access_denied_dialog_title": "Access denied",
+    "gallery_source_access_denied_dialog_title": "Acceso denegado",
     "@gallery_source_access_denied_dialog_title": {
         "description": "On iOS, the user has refused to give the permission (title of the dialog)"
     },
-    "gallery_source_access_denied_dialog_message_ios": "Unfortunately, the application can't access your gallery, as you have previously denied the permission.\n\nPlease go to the app settings in your phone Settings -> Photos",
+    "gallery_source_access_denied_dialog_message_ios": "Lamentablemente, la aplicación no puede acceder a tu galería porque previamente le has denegado el permiso.\n\nVe a la configuración de la aplicación en tu teléfono móvil en Ajustes → Fotos",
     "@gallery_source_access_denied_dialog_message_ios": {
         "description": "On iOS, the user has refused to give the permission"
     },
-    "gallery_source_access_denied_dialog_button": "Open the Settings",
+    "gallery_source_access_denied_dialog_button": "Abrir la configuración",
     "@gallery_source_access_denied_dialog_button": {
         "description": "Button to open the app settings"
     },
@@ -1902,7 +1902,7 @@
     "@share": {
         "description": "Button label for sharing something on another app. For example sharing the link to a product via Email"
     },
-    "share_product_text": "Have a look at this product on Open Food Facts: {url}",
+    "share_product_text": "Echa un vistazo a este producto en Open Food Facts: {url}",
     "@share_product_text": {
         "description": "The content which is send, when sharing a product",
         "placeholders": {
@@ -1911,7 +1911,7 @@
             }
         }
     },
-    "share_product_list_text": "Have a look at my list of products on Open Food Facts: {url}",
+    "share_product_list_text": "Echa un vistazo a mi lista de productos en Open Food Facts: {url}",
     "@share_product_list_text": {
         "description": "The content which is send, when sharing a product list",
         "placeholders": {
@@ -1940,11 +1940,11 @@
     "@background_task_title_top_n": {
         "description": "Snackbar message when a download of the most popular products is started"
     },
-    "expand_nutrition_facts": "Ampliar tabla de información nutricional",
+    "expand_nutrition_facts": "Expandir la tabla de información nutricional",
     "@expand_nutrition_facts": {
         "description": "Label for expanding nutrition facts table in application setting"
     },
-    "expand_nutrition_facts_body": "Mantener ampliada la tabla de datos nutricionales",
+    "expand_nutrition_facts_body": "Mantener expandida la tabla de información nutricional",
     "expand_ingredients": "Expandir ingredientes",
     "@expand_ingredients": {
         "description": "Label for expanding nutrition facts table in application setting"
@@ -1954,11 +1954,11 @@
     "@no_internet_connection": {
         "description": "Message when there is no internet connection"
     },
-    "world_results_label": "Mundo entero",
+    "world_results_label": "Todo el mundo",
     "@world_results_label": {
         "description": "Label describing the current source of the results: the entire world. Keep it short"
     },
-    "world_results_action": "Amplía tu búsqueda al mundo",
+    "world_results_action": "Amplía tu búsqueda al mundo entero",
     "@world_results_action": {
         "description": "Label for the action button that displays the results from the entire world"
     },
@@ -1977,7 +1977,7 @@
         }
     },
     "clipboard_barcode_copied": "¡Código de barras {barcode} copiado al portapapeles!",
-    "language_picker_label": "Your language",
+    "language_picker_label": "Tu idioma",
     "@language_picker_label": {
         "description": "Choose Application Language"
     },
@@ -1989,7 +1989,7 @@
     "@product_task_background_schedule": {
         "description": "Message when a product is scheduled for background update"
     },
-    "no_email_client_available_dialog_title": "No email apps!",
+    "no_email_client_available_dialog_title": "¡No hay aplicaciones de correo elecrtrónico!",
     "@no_email_client_available_dialog_title": {
         "description": "Title for the dialog when no email client is installed on the device"
     },
@@ -2003,7 +2003,7 @@
     "@product_card_remove_product_tooltip": {
         "description": "Tooltip (message visible with a long-press) on a product item in the carousel"
     },
-    "scan_announce_new_barcode": "New barcode scanned: {barcode}",
+    "scan_announce_new_barcode": "Nuevo código de barras escaneado: {barcode}",
     "@scan_announce_new_barcode": {
         "description": "Text to pronounce by the Accessibility tool when a new barcode is decoded",
         "placeholders": {
@@ -2013,35 +2013,35 @@
             }
         }
     },
-    "scan_header_clear_button_tooltip": "Remove all products from the carousel",
+    "scan_header_clear_button_tooltip": "Borrar todos los productos del carrusel",
     "@scan_header_clear_button_tooltip": {
         "description": "Tooltip (message visible with a long-press) on the Clear button on top of the scanner"
     },
-    "scan_header_compare_button_invalid_state_tooltip": "Please scan at least two products to compare them",
+    "scan_header_compare_button_invalid_state_tooltip": "Escanea por lo menos dos productos para poder compararlos.",
     "@scan_header_compare_button_invalid_state_tooltip": {
         "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is just one product scanned"
     },
-    "scan_header_compare_button_valid_state_tooltip": "Click to compare the products you have scanned",
+    "scan_header_compare_button_valid_state_tooltip": "Haz clic para comparar los productos que has escaneado.",
     "@scan_header_compare_button_valid_state_tooltip": {
         "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is at least two prodiucts"
     },
-    "scan_product_loading": "You have scanned\nthe barcode:",
+    "scan_product_loading": "Has escaneado\nel código de barras:",
     "@scan_product_loading": {
         "description": "Title when a product is loading (carousel card). Please ensure to keep the line break."
     },
-    "scan_product_loading_initial": "We're looking for this product!\nPlease wait a few seconds…",
+    "scan_product_loading_initial": "¡Estamos buscando este producto!\nPor favor, espera unos segundos…",
     "@scan_product_loading_initial": {
         "description": "Message when a product is loading (carousel card). Please ensure to keep the line break."
     },
-    "scan_product_loading_long_request": "We're still looking for this product!\nDo you find it takes a long time to load? So are we…",
+    "scan_product_loading_long_request": "Seguimos buscando el producto.\n¿Te parece que tarda mucho? A nosotros también…",
     "@scan_product_loading_long_request": {
         "description": "Message when a product is long to load (carousel card). Please ensure to keep the line break."
     },
-    "scan_product_loading_unresponsive": "We're still looking for this product.\nWould you like to restart the search?",
+    "scan_product_loading_unresponsive": "Todavía estamos buscando el producto.\n¿Te gustaría realizar de nuevo la búsqueda?",
     "@scan_product_loading_unresponsive": {
         "description": "Message when a product is too long to load (carousel card). Please ensure to keep the line break."
     },
-    "scan_product_loading_restart_button": "Restart search",
+    "scan_product_loading_restart_button": "Reiniciar la búsqueda",
     "@scan_product_loading_restart_button": {
         "description": "Button to force restart a product search"
     },
@@ -2053,11 +2053,11 @@
     "@portion_calculator_hint": {
         "description": "Hint to show when a quantity is empty in the portion calculator."
     },
-    "portion_calculator_accessibility": "Ingrese una cantidad para calcular los datos nutricionales",
+    "portion_calculator_accessibility": "Introduce una cantidad para calcular la información nutricional",
     "@portion_calculator_accessibility": {
         "description": "Hint for the acessibility to explain to enter a quantity."
     },
-    "portion_calculator_error": "Por favor ingrese una cantidad entre {min} y {max} g",
+    "portion_calculator_error": "Por favor, introduce una cantidad entre {min} y {max} g",
     "@portion_calculator_error": {
         "description": "Error message to explain that the quantity is invalid.",
         "placeholders": {
@@ -2102,15 +2102,15 @@
     "@image_download_error": {
         "description": "Error message, when image download fails"
     },
-    "image_edit_url_error": "No se pudo editar la imagen porque no se configuró la URL de la imagen.",
+    "image_edit_url_error": "No se ha podido editar la imagen porque la URL de la imagen no está configurada.",
     "@image_edit_url_error": {
         "description": "Error message, when editing image fails, due to missing url."
     },
-    "user_picture_source_remember": "Recuerda mi elección",
+    "user_picture_source_remember": "Recordar mi elección",
     "@user_picture_source_remember": {
         "description": "Checkbox label when select a picture source"
     },
-    "user_picture_source_select": "Seleccione cada vez",
+    "user_picture_source_select": "Seleccionar cada vez",
     "@user_picture_source_select": {
         "description": "Choice of selecting the picture source each time"
     },
@@ -2118,7 +2118,7 @@
     "@robotoff_continue": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering"
     },
-    "robotoff_next_n_questions": "Next {count,plural,  =1{question} other{{count} questions}}",
+    "robotoff_next_n_questions": "Próxima{count,plural,  =1{ pregunta} other{s {count} preguntas}}",
     "@robotoff_next_n_questions": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering",
         "placeholders": {
@@ -2133,20 +2133,20 @@
     "app_rating_dialog_title": "¡Genial! ¡Hazle saber a los demás lo que piensas de esta aplicación!",
     "app_rating_dialog_positive_action": "Calificar la aplicación",
     "app_rating_dialog_negative_action": "Más adelante",
-    "app_rating_dialog_title_enjoying_app": "Are you enjoying this app?",
+    "app_rating_dialog_title_enjoying_app": "¿Te está gustando la aplicación?",
     "app_rating_dialog_title_enjoying_positive_actions": "¡Sí!",
-    "not_really": "No del todo",
-    "app_rating_dialog_title_not_enjoying_app": "We are so sorry to hear that! Could you tell us what happened?",
-    "edit_packagings_title": "Componentes del embalaje",
+    "not_really": "No mucho",
+    "app_rating_dialog_title_not_enjoying_app": "Lamentamos oír eso. ¿Nos puedes contar lo que pasa?",
+    "edit_packagings_title": "Componentes del envase",
     "@edit_packagings_title": {
         "description": "Title of the structured packagings page"
     },
-    "edit_packagings_element_add": "Añadir un componente de embalaje",
+    "edit_packagings_element_add": "Añadir un componente del envase",
     "@edit_packagings_element_add": {
         "description": "Button label"
     },
     "edit_packagings_completed": "El envase está completo",
-    "edit_packagings_element_title": "Componente del embalaje #{index}",
+    "edit_packagings_element_title": "Componente del envase #{index}",
     "@edit_packagings_element_title": {
         "description": "Element title. Please do not change the index placeholder",
         "placeholders": {
@@ -2159,15 +2159,15 @@
     "@edit_packagings_element_field_units": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_units": "Indique el número de unidades de embalaje de la misma forma y material que contiene el producto.",
+    "edit_packagings_element_hint_units": "Introduce el número de unidades de envases con el mismo formato y material.",
     "@edit_packagings_element_hint_units": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
-    "edit_packagings_element_field_shape": "Forma",
+    "edit_packagings_element_field_shape": "Formato",
     "@edit_packagings_element_field_shape": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_shape": "Ingrese el nombre de la forma que aparece en las instrucciones de reciclaje, si están disponibles, o seleccione una forma.",
+    "edit_packagings_element_hint_shape": "Introduce los formatos indicados en las instrucciones de reciclaje, si están disponibles, o selecciona un formato.",
     "@edit_packagings_element_hint_shape": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
