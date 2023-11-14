@@ -521,9 +521,9 @@
     "@packaging_information_photo": {},
     "missing_product": "¡Has encontrado un nuevo producto!",
     "@missing_product": {},
-    "add_product_take_photos": "Take photos of the packaging to add this product to Open Food Facts",
+    "add_product_take_photos": "Haz fotos del envase para añadir este producto a Open Food Facts.",
     "@add_product_take_photos": {},
-    "add_product_take_photos_descriptive": "Por favor, tome algunas fotos primero. Siempre puede completar el producto en un momento posterior.",
+    "add_product_take_photos_descriptive": "Por favor, primero haz alguna foto del producto. Más adelante podrás completar la información del producto.",
     "@add_product_take_photos_descriptive": {},
     "add_product_information_button_label": "Agregar información del producto",
     "@add_product_information_button_label": {},
@@ -533,23 +533,23 @@
     "@new_product_dialog_title": {
         "description": "Please keep it short, like 50 characters. Title of the dialog when the user searched for an unknown barcode."
     },
-    "new_product_leave_message": "It looks like you didn't input anything. Do you really want to leave this page?",
+    "new_product_leave_message": "Parece que no has introducido nada. ¿De verdad quieres abandonar esta página?",
     "@new_product_leave_message": {
         "description": "Alert dialog message when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
     },
-    "new_product_dialog_description": "Por favor, toma fotos del envase para añadir este producto a nuestra base de datos general",
+    "new_product_dialog_description": "Haz fotos del envase para añadir el producto a nuestra base de datos general.",
     "@new_product_dialog_description": {
         "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
     },
     "front_packaging_photo_button_label": "Foto frontal del producto",
     "@front_packaging_photo_button_label": {},
-    "confirm_front_packaging_photo_button_label": "Confirme la carga de la foto frontal del producto",
+    "confirm_front_packaging_photo_button_label": "Confirmar el envío de la foto frontal del producto",
     "@confirm_front_packaging_photo_button_label": {
         "description": "Button clicking on which confirms the picture of the front of product that user just took."
     },
     "confirm_button_label": "Confirmar",
     "send_image_button_label": "Enviar imagen",
-    "crop_page_action_saving": "Saving the image…",
+    "crop_page_action_saving": "Guardando la imagen…",
     "@crop_page_action_saving": {
         "description": "Action being performed on the crop page"
     },
@@ -557,11 +557,11 @@
     "@crop_page_action_cropping": {
         "description": "Action being performed on the crop page"
     },
-    "crop_page_action_local": "Saving a local version…",
+    "crop_page_action_local": "Guardando una versión local…",
     "@crop_page_action_local": {
         "description": "Action being performed on the crop page"
     },
-    "crop_page_action_local_failed_title": "Ups… hay algo con tu foto!",
+    "crop_page_action_local_failed_title": "Vaya… hay un problema con tu foto.",
     "@crop_page_action_local_title": {
         "description": "The save of the picture locally failed - error dialog message"
     },
@@ -569,11 +569,11 @@
     "@crop_page_action_local_message": {
         "description": "The save of the picture locally failed - error dialog message"
     },
-    "crop_page_too_small_image_title": "The image is too small!",
+    "crop_page_too_small_image_title": "¡La imagen es demasiado pequeña!",
     "@crop_page_too_small_image_title": {
         "description": "Title of a dialog warning the user that the image is too small for upload"
     },
-    "crop_page_too_small_image_message": "The minimum size in pixels for picture upload is {expectedMinWidth}x{expectedMinHeight}. The current picture is {actualWidth}x{actualHeight}.",
+    "crop_page_too_small_image_message": "El tamaño mínimo para la subida de imágenes es de {expectedMinWidth} x {expectedMinHeight}. Esta imagen tiene {actualWidth} x {actualHeight}.",
     "@crop_page_too_small_image_message": {
         "description": "Message of a dialog warning the user that the image is too small for upload",
         "placeholders": {
@@ -591,13 +591,13 @@
             }
         }
     },
-    "crop_page_action_server": "Preparing a call to the server…",
+    "crop_page_action_server": "Preparando la llamada al servidor…",
     "@crop_page_action_server": {
         "description": "Action being performed on the crop page"
     },
     "front_packaging_photo_title": "Foto frontal del envase",
     "ingredients_photo_title": "Foto de los ingredientes",
-    "nutritional_facts_photo_title": "Foto de información nutricional",
+    "nutritional_facts_photo_title": "Foto de la información nutricional",
     "recycling_photo_title": "Foto sobre el reciclaje",
     "other_interesting_photo_title": "Otras fotos interesantes",
     "front_photo_uploaded": "Foto frontal subida",
@@ -611,12 +611,12 @@
     "@nutritional_facts_photo_button_label": {},
     "nutritional_facts_input_button_label": "Introducir información nutricional",
     "nutritional_facts_added": "Información nutricional añadida",
-    "categories_added": "Categories added",
-    "new_product_title_nutriscore": "Compute the Nutri-Score",
-    "new_product_subtitle_nutriscore": "Get it by filling the food category and nutritional values",
-    "new_product_title_ecoscore": "Compute the Eco-Score",
-    "new_product_subtitle_ecoscore": "Get it by filling at least a category",
-    "new_product_additional_ecoscore": "Make Eco-Score computation more precise with origins, packaging & more",
+    "categories_added": "Categorías añadidas",
+    "new_product_title_nutriscore": "Calcular Nutri-Score",
+    "new_product_subtitle_nutriscore": "Hazlo rellenando la categoría de alimentos y los valores nutricionales.",
+    "new_product_title_ecoscore": "Calcular Eco-Score",
+    "new_product_subtitle_ecoscore": "Hazlo rellenando al menos una categoría.",
+    "new_product_additional_ecoscore": "Haz que el cálculo del Eco-Score sea más preciso añadiendo orígenes, información sobre el envase, etc.",
     "new_product_title_nova": "Compute the food processing level (NOVA)",
     "new_product_subtitle_nova": "Get it by filling the food category and ingredients",
     "new_product_desc_nova_unknown": "Nivel de procesamiento de alimentos desconocido",
