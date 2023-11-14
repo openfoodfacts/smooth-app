@@ -1501,19 +1501,19 @@
     "@dev_preferences_reset_onboarding_title": {
         "description": "User dev preferences - Reset onboarding - Title"
     },
-    "dev_preferences_reset_onboarding_subtitle": "You then have to restart the App to see it again.",
+    "dev_preferences_reset_onboarding_subtitle": "Después, tendrás que reiniciar la aplicación para verlo de nuevo.",
     "@dev_preferences_reset_onboarding_subtitle": {
         "description": "User dev preferences - Reset onboarding - Subtitle"
     },
-    "dev_preferences_environment_switch_title": "Cambiar entre openfoodfacts.org (PROD) y test env",
+    "dev_preferences_environment_switch_title": "Cambiar entre openfoodfacts.org (PROD) y el entorno de pruebas",
     "@dev_preferences_environment_switch_title": {
         "description": "User dev preferences - Environment (prod/test) switcher - Title"
     },
-    "dev_preferences_test_environment_title": "Parámetros del entorno de prueba",
+    "dev_preferences_test_environment_title": "Parámetros del entorno de pruebas",
     "@dev_preferences_test_environment_title": {
         "description": "User dev preferences - Info about test environment - Title"
     },
-    "dev_preferences_test_environment_subtitle": "URL base para el entorno de prueba actual: {url}",
+    "dev_preferences_test_environment_subtitle": "URL base para el entorno de pruebas actual: {url}",
     "@dev_preferences_test_environment_subtitle": {
         "description": "User dev preferences - Info about test environment - Value",
         "placeholders": {
@@ -1522,15 +1522,15 @@
             }
         }
     },
-    "dev_preferences_test_environment_dialog_title": "Entorno de prueba host",
+    "dev_preferences_test_environment_dialog_title": "Alojamiento del entorno de pruebas",
     "@dev_preferences_test_environment_dialog_title": {
         "description": "User dev preferences - Info about test environment - Dialog title"
     },
-    "dev_preferences_ml_kit_title": "Usar kit de aprendizaje automático",
+    "dev_preferences_ml_kit_title": "Usar ML kit",
     "@dev_preferences_ml_kit_title": {
         "description": "User dev preferences - Enable ML Kit - Title"
     },
-    "dev_preferences_ml_kit_subtitle": "entonces tienes que reiniciar esta aplicación",
+    "dev_preferences_ml_kit_subtitle": "tendrás que reiniciar esta aplicación",
     "@dev_preferences_ml_kit_subtitle": {
         "description": "User dev preferences - Enable ML Kit - Subtitle"
     },
@@ -1538,7 +1538,7 @@
     "@dev_preferences_product_additional_features_title": {
         "description": "User dev preferences - Additional buttons on product page - Title"
     },
-    "dev_preferences_edit_ingredients_title": "Edite los ingredientes a través de un botón del panel de conocimiento",
+    "dev_preferences_edit_ingredients_title": "Editar ingredientes a través de un botón del panel de conocimiento",
     "@dev_preferences_edit_ingredients_title": {
         "description": "User dev preferences - Additional buttons on product page - Subtitle"
     },
@@ -1589,7 +1589,7 @@
     "@dev_preferences_import_history_title": {
         "description": "User dev preferences - Import history - Title"
     },
-    "dev_preferences_import_history_subtitle": "Se borrará el historial y se pondrán 3 productos",
+    "dev_preferences_import_history_subtitle": "Se limpiará el historial y se pondrán 3 productos ahí",
     "@dev_preferences_import_history_subtitle": {
         "description": "User dev preferences - Import history - Subtitle"
     },
