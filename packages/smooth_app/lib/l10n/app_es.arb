@@ -688,11 +688,11 @@
     "score_add_missing_packaging_image": "Añadir la imagen del envase que falta",
     "score_add_missing_nutrition_facts": "Añadir la información nutricional que falta",
     "score_add_missing_product_category": "Añadir las categorías del producto que faltan",
-    "score_add_missing_product_countries": "Añadir países faltantes de los productos",
-    "score_add_missing_product_emb": "Añadir códigos de trazabilidad faltantes de productos",
-    "score_add_missing_product_labels": "Añadir etiquetas faltantes de productos",
-    "score_add_missing_product_origins": "Añadir orígenes faltantes en productos",
-    "score_add_missing_product_stores": "Agregar tiendas faltantes de productos",
+    "score_add_missing_product_countries": "Añadir los países de producto que faltan",
+    "score_add_missing_product_emb": "Añadir los códigos de trazabilidad que faltan",
+    "score_add_missing_product_labels": "Añadir las etiquetas que faltan",
+    "score_add_missing_product_origins": "Añadir los orígenes del producto que faltan",
+    "score_add_missing_product_stores": "Añadir las tiendas que faltan",
     "score_update_nutrition_facts": "Actualizar información nutricional",
     "nutrition_page_title": "Información nutricional",
     "nutrition_page_unspecified": "La información nutricional no aparece en el producto",
@@ -702,7 +702,7 @@
     "nutrition_page_serving_size": "Tamaño de la porción",
     "nutrition_page_invalid_number": "Número inválido",
     "nutrition_page_update_running": "Actualizando el producto en el servidor…",
-    "nutrition_page_update_done": "¡Producto Actualizado!",
+    "nutrition_page_update_done": "¡Producto actualizado!",
     "more_photos": "Más fotos interesantes",
     "@more_photos": {},
     "no_product_found": "No se ha encontrado ningún producto",
@@ -718,15 +718,15 @@
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
-    "tagline_app_review": "Do you like the app?",
-    "tagline_app_review_button_positive": "I love it! 😍",
-    "tagline_app_review_button_negative": "Not really…",
-    "tagline_app_review_button_later": "Ask me later",
-    "app_review_negative_modal_title": "You don't like our app?",
-    "app_review_negative_modal_text": "Could you take a few seconds to tell us why?",
-    "app_review_negative_modal_positive_button": "Yes, absolutely!",
+    "tagline_app_review": "¿Te gusta la aplicación?",
+    "tagline_app_review_button_positive": "¡Me encanta! 😍",
+    "tagline_app_review_button_negative": "No mucho…",
+    "tagline_app_review_button_later": "Pregúntame más tarde",
+    "app_review_negative_modal_title": "¿No te gusta nuestra aplicación?",
+    "app_review_negative_modal_text": "¿Nos podrías explicar por qué?",
+    "app_review_negative_modal_positive_button": "¡Sí, por supuesto!",
     "app_review_negative_modal_negative_button": "No",
-    "could_not_refresh": "No se pudo actualizar el producto",
+    "could_not_refresh": "No se ha podido actualizar el producto",
     "@could_not_refresh": {
         "description": "The product data couldn't be refreshed"
     },
@@ -762,7 +762,7 @@
     "@product_improvement_obsolete_nutrition_image": {
         "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
     },
-    "product_improvement_origins_to_be_completed": "El Eco-Score tiene en cuenta el origen de los ingredientes. Haz una foto de los ingredientes y/o cualquier declaración geográfica y edita el producto para que se tengan en cuenta estos datos.",
+    "product_improvement_origins_to_be_completed": "El Eco-Score tiene en cuenta el origen de los ingredientes. Haz una foto de los ingredientes o a cualquier declaración geográfica y edita el producto para que se tengan en cuenta estos datos.",
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
@@ -770,11 +770,11 @@
     "@country_chooser_label": {
         "description": "Label shown above a selector where the user can select their country (in the onboarding)"
     },
-    "country_chooser_label_from_settings": "Your country",
+    "country_chooser_label_from_settings": "Tu país",
     "@country_chooser_label_from_settings": {
         "description": "Label to use in the settings to change the user country"
     },
-    "country_selection_explanation": "Algunas características ambientales son específicas de su ubicación geográfica",
+    "country_selection_explanation": "Algunas características ambientales son específicas de tu ubicación geográfica",
     "@country_label": {
         "description": "Explanation as to why users should select their country."
     },
@@ -786,7 +786,7 @@
     "@native_app_settings": {
         "description": "Native App Settings in app settings"
     },
-    "native_app_description": "Open systems settings for Open Food Facts",
+    "native_app_description": "Abrir configuración del sistema de Open Food Facts",
     "@native_app_description": {
         "description": "Native App description in app settings"
     },
@@ -794,7 +794,7 @@
     "@product_removed_history": {
         "description": "Product got removed from history"
     },
-    "product_removed_list": "Product removed from list",
+    "product_removed_list": "Producto eliminado de la lista",
     "@product_removed_list": {
         "description": "Product got removed from list"
     },
@@ -805,53 +805,53 @@
     "@Lists": {},
     "no_prodcut_in_list": "No hay ningún producto en esta lista",
     "no_product_in_section": "No hay ningún producto en esta sección",
-    "recently_seen_products": "All viewed products",
+    "recently_seen_products": "Todos los productos visualizados",
     "clear": "Limpiar",
     "@clear": {
         "description": "Clears a product list (short label)"
     },
-    "clear_long": "Empty the list",
+    "clear_long": "Vaciar la lista",
     "@clear_long": {
         "description": "Clears a product list (long label)"
     },
     "really_clear": "¿Realmente quieres eliminar esta lista?",
     "@Plural": {},
-    "pct_match": "coincide un {percent}%",
+    "pct_match": "coincide un {percent} %",
     "@pct_match": {
         "description": "This product has a x percent match with your preferences",
         "placeholders": {
             "percent": {}
         }
     },
-    "plural_ago_days": "{count,plural, =1{hace un día} other{{count} días atrás}}",
+    "plural_ago_days": "{count,plural, =1{hace un día} other{hace {count} días}}",
     "@plural_ago_days": {
         "description": "Cached results from: x days ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_hours": "{count,plural, =1{hace una hora} other{{count} horas atrás}}",
+    "plural_ago_hours": "{count,plural, =1{hace una hora} other{hace {count} horas}}",
     "@plural_ago_hours": {
         "description": "Cached results from: x hours ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_minutes": "{count,plural, =0{hace menos de un minuto} =1{hace un minuto} other{{count} minutos atrás}}",
+    "plural_ago_minutes": "{count,plural, =0{hace menos de un minuto} =1{hace un minuto} other{hace {count} minutos}}",
     "@plural_ago_minutes": {
         "description": "Cached results from: x minutes ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_months": "{count,plural, =1{hace un mes} other{{count} meses atras}}",
+    "plural_ago_months": "{count,plural, =1{hace un mes} other{hace {count} meses}}",
     "@plural_ago_months": {
         "description": "Cached results from: x months ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_weeks": "{count,plural, =1{hace una semana} other{{count} semanas atrás}}",
+    "plural_ago_weeks": "{count,plural, =1{hace una semana} other{hace {count} semanas}}",
     "@plural_ago_weeks": {
         "description": "Cached results from: x weeks ago",
         "placeholders": {
@@ -873,12 +873,12 @@
     "@compare_products_appbar_title": {
         "description": "AppBar title when in comparison mode "
     },
-    "compare_products_appbar_subtitle": "Por favor, seleccione al menos dos productos",
+    "compare_products_appbar_subtitle": "Por favor, selecciona al menos dos productos",
     "@compare_products_appbar_subtitle": {
         "description": "AppBar subtitle when in comparison mode"
     },
     "retry_button_label": "Reintentar",
-    "connect_with_us": "Conecta con nosotros",
+    "connect_with_us": "Contáctanos",
     "instagram": "Síguenos en Instagram",
     "instagram_link": "https://instagram.com/open.food.facts",
     "twitter": "Síguenos en X (anteriormente Twitter)",
@@ -886,8 +886,8 @@
     "blog": "Blog",
     "faq": "Preguntas frecuentes",
     "discover": "Descubrir",
-    "how_to_contribute": "Cómo contribuir",
-    "hint_knowledge_panel_message": "Toca cualquier parte de la tarjeta para obtener más detalles sobre lo que ves. ¡Pruébalo ahora!",
+    "how_to_contribute": "Cómo colaborar",
+    "hint_knowledge_panel_message": "Puedes tocar en cualquier parte de la tarjeta para obtener más detalles sobre lo que ves. ¡Pruébalo!",
     "@hint_knowledge_panel_message": {
         "description": "Hint popup indicating the card is clickable during onboarding"
     },
@@ -895,11 +895,11 @@
     "@consent_analytics_title": {
         "description": "Title for the consent analytics UI Page"
     },
-    "consent_analytics_body1": "Help the Open Food Facts volunteers to improve the app. You decide whether to submit anonymous analytics.",
+    "consent_analytics_body1": "Ayuda al equipo de voluntariado a mejorar la aplicación. La decisión de enviar analíticas de forma anónima es tuya.",
     "@conset_analytics_body1": {
         "description": "first paragraph for the consent analytics UI Page"
     },
-    "consent_analytics_body2": "Si cambias de opinión, esta opción puede ser activada y desactivada desde la configuración en cualquier momento.",
+    "consent_analytics_body2": "En cualquier caso, recuerda que si cambias de opinión, puedes activar y desactivar esta opción desde la configuración cuando quieras.",
     "@consent_analytics_body2": {
         "description": "second paragraph for the consent analytics UI Page"
     },
@@ -907,15 +907,15 @@
     "@permissions_page_title": {
         "description": "Title for the camera permission's page (onboarding)"
     },
-    "permissions_page_body1": "Para escanear códigos de barras con la cámara de tu teléfono, autoriza el acceso.",
+    "permissions_page_body1": "Para poder escanear los códigos de barras con la cámara de tu móvil, primero tienes que autorizar el acceso.",
     "@permissions_page_body1": {
         "description": "first paragraph for the camera permission's page (onboarding)"
     },
-    "permissions_page_body2": "Si cambias de opinión, esta opción puede ser activada y desactivada desde la configuración en cualquier momento.",
+    "permissions_page_body2": "En cualquier caso, recuerda que si cambias de opinión, puedes activar y desactivar esta opción desde la configuración cuando quieras.",
     "@permissions_page_body2": {
         "description": "second paragraph for the camera permission's page (onboarding)"
     },
-    "contact_form_body_android": "SO: Android (SDK Int: {sdkInt} / Release: {release})\nModelo: {model}\nProducto: {product}\nDispositivo: {device}\nMarca:{brand}",
+    "contact_form_body_android": "SO: Android (SDK Int: {sdkInt} / Lanzamiento: {release})\nModelo: {model}\nProducto: {product}\nDispositivo: {device}\nMarca: {brand}",
     "@contact_form_body_android": {
         "description": "Contact form content for Android devices",
         "placeholders": {
@@ -993,15 +993,15 @@
     "@refuse": {
         "description": "Button to decline the request of sending the anonymous analytics"
     },
-    "ask_me_later_button_label": "Después",
+    "ask_me_later_button_label": "Más adelante",
     "@ask_me_later": {
         "description": "Button to ignore the camera permission request"
     },
-    "are_you_sure": "¿Estás seguro?",
+    "are_you_sure": "¿De verdad?",
     "@are_you_sure": {
         "description": "Are you sure?"
     },
-    "knowledge_panel_text_source": "Ir más allá en {sourceName}",
+    "knowledge_panel_text_source": "Obtener más información en {sourceName}",
     "@knowledge_panel_text_source": {
         "description": "When we show information from for example Wikipedia or health authorities, this is the button label to open the source website",
         "placeholders": {
@@ -1014,7 +1014,7 @@
     "@onboarding_reinventing_text1": {
         "description": "Onboarding / Reinventing page: text 1/2. If possible, balanced on 3 lines."
     },
-    "onboarding_reinventing_text2": "Al cumplir\ndiez añitos nos\nreinventamos",
+    "onboarding_reinventing_text2": "Hemos cumplido 10 años\ny nos estamos reinventando\n¡por completo!",
     "@onboarding_reinventing_text2": {
         "description": "Onboarding / Reinventing page: text 2/2. If possible, balanced on 3 lines."
     },
@@ -1034,7 +1034,7 @@
     "@product_list_icon_desc": {
         "description": "When the history list is empty, icon description (for accessibility) of the message explaining to start scanning"
     },
-    "product_list_empty_title": "Start scanning",
+    "product_list_empty_title": "Empieza a escanear",
     "@product_list_empty_title": {
         "description": "When the history list is empty, title of the message explaining to start scanning"
     },
@@ -1042,14 +1042,14 @@
     "@product_list_empty_message": {
         "description": "When the history list is empty, body of the message explaining to start scanning"
     },
-    "product_list_reloading_in_progress_multiple": "Refrescando {count,plural, =0{producto} =1{producto} other{productos}} en tu historial",
+    "product_list_reloading_in_progress_multiple": "Actualizando {count,plural, =0{0 productos} =1{un producto} other{varios productos}} de tu historial",
     "@product_list_reloading_in_progress_multiple": {
         "description": "Message to show while loading previous scanned items",
         "placeholders": {
             "count": {}
         }
     },
-    "product_list_reloading_success_multiple": "{count,plural, =0{Producto} =1{Producto} other{Productos}} actualización completa",
+    "product_list_reloading_success_multiple": "Actualización completa de {count,plural, =0{0 productos} =1{un producto} other{varios productos}}.",
     "@product_list_reloading_success_multiple": {
         "description": "Message to show once previous scanned items are loaded",
         "placeholders": {
@@ -1080,8 +1080,8 @@
     "@user_profile_title_guest": {
         "description": "When the user is not connected"
     },
-    "user_profile_subtitle_guest": "Sign-in or sign-up to join the Open Food Facts community",
-    "user_profile_title_id_email": "Open Food Facts login: {email}",
+    "user_profile_subtitle_guest": "Inicia sesión o regístrate para unirte a la comunidad de Open Food Facts",
+    "user_profile_title_id_email": "Inicio de sesión en Open Food Facts: {email}",
     "@user_profile_title_id_email": {
         "description": "User login (when it's an email)",
         "placeholders": {
@@ -1103,7 +1103,7 @@
     "@email_subject_account_deletion": {
         "description": "Email subject for an account deletion"
     },
-    "email_body_account_deletion": "Hi there, please delete my Open Food Facts account: {userId}",
+    "email_body_account_deletion": "Hola, me gustaría eliminar mi cuenta de Open Food Facts: {userId}",
     "@email_body_account_deletion": {
         "description": "Email body for an account deletion",
         "placeholders": {
@@ -1124,35 +1124,35 @@
     "@camera_play_sound_title": {
         "description": "Title for the Camera play sound toggle"
     },
-    "camera_play_sound_subtitle": "Pitará al completar cada escaneo",
+    "camera_play_sound_subtitle": "Pitará cada vez que se escanee correctamente",
     "@camera_play_sound_subtitle": {
         "description": "SubTitle for the Camera play sound toggle"
     },
-    "app_haptic_feedback_title": "Vibración y háptica",
+    "app_haptic_feedback_title": "Vibración y respuesta táctil",
     "@app_haptic_feedback_title": {
         "description": "Title for the Haptic feedback toggle"
     },
-    "app_haptic_feedback_subtitle": "Vibraciones después de ejecutar algunas acciones (código de barras decodificado, producto eliminado…).",
+    "app_haptic_feedback_subtitle": "Vibrar después de realizar algunas acciones (código de barras decodificado, producto eliminado…).",
     "@app_haptic_feedback_subtitle": {
         "description": "SubTitle for the Haptic feedback toggle"
     },
-    "crash_reporting_toggle_title": "Informar de fallos",
+    "crash_reporting_toggle_title": "Informe de fallos",
     "@crash_reporting_toggle_title": {
         "description": "Title for the Crash reporting toggle"
     },
-    "crash_reporting_toggle_subtitle": "When enabled, crash reports are automatically submitted to Open Food Facts' error tracking system, so that bugs can be fixed and thus improve the app.",
+    "crash_reporting_toggle_subtitle": "Al activarlo, los informes de errores se enviarán automáticamente al sistema de seguimiento de Open Food Facts para que podamos corregirlos y mejorar la aplicación.",
     "@crash_reporting_toggle_subtitle": {
         "description": "SubTitle for the Crash reporting toggle"
     },
-    "send_anonymous_data_toggle_title": "Enviar comentarios anónimos",
+    "send_anonymous_data_toggle_title": "Enviar datos anónimos",
     "@send_anonymous_toggle_title": {
         "description": "Title for the Send anonymous data toggle"
     },
-    "send_anonymous_data_toggle_subtitle": "When enabled, some anonymous information regarding app usage will be sent to the Open Food Facts servers, so that we can understand how and how much features are used in order to improve them.",
+    "send_anonymous_data_toggle_subtitle": "Al activarlo, se enviarán algunos datos sobre el uso de la aplicación a los servidores de Open Food Facts para que podamos entender cómo y cuánto se utiliza cada función y así poder mejorarlas.",
     "@send_anonymous_toggle_subtitle": {
         "description": "SubTitle for the Send anonymous data toggle"
     },
-    "product_edit_photo_title": "Editar foto",
+    "product_edit_photo_title": "Editar imagen",
     "@product_edit_photo_title": {
         "description": "Toolbar Title while editing a photo (Android only)"
     },
@@ -1161,7 +1161,7 @@
         "description": "When the camera/photo permission failed to be acquired (!= denied)"
     },
     "permission_photo_denied_title": "Permitir el uso de la cámara para escanear códigos de barras",
-    "permission_photo_denied_message": "Para una experiencia mejorada, permite que {appName} acceda a tu cámara. Así podrás escanear los códigos de barras directamente.",
+    "permission_photo_denied_message": "Para disfrutar de una mejor experiencia, permite que {appName} acceda a tu cámara. Así podrás escanear los códigos de barras directamente.",
     "@permission_photo_denied_message": {
         "description": "When the camera/photo permission is denied by user",
         "placeholders": {
@@ -1175,14 +1175,14 @@
         "description": "When the camera/photo permission is denied by user"
     },
     "permission_photo_denied_dialog_settings_title": "Permiso dengado",
-    "permission_photo_denied_dialog_settings_message": "Como ya ha negado el permiso de la cámara, debe permitirlo manualmente desde la Configuración.",
+    "permission_photo_denied_dialog_settings_message": "Como ya habías denegado el acceso a la cámara, tendrás que permitirlo manualmente desde la Configuración.",
     "permission_photo_denied_dialog_settings_button_open": "Abrir configuración",
     "permission_photo_denied_dialog_settings_button_cancel": "Cancelar",
     "permission_photo_none_found": "Cámara no detectada",
     "@permission_photo_none_found": {
         "description": "Message for the user when no camera was detected, replacing the barcode scanner"
     },
-    "permission_photo_denied": "Permiso de acceso a la cámara denegado",
+    "permission_photo_denied": "Acceso a la cámara denegado",
     "@permission_photo_denied": {
         "description": "When the camera/photo permission is denied by user"
     },
@@ -1190,8 +1190,8 @@
     "@edit_product_label": {
         "description": "Edit product button label"
     },
-    "edit_product_form_item_add_action": "Add a new {itemType}",
-    "description": "Tooltip to show when the user long presses the (+) button",
+    "edit_product_form_item_add_action": "Añadir un nuevo {itemType}",
+    "description": "Indicación que aparece cuando el usuario pulsa durante mucho tiempo el botón (+)",
     "@edit_product_form_item_add_action": {
         "placeholders": {
             "itemType": {
@@ -1219,7 +1219,7 @@
     "@edit_product_form_item_other_details_subtitle": {
         "description": "Product edition - Other Details - Subtitle"
     },
-    "edit_product_form_item_photos_title": "Fotos",
+    "edit_product_form_item_photos_title": "Fotografías",
     "@edit_product_form_item_photos_title": {
         "description": "Product edition - Photos - Title"
     },
@@ -1231,7 +1231,7 @@
     "@edit_product_form_item_labels_title": {
         "description": "Product edition - Labels - Title"
     },
-    "edit_product_form_item_labels_subtitle": "Sellos ambientales, de calidad,…",
+    "edit_product_form_item_labels_subtitle": "Sellos ambientales, de calidad…",
     "@edit_product_form_item_labels_subtitle": {
         "description": "Product edition - Labels - SubTitle"
     },
@@ -1259,7 +1259,7 @@
     "@edit_product_form_item_origins_title": {
         "description": "Product edition - Origins - Title"
     },
-    "edit_product_form_item_origins_hint": "Input an origin",
+    "edit_product_form_item_origins_hint": "Indicar un origen",
     "@edit_product_form_item_origins_hint": {
         "description": "Product edition - Origins - input textfield hint"
     },
@@ -1267,11 +1267,11 @@
     "@edit_product_form_item_origins_type": {
         "description": "Product edition - Origins - input textfield type"
     },
-    "edit_product_form_item_origins_explainer_1": "Añade cualquier indicación de origen que puedas encontrar en el empaquetado. No tienes que preocuparte por los orígenes indicados directamente en la lista de ingredientes.",
+    "edit_product_form_item_origins_explainer_1": "Añade cualquier indicación de origen que encuentres en el envase. No tienes que preocuparte por los orígenes indicados directamente en la lista de ingredientes.",
     "@edit_product_form_item_origins_explainer_1": {
         "description": "Product edition - Origins - input explainer, part 1"
     },
-    "edit_product_form_item_origins_explainer_2": "Ejemplos: carne de vacuno de Argentina, La soja no procede de la Unión Europea",
+    "edit_product_form_item_origins_explainer_2": "Ejemplos: carne de vacuno de Argentina, soja no procedente de la Unión Europea",
     "@edit_product_form_item_origins_explainer_2": {
         "description": "Product edition - Origins - input explainer, part 2"
     },
@@ -1279,7 +1279,7 @@
     "@edit_product_form_item_countries_title": {
         "description": "Product edition - Countries - Title"
     },
-    "edit_product_form_item_countries_hint": "Input a country",
+    "edit_product_form_item_countries_hint": "Indicar país",
     "@edit_product_form_item_countries_hint": {
         "description": "Product edition - Countries - input textfield hint"
     },
@@ -1287,7 +1287,7 @@
     "@edit_product_form_item_countries_type": {
         "description": "Product edition - Countries - input textfield type"
     },
-    "edit_product_form_item_countries_explanations": "Países donde el producto está por todas partes (pero no se incluyen tiendas de productos extranjeros).",
+    "edit_product_form_item_countries_explanations": "Países donde el producto esté ampliamente disponible (no se incluyen las tiendas de productos extranjeros).",
     "@edit_product_form_item_countries_explanations": {
         "description": "Product edition - Countries - explanations"
     },
@@ -2132,7 +2132,7 @@
     "rate_app": "Calificar la aplicación",
     "app_rating_dialog_title": "¡Genial! ¡Hazle saber a los demás lo que piensas de esta aplicación!",
     "app_rating_dialog_positive_action": "Calificar la aplicación",
-    "app_rating_dialog_negative_action": "Después",
+    "app_rating_dialog_negative_action": "Más adelante",
     "app_rating_dialog_title_enjoying_app": "Are you enjoying this app?",
     "app_rating_dialog_title_enjoying_positive_actions": "¡Sí!",
     "not_really": "No del todo",
