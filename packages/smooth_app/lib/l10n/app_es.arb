@@ -617,12 +617,12 @@
     "new_product_title_ecoscore": "Calcular Eco-Score",
     "new_product_subtitle_ecoscore": "Hazlo rellenando al menos una categoría.",
     "new_product_additional_ecoscore": "Haz que el cálculo del Eco-Score sea más preciso añadiendo orígenes, información sobre el envase, etc.",
-    "new_product_title_nova": "Compute the food processing level (NOVA)",
-    "new_product_subtitle_nova": "Get it by filling the food category and ingredients",
-    "new_product_desc_nova_unknown": "Nivel de procesamiento de alimentos desconocido",
-    "new_product_title_pictures": "Let's take some pictures!",
-    "new_product_title_misc": "And some basic data…",
-    "new_product_done_msg": "Gracias por tu contribución \"{username}\"!",
+    "new_product_title_nova": "Calcula el nivel de procesado de los alimentos (NOVA)",
+    "new_product_subtitle_nova": "Hazlo rellenando las categorías de alimentos e ingredientes.",
+    "new_product_desc_nova_unknown": "Nivel de procesado de alimentos desconocido",
+    "new_product_title_pictures": "¡Vamos a sacar algunas fotos!",
+    "new_product_title_misc": "Y algunos datos básicos…",
+    "new_product_done_msg": "¡Gracias por tu colaboración, {username}!",
     "@new_product_done_msg": {
         "description": "Thank you message on the end of new product page, after finish adding a new product.",
         "placeholders": {
@@ -632,21 +632,21 @@
             }
         }
     },
-    "new_product_done_msg_no_user": "¡Gracias por tu contribución!",
-    "new_product_done_button_label": "Descubra el producto completo",
+    "new_product_done_msg_no_user": "¡Gracias por tu colaboración!",
+    "new_product_done_button_label": "Descubre el producto completo",
     "@new_product_done_button_label": {
         "description": "Button at the end of new product page, that takes you to completed product"
     },
-    "hey_incomplete_product_message": "Tap to answer 3 questions NOW to compute Nutri-Score, Eco-Score & Ultra-processing (NOVA)!",
-    "nutritional_facts_photo_uploaded": "Se ha subido la foto con información nutricional",
+    "hey_incomplete_product_message": "Toca aquí y responde AHORA a 3 preguntas para calcular el Nutri-Score, el Eco-Score y el nivel de procesado (NOVA).",
+    "nutritional_facts_photo_uploaded": "Imagen sobre información nutricional subida",
     "@nutritional_facts_photo_uploaded": {},
-    "recycling_photo_button_label": "Foto de información de reciclaje",
+    "recycling_photo_button_label": "Foto de información sobre reciclaje",
     "@recycling_photo_button_label": {},
-    "recycling_photo_uploaded": "Foto de reciclaje subida",
+    "recycling_photo_uploaded": "Imagen sobre reciclaje subida",
     "@recycling_photo_uploaded": {},
     "other_interesting_photo_button_label": "Otras fotos interesantes",
     "@other_interesting_photo_button_label": {},
-    "other_photo_uploaded": "Foto miscelánea cargada",
+    "other_photo_uploaded": "Imagen miscelánea subida",
     "@other_photo_uploaded": {},
     "retake_photo_button_label": "Repetir foto",
     "@retake_photo_button_label": {
@@ -660,34 +660,34 @@
     "@uploading_image": {
         "description": "Message when a new picture is uploading to the server"
     },
-    "uploading_image_type_front": "Uploading front image to Open Food Facts",
+    "uploading_image_type_front": "Subiendo imagen frontal a Open Food Facts",
     "@uploading_image_type_front": {
         "description": "Message when a new front picture is being uploaded to the server"
     },
-    "uploading_image_type_ingredients": "Uploading ingredients image to Open Food Facts",
+    "uploading_image_type_ingredients": "Subiendo imagen de ingredientes a Open Food Facts",
     "@uploading_image_type_ingredients": {
         "description": "Message when a new ingredients picture is being uploaded to the server"
     },
-    "uploading_image_type_nutrition": "Uploading nutrition image to Open Food Facts",
+    "uploading_image_type_nutrition": "Subiendo imagen sobre nutrientes a Open Food Facts",
     "@uploading_image_type_nutrition": {
         "description": "Message when a new nutrition picture is being uploaded to the server"
     },
-    "uploading_image_type_packaging": "Uploading packaging image to Open Food Facts",
+    "uploading_image_type_packaging": "Subiendo imagen del envase a Open Food Facts",
     "@uploading_image_type_packaging": {
         "description": "Message when a new packaging picture is being uploaded to the server"
     },
-    "uploading_image_type_other": "Uploading other image to Open Food Facts",
+    "uploading_image_type_other": "Subiendo otro tipo de imágenes a Open Food Facts",
     "@uploading_image_type_other": {
         "description": "Message when a new other picture is being uploaded to the server"
     },
-    "uploading_image_type_generic": "Uploading image to Open Food Facts",
+    "uploading_image_type_generic": "Subiendo imagen a Open Food Facts",
     "@uploading_image_type_generic": {
         "description": "Message when a new picture is being uploaded to the server"
     },
     "score_add_missing_ingredients": "Añadir los ingredientes que faltan",
-    "score_add_missing_packaging_image": "Añadir imagen faltante del embalaje",
+    "score_add_missing_packaging_image": "Añadir la imagen del envase que falta",
     "score_add_missing_nutrition_facts": "Añadir la información nutricional que falta",
-    "score_add_missing_product_category": "Agregar las categorías del producto que faltan",
+    "score_add_missing_product_category": "Añadir las categorías del producto que faltan",
     "score_add_missing_product_countries": "Añadir países faltantes de los productos",
     "score_add_missing_product_emb": "Añadir códigos de trazabilidad faltantes de productos",
     "score_add_missing_product_labels": "Añadir etiquetas faltantes de productos",
