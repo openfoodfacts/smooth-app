@@ -621,7 +621,7 @@
     "new_product_subtitle_nova": "Získejte ji vyplněním kategorie potravin a složek",
     "new_product_desc_nova_unknown": "Neznámá úroveň průmyslového zpracování potraviny",
     "new_product_title_pictures": "Pojďme udělat pár fotek!",
-    "new_product_title_pictures_details": "Please take the following photos and the Open Food Facts engine can work out the rest!",
+    "new_product_title_pictures_details": "Udělejte prosím následující fotky a nástroj Open Food Facts dokáže vyřešit zbytek!",
     "new_product_title_misc": "A pár základních údajů…",
     "new_product_done_msg": "Děkujeme za váš příspěvek, {username}!",
     "@new_product_done_msg": {
