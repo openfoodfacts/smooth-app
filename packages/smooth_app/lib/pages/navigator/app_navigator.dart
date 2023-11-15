@@ -60,9 +60,9 @@ class AppNavigator extends InheritedWidget {
   // Router to use with a [WidgetsApp]
   RouterConfig<Object> get router => _router.router;
 
-  void push(String routeName, {dynamic extra}) {
+  Future<T?> push<T extends Object?>(String routeName, {dynamic extra}) async {
     assert(routeName.isNotEmpty);
-    _router.router.push(routeName, extra: extra);
+    return _router.router.push(routeName, extra: extra);
   }
 
   void pushReplacement(String routeName, {dynamic extra}) {
