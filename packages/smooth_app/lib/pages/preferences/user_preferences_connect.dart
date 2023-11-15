@@ -164,7 +164,7 @@ class UserPreferencesConnect extends AbstractUserPreferences {
               body: await _emailBody,
               subject:
                   '${appLocalizations.help_with_openfoodfacts} (Help with Open Food Facts)',
-              recipient: 'contact@openfoodfacts.org',
+              recipient: 'mobile@openfoodfacts.org',
               attachmentPaths: includeLogs == true ? Logs.logFilesPaths : null,
             );
           },
