@@ -2347,23 +2347,23 @@
     "@product_loader_network_error_message": {
         "description": "When fetching a product opened via a link and there is no connection"
     },
-    "page_not_found_title": "Page not found!",
+    "page_not_found_title": "¡No se ha encontrado la página!",
     "@page_not_found_title": {
         "description": "Title for a page not found (when an URL is not recognized)"
     },
-    "page_not_found_button": "Go back to the homepage",
+    "page_not_found_button": "Volver a la página de inicio",
     "@page_not_found_button": {
         "description": "Button to go back to the homepage"
     },
-    "download_data": "Download data",
+    "download_data": "Descargar datos",
     "@download_data": {
         "description": "App bar title for the download data page"
     },
-    "download_top_products": "Download the top 1000 products in your country for instant scanning",
+    "download_top_products": "Descarga los 1000 productos mejor valorados de tu país para escanearlos al instante.",
     "@download_top_products": {
         "description": "Download the top 1000 products in your country for instant scanning"
     },
-    "download_top_n_products": "¡Descarga la parte superior {count,plural,  one {}other{{count} ¡productos}} en tu país para escanear instantáneamente",
+    "download_top_n_products": "Descarga {count,plural, one {el producto mejor valorado}other{los {count} productos mejor valorados}} de tu país para escanear al instante.",
     "@download_top_n_products": {
         "placeholders": {
             "count": {
@@ -2371,11 +2371,11 @@
             }
         }
     },
-    "download_in_progress": "Downloading data\nThis may take a while",
+    "download_in_progress": "Descargando datos.\nPuede tardar un poco.",
     "@download_in_progress": {
         "description": "Download in progress"
     },
-    "downloaded_products": "{num} products added",
+    "downloaded_products": "{num} productos añadidos",
     "@downloaded_products": {
         "description": "text to show when products added",
         "placeholders": {
@@ -2384,23 +2384,23 @@
             }
         }
     },
-    "update_offline_data": "Update offline product data",
+    "update_offline_data": "Actualizar datos del producto sin conexión",
     "@update_offline_data": {
         "description": "List tile title for the update offline data page"
     },
-    "update_local_database_sub": "Update the local product database with the latest data from Open Food Facts",
+    "update_local_database_sub": "Actualiza la base de datos local de productos con los últimos datos de Open Food Facts.",
     "@update_local_database_sub": {
         "description": "Update the local product database with the latest data from server"
     },
-    "clear_local_database": "Clear offline product data",
+    "clear_local_database": "Eliminar datos del producto sin conexión",
     "@clear_local_database": {
         "description": "List tile title for the clear local database page"
     },
-    "clear_local_database_sub": "Clear all local product data from your app to free up space",
+    "clear_local_database_sub": "Elimina todos los datos de productos locales de tu aplicación para liberar espacio.",
     "@clear_local_database_sub": {
         "description": "Clear all local product data from your app to free up space"
     },
-    "deleted_products": "{num} products deleted",
+    "deleted_products": "{num} productos eliminados",
     "@deleted_products": {
         "description": "text to show when products are deleted from local databse",
         "placeholders": {
@@ -2413,15 +2413,15 @@
     "@loading": {
         "description": "Loading…"
     },
-    "know_more": "Know More",
+    "know_more": "Más información",
     "@know_more": {
         "description": "Know More"
     },
-    "offline_data_desc": "Click to know more about offline data",
+    "offline_data_desc": "Haz clic para obtener más información sobre los datos sin conexión.",
     "@offline_data_desc": {
         "description": "Click to know more about offline data"
     },
-    "offline_product_data_title": "Offline product data",
+    "offline_product_data_title": "Datos sin conexión del producto",
     "@offline_product_data_title": {
         "description": "Offline Product Data"
     },
