@@ -8,7 +8,7 @@
     "@yes": {},
     "add": "Añadir",
     "@add": {},
-    "account_delete_message": "¿Seguro que quieres eliminar tu cuenta?\nSi hay alguna una razón específica, por favor detállalo abajo",
+    "account_delete_message": "¿Seguro que quieres eliminar tu cuenta?\nSi hay alguna una razón específica, cuéntanoslo abajo.",
     "@account_delete_message": {},
     "reason": "Razón",
     "@reason": {},
@@ -235,7 +235,7 @@
     "sign_up_page_confirm_password_hint": "Confirmar contraseña",
     "sign_up_page_confirm_password_error_empty": "Por favor, confirma la contraseña",
     "sign_up_page_confirm_password_error_invalid": "Las contraseñas no coinciden",
-    "sign_up_page_agree_text": "I agree to the Open Food Facts",
+    "sign_up_page_agree_text": "Estoy de acuerdo con las condiciones de Open Food Facts",
     "@sign_up_page_agree_text": {
         "description": "I agree to the Open Food Facts is followed by sign_up_page_terms_text"
     },
@@ -260,7 +260,7 @@
     "sign_up_page_producer_error_empty": "Por favor, introduce un productor o una marca",
     "sign_up_page_subscribe_checkbox": "Me gustaría suscribirme al boletín de noticias de Open Food Facts (podrás darte de baja en cualquier momento).",
     "sign_up_page_user_name_already_used": "Este nombre de usuario ya existe, por favor, elige uno nuevo.",
-    "sign_up_page_email_already_exists": "ya existe, inicia sesión en la cuenta o prueba con otro correo electrónico.",
+    "sign_up_page_email_already_exists": "ya existe, inicia sesión en la cuenta o intenta con otro correo electrónico.",
     "sign_up_page_provide_valid_email": "Por favor, proporciona una dirección de correo electrónico válida.",
     "sign_up_page_server_busy": "Lo sentimos, estamos teniendo algunas dificultades técnicas para crear tu cuenta. Por favor, inténtalo de nuevo más tarde.",
     "@Settings": {},
@@ -2425,7 +2425,7 @@
     "@offline_product_data_title": {
         "description": "Offline Product Data"
     },
-    "available_for_download": "{num} products available for immediate scaning",
+    "available_for_download": "{num} productos disponibles para escanear inmediatamente",
     "@available_for_download": {
         "description": "text to show details of products available for download",
         "placeholders": {
