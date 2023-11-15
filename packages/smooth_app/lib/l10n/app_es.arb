@@ -599,7 +599,7 @@
     "ingredients_photo_title": "Foto de los ingredientes",
     "nutritional_facts_photo_title": "Foto de la información nutricional",
     "recycling_photo_title": "Foto sobre el reciclaje",
-    "take_more_photo_title": "Otras fotos interesantes",
+    "take_more_photo_title": "Haz más fotos",
     "front_photo_uploaded": "Foto frontal subida",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "Foto de los ingredientes",
@@ -622,17 +622,32 @@
     "new_product_desc_nova_unknown": "Nivel de procesado de alimentos desconocido",
     "new_product_title_pictures": "New product",
     "new_product_title_pictures_details": "Please take the following photos and the Open Food Facts engine can work out the rest!",
-    "new_product_title_misc": "And some basic data…",
-    "hey_incomplete_product_message": "Tap to answer 3 questions NOW to compute Nutri-Score, Eco-Score & Ultra-processing (NOVA)!",
-    "nutritional_facts_photo_uploaded": "Se ha subido la foto con información nutricional",
+    "new_product_title_misc": "Y algunos datos básicos…",
+    "new_product_done_msg": "¡Gracias por tu colaboración, {username}!",
+    "@new_product_done_msg": {
+        "description": "Thank you message on the end of new product page, after finish adding a new product.",
+        "placeholders": {
+            "username": {
+                "type": "String",
+                "example": "Bob"
+            }
+        }
+    },
+    "new_product_done_msg_no_user": "¡Gracias por tu colaboración!",
+    "new_product_done_button_label": "Descubre el producto completo",
+    "@new_product_done_button_label": {
+        "description": "Button at the end of new product page, that takes you to completed product"
+    },
+    "hey_incomplete_product_message": "Toca aquí y responde AHORA a 3 preguntas para calcular el Nutri-Score, el Eco-Score y el nivel de procesado (NOVA).",
+    "nutritional_facts_photo_uploaded": "Imagen sobre información nutricional subida",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "Foto de información sobre reciclaje",
     "@recycling_photo_button_label": {},
     "recycling_photo_uploaded": "Imagen sobre reciclaje subida",
     "@recycling_photo_uploaded": {},
-    "take_more_photo_button_label": "Otras fotos interesantes",
+    "take_more_photo_button_label": "Haz más fotos",
     "@take_more_photo_button_label": {},
-    "other_photo_uploaded": "Foto miscelánea cargada",
+    "other_photo_uploaded": "Imagen miscelánea subida",
     "@other_photo_uploaded": {},
     "retake_photo_button_label": "Repetir foto",
     "@retake_photo_button_label": {
