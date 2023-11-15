@@ -2491,11 +2491,11 @@
     "contact_title_press_page": "Página de prensa",
     "contact_title_press_email": "Contacto para prensa",
     "contact_title_newsletter": "Suscríbete a nuestro boletín",
-    "hunger_games_loading_line1": "Please let us a few seconds…",
-    "hunger_games_loading_line2": "We're downloading the questions!",
-    "hunger_games_error_label": "Argh! Something went wrong… and we couldn't load the questions.",
-    "hunger_games_error_retry_button": "Let's retry!",
-    "link_cant_be_opened": "Este enlace no se puede abrir en su dispositivo. Por favor, compruebe que tiene un navegador instalado.",
+    "hunger_games_loading_line1": "Por favor, danos unos segundos…",
+    "hunger_games_loading_line2": "¡Estamos descargando las preguntas!",
+    "hunger_games_error_label": "¡Vaya! Algo ha salido mal… No hemos podido cargar las preguntas.",
+    "hunger_games_error_retry_button": "¡Vamos a intentarlo de nuevo!",
+    "link_cant_be_opened": "Este enlace no se puede abrir en tu dispositivo. Comprueba que tienes un navegador instalado.",
     "@link_cant_be_opened": {
         "description": "An error may happen if the device doesn't have a browser installed."
     }
