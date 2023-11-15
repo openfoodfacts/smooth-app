@@ -324,7 +324,7 @@
         "description": "Button label: Opens a pop up window which shows information about the app"
     },
     "@About this app section": {},
-    "contribute": "Зробіть свій внесок",
+    "contribute": "Підтримати проєкт",
     "@contribute": {
         "description": "Button label: Shows multiple ways how users can contribute to OFF"
     },
@@ -599,7 +599,7 @@
     "ingredients_photo_title": "Фото інгредієнтів",
     "nutritional_facts_photo_title": "Світлина харчової цінності продукту",
     "recycling_photo_title": "Обробка фото",
-    "take_more_photo_title": "Інші цікаві фотографії",
+    "take_more_photo_title": "Зробити більше фото",
     "front_photo_uploaded": "Попереднє фото завантажено",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "Фото інгредієнтів",
@@ -645,7 +645,7 @@
     "@recycling_photo_button_label": {},
     "recycling_photo_uploaded": "Фотографію перероблення завантажено",
     "@recycling_photo_uploaded": {},
-    "take_more_photo_button_label": "Інші цікаві фотографії",
+    "take_more_photo_button_label": "Зробити більше фото",
     "@take_more_photo_button_label": {},
     "other_photo_uploaded": "Різні фото завантажено",
     "@other_photo_uploaded": {},
