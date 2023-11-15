@@ -146,7 +146,7 @@
     "incorrect_credentials": "Nombre de usuario o contraseña incorrecto.",
     "password_lost_incorrect_credentials": "Este correo electrónico o nombre de usuario no existe. Por favor, comprueba tus credenciales.",
     "password_lost_server_unavailable": "Estamos sufriendo retrasos en nuestros servidores y nos disculpamos por ello. Por favor, inténtalo de nuevo más tarde.",
-    "login": "Inicio de sesión",
+    "login": "Iniciar sesión",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
