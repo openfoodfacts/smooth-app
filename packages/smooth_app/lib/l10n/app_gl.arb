@@ -18,17 +18,17 @@
     "@create": {
         "description": "An action to create"
     },
-    "applyButtonText": "Apply",
+    "applyButtonText": "Aplicar",
     "@applyButtonText": {},
-    "next_label": "Next",
+    "next_label": "Seguinte",
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
     "go_back_to_top": "Go back to top",
     "save": "Gardar",
     "save_confirmation": "Are you sure you want to save?",
-    "skip": "Skip",
-    "cancel": "Cancel",
+    "skip": "Saltar",
+    "cancel": "Cancelar",
     "@cancel": {},
     "ignore": "Ignore",
     "@ignore": {
@@ -146,7 +146,7 @@
     "incorrect_credentials": "Incorrect username or password.",
     "password_lost_incorrect_credentials": "This email or username doesn't exist. Please check your credentials.",
     "password_lost_server_unavailable": "We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.",
-    "login": "Login",
+    "login": "Acceder",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
@@ -422,7 +422,7 @@
     "@myPersonalizedRanking": {
         "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
     },
-    "ranking_tab_all": "All",
+    "ranking_tab_all": "Todos",
     "ranking_subtitle_match_yes": "A great match for you",
     "ranking_subtitle_match_no": "Very poor match",
     "ranking_subtitle_match_maybe": "Unknown match",
@@ -455,7 +455,7 @@
     "@category": {
         "description": "From a product list, there's a category filter: this is its title"
     },
-    "category_all": "All",
+    "category_all": "Todos",
     "@category_al": {
         "description": "Top meta-entry on a category filter"
     },
@@ -484,7 +484,7 @@
     "@unknownBrand": {},
     "unknownProductName": "Unknown product name",
     "@unknownProductName": {},
-    "label_refresh": "Refresh",
+    "label_refresh": "Actualizar",
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
@@ -622,6 +622,21 @@
     "new_product_desc_nova_unknown": "Food processing level unknown",
     "new_product_title_pictures": "Let's take some pictures!",
     "new_product_title_misc": "And some basic data…",
+    "new_product_done_msg": "Thanks for your contribution “{username}”!",
+    "@new_product_done_msg": {
+        "description": "Thank you message on the end of new product page, after finish adding a new product.",
+        "placeholders": {
+            "username": {
+                "type": "String",
+                "example": "Bob"
+            }
+        }
+    },
+    "new_product_done_msg_no_user": "Thanks for your contribution!",
+    "new_product_done_button_label": "Discover the completed product",
+    "@new_product_done_button_label": {
+        "description": "Button at the end of new product page, that takes you to completed product"
+    },
     "hey_incomplete_product_message": "Tap to answer 3 questions NOW to compute Nutri-Score, Eco-Score & Ultra-processing (NOVA)!",
     "nutritional_facts_photo_uploaded": "Nutrition facts photo uploaded",
     "@nutritional_facts_photo_uploaded": {},
@@ -1162,7 +1177,7 @@
     "permission_photo_denied_dialog_settings_title": "Permission denied",
     "permission_photo_denied_dialog_settings_message": "As you've previously denied the camera permission, you must allow it manually from the Settings.",
     "permission_photo_denied_dialog_settings_button_open": "Open settings",
-    "permission_photo_denied_dialog_settings_button_cancel": "Cancel",
+    "permission_photo_denied_dialog_settings_button_cancel": "Cancelar",
     "permission_photo_none_found": "No camera detected",
     "@permission_photo_none_found": {
         "description": "Message for the user when no camera was detected, replacing the barcode scanner"
@@ -1260,7 +1275,7 @@
     "@edit_product_form_item_origins_explainer_2": {
         "description": "Product edition - Origins - input explainer, part 2"
     },
-    "edit_product_form_item_countries_title": "Country",
+    "edit_product_form_item_countries_title": "País",
     "@edit_product_form_item_countries_title": {
         "description": "Product edition - Countries - Title"
     },
@@ -1341,6 +1356,10 @@
     "edit_product_form_save": "Editar",
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
+    },
+    "no_data_available": "No data available",
+    "@no_data_available": {
+        "description": "When there are no data to display"
     },
     "product_field_website_title": "Website",
     "@product_field_website_title": {
@@ -1547,7 +1566,7 @@
     "@dev_preferences_button_positive": {
         "description": "User dev preferences - Positive button label"
     },
-    "dev_preferences_button_negative": "Cancel",
+    "dev_preferences_button_negative": "Cancelar",
     "@dev_preferences_button_negative": {
         "description": "User dev preferences - Negative button label"
     },

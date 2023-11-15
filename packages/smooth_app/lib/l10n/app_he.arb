@@ -622,6 +622,21 @@
     "new_product_desc_nova_unknown": "רמת עיבוד המזון אינה ידועה",
     "new_product_title_pictures": "בואו נצלם קצת!",
     "new_product_title_misc": "וכמה נתונים בסיסיים…",
+    "new_product_done_msg": "תודה „{username}” על תרומתך!",
+    "@new_product_done_msg": {
+        "description": "Thank you message on the end of new product page, after finish adding a new product.",
+        "placeholders": {
+            "username": {
+                "type": "String",
+                "example": "Bob"
+            }
+        }
+    },
+    "new_product_done_msg_no_user": "תודה על תרומתך!",
+    "new_product_done_button_label": "הנה המוצר השלם",
+    "@new_product_done_button_label": {
+        "description": "Button at the end of new product page, that takes you to completed product"
+    },
     "hey_incomplete_product_message": "נא לגעת כאן כדי לענות על 3 שאלות כעת ולחשב את ה־Nutri-Score,‏ Eco-Score ואולטרא עיבוד (NOVA) כעת!",
     "nutritional_facts_photo_uploaded": "תמונת הפירוט התזונתי נשלחה",
     "@nutritional_facts_photo_uploaded": {},
@@ -1341,6 +1356,10 @@
     "edit_product_form_save": "עריכה",
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
+    },
+    "no_data_available": "אין נתונים זמינים",
+    "@no_data_available": {
+        "description": "When there are no data to display"
     },
     "product_field_website_title": "אתר",
     "@product_field_website_title": {

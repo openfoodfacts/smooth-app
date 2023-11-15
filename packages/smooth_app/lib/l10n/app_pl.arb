@@ -622,6 +622,21 @@
     "new_product_desc_nova_unknown": "Poziom przetwarzania żywności nieznany",
     "new_product_title_pictures": "Zróbmy kilka zdjęć!",
     "new_product_title_misc": "I trochę podstawowych danych…",
+    "new_product_done_msg": "Dziękujemy za Twój wkład \"{username}\"!",
+    "@new_product_done_msg": {
+        "description": "Thank you message on the end of new product page, after finish adding a new product.",
+        "placeholders": {
+            "username": {
+                "type": "String",
+                "example": "Bob"
+            }
+        }
+    },
+    "new_product_done_msg_no_user": "Dzięki za twój wkład!",
+    "new_product_done_button_label": "Odkryj gotowy produkt",
+    "@new_product_done_button_label": {
+        "description": "Button at the end of new product page, that takes you to completed product"
+    },
     "hey_incomplete_product_message": "Dotknij, aby odpowiedzieć na 3 pytania TERAZ, aby obliczyć wskaźnik odżywczości, Eko-wynik & Ultra-przetwarzanie (NOVA)!",
     "nutritional_facts_photo_uploaded": "Przesłano zdjęcie z listą wartości odżywczych",
     "@nutritional_facts_photo_uploaded": {},
@@ -1341,6 +1356,10 @@
     "edit_product_form_save": "Edytuj",
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
+    },
+    "no_data_available": "Brak dostępnych informacji",
+    "@no_data_available": {
+        "description": "When there are no data to display"
     },
     "product_field_website_title": "Strona",
     "@product_field_website_title": {

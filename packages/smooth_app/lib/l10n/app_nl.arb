@@ -622,6 +622,21 @@
     "new_product_desc_nova_unknown": "Voedselverwerkingsniveau onbekend",
     "new_product_title_pictures": "Laten we wat foto's maken!",
     "new_product_title_misc": "En enkele basisgegevens…",
+    "new_product_done_msg": "Bedankt voor uw bijdrage “{username}”!",
+    "@new_product_done_msg": {
+        "description": "Thank you message on the end of new product page, after finish adding a new product.",
+        "placeholders": {
+            "username": {
+                "type": "String",
+                "example": "Bob"
+            }
+        }
+    },
+    "new_product_done_msg_no_user": "Bedankt voor uw bijdrage!",
+    "new_product_done_button_label": "Ontdek het aangevulde product",
+    "@new_product_done_button_label": {
+        "description": "Button at the end of new product page, that takes you to completed product"
+    },
     "hey_incomplete_product_message": "Tik om 3 vragen NU te beantwoorden om de Nutri-Score, de Eco-Score & de Ultra-verwerking (NOVA) te berekenen!",
     "nutritional_facts_photo_uploaded": "Foto van voedingswaarden geüpload",
     "@nutritional_facts_photo_uploaded": {},
@@ -1341,6 +1356,10 @@
     "edit_product_form_save": "Bewerken",
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
+    },
+    "no_data_available": "Geen gegevens beschikbaar",
+    "@no_data_available": {
+        "description": "When there are no data to display"
     },
     "product_field_website_title": "Website",
     "@product_field_website_title": {

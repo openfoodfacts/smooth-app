@@ -622,6 +622,21 @@
     "new_product_desc_nova_unknown": "Рівень обробки їжі є невідомим",
     "new_product_title_pictures": "Let's take some pictures!",
     "new_product_title_misc": "And some basic data…",
+    "new_product_done_msg": "Дякуємо за ваш внесок «{username}»!",
+    "@new_product_done_msg": {
+        "description": "Thank you message on the end of new product page, after finish adding a new product.",
+        "placeholders": {
+            "username": {
+                "type": "String",
+                "example": "Bob"
+            }
+        }
+    },
+    "new_product_done_msg_no_user": "Дякуємо за Ваш внесок!",
+    "new_product_done_button_label": "Відкрийте для себе готовий продукт",
+    "@new_product_done_button_label": {
+        "description": "Button at the end of new product page, that takes you to completed product"
+    },
     "hey_incomplete_product_message": "Натисніть, щоб відповісти на 3 запитання ЗАРАЗ для обчислення Nutri-Score, Eco-Score та ультра-обробки (ЗАРАЗ)!",
     "nutritional_facts_photo_uploaded": "Завантаження фотографій харчових фактів",
     "@nutritional_facts_photo_uploaded": {},
@@ -1341,6 +1356,10 @@
     "edit_product_form_save": "Редагувати",
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
+    },
+    "no_data_available": "Немає даних",
+    "@no_data_available": {
+        "description": "When there are no data to display"
     },
     "product_field_website_title": "Сайт",
     "@product_field_website_title": {
@@ -2471,7 +2490,7 @@
     "contact_title_pro_email": "Контакт виробника",
     "contact_title_press_page": "Інформація для преси",
     "contact_title_press_email": "Контакти для преси",
-    "contact_title_newsletter": "Subscribe to our newsletter",
+    "contact_title_newsletter": "Підпишіться на нашу розсилку новин",
     "hunger_games_loading_line1": "Будь ласка, дайте нам кілька секунд…",
     "hunger_games_loading_line2": "Ми завантажуємо питання!",
     "hunger_games_error_label": "Ох! Щось пішло не так… і ми не змогли завантажити питання.",

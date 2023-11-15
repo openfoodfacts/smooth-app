@@ -622,6 +622,21 @@
     "new_product_desc_nova_unknown": "Tingkat pemrosesan makanan tidak diketahui",
     "new_product_title_pictures": "Ambil beberapa foto!",
     "new_product_title_misc": "Dan beberapa informasi dasar…",
+    "new_product_done_msg": "Terima kasih atas kontribusi Anda “{username}”!",
+    "@new_product_done_msg": {
+        "description": "Thank you message on the end of new product page, after finish adding a new product.",
+        "placeholders": {
+            "username": {
+                "type": "String",
+                "example": "Bob"
+            }
+        }
+    },
+    "new_product_done_msg_no_user": "Terima kasih atas kontribusi Anda!",
+    "new_product_done_button_label": "Temukan produk yang sudah lengkap",
+    "@new_product_done_button_label": {
+        "description": "Button at the end of new product page, that takes you to completed product"
+    },
     "hey_incomplete_product_message": "Ketuk untuk menjawab 3 pertanyaan SEKARANG untuk menghitung Nutri-Score, Eco-Score & Ultra-processing (NOVA)!",
     "nutritional_facts_photo_uploaded": "Foto informasi nilai gizi telah diunggah",
     "@nutritional_facts_photo_uploaded": {},
@@ -1184,7 +1199,7 @@
             }
         }
     },
-    "edit_product_form_item_barcode": "kode batang",
+    "edit_product_form_item_barcode": "Kode batang",
     "@edit_product_form_item_barcode": {
         "description": "Product edition - Barcode"
     },
@@ -1341,6 +1356,10 @@
     "edit_product_form_save": "Sunting",
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
+    },
+    "no_data_available": "No data available",
+    "@no_data_available": {
+        "description": "When there are no data to display"
     },
     "product_field_website_title": "Situs Web",
     "@product_field_website_title": {
@@ -1755,7 +1774,7 @@
     "brand_name": "Nama merek",
     "add_basic_details_brand_name_error": "Harap masukkan nama merek",
     "quantity": "Kuantitas dan berat",
-    "barcode": "kode batang",
+    "barcode": "Kode batang",
     "barcode_barcode": "Kode batang: {barcode}",
     "@barcode_barcode": {
         "description": "Displaying the raw barcode with label",
@@ -2476,7 +2495,7 @@
     "hunger_games_loading_line2": "Kami mengunduh pertanyaannya!",
     "hunger_games_error_label": "Argh! Terjadi kesalahan… dan kami tidak bisa memuat pertanyaan.",
     "hunger_games_error_retry_button": "Mari kita coba lagi!",
-    "link_cant_be_opened": "This link can't be opened on your device. Please check that you have a browser installed.",
+    "link_cant_be_opened": "Tautan ini tidak dapat dibuka di perangkat Anda. Pastikan Anda telah menginstal browser.",
     "@link_cant_be_opened": {
         "description": "An error may happen if the device doesn't have a browser installed."
     }
