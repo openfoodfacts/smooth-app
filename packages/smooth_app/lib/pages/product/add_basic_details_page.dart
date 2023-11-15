@@ -206,6 +206,10 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
       return false;
     }
 
+    if (!context.mounted) {
+      return false;
+    }
+
     AnalyticsHelper.trackProductEdit(
       AnalyticsEditEvents.basicDetails,
       _product.barcode!,
@@ -213,7 +217,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
     );
     await BackgroundTaskDetails.addTask(
       minimalistProduct,
-      widget: this,
+      context: context,
       stamp: BackgroundTaskDetailsStamp.basicDetails,
     );
 

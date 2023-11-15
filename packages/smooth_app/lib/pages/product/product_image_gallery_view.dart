@@ -61,7 +61,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView>
             true,
           );
           await confirmAndUploadNewPicture(
-            this,
+            context,
             imageField: ImageField.OTHER,
             barcode: barcode,
             language: ProductQuery.getLanguage(),
@@ -74,7 +74,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView>
       body: RefreshIndicator(
         onRefresh: () async => ProductRefresher().fetchAndRefresh(
           barcode: barcode,
-          widget: this,
+          context: context,
         ),
         child: SingleChildScrollView(
           child: Column(

@@ -193,7 +193,9 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
               );
             }
 
-            // ignore: use_build_context_synchronously
+            if (!context.mounted) {
+              return;
+            }
             await showDialog<void>(
               context: context,
               builder: (BuildContext context) => SmoothAlertDialog(
@@ -258,15 +260,16 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
               ProductListImportExport.TMP_IMPORT,
               localDatabase,
             );
-            //ignore: use_build_context_synchronously
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: Text(
-                  appLocalizations
-                      .dev_preferences_import_history_result_success,
+            if (context.mounted) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(
+                    appLocalizations
+                        .dev_preferences_import_history_result_success,
+                  ),
                 ),
-              ),
-            );
+              );
+            }
             localDatabase.notifyListeners();
           },
         ),

@@ -246,7 +246,9 @@ class UserPreferencesConnect extends AbstractUserPreferences {
         return;
       }
       // No email client installed on the device
-      // ignore: use_build_context_synchronously
+      if (!context.mounted) {
+        return;
+      }
       await showDialog<void>(
         context: context,
         builder: (BuildContext context) => ScaffoldMessenger(

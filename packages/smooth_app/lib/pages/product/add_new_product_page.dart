@@ -409,7 +409,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
             : AddNewProductButton.cameraIconData,
         () async {
           final File? finalPhoto = await confirmAndUploadNewPicture(
-            this,
+            context,
             barcode: barcode,
             imageField: ImageField.OTHER,
             language: ProductQuery.getLanguage(),

@@ -174,7 +174,7 @@ class _ProductPageState extends State<ProductPage>
     return RefreshIndicator(
       onRefresh: () async => ProductRefresher().fetchAndRefresh(
         barcode: barcode,
-        widget: this,
+        context: context,
       ),
       child: ListView(
         // /!\ Smart Dart

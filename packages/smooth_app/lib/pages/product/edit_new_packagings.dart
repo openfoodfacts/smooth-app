@@ -172,7 +172,7 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
         child: addPanelButton(
           appLocalizations.add_packaging_photo_button_label.toUpperCase(),
           onPressed: () async => confirmAndUploadNewPicture(
-            this,
+            context,
             imageField: ImageField.OTHER,
             barcode: barcode,
             language: ProductQuery.getLanguage(),
@@ -297,7 +297,7 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
 
     await BackgroundTaskDetails.addTask(
       changedProduct,
-      widget: this,
+      context: context,
       stamp: BackgroundTaskDetailsStamp.structuredPackaging,
     );
     return true;
