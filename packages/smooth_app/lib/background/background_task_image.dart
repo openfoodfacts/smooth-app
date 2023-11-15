@@ -71,9 +71,9 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
     required final int y1,
     required final int x2,
     required final int y2,
-    required final State<StatefulWidget> widget,
+    required final BuildContext context,
   }) async {
-    final LocalDatabase localDatabase = widget.context.read<LocalDatabase>();
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final String uniqueId = await _operationType.getNewKey(
       localDatabase,
       barcode: barcode,
@@ -91,7 +91,10 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
       x2,
       y2,
     );
-    await task.addToManager(localDatabase, widget: widget);
+    if (!context.mounted) {
+      return;
+    }
+    await task.addToManager(localDatabase, context: context);
   }
 
   @override
@@ -153,7 +156,7 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
         images: <ProductImage>[_getProductImage()],
       ),
     );
-    putTransientImage(localDatabase);
+    await putTransientImage(localDatabase);
   }
 
   /// Returns a fake value that means: "remove the previous value when merging".
@@ -176,17 +179,17 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
   ) async {
     await super.postExecute(localDatabase, success);
     try {
-      File(fullPath).deleteSync();
+      (await getFile(fullPath)).deleteSync();
     } catch (e) {
       // not likely, but let's not spoil the task for that either.
     }
     try {
-      File(croppedPath).deleteSync();
+      (await getFile(croppedPath)).deleteSync();
     } catch (e) {
       // not likely, but let's not spoil the task for that either.
     }
     try {
-      File(_getCroppedPath()).deleteSync();
+      (await getFile(_getCroppedPath())).deleteSync();
     } catch (e) {
       // possible, but let's not spoil the task for that either.
     }
@@ -226,7 +229,8 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
   /// Returns false if no crop operation is needed.
   /// Returns null if the image (cropped or not) is too small.
   Future<bool?> _crop(final File file) async {
-    final ui.Image full = await loadUiImage(await File(fullPath).readAsBytes());
+    final ui.Image full =
+        await loadUiImage(await (await getFile(fullPath)).readAsBytes());
     if (cropX1 == 0 &&
         cropY1 == 0 &&
         cropX2 == cropConversionFactor &&
@@ -296,7 +300,7 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
   Future<void> upload() async {
     final String path;
     final String croppedPath = _getCroppedPath();
-    final bool? neededCrop = await _crop(File(croppedPath));
+    final bool? neededCrop = await _crop(await getFile(croppedPath));
     if (neededCrop == null) {
       // TODO(monsieurtanuki): maybe something more refined when we dismiss the picture, like alerting the user, though it's not supposed to happen anymore from upstream.
       return;

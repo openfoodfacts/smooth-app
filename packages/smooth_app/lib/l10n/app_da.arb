@@ -622,6 +622,21 @@
     "new_product_desc_nova_unknown": "Fødevareforarbejdningsniveau ukendt",
     "new_product_title_pictures": "Lad os tage nogle fotos!",
     "new_product_title_misc": "Og nogle basisdata…",
+    "new_product_done_msg": "Thanks for your contribution “{username}”!",
+    "@new_product_done_msg": {
+        "description": "Thank you message on the end of new product page, after finish adding a new product.",
+        "placeholders": {
+            "username": {
+                "type": "String",
+                "example": "Bob"
+            }
+        }
+    },
+    "new_product_done_msg_no_user": "Thanks for your contribution!",
+    "new_product_done_button_label": "Discover the completed product",
+    "@new_product_done_button_label": {
+        "description": "Button at the end of new product page, that takes you to completed product"
+    },
     "hey_incomplete_product_message": "Tryk for at besvare 3 spørgsmål NU for at beregne Nutri-Score, Øko-Score samt Ultrabehandling (NOVA)!",
     "nutritional_facts_photo_uploaded": "Næringsfaktafoto uploadet",
     "@nutritional_facts_photo_uploaded": {},
@@ -1341,6 +1356,10 @@
     "edit_product_form_save": "Redigér",
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
+    },
+    "no_data_available": "No data available",
+    "@no_data_available": {
+        "description": "When there are no data to display"
     },
     "product_field_website_title": "Websted",
     "@product_field_website_title": {

@@ -61,9 +61,9 @@ class BackgroundTaskCrop extends BackgroundTaskUpload {
     required final int y1,
     required final int x2,
     required final int y2,
-    required final State<StatefulWidget> widget,
+    required final BuildContext context,
   }) async {
-    final LocalDatabase localDatabase = widget.context.read<LocalDatabase>();
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final String uniqueId = await _operationType.getNewKey(
       localDatabase,
       barcode: barcode,
@@ -81,7 +81,10 @@ class BackgroundTaskCrop extends BackgroundTaskUpload {
       x2,
       y2,
     );
-    await task.addToManager(localDatabase, widget: widget);
+    if (!context.mounted) {
+      return;
+    }
+    await task.addToManager(localDatabase, context: context);
   }
 
   @override
@@ -137,7 +140,7 @@ class BackgroundTaskCrop extends BackgroundTaskUpload {
         images: <ProductImage>[_getProductImage()],
       ),
     );
-    putTransientImage(localDatabase);
+    await putTransientImage(localDatabase);
   }
 
   /// Returns the actual crop parameters.
@@ -163,7 +166,7 @@ class BackgroundTaskCrop extends BackgroundTaskUpload {
   ) async {
     await super.postExecute(localDatabase, success);
     try {
-      File(croppedPath).deleteSync();
+      (await getFile(croppedPath)).deleteSync();
     } catch (e) {
       // not likely, but let's not spoil the task for that either.
     }

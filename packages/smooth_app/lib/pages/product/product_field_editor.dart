@@ -62,7 +62,9 @@ class ProductFieldSimpleEditor extends ProductFieldEditor {
       product.barcode!,
     );
 
-    // ignore: use_build_context_synchronously
+    if (!context.mounted) {
+      return;
+    }
     await Navigator.push<void>(
       context,
       MaterialPageRoute<void>(
@@ -109,7 +111,9 @@ class ProductFieldDetailsEditor extends ProductFieldEditor {
       product.barcode!,
     );
 
-    // ignore: use_build_context_synchronously
+    if (!context.mounted) {
+      return;
+    }
     await Navigator.push<void>(
       context,
       MaterialPageRoute<void>(
@@ -137,7 +141,6 @@ class ProductFieldPackagingEditor extends ProductFieldEditor {
     required final Product product,
     final bool isLoggedInMandatory = true,
   }) async {
-    // ignore: use_build_context_synchronously
     if (!await ProductRefresher().checkIfLoggedIn(
       context,
       isLoggedInMandatory: isLoggedInMandatory,
@@ -150,7 +153,9 @@ class ProductFieldPackagingEditor extends ProductFieldEditor {
       product.barcode!,
     );
 
-    // ignore: use_build_context_synchronously
+    if (!context.mounted) {
+      return;
+    }
     await Navigator.push<void>(
       context,
       MaterialPageRoute<void>(
@@ -213,7 +218,9 @@ abstract class ProductFieldOcrEditor extends ProductFieldEditor {
       product.barcode!,
     );
 
-    // ignore: use_build_context_synchronously
+    if (!context.mounted) {
+      return;
+    }
     await Navigator.push<void>(
       context,
       MaterialPageRoute<void>(

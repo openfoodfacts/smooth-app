@@ -622,6 +622,21 @@
     "new_product_desc_nova_unknown": "Grad der Lebensmittelverarbeitung unbekannt",
     "new_product_title_pictures": "Lassen Sie uns ein paar Fotos aufnehmen!",
     "new_product_title_misc": "Und einige grundlegende Daten …",
+    "new_product_done_msg": "„{username}”, vielen Dank für Ihr Mitwirken!",
+    "@new_product_done_msg": {
+        "description": "Thank you message on the end of new product page, after finish adding a new product.",
+        "placeholders": {
+            "username": {
+                "type": "String",
+                "example": "Bob"
+            }
+        }
+    },
+    "new_product_done_msg_no_user": "Danke für Ihren Beitrag!",
+    "new_product_done_button_label": "Entdecken Sie das fertige Produkt",
+    "@new_product_done_button_label": {
+        "description": "Button at the end of new product page, that takes you to completed product"
+    },
     "hey_incomplete_product_message": "Tippen Sie JETZT auf die Antwort auf 3 Fragen, um Nutri-Score, Eco-Score und Ultrahochverarbeitung (NOVA) zu berechnen!",
     "nutritional_facts_photo_uploaded": "Foto mit Nährwertangaben hochgeladen",
     "@nutritional_facts_photo_uploaded": {},
@@ -1341,6 +1356,10 @@
     "edit_product_form_save": "Bearbeiten",
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
+    },
+    "no_data_available": "Keine Daten verfügbar",
+    "@no_data_available": {
+        "description": "When there are no data to display"
     },
     "product_field_website_title": "Website",
     "@product_field_website_title": {

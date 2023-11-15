@@ -18,7 +18,7 @@
     "@create": {
         "description": "An action to create"
     },
-    "applyButtonText": "應用",
+    "applyButtonText": "套用",
     "@applyButtonText": {},
     "next_label": "下一個",
     "@next_label": {
@@ -27,7 +27,7 @@
     "go_back_to_top": "Go back to top",
     "save": "儲存",
     "save_confirmation": "Are you sure you want to save?",
-    "skip": "Skip",
+    "skip": "略過",
     "cancel": "取消",
     "@cancel": {},
     "ignore": "Ignore",
@@ -422,7 +422,7 @@
     "@myPersonalizedRanking": {
         "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
     },
-    "ranking_tab_all": "All",
+    "ranking_tab_all": "全部",
     "ranking_subtitle_match_yes": "A great match for you",
     "ranking_subtitle_match_no": "Very poor match",
     "ranking_subtitle_match_maybe": "Unknown match",
@@ -455,7 +455,7 @@
     "@category": {
         "description": "From a product list, there's a category filter: this is its title"
     },
-    "category_all": "All",
+    "category_all": "全部",
     "@category_al": {
         "description": "Top meta-entry on a category filter"
     },
@@ -484,7 +484,7 @@
     "@unknownBrand": {},
     "unknownProductName": "Unknown product name",
     "@unknownProductName": {},
-    "label_refresh": "Refresh",
+    "label_refresh": "重新整理",
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
@@ -623,6 +623,21 @@
     "new_product_title_pictures": "New product",
     "new_product_title_pictures_details": "Please take the following photos and the Open Food Facts engine can work out the rest!",
     "new_product_title_misc": "And some basic data…",
+    "new_product_done_msg": "Thanks for your contribution “{username}”!",
+    "@new_product_done_msg": {
+        "description": "Thank you message on the end of new product page, after finish adding a new product.",
+        "placeholders": {
+            "username": {
+                "type": "String",
+                "example": "Bob"
+            }
+        }
+    },
+    "new_product_done_msg_no_user": "Thanks for your contribution!",
+    "new_product_done_button_label": "Discover the completed product",
+    "@new_product_done_button_label": {
+        "description": "Button at the end of new product page, that takes you to completed product"
+    },
     "hey_incomplete_product_message": "Tap to answer 3 questions NOW to compute Nutri-Score, Eco-Score & Ultra-processing (NOVA)!",
     "nutritional_facts_photo_uploaded": "Nutrition facts photo uploaded",
     "@nutritional_facts_photo_uploaded": {},
@@ -1261,7 +1276,7 @@
     "@edit_product_form_item_origins_explainer_2": {
         "description": "Product edition - Origins - input explainer, part 2"
     },
-    "edit_product_form_item_countries_title": "Country",
+    "edit_product_form_item_countries_title": "地區",
     "@edit_product_form_item_countries_title": {
         "description": "Product edition - Countries - Title"
     },
@@ -1293,7 +1308,7 @@
     "@edit_product_form_item_emb_codes_examples": {
         "description": "Product edition - EMB Codes - explanations"
     },
-    "edit_product_form_item_categories_title": "分類",
+    "edit_product_form_item_categories_title": "類別",
     "@edit_product_form_item_categories_title": {
         "description": "Product edition - Categories - Title"
     },
@@ -1331,7 +1346,7 @@
     "@edit_product_form_item_packaging_title": {
         "description": "Product edition - Packaging - Title"
     },
-    "edit_product_form_item_nutrition_facts_title": "營養素表",
+    "edit_product_form_item_nutrition_facts_title": "營養成分",
     "@edit_product_form_item_nutrition_facts_title": {
         "description": "Product edition - Nutrition facts - Title"
     },
@@ -1343,13 +1358,17 @@
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
     },
+    "no_data_available": "No data available",
+    "@no_data_available": {
+        "description": "When there are no data to display"
+    },
     "product_field_website_title": "Website",
     "@product_field_website_title": {
         "description": "Title of a product field: website"
     },
     "completed_basic_details_btn_text": "Complete basic details",
     "not_implemented_snackbar_text": "Not implemented yet",
-    "category_picker_page_appbar_text": "分類",
+    "category_picker_page_appbar_text": "類別",
     "edit_ingredients_extrait_ingredients_btn_text": "摘錄成分",
     "@edit_ingredients_extrait_ingredients_btn_text": {
         "description": "Ingredients edition - Extract ingredients"
@@ -1746,7 +1765,7 @@
     "@edit_photo_language_none": {
         "description": "Warning message: for this product and this field, there are no images at all, in any language"
     },
-    "category_picker_screen_title": "分類",
+    "category_picker_screen_title": "類別",
     "@category_picker_screen_title": {
         "description": "Categories picker screen title"
     },
@@ -2391,7 +2410,7 @@
             }
         }
     },
-    "loading": "載入中……",
+    "loading": "載入中…",
     "@loading": {
         "description": "Loading…"
     },

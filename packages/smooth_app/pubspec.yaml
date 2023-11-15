@@ -70,7 +70,7 @@ dependencies:
   webview_flutter: 3.0.4
   flutter_custom_tabs: 1.0.4
   flutter_image_compress: 2.0.4
-  connectivity_plus: 4.0.2
+  connectivity_plus: 5.0.1
   dart_ping: 9.0.0
   dart_ping_ios: 4.0.0
   flutter_animation_progress_bar: 2.3.1
@@ -101,7 +101,7 @@ dependencies:
     path: ../scanner/zxing
 
 
-  openfoodfacts: 3.0.0
+  openfoodfacts: 3.1.0
   # openfoodfacts:
   #   path: ../../../openfoodfacts-dart
 
