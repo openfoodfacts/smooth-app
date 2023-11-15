@@ -63,14 +63,15 @@ Future<void> _onSubmittedBarcode(
       searchCategory: 'barcode',
       searchCount: 1,
     );
-    //ignore: use_build_context_synchronously
-    AppNavigator.of(context).push(
-      AppRoutes.PRODUCT(
-        fetchedProduct.product!.barcode!,
-        heroTag: 'search_${fetchedProduct.product!.barcode!}',
-      ),
-      extra: fetchedProduct.product,
-    );
+    if (context.mounted) {
+      AppNavigator.of(context).push(
+        AppRoutes.PRODUCT(
+          fetchedProduct.product!.barcode!,
+          heroTag: 'search_${fetchedProduct.product!.barcode!}',
+        ),
+        extra: fetchedProduct.product,
+      );
+    }
   } else {
     AnalyticsHelper.trackSearch(
       search: value,

@@ -50,9 +50,9 @@ class BackgroundTaskHungerGames extends BackgroundTaskBarcode {
     required final String barcode,
     required final String insightId,
     required final InsightAnnotation insightAnnotation,
-    required final State<StatefulWidget> widget,
+    required final BuildContext context,
   }) async {
-    final LocalDatabase localDatabase = widget.context.read<LocalDatabase>();
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final String uniqueId = await _operationType.getNewKey(
       localDatabase,
       barcode: barcode,
@@ -63,7 +63,10 @@ class BackgroundTaskHungerGames extends BackgroundTaskBarcode {
       insightAnnotation.value,
       uniqueId,
     );
-    await task.addToManager(localDatabase, widget: widget);
+    if (!context.mounted) {
+      return;
+    }
+    await task.addToManager(localDatabase, context: context);
   }
 
   @override

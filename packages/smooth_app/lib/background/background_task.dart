@@ -111,31 +111,30 @@ abstract class BackgroundTask {
   @protected
   Future<void> addToManager(
     final LocalDatabase localDatabase, {
-    final State<StatefulWidget>? widget,
+    final BuildContext? context,
     final bool showSnackBar = true,
   }) async {
     await BackgroundTaskManager.getInstance(localDatabase).add(this);
-    if (widget == null || !widget.mounted) {
+    if (context == null || !context.mounted) {
       return;
     }
     if (!showSnackBar) {
       return;
     }
 
-    if (widget.context.mounted) {
-      // ignore: use_build_context_synchronously
-      if (getFloatingMessage(AppLocalizations.of(widget.context))
-          case (
-            final String message,
-            final AlignmentGeometry alignment,
-          )) {
-        // ignore: use_build_context_synchronously
-        SmoothFloatingMessage(message: message).show(
-          widget.context,
-          duration: SnackBarDuration.medium,
-          alignment: alignment,
-        );
-      }
+    if (!context.mounted) {
+      return;
+    }
+    if (getFloatingMessage(AppLocalizations.of(context))
+        case (
+          final String message,
+          final AlignmentGeometry alignment,
+        )) {
+      SmoothFloatingMessage(message: message).show(
+        context,
+        duration: SnackBarDuration.medium,
+        alignment: alignment,
+      );
     }
   }
 

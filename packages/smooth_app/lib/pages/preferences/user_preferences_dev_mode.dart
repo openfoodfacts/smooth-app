@@ -191,7 +191,9 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
               );
             }
 
-            // ignore: use_build_context_synchronously
+            if (!context.mounted) {
+              return;
+            }
             await showDialog<void>(
               context: context,
               builder: (BuildContext context) => SmoothAlertDialog(

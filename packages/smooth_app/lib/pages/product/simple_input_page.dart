@@ -187,7 +187,7 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
         in changedProducts.entries) {
       await BackgroundTaskDetails.addTask(
         entry.value,
-        widget: this,
+        context: context,
         stamp: entry.key,
         showSnackBar: first,
       );

@@ -104,6 +104,9 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
     )) {
       return;
     }
+    if (!context.mounted) {
+      return;
+    }
     AnalyticsHelper.trackProductEdit(
       _helper.getEditEventAnalyticsTag(),
       barcode,
@@ -111,7 +114,7 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
     );
     await BackgroundTaskDetails.addTask(
       changedProduct,
-      widget: this,
+      context: context,
       stamp: _helper.getStamp(),
     );
     return;
@@ -322,7 +325,7 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
                             appLocalizations.add_packaging_photo_button_label
                                 .toUpperCase(),
                             onPressed: () async => confirmAndUploadNewPicture(
-                              this,
+                              context,
                               imageField: ImageField.OTHER,
                               barcode: widget.product.barcode!,
                               language: language,

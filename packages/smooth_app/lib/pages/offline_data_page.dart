@@ -61,7 +61,7 @@ class _OfflineDataPageState extends State<OfflineDataPage> {
               title: appLocalizations.download_data,
               subtitle: appLocalizations.download_top_n_products(_topNSize),
               onTap: () async => BackgroundTaskOffline.addTask(
-                widget: this,
+                context: context,
                 pageSize: _pageSize,
                 totalSize: _topNSize,
               ),
@@ -72,7 +72,7 @@ class _OfflineDataPageState extends State<OfflineDataPage> {
               subtitle: appLocalizations.update_local_database_sub,
               trailing: const Icon(Icons.refresh),
               onTap: () async => BackgroundTaskFullRefresh.addTask(
-                widget: this,
+                context: context,
                 pageSize: _pageSize,
               ),
             ),

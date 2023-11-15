@@ -1,5 +1,3 @@
-// ignore_for_file: use_build_context_synchronously
-
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -200,7 +198,9 @@ class ProductListUserDialogHelper {
         builder: (BuildContext context) => _UserEmptyLists(daoProductList),
       );
       if (newListCreated != null && newListCreated) {
-        return showUserAddProductsDialog(context, barcodes);
+        if (context.mounted) {
+          return showUserAddProductsDialog(context, barcodes);
+        }
       }
       return false;
     }
@@ -210,6 +210,9 @@ class ProductListUserDialogHelper {
       barcodes.toList(growable: false),
     );
 
+    if (!context.mounted) {
+      return null;
+    }
     return showDialog<bool?>(
       context: context,
       builder: (BuildContext context) => _UserLists(

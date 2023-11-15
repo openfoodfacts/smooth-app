@@ -69,11 +69,11 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode {
   /// Adds the background task about changing a product.
   static Future<void> addTask(
     final Product minimalistProduct, {
-    required final State<StatefulWidget> widget,
+    required final BuildContext context,
     required final BackgroundTaskDetailsStamp stamp,
     final bool showSnackBar = true,
   }) async {
-    final LocalDatabase localDatabase = widget.context.read<LocalDatabase>();
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final String uniqueId = await _operationType.getNewKey(
       localDatabase,
       barcode: minimalistProduct.barcode,
@@ -83,9 +83,12 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode {
       uniqueId,
       stamp,
     );
+    if (!context.mounted) {
+      return;
+    }
     await task.addToManager(
       localDatabase,
-      widget: widget,
+      context: context,
       showSnackBar: showSnackBar,
     );
   }
