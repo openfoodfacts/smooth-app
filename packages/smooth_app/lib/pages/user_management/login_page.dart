@@ -155,8 +155,8 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                               style: theme.textTheme.bodyMedium?.copyWith(
                                 fontSize: 18.0,
                                 color: const Color(0xFF000000),
-                                textAlign: TextAlign.center,
                               ),
+                              textAlign: TextAlign.center,
                             ),
                           ),
                         ),
