@@ -599,7 +599,7 @@
     "ingredients_photo_title": "صورة المكونات",
     "nutritional_facts_photo_title": "صورة الحقائق الغذائية",
     "recycling_photo_title": "Recycling Photo",
-    "take_more_photo_title": "صور أخرى مثيرة للاهتمام",
+    "take_more_photo_title": "التقط المزيد من الصور",
     "front_photo_uploaded": "تم تحميل الصورة الأمامية",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "صورة المكونات",
@@ -645,7 +645,7 @@
     "@recycling_photo_button_label": {},
     "recycling_photo_uploaded": "تم تحميل صورة إعادة التدوير",
     "@recycling_photo_uploaded": {},
-    "take_more_photo_button_label": "صور أخرى مثيرة للاهتمام",
+    "take_more_photo_button_label": "التقط المزيد من الصور",
     "@take_more_photo_button_label": {},
     "other_photo_uploaded": "تم تحميل صور متنوعة",
     "@other_photo_uploaded": {},
@@ -1982,7 +1982,7 @@
     "@language_picker_label": {
         "description": "Choose Application Language"
     },
-    "help_with_openfoodfacts": "Help with OpenFoodFacts",
+    "help_with_openfoodfacts": "Said",
     "@help_with_openfoodfacts": {
         "description": "Label for the email title"
     },
