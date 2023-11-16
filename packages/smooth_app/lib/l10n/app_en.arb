@@ -1586,10 +1586,6 @@
     "dev_preferences_migration_status_in_progress": "in progress",
     "dev_preferences_migration_status_required": "required (click to start)",
     "dev_preferences_migration_status_not_started": "unknown",
-    "dev_preferences_import_history_title": "Import History",
-    "@dev_preferences_import_history_title": {
-        "description": "User dev preferences - Import history - Title"
-    },
     "dev_preferences_import_history_subtitle": "Will clear history and put 3 products in there",
     "@dev_preferences_import_history_subtitle": {
         "description": "User dev preferences - Import history - Subtitle"

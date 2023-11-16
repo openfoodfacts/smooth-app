@@ -11,8 +11,6 @@ import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
-import 'package:smooth_app/helpers/data_importer/product_list_import_export.dart';
-import 'package:smooth_app/helpers/data_importer/smooth_app_data_importer.dart';
 import 'package:smooth_app/pages/offline_data_page.dart';
 import 'package:smooth_app/pages/offline_tasks_page.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
@@ -228,7 +226,6 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
             );
           },
         ),
-        _dataImporterTile(),
         UserPreferencesItemTile(
           title: appLocalizations.offline_data,
           onTap: () => Navigator.push<void>(
@@ -250,28 +247,6 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
               builder: (BuildContext context) => const OfflineTaskPage(),
             ),
           ),
-        ),
-        UserPreferencesItemTile(
-          title: appLocalizations.dev_preferences_import_history_title,
-          subtitle: appLocalizations.dev_preferences_import_history_subtitle,
-          onTap: () async {
-            final LocalDatabase localDatabase = context.read<LocalDatabase>();
-            await ProductListImportExport().importFromJSON(
-              ProductListImportExport.TMP_IMPORT,
-              localDatabase,
-            );
-            if (context.mounted) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: Text(
-                    appLocalizations
-                        .dev_preferences_import_history_result_success,
-                  ),
-                ),
-              );
-            }
-            localDatabase.notifyListeners();
-          },
         ),
         UserPreferencesItemTile(
           title: 'Add cards to scanner',
@@ -340,25 +315,6 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           ),
         ),
       ];
-
-  UserPreferencesItem _dataImporterTile() {
-    final SmoothAppDataImporterStatus status =
-        context.read<SmoothAppDataImporter>().status;
-
-    return UserPreferencesItemTile(
-      title: appLocalizations.dev_preferences_migration_title,
-      subtitle: appLocalizations.dev_preferences_migration_subtitle(
-        status.printableLabel(appLocalizations),
-      ),
-      onTap: status.canInitiateMigration
-          ? () {
-              context.read<SmoothAppDataImporter>().startMigrationAsync(
-                    forceMigration: true,
-                  );
-            }
-          : null,
-    );
-  }
 
   ScaffoldFeatureController<SnackBar, SnackBarClosedReason>
       _showSuccessMessage() => ScaffoldMessenger.of(context).showSnackBar(
