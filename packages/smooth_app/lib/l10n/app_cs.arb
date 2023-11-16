@@ -1586,10 +1586,6 @@
     "dev_preferences_migration_status_in_progress": "probíhá",
     "dev_preferences_migration_status_required": "vyžadováno (kliknutím spustíte)",
     "dev_preferences_migration_status_not_started": "neznámý",
-    "dev_preferences_import_history_title": "Historie importu",
-    "@dev_preferences_import_history_title": {
-        "description": "User dev preferences - Import history - Title"
-    },
     "dev_preferences_import_history_subtitle": "Vymaže historii a vloží tam 3 produkty",
     "@dev_preferences_import_history_subtitle": {
         "description": "User dev preferences - Import history - Subtitle"
