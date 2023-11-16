@@ -1586,10 +1586,6 @@
     "dev_preferences_migration_status_in_progress": "진행 중",
     "dev_preferences_migration_status_required": "필요 (시작하려면 클릭)",
     "dev_preferences_migration_status_not_started": "알 수 없음",
-    "dev_preferences_import_history_title": "가져오기 기록",
-    "@dev_preferences_import_history_title": {
-        "description": "User dev preferences - Import history - Title"
-    },
     "dev_preferences_import_history_subtitle": "기록을 지우고 거기에 3개의 제품을 넣습니다.",
     "@dev_preferences_import_history_subtitle": {
         "description": "User dev preferences - Import history - Subtitle"
