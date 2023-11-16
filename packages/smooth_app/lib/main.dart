@@ -185,7 +185,7 @@ class _SmoothAppState extends State<SmoothApp> {
 
   Future<void> _initAppLanguage() {
     ProductQuery.setLanguage(context, _userPreferences);
-    return context.read<ProductPreferences>().refresh();
+    return _productPreferences.refresh();
   }
 
   @override
