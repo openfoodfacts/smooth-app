@@ -1586,10 +1586,6 @@
     "dev_preferences_migration_status_in_progress": "en cours",
     "dev_preferences_migration_status_required": "requis (cliquez pour commencer)",
     "dev_preferences_migration_status_not_started": "inconnu",
-    "dev_preferences_import_history_title": "Importer l'historique",
-    "@dev_preferences_import_history_title": {
-        "description": "User dev preferences - Import history - Title"
-    },
     "dev_preferences_import_history_subtitle": "Effacera l'historique et y mettra 3 produits",
     "@dev_preferences_import_history_subtitle": {
         "description": "User dev preferences - Import history - Subtitle"
