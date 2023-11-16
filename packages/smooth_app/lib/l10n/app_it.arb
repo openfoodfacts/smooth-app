@@ -1586,10 +1586,6 @@
     "dev_preferences_migration_status_in_progress": "in corso",
     "dev_preferences_migration_status_required": "richiesto (clicca per iniziare)",
     "dev_preferences_migration_status_not_started": "sconosciuto",
-    "dev_preferences_import_history_title": "Importa Cronologia",
-    "@dev_preferences_import_history_title": {
-        "description": "User dev preferences - Import history - Title"
-    },
     "dev_preferences_import_history_subtitle": "Cancellerà la cronologia e inserirà 3 prodotti qui",
     "@dev_preferences_import_history_subtitle": {
         "description": "User dev preferences - Import history - Subtitle"
