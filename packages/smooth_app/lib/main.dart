@@ -194,6 +194,11 @@ class _SmoothAppState extends State<SmoothApp> {
       future: _initFuture,
       builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
         if (snapshot.hasError) {
+          Logs.e(
+            'The app initialisation failed',
+            ex: snapshot.error,
+            stacktrace: snapshot.stackTrace,
+          );
           FlutterNativeSplash.remove();
           return _buildError(snapshot);
         }
