@@ -1586,10 +1586,6 @@
     "dev_preferences_migration_status_in_progress": "in Bearbeitung",
     "dev_preferences_migration_status_required": "benötigt (klicken, um zu starten)",
     "dev_preferences_migration_status_not_started": "Unbekannt",
-    "dev_preferences_import_history_title": "Verlauf importieren",
-    "@dev_preferences_import_history_title": {
-        "description": "User dev preferences - Import history - Title"
-    },
     "dev_preferences_import_history_subtitle": "Wird den Verlauf löschen und 3 Produkte einfügen",
     "@dev_preferences_import_history_subtitle": {
         "description": "User dev preferences - Import history - Subtitle"
