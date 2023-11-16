@@ -1586,10 +1586,6 @@
     "dev_preferences_migration_status_in_progress": "în curs",
     "dev_preferences_migration_status_required": "obligatoriu (click pentru a începe)",
     "dev_preferences_migration_status_not_started": "necunoscut",
-    "dev_preferences_import_history_title": "Istoricul importurilor",
-    "@dev_preferences_import_history_title": {
-        "description": "User dev preferences - Import history - Title"
-    },
     "dev_preferences_import_history_subtitle": "Va șterge istoricul și va pune 3 produse acolo",
     "@dev_preferences_import_history_subtitle": {
         "description": "User dev preferences - Import history - Subtitle"
