@@ -1586,10 +1586,6 @@
     "dev_preferences_migration_status_in_progress": "en curs",
     "dev_preferences_migration_status_required": "obligatori (feu clic per començar)",
     "dev_preferences_migration_status_not_started": "desconegut",
-    "dev_preferences_import_history_title": "Historial d'importacions",
-    "@dev_preferences_import_history_title": {
-        "description": "User dev preferences - Import history - Title"
-    },
     "dev_preferences_import_history_subtitle": "Esborrarà l'historial i hi posarà 3 productes",
     "@dev_preferences_import_history_subtitle": {
         "description": "User dev preferences - Import history - Subtitle"
