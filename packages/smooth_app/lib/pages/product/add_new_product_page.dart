@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_animation_progress_bar/flutter_animation_progress_bar.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
@@ -12,17 +11,13 @@ import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/up_to_date_mixin.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/generic_lib/buttons/smooth_simple_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/image_field_extension.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
-import 'package:smooth_app/helpers/user_management_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
-import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
 import 'package:smooth_app/pages/product/add_new_product_helper.dart';
 import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
@@ -651,89 +646,4 @@ class _AddNewProductPageState extends State<AddNewProductPage>
         disabled: disabled,
         isLoggedInMandatory: widget.isLoggedInMandatory,
       );
-
-  Widget _buildDoneCard(final BuildContext context,
-      {required final VoidCallback onDoneClick}) {
-    final AppLocalizations localizations = AppLocalizations.of(context);
-    final bool isDark = Theme.of(context).brightness == Brightness.dark;
-
-    return SizedBox(
-      width: double.infinity,
-      child: SmoothCard(
-        clipBehavior: Clip.antiAliasWithSaveLayer,
-        color: Theme.of(context).colorScheme.secondary,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.all(SMALL_SPACE),
-              child: Text(
-                _createDoneMessage(localizations),
-                style: Theme.of(context).textTheme.displaySmall,
-              ),
-            ),
-            Row(
-              children: <Widget>[
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.all(SMALL_SPACE),
-                    child: SmoothSimpleButton(
-                      onPressed: onDoneClick,
-                      buttonColor: Colors.green[700],
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          Flexible(
-                            child: Text(
-                                localizations.new_product_done_button_label),
-                          ),
-                          const SizedBox(width: SMALL_SPACE),
-                          const Icon(Icons.arrow_forward),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                const SizedBox(height: MEDIUM_SPACE),
-                Stack(
-                  alignment: Alignment.bottomRight,
-                  children: <Widget>[
-                    Align(
-                      alignment: Alignment.topLeft,
-                      widthFactor: 0.8,
-                      heightFactor: 0.8,
-                      child: SvgPicture.asset(
-                        isDark
-                            ? 'assets/product/product_completed_graphic_dark.svg'
-                            : 'assets/product/product_completed_graphic_light.svg',
-                        width: 70,
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-String _createDoneMessage(AppLocalizations localizations) {
-  final String? name = _getRegisteredUserName();
-  if (name == null) {
-    return localizations.new_product_done_msg_no_user;
-  } else {
-    return localizations.new_product_done_msg(name);
-  }
-}
-
-String? _getRegisteredUserName() {
-  final String? userId = OpenFoodAPIConfiguration.globalUser?.userId;
-  if (userId == null || userId.isEmail) {
-    return null;
-  } else {
-    return userId;
-  }
 }
