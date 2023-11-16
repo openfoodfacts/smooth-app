@@ -1586,10 +1586,6 @@
     "dev_preferences_migration_status_in_progress": "w toku",
     "dev_preferences_migration_status_required": "wymagane (kliknij, aby rozpocząć)",
     "dev_preferences_migration_status_not_started": "nieznany",
-    "dev_preferences_import_history_title": "Importuj historię",
-    "@dev_preferences_import_history_title": {
-        "description": "User dev preferences - Import history - Title"
-    },
     "dev_preferences_import_history_subtitle": "Usuwa historię wyszukiwania i wstawia w to miejsce 3 produkty",
     "@dev_preferences_import_history_subtitle": {
         "description": "User dev preferences - Import history - Subtitle"
