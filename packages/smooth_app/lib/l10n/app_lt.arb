@@ -1586,10 +1586,6 @@
     "dev_preferences_migration_status_in_progress": "vykdoma",
     "dev_preferences_migration_status_required": "būtina (spustelėkite norėdami pradėti)",
     "dev_preferences_migration_status_not_started": "nežinoma",
-    "dev_preferences_import_history_title": "Importuoti istoriją",
-    "@dev_preferences_import_history_title": {
-        "description": "User dev preferences - Import history - Title"
-    },
     "dev_preferences_import_history_subtitle": "Išvalys istoriją ir įdės 3 produktus",
     "@dev_preferences_import_history_subtitle": {
         "description": "User dev preferences - Import history - Subtitle"
