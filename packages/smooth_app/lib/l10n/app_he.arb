@@ -1586,10 +1586,6 @@
     "dev_preferences_migration_status_in_progress": "בתהליך",
     "dev_preferences_migration_status_required": "נחוץ (ללחוץ כדי להפעיל)",
     "dev_preferences_migration_status_not_started": "לא ידוע",
-    "dev_preferences_import_history_title": "ייבוא היסטוריה",
-    "@dev_preferences_import_history_title": {
-        "description": "User dev preferences - Import history - Title"
-    },
     "dev_preferences_import_history_subtitle": "יפנה את ההיסטוריה ויציב שם 3 מוצרים",
     "@dev_preferences_import_history_subtitle": {
         "description": "User dev preferences - Import history - Subtitle"
