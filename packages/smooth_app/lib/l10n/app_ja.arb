@@ -1586,10 +1586,6 @@
     "dev_preferences_migration_status_in_progress": "進行中",
     "dev_preferences_migration_status_required": "必要（クリックしてスタート）",
     "dev_preferences_migration_status_not_started": "不明",
-    "dev_preferences_import_history_title": "履歴のインポート",
-    "@dev_preferences_import_history_title": {
-        "description": "User dev preferences - Import history - Title"
-    },
     "dev_preferences_import_history_subtitle": "履歴をクリアし、3つの製品を追加します",
     "@dev_preferences_import_history_subtitle": {
         "description": "User dev preferences - Import history - Subtitle"
