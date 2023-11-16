@@ -1586,10 +1586,6 @@
     "dev_preferences_migration_status_in_progress": "в процессе выполнения",
     "dev_preferences_migration_status_required": "обязательно (нажать, чтобы начать)",
     "dev_preferences_migration_status_not_started": "неизвестно",
-    "dev_preferences_import_history_title": "Импортировать историю",
-    "@dev_preferences_import_history_title": {
-        "description": "User dev preferences - Import history - Title"
-    },
     "dev_preferences_import_history_subtitle": "Очистит историю и поместит туда 3 продукта",
     "@dev_preferences_import_history_subtitle": {
         "description": "User dev preferences - Import history - Subtitle"
