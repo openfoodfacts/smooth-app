@@ -613,15 +613,15 @@
     "nutritional_facts_added": "Харчова цінність додана",
     "categories_added": "Categories added",
     "new_product_title_nutriscore": "Compute the Nutri-Score",
-    "new_product_subtitle_nutriscore": "Help us by filling at least a category and nutritional values",
+    "new_product_subtitle_nutriscore": "Допоможіть нам, заповнивши принаймні категорію та харчові цінності",
     "new_product_title_ecoscore": "Compute the Eco-Score",
     "new_product_subtitle_ecoscore": "Get it by filling at least a category",
     "new_product_additional_ecoscore": "Make Eco-Score computation more precise with origins, packaging & more",
     "new_product_title_nova": "Compute the food processing level (NOVA)",
     "new_product_subtitle_nova": "Get it by filling the food category and ingredients",
     "new_product_desc_nova_unknown": "Рівень обробки їжі є невідомим",
-    "new_product_title_pictures": "New product",
-    "new_product_title_pictures_details": "Please take the following photos and the Open Food Facts engine can work out the rest!",
+    "new_product_title_pictures": "Новий товар",
+    "new_product_title_pictures_details": "Будь ласка, зробіть наступні фотографії, і система Open Food Facts зможе розібратися з усіма іншими!",
     "new_product_title_misc": "And some basic data…",
     "new_product_done_msg": "Дякуємо за ваш внесок «{username}»!",
     "@new_product_done_msg": {
@@ -1586,10 +1586,6 @@
     "dev_preferences_migration_status_in_progress": "в процесі",
     "dev_preferences_migration_status_required": "Необхідно (натиснути, щоб розпочати)",
     "dev_preferences_migration_status_not_started": "невідоме",
-    "dev_preferences_import_history_title": "Імпортувати історію",
-    "@dev_preferences_import_history_title": {
-        "description": "User dev preferences - Import history - Title"
-    },
     "dev_preferences_import_history_subtitle": "Очистить історію та помістіть туди 3 продукти",
     "@dev_preferences_import_history_subtitle": {
         "description": "User dev preferences - Import history - Subtitle"
