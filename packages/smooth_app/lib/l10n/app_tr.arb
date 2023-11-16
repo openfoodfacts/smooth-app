@@ -621,7 +621,7 @@
     "new_product_subtitle_nova": "Gıda kategorisini ve malzemeleri doldurarak alın",
     "new_product_desc_nova_unknown": "Gıda işleme seviyesi bilinmemektedir",
     "new_product_title_pictures": "Birkaç fotoğraf çekelim!",
-    "new_product_title_pictures_details": "Please take the following photos and the Open Food Facts engine can work out the rest!",
+    "new_product_title_pictures_details": "Lütfen aşağıdaki fotoğrafları çekin. Open Food Facts motoru gerisini halledecektir!",
     "new_product_title_misc": "Ve bazı temel veriler…",
     "new_product_done_msg": "Katkılarınız için teşekkürler “{username}”!",
     "@new_product_done_msg": {
@@ -1586,10 +1586,6 @@
     "dev_preferences_migration_status_in_progress": "devam ediyor",
     "dev_preferences_migration_status_required": "gerekli (başlamak için tıklayın)",
     "dev_preferences_migration_status_not_started": "bilinmiyor",
-    "dev_preferences_import_history_title": "İçe aktarma geçmişi",
-    "@dev_preferences_import_history_title": {
-        "description": "User dev preferences - Import history - Title"
-    },
     "dev_preferences_import_history_subtitle": "Geçmişi temizleyecek ve oraya 3 ürün koyacak",
     "@dev_preferences_import_history_subtitle": {
         "description": "User dev preferences - Import history - Subtitle"
