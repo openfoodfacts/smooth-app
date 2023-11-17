@@ -412,6 +412,12 @@ class _AddNewProductPageState extends State<AddNewProductPage>
                 ),
         done: _nutritionEditor.isPopulated(upToDateProduct),
       ),
+      _buildIngredientsButton(
+        context,
+        forceIconData: Icons.filter_3,
+        disabled: (!_categoryEditor.isPopulated(upToDateProduct)) ||
+            (!_nutritionEditor.isPopulated(upToDateProduct)),
+      ),
       Center(
         child: AddNewProductScoreIcon(
           iconUrl: attribute?.iconUrl,
