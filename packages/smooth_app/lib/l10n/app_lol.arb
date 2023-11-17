@@ -150,6 +150,14 @@
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
+    "login_result_type_server_unreachable": "crwdns245858:0crwdne245858:0",
+    "@login_result_type_server_unreachable": {
+        "description": "Error message when trying to log in without network"
+    },
+    "login_result_type_server_issue": "crwdns245860:0crwdne245860:0",
+    "@login_result_type_server_issue": {
+        "description": "Error message when trying to log in and the server does not answer correctly"
+    },
     "login_page_username_or_email": "crwdns220649:0crwdne220649:0",
     "login_page_password_error_empty": "crwdns220651:0crwdne220651:0",
     "create_account": "crwdns220653:0crwdne220653:0",
