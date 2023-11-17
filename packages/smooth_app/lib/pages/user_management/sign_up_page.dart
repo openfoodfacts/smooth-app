@@ -394,9 +394,9 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
         }
       }
 
-      // ignore: use_build_context_synchronously
-      await LoadingDialog.error(context: context, title: errorMessage);
-
+      if (context.mounted) {
+        await LoadingDialog.error(context: context, title: errorMessage);
+      }
       return;
     }
     AnalyticsHelper.trackEvent(AnalyticsEvent.registerAction);
@@ -404,7 +404,9 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
       return;
     }
     await context.read<UserManagementProvider>().putUser(user);
-    // ignore: use_build_context_synchronously
+    if (!context.mounted) {
+      return;
+    }
     await showDialog<void>(
       context: context,
       builder: (BuildContext context) => SmoothAlertDialog(

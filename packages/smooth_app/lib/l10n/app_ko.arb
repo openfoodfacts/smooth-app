@@ -599,7 +599,7 @@
     "ingredients_photo_title": "재료 사진",
     "nutritional_facts_photo_title": "영양 성분 사진",
     "recycling_photo_title": "재활용 사진",
-    "other_interesting_photo_title": "다른 흥미로운 사진",
+    "take_more_photo_title": "다른 흥미로운 사진",
     "front_photo_uploaded": "전면 사진 갱신됨",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "재료 사진",
@@ -613,15 +613,31 @@
     "nutritional_facts_added": "영양 성분 추가됨",
     "categories_added": "Categories added",
     "new_product_title_nutriscore": "Compute the Nutri-Score",
-    "new_product_subtitle_nutriscore": "Get it by filling the food category and nutritional values",
+    "new_product_subtitle_nutriscore": "Help us by filling at least a category and nutritional values",
     "new_product_title_ecoscore": "Compute the Eco-Score",
     "new_product_subtitle_ecoscore": "Get it by filling at least a category",
     "new_product_additional_ecoscore": "Make Eco-Score computation more precise with origins, packaging & more",
     "new_product_title_nova": "Compute the food processing level (NOVA)",
     "new_product_subtitle_nova": "Get it by filling the food category and ingredients",
     "new_product_desc_nova_unknown": "식품 가공 수준을 알 수 없음",
-    "new_product_title_pictures": "Let's take some pictures!",
+    "new_product_title_pictures": "New product",
+    "new_product_title_pictures_details": "Please take the following photos and the Open Food Facts engine can work out the rest!",
     "new_product_title_misc": "And some basic data…",
+    "new_product_done_msg": "Thanks for your contribution “{username}”!",
+    "@new_product_done_msg": {
+        "description": "Thank you message on the end of new product page, after finish adding a new product.",
+        "placeholders": {
+            "username": {
+                "type": "String",
+                "example": "Bob"
+            }
+        }
+    },
+    "new_product_done_msg_no_user": "Thanks for your contribution!",
+    "new_product_done_button_label": "Discover the completed product",
+    "@new_product_done_button_label": {
+        "description": "Button at the end of new product page, that takes you to completed product"
+    },
     "hey_incomplete_product_message": "Tap to answer 3 questions NOW to compute Nutri-Score, Eco-Score & Ultra-processing (NOVA)!",
     "nutritional_facts_photo_uploaded": "영양 성분 사진을 올렸습니다",
     "@nutritional_facts_photo_uploaded": {},
@@ -629,8 +645,8 @@
     "@recycling_photo_button_label": {},
     "recycling_photo_uploaded": "재활용 사진을 올렸습니다",
     "@recycling_photo_uploaded": {},
-    "other_interesting_photo_button_label": "다른 흥미로운 사진",
-    "@other_interesting_photo_button_label": {},
+    "take_more_photo_button_label": "다른 흥미로운 사진",
+    "@take_more_photo_button_label": {},
     "other_photo_uploaded": "기타 사진을 올렸습니다",
     "@other_photo_uploaded": {},
     "retake_photo_button_label": "재촬영",
@@ -1341,6 +1357,10 @@
     "edit_product_form_save": "수정",
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
+    },
+    "no_data_available": "No data available",
+    "@no_data_available": {
+        "description": "When there are no data to display"
     },
     "product_field_website_title": "웹사이트",
     "@product_field_website_title": {

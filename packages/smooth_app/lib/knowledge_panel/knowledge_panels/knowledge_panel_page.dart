@@ -100,7 +100,7 @@ class _KnowledgePanelPageState extends State<KnowledgePanelPage>
       }
       await ProductRefresher().fetchAndRefresh(
         barcode: barcode ?? '',
-        widget: this,
+        context: context,
       );
     } catch (e) {
       //no refreshing during onboarding

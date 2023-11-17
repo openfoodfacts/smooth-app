@@ -23,8 +23,10 @@ class ProductQueryPageHelper {
       productQuery,
       localDatabase,
     );
+    if (!context.mounted) {
+      return;
+    }
     final ProductQueryPageResult? result =
-        // ignore: use_build_context_synchronously
         await Navigator.push<ProductQueryPageResult>(
       context,
       MaterialPageRoute<ProductQueryPageResult>(

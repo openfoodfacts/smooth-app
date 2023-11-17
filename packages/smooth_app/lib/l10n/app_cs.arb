@@ -599,7 +599,7 @@
     "ingredients_photo_title": "Fotografie ingrediencí",
     "nutritional_facts_photo_title": "Fotografie nutričních údajů",
     "recycling_photo_title": "Fotografie recyklace",
-    "other_interesting_photo_title": "Další zajímavé fotky",
+    "take_more_photo_title": "Další zajímavé fotky",
     "front_photo_uploaded": "Přední fotka nahrána",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "Fotografie ingrediencí",
@@ -622,6 +622,21 @@
     "new_product_desc_nova_unknown": "Neznámá úroveň průmyslového zpracování potraviny",
     "new_product_title_pictures": "Pojďme udělat pár fotek!",
     "new_product_title_misc": "A pár základních údajů…",
+    "new_product_done_msg": "Děkujeme za váš příspěvek, {username}!",
+    "@new_product_done_msg": {
+        "description": "Thank you message on the end of new product page, after finish adding a new product.",
+        "placeholders": {
+            "username": {
+                "type": "String",
+                "example": "Bob"
+            }
+        }
+    },
+    "new_product_done_msg_no_user": "Děkujeme za Váš příspěvek!",
+    "new_product_done_button_label": "Objevte hotový produkt",
+    "@new_product_done_button_label": {
+        "description": "Button at the end of new product page, that takes you to completed product"
+    },
     "hey_incomplete_product_message": "Klepnutím odpovězte na 3 otázky HNED k výpočtu Nutri-Score, Eco-Score & Ultra-processing (NOVA)!",
     "nutritional_facts_photo_uploaded": "Fotografie nutričních údajů byla nahrána",
     "@nutritional_facts_photo_uploaded": {},
@@ -629,8 +644,8 @@
     "@recycling_photo_button_label": {},
     "recycling_photo_uploaded": "Nahrána fotografie recyklace",
     "@recycling_photo_uploaded": {},
-    "other_interesting_photo_button_label": "Další zajímavé fotky",
-    "@other_interesting_photo_button_label": {},
+    "take_more_photo_button_label": "Další zajímavé fotky",
+    "@take_more_photo_button_label": {},
     "other_photo_uploaded": "Různé fotografie nahrány",
     "@other_photo_uploaded": {},
     "retake_photo_button_label": "Pořídit znovu",
@@ -1341,6 +1356,10 @@
     "edit_product_form_save": "Upravit",
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
+    },
+    "no_data_available": "Nejsou dostupná žádná data",
+    "@no_data_available": {
+        "description": "When there are no data to display"
     },
     "product_field_website_title": "Webová stránka",
     "@product_field_website_title": {

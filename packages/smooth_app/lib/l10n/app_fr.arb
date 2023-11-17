@@ -599,7 +599,7 @@
     "ingredients_photo_title": "Photo des ingrédients",
     "nutritional_facts_photo_title": "Photo des valeurs nutritionnelles",
     "recycling_photo_title": "Photo du recyclage",
-    "other_interesting_photo_title": "Autres photos intéressantes",
+    "take_more_photo_title": "Autres photos intéressantes",
     "front_photo_uploaded": "Photo de la face avant téléchargée",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "Photo des ingrédients",
@@ -622,6 +622,21 @@
     "new_product_desc_nova_unknown": "Degré de transformation des aliments inconnu",
     "new_product_title_pictures": "Prenons quelques photos !",
     "new_product_title_misc": "Et quelques données de base…",
+    "new_product_done_msg": "Merci pour votre contribution « {username} » !",
+    "@new_product_done_msg": {
+        "description": "Thank you message on the end of new product page, after finish adding a new product.",
+        "placeholders": {
+            "username": {
+                "type": "String",
+                "example": "Bob"
+            }
+        }
+    },
+    "new_product_done_msg_no_user": "Merci pour votre contribution !",
+    "new_product_done_button_label": "Découvrez le produit complété",
+    "@new_product_done_button_label": {
+        "description": "Button at the end of new product page, that takes you to completed product"
+    },
     "hey_incomplete_product_message": "Appuyez pour répondre MAINTENANT à 3 questions pour calculer le Nutri-Score, l'Eco-Score et le niveau d'ultra-transformation NOVA.",
     "nutritional_facts_photo_uploaded": "Photo des informations nutritionnelles téléchargée",
     "@nutritional_facts_photo_uploaded": {},
@@ -629,8 +644,8 @@
     "@recycling_photo_button_label": {},
     "recycling_photo_uploaded": "Photo des informations de recyclage téléchargée",
     "@recycling_photo_uploaded": {},
-    "other_interesting_photo_button_label": "Autres photos intéressantes",
-    "@other_interesting_photo_button_label": {},
+    "take_more_photo_button_label": "Autres photos intéressantes",
+    "@take_more_photo_button_label": {},
     "other_photo_uploaded": "Photo annexe téléversée",
     "@other_photo_uploaded": {},
     "retake_photo_button_label": "Reprendre",
@@ -1341,6 +1356,10 @@
     "edit_product_form_save": "Modifier",
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
+    },
+    "no_data_available": "Aucune donnée disponible",
+    "@no_data_available": {
+        "description": "When there are no data to display"
     },
     "product_field_website_title": "Site Web",
     "@product_field_website_title": {
@@ -2476,7 +2495,7 @@
     "hunger_games_loading_line2": "Nous téléchargeons les questions !",
     "hunger_games_error_label": "Argh ! Quelque chose s'est mal passé… et nous n'avons pas pu charger les questions.",
     "hunger_games_error_retry_button": "Réessayons !",
-    "link_cant_be_opened": "This link can't be opened on your device. Please check that you have a browser installed.",
+    "link_cant_be_opened": "Ce lien ne peut pas être ouvert sur votre appareil. Veuillez vérifier qu'un navigateur est installé.",
     "@link_cant_be_opened": {
         "description": "An error may happen if the device doesn't have a browser installed."
     }

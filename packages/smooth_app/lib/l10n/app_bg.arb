@@ -599,7 +599,7 @@
     "ingredients_photo_title": "Снимка на съставките",
     "nutritional_facts_photo_title": "Снимка на хранителните стойности",
     "recycling_photo_title": "Снимка на указанията за рециклиране",
-    "other_interesting_photo_title": "Други интересни снимки",
+    "take_more_photo_title": "Други интересни снимки",
     "front_photo_uploaded": "Снимката на предната страна е качена",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "Снимка на съставките",
@@ -613,7 +613,7 @@
     "nutritional_facts_added": "Хранителните стойности са добавени",
     "categories_added": "Categories added",
     "new_product_title_nutriscore": "Изчисли Nutri-Score",
-    "new_product_subtitle_nutriscore": "Get it by filling the food category and nutritional values",
+    "new_product_subtitle_nutriscore": "Help us by filling at least a category and nutritional values",
     "new_product_title_ecoscore": "Изчисли Eco-Score",
     "new_product_subtitle_ecoscore": "Get it by filling at least a category",
     "new_product_additional_ecoscore": "Направи изчисляването на Eco-Score по-прецизно с произход, опаковка и други",
@@ -622,6 +622,21 @@
     "new_product_desc_nova_unknown": "Нивото на обработка на храни не е известно",
     "new_product_title_pictures": "Да направим няколко снимки!",
     "new_product_title_misc": "И някои основни данни…",
+    "new_product_done_msg": "Thanks for your contribution “{username}”!",
+    "@new_product_done_msg": {
+        "description": "Thank you message on the end of new product page, after finish adding a new product.",
+        "placeholders": {
+            "username": {
+                "type": "String",
+                "example": "Bob"
+            }
+        }
+    },
+    "new_product_done_msg_no_user": "Thanks for your contribution!",
+    "new_product_done_button_label": "Discover the completed product",
+    "@new_product_done_button_label": {
+        "description": "Button at the end of new product page, that takes you to completed product"
+    },
     "hey_incomplete_product_message": "Tap to answer 3 questions NOW to compute Nutri-Score, Eco-Score & Ultra-processing (NOVA)!",
     "nutritional_facts_photo_uploaded": "Снимката с хранителните стойности е качена",
     "@nutritional_facts_photo_uploaded": {},
@@ -629,8 +644,8 @@
     "@recycling_photo_button_label": {},
     "recycling_photo_uploaded": "Снимката за рециклиране е качена",
     "@recycling_photo_uploaded": {},
-    "other_interesting_photo_button_label": "Други интересни снимки",
-    "@other_interesting_photo_button_label": {},
+    "take_more_photo_button_label": "Други интересни снимки",
+    "@take_more_photo_button_label": {},
     "other_photo_uploaded": "Качена е различна снимка",
     "@other_photo_uploaded": {},
     "retake_photo_button_label": "Направи отново",
@@ -1341,6 +1356,10 @@
     "edit_product_form_save": "Редактирай",
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
+    },
+    "no_data_available": "No data available",
+    "@no_data_available": {
+        "description": "When there are no data to display"
     },
     "product_field_website_title": "Уеб сайт",
     "@product_field_website_title": {

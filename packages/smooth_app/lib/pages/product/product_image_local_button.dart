@@ -53,7 +53,7 @@ class _ProductImageLocalButtonState extends State<ProductImageLocalButton> {
       return;
     }
     await confirmAndUploadNewPicture(
-      this,
+      context,
       imageField: widget.imageField,
       barcode: widget.barcode,
       language: widget.language,

@@ -465,8 +465,9 @@ class _ProductListPageState extends State<ProductListPage>
         setState(() {});
         return;
       case false:
-        // ignore: use_build_context_synchronously
-        LoadingDialog.error(context: context);
+        if (context.mounted) {
+          LoadingDialog.error(context: context);
+        }
         return;
     }
   }
