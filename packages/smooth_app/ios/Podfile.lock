@@ -8,10 +8,6 @@ PODS:
   - connectivity_plus (0.0.1):
     - Flutter
     - ReachabilitySwift
-  - data_importer (0.0.1):
-    - Flutter
-    - KeychainAccess
-    - RealmSwift
   - device_info_plus (0.0.1):
     - Flutter
   - Flutter (1.0.0)
@@ -71,7 +67,6 @@ PODS:
     - Flutter
   - iso_countries (0.0.1):
     - Flutter
-  - KeychainAccess (4.2.2)
   - libwebp (1.3.1):
     - libwebp/demux (= 1.3.1)
     - libwebp/mux (= 1.3.1)
@@ -126,11 +121,6 @@ PODS:
     - Flutter
     - MTBBarcodeScanner
   - ReachabilitySwift (5.0.0)
-  - Realm (10.42.0):
-    - Realm/Headers (= 10.42.0)
-  - Realm/Headers (10.42.0)
-  - RealmSwift (10.42.0):
-    - Realm (= 10.42.0)
   - rive_common (0.0.1):
     - Flutter
   - SDWebImage (5.17.0):
@@ -166,7 +156,6 @@ DEPENDENCIES:
   - audioplayers_darwin (from `.symlinks/plugins/audioplayers_darwin/ios`)
   - camera_avfoundation (from `.symlinks/plugins/camera_avfoundation/ios`)
   - connectivity_plus (from `.symlinks/plugins/connectivity_plus/ios`)
-  - data_importer (from `.symlinks/plugins/data_importer/ios`)
   - device_info_plus (from `.symlinks/plugins/device_info_plus/ios`)
   - Flutter (from `Flutter`)
   - flutter_custom_tabs (from `.symlinks/plugins/flutter_custom_tabs/ios`)
@@ -202,7 +191,6 @@ SPEC REPOS:
     - GoogleUtilities
     - GoogleUtilitiesComponents
     - GTMSessionFetcher
-    - KeychainAccess
     - libwebp
     - Mantle
     - MLImage
@@ -213,8 +201,6 @@ SPEC REPOS:
     - nanopb
     - PromisesObjC
     - ReachabilitySwift
-    - Realm
-    - RealmSwift
     - SDWebImage
     - SDWebImageWebPCoder
     - Sentry
@@ -229,8 +215,6 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/camera_avfoundation/ios"
   connectivity_plus:
     :path: ".symlinks/plugins/connectivity_plus/ios"
-  data_importer:
-    :path: ".symlinks/plugins/data_importer/ios"
   device_info_plus:
     :path: ".symlinks/plugins/device_info_plus/ios"
   Flutter:
@@ -286,8 +270,7 @@ SPEC CHECKSUMS:
   app_settings: d103828c9f5d515c4df9ee754dabd443f7cedcf3
   audioplayers_darwin: 877d9a4d06331c5c374595e46e16453ac7eafa40
   camera_avfoundation: 3125e8cd1a4387f6f31c6c63abb8a55892a9eeeb
-  connectivity_plus: 07c49e96d7fc92bc9920617b83238c4d178b446a
-  data_importer: ab8c74aaf553878170aed03c03626d5820c5cb1f
+  connectivity_plus: bf0076dd84a130856aa636df1c71ccaff908fa1d
   device_info_plus: e5c5da33f982a436e103237c0c85f9031142abed
   Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
   flutter_custom_tabs: 7a10a08686955cb748e5d26e0ae586d30689bf89
@@ -307,7 +290,6 @@ SPEC CHECKSUMS:
   in_app_review: 4a97249f7a2f539a0f294c2d9196b7fe35e49541
   integration_test: 13825b8a9334a850581300559b8839134b124670
   iso_countries: eb09d40f388e4c65e291e0bb36a701dfe7de6c74
-  KeychainAccess: c0c4f7f38f6fc7bbe58f5702e25f7bd2f65abf51
   libwebp: 33dc822fbbf4503668d09f7885bbfedc76c45e96
   Mantle: c5aa8794a29a022dfbbfc9799af95f477a69b62d
   MLImage: 7bb7c4264164ade9bf64f679b40fb29c8f33ee9b
@@ -323,8 +305,6 @@ SPEC CHECKSUMS:
   PromisesObjC: c50d2056b5253dadbd6c2bea79b0674bd5a52fa4
   qr_code_scanner: bb67d64904c3b9658ada8c402e8b4d406d5d796e
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
-  Realm: 490aad28f1360e58fc22256d5d686d3a36525346
-  RealmSwift: f6a9b56d747bbdd7931de1835896c5f024b6898a
   rive_common: 8a159d68033a8b073e5853acc50f03aa486a2888
   SDWebImage: 750adf017a315a280c60fde706ab1e552a3ae4e9
   SDWebImageWebPCoder: af09429398d99d524cae2fe00f6f0f6e491ed102
@@ -340,4 +320,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: aa97d8b016d7264ad0a1ef5c44765133ae787bc4
 
-COCOAPODS: 1.13.0
+COCOAPODS: 1.14.2

@@ -6,6 +6,7 @@ const Color seed = Color(0xFF99460D);
 const ColorScheme lightColorScheme = ColorScheme(
   brightness: Brightness.light,
   primary: Color.fromRGBO(133, 116, 108, 1.0),
+  inversePrimary: Color(0xFF341100),
   onPrimary: Color(0xFFFFFFFF),
   secondary: Color(0xFFEDE0DB),
   onSecondary: Color(0xFF000000),
@@ -20,6 +21,7 @@ const ColorScheme lightColorScheme = ColorScheme(
 const ColorScheme darkColorScheme = ColorScheme(
   brightness: Brightness.dark,
   primary: Color(0xFFFFFFFF),
+  inversePrimary: Color(0xFFFFFFFF),
   onPrimary: Color(0xFF000000),
   secondary: Color(0xFFA08D84),
   onSecondary: Color(0xFFFFFFFF),
@@ -34,6 +36,7 @@ const ColorScheme darkColorScheme = ColorScheme(
 const ColorScheme trueDarkColorScheme = ColorScheme(
   brightness: Brightness.dark,
   primary: COLOR_DEFAULT,
+  inversePrimary: Color(0xFFFFFFFF),
   onPrimary: Color(0xFF000000),
   secondary: COLOR_DEFAULT,
   onSecondary: Color(0xFFE1E1E1),

@@ -57,10 +57,6 @@ dependencies:
   collection: 1.17.2
   path: 1.8.3
   path_provider: 2.0.15
-  data_importer_shared:
-    path: ../data_importer_shared
-  data_importer:
-    path: ../data_importer
   share_plus: 6.3.4
   fimber: 0.6.6
   shimmer: ^3.0.0
@@ -73,6 +69,7 @@ dependencies:
   connectivity_plus: 5.0.1
   dart_ping: 9.0.0
   dart_ping_ios: 4.0.0
+  flutter_animation_progress_bar: 2.3.1
 
   # According to the build variant, only one "app store" implementation must be added when building a release
   # Call "flutter pub remove xxxx" to remove unused dependencies
@@ -100,7 +97,7 @@ dependencies:
     path: ../scanner/zxing
 
 
-  openfoodfacts: 3.0.0
+  openfoodfacts: 3.1.0
   # openfoodfacts:
   #   path: ../../../openfoodfacts-dart
 

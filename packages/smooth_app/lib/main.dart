@@ -23,7 +23,6 @@ import 'package:smooth_app/database/dao_string.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
-import 'package:smooth_app/helpers/data_importer/smooth_app_data_importer.dart';
 import 'package:smooth_app/helpers/entry_points_helper.dart';
 import 'package:smooth_app/helpers/global_vars.dart';
 import 'package:smooth_app/helpers/network_config.dart';
@@ -101,7 +100,6 @@ class SmoothApp extends StatefulWidget {
   State<SmoothApp> createState() => _SmoothAppState();
 }
 
-late SmoothAppDataImporter _appDataImporter;
 late UserPreferences _userPreferences;
 late ProductPreferences _productPreferences;
 late LocalDatabase _localDatabase;
@@ -127,7 +125,6 @@ Future<bool> _init1() async {
   await UserManagementProvider.mountCredentials();
   _userPreferences = await UserPreferences.getUserPreferences();
   _localDatabase = await LocalDatabase.getLocalDatabase();
-  _appDataImporter = SmoothAppDataImporter(_localDatabase);
   await _continuousScanModel.load(_localDatabase);
   _productPreferences = ProductPreferences(
     ProductPreferencesSelection(
@@ -182,7 +179,13 @@ class _SmoothAppState extends State<SmoothApp> {
     if (!_screenshots) {
       await _userPreferences.init(_productPreferences);
     }
+    await _initAppLanguage();
     return true;
+  }
+
+  Future<void> _initAppLanguage() {
+    ProductQuery.setLanguage(context, _userPreferences);
+    return _productPreferences.refresh();
   }
 
   @override
@@ -191,6 +194,11 @@ class _SmoothAppState extends State<SmoothApp> {
       future: _initFuture,
       builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
         if (snapshot.hasError) {
+          Logs.e(
+            'The app initialisation failed',
+            ex: snapshot.error,
+            stacktrace: snapshot.stackTrace,
+          );
           FlutterNativeSplash.remove();
           return _buildError(snapshot);
         }
@@ -219,7 +227,6 @@ class _SmoothAppState extends State<SmoothApp> {
             provide<TextContrastProvider>(_textContrastProvider),
             provide<UserManagementProvider>(_userManagementProvider),
             provide<ContinuousScanModel>(_continuousScanModel),
-            provide<SmoothAppDataImporter>(_appDataImporter),
             provide<PermissionListener>(_permissionListener),
           ],
           child: AppNavigator(

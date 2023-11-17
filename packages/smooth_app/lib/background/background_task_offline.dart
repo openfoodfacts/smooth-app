@@ -31,11 +31,11 @@ class BackgroundTaskOffline extends BackgroundTaskProgressing {
   static const OperationType _operationType = OperationType.offline;
 
   static Future<void> addTask({
-    required final State<StatefulWidget> widget,
+    required final BuildContext context,
     required final int pageSize,
     required final int totalSize,
   }) async {
-    final LocalDatabase localDatabase = widget.context.read<LocalDatabase>();
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final String uniqueId = await _operationType.getNewKey(
       localDatabase,
       totalSize: totalSize,
@@ -47,7 +47,10 @@ class BackgroundTaskOffline extends BackgroundTaskProgressing {
       pageSize,
       totalSize,
     );
-    await task.addToManager(localDatabase, widget: widget);
+    if (!context.mounted) {
+      return;
+    }
+    await task.addToManager(localDatabase, context: context);
   }
 
   @override

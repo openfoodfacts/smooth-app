@@ -1,5 +1,3 @@
-// ignore_for_file: use_build_context_synchronously
-
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:barcode_widget/barcode_widget.dart';
 import 'package:flutter/material.dart';
@@ -120,7 +118,7 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
       body: RefreshIndicator(
         onRefresh: () async => ProductRefresher().fetchAndRefresh(
           barcode: barcode,
-          widget: this,
+          context: context,
         ),
         child: Scrollbar(
           controller: _controller,
@@ -199,6 +197,9 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
                       AnalyticsEditEvents.nutrition_Facts,
                       barcode,
                     );
+                    if (!context.mounted) {
+                      return;
+                    }
                     await NutritionPageLoaded.showNutritionPage(
                       product: upToDateProduct,
                       isLoggedInMandatory: true,
@@ -236,6 +237,9 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
                     context,
                     isLoggedInMandatory: true,
                   )) {
+                    return;
+                  }
+                  if (!context.mounted) {
                     return;
                   }
                   AnalyticsHelper.trackProductEdit(
@@ -288,6 +292,9 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
           context,
           isLoggedInMandatory: true,
         )) {
+          return;
+        }
+        if (!context.mounted) {
           return;
         }
         AnalyticsHelper.trackProductEdit(

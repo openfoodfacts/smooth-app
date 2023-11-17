@@ -16,7 +16,7 @@ PODS:
   - FMDB/standard (2.7.5)
   - in_app_review (0.2.0):
     - FlutterMacOS
-  - mobile_scanner (3.0.0):
+  - mobile_scanner (3.5.2):
     - FlutterMacOS
   - package_info_plus (0.0.1):
     - FlutterMacOS
@@ -112,7 +112,7 @@ SPEC CHECKSUMS:
   FlutterMacOS: 8f6f14fa908a6fb3fba0cd85dbd81ec4b251fb24
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   in_app_review: a850789fad746e89bce03d4aeee8078b45a53fd0
-  mobile_scanner: ed7618fb749adc6574563e053f3b8e5002c13994
+  mobile_scanner: 621cf2c34e1c74ae7ce5c6793638ab600723bdea
   package_info_plus: 02d7a575e80f194102bef286361c6c326e4c29ce
   path_provider_foundation: 29f094ae23ebbca9d3d0cec13889cd9060c0e943
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
@@ -127,4 +127,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 353c8bcc5d5b0994e508d035b5431cfe18c1dea7
 
-COCOAPODS: 1.12.1
+COCOAPODS: 1.14.2

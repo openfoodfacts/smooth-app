@@ -599,7 +599,7 @@
     "ingredients_photo_title": "Zdjęcie listy składników",
     "nutritional_facts_photo_title": "Zdjęcie tabeli wartości odżywczych",
     "recycling_photo_title": "Zdjęcie informacji o recyklingu",
-    "other_interesting_photo_title": "Inne ciekawe zdjęcia",
+    "take_more_photo_title": "Inne ciekawe zdjęcia",
     "front_photo_uploaded": "Przesłano zdjęcie przodu",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "Zdjęcie listy składników",
@@ -622,6 +622,21 @@
     "new_product_desc_nova_unknown": "Poziom przetwarzania żywności nieznany",
     "new_product_title_pictures": "Zróbmy kilka zdjęć!",
     "new_product_title_misc": "I trochę podstawowych danych…",
+    "new_product_done_msg": "Dziękujemy za Twój wkład \"{username}\"!",
+    "@new_product_done_msg": {
+        "description": "Thank you message on the end of new product page, after finish adding a new product.",
+        "placeholders": {
+            "username": {
+                "type": "String",
+                "example": "Bob"
+            }
+        }
+    },
+    "new_product_done_msg_no_user": "Dzięki za twój wkład!",
+    "new_product_done_button_label": "Odkryj gotowy produkt",
+    "@new_product_done_button_label": {
+        "description": "Button at the end of new product page, that takes you to completed product"
+    },
     "hey_incomplete_product_message": "Dotknij, aby odpowiedzieć na 3 pytania TERAZ, aby obliczyć wskaźnik odżywczości, Eko-wynik & Ultra-przetwarzanie (NOVA)!",
     "nutritional_facts_photo_uploaded": "Przesłano zdjęcie z listą wartości odżywczych",
     "@nutritional_facts_photo_uploaded": {},
@@ -629,8 +644,8 @@
     "@recycling_photo_button_label": {},
     "recycling_photo_uploaded": "Przesłano zdjęcie dot. Recyklingu",
     "@recycling_photo_uploaded": {},
-    "other_interesting_photo_button_label": "Inne ciekawe zdjęcia",
-    "@other_interesting_photo_button_label": {},
+    "take_more_photo_button_label": "Inne ciekawe zdjęcia",
+    "@take_more_photo_button_label": {},
     "other_photo_uploaded": "Inne zdjęcie przesłane",
     "@other_photo_uploaded": {},
     "retake_photo_button_label": "Odzyskaj",
@@ -1341,6 +1356,10 @@
     "edit_product_form_save": "Edytuj",
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
+    },
+    "no_data_available": "Brak dostępnych informacji",
+    "@no_data_available": {
+        "description": "When there are no data to display"
     },
     "product_field_website_title": "Strona",
     "@product_field_website_title": {
