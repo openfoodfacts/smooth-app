@@ -150,6 +150,14 @@
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
+    "login_result_type_server_unreachable": "Network is unreachable",
+    "@login_result_type_server_unreachable": {
+        "description": "Error message when trying to log in without network"
+    },
+    "login_result_type_server_issue": "Problem on the server. Please try later.",
+    "@login_result_type_server_issue": {
+        "description": "Error message when trying to log in and the server does not answer correctly"
+    },
     "login_page_username_or_email": "사용자 이름 또는 이메일을 입력하십시오",
     "login_page_password_error_empty": "비밀번호를 입력하십시오",
     "create_account": "계정 생성",
