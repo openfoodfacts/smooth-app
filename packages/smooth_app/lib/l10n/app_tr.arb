@@ -1815,7 +1815,7 @@
             }
         }
     },
-    "confirm_delete_user_list_title": "Delete the list?",
+    "confirm_delete_user_list_title": "Liste silinsin mi?",
     "@confirm_delete_user_list_title": {
         "description": "Title when asking about whether to delete the list or not"
     },
@@ -1828,7 +1828,7 @@
             }
         }
     },
-    "confirm_delete_user_list_button": "Yes, I confirm",
+    "confirm_delete_user_list_button": "Evet, onaylıyorum",
     "@confirm_delete_user_list_button": {
         "description": "Button to delete a list"
     },
@@ -2393,7 +2393,7 @@
     "@update_offline_data": {
         "description": "List tile title for the update offline data page"
     },
-    "update_local_database_sub": "Update the local product database with the latest data from Open Food Facts",
+    "update_local_database_sub": "Yerel ürün veritabanını OpenFoodFacts'in en son verileriyle güncelleyin",
     "@update_local_database_sub": {
         "description": "Update the local product database with the latest data from server"
     },
@@ -2439,7 +2439,7 @@
             }
         }
     },
-    "country_selector_title": "Select your country:",
+    "country_selector_title": "Ülkenizi seçin:",
     "@country_selector_title": {
         "description": "Label written as the title of the dialog to select the user country"
     },
@@ -2451,7 +2451,7 @@
     "@action_delete_list": {
         "description": "Delete a list action in a menu"
     },
-    "action_change_list": "Change the current list",
+    "action_change_list": "Mevcut listeyi değiştir",
     "@action_change_list": {
         "description": "Action to change the current visible list"
     },
@@ -2469,16 +2469,16 @@
     "nutriscore_c": "Nutri-Score C",
     "nutriscore_d": "Nutri-Score D",
     "nutriscore_e": "Nutri-Score E",
-    "nutriscore_unknown": "Unknown Nutri-Score",
-    "nutriscore_not_applicable": "Nutri-Score is not applicable",
+    "nutriscore_unknown": "Bilinmeyen Nutri-Score",
+    "nutriscore_not_applicable": "Nutri-Score geçerli değildir",
     "ecoscore_generic": "Eco-Score",
     "ecoscore_a": "Eco-Score A",
     "ecoscore_b": "Eco-Score B",
     "ecoscore_c": "Eco-Score C",
     "ecoscore_d": "Eco-Score D",
     "ecoscore_e": "Eco-Score E",
-    "ecoscore_unknown": "Unknown Eco-Score",
-    "ecoscore_not_applicable": "Eco-Score is not applicable",
+    "ecoscore_unknown": "Bilinmeyen Eko-Skor",
+    "ecoscore_not_applicable": "Eco-Score geçerli değildir",
     "nova_group_generic": "Ultra işleme - NOVA grupları",
     "nova_group_1": "NOVA Grup 1",
     "nova_group_2": "NOVA Grup 2",
