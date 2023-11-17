@@ -6,6 +6,7 @@ import 'package:smooth_app/background/background_task.dart';
 import 'package:smooth_app/background/background_task_image.dart';
 import 'package:smooth_app/background/background_task_refresh_later.dart';
 import 'package:smooth_app/background/operation_type.dart';
+import 'package:smooth_app/data_models/login_result.dart';
 import 'package:smooth_app/database/dao_instant_string.dart';
 import 'package:smooth_app/database/dao_int.dart';
 import 'package:smooth_app/database/dao_string_list.dart';
@@ -177,7 +178,7 @@ class BackgroundTaskManager {
           }
         } catch (e) {
           // Most likely, no internet, no reason to go on.
-          if (e.toString().startsWith('Failed host lookup: ')) {
+          if (LoginResult.isNoNetworkException(e.toString())) {
             await _setTaskErrorStatus(taskId, taskStatusNoInternet);
             await _justFinished();
             return;
