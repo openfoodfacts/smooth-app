@@ -150,6 +150,14 @@
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
+    "login_result_type_server_unreachable": "Impossible de se connecter au réseau",
+    "@login_result_type_server_unreachable": {
+        "description": "Error message when trying to log in without network"
+    },
+    "login_result_type_server_issue": "Problème serveur. Essayez plus tard.",
+    "@login_result_type_server_issue": {
+        "description": "Error message when trying to log in and the server does not answer correctly"
+    },
     "login_page_username_or_email": "Veuillez saisir un nom d'utilisateur ou un e-mail",
     "login_page_password_error_empty": "Veuillez saisir un mot de passe",
     "create_account": "Créer un compte",
