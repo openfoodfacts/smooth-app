@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
+import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/extension_on_text_helper.dart';
 import 'package:smooth_app/pages/carousel_manager.dart';
@@ -16,6 +17,7 @@ import 'package:smooth_app/pages/product/edit_product_page.dart';
 import 'package:smooth_app/pages/product/new_product_page.dart';
 import 'package:smooth_app/pages/product/product_loader_page.dart';
 import 'package:smooth_app/pages/scan/search_page.dart';
+import 'package:smooth_app/query/product_query.dart';
 
 /// A replacement for the [Navigator], where we internally use [GoRouter].
 /// By itself the [GoRouter] attribute is not accessible, to allow us to easily
@@ -106,6 +108,10 @@ class _SmoothGoRouter {
         GoRoute(
           path: _InternalAppRoutes.HOME_PAGE,
           builder: (BuildContext context, GoRouterState state) {
+            if (!_appLanguageInitialized) {
+              _initAppLanguage(context);
+            }
+
             return _findLastOnboardingPage(context);
           },
           // We use sub-routes to allow the back button to work correctly
@@ -261,6 +267,16 @@ class _SmoothGoRouter {
         url: state.location,
       ),
     );
+  }
+
+  bool _appLanguageInitialized = false;
+
+  /// Required to setup the whole app
+  Future<void> _initAppLanguage(BuildContext context) {
+    // Must be set first to ensure the method is only called once
+    _appLanguageInitialized = true;
+    ProductQuery.setLanguage(context, context.read<UserPreferences>());
+    return context.read<ProductPreferences>().refresh();
   }
 
   String _openExternalLink(String path) {
