@@ -54,13 +54,13 @@ dependencies:
   crop_image: 1.0.11
   shared_preferences: 2.1.1
   intl: 0.18.1
-  collection: 1.17.2
+  collection: 1.18.0
   path: 1.8.3
   path_provider: 2.0.15
   share_plus: 7.2.1
   fimber: 0.6.6
   shimmer: ^3.0.0
-  lottie: 2.2.0
+  lottie: 2.7.0
   rive: 0.12.2
   sensors_plus: 3.0.3
   webview_flutter: 3.0.4
