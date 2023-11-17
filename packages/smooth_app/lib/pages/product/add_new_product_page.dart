@@ -108,10 +108,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
   bool _ecoscoreExpanded = false;
 
   @override
-  String get traceName => 'Opened add_new_product_page';
-
-  @override
-  String get traceTitle => 'add_new_product_page';
+  String get actionName => 'Opened add_new_product_page';
 
   @override
   void initState() {

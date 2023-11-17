@@ -53,10 +53,7 @@ class _ProductListPageState extends State<ProductListPage>
   bool _selectionMode = false;
 
   @override
-  String get traceName => 'Opened list_page';
-
-  @override
-  String get traceTitle => 'list_page';
+  String get actionName => 'Opened list_page';
 
   @override
   void initState() {

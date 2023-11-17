@@ -137,10 +137,7 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
   final ScrollController _controller = ScrollController();
 
   @override
-  String get traceTitle => 'user_preferences_page';
-
-  @override
-  String get traceName => 'Opened user_preferences_page';
+  String get actionName => 'Opened user_preferences_page';
 
   @override
   Widget build(BuildContext context) {

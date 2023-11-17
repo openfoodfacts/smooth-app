@@ -57,10 +57,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage>
   }
 
   @override
-  String get traceTitle => 'forgot_password_page';
-
-  @override
-  String get traceName => 'Opened forgot_password_page';
+  String get actionName => 'Opened forgot_password_page';
 
   @override
   void dispose() {

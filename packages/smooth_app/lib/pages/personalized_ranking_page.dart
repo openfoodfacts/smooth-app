@@ -34,10 +34,7 @@ class PersonalizedRankingPage extends StatefulWidget {
 class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
     with TraceableClientMixin {
   @override
-  String get traceName => 'Opened personalized ranking page'; // optional
-
-  @override
-  String get traceTitle => 'personalized_ranking_page';
+  String get actionName => 'Opened personalized ranking page';
 
   static const int _backgroundAlpha = 51;
 

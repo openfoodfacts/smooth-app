@@ -69,10 +69,7 @@ class CameraScannerPageState extends State<CameraScannerPage>
   }
 
   @override
-  String get traceTitle => '${GlobalVars.barcodeScanner.getType()}_page';
-
-  @override
-  String get traceName => 'Opened ${GlobalVars.barcodeScanner.getType()}_page';
+  String get actionName => 'Opened ${GlobalVars.barcodeScanner.getType()}_page';
 
   @override
   Widget build(BuildContext context) {

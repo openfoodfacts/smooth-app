@@ -30,10 +30,7 @@ class KnowledgePanelPage extends StatefulWidget {
 class _KnowledgePanelPageState extends State<KnowledgePanelPage>
     with TraceableClientMixin, UpToDateMixin {
   @override
-  String get traceTitle => 'knowledge_panel_page';
-
-  @override
-  String get traceName => 'Opened full knowledge panel page';
+  String get actionName => 'Opened full knowledge panel page';
 
   @override
   void initState() {
