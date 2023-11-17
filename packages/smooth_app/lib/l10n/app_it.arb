@@ -150,11 +150,11 @@
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
-    "login_result_type_server_unreachable": "Network is unreachable",
+    "login_result_type_server_unreachable": "Rete non raggiungibile",
     "@login_result_type_server_unreachable": {
         "description": "Error message when trying to log in without network"
     },
-    "login_result_type_server_issue": "Problem on the server. Please try later.",
+    "login_result_type_server_issue": "Problema sul server. Riprova più tardi.",
     "@login_result_type_server_issue": {
         "description": "Error message when trying to log in and the server does not answer correctly"
     },
@@ -621,15 +621,15 @@
     "nutritional_facts_added": "Valori nutrizionali aggiunti",
     "categories_added": "Categorie aggiunte",
     "new_product_title_nutriscore": "Calcola il Nutri-Score",
-    "new_product_subtitle_nutriscore": "Ottienilo compilando la categoria alimentare e i valori nutrizionali",
+    "new_product_subtitle_nutriscore": "Aiutaci compilando almeno una categoria e i valori nutrizionali",
     "new_product_title_ecoscore": "Calcola l'Eco-Score",
     "new_product_subtitle_ecoscore": "Ottienilo compilando almeno una categoria",
     "new_product_additional_ecoscore": "Rendere il calcolo di Eco-Score più preciso con origini, imballaggi e altro ancora",
     "new_product_title_nova": "Calcola il livello di trasformazione alimentare (NOVA)",
     "new_product_subtitle_nova": "Ottienilo compilando la categoria e gli ingredienti dell'alimento",
     "new_product_desc_nova_unknown": "Livello di trasformazione alimentare sconosciuto",
-    "new_product_title_pictures": "Scattiamo delle foto!",
-    "new_product_title_pictures_details": "Please take the following photos and the Open Food Facts engine can work out the rest!",
+    "new_product_title_pictures": "Nuovo prodotto",
+    "new_product_title_pictures_details": "Scatta le seguenti foto e il motore di Open Food Facts farà il resto!",
     "new_product_title_misc": "E dei dati essenziali…",
     "new_product_done_msg": "Grazie per il tuo contributo “{username}”!",
     "@new_product_done_msg": {
@@ -696,7 +696,7 @@
     "score_add_missing_ingredients": "Aggiungi gli ingredienti mancanti",
     "score_add_missing_packaging_image": "Aggiungi l'immagine mancante dell'imballaggio",
     "score_add_missing_nutrition_facts": "Aggiungi i valori nutrizionali mancanti",
-    "score_add_missing_product_category": "Aggiungi la categoria del prodotto mancante",
+    "score_add_missing_product_category": "Seleziona una categoria",
     "score_add_missing_product_countries": "Aggiungi i paesi mancanti del prodotto",
     "score_add_missing_product_emb": "Aggiungi i codici di tracciabilità mancanti del prodotto",
     "score_add_missing_product_labels": "Aggiungi le etichette mancanti del prodotto",
