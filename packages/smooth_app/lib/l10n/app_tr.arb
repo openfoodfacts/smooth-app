@@ -1506,7 +1506,7 @@
     "@dev_preferences_screen_title": {
         "description": "User dev preferences - Title"
     },
-    "dev_preferences_reset_onboarding_title": "Restart onboarding",
+    "dev_preferences_reset_onboarding_title": "İlk katılımı yeniden başlat",
     "@dev_preferences_reset_onboarding_title": {
         "description": "User dev preferences - Reset onboarding - Title"
     },
@@ -1819,7 +1819,7 @@
     "@confirm_delete_user_list_title": {
         "description": "Title when asking about whether to delete the list or not"
     },
-    "confirm_delete_user_list_message": "You're about to delete the list \"{name}\".\nAre you sure you want to continue?",
+    "confirm_delete_user_list_message": "Bu listeyi silmek üzeresiniz: {name}. Devam etmek istediğinizden emin misiniz?",
     "@confirm_delete_user_list_message": {
         "description": "Message when asking about whether to delete the list or not",
         "placeholders": {
@@ -1907,7 +1907,7 @@
     "@share": {
         "description": "Button label for sharing something on another app. For example sharing the link to a product via Email"
     },
-    "share_product_text": "Have a look at this product on Open Food Facts: {url}",
+    "share_product_text": "Open Food Facts'teki bu ürüne bir göz atın: {url}",
     "@share_product_text": {
         "description": "The content which is send, when sharing a product",
         "placeholders": {
@@ -1916,7 +1916,7 @@
             }
         }
     },
-    "share_product_list_text": "Have a look at my list of products on Open Food Facts: {url}",
+    "share_product_list_text": "Open Food Facts'teki ürün listeme bir göz atın: {url}",
     "@share_product_list_text": {
         "description": "The content which is send, when sharing a product list",
         "placeholders": {
@@ -2058,11 +2058,11 @@
     "@portion_calculator_hint": {
         "description": "Hint to show when a quantity is empty in the portion calculator."
     },
-    "portion_calculator_accessibility": "Input a quantity to calculate nutrition facts",
+    "portion_calculator_accessibility": "Besin değerlerini hesaplamak için bir miktar girin",
     "@portion_calculator_accessibility": {
         "description": "Hint for the acessibility to explain to enter a quantity."
     },
-    "portion_calculator_error": "Please enter a quantity between {min} and {max} g",
+    "portion_calculator_error": "Lütfen {min} ile {max} g arasında bir değer giriniz",
     "@portion_calculator_error": {
         "description": "Error message to explain that the quantity is invalid.",
         "placeholders": {
@@ -2368,7 +2368,7 @@
     "@download_top_products": {
         "description": "Download the top 1000 products in your country for instant scanning"
     },
-    "download_top_n_products": "Download the top {count,plural,  other{{count} products}} in your country for instant scanning",
+    "download_top_n_products": "Ülkenizde en çok kullanılan {count,plural, other{{count} ürünü}} hızla taramak için indirin",
     "@download_top_n_products": {
         "placeholders": {
             "count": {
