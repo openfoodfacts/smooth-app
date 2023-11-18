@@ -150,11 +150,11 @@
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
-    "login_result_type_server_unreachable": "Network is unreachable",
+    "login_result_type_server_unreachable": "Rețeaua nu este accesibilă",
     "@login_result_type_server_unreachable": {
         "description": "Error message when trying to log in without network"
     },
-    "login_result_type_server_issue": "Problem on the server. Please try later.",
+    "login_result_type_server_issue": "Problemă la server. Te rugăm să încerci mai târziu.",
     "@login_result_type_server_issue": {
         "description": "Error message when trying to log in and the server does not answer correctly"
     },
@@ -549,9 +549,9 @@
     "@new_product_dialog_description": {
         "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
     },
-    "front_packaging_photo_button_label": "Fotografia din față a produsului",
+    "front_packaging_photo_button_label": "Fotografie din față a produsului",
     "@front_packaging_photo_button_label": {},
-    "confirm_front_packaging_photo_button_label": "Confirmă încărcarea fotografiei din față a produsului",
+    "confirm_front_packaging_photo_button_label": "Confirmați încărcarea fotografiei ambalajului frontal",
     "@confirm_front_packaging_photo_button_label": {
         "description": "Button clicking on which confirms the picture of the front of product that user just took."
     },
@@ -617,19 +617,19 @@
     "nutrition_cache_loading_error": "Imposibil de încărcat nutrienții din cache",
     "nutritional_facts_photo_button_label": "Foto cu informații nutriționale",
     "@nutritional_facts_photo_button_label": {},
-    "nutritional_facts_input_button_label": "Introduceți informații nutriționale",
+    "nutritional_facts_input_button_label": "Completați informațiile nutriționale",
     "nutritional_facts_added": "Date nutriționale adăugate",
     "categories_added": "Categorii adăugate",
     "new_product_title_nutriscore": "Calculează Nutri-Score-ul",
-    "new_product_subtitle_nutriscore": "Obțineți-l completând categoria de alimente și valorile nutriționale",
+    "new_product_subtitle_nutriscore": "Ajutați-ne completând cel puțin o categorie și valori nutriționale",
     "new_product_title_ecoscore": "Calculați Scorul Eco",
     "new_product_subtitle_ecoscore": "Obțineți-l completând cel puțin o categorie",
     "new_product_additional_ecoscore": "Faceți calculul Eco-Score mai precis cu originile, ambalaje și multe altele",
     "new_product_title_nova": "Calculați nivelul de procesare a alimentelor (NOVA)",
     "new_product_subtitle_nova": "Obțineți-l completând categoria de alimente și ingrediente",
     "new_product_desc_nova_unknown": "Nivel de procesare a alimentelor necunoscut",
-    "new_product_title_pictures": "Hai să facem niște poze!",
-    "new_product_title_pictures_details": "Please take the following photos and the Open Food Facts engine can work out the rest!",
+    "new_product_title_pictures": "Produs nou",
+    "new_product_title_pictures_details": "Vă rugăm să faceți următoarele fotografii și motorul Open Food Facts poate rezolva restul!",
     "new_product_title_misc": "Și câteva date de bază…",
     "new_product_done_msg": "Mulțumim pentru contribuția ta „{username}”!",
     "@new_product_done_msg": {
@@ -696,7 +696,7 @@
     "score_add_missing_ingredients": "Adăugați ingredientele lipsă",
     "score_add_missing_packaging_image": "Adaugă imaginea lipsă a ambalajului",
     "score_add_missing_nutrition_facts": "Adăugați informațiile nutriționale care lipsesc",
-    "score_add_missing_product_category": "Adăugați categoria de produse lipsă",
+    "score_add_missing_product_category": "Selectați o categorie",
     "score_add_missing_product_countries": "Adăugați țările care lipsesc",
     "score_add_missing_product_emb": "Adăugați codurile de trasabilitate ale produselor care lipsesc",
     "score_add_missing_product_labels": "Adăugați etichetele produselor care lipsesc",
