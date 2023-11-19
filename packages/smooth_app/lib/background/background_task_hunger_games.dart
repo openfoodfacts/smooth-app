@@ -118,7 +118,7 @@ class BackgroundTaskHungerGames extends BackgroundTaskBarcode {
   @override
   Future<void> upload() async {
     final InsightAnnotation? annotation =
-        InsightAnnotation.fromInt(insightAnnotation);
+        _getInsightAnnotation(insightAnnotation);
     if (annotation == null) {
       // very unlikely
       return;
@@ -128,5 +128,16 @@ class BackgroundTaskHungerGames extends BackgroundTaskBarcode {
       annotation,
       deviceId: OpenFoodAPIConfiguration.uuid,
     );
+  }
+
+  // TODO(monsieurtanuki): move to off-dart
+  static InsightAnnotation? _getInsightAnnotation(final int annotation) {
+    for (final InsightAnnotation insightAnnotation
+        in InsightAnnotation.values) {
+      if (annotation == insightAnnotation.value) {
+        return insightAnnotation;
+      }
+    }
+    return null;
   }
 }

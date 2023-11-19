@@ -9,14 +9,17 @@ import 'package:smooth_app/background/background_task_manager.dart';
 import 'package:smooth_app/data_models/up_to_date_product_list_provider.dart';
 import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/database/abstract_dao.dart';
+import 'package:smooth_app/database/dao_hive_product.dart';
 import 'package:smooth_app/database/dao_instant_string.dart';
 import 'package:smooth_app/database/dao_int.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
+import 'package:smooth_app/database/dao_product_migration.dart';
 import 'package:smooth_app/database/dao_string.dart';
 import 'package:smooth_app/database/dao_string_list.dart';
 import 'package:smooth_app/database/dao_string_list_map.dart';
 import 'package:smooth_app/database/dao_transient_operation.dart';
+import 'package:smooth_app/database/dao_unzipped_product.dart';
 import 'package:smooth_app/database/dao_work_barcode.dart';
 import 'package:sqflite/sqflite.dart';
 
@@ -71,6 +74,7 @@ class LocalDatabase extends ChangeNotifier {
     // only hive from there
     await Hive.initFlutter();
     final List<AbstractDao> daos = <AbstractDao>[
+      DaoHiveProduct(localDatabase),
       DaoProductList(localDatabase),
       DaoStringList(localDatabase),
       DaoString(localDatabase),
@@ -87,7 +91,14 @@ class LocalDatabase extends ChangeNotifier {
     }
 
     // Migrations here
-    // (no migration for the moment)
+    await DaoProductMigration.migrate(
+      source: DaoHiveProduct(localDatabase),
+      destination: DaoUnzippedProduct(localDatabase),
+    );
+    await DaoProductMigration.migrate(
+      source: DaoUnzippedProduct(localDatabase),
+      destination: DaoProduct(localDatabase),
+    );
 
     return localDatabase;
   }
@@ -101,6 +112,7 @@ class LocalDatabase extends ChangeNotifier {
     final int oldVersion,
     final int newVersion,
   ) async {
+    await DaoUnzippedProduct.onUpgrade(db, oldVersion, newVersion);
     await DaoProduct.onUpgrade(db, oldVersion, newVersion);
     await DaoWorkBarcode.onUpgrade(db, oldVersion, newVersion);
   }

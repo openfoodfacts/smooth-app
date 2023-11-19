@@ -294,8 +294,8 @@ class _CropPageState extends State<CropPage> {
             title: appLocalizations.crop_page_too_small_image_title,
             body: Text(
               appLocalizations.crop_page_too_small_image_message(
-                ImageHelper.minimumWidth,
-                ImageHelper.minimumHeight,
+                BackgroundTaskImage.minimumWidth,
+                BackgroundTaskImage.minimumHeight,
                 width,
                 height,
               ),
