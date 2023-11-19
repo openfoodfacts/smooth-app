@@ -629,7 +629,7 @@
     "new_product_subtitle_nova": "Otrzymaj go, wypełniając kategorię żywności oraz składniki",
     "new_product_desc_nova_unknown": "Poziom przetwarzania żywności nieznany",
     "new_product_title_pictures": "Zróbmy kilka zdjęć!",
-    "new_product_title_pictures_details": "Please take the following photos and the Open Food Facts engine can work out the rest!",
+    "new_product_title_pictures_details": "Zrób następujące zdjęcia, a silnik Open Food Facts może odtworzyć resztę!",
     "new_product_title_misc": "I trochę podstawowych danych…",
     "new_product_done_msg": "Dziękujemy za Twój wkład \"{username}\"!",
     "@new_product_done_msg": {
