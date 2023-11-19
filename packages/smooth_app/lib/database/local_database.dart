@@ -9,6 +9,7 @@ import 'package:smooth_app/background/background_task_manager.dart';
 import 'package:smooth_app/data_models/up_to_date_product_list_provider.dart';
 import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/database/abstract_dao.dart';
+import 'package:smooth_app/database/dao_hive_product.dart';
 import 'package:smooth_app/database/dao_instant_string.dart';
 import 'package:smooth_app/database/dao_int.dart';
 import 'package:smooth_app/database/dao_product.dart';
@@ -71,6 +72,7 @@ class LocalDatabase extends ChangeNotifier {
     // only hive from there
     await Hive.initFlutter();
     final List<AbstractDao> daos = <AbstractDao>[
+      DaoHiveProduct(localDatabase),
       DaoProductList(localDatabase),
       DaoStringList(localDatabase),
       DaoString(localDatabase),
