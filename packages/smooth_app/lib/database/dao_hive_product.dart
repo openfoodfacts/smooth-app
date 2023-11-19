@@ -34,8 +34,7 @@ class DaoHiveProduct extends AbstractDao implements DaoProductMigrationSource {
   Future<void> init() async => Hive.openLazyBox<Product>(_hiveBoxName);
 
   @override
-  void registerAdapter() =>
-    Hive.registerAdapter(_ProductAdapter());
+  void registerAdapter() => Hive.registerAdapter(_ProductAdapter());
 
   LazyBox<Product> _getBox() => Hive.lazyBox<Product>(_hiveBoxName);
 
