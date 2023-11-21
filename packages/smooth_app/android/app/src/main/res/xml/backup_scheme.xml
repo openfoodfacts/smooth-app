@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<data-extraction-rules xmlns:android="http://schemas.android.com/apk/res/android">
-    <cloud-backup disableIfNoEncryptionCapabilities="true">
+<full-backup-content>
         <include
                 domain="sharedpref"
                 path="." />
@@ -10,11 +9,16 @@
         <exclude
                 domain="sharedpref"
                 path="com.google.mlkit.internal.xml" />
-        <exclude domain="database" />
+        <include
+                domain="databases"
+                path="app_flutter/smoothie.db" />
         <exclude domain="root" />
         <include
                 domain="root"
                 path="app_flutter/barcodelists.hive" />
+        <include
+                domain="root"
+                path="app_flutter/instantstring.hive" />
         <include
                 domain="root"
                 path="app_flutter/int.hive" />
@@ -30,39 +34,4 @@
         <include
                 domain="root"
                 path="app_flutter/stringlist.hive" />
-    </cloud-backup>
-
-    <device-transfer>
-        <include
-                domain="sharedpref"
-                path="." />
-        <exclude
-                domain="sharedpref"
-                path="login.xml" />
-        <exclude
-                domain="sharedpref"
-                path="com.google.mlkit.internal.xml" />
-
-        <exclude domain="database"  />
-        <exclude domain="root" />
-
-        <include
-                domain="root"
-                path="app_flutter/barcodelists.hive" />
-        <include
-                domain="root"
-                path="app_flutter/int.hive" />
-        <include
-                domain="root"
-                path="app_flutter/products.hive" />
-        <include
-                domain="root"
-                path="app_flutter/robotoffmap.hive" />
-        <include
-                domain="root"
-                path="app_flutter/string.hive" />
-        <include
-                domain="root"
-                path="app_flutter/stringlist.hive" />
-    </device-transfer>
-</data-extraction-rules>
+</full-backup-content>
