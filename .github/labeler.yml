@@ -2,13 +2,13 @@
 Android:
 - packages/smooth_app/android/**/*
 
-MacOS:
+🖥️ MacOS:
 - packages/smooth_app/macos/**/*
 
 Assets cache:
 - packages/smooth_app/assets/cache/
 
-Background tasks:
+🔁 Background tasks:
 - packages/smooth_app/lib/background/background_task_manager.dart
 - packages/smooth_app/lib/pages/offline_tasks_page.dart
 
@@ -33,11 +33,11 @@ Dependencies:
 🍎 iOS:
 - packages/smooth_app/ios/**/*
 
-Fastlane:
+⚡️ Fastlane:
 - packages/smooth_app/ios/Gemfile.lock
 - packages/smooth_app/android/Gemfile.lock
 
-asset cache:
+Asset cache:
 - packages/smooth_app/assets/cache/**/*
 
 Web:
@@ -70,16 +70,16 @@ Web:
 database:
 - packages/smooth_app/lib/database/**/*
 
-l10n:
+🌐 l10n:
 - packages/smooth_app/lib/l10n/**/*
 
-history:
+History:
 - packages/smooth_app/lib/pages/history_page.dart
 
-settings:
+⚙️ settings:
 - packages/smooth_app/lib/pages/user_preferences_page.dart
 
-food preferences:
+⚙️🥗 Food preferences:
 - packages/smooth_app/lib/widgets/attribute_button.dart
 
 🤗 Onboarding:
@@ -102,7 +102,7 @@ food preferences:
 Amazon Appstore:
 - packages/smooth_app/lib/entrypoints/android/main_amazon_appstore.dart,
 
-fdroid:
+F-Droid:
 - packages/smooth_app/lib/entrypoints/android/main_fdroid.dart,
 
 Huawei AppGallery:
@@ -111,14 +111,14 @@ Huawei AppGallery:
 🤳🥫 zxing:
 - packages/scanner/zxing/**/*
 
-product addition:
+Product addition:
 - packages/smooth_app/lib/pages/product/add_new_product_page.dart
 - packages/smooth_app/lib/pages/product/new_product_page.dart
 
-product page:
+Product page:
 - packages/smooth_app/lib/pages/product/**/*
 
-knowledge panels:
+📖 Knowledge panels:
 - packages/smooth_app/lib/cards/product_cards/knowledge_panels/
 
 🤖 Robotoff:
@@ -129,7 +129,7 @@ Hunger Games:
 - packages/smooth_app/lib/pages/hunger_games/question_answers_options.dart
 - packages/smooth_app/lib/pages/hunger_games/question_card.dart
 
-summary card:
+Summary card:
 - packages/smooth_app/lib/pages/product/summary_card.dart
 
 📈 Analytics:
@@ -176,13 +176,13 @@ GitHub:
 - packages/smooth_app/lib/data_models/query_category_tree_supplier.dart
 - packages/smooth_app/lib/data_models/smooth_category.dart
 
-ranking:
+Ranking:
 - packages/smooth_app/lib/helpers/product_compatibility_helper.dart
 
 generic lib:
 - packages/smooth_app/lib/generic_lib
 
-photo cropping:
+🖼️ Photos - Cropping:
 - packages/smooth_app/lib/pages/image_crop_page.dart
 
 user lists:
