@@ -777,7 +777,11 @@
     },
     "country_chooser_label": "Παρακαλούμε επιλέξτε μια χώρα",
     "@country_chooser_label": {
-        "description": "Label shown above a selector where the user can select their country (in the onboarding)"
+        "description": "Label shown above a selector where the user can select their country (in the preferences)"
+    },
+    "onboarding_country_chooser_label": "Please choose a country:",
+    "@onboarding_country_chooser_label": {
+        "description": "The label shown above a selector where the user can select their country (in the onboarding)"
     },
     "country_chooser_label_from_settings": "Your country",
     "@country_chooser_label_from_settings": {
