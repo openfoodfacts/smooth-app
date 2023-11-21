@@ -35,7 +35,7 @@ class UserPreferencesCountrySelector extends StatelessWidget {
         ),
         child: CountrySelector(
           textStyle: themeData.textTheme.bodyMedium,
-          icon: Icons.edit,
+          icon: const Icon(Icons.edit),
           padding: const EdgeInsetsDirectional.only(
             start: SMALL_SPACE,
           ),
