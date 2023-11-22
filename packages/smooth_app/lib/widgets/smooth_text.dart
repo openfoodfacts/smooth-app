@@ -47,11 +47,15 @@ class TextHighlighter extends StatelessWidget {
   const TextHighlighter({
     required this.text,
     required this.filter,
+    this.textAlign,
     this.selected = false,
+    this.softWrap = false,
   });
 
   final String text;
   final String filter;
+  final TextAlign? textAlign;
+  final bool? softWrap;
   final bool selected;
 
   @override
@@ -75,7 +79,8 @@ class TextHighlighter extends StatelessWidget {
           );
         }).toList(growable: false),
       ),
-      softWrap: false,
+      softWrap: softWrap,
+      textAlign: textAlign,
       overflow: TextOverflow.fade,
     );
   }

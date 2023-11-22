@@ -24,9 +24,11 @@ import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/pages/product/common/product_list_item_simple.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/query/paged_product_query.dart';
+import 'package:smooth_app/resources/app_animations.dart';
 import 'package:smooth_app/widgets/ranking_floating_action_button.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
+import 'package:smooth_app/widgets/smooth_text.dart';
 
 class ProductQueryPage extends StatefulWidget {
   const ProductQueryPage({
@@ -110,10 +112,8 @@ class _ProductQueryPageState extends State<ProductQueryPage>
             );
           case LoadingStatus.LOADING:
             if (_model.isEmpty()) {
-              return _EmptyScreen(
-                screenSize: screenSize,
-                name: widget.name,
-                emptiness: const CircularProgressIndicator.adaptive(),
+              return _LoadingScreen(
+                title: widget.name,
               );
             }
             break;
@@ -121,7 +121,6 @@ class _ProductQueryPageState extends State<ProductQueryPage>
             if (_model.isEmpty()) {
               // TODO(monsieurtanuki): should be tracked as well, shouldn't it?
               return _EmptyScreen(
-                screenSize: screenSize,
                 name: widget.name,
                 emptiness: _getEmptyText(
                   themeData,
@@ -290,7 +289,6 @@ class _ProductQueryPageState extends State<ProductQueryPage>
     final String errorMessage,
   ) {
     return _EmptyScreen(
-      screenSize: screenSize,
       name: widget.name,
       emptiness: Padding(
         padding: const EdgeInsets.all(SMALL_SPACE),
@@ -495,14 +493,12 @@ class _ProductQueryPageState extends State<ProductQueryPage>
 
 class _EmptyScreen extends StatelessWidget {
   const _EmptyScreen({
-    required this.screenSize,
     required this.name,
     required this.emptiness,
     this.actions,
     Key? key,
   }) : super(key: key);
 
-  final Size screenSize;
   final String name;
   final Widget emptiness;
   final List<Widget>? actions;
@@ -580,4 +576,39 @@ class _Action {
 enum ProductQueryPageResult {
   editProductQuery,
   unknown,
+}
+
+class _LoadingScreen extends StatelessWidget {
+  const _LoadingScreen({
+    required this.title,
+  });
+
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return _EmptyScreen(
+      name: title,
+      emptiness: FractionallySizedBox(
+        widthFactor: 0.75,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            SearchEyeAnimation(
+              size: MediaQuery.sizeOf(context).width * 0.2,
+            ),
+            const SizedBox(height: VERY_LARGE_SPACE * 2),
+            TextHighlighter(
+              text:
+                  'Votre recherche de keyword est en cours.\n\nMerci de patienter quelques instants…'
+                      .replaceFirst('keyword', title),
+              filter: title,
+              softWrap: true,
+              textAlign: TextAlign.center,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 }
