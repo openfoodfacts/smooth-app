@@ -2,13 +2,13 @@
 Android:
 - packages/smooth_app/android/**/*
 
-MacOS:
+🖥️ MacOS:
 - packages/smooth_app/macos/**/*
 
 Assets cache:
 - packages/smooth_app/assets/cache/
 
-Background tasks:
+🔁 Background tasks:
 - packages/smooth_app/lib/background/background_task_manager.dart
 - packages/smooth_app/lib/pages/offline_tasks_page.dart
 
@@ -33,11 +33,11 @@ Dependencies:
 🍎 iOS:
 - packages/smooth_app/ios/**/*
 
-Fastlane:
+⚡️ Fastlane:
 - packages/smooth_app/ios/Gemfile.lock
 - packages/smooth_app/android/Gemfile.lock
 
-asset cache:
+Asset cache:
 - packages/smooth_app/assets/cache/**/*
 
 Web:
@@ -67,19 +67,19 @@ Web:
 - packages/smooth_app/test/tests_utils/path_provider_mock.dart
 - packages/smooth_app/test/smooth_ui_library/animations/smooth_reveal_animation_test.dart
 
-database:
+Database:
 - packages/smooth_app/lib/database/**/*
 
-l10n:
+🌐 l10n:
 - packages/smooth_app/lib/l10n/**/*
 
-history:
+History:
 - packages/smooth_app/lib/pages/history_page.dart
 
-settings:
+⚙️ Settings:
 - packages/smooth_app/lib/pages/user_preferences_page.dart
 
-food preferences:
+⚙️🥗 Food preferences:
 - packages/smooth_app/lib/widgets/attribute_button.dart
 
 🤗 Onboarding:
@@ -102,24 +102,27 @@ food preferences:
 Amazon Appstore:
 - packages/smooth_app/lib/entrypoints/android/main_amazon_appstore.dart,
 
-fdroid:
+F-Droid:
 - packages/smooth_app/lib/entrypoints/android/main_fdroid.dart,
 
 Huawei AppGallery:
 - packages/smooth_app/lib/entrypoints/android/main_huawei_appgallery.dart,
 
-🤳🥫 zxing:
+🤳🥫 ZXing:
 - packages/scanner/zxing/**/*
 
-product addition:
+Product addition:
 - packages/smooth_app/lib/pages/product/add_new_product_page.dart
 - packages/smooth_app/lib/pages/product/new_product_page.dart
 
-product page:
+Product page:
 - packages/smooth_app/lib/pages/product/**/*
 
-knowledge panels:
-- packages/smooth_app/lib/cards/product_cards/knowledge_panels/
+📖 Knowledge panels:
+- packages/smooth_app/lib/cards/product_cards/knowledge_panels/**/*
+- packages/smooth_app/lib/pages/product/reorderable_knowledge_panel_page.dart
+- packages/smooth_app/lib/pages/product/reordered_knowledge_panel_cards.dart
+- packages/smooth_app/lib/pages/product/standard_knowledge_panel_cards.dart
 
 🤖 Robotoff:
 - packages/smooth_app/lib/database/robotoff_questions_query.dart
@@ -129,7 +132,7 @@ Hunger Games:
 - packages/smooth_app/lib/pages/hunger_games/question_answers_options.dart
 - packages/smooth_app/lib/pages/hunger_games/question_card.dart
 
-summary card:
+Summary card:
 - packages/smooth_app/lib/pages/product/summary_card.dart
 
 📈 Analytics:
@@ -137,7 +140,7 @@ summary card:
 - packages/smooth_app/assets/onboarding/analytics.svg
 - packages/smooth_app/lib/helpers/analytics_helper.dart
 
-goldens:
+Goldens:
 - packages/smooth_app/test/pages/goldens
 - packages/smooth_app/test/tests_utils/goldens.dart
 - packages/smooth_app/test/pages/goldens/user_preferences_page-dark.png
@@ -176,20 +179,20 @@ GitHub:
 - packages/smooth_app/lib/data_models/query_category_tree_supplier.dart
 - packages/smooth_app/lib/data_models/smooth_category.dart
 
-ranking:
+Ranking:
 - packages/smooth_app/lib/helpers/product_compatibility_helper.dart
 
-generic lib:
+Generic lib:
 - packages/smooth_app/lib/generic_lib
 
-photo cropping:
+🖼️ Photos - Cropping:
 - packages/smooth_app/lib/pages/image_crop_page.dart
 
-user lists:
+User lists:
 - packages/smooth_app/lib/pages/product_list_user_dialog_helper.dart
 - packages/smooth_app/lib/pages/product/common/product_list_page.dart
 
-product scan carousel:
+Product scan carousel:
 - packages/smooth_app/lib/widgets/smooth_product_carousel.dart
 
 ✏️ Editing - 📦 Packaging input:
