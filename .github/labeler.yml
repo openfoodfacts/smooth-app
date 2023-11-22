@@ -67,7 +67,7 @@ Web:
 - packages/smooth_app/test/tests_utils/path_provider_mock.dart
 - packages/smooth_app/test/smooth_ui_library/animations/smooth_reveal_animation_test.dart
 
-database:
+Database:
 - packages/smooth_app/lib/database/**/*
 
 🌐 l10n:
@@ -76,7 +76,7 @@ database:
 History:
 - packages/smooth_app/lib/pages/history_page.dart
 
-⚙️ settings:
+⚙️ Settings:
 - packages/smooth_app/lib/pages/user_preferences_page.dart
 
 ⚙️🥗 Food preferences:
@@ -108,7 +108,7 @@ F-Droid:
 Huawei AppGallery:
 - packages/smooth_app/lib/entrypoints/android/main_huawei_appgallery.dart,
 
-🤳🥫 zxing:
+🤳🥫 ZXing:
 - packages/scanner/zxing/**/*
 
 Product addition:
@@ -179,17 +179,17 @@ GitHub:
 Ranking:
 - packages/smooth_app/lib/helpers/product_compatibility_helper.dart
 
-generic lib:
+Generic lib:
 - packages/smooth_app/lib/generic_lib
 
 🖼️ Photos - Cropping:
 - packages/smooth_app/lib/pages/image_crop_page.dart
 
-user lists:
+User lists:
 - packages/smooth_app/lib/pages/product_list_user_dialog_helper.dart
 - packages/smooth_app/lib/pages/product/common/product_list_page.dart
 
-product scan carousel:
+Product scan carousel:
 - packages/smooth_app/lib/widgets/smooth_product_carousel.dart
 
 ✏️ Editing - 📦 Packaging input:
