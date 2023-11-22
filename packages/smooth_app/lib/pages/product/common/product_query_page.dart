@@ -587,6 +587,8 @@ class _LoadingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
     return _EmptyScreen(
       name: title,
       emptiness: FractionallySizedBox(
@@ -599,9 +601,7 @@ class _LoadingScreen extends StatelessWidget {
             ),
             const SizedBox(height: VERY_LARGE_SPACE * 2),
             TextHighlighter(
-              text:
-                  'Votre recherche de keyword est en cours.\n\nMerci de patienter quelques instants…'
-                      .replaceFirst('keyword', title),
+              text: appLocalizations.product_search_loading_message(title),
               filter: title,
               softWrap: true,
               textAlign: TextAlign.center,
