@@ -426,7 +426,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
     );
     await BackgroundTaskDetails.addTask(
       changedProduct,
-      widget: this,
+      context: context,
       stamp: BackgroundTaskDetailsStamp.nutrition,
     );
     return true;

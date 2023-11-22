@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
-import 'package:flutter_map/plugin_api.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -24,13 +23,18 @@ class KnowledgePanelWorldMapCard extends StatelessWidget {
         child: FlutterMap(
           options: MapOptions(
             // The first pointer is used as the center of the map.
-            center: LatLng(
+            initialCenter: LatLng(
               mapElement.pointers.first.geo!.lat,
               mapElement.pointers.first.geo!.lng,
             ),
-            zoom: 6.0,
+            initialZoom: 6.0,
           ),
-          nonRotatedChildren: <Widget>[
+          children: <Widget>[
+            TileLayer(
+              urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+              userAgentPackageName: 'org.openfoodfacts.app',
+            ),
+            MarkerLayer(markers: getMarkers(mapElement.pointers)),
             RichAttributionWidget(
               popupInitialDisplayDuration: const Duration(seconds: 5),
               animationConfig: const ScaleRAWA(),
@@ -44,13 +48,6 @@ class KnowledgePanelWorldMapCard extends StatelessWidget {
                 ),
               ],
             ),
-          ],
-          children: <Widget>[
-            TileLayer(
-              urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-              userAgentPackageName: 'org.openfoodfacts.app',
-            ),
-            MarkerLayer(markers: getMarkers(mapElement.pointers)),
           ],
         ),
       ),
@@ -66,7 +63,7 @@ class KnowledgePanelWorldMapCard extends StatelessWidget {
       markers.add(
         Marker(
           point: LatLng(pointer.geo!.lat, pointer.geo!.lng),
-          builder: (BuildContext ctx) => const Icon(
+          child: const Icon(
             Icons.pin_drop,
             color: Colors.lightBlue,
           ),

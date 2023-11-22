@@ -56,10 +56,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
   late final OpenFoodFactsCountry? _country;
 
   @override
-  String get traceTitle => 'search_page';
-
-  @override
-  String get traceName => 'Opened search_page';
+  String get actionName => 'Opened search_page';
 
   @override
   void initState() {
@@ -73,11 +70,15 @@ class _ProductQueryPageState extends State<ProductQueryPage>
         if (_scrollController.offset >= 400) {
           if (!_showBackToTopButton) {
             _showBackToTopButton = true;
-            setState(() {});
+            if (mounted) {
+              setState(() {});
+            }
           }
         } else if (_showBackToTopButton) {
           _showBackToTopButton = false;
-          setState(() {});
+          if (mounted) {
+            setState(() {});
+          }
         }
       });
   }
@@ -427,8 +428,11 @@ class _ProductQueryPageState extends State<ProductQueryPage>
         ),
       );
 
-  void retryConnection() =>
+  void retryConnection() {
+    if (mounted) {
       setState(() => _model = _getModel(widget.productListSupplier));
+    }
+  }
 
   ProductQueryModel _getModel(final ProductListSupplier supplier) =>
       ProductQueryModel(supplier);
@@ -448,7 +452,9 @@ class _ProductQueryPageState extends State<ProductQueryPage>
       if (successfullyLoaded) {
         _scrollToTop(instant: true);
       }
-      setState(() {});
+      if (mounted) {
+        setState(() {});
+      }
     }
   }
 
@@ -476,7 +482,9 @@ class _ProductQueryPageState extends State<ProductQueryPage>
     try {
       final bool result = await _model.loadNextPage();
       if (result) {
-        setState(() {});
+        if (mounted) {
+          setState(() {});
+        }
       }
     } catch (e) {
       //

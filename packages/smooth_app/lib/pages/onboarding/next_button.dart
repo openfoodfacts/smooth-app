@@ -54,11 +54,12 @@ class NextButton extends StatelessWidget {
         onPressed: () async {
           await OnboardingLoader(localDatabase)
               .runAtNextTime(currentPage, context);
-          //ignore: use_build_context_synchronously
-          await navigator.navigateToPage(
-            context,
-            currentPage.getNextPage(),
-          );
+          if (context.mounted) {
+            await navigator.navigateToPage(
+              context,
+              currentPage.getNextPage(),
+            );
+          }
         },
         backgroundColor: Colors.black,
         foregroundColor: Colors.white,

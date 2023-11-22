@@ -164,7 +164,7 @@ class UserPreferencesConnect extends AbstractUserPreferences {
               body: await _emailBody,
               subject:
                   '${appLocalizations.help_with_openfoodfacts} (Help with Open Food Facts)',
-              recipient: 'contact@openfoodfacts.org',
+              recipient: 'mobile@openfoodfacts.org',
               attachmentPaths: includeLogs == true ? Logs.logFilesPaths : null,
             );
           },
@@ -246,7 +246,9 @@ class UserPreferencesConnect extends AbstractUserPreferences {
         return;
       }
       // No email client installed on the device
-      // ignore: use_build_context_synchronously
+      if (!context.mounted) {
+        return;
+      }
       await showDialog<void>(
         context: context,
         builder: (BuildContext context) => ScaffoldMessenger(

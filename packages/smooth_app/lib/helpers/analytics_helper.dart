@@ -299,10 +299,12 @@ class AnalyticsHelper {
     String? barcode,
   }) =>
       MatomoTracker.instance.trackEvent(
-        eventName: msg.name,
-        eventCategory: msg.category.tag,
-        action: msg.name,
-        eventValue: eventValue ?? _formatBarcode(barcode),
+        eventInfo: EventInfo(
+          name: msg.name,
+          category: msg.category.tag,
+          action: msg.name,
+          value: eventValue ?? _formatBarcode(barcode),
+        ),
       );
 
   // Used by code which is outside of the core:smooth_app code
@@ -314,20 +316,24 @@ class AnalyticsHelper {
     String? barcode,
   }) =>
       MatomoTracker.instance.trackEvent(
-        eventName: msg,
-        eventCategory: category,
-        action: msg,
-        eventValue: eventValue ?? _formatBarcode(barcode),
+        eventInfo: EventInfo(
+          name: msg,
+          category: category,
+          action: msg,
+          value: eventValue ?? _formatBarcode(barcode),
+        ),
       );
 
   static void trackProductEdit(
           AnalyticsEditEvents editEventName, String barcode,
           [bool saved = false]) =>
       MatomoTracker.instance.trackEvent(
-        eventName: saved ? '${editEventName.name}-saved' : editEventName.name,
-        eventCategory: AnalyticsCategory.productEdit.tag,
-        action: editEventName.name,
-        eventValue: _formatBarcode(barcode),
+        eventInfo: EventInfo(
+          name: saved ? '${editEventName.name}-saved' : editEventName.name,
+          category: AnalyticsCategory.productEdit.tag,
+          action: editEventName.name,
+          value: _formatBarcode(barcode),
+        ),
       );
 
   static void trackSearch({
@@ -351,7 +357,7 @@ class AnalyticsHelper {
   }
 
   static void trackOutlink({required String url}) =>
-      MatomoTracker.instance.trackOutlink(url);
+      MatomoTracker.instance.trackOutlink(link: url);
 
   static int? _formatBarcode(String? barcode) {
     if (barcode == null) {

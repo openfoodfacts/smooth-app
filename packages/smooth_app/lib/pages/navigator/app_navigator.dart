@@ -6,7 +6,6 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
-import 'package:smooth_app/helpers/data_importer/smooth_app_data_importer.dart';
 import 'package:smooth_app/helpers/extension_on_text_helper.dart';
 import 'package:smooth_app/pages/carousel_manager.dart';
 import 'package:smooth_app/pages/navigator/error_page.dart';
@@ -60,9 +59,9 @@ class AppNavigator extends InheritedWidget {
   // Router to use with a [WidgetsApp]
   RouterConfig<Object> get router => _router.router;
 
-  void push(String routeName, {dynamic extra}) {
+  Future<T?> push<T extends Object?>(String routeName, {dynamic extra}) async {
     assert(routeName.isNotEmpty);
-    _router.router.push(routeName, extra: extra);
+    return _router.router.push(routeName, extra: extra);
   }
 
   void pushReplacement(String routeName, {dynamic extra}) {
@@ -109,9 +108,8 @@ class _SmoothGoRouter {
         GoRoute(
           path: _InternalAppRoutes.HOME_PAGE,
           builder: (BuildContext context, GoRouterState state) {
-            if (!isInitialized) {
+            if (!_appLanguageInitialized) {
               _initAppLanguage(context);
-              isInitialized = true;
             }
 
             return _findLastOnboardingPage(context);
@@ -271,6 +269,16 @@ class _SmoothGoRouter {
     );
   }
 
+  bool _appLanguageInitialized = false;
+
+  /// Required to setup the whole app
+  Future<void> _initAppLanguage(BuildContext context) {
+    // Must be set first to ensure the method is only called once
+    _appLanguageInitialized = true;
+    ProductQuery.setLanguage(context, context.read<UserPreferences>());
+    return context.read<ProductPreferences>().refresh();
+  }
+
   String _openExternalLink(String path) {
     AnalyticsHelper.trackEvent(
       AnalyticsEvent.genericDeepLink,
@@ -284,18 +292,6 @@ class _SmoothGoRouter {
 
   static _SmoothGoRouter? _singleton;
   late GoRouter router;
-
-  // Indicates whether [_initAppLanguage] was already called
-  bool isInitialized = false;
-
-  void _initAppLanguage(BuildContext context) {
-    final UserPreferences userPreferences = context.read<UserPreferences>();
-    ProductQuery.setLanguage(context, userPreferences);
-    context.read<ProductPreferences>().refresh();
-
-    // The migration requires the language to be set in the app!
-    context.read<SmoothAppDataImporter>().startMigrationAsync();
-  }
 
   /// Extract the barcode from a path only if the route have at least 8 digits
   /// in the second part (we don't care about extra elements)

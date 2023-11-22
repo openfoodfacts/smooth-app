@@ -1,8 +1,8 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_animation_progress_bar/flutter_animation_progress_bar.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
@@ -11,16 +11,14 @@ import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/up_to_date_mixin.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/generic_lib/buttons/smooth_simple_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
+import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/image_field_extension.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
-import 'package:smooth_app/helpers/user_management_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
-import 'package:smooth_app/pages/navigator/app_navigator.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
 import 'package:smooth_app/pages/product/add_new_product_helper.dart';
 import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
 import 'package:smooth_app/pages/product/nutrition_page_loaded.dart';
@@ -28,7 +26,6 @@ import 'package:smooth_app/pages/product/product_field_editor.dart';
 import 'package:smooth_app/pages/product/product_image_swipeable_view.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
 import 'package:smooth_app/query/product_query.dart';
-import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// "Create a product we couldn't find on the server" page.
@@ -81,6 +78,10 @@ class _AddNewProductPageState extends State<AddNewProductPage>
     with TraceableClientMixin, UpToDateMixin {
   /// Count of "other" pictures uploaded.
   int _otherCount = 0;
+  int _totalPages = 0;
+  double _progress = 0.0;
+  bool _isLastPage = false;
+  late ColorScheme _colorScheme;
 
   late DaoProductList _daoProductList;
 
@@ -100,16 +101,14 @@ class _AddNewProductPageState extends State<AddNewProductPage>
   late final List<ProductFieldEditor> _editors;
   late final List<AnalyticsProductTracker> _trackers;
   final AddNewProductHelper _helper = AddNewProductHelper();
+  final PageController _pageController = PageController();
 
   bool _alreadyPushedToHistory = false;
 
   bool _ecoscoreExpanded = false;
 
   @override
-  String get traceName => 'Opened add_new_product_page';
-
-  @override
-  String get traceTitle => 'add_new_product_page';
+  String get actionName => 'Opened add_new_product_page';
 
   @override
   void initState() {
@@ -153,11 +152,57 @@ class _AddNewProductPageState extends State<AddNewProductPage>
       widget.events[EditProductAction.openPage]!,
       barcode: barcode,
     );
+    _totalPages =
+        3 + (widget.displayMisc ? 1 : 0) + (widget.displayPictures ? 1 : 0);
+    _progress = 1 / _totalPages;
+
+    _pageController.addListener(() {
+      setState(() {
+        _progress = (_pageController.page!.round() + 1) / _totalPages;
+        _isLastPage = (_pageController.page!.round() + 1) == _totalPages;
+      });
+    });
+  }
+
+  Future<bool> _onWillPop() async {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    if (_isPopulated) {
+      return true;
+    }
+    final bool? leaveThePage = await showDialog<bool>(
+      context: context,
+      builder: (final BuildContext context) => SmoothAlertDialog(
+        title: appLocalizations.new_product,
+        actionsAxis: Axis.vertical,
+        body: Text(appLocalizations.new_product_leave_message),
+        positiveAction: SmoothActionButton(
+          text: appLocalizations.yes,
+          onPressed: () => Navigator.of(context).pop(true),
+        ),
+        negativeAction: SmoothActionButton(
+          text: appLocalizations.cancel,
+          onPressed: () => Navigator.of(context).pop(false),
+        ),
+      ),
+    );
+    if (leaveThePage == true) {
+      AnalyticsHelper.trackEvent(
+        widget.events[EditProductAction.leaveEmpty]!,
+        barcode: barcode,
+      );
+    }
+    return leaveThePage ?? false;
+  }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    _colorScheme = Theme.of(context).colorScheme;
     context.watch<LocalDatabase>();
     refreshUpToDate();
 
@@ -167,66 +212,53 @@ class _AddNewProductPageState extends State<AddNewProductPage>
     }
 
     return WillPopScope(
-      onWillPop: () async {
-        if (_isPopulated) {
-          return true;
-        }
-        final bool? leaveThePage = await showDialog<bool>(
-          context: context,
-          builder: (final BuildContext context) => SmoothAlertDialog(
-            title: appLocalizations.new_product,
-            actionsAxis: Axis.vertical,
-            body: Text(appLocalizations.new_product_leave_message),
-            positiveAction: SmoothActionButton(
-              text: appLocalizations.yes,
-              onPressed: () => Navigator.of(context).pop(true),
-            ),
-            negativeAction: SmoothActionButton(
-              text: appLocalizations.cancel,
-              onPressed: () => Navigator.of(context).pop(false),
-            ),
-          ),
-        );
-        if (leaveThePage == true) {
-          AnalyticsHelper.trackEvent(
-            widget.events[EditProductAction.leaveEmpty]!,
-            barcode: barcode,
-          );
-        }
-        return leaveThePage ?? false;
-      },
+      onWillPop: _onWillPop,
       child: SmoothScaffold(
-        appBar: SmoothAppBar(
-          title: ListTile(
-            title: Text(
-              upToDateProduct.productName ?? appLocalizations.new_product,
-            ),
-            subtitle: Text(barcode),
-          ),
-        ),
-        body: Padding(
-          padding: const EdgeInsetsDirectional.symmetric(
-            vertical: VERY_LARGE_SPACE,
-          ),
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                if (widget.displayPictures) _buildCard(_getImageRows(context)),
-                _buildCard(_getNutriscoreRows(context)),
-                _buildCard(_getEcoscoreRows(context)),
-                _buildCard(_getNovaRows(context)),
-                if (widget.displayMisc) _buildCard(_getMiscRows(context)),
-                if (_isPopulated)
-                  _buildDoneCard(
-                    context,
-                    onDoneClick: () => AppNavigator.of(context).push(
-                        AppRoutes.PRODUCT(barcode),
-                        extra: widget.product),
+        body: SafeArea(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Container(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: <Color>[
+                      _colorScheme.inversePrimary,
+                      _colorScheme.secondary
+                    ],
                   ),
-                const SizedBox(height: MINIMUM_TOUCH_SIZE),
-              ],
-            ),
+                ),
+                child: FAProgressBar(
+                  animatedDuration: SmoothAnimationsDuration.short,
+                  backgroundColor: _colorScheme.secondary,
+                  size: 8,
+                  currentValue: _progress,
+                  maxValue: 1,
+                  progressColor: _colorScheme.inversePrimary,
+                ),
+              ),
+              _backButton(),
+              Expanded(
+                child: PageView(
+                  controller: _pageController,
+                  children: <Widget>[
+                    if (widget.displayPictures)
+                      _buildCard(_getImageRows(context)),
+                    _buildCard(_getNutriscoreRows(context)),
+                    _buildCard(_getEcoscoreRows(context)),
+                    _buildCard(_getNovaRows(context)),
+                    if (widget.displayMisc) _buildCard(_getMiscRows(context)),
+                  ],
+                ),
+              ),
+              Card(
+                margin: EdgeInsets.zero,
+                elevation: 15.0,
+                child: SizedBox(
+                  height: MediaQuery.sizeOf(context).height * 0.1,
+                  child: _getButtons(),
+                ),
+              )
+            ],
           ),
         ),
       ),
@@ -263,22 +295,106 @@ class _AddNewProductPageState extends State<AddNewProductPage>
   Widget _buildCard(
     final List<Widget> children,
   ) =>
-      SmoothCard(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: children,
+      SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(LARGE_SPACE),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: children,
+          ),
         ),
       );
 
   Attribute? _getAttribute(final String tag) =>
       upToDateProduct.getAttributes(<String>[tag])[tag];
 
+  Widget _backButton() {
+    return Container(
+      margin: const EdgeInsetsDirectional.only(
+        start: 10.0,
+        end: 10.0,
+        top: 10.0,
+        bottom: 0.0,
+      ),
+      width: 20.0,
+      height: 20.0,
+      child: IconButton(
+        onPressed: () => _onWillPop().then(
+          (bool leaveThePage) =>
+              leaveThePage ? Navigator.of(context).pop() : null,
+        ),
+        alignment: Alignment.center,
+        padding: EdgeInsets.zero,
+        icon: const Icon(Icons.arrow_back),
+      ),
+    );
+  }
+
+  Widget _getButtons() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            minimumSize: Size(MediaQuery.sizeOf(context).width * 0.35, 40.0),
+            backgroundColor: _colorScheme.secondary,
+            shape: const RoundedRectangleBorder(
+              borderRadius: ROUNDED_BORDER_RADIUS,
+            ),
+          ),
+          onPressed: () {
+            _onWillPop().then(
+              (bool leaveThePage) =>
+                  leaveThePage ? Navigator.of(context).pop() : null,
+            );
+          },
+          child: Text(
+            AppLocalizations.of(context).cancel,
+            style: const TextStyle(
+              color: Colors.black,
+              fontSize: 20.0,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+        const SizedBox(width: 10.0),
+        ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            minimumSize: Size(MediaQuery.sizeOf(context).width * 0.35, 40.0),
+            backgroundColor: DARK_BROWN_COLOR,
+            shape: const RoundedRectangleBorder(
+              borderRadius: ROUNDED_BORDER_RADIUS,
+            ),
+          ),
+          onPressed: () {
+            _pageController.nextPage(
+              duration: SmoothAnimationsDuration.short,
+              curve: Curves.easeOut,
+            );
+          },
+          child: Text(
+            _isLastPage
+                ? AppLocalizations.of(context).finish
+                : AppLocalizations.of(context).next_label,
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 20.0,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        )
+      ],
+    );
+  }
+
   List<Widget> _getNutriscoreRows(final BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final Attribute? attribute = _getAttribute(Attribute.ATTRIBUTE_NUTRISCORE);
     return <Widget>[
       AddNewProductTitle(appLocalizations.new_product_title_nutriscore),
+      const SizedBox(height: 15.0),
       AddNewProductSubTitle(appLocalizations.new_product_subtitle_nutriscore),
+      const SizedBox(height: 15.0),
       _buildCategoriesButton(context),
       AddNewProductButton(
         AppLocalizations.of(context).nutritional_facts_input_button_label,
@@ -292,6 +408,12 @@ class _AddNewProductPageState extends State<AddNewProductPage>
                   context: context,
                 ),
         done: _nutritionEditor.isPopulated(upToDateProduct),
+      ),
+      _buildIngredientsButton(
+        context,
+        forceIconData: Icons.filter_3,
+        disabled: (!_categoryEditor.isPopulated(upToDateProduct)) ||
+            (!_nutritionEditor.isPopulated(upToDateProduct)),
       ),
       Center(
         child: AddNewProductScoreIcon(
@@ -307,7 +429,9 @@ class _AddNewProductPageState extends State<AddNewProductPage>
     final Attribute? attribute = _getAttribute(Attribute.ATTRIBUTE_ECOSCORE);
     return <Widget>[
       AddNewProductTitle(appLocalizations.new_product_title_ecoscore),
+      const SizedBox(height: 15.0),
       AddNewProductSubTitle(appLocalizations.new_product_subtitle_ecoscore),
+      const SizedBox(height: 15.0),
       _buildCategoriesButton(context),
       Center(
         child: AddNewProductScoreIcon(
@@ -315,12 +439,40 @@ class _AddNewProductPageState extends State<AddNewProductPage>
           defaultIconUrl: ProductDialogHelper.unknownSvgEcoscore,
         ),
       ),
-      ListTile(
-        title: Text(appLocalizations.new_product_additional_ecoscore),
-        trailing: Icon(
-          _ecoscoreExpanded ? Icons.expand_less : Icons.expand_more,
+      const SizedBox(height: 15.0),
+      GestureDetector(
+        onTap: () {
+          setState(() => _ecoscoreExpanded = !_ecoscoreExpanded);
+        },
+        child: Container(
+          padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 15.0),
+          decoration: BoxDecoration(
+            borderRadius: ROUNDED_BORDER_RADIUS,
+            color: _colorScheme.surface,
+          ),
+          child: Row(
+            children: <Widget>[
+              Icon(
+                Icons.filter_2,
+                color: _colorScheme.onPrimary,
+              ),
+              const SizedBox(width: 15.0),
+              Flexible(
+                child: Text(
+                  appLocalizations.new_product_additional_ecoscore,
+                  style: TextStyle(
+                    color: _colorScheme.onPrimary,
+                  ),
+                ),
+              ),
+              const SizedBox(width: 5.0),
+              Icon(
+                _ecoscoreExpanded ? Icons.expand_less : Icons.expand_more,
+                color: _colorScheme.onPrimary,
+              ),
+            ],
+          ),
         ),
-        onTap: () => setState(() => _ecoscoreExpanded = !_ecoscoreExpanded),
       ),
       if (_ecoscoreExpanded)
         AddNewProductEditorButton(
@@ -349,7 +501,9 @@ class _AddNewProductPageState extends State<AddNewProductPage>
     final Attribute? attribute = _getAttribute(Attribute.ATTRIBUTE_NOVA);
     return <Widget>[
       AddNewProductTitle(appLocalizations.new_product_title_nova),
+      const SizedBox(height: 15.0),
       AddNewProductSubTitle(appLocalizations.new_product_subtitle_nova),
+      const SizedBox(height: 15.0),
       _buildCategoriesButton(context),
       _buildIngredientsButton(
         context,
@@ -379,7 +533,15 @@ class _AddNewProductPageState extends State<AddNewProductPage>
   List<Widget> _getImageRows(final BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final List<Widget> rows = <Widget>[];
-    rows.add(AddNewProductTitle(appLocalizations.new_product_title_pictures));
+    rows.add(
+      AddNewProductTitle(appLocalizations.new_product_title_pictures),
+    );
+    rows.add(const SizedBox(height: 15.0));
+    rows.add(
+      AddNewProductSubTitle(
+          appLocalizations.new_product_title_pictures_details),
+    );
+
     // Main 4 images first.
     final List<ProductImageData> productImagesData = getProductMainImagesData(
       upToDateProduct,
@@ -388,6 +550,12 @@ class _AddNewProductPageState extends State<AddNewProductPage>
     for (final ProductImageData data in productImagesData) {
       // Everything else can only be uploaded once
       rows.add(_buildMainImageButton(context, data));
+      rows.add(
+        const Padding(
+          padding: EdgeInsets.symmetric(vertical: 10.0),
+          child: UserPreferencesListItemDivider(),
+        ),
+      );
     }
     // Then all the OTHERs.
     rows.add(_buildOtherImageButton(context, done: false));
@@ -409,7 +577,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
             : AddNewProductButton.cameraIconData,
         () async {
           final File? finalPhoto = await confirmAndUploadNewPicture(
-            this,
+            context,
             barcode: barcode,
             imageField: ImageField.OTHER,
             language: ProductQuery.getLanguage(),
@@ -420,6 +588,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
           }
         },
         done: done,
+        showTrailing: false,
       );
 
   /// Button specific to one of the main 4 images.
@@ -445,6 +614,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
         ),
       ),
       done: done,
+      showTrailing: false,
     );
   }
 
@@ -479,89 +649,4 @@ class _AddNewProductPageState extends State<AddNewProductPage>
         disabled: disabled,
         isLoggedInMandatory: widget.isLoggedInMandatory,
       );
-
-  Widget _buildDoneCard(final BuildContext context,
-      {required final VoidCallback onDoneClick}) {
-    final AppLocalizations localizations = AppLocalizations.of(context);
-    final bool isDark = Theme.of(context).brightness == Brightness.dark;
-
-    return SizedBox(
-      width: double.infinity,
-      child: SmoothCard(
-        clipBehavior: Clip.antiAliasWithSaveLayer,
-        color: Theme.of(context).colorScheme.secondary,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.all(SMALL_SPACE),
-              child: Text(
-                _createDoneMessage(localizations),
-                style: Theme.of(context).textTheme.displaySmall,
-              ),
-            ),
-            Row(
-              children: <Widget>[
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.all(SMALL_SPACE),
-                    child: SmoothSimpleButton(
-                      onPressed: onDoneClick,
-                      buttonColor: Colors.green[700],
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          Flexible(
-                            child: Text(
-                                localizations.new_product_done_button_label),
-                          ),
-                          const SizedBox(width: SMALL_SPACE),
-                          const Icon(Icons.arrow_forward),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                const SizedBox(height: MEDIUM_SPACE),
-                Stack(
-                  alignment: Alignment.bottomRight,
-                  children: <Widget>[
-                    Align(
-                      alignment: Alignment.topLeft,
-                      widthFactor: 0.8,
-                      heightFactor: 0.8,
-                      child: SvgPicture.asset(
-                        isDark
-                            ? 'assets/product/product_completed_graphic_dark.svg'
-                            : 'assets/product/product_completed_graphic_light.svg',
-                        width: 70,
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-String _createDoneMessage(AppLocalizations localizations) {
-  final String? name = _getRegisteredUserName();
-  if (name == null) {
-    return localizations.new_product_done_msg_no_user;
-  } else {
-    return localizations.new_product_done_msg(name);
-  }
-}
-
-String? _getRegisteredUserName() {
-  final String? userId = OpenFoodAPIConfiguration.globalUser?.userId;
-  if (userId == null || userId.isEmail) {
-    return null;
-  } else {
-    return userId;
-  }
 }

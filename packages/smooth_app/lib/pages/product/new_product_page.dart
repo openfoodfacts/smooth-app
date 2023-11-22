@@ -67,10 +67,7 @@ class _ProductPageState extends State<ProductPage>
   double bottomPadding = 0.0;
 
   @override
-  String get traceName => 'Opened product_page';
-
-  @override
-  String get traceTitle => 'product_page';
+  String get actionName => 'Opened product_page';
 
   @override
   void initState() {
@@ -178,7 +175,7 @@ class _ProductPageState extends State<ProductPage>
     return RefreshIndicator(
       onRefresh: () async => ProductRefresher().fetchAndRefresh(
         barcode: barcode,
-        widget: this,
+        context: context,
       ),
       child: ListView(
         // /!\ Smart Dart

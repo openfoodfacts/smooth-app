@@ -19,10 +19,9 @@ class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final TextStyle headlineStyle =
-        Theme.of(context).textTheme.displayMedium!.wellSpaced;
-    final TextStyle bodyTextStyle =
-        Theme.of(context).textTheme.bodyLarge!.wellSpaced;
+    final ThemeData theme = Theme.of(context);
+    final TextStyle headlineStyle = theme.textTheme.displayMedium!.wellSpaced;
+    final TextStyle bodyTextStyle = theme.textTheme.bodyLarge!.wellSpaced;
     final Size screenSize = MediaQuery.of(context).size;
 
     return SmoothScaffold(
@@ -74,7 +73,7 @@ class WelcomePage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
-                        appLocalizations.country_chooser_label,
+                        appLocalizations.onboarding_country_chooser_label,
                         style: bodyTextStyle,
                       ),
                       Padding(
@@ -82,16 +81,33 @@ class WelcomePage extends StatelessWidget {
                             const EdgeInsets.symmetric(vertical: MEDIUM_SPACE),
                         child: Ink(
                           decoration: BoxDecoration(
-                            border: const Border.fromBorderSide(
+                            border: Border.fromBorderSide(
                               BorderSide(
-                                color: Colors.black,
+                                color: theme.colorScheme.inversePrimary,
                                 width: 1,
                               ),
                             ),
-                            borderRadius: ANGULAR_BORDER_RADIUS,
-                            color: Theme.of(context).cardColor,
+                            borderRadius: ROUNDED_BORDER_RADIUS,
+                            color: theme.colorScheme.onPrimary,
                           ),
-                          child: const CountrySelector(),
+                          child: SizedBox(
+                            width: double.infinity,
+                            child: CountrySelector(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: SMALL_SPACE,
+                              ),
+                              inkWellBorderRadius: ROUNDED_BORDER_RADIUS,
+                              icon: Icon(
+                                Icons.edit,
+                                color: Colors.white.withOpacity(0.9),
+                              ),
+                              iconDecoration: BoxDecoration(
+                                color: theme.primaryColor,
+                                borderRadius: ROUNDED_BORDER_RADIUS,
+                              ),
+                              textStyle: TextStyle(color: theme.primaryColor),
+                            ),
+                          ),
                         ),
                       ),
                       Padding(

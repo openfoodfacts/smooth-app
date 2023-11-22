@@ -43,7 +43,7 @@ class _ProductImageCarouselItemState extends State<ProductImageCarouselItem> {
     if (imageProvider == null) {
       return ElevatedButton.icon(
         onPressed: () async => confirmAndUploadNewPicture(
-          this,
+          context,
           barcode: widget.product.barcode!,
           imageField: widget.productImageData.imageField,
           language: ProductQuery.getLanguage(),
