@@ -119,7 +119,10 @@ Product page:
 - packages/smooth_app/lib/pages/product/**/*
 
 📖 Knowledge panels:
-- packages/smooth_app/lib/cards/product_cards/knowledge_panels/
+- packages/smooth_app/lib/cards/product_cards/knowledge_panels/**/*
+- packages/smooth_app/lib/pages/product/reorderable_knowledge_panel_page.dart
+- packages/smooth_app/lib/pages/product/reordered_knowledge_panel_cards.dart
+- packages/smooth_app/lib/pages/product/standard_knowledge_panel_cards.dart
 
 🤖 Robotoff:
 - packages/smooth_app/lib/database/robotoff_questions_query.dart
@@ -137,7 +140,7 @@ Summary card:
 - packages/smooth_app/assets/onboarding/analytics.svg
 - packages/smooth_app/lib/helpers/analytics_helper.dart
 
-goldens:
+Goldens:
 - packages/smooth_app/test/pages/goldens
 - packages/smooth_app/test/tests_utils/goldens.dart
 - packages/smooth_app/test/pages/goldens/user_preferences_page-dark.png
