@@ -21,10 +21,10 @@ packages:
     dependency: "direct main"
     description:
       name: app_settings
-      sha256: "66715a323ac36d6c8201035ba678777c0d2ea869e4d7064300d95af10c3bb8cb"
+      sha256: "09bc7fe0313a507087bec1a3baf555f0576e816a760cbb31813a88890a09d9e5"
       url: "https://pub.dev"
     source: hosted
-    version: "4.2.0"
+    version: "5.1.1"
   app_store_apple_store:
     dependency: "direct main"
     description:

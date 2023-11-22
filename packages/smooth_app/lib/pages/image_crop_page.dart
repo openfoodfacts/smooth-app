@@ -287,12 +287,11 @@ Future<bool?> _onGalleryAccessDenied(final BuildContext context) {
               appLocalizations.gallery_source_access_denied_dialog_message_ios,
           positiveAction: SmoothActionButton(
             text: appLocalizations.gallery_source_access_denied_dialog_button,
-            onPressed: () {
-              AppSettings.openAppSettings(callback: () {
-                if (context.mounted) {
-                  Navigator.of(context).maybePop(true);
-                }
-              });
+            onPressed: () async {
+              await AppSettings.openAppSettings();
+              if (context.mounted) {
+                Navigator.of(context).maybePop(true);
+              }
             },
           ),
           negativeAction: SmoothActionButton(
