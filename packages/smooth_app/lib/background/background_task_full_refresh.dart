@@ -32,10 +32,10 @@ class BackgroundTaskFullRefresh extends BackgroundTaskPaged {
   static const OperationType _operationType = OperationType.fullRefresh;
 
   static Future<void> addTask({
-    required final State<StatefulWidget> widget,
+    required final BuildContext context,
     required final int pageSize,
   }) async {
-    final LocalDatabase localDatabase = widget.context.read<LocalDatabase>();
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final String uniqueId = await _operationType.getNewKey(
       localDatabase,
     );
@@ -43,7 +43,10 @@ class BackgroundTaskFullRefresh extends BackgroundTaskPaged {
       uniqueId,
       pageSize,
     );
-    await task.addToManager(localDatabase, widget: widget);
+    if (!context.mounted) {
+      return;
+    }
+    await task.addToManager(localDatabase, context: context);
   }
 
   @override

@@ -18,11 +18,15 @@ class CountrySelector extends StatefulWidget {
     this.textStyle,
     this.padding,
     this.icon,
+    this.iconDecoration,
+    this.inkWellBorderRadius,
   });
 
   final TextStyle? textStyle;
   final EdgeInsetsGeometry? padding;
-  final IconData? icon;
+  final BorderRadius? inkWellBorderRadius;
+  final Icon? icon;
+  final BoxDecoration? iconDecoration;
 
   @override
   State<CountrySelector> createState() => _CountrySelectorState();
@@ -76,8 +80,12 @@ class _CountrySelectorState extends State<CountrySelector> {
         final Country selectedCountry = _getSelectedCountry(
           userPreferences.userCountryCode,
         );
+        final EdgeInsetsGeometry innerPadding = const EdgeInsets.symmetric(
+          vertical: SMALL_SPACE,
+        ).add(widget.padding ?? EdgeInsets.zero);
+
         return InkWell(
-          borderRadius: ANGULAR_BORDER_RADIUS,
+          borderRadius: widget.inkWellBorderRadius ?? ANGULAR_BORDER_RADIUS,
           onTap: () async {
             _reorderCountries(selectedCountry);
             List<Country> filteredList = List<Country>.from(_countryList);
@@ -168,32 +176,43 @@ class _CountrySelectorState extends State<CountrySelector> {
               );
             }
           },
-          child: Container(
+          child: DecoratedBox(
             decoration: const BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(10)),
             ),
-            padding: const EdgeInsets.symmetric(
-              vertical: SMALL_SPACE,
-            ).add(widget.padding ?? EdgeInsets.zero),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                const Icon(Icons.public),
-                Expanded(
-                  flex: 1,
-                  child: Padding(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: LARGE_SPACE),
-                    child: Text(
-                      selectedCountry.name,
-                      style: widget.textStyle ??
-                          Theme.of(context).textTheme.displaySmall,
+            child: IntrinsicHeight(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Padding(
+                    padding: innerPadding,
+                    child: const Icon(Icons.public),
+                  ),
+                  Expanded(
+                    flex: 1,
+                    child: Padding(
+                      padding:
+                          const EdgeInsets.symmetric(horizontal: LARGE_SPACE),
+                      child: Text(
+                        selectedCountry.name,
+                        style: Theme.of(context)
+                            .textTheme
+                            .displaySmall
+                            ?.merge(widget.textStyle),
+                      ),
                     ),
                   ),
-                ),
-                Icon(widget.icon ?? Icons.arrow_drop_down),
-              ],
+                  Container(
+                    height: double.infinity,
+                    decoration: widget.iconDecoration ?? const BoxDecoration(),
+                    child: AspectRatio(
+                      aspectRatio: 1.0,
+                      child: widget.icon ?? const Icon(Icons.arrow_drop_down),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         );

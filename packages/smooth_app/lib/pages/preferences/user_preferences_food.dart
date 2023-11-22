@@ -92,8 +92,9 @@ class UserPreferencesFood extends AbstractUserPreferences {
           text: appLocalizations.yes,
           onPressed: () async {
             await context.read<ProductPreferences>().resetImportances();
-            //ignore: use_build_context_synchronously
-            Navigator.pop(context);
+            if (context.mounted) {
+              Navigator.pop(context);
+            }
           },
         ),
         negativeAction: SmoothActionButton(

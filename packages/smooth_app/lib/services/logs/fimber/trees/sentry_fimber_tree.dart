@@ -17,18 +17,23 @@ class SentryFimberTree extends BaseFimberTree {
     StackTrace? stacktrace,
     String? tag,
   }) {
-    if (ex != null) {
+    final SentryLevel sentryLevel = _convertLevel(level);
+
+    if (ex != null || sentryLevel == SentryLevel.error) {
       Sentry.captureException(
         ex,
         stackTrace: stacktrace,
-        hint: tag != null ? Hint.withMap(<String, Object>{'tag': tag}) : null,
+        hint: Hint.withMap(<String, Object>{
+          'tag': tag ?? '-',
+          'message': message,
+        }),
       );
     } else {
       Sentry.addBreadcrumb(
         Breadcrumb(
           message: message,
           timestamp: DateTime.now(),
-          level: _convertLevel(level),
+          level: sentryLevel,
         ),
         hint: tag != null ? Hint.withMap(<String, Object>{'tag': tag}) : null,
       );

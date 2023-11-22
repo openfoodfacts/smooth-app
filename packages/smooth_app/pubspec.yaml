@@ -16,63 +16,60 @@ dependencies:
   go_router: 7.0.2
   barcode_widget: 2.0.4
   carousel_slider: 4.2.1
-  cupertino_icons: 1.0.5
+  cupertino_icons: 1.0.6
   device_preview: 1.1.0
   flutter_svg: 2.0.9
-  flutter_map: 4.0.0
-  flutter_widget_from_html_core: 0.8.3+1
+  flutter_map: 6.0.1
+  flutter_widget_from_html_core: 0.8.5+3
   fwfh_selectable_text: 0.8.3+1
-  flutter_secure_storage: 8.0.0
+  flutter_secure_storage: 9.0.0
   hive: 2.2.3
   hive_flutter: 1.1.0
-  http: 0.13.5
-  image_picker: 1.0.2
+  http: 1.1.0
+  image_picker: 1.0.4
   iso_countries: 2.2.0
-  latlong2: 0.8.2
-  matomo_tracker: 3.1.0
-  package_info_plus: 3.0.3
-  device_info_plus: 8.2.2
+  latlong2: 0.9.0
+  matomo_tracker: 4.1.1
+  package_info_plus: 4.2.0
+  device_info_plus: 9.1.0
   permission_handler: 10.4.3
   photo_view: 0.14.0
   uuid: 3.0.7
-  provider: 6.0.5
-  sentry_flutter: 7.9.0
-  sqflite: 2.2.5
+  provider: 6.1.1
+  sentry_flutter: 7.13.1
+  sqflite: 2.3.0
   url_launcher: 6.1.3
   visibility_detector: 0.4.0+2
   assorted_layout_widgets: 8.0.5
-  app_settings: 4.2.0
+  app_settings: 5.1.1
   diacritic: 0.1.4
   app_store_shared:
     path: ../app_store/shared
-  audioplayers: 5.2.0
+  audioplayers: 5.2.1
   percent_indicator: 4.2.3
   flutter_email_sender: 6.0.2
-  flutter_native_splash: 2.3.4
+  flutter_native_splash: 2.3.5
   image: ^4.0.17
   auto_size_text: 3.0.0
   crop_image: 1.0.11
-  shared_preferences: 2.1.1
+  shared_preferences: 2.2.2
   intl: 0.18.1
   collection: 1.17.2
   path: 1.8.3
-  path_provider: 2.0.15
-  data_importer_shared:
-    path: ../data_importer_shared
-  data_importer:
-    path: ../data_importer
-  share_plus: 6.3.4
-  fimber: 0.6.6
+  path_provider: 2.1.1
+  share_plus: 7.2.1
+  fimber: 0.7.0
   shimmer: ^3.0.0
-  lottie: 2.2.0
-  rive: 0.11.4
-  sensors_plus: 3.0.3
+  lottie: 2.7.0
+  rive: 0.12.3
+  sensors_plus: 3.1.0
   webview_flutter: 3.0.4
   flutter_custom_tabs: 1.0.4
-  flutter_image_compress: 2.0.4
-  connectivity_plus: 4.0.2
-  dart_ping: 9.0.0
-  dart_ping_ios: 4.0.0
+  flutter_image_compress: 2.1.0
+  connectivity_plus: 5.0.1
+  dart_ping: 9.0.1
+  dart_ping_ios: 4.0.2
+  flutter_animation_progress_bar: 2.3.1
 
   # According to the build variant, only one "app store" implementation must be added when building a release
   # Call "flutter pub remove xxxx" to remove unused dependencies
@@ -88,7 +85,7 @@ dependencies:
   # We use two different scanning engines, 
   # mobile scanner powered by ML Kit for the Play Store and Apple App Store,
   # but qr_code_scanner which uses the open source ZXing for F-Droid
-  camera: 0.10.5
+  camera: 0.10.5+5
   
   scanner_shared:
     path: ../scanner/shared
@@ -100,7 +97,7 @@ dependencies:
     path: ../scanner/zxing
 
 
-  openfoodfacts: 3.0.0
+  openfoodfacts: 3.1.0
   # openfoodfacts:
   #   path: ../../../openfoodfacts-dart
 

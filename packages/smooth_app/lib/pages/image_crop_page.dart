@@ -22,10 +22,10 @@ import 'package:smooth_app/pages/crop_page.dart';
 
 /// Picks an image file from gallery or camera.
 Future<XFile?> pickImageFile(
-  final State<StatefulWidget> widget, {
+  final BuildContext context, {
   bool ignorePlatformException = false,
 }) async {
-  final UserPictureSource? source = await _getUserPictureSource(widget.context);
+  final UserPictureSource? source = await _getUserPictureSource(context);
   if (source == null) {
     return null;
   }
@@ -228,7 +228,7 @@ class _ImageSourceButton extends StatelessWidget {
 
 /// Lets the user pick a picture, crop it, and save it.
 Future<File?> confirmAndUploadNewPicture(
-  final State<StatefulWidget> widget, {
+  final BuildContext context, {
   required final ImageField imageField,
   required final String barcode,
   required final OpenFoodFactsLanguage language,
@@ -236,13 +236,19 @@ Future<File?> confirmAndUploadNewPicture(
 }) async {
   XFile? croppedPhoto;
   try {
-    croppedPhoto = await pickImageFile(widget);
+    croppedPhoto = await pickImageFile(context);
   } on PhotoAccessDenied catch (_) {
-    final bool? res = await _onGalleryAccessDenied(widget);
+    if (!context.mounted) {
+      return null;
+    }
+    final bool? res = await _onGalleryAccessDenied(context);
     if (res == true) {
       // Let's retry
+      if (!context.mounted) {
+        return null;
+      }
       croppedPhoto = await pickImageFile(
-        widget,
+        context,
         ignorePlatformException: true,
       );
     }
@@ -251,11 +257,11 @@ Future<File?> confirmAndUploadNewPicture(
   if (croppedPhoto == null) {
     return null;
   }
-  if (!widget.mounted) {
+  if (!context.mounted) {
     return null;
   }
   return Navigator.push<File>(
-    widget.context,
+    context,
     MaterialPageRoute<File>(
       builder: (BuildContext context) => CropPage(
         barcode: barcode,
@@ -270,9 +276,9 @@ Future<File?> confirmAndUploadNewPicture(
   );
 }
 
-Future<bool?> _onGalleryAccessDenied(State<StatefulWidget> widget) {
+Future<bool?> _onGalleryAccessDenied(final BuildContext context) {
   return showDialog<bool>(
-      context: widget.context,
+      context: context,
       builder: (BuildContext context) {
         final AppLocalizations appLocalizations = AppLocalizations.of(context);
         return SmoothSimpleErrorAlertDialog(
@@ -281,12 +287,11 @@ Future<bool?> _onGalleryAccessDenied(State<StatefulWidget> widget) {
               appLocalizations.gallery_source_access_denied_dialog_message_ios,
           positiveAction: SmoothActionButton(
             text: appLocalizations.gallery_source_access_denied_dialog_button,
-            onPressed: () {
-              AppSettings.openAppSettings(callback: () {
-                if (widget.mounted) {
-                  Navigator.of(context).maybePop(true);
-                }
-              });
+            onPressed: () async {
+              await AppSettings.openAppSettings();
+              if (context.mounted) {
+                Navigator.of(context).maybePop(true);
+              }
             },
           ),
           negativeAction: SmoothActionButton(
@@ -321,11 +326,12 @@ Future<File?> downloadImageUrl(
   );
 
   if (imageFile == null) {
-    // ignore: use_build_context_synchronously
-    await LoadingDialog.error(
-      context: context,
-      title: appLocalizations.image_download_error,
-    );
+    if (context.mounted) {
+      await LoadingDialog.error(
+        context: context,
+        title: appLocalizations.image_download_error,
+      );
+    }
   }
   return imageFile;
 }

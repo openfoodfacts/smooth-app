@@ -111,7 +111,9 @@ class CongratsWidget extends StatelessWidget {
                     ),
                   );
                   if (OpenFoodAPIConfiguration.globalUser != null) {
-                    // ignore: use_build_context_synchronously
+                    if (!context.mounted) {
+                      return;
+                    }
                     LoadingDialog.run<void>(
                       context: context,
                       title: appLocalizations.saving_answer,

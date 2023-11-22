@@ -50,7 +50,10 @@ class AddNewProductTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Text(
         label,
-        style: Theme.of(context).textTheme.displaySmall,
+        style: Theme.of(context).textTheme.displaySmall?.copyWith(
+              fontSize: 18.0,
+              fontWeight: FontWeight.bold,
+            ),
         maxLines: maxLines,
       );
 }
@@ -72,18 +75,18 @@ class AddNewProductButton extends StatelessWidget {
     this.iconData,
     this.onPressed, {
     required this.done,
-    this.trailingIconData,
+    this.showTrailing = true,
   });
 
   final String label;
   final IconData iconData;
   final VoidCallback? onPressed;
   final bool done;
-  final IconData? trailingIconData;
+  final bool showTrailing;
 
   static const IconData doneIconData = Icons.check;
   static const IconData todoIconData = Icons.add;
-  static const IconData cameraIconData = Icons.camera_alt;
+  static IconData cameraIconData = Icons.add_a_photo_outlined;
 
   @override
   Widget build(BuildContext context) {
@@ -97,7 +100,7 @@ class AddNewProductButton extends StatelessWidget {
         text: label,
         icon: iconData,
         onPressed: onPressed,
-        trailing: trailingIconData ?? Icons.edit,
+        trailing: showTrailing ? Icons.edit : null,
         backgroundColor: onPressed == null
             ? (dark ? darkGrey : lightGrey)
             : done
@@ -146,7 +149,6 @@ class AddNewProductEditorButton extends StatelessWidget {
                 isLoggedInMandatory: isLoggedInMandatory,
               ),
       done: done,
-      trailingIconData: done ? AddNewProductButton.doneIconData : null,
     );
   }
 }

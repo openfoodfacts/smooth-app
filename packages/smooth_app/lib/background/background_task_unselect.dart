@@ -47,10 +47,10 @@ class BackgroundTaskUnselect extends BackgroundTaskBarcode {
   static Future<void> addTask(
     final String barcode, {
     required final ImageField imageField,
-    required final State<StatefulWidget> widget,
+    required final BuildContext context,
     required final OpenFoodFactsLanguage language,
   }) async {
-    final LocalDatabase localDatabase = widget.context.read<LocalDatabase>();
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final String uniqueId = await _operationType.getNewKey(
       localDatabase,
       barcode: barcode,
@@ -61,7 +61,10 @@ class BackgroundTaskUnselect extends BackgroundTaskBarcode {
       uniqueId,
       language,
     );
-    await task.addToManager(localDatabase, widget: widget);
+    if (!context.mounted) {
+      return;
+    }
+    await task.addToManager(localDatabase, context: context);
   }
 
   @override

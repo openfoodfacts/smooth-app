@@ -53,10 +53,7 @@ class _ProductListPageState extends State<ProductListPage>
   bool _selectionMode = false;
 
   @override
-  String get traceName => 'Opened list_page';
-
-  @override
-  String get traceTitle => 'list_page';
+  String get actionName => 'Opened list_page';
 
   @override
   void initState() {
@@ -468,8 +465,9 @@ class _ProductListPageState extends State<ProductListPage>
         setState(() {});
         return;
       case false:
-        // ignore: use_build_context_synchronously
-        LoadingDialog.error(context: context);
+        if (context.mounted) {
+          LoadingDialog.error(context: context);
+        }
         return;
     }
   }

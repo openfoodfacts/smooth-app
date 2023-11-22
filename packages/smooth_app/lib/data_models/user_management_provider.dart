@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/data_models/login_result.dart';
 import 'package:smooth_app/database/dao_secured_string.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/services/smooth_services.dart';
@@ -9,34 +10,15 @@ class UserManagementProvider with ChangeNotifier {
   static const String _USER_ID = 'user_id';
   static const String _PASSWORD = 'pasword';
 
-  // TODO(m123): Show why its failing
-  /// Checks credentials and conditionally saves them
-  Future<bool> login(User user) async {
-    final LoginStatus? loginStatus;
-    try {
-      loginStatus = await OpenFoodAPIClient.login2(
-        user,
-        uriHelper: ProductQuery.uriProductHelper,
-      );
-    } catch (e) {
-      throw Exception(e);
+  /// Checks credentials and conditionally saves them.
+  Future<LoginResult> login(final User user) async {
+    final LoginResult loginResult = await LoginResult.getLoginResult(user);
+    if (loginResult.type != LoginResultType.successful) {
+      return loginResult;
     }
-
-    if (loginStatus == null) {
-      return false;
-    }
-
-    if (loginStatus.successful) {
-      await putUser(
-        User(
-          userId: loginStatus.userId!,
-          password: user.password,
-        ),
-      );
-      notifyListeners();
-    }
-
-    return loginStatus.successful && await credentialsInStorage();
+    await putUser(loginResult.user!);
+    await credentialsInStorage();
+    return loginResult;
   }
 
   /// Deletes saved credentials from storage
@@ -102,32 +84,24 @@ class UserManagementProvider with ChangeNotifier {
   /// Check if the user is still logged in and the credentials are still valid
   /// If not, the user is logged out
   Future<void> checkUserLoginValidity() async {
-    try {
-      if (ProductQuery.isLoggedIn()) {
-        final User user = ProductQuery.getUser();
-        final LoginStatus? loginStatus = await OpenFoodAPIClient.login2(
-          User(
-            userId: user.userId,
-            password: user.password,
-          ),
-          uriHelper: ProductQuery.uriProductHelper,
-        );
-        if (loginStatus == null) {
-          // No internet or sever down
-          return;
-        }
-        if (loginStatus.successful) {
-          // Credentials are still valid so we just return
-          return;
-        } else {
-          // Credentials are not valid anymore so we log out
-          // TODO(m123): Notify the user
-          await logout();
-        }
-      }
-    } catch (e) {
-      // We don't want to crash the app if the login check fails
-      // So we do nothing here
+    if (!ProductQuery.isLoggedIn()) {
+      return;
+    }
+    final User user = ProductQuery.getUser();
+    final LoginResult loginResult = await LoginResult.getLoginResult(
+      User(
+        userId: user.userId,
+        password: user.password,
+      ),
+    );
+    switch (loginResult.type) {
+      case LoginResultType.successful:
+      case LoginResultType.serverIssue:
+      case LoginResultType.exception:
+        return;
+      case LoginResultType.unsuccessful:
+        // TODO(m123): Notify the user
+        await logout();
     }
   }
 }
