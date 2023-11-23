@@ -115,7 +115,7 @@ Product addition:
 - packages/smooth_app/lib/pages/product/add_new_product_page.dart
 - packages/smooth_app/lib/pages/product/new_product_page.dart
 
-Product page:
+🥫 Product page:
 - packages/smooth_app/lib/pages/product/**/*
 
 📖 Knowledge panels:
