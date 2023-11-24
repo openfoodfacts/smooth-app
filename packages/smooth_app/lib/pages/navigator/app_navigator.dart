@@ -242,7 +242,8 @@ class _SmoothGoRouter {
               // Support cgi/product.pl?type=edit&code=XXXX
               final String? barcode = state.uri.queryParameters['code'];
 
-              if (barcode != null && state.uri.queryParameters['type'] == 'edit') {
+              if (barcode != null &&
+                  state.uri.queryParameters['type'] == 'edit') {
                 return AppRoutes.PRODUCT_LOADER(barcode, edit: true);
               } else {
                 externalLink = true;
