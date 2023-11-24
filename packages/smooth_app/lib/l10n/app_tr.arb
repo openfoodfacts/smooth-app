@@ -607,7 +607,7 @@
     "ingredients_photo_title": "İçindekiler fotoğarafı",
     "nutritional_facts_photo_title": "Besin Değerleri Fotoğrafı",
     "recycling_photo_title": "Geri Dönüşüm Fotoğrafı",
-    "take_more_photo_title": "Daha fazla resim çek",
+    "take_more_photo_title": "Daha fazla fotoğraf çekin",
     "front_photo_uploaded": "Önden fotoğraf yüklendi",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "İçindekiler fotoğarafı",
@@ -653,7 +653,7 @@
     "@recycling_photo_button_label": {},
     "recycling_photo_uploaded": "Geri dönüşüm fotoğrafı yüklendi",
     "@recycling_photo_uploaded": {},
-    "take_more_photo_button_label": "Daha fazla resim çek",
+    "take_more_photo_button_label": "Daha fazla fotoğraf çekin",
     "@take_more_photo_button_label": {},
     "other_photo_uploaded": "Fotoğraf yüklendi",
     "@other_photo_uploaded": {},
@@ -1673,6 +1673,13 @@
             "totalSize": {
                 "type": "int"
             }
+        }
+    },
+    "product_search_loading_message": "{search} aramanız devam ediyor.\n\nLütfen birkaç saniye bekleyin…",
+    "@product_search_loading_message": {
+        "description": "This message will be displayed when a search is in progress.",
+        "search": {
+            "type": "String"
         }
     },
     "user_search_contributor_title": "Eklediğim Ürünler",
