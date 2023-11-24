@@ -1997,7 +1997,7 @@
     "@language_picker_label": {
         "description": "Choose Application Language"
     },
-    "help_with_openfoodfacts": "Said",
+    "help_with_openfoodfacts": "Help with Open Food Facts",,
     "@help_with_openfoodfacts": {
         "description": "Label for the email title"
     },
