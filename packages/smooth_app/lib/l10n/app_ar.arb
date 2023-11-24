@@ -1675,6 +1675,13 @@
             }
         }
     },
+    "product_search_loading_message": "Your search of {search} is in progress.\n\nPlease wait a few seconds…",
+    "@product_search_loading_message": {
+        "description": "This message will be displayed when a search is in progress.",
+        "search": {
+            "type": "String"
+        }
+    },
     "user_search_contributor_title": "Products I added",
     "@user_search_contributor_title": {
         "description": "User search (contributor): list tile title"
@@ -1990,7 +1997,7 @@
     "@language_picker_label": {
         "description": "Choose Application Language"
     },
-    "help_with_openfoodfacts": "Help with OpenFoodFacts",
+    "help_with_openfoodfacts": "Help with Open Food Facts",,
     "@help_with_openfoodfacts": {
         "description": "Label for the email title"
     },
