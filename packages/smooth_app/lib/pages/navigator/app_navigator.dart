@@ -131,8 +131,8 @@ class _SmoothGoRouter {
                 final Widget widget = ProductPage(
                   product,
                   withHeroAnimation:
-                      state.queryParameters['heroAnimation'] != 'false',
-                  heroTag: state.queryParameters['heroTag'],
+                      state.uri.queryParameters['heroAnimation'] != 'false',
+                  heroTag: state.uri.queryParameters['heroTag'],
                 );
 
                 if (ExternalCarouselManager.find(context) == null) {
@@ -162,7 +162,7 @@ class _SmoothGoRouter {
                 final String barcode = state.pathParameters['productId']!;
                 return ProductLoaderPage(
                   barcode: barcode,
-                  mode: state.queryParameters['edit'] == 'true'
+                  mode: state.uri.queryParameters['edit'] == 'true'
                       ? ProductLoaderMode.editProduct
                       : ProductLoaderMode.viewProduct,
                 );
@@ -201,7 +201,7 @@ class _SmoothGoRouter {
             GoRoute(
               path: _InternalAppRoutes.EXTERNAL_PAGE,
               builder: (BuildContext context, GoRouterState state) {
-                return ExternalPage(path: state.queryParameters['path']!);
+                return ExternalPage(path: state.uri.queryParameters['path']!);
               },
             ),
           ],
@@ -211,7 +211,7 @@ class _SmoothGoRouter {
         final String path = state.matchedLocation;
 
         // Ignore deep links if the onboarding is not yet completed
-        if (state.location != _InternalAppRoutes.HOME_PAGE &&
+        if (state.uri.toString() != _InternalAppRoutes.HOME_PAGE &&
             !_isOnboardingComplete(context)) {
           return _InternalAppRoutes.HOME_PAGE;
         } else if (_isAnInternalRoute(path)) {
@@ -240,9 +240,9 @@ class _SmoothGoRouter {
               }
             } else if (path == _ExternalRoutes.PRODUCT_EDITION) {
               // Support cgi/product.pl?type=edit&code=XXXX
-              final String? barcode = state.queryParameters['code'];
+              final String? barcode = state.uri.queryParameters['code'];
 
-              if (barcode != null && state.queryParameters['type'] == 'edit') {
+              if (barcode != null && state.uri.queryParameters['type'] == 'edit') {
                 return AppRoutes.PRODUCT_LOADER(barcode, edit: true);
               } else {
                 externalLink = true;
@@ -260,11 +260,11 @@ class _SmoothGoRouter {
         if (externalLink) {
           return _openExternalLink(path);
         } else {
-          return state.location;
+          return state.uri.toString();
         }
       },
       errorBuilder: (_, GoRouterState state) => ErrorPage(
-        url: state.location,
+        url: state.uri.toString(),
       ),
     );
   }
