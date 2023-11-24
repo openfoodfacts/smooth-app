@@ -150,6 +150,14 @@
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
+    "login_result_type_server_unreachable": "Network is unreachable",
+    "@login_result_type_server_unreachable": {
+        "description": "Error message when trying to log in without network"
+    },
+    "login_result_type_server_issue": "Problem on the server. Please try later.",
+    "@login_result_type_server_issue": {
+        "description": "Error message when trying to log in and the server does not answer correctly"
+    },
     "login_page_username_or_email": "ユーザー名またはメールアドレスを入力してください",
     "login_page_password_error_empty": "パスワードを入力してください",
     "create_account": "アカウントを作成",
@@ -599,7 +607,7 @@
     "ingredients_photo_title": "原材料の画像",
     "nutritional_facts_photo_title": "栄養成分表の画像",
     "recycling_photo_title": "リサイクル情報の画像",
-    "take_more_photo_title": "その他の興味深い画像",
+    "take_more_photo_title": "もっと写真を撮ります",
     "front_photo_uploaded": "正面の画像をアップロードしました",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "原材料の画像",
@@ -621,6 +629,7 @@
     "new_product_subtitle_nova": "Get it by filling the food category and ingredients",
     "new_product_desc_nova_unknown": "食品加工レベル不明",
     "new_product_title_pictures": "写真を撮りましょう！",
+    "new_product_title_pictures_details": "Please take the following photos and the Open Food Facts engine can work out the rest!",
     "new_product_title_misc": "そしていくつかの基本データ…",
     "new_product_done_msg": "ご協力ありがとうございます。「{username}」！",
     "@new_product_done_msg": {
@@ -644,7 +653,7 @@
     "@recycling_photo_button_label": {},
     "recycling_photo_uploaded": "リサイクル情報の画像がアップロードされました",
     "@recycling_photo_uploaded": {},
-    "take_more_photo_button_label": "その他の興味深い画像",
+    "take_more_photo_button_label": "もっと写真を撮ります",
     "@take_more_photo_button_label": {},
     "other_photo_uploaded": "その他の画像がアップロードされました",
     "@other_photo_uploaded": {},
@@ -768,7 +777,11 @@
     },
     "country_chooser_label": "国を選んでください",
     "@country_chooser_label": {
-        "description": "Label shown above a selector where the user can select their country (in the onboarding)"
+        "description": "Label shown above a selector where the user can select their country (in the preferences)"
+    },
+    "onboarding_country_chooser_label": "国を選択してください",
+    "@onboarding_country_chooser_label": {
+        "description": "The label shown above a selector where the user can select their country (in the onboarding)"
     },
     "country_chooser_label_from_settings": "あなたの国",
     "@country_chooser_label_from_settings": {
@@ -1585,10 +1598,6 @@
     "dev_preferences_migration_status_in_progress": "進行中",
     "dev_preferences_migration_status_required": "必要（クリックしてスタート）",
     "dev_preferences_migration_status_not_started": "不明",
-    "dev_preferences_import_history_title": "履歴のインポート",
-    "@dev_preferences_import_history_title": {
-        "description": "User dev preferences - Import history - Title"
-    },
     "dev_preferences_import_history_subtitle": "履歴をクリアし、3つの製品を追加します",
     "@dev_preferences_import_history_subtitle": {
         "description": "User dev preferences - Import history - Subtitle"

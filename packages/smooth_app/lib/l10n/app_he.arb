@@ -150,6 +150,14 @@
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
+    "login_result_type_server_unreachable": "אין גישה לרשת",
+    "@login_result_type_server_unreachable": {
+        "description": "Error message when trying to log in without network"
+    },
+    "login_result_type_server_issue": "תקלה בשרת. נא לנסות שוב בהמשך.",
+    "@login_result_type_server_issue": {
+        "description": "Error message when trying to log in and the server does not answer correctly"
+    },
     "login_page_username_or_email": "נא למלא שם משתמש או כתובת דוא״ל",
     "login_page_password_error_empty": "נא למלא סיסמה",
     "create_account": "יצירת חשבון",
@@ -599,7 +607,7 @@
     "ingredients_photo_title": "תמונת רכיבים",
     "nutritional_facts_photo_title": "תמונת פירוט תזונתי",
     "recycling_photo_title": "תמונת מיחזור",
-    "take_more_photo_title": "תמונות מעניינות נוספות",
+    "take_more_photo_title": "צילום תמונות נוספות",
     "front_photo_uploaded": "תמונת החזית נשלחה",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "תמונת רכיבים",
@@ -621,6 +629,7 @@
     "new_product_subtitle_nova": "אפשר לגלות אותו על ידי מילוי קטגוריית המזון והרכיבים",
     "new_product_desc_nova_unknown": "רמת עיבוד המזון אינה ידועה",
     "new_product_title_pictures": "בואו נצלם קצת!",
+    "new_product_title_pictures_details": "נא לצלם את התמונות הבאות והמנוע של Open Food Facts ידאג לשאר!",
     "new_product_title_misc": "וכמה נתונים בסיסיים…",
     "new_product_done_msg": "תודה „{username}” על תרומתך!",
     "@new_product_done_msg": {
@@ -644,7 +653,7 @@
     "@recycling_photo_button_label": {},
     "recycling_photo_uploaded": "תמונת המיחזור נשלחה",
     "@recycling_photo_uploaded": {},
-    "take_more_photo_button_label": "תמונות מעניינות נוספות",
+    "take_more_photo_button_label": "צילום תמונות נוספות",
     "@take_more_photo_button_label": {},
     "other_photo_uploaded": "תמונה אחרת נשלחה",
     "@other_photo_uploaded": {},
@@ -768,7 +777,11 @@
     },
     "country_chooser_label": "נא לבחור מדינה",
     "@country_chooser_label": {
-        "description": "Label shown above a selector where the user can select their country (in the onboarding)"
+        "description": "Label shown above a selector where the user can select their country (in the preferences)"
+    },
+    "onboarding_country_chooser_label": "Please choose a country:",
+    "@onboarding_country_chooser_label": {
+        "description": "The label shown above a selector where the user can select their country (in the onboarding)"
     },
     "country_chooser_label_from_settings": "המדינה שלך",
     "@country_chooser_label_from_settings": {
@@ -1585,10 +1598,6 @@
     "dev_preferences_migration_status_in_progress": "בתהליך",
     "dev_preferences_migration_status_required": "נחוץ (ללחוץ כדי להפעיל)",
     "dev_preferences_migration_status_not_started": "לא ידוע",
-    "dev_preferences_import_history_title": "ייבוא היסטוריה",
-    "@dev_preferences_import_history_title": {
-        "description": "User dev preferences - Import history - Title"
-    },
     "dev_preferences_import_history_subtitle": "יפנה את ההיסטוריה ויציב שם 3 מוצרים",
     "@dev_preferences_import_history_subtitle": {
         "description": "User dev preferences - Import history - Subtitle"

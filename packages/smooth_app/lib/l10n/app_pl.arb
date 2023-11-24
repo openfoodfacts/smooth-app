@@ -150,6 +150,14 @@
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
+    "login_result_type_server_unreachable": "Network is unreachable",
+    "@login_result_type_server_unreachable": {
+        "description": "Error message when trying to log in without network"
+    },
+    "login_result_type_server_issue": "Problem on the server. Please try later.",
+    "@login_result_type_server_issue": {
+        "description": "Error message when trying to log in and the server does not answer correctly"
+    },
     "login_page_username_or_email": "Podaj nazwę użytkownika lub adres e-mail",
     "login_page_password_error_empty": "Proszę wpisać hasło",
     "create_account": "Utwórz konto",
@@ -599,7 +607,7 @@
     "ingredients_photo_title": "Zdjęcie listy składników",
     "nutritional_facts_photo_title": "Zdjęcie tabeli wartości odżywczych",
     "recycling_photo_title": "Zdjęcie informacji o recyklingu",
-    "take_more_photo_title": "Inne ciekawe zdjęcia",
+    "take_more_photo_title": "Zrób więcej zdjęć",
     "front_photo_uploaded": "Przesłano zdjęcie przodu",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "Zdjęcie listy składników",
@@ -621,6 +629,7 @@
     "new_product_subtitle_nova": "Otrzymaj go, wypełniając kategorię żywności oraz składniki",
     "new_product_desc_nova_unknown": "Poziom przetwarzania żywności nieznany",
     "new_product_title_pictures": "Zróbmy kilka zdjęć!",
+    "new_product_title_pictures_details": "Zrób następujące zdjęcia, a silnik Open Food Facts może odtworzyć resztę!",
     "new_product_title_misc": "I trochę podstawowych danych…",
     "new_product_done_msg": "Dziękujemy za Twój wkład \"{username}\"!",
     "@new_product_done_msg": {
@@ -644,7 +653,7 @@
     "@recycling_photo_button_label": {},
     "recycling_photo_uploaded": "Przesłano zdjęcie dot. Recyklingu",
     "@recycling_photo_uploaded": {},
-    "take_more_photo_button_label": "Inne ciekawe zdjęcia",
+    "take_more_photo_button_label": "Zrób więcej zdjęć",
     "@take_more_photo_button_label": {},
     "other_photo_uploaded": "Inne zdjęcie przesłane",
     "@other_photo_uploaded": {},
@@ -768,7 +777,11 @@
     },
     "country_chooser_label": "Proszę wybrać kraj",
     "@country_chooser_label": {
-        "description": "Label shown above a selector where the user can select their country (in the onboarding)"
+        "description": "Label shown above a selector where the user can select their country (in the preferences)"
+    },
+    "onboarding_country_chooser_label": "Please choose a country:",
+    "@onboarding_country_chooser_label": {
+        "description": "The label shown above a selector where the user can select their country (in the onboarding)"
     },
     "country_chooser_label_from_settings": "Twój kraj",
     "@country_chooser_label_from_settings": {
@@ -1585,10 +1598,6 @@
     "dev_preferences_migration_status_in_progress": "w toku",
     "dev_preferences_migration_status_required": "wymagane (kliknij, aby rozpocząć)",
     "dev_preferences_migration_status_not_started": "nieznany",
-    "dev_preferences_import_history_title": "Importuj historię",
-    "@dev_preferences_import_history_title": {
-        "description": "User dev preferences - Import history - Title"
-    },
     "dev_preferences_import_history_subtitle": "Usuwa historię wyszukiwania i wstawia w to miejsce 3 produkty",
     "@dev_preferences_import_history_subtitle": {
         "description": "User dev preferences - Import history - Subtitle"

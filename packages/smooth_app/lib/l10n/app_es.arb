@@ -27,7 +27,7 @@
     "go_back_to_top": "Volver al principio",
     "save": "Guardar",
     "save_confirmation": "¿Seguro que quieres guardar?",
-    "skip": "Saltar",
+    "skip": "Omitir",
     "cancel": "Cancelar",
     "@cancel": {},
     "ignore": "Ignorar",
@@ -146,9 +146,17 @@
     "incorrect_credentials": "Nombre de usuario o contraseña incorrecto.",
     "password_lost_incorrect_credentials": "Este correo electrónico o nombre de usuario no existe. Por favor, comprueba tus credenciales.",
     "password_lost_server_unavailable": "Estamos sufriendo retrasos en nuestros servidores y nos disculpamos por ello. Por favor, inténtalo de nuevo más tarde.",
-    "login": "Inicio de sesión",
+    "login": "Iniciar sesión",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
+    },
+    "login_result_type_server_unreachable": "Network is unreachable",
+    "@login_result_type_server_unreachable": {
+        "description": "Error message when trying to log in without network"
+    },
+    "login_result_type_server_issue": "Problem on the server. Please try later.",
+    "@login_result_type_server_issue": {
+        "description": "Error message when trying to log in and the server does not answer correctly"
     },
     "login_page_username_or_email": "Por favor, introduce tu nombre de usuario o correo electrónico",
     "login_page_password_error_empty": "Por favor, introduce una contraseña",
@@ -599,7 +607,7 @@
     "ingredients_photo_title": "Foto de los ingredientes",
     "nutritional_facts_photo_title": "Foto de la información nutricional",
     "recycling_photo_title": "Foto sobre el reciclaje",
-    "take_more_photo_title": "Otras fotos interesantes",
+    "take_more_photo_title": "Haz más fotos",
     "front_photo_uploaded": "Foto frontal subida",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "Foto de los ingredientes",
@@ -613,26 +621,41 @@
     "nutritional_facts_added": "Información nutricional añadida",
     "categories_added": "Categorías añadidas",
     "new_product_title_nutriscore": "Calcular Nutri-Score",
-    "new_product_subtitle_nutriscore": "Hazlo rellenando la categoría de alimentos y los valores nutricionales.",
+    "new_product_subtitle_nutriscore": "Ayúdanos completando la categoría de alimentos y los valores nutricionales.",
     "new_product_title_ecoscore": "Calcular Eco-Score",
     "new_product_subtitle_ecoscore": "Hazlo rellenando al menos una categoría.",
     "new_product_additional_ecoscore": "Haz que el cálculo del Eco-Score sea más preciso añadiendo orígenes, información sobre el envase, etc.",
     "new_product_title_nova": "Calcula el nivel de procesado de los alimentos (NOVA)",
     "new_product_subtitle_nova": "Hazlo rellenando las categorías de alimentos e ingredientes.",
     "new_product_desc_nova_unknown": "Nivel de procesado de alimentos desconocido",
-    "new_product_title_pictures": "New product",
-    "new_product_title_pictures_details": "Please take the following photos and the Open Food Facts engine can work out the rest!",
-    "new_product_title_misc": "And some basic data…",
-    "hey_incomplete_product_message": "Tap to answer 3 questions NOW to compute Nutri-Score, Eco-Score & Ultra-processing (NOVA)!",
-    "nutritional_facts_photo_uploaded": "Se ha subido la foto con información nutricional",
+    "new_product_title_pictures": "Nuevo producto",
+    "new_product_title_pictures_details": "Saca las siguientes fotos y el motor de Open Food Facts se ocupará del resto.",
+    "new_product_title_misc": "Y algunos datos básicos…",
+    "new_product_done_msg": "¡Gracias por tu colaboración, {username}!",
+    "@new_product_done_msg": {
+        "description": "Thank you message on the end of new product page, after finish adding a new product.",
+        "placeholders": {
+            "username": {
+                "type": "String",
+                "example": "Bob"
+            }
+        }
+    },
+    "new_product_done_msg_no_user": "¡Gracias por tu colaboración!",
+    "new_product_done_button_label": "Descubre el producto completo",
+    "@new_product_done_button_label": {
+        "description": "Button at the end of new product page, that takes you to completed product"
+    },
+    "hey_incomplete_product_message": "Toca aquí y responde AHORA a 3 preguntas para calcular el Nutri-Score, el Eco-Score y el nivel de procesado (NOVA).",
+    "nutritional_facts_photo_uploaded": "Imagen sobre información nutricional subida",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "Foto de información sobre reciclaje",
     "@recycling_photo_button_label": {},
     "recycling_photo_uploaded": "Imagen sobre reciclaje subida",
     "@recycling_photo_uploaded": {},
-    "take_more_photo_button_label": "Otras fotos interesantes",
+    "take_more_photo_button_label": "Haz más fotos",
     "@take_more_photo_button_label": {},
-    "other_photo_uploaded": "Foto miscelánea cargada",
+    "other_photo_uploaded": "Imagen miscelánea subida",
     "@other_photo_uploaded": {},
     "retake_photo_button_label": "Repetir foto",
     "@retake_photo_button_label": {
@@ -673,7 +696,7 @@
     "score_add_missing_ingredients": "Añadir los ingredientes que faltan",
     "score_add_missing_packaging_image": "Añadir la imagen del envase que falta",
     "score_add_missing_nutrition_facts": "Añadir la información nutricional que falta",
-    "score_add_missing_product_category": "Añadir las categorías del producto que faltan",
+    "score_add_missing_product_category": "Seleccionar una categoría",
     "score_add_missing_product_countries": "Añadir los países de producto que faltan",
     "score_add_missing_product_emb": "Añadir los códigos de trazabilidad que faltan",
     "score_add_missing_product_labels": "Añadir las etiquetas que faltan",
@@ -754,7 +777,11 @@
     },
     "country_chooser_label": "Elige un país",
     "@country_chooser_label": {
-        "description": "Label shown above a selector where the user can select their country (in the onboarding)"
+        "description": "Label shown above a selector where the user can select their country (in the preferences)"
+    },
+    "onboarding_country_chooser_label": "Por favor, elige un país:",
+    "@onboarding_country_chooser_label": {
+        "description": "The label shown above a selector where the user can select their country (in the onboarding)"
     },
     "country_chooser_label_from_settings": "Tu país",
     "@country_chooser_label_from_settings": {
@@ -1571,10 +1598,6 @@
     "dev_preferences_migration_status_in_progress": "en curso",
     "dev_preferences_migration_status_required": "necesario (clic para comenzar)",
     "dev_preferences_migration_status_not_started": "desconocido",
-    "dev_preferences_import_history_title": "Importar historial",
-    "@dev_preferences_import_history_title": {
-        "description": "User dev preferences - Import history - Title"
-    },
     "dev_preferences_import_history_subtitle": "Se limpiará el historial y se pondrán 3 productos ahí",
     "@dev_preferences_import_history_subtitle": {
         "description": "User dev preferences - Import history - Subtitle"

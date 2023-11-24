@@ -150,6 +150,14 @@
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
+    "login_result_type_server_unreachable": "Network is unreachable",
+    "@login_result_type_server_unreachable": {
+        "description": "Error message when trying to log in without network"
+    },
+    "login_result_type_server_issue": "Problem on the server. Please try later.",
+    "@login_result_type_server_issue": {
+        "description": "Error message when trying to log in and the server does not answer correctly"
+    },
     "login_page_username_or_email": "Пожалуйста, введите имя пользователя или e-mail",
     "login_page_password_error_empty": "Введите пароль",
     "create_account": "Создать учётную запись",
@@ -599,7 +607,7 @@
     "ingredients_photo_title": "Фото состава",
     "nutritional_facts_photo_title": "Фото информации о пищевой ценности",
     "recycling_photo_title": "Изображение сведений о переработке",
-    "take_more_photo_title": "Другие интересные фото",
+    "take_more_photo_title": "Сделайте дополнительные фото",
     "front_photo_uploaded": "Загружено переднее фото",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "Фото состава",
@@ -621,6 +629,7 @@
     "new_product_subtitle_nova": "Для этого заполните категорию и состав продукта",
     "new_product_desc_nova_unknown": "Степень обработки продуктов неизвестна",
     "new_product_title_pictures": "Давайте сделаем несколько фотографий!",
+    "new_product_title_pictures_details": "Please take the following photos and the Open Food Facts engine can work out the rest!",
     "new_product_title_misc": "И некоторые основные данные…",
     "new_product_done_msg": "Thanks for your contribution “{username}”!",
     "@new_product_done_msg": {
@@ -644,7 +653,7 @@
     "@recycling_photo_button_label": {},
     "recycling_photo_uploaded": "Фотография утилизации загружена",
     "@recycling_photo_uploaded": {},
-    "take_more_photo_button_label": "Другие интересные фото",
+    "take_more_photo_button_label": "Сделайте дополнительные фото",
     "@take_more_photo_button_label": {},
     "other_photo_uploaded": "Разное фото загружены",
     "@other_photo_uploaded": {},
@@ -768,7 +777,11 @@
     },
     "country_chooser_label": "Пожалуйста, выберите страну",
     "@country_chooser_label": {
-        "description": "Label shown above a selector where the user can select their country (in the onboarding)"
+        "description": "Label shown above a selector where the user can select their country (in the preferences)"
+    },
+    "onboarding_country_chooser_label": "Please choose a country:",
+    "@onboarding_country_chooser_label": {
+        "description": "The label shown above a selector where the user can select their country (in the onboarding)"
     },
     "country_chooser_label_from_settings": "Ваша страна",
     "@country_chooser_label_from_settings": {
@@ -1585,10 +1598,6 @@
     "dev_preferences_migration_status_in_progress": "в процессе выполнения",
     "dev_preferences_migration_status_required": "обязательно (нажать, чтобы начать)",
     "dev_preferences_migration_status_not_started": "неизвестно",
-    "dev_preferences_import_history_title": "Импортировать историю",
-    "@dev_preferences_import_history_title": {
-        "description": "User dev preferences - Import history - Title"
-    },
     "dev_preferences_import_history_subtitle": "Очистит историю и поместит туда 3 продукта",
     "@dev_preferences_import_history_subtitle": {
         "description": "User dev preferences - Import history - Subtitle"

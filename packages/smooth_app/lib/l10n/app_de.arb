@@ -150,6 +150,14 @@
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
+    "login_result_type_server_unreachable": "Netzwerk ist nicht erreichbar",
+    "@login_result_type_server_unreachable": {
+        "description": "Error message when trying to log in without network"
+    },
+    "login_result_type_server_issue": "Problem auf dem Server. Bitte versuchen Sie es später noch einmal.",
+    "@login_result_type_server_issue": {
+        "description": "Error message when trying to log in and the server does not answer correctly"
+    },
     "login_page_username_or_email": "Bitte Benutzername oder E-Mail eingeben",
     "login_page_password_error_empty": "Bitte geben Sie ein Passwort ein",
     "create_account": "Konto erstellen",
@@ -599,7 +607,7 @@
     "ingredients_photo_title": "Foto der Zutatenliste",
     "nutritional_facts_photo_title": "Foto der Nährwertangaben",
     "recycling_photo_title": "Foto der Recycling-Informationen",
-    "take_more_photo_title": "Weitere interessante Fotos",
+    "take_more_photo_title": "Weitere Fotos aufnehmen",
     "front_photo_uploaded": "Foto der Vorderseite der Verpackung hochgeladen",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "Foto der Zutatenliste",
@@ -620,7 +628,8 @@
     "new_product_title_nova": "Berechnen Sie den Grad der Lebensmittelverarbeitung (NOVA)",
     "new_product_subtitle_nova": "Sie erhalten ihn, indem Sie die Lebensmittelkategorie und die Zutaten eingeben",
     "new_product_desc_nova_unknown": "Grad der Lebensmittelverarbeitung unbekannt",
-    "new_product_title_pictures": "Lassen Sie uns ein paar Fotos aufnehmen!",
+    "new_product_title_pictures": "Neues Produkt",
+    "new_product_title_pictures_details": "Bitte fotografieren Sie das Folgende und die Open Food Facts Engine erledigt den Rest!",
     "new_product_title_misc": "Und einige grundlegende Daten …",
     "new_product_done_msg": "„{username}”, vielen Dank für Ihr Mitwirken!",
     "@new_product_done_msg": {
@@ -644,7 +653,7 @@
     "@recycling_photo_button_label": {},
     "recycling_photo_uploaded": "Foto mit Informationen zum Recycling hochgeladen",
     "@recycling_photo_uploaded": {},
-    "take_more_photo_button_label": "Weitere interessante Fotos",
+    "take_more_photo_button_label": "Weitere Fotos aufnehmen",
     "@take_more_photo_button_label": {},
     "other_photo_uploaded": "Sonstiges Foto hochgeladen",
     "@other_photo_uploaded": {},
@@ -768,7 +777,11 @@
     },
     "country_chooser_label": "Wählen Sie ein Land aus",
     "@country_chooser_label": {
-        "description": "Label shown above a selector where the user can select their country (in the onboarding)"
+        "description": "Label shown above a selector where the user can select their country (in the preferences)"
+    },
+    "onboarding_country_chooser_label": "Bitte wählen Sie ein Land:",
+    "@onboarding_country_chooser_label": {
+        "description": "The label shown above a selector where the user can select their country (in the onboarding)"
     },
     "country_chooser_label_from_settings": "Ihr Land",
     "@country_chooser_label_from_settings": {
@@ -1585,10 +1598,6 @@
     "dev_preferences_migration_status_in_progress": "in Bearbeitung",
     "dev_preferences_migration_status_required": "benötigt (klicken, um zu starten)",
     "dev_preferences_migration_status_not_started": "Unbekannt",
-    "dev_preferences_import_history_title": "Verlauf importieren",
-    "@dev_preferences_import_history_title": {
-        "description": "User dev preferences - Import history - Title"
-    },
     "dev_preferences_import_history_subtitle": "Wird den Verlauf löschen und 3 Produkte einfügen",
     "@dev_preferences_import_history_subtitle": {
         "description": "User dev preferences - Import history - Subtitle"

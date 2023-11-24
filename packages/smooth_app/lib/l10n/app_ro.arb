@@ -150,6 +150,14 @@
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
+    "login_result_type_server_unreachable": "Rețeaua nu este accesibilă",
+    "@login_result_type_server_unreachable": {
+        "description": "Error message when trying to log in without network"
+    },
+    "login_result_type_server_issue": "Problemă la server. Te rugăm să încerci mai târziu.",
+    "@login_result_type_server_issue": {
+        "description": "Error message when trying to log in and the server does not answer correctly"
+    },
     "login_page_username_or_email": "Vă rugăm să introduceți numele de utilizator sau adresa de e-mail",
     "login_page_password_error_empty": "Vă rugăm să introduceți o parolă",
     "create_account": "Creați cont",
@@ -541,9 +549,9 @@
     "@new_product_dialog_description": {
         "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
     },
-    "front_packaging_photo_button_label": "Fotografia din față a produsului",
+    "front_packaging_photo_button_label": "Fotografie din față a produsului",
     "@front_packaging_photo_button_label": {},
-    "confirm_front_packaging_photo_button_label": "Confirmă încărcarea fotografiei din față a produsului",
+    "confirm_front_packaging_photo_button_label": "Confirmați încărcarea fotografiei ambalajului frontal",
     "@confirm_front_packaging_photo_button_label": {
         "description": "Button clicking on which confirms the picture of the front of product that user just took."
     },
@@ -599,7 +607,7 @@
     "ingredients_photo_title": "Fotografie cu ingredientele",
     "nutritional_facts_photo_title": "Informații nutriționale Foto",
     "recycling_photo_title": "Imaginea cu metoda de reciclare",
-    "take_more_photo_title": "Alte fotografii interesante",
+    "take_more_photo_title": "Faceți mai multe poze",
     "front_photo_uploaded": "Fotografia frontală a fost încărcată",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "Foto ingrediente",
@@ -609,18 +617,19 @@
     "nutrition_cache_loading_error": "Imposibil de încărcat nutrienții din cache",
     "nutritional_facts_photo_button_label": "Foto cu informații nutriționale",
     "@nutritional_facts_photo_button_label": {},
-    "nutritional_facts_input_button_label": "Introduceți informații nutriționale",
+    "nutritional_facts_input_button_label": "Completați informațiile nutriționale",
     "nutritional_facts_added": "Date nutriționale adăugate",
     "categories_added": "Categorii adăugate",
     "new_product_title_nutriscore": "Calculează Nutri-Score-ul",
-    "new_product_subtitle_nutriscore": "Obțineți-l completând categoria de alimente și valorile nutriționale",
+    "new_product_subtitle_nutriscore": "Ajutați-ne completând cel puțin o categorie și valori nutriționale",
     "new_product_title_ecoscore": "Calculați Scorul Eco",
     "new_product_subtitle_ecoscore": "Obțineți-l completând cel puțin o categorie",
     "new_product_additional_ecoscore": "Faceți calculul Eco-Score mai precis cu originile, ambalaje și multe altele",
     "new_product_title_nova": "Calculați nivelul de procesare a alimentelor (NOVA)",
     "new_product_subtitle_nova": "Obțineți-l completând categoria de alimente și ingrediente",
     "new_product_desc_nova_unknown": "Nivel de procesare a alimentelor necunoscut",
-    "new_product_title_pictures": "Hai să facem niște poze!",
+    "new_product_title_pictures": "Produs nou",
+    "new_product_title_pictures_details": "Vă rugăm să faceți următoarele fotografii și motorul Open Food Facts poate rezolva restul!",
     "new_product_title_misc": "Și câteva date de bază…",
     "new_product_done_msg": "Mulțumim pentru contribuția ta „{username}”!",
     "@new_product_done_msg": {
@@ -644,7 +653,7 @@
     "@recycling_photo_button_label": {},
     "recycling_photo_uploaded": "Fotografia despre reciclare încărcată",
     "@recycling_photo_uploaded": {},
-    "take_more_photo_button_label": "Alte fotografii interesante",
+    "take_more_photo_button_label": "Faceți mai multe poze",
     "@take_more_photo_button_label": {},
     "other_photo_uploaded": "Diverse fotografii încărcate",
     "@other_photo_uploaded": {},
@@ -687,7 +696,7 @@
     "score_add_missing_ingredients": "Adăugați ingredientele lipsă",
     "score_add_missing_packaging_image": "Adaugă imaginea lipsă a ambalajului",
     "score_add_missing_nutrition_facts": "Adăugați informațiile nutriționale care lipsesc",
-    "score_add_missing_product_category": "Adăugați categoria de produse lipsă",
+    "score_add_missing_product_category": "Selectați o categorie",
     "score_add_missing_product_countries": "Adăugați țările care lipsesc",
     "score_add_missing_product_emb": "Adăugați codurile de trasabilitate ale produselor care lipsesc",
     "score_add_missing_product_labels": "Adăugați etichetele produselor care lipsesc",
@@ -768,7 +777,11 @@
     },
     "country_chooser_label": "Vă rugăm să selectați o țară",
     "@country_chooser_label": {
-        "description": "Label shown above a selector where the user can select their country (in the onboarding)"
+        "description": "Label shown above a selector where the user can select their country (in the preferences)"
+    },
+    "onboarding_country_chooser_label": "Please choose a country:",
+    "@onboarding_country_chooser_label": {
+        "description": "The label shown above a selector where the user can select their country (in the onboarding)"
     },
     "country_chooser_label_from_settings": "Țara ta",
     "@country_chooser_label_from_settings": {
@@ -1585,10 +1598,6 @@
     "dev_preferences_migration_status_in_progress": "în curs",
     "dev_preferences_migration_status_required": "obligatoriu (click pentru a începe)",
     "dev_preferences_migration_status_not_started": "necunoscut",
-    "dev_preferences_import_history_title": "Istoricul importurilor",
-    "@dev_preferences_import_history_title": {
-        "description": "User dev preferences - Import history - Title"
-    },
     "dev_preferences_import_history_subtitle": "Va șterge istoricul și va pune 3 produse acolo",
     "@dev_preferences_import_history_subtitle": {
         "description": "User dev preferences - Import history - Subtitle"

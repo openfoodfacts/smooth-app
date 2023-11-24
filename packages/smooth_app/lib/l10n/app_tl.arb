@@ -150,6 +150,14 @@
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
+    "login_result_type_server_unreachable": "Network is unreachable",
+    "@login_result_type_server_unreachable": {
+        "description": "Error message when trying to log in without network"
+    },
+    "login_result_type_server_issue": "Problem on the server. Please try later.",
+    "@login_result_type_server_issue": {
+        "description": "Error message when trying to log in and the server does not answer correctly"
+    },
     "login_page_username_or_email": "Please enter username or e-mail",
     "login_page_password_error_empty": "Please enter a password",
     "create_account": "Create account",
@@ -599,7 +607,7 @@
     "ingredients_photo_title": "Ingredients Photo",
     "nutritional_facts_photo_title": "Nutrition Facts Photo",
     "recycling_photo_title": "Recycling Photo",
-    "take_more_photo_title": "Take more photos",
+    "take_more_photo_title": "Kumuha ng mas maraming larawan",
     "front_photo_uploaded": "Front photo uploaded",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "Ingredients photo",
@@ -645,7 +653,7 @@
     "@recycling_photo_button_label": {},
     "recycling_photo_uploaded": "Recycling photo uploaded",
     "@recycling_photo_uploaded": {},
-    "take_more_photo_button_label": "Take more photos",
+    "take_more_photo_button_label": "Kumuha ng mas maraming larawan",
     "@take_more_photo_button_label": {},
     "other_photo_uploaded": "Miscellaneous photo uploaded",
     "@other_photo_uploaded": {},
@@ -769,7 +777,11 @@
     },
     "country_chooser_label": "Please choose a country",
     "@country_chooser_label": {
-        "description": "Label shown above a selector where the user can select their country (in the onboarding)"
+        "description": "Label shown above a selector where the user can select their country (in the preferences)"
+    },
+    "onboarding_country_chooser_label": "Please choose a country:",
+    "@onboarding_country_chooser_label": {
+        "description": "The label shown above a selector where the user can select their country (in the onboarding)"
     },
     "country_chooser_label_from_settings": "Your country",
     "@country_chooser_label_from_settings": {
@@ -1586,10 +1598,6 @@
     "dev_preferences_migration_status_in_progress": "in progress",
     "dev_preferences_migration_status_required": "required (click to start)",
     "dev_preferences_migration_status_not_started": "unknown",
-    "dev_preferences_import_history_title": "Import History",
-    "@dev_preferences_import_history_title": {
-        "description": "User dev preferences - Import history - Title"
-    },
     "dev_preferences_import_history_subtitle": "Will clear history and put 3 products in there",
     "@dev_preferences_import_history_subtitle": {
         "description": "User dev preferences - Import history - Subtitle"
