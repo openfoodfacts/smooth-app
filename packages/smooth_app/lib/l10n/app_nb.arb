@@ -1675,6 +1675,13 @@
             }
         }
     },
+    "product_search_loading_message": "Your search of {search} is in progress.\n\nPlease wait a few seconds…",
+    "@product_search_loading_message": {
+        "description": "This message will be displayed when a search is in progress.",
+        "search": {
+            "type": "String"
+        }
+    },
     "user_search_contributor_title": "Produkter jeg har lagt til",
     "@user_search_contributor_title": {
         "description": "User search (contributor): list tile title"
