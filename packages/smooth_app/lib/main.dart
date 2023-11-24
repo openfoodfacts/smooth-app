@@ -31,6 +31,7 @@ import 'package:smooth_app/helpers/permission_helper.dart';
 import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/resources/app_animations.dart';
 import 'package:smooth_app/services/smooth_services.dart';
 import 'package:smooth_app/themes/color_provider.dart';
 import 'package:smooth_app/themes/contrast_provider.dart';
@@ -224,12 +225,14 @@ class _SmoothAppState extends State<SmoothApp> {
             provide<ContinuousScanModel>(_continuousScanModel),
             provide<PermissionListener>(_permissionListener),
           ],
-          child: AppNavigator(
-            observers: <NavigatorObserver>[
-              SentryNavigatorObserver(),
-              matomoObserver,
-            ],
-            child: Builder(builder: _buildApp),
+          child: AnimationsLoader(
+            child: AppNavigator(
+              observers: <NavigatorObserver>[
+                SentryNavigatorObserver(),
+                matomoObserver,
+              ],
+              child: Builder(builder: _buildApp),
+            ),
           ),
         );
       },
