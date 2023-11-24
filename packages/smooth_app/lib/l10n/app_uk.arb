@@ -1675,6 +1675,13 @@
             }
         }
     },
+    "product_search_loading_message": "Ваш пошук {search} триває. Будь ласка, зачекайте кілька секунд…",
+    "@product_search_loading_message": {
+        "description": "This message will be displayed when a search is in progress.",
+        "search": {
+            "type": "String"
+        }
+    },
     "user_search_contributor_title": "Додані мною продукти",
     "@user_search_contributor_title": {
         "description": "User search (contributor): list tile title"
