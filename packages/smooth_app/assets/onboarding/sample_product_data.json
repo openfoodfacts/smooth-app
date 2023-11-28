@@ -2220,16 +2220,16 @@
          }
       },
       "labels_tags" : [
+         "en:fair-trade",
          "en:organic",
          "en:eu-organic",
-         "en:fair-trade",
          "en:green-dot",
          "en:nutriscore"
       ],
       "labels_tags_fr" : [
+         "Commerce équitable",
          "Bio",
          "Bio européen",
-         "Commerce équitable",
          "Point Vert",
          "Nutriscore"
       ],
