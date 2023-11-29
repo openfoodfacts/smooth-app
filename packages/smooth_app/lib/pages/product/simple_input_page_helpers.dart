@@ -112,6 +112,32 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
   ) =>
       null;
 
+  /// Typical extra widget for the "add other pics" button.
+  @protected
+  Widget getExtraPhotoWidget(
+    final BuildContext context,
+    final Product product,
+    final String title,
+  ) =>
+      Padding(
+        padding: const EdgeInsets.symmetric(
+          vertical: VERY_LARGE_SPACE,
+          horizontal: SMALL_SPACE,
+        ),
+        child: addPanelButton(
+          title.toUpperCase(),
+          onPressed: () async => confirmAndUploadNewPicture(
+            context,
+            imageField: ImageField.OTHER,
+            barcode: product.barcode!,
+            language: ProductQuery.getLanguage(),
+            // we're already logged in if needed
+            isLoggedInMandatory: false,
+          ),
+          iconData: Icons.add_a_photo,
+        ),
+      );
+
   /// Returns true if changes were made.
   bool getChangedProduct(final Product product) {
     if (!_changed) {
@@ -244,25 +270,10 @@ class SimpleInputPageOriginHelper extends AbstractSimpleInputPageHelper {
     final BuildContext context,
     final Product product,
   ) =>
-      Padding(
-        padding: const EdgeInsets.symmetric(
-          vertical: VERY_LARGE_SPACE,
-          horizontal: SMALL_SPACE,
-        ),
-        child: addPanelButton(
-          AppLocalizations.of(context)
-              .add_origin_photo_button_label
-              .toUpperCase(),
-          onPressed: () async => confirmAndUploadNewPicture(
-            context,
-            imageField: ImageField.OTHER,
-            barcode: product.barcode!,
-            language: ProductQuery.getLanguage(),
-            // we're already logged in if needed
-            isLoggedInMandatory: false,
-          ),
-          iconData: Icons.add_a_photo,
-        ),
+      getExtraPhotoWidget(
+        context,
+        product,
+        AppLocalizations.of(context).add_origin_photo_button_label,
       );
 }
 
@@ -308,6 +319,17 @@ class SimpleInputPageEmbCodeHelper extends AbstractSimpleInputPageHelper {
   @override
   AnalyticsEditEvents getAnalyticsEditEvent() =>
       AnalyticsEditEvents.traceabilityCodes;
+
+  @override
+  Widget? getExtraWidget(
+    final BuildContext context,
+    final Product product,
+  ) =>
+      getExtraPhotoWidget(
+        context,
+        product,
+        AppLocalizations.of(context).add_emb_photo_button_label,
+      );
 }
 
 /// Implementation for "Labels" of an [AbstractSimpleInputPageHelper].
@@ -357,6 +379,17 @@ class SimpleInputPageLabelHelper extends AbstractSimpleInputPageHelper {
   @override
   AnalyticsEditEvents getAnalyticsEditEvent() =>
       AnalyticsEditEvents.labelsAndCertifications;
+
+  @override
+  Widget? getExtraWidget(
+    final BuildContext context,
+    final Product product,
+  ) =>
+      getExtraPhotoWidget(
+        context,
+        product,
+        AppLocalizations.of(context).add_label_photo_button_label,
+      );
 }
 
 /// Implementation for "Categories" of an [AbstractSimpleInputPageHelper].
