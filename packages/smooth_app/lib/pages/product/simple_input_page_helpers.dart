@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/background/background_task_details.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
+import 'package:smooth_app/helpers/product_cards_helper.dart';
+import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 /// Abstract helper for Simple Input Page.
@@ -100,7 +103,14 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
   TagType? getTagType();
 
   /// Returns the icon data for the list tile.
-  Widget? getIcon() => null;
+  Widget getIcon();
+
+  /// Extra widget to be displayed after the list.
+  Widget? getExtraWidget(
+    final BuildContext context,
+    final Product product,
+  ) =>
+      null;
 
   /// Returns true if changes were made.
   bool getChangedProduct(final Product product) {
@@ -177,7 +187,7 @@ class SimpleInputPageStoreHelper extends AbstractSimpleInputPageHelper {
   TagType? getTagType() => null;
 
   @override
-  Widget? getIcon() => const Icon(Icons.shopping_cart);
+  Widget getIcon() => const Icon(Icons.shopping_cart);
 
   @override
   BackgroundTaskDetailsStamp getStamp() => BackgroundTaskDetailsStamp.stores;
@@ -221,13 +231,39 @@ class SimpleInputPageOriginHelper extends AbstractSimpleInputPageHelper {
   TagType? getTagType() => TagType.ORIGINS;
 
   @override
-  Widget? getIcon() => const Icon(Icons.travel_explore);
+  Widget getIcon() => const Icon(Icons.travel_explore);
 
   @override
   BackgroundTaskDetailsStamp getStamp() => BackgroundTaskDetailsStamp.origins;
 
   @override
   AnalyticsEditEvents getAnalyticsEditEvent() => AnalyticsEditEvents.origins;
+
+  @override
+  Widget? getExtraWidget(
+    final BuildContext context,
+    final Product product,
+  ) =>
+      Padding(
+        padding: const EdgeInsets.symmetric(
+          vertical: VERY_LARGE_SPACE,
+          horizontal: SMALL_SPACE,
+        ),
+        child: addPanelButton(
+          AppLocalizations.of(context)
+              .add_origin_photo_button_label
+              .toUpperCase(),
+          onPressed: () async => confirmAndUploadNewPicture(
+            context,
+            imageField: ImageField.OTHER,
+            barcode: product.barcode!,
+            language: ProductQuery.getLanguage(),
+            // we're already logged in if needed
+            isLoggedInMandatory: false,
+          ),
+          iconData: Icons.add_a_photo,
+        ),
+      );
 }
 
 /// Implementation for "Emb Code" of an [AbstractSimpleInputPageHelper].
@@ -264,7 +300,7 @@ class SimpleInputPageEmbCodeHelper extends AbstractSimpleInputPageHelper {
   TagType? getTagType() => TagType.EMB_CODES;
 
   @override
-  Widget? getIcon() => const Icon(Icons.factory);
+  Widget getIcon() => const Icon(Icons.factory);
 
   @override
   BackgroundTaskDetailsStamp getStamp() => BackgroundTaskDetailsStamp.embCodes;
@@ -313,7 +349,7 @@ class SimpleInputPageLabelHelper extends AbstractSimpleInputPageHelper {
   TagType? getTagType() => TagType.LABELS;
 
   @override
-  Widget? getIcon() => const Icon(Icons.local_offer);
+  Widget getIcon() => const Icon(Icons.local_offer);
 
   @override
   BackgroundTaskDetailsStamp getStamp() => BackgroundTaskDetailsStamp.labels;
@@ -366,7 +402,7 @@ class SimpleInputPageCategoryHelper extends AbstractSimpleInputPageHelper {
   TagType? getTagType() => TagType.CATEGORIES;
 
   @override
-  Widget? getIcon() => const Icon(Icons.restaurant);
+  Widget getIcon() => const Icon(Icons.restaurant);
 
   @override
   BackgroundTaskDetailsStamp getStamp() =>
@@ -415,7 +451,7 @@ class SimpleInputPageCountryHelper extends AbstractSimpleInputPageHelper {
   TagType? getTagType() => TagType.COUNTRIES;
 
   @override
-  Widget? getIcon() => const Icon(Icons.public);
+  Widget getIcon() => const Icon(Icons.public);
 
   @override
   BackgroundTaskDetailsStamp getStamp() => BackgroundTaskDetailsStamp.countries;
