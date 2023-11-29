@@ -607,7 +607,7 @@
     "ingredients_photo_title": "Foto degli Ingredienti",
     "nutritional_facts_photo_title": "Foto valori nutrizionali",
     "recycling_photo_title": "Foto delle istruzioni di riciclaggio",
-    "take_more_photo_title": "Fai ulteriori foto",
+    "take_more_photo_title": "Scatta più foto",
     "front_photo_uploaded": "Foto frontale caricata",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "Foto degli ingredienti",
@@ -653,7 +653,7 @@
     "@recycling_photo_button_label": {},
     "recycling_photo_uploaded": "Foto delle istruzioni di riciclaggio caricata",
     "@recycling_photo_uploaded": {},
-    "take_more_photo_button_label": "Fai ulteriori foto",
+    "take_more_photo_button_label": "Scatta più foto",
     "@take_more_photo_button_label": {},
     "other_photo_uploaded": "Foto varie caricate",
     "@other_photo_uploaded": {},
@@ -1675,7 +1675,7 @@
             }
         }
     },
-    "product_search_loading_message": "Your search of {search} is in progress.\n\nPlease wait a few seconds…",
+    "product_search_loading_message": "La tua ricerca di {search} è in corso.\n\nAttendi qualche secondo…",
     "@product_search_loading_message": {
         "description": "This message will be displayed when a search is in progress.",
         "search": {
