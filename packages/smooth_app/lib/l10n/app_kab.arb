@@ -1890,6 +1890,18 @@
     "@add_packaging_photo_button_label": {
         "description": "Label for the add PACKAGING photo button"
     },
+    "add_origin_photo_button_label": "Take photos of any origin information",
+    "@add_origin_photo_button_label": {
+        "description": "Label for the add ORIGIN photo button"
+    },
+    "add_emb_photo_button_label": "Take photos of any traceability code information",
+    "@add_emb_photo_button_label": {
+        "description": "Label for the add EMB photo button"
+    },
+    "add_label_photo_button_label": "Take photos of any labels & certifications information",
+    "@add_label_photo_button_label": {
+        "description": "Label for the add LABELS photo button"
+    },
     "choose_image_source_title": "Choose image source",
     "@choose_image_source_title": {
         "description": "Title for the image source chooser"
