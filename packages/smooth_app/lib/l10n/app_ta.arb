@@ -1890,15 +1890,15 @@
     "@add_packaging_photo_button_label": {
         "description": "Label for the add PACKAGING photo button"
     },
-    "add_origin_photo_button_label": "Take photos of any origin information",
+    "add_origin_photo_button_label": "எந்தவொரு மூலத் தகவலின் புகைப்படங்களையும் எடுக்கவும்",
     "@add_origin_photo_button_label": {
         "description": "Label for the add ORIGIN photo button"
     },
-    "add_emb_photo_button_label": "Take photos of any traceability code information",
+    "add_emb_photo_button_label": "எந்தவொரு மூலத் தகவலின் புகைப்படங்களையும் எடுக்கவும்",
     "@add_emb_photo_button_label": {
         "description": "Label for the add EMB photo button"
     },
-    "add_label_photo_button_label": "Take photos of any labels & certifications information",
+    "add_label_photo_button_label": "ஏதேனும் லேபிள்கள் மற்றும் சான்றிதழ்கள்பற்றிய தகவல்களைப் புகைப்படம் எடுக்கவும்",
     "@add_label_photo_button_label": {
         "description": "Label for the add LABELS photo button"
     },
