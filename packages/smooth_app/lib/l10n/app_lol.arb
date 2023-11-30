@@ -1890,6 +1890,18 @@
     "@add_packaging_photo_button_label": {
         "description": "Label for the add PACKAGING photo button"
     },
+    "add_origin_photo_button_label": "crwdns246418:0crwdne246418:0",
+    "@add_origin_photo_button_label": {
+        "description": "Label for the add ORIGIN photo button"
+    },
+    "add_emb_photo_button_label": "crwdns246420:0crwdne246420:0",
+    "@add_emb_photo_button_label": {
+        "description": "Label for the add EMB photo button"
+    },
+    "add_label_photo_button_label": "crwdns246422:0crwdne246422:0",
+    "@add_label_photo_button_label": {
+        "description": "Label for the add LABELS photo button"
+    },
     "choose_image_source_title": "crwdns221735:0crwdne221735:0",
     "@choose_image_source_title": {
         "description": "Title for the image source chooser"
