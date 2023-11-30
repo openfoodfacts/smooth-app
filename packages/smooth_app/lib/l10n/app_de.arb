@@ -1675,7 +1675,7 @@
             }
         }
     },
-    "product_search_loading_message": "Your search of {search} is in progress.\n\nPlease wait a few seconds…",
+    "product_search_loading_message": "Ihre Suche nach {search} wird ausgeführt.\n\nBitte einen Moment Geduld …",
     "@product_search_loading_message": {
         "description": "This message will be displayed when a search is in progress.",
         "search": {
