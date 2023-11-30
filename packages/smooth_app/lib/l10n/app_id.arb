@@ -1370,7 +1370,7 @@
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
     },
-    "no_data_available": "No data available",
+    "no_data_available": "Data tidak tersedia",
     "@no_data_available": {
         "description": "When there are no data to display"
     },
@@ -1889,6 +1889,18 @@
     "add_packaging_photo_button_label": "Ambil foto dari setiap informasi pengemasan/daur ulang",
     "@add_packaging_photo_button_label": {
         "description": "Label for the add PACKAGING photo button"
+    },
+    "add_origin_photo_button_label": "Take photos of any origin information",
+    "@add_origin_photo_button_label": {
+        "description": "Label for the add ORIGIN photo button"
+    },
+    "add_emb_photo_button_label": "Take photos of any traceability code information",
+    "@add_emb_photo_button_label": {
+        "description": "Label for the add EMB photo button"
+    },
+    "add_label_photo_button_label": "Take photos of any labels & certifications information",
+    "@add_label_photo_button_label": {
+        "description": "Label for the add LABELS photo button"
     },
     "choose_image_source_title": "Memilih sumber gambar",
     "@choose_image_source_title": {
