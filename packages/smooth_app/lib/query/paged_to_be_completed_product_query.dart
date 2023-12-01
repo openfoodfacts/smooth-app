@@ -16,7 +16,7 @@ class PagedToBeCompletedProductQuery extends PagedProductQuery {
         parametersList: <Parameter>[
           PageSize(size: pageSize),
           PageNumber(page: pageNumber),
-          StatesTagsParameter(
+          const StatesTagsParameter(
             map: <ProductState, bool>{
               ProductState.CATEGORIES_COMPLETED: false,
             },

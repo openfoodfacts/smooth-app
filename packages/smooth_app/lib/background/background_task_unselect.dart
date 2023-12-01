@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -11,17 +9,13 @@ import 'package:smooth_app/background/operation_type.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/transient_file.dart';
 import 'package:smooth_app/helpers/image_field_extension.dart';
-import 'package:smooth_app/query/product_query.dart';
 
 /// Background task about unselecting a product image.
 class BackgroundTaskUnselect extends BackgroundTaskBarcode {
-  const BackgroundTaskUnselect._({
+  BackgroundTaskUnselect._({
     required super.processName,
     required super.uniqueId,
     required super.barcode,
-    required super.languageCode,
-    required super.user,
-    required super.country,
     required super.stamp,
     required this.imageField,
   });
@@ -87,9 +81,6 @@ class BackgroundTaskUnselect extends BackgroundTaskBarcode {
         barcode: barcode,
         processName: _operationType.processName,
         imageField: imageField.offTag,
-        languageCode: language.code,
-        user: jsonEncode(ProductQuery.getUser().toJson()),
-        country: ProductQuery.getCountry().offTag,
         // same stamp as image upload
         stamp: BackgroundTaskUpload.getStamp(
           barcode,
