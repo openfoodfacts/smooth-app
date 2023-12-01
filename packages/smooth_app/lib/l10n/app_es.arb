@@ -268,7 +268,7 @@
     "sign_up_page_producer_error_empty": "Por favor, introduce un productor o una marca",
     "sign_up_page_subscribe_checkbox": "Me gustaría suscribirme al boletín de noticias de Open Food Facts (podrás darte de baja en cualquier momento).",
     "sign_up_page_user_name_already_used": "Este nombre de usuario ya existe, por favor, elige uno nuevo.",
-    "sign_up_page_email_already_exists": "ya existe, inicia sesión en la cuenta o intenta con otro correo electrónico.",
+    "sign_up_page_email_already_exists": "ya existe, inicia sesión en la cuenta o prueba con otro correo electrónico.",
     "sign_up_page_provide_valid_email": "Por favor, proporciona una dirección de correo electrónico válida.",
     "sign_up_page_server_busy": "Lo sentimos, estamos teniendo algunas dificultades técnicas para crear tu cuenta. Por favor, inténtalo de nuevo más tarde.",
     "@Settings": {},
@@ -1165,7 +1165,7 @@
     "@send_anonymous_toggle_subtitle": {
         "description": "SubTitle for the Send anonymous data toggle"
     },
-    "product_edit_photo_title": "Editar imagen",
+    "product_edit_photo_title": "Editar foto",
     "@product_edit_photo_title": {
         "description": "Toolbar Title while editing a photo (Android only)"
     },
@@ -1232,7 +1232,7 @@
     "@edit_product_form_item_other_details_subtitle": {
         "description": "Product edition - Other Details - Subtitle"
     },
-    "edit_product_form_item_photos_title": "Fotografías",
+    "edit_product_form_item_photos_title": "Fotos",
     "@edit_product_form_item_photos_title": {
         "description": "Product edition - Photos - Title"
     },
