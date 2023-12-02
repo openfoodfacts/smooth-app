@@ -31,7 +31,7 @@ dependencies:
   latlong2: 0.9.0
   matomo_tracker: 4.1.1
   package_info_plus: 4.2.0
-  device_info_plus: 9.1.0
+  device_info_plus: 9.1.1
   permission_handler: 10.4.3
   photo_view: 0.14.0
   uuid: 3.0.7
@@ -48,7 +48,7 @@ dependencies:
   audioplayers: 5.2.1
   percent_indicator: 4.2.3
   flutter_email_sender: 6.0.2
-  flutter_native_splash: 2.3.5
+  flutter_native_splash: 2.3.6
   image: ^4.0.17
   auto_size_text: 3.0.0
   crop_image: 1.0.11
@@ -66,7 +66,7 @@ dependencies:
   webview_flutter: 3.0.4
   flutter_custom_tabs: 1.0.4
   flutter_image_compress: 2.1.0
-  connectivity_plus: 5.0.1
+  connectivity_plus: 5.0.2
   dart_ping: 9.0.1
   dart_ping_ios: 4.0.2
   flutter_animation_progress_bar: 2.3.1
@@ -110,9 +110,9 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   mockito: 5.4.2
-  path_provider_platform_interface: 2.1.0
-  plugin_platform_interface: 2.1.4
-  flutter_lints: 2.0.2
+  path_provider_platform_interface: 2.1.1
+  plugin_platform_interface: 2.1.7
+  flutter_lints: 2.0.3
   openfoodfacts_flutter_lints:
     git: https://github.com/openfoodfacts/openfoodfacts_flutter_lints.git
 
