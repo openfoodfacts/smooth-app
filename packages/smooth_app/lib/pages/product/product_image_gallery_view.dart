@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/up_to_date_mixin.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/transient_file.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/images/smooth_image.dart';
 import 'package:smooth_app/generic_lib/widgets/language_selector.dart';
@@ -35,6 +36,7 @@ class ProductImageGalleryView extends StatefulWidget {
 class _ProductImageGalleryViewState extends State<ProductImageGalleryView>
     with UpToDateMixin {
   late OpenFoodFactsLanguage _language;
+  bool _clickedOtherPictureButton = false;
 
   @override
   void initState() {
@@ -97,14 +99,27 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView>
             _TextRow(row: 1, product: upToDateProduct, language: _language),
             _ImageRow(row: 2, product: upToDateProduct, language: _language),
             _TextRow(row: 2, product: upToDateProduct, language: _language),
-            Padding(
-              padding: const EdgeInsets.all(SMALL_SPACE),
-              child: Text(
-                appLocalizations.more_photos,
-                style: _getTextStyle(context),
+            if (!_clickedOtherPictureButton)
+              Padding(
+                padding: const EdgeInsets.all(SMALL_SPACE),
+                child: SmoothLargeButtonWithIcon(
+                  text: appLocalizations.more_photos,
+                  icon: Icons.photo_camera_rounded,
+                  onPressed: () => setState(
+                    () => _clickedOtherPictureButton = true,
+                  ),
+                ),
               ),
-            ),
-            ProductImageGalleryOtherView(product: upToDateProduct),
+            if (_clickedOtherPictureButton)
+              Padding(
+                padding: const EdgeInsets.all(SMALL_SPACE),
+                child: Text(
+                  appLocalizations.more_photos,
+                  style: _getTextStyle(context),
+                ),
+              ),
+            if (_clickedOtherPictureButton)
+              ProductImageGalleryOtherView(product: upToDateProduct),
             const SizedBox(height: 2 * VERY_LARGE_SPACE),
           ],
         ),
