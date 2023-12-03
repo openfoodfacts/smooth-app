@@ -150,11 +150,11 @@
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
-    "login_result_type_server_unreachable": "Network is unreachable",
+    "login_result_type_server_unreachable": "No es posible conectarse a la red",
     "@login_result_type_server_unreachable": {
         "description": "Error message when trying to log in without network"
     },
-    "login_result_type_server_issue": "Problem on the server. Please try later.",
+    "login_result_type_server_issue": "Problema en el servidor. Por favor, inténtalo más tarde.",
     "@login_result_type_server_issue": {
         "description": "Error message when trying to log in and the server does not answer correctly"
     },
@@ -1378,7 +1378,7 @@
     "@product_field_website_title": {
         "description": "Title of a product field: website"
     },
-    "completed_basic_details_btn_text": "Completa los datos básicos",
+    "completed_basic_details_btn_text": "Completa los detalles básicos",
     "not_implemented_snackbar_text": "Aún sin implementar",
     "category_picker_page_appbar_text": "Categorías",
     "edit_ingredients_extrait_ingredients_btn_text": "Extraer ingredientes",
@@ -1744,7 +1744,7 @@
             }
         }
     },
-    "summary_card_button_add_basic_details": "Completa los datos básicos",
+    "summary_card_button_add_basic_details": "Completa los detalles básicos",
     "@summary_card_button_add_basic_details": {
         "description": "Summary card - Button to add details about the product"
     },
@@ -1784,7 +1784,7 @@
     "@category_picker_screen_title": {
         "description": "Categories picker screen title"
     },
-    "basic_details": "Aspectos básicos",
+    "basic_details": "Detalles básicos",
     "product_name": "Nombre del producto",
     "add_basic_details_product_name_error": "Por favor, introduce el nombre del producto",
     "brand_name": "Nombre de la marca",
@@ -1801,7 +1801,7 @@
         }
     },
     "barcode_invalid_error": "Código de barras no válido",
-    "basic_details_add_success": "Aspectos básicos añadidos con éxito",
+    "basic_details_add_success": "Detalles básicos añadidos con éxito",
     "basic_details_add_error": "No se han podido añadir los aspectos básicos. Vuelve a intentarlo en un rato.",
     "@basic_details_add_error": {
         "description": "Error message when error occurs while submitting basic details"
