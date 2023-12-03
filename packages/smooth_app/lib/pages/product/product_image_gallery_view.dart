@@ -103,7 +103,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView>
               Padding(
                 padding: const EdgeInsets.all(SMALL_SPACE),
                 child: SmoothLargeButtonWithIcon(
-                  text: appLocalizations.more_photos,
+                  text: appLocalizations.view_more_photo_button,
                   icon: Icons.photo_camera_rounded,
                   onPressed: () => setState(
                     () => _clickedOtherPictureButton = true,
