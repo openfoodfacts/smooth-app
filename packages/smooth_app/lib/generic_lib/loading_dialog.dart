@@ -1,9 +1,12 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
+import 'package:smooth_app/helpers/launch_url_helper.dart';
 
 /// Dialog with a stop button, while a future is running.
 ///
@@ -36,6 +39,7 @@ class LoadingDialog<T> {
   static Future<void> error({
     required final BuildContext context,
     final String? title,
+    final bool shouldOpenNewIssue = false,
   }) async =>
       showDialog<void>(
         context: context,
@@ -53,11 +57,32 @@ class LoadingDialog<T> {
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: MEDIUM_SPACE),
                   child: Text(
-                    title ??
-                        appLocalizations.loading_dialog_default_error_message,
+                    shouldOpenNewIssue
+                        ? appLocalizations.server_error_open_new_issue
+                        : title ??
+                            appLocalizations
+                                .loading_dialog_default_error_message,
                     textAlign: TextAlign.center,
                   ),
                 ),
+                if (shouldOpenNewIssue)
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: MEDIUM_SPACE),
+                    child: RichText(
+                      textAlign: TextAlign.center,
+                      text: TextSpan(
+                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                              color: Colors.blue,
+                            ),
+                        text: Status.openNewIssueUrl,
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () => LaunchUrlHelper.launchURL(
+                                Status.openNewIssueUrl,
+                                false,
+                              ),
+                      ),
+                    ),
+                  ),
               ],
             ),
             positiveAction: SmoothActionButton(
