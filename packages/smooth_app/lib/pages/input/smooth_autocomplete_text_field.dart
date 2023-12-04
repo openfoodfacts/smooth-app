@@ -102,7 +102,7 @@ class _SmoothAutocompleteTextFieldState
         AutocompleteOnSelected<String> onSelected,
         Iterable<String> options,
       ) {
-        final double screenHeight = MediaQuery.of(context).size.height;
+        final double screenHeight = MediaQuery.sizeOf(context).height;
         String input = '';
 
         for (final String key in _suggestions.keys) {

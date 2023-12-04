@@ -84,7 +84,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
 
   @override
   Widget build(BuildContext context) {
-    final Size size = MediaQuery.of(context).size;
+    final Size size = MediaQuery.sizeOf(context);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return WillPopScope(
       onWillPop: () async => _mayExitPage(saving: false),
@@ -92,9 +92,10 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
         child: SmoothScaffold(
           fixKeyboard: true,
           appBar: SmoothAppBar(
-              centerTitle: false,
-              title: Text(appLocalizations.basic_details),
-              subTitle: buildProductTitle(widget.product, appLocalizations)),
+            centerTitle: false,
+            title: Text(appLocalizations.basic_details),
+            subTitle: buildProductTitle(widget.product, appLocalizations),
+          ),
           body: Form(
             key: _formKey,
             child: Scrollbar(
@@ -109,8 +110,9 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                   ),
                   SizedBox(height: _heightSpace),
                   Padding(
-                    padding:
-                        EdgeInsets.symmetric(horizontal: size.width * 0.05),
+                    padding: EdgeInsets.symmetric(
+                      horizontal: size.width * 0.05,
+                    ),
                     child: Column(
                       children: <Widget>[
                         Text(
@@ -166,7 +168,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                           hintText: appLocalizations.quantity,
                         ),
                         // in order to be able to scroll suggestions
-                        SizedBox(height: MediaQuery.of(context).size.height),
+                        SizedBox(height: MediaQuery.sizeOf(context).height),
                       ],
                     ),
                   ),
