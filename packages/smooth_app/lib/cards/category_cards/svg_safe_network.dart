@@ -33,6 +33,9 @@ class _SvgSafeNetworkState extends State<SvgSafeNetwork> {
       return cached;
     }
     final http.Response response = await http.get(Uri.parse(_url));
+    if (response.statusCode != 200) {
+      throw Exception('Failed to load SVG: $_url ${response.statusCode}');
+    }
     _networkCache[_url] = cached = response.body;
     return cached;
   }
@@ -61,6 +64,7 @@ class _SvgSafeNetworkState extends State<SvgSafeNetwork> {
             }
           }
           if (snapshot.error != null) {
+            // TODO(monsieurtanuki): rather put the real host
             final bool serverOrConnectionIssue = snapshot.error.toString() ==
                 "Failed host lookup: 'static.openfoodfacts.org'";
             if (!serverOrConnectionIssue) {

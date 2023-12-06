@@ -150,6 +150,14 @@
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
+    "login_result_type_server_unreachable": "Network is unreachable",
+    "@login_result_type_server_unreachable": {
+        "description": "Error message when trying to log in without network"
+    },
+    "login_result_type_server_issue": "Problem on the server. Please try later.",
+    "@login_result_type_server_issue": {
+        "description": "Error message when trying to log in and the server does not answer correctly"
+    },
     "login_page_username_or_email": "Angiv brugernavn eller e-mail",
     "login_page_password_error_empty": "Angiv adgangskode",
     "create_account": "Opret konto",
@@ -599,7 +607,7 @@
     "ingredients_photo_title": "Ingrediensfoto",
     "nutritional_facts_photo_title": "Næringsfaktafoto",
     "recycling_photo_title": "Genbrugsfoto",
-    "take_more_photo_title": "Andre interessante fotos",
+    "take_more_photo_title": "Tag flere billeder",
     "front_photo_uploaded": "Forsidefoto uploadet",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "Ingrediensfoto",
@@ -621,6 +629,7 @@
     "new_product_subtitle_nova": "Få det ved at udfylde fødevarekategori og ingredienser",
     "new_product_desc_nova_unknown": "Fødevareforarbejdningsniveau ukendt",
     "new_product_title_pictures": "Lad os tage nogle fotos!",
+    "new_product_title_pictures_details": "Please take the following photos and the Open Food Facts engine can work out the rest!",
     "new_product_title_misc": "Og nogle basisdata…",
     "new_product_done_msg": "Thanks for your contribution “{username}”!",
     "@new_product_done_msg": {
@@ -644,7 +653,7 @@
     "@recycling_photo_button_label": {},
     "recycling_photo_uploaded": "Genbrugsoplysningsfoto uploadet",
     "@recycling_photo_uploaded": {},
-    "take_more_photo_button_label": "Andre interessante fotos",
+    "take_more_photo_button_label": "Tag flere billeder",
     "@take_more_photo_button_label": {},
     "other_photo_uploaded": "Div. foto uploadet",
     "@other_photo_uploaded": {},
@@ -768,7 +777,11 @@
     },
     "country_chooser_label": "Vælg land",
     "@country_chooser_label": {
-        "description": "Label shown above a selector where the user can select their country (in the onboarding)"
+        "description": "Label shown above a selector where the user can select their country (in the preferences)"
+    },
+    "onboarding_country_chooser_label": "Please choose a country:",
+    "@onboarding_country_chooser_label": {
+        "description": "The label shown above a selector where the user can select their country (in the onboarding)"
     },
     "country_chooser_label_from_settings": "Dit land",
     "@country_chooser_label_from_settings": {
@@ -1585,10 +1598,6 @@
     "dev_preferences_migration_status_in_progress": "igangværende",
     "dev_preferences_migration_status_required": "krævet (klik for at starte)",
     "dev_preferences_migration_status_not_started": "ukendt",
-    "dev_preferences_import_history_title": "Importere historik",
-    "@dev_preferences_import_history_title": {
-        "description": "User dev preferences - Import history - Title"
-    },
     "dev_preferences_import_history_subtitle": "Rydder historikken og lægge 3 produkter i den",
     "@dev_preferences_import_history_subtitle": {
         "description": "User dev preferences - Import history - Subtitle"
@@ -1664,6 +1673,13 @@
             "totalSize": {
                 "type": "int"
             }
+        }
+    },
+    "product_search_loading_message": "Your search of {search} is in progress.\n\nPlease wait a few seconds…",
+    "@product_search_loading_message": {
+        "description": "This message will be displayed when a search is in progress.",
+        "search": {
+            "type": "String"
         }
     },
     "user_search_contributor_title": "Produkter, jeg tilføjede",

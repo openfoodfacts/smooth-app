@@ -150,6 +150,14 @@
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
+    "login_result_type_server_unreachable": "Network is unreachable",
+    "@login_result_type_server_unreachable": {
+        "description": "Error message when trying to log in without network"
+    },
+    "login_result_type_server_issue": "Problem on the server. Please try later.",
+    "@login_result_type_server_issue": {
+        "description": "Error message when trying to log in and the server does not answer correctly"
+    },
     "login_page_username_or_email": "Por favor, digite o nome de usuário ou e-mail",
     "login_page_password_error_empty": "Por favor, insira uma senha",
     "create_account": "Criar uma conta",
@@ -541,9 +549,9 @@
     "@new_product_dialog_description": {
         "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
     },
-    "front_packaging_photo_button_label": "Foto frontal do produto",
+    "front_packaging_photo_button_label": "Foto frontal da embalagem",
     "@front_packaging_photo_button_label": {},
-    "confirm_front_packaging_photo_button_label": "Confirmar envio da foto frontal do produto",
+    "confirm_front_packaging_photo_button_label": "Confirme o upload da foto frontal da embalagem",
     "@confirm_front_packaging_photo_button_label": {
         "description": "Button clicking on which confirms the picture of the front of product that user just took."
     },
@@ -599,7 +607,7 @@
     "ingredients_photo_title": "Foto dos ingredientes",
     "nutritional_facts_photo_title": "Foto das Informações Nutricionais",
     "recycling_photo_title": "Reciclagem de imagem",
-    "take_more_photo_title": "Mais fotos interessantes",
+    "take_more_photo_title": "Tirar mais fotos",
     "front_photo_uploaded": "Foto inicial carregada",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "Foto de ingredientes",
@@ -620,7 +628,8 @@
     "new_product_title_nova": "Compute o nível de processamento alimentar (NOVA)",
     "new_product_subtitle_nova": "Ganhe em preencher a categoria e ingredientes alimentares",
     "new_product_desc_nova_unknown": "Nível desconhecido de processamento do alimento",
-    "new_product_title_pictures": "Vamos tirar algumas fotos!",
+    "new_product_title_pictures": "Novo produto",
+    "new_product_title_pictures_details": "Por favor, tire as seguintes fotos e o mecanismo Open Food Facts pode resolver o resto!",
     "new_product_title_misc": "E alguns dados básicos…",
     "new_product_done_msg": "Obrigado pela sua contribuição “{username}”!",
     "@new_product_done_msg": {
@@ -644,7 +653,7 @@
     "@recycling_photo_button_label": {},
     "recycling_photo_uploaded": "Foto de reciclagem enviada",
     "@recycling_photo_uploaded": {},
-    "take_more_photo_button_label": "Mais fotos interessantes",
+    "take_more_photo_button_label": "Tirar mais fotos",
     "@take_more_photo_button_label": {},
     "other_photo_uploaded": "Fotos diversas enviadas",
     "@other_photo_uploaded": {},
@@ -768,7 +777,11 @@
     },
     "country_chooser_label": "Por favor, escolha um país",
     "@country_chooser_label": {
-        "description": "Label shown above a selector where the user can select their country (in the onboarding)"
+        "description": "Label shown above a selector where the user can select their country (in the preferences)"
+    },
+    "onboarding_country_chooser_label": "Please choose a country:",
+    "@onboarding_country_chooser_label": {
+        "description": "The label shown above a selector where the user can select their country (in the onboarding)"
     },
     "country_chooser_label_from_settings": "Seu país",
     "@country_chooser_label_from_settings": {
@@ -1585,10 +1598,6 @@
     "dev_preferences_migration_status_in_progress": "em progresso",
     "dev_preferences_migration_status_required": "obrigatório (clique para começar)",
     "dev_preferences_migration_status_not_started": "desconhecido",
-    "dev_preferences_import_history_title": "Histórico de importação",
-    "@dev_preferences_import_history_title": {
-        "description": "User dev preferences - Import history - Title"
-    },
     "dev_preferences_import_history_subtitle": "O histórico será limpo e serão colocados 3 produtos lá",
     "@dev_preferences_import_history_subtitle": {
         "description": "User dev preferences - Import history - Subtitle"
@@ -1664,6 +1673,13 @@
             "totalSize": {
                 "type": "int"
             }
+        }
+    },
+    "product_search_loading_message": "Your search of {search} is in progress.\n\nPlease wait a few seconds…",
+    "@product_search_loading_message": {
+        "description": "This message will be displayed when a search is in progress.",
+        "search": {
+            "type": "String"
         }
     },
     "user_search_contributor_title": "Produtos que adicionei",

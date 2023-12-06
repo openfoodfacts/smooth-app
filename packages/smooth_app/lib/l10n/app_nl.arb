@@ -150,6 +150,14 @@
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
+    "login_result_type_server_unreachable": "Netwerk niet bereikbaar",
+    "@login_result_type_server_unreachable": {
+        "description": "Error message when trying to log in without network"
+    },
+    "login_result_type_server_issue": "Probleem op de server. Probeer het later opnieuw.",
+    "@login_result_type_server_issue": {
+        "description": "Error message when trying to log in and the server does not answer correctly"
+    },
     "login_page_username_or_email": "Voer je gebruikersnaam of e-mailadres in",
     "login_page_password_error_empty": "Voer een wachtwoord in alstublieft",
     "create_account": "Account aanmaken",
@@ -541,9 +549,9 @@
     "@new_product_dialog_description": {
         "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
     },
-    "front_packaging_photo_button_label": "Afbeelding voorzijde van product",
+    "front_packaging_photo_button_label": "Foto van voorkant verpakking",
     "@front_packaging_photo_button_label": {},
-    "confirm_front_packaging_photo_button_label": "Bevestig de upload van de voorzijde van het product",
+    "confirm_front_packaging_photo_button_label": "Bevestig het uploaden van de foto van de voorkant",
     "@confirm_front_packaging_photo_button_label": {
         "description": "Button clicking on which confirms the picture of the front of product that user just took."
     },
@@ -599,7 +607,7 @@
     "ingredients_photo_title": "Foto van de ingrediëntenlijst",
     "nutritional_facts_photo_title": "Foto van voedingswaarden",
     "recycling_photo_title": "Recycling afbeelding",
-    "take_more_photo_title": "Andere interessante foto's",
+    "take_more_photo_title": "Maak meer foto's",
     "front_photo_uploaded": "Foto voorkant geüpload",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "Foto van de ingrediëntenlijst",
@@ -613,14 +621,15 @@
     "nutritional_facts_added": "Voedingswaarden toegevoegd",
     "categories_added": "Categorieën toegevoegd",
     "new_product_title_nutriscore": "Bereken de Nutri-Score",
-    "new_product_subtitle_nutriscore": "Krijg het door het invullen van de voedingscategorie en voedingswaarden",
+    "new_product_subtitle_nutriscore": "Help ons door minimaal een categorie en voedingswaarden in te vullen",
     "new_product_title_ecoscore": "Bereken de Ecoscore",
     "new_product_subtitle_ecoscore": "Krijg het door minstens één categorie in te vullen",
     "new_product_additional_ecoscore": "Maak de Eco-Score-berekening nauwkeuriger door herkomst, verpakking en meer toe te voegen",
     "new_product_title_nova": "Bereken het voedselverwerkingsniveau (NOVA)",
     "new_product_subtitle_nova": "Krijg het door het invullen van de voedselcategorie en ingrediënten",
     "new_product_desc_nova_unknown": "Voedselverwerkingsniveau onbekend",
-    "new_product_title_pictures": "Laten we wat foto's maken!",
+    "new_product_title_pictures": "Nieuw product",
+    "new_product_title_pictures_details": "Maak de volgende foto's en de Open Food Facts-engine kan de rest doen!",
     "new_product_title_misc": "En enkele basisgegevens…",
     "new_product_done_msg": "Bedankt voor uw bijdrage “{username}”!",
     "@new_product_done_msg": {
@@ -644,7 +653,7 @@
     "@recycling_photo_button_label": {},
     "recycling_photo_uploaded": "Foto recyclen geüpload",
     "@recycling_photo_uploaded": {},
-    "take_more_photo_button_label": "Andere interessante foto's",
+    "take_more_photo_button_label": "Maak meer foto's",
     "@take_more_photo_button_label": {},
     "other_photo_uploaded": "Diverse foto's geüpload",
     "@other_photo_uploaded": {},
@@ -687,7 +696,7 @@
     "score_add_missing_ingredients": "Ontbrekende ingrediënten toevoegen",
     "score_add_missing_packaging_image": "Ontbrekende verpakkingsafbeelding toevoegen",
     "score_add_missing_nutrition_facts": "Ontbrekende voedingswaarden toevoegen",
-    "score_add_missing_product_category": "Ontbrekende productcategorie toevoegen",
+    "score_add_missing_product_category": "Selecteer een categorie",
     "score_add_missing_product_countries": "Voeg ontbrekende productlanden toe",
     "score_add_missing_product_emb": "Voeg ontbrekende producttraceerbaarheidscodes toe",
     "score_add_missing_product_labels": "Voeg ontbrekende productlabels toe",
@@ -768,7 +777,11 @@
     },
     "country_chooser_label": "Kies een land a.u.b.",
     "@country_chooser_label": {
-        "description": "Label shown above a selector where the user can select their country (in the onboarding)"
+        "description": "Label shown above a selector where the user can select their country (in the preferences)"
+    },
+    "onboarding_country_chooser_label": "Kies een land:",
+    "@onboarding_country_chooser_label": {
+        "description": "The label shown above a selector where the user can select their country (in the onboarding)"
     },
     "country_chooser_label_from_settings": "Uw land",
     "@country_chooser_label_from_settings": {
@@ -1585,10 +1598,6 @@
     "dev_preferences_migration_status_in_progress": "in behandeling",
     "dev_preferences_migration_status_required": "vereist (klik om te beginnen)",
     "dev_preferences_migration_status_not_started": "onbekend",
-    "dev_preferences_import_history_title": "Geschiedenis importeren",
-    "@dev_preferences_import_history_title": {
-        "description": "User dev preferences - Import history - Title"
-    },
     "dev_preferences_import_history_subtitle": "Zal de geschiedenis wissen en er 3 producten in plaatsen",
     "@dev_preferences_import_history_subtitle": {
         "description": "User dev preferences - Import history - Subtitle"
@@ -1664,6 +1673,13 @@
             "totalSize": {
                 "type": "int"
             }
+        }
+    },
+    "product_search_loading_message": "Your search of {search} is in progress.\n\nPlease wait a few seconds…",
+    "@product_search_loading_message": {
+        "description": "This message will be displayed when a search is in progress.",
+        "search": {
+            "type": "String"
         }
     },
     "user_search_contributor_title": "Producten die ik heb toegevoegd",

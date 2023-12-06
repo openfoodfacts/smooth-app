@@ -1,6 +1,6 @@
 [{
   "attributes": [{
-    "icon_url": "https://static.openfoodfacts.org/images/attributes/nutriscore-a.svg",
+    "icon_url": "https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a.svg",
     "setting_note": "The Nutri-Score is computed and can be taken into account for all products, even if is not displayed on the packaging.",
     "name": "Nutri-Score",
     "default": "very_important",
@@ -11,22 +11,22 @@
     "setting_name": "Salt in low quantity",
     "id": "low_salt",
     "setting_note": "The salt level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low salt diet.",
-    "icon_url": "https://static.openfoodfacts.org/images/attributes/nutrient-level-salt-low.svg"
+    "icon_url": "https://static.openfoodfacts.org/images/attributes/dist/nutrient-level-salt-low.svg"
   }, {
     "setting_note": "The sugars level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low sugars diet.",
-    "icon_url": "https://static.openfoodfacts.org/images/attributes/nutrient-level-sugars-low.svg",
+    "icon_url": "https://static.openfoodfacts.org/images/attributes/dist/nutrient-level-sugars-low.svg",
     "id": "low_sugars",
     "setting_name": "Sugars in low quantity",
     "name": "Sugars"
   }, {
-    "icon_url": "https://static.openfoodfacts.org/images/attributes/nutrient-level-fat-low.svg",
+    "icon_url": "https://static.openfoodfacts.org/images/attributes/dist/nutrient-level-fat-low.svg",
     "setting_note": "The fat level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low fat diet.",
     "id": "low_fat",
     "setting_name": "Fat in low quantity",
     "name": "Fat"
   }, {
     "setting_note": "The saturated fat level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low saturated fat diet.",
-    "icon_url": "https://static.openfoodfacts.org/images/attributes/nutrient-level-saturated-fat-low.svg",
+    "icon_url": "https://static.openfoodfacts.org/images/attributes/dist/nutrient-level-saturated-fat-low.svg",
     "name": "Saturated fat",
     "id": "low_saturated_fat",
     "setting_name": "Saturated fat in low quantity"
@@ -37,13 +37,13 @@
   "id": "processing",
   "name": "Food processing",
   "attributes": [{
-    "icon_url": "https://static.openfoodfacts.org/images/attributes/nova-group-1.svg",
+    "icon_url": "https://static.openfoodfacts.org/images/attributes/dist/nova-group-1.svg",
     "name": "NOVA group",
     "default": "important",
     "setting_name": "No or little food processing (NOVA group)",
     "id": "nova"
   }, {
-    "icon_url": "https://static.openfoodfacts.org/images/attributes/0-additives.svg",
+    "icon_url": "https://static.openfoodfacts.org/images/attributes/dist/0-additives.svg",
     "setting_name": "No or few additives",
     "id": "additives",
     "name": "Additives"
@@ -54,14 +54,14 @@
     "name": "Gluten",
     "id": "allergens_no_gluten",
     "setting_name": "Without Gluten",
-    "icon_url": "https://static.openfoodfacts.org/images/attributes/no-gluten.svg"
+    "icon_url": "https://static.openfoodfacts.org/images/attributes/dist/no-gluten.svg"
   }, {
     "name": "Milk",
     "id": "allergens_no_milk",
     "setting_name": "Without Milk",
-    "icon_url": "https://static.openfoodfacts.org/images/attributes/no-milk.svg"
+    "icon_url": "https://static.openfoodfacts.org/images/attributes/dist/no-milk.svg"
   }, {
-    "icon_url": "https://static.openfoodfacts.org/images/attributes/no-eggs.svg",
+    "icon_url": "https://static.openfoodfacts.org/images/attributes/dist/no-eggs.svg",
     "name": "Eggs",
     "setting_name": "Without Eggs",
     "id": "allergens_no_eggs"
@@ -69,14 +69,14 @@
     "setting_name": "Without Nuts",
     "id": "allergens_no_nuts",
     "name": "Nuts",
-    "icon_url": "https://static.openfoodfacts.org/images/attributes/no-nuts.svg"
+    "icon_url": "https://static.openfoodfacts.org/images/attributes/dist/no-nuts.svg"
   }, {
     "name": "Peanuts",
     "id": "allergens_no_peanuts",
     "setting_name": "Without Peanuts",
-    "icon_url": "https://static.openfoodfacts.org/images/attributes/no-peanuts.svg"
+    "icon_url": "https://static.openfoodfacts.org/images/attributes/dist/no-peanuts.svg"
   }, {
-    "icon_url": "https://static.openfoodfacts.org/images/attributes/no-sesame-seeds.svg",
+    "icon_url": "https://static.openfoodfacts.org/images/attributes/dist/no-sesame-seeds.svg",
     "setting_name": "Without Sesame seeds",
     "id": "allergens_no_sesame_seeds",
     "name": "Sesame seeds"
@@ -84,34 +84,34 @@
     "setting_name": "Without Soybeans",
     "id": "allergens_no_soybeans",
     "name": "Soybeans",
-    "icon_url": "https://static.openfoodfacts.org/images/attributes/no-soybeans.svg"
+    "icon_url": "https://static.openfoodfacts.org/images/attributes/dist/no-soybeans.svg"
   }, {
     "name": "Celery",
     "id": "allergens_no_celery",
     "setting_name": "Without Celery",
-    "icon_url": "https://static.openfoodfacts.org/images/attributes/no-celery.svg"
+    "icon_url": "https://static.openfoodfacts.org/images/attributes/dist/no-celery.svg"
   }, {
     "id": "allergens_no_mustard",
     "setting_name": "Without Mustard",
     "name": "Mustard",
-    "icon_url": "https://static.openfoodfacts.org/images/attributes/no-mustard.svg"
+    "icon_url": "https://static.openfoodfacts.org/images/attributes/dist/no-mustard.svg"
   }, {
     "setting_name": "Without Lupin",
     "id": "allergens_no_lupin",
     "name": "Lupin",
-    "icon_url": "https://static.openfoodfacts.org/images/attributes/no-lupin.svg"
+    "icon_url": "https://static.openfoodfacts.org/images/attributes/dist/no-lupin.svg"
   }, {
     "id": "allergens_no_fish",
     "setting_name": "Without Fish",
     "name": "Fish",
-    "icon_url": "https://static.openfoodfacts.org/images/attributes/no-fish.svg"
+    "icon_url": "https://static.openfoodfacts.org/images/attributes/dist/no-fish.svg"
   }, {
     "name": "Crustaceans",
     "setting_name": "Without Crustaceans",
     "id": "allergens_no_crustaceans",
-    "icon_url": "https://static.openfoodfacts.org/images/attributes/no-crustaceans.svg"
+    "icon_url": "https://static.openfoodfacts.org/images/attributes/dist/no-crustaceans.svg"
   }, {
-    "icon_url": "https://static.openfoodfacts.org/images/attributes/no-molluscs.svg",
+    "icon_url": "https://static.openfoodfacts.org/images/attributes/dist/no-molluscs.svg",
     "id": "allergens_no_molluscs",
     "setting_name": "Without Molluscs",
     "name": "Molluscs"
@@ -119,13 +119,13 @@
     "name": "Sulphur dioxide and sulphites",
     "id": "allergens_no_sulphur_dioxide_and_sulphites",
     "setting_name": "Without Sulphur dioxide and sulphites",
-    "icon_url": "https://static.openfoodfacts.org/images/attributes/no-sulphur-dioxide-and-sulphites.svg"
+    "icon_url": "https://static.openfoodfacts.org/images/attributes/dist/no-sulphur-dioxide-and-sulphites.svg"
   }],
   "id": "allergens",
   "name": "Allergens"
 }, {
   "attributes": [{
-    "icon_url": "https://static.openfoodfacts.org/images/attributes/vegan.svg",
+    "icon_url": "https://static.openfoodfacts.org/images/attributes/dist/vegan.svg",
     "setting_name": "Vegan",
     "id": "vegan",
     "name": "Vegan"
@@ -133,9 +133,9 @@
     "id": "vegetarian",
     "setting_name": "Vegetarian",
     "name": "Vegetarian",
-    "icon_url": "https://static.openfoodfacts.org/images/attributes/vegetarian.svg"
+    "icon_url": "https://static.openfoodfacts.org/images/attributes/dist/vegetarian.svg"
   }, {
-    "icon_url": "https://static.openfoodfacts.org/images/attributes/palm-oil-free.svg",
+    "icon_url": "https://static.openfoodfacts.org/images/attributes/dist/palm-oil-free.svg",
     "name": "Palm oil free",
     "id": "palm_oil_free",
     "setting_name": "Palm oil free"
@@ -145,14 +145,14 @@
 }, {
   "attributes": [{
     "description_short": "Organic products promote ecological sustainability and biodiversity.",
-    "icon_url": "https://static.openfoodfacts.org/images/attributes/organic.svg",
+    "icon_url": "https://static.openfoodfacts.org/images/attributes/dist/organic.svg",
     "description": "Organic farming aims to protect the environment and to conserve biodiversity by prohibiting or limiting the use of synthetic fertilizers, pesticides and food additives.",
     "name": "Organic farming",
     "setting_name": "Organic farming",
     "id": "labels_organic"
   }, {
     "description_short": "Fair trade products help producers in developing countries.",
-    "icon_url": "https://static.openfoodfacts.org/images/attributes/fair-trade.svg",
+    "icon_url": "https://static.openfoodfacts.org/images/attributes/dist/fair-trade.svg",
     "name": "Fair trade",
     "description": "When you buy fair trade products, producers in developing countries are paid an higher and fairer price, which helps them improve and sustain higher social and often environmental standards.",
     "id": "labels_fair_trade",
@@ -162,7 +162,7 @@
   "id": "labels"
 }, {
   "attributes": [{
-    "icon_url": "https://static.openfoodfacts.org/images/attributes/ecoscore-a.svg",
+    "icon_url": "https://static.openfoodfacts.org/images/attributes/dist/ecoscore-a.svg",
     "name": "Eco-Score",
     "id": "ecoscore",
     "setting_name": "Low environmental impact (Eco-Score)",
@@ -171,7 +171,7 @@
     "id": "forest_footprint",
     "setting_name": "Low risk of deforestation (Forest footprint)",
     "name": "Forest footprint",
-    "icon_url": "https://static.openfoodfacts.org/images/attributes/forest-footprint-a.svg"
+    "icon_url": "https://static.openfoodfacts.org/images/attributes/dist/forest-footprint-a.svg"
   }],
   "name": "Environment",
   "id": "environment"

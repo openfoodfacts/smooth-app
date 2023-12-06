@@ -142,13 +142,21 @@
         "description": "Description of what a user can use the Eco data in a product for."
     },
     "@user_management": {},
-    "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
+    "sign_in_text": "Katkılarınızı kaydetmek için Open Food Facts hesabınızda oturum açın",
     "incorrect_credentials": "Hatalı kullanıcı adı veya parola.",
     "password_lost_incorrect_credentials": "Bu e-posta veya kullanıcı adı mevcut değil. Lütfen kimlik bilgilerinizi kontrol edin.",
     "password_lost_server_unavailable": "Şu anda sunucularımızda yavaşlamalar yaşıyoruz ve bunun için özür dileriz. Lütfen daha sonra tekrar deneyiniz.",
     "login": "Oturumu Başlat",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
+    },
+    "login_result_type_server_unreachable": "Ağa erişilemiyor",
+    "@login_result_type_server_unreachable": {
+        "description": "Error message when trying to log in without network"
+    },
+    "login_result_type_server_issue": "Sunucuda sorun. Lütfen daha sonra tekrar deneyin.",
+    "@login_result_type_server_issue": {
+        "description": "Error message when trying to log in and the server does not answer correctly"
     },
     "login_page_username_or_email": "Lütfen kullanıcı adı veya e-posta girin",
     "login_page_password_error_empty": "Lütfen bir şifre girin",
@@ -258,7 +266,7 @@
     "sign_up_page_producer_checkbox": "Ben bir yemek üreticisiyim",
     "sign_up_page_producer_hint": "Üretici/Marka",
     "sign_up_page_producer_error_empty": "Lütfen bir üretici veya marka adı girin",
-    "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at any time)",
+    "sign_up_page_subscribe_checkbox": "Open Food Facts haber bültenine abone olmak istiyorum (İstediğiniz zaman aboneliğinizi iptal edebilirsiniz)",
     "sign_up_page_user_name_already_used": "Kullanıcı adı zaten var, lütfen başka bir kullanıcı adı seçin.",
     "sign_up_page_email_already_exists": "zaten var, hesaba giriş yapın veya başka bir e-posta ile deneyin.",
     "sign_up_page_provide_valid_email": "Lütfen geçerli bir e-posta adresi girin.",
@@ -285,7 +293,7 @@
         "description": "Indicator inside the darkmode switch (system default)"
     },
     "thanks_for_contributing": "Katkıda bulunduğunuz için teşekkürler!",
-    "contributors_label": "They are building the app",
+    "contributors_label": "Onlar uygulamayı geliştiriyorlar",
     "@contributors_label": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
     },
@@ -332,9 +340,9 @@
     "@contribute_sw_development": {
         "description": "Button label + page title: Ways to help"
     },
-    "contribute_develop_text": "The code for every Open Food Facts product is available on GitHub. You are welcome to reuse the code (it's open source) and help us improve it, for everyone, on all the planet.",
+    "contribute_develop_text": "Her Open Food Facts ürününün kodu GitHub'da mevcuttur. Kodu yeniden kullanmakta özgürsünüz (kod açık kaynaklı) ve dünyadaki herkes için iyileştirmemize yardımcı olabilirsiniz.",
     "@contribute_develop_text": {},
-    "contribute_develop_text_2": "You can join the Open Food Facts Slack chatroom which is the preferred way to ask questions.",
+    "contribute_develop_text_2": "Soru sormanın genelde tercih edilen yolu olan Open Food Facts Slack sohbet odasına katılabilirsiniz.",
     "@contribute_develop_text_2": {},
     "contribute_develop_dev_mode_title": "Geliştirici Modu?",
     "contribute_develop_dev_mode_subtitle": "DEV Modunu Etkinleştirin",
@@ -348,7 +356,7 @@
     "@contribute_improve_header": {
         "description": "Button label + page title: Ways to improve the database"
     },
-    "contribute_improve_text": "The database is the core of the project. It's easy and very quick to help. You can download the mobile app for your phone, and start adding or improving products.\n\nOn the other hand, Open Food Facts website offers many ways to contribute: ",
+    "contribute_improve_text": "Veritabanı, projenin özüdür. Yardım etmek kolay ve çok hızlı. Telefonunuz için mobil uygulamayı indirebilir ve ürün eklemeye veya iyileştirmeye başlayabilirsiniz.\n\nÖte yandan, Open Food Facts web sitesi katkıda bulunmanız için birçok yol sunar: ",
     "@contribute_improve_text": {},
     "contribute_translate_header": "Çeviri",
     "@contribute_translate_header": {
@@ -358,14 +366,14 @@
     "@contribute_translate_link_text": {
         "description": "Button label: Opens the Crowdin translation portal"
     },
-    "contribute_translate_text": "Open Food Facts is a global project, containing products from more than 160 countries. Open Food Facts is translated into dozens of languages, with constantly evolving content.",
+    "contribute_translate_text": "Open Food Facts, 160'tan fazla ülkeden ürünler içeren global bir projedir. Open Food Facts, sürekli gelişen içeriklerle düzinelerce dile çevrilir.",
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "Çeviriler, projenin temel görevlerinden biridir",
     "@contribute_translate_text_2": {},
     "contribute_join_skill_pool": "Open Food Facts'e becerilerinizle katkıda bulunun. Beceri havuzuna katılın!",
     "contribute_share_header": "Open Food Facts'ı arkadaşlarınızla paylaşın",
     "@contribute_share_header": {},
-    "contribute_share_content": "I wanted to let you know about the app I've been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it's free, does not require registration, and you can even help increase the number of products decyphered. Here's the link to get it for your phone: https://openfoodfacts.app",
+    "contribute_share_content": "Kullanmakta olduğum uygulama olan Open Food Facts hakkında bilgi vermek istedim. Ambalaj üzerindeki barkodları okutarak çalışır. Ücretsizdir, kayıt gerektirmez ve şifresi çözülen ürün sayısını artırmaya yardımcı olabilirsiniz. İşte telefonunuza indirmek için bağlantı: https://openfoodfacts.app",
     "@contribute_share_content": {
         "description": "Content that will be shared, don't forget to include the URL"
     },
@@ -399,7 +407,7 @@
     "@myPreferences": {
         "description": "Page title: Page where the ranking preferences can be changed"
     },
-    "account_create_message": "Create your account and join the Open Food Facts community to help build food knowledge all over the world!",
+    "account_create_message": "Hesabınızı oluşturun ve tüm dünyada gıda bilgisi oluşturmaya yardımcı olmak için Open Food Facts topluluğuna katılın!",
     "@account_create_message": {
         "description": "The Message to be displayed if the user does not have an account and wants to contribute"
     },
@@ -408,12 +416,12 @@
         "description": "Join which is actually Signup"
     },
     "myPreferences_profile_title": "Profiliniz",
-    "myPreferences_profile_subtitle": "Manage your Open Food Facts contributor account.",
+    "myPreferences_profile_subtitle": "Open Food Facts hesabını yönet.",
     "myPreferences_settings_title": "Uygulama Ayarları",
     "myPreferences_settings_subtitle": "Karanlık mod, Analytics…",
     "myPreferences_food_title": "Yiyecek tercihleri",
     "myPreferences_food_subtitle": "Yiyeceklerle ilgili hangi bilgilerin sizin için en önemli olduğunu seçin.",
-    "myPreferences_food_comment": "Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.",
+    "myPreferences_food_comment": "Yiyecekleri tercihlerinize göre sıralamak, önemsediğiniz bilgileri ilk önce görmek ve uyumluluk özeti almak için yiyeceklerle ilgili sizin için en önemli olan bilgileri seçin. Bu yemek tercihleri cihazınızda kalır ve varsa Open Food Facts hesabınızla ilişkilendirilmez.",
     "confirmResetPreferences": "Yiyecek tercihleriniz sıfırlansın mı?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -521,7 +529,7 @@
     "@packaging_information_photo": {},
     "missing_product": "Yeni bir ürün buldun!",
     "@missing_product": {},
-    "add_product_take_photos": "Take photos of the packaging to add this product to Open Food Facts",
+    "add_product_take_photos": "Bu ürünü Open Food Facts'e eklemek için ambalajın fotoğraflarını çekin",
     "@add_product_take_photos": {},
     "add_product_take_photos_descriptive": "Lütfen önce biraz fotoğraf çekin. Ürünü her zaman daha sonra tamamlayabilirsiniz.",
     "@add_product_take_photos_descriptive": {},
@@ -599,7 +607,7 @@
     "ingredients_photo_title": "İçindekiler fotoğarafı",
     "nutritional_facts_photo_title": "Besin Değerleri Fotoğrafı",
     "recycling_photo_title": "Geri Dönüşüm Fotoğrafı",
-    "take_more_photo_title": "Diğer ilginç fotoğraflar",
+    "take_more_photo_title": "Daha fazla fotoğraf çekin",
     "front_photo_uploaded": "Önden fotoğraf yüklendi",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "İçindekiler fotoğarafı",
@@ -621,6 +629,7 @@
     "new_product_subtitle_nova": "Gıda kategorisini ve malzemeleri doldurarak alın",
     "new_product_desc_nova_unknown": "Gıda işleme seviyesi bilinmemektedir",
     "new_product_title_pictures": "Birkaç fotoğraf çekelim!",
+    "new_product_title_pictures_details": "Lütfen aşağıdaki fotoğrafları çekin. Open Food Facts motoru gerisini halledecektir!",
     "new_product_title_misc": "Ve bazı temel veriler…",
     "new_product_done_msg": "Katkılarınız için teşekkürler “{username}”!",
     "@new_product_done_msg": {
@@ -644,7 +653,7 @@
     "@recycling_photo_button_label": {},
     "recycling_photo_uploaded": "Geri dönüşüm fotoğrafı yüklendi",
     "@recycling_photo_uploaded": {},
-    "take_more_photo_button_label": "Diğer ilginç fotoğraflar",
+    "take_more_photo_button_label": "Daha fazla fotoğraf çekin",
     "@take_more_photo_button_label": {},
     "other_photo_uploaded": "Fotoğraf yüklendi",
     "@other_photo_uploaded": {},
@@ -660,23 +669,23 @@
     "@uploading_image": {
         "description": "Message when a new picture is uploading to the server"
     },
-    "uploading_image_type_front": "Uploading front image to Open Food Facts",
+    "uploading_image_type_front": "Ön yüz görseli Open Food Facts'e yükleniyor",
     "@uploading_image_type_front": {
         "description": "Message when a new front picture is being uploaded to the server"
     },
-    "uploading_image_type_ingredients": "Uploading ingredients image to Open Food Facts",
+    "uploading_image_type_ingredients": "İçindekiler görseli Open Food Facts'e yükleniyor",
     "@uploading_image_type_ingredients": {
         "description": "Message when a new ingredients picture is being uploaded to the server"
     },
-    "uploading_image_type_nutrition": "Uploading nutrition image to Open Food Facts",
+    "uploading_image_type_nutrition": "Besin değerleri görseli Open Food Facts'e yükleniyor",
     "@uploading_image_type_nutrition": {
         "description": "Message when a new nutrition picture is being uploaded to the server"
     },
-    "uploading_image_type_packaging": "Uploading packaging image to Open Food Facts",
+    "uploading_image_type_packaging": "Ambalaj görseli Open Food Facts'e yükleniyor",
     "@uploading_image_type_packaging": {
         "description": "Message when a new packaging picture is being uploaded to the server"
     },
-    "uploading_image_type_other": "Uploading other image to Open Food Facts",
+    "uploading_image_type_other": "\"Diğer\" görseli Open Food Facts'e yükleniyor",
     "@uploading_image_type_other": {
         "description": "Message when a new other picture is being uploaded to the server"
     },
@@ -768,7 +777,11 @@
     },
     "country_chooser_label": "Lütfen bir ülke seçin",
     "@country_chooser_label": {
-        "description": "Label shown above a selector where the user can select their country (in the onboarding)"
+        "description": "Label shown above a selector where the user can select their country (in the preferences)"
+    },
+    "onboarding_country_chooser_label": "Lütfen bir ülke seçin:",
+    "@onboarding_country_chooser_label": {
+        "description": "The label shown above a selector where the user can select their country (in the onboarding)"
     },
     "country_chooser_label_from_settings": "Ülkeniz",
     "@country_chooser_label_from_settings": {
@@ -786,7 +799,7 @@
     "@native_app_settings": {
         "description": "Native App Settings in app settings"
     },
-    "native_app_description": "Open systems settings for Open Food Facts",
+    "native_app_description": "Open Food Facts için sistem ayarlarını açın",
     "@native_app_description": {
         "description": "Native App description in app settings"
     },
@@ -895,7 +908,7 @@
     "@consent_analytics_title": {
         "description": "Title for the consent analytics UI Page"
     },
-    "consent_analytics_body1": "Help the Open Food Facts volunteers to improve the app. You decide whether to submit anonymous analytics.",
+    "consent_analytics_body1": "Open Food Facts gönüllülerinin uygulamayı geliştirmesine yardımcı edin. Anonim analizlerin gönderilip gönderilmeyeceğine siz karar verirsiniz.",
     "@conset_analytics_body1": {
         "description": "first paragraph for the consent analytics UI Page"
     },
@@ -1080,7 +1093,7 @@
     "@user_profile_title_guest": {
         "description": "When the user is not connected"
     },
-    "user_profile_subtitle_guest": "Sign-in or sign-up to join the Open Food Facts community",
+    "user_profile_subtitle_guest": "Open Food Facts topluluğuna katılmak için oturum açın veya kaydolun",
     "user_profile_title_id_email": "Open Food Facts giriş: {email}",
     "@user_profile_title_id_email": {
         "description": "User login (when it's an email)",
@@ -1103,7 +1116,7 @@
     "@email_subject_account_deletion": {
         "description": "Email subject for an account deletion"
     },
-    "email_body_account_deletion": "Hi there, please delete my Open Food Facts account: {userId}",
+    "email_body_account_deletion": "Merhaba, lütfen Open Food Facts hesabımı silin: {userId}",
     "@email_body_account_deletion": {
         "description": "Email body for an account deletion",
         "placeholders": {
@@ -1140,7 +1153,7 @@
     "@crash_reporting_toggle_title": {
         "description": "Title for the Crash reporting toggle"
     },
-    "crash_reporting_toggle_subtitle": "When enabled, crash reports are automatically submitted to Open Food Facts' error tracking system, so that bugs can be fixed and thus improve the app.",
+    "crash_reporting_toggle_subtitle": "Etkinleştirildiğinde, kilitlenme raporları Open Food Facts'in hata izleme sistemine otomatik olarak gönderilir, böylece hatalar düzeltilebilir ve böylece uygulama geliştirilebilir.",
     "@crash_reporting_toggle_subtitle": {
         "description": "SubTitle for the Crash reporting toggle"
     },
@@ -1148,7 +1161,7 @@
     "@send_anonymous_toggle_title": {
         "description": "Title for the Send anonymous data toggle"
     },
-    "send_anonymous_data_toggle_subtitle": "When enabled, some anonymous information regarding app usage will be sent to the Open Food Facts servers, so that we can understand how and how much features are used in order to improve them.",
+    "send_anonymous_data_toggle_subtitle": "Etkinleştirildiğinde, uygulama kullanımına ilişkin bazı anonim bilgiler Open Food Facts sunucularına gönderilecek, böylece özelliklerin iyileştirilmesi amacıyla nasıl ve ne kadar kullanıldığını anlayabileceğiz.",
     "@send_anonymous_toggle_subtitle": {
         "description": "SubTitle for the Send anonymous data toggle"
     },
@@ -1259,7 +1272,7 @@
     "@edit_product_form_item_origins_title": {
         "description": "Product edition - Origins - Title"
     },
-    "edit_product_form_item_origins_hint": "Input an origin",
+    "edit_product_form_item_origins_hint": "Bir menşei girin",
     "@edit_product_form_item_origins_hint": {
         "description": "Product edition - Origins - input textfield hint"
     },
@@ -1323,7 +1336,7 @@
     "@edit_product_form_item_categories_explainer_1": {
         "description": "Product edition - Categories - input explainer, part 1"
     },
-    "edit_product_form_item_categories_explainer_2": "In case a category is not available in autocomplete, feel free to add it anyway, that will help us improve Open Food Facts in your country.",
+    "edit_product_form_item_categories_explainer_2": "Otomatik tamamlamada bir kategori mevcut değilse, yine de eklemekten çekinmeyin; bu, ülkenizdeki Open Food Facts'i iyileştirmemize yardımcı olacaktır.",
     "@edit_product_form_item_categories_explainer_2": {
         "description": "Product edition - Categories - input explainer, part 2"
     },
@@ -1376,7 +1389,7 @@
     "@edit_ingredients_refresh_photo_btn_text": {
         "description": "Ingredients edition - Refresh photo"
     },
-    "edit_packaging_extract_btn_text": "Extract packaging",
+    "edit_packaging_extract_btn_text": "Paketi ayıkla",
     "@edit_packaging_extract_btn_text": {
         "description": "Packaging edition - OCR-Extract packaging"
     },
@@ -1497,7 +1510,7 @@
     "@dev_preferences_screen_title": {
         "description": "User dev preferences - Title"
     },
-    "dev_preferences_reset_onboarding_title": "Restart onboarding",
+    "dev_preferences_reset_onboarding_title": "İlk katılımı yeniden başlat",
     "@dev_preferences_reset_onboarding_title": {
         "description": "User dev preferences - Reset onboarding - Title"
     },
@@ -1585,10 +1598,6 @@
     "dev_preferences_migration_status_in_progress": "devam ediyor",
     "dev_preferences_migration_status_required": "gerekli (başlamak için tıklayın)",
     "dev_preferences_migration_status_not_started": "bilinmiyor",
-    "dev_preferences_import_history_title": "İçe aktarma geçmişi",
-    "@dev_preferences_import_history_title": {
-        "description": "User dev preferences - Import history - Title"
-    },
     "dev_preferences_import_history_subtitle": "Geçmişi temizleyecek ve oraya 3 ürün koyacak",
     "@dev_preferences_import_history_subtitle": {
         "description": "User dev preferences - Import history - Subtitle"
@@ -1664,6 +1673,13 @@
             "totalSize": {
                 "type": "int"
             }
+        }
+    },
+    "product_search_loading_message": "{search} aramanız devam ediyor.\n\nLütfen birkaç saniye bekleyin…",
+    "@product_search_loading_message": {
+        "description": "This message will be displayed when a search is in progress.",
+        "search": {
+            "type": "String"
         }
     },
     "user_search_contributor_title": "Eklediğim Ürünler",
@@ -1810,11 +1826,11 @@
             }
         }
     },
-    "confirm_delete_user_list_title": "Delete the list?",
+    "confirm_delete_user_list_title": "Liste silinsin mi?",
     "@confirm_delete_user_list_title": {
         "description": "Title when asking about whether to delete the list or not"
     },
-    "confirm_delete_user_list_message": "You're about to delete the list \"{name}\".\nAre you sure you want to continue?",
+    "confirm_delete_user_list_message": "Bu listeyi silmek üzeresiniz: {name}. Devam etmek istediğinizden emin misiniz?",
     "@confirm_delete_user_list_message": {
         "description": "Message when asking about whether to delete the list or not",
         "placeholders": {
@@ -1823,7 +1839,7 @@
             }
         }
     },
-    "confirm_delete_user_list_button": "Yes, I confirm",
+    "confirm_delete_user_list_button": "Evet, onaylıyorum",
     "@confirm_delete_user_list_button": {
         "description": "Button to delete a list"
     },
@@ -1902,7 +1918,7 @@
     "@share": {
         "description": "Button label for sharing something on another app. For example sharing the link to a product via Email"
     },
-    "share_product_text": "Have a look at this product on Open Food Facts: {url}",
+    "share_product_text": "Open Food Facts'teki bu ürüne bir göz atın: {url}",
     "@share_product_text": {
         "description": "The content which is send, when sharing a product",
         "placeholders": {
@@ -1911,7 +1927,7 @@
             }
         }
     },
-    "share_product_list_text": "Have a look at my list of products on Open Food Facts: {url}",
+    "share_product_list_text": "Open Food Facts'teki ürün listeme bir göz atın: {url}",
     "@share_product_list_text": {
         "description": "The content which is send, when sharing a product list",
         "placeholders": {
@@ -2053,11 +2069,11 @@
     "@portion_calculator_hint": {
         "description": "Hint to show when a quantity is empty in the portion calculator."
     },
-    "portion_calculator_accessibility": "Input a quantity to calculate nutrition facts",
+    "portion_calculator_accessibility": "Besin değerlerini hesaplamak için bir miktar girin",
     "@portion_calculator_accessibility": {
         "description": "Hint for the acessibility to explain to enter a quantity."
     },
-    "portion_calculator_error": "Please enter a quantity between {min} and {max} g",
+    "portion_calculator_error": "Lütfen {min} ile {max} g arasında bir değer giriniz",
     "@portion_calculator_error": {
         "description": "Error message to explain that the quantity is invalid.",
         "placeholders": {
@@ -2363,7 +2379,7 @@
     "@download_top_products": {
         "description": "Download the top 1000 products in your country for instant scanning"
     },
-    "download_top_n_products": "Download the top {count,plural,  other{{count} products}} in your country for instant scanning",
+    "download_top_n_products": "Ülkenizde en çok kullanılan {count,plural, other{{count} ürünü}} hızla taramak için indirin",
     "@download_top_n_products": {
         "placeholders": {
             "count": {
@@ -2388,7 +2404,7 @@
     "@update_offline_data": {
         "description": "List tile title for the update offline data page"
     },
-    "update_local_database_sub": "Update the local product database with the latest data from Open Food Facts",
+    "update_local_database_sub": "Yerel ürün veritabanını OpenFoodFacts'in en son verileriyle güncelleyin",
     "@update_local_database_sub": {
         "description": "Update the local product database with the latest data from server"
     },
@@ -2434,7 +2450,7 @@
             }
         }
     },
-    "country_selector_title": "Select your country:",
+    "country_selector_title": "Ülkenizi seçin:",
     "@country_selector_title": {
         "description": "Label written as the title of the dialog to select the user country"
     },
@@ -2446,7 +2462,7 @@
     "@action_delete_list": {
         "description": "Delete a list action in a menu"
     },
-    "action_change_list": "Change the current list",
+    "action_change_list": "Mevcut listeyi değiştir",
     "@action_change_list": {
         "description": "Action to change the current visible list"
     },
@@ -2464,16 +2480,16 @@
     "nutriscore_c": "Nutri-Score C",
     "nutriscore_d": "Nutri-Score D",
     "nutriscore_e": "Nutri-Score E",
-    "nutriscore_unknown": "Unknown Nutri-Score",
-    "nutriscore_not_applicable": "Nutri-Score is not applicable",
+    "nutriscore_unknown": "Bilinmeyen Nutri-Score",
+    "nutriscore_not_applicable": "Nutri-Score geçerli değildir",
     "ecoscore_generic": "Eco-Score",
     "ecoscore_a": "Eco-Score A",
     "ecoscore_b": "Eco-Score B",
     "ecoscore_c": "Eco-Score C",
     "ecoscore_d": "Eco-Score D",
     "ecoscore_e": "Eco-Score E",
-    "ecoscore_unknown": "Unknown Eco-Score",
-    "ecoscore_not_applicable": "Eco-Score is not applicable",
+    "ecoscore_unknown": "Bilinmeyen Eko-Skor",
+    "ecoscore_not_applicable": "Eco-Score geçerli değildir",
     "nova_group_generic": "Ultra işleme - NOVA grupları",
     "nova_group_1": "NOVA Grup 1",
     "nova_group_2": "NOVA Grup 2",

@@ -20,7 +20,10 @@
             android:label="OpenFoodFacts"
             android:name="${applicationName}"
             android:icon="@mipmap/ic_launcher"
-            android:hasFragileUserData="true" tools:targetApi="q">
+            android:hasFragileUserData="true"
+            android:allowBackup="true"
+            android:fullBackupContent="@xml/backup_scheme"
+            tools:targetApi="q">
         <activity
                 android:name=".MainActivity"
                 android:exported="true"

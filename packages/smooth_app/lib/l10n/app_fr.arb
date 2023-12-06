@@ -607,7 +607,7 @@
     "ingredients_photo_title": "Photo des ingrédients",
     "nutritional_facts_photo_title": "Photo des valeurs nutritionnelles",
     "recycling_photo_title": "Photo du recyclage",
-    "take_more_photo_title": "Autres photos intéressantes",
+    "take_more_photo_title": "Prendre plus de photos",
     "front_photo_uploaded": "Photo de la face avant téléchargée",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "Photo des ingrédients",
@@ -629,6 +629,7 @@
     "new_product_subtitle_nova": "Obtenez-le en remplissant la catégorie alimentaire et les ingrédients",
     "new_product_desc_nova_unknown": "Degré de transformation des aliments inconnu",
     "new_product_title_pictures": "Prenons quelques photos !",
+    "new_product_title_pictures_details": "Please take the following photos and the Open Food Facts engine can work out the rest!",
     "new_product_title_misc": "Et quelques données de base…",
     "new_product_done_msg": "Merci pour votre contribution « {username} » !",
     "@new_product_done_msg": {
@@ -652,7 +653,7 @@
     "@recycling_photo_button_label": {},
     "recycling_photo_uploaded": "Photo des informations de recyclage téléchargée",
     "@recycling_photo_uploaded": {},
-    "take_more_photo_button_label": "Autres photos intéressantes",
+    "take_more_photo_button_label": "Prendre plus de photos",
     "@take_more_photo_button_label": {},
     "other_photo_uploaded": "Photo annexe téléversée",
     "@other_photo_uploaded": {},
@@ -776,7 +777,11 @@
     },
     "country_chooser_label": "Veuillez choisir un pays",
     "@country_chooser_label": {
-        "description": "Label shown above a selector where the user can select their country (in the onboarding)"
+        "description": "Label shown above a selector where the user can select their country (in the preferences)"
+    },
+    "onboarding_country_chooser_label": "Please choose a country:",
+    "@onboarding_country_chooser_label": {
+        "description": "The label shown above a selector where the user can select their country (in the onboarding)"
     },
     "country_chooser_label_from_settings": "Votre pays",
     "@country_chooser_label_from_settings": {
@@ -1593,10 +1598,6 @@
     "dev_preferences_migration_status_in_progress": "en cours",
     "dev_preferences_migration_status_required": "requis (cliquez pour commencer)",
     "dev_preferences_migration_status_not_started": "inconnu",
-    "dev_preferences_import_history_title": "Importer l'historique",
-    "@dev_preferences_import_history_title": {
-        "description": "User dev preferences - Import history - Title"
-    },
     "dev_preferences_import_history_subtitle": "Effacera l'historique et y mettra 3 produits",
     "@dev_preferences_import_history_subtitle": {
         "description": "User dev preferences - Import history - Subtitle"
@@ -1672,6 +1673,13 @@
             "totalSize": {
                 "type": "int"
             }
+        }
+    },
+    "product_search_loading_message": "Your search of {search} is in progress.\n\nPlease wait a few seconds…",
+    "@product_search_loading_message": {
+        "description": "This message will be displayed when a search is in progress.",
+        "search": {
+            "type": "String"
         }
     },
     "user_search_contributor_title": "Produits que j'ai ajoutés",
@@ -1881,6 +1889,18 @@
     "add_packaging_photo_button_label": "Prenez des photos de toute information sur l'emballage/le recyclage",
     "@add_packaging_photo_button_label": {
         "description": "Label for the add PACKAGING photo button"
+    },
+    "add_origin_photo_button_label": "Prenez des photos de toute information sur les origines",
+    "@add_origin_photo_button_label": {
+        "description": "Label for the add ORIGIN photo button"
+    },
+    "add_emb_photo_button_label": "Prenez des photos de toute information sur les codes de traçabilité",
+    "@add_emb_photo_button_label": {
+        "description": "Label for the add EMB photo button"
+    },
+    "add_label_photo_button_label": "Prenez des photos de toute information sur les labels & certifications",
+    "@add_label_photo_button_label": {
+        "description": "Label for the add LABELS photo button"
     },
     "choose_image_source_title": "Choisissez la source de l'image",
     "@choose_image_source_title": {

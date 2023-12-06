@@ -150,6 +150,14 @@
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
+    "login_result_type_server_unreachable": "Network is unreachable",
+    "@login_result_type_server_unreachable": {
+        "description": "Error message when trying to log in without network"
+    },
+    "login_result_type_server_issue": "Problem on the server. Please try later.",
+    "@login_result_type_server_issue": {
+        "description": "Error message when trying to log in and the server does not answer correctly"
+    },
     "login_page_username_or_email": "Παρακαλώ εισάγετε όνομα χρήστη ή e-mail",
     "login_page_password_error_empty": "Πληκτρολογήστε τον κωδικό σας",
     "create_account": "Δημιουργήστε λογαριασμό",
@@ -599,7 +607,7 @@
     "ingredients_photo_title": "Φωτογραφία συστατικών",
     "nutritional_facts_photo_title": "Nutrition Facts Photo",
     "recycling_photo_title": "Φωτογραφία ανακύκλωσης",
-    "take_more_photo_title": "Άλλες ενδιαφέρουσες φωτογραφίες",
+    "take_more_photo_title": "Τραβήξτε περισσότερες φωτογραφίες",
     "front_photo_uploaded": "Η μπροστινή φωτογραφία μεταφορτώθηκε",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "Φωτογραφία συστατικών",
@@ -645,7 +653,7 @@
     "@recycling_photo_button_label": {},
     "recycling_photo_uploaded": "Η φωτογραφία ανακύκλωσης μεταφορτώθηκε",
     "@recycling_photo_uploaded": {},
-    "take_more_photo_button_label": "Άλλες ενδιαφέρουσες φωτογραφίες",
+    "take_more_photo_button_label": "Τραβήξτε περισσότερες φωτογραφίες",
     "@take_more_photo_button_label": {},
     "other_photo_uploaded": "Η φωτογραφίας στην κατηγορία διάφορες μεταφορτώθηκε",
     "@other_photo_uploaded": {},
@@ -769,7 +777,11 @@
     },
     "country_chooser_label": "Παρακαλούμε επιλέξτε μια χώρα",
     "@country_chooser_label": {
-        "description": "Label shown above a selector where the user can select their country (in the onboarding)"
+        "description": "Label shown above a selector where the user can select their country (in the preferences)"
+    },
+    "onboarding_country_chooser_label": "Please choose a country:",
+    "@onboarding_country_chooser_label": {
+        "description": "The label shown above a selector where the user can select their country (in the onboarding)"
     },
     "country_chooser_label_from_settings": "Your country",
     "@country_chooser_label_from_settings": {
@@ -1586,10 +1598,6 @@
     "dev_preferences_migration_status_in_progress": "σε εξέλιξη",
     "dev_preferences_migration_status_required": "απαιτείται (κάντε κλικ για έναρξη)",
     "dev_preferences_migration_status_not_started": "άγνωστο",
-    "dev_preferences_import_history_title": "Εισαγωγή Ιστορικού",
-    "@dev_preferences_import_history_title": {
-        "description": "User dev preferences - Import history - Title"
-    },
     "dev_preferences_import_history_subtitle": "Το ιστορικό θα σβηστεί και θα τοποθετηθούν 3 προϊόντα εκεί",
     "@dev_preferences_import_history_subtitle": {
         "description": "User dev preferences - Import history - Subtitle"
@@ -1665,6 +1673,13 @@
             "totalSize": {
                 "type": "int"
             }
+        }
+    },
+    "product_search_loading_message": "Your search of {search} is in progress.\n\nPlease wait a few seconds…",
+    "@product_search_loading_message": {
+        "description": "This message will be displayed when a search is in progress.",
+        "search": {
+            "type": "String"
         }
     },
     "user_search_contributor_title": "Προϊόντα που πρόσθεσα",

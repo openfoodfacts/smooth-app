@@ -55,6 +55,10 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final String? explanations =
         widget.helper.getAddExplanations(appLocalizations);
+    final Widget? extraWidget = widget.helper.getExtraWidget(
+      context,
+      widget.product,
+    );
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
@@ -142,6 +146,7 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
         ),
+        if (extraWidget != null) extraWidget,
       ],
     );
   }
