@@ -8,6 +8,7 @@ import 'package:smooth_app/database/dao_int.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/images/smooth_image.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/pages/crop_page.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
@@ -43,6 +44,9 @@ class UploadedImageGallery extends StatelessWidget {
         backgroundColor: Colors.black,
         foregroundColor: WHITE_COLOR,
         elevation: 0,
+        leading: const SmoothBackButton(
+          iconColor: Colors.white,
+        ),
       ),
       body: GridView.builder(
         itemCount: imageIds.length,
