@@ -148,7 +148,6 @@ class SearchEyeAnimation extends StatefulWidget {
 }
 
 class _SearchEyeAnimationState extends State<SearchEyeAnimation> {
-
   StateMachineController? _controller;
 
   @override
@@ -161,15 +160,14 @@ class _SearchEyeAnimationState extends State<SearchEyeAnimation> {
         width: size,
         height: (80 / 87) * size,
         child: RiveAnimation.direct(AnimationsLoader.of(context),
-            artboard: 'Search eye',
-            onInit: (Artboard artboard) {
-              _controller = StateMachineController.fromArtboard(
-                artboard,
-                'LoopMachine',
-              );
+            artboard: 'Search eye', onInit: (Artboard artboard) {
+          _controller = StateMachineController.fromArtboard(
+            artboard,
+            'LoopMachine',
+          );
 
-              artboard.addController(_controller!);
-              _controller!.findInput<bool>('light')?.value = !lightTheme;
+          artboard.addController(_controller!);
+          _controller!.findInput<bool>('light')?.value = !lightTheme;
         }),
       ),
     );
