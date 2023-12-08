@@ -2523,6 +2523,10 @@
     "hunger_games_loading_line2": "Ми завантажуємо питання!",
     "hunger_games_error_label": "Ох! Щось пішло не так… і ми не змогли завантажити питання.",
     "hunger_games_error_retry_button": "Давайте спробуємо ще раз!",
+    "reorder_attribute_action": "Reorder the attributes",
+    "@reorder_attribute_action": {
+        "description": "An action button or a page title about reordering the attributes (e.g. 'is vegan?', 'nutrition facts', ...)"
+    },
     "link_cant_be_opened": "Це посилання не може бути відкрито на вашому пристрої. Будь ласка, перевірте чи встановлено браузер.",
     "@link_cant_be_opened": {
         "description": "An error may happen if the device doesn't have a browser installed."
