@@ -2523,6 +2523,10 @@
     "hunger_games_loading_line2": "Kami mengunduh pertanyaannya!",
     "hunger_games_error_label": "Argh! Terjadi kesalahan… dan kami tidak bisa memuat pertanyaan.",
     "hunger_games_error_retry_button": "Mari kita coba lagi!",
+    "reorder_attribute_action": "Reorder the attributes",
+    "@reorder_attribute_action": {
+        "description": "An action button or a page title about reordering the attributes (e.g. 'is vegan?', 'nutrition facts', ...)"
+    },
     "link_cant_be_opened": "Tautan ini tidak dapat dibuka di perangkat Anda. Pastikan Anda telah menginstal browser.",
     "@link_cant_be_opened": {
         "description": "An error may happen if the device doesn't have a browser installed."
