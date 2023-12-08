@@ -714,6 +714,8 @@
     "nutrition_page_update_done": "Prodotto aggiornato!",
     "more_photos": "Altre foto che potrebbero interessarti",
     "@more_photos": {},
+    "view_more_photo_button": "View all existing photos for this product",
+    "@view_more_photo_button": {},
     "no_product_found": "Nessun prodotto trovato",
     "@no_product_found": {},
     "not_found": "non trovato:",
@@ -2523,7 +2525,7 @@
     "hunger_games_loading_line2": "Stiamo scaricando le domande!",
     "hunger_games_error_label": "Argh! Qualcosa è andato storto… e non siamo riusciti a caricare le domande.",
     "hunger_games_error_retry_button": "Riproviamo!",
-    "reorder_attribute_action": "Reorder the attributes",
+    "reorder_attribute_action": "Riordina gli attributi",
     "@reorder_attribute_action": {
         "description": "An action button or a page title about reordering the attributes (e.g. 'is vegan?', 'nutrition facts', ...)"
     },
