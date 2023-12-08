@@ -714,6 +714,8 @@
     "nutrition_page_update_done": "Produkt uppdaterad!",
     "more_photos": "Fler intressanta bilder",
     "@more_photos": {},
+    "view_more_photo_button": "View all existing photos for this product",
+    "@view_more_photo_button": {},
     "no_product_found": "Ingen produkt hittades",
     "@no_product_found": {},
     "not_found": "hittades inte:",
