@@ -153,23 +153,25 @@ class _SearchEyeAnimationState extends State<SearchEyeAnimation> {
 
   @override
   Widget build(BuildContext context) {
-    final double size = this.widget.size ?? IconTheme.of(context).size ?? 24.0;
+    final double size = widget.size ?? IconTheme.of(context).size ?? 24.0;
     final bool lightTheme = context.watch<ThemeProvider>().isLightTheme;
 
-    return SizedBox(
-      width: size,
-      height: (80 / 87) * size,
-      child: RiveAnimation.direct(AnimationsLoader.of(context),
-          artboard: 'Search eye',
-          onInit: (Artboard artboard) {
-            _controller = StateMachineController.fromArtboard(
-              artboard,
-              'LoopMachine',
-            );
+    return ExcludeSemantics(
+      child: SizedBox(
+        width: size,
+        height: (80 / 87) * size,
+        child: RiveAnimation.direct(AnimationsLoader.of(context),
+            artboard: 'Search eye',
+            onInit: (Artboard artboard) {
+              _controller = StateMachineController.fromArtboard(
+                artboard,
+                'LoopMachine',
+              );
 
-            artboard.addController(_controller!);
-            _controller!.findInput<bool>('light')?.value = !lightTheme;
-      }),
+              artboard.addController(_controller!);
+              _controller!.findInput<bool>('light')?.value = !lightTheme;
+        }),
+      ),
     );
   }
 
