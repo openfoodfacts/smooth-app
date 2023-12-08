@@ -714,6 +714,8 @@
     "nutrition_page_update_done": "Продукт оновлено!",
     "more_photos": "Більше цікавих фото",
     "@more_photos": {},
+    "view_more_photo_button": "Переглянути всі наявні фотографії цього продукту",
+    "@view_more_photo_button": {},
     "no_product_found": "Продукт не знайдено",
     "@no_product_found": {},
     "not_found": "не знайдено:",
