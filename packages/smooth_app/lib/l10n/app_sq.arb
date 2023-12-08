@@ -714,6 +714,8 @@
     "nutrition_page_update_done": "Produkti u perditesua.",
     "more_photos": "Me shume foto interesante",
     "@more_photos": {},
+    "view_more_photo_button": "View all existing photos for this product",
+    "@view_more_photo_button": {},
     "no_product_found": "Nuk u gjet asnje produkt",
     "@no_product_found": {},
     "not_found": "Nuk u gjet, nuk rezultoi ",
