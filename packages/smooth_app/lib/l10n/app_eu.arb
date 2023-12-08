@@ -714,6 +714,8 @@
     "nutrition_page_update_done": "Produktua eguneratu da!",
     "more_photos": "Argazki interesgarri gehiago",
     "@more_photos": {},
+    "view_more_photo_button": "View all existing photos for this product",
+    "@view_more_photo_button": {},
     "no_product_found": "Ez da produkturik aurkitu",
     "@no_product_found": {},
     "not_found": "ez da aurkitu:",
