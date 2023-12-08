@@ -714,6 +714,8 @@
     "nutrition_page_update_done": "อัพเดทผลิตภัณฑ์สำเร็จ!",
     "more_photos": "รูปภาพอื่นๆที่น่าสนใจ",
     "@more_photos": {},
+    "view_more_photo_button": "View all existing photos for this product",
+    "@view_more_photo_button": {},
     "no_product_found": "ไม่พบผลิตภัณฑ์",
     "@no_product_found": {},
     "not_found": "ไม่พบ",
