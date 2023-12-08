@@ -2523,6 +2523,10 @@
     "hunger_games_loading_line2": "crwdns244937:0crwdne244937:0",
     "hunger_games_error_label": "crwdns244939:0crwdne244939:0",
     "hunger_games_error_retry_button": "crwdns244941:0crwdne244941:0",
+    "reorder_attribute_action": "crwdns246424:0crwdne246424:0",
+    "@reorder_attribute_action": {
+        "description": "An action button or a page title about reordering the attributes (e.g. 'is vegan?', 'nutrition facts', ...)"
+    },
     "link_cant_be_opened": "crwdns245744:0crwdne245744:0",
     "@link_cant_be_opened": {
         "description": "An error may happen if the device doesn't have a browser installed."
