@@ -2523,6 +2523,10 @@
     "hunger_games_loading_line2": "Mes atsisiunčiame klausimus!",
     "hunger_games_error_label": "Po galais! Kažkas atsitiko… ir mums nepavyko įkelti klausimų.",
     "hunger_games_error_retry_button": "Pabandykime dar kartą!",
+    "reorder_attribute_action": "Reorder the attributes",
+    "@reorder_attribute_action": {
+        "description": "An action button or a page title about reordering the attributes (e.g. 'is vegan?', 'nutrition facts', ...)"
+    },
     "link_cant_be_opened": "Šios nuorodos negalima atidaryti jūsų įrenginyje. Patikrinkite, ar įdiegta naršyklė.",
     "@link_cant_be_opened": {
         "description": "An error may happen if the device doesn't have a browser installed."
