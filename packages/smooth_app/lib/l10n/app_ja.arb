@@ -2523,6 +2523,10 @@
     "hunger_games_loading_line2": "質問をダウンロード中です！",
     "hunger_games_error_label": "ああ！問題が発生した… 、質問を読み込むことができませんでした。",
     "hunger_games_error_retry_button": "再試行しましょう！",
+    "reorder_attribute_action": "Reorder the attributes",
+    "@reorder_attribute_action": {
+        "description": "An action button or a page title about reordering the attributes (e.g. 'is vegan?', 'nutrition facts', ...)"
+    },
     "link_cant_be_opened": "このリンクは、お使いのデバイスでは開けません。ブラウザがインストールされていることを確認してください。",
     "@link_cant_be_opened": {
         "description": "An error may happen if the device doesn't have a browser installed."
