@@ -714,6 +714,8 @@
     "nutrition_page_update_done": "Producte actualitzat!",
     "more_photos": "Més fotos interessants",
     "@more_photos": {},
+    "view_more_photo_button": "View all existing photos for this product",
+    "@view_more_photo_button": {},
     "no_product_found": "Cap producte trobat",
     "@no_product_found": {},
     "not_found": "no trobat:",
