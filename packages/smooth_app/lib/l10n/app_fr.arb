@@ -714,6 +714,8 @@
     "nutrition_page_update_done": "Produit mis à jour !",
     "more_photos": "Plus de photos intéressantes",
     "@more_photos": {},
+    "view_more_photo_button": "Voir toutes les photos existantes pour ce produit",
+    "@view_more_photo_button": {},
     "no_product_found": "Aucun produit trouvé",
     "@no_product_found": {},
     "not_found": "non trouvé :",
