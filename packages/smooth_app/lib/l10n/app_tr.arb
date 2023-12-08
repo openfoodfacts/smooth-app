@@ -714,7 +714,7 @@
     "nutrition_page_update_done": "Ürün güncellendi!",
     "more_photos": "Daha ilginç fotoğraflar",
     "@more_photos": {},
-    "view_more_photo_button": "View all existing photos for this product",
+    "view_more_photo_button": "Bu ürüne ait mevcut tüm fotoğrafları görüntüle",
     "@view_more_photo_button": {},
     "no_product_found": "Ürün bulunamadı",
     "@no_product_found": {},
@@ -2525,7 +2525,7 @@
     "hunger_games_loading_line2": "Soruları indiriyoruz!",
     "hunger_games_error_label": "Ah! Bir şeyler ters gitti… ve soruları yükleyemedik.",
     "hunger_games_error_retry_button": "Tekrar deneyelim!",
-    "reorder_attribute_action": "Reorder the attributes",
+    "reorder_attribute_action": "Öznitelikleri yeniden sırala",
     "@reorder_attribute_action": {
         "description": "An action button or a page title about reordering the attributes (e.g. 'is vegan?', 'nutrition facts', ...)"
     },
