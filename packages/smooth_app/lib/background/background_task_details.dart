@@ -159,9 +159,9 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode {
           }
         }
         throw Exception(
-          'Could not save product'
+          'Could not save product - API V3'
           ' - '
-          '${result.errors}${isInvalidUser ? _getIncompleteUserData() : ''}',
+          'status=${result.status} - errors=${result.errors} ${isInvalidUser ? _getIncompleteUserData() : ''}',
         );
       }
       return;
@@ -181,9 +181,9 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode {
         }
       }
       throw Exception(
-        'Could not save product'
+        'Could not save product - API V2'
         ' - '
-        '${status.error}${isInvalidUser ? _getIncompleteUserData() : ''}',
+        'status=${status.status} - errors=${status.error} ${isInvalidUser ? _getIncompleteUserData() : ''}',
       );
     }
   }
