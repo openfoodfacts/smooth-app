@@ -714,6 +714,8 @@
     "nutrition_page_update_done": "Produs actualizat!",
     "more_photos": "Mai multe fotografii interesante",
     "@more_photos": {},
+    "view_more_photo_button": "View all existing photos for this product",
+    "@view_more_photo_button": {},
     "no_product_found": "Nu a fost găsit niciun produs",
     "@no_product_found": {},
     "not_found": "nu a fost găsit:",
