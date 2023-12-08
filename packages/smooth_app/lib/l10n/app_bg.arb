@@ -714,6 +714,8 @@
     "nutrition_page_update_done": "Продуктът е актуализиран!",
     "more_photos": "Още интересни снимки",
     "@more_photos": {},
+    "view_more_photo_button": "View all existing photos for this product",
+    "@view_more_photo_button": {},
     "no_product_found": "Няма намерен продукт",
     "@no_product_found": {},
     "not_found": "не е намерено:",
