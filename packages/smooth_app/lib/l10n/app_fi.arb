@@ -714,6 +714,8 @@
     "nutrition_page_update_done": "Tuote päivitetty!",
     "more_photos": "Lisää kuvia",
     "@more_photos": {},
+    "view_more_photo_button": "View all existing photos for this product",
+    "@view_more_photo_button": {},
     "no_product_found": "Tuotetta ei löytynyt",
     "@no_product_found": {},
     "not_found": "ei löytynyt:",
