@@ -8,10 +8,12 @@ class KnowledgePanelGroupCard extends StatelessWidget {
   const KnowledgePanelGroupCard({
     required this.groupElement,
     required this.product,
+    required this.isClickable,
   });
 
   final KnowledgePanelPanelGroupElement groupElement;
   final Product product;
+  final bool isClickable;
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +37,7 @@ class KnowledgePanelGroupCard extends StatelessWidget {
             KnowledgePanelCard(
               panelId: panelId,
               product: product,
+              isClickable: isClickable,
             )
         ],
       ),
