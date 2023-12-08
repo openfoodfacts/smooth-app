@@ -714,6 +714,8 @@
     "nutrition_page_update_done": "제품 업데이트됨",
     "more_photos": "기타 흥미로운 사진",
     "@more_photos": {},
+    "view_more_photo_button": "View all existing photos for this product",
+    "@view_more_photo_button": {},
     "no_product_found": "상품 없음",
     "@no_product_found": {},
     "not_found": "찾을 수 없음:",
