@@ -159,7 +159,7 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode {
           }
         }
         throw Exception(
-          'Could not save product V3'
+          'Could not save product - API V3'
           ' - '
           'status=${result.status} - errors=${result.errors} ${isInvalidUser ? _getIncompleteUserData() : ''}',
         );
