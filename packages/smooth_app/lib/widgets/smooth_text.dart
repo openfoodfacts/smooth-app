@@ -188,7 +188,7 @@ class TextHighlighter extends StatelessWidget {
     int diff = 0;
     for (int pos = 0; pos < endPosition; pos++) {
       if (pos == subText.length - 1) {
-        diff = pos - (subText.length);
+        diff = pos - subText.length;
         break;
       }
 
