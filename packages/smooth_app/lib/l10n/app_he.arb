@@ -2525,7 +2525,7 @@
     "hunger_games_loading_line2": "אנו מורידים את השאלות!",
     "hunger_games_error_label": "געוואלד! משהו השתבש… לא הצלחנו לטעון את השאלות.",
     "hunger_games_error_retry_button": "מומלץ לנסות שוב!",
-    "reorder_attribute_action": "Reorder the attributes",
+    "reorder_attribute_action": "סידור המאפיינים מחדש",
     "@reorder_attribute_action": {
         "description": "An action button or a page title about reordering the attributes (e.g. 'is vegan?', 'nutrition facts', ...)"
     },
