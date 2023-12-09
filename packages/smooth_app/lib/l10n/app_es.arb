@@ -629,7 +629,7 @@
     "new_product_subtitle_nova": "Hazlo rellenando las categorías de alimentos e ingredientes.",
     "new_product_desc_nova_unknown": "Nivel de procesado de alimentos desconocido",
     "new_product_title_pictures": "Nuevo producto",
-    "new_product_title_pictures_details": "Saca las siguientes fotos y el motor de Open Food Facts se ocupará del resto.",
+    "new_product_title_pictures_details": "Haz las siguientes fotos y el motor de Open Food Facts se ocupará del resto.",
     "new_product_title_misc": "Y algunos datos básicos…",
     "new_product_done_msg": "¡Gracias por tu colaboración, {username}!",
     "@new_product_done_msg": {
@@ -714,7 +714,7 @@
     "nutrition_page_update_done": "¡Producto actualizado!",
     "more_photos": "Más fotos interesantes",
     "@more_photos": {},
-    "view_more_photo_button": "View all existing photos for this product",
+    "view_more_photo_button": "Ver todas las fotos de este producto",
     "@view_more_photo_button": {},
     "no_product_found": "No se ha encontrado ningún producto",
     "@no_product_found": {},
@@ -2525,7 +2525,7 @@
     "hunger_games_loading_line2": "¡Estamos descargando las preguntas!",
     "hunger_games_error_label": "¡Vaya! Algo ha salido mal… No hemos podido cargar las preguntas.",
     "hunger_games_error_retry_button": "¡Vamos a intentarlo de nuevo!",
-    "reorder_attribute_action": "Reorder the attributes",
+    "reorder_attribute_action": "Reorganizar los atributos",
     "@reorder_attribute_action": {
         "description": "An action button or a page title about reordering the attributes (e.g. 'is vegan?', 'nutrition facts', ...)"
     },
