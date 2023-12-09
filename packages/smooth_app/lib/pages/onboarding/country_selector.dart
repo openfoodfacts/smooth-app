@@ -104,23 +104,26 @@ class _CountrySelectorState extends State<CountrySelector> {
                         prefixIcon: const Icon(Icons.search),
                         controller: _countryController,
                         onChanged: (String? query) {
-                          query = removeDiacritics(query!.trim().toLowerCase());
+                          query =
+                              query!.trim().toLowerCase().removeDiacritics();
 
                           setState(
                             () {
                               filteredList = _countryList
                                   .where(
                                     (Country item) =>
-                                        removeDiacritics(
-                                                item.name.toLowerCase())
+                                        item.name
+                                            .toLowerCase()
+                                            .removeDiacritics()
                                             .contains(
-                                          query!,
-                                        ) ||
-                                        removeDiacritics(
-                                                item.countryCode.toLowerCase())
+                                              query!,
+                                            ) ||
+                                        item.countryCode
+                                            .toLowerCase()
+                                            .removeDiacritics()
                                             .contains(
-                                          query,
-                                        ),
+                                              query,
+                                            ),
                                   )
                                   .toList(growable: false);
                             },

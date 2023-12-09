@@ -6,6 +6,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
+import 'package:smooth_app/widgets/smooth_text.dart';
 
 /// Search page for preferences, with TextField filter.
 class UserPreferencesSearchPage extends StatefulWidget {
@@ -70,7 +71,7 @@ class _UserPreferencesSearchPageState extends State<UserPreferencesSearchPage> {
     final String searchString,
     final UserPreferences userPreferences,
   ) {
-    final String needle = removeDiacritics(searchString.toLowerCase());
+    final String needle = searchString.toLowerCase().removeDiacritics();
     final List<Widget> result = <Widget>[];
     final List<PreferencePageType> types =
         PreferencePageType.getPreferencePageTypes(userPreferences);
@@ -101,7 +102,7 @@ class _UserPreferencesSearchPageState extends State<UserPreferencesSearchPage> {
 
   bool _findLabels(final String needle, final Iterable<String> labels) {
     for (final String label in labels) {
-      if (removeDiacritics(label.toLowerCase()).contains(needle)) {
+      if (label.toLowerCase().removeDiacritics().contains(needle)) {
         return true;
       }
     }

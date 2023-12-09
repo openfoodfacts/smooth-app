@@ -1,4 +1,30 @@
+import 'package:diacritic/diacritic.dart' as lib show removeDiacritics;
 import 'package:flutter/material.dart';
+import 'package:smooth_app/services/smooth_services.dart';
+
+/// An extension on [String]
+extension StringExtension on String {
+  /// Simple algorithm to only remove accents AND not diacritics.
+  String removeAccents() {
+    const String withAccents =
+        'ÀÁÂÃÄÅàáâãäåÒÓÔÕÕÖØòóôõöøÈÉÊËèéêëðÇçÐÌÍÎÏìíîïÙÚÛÜùúûüÑñŠšŸÿýŽž';
+    const String withoutAccents =
+        'AAAAAAaaaaaaOOOOOOOooooooEEEEeeeeeCcDIIIIiiiiUUUUuuuuNnSsYyyZz';
+
+    String str = this;
+    for (int i = 0; i < withAccents.length; i++) {
+      str = str.replaceAll(withAccents[i], withoutAccents[i]);
+    }
+
+    return str;
+  }
+
+  /// Please use this method instead of directly calling the library.
+  /// It will use the migration if we decide to remove/change it.
+  String removeDiacritics() {
+    return lib.removeDiacritics(this);
+  }
+}
 
 /// An extension on [TextStyle] that allows to have "well spaced" variant
 extension TextStyleExtension on TextStyle {
@@ -59,13 +85,23 @@ class TextHighlighter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<(String, TextStyle?)> parts = _getParts(
-      defaultStyle: TextStyle(fontWeight: selected ? FontWeight.bold : null),
-      highlightedStyle: TextStyle(
-        fontWeight: selected ? FontWeight.bold : null,
-        backgroundColor: Theme.of(context).primaryColor.withOpacity(0.2),
-      ),
-    );
+    List<(String, TextStyle?)> parts;
+    try {
+      parts = _getParts(
+        defaultStyle: TextStyle(fontWeight: selected ? FontWeight.bold : null),
+        highlightedStyle: TextStyle(
+          fontWeight: selected ? FontWeight.bold : null,
+          backgroundColor: Theme.of(context).primaryColor.withOpacity(0.2),
+        ),
+      );
+    } catch (e, trace) {
+      parts = <(String, TextStyle?)>[(text, null)];
+      Logs.e(
+        'Unable to parse text "$text" with filter "$filter".',
+        ex: e,
+        stacktrace: trace,
+      );
+    }
 
     final TextStyle defaultTextStyle = DefaultTextStyle.of(context).style;
 
@@ -90,9 +126,15 @@ class TextHighlighter extends StatelessWidget {
     required TextStyle? defaultStyle,
     required TextStyle? highlightedStyle,
   }) {
+    final String filterWithoutDiacritics = filter.removeDiacritics();
+    final int filterDiacriticsLength =
+        filterWithoutDiacritics.length - filter.length;
+    final String textWithoutDiacritics = text.removeDiacritics();
+    final int textDiacriticsLength = textWithoutDiacritics.length - text.length;
+
     final Iterable<RegExpMatch> highlightedParts =
-        RegExp(_removeAccents(filter).toLowerCase().trim()).allMatches(
-      _removeAccents(text).toLowerCase(),
+        RegExp(filterWithoutDiacritics.toLowerCase().trim()).allMatches(
+      textWithoutDiacritics.toLowerCase(),
     );
 
     final List<(String, TextStyle?)> parts = <(String, TextStyle?)>[];
@@ -102,40 +144,61 @@ class TextHighlighter extends StatelessWidget {
     } else {
       parts
           .add((text.substring(0, highlightedParts.first.start), defaultStyle));
+      int diff = 0;
+
       for (int i = 0; i != highlightedParts.length; i++) {
         final RegExpMatch subPart = highlightedParts.elementAt(i);
+        final int startPosition = subPart.start - diff;
+        final int endPosition = _computeEndPosition(
+          startPosition,
+          subPart.end - diff,
+          subPart,
+          textWithoutDiacritics,
+          filterWithoutDiacritics,
+        );
+        diff = subPart.end - endPosition;
 
         parts.add(
-          (text.substring(subPart.start, subPart.end), highlightedStyle),
+          (text.substring(startPosition, endPosition), highlightedStyle),
         );
 
         if (i < highlightedParts.length - 1) {
           parts.add((
             text.substring(
-                subPart.end, highlightedParts.elementAt(i + 1).start),
+                endPosition, highlightedParts.elementAt(i + 1).start - diff),
             defaultStyle
           ));
-        } else if (subPart.end < text.length) {
-          parts.add((text.substring(subPart.end, text.length), defaultStyle));
+        } else if (endPosition < text.length) {
+          parts.add((text.substring(endPosition, text.length), defaultStyle));
         }
       }
     }
     return parts;
   }
 
-  /// We can't rely on [removeDiacritics] here, as it replaces some characters
-  /// of 1 letter into 2 or more.
-  /// That's why this simpler algorithm is used instead.
-  String _removeAccents(String str) {
-    const String withAccents =
-        'ÀÁÂÃÄÅàáâãäåÒÓÔÕÕÖØòóôõöøÈÉÊËèéêëðÇçÐÌÍÎÏìíîïÙÚÛÜùúûüÑñŠšŸÿýŽž';
-    const String withoutAccents =
-        'AAAAAAaaaaaaOOOOOOOooooooEEEEeeeeeCcDIIIIiiiiUUUUuuuuNnSsYyyZz';
-
-    for (int i = 0; i < withAccents.length; i++) {
-      str = str.replaceAll(withAccents[i], withoutAccents[i]);
+  int _computeEndPosition(
+    int startPosition,
+    int endPosition,
+    RegExpMatch subPart,
+    String textWithoutDiacritics,
+    String filterWithoutDiacritics,
+  ) {
+    final String subText = text.substring(startPosition);
+    if (subText.startsWith(filterWithoutDiacritics)) {
+      return endPosition;
     }
 
-    return str;
+    int diff = 0;
+    for (int pos = 0; pos < endPosition; pos++) {
+      if (pos == subText.length - 1) {
+        diff = pos - (subText.length);
+        break;
+      }
+
+      final int charLength = subText[pos].removeDiacritics().length;
+      diff -= charLength > 1 ? charLength - 1 : 0;
+    }
+
+    return endPosition + diff;
   }
 }
