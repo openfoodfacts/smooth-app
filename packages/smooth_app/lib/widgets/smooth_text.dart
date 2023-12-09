@@ -127,10 +127,7 @@ class TextHighlighter extends StatelessWidget {
     required TextStyle? highlightedStyle,
   }) {
     final String filterWithoutDiacritics = filter.removeDiacritics();
-    final int filterDiacriticsLength =
-        filterWithoutDiacritics.length - filter.length;
     final String textWithoutDiacritics = text.removeDiacritics();
-    final int textDiacriticsLength = textWithoutDiacritics.length - text.length;
 
     final Iterable<RegExpMatch> highlightedParts =
         RegExp(filterWithoutDiacritics.toLowerCase().trim()).allMatches(
