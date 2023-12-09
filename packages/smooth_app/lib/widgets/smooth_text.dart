@@ -20,7 +20,7 @@ extension StringExtension on String {
   }
 
   /// Please use this method instead of directly calling the library.
-  /// It will use the migration if we decide to remove/change it.
+  /// It will ease the migration if we decide to remove/change it.
   String removeDiacritics() {
     return lib.removeDiacritics(this);
   }
