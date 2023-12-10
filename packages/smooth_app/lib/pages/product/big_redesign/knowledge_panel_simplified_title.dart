@@ -50,7 +50,10 @@ class KnowledgePanelSimplifiedTitle extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text(title, style: Theme.of(context).textTheme.displaySmall),
+                  Text(
+                    title,
+                    style: Theme.of(context).textTheme.displaySmall,
+                  ),
                   Text(knowledgePanel.titleElement!.title),
                 ],
               ),

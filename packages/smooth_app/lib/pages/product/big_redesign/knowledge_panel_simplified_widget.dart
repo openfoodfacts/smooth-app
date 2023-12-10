@@ -37,8 +37,8 @@ class KnowledgePanelSimplifiedWidget extends StatelessWidget {
     }
     Evaluation? evaluation = knowledgePanel.evaluation;
     final String? iconUrl = knowledgePanel.titleElement!.iconUrl;
+    // TODO(monsieurtanuki): actually cheating in order to get the evaluation.
     if (iconUrl != null) {
-      //print('iconUrl: $iconUrl');
       if (iconUrl.contains('moderate')) {
         evaluation = Evaluation.AVERAGE;
       } else if (iconUrl.contains('low')) {
