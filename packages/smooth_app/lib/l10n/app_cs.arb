@@ -714,7 +714,7 @@
     "nutrition_page_update_done": "Produkt aktualizován!",
     "more_photos": "Další zajímavé fotky",
     "@more_photos": {},
-    "view_more_photo_button": "View all existing photos for this product",
+    "view_more_photo_button": "Zobrazit všechny existující fotografie tohoto produktu",
     "@view_more_photo_button": {},
     "no_product_found": "Nebyl nalezen žádný produkt",
     "@no_product_found": {},
@@ -2525,7 +2525,7 @@
     "hunger_games_loading_line2": "Stahujeme otázky!",
     "hunger_games_error_label": "Argh! Něco se pokazilo… a otázky se nepodařilo načíst.",
     "hunger_games_error_retry_button": "Zkusme to znovu!",
-    "reorder_attribute_action": "Reorder the attributes",
+    "reorder_attribute_action": "Změňte pořadí atributů",
     "@reorder_attribute_action": {
         "description": "An action button or a page title about reordering the attributes (e.g. 'is vegan?', 'nutrition facts', ...)"
     },
