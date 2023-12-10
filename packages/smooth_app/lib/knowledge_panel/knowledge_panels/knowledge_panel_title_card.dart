@@ -8,6 +8,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/extension_on_text_helper.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
+import 'package:smooth_app/pages/product/big_redesign/evaluation_extension.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
 import 'package:smooth_app/widgets/smooth_text.dart';
 
@@ -30,18 +31,14 @@ class KnowledgePanelTitleCard extends StatelessWidget {
     if (userPreferences.getFlag(
             UserPreferencesDevMode.userPreferencesFlagAccessibilityEmoji) ??
         false) {
-      iconData = _getIconDataFromEvaluation(evaluation);
+      iconData = evaluation.getA11YIconData();
     }
     if (!(userPreferences.getFlag(
             UserPreferencesDevMode.userPreferencesFlagAccessibilityNoColor) ??
         false)) {
       final ThemeData themeData = Theme.of(context);
       if (knowledgePanelTitleElement.iconColorFromEvaluation ?? false) {
-        if (themeData.brightness == Brightness.dark) {
-          colorFromEvaluation = _getColorFromEvaluationDarkMode(evaluation);
-        } else {
-          colorFromEvaluation = _getColorFromEvaluation(evaluation);
-        }
+        colorFromEvaluation = evaluation.getColor(themeData.brightness);
       }
     }
     List<Widget> iconWidget;
@@ -115,51 +112,6 @@ class KnowledgePanelTitleCard extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  Color _getColorFromEvaluation(Evaluation? evaluation) {
-    switch (evaluation) {
-      case Evaluation.BAD:
-        return RED_COLOR;
-      case Evaluation.AVERAGE:
-        return LIGHT_ORANGE_COLOR;
-      case Evaluation.GOOD:
-        return LIGHT_GREEN_COLOR;
-      case null:
-      case Evaluation.NEUTRAL:
-      case Evaluation.UNKNOWN:
-        return PRIMARY_GREY_COLOR;
-    }
-  }
-
-  Color _getColorFromEvaluationDarkMode(Evaluation? evaluation) {
-    switch (evaluation) {
-      case Evaluation.BAD:
-        return RED_COLOR;
-      case Evaluation.AVERAGE:
-        return LIGHT_ORANGE_COLOR;
-      case Evaluation.GOOD:
-        return LIGHT_GREEN_COLOR;
-      case null:
-      case Evaluation.NEUTRAL:
-      case Evaluation.UNKNOWN:
-        return LIGHT_GREY_COLOR;
-    }
-  }
-
-  IconData? _getIconDataFromEvaluation(Evaluation? evaluation) {
-    switch (evaluation) {
-      case Evaluation.BAD:
-        return Icons.sentiment_very_dissatisfied;
-      case Evaluation.AVERAGE:
-        return Icons.sentiment_satisfied;
-      case Evaluation.GOOD:
-        return Icons.sentiment_very_satisfied;
-      case null:
-      case Evaluation.NEUTRAL:
-      case Evaluation.UNKNOWN:
-        return null;
-    }
   }
 
   String _generateSemanticsValue(BuildContext context) {

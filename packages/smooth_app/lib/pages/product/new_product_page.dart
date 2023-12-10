@@ -22,6 +22,7 @@ import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/pages/carousel_manager.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
+import 'package:smooth_app/pages/product/big_redesign/nutriscore_simplified_widget.dart';
 import 'package:smooth_app/pages/product/common/product_list_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/edit_product_page.dart';
@@ -224,6 +225,10 @@ class _ProductPageState extends State<ProductPage>
             appLocalizations,
             daoProductList,
           ),
+          if (userPreferences.getFlag(
+                  UserPreferencesDevMode.userPreferencesFlagUserOrderedKP) ??
+              false)
+            NutriscoreSimplifiedWidget(upToDateProduct),
           if (userPreferences.getFlag(
                   UserPreferencesDevMode.userPreferencesFlagUserOrderedKP) ??
               false)

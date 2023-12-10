@@ -4,6 +4,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_card.dart';
+import 'package:smooth_app/pages/product/big_redesign/knowledge_panel_enum.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Page where the user can reorder the Knowledge Panel Cards.
@@ -19,34 +20,35 @@ class ReorderableKnowledgePanelPage extends StatefulWidget {
     if (order.isNotEmpty) {
       return order;
     }
-    return List<String>.from(ReorderableKnowledgePanelPage._initialOrder,
-        growable: true);
+    for (final KnowledgePanelEnum item in _initialOrder) {
+      order.add(item.id);
+    }
+    return order;
   }
 
-  // cf. product.knowledgePanels!.panelIdToPanelMap.keys
   // TODO(monsieurtanuki): check how safe it is. What about new entries from the server? What about missing entries for a product?
-  static const List<String> _initialOrder = <String>[
-    'nutriscore',
-    'nutrient_level_fat',
-    'nutrient_level_saturated-fat',
-    'nutrient_level_sugars',
-    'nutrient_level_salt',
-    'nutrition_facts_table',
-    'serving_size',
-    'ingredients',
-    'nova',
+  static const List<KnowledgePanelEnum> _initialOrder = <KnowledgePanelEnum>[
+    KnowledgePanelEnum.nutriscore,
+    KnowledgePanelEnum.fat,
+    KnowledgePanelEnum.saturatedFat,
+    KnowledgePanelEnum.sugar,
+    KnowledgePanelEnum.salt,
+    KnowledgePanelEnum.nutritionFacts,
+    KnowledgePanelEnum.servingSize,
+    KnowledgePanelEnum.ingredients,
+    KnowledgePanelEnum.nova,
 //    'environment_card',
 //    'health_card',
-    'ingredients_analysis_en:palm-oil-free',
-    'ingredients_analysis_en:vegan',
-    'ingredients_analysis_en:vegetarian',
+    KnowledgePanelEnum.palmOil,
+    KnowledgePanelEnum.vegan,
+    KnowledgePanelEnum.vegetarian,
 //    'ingredients_analysis',
-    'ingredients_analysis_details',
-    'ecoscore',
+    KnowledgePanelEnum.ingredientsAnalysis,
+    KnowledgePanelEnum.ecoscore,
 //    'packaging_components',
 //    'packaging_materials',
-    'packaging_recycling',
-    'origins_of_ingredients',
+    KnowledgePanelEnum.recycling,
+    KnowledgePanelEnum.origins,
 //    'root',
   ];
 
