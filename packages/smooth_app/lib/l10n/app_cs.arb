@@ -24,6 +24,10 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
+    "previous_label": "Předchozí",
+    "@previous_label": {
+        "description": "A label on a button that says 'Previous', pressing the button takes the user to the previous screen."
+    },
     "go_back_to_top": "Přejít zpět na začátek",
     "save": "Uložit",
     "save_confirmation": "Opravdu to chcete uložit?",
@@ -540,6 +544,10 @@
     "new_product_dialog_title": "Právě jste našli nový produkt!",
     "@new_product_dialog_title": {
         "description": "Please keep it short, like 50 characters. Title of the dialog when the user searched for an unknown barcode."
+    },
+    "new_product_leave_title": "Leave this page?",
+    "@new_product_leave_title": {
+        "description": "Alert dialog title when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
     },
     "new_product_leave_message": "Zdá se, že jste nic nezadali. Opravdu chcete opustit tuto stránku?",
     "@new_product_leave_message": {
