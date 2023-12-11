@@ -24,6 +24,10 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
+    "previous_label": "Anterior",
+    "@previous_label": {
+        "description": "A label on a button that says 'Previous', pressing the button takes the user to the previous screen."
+    },
     "go_back_to_top": "Torna a dalt",
     "save": "Desa",
     "save_confirmation": "De debò que ho voleu desar?",
@@ -540,6 +544,10 @@
     "new_product_dialog_title": "Heu trobat un producte nou!",
     "@new_product_dialog_title": {
         "description": "Please keep it short, like 50 characters. Title of the dialog when the user searched for an unknown barcode."
+    },
+    "new_product_leave_title": "Leave this page?",
+    "@new_product_leave_title": {
+        "description": "Alert dialog title when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
     },
     "new_product_leave_message": "Sembla que no has introduït res. De veritat vols sortir d'aquesta pàgina?",
     "@new_product_leave_message": {
