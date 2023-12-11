@@ -104,7 +104,7 @@ class _CountrySelectorState extends State<CountrySelector> {
                         controller: _countryController,
                         onChanged: (String? query) {
                           query =
-                              query!.trim().toLowerCase().removeDiacritics();
+                              query!.trim()..getComparisonSafeString();
 
                           setState(
                             () {
@@ -112,14 +112,12 @@ class _CountrySelectorState extends State<CountrySelector> {
                                   .where(
                                     (Country item) =>
                                         item.name
-                                            .toLowerCase()
-                                            .removeDiacritics()
+                                            .getComparisonSafeString()
                                             .contains(
                                               query!,
                                             ) ||
                                         item.countryCode
-                                            .toLowerCase()
-                                            .removeDiacritics()
+                                            .getComparisonSafeString()
                                             .contains(
                                               query,
                                             ),

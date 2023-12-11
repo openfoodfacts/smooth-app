@@ -24,6 +24,12 @@ extension StringExtension on String {
   String removeDiacritics() {
     return lib.removeDiacritics(this);
   }
+
+  /// Same as [removeDiacritics] but also lowercases the string.
+  /// Prefer this method when you want to compare two strings.
+  String getComparisonSafeString() {
+    return toLowerCase().removeDiacritics();
+  }
 }
 
 /// An extension on [TextStyle] that allows to have "well spaced" variant
@@ -126,12 +132,12 @@ class TextHighlighter extends StatelessWidget {
     required TextStyle? defaultStyle,
     required TextStyle? highlightedStyle,
   }) {
-    final String filterWithoutDiacritics = filter.removeDiacritics();
-    final String textWithoutDiacritics = text.removeDiacritics();
+    final String filterWithoutDiacritics = filter.getComparisonSafeString();
+    final String textWithoutDiacritics = text.getComparisonSafeString();
 
     final Iterable<RegExpMatch> highlightedParts =
-        RegExp(filterWithoutDiacritics.toLowerCase().trim()).allMatches(
-      textWithoutDiacritics.toLowerCase(),
+        RegExp(filterWithoutDiacritics.trim()).allMatches(
+      textWithoutDiacritics,
     );
 
     final List<(String, TextStyle?)> parts = <(String, TextStyle?)>[];

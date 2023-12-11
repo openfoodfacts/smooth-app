@@ -70,7 +70,7 @@ class _UserPreferencesSearchPageState extends State<UserPreferencesSearchPage> {
     final String searchString,
     final UserPreferences userPreferences,
   ) {
-    final String needle = searchString.toLowerCase().removeDiacritics();
+    final String needle = searchString.getComparisonSafeString();
     final List<Widget> result = <Widget>[];
     final List<PreferencePageType> types =
         PreferencePageType.getPreferencePageTypes(userPreferences);
@@ -101,7 +101,7 @@ class _UserPreferencesSearchPageState extends State<UserPreferencesSearchPage> {
 
   bool _findLabels(final String needle, final Iterable<String> labels) {
     for (final String label in labels) {
-      if (label.toLowerCase().removeDiacritics().contains(needle)) {
+      if (label.getComparisonSafeString().contains(needle)) {
         return true;
       }
     }

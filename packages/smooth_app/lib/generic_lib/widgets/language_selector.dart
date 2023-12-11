@@ -145,7 +145,7 @@ class LanguageSelector extends StatelessWidget {
             prefixIcon: const Icon(Icons.search),
             controller: languageSelectorController,
             onChanged: (String? query) {
-              query = query!.trim().toLowerCase().removeDiacritics();
+              query = query!.trim().getComparisonSafeString();
 
               setState(
                 () {
@@ -153,13 +153,11 @@ class LanguageSelector extends StatelessWidget {
                       .where((OpenFoodFactsLanguage item) =>
                           _languages
                               .getNameInEnglish(item)
-                              .toLowerCase()
-                              .removeDiacritics()
+                              .getComparisonSafeString()
                               .contains(query!.toLowerCase()) ||
                           _languages
                               .getNameInLanguage(item)
-                              .toLowerCase()
-                              .removeDiacritics()
+                              .getComparisonSafeString()
                               .contains(query.toLowerCase()) ||
                           item.code.contains(query))
                       .toList();
