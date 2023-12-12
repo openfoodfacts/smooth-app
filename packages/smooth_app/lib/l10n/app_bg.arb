@@ -145,6 +145,7 @@
     "@ecoCardUtility": {
         "description": "Description of what a user can use the Eco data in a product for."
     },
+    "server_error_open_new_issue": "No server response! You may open an issue with the following link.",
     "@user_management": {},
     "sign_in_text": "Влез в акаунта си в Open Food Facts, за да запазиш приноса си",
     "incorrect_credentials": "Грешно потребителско име или парола.",
@@ -154,11 +155,11 @@
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
-    "login_result_type_server_unreachable": "Network is unreachable",
+    "login_result_type_server_unreachable": "Мрежата е недостъпна",
     "@login_result_type_server_unreachable": {
         "description": "Error message when trying to log in without network"
     },
-    "login_result_type_server_issue": "Problem on the server. Please try later.",
+    "login_result_type_server_issue": "Проблем на сървъра. Моля, опитай по-късно.",
     "@login_result_type_server_issue": {
         "description": "Error message when trying to log in and the server does not answer correctly"
     },
@@ -545,7 +546,7 @@
     "@new_product_dialog_title": {
         "description": "Please keep it short, like 50 characters. Title of the dialog when the user searched for an unknown barcode."
     },
-    "new_product_leave_title": "Leave this page?",
+    "new_product_leave_title": "Напускане на страницата?",
     "@new_product_leave_title": {
         "description": "Alert dialog title when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
     },
@@ -629,7 +630,7 @@
     "nutritional_facts_added": "Хранителните стойности са добавени",
     "categories_added": "Categories added",
     "new_product_title_nutriscore": "Изчисли Nutri-Score",
-    "new_product_subtitle_nutriscore": "Help us by filling at least a category and nutritional values",
+    "new_product_subtitle_nutriscore": "Помогни ни, като попълниш поне категория и хранителни стойности",
     "new_product_title_ecoscore": "Изчисли Eco-Score",
     "new_product_subtitle_ecoscore": "Get it by filling at least a category",
     "new_product_additional_ecoscore": "Направи изчисляването на Eco-Score по-прецизно с произход, опаковка и други",
@@ -637,9 +638,9 @@
     "new_product_subtitle_nova": "Get it by filling the food category and ingredients",
     "new_product_desc_nova_unknown": "Нивото на обработка на храни не е известно",
     "new_product_title_pictures": "Да направим няколко снимки!",
-    "new_product_title_pictures_details": "Please take the following photos and the Open Food Facts engine can work out the rest!",
+    "new_product_title_pictures_details": "Моля, направи следните снимки и Open Food Facts ще направи останалото!",
     "new_product_title_misc": "И някои основни данни…",
-    "new_product_done_msg": "Thanks for your contribution “{username}”!",
+    "new_product_done_msg": "Благодаря за приноса ти “{username}”!",
     "@new_product_done_msg": {
         "description": "Thank you message on the end of new product page, after finish adding a new product.",
         "placeholders": {
@@ -649,7 +650,7 @@
             }
         }
     },
-    "new_product_done_msg_no_user": "Thanks for your contribution!",
+    "new_product_done_msg_no_user": "Благодарим за приноса!",
     "new_product_done_button_label": "Discover the completed product",
     "@new_product_done_button_label": {
         "description": "Button at the end of new product page, that takes you to completed product"
@@ -722,7 +723,7 @@
     "nutrition_page_update_done": "Продуктът е актуализиран!",
     "more_photos": "Още интересни снимки",
     "@more_photos": {},
-    "view_more_photo_button": "View all existing photos for this product",
+    "view_more_photo_button": "Виж всички съществуващи снимки за този продукт",
     "@view_more_photo_button": {},
     "no_product_found": "Няма намерен продукт",
     "@no_product_found": {},
@@ -789,7 +790,7 @@
     "@country_chooser_label": {
         "description": "Label shown above a selector where the user can select their country (in the preferences)"
     },
-    "onboarding_country_chooser_label": "Please choose a country:",
+    "onboarding_country_chooser_label": "Моля, избери страна:",
     "@onboarding_country_chooser_label": {
         "description": "The label shown above a selector where the user can select their country (in the onboarding)"
     },
@@ -833,7 +834,7 @@
     "@clear": {
         "description": "Clears a product list (short label)"
     },
-    "clear_long": "Empty the list",
+    "clear_long": "Изпразни списъка",
     "@clear_long": {
         "description": "Clears a product list (long label)"
     },
@@ -1282,7 +1283,7 @@
     "@edit_product_form_item_origins_title": {
         "description": "Product edition - Origins - Title"
     },
-    "edit_product_form_item_origins_hint": "Input an origin",
+    "edit_product_form_item_origins_hint": "Въведи произход",
     "@edit_product_form_item_origins_hint": {
         "description": "Product edition - Origins - input textfield hint"
     },
@@ -1302,7 +1303,7 @@
     "@edit_product_form_item_countries_title": {
         "description": "Product edition - Countries - Title"
     },
-    "edit_product_form_item_countries_hint": "Input a country",
+    "edit_product_form_item_countries_hint": "Въведи страна",
     "@edit_product_form_item_countries_hint": {
         "description": "Product edition - Countries - input textfield hint"
     },
@@ -1685,7 +1686,7 @@
             }
         }
     },
-    "product_search_loading_message": "Your search of {search} is in progress.\n\nPlease wait a few seconds…",
+    "product_search_loading_message": "Твоето търсене на {search} е в ход.\n\nМоля, изчакай няколко секунди…",
     "@product_search_loading_message": {
         "description": "This message will be displayed when a search is in progress.",
         "search": {
@@ -1900,7 +1901,7 @@
     "@add_packaging_photo_button_label": {
         "description": "Label for the add PACKAGING photo button"
     },
-    "add_origin_photo_button_label": "Take photos of any origin information",
+    "add_origin_photo_button_label": "Направи снимки с всякаква информация за произхода",
     "@add_origin_photo_button_label": {
         "description": "Label for the add ORIGIN photo button"
     },
@@ -1908,7 +1909,7 @@
     "@add_emb_photo_button_label": {
         "description": "Label for the add EMB photo button"
     },
-    "add_label_photo_button_label": "Take photos of any labels & certifications information",
+    "add_label_photo_button_label": "Направи снимки на информация за етикети и сертификати",
     "@add_label_photo_button_label": {
         "description": "Label for the add LABELS photo button"
     },
@@ -2015,7 +2016,7 @@
         }
     },
     "clipboard_barcode_copied": "Баркода {barcode} е копиран в системния буфер!",
-    "language_picker_label": "Your language",
+    "language_picker_label": "Твоят език",
     "@language_picker_label": {
         "description": "Choose Application Language"
     },
