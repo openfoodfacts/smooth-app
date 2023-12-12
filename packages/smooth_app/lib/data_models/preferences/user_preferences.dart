@@ -325,7 +325,7 @@ class UserPreferences extends ChangeNotifier {
 
   String get activeAttributeGroup =>
       _sharedPreferences.getString(_TAG_ACTIVE_ATTRIBUTE_GROUP) ??
-      'nutritional_quality'; // TODO(monsieurtanuki): relatively safe but not nice to put a hard-coded value (even when highly probable)
+      AttributeGroup.ATTRIBUTE_GROUP_NUTRITIONAL_QUALITY;
 
   UserPictureSource get userPictureSource => UserPictureSource.fromString(
         _sharedPreferences.getString(_TAG_USER_PICTURE_SOURCE) ??
