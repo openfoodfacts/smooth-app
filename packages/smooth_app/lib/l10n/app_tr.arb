@@ -145,6 +145,7 @@
     "@ecoCardUtility": {
         "description": "Description of what a user can use the Eco data in a product for."
     },
+    "server_error_open_new_issue": "Sunucu yanıtı yok! Aşağıdaki bağlantıdan konu açabilirsiniz.",
     "@user_management": {},
     "sign_in_text": "Katkılarınızı kaydetmek için Open Food Facts hesabınızda oturum açın",
     "incorrect_credentials": "Hatalı kullanıcı adı veya parola.",
