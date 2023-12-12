@@ -9,46 +9,38 @@ import 'package:smooth_app/themes/constant_icons.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 
 enum CardEvaluation {
-  UNKNOWN,
-  VERY_BAD,
-  BAD,
-  NEUTRAL,
-  GOOD,
-  VERY_GOOD;
+  UNKNOWN(
+    backgroundColor: GREY_COLOR,
+    textColor: PRIMARY_GREY_COLOR,
+  ),
+  VERY_BAD(
+    backgroundColor: RED_BACKGROUND_COLOR,
+    textColor: RED_COLOR,
+  ),
+  BAD(
+    backgroundColor: ORANGE_BACKGROUND_COLOR,
+    textColor: LIGHT_ORANGE_COLOR,
+  ),
+  NEUTRAL(
+    backgroundColor: YELLOW_BACKGROUND_COLOR,
+    textColor: DARK_YELLOW_COLOR,
+  ),
+  GOOD(
+    backgroundColor: LIGHT_GREEN_BACKGROUND_COLOR,
+    textColor: LIGHT_GREEN_COLOR,
+  ),
+  VERY_GOOD(
+    backgroundColor: DARK_GREEN_BACKGROUND_COLOR,
+    textColor: DARK_GREEN_COLOR,
+  );
 
-  Color getBackgroundColor() {
-    switch (this) {
-      case CardEvaluation.UNKNOWN:
-        return GREY_COLOR;
-      case CardEvaluation.VERY_BAD:
-        return RED_BACKGROUND_COLOR;
-      case CardEvaluation.BAD:
-        return ORANGE_BACKGROUND_COLOR;
-      case CardEvaluation.NEUTRAL:
-        return YELLOW_BACKGROUND_COLOR;
-      case CardEvaluation.GOOD:
-        return LIGHT_GREEN_BACKGROUND_COLOR;
-      case CardEvaluation.VERY_GOOD:
-        return DARK_GREEN_BACKGROUND_COLOR;
-    }
-  }
+  const CardEvaluation({
+    required this.backgroundColor,
+    required this.textColor,
+  });
 
-  Color getTextColor() {
-    switch (this) {
-      case CardEvaluation.UNKNOWN:
-        return PRIMARY_GREY_COLOR;
-      case CardEvaluation.VERY_BAD:
-        return RED_COLOR;
-      case CardEvaluation.BAD:
-        return LIGHT_ORANGE_COLOR;
-      case CardEvaluation.NEUTRAL:
-        return DARK_YELLOW_COLOR;
-      case CardEvaluation.GOOD:
-        return LIGHT_GREEN_COLOR;
-      case CardEvaluation.VERY_GOOD:
-        return DARK_GREEN_COLOR;
-    }
-  }
+  final Color backgroundColor;
+  final Color textColor;
 }
 
 class ScoreCard extends StatelessWidget {
@@ -83,10 +75,10 @@ class ScoreCard extends StatelessWidget {
         ? 1
         : SmoothTheme.ADDITIONAL_OPACITY_FOR_DARK;
     final Color backgroundColor =
-        cardEvaluation.getBackgroundColor().withOpacity(opacity);
+        cardEvaluation.backgroundColor.withOpacity(opacity);
     final Color textColor = themeData.brightness == Brightness.dark
         ? Colors.white
-        : cardEvaluation.getTextColor().withOpacity(opacity);
+        : cardEvaluation.textColor.withOpacity(opacity);
     final SvgIconChip? iconChip =
         iconUrl == null ? null : SvgIconChip(iconUrl!, height: iconHeight);
 

@@ -3,15 +3,11 @@ import 'package:smooth_app/query/product_query.dart';
 
 // TODO(m123): Move this to off-dart
 Uri shareProductList(List<String> barcodes) {
-  final StringBuffer buffer = StringBuffer();
-
-  for (final String i in barcodes) {
-    buffer.write('$i,');
-  }
+  final String barcodesString = barcodes.join(',');
 
   return UriHelper.replaceSubdomain(
     ProductQuery.uriProductHelper.getUri(
-      path: 'products/$buffer',
+      path: 'products/$barcodesString',
       addUserAgentParameters: false,
     ),
     language: OpenFoodAPIConfiguration.globalLanguages?.first,

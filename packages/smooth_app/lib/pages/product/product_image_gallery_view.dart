@@ -5,12 +5,14 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/up_to_date_mixin.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/transient_file.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/images/smooth_image.dart';
 import 'package:smooth_app/generic_lib/widgets/language_selector.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/image_field_extension.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
+import 'package:smooth_app/pages/image/product_image_gallery_other_view.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/product_image_swipeable_view.dart';
@@ -34,6 +36,7 @@ class ProductImageGalleryView extends StatefulWidget {
 class _ProductImageGalleryViewState extends State<ProductImageGalleryView>
     with UpToDateMixin {
   late OpenFoodFactsLanguage _language;
+  bool _clickedOtherPictureButton = false;
 
   @override
   void initState() {
@@ -76,30 +79,49 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView>
           barcode: barcode,
           context: context,
         ),
-        child: SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
-              LanguageSelector(
-                setLanguage: (final OpenFoodFactsLanguage? newLanguage) async {
-                  if (newLanguage == null || newLanguage == _language) {
-                    return;
-                  }
-                  setState(() => _language = newLanguage);
-                },
-                displayedLanguage: _language,
-                selectedLanguages: null,
-                padding: const EdgeInsetsDirectional.symmetric(
-                  horizontal: 13.0,
-                  vertical: SMALL_SPACE,
+        child: ListView(
+          children: <Widget>[
+            LanguageSelector(
+              setLanguage: (final OpenFoodFactsLanguage? newLanguage) async {
+                if (newLanguage == null || newLanguage == _language) {
+                  return;
+                }
+                setState(() => _language = newLanguage);
+              },
+              displayedLanguage: _language,
+              selectedLanguages: null,
+              padding: const EdgeInsetsDirectional.symmetric(
+                horizontal: 13.0,
+                vertical: SMALL_SPACE,
+              ),
+            ),
+            _ImageRow(row: 1, product: upToDateProduct, language: _language),
+            _TextRow(row: 1, product: upToDateProduct, language: _language),
+            _ImageRow(row: 2, product: upToDateProduct, language: _language),
+            _TextRow(row: 2, product: upToDateProduct, language: _language),
+            if (!_clickedOtherPictureButton)
+              Padding(
+                padding: const EdgeInsets.all(SMALL_SPACE),
+                child: SmoothLargeButtonWithIcon(
+                  text: appLocalizations.view_more_photo_button,
+                  icon: Icons.photo_camera_rounded,
+                  onPressed: () => setState(
+                    () => _clickedOtherPictureButton = true,
+                  ),
                 ),
               ),
-              _ImageRow(row: 1, product: upToDateProduct, language: _language),
-              _TextRow(row: 1, product: upToDateProduct, language: _language),
-              _ImageRow(row: 2, product: upToDateProduct, language: _language),
-              _TextRow(row: 2, product: upToDateProduct, language: _language),
-              // TODO(monsieurtanuki): add "other photos" for issue 4674
-            ],
-          ),
+            if (_clickedOtherPictureButton)
+              Padding(
+                padding: const EdgeInsets.all(SMALL_SPACE),
+                child: Text(
+                  appLocalizations.more_photos,
+                  style: _getTextStyle(context),
+                ),
+              ),
+            if (_clickedOtherPictureButton)
+              ProductImageGalleryOtherView(product: upToDateProduct),
+            const SizedBox(height: 2 * VERY_LARGE_SPACE),
+          ],
         ),
       ),
     );
@@ -269,10 +291,13 @@ class _Text extends StatelessWidget {
           child: Center(
             child: Text(
               imageField.getProductImageTitle(AppLocalizations.of(context)),
-              style: Theme.of(context).textTheme.headlineMedium,
+              style: _getTextStyle(context),
               textAlign: TextAlign.center,
             ),
           ),
         ),
       );
 }
+
+TextStyle? _getTextStyle(final BuildContext context) =>
+    Theme.of(context).textTheme.headlineMedium;
