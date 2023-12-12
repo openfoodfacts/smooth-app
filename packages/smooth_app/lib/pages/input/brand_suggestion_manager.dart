@@ -33,8 +33,6 @@ class BrandSuggestionManager {
       taxonomyNames: <TaxonomyName>[TaxonomyName.brand],
       // for brands, language must be English
       language: OpenFoodFactsLanguage.ENGLISH,
-      // for the moment, only TEST is available but it's good enough
-      uriHelper: uriHelperFoodTest,
       user: ProductQuery.getUser(),
       size: limit,
       fuzziness: Fuzziness.none,
