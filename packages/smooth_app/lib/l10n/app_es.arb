@@ -24,6 +24,10 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
+    "previous_label": "Anterior",
+    "@previous_label": {
+        "description": "A label on a button that says 'Previous', pressing the button takes the user to the previous screen."
+    },
     "go_back_to_top": "Volver al principio",
     "save": "Guardar",
     "save_confirmation": "¿Seguro que quieres guardar?",
@@ -150,11 +154,11 @@
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
-    "login_result_type_server_unreachable": "Network is unreachable",
+    "login_result_type_server_unreachable": "No es posible conectarse a la red",
     "@login_result_type_server_unreachable": {
         "description": "Error message when trying to log in without network"
     },
-    "login_result_type_server_issue": "Problem on the server. Please try later.",
+    "login_result_type_server_issue": "Problema en el servidor. Por favor, inténtalo más tarde.",
     "@login_result_type_server_issue": {
         "description": "Error message when trying to log in and the server does not answer correctly"
     },
@@ -268,7 +272,7 @@
     "sign_up_page_producer_error_empty": "Por favor, introduce un productor o una marca",
     "sign_up_page_subscribe_checkbox": "Me gustaría suscribirme al boletín de noticias de Open Food Facts (podrás darte de baja en cualquier momento).",
     "sign_up_page_user_name_already_used": "Este nombre de usuario ya existe, por favor, elige uno nuevo.",
-    "sign_up_page_email_already_exists": "ya existe, inicia sesión en la cuenta o intenta con otro correo electrónico.",
+    "sign_up_page_email_already_exists": "ya existe, inicia sesión en la cuenta o prueba con otro correo electrónico.",
     "sign_up_page_provide_valid_email": "Por favor, proporciona una dirección de correo electrónico válida.",
     "sign_up_page_server_busy": "Lo sentimos, estamos teniendo algunas dificultades técnicas para crear tu cuenta. Por favor, inténtalo de nuevo más tarde.",
     "@Settings": {},
@@ -541,6 +545,10 @@
     "@new_product_dialog_title": {
         "description": "Please keep it short, like 50 characters. Title of the dialog when the user searched for an unknown barcode."
     },
+    "new_product_leave_title": "¿Desea dejar esta página?",
+    "@new_product_leave_title": {
+        "description": "Alert dialog title when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
+    },
     "new_product_leave_message": "Parece que no has introducido nada. ¿De verdad quieres abandonar esta página?",
     "@new_product_leave_message": {
         "description": "Alert dialog message when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
@@ -629,7 +637,7 @@
     "new_product_subtitle_nova": "Hazlo rellenando las categorías de alimentos e ingredientes.",
     "new_product_desc_nova_unknown": "Nivel de procesado de alimentos desconocido",
     "new_product_title_pictures": "Nuevo producto",
-    "new_product_title_pictures_details": "Saca las siguientes fotos y el motor de Open Food Facts se ocupará del resto.",
+    "new_product_title_pictures_details": "Haz las siguientes fotos y el motor de Open Food Facts se ocupará del resto.",
     "new_product_title_misc": "Y algunos datos básicos…",
     "new_product_done_msg": "¡Gracias por tu colaboración, {username}!",
     "@new_product_done_msg": {
@@ -714,6 +722,8 @@
     "nutrition_page_update_done": "¡Producto actualizado!",
     "more_photos": "Más fotos interesantes",
     "@more_photos": {},
+    "view_more_photo_button": "Ver todas las fotos de este producto",
+    "@view_more_photo_button": {},
     "no_product_found": "No se ha encontrado ningún producto",
     "@no_product_found": {},
     "not_found": "no se ha encontrado:",
@@ -1165,7 +1175,7 @@
     "@send_anonymous_toggle_subtitle": {
         "description": "SubTitle for the Send anonymous data toggle"
     },
-    "product_edit_photo_title": "Editar imagen",
+    "product_edit_photo_title": "Editar foto",
     "@product_edit_photo_title": {
         "description": "Toolbar Title while editing a photo (Android only)"
     },
@@ -1232,7 +1242,7 @@
     "@edit_product_form_item_other_details_subtitle": {
         "description": "Product edition - Other Details - Subtitle"
     },
-    "edit_product_form_item_photos_title": "Fotografías",
+    "edit_product_form_item_photos_title": "Fotos",
     "@edit_product_form_item_photos_title": {
         "description": "Product edition - Photos - Title"
     },
@@ -1378,7 +1388,7 @@
     "@product_field_website_title": {
         "description": "Title of a product field: website"
     },
-    "completed_basic_details_btn_text": "Completa los datos básicos",
+    "completed_basic_details_btn_text": "Completa los detalles básicos",
     "not_implemented_snackbar_text": "Aún sin implementar",
     "category_picker_page_appbar_text": "Categorías",
     "edit_ingredients_extrait_ingredients_btn_text": "Extraer ingredientes",
@@ -1744,7 +1754,7 @@
             }
         }
     },
-    "summary_card_button_add_basic_details": "Completa los datos básicos",
+    "summary_card_button_add_basic_details": "Completa los detalles básicos",
     "@summary_card_button_add_basic_details": {
         "description": "Summary card - Button to add details about the product"
     },
@@ -1784,7 +1794,7 @@
     "@category_picker_screen_title": {
         "description": "Categories picker screen title"
     },
-    "basic_details": "Aspectos básicos",
+    "basic_details": "Detalles básicos",
     "product_name": "Nombre del producto",
     "add_basic_details_product_name_error": "Por favor, introduce el nombre del producto",
     "brand_name": "Nombre de la marca",
@@ -1801,7 +1811,7 @@
         }
     },
     "barcode_invalid_error": "Código de barras no válido",
-    "basic_details_add_success": "Aspectos básicos añadidos con éxito",
+    "basic_details_add_success": "Detalles básicos añadidos con éxito",
     "basic_details_add_error": "No se han podido añadir los aspectos básicos. Vuelve a intentarlo en un rato.",
     "@basic_details_add_error": {
         "description": "Error message when error occurs while submitting basic details"
@@ -1889,6 +1899,18 @@
     "add_packaging_photo_button_label": "Saca fotos de cualquier información del envase/reciclaje",
     "@add_packaging_photo_button_label": {
         "description": "Label for the add PACKAGING photo button"
+    },
+    "add_origin_photo_button_label": "Toma fotos de cualquier información del envase",
+    "@add_origin_photo_button_label": {
+        "description": "Label for the add ORIGIN photo button"
+    },
+    "add_emb_photo_button_label": "Toma fotos de cualquier información del código de trazabilidad",
+    "@add_emb_photo_button_label": {
+        "description": "Label for the add EMB photo button"
+    },
+    "add_label_photo_button_label": "Tomar fotos de cualquier etiqueta e información de certificaciones",
+    "@add_label_photo_button_label": {
+        "description": "Label for the add LABELS photo button"
     },
     "choose_image_source_title": "Elegir fuente de la imagen",
     "@choose_image_source_title": {
@@ -2511,6 +2533,10 @@
     "hunger_games_loading_line2": "¡Estamos descargando las preguntas!",
     "hunger_games_error_label": "¡Vaya! Algo ha salido mal… No hemos podido cargar las preguntas.",
     "hunger_games_error_retry_button": "¡Vamos a intentarlo de nuevo!",
+    "reorder_attribute_action": "Reorganizar los atributos",
+    "@reorder_attribute_action": {
+        "description": "An action button or a page title about reordering the attributes (e.g. 'is vegan?', 'nutrition facts', ...)"
+    },
     "link_cant_be_opened": "Este enlace no se puede abrir en tu dispositivo. Comprueba que tienes un navegador instalado.",
     "@link_cant_be_opened": {
         "description": "An error may happen if the device doesn't have a browser installed."

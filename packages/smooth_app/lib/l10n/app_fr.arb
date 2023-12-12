@@ -24,6 +24,10 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
+    "previous_label": "Précédente",
+    "@previous_label": {
+        "description": "A label on a button that says 'Previous', pressing the button takes the user to the previous screen."
+    },
     "go_back_to_top": "Retour en haut",
     "save": "Enregistrer",
     "save_confirmation": "Voulez-vous vraiment sauvegarder ?",
@@ -540,6 +544,10 @@
     "new_product_dialog_title": "Vous venez de trouver un nouveau produit !",
     "@new_product_dialog_title": {
         "description": "Please keep it short, like 50 characters. Title of the dialog when the user searched for an unknown barcode."
+    },
+    "new_product_leave_title": "Quitter cette page ?",
+    "@new_product_leave_title": {
+        "description": "Alert dialog title when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
     },
     "new_product_leave_message": "Il semble que vous n'ayez rien saisi. Voulez-vous vraiment quitter cette page ?",
     "@new_product_leave_message": {
@@ -2525,6 +2533,10 @@
     "hunger_games_loading_line2": "Nous téléchargeons les questions !",
     "hunger_games_error_label": "Argh ! Quelque chose s'est mal passé… et nous n'avons pas pu charger les questions.",
     "hunger_games_error_retry_button": "Réessayons !",
+    "reorder_attribute_action": "Réorganiser les attributs",
+    "@reorder_attribute_action": {
+        "description": "An action button or a page title about reordering the attributes (e.g. 'is vegan?', 'nutrition facts', ...)"
+    },
     "link_cant_be_opened": "Ce lien ne peut pas être ouvert sur votre appareil. Veuillez vérifier qu'un navigateur est installé.",
     "@link_cant_be_opened": {
         "description": "An error may happen if the device doesn't have a browser installed."
