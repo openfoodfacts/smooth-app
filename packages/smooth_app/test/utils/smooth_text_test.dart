@@ -4,16 +4,16 @@ import 'package:smooth_app/widgets/smooth_text.dart' show StringExtension;
 void main() {
   group('Smooth text', () {
     group('String extension', () {
-      test('Remove accents', () {
+      test('Remove diacritics (oeuf)', () {
         expect(
-          'àáâãäåéèêëòóôõöìíîïùúûüñšÿýž'.removeAccents(),
-          equals('aaaaaaeeeeoooooiiiiuuuunsyyz'),
+          'œuf'.removeDiacritics(),
+          equals('oeuf'),
         );
       });
-      test('Remove diacritics', () {
+      test('Comparison Safe String', () {
         expect(
-          'àáâãäåéèêëòóôõöìíîïùúûüñšÿýž'.removeDiacritics(),
-          equals('aaaaaaeeeeoooooiiiiuuuunsyyz'),
+          'œuF'.getComparisonSafeString(),
+          equals('oeuf'),
         );
       });
     });

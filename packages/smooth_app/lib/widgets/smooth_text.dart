@@ -4,21 +4,6 @@ import 'package:smooth_app/services/smooth_services.dart';
 
 /// An extension on [String]
 extension StringExtension on String {
-  /// Simple algorithm to only remove accents AND not diacritics.
-  String removeAccents() {
-    const String withAccents =
-        'ÀÁÂÃÄÅàáâãäåÒÓÔÕÕÖØòóôõöøÈÉÊËèéêëðÇçÐÌÍÎÏìíîïÙÚÛÜùúûüÑñŠšŸÿýŽž';
-    const String withoutAccents =
-        'AAAAAAaaaaaaOOOOOOOooooooEEEEeeeeeCcDIIIIiiiiUUUUuuuuNnSsYyyZz';
-
-    String str = this;
-    for (int i = 0; i < withAccents.length; i++) {
-      str = str.replaceAll(withAccents[i], withoutAccents[i]);
-    }
-
-    return str;
-  }
-
   /// Please use this method instead of directly calling the library.
   /// It will ease the migration if we decide to remove/change it.
   String removeDiacritics() {
