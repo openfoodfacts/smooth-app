@@ -145,6 +145,7 @@
     "@ecoCardUtility": {
         "description": "Description of what a user can use the Eco data in a product for."
     },
+    "server_error_open_new_issue": "No server response! You may open an issue with the following link.",
     "@user_management": {},
     "sign_in_text": "Masuk ke akun OpenFoodFacts untuk menyimpan kontribusi Anda",
     "incorrect_credentials": "Nama pengguna atau kata sandi Anda salah.",
