@@ -145,7 +145,7 @@
     "@ecoCardUtility": {
         "description": "Description of what a user can use the Eco data in a product for."
     },
-    "server_error_open_new_issue": "No server response! You may open an issue with the following link.",
+    "server_error_open_new_issue": "Tidak ada respons server! Anda dapat membuka masalah dengan tautan berikut ini.",
     "@user_management": {},
     "sign_in_text": "Masuk ke akun OpenFoodFacts untuk menyimpan kontribusi Anda",
     "incorrect_credentials": "Nama pengguna atau kata sandi Anda salah.",
@@ -155,11 +155,11 @@
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
-    "login_result_type_server_unreachable": "Network is unreachable",
+    "login_result_type_server_unreachable": "Jaringan tidak terjangkau",
     "@login_result_type_server_unreachable": {
         "description": "Error message when trying to log in without network"
     },
-    "login_result_type_server_issue": "Problem on the server. Please try later.",
+    "login_result_type_server_issue": "Masalah pada server. Silakan coba lagi nanti.",
     "@login_result_type_server_issue": {
         "description": "Error message when trying to log in and the server does not answer correctly"
     },
@@ -638,7 +638,7 @@
     "new_product_subtitle_nova": "Dapatkan dengan mengisi kategori makanan dan bahan makanan",
     "new_product_desc_nova_unknown": "Tingkat pemrosesan makanan tidak diketahui",
     "new_product_title_pictures": "Ambil beberapa foto!",
-    "new_product_title_pictures_details": "Please take the following photos and the Open Food Facts engine can work out the rest!",
+    "new_product_title_pictures_details": "Silakan ambil foto-foto berikut ini dan mesin Open Food Facts akan menghitung sisanya!",
     "new_product_title_misc": "Dan beberapa informasi dasar…",
     "new_product_done_msg": "Terima kasih atas kontribusi Anda “{username}”!",
     "@new_product_done_msg": {
@@ -723,7 +723,7 @@
     "nutrition_page_update_done": "Produk diperbarui!",
     "more_photos": "Lebih banyak foto menarik",
     "@more_photos": {},
-    "view_more_photo_button": "View all existing photos for this product",
+    "view_more_photo_button": "Lihat semua foto yang ada untuk produk ini",
     "@view_more_photo_button": {},
     "no_product_found": "Produk tidak ditemukan",
     "@no_product_found": {},
@@ -790,7 +790,7 @@
     "@country_chooser_label": {
         "description": "Label shown above a selector where the user can select their country (in the preferences)"
     },
-    "onboarding_country_chooser_label": "Please choose a country:",
+    "onboarding_country_chooser_label": "Silakan pilih negara:",
     "@onboarding_country_chooser_label": {
         "description": "The label shown above a selector where the user can select their country (in the onboarding)"
     },
@@ -1686,7 +1686,7 @@
             }
         }
     },
-    "product_search_loading_message": "Your search of {search} is in progress.\n\nPlease wait a few seconds…",
+    "product_search_loading_message": "Pencarian Anda untuk {search} sedang berlangsung.\n\nMohon tunggu beberapa detik…",
     "@product_search_loading_message": {
         "description": "This message will be displayed when a search is in progress.",
         "search": {
@@ -1901,15 +1901,15 @@
     "@add_packaging_photo_button_label": {
         "description": "Label for the add PACKAGING photo button"
     },
-    "add_origin_photo_button_label": "Take photos of any origin information",
+    "add_origin_photo_button_label": "Mengambil foto informasi asal",
     "@add_origin_photo_button_label": {
         "description": "Label for the add ORIGIN photo button"
     },
-    "add_emb_photo_button_label": "Take photos of any traceability code information",
+    "add_emb_photo_button_label": "Ambil foto informasi kode penelusuran apa pun",
     "@add_emb_photo_button_label": {
         "description": "Label for the add EMB photo button"
     },
-    "add_label_photo_button_label": "Take photos of any labels & certifications information",
+    "add_label_photo_button_label": "Ambil foto informasi label & sertifikasi apa pun",
     "@add_label_photo_button_label": {
         "description": "Label for the add LABELS photo button"
     },
@@ -2534,7 +2534,7 @@
     "hunger_games_loading_line2": "Kami mengunduh pertanyaannya!",
     "hunger_games_error_label": "Argh! Terjadi kesalahan… dan kami tidak bisa memuat pertanyaan.",
     "hunger_games_error_retry_button": "Mari kita coba lagi!",
-    "reorder_attribute_action": "Reorder the attributes",
+    "reorder_attribute_action": "Susun ulang atribut",
     "@reorder_attribute_action": {
         "description": "An action button or a page title about reordering the attributes (e.g. 'is vegan?', 'nutrition facts', ...)"
     },
