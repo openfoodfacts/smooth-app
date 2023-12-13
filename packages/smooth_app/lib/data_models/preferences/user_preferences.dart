@@ -103,6 +103,10 @@ class UserPreferences extends ChangeNotifier {
   static const String _TAG_USER_KNOWLEDGE_PANEL_ORDER =
       'userKnowledgePanelOrder';
 
+  /// User knowledge panel selected items
+  static const String _TAG_USER_KNOWLEDGE_PANEL_SELECTED =
+      'userKnowledgePanelSelected';
+
   Future<void> init(final ProductPreferences productPreferences) async {
     await _onMigrate();
 
@@ -344,6 +348,16 @@ class UserPreferences extends ChangeNotifier {
   Future<void> setUserKnowledgePanelOrder(final List<String> source) async {
     await _sharedPreferences.setStringList(
         _TAG_USER_KNOWLEDGE_PANEL_ORDER, source);
+    notifyListeners();
+  }
+
+  List<String> get userKnowledgePanelSelected =>
+      _sharedPreferences.getStringList(_TAG_USER_KNOWLEDGE_PANEL_SELECTED) ??
+      <String>[];
+
+  Future<void> setUserKnowledgePanelSelected(final List<String> source) async {
+    await _sharedPreferences.setStringList(
+        _TAG_USER_KNOWLEDGE_PANEL_SELECTED, source);
     notifyListeners();
   }
 }

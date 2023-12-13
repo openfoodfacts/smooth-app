@@ -2529,6 +2529,10 @@
     "@reorder_attribute_action": {
         "description": "An action button or a page title about reordering the attributes (e.g. 'is vegan?', 'nutrition facts', ...)"
     },
+    "select_attribute_action": "Select the attributes to reorder",
+    "@select_attribute_action": {
+        "description": "An action button or a page title about selecting the attributes to reorder (e.g. 'is vegan?', 'nutrition facts', ...)"
+    },
     "link_cant_be_opened": "This link can't be opened on your device. Please check that you have a browser installed.",
     "@link_cant_be_opened": {
         "description": "An error may happen if the device doesn't have a browser installed."
