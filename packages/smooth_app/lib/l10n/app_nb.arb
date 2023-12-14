@@ -313,7 +313,7 @@
             "name": {}
         }
     },
-    "contributors_description": "A list of all contributors of this app",
+    "contributors_description": "En liste over alle bidragsytere til denne appen",
     "@contributors_description": {
         "description": "Button description for accessibility purposes to explain what the Contributors button do"
     },
@@ -328,7 +328,7 @@
     "support_via_email_include_logs_dialog_body": "Ønsker du å inkludere applikasjonslogger som vedlegg til e-posten din?",
     "termsOfUse": "Bruksvilkår",
     "@termsOfUse": {},
-    "legalNotices": "Legal notices",
+    "legalNotices": "Juridisk informasjon",
     "@legalNotices": {
         "description": "A link to open the legal notices on the website"
     },
@@ -345,15 +345,15 @@
     "@contribute_sw_development": {
         "description": "Button label + page title: Ways to help"
     },
-    "contribute_develop_text": "The code for every Open Food Facts product is available on GitHub. You are welcome to reuse the code (it's open source) and help us improve it, for everyone, on all the planet.",
+    "contribute_develop_text": "Koden til hvert Open Food Facts-produkt er tilgjengelig på GitHub. Du er velkommen til å gjenbruke koden (det er åpen kildekode) og hjelpe oss med å forbedre den, for alle, og for planeten.",
     "@contribute_develop_text": {},
-    "contribute_develop_text_2": "You can join the Open Food Facts Slack chatroom which is the preferred way to ask questions.",
+    "contribute_develop_text_2": "Du kan bli med i Slack-chatterommet til Open Food Facts, som er den foretrukne måten å stille spørsmål på.",
     "@contribute_develop_text_2": {},
     "contribute_develop_dev_mode_title": "DEV Mode?",
     "contribute_develop_dev_mode_subtitle": "Activate the DEV Mode",
-    "contribute_donate_header": "Donate to Open Food Facts",
+    "contribute_donate_header": "Donér til Open Food Facts",
     "@contribute_donate_header": {},
-    "contribute_improve_ProductsToBeCompleted": "Products to be completed",
+    "contribute_improve_ProductsToBeCompleted": "Produkter som skal fullføres",
     "@contribute_improve_ProductsToBeCompleted": {
         "description": "Button label: Shows a list of products which aren't completed"
     },
@@ -361,7 +361,7 @@
     "@contribute_improve_header": {
         "description": "Button label + page title: Ways to improve the database"
     },
-    "contribute_improve_text": "The database is the core of the project. It's easy and very quick to help. You can download the mobile app for your phone, and start adding or improving products.\n\nOn the other hand, Open Food Facts website offers many ways to contribute: ",
+    "contribute_improve_text": "Databasen er kjernen i prosjektet. Den er enkel og hjelper raskt. Du kan laste ned mobilappen på telefonen din, og begynne å legge til eller forbedre produkter.\n\nOpen Food Facts sin nettside tilbyr også mange måter å bidra på: ",
     "@contribute_improve_text": {},
     "contribute_translate_header": "Oversett",
     "@contribute_translate_header": {
@@ -371,12 +371,12 @@
     "@contribute_translate_link_text": {
         "description": "Button label: Opens the Crowdin translation portal"
     },
-    "contribute_translate_text": "Open Food Facts is a global project, containing products from more than 160 countries. Open Food Facts is translated into dozens of languages, with constantly evolving content.",
+    "contribute_translate_text": "Open Food Facts er et globalt prosjekt som inneholder produkter fra mer enn 160 land. Open Food Facts er oversatt til en mengde språk, med innhold som er i stadig utvikling.",
     "@contribute_translate_text": {},
-    "contribute_translate_text_2": "Translations is one of the key tasks of the project",
+    "contribute_translate_text_2": "Oversettelser er en av hovedoppgavene til prosjektet",
     "@contribute_translate_text_2": {},
-    "contribute_join_skill_pool": "Contribute your skills to Open Food Facts. Join the skill pool!",
-    "contribute_share_header": "Share Open Food Facts with your friends",
+    "contribute_join_skill_pool": "Bidra med ferdighetene dine til Open Food Facts. Bli med i ferdighetspuljen!",
+    "contribute_share_header": "Del Open Food Facts med vennene dine",
     "@contribute_share_header": {},
     "contribute_share_content": "I wanted to let you know about the app I've been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it's free, does not require registration, and you can even help increase the number of products decyphered. Here's the link to get it for your phone: https://openfoodfacts.app",
     "@contribute_share_content": {
@@ -403,16 +403,16 @@
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts and gain rewards."
     },
     "question_sign_in_text": "Sign in to your Open Food Facts account to get credit for your contributions",
-    "question_yes_button_accessibility_value": "Answer with yes",
-    "question_no_button_accessibility_value": "Answer with no",
-    "question_skip_button_accessibility_value": "Skip this question",
-    "tap_to_edit_search": "Tap to edit search",
+    "question_yes_button_accessibility_value": "Svar med ja",
+    "question_no_button_accessibility_value": "Svar med nei",
+    "question_skip_button_accessibility_value": "Hopp over dette spørsmålet",
+    "tap_to_edit_search": "Trykk for å redigere søket",
     "@Personal preferences": {},
     "myPreferences": "Mine innstillinger",
     "@myPreferences": {
         "description": "Page title: Page where the ranking preferences can be changed"
     },
-    "account_create_message": "Create your account and join the Open Food Facts community to help build food knowledge all over the world!",
+    "account_create_message": "Oprett kontoen din og bli med Open Food Facts-fellesskapet for å hjelpe med å utvide matkunnskapen verden over!",
     "@account_create_message": {
         "description": "The Message to be displayed if the user does not have an account and wants to contribute"
     },
