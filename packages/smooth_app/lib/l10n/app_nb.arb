@@ -125,7 +125,7 @@
     "@Introduction screen": {},
     "welcomeToOpenFoodFacts": "Velkommen til Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
-    "whatIsOff": "Open Food Facts is a global non-profit powered by local communities.",
+    "whatIsOff": "Open Food Facts er en global ideell organisasjon som drives av lokalsamfunn.",
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
@@ -149,17 +149,17 @@
     "@user_management": {},
     "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
     "incorrect_credentials": "Feil brukernavn eller passord.",
-    "password_lost_incorrect_credentials": "This email or username doesn't exist. Please check your credentials.",
+    "password_lost_incorrect_credentials": "Denne e-postadressen eller brukernavnet eksisterer ikke. Vennligst sjekk legitimasjonen din.",
     "password_lost_server_unavailable": "We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.",
     "login": "Logg inn",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
-    "login_result_type_server_unreachable": "Network is unreachable",
+    "login_result_type_server_unreachable": "Nettverket er ikke tilgjengelig",
     "@login_result_type_server_unreachable": {
         "description": "Error message when trying to log in without network"
     },
-    "login_result_type_server_issue": "Problem on the server. Please try later.",
+    "login_result_type_server_issue": "Problem på serveren. Vennligst prøv igjen senere.",
     "@login_result_type_server_issue": {
         "description": "Error message when trying to log in and the server does not answer correctly"
     },
@@ -297,7 +297,7 @@
     "@darkmode_system_default": {
         "description": "Indicator inside the darkmode switch (system default)"
     },
-    "thanks_for_contributing": "Thanks for contributing!",
+    "thanks_for_contributing": "Takk for at du bidrar!",
     "contributors_label": "They are building the app",
     "@contributors_label": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
@@ -306,7 +306,7 @@
     "@contributors_dialog_title": {
         "description": "Dialog title: A list of all contributors of this app"
     },
-    "contributors_dialog_entry_description": "Contributor: {name}",
+    "contributors_dialog_entry_description": "Bidragsyter: {name}",
     "@contributors_dialog_entry_description": {
         "description": "The user id of the contributor.",
         "placeholders": {
