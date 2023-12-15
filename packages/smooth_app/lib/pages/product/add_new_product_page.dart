@@ -172,9 +172,16 @@ class _AddNewProductPageState extends State<AddNewProductPage>
     final bool? leaveThePage = await showDialog<bool>(
       context: context,
       builder: (final BuildContext context) => SmoothAlertDialog(
-        title: appLocalizations.new_product,
+        title: appLocalizations.new_product_leave_title,
         actionsAxis: Axis.vertical,
-        body: Text(appLocalizations.new_product_leave_message),
+        body: Padding(
+          padding: const EdgeInsetsDirectional.only(
+            bottom: MEDIUM_SPACE,
+            start: MEDIUM_SPACE,
+            end: MEDIUM_SPACE,
+          ),
+          child: Text(appLocalizations.new_product_leave_message),
+        ),
         positiveAction: SmoothActionButton(
           text: appLocalizations.yes,
           onPressed: () => Navigator.of(context).pop(true),
@@ -319,10 +326,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
       width: 20.0,
       height: 20.0,
       child: IconButton(
-        onPressed: () => _onWillPop().then(
-          (bool leaveThePage) =>
-              leaveThePage ? Navigator.of(context).pop() : null,
-        ),
+        onPressed: () => Navigator.of(context).maybePop(),
         alignment: Alignment.center,
         padding: EdgeInsets.zero,
         icon: const Icon(Icons.arrow_back),
@@ -343,13 +347,19 @@ class _AddNewProductPageState extends State<AddNewProductPage>
             ),
           ),
           onPressed: () {
-            _onWillPop().then(
-              (bool leaveThePage) =>
-                  leaveThePage ? Navigator.of(context).pop() : null,
-            );
+            if ((_pageController.page ?? 0.0) < 1.0) {
+              Navigator.of(context).maybePop();
+            } else {
+              _pageController.previousPage(
+                duration: SmoothAnimationsDuration.short,
+                curve: Curves.easeOut,
+              );
+            }
           },
           child: Text(
-            AppLocalizations.of(context).cancel,
+            (_pageController.hasClients ? _pageController.page! : 0.0) >= 1.0
+                ? AppLocalizations.of(context).previous_label
+                : AppLocalizations.of(context).cancel,
             style: const TextStyle(
               color: Colors.black,
               fontSize: 20.0,
@@ -367,10 +377,14 @@ class _AddNewProductPageState extends State<AddNewProductPage>
             ),
           ),
           onPressed: () {
-            _pageController.nextPage(
-              duration: SmoothAnimationsDuration.short,
-              curve: Curves.easeOut,
-            );
+            if (_isLastPage) {
+              Navigator.of(context).pop();
+            } else {
+              _pageController.nextPage(
+                duration: SmoothAnimationsDuration.short,
+                curve: Curves.easeOut,
+              );
+            }
           },
           child: Text(
             _isLastPage

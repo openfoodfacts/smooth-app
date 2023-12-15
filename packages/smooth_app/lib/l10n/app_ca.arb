@@ -24,6 +24,10 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
+    "previous_label": "Anterior",
+    "@previous_label": {
+        "description": "A label on a button that says 'Previous', pressing the button takes the user to the previous screen."
+    },
     "go_back_to_top": "Torna a dalt",
     "save": "Desa",
     "save_confirmation": "De debò que ho voleu desar?",
@@ -541,6 +545,10 @@
     "@new_product_dialog_title": {
         "description": "Please keep it short, like 50 characters. Title of the dialog when the user searched for an unknown barcode."
     },
+    "new_product_leave_title": "Leave this page?",
+    "@new_product_leave_title": {
+        "description": "Alert dialog title when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
+    },
     "new_product_leave_message": "Sembla que no has introduït res. De veritat vols sortir d'aquesta pàgina?",
     "@new_product_leave_message": {
         "description": "Alert dialog message when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
@@ -714,6 +722,8 @@
     "nutrition_page_update_done": "Producte actualitzat!",
     "more_photos": "Més fotos interessants",
     "@more_photos": {},
+    "view_more_photo_button": "View all existing photos for this product",
+    "@view_more_photo_button": {},
     "no_product_found": "Cap producte trobat",
     "@no_product_found": {},
     "not_found": "no trobat:",
@@ -1890,6 +1900,18 @@
     "@add_packaging_photo_button_label": {
         "description": "Label for the add PACKAGING photo button"
     },
+    "add_origin_photo_button_label": "Take photos of any origin information",
+    "@add_origin_photo_button_label": {
+        "description": "Label for the add ORIGIN photo button"
+    },
+    "add_emb_photo_button_label": "Take photos of any traceability code information",
+    "@add_emb_photo_button_label": {
+        "description": "Label for the add EMB photo button"
+    },
+    "add_label_photo_button_label": "Take photos of any labels & certifications information",
+    "@add_label_photo_button_label": {
+        "description": "Label for the add LABELS photo button"
+    },
     "choose_image_source_title": "Trieu la font de la imatge",
     "@choose_image_source_title": {
         "description": "Title for the image source chooser"
@@ -2511,6 +2533,10 @@
     "hunger_games_loading_line2": "Estem descarregant les preguntes!",
     "hunger_games_error_label": "Ui! Alguna cosa no ha funcionat… i no hem pogut carregar les preguntes.",
     "hunger_games_error_retry_button": "Tornem-ho a provar!",
+    "reorder_attribute_action": "Reorder the attributes",
+    "@reorder_attribute_action": {
+        "description": "An action button or a page title about reordering the attributes (e.g. 'is vegan?', 'nutrition facts', ...)"
+    },
     "link_cant_be_opened": "Aquest enllaç no es pot obrir al vostre dispositiu. Si us plau, comproveu que teniu un navegador instal·lat.",
     "@link_cant_be_opened": {
         "description": "An error may happen if the device doesn't have a browser installed."

@@ -15,26 +15,58 @@ class KnowledgePanelWorldMapCard extends StatelessWidget {
     if (mapElement.pointers.isEmpty || mapElement.pointers.first.geo == null) {
       return EMPTY_WIDGET;
     }
-    // TODO(monsieurtanuki): Zoom the map to show all [mapElement.pointers]
+
+    const double markerSize = 30;
+    final List<Marker> markers = <Marker>[];
+    final List<LatLng> coordinates = <LatLng>[];
+    void addCoordinate(final LatLng latLng) {
+      coordinates.add(latLng);
+      markers.add(
+        Marker(
+          point: latLng,
+          child: const Icon(Icons.pin_drop, color: Colors.lightBlue),
+          alignment: Alignment.topCenter,
+          width: markerSize,
+          height: markerSize,
+        ),
+      );
+    }
+
+    for (final KnowledgePanelGeoPointer pointer in mapElement.pointers) {
+      final KnowledgePanelLatLng? geo = pointer.geo;
+      if (geo != null) {
+        addCoordinate(LatLng(geo.lat, geo.lng));
+      }
+    }
+
+    final MapOptions mapOptions;
+    if (coordinates.length == 1) {
+      mapOptions = MapOptions(
+        initialCenter: coordinates.first,
+        initialZoom: 6.0,
+      );
+    } else {
+      mapOptions = MapOptions(
+        initialCameraFit: CameraFit.coordinates(
+          coordinates: coordinates,
+          maxZoom: 13.0,
+          forceIntegerZoomLevel: true,
+          padding: const EdgeInsets.all(markerSize),
+        ),
+      );
+    }
     return Padding(
       padding: const EdgeInsetsDirectional.only(bottom: MEDIUM_SPACE),
       child: SizedBox(
         height: 200,
         child: FlutterMap(
-          options: MapOptions(
-            // The first pointer is used as the center of the map.
-            initialCenter: LatLng(
-              mapElement.pointers.first.geo!.lat,
-              mapElement.pointers.first.geo!.lng,
-            ),
-            initialZoom: 6.0,
-          ),
+          options: mapOptions,
           children: <Widget>[
             TileLayer(
               urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
               userAgentPackageName: 'org.openfoodfacts.app',
             ),
-            MarkerLayer(markers: getMarkers(mapElement.pointers)),
+            MarkerLayer(markers: markers),
             RichAttributionWidget(
               popupInitialDisplayDuration: const Duration(seconds: 5),
               animationConfig: const ScaleRAWA(),
@@ -52,24 +84,5 @@ class KnowledgePanelWorldMapCard extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  List<Marker> getMarkers(List<KnowledgePanelGeoPointer> pointers) {
-    final List<Marker> markers = <Marker>[];
-    for (final KnowledgePanelGeoPointer pointer in pointers) {
-      if (pointer.geo == null) {
-        continue;
-      }
-      markers.add(
-        Marker(
-          point: LatLng(pointer.geo!.lat, pointer.geo!.lng),
-          child: const Icon(
-            Icons.pin_drop,
-            color: Colors.lightBlue,
-          ),
-        ),
-      );
-    }
-    return markers;
   }
 }

@@ -38,7 +38,7 @@ enum UserSearchType {
           PageSize(size: pageSize),
           PageNumber(page: pageNumber),
           if (toBeCompleted)
-            StatesTagsParameter(
+            const StatesTagsParameter(
               map: <ProductState, bool>{
                 ProductState.COMPLETED: false,
               },
