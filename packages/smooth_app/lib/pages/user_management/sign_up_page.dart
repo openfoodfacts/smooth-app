@@ -395,7 +395,11 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
       }
 
       if (context.mounted) {
-        await LoadingDialog.error(context: context, title: errorMessage);
+        await LoadingDialog.error(
+          context: context,
+          title: errorMessage,
+          shouldOpenNewIssue: status.shouldOpenNewIssue(),
+        );
       }
       return;
     }
