@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:rive/rive.dart';
 import 'package:smooth_app/services/smooth_services.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 
 /// Widget to inject in the hierarchy to have a single instance of the RiveFile
 class AnimationsLoader extends StatefulWidget {
@@ -132,7 +133,7 @@ class _DoubleChevronAnimationState extends State<DoubleChevronAnimation> {
   }
 }
 
-class SearchEyeAnimation extends StatelessWidget {
+class SearchEyeAnimation extends StatefulWidget {
   const SearchEyeAnimation({
     this.size,
     super.key,
@@ -141,18 +142,39 @@ class SearchEyeAnimation extends StatelessWidget {
   final double? size;
 
   @override
-  Widget build(BuildContext context) {
-    final double size = this.size ?? IconTheme.of(context).size ?? 24.0;
+  State<SearchEyeAnimation> createState() => _SearchEyeAnimationState();
+}
 
-    return SizedBox(
-      width: size,
-      height: (80 / 87) * size,
-      child: RiveAnimation.direct(
-        AnimationsLoader.of(context),
-        artboard: 'Search eye',
-        stateMachines: const <String>['LoopMachine'],
+class _SearchEyeAnimationState extends State<SearchEyeAnimation> {
+  StateMachineController? _controller;
+
+  @override
+  Widget build(BuildContext context) {
+    final double size = widget.size ?? IconTheme.of(context).size ?? 24.0;
+    final bool lightTheme = context.watch<ThemeProvider>().isLightTheme;
+
+    return ExcludeSemantics(
+      child: SizedBox(
+        width: size,
+        height: (80 / 87) * size,
+        child: RiveAnimation.direct(AnimationsLoader.of(context),
+            artboard: 'Search eye', onInit: (Artboard artboard) {
+          _controller = StateMachineController.fromArtboard(
+            artboard,
+            'LoopMachine',
+          );
+
+          artboard.addController(_controller!);
+          _controller!.findInput<bool>('light')?.value = !lightTheme;
+        }),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _controller?.dispose();
+    super.dispose();
   }
 }
 

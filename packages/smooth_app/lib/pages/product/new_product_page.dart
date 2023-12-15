@@ -14,18 +14,21 @@ import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/up_to_date_mixin.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
-import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_product_cards.dart';
-import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
 import 'package:smooth_app/pages/carousel_manager.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/product/common/product_list_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/edit_product_page.dart';
 import 'package:smooth_app/pages/product/product_questions_widget.dart';
+import 'package:smooth_app/pages/product/reorderable_knowledge_panel_page.dart';
+import 'package:smooth_app/pages/product/reordered_knowledge_panel_cards.dart';
+import 'package:smooth_app/pages/product/standard_knowledge_panel_cards.dart';
 import 'package:smooth_app/pages/product/summary_card.dart';
 import 'package:smooth_app/pages/product/website_card.dart';
 import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
@@ -167,6 +170,7 @@ class _ProductPageState extends State<ProductPage>
   Widget _buildProductBody(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
+    final UserPreferences userPreferences = context.watch<UserPreferences>();
     final DaoProductList daoProductList = DaoProductList(localDatabase);
     return RefreshIndicator(
       onRefresh: () async => ProductRefresher().fetchAndRefresh(
@@ -220,38 +224,36 @@ class _ProductPageState extends State<ProductPage>
             appLocalizations,
             daoProductList,
           ),
-          _buildKnowledgePanelCards(),
+          if (userPreferences.getFlag(
+                  UserPreferencesDevMode.userPreferencesFlagUserOrderedKP) ??
+              false)
+            ReorderedKnowledgePanelCards(upToDateProduct)
+          else
+            StandardKnowledgePanelCards(upToDateProduct),
+          // TODO(monsieurtanuki): include website in reordered knowledge panels
           if (upToDateProduct.website != null &&
               upToDateProduct.website!.trim().isNotEmpty)
             WebsiteCard(upToDateProduct.website!),
+          if (userPreferences.getFlag(
+                  UserPreferencesDevMode.userPreferencesFlagUserOrderedKP) ??
+              false)
+            Padding(
+              padding: const EdgeInsets.all(SMALL_SPACE),
+              child: SmoothLargeButtonWithIcon(
+                text: appLocalizations.reorder_attribute_action,
+                icon: Icons.sort,
+                onPressed: () async => Navigator.push(
+                  context,
+                  MaterialPageRoute<void>(
+                    builder: (_) =>
+                        ReorderableKnowledgePanelPage(upToDateProduct),
+                  ),
+                ),
+              ),
+            ),
         ],
       ),
     );
-  }
-
-  Widget _buildKnowledgePanelCards() {
-    final List<Widget> knowledgePanelWidgets = <Widget>[];
-    if (upToDateProduct.knowledgePanels != null) {
-      final List<KnowledgePanelElement> elements =
-          KnowledgePanelsBuilder.getRootPanelElements(upToDateProduct);
-      for (final KnowledgePanelElement panelElement in elements) {
-        final List<Widget> children = KnowledgePanelsBuilder.getChildren(
-          context,
-          panelElement: panelElement,
-          product: upToDateProduct,
-          onboardingMode: false,
-        );
-        if (children.isNotEmpty) {
-          knowledgePanelWidgets.add(
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: children,
-            ),
-          );
-        }
-      }
-    }
-    return KnowledgePanelProductCards(knowledgePanelWidgets);
   }
 
   Future<void> _editList() async {

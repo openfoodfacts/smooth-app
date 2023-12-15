@@ -64,9 +64,8 @@ class _SvgSafeNetworkState extends State<SvgSafeNetwork> {
             }
           }
           if (snapshot.error != null) {
-            // TODO(monsieurtanuki): rather put the real host
-            final bool serverOrConnectionIssue = snapshot.error.toString() ==
-                "Failed host lookup: 'static.openfoodfacts.org'";
+            final bool serverOrConnectionIssue =
+                snapshot.error.toString().startsWith("Failed host lookup: '");
             if (!serverOrConnectionIssue) {
               Logs.e(
                 'Could not download "$_url"',

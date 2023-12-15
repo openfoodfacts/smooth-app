@@ -79,6 +79,7 @@ class _KnowledgePanelPageState extends State<KnowledgePanelPage>
                         panelId: widget.panelId,
                         product: upToDateProduct,
                         isInitiallyExpanded: true,
+                        isClickable: true,
                       ),
                     ),
                   ),

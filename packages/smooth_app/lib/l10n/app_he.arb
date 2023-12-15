@@ -24,6 +24,10 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
+    "previous_label": "הקודם",
+    "@previous_label": {
+        "description": "A label on a button that says 'Previous', pressing the button takes the user to the previous screen."
+    },
     "go_back_to_top": "חזרה למעלה",
     "save": "שמירה",
     "save_confirmation": "לשמור?",
@@ -541,6 +545,10 @@
     "@new_product_dialog_title": {
         "description": "Please keep it short, like 50 characters. Title of the dialog when the user searched for an unknown barcode."
     },
+    "new_product_leave_title": "לעזוב את העמוד הזה?",
+    "@new_product_leave_title": {
+        "description": "Alert dialog title when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
+    },
     "new_product_leave_message": "נראה כאילו לא מילאת כלום. לעזוב את העמוד הזה?",
     "@new_product_leave_message": {
         "description": "Alert dialog message when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
@@ -714,6 +722,8 @@
     "nutrition_page_update_done": "המוצר עודכן!",
     "more_photos": "תמונות מעניינות נוספות",
     "@more_photos": {},
+    "view_more_photo_button": "View all existing photos for this product",
+    "@view_more_photo_button": {},
     "no_product_found": "לא נמצאו מוצרים",
     "@no_product_found": {},
     "not_found": "לא נמצאו:",
@@ -779,7 +789,7 @@
     "@country_chooser_label": {
         "description": "Label shown above a selector where the user can select their country (in the preferences)"
     },
-    "onboarding_country_chooser_label": "Please choose a country:",
+    "onboarding_country_chooser_label": "נא לבחור מדינה:",
     "@onboarding_country_chooser_label": {
         "description": "The label shown above a selector where the user can select their country (in the onboarding)"
     },
@@ -1890,6 +1900,18 @@
     "@add_packaging_photo_button_label": {
         "description": "Label for the add PACKAGING photo button"
     },
+    "add_origin_photo_button_label": "נא לצלם תמונות של פרטי מקור",
+    "@add_origin_photo_button_label": {
+        "description": "Label for the add ORIGIN photo button"
+    },
+    "add_emb_photo_button_label": "נא לצלם תמונות של פרטי קוד מעקב",
+    "@add_emb_photo_button_label": {
+        "description": "Label for the add EMB photo button"
+    },
+    "add_label_photo_button_label": "נא לצלם תמונות של פרטי תוויות והסמכות",
+    "@add_label_photo_button_label": {
+        "description": "Label for the add LABELS photo button"
+    },
     "choose_image_source_title": "בחירת מקור תמונה",
     "@choose_image_source_title": {
         "description": "Title for the image source chooser"
@@ -2511,6 +2533,10 @@
     "hunger_games_loading_line2": "אנו מורידים את השאלות!",
     "hunger_games_error_label": "געוואלד! משהו השתבש… לא הצלחנו לטעון את השאלות.",
     "hunger_games_error_retry_button": "מומלץ לנסות שוב!",
+    "reorder_attribute_action": "סידור המאפיינים מחדש",
+    "@reorder_attribute_action": {
+        "description": "An action button or a page title about reordering the attributes (e.g. 'is vegan?', 'nutrition facts', ...)"
+    },
     "link_cant_be_opened": "אי אפשר לפתוח את הקישור הזה במכשיר שלך. נא לבדוק שיש לך דפדפן מותקן.",
     "@link_cant_be_opened": {
         "description": "An error may happen if the device doesn't have a browser installed."

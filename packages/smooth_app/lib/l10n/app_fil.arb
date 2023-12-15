@@ -4,41 +4,45 @@
     "@sep": {
         "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
     },
-    "yes": "Da",
+    "yes": "Oo",
     "@yes": {},
-    "add": "Add",
+    "add": "Magdagdag",
     "@add": {},
     "account_delete_message": "Are you sure you want to delete your account?\nIf there is a specific reason, please share below",
     "@account_delete_message": {},
     "reason": "Reason",
     "@reason": {},
-    "okay": "U redu",
+    "okay": "Okay",
     "@okay": {},
     "create": "Create",
     "@create": {
         "description": "An action to create"
     },
-    "applyButtonText": "Primijenite",
+    "applyButtonText": "I-aplay",
     "@applyButtonText": {},
-    "next_label": "Next",
+    "next_label": "Susunod",
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
-    "go_back_to_top": "Povratak na vrh",
-    "save": "Save",
-    "save_confirmation": "Jeste li sigurni da želite sačuvati?",
-    "skip": "Preskočite",
-    "cancel": "Cancel",
+    "previous_label": "Nakaraan",
+    "@previous_label": {
+        "description": "A label on a button that says 'Previous', pressing the button takes the user to the previous screen."
+    },
+    "go_back_to_top": "Go back to top",
+    "save": "I-save",
+    "save_confirmation": "Are you sure you want to save?",
+    "skip": "Laktawan",
+    "cancel": "Kanselahin",
     "@cancel": {},
-    "ignore": "Zanemari",
+    "ignore": "Ignore",
     "@ignore": {
         "description": "'Ignore' button. Typical use case in combination with 'OK' and 'Cancel' buttons."
     },
     "close": "Close",
     "@close": {},
-    "no": "Ne",
+    "no": "Hindi",
     "@no": {},
-    "stop": "Zaustavi",
+    "stop": "Stop",
     "@stop": {},
     "finish": "Finish",
     "@finish": {},
@@ -46,21 +50,21 @@
     "@calculate": {
         "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
     },
-    "reset_food_prefs": "Resetujte preference hrane",
+    "reset_food_prefs": "Reset food preferences",
     "@reset": {
         "description": "Button label, clicking on the button will reset user's food preferences."
     },
-    "error": "Something went wrong",
+    "error": "May nangyaring mali",
     "@error": {},
-    "error_occurred": "Došlo je do greške",
+    "error_occurred": "An error occurred",
     "@error_occurred": {},
-    "featureInProgress": "Još uvijek radimo na ovoj funkciji, ostanite sa nama",
+    "featureInProgress": "We're still working on this feature, stay tuned",
     "@featureInProgress": {},
-    "label_web": "Pogledajte na veb stranici",
+    "label_web": "View on the web",
     "@label_web": {},
-    "learnMore": "Saznaj više",
+    "learnMore": "Learn more",
     "@learnMore": {},
-    "unknown": "Unknown",
+    "unknown": "Hindi alam",
     "@unknown": {
         "description": "Short label for product list view: the compatibility of that product with your preferences is unknown"
     },
@@ -114,39 +118,39 @@
     },
     "licenses": "Licences",
     "@licenses": {},
-    "looking_for": "Tražim",
+    "looking_for": "Looking for",
     "@looking_for": {
         "description": "Looking for: BARCODE"
     },
     "@Introduction screen": {},
-    "welcomeToOpenFoodFacts": "Dobrodošli u Open Food Facts",
+    "welcomeToOpenFoodFacts": "Welcome to Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
     "whatIsOff": "Open Food Facts is a global non-profit powered by local communities.",
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
-    "offUtility": "Birajte hranu koja je dobra za vas i planetu.",
+    "offUtility": "Choose food that is good for you and the planet.",
     "@offUtility": {
         "description": "Description of what a user can use Open Food Facts for."
     },
-    "productDataUtility": "Pogledajte podatke o hrani koji su relevantni za vaše preference.",
+    "productDataUtility": "See the food data relevant to your preferences.",
     "@productDataUtility": {
         "description": "Description of what a user can use the product data for."
     },
-    "healthCardUtility": "Birajte hranu koja je dobra za vas.",
+    "healthCardUtility": "Choose foods that are good for you.",
     "@healthCardUtility": {
         "description": "Description of what a user can use the health data in a product for."
     },
-    "ecoCardUtility": "Birajte hranu koja je dobra za planetu.",
+    "ecoCardUtility": "Choose foods that are good for the planet.",
     "@ecoCardUtility": {
         "description": "Description of what a user can use the Eco data in a product for."
     },
     "@user_management": {},
     "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
-    "incorrect_credentials": "Netačno korisničko ime ili lozinka.",
+    "incorrect_credentials": "Incorrect username or password.",
     "password_lost_incorrect_credentials": "This email or username doesn't exist. Please check your credentials.",
     "password_lost_server_unavailable": "We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.",
-    "login": "Prijava",
+    "login": "Username",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
@@ -158,17 +162,17 @@
     "@login_result_type_server_issue": {
         "description": "Error message when trying to log in and the server does not answer correctly"
     },
-    "login_page_username_or_email": "Unesite korisničko ime ili e-mail",
+    "login_page_username_or_email": "Please enter username or e-mail",
     "login_page_password_error_empty": "Please enter a password",
-    "create_account": "Kreiraj nalog",
+    "create_account": "Create account",
     "@create_account": {
         "description": "Button label: Opens a page where a new user can register"
     },
-    "sign_in": "Sign in",
+    "sign_in": "Mag-sign-in",
     "@sign_in": {
         "description": "Button label: For sign in"
     },
-    "sign_in_mandatory": "Za tu funkciju potrebno je da se prijavite.",
+    "sign_in_mandatory": "For that feature we need you to sign in.",
     "@sign_in_mandatory": {
         "description": "Error message: for some features like product edits you need to be signed in"
     },
@@ -189,7 +193,7 @@
     "@view_profile": {
         "description": "Button label: For to show your account"
     },
-    "reset_password": "Reset password",
+    "reset_password": "Bagohin ang password",
     "@reset_password": {
         "description": "Forgot password page title"
     },
@@ -220,7 +224,7 @@
         "description": "Progress indicator dialog during the actual signing up process"
     },
     "sign_up_page_action_ok": "Congratulations! Your account has just been created.",
-    "sign_up_page_display_name_hint": "Name",
+    "sign_up_page_display_name_hint": "Pangalan",
     "sign_up_page_display_name_error_empty": "Please enter the display name you want to use",
     "sign_up_page_email_hint": "E-mail",
     "sign_up_page_email_error_empty": "E-mail is required",
@@ -272,7 +276,7 @@
     "sign_up_page_provide_valid_email": "Please provide a valid email address.",
     "sign_up_page_server_busy": "We are deeply sorry, we have some technical difficulties to create your account. Please try again later.",
     "@Settings": {},
-    "settingsTitle": "Settings",
+    "settingsTitle": "Mga setting",
     "@settingsTitle": {
         "description": "The title of the Settings page"
     },
@@ -297,7 +301,7 @@
     "@contributors_label": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
     },
-    "contributors_dialog_title": "Contributors",
+    "contributors_dialog_title": "Mga nag-ambag",
     "@contributors_dialog_title": {
         "description": "Dialog title: A list of all contributors of this app"
     },
@@ -321,7 +325,7 @@
     "support_via_email": "Send us an e-mail",
     "support_via_email_include_logs_dialog_title": "Send app logs?",
     "support_via_email_include_logs_dialog_body": "Do you wish to include application logs in attachment to your email?",
-    "termsOfUse": "Terms of use",
+    "termsOfUse": "Mga tuntunin ng paggamit",
     "@termsOfUse": {},
     "legalNotices": "Legal notices",
     "@legalNotices": {
@@ -332,7 +336,7 @@
         "description": "Button label: Opens a pop up window which shows information about the app"
     },
     "@About this app section": {},
-    "contribute": "Contribute",
+    "contribute": "Mag-ambag",
     "@contribute": {
         "description": "Button label: Shows multiple ways how users can contribute to OFF"
     },
@@ -430,7 +434,7 @@
     "@myPersonalizedRanking": {
         "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
     },
-    "ranking_tab_all": "Sve",
+    "ranking_tab_all": "All",
     "ranking_subtitle_match_yes": "A great match for you",
     "ranking_subtitle_match_no": "Very poor match",
     "ranking_subtitle_match_maybe": "Unknown match",
@@ -451,7 +455,7 @@
     "@scan_navbar_label": {
         "description": "BottomNavigationBarLabel: For the scanning of products"
     },
-    "history_navbar_label": "History",
+    "history_navbar_label": "Kasaysayan",
     "@history_navbar_label": {
         "description": "BottomNavigationBarLabel: For the history and compare mode"
     },
@@ -463,7 +467,7 @@
     "@category": {
         "description": "From a product list, there's a category filter: this is its title"
     },
-    "category_all": "Sve",
+    "category_all": "All",
     "@category_al": {
         "description": "Top meta-entry on a category filter"
     },
@@ -480,13 +484,13 @@
     "@scan_history": {
         "description": "Page title: List type: Products in the whole scan history"
     },
-    "search": "Search",
+    "search": "Hanapin",
     "@search": {
         "description": "Hint text of a search text input field"
     },
     "tap_for_more": "Tap to see more info…",
     "@Product": {},
-    "product": "Proizvod",
+    "product": "Produkto",
     "@product": {},
     "unknownBrand": "Unknown brand",
     "@unknownBrand": {},
@@ -501,7 +505,7 @@
     "@front_photo": {
         "description": "Button label: For adding a picture of the front of a product"
     },
-    "ingredients": "Sastojci",
+    "ingredients": "Mga sangkap",
     "@ingredients": {},
     "ingredients_editing_instructions": "Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen, use parentheses for ingredients of an ingredient, and indicate allergens between underscores.",
     "ingredients_editing_error": "Failed to save the ingredients.",
@@ -515,7 +519,7 @@
     "packaging_editing_error": "Failed to save the packaging.",
     "packaging_editing_image_error": "Failed to get a new packaging image.",
     "packaging_editing_title": "Edit Packaging",
-    "nutrition": "Nutrition",
+    "nutrition": "Nutrisyon",
     "@nutrition": {},
     "nutrition_facts_photo": "Nutrition facts photo",
     "@nutrition_facts_photo": {
@@ -540,6 +544,10 @@
     "new_product_dialog_title": "You have just found a new product!",
     "@new_product_dialog_title": {
         "description": "Please keep it short, like 50 characters. Title of the dialog when the user searched for an unknown barcode."
+    },
+    "new_product_leave_title": "Leave this page?",
+    "@new_product_leave_title": {
+        "description": "Alert dialog title when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
     },
     "new_product_leave_message": "It looks like you didn't input anything. Do you really want to leave this page?",
     "@new_product_leave_message": {
@@ -607,7 +615,7 @@
     "ingredients_photo_title": "Ingredients Photo",
     "nutritional_facts_photo_title": "Nutrition Facts Photo",
     "recycling_photo_title": "Recycling Photo",
-    "take_more_photo_title": "Take more photos",
+    "take_more_photo_title": "Take more pictures",
     "front_photo_uploaded": "Front photo uploaded",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "Ingredients photo",
@@ -653,7 +661,7 @@
     "@recycling_photo_button_label": {},
     "recycling_photo_uploaded": "Recycling photo uploaded",
     "@recycling_photo_uploaded": {},
-    "take_more_photo_button_label": "Take more photos",
+    "take_more_photo_button_label": "Take more pictures",
     "@take_more_photo_button_label": {},
     "other_photo_uploaded": "Miscellaneous photo uploaded",
     "@other_photo_uploaded": {},
@@ -706,14 +714,16 @@
     "nutrition_page_title": "Nutrition Facts",
     "nutrition_page_unspecified": "Nutrition facts are not specified on the product",
     "nutrition_page_per_100g": "per 100g",
-    "nutrition_page_per_serving": "per serving",
-    "nutrition_page_add_nutrient": "Add a nutrient",
-    "nutrition_page_serving_size": "Serving size",
+    "nutrition_page_per_serving": "bawat putahe",
+    "nutrition_page_add_nutrient": "Magdagdag ng sustansya",
+    "nutrition_page_serving_size": "Sukat ng serving",
     "nutrition_page_invalid_number": "Invalid number",
     "nutrition_page_update_running": "Updating the product on the server…",
     "nutrition_page_update_done": "Product updated!",
     "more_photos": "More interesting photos",
     "@more_photos": {},
+    "view_more_photo_button": "View all existing photos for this product",
+    "@view_more_photo_button": {},
     "no_product_found": "No product found",
     "@no_product_found": {},
     "not_found": "not found:",
@@ -734,7 +744,7 @@
     "app_review_negative_modal_title": "You don't like our app?",
     "app_review_negative_modal_text": "Could you take a few seconds to tell us why?",
     "app_review_negative_modal_positive_button": "Yes, absolutely!",
-    "app_review_negative_modal_negative_button": "Ne",
+    "app_review_negative_modal_negative_button": "Hindi",
     "could_not_refresh": "Could not refresh product",
     "@could_not_refresh": {
         "description": "The product data couldn't be refreshed"
@@ -819,7 +829,7 @@
     "no_prodcut_in_list": "There is no product in this list",
     "no_product_in_section": "There is no product in this section",
     "recently_seen_products": "All viewed products",
-    "clear": "Clear",
+    "clear": "Linisin",
     "@clear": {
         "description": "Clears a product list (short label)"
     },
@@ -898,7 +908,7 @@
     "twitter_link": "https://www.twitter.com/openfoodfacts",
     "blog": "Blog",
     "faq": "FAQ",
-    "discover": "Discover",
+    "discover": "Tuklasin",
     "how_to_contribute": "How to Contribute",
     "hint_knowledge_panel_message": "Your can tap on any part of the card to get more details about what you see. Try it now!",
     "@hint_knowledge_panel_message": {
@@ -1089,7 +1099,7 @@
     "@user_profile": {
         "description": "User account (if connected)"
     },
-    "user_profile_title_guest": "Welcome!",
+    "user_profile_title_guest": "Maligayang pagdating!",
     "@user_profile_title_guest": {
         "description": "When the user is not connected"
     },
@@ -1128,7 +1138,7 @@
     "settings_app_app": "Application",
     "settings_app_data": "Privacy & monitoring",
     "settings_app_camera": "Camera",
-    "settings_app_products": "Products",
+    "settings_app_products": "Mga produkto",
     "settings_app_miscellaneous": "Miscellaneous",
     "@camera_settings_title": {
         "description": "Name of the camera section in the settings"
@@ -1169,7 +1179,7 @@
     "@product_edit_photo_title": {
         "description": "Toolbar Title while editing a photo (Android only)"
     },
-    "permission_photo_error": "Error",
+    "permission_photo_error": "Mali",
     "@permission_photo_error": {
         "description": "When the camera/photo permission failed to be acquired (!= denied)"
     },
@@ -1190,7 +1200,7 @@
     "permission_photo_denied_dialog_settings_title": "Permission denied",
     "permission_photo_denied_dialog_settings_message": "As you've previously denied the camera permission, you must allow it manually from the Settings.",
     "permission_photo_denied_dialog_settings_button_open": "Open settings",
-    "permission_photo_denied_dialog_settings_button_cancel": "Cancel",
+    "permission_photo_denied_dialog_settings_button_cancel": "Kanselahin",
     "permission_photo_none_found": "No camera detected",
     "@permission_photo_none_found": {
         "description": "Message for the user when no camera was detected, replacing the barcode scanner"
@@ -1199,7 +1209,7 @@
     "@permission_photo_denied": {
         "description": "When the camera/photo permission is denied by user"
     },
-    "edit_product_label": "Edit product",
+    "edit_product_label": "I-edit ang produkto",
     "@edit_product_label": {
         "description": "Edit product button label"
     },
@@ -1248,23 +1258,23 @@
     "@edit_product_form_item_labels_subtitle": {
         "description": "Product edition - Labels - SubTitle"
     },
-    "edit_product_form_item_labels_hint": "oznaka",
+    "edit_product_form_item_labels_hint": "tanda",
     "@edit_product_form_item_labels_hint": {
         "description": "Product edition - Labels - input textfield hint"
     },
-    "edit_product_form_item_labels_type": "oznaka",
+    "edit_product_form_item_labels_type": "tanda",
     "@edit_product_form_item_labels_type": {
         "description": "Product edition - Labels - input textfield label"
     },
-    "edit_product_form_item_stores_title": "Stores",
+    "edit_product_form_item_stores_title": "Mga Tindahan",
     "@edit_product_form_item_stores_title": {
         "description": "Product edition - Stores - Title"
     },
-    "edit_product_form_item_stores_hint": "store",
+    "edit_product_form_item_stores_hint": "tindahan",
     "@edit_product_form_item_stores_hint": {
         "description": "Product edition - Stores - input textfield hint"
     },
-    "edit_product_form_item_stores_type": "store",
+    "edit_product_form_item_stores_type": "tindahan",
     "@edit_product_form_item_stores_type": {
         "description": "Product edition - Stores - input textfield type"
     },
@@ -1276,7 +1286,7 @@
     "@edit_product_form_item_origins_hint": {
         "description": "Product edition - Origins - input textfield hint"
     },
-    "edit_product_form_item_origins_type": "country",
+    "edit_product_form_item_origins_type": "bansa",
     "@edit_product_form_item_origins_type": {
         "description": "Product edition - Origins - input textfield type"
     },
@@ -1296,7 +1306,7 @@
     "@edit_product_form_item_countries_hint": {
         "description": "Product edition - Countries - input textfield hint"
     },
-    "edit_product_form_item_countries_type": "country",
+    "edit_product_form_item_countries_type": "bansa",
     "@edit_product_form_item_countries_type": {
         "description": "Product edition - Countries - input textfield type"
     },
@@ -1320,15 +1330,15 @@
     "@edit_product_form_item_emb_codes_examples": {
         "description": "Product edition - EMB Codes - explanations"
     },
-    "edit_product_form_item_categories_title": "Kategorije",
+    "edit_product_form_item_categories_title": "Mga Kategorya",
     "@edit_product_form_item_categories_title": {
         "description": "Product edition - Categories - Title"
     },
-    "edit_product_form_item_categories_hint": "kategorija",
+    "edit_product_form_item_categories_hint": "kategorya",
     "@edit_product_form_item_categories_hint": {
         "description": "Product edition - Categories - input textfield hint"
     },
-    "edit_product_form_item_categories_type": "kategorija",
+    "edit_product_form_item_categories_type": "kategorya",
     "@edit_product_form_item_categories_type": {
         "description": "Product edition - Categories - input textfield type"
     },
@@ -1347,18 +1357,18 @@
     "edit_product_form_item_exit_confirmation": "Do you want to save your changes before leaving this page?",
     "edit_product_form_item_exit_confirmation_positive_button": "Save changes",
     "edit_product_form_item_exit_confirmation_negative_button": "Discard changes",
-    "edit_product_form_item_ingredients_title": "Sastojci",
+    "edit_product_form_item_ingredients_title": "Mga sangkap",
     "@edit_product_form_item_ingredients_title": {
         "description": "Product edition - Ingredients - Title (note: this section was previously called Ingredients & Origins)"
     },
-    "edit_product_form_item_add_valid_item_tooltip": "Add",
+    "edit_product_form_item_add_valid_item_tooltip": "Magdagdag",
     "edit_product_form_item_add_invalid_item_tooltip": "Please enter a text first",
     "edit_product_form_item_remove_item_tooltip": "Remove",
     "edit_product_form_item_packaging_title": "Recycling instructions photo",
     "@edit_product_form_item_packaging_title": {
         "description": "Product edition - Packaging - Title"
     },
-    "edit_product_form_item_nutrition_facts_title": "Nutrition facts",
+    "edit_product_form_item_nutrition_facts_title": "Talahanayan ng nutrisyon",
     "@edit_product_form_item_nutrition_facts_title": {
         "description": "Product edition - Nutrition facts - Title"
     },
@@ -1366,7 +1376,7 @@
     "@edit_product_form_item_nutrition_facts_subtitle": {
         "description": "Product edition - Nutrition facts - SubTitle"
     },
-    "edit_product_form_save": "Uredi",
+    "edit_product_form_save": "Pamatnugutan",
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
     },
@@ -1380,7 +1390,7 @@
     },
     "completed_basic_details_btn_text": "Complete basic details",
     "not_implemented_snackbar_text": "Not implemented yet",
-    "category_picker_page_appbar_text": "Kategorije",
+    "category_picker_page_appbar_text": "Mga Kategorya",
     "edit_ingredients_extrait_ingredients_btn_text": "Extract ingredients",
     "@edit_ingredients_extrait_ingredients_btn_text": {
         "description": "Ingredients edition - Extract ingredients"
@@ -1579,7 +1589,7 @@
     "@dev_preferences_button_positive": {
         "description": "User dev preferences - Positive button label"
     },
-    "dev_preferences_button_negative": "Cancel",
+    "dev_preferences_button_negative": "Kanselahin",
     "@dev_preferences_button_negative": {
         "description": "User dev preferences - Negative button label"
     },
@@ -1748,7 +1758,7 @@
     "@summary_card_button_add_basic_details": {
         "description": "Summary card - Button to add details about the product"
     },
-    "edit_photo_button_label": "Uredi",
+    "edit_photo_button_label": "Pamatnugutan",
     "@edit_photo_button_label": {
         "description": "Edit photo button label"
     },
@@ -1780,7 +1790,7 @@
     "@edit_photo_language_none": {
         "description": "Warning message: for this product and this field, there are no images at all, in any language"
     },
-    "category_picker_screen_title": "Kategorije",
+    "category_picker_screen_title": "Mga Kategorya",
     "@category_picker_screen_title": {
         "description": "Categories picker screen title"
     },
@@ -1890,6 +1900,18 @@
     "@add_packaging_photo_button_label": {
         "description": "Label for the add PACKAGING photo button"
     },
+    "add_origin_photo_button_label": "Take photos of any origin information",
+    "@add_origin_photo_button_label": {
+        "description": "Label for the add ORIGIN photo button"
+    },
+    "add_emb_photo_button_label": "Take photos of any traceability code information",
+    "@add_emb_photo_button_label": {
+        "description": "Label for the add EMB photo button"
+    },
+    "add_label_photo_button_label": "Take photos of any labels & certifications information",
+    "@add_label_photo_button_label": {
+        "description": "Label for the add LABELS photo button"
+    },
     "choose_image_source_title": "Choose image source",
     "@choose_image_source_title": {
         "description": "Title for the image source chooser"
@@ -1914,7 +1936,7 @@
     "@gallery_source_access_denied_dialog_button": {
         "description": "Button to open the app settings"
     },
-    "share": "Share",
+    "share": "Ibahagi",
     "@share": {
         "description": "Button label for sharing something on another app. For example sharing the link to a product via Email"
     },
@@ -2425,7 +2447,7 @@
             }
         }
     },
-    "loading": "Loading…",
+    "loading": "Naglo-load…",
     "@loading": {
         "description": "Loading…"
     },
@@ -2458,7 +2480,7 @@
     "@language_selector_title": {
         "description": "Label written as the title of the dialog to select the user language"
     },
-    "action_delete_list": "Delete",
+    "action_delete_list": "Burahin",
     "@action_delete_list": {
         "description": "Delete a list action in a menu"
     },
@@ -2511,6 +2533,10 @@
     "hunger_games_loading_line2": "We're downloading the questions!",
     "hunger_games_error_label": "Argh! Something went wrong… and we couldn't load the questions.",
     "hunger_games_error_retry_button": "Let's retry!",
+    "reorder_attribute_action": "Reorder the attributes",
+    "@reorder_attribute_action": {
+        "description": "An action button or a page title about reordering the attributes (e.g. 'is vegan?', 'nutrition facts', ...)"
+    },
     "link_cant_be_opened": "This link can't be opened on your device. Please check that you have a browser installed.",
     "@link_cant_be_opened": {
         "description": "An error may happen if the device doesn't have a browser installed."

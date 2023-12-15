@@ -24,6 +24,10 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
+    "previous_label": "前",
+    "@previous_label": {
+        "description": "A label on a button that says 'Previous', pressing the button takes the user to the previous screen."
+    },
     "go_back_to_top": "トップに戻る",
     "save": "保存",
     "save_confirmation": "保存してもよろしいですか？",
@@ -541,6 +545,10 @@
     "@new_product_dialog_title": {
         "description": "Please keep it short, like 50 characters. Title of the dialog when the user searched for an unknown barcode."
     },
+    "new_product_leave_title": "このページから移動しますか？",
+    "@new_product_leave_title": {
+        "description": "Alert dialog title when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
+    },
     "new_product_leave_message": "It looks like you didn't input anything. Do you really want to leave this page?",
     "@new_product_leave_message": {
         "description": "Alert dialog message when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
@@ -714,6 +722,8 @@
     "nutrition_page_update_done": "製品が更新されました！",
     "more_photos": "より興味深い画像",
     "@more_photos": {},
+    "view_more_photo_button": "この製品の既存の写真をすべて表示",
+    "@view_more_photo_button": {},
     "no_product_found": "製品が見つかりません",
     "@no_product_found": {},
     "not_found": "見つかりません:",
@@ -1890,6 +1900,18 @@
     "@add_packaging_photo_button_label": {
         "description": "Label for the add PACKAGING photo button"
     },
+    "add_origin_photo_button_label": "パッケージ/リサイクル情報の画像を撮る",
+    "@add_origin_photo_button_label": {
+        "description": "Label for the add ORIGIN photo button"
+    },
+    "add_emb_photo_button_label": "トレーサビリティコード情報の写真を撮ります",
+    "@add_emb_photo_button_label": {
+        "description": "Label for the add EMB photo button"
+    },
+    "add_label_photo_button_label": "ラベルと認証情報の写真を撮る",
+    "@add_label_photo_button_label": {
+        "description": "Label for the add LABELS photo button"
+    },
     "choose_image_source_title": "画像ソースを選択",
     "@choose_image_source_title": {
         "description": "Title for the image source chooser"
@@ -2511,6 +2533,10 @@
     "hunger_games_loading_line2": "質問をダウンロード中です！",
     "hunger_games_error_label": "ああ！問題が発生した… 、質問を読み込むことができませんでした。",
     "hunger_games_error_retry_button": "再試行しましょう！",
+    "reorder_attribute_action": "属性の順序変更",
+    "@reorder_attribute_action": {
+        "description": "An action button or a page title about reordering the attributes (e.g. 'is vegan?', 'nutrition facts', ...)"
+    },
     "link_cant_be_opened": "このリンクは、お使いのデバイスでは開けません。ブラウザがインストールされていることを確認してください。",
     "@link_cant_be_opened": {
         "description": "An error may happen if the device doesn't have a browser installed."

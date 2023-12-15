@@ -24,6 +24,10 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
+    "previous_label": "Précédente",
+    "@previous_label": {
+        "description": "A label on a button that says 'Previous', pressing the button takes the user to the previous screen."
+    },
     "go_back_to_top": "Retour en haut",
     "save": "Enregistrer",
     "save_confirmation": "Voulez-vous vraiment sauvegarder ?",
@@ -141,6 +145,7 @@
     "@ecoCardUtility": {
         "description": "Description of what a user can use the Eco data in a product for."
     },
+    "server_error_open_new_issue": "Pas de réponse du serveur ! Vous pouvez ouvrir un incident avec le lien ci-dessous.",
     "@user_management": {},
     "sign_in_text": "Connectez-vous à votre compte Open Food Facts pour enregistrer vos contributions",
     "incorrect_credentials": "Nom d'utilisateur ou mot de passe incorrect.",
@@ -541,6 +546,10 @@
     "@new_product_dialog_title": {
         "description": "Please keep it short, like 50 characters. Title of the dialog when the user searched for an unknown barcode."
     },
+    "new_product_leave_title": "Quitter cette page ?",
+    "@new_product_leave_title": {
+        "description": "Alert dialog title when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
+    },
     "new_product_leave_message": "Il semble que vous n'ayez rien saisi. Voulez-vous vraiment quitter cette page ?",
     "@new_product_leave_message": {
         "description": "Alert dialog message when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
@@ -714,6 +723,8 @@
     "nutrition_page_update_done": "Produit mis à jour !",
     "more_photos": "Plus de photos intéressantes",
     "@more_photos": {},
+    "view_more_photo_button": "Voir toutes les photos existantes pour ce produit",
+    "@view_more_photo_button": {},
     "no_product_found": "Aucun produit trouvé",
     "@no_product_found": {},
     "not_found": "non trouvé :",
@@ -2523,6 +2534,10 @@
     "hunger_games_loading_line2": "Nous téléchargeons les questions !",
     "hunger_games_error_label": "Argh ! Quelque chose s'est mal passé… et nous n'avons pas pu charger les questions.",
     "hunger_games_error_retry_button": "Réessayons !",
+    "reorder_attribute_action": "Réorganiser les attributs",
+    "@reorder_attribute_action": {
+        "description": "An action button or a page title about reordering the attributes (e.g. 'is vegan?', 'nutrition facts', ...)"
+    },
     "link_cant_be_opened": "Ce lien ne peut pas être ouvert sur votre appareil. Veuillez vérifier qu'un navigateur est installé.",
     "@link_cant_be_opened": {
         "description": "An error may happen if the device doesn't have a browser installed."

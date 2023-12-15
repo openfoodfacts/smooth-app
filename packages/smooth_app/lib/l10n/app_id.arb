@@ -24,6 +24,10 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
+    "previous_label": "Sebelumnya",
+    "@previous_label": {
+        "description": "A label on a button that says 'Previous', pressing the button takes the user to the previous screen."
+    },
     "go_back_to_top": "Kembali ke atas",
     "save": "menyimpan ",
     "save_confirmation": "Apa Anda yakin ingin menyimpan?",
@@ -541,6 +545,10 @@
     "@new_product_dialog_title": {
         "description": "Please keep it short, like 50 characters. Title of the dialog when the user searched for an unknown barcode."
     },
+    "new_product_leave_title": "Keluar dari halaman ini?",
+    "@new_product_leave_title": {
+        "description": "Alert dialog title when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
+    },
     "new_product_leave_message": "Anda tidak memasukan informasi apapun, apakah Anda yakin ingin meninggalkan halaman ini?",
     "@new_product_leave_message": {
         "description": "Alert dialog message when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
@@ -714,6 +722,8 @@
     "nutrition_page_update_done": "Produk diperbarui!",
     "more_photos": "Lebih banyak foto menarik",
     "@more_photos": {},
+    "view_more_photo_button": "View all existing photos for this product",
+    "@view_more_photo_button": {},
     "no_product_found": "Produk tidak ditemukan",
     "@no_product_found": {},
     "not_found": "tidak ditemukan:",
@@ -1370,7 +1380,7 @@
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
     },
-    "no_data_available": "No data available",
+    "no_data_available": "Data tidak tersedia",
     "@no_data_available": {
         "description": "When there are no data to display"
     },
@@ -1889,6 +1899,18 @@
     "add_packaging_photo_button_label": "Ambil foto dari setiap informasi pengemasan/daur ulang",
     "@add_packaging_photo_button_label": {
         "description": "Label for the add PACKAGING photo button"
+    },
+    "add_origin_photo_button_label": "Take photos of any origin information",
+    "@add_origin_photo_button_label": {
+        "description": "Label for the add ORIGIN photo button"
+    },
+    "add_emb_photo_button_label": "Take photos of any traceability code information",
+    "@add_emb_photo_button_label": {
+        "description": "Label for the add EMB photo button"
+    },
+    "add_label_photo_button_label": "Take photos of any labels & certifications information",
+    "@add_label_photo_button_label": {
+        "description": "Label for the add LABELS photo button"
     },
     "choose_image_source_title": "Memilih sumber gambar",
     "@choose_image_source_title": {
@@ -2511,6 +2533,10 @@
     "hunger_games_loading_line2": "Kami mengunduh pertanyaannya!",
     "hunger_games_error_label": "Argh! Terjadi kesalahan… dan kami tidak bisa memuat pertanyaan.",
     "hunger_games_error_retry_button": "Mari kita coba lagi!",
+    "reorder_attribute_action": "Reorder the attributes",
+    "@reorder_attribute_action": {
+        "description": "An action button or a page title about reordering the attributes (e.g. 'is vegan?', 'nutrition facts', ...)"
+    },
     "link_cant_be_opened": "Tautan ini tidak dapat dibuka di perangkat Anda. Pastikan Anda telah menginstal browser.",
     "@link_cant_be_opened": {
         "description": "An error may happen if the device doesn't have a browser installed."

@@ -49,6 +49,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
       '__accessibilityNoColor';
   static const String userPreferencesFlagAccessibilityEmoji =
       '__accessibilityEmoji';
+  static const String userPreferencesFlagUserOrderedKP = '__userOrderedKP';
 
   final TextEditingController _textFieldController = TextEditingController();
 
@@ -304,6 +305,16 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           onTap: () async => Navigator.of(context).push(MaterialPageRoute<void>(
               builder: (BuildContext context) =>
                   const UserPreferencesDebugInfo())),
+        ),
+        UserPreferencesItemSwitch(
+          title: 'User ordered knowledge panels',
+          value: userPreferences.getFlag(userPreferencesFlagUserOrderedKP) ??
+              false,
+          onChanged: (bool value) async {
+            await userPreferences.setFlag(
+                userPreferencesFlagUserOrderedKP, value);
+            _showSuccessMessage();
+          },
         ),
         UserPreferencesItemTile(
           title: 'Preference Search...',

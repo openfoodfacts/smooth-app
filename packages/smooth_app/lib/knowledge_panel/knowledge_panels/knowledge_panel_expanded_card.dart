@@ -8,11 +8,13 @@ class KnowledgePanelExpandedCard extends StatelessWidget {
     required this.panelId,
     required this.product,
     required this.isInitiallyExpanded,
+    required this.isClickable,
   });
 
   final Product product;
   final String panelId;
   final bool isInitiallyExpanded;
+  final bool isClickable;
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +34,7 @@ class KnowledgePanelExpandedCard extends StatelessWidget {
           knowledgePanelElement: element,
           product: product,
           isInitiallyExpanded: isInitiallyExpanded,
+          isClickable: isClickable,
         );
         if (elementWidget != null) {
           elementWidgets.add(

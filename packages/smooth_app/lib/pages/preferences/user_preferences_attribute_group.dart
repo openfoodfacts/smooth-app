@@ -29,37 +29,6 @@ class UserPreferencesAttributeGroup {
 
   bool get _isCollapsed => userPreferences.activeAttributeGroup != group.id;
 
-  // TODO(monsieurtanuki): double-check if it could be used/useful
-  List<String> getLabels() {
-    final List<String> result = <String>[];
-    if (group.name != null) {
-      result.add(group.name!);
-    }
-    if (group.warning != null) {
-      result.add(group.warning!);
-    }
-    final List<String> excludedAttributeIds =
-        userPreferences.getExcludedAttributeIds();
-    for (final Attribute attribute in group.attributes!) {
-      if (excludedAttributeIds.contains(attribute.id)) {
-        continue;
-      }
-      if (attribute.settingNote != null) {
-        result.add(attribute.settingNote!);
-      }
-      if (attribute.settingName != null) {
-        result.add(attribute.settingName!);
-      }
-      if (attribute.id != null) {
-        result.add(attribute.id!);
-      }
-      if (attribute.name != null) {
-        result.add(attribute.name!);
-      }
-    }
-    return result;
-  }
-
   List<Widget> getContent() {
     final List<Widget> result = <Widget>[];
     for (final UserPreferencesItem item in getItems()) {
