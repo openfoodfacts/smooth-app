@@ -98,6 +98,7 @@ class _ProductImageGalleryOtherViewState
                 ),
               );
             },
+            addAutomaticKeepAlives: false,
             childCount: ids.length,
           ),
 
