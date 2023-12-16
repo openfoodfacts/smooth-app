@@ -606,7 +606,7 @@ class _NutrientUnitVisibility extends StatelessWidget {
         BuildContext context,
         TextEditingControllerWithHistory controller,
       ) {
-        final bool isValueSet = !controller.isNotSet;
+        final bool isValueSet = controller.isSet;
 
         return ElevatedButton(
           onPressed: () {
