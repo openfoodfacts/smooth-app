@@ -1,5 +1,5 @@
 PODS:
-  - "app_settings (3.0.0+1)":
+  - app_settings (5.1.1):
     - Flutter
   - audioplayers_darwin (0.0.1):
     - Flutter
@@ -267,7 +267,7 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/webview_flutter_wkwebview/ios"
 
 SPEC CHECKSUMS:
-  app_settings: d103828c9f5d515c4df9ee754dabd443f7cedcf3
+  app_settings: 017320c6a680cdc94c799949d95b84cb69389ebc
   audioplayers_darwin: 877d9a4d06331c5c374595e46e16453ac7eafa40
   camera_avfoundation: 3125e8cd1a4387f6f31c6c63abb8a55892a9eeeb
   connectivity_plus: bf0076dd84a130856aa636df1c71ccaff908fa1d
@@ -320,4 +320,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: a2ded99d2ba03f677e98efb8fb92d57b3a65b96f
 
-COCOAPODS: 1.14.2
+COCOAPODS: 1.14.3
