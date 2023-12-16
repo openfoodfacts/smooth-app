@@ -44,16 +44,20 @@ class _ProductImageGalleryOtherViewState
         final AsyncSnapshot<List<int>> snapshot,
       ) {
         if (snapshot.connectionState != ConnectionState.done) {
-          return SizedBox(
-            width: squareSize,
-            height: squareSize,
-            child: const CircularProgressIndicator.adaptive(),
+          return SliverToBoxAdapter(
+            child: SizedBox(
+              width: squareSize,
+              height: squareSize,
+              child: const CircularProgressIndicator.adaptive(),
+            ),
           );
         }
         if (snapshot.data == null) {
-          return Text(
-            snapshot.error?.toString() ??
-                appLocalizations.loading_dialog_default_error_message,
+          return SliverToBoxAdapter(
+            child: Text(
+              snapshot.error?.toString() ??
+                  appLocalizations.loading_dialog_default_error_message,
+            ),
           );
         }
         final List<int> ids = snapshot.data!;
@@ -63,39 +67,42 @@ class _ProductImageGalleryOtherViewState
             appLocalizations.edit_photo_select_existing_downloaded_none,
           );
         }
-        return SizedBox(
-          height: (ids.length / _columns).ceil() * squareSize,
-          child: GridView.builder(
-            physics: const NeverScrollableScrollPhysics(),
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: _columns,
-            ),
-            itemBuilder: (final BuildContext context, final int index) =>
-                InkWell(
-              onTap: () async => Navigator.push<void>(
-                context,
-                MaterialPageRoute<bool>(
-                  builder: (BuildContext context) => ProductImageOtherPage(
-                    widget.product,
-                    ids[index],
-                  ),
-                ),
-              ),
-              child: SmoothImage(
-                width: squareSize,
-                height: squareSize,
-                imageProvider: NetworkImage(
-                  ImageHelper.getUploadedImageUrl(
-                    widget.product.barcode!,
-                    ids[index],
-                    ImageSize.DISPLAY,
-                  ),
-                ),
-              ),
-            ),
-            itemCount: ids.length,
-            //scrollDirection: Axis.vertical,
+        return SliverGrid(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: _columns,
           ),
+          delegate: SliverChildBuilderDelegate(
+            (final BuildContext context, final int index) {
+              print(index);
+              return InkWell(
+                onTap: () async =>
+                    Navigator.push<void>(
+                      context,
+                      MaterialPageRoute<bool>(
+                        builder: (BuildContext context) =>
+                            ProductImageOtherPage(
+                              widget.product,
+                              ids[index],
+                            ),
+                      ),
+                    ),
+                child: SmoothImage(
+                  width: squareSize,
+                  height: squareSize,
+                  imageProvider: NetworkImage(
+                    ImageHelper.getUploadedImageUrl(
+                      widget.product.barcode!,
+                      ids[index],
+                      ImageSize.DISPLAY,
+                    ),
+                  ),
+                ),
+              );
+            },
+            childCount: ids.length,
+          ),
+
+          //scrollDirection: Axis.vertical,
         );
       },
     );
