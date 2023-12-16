@@ -73,7 +73,6 @@ class _ProductImageGalleryOtherViewState
           ),
           delegate: SliverChildBuilderDelegate(
             (final BuildContext context, final int index) {
-              print(index);
               return InkWell(
                 onTap: () async =>
                     Navigator.push<void>(
