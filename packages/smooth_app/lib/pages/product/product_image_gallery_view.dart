@@ -97,76 +97,66 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView>
                 barcode: barcode,
                 context: context,
               ),
-              child: MultiProvider(
-                providers: [
-                  Provider<Product>.value(
-                    value: upToDateProduct,
+              child: CustomScrollView(
+                slivers: <Widget>[
+                  SliverGrid(
+                    gridDelegate:
+                        SliverGridDelegateWithFixedCrossAxisCountAndFixedHeight(
+                      crossAxisCount: 2,
+                      height: _computeItemHeight(),
+                    ),
+                    delegate: SliverChildBuilderDelegate(
+                      (BuildContext context, int index) {
+                        return _PhotoRow(
+                          position: index,
+                          product: upToDateProduct,
+                          language: _language,
+                        );
+                      },
+                      childCount: 4,
+                    ),
                   ),
-                  Provider<OpenFoodFactsLanguage>.value(
-                    value: _language,
-                  ),
-                ],
-                child: CustomScrollView(
-                  slivers: <Widget>[
-                    SliverGrid(
-                      gridDelegate:
-                          SliverGridDelegateWithFixedCrossAxisCountAndFixedHeight(
-                        crossAxisCount: 2,
-                        height: _computeItemHeight(),
-                      ),
-                      delegate: SliverChildBuilderDelegate(
-                        (BuildContext context, int index) {
-                          return _PhotoRow(
-                            position: index,
-                            product: upToDateProduct,
-                            language: _language,
-                          );
-                        },
-                        childCount: 4,
+                  SliverPadding(
+                    padding: const EdgeInsetsDirectional.symmetric(
+                      vertical: MEDIUM_SPACE,
+                      horizontal: SMALL_SPACE,
+                    ),
+                    sliver: SliverToBoxAdapter(
+                      child: Text(
+                        appLocalizations.more_photos,
+                        style: Theme.of(context).textTheme.displayMedium,
                       ),
                     ),
-                    SliverPadding(
-                      padding: const EdgeInsetsDirectional.symmetric(
-                        vertical: MEDIUM_SPACE,
-                        horizontal: SMALL_SPACE,
-                      ),
-                      sliver: SliverToBoxAdapter(
-                        child: Text(
-                          appLocalizations.more_photos,
-                          style: Theme.of(context).textTheme.displayMedium,
-                        ),
-                      ),
-                    ),
-                    if (!_clickedOtherPictureButton)
-                      SliverToBoxAdapter(
-                        child: Padding(
-                          padding: const EdgeInsets.all(SMALL_SPACE),
-                          child: SmoothLargeButtonWithIcon(
-                            text: appLocalizations.view_more_photo_button,
-                            icon: Icons.photo_camera_rounded,
-                            onPressed: () => setState(
-                              () => _clickedOtherPictureButton = true,
-                            ),
+                  ),
+                  if (!_clickedOtherPictureButton)
+                    SliverToBoxAdapter(
+                      child: Padding(
+                        padding: const EdgeInsets.all(SMALL_SPACE),
+                        child: SmoothLargeButtonWithIcon(
+                          text: appLocalizations.view_more_photo_button,
+                          icon: Icons.photo_camera_rounded,
+                          onPressed: () => setState(
+                            () => _clickedOtherPictureButton = true,
                           ),
                         ),
                       ),
-
-                    if (_clickedOtherPictureButton)
-                      ProductImageGalleryOtherView(product: upToDateProduct),
-                    // Extra space to be above the FAB
-                    SliverFillRemaining(
-                      hasScrollBody: false,
-                      child: SizedBox(
-                        height: (Theme.of(context)
-                                    .floatingActionButtonTheme
-                                    .extendedSizeConstraints
-                                    ?.maxHeight ??
-                                56.0) +
-                            16.0,
-                      ),
                     ),
-                  ],
-                ),
+
+                  if (_clickedOtherPictureButton)
+                    ProductImageGalleryOtherView(product: upToDateProduct),
+                  // Extra space to be above the FAB
+                  SliverFillRemaining(
+                    hasScrollBody: false,
+                    child: SizedBox(
+                      height: (Theme.of(context)
+                                  .floatingActionButtonTheme
+                                  .extendedSizeConstraints
+                                  ?.maxHeight ??
+                              56.0) +
+                          16.0,
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
