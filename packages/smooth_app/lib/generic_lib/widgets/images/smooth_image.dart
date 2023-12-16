@@ -16,6 +16,7 @@ class SmoothImage extends StatelessWidget {
     this.color,
     this.decoration,
     this.fit,
+    this.rounded,
     this.heroTag,
   });
 
@@ -26,6 +27,7 @@ class SmoothImage extends StatelessWidget {
   final Decoration? decoration;
   final BoxFit? fit;
   final String? heroTag;
+  final bool? rounded;
 
   @override
   Widget build(BuildContext context) {
@@ -42,16 +44,21 @@ class SmoothImage extends StatelessWidget {
       child = Hero(tag: heroTag!, child: child);
     }
 
-    return ClipRRect(
-      borderRadius: ROUNDED_BORDER_RADIUS,
-      child: Container(
+    child = Container(
         decoration: decoration,
         width: width,
         height: height,
         color: color,
+        child: child);
+
+    if (rounded ?? true) {
+      child = ClipRRect(
+        borderRadius: ROUNDED_BORDER_RADIUS,
         child: child,
-      ),
-    );
+      );
+    }
+
+    return child;
   }
 
   Widget _loadingBuilder(
