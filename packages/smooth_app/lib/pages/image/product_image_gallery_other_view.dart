@@ -74,17 +74,15 @@ class _ProductImageGalleryOtherViewState
           delegate: SliverChildBuilderDelegate(
             (final BuildContext context, final int index) {
               return InkWell(
-                onTap: () async =>
-                    Navigator.push<void>(
-                      context,
-                      MaterialPageRoute<bool>(
-                        builder: (BuildContext context) =>
-                            ProductImageOtherPage(
-                              widget.product,
-                              ids[index],
-                            ),
-                      ),
+                onTap: () async => Navigator.push<void>(
+                  context,
+                  MaterialPageRoute<bool>(
+                    builder: (BuildContext context) => ProductImageOtherPage(
+                      widget.product,
+                      ids[index],
                     ),
+                  ),
+                ),
                 child: SmoothImage(
                   width: squareSize,
                   height: squareSize,
