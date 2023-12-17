@@ -24,7 +24,7 @@ class OrderedNutrientsCache {
     cache._orderedNutrients = await cache._get();
     if (cache._orderedNutrients == null) {
       if (context.mounted) {
-        await LoadingDialog.run<OrderedNutrients>(
+        cache._orderedNutrients = await LoadingDialog.run<OrderedNutrients>(
           context: context,
           future: cache._download(),
         );
