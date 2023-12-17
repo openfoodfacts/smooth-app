@@ -1,4 +1,3 @@
-import 'package:diacritic/diacritic.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -104,23 +103,23 @@ class _CountrySelectorState extends State<CountrySelector> {
                         prefixIcon: const Icon(Icons.search),
                         controller: _countryController,
                         onChanged: (String? query) {
-                          query = removeDiacritics(query!.trim().toLowerCase());
+                          query = query!.trim()..getComparisonSafeString();
 
                           setState(
                             () {
                               filteredList = _countryList
                                   .where(
                                     (Country item) =>
-                                        removeDiacritics(
-                                                item.name.toLowerCase())
+                                        item.name
+                                            .getComparisonSafeString()
                                             .contains(
-                                          query!,
-                                        ) ||
-                                        removeDiacritics(
-                                                item.countryCode.toLowerCase())
+                                              query!,
+                                            ) ||
+                                        item.countryCode
+                                            .getComparisonSafeString()
                                             .contains(
-                                          query,
-                                        ),
+                                              query,
+                                            ),
                                   )
                                   .toList(growable: false);
                             },

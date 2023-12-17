@@ -17,6 +17,7 @@ import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/product_image_swipeable_view.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/widgets/slivers.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
@@ -74,87 +75,156 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView>
         label: Text(appLocalizations.add_photo_button_label),
         icon: const Icon(Icons.add_a_photo),
       ),
-      body: RefreshIndicator(
-        onRefresh: () async => ProductRefresher().fetchAndRefresh(
-          barcode: barcode,
-          context: context,
-        ),
-        child: ListView(
-          children: <Widget>[
-            LanguageSelector(
-              setLanguage: (final OpenFoodFactsLanguage? newLanguage) async {
-                if (newLanguage == null || newLanguage == _language) {
-                  return;
-                }
-                setState(() => _language = newLanguage);
-              },
-              displayedLanguage: _language,
-              selectedLanguages: null,
-              padding: const EdgeInsetsDirectional.symmetric(
-                horizontal: 13.0,
-                vertical: SMALL_SPACE,
+      body: Column(
+        children: <Widget>[
+          LanguageSelector(
+            setLanguage: (final OpenFoodFactsLanguage? newLanguage) async {
+              if (newLanguage == null || newLanguage == _language) {
+                return;
+              }
+              setState(() => _language = newLanguage);
+            },
+            displayedLanguage: _language,
+            selectedLanguages: null,
+            padding: const EdgeInsetsDirectional.symmetric(
+              horizontal: 13.0,
+              vertical: SMALL_SPACE,
+            ),
+          ),
+          Expanded(
+            child: RefreshIndicator(
+              onRefresh: () async => ProductRefresher().fetchAndRefresh(
+                barcode: barcode,
+                context: context,
+              ),
+              child: CustomScrollView(
+                slivers: <Widget>[
+                  SliverGrid(
+                    gridDelegate:
+                        SliverGridDelegateWithFixedCrossAxisCountAndFixedHeight(
+                      crossAxisCount: 2,
+                      height: _computeItemHeight(),
+                    ),
+                    delegate: SliverChildBuilderDelegate(
+                      (BuildContext context, int index) {
+                        return _PhotoRow(
+                          position: index,
+                          product: upToDateProduct,
+                          language: _language,
+                        );
+                      },
+                      childCount: 4,
+                    ),
+                  ),
+                  SliverPadding(
+                    padding: const EdgeInsetsDirectional.symmetric(
+                      vertical: MEDIUM_SPACE,
+                      horizontal: SMALL_SPACE,
+                    ),
+                    sliver: SliverToBoxAdapter(
+                      child: Text(
+                        appLocalizations.more_photos,
+                        style: Theme.of(context).textTheme.displayMedium,
+                      ),
+                    ),
+                  ),
+                  if (!_clickedOtherPictureButton)
+                    SliverToBoxAdapter(
+                      child: Padding(
+                        padding: const EdgeInsets.all(SMALL_SPACE),
+                        child: SmoothLargeButtonWithIcon(
+                          text: appLocalizations.view_more_photo_button,
+                          icon: Icons.photo_camera_rounded,
+                          onPressed: () => setState(
+                            () => _clickedOtherPictureButton = true,
+                          ),
+                        ),
+                      ),
+                    ),
+
+                  if (_clickedOtherPictureButton)
+                    ProductImageGalleryOtherView(product: upToDateProduct),
+                  // Extra space to be above the FAB
+                  SliverFillRemaining(
+                    hasScrollBody: false,
+                    child: SizedBox(
+                      height: (Theme.of(context)
+                                  .floatingActionButtonTheme
+                                  .extendedSizeConstraints
+                                  ?.maxHeight ??
+                              56.0) +
+                          16.0,
+                    ),
+                  ),
+                ],
               ),
             ),
-            _ImageRow(row: 1, product: upToDateProduct, language: _language),
-            _TextRow(row: 1, product: upToDateProduct, language: _language),
-            _ImageRow(row: 2, product: upToDateProduct, language: _language),
-            _TextRow(row: 2, product: upToDateProduct, language: _language),
-            if (!_clickedOtherPictureButton)
-              Padding(
-                padding: const EdgeInsets.all(SMALL_SPACE),
-                child: SmoothLargeButtonWithIcon(
-                  text: appLocalizations.view_more_photo_button,
-                  icon: Icons.photo_camera_rounded,
-                  onPressed: () => setState(
-                    () => _clickedOtherPictureButton = true,
+          ),
+        ],
+      ),
+    );
+  }
+
+  double _computeItemHeight() {
+    final TextStyle? textStyle = Theme.of(context).textTheme.headlineMedium;
+
+    return (MediaQuery.sizeOf(context).width / 2) +
+        SMALL_SPACE +
+        ((textStyle?.fontSize ?? 15.0) * 2) * (textStyle?.height ?? 2.0);
+  }
+}
+
+class _PhotoRow extends StatelessWidget {
+  const _PhotoRow({
+    required this.position,
+    required this.product,
+    required this.language,
+  });
+
+  final int position;
+  final Product product;
+  final OpenFoodFactsLanguage language;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(
+        top: SMALL_SPACE,
+      ),
+      child: InkWell(
+        onTap: () => _openImage(
+          context: context,
+          initialImageIndex: position,
+        ),
+        child: Column(
+          children: <Widget>[
+            AspectRatio(
+              aspectRatio: 1.0,
+              child: SmoothImage(
+                rounded: false,
+                imageProvider: _getTransientFile(
+                  getImageField(position),
+                ).getImageProvider(),
+              ),
+            ),
+            Expanded(
+              child: Center(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    getImageField(position)
+                        .getProductImageTitle(AppLocalizations.of(context)),
+                    style: Theme.of(context).textTheme.headlineMedium,
+                    textAlign: TextAlign.center,
                   ),
                 ),
               ),
-            if (_clickedOtherPictureButton)
-              Padding(
-                padding: const EdgeInsets.all(SMALL_SPACE),
-                child: Text(
-                  appLocalizations.more_photos,
-                  style: _getTextStyle(context),
-                ),
-              ),
-            if (_clickedOtherPictureButton)
-              ProductImageGalleryOtherView(product: upToDateProduct),
-            const SizedBox(height: 2 * VERY_LARGE_SPACE),
+            ),
           ],
         ),
       ),
     );
   }
-}
-
-abstract class _GenericRow extends StatelessWidget {
-  const _GenericRow({
-    required this.row,
-    required this.product,
-    required this.language,
-  });
-
-  /// Displayed row, starting from 1.
-  final int row;
-  final Product product;
-  final OpenFoodFactsLanguage language;
-
-  @protected
-  int get index1 => (row - 1) * 2;
-
-  @protected
-  int get index2 => index1 + 1;
-
-  @protected
-  ImageField getImageField(final int index) =>
-      ImageFieldSmoothieExtension.orderedMain[index];
-
-  static const double _innerPadding = SMALL_SPACE;
-
-  @protected
-  double getSquareSize(final BuildContext context) =>
-      (MediaQuery.of(context).size.width - _innerPadding) / 2;
 
   Future<void> _openImage({
     required BuildContext context,
@@ -171,133 +241,16 @@ abstract class _GenericRow extends StatelessWidget {
           ),
         ),
       );
-}
 
-class _ImageRow extends _GenericRow {
-  const _ImageRow({
-    required super.row,
-    required super.product,
-    required super.language,
-  });
-
-  TransientFile _getTransientFile(final ImageField imageField) =>
+  TransientFile _getTransientFile(
+    final ImageField imageField,
+  ) =>
       TransientFile.fromProductImageData(
         getProductImageData(product, imageField, language),
         product.barcode!,
         language,
       );
 
-  @override
-  Widget build(BuildContext context) => Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          _Image(
-            squareSize: getSquareSize(context),
-            imageProvider:
-                _getTransientFile(getImageField(index1)).getImageProvider(),
-            onTap: () => _openImage(
-              context: context,
-              initialImageIndex: index1,
-            ),
-          ),
-          _Image(
-            squareSize: getSquareSize(context),
-            imageProvider:
-                _getTransientFile(getImageField(index2)).getImageProvider(),
-            onTap: () => _openImage(
-              context: context,
-              initialImageIndex: index2,
-            ),
-          ),
-        ],
-      );
+  ImageField getImageField(final int index) =>
+      ImageFieldSmoothieExtension.orderedMain[index];
 }
-
-class _TextRow extends _GenericRow {
-  const _TextRow({
-    required super.row,
-    required super.product,
-    required super.language,
-  });
-
-  @override
-  Widget build(BuildContext context) => Padding(
-        padding: const EdgeInsets.only(
-          top: SMALL_SPACE,
-          bottom: LARGE_SPACE,
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            _Text(
-              squareSize: getSquareSize(context),
-              imageField: getImageField(index1),
-              onTap: () => _openImage(
-                context: context,
-                initialImageIndex: index1,
-              ),
-            ),
-            _Text(
-              squareSize: getSquareSize(context),
-              imageField: getImageField(index2),
-              onTap: () => _openImage(
-                context: context,
-                initialImageIndex: index2,
-              ),
-            ),
-          ],
-        ),
-      );
-}
-
-class _Image extends StatelessWidget {
-  const _Image({
-    required this.squareSize,
-    required this.imageProvider,
-    required this.onTap,
-  });
-
-  final double squareSize;
-  final ImageProvider? imageProvider;
-  final VoidCallback onTap;
-
-  @override
-  Widget build(BuildContext context) => InkWell(
-        onTap: onTap,
-        child: SmoothImage(
-          width: squareSize,
-          height: squareSize,
-          imageProvider: imageProvider,
-        ),
-      );
-}
-
-class _Text extends StatelessWidget {
-  const _Text({
-    required this.squareSize,
-    required this.imageField,
-    required this.onTap,
-  });
-
-  final double squareSize;
-  final ImageField imageField;
-  final VoidCallback onTap;
-
-  @override
-  Widget build(BuildContext context) => InkWell(
-        onTap: onTap,
-        child: SizedBox(
-          width: squareSize,
-          child: Center(
-            child: Text(
-              imageField.getProductImageTitle(AppLocalizations.of(context)),
-              style: _getTextStyle(context),
-              textAlign: TextAlign.center,
-            ),
-          ),
-        ),
-      );
-}
-
-TextStyle? _getTextStyle(final BuildContext context) =>
-    Theme.of(context).textTheme.headlineMedium;
