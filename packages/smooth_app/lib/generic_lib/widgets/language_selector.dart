@@ -1,4 +1,3 @@
-import 'package:diacritic/diacritic.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -146,19 +145,19 @@ class LanguageSelector extends StatelessWidget {
             prefixIcon: const Icon(Icons.search),
             controller: languageSelectorController,
             onChanged: (String? query) {
-              query = removeDiacritics(query!.trim().toLowerCase());
+              query = query!.trim().getComparisonSafeString();
 
               setState(
                 () {
                   filteredList = leftovers
                       .where((OpenFoodFactsLanguage item) =>
-                          removeDiacritics(_languages
-                                  .getNameInEnglish(item)
-                                  .toLowerCase())
+                          _languages
+                              .getNameInEnglish(item)
+                              .getComparisonSafeString()
                               .contains(query!.toLowerCase()) ||
-                          removeDiacritics(_languages
-                                  .getNameInLanguage(item)
-                                  .toLowerCase())
+                          _languages
+                              .getNameInLanguage(item)
+                              .getComparisonSafeString()
                               .contains(query.toLowerCase()) ||
                           item.code.contains(query))
                       .toList();
