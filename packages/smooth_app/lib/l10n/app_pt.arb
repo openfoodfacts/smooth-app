@@ -24,6 +24,10 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
+    "previous_label": "Anterior",
+    "@previous_label": {
+        "description": "A label on a button that says 'Previous', pressing the button takes the user to the previous screen."
+    },
     "go_back_to_top": "Voltar ao início",
     "save": "Guardar",
     "save_confirmation": "Você tem certeza de que deseja salvar?",
@@ -541,6 +545,10 @@
     "@new_product_dialog_title": {
         "description": "Please keep it short, like 50 characters. Title of the dialog when the user searched for an unknown barcode."
     },
+    "new_product_leave_title": "Deixe esta pagina?",
+    "@new_product_leave_title": {
+        "description": "Alert dialog title when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
+    },
     "new_product_leave_message": "Parece que você não colocou algo. Quer realmente sair desta página?",
     "@new_product_leave_message": {
         "description": "Alert dialog message when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
@@ -714,6 +722,8 @@
     "nutrition_page_update_done": "Produto atualizado!",
     "more_photos": "Mais fotos interessantes",
     "@more_photos": {},
+    "view_more_photo_button": "Veja todas as fotos existentes para este produto",
+    "@view_more_photo_button": {},
     "no_product_found": "Nenhum produto encontrado",
     "@no_product_found": {},
     "not_found": "não encontrado:",
@@ -1675,7 +1685,7 @@
             }
         }
     },
-    "product_search_loading_message": "Your search of {search} is in progress.\n\nPlease wait a few seconds…",
+    "product_search_loading_message": "Sua pesquisa de {search} está em andamento.\n\nPor favor, aguarde alguns segundos…",
     "@product_search_loading_message": {
         "description": "This message will be displayed when a search is in progress.",
         "search": {
@@ -1889,6 +1899,18 @@
     "add_packaging_photo_button_label": "Tire fotos de qualquer informação de embalagem/reciclagem",
     "@add_packaging_photo_button_label": {
         "description": "Label for the add PACKAGING photo button"
+    },
+    "add_origin_photo_button_label": "Tirar fotos de quaisquer informações de origem",
+    "@add_origin_photo_button_label": {
+        "description": "Label for the add ORIGIN photo button"
+    },
+    "add_emb_photo_button_label": "Tirar fotos de qualquer informação de código de rastreabilidade",
+    "@add_emb_photo_button_label": {
+        "description": "Label for the add EMB photo button"
+    },
+    "add_label_photo_button_label": "Tirar fotos de quaisquer rótulos e informações de certificações",
+    "@add_label_photo_button_label": {
+        "description": "Label for the add LABELS photo button"
     },
     "choose_image_source_title": "Escolha a fonte da imagem",
     "@choose_image_source_title": {
@@ -2511,6 +2533,10 @@
     "hunger_games_loading_line2": "We're downloading the questions!",
     "hunger_games_error_label": "Argh! Something went wrong… and we couldn't load the questions.",
     "hunger_games_error_retry_button": "Let's retry!",
+    "reorder_attribute_action": "Reorder the attributes",
+    "@reorder_attribute_action": {
+        "description": "An action button or a page title about reordering the attributes (e.g. 'is vegan?', 'nutrition facts', ...)"
+    },
     "link_cant_be_opened": "Este link não pode ser aberto no seu dispositivo. Por favor, verifique se você tem um navegador instalado.",
     "@link_cant_be_opened": {
         "description": "An error may happen if the device doesn't have a browser installed."

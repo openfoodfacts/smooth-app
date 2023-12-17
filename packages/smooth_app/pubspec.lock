@@ -437,6 +437,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.1.4"
+  email_validator:
+    dependency: "direct main"
+    description:
+      name: email_validator
+      sha256: c9d7146491cfe85cce30d85e78aa5ef594eeafba1a2fbdd3af4c5b823465412d
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.1.16"
   fake_async:
     dependency: transitive
     description:
@@ -1084,10 +1092,10 @@ packages:
     dependency: "direct main"
     description:
       name: openfoodfacts
-      sha256: "4a3a331ad0abc3bbea189ced88a426a4a9955a59e28df5f773d0697bef06ccfc"
+      sha256: "47436d0d647700327b8df45d02658a5e6e8d89b328e0b3d95c3fc3c34d5aebb7"
       url: "https://pub.dev"
     source: hosted
-    version: "3.1.0"
+    version: "3.2.1"
   openfoodfacts_flutter_lints:
     dependency: "direct dev"
     description:
@@ -1491,6 +1499,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.99"
+  sliver_tools:
+    dependency: "direct main"
+    description:
+      name: sliver_tools
+      sha256: eae28220badfb9d0559207badcbbc9ad5331aac829a88cb0964d330d2a4636a6
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.2.12"
   source_gen:
     dependency: transitive
     description:

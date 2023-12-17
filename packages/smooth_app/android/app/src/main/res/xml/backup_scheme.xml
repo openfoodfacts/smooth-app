@@ -10,7 +10,7 @@
                 domain="sharedpref"
                 path="com.google.mlkit.internal.xml" />
         <include
-                domain="databases"
+                domain="database"
                 path="app_flutter/smoothie.db" />
         <exclude domain="root" />
         <include
