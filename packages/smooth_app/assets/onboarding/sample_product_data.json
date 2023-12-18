@@ -590,7 +590,6 @@
             "threatened_species" : {}
          },
          "agribalyse" : {
-            "agribalyse_food_code" : "25903",
             "agribalyse_proxy_food_code" : "25903",
             "co2_agriculture" : 0.10397607,
             "co2_consumption" : 0.011045523,
@@ -1497,7 +1496,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : ": <span>Butternut squash</span> 50%, <span>water</span>, <span>carrots</span> 10%, <span>sweet potato</span>, <span>leeks</span>, <span>potatoes</span>, <span>salt</span>"
+                     "html" : "en: <span>Butternut squash</span> 50%, <span>water</span>, <span>carrots</span> 10%, <span>sweet potato</span>, <span>leeks</span>, <span>potatoes</span>, <span>salt</span>"
                   }
                },
                {
