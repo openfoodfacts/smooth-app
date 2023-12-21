@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:flutter/painting.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -16,9 +14,6 @@ class BackgroundTaskTopBarcodes extends BackgroundTaskProgressing {
   BackgroundTaskTopBarcodes._({
     required super.processName,
     required super.uniqueId,
-    required super.languageCode,
-    required super.user,
-    required super.country,
     required super.stamp,
     required super.work,
     required super.pageSize,
@@ -81,9 +76,6 @@ class BackgroundTaskTopBarcodes extends BackgroundTaskProgressing {
       BackgroundTaskTopBarcodes._(
         processName: _operationType.processName,
         uniqueId: uniqueId,
-        languageCode: ProductQuery.getLanguage().offTag,
-        user: jsonEncode(ProductQuery.getUser().toJson()),
-        country: ProductQuery.getCountry().offTag,
         stamp: ';offlineBarcodes;$work',
         work: work,
         pageSize: pageSize,
@@ -100,7 +92,7 @@ class BackgroundTaskTopBarcodes extends BackgroundTaskProgressing {
   @override
   Future<void> execute(final LocalDatabase localDatabase) async {
     final SearchResult searchResult = await OpenFoodAPIClient.searchProducts(
-      ProductQuery.getUser(),
+      getUser(),
       ProductSearchQueryConfiguration(
         fields: <ProductField>[ProductField.BARCODE],
         parametersList: <Parameter>[

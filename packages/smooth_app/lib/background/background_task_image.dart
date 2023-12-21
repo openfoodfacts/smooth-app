@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
 import 'dart:ui' as ui;
@@ -16,17 +15,14 @@ import 'package:smooth_app/background/operation_type.dart';
 import 'package:smooth_app/data_models/up_to_date_changes.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/helpers/image_compute_container.dart';
-import 'package:smooth_app/query/product_query.dart';
 
 /// Background task about product image upload.
 class BackgroundTaskImage extends BackgroundTaskUpload {
-  const BackgroundTaskImage._({
+  BackgroundTaskImage._({
     required super.processName,
     required super.uniqueId,
     required super.barcode,
-    required super.languageCode,
-    required super.user,
-    required super.country,
+    required super.language,
     required super.stamp,
     required super.imageField,
     required super.croppedPath,
@@ -131,9 +127,7 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
         cropY1: cropY1,
         cropX2: cropX2,
         cropY2: cropY2,
-        languageCode: language.code,
-        user: jsonEncode(ProductQuery.getUser().toJson()),
-        country: ProductQuery.getCountry().offTag,
+        language: language,
         stamp: BackgroundTaskUpload.getStamp(
           barcode,
           imageField.offTag,

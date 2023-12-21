@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:flutter/painting.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -16,9 +14,6 @@ class BackgroundTaskDownloadProducts extends BackgroundTaskProgressing {
   BackgroundTaskDownloadProducts._({
     required super.processName,
     required super.uniqueId,
-    required super.languageCode,
-    required super.user,
-    required super.country,
     required super.stamp,
     required super.work,
     required super.pageSize,
@@ -86,9 +81,6 @@ class BackgroundTaskDownloadProducts extends BackgroundTaskProgressing {
       BackgroundTaskDownloadProducts._(
         processName: _operationType.processName,
         uniqueId: uniqueId,
-        languageCode: ProductQuery.getLanguage().offTag,
-        user: jsonEncode(ProductQuery.getUser().toJson()),
-        country: ProductQuery.getCountry().offTag,
         stamp: ';offlineProducts;$work',
         work: work,
         pageSize: pageSize,
@@ -121,7 +113,7 @@ class BackgroundTaskDownloadProducts extends BackgroundTaskProgressing {
       fields.remove(ProductField.KNOWLEDGE_PANELS);
     }
     final SearchResult searchResult = await OpenFoodAPIClient.searchProducts(
-      ProductQuery.getUser(),
+      getUser(),
       ProductSearchQueryConfiguration(
         fields: fields,
         parametersList: <Parameter>[
