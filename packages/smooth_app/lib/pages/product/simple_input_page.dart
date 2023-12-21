@@ -91,7 +91,7 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
 
     return WillPopScope2(
       onWillPop: () async => (await _mayExitPage(saving: false), null),
-      child: UnfocusWhenTapOutside(
+      child: UnfocusFieldWhenTapOutside(
         child: SmoothScaffold(
           fixKeyboard: true,
           appBar: buildEditProductAppBar(
