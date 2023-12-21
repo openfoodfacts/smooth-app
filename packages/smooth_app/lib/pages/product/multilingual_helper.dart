@@ -103,7 +103,7 @@ class MultilingualHelper {
     }
 
     // Fallback: we may have old data where there are no translations.
-    controller.text = _initialMonolingualText!;
+    controller.text = _initialMonolingualText;
   }
 
   // TODO(monsieurtanuki): we would be better off always never monolingual

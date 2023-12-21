@@ -5,6 +5,7 @@ import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/pages/carousel_manager.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/widgets/tab_navigator.dart';
+import 'package:smooth_app/widgets/will_pop_scope.dart';
 
 enum BottomNavigationTab {
   Profile,
@@ -103,18 +104,18 @@ class PageManagerState extends State<PageManager> {
         ),
       ],
     );
-    return WillPopScope(
+    return WillPopScope2(
       onWillPop: () async {
         final bool isFirstRouteInCurrentTab =
             !await _navigatorKeys[_currentPage]!.currentState!.maybePop();
         if (isFirstRouteInCurrentTab) {
           if (_currentPage != BottomNavigationTab.Scan) {
             _selectTab(BottomNavigationTab.Scan, 1);
-            return false;
+            return (false, null);
           }
         }
         // let system handle back button if we're on the first route
-        return isFirstRouteInCurrentTab;
+        return (isFirstRouteInCurrentTab, null);
       },
       child: Scaffold(
         body: Stack(children: tabs),
