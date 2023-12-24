@@ -53,6 +53,7 @@ class _CountrySelectorState extends State<CountrySelector> {
     } on MissingPluginException catch (_) {
       // Locales are not implemented on desktop and web
       localizedCountries = <Country>[
+        const Country(name: 'United States', countryCode: 'US'),
         const Country(name: 'Afghanistan', countryCode: 'AF'),
         const Country(name: 'Albania', countryCode: 'AL'),
         const Country(name: 'Algeria', countryCode: 'DZ'),
