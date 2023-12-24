@@ -239,7 +239,7 @@ class _CountrySelectorState extends State<CountrySelector> {
         const Country(name: 'Ukraine', countryCode: 'UA'),
         const Country(name: 'United Arab Emirates', countryCode: 'AE'),
         const Country(name: 'United Kingdom', countryCode: 'GB'),
-        const Country(name: 'United States of America', countryCode: 'US'),
+        const Country(name: 'United States', countryCode: 'US'),
         const Country(name: 'Uruguay', countryCode: 'UY'),
         const Country(name: 'Uzbekistan', countryCode: 'UZ'),
         const Country(name: 'Vanuatu', countryCode: 'VU'),
