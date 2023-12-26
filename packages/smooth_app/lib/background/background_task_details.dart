@@ -5,6 +5,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_barcode.dart';
+import 'package:smooth_app/background/background_task_product_change.dart';
 import 'package:smooth_app/background/operation_type.dart';
 import 'package:smooth_app/database/local_database.dart';
 
@@ -31,7 +32,8 @@ enum BackgroundTaskDetailsStamp {
 }
 
 /// Background task that changes product details (data, but no image upload).
-class BackgroundTaskDetails extends BackgroundTaskBarcode {
+class BackgroundTaskDetails extends BackgroundTaskBarcode
+    implements BackgroundTaskProductChange {
   BackgroundTaskDetails._({
     required super.processName,
     required super.uniqueId,
@@ -60,7 +62,7 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode {
 
   @override
   Future<void> preExecute(final LocalDatabase localDatabase) async =>
-      localDatabase.upToDate.addChange(uniqueId, _getProduct());
+      localDatabase.upToDate.addChange(uniqueId, getProductChange());
 
   /// Adds the background task about changing a product.
   static Future<void> addTask(
@@ -114,7 +116,8 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode {
   static String getStamp(final String barcode, final String stamp) =>
       '$barcode;detail;$stamp';
 
-  Product _getProduct() {
+  @override
+  Product getProductChange() {
     final Product result =
         Product.fromJson(json.decode(inputMap) as Map<String, dynamic>);
     // for good multilingual management
@@ -127,7 +130,7 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode {
   /// Uploads the product changes.
   @override
   Future<void> upload() async {
-    final Product product = _getProduct();
+    final Product product = getProductChange();
     if (product.packagings != null || product.packagingsComplete != null) {
       // For the moment, some fields can only be saved in V3,
       // and V3 can only save those fields.

@@ -128,7 +128,9 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView>
                       ),
                     ),
                   ),
-                  if (!_clickedOtherPictureButton)
+                  if (_shouldDisplayRawGallery())
+                    ProductImageGalleryOtherView(product: upToDateProduct)
+                  else
                     SliverToBoxAdapter(
                       child: Padding(
                         padding: const EdgeInsets.all(SMALL_SPACE),
@@ -141,9 +143,6 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView>
                         ),
                       ),
                     ),
-
-                  if (_clickedOtherPictureButton)
-                    ProductImageGalleryOtherView(product: upToDateProduct),
                   // Extra space to be above the FAB
                   SliverFillRemaining(
                     hasScrollBody: false,
@@ -172,6 +171,10 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView>
         SMALL_SPACE +
         ((textStyle?.fontSize ?? 15.0) * 2) * (textStyle?.height ?? 2.0);
   }
+
+  bool _shouldDisplayRawGallery() =>
+      _clickedOtherPictureButton ||
+      (upToDateProduct.getRawImages()?.isNotEmpty == true);
 }
 
 class _PhotoRow extends StatelessWidget {

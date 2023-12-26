@@ -367,11 +367,10 @@ class _ProductImageViewerState extends State<ProductImageViewer>
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final File? imageFile = await downloadImageUrl(
       context,
-      ImageHelper.getUploadedImageUrl(
-        barcode,
-        imageId,
-        ImageSize.ORIGINAL,
-      ),
+      ProductImage.raw(
+        imgid: imageId.toString(),
+        size: ImageSize.ORIGINAL,
+      ).getUrl(barcode),
       DaoInt(localDatabase),
     );
     if (imageFile == null) {
