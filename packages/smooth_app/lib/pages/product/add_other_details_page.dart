@@ -24,7 +24,7 @@ class AddOtherDetailsPage extends StatefulWidget {
 }
 
 class _AddOtherDetailsPageState extends State<AddOtherDetailsPage> {
-  late final TextEditingControllerWithInitialValue _websiteController;
+  late final TextEditingControllerWithHistory _websiteController;
 
   final double _heightSpace = LARGE_SPACE;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -35,7 +35,7 @@ class _AddOtherDetailsPageState extends State<AddOtherDetailsPage> {
     super.initState();
     _product = widget.product;
     _websiteController =
-        TextEditingControllerWithInitialValue(text: _product.website ?? '');
+        TextEditingControllerWithHistory(text: _product.website ?? '');
   }
 
   @override
@@ -99,7 +99,7 @@ class _AddOtherDetailsPageState extends State<AddOtherDetailsPage> {
   }
 
   /// Returns `true` if any value differs with initial state.
-  bool _isEdited() => _websiteController.valueHasChanged;
+  bool _isEdited() => _websiteController.isDifferentFromInitialValue;
 
   /// Exits the page if the [flag] is `true`.
   void _exitPage(final bool flag) {

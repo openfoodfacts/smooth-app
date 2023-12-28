@@ -36,8 +36,8 @@ class AddBasicDetailsPage extends StatefulWidget {
 
 class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
   final TextEditingController _productNameController = TextEditingController();
-  late final TextEditingControllerWithInitialValue _brandNameController;
-  late final TextEditingControllerWithInitialValue _weightController;
+  late final TextEditingControllerWithHistory _brandNameController;
+  late final TextEditingControllerWithHistory _weightController;
 
   final double _heightSpace = LARGE_SPACE;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -51,10 +51,10 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
   void initState() {
     super.initState();
     _product = widget.product;
-    _weightController = TextEditingControllerWithInitialValue(
+    _weightController = TextEditingControllerWithHistory(
       text: MultilingualHelper.getCleanText(_product.quantity ?? ''),
     );
-    _brandNameController = TextEditingControllerWithInitialValue(
+    _brandNameController = TextEditingControllerWithHistory(
       text: _formatProductBrands(_product.brands),
     );
     _multilingualHelper = MultilingualHelper(
@@ -253,11 +253,11 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
 
     Product getBasicProduct() => Product(barcode: _product.barcode);
 
-    if (_weightController.valueHasChanged) {
+    if (_weightController.isDifferentFromInitialValue) {
       result ??= getBasicProduct();
       result.quantity = _weightController.text;
     }
-    if (_brandNameController.valueHasChanged) {
+    if (_brandNameController.isDifferentFromInitialValue) {
       result ??= getBasicProduct();
       result.brands = _formatProductBrands(_brandNameController.text);
     }
