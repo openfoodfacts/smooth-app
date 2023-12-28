@@ -1,12 +1,8 @@
-import 'dart:convert';
-
 import 'package:flutter/painting.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/background/background_task_barcode.dart';
 import 'package:smooth_app/background/operation_type.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/query/product_query.dart';
 
 /// Background task that triggers a product refresh "a bit later".
 ///
@@ -14,13 +10,10 @@ import 'package:smooth_app/query/product_query.dart';
 /// before Robotoff provides new questions: we should then refresh the product.
 /// cf. https://github.com/openfoodfacts/smooth-app/issues/3380
 class BackgroundTaskRefreshLater extends BackgroundTaskBarcode {
-  const BackgroundTaskRefreshLater._({
+  BackgroundTaskRefreshLater._({
     required super.processName,
     required super.uniqueId,
     required super.barcode,
-    required super.languageCode,
-    required super.user,
-    required super.country,
     required super.stamp,
     required this.timestamp,
   });
@@ -79,9 +72,6 @@ class BackgroundTaskRefreshLater extends BackgroundTaskBarcode {
         uniqueId: uniqueId,
         processName: _operationType.processName,
         barcode: barcode,
-        languageCode: ProductQuery.getLanguage().code,
-        user: jsonEncode(ProductQuery.getUser().toJson()),
-        country: ProductQuery.getCountry().offTag,
         timestamp: LocalDatabase.nowInMillis(),
         stamp: _getStamp(barcode),
       );
