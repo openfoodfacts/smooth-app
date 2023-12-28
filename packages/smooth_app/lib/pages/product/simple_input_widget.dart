@@ -14,11 +14,13 @@ class SimpleInputWidget extends StatefulWidget {
     required this.helper,
     required this.product,
     required this.controller,
+    required this.displayTitle,
   });
 
   final AbstractSimpleInputPageHelper helper;
   final Product product;
   final TextEditingController controller;
+  final bool displayTitle;
 
   @override
   State<SimpleInputWidget> createState() => _SimpleInputWidgetState();
@@ -64,15 +66,16 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        ListTile(
-          leading: widget.helper.getIcon(),
-          minLeadingWidth: 0.0,
-          horizontalTitleGap: 12.0,
-          title: Text(
-            widget.helper.getTitle(appLocalizations),
-            style: themeData.textTheme.displaySmall,
+        if (widget.displayTitle)
+          ListTile(
+            leading: widget.helper.getIcon(),
+            minLeadingWidth: 0.0,
+            horizontalTitleGap: 12.0,
+            title: Text(
+              widget.helper.getTitle(appLocalizations),
+              style: themeData.textTheme.displaySmall,
+            ),
           ),
-        ),
         if (explanations != null) ExplanationWidget(explanations),
         LayoutBuilder(
           builder: (_, BoxConstraints constraints) {
