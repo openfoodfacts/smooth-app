@@ -59,8 +59,9 @@ class _CountrySelectorState extends State<CountrySelector> {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    return Selector<UserPreferences , String?>(
-      selector: (BuildContext buildContext , UserPreferences userPreferences) =>userPreferences.appLanguageCode,
+    return Selector<UserPreferences, String?>(
+      selector: (BuildContext buildContext, UserPreferences userPreferences) =>
+          userPreferences.appLanguageCode,
       builder: (BuildContext context, String? appLanguageCode, _) {
         _countryNamesFuture = _loadLocalizedCountryNames(appLanguageCode!);
         return FutureBuilder<void>(
