@@ -231,23 +231,6 @@ class _ProductPageState extends State<ProductPage>
           if (upToDateProduct.website != null &&
               upToDateProduct.website!.trim().isNotEmpty)
             WebsiteCard(upToDateProduct.website!),
-          if (userPreferences.getFlag(
-                  UserPreferencesDevMode.userPreferencesFlagUserOrderedKP) ??
-              false)
-            Padding(
-              padding: const EdgeInsets.all(SMALL_SPACE),
-              child: SmoothLargeButtonWithIcon(
-                text: appLocalizations.reorder_attribute_action,
-                icon: Icons.sort,
-                onPressed: () async => Navigator.push(
-                  context,
-                  MaterialPageRoute<void>(
-                    builder: (_) =>
-                        ReorderableKnowledgePanelPage(upToDateProduct),
-                  ),
-                ),
-              ),
-            ),
           if (questionsLayout == ProductQuestionsLayout.banner)
             // assuming it's tall enough in order to go above the banner
             const SizedBox(height: 4 * VERY_LARGE_SPACE),
