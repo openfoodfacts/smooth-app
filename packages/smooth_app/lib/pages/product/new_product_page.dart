@@ -28,6 +28,7 @@ import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/edit_product_page.dart';
 import 'package:smooth_app/pages/product/product_questions_widget.dart';
 import 'package:smooth_app/pages/product/reorderable_knowledge_panel_page.dart';
+import 'package:smooth_app/pages/product/reordered_knowledge_panel_cards.dart';
 import 'package:smooth_app/pages/product/standard_knowledge_panel_cards.dart';
 import 'package:smooth_app/pages/product/summary_card.dart';
 import 'package:smooth_app/pages/product/website_card.dart';
