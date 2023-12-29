@@ -14,7 +14,6 @@ import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/up_to_date_mixin.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
@@ -27,7 +26,6 @@ import 'package:smooth_app/pages/product/common/product_list_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/edit_product_page.dart';
 import 'package:smooth_app/pages/product/product_questions_widget.dart';
-import 'package:smooth_app/pages/product/reorderable_knowledge_panel_page.dart';
 import 'package:smooth_app/pages/product/reordered_knowledge_panel_cards.dart';
 import 'package:smooth_app/pages/product/standard_knowledge_panel_cards.dart';
 import 'package:smooth_app/pages/product/summary_card.dart';
@@ -232,30 +230,12 @@ class _ProductPageState extends State<ProductPage>
           if (userPreferences.getFlag(
                   UserPreferencesDevMode.userPreferencesFlagUserOrderedKP) ??
               false)
-            ReorderedKnowledgePanelCards(upToDateProduct)
-          else
-            StandardKnowledgePanelCards(upToDateProduct),
+            ReorderedKnowledgePanelCards(upToDateProduct),
+          StandardKnowledgePanelCards(upToDateProduct),
           // TODO(monsieurtanuki): include website in reordered knowledge panels
           if (upToDateProduct.website != null &&
               upToDateProduct.website!.trim().isNotEmpty)
             WebsiteCard(upToDateProduct.website!),
-          if (userPreferences.getFlag(
-                  UserPreferencesDevMode.userPreferencesFlagUserOrderedKP) ??
-              false)
-            Padding(
-              padding: const EdgeInsets.all(SMALL_SPACE),
-              child: SmoothLargeButtonWithIcon(
-                text: appLocalizations.reorder_attribute_action,
-                icon: Icons.sort,
-                onPressed: () async => Navigator.push(
-                  context,
-                  MaterialPageRoute<void>(
-                    builder: (_) =>
-                        ReorderableKnowledgePanelPage(upToDateProduct),
-                  ),
-                ),
-              ),
-            ),
         ],
       ),
     );
