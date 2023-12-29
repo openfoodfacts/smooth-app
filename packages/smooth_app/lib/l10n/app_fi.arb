@@ -145,6 +145,7 @@
     "@ecoCardUtility": {
         "description": "Description of what a user can use the Eco data in a product for."
     },
+    "server_error_open_new_issue": "Ei vastausta palvelimelta! Voit luoda ongelmailmoituksen seuraavan linkin avulla.",
     "@user_management": {},
     "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
     "incorrect_credentials": "Virheellinen käyttäjätunnus tai salasana.",
@@ -545,7 +546,7 @@
     "@new_product_dialog_title": {
         "description": "Please keep it short, like 50 characters. Title of the dialog when the user searched for an unknown barcode."
     },
-    "new_product_leave_title": "Leave this page?",
+    "new_product_leave_title": "Poistu tältä sivulta?",
     "@new_product_leave_title": {
         "description": "Alert dialog title when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
     },
@@ -722,7 +723,7 @@
     "nutrition_page_update_done": "Tuote päivitetty!",
     "more_photos": "Lisää kuvia",
     "@more_photos": {},
-    "view_more_photo_button": "View all existing photos for this product",
+    "view_more_photo_button": "Näytä kaikki tämän tuotteen olemassa olevat kuvat",
     "@view_more_photo_button": {},
     "no_product_found": "Tuotetta ei löytynyt",
     "@no_product_found": {},
@@ -2533,7 +2534,7 @@
     "hunger_games_loading_line2": "We're downloading the questions!",
     "hunger_games_error_label": "Argh! Something went wrong… and we couldn't load the questions.",
     "hunger_games_error_retry_button": "Let's retry!",
-    "reorder_attribute_action": "Reorder the attributes",
+    "reorder_attribute_action": "Uudelleenjärjestä attribuutit",
     "@reorder_attribute_action": {
         "description": "An action button or a page title about reordering the attributes (e.g. 'is vegan?', 'nutrition facts', ...)"
     },

@@ -2,12 +2,9 @@ import 'package:smooth_app/background/background_task_paged.dart';
 
 /// Abstract background task with work in progress actions.
 abstract class BackgroundTaskProgressing extends BackgroundTaskPaged {
-  const BackgroundTaskProgressing({
+  BackgroundTaskProgressing({
     required super.processName,
     required super.uniqueId,
-    required super.languageCode,
-    required super.user,
-    required super.country,
     required super.stamp,
     required super.pageSize,
     required this.work,

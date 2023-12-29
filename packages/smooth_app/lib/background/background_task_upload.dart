@@ -9,13 +9,11 @@ import 'package:smooth_app/database/transient_file.dart';
 
 /// Abstract background task about generic file upload.
 abstract class BackgroundTaskUpload extends BackgroundTaskBarcode {
-  const BackgroundTaskUpload({
+  BackgroundTaskUpload({
     required super.processName,
     required super.uniqueId,
     required super.barcode,
-    required super.languageCode,
-    required super.user,
-    required super.country,
+    required super.language,
     required super.stamp,
     required this.imageField,
     required this.croppedPath,

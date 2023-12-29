@@ -12,7 +12,17 @@ import 'package:smooth_app/widgets/smooth_floating_message.dart';
 
 /// Abstract background task.
 abstract class BackgroundTask {
-  const BackgroundTask({
+  BackgroundTask({
+    required this.processName,
+    required this.uniqueId,
+    required this.stamp,
+    final OpenFoodFactsLanguage? language,
+  })   // TODO(monsieurtanuki): don't store the password in a clear format...
+  : user = jsonEncode(ProductQuery.getUser().toJson()),
+        country = ProductQuery.getCountry().offTag,
+        languageCode = (language ?? ProductQuery.getLanguage()).offTag;
+
+  BackgroundTask._({
     required this.processName,
     required this.uniqueId,
     required this.languageCode,
@@ -22,7 +32,7 @@ abstract class BackgroundTask {
   });
 
   BackgroundTask.fromJson(Map<String, dynamic> json)
-      : this(
+      : this._(
           processName: json[_jsonTagProcessName] as String,
           uniqueId: json[_jsonTagUniqueId] as String,
           languageCode: json[_jsonTagLanguageCode] as String,
@@ -146,7 +156,16 @@ abstract class BackgroundTask {
       OpenFoodFactsCountry.fromOffTag(country);
 
   @protected
-  User getUser() => User.fromJson(jsonDecode(user) as Map<String, dynamic>);
+  User getUser() {
+    final User storedUser =
+        User.fromJson(jsonDecode(user) as Map<String, dynamic>);
+    final User currentUser = ProductQuery.getUser();
+    if (storedUser.userId == currentUser.userId) {
+      // with a latest password.
+      return currentUser;
+    }
+    return storedUser;
+  }
 
   /// Checks that everything is fine and fix things if needed + if possible.
   ///
@@ -162,5 +181,7 @@ abstract class BackgroundTask {
   /// subtasks that call the next one at the end.
   bool get hasImmediateNextTask => false;
 
+// TODO(monsieurtanuki): store the uriProductHelper as well
+  @protected
   UriProductHelper get uriProductHelper => ProductQuery.uriProductHelper;
 }

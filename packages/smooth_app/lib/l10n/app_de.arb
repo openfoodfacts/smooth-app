@@ -145,6 +145,7 @@
     "@ecoCardUtility": {
         "description": "Description of what a user can use the Eco data in a product for."
     },
+    "server_error_open_new_issue": "Keine Serverantwort! Sie können ein Problem unter dem folgenden Link melden.",
     "@user_management": {},
     "sign_in_text": "Melden Sie sich bei Ihrem Open Food Facts-Konto an, um Ihre Beiträge speichern zu können",
     "incorrect_credentials": "Ungültiger Benutzername oder Passwort.",
