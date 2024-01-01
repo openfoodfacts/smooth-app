@@ -34,8 +34,8 @@ class NutritionAddNutrientButton extends StatelessWidget {
             a.name!.compareTo(b.name!));
         List<OrderedNutrient> filteredList =
             List<OrderedNutrient>.from(leftovers);
-        final TextEditingControllerWithInitialValue nutritionTextController =
-            TextEditingControllerWithInitialValue();
+        final TextEditingControllerWithHistory nutritionTextController =
+            TextEditingControllerWithHistory();
         final ScrollController controller = ScrollController();
 
         final OrderedNutrient? selected = await showDialog<OrderedNutrient>(

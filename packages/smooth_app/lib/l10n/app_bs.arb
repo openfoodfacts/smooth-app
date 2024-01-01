@@ -32,7 +32,7 @@
     "save": "Save",
     "save_confirmation": "Jeste li sigurni da želite sačuvati?",
     "skip": "Preskočite",
-    "cancel": "Cancel",
+    "cancel": "Otkaži",
     "@cancel": {},
     "ignore": "Zanemari",
     "@ignore": {
@@ -277,7 +277,7 @@
     "sign_up_page_provide_valid_email": "Please provide a valid email address.",
     "sign_up_page_server_busy": "We are deeply sorry, we have some technical difficulties to create your account. Please try again later.",
     "@Settings": {},
-    "settingsTitle": "Settings",
+    "settingsTitle": "Postavke",
     "@settingsTitle": {
         "description": "The title of the Settings page"
     },
@@ -485,7 +485,7 @@
     "@scan_history": {
         "description": "Page title: List type: Products in the whole scan history"
     },
-    "search": "Search",
+    "search": "Pretraži",
     "@search": {
         "description": "Hint text of a search text input field"
     },
@@ -1201,7 +1201,7 @@
     "permission_photo_denied_dialog_settings_title": "Permission denied",
     "permission_photo_denied_dialog_settings_message": "As you've previously denied the camera permission, you must allow it manually from the Settings.",
     "permission_photo_denied_dialog_settings_button_open": "Open settings",
-    "permission_photo_denied_dialog_settings_button_cancel": "Cancel",
+    "permission_photo_denied_dialog_settings_button_cancel": "Otkaži",
     "permission_photo_none_found": "No camera detected",
     "@permission_photo_none_found": {
         "description": "Message for the user when no camera was detected, replacing the barcode scanner"
@@ -1223,7 +1223,7 @@
             }
         }
     },
-    "edit_product_form_item_barcode": "Barcode",
+    "edit_product_form_item_barcode": "Barkod",
     "@edit_product_form_item_barcode": {
         "description": "Product edition - Barcode"
     },
@@ -1287,7 +1287,7 @@
     "@edit_product_form_item_origins_hint": {
         "description": "Product edition - Origins - input textfield hint"
     },
-    "edit_product_form_item_origins_type": "country",
+    "edit_product_form_item_origins_type": "zemlja",
     "@edit_product_form_item_origins_type": {
         "description": "Product edition - Origins - input textfield type"
     },
@@ -1307,7 +1307,7 @@
     "@edit_product_form_item_countries_hint": {
         "description": "Product edition - Countries - input textfield hint"
     },
-    "edit_product_form_item_countries_type": "country",
+    "edit_product_form_item_countries_type": "zemlja",
     "@edit_product_form_item_countries_type": {
         "description": "Product edition - Countries - input textfield type"
     },
@@ -1369,7 +1369,7 @@
     "@edit_product_form_item_packaging_title": {
         "description": "Product edition - Packaging - Title"
     },
-    "edit_product_form_item_nutrition_facts_title": "Nutrition facts",
+    "edit_product_form_item_nutrition_facts_title": "Nutritivne činjenice",
     "@edit_product_form_item_nutrition_facts_title": {
         "description": "Product edition - Nutrition facts - Title"
     },
@@ -1590,7 +1590,7 @@
     "@dev_preferences_button_positive": {
         "description": "User dev preferences - Positive button label"
     },
-    "dev_preferences_button_negative": "Cancel",
+    "dev_preferences_button_negative": "Otkaži",
     "@dev_preferences_button_negative": {
         "description": "User dev preferences - Negative button label"
     },
@@ -1801,7 +1801,7 @@
     "brand_name": "Brand name",
     "add_basic_details_brand_name_error": "Please enter the brand name",
     "quantity": "Quantity and weight",
-    "barcode": "Barcode",
+    "barcode": "Barkod",
     "barcode_barcode": "Barcode: {barcode}",
     "@barcode_barcode": {
         "description": "Displaying the raw barcode with label",

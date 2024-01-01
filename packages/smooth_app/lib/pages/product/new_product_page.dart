@@ -251,6 +251,9 @@ class _ProductPageState extends State<ProductPage>
                 ),
               ),
             ),
+          if (questionsLayout == ProductQuestionsLayout.banner)
+            // assuming it's tall enough in order to go above the banner
+            const SizedBox(height: 4 * VERY_LARGE_SPACE),
         ],
       ),
     );
