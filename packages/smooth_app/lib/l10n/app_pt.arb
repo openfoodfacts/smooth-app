@@ -145,7 +145,7 @@
     "@ecoCardUtility": {
         "description": "Description of what a user can use the Eco data in a product for."
     },
-    "server_error_open_new_issue": "No server response! You may open an issue with the following link.",
+    "server_error_open_new_issue": "Nenhuma resposta do servidor! Você pode abrir um problema com o link a seguir.",
     "@user_management": {},
     "sign_in_text": "Entre na sua conta Open Food Facts para salvar suas contribuições",
     "incorrect_credentials": "Nome do usuário ou senha incorretos.",
@@ -546,7 +546,7 @@
     "@new_product_dialog_title": {
         "description": "Please keep it short, like 50 characters. Title of the dialog when the user searched for an unknown barcode."
     },
-    "new_product_leave_title": "Deixe esta pagina?",
+    "new_product_leave_title": "Sair desta página?",
     "@new_product_leave_title": {
         "description": "Alert dialog title when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
     },
@@ -2534,7 +2534,7 @@
     "hunger_games_loading_line2": "We're downloading the questions!",
     "hunger_games_error_label": "Argh! Something went wrong… and we couldn't load the questions.",
     "hunger_games_error_retry_button": "Let's retry!",
-    "reorder_attribute_action": "Reorder the attributes",
+    "reorder_attribute_action": "Reordenar os atributos",
     "@reorder_attribute_action": {
         "description": "An action button or a page title about reordering the attributes (e.g. 'is vegan?', 'nutrition facts', ...)"
     },
