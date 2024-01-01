@@ -19,4 +19,8 @@ class GooglePlayStore extends AppStore {
     await _inAppReview.requestReview();
     return true;
   }
+
+  @override
+  String getEnrollInBetaURL() =>
+      'https://play.google.com/console/u/0/developers/4712693179220384697/app/4972942602078310258/tracks/internal-testing';
 }

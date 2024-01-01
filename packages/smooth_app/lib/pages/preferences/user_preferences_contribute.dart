@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:http/http.dart' as http;
@@ -10,6 +11,7 @@ import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/helpers/global_vars.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/pages/hunger_games/question_page.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
@@ -108,6 +110,20 @@ class UserPreferencesContribute extends AbstractUserPreferences {
               UserPreferencesListTile.getTintedIcon(Icons.open_in_new, context),
           externalLink: true,
         ),
+        if (GlobalVars.appStore.getEnrollInBetaURL() != null)
+          _getListTile(
+            appLocalizations.contribute_enroll_beta,
+            () async => LaunchUrlHelper.launchURL(
+              GlobalVars.appStore.getEnrollInBetaURL()!,
+              false,
+            ),
+            CupertinoIcons.lab_flask,
+            icon: UserPreferencesListTile.getTintedIcon(
+              Icons.open_in_new,
+              context,
+            ),
+            externalLink: true,
+          ),
         _getListTile(
           appLocalizations.contributors_label,
           () async => _contributors(),

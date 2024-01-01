@@ -353,6 +353,8 @@
     "contribute_develop_dev_mode_subtitle": "Activate the DEV Mode",
     "contribute_donate_header": "Donate to Open Food Facts",
     "@contribute_donate_header": {},
+    "contribute_enroll_beta": "Enroll in the beta",
+    "@contribute_enroll_beta": {},
     "contribute_improve_ProductsToBeCompleted": "Products to be completed",
     "@contribute_improve_ProductsToBeCompleted": {
         "description": "Button label: Shows a list of products which aren't completed"
