@@ -2226,7 +2226,7 @@
     "@edit_packagings_element_example_material": {
         "description": "Text field hint"
     },
-    "edit_packagings_element_field_recycling": "Instrução de reciclagem",
+    "edit_packagings_element_field_recycling": "Instruções de reciclagem",
     "@edit_packagings_element_field_recycling": {
         "description": "Field label"
     },
@@ -2250,14 +2250,14 @@
     "@edit_packagings_element_field_weight": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_weight": "Remova qualquer resto de comida, lave e seque a parte da embalagem antes de pesar. Se possível, use uma balança com precisão de 0,1g ou 0,01g.",
+    "edit_packagings_element_hint_weight": "Remova qualquer resto de comida, lave e seque a parte da embalagem antes de a pesar. Se possível, use uma balança com precisão de 0,1g ou 0,01g.",
     "@edit_packagings_element_hint_weight": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
     "background_task_title": "Contribuições pendentes",
     "background_task_subtitle": "As suas contribuições são guardadas automaticamente no nosso servidor, mas nem sempre em tempo real.",
     "background_task_list_empty": "Nenhuma tarefa em segundo plano pendente",
-    "background_task_error_server_time_out": "Server timeout",
+    "background_task_error_server_time_out": "Tempo limite do servidor",
     "background_task_error_no_internet": "Erro de ligação à Internet. Tente mais tarde.",
     "background_task_operation_unknown": "tipo de operação desconhecida",
     "background_task_operation_details": "alterações detalhadas",
@@ -2319,11 +2319,11 @@
     "@color_rust": {
         "description": "Color Rust"
     },
-    "color_teal": "Azul-petróleo",
+    "color_teal": "Verde-azulado",
     "@color_teal": {
         "description": "Color Teal"
     },
-    "text_contrast_mode": "Contraste do Texto",
+    "text_contrast_mode": "Contraste do texto",
     "@text_contrast_mode": {
         "description": "Text Contrast Color Mode"
     },
@@ -2343,11 +2343,11 @@
     "@product_refresher_internet_not_found": {
         "description": "When refreshing a product that does not exist on the server. Label is the body of a dialog."
     },
-    "product_refresher_internet_not_connected": "You are not connected to internet!",
+    "product_refresher_internet_not_connected": "Não está ligado à Internet!",
     "@product_refresher_internet_not_connected": {
         "description": "When refreshing a product and you're not even connected to internet. Label is the body of a dialog."
     },
-    "product_refresher_internet_no_ping": "Server down ({host})",
+    "product_refresher_internet_no_ping": "Servidor em baixo ({host})",
     "@product_refresher_internet_no_ping": {
         "description": "When refreshing a product and you cannot even ping the server. Label is the body of a dialog.",
         "placeholders": {
@@ -2356,7 +2356,7 @@
             }
         }
     },
-    "product_refresher_internet_error": "Server error ({exception})",
+    "product_refresher_internet_error": "Erro do servidor ({exception})",
     "@product_refresher_internet_error": {
         "description": "When refreshing a product and the server returned an exception. Label is the body of a dialog.",
         "placeholders": {
@@ -2382,7 +2382,7 @@
     "@product_loader_network_error_title": {
         "description": "When fetching a product opened via a link and there is no connection"
     },
-    "product_loader_network_error_message": "Verificar se o telemóvel está ligado a uma rede Wi-Fi ou se os dados móveis estão ativados",
+    "product_loader_network_error_message": "Verifique se o telemóvel está ligado a uma rede Wi-Fi ou se os dados móveis estão ativados",
     "@product_loader_network_error_message": {
         "description": "When fetching a product opened via a link and there is no connection"
     },
@@ -2398,11 +2398,11 @@
     "@download_data": {
         "description": "App bar title for the download data page"
     },
-    "download_top_products": "Descarregar os 1000 melhores produtos do seu país para verificação imediata",
+    "download_top_products": "Descarregar os 1000 produtos mais digitalizados do seu país para fazer digitalizações instantâneas",
     "@download_top_products": {
         "description": "Download the top 1000 products in your country for instant scanning"
     },
-    "download_top_n_products": "Descarregar os melhores {count,plural,  other{{count} produtos}} no seu país para consulta imediata",
+    "download_top_n_products": "Descarregar os {count,plural,  other{{count} produtos}} produtos mais digitalizados do seu país para fazer digitalizações instantâneas",
     "@download_top_n_products": {
         "placeholders": {
             "count": {
@@ -2410,7 +2410,7 @@
             }
         }
     },
-    "download_in_progress": "Descarregar dados\nEste processo poderá demorar algum tempo",
+    "download_in_progress": "A descarregar os dados\nIsto pode demorar algum tempo",
     "@download_in_progress": {
         "description": "Download in progress"
     },
@@ -2427,7 +2427,7 @@
     "@update_offline_data": {
         "description": "List tile title for the update offline data page"
     },
-    "update_local_database_sub": "Atualizar a base de dados de produtos locais com os dados mais recentes da Open Food Facts",
+    "update_local_database_sub": "Atualizar a base de dados local de produtos com os dados mais recentes do Open Food Facts",
     "@update_local_database_sub": {
         "description": "Update the local product database with the latest data from server"
     },
@@ -2435,11 +2435,11 @@
     "@clear_local_database": {
         "description": "List tile title for the clear local database page"
     },
-    "clear_local_database_sub": "Para libertar espaço da sua aplicação remover por completo os dados de um determinado produto",
+    "clear_local_database_sub": "Limpe todos os dados de produtos locais da sua aplicação para libertar espaço",
     "@clear_local_database_sub": {
         "description": "Clear all local product data from your app to free up space"
     },
-    "deleted_products": "{num} produtos excluídos",
+    "deleted_products": "{num} produtos eliminados",
     "@deleted_products": {
         "description": "text to show when products are deleted from local databse",
         "placeholders": {
@@ -2452,11 +2452,11 @@
     "@loading": {
         "description": "Loading…"
     },
-    "know_more": "Saiba Mais",
+    "know_more": "Mais informação",
     "@know_more": {
         "description": "Know More"
     },
-    "offline_data_desc": "Clique para saber mais sobre dados offline",
+    "offline_data_desc": "Clique para saber mais sobre os dados offline",
     "@offline_data_desc": {
         "description": "Click to know more about offline data"
     },
@@ -2464,7 +2464,7 @@
     "@offline_product_data_title": {
         "description": "Offline Product Data"
     },
-    "available_for_download": "{num} produtos disponíveis para verificação imediata",
+    "available_for_download": "{num} produtos disponíveis para digitalização instantânea",
     "@available_for_download": {
         "description": "text to show details of products available for download",
         "placeholders": {
@@ -2485,7 +2485,7 @@
     "@action_delete_list": {
         "description": "Delete a list action in a menu"
     },
-    "action_change_list": "Change the current list",
+    "action_change_list": "Alterar a lista atual",
     "@action_change_list": {
         "description": "Action to change the current visible list"
     },
@@ -2503,7 +2503,7 @@
     "nutriscore_c": "Nutri-Score C",
     "nutriscore_d": "Nutri-Score D",
     "nutriscore_e": "Nutri-Score E",
-    "nutriscore_unknown": "Nutri-Score Desconhecido",
+    "nutriscore_unknown": "Nutri-Score desconhecido",
     "nutriscore_not_applicable": "Nutri-Score não aplicável",
     "ecoscore_generic": "Eco-Score",
     "ecoscore_a": "Eco-Score A",
@@ -2511,34 +2511,34 @@
     "ecoscore_c": "Eco-Score C",
     "ecoscore_d": "Eco-Score D",
     "ecoscore_e": "Eco-Score E",
-    "ecoscore_unknown": "Eco-Score Desconhecida",
+    "ecoscore_unknown": "Eco-Score desconhecido",
     "ecoscore_not_applicable": "Eco-Score não é aplicável",
-    "nova_group_generic": "Ultra-processing - NOVA groups",
+    "nova_group_generic": "Ultra-processamento - grupos NOVA",
     "nova_group_1": "NOVA Grupo 1",
     "nova_group_2": "NOVA Grupo 2",
     "nova_group_3": "NOVA Grupo 3",
     "nova_group_4": "NOVA Grupo 4",
     "nova_group_unknown": "NOVA Grupo desconhecido",
-    "nutrition_facts": "Nutrient Levels",
-    "faq_title_partners": "Partners & Patrons of the NGO",
-    "faq_title_vision": "The Open Food Facts Vision, Mission, Values and Programs",
-    "faq_title_install_beauty": "Install Open Beauty Facts to create a cosmetic database",
-    "faq_title_install_pet": "Install Open Pet Food Facts to create a pet food database",
-    "faq_title_install_product": "Install Open Products Facts to create a products database to extend the life of objects",
-    "contact_title_pro_page": "Pro? Import your products in Open Food Facts",
-    "contact_title_pro_email": "Producer Contact",
-    "contact_title_press_page": "Press Page",
-    "contact_title_press_email": "Press Contact",
+    "nutrition_facts": "Valores nutricionais",
+    "faq_title_partners": "Parceiros e patrocinadores da ONG",
+    "faq_title_vision": "A visão, missão, valores e programas do Open Food Facts",
+    "faq_title_install_beauty": "Instale o Open Beauty Facts para criar uma base de dados de cosméticos",
+    "faq_title_install_pet": "Instale o Open Pet Food Facts para criar uma base de dados de comida para animais de estimação",
+    "faq_title_install_product": "Instale o Open Products Facts para criar uma base de dados de produtos para prolongar a vida útil dos objetos",
+    "contact_title_pro_page": "Profissional? Importe os seus produtos no Open Food Facts",
+    "contact_title_pro_email": "Contacto do produtor",
+    "contact_title_press_page": "Página de imprensa",
+    "contact_title_press_email": "Contactos de imprensa",
     "contact_title_newsletter": "Assine o nosso boletim informativo",
-    "hunger_games_loading_line1": "Please let us a few seconds…",
-    "hunger_games_loading_line2": "We're downloading the questions!",
-    "hunger_games_error_label": "Argh! Something went wrong… and we couldn't load the questions.",
-    "hunger_games_error_retry_button": "Let's retry!",
+    "hunger_games_loading_line1": "Por favor, dê-nos alguns segundos…",
+    "hunger_games_loading_line2": "Estamos a descarregar as perguntas!",
+    "hunger_games_error_label": "Argh! Algo correu mal... e não conseguimos carregar as perguntas.",
+    "hunger_games_error_retry_button": "Vamos tentar novamente!",
     "reorder_attribute_action": "Reordenar os atributos",
     "@reorder_attribute_action": {
         "description": "An action button or a page title about reordering the attributes (e.g. 'is vegan?', 'nutrition facts', ...)"
     },
-    "link_cant_be_opened": "Esta ligação não pode ser aberta no seu dispositivo. Verifique se tem um browser instalado.",
+    "link_cant_be_opened": "Esta hiperligação não pode ser aberta no seu dispositivo. Verifique se tem um navegador instalado.",
     "@link_cant_be_opened": {
         "description": "An error may happen if the device doesn't have a browser installed."
     }
