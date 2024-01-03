@@ -7,6 +7,9 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
+import 'package:smooth_app/pages/input/agnostic_suggestion_manager.dart';
+import 'package:smooth_app/pages/input/smooth_autocomplete_text_field.dart';
+import 'package:smooth_app/pages/input/unfocus_when_tap_outside.dart';
 import 'package:smooth_app/pages/product/common/product_buttons.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
@@ -34,23 +37,25 @@ class AddBasicDetailsPage extends StatefulWidget {
 
 class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
   final TextEditingController _productNameController = TextEditingController();
-  late final TextEditingControllerWithInitialValue _brandNameController;
-  late final TextEditingControllerWithInitialValue _weightController;
+  late final TextEditingControllerWithHistory _brandNameController;
+  late final TextEditingControllerWithHistory _weightController;
 
   final double _heightSpace = LARGE_SPACE;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   late final Product _product;
 
   late final MultilingualHelper _multilingualHelper;
+  final Key _autocompleteKey = UniqueKey();
+  late final FocusNode _focusNode;
 
   @override
   void initState() {
     super.initState();
     _product = widget.product;
-    _weightController = TextEditingControllerWithInitialValue(
+    _weightController = TextEditingControllerWithHistory(
       text: MultilingualHelper.getCleanText(_product.quantity ?? ''),
     );
-    _brandNameController = TextEditingControllerWithInitialValue(
+    _brandNameController = TextEditingControllerWithHistory(
       text: _formatProductBrands(_product.brands),
     );
     _multilingualHelper = MultilingualHelper(
@@ -61,6 +66,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
       monolingualText: _product.productName,
       productLanguage: _product.lang,
     );
+    _focusNode = FocusNode();
   }
 
   @override
@@ -68,6 +74,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
     _productNameController.dispose();
     _weightController.dispose();
     _brandNameController.dispose();
+    _focusNode.dispose();
     super.dispose();
   }
 
@@ -77,88 +84,105 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
 
   @override
   Widget build(BuildContext context) {
-    final Size size = MediaQuery.of(context).size;
+    final Size size = MediaQuery.sizeOf(context);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return WillPopScope(
       onWillPop: () async => _mayExitPage(saving: false),
-      child: SmoothScaffold(
-        fixKeyboard: true,
-        appBar: SmoothAppBar(
+      child: UnfocusWhenTapOutside(
+        child: SmoothScaffold(
+          fixKeyboard: true,
+          appBar: SmoothAppBar(
             centerTitle: false,
             title: Text(appLocalizations.basic_details),
-            subTitle: buildProductTitle(widget.product, appLocalizations)),
-        body: Form(
-          key: _formKey,
-          child: Scrollbar(
-            child: ListView(
-              children: <Widget>[
-                Align(
-                  alignment: AlignmentDirectional.topStart,
-                  child: ProductImageCarousel(
-                    _product,
-                    height: size.height * 0.20,
+            subTitle: buildProductTitle(widget.product, appLocalizations),
+          ),
+          body: Form(
+            key: _formKey,
+            child: Scrollbar(
+              child: ListView(
+                children: <Widget>[
+                  Align(
+                    alignment: AlignmentDirectional.topStart,
+                    child: ProductImageCarousel(
+                      _product,
+                      height: size.height * 0.20,
+                    ),
                   ),
-                ),
-                SizedBox(height: _heightSpace),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: size.width * 0.05),
-                  child: Column(
-                    children: <Widget>[
-                      Text(
-                        appLocalizations.barcode_barcode(_product.barcode!),
-                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                              fontWeight: FontWeight.bold,
-                            ),
-                      ),
-                      SizedBox(height: _heightSpace),
-                      if (_multilingualHelper.isMonolingual())
-                        SmoothTextFormField(
-                          controller: _productNameController,
-                          type: TextFieldTypes.PLAIN_TEXT,
-                          hintText: appLocalizations.product_name,
-                        )
-                      else
-                        Card(
-                          child: Column(
-                            children: <Widget>[
-                              _multilingualHelper.getLanguageSelector(setState),
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: SmoothTextFormField(
-                                  controller: _productNameController,
-                                  type: TextFieldTypes.PLAIN_TEXT,
-                                  hintText: appLocalizations.product_name,
+                  SizedBox(height: _heightSpace),
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: size.width * 0.05,
+                    ),
+                    child: Column(
+                      children: <Widget>[
+                        Text(
+                          appLocalizations.barcode_barcode(_product.barcode!),
+                          style:
+                              Theme.of(context).textTheme.bodyMedium?.copyWith(
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                        ),
+                        SizedBox(height: _heightSpace),
+                        if (_multilingualHelper.isMonolingual())
+                          SmoothTextFormField(
+                            controller: _productNameController,
+                            type: TextFieldTypes.PLAIN_TEXT,
+                            hintText: appLocalizations.product_name,
+                          )
+                        else
+                          Card(
+                            child: Column(
+                              children: <Widget>[
+                                _multilingualHelper
+                                    .getLanguageSelector(setState),
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: SmoothTextFormField(
+                                    controller: _productNameController,
+                                    type: TextFieldTypes.PLAIN_TEXT,
+                                    hintText: appLocalizations.product_name,
+                                  ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
+                          ),
+                        SizedBox(height: _heightSpace),
+                        LayoutBuilder(
+                          builder: (
+                            final BuildContext context,
+                            final BoxConstraints constraints,
+                          ) =>
+                              SmoothAutocompleteTextField(
+                            focusNode: _focusNode,
+                            controller: _brandNameController,
+                            autocompleteKey: _autocompleteKey,
+                            hintText: appLocalizations.brand_name,
+                            constraints: constraints,
+                            manager: AgnosticSuggestionManager.brand(),
                           ),
                         ),
-                      SizedBox(height: _heightSpace),
-                      SmoothTextFormField(
-                        controller: _brandNameController,
-                        type: TextFieldTypes.PLAIN_TEXT,
-                        hintText: appLocalizations.brand_name,
-                      ),
-                      SizedBox(height: _heightSpace),
-                      SmoothTextFormField(
-                        controller: _weightController,
-                        type: TextFieldTypes.PLAIN_TEXT,
-                        hintText: appLocalizations.quantity,
-                      ),
-                      SizedBox(height: _heightSpace),
-                    ],
+                        SizedBox(height: _heightSpace),
+                        SmoothTextFormField(
+                          controller: _weightController,
+                          type: TextFieldTypes.PLAIN_TEXT,
+                          hintText: appLocalizations.quantity,
+                        ),
+                        // in order to be able to scroll suggestions
+                        SizedBox(height: MediaQuery.sizeOf(context).height),
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
-        ),
-        bottomNavigationBar: ProductBottomButtonsBar(
-          onSave: () async => _exitPage(
-            await _mayExitPage(saving: true),
-          ),
-          onCancel: () async => _exitPage(
-            await _mayExitPage(saving: false),
+          bottomNavigationBar: ProductBottomButtonsBar(
+            onSave: () async => _exitPage(
+              await _mayExitPage(saving: true),
+            ),
+            onCancel: () async => _exitPage(
+              await _mayExitPage(saving: false),
+            ),
           ),
         ),
       ),
@@ -206,6 +230,10 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
       return false;
     }
 
+    if (!context.mounted) {
+      return false;
+    }
+
     AnalyticsHelper.trackProductEdit(
       AnalyticsEditEvents.basicDetails,
       _product.barcode!,
@@ -213,7 +241,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
     );
     await BackgroundTaskDetails.addTask(
       minimalistProduct,
-      widget: this,
+      context: context,
       stamp: BackgroundTaskDetailsStamp.basicDetails,
     );
 
@@ -226,11 +254,11 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
 
     Product getBasicProduct() => Product(barcode: _product.barcode);
 
-    if (_weightController.valueHasChanged) {
+    if (_weightController.isDifferentFromInitialValue) {
       result ??= getBasicProduct();
       result.quantity = _weightController.text;
     }
-    if (_brandNameController.valueHasChanged) {
+    if (_brandNameController.isDifferentFromInitialValue) {
       result ??= getBasicProduct();
       result.brands = _formatProductBrands(_brandNameController.text);
     }

@@ -113,7 +113,6 @@ class DevicePermission {
   final Permission permission;
   final DevicePermissionStatus status;
 
-  // TODO(monsieurtanuki): check how relevant it is to maintain different kinds of statuses
   static DevicePermissionStatus _extractFromPermissionStatus(
     PermissionStatus status,
   ) {

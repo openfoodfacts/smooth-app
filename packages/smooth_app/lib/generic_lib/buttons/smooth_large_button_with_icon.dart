@@ -36,7 +36,7 @@ class SmoothLargeButtonWithIcon extends StatelessWidget {
     final ThemeData themeData = Theme.of(context);
     TextStyle style = textStyle ?? themeData.textTheme.bodyMedium!;
 
-    if (style.color == null) {
+    if (foregroundColor != null) {
       style = style.copyWith(color: _getForegroundColor(themeData));
     }
 
@@ -57,7 +57,7 @@ class SmoothLargeButtonWithIcon extends StatelessWidget {
             flex: 10,
             child: AutoSizeText(
               text,
-              maxLines: 2,
+              maxLines: 3,
               minFontSize: 10,
               textAlign: textAlign,
               style: style,

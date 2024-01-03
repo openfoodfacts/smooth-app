@@ -24,6 +24,10 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
+    "previous_label": "Precedente",
+    "@previous_label": {
+        "description": "A label on a button that says 'Previous', pressing the button takes the user to the previous screen."
+    },
     "go_back_to_top": "Torna all'inizio",
     "save": "Salva",
     "save_confirmation": "Sei sicuro di voler salvare?",
@@ -141,6 +145,7 @@
     "@ecoCardUtility": {
         "description": "Description of what a user can use the Eco data in a product for."
     },
+    "server_error_open_new_issue": "Nessuna risposta dal server! Puoi aprire una segnalazione con il seguente link.",
     "@user_management": {},
     "sign_in_text": "Accedi al tuo profilo di Open Food Facts per salvare i tuoi contributi",
     "incorrect_credentials": "Nome utente o password errati.",
@@ -149,6 +154,14 @@
     "login": "Nome utente",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
+    },
+    "login_result_type_server_unreachable": "Rete non raggiungibile",
+    "@login_result_type_server_unreachable": {
+        "description": "Error message when trying to log in without network"
+    },
+    "login_result_type_server_issue": "Problema sul server. Riprova più tardi.",
+    "@login_result_type_server_issue": {
+        "description": "Error message when trying to log in and the server does not answer correctly"
     },
     "login_page_username_or_email": "Inserire il nome utente o l'email",
     "login_page_password_error_empty": "Inserire una password",
@@ -533,6 +546,10 @@
     "@new_product_dialog_title": {
         "description": "Please keep it short, like 50 characters. Title of the dialog when the user searched for an unknown barcode."
     },
+    "new_product_leave_title": "Lasciare questa pagina?",
+    "@new_product_leave_title": {
+        "description": "Alert dialog title when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
+    },
     "new_product_leave_message": "Sembra che tu non abbia inserito nulla. Desideri davvero abbandonare questa pagina?",
     "@new_product_leave_message": {
         "description": "Alert dialog message when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
@@ -599,7 +616,7 @@
     "ingredients_photo_title": "Foto degli Ingredienti",
     "nutritional_facts_photo_title": "Foto valori nutrizionali",
     "recycling_photo_title": "Foto delle istruzioni di riciclaggio",
-    "other_interesting_photo_title": "Altre foto interessanti",
+    "take_more_photo_title": "Scatta più foto",
     "front_photo_uploaded": "Foto frontale caricata",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "Foto degli ingredienti",
@@ -613,15 +630,31 @@
     "nutritional_facts_added": "Valori nutrizionali aggiunti",
     "categories_added": "Categorie aggiunte",
     "new_product_title_nutriscore": "Calcola il Nutri-Score",
-    "new_product_subtitle_nutriscore": "Ottienilo compilando la categoria alimentare e i valori nutrizionali",
+    "new_product_subtitle_nutriscore": "Aiutaci compilando almeno una categoria e i valori nutrizionali",
     "new_product_title_ecoscore": "Calcola l'Eco-Score",
     "new_product_subtitle_ecoscore": "Ottienilo compilando almeno una categoria",
     "new_product_additional_ecoscore": "Rendere il calcolo di Eco-Score più preciso con origini, imballaggi e altro ancora",
     "new_product_title_nova": "Calcola il livello di trasformazione alimentare (NOVA)",
     "new_product_subtitle_nova": "Ottienilo compilando la categoria e gli ingredienti dell'alimento",
     "new_product_desc_nova_unknown": "Livello di trasformazione alimentare sconosciuto",
-    "new_product_title_pictures": "Scattiamo delle foto!",
+    "new_product_title_pictures": "Nuovo prodotto",
+    "new_product_title_pictures_details": "Scatta le seguenti foto e il motore di Open Food Facts farà il resto!",
     "new_product_title_misc": "E dei dati essenziali…",
+    "new_product_done_msg": "Grazie per il tuo contributo “{username}”!",
+    "@new_product_done_msg": {
+        "description": "Thank you message on the end of new product page, after finish adding a new product.",
+        "placeholders": {
+            "username": {
+                "type": "String",
+                "example": "Bob"
+            }
+        }
+    },
+    "new_product_done_msg_no_user": "Grazie per il tuo contributo!",
+    "new_product_done_button_label": "Scopri il prodotto completo",
+    "@new_product_done_button_label": {
+        "description": "Button at the end of new product page, that takes you to completed product"
+    },
     "hey_incomplete_product_message": "Tocca ORA per rispondere a 3 domande e calcolare il Nutri-Score, l'Eco-Score e l'Ultra-trasformazione (NOVA)!",
     "nutritional_facts_photo_uploaded": "Foto dei valori nutrizionali caricata",
     "@nutritional_facts_photo_uploaded": {},
@@ -629,8 +662,8 @@
     "@recycling_photo_button_label": {},
     "recycling_photo_uploaded": "Foto delle istruzioni di riciclaggio caricata",
     "@recycling_photo_uploaded": {},
-    "other_interesting_photo_button_label": "Altre foto interessanti",
-    "@other_interesting_photo_button_label": {},
+    "take_more_photo_button_label": "Scatta più foto",
+    "@take_more_photo_button_label": {},
     "other_photo_uploaded": "Foto varie caricate",
     "@other_photo_uploaded": {},
     "retake_photo_button_label": "Ri-scatta",
@@ -672,7 +705,7 @@
     "score_add_missing_ingredients": "Aggiungi gli ingredienti mancanti",
     "score_add_missing_packaging_image": "Aggiungi l'immagine mancante dell'imballaggio",
     "score_add_missing_nutrition_facts": "Aggiungi i valori nutrizionali mancanti",
-    "score_add_missing_product_category": "Aggiungi la categoria del prodotto mancante",
+    "score_add_missing_product_category": "Seleziona una categoria",
     "score_add_missing_product_countries": "Aggiungi i paesi mancanti del prodotto",
     "score_add_missing_product_emb": "Aggiungi i codici di tracciabilità mancanti del prodotto",
     "score_add_missing_product_labels": "Aggiungi le etichette mancanti del prodotto",
@@ -690,6 +723,8 @@
     "nutrition_page_update_done": "Prodotto aggiornato!",
     "more_photos": "Altre foto che potrebbero interessarti",
     "@more_photos": {},
+    "view_more_photo_button": "Visualizza tutte le foto esistenti per questo prodotto",
+    "@view_more_photo_button": {},
     "no_product_found": "Nessun prodotto trovato",
     "@no_product_found": {},
     "not_found": "non trovato:",
@@ -753,7 +788,11 @@
     },
     "country_chooser_label": "Sei pregato di scegliere un paese",
     "@country_chooser_label": {
-        "description": "Label shown above a selector where the user can select their country (in the onboarding)"
+        "description": "Label shown above a selector where the user can select their country (in the preferences)"
+    },
+    "onboarding_country_chooser_label": "Ti preghiamo di scegliere un paese:",
+    "@onboarding_country_chooser_label": {
+        "description": "The label shown above a selector where the user can select their country (in the onboarding)"
     },
     "country_chooser_label_from_settings": "Il tuo paese",
     "@country_chooser_label_from_settings": {
@@ -1342,6 +1381,10 @@
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
     },
+    "no_data_available": "Nessun dato disponibile",
+    "@no_data_available": {
+        "description": "When there are no data to display"
+    },
     "product_field_website_title": "Sito web",
     "@product_field_website_title": {
         "description": "Title of a product field: website"
@@ -1566,10 +1609,6 @@
     "dev_preferences_migration_status_in_progress": "in corso",
     "dev_preferences_migration_status_required": "richiesto (clicca per iniziare)",
     "dev_preferences_migration_status_not_started": "sconosciuto",
-    "dev_preferences_import_history_title": "Importa Cronologia",
-    "@dev_preferences_import_history_title": {
-        "description": "User dev preferences - Import history - Title"
-    },
     "dev_preferences_import_history_subtitle": "Cancellerà la cronologia e inserirà 3 prodotti qui",
     "@dev_preferences_import_history_subtitle": {
         "description": "User dev preferences - Import history - Subtitle"
@@ -1645,6 +1684,13 @@
             "totalSize": {
                 "type": "int"
             }
+        }
+    },
+    "product_search_loading_message": "La tua ricerca di {search} è in corso.\n\nAttendi qualche secondo…",
+    "@product_search_loading_message": {
+        "description": "This message will be displayed when a search is in progress.",
+        "search": {
+            "type": "String"
         }
     },
     "user_search_contributor_title": "Prodotti che ho aggiunto",
@@ -1854,6 +1900,18 @@
     "add_packaging_photo_button_label": "Scatta le foto di qualsiasi informazione di imballaggio/riciclaggio",
     "@add_packaging_photo_button_label": {
         "description": "Label for the add PACKAGING photo button"
+    },
+    "add_origin_photo_button_label": "Scatta foto di qualsiasi informazione di origine",
+    "@add_origin_photo_button_label": {
+        "description": "Label for the add ORIGIN photo button"
+    },
+    "add_emb_photo_button_label": "Scatta foto di qualsiasi informazione sul codice di tracciabilità",
+    "@add_emb_photo_button_label": {
+        "description": "Label for the add EMB photo button"
+    },
+    "add_label_photo_button_label": "Scatta foto di tutte le etichette e le informazioni sulle certificazioni",
+    "@add_label_photo_button_label": {
+        "description": "Label for the add LABELS photo button"
     },
     "choose_image_source_title": "Scegli sorgente immagine",
     "@choose_image_source_title": {
@@ -2476,6 +2534,10 @@
     "hunger_games_loading_line2": "Stiamo scaricando le domande!",
     "hunger_games_error_label": "Argh! Qualcosa è andato storto… e non siamo riusciti a caricare le domande.",
     "hunger_games_error_retry_button": "Riproviamo!",
+    "reorder_attribute_action": "Riordina gli attributi",
+    "@reorder_attribute_action": {
+        "description": "An action button or a page title about reordering the attributes (e.g. 'is vegan?', 'nutrition facts', ...)"
+    },
     "link_cant_be_opened": "Questo collegamento non può essere aperto sul tuo dispositivo. Verifica di avere un browser installato.",
     "@link_cant_be_opened": {
         "description": "An error may happen if the device doesn't have a browser installed."

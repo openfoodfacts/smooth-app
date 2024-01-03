@@ -2,19 +2,18 @@ import 'dart:async';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:smooth_app/background/background_task_barcode.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/transient_file.dart';
 
 /// Abstract background task about generic file upload.
 abstract class BackgroundTaskUpload extends BackgroundTaskBarcode {
-  const BackgroundTaskUpload({
+  BackgroundTaskUpload({
     required super.processName,
     required super.uniqueId,
     required super.barcode,
-    required super.languageCode,
-    required super.user,
-    required super.country,
+    required super.language,
     required super.stamp,
     required this.imageField,
     required this.croppedPath,
@@ -71,10 +70,10 @@ abstract class BackgroundTaskUpload extends BackgroundTaskBarcode {
       );
 
   @protected
-  void putTransientImage(final LocalDatabase localDatabase) =>
+  Future<void> putTransientImage(final LocalDatabase localDatabase) async =>
       _getTransientFile().putImage(
         localDatabase,
-        File(croppedPath),
+        await getFile(croppedPath),
       );
 
   @protected
@@ -87,7 +86,7 @@ abstract class BackgroundTaskUpload extends BackgroundTaskBarcode {
   Future<void> recover(final LocalDatabase localDatabase) async {
     final File? transientFile = _getTransientImage();
     if (transientFile == null) {
-      putTransientImage(localDatabase);
+      await putTransientImage(localDatabase);
     }
   }
 
@@ -97,4 +96,25 @@ abstract class BackgroundTaskUpload extends BackgroundTaskBarcode {
     final String language,
   ) =>
       '$barcode;image;$imageField;$language';
+
+  static Future<Directory> getDirectory() async =>
+      getApplicationSupportDirectory();
+
+  /// Returns a "safe" [File] from a given [path].
+  ///
+  /// iOS sometimes changes the path of its standard app folders, like the one
+  /// we use in [getDirectory].
+  /// With this method we refresh the path for iOS.
+  /// cf. https://github.com/openfoodfacts/smooth-app/issues/4725
+  @protected
+  Future<File> getFile(String path) async {
+    if (Platform.isIOS) {
+      final int lastSeparator = path.lastIndexOf('/');
+      final String filename =
+          lastSeparator == -1 ? path : path.substring(lastSeparator + 1);
+      final Directory directory = await getDirectory();
+      path = '${directory.path}/$filename';
+    }
+    return File(path);
+  }
 }

@@ -12,12 +12,12 @@ import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/image_field_extension.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
+import 'package:smooth_app/pages/input/unfocus_when_tap_outside.dart';
 import 'package:smooth_app/pages/product/common/product_buttons.dart';
 import 'package:smooth_app/pages/product/edit_new_packagings_component.dart';
 import 'package:smooth_app/pages/product/edit_new_packagings_helper.dart';
 import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
 import 'package:smooth_app/pages/product/simple_input_number_field.dart';
-import 'package:smooth_app/pages/product/simple_input_text_field.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/themes/color_schemes.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
@@ -172,7 +172,7 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
         child: addPanelButton(
           appLocalizations.add_packaging_photo_button_label.toUpperCase(),
           onPressed: () async => confirmAndUploadNewPicture(
-            this,
+            context,
             imageField: ImageField.OTHER,
             barcode: barcode,
             language: ProductQuery.getLanguage(),
@@ -297,7 +297,7 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
 
     await BackgroundTaskDetails.addTask(
       changedProduct,
-      widget: this,
+      context: context,
       stamp: BackgroundTaskDetailsStamp.structuredPackaging,
     );
     return true;

@@ -21,15 +21,19 @@ class OrderedNutrientsCache {
     final BuildContext context,
   ) async {
     final OrderedNutrientsCache cache = OrderedNutrientsCache._();
-    cache._orderedNutrients = await cache._get() ??
-        // ignore: use_build_context_synchronously
-        await LoadingDialog.run<OrderedNutrients>(
+    cache._orderedNutrients = await cache._get();
+    if (cache._orderedNutrients == null) {
+      if (context.mounted) {
+        cache._orderedNutrients = await LoadingDialog.run<OrderedNutrients>(
           context: context,
           future: cache._download(),
         );
+      }
+    }
     if (cache._orderedNutrients == null) {
-      // ignore: use_build_context_synchronously
-      await LoadingDialog.error(context: context);
+      if (context.mounted) {
+        await LoadingDialog.error(context: context);
+      }
       return null;
     }
     return cache;

@@ -126,18 +126,17 @@ class ProductRefresher {
   /// Returns true if successful.
   Future<bool> fetchAndRefresh({
     required final String barcode,
-    required final State<StatefulWidget> widget,
+    required final BuildContext context,
   }) async {
-    final LocalDatabase localDatabase = widget.context.read<LocalDatabase>();
-    final AppLocalizations appLocalizations =
-        AppLocalizations.of(widget.context);
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final FetchedProduct? fetchAndRefreshed =
         await LoadingDialog.run<FetchedProduct>(
       future: silentFetchAndRefresh(
         localDatabase: localDatabase,
         barcode: barcode,
       ),
-      context: widget.context,
+      context: context,
       title: appLocalizations.refreshing_product,
     );
     if (fetchAndRefreshed == null) {
@@ -145,16 +144,16 @@ class ProductRefresher {
       return false;
     }
     if (fetchAndRefreshed.product == null) {
-      if (widget.mounted) {
+      if (context.mounted) {
         await LoadingDialog.error(
-          context: widget.context,
+          context: context,
           title: fetchAndRefreshed.getErrorTitle(appLocalizations),
         );
       }
       return false;
     }
-    if (widget.mounted) {
-      ScaffoldMessenger.of(widget.context).showSnackBar(
+    if (context.mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(appLocalizations.product_refreshed),
           duration: SnackBarDuration.short,

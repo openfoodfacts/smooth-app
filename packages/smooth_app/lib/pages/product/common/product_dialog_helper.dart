@@ -25,11 +25,11 @@ class ProductDialogHelper {
   });
 
   static const String unknownSvgNutriscore =
-      'https://static.openfoodfacts.org/images/attributes/nutriscore-unknown.svg';
+      'https://static.openfoodfacts.org/images/attributes/dist/nutriscore-unknown.svg';
   static const String unknownSvgEcoscore =
-      'https://static.openfoodfacts.org/images/attributes/ecoscore-unknown.svg';
+      'https://static.openfoodfacts.org/images/attributes/dist/ecoscore-unknown.svg';
   static const String unknownSvgNova =
-      'https://static.openfoodfacts.org/images/attributes/nova-group-unknown.svg';
+      'https://static.openfoodfacts.org/images/attributes/dist/nova-group-unknown.svg';
 
   final String barcode;
   final BuildContext context;

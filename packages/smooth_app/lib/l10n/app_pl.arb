@@ -24,6 +24,10 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
+    "previous_label": "Pioprzedni",
+    "@previous_label": {
+        "description": "A label on a button that says 'Previous', pressing the button takes the user to the previous screen."
+    },
     "go_back_to_top": "Powrót do góry",
     "save": "Zapisz",
     "save_confirmation": "Na pewno chcesz zapisać?",
@@ -141,6 +145,7 @@
     "@ecoCardUtility": {
         "description": "Description of what a user can use the Eco data in a product for."
     },
+    "server_error_open_new_issue": "Serwer nie odpowiada! Możesz rozwiązać problem, klikając w ten link.",
     "@user_management": {},
     "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
     "incorrect_credentials": "Nieprawidłowa nazwa użytkownika lub hasło.",
@@ -149,6 +154,14 @@
     "login": "Nazwa użytkownika",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
+    },
+    "login_result_type_server_unreachable": "Network is unreachable",
+    "@login_result_type_server_unreachable": {
+        "description": "Error message when trying to log in without network"
+    },
+    "login_result_type_server_issue": "Problem on the server. Please try later.",
+    "@login_result_type_server_issue": {
+        "description": "Error message when trying to log in and the server does not answer correctly"
     },
     "login_page_username_or_email": "Podaj nazwę użytkownika lub adres e-mail",
     "login_page_password_error_empty": "Proszę wpisać hasło",
@@ -533,6 +546,10 @@
     "@new_product_dialog_title": {
         "description": "Please keep it short, like 50 characters. Title of the dialog when the user searched for an unknown barcode."
     },
+    "new_product_leave_title": "Leave this page?",
+    "@new_product_leave_title": {
+        "description": "Alert dialog title when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
+    },
     "new_product_leave_message": "Wygląda na to, że nic nie wpisałeś. Czy naprawdę chcesz opuścić tę stronę?",
     "@new_product_leave_message": {
         "description": "Alert dialog message when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
@@ -599,7 +616,7 @@
     "ingredients_photo_title": "Zdjęcie listy składników",
     "nutritional_facts_photo_title": "Zdjęcie tabeli wartości odżywczych",
     "recycling_photo_title": "Zdjęcie informacji o recyklingu",
-    "other_interesting_photo_title": "Inne ciekawe zdjęcia",
+    "take_more_photo_title": "Zrób więcej zdjęć",
     "front_photo_uploaded": "Przesłano zdjęcie przodu",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "Zdjęcie listy składników",
@@ -621,7 +638,23 @@
     "new_product_subtitle_nova": "Otrzymaj go, wypełniając kategorię żywności oraz składniki",
     "new_product_desc_nova_unknown": "Poziom przetwarzania żywności nieznany",
     "new_product_title_pictures": "Zróbmy kilka zdjęć!",
+    "new_product_title_pictures_details": "Zrób następujące zdjęcia, a silnik Open Food Facts może odtworzyć resztę!",
     "new_product_title_misc": "I trochę podstawowych danych…",
+    "new_product_done_msg": "Dziękujemy za Twój wkład \"{username}\"!",
+    "@new_product_done_msg": {
+        "description": "Thank you message on the end of new product page, after finish adding a new product.",
+        "placeholders": {
+            "username": {
+                "type": "String",
+                "example": "Bob"
+            }
+        }
+    },
+    "new_product_done_msg_no_user": "Dzięki za twój wkład!",
+    "new_product_done_button_label": "Odkryj gotowy produkt",
+    "@new_product_done_button_label": {
+        "description": "Button at the end of new product page, that takes you to completed product"
+    },
     "hey_incomplete_product_message": "Dotknij, aby odpowiedzieć na 3 pytania TERAZ, aby obliczyć wskaźnik odżywczości, Eko-wynik & Ultra-przetwarzanie (NOVA)!",
     "nutritional_facts_photo_uploaded": "Przesłano zdjęcie z listą wartości odżywczych",
     "@nutritional_facts_photo_uploaded": {},
@@ -629,8 +662,8 @@
     "@recycling_photo_button_label": {},
     "recycling_photo_uploaded": "Przesłano zdjęcie dot. Recyklingu",
     "@recycling_photo_uploaded": {},
-    "other_interesting_photo_button_label": "Inne ciekawe zdjęcia",
-    "@other_interesting_photo_button_label": {},
+    "take_more_photo_button_label": "Zrób więcej zdjęć",
+    "@take_more_photo_button_label": {},
     "other_photo_uploaded": "Inne zdjęcie przesłane",
     "@other_photo_uploaded": {},
     "retake_photo_button_label": "Odzyskaj",
@@ -690,6 +723,8 @@
     "nutrition_page_update_done": "Produkt zaktualizowany!",
     "more_photos": "Więcej interesujących zdjęć",
     "@more_photos": {},
+    "view_more_photo_button": "View all existing photos for this product",
+    "@view_more_photo_button": {},
     "no_product_found": "Nie znaleziono produktu",
     "@no_product_found": {},
     "not_found": "nie znaleziono:",
@@ -753,7 +788,11 @@
     },
     "country_chooser_label": "Proszę wybrać kraj",
     "@country_chooser_label": {
-        "description": "Label shown above a selector where the user can select their country (in the onboarding)"
+        "description": "Label shown above a selector where the user can select their country (in the preferences)"
+    },
+    "onboarding_country_chooser_label": "Please choose a country:",
+    "@onboarding_country_chooser_label": {
+        "description": "The label shown above a selector where the user can select their country (in the onboarding)"
     },
     "country_chooser_label_from_settings": "Twój kraj",
     "@country_chooser_label_from_settings": {
@@ -1342,6 +1381,10 @@
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
     },
+    "no_data_available": "Brak dostępnych informacji",
+    "@no_data_available": {
+        "description": "When there are no data to display"
+    },
     "product_field_website_title": "Strona",
     "@product_field_website_title": {
         "description": "Title of a product field: website"
@@ -1566,10 +1609,6 @@
     "dev_preferences_migration_status_in_progress": "w toku",
     "dev_preferences_migration_status_required": "wymagane (kliknij, aby rozpocząć)",
     "dev_preferences_migration_status_not_started": "nieznany",
-    "dev_preferences_import_history_title": "Importuj historię",
-    "@dev_preferences_import_history_title": {
-        "description": "User dev preferences - Import history - Title"
-    },
     "dev_preferences_import_history_subtitle": "Usuwa historię wyszukiwania i wstawia w to miejsce 3 produkty",
     "@dev_preferences_import_history_subtitle": {
         "description": "User dev preferences - Import history - Subtitle"
@@ -1645,6 +1684,13 @@
             "totalSize": {
                 "type": "int"
             }
+        }
+    },
+    "product_search_loading_message": "Your search of {search} is in progress.\n\nPlease wait a few seconds…",
+    "@product_search_loading_message": {
+        "description": "This message will be displayed when a search is in progress.",
+        "search": {
+            "type": "String"
         }
     },
     "user_search_contributor_title": "Produkty, które dodałem",
@@ -1854,6 +1900,18 @@
     "add_packaging_photo_button_label": "Zrób zdjęcia wszelkich informacji dotyczących pakowania i recyklingu",
     "@add_packaging_photo_button_label": {
         "description": "Label for the add PACKAGING photo button"
+    },
+    "add_origin_photo_button_label": "Take photos of any origin information",
+    "@add_origin_photo_button_label": {
+        "description": "Label for the add ORIGIN photo button"
+    },
+    "add_emb_photo_button_label": "Take photos of any traceability code information",
+    "@add_emb_photo_button_label": {
+        "description": "Label for the add EMB photo button"
+    },
+    "add_label_photo_button_label": "Take photos of any labels & certifications information",
+    "@add_label_photo_button_label": {
+        "description": "Label for the add LABELS photo button"
     },
     "choose_image_source_title": "Wybierz źródło obrazu",
     "@choose_image_source_title": {
@@ -2476,6 +2534,10 @@
     "hunger_games_loading_line2": "We're downloading the questions!",
     "hunger_games_error_label": "Argh! Something went wrong… and we couldn't load the questions.",
     "hunger_games_error_retry_button": "Let's retry!",
+    "reorder_attribute_action": "Reorder the attributes",
+    "@reorder_attribute_action": {
+        "description": "An action button or a page title about reordering the attributes (e.g. 'is vegan?', 'nutrition facts', ...)"
+    },
     "link_cant_be_opened": "Nie można otworzyć tego odnośnika na Twoim urządzeniu. Sprawdź, czy masz zainstalowaną przeglądarkę.",
     "@link_cant_be_opened": {
         "description": "An error may happen if the device doesn't have a browser installed."

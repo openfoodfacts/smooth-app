@@ -24,9 +24,11 @@ import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/pages/product/common/product_list_item_simple.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/query/paged_product_query.dart';
+import 'package:smooth_app/resources/app_animations.dart';
 import 'package:smooth_app/widgets/ranking_floating_action_button.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
+import 'package:smooth_app/widgets/smooth_text.dart';
 
 class ProductQueryPage extends StatefulWidget {
   const ProductQueryPage({
@@ -56,10 +58,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
   late final OpenFoodFactsCountry? _country;
 
   @override
-  String get traceTitle => 'search_page';
-
-  @override
-  String get traceName => 'Opened search_page';
+  String get actionName => 'Opened search_page';
 
   @override
   void initState() {
@@ -73,11 +72,15 @@ class _ProductQueryPageState extends State<ProductQueryPage>
         if (_scrollController.offset >= 400) {
           if (!_showBackToTopButton) {
             _showBackToTopButton = true;
-            setState(() {});
+            if (mounted) {
+              setState(() {});
+            }
           }
         } else if (_showBackToTopButton) {
           _showBackToTopButton = false;
-          setState(() {});
+          if (mounted) {
+            setState(() {});
+          }
         }
       });
   }
@@ -109,10 +112,8 @@ class _ProductQueryPageState extends State<ProductQueryPage>
             );
           case LoadingStatus.LOADING:
             if (_model.isEmpty()) {
-              return _EmptyScreen(
-                screenSize: screenSize,
-                name: widget.name,
-                emptiness: const CircularProgressIndicator.adaptive(),
+              return _LoadingScreen(
+                title: widget.name,
               );
             }
             break;
@@ -120,7 +121,6 @@ class _ProductQueryPageState extends State<ProductQueryPage>
             if (_model.isEmpty()) {
               // TODO(monsieurtanuki): should be tracked as well, shouldn't it?
               return _EmptyScreen(
-                screenSize: screenSize,
                 name: widget.name,
                 emptiness: _getEmptyText(
                   themeData,
@@ -289,7 +289,6 @@ class _ProductQueryPageState extends State<ProductQueryPage>
     final String errorMessage,
   ) {
     return _EmptyScreen(
-      screenSize: screenSize,
       name: widget.name,
       emptiness: Padding(
         padding: const EdgeInsets.all(SMALL_SPACE),
@@ -427,8 +426,11 @@ class _ProductQueryPageState extends State<ProductQueryPage>
         ),
       );
 
-  void retryConnection() =>
+  void retryConnection() {
+    if (mounted) {
       setState(() => _model = _getModel(widget.productListSupplier));
+    }
+  }
 
   ProductQueryModel _getModel(final ProductListSupplier supplier) =>
       ProductQueryModel(supplier);
@@ -448,7 +450,9 @@ class _ProductQueryPageState extends State<ProductQueryPage>
       if (successfullyLoaded) {
         _scrollToTop(instant: true);
       }
-      setState(() {});
+      if (mounted) {
+        setState(() {});
+      }
     }
   }
 
@@ -476,7 +480,9 @@ class _ProductQueryPageState extends State<ProductQueryPage>
     try {
       final bool result = await _model.loadNextPage();
       if (result) {
-        setState(() {});
+        if (mounted) {
+          setState(() {});
+        }
       }
     } catch (e) {
       //
@@ -487,14 +493,12 @@ class _ProductQueryPageState extends State<ProductQueryPage>
 
 class _EmptyScreen extends StatelessWidget {
   const _EmptyScreen({
-    required this.screenSize,
     required this.name,
     required this.emptiness,
     this.actions,
     Key? key,
   }) : super(key: key);
 
-  final Size screenSize;
   final String name;
   final Widget emptiness;
   final List<Widget>? actions;
@@ -572,4 +576,39 @@ class _Action {
 enum ProductQueryPageResult {
   editProductQuery,
   unknown,
+}
+
+class _LoadingScreen extends StatelessWidget {
+  const _LoadingScreen({
+    required this.title,
+  });
+
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+    return _EmptyScreen(
+      name: title,
+      emptiness: FractionallySizedBox(
+        widthFactor: 0.75,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            SearchEyeAnimation(
+              size: MediaQuery.sizeOf(context).width * 0.2,
+            ),
+            const SizedBox(height: VERY_LARGE_SPACE * 2),
+            TextHighlighter(
+              text: appLocalizations.product_search_loading_message(title),
+              filter: title,
+              softWrap: true,
+              textAlign: TextAlign.center,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 }

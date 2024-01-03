@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
-import 'package:flutter_map/plugin_api.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -16,84 +15,74 @@ class KnowledgePanelWorldMapCard extends StatelessWidget {
     if (mapElement.pointers.isEmpty || mapElement.pointers.first.geo == null) {
       return EMPTY_WIDGET;
     }
-    // TODO(monsieurtanuki): Zoom the map to show all [mapElement.pointers]
+
+    const double markerSize = 30;
+    final List<Marker> markers = <Marker>[];
+    final List<LatLng> coordinates = <LatLng>[];
+    void addCoordinate(final LatLng latLng) {
+      coordinates.add(latLng);
+      markers.add(
+        Marker(
+          point: latLng,
+          child: const Icon(Icons.pin_drop, color: Colors.lightBlue),
+          alignment: Alignment.topCenter,
+          width: markerSize,
+          height: markerSize,
+        ),
+      );
+    }
+
+    for (final KnowledgePanelGeoPointer pointer in mapElement.pointers) {
+      final KnowledgePanelLatLng? geo = pointer.geo;
+      if (geo != null) {
+        addCoordinate(LatLng(geo.lat, geo.lng));
+      }
+    }
+
+    final MapOptions mapOptions;
+    if (coordinates.length == 1) {
+      mapOptions = MapOptions(
+        initialCenter: coordinates.first,
+        initialZoom: 6.0,
+      );
+    } else {
+      mapOptions = MapOptions(
+        initialCameraFit: CameraFit.coordinates(
+          coordinates: coordinates,
+          maxZoom: 13.0,
+          forceIntegerZoomLevel: true,
+          padding: const EdgeInsets.all(markerSize),
+        ),
+      );
+    }
     return Padding(
       padding: const EdgeInsetsDirectional.only(bottom: MEDIUM_SPACE),
       child: SizedBox(
         height: 200,
         child: FlutterMap(
-          options: MapOptions(
-            // The first pointer is used as the center of the map.
-            center: LatLng(
-              mapElement.pointers.first.geo!.lat,
-              mapElement.pointers.first.geo!.lng,
-            ),
-            zoom: 6.0,
-          ),
-          layers: <LayerOptions>[
-            TileLayerOptions(
+          options: mapOptions,
+          children: <Widget>[
+            TileLayer(
               urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+              userAgentPackageName: 'org.openfoodfacts.app',
             ),
-            MarkerLayerOptions(
-              markers: getMarkers(mapElement.pointers),
-            ),
-          ],
-          nonRotatedChildren: <Widget>[
-            AttributionWidget(
-              attributionBuilder: (BuildContext context) {
-                return Align(
-                  alignment: AlignmentDirectional.bottomEnd,
-                  child: ColoredBox(
-                    color: const Color(0xCCFFFFFF),
-                    child: GestureDetector(
-                      onTap: () => LaunchUrlHelper.launchURL(
-                        'https://www.openstreetmap.org/copyright',
-                        false,
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(3),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: <Widget>[
-                            Text(
-                              '© OpenStreetMap contributors',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyMedium!
-                                  .copyWith(
-                                    color: Colors.blue,
-                                  ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
+            MarkerLayer(markers: markers),
+            RichAttributionWidget(
+              popupInitialDisplayDuration: const Duration(seconds: 5),
+              animationConfig: const ScaleRAWA(),
+              attributions: <SourceAttribution>[
+                TextSourceAttribution(
+                  'OpenStreetMap contributors',
+                  onTap: () => LaunchUrlHelper.launchURL(
+                    'https://www.openstreetmap.org/copyright',
+                    false,
                   ),
-                );
-              },
-            )
+                ),
+              ],
+            ),
           ],
         ),
       ),
     );
-  }
-
-  List<Marker> getMarkers(List<KnowledgePanelGeoPointer> pointers) {
-    final List<Marker> markers = <Marker>[];
-    for (final KnowledgePanelGeoPointer pointer in pointers) {
-      if (pointer.geo == null) {
-        continue;
-      }
-      markers.add(
-        Marker(
-          point: LatLng(pointer.geo!.lat, pointer.geo!.lng),
-          builder: (BuildContext ctx) => const Icon(
-            Icons.pin_drop,
-            color: Colors.lightBlue,
-          ),
-        ),
-      );
-    }
-    return markers;
   }
 }

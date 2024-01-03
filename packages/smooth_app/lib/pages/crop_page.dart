@@ -7,10 +7,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_crop.dart';
 import 'package:smooth_app/background/background_task_image.dart';
+import 'package:smooth_app/background/background_task_upload.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/database/dao_int.dart';
 import 'package:smooth_app/database/local_database.dart';
@@ -294,8 +294,8 @@ class _CropPageState extends State<CropPage> {
             title: appLocalizations.crop_page_too_small_image_title,
             body: Text(
               appLocalizations.crop_page_too_small_image_message(
-                BackgroundTaskImage.minimumWidth,
-                BackgroundTaskImage.minimumHeight,
+                ImageHelper.minimumWidth,
+                ImageHelper.minimumHeight,
                 width,
                 height,
               ),
@@ -318,7 +318,7 @@ class _CropPageState extends State<CropPage> {
     final DaoInt daoInt = DaoInt(localDatabase);
     final int sequenceNumber =
         await getNextSequenceNumber(daoInt, _CROP_PAGE_SEQUENCE_KEY);
-    final Directory directory = await getApplicationSupportDirectory();
+    final Directory directory = await BackgroundTaskUpload.getDirectory();
 
     final File croppedFile = await _getCroppedImageFile(
       directory,
@@ -339,38 +339,42 @@ class _CropPageState extends State<CropPage> {
         sequenceNumber,
       );
       final Rect cropRect = _getLocalCropRect();
-      await BackgroundTaskImage.addTask(
-        widget.barcode,
-        language: widget.language,
-        imageField: widget.imageField,
-        fullFile: fullFile,
-        croppedFile: croppedFile,
-        rotation: _controller.rotation.degrees,
-        x1: cropRect.left.ceil(),
-        y1: cropRect.top.ceil(),
-        x2: cropRect.right.floor(),
-        y2: cropRect.bottom.floor(),
-        widget: this,
-      );
+      if (context.mounted) {
+        await BackgroundTaskImage.addTask(
+          widget.barcode,
+          language: widget.language,
+          imageField: widget.imageField,
+          fullFile: fullFile,
+          croppedFile: croppedFile,
+          rotation: _controller.rotation.degrees,
+          x1: cropRect.left.ceil(),
+          y1: cropRect.top.ceil(),
+          x2: cropRect.right.floor(),
+          y2: cropRect.bottom.floor(),
+          context: context,
+        );
+      }
     } else {
       // in this case, it's an existing picture, with crop parameters.
       // we let the server do everything: better performance, and no privacy
       // issue here (we're cropping from an allegedly already privacy compliant
       // picture).
       final Rect cropRect = _getServerCropRect();
-      await BackgroundTaskCrop.addTask(
-        widget.barcode,
-        language: widget.language,
-        imageField: widget.imageField,
-        imageId: widget.imageId!,
-        croppedFile: croppedFile,
-        rotation: _controller.rotation.degrees,
-        x1: cropRect.left.ceil(),
-        y1: cropRect.top.ceil(),
-        x2: cropRect.right.floor(),
-        y2: cropRect.bottom.floor(),
-        widget: this,
-      );
+      if (context.mounted) {
+        await BackgroundTaskCrop.addTask(
+          widget.barcode,
+          language: widget.language,
+          imageField: widget.imageField,
+          imageId: widget.imageId!,
+          croppedFile: croppedFile,
+          rotation: _controller.rotation.degrees,
+          x1: cropRect.left.ceil(),
+          y1: cropRect.top.ceil(),
+          x2: cropRect.right.floor(),
+          y2: cropRect.bottom.floor(),
+          context: context,
+        );
+      }
     }
     localDatabase.notifyListeners();
     if (!mounted) {

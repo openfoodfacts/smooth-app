@@ -24,6 +24,10 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
+    "previous_label": "Vorige",
+    "@previous_label": {
+        "description": "A label on a button that says 'Previous', pressing the button takes the user to the previous screen."
+    },
     "go_back_to_top": "Terug naar boven",
     "save": "Opslaan",
     "save_confirmation": "Weet u zeker dat u wilt opslaan?",
@@ -141,6 +145,7 @@
     "@ecoCardUtility": {
         "description": "Description of what a user can use the Eco data in a product for."
     },
+    "server_error_open_new_issue": "Geen serverreactie! U kunt een probleem rapporteren via de volgende link.",
     "@user_management": {},
     "sign_in_text": "Log in op je Open Food Facts account om je bijdragen op te slaan",
     "incorrect_credentials": "Onjuiste gebruikersnaam of wachtwoord.",
@@ -149,6 +154,14 @@
     "login": "Log in",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
+    },
+    "login_result_type_server_unreachable": "Netwerk niet bereikbaar",
+    "@login_result_type_server_unreachable": {
+        "description": "Error message when trying to log in without network"
+    },
+    "login_result_type_server_issue": "Probleem op de server. Probeer het later opnieuw.",
+    "@login_result_type_server_issue": {
+        "description": "Error message when trying to log in and the server does not answer correctly"
     },
     "login_page_username_or_email": "Voer je gebruikersnaam of e-mailadres in",
     "login_page_password_error_empty": "Voer een wachtwoord in alstublieft",
@@ -533,6 +546,10 @@
     "@new_product_dialog_title": {
         "description": "Please keep it short, like 50 characters. Title of the dialog when the user searched for an unknown barcode."
     },
+    "new_product_leave_title": "Deze pagina verlaten?",
+    "@new_product_leave_title": {
+        "description": "Alert dialog title when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
+    },
     "new_product_leave_message": "Het lijkt erop dat je niets hebt ingevoerd. Wil je deze pagina echt verlaten?",
     "@new_product_leave_message": {
         "description": "Alert dialog message when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
@@ -541,9 +558,9 @@
     "@new_product_dialog_description": {
         "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
     },
-    "front_packaging_photo_button_label": "Afbeelding voorzijde van product",
+    "front_packaging_photo_button_label": "Foto van voorkant verpakking",
     "@front_packaging_photo_button_label": {},
-    "confirm_front_packaging_photo_button_label": "Bevestig de upload van de voorzijde van het product",
+    "confirm_front_packaging_photo_button_label": "Bevestig het uploaden van de foto van de voorkant",
     "@confirm_front_packaging_photo_button_label": {
         "description": "Button clicking on which confirms the picture of the front of product that user just took."
     },
@@ -599,7 +616,7 @@
     "ingredients_photo_title": "Foto van de ingrediëntenlijst",
     "nutritional_facts_photo_title": "Foto van voedingswaarden",
     "recycling_photo_title": "Recycling afbeelding",
-    "other_interesting_photo_title": "Andere interessante foto's",
+    "take_more_photo_title": "Maak meer foto's",
     "front_photo_uploaded": "Foto voorkant geüpload",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "Foto van de ingrediëntenlijst",
@@ -613,15 +630,31 @@
     "nutritional_facts_added": "Voedingswaarden toegevoegd",
     "categories_added": "Categorieën toegevoegd",
     "new_product_title_nutriscore": "Bereken de Nutri-Score",
-    "new_product_subtitle_nutriscore": "Krijg het door het invullen van de voedingscategorie en voedingswaarden",
+    "new_product_subtitle_nutriscore": "Help ons door minimaal een categorie en voedingswaarden in te vullen",
     "new_product_title_ecoscore": "Bereken de Ecoscore",
     "new_product_subtitle_ecoscore": "Krijg het door minstens één categorie in te vullen",
     "new_product_additional_ecoscore": "Maak de Eco-Score-berekening nauwkeuriger door herkomst, verpakking en meer toe te voegen",
     "new_product_title_nova": "Bereken het voedselverwerkingsniveau (NOVA)",
     "new_product_subtitle_nova": "Krijg het door het invullen van de voedselcategorie en ingrediënten",
     "new_product_desc_nova_unknown": "Voedselverwerkingsniveau onbekend",
-    "new_product_title_pictures": "Laten we wat foto's maken!",
+    "new_product_title_pictures": "Nieuw product",
+    "new_product_title_pictures_details": "Maak de volgende foto's en de Open Food Facts-engine kan de rest doen!",
     "new_product_title_misc": "En enkele basisgegevens…",
+    "new_product_done_msg": "Bedankt voor uw bijdrage “{username}”!",
+    "@new_product_done_msg": {
+        "description": "Thank you message on the end of new product page, after finish adding a new product.",
+        "placeholders": {
+            "username": {
+                "type": "String",
+                "example": "Bob"
+            }
+        }
+    },
+    "new_product_done_msg_no_user": "Bedankt voor uw bijdrage!",
+    "new_product_done_button_label": "Ontdek het aangevulde product",
+    "@new_product_done_button_label": {
+        "description": "Button at the end of new product page, that takes you to completed product"
+    },
     "hey_incomplete_product_message": "Tik om 3 vragen NU te beantwoorden om de Nutri-Score, de Eco-Score & de Ultra-verwerking (NOVA) te berekenen!",
     "nutritional_facts_photo_uploaded": "Foto van voedingswaarden geüpload",
     "@nutritional_facts_photo_uploaded": {},
@@ -629,8 +662,8 @@
     "@recycling_photo_button_label": {},
     "recycling_photo_uploaded": "Foto recyclen geüpload",
     "@recycling_photo_uploaded": {},
-    "other_interesting_photo_button_label": "Andere interessante foto's",
-    "@other_interesting_photo_button_label": {},
+    "take_more_photo_button_label": "Maak meer foto's",
+    "@take_more_photo_button_label": {},
     "other_photo_uploaded": "Diverse foto's geüpload",
     "@other_photo_uploaded": {},
     "retake_photo_button_label": "Opnieuw",
@@ -672,7 +705,7 @@
     "score_add_missing_ingredients": "Ontbrekende ingrediënten toevoegen",
     "score_add_missing_packaging_image": "Ontbrekende verpakkingsafbeelding toevoegen",
     "score_add_missing_nutrition_facts": "Ontbrekende voedingswaarden toevoegen",
-    "score_add_missing_product_category": "Ontbrekende productcategorie toevoegen",
+    "score_add_missing_product_category": "Selecteer een categorie",
     "score_add_missing_product_countries": "Voeg ontbrekende productlanden toe",
     "score_add_missing_product_emb": "Voeg ontbrekende producttraceerbaarheidscodes toe",
     "score_add_missing_product_labels": "Voeg ontbrekende productlabels toe",
@@ -690,6 +723,8 @@
     "nutrition_page_update_done": "Product bijgewerkt!",
     "more_photos": "Meer interessante foto's",
     "@more_photos": {},
+    "view_more_photo_button": "Bekijk alle bestaande foto's voor dit product",
+    "@view_more_photo_button": {},
     "no_product_found": "Geen product gevonden",
     "@no_product_found": {},
     "not_found": "niet gevonden:",
@@ -753,7 +788,11 @@
     },
     "country_chooser_label": "Kies een land a.u.b.",
     "@country_chooser_label": {
-        "description": "Label shown above a selector where the user can select their country (in the onboarding)"
+        "description": "Label shown above a selector where the user can select their country (in the preferences)"
+    },
+    "onboarding_country_chooser_label": "Kies een land:",
+    "@onboarding_country_chooser_label": {
+        "description": "The label shown above a selector where the user can select their country (in the onboarding)"
     },
     "country_chooser_label_from_settings": "Uw land",
     "@country_chooser_label_from_settings": {
@@ -1342,6 +1381,10 @@
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
     },
+    "no_data_available": "Geen gegevens beschikbaar",
+    "@no_data_available": {
+        "description": "When there are no data to display"
+    },
     "product_field_website_title": "Website",
     "@product_field_website_title": {
         "description": "Title of a product field: website"
@@ -1566,10 +1609,6 @@
     "dev_preferences_migration_status_in_progress": "in behandeling",
     "dev_preferences_migration_status_required": "vereist (klik om te beginnen)",
     "dev_preferences_migration_status_not_started": "onbekend",
-    "dev_preferences_import_history_title": "Geschiedenis importeren",
-    "@dev_preferences_import_history_title": {
-        "description": "User dev preferences - Import history - Title"
-    },
     "dev_preferences_import_history_subtitle": "Zal de geschiedenis wissen en er 3 producten in plaatsen",
     "@dev_preferences_import_history_subtitle": {
         "description": "User dev preferences - Import history - Subtitle"
@@ -1645,6 +1684,13 @@
             "totalSize": {
                 "type": "int"
             }
+        }
+    },
+    "product_search_loading_message": "Uw zoekopdracht naar {search} is bezig.\n\nWacht een paar seconden…",
+    "@product_search_loading_message": {
+        "description": "This message will be displayed when a search is in progress.",
+        "search": {
+            "type": "String"
         }
     },
     "user_search_contributor_title": "Producten die ik heb toegevoegd",
@@ -1854,6 +1900,18 @@
     "add_packaging_photo_button_label": "Maak foto's van alle informatie over verpakking/recycling",
     "@add_packaging_photo_button_label": {
         "description": "Label for the add PACKAGING photo button"
+    },
+    "add_origin_photo_button_label": "Maak foto's van eventuele herkomstinformatie",
+    "@add_origin_photo_button_label": {
+        "description": "Label for the add ORIGIN photo button"
+    },
+    "add_emb_photo_button_label": "Maak foto's van eventuele traceerbaarheidscode-informatie",
+    "@add_emb_photo_button_label": {
+        "description": "Label for the add EMB photo button"
+    },
+    "add_label_photo_button_label": "Maak foto's van alle labels en certificeringsinformatie",
+    "@add_label_photo_button_label": {
+        "description": "Label for the add LABELS photo button"
     },
     "choose_image_source_title": "Kies een afbeeldingsbron",
     "@choose_image_source_title": {
@@ -2476,6 +2534,10 @@
     "hunger_games_loading_line2": "We zijn de vragen aan het downloaden!",
     "hunger_games_error_label": "Argh! Er ging iets mis… en we konden de vragen niet laden.",
     "hunger_games_error_retry_button": "Laten we het opnieuw proberen!",
+    "reorder_attribute_action": "Herschik de attributen",
+    "@reorder_attribute_action": {
+        "description": "An action button or a page title about reordering the attributes (e.g. 'is vegan?', 'nutrition facts', ...)"
+    },
     "link_cant_be_opened": "Deze link kan niet worden geopend op uw apparaat. Controleer of u een browser heeft geïnstalleerd.",
     "@link_cant_be_opened": {
         "description": "An error may happen if the device doesn't have a browser installed."

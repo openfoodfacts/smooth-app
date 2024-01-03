@@ -14,21 +14,23 @@ import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/up_to_date_mixin.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
-import 'package:smooth_app/helpers/launch_url_helper.dart';
-import 'package:smooth_app/helpers/product_cards_helper.dart';
-import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_product_cards.dart';
-import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
 import 'package:smooth_app/pages/carousel_manager.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/product/common/product_list_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/edit_product_page.dart';
 import 'package:smooth_app/pages/product/product_questions_widget.dart';
+import 'package:smooth_app/pages/product/reorderable_knowledge_panel_page.dart';
+import 'package:smooth_app/pages/product/reordered_knowledge_panel_cards.dart';
+import 'package:smooth_app/pages/product/standard_knowledge_panel_cards.dart';
 import 'package:smooth_app/pages/product/summary_card.dart';
+import 'package:smooth_app/pages/product/website_card.dart';
 import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
@@ -65,10 +67,7 @@ class _ProductPageState extends State<ProductPage>
   double bottomPadding = 0.0;
 
   @override
-  String get traceName => 'Opened product_page';
-
-  @override
-  String get traceTitle => 'product_page';
+  String get actionName => 'Opened product_page';
 
   @override
   void initState() {
@@ -171,11 +170,12 @@ class _ProductPageState extends State<ProductPage>
   Widget _buildProductBody(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
+    final UserPreferences userPreferences = context.watch<UserPreferences>();
     final DaoProductList daoProductList = DaoProductList(localDatabase);
     return RefreshIndicator(
       onRefresh: () async => ProductRefresher().fetchAndRefresh(
         barcode: barcode,
-        widget: this,
+        context: context,
       ),
       child: ListView(
         // /!\ Smart Dart
@@ -224,38 +224,39 @@ class _ProductPageState extends State<ProductPage>
             appLocalizations,
             daoProductList,
           ),
-          _buildKnowledgePanelCards(),
+          if (userPreferences.getFlag(
+                  UserPreferencesDevMode.userPreferencesFlagUserOrderedKP) ??
+              false)
+            ReorderedKnowledgePanelCards(upToDateProduct)
+          else
+            StandardKnowledgePanelCards(upToDateProduct),
+          // TODO(monsieurtanuki): include website in reordered knowledge panels
           if (upToDateProduct.website != null &&
               upToDateProduct.website!.trim().isNotEmpty)
-            const _WebsiteCard(),
+            WebsiteCard(upToDateProduct.website!),
+          if (userPreferences.getFlag(
+                  UserPreferencesDevMode.userPreferencesFlagUserOrderedKP) ??
+              false)
+            Padding(
+              padding: const EdgeInsets.all(SMALL_SPACE),
+              child: SmoothLargeButtonWithIcon(
+                text: appLocalizations.reorder_attribute_action,
+                icon: Icons.sort,
+                onPressed: () async => Navigator.push(
+                  context,
+                  MaterialPageRoute<void>(
+                    builder: (_) =>
+                        ReorderableKnowledgePanelPage(upToDateProduct),
+                  ),
+                ),
+              ),
+            ),
+          if (questionsLayout == ProductQuestionsLayout.banner)
+            // assuming it's tall enough in order to go above the banner
+            const SizedBox(height: 4 * VERY_LARGE_SPACE),
         ],
       ),
     );
-  }
-
-  Widget _buildKnowledgePanelCards() {
-    final List<Widget> knowledgePanelWidgets = <Widget>[];
-    if (upToDateProduct.knowledgePanels != null) {
-      final List<KnowledgePanelElement> elements =
-          KnowledgePanelWidget.getPanelElements(upToDateProduct);
-      for (final KnowledgePanelElement panelElement in elements) {
-        final List<Widget> children = KnowledgePanelWidget.getChildren(
-          context,
-          panelElement: panelElement,
-          product: upToDateProduct,
-          onboardingMode: false,
-        );
-        if (children.isNotEmpty) {
-          knowledgePanelWidgets.add(
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: children,
-            ),
-          );
-        }
-      }
-    }
-    return KnowledgePanelProductCards(knowledgePanelWidgets);
   }
 
   Future<void> _editList() async {
@@ -466,72 +467,5 @@ class _ProductPageState extends State<ProductPage>
         ),
       ),
     );
-  }
-}
-
-class _WebsiteCard extends StatelessWidget {
-  const _WebsiteCard();
-
-  @override
-  Widget build(BuildContext context) {
-    final String website = _getWebsite(context);
-
-    return buildProductSmoothCard(
-        body: InkWell(
-          onTap: () => LaunchUrlHelper.launchURL(website, false),
-          borderRadius: ROUNDED_BORDER_RADIUS,
-          child: Container(
-            width: double.infinity,
-            padding: const EdgeInsetsDirectional.only(
-              start: LARGE_SPACE,
-              top: LARGE_SPACE,
-              bottom: LARGE_SPACE,
-              // To be perfectly aligned with arrows
-              end: 21.0,
-            ),
-            child: Row(
-              children: <Widget>[
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        AppLocalizations.of(context)
-                            .product_field_website_title,
-                        style: Theme.of(context).textTheme.displaySmall,
-                      ),
-                      const SizedBox(height: SMALL_SPACE),
-                      Text(
-                        website,
-                        overflow: TextOverflow.ellipsis,
-                        style: Theme.of(context)
-                            .textTheme
-                            .bodyMedium
-                            ?.copyWith(color: Colors.blue),
-                      ),
-                    ],
-                  ),
-                ),
-                const Icon(Icons.open_in_new),
-              ],
-            ),
-          ),
-        ),
-        margin: const EdgeInsets.only(
-          left: SMALL_SPACE,
-          right: SMALL_SPACE,
-          bottom: MEDIUM_SPACE,
-        ));
-  }
-
-  String _getWebsite(BuildContext context) {
-    String website = Provider.of<Product>(context).website!;
-
-    if (!website.startsWith('http')) {
-      website = 'http://$website';
-    }
-
-    return website;
   }
 }

@@ -1,4 +1,3 @@
-import 'package:diacritic/diacritic.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -18,11 +17,15 @@ class CountrySelector extends StatefulWidget {
     this.textStyle,
     this.padding,
     this.icon,
+    this.iconDecoration,
+    this.inkWellBorderRadius,
   });
 
   final TextStyle? textStyle;
   final EdgeInsetsGeometry? padding;
-  final IconData? icon;
+  final BorderRadius? inkWellBorderRadius;
+  final Icon? icon;
+  final BoxDecoration? iconDecoration;
 
   @override
   State<CountrySelector> createState() => _CountrySelectorState();
@@ -32,16 +35,9 @@ class _CountrySelectorState extends State<CountrySelector> {
   final ScrollController _scrollController = ScrollController();
   final TextEditingController _countryController = TextEditingController();
   late List<Country> _countryList;
-  late Future<void> _initFuture;
+  late Future<void> _countryNamesFuture;
 
-  @override
-  void initState() {
-    super.initState();
-    final UserPreferences userPreferences = context.read<UserPreferences>();
-    _initFuture = _init(userPreferences.appLanguageCode!);
-  }
-
-  Future<void> _init(final String languageCode) async {
+  Future<void> _loadLocalizedCountryNames(final String languageCode) async {
     List<Country> localizedCountries;
 
     try {
@@ -63,139 +59,164 @@ class _CountrySelectorState extends State<CountrySelector> {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    return FutureBuilder<void>(
-      future: _initFuture,
-      builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
-        if (snapshot.hasError) {
-          return Text('Fatal Error: ${snapshot.error}');
-        } else if (snapshot.connectionState != ConnectionState.done) {
-          return const CircularProgressIndicator.adaptive();
-        }
-        final UserPreferences userPreferences =
-            context.watch<UserPreferences>();
-        final Country selectedCountry = _getSelectedCountry(
-          userPreferences.userCountryCode,
-        );
-        return InkWell(
-          borderRadius: ANGULAR_BORDER_RADIUS,
-          onTap: () async {
-            _reorderCountries(selectedCountry);
-            List<Country> filteredList = List<Country>.from(_countryList);
-            final Country? country = await showDialog<Country>(
-              context: context,
-              builder: (BuildContext context) {
-                return StatefulBuilder(
-                  builder: (BuildContext context,
-                      void Function(VoidCallback fn) setState) {
-                    const double horizontalPadding = 16.0 + SMALL_SPACE;
+    return Selector<UserPreferences, String?>(
+      selector: (BuildContext buildContext, UserPreferences userPreferences) =>
+          userPreferences.appLanguageCode,
+      builder: (BuildContext context, String? appLanguageCode, _) {
+        _countryNamesFuture = _loadLocalizedCountryNames(appLanguageCode!);
+        return FutureBuilder<void>(
+          future: _countryNamesFuture,
+          builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
+            if (snapshot.hasError) {
+              return Text('Fatal Error: ${snapshot.error}');
+            } else if (snapshot.connectionState != ConnectionState.done) {
+              return const CircularProgressIndicator.adaptive();
+            }
+            final UserPreferences userPreferences =
+                context.watch<UserPreferences>();
+            final Country selectedCountry = _getSelectedCountry(
+              userPreferences.userCountryCode,
+            );
+            final EdgeInsetsGeometry innerPadding = const EdgeInsets.symmetric(
+              vertical: SMALL_SPACE,
+            ).add(widget.padding ?? EdgeInsets.zero);
 
-                    return SmoothListAlertDialog(
-                      title: appLocalizations.country_selector_title,
-                      header: SmoothTextFormField(
-                        type: TextFieldTypes.PLAIN_TEXT,
-                        prefixIcon: const Icon(Icons.search),
-                        controller: _countryController,
-                        onChanged: (String? query) {
-                          query = removeDiacritics(query!.trim().toLowerCase());
+            return InkWell(
+              borderRadius: widget.inkWellBorderRadius ?? ANGULAR_BORDER_RADIUS,
+              onTap: () async {
+                _reorderCountries(selectedCountry);
+                List<Country> filteredList = List<Country>.from(_countryList);
+                final Country? country = await showDialog<Country>(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return StatefulBuilder(
+                      builder: (BuildContext context,
+                          void Function(VoidCallback fn) setState) {
+                        const double horizontalPadding = 16.0 + SMALL_SPACE;
 
-                          setState(
-                            () {
-                              filteredList = _countryList
-                                  .where(
-                                    (Country item) =>
-                                        removeDiacritics(
-                                                item.name.toLowerCase())
-                                            .contains(
-                                          query!,
-                                        ) ||
-                                        removeDiacritics(
-                                                item.countryCode.toLowerCase())
-                                            .contains(
-                                          query,
-                                        ),
-                                  )
-                                  .toList(growable: false);
+                        return SmoothListAlertDialog(
+                          title: appLocalizations.country_selector_title,
+                          header: SmoothTextFormField(
+                            type: TextFieldTypes.PLAIN_TEXT,
+                            prefixIcon: const Icon(Icons.search),
+                            controller: _countryController,
+                            onChanged: (String? query) {
+                              query = query!.trim()..getComparisonSafeString();
+
+                              setState(
+                                () {
+                                  filteredList = _countryList
+                                      .where(
+                                        (Country item) =>
+                                            item.name
+                                                .getComparisonSafeString()
+                                                .contains(
+                                                  query!,
+                                                ) ||
+                                            item.countryCode
+                                                .getComparisonSafeString()
+                                                .contains(
+                                                  query,
+                                                ),
+                                      )
+                                      .toList(growable: false);
+                                },
+                              );
                             },
-                          );
-                        },
-                        hintText: appLocalizations.search,
-                      ),
-                      scrollController: _scrollController,
-                      list: ListView.separated(
-                        controller: _scrollController,
-                        itemBuilder: (BuildContext context, int index) {
-                          final Country country = filteredList[index];
-                          final bool selected = country == selectedCountry;
-                          return ListTile(
-                            dense: true,
-                            contentPadding: const EdgeInsets.symmetric(
-                              horizontal: horizontalPadding,
+                            hintText: appLocalizations.search,
+                          ),
+                          scrollController: _scrollController,
+                          list: ListView.separated(
+                            controller: _scrollController,
+                            itemBuilder: (BuildContext context, int index) {
+                              final Country country = filteredList[index];
+                              final bool selected = country == selectedCountry;
+                              return ListTile(
+                                dense: true,
+                                contentPadding: const EdgeInsets.symmetric(
+                                  horizontal: horizontalPadding,
+                                ),
+                                trailing:
+                                    selected ? const Icon(Icons.check) : null,
+                                title: TextHighlighter(
+                                  text: country.name,
+                                  filter: _countryController.text,
+                                  selected: selected,
+                                ),
+                                onTap: () {
+                                  Navigator.of(context).pop(country);
+                                  _countryController.clear();
+                                },
+                              );
+                            },
+                            separatorBuilder: (_, __) => const Divider(
+                              height: 1.0,
                             ),
-                            trailing: selected ? const Icon(Icons.check) : null,
-                            title: TextHighlighter(
-                              text: country.name,
-                              filter: _countryController.text,
-                              selected: selected,
-                            ),
-                            onTap: () {
-                              Navigator.of(context).pop(country);
+                            itemCount: filteredList.length,
+                            shrinkWrap: true,
+                          ),
+                          positiveAction: SmoothActionButton(
+                            onPressed: () {
+                              Navigator.pop(context);
                               _countryController.clear();
                             },
-                          );
-                        },
-                        separatorBuilder: (_, __) => const Divider(
-                          height: 1.0,
-                        ),
-                        itemCount: filteredList.length,
-                        shrinkWrap: true,
-                      ),
-                      positiveAction: SmoothActionButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                          _countryController.clear();
-                        },
-                        text: appLocalizations.cancel,
-                      ),
+                            text: appLocalizations.cancel,
+                          ),
+                        );
+                      },
                     );
                   },
                 );
+                if (country != null) {
+                  await ProductQuery.setCountry(
+                    userPreferences,
+                    country.countryCode,
+                  );
+                }
               },
-            );
-            if (country != null) {
-              await ProductQuery.setCountry(
-                userPreferences,
-                country.countryCode,
-              );
-            }
-          },
-          child: Container(
-            decoration: const BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(10)),
-            ),
-            padding: const EdgeInsets.symmetric(
-              vertical: SMALL_SPACE,
-            ).add(widget.padding ?? EdgeInsets.zero),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                const Icon(Icons.public),
-                Expanded(
-                  flex: 1,
-                  child: Padding(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: LARGE_SPACE),
-                    child: Text(
-                      selectedCountry.name,
-                      style: widget.textStyle ??
-                          Theme.of(context).textTheme.displaySmall,
-                    ),
+              child: DecoratedBox(
+                decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                ),
+                child: IntrinsicHeight(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      Padding(
+                        padding: innerPadding,
+                        child: const Icon(Icons.public),
+                      ),
+                      Expanded(
+                        flex: 1,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: LARGE_SPACE),
+                          child: Text(
+                            selectedCountry.name,
+                            style: Theme.of(context)
+                                .textTheme
+                                .displaySmall
+                                ?.merge(widget.textStyle),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        height: double.infinity,
+                        decoration:
+                            widget.iconDecoration ?? const BoxDecoration(),
+                        child: AspectRatio(
+                          aspectRatio: 1.0,
+                          child:
+                              widget.icon ?? const Icon(Icons.arrow_drop_down),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-                Icon(widget.icon ?? Icons.arrow_drop_down),
-              ],
-            ),
-          ),
+              ),
+            );
+          },
         );
       },
     );

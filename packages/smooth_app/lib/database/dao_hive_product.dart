@@ -20,7 +20,8 @@ class _ProductAdapter extends TypeAdapter<Product> {
       writer.writeString(jsonEncode(obj.toJson()));
 }
 
-// TODO(monsieurtanuki): remove when old enough (today is 2022-06-16)
+/// /!\ Stupid class not be used anymore (from 2022-06-16)
+/// But Hive needs it - it doesn't like data to be removed...
 /// Where we store the products as "barcode => product".
 @Deprecated('use [DaoProduct] instead')
 class DaoHiveProduct extends AbstractDao implements DaoProductMigrationSource {

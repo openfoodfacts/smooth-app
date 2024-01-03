@@ -2,17 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/data_models/product_image_data.dart';
 import 'package:smooth_app/data_models/up_to_date_mixin.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_list_tile_card.dart';
+import 'package:smooth_app/database/transient_file.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/widgets/images/smooth_image.dart';
+import 'package:smooth_app/generic_lib/widgets/language_selector.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/image_field_extension.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
+import 'package:smooth_app/pages/image/product_image_gallery_other_view.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/product_image_swipeable_view.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/widgets/slivers.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
@@ -31,24 +36,21 @@ class ProductImageGalleryView extends StatefulWidget {
 
 class _ProductImageGalleryViewState extends State<ProductImageGalleryView>
     with UpToDateMixin {
-  late List<MapEntry<ProductImageData, ImageProvider?>> _selectedImages;
+  late OpenFoodFactsLanguage _language;
+  bool _clickedOtherPictureButton = false;
 
   @override
   void initState() {
     super.initState();
     initUpToDate(widget.product, context.read<LocalDatabase>());
+    _language = ProductQuery.getLanguage();
   }
 
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final ThemeData theme = Theme.of(context);
     context.watch<LocalDatabase>();
     refreshUpToDate();
-    _selectedImages = getSelectedImages(
-      upToDateProduct,
-      ProductQuery.getLanguage(),
-    );
     return SmoothScaffold(
       appBar: SmoothAppBar(
         centerTitle: false,
@@ -63,7 +65,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView>
             true,
           );
           await confirmAndUploadNewPicture(
-            this,
+            context,
             imageField: ImageField.OTHER,
             barcode: barcode,
             language: ProductQuery.getLanguage(),
@@ -73,37 +75,159 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView>
         label: Text(appLocalizations.add_photo_button_label),
         icon: const Icon(Icons.add_a_photo),
       ),
-      body: RefreshIndicator(
-        onRefresh: () async => ProductRefresher().fetchAndRefresh(
-          barcode: barcode,
-          widget: this,
-        ),
-        child: ListView.builder(
-          itemCount: _selectedImages.length,
-          itemBuilder: (final BuildContext context, int index) {
-            final MapEntry<ProductImageData, ImageProvider?> item =
-                _selectedImages[index];
+      body: Column(
+        children: <Widget>[
+          LanguageSelector(
+            setLanguage: (final OpenFoodFactsLanguage? newLanguage) async {
+              if (newLanguage == null || newLanguage == _language) {
+                return;
+              }
+              setState(() => _language = newLanguage);
+            },
+            displayedLanguage: _language,
+            selectedLanguages: null,
+            padding: const EdgeInsetsDirectional.symmetric(
+              horizontal: 13.0,
+              vertical: SMALL_SPACE,
+            ),
+          ),
+          Expanded(
+            child: RefreshIndicator(
+              onRefresh: () async => ProductRefresher().fetchAndRefresh(
+                barcode: barcode,
+                context: context,
+              ),
+              child: CustomScrollView(
+                slivers: <Widget>[
+                  SliverGrid(
+                    gridDelegate:
+                        SliverGridDelegateWithFixedCrossAxisCountAndFixedHeight(
+                      crossAxisCount: 2,
+                      height: _computeItemHeight(),
+                    ),
+                    delegate: SliverChildBuilderDelegate(
+                      (BuildContext context, int index) {
+                        return _PhotoRow(
+                          position: index,
+                          product: upToDateProduct,
+                          language: _language,
+                        );
+                      },
+                      childCount: 4,
+                    ),
+                  ),
+                  SliverPadding(
+                    padding: const EdgeInsetsDirectional.symmetric(
+                      vertical: MEDIUM_SPACE,
+                      horizontal: SMALL_SPACE,
+                    ),
+                    sliver: SliverToBoxAdapter(
+                      child: Text(
+                        appLocalizations.more_photos,
+                        style: Theme.of(context).textTheme.displayMedium,
+                      ),
+                    ),
+                  ),
+                  if (!_clickedOtherPictureButton)
+                    SliverToBoxAdapter(
+                      child: Padding(
+                        padding: const EdgeInsets.all(SMALL_SPACE),
+                        child: SmoothLargeButtonWithIcon(
+                          text: appLocalizations.view_more_photo_button,
+                          icon: Icons.photo_camera_rounded,
+                          onPressed: () => setState(
+                            () => _clickedOtherPictureButton = true,
+                          ),
+                        ),
+                      ),
+                    ),
 
-            return SmoothListTileCard.image(
-              imageProvider: item.value,
-              title: Text(
-                item.key.imageField.getProductImageTitle(appLocalizations),
-                style: theme.textTheme.headlineMedium,
+                  if (_clickedOtherPictureButton)
+                    ProductImageGalleryOtherView(product: upToDateProduct),
+                  // Extra space to be above the FAB
+                  SliverFillRemaining(
+                    hasScrollBody: false,
+                    child: SizedBox(
+                      height: (Theme.of(context)
+                                  .floatingActionButtonTheme
+                                  .extendedSizeConstraints
+                                  ?.maxHeight ??
+                              56.0) +
+                          16.0,
+                    ),
+                  ),
+                ],
               ),
-              onTap: () => _openImage(
-                imageData: item.key,
-                initialImageIndex: index,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  double _computeItemHeight() {
+    final TextStyle? textStyle = Theme.of(context).textTheme.headlineMedium;
+
+    return (MediaQuery.sizeOf(context).width / 2) +
+        SMALL_SPACE +
+        ((textStyle?.fontSize ?? 15.0) * 2) * (textStyle?.height ?? 2.0);
+  }
+}
+
+class _PhotoRow extends StatelessWidget {
+  const _PhotoRow({
+    required this.position,
+    required this.product,
+    required this.language,
+  });
+
+  final int position;
+  final Product product;
+  final OpenFoodFactsLanguage language;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(
+        top: SMALL_SPACE,
+      ),
+      child: InkWell(
+        onTap: () => _openImage(
+          context: context,
+          initialImageIndex: position,
+        ),
+        child: Column(
+          children: <Widget>[
+            AspectRatio(
+              aspectRatio: 1.0,
+              child: SmoothImage(
+                rounded: false,
+                imageProvider: _getTransientFile(
+                  getImageField(position),
+                ).getImageProvider(),
               ),
-              heroTag: 'photo_${item.key.imageField.offTag}',
-            );
-          },
+            ),
+            Expanded(
+              child: Center(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    getImageField(position)
+                        .getProductImageTitle(AppLocalizations.of(context)),
+                    style: Theme.of(context).textTheme.headlineMedium,
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
   }
 
   Future<void> _openImage({
-    required ProductImageData imageData,
+    required BuildContext context,
     required int initialImageIndex,
   }) async =>
       Navigator.push(
@@ -111,9 +235,22 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView>
         MaterialPageRoute<void>(
           builder: (_) => ProductImageSwipeableView(
             initialImageIndex: initialImageIndex,
-            product: upToDateProduct,
+            product: product,
             isLoggedInMandatory: true,
+            initialLanguage: language,
           ),
         ),
       );
+
+  TransientFile _getTransientFile(
+    final ImageField imageField,
+  ) =>
+      TransientFile.fromProductImageData(
+        getProductImageData(product, imageField, language),
+        product.barcode!,
+        language,
+      );
+
+  ImageField getImageField(final int index) =>
+      ImageFieldSmoothieExtension.orderedMain[index];
 }

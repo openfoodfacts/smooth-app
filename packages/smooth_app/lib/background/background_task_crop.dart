@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -10,17 +9,14 @@ import 'package:smooth_app/background/background_task_refresh_later.dart';
 import 'package:smooth_app/background/background_task_upload.dart';
 import 'package:smooth_app/background/operation_type.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/query/product_query.dart';
 
 /// Background task about product image crop from existing file.
 class BackgroundTaskCrop extends BackgroundTaskUpload {
-  const BackgroundTaskCrop._({
+  BackgroundTaskCrop._({
     required super.processName,
     required super.uniqueId,
     required super.barcode,
-    required super.languageCode,
-    required super.user,
-    required super.country,
+    required super.language,
     required super.stamp,
     required super.imageField,
     required super.croppedPath,
@@ -61,9 +57,9 @@ class BackgroundTaskCrop extends BackgroundTaskUpload {
     required final int y1,
     required final int x2,
     required final int y2,
-    required final State<StatefulWidget> widget,
+    required final BuildContext context,
   }) async {
-    final LocalDatabase localDatabase = widget.context.read<LocalDatabase>();
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final String uniqueId = await _operationType.getNewKey(
       localDatabase,
       barcode: barcode,
@@ -81,7 +77,10 @@ class BackgroundTaskCrop extends BackgroundTaskUpload {
       x2,
       y2,
     );
-    await task.addToManager(localDatabase, widget: widget);
+    if (!context.mounted) {
+      return;
+    }
+    await task.addToManager(localDatabase, context: context);
   }
 
   @override
@@ -118,9 +117,7 @@ class BackgroundTaskCrop extends BackgroundTaskUpload {
         cropY1: cropY1,
         cropX2: cropX2,
         cropY2: cropY2,
-        languageCode: language.code,
-        user: jsonEncode(ProductQuery.getUser().toJson()),
-        country: ProductQuery.getCountry().offTag,
+        language: language,
         stamp: BackgroundTaskUpload.getStamp(
           barcode,
           imageField.offTag,
@@ -137,7 +134,7 @@ class BackgroundTaskCrop extends BackgroundTaskUpload {
         images: <ProductImage>[_getProductImage()],
       ),
     );
-    putTransientImage(localDatabase);
+    await putTransientImage(localDatabase);
   }
 
   /// Returns the actual crop parameters.
@@ -163,7 +160,7 @@ class BackgroundTaskCrop extends BackgroundTaskUpload {
   ) async {
     await super.postExecute(localDatabase, success);
     try {
-      File(croppedPath).deleteSync();
+      (await getFile(croppedPath)).deleteSync();
     } catch (e) {
       // not likely, but let's not spoil the task for that either.
     }

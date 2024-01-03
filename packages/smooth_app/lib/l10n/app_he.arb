@@ -24,6 +24,10 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
+    "previous_label": "הקודם",
+    "@previous_label": {
+        "description": "A label on a button that says 'Previous', pressing the button takes the user to the previous screen."
+    },
     "go_back_to_top": "חזרה למעלה",
     "save": "שמירה",
     "save_confirmation": "לשמור?",
@@ -141,6 +145,7 @@
     "@ecoCardUtility": {
         "description": "Description of what a user can use the Eco data in a product for."
     },
+    "server_error_open_new_issue": "אין תגובה מהשרת! אפשר לדווח על תקלה דרך הקישור הבא.",
     "@user_management": {},
     "sign_in_text": "ניתן להיכנס לחשבונך ב־Open Food Facts כדי לשמור את התרומות שלך",
     "incorrect_credentials": "שם משתמש או סיסמה שגויים.",
@@ -149,6 +154,14 @@
     "login": "שם משתמש",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
+    },
+    "login_result_type_server_unreachable": "אין גישה לרשת",
+    "@login_result_type_server_unreachable": {
+        "description": "Error message when trying to log in without network"
+    },
+    "login_result_type_server_issue": "תקלה בשרת. נא לנסות שוב בהמשך.",
+    "@login_result_type_server_issue": {
+        "description": "Error message when trying to log in and the server does not answer correctly"
     },
     "login_page_username_or_email": "נא למלא שם משתמש או כתובת דוא״ל",
     "login_page_password_error_empty": "נא למלא סיסמה",
@@ -533,6 +546,10 @@
     "@new_product_dialog_title": {
         "description": "Please keep it short, like 50 characters. Title of the dialog when the user searched for an unknown barcode."
     },
+    "new_product_leave_title": "לעזוב את העמוד הזה?",
+    "@new_product_leave_title": {
+        "description": "Alert dialog title when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
+    },
     "new_product_leave_message": "נראה כאילו לא מילאת כלום. לעזוב את העמוד הזה?",
     "@new_product_leave_message": {
         "description": "Alert dialog message when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
@@ -599,7 +616,7 @@
     "ingredients_photo_title": "תמונת רכיבים",
     "nutritional_facts_photo_title": "תמונת פירוט תזונתי",
     "recycling_photo_title": "תמונת מיחזור",
-    "other_interesting_photo_title": "תמונות מעניינות נוספות",
+    "take_more_photo_title": "צילום תמונות נוספות",
     "front_photo_uploaded": "תמונת החזית נשלחה",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "תמונת רכיבים",
@@ -621,7 +638,23 @@
     "new_product_subtitle_nova": "אפשר לגלות אותו על ידי מילוי קטגוריית המזון והרכיבים",
     "new_product_desc_nova_unknown": "רמת עיבוד המזון אינה ידועה",
     "new_product_title_pictures": "בואו נצלם קצת!",
+    "new_product_title_pictures_details": "נא לצלם את התמונות הבאות והמנוע של Open Food Facts ידאג לשאר!",
     "new_product_title_misc": "וכמה נתונים בסיסיים…",
+    "new_product_done_msg": "תודה „{username}” על תרומתך!",
+    "@new_product_done_msg": {
+        "description": "Thank you message on the end of new product page, after finish adding a new product.",
+        "placeholders": {
+            "username": {
+                "type": "String",
+                "example": "Bob"
+            }
+        }
+    },
+    "new_product_done_msg_no_user": "תודה על תרומתך!",
+    "new_product_done_button_label": "הנה המוצר השלם",
+    "@new_product_done_button_label": {
+        "description": "Button at the end of new product page, that takes you to completed product"
+    },
     "hey_incomplete_product_message": "נא לגעת כאן כדי לענות על 3 שאלות כעת ולחשב את ה־Nutri-Score,‏ Eco-Score ואולטרא עיבוד (NOVA) כעת!",
     "nutritional_facts_photo_uploaded": "תמונת הפירוט התזונתי נשלחה",
     "@nutritional_facts_photo_uploaded": {},
@@ -629,8 +662,8 @@
     "@recycling_photo_button_label": {},
     "recycling_photo_uploaded": "תמונת המיחזור נשלחה",
     "@recycling_photo_uploaded": {},
-    "other_interesting_photo_button_label": "תמונות מעניינות נוספות",
-    "@other_interesting_photo_button_label": {},
+    "take_more_photo_button_label": "צילום תמונות נוספות",
+    "@take_more_photo_button_label": {},
     "other_photo_uploaded": "תמונה אחרת נשלחה",
     "@other_photo_uploaded": {},
     "retake_photo_button_label": "לצלם מחדש",
@@ -690,6 +723,8 @@
     "nutrition_page_update_done": "המוצר עודכן!",
     "more_photos": "תמונות מעניינות נוספות",
     "@more_photos": {},
+    "view_more_photo_button": "View all existing photos for this product",
+    "@view_more_photo_button": {},
     "no_product_found": "לא נמצאו מוצרים",
     "@no_product_found": {},
     "not_found": "לא נמצאו:",
@@ -753,7 +788,11 @@
     },
     "country_chooser_label": "נא לבחור מדינה",
     "@country_chooser_label": {
-        "description": "Label shown above a selector where the user can select their country (in the onboarding)"
+        "description": "Label shown above a selector where the user can select their country (in the preferences)"
+    },
+    "onboarding_country_chooser_label": "נא לבחור מדינה:",
+    "@onboarding_country_chooser_label": {
+        "description": "The label shown above a selector where the user can select their country (in the onboarding)"
     },
     "country_chooser_label_from_settings": "המדינה שלך",
     "@country_chooser_label_from_settings": {
@@ -1342,6 +1381,10 @@
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
     },
+    "no_data_available": "אין נתונים זמינים",
+    "@no_data_available": {
+        "description": "When there are no data to display"
+    },
     "product_field_website_title": "אתר",
     "@product_field_website_title": {
         "description": "Title of a product field: website"
@@ -1566,10 +1609,6 @@
     "dev_preferences_migration_status_in_progress": "בתהליך",
     "dev_preferences_migration_status_required": "נחוץ (ללחוץ כדי להפעיל)",
     "dev_preferences_migration_status_not_started": "לא ידוע",
-    "dev_preferences_import_history_title": "ייבוא היסטוריה",
-    "@dev_preferences_import_history_title": {
-        "description": "User dev preferences - Import history - Title"
-    },
     "dev_preferences_import_history_subtitle": "יפנה את ההיסטוריה ויציב שם 3 מוצרים",
     "@dev_preferences_import_history_subtitle": {
         "description": "User dev preferences - Import history - Subtitle"
@@ -1645,6 +1684,13 @@
             "totalSize": {
                 "type": "int"
             }
+        }
+    },
+    "product_search_loading_message": "Your search of {search} is in progress.\n\nPlease wait a few seconds…",
+    "@product_search_loading_message": {
+        "description": "This message will be displayed when a search is in progress.",
+        "search": {
+            "type": "String"
         }
     },
     "user_search_contributor_title": "מוצרים שהוספתי",
@@ -1854,6 +1900,18 @@
     "add_packaging_photo_button_label": "נא לצלם תמונות של פרטי אריזה/מיחזור כלשהם",
     "@add_packaging_photo_button_label": {
         "description": "Label for the add PACKAGING photo button"
+    },
+    "add_origin_photo_button_label": "נא לצלם תמונות של פרטי מקור",
+    "@add_origin_photo_button_label": {
+        "description": "Label for the add ORIGIN photo button"
+    },
+    "add_emb_photo_button_label": "נא לצלם תמונות של פרטי קוד מעקב",
+    "@add_emb_photo_button_label": {
+        "description": "Label for the add EMB photo button"
+    },
+    "add_label_photo_button_label": "נא לצלם תמונות של פרטי תוויות והסמכות",
+    "@add_label_photo_button_label": {
+        "description": "Label for the add LABELS photo button"
     },
     "choose_image_source_title": "בחירת מקור תמונה",
     "@choose_image_source_title": {
@@ -2476,6 +2534,10 @@
     "hunger_games_loading_line2": "אנו מורידים את השאלות!",
     "hunger_games_error_label": "געוואלד! משהו השתבש… לא הצלחנו לטעון את השאלות.",
     "hunger_games_error_retry_button": "מומלץ לנסות שוב!",
+    "reorder_attribute_action": "סידור המאפיינים מחדש",
+    "@reorder_attribute_action": {
+        "description": "An action button or a page title about reordering the attributes (e.g. 'is vegan?', 'nutrition facts', ...)"
+    },
     "link_cant_be_opened": "אי אפשר לפתוח את הקישור הזה במכשיר שלך. נא לבדוק שיש לך דפדפן מותקן.",
     "@link_cant_be_opened": {
         "description": "An error may happen if the device doesn't have a browser installed."

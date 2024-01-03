@@ -47,10 +47,7 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
   bool _disagreed = false;
 
   @override
-  String get traceTitle => 'sign_up_page';
-
-  @override
-  String get traceName => 'Opened sign_up_page';
+  String get actionName => 'Opened sign_up_page';
 
   @override
   Widget build(BuildContext context) {
@@ -397,9 +394,13 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
         }
       }
 
-      // ignore: use_build_context_synchronously
-      await LoadingDialog.error(context: context, title: errorMessage);
-
+      if (context.mounted) {
+        await LoadingDialog.error(
+          context: context,
+          title: errorMessage,
+          shouldOpenNewIssue: status.shouldOpenNewIssue(),
+        );
+      }
       return;
     }
     AnalyticsHelper.trackEvent(AnalyticsEvent.registerAction);
@@ -407,7 +408,9 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
       return;
     }
     await context.read<UserManagementProvider>().putUser(user);
-    // ignore: use_build_context_synchronously
+    if (!context.mounted) {
+      return;
+    }
     await showDialog<void>(
       context: context,
       builder: (BuildContext context) => SmoothAlertDialog(

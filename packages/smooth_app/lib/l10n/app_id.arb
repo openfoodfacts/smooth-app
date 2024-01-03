@@ -24,6 +24,10 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
+    "previous_label": "Sebelumnya",
+    "@previous_label": {
+        "description": "A label on a button that says 'Previous', pressing the button takes the user to the previous screen."
+    },
     "go_back_to_top": "Kembali ke atas",
     "save": "menyimpan ",
     "save_confirmation": "Apa Anda yakin ingin menyimpan?",
@@ -141,6 +145,7 @@
     "@ecoCardUtility": {
         "description": "Description of what a user can use the Eco data in a product for."
     },
+    "server_error_open_new_issue": "Tidak ada respons server! Anda dapat membuka masalah dengan tautan berikut ini.",
     "@user_management": {},
     "sign_in_text": "Masuk ke akun OpenFoodFacts untuk menyimpan kontribusi Anda",
     "incorrect_credentials": "Nama pengguna atau kata sandi Anda salah.",
@@ -149,6 +154,14 @@
     "login": "Masuk",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
+    },
+    "login_result_type_server_unreachable": "Jaringan tidak terjangkau",
+    "@login_result_type_server_unreachable": {
+        "description": "Error message when trying to log in without network"
+    },
+    "login_result_type_server_issue": "Masalah pada server. Silakan coba lagi nanti.",
+    "@login_result_type_server_issue": {
+        "description": "Error message when trying to log in and the server does not answer correctly"
     },
     "login_page_username_or_email": "Silakan masukkan nama pengguna atau email",
     "login_page_password_error_empty": "Silakan masukkan kata sandi",
@@ -533,6 +546,10 @@
     "@new_product_dialog_title": {
         "description": "Please keep it short, like 50 characters. Title of the dialog when the user searched for an unknown barcode."
     },
+    "new_product_leave_title": "Keluar dari halaman ini?",
+    "@new_product_leave_title": {
+        "description": "Alert dialog title when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
+    },
     "new_product_leave_message": "Anda tidak memasukan informasi apapun, apakah Anda yakin ingin meninggalkan halaman ini?",
     "@new_product_leave_message": {
         "description": "Alert dialog message when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
@@ -599,7 +616,7 @@
     "ingredients_photo_title": "Foto Komposisi",
     "nutritional_facts_photo_title": "Foto Informasi Nilai Gizi",
     "recycling_photo_title": "Foto daur ulang",
-    "other_interesting_photo_title": "Foto menarik lainnya",
+    "take_more_photo_title": "Ambil lebih banyak foto",
     "front_photo_uploaded": "Foto depan diunggah",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "Foto kandungan bahan",
@@ -621,7 +638,23 @@
     "new_product_subtitle_nova": "Dapatkan dengan mengisi kategori makanan dan bahan makanan",
     "new_product_desc_nova_unknown": "Tingkat pemrosesan makanan tidak diketahui",
     "new_product_title_pictures": "Ambil beberapa foto!",
+    "new_product_title_pictures_details": "Silakan ambil foto-foto berikut ini dan mesin Open Food Facts akan menghitung sisanya!",
     "new_product_title_misc": "Dan beberapa informasi dasar…",
+    "new_product_done_msg": "Terima kasih atas kontribusi Anda “{username}”!",
+    "@new_product_done_msg": {
+        "description": "Thank you message on the end of new product page, after finish adding a new product.",
+        "placeholders": {
+            "username": {
+                "type": "String",
+                "example": "Bob"
+            }
+        }
+    },
+    "new_product_done_msg_no_user": "Terima kasih atas kontribusi Anda!",
+    "new_product_done_button_label": "Temukan produk yang sudah lengkap",
+    "@new_product_done_button_label": {
+        "description": "Button at the end of new product page, that takes you to completed product"
+    },
     "hey_incomplete_product_message": "Ketuk untuk menjawab 3 pertanyaan SEKARANG untuk menghitung Nutri-Score, Eco-Score & Ultra-processing (NOVA)!",
     "nutritional_facts_photo_uploaded": "Foto informasi nilai gizi telah diunggah",
     "@nutritional_facts_photo_uploaded": {},
@@ -629,8 +662,8 @@
     "@recycling_photo_button_label": {},
     "recycling_photo_uploaded": "Foto daur ulang telah diunggah",
     "@recycling_photo_uploaded": {},
-    "other_interesting_photo_button_label": "Foto menarik lainnya",
-    "@other_interesting_photo_button_label": {},
+    "take_more_photo_button_label": "Ambil lebih banyak foto",
+    "@take_more_photo_button_label": {},
     "other_photo_uploaded": "Berbagai foto telah diunggah",
     "@other_photo_uploaded": {},
     "retake_photo_button_label": "Ambil ulang",
@@ -690,6 +723,8 @@
     "nutrition_page_update_done": "Produk diperbarui!",
     "more_photos": "Lebih banyak foto menarik",
     "@more_photos": {},
+    "view_more_photo_button": "Lihat semua foto yang ada untuk produk ini",
+    "@view_more_photo_button": {},
     "no_product_found": "Produk tidak ditemukan",
     "@no_product_found": {},
     "not_found": "tidak ditemukan:",
@@ -753,7 +788,11 @@
     },
     "country_chooser_label": "Silakan pilih negara",
     "@country_chooser_label": {
-        "description": "Label shown above a selector where the user can select their country (in the onboarding)"
+        "description": "Label shown above a selector where the user can select their country (in the preferences)"
+    },
+    "onboarding_country_chooser_label": "Silakan pilih negara:",
+    "@onboarding_country_chooser_label": {
+        "description": "The label shown above a selector where the user can select their country (in the onboarding)"
     },
     "country_chooser_label_from_settings": "Negara Anda",
     "@country_chooser_label_from_settings": {
@@ -1184,7 +1223,7 @@
             }
         }
     },
-    "edit_product_form_item_barcode": "kode batang",
+    "edit_product_form_item_barcode": "Kode batang",
     "@edit_product_form_item_barcode": {
         "description": "Product edition - Barcode"
     },
@@ -1341,6 +1380,10 @@
     "edit_product_form_save": "Sunting",
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
+    },
+    "no_data_available": "Data tidak tersedia",
+    "@no_data_available": {
+        "description": "When there are no data to display"
     },
     "product_field_website_title": "Situs Web",
     "@product_field_website_title": {
@@ -1566,10 +1609,6 @@
     "dev_preferences_migration_status_in_progress": "dalam proses",
     "dev_preferences_migration_status_required": "diperlukan (klik untuk memulai)",
     "dev_preferences_migration_status_not_started": "tidak diketahui",
-    "dev_preferences_import_history_title": "Impor Riwayat",
-    "@dev_preferences_import_history_title": {
-        "description": "User dev preferences - Import history - Title"
-    },
     "dev_preferences_import_history_subtitle": "Akan menghapus riwayat dan menempatkan 3 produk di sana",
     "@dev_preferences_import_history_subtitle": {
         "description": "User dev preferences - Import history - Subtitle"
@@ -1645,6 +1684,13 @@
             "totalSize": {
                 "type": "int"
             }
+        }
+    },
+    "product_search_loading_message": "Pencarian Anda untuk {search} sedang berlangsung.\n\nMohon tunggu beberapa detik…",
+    "@product_search_loading_message": {
+        "description": "This message will be displayed when a search is in progress.",
+        "search": {
+            "type": "String"
         }
     },
     "user_search_contributor_title": "Produk yang saya tambahkan",
@@ -1755,7 +1801,7 @@
     "brand_name": "Nama merek",
     "add_basic_details_brand_name_error": "Harap masukkan nama merek",
     "quantity": "Kuantitas dan berat",
-    "barcode": "kode batang",
+    "barcode": "Kode batang",
     "barcode_barcode": "Kode batang: {barcode}",
     "@barcode_barcode": {
         "description": "Displaying the raw barcode with label",
@@ -1854,6 +1900,18 @@
     "add_packaging_photo_button_label": "Ambil foto dari setiap informasi pengemasan/daur ulang",
     "@add_packaging_photo_button_label": {
         "description": "Label for the add PACKAGING photo button"
+    },
+    "add_origin_photo_button_label": "Mengambil foto informasi asal",
+    "@add_origin_photo_button_label": {
+        "description": "Label for the add ORIGIN photo button"
+    },
+    "add_emb_photo_button_label": "Ambil foto informasi kode penelusuran apa pun",
+    "@add_emb_photo_button_label": {
+        "description": "Label for the add EMB photo button"
+    },
+    "add_label_photo_button_label": "Ambil foto informasi label & sertifikasi apa pun",
+    "@add_label_photo_button_label": {
+        "description": "Label for the add LABELS photo button"
     },
     "choose_image_source_title": "Memilih sumber gambar",
     "@choose_image_source_title": {
@@ -2476,7 +2534,11 @@
     "hunger_games_loading_line2": "Kami mengunduh pertanyaannya!",
     "hunger_games_error_label": "Argh! Terjadi kesalahan… dan kami tidak bisa memuat pertanyaan.",
     "hunger_games_error_retry_button": "Mari kita coba lagi!",
-    "link_cant_be_opened": "This link can't be opened on your device. Please check that you have a browser installed.",
+    "reorder_attribute_action": "Susun ulang atribut",
+    "@reorder_attribute_action": {
+        "description": "An action button or a page title about reordering the attributes (e.g. 'is vegan?', 'nutrition facts', ...)"
+    },
+    "link_cant_be_opened": "Tautan ini tidak dapat dibuka di perangkat Anda. Pastikan Anda telah menginstal browser.",
     "@link_cant_be_opened": {
         "description": "An error may happen if the device doesn't have a browser installed."
     }

@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
 import 'dart:ui' as ui;
@@ -16,17 +15,14 @@ import 'package:smooth_app/background/operation_type.dart';
 import 'package:smooth_app/data_models/up_to_date_changes.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/helpers/image_compute_container.dart';
-import 'package:smooth_app/query/product_query.dart';
 
 /// Background task about product image upload.
 class BackgroundTaskImage extends BackgroundTaskUpload {
-  const BackgroundTaskImage._({
+  BackgroundTaskImage._({
     required super.processName,
     required super.uniqueId,
     required super.barcode,
-    required super.languageCode,
-    required super.user,
-    required super.country,
+    required super.language,
     required super.stamp,
     required super.imageField,
     required super.croppedPath,
@@ -56,12 +52,8 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
   }
 
   // cf. https://github.com/openfoodfacts/smooth-app/issues/4219
-  // TODO(monsieurtanuki): move to off-dart
-  static const int minimumWidth = 640;
-  static const int minimumHeight = 160;
-
   static bool isPictureBigEnough(final num width, final num height) =>
-      width >= minimumWidth || height >= minimumHeight;
+      width >= ImageHelper.minimumWidth || height >= ImageHelper.minimumHeight;
 
   /// Adds the background task about uploading a product image.
   static Future<void> addTask(
@@ -75,9 +67,9 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
     required final int y1,
     required final int x2,
     required final int y2,
-    required final State<StatefulWidget> widget,
+    required final BuildContext context,
   }) async {
-    final LocalDatabase localDatabase = widget.context.read<LocalDatabase>();
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final String uniqueId = await _operationType.getNewKey(
       localDatabase,
       barcode: barcode,
@@ -95,7 +87,10 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
       x2,
       y2,
     );
-    await task.addToManager(localDatabase, widget: widget);
+    if (!context.mounted) {
+      return;
+    }
+    await task.addToManager(localDatabase, context: context);
   }
 
   @override
@@ -132,9 +127,7 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
         cropY1: cropY1,
         cropX2: cropX2,
         cropY2: cropY2,
-        languageCode: language.code,
-        user: jsonEncode(ProductQuery.getUser().toJson()),
-        country: ProductQuery.getCountry().offTag,
+        language: language,
         stamp: BackgroundTaskUpload.getStamp(
           barcode,
           imageField.offTag,
@@ -157,7 +150,7 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
         images: <ProductImage>[_getProductImage()],
       ),
     );
-    putTransientImage(localDatabase);
+    await putTransientImage(localDatabase);
   }
 
   /// Returns a fake value that means: "remove the previous value when merging".
@@ -180,17 +173,17 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
   ) async {
     await super.postExecute(localDatabase, success);
     try {
-      File(fullPath).deleteSync();
+      (await getFile(fullPath)).deleteSync();
     } catch (e) {
       // not likely, but let's not spoil the task for that either.
     }
     try {
-      File(croppedPath).deleteSync();
+      (await getFile(croppedPath)).deleteSync();
     } catch (e) {
       // not likely, but let's not spoil the task for that either.
     }
     try {
-      File(_getCroppedPath()).deleteSync();
+      (await getFile(_getCroppedPath())).deleteSync();
     } catch (e) {
       // possible, but let's not spoil the task for that either.
     }
@@ -230,7 +223,8 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
   /// Returns false if no crop operation is needed.
   /// Returns null if the image (cropped or not) is too small.
   Future<bool?> _crop(final File file) async {
-    final ui.Image full = await loadUiImage(await File(fullPath).readAsBytes());
+    final ui.Image full =
+        await loadUiImage(await (await getFile(fullPath)).readAsBytes());
     if (cropX1 == 0 &&
         cropY1 == 0 &&
         cropX2 == cropConversionFactor &&
@@ -300,7 +294,7 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
   Future<void> upload() async {
     final String path;
     final String croppedPath = _getCroppedPath();
-    final bool? neededCrop = await _crop(File(croppedPath));
+    final bool? neededCrop = await _crop(await getFile(croppedPath));
     if (neededCrop == null) {
       // TODO(monsieurtanuki): maybe something more refined when we dismiss the picture, like alerting the user, though it's not supposed to happen anymore from upstream.
       return;

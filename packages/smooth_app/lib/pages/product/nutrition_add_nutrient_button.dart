@@ -1,4 +1,3 @@
-import 'package:diacritic/diacritic.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -35,8 +34,8 @@ class NutritionAddNutrientButton extends StatelessWidget {
             a.name!.compareTo(b.name!));
         List<OrderedNutrient> filteredList =
             List<OrderedNutrient>.from(leftovers);
-        final TextEditingControllerWithInitialValue nutritionTextController =
-            TextEditingControllerWithInitialValue();
+        final TextEditingControllerWithHistory nutritionTextController =
+            TextEditingControllerWithHistory();
         final ScrollController controller = ScrollController();
 
         final OrderedNutrient? selected = await showDialog<OrderedNutrient>(
@@ -55,9 +54,14 @@ class NutritionAddNutrientButton extends StatelessWidget {
                 controller: nutritionTextController,
                 onChanged: (String? query) => setState(
                   () => filteredList = leftovers
-                      .where((OrderedNutrient item) =>
-                          removeDiacritics(item.name!).toLowerCase().contains(
-                              removeDiacritics(query!).toLowerCase().trim()))
+                      .where(
+                        (OrderedNutrient item) => item.name!
+                            .trim()
+                            .getComparisonSafeString()
+                            .contains(
+                              query!.trim().getComparisonSafeString(),
+                            ),
+                      )
                       .toList(),
                 ),
               ),

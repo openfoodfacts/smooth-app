@@ -12,7 +12,17 @@ import 'package:smooth_app/widgets/smooth_floating_message.dart';
 
 /// Abstract background task.
 abstract class BackgroundTask {
-  const BackgroundTask({
+  BackgroundTask({
+    required this.processName,
+    required this.uniqueId,
+    required this.stamp,
+    final OpenFoodFactsLanguage? language,
+  })   // TODO(monsieurtanuki): don't store the password in a clear format...
+  : user = jsonEncode(ProductQuery.getUser().toJson()),
+        country = ProductQuery.getCountry().offTag,
+        languageCode = (language ?? ProductQuery.getLanguage()).offTag;
+
+  BackgroundTask._({
     required this.processName,
     required this.uniqueId,
     required this.languageCode,
@@ -22,7 +32,7 @@ abstract class BackgroundTask {
   });
 
   BackgroundTask.fromJson(Map<String, dynamic> json)
-      : this(
+      : this._(
           processName: json[_jsonTagProcessName] as String,
           uniqueId: json[_jsonTagUniqueId] as String,
           languageCode: json[_jsonTagLanguageCode] as String,
@@ -111,31 +121,30 @@ abstract class BackgroundTask {
   @protected
   Future<void> addToManager(
     final LocalDatabase localDatabase, {
-    final State<StatefulWidget>? widget,
+    final BuildContext? context,
     final bool showSnackBar = true,
   }) async {
     await BackgroundTaskManager.getInstance(localDatabase).add(this);
-    if (widget == null || !widget.mounted) {
+    if (context == null || !context.mounted) {
       return;
     }
     if (!showSnackBar) {
       return;
     }
 
-    if (widget.context.mounted) {
-      // ignore: use_build_context_synchronously
-      if (getFloatingMessage(AppLocalizations.of(widget.context))
-          case (
-            final String message,
-            final AlignmentGeometry alignment,
-          )) {
-        // ignore: use_build_context_synchronously
-        SmoothFloatingMessage(message: message).show(
-          widget.context,
-          duration: SnackBarDuration.medium,
-          alignment: alignment,
-        );
-      }
+    if (!context.mounted) {
+      return;
+    }
+    if (getFloatingMessage(AppLocalizations.of(context))
+        case (
+          final String message,
+          final AlignmentGeometry alignment,
+        )) {
+      SmoothFloatingMessage(message: message).show(
+        context,
+        duration: SnackBarDuration.medium,
+        alignment: alignment,
+      );
     }
   }
 
@@ -147,7 +156,16 @@ abstract class BackgroundTask {
       OpenFoodFactsCountry.fromOffTag(country);
 
   @protected
-  User getUser() => User.fromJson(jsonDecode(user) as Map<String, dynamic>);
+  User getUser() {
+    final User storedUser =
+        User.fromJson(jsonDecode(user) as Map<String, dynamic>);
+    final User currentUser = ProductQuery.getUser();
+    if (storedUser.userId == currentUser.userId) {
+      // with a latest password.
+      return currentUser;
+    }
+    return storedUser;
+  }
 
   /// Checks that everything is fine and fix things if needed + if possible.
   ///
@@ -163,5 +181,7 @@ abstract class BackgroundTask {
   /// subtasks that call the next one at the end.
   bool get hasImmediateNextTask => false;
 
+// TODO(monsieurtanuki): store the uriProductHelper as well
+  @protected
   UriProductHelper get uriProductHelper => ProductQuery.uriProductHelper;
 }

@@ -24,6 +24,10 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
+    "previous_label": "Ankstesnis",
+    "@previous_label": {
+        "description": "A label on a button that says 'Previous', pressing the button takes the user to the previous screen."
+    },
     "go_back_to_top": "Grįžti į viršų",
     "save": "Išsaugoti",
     "save_confirmation": "Ar tikrai norite išsaugoti?",
@@ -141,6 +145,7 @@
     "@ecoCardUtility": {
         "description": "Description of what a user can use the Eco data in a product for."
     },
+    "server_error_open_new_issue": "No server response! You may open an issue with the following link.",
     "@user_management": {},
     "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
     "incorrect_credentials": "Neteisingas prisijungimo vardas arba slaptažodis.",
@@ -149,6 +154,14 @@
     "login": "Prisijungti",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
+    },
+    "login_result_type_server_unreachable": "Network is unreachable",
+    "@login_result_type_server_unreachable": {
+        "description": "Error message when trying to log in without network"
+    },
+    "login_result_type_server_issue": "Problem on the server. Please try later.",
+    "@login_result_type_server_issue": {
+        "description": "Error message when trying to log in and the server does not answer correctly"
     },
     "login_page_username_or_email": "Įveskite slapyvardį arba el. paštą",
     "login_page_password_error_empty": "Įveskite slaptažodį",
@@ -533,6 +546,10 @@
     "@new_product_dialog_title": {
         "description": "Please keep it short, like 50 characters. Title of the dialog when the user searched for an unknown barcode."
     },
+    "new_product_leave_title": "Leave this page?",
+    "@new_product_leave_title": {
+        "description": "Alert dialog title when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
+    },
     "new_product_leave_message": "Atrodo, kad nieko neįvedėte. Ar tikrai norite išeiti iš šio puslapio?",
     "@new_product_leave_message": {
         "description": "Alert dialog message when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
@@ -599,7 +616,7 @@
     "ingredients_photo_title": "Sudėties Nuotrauka",
     "nutritional_facts_photo_title": "Maistingumo duomenų nuotrauka",
     "recycling_photo_title": "Perdirbimo Nuotrauka",
-    "other_interesting_photo_title": "Kitos įdomios nuotraukos",
+    "take_more_photo_title": "Take more pictures",
     "front_photo_uploaded": "Priekinė nuotrauka įkelta",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "Sudėties nuotrauka",
@@ -621,7 +638,23 @@
     "new_product_subtitle_nova": "Gauti jį užpildžius maisto kategoriją ir ingredientus",
     "new_product_desc_nova_unknown": "Maisto perdirbimo lygis nežinomas",
     "new_product_title_pictures": "Nufotografuokime kelias nuotraukas!",
+    "new_product_title_pictures_details": "Please take the following photos and the Open Food Facts engine can work out the rest!",
     "new_product_title_misc": "Ir kai kurie pagrindiniai duomenys…",
+    "new_product_done_msg": "Thanks for your contribution “{username}”!",
+    "@new_product_done_msg": {
+        "description": "Thank you message on the end of new product page, after finish adding a new product.",
+        "placeholders": {
+            "username": {
+                "type": "String",
+                "example": "Bob"
+            }
+        }
+    },
+    "new_product_done_msg_no_user": "Thanks for your contribution!",
+    "new_product_done_button_label": "Discover the completed product",
+    "@new_product_done_button_label": {
+        "description": "Button at the end of new product page, that takes you to completed product"
+    },
     "hey_incomplete_product_message": "Tap to answer 3 questions NOW to compute Nutri-Score, Eco-Score & Ultra-processing (NOVA)!",
     "nutritional_facts_photo_uploaded": "Įkelta Maistingumo lentelės nuotrauka",
     "@nutritional_facts_photo_uploaded": {},
@@ -629,8 +662,8 @@
     "@recycling_photo_button_label": {},
     "recycling_photo_uploaded": "Perdirbimo nuotrauka įkelta",
     "@recycling_photo_uploaded": {},
-    "other_interesting_photo_button_label": "Kitos įdomios nuotraukos",
-    "@other_interesting_photo_button_label": {},
+    "take_more_photo_button_label": "Take more pictures",
+    "@take_more_photo_button_label": {},
     "other_photo_uploaded": "Įkelta įvairi nuotrauka",
     "@other_photo_uploaded": {},
     "retake_photo_button_label": "Retake",
@@ -690,6 +723,8 @@
     "nutrition_page_update_done": "Produktas atnaujintas!",
     "more_photos": "Daugiau įdomių nuotraukų",
     "@more_photos": {},
+    "view_more_photo_button": "View all existing photos for this product",
+    "@view_more_photo_button": {},
     "no_product_found": "Prekės nerasta",
     "@no_product_found": {},
     "not_found": "nerastas:",
@@ -753,7 +788,11 @@
     },
     "country_chooser_label": "Pasirinkite šalį",
     "@country_chooser_label": {
-        "description": "Label shown above a selector where the user can select their country (in the onboarding)"
+        "description": "Label shown above a selector where the user can select their country (in the preferences)"
+    },
+    "onboarding_country_chooser_label": "Please choose a country:",
+    "@onboarding_country_chooser_label": {
+        "description": "The label shown above a selector where the user can select their country (in the onboarding)"
     },
     "country_chooser_label_from_settings": "Jūsų šalis",
     "@country_chooser_label_from_settings": {
@@ -1342,6 +1381,10 @@
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
     },
+    "no_data_available": "No data available",
+    "@no_data_available": {
+        "description": "When there are no data to display"
+    },
     "product_field_website_title": "Interneto svetainė",
     "@product_field_website_title": {
         "description": "Title of a product field: website"
@@ -1566,10 +1609,6 @@
     "dev_preferences_migration_status_in_progress": "vykdoma",
     "dev_preferences_migration_status_required": "būtina (spustelėkite norėdami pradėti)",
     "dev_preferences_migration_status_not_started": "nežinoma",
-    "dev_preferences_import_history_title": "Importuoti istoriją",
-    "@dev_preferences_import_history_title": {
-        "description": "User dev preferences - Import history - Title"
-    },
     "dev_preferences_import_history_subtitle": "Išvalys istoriją ir įdės 3 produktus",
     "@dev_preferences_import_history_subtitle": {
         "description": "User dev preferences - Import history - Subtitle"
@@ -1645,6 +1684,13 @@
             "totalSize": {
                 "type": "int"
             }
+        }
+    },
+    "product_search_loading_message": "Your search of {search} is in progress.\n\nPlease wait a few seconds…",
+    "@product_search_loading_message": {
+        "description": "This message will be displayed when a search is in progress.",
+        "search": {
+            "type": "String"
         }
     },
     "user_search_contributor_title": "Produktai, kuriuos pridėjau",
@@ -1854,6 +1900,18 @@
     "add_packaging_photo_button_label": "Nufotografuokite bet kokią pakuotės / perdirbimo informaciją",
     "@add_packaging_photo_button_label": {
         "description": "Label for the add PACKAGING photo button"
+    },
+    "add_origin_photo_button_label": "Take photos of any origin information",
+    "@add_origin_photo_button_label": {
+        "description": "Label for the add ORIGIN photo button"
+    },
+    "add_emb_photo_button_label": "Take photos of any traceability code information",
+    "@add_emb_photo_button_label": {
+        "description": "Label for the add EMB photo button"
+    },
+    "add_label_photo_button_label": "Take photos of any labels & certifications information",
+    "@add_label_photo_button_label": {
+        "description": "Label for the add LABELS photo button"
     },
     "choose_image_source_title": "Pasirinkite vaizdo šaltinį",
     "@choose_image_source_title": {
@@ -2476,6 +2534,10 @@
     "hunger_games_loading_line2": "Mes atsisiunčiame klausimus!",
     "hunger_games_error_label": "Po galais! Kažkas atsitiko… ir mums nepavyko įkelti klausimų.",
     "hunger_games_error_retry_button": "Pabandykime dar kartą!",
+    "reorder_attribute_action": "Reorder the attributes",
+    "@reorder_attribute_action": {
+        "description": "An action button or a page title about reordering the attributes (e.g. 'is vegan?', 'nutrition facts', ...)"
+    },
     "link_cant_be_opened": "Šios nuorodos negalima atidaryti jūsų įrenginyje. Patikrinkite, ar įdiegta naršyklė.",
     "@link_cant_be_opened": {
         "description": "An error may happen if the device doesn't have a browser installed."

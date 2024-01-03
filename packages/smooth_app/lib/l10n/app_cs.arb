@@ -24,6 +24,10 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
+    "previous_label": "Předchozí",
+    "@previous_label": {
+        "description": "A label on a button that says 'Previous', pressing the button takes the user to the previous screen."
+    },
     "go_back_to_top": "Přejít zpět na začátek",
     "save": "Uložit",
     "save_confirmation": "Opravdu to chcete uložit?",
@@ -141,6 +145,7 @@
     "@ecoCardUtility": {
         "description": "Description of what a user can use the Eco data in a product for."
     },
+    "server_error_open_new_issue": "Žádná odpověď serveru! Problém můžete nahlásit pomocí následujícího odkazu.",
     "@user_management": {},
     "sign_in_text": "Pro uložení vašich příspěvků se přihlaste ke svému účtu Open Food Facts",
     "incorrect_credentials": "Nesprávné uživatelské jméno nebo heslo.",
@@ -149,6 +154,14 @@
     "login": "Uživatelské jméno",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
+    },
+    "login_result_type_server_unreachable": "Síť je nedostupná",
+    "@login_result_type_server_unreachable": {
+        "description": "Error message when trying to log in without network"
+    },
+    "login_result_type_server_issue": "Problém na serveru. Zkuste to prosím později.",
+    "@login_result_type_server_issue": {
+        "description": "Error message when trying to log in and the server does not answer correctly"
     },
     "login_page_username_or_email": "Zadejte prosím uživatelské jméno nebo e-mail",
     "login_page_password_error_empty": "Zadejte heslo",
@@ -533,6 +546,10 @@
     "@new_product_dialog_title": {
         "description": "Please keep it short, like 50 characters. Title of the dialog when the user searched for an unknown barcode."
     },
+    "new_product_leave_title": "Opustit tuto stránku?",
+    "@new_product_leave_title": {
+        "description": "Alert dialog title when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
+    },
     "new_product_leave_message": "Zdá se, že jste nic nezadali. Opravdu chcete opustit tuto stránku?",
     "@new_product_leave_message": {
         "description": "Alert dialog message when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
@@ -599,7 +616,7 @@
     "ingredients_photo_title": "Fotografie ingrediencí",
     "nutritional_facts_photo_title": "Fotografie nutričních údajů",
     "recycling_photo_title": "Fotografie recyklace",
-    "other_interesting_photo_title": "Další zajímavé fotky",
+    "take_more_photo_title": "Vyfotit další obrázky",
     "front_photo_uploaded": "Přední fotka nahrána",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "Fotografie ingrediencí",
@@ -621,7 +638,23 @@
     "new_product_subtitle_nova": "Získejte ji vyplněním kategorie potravin a složek",
     "new_product_desc_nova_unknown": "Neznámá úroveň průmyslového zpracování potraviny",
     "new_product_title_pictures": "Pojďme udělat pár fotek!",
+    "new_product_title_pictures_details": "Udělejte prosím následující fotky a nástroj Open Food Facts dokáže vyřešit zbytek!",
     "new_product_title_misc": "A pár základních údajů…",
+    "new_product_done_msg": "Děkujeme za váš příspěvek, {username}!",
+    "@new_product_done_msg": {
+        "description": "Thank you message on the end of new product page, after finish adding a new product.",
+        "placeholders": {
+            "username": {
+                "type": "String",
+                "example": "Bob"
+            }
+        }
+    },
+    "new_product_done_msg_no_user": "Děkujeme za Váš příspěvek!",
+    "new_product_done_button_label": "Objevte hotový produkt",
+    "@new_product_done_button_label": {
+        "description": "Button at the end of new product page, that takes you to completed product"
+    },
     "hey_incomplete_product_message": "Klepnutím odpovězte na 3 otázky HNED k výpočtu Nutri-Score, Eco-Score & Ultra-processing (NOVA)!",
     "nutritional_facts_photo_uploaded": "Fotografie nutričních údajů byla nahrána",
     "@nutritional_facts_photo_uploaded": {},
@@ -629,8 +662,8 @@
     "@recycling_photo_button_label": {},
     "recycling_photo_uploaded": "Nahrána fotografie recyklace",
     "@recycling_photo_uploaded": {},
-    "other_interesting_photo_button_label": "Další zajímavé fotky",
-    "@other_interesting_photo_button_label": {},
+    "take_more_photo_button_label": "Vyfotit další obrázky",
+    "@take_more_photo_button_label": {},
     "other_photo_uploaded": "Různé fotografie nahrány",
     "@other_photo_uploaded": {},
     "retake_photo_button_label": "Pořídit znovu",
@@ -690,6 +723,8 @@
     "nutrition_page_update_done": "Produkt aktualizován!",
     "more_photos": "Další zajímavé fotky",
     "@more_photos": {},
+    "view_more_photo_button": "Zobrazit všechny existující fotografie tohoto produktu",
+    "@view_more_photo_button": {},
     "no_product_found": "Nebyl nalezen žádný produkt",
     "@no_product_found": {},
     "not_found": "nenalezeno:",
@@ -753,7 +788,11 @@
     },
     "country_chooser_label": "Vyberte prosím zemi",
     "@country_chooser_label": {
-        "description": "Label shown above a selector where the user can select their country (in the onboarding)"
+        "description": "Label shown above a selector where the user can select their country (in the preferences)"
+    },
+    "onboarding_country_chooser_label": "Vyberte prosím zemi:",
+    "@onboarding_country_chooser_label": {
+        "description": "The label shown above a selector where the user can select their country (in the onboarding)"
     },
     "country_chooser_label_from_settings": "Vaše země",
     "@country_chooser_label_from_settings": {
@@ -1342,6 +1381,10 @@
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
     },
+    "no_data_available": "Nejsou dostupná žádná data",
+    "@no_data_available": {
+        "description": "When there are no data to display"
+    },
     "product_field_website_title": "Webová stránka",
     "@product_field_website_title": {
         "description": "Title of a product field: website"
@@ -1566,10 +1609,6 @@
     "dev_preferences_migration_status_in_progress": "probíhá",
     "dev_preferences_migration_status_required": "vyžadováno (kliknutím spustíte)",
     "dev_preferences_migration_status_not_started": "neznámý",
-    "dev_preferences_import_history_title": "Historie importu",
-    "@dev_preferences_import_history_title": {
-        "description": "User dev preferences - Import history - Title"
-    },
     "dev_preferences_import_history_subtitle": "Vymaže historii a vloží tam 3 produkty",
     "@dev_preferences_import_history_subtitle": {
         "description": "User dev preferences - Import history - Subtitle"
@@ -1645,6 +1684,13 @@
             "totalSize": {
                 "type": "int"
             }
+        }
+    },
+    "product_search_loading_message": "Vaše vyhledávání „{search}“ probíhá.\n\nPočkejte prosím několik sekund…",
+    "@product_search_loading_message": {
+        "description": "This message will be displayed when a search is in progress.",
+        "search": {
+            "type": "String"
         }
     },
     "user_search_contributor_title": "Produkty, které jsem přidal",
@@ -1854,6 +1900,18 @@
     "add_packaging_photo_button_label": "Vyfoťte veškeré informace o balení/recyklaci",
     "@add_packaging_photo_button_label": {
         "description": "Label for the add PACKAGING photo button"
+    },
+    "add_origin_photo_button_label": "Vyfoťte veškeré informace o původu",
+    "@add_origin_photo_button_label": {
+        "description": "Label for the add ORIGIN photo button"
+    },
+    "add_emb_photo_button_label": "Vyfoťte veškeré informace o kódu sledovatelnosti",
+    "@add_emb_photo_button_label": {
+        "description": "Label for the add EMB photo button"
+    },
+    "add_label_photo_button_label": "Vyfoťte veškeré informace o štítcích a certifikacích",
+    "@add_label_photo_button_label": {
+        "description": "Label for the add LABELS photo button"
     },
     "choose_image_source_title": "Vyberte zdroj obrázku",
     "@choose_image_source_title": {
@@ -2476,6 +2534,10 @@
     "hunger_games_loading_line2": "Stahujeme otázky!",
     "hunger_games_error_label": "Argh! Něco se pokazilo… a otázky se nepodařilo načíst.",
     "hunger_games_error_retry_button": "Zkusme to znovu!",
+    "reorder_attribute_action": "Změňte pořadí atributů",
+    "@reorder_attribute_action": {
+        "description": "An action button or a page title about reordering the attributes (e.g. 'is vegan?', 'nutrition facts', ...)"
+    },
     "link_cant_be_opened": "Tento odkaz nelze na vašem zařízení otevřít. Zkontrolujte, zda máte nainstalovaný prohlížeč.",
     "@link_cant_be_opened": {
         "description": "An error may happen if the device doesn't have a browser installed."

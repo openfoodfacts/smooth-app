@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -8,17 +6,13 @@ import 'package:smooth_app/background/background_task_barcode.dart';
 import 'package:smooth_app/background/operation_type.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
-import 'package:smooth_app/query/product_query.dart';
 
 /// Background task about answering a hunger games question.
 class BackgroundTaskHungerGames extends BackgroundTaskBarcode {
-  const BackgroundTaskHungerGames._({
+  BackgroundTaskHungerGames._({
     required super.processName,
     required super.uniqueId,
     required super.barcode,
-    required super.languageCode,
-    required super.user,
-    required super.country,
     required super.stamp,
     required this.insightId,
     required this.insightAnnotation,
@@ -50,9 +44,9 @@ class BackgroundTaskHungerGames extends BackgroundTaskBarcode {
     required final String barcode,
     required final String insightId,
     required final InsightAnnotation insightAnnotation,
-    required final State<StatefulWidget> widget,
+    required final BuildContext context,
   }) async {
-    final LocalDatabase localDatabase = widget.context.read<LocalDatabase>();
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final String uniqueId = await _operationType.getNewKey(
       localDatabase,
       barcode: barcode,
@@ -63,7 +57,10 @@ class BackgroundTaskHungerGames extends BackgroundTaskBarcode {
       insightAnnotation.value,
       uniqueId,
     );
-    await task.addToManager(localDatabase, widget: widget);
+    if (!context.mounted) {
+      return;
+    }
+    await task.addToManager(localDatabase, context: context);
   }
 
   @override
@@ -83,9 +80,6 @@ class BackgroundTaskHungerGames extends BackgroundTaskBarcode {
         processName: _operationType.processName,
         uniqueId: uniqueId,
         barcode: barcode,
-        languageCode: ProductQuery.getLanguage().offTag,
-        user: jsonEncode(ProductQuery.getUser().toJson()),
-        country: ProductQuery.getCountry().offTag,
         stamp: _getStamp(barcode, insightId),
         insightId: insightId,
         insightAnnotation: insightAnnotation,
@@ -115,7 +109,7 @@ class BackgroundTaskHungerGames extends BackgroundTaskBarcode {
   @override
   Future<void> upload() async {
     final InsightAnnotation? annotation =
-        _getInsightAnnotation(insightAnnotation);
+        InsightAnnotation.fromInt(insightAnnotation);
     if (annotation == null) {
       // very unlikely
       return;
@@ -125,16 +119,5 @@ class BackgroundTaskHungerGames extends BackgroundTaskBarcode {
       annotation,
       deviceId: OpenFoodAPIConfiguration.uuid,
     );
-  }
-
-  // TODO(monsieurtanuki): move to off-dart
-  static InsightAnnotation? _getInsightAnnotation(final int annotation) {
-    for (final InsightAnnotation insightAnnotation
-        in InsightAnnotation.values) {
-      if (annotation == insightAnnotation.value) {
-        return insightAnnotation;
-      }
-    }
-    return null;
   }
 }

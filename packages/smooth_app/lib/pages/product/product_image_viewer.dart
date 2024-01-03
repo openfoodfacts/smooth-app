@@ -1,5 +1,3 @@
-// ignore_for_file: use_build_context_synchronously
-
 import 'dart:io';
 
 import 'package:crop_image/crop_image.dart';
@@ -65,7 +63,6 @@ class _ProductImageViewerState extends State<ProductImageViewer>
       upToDateProduct,
       widget.imageField,
       widget.language,
-      forceLanguage: true,
     );
     final ImageProvider? imageProvider = _getTransientFile().getImageProvider();
     final Iterable<OpenFoodFactsLanguage> selectedLanguages =
@@ -270,11 +267,13 @@ class _ProductImageViewerState extends State<ProductImageViewer>
 
     // but if not possible, get the best picture from the server.
     final String? imageUrl = _imageData.getImageUrl(ImageSize.ORIGINAL);
-    imageFile = await downloadImageUrl(
-      context,
-      imageUrl,
-      DaoInt(context.read<LocalDatabase>()),
-    );
+    if (context.mounted) {
+      imageFile = await downloadImageUrl(
+        context,
+        imageUrl,
+        DaoInt(context.read<LocalDatabase>()),
+      );
+    }
     if (imageFile != null) {
       return _openCropPage(navigatorState, imageFile);
     }
@@ -298,6 +297,9 @@ class _ProductImageViewerState extends State<ProductImageViewer>
       return;
     }
 
+    if (!context.mounted) {
+      return;
+    }
     final bool? confirmed = await showDialog<bool>(
       context: context,
       builder: (BuildContext context) {
@@ -319,14 +321,17 @@ class _ProductImageViewerState extends State<ProductImageViewer>
       },
     );
     if (confirmed == true) {
-      await BackgroundTaskUnselect.addTask(
-        barcode,
-        imageField: widget.imageField,
-        widget: this,
-        language: widget.language,
-      );
-      context.read<LocalDatabase>().notifyListeners();
-      navigatorState.pop();
+      if (context.mounted) {
+        final LocalDatabase localDatabase = context.read<LocalDatabase>();
+        await BackgroundTaskUnselect.addTask(
+          barcode,
+          imageField: widget.imageField,
+          context: context,
+          language: widget.language,
+        );
+        localDatabase.notifyListeners();
+        navigatorState.pop();
+      }
     }
   }
 

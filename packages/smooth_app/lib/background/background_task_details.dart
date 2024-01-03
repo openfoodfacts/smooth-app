@@ -7,7 +7,6 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_barcode.dart';
 import 'package:smooth_app/background/operation_type.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/query/product_query.dart';
 
 /// Stamps we can put on [BackgroundTaskDetails].
 ///
@@ -33,13 +32,10 @@ enum BackgroundTaskDetailsStamp {
 
 /// Background task that changes product details (data, but no image upload).
 class BackgroundTaskDetails extends BackgroundTaskBarcode {
-  const BackgroundTaskDetails._({
+  BackgroundTaskDetails._({
     required super.processName,
     required super.uniqueId,
     required super.barcode,
-    required super.languageCode,
-    required super.user,
-    required super.country,
     required super.stamp,
     required this.inputMap,
   });
@@ -69,11 +65,11 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode {
   /// Adds the background task about changing a product.
   static Future<void> addTask(
     final Product minimalistProduct, {
-    required final State<StatefulWidget> widget,
+    required final BuildContext context,
     required final BackgroundTaskDetailsStamp stamp,
     final bool showSnackBar = true,
   }) async {
-    final LocalDatabase localDatabase = widget.context.read<LocalDatabase>();
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final String uniqueId = await _operationType.getNewKey(
       localDatabase,
       barcode: minimalistProduct.barcode,
@@ -83,9 +79,12 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode {
       uniqueId,
       stamp,
     );
+    if (!context.mounted) {
+      return;
+    }
     await task.addToManager(
       localDatabase,
-      widget: widget,
+      context: context,
       showSnackBar: showSnackBar,
     );
   }
@@ -108,10 +107,7 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode {
         uniqueId: uniqueId,
         processName: _operationType.processName,
         barcode: minimalistProduct.barcode!,
-        languageCode: ProductQuery.getLanguage().code,
         inputMap: jsonEncode(minimalistProduct.toJson()),
-        user: jsonEncode(ProductQuery.getUser().toJson()),
-        country: ProductQuery.getCountry().offTag,
         stamp: getStamp(minimalistProduct.barcode!, stamp.tag),
       );
 
@@ -125,6 +121,8 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode {
     result.lang = getLanguage();
     return result;
   }
+
+  static const String _invalidUserError = 'invalid_user_id_and_password';
 
   /// Uploads the product changes.
   @override
@@ -145,7 +143,19 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode {
       );
       if (result.status != ProductResultV3.statusSuccess &&
           result.status != ProductResultV3.statusWarning) {
-        throw Exception('Could not save product - ${result.errors}');
+        bool isInvalidUser = false;
+        if (result.errors != null) {
+          for (final ProductResultFieldAnswer answer in result.errors!) {
+            if (answer.message?.id == _invalidUserError) {
+              isInvalidUser = true;
+            }
+          }
+        }
+        throw Exception(
+          'Could not save product - API V3'
+          ' - '
+          'status=${result.status} - errors=${result.errors} ${isInvalidUser ? _getIncompleteUserData() : ''}',
+        );
       }
       return;
     }
@@ -157,7 +167,36 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode {
       uriHelper: uriProductHelper,
     );
     if (status.status != 1) {
-      throw Exception('Could not save product - ${status.error}');
+      bool isInvalidUser = false;
+      if (status.error != null) {
+        if (status.error!.contains(_invalidUserError)) {
+          isInvalidUser = true;
+        }
+      }
+      throw Exception(
+        'Could not save product - API V2'
+        ' - '
+        'status=${status.status} - errors=${status.error} ${isInvalidUser ? _getIncompleteUserData() : ''}',
+      );
     }
+  }
+
+  String _getIncompleteUserData() {
+    final User user = getUser();
+    final StringBuffer result = StringBuffer();
+    result.write(' [user:');
+    result.write(user.userId);
+    final int length = user.password.length;
+    result.write(' (');
+    if (length >= 8) {
+      result.write(user.password.substring(0, 2));
+      result.write('*' * (length - 4));
+      result.write(user.password.substring(length - 2));
+    } else {
+      result.write('passwordLength:$length');
+    }
+    result.write(')');
+    result.write('] ');
+    return result.toString();
   }
 }

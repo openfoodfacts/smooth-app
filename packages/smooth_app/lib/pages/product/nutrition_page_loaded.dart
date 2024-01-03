@@ -87,9 +87,9 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
   late final NumberFormat _decimalNumberFormat;
   late final NutritionContainer _nutritionContainer;
 
-  final Map<Nutrient, TextEditingControllerWithInitialValue> _controllers =
-      <Nutrient, TextEditingControllerWithInitialValue>{};
-  TextEditingControllerWithInitialValue? _servingController;
+  final Map<Nutrient, TextEditingControllerWithHistory> _controllers =
+      <Nutrient, TextEditingControllerWithHistory>{};
+  TextEditingControllerWithHistory? _servingController;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final List<FocusNode> _focusNodes = <FocusNode>[];
 
@@ -110,7 +110,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
   void dispose() {
     _focusNodes.clear();
 
-    for (final TextEditingControllerWithInitialValue controller
+    for (final TextEditingControllerWithHistory controller
         in _controllers.values) {
       controller.dispose();
     }
@@ -165,18 +165,20 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
         final Nutrient nutrient = _getNutrient(orderedNutrient);
         if (_controllers[nutrient] == null) {
           final double? value = _nutritionContainer.getValue(nutrient);
-          _controllers[nutrient] = TextEditingControllerWithInitialValue(
+          _controllers[nutrient] = TextEditingControllerWithHistory(
             text: value == null ? '' : _decimalNumberFormat.format(value),
           );
         }
 
         children.add(
-          _NutrientRow(
-            _nutritionContainer,
-            _decimalNumberFormat,
-            _controllers[nutrient]!,
-            orderedNutrient,
-            i,
+          ChangeNotifierProvider<TextEditingControllerWithHistory>.value(
+            value: _controllers[nutrient]!,
+            child: _NutrientRow(
+              _nutritionContainer,
+              _decimalNumberFormat,
+              orderedNutrient,
+              i,
+            ),
           ),
         );
       }
@@ -197,7 +199,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
         appBar: SmoothAppBar(
           title: AutoSizeText(
             appLocalizations.nutrition_page_title,
-            maxLines: upToDateProduct.productName?.isNotEmpty == true ? 1 : 2,
+            maxLines: 1,
           ),
           subTitle: buildProductTitle(upToDateProduct, appLocalizations),
         ),
@@ -230,13 +232,12 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
     final String value = _nutritionContainer.servingSize;
 
     if (_servingController == null) {
-      _servingController = TextEditingControllerWithInitialValue(text: value);
+      _servingController = TextEditingControllerWithHistory(text: value);
       _servingController!.selection =
           TextSelection.collapsed(offset: _servingController!.text.length - 1);
     }
 
-    final TextEditingControllerWithInitialValue controller =
-        _servingController!;
+    final TextEditingControllerWithHistory controller = _servingController!;
 
     return Padding(
       padding: const EdgeInsetsDirectional.only(bottom: VERY_LARGE_SPACE),
@@ -318,15 +319,18 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Switch(
-              value: _nutritionContainer.noNutritionData,
-              onChanged: (final bool value) =>
-                  setState(() => _nutritionContainer.noNutritionData = value),
-              trackColor: MaterialStateProperty.all(
-                  Theme.of(context).colorScheme.onPrimary),
+            Expanded(
+              flex: 2,
+              child: Switch(
+                value: _nutritionContainer.noNutritionData,
+                onChanged: (final bool value) =>
+                    setState(() => _nutritionContainer.noNutritionData = value),
+                trackColor: MaterialStateProperty.all(
+                    Theme.of(context).colorScheme.onPrimary),
+              ),
             ),
-            SizedBox(
-              width: _getColumnSize(context, 0.6),
+            Expanded(
+              flex: 6,
               child: AutoSizeText(
                 localizations.nutrition_page_unspecified,
                 style: Theme.of(context).primaryTextTheme.bodyMedium?.copyWith(
@@ -342,12 +346,13 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
 
   /// Returns `true` if any value differs with initial state.
   bool _isEdited() {
-    if (_servingController != null && _servingController!.valueHasChanged) {
+    if (_servingController != null &&
+        _servingController!.isDifferentFromInitialValue) {
       return true;
     }
-    for (final TextEditingControllerWithInitialValue controller
+    for (final TextEditingControllerWithHistory controller
         in _controllers.values) {
-      if (controller.valueHasChanged) {
+      if (controller.isDifferentFromInitialValue) {
         return true;
       }
     }
@@ -359,7 +364,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
       return null;
     }
     for (final Nutrient nutrient in _controllers.keys) {
-      final TextEditingControllerWithInitialValue controller =
+      final TextEditingControllerWithHistory controller =
           _controllers[nutrient]!;
       _nutritionContainer.setNutrientValueText(
         nutrient,
@@ -426,7 +431,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
     );
     await BackgroundTaskDetails.addTask(
       changedProduct,
-      widget: this,
+      context: context,
       stamp: BackgroundTaskDetailsStamp.nutrition,
     );
     return true;
@@ -437,51 +442,50 @@ class _NutrientRow extends StatelessWidget {
   const _NutrientRow(
     this.nutritionContainer,
     this.decimalNumberFormat,
-    this.controller,
     this.orderedNutrient,
     this.position,
   );
 
   final NutritionContainer nutritionContainer;
   final NumberFormat decimalNumberFormat;
-  final TextEditingControllerWithInitialValue controller;
   final OrderedNutrient orderedNutrient;
   final int position;
 
   @override
-  Widget build(BuildContext context) => Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          Expanded(
-            child: _NutrientValueCell(
-              decimalNumberFormat,
-              controller,
-              orderedNutrient,
-              position,
-            ),
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: <Widget>[
+        Expanded(
+          flex: 6,
+          child: _NutrientValueCell(
+            decimalNumberFormat,
+            orderedNutrient,
+            position,
           ),
-          SizedBox(
-            width: _getColumnSize(context, 0.3),
-            child: _NutrientUnitCell(
-              nutritionContainer,
-              orderedNutrient,
-            ),
+        ),
+        Expanded(
+          flex: 3,
+          child: _NutrientUnitCell(
+            nutritionContainer,
+            orderedNutrient,
           ),
-        ],
-      );
+        ),
+        const _NutrientUnitVisibility()
+      ],
+    );
+  }
 }
 
 class _NutrientValueCell extends StatelessWidget {
   const _NutrientValueCell(
     this.decimalNumberFormat,
-    this.controller,
     this.orderedNutrient,
     this.position,
   );
 
   final NumberFormat decimalNumberFormat;
-  final TextEditingControllerWithInitialValue controller;
   final OrderedNutrient orderedNutrient;
   final int position;
 
@@ -491,11 +495,13 @@ class _NutrientValueCell extends StatelessWidget {
       context,
       listen: false,
     );
-
+    final TextEditingControllerWithHistory controller =
+        context.watch<TextEditingControllerWithHistory>();
     final bool isLast = position == focusNodes.length - 1;
 
     return TextFormField(
       controller: controller,
+      enabled: controller.isSet,
       focusNode: focusNodes[position],
       decoration: InputDecoration(
         enabledBorder: const UnderlineInputBorder(),
@@ -550,16 +556,29 @@ class _NutrientUnitCellState extends State<_NutrientUnitCell> {
   Widget build(BuildContext context) {
     final Unit unit =
         widget.nutritionContainer.getUnit(_getNutrient(widget.orderedNutrient));
-    return ElevatedButton(
-      onPressed: widget.nutritionContainer.isEditableWeight(unit)
-          ? () => setState(
-                () => widget.nutritionContainer
-                    .setNextWeightUnit(widget.orderedNutrient),
-              )
-          : null,
-      child: Text(
-        _getUnitLabel(unit),
-        style: const TextStyle(fontWeight: FontWeight.bold),
+    return Padding(
+      padding: const EdgeInsetsDirectional.only(
+        start: VERY_SMALL_SPACE,
+        end: SMALL_SPACE,
+      ),
+      child: _NutritionCellTextWatcher(
+        builder: (_, TextEditingControllerWithHistory controller) {
+          return ElevatedButton(
+            onPressed: controller.isNotSet
+                ? null
+                : widget.nutritionContainer.isEditableWeight(unit)
+                    ? () => setState(
+                          () => widget.nutritionContainer
+                              .setNextWeightUnit(widget.orderedNutrient),
+                        )
+                    : null,
+            child: Text(
+              _getUnitLabel(unit),
+              textAlign: TextAlign.center,
+              style: const TextStyle(fontWeight: FontWeight.bold),
+            ),
+          );
+        },
       ),
     );
   }
@@ -577,11 +596,40 @@ class _NutrientUnitCellState extends State<_NutrientUnitCell> {
       _unitLabels[unit] ?? UnitHelper.unitToString(unit)!;
 }
 
-double _getColumnSize(
-  final BuildContext context,
-  final double adjustmentFactor,
-) =>
-    MediaQuery.of(context).size.width * adjustmentFactor;
+class _NutrientUnitVisibility extends StatelessWidget {
+  const _NutrientUnitVisibility();
+
+  @override
+  Widget build(BuildContext context) {
+    return _NutritionCellTextWatcher(
+      builder: (
+        BuildContext context,
+        TextEditingControllerWithHistory controller,
+      ) {
+        final bool isValueSet = controller.isSet;
+
+        return ElevatedButton(
+          onPressed: () {
+            if (isValueSet) {
+              controller.text = '-';
+            } else {
+              if (controller.previousValue != '-') {
+                controller.text = controller.previousValue ?? '-';
+              } else {
+                controller.text = '';
+              }
+            }
+          },
+          child: Icon(
+            isValueSet
+                ? Icons.visibility_rounded
+                : Icons.visibility_off_rounded,
+          ),
+        );
+      },
+    );
+  }
+}
 
 // cf. https://github.com/openfoodfacts/smooth-app/issues/3387
 Nutrient _getNutrient(final OrderedNutrient orderedNutrient) {
@@ -592,4 +640,39 @@ Nutrient _getNutrient(final OrderedNutrient orderedNutrient) {
     return Nutrient.energyKJ;
   }
   throw Exception('unknown nutrient for "${orderedNutrient.id}"');
+}
+
+extension _NutritionTextEditionController on TextEditingController {
+  bool get isSet => text.trim() != '-';
+
+  bool get isNotSet => text.trim() == '-';
+}
+
+/// Use this Widget to be notified when the value is set or not
+class _NutritionCellTextWatcher extends StatelessWidget {
+  const _NutritionCellTextWatcher({
+    required this.builder,
+  });
+
+  final Widget Function(
+    BuildContext context,
+    TextEditingControllerWithHistory value,
+  ) builder;
+
+  @override
+  Widget build(BuildContext context) {
+    return Selector<TextEditingControllerWithHistory,
+        TextEditingControllerWithHistory>(
+      selector: (_, TextEditingControllerWithHistory controller) {
+        return controller;
+      },
+      shouldRebuild: (_, TextEditingControllerWithHistory controller) {
+        return controller.isDifferentFromPreviousValue;
+      },
+      builder: (BuildContext context,
+          TextEditingControllerWithHistory controller, _) {
+        return builder(context, controller);
+      },
+    );
+  }
 }

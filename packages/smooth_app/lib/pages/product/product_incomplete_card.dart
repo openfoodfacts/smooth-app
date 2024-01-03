@@ -61,7 +61,7 @@ class ProductIncompleteCard extends StatelessWidget {
 
   static bool _isScoreNotApplicable(final Product product, final String tag) =>
       _getAttribute(product, tag)?.iconUrl ==
-      'https://static.openfoodfacts.org/images/attributes/$tag-not-applicable.svg';
+      'https://static.openfoodfacts.org/images/attributes/dist/$tag-not-applicable.svg';
 
   // TODO(monsieurtanuki): move to off-dart (or find it there)
   static Attribute? _getAttribute(final Product product, final String id) {

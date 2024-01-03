@@ -13,6 +13,7 @@ import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
+/// Detail page of knowledge panels (if you click on the forward/more button).
 class KnowledgePanelPage extends StatefulWidget {
   const KnowledgePanelPage({
     required this.panelId,
@@ -29,10 +30,7 @@ class KnowledgePanelPage extends StatefulWidget {
 class _KnowledgePanelPageState extends State<KnowledgePanelPage>
     with TraceableClientMixin, UpToDateMixin {
   @override
-  String get traceTitle => 'knowledge_panel_page';
-
-  @override
-  String get traceName => 'Opened full knowledge panel page';
+  String get actionName => 'Opened full knowledge panel page';
 
   @override
   void initState() {
@@ -81,6 +79,7 @@ class _KnowledgePanelPageState extends State<KnowledgePanelPage>
                         panelId: widget.panelId,
                         product: upToDateProduct,
                         isInitiallyExpanded: true,
+                        isClickable: true,
                       ),
                     ),
                   ),
@@ -102,7 +101,7 @@ class _KnowledgePanelPageState extends State<KnowledgePanelPage>
       }
       await ProductRefresher().fetchAndRefresh(
         barcode: barcode ?? '',
-        widget: this,
+        context: context,
       );
     } catch (e) {
       //no refreshing during onboarding
@@ -116,7 +115,7 @@ class _KnowledgePanelPageState extends State<KnowledgePanelPage>
         groupElement?.title!.isNotEmpty == true) {
       return groupElement!.title!;
     }
-    final KnowledgePanel? panel = KnowledgePanelWidget.getKnowledgePanel(
+    final KnowledgePanel? panel = KnowledgePanelsBuilder.getKnowledgePanel(
       upToDateProduct,
       widget.panelId,
     );

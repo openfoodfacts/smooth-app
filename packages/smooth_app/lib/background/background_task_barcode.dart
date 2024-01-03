@@ -5,12 +5,10 @@ import 'package:smooth_app/pages/product/common/product_refresher.dart';
 
 /// Abstract background task that involves a single barcode.
 abstract class BackgroundTaskBarcode extends BackgroundTask {
-  const BackgroundTaskBarcode({
+  BackgroundTaskBarcode({
     required super.processName,
     required super.uniqueId,
-    required super.languageCode,
-    required super.user,
-    required super.country,
+    super.language,
     required super.stamp,
     required this.barcode,
   });

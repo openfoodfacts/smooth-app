@@ -310,7 +310,7 @@ class _QuestionPageState extends State<_QuestionPage>
       barcode: barcode,
       insightId: insightId,
       insightAnnotation: insightAnnotation,
-      widget: this,
+      context: context,
     );
   }
 
@@ -321,10 +321,7 @@ class _QuestionPageState extends State<_QuestionPage>
   }
 
   @override
-  String get traceTitle => 'robotoff_question_page';
-
-  @override
-  String get traceName => 'Opened robotoff_question_page';
+  String get actionName => 'Opened robotoff_question_page';
 }
 
 sealed class _RobotoffQuestionState {
