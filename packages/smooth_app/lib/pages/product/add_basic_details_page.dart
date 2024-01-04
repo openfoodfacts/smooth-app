@@ -93,99 +93,99 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
         child: SmoothScaffold(
           fixKeyboard: true,
           appBar: SmoothAppBar(
-              centerTitle: false,
-              title: Text(appLocalizations.basic_details),
-              subTitle: buildProductTitle(widget.product, appLocalizations),
-            ),
-            body: Form(
-              key: _formKey,
-              child: Scrollbar(
-                child: ListView(
-                  children: <Widget>[
-                    Align(
-                      alignment: AlignmentDirectional.topStart,
-                      child: ProductImageCarousel(
-                        _product,
-                        height: size.height * 0.20,
-                      ),
+            centerTitle: false,
+            title: Text(appLocalizations.basic_details),
+            subTitle: buildProductTitle(widget.product, appLocalizations),
+          ),
+          body: Form(
+            key: _formKey,
+            child: Scrollbar(
+              child: ListView(
+                children: <Widget>[
+                  Align(
+                    alignment: AlignmentDirectional.topStart,
+                    child: ProductImageCarousel(
+                      _product,
+                      height: size.height * 0.20,
                     ),
-                    SizedBox(height: _heightSpace),
-                    Padding(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: size.width * 0.05,
-                      ),
-                      child: Column(
-                        children: <Widget>[
-                          Text(
-                            appLocalizations.barcode_barcode(_product.barcode!),
-                            style:
-                                Theme.of(context).textTheme.bodyMedium?.copyWith(
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                          ),
-                          SizedBox(height: _heightSpace),
-                          if (_multilingualHelper.isMonolingual())
-                            SmoothTextFormField(
-                              controller: _productNameController,
-                              type: TextFieldTypes.PLAIN_TEXT,
-                              hintText: appLocalizations.product_name,
-                            )
-                          else
-                            Card(
-                              child: Column(
-                                children: <Widget>[
-                                  _multilingualHelper
-                                      .getLanguageSelector(setState),
-                                  Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: SmoothTextFormField(
-                                      controller: _productNameController,
-                                      type: TextFieldTypes.PLAIN_TEXT,
-                                      hintText: appLocalizations.product_name,
-                                    ),
+                  ),
+                  SizedBox(height: _heightSpace),
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: size.width * 0.05,
+                    ),
+                    child: Column(
+                      children: <Widget>[
+                        Text(
+                          appLocalizations.barcode_barcode(_product.barcode!),
+                          style:
+                              Theme.of(context).textTheme.bodyMedium?.copyWith(
+                                    fontWeight: FontWeight.bold,
                                   ),
-                                ],
-                              ),
-                            ),
-                          SizedBox(height: _heightSpace),
-                          LayoutBuilder(
-                            builder: (
-                              final BuildContext context,
-                              final BoxConstraints constraints,
-                            ) =>
-                                SmoothAutocompleteTextField(
-                              focusNode: _focusNode,
-                              controller: _brandNameController,
-                              autocompleteKey: _autocompleteKey,
-                              hintText: appLocalizations.brand_name,
-                              constraints: constraints,
-                              manager: AgnosticSuggestionManager.brand(),
-                            ),
-                          ),
-                          SizedBox(height: _heightSpace),
+                        ),
+                        SizedBox(height: _heightSpace),
+                        if (_multilingualHelper.isMonolingual())
                           SmoothTextFormField(
-                            controller: _weightController,
+                            controller: _productNameController,
                             type: TextFieldTypes.PLAIN_TEXT,
-                            hintText: appLocalizations.quantity,
+                            hintText: appLocalizations.product_name,
+                          )
+                        else
+                          Card(
+                            child: Column(
+                              children: <Widget>[
+                                _multilingualHelper
+                                    .getLanguageSelector(setState),
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: SmoothTextFormField(
+                                    controller: _productNameController,
+                                    type: TextFieldTypes.PLAIN_TEXT,
+                                    hintText: appLocalizations.product_name,
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
-                          // in order to be able to scroll suggestions
-                          SizedBox(height: MediaQuery.sizeOf(context).height),
-                        ],
-                      ),
+                        SizedBox(height: _heightSpace),
+                        LayoutBuilder(
+                          builder: (
+                            final BuildContext context,
+                            final BoxConstraints constraints,
+                          ) =>
+                              SmoothAutocompleteTextField(
+                            focusNode: _focusNode,
+                            controller: _brandNameController,
+                            autocompleteKey: _autocompleteKey,
+                            hintText: appLocalizations.brand_name,
+                            constraints: constraints,
+                            manager: AgnosticSuggestionManager.brand(),
+                          ),
+                        ),
+                        SizedBox(height: _heightSpace),
+                        SmoothTextFormField(
+                          controller: _weightController,
+                          type: TextFieldTypes.PLAIN_TEXT,
+                          hintText: appLocalizations.quantity,
+                        ),
+                        // in order to be able to scroll suggestions
+                        SizedBox(height: MediaQuery.sizeOf(context).height),
+                      ],
                     ),
-                  ],
-                ),
-              ),
-            ),
-            bottomNavigationBar: ProductBottomButtonsBar(
-              onSave: () async => _exitPage(
-                await _mayExitPage(saving: true),
-              ),
-              onCancel: () async => _exitPage(
-                await _mayExitPage(saving: false),
+                  ),
+                ],
               ),
             ),
           ),
+          bottomNavigationBar: ProductBottomButtonsBar(
+            onSave: () async => _exitPage(
+              await _mayExitPage(saving: true),
+            ),
+            onCancel: () async => _exitPage(
+              await _mayExitPage(saving: false),
+            ),
+          ),
+        ),
       ),
     );
   }
