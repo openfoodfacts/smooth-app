@@ -23,7 +23,10 @@ class QueryProductListSupplier extends ProductListSupplier {
         productList.setAll(searchResult.products!);
         productList.totalSize = searchResult.count ?? 0;
         partialProductList.add(productList);
-        await DaoProduct(localDatabase).putAll(searchResult.products!);
+        await DaoProduct(localDatabase).putAll(
+          searchResult.products!,
+          productQuery.language,
+        );
       }
       await DaoProductList(localDatabase).put(productList);
       return null;
