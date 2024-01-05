@@ -3,6 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
+import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/language_selector.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
@@ -23,6 +24,17 @@ class UserPreferencesLanguageSelector extends StatelessWidget {
     );
   }
 
+  Future<void> _changeAppLanguage(
+      BuildContext context, UserPreferences userPreferences,
+      {required OpenFoodFactsLanguage language}) async {
+    ProductQuery.setLanguage(
+      context,
+      userPreferences,
+      languageCode: language.code,
+    );
+    await context.read<ProductPreferences>().refresh();
+  }
+
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
@@ -39,13 +51,11 @@ class UserPreferencesLanguageSelector extends StatelessWidget {
         ),
         child: LanguageSelector(
           setLanguage: (final OpenFoodFactsLanguage? language) async {
-            if (language != null) {
-              ProductQuery.setLanguage(
-                context,
-                userPreferences,
-                languageCode: language.code,
-              );
+            if (language == null) {
+              return;
             }
+
+            _changeAppLanguage(context, userPreferences, language: language);
           },
           selectedLanguages: <OpenFoodFactsLanguage>[
             ProductQuery.getLanguage(),
