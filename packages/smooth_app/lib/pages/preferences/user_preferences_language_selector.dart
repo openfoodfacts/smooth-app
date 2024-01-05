@@ -25,8 +25,10 @@ class UserPreferencesLanguageSelector extends StatelessWidget {
   }
 
   Future<void> _changeAppLanguage(
-      BuildContext context, UserPreferences userPreferences,
-      {required OpenFoodFactsLanguage language}) async {
+    BuildContext context,
+    UserPreferences userPreferences, {
+    required OpenFoodFactsLanguage language,
+  }) async {
     ProductQuery.setLanguage(
       context,
       userPreferences,
@@ -55,7 +57,11 @@ class UserPreferencesLanguageSelector extends StatelessWidget {
               return;
             }
 
-            _changeAppLanguage(context, userPreferences, language: language);
+            _changeAppLanguage(
+              context,
+              userPreferences,
+              language: language,
+            );
           },
           selectedLanguages: <OpenFoodFactsLanguage>[
             ProductQuery.getLanguage(),
