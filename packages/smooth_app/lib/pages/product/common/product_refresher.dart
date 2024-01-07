@@ -74,23 +74,25 @@ class ProductRefresher {
   /// Returns the standard configuration for barcode product query.
   ProductQueryConfiguration getBarcodeQueryConfiguration(
     final String barcode,
+    final OpenFoodFactsLanguage language,
   ) =>
       ProductQueryConfiguration(
         barcode,
         fields: ProductQuery.fields,
-        language: ProductQuery.getLanguage(),
+        language: language,
         country: ProductQuery.getCountry(),
         version: ProductQuery.productQueryVersion,
       );
 
   /// Returns the standard configuration for several barcodes product query.
   ProductSearchQueryConfiguration getBarcodeListQueryConfiguration(
-    final List<String> barcodes, {
+    final List<String> barcodes,
+    final OpenFoodFactsLanguage language, {
     final List<ProductField>? fields,
   }) =>
       ProductSearchQueryConfiguration(
         fields: fields ?? ProductQuery.fields,
-        language: ProductQuery.getLanguage(),
+        language: language,
         country: ProductQuery.getCountry(),
         parametersList: <Parameter>[
           BarcodeParameter.list(barcodes),
@@ -159,12 +161,16 @@ class ProductRefresher {
     required final String barcode,
   }) async {
     try {
+      final OpenFoodFactsLanguage language = ProductQuery.getLanguage();
       final ProductResultV3 result = await OpenFoodAPIClient.getProductV3(
-        getBarcodeQueryConfiguration(barcode),
+        getBarcodeQueryConfiguration(
+          barcode,
+          language,
+        ),
         uriHelper: ProductQuery.uriProductHelper,
       );
       if (result.product != null) {
-        await DaoProduct(localDatabase).put(result.product!);
+        await DaoProduct(localDatabase).put(result.product!, language);
         localDatabase.upToDate.setLatestDownloadedProduct(result.product!);
         localDatabase.notifyListeners();
         return FetchedProduct.found(result.product!);
@@ -198,15 +204,16 @@ class ProductRefresher {
     final List<String> barcodes,
   ) async {
     try {
+      final OpenFoodFactsLanguage language = ProductQuery.getLanguage();
       final SearchResult searchResult = await OpenFoodAPIClient.searchProducts(
         ProductQuery.getUser(),
-        getBarcodeListQueryConfiguration(barcodes),
+        getBarcodeListQueryConfiguration(barcodes, language),
         uriHelper: ProductQuery.uriProductHelper,
       );
       if (searchResult.products == null) {
         return null;
       }
-      await DaoProduct(localDatabase).putAll(searchResult.products!);
+      await DaoProduct(localDatabase).putAll(searchResult.products!, language);
       localDatabase.upToDate
           .setLatestDownloadedProducts(searchResult.products!);
       localDatabase.notifyListeners();

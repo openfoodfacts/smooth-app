@@ -15,7 +15,6 @@ import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
 import 'package:smooth_app/pages/product/multilingual_helper.dart';
 import 'package:smooth_app/pages/text_field_helper.dart';
-import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Input of a product's basic details, like name, quantity and brands.
@@ -91,10 +90,10 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
       child: UnfocusWhenTapOutside(
         child: SmoothScaffold(
           fixKeyboard: true,
-          appBar: SmoothAppBar(
-            centerTitle: false,
-            title: Text(appLocalizations.basic_details),
-            subTitle: buildProductTitle(widget.product, appLocalizations),
+          appBar: buildEditProductAppBar(
+            context: context,
+            title: appLocalizations.basic_details,
+            product: widget.product,
           ),
           body: Form(
             key: _formKey,

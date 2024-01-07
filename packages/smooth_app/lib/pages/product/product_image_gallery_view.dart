@@ -18,7 +18,6 @@ import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/product_image_swipeable_view.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/slivers.dart';
-import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Display of the main 4 pictures of a product, with edit options.
@@ -52,10 +51,10 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView>
     context.watch<LocalDatabase>();
     refreshUpToDate();
     return SmoothScaffold(
-      appBar: SmoothAppBar(
-        centerTitle: false,
-        title: Text(appLocalizations.edit_product_form_item_photos_title),
-        subTitle: buildProductTitle(upToDateProduct, appLocalizations),
+      appBar: buildEditProductAppBar(
+        context: context,
+        title: appLocalizations.edit_product_form_item_photos_title,
+        product: upToDateProduct,
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () async {

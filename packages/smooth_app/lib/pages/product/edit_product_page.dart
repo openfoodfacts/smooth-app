@@ -154,7 +154,6 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
                           ProductImageGalleryView(
                         product: upToDateProduct,
                       ),
-                      fullscreenDialog: true,
                     ),
                   );
                 },
@@ -250,7 +249,6 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
                     context,
                     MaterialPageRoute<void>(
                       builder: (_) => AddOtherDetailsPage(upToDateProduct),
-                      fullscreenDialog: true,
                     ),
                   );
                 },
@@ -308,7 +306,6 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
               helpers: helpers,
               product: upToDateProduct,
             ),
-            fullscreenDialog: true,
           ),
         );
       },

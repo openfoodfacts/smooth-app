@@ -10,15 +10,26 @@ import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/image_field_extension.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/widgets/smooth_app_bar.dart';
 
-Widget buildProductTitle(
-  final Product product,
-  final AppLocalizations appLocalizations,
-) =>
-    Text(
-      getProductNameAndBrands(product, appLocalizations),
-      overflow: TextOverflow.ellipsis,
-      maxLines: 1,
+SmoothAppBar buildEditProductAppBar({
+  required final BuildContext context,
+  required final String title,
+  required final Product product,
+}) =>
+    SmoothAppBar(
+      centerTitle: false,
+      title: Text(
+        title,
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
+      ),
+      subTitle: Text(
+        getProductNameAndBrands(product, AppLocalizations.of(context)),
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
+      ),
+      ignoreSemanticsForSubtitle: true,
     );
 
 String getProductNameAndBrands(
