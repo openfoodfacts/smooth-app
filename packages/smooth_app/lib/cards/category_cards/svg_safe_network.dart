@@ -26,7 +26,7 @@ class _SvgSafeNetworkState extends State<SvgSafeNetwork> {
   late final Future<String> _loading = _load();
 
   String get _url => widget.helper.url;
-
+// TODO(monsieurtanuki): Change /dist/ url to be the first try when the majority of products have been updated
   /// Loads the SVG file from url or from alternate url.
   ///
   /// In Autumn 2023, the web image folders were moved to a /dist/ subfolder.
