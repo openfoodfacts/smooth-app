@@ -40,12 +40,6 @@ class _ProductListItemSimpleState extends State<ProductListItemSimple> {
   }
 
   @override
-  void dispose() {
-    _model.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) => ChangeNotifierProvider<ProductModel>(
         create: (final BuildContext context) => _model,
         builder: (final BuildContext context, final Widget? wtf) {
