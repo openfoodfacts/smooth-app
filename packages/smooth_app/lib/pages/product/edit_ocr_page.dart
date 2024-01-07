@@ -1,5 +1,3 @@
-import 'dart:ui' show ImageFilter;
-
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -21,7 +19,6 @@ import 'package:smooth_app/pages/product/multilingual_helper.dart';
 import 'package:smooth_app/pages/product/ocr_helper.dart';
 import 'package:smooth_app/pages/product/product_image_local_button.dart';
 import 'package:smooth_app/pages/product/product_image_server_button.dart';
-import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Editing with OCR a product field and the corresponding image.
@@ -131,37 +128,13 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
       _multilingualHelper.getCurrentLanguage(),
     );
 
-    final TextStyle appbarTextStyle = TextStyle(shadows: <Shadow>[
-      Shadow(
-        color: Theme.of(context).colorScheme.brightness == Brightness.light
-            ? Colors.white
-            : Colors.black,
-        offset: const Offset(0.5, 0.5),
-        blurRadius: 5.0,
-      )
-    ]);
-
     // TODO(monsieurtanuki): add WillPopScope / MayExitPage system
     return SmoothScaffold(
       extendBodyBehindAppBar: true,
-      appBar: SmoothAppBar(
-        centerTitle: false,
-        title: Text(
-          _helper.getTitle(appLocalizations),
-          style: appbarTextStyle,
-        ),
-        subTitle: DefaultTextStyle(
-            style: appbarTextStyle,
-            child: buildProductTitle(upToDateProduct, appLocalizations)),
-        backgroundColor: Colors.transparent,
-        flexibleSpace: ClipRect(
-          child: BackdropFilter(
-            filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
-            child: Container(
-              color: Colors.transparent,
-            ),
-          ),
-        ),
+      appBar: buildEditProductAppBar(
+        context: context,
+        title: _helper.getTitle(appLocalizations),
+        product: upToDateProduct,
       ),
       body: Stack(
         children: <Widget>[
