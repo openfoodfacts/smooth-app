@@ -38,6 +38,7 @@ class OnboardingDataProduct extends AbstractOnboardingData<Product> {
       OpenFoodAPIClient.getProductString(
         ProductRefresher().getBarcodeQueryConfiguration(
           AbstractOnboardingData.barcode,
+          ProductQuery.getLanguage(),
         ),
         uriHelper: ProductQuery.uriProductHelper,
       ).timeout(SnackBarDuration.long);

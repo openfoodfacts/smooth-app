@@ -112,6 +112,7 @@ class BackgroundTaskDownloadProducts extends BackgroundTaskProgressing {
     if (downloadFlag & flagMaskExcludeKP != 0) {
       fields.remove(ProductField.KNOWLEDGE_PANELS);
     }
+    final OpenFoodFactsLanguage language = ProductQuery.getLanguage();
     final SearchResult searchResult = await OpenFoodAPIClient.searchProducts(
       getUser(),
       ProductSearchQueryConfiguration(
@@ -121,7 +122,7 @@ class BackgroundTaskDownloadProducts extends BackgroundTaskProgressing {
           const PageNumber(page: 1),
           BarcodeParameter.list(barcodes),
         ],
-        language: ProductQuery.getLanguage(),
+        language: language,
         country: ProductQuery.getCountry(),
         version: ProductQuery.productQueryVersion,
       ),
@@ -134,7 +135,7 @@ class BackgroundTaskDownloadProducts extends BackgroundTaskProgressing {
     final DaoProduct daoProduct = DaoProduct(localDatabase);
     for (final Product product in downloadedProducts) {
       if (await _shouldBeUpdated(daoProduct, product.barcode!)) {
-        await daoProduct.put(product);
+        await daoProduct.put(product, language);
       }
     }
     final int deleted = await daoWorkBarcode.deleteBarcodes(work, barcodes);
