@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -50,5 +51,15 @@ class KnowledgePanelExpandedCard extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: elementWidgets,
     );
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(StringProperty('panelId', panelId));
+    properties.add(
+      DiagnosticsProperty<bool>('initiallyExpanded', isInitiallyExpanded),
+    );
+    properties.add(DiagnosticsProperty<bool>('clickable', isClickable));
   }
 }
