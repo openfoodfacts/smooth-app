@@ -112,11 +112,30 @@ class UserPreferencesContribute extends AbstractUserPreferences {
         ),
         if (GlobalVars.appStore.getEnrollInBetaURL() != null)
           _getListTile(
-            appLocalizations.contribute_enroll_beta,
-            () async => LaunchUrlHelper.launchURL(
-              GlobalVars.appStore.getEnrollInBetaURL()!,
-              false,
-            ),
+            appLocalizations.contribute_enroll_alpha,
+            () async {
+              final bool? result = await showDialog<bool>(
+                context: context,
+                builder: (BuildContext context) => SmoothAlertDialog(
+                  title: appLocalizations.contribute_enroll_alpha,
+                  body: Text(appLocalizations.contribute_enroll_alpha_warning),
+                  negativeAction: SmoothActionButton(
+                    text: appLocalizations.close,
+                    onPressed: () => Navigator.pop(context, false),
+                  ),
+                  positiveAction: SmoothActionButton(
+                    text: appLocalizations.okay,
+                    onPressed: () => Navigator.pop(context, true),
+                  ),
+                ),
+              );
+              if (result == true) {
+                await LaunchUrlHelper.launchURL(
+                  GlobalVars.appStore.getEnrollInBetaURL()!,
+                  false,
+                );
+              }
+            },
             CupertinoIcons.lab_flask,
             icon: UserPreferencesListTile.getTintedIcon(
               Icons.open_in_new,
