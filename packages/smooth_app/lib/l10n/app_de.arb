@@ -353,6 +353,10 @@
     "contribute_develop_dev_mode_subtitle": "Entwicklermodus aktivieren",
     "contribute_donate_header": "Spenden Sie für Open Food Facts",
     "@contribute_donate_header": {},
+    "contribute_enroll_alpha": "Registrieren Sie sich für die interne Alpha-Version",
+    "@contribute_enroll_alpha": {},
+    "contribute_enroll_alpha_warning": "Bitte beachten Sie, dass bei der internen Alpha-Version ein vollständiger Datenverlust möglich ist und die App jederzeit unbrauchbar werden kann!",
+    "@contribute_enroll_alpha_warning": {},
     "contribute_improve_ProductsToBeCompleted": "Noch abzuschließende Produkte",
     "@contribute_improve_ProductsToBeCompleted": {
         "description": "Button label: Shows a list of products which aren't completed"
