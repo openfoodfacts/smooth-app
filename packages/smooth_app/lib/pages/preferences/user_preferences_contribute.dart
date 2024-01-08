@@ -136,7 +136,7 @@ class UserPreferencesContribute extends AbstractUserPreferences {
                 );
               }
             },
-            CupertinoIcons.lab_flask,
+            CupertinoIcons.lab_flask_solid,
             icon: UserPreferencesListTile.getTintedIcon(
               Icons.open_in_new,
               context,
