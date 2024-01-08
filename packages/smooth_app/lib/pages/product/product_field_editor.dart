@@ -72,7 +72,6 @@ class ProductFieldSimpleEditor extends ProductFieldEditor {
           helper: helper,
           product: product,
         ),
-        fullscreenDialog: true,
       ),
     );
   }
@@ -163,7 +162,6 @@ class ProductFieldPackagingEditor extends ProductFieldEditor {
           product: product,
           isLoggedInMandatory: isLoggedInMandatory,
         ),
-        fullscreenDialog: true,
       ),
     );
   }
@@ -229,7 +227,6 @@ abstract class ProductFieldOcrEditor extends ProductFieldEditor {
           helper: helper,
           isLoggedInMandatory: isLoggedInMandatory,
         ),
-        fullscreenDialog: true,
       ),
     );
   }

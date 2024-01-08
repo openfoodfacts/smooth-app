@@ -9,7 +9,6 @@ import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/product/common/product_buttons.dart';
 import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
 import 'package:smooth_app/pages/text_field_helper.dart';
-import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 import 'package:smooth_app/widgets/will_pop_scope.dart';
 
@@ -59,12 +58,10 @@ class _AddOtherDetailsPageState extends State<AddOtherDetailsPage> {
       onWillPop: () async => (await _mayExitPage(saving: false), null),
       child: SmoothScaffold(
         fixKeyboard: true,
-        appBar: SmoothAppBar(
-          centerTitle: false,
-          title:
-              Text(appLocalizations.edit_product_form_item_other_details_title),
-          subTitle: buildProductTitle(widget.product, appLocalizations),
-          ignoreSemanticsForSubtitle: true,
+        appBar: buildEditProductAppBar(
+          context: context,
+          title: appLocalizations.edit_product_form_item_other_details_title,
+          product: widget.product,
         ),
         body: Form(
           key: _formKey,
@@ -76,15 +73,6 @@ class _AddOtherDetailsPageState extends State<AddOtherDetailsPage> {
                   padding: EdgeInsets.symmetric(horizontal: size.width * 0.05),
                   child: Column(
                     children: <Widget>[
-                      ExcludeSemantics(
-                        child: Text(
-                          appLocalizations.barcode_barcode(_product.barcode!),
-                          style:
-                              Theme.of(context).textTheme.bodyMedium?.copyWith(
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                        ),
-                      ),
                       SizedBox(height: _heightSpace),
                       SmoothTextFormField(
                         controller: _websiteController,

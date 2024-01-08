@@ -479,16 +479,20 @@ class _ProductListPageState extends State<ProductListPage>
     final LocalDatabase localDatabase,
   ) async {
     try {
+      final OpenFoodFactsLanguage language = ProductQuery.getLanguage();
       final SearchResult searchResult = await OpenFoodAPIClient.searchProducts(
         ProductQuery.getUser(),
-        ProductRefresher().getBarcodeListQueryConfiguration(barcodes),
+        ProductRefresher().getBarcodeListQueryConfiguration(
+          barcodes,
+          language,
+        ),
         uriHelper: ProductQuery.uriProductHelper,
       );
       final List<Product>? freshProducts = searchResult.products;
       if (freshProducts == null) {
         return false;
       }
-      await DaoProduct(localDatabase).putAll(freshProducts);
+      await DaoProduct(localDatabase).putAll(freshProducts, language);
       localDatabase.upToDate.setLatestDownloadedProducts(freshProducts);
       final RobotoffInsightHelper robotoffInsightHelper =
           RobotoffInsightHelper(localDatabase);
