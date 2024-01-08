@@ -353,6 +353,10 @@
     "contribute_develop_dev_mode_subtitle": "Activate the DEV Mode",
     "contribute_donate_header": "Donate to Open Food Facts",
     "@contribute_donate_header": {},
+    "contribute_enroll_alpha": "Eman izena barneko alfa bertsioan",
+    "@contribute_enroll_alpha": {},
+    "contribute_enroll_alpha_warning": "Jakin barneko alfa bertsioarekin, baliteke datuak guztiz galtzea eta aplikazioa erabilezin bihurtzea edozein unetan.",
+    "@contribute_enroll_alpha_warning": {},
     "contribute_improve_ProductsToBeCompleted": "Osatu beharreko produktuak",
     "@contribute_improve_ProductsToBeCompleted": {
         "description": "Button label: Shows a list of products which aren't completed"
