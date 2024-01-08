@@ -353,9 +353,9 @@
     "contribute_develop_dev_mode_subtitle": "Активувати режим DEV",
     "contribute_donate_header": "Donate to Open Food Facts",
     "@contribute_donate_header": {},
-    "contribute_enroll_alpha": "Enroll in internal alpha version",
+    "contribute_enroll_alpha": "Зареєструватися у внутрішній альфа-версії",
     "@contribute_enroll_alpha": {},
-    "contribute_enroll_alpha_warning": "Please acknowledge that with the internal alpha version, complete loss of data is possible, and the app may become unusable at any time !",
+    "contribute_enroll_alpha_warning": "Будь ласка, зверніть увагу, що з внутрішньою альфа-версією можлива повна втрата даних, і додаток може стати непридатним для використання в будь-який момент!",
     "@contribute_enroll_alpha_warning": {},
     "contribute_improve_ProductsToBeCompleted": "Незавантажені продукти",
     "@contribute_improve_ProductsToBeCompleted": {
