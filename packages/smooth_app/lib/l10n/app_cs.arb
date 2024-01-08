@@ -353,9 +353,9 @@
     "contribute_develop_dev_mode_subtitle": "Aktivovat DEV režim",
     "contribute_donate_header": "Přispějte na Open Food Facts",
     "@contribute_donate_header": {},
-    "contribute_enroll_alpha": "Enroll in internal alpha version",
+    "contribute_enroll_alpha": "Zapsat do interní alfa verze",
     "@contribute_enroll_alpha": {},
-    "contribute_enroll_alpha_warning": "Please acknowledge that with the internal alpha version, complete loss of data is possible, and the app may become unusable at any time !",
+    "contribute_enroll_alpha_warning": "Vezměte prosím na vědomí, že s interní alfa verzí je možná úplná ztráta dat a aplikace se může kdykoli stát nepoužitelnou!",
     "@contribute_enroll_alpha_warning": {},
     "contribute_improve_ProductsToBeCompleted": "Nedokončené",
     "@contribute_improve_ProductsToBeCompleted": {
