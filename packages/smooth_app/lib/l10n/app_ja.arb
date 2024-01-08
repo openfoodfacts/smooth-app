@@ -353,6 +353,10 @@
     "contribute_develop_dev_mode_subtitle": "開発者モードを有効にする",
     "contribute_donate_header": "Donate to Open Food Facts",
     "@contribute_donate_header": {},
+    "contribute_enroll_alpha": "社内アルファ版に登録する",
+    "@contribute_enroll_alpha": {},
+    "contribute_enroll_alpha_warning": "内部アルファ版では、データが完全に失われる可能性があり、アプリはいつでも使用できなくなる可能性があることをご了承ください!",
+    "@contribute_enroll_alpha_warning": {},
     "contribute_improve_ProductsToBeCompleted": "完了が必要な製品",
     "@contribute_improve_ProductsToBeCompleted": {
         "description": "Button label: Shows a list of products which aren't completed"
