@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -107,5 +108,12 @@ class KnowledgePanelActionCard extends StatelessWidget {
       default:
         return false;
     }
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(StringProperty('html', element.html));
+    properties.add(IterableProperty<String>('actions', element.actions));
   }
 }

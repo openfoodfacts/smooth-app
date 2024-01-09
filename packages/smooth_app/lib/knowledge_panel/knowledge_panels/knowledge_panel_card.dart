@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
@@ -90,5 +91,12 @@ class KnowledgePanelCard extends StatelessWidget {
       }
     }
     return false;
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(StringProperty('panelId', panelId));
+    properties.add(DiagnosticsProperty<bool>('clickable', isClickable));
   }
 }

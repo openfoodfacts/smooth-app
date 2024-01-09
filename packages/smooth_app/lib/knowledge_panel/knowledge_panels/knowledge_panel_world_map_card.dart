@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
@@ -81,6 +82,20 @@ class KnowledgePanelWorldMapCard extends StatelessWidget {
               ],
             ),
           ],
+        ),
+      ),
+    );
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(
+      IterableProperty<String?>(
+        'pointers',
+        mapElement.pointers.map(
+          (KnowledgePanelGeoPointer pointer) =>
+              pointer.geo?.toJson().toString(),
         ),
       ),
     );
