@@ -14,6 +14,7 @@ import 'package:smooth_app/pages/onboarding/scan_example.dart';
 import 'package:smooth_app/pages/onboarding/welcome_page.dart';
 import 'package:smooth_app/pages/page_manager.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
+import 'package:smooth_app/widgets/will_pop_scope.dart';
 
 enum OnboardingPage {
   NOT_STARTED,
@@ -121,8 +122,8 @@ enum OnboardingPage {
     BuildContext context,
     Widget widget,
   ) =>
-      WillPopScope(
-        onWillPop: () async => false,
+      WillPopScope2(
+        onWillPop: () async => (false, null),
         // wrap the widget in [Builder] to allow navigation on the [context].
         child: Builder(
           builder: (BuildContext context) => SmoothScaffold(

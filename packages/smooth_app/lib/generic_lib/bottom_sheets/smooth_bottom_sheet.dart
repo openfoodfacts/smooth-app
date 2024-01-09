@@ -232,7 +232,7 @@ class SmoothModalSheetHeaderButton extends StatelessWidget
 
   @override
   double widgetHeight(BuildContext context) {
-    return math.max(17.0 * MediaQuery.textScaleFactorOf(context),
+    return math.max(MediaQuery.textScalerOf(context).scale(17.0),
             suffix is Icon || prefix is Icon ? 20.0 : 0.0) +
         _padding.vertical;
   }

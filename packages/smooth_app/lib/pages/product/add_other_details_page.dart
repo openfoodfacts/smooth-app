@@ -10,6 +10,7 @@ import 'package:smooth_app/pages/product/common/product_buttons.dart';
 import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
 import 'package:smooth_app/pages/text_field_helper.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
+import 'package:smooth_app/widgets/will_pop_scope.dart';
 
 /// Input of a product's less significant details, like website.
 class AddOtherDetailsPage extends StatefulWidget {
@@ -53,8 +54,8 @@ class _AddOtherDetailsPageState extends State<AddOtherDetailsPage> {
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    return WillPopScope(
-      onWillPop: () async => _mayExitPage(saving: false),
+    return WillPopScope2(
+      onWillPop: () async => (await _mayExitPage(saving: false), null),
       child: SmoothScaffold(
         fixKeyboard: true,
         appBar: buildEditProductAppBar(

@@ -14,6 +14,7 @@ import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
 import 'package:smooth_app/pages/product/simple_input_widget.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
+import 'package:smooth_app/widgets/will_pop_scope.dart';
 
 /// Simple input page: we have a list of terms, we add, we remove, we save.
 class SimpleInputPage extends StatefulWidget {
@@ -88,8 +89,8 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
       );
     }
 
-    return WillPopScope(
-      onWillPop: () async => _mayExitPage(saving: false),
+    return WillPopScope2(
+      onWillPop: () async => (await _mayExitPage(saving: false), null),
       child: UnfocusWhenTapOutside(
         child: SmoothScaffold(
           fixKeyboard: true,

@@ -27,6 +27,7 @@ import 'package:smooth_app/pages/product/product_image_swipeable_view.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
+import 'package:smooth_app/widgets/will_pop_scope.dart';
 
 /// "Create a product we couldn't find on the server" page.
 class AddNewProductPage extends StatefulWidget {
@@ -218,8 +219,8 @@ class _AddNewProductPageState extends State<AddNewProductPage>
       tracker.track();
     }
 
-    return WillPopScope(
-      onWillPop: _onWillPop,
+    return WillPopScope2(
+      onWillPop: () async => (await _onWillPop(), null),
       child: SmoothScaffold(
         body: SafeArea(
           child: Column(

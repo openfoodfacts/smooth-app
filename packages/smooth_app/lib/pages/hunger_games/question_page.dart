@@ -17,6 +17,7 @@ import 'package:smooth_app/pages/hunger_games/question_card.dart';
 import 'package:smooth_app/query/product_questions_query.dart';
 import 'package:smooth_app/query/questions_query.dart';
 import 'package:smooth_app/query/random_questions_query.dart';
+import 'package:smooth_app/widgets/will_pop_scope.dart';
 
 Future<void> openQuestionPage(
   BuildContext context, {
@@ -203,13 +204,13 @@ class _QuestionPageState extends State<_QuestionPage>
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
+    return WillPopScope2(
       onWillPop: () async {
         final Function()? callback = widget.updateProductUponAnswers;
         if (_lastAnswer != null && callback != null) {
           await callback();
         }
-        return true;
+        return (true, null);
       },
       child: Center(
         child: AnimatedSwitcher(
