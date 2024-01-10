@@ -13,6 +13,7 @@ import 'package:smooth_app/database/dao_hive_product.dart';
 import 'package:smooth_app/database/dao_instant_string.dart';
 import 'package:smooth_app/database/dao_int.dart';
 import 'package:smooth_app/database/dao_product.dart';
+import 'package:smooth_app/database/dao_product_last_access.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/dao_string.dart';
 import 'package:smooth_app/database/dao_string_list.dart';
@@ -62,7 +63,7 @@ class LocalDatabase extends ChangeNotifier {
     final String databasePath = join(databasesRootPath, 'smoothie.db');
     final Database database = await openDatabase(
       databasePath,
-      version: 4,
+      version: 5,
       singleInstance: true,
       onUpgrade: _onUpgrade,
     );
@@ -105,5 +106,6 @@ class LocalDatabase extends ChangeNotifier {
   ) async {
     await DaoProduct.onUpgrade(db, oldVersion, newVersion);
     await DaoWorkBarcode.onUpgrade(db, oldVersion, newVersion);
+    await DaoProductLastAccess.onUpgrade(db, oldVersion, newVersion);
   }
 }

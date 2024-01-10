@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/fetched_product.dart';
 import 'package:smooth_app/database/dao_product.dart';
+import 'package:smooth_app/database/dao_product_last_access.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/query/barcode_product_query.dart';
 
@@ -25,6 +26,7 @@ class ProductModel with ChangeNotifier {
   /// In the constructor we retrieve async'ly the product from the local db.
   ProductModel(this.barcode, this.localDatabase) {
     localDatabase.upToDate.showInterest(barcode);
+    DaoProductLastAccess(localDatabase).put(barcode);
     _asyncLoad();
   }
 
