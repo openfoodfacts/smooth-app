@@ -355,7 +355,7 @@
     "@contribute_donate_header": {},
     "contribute_enroll_alpha": "Inscríbete en la versión alfa interna",
     "@contribute_enroll_alpha": {},
-    "contribute_enroll_alpha_warning": "¡Por favor, ten en cuenta que con la versión alfa interna, es posible la pérdida total de datos, y que la aplicación puede resultar inutilizable en cualquier momento!",
+    "contribute_enroll_alpha_warning": "Ten en cuenta que con la versión alfa interna, es posible la pérdida total de datos, y que la aplicación puede resultar inutilizable en cualquier momento.",
     "@contribute_enroll_alpha_warning": {},
     "contribute_improve_ProductsToBeCompleted": "Productos por completar",
     "@contribute_improve_ProductsToBeCompleted": {
