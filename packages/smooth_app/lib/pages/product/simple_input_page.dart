@@ -13,8 +13,8 @@ import 'package:smooth_app/pages/product/common/product_buttons.dart';
 import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
 import 'package:smooth_app/pages/product/simple_input_widget.dart';
-import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
+import 'package:smooth_app/widgets/will_pop_scope.dart';
 
 /// Simple input page: we have a list of terms, we add, we remove, we save.
 class SimpleInputPage extends StatefulWidget {
@@ -54,8 +54,10 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final List<Widget> simpleInputs = <Widget>[];
+    final List<String> titles = <String>[];
 
     for (int i = 0; i < widget.helpers.length; i++) {
+      titles.add(widget.helpers[i].getTitle(appLocalizations));
       simpleInputs.add(
         Padding(
           padding: i == 0
@@ -79,6 +81,7 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
                 helper: widget.helpers[i],
                 product: widget.product,
                 controller: _controllers[i],
+                displayTitle: widget.helpers.length > 1,
               ),
             ),
           ),
@@ -86,18 +89,15 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
       );
     }
 
-    return WillPopScope(
-      onWillPop: () async => _mayExitPage(saving: false),
+    return WillPopScope2(
+      onWillPop: () async => (await _mayExitPage(saving: false), null),
       child: UnfocusWhenTapOutside(
         child: SmoothScaffold(
           fixKeyboard: true,
-          appBar: SmoothAppBar(
-            centerTitle: false,
-            title: buildProductTitle(widget.product, appLocalizations),
-            subTitle: widget.product.barcode != null
-                ? ExcludeSemantics(
-                    excluding: true, child: Text(widget.product.barcode!))
-                : null,
+          appBar: buildEditProductAppBar(
+            context: context,
+            title: titles.join(', '),
+            product: widget.product,
           ),
           body: Padding(
             padding: const EdgeInsets.all(SMALL_SPACE),

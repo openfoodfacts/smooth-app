@@ -26,18 +26,69 @@ class _SvgSafeNetworkState extends State<SvgSafeNetwork> {
   late final Future<String> _loading = _load();
 
   String get _url => widget.helper.url;
-
+// TODO(monsieurtanuki): Change /dist/ url to be the first try when the majority of products have been updated
+  /// Loads the SVG file from url or from alternate url.
+  ///
+  /// In Autumn 2023, the web image folders were moved to a /dist/ subfolder.
+  /// Before:
+  /// https://static.openfoodfacts.org/images/attributes/nova-group-3.svg
+  /// After:
+  /// https://static.openfoodfacts.org/images/attributes/dist/nova-group-3.svg
+  /// Products that haven't been refreshed still reference the previous web
+  /// folder. If we cannot find the URL, we try with the alternate /dist/ URL.
   Future<String> _load() async {
+    const int statusOk = 200;
+    const int statusNotFound = 404;
+
+    final String? alternateUrl = _getAlternateUrl();
+
+    // is the url already cached?
     String? cached = _networkCache[_url];
     if (cached != null) {
       return cached;
     }
-    final http.Response response = await http.get(Uri.parse(_url));
-    if (response.statusCode != 200) {
-      throw Exception('Failed to load SVG: $_url ${response.statusCode}');
+    // is the alternate url already cached?
+    if (alternateUrl != null) {
+      cached = _networkCache[alternateUrl];
+      if (cached != null) {
+        return cached;
+      }
     }
-    _networkCache[_url] = cached = response.body;
-    return cached;
+
+    // try with the url
+    final http.Response response1 = await http.get(Uri.parse(_url));
+    if (response1.statusCode == statusOk) {
+      _networkCache[_url] = cached = response1.body;
+      return cached;
+    }
+    if (response1.statusCode == statusNotFound && alternateUrl != null) {
+      // try with the alternate url
+      final http.Response response2 = await http.get(Uri.parse(alternateUrl));
+      if (response2.statusCode == statusOk) {
+        _networkCache[alternateUrl] = cached = response2.body;
+        return cached;
+      }
+    }
+
+    throw Exception('Failed to load SVG: $_url ${response1.statusCode}');
+  }
+
+  /// Returns the alternate /dist/ url or null if irrelevant.
+  String? _getAlternateUrl() {
+    const String lastPathSegment = '/dist/';
+    if (_url.contains(lastPathSegment)) {
+      return null;
+    }
+    final int lastSlashPos = _url.lastIndexOf('/');
+    if (lastSlashPos == -1 ||
+        lastSlashPos == 0 ||
+        lastSlashPos == _url.length - 1) {
+      // very unlikely
+      return null;
+    }
+    return '${_url.substring(0, lastSlashPos)}'
+        '$lastPathSegment'
+        '${_url.substring(lastSlashPos + 1)}';
   }
 
   @override

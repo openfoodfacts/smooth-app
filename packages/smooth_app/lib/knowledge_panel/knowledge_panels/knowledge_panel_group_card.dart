@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
@@ -42,5 +43,13 @@ class KnowledgePanelGroupCard extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(StringProperty('groupElement', groupElement.title));
+    properties.add(DiagnosticsProperty<bool>('clickable', isClickable));
+    properties.add(IterableProperty<String>('panelIds', groupElement.panelIds));
   }
 }

@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
@@ -133,5 +134,24 @@ class KnowledgePanelTitleCard extends StatelessWidget {
     }
 
     return buffer.toString();
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+
+    properties.add(
+      StringProperty('iconUrl', knowledgePanelTitleElement.iconUrl),
+    );
+    properties.add(
+      EnumProperty<TitleElementType>('type', knowledgePanelTitleElement.type),
+    );
+    properties.add(
+      EnumProperty<Grade>('grade', knowledgePanelTitleElement.grade),
+    );
+    properties.add(
+      DiagnosticsProperty<bool>('clickable', isClickable),
+    );
+    properties.add(EnumProperty<Evaluation>('evaluation', evaluation));
   }
 }

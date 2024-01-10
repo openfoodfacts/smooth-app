@@ -17,14 +17,12 @@ import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_page.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
-import 'package:smooth_app/pages/product/add_simple_input_button.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/product/hideable_container.dart';
 import 'package:smooth_app/pages/product/product_compatibility_header.dart';
 import 'package:smooth_app/pages/product/product_field_editor.dart';
 import 'package:smooth_app/pages/product/product_incomplete_card.dart';
 import 'package:smooth_app/pages/product/product_questions_widget.dart';
-import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
 import 'package:smooth_app/pages/product/summary_attribute_group.dart';
 import 'package:smooth_app/query/category_product_query.dart';
 import 'package:smooth_app/query/product_query.dart';
@@ -294,17 +292,6 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
     final List<Widget> summaryCardButtons = <Widget>[];
 
     if (widget.isFullVersion) {
-      // Complete category
-      if (statesTags
-          .contains(ProductState.CATEGORIES_COMPLETED.toBeCompletedTag)) {
-        summaryCardButtons.add(
-          AddSimpleInputButton(
-            product: upToDateProduct,
-            helper: SimpleInputPageCategoryHelper(),
-          ),
-        );
-      }
-
       // Compare to category
       if (categoryTag != null && categoryLabel != null) {
         summaryCardButtons.add(

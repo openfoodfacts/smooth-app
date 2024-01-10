@@ -20,8 +20,8 @@ import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
 import 'package:smooth_app/pages/product/simple_input_number_field.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/themes/color_schemes.dart';
-import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
+import 'package:smooth_app/widgets/will_pop_scope.dart';
 
 /// Edit display of a product packagings (the new api V3 version).
 class EditNewPackagings extends StatefulWidget {
@@ -183,14 +183,16 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
       ),
     );
 
-    return WillPopScope(
-      onWillPop: () async => _mayExitPage(saving: false),
+    return WillPopScope2(
+      onWillPop: () async => (await _mayExitPage(saving: false), null),
       child: UnfocusWhenTapOutside(
         child: SmoothScaffold(
           fixKeyboard: true,
-          appBar: SmoothAppBar(
-              title: Text(appLocalizations.edit_packagings_title),
-              subTitle: buildProductTitle(upToDateProduct, appLocalizations)),
+          appBar: buildEditProductAppBar(
+            context: context,
+            title: appLocalizations.edit_packagings_title,
+            product: upToDateProduct,
+          ),
           body: ListView(
             padding: const EdgeInsets.only(top: LARGE_SPACE),
             children: children,

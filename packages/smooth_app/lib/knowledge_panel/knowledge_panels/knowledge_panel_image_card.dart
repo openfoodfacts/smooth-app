@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 
@@ -16,4 +17,12 @@ class KnowledgePanelImageCard extends StatelessWidget {
         width: imageElement.width?.toDouble(),
         height: imageElement.height?.toDouble(),
       );
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(StringProperty('url', imageElement.url));
+    properties.add(IntProperty('width', imageElement.width));
+    properties.add(IntProperty('height', imageElement.height));
+  }
 }
