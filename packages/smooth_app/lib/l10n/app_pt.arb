@@ -353,9 +353,9 @@
     "contribute_develop_dev_mode_subtitle": "Ativar o modo DEV",
     "contribute_donate_header": "Fazer um donativo ao Open Food Facts",
     "@contribute_donate_header": {},
-    "contribute_enroll_alpha": "Enroll in internal alpha version",
+    "contribute_enroll_alpha": "Inscrever-se na versão alfa interna",
     "@contribute_enroll_alpha": {},
-    "contribute_enroll_alpha_warning": "Please acknowledge that with the internal alpha version, complete loss of data is possible, and the app may become unusable at any time !",
+    "contribute_enroll_alpha_warning": "Informamos que a versão alfa interna permite a perda total de dados e a aplicação pode ficar inutilizável em qualquer altura!",
     "@contribute_enroll_alpha_warning": {},
     "contribute_improve_ProductsToBeCompleted": "Produtos a completar",
     "@contribute_improve_ProductsToBeCompleted": {
@@ -2536,7 +2536,7 @@
     "contact_title_newsletter": "Assine o nosso boletim informativo",
     "hunger_games_loading_line1": "Por favor, dê-nos alguns segundos…",
     "hunger_games_loading_line2": "Estamos a descarregar as perguntas!",
-    "hunger_games_error_label": "Argh! Algo correu mal... e não conseguimos carregar as perguntas.",
+    "hunger_games_error_label": "Ups! Algo correu mal... e não conseguimos carregar as perguntas.",
     "hunger_games_error_retry_button": "Vamos tentar novamente!",
     "reorder_attribute_action": "Reordenar os atributos",
     "@reorder_attribute_action": {
