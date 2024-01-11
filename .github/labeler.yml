@@ -74,7 +74,6 @@ Web:
   - any-glob-to-any-file: 'packages/smooth_app/test/tests_utils/goldens.dart'
   - any-glob-to-any-file: 'packages/smooth_app/test_driver/screenshot_driver.dart'
   - any-glob-to-any-file: 'packages/smooth_app/test/pages/generic_lib/widgets/smooth_error_card_test.dart'
-  - any-glob-to-any-file: 'packages/smooth_app/test/smooth_ui_library/dialogs/smooth_category_picker_test.dart'
   - any-glob-to-any-file: 'packages/smooth_app/test/tests_utils/path_provider_mock.dart'
   - any-glob-to-any-file: 'packages/smooth_app/test/smooth_ui_library/animations/smooth_reveal_animation_test.dart'
 
@@ -207,9 +206,6 @@ GitHub:
 ✏️ Editing - Category picker:
 - changed-files:
   - any-glob-to-any-file: 'packages/smooth_app/lib/data_models/category_tree_supplier.dart'
-  - any-glob-to-any-file: 'packages/smooth_app/example/smooth_category_picker_example.dart'
-  - any-glob-to-any-file: 'packages/smooth_app/generic_lib/dialogs/smooth_category_picker.dart'
-  - any-glob-to-any-file: 'packages/smooth_app/test/dialogs/smooth_category_picker_test.dart'
   - any-glob-to-any-file: 'packages/smooth_app/lib/data_models/category_query_model.dart'
   - any-glob-to-any-file: 'packages/smooth_app/lib/data_models/query_category_tree_supplier.dart'
   - any-glob-to-any-file: 'packages/smooth_app/lib/data_models/smooth_category.dart'
