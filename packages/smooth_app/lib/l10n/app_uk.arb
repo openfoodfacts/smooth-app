@@ -1617,8 +1617,8 @@
     "@dev_preferences_import_history_subtitle": {
         "description": "User dev preferences - Import history - Subtitle"
     },
-    "prices_app_dev_mode_flag": "Shortcut to Prices app on product page",
-    "prices_app_button": "Go to Prices app",
+    "prices_app_dev_mode_flag": "Ярлик програми «Ціни» на сторінці продукту",
+    "prices_app_button": "Перейдіть у додаток Ціни",
     "dev_preferences_import_history_result_success": "Виконано",
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"
