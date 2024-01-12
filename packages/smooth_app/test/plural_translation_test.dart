@@ -164,10 +164,6 @@ void main() {
             contains(crazyString),
           );
           expect(
-            appLocalizations.dev_mode_scan_mode_subtitle(crazyString),
-            contains(crazyString),
-          );
-          expect(
             appLocalizations.product_search_no_more_results(crazyInt),
             contains(crazyInt.toString()),
           );
