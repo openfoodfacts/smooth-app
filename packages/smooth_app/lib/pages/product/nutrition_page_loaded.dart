@@ -22,8 +22,8 @@ import 'package:smooth_app/pages/product/nutrition_container.dart';
 import 'package:smooth_app/pages/product/ordered_nutrients_cache.dart';
 import 'package:smooth_app/pages/product/simple_input_number_field.dart';
 import 'package:smooth_app/pages/text_field_helper.dart';
-import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
+import 'package:smooth_app/widgets/will_pop_scope.dart';
 
 /// Actual nutrition page, with data already loaded.
 class NutritionPageLoaded extends StatefulWidget {
@@ -74,7 +74,6 @@ class NutritionPageLoaded extends StatefulWidget {
               cache.orderedNutrients,
               isLoggedInMandatory: isLoggedInMandatory,
             ),
-            fullscreenDialog: true,
           ),
         );
       }
@@ -192,16 +191,14 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
       _focusNodes.clear();
     }
 
-    return WillPopScope(
-      onWillPop: () async => _mayExitPage(saving: false),
+    return WillPopScope2(
+      onWillPop: () async => (await _mayExitPage(saving: false), null),
       child: SmoothScaffold(
         fixKeyboard: true,
-        appBar: SmoothAppBar(
-          title: AutoSizeText(
-            appLocalizations.nutrition_page_title,
-            maxLines: 1,
-          ),
-          subTitle: buildProductTitle(upToDateProduct, appLocalizations),
+        appBar: buildEditProductAppBar(
+          context: context,
+          title: appLocalizations.nutrition_page_title,
+          product: upToDateProduct,
         ),
         body: Padding(
           padding: const EdgeInsets.symmetric(

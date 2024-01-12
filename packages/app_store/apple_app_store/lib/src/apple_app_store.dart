@@ -24,4 +24,8 @@ class AppleAppStore extends AppStore {
     await _inAppReview.requestReview();
     return true;
   }
+
+  @override
+  String getEnrollInBetaURL() =>
+      'https://appstoreconnect.apple.com/apps/588797948/testflight/ios';
 }

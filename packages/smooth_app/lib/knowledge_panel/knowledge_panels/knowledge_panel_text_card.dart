@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -56,4 +57,11 @@ class KnowledgePanelTextCard extends StatelessWidget {
   bool get _hasSource =>
       textElement.sourceText?.isNotEmpty == true &&
       textElement.sourceUrl?.isNotEmpty == true;
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(StringProperty('text', textElement.sourceText));
+    properties.add(StringProperty('url', textElement.sourceUrl));
+  }
 }

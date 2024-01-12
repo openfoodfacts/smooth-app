@@ -32,6 +32,7 @@ import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
+import 'package:smooth_app/widgets/will_pop_scope.dart';
 
 /// Displays the products of a product list, with access to other lists.
 class ProductListPage extends StatefulWidget {
@@ -274,8 +275,8 @@ class _ProductListPageState extends State<ProductListPage>
                 ),
               ),
             )
-          : WillPopScope(
-              onWillPop: _handleUserBacktap,
+          : WillPopScope2(
+              onWillPop: () async => (await _handleUserBacktap(), null),
               child: RefreshIndicator(
                 //if it is in selectmode then refresh indicator is not shown
                 notificationPredicate:
@@ -478,16 +479,20 @@ class _ProductListPageState extends State<ProductListPage>
     final LocalDatabase localDatabase,
   ) async {
     try {
+      final OpenFoodFactsLanguage language = ProductQuery.getLanguage();
       final SearchResult searchResult = await OpenFoodAPIClient.searchProducts(
         ProductQuery.getUser(),
-        ProductRefresher().getBarcodeListQueryConfiguration(barcodes),
+        ProductRefresher().getBarcodeListQueryConfiguration(
+          barcodes,
+          language,
+        ),
         uriHelper: ProductQuery.uriProductHelper,
       );
       final List<Product>? freshProducts = searchResult.products;
       if (freshProducts == null) {
         return false;
       }
-      await DaoProduct(localDatabase).putAll(freshProducts);
+      await DaoProduct(localDatabase).putAll(freshProducts, language);
       localDatabase.upToDate.setLatestDownloadedProducts(freshProducts);
       final RobotoffInsightHelper robotoffInsightHelper =
           RobotoffInsightHelper(localDatabase);

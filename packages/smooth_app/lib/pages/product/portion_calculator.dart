@@ -56,7 +56,9 @@ class _PortionCalculatorState extends State<PortionCalculator> {
         ),
         const SizedBox(height: MEDIUM_SPACE),
         Container(
-          height: (data.textScaleFactor * (SMALL_SPACE * 2 + 15.0)) * 1.2,
+          height:
+              MediaQuery.textScalerOf(context).scale(SMALL_SPACE * 2 + 15.0) *
+                  1.2,
           padding: const EdgeInsets.symmetric(horizontal: MEDIUM_SPACE),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,

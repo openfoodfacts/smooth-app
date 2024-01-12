@@ -8,12 +8,10 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/database/abstract_sql_dao.dart';
 import 'package:smooth_app/database/bulk_deletable.dart';
 import 'package:smooth_app/database/bulk_manager.dart';
-import 'package:smooth_app/database/dao_product_migration.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:sqflite/sqflite.dart';
 
-class DaoProduct extends AbstractSqlDao
-    implements BulkDeletable, DaoProductMigrationDestination {
+class DaoProduct extends AbstractSqlDao implements BulkDeletable {
   DaoProduct(super.localDatabase);
 
   static const String _TABLE_PRODUCT = 'gzipped_product';
@@ -21,11 +19,13 @@ class DaoProduct extends AbstractSqlDao
   static const String _TABLE_PRODUCT_COLUMN_GZIPPED_JSON =
       'encoded_gzipped_json';
   static const String _TABLE_PRODUCT_COLUMN_LAST_UPDATE = 'last_update';
+  static const String _TABLE_PRODUCT_COLUMN_LANGUAGE = 'lc';
 
   static const List<String> _columns = <String>[
     _TABLE_PRODUCT_COLUMN_BARCODE,
     _TABLE_PRODUCT_COLUMN_GZIPPED_JSON,
     _TABLE_PRODUCT_COLUMN_LAST_UPDATE,
+    _TABLE_PRODUCT_COLUMN_LANGUAGE,
   ];
 
   static FutureOr<void> onUpgrade(
@@ -40,6 +40,10 @@ class DaoProduct extends AbstractSqlDao
           ',$_TABLE_PRODUCT_COLUMN_GZIPPED_JSON BLOB NOT NULL'
           ',$_TABLE_PRODUCT_COLUMN_LAST_UPDATE INT NOT NULL'
           ')');
+    }
+    if (oldVersion < 4) {
+      await db.execute('alter table $_TABLE_PRODUCT add column '
+          '$_TABLE_PRODUCT_COLUMN_LANGUAGE TEXT');
     }
   }
 
@@ -87,17 +91,28 @@ class DaoProduct extends AbstractSqlDao
     return result;
   }
 
-  Future<void> put(final Product product) async => putAll(<Product>[product]);
-
-  /// Replaces products in database
-  @override
-  Future<void> putAll(final Iterable<Product> products) async =>
-      localDatabase.database.transaction(
-        (final Transaction transaction) async =>
-            _bulkReplaceLoop(transaction, products),
+  Future<void> put(
+    final Product product,
+    final OpenFoodFactsLanguage language,
+  ) async =>
+      putAll(
+        <Product>[product],
+        language,
       );
 
-  @override
+  /// Replaces products in database
+  Future<void> putAll(
+    final Iterable<Product> products,
+    final OpenFoodFactsLanguage language,
+  ) async =>
+      localDatabase.database.transaction(
+        (final Transaction transaction) async => _bulkReplaceLoop(
+          transaction,
+          products,
+          language,
+        ),
+      );
+
   Future<List<String>> getAllKeys() async {
     final List<String> result = <String>[];
     final List<Map<String, dynamic>> queryResults =
@@ -126,6 +141,7 @@ class DaoProduct extends AbstractSqlDao
   Future<void> _bulkReplaceLoop(
     final DatabaseExecutor databaseExecutor,
     final Iterable<Product> products,
+    final OpenFoodFactsLanguage language,
   ) async {
     final int lastUpdate = LocalDatabase.nowInMillis();
     final BulkManager bulkManager = BulkManager();
@@ -138,6 +154,7 @@ class DaoProduct extends AbstractSqlDao
         ),
       );
       insertParameters.add(lastUpdate);
+      insertParameters.add(language.offTag);
     }
     await bulkManager.insert(
       bulkInsertable: this,
@@ -223,6 +240,7 @@ class DaoProduct extends AbstractSqlDao
       await localDatabase.database.rawQuery('''
         select sum(length($_TABLE_PRODUCT_COLUMN_BARCODE)) +
         sum(length($_TABLE_PRODUCT_COLUMN_LAST_UPDATE)) + 
+        sum(length($_TABLE_PRODUCT_COLUMN_LANGUAGE)) + 
         sum(length($_TABLE_PRODUCT_COLUMN_GZIPPED_JSON))
         from $_TABLE_PRODUCT
         '''),

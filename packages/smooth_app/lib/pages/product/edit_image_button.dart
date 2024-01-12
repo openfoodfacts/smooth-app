@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 
@@ -18,28 +19,35 @@ class EditImageButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ColorScheme colorScheme = Theme.of(context).colorScheme;
-    return OutlinedButton.icon(
-      icon: Icon(iconData),
-      style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all(colorScheme.onPrimary),
-        shape: MaterialStateProperty.all(
-          const RoundedRectangleBorder(borderRadius: ROUNDED_BORDER_RADIUS),
-        ),
-        side: borderWidth == null
-            ? null
-            : MaterialStateBorderSide.resolveWith(
-                (_) => BorderSide(
-                  color: colorScheme.primary,
-                  width: borderWidth!,
+    return Tooltip(
+      message: label,
+      child: OutlinedButton.icon(
+        icon: Icon(iconData),
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all(colorScheme.onPrimary),
+          shape: MaterialStateProperty.all(
+            const RoundedRectangleBorder(borderRadius: ROUNDED_BORDER_RADIUS),
+          ),
+          side: borderWidth == null
+              ? null
+              : MaterialStateBorderSide.resolveWith(
+                  (_) => BorderSide(
+                    color: colorScheme.primary,
+                    width: borderWidth!,
+                  ),
                 ),
-              ),
-      ),
-      onPressed: onPressed,
-      label: SizedBox(
-        width: double.infinity,
-        child: Padding(
-          padding: EdgeInsets.all(borderWidth ?? 0),
-          child: Text(label),
+        ),
+        onPressed: onPressed,
+        label: SizedBox(
+          width: double.infinity,
+          child: Padding(
+            padding: EdgeInsets.all(borderWidth ?? 0),
+            child: AutoSizeText(
+              label,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+            ),
+          ),
         ),
       ),
     );
