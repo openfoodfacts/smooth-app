@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -272,6 +273,14 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
 
     return buffer.toString();
   }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(StringProperty('tableElementId', widget.tableElement.id));
+    properties
+        .add(DiagnosticsProperty<bool>('expanded', widget.isInitiallyExpanded));
+  }
 }
 
 class TableCellWidget extends StatefulWidget {
@@ -403,5 +412,13 @@ class _TableCellWidgetState extends State<TableCellWidget> {
         ),
       ),
     );
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+        .add(DiagnosticsProperty<bool>('expanded', widget.isInitiallyExpanded));
+    properties.add(DoubleProperty('cellWidth', widget.cellWidth));
   }
 }

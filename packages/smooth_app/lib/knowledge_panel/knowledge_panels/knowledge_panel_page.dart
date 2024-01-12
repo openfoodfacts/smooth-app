@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -123,5 +124,11 @@ class _KnowledgePanelPageState extends State<KnowledgePanelPage>
       return (panel?.titleElement?.title)!;
     }
     return '';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(StringProperty('panelId', widget.panelId));
   }
 }

@@ -8,7 +8,7 @@ extension Selectable on Text {
             style: style,
             strutStyle: strutStyle,
             textDirection: textDirection,
-            textScaleFactor: textScaleFactor,
+            textScaler: textScaler,
             textAlign: textAlign,
             maxLines: maxLines,
             // TODO(m123): Fix or remove alltogether
@@ -23,7 +23,7 @@ extension Selectable on Text {
             style: style,
             strutStyle: strutStyle,
             textDirection: textDirection,
-            textScaleFactor: textScaleFactor,
+            textScaler: textScaler,
             textAlign: textAlign,
             maxLines: maxLines,
           );

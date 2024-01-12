@@ -16,6 +16,7 @@ import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
 import 'package:smooth_app/pages/product/multilingual_helper.dart';
 import 'package:smooth_app/pages/text_field_helper.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
+import 'package:smooth_app/widgets/will_pop_scope.dart';
 
 /// Input of a product's basic details, like name, quantity and brands.
 ///
@@ -85,8 +86,8 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
   Widget build(BuildContext context) {
     final Size size = MediaQuery.sizeOf(context);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    return WillPopScope(
-      onWillPop: () async => _mayExitPage(saving: false),
+    return WillPopScope2(
+      onWillPop: () async => (await _mayExitPage(saving: false), null),
       child: UnfocusWhenTapOutside(
         child: SmoothScaffold(
           fixKeyboard: true,

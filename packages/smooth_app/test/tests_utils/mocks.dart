@@ -177,7 +177,7 @@ class _MockHttpClientSVGResponse extends Mock implements HttpClientResponse {
   </svg>
   ''';
 
-  final Uint8List svgBytes = utf8.encode(svgStr) as Uint8List;
+  final Uint8List svgBytes = utf8.encode(svgStr);
 }
 
 Future<void> mockMatomo() async {

@@ -45,7 +45,7 @@ class AllProductListModal extends StatelessWidget {
               ConstrainedBox(
                 constraints: BoxConstraints(
                   minWidth: double.infinity,
-                  minHeight: 80.0 * MediaQuery.of(context).textScaleFactor,
+                  minHeight: MediaQuery.textScalerOf(context).scale(80.0),
                 ),
                 child: FutureBuilder<void>(
                   future: daoProductList.get(productList),

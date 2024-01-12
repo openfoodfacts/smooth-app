@@ -6,4 +6,6 @@ abstract class AppStore {
 
   /// Open a screen/dialog… (depending on the store) to rate the app
   Future<bool> openAppReview();
+
+  String? getEnrollInBetaURL() => null;
 }
