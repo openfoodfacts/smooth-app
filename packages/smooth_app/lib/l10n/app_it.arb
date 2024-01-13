@@ -1617,7 +1617,7 @@
     "@dev_preferences_import_history_subtitle": {
         "description": "User dev preferences - Import history - Subtitle"
     },
-    "prices_app_dev_mode_flag": "Collegamento all'app Prezzi nella pagina del prodotto",
+    "prices_app_dev_mode_flag": "Collegamento all'app Prezzi sulla pagina del prodotto",
     "prices_app_button": "Vai all'app Prezzi",
     "dev_preferences_import_history_result_success": "Fatto",
     "@dev_preferences_import_history_result_success": {
