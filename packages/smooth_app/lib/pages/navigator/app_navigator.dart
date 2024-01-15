@@ -260,6 +260,9 @@ class _SmoothGoRouter {
 
         if (externalLink) {
           return _openExternalLink(path);
+        } else if (path.isEmpty) {
+          // Force the Homepage
+          return _InternalAppRoutes.HOME_PAGE;
         } else {
           return state.uri.toString();
         }
