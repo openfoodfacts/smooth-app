@@ -21,6 +21,8 @@ class KnowledgePanelProductCards extends StatelessWidget {
             ))
         .toList(growable: false);
 
+    //print(widgetsWrappedInSmoothCards.elementAt(1));
+
     return Center(
       child: Padding(
         padding: const EdgeInsetsDirectional.only(
