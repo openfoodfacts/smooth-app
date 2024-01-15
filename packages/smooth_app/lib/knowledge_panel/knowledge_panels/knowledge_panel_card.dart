@@ -63,10 +63,11 @@ class KnowledgePanelCard extends StatelessWidget {
                   ),
                 ),
         child: KnowledgePanelsBuilder.getPanelSummaryWidget(
-          panel,
-          isClickable: isClickable,
-          margin: EdgeInsets.zero,
-        ),
+              panel,
+              isClickable: isClickable,
+              margin: EdgeInsets.zero,
+            ) ??
+            const SizedBox(),
       ),
     );
   }
