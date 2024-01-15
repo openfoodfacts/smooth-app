@@ -67,7 +67,7 @@ class KnowledgePanelCard extends StatelessWidget {
               isClickable: isClickable,
               margin: EdgeInsets.zero,
             ) ??
-            SizedBox(),
+            const SizedBox(),
       ),
     );
   }
