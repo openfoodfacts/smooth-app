@@ -97,13 +97,16 @@ Widget buildProductSmoothCard({
     SmoothCard(
       margin: margin,
       padding: padding,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          if (header != null) header,
-          body,
-        ],
-      ),
+      child: switch (header) {
+        Object _ => Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              if (header != null) header,
+              body,
+            ],
+          ),
+        _ => body
+      },
     );
 
 // used to be in now defunct `AttributeListExpandable`

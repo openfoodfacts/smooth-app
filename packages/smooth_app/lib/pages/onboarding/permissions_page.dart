@@ -1,17 +1,16 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart' hide Listener;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/onboarding_loader.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/helpers/permission_helper.dart';
 import 'package:smooth_app/helpers/provider_helper.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_bottom_bar.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
+import 'package:smooth_app/resources/app_animations.dart' as animations;
 import 'package:smooth_app/widgets/smooth_text.dart';
 
 class PermissionsPage extends StatefulWidget {
@@ -56,16 +55,16 @@ class _PermissionsPageState extends State<PermissionsPage> {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
-                    FractionallySizedBox(
-                      widthFactor: 0.5,
-                      child: Transform.rotate(
-                        angle: -0.2,
-                        child: Lottie.asset(
-                          'assets/animations/barcode.json',
-                          package: AppHelper.APP_PACKAGE,
+                    LayoutBuilder(builder:
+                        (BuildContext context, BoxConstraints constraints) {
+                      return SizedBox.square(
+                        dimension: constraints.maxWidth * 0.5,
+                        child: Transform.rotate(
+                          angle: -0.2,
+                          child: const animations.BarcodeAnimation(),
                         ),
-                      ),
-                    ),
+                      );
+                    }),
                     const SizedBox(height: LARGE_SPACE),
                     AutoSizeText(
                       appLocalizations.permissions_page_title,
