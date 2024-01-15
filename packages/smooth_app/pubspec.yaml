@@ -111,7 +111,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   mockito: 5.4.2
-  path_provider_platform_interface: 2.1.1
+  path_provider_platform_interface: 2.1.2
   plugin_platform_interface: 2.1.7
   flutter_lints: 2.0.3
   openfoodfacts_flutter_lints:
