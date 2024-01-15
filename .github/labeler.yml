@@ -150,6 +150,7 @@ Product addition:
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/reorderable_knowledge_panel_page.dart'
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/reordered_knowledge_panel_cards.dart'
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/standard_knowledge_panel_cards.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/knowledge_panel/knowledge_panels/knowledge_panel_card.dart'
 
 🤖 Robotoff:
 - changed-files:
