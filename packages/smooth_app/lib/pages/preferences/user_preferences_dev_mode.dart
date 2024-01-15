@@ -50,6 +50,8 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
   static const String userPreferencesFlagAccessibilityEmoji =
       '__accessibilityEmoji';
   static const String userPreferencesFlagUserOrderedKP = '__userOrderedKP';
+  static const String userPreferencesFlagShortcutToPrices =
+      '__shortcutToPrices';
 
   final TextEditingController _textFieldController = TextEditingController();
 
@@ -313,6 +315,16 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           onChanged: (bool value) async {
             await userPreferences.setFlag(
                 userPreferencesFlagUserOrderedKP, value);
+            _showSuccessMessage();
+          },
+        ),
+        UserPreferencesItemSwitch(
+          title: appLocalizations.prices_app_dev_mode_flag,
+          value: userPreferences.getFlag(userPreferencesFlagShortcutToPrices) ??
+              false,
+          onChanged: (bool value) async {
+            await userPreferences.setFlag(
+                userPreferencesFlagShortcutToPrices, value);
             _showSuccessMessage();
           },
         ),

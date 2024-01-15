@@ -353,6 +353,10 @@
     "contribute_develop_dev_mode_subtitle": "Активувати режим DEV",
     "contribute_donate_header": "Donate to Open Food Facts",
     "@contribute_donate_header": {},
+    "contribute_enroll_alpha": "Зареєструватися у внутрішній альфа-версії",
+    "@contribute_enroll_alpha": {},
+    "contribute_enroll_alpha_warning": "Будь ласка, зверніть увагу, що з внутрішньою альфа-версією можлива повна втрата даних, і додаток може стати непридатним для використання в будь-який момент!",
+    "@contribute_enroll_alpha_warning": {},
     "contribute_improve_ProductsToBeCompleted": "Незавантажені продукти",
     "@contribute_improve_ProductsToBeCompleted": {
         "description": "Button label: Shows a list of products which aren't completed"
@@ -1613,50 +1617,15 @@
     "@dev_preferences_import_history_subtitle": {
         "description": "User dev preferences - Import history - Subtitle"
     },
+    "prices_app_dev_mode_flag": "Ярлик програми «Ціни» на сторінці продукту",
+    "prices_app_button": "Перейдіть у додаток Ціни",
     "dev_preferences_import_history_result_success": "Виконано",
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"
     },
-    "dev_mode_scan_mode_title": "Сканер",
-    "@dev_mode_scan_mode_title": {
-        "description": "User dev preferences - Scan mode - Title"
-    },
-    "dev_mode_scan_mode_subtitle": "Поточний режим сканування: \"{mode}\"",
-    "@dev_mode_scan_mode_subtitle": {
-        "description": "User dev preferences - Scan mode - Subtitle",
-        "placeholders": {
-            "mode": {
-                "type": "String"
-            }
-        }
-    },
-    "dev_mode_scan_mode_dialog_title": "Сканер",
-    "@dev_mode_scan_mode_dialog_title": {
-        "description": "User dev preferences - Scan mode - Dialog Title"
-    },
     "dev_mode_hide_ecoscore_title": "Вимкнути Eco-Score",
     "@dev_mode_hide_ecoscore_title": {
         "description": "User dev preferences - Disable Ecoscore - Title"
-    },
-    "dev_mode_scan_camera_only": "Лише потік з камери, без сканування",
-    "@dev_mode_scan_camera_only": {
-        "description": "Scan mode - Camera only"
-    },
-    "dev_mode_scan_preprocess_full_image": "Трансляція камери та повна попередня обробка зображень, без сканування",
-    "@dev_mode_scan_preprocess_full_image": {
-        "description": "Scan mode - Preprocess full image"
-    },
-    "dev_mode_scan_preprocess_half_image": "Відеозапис та попередня обробка половини зображення, без сканування",
-    "@dev_mode_scan_preprocess_half_image": {
-        "description": "Scan mode - Preprocess half image"
-    },
-    "dev_mode_scan_scan_full_image": "Просканувати повне зображення",
-    "@dev_mode_scan_scan_full_image": {
-        "description": "Scan mode - Scan full image"
-    },
-    "dev_mode_scan_scan_half_image": "Просканувати половину зображення",
-    "@dev_mode_scan_scan_half_image": {
-        "description": "Scan mode - Scan half image"
     },
     "search_history_item_edit_tooltip": "Повторно використовуйте та редагуйте цей пошук",
     "@search_history_item_edit_tooltip": {

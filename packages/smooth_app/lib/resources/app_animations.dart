@@ -55,6 +55,21 @@ class _AnimationsLoaderState extends State<AnimationsLoader> {
   }
 }
 
+class BarcodeAnimation extends StatelessWidget {
+  const BarcodeAnimation({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return RiveAnimation.direct(
+      AnimationsLoader.of(context),
+      artboard: 'Barcode',
+      stateMachines: const <String>['StateMachine'],
+    );
+  }
+}
+
 class ConsentAnimation extends StatelessWidget {
   const ConsentAnimation({
     super.key,
