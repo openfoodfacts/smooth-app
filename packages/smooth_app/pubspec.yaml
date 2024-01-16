@@ -63,7 +63,7 @@ dependencies:
   rive: 0.12.4
   sensors_plus: 3.1.0
   webview_flutter: 3.0.4
-  flutter_custom_tabs: 1.0.4
+  flutter_custom_tabs: 1.2.1
   flutter_image_compress: 2.1.0
   connectivity_plus: 5.0.2
   dart_ping: 9.0.1
