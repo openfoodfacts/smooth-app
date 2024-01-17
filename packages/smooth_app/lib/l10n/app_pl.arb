@@ -20,11 +20,11 @@
     },
     "applyButtonText": "Zastosuj",
     "@applyButtonText": {},
-    "next_label": "Następny",
+    "next_label": "Następne",
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
-    "previous_label": "Pioprzedni",
+    "previous_label": "Poprzednie",
     "@previous_label": {
         "description": "A label on a button that says 'Previous', pressing the button takes the user to the previous screen."
     },
