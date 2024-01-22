@@ -120,14 +120,14 @@ SPEC CHECKSUMS:
   in_app_review: a850789fad746e89bce03d4aeee8078b45a53fd0
   mobile_scanner: 621cf2c34e1c74ae7ce5c6793638ab600723bdea
   package_info_plus: 02d7a575e80f194102bef286361c6c326e4c29ce
-  path_provider_foundation: 29f094ae23ebbca9d3d0cec13889cd9060c0e943
+  path_provider_foundation: 3784922295ac71e43754bd15e0653ccfd36a147c
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   rive_common: 0f0aadf670f0c6a7872dfe3e6186f112a5319108
   Sentry: 6f5742b4c47c17c9adcf265f6f328cf4a0ed1923
   sentry_flutter: 2c309a1d4b45e59d02cfa15795705687f1e2081b
   SentryPrivate: b2f7996f37781080f04a946eb4e377ff63c64195
   share_plus: 76dd39142738f7a68dd57b05093b5e8193f220f7
-  shared_preferences_foundation: 5b919d13b803cadd15ed2dc053125c68730e5126
+  shared_preferences_foundation: b4c3b4cddf1c21f02770737f147a3f5da9d39695
   sqflite: a5789cceda41d54d23f31d6de539d65bb14100ea
   url_launcher_macos: d2691c7dd33ed713bf3544850a623080ec693d95
 

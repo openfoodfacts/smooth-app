@@ -353,6 +353,10 @@
     "contribute_develop_dev_mode_subtitle": "Attiva la Modalità DEV",
     "contribute_donate_header": "Dona a Open Food Facts",
     "@contribute_donate_header": {},
+    "contribute_enroll_alpha": "Iscriviti alla versione alfa interna",
+    "@contribute_enroll_alpha": {},
+    "contribute_enroll_alpha_warning": "Ti preghiamo di tener presente che, con la versione alfa interna, è possibile la completa perdita dei dati, e che l'app potrebbe diventare inutilizzabile in qualsiasi momento!",
+    "@contribute_enroll_alpha_warning": {},
     "contribute_improve_ProductsToBeCompleted": "Prodotti da completare",
     "@contribute_improve_ProductsToBeCompleted": {
         "description": "Button label: Shows a list of products which aren't completed"
@@ -1613,50 +1617,15 @@
     "@dev_preferences_import_history_subtitle": {
         "description": "User dev preferences - Import history - Subtitle"
     },
+    "prices_app_dev_mode_flag": "Collegamento all'app Prezzi sulla pagina del prodotto",
+    "prices_app_button": "Vai all'app Prezzi",
     "dev_preferences_import_history_result_success": "Fatto",
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"
     },
-    "dev_mode_scan_mode_title": "Modalità di Scansione",
-    "@dev_mode_scan_mode_title": {
-        "description": "User dev preferences - Scan mode - Title"
-    },
-    "dev_mode_scan_mode_subtitle": "La modalità di scansione corrente è: \"{mode}\"",
-    "@dev_mode_scan_mode_subtitle": {
-        "description": "User dev preferences - Scan mode - Subtitle",
-        "placeholders": {
-            "mode": {
-                "type": "String"
-            }
-        }
-    },
-    "dev_mode_scan_mode_dialog_title": "Modalità di Scansione",
-    "@dev_mode_scan_mode_dialog_title": {
-        "description": "User dev preferences - Scan mode - Dialog Title"
-    },
     "dev_mode_hide_ecoscore_title": "Escludi Eco-Score",
     "@dev_mode_hide_ecoscore_title": {
         "description": "User dev preferences - Disable Ecoscore - Title"
-    },
-    "dev_mode_scan_camera_only": "Solo trasmissione della fotocamera, nessuna scansione",
-    "@dev_mode_scan_camera_only": {
-        "description": "Scan mode - Camera only"
-    },
-    "dev_mode_scan_preprocess_full_image": "Trasmissione della fotocamera e pre-elaborazione completa dell'immagine, nessuna scansione",
-    "@dev_mode_scan_preprocess_full_image": {
-        "description": "Scan mode - Preprocess full image"
-    },
-    "dev_mode_scan_preprocess_half_image": "Trasmissione della fotocamera e pre-elaborazione dell'immagine a metà, nessuna scansione",
-    "@dev_mode_scan_preprocess_half_image": {
-        "description": "Scan mode - Preprocess half image"
-    },
-    "dev_mode_scan_scan_full_image": "Scansione dell'immagine completa",
-    "@dev_mode_scan_scan_full_image": {
-        "description": "Scan mode - Scan full image"
-    },
-    "dev_mode_scan_scan_half_image": "Scansione a metà immagine",
-    "@dev_mode_scan_scan_half_image": {
-        "description": "Scan mode - Scan half image"
     },
     "search_history_item_edit_tooltip": "Riutilzza e modifica questa ricerca",
     "@search_history_item_edit_tooltip": {

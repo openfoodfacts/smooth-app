@@ -9,7 +9,7 @@ import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/input/agnostic_suggestion_manager.dart';
 import 'package:smooth_app/pages/input/smooth_autocomplete_text_field.dart';
-import 'package:smooth_app/pages/input/unfocus_when_tap_outside.dart';
+import 'package:smooth_app/pages/input/unfocus_field_when_tap_outside.dart';
 import 'package:smooth_app/pages/product/common/product_buttons.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
@@ -88,7 +88,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return WillPopScope2(
       onWillPop: () async => (await _mayExitPage(saving: false), null),
-      child: UnfocusWhenTapOutside(
+      child: UnfocusFieldWhenTapOutside(
         child: SmoothScaffold(
           fixKeyboard: true,
           appBar: buildEditProductAppBar(
