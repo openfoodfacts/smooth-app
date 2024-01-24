@@ -294,7 +294,7 @@ class UserPreferencesContribute extends AbstractUserPreferences {
     AnalyticsHelper.trackEvent(
       AnalyticsEvent.hungerGameOpened,
     );
-    openQuestionPage(context);
+    await openQuestionPage(context);
   }
 
   UserPreferencesItem _getListTile(
