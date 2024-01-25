@@ -304,7 +304,8 @@ class _ProductPageState extends State<ProductPage>
         '/product/$barcode';
     Share.share(
       appLocalizations.share_product_text(url),
-      sharePositionOrigin: box!.localToGlobal(Offset.zero) & box.size,
+      sharePositionOrigin:
+          box == null ? null : box.localToGlobal(Offset.zero) & box.size,
     );
   }
 
