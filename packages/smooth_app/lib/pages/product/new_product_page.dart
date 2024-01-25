@@ -13,6 +13,7 @@ import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/up_to_date_mixin.dart';
+import 'package:smooth_app/database/dao_product_last_access.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
@@ -74,7 +75,9 @@ class _ProductPageState extends State<ProductPage>
   @override
   void initState() {
     super.initState();
-    initUpToDate(widget.product, context.read<LocalDatabase>());
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
+    initUpToDate(widget.product, localDatabase);
+    DaoProductLastAccess(localDatabase).put(barcode);
     questionsLayout = getUserQuestionsLayout(context.read<UserPreferences>());
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _updateLocalDatabaseWithProductHistory(context);
