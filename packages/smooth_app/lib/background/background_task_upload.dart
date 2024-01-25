@@ -4,11 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:smooth_app/background/background_task_barcode.dart';
+import 'package:smooth_app/background/background_task_product_change.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/transient_file.dart';
 
 /// Abstract background task about generic file upload.
-abstract class BackgroundTaskUpload extends BackgroundTaskBarcode {
+abstract class BackgroundTaskUpload extends BackgroundTaskBarcode
+    implements BackgroundTaskProductChange {
   BackgroundTaskUpload({
     required super.processName,
     required super.uniqueId,
@@ -117,4 +119,24 @@ abstract class BackgroundTaskUpload extends BackgroundTaskBarcode {
     }
     return File(path);
   }
+
+  @override
+  Future<void> preExecute(final LocalDatabase localDatabase) async {
+    await localDatabase.upToDate.addChange(
+      uniqueId,
+      getProductChange(),
+    );
+    await putTransientImage(localDatabase);
+  }
+
+  @override
+  Product getProductChange() => Product(
+        barcode: barcode,
+        images: <ProductImage>[getProductImageChange()],
+      );
+
+  /// Changed [ProductImage] for this product change.
+  ///
+  /// cf. [UpToDateChanges._overwrite] regarding `images` field.
+  ProductImage getProductImageChange();
 }

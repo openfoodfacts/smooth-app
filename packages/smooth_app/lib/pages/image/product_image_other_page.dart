@@ -25,11 +25,10 @@ class ProductImageOtherPage extends StatelessWidget {
       ),
       body: Image(
         image: NetworkImage(
-          ImageHelper.getUploadedImageUrl(
-            product.barcode!,
-            imageId,
-            ImageSize.ORIGINAL,
-          ),
+          ProductImage.raw(
+            imgid: imageId.toString(),
+            size: ImageSize.ORIGINAL,
+          ).getUrl(product.barcode!),
         ),
         fit: BoxFit.cover,
       ),

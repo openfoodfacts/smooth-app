@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:provider/provider.dart';
+import 'package:smooth_app/database/dao_product.dart';
+import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
-import 'package:smooth_app/generic_lib/loading_dialog.dart';
+import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/image/uploaded_image_gallery.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/edit_image_button.dart';
-import 'package:smooth_app/query/product_query.dart';
 
 /// Button asking for a "server" photo (taken from what was already uploaded).
 class ProductImageServerButton extends StatelessWidget {
@@ -25,14 +27,13 @@ class ProductImageServerButton extends StatelessWidget {
   final bool isLoggedInMandatory;
   final double? borderWidth;
 
-  static bool _hasServerImages(final Product product) =>
-      product.images?.isNotEmpty == true;
+  bool _hasServerImages() => product.images?.isNotEmpty == true;
 
-  String get barcode => product.barcode!;
+  String get _barcode => product.barcode!;
 
   @override
   Widget build(BuildContext context) {
-    if (!_hasServerImages(product)) {
+    if (!_hasServerImages()) {
       return EMPTY_WIDGET;
     }
     return EditImageButton(
@@ -53,48 +54,76 @@ class ProductImageServerButton extends StatelessWidget {
       return;
     }
 
-    List<int>? result;
-    if (context.mounted) {
-      result = await LoadingDialog.run<List<int>>(
-        future: OpenFoodAPIClient.getProductImageIds(
-          barcode,
-          user: ProductQuery.getUser(),
-          uriHelper: ProductQuery.uriProductHelper,
-        ),
-        context: context,
-        title: appLocalizations.edit_photo_select_existing_download_label,
+    if (!context.mounted) {
+      return;
+    }
+
+    List<ProductImage> rawImages = getRawProductImages(
+      product,
+      ImageSize.DISPLAY,
+    );
+    if (rawImages.isNotEmpty) {
+      await _openGallery(context: context, rawImages: rawImages);
+      return;
+    }
+
+    final bool fetched = await ProductRefresher().fetchAndRefresh(
+      barcode: _barcode,
+      context: context,
+    );
+    if (!fetched) {
+      return;
+    }
+
+    if (!context.mounted) {
+      return;
+    }
+
+    final Product? latestProduct =
+        await DaoProduct(context.read<LocalDatabase>()).get(_barcode);
+    if (!context.mounted) {
+      return;
+    }
+    if (latestProduct != null) {
+      // very likely
+      rawImages = getRawProductImages(
+        latestProduct,
+        ImageSize.DISPLAY,
       );
     }
 
-    if (context.mounted) {
-      if (result?.isEmpty == true) {
-        await showDialog<void>(
-          context: context,
-          builder: (BuildContext context) => SmoothAlertDialog(
-            body: Text(
-                appLocalizations.edit_photo_select_existing_downloaded_none),
-            actionsAxis: Axis.vertical,
-            positiveAction: SmoothActionButton(
-              text: appLocalizations.okay,
-              onPressed: () => Navigator.of(context).pop(),
-            ),
+    if (rawImages.isEmpty) {
+      await showDialog<void>(
+        context: context,
+        builder: (BuildContext context) => SmoothAlertDialog(
+          body:
+              Text(appLocalizations.edit_photo_select_existing_downloaded_none),
+          actionsAxis: Axis.vertical,
+          positiveAction: SmoothActionButton(
+            text: appLocalizations.okay,
+            onPressed: () => Navigator.of(context).pop(),
           ),
-        );
-        return;
-      } else {
-        await Navigator.push<void>(
-          context,
-          MaterialPageRoute<void>(
-            builder: (BuildContext context) => UploadedImageGallery(
-              barcode: barcode,
-              imageIds: result!,
-              imageField: imageField,
-              language: language,
-              isLoggedInMandatory: isLoggedInMandatory,
-            ),
-          ),
-        );
-      }
+        ),
+      );
+      return;
     }
+    await _openGallery(context: context, rawImages: rawImages);
   }
+
+  Future<void> _openGallery({
+    required final BuildContext context,
+    required final List<ProductImage> rawImages,
+  }) =>
+      Navigator.push<void>(
+        context,
+        MaterialPageRoute<void>(
+          builder: (BuildContext context) => UploadedImageGallery(
+            barcode: _barcode,
+            rawImages: rawImages,
+            imageField: imageField,
+            language: language,
+            isLoggedInMandatory: isLoggedInMandatory,
+          ),
+        ),
+      );
 }
