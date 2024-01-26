@@ -727,7 +727,7 @@
     "nutrition_page_update_done": "המוצר עודכן!",
     "more_photos": "תמונות מעניינות נוספות",
     "@more_photos": {},
-    "view_more_photo_button": "View all existing photos for this product",
+    "view_more_photo_button": "הצגת כל התמונות הקיימות עבור מוצר זה",
     "@view_more_photo_button": {},
     "no_product_found": "לא נמצאו מוצרים",
     "@no_product_found": {},
@@ -833,7 +833,7 @@
     "@Lists": {},
     "no_prodcut_in_list": "אין מוצרים ברשימה הזאת",
     "no_product_in_section": "אין מוצרים בסעיף זה",
-    "recently_seen_products": "All viewed products",
+    "recently_seen_products": "כל המוצרים שנצפו",
     "clear": "פינוי",
     "@clear": {
         "description": "Clears a product list (short label)"
@@ -1655,7 +1655,7 @@
             }
         }
     },
-    "product_search_loading_message": "Your search of {search} is in progress.\n\nPlease wait a few seconds…",
+    "product_search_loading_message": "החיפוש שלך אחר {search} מתבצע.\n\nנא להמתין מספר שניות…",
     "@product_search_loading_message": {
         "description": "This message will be displayed when a search is in progress.",
         "search": {

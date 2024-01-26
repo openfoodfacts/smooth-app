@@ -19,7 +19,8 @@ enum AnalyticsCategory {
   newProduct(tag: 'new product'),
   robotoff(tag: 'robotoff'),
   list(tag: 'list'),
-  deepLink(tag: 'deep link');
+  deepLink(tag: 'deep link'),
+  hungerGame(tag: 'hunger game');
 
   const AnalyticsCategory({required this.tag});
 
@@ -136,6 +137,10 @@ enum AnalyticsEvent {
   questionClicked(
     tag: 'question clicked',
     category: AnalyticsCategory.robotoff,
+  ),
+  hungerGameOpened(
+    tag: 'hunger game opened',
+    category: AnalyticsCategory.hungerGame,
   );
 
   const AnalyticsEvent({required this.tag, required this.category});

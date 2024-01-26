@@ -125,22 +125,11 @@ class BackgroundTaskCrop extends BackgroundTaskUpload {
         ),
       );
 
-  @override
-  Future<void> preExecute(final LocalDatabase localDatabase) async {
-    await localDatabase.upToDate.addChange(
-      uniqueId,
-      Product(
-        barcode: barcode,
-        images: <ProductImage>[_getProductImage()],
-      ),
-    );
-    await putTransientImage(localDatabase);
-  }
-
   /// Returns the actual crop parameters.
   ///
   /// cf. [UpToDateChanges._overwrite] regarding `images` field.
-  ProductImage _getProductImage() => ProductImage(
+  @override
+  ProductImage getProductImageChange() => ProductImage(
         field: ImageField.fromOffTag(imageField)!,
         language: getLanguage(),
         size: ImageSize.ORIGINAL,
@@ -176,10 +165,10 @@ class BackgroundTaskCrop extends BackgroundTaskUpload {
   /// Uploads the product image.
   @override
   Future<void> upload() async {
-    final ProductImage productImage = _getProductImage();
+    final ProductImage productImage = getProductImageChange();
     final String? imageUrl = await OpenFoodAPIClient.setProductImageCrop(
       barcode: barcode,
-      imageField: productImage.field,
+      imageField: productImage.field!,
       language: getLanguage(),
       imgid: productImage.imgid!,
       angle: productImage.angle!,

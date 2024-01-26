@@ -267,9 +267,8 @@ ProductImageData getProductImageData(
     // we found a localized version for this image
     return ProductImageData(
       imageField: imageField,
-      imageUrl: ImageHelper.getLocalizedProductImageUrl(
+      imageUrl: productImage.getUrl(
         product.barcode!,
-        productImage,
         imageSize: ImageSize.DISPLAY,
       ),
       language: language,
@@ -320,6 +319,48 @@ Iterable<OpenFoodFactsLanguage> getProductImageLanguages(
         productImage.language != null) {
       result.add(productImage.language!);
     }
+  }
+  return result;
+}
+
+/// Returns an id-sorted list of raw images matching the imageSize if possible.
+List<ProductImage> getRawProductImages(
+  final Product product,
+  final ImageSize imageSize,
+) {
+  final List<ProductImage> result = <ProductImage>[];
+  final List<ProductImage>? rawImages = product.getRawImages();
+  if (rawImages == null) {
+    return result;
+  }
+  final Map<int, ProductImage> map = <int, ProductImage>{};
+  for (final ProductImage productImage in rawImages) {
+    final int? imageId = int.tryParse(productImage.imgid!);
+    if (imageId == null) {
+      // highly unlikely
+      continue;
+    }
+    final ProductImage? previous = map[imageId];
+    if (previous == null) {
+      map[imageId] = productImage;
+      continue;
+    }
+    final ImageSize? currentImageSize = productImage.size;
+    if (currentImageSize == null) {
+      // highly unlikely
+      continue;
+    }
+    final ImageSize? previousImageSize = previous.size;
+    if (previousImageSize == imageSize) {
+      // we already have the best
+      continue;
+    }
+    map[imageId] = productImage;
+  }
+  final List<int> sortedIds = List<int>.of(map.keys);
+  sortedIds.sort();
+  for (final int id in sortedIds) {
+    result.add(map[id]!);
   }
   return result;
 }

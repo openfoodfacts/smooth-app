@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_full_refresh.dart';
 import 'package:smooth_app/background/background_task_offline.dart';
 import 'package:smooth_app/database/dao_product.dart';
+import 'package:smooth_app/database/dao_product_last_access.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
@@ -34,6 +35,8 @@ class _OfflineDataPageState extends State<OfflineDataPage> {
     final double backgroundHeight = MediaQuery.of(context).size.height * .20;
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     final DaoProduct daoProduct = DaoProduct(localDatabase);
+    final DaoProductLastAccess daoProductLastAccess =
+        DaoProductLastAccess(localDatabase);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return SmoothScaffold(
       appBar: SmoothAppBar(
@@ -82,6 +85,7 @@ class _OfflineDataPageState extends State<OfflineDataPage> {
               trailing: const Icon(Icons.delete),
               onTap: () async {
                 final int totalProductsDeleted = await daoProduct.deleteAll();
+                await daoProductLastAccess.deleteAll();
                 if (mounted) {
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(

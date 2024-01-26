@@ -18,14 +18,14 @@ import 'package:smooth_app/widgets/smooth_scaffold.dart';
 class UploadedImageGallery extends StatelessWidget {
   const UploadedImageGallery({
     required this.barcode,
-    required this.imageIds,
+    required this.rawImages,
     required this.imageField,
     required this.language,
     required this.isLoggedInMandatory,
   });
 
   final String barcode;
-  final List<int> imageIds;
+  final List<ProductImage> rawImages;
   final ImageField imageField;
   final bool isLoggedInMandatory;
 
@@ -49,20 +49,20 @@ class UploadedImageGallery extends StatelessWidget {
         ),
       ),
       body: GridView.builder(
-        itemCount: imageIds.length,
+        itemCount: rawImages.length,
         gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
           maxCrossAxisExtent: mediaQueryData.size.width / 2,
           childAspectRatio: 1,
           mainAxisSpacing: MEDIUM_SPACE,
           crossAxisSpacing: MEDIUM_SPACE,
         ),
-        itemBuilder: (final BuildContext context, final int index) {
+        itemBuilder: (final BuildContext context, int index) {
           // order by descending ids
-          final int imageId = imageIds[imageIds.length - 1 - index];
-          final String url = ImageHelper.getUploadedImageUrl(
+          index = rawImages.length - 1 - index;
+          final ProductImage rawImage = rawImages[index];
+          final String url = rawImage.getUrl(
             barcode,
-            imageId,
-            ImageSize.DISPLAY,
+            imageSize: ImageSize.DISPLAY,
           );
           return GestureDetector(
             onTap: () async {
@@ -70,10 +70,9 @@ class UploadedImageGallery extends StatelessWidget {
               final NavigatorState navigatorState = Navigator.of(context);
               final File? imageFile = await downloadImageUrl(
                 context,
-                ImageHelper.getUploadedImageUrl(
+                rawImage.getUrl(
                   barcode,
-                  imageId,
-                  ImageSize.ORIGINAL,
+                  imageSize: ImageSize.ORIGINAL,
                 ),
                 DaoInt(localDatabase),
               );
@@ -86,7 +85,7 @@ class UploadedImageGallery extends StatelessWidget {
                     barcode: barcode,
                     imageField: imageField,
                     inputFile: imageFile,
-                    imageId: imageId,
+                    imageId: int.parse(rawImage.imgid!),
                     initiallyDifferent: true,
                     language: language,
                     isLoggedInMandatory: isLoggedInMandatory,

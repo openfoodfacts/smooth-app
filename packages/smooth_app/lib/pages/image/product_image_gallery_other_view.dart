@@ -1,9 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:provider/provider.dart';
+import 'package:smooth_app/data_models/fetched_product.dart';
+import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/widgets/images/smooth_image.dart';
+import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/image/product_image_other_page.dart';
-import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/pages/product/common/product_refresher.dart';
+
+/// Number of columns for the grid.
+const int _columns = 3;
+
+/// Square size of a thumbnail.
+double _getSquareSize(final BuildContext context) {
+  final double screenWidth = MediaQuery.sizeOf(context).width;
+  return screenWidth / _columns;
+}
 
 /// Display of the other pictures of a product.
 class ProductImageGalleryOtherView extends StatefulWidget {
@@ -20,28 +33,30 @@ class ProductImageGalleryOtherView extends StatefulWidget {
 
 class _ProductImageGalleryOtherViewState
     extends State<ProductImageGalleryOtherView> {
-  late final Future<List<int>> _loading = _loadOtherPics();
+  late final Future<FetchedProduct> _loading = _loadOtherPics();
 
-  /// Number of columns for the grid.
-  static const int _columns = 3;
-
-  Future<List<int>> _loadOtherPics() async =>
-      OpenFoodAPIClient.getProductImageIds(
-        widget.product.barcode!,
-        uriHelper: ProductQuery.uriProductHelper,
-        user: ProductQuery.getUser(),
+  Future<FetchedProduct> _loadOtherPics() async =>
+      ProductRefresher().silentFetchAndRefresh(
+        localDatabase: context.read<LocalDatabase>(),
+        barcode: widget.product.barcode!,
       );
 
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final double screenWidth = MediaQuery.of(context).size.width;
-    final double squareSize = screenWidth / _columns;
-    return FutureBuilder<List<int>>(
+    List<ProductImage> rawImages = getRawProductImages(
+      widget.product,
+      ImageSize.DISPLAY,
+    );
+    if (rawImages.isNotEmpty) {
+      return _RawGridGallery(widget.product, rawImages);
+    }
+    final double squareSize = _getSquareSize(context);
+    return FutureBuilder<FetchedProduct>(
       future: _loading,
       builder: (
         final BuildContext context,
-        final AsyncSnapshot<List<int>> snapshot,
+        final AsyncSnapshot<FetchedProduct> snapshot,
       ) {
         if (snapshot.connectionState != ConnectionState.done) {
           return SliverToBoxAdapter(
@@ -60,49 +75,69 @@ class _ProductImageGalleryOtherViewState
             ),
           );
         }
-        final List<int> ids = snapshot.data!;
-        if (ids.isEmpty) {
-          // very unlikely btw.
-          return Text(
-            appLocalizations.edit_photo_select_existing_downloaded_none,
+        final FetchedProduct fetchedProduct = snapshot.data!;
+        if (fetchedProduct.product != null) {
+          rawImages = getRawProductImages(
+            fetchedProduct.product!,
+            ImageSize.DISPLAY,
           );
         }
-        return SliverGrid(
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: _columns,
+        if (rawImages.isNotEmpty) {
+          return _RawGridGallery(
+            fetchedProduct.product ?? widget.product,
+            rawImages,
+          );
+        }
+        return SliverToBoxAdapter(
+          child: Text(
+            appLocalizations.edit_photo_select_existing_downloaded_none,
           ),
-          delegate: SliverChildBuilderDelegate(
-            (final BuildContext context, final int index) {
-              return InkWell(
-                onTap: () async => Navigator.push<void>(
-                  context,
-                  MaterialPageRoute<bool>(
-                    builder: (BuildContext context) => ProductImageOtherPage(
-                      widget.product,
-                      ids[index],
-                    ),
-                  ),
-                ),
-                child: SmoothImage(
-                  width: squareSize,
-                  height: squareSize,
-                  imageProvider: NetworkImage(
-                    ImageHelper.getUploadedImageUrl(
-                      widget.product.barcode!,
-                      ids[index],
-                      ImageSize.DISPLAY,
-                    ),
-                  ),
-                ),
-              );
-            },
-            addAutomaticKeepAlives: false,
-            childCount: ids.length,
-          ),
-
-          //scrollDirection: Axis.vertical,
         );
       },
+    );
+  }
+}
+
+class _RawGridGallery extends StatelessWidget {
+  const _RawGridGallery(this.product, this.rawImages);
+
+  final Product product;
+  final List<ProductImage> rawImages;
+
+  @override
+  Widget build(BuildContext context) {
+    final double squareSize = _getSquareSize(context);
+    return SliverGrid(
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: _columns,
+      ),
+      delegate: SliverChildBuilderDelegate(
+        (final BuildContext context, int index) {
+          // order by descending ids
+          index = rawImages.length - 1 - index;
+          final ProductImage productImage = rawImages[index];
+          return InkWell(
+            onTap: () async => Navigator.push<void>(
+              context,
+              MaterialPageRoute<bool>(
+                builder: (BuildContext context) => ProductImageOtherPage(
+                  product,
+                  int.parse(productImage.imgid!),
+                ),
+              ),
+            ),
+            child: SmoothImage(
+              width: squareSize,
+              height: squareSize,
+              imageProvider: NetworkImage(
+                productImage.getUrl(product.barcode!),
+              ),
+            ),
+          );
+        },
+        addAutomaticKeepAlives: false,
+        childCount: rawImages.length,
+      ),
     );
   }
 }

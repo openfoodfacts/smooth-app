@@ -1617,8 +1617,8 @@
     "@dev_preferences_import_history_subtitle": {
         "description": "User dev preferences - Import history - Subtitle"
     },
-    "prices_app_dev_mode_flag": "Shortcut to Prices app on product page",
-    "prices_app_button": "Go to Prices app",
+    "prices_app_dev_mode_flag": "Snelkoppeling naar de Prijzen-app op de productpagina",
+    "prices_app_button": "Ga naar de Prijzen-app",
     "dev_preferences_import_history_result_success": "Voltooid",
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"

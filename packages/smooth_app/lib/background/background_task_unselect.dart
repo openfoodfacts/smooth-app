@@ -3,6 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_barcode.dart';
+import 'package:smooth_app/background/background_task_product_change.dart';
 import 'package:smooth_app/background/background_task_refresh_later.dart';
 import 'package:smooth_app/background/background_task_upload.dart';
 import 'package:smooth_app/background/operation_type.dart';
@@ -11,7 +12,8 @@ import 'package:smooth_app/database/transient_file.dart';
 import 'package:smooth_app/helpers/image_field_extension.dart';
 
 /// Background task about unselecting a product image.
-class BackgroundTaskUnselect extends BackgroundTaskBarcode {
+class BackgroundTaskUnselect extends BackgroundTaskBarcode
+    implements BackgroundTaskProductChange {
   BackgroundTaskUnselect._({
     required super.processName,
     required super.uniqueId,
@@ -91,7 +93,7 @@ class BackgroundTaskUnselect extends BackgroundTaskBarcode {
 
   @override
   Future<void> preExecute(final LocalDatabase localDatabase) async {
-    localDatabase.upToDate.addChange(uniqueId, _getUnselectedProduct());
+    localDatabase.upToDate.addChange(uniqueId, getProductChange());
     _getTransientFile().removeImage(localDatabase);
   }
 
@@ -132,7 +134,8 @@ class BackgroundTaskUnselect extends BackgroundTaskBarcode {
   /// * "I don't change this value"
   /// * "I change the value to null"
   /// Here we put an empty string instead, to be understood as "force to null!".
-  Product _getUnselectedProduct() {
+  @override
+  Product getProductChange() {
     final Product result = Product(barcode: barcode);
     ImageField.fromOffTag(imageField)!.setUrl(result, '');
     return result;

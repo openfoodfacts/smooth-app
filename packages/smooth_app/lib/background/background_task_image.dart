@@ -141,25 +141,14 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
   static bool isOtherStamp(final String stamp) =>
       stamp.contains(';image;${ImageField.OTHER.offTag};');
 
-  @override
-  Future<void> preExecute(final LocalDatabase localDatabase) async {
-    await localDatabase.upToDate.addChange(
-      uniqueId,
-      Product(
-        barcode: barcode,
-        images: <ProductImage>[_getProductImage()],
-      ),
-    );
-    await putTransientImage(localDatabase);
-  }
-
   /// Returns a fake value that means: "remove the previous value when merging".
   ///
   /// If we use this task, it means that we took a brand new picture. Therefore,
   /// all previous crop parameters are attached to a different imageid, and
   /// to avoid confusion we need to clear them.
   /// cf. [UpToDateChanges._overwrite] regarding `images` field.
-  ProductImage _getProductImage() => ProductImage(
+  @override
+  ProductImage getProductImageChange() => ProductImage(
         field: ImageField.fromOffTag(imageField)!,
         language: getLanguage(),
         size: ImageSize.ORIGINAL,
