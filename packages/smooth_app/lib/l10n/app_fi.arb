@@ -125,7 +125,7 @@
     "@Introduction screen": {},
     "welcomeToOpenFoodFacts": "Tervetuloa Open Food Factsiin",
     "@welcomeToOpenFoodFacts": {},
-    "whatIsOff": "Open Food Facts is a global non-profit powered by local communities.",
+    "whatIsOff": "Open Food Facts on globaali voittoa tavoittelematon järjestö, jota tukevat paikalliset yhteisöt.",
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
@@ -147,19 +147,19 @@
     },
     "server_error_open_new_issue": "Ei vastausta palvelimelta! Voit luoda ongelmailmoituksen seuraavan linkin avulla.",
     "@user_management": {},
-    "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
+    "sign_in_text": "Kirjaudu sisään Open Food Facts -tilillesi tallentaaksesi avustuksesi",
     "incorrect_credentials": "Virheellinen käyttäjätunnus tai salasana.",
-    "password_lost_incorrect_credentials": "This email or username doesn't exist. Please check your credentials.",
-    "password_lost_server_unavailable": "We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.",
+    "password_lost_incorrect_credentials": "Tätä sähköpostiosoitetta tai käyttäjätunnusta ei ole olemassa. Tarkista kirjautumistietosi.",
+    "password_lost_server_unavailable": "Palvelimellamme on tällä hetkellä hidastuksia, pahoittelut. Yritä uudelleen myöhemmin.",
     "login": "Käyttäjätunnus",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
-    "login_result_type_server_unreachable": "Network is unreachable",
+    "login_result_type_server_unreachable": "Verkko on tavoittamattomissa",
     "@login_result_type_server_unreachable": {
         "description": "Error message when trying to log in without network"
     },
-    "login_result_type_server_issue": "Problem on the server. Please try later.",
+    "login_result_type_server_issue": "Ongelma palvelimella. Ole hyvä ja yritä myöhemmin.",
     "@login_result_type_server_issue": {
         "description": "Error message when trying to log in and the server does not answer correctly"
     },
@@ -248,7 +248,7 @@
     "sign_up_page_confirm_password_hint": "Vahvista salasana",
     "sign_up_page_confirm_password_error_empty": "Vahvistathan salasanasi",
     "sign_up_page_confirm_password_error_invalid": "Salasanat eivät täsmää",
-    "sign_up_page_agree_text": "I agree to the Open Food Facts",
+    "sign_up_page_agree_text": "Hyväksyn Open Food Factsin",
     "@sign_up_page_agree_text": {
         "description": "I agree to the Open Food Facts is followed by sign_up_page_terms_text"
     },
@@ -271,11 +271,11 @@
     "sign_up_page_producer_checkbox": "Olen elintarvikkeiden tuottaja",
     "sign_up_page_producer_hint": "Tuottaja/tuotemerkki",
     "sign_up_page_producer_error_empty": "Syötä valmistaja tai tuotemerkki",
-    "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at any time)",
+    "sign_up_page_subscribe_checkbox": "Haluan tilata Open Food Facts -uutiskirjeen (Voit peruuttaa sen tilauksen milloin tahansa)",
     "sign_up_page_user_name_already_used": "Käyttäjänimi on varattu, valitse toinen käyttäjänimi.",
     "sign_up_page_email_already_exists": "on jo käytössä, kirjaudu tai kokeile toisella sähköpostiosoitteella.",
     "sign_up_page_provide_valid_email": "Anna käypä sähköpostiosoite.",
-    "sign_up_page_server_busy": "We are deeply sorry, we have some technical difficulties to create your account. Please try again later.",
+    "sign_up_page_server_busy": "Olemme syvästi pahoillamme, mutta meillä on teknisiä vaikeuksia tilisi luomisessa. Yritä uudelleen myöhemmin.",
     "@Settings": {},
     "settingsTitle": "Asetukset",
     "@settingsTitle": {
@@ -297,8 +297,8 @@
     "@darkmode_system_default": {
         "description": "Indicator inside the darkmode switch (system default)"
     },
-    "thanks_for_contributing": "Thanks for contributing!",
-    "contributors_label": "They are building the app",
+    "thanks_for_contributing": "Kiitos osallistumisestasi!",
+    "contributors_label": "He rakentavat sovellusta",
     "@contributors_label": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
     },
@@ -306,14 +306,14 @@
     "@contributors_dialog_title": {
         "description": "Dialog title: A list of all contributors of this app"
     },
-    "contributors_dialog_entry_description": "Contributor: {name}",
+    "contributors_dialog_entry_description": "Osallistuja: {name}",
     "@contributors_dialog_entry_description": {
         "description": "The user id of the contributor.",
         "placeholders": {
             "name": {}
         }
     },
-    "contributors_description": "A list of all contributors of this app",
+    "contributors_description": "Luettelo kaikista tämän sovelluksen avustajista",
     "@contributors_description": {
         "description": "Button description for accessibility purposes to explain what the Contributors button do"
     },
@@ -328,7 +328,7 @@
     "support_via_email_include_logs_dialog_body": "Haluatko lisätä sovelluslokit sähköpostiisi?",
     "termsOfUse": "Käyttöehdot",
     "@termsOfUse": {},
-    "legalNotices": "Legal notices",
+    "legalNotices": "Lailliset huomautukset",
     "@legalNotices": {
         "description": "A link to open the legal notices on the website"
     },
@@ -345,17 +345,17 @@
     "@contribute_sw_development": {
         "description": "Button label + page title: Ways to help"
     },
-    "contribute_develop_text": "The code for every Open Food Facts product is available on GitHub. You are welcome to reuse the code (it's open source) and help us improve it, for everyone, on all the planet.",
+    "contribute_develop_text": "Jokaisen Open Food Facts -tuotteen koodi on saatavilla GitHubissa. Olet tervetullut käyttämään koodia uudelleen (se on avoimen lähdekoodin) ja auttamaan meitä parantamaan sitä kaikille, koko planeetalla.",
     "@contribute_develop_text": {},
-    "contribute_develop_text_2": "You can join the Open Food Facts Slack chatroom which is the preferred way to ask questions.",
+    "contribute_develop_text_2": "Voit liittyä Open Food Facts Slack keskusteluhuoneeseen, joka on suositeltu tapa esittää kysymyksiä.",
     "@contribute_develop_text_2": {},
     "contribute_develop_dev_mode_title": "Kehittäjätila?",
     "contribute_develop_dev_mode_subtitle": "Aktivoi kehittäjätila",
-    "contribute_donate_header": "Donate to Open Food Facts",
+    "contribute_donate_header": "Lahjoita Open Food Factsille",
     "@contribute_donate_header": {},
-    "contribute_enroll_alpha": "Enroll in internal alpha version",
+    "contribute_enroll_alpha": "Rekisteröidy sisäiseen alfaversioon",
     "@contribute_enroll_alpha": {},
-    "contribute_enroll_alpha_warning": "Please acknowledge that with the internal alpha version, complete loss of data is possible, and the app may become unusable at any time !",
+    "contribute_enroll_alpha_warning": "Huomaa, että sisäisellä alfaversiolla tietojen täydellinen menetys on mahdollista ja sovellus voi muuttua käyttökelvottomaksi milloin tahansa!",
     "@contribute_enroll_alpha_warning": {},
     "contribute_improve_ProductsToBeCompleted": "Täydennettävät tuotteet",
     "@contribute_improve_ProductsToBeCompleted": {
@@ -365,7 +365,7 @@
     "@contribute_improve_header": {
         "description": "Button label + page title: Ways to improve the database"
     },
-    "contribute_improve_text": "The database is the core of the project. It's easy and very quick to help. You can download the mobile app for your phone, and start adding or improving products.\n\nOn the other hand, Open Food Facts website offers many ways to contribute: ",
+    "contribute_improve_text": "Tietokanta on hankkeen ydin. Se on helppoa ja erittäin nopeaa auttaa. Voit ladata mobiilisovelluksen puhelimeesi ja aloittaa tuotteiden lisäämisen tai parantamisen.\n\nToisaalta Open Food Facts -sivusto tarjoaa monia tapoja osallistua: ",
     "@contribute_improve_text": {},
     "contribute_translate_header": "Käännä",
     "@contribute_translate_header": {
@@ -375,14 +375,14 @@
     "@contribute_translate_link_text": {
         "description": "Button label: Opens the Crowdin translation portal"
     },
-    "contribute_translate_text": "Open Food Facts is a global project, containing products from more than 160 countries. Open Food Facts is translated into dozens of languages, with constantly evolving content.",
+    "contribute_translate_text": "Open Food Facts on maailmanlaajuinen projekti, joka sisältää tuotteita yli 160 maasta. Open Food Facts on käännetty kymmenille kielille, ja sen sisältö kehittyy jatkuvasti.",
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "Käännökset on yksi hankkeen keskeisistä tehtävistä",
     "@contribute_translate_text_2": {},
-    "contribute_join_skill_pool": "Contribute your skills to Open Food Facts. Join the skill pool!",
-    "contribute_share_header": "Share Open Food Facts with your friends",
+    "contribute_join_skill_pool": "Edistä taitojasi Open Food Factsissa. Liity osaamispooliin!",
+    "contribute_share_header": "Jaa Open Food Facts ystäviesi kanssa",
     "@contribute_share_header": {},
-    "contribute_share_content": "I wanted to let you know about the app I've been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it's free, does not require registration, and you can even help increase the number of products decyphered. Here's the link to get it for your phone: https://openfoodfacts.app",
+    "contribute_share_content": "Halusin kertoa sinulle käyttämästäni Open Food Facts -sovelluksesta, jonka avulla saat henkilökohtaisesti selville ruokasi terveys- ja ympäristövaikutukset. Se toimii skannaamalla pakkauksessa olevat viivakoodit. Lopuksi se on ilmainen, ei vaadi rekisteröintiä, ja voit jopa auttaa lisäämään purettujen tuotteiden määrää. Tässä linkki, josta saat sen puhelimeesi: https://openfoodfacts.app",
     "@contribute_share_content": {
         "description": "Content that will be shared, don't forget to include the URL"
     },
@@ -406,7 +406,7 @@
     "@contribute_to_get_rewards": {
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts and gain rewards."
     },
-    "question_sign_in_text": "Sign in to your Open Food Facts account to get credit for your contributions",
+    "question_sign_in_text": "Kirjaudu sisään Open Food Facts -tilillesi saadaksesi hyvitystä avustuksestasi",
     "question_yes_button_accessibility_value": "Vastaa kyllä",
     "question_no_button_accessibility_value": "Vastaa ei",
     "question_skip_button_accessibility_value": "Ohita tämä kysymys",
@@ -416,7 +416,7 @@
     "@myPreferences": {
         "description": "Page title: Page where the ranking preferences can be changed"
     },
-    "account_create_message": "Create your account and join the Open Food Facts community to help build food knowledge all over the world!",
+    "account_create_message": "Luo tili ja liity Open Food Facts -yhteisöön auttaaksesi rakentamaan ruokatietoa kaikkialla maailmassa!",
     "@account_create_message": {
         "description": "The Message to be displayed if the user does not have an account and wants to contribute"
     },
@@ -425,12 +425,12 @@
         "description": "Join which is actually Signup"
     },
     "myPreferences_profile_title": "Profiilisi",
-    "myPreferences_profile_subtitle": "Manage your Open Food Facts contributor account.",
+    "myPreferences_profile_subtitle": "Hallinnoi Open Food Facts -avustajatiliäsi.",
     "myPreferences_settings_title": "Sovellusasetukset",
     "myPreferences_settings_subtitle": "Tumma tila, tilastot…",
     "myPreferences_food_title": "Ruokamieltymykset",
     "myPreferences_food_subtitle": "Valitse, mikä ruoan tieto kiinnostaa eniten.",
-    "myPreferences_food_comment": "Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.",
+    "myPreferences_food_comment": "Valitse, mitkä tiedot ruoasta ovat sinulle tärkeimpiä, jotta voit luokitella ruoat mieltymystesi mukaan, nähdä sinulle tärkeät tiedot ensin ja saada yhteensopivuusyhteenveto. Nämä ruokamieltymykset pysyvät laitteessasi, eikä niitä yhdistetä Open Food Facts -avustajatiliisi, jos sinulla on sellainen.",
     "confirmResetPreferences": "Nollaa ruokamieltymyksesi?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -481,7 +481,7 @@
     "@filter": {
         "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
     },
-    "scan": "Products from the Scan screen",
+    "scan": "Tuotteet skannausnäytöstä",
     "@scan": {
         "description": "Page title: List type: Products in the scan session"
     },
@@ -493,7 +493,7 @@
     "@search": {
         "description": "Hint text of a search text input field"
     },
-    "tap_for_more": "Tap to see more info…",
+    "tap_for_more": "Napauta nähdäksesi lisätietoja…",
     "@Product": {},
     "product": "Tuote",
     "@product": {},
@@ -538,7 +538,7 @@
     "@packaging_information_photo": {},
     "missing_product": "Löysit uuden tuotteen!",
     "@missing_product": {},
-    "add_product_take_photos": "Take photos of the packaging to add this product to Open Food Facts",
+    "add_product_take_photos": "Ota valokuvia pakkauksesta lisätäksesi tämän tuotteen Open Food Factsiin",
     "@add_product_take_photos": {},
     "add_product_take_photos_descriptive": "Ota kuvia ensin. Voit viimeistellä myöhemmin.",
     "@add_product_take_photos_descriptive": {},
@@ -582,11 +582,11 @@
     "@crop_page_action_local": {
         "description": "Action being performed on the crop page"
     },
-    "crop_page_action_local_failed_title": "Oops… there's something with your photo!",
+    "crop_page_action_local_failed_title": "Hups… valokuvassasi on jotain!",
     "@crop_page_action_local_title": {
         "description": "The save of the picture locally failed - error dialog message"
     },
-    "crop_page_action_local_failed_message": "We are unable to process the image locally, before sending it to our server. Please try again later or contact-us if the issue persists.",
+    "crop_page_action_local_failed_message": "Emme pysty käsittelemään kuvaa paikallisesti ennen sen lähettämistä palvelimellemme. Yritä myöhemmin uudelleen tai ota meihin yhteyttä, jos ongelma jatkuu.",
     "@crop_page_action_local_message": {
         "description": "The save of the picture locally failed - error dialog message"
     },
@@ -642,9 +642,9 @@
     "new_product_subtitle_nova": "Hanki se täyttämällä ruokaluokka ja ainesosat",
     "new_product_desc_nova_unknown": "Ruoan jalostusaste tuntematon",
     "new_product_title_pictures": "Otetaan muutamia kuvia!",
-    "new_product_title_pictures_details": "Please take the following photos and the Open Food Facts engine can work out the rest!",
+    "new_product_title_pictures_details": "Ota seuraavat kuvat, niin Open Food Facts -moottori ratkaisee loput!",
     "new_product_title_misc": "Ja joitakin perustietoja…",
-    "new_product_done_msg": "Thanks for your contribution “{username}”!",
+    "new_product_done_msg": "Kiitos panoksestasi \"{username}\"!",
     "@new_product_done_msg": {
         "description": "Thank you message on the end of new product page, after finish adding a new product.",
         "placeholders": {
@@ -654,8 +654,8 @@
             }
         }
     },
-    "new_product_done_msg_no_user": "Thanks for your contribution!",
-    "new_product_done_button_label": "Discover the completed product",
+    "new_product_done_msg_no_user": "Kiitos panostuksestasi!",
+    "new_product_done_button_label": "Tutustu valmiiseen tuotteeseen",
     "@new_product_done_button_label": {
         "description": "Button at the end of new product page, that takes you to completed product"
     },
@@ -682,27 +682,27 @@
     "@uploading_image": {
         "description": "Message when a new picture is uploading to the server"
     },
-    "uploading_image_type_front": "Uploading front image to Open Food Facts",
+    "uploading_image_type_front": "Ladataan etukuva Open Food Factsiin",
     "@uploading_image_type_front": {
         "description": "Message when a new front picture is being uploaded to the server"
     },
-    "uploading_image_type_ingredients": "Uploading ingredients image to Open Food Facts",
+    "uploading_image_type_ingredients": "Ladataan ainesosien kuvaa Open Food Factsiin",
     "@uploading_image_type_ingredients": {
         "description": "Message when a new ingredients picture is being uploaded to the server"
     },
-    "uploading_image_type_nutrition": "Uploading nutrition image to Open Food Facts",
+    "uploading_image_type_nutrition": "Ladataan ravintosisältökuvaa Open Food Factsiin",
     "@uploading_image_type_nutrition": {
         "description": "Message when a new nutrition picture is being uploaded to the server"
     },
-    "uploading_image_type_packaging": "Uploading packaging image to Open Food Facts",
+    "uploading_image_type_packaging": "Ladataan pakkauskuvaa Open Food Factsiin",
     "@uploading_image_type_packaging": {
         "description": "Message when a new packaging picture is being uploaded to the server"
     },
-    "uploading_image_type_other": "Uploading other image to Open Food Facts",
+    "uploading_image_type_other": "Ladataan muuta kuvaa Open Food Factsiin",
     "@uploading_image_type_other": {
         "description": "Message when a new other picture is being uploaded to the server"
     },
-    "uploading_image_type_generic": "Uploading image to Open Food Facts",
+    "uploading_image_type_generic": "Ladataan kuvaa Open Foods Factsiin",
     "@uploading_image_type_generic": {
         "description": "Message when a new picture is being uploaded to the server"
     },
@@ -742,13 +742,13 @@
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
-    "tagline_app_review": "Do you like the app?",
-    "tagline_app_review_button_positive": "I love it! 😍",
-    "tagline_app_review_button_negative": "Not really…",
-    "tagline_app_review_button_later": "Ask me later",
-    "app_review_negative_modal_title": "You don't like our app?",
-    "app_review_negative_modal_text": "Could you take a few seconds to tell us why?",
-    "app_review_negative_modal_positive_button": "Yes, absolutely!",
+    "tagline_app_review": "Pidätkö sovelluksesta?",
+    "tagline_app_review_button_positive": "Rakastan sitä! 😍",
+    "tagline_app_review_button_negative": "En juurikaan…",
+    "tagline_app_review_button_later": "Kysy myöhemmin",
+    "app_review_negative_modal_title": "Etkö pidä sovelluksestamme?",
+    "app_review_negative_modal_text": "Voisitko käyttää muutaman sekunnin kertoaksesi meille miksi?",
+    "app_review_negative_modal_positive_button": "Kyllä, ehdottomasti!",
     "app_review_negative_modal_negative_button": "Ei",
     "could_not_refresh": "Tuotteen päivitys epäonnistui",
     "@could_not_refresh": {
@@ -794,11 +794,11 @@
     "@country_chooser_label": {
         "description": "Label shown above a selector where the user can select their country (in the preferences)"
     },
-    "onboarding_country_chooser_label": "Please choose a country:",
+    "onboarding_country_chooser_label": "Valitse maa:",
     "@onboarding_country_chooser_label": {
         "description": "The label shown above a selector where the user can select their country (in the onboarding)"
     },
-    "country_chooser_label_from_settings": "Your country",
+    "country_chooser_label_from_settings": "Maasi",
     "@country_chooser_label_from_settings": {
         "description": "Label to use in the settings to change the user country"
     },
@@ -814,7 +814,7 @@
     "@native_app_settings": {
         "description": "Native App Settings in app settings"
     },
-    "native_app_description": "Open systems settings for Open Food Facts",
+    "native_app_description": "Avaa Open Food Factsin asetukset",
     "@native_app_description": {
         "description": "Native App description in app settings"
     },
@@ -822,7 +822,7 @@
     "@product_removed_history": {
         "description": "Product got removed from history"
     },
-    "product_removed_list": "Product removed from list",
+    "product_removed_list": "Tuote poistettu listalta",
     "@product_removed_list": {
         "description": "Product got removed from list"
     },
@@ -833,12 +833,12 @@
     "@Lists": {},
     "no_prodcut_in_list": "Listassa ei ole tuotteita",
     "no_product_in_section": "Tässä osiossa ei ole tuotteita",
-    "recently_seen_products": "All viewed products",
+    "recently_seen_products": "Kaikki katsotut tuotteet",
     "clear": "Tyhjennä",
     "@clear": {
         "description": "Clears a product list (short label)"
     },
-    "clear_long": "Empty the list",
+    "clear_long": "Tyhjennä lista",
     "@clear_long": {
         "description": "Clears a product list (long label)"
     },
@@ -907,9 +907,9 @@
     },
     "retry_button_label": "Yritä uudelleen",
     "connect_with_us": "Ota yhteyttä",
-    "instagram": "Follow us on Instagram",
+    "instagram": "Seuraa meitä Instagramissa",
     "instagram_link": "https://instagram.com/open.food.facts",
-    "twitter": "Follow us on X (formerly Twitter)",
+    "twitter": "Seuraa meitä X:ssä (entinen Twitter)",
     "twitter_link": "https://www.twitter.com/openfoodfacts",
     "blog": "Blogi",
     "faq": "FAQ",
@@ -919,11 +919,11 @@
     "@hint_knowledge_panel_message": {
         "description": "Hint popup indicating the card is clickable during onboarding"
     },
-    "consent_analytics_title": "Send anonymous analytics",
+    "consent_analytics_title": "Lähetä anonyymi analytiikka",
     "@consent_analytics_title": {
         "description": "Title for the consent analytics UI Page"
     },
-    "consent_analytics_body1": "Help the Open Food Facts volunteers to improve the app. You decide whether to submit anonymous analytics.",
+    "consent_analytics_body1": "Auta Open Food Factsin vapaaehtoisia parantamaan sovellusta. Päätät, lähetätkö anonyymit analytiikkatiedot.",
     "@conset_analytics_body1": {
         "description": "first paragraph for the consent analytics UI Page"
     },
@@ -1108,8 +1108,8 @@
     "@user_profile_title_guest": {
         "description": "When the user is not connected"
     },
-    "user_profile_subtitle_guest": "Sign-in or sign-up to join the Open Food Facts community",
-    "user_profile_title_id_email": "Open Food Facts login: {email}",
+    "user_profile_subtitle_guest": "Kirjaudu sisään tai rekisteröidy liittyäksesi Open Food Facts -yhteisöön",
+    "user_profile_title_id_email": "Open Food Facts -kirjautuminen: {email}",
     "@user_profile_title_id_email": {
         "description": "User login (when it's an email)",
         "placeholders": {
@@ -1131,7 +1131,7 @@
     "@email_subject_account_deletion": {
         "description": "Email subject for an account deletion"
     },
-    "email_body_account_deletion": "Hi there, please delete my Open Food Facts account: {userId}",
+    "email_body_account_deletion": "Hei, poista Open Food Facts -tilini: {userId}",
     "@email_body_account_deletion": {
         "description": "Email body for an account deletion",
         "placeholders": {
@@ -1164,19 +1164,19 @@
     "@app_haptic_feedback_subtitle": {
         "description": "SubTitle for the Haptic feedback toggle"
     },
-    "crash_reporting_toggle_title": "Crash reporting",
+    "crash_reporting_toggle_title": "Kaatumisraportointi",
     "@crash_reporting_toggle_title": {
         "description": "Title for the Crash reporting toggle"
     },
-    "crash_reporting_toggle_subtitle": "When enabled, crash reports are automatically submitted to Open Food Facts' error tracking system, so that bugs can be fixed and thus improve the app.",
+    "crash_reporting_toggle_subtitle": "Kun tämä on käytössä, virheraportit lähetetään automaattisesti Open Food Factsin virheenseurantajärjestelmään, jotta vikoja voidaan korjata ja siten parantaa sovellusta.",
     "@crash_reporting_toggle_subtitle": {
         "description": "SubTitle for the Crash reporting toggle"
     },
-    "send_anonymous_data_toggle_title": "Send anonymous data",
+    "send_anonymous_data_toggle_title": "Lähetä nimettömiä tietoja",
     "@send_anonymous_toggle_title": {
         "description": "Title for the Send anonymous data toggle"
     },
-    "send_anonymous_data_toggle_subtitle": "When enabled, some anonymous information regarding app usage will be sent to the Open Food Facts servers, so that we can understand how and how much features are used in order to improve them.",
+    "send_anonymous_data_toggle_subtitle": "Kun tämä on käytössä, Open Food Facts -palvelimille lähetetään anonyymejä tietoja sovellusten käytöstä, jotta voimme ymmärtää, kuinka ja kuinka paljon ominaisuuksia käytetään niiden parantamiseksi.",
     "@send_anonymous_toggle_subtitle": {
         "description": "SubTitle for the Send anonymous data toggle"
     },
@@ -1287,7 +1287,7 @@
     "@edit_product_form_item_origins_title": {
         "description": "Product edition - Origins - Title"
     },
-    "edit_product_form_item_origins_hint": "Input an origin",
+    "edit_product_form_item_origins_hint": "Syötä alkuperä",
     "@edit_product_form_item_origins_hint": {
         "description": "Product edition - Origins - input textfield hint"
     },
@@ -1307,7 +1307,7 @@
     "@edit_product_form_item_countries_title": {
         "description": "Product edition - Countries - Title"
     },
-    "edit_product_form_item_countries_hint": "Input a country",
+    "edit_product_form_item_countries_hint": "Syötä maa",
     "@edit_product_form_item_countries_hint": {
         "description": "Product edition - Countries - input textfield hint"
     },
@@ -1351,7 +1351,7 @@
     "@edit_product_form_item_categories_explainer_1": {
         "description": "Product edition - Categories - input explainer, part 1"
     },
-    "edit_product_form_item_categories_explainer_2": "In case a category is not available in autocomplete, feel free to add it anyway, that will help us improve Open Food Facts in your country.",
+    "edit_product_form_item_categories_explainer_2": "Jos luokka ei ole saatavilla automaattisessa täydennyksessä, voit lisätä sen joka tapauksessa, se auttaa meitä parantamaan Open Food Factsia maassasi.",
     "@edit_product_form_item_categories_explainer_2": {
         "description": "Product edition - Categories - input explainer, part 2"
     },
@@ -1385,7 +1385,7 @@
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
     },
-    "no_data_available": "No data available",
+    "no_data_available": "Tietoja ei ole saatavilla",
     "@no_data_available": {
         "description": "When there are no data to display"
     },
@@ -1432,11 +1432,11 @@
     "@user_list_add_product": {
         "description": "Label for the dialog to add a product to a list"
     },
-    "user_list_button_new": "Create a new list",
+    "user_list_button_new": "Luo uusi luettelo",
     "@user_list_button_new": {
         "description": "Short label of a 'create a new list' button"
     },
-    "user_list_empty_label": "No list available yet, please start by creating one",
+    "user_list_empty_label": "Luetteloa ei ole vielä saatavilla. Aloita luomalla sellainen",
     "@user_list_empty_label": {
         "description": "Content displayed when there is no list"
     },
@@ -1517,7 +1517,7 @@
     "@category_picker_no_category_found_button": {
         "description": "Button label when no category is available"
     },
-    "user_preferences_item_accessibility_hint": "Click to open in your browser or in the application (if installed)",
+    "user_preferences_item_accessibility_hint": "Napsauta avataksesi selaimessasi tai sovelluksessa (jos asennettu)",
     "@user_preferences_item_accessibility_hint": {
         "description": "A hint for screen readers to explain how external links work"
     },
@@ -1617,8 +1617,8 @@
     "@dev_preferences_import_history_subtitle": {
         "description": "User dev preferences - Import history - Subtitle"
     },
-    "prices_app_dev_mode_flag": "Shortcut to Prices app on product page",
-    "prices_app_button": "Go to Prices app",
+    "prices_app_dev_mode_flag": "Pikakuvake Hinnat-sovellukseen tuotesivulla",
+    "prices_app_button": "Siirry Hinnat-sovellukseen",
     "dev_preferences_import_history_result_success": "Valmis",
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"
@@ -1627,7 +1627,7 @@
     "@dev_mode_hide_ecoscore_title": {
         "description": "User dev preferences - Disable Ecoscore - Title"
     },
-    "search_history_item_edit_tooltip": "Reuse and edit this search",
+    "search_history_item_edit_tooltip": "Käytä ja muokkaa tätä hakua uudelleen",
     "@search_history_item_edit_tooltip": {
         "description": "A tooltip to explain the Pen button near a search term -> it allows to reuse the item"
     },
@@ -1655,7 +1655,7 @@
             }
         }
     },
-    "product_search_loading_message": "Your search of {search} is in progress.\n\nPlease wait a few seconds…",
+    "product_search_loading_message": "Hakusi {search} on käynnissä.\n\nOdota muutama sekunti…",
     "@product_search_loading_message": {
         "description": "This message will be displayed when a search is in progress.",
         "search": {
@@ -1694,7 +1694,7 @@
     "@edit_product_action_confirm": {
         "description": "Product edition - FAB actions - confirm"
     },
-    "signup_page_terms_of_use_line1": "I agree to the Open Food Facts ",
+    "signup_page_terms_of_use_line1": "Hyväksyn Open Food Factsin",
     "@signup_page_terms_of_use_line1": {
         "description": "User consent for terms of use (line 1)"
     },
@@ -1786,7 +1786,7 @@
     "@basic_details_add_error": {
         "description": "Error message when error occurs while submitting basic details"
     },
-    "clear_search": "Clear your search",
+    "clear_search": "Tyhjennä haku",
     "@confirm_clearclear_search": {
         "description": "Tooltip to explain that the X button clears the content of the search"
     },
@@ -1806,11 +1806,11 @@
             }
         }
     },
-    "confirm_delete_user_list_title": "Delete the list?",
+    "confirm_delete_user_list_title": "Poistetaanko luettelo?",
     "@confirm_delete_user_list_title": {
         "description": "Title when asking about whether to delete the list or not"
     },
-    "confirm_delete_user_list_message": "You're about to delete the list \"{name}\".\nAre you sure you want to continue?",
+    "confirm_delete_user_list_message": "Olet poistamassa luetteloa \"{name}\".\nHaluatko varmasti jatkaa?",
     "@confirm_delete_user_list_message": {
         "description": "Message when asking about whether to delete the list or not",
         "placeholders": {
@@ -1819,7 +1819,7 @@
             }
         }
     },
-    "confirm_delete_user_list_button": "Yes, I confirm",
+    "confirm_delete_user_list_button": "Kyllä, vahvistan",
     "@confirm_delete_user_list_button": {
         "description": "Button to delete a list"
     },
@@ -1843,7 +1843,7 @@
     "@user_list_all_empty": {
         "description": "Small message when there are no user lists"
     },
-    "product_list_select": "Select a list",
+    "product_list_select": "Valitse luettelo",
     "@product_list_select": {
         "description": "Top title for the selection of a list"
     },
@@ -1894,15 +1894,15 @@
     "@gallery_source_label": {
         "description": "Label for the gallery image source"
     },
-    "gallery_source_access_denied_dialog_title": "Access denied",
+    "gallery_source_access_denied_dialog_title": "Pääsy evätty",
     "@gallery_source_access_denied_dialog_title": {
         "description": "On iOS, the user has refused to give the permission (title of the dialog)"
     },
-    "gallery_source_access_denied_dialog_message_ios": "Unfortunately, the application can't access your gallery, as you have previously denied the permission.\n\nPlease go to the app settings in your phone Settings -> Photos",
+    "gallery_source_access_denied_dialog_message_ios": "Valitettavasti sovellus ei pääse galleriaasi, koska olet aiemmin evännyt luvan.\n\nSiirry puhelimen sovelluksen asetuksiin kohdassa Asetukset -> Kuvat",
     "@gallery_source_access_denied_dialog_message_ios": {
         "description": "On iOS, the user has refused to give the permission"
     },
-    "gallery_source_access_denied_dialog_button": "Open the Settings",
+    "gallery_source_access_denied_dialog_button": "Avaa Asetukset",
     "@gallery_source_access_denied_dialog_button": {
         "description": "Button to open the app settings"
     },
@@ -1910,7 +1910,7 @@
     "@share": {
         "description": "Button label for sharing something on another app. For example sharing the link to a product via Email"
     },
-    "share_product_text": "Have a look at this product on Open Food Facts: {url}",
+    "share_product_text": "Katso tämä tuote Open Food Facts -sivustolla: {url}",
     "@share_product_text": {
         "description": "The content which is send, when sharing a product",
         "placeholders": {
@@ -1919,7 +1919,7 @@
             }
         }
     },
-    "share_product_list_text": "Have a look at my list of products on Open Food Facts: {url}",
+    "share_product_list_text": "Katso Open Food Facts -sivustolla oleva tuoteluetteloni: {url}",
     "@share_product_list_text": {
         "description": "The content which is send, when sharing a product list",
         "placeholders": {
@@ -1985,7 +1985,7 @@
         }
     },
     "clipboard_barcode_copied": "Viivakoodi {barcode} kopioitu leikepöydälle!",
-    "language_picker_label": "Your language",
+    "language_picker_label": "Sinun kielesi",
     "@language_picker_label": {
         "description": "Choose Application Language"
     },
@@ -2033,39 +2033,39 @@
     "@scan_header_compare_button_valid_state_tooltip": {
         "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is at least two prodiucts"
     },
-    "scan_product_loading": "You have scanned\nthe barcode:",
+    "scan_product_loading": "Olet skannannut\nviivakoodin:",
     "@scan_product_loading": {
         "description": "Title when a product is loading (carousel card). Please ensure to keep the line break."
     },
-    "scan_product_loading_initial": "We're looking for this product!\nPlease wait a few seconds…",
+    "scan_product_loading_initial": "Etsimme tätä tuotetta!\nOdota muutama sekunti…",
     "@scan_product_loading_initial": {
         "description": "Message when a product is loading (carousel card). Please ensure to keep the line break."
     },
-    "scan_product_loading_long_request": "We're still looking for this product!\nDo you find it takes a long time to load? So are we…",
+    "scan_product_loading_long_request": "Etsimme edelleen tätä tuotetta!\nKestääkö lataaminen mielestäsi kauan? Niin mekin…",
     "@scan_product_loading_long_request": {
         "description": "Message when a product is long to load (carousel card). Please ensure to keep the line break."
     },
-    "scan_product_loading_unresponsive": "We're still looking for this product.\nWould you like to restart the search?",
+    "scan_product_loading_unresponsive": "Etsimme edelleen tätä tuotetta.\nHaluatko aloittaa haun uudelleen?",
     "@scan_product_loading_unresponsive": {
         "description": "Message when a product is too long to load (carousel card). Please ensure to keep the line break."
     },
-    "scan_product_loading_restart_button": "Restart search",
+    "scan_product_loading_restart_button": "Käynnistä haku uudelleen",
     "@scan_product_loading_restart_button": {
         "description": "Button to force restart a product search"
     },
-    "portion_calculator_description": "Calculate nutrition facts for a specific quantity",
+    "portion_calculator_description": "Laske ravitsemustiedot tietylle määrälle",
     "@portion_calculator_description": {
         "description": "Sort of title that describes the portion calculator."
     },
-    "portion_calculator_hint": "Quantity in",
+    "portion_calculator_hint": "Määrä",
     "@portion_calculator_hint": {
         "description": "Hint to show when a quantity is empty in the portion calculator."
     },
-    "portion_calculator_accessibility": "Input a quantity to calculate nutrition facts",
+    "portion_calculator_accessibility": "Syötä määrä laskeaksesi ravitsemustiedot",
     "@portion_calculator_accessibility": {
         "description": "Hint for the acessibility to explain to enter a quantity."
     },
-    "portion_calculator_error": "Please enter a quantity between {min} and {max} g",
+    "portion_calculator_error": "Anna määrä väliltä {min} ja {max} g",
     "@portion_calculator_error": {
         "description": "Error message to explain that the quantity is invalid.",
         "placeholders": {
@@ -2312,11 +2312,11 @@
     "@product_refresher_internet_not_found": {
         "description": "When refreshing a product that does not exist on the server. Label is the body of a dialog."
     },
-    "product_refresher_internet_not_connected": "You are not connected to internet!",
+    "product_refresher_internet_not_connected": "Et ole yhteydessä Internetiin!",
     "@product_refresher_internet_not_connected": {
         "description": "When refreshing a product and you're not even connected to internet. Label is the body of a dialog."
     },
-    "product_refresher_internet_no_ping": "Server down ({host})",
+    "product_refresher_internet_no_ping": "Palvelin alas ({host})",
     "@product_refresher_internet_no_ping": {
         "description": "When refreshing a product and you cannot even ping the server. Label is the body of a dialog.",
         "placeholders": {
@@ -2325,7 +2325,7 @@
             }
         }
     },
-    "product_refresher_internet_error": "Server error ({exception})",
+    "product_refresher_internet_error": "Palvelinvirhe ({exception})",
     "@product_refresher_internet_error": {
         "description": "When refreshing a product and the server returned an exception. Label is the body of a dialog.",
         "placeholders": {
@@ -2396,7 +2396,7 @@
     "@update_offline_data": {
         "description": "List tile title for the update offline data page"
     },
-    "update_local_database_sub": "Update the local product database with the latest data from Open Food Facts",
+    "update_local_database_sub": "Päivitä paikallinen tuotetietokanta Open Food Factsin uusimmilla tiedoilla",
     "@update_local_database_sub": {
         "description": "Update the local product database with the latest data from server"
     },
@@ -2442,11 +2442,11 @@
             }
         }
     },
-    "country_selector_title": "Select your country:",
+    "country_selector_title": "Valitse maa:",
     "@country_selector_title": {
         "description": "Label written as the title of the dialog to select the user country"
     },
-    "language_selector_title": "Select your language:",
+    "language_selector_title": "Valitse kieli:",
     "@language_selector_title": {
         "description": "Label written as the title of the dialog to select the user language"
     },
@@ -2454,7 +2454,7 @@
     "@action_delete_list": {
         "description": "Delete a list action in a menu"
     },
-    "action_change_list": "Change the current list",
+    "action_change_list": "Muuta nykyistä luetteloa",
     "@action_change_list": {
         "description": "Action to change the current visible list"
     },
@@ -2462,7 +2462,7 @@
     "@product_list_create": {
         "description": "Button label to create a new list (short word)"
     },
-    "product_list_create_tooltip": "Create a new list",
+    "product_list_create_tooltip": "Luo uusi luettelo",
     "@product_list_create_tooltip": {
         "description": "Button description to create a new list (long sentence)"
     },
@@ -2472,42 +2472,42 @@
     "nutriscore_c": "Nutri-Score C",
     "nutriscore_d": "Nutri-Score D",
     "nutriscore_e": "Nutri-Score E",
-    "nutriscore_unknown": "Unknown Nutri-Score",
-    "nutriscore_not_applicable": "Nutri-Score is not applicable",
+    "nutriscore_unknown": "Tuntematon Nutri-Score",
+    "nutriscore_not_applicable": "Nutri-Score ei sovellu",
     "ecoscore_generic": "Eco-Score",
     "ecoscore_a": "Eco-Score A",
     "ecoscore_b": "Eco-Score B",
     "ecoscore_c": "Eco-Score C",
     "ecoscore_d": "Eco-Score D",
     "ecoscore_e": "Eco-Score E",
-    "ecoscore_unknown": "Unknown Eco-Score",
-    "ecoscore_not_applicable": "Eco-Score is not applicable",
-    "nova_group_generic": "Ultra-processing - NOVA groups",
-    "nova_group_1": "NOVA Group 1",
-    "nova_group_2": "NOVA Group 2",
-    "nova_group_3": "NOVA Group 3",
-    "nova_group_4": "NOVA Group 4",
-    "nova_group_unknown": "Unknown NOVA Group",
-    "nutrition_facts": "Nutrient Levels",
-    "faq_title_partners": "Partners & Patrons of the NGO",
-    "faq_title_vision": "The Open Food Facts Vision, Mission, Values and Programs",
-    "faq_title_install_beauty": "Install Open Beauty Facts to create a cosmetic database",
-    "faq_title_install_pet": "Install Open Pet Food Facts to create a pet food database",
-    "faq_title_install_product": "Install Open Products Facts to create a products database to extend the life of objects",
-    "contact_title_pro_page": "Pro? Import your products in Open Food Facts",
-    "contact_title_pro_email": "Producer Contact",
-    "contact_title_press_page": "Press Page",
-    "contact_title_press_email": "Press Contact",
+    "ecoscore_unknown": "Tuntematon Eco-Score",
+    "ecoscore_not_applicable": "Eco-Score ei sovellu",
+    "nova_group_generic": "Ultraprosessointi - NOVA-ryhmät",
+    "nova_group_1": "NOVA Ryhmä 1",
+    "nova_group_2": "NOVA Ryhmä 2",
+    "nova_group_3": "NOVA Ryhmä 3",
+    "nova_group_4": "NOVA Ryhmä 4",
+    "nova_group_unknown": "Tuntematon NOVA Ryhmä",
+    "nutrition_facts": "Ravintoaineiden Tasot",
+    "faq_title_partners": "Kansalaisjärjestön yhteistyökumppanit ja suojelijat",
+    "faq_title_vision": "Open Food Facts Visio, Missio, Arvot ja Ohjelmat",
+    "faq_title_install_beauty": "Luo kosmeettinen tietokanta asentamalla Open Beauty Facts",
+    "faq_title_install_pet": "Luo lemmikkieläinten ruokatietokanta asentamalla Open Pet Food Facts",
+    "faq_title_install_product": "Asenna Open Products Facts luodaksesi tuotetietokannan objektien käyttöiän pidentämiseksi",
+    "contact_title_pro_page": "Pro? Tuo tuotteesi Open Food Factsiin",
+    "contact_title_pro_email": "Tuottajan yhteystiedot",
+    "contact_title_press_page": "Lehdistösivu",
+    "contact_title_press_email": "Lehdistöyhteystiedot",
     "contact_title_newsletter": "Tilaa uutiskirjeemme",
-    "hunger_games_loading_line1": "Please let us a few seconds…",
-    "hunger_games_loading_line2": "We're downloading the questions!",
-    "hunger_games_error_label": "Argh! Something went wrong… and we couldn't load the questions.",
-    "hunger_games_error_retry_button": "Let's retry!",
+    "hunger_games_loading_line1": "Ole hyvä ja anna meille muutama sekunti…",
+    "hunger_games_loading_line2": "Ladataan kysymyksiä!",
+    "hunger_games_error_label": "Argh! Jotain meni pieleen… emmekä voineet ladata kysymyksiä.",
+    "hunger_games_error_retry_button": "Yritetään uudelleen!",
     "reorder_attribute_action": "Uudelleenjärjestä attribuutit",
     "@reorder_attribute_action": {
         "description": "An action button or a page title about reordering the attributes (e.g. 'is vegan?', 'nutrition facts', ...)"
     },
-    "link_cant_be_opened": "This link can't be opened on your device. Please check that you have a browser installed.",
+    "link_cant_be_opened": "Tätä linkkiä ei voi avata laitteellasi. Tarkista, että sinulla on selain asennettuna.",
     "@link_cant_be_opened": {
         "description": "An error may happen if the device doesn't have a browser installed."
     }
