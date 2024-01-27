@@ -374,15 +374,6 @@ class Lifebuoy extends AppIcon {
   }) : super._(_IconsFont.lifebuoy);
 }
 
-class Outdated extends AppIcon {
-  const Outdated({
-    super.color,
-    super.size,
-    super.shadow,
-    super.key,
-  }) : super._(_IconsFont.outdated);
-}
-
 class NoPicture extends AppIcon {
   const NoPicture({
     super.color,
@@ -399,6 +390,15 @@ class NutritionFacts extends AppIcon {
     super.shadow,
     super.key,
   }) : super._(_IconsFont.nutrition_facts);
+}
+
+class Outdated extends AppIcon {
+  const Outdated({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  }) : super._(_IconsFont.outdated);
 }
 
 class Packaging extends AppIcon {
@@ -433,6 +433,22 @@ class Question extends AppIcon {
     super.shadow,
     super.key,
   }) : super._(_IconsFont.question_circled);
+}
+
+class QRCode extends AppIcon {
+  const QRCode({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  }) : super._(_IconsFont.qrcode);
+
+  const QRCode.withCorners({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  }) : super._(_IconsFont.qrcode_corners);
 }
 
 class Share extends AppIcon {
