@@ -76,6 +76,10 @@ class _IconsFont {
       IconData(0xe830, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData no_picture =
       IconData(0xe831, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData qrcode =
+      IconData(0xe832, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData qrcode_corners =
+      IconData(0xe833, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData outdated =
       IconData(0xe836, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData question_circled =
