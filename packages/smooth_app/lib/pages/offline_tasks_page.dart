@@ -31,7 +31,7 @@ class _OfflineTaskState extends State<OfflineTaskPage> {
         ),
         actions: <Widget>[
           IconButton(
-            onPressed: () => // no await
+            onPressed: () =>
                 BackgroundTaskManager.getInstance(localDatabase).run(),
             icon: const Icon(Icons.refresh),
           ),
