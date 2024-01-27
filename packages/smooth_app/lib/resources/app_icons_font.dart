@@ -72,7 +72,7 @@ class _IconsFont {
       IconData(0xe82e, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData barcode_rounded =
       IconData(0xe82f, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData personnalization =
+  static const IconData personalization =
       IconData(0xe830, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData no_picture =
       IconData(0xe831, fontFamily: _kFontFam, fontPackage: _kFontPkg);
