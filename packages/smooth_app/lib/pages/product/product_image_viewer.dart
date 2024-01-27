@@ -188,7 +188,6 @@ class _ProductImageViewerState extends State<ProductImageViewer>
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
                   child: ProductImageLocalButton(
-                    firstPhoto: imageProvider == null,
                     barcode: barcode,
                     imageField: widget.imageField,
                     language: widget.language,
