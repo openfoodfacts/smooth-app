@@ -35,6 +35,7 @@ class _SmoothAutocompleteTextFieldState
     extends State<SmoothAutocompleteTextField> {
   final Map<String, _SearchResults> _suggestions = <String, _SearchResults>{};
   bool _loading = false;
+  String? _selectedSearch;
 
   late _DebouncedTextEditingController _debouncedController;
 
@@ -71,6 +72,7 @@ class _SmoothAutocompleteTextFieldState
               VoidCallback onFieldSubmitted) =>
           TextField(
         controller: widget.controller,
+        onChanged: (_) => setState(() => _selectedSearch = null),
         decoration: InputDecoration(
           filled: true,
           border: const OutlineInputBorder(
@@ -97,6 +99,10 @@ class _SmoothAutocompleteTextFieldState
         autofocus: false,
         focusNode: focusNode,
       ),
+      onSelected: (String search) {
+        _selectedSearch = search;
+        _setLoading(false);
+      },
       optionsViewBuilder: (
         BuildContext lContext,
         AutocompleteOnSelected<String> onSelected,
@@ -140,6 +146,10 @@ class _SmoothAutocompleteTextFieldState
   }
 
   Future<_SearchResults> _getSuggestions(String search) async {
+    if (search == _selectedSearch) {
+      return _SearchResults.empty();
+    }
+
     final DateTime start = DateTime.now();
 
     if (_suggestions[search] != null) {
