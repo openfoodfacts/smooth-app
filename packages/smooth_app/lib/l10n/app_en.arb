@@ -1974,6 +1974,14 @@
     "@copy_to_clipboard": {
         "description": "Copy to clipboard button description"
     },
+    "copy_from_clipboard": "Copy from clipboard",
+    "@copy_from_clipboard": {
+        "description": "Copy the content of the clipboard"
+    },
+    "no_data_available_in_clipboard": "No data available in your clipboard",
+    "@no_data_available_in_clipboard": {
+        "description": "No data available in your clipboard"
+    },
     "clipboard_barcode_copy": "Copy barcode to clipboard",
     "@clipboard_barcode_copied": {
         "description": "Snackbar label after clipboard copy",
