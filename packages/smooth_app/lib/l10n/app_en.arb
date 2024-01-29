@@ -1974,9 +1974,9 @@
     "@copy_to_clipboard": {
         "description": "Copy to clipboard button description"
     },
-    "copy_from_clipboard": "Copy from clipboard",
-    "@copy_from_clipboard": {
-        "description": "Copy the content of the clipboard"
+    "paste_from_clipboard": "Paste from clipboard",
+    "@paste_from_clipboard": {
+        "description": "Paste the content of the clipboard"
     },
     "no_data_available_in_clipboard": "No data available in your clipboard",
     "@no_data_available_in_clipboard": {

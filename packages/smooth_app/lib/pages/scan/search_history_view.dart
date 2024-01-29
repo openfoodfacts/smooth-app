@@ -45,7 +45,7 @@ class _SearchHistoryViewState extends State<SearchHistoryView> {
       child: ListView.builder(
         itemBuilder: (BuildContext context, int i) {
           if (i == 0) {
-            return _SearchItemCopyFromClipboard(
+            return _SearchItemPasteFromClipboard(
               onData: (String data) => widget.onTap?.call(data),
             );
           }
@@ -155,8 +155,8 @@ class _SearchHistoryTile extends StatelessWidget {
   }
 }
 
-class _SearchItemCopyFromClipboard extends StatelessWidget {
-  const _SearchItemCopyFromClipboard({
+class _SearchItemPasteFromClipboard extends StatelessWidget {
+  const _SearchItemPasteFromClipboard({
     required this.onData,
   });
 
@@ -182,7 +182,7 @@ class _SearchItemCopyFromClipboard extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsetsDirectional.only(start: 18.0, end: 13.0),
         child: ListTile(
-          title: Text(localizations.copy_from_clipboard),
+          title: Text(localizations.paste_from_clipboard),
           leading: const Icon(Icons.copy),
           minLeadingWidth: 10.0,
         ),
