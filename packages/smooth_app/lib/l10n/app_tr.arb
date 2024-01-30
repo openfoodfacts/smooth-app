@@ -1974,11 +1974,11 @@
     "@copy_to_clipboard": {
         "description": "Copy to clipboard button description"
     },
-    "paste_from_clipboard": "Paste from clipboard",
+    "paste_from_clipboard": "Panodan yapıştır",
     "@paste_from_clipboard": {
         "description": "Paste the content of the clipboard"
     },
-    "no_data_available_in_clipboard": "No data available in your clipboard",
+    "no_data_available_in_clipboard": "Panonuzda veri yok",
     "@no_data_available_in_clipboard": {
         "description": "No data available in your clipboard"
     },
