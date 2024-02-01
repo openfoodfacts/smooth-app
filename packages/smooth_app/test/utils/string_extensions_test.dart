@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:smooth_app/helpers/string_extension.dart';
 import 'package:smooth_app/helpers/strings_helper.dart';
 
 void main() {
@@ -116,5 +117,17 @@ void main() {
         equals('1.234'),
       ),
     );
+  });
+
+  group('removeEmptySpaces tests', () {
+    test('Empty string', () => expect(''.removeSpaces(), equals('')));
+    test('String with only spaces',
+        () => expect('   '.removeSpaces(), equals('')));
+    test('String with spaces at the beginning',
+        () => expect('  123'.removeSpaces(), equals('123')));
+    test('String with spaces at the middle',
+        () => expect('1 2  3'.removeSpaces(), equals('123')));
+    test('String with spaces at the end',
+        () => expect('123   '.removeSpaces(), equals('123')));
   });
 }
