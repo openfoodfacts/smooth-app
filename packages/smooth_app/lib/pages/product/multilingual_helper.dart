@@ -109,8 +109,12 @@ class MultilingualHelper {
   // TODO(monsieurtanuki): we would be better off always never monolingual
   bool isMonolingual() => _initialMultilingualTexts.isEmpty;
 
-  Widget getLanguageSelector(void Function(void Function()) setState) =>
+  Widget getLanguageSelector({
+    required void Function(void Function()) setState,
+    required Product product,
+  }) =>
       LanguageSelector(
+        product: product,
         setLanguage: (
           final OpenFoodFactsLanguage? newLanguage,
         ) async {
