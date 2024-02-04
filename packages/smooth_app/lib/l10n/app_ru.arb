@@ -50,7 +50,7 @@
     "@calculate": {
         "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
     },
-    "reset_food_prefs": "Сбросить настройки Ваших предпочтений",
+    "reset_food_prefs": "Сбросить настройки предпочтений",
     "@reset": {
         "description": "Button label, clicking on the button will reset user's food preferences."
     },
@@ -425,12 +425,12 @@
         "description": "Join which is actually Signup"
     },
     "myPreferences_profile_title": "Ваш профиль",
-    "myPreferences_profile_subtitle": "Manage your Open Food Facts contributor account.",
+    "myPreferences_profile_subtitle": "Управляйте своей учётной записью участника Open Food Facts.",
     "myPreferences_settings_title": "Настройки",
-    "myPreferences_settings_subtitle": "Тёмная тема, Аналитика…",
+    "myPreferences_settings_subtitle": "Тёмная тема, аналитика…",
     "myPreferences_food_title": "Предпочтения в еде",
     "myPreferences_food_subtitle": "Выберите, какая информация о еде представляет для вас наибольший интерес.",
-    "myPreferences_food_comment": "Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.",
+    "myPreferences_food_comment": "Выберите информацию о еде, которая представляет для вас наибольший интерес, чтобы отсортировывать еду в соответствии с вашими предпочтениями, показывать нужную вам информацию в первую очередь, а также получать данные о совместимости. Выбранные вами предпочтения останутся на вашем устройстве и никак не связаны с вашим профилем участника Open Food Facts, если таковой имеется.",
     "confirmResetPreferences": "Сбросить предпочтения?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -1168,7 +1168,7 @@
     "@crash_reporting_toggle_title": {
         "description": "Title for the Crash reporting toggle"
     },
-    "crash_reporting_toggle_subtitle": "When enabled, crash reports are automatically submitted to Open Food Facts' error tracking system, so that bugs can be fixed and thus improve the app.",
+    "crash_reporting_toggle_subtitle": "Автоматически отправлять отчёты о неполадках в систему отслеживания ошибок для их последующего исправления.",
     "@crash_reporting_toggle_subtitle": {
         "description": "SubTitle for the Crash reporting toggle"
     },
@@ -1662,23 +1662,23 @@
             "type": "String"
         }
     },
-    "user_search_contributor_title": "Дообавленные мной продукты",
+    "user_search_contributor_title": "Добавленные мной продукты",
     "@user_search_contributor_title": {
         "description": "User search (contributor): list tile title"
     },
-    "user_search_informer_title": "Products I edited",
+    "user_search_informer_title": "Отредактированные мной продукты",
     "@user_search_informer_title": {
         "description": "User search (informer): list tile title"
     },
-    "user_search_photographer_title": "Products I photographed",
+    "user_search_photographer_title": "Сфотографированные мной продукты",
     "@user_search_photographer_title": {
         "description": "User search (photographer): list tile title"
     },
-    "user_search_to_be_completed_title": "My to-be-completed products",
+    "user_search_to_be_completed_title": "Мои незавершённые продукты",
     "@user_search_to_be_completed_title": {
         "description": "User search (to be completed): list tile title"
     },
-    "all_search_to_be_completed_title": "Russsian",
+    "all_search_to_be_completed_title": "Все незавершённые продукты",
     "@all_search_to_be_completed_title": {
         "description": "All products to be completed: list tile title"
     },
@@ -1993,7 +1993,7 @@
         }
     },
     "clipboard_barcode_copied": "Штрих-код {barcode} скопирован в буфер обмена!",
-    "language_picker_label": "Ваш язык (your language)",
+    "language_picker_label": "Ваш язык",
     "@language_picker_label": {
         "description": "Choose Application Language"
     },
@@ -2300,19 +2300,19 @@
     "@color_teal": {
         "description": "Color Teal"
     },
-    "text_contrast_mode": "Text Contrast",
+    "text_contrast_mode": "Контрастность текста",
     "@text_contrast_mode": {
         "description": "Text Contrast Color Mode"
     },
-    "contrast_high": "High",
+    "contrast_high": "Высокая",
     "@contrast_high": {
         "description": "High Contrast Text Color"
     },
-    "contrast_medium": "Medium",
+    "contrast_medium": "Средняя",
     "@contrast_medium": {
         "description": "Medium Contrast Text Color"
     },
-    "contrast_low": "Low",
+    "contrast_low": "Низкая",
     "@contrast_low": {
         "description": "Low Contrast Text Color"
     },
