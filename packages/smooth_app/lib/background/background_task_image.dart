@@ -98,7 +98,7 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
           final AppLocalizations appLocalizations) =>
       (
         appLocalizations.image_upload_queued,
-        AlignmentDirectional.topCenter,
+        AlignmentDirectional.center,
       );
 
   /// Returns a new background task about changing a product.

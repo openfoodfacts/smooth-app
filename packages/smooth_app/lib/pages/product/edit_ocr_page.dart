@@ -265,7 +265,10 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
                   child: Column(
                     children: <Widget>[
                       if (!_multilingualHelper.isMonolingual())
-                        _multilingualHelper.getLanguageSelector(setState),
+                        _multilingualHelper.getLanguageSelector(
+                          setState: setState,
+                          product: upToDateProduct,
+                        ),
                       if (transientFile.isServerImage())
                         SmoothActionButtonsBar.single(
                           action: SmoothActionButton(
