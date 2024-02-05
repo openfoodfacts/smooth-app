@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:provider/provider.dart';
+import 'package:smooth_app/database/dao_string_list.dart';
+import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/generic_lib/widgets/language_priority.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_languages_list.dart';
 import 'package:smooth_app/query/product_query.dart';
@@ -16,6 +20,7 @@ class LanguageSelector extends StatelessWidget {
     this.foregroundColor,
     this.icon,
     this.padding,
+    this.product,
   });
 
   /// What to do when the language is selected.
@@ -31,6 +36,9 @@ class LanguageSelector extends StatelessWidget {
   final IconData? icon;
   final EdgeInsetsGeometry? padding;
 
+  /// Product from which we can extract the languages that matter.
+  final Product? product;
+
   static const Languages _languages = Languages();
 
   @override
@@ -42,16 +50,28 @@ class LanguageSelector extends StatelessWidget {
       final String currentLanguageCode = ProductQuery.getLanguage().code;
       language = LanguageHelper.fromJson(currentLanguageCode);
     }
-    final String nameInEnglish = _languages.getNameInEnglish(language);
-    final String nameInLanguage = _languages.getNameInLanguage(language);
+    final DaoStringList daoStringList =
+        DaoStringList(context.read<LocalDatabase>());
+    final LanguagePriority languagePriority = LanguagePriority(
+      product: product,
+      selectedLanguages: selectedLanguages,
+      daoStringList: daoStringList,
+    );
     return Material(
       type: MaterialType.transparency,
       child: InkWell(
         onTap: () async {
-          final OpenFoodFactsLanguage? language = await openLanguageSelector(
+          final OpenFoodFactsLanguage? language = await _openLanguageSelector(
             context,
             selectedLanguages: selectedLanguages,
+            languagePriority: languagePriority,
           );
+          if (language != null) {
+            await daoStringList.add(
+              DaoStringList.keyLanguages,
+              language.offTag,
+            );
+          }
           await setLanguage(language);
         },
         borderRadius: ANGULAR_BORDER_RADIUS,
@@ -72,7 +92,7 @@ class LanguageSelector extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: LARGE_SPACE),
                   child: Text(
-                    '$nameInLanguage ($nameInEnglish)',
+                    _getCompleteName(language),
                     softWrap: false,
                     overflow: TextOverflow.fade,
                     style: Theme.of(context)
@@ -97,9 +117,10 @@ class LanguageSelector extends StatelessWidget {
   /// Returns the language selected by the user.
   ///
   /// [selectedLanguages] have a specific "more important" display.
-  static Future<OpenFoodFactsLanguage?> openLanguageSelector(
+  Future<OpenFoodFactsLanguage?> _openLanguageSelector(
     final BuildContext context, {
     final Iterable<OpenFoodFactsLanguage>? selectedLanguages,
+    required final LanguagePriority languagePriority,
   }) async {
     final ScrollController scrollController = ScrollController();
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
@@ -109,19 +130,9 @@ class LanguageSelector extends StatelessWidget {
         _languages.getSupportedLanguagesNameInEnglish();
     leftovers.sort(
       (OpenFoodFactsLanguage a, OpenFoodFactsLanguage b) {
-        // Selected languages first.
-        final bool selectedA =
-            selectedLanguages != null && selectedLanguages.contains(a);
-        final bool selectedB =
-            selectedLanguages != null && selectedLanguages.contains(b);
-        if (selectedA) {
-          if (!selectedB) {
-            return -1;
-          }
-        } else {
-          if (selectedB) {
-            return 1;
-          }
+        final int? compare = languagePriority.compare(a, b);
+        if (compare != null) {
+          return compare;
         }
         // Sorted in English
         return _languages
@@ -170,17 +181,13 @@ class LanguageSelector extends StatelessWidget {
             controller: scrollController,
             itemBuilder: (BuildContext context, int index) {
               final OpenFoodFactsLanguage language = filteredList[index];
-              final String nameInLanguage =
-                  _languages.getNameInLanguage(language);
-              final String nameInEnglish =
-                  _languages.getNameInEnglish(language);
               final bool selected = selectedLanguages != null &&
                   selectedLanguages.contains(language);
               return ListTile(
                 dense: true,
                 trailing: selected ? const Icon(Icons.check) : null,
                 title: TextHighlighter(
-                  text: '$nameInLanguage ($nameInEnglish)',
+                  text: _getCompleteName(language),
                   filter: languageSelectorController.text,
                   selected: selected,
                 ),
@@ -203,5 +210,13 @@ class LanguageSelector extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  String _getCompleteName(
+    final OpenFoodFactsLanguage language,
+  ) {
+    final String nameInLanguage = _languages.getNameInLanguage(language);
+    final String nameInEnglish = _languages.getNameInEnglish(language);
+    return '$nameInLanguage ($nameInEnglish)';
   }
 }

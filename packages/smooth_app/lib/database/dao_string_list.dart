@@ -13,10 +13,15 @@ class DaoStringList extends AbstractDao {
   /// Key for the list of task ids.
   static const String keyTasks = 'tasks';
 
+  /// Key for the list of latest languages used in the app.
+  static const String keyLanguages = 'languages';
+
   /// Max lengths of each key (null means no limit).
   static const Map<String, int?> _maxLengths = <String, int?>{
     keySearchHistory: 10,
     keyTasks: null,
+    // TODO(monsieurtanuki): more "latest" languages are possible if we create a page to remove some of them
+    keyLanguages: 1,
   };
 
   @override
