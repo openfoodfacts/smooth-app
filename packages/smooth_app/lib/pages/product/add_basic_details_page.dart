@@ -133,8 +133,10 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                           Card(
                             child: Column(
                               children: <Widget>[
-                                _multilingualHelper
-                                    .getLanguageSelector(setState),
+                                _multilingualHelper.getLanguageSelector(
+                                  setState: setState,
+                                  product: _product,
+                                ),
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: SmoothTextFormField(

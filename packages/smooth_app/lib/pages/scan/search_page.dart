@@ -7,6 +7,7 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
+import 'package:smooth_app/helpers/string_extension.dart';
 import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
@@ -23,6 +24,9 @@ void _performSearch(
   query = query.trim();
   if (query.isEmpty) {
     return;
+  } else if (query.removeSpaces().hasOnlyDigits()) {
+    // This maybe a barcode => remove spaces within the string
+    query = query.removeSpaces();
   }
 
   final LocalDatabase localDatabase = context.read<LocalDatabase>();
