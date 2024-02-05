@@ -8,7 +8,6 @@ import 'package:smooth_app/pages/product/edit_image_button.dart';
 /// Button asking for a "local" photo (new from camera, existing from gallery).
 class ProductImageLocalButton extends StatefulWidget {
   const ProductImageLocalButton({
-    required this.firstPhoto,
     required this.barcode,
     required this.imageField,
     required this.language,
@@ -16,7 +15,6 @@ class ProductImageLocalButton extends StatefulWidget {
     this.borderWidth,
   });
 
-  final bool firstPhoto;
   final String barcode;
   final ImageField imageField;
   final OpenFoodFactsLanguage language;
@@ -33,9 +31,8 @@ class _ProductImageLocalButtonState extends State<ProductImageLocalButton> {
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return EditImageButton(
-      iconData: widget.firstPhoto ? Icons.add : Icons.add_a_photo,
-      label:
-          widget.firstPhoto ? appLocalizations.add : appLocalizations.capture,
+      iconData: Icons.add_a_photo,
+      label: appLocalizations.capture,
       onPressed: () async => _actionNewImage(context),
       borderWidth: widget.borderWidth,
     );

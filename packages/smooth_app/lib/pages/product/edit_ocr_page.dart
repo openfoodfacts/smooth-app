@@ -178,13 +178,17 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           SizedBox(
+            width: size.width,
             height: size.height / 4,
-            child: const PictureNotFound(),
+            child: const PictureNotFound(boxFit: BoxFit.fitHeight),
           ),
-          Text(
-            appLocalizations.ocr_image_upload_instruction,
-            style: Theme.of(context).textTheme.bodyMedium,
-            textAlign: TextAlign.center,
+          Padding(
+            padding: const EdgeInsets.all(LARGE_SPACE),
+            child: Text(
+              appLocalizations.ocr_image_upload_instruction,
+              style: Theme.of(context).textTheme.bodyMedium,
+              textAlign: TextAlign.center,
+            ),
           )
         ],
       ),
@@ -233,7 +237,6 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
                         padding:
                             const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
                         child: ProductImageLocalButton(
-                          firstPhoto: !transientFile.isImageAvailable(),
                           barcode: widget.product.barcode!,
                           imageField: _helper.getImageField(),
                           language: language,
@@ -262,7 +265,10 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
                   child: Column(
                     children: <Widget>[
                       if (!_multilingualHelper.isMonolingual())
-                        _multilingualHelper.getLanguageSelector(setState),
+                        _multilingualHelper.getLanguageSelector(
+                          setState: setState,
+                          product: upToDateProduct,
+                        ),
                       if (transientFile.isServerImage())
                         SmoothActionButtonsBar.single(
                           action: SmoothActionButton(

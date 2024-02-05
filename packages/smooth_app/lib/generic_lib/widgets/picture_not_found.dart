@@ -4,14 +4,16 @@ import 'package:smooth_app/helpers/app_helper.dart';
 
 /// Displays a default asset as a _picture not found_ image.
 class PictureNotFound extends StatelessWidget {
-  const PictureNotFound();
+  const PictureNotFound({this.boxFit = BoxFit.cover});
 
-  static const String NOT_FOUND_ASSET = 'assets/product/product_not_found.svg';
+  final BoxFit boxFit;
+
+  static const String _notFoundAsset = 'assets/product/product_not_found.svg';
 
   @override
   Widget build(BuildContext context) => SvgPicture.asset(
-        NOT_FOUND_ASSET,
-        fit: BoxFit.cover,
+        _notFoundAsset,
+        fit: boxFit,
         package: AppHelper.APP_PACKAGE,
       );
 }
