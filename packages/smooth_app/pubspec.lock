@@ -1535,10 +1535,10 @@ packages:
     dependency: "direct main"
     description:
       name: sqflite
-      sha256: "591f1602816e9c31377d5f008c2d9ef7b8aca8941c3f89cc5fd9d84da0c38a9a"
+      sha256: a9016f495c927cb90557c909ff26a6d92d9bd54fc42ba92e19d4e79d61e798c6
       url: "https://pub.dev"
     source: hosted
-    version: "2.3.0"
+    version: "2.3.2"
   sqflite_common:
     dependency: transitive
     description:
