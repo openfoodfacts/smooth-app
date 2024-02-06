@@ -353,9 +353,9 @@
     "contribute_develop_dev_mode_subtitle": "Aktifkan Mode DEV",
     "contribute_donate_header": "Berdonasi ke OpenFoodFacts",
     "@contribute_donate_header": {},
-    "contribute_enroll_alpha": "Enroll in internal alpha version",
+    "contribute_enroll_alpha": "Daftarkan diri Anda dalam versi alpha internal",
     "@contribute_enroll_alpha": {},
-    "contribute_enroll_alpha_warning": "Please acknowledge that with the internal alpha version, complete loss of data is possible, and the app may become unusable at any time !",
+    "contribute_enroll_alpha_warning": "Harap diketahui bahwa dengan versi alpha internal, kehilangan data sepenuhnya mungkin terjadi, dan aplikasi dapat menjadi tidak dapat digunakan sewaktu-waktu!",
     "@contribute_enroll_alpha_warning": {},
     "contribute_improve_ProductsToBeCompleted": "Produk - produk yang perlu dilengkapi",
     "@contribute_improve_ProductsToBeCompleted": {
@@ -1617,8 +1617,8 @@
     "@dev_preferences_import_history_subtitle": {
         "description": "User dev preferences - Import history - Subtitle"
     },
-    "prices_app_dev_mode_flag": "Shortcut to Prices app on product page",
-    "prices_app_button": "Go to Prices app",
+    "prices_app_dev_mode_flag": "Pintasan ke aplikasi Harga di halaman produk",
+    "prices_app_button": "Buka aplikasi Harga",
     "dev_preferences_import_history_result_success": "Selesai",
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"
@@ -1974,11 +1974,11 @@
     "@copy_to_clipboard": {
         "description": "Copy to clipboard button description"
     },
-    "paste_from_clipboard": "Paste from clipboard",
+    "paste_from_clipboard": "Tempel dari papan klip",
     "@paste_from_clipboard": {
         "description": "Paste the content of the clipboard"
     },
-    "no_data_available_in_clipboard": "No data available in your clipboard",
+    "no_data_available_in_clipboard": "Tidak ada data yang tersedia di papan klip Anda",
     "@no_data_available_in_clipboard": {
         "description": "No data available in your clipboard"
     },
