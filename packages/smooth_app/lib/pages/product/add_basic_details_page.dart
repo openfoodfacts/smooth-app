@@ -7,7 +7,6 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
-import 'package:smooth_app/pages/input/agnostic_suggestion_manager.dart';
 import 'package:smooth_app/pages/input/smooth_autocomplete_text_field.dart';
 import 'package:smooth_app/pages/input/unfocus_field_when_tap_outside.dart';
 import 'package:smooth_app/pages/product/common/product_buttons.dart';
@@ -15,6 +14,7 @@ import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
 import 'package:smooth_app/pages/product/multilingual_helper.dart';
 import 'package:smooth_app/pages/text_field_helper.dart';
+import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 import 'package:smooth_app/widgets/will_pop_scope.dart';
 
@@ -160,7 +160,19 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                             autocompleteKey: _autocompleteKey,
                             hintText: appLocalizations.brand_name,
                             constraints: constraints,
-                            manager: AgnosticSuggestionManager.brand(),
+                            manager: AutocompleteManager(
+                              TaxonomyNameAutocompleter(
+                                taxonomyNames: <TaxonomyName>[
+                                  TaxonomyName.brand
+                                ],
+                                // for brands, language must be English
+                                language: OpenFoodFactsLanguage.ENGLISH,
+                                user: ProductQuery.getUser(),
+                                limit: 25,
+                                fuzziness: Fuzziness.none,
+                                uriHelper: ProductQuery.uriProductHelper,
+                              ),
+                            ),
                           ),
                         ),
                         SizedBox(height: _heightSpace),
