@@ -1974,6 +1974,14 @@
     "@copy_to_clipboard": {
         "description": "Copy to clipboard button description"
     },
+    "paste_from_clipboard": "Colar da área de transferência",
+    "@paste_from_clipboard": {
+        "description": "Paste the content of the clipboard"
+    },
+    "no_data_available_in_clipboard": "Não existem dados disponíveis na sua área de transferência",
+    "@no_data_available_in_clipboard": {
+        "description": "No data available in your clipboard"
+    },
     "clipboard_barcode_copy": "Copiar código de barras para a área de transferência",
     "@clipboard_barcode_copied": {
         "description": "Snackbar label after clipboard copy",
