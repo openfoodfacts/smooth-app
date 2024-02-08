@@ -2507,7 +2507,7 @@
     "contact_title_press_page": "Lehdistösivu",
     "contact_title_press_email": "Lehdistöyhteystiedot",
     "contact_title_newsletter": "Tilaa uutiskirjeemme",
-    "hunger_games_loading_line1": "Ole hyvä ja anna meille muutama sekunti…",
+    "hunger_games_loading_line1": "Please give us a few seconds…",
     "hunger_games_loading_line2": "Ladataan kysymyksiä!",
     "hunger_games_error_label": "Argh! Jotain meni pieleen… emmekä voineet ladata kysymyksiä.",
     "hunger_games_error_retry_button": "Yritetään uudelleen!",
