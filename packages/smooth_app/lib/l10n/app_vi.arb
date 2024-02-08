@@ -2507,7 +2507,7 @@
     "contact_title_press_page": "Press Page",
     "contact_title_press_email": "Press Contact",
     "contact_title_newsletter": "Đăng ký nhận Bản tin",
-    "hunger_games_loading_line1": "Please let us a few seconds…",
+    "hunger_games_loading_line1": "Please give us a few seconds…",
     "hunger_games_loading_line2": "We're downloading the questions!",
     "hunger_games_error_label": "Argh! Something went wrong… and we couldn't load the questions.",
     "hunger_games_error_retry_button": "Let's retry!",
