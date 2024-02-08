@@ -2507,7 +2507,7 @@
     "contact_title_press_page": "Материалы для прессы",
     "contact_title_press_email": "Связаться с нами (для прессы)",
     "contact_title_newsletter": "Подпишитесь на нашу рассылку",
-    "hunger_games_loading_line1": "Ещё несколько секунд…",
+    "hunger_games_loading_line1": "Please give us a few seconds…",
     "hunger_games_loading_line2": "Мы загружаем вопросы!",
     "hunger_games_error_label": "Ах! Что-то пошло не так… и нам не удалось загрузить вопросы.",
     "hunger_games_error_retry_button": "Попробуем ещё раз!",
