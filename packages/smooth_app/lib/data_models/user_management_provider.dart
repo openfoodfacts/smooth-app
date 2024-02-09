@@ -87,7 +87,7 @@ class UserManagementProvider with ChangeNotifier {
     if (!ProductQuery.isLoggedIn()) {
       return;
     }
-    final User user = ProductQuery.getUser();
+    final User user = ProductQuery.getWriteUser();
     final LoginResult loginResult = await LoginResult.getLoginResult(
       User(
         userId: user.userId,

@@ -33,7 +33,7 @@ class BrandSuggestionManager {
       taxonomyNames: <TaxonomyName>[TaxonomyName.brand],
       // for brands, language must be English
       language: OpenFoodFactsLanguage.ENGLISH,
-      user: ProductQuery.getUser(),
+      user: ProductQuery.getReadUser(),
       size: limit,
       fuzziness: Fuzziness.none,
     );

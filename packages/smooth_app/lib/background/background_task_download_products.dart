@@ -114,7 +114,7 @@ class BackgroundTaskDownloadProducts extends BackgroundTaskProgressing {
     }
     final OpenFoodFactsLanguage language = ProductQuery.getLanguage();
     final SearchResult searchResult = await OpenFoodAPIClient.searchProducts(
-      getUser(),
+      ProductQuery.getReadUser(),
       ProductSearchQueryConfiguration(
         fields: fields,
         parametersList: <Parameter>[

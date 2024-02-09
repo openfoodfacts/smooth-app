@@ -164,7 +164,7 @@ class UserPreferencesAccount extends AbstractUserPreferences {
 
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     // Credentials
-    final String userId = OpenFoodAPIConfiguration.globalUser!.userId;
+    final String userId = ProductQuery.getWriteUser().userId;
     return <UserPreferencesItem>[
       _buildProductQueryTile(
         productQuery: PagedUserProductQuery(
@@ -276,7 +276,7 @@ class UserPreferencesAccount extends AbstractUserPreferences {
   Future<int?> _getMyCount(
     final UserSearchType type,
   ) async {
-    final User user = OpenFoodAPIConfiguration.globalUser!;
+    final User user = ProductQuery.getWriteUser();
     final ProductSearchQueryConfiguration configuration = type.getConfiguration(
       user.userId,
       1,

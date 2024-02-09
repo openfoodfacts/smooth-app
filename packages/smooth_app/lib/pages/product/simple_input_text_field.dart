@@ -52,7 +52,7 @@ class _SimpleInputTextFieldState extends State<SimpleInputTextField> {
               country: ProductQuery.getCountry(),
               categories: widget.categories,
               shape: widget.shapeProvider?.call(),
-              user: ProductQuery.getUser(),
+              user: ProductQuery.getReadUser(),
               // number of suggestions the user can scroll through: compromise between quantity and readability of the suggestions
               limit: 15,
             ),
