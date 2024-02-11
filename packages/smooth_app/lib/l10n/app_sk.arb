@@ -439,7 +439,7 @@
     "@myPersonalizedRanking": {
         "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
     },
-    "ranking_tab_all": "All",
+    "ranking_tab_all": "Všetky",
     "ranking_subtitle_match_yes": "Veľká zhoda",
     "ranking_subtitle_match_no": "Veľmi slabá zhoda",
     "ranking_subtitle_match_maybe": "Unknown match",
@@ -472,7 +472,7 @@
     "@category": {
         "description": "From a product list, there's a category filter: this is its title"
     },
-    "category_all": "All",
+    "category_all": "Všetky",
     "@category_al": {
         "description": "Top meta-entry on a category filter"
     },
@@ -1303,7 +1303,7 @@
     "@edit_product_form_item_origins_explainer_2": {
         "description": "Product edition - Origins - input explainer, part 2"
     },
-    "edit_product_form_item_countries_title": "Country",
+    "edit_product_form_item_countries_title": "Krajina",
     "@edit_product_form_item_countries_title": {
         "description": "Product edition - Countries - Title"
     },
@@ -1373,7 +1373,7 @@
     "@edit_product_form_item_packaging_title": {
         "description": "Product edition - Packaging - Title"
     },
-    "edit_product_form_item_nutrition_facts_title": "Nutrition facts",
+    "edit_product_form_item_nutrition_facts_title": "Nutričné hodnoty",
     "@edit_product_form_item_nutrition_facts_title": {
         "description": "Product edition - Nutrition facts - Title"
     },
