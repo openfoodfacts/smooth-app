@@ -2045,35 +2045,35 @@
     "@scan_product_loading": {
         "description": "Title when a product is loading (carousel card). Please ensure to keep the line break."
     },
-    "scan_product_loading_initial": "We're looking for this product!\nPlease wait a few seconds…",
+    "scan_product_loading_initial": "Hľadáme tento produkt!\nPočkajte prosím niekoľko sekúnd…",
     "@scan_product_loading_initial": {
         "description": "Message when a product is loading (carousel card). Please ensure to keep the line break."
     },
-    "scan_product_loading_long_request": "We're still looking for this product!\nDo you find it takes a long time to load? So are we…",
+    "scan_product_loading_long_request": "Tento produkt stále hľadáme!\nZdá sa vám, že načítanie trvá dlho? Aj my…",
     "@scan_product_loading_long_request": {
         "description": "Message when a product is long to load (carousel card). Please ensure to keep the line break."
     },
-    "scan_product_loading_unresponsive": "We're still looking for this product.\nWould you like to restart the search?",
+    "scan_product_loading_unresponsive": "Tento produkt stále hľadáme.\nChcete reštartovať vyhľadávanie?",
     "@scan_product_loading_unresponsive": {
         "description": "Message when a product is too long to load (carousel card). Please ensure to keep the line break."
     },
-    "scan_product_loading_restart_button": "Restart search",
+    "scan_product_loading_restart_button": "Reštartujte vyhľadávanie",
     "@scan_product_loading_restart_button": {
         "description": "Button to force restart a product search"
     },
-    "portion_calculator_description": "Calculate nutrition facts for a specific quantity",
+    "portion_calculator_description": "Vypočítajte výživové údaje pre konkrétne množstvo",
     "@portion_calculator_description": {
         "description": "Sort of title that describes the portion calculator."
     },
-    "portion_calculator_hint": "Quantity in",
+    "portion_calculator_hint": "Množstvo v",
     "@portion_calculator_hint": {
         "description": "Hint to show when a quantity is empty in the portion calculator."
     },
-    "portion_calculator_accessibility": "Input a quantity to calculate nutrition facts",
+    "portion_calculator_accessibility": "Zadajte množstvo na výpočet výživových údajov",
     "@portion_calculator_accessibility": {
         "description": "Hint for the acessibility to explain to enter a quantity."
     },
-    "portion_calculator_error": "Please enter a quantity between {min} and {max} g",
+    "portion_calculator_error": "Zadajte množstvo od {min} do {max} g",
     "@portion_calculator_error": {
         "description": "Error message to explain that the quantity is invalid.",
         "placeholders": {
@@ -2085,7 +2085,7 @@
             }
         }
     },
-    "portion_calculator_result_title": "Nutrition facts for {grams} g (or ml)",
+    "portion_calculator_result_title": "Výživové údaje pre {grams} g (alebo ml)",
     "@portion_calculator_result_title": {
         "description": "Title of the results of the portion calculator.",
         "placeholders": {
@@ -2094,15 +2094,15 @@
             }
         }
     },
-    "offline_data": "Offline Data",
+    "offline_data": "Údaje v režime offline",
     "@offline_data": {
         "description": "App bar title for the offline data page"
     },
-    "ocr_image_upload_instruction": "Upload an image to automatically extract the information it contains.",
+    "ocr_image_upload_instruction": "Nahrajte obrázok, aby sa automaticky extrahovali informácie, ktoré obsahuje.",
     "@ocr_image_upload_instruction": {
         "description": "Message shown when there is no image on the OCR extraction page for ingredients or recycling instructions"
     },
-    "upload_image": "Upload Photo",
+    "upload_image": "Nahrať fotografiu",
     "@upload_image": {
         "description": "Message shown on asking to upload image"
     },
@@ -2114,23 +2114,23 @@
     "@word_separator": {
         "description": "Word separator string. In English, this is a comma followed by a space: ', '"
     },
-    "image_download_error": "Failed to download image",
+    "image_download_error": "Obrázok sa nepodarilo stiahnuť",
     "@image_download_error": {
         "description": "Error message, when image download fails"
     },
-    "image_edit_url_error": "Failed to edit image because the image URL was not set.",
+    "image_edit_url_error": "Obrázok sa nepodarilo upraviť, pretože adresa URL obrázka nebola nastavená.",
     "@image_edit_url_error": {
         "description": "Error message, when editing image fails, due to missing url."
     },
-    "user_picture_source_remember": "Remember my choice",
+    "user_picture_source_remember": "Zapamätať si voľbu",
     "@user_picture_source_remember": {
         "description": "Checkbox label when select a picture source"
     },
-    "user_picture_source_select": "Select each time",
+    "user_picture_source_select": "Vyberte zakaždým",
     "@user_picture_source_select": {
         "description": "Choice of selecting the picture source each time"
     },
-    "robotoff_continue": "Continue",
+    "robotoff_continue": "Pokračovať",
     "@robotoff_continue": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering"
     },
@@ -2141,28 +2141,28 @@
             "count": {}
         }
     },
-    "show_password": "Show Password",
+    "show_password": "Zobraziť heslo",
     "@show_password": {
         "description": "Show hidden password in password field"
     },
-    "rate_app": "Rate the app",
+    "rate_app": "Ohodnotiť aplikáciu",
     "app_rating_dialog_title": "Skvelé! Dajte ostatným vedieť, čo si myslíte o tejto aplikácii!",
-    "app_rating_dialog_positive_action": "Rate the app",
+    "app_rating_dialog_positive_action": "Ohodnotiť aplikáciu",
     "app_rating_dialog_negative_action": "Later",
-    "app_rating_dialog_title_enjoying_app": "Are you enjoying this app?",
-    "app_rating_dialog_title_enjoying_positive_actions": "Yeah!",
-    "not_really": "Not really",
-    "app_rating_dialog_title_not_enjoying_app": "We are so sorry to hear that! Could you tell us what happened?",
-    "edit_packagings_title": "Packaging components",
+    "app_rating_dialog_title_enjoying_app": "Užívate si aplikáciu?",
+    "app_rating_dialog_title_enjoying_positive_actions": "Áno!",
+    "not_really": "Nie naozaj",
+    "app_rating_dialog_title_not_enjoying_app": "Veľmi nás to mrzí! Mohli by ste nám povedať, čo sa stalo?",
+    "edit_packagings_title": "Komponenty balenia",
     "@edit_packagings_title": {
         "description": "Title of the structured packagings page"
     },
-    "edit_packagings_element_add": "Add a packaging component",
+    "edit_packagings_element_add": "Pridajte komponent balenia",
     "@edit_packagings_element_add": {
         "description": "Button label"
     },
-    "edit_packagings_completed": "The packaging is complete",
-    "edit_packagings_element_title": "Packaging component #{index}",
+    "edit_packagings_completed": "Balenie je kompletné",
+    "edit_packagings_element_title": "Zložka obalu #{index}",
     "@edit_packagings_element_title": {
         "description": "Element title. Please do not change the index placeholder",
         "placeholders": {
@@ -2171,23 +2171,23 @@
             }
         }
     },
-    "edit_packagings_element_field_units": "Number of units",
+    "edit_packagings_element_field_units": "Počet jednotiek",
     "@edit_packagings_element_field_units": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_units": "Enter the number of packaging units of the same shape and material contained in the product.",
+    "edit_packagings_element_hint_units": "Zadajte počet baliacich jednotiek rovnakého tvaru a materiálu obsiahnutých vo výrobku.",
     "@edit_packagings_element_hint_units": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
-    "edit_packagings_element_field_shape": "Shape",
+    "edit_packagings_element_field_shape": "Tvar",
     "@edit_packagings_element_field_shape": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_shape": "Enter the shape name listed in the recycling instructions if they are available, or select a shape.",
+    "edit_packagings_element_hint_shape": "Zadajte názov tvaru uvedený v pokynoch na recykláciu, ak sú k dispozícii, alebo vyberte tvar.",
     "@edit_packagings_element_hint_shape": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
-    "edit_packagings_element_example_shape": "Bottle",
+    "edit_packagings_element_example_shape": "Fľaša",
     "@edit_packagings_element_example_shape": {
         "description": "Text field hint"
     },
@@ -2195,35 +2195,35 @@
     "@edit_packagings_element_field_material": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_material": "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure.",
+    "edit_packagings_element_hint_material": "Zadajte konkrétny materiál, ak ho možno určiť (kód materiálu vo vnútri trojuholníka možno často nájsť na častiach balenia), alebo všeobecný materiál (napríklad plast alebo kov), ak si nie ste istí.",
     "@edit_packagings_element_hint_material": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
-    "edit_packagings_element_example_material": "Glass",
+    "edit_packagings_element_example_material": "Sklo",
     "@edit_packagings_element_example_material": {
         "description": "Text field hint"
     },
-    "edit_packagings_element_field_recycling": "Recycling instruction",
+    "edit_packagings_element_field_recycling": "Návod na recykláciu",
     "@edit_packagings_element_field_recycling": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_recycling": "Enter recycling instructions only if they are listed on the product.",
+    "edit_packagings_element_hint_recycling": "Pokyny na recykláciu zadávajte iba vtedy, ak sú uvedené na produkte.",
     "@edit_packagings_element_hint_recycling": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
-    "edit_packagings_element_example_recycling": "Recycle",
+    "edit_packagings_element_example_recycling": "Recyklovať",
     "@edit_packagings_element_example_recycling": {
         "description": "Text field hint"
     },
-    "edit_packagings_element_field_quantity": "Net quantity of product per unit",
+    "edit_packagings_element_field_quantity": "Čisté množstvo produktu na jednotku",
     "@edit_packagings_element_field_quantity": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_quantity": "Enter the net weight or net volume and indicate the unit (for example g or ml).",
+    "edit_packagings_element_hint_quantity": "Zadajte čistú hmotnosť alebo čistý objem a uveďte jednotku (napríklad g alebo ml).",
     "@edit_packagings_element_hint_quantity": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
-    "edit_packagings_element_field_weight": "Weight of one empty unit (g)",
+    "edit_packagings_element_field_weight": "Hmotnosť jednej prázdnej jednotky (g)",
     "@edit_packagings_element_field_weight": {
         "description": "Field label"
     },
@@ -2391,7 +2391,7 @@
     "@download_in_progress": {
         "description": "Download in progress"
     },
-    "downloaded_products": "{num} products added",
+    "downloaded_products": "Pridaných {num} produktov",
     "@downloaded_products": {
         "description": "text to show when products added",
         "placeholders": {
@@ -2400,23 +2400,23 @@
             }
         }
     },
-    "update_offline_data": "Update offline product data",
+    "update_offline_data": "Aktualizujte offline produktové údaje",
     "@update_offline_data": {
         "description": "List tile title for the update offline data page"
     },
-    "update_local_database_sub": "Update the local product database with the latest data from Open Food Facts",
+    "update_local_database_sub": "Aktualizujte lokálnu databázu produktov najnovšími údajmi z Open Food Facts",
     "@update_local_database_sub": {
         "description": "Update the local product database with the latest data from server"
     },
-    "clear_local_database": "Clear offline product data",
+    "clear_local_database": "Vymazať údaje o produktoch offline",
     "@clear_local_database": {
         "description": "List tile title for the clear local database page"
     },
-    "clear_local_database_sub": "Clear all local product data from your app to free up space",
+    "clear_local_database_sub": "Vymažte všetky údaje o miestnych produktoch z aplikácie, aby ste uvoľnili miesto",
     "@clear_local_database_sub": {
         "description": "Clear all local product data from your app to free up space"
     },
-    "deleted_products": "{num} products deleted",
+    "deleted_products": "{num} produktov odstránených",
     "@deleted_products": {
         "description": "text to show when products are deleted from local databse",
         "placeholders": {
@@ -2429,19 +2429,19 @@
     "@loading": {
         "description": "Loading…"
     },
-    "know_more": "Know More",
+    "know_more": "Zistiť viac",
     "@know_more": {
         "description": "Know More"
     },
-    "offline_data_desc": "Click to know more about offline data",
+    "offline_data_desc": "Kliknutím získate viac informácií o údajoch offline",
     "@offline_data_desc": {
         "description": "Click to know more about offline data"
     },
-    "offline_product_data_title": "Offline product data",
+    "offline_product_data_title": "Offline produktové dáta",
     "@offline_product_data_title": {
         "description": "Offline Product Data"
     },
-    "available_for_download": "{num} products available for immediate scaning",
+    "available_for_download": "{num} produktov dostupných na okamžité skenovanie",
     "@available_for_download": {
         "description": "text to show details of products available for download",
         "placeholders": {
@@ -2450,11 +2450,11 @@
             }
         }
     },
-    "country_selector_title": "Select your country:",
+    "country_selector_title": "Vyberte vašu krajinu:",
     "@country_selector_title": {
         "description": "Label written as the title of the dialog to select the user country"
     },
-    "language_selector_title": "Select your language:",
+    "language_selector_title": "Vyberte váš jazyk",
     "@language_selector_title": {
         "description": "Label written as the title of the dialog to select the user language"
     },
@@ -2462,7 +2462,7 @@
     "@action_delete_list": {
         "description": "Delete a list action in a menu"
     },
-    "action_change_list": "Change the current list",
+    "action_change_list": "Zmeňte aktuálny zoznam",
     "@action_change_list": {
         "description": "Action to change the current visible list"
     },
@@ -2480,42 +2480,42 @@
     "nutriscore_c": "Nutri-Score C",
     "nutriscore_d": "Nutri-Score D",
     "nutriscore_e": "Nutri-Score E",
-    "nutriscore_unknown": "Unknown Nutri-Score",
-    "nutriscore_not_applicable": "Nutri-Score is not applicable",
+    "nutriscore_unknown": "Neznáme Nutri-Score",
+    "nutriscore_not_applicable": "Nutri-Score nie je použiteľné",
     "ecoscore_generic": "Eko-skóre",
     "ecoscore_a": "Eco-Score A",
     "ecoscore_b": "Eco-Score B",
     "ecoscore_c": "Eco-Score C",
     "ecoscore_d": "Eco-Score D",
     "ecoscore_e": "Eco-Score E",
-    "ecoscore_unknown": "Unknown Eco-Score",
-    "ecoscore_not_applicable": "Eco-Score is not applicable",
-    "nova_group_generic": "Ultra-processing - NOVA groups",
-    "nova_group_1": "NOVA Group 1",
-    "nova_group_2": "NOVA Group 2",
-    "nova_group_3": "NOVA Group 3",
-    "nova_group_4": "NOVA Group 4",
-    "nova_group_unknown": "Unknown NOVA Group",
-    "nutrition_facts": "Nutrient Levels",
-    "faq_title_partners": "Partners & Patrons of the NGO",
-    "faq_title_vision": "The Open Food Facts Vision, Mission, Values and Programs",
-    "faq_title_install_beauty": "Install Open Beauty Facts to create a cosmetic database",
-    "faq_title_install_pet": "Install Open Pet Food Facts to create a pet food database",
-    "faq_title_install_product": "Install Open Products Facts to create a products database to extend the life of objects",
-    "contact_title_pro_page": "Pro? Import your products in Open Food Facts",
-    "contact_title_pro_email": "Producer Contact",
-    "contact_title_press_page": "Press Page",
-    "contact_title_press_email": "Press Contact",
+    "ecoscore_unknown": "Neznáme Eco-Score",
+    "ecoscore_not_applicable": "Eco-Score sa neaplikuje",
+    "nova_group_generic": "Ultra-spracovanie - skupiny NOVA",
+    "nova_group_1": "Skupina NOVA 1",
+    "nova_group_2": "Skupina NOVA 2",
+    "nova_group_3": "Skupina NOVA 3",
+    "nova_group_4": "Skupina NOVA 4",
+    "nova_group_unknown": "Neznáma skupina NOVA",
+    "nutrition_facts": "Úrovne živín",
+    "faq_title_partners": "Partneri a patróni mimovládnej organizácie",
+    "faq_title_vision": "The Open Food Facts Vízia, Misia, Hodnoty a Programy",
+    "faq_title_install_beauty": "Nainštalujte si Open Beauty Facts a vytvorte kozmetickú databázu",
+    "faq_title_install_pet": "Nainštalujte si Open Pet Food Facts a vytvorte databázu krmiva pre domáce zvieratá",
+    "faq_title_install_product": "Nainštalujte si fakty o otvorených produktoch na vytvorenie databázy produktov na predĺženie životnosti objektov",
+    "contact_title_pro_page": "Pro? Importujte svoje produkty do Open Food Facts",
+    "contact_title_pro_email": "Kontakt na výrobcu",
+    "contact_title_press_page": "Stránka pre média",
+    "contact_title_press_email": "Kontakty pre médiá",
     "contact_title_newsletter": "Subscribe to our newsletter",
-    "hunger_games_loading_line1": "Please give us a few seconds…",
-    "hunger_games_loading_line2": "We're downloading the questions!",
-    "hunger_games_error_label": "Argh! Something went wrong… and we couldn't load the questions.",
-    "hunger_games_error_retry_button": "Let's retry!",
+    "hunger_games_loading_line1": "Venujte nám prosím pár sekúnd…",
+    "hunger_games_loading_line2": "Sťahujeme otázky!",
+    "hunger_games_error_label": "Argh! Niečo sa pokazilo… a otázky sa nám nepodarilo načítať.",
+    "hunger_games_error_retry_button": "Skúsme to znova!",
     "reorder_attribute_action": "Reorder the attributes",
     "@reorder_attribute_action": {
         "description": "An action button or a page title about reordering the attributes (e.g. 'is vegan?', 'nutrition facts', ...)"
     },
-    "link_cant_be_opened": "This link can't be opened on your device. Please check that you have a browser installed.",
+    "link_cant_be_opened": "Tento odkaz nie je možné otvoriť na vašom zariadení. Skontrolujte, či máte nainštalovaný prehliadač.",
     "@link_cant_be_opened": {
         "description": "An error may happen if the device doesn't have a browser installed."
     }
