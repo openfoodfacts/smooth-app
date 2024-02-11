@@ -893,11 +893,11 @@
             "count": {}
         }
     },
-    "compare_products_mode": "Compare products",
+    "compare_products_mode": "Porovnať výrobky",
     "@compare_products_mode": {
         "description": "Button to switch to 'compare products mode'"
     },
-    "compare_products_appbar_title": "Compare products",
+    "compare_products_appbar_title": "Porovnať výrobky",
     "@compare_products_appbar_title": {
         "description": "AppBar title when in comparison mode "
     },
