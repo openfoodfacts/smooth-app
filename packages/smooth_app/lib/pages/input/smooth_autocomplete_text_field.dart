@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/pages/input/agnostic_suggestion_manager.dart';
 import 'package:smooth_app/pages/product/autocomplete.dart';
 
 /// Autocomplete text field.
@@ -24,7 +24,7 @@ class SmoothAutocompleteTextField extends StatefulWidget {
   final String hintText;
   final BoxConstraints constraints;
   final int minLengthForSuggestions;
-  final AgnosticSuggestionManager? manager;
+  final AutocompleteManager? manager;
 
   @override
   State<SmoothAutocompleteTextField> createState() =>
