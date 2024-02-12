@@ -297,7 +297,6 @@ class AnalyticsHelper {
       case _AnalyticsTrackingMode.disabled:
         return '';
       case _AnalyticsTrackingMode.enabled:
-      default:
         return OpenFoodAPIConfiguration.uuid;
     }
   }

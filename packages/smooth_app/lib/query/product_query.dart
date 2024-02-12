@@ -134,7 +134,7 @@ abstract class ProductQuery {
     if (uuid == null) {
       // Crop down to 16 letters for matomo
       uuid = const Uuid().v4().replaceAll('-', '').substring(0, 16);
-      uuidString.put(_UUID_NAME, uuid);
+      await uuidString.put(_UUID_NAME, uuid);
     }
     OpenFoodAPIConfiguration.uuid = uuid;
     await Sentry.configureScope((Scope scope) {
