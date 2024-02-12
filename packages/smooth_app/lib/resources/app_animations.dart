@@ -6,6 +6,7 @@ import 'package:smooth_app/services/smooth_services.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
 /// Widget to inject in the hierarchy to have a single instance of the RiveFile
+/// (assets/animations/off.riv)
 class AnimationsLoader extends StatefulWidget {
   const AnimationsLoader({
     required this.child,
@@ -329,6 +330,99 @@ class _TorchAnimationState extends State<TorchAnimation> {
 
           artboard.addController(_controller!);
           _changeTorchValue(widget.isOn);
+        },
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    _controller?.dispose();
+    super.dispose();
+  }
+}
+
+class NutriScoreAnimation extends StatefulWidget {
+  const NutriScoreAnimation({
+    this.size,
+    super.key,
+  }) : level = -1;
+
+  const NutriScoreAnimation.A({
+    this.size,
+    super.key,
+  }) : level = 0;
+
+  const NutriScoreAnimation.B({
+    this.size,
+    super.key,
+  }) : level = 1;
+
+  const NutriScoreAnimation.C({
+    this.size,
+    super.key,
+  }) : level = 2;
+
+  const NutriScoreAnimation.D({
+    this.size,
+    super.key,
+  }) : level = 3;
+
+  const NutriScoreAnimation.E({
+    this.size,
+    super.key,
+  }) : level = 4;
+
+  final int level;
+  final double? size;
+
+  @override
+  State<NutriScoreAnimation> createState() => _NutriScoreAnimationState();
+}
+
+class _NutriScoreAnimationState extends State<NutriScoreAnimation> {
+  StateMachineController? _controller;
+
+  @override
+  void didUpdateWidget(covariant NutriScoreAnimation oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    _changeNutriScoreState(widget.level);
+  }
+
+  /// -1 is the initial value (= no NutriScore)
+  /// 0 : NutriScore A
+  /// 1 : NutriScore B
+  /// 2 : NutriScore C
+  /// 3 : NutriScore D
+  /// 4 : NutriScore E
+  /// You can test it here [https://rive.app/s/aSxao_1Mwkixud5Z2GbA5A/]
+  void _changeNutriScoreState(int nutriScoreValue) {
+    assert(nutriScoreValue >= -1 && nutriScoreValue <= 4);
+    final SMINumber currentValue =
+        _controller!.findInput<int>('value')! as SMINumber;
+    if (currentValue.value != nutriScoreValue) {
+      currentValue.value = nutriScoreValue.toDouble();
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final double size = widget.size ?? IconTheme.of(context).size ?? 24.0;
+
+    return SizedBox.square(
+      dimension: size,
+      child: RiveAnimation.asset(
+        'assets/animations/nutriscore.riv',
+        artboard: 'Nutriscore',
+        fit: BoxFit.cover,
+        onInit: (Artboard artboard) {
+          _controller = StateMachineController.fromArtboard(
+            artboard,
+            'Nutriscore',
+          );
+
+          artboard.addController(_controller!);
+          _changeNutriScoreState(widget.level);
         },
       ),
     );

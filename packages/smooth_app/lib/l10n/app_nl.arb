@@ -353,9 +353,9 @@
     "contribute_develop_dev_mode_subtitle": "Activeer de DEV-modus",
     "contribute_donate_header": "Doneer aan Open Food Facts",
     "@contribute_donate_header": {},
-    "contribute_enroll_alpha": "Enroll in internal alpha version",
+    "contribute_enroll_alpha": "Schrijf u in voor de interne alfaversie",
     "@contribute_enroll_alpha": {},
-    "contribute_enroll_alpha_warning": "Please acknowledge that with the internal alpha version, complete loss of data is possible, and the app may become unusable at any time !",
+    "contribute_enroll_alpha_warning": "Houd er rekening mee dat met de interne alfaversie volledig gegevensverlies mogelijk is en dat de app op elk moment onbruikbaar kan worden!",
     "@contribute_enroll_alpha_warning": {},
     "contribute_improve_ProductsToBeCompleted": "Onvoltooide producten",
     "@contribute_improve_ProductsToBeCompleted": {
@@ -1529,7 +1529,7 @@
     "@dev_preferences_reset_onboarding_title": {
         "description": "User dev preferences - Reset onboarding - Title"
     },
-    "dev_preferences_reset_onboarding_subtitle": "You then have to restart the App to see it again.",
+    "dev_preferences_reset_onboarding_subtitle": "Vervolgens moet u de app opnieuw opstarten om deze weer te zien.",
     "@dev_preferences_reset_onboarding_subtitle": {
         "description": "User dev preferences - Reset onboarding - Subtitle"
     },
@@ -1974,6 +1974,14 @@
     "@copy_to_clipboard": {
         "description": "Copy to clipboard button description"
     },
+    "paste_from_clipboard": "Plakken vanaf klembord",
+    "@paste_from_clipboard": {
+        "description": "Paste the content of the clipboard"
+    },
+    "no_data_available_in_clipboard": "Er zijn geen gegevens beschikbaar op uw klembord",
+    "@no_data_available_in_clipboard": {
+        "description": "No data available in your clipboard"
+    },
     "clipboard_barcode_copy": "Kopieer de barcode naar het klembord",
     "@clipboard_barcode_copied": {
         "description": "Snackbar label after clipboard copy",
@@ -2021,7 +2029,7 @@
             }
         }
     },
-    "scan_header_clear_button_tooltip": "Remove all products from the carousel",
+    "scan_header_clear_button_tooltip": "Verwijder alle producten uit de carrousel",
     "@scan_header_clear_button_tooltip": {
         "description": "Tooltip (message visible with a long-press) on the Clear button on top of the scanner"
     },
