@@ -151,7 +151,7 @@
     "incorrect_credentials": "Nome de utilizador ou palavra-passe incorretos.",
     "password_lost_incorrect_credentials": "Este endereço eletrónico ou este nome de utilizador não existe. Por favor, verifique as suas credenciais.",
     "password_lost_server_unavailable": "Estamos atualmente a sofrer lentidão nos nossos servidores e pedimos desculpa por isso. Por favor, tente novamente mais tarde.",
-    "login": "Nome do Utilizador",
+    "login": "Iniciar sessão",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
@@ -277,7 +277,7 @@
     "sign_up_page_provide_valid_email": "Por favor, indique um endereço de email válido.",
     "sign_up_page_server_busy": "Pedimos desculpa, estamos com algumas dificuldades técnicas para criar a sua conta. Por favor, tente novamente mais tarde.",
     "@Settings": {},
-    "settingsTitle": "Configurações",
+    "settingsTitle": "Definições",
     "@settingsTitle": {
         "description": "The title of the Settings page"
     },
