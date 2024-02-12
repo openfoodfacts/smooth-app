@@ -59,10 +59,10 @@ class _ExternalPageState extends State<ExternalPage> {
       }
 
       if (Platform.isAndroid) {
-        await tabs.launch(
-          url,
-          customTabsOption: const tabs.CustomTabsOption(
-            showPageTitle: true,
+        await tabs.launchUrl(
+          Uri.parse(url),
+          customTabsOptions: const tabs.CustomTabsOptions(
+            showTitle: true,
           ),
         );
       } else {

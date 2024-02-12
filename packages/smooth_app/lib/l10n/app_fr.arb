@@ -1974,6 +1974,14 @@
     "@copy_to_clipboard": {
         "description": "Copy to clipboard button description"
     },
+    "paste_from_clipboard": "Coller depuis le presse-papier",
+    "@paste_from_clipboard": {
+        "description": "Paste the content of the clipboard"
+    },
+    "no_data_available_in_clipboard": "Aucune donnée disponible dans votre presse-papiers",
+    "@no_data_available_in_clipboard": {
+        "description": "No data available in your clipboard"
+    },
     "clipboard_barcode_copy": "Copier le code-barres dans le presse-papiers",
     "@clipboard_barcode_copied": {
         "description": "Snackbar label after clipboard copy",
