@@ -37,7 +37,7 @@ dependencies:
   uuid: 3.0.7
   provider: 6.1.1
   sentry_flutter: 7.13.1
-  sqflite: 2.3.0
+  sqflite: 2.3.2
   url_launcher: 6.1.3
   visibility_detector: 0.4.0+2
   assorted_layout_widgets: 9.0.0
@@ -48,7 +48,7 @@ dependencies:
   audioplayers: 5.2.1
   percent_indicator: 4.2.3
   flutter_email_sender: 6.0.2
-  flutter_native_splash: 2.3.6
+  flutter_native_splash: 2.3.10
   image: ^4.0.17
   auto_size_text: 3.0.0
   crop_image: 1.0.11
@@ -57,13 +57,13 @@ dependencies:
   collection: 1.18.0
   path: 1.8.3
   path_provider: 2.1.1
-  share_plus: 7.2.1
+  share_plus: 7.2.2
   fimber: 0.7.0
   shimmer: ^3.0.0
   rive: 0.12.4
   sensors_plus: 3.1.0
   webview_flutter: 3.0.4
-  flutter_custom_tabs: 1.0.4
+  flutter_custom_tabs: 2.0.0+1
   flutter_image_compress: 2.1.0
   connectivity_plus: 5.0.2
   dart_ping: 9.0.1

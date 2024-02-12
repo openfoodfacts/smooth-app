@@ -1974,6 +1974,14 @@
     "@copy_to_clipboard": {
         "description": "Copy to clipboard button description"
     },
+    "paste_from_clipboard": "Incolla dagli appunti",
+    "@paste_from_clipboard": {
+        "description": "Paste the content of the clipboard"
+    },
+    "no_data_available_in_clipboard": "Nessun dato disponibile negli appunti",
+    "@no_data_available_in_clipboard": {
+        "description": "No data available in your clipboard"
+    },
     "clipboard_barcode_copy": "Copia il codice a barre negli appunti",
     "@clipboard_barcode_copied": {
         "description": "Snackbar label after clipboard copy",
