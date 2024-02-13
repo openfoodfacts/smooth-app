@@ -257,6 +257,10 @@ class AnalyticsHelper {
     }
   }
 
+  /// Returns true if analytics reporting is enabled.
+  static bool get isEnabled =>
+      _analyticsReporting == _AnalyticsTrackingMode.enabled;
+
   static FutureOr<SentryEvent?> _beforeSend(SentryEvent event,
       {dynamic hint}) async {
     if (!_crashReports) {
@@ -286,7 +290,7 @@ class AnalyticsHelper {
 
   /// A UUID must be at least one 16 characters
   static String? get _uuid {
-    // if user opts out then track anonymously with userId containg zeros
+    // if user opts out then track anonymously with userId containing zeros
     if (kDebugMode) {
       return 'smoothie_debug--';
     }
@@ -297,7 +301,6 @@ class AnalyticsHelper {
       case _AnalyticsTrackingMode.disabled:
         return '';
       case _AnalyticsTrackingMode.enabled:
-      default:
         return OpenFoodAPIConfiguration.uuid;
     }
   }

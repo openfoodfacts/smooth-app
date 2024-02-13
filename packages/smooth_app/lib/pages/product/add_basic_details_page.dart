@@ -167,7 +167,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                                 ],
                                 // for brands, language must be English
                                 language: OpenFoodFactsLanguage.ENGLISH,
-                                user: ProductQuery.getUser(),
+                                user: ProductQuery.getReadUser(),
                                 limit: 25,
                                 fuzziness: Fuzziness.none,
                                 uriHelper: ProductQuery.uriProductHelper,

@@ -168,6 +168,7 @@ class ProductRefresher {
           language,
         ),
         uriHelper: ProductQuery.uriProductHelper,
+        user: ProductQuery.getReadUser(),
       );
       if (result.product != null) {
         await DaoProduct(localDatabase).put(result.product!, language);
@@ -206,7 +207,7 @@ class ProductRefresher {
     try {
       final OpenFoodFactsLanguage language = ProductQuery.getLanguage();
       final SearchResult searchResult = await OpenFoodAPIClient.searchProducts(
-        ProductQuery.getUser(),
+        ProductQuery.getReadUser(),
         getBarcodeListQueryConfiguration(barcodes, language),
         uriHelper: ProductQuery.uriProductHelper,
       );

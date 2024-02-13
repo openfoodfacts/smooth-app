@@ -18,7 +18,7 @@ abstract class BackgroundTask {
     required this.stamp,
     final OpenFoodFactsLanguage? language,
   })   // TODO(monsieurtanuki): don't store the password in a clear format...
-  : user = jsonEncode(ProductQuery.getUser().toJson()),
+  : user = jsonEncode(ProductQuery.getWriteUser().toJson()),
         country = ProductQuery.getCountry().offTag,
         languageCode = (language ?? ProductQuery.getLanguage()).offTag;
 
@@ -159,7 +159,7 @@ abstract class BackgroundTask {
   User getUser() {
     final User storedUser =
         User.fromJson(jsonDecode(user) as Map<String, dynamic>);
-    final User currentUser = ProductQuery.getUser();
+    final User currentUser = ProductQuery.getWriteUser();
     if (storedUser.userId == currentUser.userId) {
       // with a latest password.
       return currentUser;

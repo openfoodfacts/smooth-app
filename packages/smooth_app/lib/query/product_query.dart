@@ -6,6 +6,7 @@ import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/database/dao_string.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:uuid/uuid.dart';
 
@@ -133,7 +134,7 @@ abstract class ProductQuery {
     if (uuid == null) {
       // Crop down to 16 letters for matomo
       uuid = const Uuid().v4().replaceAll('-', '').substring(0, 16);
-      uuidString.put(_UUID_NAME, uuid);
+      await uuidString.put(_UUID_NAME, uuid);
     }
     OpenFoodAPIConfiguration.uuid = uuid;
     await Sentry.configureScope((Scope scope) {
@@ -142,9 +143,15 @@ abstract class ProductQuery {
     });
   }
 
-  static User getUser() =>
-      OpenFoodAPIConfiguration.globalUser ??
-      const User(
+  /// We don't track users for READ operations if they didn't consent.
+  static User getReadUser() =>
+      AnalyticsHelper.isEnabled ? getWriteUser() : _testUser;
+
+  /// We do track users for WRITE operations.
+  static User getWriteUser() =>
+      OpenFoodAPIConfiguration.globalUser ?? _testUser;
+
+  static User get _testUser => const User(
         userId: 'smoothie-app',
         password: 'strawberrybanana',
         comment: 'Test user for project smoothie',
