@@ -4,48 +4,36 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/image/uploaded_image_gallery.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
-import 'package:smooth_app/pages/product/edit_image_button.dart';
+import 'package:smooth_app/pages/product/product_image_button.dart';
 
 /// Button asking for a "server" photo (taken from what was already uploaded).
-class ProductImageServerButton extends StatelessWidget {
+class ProductImageServerButton extends ProductImageButton {
   const ProductImageServerButton({
-    required this.product,
-    required this.imageField,
-    required this.language,
-    required this.isLoggedInMandatory,
-    this.borderWidth,
+    required super.product,
+    required super.imageField,
+    required super.language,
+    required super.isLoggedInMandatory,
+    super.borderWidth,
   });
 
-  final Product product;
-  final ImageField imageField;
-  final OpenFoodFactsLanguage language;
-  final bool isLoggedInMandatory;
-  final double? borderWidth;
-
-  bool _hasServerImages() => product.images?.isNotEmpty == true;
-
-  String get _barcode => product.barcode!;
+  bool get _hasServerImages => product.images?.isNotEmpty == true;
 
   @override
-  Widget build(BuildContext context) {
-    if (!_hasServerImages()) {
-      return EMPTY_WIDGET;
-    }
-    return EditImageButton(
-      iconData: Icons.image_search,
-      label:
-          AppLocalizations.of(context).edit_photo_select_existing_button_label,
-      onPressed: () async => _actionGallery(context),
-      borderWidth: borderWidth,
-    );
-  }
+  bool isHidden() => !_hasServerImages;
 
-  Future<void> _actionGallery(final BuildContext context) async {
+  @override
+  IconData getIconData() => Icons.image_search;
+
+  @override
+  String getLabel(final AppLocalizations appLocalizations) =>
+      appLocalizations.edit_photo_select_existing_button_label;
+
+  @override
+  Future<void> action(final BuildContext context) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     if (!await ProductRefresher().checkIfLoggedIn(
       context,
@@ -68,7 +56,7 @@ class ProductImageServerButton extends StatelessWidget {
     }
 
     final bool fetched = await ProductRefresher().fetchAndRefresh(
-      barcode: _barcode,
+      barcode: barcode,
       context: context,
     );
     if (!fetched) {
@@ -80,7 +68,7 @@ class ProductImageServerButton extends StatelessWidget {
     }
 
     final Product? latestProduct =
-        await DaoProduct(context.read<LocalDatabase>()).get(_barcode);
+        await DaoProduct(context.read<LocalDatabase>()).get(barcode);
     if (!context.mounted) {
       return;
     }
@@ -118,7 +106,7 @@ class ProductImageServerButton extends StatelessWidget {
         context,
         MaterialPageRoute<void>(
           builder: (BuildContext context) => UploadedImageGallery(
-            barcode: _barcode,
+            barcode: barcode,
             rawImages: rawImages,
             imageField: imageField,
             language: language,
