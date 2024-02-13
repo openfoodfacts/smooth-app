@@ -70,7 +70,7 @@ abstract class OcrHelper {
   OpenFoodFactsLanguage getLanguage() => ProductQuery.getLanguage();
 
   @protected
-  User getUser() => ProductQuery.getUser();
+  User getUser() => ProductQuery.getReadUser();
 
   /// Returns the enum to be used for matomo analytics.
   AnalyticsEditEvents getEditEventAnalyticsTag();
