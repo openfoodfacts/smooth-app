@@ -236,5 +236,6 @@ abstract class ProductQuery {
         ProductField.EMB_CODES,
         ProductField.ORIGINS,
         ProductField.WEBSITE,
+        ProductField.OBSOLETE,
       ];
 }

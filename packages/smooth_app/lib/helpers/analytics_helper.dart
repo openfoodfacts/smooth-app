@@ -30,6 +30,10 @@ enum AnalyticsCategory {
 /// Event types for Matomo analytics
 enum AnalyticsEvent {
   scanAction(tag: 'scanned product', category: AnalyticsCategory.scanning),
+  obsoleteProduct(
+    tag: 'obsolete product',
+    category: AnalyticsCategory.scanning,
+  ),
   shareProduct(tag: 'shared product', category: AnalyticsCategory.share),
   loginAction(tag: 'logged in', category: AnalyticsCategory.userManagement),
   registerAction(tag: 'register', category: AnalyticsCategory.userManagement),
