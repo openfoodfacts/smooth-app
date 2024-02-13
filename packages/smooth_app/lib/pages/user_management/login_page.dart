@@ -56,22 +56,21 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
         password: passwordController.text,
       ),
     );
-
-    if (_loginResult!.type == LoginResultType.successful) {
-      AnalyticsHelper.trackEvent(AnalyticsEvent.loginAction);
-      if (!mounted) {
-        return;
-      }
-
-      await showInAppReviewIfNecessary(context);
-
-      if (!mounted) {
-        return;
-      }
-      Navigator.pop(context);
-    } else {
-      setState(() => _runningQuery = false);
+    if (!mounted) {
+      return;
     }
+    setState(() => _runningQuery = false);
+
+    if (_loginResult!.type != LoginResultType.successful) {
+      return;
+    }
+
+    AnalyticsHelper.trackEvent(AnalyticsEvent.loginAction);
+    await _showInAppReviewIfNecessary(context);
+    if (!mounted) {
+      return;
+    }
+    Navigator.pop(context);
   }
 
   @override
@@ -263,15 +262,13 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                             ),
                           ),
                         ),
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute<void>(
-                              builder: (BuildContext context) =>
-                                  const ForgotPasswordPage(),
-                            ),
-                          );
-                        },
+                        onPressed: () async => Navigator.push(
+                          context,
+                          MaterialPageRoute<void>(
+                            builder: (BuildContext context) =>
+                                const ForgotPasswordPage(),
+                          ),
+                        ),
                         child: Text(
                           appLocalizations.forgot_password,
                           style: theme.textTheme.bodyMedium?.copyWith(
@@ -346,90 +343,75 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
     );
   }
 
-  Future<void> showInAppReviewIfNecessary(BuildContext context) async {
+  Future<void> _showInAppReviewIfNecessary(BuildContext context) async {
     final UserPreferences preferences = context.read<UserPreferences>();
-    if (!preferences.inAppReviewAlreadyAsked) {
-      assert(mounted);
-      final bool? enjoyingApp = await showDialog<bool>(
+    if (preferences.inAppReviewAlreadyAsked) {
+      return;
+    }
+
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+    final bool? enjoyingApp = await showDialog<bool>(
+      context: context,
+      builder: (BuildContext context) => SmoothAlertDialog(
+        body: Text(appLocalizations.app_rating_dialog_title_enjoying_app),
+        positiveAction: SmoothActionButton(
+          text: appLocalizations
+              .app_rating_dialog_title_enjoying_positive_actions,
+          onPressed: () => Navigator.of(context).pop(true),
+        ),
+        negativeAction: SmoothActionButton(
+          text: appLocalizations.not_really,
+          onPressed: () => Navigator.of(context).pop(false),
+        ),
+      ),
+    );
+    if (enjoyingApp == null) {
+      return;
+    }
+    if (!context.mounted) {
+      return;
+    }
+    if (!enjoyingApp) {
+      await showDialog<void>(
         context: context,
-        builder: (BuildContext context) {
-          final AppLocalizations appLocalizations =
-              AppLocalizations.of(context);
-
-          return SmoothAlertDialog(
-            body: Text(appLocalizations.app_rating_dialog_title_enjoying_app),
-            positiveAction: SmoothActionButton(
-              text: appLocalizations
-                  .app_rating_dialog_title_enjoying_positive_actions,
-              onPressed: () => Navigator.of(context).pop(true),
-            ),
-            negativeAction: SmoothActionButton(
-              text: appLocalizations.not_really,
-              onPressed: () => Navigator.of(context).pop(false),
-            ),
-          );
-        },
+        builder: (BuildContext context) => SmoothAlertDialog(
+          body: Text(appLocalizations.app_rating_dialog_title_not_enjoying_app),
+          positiveAction: SmoothActionButton(
+            text: appLocalizations.okay,
+            onPressed: () async {
+              final String formLink = UserFeedbackHelper.getFeedbackFormLink();
+              LaunchUrlHelper.launchURL(formLink, false);
+              Navigator.of(context).pop();
+            },
+          ),
+          negativeAction: SmoothActionButton(
+            text: appLocalizations.not_really,
+            onPressed: () => Navigator.of(context).pop(),
+          ),
+        ),
       );
-      if (enjoyingApp != null && !enjoyingApp) {
-        if (!context.mounted) {
-          return;
-        }
-        await showDialog<bool>(
-          context: context,
-          builder: (BuildContext context) {
-            final AppLocalizations appLocalizations =
-                AppLocalizations.of(context);
+      return;
+    }
 
-            return SmoothAlertDialog(
-              body: Text(
-                  appLocalizations.app_rating_dialog_title_not_enjoying_app),
-              positiveAction: SmoothActionButton(
-                text: appLocalizations.okay,
-                onPressed: () async {
-                  final String formLink =
-                      UserFeedbackHelper.getFeedbackFormLink();
-                  LaunchUrlHelper.launchURL(formLink, false);
-                  Navigator.of(context).pop();
-                },
-              ),
-              negativeAction: SmoothActionButton(
-                text: appLocalizations.not_really,
-                onPressed: () => Navigator.of(context).pop(),
-              ),
-            );
-          },
-        );
-      }
-      bool? userRatedApp;
-      if (enjoyingApp != null && enjoyingApp) {
-        if (!context.mounted) {
-          return;
-        }
-        userRatedApp = await showDialog<bool>(
-          context: context,
-          builder: (BuildContext context) {
-            final AppLocalizations appLocalizations =
-                AppLocalizations.of(context);
-
-            return SmoothAlertDialog(
-              body: Text(appLocalizations.app_rating_dialog_title),
-              positiveAction: SmoothActionButton(
-                text: appLocalizations.app_rating_dialog_positive_action,
-                onPressed: () async => Navigator.of(context).pop(
-                  await ApplicationStore.openAppReview(),
-                ),
-              ),
-              negativeAction: SmoothActionButton(
-                text: appLocalizations.ask_me_later_button_label,
-                onPressed: () => Navigator.of(context).pop(false),
-              ),
-            );
-          },
-        );
-      }
-      if (userRatedApp != null && userRatedApp) {
-        await preferences.markInAppReviewAsShown();
-      }
+    final bool? userRatedApp = await showDialog<bool>(
+      context: context,
+      builder: (BuildContext context) => SmoothAlertDialog(
+        body: Text(appLocalizations.app_rating_dialog_title),
+        positiveAction: SmoothActionButton(
+          text: appLocalizations.app_rating_dialog_positive_action,
+          onPressed: () async => Navigator.of(context).pop(
+            await ApplicationStore.openAppReview(),
+          ),
+        ),
+        negativeAction: SmoothActionButton(
+          text: appLocalizations.ask_me_later_button_label,
+          onPressed: () => Navigator.of(context).pop(),
+        ),
+      ),
+    );
+    if (userRatedApp == true) {
+      await preferences.markInAppReviewAsShown();
     }
   }
 }
