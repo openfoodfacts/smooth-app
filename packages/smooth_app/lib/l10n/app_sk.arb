@@ -24,7 +24,7 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
-    "previous_label": "Previous",
+    "previous_label": "Predchádzajúce",
     "@previous_label": {
         "description": "A label on a button that says 'Previous', pressing the button takes the user to the previous screen."
     },
@@ -2506,7 +2506,7 @@
     "contact_title_pro_email": "Kontakt na výrobcu",
     "contact_title_press_page": "Stránka pre média",
     "contact_title_press_email": "Kontakty pre médiá",
-    "contact_title_newsletter": "Subscribe to our newsletter",
+    "contact_title_newsletter": "Prihlásiť sa ku odberu noviniek",
     "hunger_games_loading_line1": "Venujte nám prosím pár sekúnd…",
     "hunger_games_loading_line2": "Sťahujeme otázky!",
     "hunger_games_error_label": "Argh! Niečo sa pokazilo… a otázky sa nám nepodarilo načítať.",
