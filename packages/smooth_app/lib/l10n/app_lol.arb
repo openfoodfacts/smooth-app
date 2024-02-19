@@ -332,6 +332,10 @@
     "@legalNotices": {
         "description": "A link to open the legal notices on the website"
     },
+    "privacy_policy": "crwdns247744:0crwdne247744:0",
+    "@privacy_policy": {
+        "description": "A link to open the privacy policy on the website"
+    },
     "about_this_app": "crwdns220773:0crwdne220773:0",
     "@about_this_app": {
         "description": "Button label: Opens a pop up window which shows information about the app"
