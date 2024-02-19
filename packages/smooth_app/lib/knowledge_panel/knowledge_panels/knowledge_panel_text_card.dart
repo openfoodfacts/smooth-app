@@ -46,7 +46,6 @@ class KnowledgePanelTextCard extends StatelessWidget {
             iconData: null,
             onPressed: () async => LaunchUrlHelper.launchURL(
               textElement.sourceUrl!,
-              false,
             ),
           ),
         ),

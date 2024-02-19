@@ -66,7 +66,7 @@ class _ExternalPageState extends State<ExternalPage> {
           ),
         );
       } else {
-        await LaunchUrlHelper.launchURL(url, false);
+        await LaunchUrlHelper.launchURL(url);
       }
 
       if (mounted) {
