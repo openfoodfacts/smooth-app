@@ -288,8 +288,9 @@ class UserPreferencesFaq extends AbstractUserPreferences {
                       const SizedBox(height: VERY_SMALL_SPACE),
                       SmoothAlertContentButton(
                         onPressed: () => LaunchUrlHelper.launchURL(
-                          'https://openfoodfacts.org/privacy',
-                          true,
+                          ProductQuery.replaceSubdomain(
+                            'https://world.openfoodfacts.org/privacy',
+                          ),
                         ),
                         label: appLocalizations.privacy_policy,
                         icon: Icons.open_in_new,
