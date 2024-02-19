@@ -287,6 +287,15 @@ class UserPreferencesFaq extends AbstractUserPreferences {
                       ),
                       const SizedBox(height: VERY_SMALL_SPACE),
                       SmoothAlertContentButton(
+                        onPressed: () => LaunchUrlHelper.launchURL(
+                          'https://openfoodfacts.org/privacy',
+                          true,
+                        ),
+                        label: appLocalizations.privacy_policy,
+                        icon: Icons.open_in_new,
+                      ),
+                      const SizedBox(height: VERY_SMALL_SPACE),
+                      SmoothAlertContentButton(
                         onPressed: () => showLicensePage(
                           context: context,
                           applicationName: packageInfo.appName,
