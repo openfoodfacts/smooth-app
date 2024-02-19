@@ -481,7 +481,7 @@ class _ProductListPageState extends State<ProductListPage>
     try {
       final OpenFoodFactsLanguage language = ProductQuery.getLanguage();
       final SearchResult searchResult = await OpenFoodAPIClient.searchProducts(
-        ProductQuery.getUser(),
+        ProductQuery.getReadUser(),
         ProductRefresher().getBarcodeListQueryConfiguration(
           barcodes,
           language,

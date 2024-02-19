@@ -36,7 +36,7 @@ abstract class PagedProductQuery {
 
   Future<SearchResult> getSearchResult() async =>
       OpenFoodAPIClient.searchProducts(
-        ProductQuery.getUser(),
+        ProductQuery.getReadUser(),
         getQueryConfiguration(),
         uriHelper: ProductQuery.uriProductHelper,
       );

@@ -92,7 +92,7 @@ class BackgroundTaskTopBarcodes extends BackgroundTaskProgressing {
   @override
   Future<void> execute(final LocalDatabase localDatabase) async {
     final SearchResult searchResult = await OpenFoodAPIClient.searchProducts(
-      getUser(),
+      ProductQuery.getReadUser(),
       ProductSearchQueryConfiguration(
         fields: <ProductField>[ProductField.BARCODE],
         parametersList: <Parameter>[
