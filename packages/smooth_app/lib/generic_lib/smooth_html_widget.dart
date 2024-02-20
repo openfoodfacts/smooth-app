@@ -22,7 +22,7 @@ class SmoothHtmlWidget extends StatelessWidget {
       textStyle: textStyle,
       onTapUrl: (String url) async {
         try {
-          await LaunchUrlHelper.launchURL(url, false);
+          await LaunchUrlHelper.launchURL(url);
         } catch (_) {
           if (context.mounted) {
             final AppLocalizations appLocalizations =

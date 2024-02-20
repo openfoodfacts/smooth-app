@@ -220,8 +220,9 @@ class UserPreferencesAccount extends AbstractUserPreferences {
       _getListTile(
         appLocalizations.view_profile,
         () async => LaunchUrlHelper.launchURL(
-          'https://openfoodfacts.org/editor/$userId',
-          true,
+          ProductQuery.replaceSubdomain(
+            'https://world.openfoodfacts.org/editor/$userId',
+          ),
         ),
         Icons.open_in_new,
       ),

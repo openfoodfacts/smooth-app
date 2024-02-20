@@ -76,7 +76,6 @@ class KnowledgePanelWorldMapCard extends StatelessWidget {
                   'OpenStreetMap contributors',
                   onTap: () => LaunchUrlHelper.launchURL(
                     'https://www.openstreetmap.org/copyright',
-                    false,
                   ),
                 ),
               ],
