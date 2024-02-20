@@ -81,7 +81,6 @@ class UserPreferencesContribute extends AbstractUserPreferences {
             ProductQuery.replaceSubdomain(
               'https://world.openfoodfacts.org/contribute',
             ),
-            false,
           ),
           Icons.volunteer_activism_outlined,
           externalLink: true,
@@ -90,7 +89,6 @@ class UserPreferencesContribute extends AbstractUserPreferences {
           appLocalizations.contribute_join_skill_pool,
           () async => LaunchUrlHelper.launchURL(
             'https://docs.google.com/forms/d/e/1FAIpQLSfGHAn5KxW7ko3_GlDfQpVGKpPAMHMbDvY2IjtxfJSXxKJQ2A/viewform?usp=sf_link',
-            false,
           ),
           Icons.group,
           externalLink: true,
@@ -104,7 +102,6 @@ class UserPreferencesContribute extends AbstractUserPreferences {
           appLocalizations.contribute_donate_header,
           () async => LaunchUrlHelper.launchURL(
             AppLocalizations.of(context).donate_url,
-            false,
           ),
           Icons.volunteer_activism,
           icon:
@@ -133,7 +130,6 @@ class UserPreferencesContribute extends AbstractUserPreferences {
               if (result == true) {
                 await LaunchUrlHelper.launchURL(
                   GlobalVars.appStore.getEnrollInBetaURL()!,
-                  false,
                 );
               }
             },
@@ -216,15 +212,17 @@ class UserPreferencesContribute extends AbstractUserPreferences {
                 SmoothAlertContentButton(
                   label: 'Slack',
                   icon: Icons.open_in_new,
-                  onPressed: () => LaunchUrlHelper.launchURL(
-                      'https://slack.openfoodfacts.org/', false),
+                  onPressed: () async => LaunchUrlHelper.launchURL(
+                    'https://slack.openfoodfacts.org/',
+                  ),
                 ),
                 const SizedBox(height: SMALL_SPACE),
                 SmoothAlertContentButton(
                   label: 'GitHub',
                   icon: Icons.open_in_new,
-                  onPressed: () => LaunchUrlHelper.launchURL(
-                      'https://github.com/openfoodfacts', false),
+                  onPressed: () async => LaunchUrlHelper.launchURL(
+                    'https://github.com/openfoodfacts',
+                  ),
                 ),
                 const SizedBox(height: 10),
                 UserPreferencesSwitchWidget(
@@ -266,8 +264,9 @@ class UserPreferencesContribute extends AbstractUserPreferences {
               ],
             ),
             positiveAction: SmoothActionButton(
-              onPressed: () => LaunchUrlHelper.launchURL(
-                  'https://translate.openfoodfacts.org/', false),
+              onPressed: () async => LaunchUrlHelper.launchURL(
+                'https://translate.openfoodfacts.org/',
+              ),
               text: appLocalizations.contribute_translate_link_text,
             ),
             negativeAction: SmoothActionButton(
@@ -376,12 +375,9 @@ class _ContributorsDialog extends StatelessWidget {
                           message: contributor.login,
                           child: InkWell(
                             customBorder: const CircleBorder(),
-                            onTap: () {
-                              LaunchUrlHelper.launchURL(
-                                contributor.profilePath,
-                                false,
-                              );
-                            },
+                            onTap: () async => LaunchUrlHelper.launchURL(
+                              contributor.profilePath,
+                            ),
                             child: Ink(
                               decoration: BoxDecoration(
                                 borderRadius:
@@ -413,8 +409,9 @@ class _ContributorsDialog extends StatelessWidget {
         },
       ),
       positiveAction: SmoothActionButton(
-        onPressed: () => LaunchUrlHelper.launchURL(
-            'https://github.com/openfoodfacts/smooth-app', false),
+        onPressed: () async => LaunchUrlHelper.launchURL(
+          'https://github.com/openfoodfacts/smooth-app',
+        ),
         text: AppLocalizations.of(context).contribute,
         minWidth: 150,
       ),

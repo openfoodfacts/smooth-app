@@ -385,9 +385,7 @@ class _SearchCardContentTagLine extends StatelessWidget {
           return InkWell(
             borderRadius: ANGULAR_BORDER_RADIUS,
             onTap: tagLine.hasLink
-                ? () async {
-                    await LaunchUrlHelper.launchURL(tagLine.url, false);
-                  }
+                ? () async => LaunchUrlHelper.launchURL(tagLine.url)
                 : null,
             child: Center(
               child: AutoSizeText(
@@ -527,7 +525,7 @@ class _SearchCardContentAppReview extends StatelessWidget {
             text: localizations.app_review_negative_modal_positive_button,
             onPressed: () {
               final String formLink = UserFeedbackHelper.getFeedbackFormLink();
-              LaunchUrlHelper.launchURL(formLink, false);
+              LaunchUrlHelper.launchURL(formLink);
               Navigator.of(context).pop();
             },
           ),

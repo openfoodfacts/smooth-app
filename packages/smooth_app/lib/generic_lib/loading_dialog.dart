@@ -78,7 +78,6 @@ class LoadingDialog<T> {
                         recognizer: TapGestureRecognizer()
                           ..onTap = () => LaunchUrlHelper.launchURL(
                                 Status.openNewIssueUrl,
-                                false,
                               ),
                       ),
                     ),

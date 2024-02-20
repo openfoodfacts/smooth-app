@@ -15,7 +15,7 @@ class WebsiteCard extends StatelessWidget {
     final String website = _getWebsite();
     return buildProductSmoothCard(
       body: InkWell(
-        onTap: () => LaunchUrlHelper.launchURL(website, false),
+        onTap: () async => LaunchUrlHelper.launchURL(website),
         borderRadius: ROUNDED_BORDER_RADIUS,
         child: Container(
           width: double.infinity,

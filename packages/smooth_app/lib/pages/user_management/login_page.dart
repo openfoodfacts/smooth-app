@@ -381,7 +381,7 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
             text: appLocalizations.okay,
             onPressed: () async {
               final String formLink = UserFeedbackHelper.getFeedbackFormLink();
-              LaunchUrlHelper.launchURL(formLink, false);
+              LaunchUrlHelper.launchURL(formLink);
               Navigator.of(context).pop();
             },
           ),
