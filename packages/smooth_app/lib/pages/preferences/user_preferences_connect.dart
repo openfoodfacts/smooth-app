@@ -216,7 +216,7 @@ class UserPreferencesConnect extends AbstractUserPreferences {
         labels: <String>[title],
         builder: (_) => UserPreferencesListTile(
           title: Text(title),
-          onTap: onTap ?? () async => LaunchUrlHelper.launchURL(url!, false),
+          onTap: onTap ?? () async => LaunchUrlHelper.launchURL(url!),
           trailing:
               UserPreferencesListTile.getTintedIcon(Icons.open_in_new, context),
           leading: leadingIconData != null

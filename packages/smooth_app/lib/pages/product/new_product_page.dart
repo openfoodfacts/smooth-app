@@ -246,7 +246,6 @@ class _ProductPageState extends State<ProductPage>
               icon: CupertinoIcons.tag_fill,
               onPressed: () async => LaunchUrlHelper.launchURL(
                 'https://prices.openfoodfacts.org/app/products/${upToDateProduct.barcode!}',
-                false,
               ),
             ),
           ),
