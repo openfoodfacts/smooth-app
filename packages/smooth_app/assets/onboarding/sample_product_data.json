@@ -336,6 +336,8 @@
          "Aliments d'origine végétale",
          "Aliments à base de fruits et de légumes",
          "Plats préparés",
+         "Alternatives à la viande",
+         "Substituts de viande",
          "Soupes",
          "Soupes de légumes"
       ],
@@ -590,6 +592,7 @@
             "threatened_species" : {}
          },
          "agribalyse" : {
+            "agribalyse_food_code" : "25903",
             "agribalyse_proxy_food_code" : "25903",
             "co2_agriculture" : 0.10397607,
             "co2_consumption" : 0.011045523,
@@ -777,6 +780,7 @@
       "ecoscore_grade" : "a",
       "ecoscore_score" : 115,
       "environment_impact_level_tags" : [],
+      "image_ingredients_url" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/ingredients_en.120.400.jpg",
       "image_nutrition_url" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/nutrition_en.109.400.jpg",
       "ingredients_analysis_tags" : [
          "en:palm-oil-free",
@@ -1401,10 +1405,7 @@
                      "panel_group_id" : "nutrition",
                      "panel_ids" : [
                         "nutriscore",
-                        "nutrient_level_fat",
-                        "nutrient_level_saturated-fat",
-                        "nutrient_level_sugars",
-                        "nutrient_level_salt"
+                        "nutrient_levels"
                      ],
                      "title" : "Nutrition",
                      "type" : "subcard"
@@ -1422,6 +1423,34 @@
                {
                   "element_type" : "panel_group",
                   "panel_group_element" : {
+                     "image" : {
+                        "alt" : "A good product for you - Ingredients",
+                        "id" : "ingredients_en",
+                        "lc" : "en",
+                        "sizes" : {
+                           "100" : {
+                              "height" : 100,
+                              "url" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/ingredients_en.120.100.jpg",
+                              "width" : 56
+                           },
+                           "200" : {
+                              "height" : 200,
+                              "url" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/ingredients_en.120.200.jpg",
+                              "width" : 113
+                           },
+                           "400" : {
+                              "height" : 400,
+                              "url" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/ingredients_en.120.400.jpg",
+                              "width" : 225
+                           },
+                           "full" : {
+                              "height" : 4624,
+                              "url" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/ingredients_en.120.full.jpg",
+                              "width" : 2604
+                           }
+                        },
+                        "type" : "ingredients"
+                     },
                      "panel_group_id" : "ingredients",
                      "panel_ids" : [
                         "ingredients"
@@ -1814,6 +1843,34 @@
                "health"
             ]
          },
+         "nutrient_levels" : {
+            "elements" : [
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_group_id" : "nutrient_levels_group",
+                     "panel_ids" : [
+                        "nutrient_level_fat",
+                        "nutrient_level_saturated-fat",
+                        "nutrient_level_sugars",
+                        "nutrient_level_salt"
+                     ]
+                  }
+               }
+            ],
+            "evaluation" : "unknown",
+            "expand_for" : "large",
+            "expanded" : false,
+            "level" : "info",
+            "title_element" : {
+               "icon_color_from_evaluation" : true,
+               "icon_url" : "https://static.openfoodfacts.org/images/icons/dist/nutrition.svg",
+               "title" : "Nutrient levels"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
          "nutriscore" : {
             "elements" : [
                {
@@ -1826,7 +1883,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "<!-- start templates/web/pages/product/includes/nutriscore_details.tt.html -->\n\n<p>This product is not considered a beverage for the calculation of the Nutri-Score.</p>\n\n\n\n\n\n  <p> \n    <strong>Positive points: 5</strong> \n  </p>\n\n  <ul>\n    \n      <li>\n        <strong>Proteins:\n0&nbsp;</strong>/&nbsp;5\n(value: 1, \n        rounded value: 1)\n      </li>\n    \n      <li>\n        <strong>Fiber:\n3&nbsp;</strong>/&nbsp;5\n(value: 3, \n        rounded value: 3)\n      </li>\n    \n      <li>\n        <strong>Fruits, vegetables, nuts, and colza/walnut/olive oils:\n2&nbsp;</strong>/&nbsp;5\n(value: 65, \n        rounded value: 65)\n      </li>\n    \n  </ul>\n\n\n\n  <p> \n    <strong>Negative points: 1</strong> \n  </p>\n\n  <ul>\n    \n      <li>\n        <strong>Energy:\n0&nbsp;</strong>/&nbsp;10\n(value: 120, \n        rounded value: 120)\n      </li>\n    \n      <li>\n        <strong>Sugars:\n0&nbsp;</strong>/&nbsp;10\n(value: 0.5, \n        rounded value: 0.5)\n      </li>\n    \n      <li>\n        <strong>Saturated fat:\n0&nbsp;</strong>/&nbsp;10\n(value: 0.2, \n        rounded value: 0.2)\n      </li>\n    \n      <li>\n        <strong>Sodium:\n1&nbsp;</strong>/&nbsp;10\n(value: 160, \n        rounded value: 160)\n      </li>\n    \n  </ul>\n\n\n\n<p>The points for proteins are counted because the negative points are less than 11.</p>\n\n<p>\n  <strong>Nutritional score: -4</strong>\n  (1 - 5)\n</p>\n<p><strong>Nutri-Score: A</strong></p>\n\n<!-- end templates/web/pages/product/includes/nutriscore_details.tt.html -->"
+                     "html" : "<!-- start templates/web/pages/product/includes/nutriscore_details.tt.html -->\n\n<p>This product is not considered a beverage for the calculation of the Nutri-Score.</p>\n\n\n\n\n\n  <p> \n    <strong>Positive points: 5</strong> \n  </p>\n\n  <ul>\n    \n      <li>\n        <strong>Proteins:\n0&nbsp;</strong>/&nbsp;5\n(value: 1, \n        rounded value: 1)\n      </li>\n    \n      <li>\n        <strong>Fiber:\n3&nbsp;</strong>/&nbsp;5\n(value: 3, \n        rounded value: 3)\n      </li>\n    \n      <li>\n        <strong>Fruits, vegetables, nuts, and colza/walnut/olive oils:\n2&nbsp;</strong>/&nbsp;5\n(value: 65, \n        rounded value: 65)\n      </li>\n    \n  </ul>\n\n\n\n  <p> \n    <strong>Negative points: 1</strong> \n  </p>\n\n  <ul>\n    \n      <li>\n        <strong>Energy:\n0&nbsp;</strong>/&nbsp;10\n(value: 120, \n        rounded value: 120)\n      </li>\n    \n      <li>\n        <strong>Sugars:\n0&nbsp;</strong>/&nbsp;10\n(value: 0.5, \n        rounded value: 0.5)\n      </li>\n    \n      <li>\n        <strong>Saturated fat:\n0&nbsp;</strong>/&nbsp;10\n(value: 0.2, \n        rounded value: 0.2)\n      </li>\n    \n      <li>\n        <strong>Sodium:\n1&nbsp;</strong>/&nbsp;10\n(value: 160, \n        rounded value: 160)\n      </li>\n    \n  </ul>\n\n\n\n<p>The points for proteins are counted because the negative points are less than 11.</p>\n\n<p>\n  <strong>Nutritional score: </strong>\n  (1 - 5)\n</p>\n<p><strong>Nutri-Score: </strong></p>\n\n<!-- end templates/web/pages/product/includes/nutriscore_details.tt.html -->"
                   }
                },
                {
@@ -2338,13 +2395,19 @@
       "selected_images" : {
          "ingredients" : {
             "display" : {
-               "es" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/ingredients_es.113.400.jpg"
+               "en" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/ingredients_en.120.400.jpg",
+               "es" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/ingredients_es.113.400.jpg",
+               "fr" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/ingredients_fr.123.400.jpg"
             },
             "small" : {
-               "es" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/ingredients_es.113.200.jpg"
+               "en" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/ingredients_en.120.200.jpg",
+               "es" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/ingredients_es.113.200.jpg",
+               "fr" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/ingredients_fr.123.200.jpg"
             },
             "thumb" : {
-               "es" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/ingredients_es.113.100.jpg"
+               "en" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/ingredients_en.120.100.jpg",
+               "es" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/ingredients_es.113.100.jpg",
+               "fr" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/ingredients_fr.123.100.jpg"
             }
          },
          "nutrition" : {
@@ -2378,7 +2441,7 @@
          "en:photos-to-be-validated",
          "en:packaging-photo-to-be-selected",
          "en:nutrition-photo-selected",
-         "en:ingredients-photo-to-be-selected",
+         "en:ingredients-photo-selected",
          "en:front-photo-to-be-selected",
          "en:photos-uploaded"
       ]
