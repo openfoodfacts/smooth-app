@@ -75,9 +75,8 @@ class UpToDateProductProvider {
 
   /// Typical use-case: a product list page is refreshed through a pull-gesture.
   void setLatestDownloadedProducts(
-    final Iterable<Product> products, {
-    final bool notify = true,
-  }) {
+    final Iterable<Product> products,
+  ) {
     if (_interest.isEmpty) {
       return;
     }
@@ -88,7 +87,7 @@ class UpToDateProductProvider {
         setLatestDownloadedProduct(product, notify: false);
       }
     }
-    if (notify && atLeastOne) {
+    if (atLeastOne) {
       localDatabase.notifyListeners();
     }
   }
