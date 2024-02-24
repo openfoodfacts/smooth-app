@@ -1,4 +1,7 @@
+import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
+import 'package:go_router/go_router.dart';
+import 'package:smooth_app/pages/navigator/app_navigator.dart';
 
 /// Brings the same behavior as WillPopScope, which is now deprecated
 /// [onWillPop] is a bit different and still asks as the first value if we should block the pop
@@ -25,8 +28,14 @@ class WillPopScope2 extends StatelessWidget {
         final (bool shouldClose, dynamic res) = await onWillPop.call();
         if (shouldClose == true) {
           WidgetsBinding.instance.addPostFrameCallback((_) {
-            /// Passing a value is required here, otherwise we will have a black screen
-            Navigator.of(context).pop(res);
+            try {
+              GoRouter.of(context).pop(res);
+            } on GoError catch (error) {
+              if (error.message == 'There is nothing to pop') {
+                // Force the kill the app
+                SystemNavigator.pop();
+              }
+            }
           });
         }
       },
