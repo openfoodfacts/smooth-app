@@ -17,8 +17,7 @@ import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/explanation_widget.dart';
 import 'package:smooth_app/pages/product/multilingual_helper.dart';
 import 'package:smooth_app/pages/product/ocr_helper.dart';
-import 'package:smooth_app/pages/product/product_image_local_button.dart';
-import 'package:smooth_app/pages/product/product_image_server_button.dart';
+import 'package:smooth_app/pages/product/product_image_button.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Editing with OCR a product field and the corresponding image.
@@ -145,6 +144,17 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
     );
   }
 
+  Widget _getImageButton(final ProductImageButtonType type) => Padding(
+        padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
+        child: type.getButton(
+          product: upToDateProduct,
+          imageField: _helper.getImageField(),
+          language: _multilingualHelper.getCurrentLanguage(),
+          isLoggedInMandatory: widget.isLoggedInMandatory,
+          borderWidth: 2,
+        ),
+      );
+
   Widget _getImageWidget(final TransientFile transientFile) {
     final Size size = MediaQuery.of(context).size;
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
@@ -199,6 +209,7 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final OpenFoodFactsLanguage language =
         _multilingualHelper.getCurrentLanguage();
+    final ImageProvider? imageProvider = transientFile.getImageProvider();
     return Align(
       alignment: AlignmentDirectional.bottomStart,
       child: Column(
@@ -206,47 +217,44 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
         children: <Widget>[
           Flexible(
             flex: 1,
-            child: Align(
-              alignment: AlignmentDirectional.bottomEnd,
-              child: Padding(
-                padding: const EdgeInsetsDirectional.only(
-                  bottom: LARGE_SPACE,
-                  start: LARGE_SPACE,
-                  end: LARGE_SPACE,
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.max,
-                  children: <Widget>[
-                    Expanded(
-                      child: Padding(
-                        padding:
-                            const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
-                        child: ProductImageServerButton(
-                          product: upToDateProduct,
-                          imageField: _helper.getImageField(),
-                          language: language,
-                          isLoggedInMandatory: widget.isLoggedInMandatory,
-                          borderWidth: 2,
-                        ),
+            child: Padding(
+              padding: const EdgeInsetsDirectional.only(
+                bottom: LARGE_SPACE,
+                start: LARGE_SPACE,
+                end: LARGE_SPACE,
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.max,
+                    children: <Widget>[
+                      Expanded(
+                        child: _getImageButton(ProductImageButtonType.server),
                       ),
-                    ),
-                    Expanded(
-                      child: Padding(
-                        padding:
-                            const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
-                        child: ProductImageLocalButton(
-                          barcode: widget.product.barcode!,
-                          imageField: _helper.getImageField(),
-                          language: language,
-                          isLoggedInMandatory: widget.isLoggedInMandatory,
-                          borderWidth: 2,
-                        ),
+                      Expanded(
+                        child: _getImageButton(ProductImageButtonType.local),
                       ),
+                    ],
+                  ),
+                  if (imageProvider != null)
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.max,
+                      children: <Widget>[
+                        Expanded(
+                          child:
+                              _getImageButton(ProductImageButtonType.unselect),
+                        ),
+                        Expanded(
+                          child: _getImageButton(ProductImageButtonType.edit),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
+                ],
               ),
             ),
           ),

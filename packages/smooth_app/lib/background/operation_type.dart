@@ -6,6 +6,7 @@ import 'package:smooth_app/background/background_task_download_products.dart';
 import 'package:smooth_app/background/background_task_full_refresh.dart';
 import 'package:smooth_app/background/background_task_hunger_games.dart';
 import 'package:smooth_app/background/background_task_image.dart';
+import 'package:smooth_app/background/background_task_language_refresh.dart';
 import 'package:smooth_app/background/background_task_offline.dart';
 import 'package:smooth_app/background/background_task_progressing.dart';
 import 'package:smooth_app/background/background_task_refresh_later.dart';
@@ -33,6 +34,7 @@ enum OperationType {
   offlineBarcodes('B', 'OFFLINE_BARCODES'),
   offlineProducts('P', 'OFFLINE_PRODUCTS'),
   fullRefresh('F', 'FULL_REFRESH'),
+  languageRefresh('L', 'LANGUAGE_REFRESH'),
   details('D', 'PRODUCT_EDIT');
 
   const OperationType(this.header, this.processName);
@@ -85,6 +87,8 @@ enum OperationType {
         return BackgroundTaskDownloadProducts.fromJson(map);
       case fullRefresh:
         return BackgroundTaskFullRefresh.fromJson(map);
+      case languageRefresh:
+        return BackgroundTaskLanguageRefresh.fromJson(map);
     }
   }
 
@@ -113,6 +117,8 @@ enum OperationType {
         return 'Downloading products';
       case OperationType.fullRefresh:
         return 'Refreshing the full local database';
+      case OperationType.languageRefresh:
+        return 'Refreshing the local database to a new language';
     }
   }
 

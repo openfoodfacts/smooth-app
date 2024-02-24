@@ -239,20 +239,16 @@ class _ProductPageState extends State<ProductPage>
           if (upToDateProduct.website != null &&
               upToDateProduct.website!.trim().isNotEmpty)
             WebsiteCard(upToDateProduct.website!),
-          if (userPreferences.getFlag(
-                  UserPreferencesDevMode.userPreferencesFlagShortcutToPrices) ??
-              false)
-            Padding(
-              padding: const EdgeInsets.all(SMALL_SPACE),
-              child: SmoothLargeButtonWithIcon(
-                text: appLocalizations.prices_app_button,
-                icon: CupertinoIcons.tag_fill,
-                onPressed: () async => LaunchUrlHelper.launchURL(
-                  'https://prices.openfoodfacts.org/app/products/${upToDateProduct.barcode!}',
-                  false,
-                ),
+          Padding(
+            padding: const EdgeInsets.all(SMALL_SPACE),
+            child: SmoothLargeButtonWithIcon(
+              text: appLocalizations.prices_app_button,
+              icon: CupertinoIcons.tag_fill,
+              onPressed: () async => LaunchUrlHelper.launchURL(
+                'https://prices.openfoodfacts.org/app/products/${upToDateProduct.barcode!}',
               ),
             ),
+          ),
           if (userPreferences.getFlag(
                   UserPreferencesDevMode.userPreferencesFlagUserOrderedKP) ??
               false)

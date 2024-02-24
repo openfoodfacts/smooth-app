@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/pages/input/agnostic_suggestion_manager.dart';
 import 'package:smooth_app/pages/input/smooth_autocomplete_text_field.dart';
 import 'package:smooth_app/query/product_query.dart';
 
@@ -38,23 +37,24 @@ class SimpleInputTextField extends StatefulWidget {
 }
 
 class _SimpleInputTextFieldState extends State<SimpleInputTextField> {
-  late final AgnosticSuggestionManager? _manager;
+  late final AutocompleteManager? _manager;
 
   @override
   void initState() {
     super.initState();
     _manager = widget.tagType == null
         ? null
-        : AgnosticSuggestionManager.tagType(
-            SuggestionManager(
-              widget.tagType!,
+        : AutocompleteManager(
+            TagTypeAutocompleter(
+              tagType: widget.tagType!,
               language: ProductQuery.getLanguage(),
               country: ProductQuery.getCountry(),
               categories: widget.categories,
               shape: widget.shapeProvider?.call(),
-              user: ProductQuery.getUser(),
+              user: ProductQuery.getReadUser(),
               // number of suggestions the user can scroll through: compromise between quantity and readability of the suggestions
               limit: 15,
+              uriHelper: ProductQuery.uriProductHelper,
             ),
           );
   }
