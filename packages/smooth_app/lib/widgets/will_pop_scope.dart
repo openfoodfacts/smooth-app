@@ -32,7 +32,7 @@ class WillPopScope2 extends StatelessWidget {
               GoRouter.of(context).pop(res);
             } on GoError catch (error) {
               if (error.message == 'There is nothing to pop') {
-                // Force the kill the app
+                // Force to kill the app
                 SystemNavigator.pop();
               }
             }
