@@ -29,6 +29,7 @@ class SmoothAlertDialog extends StatelessWidget {
     required this.body,
     this.positiveAction,
     this.negativeAction,
+    this.neutralAction,
     this.actionsAxis,
     this.actionsOrder,
     this.close = false,
@@ -44,6 +45,7 @@ class SmoothAlertDialog extends StatelessWidget {
   final Widget body;
   final SmoothActionButton? positiveAction;
   final SmoothActionButton? negativeAction;
+  final SmoothActionButton? neutralAction;
   final Axis? actionsAxis;
   final SmoothButtonsBarOrder? actionsOrder;
   final EdgeInsets? margin;
@@ -103,9 +105,15 @@ class SmoothAlertDialog extends StatelessWidget {
   }
 
   Padding _buildBottomBar(EdgeInsetsDirectional padding) {
-    final bool singleButton =
-        positiveAction != null && negativeAction == null ||
-            negativeAction != null && positiveAction == null;
+    final bool singleButton = (positiveAction != null &&
+            negativeAction == null &&
+            neutralAction == null) ||
+        (negativeAction != null &&
+            positiveAction == null &&
+            neutralAction == null) ||
+        (neutralAction != null &&
+            positiveAction == null &&
+            negativeAction == null);
 
     return Padding(
       padding: EdgeInsetsDirectional.only(
@@ -120,13 +128,15 @@ class SmoothAlertDialog extends StatelessWidget {
       child: SmoothActionButtonsBar(
         positiveAction: positiveAction,
         negativeAction: negativeAction,
+        neutralAction: neutralAction,
         axis: actionsAxis,
         order: actionsOrder,
       ),
     );
   }
 
-  bool get hasActions => positiveAction != null || negativeAction != null;
+  bool get hasActions =>
+      positiveAction != null || negativeAction != null || neutralAction != null;
 
   Widget _buildContent(final BuildContext context) => DefaultTextStyle.merge(
         style: const TextStyle(height: 1.5),
@@ -245,11 +255,15 @@ class SmoothActionButtonsBar extends StatelessWidget {
   const SmoothActionButtonsBar({
     this.positiveAction,
     this.negativeAction,
+    this.neutralAction,
     this.axis,
     this.order,
     this.padding,
     super.key,
-  }) : assert(positiveAction != null || negativeAction != null,
+  }) : assert(
+            positiveAction != null ||
+                negativeAction != null ||
+                neutralAction != null,
             'At least one action must be passed!');
 
   const SmoothActionButtonsBar.single({
@@ -262,6 +276,7 @@ class SmoothActionButtonsBar extends StatelessWidget {
 
   final SmoothActionButton? positiveAction;
   final SmoothActionButton? negativeAction;
+  final SmoothActionButton? neutralAction;
   final Axis? axis;
   final SmoothButtonsBarOrder? order;
   final EdgeInsetsGeometry? padding;
@@ -275,11 +290,20 @@ class SmoothActionButtonsBar extends StatelessWidget {
       order ?? SmoothButtonsBarOrder.auto,
       positiveAction: positiveAction,
       negativeAction: negativeAction,
+      neutralAction: neutralAction,
     )!;
 
     if (buttonsAxis == Axis.horizontal) {
-      // With two buttons, inject a small space between them
-      if (actions.length == 2) {
+      // With multiple buttons, inject a small space between them
+      if (actions.length > 1) {
+        if (actions.length > 2) {
+          // space injected before 3rd item
+          actions.insert(
+            2,
+            const SizedBox(width: VERY_SMALL_SPACE),
+          );
+        }
+        // space injected before 2nd item
         actions.insert(
           1,
           const SizedBox(width: VERY_SMALL_SPACE),
@@ -324,8 +348,11 @@ List<Widget>? _buildActions(
   SmoothButtonsBarOrder order, {
   SmoothActionButton? positiveAction,
   SmoothActionButton? negativeAction,
+  SmoothActionButton? neutralAction,
 }) {
-  if (positiveAction == null && negativeAction == null) {
+  if (positiveAction == null &&
+      negativeAction == null &&
+      neutralAction == null) {
     return null;
   }
 
@@ -338,6 +365,12 @@ List<Widget>? _buildActions(
         Expanded(
           child: _SmoothActionFlatButton(
             buttonData: negativeAction,
+          ),
+        ),
+      if (neutralAction != null)
+        Expanded(
+          child: _SmoothActionFlatButton(
+            buttonData: neutralAction,
           ),
         ),
       if (positiveAction != null)
@@ -355,6 +388,13 @@ List<Widget>? _buildActions(
           width: double.infinity,
           child: _SmoothActionElevatedButton(
             buttonData: positiveAction,
+          ),
+        ),
+      if (neutralAction != null)
+        SizedBox(
+          width: double.infinity,
+          child: _SmoothActionFlatButton(
+            buttonData: neutralAction,
           ),
         ),
       if (negativeAction != null)
