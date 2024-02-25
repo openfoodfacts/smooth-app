@@ -296,14 +296,16 @@ class SmoothActionButtonsBar extends StatelessWidget {
     if (buttonsAxis == Axis.horizontal) {
       // With multiple buttons, inject a small space between them
       if (actions.length > 1) {
+        if (actions.length > 2) {
+          // space injected before 3rd item
+          actions.insert(
+            2,
+            const SizedBox(width: VERY_SMALL_SPACE),
+          );
+        }
+        // space injected before 2nd item
         actions.insert(
           1,
-          const SizedBox(width: VERY_SMALL_SPACE),
-        );
-      }
-      if (actions.length == 3) {
-        actions.insert(
-          3,
           const SizedBox(width: VERY_SMALL_SPACE),
         );
       }
