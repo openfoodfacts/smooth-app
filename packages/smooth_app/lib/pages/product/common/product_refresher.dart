@@ -173,7 +173,6 @@ class ProductRefresher {
       if (result.product != null) {
         await DaoProduct(localDatabase).put(result.product!, language);
         localDatabase.upToDate.setLatestDownloadedProduct(result.product!);
-        localDatabase.notifyListeners();
         return FetchedProduct.found(result.product!);
       }
       return const FetchedProduct.internetNotFound();
@@ -217,7 +216,6 @@ class ProductRefresher {
       await DaoProduct(localDatabase).putAll(searchResult.products!, language);
       localDatabase.upToDate
           .setLatestDownloadedProducts(searchResult.products!);
-      localDatabase.notifyListeners();
       return searchResult.products!.length;
     } catch (e) {
       Logs.e('Refresh from server error', ex: e);

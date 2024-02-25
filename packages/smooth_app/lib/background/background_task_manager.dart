@@ -41,7 +41,7 @@ class BackgroundTaskManager {
     );
     await DaoStringList(localDatabase).add(DaoStringList.keyTasks, taskId);
     await task.preExecute(localDatabase);
-    run(); // no await
+    run();
   }
 
   /// Finishes a task cleanly.
@@ -80,11 +80,13 @@ class BackgroundTaskManager {
       final String processName = BackgroundTask.getProcessName(map);
       for (final OperationType operationType in OperationType.values) {
         if (processName == operationType.processName) {
+          _debugPrint('found: $processName, $map');
           return operationType.fromJson(map);
         }
       }
     } catch (e) {
       // unexpected
+      _debugPrint('_get exception: $e');
     }
     return null;
   }
@@ -140,6 +142,12 @@ class BackgroundTaskManager {
 
   bool _running = false;
 
+  /// Runs all the pending tasks, and then smoothly ends, without awaiting.
+  void run() {
+    // no await
+    _runAsync();
+  }
+
   /// Runs all the pending tasks, and then smoothly ends.
   ///
   /// If a task fails, we continue with the other tasks: and we'll retry the
@@ -147,7 +155,7 @@ class BackgroundTaskManager {
   /// If a task fails and another task with the same stamp comes after,
   /// we can remove the failed task from the list: it would have been
   /// overwritten anyway.
-  Future<void> run() async {
+  Future<void> _runAsync() async {
     final int? now = _canStartNow();
     if (now == null) {
       return;

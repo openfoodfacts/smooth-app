@@ -49,7 +49,7 @@ mixin UpToDateMixin<T extends StatefulWidget> on State<T> {
   /// To be used in the `build` method, after a call to
   /// `context.watch<LocalDatabase>()`.
   void refreshUpToDate() {
-    BackgroundTaskManager.getInstance(_localDatabase).run(); // no await
+    BackgroundTaskManager.getInstance(_localDatabase).run();
     _refreshUpToDate();
   }
 
