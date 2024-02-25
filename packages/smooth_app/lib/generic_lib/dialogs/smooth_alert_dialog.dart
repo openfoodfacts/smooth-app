@@ -293,58 +293,17 @@ class SmoothActionButtonsBar extends StatelessWidget {
       neutralAction: neutralAction,
     )!;
 
-    if (buttonsAxis == Axis.vertical) {
-      return Container(
-        width: double.infinity,
-        padding: padding ?? EdgeInsets.zero,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: actions,
-        ),
-      );
-    } else if (actions.length == 3) {
-      Widget? positiveActionWidget;
-
-      final int index = actions.indexWhere((Widget widget) =>
-          widget is Expanded && widget.child is _SmoothActionElevatedButton);
-
-      if (index != -1) {
-        positiveActionWidget = (actions[index] as Expanded).child;
-        actions.removeAt(index);
-      }
-
-      actions.insert(
-        1,
-        const SizedBox(width: VERY_SMALL_SPACE),
-      );
-
-      return Container(
-        width: double.infinity,
-        height: 100,
-        padding: padding ?? EdgeInsets.zero,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: <Widget>[
-            if (positiveActionWidget != null)
-              SizedBox(
-                width: double.infinity,
-                child: positiveActionWidget,
-              ),
-            Padding(
-              padding: padding ?? EdgeInsets.zero,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: actions,
-              ),
-            ),
-          ],
-        ),
-      );
-    } else {
-      // With two buttons, inject a small space between them
-      if (actions.length == 2) {
+    if (buttonsAxis == Axis.horizontal) {
+      // With multiple buttons, inject a small space between them
+      if (actions.length > 1) {
         actions.insert(
           1,
+          const SizedBox(width: VERY_SMALL_SPACE),
+        );
+      }
+      if (actions.length == 3) {
+        actions.insert(
+          3,
           const SizedBox(width: VERY_SMALL_SPACE),
         );
       }
@@ -353,6 +312,15 @@ class SmoothActionButtonsBar extends StatelessWidget {
         padding: padding ?? EdgeInsets.zero,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: actions,
+        ),
+      );
+    } else {
+      return Container(
+        width: double.infinity,
+        padding: padding ?? EdgeInsets.zero,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
           children: actions,
         ),
       );
