@@ -38,107 +38,110 @@ class SmoothTheme {
     }
 
     return ThemeData(
-      useMaterial3: false,
-      primaryColor: DARK_BROWN_COLOR,
-      colorScheme: myColorScheme,
-      canvasColor: themeProvider.currentTheme == THEME_AMOLED
-          ? myColorScheme.background
-          : null,
-      bottomNavigationBarTheme: BottomNavigationBarThemeData(
-        selectedIconTheme: const IconThemeData(size: 24.0),
-        showSelectedLabels: true,
-        selectedItemColor: brightness == Brightness.dark
-            ? myColorScheme.primary
-            : DARK_BROWN_COLOR,
-        selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
-        showUnselectedLabels: true,
-        unselectedIconTheme: const IconThemeData(size: 20.0),
-      ),
-      elevatedButtonTheme: ElevatedButtonThemeData(
-        style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.resolveWith<Color?>(
-            (Set<MaterialState> states) =>
-                states.contains(MaterialState.disabled)
-                    ? Colors.grey
-                    : myColorScheme.primary,
+        useMaterial3: false,
+        primaryColor: DARK_BROWN_COLOR,
+        colorScheme: myColorScheme,
+        canvasColor: themeProvider.currentTheme == THEME_AMOLED
+            ? myColorScheme.background
+            : null,
+        bottomNavigationBarTheme: BottomNavigationBarThemeData(
+          selectedIconTheme: const IconThemeData(size: 24.0),
+          showSelectedLabels: true,
+          selectedItemColor: brightness == Brightness.dark
+              ? myColorScheme.primary
+              : DARK_BROWN_COLOR,
+          selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
+          showUnselectedLabels: true,
+          unselectedIconTheme: const IconThemeData(size: 20.0),
+        ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.resolveWith<Color?>(
+              (Set<MaterialState> states) =>
+                  states.contains(MaterialState.disabled)
+                      ? Colors.grey
+                      : myColorScheme.primary,
+            ),
           ),
         ),
-      ),
-      floatingActionButtonTheme: FloatingActionButtonThemeData(
-          backgroundColor: myColorScheme.primary,
-          foregroundColor: myColorScheme.onPrimary),
-      textTheme: brightness == Brightness.dark
-          ? getTextTheme(themeProvider, textContrastProvider)
-          : _TEXT_THEME,
-      appBarTheme: AppBarTheme(
-        color: myColorScheme.background,
-        foregroundColor: myColorScheme.onBackground,
-        systemOverlayStyle: SystemUiOverlayStyle.light,
-      ),
-      dividerColor: const Color(0xFFdfdfdf),
-      inputDecorationTheme: InputDecorationTheme(
-        fillColor: myColorScheme.secondary,
-      ),
-      iconTheme: IconThemeData(
-        color: myColorScheme.onBackground,
-      ),
-      snackBarTheme: SnackBarThemeData(
-        contentTextStyle:
-            _TEXT_THEME.bodyMedium?.copyWith(color: myColorScheme.onPrimary),
-        actionTextColor: myColorScheme.onPrimary,
-        backgroundColor: myColorScheme.onBackground,
-      ),
-      bannerTheme: MaterialBannerThemeData(
-        contentTextStyle: TextStyle(color: myColorScheme.onSecondary),
-        backgroundColor: myColorScheme.secondary,
-      ),
-      checkboxTheme: CheckboxThemeData(
-        fillColor: MaterialStateProperty.resolveWith<Color?>(
-            (Set<MaterialState> states) {
-          if (states.contains(MaterialState.disabled)) {
+        floatingActionButtonTheme: FloatingActionButtonThemeData(
+            backgroundColor: myColorScheme.primary,
+            foregroundColor: myColorScheme.onPrimary),
+        textTheme: brightness == Brightness.dark
+            ? getTextTheme(themeProvider, textContrastProvider)
+            : _TEXT_THEME,
+        appBarTheme: AppBarTheme(
+          color: myColorScheme.background,
+          foregroundColor: myColorScheme.onBackground,
+          systemOverlayStyle: SystemUiOverlayStyle.light,
+        ),
+        dividerColor: const Color(0xFFdfdfdf),
+        inputDecorationTheme: InputDecorationTheme(
+          fillColor: myColorScheme.secondary,
+        ),
+        iconTheme: IconThemeData(
+          color: myColorScheme.onBackground,
+        ),
+        snackBarTheme: SnackBarThemeData(
+          contentTextStyle:
+              _TEXT_THEME.bodyMedium?.copyWith(color: myColorScheme.onPrimary),
+          actionTextColor: myColorScheme.onPrimary,
+          backgroundColor: myColorScheme.onBackground,
+        ),
+        bannerTheme: MaterialBannerThemeData(
+          contentTextStyle: TextStyle(color: myColorScheme.onSecondary),
+          backgroundColor: myColorScheme.secondary,
+        ),
+        checkboxTheme: CheckboxThemeData(
+          fillColor: MaterialStateProperty.resolveWith<Color?>(
+              (Set<MaterialState> states) {
+            if (states.contains(MaterialState.disabled)) {
+              return null;
+            }
+            if (states.contains(MaterialState.selected)) {
+              return myColorScheme.primary;
+            }
             return null;
-          }
-          if (states.contains(MaterialState.selected)) {
-            return myColorScheme.primary;
-          }
-          return null;
-        }),
-      ),
-      radioTheme: RadioThemeData(
-        fillColor: MaterialStateProperty.resolveWith<Color?>(
-            (Set<MaterialState> states) {
-          if (states.contains(MaterialState.disabled)) {
+          }),
+        ),
+        radioTheme: RadioThemeData(
+          fillColor: MaterialStateProperty.resolveWith<Color?>(
+              (Set<MaterialState> states) {
+            if (states.contains(MaterialState.disabled)) {
+              return null;
+            }
+            if (states.contains(MaterialState.selected)) {
+              return myColorScheme.primary;
+            }
             return null;
-          }
-          if (states.contains(MaterialState.selected)) {
-            return myColorScheme.primary;
-          }
-          return null;
-        }),
-      ),
-      switchTheme: SwitchThemeData(
-        thumbColor: MaterialStateProperty.resolveWith<Color?>(
-            (Set<MaterialState> states) {
-          if (states.contains(MaterialState.disabled)) {
+          }),
+        ),
+        switchTheme: SwitchThemeData(
+          thumbColor: MaterialStateProperty.resolveWith<Color?>(
+              (Set<MaterialState> states) {
+            if (states.contains(MaterialState.disabled)) {
+              return null;
+            }
+            if (states.contains(MaterialState.selected)) {
+              return myColorScheme.primary;
+            }
             return null;
-          }
-          if (states.contains(MaterialState.selected)) {
-            return myColorScheme.primary;
-          }
-          return null;
-        }),
-        trackColor: MaterialStateProperty.resolveWith<Color?>(
-            (Set<MaterialState> states) {
-          if (states.contains(MaterialState.disabled)) {
+          }),
+          trackColor: MaterialStateProperty.resolveWith<Color?>(
+              (Set<MaterialState> states) {
+            if (states.contains(MaterialState.disabled)) {
+              return null;
+            }
+            if (states.contains(MaterialState.selected)) {
+              return myColorScheme.primary;
+            }
             return null;
-          }
-          if (states.contains(MaterialState.selected)) {
-            return myColorScheme.primary;
-          }
-          return null;
-        }),
-      ),
-    );
+          }),
+        ),
+        listTileTheme: ListTileThemeData(
+          iconColor: myColorScheme.primary,
+          textColor: myColorScheme.primary,
+        ));
   }
 
   static TextTheme getTextTheme(
@@ -178,6 +181,16 @@ class SmoothTheme {
       fontWeight: FontWeight.bold,
       color: Colors.black,
     ),
+    headlineSmall: TextStyle(
+      fontSize: LARGE_SPACE,
+      fontWeight: FontWeight.bold,
+      color: Colors.black,
+    ),
+    headlineLarge: TextStyle(
+      fontSize: LARGE_SPACE,
+      fontWeight: FontWeight.bold,
+      color: Colors.black,
+    ),
     bodyMedium: TextStyle(
       fontSize: 14,
       letterSpacing: 0.5,
@@ -186,6 +199,9 @@ class SmoothTheme {
       fontSize: 14.0,
     ),
     titleSmall: TextStyle(
+      fontSize: 12.0,
+    ),
+    titleLarge: TextStyle(
       fontSize: 12.0,
     ),
   );

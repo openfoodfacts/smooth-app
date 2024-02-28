@@ -149,9 +149,6 @@ class _SearchHistoryTile extends StatelessWidget {
             minLeadingWidth: 10.0,
             title: Text(
               query,
-              style: TextStyle(
-                color: Theme.of(context).colorScheme.onBackground,
-              ),
             ),
           ),
         ),
@@ -189,9 +186,6 @@ class _SearchItemPasteFromClipboard extends StatelessWidget {
         child: ListTile(
           title: Text(
             localizations.paste_from_clipboard,
-            style: TextStyle(
-              color: Theme.of(context).colorScheme.onBackground,
-            ),
           ),
           leading: const Icon(Icons.copy),
           minLeadingWidth: 10.0,
