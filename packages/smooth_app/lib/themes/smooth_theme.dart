@@ -137,10 +137,6 @@ class SmoothTheme {
             }
             return null;
           }),
-        ),
-        listTileTheme: ListTileThemeData(
-          iconColor: myColorScheme.primary,
-          textColor: myColorScheme.primary,
         ));
   }
 
