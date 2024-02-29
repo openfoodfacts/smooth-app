@@ -38,9 +38,11 @@ class _SearchHistoryViewState extends State<SearchHistoryView> {
   @override
   Widget build(BuildContext context) {
     return ListTileTheme(
-      data: const ListTileThemeData(
-        titleTextStyle: TextStyle(fontSize: 20.0),
+      data: ListTileThemeData(
+        titleTextStyle: const TextStyle(fontSize: 20.0),
         minLeadingWidth: 18.0,
+        iconColor: Theme.of(context).colorScheme.onBackground,
+        textColor: Theme.of(context).colorScheme.onBackground,
       ),
       child: ListView.builder(
         itemBuilder: (BuildContext context, int i) {
