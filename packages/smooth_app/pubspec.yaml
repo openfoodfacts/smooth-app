@@ -18,7 +18,7 @@ dependencies:
   carousel_slider: 4.2.1
   cupertino_icons: 1.0.6
   device_preview: 1.1.0
-  flutter_svg: 2.0.9
+  flutter_svg: 2.0.10+1
   flutter_map: 6.1.0
   flutter_widget_from_html_core: 0.8.5+3
   fwfh_selectable_text: 0.8.3+1
@@ -35,7 +35,7 @@ dependencies:
   permission_handler: 11.3.0
   photo_view: 0.14.0
   uuid: 3.0.7
-  provider: 6.1.1
+  provider: 6.1.2
   sentry_flutter: 7.13.1
   sqflite: 2.3.2
   url_launcher: 6.1.3

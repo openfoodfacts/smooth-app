@@ -8,6 +8,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/database/abstract_sql_dao.dart';
 import 'package:smooth_app/database/bulk_deletable.dart';
 import 'package:smooth_app/database/bulk_manager.dart';
+import 'package:smooth_app/database/dao_product_last_access.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:sqflite/sqflite.dart';
 
@@ -254,5 +255,51 @@ class DaoProduct extends AbstractSqlDao implements BulkDeletable {
   Future<int> deleteAll() async {
     // We return the number of rows deleted ie the number of products deleted
     return localDatabase.database.delete(_TABLE_PRODUCT);
+  }
+
+  /// Returns the most recently locally accessed products with wrong language.
+  ///
+  /// Typical use-case: when the user changes the app language, downloading
+  /// incrementally all products with a different (or null) download language.
+  /// We need [excludeBarcodes] because in some rare cases products may not be
+  /// found anymore on the server - it happened to me with obviously fake test
+  /// products being probably wiped out.
+  Future<List<String>> getTopProductsToTranslate(
+    final OpenFoodFactsLanguage language, {
+    required final int limit,
+    required final List<String> excludeBarcodes,
+  }) async {
+    final List<Map<String, dynamic>> queryResults =
+        await localDatabase.database.rawQuery(
+      'select p.$_TABLE_PRODUCT_COLUMN_BARCODE '
+      'from'
+      ' $_TABLE_PRODUCT p'
+      ' left outer join ${DaoProductLastAccess.TABLE} a'
+      '  on p.$_TABLE_PRODUCT_COLUMN_BARCODE = a.${DaoProductLastAccess.COLUMN_BARCODE} '
+      'where'
+      ' p.$_TABLE_PRODUCT_COLUMN_LANGUAGE is null'
+      ' or p.$_TABLE_PRODUCT_COLUMN_LANGUAGE != ? '
+      'order by a.${DaoProductLastAccess.COLUMN_LAST_ACCESS} desc nulls last '
+      'limit ?',
+      <Object>[
+        language.offTag,
+        limit + excludeBarcodes.length,
+      ],
+    );
+
+    final List<String> result = <String>[];
+
+    for (final Map<String, dynamic> row in queryResults) {
+      final String barcode = row[_TABLE_PRODUCT_COLUMN_BARCODE] as String;
+      if (excludeBarcodes.contains(barcode)) {
+        continue;
+      }
+      result.add(barcode);
+      if (result.length == limit) {
+        break;
+      }
+    }
+
+    return result;
   }
 }
