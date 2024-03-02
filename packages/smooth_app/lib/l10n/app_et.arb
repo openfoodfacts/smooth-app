@@ -32,7 +32,7 @@
     "save": "Salvesta",
     "save_confirmation": "Are you sure you want to save?",
     "skip": "Skip",
-    "cancel": "Cancel",
+    "cancel": "Tühista",
     "@cancel": {},
     "ignore": "Ignore",
     "@ignore": {
@@ -331,6 +331,10 @@
     "legalNotices": "Legal notices",
     "@legalNotices": {
         "description": "A link to open the legal notices on the website"
+    },
+    "privacy_policy": "Privacy policy",
+    "@privacy_policy": {
+        "description": "A link to open the privacy policy on the website"
     },
     "about_this_app": "About this app",
     "@about_this_app": {
@@ -1205,7 +1209,7 @@
     "permission_photo_denied_dialog_settings_title": "Permission denied",
     "permission_photo_denied_dialog_settings_message": "As you've previously denied the camera permission, you must allow it manually from the Settings.",
     "permission_photo_denied_dialog_settings_button_open": "Ava seaded",
-    "permission_photo_denied_dialog_settings_button_cancel": "Cancel",
+    "permission_photo_denied_dialog_settings_button_cancel": "Tühista",
     "permission_photo_none_found": "No camera detected",
     "@permission_photo_none_found": {
         "description": "Message for the user when no camera was detected, replacing the barcode scanner"
@@ -1594,7 +1598,7 @@
     "@dev_preferences_button_positive": {
         "description": "User dev preferences - Positive button label"
     },
-    "dev_preferences_button_negative": "Cancel",
+    "dev_preferences_button_negative": "Tühista",
     "@dev_preferences_button_negative": {
         "description": "User dev preferences - Negative button label"
     },
@@ -2009,7 +2013,7 @@
     "@no_email_client_available_dialog_title": {
         "description": "Title for the dialog when no email client is installed on the device"
     },
-    "no_email_client_available_dialog_content": "Please send us manually an email to contact@openfoodfacts.org",
+    "no_email_client_available_dialog_content": "Please send us manually an email to mobile@openfoodfacts.org",
     "@no_email_client_available_dialog_content": {
         "description": "Content for the dialog when no email client is installed on the device"
     },
@@ -2507,7 +2511,7 @@
     "contact_title_press_page": "Press Page",
     "contact_title_press_email": "Press Contact",
     "contact_title_newsletter": "Subscribe to our newsletter",
-    "hunger_games_loading_line1": "Please let us a few seconds…",
+    "hunger_games_loading_line1": "Please give us a few seconds…",
     "hunger_games_loading_line2": "We're downloading the questions!",
     "hunger_games_error_label": "Argh! Something went wrong… and we couldn't load the questions.",
     "hunger_games_error_retry_button": "Let's retry!",
