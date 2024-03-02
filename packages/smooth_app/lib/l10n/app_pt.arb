@@ -277,7 +277,7 @@
     "sign_up_page_provide_valid_email": "Por favor, indique um endereço de email válido.",
     "sign_up_page_server_busy": "Pedimos desculpa, estamos com algumas dificuldades técnicas para criar a sua conta. Por favor, tente novamente mais tarde.",
     "@Settings": {},
-    "settingsTitle": "Configurações",
+    "settingsTitle": "Definições",
     "@settingsTitle": {
         "description": "The title of the Settings page"
     },
@@ -331,6 +331,10 @@
     "legalNotices": "Avisos legais",
     "@legalNotices": {
         "description": "A link to open the legal notices on the website"
+    },
+    "privacy_policy": "Privacy policy",
+    "@privacy_policy": {
+        "description": "A link to open the privacy policy on the website"
     },
     "about_this_app": "Sobre esta aplicação",
     "@about_this_app": {
@@ -2009,7 +2013,7 @@
     "@no_email_client_available_dialog_title": {
         "description": "Title for the dialog when no email client is installed on the device"
     },
-    "no_email_client_available_dialog_content": "Por favor envie-nos manualmente um e-mail para contact@openfoodfacts.org",
+    "no_email_client_available_dialog_content": "Please send us manually an email to mobile@openfoodfacts.org",
     "@no_email_client_available_dialog_content": {
         "description": "Content for the dialog when no email client is installed on the device"
     },
