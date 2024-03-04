@@ -332,6 +332,10 @@
     "@legalNotices": {
         "description": "A link to open the legal notices on the website"
     },
+    "privacy_policy": "Datenschutzrichtlinie",
+    "@privacy_policy": {
+        "description": "A link to open the privacy policy on the website"
+    },
     "about_this_app": "Über diese App",
     "@about_this_app": {
         "description": "Button label: Opens a pop up window which shows information about the app"
@@ -1974,11 +1978,11 @@
     "@copy_to_clipboard": {
         "description": "Copy to clipboard button description"
     },
-    "paste_from_clipboard": "Paste from clipboard",
+    "paste_from_clipboard": "Aus Zwischenspeicher einfügen",
     "@paste_from_clipboard": {
         "description": "Paste the content of the clipboard"
     },
-    "no_data_available_in_clipboard": "No data available in your clipboard",
+    "no_data_available_in_clipboard": "Keine Daten in Ihrer Zwischenablage verfügbar",
     "@no_data_available_in_clipboard": {
         "description": "No data available in your clipboard"
     },
@@ -2009,7 +2013,7 @@
     "@no_email_client_available_dialog_title": {
         "description": "Title for the dialog when no email client is installed on the device"
     },
-    "no_email_client_available_dialog_content": "Bitte senden Sie uns manuell eine E-Mail an contact@openfoodfacts.org",
+    "no_email_client_available_dialog_content": "Bitte senden Sie uns manuell eine E-Mail an mobile@openfoodfacts.org",
     "@no_email_client_available_dialog_content": {
         "description": "Content for the dialog when no email client is installed on the device"
     },
