@@ -53,6 +53,49 @@ class UserPreferencesConnect extends AbstractUserPreferences {
   @override
   List<UserPreferencesItem> getChildren() => <UserPreferencesItem>[
         _getListTile(
+          title: appLocalizations.contact_title_newsletter,
+          url: 'https://link.openfoodfacts.org/newsletter-en',
+          leadingIconData: CupertinoIcons.news_solid,
+        ),
+        _getListTile(
+          title: appLocalizations.support_via_email,
+          leadingIconData: Icons.drafts,
+          onTap: () async {
+            final bool? includeLogs = await showDialog<bool>(
+                context: context,
+                builder: (BuildContext context) {
+                  return SmoothAlertDialog(
+                    title: appLocalizations
+                        .support_via_email_include_logs_dialog_title,
+                    body: Text(
+                      appLocalizations
+                          .support_via_email_include_logs_dialog_body,
+                    ),
+                    close: true,
+                    positiveAction: SmoothActionButton(
+                        text: appLocalizations.yes,
+                        onPressed: () => Navigator.of(context).pop(true)),
+                    negativeAction: SmoothActionButton(
+                        text: appLocalizations.no,
+                        onPressed: () => Navigator.of(context).pop(false)),
+                  );
+                });
+
+            if (includeLogs == null) {
+              return;
+            }
+
+            await _sendEmail(
+              body: await _emailBody,
+              subject:
+                  '${appLocalizations.help_with_openfoodfacts} (Help with Open Food Facts)',
+              recipient: 'mobile@openfoodfacts.org',
+              attachmentPaths: includeLogs == true ? Logs.logFilesPaths : null,
+            );
+          },
+        ),
+        _getDivider(),
+        _getListTile(
           title: appLocalizations.instagram,
           url: appLocalizations.instagram_link,
           leadingWidget: SvgPicture.asset(
@@ -125,49 +168,6 @@ class UserPreferencesConnect extends AbstractUserPreferences {
                     ? 'presse@openfoodfacts.org'
                     : 'press@openfoodfacts.org',
           ),
-        ),
-        _getDivider(),
-        _getListTile(
-          title: appLocalizations.contact_title_newsletter,
-          url: 'https://link.openfoodfacts.org/newsletter-en',
-          leadingIconData: CupertinoIcons.news_solid,
-        ),
-        _getListTile(
-          title: appLocalizations.support_via_email,
-          leadingIconData: Icons.drafts,
-          onTap: () async {
-            final bool? includeLogs = await showDialog<bool>(
-                context: context,
-                builder: (BuildContext context) {
-                  return SmoothAlertDialog(
-                    title: appLocalizations
-                        .support_via_email_include_logs_dialog_title,
-                    body: Text(
-                      appLocalizations
-                          .support_via_email_include_logs_dialog_body,
-                    ),
-                    close: true,
-                    positiveAction: SmoothActionButton(
-                        text: appLocalizations.yes,
-                        onPressed: () => Navigator.of(context).pop(true)),
-                    negativeAction: SmoothActionButton(
-                        text: appLocalizations.no,
-                        onPressed: () => Navigator.of(context).pop(false)),
-                  );
-                });
-
-            if (includeLogs == null) {
-              return;
-            }
-
-            await _sendEmail(
-              body: await _emailBody,
-              subject:
-                  '${appLocalizations.help_with_openfoodfacts} (Help with Open Food Facts)',
-              recipient: 'mobile@openfoodfacts.org',
-              attachmentPaths: includeLogs == true ? Logs.logFilesPaths : null,
-            );
-          },
         ),
       ];
 
