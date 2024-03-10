@@ -138,7 +138,7 @@ Future<bool> _init1() async {
   );
   UserManagementProvider().checkUserLoginValidity();
 
-  AnalyticsHelper.linkPreferences(_userPreferences);
+  await AnalyticsHelper.linkPreferences(_userPreferences);
 
   await ProductQuery.initCountry(_userPreferences);
   _themeProvider = ThemeProvider(_userPreferences);
