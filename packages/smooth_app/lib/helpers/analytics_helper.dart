@@ -193,7 +193,9 @@ class AnalyticsHelper {
 
   static String latestSearch = '';
 
-  static void linkPreferences(UserPreferences userPreferences) {
+  static late int _uniqueRandom;
+
+  static Future<void> linkPreferences(UserPreferences userPreferences) async {
     // Init the value
     _setAnalyticsReports(userPreferences.onAnalyticsChanged.value);
     _setCrashReports(userPreferences.onCrashReportingChanged.value);
@@ -206,6 +208,8 @@ class AnalyticsHelper {
     userPreferences.onCrashReportingChanged.addListener(() {
       _setCrashReports(userPreferences.onCrashReportingChanged.value);
     });
+
+    _uniqueRandom = await userPreferences.getUniqueRandom();
   }
 
   static Future<void> initSentry({
@@ -253,7 +257,7 @@ class AnalyticsHelper {
     }
 
     if (MatomoTracker.instance.initialized) {
-      MatomoTracker.instance.setVisitorUserId(_uuid);
+      MatomoTracker.instance.setVisitorUserId(_visitorId);
     }
   }
 
@@ -281,15 +285,15 @@ class AnalyticsHelper {
       await MatomoTracker.instance.initialize(
         url: 'https://analytics.openfoodfacts.org/matomo.php',
         siteId: 2,
-        visitorId: _uuid,
+        visitorId: _visitorId,
       );
     } catch (err) {
       // With Hot Reload, this may trigger a late field already initialized
     }
   }
 
-  /// A UUID must be at least one 16 characters
-  static String? get _uuid {
+  /// A visitor id should have a length of 16 characters.
+  static String? get _visitorId {
     // if user opts out then track anonymously with userId containing zeros
     if (kDebugMode) {
       return 'smoothie_debug--';
@@ -297,13 +301,20 @@ class AnalyticsHelper {
 
     switch (_analyticsReporting) {
       case _AnalyticsTrackingMode.anonymous:
-        return '0' * 16;
+        return _anonymousVisitorId;
       case _AnalyticsTrackingMode.disabled:
         return '';
       case _AnalyticsTrackingMode.enabled:
         return OpenFoodAPIConfiguration.uuid;
     }
   }
+
+  /// Returns a unique visitor id that starts with a letter between A and Z.
+  static String get _anonymousVisitorId => _uniqueLetter + ('0' * 15);
+
+  /// Returns a letter between A and Z, depending on [_uniqueRandom].
+  static String get _uniqueLetter =>
+      String.fromCharCode('A'.codeUnitAt(0) + _uniqueRandom % 26);
 
   static void trackEvent(
     AnalyticsEvent msg, {

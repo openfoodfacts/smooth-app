@@ -75,6 +75,7 @@ class UserPreferences extends ChangeNotifier {
   static const String _TAG_CRASH_REPORTS = 'crash_reports';
   static const String _TAG_EXCLUDED_ATTRIBUTE_IDS = 'excluded_attributes';
   static const String _TAG_USER_GROUP = '_user_group';
+  static const String _TAG_UNIQUE_RANDOM = '_unique_random';
 
   /// Camera preferences
 
@@ -170,6 +171,18 @@ class UserPreferences extends ChangeNotifier {
 
   /// A random int between 0 and 10 (a naive implementation to allow A/B testing)
   int get userGroup => _sharedPreferences.getInt(_TAG_USER_GROUP)!;
+
+  /// Returns a huge random value that will be computed just once.
+  Future<int> getUniqueRandom() async {
+    const String tag = _TAG_UNIQUE_RANDOM;
+    int? result = _sharedPreferences.getInt(tag);
+    if (result != null) {
+      return result;
+    }
+    result = Random().nextInt(1 << 32);
+    await _sharedPreferences.setInt(tag, result);
+    return result;
+  }
 
   Future<void> setCrashReports(final bool state) async {
     await _sharedPreferences.setBool(_TAG_CRASH_REPORTS, state);
