@@ -332,6 +332,10 @@
     "@legalNotices": {
         "description": "A link to open the legal notices on the website"
     },
+    "privacy_policy": "Politique de confidentialité",
+    "@privacy_policy": {
+        "description": "A link to open the privacy policy on the website"
+    },
     "about_this_app": "À propos de cette appli",
     "@about_this_app": {
         "description": "Button label: Opens a pop up window which shows information about the app"
@@ -634,9 +638,9 @@
     "nutritional_facts_added": "Informations nutritionnelles ajoutées",
     "categories_added": "Catégories ajoutées",
     "new_product_title_nutriscore": "Calculez le Nutri-Score",
-    "new_product_subtitle_nutriscore": "Merci de renseigner la catégorie de l'aliment et les données nutritionnelles",
+    "new_product_subtitle_nutriscore": "Merci d'indiquer la catégorie de l'aliment et les données nutritionnelles",
     "new_product_title_ecoscore": "Calculez l'Eco-Score",
-    "new_product_subtitle_ecoscore": "Merci de renseigner au moins la catégorie de l'aliment",
+    "new_product_subtitle_ecoscore": "Merci d'indiquer au moins la catégorie de l'aliment",
     "new_product_additional_ecoscore": "Rendre le calcul de l'Eco-Score plus précis avec les origines géographiques, l'emballage et plus",
     "new_product_title_nova": "Calculer le niveau de transformation des aliments (NOVA)",
     "new_product_subtitle_nova": "Obtenez-le en remplissant la catégorie alimentaire et les ingrédients",
@@ -1764,7 +1768,7 @@
     "@category_picker_screen_title": {
         "description": "Categories picker screen title"
     },
-    "basic_details": "Renseignements de base",
+    "basic_details": "Détails de base",
     "product_name": "Nom du produit",
     "add_basic_details_product_name_error": "Veuillez saisir le nom du produit",
     "brand_name": "Marque",
@@ -2009,7 +2013,7 @@
     "@no_email_client_available_dialog_title": {
         "description": "Title for the dialog when no email client is installed on the device"
     },
-    "no_email_client_available_dialog_content": "Veuillez nous envoyer manuellement un email à contact@openfoodfacts.org",
+    "no_email_client_available_dialog_content": "Veuillez, s'il vous plaît, nous envoyer manuellement un email à mobile@openfoodfacts.org",
     "@no_email_client_available_dialog_content": {
         "description": "Content for the dialog when no email client is installed on the device"
     },
@@ -2073,7 +2077,7 @@
     "@portion_calculator_accessibility": {
         "description": "Hint for the acessibility to explain to enter a quantity."
     },
-    "portion_calculator_error": "Merci de renseigner une quantité entre {min} et {max} g",
+    "portion_calculator_error": "Merci d'indiquer une quantité entre {min} et {max} g",
     "@portion_calculator_error": {
         "description": "Error message to explain that the quantity is invalid.",
         "placeholders": {

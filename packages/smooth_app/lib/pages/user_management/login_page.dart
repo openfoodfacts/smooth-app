@@ -356,13 +356,16 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
       builder: (BuildContext context) => SmoothAlertDialog(
         body: Text(appLocalizations.app_rating_dialog_title_enjoying_app),
         positiveAction: SmoothActionButton(
-          text: appLocalizations
-              .app_rating_dialog_title_enjoying_positive_actions,
+          text: appLocalizations.tagline_app_review_button_positive,
           onPressed: () => Navigator.of(context).pop(true),
         ),
         negativeAction: SmoothActionButton(
-          text: appLocalizations.not_really,
+          text: appLocalizations.tagline_app_review_button_negative,
           onPressed: () => Navigator.of(context).pop(false),
+        ),
+        neutralAction: SmoothActionButton(
+          text: appLocalizations.tagline_app_review_button_later,
+          onPressed: () => Navigator.of(context).pop(null),
         ),
       ),
     );

@@ -116,7 +116,7 @@ class _SvgSafeNetworkState extends State<SvgSafeNetwork> {
           }
           if (snapshot.error != null) {
             final bool serverOrConnectionIssue =
-                snapshot.error.toString().startsWith("Failed host lookup: '");
+                snapshot.error.toString().contains("Failed host lookup: '");
             if (!serverOrConnectionIssue) {
               Logs.e(
                 'Could not download "$_url"',

@@ -332,6 +332,10 @@
     "@legalNotices": {
         "description": "A link to open the legal notices on the website"
     },
+    "privacy_policy": "Informativa sulla privacy",
+    "@privacy_policy": {
+        "description": "A link to open the privacy policy on the website"
+    },
     "about_this_app": "Su quest'app",
     "@about_this_app": {
         "description": "Button label: Opens a pop up window which shows information about the app"
@@ -2009,7 +2013,7 @@
     "@no_email_client_available_dialog_title": {
         "description": "Title for the dialog when no email client is installed on the device"
     },
-    "no_email_client_available_dialog_content": "Sei pregato di inviarci manualmente un'email a contact@openfoodfacts.org",
+    "no_email_client_available_dialog_content": "Ti preghiamo di inviarci manualmente un'email, a mobile@openfoodfacts.org",
     "@no_email_client_available_dialog_content": {
         "description": "Content for the dialog when no email client is installed on the device"
     },
@@ -2507,7 +2511,7 @@
     "contact_title_press_page": "Pagina ufficio stampa",
     "contact_title_press_email": "Contatto ufficio stampa",
     "contact_title_newsletter": "Iscriviti alla nostra newsletter",
-    "hunger_games_loading_line1": "Per favore lasciaci qualche secondo…",
+    "hunger_games_loading_line1": "Ti preghiamo di darci qualche secondo…",
     "hunger_games_loading_line2": "Stiamo scaricando le domande!",
     "hunger_games_error_label": "Argh! Qualcosa è andato storto… e non siamo riusciti a caricare le domande.",
     "hunger_games_error_retry_button": "Riproviamo!",
