@@ -126,7 +126,7 @@ class _SearchHistoryTile extends StatelessWidget {
         ),
       ),
       child: InkWell(
-        onTap: () => onTap,
+        onTap: () => onTap(),
         child: Padding(
           padding: const EdgeInsetsDirectional.only(start: 18.0, end: 13.0),
           child: ListTile(
