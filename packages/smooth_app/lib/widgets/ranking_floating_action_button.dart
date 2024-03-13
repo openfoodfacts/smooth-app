@@ -19,19 +19,21 @@ class RankingFloatingActionButton extends StatelessWidget {
   Widget build(BuildContext context) => SmoothRevealAnimation(
         animationCurve: Curves.easeInOutBack,
         startOffset: const Offset(0.0, 1.0),
-        child: Row(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            SizedBox(width: MediaQuery.of(context).size.width * 0.09),
-            FloatingActionButton.extended(
-              heroTag: 'ranking_fab_${Random(100)}',
-              elevation: 12.0,
-              icon: const Icon(rankingIconData),
-              label: Text(AppLocalizations.of(context).myPersonalizedRanking),
-              onPressed: onPressed,
-            ),
-          ],
+        child: FittedBox(
+          child: Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              SizedBox(width: MediaQuery.of(context).size.width * 0.09),
+              FloatingActionButton.extended(
+                heroTag: 'ranking_fab_${Random(100)}',
+                elevation: 12.0,
+                icon: const Icon(rankingIconData),
+                label: Text(AppLocalizations.of(context).myPersonalizedRanking),
+                onPressed: onPressed,
+              ),
+            ],
+          ),
         ),
       );
 }
