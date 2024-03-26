@@ -11,7 +11,7 @@
                 path="com.google.mlkit.internal.xml" />
         <include
                 domain="database"
-                path="app_flutter/smoothie.db" />
+                path="smoothie.db" />
         <exclude domain="root" />
         <include
                 domain="root"
