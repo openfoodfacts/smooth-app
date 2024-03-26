@@ -340,7 +340,7 @@ class _CropPageState extends State<CropPage> {
         sequenceNumber,
       );
       final Rect cropRect = _getLocalCropRect();
-      if (context.mounted) {
+      if (mounted) {
         await BackgroundTaskImage.addTask(
           widget.barcode,
           language: widget.language,
@@ -361,7 +361,7 @@ class _CropPageState extends State<CropPage> {
       // issue here (we're cropping from an allegedly already privacy compliant
       // picture).
       final Rect cropRect = _getServerCropRect();
-      if (context.mounted) {
+      if (mounted) {
         await BackgroundTaskCrop.addTask(
           widget.barcode,
           language: widget.language,

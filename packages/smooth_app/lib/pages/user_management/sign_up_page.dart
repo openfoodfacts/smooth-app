@@ -394,7 +394,7 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
         }
       }
 
-      if (context.mounted) {
+      if (mounted) {
         await LoadingDialog.error(
           context: context,
           title: errorMessage,
@@ -408,7 +408,7 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
       return;
     }
     await context.read<UserManagementProvider>().putUser(user);
-    if (!context.mounted) {
+    if (!mounted) {
       return;
     }
     await showDialog<void>(

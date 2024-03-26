@@ -370,7 +370,7 @@ class _UserEmptyListsState extends State<_UserEmptyLists> {
               await ProductListUserDialogHelper(widget.daoProductList)
                   .showCreateUserListDialog(context);
 
-          if (productList != null && mounted) {
+          if (productList != null && context.mounted) {
             Navigator.pop<bool>(context, true);
           }
         },

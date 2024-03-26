@@ -244,7 +244,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
       return false;
     }
 
-    if (!context.mounted) {
+    if (!mounted) {
       return false;
     }
 

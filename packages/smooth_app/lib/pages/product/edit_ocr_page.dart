@@ -100,7 +100,7 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
     )) {
       return;
     }
-    if (!context.mounted) {
+    if (!mounted) {
       return;
     }
     AnalyticsHelper.trackProductEdit(
