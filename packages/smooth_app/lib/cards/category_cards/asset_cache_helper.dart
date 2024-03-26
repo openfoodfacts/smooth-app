@@ -31,4 +31,7 @@ class AssetCacheHelper {
 
   Exception loadException() =>
       Exception('could not load any cached file ($cachedFilenames)');
+
+  /// Kind of [ObjectKey].
+  Key getKey() => Key('$url/$width/$height/$color/$cachedFilenames');
 }
