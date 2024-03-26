@@ -1,12 +1,9 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:smooth_app/helpers/user_management_helper.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 import 'package:webview_flutter/webview_flutter.dart';
+import 'package:webview_flutter_android/webview_flutter_android.dart';
+import 'package:webview_flutter_wkwebview/webview_flutter_wkwebview.dart';
 
 class AccountDeletionWebview extends StatefulWidget {
   @override
@@ -14,45 +11,42 @@ class AccountDeletionWebview extends StatefulWidget {
 }
 
 class _AccountDeletionWebviewState extends State<AccountDeletionWebview> {
+  late final WebViewController _controller;
+
   @override
   void initState() {
     super.initState();
-    // Enable virtual display.
-    if (Platform.isAndroid) {
-      WebView.platform = AndroidWebView();
+
+    PlatformWebViewControllerCreationParams params =
+        const PlatformWebViewControllerCreationParams();
+
+    if (WebViewPlatform.instance is WebKitWebViewPlatform) {
+      params = WebKitWebViewControllerCreationParams
+          .fromPlatformWebViewControllerCreationParams(params);
+    } else if (WebViewPlatform.instance is AndroidWebViewPlatform) {
+      params = AndroidWebViewControllerCreationParams
+          .fromPlatformWebViewControllerCreationParams(params);
     }
+
+    _controller = WebViewController.fromPlatformCreationParams(params)
+      ..loadRequest(_getUri());
   }
 
-  String _getUrl() {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final String subject = appLocalizations.account_deletion_subject;
-
-    final String? userId = OpenFoodAPIConfiguration.globalUser?.userId;
-
-    final Uri uri = Uri(
+  Uri _getUri() => Uri(
         scheme: 'https',
         host: 'blog.openfoodfacts.org',
         pathSegments: <String>[
           'en',
           'account-deletion',
         ],
-        queryParameters: <String, String>{
-          'your-subject': subject,
-          if (userId != null && userId.isEmail)
-            'your-mail': userId
-          else if (userId != null)
-            'your-name': userId
-        });
-
-    return uri.toString();
-  }
+      );
 
   @override
   Widget build(BuildContext context) {
     return SmoothScaffold(
       appBar: SmoothAppBar(),
-      body: WebView(
-        initialUrl: _getUrl(),
+      body: WebViewWidget(
+        controller: _controller,
       ),
     );
   }
