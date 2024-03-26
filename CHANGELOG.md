@@ -1,5 +1,18 @@
 # Changelog
 
+## [4.15.0](https://github.com/openfoodfacts/smooth-app/compare/v4.14.0...v4.15.0) (2024-03-26)
+
+
+### Features
+
+* 5095 - matomo anonymous visitor id now starts with a persistent letter ([#5107](https://github.com/openfoodfacts/smooth-app/issues/5107)) ([f1d0992](https://github.com/openfoodfacts/smooth-app/commit/f1d09923cc0c1c24d6248c4bbc2e34f1eb7469fc))
+
+
+### Bug Fixes
+
+* 5104 - fixed the position of the "Failed lookup" string ([#5105](https://github.com/openfoodfacts/smooth-app/issues/5105)) ([98de444](https://github.com/openfoodfacts/smooth-app/commit/98de4446344d825aa9aae5ee397c65b4ec16da44))
+* adjusting onTap call ([#5113](https://github.com/openfoodfacts/smooth-app/issues/5113)) ([f57c0c0](https://github.com/openfoodfacts/smooth-app/commit/f57c0c00c72f341595d036a7f94bc9c1d8951520))
+
 ## [4.14.0](https://github.com/openfoodfacts/smooth-app/compare/v4.13.0...v4.14.0) (2024-03-02)
 
 
