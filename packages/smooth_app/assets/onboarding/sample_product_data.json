@@ -592,7 +592,6 @@
             "threatened_species" : {}
          },
          "agribalyse" : {
-            "agribalyse_food_code" : "25903",
             "agribalyse_proxy_food_code" : "25903",
             "co2_agriculture" : 0.10397607,
             "co2_consumption" : 0.011045523,
@@ -1975,7 +1974,7 @@
                               },
                               {
                                  "evaluation" : "good",
-                                 "text" : "-44%"
+                                 "text" : "-45%"
                               }
                            ]
                         },
@@ -2006,7 +2005,7 @@
                                  "text" : "4 g"
                               },
                               {
-                                 "text" : "-60%"
+                                 "text" : "-61%"
                               }
                            ]
                         },
@@ -2022,7 +2021,7 @@
                               },
                               {
                                  "evaluation" : "good",
-                                 "text" : "+89%"
+                                 "text" : "+91%"
                               }
                            ]
                         },
@@ -2054,7 +2053,7 @@
                               },
                               {
                                  "evaluation" : "bad",
-                                 "text" : "-55%"
+                                 "text" : "-54%"
                               }
                            ]
                         },
