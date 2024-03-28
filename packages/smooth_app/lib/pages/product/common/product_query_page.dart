@@ -160,16 +160,18 @@ class _ProductQueryPageState extends State<ProductQueryPage>
                 ? MainAxisAlignment.spaceBetween
                 : MainAxisAlignment.center,
             children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 5.0),
-                child: RankingFloatingActionButton(
-                  onPressed: () => Navigator.push<Widget>(
-                    context,
-                    MaterialPageRoute<Widget>(
-                      builder: (BuildContext context) =>
-                          PersonalizedRankingPage(
-                        barcodes: _model.displayBarcodes,
-                        title: widget.name,
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 5.0),
+                  child: RankingFloatingActionButton(
+                    onPressed: () => Navigator.push<Widget>(
+                      context,
+                      MaterialPageRoute<Widget>(
+                        builder: (BuildContext context) =>
+                            PersonalizedRankingPage(
+                          barcodes: _model.displayBarcodes,
+                          title: widget.name,
+                        ),
                       ),
                     ),
                   ),

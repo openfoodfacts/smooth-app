@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/generic_lib/animations/smooth_reveal_animation.dart';
@@ -24,12 +25,23 @@ class RankingFloatingActionButton extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             SizedBox(width: MediaQuery.of(context).size.width * 0.09),
-            FloatingActionButton.extended(
-              heroTag: 'ranking_fab_${Random(100)}',
-              elevation: 12.0,
-              icon: const Icon(rankingIconData),
-              label: Text(AppLocalizations.of(context).myPersonalizedRanking),
-              onPressed: onPressed,
+            Flexible(
+              fit: FlexFit.tight,
+              child: FittedBox(
+                fit: BoxFit.scaleDown,
+                alignment: Alignment.center,
+                child: FloatingActionButton.extended(
+                  heroTag: 'ranking_fab_${Random().nextInt(100)}',
+                  elevation: 12.0,
+                  icon: const Icon(rankingIconData),
+                  label: AutoSizeText(
+                    AppLocalizations.of(context).myPersonalizedRanking,
+                    maxLines: 2,
+                    textAlign: TextAlign.center,
+                  ),
+                  onPressed: onPressed,
+                ),
+              ),
             ),
           ],
         ),
