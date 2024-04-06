@@ -505,7 +505,7 @@
     "@unknownBrand": {},
     "unknownProductName": "Unknown product name",
     "@unknownProductName": {},
-    "label_refresh": "Refresh",
+    "label_refresh": "Osvježi",
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
@@ -2429,7 +2429,7 @@
             }
         }
     },
-    "loading": "Loading…",
+    "loading": "Učitavanje…",
     "@loading": {
         "description": "Loading…"
     },
