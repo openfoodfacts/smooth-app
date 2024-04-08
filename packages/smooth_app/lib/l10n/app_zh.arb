@@ -848,7 +848,7 @@
     },
     "really_clear": "确定要删除此列表吗？",
     "@Plural": {},
-    "pct_match": "{percent}% 匹配度",
+    "pct_match": "{Percent}% 匹配度",
     "@pct_match": {
         "description": "This product has a x percent match with your preferences",
         "placeholders": {
