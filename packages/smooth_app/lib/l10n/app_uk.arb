@@ -927,7 +927,7 @@
     "@consent_analytics_title": {
         "description": "Title for the consent analytics UI Page"
     },
-    "consent_analytics_body1": "Help the Open Food Facts volunteers to improve the app. You decide whether to submit anonymous analytics.",
+    "consent_analytics_body1": "Допоможіть волонтерам Open Food Facts покращити додаток. Ви самі вирішуєте чи подавати анонімну аналітику.",
     "@conset_analytics_body1": {
         "description": "first paragraph for the consent analytics UI Page"
     },
@@ -1066,7 +1066,7 @@
     "@product_list_icon_desc": {
         "description": "When the history list is empty, icon description (for accessibility) of the message explaining to start scanning"
     },
-    "product_list_empty_title": "Start scanning",
+    "product_list_empty_title": "Почати сканування",
     "@product_list_empty_title": {
         "description": "When the history list is empty, title of the message explaining to start scanning"
     },
@@ -1112,8 +1112,8 @@
     "@user_profile_title_guest": {
         "description": "When the user is not connected"
     },
-    "user_profile_subtitle_guest": "Sign-in or sign-up to join the Open Food Facts community",
-    "user_profile_title_id_email": "Open Food Facts login: {email}",
+    "user_profile_subtitle_guest": "Увійдіть або зареєструйтеся, аби приєднатися до спільноти community",
+    "user_profile_title_id_email": "Логін Open Food Facts: {email}",
     "@user_profile_title_id_email": {
         "description": "User login (when it's an email)",
         "placeholders": {
@@ -1436,7 +1436,7 @@
     "@user_list_add_product": {
         "description": "Label for the dialog to add a product to a list"
     },
-    "user_list_button_new": "Create a new list",
+    "user_list_button_new": "Створити новий список",
     "@user_list_button_new": {
         "description": "Short label of a 'create a new list' button"
     },
@@ -1452,7 +1452,7 @@
     "@added_to_list_msg": {
         "description": "Message when products have been successfully added to a list"
     },
-    "user_list_popup_clear": "Clear your history",
+    "user_list_popup_clear": "Очистити вашу історію",
     "@user_list_popup_clear": {
         "description": "Short label of a 'clear your history list' popup"
     },
@@ -1493,11 +1493,11 @@
             }
         }
     },
-    "camera_toggle_camera": "Switch between back and front camera",
+    "camera_toggle_camera": "Перемикатися між задньою та передньою камерами",
     "@camera_toggle_camera": {
         "description": "Explanation for the icon to switch between cameras"
     },
-    "camera_toggle_flash": "Turn ON or OFF the flash of the camera",
+    "camera_toggle_flash": "Увімкнути або вимкнути спалах камери",
     "@camera_toggle_flash": {
         "description": "Explanation for the icon to turn on/off the flash"
     },
@@ -1698,7 +1698,7 @@
     "@edit_product_action_confirm": {
         "description": "Product edition - FAB actions - confirm"
     },
-    "signup_page_terms_of_use_line1": "I agree to the Open Food Facts ",
+    "signup_page_terms_of_use_line1": "Я погоджуюсь з Open Food Facts ",
     "@signup_page_terms_of_use_line1": {
         "description": "User consent for terms of use (line 1)"
     },
@@ -1798,9 +1798,9 @@
     "@confirm_clear": {
         "description": "Asking about whether to clear the history list or not"
     },
-    "alert_clear_selected_user_list": "You're about to clear selected items in your history",
-    "confirm_clear_selected_user_list": "Are you sure you want to continue?",
-    "alert_select_items_to_clear": "Please select one or more items to clear",
+    "alert_clear_selected_user_list": "Ви збираєтеся очистити вибрані елементи в історії",
+    "confirm_clear_selected_user_list": "Ви впевнені, що хочете продовжити?",
+    "alert_select_items_to_clear": "Виберіть один або кілька елементів для очищення",
     "confirm_clear_user_list": "Ви збираєтеся очистити цей список ({name}): ви впевнені, що бажаєте продовжити?",
     "@confirm_clear_user_list": {
         "description": "Asking about whether to clear the list or not",
@@ -1810,11 +1810,11 @@
             }
         }
     },
-    "confirm_delete_user_list_title": "Delete the list?",
+    "confirm_delete_user_list_title": "Видалити цей список?",
     "@confirm_delete_user_list_title": {
         "description": "Title when asking about whether to delete the list or not"
     },
-    "confirm_delete_user_list_message": "You're about to delete the list \"{name}\".\nAre you sure you want to continue?",
+    "confirm_delete_user_list_message": "Ви збираєтеся видалити цей список \"{name}\".\nВи впевнені, що бажаєте продовжити?",
     "@confirm_delete_user_list_message": {
         "description": "Message when asking about whether to delete the list or not",
         "placeholders": {
@@ -2249,7 +2249,7 @@
     "background_task_run_to_be_deleted": "to be deleted",
     "background_task_question_stop": "Do you want to stop that task ASAP?",
     "feed_back": "Відгук",
-    "undo": "Undo",
+    "undo": "Скасувати",
     "copy_email_to_clip_board": "Скопіюйте лист до буфера обміну",
     "@copy_email_to_clip_board": {
         "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
@@ -2474,7 +2474,7 @@
     "@product_list_create": {
         "description": "Button label to create a new list (short word)"
     },
-    "product_list_create_tooltip": "Create a new list",
+    "product_list_create_tooltip": "Створити новий список",
     "@product_list_create_tooltip": {
         "description": "Button description to create a new list (long sentence)"
     },
