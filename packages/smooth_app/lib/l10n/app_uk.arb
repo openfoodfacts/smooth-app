@@ -125,7 +125,7 @@
     "@Introduction screen": {},
     "welcomeToOpenFoodFacts": "Вітаємо в Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
-    "whatIsOff": "Open Food Facts is a global non-profit powered by local communities.",
+    "whatIsOff": "OpenFoodFacts - це світова некомерційна організація, що підтримується місцевими спільнотами.",
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
@@ -147,7 +147,7 @@
     },
     "server_error_open_new_issue": "Немає відповіді сервера! Ви можете відкрити проблему за наступним посиланням.",
     "@user_management": {},
-    "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
+    "sign_in_text": "Увійдіть до свого облікового запису Open Food Facts, щоб зберегти свої внески",
     "incorrect_credentials": "Неправильне ім'я користувача або пароль.",
     "password_lost_incorrect_credentials": "Така електронна пошта або ім'я користувача не існує. Будь ласка, перевірте ваші облікові дані.",
     "password_lost_server_unavailable": "Наразі наші сервери сповільнюються, і ми приносимо вибачення за це. Будь-ласка спробуйте пізніше.",
@@ -248,7 +248,7 @@
     "sign_up_page_confirm_password_hint": "Підтвердіть пароль",
     "sign_up_page_confirm_password_error_empty": "Будь ласка, підтвердіть пароль",
     "sign_up_page_confirm_password_error_invalid": "Паролі відрізняються",
-    "sign_up_page_agree_text": "I agree to the Open Food Facts",
+    "sign_up_page_agree_text": "Я погоджуюсь з Open Food Facts",
     "@sign_up_page_agree_text": {
         "description": "I agree to the Open Food Facts is followed by sign_up_page_terms_text"
     },
@@ -271,7 +271,7 @@
     "sign_up_page_producer_checkbox": "Я виробник продуктів харчування",
     "sign_up_page_producer_hint": "Виробник/бренд",
     "sign_up_page_producer_error_empty": "Будь ласка, введіть виробника або торгову марку",
-    "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at any time)",
+    "sign_up_page_subscribe_checkbox": "Я хотів би підписатися на інформаційну розсилку Open Food Facts (Ви можете відписатися від неї у будь-який час)",
     "sign_up_page_user_name_already_used": "Ім'я користувача вже існує, будь ласка, виберіть інше ім'я користувача.",
     "sign_up_page_email_already_exists": "вже існує, увійдіть до облікового запису або спробуйте іншу електронну адресу.",
     "sign_up_page_provide_valid_email": "Будь ласка, вкажіть дійсну адресу електронної пошти.",
@@ -297,7 +297,7 @@
     "@darkmode_system_default": {
         "description": "Indicator inside the darkmode switch (system default)"
     },
-    "thanks_for_contributing": "Thanks for contributing!",
+    "thanks_for_contributing": "Дякуємо за внесок!",
     "contributors_label": "Вони створюють додаток",
     "@contributors_label": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
@@ -349,13 +349,13 @@
     "@contribute_sw_development": {
         "description": "Button label + page title: Ways to help"
     },
-    "contribute_develop_text": "The code for every Open Food Facts product is available on GitHub. You are welcome to reuse the code (it's open source) and help us improve it, for everyone, on all the planet.",
+    "contribute_develop_text": "Код кожного продукту Open Food Facts доступний на GitHub. Ви можете повторно використовувати код (це відкритий код) і допомогти нам покращувати його для всіх на цій планеті.",
     "@contribute_develop_text": {},
-    "contribute_develop_text_2": "You can join the Open Food Facts Slack chatroom which is the preferred way to ask questions.",
+    "contribute_develop_text_2": "Ви можете приєднатися до чату Open Food Facts в Slack, який є найкращим способом поставати запитання.",
     "@contribute_develop_text_2": {},
     "contribute_develop_dev_mode_title": "Режим DEV?",
     "contribute_develop_dev_mode_subtitle": "Активувати режим DEV",
-    "contribute_donate_header": "Donate to Open Food Facts",
+    "contribute_donate_header": "Донатьте на Open Food Facts",
     "@contribute_donate_header": {},
     "contribute_enroll_alpha": "Зареєструватися у внутрішній альфа-версії",
     "@contribute_enroll_alpha": {},
@@ -369,7 +369,7 @@
     "@contribute_improve_header": {
         "description": "Button label + page title: Ways to improve the database"
     },
-    "contribute_improve_text": "The database is the core of the project. It's easy and very quick to help. You can download the mobile app for your phone, and start adding or improving products.\n\nOn the other hand, Open Food Facts website offers many ways to contribute: ",
+    "contribute_improve_text": "Ця база даних є основою проєкту. Допомогти легко і дуже швидко. Ви можете завантажити мобільний додаток на ваш телефон і почати додавати або покращувати продукти.\n\nЗ іншого боку, вебсайт Open Food Facts пропонує багато способів зробити свій внесок: ",
     "@contribute_improve_text": {},
     "contribute_translate_header": "Перекласти",
     "@contribute_translate_header": {
