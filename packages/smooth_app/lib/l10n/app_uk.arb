@@ -694,15 +694,15 @@
     "@uploading_image_type_ingredients": {
         "description": "Message when a new ingredients picture is being uploaded to the server"
     },
-    "uploading_image_type_nutrition": "Uploading nutrition image to Open Food Facts",
+    "uploading_image_type_nutrition": "Вивантаження зображення харчової цінності до Open  Food  Facts",
     "@uploading_image_type_nutrition": {
         "description": "Message when a new nutrition picture is being uploaded to the server"
     },
-    "uploading_image_type_packaging": "Uploading packaging image to Open Food Facts",
+    "uploading_image_type_packaging": "Завантаження зображення пакування на Open  Food  Facts",
     "@uploading_image_type_packaging": {
         "description": "Message when a new packaging picture is being uploaded to the server"
     },
-    "uploading_image_type_other": "Uploading other image to Open Food Facts",
+    "uploading_image_type_other": "Вивантаження іншого зображення на Open  Food  Facts",
     "@uploading_image_type_other": {
         "description": "Message when a new other picture is being uploaded to the server"
     },
@@ -2247,7 +2247,7 @@
     "background_task_run_started": "розпочато",
     "background_task_run_not_started": "ще не розпочато",
     "background_task_run_to_be_deleted": "буде вилучено",
-    "background_task_question_stop": "Do you want to stop that task ASAP?",
+    "background_task_question_stop": "Ви хочете припинити це завдання якомога швидше?",
     "feed_back": "Відгук",
     "undo": "Скасувати",
     "copy_email_to_clip_board": "Скопіюйте лист до буфера обміну",
@@ -2408,19 +2408,19 @@
     "@update_offline_data": {
         "description": "List tile title for the update offline data page"
     },
-    "update_local_database_sub": "Update the local product database with the latest data from Open Food Facts",
+    "update_local_database_sub": "Оновіть базу даних місцевих продуктів останніми даними від Open Food Facts",
     "@update_local_database_sub": {
         "description": "Update the local product database with the latest data from server"
     },
-    "clear_local_database": "Clear offline product data",
+    "clear_local_database": "Очистіть дані продукту офлайн",
     "@clear_local_database": {
         "description": "List tile title for the clear local database page"
     },
-    "clear_local_database_sub": "Clear all local product data from your app to free up space",
+    "clear_local_database_sub": "Видаліть всі локальні дані про продукти, щоб звільнити місце",
     "@clear_local_database_sub": {
         "description": "Clear all local product data from your app to free up space"
     },
-    "deleted_products": "{num} products deleted",
+    "deleted_products": "{num} продуктів видалено",
     "@deleted_products": {
         "description": "text to show when products are deleted from local databse",
         "placeholders": {
@@ -2433,19 +2433,19 @@
     "@loading": {
         "description": "Loading…"
     },
-    "know_more": "Know More",
+    "know_more": "Докладніше",
     "@know_more": {
         "description": "Know More"
     },
-    "offline_data_desc": "Click to know more about offline data",
+    "offline_data_desc": "Натисніть, щоб дізнатися більше про офлайн-дані",
     "@offline_data_desc": {
         "description": "Click to know more about offline data"
     },
-    "offline_product_data_title": "Offline product data",
+    "offline_product_data_title": "Дані продукту офлайн",
     "@offline_product_data_title": {
         "description": "Offline Product Data"
     },
-    "available_for_download": "{num} products available for immediate scaning",
+    "available_for_download": "{num} продуктів доступні для миттєвого сканування",
     "@available_for_download": {
         "description": "text to show details of products available for download",
         "placeholders": {
@@ -2479,27 +2479,27 @@
         "description": "Button description to create a new list (long sentence)"
     },
     "nutriscore_generic": "Nutri-Score",
-    "nutriscore_a": "Nutri-Score A",
-    "nutriscore_b": "Nutri-Score B",
-    "nutriscore_c": "Nutri-Score C",
-    "nutriscore_d": "Nutri-Score D",
-    "nutriscore_e": "Nutri-Score E",
-    "nutriscore_unknown": "Unknown Nutri-Score",
-    "nutriscore_not_applicable": "Nutri-Score is not applicable",
+    "nutriscore_a": "Оцінка Nutri-Score A",
+    "nutriscore_b": "Оцінка Nutri-Score B",
+    "nutriscore_c": "Оцінка Nutri-Score C",
+    "nutriscore_d": "Оцінка Nutri-Score D",
+    "nutriscore_e": "Оцінка Nutri-Score E",
+    "nutriscore_unknown": "Невідома оцінка Nutri-Score",
+    "nutriscore_not_applicable": "Nutri-Score не застосовується",
     "ecoscore_generic": "Eco-Score (показник впливу на довкілля)",
     "ecoscore_a": "Eco-Score A",
     "ecoscore_b": "Eco-Score B",
     "ecoscore_c": "Eco-Score C",
     "ecoscore_d": "Eco-Score D",
     "ecoscore_e": "Eco-Score E",
-    "ecoscore_unknown": "Unknown Eco-Score",
-    "ecoscore_not_applicable": "Eco-Score is not applicable",
+    "ecoscore_unknown": "Невідомий показник Eco-Score",
+    "ecoscore_not_applicable": "Eco-Score не застосовується",
     "nova_group_generic": "Ультраобробка - групи НОВА",
-    "nova_group_1": "NOVA Group 1",
-    "nova_group_2": "NOVA Group 2",
-    "nova_group_3": "NOVA Group 3",
-    "nova_group_4": "NOVA Group 4",
-    "nova_group_unknown": "Unknown NOVA Group",
+    "nova_group_1": "Група NOVA 1",
+    "nova_group_2": "Група NOVA 2",
+    "nova_group_3": "Група NOVA 3",
+    "nova_group_4": "Група NOVA 4",
+    "nova_group_unknown": "Невідома група NOVA",
     "nutrition_facts": "Рівні поживних речовин",
     "faq_title_partners": "Партнери та Патрони НГО",
     "faq_title_vision": "Концепція, завдання, цінності та програми Open Food Facts",
