@@ -1686,6 +1686,10 @@
     "@all_search_to_be_completed_title": {
         "description": "All products to be completed: list tile title"
     },
+    "categorize_products_country_title": "Help categorize products in your country",
+    "@categorize_products_country_title": {
+        "description": "Help categorize products in your country: list tile title"
+    },
     "edit_product_action_retake_picture": "Retake photo",
     "@edit_product_action_retake_picture": {
         "description": "Product edition - FAB actions - retake a picture"
@@ -2510,7 +2514,7 @@
     "contact_title_pro_email": "Producer Contact",
     "contact_title_press_page": "Press Page",
     "contact_title_press_email": "Press Contact",
-    "contact_title_newsletter": "Subscribe to our newsletter",
+    "contact_title_newsletter": "Iratkozzon fel hírlevelünkre",
     "hunger_games_loading_line1": "Please give us a few seconds…",
     "hunger_games_loading_line2": "We're downloading the questions!",
     "hunger_games_error_label": "Argh! Something went wrong… and we couldn't load the questions.",
