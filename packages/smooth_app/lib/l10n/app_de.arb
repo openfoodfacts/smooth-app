@@ -1686,7 +1686,7 @@
     "@all_search_to_be_completed_title": {
         "description": "All products to be completed: list tile title"
     },
-    "categorize_products_country_title": "Helfen, Produkte in Ihrem Land zu kategorisieren",
+    "categorize_products_country_title": "Helfen Sie mit, Produkte in Ihrem Land zu kategorisieren",
     "@categorize_products_country_title": {
         "description": "Help categorize products in your country: list tile title"
     },
