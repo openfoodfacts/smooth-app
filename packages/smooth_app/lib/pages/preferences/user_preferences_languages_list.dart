@@ -196,11 +196,17 @@ class Languages {
     OpenFoodFactsLanguage.ZULU: 'ខ្មែរ',
   };
 
-  List<OpenFoodFactsLanguage> getSupportedLanguagesNameInEnglish() =>
-      _namesInLanguage.keys
-          .where((OpenFoodFactsLanguage lc) =>
-              _delegate.isSupported(Locale(lc.code)))
-          .toList();
+  List<OpenFoodFactsLanguage> getSupportedLanguagesNameInEnglish() {
+    final List<OpenFoodFactsLanguage> languages = <OpenFoodFactsLanguage>[];
+
+    _namesInLanguage.forEach((OpenFoodFactsLanguage lc, String _) {
+      if (_delegate.isSupported(Locale(lc.code))) {
+        languages.add(lc);
+      }
+    });
+
+    return languages;
+  }
 
   String getNameInEnglish(final OpenFoodFactsLanguage language) => language
       .toString()
