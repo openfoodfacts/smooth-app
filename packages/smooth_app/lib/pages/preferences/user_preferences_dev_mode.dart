@@ -5,9 +5,11 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_badge.dart';
+import 'package:smooth_app/background/background_task_language_refresh.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/product_list.dart';
+import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
@@ -289,6 +291,17 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           onTap: () async {
             userPreferences.setAppLanguageCode(null);
             ProductQuery.setLanguage(context, userPreferences);
+          },
+        ),
+        UserPreferencesItemTile(
+          title: 'Refresh all products from server (cf. Nutriscore v2)',
+          trailing: const Icon(Icons.refresh),
+          onTap: () async {
+            final LocalDatabase localDatabase = context.read<LocalDatabase>();
+            final DaoProduct daoProduct = DaoProduct(localDatabase);
+            await daoProduct.clearAllLanguages();
+            await BackgroundTaskLanguageRefresh.addTask(localDatabase);
+            _showSuccessMessage();
           },
         ),
         UserPreferencesItemSwitch(

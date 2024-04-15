@@ -74,7 +74,7 @@ class NutritionContainer {
   bool _isNotRelevant(final OrderedNutrient orderedNutrient) {
     final Nutrient nutrient = getNutrient(orderedNutrient)!;
     return getValue(nutrient) == null &&
-        (!orderedNutrient.important) &&
+        (!orderedNutrient.displayInEditForm) &&
         (!_added.contains(nutrient));
   }
 

@@ -218,6 +218,13 @@ class UserPreferencesAccount extends AbstractUserPreferences {
         localDatabase: localDatabase,
       ),
       _getListTile(
+        appLocalizations.categorize_products_country_title,
+        () async => LaunchUrlHelper.launchURL(
+          'https://hunger.openfoodfacts.org/eco-score?cc=${ProductQuery.getCountry().offTag}',
+        ),
+        Icons.open_in_new,
+      ),
+      _getListTile(
         appLocalizations.view_profile,
         () async => LaunchUrlHelper.launchURL(
           ProductQuery.replaceSubdomain(
