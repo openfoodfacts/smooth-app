@@ -124,6 +124,10 @@ class _SmoothGoRouter {
 
                 if (state.extra is Product) {
                   product = state.extra! as Product;
+                } else if (state.extra is Map<String, dynamic>) {
+                  product = Product.fromJson(
+                    state.extra! as Map<String, dynamic>,
+                  );
                 } else {
                   throw Exception('No product provided!');
                 }
