@@ -86,7 +86,7 @@ class _OfflineDataPageState extends State<OfflineDataPage> {
               onTap: () async {
                 final int totalProductsDeleted = await daoProduct.deleteAll();
                 await daoProductLastAccess.deleteAll();
-                if (mounted) {
+                if (context.mounted) {
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
                       content: Text(

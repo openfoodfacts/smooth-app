@@ -56,7 +56,7 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
         password: passwordController.text,
       ),
     );
-    if (!mounted) {
+    if (!context.mounted) {
       return;
     }
     setState(() => _runningQuery = false);
@@ -67,7 +67,7 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
 
     AnalyticsHelper.trackEvent(AnalyticsEvent.loginAction);
     await _showInAppReviewIfNecessary(context);
-    if (!mounted) {
+    if (!context.mounted) {
       return;
     }
     Navigator.pop(context);
@@ -297,7 +297,7 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                               ),
                             );
                             if (registered == true) {
-                              if (!mounted) {
+                              if (!context.mounted) {
                                 return;
                               }
                               Navigator.of(context).pop();
