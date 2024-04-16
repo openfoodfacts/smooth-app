@@ -292,7 +292,7 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
         )) {
           return;
         }
-        if (!context.mounted) {
+        if (!mounted) {
           return;
         }
         AnalyticsHelper.trackProductEdit(
