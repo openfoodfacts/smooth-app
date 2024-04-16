@@ -332,7 +332,7 @@
     "@legalNotices": {
         "description": "A link to open the legal notices on the website"
     },
-    "privacy_policy": "Privacy policy",
+    "privacy_policy": "Política de privacidade",
     "@privacy_policy": {
         "description": "A link to open the privacy policy on the website"
     },
@@ -1686,7 +1686,7 @@
     "@all_search_to_be_completed_title": {
         "description": "All products to be completed: list tile title"
     },
-    "categorize_products_country_title": "Help categorize products in your country",
+    "categorize_products_country_title": "Ajude a categorizar produtos no seu país",
     "@categorize_products_country_title": {
         "description": "Help categorize products in your country: list tile title"
     },
@@ -2017,7 +2017,7 @@
     "@no_email_client_available_dialog_title": {
         "description": "Title for the dialog when no email client is installed on the device"
     },
-    "no_email_client_available_dialog_content": "Please send us manually an email to mobile@openfoodfacts.org",
+    "no_email_client_available_dialog_content": "Por favor, envie-nos manualmente um e-mail para mobile@openfoodfacts.org",
     "@no_email_client_available_dialog_content": {
         "description": "Content for the dialog when no email client is installed on the device"
     },
