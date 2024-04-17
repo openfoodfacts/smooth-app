@@ -1686,6 +1686,10 @@
     "@all_search_to_be_completed_title": {
         "description": "All products to be completed: list tile title"
     },
+    "categorize_products_country_title": "Help producten in uw land te categoriseren",
+    "@categorize_products_country_title": {
+        "description": "Help categorize products in your country: list tile title"
+    },
     "edit_product_action_retake_picture": "Foto opnieuw maken",
     "@edit_product_action_retake_picture": {
         "description": "Product edition - FAB actions - retake a picture"
@@ -2501,7 +2505,7 @@
     "nova_group_4": "NOVA Groep 4",
     "nova_group_unknown": "Onbekende NOVA Groep",
     "nutrition_facts": "Voedingswaarden",
-    "faq_title_partners": "Partners & Patrons of the NGO",
+    "faq_title_partners": "Partners & begunstigers van de NGO",
     "faq_title_vision": "De Open Food Facts Visie, Missie, Waarden en Programma's",
     "faq_title_install_beauty": "Installeer Open Beauty Facts om een cosmetische database te maken",
     "faq_title_install_pet": "Installeer Open Pet Food Facts om een dierenvoedingsdatabase te maken",
