@@ -592,29 +592,28 @@
             "threatened_species" : {}
          },
          "agribalyse" : {
-            "agribalyse_food_code" : "25903",
             "agribalyse_proxy_food_code" : "25903",
-            "co2_agriculture" : 0.10397607,
-            "co2_consumption" : 0.011045523,
-            "co2_distribution" : 0.015708527,
-            "co2_packaging" : 0.10010411,
-            "co2_processing" : 0.15010908,
-            "co2_total" : 0.51124686,
-            "co2_transportation" : 0.13030355,
+            "co2_agriculture" : 0.10371296,
+            "co2_consumption" : 0.011022624,
+            "co2_distribution" : 0.01567597,
+            "co2_packaging" : 0.09985047,
+            "co2_processing" : 0.14982524,
+            "co2_total" : 0.510081444,
+            "co2_transportation" : 0.12999418,
             "code" : "25903",
             "dqr" : "2.42",
-            "ef_agriculture" : 0.023979953,
-            "ef_consumption" : 0.0040545827,
-            "ef_distribution" : 0.0045028964,
-            "ef_packaging" : 0.0099703815,
-            "ef_processing" : 0.029521443,
-            "ef_total" : 0.0824320616,
-            "ef_transportation" : 0.010402805,
+            "ef_agriculture" : 0.023583571,
+            "ef_consumption" : 0.0040337776,
+            "ef_distribution" : 0.0044793367,
+            "ef_packaging" : 0.0099157882,
+            "ef_processing" : 0.029435401,
+            "ef_total" : 0.0817923135,
+            "ef_transportation" : 0.010344439,
             "is_beverage" : 0,
             "name_en" : "Soup, mixed vegetables, prepacked, to be reheated",
             "name_fr" : "Soupe aux légumes variés, préemballée à réchauffer",
             "score" : 98,
-            "version" : "3.1"
+            "version" : "3.1.1"
          },
          "grade" : "a",
          "grades" : {
@@ -820,7 +819,7 @@
                                  "text" : "Agriculture"
                               },
                               {
-                                 "percent" : 20.3377425144479,
+                                 "percent" : 20.3326275087945,
                                  "text" : "20.3 %"
                               }
                            ]
@@ -833,7 +832,7 @@
                                  "text" : "Processing"
                               },
                               {
-                                 "percent" : 29.3613695739862,
+                                 "percent" : 29.3728073746592,
                                  "text" : "29.4 %"
                               }
                            ]
@@ -846,7 +845,7 @@
                                  "text" : "Packaging"
                               },
                               {
-                                 "percent" : 19.5803862736683,
+                                 "percent" : 19.5753974535878,
                                  "text" : "19.6 %"
                               }
                            ]
@@ -859,7 +858,7 @@
                                  "text" : "Transportation"
                               },
                               {
-                                 "percent" : 25.4874034825368,
+                                 "percent" : 25.484985099752,
                                  "text" : "25.5 %"
                               }
                            ]
@@ -872,7 +871,7 @@
                                  "text" : "Distribution"
                               },
                               {
-                                 "percent" : 3.07259138960775,
+                                 "percent" : 3.0732288312766,
                                  "text" : "3.1 %"
                               }
                            ]
@@ -885,7 +884,7 @@
                                  "text" : "Consumption"
                               },
                               {
-                                 "percent" : 2.16050676575305,
+                                 "percent" : 2.16095373192992,
                                  "text" : "2.2 %"
                               }
                            ]
@@ -1004,8 +1003,8 @@
                                  "text" : "Agriculture"
                               },
                               {
-                                 "percent" : 29.0905656543716,
-                                 "text" : "29.1 %"
+                                 "percent" : 28.8334807891208,
+                                 "text" : "28.8 %"
                               }
                            ]
                         },
@@ -1017,8 +1016,8 @@
                                  "text" : "Processing"
                               },
                               {
-                                 "percent" : 35.8130591750237,
-                                 "text" : "35.8 %"
+                                 "percent" : 35.987979481715,
+                                 "text" : "36.0 %"
                               }
                            ]
                         },
@@ -1030,7 +1029,7 @@
                                  "text" : "Packaging"
                               },
                               {
-                                 "percent" : 12.0952713137045,
+                                 "percent" : 12.1231296385815,
                                  "text" : "12.1 %"
                               }
                            ]
@@ -1043,7 +1042,7 @@
                                  "text" : "Transportation"
                               },
                               {
-                                 "percent" : 12.6198530014685,
+                                 "percent" : 12.6472018669578,
                                  "text" : "12.6 %"
                               }
                            ]
@@ -1056,7 +1055,7 @@
                                  "text" : "Distribution"
                               },
                               {
-                                 "percent" : 5.46255463299004,
+                                 "percent" : 5.47647634395376,
                                  "text" : "5.5 %"
                               }
                            ]
@@ -1069,7 +1068,7 @@
                                  "text" : "Consumption"
                               },
                               {
-                                 "percent" : 4.91869622244168,
+                                 "percent" : 4.93173187967106,
                                  "text" : "4.9 %"
                               }
                            ]
@@ -1488,6 +1487,36 @@
             ],
             "type" : "card"
          },
+         "incomplete_or_incorrect_data" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n                If the information does not match the information on the packaging, please complete or correct it.\n                Open Food Facts is a collaborative database, and every contribution is useful for all.\n                "
+                  }
+               },
+               {
+                  "action_element" : {
+                     "actions" : [
+                        "edit_product"
+                     ],
+                     "html" : ""
+                  },
+                  "element_type" : "action"
+               }
+            ],
+            "evaluation" : "neutral",
+            "expand_for" : "large",
+            "level" : "info",
+            "title_element" : {
+               "icon_url" : "https://static.openfoodfacts.org/images/logos/off-logo-icon-light.svg",
+               "subtitle" : "Category, labels, ingredients, allergens, nutritional information, photos etc.",
+               "title" : "Incomplete or incorrect information?"
+            },
+            "topics" : [
+               "problem"
+            ]
+         },
          "ingredients" : {
             "elements" : [
                {
@@ -1560,7 +1589,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "<ol id=\"ordered_ingredients_list\">\n<li><span>Butternut squash</span> -> en:butternut-squash - vegan:&nbsp;yes - vegetarian:&nbsp;yes - percent_min:&nbsp;50 - percent:&nbsp;50 - percent_max:&nbsp;50</li>\n<li><span>water</span> -> en:water - vegan:&nbsp;yes - vegetarian:&nbsp;yes - percent_min:&nbsp;10 - percent_max:&nbsp;40</li>\n<li><span>carrots</span> -> en:carrot - vegan:&nbsp;yes - vegetarian:&nbsp;yes - percent_min:&nbsp;10 - percent:&nbsp;10 - percent_max:&nbsp;10</li>\n<li><span>sweet potato</span> -> en:sweet-potato - vegan:&nbsp;yes - vegetarian:&nbsp;yes - percent_min:&nbsp;0 - percent_max:&nbsp;10</li>\n<li><span>leeks</span> -> en:leek - vegan:&nbsp;yes - vegetarian:&nbsp;yes - percent_min:&nbsp;0 - percent_max:&nbsp;10</li>\n<li><span>potatoes</span> -> en:potato - vegan:&nbsp;yes - vegetarian:&nbsp;yes - percent_min:&nbsp;0 - percent_max:&nbsp;10</li>\n<li><span>salt</span> -> en:salt - vegan:&nbsp;yes - vegetarian:&nbsp;yes - percent_min:&nbsp;0 - percent_max:&nbsp;0.4</li>\n</ol>\n"
+                     "html" : "<ol id=\"ordered_ingredients_list\">\n<li><span>Butternut squash</span> -> en:butternut-squash - vegan:&nbsp;yes - vegetarian:&nbsp;yes - ciqual_food_code:&nbsp;20128 - percent_min:&nbsp;50 - percent:&nbsp;50 - percent_max:&nbsp;50</li>\n<li><span>water</span> -> en:water - vegan:&nbsp;yes - vegetarian:&nbsp;yes - ciqual_food_code:&nbsp;18066 - percent_min:&nbsp;10 - percent_max:&nbsp;40</li>\n<li><span>carrots</span> -> en:carrot - vegan:&nbsp;yes - vegetarian:&nbsp;yes - ciqual_food_code:&nbsp;20009 - percent_min:&nbsp;10 - percent:&nbsp;10 - percent_max:&nbsp;10</li>\n<li><span>sweet potato</span> -> en:sweet-potato - vegan:&nbsp;yes - vegetarian:&nbsp;yes - ciqual_food_code:&nbsp;4101 - percent_min:&nbsp;0 - percent_max:&nbsp;10</li>\n<li><span>leeks</span> -> en:leek - vegan:&nbsp;yes - vegetarian:&nbsp;yes - ciqual_food_code:&nbsp;20039 - percent_min:&nbsp;0 - percent_max:&nbsp;10</li>\n<li><span>potatoes</span> -> en:potato - vegan:&nbsp;yes - vegetarian:&nbsp;yes - ciqual_food_code:&nbsp;4003 - percent_min:&nbsp;0 - percent_max:&nbsp;10</li>\n<li><span>salt</span> -> en:salt - vegan:&nbsp;yes - vegetarian:&nbsp;yes - ciqual_food_code:&nbsp;11058 - percent_min:&nbsp;0 - percent_max:&nbsp;0.4</li>\n</ol>\n"
                   }
                },
                {
@@ -1943,7 +1972,7 @@
                               },
                               {
                                  "evaluation" : "good",
-                                 "text" : "-52%"
+                                 "text" : "-54%"
                               }
                            ]
                         },
@@ -1975,7 +2004,7 @@
                               },
                               {
                                  "evaluation" : "good",
-                                 "text" : "-44%"
+                                 "text" : "-45%"
                               }
                            ]
                         },
@@ -1991,7 +2020,7 @@
                               },
                               {
                                  "evaluation" : "good",
-                                 "text" : "-39%"
+                                 "text" : "-41%"
                               }
                            ]
                         },
@@ -2006,7 +2035,7 @@
                                  "text" : "4 g"
                               },
                               {
-                                 "text" : "-60%"
+                                 "text" : "-62%"
                               }
                            ]
                         },
@@ -2022,7 +2051,7 @@
                               },
                               {
                                  "evaluation" : "good",
-                                 "text" : "+89%"
+                                 "text" : "+94%"
                               }
                            ]
                         },
@@ -2054,7 +2083,7 @@
                               },
                               {
                                  "evaluation" : "bad",
-                                 "text" : "-55%"
+                                 "text" : "-56%"
                               }
                            ]
                         },
@@ -2285,6 +2314,24 @@
                "environment"
             ]
          },
+         "report_problem_card" : {
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "incomplete_or_incorrect_data"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "title_element" : {
+               "title" : "Report a problem"
+            },
+            "topics" : [
+               "problems"
+            ],
+            "type" : "card"
+         },
          "root" : {
             "elements" : [
                {
@@ -2297,6 +2344,12 @@
                   "element_type" : "panel",
                   "panel_element" : {
                      "panel_id" : "environment_card"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "report_problem_card"
                   }
                }
             ],

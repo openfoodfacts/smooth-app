@@ -341,7 +341,7 @@
         "description": "Button label: Opens a pop up window which shows information about the app"
     },
     "@About this app section": {},
-    "contribute": "สนับสนุน",
+    "contribute": "ร่วมสนับสนุน",
     "@contribute": {
         "description": "Button label: Shows multiple ways how users can contribute to OFF"
     },
@@ -917,7 +917,7 @@
     "twitter_link": "https://www.twitter.com/openfoodfacts",
     "blog": "Blog",
     "faq": "FAQ",
-    "discover": "ค้นพบ",
+    "discover": "รู้จักกับ Open Food Facts",
     "how_to_contribute": "How to Contribute",
     "hint_knowledge_panel_message": "Your can tap on any part of the card to get more details about what you see. Try it now!",
     "@hint_knowledge_panel_message": {
@@ -1685,6 +1685,10 @@
     "all_search_to_be_completed_title": "All to-be-completed products",
     "@all_search_to_be_completed_title": {
         "description": "All products to be completed: list tile title"
+    },
+    "categorize_products_country_title": "Help categorize products in your country",
+    "@categorize_products_country_title": {
+        "description": "Help categorize products in your country: list tile title"
     },
     "edit_product_action_retake_picture": "Retake photo",
     "@edit_product_action_retake_picture": {
