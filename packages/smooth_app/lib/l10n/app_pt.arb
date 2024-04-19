@@ -332,7 +332,7 @@
     "@legalNotices": {
         "description": "A link to open the legal notices on the website"
     },
-    "privacy_policy": "Privacy policy",
+    "privacy_policy": "Política de privacidade",
     "@privacy_policy": {
         "description": "A link to open the privacy policy on the website"
     },
@@ -1267,11 +1267,11 @@
     "@edit_product_form_item_labels_subtitle": {
         "description": "Product edition - Labels - SubTitle"
     },
-    "edit_product_form_item_labels_hint": "etiqueta",
+    "edit_product_form_item_labels_hint": "rótulo",
     "@edit_product_form_item_labels_hint": {
         "description": "Product edition - Labels - input textfield hint"
     },
-    "edit_product_form_item_labels_type": "etiqueta",
+    "edit_product_form_item_labels_type": "rótulo",
     "@edit_product_form_item_labels_type": {
         "description": "Product edition - Labels - input textfield label"
     },
@@ -1686,6 +1686,10 @@
     "@all_search_to_be_completed_title": {
         "description": "All products to be completed: list tile title"
     },
+    "categorize_products_country_title": "Ajude a categorizar produtos no seu país",
+    "@categorize_products_country_title": {
+        "description": "Help categorize products in your country: list tile title"
+    },
     "edit_product_action_retake_picture": "Tornar a fotografar",
     "@edit_product_action_retake_picture": {
         "description": "Product edition - FAB actions - retake a picture"
@@ -2013,7 +2017,7 @@
     "@no_email_client_available_dialog_title": {
         "description": "Title for the dialog when no email client is installed on the device"
     },
-    "no_email_client_available_dialog_content": "Please send us manually an email to mobile@openfoodfacts.org",
+    "no_email_client_available_dialog_content": "Por favor, envie-nos manualmente um e-mail para mobile@openfoodfacts.org",
     "@no_email_client_available_dialog_content": {
         "description": "Content for the dialog when no email client is installed on the device"
     },

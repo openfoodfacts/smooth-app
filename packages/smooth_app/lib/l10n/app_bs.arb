@@ -505,7 +505,7 @@
     "@unknownBrand": {},
     "unknownProductName": "Unknown product name",
     "@unknownProductName": {},
-    "label_refresh": "Refresh",
+    "label_refresh": "Osvježi",
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
@@ -1686,6 +1686,10 @@
     "@all_search_to_be_completed_title": {
         "description": "All products to be completed: list tile title"
     },
+    "categorize_products_country_title": "Help categorize products in your country",
+    "@categorize_products_country_title": {
+        "description": "Help categorize products in your country: list tile title"
+    },
     "edit_product_action_retake_picture": "Retake photo",
     "@edit_product_action_retake_picture": {
         "description": "Product edition - FAB actions - retake a picture"
@@ -2429,7 +2433,7 @@
             }
         }
     },
-    "loading": "Loading…",
+    "loading": "Učitavanje…",
     "@loading": {
         "description": "Loading…"
     },
