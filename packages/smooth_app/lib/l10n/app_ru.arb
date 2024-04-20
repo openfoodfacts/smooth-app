@@ -1794,7 +1794,7 @@
     "@basic_details_add_error": {
         "description": "Error message when error occurs while submitting basic details"
     },
-    "clear_search": "Clear your search",
+    "clear_search": "Очистить поиск",
     "@confirm_clearclear_search": {
         "description": "Tooltip to explain that the X button clears the content of the search"
     },
