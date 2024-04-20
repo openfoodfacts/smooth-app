@@ -98,7 +98,7 @@ dependencies:
     path: ../scanner/zxing
 
 
-  openfoodfacts: 3.5.0
+  openfoodfacts: 3.6.0
   # openfoodfacts:
   #   path: ../../../openfoodfacts-dart
 
