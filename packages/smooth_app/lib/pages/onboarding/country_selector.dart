@@ -35,7 +35,6 @@ class _CountrySelectorState extends State<CountrySelector> {
   final ScrollController _scrollController = ScrollController();
   final TextEditingController _countryController = TextEditingController();
   late List<Country> _countryList;
-  late Future<void> _countryNamesFuture;
 
   Future<void> _loadLocalizedCountryNames(final String languageCode) async {
     List<Country> localizedCountries;
@@ -63,9 +62,8 @@ class _CountrySelectorState extends State<CountrySelector> {
       selector: (BuildContext buildContext, UserPreferences userPreferences) =>
           userPreferences.appLanguageCode,
       builder: (BuildContext context, String? appLanguageCode, _) {
-        _countryNamesFuture = _loadLocalizedCountryNames(appLanguageCode!);
         return FutureBuilder<void>(
-          future: _countryNamesFuture,
+          future: _loadLocalizedCountryNames(appLanguageCode!),
           builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
             if (snapshot.hasError) {
               return Text('Fatal Error: ${snapshot.error}');
