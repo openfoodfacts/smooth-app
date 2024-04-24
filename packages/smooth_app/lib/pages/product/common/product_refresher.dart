@@ -178,19 +178,19 @@ class ProductRefresher {
       return const FetchedProduct.internetNotFound();
     } catch (e) {
       Logs.e('Refresh from server error', ex: e);
-      final ConnectivityResult connectivityResult =
+      final List<ConnectivityResult> connectivityResults =
           await Connectivity().checkConnectivity();
-      if (connectivityResult == ConnectivityResult.none) {
+      if (connectivityResults.contains(ConnectivityResult.none)) {
         return FetchedProduct.error(
           exceptionString: e.toString(),
-          connectivityResult: connectivityResult,
+          isConnected: false,
         );
       }
       final String host = ProductQuery.uriProductHelper.host;
       final PingData result = await Ping(host, count: 1).stream.first;
       return FetchedProduct.error(
         exceptionString: e.toString(),
-        connectivityResult: connectivityResult,
+        isConnected: true,
         failedPingedHost: result.error == null ? null : host,
       );
     }
