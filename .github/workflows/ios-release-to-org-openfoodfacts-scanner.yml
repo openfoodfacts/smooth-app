@@ -40,8 +40,12 @@ env:
 jobs:
   testflight-release:
     name: Build and deploy to TestFlight testers (org.openfoodfacts.scanner)
-    runs-on: macos-12 #TODO bump to macos-14
+    runs-on: macos-latest
     steps:
+      - uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest-stable
+
       - name: Checkout sources
         uses: actions/checkout@v4
 
