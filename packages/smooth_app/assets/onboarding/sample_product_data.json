@@ -2035,7 +2035,7 @@
                                  "text" : "4 g"
                               },
                               {
-                                 "text" : "-62%"
+                                 "text" : "-63%"
                               }
                            ]
                         },
@@ -2450,17 +2450,20 @@
             "display" : {
                "en" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/ingredients_en.120.400.jpg",
                "es" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/ingredients_es.113.400.jpg",
-               "fr" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/ingredients_fr.123.400.jpg"
+               "fr" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/ingredients_fr.123.400.jpg",
+               "it" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/ingredients_it.140.400.jpg"
             },
             "small" : {
                "en" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/ingredients_en.120.200.jpg",
                "es" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/ingredients_es.113.200.jpg",
-               "fr" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/ingredients_fr.123.200.jpg"
+               "fr" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/ingredients_fr.123.200.jpg",
+               "it" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/ingredients_it.140.200.jpg"
             },
             "thumb" : {
                "en" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/ingredients_en.120.100.jpg",
                "es" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/ingredients_es.113.100.jpg",
-               "fr" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/ingredients_fr.123.100.jpg"
+               "fr" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/ingredients_fr.123.100.jpg",
+               "it" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/ingredients_it.140.100.jpg"
             }
          },
          "nutrition" : {
