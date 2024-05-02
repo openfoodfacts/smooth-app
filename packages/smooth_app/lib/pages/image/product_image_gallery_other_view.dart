@@ -1,9 +1,12 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:intl/intl.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/fetched_product.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/images/smooth_image.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/image/product_image_other_page.dart';
@@ -104,9 +107,12 @@ class _RawGridGallery extends StatelessWidget {
   final Product product;
   final List<ProductImage> rawImages;
 
+  static final DateFormat _dateFormat = DateFormat('yyyy-MM-dd');
+
   @override
   Widget build(BuildContext context) {
     final double squareSize = _getSquareSize(context);
+    final DateTime now = DateTime.now();
     return SliverGrid(
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: _columns,
@@ -116,6 +122,22 @@ class _RawGridGallery extends StatelessWidget {
           // order by descending ids
           index = rawImages.length - 1 - index;
           final ProductImage productImage = rawImages[index];
+          final DateTime? uploaded = productImage.uploaded;
+          final String? date;
+          final bool expired;
+          if (uploaded == null) {
+            date = null;
+            expired = false;
+          } else {
+            date = _dateFormat.format(uploaded);
+            expired = now.difference(uploaded).inDays > 365;
+          }
+          final Widget image = SmoothImage(
+            width: squareSize,
+            height: squareSize,
+            imageProvider: NetworkImage(productImage.getUrl(product.barcode!)),
+            rounded: false,
+          );
           return InkWell(
             onTap: () async => Navigator.push<void>(
               context,
@@ -126,13 +148,35 @@ class _RawGridGallery extends StatelessWidget {
                 ),
               ),
             ),
-            child: SmoothImage(
-              width: squareSize,
-              height: squareSize,
-              imageProvider: NetworkImage(
-                productImage.getUrl(product.barcode!),
-              ),
-            ),
+            child: date == null
+                ? image
+                : Stack(
+                    children: <Widget>[
+                      image,
+                      SizedBox(
+                        width: squareSize,
+                        height: squareSize,
+                        child: Align(
+                          alignment: Alignment.bottomCenter,
+                          child: Padding(
+                            padding: const EdgeInsets.all(SMALL_SPACE),
+                            child: Container(
+                              height: VERY_LARGE_SPACE,
+                              color: expired
+                                  ? Colors.red.withAlpha(128)
+                                  : Colors.white.withAlpha(128),
+                              child: Center(
+                                child: AutoSizeText(
+                                  date,
+                                  maxLines: 1,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
           );
         },
         addAutomaticKeepAlives: false,

@@ -4,7 +4,7 @@ version: 0.0.0+734
 publish_to: "none"
 
 environment:
-  sdk: '>=3.2.3 <4.0.0'
+  sdk: '>=3.3.3 <4.0.0'
 
 dependencies:
   flutter:
@@ -16,24 +16,25 @@ dependencies:
   go_router: 12.1.1
   barcode_widget: 2.0.4
   carousel_slider: 4.2.1
-  cupertino_icons: 1.0.6
+  cupertino_icons: 1.0.8
   device_preview: 1.1.0
   flutter_svg: 2.0.10+1
   flutter_map: 6.1.0
+  html: 0.15.4
   flutter_widget_from_html_core: 0.8.5+3
   fwfh_selectable_text: 0.8.3+1
   flutter_secure_storage: 9.0.0
   hive: 2.2.3
   hive_flutter: 1.1.0
   http: 1.2.0
-  image_picker: 1.0.7
+  image_picker: 1.1.0
   iso_countries: 2.2.0
   latlong2: 0.9.0
   matomo_tracker: 4.1.1
   package_info_plus: 5.0.1
   device_info_plus: 9.1.2
-  permission_handler: 11.3.0
-  photo_view: 0.14.0
+  permission_handler: 11.3.1
+  photo_view: 0.15.0
   uuid: 3.0.7
   provider: 6.1.2
   sentry_flutter: 7.18.0
@@ -52,10 +53,10 @@ dependencies:
   image: 4.1.7
   auto_size_text: 3.0.0
   crop_image: 1.0.12
-  shared_preferences: 2.2.2
+  shared_preferences: 2.2.3
   intl: 0.18.1
   collection: 1.18.0
-  path: 1.8.3
+  path: 1.9.0
   path_provider: 2.1.2
   share_plus: 7.2.2
   fimber: 0.7.0
@@ -67,12 +68,11 @@ dependencies:
   webview_flutter_wkwebview: 3.13.0
   flutter_custom_tabs: 2.0.0+1
   flutter_image_compress: 2.2.0
-  connectivity_plus: 5.0.2
+  connectivity_plus: 6.0.3
   dart_ping: 9.0.1
   dart_ping_ios: 4.0.2
   flutter_animation_progress_bar: 2.3.1
   email_validator: 2.1.17
-  sliver_tools: 0.2.12
 
   # According to the build variant, only one "app store" implementation must be added when building a release
   # Call "flutter pub remove xxxx" to remove unused dependencies
@@ -100,7 +100,7 @@ dependencies:
     path: ../scanner/zxing
 
 
-  openfoodfacts: 3.4.0
+  openfoodfacts: 3.6.1
   # openfoodfacts:
   #   path: ../../../openfoodfacts-dart
 

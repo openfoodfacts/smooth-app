@@ -463,6 +463,7 @@ class _SearchCardContentAppReview extends StatelessWidget {
                 child: Text(
                   localizations.tagline_app_review_button_positive,
                   style: const TextStyle(fontSize: 17.0),
+                  textAlign: TextAlign.center,
                 ),
               ),
             ),
@@ -479,6 +480,7 @@ class _SearchCardContentAppReview extends StatelessWidget {
                       },
                       child: Text(
                         localizations.tagline_app_review_button_negative,
+                        textAlign: TextAlign.center,
                       ),
                     ),
                   ),
@@ -488,6 +490,7 @@ class _SearchCardContentAppReview extends StatelessWidget {
                       onPressed: () => onHideReview(),
                       child: Text(
                         localizations.tagline_app_review_button_later,
+                        textAlign: TextAlign.center,
                       ),
                     ),
                   ),
