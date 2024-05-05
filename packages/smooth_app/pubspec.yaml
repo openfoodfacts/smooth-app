@@ -29,7 +29,7 @@ dependencies:
   http: 1.2.0
   image_picker: 1.1.1
   iso_countries: 2.2.0
-  latlong2: 0.9.0
+  latlong2: 0.9.1
   matomo_tracker: 4.1.1
   package_info_plus: 5.0.1
   device_info_plus: 9.1.2
