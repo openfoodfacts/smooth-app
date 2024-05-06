@@ -68,7 +68,7 @@ dependencies:
   webview_flutter_wkwebview: 3.13.0
   flutter_custom_tabs: 2.0.0+1
   flutter_image_compress: 2.2.0
-  connectivity_plus: 6.0.3
+  connectivity_plus: 5.0.2
   dart_ping: 9.0.1
   dart_ping_ios: 4.0.2
   flutter_animation_progress_bar: 2.3.1
