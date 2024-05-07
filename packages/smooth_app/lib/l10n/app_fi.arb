@@ -332,7 +332,7 @@
     "@legalNotices": {
         "description": "A link to open the legal notices on the website"
     },
-    "privacy_policy": "Privacy policy",
+    "privacy_policy": "Tietosuojakäytäntö",
     "@privacy_policy": {
         "description": "A link to open the privacy policy on the website"
     },
@@ -1685,6 +1685,10 @@
     "all_search_to_be_completed_title": "Kaikki tehtävälistan tuotteet",
     "@all_search_to_be_completed_title": {
         "description": "All products to be completed: list tile title"
+    },
+    "categorize_products_country_title": "Auta luokittelemaan tuotteet maassasi",
+    "@categorize_products_country_title": {
+        "description": "Help categorize products in your country: list tile title"
     },
     "edit_product_action_retake_picture": "Ota kuva uudelleen",
     "@edit_product_action_retake_picture": {

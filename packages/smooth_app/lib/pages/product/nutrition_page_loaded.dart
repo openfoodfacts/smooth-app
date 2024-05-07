@@ -450,26 +450,37 @@ class _NutrientRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final String key = orderedNutrient.id;
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
         Expanded(
           flex: 6,
-          child: _NutrientValueCell(
-            decimalNumberFormat,
-            orderedNutrient,
-            position,
+          child: KeyedSubtree(
+            key: Key('$key-value'),
+            child: _NutrientValueCell(
+              decimalNumberFormat,
+              orderedNutrient,
+              position,
+            ),
           ),
         ),
         Expanded(
           flex: 3,
-          child: _NutrientUnitCell(
-            nutritionContainer,
-            orderedNutrient,
+          child: KeyedSubtree(
+            key: Key('$key-unit'),
+            child: _NutrientUnitCell(
+              nutritionContainer,
+              orderedNutrient,
+            ),
           ),
         ),
-        const _NutrientUnitVisibility()
+        KeyedSubtree(
+          key: Key('$key-visibility'),
+          child: const _NutrientUnitVisibility(),
+        )
       ],
     );
   }

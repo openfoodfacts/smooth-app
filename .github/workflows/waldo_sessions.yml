@@ -27,7 +27,7 @@ jobs:
           fetch-depth: 0
 
       - name: Setup Java JDK
-        uses: actions/setup-java@v4.0.0
+        uses: actions/setup-java@v4.2.1
         with:
           distribution: 'zulu'
           java-version: 11
@@ -55,7 +55,7 @@ jobs:
         working-directory: ./packages/smooth_app
 
       - name: Upload APK to Waldo
-        uses: waldoapp/gh-action-upload@v1
+        uses: waldoapp/gh-action-upload@v2
         with:
           build_path: packages/smooth_app/build/app/outputs/flutter-apk/app-debug.apk
           upload_token: ${{ secrets.WALDO_SESSIONS_ANDROID }}

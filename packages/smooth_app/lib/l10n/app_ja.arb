@@ -1686,6 +1686,10 @@
     "@all_search_to_be_completed_title": {
         "description": "All products to be completed: list tile title"
     },
+    "categorize_products_country_title": "商品の分類にご協力ください",
+    "@categorize_products_country_title": {
+        "description": "Help categorize products in your country: list tile title"
+    },
     "edit_product_action_retake_picture": "画像を再撮影",
     "@edit_product_action_retake_picture": {
         "description": "Product edition - FAB actions - retake a picture"

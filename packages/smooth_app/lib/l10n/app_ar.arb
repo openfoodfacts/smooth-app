@@ -1686,6 +1686,10 @@
     "@all_search_to_be_completed_title": {
         "description": "All products to be completed: list tile title"
     },
+    "categorize_products_country_title": "Help categorize products in your country",
+    "@categorize_products_country_title": {
+        "description": "Help categorize products in your country: list tile title"
+    },
     "edit_product_action_retake_picture": "Retake photo",
     "@edit_product_action_retake_picture": {
         "description": "Product edition - FAB actions - retake a picture"
@@ -2486,7 +2490,7 @@
     "nutriscore_e": "Nutri-Score E",
     "nutriscore_unknown": "Unknown Nutri-Score",
     "nutriscore_not_applicable": "Nutri-Score is not applicable",
-    "ecoscore_generic": "Eco-Score",
+    "ecoscore_generic": "النتيجة البيئية",
     "ecoscore_a": "Eco-Score A",
     "ecoscore_b": "Eco-Score B",
     "ecoscore_c": "Eco-Score C",

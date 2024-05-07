@@ -56,7 +56,7 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
         password: passwordController.text,
       ),
     );
-    if (!mounted) {
+    if (!context.mounted) {
       return;
     }
     setState(() => _runningQuery = false);
@@ -67,7 +67,7 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
 
     AnalyticsHelper.trackEvent(AnalyticsEvent.loginAction);
     await _showInAppReviewIfNecessary(context);
-    if (!mounted) {
+    if (!context.mounted) {
       return;
     }
     Navigator.pop(context);
@@ -297,7 +297,7 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                               ),
                             );
                             if (registered == true) {
-                              if (!mounted) {
+                              if (!context.mounted) {
                                 return;
                               }
                               Navigator.of(context).pop();
@@ -354,7 +354,10 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
     final bool? enjoyingApp = await showDialog<bool>(
       context: context,
       builder: (BuildContext context) => SmoothAlertDialog(
-        body: Text(appLocalizations.app_rating_dialog_title_enjoying_app),
+        title: appLocalizations.app_rating_dialog_title_enjoying_app,
+        body: const SizedBox.shrink(),
+        close: true,
+        actionsAxis: Axis.vertical,
         positiveAction: SmoothActionButton(
           text: appLocalizations.tagline_app_review_button_positive,
           onPressed: () => Navigator.of(context).pop(true),

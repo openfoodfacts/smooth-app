@@ -51,14 +51,16 @@ class SvgCache extends AbstractCache {
           ? Colors.white
           : Colors.black;
     }
+    final AssetCacheHelper helper = AssetCacheHelper(
+      cachedFilenames,
+      iconUrl!,
+      width: width,
+      height: height,
+      color: forcedColor,
+    );
     return SvgSafeNetwork(
-      AssetCacheHelper(
-        cachedFilenames,
-        iconUrl!,
-        width: width,
-        height: height,
-        color: forcedColor,
-      ),
+      helper,
+      key: helper.getKey(),
     );
   }
 

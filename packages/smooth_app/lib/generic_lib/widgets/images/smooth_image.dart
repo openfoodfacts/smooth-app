@@ -15,8 +15,8 @@ class SmoothImage extends StatelessWidget {
     this.width,
     this.color,
     this.decoration,
-    this.fit,
-    this.rounded,
+    this.fit = BoxFit.cover,
+    this.rounded = true,
     this.heroTag,
   });
 
@@ -25,9 +25,9 @@ class SmoothImage extends StatelessWidget {
   final double? width;
   final Color? color;
   final Decoration? decoration;
-  final BoxFit? fit;
+  final BoxFit fit;
   final String? heroTag;
-  final bool? rounded;
+  final bool rounded;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +35,7 @@ class SmoothImage extends StatelessWidget {
         ? const PictureNotFound()
         : Image(
             image: imageProvider!,
-            fit: fit ?? BoxFit.cover,
+            fit: fit,
             loadingBuilder: _loadingBuilder,
             errorBuilder: _errorBuilder,
           );
@@ -51,7 +51,7 @@ class SmoothImage extends StatelessWidget {
         color: color,
         child: child);
 
-    if (rounded ?? true) {
+    if (rounded) {
       child = ClipRRect(
         borderRadius: ROUNDED_BORDER_RADIUS,
         child: child,

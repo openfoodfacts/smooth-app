@@ -18,7 +18,7 @@
     "@create": {
         "description": "An action to create"
     },
-    "applyButtonText": "Apply",
+    "applyButtonText": "Almeti",
     "@applyButtonText": {},
     "next_label": "Sekva",
     "@next_label": {
@@ -31,8 +31,8 @@
     "go_back_to_top": "Go back to top",
     "save": "Konservi",
     "save_confirmation": "Are you sure you want to save?",
-    "skip": "Skip",
-    "cancel": "Cancel",
+    "skip": "Preterpasi",
+    "cancel": "Nuligi",
     "@cancel": {},
     "ignore": "Ignore",
     "@ignore": {
@@ -1209,7 +1209,7 @@
     "permission_photo_denied_dialog_settings_title": "Permission denied",
     "permission_photo_denied_dialog_settings_message": "As you've previously denied the camera permission, you must allow it manually from the Settings.",
     "permission_photo_denied_dialog_settings_button_open": "Open settings",
-    "permission_photo_denied_dialog_settings_button_cancel": "Cancel",
+    "permission_photo_denied_dialog_settings_button_cancel": "Nuligi",
     "permission_photo_none_found": "No camera detected",
     "@permission_photo_none_found": {
         "description": "Message for the user when no camera was detected, replacing the barcode scanner"
@@ -1598,7 +1598,7 @@
     "@dev_preferences_button_positive": {
         "description": "User dev preferences - Positive button label"
     },
-    "dev_preferences_button_negative": "Cancel",
+    "dev_preferences_button_negative": "Nuligi",
     "@dev_preferences_button_negative": {
         "description": "User dev preferences - Negative button label"
     },
@@ -1685,6 +1685,10 @@
     "all_search_to_be_completed_title": "All to-be-completed products",
     "@all_search_to_be_completed_title": {
         "description": "All products to be completed: list tile title"
+    },
+    "categorize_products_country_title": "Help categorize products in your country",
+    "@categorize_products_country_title": {
+        "description": "Help categorize products in your country: list tile title"
     },
     "edit_product_action_retake_picture": "Retake photo",
     "@edit_product_action_retake_picture": {
