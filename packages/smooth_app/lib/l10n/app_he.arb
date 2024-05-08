@@ -332,7 +332,7 @@
     "@legalNotices": {
         "description": "A link to open the legal notices on the website"
     },
-    "privacy_policy": "Privacy policy",
+    "privacy_policy": "מדיניות פרטיות",
     "@privacy_policy": {
         "description": "A link to open the privacy policy on the website"
     },
@@ -485,7 +485,7 @@
     "@filter": {
         "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
     },
-    "scan": "Products from the Scan screen",
+    "scan": "מוצרים ממסך הסריקה",
     "@scan": {
         "description": "Page title: List type: Products in the scan session"
     },
@@ -2515,7 +2515,7 @@
     "contact_title_press_page": "עמוד לעיתונאים",
     "contact_title_press_email": "יצירת קשר לעיתונאים",
     "contact_title_newsletter": "הרשמה לרשימת התפוצה שלנו",
-    "hunger_games_loading_line1": "Please give us a few seconds…",
+    "hunger_games_loading_line1": "נא להמתין מספר שניות…",
     "hunger_games_loading_line2": "אנו מורידים את השאלות!",
     "hunger_games_error_label": "געוואלד! משהו השתבש… לא הצלחנו לטעון את השאלות.",
     "hunger_games_error_retry_button": "מומלץ לנסות שוב!",
