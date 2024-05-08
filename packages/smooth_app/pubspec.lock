@@ -1815,10 +1815,10 @@ packages:
     dependency: "direct main"
     description:
       name: webview_flutter_android
-      sha256: f038ee2fae73b509dde1bc9d2c5a50ca92054282de17631a9a3d515883740934
+      sha256: dad3313c9ead95517bb1cae5e1c9d20ba83729d5a59e5e83c0a2d66203f27f91
       url: "https://pub.dev"
     source: hosted
-    version: "3.16.0"
+    version: "3.16.1"
   webview_flutter_platform_interface:
     dependency: transitive
     description:
