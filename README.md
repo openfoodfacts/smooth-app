@@ -37,6 +37,7 @@
 
 - Latest commit deployed to Apple App Store: Released on Nov 29th as Build 835
 - Latest commit deployed to PlayStore: 792 from Nov 6th 11AM
+- Latest commit deployed to F-Droid: 9 March 2024 as Version 4.14.0 (1280)
 
 ## Presentation
 
