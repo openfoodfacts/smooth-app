@@ -798,7 +798,7 @@
     "@country_chooser_label": {
         "description": "Label shown above a selector where the user can select their country (in the preferences)"
     },
-    "currency_chooser_label": "Please choose a currency",
+    "currency_chooser_label": "Будь ласка виберіть валюту",
     "@currency_chooser_label": {
         "description": "Label shown above a selector where the user can select their currency (in the preferences)"
     },
@@ -2466,7 +2466,7 @@
     "@country_selector_title": {
         "description": "Label written as the title of the dialog to select the user country"
     },
-    "currency_selector_title": "Select your currency:",
+    "currency_selector_title": "Оберіть Вашу валюту:",
     "@currency_selector_title": {
         "description": "Label written as the title of the dialog to select the user currency"
     },
