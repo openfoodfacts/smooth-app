@@ -329,28 +329,26 @@ class _CountrySelectorState extends State<CountrySelector> {
     } else if (widget.forceCurrencyChange) {
       changeCurrency = true;
     } else if (currentCurrencyCode != possibleCurrencyCode) {
-      if (context.mounted) {
-        final AppLocalizations appLocalizations = AppLocalizations.of(context);
-        changeCurrency = await showDialog<bool>(
-          context: context,
-          builder: (final BuildContext context) => SmoothAlertDialog(
-            body: Text(
-              appLocalizations.currency_auto_change_message(
-                currentCurrencyCode,
-                possibleCurrencyCode,
-              ),
-            ),
-            negativeAction: SmoothActionButton(
-              onPressed: () => Navigator.of(context).pop(),
-              text: appLocalizations.no,
-            ),
-            positiveAction: SmoothActionButton(
-              onPressed: () => Navigator.of(context).pop(true),
-              text: appLocalizations.yes,
+      final AppLocalizations appLocalizations = AppLocalizations.of(context);
+      changeCurrency = await showDialog<bool>(
+        context: context,
+        builder: (final BuildContext context) => SmoothAlertDialog(
+          body: Text(
+            appLocalizations.currency_auto_change_message(
+              currentCurrencyCode,
+              possibleCurrencyCode,
             ),
           ),
-        );
-      }
+          negativeAction: SmoothActionButton(
+            onPressed: () => Navigator.of(context).pop(),
+            text: appLocalizations.no,
+          ),
+          positiveAction: SmoothActionButton(
+            onPressed: () => Navigator.of(context).pop(true),
+            text: appLocalizations.yes,
+          ),
+        ),
+      );
     }
     if (changeCurrency == true) {
       await userPreferences.setUserCurrencyCode(possibleCurrencyCode);
