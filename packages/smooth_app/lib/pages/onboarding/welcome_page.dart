@@ -93,6 +93,7 @@ class WelcomePage extends StatelessWidget {
                           child: SizedBox(
                             width: double.infinity,
                             child: CountrySelector(
+                              forceCurrencyChange: true,
                               padding: const EdgeInsets.symmetric(
                                 horizontal: SMALL_SPACE,
                               ),
