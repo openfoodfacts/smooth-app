@@ -334,10 +334,12 @@ class _CountrySelectorState extends State<CountrySelector> {
         context: context,
         builder: (final BuildContext context) => SmoothAlertDialog(
           body: Text(
-            appLocalizations.currency_auto_change_message(
+            '${appLocalizations.country_change_message}'
+            '\n'
+            '${appLocalizations.currency_auto_change_message(
               currentCurrencyCode,
               possibleCurrencyCode,
-            ),
+            )}',
           ),
           negativeAction: SmoothActionButton(
             onPressed: () => Navigator.of(context).pop(),
