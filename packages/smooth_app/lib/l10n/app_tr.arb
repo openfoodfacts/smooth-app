@@ -802,6 +802,24 @@
     "@currency_chooser_label": {
         "description": "Label shown above a selector where the user can select their currency (in the preferences)"
     },
+    "country_change_message": "You have just changed countries.",
+    "@country_change_message": {
+        "description": "Message stating the change of countries"
+    },
+    "currency_auto_change_message": "Do you want to change the currency from {previousCurrency} to {possibleCurrency}?",
+    "@currency_auto_change_message": {
+        "description": "Message asking to confirm the change of currencies",
+        "placeholders": {
+            "previousCurrency": {
+                "type": "String",
+                "description": "Current currency"
+            },
+            "possibleCurrency": {
+                "type": "String",
+                "description": "Possible currency"
+            }
+        }
+    },
     "onboarding_country_chooser_label": "Lütfen bir ülke seçin:",
     "@onboarding_country_chooser_label": {
         "description": "The label shown above a selector where the user can select their country (in the onboarding)"
