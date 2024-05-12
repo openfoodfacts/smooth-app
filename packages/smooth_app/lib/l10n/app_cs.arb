@@ -798,15 +798,15 @@
     "@country_chooser_label": {
         "description": "Label shown above a selector where the user can select their country (in the preferences)"
     },
-    "currency_chooser_label": "Please choose a currency",
+    "currency_chooser_label": "Prosím zvolte měnu",
     "@currency_chooser_label": {
         "description": "Label shown above a selector where the user can select their currency (in the preferences)"
     },
-    "country_change_message": "You have just changed countries.",
+    "country_change_message": "Právě jste změnili zemi.",
     "@country_change_message": {
         "description": "Message stating the change of countries"
     },
-    "currency_auto_change_message": "Do you want to change the currency from {previousCurrency} to {possibleCurrency}?",
+    "currency_auto_change_message": "Chcete změnit měnu z {previousCurrency} na {possibleCurrency}?",
     "@currency_auto_change_message": {
         "description": "Message asking to confirm the change of currencies",
         "placeholders": {
@@ -2484,7 +2484,7 @@
     "@country_selector_title": {
         "description": "Label written as the title of the dialog to select the user country"
     },
-    "currency_selector_title": "Select your currency:",
+    "currency_selector_title": "Vyberte svou měnu:",
     "@currency_selector_title": {
         "description": "Label written as the title of the dialog to select the user currency"
     },
