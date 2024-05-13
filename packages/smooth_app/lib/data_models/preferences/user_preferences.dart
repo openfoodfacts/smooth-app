@@ -67,6 +67,7 @@ class UserPreferences extends ChangeNotifier {
   static const String _TAG_CURRENT_COLOR_SCHEME = 'currentColorScheme';
   static const String _TAG_CURRENT_CONTRAST_MODE = 'contrastMode';
   static const String _TAG_USER_COUNTRY_CODE = 'userCountry';
+  static const String _TAG_USER_CURRENCY_CODE = 'userCurrency';
   static const String _TAG_LAST_VISITED_ONBOARDING_PAGE =
       'lastVisitedOnboardingPage';
   static const String _TAG_PREFIX_FLAG = 'FLAG_PREFIX_';
@@ -213,6 +214,14 @@ class UserPreferences extends ChangeNotifier {
   String? get userCountryCode =>
       _sharedPreferences.getString(_TAG_USER_COUNTRY_CODE);
 
+  Future<void> setUserCurrencyCode(final String code) async {
+    await _sharedPreferences.setString(_TAG_USER_CURRENCY_CODE, code);
+    notifyListeners();
+  }
+
+  String? get userCurrencyCode =>
+      _sharedPreferences.getString(_TAG_USER_CURRENCY_CODE);
+
   Future<void> setLastVisitedOnboardingPage(final OnboardingPage page) async {
     await _sharedPreferences.setInt(
         _TAG_LAST_VISITED_ONBOARDING_PAGE, page.index);
@@ -223,6 +232,7 @@ class UserPreferences extends ChangeNotifier {
     await setLastVisitedOnboardingPage(OnboardingPage.NOT_STARTED);
     // for tests with a fresh null country
     await _sharedPreferences.remove(_TAG_USER_COUNTRY_CODE);
+    await _sharedPreferences.remove(_TAG_USER_CURRENCY_CODE);
     notifyListeners();
   }
 
