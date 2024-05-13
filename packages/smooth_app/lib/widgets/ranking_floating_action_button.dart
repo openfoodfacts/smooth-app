@@ -19,33 +19,31 @@ class RankingFloatingActionButton extends StatelessWidget {
   Widget build(BuildContext context) => SmoothRevealAnimation(
         animationCurve: Curves.easeInOutBack,
         startOffset: const Offset(0.0, 1.0),
-        child: Row(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            SizedBox(width: MediaQuery.of(context).size.width * 0.09),
-            Flexible(
-              child: SizedBox(
-                height: MINIMUM_TOUCH_SIZE,
-                child: ElevatedButton.icon(
-                  onPressed: onPressed,
-                  style: ButtonStyle(
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                      const RoundedRectangleBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(40))),
-                    ),
-                  ),
-                  icon: const Icon(rankingIconData),
-                  label: AutoSizeText(
-                    AppLocalizations.of(context).myPersonalizedRanking,
-                    textAlign: TextAlign.center,
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
+        child: Container(
+          height: MINIMUM_TOUCH_SIZE,
+          margin:
+              EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.09),
+          alignment: Alignment.center,
+          child: SizedBox(
+            height: MINIMUM_TOUCH_SIZE,
+            child: ElevatedButton.icon(
+              onPressed: onPressed,
+              style: ButtonStyle(
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  const RoundedRectangleBorder(
+                    borderRadius: CIRCULAR_BORDER_RADIUS,
                   ),
                 ),
               ),
-            )
-          ],
+              icon: const Icon(rankingIconData),
+              label: AutoSizeText(
+                AppLocalizations.of(context).myPersonalizedRanking,
+                textAlign: TextAlign.center,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ),
+          ),
         ),
       );
 }
