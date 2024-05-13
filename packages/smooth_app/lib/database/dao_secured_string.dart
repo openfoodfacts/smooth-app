@@ -1,3 +1,4 @@
+import 'package:flutter/services.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 /// Where we store extra secured strings
@@ -6,13 +7,35 @@ class DaoSecuredString {
 
   static FlutterSecureStorage get _getStorage => const FlutterSecureStorage();
 
-  static Future<String?> get(String key) async => _getStorage.read(key: key);
+  static Future<String?> get(String key) async {
+    try {
+      return _getStorage.read(key: key);
+    } on PlatformException catch (e) {
+      if (e.details == -25300) {
+        // On some platforms, the plugin returns an Exception when this value is unavailable
+        // Exception received: "The specified item could not be found in the keychain."
+        return null;
+      } else {
+        rethrow;
+      }
+    }
+  }
 
   static Future<void> put({required String key, required String value}) async =>
       _getStorage.write(key: key, value: value);
 
   static Future<bool> remove({required String key}) async {
-    await _getStorage.delete(key: key);
+    try {
+      await _getStorage.delete(key: key);
+    } on PlatformException catch (e) {
+      if (e.details == -25300) {
+        // On some platforms, the plugin returns an Exception when this value is unavailable
+        // Exception received: "The specified item could not be found in the keychain."
+        return false;
+      } else {
+        rethrow;
+      }
+    }
     return contains(key: key);
   }
 
