@@ -156,22 +156,17 @@ class _ProductQueryPageState extends State<ProductQueryPage>
       SmoothSharedAnimationController(
         child: SmoothScaffold(
           floatingActionButton: Row(
-            mainAxisAlignment: _showBackToTopButton
-                ? MainAxisAlignment.end
-                : MainAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
               Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 5.0),
-                  child: RankingFloatingActionButton(
-                    onPressed: () => Navigator.push<Widget>(
-                      context,
-                      MaterialPageRoute<Widget>(
-                        builder: (BuildContext context) =>
-                            PersonalizedRankingPage(
-                          barcodes: _model.displayBarcodes,
-                          title: widget.name,
-                        ),
+                child: RankingFloatingActionButton(
+                  onPressed: () => Navigator.push<Widget>(
+                    context,
+                    MaterialPageRoute<Widget>(
+                      builder: (BuildContext context) =>
+                          PersonalizedRankingPage(
+                        barcodes: _model.displayBarcodes,
+                        title: widget.name,
                       ),
                     ),
                   ),
