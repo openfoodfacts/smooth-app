@@ -93,17 +93,24 @@ class WelcomePage extends StatelessWidget {
                           child: SizedBox(
                             width: double.infinity,
                             child: CountrySelector(
+                              forceCurrencyChange: true,
                               padding: const EdgeInsets.symmetric(
                                 horizontal: SMALL_SPACE,
                               ),
                               inkWellBorderRadius: ROUNDED_BORDER_RADIUS,
-                              icon: Icon(
-                                Icons.edit,
-                                color: Colors.white.withOpacity(0.9),
-                              ),
-                              iconDecoration: BoxDecoration(
-                                color: theme.primaryColor,
-                                borderRadius: ROUNDED_BORDER_RADIUS,
+                              icon: Container(
+                                height: double.infinity,
+                                decoration: BoxDecoration(
+                                  color: theme.primaryColor,
+                                  borderRadius: ROUNDED_BORDER_RADIUS,
+                                ),
+                                child: AspectRatio(
+                                  aspectRatio: 1.0,
+                                  child: Icon(
+                                    Icons.edit,
+                                    color: Colors.white.withOpacity(0.9),
+                                  ),
+                                ),
                               ),
                               textStyle: TextStyle(color: theme.primaryColor),
                             ),

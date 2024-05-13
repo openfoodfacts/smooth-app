@@ -23,7 +23,7 @@ dependencies:
   html: 0.15.4
   flutter_widget_from_html_core: 0.8.5+3
   fwfh_selectable_text: 0.8.3+1
-  flutter_secure_storage: 9.0.0
+  flutter_secure_storage: 9.1.1
   hive: 2.2.3
   hive_flutter: 1.1.0
   http: 1.2.0
@@ -61,10 +61,10 @@ dependencies:
   share_plus: 7.2.2
   fimber: 0.7.0
   shimmer: ^3.0.0
-  rive: 0.13.2
+  rive: 0.13.4
   sensors_plus: 3.1.0
   webview_flutter: 4.7.0
-  webview_flutter_android: 3.16.0
+  webview_flutter_android: 3.16.1
   webview_flutter_wkwebview: 3.13.0
   flutter_custom_tabs: 2.0.0+1
   flutter_image_compress: 2.2.0
@@ -88,7 +88,7 @@ dependencies:
   # We use two different scanning engines, 
   # mobile scanner powered by ML Kit for the Play Store and Apple App Store,
   # but qr_code_scanner which uses the open source ZXing for F-Droid
-  camera: 0.10.5+9
+  camera: 0.10.6
   
   scanner_shared:
     path: ../scanner/shared
@@ -100,7 +100,7 @@ dependencies:
     path: ../scanner/zxing
 
 
-  openfoodfacts: 3.7.0
+  openfoodfacts: 3.8.0
   # openfoodfacts:
   #   path: ../../../openfoodfacts-dart
 

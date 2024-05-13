@@ -209,10 +209,10 @@ packages:
     dependency: "direct main"
     description:
       name: camera
-      sha256: "9499cbc2e51d8eb0beadc158b288380037618ce4e30c9acbc4fae1ac3ecb5797"
+      sha256: dfa8fc5a1adaeb95e7a54d86a5bd56f4bb0e035515354c8ac6d262e35cec2ec8
       url: "https://pub.dev"
     source: hosted
-    version: "0.10.5+9"
+    version: "0.10.6"
   camera_android:
     dependency: transitive
     description:
@@ -688,50 +688,50 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_secure_storage
-      sha256: ffdbb60130e4665d2af814a0267c481bcf522c41ae2e43caf69fa0146876d685
+      sha256: c0f402067fb0498934faa6bddd670de0a3db45222e2ca9a068c6177c9a2360a4
       url: "https://pub.dev"
     source: hosted
-    version: "9.0.0"
+    version: "9.1.1"
   flutter_secure_storage_linux:
     dependency: transitive
     description:
       name: flutter_secure_storage_linux
-      sha256: "3d5032e314774ee0e1a7d0a9f5e2793486f0dff2dd9ef5a23f4e3fb2a0ae6a9e"
+      sha256: "4d91bfc23047422cbcd73ac684bc169859ee766482517c22172c86596bf1464b"
       url: "https://pub.dev"
     source: hosted
-    version: "1.2.0"
+    version: "1.2.1"
   flutter_secure_storage_macos:
     dependency: transitive
     description:
       name: flutter_secure_storage_macos
-      sha256: bd33935b4b628abd0b86c8ca20655c5b36275c3a3f5194769a7b3f37c905369c
+      sha256: "8cfa53010a294ff095d7be8fa5bb15f2252c50018d69c5104851303f3ff92510"
       url: "https://pub.dev"
     source: hosted
-    version: "3.0.1"
+    version: "3.1.0"
   flutter_secure_storage_platform_interface:
     dependency: transitive
     description:
       name: flutter_secure_storage_platform_interface
-      sha256: "0d4d3a5dd4db28c96ae414d7ba3b8422fd735a8255642774803b2532c9a61d7e"
+      sha256: "301f67ee9b87f04aef227f57f13f126fa7b13543c8e7a93f25c5d2d534c28a4a"
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.2"
+    version: "1.1.1"
   flutter_secure_storage_web:
     dependency: transitive
     description:
       name: flutter_secure_storage_web
-      sha256: "30f84f102df9dcdaa2241866a958c2ec976902ebdaa8883fbfe525f1f2f3cf20"
+      sha256: f4ebff989b4f07b2656fb16b47852c0aab9fed9b4ec1c70103368337bc1886a9
       url: "https://pub.dev"
     source: hosted
-    version: "1.1.2"
+    version: "1.2.1"
   flutter_secure_storage_windows:
     dependency: transitive
     description:
       name: flutter_secure_storage_windows
-      sha256: "5809c66f9dd3b4b93b0a6e2e8561539405322ee767ac2f64d084e2ab5429d108"
+      sha256: b20b07cb5ed4ed74fc567b78a72936203f587eba460af1df11281c9326cd3709
       url: "https://pub.dev"
     source: hosted
-    version: "3.0.0"
+    version: "3.1.2"
   flutter_svg:
     dependency: "direct main"
     description:
@@ -1132,10 +1132,10 @@ packages:
     dependency: "direct main"
     description:
       name: openfoodfacts
-      sha256: dd2e19905a00eba37f67b5c8a52612e93d0f6758a96986ee0afe3723da7e41d5
+      sha256: "19c49aee1093dae611e79240e09ee46f3537b6083235307eec044fb3e5ecc750"
       url: "https://pub.dev"
     source: hosted
-    version: "3.7.0"
+    version: "3.8.0"
   openfoodfacts_flutter_lints:
     dependency: "direct dev"
     description:
@@ -1389,18 +1389,18 @@ packages:
     dependency: "direct main"
     description:
       name: rive
-      sha256: "95690a0fb4f6e195c53b217ab3cc0e0b0f443c670adbdee9d57d636a36b82b18"
+      sha256: "255ab7892a77494458846cecee1376a017e64fd6b4130b51ec21424d12ffa6fe"
       url: "https://pub.dev"
     source: hosted
-    version: "0.13.2"
+    version: "0.13.4"
   rive_common:
     dependency: transitive
     description:
       name: rive_common
-      sha256: "3eee68fcab3e0882090cea5a8cf7acea7967f469a34a2580322575603b094435"
+      sha256: "3a0d95f529d52caef535d8ff32d75629ca37f7ab4707b13c83e9552a322557bc"
       url: "https://pub.dev"
     source: hosted
-    version: "0.4.5"
+    version: "0.4.8"
   scanner_ml_kit:
     dependency: "direct main"
     description:
@@ -1815,10 +1815,10 @@ packages:
     dependency: "direct main"
     description:
       name: webview_flutter_android
-      sha256: f038ee2fae73b509dde1bc9d2c5a50ca92054282de17631a9a3d515883740934
+      sha256: dad3313c9ead95517bb1cae5e1c9d20ba83729d5a59e5e83c0a2d66203f27f91
       url: "https://pub.dev"
     source: hosted
-    version: "3.16.0"
+    version: "3.16.1"
   webview_flutter_platform_interface:
     dependency: transitive
     description:
