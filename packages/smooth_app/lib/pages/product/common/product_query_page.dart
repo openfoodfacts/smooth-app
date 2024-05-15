@@ -156,12 +156,9 @@ class _ProductQueryPageState extends State<ProductQueryPage>
       SmoothSharedAnimationController(
         child: SmoothScaffold(
           floatingActionButton: Row(
-            mainAxisAlignment: _showBackToTopButton
-                ? MainAxisAlignment.spaceBetween
-                : MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 5.0),
+              Expanded(
                 child: RankingFloatingActionButton(
                   onPressed: () => Navigator.push<Widget>(
                     context,
@@ -187,15 +184,24 @@ class _ProductQueryPageState extends State<ProductQueryPage>
                       padding: const EdgeInsetsDirectional.only(
                         start: SMALL_SPACE,
                       ),
-                      child: FloatingActionButton(
-                        backgroundColor: themeData.colorScheme.secondary,
-                        onPressed: () {
-                          _scrollToTop();
-                        },
-                        tooltip: appLocalizations.go_back_to_top,
-                        child: Icon(
-                          Icons.arrow_upward,
-                          color: themeData.colorScheme.onSecondary,
+                      child: SizedBox(
+                        height: MINIMUM_TOUCH_SIZE,
+                        child: ElevatedButton(
+                          onPressed: () {
+                            _scrollToTop();
+                          },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: themeData.colorScheme.secondary,
+                            foregroundColor: themeData.colorScheme.onSecondary,
+                            shape: const CircleBorder(),
+                            padding: EdgeInsets.zero,
+                          ),
+                          child: Center(
+                            child: Icon(
+                              Icons.arrow_upward,
+                              color: themeData.colorScheme.onSecondary,
+                            ),
+                          ),
                         ),
                       ),
                     ),
