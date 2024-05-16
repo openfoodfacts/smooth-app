@@ -99,9 +99,9 @@ class SvgCache extends AbstractCache {
       'nutriscore-unknown-new-formula-en.svg' =>
         localizations.nutriscore_unknown_new_formula,
       'nutriscore-not-applicable.svg' =>
-        localizations.nutriscore_not_applicable_new_formula,
-      'nutriscore-not-applicable-new-formula-en.svg' =>
         localizations.nutriscore_not_applicable,
+      'nutriscore-not-applicable-new-formula-en.svg' =>
+        localizations.nutriscore_not_applicable_new_formula,
       _ => null,
     };
   }
