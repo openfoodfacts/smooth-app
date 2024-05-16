@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -110,14 +112,16 @@ class UserManagementProvider with ChangeNotifier {
         password: user.password,
       ),
     );
-    switch (loginResult.type) {
-      case LoginResultType.successful:
-      case LoginResultType.serverIssue:
-      case LoginResultType.exception:
-        return;
-      case LoginResultType.unsuccessful:
-        // TODO(m123): Notify the user
-        await logout();
+
+    if (loginResult.type == LoginResultType.unsuccessful) {
+      // TODO(m123): Notify the user
+      await logout();
+      return;
+    }
+
+    /// Save the cookie if necessary
+    if (user.cookie == null && loginResult.user?.cookie != null) {
+      putUser(loginResult.user!);
     }
   }
 }
