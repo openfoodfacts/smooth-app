@@ -343,7 +343,22 @@ class _TorchAnimationState extends State<TorchAnimation> {
 }
 
 class NutriScoreAnimation extends StatefulWidget {
-  const NutriScoreAnimation({
+  factory NutriScoreAnimation({
+    required NutriScoreAnimationValue value,
+    Size? size,
+    Key? key,
+  }) {
+    return switch (value) {
+      NutriScoreAnimationValue.a => NutriScoreAnimation.A(size: size, key: key),
+      NutriScoreAnimationValue.b => NutriScoreAnimation.B(size: size, key: key),
+      NutriScoreAnimationValue.c => NutriScoreAnimation.C(size: size, key: key),
+      NutriScoreAnimationValue.d => NutriScoreAnimation.D(size: size, key: key),
+      NutriScoreAnimationValue.e => NutriScoreAnimation.E(size: size, key: key),
+      _ => NutriScoreAnimation.unknown(size: size, key: key),
+    };
+  }
+
+  const NutriScoreAnimation.unknown({
     this.size,
     super.key,
   }) : level = -1;
@@ -374,7 +389,7 @@ class NutriScoreAnimation extends StatefulWidget {
   }) : level = 4;
 
   final int level;
-  final double? size;
+  final Size? size;
 
   @override
   State<NutriScoreAnimation> createState() => _NutriScoreAnimationState();
@@ -398,8 +413,7 @@ class _NutriScoreAnimationState extends State<NutriScoreAnimation> {
   /// You can test it here [https://rive.app/s/aSxao_1Mwkixud5Z2GbA5A/]
   void _changeNutriScoreState(int nutriScoreValue) {
     assert(nutriScoreValue >= -1 && nutriScoreValue <= 4);
-    final SMINumber currentValue =
-        _controller!.findInput<int>('value')! as SMINumber;
+    final SMINumber currentValue = _controller!.getNumberInput('value')!;
     if (currentValue.value != nutriScoreValue) {
       currentValue.value = nutriScoreValue.toDouble();
     }
@@ -407,23 +421,24 @@ class _NutriScoreAnimationState extends State<NutriScoreAnimation> {
 
   @override
   Widget build(BuildContext context) {
-    final double size = widget.size ?? IconTheme.of(context).size ?? 24.0;
+    return SizedBox.fromSize(
+      size: widget.size ?? Size.fromHeight(IconTheme.of(context).size ?? 24.0),
+      child: AspectRatio(
+        aspectRatio: 176 / 94,
+        child: RiveAnimation.asset(
+          'assets/animations/nutriscore.riv',
+          artboard: 'Nutriscore',
+          fit: BoxFit.contain,
+          onInit: (Artboard artboard) {
+            _controller = StateMachineController.fromArtboard(
+              artboard,
+              'Nutriscore',
+            );
 
-    return SizedBox.square(
-      dimension: size,
-      child: RiveAnimation.asset(
-        'assets/animations/nutriscore.riv',
-        artboard: 'Nutriscore',
-        fit: BoxFit.cover,
-        onInit: (Artboard artboard) {
-          _controller = StateMachineController.fromArtboard(
-            artboard,
-            'Nutriscore',
-          );
-
-          artboard.addController(_controller!);
-          _changeNutriScoreState(widget.level);
-        },
+            artboard.addController(_controller!);
+            _changeNutriScoreState(widget.level);
+          },
+        ),
       ),
     );
   }
@@ -433,4 +448,14 @@ class _NutriScoreAnimationState extends State<NutriScoreAnimation> {
     _controller?.dispose();
     super.dispose();
   }
+}
+
+enum NutriScoreAnimationValue {
+  a,
+  b,
+  c,
+  d,
+  e,
+  unknown,
+  notApplicable,
 }
