@@ -81,12 +81,27 @@ class SvgCache extends AbstractCache {
       'nova-group-4.svg' => localizations.nova_group_4,
       'nova-group-unknown.svg' => localizations.nova_group_unknown,
       'nutriscore-a.svg' => localizations.nutriscore_a,
+      'nutriscore-a-new-formula-en.svg' =>
+        localizations.nutriscore_a_new_formula,
       'nutriscore-b.svg' => localizations.nutriscore_b,
+      'nutriscore-b-new-formula-en.svg' =>
+        localizations.nutriscore_b_new_formula,
       'nutriscore-c.svg' => localizations.nutriscore_c,
+      'nutriscore-c-new-formula-en.svg' =>
+        localizations.nutriscore_c_new_formula,
       'nutriscore-d.svg' => localizations.nutriscore_d,
+      'nutriscore-d-new-formula-en.svg' =>
+        localizations.nutriscore_d_new_formula,
       'nutriscore-e.svg' => localizations.nutriscore_e,
+      'nutriscore-e-new-formula-en.svg' =>
+        localizations.nutriscore_e_new_formula,
       'nutriscore-unknown.svg' => localizations.nutriscore_unknown,
-      'nutriscore-not-applicable.svg' => localizations.ecoscore_not_applicable,
+      'nutriscore-unknown-new-formula-en.svg' =>
+        localizations.nutriscore_unknown_new_formula,
+      'nutriscore-not-applicable.svg' =>
+        localizations.ecoscore_not_applicable_new_formula,
+      'nutriscore-not-applicable-new-formula-en.svg' =>
+        localizations.ecoscore_not_applicable,
       _ => null,
     };
   }
