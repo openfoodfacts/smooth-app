@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="178"
+   height="178"
+   viewBox="0 0 178 178"
+   version="1.1"
+   id="svg3069"
+   inkscape:version="1.2 (dc2aeda, 2022-05-15)"
+   sodipodi:docname="off-logo-icon-light.svg"
+   inkscape:export-filename="off-logo-icon-light.png"
+   inkscape:export-xdpi="138.06741"
+   inkscape:export-ydpi="138.06741"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview3071"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.80354938"
+     inkscape:cx="130.04801"
+     inkscape:cy="563.12656"
+     inkscape:window-width="2560"
+     inkscape:window-height="1376"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs3066" />
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g2997"
+       transform="translate(-33.85,-30.075)">
+      <g
+         id="g2989">
+        <path
+           class="f"
+           d="m 61.62,122.32 c 0,-33.82 27.41,-61.23 61.23,-61.23 33.82,0 61.23,27.41 61.23,61.23 z"
+           id="path2979"
+           style="fill:#ff8c14" />
+        <path
+           class="e"
+           d="m 168.55,122.32 c 0,25.24 -20.46,45.71 -45.71,45.71 -25.24,0 -45.71,-20.46 -45.71,-45.71 z"
+           id="path2981"
+           style="fill:#ffffff" />
+        <circle
+           class="g"
+           cx="143.58"
+           cy="82.779999"
+           r="3.3699999"
+           id="circle2983"
+           style="fill:#8c3c00" />
+        <circle
+           class="g"
+           cx="159.98"
+           cy="97.839996"
+           r="3.3699999"
+           id="circle2985"
+           style="fill:#8c3c00" />
+        <circle
+           class="g"
+           cx="141.42999"
+           cy="101.52"
+           r="3.3699999"
+           id="circle2987"
+           style="fill:#8c3c00" />
+      </g>
+      <path
+         d="m 93.15,175.84 -10.88,25.97 14.32,6 10.97,-26.19 c 4.89,1.26 10.01,1.93 15.29,1.93 33.76,0 61.23,-27.47 61.23,-61.23 h -15.52 c 0,25.2 -20.5,45.71 -45.71,45.71 -25.21,0 -45.71,-20.5 -45.71,-45.71 H 61.62 c 0,22.99 12.74,43.05 31.53,53.52 z"
+         id="path2991" />
+      <path
+         class="c"
+         d="m 148.17,30.34 c -12.04,0 -22.5,6.71 -27.88,16.59 4.14,3.86 7.27,8.79 8.89,14.38 14.01,-3.14 24.53,-15.53 24.77,-30.43 -1.87,-0.35 -3.8,-0.53 -5.78,-0.53 z"
+         id="path2993"
+         style="fill:#00641e" />
+      <path
+         class="d"
+         d="m 98.68,38.42 c -2.38,0 -4.7,0.27 -6.94,0.77 3.83,13.23 16.03,22.91 30.5,22.91 2.38,0 4.7,-0.27 6.94,-0.77 C 125.35,48.1 113.15,38.42 98.68,38.42 Z"
+         id="path2995"
+         style="fill:#00961e" />
+    </g>
+  </g>
+</svg>
