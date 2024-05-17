@@ -17,6 +17,7 @@ class BackgroundTaskUnselect extends BackgroundTaskBarcode
   BackgroundTaskUnselect._({
     required super.processName,
     required super.uniqueId,
+    required OpenFoodFactsLanguage super.language,
     required super.barcode,
     required super.stamp,
     required this.imageField,
@@ -81,6 +82,7 @@ class BackgroundTaskUnselect extends BackgroundTaskBarcode
       BackgroundTaskUnselect._(
         uniqueId: uniqueId,
         barcode: barcode,
+        language: language,
         processName: _operationType.processName,
         imageField: imageField.offTag,
         // same stamp as image upload
