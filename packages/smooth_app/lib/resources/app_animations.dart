@@ -436,8 +436,10 @@ class _NutriScoreAnimationState extends State<NutriScoreAnimation> {
       },
       image: true,
       child: SizedBox.fromSize(
-        size:
-            widget.size ?? Size.fromHeight(IconTheme.of(context).size ?? 24.0),
+        size: widget.size ??
+            Size.fromHeight(
+              IconTheme.of(context).size ?? 24.0,
+            ),
         child: AspectRatio(
           aspectRatio: 176 / 94,
           child: RiveAnimation.asset(
