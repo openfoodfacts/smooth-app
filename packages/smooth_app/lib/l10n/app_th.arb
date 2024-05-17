@@ -443,7 +443,7 @@
     "@myPersonalizedRanking": {
         "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
     },
-    "ranking_tab_all": "All",
+    "ranking_tab_all": "ทั้งหมด",
     "ranking_subtitle_match_yes": "จับคู่ที่ดีสำหรับคุณ",
     "ranking_subtitle_match_no": "Very poor match",
     "ranking_subtitle_match_maybe": "Unknown match",
@@ -476,7 +476,7 @@
     "@category": {
         "description": "From a product list, there's a category filter: this is its title"
     },
-    "category_all": "All",
+    "category_all": "ทั้งหมด",
     "@category_al": {
         "description": "Top meta-entry on a category filter"
     },
