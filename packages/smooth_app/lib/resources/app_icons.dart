@@ -320,6 +320,15 @@ class Expand extends AppIcon {
   }) : super._(_IconsFont.expand);
 }
 
+class Fish extends AppIcon {
+  const Fish({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  }) : super._(_IconsFont.fish);
+}
+
 class Fruit extends AppIcon {
   const Fruit({
     super.color,
