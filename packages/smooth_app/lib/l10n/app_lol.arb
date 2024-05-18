@@ -2514,8 +2514,19 @@
     "nutriscore_c": "crwdns244787:0crwdne244787:0",
     "nutriscore_d": "crwdns244789:0crwdne244789:0",
     "nutriscore_e": "crwdns244791:0crwdne244791:0",
+    "nutriscore_new_formula": "crwdns248302:0{letter}crwdne248302:0",
+    "@nutriscore_new_formula": {
+        "description": "A generic string to define a Nutri-Score V2 with a letter [eg: \"Nutri-Score A (New calculation)\"]",
+        "placeholders": {
+            "letter": {
+                "type": "String"
+            }
+        }
+    },
     "nutriscore_unknown": "crwdns244793:0crwdne244793:0",
+    "nutriscore_unknown_new_formula": "crwdns248304:0crwdne248304:0",
     "nutriscore_not_applicable": "crwdns244795:0crwdne244795:0",
+    "nutriscore_not_applicable_new_formula": "crwdns248306:0crwdne248306:0",
     "ecoscore_generic": "crwdns245069:0crwdne245069:0",
     "ecoscore_a": "crwdns244797:0crwdne244797:0",
     "ecoscore_b": "crwdns244799:0crwdne244799:0",
