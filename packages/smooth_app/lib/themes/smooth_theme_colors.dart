@@ -50,11 +50,11 @@ class SmoothColorsThemeExtension
   @override
   ThemeExtension<SmoothColorsThemeExtension> copyWith({
     Color? primaryBlack,
-    Color? primaryExtraDark,
     Color? primaryDark,
+    Color? primarySemiDark,
     Color? primaryNormal,
+    Color? primaryMedium,
     Color? primaryLight,
-    Color? primaryVeryLight,
     Color? secondaryNormal,
     Color? secondaryLight,
     Color? green,
@@ -65,11 +65,11 @@ class SmoothColorsThemeExtension
   }) {
     return SmoothColorsThemeExtension(
       primaryBlack: primaryBlack ?? this.primaryBlack,
-      primaryDark: primaryExtraDark ?? this.primaryDark,
-      primarySemiDark: primaryDark ?? this.primarySemiDark,
+      primaryDark: primaryDark ?? this.primaryDark,
+      primarySemiDark: primarySemiDark ?? this.primarySemiDark,
       primaryNormal: primaryNormal ?? this.primaryNormal,
-      primaryMedium: primaryLight ?? this.primaryMedium,
-      primaryLight: primaryVeryLight ?? this.primaryLight,
+      primaryMedium: primaryMedium ?? this.primaryMedium,
+      primaryLight: primaryLight ?? this.primaryLight,
       secondaryNormal: secondaryNormal ?? this.secondaryNormal,
       secondaryLight: secondaryLight ?? this.secondaryLight,
       green: green ?? this.green,
