@@ -2514,8 +2514,19 @@
     "nutriscore_c": "Оцінка Nutri-Score C",
     "nutriscore_d": "Оцінка Nutri-Score D",
     "nutriscore_e": "Оцінка Nutri-Score E",
+    "nutriscore_new_formula": "Nutri-Score {letter} (New calculation)",
+    "@nutriscore_new_formula": {
+        "description": "A generic string to define a Nutri-Score V2 with a letter [eg: \"Nutri-Score A (New calculation)\"]",
+        "placeholders": {
+            "letter": {
+                "type": "String"
+            }
+        }
+    },
     "nutriscore_unknown": "Невідома оцінка Nutri-Score",
+    "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
     "nutriscore_not_applicable": "Nutri-Score не застосовується",
+    "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
     "ecoscore_generic": "Eco-Score (показник впливу на довкілля)",
     "ecoscore_a": "Eco-Score A",
     "ecoscore_b": "Eco-Score B",
