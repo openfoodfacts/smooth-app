@@ -2514,8 +2514,19 @@
     "nutriscore_c": "Scor nutrițional C",
     "nutriscore_d": "Scor nutrițional D",
     "nutriscore_e": "Scor nutrițional E",
+    "nutriscore_new_formula": "Nutri-Score {letter} (New calculation)",
+    "@nutriscore_new_formula": {
+        "description": "A generic string to define a Nutri-Score V2 with a letter [eg: \"Nutri-Score A (New calculation)\"]",
+        "placeholders": {
+            "letter": {
+                "type": "String"
+            }
+        }
+    },
     "nutriscore_unknown": "Scor nutrițional necunoscut",
+    "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
     "nutriscore_not_applicable": "Scorul nutrițional nu se aplică",
+    "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
     "ecoscore_generic": "Scor Ecologic",
     "ecoscore_a": "Scor Ecologic A",
     "ecoscore_b": "Scor Ecologic B",
