@@ -115,6 +115,15 @@ class Categories extends AppIcon {
   }) : super._(_IconsFont.categories);
 }
 
+class Chicken extends AppIcon {
+  const Chicken({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  }) : super._(_IconsFont.chicken);
+}
+
 class Check extends AppIcon {
   const Check({
     super.color,
@@ -374,6 +383,15 @@ class Lifebuoy extends AppIcon {
   }) : super._(_IconsFont.lifebuoy);
 }
 
+class Milk extends AppIcon {
+  const Milk({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  }) : super._(_IconsFont.milk);
+}
+
 class NoPicture extends AppIcon {
   const NoPicture({
     super.color,
@@ -513,6 +531,22 @@ class Settings extends AppIcon {
     super.shadow,
     super.key,
   }) : super._(_IconsFont.settings);
+}
+
+class Soda extends AppIcon {
+  const Soda.happy({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  }) : super._(_IconsFont.soda_happy);
+
+  const Soda.unhappy({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  }) : super._(_IconsFont.soda_unhappy);
 }
 
 class Sound extends AppIcon {

@@ -10,6 +10,8 @@ class _IconsFont {
   static const String _kFontFam = 'SmoothIcons';
   static const String? _kFontPkg = null;
 
+  static const IconData chicken =
+      IconData(0xe800, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData add_to_list =
       IconData(0xe801, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData settings =
@@ -102,6 +104,14 @@ class _IconsFont {
       IconData(0xe840, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData barcode =
       IconData(0xe841, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData fish =
+      IconData(0xe842, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData milk =
+      IconData(0xe843, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData soda_happy =
+      IconData(0xe844, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData soda_unhappy =
+      IconData(0xe845, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData close =
       IconData(0xe851, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData suggestion =
