@@ -2514,8 +2514,19 @@
     "nutriscore_c": "Nutri-Score C",
     "nutriscore_d": "Nutri-Score D",
     "nutriscore_e": "Nutri-Score E",
+    "nutriscore_new_formula": "Nutri-Score {letter} (New calculation)",
+    "@nutriscore_new_formula": {
+        "description": "A generic string to define a Nutri-Score V2 with a letter [eg: \"Nutri-Score A (New calculation)\"]",
+        "placeholders": {
+            "letter": {
+                "type": "String"
+            }
+        }
+    },
     "nutriscore_unknown": "Neznáme Nutri-Score",
+    "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
     "nutriscore_not_applicable": "Nutri-Score nie je použiteľné",
+    "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
     "ecoscore_generic": "Eko-skóre",
     "ecoscore_a": "Eco-Score A",
     "ecoscore_b": "Eco-Score B",
