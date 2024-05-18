@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:rive/rive.dart';
 import 'package:smooth_app/services/smooth_services.dart';
@@ -421,23 +422,40 @@ class _NutriScoreAnimationState extends State<NutriScoreAnimation> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox.fromSize(
-      size: widget.size ?? Size.fromHeight(IconTheme.of(context).size ?? 24.0),
-      child: AspectRatio(
-        aspectRatio: 176 / 94,
-        child: RiveAnimation.asset(
-          'assets/animations/nutriscore.riv',
-          artboard: 'Nutriscore',
-          fit: BoxFit.contain,
-          onInit: (Artboard artboard) {
-            _controller = StateMachineController.fromArtboard(
-              artboard,
-              'Nutriscore',
-            );
+    final AppLocalizations localizations = AppLocalizations.of(context);
 
-            artboard.addController(_controller!);
-            _changeNutriScoreState(widget.level);
-          },
+    return Semantics(
+      // TODO(g123k): Update with V2 once the animation is ready
+      label: switch (widget.level) {
+        0 => localizations.nutriscore_a,
+        1 => localizations.nutriscore_b,
+        2 => localizations.nutriscore_c,
+        3 => localizations.nutriscore_d,
+        4 => localizations.nutriscore_e,
+        _ => localizations.nutriscore_unknown,
+      },
+      image: true,
+      child: SizedBox.fromSize(
+        size: widget.size ??
+            Size.fromHeight(
+              IconTheme.of(context).size ?? 24.0,
+            ),
+        child: AspectRatio(
+          aspectRatio: 176 / 94,
+          child: RiveAnimation.asset(
+            'assets/animations/nutriscore.riv',
+            artboard: 'Nutriscore',
+            fit: BoxFit.contain,
+            onInit: (Artboard artboard) {
+              _controller = StateMachineController.fromArtboard(
+                artboard,
+                'Nutriscore',
+              );
+
+              artboard.addController(_controller!);
+              _changeNutriScoreState(widget.level);
+            },
+          ),
         ),
       ),
     );
