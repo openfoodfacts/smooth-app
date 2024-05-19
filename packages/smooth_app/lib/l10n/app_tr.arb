@@ -1645,6 +1645,9 @@
     },
     "prices_app_dev_mode_flag": "Ürün sayfasındaki Fiyatlar uygulamasının kısayolu",
     "prices_app_button": "Fiyatlar uygulamasına gidin",
+    "prices_generic_title": "Fiyatlar",
+    "prices_add_a_price": "Fiyat ekleyin",
+    "prices_view_prices": "View the prices",
     "dev_preferences_import_history_result_success": "Yapıldı",
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"
