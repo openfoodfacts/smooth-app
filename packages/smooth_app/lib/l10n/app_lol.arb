@@ -1645,6 +1645,9 @@
     },
     "prices_app_dev_mode_flag": "crwdns246536:0crwdne246536:0",
     "prices_app_button": "crwdns246538:0crwdne246538:0",
+    "prices_generic_title": "crwdns248426:0crwdne248426:0",
+    "prices_add_a_price": "crwdns248428:0crwdne248428:0",
+    "prices_view_prices": "crwdns248430:0crwdne248430:0",
     "dev_preferences_import_history_result_success": "crwdns221605:0crwdne221605:0",
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"
