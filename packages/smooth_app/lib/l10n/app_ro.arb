@@ -1645,6 +1645,9 @@
     },
     "prices_app_dev_mode_flag": "Shortcut to Prices app on product page",
     "prices_app_button": "Go to Prices app",
+    "prices_generic_title": "Prices",
+    "prices_add_a_price": "Add a price",
+    "prices_view_prices": "View the prices",
     "dev_preferences_import_history_result_success": "Terminat",
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"
