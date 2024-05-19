@@ -1,3 +1,5 @@
+import 'package:flutter/painting.dart';
+
 extension StringExtensions on String {
   /// Returns a list containing all positions of a [charCode]
   /// By default, the case is taken into account.
@@ -40,5 +42,54 @@ extension StringExtensions on String {
         return replace;
       }
     });
+  }
+}
+
+class TextHelper {
+  const TextHelper._();
+
+  /// Split the text into parts.
+  /// Eg: with the symbol '*'
+  /// 'Hello *world*!' => [('Hello ', defaultStyle), ('world', highlightedStyle), ('!', defaultStyle)]
+  static List<(String, TextStyle?)> getPartsBetweenSymbol({
+    required String text,
+    required String symbol,
+    required int symbolLength,
+    required TextStyle? defaultStyle,
+    required TextStyle? highlightedStyle,
+  }) {
+    final Iterable<RegExpMatch> highlightedParts =
+        RegExp('$symbol[^$symbol]+$symbol').allMatches(text);
+
+    final List<(String, TextStyle?)> parts = <(String, TextStyle?)>[];
+
+    if (highlightedParts.isEmpty) {
+      parts.add((text, defaultStyle));
+    } else {
+      parts
+          .add((text.substring(0, highlightedParts.first.start), defaultStyle));
+      for (int i = 0; i != highlightedParts.length; i++) {
+        final RegExpMatch subPart = highlightedParts.elementAt(i);
+
+        parts.add(
+          (
+            text.substring(
+                subPart.start + symbolLength, subPart.end - symbolLength),
+            highlightedStyle
+          ),
+        );
+
+        if (i < highlightedParts.length - 1) {
+          parts.add((
+            text.substring(
+                subPart.end, highlightedParts.elementAt(i + 1).start),
+            defaultStyle
+          ));
+        } else if (subPart.end < text.length) {
+          parts.add((text.substring(subPart.end, text.length), defaultStyle));
+        }
+      }
+    }
+    return parts;
   }
 }
