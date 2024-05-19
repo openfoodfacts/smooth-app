@@ -802,11 +802,11 @@
     "@currency_chooser_label": {
         "description": "Label shown above a selector where the user can select their currency (in the preferences)"
     },
-    "country_change_message": "You have just changed countries.",
+    "country_change_message": "Az önce ülke değiştirdiniz.",
     "@country_change_message": {
         "description": "Message stating the change of countries"
     },
-    "currency_auto_change_message": "Do you want to change the currency from {previousCurrency} to {possibleCurrency}?",
+    "currency_auto_change_message": "Para birimini {previousCurrency} yerine {possibleCurrency} olarak değiştirmek istiyor musunuz?",
     "@currency_auto_change_message": {
         "description": "Message asking to confirm the change of currencies",
         "placeholders": {
@@ -2514,7 +2514,7 @@
     "nutriscore_c": "Nutri-Score C",
     "nutriscore_d": "Nutri-Score D",
     "nutriscore_e": "Nutri-Score E",
-    "nutriscore_new_formula": "Nutri-Score {letter} (New calculation)",
+    "nutriscore_new_formula": "Nutri-Score {letter} (Yeni hesaplama)",
     "@nutriscore_new_formula": {
         "description": "A generic string to define a Nutri-Score V2 with a letter [eg: \"Nutri-Score A (New calculation)\"]",
         "placeholders": {
@@ -2524,9 +2524,9 @@
         }
     },
     "nutriscore_unknown": "Bilinmeyen Nutri-Score",
-    "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
+    "nutriscore_unknown_new_formula": "Bilinmeyen Nutri-Score (Yeni hesaplama)",
     "nutriscore_not_applicable": "Nutri-Score geçerli değildir",
-    "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
+    "nutriscore_not_applicable_new_formula": "Nutri-Score geçerli değildir (Yeni hesaplama)",
     "ecoscore_generic": "Eco-Score",
     "ecoscore_a": "Eco-Score A",
     "ecoscore_b": "Eco-Score B",
