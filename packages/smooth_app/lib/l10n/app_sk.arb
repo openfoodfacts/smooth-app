@@ -1645,6 +1645,9 @@
     },
     "prices_app_dev_mode_flag": "Odkaz na aplikáciu Ceny na stránke produktu",
     "prices_app_button": "Prejdite do aplikácie Ceny",
+    "prices_generic_title": "Prices",
+    "prices_add_a_price": "Pridajte cenu",
+    "prices_view_prices": "View the prices",
     "dev_preferences_import_history_result_success": "Hotovo",
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"
