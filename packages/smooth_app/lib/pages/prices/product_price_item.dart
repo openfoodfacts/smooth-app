@@ -29,7 +29,7 @@ class ProductPriceItem extends StatelessWidget {
       child: ListTile(
         title: Text(
           '${currencyFormat.format(price.price)}'
-          '${pricePerKg == null ? null : ' (${currencyFormat.format(pricePerKg)} / kg)'}'
+          '${pricePerKg == null ? '' : ' (${currencyFormat.format(pricePerKg)} / kg)'}'
           '   '
           '${dateFormat.format(price.date)}',
         ),
