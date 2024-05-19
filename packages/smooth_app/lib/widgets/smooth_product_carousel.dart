@@ -22,7 +22,6 @@ import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/user_feedback_helper.dart';
 import 'package:smooth_app/pages/carousel_manager.dart';
-import 'package:smooth_app/pages/guides/guide/guide_nutriscore_v2.dart';
 import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
 import 'package:smooth_app/pages/scan/scan_product_card_loader.dart';
@@ -386,11 +385,7 @@ class _SearchCardContentTagLine extends StatelessWidget {
           return InkWell(
             borderRadius: ANGULAR_BORDER_RADIUS,
             onTap: tagLine.hasLink
-                ? () async => Navigator.of(context).push<void>(
-                      MaterialPageRoute<void>(
-                        builder: (BuildContext context) => GuideNutriscoreV2(),
-                      ),
-                    )
+                ? () async => LaunchUrlHelper.launchURL(tagLine.url)
                 : null,
             child: Center(
               child: AutoSizeText(

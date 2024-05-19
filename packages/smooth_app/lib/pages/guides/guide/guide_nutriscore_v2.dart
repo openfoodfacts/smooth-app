@@ -29,7 +29,7 @@ class GuideNutriscoreV2 extends StatelessWidget {
 }
 
 class _GuideNutriscoreV2Content extends StatelessWidget {
-  const _GuideNutriscoreV2Content({super.key});
+  const _GuideNutriscoreV2Content();
 
   @override
   Widget build(BuildContext context) {
