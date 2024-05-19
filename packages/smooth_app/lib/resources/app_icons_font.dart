@@ -88,6 +88,8 @@ class _IconsFont {
       IconData(0xe837, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData question =
       IconData(0xe838, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData salt =
+      IconData(0xe839, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData search =
       IconData(0xe83a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData advanced_search =
