@@ -1645,6 +1645,9 @@
     },
     "prices_app_dev_mode_flag": "Collegamento all'app Prezzi sulla pagina del prodotto",
     "prices_app_button": "Vai all'app Prezzi",
+    "prices_generic_title": "Prezzi",
+    "prices_add_a_price": "Aggiungi un prezzo",
+    "prices_view_prices": "View the prices",
     "dev_preferences_import_history_result_success": "Fatto",
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"
