@@ -20,6 +20,9 @@ class _ProductPricesListState extends State<ProductPricesList> {
 
   static const int _pageSize = 10;
 
+  // TODO(monsieurtanuki): add a refresh gesture
+  // TODO(monsieurtanuki): add a "download the next 10" items
+  // TODO(monsieurtanuki): localize
   @override
   Widget build(BuildContext context) =>
       FutureBuilder<MaybeError<GetPricesResult>>(

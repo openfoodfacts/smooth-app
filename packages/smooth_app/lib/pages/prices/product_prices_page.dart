@@ -51,8 +51,10 @@ class _ProductPricesPageState extends State<ProductPricesPage>
         ),
         actions: <Widget>[
           IconButton(
+            tooltip: appLocalizations.prices_app_button,
             icon: const Icon(Icons.open_in_new),
             onPressed: () async => LaunchUrlHelper.launchURL(
+              // TODO(monsieurtanuki): make it work for TEST too
               'https://prices.openfoodfacts.org/app/products/${upToDateProduct.barcode!}',
             ),
           ),

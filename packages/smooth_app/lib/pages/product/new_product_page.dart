@@ -1,6 +1,5 @@
 import 'package:assorted_layout_widgets/assorted_layout_widgets.dart';
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -24,7 +23,7 @@ import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/pages/carousel_manager.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
-import 'package:smooth_app/pages/prices/product_prices_page.dart';
+import 'package:smooth_app/pages/prices/prices_card.dart';
 import 'package:smooth_app/pages/product/common/product_list_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/edit_product_page.dart';
@@ -239,19 +238,7 @@ class _ProductPageState extends State<ProductPage>
           if (upToDateProduct.website != null &&
               upToDateProduct.website!.trim().isNotEmpty)
             WebsiteCard(upToDateProduct.website!),
-          Padding(
-            padding: const EdgeInsets.all(SMALL_SPACE),
-            child: SmoothLargeButtonWithIcon(
-              text: appLocalizations.prices_app_button,
-              icon: CupertinoIcons.tag_fill,
-              onPressed: () async => Navigator.of(context).push(
-                MaterialPageRoute<void>(
-                  builder: (BuildContext context) =>
-                      ProductPricesPage(upToDateProduct),
-                ),
-              ),
-            ),
-          ),
+          PricesCard(upToDateProduct),
           if (userPreferences.getFlag(
                   UserPreferencesDevMode.userPreferencesFlagUserOrderedKP) ??
               false)
