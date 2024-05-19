@@ -1645,6 +1645,9 @@
     },
     "prices_app_dev_mode_flag": "קיצור דרך ליישומון מחירים בעמוד המוצר",
     "prices_app_button": "מעבר ליישומון המחירים",
+    "prices_generic_title": "מחירים",
+    "prices_add_a_price": "הוספת מחיר",
+    "prices_view_prices": "View the prices",
     "dev_preferences_import_history_result_success": "בוצע",
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"
