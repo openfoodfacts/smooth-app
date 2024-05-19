@@ -1645,6 +1645,9 @@
     },
     "prices_app_dev_mode_flag": "Ярлик програми «Ціни» на сторінці продукту",
     "prices_app_button": "Перейдіть у додаток Ціни",
+    "prices_generic_title": "Ціни",
+    "prices_add_a_price": "Додати ціну",
+    "prices_view_prices": "View the prices",
     "dev_preferences_import_history_result_success": "Виконано",
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"
