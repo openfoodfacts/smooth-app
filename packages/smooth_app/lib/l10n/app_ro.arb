@@ -735,6 +735,7 @@
     "@view_more_photo_button": {},
     "no_product_found": "Nu a fost găsit niciun produs",
     "@no_product_found": {},
+    "no_location_found": "No location found",
     "not_found": "nu a fost găsit:",
     "searchPanelHeader": "Cauta sau scaneaza primul produs",
     "@Product query status": {},
