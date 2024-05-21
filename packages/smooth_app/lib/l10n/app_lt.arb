@@ -735,6 +735,7 @@
     "@view_more_photo_button": {},
     "no_product_found": "Prekės nerasta",
     "@no_product_found": {},
+    "no_location_found": "No location found",
     "not_found": "nerastas:",
     "searchPanelHeader": "Ieškokite arba nuskaitykite pirmąjį produktą",
     "@Product query status": {},
