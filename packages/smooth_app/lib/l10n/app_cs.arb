@@ -735,6 +735,7 @@
     "@view_more_photo_button": {},
     "no_product_found": "Nebyl nalezen žádný produkt",
     "@no_product_found": {},
+    "no_location_found": "No location found",
     "not_found": "nenalezeno:",
     "searchPanelHeader": "Vyhledejte nebo naskenujte svůj první produkt",
     "@Product query status": {},
