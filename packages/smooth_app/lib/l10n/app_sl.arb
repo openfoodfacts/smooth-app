@@ -735,6 +735,7 @@
     "@view_more_photo_button": {},
     "no_product_found": "Ni zadetkov",
     "@no_product_found": {},
+    "no_location_found": "No location found",
     "not_found": "ni zadetkov:",
     "searchPanelHeader": "Poiščite ali skenirajte svoj prvi izdelek",
     "@Product query status": {},
