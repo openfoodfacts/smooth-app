@@ -735,6 +735,7 @@
     "@view_more_photo_button": {},
     "no_product_found": "No product found",
     "@no_product_found": {},
+    "no_location_found": "No location found",
     "not_found": "not found:",
     "searchPanelHeader": "Søk etter eller skann ditt første produkt",
     "@Product query status": {},
