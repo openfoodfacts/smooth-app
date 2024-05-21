@@ -735,6 +735,7 @@
     "@view_more_photo_button": {},
     "no_product_found": "Tiada Produk Ditemui",
     "@no_product_found": {},
+    "no_location_found": "No location found",
     "not_found": "tidak ditemui:",
     "searchPanelHeader": "Cari atau imbas produk pertama anda",
     "@Product query status": {},
