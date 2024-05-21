@@ -735,6 +735,7 @@
     "@view_more_photo_button": {},
     "no_product_found": "Cap producte trobat",
     "@no_product_found": {},
+    "no_location_found": "No location found",
     "not_found": "no trobat:",
     "searchPanelHeader": "Cerqueu o escanegeu el primer producte",
     "@Product query status": {},
