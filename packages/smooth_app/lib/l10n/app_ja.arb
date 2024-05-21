@@ -735,6 +735,7 @@
     "@view_more_photo_button": {},
     "no_product_found": "製品が見つかりません",
     "@no_product_found": {},
+    "no_location_found": "No location found",
     "not_found": "見つかりません:",
     "searchPanelHeader": "最初の製品を検索またはスキャン",
     "@Product query status": {},
