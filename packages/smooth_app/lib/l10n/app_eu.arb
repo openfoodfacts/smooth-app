@@ -735,6 +735,7 @@
     "@view_more_photo_button": {},
     "no_product_found": "Ez da produkturik aurkitu",
     "@no_product_found": {},
+    "no_location_found": "No location found",
     "not_found": "ez da aurkitu:",
     "searchPanelHeader": "Search or scan your first product",
     "@Product query status": {},
