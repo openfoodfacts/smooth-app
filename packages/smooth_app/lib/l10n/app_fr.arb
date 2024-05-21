@@ -735,6 +735,7 @@
     "@view_more_photo_button": {},
     "no_product_found": "Aucun produit trouvé",
     "@no_product_found": {},
+    "no_location_found": "Aucun magasin trouvé",
     "not_found": "non trouvé :",
     "searchPanelHeader": "Recherchez ou scannez votre premier produit",
     "@Product query status": {},
