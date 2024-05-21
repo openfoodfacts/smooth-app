@@ -735,6 +735,7 @@
     "@view_more_photo_button": {},
     "no_product_found": "Δεν βρέθηκε προϊόν",
     "@no_product_found": {},
+    "no_location_found": "No location found",
     "not_found": "δεν βρέθηκε:",
     "searchPanelHeader": "Αναζητήστε ή σαρώστε το πρώτο σας προϊόν",
     "@Product query status": {},
