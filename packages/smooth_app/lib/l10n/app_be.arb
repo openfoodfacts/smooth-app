@@ -735,6 +735,7 @@
     "@view_more_photo_button": {},
     "no_product_found": "Прадукт не знойдзены",
     "@no_product_found": {},
+    "no_location_found": "No location found",
     "not_found": "не знойдзена:",
     "searchPanelHeader": "Шукайце або скануйце свой першы прадукт",
     "@Product query status": {},
