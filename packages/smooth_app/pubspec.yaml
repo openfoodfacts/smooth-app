@@ -73,6 +73,8 @@ dependencies:
   dart_ping_ios: 4.0.2
   flutter_animation_progress_bar: 2.3.1
   email_validator: 2.1.17
+  sliver_tools: 0.2.12
+  crowdin_sdk: 0.6.1
 
   # According to the build variant, only one "app store" implementation must be added when building a release
   # Call "flutter pub remove xxxx" to remove unused dependencies
