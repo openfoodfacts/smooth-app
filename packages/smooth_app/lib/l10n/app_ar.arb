@@ -735,6 +735,7 @@
     "@view_more_photo_button": {},
     "no_product_found": "لم يتم العثور على أي منتج",
     "@no_product_found": {},
+    "no_location_found": "No location found",
     "not_found": "لم يتم العثور على نتائج:",
     "searchPanelHeader": "ابحث عن أول منتج لك، أو اعمل مسح ضوئي للكود. ",
     "@Product query status": {},
