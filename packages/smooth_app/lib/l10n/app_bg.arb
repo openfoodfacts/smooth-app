@@ -735,6 +735,7 @@
     "@view_more_photo_button": {},
     "no_product_found": "Няма намерен продукт",
     "@no_product_found": {},
+    "no_location_found": "No location found",
     "not_found": "не е намерено:",
     "searchPanelHeader": "Потърси или сканирай първия си продукт",
     "@Product query status": {},
