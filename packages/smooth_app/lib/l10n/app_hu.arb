@@ -735,6 +735,7 @@
     "@view_more_photo_button": {},
     "no_product_found": "Nem található termék",
     "@no_product_found": {},
+    "no_location_found": "No location found",
     "not_found": "nem található:",
     "searchPanelHeader": "Keresse meg vagy szkennelje első termékét",
     "@Product query status": {},
