@@ -17,6 +17,7 @@ import 'package:smooth_app/pages/product/edit_product_page.dart';
 import 'package:smooth_app/pages/product/new_product_page.dart';
 import 'package:smooth_app/pages/product/product_loader_page.dart';
 import 'package:smooth_app/pages/scan/search_page.dart';
+import 'package:smooth_app/pages/scan/search_product_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 /// A replacement for the [Navigator], where we internally use [GoRouter].
@@ -181,9 +182,7 @@ class _SmoothGoRouter {
             ),
             GoRoute(
               path: _InternalAppRoutes.SEARCH_PAGE,
-              builder: (_, __) {
-                return SearchPage();
-              },
+              builder: (_, __) => const SearchPage(SearchProductHelper()),
             ),
             GoRoute(
               path: '${_InternalAppRoutes.PREFERENCES_PAGE}/:preferenceType',

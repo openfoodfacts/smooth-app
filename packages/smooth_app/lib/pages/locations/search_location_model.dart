@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:smooth_app/data_models/product_list_supplier.dart';
 import 'package:smooth_app/pages/product/common/loading_status.dart';
 
-class ProductQueryModel with ChangeNotifier {
-  ProductQueryModel(this._supplier) {
+/// Search location model.
+class SearchLocationModel with ChangeNotifier {
+  SearchLocationModel(this._supplier) {
     _asyncLoad(notify: true);
   }
 
@@ -48,18 +49,6 @@ class ProductQueryModel with ChangeNotifier {
       supplier.productQuery.toNextPage();
     }
     return _asyncLoad();
-  }
-
-  Future<bool> loadFromTop() async {
-    final ProductListSupplier? refreshSupplier = supplier.getRefreshSupplier();
-    if (refreshSupplier != null) {
-      // in that case, we were on a database supplier
-      _supplier = refreshSupplier;
-    } else {
-      // in that case, we were already on a back-end supplier
-    }
-    supplier.productQuery.toTopPage();
-    return _asyncLoad(fromScratch: true);
   }
 
   Future<void> _process(

@@ -4,9 +4,8 @@ import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/product_list_supplier.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/product/common/product_query_page.dart';
+import 'package:smooth_app/pages/product/common/search_helper.dart';
 import 'package:smooth_app/query/paged_product_query.dart';
-
-typedef EditProductQueryCallback = void Function(String productName);
 
 class ProductQueryPageHelper {
   Future<void> openBestChoice({
@@ -16,7 +15,7 @@ class ProductQueryPageHelper {
     required final BuildContext context,
     bool editableAppBarTitle = true,
     bool searchResult = true,
-    EditProductQueryCallback? editQueryCallback,
+    SearchQueryCallback? editQueryCallback,
   }) async {
     final ProductListSupplier supplier =
         await ProductListSupplier.getBestSupplier(
@@ -26,10 +25,9 @@ class ProductQueryPageHelper {
     if (!context.mounted) {
       return;
     }
-    final ProductQueryPageResult? result =
-        await Navigator.push<ProductQueryPageResult>(
+    final bool? result = await Navigator.push<bool>(
       context,
-      MaterialPageRoute<ProductQueryPageResult>(
+      MaterialPageRoute<bool>(
         builder: (BuildContext context) => ProductQueryPage(
           productListSupplier: supplier,
           name: name,
@@ -39,7 +37,7 @@ class ProductQueryPageHelper {
       ),
     );
 
-    if (result == ProductQueryPageResult.editProductQuery) {
+    if (result == true) {
       editQueryCallback?.call(name);
     }
   }
