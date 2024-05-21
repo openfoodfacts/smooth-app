@@ -9,10 +9,14 @@ import 'package:smooth_app/background/background_task_language_refresh.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/product_list.dart';
+import 'package:smooth_app/database/dao_osm_location.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/pages/locations/osm_location.dart';
+import 'package:smooth_app/pages/locations/search_location_helper.dart';
+import 'package:smooth_app/pages/locations/search_location_preloaded_item.dart';
 import 'package:smooth_app/pages/offline_data_page.dart';
 import 'package:smooth_app/pages/offline_tasks_page.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
@@ -21,6 +25,7 @@ import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_search_page.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
+import 'package:smooth_app/pages/scan/search_page.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 /// Full page display of "dev mode" for the preferences page.
@@ -52,8 +57,6 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
   static const String userPreferencesFlagAccessibilityEmoji =
       '__accessibilityEmoji';
   static const String userPreferencesFlagUserOrderedKP = '__userOrderedKP';
-  static const String userPreferencesFlagShortcutToPrices =
-      '__shortcutToPrices';
 
   final TextEditingController _textFieldController = TextEditingController();
 
@@ -331,14 +334,52 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
             _showSuccessMessage();
           },
         ),
-        UserPreferencesItemSwitch(
-          title: appLocalizations.prices_app_dev_mode_flag,
-          value: userPreferences.getFlag(userPreferencesFlagShortcutToPrices) ??
-              false,
-          onChanged: (bool value) async {
-            await userPreferences.setFlag(
-                userPreferencesFlagShortcutToPrices, value);
-            _showSuccessMessage();
+        UserPreferencesItemTile(
+          title: 'Temporary access to location search',
+          onTap: () async {
+            final LocalDatabase localDatabase = context.read<LocalDatabase>();
+            final DaoOsmLocation daoOsmLocation = DaoOsmLocation(localDatabase);
+            final List<OsmLocation> osmLocations =
+                await daoOsmLocation.getAll();
+            if (!context.mounted) {
+              return;
+            }
+            final List<SearchLocationPreloadedItem> preloadedList =
+                <SearchLocationPreloadedItem>[];
+            for (final OsmLocation osmLocation in osmLocations) {
+              preloadedList.add(
+                SearchLocationPreloadedItem(
+                  osmLocation,
+                  popFirst: false,
+                ),
+              );
+            }
+            final OsmLocation? osmLocation = await Navigator.push<OsmLocation>(
+              context,
+              MaterialPageRoute<OsmLocation>(
+                builder: (BuildContext context) => SearchPage(
+                  const SearchLocationHelper(),
+                  preloadedList: preloadedList,
+                  autofocus: false,
+                ),
+              ),
+            );
+            if (osmLocation == null) {
+              return;
+            }
+            await daoOsmLocation.put(osmLocation);
+            if (!context.mounted) {
+              return;
+            }
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(
+                  osmLocation.getTitle() ??
+                      osmLocation.getSubtitle() ??
+                      osmLocation.getLatLng().toString(),
+                ),
+              ),
+            );
           },
         ),
         UserPreferencesItemTile(
