@@ -735,6 +735,7 @@
     "@view_more_photo_button": {},
     "no_product_found": "هیچ محصولی یافت نشد",
     "@no_product_found": {},
+    "no_location_found": "No location found",
     "not_found": "یافت نشد:",
     "searchPanelHeader": "اولین محصول خود را جستجو یا اسکن کنید",
     "@Product query status": {},
