@@ -735,7 +735,7 @@
     "@view_more_photo_button": {},
     "no_product_found": "Nebyl nalezen žádný produkt",
     "@no_product_found": {},
-    "no_location_found": "No location found",
+    "no_location_found": "Nenalezena žádná poloha",
     "not_found": "nenalezeno:",
     "searchPanelHeader": "Vyhledejte nebo naskenujte svůj první produkt",
     "@Product query status": {},
@@ -1648,7 +1648,7 @@
     "prices_app_button": "Přejít do aplikace Ceny",
     "prices_generic_title": "Ceny",
     "prices_add_a_price": "Přidat cenu",
-    "prices_view_prices": "View the prices",
+    "prices_view_prices": "Zobrazit ceny",
     "dev_preferences_import_history_result_success": "Hotovo",
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"
