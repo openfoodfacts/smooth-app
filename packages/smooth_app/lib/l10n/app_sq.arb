@@ -735,6 +735,7 @@
     "@view_more_photo_button": {},
     "no_product_found": "Nuk u gjet asnje produkt",
     "@no_product_found": {},
+    "no_location_found": "No location found",
     "not_found": "Nuk u gjet, nuk rezultoi ",
     "searchPanelHeader": "Kerkoni ose skanoni produktin tuaj te pare",
     "@Product query status": {},
