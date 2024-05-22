@@ -1661,7 +1661,7 @@
     "@search_history_item_edit_tooltip": {
         "description": "A tooltip to explain the Pen button near a search term -> it allows to reuse the item"
     },
-    "product_search_no_more_results": "Has descargado los {totalSize} productos.",
+    "product_search_no_more_results": "Has descargado todos los {totalSize} productos.",
     "@product_search_no_more_results": {
         "description": "Product search list - No more results available",
         "placeholders": {
@@ -2272,7 +2272,7 @@
     "background_task_error_no_internet": "Error de conexión a Internet. Inténtalo más tarde.",
     "background_task_operation_unknown": "tipo de operación desconocida",
     "background_task_operation_details": "cambios detallados",
-    "background_task_operation_image": "carga de fotos",
+    "background_task_operation_image": "subir foto",
     "background_task_operation_refresh": "actualización retrasada después de cargar la foto",
     "background_task_run_started": "iniciado",
     "background_task_run_not_started": "todavía no se ha iniciado",
