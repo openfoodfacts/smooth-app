@@ -371,7 +371,7 @@
     },
     "contribute_improve_text": "La base de datos es el núcleo del proyecto. Puedes ayudar de manera fácil y muy rápido. Descarga la aplicación en tu teléfono móvil y empieza a añadir productos o a mejorar los que ya están.\n\nPor otro lado, el sitio web de Open Food Facts ofrece muchas maneras de colaborar: ",
     "@contribute_improve_text": {},
-    "contribute_translate_header": "Traducir",
+    "contribute_translate_header": "Traduce",
     "@contribute_translate_header": {
         "description": "Button label + pop up window title: Shows information about helping by translating"
     },
@@ -481,7 +481,7 @@
         "description": "Top meta-entry on a category filter"
     },
     "category_search": "(búsqueda de categorías)",
-    "filter": "Filtros",
+    "filter": "Filtro",
     "@filter": {
         "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
     },
