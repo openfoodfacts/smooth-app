@@ -1609,7 +1609,7 @@
     "@dev_preferences_export_history_progress_found": {
         "description": "User dev preferences - Export history - Item - Found"
     },
-    "dev_preferences_export_history_progress_not_found": "producto NO encontrado",
+    "dev_preferences_export_history_progress_not_found": "producto no encontrado",
     "@dev_preferences_export_history_progress_not_found": {
         "description": "User dev preferences - Export history - Item - Not found"
     },
