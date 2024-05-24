@@ -225,12 +225,8 @@ class AddNewProductHelper {
     final ProductImageData productImageData,
     final String barcode,
   ) =>
-      TransientFile.fromProductImageData(
-        productImageData,
-        barcode,
-        ProductQuery.getLanguage(),
-      ).getImageProvider() !=
-      null;
+      TransientFile.getImageLanguages(productImageData.imageField, barcode)
+          .isNotEmpty;
 
   bool isOneMainImagePopulated(final Product product) {
     final List<ProductImageData> productImagesData = getProductMainImagesData(
