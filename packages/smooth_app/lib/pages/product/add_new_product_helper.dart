@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
-import 'package:smooth_app/database/transient_file.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/svg_icon_chip.dart';
@@ -223,14 +222,12 @@ class _AddNewProductNutriScoreIcon extends StatelessWidget {
 class AddNewProductHelper {
   bool isMainImagePopulated(
     final ProductImageData productImageData,
-    final String barcode,
+    final Product product,
   ) =>
-      TransientFile.fromProductImageData(
-        productImageData,
-        barcode,
-        ProductQuery.getLanguage(),
-      ).getImageProvider() !=
-      null;
+      getProductImageLanguages(
+        product,
+        productImageData.imageField,
+      ).isNotEmpty;
 
   bool isOneMainImagePopulated(final Product product) {
     final List<ProductImageData> productImagesData = getProductMainImagesData(
@@ -239,7 +236,7 @@ class AddNewProductHelper {
       ProductQuery.getLanguage(),
     );
     for (final ProductImageData productImageData in productImagesData) {
-      if (isMainImagePopulated(productImageData, product.barcode!)) {
+      if (isMainImagePopulated(productImageData, product)) {
         return true;
       }
     }

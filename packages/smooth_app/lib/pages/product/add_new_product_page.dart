@@ -564,7 +564,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
     );
     for (final ProductImageData data in productImagesData) {
       // Everything else can only be uploaded once
-      rows.add(_buildMainImageButton(context, data));
+      rows.add(_buildMainImageButton(context, upToDateProduct, data));
       rows.add(
         const Padding(
           padding: EdgeInsets.symmetric(vertical: 10.0),
@@ -609,9 +609,10 @@ class _AddNewProductPageState extends State<AddNewProductPage>
   /// Button specific to one of the main 4 images.
   Widget _buildMainImageButton(
     final BuildContext context,
+    final Product product,
     final ProductImageData productImageData,
   ) {
-    final bool done = _helper.isMainImagePopulated(productImageData, barcode);
+    final bool done = _helper.isMainImagePopulated(productImageData, product);
     return AddNewProductButton(
       productImageData.imageField
           .getAddPhotoButtonText(AppLocalizations.of(context)),
