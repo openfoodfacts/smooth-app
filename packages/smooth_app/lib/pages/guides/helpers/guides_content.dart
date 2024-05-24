@@ -83,7 +83,7 @@ class _GuidesPageBody extends StatelessWidget {
         child: CustomScrollView(
           controller: _controller,
           physics: VerticalSnapScrollPhysics(
-            lastStepBlocking: true,
+            lastStepBlocking: false,
             steps: const <double>[
               0,
               GuidesHeader.HEADER_HEIGHT - kToolbarHeight,
