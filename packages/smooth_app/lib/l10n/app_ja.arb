@@ -628,6 +628,7 @@
     "ingredients_photo_title": "原材料の画像",
     "nutritional_facts_photo_title": "栄養成分表の画像",
     "recycling_photo_title": "リサイクル情報の画像",
+    "take_photo_title": "画像を撮る",
     "take_more_photo_title": "もっと写真を撮ります",
     "front_photo_uploaded": "正面の画像をアップロードしました",
     "@front_photo_uploaded": {},
