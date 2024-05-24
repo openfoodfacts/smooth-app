@@ -628,6 +628,7 @@
     "ingredients_photo_title": "Снимка на съставките",
     "nutritional_facts_photo_title": "Снимка на хранителните стойности",
     "recycling_photo_title": "Снимка на указанията за рециклиране",
+    "take_photo_title": "Направи снимка",
     "take_more_photo_title": "Направи още снимки",
     "front_photo_uploaded": "Снимката на предната страна е качена",
     "@front_photo_uploaded": {},
