@@ -11,6 +11,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/language_selector.dart';
 import 'package:smooth_app/generic_lib/widgets/picture_not_found.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
+import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/product_image_button.dart';
 
 /// Displays a full-screen image with an "edit" floating button.
@@ -94,6 +95,25 @@ class _ProductImageViewerState extends State<ProductImageViewer>
                                     ?.copyWith(color: Colors.black) ??
                                 const TextStyle(color: Colors.black),
                             textAlign: TextAlign.center,
+                          ),
+                        ),
+                        Positioned.fill(
+                          child: Material(
+                            type: MaterialType.transparency,
+                            child: Semantics(
+                              label: appLocalizations.take_photo_title,
+                              child: InkWell(
+                                onTap: () async {
+                                  await confirmAndUploadNewPicture(
+                                    context,
+                                    imageField: widget.imageField,
+                                    barcode: barcode,
+                                    language: widget.language,
+                                    isLoggedInMandatory: true,
+                                  );
+                                },
+                              ),
+                            ),
                           ),
                         ),
                       ],
