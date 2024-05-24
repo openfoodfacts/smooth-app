@@ -628,6 +628,7 @@
     "ingredients_photo_title": "รูปภาพส่วนประกอบของอาหาร",
     "nutritional_facts_photo_title": "Nutrition Facts Photo",
     "recycling_photo_title": "การนำกลับไปใช้ใหม่",
+    "take_photo_title": "ถ่ายภาพ",
     "take_more_photo_title": "ถ่ายรูปเพิ่มเติม",
     "front_photo_uploaded": "รูปภาพด้านหน้าอัพโหลดเรียบร้อย",
     "@front_photo_uploaded": {},
