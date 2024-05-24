@@ -3,6 +3,7 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/cards/category_cards/svg_cache.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -190,22 +191,22 @@ class _AddNewProductNutriScoreIcon extends StatelessWidget {
     required this.height,
   }) : nutriScore = extractValue(fileName);
 
-  final NutriScoreAnimationValue nutriScore;
+  final NutriScoreValue nutriScore;
   final double height;
 
-  static NutriScoreAnimationValue extractValue(String fileName) {
+  static NutriScoreValue extractValue(String fileName) {
     if (fileName.startsWith('nutriscore-a')) {
-      return NutriScoreAnimationValue.a;
+      return NutriScoreValue.a;
     } else if (fileName.startsWith('nutriscore-b')) {
-      return NutriScoreAnimationValue.b;
+      return NutriScoreValue.b;
     } else if (fileName.startsWith('nutriscore-c')) {
-      return NutriScoreAnimationValue.c;
+      return NutriScoreValue.c;
     } else if (fileName.startsWith('nutriscore-d')) {
-      return NutriScoreAnimationValue.d;
+      return NutriScoreValue.d;
     } else if (fileName.startsWith('nutriscore-e')) {
-      return NutriScoreAnimationValue.e;
+      return NutriScoreValue.e;
     } else {
-      return NutriScoreAnimationValue.unknown;
+      return NutriScoreValue.unknown;
     }
   }
 
