@@ -628,6 +628,7 @@
     "ingredients_photo_title": "Фото состава",
     "nutritional_facts_photo_title": "Фото информации о пищевой ценности",
     "recycling_photo_title": "Изображение сведений о переработке",
+    "take_photo_title": "Сфотографировать",
     "take_more_photo_title": "Сделайте дополнительные фото",
     "front_photo_uploaded": "Загружено переднее фото",
     "@front_photo_uploaded": {},
