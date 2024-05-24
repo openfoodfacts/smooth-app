@@ -3,6 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/cards/category_cards/abstract_cache.dart';
 import 'package:smooth_app/cards/category_cards/asset_cache_helper.dart';
 import 'package:smooth_app/cards/category_cards/svg_safe_network.dart';
+import 'package:smooth_app/query/product_query.dart';
 
 /// Widget that displays a svg from network (and cache while waiting).
 class SvgCache extends AbstractCache {
@@ -133,4 +134,46 @@ class SvgCache extends AbstractCache {
       return localizations.nutriscore_new_formula(letter);
     }
   }
+
+  static String getAssetsCacheForNutriscore(
+    NutriScoreValue nutriScore,
+    bool newNutriScore,
+  ) {
+    String suffix = '';
+    if (newNutriScore) {
+      final StringBuffer buffer = StringBuffer('-new-');
+
+      buffer.write(switch (ProductQuery.getLanguage().offTag) {
+        'de' => 'de',
+        'en' => 'en',
+        'fr' => 'fr',
+        'lb' => 'lb',
+        'nl' => 'nl',
+        _ => 'en',
+      });
+
+      suffix = buffer.toString();
+    }
+
+    return switch (nutriScore) {
+      NutriScoreValue.a => 'assets/cache/nutriscore-a$suffix.svg',
+      NutriScoreValue.b => 'assets/cache/nutriscore-b$suffix.svg',
+      NutriScoreValue.c => 'assets/cache/nutriscore-c$suffix.svg',
+      NutriScoreValue.d => 'assets/cache/nutriscore-d$suffix.svg',
+      NutriScoreValue.e => 'assets/cache/nutriscore-e$suffix.svg',
+      NutriScoreValue.notApplicable =>
+        'assets/cache/nutriscore-not-applicable$suffix.svg',
+      NutriScoreValue.unknown => 'assets/cache/nutriscore-unknown$suffix.svg',
+    };
+  }
+}
+
+enum NutriScoreValue {
+  a,
+  b,
+  c,
+  d,
+  e,
+  unknown,
+  notApplicable,
 }

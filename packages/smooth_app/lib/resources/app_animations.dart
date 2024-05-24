@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:rive/rive.dart';
+import 'package:smooth_app/cards/category_cards/svg_cache.dart';
 import 'package:smooth_app/services/smooth_services.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
@@ -345,16 +346,16 @@ class _TorchAnimationState extends State<TorchAnimation> {
 
 class NutriScoreAnimation extends StatefulWidget {
   factory NutriScoreAnimation({
-    required NutriScoreAnimationValue value,
+    required NutriScoreValue value,
     Size? size,
     Key? key,
   }) {
     return switch (value) {
-      NutriScoreAnimationValue.a => NutriScoreAnimation.A(size: size, key: key),
-      NutriScoreAnimationValue.b => NutriScoreAnimation.B(size: size, key: key),
-      NutriScoreAnimationValue.c => NutriScoreAnimation.C(size: size, key: key),
-      NutriScoreAnimationValue.d => NutriScoreAnimation.D(size: size, key: key),
-      NutriScoreAnimationValue.e => NutriScoreAnimation.E(size: size, key: key),
+      NutriScoreValue.a => NutriScoreAnimation.A(size: size, key: key),
+      NutriScoreValue.b => NutriScoreAnimation.B(size: size, key: key),
+      NutriScoreValue.c => NutriScoreAnimation.C(size: size, key: key),
+      NutriScoreValue.d => NutriScoreAnimation.D(size: size, key: key),
+      NutriScoreValue.e => NutriScoreAnimation.E(size: size, key: key),
       _ => NutriScoreAnimation.unknown(size: size, key: key),
     };
   }
@@ -466,14 +467,4 @@ class _NutriScoreAnimationState extends State<NutriScoreAnimation> {
     _controller?.dispose();
     super.dispose();
   }
-}
-
-enum NutriScoreAnimationValue {
-  a,
-  b,
-  c,
-  d,
-  e,
-  unknown,
-  notApplicable,
 }
