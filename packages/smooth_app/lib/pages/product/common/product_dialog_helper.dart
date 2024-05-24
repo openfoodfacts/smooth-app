@@ -134,9 +134,15 @@ class ProductDialogHelper {
           actionsAxis: Axis.vertical,
           positiveAction: SmoothActionButton(
             text: AppLocalizations.of(context).contribute,
-            onPressed: () => AppNavigator.of(context).push(
-              AppRoutes.PRODUCT_CREATOR(barcode),
-            ),
+            onPressed: () async {
+              await AppNavigator.of(context).push(
+                AppRoutes.PRODUCT_CREATOR(barcode),
+              );
+
+              if (context.mounted) {
+                Navigator.pop(context);
+              }
+            },
           ),
           negativeAction: SmoothActionButton(
             text: AppLocalizations.of(context).close,
