@@ -82,7 +82,7 @@ class _GuidesPageBody extends StatelessWidget {
         },
         child: CustomScrollView(
           controller: _controller,
-          physics: VerticalSnapScrollPhysics(
+          physics: VerticalSnapScrollPhysics.get(
             lastStepBlocking: false,
             steps: const <double>[
               0,

@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:math' as math;
 
 import 'package:flutter/rendering.dart';
@@ -34,7 +35,7 @@ class _VerticalClampScrollState extends State<VerticalClampScroll> {
   Widget build(BuildContext context) {
     return ScrollConfiguration(
       behavior: _CustomScrollBehavior(
-        VerticalSnapScrollPhysics(
+        VerticalSnapScrollPhysics.get(
           steps: widget.steps,
         ),
       ),
@@ -138,31 +139,73 @@ class VerticalClampScrollLimiter extends ValueNotifier<double?> {
   }
 }
 
-/// A custom [ScrollPhysics] that snaps to specific [steps].
-/// ignore: must_be_immutable
-class VerticalSnapScrollPhysics extends ClampingScrollPhysics {
-  VerticalSnapScrollPhysics({
+class VerticalSnapScrollPhysics {
+  const VerticalSnapScrollPhysics._();
+
+  static ScrollPhysics get({
     required List<double> steps,
-    this.lastStepBlocking = true,
-    super.parent,
-  })  : steps = steps.toList()..sort(),
-        ignoreNextScroll = false;
+    bool lastStepBlocking = true,
+  }) {
+    if (Platform.isIOS || Platform.isMacOS) {
+      return _VerticalSnapBouncingScrollPhysics(
+        steps: steps,
+        lastStepBlocking: lastStepBlocking,
+      );
+    } else {
+      return _VerticalSnapClampingScrollPhysics(
+        steps: steps,
+        lastStepBlocking: lastStepBlocking,
+      );
+    }
+  }
+}
 
-  final List<double> steps;
-
-  // If true, scrolling from the bottom with be blocked at the last step
-  // If false, scrolling from the bottom will continue
-  final bool lastStepBlocking;
-  bool ignoreNextScroll;
-
-  @override
-  ClampingScrollPhysics applyTo(ScrollPhysics? ancestor) {
-    return VerticalSnapScrollPhysics(
-      parent: buildParent(ancestor),
+//ignore: must_be_immutable
+class _VerticalSnapBouncingScrollPhysics extends BouncingScrollPhysics
+    with _VerticalSnapScrollPhysicsHelper {
+  _VerticalSnapBouncingScrollPhysics({
+    required List<double> steps,
+    bool lastStepBlocking = true,
+  }) {
+    _init(
       steps: steps,
       lastStepBlocking: lastStepBlocking,
     );
   }
+}
+
+//ignore: must_be_immutable
+class _VerticalSnapClampingScrollPhysics extends ClampingScrollPhysics
+    with _VerticalSnapScrollPhysicsHelper {
+  _VerticalSnapClampingScrollPhysics({
+    required List<double> steps,
+    bool lastStepBlocking = true,
+  }) {
+    _init(
+      steps: steps,
+      lastStepBlocking: lastStepBlocking,
+    );
+  }
+}
+
+/// A custom [ScrollPhysics] that snaps to specific [steps].
+/// ignore: must_be_immutable
+mixin _VerticalSnapScrollPhysicsHelper on ScrollPhysics {
+  void _init({
+    required List<double> steps,
+    bool lastStepBlocking = true,
+  }) {
+    _steps = steps.toList()..sort();
+    _lastStepBlocking = lastStepBlocking;
+    _ignoreNextScroll = false;
+  }
+
+  late List<double> _steps;
+
+  // If true, scrolling from the bottom with be blocked at the last step
+  // If false, scrolling from the bottom will continue
+  late bool _lastStepBlocking;
+  late bool _ignoreNextScroll;
 
   double? _lastPixels;
 
@@ -176,11 +219,11 @@ class VerticalSnapScrollPhysics extends ClampingScrollPhysics {
       return null;
     }
     if (velocity > 0.0 && position.pixels >= position.maxScrollExtent) {
-      ignoreNextScroll = false;
+      _ignoreNextScroll = false;
       return null;
     }
     if (velocity < 0.0 && position.pixels <= position.minScrollExtent) {
-      ignoreNextScroll = false;
+      _ignoreNextScroll = false;
       return null;
     }
 
@@ -189,9 +232,9 @@ class VerticalSnapScrollPhysics extends ClampingScrollPhysics {
     double? proposedPixels = simulation?.x(double.infinity);
 
     if (simulation == null || proposedPixels == null) {
-      final (double? min, _) = _getRange(steps, position.pixels);
+      final (double? min, _) = _getRange(_steps, position.pixels);
 
-      if (min != null && min != steps.last && ignoreNextScroll) {
+      if (min != null && min != _steps.last && _ignoreNextScroll) {
         return ScrollSpringSimulation(
           spring,
           position.pixels,
@@ -200,13 +243,13 @@ class VerticalSnapScrollPhysics extends ClampingScrollPhysics {
           tolerance: toleranceFor(position),
         );
       } else {
-        ignoreNextScroll = false;
+        _ignoreNextScroll = false;
         return null;
       }
     }
 
-    ignoreNextScroll = false;
-    final (double? min, double? max) = _getRange(steps, position.pixels);
+    _ignoreNextScroll = false;
+    final (double? min, double? max) = _getRange(_steps, position.pixels);
     bool hasChanged = false;
     if (min != null && max == null) {
       if (proposedPixels < min) {
@@ -229,7 +272,7 @@ class VerticalSnapScrollPhysics extends ClampingScrollPhysics {
     }
 
     /// Smooth scroll to a step
-    if (hasChanged && (lastStepBlocking || position.pixels < steps.last)) {
+    if (hasChanged && (_lastStepBlocking || position.pixels < _steps.last)) {
       return ScrollSpringSimulation(
         spring,
         position.pixels,
@@ -246,7 +289,7 @@ class VerticalSnapScrollPhysics extends ClampingScrollPhysics {
   // In some cases, the proposed pixels have a giant space and finding the range
   // is incorrect. In that case, we ensure to have a contiguous range.
   double _fixInconsistency(double proposedPixels) {
-    return fixInconsistency(steps, proposedPixels, _lastPixels!);
+    return fixInconsistency(_steps, proposedPixels, _lastPixels!);
   }
 
   static double fixInconsistency(
