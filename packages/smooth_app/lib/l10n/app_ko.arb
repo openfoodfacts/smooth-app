@@ -628,6 +628,7 @@
     "ingredients_photo_title": "재료 사진",
     "nutritional_facts_photo_title": "영양 성분 사진",
     "recycling_photo_title": "재활용 사진",
+    "take_photo_title": "사진을 촬영",
     "take_more_photo_title": "Take more pictures",
     "front_photo_uploaded": "전면 사진 갱신됨",
     "@front_photo_uploaded": {},
