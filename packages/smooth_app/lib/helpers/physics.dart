@@ -139,9 +139,7 @@ class VerticalClampScrollLimiter extends ValueNotifier<double?> {
   }
 }
 
-class VerticalSnapScrollPhysics {
-  const VerticalSnapScrollPhysics._();
-
+class VerticalSnapScrollPhysics extends ScrollPhysics {
   static ScrollPhysics get({
     required List<double> steps,
     bool lastStepBlocking = true,
@@ -161,6 +159,36 @@ class VerticalSnapScrollPhysics {
 }
 
 //ignore: must_be_immutable
+class _VerticalSnapClampingScrollPhysics extends ClampingScrollPhysics
+    with _VerticalSnapScrollPhysicsHelper {
+  _VerticalSnapClampingScrollPhysics({
+    required List<double> steps,
+    bool lastStepBlocking = true,
+  }) {
+    _init(
+      steps: steps,
+      lastStepBlocking: lastStepBlocking,
+    );
+  }
+
+  @override
+  _VerticalSnapClampingScrollPhysics applyTo(ScrollPhysics? ancestor) {
+    return _VerticalSnapClampingScrollPhysics(
+      steps: _steps,
+      lastStepBlocking: _lastStepBlocking,
+    );
+  }
+
+  @override
+  Simulation? createBallisticSimulation(
+    ScrollMetrics position,
+    double velocity,
+  ) {
+    return createBallisticSimulation2(position, velocity);
+  }
+}
+
+//ignore: must_be_immutable
 class _VerticalSnapBouncingScrollPhysics extends BouncingScrollPhysics
     with _VerticalSnapScrollPhysicsHelper {
   _VerticalSnapBouncingScrollPhysics({
@@ -172,19 +200,21 @@ class _VerticalSnapBouncingScrollPhysics extends BouncingScrollPhysics
       lastStepBlocking: lastStepBlocking,
     );
   }
-}
 
-//ignore: must_be_immutable
-class _VerticalSnapClampingScrollPhysics extends ClampingScrollPhysics
-    with _VerticalSnapScrollPhysicsHelper {
-  _VerticalSnapClampingScrollPhysics({
-    required List<double> steps,
-    bool lastStepBlocking = true,
-  }) {
-    _init(
-      steps: steps,
-      lastStepBlocking: lastStepBlocking,
+  @override
+  _VerticalSnapBouncingScrollPhysics applyTo(ScrollPhysics? ancestor) {
+    return _VerticalSnapBouncingScrollPhysics(
+      steps: _steps,
+      lastStepBlocking: _lastStepBlocking,
     );
+  }
+
+  @override
+  Simulation? createBallisticSimulation(
+    ScrollMetrics position,
+    double velocity,
+  ) {
+    return createBallisticSimulation2(position, velocity);
   }
 }
 
@@ -210,7 +240,7 @@ mixin _VerticalSnapScrollPhysicsHelper on ScrollPhysics {
   double? _lastPixels;
 
   @override
-  Simulation? createBallisticSimulation(
+  Simulation? createBallisticSimulation2(
     ScrollMetrics position,
     double velocity,
   ) {
