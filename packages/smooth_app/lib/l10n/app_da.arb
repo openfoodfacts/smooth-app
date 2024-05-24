@@ -628,6 +628,7 @@
     "ingredients_photo_title": "Ingrediensfoto",
     "nutritional_facts_photo_title": "Næringsfaktafoto",
     "recycling_photo_title": "Genbrugsfoto",
+    "take_photo_title": "Tag et billede",
     "take_more_photo_title": "Tag flere billeder",
     "front_photo_uploaded": "Forsidefoto uploadet",
     "@front_photo_uploaded": {},
