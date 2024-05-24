@@ -4,7 +4,6 @@ import 'package:smooth_app/pages/guides/helpers/guides_content.dart';
 import 'package:smooth_app/pages/guides/helpers/guides_footer.dart';
 import 'package:smooth_app/pages/guides/helpers/guides_header.dart';
 import 'package:smooth_app/pages/guides/helpers/guides_translations.dart';
-import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart';
 
 class GuideNutriscoreV2 extends StatelessWidget {
@@ -12,40 +11,17 @@ class GuideNutriscoreV2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: FutureBuilder<void>(
-        future: GuidesTranslations.init(
-          Locale(ProductQuery.getLanguage().offTag),
-        ),
-        builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
-          if (snapshot.connectionState == ConnectionState.done) {
-            return const _GuideNutriscoreV2Content();
-          }
-          return const Center(child: CircularProgressIndicator());
-        },
-      ),
-    );
-  }
-}
-
-class _GuideNutriscoreV2Content extends StatelessWidget {
-  const _GuideNutriscoreV2Content();
-
-  @override
-  Widget build(BuildContext context) {
-    return const Scaffold(
-      body: CustomScrollView(
-        slivers: <Widget>[
-          _NutriscoreHeader(),
-          _NutriScoreSection1(),
-          _NutriScoreSection2(),
-          _NutriScoreSection3(),
-          _NutriScoreSection4(),
-          _NutriScoreSection5(),
-          SliverToBoxAdapter(
-            child: GuidesFooter(),
-          )
-        ],
+    return const GuidesPage(
+      header: _NutriscoreHeader(),
+      body: <Widget>[
+        _NutriScoreSection1(),
+        _NutriScoreSection2(),
+        _NutriScoreSection3(),
+        _NutriScoreSection4(),
+        _NutriScoreSection5(),
+      ],
+      footer: SliverToBoxAdapter(
+        child: GuidesFooter(),
       ),
     );
   }

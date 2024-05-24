@@ -1,10 +1,100 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:provider/provider.dart';
 import 'package:sliver_tools/sliver_tools.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/helpers/physics.dart';
 import 'package:smooth_app/helpers/strings_helper.dart';
+import 'package:smooth_app/pages/guides/helpers/guides_header.dart';
+import 'package:smooth_app/pages/guides/helpers/guides_translations.dart';
+import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
+
+class GuidesPage extends StatelessWidget {
+  const GuidesPage({
+    required this.header,
+    required this.body,
+    this.footer,
+    super.key,
+  });
+
+  final Widget header;
+  final List<Widget> body;
+  final Widget? footer;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        body: FutureBuilder<void>(
+      future: GuidesTranslations.init(
+        Locale(ProductQuery.getLanguage().offTag),
+      ),
+      builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
+        if (snapshot.connectionState == ConnectionState.done) {
+          return _GuidesPageBody(
+            slivers: <Widget>[
+              header,
+              ...body,
+              if (footer != null) footer!,
+            ],
+          );
+        }
+        return const Center(child: CircularProgressIndicator());
+      },
+    ));
+  }
+}
+
+class _GuidesPageBody extends StatelessWidget {
+  _GuidesPageBody({required this.slivers});
+
+  final List<Widget> slivers;
+
+  final ScrollController _controller = ScrollController();
+
+  @override
+  Widget build(BuildContext context) {
+    return ChangeNotifierProvider<ScrollController>(
+      create: (_) => _controller,
+      child: NotificationListener<ScrollNotification>(
+        onNotification: (ScrollNotification notification) {
+          /// Snap to positions when the user stops scrolling.
+          if (notification is ScrollEndNotification &&
+              notification.dragDetails != null) {
+            if (notification.metrics.pixels < 125) {
+              Future<void>.delayed(Duration.zero, () {
+                _controller.animateTo(0,
+                    duration: const Duration(milliseconds: 500),
+                    curve: Curves.ease);
+              });
+              return true;
+            } else if (notification.metrics.pixels < 250) {
+              Future<void>.delayed(Duration.zero, () {
+                _controller.animateTo(250 - kToolbarHeight,
+                    duration: const Duration(milliseconds: 500),
+                    curve: Curves.ease);
+              });
+            }
+            return true;
+          }
+          return false;
+        },
+        child: CustomScrollView(
+          controller: _controller,
+          physics: VerticalSnapScrollPhysics(
+            lastStepBlocking: true,
+            steps: const <double>[
+              0,
+              GuidesHeader.HEADER_HEIGHT - kToolbarHeight,
+            ],
+          ),
+          slivers: slivers,
+        ),
+      ),
+    );
+  }
+}
 
 class GuidesParagraph extends StatelessWidget {
   const GuidesParagraph({
