@@ -60,8 +60,7 @@ class _GuidesPageBody extends StatelessWidget {
       child: NotificationListener<ScrollNotification>(
         onNotification: (ScrollNotification notification) {
           /// Snap to positions when the user stops scrolling.
-          if (notification is ScrollEndNotification &&
-              notification.dragDetails != null) {
+          if (notification is ScrollEndNotification) {
             if (notification.metrics.pixels < 125) {
               Future<void>.delayed(Duration.zero, () {
                 _controller.animateTo(0,
