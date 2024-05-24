@@ -239,7 +239,6 @@ mixin _VerticalSnapScrollPhysicsHelper on ScrollPhysics {
 
   double? _lastPixels;
 
-  @override
   Simulation? createBallisticSimulation2(
     ScrollMetrics position,
     double velocity,
