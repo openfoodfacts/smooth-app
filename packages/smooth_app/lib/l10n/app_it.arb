@@ -628,6 +628,7 @@
     "ingredients_photo_title": "Foto degli Ingredienti",
     "nutritional_facts_photo_title": "Foto valori nutrizionali",
     "recycling_photo_title": "Foto delle istruzioni di riciclaggio",
+    "take_photo_title": "Scatta una foto",
     "take_more_photo_title": "Scatta più foto",
     "front_photo_uploaded": "Foto frontale caricata",
     "@front_photo_uploaded": {},
@@ -924,11 +925,11 @@
             "count": {}
         }
     },
-    "compare_products_mode": "Compara prodotti",
+    "compare_products_mode": "Compara i prodotti",
     "@compare_products_mode": {
         "description": "Button to switch to 'compare products mode'"
     },
-    "compare_products_appbar_title": "Compara prodotti",
+    "compare_products_appbar_title": "Compara i prodotti",
     "@compare_products_appbar_title": {
         "description": "AppBar title when in comparison mode "
     },
