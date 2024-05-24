@@ -160,6 +160,7 @@ class VerticalSnapScrollPhysics extends ClampingScrollPhysics {
     return VerticalSnapScrollPhysics(
       parent: buildParent(ancestor),
       steps: steps,
+      lastStepBlocking: lastStepBlocking,
     );
   }
 
@@ -228,7 +229,7 @@ class VerticalSnapScrollPhysics extends ClampingScrollPhysics {
     }
 
     /// Smooth scroll to a step
-    if (hasChanged && position.pixels < steps.last) {
+    if (hasChanged && (lastStepBlocking || position.pixels < steps.last)) {
       return ScrollSpringSimulation(
         spring,
         position.pixels,
