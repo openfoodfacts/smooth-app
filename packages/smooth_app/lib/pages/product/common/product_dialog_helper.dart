@@ -87,6 +87,7 @@ class ProductDialogHelper {
               SvgPicture.asset(
                 'assets/onboarding/birthday-cake.svg',
                 package: AppHelper.APP_PACKAGE,
+                excludeFromSemantics: true,
               ),
               SizedBox(height: SMALL_SPACE * heightMultiplier),
               Text(
@@ -101,26 +102,31 @@ class ProductDialogHelper {
                 textAlign: TextAlign.center,
               ),
               SizedBox(height: MEDIUM_SPACE * heightMultiplier),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  Expanded(
-                    flex: 4,
-                    child: SvgCache(
-                      unknownSvgNutriscore,
-                      height: svgHeight,
+              Semantics(
+                label: appLocalizations
+                    .new_product_dialog_illustration_description,
+                excludeSemantics: true,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Expanded(
+                      flex: 4,
+                      child: SvgCache(
+                        unknownSvgNutriscore,
+                        height: svgHeight,
+                      ),
                     ),
-                  ),
-                  const Spacer(),
-                  Expanded(
-                    flex: 4,
-                    child: SvgCache(
-                      unknownSvgEcoscore,
-                      height: svgHeight,
+                    const Spacer(),
+                    Expanded(
+                      flex: 4,
+                      child: SvgCache(
+                        unknownSvgEcoscore,
+                        height: svgHeight,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
               SizedBox(height: SMALL_SPACE * heightMultiplier),
               Text(

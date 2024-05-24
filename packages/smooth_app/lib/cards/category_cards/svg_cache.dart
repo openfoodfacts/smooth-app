@@ -11,9 +11,11 @@ class SvgCache extends AbstractCache {
     super.width,
     super.height,
     this.color,
+    this.semanticsLabel,
   });
 
   final Color? color;
+  final String? semanticsLabel;
 
   @override
   List<String> getCachedFilenames() {
@@ -57,6 +59,7 @@ class SvgCache extends AbstractCache {
       width: width,
       height: height,
       color: forcedColor,
+      semanticsLabel: semanticsLabel,
     );
     return SvgSafeNetwork(
       helper,
