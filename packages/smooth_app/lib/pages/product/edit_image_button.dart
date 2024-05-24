@@ -36,17 +36,20 @@ class EditImageButton extends StatelessWidget {
                     width: borderWidth!,
                   ),
                 ),
+          padding: MaterialStateProperty.all(
+            const EdgeInsets.symmetric(
+              vertical: LARGE_SPACE,
+            ),
+          ),
+          alignment: AlignmentDirectional.center,
         ),
         onPressed: onPressed,
-        label: SizedBox(
-          width: double.infinity,
-          child: Padding(
-            padding: EdgeInsets.all(borderWidth ?? 0),
-            child: AutoSizeText(
-              label,
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
-            ),
+        label: Padding(
+          padding: EdgeInsets.all(borderWidth ?? 0),
+          child: AutoSizeText(
+            label,
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
           ),
         ),
       ),
