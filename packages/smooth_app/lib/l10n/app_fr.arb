@@ -628,6 +628,7 @@
     "ingredients_photo_title": "Photo des ingrédients",
     "nutritional_facts_photo_title": "Photo des valeurs nutritionnelles",
     "recycling_photo_title": "Photo du recyclage",
+    "take_photo_title": "Prendre une photo",
     "take_more_photo_title": "Prendre plus de photos",
     "front_photo_uploaded": "Photo de la face avant téléchargée",
     "@front_photo_uploaded": {},
