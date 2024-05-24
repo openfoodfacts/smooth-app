@@ -59,7 +59,7 @@ class _VerticalClampScrollState extends State<VerticalClampScroll> {
 
           return true;
         },
-        child: ChangeNotifierProvider(
+        child: ChangeNotifierProvider<VerticalClampScrollLimiter>(
           create: (_) => _limiter,
           child: widget.child,
         ),
@@ -83,7 +83,7 @@ class _VerticalClampScrollState extends State<VerticalClampScroll> {
       }
 
       if (scrollTo != null) {
-        Future.delayed(Duration.zero, () {
+        Future<void>.delayed(Duration.zero, () {
           context.read<ScrollController>().animateTo(
                 scrollTo!,
                 curve: Curves.easeOutCubic,
