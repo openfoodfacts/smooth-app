@@ -48,7 +48,7 @@ class ScoreCard extends StatelessWidget {
     required Attribute attribute,
     required this.isClickable,
     this.margin,
-  })  : type = _ScoreCardType.attribute,
+  })  : type = ScoreCardType.attribute,
         iconUrl = attribute.iconUrl,
         description = attribute.descriptionShort ?? attribute.description ?? '',
         cardEvaluation = getCardEvaluationFromAttribute(attribute);
@@ -57,7 +57,7 @@ class ScoreCard extends StatelessWidget {
     required TitleElement titleElement,
     required this.isClickable,
     this.margin,
-  })  : type = _ScoreCardType.title,
+  })  : type = ScoreCardType.title,
         iconUrl = titleElement.iconUrl,
         description = titleElement.title,
         cardEvaluation =
@@ -68,7 +68,7 @@ class ScoreCard extends StatelessWidget {
   final CardEvaluation cardEvaluation;
   final bool isClickable;
   final EdgeInsetsGeometry? margin;
-  final _ScoreCardType type;
+  final ScoreCardType type;
 
   @override
   Widget build(BuildContext context) {
@@ -88,7 +88,7 @@ class ScoreCard extends StatelessWidget {
     return Semantics(
       value: _generateSemanticsValue(context),
       excludeSemantics: true,
-      header: type == _ScoreCardType.title,
+      header: type == ScoreCardType.title,
       button: isClickable,
       child: Padding(
         padding: margin ?? const EdgeInsets.symmetric(vertical: SMALL_SPACE),
@@ -128,7 +128,7 @@ class ScoreCard extends StatelessWidget {
   }
 
   String _generateSemanticsValue(BuildContext context) {
-    if (type == _ScoreCardType.title) {
+    if (type == ScoreCardType.title) {
       return description;
     }
 
@@ -142,7 +142,7 @@ class ScoreCard extends StatelessWidget {
   }
 }
 
-enum _ScoreCardType {
+enum ScoreCardType {
   title,
   attribute,
 }
