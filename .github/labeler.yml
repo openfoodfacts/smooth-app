@@ -271,9 +271,6 @@ Prices:
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/prices/product_price_add_page.dart'
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/prices/product_price_item.dart'
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/prices/product_prices_page.dart'
-
-Currencies:
-- changed-files:
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/onboarding/currency_selector.dart'
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/onboarding/currency_selector_helper.dart'
 
