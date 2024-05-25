@@ -1,4 +1,3 @@
-import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 
@@ -17,7 +16,7 @@ class FetchedProduct {
   const FetchedProduct._({
     required this.status,
     this.product,
-    this.connectivityResult,
+    this.isConnected,
     this.exceptionString,
     this.failedPingedHost,
   });
@@ -41,11 +40,11 @@ class FetchedProduct {
   /// When the "fetch product" operation had an internet error.
   const FetchedProduct.error({
     required final String exceptionString,
-    required final ConnectivityResult connectivityResult,
+    required final bool isConnected,
     final String? failedPingedHost,
   }) : this._(
           status: FetchedProductStatus.internetError,
-          connectivityResult: connectivityResult,
+          isConnected: isConnected,
           exceptionString: exceptionString,
           failedPingedHost: failedPingedHost,
         );
@@ -53,8 +52,8 @@ class FetchedProduct {
   final Product? product;
   final FetchedProductStatus status;
 
-  /// When relevant, result of the connectivity check.
-  final ConnectivityResult? connectivityResult;
+  /// When relevant, returns true if connected.
+  final bool? isConnected;
 
   /// When relevant, string of the exception.
   final String? exceptionString;
@@ -73,7 +72,7 @@ class FetchedProduct {
       case FetchedProductStatus.internetNotFound:
         return appLocalizations.product_refresher_internet_not_found;
       case FetchedProductStatus.internetError:
-        if (connectivityResult == ConnectivityResult.none) {
+        if (isConnected == false) {
           return appLocalizations.product_refresher_internet_not_connected;
         }
         if (failedPingedHost != null) {

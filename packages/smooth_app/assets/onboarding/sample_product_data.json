@@ -1487,6 +1487,36 @@
             ],
             "type" : "card"
          },
+         "incomplete_or_incorrect_data" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n                If the information does not match the information on the packaging, please complete or correct it.\n                Open Food Facts is a collaborative database, and every contribution is useful for all.\n                "
+                  }
+               },
+               {
+                  "action_element" : {
+                     "actions" : [
+                        "edit_product"
+                     ],
+                     "html" : ""
+                  },
+                  "element_type" : "action"
+               }
+            ],
+            "evaluation" : "neutral",
+            "expand_for" : "large",
+            "level" : "info",
+            "title_element" : {
+               "icon_url" : "https://static.openfoodfacts.org/images/logos/off-logo-icon-light.svg",
+               "subtitle" : "Category, labels, ingredients, allergens, nutritional information, photos etc.",
+               "title" : "Incomplete or incorrect information?"
+            },
+            "topics" : [
+               "problem"
+            ]
+         },
          "ingredients" : {
             "elements" : [
                {
@@ -1559,7 +1589,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "<ol id=\"ordered_ingredients_list\">\n<li><span>Butternut squash</span> -> en:butternut-squash - vegan:&nbsp;yes - vegetarian:&nbsp;yes - percent_min:&nbsp;50 - percent:&nbsp;50 - percent_max:&nbsp;50</li>\n<li><span>water</span> -> en:water - vegan:&nbsp;yes - vegetarian:&nbsp;yes - percent_min:&nbsp;10 - percent_max:&nbsp;40</li>\n<li><span>carrots</span> -> en:carrot - vegan:&nbsp;yes - vegetarian:&nbsp;yes - percent_min:&nbsp;10 - percent:&nbsp;10 - percent_max:&nbsp;10</li>\n<li><span>sweet potato</span> -> en:sweet-potato - vegan:&nbsp;yes - vegetarian:&nbsp;yes - percent_min:&nbsp;0 - percent_max:&nbsp;10</li>\n<li><span>leeks</span> -> en:leek - vegan:&nbsp;yes - vegetarian:&nbsp;yes - percent_min:&nbsp;0 - percent_max:&nbsp;10</li>\n<li><span>potatoes</span> -> en:potato - vegan:&nbsp;yes - vegetarian:&nbsp;yes - percent_min:&nbsp;0 - percent_max:&nbsp;10</li>\n<li><span>salt</span> -> en:salt - vegan:&nbsp;yes - vegetarian:&nbsp;yes - percent_min:&nbsp;0 - percent_max:&nbsp;0.4</li>\n</ol>\n"
+                     "html" : "<ol id=\"ordered_ingredients_list\">\n<li><span>Butternut squash</span> -> en:butternut-squash - vegan:&nbsp;yes - vegetarian:&nbsp;yes - ciqual_food_code:&nbsp;20128 - percent_min:&nbsp;50 - percent:&nbsp;50 - percent_max:&nbsp;50</li>\n<li><span>water</span> -> en:water - vegan:&nbsp;yes - vegetarian:&nbsp;yes - ciqual_food_code:&nbsp;18066 - percent_min:&nbsp;10 - percent_max:&nbsp;40</li>\n<li><span>carrots</span> -> en:carrot - vegan:&nbsp;yes - vegetarian:&nbsp;yes - ciqual_food_code:&nbsp;20009 - percent_min:&nbsp;10 - percent:&nbsp;10 - percent_max:&nbsp;10</li>\n<li><span>sweet potato</span> -> en:sweet-potato - vegan:&nbsp;yes - vegetarian:&nbsp;yes - ciqual_food_code:&nbsp;4101 - percent_min:&nbsp;0 - percent_max:&nbsp;10</li>\n<li><span>leeks</span> -> en:leek - vegan:&nbsp;yes - vegetarian:&nbsp;yes - ciqual_food_code:&nbsp;20039 - percent_min:&nbsp;0 - percent_max:&nbsp;10</li>\n<li><span>potatoes</span> -> en:potato - vegan:&nbsp;yes - vegetarian:&nbsp;yes - ciqual_food_code:&nbsp;4003 - percent_min:&nbsp;0 - percent_max:&nbsp;10</li>\n<li><span>salt</span> -> en:salt - vegan:&nbsp;yes - vegetarian:&nbsp;yes - ciqual_food_code:&nbsp;11058 - percent_min:&nbsp;0 - percent_max:&nbsp;0.4</li>\n</ol>\n"
                   }
                },
                {
@@ -2005,7 +2035,7 @@
                                  "text" : "4 g"
                               },
                               {
-                                 "text" : "-62%"
+                                 "text" : "-63%"
                               }
                            ]
                         },
@@ -2284,6 +2314,24 @@
                "environment"
             ]
          },
+         "report_problem_card" : {
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "incomplete_or_incorrect_data"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "title_element" : {
+               "title" : "Report a problem"
+            },
+            "topics" : [
+               "problems"
+            ],
+            "type" : "card"
+         },
          "root" : {
             "elements" : [
                {
@@ -2296,6 +2344,12 @@
                   "element_type" : "panel",
                   "panel_element" : {
                      "panel_id" : "environment_card"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "report_problem_card"
                   }
                }
             ],
@@ -2396,17 +2450,20 @@
             "display" : {
                "en" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/ingredients_en.120.400.jpg",
                "es" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/ingredients_es.113.400.jpg",
-               "fr" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/ingredients_fr.123.400.jpg"
+               "fr" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/ingredients_fr.123.400.jpg",
+               "it" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/ingredients_it.140.400.jpg"
             },
             "small" : {
                "en" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/ingredients_en.120.200.jpg",
                "es" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/ingredients_es.113.200.jpg",
-               "fr" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/ingredients_fr.123.200.jpg"
+               "fr" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/ingredients_fr.123.200.jpg",
+               "it" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/ingredients_it.140.200.jpg"
             },
             "thumb" : {
                "en" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/ingredients_en.120.100.jpg",
                "es" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/ingredients_es.113.100.jpg",
-               "fr" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/ingredients_fr.123.100.jpg"
+               "fr" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/ingredients_fr.123.100.jpg",
+               "it" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/ingredients_it.140.100.jpg"
             }
          },
          "nutrition" : {

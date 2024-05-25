@@ -51,6 +51,7 @@ class LoginResult {
         user: User(
           userId: loginStatus.userId!,
           password: user.password,
+          cookie: loginStatus.cookie,
         ),
       );
     } catch (e) {

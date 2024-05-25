@@ -60,7 +60,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
       context,
       widget.barcodes.toSet(),
     );
-    if (!mounted) {
+    if (!context.mounted) {
       return;
     }
     if (added != null && added) {

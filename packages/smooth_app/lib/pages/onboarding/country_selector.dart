@@ -17,15 +17,13 @@ class CountrySelector extends StatefulWidget {
     this.textStyle,
     this.padding,
     this.icon,
-    this.iconDecoration,
     this.inkWellBorderRadius,
   });
 
   final TextStyle? textStyle;
   final EdgeInsetsGeometry? padding;
   final BorderRadius? inkWellBorderRadius;
-  final Icon? icon;
-  final BoxDecoration? iconDecoration;
+  final Widget? icon;
 
   @override
   State<CountrySelector> createState() => _CountrySelectorState();
@@ -35,7 +33,6 @@ class _CountrySelectorState extends State<CountrySelector> {
   final ScrollController _scrollController = ScrollController();
   final TextEditingController _countryController = TextEditingController();
   late List<Country> _countryList;
-  late Future<void> _countryNamesFuture;
 
   Future<void> _loadLocalizedCountryNames(final String languageCode) async {
     List<Country> localizedCountries;
@@ -63,9 +60,8 @@ class _CountrySelectorState extends State<CountrySelector> {
       selector: (BuildContext buildContext, UserPreferences userPreferences) =>
           userPreferences.appLanguageCode,
       builder: (BuildContext context, String? appLanguageCode, _) {
-        _countryNamesFuture = _loadLocalizedCountryNames(appLanguageCode!);
         return FutureBuilder<void>(
-          future: _countryNamesFuture,
+          future: _loadLocalizedCountryNames(appLanguageCode!),
           builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
             if (snapshot.hasError) {
               return Text('Fatal Error: ${snapshot.error}');
@@ -201,16 +197,7 @@ class _CountrySelectorState extends State<CountrySelector> {
                           ),
                         ),
                       ),
-                      Container(
-                        height: double.infinity,
-                        decoration:
-                            widget.iconDecoration ?? const BoxDecoration(),
-                        child: AspectRatio(
-                          aspectRatio: 1.0,
-                          child:
-                              widget.icon ?? const Icon(Icons.arrow_drop_down),
-                        ),
-                      ),
+                      widget.icon ?? const Icon(Icons.arrow_drop_down),
                     ],
                   ),
                 ),

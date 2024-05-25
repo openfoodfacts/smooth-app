@@ -566,6 +566,10 @@
     "@new_product_dialog_description": {
         "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
     },
+    "new_product_dialog_illustration_description": "An illustration with unknown Nutri-Score and Eco-Score",
+    "@new_product_dialog_illustration_description": {
+        "description": "A description for accessibility of two images side by side: a Nutri-Score and an EcoScore."
+    },
     "front_packaging_photo_button_label": "Přední fotka produktu",
     "@front_packaging_photo_button_label": {},
     "confirm_front_packaging_photo_button_label": "Potvrdit nahrání přední fotky produktu",
@@ -624,6 +628,7 @@
     "ingredients_photo_title": "Fotografie ingrediencí",
     "nutritional_facts_photo_title": "Fotografie nutričních údajů",
     "recycling_photo_title": "Fotografie recyklace",
+    "take_photo_title": "Vyfotit",
     "take_more_photo_title": "Vyfotit další obrázky",
     "front_photo_uploaded": "Přední fotka nahrána",
     "@front_photo_uploaded": {},
@@ -735,6 +740,7 @@
     "@view_more_photo_button": {},
     "no_product_found": "Nebyl nalezen žádný produkt",
     "@no_product_found": {},
+    "no_location_found": "Nenalezena žádná poloha",
     "not_found": "nenalezeno:",
     "searchPanelHeader": "Vyhledejte nebo naskenujte svůj první produkt",
     "@Product query status": {},
@@ -797,6 +803,28 @@
     "country_chooser_label": "Vyberte prosím zemi",
     "@country_chooser_label": {
         "description": "Label shown above a selector where the user can select their country (in the preferences)"
+    },
+    "currency_chooser_label": "Prosím zvolte měnu",
+    "@currency_chooser_label": {
+        "description": "Label shown above a selector where the user can select their currency (in the preferences)"
+    },
+    "country_change_message": "Právě jste změnili zemi.",
+    "@country_change_message": {
+        "description": "Message stating the change of countries"
+    },
+    "currency_auto_change_message": "Chcete změnit měnu z {previousCurrency} na {possibleCurrency}?",
+    "@currency_auto_change_message": {
+        "description": "Message asking to confirm the change of currencies",
+        "placeholders": {
+            "previousCurrency": {
+                "type": "String",
+                "description": "Current currency"
+            },
+            "possibleCurrency": {
+                "type": "String",
+                "description": "Possible currency"
+            }
+        }
     },
     "onboarding_country_chooser_label": "Vyberte prosím zemi:",
     "@onboarding_country_chooser_label": {
@@ -1623,6 +1651,9 @@
     },
     "prices_app_dev_mode_flag": "Zástupce pro aplikaci Ceny na produktové stránce",
     "prices_app_button": "Přejít do aplikace Ceny",
+    "prices_generic_title": "Ceny",
+    "prices_add_a_price": "Přidat cenu",
+    "prices_view_prices": "Zobrazit ceny",
     "dev_preferences_import_history_result_success": "Hotovo",
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"
@@ -2462,6 +2493,10 @@
     "@country_selector_title": {
         "description": "Label written as the title of the dialog to select the user country"
     },
+    "currency_selector_title": "Vyberte svou měnu:",
+    "@currency_selector_title": {
+        "description": "Label written as the title of the dialog to select the user currency"
+    },
     "language_selector_title": "Vyberte svůj jazyk:",
     "@language_selector_title": {
         "description": "Label written as the title of the dialog to select the user language"
@@ -2488,8 +2523,19 @@
     "nutriscore_c": "Nutri-Score C",
     "nutriscore_d": "Nutri-Score D",
     "nutriscore_e": "Nutri-Score E",
+    "nutriscore_new_formula": "Nutri-Score {letter} (Nový výpočet)",
+    "@nutriscore_new_formula": {
+        "description": "A generic string to define a Nutri-Score V2 with a letter [eg: \"Nutri-Score A (New calculation)\"]",
+        "placeholders": {
+            "letter": {
+                "type": "String"
+            }
+        }
+    },
     "nutriscore_unknown": "Neznámé Nutri-Score",
+    "nutriscore_unknown_new_formula": "Neznámé Nutri-Score (Nový výpočet)",
     "nutriscore_not_applicable": "Nutri-Score nelze použít",
+    "nutriscore_not_applicable_new_formula": "Nutri-Score nelze použít (Nový výpočet)",
     "ecoscore_generic": "Eco-score",
     "ecoscore_a": "Eco-Score A",
     "ecoscore_b": "Eco-Score B",
@@ -2526,5 +2572,26 @@
     "link_cant_be_opened": "Tento odkaz nelze na vašem zařízení otevřít. Zkontrolujte, zda máte nainstalovaný prohlížeč.",
     "@link_cant_be_opened": {
         "description": "An error may happen if the device doesn't have a browser installed."
+    },
+    "knowledge_panel_page_title_no_title": "Details for {productName}",
+    "@knowledge_panel_page_title_no_title": {
+        "description": "The title of the page when we click on an item in the product page and this page is unnamed",
+        "placeholders": {
+            "productName": {
+                "type": "String"
+            }
+        }
+    },
+    "knowledge_panel_page_title": "Details for {pageName} with {productName}",
+    "@knowledge_panel_page_title": {
+        "description": "The title of the page when we click on an item in the product page",
+        "placeholders": {
+            "pageName": {
+                "type": "String"
+            },
+            "productName": {
+                "type": "String"
+            }
+        }
     }
 }
