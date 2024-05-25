@@ -2532,6 +2532,7 @@
             }
         }
     },
+    "nutriscore_new_formula_title": "Nutri-Score (New calculation)",
     "nutriscore_unknown": "Neznáme Nutri-Score",
     "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
     "nutriscore_not_applicable": "Nutri-Score nie je použiteľné",
