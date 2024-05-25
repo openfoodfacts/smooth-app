@@ -2573,7 +2573,7 @@
     "@link_cant_be_opened": {
         "description": "An error may happen if the device doesn't have a browser installed."
     },
-    "knowledge_panel_page_title_no_title": "Details for {productName}",
+    "knowledge_panel_page_title_no_title": "Details für {productName}",
     "@knowledge_panel_page_title_no_title": {
         "description": "The title of the page when we click on an item in the product page and this page is unnamed",
         "placeholders": {
@@ -2582,7 +2582,7 @@
             }
         }
     },
-    "knowledge_panel_page_title": "Details for {pageName} with {productName}",
+    "knowledge_panel_page_title": "Details für {pageName} mit {productName}",
     "@knowledge_panel_page_title": {
         "description": "The title of the page when we click on an item in the product page",
         "placeholders": {
