@@ -28,10 +28,13 @@ class KnowledgePanelGroupCard extends StatelessWidget {
           if (groupElement.title != null && groupElement.title!.isNotEmpty)
             Padding(
               padding: const EdgeInsetsDirectional.only(top: LARGE_SPACE),
-              child: Text(
-                groupElement.title!,
-                style:
-                    themeData.textTheme.titleSmall!.apply(color: Colors.grey),
+              child: Semantics(
+                explicitChildNodes: true,
+                child: Text(
+                  groupElement.title!,
+                  style:
+                      themeData.textTheme.titleSmall!.apply(color: Colors.grey),
+                ),
               ),
             ),
           for (final String panelId in groupElement.panelIds)
