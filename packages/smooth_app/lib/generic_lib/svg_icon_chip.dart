@@ -11,7 +11,7 @@ class SvgIconChip extends StatelessWidget {
   final double height;
 
   @override
-  Widget build(BuildContext context) => Container(
+  Widget build(BuildContext context) => ConstrainedBox(
         constraints: BoxConstraints(minWidth: height),
         child: SvgCache(iconUrl, height: height),
       );

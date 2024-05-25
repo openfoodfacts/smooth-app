@@ -3,6 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/cards/category_cards/abstract_cache.dart';
 import 'package:smooth_app/cards/category_cards/asset_cache_helper.dart';
 import 'package:smooth_app/cards/category_cards/svg_safe_network.dart';
+import 'package:smooth_app/query/product_query.dart';
 
 /// Widget that displays a svg from network (and cache while waiting).
 class SvgCache extends AbstractCache {
@@ -11,9 +12,11 @@ class SvgCache extends AbstractCache {
     super.width,
     super.height,
     this.color,
+    this.semanticsLabel,
   });
 
   final Color? color;
+  final String? semanticsLabel;
 
   @override
   List<String> getCachedFilenames() {
@@ -57,6 +60,7 @@ class SvgCache extends AbstractCache {
       width: width,
       height: height,
       color: forcedColor,
+      semanticsLabel: semanticsLabel,
     );
     return SvgSafeNetwork(
       helper,
@@ -67,7 +71,8 @@ class SvgCache extends AbstractCache {
   static String? getSemanticsLabel(BuildContext context, String iconUrl) {
     final AppLocalizations localizations = AppLocalizations.of(context);
 
-    return switch (Uri.parse(iconUrl).pathSegments.last) {
+    final String fileName = Uri.parse(iconUrl).pathSegments.last;
+    return switch (fileName) {
       'ecoscore-a.svg' => localizations.ecoscore_a,
       'ecoscore-b.svg' => localizations.ecoscore_b,
       'ecoscore-c.svg' => localizations.ecoscore_c,
@@ -80,14 +85,98 @@ class SvgCache extends AbstractCache {
       'nova-group-3.svg' => localizations.nova_group_3,
       'nova-group-4.svg' => localizations.nova_group_4,
       'nova-group-unknown.svg' => localizations.nova_group_unknown,
-      'nutriscore-a.svg' => localizations.nutriscore_a,
-      'nutriscore-b.svg' => localizations.nutriscore_b,
-      'nutriscore-c.svg' => localizations.nutriscore_c,
-      'nutriscore-d.svg' => localizations.nutriscore_d,
-      'nutriscore-e.svg' => localizations.nutriscore_e,
-      'nutriscore-unknown.svg' => localizations.nutriscore_unknown,
-      'nutriscore-not-applicable.svg' => localizations.ecoscore_not_applicable,
+      String _ when fileName.startsWith('nutriscore-') =>
+        _extractNutriScore(localizations, fileName),
       _ => null,
     };
   }
+
+  static String _extractNutriScore(
+    AppLocalizations localizations,
+    String fileName,
+  ) {
+    // Old NutriScore
+    if (fileName == 'nutriscore-a.svg') {
+      return localizations.nutriscore_a;
+    } else if (fileName == 'nutriscore-b.svg') {
+      return localizations.nutriscore_b;
+    } else if (fileName == 'nutriscore-c.svg') {
+      return localizations.nutriscore_c;
+    } else if (fileName == 'nutriscore-d.svg') {
+      return localizations.nutriscore_d;
+    } else if (fileName == 'nutriscore-e.svg') {
+      return localizations.nutriscore_e;
+    } else if (fileName == 'nutriscore-unknown.svg') {
+      return localizations.nutriscore_unknown;
+    } else if (fileName == 'nutriscore-not-applicable.svg') {
+      return localizations.nutriscore_not_applicable;
+    }
+
+    // NutriScore V2
+    if (fileName == 'nutriscore-unknown-') {
+      return localizations.nutriscore_unknown_new_formula;
+    } else if (fileName == 'nutriscore-not-applicable-') {
+      return localizations.nutriscore_not_applicable_new_formula;
+    } else {
+      final String? letter;
+
+      if (fileName.startsWith('nutriscore-a-new')) {
+        letter = 'A';
+      } else if (fileName.startsWith('nutriscore-b-new')) {
+        letter = 'B';
+      } else if (fileName.startsWith('nutriscore-c-new')) {
+        letter = 'C';
+      } else if (fileName.startsWith('nutriscore-d-new')) {
+        letter = 'D';
+      } else if (fileName.startsWith('nutriscore-e-new')) {
+        letter = 'E';
+      } else {
+        return localizations.nutriscore_unknown;
+      }
+
+      return localizations.nutriscore_new_formula(letter);
+    }
+  }
+
+  static String getAssetsCacheForNutriscore(
+    NutriScoreValue nutriScore,
+    bool newNutriScore,
+  ) {
+    String suffix = '';
+    if (newNutriScore) {
+      final StringBuffer buffer = StringBuffer('-new-');
+
+      buffer.write(switch (ProductQuery.getLanguage().offTag) {
+        'de' => 'de',
+        'en' => 'en',
+        'fr' => 'fr',
+        'lb' => 'lb',
+        'nl' => 'nl',
+        _ => 'en',
+      });
+
+      suffix = buffer.toString();
+    }
+
+    return switch (nutriScore) {
+      NutriScoreValue.a => 'assets/cache/nutriscore-a$suffix.svg',
+      NutriScoreValue.b => 'assets/cache/nutriscore-b$suffix.svg',
+      NutriScoreValue.c => 'assets/cache/nutriscore-c$suffix.svg',
+      NutriScoreValue.d => 'assets/cache/nutriscore-d$suffix.svg',
+      NutriScoreValue.e => 'assets/cache/nutriscore-e$suffix.svg',
+      NutriScoreValue.notApplicable =>
+        'assets/cache/nutriscore-not-applicable$suffix.svg',
+      NutriScoreValue.unknown => 'assets/cache/nutriscore-unknown$suffix.svg',
+    };
+  }
+}
+
+enum NutriScoreValue {
+  a,
+  b,
+  c,
+  d,
+  e,
+  unknown,
+  notApplicable,
 }

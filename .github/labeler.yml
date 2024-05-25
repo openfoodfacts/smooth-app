@@ -15,7 +15,11 @@ Assets cache:
 - changed-files:
   - any-glob-to-any-file: 'packages/smooth_app/lib/background/background_task_manager.dart'
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/offline_tasks_page.dart'
-
+  - any-glob-to-any-file: 'packages/smooth_app/lib/background/background_task_crop.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/background/background_task_image.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/background/background_task_upload.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/background/background_task_add_price.dart'
+  
 📚 Documentation:
 - changed-files:
   - any-glob-to-any-file: 'README.md'
@@ -226,6 +230,9 @@ Generic lib:
 🖼️ Photos - Cropping:
 - changed-files:
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/image_crop_page.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/crop_page.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/background/background_task_crop.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/product_image_crop_button.dart'
 
 User lists:
 - changed-files:
@@ -244,3 +251,28 @@ Product scan carousel:
 ✏️ Editing - Basic info input:
 - changed-files:
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/add_basic_details_page.dart'
+
+Prices:
+- changed-files:
+  - any-glob-to-any-file: 'packages/smooth_app/lib/background/background_task_add_price.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/data_models/location_list_supplier.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/database/dao_osm_location.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/locations/location_map_page.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/locations/search_location_preloaded_item.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/prices/price_amount_card.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/prices/price_amount_field.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/prices/price_currency_card.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/prices/price_currency_selector.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/prices/price_date_card.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/prices/price_location_card.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/prices/price_model.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/prices/price_proof_card.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/prices/prices_card.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/prices/product_price_add_page.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/prices/product_price_item.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/prices/product_prices_page.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/onboarding/currency_selector.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/onboarding/currency_selector_helper.dart'
+
+  
+

@@ -72,14 +72,14 @@ class ConsentAnalyticsPage extends StatelessWidget {
             ),
           ),
           OnboardingBottomBar(
-            startButton: _buildButton(
+            rightButton: _buildButton(
               context,
               appLocalizations.refuse_button_label,
               false,
               const Color(0xFFA08D84),
               Colors.white,
             ),
-            endButton: _buildButton(
+            leftButton: _buildButton(
               context,
               appLocalizations.authorize_button_label,
               true,
@@ -87,6 +87,7 @@ class ConsentAnalyticsPage extends StatelessWidget {
               Colors.black,
             ),
             backgroundColor: backgroundColor,
+            semanticsHorizontalOrder: false,
           ),
         ],
       ),

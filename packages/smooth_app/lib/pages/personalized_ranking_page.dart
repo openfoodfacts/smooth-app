@@ -12,6 +12,7 @@ import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dar
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/helpers/product_compatibility_helper.dart';
+import 'package:smooth_app/pages/product/common/loading_status.dart';
 import 'package:smooth_app/pages/product/common/product_list_item_simple.dart';
 import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';

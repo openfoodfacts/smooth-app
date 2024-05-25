@@ -23,7 +23,7 @@ dependencies:
   html: 0.15.4
   flutter_widget_from_html_core: 0.8.5+3
   fwfh_selectable_text: 0.8.3+1
-  flutter_secure_storage: 9.1.1
+  flutter_secure_storage: 9.2.1
   hive: 2.2.3
   hive_flutter: 1.1.0
   http: 1.2.0
@@ -73,6 +73,9 @@ dependencies:
   dart_ping_ios: 4.0.2
   flutter_animation_progress_bar: 2.3.1
   email_validator: 2.1.17
+  sliver_tools: 0.2.12
+  crowdin_sdk:
+    git: https://github.com/g123k/crowdin_flutter-sdk.git
 
   # According to the build variant, only one "app store" implementation must be added when building a release
   # Call "flutter pub remove xxxx" to remove unused dependencies
@@ -100,7 +103,7 @@ dependencies:
     path: ../scanner/zxing
 
 
-  openfoodfacts: 3.7.0
+  openfoodfacts: 3.9.0
   # openfoodfacts:
   #   path: ../../../openfoodfacts-dart
 
