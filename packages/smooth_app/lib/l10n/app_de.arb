@@ -2532,6 +2532,7 @@
             }
         }
     },
+    "nutriscore_new_formula_title": "Nutri-Score (New calculation)",
     "nutriscore_unknown": "Unbekannter Nutri-Score",
     "nutriscore_unknown_new_formula": "Unbekannter Nutri-Score (neue Berechnung)",
     "nutriscore_not_applicable": "Nutri-Score nicht zutreffend",
