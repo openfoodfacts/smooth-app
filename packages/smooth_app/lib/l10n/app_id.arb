@@ -2532,6 +2532,7 @@
             }
         }
     },
+    "nutriscore_new_formula_title": "Nutri-Score (New calculation)",
     "nutriscore_unknown": "Nutri-Score tidak diketahui",
     "nutriscore_unknown_new_formula": "Nutri-Score tidak diketahui (Perhitungan baru)",
     "nutriscore_not_applicable": "Nutri-Score tidak dapat diterapkan",
