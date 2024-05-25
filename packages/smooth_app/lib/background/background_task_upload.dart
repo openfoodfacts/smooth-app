@@ -108,8 +108,7 @@ abstract class BackgroundTaskUpload extends BackgroundTaskBarcode
   /// we use in [getDirectory].
   /// With this method we refresh the path for iOS.
   /// cf. https://github.com/openfoodfacts/smooth-app/issues/4725
-  @protected
-  Future<File> getFile(String path) async {
+  static Future<File> getFile(String path) async {
     if (Platform.isIOS) {
       final int lastSeparator = path.lastIndexOf('/');
       final String filename =

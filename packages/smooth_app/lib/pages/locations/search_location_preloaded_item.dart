@@ -38,7 +38,10 @@ class SearchLocationPreloadedItem extends SearchPreloadedItem {
           onPressed: () async => Navigator.push<OsmLocation>(
             context,
             MaterialPageRoute<OsmLocation>(
-              builder: (BuildContext context) => LocationMapPage(osmLocation),
+              builder: (BuildContext context) => LocationMapPage(
+                osmLocation,
+                popFirst: popFirst,
+              ),
             ),
           ),
           icon: const Icon(Icons.map),

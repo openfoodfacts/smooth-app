@@ -1653,7 +1653,47 @@
     "prices_app_button": "Accéder à l'application Prix",
     "prices_generic_title": "Prix",
     "prices_add_a_price": "Ajouter un prix",
+    "prices_send_the_price": "Envoyer le prix",
     "prices_view_prices": "Voir les prix",
+    "prices_list_length_one_page": "{count,plural, =0{Aucun prix} =1{Un seul prix} other{Tous les {count} prix}}",
+    "@prices_list_length_one_page": {
+        "description": "Number of prices for one-page result",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_list_length_many_pages": "{pageSize} prix les plus récents (total : {total})",
+    "@prices_list_length_many_pages": {
+        "description": "Number of prices for one-page result",
+        "placeholders": {
+            "pageSize": {
+                "type": "int"
+            },
+            "total": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_amount_subtitle": "Montant",
+    "prices_amount_is_discounted": "En promotion ?",
+    "prices_amount_price_normal": "Prix",
+    "prices_amount_price_discounted": "Prix en promotion",
+    "prices_amount_price_not_discounted": "Prix d'origine",
+    "prices_amount_price_incorrect": "Valeur incorrecte",
+    "prices_amount_price_mandatory": "Valeur obligatoire",
+    "prices_currency_subtitle": "Devise",
+    "prices_date_subtitle": "Date",
+    "prices_location_subtitle": "Magasin",
+    "prices_location_find": "Chercher un magasin",
+    "prices_location_mandatory": "Vous devez choisir un magasin !",
+    "prices_proof_subtitle": "Preuve",
+    "prices_proof_find": "Choisir une preuve",
+    "prices_proof_receipt": "Facture",
+    "prices_proof_price_tag": "Étiquette",
+    "prices_proof_mandatory": "Vous devez choisir une preuve !",
+    "prices_add_validation_error": "Erreur de validation",
     "dev_preferences_import_history_result_success": "Fait",
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"
@@ -1978,6 +2018,10 @@
     "image_upload_queued": "L'image va être envoyée en arrière-plan dès que possible.",
     "@image_upload_queued": {
         "description": "Message when a photo is queued for upload"
+    },
+    "add_price_queued": "Le prix sera envoyé en arrière-plan dès que possible.",
+    "@add_price_queued": {
+        "description": "Message when an added price is queued for the server"
     },
     "background_task_title_full_refresh": "Démarrage de la mise à jour de tous les produits stockés localement",
     "@background_task_title_full_refresh": {

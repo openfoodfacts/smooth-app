@@ -86,19 +86,6 @@ class DaoOsmLocation extends AbstractSqlDao {
     return result;
   }
 
-  Future<int> updateLastAccess(
-    final int osmId,
-    final LocationOSMType osmType,
-  ) async =>
-      localDatabase.database.update(
-        _table,
-        <String, Object?>{
-          _columnLastAccess: LocalDatabase.nowInMillis(),
-        },
-        where: '$_columnId = ? AND $_columnType = ?',
-        whereArgs: <Object>[osmId, osmType.offTag],
-      );
-
   Future<int> put(final OsmLocation osmLocation) async =>
       localDatabase.database.insert(
         _table,
