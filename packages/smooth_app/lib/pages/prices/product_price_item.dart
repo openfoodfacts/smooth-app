@@ -119,13 +119,6 @@ class ProductPriceItem extends StatelessWidget {
     return result.toString();
   }
 
-  // TODO(monsieurtanuki): enrich the data or find something more elegant
-  // TODO(monsieurtanuki): wait until https://github.com/openfoodfacts/open-prices/issues/292 is solved
   static OpenFoodFactsCountry? _getCountry(final Location location) =>
-      switch (location.country) {
-        'France' => OpenFoodFactsCountry.FRANCE,
-        'Italia' => OpenFoodFactsCountry.ITALY,
-        'Monaco' => OpenFoodFactsCountry.MONACO,
-        _ => null,
-      };
+      OpenFoodFactsCountry.fromOffTag(location.countryCode);
 }

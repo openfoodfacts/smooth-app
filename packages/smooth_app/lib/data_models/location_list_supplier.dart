@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/pages/locations/osm_location.dart';
+import 'package:smooth_app/query/product_query.dart';
 
 /// Asynchronously loads locations.
 class LocationListSupplier {
@@ -16,6 +17,17 @@ class LocationListSupplier {
 
   /// Returns null if OK, or the message error
   Future<String?> asyncLoad() async {
+    // don't ask me why, but it looks like we need to explicitly set a language,
+    // or else we get different (and not relevant) results
+    // and only en,fr,de can be used.
+    OpenFoodFactsLanguage getQueryLanguage() =>
+        switch (ProductQuery.getLanguage()) {
+          OpenFoodFactsLanguage.FRENCH => OpenFoodFactsLanguage.FRENCH,
+          OpenFoodFactsLanguage.GERMAN => OpenFoodFactsLanguage.GERMAN,
+          OpenFoodFactsLanguage.ENGLISH => OpenFoodFactsLanguage.ENGLISH,
+          _ => OpenFoodFactsLanguage.ENGLISH,
+        };
+
     try {
       locations.clear();
       final http.Response response = await http.get(
@@ -25,6 +37,7 @@ class LocationListSupplier {
           path: 'api',
           queryParameters: <String, String>{
             'q': query,
+            'lang': getQueryLanguage().offTag,
           },
         ),
       );

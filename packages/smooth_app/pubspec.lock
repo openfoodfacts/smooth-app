@@ -852,7 +852,7 @@ packages:
     source: hosted
     version: "1.2.0"
   http_parser:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: http_parser
       sha256: "2aa08ce0341cc9b354a498388e30986515406668dbcc4f7c950c3e715496693b"
@@ -1148,10 +1148,10 @@ packages:
     dependency: "direct main"
     description:
       name: openfoodfacts
-      sha256: bb9bc36d08bb57c83dc55e44dc52053aeff77e22685b525bf334706d0f20af36
+      sha256: ab05acea8a91a4cef6cbed9064af261a8921c60c5cc253298d9024c1b0ff8674
       url: "https://pub.dev"
     source: hosted
-    version: "3.9.0"
+    version: "3.10.0"
   openfoodfacts_flutter_lints:
     dependency: "direct dev"
     description:

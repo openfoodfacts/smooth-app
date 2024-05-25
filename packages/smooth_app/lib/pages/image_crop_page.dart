@@ -20,32 +20,55 @@ import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/helpers/database_helper.dart';
 import 'package:smooth_app/pages/crop_page.dart';
 
-/// Picks an image file from gallery or camera.
-Future<XFile?> pickImageFile(
-  final BuildContext context, {
-  bool ignorePlatformException = false,
-}) async {
-  final UserPictureSource? source = await _getUserPictureSource(context);
-  if (source == null) {
-    return null;
-  }
-  final ImagePicker picker = ImagePicker();
-  if (source == UserPictureSource.GALLERY) {
-    try {
-      return picker.pickImage(source: ImageSource.gallery);
-    } on PlatformException catch (e) {
-      // On debug builds this catch won't work.
-      // Please run on profile/release modes to test it
-      if (ignorePlatformException) {
-        return null;
-      } else if (e.code == 'photo_access_denied') {
-        throw PhotoAccessDenied();
-      } else {
-        rethrow;
+/// Safely picks an image file from gallery or camera, regarding access denied.
+Future<XFile?> pickImageFile(final BuildContext context) async {
+  /// Picks an image file from gallery or camera.
+  Future<XFile?> innerPickImageFile(
+    final BuildContext context, {
+    bool ignorePlatformException = false,
+  }) async {
+    final UserPictureSource? source = await _getUserPictureSource(context);
+    if (source == null) {
+      return null;
+    }
+    final ImagePicker picker = ImagePicker();
+    if (source == UserPictureSource.GALLERY) {
+      try {
+        return picker.pickImage(source: ImageSource.gallery);
+      } on PlatformException catch (e) {
+        // On debug builds this catch won't work.
+        // Please run on profile/release modes to test it
+        if (ignorePlatformException) {
+          return null;
+        } else if (e.code == 'photo_access_denied') {
+          throw PhotoAccessDenied();
+        } else {
+          rethrow;
+        }
       }
     }
+    return picker.pickImage(source: ImageSource.camera);
   }
-  return picker.pickImage(source: ImageSource.camera);
+
+  try {
+    return innerPickImageFile(context);
+  } on PhotoAccessDenied catch (_) {
+    if (!context.mounted) {
+      return null;
+    }
+    final bool? res = await _onGalleryAccessDenied(context);
+    if (res != true) {
+      return null;
+    }
+    // Let's retry
+    if (!context.mounted) {
+      return null;
+    }
+    return innerPickImageFile(
+      context,
+      ignorePlatformException: true,
+    );
+  }
 }
 
 /// Returns the picture source selected by the user.
@@ -234,26 +257,7 @@ Future<File?> confirmAndUploadNewPicture(
   required final OpenFoodFactsLanguage language,
   required final bool isLoggedInMandatory,
 }) async {
-  XFile? croppedPhoto;
-  try {
-    croppedPhoto = await pickImageFile(context);
-  } on PhotoAccessDenied catch (_) {
-    if (!context.mounted) {
-      return null;
-    }
-    final bool? res = await _onGalleryAccessDenied(context);
-    if (res == true) {
-      // Let's retry
-      if (!context.mounted) {
-        return null;
-      }
-      croppedPhoto = await pickImageFile(
-        context,
-        ignorePlatformException: true,
-      );
-    }
-  }
-
+  final XFile? croppedPhoto = await pickImageFile(context);
   if (croppedPhoto == null) {
     return null;
   }
@@ -266,7 +270,7 @@ Future<File?> confirmAndUploadNewPicture(
       builder: (BuildContext context) => CropPage(
         barcode: barcode,
         imageField: imageField,
-        inputFile: File(croppedPhoto!.path),
+        inputFile: File(croppedPhoto.path),
         initiallyDifferent: true,
         language: language,
         isLoggedInMandatory: isLoggedInMandatory,
