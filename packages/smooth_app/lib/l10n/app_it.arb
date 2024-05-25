@@ -1655,7 +1655,7 @@
     "prices_add_a_price": "Aggiungi un prezzo",
     "prices_send_the_price": "Send the price",
     "prices_view_prices": "View the prices",
-    "prices_list_length_one_page": "{count,plural, =0{No price yet} =1{Only one price} other{All {count} prices}}",
+    "prices_list_length_one_page": "{count,plural, one {}=0{Ancora nessun prezzo} =1{Solo un prezzo} other{Tutti i {count} prezzi}}",
     "@prices_list_length_one_page": {
         "description": "Number of prices for one-page result",
         "placeholders": {
@@ -1664,7 +1664,7 @@
             }
         }
     },
-    "prices_list_length_many_pages": "Latest {pageSize} prices (total: {total})",
+    "prices_list_length_many_pages": "Ultimi {pageSize} prezzi (totale: {total})",
     "@prices_list_length_many_pages": {
         "description": "Number of prices for one-page result",
         "placeholders": {
@@ -1680,7 +1680,7 @@
     "prices_amount_is_discounted": "Is discounted?",
     "prices_amount_price_normal": "Prezzo",
     "prices_amount_price_discounted": "Prezzo scontato",
-    "prices_amount_price_not_discounted": "Original price",
+    "prices_amount_price_not_discounted": "Prezzo originale",
     "prices_amount_price_incorrect": "Incorrect value",
     "prices_amount_price_mandatory": "Mandatory value",
     "prices_currency_subtitle": "Moneta",
@@ -2618,7 +2618,7 @@
     "@link_cant_be_opened": {
         "description": "An error may happen if the device doesn't have a browser installed."
     },
-    "knowledge_panel_page_title_no_title": "Details for {productName}",
+    "knowledge_panel_page_title_no_title": "Dettagli per {productName}",
     "@knowledge_panel_page_title_no_title": {
         "description": "The title of the page when we click on an item in the product page and this page is unnamed",
         "placeholders": {
@@ -2627,7 +2627,7 @@
             }
         }
     },
-    "knowledge_panel_page_title": "Details for {pageName} with {productName}",
+    "knowledge_panel_page_title": "Dettagli per {pageName} con {productName}",
     "@knowledge_panel_page_title": {
         "description": "The title of the page when we click on an item in the product page",
         "placeholders": {
