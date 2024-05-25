@@ -1653,7 +1653,47 @@
     "prices_app_button": "crwdns246538:0crwdne246538:0",
     "prices_generic_title": "crwdns248426:0crwdne248426:0",
     "prices_add_a_price": "crwdns248428:0crwdne248428:0",
+    "prices_send_the_price": "crwdns248444:0crwdne248444:0",
     "prices_view_prices": "crwdns248430:0crwdne248430:0",
+    "prices_list_length_one_page": "crwdns248446:0count={count}crwdnd248446:0count={count}crwdne248446:0",
+    "@prices_list_length_one_page": {
+        "description": "Number of prices for one-page result",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_list_length_many_pages": "crwdns248448:0{pageSize}crwdnd248448:0{total}crwdne248448:0",
+    "@prices_list_length_many_pages": {
+        "description": "Number of prices for one-page result",
+        "placeholders": {
+            "pageSize": {
+                "type": "int"
+            },
+            "total": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_amount_subtitle": "crwdns248450:0crwdne248450:0",
+    "prices_amount_is_discounted": "crwdns248452:0crwdne248452:0",
+    "prices_amount_price_normal": "crwdns248454:0crwdne248454:0",
+    "prices_amount_price_discounted": "crwdns248456:0crwdne248456:0",
+    "prices_amount_price_not_discounted": "crwdns248458:0crwdne248458:0",
+    "prices_amount_price_incorrect": "crwdns248460:0crwdne248460:0",
+    "prices_amount_price_mandatory": "crwdns248462:0crwdne248462:0",
+    "prices_currency_subtitle": "crwdns248464:0crwdne248464:0",
+    "prices_date_subtitle": "crwdns248466:0crwdne248466:0",
+    "prices_location_subtitle": "crwdns248468:0crwdne248468:0",
+    "prices_location_find": "crwdns248470:0crwdne248470:0",
+    "prices_location_mandatory": "crwdns248472:0crwdne248472:0",
+    "prices_proof_subtitle": "crwdns248474:0crwdne248474:0",
+    "prices_proof_find": "crwdns248476:0crwdne248476:0",
+    "prices_proof_receipt": "crwdns248478:0crwdne248478:0",
+    "prices_proof_price_tag": "crwdns248480:0crwdne248480:0",
+    "prices_proof_mandatory": "crwdns248482:0crwdne248482:0",
+    "prices_add_validation_error": "crwdns248484:0crwdne248484:0",
     "dev_preferences_import_history_result_success": "crwdns221605:0crwdne221605:0",
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"
@@ -1978,6 +2018,10 @@
     "image_upload_queued": "crwdns221751:0crwdne221751:0",
     "@image_upload_queued": {
         "description": "Message when a photo is queued for upload"
+    },
+    "add_price_queued": "crwdns248486:0crwdne248486:0",
+    "@add_price_queued": {
+        "description": "Message when an added price is queued for the server"
     },
     "background_task_title_full_refresh": "crwdns221753:0crwdne221753:0",
     "@background_task_title_full_refresh": {
