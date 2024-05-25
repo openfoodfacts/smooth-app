@@ -255,7 +255,6 @@ Product scan carousel:
 Prices:
 - changed-files:
   - any-glob-to-any-file: 'packages/smooth_app/lib/background/background_task_add_price.dart'
-  - any-glob-to-any-file: 'packages/smooth_app/lib/background/operation_type.dart'
   - any-glob-to-any-file: 'packages/smooth_app/lib/data_models/location_list_supplier.dart'
   - any-glob-to-any-file: 'packages/smooth_app/lib/database/dao_osm_location.dart'
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/locations/location_map_page.dart'
