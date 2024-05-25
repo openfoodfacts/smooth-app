@@ -1626,7 +1626,29 @@
     "prices_app_button": "Accéder à l'application Prix",
     "prices_generic_title": "Prix",
     "prices_add_a_price": "Ajouter un prix",
+    "prices_send_the_price": "Envoyer le prix",
     "prices_view_prices": "Voir les prix",
+    "prices_list_length_one_page": "{count,plural, =0{Aucun prix} =1{Un seul prix} other{Tous les {count} prix}}",
+    "@prices_list_length_one_page": {
+        "description": "Number of prices for one-page result",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_list_length_many_pages": "{pageSize} prix les plus récents (total : {total})",
+    "@prices_list_length_many_pages": {
+        "description": "Number of prices for one-page result",
+        "placeholders": {
+            "pageSize": {
+                "type": "int"
+            },
+            "total": {
+                "type": "int"
+            }
+        }
+    },
     "prices_amount_subtitle": "Montant",
     "prices_amount_is_discounted": "En promotion ?",
     "prices_amount_price_normal": "Prix",

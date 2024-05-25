@@ -2,16 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:provider/provider.dart';
-import 'package:smooth_app/database/dao_osm_location.dart';
-import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
-import 'package:smooth_app/pages/locations/osm_location.dart';
 import 'package:smooth_app/pages/prices/product_price_add_page.dart';
 import 'package:smooth_app/pages/prices/product_prices_page.dart';
-import 'package:smooth_app/pages/product/common/product_refresher.dart';
 
 /// Card that displays buttons related to prices.
 class PricesCard extends StatelessWidget {
@@ -53,32 +48,10 @@ class PricesCard extends StatelessWidget {
               child: SmoothLargeButtonWithIcon(
                 text: appLocalizations.prices_add_a_price,
                 icon: Icons.add,
-                onPressed: () async {
-                  if (!await ProductRefresher().checkIfLoggedIn(
-                    context,
-                    isLoggedInMandatory: true,
-                  )) {
-                    return;
-                  }
-                  if (!context.mounted) {
-                    return;
-                  }
-                  final LocalDatabase localDatabase =
-                      context.read<LocalDatabase>();
-                  final List<OsmLocation> osmLocations =
-                      await DaoOsmLocation(localDatabase).getAll();
-                  if (!context.mounted) {
-                    return;
-                  }
-                  await Navigator.of(context).push(
-                    MaterialPageRoute<void>(
-                      builder: (BuildContext context) => ProductPriceAddPage(
-                        product,
-                        latestOsmLocations: osmLocations,
-                      ),
-                    ),
-                  );
-                },
+                onPressed: () async => ProductPriceAddPage.showPage(
+                  context: context,
+                  product: product,
+                ),
               ),
             ),
           ],

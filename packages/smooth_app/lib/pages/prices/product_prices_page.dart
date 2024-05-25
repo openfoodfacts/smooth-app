@@ -7,6 +7,7 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
+import 'package:smooth_app/pages/prices/product_price_add_page.dart';
 import 'package:smooth_app/pages/prices/product_prices_list.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
@@ -62,6 +63,14 @@ class _ProductPricesPageState extends State<ProductPricesPage>
         ],
       ),
       body: ProductPricesList(barcode),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () async => ProductPriceAddPage.showPage(
+          context: context,
+          product: upToDateProduct,
+        ),
+        label: Text(appLocalizations.prices_add_a_price),
+        icon: const Icon(Icons.add),
+      ),
     );
   }
 }

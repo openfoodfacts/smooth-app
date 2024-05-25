@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/database/dao_osm_location.dart';
+import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
@@ -13,6 +15,7 @@ import 'package:smooth_app/pages/prices/price_date_card.dart';
 import 'package:smooth_app/pages/prices/price_location_card.dart';
 import 'package:smooth_app/pages/prices/price_model.dart';
 import 'package:smooth_app/pages/prices/price_proof_card.dart';
+import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
@@ -25,6 +28,35 @@ class ProductPriceAddPage extends StatefulWidget {
 
   final Product product;
   final List<OsmLocation> latestOsmLocations;
+
+  static Future<void> showPage({
+    required final BuildContext context,
+    required final Product product,
+  }) async {
+    if (!await ProductRefresher().checkIfLoggedIn(
+      context,
+      isLoggedInMandatory: true,
+    )) {
+      return;
+    }
+    if (!context.mounted) {
+      return;
+    }
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
+    final List<OsmLocation> osmLocations =
+        await DaoOsmLocation(localDatabase).getAll();
+    if (!context.mounted) {
+      return;
+    }
+    await Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (BuildContext context) => ProductPriceAddPage(
+          product,
+          latestOsmLocations: osmLocations,
+        ),
+      ),
+    );
+  }
 
   @override
   State<ProductPriceAddPage> createState() => _ProductPriceAddPageState();
@@ -105,8 +137,8 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage> {
               }
               Navigator.of(context).pop();
             },
-            icon: const Icon(Icons.add),
-            label: Text(appLocalizations.prices_add_a_price),
+            icon: const Icon(Icons.send),
+            label: Text(appLocalizations.prices_send_the_price),
           ),
         ),
       ),
