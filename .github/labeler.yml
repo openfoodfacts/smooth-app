@@ -226,6 +226,9 @@ Generic lib:
 🖼️ Photos - Cropping:
 - changed-files:
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/image_crop_page.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/crop_page.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/background/background_task_crop.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/product_image_crop_button.dart'
 
 User lists:
 - changed-files:
