@@ -1676,16 +1676,16 @@
             }
         }
     },
-    "prices_amount_subtitle": "Amount",
-    "prices_amount_is_discounted": "Is discounted?",
+    "prices_amount_subtitle": "Кількість",
+    "prices_amount_is_discounted": "Чи є знижка?",
     "prices_amount_price_normal": "Ціна",
     "prices_amount_price_discounted": "Ціна зі знижкою",
-    "prices_amount_price_not_discounted": "Original price",
-    "prices_amount_price_incorrect": "Incorrect value",
-    "prices_amount_price_mandatory": "Mandatory value",
+    "prices_amount_price_not_discounted": "Початкова ціна",
+    "prices_amount_price_incorrect": "Помилкове значення",
+    "prices_amount_price_mandatory": "Обов'язкове значення",
     "prices_currency_subtitle": "Currency",
     "prices_date_subtitle": "Date",
-    "prices_location_subtitle": "Shop",
+    "prices_location_subtitle": "Крамниця",
     "prices_location_find": "Find a shop",
     "prices_location_mandatory": "You need to select a shop!",
     "prices_proof_subtitle": "Доказ",
@@ -2576,7 +2576,7 @@
             }
         }
     },
-    "nutriscore_new_formula_title": "Nutri-Score (New calculation)",
+    "nutriscore_new_formula_title": "Nutri-Score (Новий розрахунок)",
     "nutriscore_unknown": "Невідома оцінка Nutri-Score",
     "nutriscore_unknown_new_formula": "Невідомий Nutri-Score (новий розрахунок)",
     "nutriscore_not_applicable": "Nutri-Score не застосовується",
@@ -2618,7 +2618,7 @@
     "@link_cant_be_opened": {
         "description": "An error may happen if the device doesn't have a browser installed."
     },
-    "knowledge_panel_page_title_no_title": "Details for {productName}",
+    "knowledge_panel_page_title_no_title": "Деталі для {productName}",
     "@knowledge_panel_page_title_no_title": {
         "description": "The title of the page when we click on an item in the product page and this page is unnamed",
         "placeholders": {
@@ -2627,7 +2627,7 @@
             }
         }
     },
-    "knowledge_panel_page_title": "Details for {pageName} with {productName}",
+    "knowledge_panel_page_title": "Деталі для {pageName} з {productName}",
     "@knowledge_panel_page_title": {
         "description": "The title of the page when we click on an item in the product page",
         "placeholders": {
