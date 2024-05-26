@@ -1653,9 +1653,9 @@
     "prices_app_button": "Zur Preise-App wechseln",
     "prices_generic_title": "Preise",
     "prices_add_a_price": "Preis hinzufügen",
-    "prices_send_the_price": "Send the price",
+    "prices_send_the_price": "Preis senden",
     "prices_view_prices": "Preise anzeigen",
-    "prices_list_length_one_page": "{count,plural, =0{No price yet} =1{Only one price} other{All {count} prices}}",
+    "prices_list_length_one_page": "{count,plural, one {}=0{Noch kein Preis} =1{Nur ein Preis} other{Alle {count} Preise}}",
     "@prices_list_length_one_page": {
         "description": "Number of prices for one-page result",
         "placeholders": {
@@ -1664,7 +1664,7 @@
             }
         }
     },
-    "prices_list_length_many_pages": "Latest {pageSize} prices (total: {total})",
+    "prices_list_length_many_pages": "Letzte {pageSize} Preise (insgesamt: {total})",
     "@prices_list_length_many_pages": {
         "description": "Number of prices for one-page result",
         "placeholders": {
@@ -1676,17 +1676,17 @@
             }
         }
     },
-    "prices_amount_subtitle": "Amount",
-    "prices_amount_is_discounted": "Is discounted?",
+    "prices_amount_subtitle": "Betrag",
+    "prices_amount_is_discounted": "Preisreduziert?",
     "prices_amount_price_normal": "Preis",
     "prices_amount_price_discounted": "Reduzierter Preis",
-    "prices_amount_price_not_discounted": "Original price",
-    "prices_amount_price_incorrect": "Incorrect value",
+    "prices_amount_price_not_discounted": "Ursprünglicher Preis",
+    "prices_amount_price_incorrect": "Ungültiger Wert",
     "prices_amount_price_mandatory": "Mandatory value",
     "prices_currency_subtitle": "Währung",
     "prices_date_subtitle": "Datum",
-    "prices_location_subtitle": "Shop",
-    "prices_location_find": "Find a shop",
+    "prices_location_subtitle": "Laden",
+    "prices_location_find": "Einen Laden finden",
     "prices_location_mandatory": "You need to select a shop!",
     "prices_proof_subtitle": "Nachweis",
     "prices_proof_find": "Select a proof",
@@ -2576,7 +2576,7 @@
             }
         }
     },
-    "nutriscore_new_formula_title": "Nutri-Score (New calculation)",
+    "nutriscore_new_formula_title": "Nutri-Score (neue Berechnung)",
     "nutriscore_unknown": "Unbekannter Nutri-Score",
     "nutriscore_unknown_new_formula": "Unbekannter Nutri-Score (neue Berechnung)",
     "nutriscore_not_applicable": "Nutri-Score nicht zutreffend",
