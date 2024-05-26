@@ -31,8 +31,8 @@
     "go_back_to_top": "Yuxarıya qayıt",
     "save": "Save",
     "save_confirmation": "Yadda saxlamaq istədiyinizə əminsiniz?",
-    "skip": "Skip",
-    "cancel": "Cancel",
+    "skip": "Ötür",
+    "cancel": "İmtina",
     "@cancel": {},
     "ignore": "Rədd et",
     "@ignore": {
@@ -151,7 +151,7 @@
     "incorrect_credentials": "Incorrect username or password.",
     "password_lost_incorrect_credentials": "This email or username doesn't exist. Please check your credentials.",
     "password_lost_server_unavailable": "We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.",
-    "login": "Login",
+    "login": "Daxil ol",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
@@ -505,7 +505,7 @@
     "@unknownBrand": {},
     "unknownProductName": "Unknown product name",
     "@unknownProductName": {},
-    "label_refresh": "Refresh",
+    "label_refresh": "Yenilə",
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
@@ -1237,7 +1237,7 @@
     "permission_photo_denied_dialog_settings_title": "Permission denied",
     "permission_photo_denied_dialog_settings_message": "As you've previously denied the camera permission, you must allow it manually from the Settings.",
     "permission_photo_denied_dialog_settings_button_open": "Open settings",
-    "permission_photo_denied_dialog_settings_button_cancel": "Cancel",
+    "permission_photo_denied_dialog_settings_button_cancel": "İmtina",
     "permission_photo_none_found": "No camera detected",
     "@permission_photo_none_found": {
         "description": "Message for the user when no camera was detected, replacing the barcode scanner"
@@ -1367,15 +1367,15 @@
     "@edit_product_form_item_emb_codes_examples": {
         "description": "Product edition - EMB Codes - explanations"
     },
-    "edit_product_form_item_categories_title": "Categories",
+    "edit_product_form_item_categories_title": "Kateqoriyalar",
     "@edit_product_form_item_categories_title": {
         "description": "Product edition - Categories - Title"
     },
-    "edit_product_form_item_categories_hint": "category",
+    "edit_product_form_item_categories_hint": "kateqoriya",
     "@edit_product_form_item_categories_hint": {
         "description": "Product edition - Categories - input textfield hint"
     },
-    "edit_product_form_item_categories_type": "category",
+    "edit_product_form_item_categories_type": "kateqoriya",
     "@edit_product_form_item_categories_type": {
         "description": "Product edition - Categories - input textfield type"
     },
@@ -1413,7 +1413,7 @@
     "@edit_product_form_item_nutrition_facts_subtitle": {
         "description": "Product edition - Nutrition facts - SubTitle"
     },
-    "edit_product_form_save": "Edit",
+    "edit_product_form_save": "Düzəliş etmək",
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
     },
@@ -1427,7 +1427,7 @@
     },
     "completed_basic_details_btn_text": "Complete basic details",
     "not_implemented_snackbar_text": "Not implemented yet",
-    "category_picker_page_appbar_text": "Categories",
+    "category_picker_page_appbar_text": "Kateqoriyalar",
     "edit_ingredients_extrait_ingredients_btn_text": "Extract ingredients",
     "@edit_ingredients_extrait_ingredients_btn_text": {
         "description": "Ingredients edition - Extract ingredients"
@@ -1626,7 +1626,7 @@
     "@dev_preferences_button_positive": {
         "description": "User dev preferences - Positive button label"
     },
-    "dev_preferences_button_negative": "Cancel",
+    "dev_preferences_button_negative": "İmtina",
     "@dev_preferences_button_negative": {
         "description": "User dev preferences - Negative button label"
     },
@@ -1807,7 +1807,7 @@
     "@summary_card_button_add_basic_details": {
         "description": "Summary card - Button to add details about the product"
     },
-    "edit_photo_button_label": "Edit",
+    "edit_photo_button_label": "Düzəliş etmək",
     "@edit_photo_button_label": {
         "description": "Edit photo button label"
     },
@@ -1839,7 +1839,7 @@
     "@edit_photo_language_none": {
         "description": "Warning message: for this product and this field, there are no images at all, in any language"
     },
-    "category_picker_screen_title": "Categories",
+    "category_picker_screen_title": "Kateqoriyalar",
     "@category_picker_screen_title": {
         "description": "Categories picker screen title"
     },
