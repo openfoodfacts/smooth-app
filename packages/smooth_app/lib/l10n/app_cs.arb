@@ -566,7 +566,7 @@
     "@new_product_dialog_description": {
         "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
     },
-    "new_product_dialog_illustration_description": "An illustration with unknown Nutri-Score and Eco-Score",
+    "new_product_dialog_illustration_description": "Ilustrace s neznámým Nutri-Score a Eco-Score",
     "@new_product_dialog_illustration_description": {
         "description": "A description for accessibility of two images side by side: a Nutri-Score and an EcoScore."
     },
@@ -1653,7 +1653,47 @@
     "prices_app_button": "Přejít do aplikace Ceny",
     "prices_generic_title": "Ceny",
     "prices_add_a_price": "Přidat cenu",
+    "prices_send_the_price": "Poslat cenu",
     "prices_view_prices": "Zobrazit ceny",
+    "prices_list_length_one_page": "{count,plural, =0{Zatím žádná cena} =1{Pouze 1 cena} few{Všechny {count} ceny} other{Všech {count} cen}}",
+    "@prices_list_length_one_page": {
+        "description": "Number of prices for one-page result",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_list_length_many_pages": "Posledních {pageSize} cen (celkem: {total})",
+    "@prices_list_length_many_pages": {
+        "description": "Number of prices for one-page result",
+        "placeholders": {
+            "pageSize": {
+                "type": "int"
+            },
+            "total": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_amount_subtitle": "Množství",
+    "prices_amount_is_discounted": "Je zlevněné?",
+    "prices_amount_price_normal": "Cena",
+    "prices_amount_price_discounted": "Snížená cena",
+    "prices_amount_price_not_discounted": "Původní cena",
+    "prices_amount_price_incorrect": "Nesprávná hodnota",
+    "prices_amount_price_mandatory": "Povinná hodnota",
+    "prices_currency_subtitle": "Měna",
+    "prices_date_subtitle": "Datum",
+    "prices_location_subtitle": "Obchod",
+    "prices_location_find": "Najít obchod",
+    "prices_location_mandatory": "Musíte vybrat obchod!",
+    "prices_proof_subtitle": "Důkaz",
+    "prices_proof_find": "Vybrat důkaz",
+    "prices_proof_receipt": "Účtenka",
+    "prices_proof_price_tag": "Cenovka",
+    "prices_proof_mandatory": "Musíte vybrat důkaz!",
+    "prices_add_validation_error": "Chyba ověření",
     "dev_preferences_import_history_result_success": "Hotovo",
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"
@@ -1978,6 +2018,10 @@
     "image_upload_queued": "Obrázek bude nahrán na pozadí co nejdříve.",
     "@image_upload_queued": {
         "description": "Message when a photo is queued for upload"
+    },
+    "add_price_queued": "Cena bude zaslána na server co nejdříve.",
+    "@add_price_queued": {
+        "description": "Message when an added price is queued for the server"
     },
     "background_task_title_full_refresh": "Spouštění aktualizace všech lokálně uložených produktů",
     "@background_task_title_full_refresh": {
@@ -2532,6 +2576,7 @@
             }
         }
     },
+    "nutriscore_new_formula_title": "Nutri-Score (Nový výpočet)",
     "nutriscore_unknown": "Neznámé Nutri-Score",
     "nutriscore_unknown_new_formula": "Neznámé Nutri-Score (Nový výpočet)",
     "nutriscore_not_applicable": "Nutri-Score nelze použít",
@@ -2573,7 +2618,7 @@
     "@link_cant_be_opened": {
         "description": "An error may happen if the device doesn't have a browser installed."
     },
-    "knowledge_panel_page_title_no_title": "Details for {productName}",
+    "knowledge_panel_page_title_no_title": "Podrobnosti o {productName}",
     "@knowledge_panel_page_title_no_title": {
         "description": "The title of the page when we click on an item in the product page and this page is unnamed",
         "placeholders": {
@@ -2582,7 +2627,7 @@
             }
         }
     },
-    "knowledge_panel_page_title": "Details for {pageName} with {productName}",
+    "knowledge_panel_page_title": "Podrobnosti o {pageName} s {productName}",
     "@knowledge_panel_page_title": {
         "description": "The title of the page when we click on an item in the product page",
         "placeholders": {

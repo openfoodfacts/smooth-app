@@ -1653,7 +1653,47 @@
     "prices_app_button": "Перейдіть у додаток Ціни",
     "prices_generic_title": "Ціни",
     "prices_add_a_price": "Додати ціну",
+    "prices_send_the_price": "Send the price",
     "prices_view_prices": "Переглянути ціни",
+    "prices_list_length_one_page": "{count,plural, =0{No price yet} =1{Only one price} other{All {count} prices}}",
+    "@prices_list_length_one_page": {
+        "description": "Number of prices for one-page result",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_list_length_many_pages": "Latest {pageSize} prices (total: {total})",
+    "@prices_list_length_many_pages": {
+        "description": "Number of prices for one-page result",
+        "placeholders": {
+            "pageSize": {
+                "type": "int"
+            },
+            "total": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_amount_subtitle": "Кількість",
+    "prices_amount_is_discounted": "Чи є знижка?",
+    "prices_amount_price_normal": "Ціна",
+    "prices_amount_price_discounted": "Ціна зі знижкою",
+    "prices_amount_price_not_discounted": "Початкова ціна",
+    "prices_amount_price_incorrect": "Помилкове значення",
+    "prices_amount_price_mandatory": "Обов'язкове значення",
+    "prices_currency_subtitle": "Currency",
+    "prices_date_subtitle": "Date",
+    "prices_location_subtitle": "Крамниця",
+    "prices_location_find": "Find a shop",
+    "prices_location_mandatory": "You need to select a shop!",
+    "prices_proof_subtitle": "Доказ",
+    "prices_proof_find": "Select a proof",
+    "prices_proof_receipt": "Квитанція",
+    "prices_proof_price_tag": "Цінник",
+    "prices_proof_mandatory": "You need to select a proof!",
+    "prices_add_validation_error": "Validation error",
     "dev_preferences_import_history_result_success": "Виконано",
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"
@@ -1978,6 +2018,10 @@
     "image_upload_queued": "Зображення буде завантажено у фоновому режимі якомога швидше.",
     "@image_upload_queued": {
         "description": "Message when a photo is queued for upload"
+    },
+    "add_price_queued": "The price will be sent to the server as soon as possible.",
+    "@add_price_queued": {
+        "description": "Message when an added price is queued for the server"
     },
     "background_task_title_full_refresh": "Запуск оновлення всіх продуктів, які зберігаються локальна",
     "@background_task_title_full_refresh": {
@@ -2532,6 +2576,7 @@
             }
         }
     },
+    "nutriscore_new_formula_title": "Nutri-Score (Новий розрахунок)",
     "nutriscore_unknown": "Невідома оцінка Nutri-Score",
     "nutriscore_unknown_new_formula": "Невідомий Nutri-Score (новий розрахунок)",
     "nutriscore_not_applicable": "Nutri-Score не застосовується",
@@ -2573,7 +2618,7 @@
     "@link_cant_be_opened": {
         "description": "An error may happen if the device doesn't have a browser installed."
     },
-    "knowledge_panel_page_title_no_title": "Details for {productName}",
+    "knowledge_panel_page_title_no_title": "Деталі для {productName}",
     "@knowledge_panel_page_title_no_title": {
         "description": "The title of the page when we click on an item in the product page and this page is unnamed",
         "placeholders": {
@@ -2582,7 +2627,7 @@
             }
         }
     },
-    "knowledge_panel_page_title": "Details for {pageName} with {productName}",
+    "knowledge_panel_page_title": "Деталі для {pageName} з {productName}",
     "@knowledge_panel_page_title": {
         "description": "The title of the page when we click on an item in the product page",
         "placeholders": {

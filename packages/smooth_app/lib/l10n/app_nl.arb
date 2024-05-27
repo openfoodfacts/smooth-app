@@ -566,7 +566,7 @@
     "@new_product_dialog_description": {
         "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
     },
-    "new_product_dialog_illustration_description": "An illustration with unknown Nutri-Score and Eco-Score",
+    "new_product_dialog_illustration_description": "Een illustratie met onbekende Nutri-Score en Eco-Score",
     "@new_product_dialog_illustration_description": {
         "description": "A description for accessibility of two images side by side: a Nutri-Score and an EcoScore."
     },
@@ -1653,7 +1653,47 @@
     "prices_app_button": "Ga naar de Prijzen-app",
     "prices_generic_title": "Prijzen",
     "prices_add_a_price": "Voeg een prijs toe",
+    "prices_send_the_price": "Prijs verzenden",
     "prices_view_prices": "Bekijk de prijzen",
+    "prices_list_length_one_page": "{count,plural, one {}=0{Nog geen prijs} =1{Slechts één prijs} other{Alle {count} prijzen}}",
+    "@prices_list_length_one_page": {
+        "description": "Number of prices for one-page result",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_list_length_many_pages": "Laatste {pageSize} prijzen (totaal: {total})",
+    "@prices_list_length_many_pages": {
+        "description": "Number of prices for one-page result",
+        "placeholders": {
+            "pageSize": {
+                "type": "int"
+            },
+            "total": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_amount_subtitle": "Hoeveelheid",
+    "prices_amount_is_discounted": "Wordt er korting gegeven?",
+    "prices_amount_price_normal": "Prijs",
+    "prices_amount_price_discounted": "Gereduceerde prijs",
+    "prices_amount_price_not_discounted": "Oorspronkelijke prijs",
+    "prices_amount_price_incorrect": "Onjuiste waarde",
+    "prices_amount_price_mandatory": "Verplichte waarde",
+    "prices_currency_subtitle": "Valuta",
+    "prices_date_subtitle": "Datum",
+    "prices_location_subtitle": "Winkel",
+    "prices_location_find": "Zoek een winkel",
+    "prices_location_mandatory": "Je moet een winkel selecteren!",
+    "prices_proof_subtitle": "Bewijs",
+    "prices_proof_find": "Selecteer een bewijs",
+    "prices_proof_receipt": "Bon",
+    "prices_proof_price_tag": "Prijskaartje",
+    "prices_proof_mandatory": "Je moet een bewijs selecteren!",
+    "prices_add_validation_error": "Validatiefout",
     "dev_preferences_import_history_result_success": "Voltooid",
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"
@@ -1978,6 +2018,10 @@
     "image_upload_queued": "De afbeelding zal zo snel mogelijk op de achtergrond worden geüpload.",
     "@image_upload_queued": {
         "description": "Message when a photo is queued for upload"
+    },
+    "add_price_queued": "De prijs wordt zo snel mogelijk naar de server verzonden.",
+    "@add_price_queued": {
+        "description": "Message when an added price is queued for the server"
     },
     "background_task_title_full_refresh": "Het vernieuwen starten van alle producten die lokaal zijn opgeslagen",
     "@background_task_title_full_refresh": {
@@ -2532,6 +2576,7 @@
             }
         }
     },
+    "nutriscore_new_formula_title": "Nutri-Score (Nieuwe berekening)",
     "nutriscore_unknown": "Onbekende Nutri-Score",
     "nutriscore_unknown_new_formula": "Onbekende Nutri-Score (Nieuwe berekening)",
     "nutriscore_not_applicable": "Nutri-Score is niet van toepassing",
@@ -2573,7 +2618,7 @@
     "@link_cant_be_opened": {
         "description": "An error may happen if the device doesn't have a browser installed."
     },
-    "knowledge_panel_page_title_no_title": "Details for {productName}",
+    "knowledge_panel_page_title_no_title": "Details voor {productName}",
     "@knowledge_panel_page_title_no_title": {
         "description": "The title of the page when we click on an item in the product page and this page is unnamed",
         "placeholders": {
@@ -2582,7 +2627,7 @@
             }
         }
     },
-    "knowledge_panel_page_title": "Details for {pageName} with {productName}",
+    "knowledge_panel_page_title": "Details voor {pageName} met {productName}",
     "@knowledge_panel_page_title": {
         "description": "The title of the page when we click on an item in the product page",
         "placeholders": {

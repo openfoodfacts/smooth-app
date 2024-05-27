@@ -1690,8 +1690,8 @@
     "prices_location_mandatory": "Vous devez choisir un magasin !",
     "prices_proof_subtitle": "Preuve",
     "prices_proof_find": "Choisir une preuve",
-    "prices_proof_receipt": "Facture",
-    "prices_proof_price_tag": "Étiquette",
+    "prices_proof_receipt": "Ticket de caisse",
+    "prices_proof_price_tag": "Étiquette de prix",
     "prices_proof_mandatory": "Vous devez choisir une preuve !",
     "prices_add_validation_error": "Erreur de validation",
     "dev_preferences_import_history_result_success": "Fait",
@@ -2576,6 +2576,7 @@
             }
         }
     },
+    "nutriscore_new_formula_title": "Nutri-Score (nouveau calcul)",
     "nutriscore_unknown": "Nutri-Score inconnu",
     "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
     "nutriscore_not_applicable": "Nutri-Score non applicable",

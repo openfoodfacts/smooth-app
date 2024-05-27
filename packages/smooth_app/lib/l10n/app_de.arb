@@ -1653,7 +1653,47 @@
     "prices_app_button": "Zur Preise-App wechseln",
     "prices_generic_title": "Preise",
     "prices_add_a_price": "Preis hinzufügen",
+    "prices_send_the_price": "Preis senden",
     "prices_view_prices": "Preise anzeigen",
+    "prices_list_length_one_page": "{count,plural, one {}=0{Noch kein Preis} =1{Nur ein Preis} other{Alle {count} Preise}}",
+    "@prices_list_length_one_page": {
+        "description": "Number of prices for one-page result",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_list_length_many_pages": "Letzte {pageSize} Preise (insgesamt: {total})",
+    "@prices_list_length_many_pages": {
+        "description": "Number of prices for one-page result",
+        "placeholders": {
+            "pageSize": {
+                "type": "int"
+            },
+            "total": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_amount_subtitle": "Betrag",
+    "prices_amount_is_discounted": "Preisreduziert?",
+    "prices_amount_price_normal": "Preis",
+    "prices_amount_price_discounted": "Reduzierter Preis",
+    "prices_amount_price_not_discounted": "Ursprünglicher Preis",
+    "prices_amount_price_incorrect": "Ungültiger Wert",
+    "prices_amount_price_mandatory": "Notwendiger Wert",
+    "prices_currency_subtitle": "Währung",
+    "prices_date_subtitle": "Datum",
+    "prices_location_subtitle": "Laden",
+    "prices_location_find": "Einen Laden finden",
+    "prices_location_mandatory": "Sie müssen einen Laden auswählen!",
+    "prices_proof_subtitle": "Nachweis",
+    "prices_proof_find": "Wählen Sie einen Nachweis",
+    "prices_proof_receipt": "Kassenbon",
+    "prices_proof_price_tag": "Preisschild",
+    "prices_proof_mandatory": "Sie müssen einen Nachweis auswählen!",
+    "prices_add_validation_error": "Überprüfungsfehler",
     "dev_preferences_import_history_result_success": "Fertig",
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"
@@ -1978,6 +2018,10 @@
     "image_upload_queued": "Das Bild wird so schnell wie möglich im Hintergrund hochgeladen.",
     "@image_upload_queued": {
         "description": "Message when a photo is queued for upload"
+    },
+    "add_price_queued": "Der Preis wird schnellstmöglich an den Server übermittelt.",
+    "@add_price_queued": {
+        "description": "Message when an added price is queued for the server"
     },
     "background_task_title_full_refresh": "Aktualisierung aller lokal gespeicherten Produkte wird gestartet",
     "@background_task_title_full_refresh": {
@@ -2532,6 +2576,7 @@
             }
         }
     },
+    "nutriscore_new_formula_title": "Nutri-Score (neue Berechnung)",
     "nutriscore_unknown": "Unbekannter Nutri-Score",
     "nutriscore_unknown_new_formula": "Unbekannter Nutri-Score (neue Berechnung)",
     "nutriscore_not_applicable": "Nutri-Score nicht zutreffend",

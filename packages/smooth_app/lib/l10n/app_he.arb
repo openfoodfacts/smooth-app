@@ -1653,7 +1653,47 @@
     "prices_app_button": "מעבר ליישומון המחירים",
     "prices_generic_title": "מחירים",
     "prices_add_a_price": "הוספת מחיר",
+    "prices_send_the_price": "שליחת המחיר",
     "prices_view_prices": "View the prices",
+    "prices_list_length_one_page": "{count,plural, one {} two {כל {count} המחירים} many {כל {count} המחירים}=0{אין מחיר עדיין} =1{מחיר אחד בלבד} other{כל {count} המחירים}}",
+    "@prices_list_length_one_page": {
+        "description": "Number of prices for one-page result",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_list_length_many_pages": "{pageSize} המחירים העדכניים ביותר (סך הכול: {total})",
+    "@prices_list_length_many_pages": {
+        "description": "Number of prices for one-page result",
+        "placeholders": {
+            "pageSize": {
+                "type": "int"
+            },
+            "total": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_amount_subtitle": "סכום",
+    "prices_amount_is_discounted": "בהנחה?",
+    "prices_amount_price_normal": "מחיר",
+    "prices_amount_price_discounted": "מחיר מוזל",
+    "prices_amount_price_not_discounted": "מחיר מקורי",
+    "prices_amount_price_incorrect": "ערך שגוי",
+    "prices_amount_price_mandatory": "ערך חובה",
+    "prices_currency_subtitle": "מטבע",
+    "prices_date_subtitle": "תאריך",
+    "prices_location_subtitle": "חנות",
+    "prices_location_find": "איתור חנות",
+    "prices_location_mandatory": "חובה לבחור חנות!",
+    "prices_proof_subtitle": "הוכחה",
+    "prices_proof_find": "בחירת הוכחה",
+    "prices_proof_receipt": "קבלה",
+    "prices_proof_price_tag": "תווית מחיר",
+    "prices_proof_mandatory": "חובה לבחור הוכחה!",
+    "prices_add_validation_error": "שגיאת אימות",
     "dev_preferences_import_history_result_success": "בוצע",
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"
@@ -1978,6 +2018,10 @@
     "image_upload_queued": "התמונה תישלח ברקע בהקדם האפשרי.",
     "@image_upload_queued": {
         "description": "Message when a photo is queued for upload"
+    },
+    "add_price_queued": "המחיר יישלח לשרת במהירות האפשרית.",
+    "@add_price_queued": {
+        "description": "Message when an added price is queued for the server"
     },
     "background_task_title_full_refresh": "מתחיל רענון של כל המוצרים שמאוחסנים מקומית",
     "@background_task_title_full_refresh": {
@@ -2532,6 +2576,7 @@
             }
         }
     },
+    "nutriscore_new_formula_title": "Nutri-Score (נוסחה חדשה)",
     "nutriscore_unknown": "Nutri-Score לא ידוע",
     "nutriscore_unknown_new_formula": "Nutri-Score לא ידוע (נוסחה חדשה)",
     "nutriscore_not_applicable": "Nutri-Score לא ניתן ליישום",
