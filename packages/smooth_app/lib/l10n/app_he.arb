@@ -1653,9 +1653,9 @@
     "prices_app_button": "מעבר ליישומון המחירים",
     "prices_generic_title": "מחירים",
     "prices_add_a_price": "הוספת מחיר",
-    "prices_send_the_price": "Send the price",
+    "prices_send_the_price": "שליחת המחיר",
     "prices_view_prices": "View the prices",
-    "prices_list_length_one_page": "{count,plural, =0{No price yet} =1{Only one price} other{All {count} prices}}",
+    "prices_list_length_one_page": "{count,plural, one {} two {כל {count} המחירים} many {כל {count} המחירים}=0{אין מחיר עדיין} =1{מחיר אחד בלבד} other{כל {count} המחירים}}",
     "@prices_list_length_one_page": {
         "description": "Number of prices for one-page result",
         "placeholders": {
@@ -1664,7 +1664,7 @@
             }
         }
     },
-    "prices_list_length_many_pages": "Latest {pageSize} prices (total: {total})",
+    "prices_list_length_many_pages": "{pageSize} המחירים העדכניים ביותר (סך הכול: {total})",
     "@prices_list_length_many_pages": {
         "description": "Number of prices for one-page result",
         "placeholders": {
@@ -1676,24 +1676,24 @@
             }
         }
     },
-    "prices_amount_subtitle": "Amount",
-    "prices_amount_is_discounted": "Is discounted?",
+    "prices_amount_subtitle": "סכום",
+    "prices_amount_is_discounted": "בהנחה?",
     "prices_amount_price_normal": "מחיר",
     "prices_amount_price_discounted": "מחיר מוזל",
-    "prices_amount_price_not_discounted": "Original price",
-    "prices_amount_price_incorrect": "Incorrect value",
-    "prices_amount_price_mandatory": "Mandatory value",
+    "prices_amount_price_not_discounted": "מחיר מקורי",
+    "prices_amount_price_incorrect": "ערך שגוי",
+    "prices_amount_price_mandatory": "ערך חובה",
     "prices_currency_subtitle": "מטבע",
     "prices_date_subtitle": "תאריך",
-    "prices_location_subtitle": "Shop",
-    "prices_location_find": "Find a shop",
-    "prices_location_mandatory": "You need to select a shop!",
+    "prices_location_subtitle": "חנות",
+    "prices_location_find": "איתור חנות",
+    "prices_location_mandatory": "חובה לבחור חנות!",
     "prices_proof_subtitle": "הוכחה",
-    "prices_proof_find": "Select a proof",
+    "prices_proof_find": "בחירת הוכחה",
     "prices_proof_receipt": "קבלה",
     "prices_proof_price_tag": "תווית מחיר",
-    "prices_proof_mandatory": "You need to select a proof!",
-    "prices_add_validation_error": "Validation error",
+    "prices_proof_mandatory": "חובה לבחור הוכחה!",
+    "prices_add_validation_error": "שגיאת אימות",
     "dev_preferences_import_history_result_success": "בוצע",
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"
@@ -2019,7 +2019,7 @@
     "@image_upload_queued": {
         "description": "Message when a photo is queued for upload"
     },
-    "add_price_queued": "The price will be sent to the server as soon as possible.",
+    "add_price_queued": "המחיר יישלח לשרת במהירות האפשרית.",
     "@add_price_queued": {
         "description": "Message when an added price is queued for the server"
     },
