@@ -7,7 +7,9 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
+import 'package:smooth_app/pages/prices/product_price_add_page.dart';
 import 'package:smooth_app/pages/prices/product_prices_list.dart';
+import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
@@ -34,33 +36,41 @@ class _ProductPricesPageState extends State<ProductPricesPage>
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     context.watch<LocalDatabase>();
     refreshUpToDate();
-    final String productName = getProductName(
-      upToDateProduct,
-      appLocalizations,
-    );
-    final String productBrand =
-        getProductBrands(upToDateProduct, appLocalizations);
 
     return SmoothScaffold(
       appBar: SmoothAppBar(
         centerTitle: false,
         leading: const SmoothBackButton(),
         title: Text(
-          '${productName.trim()}, ${productBrand.trim()}',
+          getProductNameAndBrands(upToDateProduct, appLocalizations),
           maxLines: 2,
         ),
         actions: <Widget>[
           IconButton(
             tooltip: appLocalizations.prices_app_button,
             icon: const Icon(Icons.open_in_new),
-            onPressed: () async => LaunchUrlHelper.launchURL(
-              // TODO(monsieurtanuki): make it work for TEST too
-              'https://prices.openfoodfacts.org/app/products/${upToDateProduct.barcode!}',
-            ),
+            onPressed: () async {
+              final UriProductHelper uriProductHelper =
+                  ProductQuery.uriProductHelper;
+              final Uri uri = Uri(
+                scheme: uriProductHelper.scheme,
+                host: uriProductHelper.getHost('prices'),
+                path: 'app/products/${upToDateProduct.barcode!}',
+              );
+              return LaunchUrlHelper.launchURL(uri.toString());
+            },
           ),
         ],
       ),
       body: ProductPricesList(barcode),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () async => ProductPriceAddPage.showPage(
+          context: context,
+          product: upToDateProduct,
+        ),
+        label: Text(appLocalizations.prices_add_a_price),
+        icon: const Icon(Icons.add),
+      ),
     );
   }
 }

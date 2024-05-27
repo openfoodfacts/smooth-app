@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/pages/prices/product_price_item.dart';
 import 'package:smooth_app/query/product_query.dart';
@@ -22,7 +24,6 @@ class _ProductPricesListState extends State<ProductPricesList> {
 
   // TODO(monsieurtanuki): add a refresh gesture
   // TODO(monsieurtanuki): add a "download the next 10" items
-  // TODO(monsieurtanuki): localize
   @override
   Widget build(BuildContext context) =>
       FutureBuilder<MaybeError<GetPricesResult>>(
@@ -53,20 +54,21 @@ class _ProductPricesListState extends State<ProductPricesList> {
           for (final Price price in result.items!) {
             children.add(ProductPriceItem(price));
           }
-          final String title;
-          if (children.isEmpty) {
-            title = 'No price for that product yet!';
-          } else if (result.total == 1) {
-            title = 'Only one price found for that product.';
-          } else if (result.numberOfPages == 1) {
-            title = 'All ${result.total} prices for that product';
-          } else {
-            title =
-                'Latest $_pageSize prices for that product (total: ${result.total})';
-          }
+          final AppLocalizations appLocalizations =
+              AppLocalizations.of(context);
+          final String title = result.numberOfPages == 1
+              ? appLocalizations.prices_list_length_one_page(children.length)
+              : appLocalizations.prices_list_length_many_pages(
+                  _pageSize,
+                  result.total!,
+                );
           children.insert(
             0,
             SmoothCard(child: ListTile(title: Text(title))),
+          );
+          // so that the last content gets not hidden by the FAB
+          children.add(
+            const SizedBox(height: 2 * MINIMUM_TOUCH_SIZE),
           );
           return ListView(
             children: children,
