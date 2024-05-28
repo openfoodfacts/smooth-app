@@ -764,6 +764,16 @@
     "@could_not_refresh": {
         "description": "The product data couldn't be refreshed"
     },
+    "product_internet_error_modal_title": "Ein Fehler ist aufgetreten!",
+    "product_internet_error_modal_message": "Aufgrund eines Netzwerkfehlers konnten keine Informationen zu diesem Produkt abgerufen werden. Bitte überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.\n\nInterner Fehler:\n{error}",
+    "@product_internet_error_modal_message": {
+        "placeholders": {
+            "error": {
+                "type": "String",
+                "description": "The error message"
+            }
+        }
+    },
     "product_internet_error": "Informationen über dieses Produkt können aufgrund eines Netzwerkfehlers nicht abgerufen werden.",
     "cached_results_from": "Ergebnisse anzeigen von:",
     "@cached_results_from": {
