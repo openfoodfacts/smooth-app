@@ -1679,7 +1679,7 @@
     "prices_amount_subtitle": "Montant",
     "prices_amount_is_discounted": "En promotion ?",
     "prices_amount_price_normal": "Prix",
-    "prices_amount_price_discounted": "Prix en promotion",
+    "prices_amount_price_discounted": "Prix en promo",
     "prices_amount_price_not_discounted": "Prix d'origine",
     "prices_amount_price_incorrect": "Valeur incorrecte",
     "prices_amount_price_mandatory": "Valeur obligatoire",
