@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -9,6 +11,7 @@ import 'package:smooth_app/services/smooth_services.dart';
 class UserManagementProvider with ChangeNotifier {
   static const String _USER_ID = 'user_id';
   static const String _PASSWORD = 'pasword';
+  static const String _COOKIE = 'user_cookie';
 
   /// Checks credentials and conditionally saves them.
   Future<LoginResult> login(final User user) async {
@@ -26,6 +29,7 @@ class UserManagementProvider with ChangeNotifier {
     OpenFoodAPIConfiguration.globalUser = null;
     DaoSecuredString.remove(key: _USER_ID);
     DaoSecuredString.remove(key: _PASSWORD);
+    DaoSecuredString.remove(key: _COOKIE);
     notifyListeners();
     final bool contains = await credentialsInStorage();
     return !contains;
@@ -38,15 +42,18 @@ class UserManagementProvider with ChangeNotifier {
       {String? userId, String? password}) async {
     String? effectiveUserId;
     String? effectivePassword;
+    String? effectiveCookie;
 
     try {
       effectiveUserId = userId ?? await DaoSecuredString.get(_USER_ID);
       effectivePassword = password ?? await DaoSecuredString.get(_PASSWORD);
+      effectiveCookie = await DaoSecuredString.get(_COOKIE);
     } on PlatformException {
       /// Decrypting the values can go wrong if, for example, the app was
       /// manually overwritten from an external apk.
       DaoSecuredString.remove(key: _USER_ID);
       DaoSecuredString.remove(key: _PASSWORD);
+      DaoSecuredString.remove(key: _COOKIE);
       Logs.e('Credentials query failed, you have been logged out');
     }
 
@@ -54,8 +61,11 @@ class UserManagementProvider with ChangeNotifier {
       return;
     }
 
-    final User user =
-        User(userId: effectiveUserId, password: effectivePassword);
+    final User user = User(
+      userId: effectiveUserId,
+      password: effectivePassword,
+      cookie: effectiveCookie,
+    );
     OpenFoodAPIConfiguration.globalUser = user;
   }
 
@@ -78,6 +88,14 @@ class UserManagementProvider with ChangeNotifier {
       key: _PASSWORD,
       value: user.password,
     );
+    if (user.cookie != null) {
+      await DaoSecuredString.put(
+        key: _COOKIE,
+        value: user.cookie!,
+      );
+    } else {
+      DaoSecuredString.remove(key: _COOKIE);
+    }
     notifyListeners();
   }
 
@@ -94,14 +112,16 @@ class UserManagementProvider with ChangeNotifier {
         password: user.password,
       ),
     );
-    switch (loginResult.type) {
-      case LoginResultType.successful:
-      case LoginResultType.serverIssue:
-      case LoginResultType.exception:
-        return;
-      case LoginResultType.unsuccessful:
-        // TODO(m123): Notify the user
-        await logout();
+
+    if (loginResult.type == LoginResultType.unsuccessful) {
+      // TODO(m123): Notify the user
+      await logout();
+      return;
+    }
+
+    /// Save the cookie if necessary
+    if (user.cookie == null && loginResult.user?.cookie != null) {
+      putUser(loginResult.user!);
     }
   }
 }

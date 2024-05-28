@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:smooth_app/generic_lib/design_constants.dart';
 
 part 'app_icons_font.dart';
 
@@ -113,6 +112,15 @@ class Categories extends AppIcon {
     super.shadow,
     super.key,
   }) : super._(_IconsFont.categories);
+}
+
+class Chicken extends AppIcon {
+  const Chicken({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  }) : super._(_IconsFont.chicken);
 }
 
 class Check extends AppIcon {
@@ -311,6 +319,15 @@ class Expand extends AppIcon {
   }) : super._(_IconsFont.expand);
 }
 
+class Fish extends AppIcon {
+  const Fish({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  }) : super._(_IconsFont.fish);
+}
+
 class Fruit extends AppIcon {
   const Fruit({
     super.color,
@@ -372,6 +389,15 @@ class Lifebuoy extends AppIcon {
     super.shadow,
     super.key,
   }) : super._(_IconsFont.lifebuoy);
+}
+
+class Milk extends AppIcon {
+  const Milk({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  }) : super._(_IconsFont.milk);
 }
 
 class NoPicture extends AppIcon {
@@ -451,6 +477,15 @@ class QRCode extends AppIcon {
   }) : super._(_IconsFont.qrcode_corners);
 }
 
+class Salt extends AppIcon {
+  const Salt({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  }) : super._(_IconsFont.salt);
+}
+
 class Share extends AppIcon {
   factory Share({
     Color? color,
@@ -513,6 +548,22 @@ class Settings extends AppIcon {
     super.shadow,
     super.key,
   }) : super._(_IconsFont.settings);
+}
+
+class Soda extends AppIcon {
+  const Soda.happy({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  }) : super._(_IconsFont.soda_happy);
+
+  const Soda.unhappy({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  }) : super._(_IconsFont.soda_unhappy);
 }
 
 class Sound extends AppIcon {
@@ -629,20 +680,58 @@ abstract class AppIcon extends StatelessWidget {
   @mustCallSuper
   Widget build(BuildContext context) {
     if (size == 0.0) {
-      return EMPTY_WIDGET;
+      return const SizedBox.shrink();
     }
 
+    final AppIconTheme? iconTheme = AppIconTheme.maybeOf(context);
     final IconThemeData iconThemeData = IconTheme.of(context);
     final Color? color = switch (this.color) {
       Color _ => this.color,
-      _ => iconThemeData.color ?? Theme.of(context).iconTheme.color,
+      _ => iconTheme?.color ??
+          iconThemeData.color ??
+          Theme.of(context).iconTheme.color,
     };
 
-    return Icon(
-      icon,
-      color: color,
-      size: size,
-      shadows: shadow != null ? <Shadow>[shadow!] : null,
-    );
+    return Icon(icon,
+        color: color,
+        size: size ?? iconTheme?.size,
+        shadows: shadow != null
+            ? <Shadow>[shadow!]
+            : iconTheme?.shadow != null
+                ? <Shadow>[iconTheme!.shadow!]
+                : null);
+  }
+}
+
+/// Allows to override the default theme of an [AppIcon]
+/// If not provided, the default [IconTheme] will be used (which lacks a [shadow])
+class AppIconTheme extends InheritedWidget {
+  const AppIconTheme({
+    super.key,
+    required super.child,
+    this.color,
+    this.size,
+    this.shadow,
+  });
+
+  final Color? color;
+  final double? size;
+  final Shadow? shadow;
+
+  static AppIconTheme of(BuildContext context) {
+    final AppIconTheme? result = maybeOf(context);
+    assert(result != null, 'No AppIconTheme found in context');
+    return result!;
+  }
+
+  static AppIconTheme? maybeOf(BuildContext context) {
+    return context.dependOnInheritedWidgetOfExactType<AppIconTheme>();
+  }
+
+  @override
+  bool updateShouldNotify(AppIconTheme oldWidget) {
+    return color != oldWidget.color ||
+        size != oldWidget.size ||
+        shadow != oldWidget.shadow;
   }
 }

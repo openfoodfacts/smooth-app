@@ -189,6 +189,7 @@ class _PhotoRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ImageField imageField = _getImageField(position);
     return Padding(
       padding: const EdgeInsets.only(
         top: SMALL_SPACE,
@@ -204,9 +205,7 @@ class _PhotoRow extends StatelessWidget {
               aspectRatio: 1.0,
               child: SmoothImage(
                 rounded: false,
-                imageProvider: _getTransientFile(
-                  getImageField(position),
-                ).getImageProvider(),
+                imageProvider: _getTransientFile(imageField).getImageProvider(),
               ),
             ),
             Expanded(
@@ -214,7 +213,7 @@ class _PhotoRow extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
-                    getImageField(position)
+                    imageField
                         .getProductImageTitle(AppLocalizations.of(context)),
                     style: Theme.of(context).textTheme.headlineMedium,
                     textAlign: TextAlign.center,
@@ -253,6 +252,6 @@ class _PhotoRow extends StatelessWidget {
         language,
       );
 
-  ImageField getImageField(final int index) =>
+  ImageField _getImageField(final int index) =>
       ImageFieldSmoothieExtension.orderedMain[index];
 }

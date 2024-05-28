@@ -302,4 +302,15 @@ class DaoProduct extends AbstractSqlDao implements BulkDeletable {
 
     return result;
   }
+
+  /// Sets the language of all products to null.
+  ///
+  /// This is useful to refresh the whole database, as products without language
+  /// are easy to detect. And therefore we can say "refresh all the products
+  /// with a language null or different from the current app language", and use
+  /// the same mechanism as "switch language and refresh products accordingly".
+  Future<int> clearAllLanguages() async => localDatabase.database.update(
+        _TABLE_PRODUCT,
+        <String, Object?>{_TABLE_PRODUCT_COLUMN_LANGUAGE: null},
+      );
 }

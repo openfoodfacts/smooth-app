@@ -199,11 +199,11 @@ class Languages {
   List<OpenFoodFactsLanguage> getSupportedLanguagesNameInEnglish() {
     final List<OpenFoodFactsLanguage> languages = <OpenFoodFactsLanguage>[];
 
-    _namesInLanguage.forEach(
-      (OpenFoodFactsLanguage lc, String _) => <void>{
-        if (_delegate.isSupported(Locale(lc.code))) <void>{languages.add(lc)}
-      },
-    );
+    _namesInLanguage.forEach((OpenFoodFactsLanguage lc, String _) {
+      if (_delegate.isSupported(Locale(lc.code))) {
+        languages.add(lc);
+      }
+    });
 
     return languages;
   }

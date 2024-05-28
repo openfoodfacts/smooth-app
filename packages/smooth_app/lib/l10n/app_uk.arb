@@ -125,7 +125,7 @@
     "@Introduction screen": {},
     "welcomeToOpenFoodFacts": "Вітаємо в Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
-    "whatIsOff": "Open Food Facts is a global non-profit powered by local communities.",
+    "whatIsOff": "OpenFoodFacts - це світова некомерційна організація, що підтримується місцевими спільнотами.",
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
@@ -147,7 +147,7 @@
     },
     "server_error_open_new_issue": "Немає відповіді сервера! Ви можете відкрити проблему за наступним посиланням.",
     "@user_management": {},
-    "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
+    "sign_in_text": "Увійдіть до свого облікового запису Open Food Facts, щоб зберегти свої внески",
     "incorrect_credentials": "Неправильне ім'я користувача або пароль.",
     "password_lost_incorrect_credentials": "Така електронна пошта або ім'я користувача не існує. Будь ласка, перевірте ваші облікові дані.",
     "password_lost_server_unavailable": "Наразі наші сервери сповільнюються, і ми приносимо вибачення за це. Будь-ласка спробуйте пізніше.",
@@ -248,7 +248,7 @@
     "sign_up_page_confirm_password_hint": "Підтвердіть пароль",
     "sign_up_page_confirm_password_error_empty": "Будь ласка, підтвердіть пароль",
     "sign_up_page_confirm_password_error_invalid": "Паролі відрізняються",
-    "sign_up_page_agree_text": "I agree to the Open Food Facts",
+    "sign_up_page_agree_text": "Я погоджуюсь з Open Food Facts",
     "@sign_up_page_agree_text": {
         "description": "I agree to the Open Food Facts is followed by sign_up_page_terms_text"
     },
@@ -271,7 +271,7 @@
     "sign_up_page_producer_checkbox": "Я виробник продуктів харчування",
     "sign_up_page_producer_hint": "Виробник/бренд",
     "sign_up_page_producer_error_empty": "Будь ласка, введіть виробника або торгову марку",
-    "sign_up_page_subscribe_checkbox": "I'd like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at any time)",
+    "sign_up_page_subscribe_checkbox": "Я хотів би підписатися на інформаційну розсилку Open Food Facts (Ви можете відписатися від неї у будь-який час)",
     "sign_up_page_user_name_already_used": "Ім'я користувача вже існує, будь ласка, виберіть інше ім'я користувача.",
     "sign_up_page_email_already_exists": "вже існує, увійдіть до облікового запису або спробуйте іншу електронну адресу.",
     "sign_up_page_provide_valid_email": "Будь ласка, вкажіть дійсну адресу електронної пошти.",
@@ -297,7 +297,7 @@
     "@darkmode_system_default": {
         "description": "Indicator inside the darkmode switch (system default)"
     },
-    "thanks_for_contributing": "Thanks for contributing!",
+    "thanks_for_contributing": "Дякуємо за внесок!",
     "contributors_label": "Вони створюють додаток",
     "@contributors_label": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
@@ -349,13 +349,13 @@
     "@contribute_sw_development": {
         "description": "Button label + page title: Ways to help"
     },
-    "contribute_develop_text": "The code for every Open Food Facts product is available on GitHub. You are welcome to reuse the code (it's open source) and help us improve it, for everyone, on all the planet.",
+    "contribute_develop_text": "Код кожного продукту Open Food Facts доступний на GitHub. Ви можете повторно використовувати код (це відкритий код) і допомогти нам покращувати його для всіх на цій планеті.",
     "@contribute_develop_text": {},
-    "contribute_develop_text_2": "You can join the Open Food Facts Slack chatroom which is the preferred way to ask questions.",
+    "contribute_develop_text_2": "Ви можете приєднатися до чату Open Food Facts в Slack, який є найкращим способом поставати запитання.",
     "@contribute_develop_text_2": {},
     "contribute_develop_dev_mode_title": "Режим DEV?",
     "contribute_develop_dev_mode_subtitle": "Активувати режим DEV",
-    "contribute_donate_header": "Donate to Open Food Facts",
+    "contribute_donate_header": "Донатьте на Open Food Facts",
     "@contribute_donate_header": {},
     "contribute_enroll_alpha": "Зареєструватися у внутрішній альфа-версії",
     "@contribute_enroll_alpha": {},
@@ -369,7 +369,7 @@
     "@contribute_improve_header": {
         "description": "Button label + page title: Ways to improve the database"
     },
-    "contribute_improve_text": "The database is the core of the project. It's easy and very quick to help. You can download the mobile app for your phone, and start adding or improving products.\n\nOn the other hand, Open Food Facts website offers many ways to contribute: ",
+    "contribute_improve_text": "Ця база даних є основою проєкту. Допомогти легко і дуже швидко. Ви можете завантажити мобільний додаток на ваш телефон і почати додавати або покращувати продукти.\n\nЗ іншого боку, вебсайт Open Food Facts пропонує багато способів зробити свій внесок: ",
     "@contribute_improve_text": {},
     "contribute_translate_header": "Перекласти",
     "@contribute_translate_header": {
@@ -379,14 +379,14 @@
     "@contribute_translate_link_text": {
         "description": "Button label: Opens the Crowdin translation portal"
     },
-    "contribute_translate_text": "Open Food Facts is a global project, containing products from more than 160 countries. Open Food Facts is translated into dozens of languages, with constantly evolving content.",
+    "contribute_translate_text": "Open Food Facts - Це глобальний проєкт, що містить продукти з понад 160 країн. Open Food Facts перекладається на десятки мов, вона постійно змінюється.",
     "@contribute_translate_text": {},
     "contribute_translate_text_2": "Переклади - одне з ключових завдань проекту",
     "@contribute_translate_text_2": {},
-    "contribute_join_skill_pool": "Contribute your skills to Open Food Facts. Join the skill pool!",
-    "contribute_share_header": "Share Open Food Facts with your friends",
+    "contribute_join_skill_pool": "Долучайте свої навички до Open Food Facts. Приєднуйтесь до групи навичок!",
+    "contribute_share_header": "Діліться Open Food Facts зі своїми друзями",
     "@contribute_share_header": {},
-    "contribute_share_content": "I wanted to let you know about the app I've been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it's free, does not require registration, and you can even help increase the number of products decyphered. Here's the link to get it for your phone: https://openfoodfacts.app",
+    "contribute_share_content": "Я хотів би розповісти вам про додаток, яким я користуюся, Open Food Facts, і який дозволяє вам отримувати інформацію про вплив продуктів харчування на здоров'я та навколишнє середовище в персоналізованому режимі. Він працює шляхом сканування штрих-кодів на упаковці. Зрештою, це безкоштовно, не вимагає реєстрації, і ви навіть можете допомогти збільшити кількість розшифрованих продуктів. Ось посилання, за яким ви можете завантажити його на свій телефон: https://openfoodfacts.app",
     "@contribute_share_content": {
         "description": "Content that will be shared, don't forget to include the URL"
     },
@@ -394,11 +394,11 @@
     "@tap_to_answer": {
         "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts and gain rewards."
     },
-    "tap_to_answer_hint": "Tap here to answer questions about this product",
+    "tap_to_answer_hint": "Натисніть тут, щоб відповісти на запитання про цей продукт",
     "@tap_to_answer_hint": {
         "description": "Hint for accessibility readers to answer Robotoff questions."
     },
-    "robotoff_questions_loading_hint": "Please wait while questions about this product are loaded",
+    "robotoff_questions_loading_hint": "Будь ласка, зачекайте, поки завантажуються питання про цей продукт",
     "@robotoff_questions_loading_hint": {
         "description": "Hint for accessibility readers while Robotoff questions are loaded"
     },
@@ -410,17 +410,17 @@
     "@contribute_to_get_rewards": {
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts and gain rewards."
     },
-    "question_sign_in_text": "Sign in to your Open Food Facts account to get credit for your contributions",
-    "question_yes_button_accessibility_value": "Answer with yes",
-    "question_no_button_accessibility_value": "Answer with no",
-    "question_skip_button_accessibility_value": "Skip this question",
+    "question_sign_in_text": "Увійдіть до свого облікового запису Open Food Fact, щоб ваші внески було оцінено",
+    "question_yes_button_accessibility_value": "Відповідайте так",
+    "question_no_button_accessibility_value": "Відповідайте ні",
+    "question_skip_button_accessibility_value": "Пропустити це питання",
     "tap_to_edit_search": "Натисніть для редагування пошуку",
     "@Personal preferences": {},
     "myPreferences": "Мої вподобання",
     "@myPreferences": {
         "description": "Page title: Page where the ranking preferences can be changed"
     },
-    "account_create_message": "Create your account and join the Open Food Facts community to help build food knowledge all over the world!",
+    "account_create_message": "Створіть власний обліковий запис і приєднуйтеся до спільноти Open Food Facts, щоб допомогти поширювати знання про їжу в усьому світі!",
     "@account_create_message": {
         "description": "The Message to be displayed if the user does not have an account and wants to contribute"
     },
@@ -429,12 +429,12 @@
         "description": "Join which is actually Signup"
     },
     "myPreferences_profile_title": "Ваш Профіль",
-    "myPreferences_profile_subtitle": "Manage your Open Food Facts contributor account.",
+    "myPreferences_profile_subtitle": "Керуйте своїм обліковим записом учасника Open Food Facts.",
     "myPreferences_settings_title": "Налаштування Додатку",
     "myPreferences_settings_subtitle": "Темний режим, аналітика…",
     "myPreferences_food_title": "Харчові вподобання",
     "myPreferences_food_subtitle": "Виберіть інформацію про їжу, яка цікавить Вас понад усе.",
-    "myPreferences_food_comment": "Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.",
+    "myPreferences_food_comment": "Виберіть, яка інформація про продукти харчування є для вас найважливішою, щоб ранжувати продукти відповідно до ваших уподобань, першочергово бачити інформацію, яка вас цікавить, і отримати зведення про сумісність. Ці харчові вподобання залишаються на вашому пристрої та не пов'язані з вашим обліковим записом учасника Open Food Facts, якщо ви його маєте.",
     "confirmResetPreferences": "Змінити свої харчові вподобання?",
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -542,7 +542,7 @@
     "@packaging_information_photo": {},
     "missing_product": "Ви знайшли новий продукт!",
     "@missing_product": {},
-    "add_product_take_photos": "Take photos of the packaging to add this product to Open Food Facts",
+    "add_product_take_photos": "Сфотографуйте пакування, щоб додати цей продукт до Open Food Facts",
     "@add_product_take_photos": {},
     "add_product_take_photos_descriptive": "Будь ласка, для початку зробіть кілька світлин. Ви можете завершити опис продукту в будь-який час.",
     "@add_product_take_photos_descriptive": {},
@@ -558,13 +558,17 @@
     "@new_product_leave_title": {
         "description": "Alert dialog title when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
     },
-    "new_product_leave_message": "It looks like you didn't input anything. Do you really want to leave this page?",
+    "new_product_leave_message": "Схоже, ви нічого не ввели. Ви справді хочете залишити цю сторінку?",
     "@new_product_leave_message": {
         "description": "Alert dialog message when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
     },
     "new_product_dialog_description": "Зробіть фото пакування, щоб додати цей продукт до Вашої бази даних",
     "@new_product_dialog_description": {
         "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
+    },
+    "new_product_dialog_illustration_description": "Ілюстрація з невідомими Nutri-Score та Eco-Score",
+    "@new_product_dialog_illustration_description": {
+        "description": "A description for accessibility of two images side by side: a Nutri-Score and an EcoScore."
     },
     "front_packaging_photo_button_label": "Фото передньої частини продукту",
     "@front_packaging_photo_button_label": {},
@@ -624,6 +628,7 @@
     "ingredients_photo_title": "Фото інгредієнтів",
     "nutritional_facts_photo_title": "Світлина харчової цінності продукту",
     "recycling_photo_title": "Обробка фото",
+    "take_photo_title": "Сфотографувати",
     "take_more_photo_title": "Зробити більше фото",
     "front_photo_uploaded": "Попереднє фото завантажено",
     "@front_photo_uploaded": {},
@@ -636,18 +641,18 @@
     "@nutritional_facts_photo_button_label": {},
     "nutritional_facts_input_button_label": "Введіть дані про харчову цінність",
     "nutritional_facts_added": "Харчова цінність додана",
-    "categories_added": "Categories added",
-    "new_product_title_nutriscore": "Compute the Nutri-Score",
+    "categories_added": "Категорії додано",
+    "new_product_title_nutriscore": "Розрахувати Nutri-Score",
     "new_product_subtitle_nutriscore": "Допоможіть нам, заповнивши принаймні категорію та харчові цінності",
-    "new_product_title_ecoscore": "Compute the Eco-Score",
+    "new_product_title_ecoscore": "Розрахувати Eco-Score",
     "new_product_subtitle_ecoscore": "Get it by filling at least a category",
-    "new_product_additional_ecoscore": "Make Eco-Score computation more precise with origins, packaging & more",
+    "new_product_additional_ecoscore": "Зробіть обчислення Eco-Score більш точним за походженням, пакуванням тощо",
     "new_product_title_nova": "Compute the food processing level (NOVA)",
     "new_product_subtitle_nova": "Get it by filling the food category and ingredients",
     "new_product_desc_nova_unknown": "Рівень обробки їжі є невідомим",
     "new_product_title_pictures": "Новий товар",
     "new_product_title_pictures_details": "Будь ласка, зробіть наступні фотографії, і система Open Food Facts зможе розібратися з усіма іншими!",
-    "new_product_title_misc": "And some basic data…",
+    "new_product_title_misc": "І трохи основних даних…",
     "new_product_done_msg": "Дякуємо за ваш внесок «{username}»!",
     "@new_product_done_msg": {
         "description": "Thank you message on the end of new product page, after finish adding a new product.",
@@ -686,27 +691,27 @@
     "@uploading_image": {
         "description": "Message when a new picture is uploading to the server"
     },
-    "uploading_image_type_front": "Uploading front image to Open Food Facts",
+    "uploading_image_type_front": "Вивантаження лицьового зображення до Open Food Facts",
     "@uploading_image_type_front": {
         "description": "Message when a new front picture is being uploaded to the server"
     },
-    "uploading_image_type_ingredients": "Uploading ingredients image to Open Food Facts",
+    "uploading_image_type_ingredients": "Вивантаження зображення інгредієнтів до Open Food Facts",
     "@uploading_image_type_ingredients": {
         "description": "Message when a new ingredients picture is being uploaded to the server"
     },
-    "uploading_image_type_nutrition": "Uploading nutrition image to Open Food Facts",
+    "uploading_image_type_nutrition": "Вивантаження зображення харчової цінності до Open  Food  Facts",
     "@uploading_image_type_nutrition": {
         "description": "Message when a new nutrition picture is being uploaded to the server"
     },
-    "uploading_image_type_packaging": "Uploading packaging image to Open Food Facts",
+    "uploading_image_type_packaging": "Завантаження зображення пакування на Open  Food  Facts",
     "@uploading_image_type_packaging": {
         "description": "Message when a new packaging picture is being uploaded to the server"
     },
-    "uploading_image_type_other": "Uploading other image to Open Food Facts",
+    "uploading_image_type_other": "Вивантаження іншого зображення на Open  Food  Facts",
     "@uploading_image_type_other": {
         "description": "Message when a new other picture is being uploaded to the server"
     },
-    "uploading_image_type_generic": "Uploading image to Open Food Facts",
+    "uploading_image_type_generic": "Вивантаження зображення до Open Food Facts",
     "@uploading_image_type_generic": {
         "description": "Message when a new picture is being uploaded to the server"
     },
@@ -735,6 +740,7 @@
     "@view_more_photo_button": {},
     "no_product_found": "Продукт не знайдено",
     "@no_product_found": {},
+    "no_location_found": "No location found",
     "not_found": "не знайдено:",
     "searchPanelHeader": "Шукайте або відскануйте ваш перший товар",
     "@Product query status": {},
@@ -798,6 +804,28 @@
     "@country_chooser_label": {
         "description": "Label shown above a selector where the user can select their country (in the preferences)"
     },
+    "currency_chooser_label": "Будь ласка виберіть валюту",
+    "@currency_chooser_label": {
+        "description": "Label shown above a selector where the user can select their currency (in the preferences)"
+    },
+    "country_change_message": "Ви щойно змінили країну.",
+    "@country_change_message": {
+        "description": "Message stating the change of countries"
+    },
+    "currency_auto_change_message": "Ви хочете змінити валюту з {previousCurrency} на {possibleCurrency}?",
+    "@currency_auto_change_message": {
+        "description": "Message asking to confirm the change of currencies",
+        "placeholders": {
+            "previousCurrency": {
+                "type": "String",
+                "description": "Current currency"
+            },
+            "possibleCurrency": {
+                "type": "String",
+                "description": "Possible currency"
+            }
+        }
+    },
     "onboarding_country_chooser_label": "Будь ласка, виберіть країну:",
     "@onboarding_country_chooser_label": {
         "description": "The label shown above a selector where the user can select their country (in the onboarding)"
@@ -818,7 +846,7 @@
     "@native_app_settings": {
         "description": "Native App Settings in app settings"
     },
-    "native_app_description": "Open systems settings for Open Food Facts",
+    "native_app_description": "Налаштування відкритих систем для Open Food Facts",
     "@native_app_description": {
         "description": "Native App description in app settings"
     },
@@ -911,12 +939,12 @@
     },
     "retry_button_label": "Повторити спробу",
     "connect_with_us": "Зв'яжіться з нами",
-    "instagram": "Follow us on Instagram",
+    "instagram": "Слідкуйте за нами в Instagram",
     "instagram_link": "https://instagram.com/open.food.facts",
-    "twitter": "Follow us on X (formerly Twitter)",
+    "twitter": "Слідкуйте за нами в X (раніше Twitter)",
     "twitter_link": "https://www.twitter.com/openfoodfacts",
     "blog": "Блог",
-    "faq": "FAQ",
+    "faq": "ЧаПИ",
     "discover": "Дізнатись більше",
     "how_to_contribute": "Як зробити внесок",
     "hint_knowledge_panel_message": "Ви можете торкнутися будь-якої частини картки, щоб дізнатися більше про те, що ви бачите. Спробуй зараз!",
@@ -927,7 +955,7 @@
     "@consent_analytics_title": {
         "description": "Title for the consent analytics UI Page"
     },
-    "consent_analytics_body1": "Help the Open Food Facts volunteers to improve the app. You decide whether to submit anonymous analytics.",
+    "consent_analytics_body1": "Допоможіть волонтерам Open Food Facts покращити додаток. Ви самі вирішуєте чи подавати анонімну аналітику.",
     "@conset_analytics_body1": {
         "description": "first paragraph for the consent analytics UI Page"
     },
@@ -1066,7 +1094,7 @@
     "@product_list_icon_desc": {
         "description": "When the history list is empty, icon description (for accessibility) of the message explaining to start scanning"
     },
-    "product_list_empty_title": "Start scanning",
+    "product_list_empty_title": "Почати сканування",
     "@product_list_empty_title": {
         "description": "When the history list is empty, title of the message explaining to start scanning"
     },
@@ -1112,8 +1140,8 @@
     "@user_profile_title_guest": {
         "description": "When the user is not connected"
     },
-    "user_profile_subtitle_guest": "Sign-in or sign-up to join the Open Food Facts community",
-    "user_profile_title_id_email": "Open Food Facts login: {email}",
+    "user_profile_subtitle_guest": "Увійдіть або зареєструйтеся, аби приєднатися до спільноти community",
+    "user_profile_title_id_email": "Логін Open Food Facts: {email}",
     "@user_profile_title_id_email": {
         "description": "User login (when it's an email)",
         "placeholders": {
@@ -1135,7 +1163,7 @@
     "@email_subject_account_deletion": {
         "description": "Email subject for an account deletion"
     },
-    "email_body_account_deletion": "Hi there, please delete my Open Food Facts account: {userId}",
+    "email_body_account_deletion": "Привіт, будь ласка, видаліть мій обліковий запис Open Food Facts: {userId}",
     "@email_body_account_deletion": {
         "description": "Email body for an account deletion",
         "placeholders": {
@@ -1172,7 +1200,7 @@
     "@crash_reporting_toggle_title": {
         "description": "Title for the Crash reporting toggle"
     },
-    "crash_reporting_toggle_subtitle": "When enabled, crash reports are automatically submitted to Open Food Facts' error tracking system, so that bugs can be fixed and thus improve the app.",
+    "crash_reporting_toggle_subtitle": "Якщо ввімкнено, звіти про збої автоматично надсилаються до системи відстеження помилок Open Food Facts, щоб можна було виправити помилки та покращити додаток таким чином.",
     "@crash_reporting_toggle_subtitle": {
         "description": "SubTitle for the Crash reporting toggle"
     },
@@ -1180,7 +1208,7 @@
     "@send_anonymous_toggle_title": {
         "description": "Title for the Send anonymous data toggle"
     },
-    "send_anonymous_data_toggle_subtitle": "When enabled, some anonymous information regarding app usage will be sent to the Open Food Facts servers, so that we can understand how and how much features are used in order to improve them.",
+    "send_anonymous_data_toggle_subtitle": "При активації додатку, певна анонімна інформація про використання додатку буде відправлена на сервери Open  Food  Facts, щоб ми мали змогу зрозуміти, як і в якому обсязі використовуються функції для їх покращення.",
     "@send_anonymous_toggle_subtitle": {
         "description": "SubTitle for the Send anonymous data toggle"
     },
@@ -1222,8 +1250,8 @@
     "@edit_product_label": {
         "description": "Edit product button label"
     },
-    "edit_product_form_item_add_action": "Add a new {itemType}",
-    "description": "Tooltip to show when the user long presses the (+) button",
+    "edit_product_form_item_add_action": "Додати новий {itemType}",
+    "description": "Підказка, яка показується, коли користувач довго натискає кнопку (+)",
     "@edit_product_form_item_add_action": {
         "placeholders": {
             "itemType": {
@@ -1355,7 +1383,7 @@
     "@edit_product_form_item_categories_explainer_1": {
         "description": "Product edition - Categories - input explainer, part 1"
     },
-    "edit_product_form_item_categories_explainer_2": "In case a category is not available in autocomplete, feel free to add it anyway, that will help us improve Open Food Facts in your country.",
+    "edit_product_form_item_categories_explainer_2": "Якщо категорія недоступна в автозаповненні, однаково додайте її, це допоможе нам покращити Open  Food  Facts у вашій країні.",
     "@edit_product_form_item_categories_explainer_2": {
         "description": "Product edition - Categories - input explainer, part 2"
     },
@@ -1436,7 +1464,7 @@
     "@user_list_add_product": {
         "description": "Label for the dialog to add a product to a list"
     },
-    "user_list_button_new": "Create a new list",
+    "user_list_button_new": "Створити новий список",
     "@user_list_button_new": {
         "description": "Short label of a 'create a new list' button"
     },
@@ -1452,7 +1480,7 @@
     "@added_to_list_msg": {
         "description": "Message when products have been successfully added to a list"
     },
-    "user_list_popup_clear": "Clear your history",
+    "user_list_popup_clear": "Очистити вашу історію",
     "@user_list_popup_clear": {
         "description": "Short label of a 'clear your history list' popup"
     },
@@ -1493,11 +1521,11 @@
             }
         }
     },
-    "camera_toggle_camera": "Switch between back and front camera",
+    "camera_toggle_camera": "Перемикатися між задньою та передньою камерами",
     "@camera_toggle_camera": {
         "description": "Explanation for the icon to switch between cameras"
     },
-    "camera_toggle_flash": "Turn ON or OFF the flash of the camera",
+    "camera_toggle_flash": "Увімкнути або вимкнути спалах камери",
     "@camera_toggle_flash": {
         "description": "Explanation for the icon to turn on/off the flash"
     },
@@ -1623,6 +1651,49 @@
     },
     "prices_app_dev_mode_flag": "Ярлик програми «Ціни» на сторінці продукту",
     "prices_app_button": "Перейдіть у додаток Ціни",
+    "prices_generic_title": "Ціни",
+    "prices_add_a_price": "Додати ціну",
+    "prices_send_the_price": "Send the price",
+    "prices_view_prices": "Переглянути ціни",
+    "prices_list_length_one_page": "{count,plural, =0{No price yet} =1{Only one price} other{All {count} prices}}",
+    "@prices_list_length_one_page": {
+        "description": "Number of prices for one-page result",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_list_length_many_pages": "Latest {pageSize} prices (total: {total})",
+    "@prices_list_length_many_pages": {
+        "description": "Number of prices for one-page result",
+        "placeholders": {
+            "pageSize": {
+                "type": "int"
+            },
+            "total": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_amount_subtitle": "Кількість",
+    "prices_amount_is_discounted": "Чи є знижка?",
+    "prices_amount_price_normal": "Ціна",
+    "prices_amount_price_discounted": "Ціна зі знижкою",
+    "prices_amount_price_not_discounted": "Початкова ціна",
+    "prices_amount_price_incorrect": "Помилкове значення",
+    "prices_amount_price_mandatory": "Обов'язкове значення",
+    "prices_currency_subtitle": "Currency",
+    "prices_date_subtitle": "Date",
+    "prices_location_subtitle": "Крамниця",
+    "prices_location_find": "Find a shop",
+    "prices_location_mandatory": "You need to select a shop!",
+    "prices_proof_subtitle": "Доказ",
+    "prices_proof_find": "Select a proof",
+    "prices_proof_receipt": "Квитанція",
+    "prices_proof_price_tag": "Цінник",
+    "prices_proof_mandatory": "You need to select a proof!",
+    "prices_add_validation_error": "Validation error",
     "dev_preferences_import_history_result_success": "Виконано",
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"
@@ -1686,6 +1757,10 @@
     "@all_search_to_be_completed_title": {
         "description": "All products to be completed: list tile title"
     },
+    "categorize_products_country_title": "Допоможіть класифікувати продукти у вашій країні",
+    "@categorize_products_country_title": {
+        "description": "Help categorize products in your country: list tile title"
+    },
     "edit_product_action_retake_picture": "Переробити фото",
     "@edit_product_action_retake_picture": {
         "description": "Product edition - FAB actions - retake a picture"
@@ -1698,7 +1773,7 @@
     "@edit_product_action_confirm": {
         "description": "Product edition - FAB actions - confirm"
     },
-    "signup_page_terms_of_use_line1": "I agree to the Open Food Facts ",
+    "signup_page_terms_of_use_line1": "Я погоджуюсь з Open Food Facts ",
     "@signup_page_terms_of_use_line1": {
         "description": "User consent for terms of use (line 1)"
     },
@@ -1798,9 +1873,9 @@
     "@confirm_clear": {
         "description": "Asking about whether to clear the history list or not"
     },
-    "alert_clear_selected_user_list": "You're about to clear selected items in your history",
-    "confirm_clear_selected_user_list": "Are you sure you want to continue?",
-    "alert_select_items_to_clear": "Please select one or more items to clear",
+    "alert_clear_selected_user_list": "Ви збираєтеся очистити вибрані елементи в історії",
+    "confirm_clear_selected_user_list": "Ви впевнені, що хочете продовжити?",
+    "alert_select_items_to_clear": "Виберіть один або кілька елементів для очищення",
     "confirm_clear_user_list": "Ви збираєтеся очистити цей список ({name}): ви впевнені, що бажаєте продовжити?",
     "@confirm_clear_user_list": {
         "description": "Asking about whether to clear the list or not",
@@ -1810,11 +1885,11 @@
             }
         }
     },
-    "confirm_delete_user_list_title": "Delete the list?",
+    "confirm_delete_user_list_title": "Видалити цей список?",
     "@confirm_delete_user_list_title": {
         "description": "Title when asking about whether to delete the list or not"
     },
-    "confirm_delete_user_list_message": "You're about to delete the list \"{name}\".\nAre you sure you want to continue?",
+    "confirm_delete_user_list_message": "Ви збираєтеся видалити цей список \"{name}\".\nВи впевнені, що бажаєте продовжити?",
     "@confirm_delete_user_list_message": {
         "description": "Message when asking about whether to delete the list or not",
         "placeholders": {
@@ -1914,7 +1989,7 @@
     "@share": {
         "description": "Button label for sharing something on another app. For example sharing the link to a product via Email"
     },
-    "share_product_text": "Have a look at this product on Open Food Facts: {url}",
+    "share_product_text": "Перегляньте цей продукт на Open  Food  Facts: {url}",
     "@share_product_text": {
         "description": "The content which is send, when sharing a product",
         "placeholders": {
@@ -1923,7 +1998,7 @@
             }
         }
     },
-    "share_product_list_text": "Have a look at my list of products on Open Food Facts: {url}",
+    "share_product_list_text": "Перегляньте мій список продуктів на Open  Food  Facts: {url}",
     "@share_product_list_text": {
         "description": "The content which is send, when sharing a product list",
         "placeholders": {
@@ -1944,11 +2019,15 @@
     "@image_upload_queued": {
         "description": "Message when a photo is queued for upload"
     },
-    "background_task_title_full_refresh": "Starting the refresh of all the products locally stored",
+    "add_price_queued": "The price will be sent to the server as soon as possible.",
+    "@add_price_queued": {
+        "description": "Message when an added price is queued for the server"
+    },
+    "background_task_title_full_refresh": "Запуск оновлення всіх продуктів, які зберігаються локальна",
     "@background_task_title_full_refresh": {
         "description": "Snackbar message when a full refresh is started"
     },
-    "background_task_title_top_n": "Starting the download of the most popular products",
+    "background_task_title_top_n": "Початок завантаження найпопулярніших продуктів",
     "@background_task_title_top_n": {
         "description": "Snackbar message when a download of the most popular products is started"
     },
@@ -2033,15 +2112,15 @@
             }
         }
     },
-    "scan_header_clear_button_tooltip": "Remove all products from the carousel",
+    "scan_header_clear_button_tooltip": "Видалити всі продукти з каруселі",
     "@scan_header_clear_button_tooltip": {
         "description": "Tooltip (message visible with a long-press) on the Clear button on top of the scanner"
     },
-    "scan_header_compare_button_invalid_state_tooltip": "Please scan at least two products to compare them",
+    "scan_header_compare_button_invalid_state_tooltip": "Проскануйте принаймні два продукти, щоб порівняти їх",
     "@scan_header_compare_button_invalid_state_tooltip": {
         "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is just one product scanned"
     },
-    "scan_header_compare_button_valid_state_tooltip": "Click to compare the products you have scanned",
+    "scan_header_compare_button_valid_state_tooltip": "Натисніть щоб порівняти проскановані продукти",
     "@scan_header_compare_button_valid_state_tooltip": {
         "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is at least two prodiucts"
     },
@@ -2065,7 +2144,7 @@
     "@scan_product_loading_restart_button": {
         "description": "Button to force restart a product search"
     },
-    "portion_calculator_description": "Calculate nutrition facts for a specific quantity",
+    "portion_calculator_description": "Розрахуйте поживну цінність для певної кількості",
     "@portion_calculator_description": {
         "description": "Sort of title that describes the portion calculator."
     },
@@ -2153,7 +2232,7 @@
     "app_rating_dialog_title": "Чудово! Дайте іншим знати, що ви думаєте про цей додаток!",
     "app_rating_dialog_positive_action": "Оцініть додаток",
     "app_rating_dialog_negative_action": "Потім",
-    "app_rating_dialog_title_enjoying_app": "Are you enjoying this app?",
+    "app_rating_dialog_title_enjoying_app": "Вам подобається цей додаток?",
     "app_rating_dialog_title_enjoying_positive_actions": "Авжеж!",
     "not_really": "Не дуже",
     "app_rating_dialog_title_not_enjoying_app": "Прикро це чути! Можете розповісти, що сталося?",
@@ -2175,7 +2254,7 @@
             }
         }
     },
-    "edit_packagings_element_field_units": "Number of units",
+    "edit_packagings_element_field_units": "Кількість одиниць",
     "@edit_packagings_element_field_units": {
         "description": "Field label"
     },
@@ -2215,7 +2294,7 @@
     "@edit_packagings_element_hint_recycling": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
-    "edit_packagings_element_example_recycling": "Recycle",
+    "edit_packagings_element_example_recycling": "Переробка",
     "@edit_packagings_element_example_recycling": {
         "description": "Text field hint"
     },
@@ -2246,17 +2325,17 @@
     "background_task_operation_refresh": "оновлення відбувається із затримкою після завантаження фотографій",
     "background_task_run_started": "розпочато",
     "background_task_run_not_started": "ще не розпочато",
-    "background_task_run_to_be_deleted": "to be deleted",
-    "background_task_question_stop": "Do you want to stop that task ASAP?",
+    "background_task_run_to_be_deleted": "буде вилучено",
+    "background_task_question_stop": "Ви хочете припинити це завдання якомога швидше?",
     "feed_back": "Відгук",
-    "undo": "Undo",
+    "undo": "Скасувати",
     "copy_email_to_clip_board": "Скопіюйте лист до буфера обміну",
     "@copy_email_to_clip_board": {
         "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
     },
     "please_send_us_an_email_to": "Будь ласка, надішліть нам електронного листа на адресу",
     "email_copied_to_clip_board": "Лист скопійовано в буфер обміну!",
-    "select_accent_color": "Select Accent Color",
+    "select_accent_color": "Виберіть колір акценту",
     "@select_accent_color": {
         "description": "Accent Color for the application in AMOLED mode."
     },
@@ -2320,7 +2399,7 @@
     "@contrast_low": {
         "description": "Low Contrast Text Color"
     },
-    "product_refresher_internet_not_found": "Product not found!",
+    "product_refresher_internet_not_found": "Продукт не знайдено!",
     "@product_refresher_internet_not_found": {
         "description": "When refreshing a product that does not exist on the server. Label is the body of a dialog."
     },
@@ -2346,7 +2425,7 @@
             }
         }
     },
-    "product_loader_not_found_title": "Product not found!",
+    "product_loader_not_found_title": "Продукт не знайдено!",
     "@product_loader_not_found_title": {
         "description": "When fetching a product opened via a link and it doesn't exist"
     },
@@ -2367,7 +2446,7 @@
     "@product_loader_network_error_message": {
         "description": "When fetching a product opened via a link and there is no connection"
     },
-    "page_not_found_title": "Page not found!",
+    "page_not_found_title": "Сторінку не знайдено!",
     "@page_not_found_title": {
         "description": "Title for a page not found (when an URL is not recognized)"
     },
@@ -2375,11 +2454,11 @@
     "@page_not_found_button": {
         "description": "Button to go back to the homepage"
     },
-    "download_data": "Download data",
+    "download_data": "Завантажити дані",
     "@download_data": {
         "description": "App bar title for the download data page"
     },
-    "download_top_products": "Download the top 1000 products in your country for instant scanning",
+    "download_top_products": "Завантажте 1000 найпопулярніших продуктів у вашій країні для миттєвого сканування",
     "@download_top_products": {
         "description": "Download the top 1000 products in your country for instant scanning"
     },
@@ -2391,11 +2470,11 @@
             }
         }
     },
-    "download_in_progress": "Downloading data\nThis may take a while",
+    "download_in_progress": "Завантаження даних\nЦе може зайняти деякий час",
     "@download_in_progress": {
         "description": "Download in progress"
     },
-    "downloaded_products": "{num} products added",
+    "downloaded_products": "{num} продуктів додано",
     "@downloaded_products": {
         "description": "text to show when products added",
         "placeholders": {
@@ -2404,23 +2483,23 @@
             }
         }
     },
-    "update_offline_data": "Update offline product data",
+    "update_offline_data": "Оновіть дані продукту офлайн",
     "@update_offline_data": {
         "description": "List tile title for the update offline data page"
     },
-    "update_local_database_sub": "Update the local product database with the latest data from Open Food Facts",
+    "update_local_database_sub": "Оновіть базу даних місцевих продуктів останніми даними від Open Food Facts",
     "@update_local_database_sub": {
         "description": "Update the local product database with the latest data from server"
     },
-    "clear_local_database": "Clear offline product data",
+    "clear_local_database": "Очистіть дані продукту офлайн",
     "@clear_local_database": {
         "description": "List tile title for the clear local database page"
     },
-    "clear_local_database_sub": "Clear all local product data from your app to free up space",
+    "clear_local_database_sub": "Видаліть всі локальні дані про продукти, щоб звільнити місце",
     "@clear_local_database_sub": {
         "description": "Clear all local product data from your app to free up space"
     },
-    "deleted_products": "{num} products deleted",
+    "deleted_products": "{num} продуктів видалено",
     "@deleted_products": {
         "description": "text to show when products are deleted from local databse",
         "placeholders": {
@@ -2433,19 +2512,19 @@
     "@loading": {
         "description": "Loading…"
     },
-    "know_more": "Know More",
+    "know_more": "Докладніше",
     "@know_more": {
         "description": "Know More"
     },
-    "offline_data_desc": "Click to know more about offline data",
+    "offline_data_desc": "Натисніть, щоб дізнатися більше про офлайн-дані",
     "@offline_data_desc": {
         "description": "Click to know more about offline data"
     },
-    "offline_product_data_title": "Offline product data",
+    "offline_product_data_title": "Дані продукту офлайн",
     "@offline_product_data_title": {
         "description": "Offline Product Data"
     },
-    "available_for_download": "{num} products available for immediate scaning",
+    "available_for_download": "{num} продуктів доступні для миттєвого сканування",
     "@available_for_download": {
         "description": "text to show details of products available for download",
         "placeholders": {
@@ -2457,6 +2536,10 @@
     "country_selector_title": "Оберіть вашу країну:",
     "@country_selector_title": {
         "description": "Label written as the title of the dialog to select the user country"
+    },
+    "currency_selector_title": "Оберіть Вашу валюту:",
+    "@currency_selector_title": {
+        "description": "Label written as the title of the dialog to select the user currency"
     },
     "language_selector_title": "Виберіть свою мову:",
     "@language_selector_title": {
@@ -2474,32 +2557,44 @@
     "@product_list_create": {
         "description": "Button label to create a new list (short word)"
     },
-    "product_list_create_tooltip": "Create a new list",
+    "product_list_create_tooltip": "Створити новий список",
     "@product_list_create_tooltip": {
         "description": "Button description to create a new list (long sentence)"
     },
     "nutriscore_generic": "Nutri-Score",
-    "nutriscore_a": "Nutri-Score A",
-    "nutriscore_b": "Nutri-Score B",
-    "nutriscore_c": "Nutri-Score C",
-    "nutriscore_d": "Nutri-Score D",
-    "nutriscore_e": "Nutri-Score E",
-    "nutriscore_unknown": "Unknown Nutri-Score",
-    "nutriscore_not_applicable": "Nutri-Score is not applicable",
+    "nutriscore_a": "Оцінка Nutri-Score A",
+    "nutriscore_b": "Оцінка Nutri-Score B",
+    "nutriscore_c": "Оцінка Nutri-Score C",
+    "nutriscore_d": "Оцінка Nutri-Score D",
+    "nutriscore_e": "Оцінка Nutri-Score E",
+    "nutriscore_new_formula": "Nutri-Score {letter} (новий розрахунок)",
+    "@nutriscore_new_formula": {
+        "description": "A generic string to define a Nutri-Score V2 with a letter [eg: \"Nutri-Score A (New calculation)\"]",
+        "placeholders": {
+            "letter": {
+                "type": "String"
+            }
+        }
+    },
+    "nutriscore_new_formula_title": "Nutri-Score (Новий розрахунок)",
+    "nutriscore_unknown": "Невідома оцінка Nutri-Score",
+    "nutriscore_unknown_new_formula": "Невідомий Nutri-Score (новий розрахунок)",
+    "nutriscore_not_applicable": "Nutri-Score не застосовується",
+    "nutriscore_not_applicable_new_formula": "Nutri-Score не застосовується (новий розрахунок)",
     "ecoscore_generic": "Eco-Score (показник впливу на довкілля)",
     "ecoscore_a": "Eco-Score A",
     "ecoscore_b": "Eco-Score B",
     "ecoscore_c": "Eco-Score C",
     "ecoscore_d": "Eco-Score D",
     "ecoscore_e": "Eco-Score E",
-    "ecoscore_unknown": "Unknown Eco-Score",
-    "ecoscore_not_applicable": "Eco-Score is not applicable",
+    "ecoscore_unknown": "Невідомий показник Eco-Score",
+    "ecoscore_not_applicable": "Eco-Score не застосовується",
     "nova_group_generic": "Ультраобробка - групи НОВА",
-    "nova_group_1": "NOVA Group 1",
-    "nova_group_2": "NOVA Group 2",
-    "nova_group_3": "NOVA Group 3",
-    "nova_group_4": "NOVA Group 4",
-    "nova_group_unknown": "Unknown NOVA Group",
+    "nova_group_1": "Група NOVA 1",
+    "nova_group_2": "Група NOVA 2",
+    "nova_group_3": "Група NOVA 3",
+    "nova_group_4": "Група NOVA 4",
+    "nova_group_unknown": "Невідома група NOVA",
     "nutrition_facts": "Рівні поживних речовин",
     "faq_title_partners": "Партнери та Патрони НГО",
     "faq_title_vision": "Концепція, завдання, цінності та програми Open Food Facts",
@@ -2522,5 +2617,26 @@
     "link_cant_be_opened": "Це посилання не може бути відкрито на вашому пристрої. Будь ласка, перевірте чи встановлено браузер.",
     "@link_cant_be_opened": {
         "description": "An error may happen if the device doesn't have a browser installed."
+    },
+    "knowledge_panel_page_title_no_title": "Деталі для {productName}",
+    "@knowledge_panel_page_title_no_title": {
+        "description": "The title of the page when we click on an item in the product page and this page is unnamed",
+        "placeholders": {
+            "productName": {
+                "type": "String"
+            }
+        }
+    },
+    "knowledge_panel_page_title": "Деталі для {pageName} з {productName}",
+    "@knowledge_panel_page_title": {
+        "description": "The title of the page when we click on an item in the product page",
+        "placeholders": {
+            "pageName": {
+                "type": "String"
+            },
+            "productName": {
+                "type": "String"
+            }
+        }
     }
 }

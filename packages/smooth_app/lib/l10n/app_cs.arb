@@ -566,6 +566,10 @@
     "@new_product_dialog_description": {
         "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
     },
+    "new_product_dialog_illustration_description": "Ilustrace s neznámým Nutri-Score a Eco-Score",
+    "@new_product_dialog_illustration_description": {
+        "description": "A description for accessibility of two images side by side: a Nutri-Score and an EcoScore."
+    },
     "front_packaging_photo_button_label": "Přední fotka produktu",
     "@front_packaging_photo_button_label": {},
     "confirm_front_packaging_photo_button_label": "Potvrdit nahrání přední fotky produktu",
@@ -624,6 +628,7 @@
     "ingredients_photo_title": "Fotografie ingrediencí",
     "nutritional_facts_photo_title": "Fotografie nutričních údajů",
     "recycling_photo_title": "Fotografie recyklace",
+    "take_photo_title": "Vyfotit",
     "take_more_photo_title": "Vyfotit další obrázky",
     "front_photo_uploaded": "Přední fotka nahrána",
     "@front_photo_uploaded": {},
@@ -735,6 +740,7 @@
     "@view_more_photo_button": {},
     "no_product_found": "Nebyl nalezen žádný produkt",
     "@no_product_found": {},
+    "no_location_found": "Nenalezena žádná poloha",
     "not_found": "nenalezeno:",
     "searchPanelHeader": "Vyhledejte nebo naskenujte svůj první produkt",
     "@Product query status": {},
@@ -797,6 +803,28 @@
     "country_chooser_label": "Vyberte prosím zemi",
     "@country_chooser_label": {
         "description": "Label shown above a selector where the user can select their country (in the preferences)"
+    },
+    "currency_chooser_label": "Prosím zvolte měnu",
+    "@currency_chooser_label": {
+        "description": "Label shown above a selector where the user can select their currency (in the preferences)"
+    },
+    "country_change_message": "Právě jste změnili zemi.",
+    "@country_change_message": {
+        "description": "Message stating the change of countries"
+    },
+    "currency_auto_change_message": "Chcete změnit měnu z {previousCurrency} na {possibleCurrency}?",
+    "@currency_auto_change_message": {
+        "description": "Message asking to confirm the change of currencies",
+        "placeholders": {
+            "previousCurrency": {
+                "type": "String",
+                "description": "Current currency"
+            },
+            "possibleCurrency": {
+                "type": "String",
+                "description": "Possible currency"
+            }
+        }
     },
     "onboarding_country_chooser_label": "Vyberte prosím zemi:",
     "@onboarding_country_chooser_label": {
@@ -1623,6 +1651,49 @@
     },
     "prices_app_dev_mode_flag": "Zástupce pro aplikaci Ceny na produktové stránce",
     "prices_app_button": "Přejít do aplikace Ceny",
+    "prices_generic_title": "Ceny",
+    "prices_add_a_price": "Přidat cenu",
+    "prices_send_the_price": "Poslat cenu",
+    "prices_view_prices": "Zobrazit ceny",
+    "prices_list_length_one_page": "{count,plural, =0{Zatím žádná cena} =1{Pouze 1 cena} few{Všechny {count} ceny} other{Všech {count} cen}}",
+    "@prices_list_length_one_page": {
+        "description": "Number of prices for one-page result",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_list_length_many_pages": "Posledních {pageSize} cen (celkem: {total})",
+    "@prices_list_length_many_pages": {
+        "description": "Number of prices for one-page result",
+        "placeholders": {
+            "pageSize": {
+                "type": "int"
+            },
+            "total": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_amount_subtitle": "Množství",
+    "prices_amount_is_discounted": "Je zlevněné?",
+    "prices_amount_price_normal": "Cena",
+    "prices_amount_price_discounted": "Snížená cena",
+    "prices_amount_price_not_discounted": "Původní cena",
+    "prices_amount_price_incorrect": "Nesprávná hodnota",
+    "prices_amount_price_mandatory": "Povinná hodnota",
+    "prices_currency_subtitle": "Měna",
+    "prices_date_subtitle": "Datum",
+    "prices_location_subtitle": "Obchod",
+    "prices_location_find": "Najít obchod",
+    "prices_location_mandatory": "Musíte vybrat obchod!",
+    "prices_proof_subtitle": "Důkaz",
+    "prices_proof_find": "Vybrat důkaz",
+    "prices_proof_receipt": "Účtenka",
+    "prices_proof_price_tag": "Cenovka",
+    "prices_proof_mandatory": "Musíte vybrat důkaz!",
+    "prices_add_validation_error": "Chyba ověření",
     "dev_preferences_import_history_result_success": "Hotovo",
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"
@@ -1685,6 +1756,10 @@
     "all_search_to_be_completed_title": "Všechny produkty k dokončení",
     "@all_search_to_be_completed_title": {
         "description": "All products to be completed: list tile title"
+    },
+    "categorize_products_country_title": "Pomozte roztřídit produkty ve vaší zemi",
+    "@categorize_products_country_title": {
+        "description": "Help categorize products in your country: list tile title"
     },
     "edit_product_action_retake_picture": "Znovu pořídit fotografii",
     "@edit_product_action_retake_picture": {
@@ -1943,6 +2018,10 @@
     "image_upload_queued": "Obrázek bude nahrán na pozadí co nejdříve.",
     "@image_upload_queued": {
         "description": "Message when a photo is queued for upload"
+    },
+    "add_price_queued": "Cena bude zaslána na server co nejdříve.",
+    "@add_price_queued": {
+        "description": "Message when an added price is queued for the server"
     },
     "background_task_title_full_refresh": "Spouštění aktualizace všech lokálně uložených produktů",
     "@background_task_title_full_refresh": {
@@ -2458,6 +2537,10 @@
     "@country_selector_title": {
         "description": "Label written as the title of the dialog to select the user country"
     },
+    "currency_selector_title": "Vyberte svou měnu:",
+    "@currency_selector_title": {
+        "description": "Label written as the title of the dialog to select the user currency"
+    },
     "language_selector_title": "Vyberte svůj jazyk:",
     "@language_selector_title": {
         "description": "Label written as the title of the dialog to select the user language"
@@ -2484,8 +2567,20 @@
     "nutriscore_c": "Nutri-Score C",
     "nutriscore_d": "Nutri-Score D",
     "nutriscore_e": "Nutri-Score E",
+    "nutriscore_new_formula": "Nutri-Score {letter} (Nový výpočet)",
+    "@nutriscore_new_formula": {
+        "description": "A generic string to define a Nutri-Score V2 with a letter [eg: \"Nutri-Score A (New calculation)\"]",
+        "placeholders": {
+            "letter": {
+                "type": "String"
+            }
+        }
+    },
+    "nutriscore_new_formula_title": "Nutri-Score (Nový výpočet)",
     "nutriscore_unknown": "Neznámé Nutri-Score",
+    "nutriscore_unknown_new_formula": "Neznámé Nutri-Score (Nový výpočet)",
     "nutriscore_not_applicable": "Nutri-Score nelze použít",
+    "nutriscore_not_applicable_new_formula": "Nutri-Score nelze použít (Nový výpočet)",
     "ecoscore_generic": "Eco-score",
     "ecoscore_a": "Eco-Score A",
     "ecoscore_b": "Eco-Score B",
@@ -2522,5 +2617,26 @@
     "link_cant_be_opened": "Tento odkaz nelze na vašem zařízení otevřít. Zkontrolujte, zda máte nainstalovaný prohlížeč.",
     "@link_cant_be_opened": {
         "description": "An error may happen if the device doesn't have a browser installed."
+    },
+    "knowledge_panel_page_title_no_title": "Podrobnosti o {productName}",
+    "@knowledge_panel_page_title_no_title": {
+        "description": "The title of the page when we click on an item in the product page and this page is unnamed",
+        "placeholders": {
+            "productName": {
+                "type": "String"
+            }
+        }
+    },
+    "knowledge_panel_page_title": "Podrobnosti o {pageName} s {productName}",
+    "@knowledge_panel_page_title": {
+        "description": "The title of the page when we click on an item in the product page",
+        "placeholders": {
+            "pageName": {
+                "type": "String"
+            },
+            "productName": {
+                "type": "String"
+            }
+        }
     }
 }

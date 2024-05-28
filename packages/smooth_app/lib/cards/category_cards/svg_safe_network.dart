@@ -13,8 +13,12 @@ import 'package:smooth_app/services/smooth_services.dart';
 ///
 /// We could use SvgPicture.network, but it sends tons of errors if there in no
 /// internet connection. That's why we download the data ourselves.
+/// We do need the [key] for cases like "We updated the categories and then the
+/// ecoscore changed, as an impact". Without a key, flutter may not refresh the
+/// ecoscore svg widget when the URL changes.
+/// cf. https://api.flutter.dev/flutter/foundation/Key-class.html
 class SvgSafeNetwork extends StatefulWidget {
-  const SvgSafeNetwork(this.helper);
+  const SvgSafeNetwork(this.helper, {required super.key});
 
   final AssetCacheHelper helper;
 
@@ -26,6 +30,7 @@ class _SvgSafeNetworkState extends State<SvgSafeNetwork> {
   late final Future<String> _loading = _load();
 
   String get _url => widget.helper.url;
+
 // TODO(monsieurtanuki): Change /dist/ url to be the first try when the majority of products have been updated
   /// Loads the SVG file from url or from alternate url.
   ///
@@ -61,12 +66,16 @@ class _SvgSafeNetworkState extends State<SvgSafeNetwork> {
       _networkCache[_url] = cached = response1.body;
       return cached;
     }
-    if (response1.statusCode == statusNotFound && alternateUrl != null) {
-      // try with the alternate url
-      final http.Response response2 = await http.get(Uri.parse(alternateUrl));
-      if (response2.statusCode == statusOk) {
-        _networkCache[alternateUrl] = cached = response2.body;
-        return cached;
+    if (response1.statusCode == statusNotFound) {
+      if (alternateUrl != null) {
+        // try with the alternate url
+        final http.Response response2 = await http.get(Uri.parse(alternateUrl));
+        if (response2.statusCode == statusOk) {
+          _networkCache[alternateUrl] = cached = response2.body;
+          return cached;
+        }
+        throw Exception(
+            'Failed to load SVG: $_url ${response1.statusCode} $alternateUrl ${response2.statusCode}');
       }
     }
 
@@ -108,7 +117,8 @@ class _SvgSafeNetworkState extends State<SvgSafeNetwork> {
                         ui.BlendMode.srcIn,
                       ),
                 fit: BoxFit.contain,
-                semanticsLabel: SvgCache.getSemanticsLabel(context, _url),
+                semanticsLabel: widget.helper.semanticsLabel ??
+                    SvgCache.getSemanticsLabel(context, _url),
                 placeholderBuilder: (BuildContext context) =>
                     SvgAsyncAsset(widget.helper),
               );

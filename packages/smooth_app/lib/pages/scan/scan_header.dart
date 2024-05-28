@@ -82,7 +82,7 @@ class _ScanHeaderState extends State<ScanHeader> {
                                 final ContinuousScanModel model =
                                     context.read<ContinuousScanModel>();
                                 await model.refreshProductList();
-                                if (!mounted) {
+                                if (!context.mounted) {
                                   return;
                                 }
                                 await Navigator.push<void>(

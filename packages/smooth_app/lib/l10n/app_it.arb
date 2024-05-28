@@ -566,6 +566,10 @@
     "@new_product_dialog_description": {
         "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
     },
+    "new_product_dialog_illustration_description": "Un'illustrazione con Nutri-Score e Eco-Score sconosciuti",
+    "@new_product_dialog_illustration_description": {
+        "description": "A description for accessibility of two images side by side: a Nutri-Score and an EcoScore."
+    },
     "front_packaging_photo_button_label": "Foto frontale del prodotto",
     "@front_packaging_photo_button_label": {},
     "confirm_front_packaging_photo_button_label": "Conferma il caricamento della foto frontale del Prodotto",
@@ -624,6 +628,7 @@
     "ingredients_photo_title": "Foto degli Ingredienti",
     "nutritional_facts_photo_title": "Foto valori nutrizionali",
     "recycling_photo_title": "Foto delle istruzioni di riciclaggio",
+    "take_photo_title": "Scatta una foto",
     "take_more_photo_title": "Scatta più foto",
     "front_photo_uploaded": "Foto frontale caricata",
     "@front_photo_uploaded": {},
@@ -735,6 +740,7 @@
     "@view_more_photo_button": {},
     "no_product_found": "Nessun prodotto trovato",
     "@no_product_found": {},
+    "no_location_found": "No location found",
     "not_found": "non trovato:",
     "searchPanelHeader": "Cerca o scansiona il tuo primo prodotto",
     "@Product query status": {},
@@ -797,6 +803,28 @@
     "country_chooser_label": "Sei pregato di scegliere un paese",
     "@country_chooser_label": {
         "description": "Label shown above a selector where the user can select their country (in the preferences)"
+    },
+    "currency_chooser_label": "Scegli una valuta",
+    "@currency_chooser_label": {
+        "description": "Label shown above a selector where the user can select their currency (in the preferences)"
+    },
+    "country_change_message": "Hai appena cambiato Paese.",
+    "@country_change_message": {
+        "description": "Message stating the change of countries"
+    },
+    "currency_auto_change_message": "Vuoi cambiare la valuta da {previousCurrency} a {possibleCurrency}?",
+    "@currency_auto_change_message": {
+        "description": "Message asking to confirm the change of currencies",
+        "placeholders": {
+            "previousCurrency": {
+                "type": "String",
+                "description": "Current currency"
+            },
+            "possibleCurrency": {
+                "type": "String",
+                "description": "Possible currency"
+            }
+        }
     },
     "onboarding_country_chooser_label": "Ti preghiamo di scegliere un paese:",
     "@onboarding_country_chooser_label": {
@@ -897,11 +925,11 @@
             "count": {}
         }
     },
-    "compare_products_mode": "Compara prodotti",
+    "compare_products_mode": "Compara i prodotti",
     "@compare_products_mode": {
         "description": "Button to switch to 'compare products mode'"
     },
-    "compare_products_appbar_title": "Compara prodotti",
+    "compare_products_appbar_title": "Compara i prodotti",
     "@compare_products_appbar_title": {
         "description": "AppBar title when in comparison mode "
     },
@@ -1623,6 +1651,49 @@
     },
     "prices_app_dev_mode_flag": "Collegamento all'app Prezzi sulla pagina del prodotto",
     "prices_app_button": "Vai all'app Prezzi",
+    "prices_generic_title": "Prezzi",
+    "prices_add_a_price": "Aggiungi un prezzo",
+    "prices_send_the_price": "Send the price",
+    "prices_view_prices": "View the prices",
+    "prices_list_length_one_page": "{count,plural, one {}=0{Ancora nessun prezzo} =1{Solo un prezzo} other{Tutti i {count} prezzi}}",
+    "@prices_list_length_one_page": {
+        "description": "Number of prices for one-page result",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_list_length_many_pages": "Ultimi {pageSize} prezzi (totale: {total})",
+    "@prices_list_length_many_pages": {
+        "description": "Number of prices for one-page result",
+        "placeholders": {
+            "pageSize": {
+                "type": "int"
+            },
+            "total": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_amount_subtitle": "Amount",
+    "prices_amount_is_discounted": "Is discounted?",
+    "prices_amount_price_normal": "Prezzo",
+    "prices_amount_price_discounted": "Prezzo scontato",
+    "prices_amount_price_not_discounted": "Prezzo originale",
+    "prices_amount_price_incorrect": "Incorrect value",
+    "prices_amount_price_mandatory": "Mandatory value",
+    "prices_currency_subtitle": "Moneta",
+    "prices_date_subtitle": "Data",
+    "prices_location_subtitle": "Shop",
+    "prices_location_find": "Find a shop",
+    "prices_location_mandatory": "You need to select a shop!",
+    "prices_proof_subtitle": "Prova",
+    "prices_proof_find": "Select a proof",
+    "prices_proof_receipt": "Ricevuta",
+    "prices_proof_price_tag": "Etichetta del prezzo",
+    "prices_proof_mandatory": "You need to select a proof!",
+    "prices_add_validation_error": "Validation error",
     "dev_preferences_import_history_result_success": "Fatto",
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"
@@ -1685,6 +1756,10 @@
     "all_search_to_be_completed_title": "Tutti i prodotti da completare",
     "@all_search_to_be_completed_title": {
         "description": "All products to be completed: list tile title"
+    },
+    "categorize_products_country_title": "Aiuta a categorizzare i prodotti nel tuo paese",
+    "@categorize_products_country_title": {
+        "description": "Help categorize products in your country: list tile title"
     },
     "edit_product_action_retake_picture": "Rifai foto",
     "@edit_product_action_retake_picture": {
@@ -1943,6 +2018,10 @@
     "image_upload_queued": "L'immagine sarà caricata in background il prima possibile.",
     "@image_upload_queued": {
         "description": "Message when a photo is queued for upload"
+    },
+    "add_price_queued": "The price will be sent to the server as soon as possible.",
+    "@add_price_queued": {
+        "description": "Message when an added price is queued for the server"
     },
     "background_task_title_full_refresh": "Avviando il ricaricamento di tutti i prodotti memorizzati localmente",
     "@background_task_title_full_refresh": {
@@ -2458,6 +2537,10 @@
     "@country_selector_title": {
         "description": "Label written as the title of the dialog to select the user country"
     },
+    "currency_selector_title": "Seleziona la tua valuta:",
+    "@currency_selector_title": {
+        "description": "Label written as the title of the dialog to select the user currency"
+    },
     "language_selector_title": "Seleziona la tua lingua:",
     "@language_selector_title": {
         "description": "Label written as the title of the dialog to select the user language"
@@ -2484,8 +2567,20 @@
     "nutriscore_c": "Nutri-Score C",
     "nutriscore_d": "Nutri-Score D",
     "nutriscore_e": "Nutri-Score E",
+    "nutriscore_new_formula": "Nutri-Score {letter} (Nuovo calcolo)",
+    "@nutriscore_new_formula": {
+        "description": "A generic string to define a Nutri-Score V2 with a letter [eg: \"Nutri-Score A (New calculation)\"]",
+        "placeholders": {
+            "letter": {
+                "type": "String"
+            }
+        }
+    },
+    "nutriscore_new_formula_title": "Nutri-Score (New calculation)",
     "nutriscore_unknown": "Nutri-Score Sconosciuto",
+    "nutriscore_unknown_new_formula": "Nutri-Score sconosciuto (Nuovo calcolo)",
     "nutriscore_not_applicable": "Nutri-Score non applicabile",
+    "nutriscore_not_applicable_new_formula": "Nutri-Score non è applicabile (Nuovo calcolo)",
     "ecoscore_generic": "Eco-Score",
     "ecoscore_a": "Eco-Score A",
     "ecoscore_b": "Eco-Score B",
@@ -2522,5 +2617,26 @@
     "link_cant_be_opened": "Questo collegamento non può essere aperto sul tuo dispositivo. Verifica di avere un browser installato.",
     "@link_cant_be_opened": {
         "description": "An error may happen if the device doesn't have a browser installed."
+    },
+    "knowledge_panel_page_title_no_title": "Dettagli per {productName}",
+    "@knowledge_panel_page_title_no_title": {
+        "description": "The title of the page when we click on an item in the product page and this page is unnamed",
+        "placeholders": {
+            "productName": {
+                "type": "String"
+            }
+        }
+    },
+    "knowledge_panel_page_title": "Dettagli per {pageName} con {productName}",
+    "@knowledge_panel_page_title": {
+        "description": "The title of the page when we click on an item in the product page",
+        "placeholders": {
+            "pageName": {
+                "type": "String"
+            },
+            "productName": {
+                "type": "String"
+            }
+        }
     }
 }
