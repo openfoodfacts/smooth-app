@@ -132,16 +132,11 @@ class ReinventionPage extends StatelessWidget {
   }
 }
 
-class _Background extends StatefulWidget {
+class _Background extends StatelessWidget {
   const _Background({required this.screenWidth});
 
   final double screenWidth;
 
-  @override
-  State<_Background> createState() => _BackgroundState();
-}
-
-class _BackgroundState extends State<_Background> {
   @override
   Widget build(BuildContext context) {
     return SizedBox.expand(
@@ -151,7 +146,7 @@ class _BackgroundState extends State<_Background> {
             AnimatedPositioned(
               bottom: 0.0,
               right: 0.0,
-              width: widget.screenWidth * 0.808,
+              width: screenWidth * 0.808,
               duration: SmoothAnimationsDuration.short,
               child: SvgPicture.asset(
                 'assets/onboarding/hill_end.svg',
@@ -161,7 +156,7 @@ class _BackgroundState extends State<_Background> {
             AnimatedPositioned(
               bottom: 0.0,
               left: 0.0,
-              width: widget.screenWidth * 0.855,
+              width: screenWidth * 0.855,
               duration: SmoothAnimationsDuration.short,
               child: SvgPicture.asset(
                 'assets/onboarding/hill_start.svg',
