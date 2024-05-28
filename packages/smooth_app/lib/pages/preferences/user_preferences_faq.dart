@@ -71,7 +71,7 @@ class UserPreferencesFaq extends AbstractUserPreferences {
             NutriScoreValue.b,
             true,
           ),
-          onTap: () => Navigator.of(context).push(
+          onTap: () => Navigator.of(context, rootNavigator: true).push(
             MaterialPageRoute<void>(
               builder: (BuildContext context) => const GuideNutriscoreV2(),
             ),

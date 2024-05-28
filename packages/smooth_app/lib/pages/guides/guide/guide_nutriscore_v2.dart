@@ -11,9 +11,10 @@ class GuideNutriscoreV2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const GuidesPage(
-      header: _NutriscoreHeader(),
-      body: <Widget>[
+    return GuidesPage(
+      pageName: 'NutriscoreV2',
+      header: const _NutriscoreHeader(),
+      body: const <Widget>[
         _NutriScoreSection1(),
         _NutriScoreSection2(),
         _NutriScoreSection3(),
@@ -21,7 +22,10 @@ class GuideNutriscoreV2 extends StatelessWidget {
         _NutriScoreSection5(),
       ],
       footer: SliverToBoxAdapter(
-        child: GuidesFooter(),
+        child: GuidesFooter(
+          shareMessage: 'guide_nutriscore_v2_share_message'.translation,
+          shareUrl: 'guide_nutriscore_v2_share_link'.translation,
+        ),
       ),
     );
   }
