@@ -3,7 +3,6 @@ import 'dart:io';
 
 import 'package:app_store_shared/app_store_shared.dart';
 import 'package:dart_ping_ios/dart_ping_ios.dart';
-import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -85,12 +84,7 @@ Future<void> launchSmoothApp({
     await AnalyticsHelper.initSentry(
         appRunner: () => runApp(const SmoothApp()));
   } else {
-    runApp(
-      DevicePreview(
-        enabled: true,
-        builder: (_) => const SmoothApp(),
-      ),
-    );
+    runApp(const SmoothApp());
   }
 }
 
