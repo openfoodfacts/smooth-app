@@ -94,13 +94,14 @@ class _PermissionsPageState extends State<PermissionsPage> {
               ),
             )),
             OnboardingBottomBar(
-              startButton: _IgnoreButton(
+              rightButton: _IgnoreButton(
                 onPermissionIgnored: () => _moveToNextScreen(context),
               ),
-              endButton: _AskPermissionButton(
+              leftButton: _AskPermissionButton(
                 onPermissionIgnored: () => _moveToNextScreen(context),
               ),
               backgroundColor: widget.backgroundColor,
+              semanticsHorizontalOrder: false,
             )
           ],
         ),

@@ -23,22 +23,23 @@ dependencies:
   html: 0.15.4
   flutter_widget_from_html_core: 0.8.5+3
   fwfh_selectable_text: 0.8.3+1
-  flutter_secure_storage: 9.0.0
+  flutter_secure_storage: 9.2.1
   hive: 2.2.3
   hive_flutter: 1.1.0
   http: 1.2.0
-  image_picker: 1.0.7
+  http_parser: 4.0.2
+  image_picker: 1.1.1
   iso_countries: 2.2.0
-  latlong2: 0.9.0
+  latlong2: 0.9.1
   matomo_tracker: 4.1.1
   package_info_plus: 5.0.1
   device_info_plus: 9.1.2
-  permission_handler: 11.3.0
-  photo_view: 0.14.0
+  permission_handler: 11.3.1
+  photo_view: 0.15.0
   uuid: 3.0.7
   provider: 6.1.2
   sentry_flutter: 7.18.0
-  sqflite: 2.3.2
+  sqflite: 2.3.3+1
   url_launcher: 6.1.3
   visibility_detector: 0.4.0+2
   assorted_layout_widgets: 9.0.1
@@ -48,22 +49,24 @@ dependencies:
     path: ../app_store/shared
   audioplayers: 5.2.1
   percent_indicator: 4.2.3
-  flutter_email_sender: 6.0.2
-  flutter_native_splash: 2.3.10
+  flutter_email_sender: 6.0.3
+  flutter_native_splash: 2.4.0
   image: 4.1.7
   auto_size_text: 3.0.0
   crop_image: 1.0.12
-  shared_preferences: 2.2.2
+  shared_preferences: 2.2.3
   intl: 0.18.1
   collection: 1.18.0
   path: 1.9.0
-  path_provider: 2.1.2
+  path_provider: 2.1.3
   share_plus: 7.2.2
   fimber: 0.7.0
   shimmer: ^3.0.0
-  rive: 0.13.1
+  rive: 0.13.4
   sensors_plus: 3.1.0
-  webview_flutter: 3.0.4
+  webview_flutter: 4.7.0
+  webview_flutter_android: 3.16.1
+  webview_flutter_wkwebview: 3.13.0
   flutter_custom_tabs: 2.0.0+1
   flutter_image_compress: 2.2.0
   connectivity_plus: 5.0.2
@@ -71,6 +74,9 @@ dependencies:
   dart_ping_ios: 4.0.2
   flutter_animation_progress_bar: 2.3.1
   email_validator: 2.1.17
+  sliver_tools: 0.2.12
+  crowdin_sdk:
+    git: https://github.com/g123k/crowdin_flutter-sdk.git
 
   # According to the build variant, only one "app store" implementation must be added when building a release
   # Call "flutter pub remove xxxx" to remove unused dependencies
@@ -86,7 +92,7 @@ dependencies:
   # We use two different scanning engines, 
   # mobile scanner powered by ML Kit for the Play Store and Apple App Store,
   # but qr_code_scanner which uses the open source ZXing for F-Droid
-  camera: 0.10.5+9
+  camera: 0.10.6
   
   scanner_shared:
     path: ../scanner/shared
@@ -98,7 +104,7 @@ dependencies:
     path: ../scanner/zxing
 
 
-  openfoodfacts: 3.5.0
+  openfoodfacts: 3.10.0
   # openfoodfacts:
   #   path: ../../../openfoodfacts-dart
 

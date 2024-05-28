@@ -67,6 +67,13 @@ abstract class ProductQuery {
     final OpenFoodFactsCountry country =
         OpenFoodFactsCountry.fromOffTag(isoCode) ?? defaultCountry;
     await _setCountry(userPreferences, country);
+    if (userPreferences.userCurrencyCode == null) {
+      // very very first time, or old app with new code
+      final Currency? possibleCurrency = country.currency;
+      if (possibleCurrency != null) {
+        await userPreferences.setUserCurrencyCode(possibleCurrency.name);
+      }
+    }
   }
 
   /// Sets the global country for API queries: explicit choice by the user.

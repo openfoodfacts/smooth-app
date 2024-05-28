@@ -26,6 +26,7 @@ import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
 import 'package:smooth_app/pages/scan/scan_product_card_loader.dart';
 import 'package:smooth_app/pages/scan/search_page.dart';
+import 'package:smooth_app/pages/scan/search_product_helper.dart';
 import 'package:smooth_app/services/smooth_services.dart';
 
 class SmoothProductCarousel extends StatefulWidget {
@@ -322,6 +323,7 @@ class _SearchCardContentState extends State<_SearchCardContent>
             ),
             if (_content != _SearchCardContentType.REVIEW_APP)
               SearchField(
+                searchHelper: const SearchProductHelper(),
                 onFocus: () => _openSearchPage(context),
                 readOnly: true,
                 showClearButton: false,

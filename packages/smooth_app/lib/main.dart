@@ -136,6 +136,7 @@ Future<bool> _init1() async {
     ),
     daoString: DaoString(_localDatabase),
   );
+  ProductQuery.setQueryType(_userPreferences);
   UserManagementProvider().checkUserLoginValidity();
 
   await AnalyticsHelper.linkPreferences(_userPreferences);
@@ -144,7 +145,6 @@ Future<bool> _init1() async {
   _themeProvider = ThemeProvider(_userPreferences);
   _colorProvider = ColorProvider(_userPreferences);
   _textContrastProvider = TextContrastProvider(_userPreferences);
-  ProductQuery.setQueryType(_userPreferences);
 
   await CameraHelper.init();
   await ProductQuery.setUuid(_localDatabase);
