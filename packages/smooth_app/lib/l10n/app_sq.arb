@@ -764,6 +764,16 @@
     "@could_not_refresh": {
         "description": "The product data couldn't be refreshed"
     },
+    "product_internet_error_modal_title": "An error has occurred!",
+    "product_internet_error_modal_message": "We are unable to fetch information about this product due to a network error. Please check your internet connection and try again.\n\nInternal error:\n{error}",
+    "@product_internet_error_modal_message": {
+        "placeholders": {
+            "error": {
+                "type": "String",
+                "description": "The error message"
+            }
+        }
+    },
     "product_internet_error": "Eshte e pamundur te merret informacion ne lidhje me kete produkt per shkak te nje gabimi ne rrjet.",
     "cached_results_from": "Show results from:",
     "@cached_results_from": {
