@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:provider/provider.dart';
 import 'package:sliver_tools/sliver_tools.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -15,6 +16,7 @@ class GuidesPage extends StatelessWidget {
   const GuidesPage({
     required this.header,
     required this.body,
+    required this.pageName,
     this.footer,
     super.key,
   });
@@ -22,6 +24,9 @@ class GuidesPage extends StatelessWidget {
   final Widget header;
   final List<Widget> body;
   final Widget? footer;
+
+  // Page name for the Analytics event
+  final String pageName;
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +38,7 @@ class GuidesPage extends StatelessWidget {
       builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
           return _GuidesPageBody(
+            pageName: pageName,
             slivers: <Widget>[
               header,
               ...body,
@@ -46,11 +52,21 @@ class GuidesPage extends StatelessWidget {
   }
 }
 
-class _GuidesPageBody extends StatelessWidget {
-  _GuidesPageBody({required this.slivers});
+class _GuidesPageBody extends StatefulWidget {
+  const _GuidesPageBody({
+    required this.slivers,
+    required this.pageName,
+  }) : assert(pageName.length > 0);
 
   final List<Widget> slivers;
+  final String pageName;
 
+  @override
+  State<_GuidesPageBody> createState() => _GuidesPageBodyState();
+}
+
+class _GuidesPageBodyState extends State<_GuidesPageBody>
+    with TraceableClientMixin {
   final ScrollController _controller = ScrollController();
 
   @override
@@ -92,11 +108,14 @@ class _GuidesPageBody extends StatelessWidget {
               GuidesHeader.HEADER_HEIGHT - kToolbarHeight,
             ],
           ),
-          slivers: slivers,
+          slivers: widget.slivers,
         ),
       ),
     );
   }
+
+  @override
+  String get actionName => 'Opened ${widget.pageName}';
 }
 
 class GuidesParagraph extends StatelessWidget {
