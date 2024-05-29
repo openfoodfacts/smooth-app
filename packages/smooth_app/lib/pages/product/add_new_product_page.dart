@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_animation_progress_bar/flutter_animation_progress_bar.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -17,6 +15,7 @@ import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/image_field_extension.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
+import 'package:smooth_app/pages/crop_parameters.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
 import 'package:smooth_app/pages/product/add_new_product_helper.dart';
@@ -591,14 +590,15 @@ class _AddNewProductPageState extends State<AddNewProductPage>
             ? AddNewProductButton.doneIconData
             : AddNewProductButton.cameraIconData,
         () async {
-          final File? finalPhoto = await confirmAndUploadNewPicture(
+          final CropParameters? cropParameters =
+              await confirmAndUploadNewPicture(
             context,
             barcode: barcode,
             imageField: ImageField.OTHER,
             language: ProductQuery.getLanguage(),
             isLoggedInMandatory: widget.isLoggedInMandatory,
           );
-          if (finalPhoto != null) {
+          if (cropParameters != null) {
             setState(() => ++_otherCount);
           }
         },

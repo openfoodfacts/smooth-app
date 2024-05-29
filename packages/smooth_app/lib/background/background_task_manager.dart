@@ -3,7 +3,6 @@ import 'dart:convert';
 
 import 'package:flutter/rendering.dart';
 import 'package:smooth_app/background/background_task.dart';
-import 'package:smooth_app/background/background_task_image.dart';
 import 'package:smooth_app/background/background_task_refresh_later.dart';
 import 'package:smooth_app/background/operation_type.dart';
 import 'package:smooth_app/data_models/login_result.dart';
@@ -275,8 +274,7 @@ class BackgroundTaskManager {
       // now let's get rid of stamp duplicates.
       final String stamp = task.stamp;
       _debugPrint('task $taskId, stamp: $stamp');
-      // for image/OTHER we don't remove duplicates (they are NOT duplicates)
-      if (!BackgroundTaskImage.isOtherStamp(stamp)) {
+      if (task.isDeduplicable()) {
         int? removeMe;
         for (int i = 0; i < result.length; i++) {
           // it's the same stamp, we can remove the previous task.
@@ -293,7 +291,7 @@ class BackgroundTaskManager {
           result.removeAt(removeMe);
         }
       } else {
-        _debugPrint('is "other" stamp!');
+        _debugPrint('is "not deduplicable" task!');
       }
       result.add(task);
     }

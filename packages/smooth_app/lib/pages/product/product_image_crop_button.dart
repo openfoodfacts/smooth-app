@@ -11,9 +11,11 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/transient_file.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/crop_page.dart';
+import 'package:smooth_app/pages/crop_parameters.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/product_image_button.dart';
+import 'package:smooth_app/pages/product_crop_helper.dart';
 
 /// Product Image Button editing the current image.
 class ProductImageCropButton extends ProductImageButton {
@@ -50,7 +52,7 @@ class ProductImageCropButton extends ProductImageButton {
     if (productImage != null) {
       final int? imageId = int.tryParse(productImage.imgid!);
       if (imageId != null) {
-        await _openEditCroppedImage(context, imageId, productImage);
+        await _openCropAgainPage(context, imageId, productImage);
         return;
       }
     }
@@ -58,7 +60,7 @@ class ProductImageCropButton extends ProductImageButton {
     // alternate option: use the transient file.
     File? imageFile = _transientFile.getImage();
     if (imageFile != null) {
-      await _openCropPage(navigatorState, imageFile);
+      await _openCropNewPage(navigatorState, imageFile);
       return;
     }
 
@@ -72,36 +74,12 @@ class ProductImageCropButton extends ProductImageButton {
       );
     }
     if (imageFile != null) {
-      await _openCropPage(navigatorState, imageFile);
+      await _openCropNewPage(navigatorState, imageFile);
       return;
     }
   }
 
-  Future<File?> _openCropPage(
-    final NavigatorState navigatorState,
-    final File imageFile, {
-    final int? imageId,
-    final Rect? initialCropRect,
-    final CropRotation? initialRotation,
-  }) async =>
-      navigatorState.push<File>(
-        MaterialPageRoute<File>(
-          builder: (BuildContext context) => CropPage(
-            language: language,
-            barcode: barcode,
-            imageField: _imageData.imageField,
-            inputFile: imageFile,
-            imageId: imageId,
-            initiallyDifferent: false,
-            initialCropRect: initialCropRect,
-            initialRotation: initialRotation,
-            isLoggedInMandatory: isLoggedInMandatory,
-          ),
-          fullscreenDialog: true,
-        ),
-      );
-
-  Future<File?> _openEditCroppedImage(
+  Future<CropParameters?> _openCropAgainPage(
     final BuildContext context,
     final int imageId,
     final ProductImage productImage,
@@ -119,16 +97,47 @@ class ProductImageCropButton extends ProductImageButton {
     if (imageFile == null) {
       return null;
     }
-    return _openCropPage(
-      navigatorState,
-      imageFile,
-      imageId: imageId,
-      initialCropRect: _getCropRect(productImage),
-      initialRotation: CropRotationExtension.fromDegrees(
-        productImage.angle?.degree ?? 0,
+    return navigatorState.push<CropParameters>(
+      MaterialPageRoute<CropParameters>(
+        builder: (BuildContext context) => CropPage(
+          inputFile: imageFile,
+          initiallyDifferent: false,
+          initialCropRect: _getCropRect(productImage),
+          initialRotation: CropRotationExtension.fromDegrees(
+            productImage.angle?.degree ?? 0,
+          ),
+          isLoggedInMandatory: isLoggedInMandatory,
+          cropHelper: ProductCropAgainHelper(
+            language: language,
+            barcode: barcode,
+            imageField: _imageData.imageField,
+            imageId: imageId,
+          ),
+        ),
+        fullscreenDialog: true,
       ),
     );
   }
+
+  Future<CropParameters?> _openCropNewPage(
+    final NavigatorState navigatorState,
+    final File imageFile,
+  ) async =>
+      navigatorState.push<CropParameters>(
+        MaterialPageRoute<CropParameters>(
+          builder: (BuildContext context) => CropPage(
+            inputFile: imageFile,
+            initiallyDifferent: false,
+            isLoggedInMandatory: isLoggedInMandatory,
+            cropHelper: ProductCropNewHelper(
+              language: language,
+              barcode: barcode,
+              imageField: _imageData.imageField,
+            ),
+          ),
+          fullscreenDialog: true,
+        ),
+      );
 
   ProductImage? _getBestProductImage() {
     if (product.images == null) {

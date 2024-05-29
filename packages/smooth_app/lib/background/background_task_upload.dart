@@ -138,4 +138,11 @@ abstract class BackgroundTaskUpload extends BackgroundTaskBarcode
   ///
   /// cf. [UpToDateChanges._overwrite] regarding `images` field.
   ProductImage getProductImageChange();
+
+  /// Returns true only if it's not a "image/OTHER" task.
+  ///
+  /// That's important because "image/OTHER" task are never duplicates.
+  @override
+  bool isDeduplicable() =>
+      !stamp.contains(';image;${ImageField.OTHER.offTag};');
 }
