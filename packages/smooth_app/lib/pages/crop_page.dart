@@ -144,7 +144,7 @@ class _CropPageState extends State<CropPage> {
     _screenSize = MediaQuery.of(context).size;
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return WillPopScope2(
-      onWillPop: () async => (await _mayExitPage(saving: false), null),
+      onWillPop: _onWillPop,
       child: SmoothScaffold(
         appBar: SmoothAppBar(
           centerTitle: false,
@@ -200,7 +200,7 @@ class _CropPageState extends State<CropPage> {
                         iconData: widget.cropHelper.getProcessIcon(),
                         label:
                             widget.cropHelper.getProcessLabel(appLocalizations),
-                        onPressed: () async => _mayExitPage(saving: true),
+                        onPressed: () async => _saveImageAndPop(),
                       ),
                     ),
                   ],
@@ -237,7 +237,7 @@ class _CropPageState extends State<CropPage> {
     return result;
   }
 
-  Future<CropParameters?> _saveFileAndExitTry() async {
+  Future<CropParameters?> _saveImageAndExitTry() async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     // only for new image upload we have to check the minimum size.
@@ -321,34 +321,27 @@ class _CropPageState extends State<CropPage> {
     );
   }
 
-  Future<bool> _saveFileAndExit() async {
+  Future<CropParameters?> _saveImage() async {
     if (!await ProductRefresher().checkIfLoggedIn(
       context,
       isLoggedInMandatory: widget.isLoggedInMandatory,
     )) {
-      return false;
+      return null;
     }
 
     setState(
       () => _progress = AppLocalizations.of(context).crop_page_action_saving,
     );
     try {
-      final CropParameters? cropObject = await _saveFileAndExitTry();
+      final CropParameters? cropParameters = await _saveImageAndExitTry();
       _progress = null;
-      if (cropObject == null) {
-        if (mounted) {
-          setState(() {});
-        }
-        return false;
-      } else {
-        if (mounted) {
-          Navigator.of(context).pop<CropParameters>(cropObject);
-        }
-        return true;
+      if (mounted) {
+        setState(() {});
       }
+      return cropParameters;
     } catch (e) {
-      _showErrorDialog();
-      return false;
+      await _showErrorDialog();
+      return null;
     } finally {
       _progress = null;
     }
@@ -356,54 +349,71 @@ class _CropPageState extends State<CropPage> {
 
   static const String _CROP_PAGE_SEQUENCE_KEY = 'crop_page_sequence';
 
-  /// Returns `true` if we should really exit the page.
-  ///
-  /// Parameter [saving] tells about the context: are we leaving the page,
-  /// or have we clicked on the "save" button?
-  Future<bool> _mayExitPage({required final bool saving}) async {
-    if (_controller.value.rotation == _initialRotation &&
-        _controller.value.crop == _initialCrop &&
-        !widget.initiallyDifferent) {
+  /// Saves the image if relevant after a user click, and pops the result.
+  Future<void> _saveImageAndPop() async {
+    if (_nothingHasChanged()) {
       // nothing has changed, let's leave
-      if (saving) {
-        Navigator.of(context).pop();
-      }
-      return true;
-    }
-
-    // the cropped image has changed, but the user went back without saving
-    if (!saving) {
-      final bool? pleaseSave =
-          await MayExitPageHelper().openSaveBeforeLeavingDialog(
-        context,
-        title: widget.cropHelper.getPageTitle(AppLocalizations.of(context)),
-      );
-      if (pleaseSave == null) {
-        return false;
-      }
-      if (pleaseSave == false) {
-        return true;
-      }
-      if (!mounted) {
-        return false;
-      }
+      Navigator.of(context).pop();
+      return;
     }
 
     try {
-      return _saveFileAndExit();
-    } catch (e) {
-      if (mounted) {
-        // not likely to happen, but you never know...
-        await LoadingDialog.error(
-          context: context,
-          title: 'Could not prepare picture with exception $e',
-        );
+      final CropParameters? cropParameters = await _saveImage();
+      if (cropParameters != null) {
+        if (mounted) {
+          Navigator.of(context).pop<CropParameters>(cropParameters);
+        }
       }
-      return false;
+    } catch (e) {
+      await _showExceptionDialog(e);
     }
   }
 
-  Future<void> _showErrorDialog() {
+  bool _nothingHasChanged() =>
+      _controller.value.rotation == _initialRotation &&
+      _controller.value.crop == _initialCrop &&
+      !widget.initiallyDifferent;
+
+  Future<(bool, CropParameters?)> _onWillPop() async {
+    if (_nothingHasChanged()) {
+      // nothing has changed, let's leave
+      return (true, null);
+    }
+
+    // the cropped image has changed, but the user went back without saving
+    final bool? pleaseSave =
+        await MayExitPageHelper().openSaveBeforeLeavingDialog(
+      context,
+      title: widget.cropHelper.getPageTitle(AppLocalizations.of(context)),
+    );
+    if (pleaseSave == null) {
+      return (false, null);
+    }
+    if (pleaseSave == false) {
+      return (true, null);
+    }
+    if (!mounted) {
+      return (false, null);
+    }
+
+    try {
+      final CropParameters? cropParameters = await _saveImage();
+      if (cropParameters != null) {
+        if (mounted) {
+          return (true, cropParameters);
+        }
+      }
+    } catch (e) {
+      await _showExceptionDialog(e);
+    }
+
+    return (false, null);
+  }
+
+  Future<void> _showErrorDialog() async {
+    if (!mounted) {
+      return;
+    }
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     return showDialog<void>(
@@ -415,6 +425,16 @@ class _CropPageState extends State<CropPage> {
         );
       },
     );
+  }
+
+  Future<void> _showExceptionDialog(final Object e) async {
+    if (mounted) {
+      // not likely to happen, but you never know...
+      return LoadingDialog.error(
+        context: context,
+        title: 'Could not prepare picture with exception $e',
+      );
+    }
   }
 }
 

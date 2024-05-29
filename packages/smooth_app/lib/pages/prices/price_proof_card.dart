@@ -47,13 +47,14 @@ class PriceProofCard extends StatelessWidget {
                     : appLocalizations.prices_proof_price_tag,
             icon: model.cropParameters == null ? _iconTodo : _iconDone,
             onPressed: () async {
-              final CropParameters? cropObject = await confirmAndUploadNewImage(
+              final CropParameters? cropParameters =
+                  await confirmAndUploadNewImage(
                 context,
                 cropHelper: ProofCropHelper(model: model),
                 isLoggedInMandatory: true,
               );
-              if (cropObject != null) {
-                model.cropParameters = cropObject;
+              if (cropParameters != null) {
+                model.cropParameters = cropParameters;
               }
             },
           ),
