@@ -11,6 +11,7 @@ import 'package:smooth_app/generic_lib/widgets/images/smooth_image.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/image/product_image_other_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
+import 'package:smooth_app/query/product_query.dart';
 
 /// Number of columns for the grid.
 const int _columns = 3;
@@ -135,7 +136,12 @@ class _RawGridGallery extends StatelessWidget {
           final Widget image = SmoothImage(
             width: squareSize,
             height: squareSize,
-            imageProvider: NetworkImage(productImage.getUrl(product.barcode!)),
+            imageProvider: NetworkImage(
+              productImage.getUrl(
+                product.barcode!,
+                uriHelper: ProductQuery.uriProductHelper,
+              ),
+            ),
             rounded: false,
           );
           return InkWell(

@@ -16,6 +16,7 @@ import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/product_image_button.dart';
 import 'package:smooth_app/pages/product_crop_helper.dart';
+import 'package:smooth_app/query/product_query.dart';
 
 /// Product Image Button editing the current image.
 class ProductImageCropButton extends ProductImageButton {
@@ -91,7 +92,10 @@ class ProductImageCropButton extends ProductImageButton {
       ProductImage.raw(
         imgid: imageId.toString(),
         size: ImageSize.ORIGINAL,
-      ).getUrl(barcode),
+      ).getUrl(
+        barcode,
+        uriHelper: ProductQuery.uriProductHelper,
+      ),
       DaoInt(localDatabase),
     );
     if (imageFile == null) {
