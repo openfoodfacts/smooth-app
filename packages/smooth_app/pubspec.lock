@@ -1399,22 +1399,6 @@ packages:
       relative: true
     source: path
     version: "1.0.0"
-  sensors_plus:
-    dependency: "direct main"
-    description:
-      name: sensors_plus
-      sha256: a1e461f28a8e8d3f81feb07d5c4e87e948379ea91f0b5131266bb79f72b38acb
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.1.0"
-  sensors_plus_platform_interface:
-    dependency: transitive
-    description:
-      name: sensors_plus_platform_interface
-      sha256: bc472d6cfd622acb4f020e726433ee31788b038056691ba433fec80e448a094f
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.2.0"
   sentry:
     dependency: transitive
     description:

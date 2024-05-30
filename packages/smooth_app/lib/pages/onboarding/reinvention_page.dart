@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'dart:io';
 
 import 'package:auto_size_text/auto_size_text.dart';
@@ -6,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:rive/rive.dart';
-import 'package:sensors_plus/sensors_plus.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
@@ -41,7 +39,7 @@ class ReinventionPage extends StatelessWidget {
               right: 0.0,
               bottom: 0.0,
               top: screenSize.height * 0.75,
-              child: Background(
+              child: _Background(
                 screenWidth: screenSize.width,
               ),
             ),
@@ -134,29 +132,10 @@ class ReinventionPage extends StatelessWidget {
   }
 }
 
-class Background extends StatefulWidget {
-  const Background({required this.screenWidth});
+class _Background extends StatelessWidget {
+  const _Background({required this.screenWidth});
 
   final double screenWidth;
-
-  @override
-  State<Background> createState() => _BackgroundState();
-}
-
-class _BackgroundState extends State<Background> {
-  StreamSubscription<GyroscopeEvent>? _subscription;
-  double parallax = 0.0;
-
-  @override
-  void initState() {
-    super.initState();
-
-    if (Platform.isAndroid || Platform.isIOS) {
-      _subscription = gyroscopeEvents.listen((GyroscopeEvent event) {
-        setState(() => parallax = event.y);
-      });
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -166,8 +145,8 @@ class _BackgroundState extends State<Background> {
           children: <Widget>[
             AnimatedPositioned(
               bottom: 0.0,
-              right: (-15.0 * parallax).clamp(-30.0, 0.0),
-              width: widget.screenWidth * 0.808,
+              right: 0.0,
+              width: screenWidth * 0.808,
               duration: SmoothAnimationsDuration.short,
               child: SvgPicture.asset(
                 'assets/onboarding/hill_end.svg',
@@ -176,8 +155,8 @@ class _BackgroundState extends State<Background> {
             ),
             AnimatedPositioned(
               bottom: 0.0,
-              left: (-10.0 * parallax).clamp(-20.0, 0.0),
-              width: widget.screenWidth * 0.855,
+              left: 0.0,
+              width: screenWidth * 0.855,
               duration: SmoothAnimationsDuration.short,
               child: SvgPicture.asset(
                 'assets/onboarding/hill_start.svg',
@@ -188,11 +167,5 @@ class _BackgroundState extends State<Background> {
         ),
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    _subscription?.cancel();
-    super.dispose();
   }
 }
