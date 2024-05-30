@@ -1,10 +1,10 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
-import 'package:smooth_app/pages/guides/helpers/guides_translations.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
 class GuidesFooter extends StatelessWidget {
@@ -49,7 +49,7 @@ class GuidesFooter extends StatelessWidget {
               ),
             ),
             child: Text(
-              'guide_share_label'.translation,
+              AppLocalizations.of(context).guide_share_label,
               style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 15.5,

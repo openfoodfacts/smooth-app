@@ -341,15 +341,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.3.3+8"
-  crowdin_sdk:
-    dependency: "direct main"
-    description:
-      path: "."
-      ref: HEAD
-      resolved-ref: "5b5e302c7d26191b0a9b0ef4f32a4b582b15982d"
-      url: "https://github.com/g123k/crowdin_flutter-sdk.git"
-    source: git
-    version: "0.6.1"
   crypto:
     dependency: transitive
     description:
@@ -1113,14 +1104,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.5.0"
-  oauth2:
-    dependency: transitive
-    description:
-      name: oauth2
-      sha256: c4013ef62be37744efdc0861878fd9e9285f34db1f9e331cc34100d7674feb42
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.0.2"
   openfoodfacts:
     dependency: "direct main"
     description:
@@ -1764,14 +1747,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.4.2"
-  web_socket_channel:
-    dependency: transitive
-    description:
-      name: web_socket_channel
-      sha256: "939ab60734a4f8fa95feacb55804fa278de28bdeef38e616dc08e44a84adea23"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.4.3"
   webdriver:
     dependency: transitive
     description:
