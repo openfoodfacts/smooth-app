@@ -121,7 +121,7 @@ class TextHighlighter extends StatelessWidget {
     final String textWithoutDiacritics = text.getComparisonSafeString();
 
     final Iterable<RegExpMatch> highlightedParts =
-        RegExp(filterWithoutDiacritics.trim()).allMatches(
+        RegExp(RegExp.escape(filterWithoutDiacritics.trim())).allMatches(
       textWithoutDiacritics,
     );
 

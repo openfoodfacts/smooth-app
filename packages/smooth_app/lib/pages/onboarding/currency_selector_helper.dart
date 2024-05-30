@@ -4,6 +4,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
+import 'package:smooth_app/pages/prices/currency_extension.dart';
 import 'package:smooth_app/widgets/smooth_text.dart';
 
 /// Helper for currency selection.
@@ -36,15 +37,19 @@ class CurrencySelectorHelper {
                 prefixIcon: const Icon(Icons.search),
                 controller: currencyController,
                 onChanged: (String? query) {
-                  query = query!.trim()..getComparisonSafeString();
+                  query = query!.trim().getComparisonSafeString();
 
                   setState(
                     () {
                       filteredList = _currencyList
-                          .where((Currency item) =>
-                              item.name.getComparisonSafeString().contains(
-                                    query!,
-                                  ))
+                          .where(
+                            (Currency item) => item
+                                .getFullName()
+                                .getComparisonSafeString()
+                                .contains(
+                                  query!,
+                                ),
+                          )
                           .toList(growable: false);
                     },
                   );
@@ -64,7 +69,7 @@ class CurrencySelectorHelper {
                     ),
                     trailing: isSelected ? const Icon(Icons.check) : null,
                     title: TextHighlighter(
-                      text: currency.name,
+                      text: currency.getFullName(),
                       filter: currencyController.text,
                       selected: isSelected,
                     ),
