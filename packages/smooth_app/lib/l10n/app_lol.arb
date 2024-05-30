@@ -2648,5 +2648,59 @@
                 "type": "String"
             }
         }
+    },
+    "guide_title": "crwdns248658:0crwdne248658:0",
+    "@guide_title": {
+        "description": "A title for a guide"
+    },
+    "guide_share_label": "crwdns248660:0crwdne248660:0",
+    "guide_nutriscore_v2_enabled": "crwdns248662:0crwdne248662:0",
+    "@guide_nutriscore_v2_enabled": {
+        "description": "Please NEVER touch this value and let the OFF team change it!"
+    },
+    "guide_nutriscore_v2_title": "crwdns248664:0crwdne248664:0",
+    "@guide_nutriscore_v2_title": {
+        "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+    },
+    "guide_nutriscore_v2_file_language": "crwdns248666:0crwdne248666:0",
+    "@guide_nutriscore_v2_file_language": {
+        "description": "The logo is only available in de/en/fr/ln/nl. Please use en if not available (in lowercase, please)."
+    },
+    "guide_nutriscore_v2_what_is_nutriscore_title": "crwdns248668:0crwdne248668:0",
+    "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "crwdns248670:0crwdne248670:0",
+    "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
+        "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+    },
+    "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "crwdns248672:0crwdne248672:0",
+    "@guide_nutriscore_v2_what_is_nutriscore_paragraph2": {
+        "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+    },
+    "guide_nutriscore_v2_nutriscore_a_caption": "crwdns248674:0crwdne248674:0",
+    "guide_nutriscore_v2_why_v2_title": "crwdns248676:0crwdne248676:0",
+    "guide_nutriscore_v2_why_v2_intro": "crwdns248678:0crwdne248678:0",
+    "guide_nutriscore_v2_why_v2_arg1_title": "crwdns248680:0crwdne248680:0",
+    "guide_nutriscore_v2_why_v2_arg1_text": "crwdns248682:0crwdne248682:0",
+    "guide_nutriscore_v2_why_v2_arg2_title": "crwdns248684:0crwdne248684:0",
+    "guide_nutriscore_v2_why_v2_arg2_text": "crwdns248686:0crwdne248686:0",
+    "guide_nutriscore_v2_why_v2_arg3_title": "crwdns248688:0crwdne248688:0",
+    "guide_nutriscore_v2_why_v2_arg3_text": "crwdns248690:0crwdne248690:0",
+    "guide_nutriscore_v2_why_v2_arg4_title": "crwdns248692:0crwdne248692:0",
+    "guide_nutriscore_v2_why_v2_arg4_text": "crwdns248694:0crwdne248694:0",
+    "guide_nutriscore_v2_why_v2_arg5_title": "crwdns248696:0crwdne248696:0",
+    "guide_nutriscore_v2_why_v2_arg5_text": "crwdns248698:0crwdne248698:0",
+    "guide_nutriscore_v2_new_logo_title": "crwdns248700:0crwdne248700:0",
+    "guide_nutriscore_v2_new_logo_text": "crwdns248702:0crwdne248702:0",
+    "guide_nutriscore_v2_new_logo_image_caption": "crwdns248704:0crwdne248704:0",
+    "guide_nutriscore_v2_where_title": "crwdns248706:0crwdne248706:0",
+    "guide_nutriscore_v2_where_paragraph1": "crwdns248708:0crwdne248708:0",
+    "guide_nutriscore_v2_where_paragraph2": "crwdns248710:0crwdne248710:0",
+    "guide_nutriscore_v2_where_paragraph3": "crwdns248712:0crwdne248712:0",
+    "guide_nutriscore_v2_unchanged_title": "crwdns248714:0crwdne248714:0",
+    "guide_nutriscore_v2_unchanged_paragraph1": "crwdns248716:0crwdne248716:0",
+    "guide_nutriscore_v2_unchanged_paragraph2": "crwdns248718:0crwdne248718:0",
+    "guide_nutriscore_v2_share_link": "crwdns248720:0crwdne248720:0",
+    "guide_nutriscore_v2_share_message": "crwdns248722:0crwdne248722:0",
+    "@guide_nutriscore_v2_share_message": {
+        "description": "Please let empty for now (maybe use in the future)"
     }
 }
