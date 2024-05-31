@@ -210,6 +210,21 @@ class UserPreferencesAccount extends AbstractUserPreferences {
         localDatabase: localDatabase,
         myCount: _getMyCount(UserSearchType.TO_BE_COMPLETED),
       ),
+      _getListTile(
+        appLocalizations.user_search_prices_title,
+        () async {
+          final UriProductHelper uriProductHelper =
+              ProductQuery.uriProductHelper;
+          final Uri uri = Uri(
+            scheme: uriProductHelper.scheme,
+            host: uriProductHelper.getHost('prices'),
+            path: 'app/dashboard/prices',
+          );
+          return LaunchUrlHelper.launchURL(uri.toString());
+        },
+        Icons.open_in_new,
+        myCount: _getMyPricesCount(),
+      ),
       _buildProductQueryTile(
         productQuery: PagedToBeCompletedProductQuery(),
         title: appLocalizations.all_search_to_be_completed_title,
@@ -309,6 +324,20 @@ class UserPreferencesAccount extends AbstractUserPreferences {
       );
       return null;
     }
+  }
+
+  Future<int?> _getMyPricesCount() async {
+    final MaybeError<GetPricesResult> result =
+        await OpenPricesAPIClient.getPrices(
+      GetPricesParameters()
+        ..owner = ProductQuery.getWriteUser().userId
+        ..pageSize = 1,
+      uriHelper: ProductQuery.uriProductHelper,
+    );
+    if (result.isError) {
+      return null;
+    }
+    return result.value.total;
   }
 
   UserPreferencesItem _buildProductQueryTile({
