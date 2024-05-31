@@ -764,8 +764,8 @@
     "@could_not_refresh": {
         "description": "The product data couldn't be refreshed"
     },
-    "product_internet_error_modal_title": "An error has occurred!",
-    "product_internet_error_modal_message": "We are unable to fetch information about this product due to a network error. Please check your internet connection and try again.\n\nInternal error:\n{error}",
+    "product_internet_error_modal_title": "Vyskytla se chyba!",
+    "product_internet_error_modal_message": "Nemůžeme načíst informace o tomto produktu kvůli chybě sítě. Zkontrolujte prosím připojení k internetu a zkuste to znovu.\n\nVnitřní chyba:\n{error}",
     "@product_internet_error_modal_message": {
         "placeholders": {
             "error": {
@@ -1763,6 +1763,10 @@
     "@user_search_to_be_completed_title": {
         "description": "User search (to be completed): list tile title"
     },
+    "user_search_prices_title": "Moje ceny",
+    "@user_search_prices_title": {
+        "description": "User prices: list tile title"
+    },
     "all_search_to_be_completed_title": "Všechny produkty k dokončení",
     "@all_search_to_be_completed_title": {
         "description": "All products to be completed: list tile title"
@@ -2691,14 +2695,14 @@
     "guide_nutriscore_v2_new_logo_title": "Jak odlišit staré Nutri-Score a nový výpočet?",
     "guide_nutriscore_v2_new_logo_text": "Od této chvíle může logo zobrazovat zmínku „**Nový výpočet**“, aby bylo jasné, že se skutečně jedná o nový výpočet.",
     "guide_nutriscore_v2_new_logo_image_caption": "Logo nového Nutri-Score",
-    "guide_nutriscore_v2_where_title": "Kde najít nový výpočet NutriScore?",
+    "guide_nutriscore_v2_where_title": "Kde najít nový výpočet Nutri-Score?",
     "guide_nutriscore_v2_where_paragraph1": "Nutri-Score se používá v několika zemích: Německo, Belgie, Španělsko, Francie, Lucembursko, Nizozemsko a Švýcarsko.",
     "guide_nutriscore_v2_where_paragraph2": "Výrobci mají nejpozději do **2026** čas **nahradit** starý výpočet novým.",
     "guide_nutriscore_v2_where_paragraph3": "Bez čekání **už najdete v aplikaci OpenFoodFacts** nový výpočet, včetně případů, kdy výrobci neaktualizovali skóre.",
     "guide_nutriscore_v2_unchanged_title": "Co se nemění",
     "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score je skóre navržené k **měření nutriční kvality**. Je **doplňkem skupiny NOVA** pro **ultra zpracované potraviny** (taktéž přítomných v aplikaci).",
     "guide_nutriscore_v2_unchanged_paragraph2": "Pro výrobce zůstává zobrazení Nutri-Score **nepovinné**.",
-    "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/guide/nutriscore-v2",
+    "guide_nutriscore_v2_share_link": "https://world-cs.openfoodfacts.org/guide/nutriscore-v2",
     "guide_nutriscore_v2_share_message": "",
     "@guide_nutriscore_v2_share_message": {
         "description": "Please let empty for now (maybe use in the future)"
