@@ -7,8 +7,6 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/physics.dart';
 import 'package:smooth_app/helpers/strings_helper.dart';
 import 'package:smooth_app/pages/guides/helpers/guides_header.dart';
-import 'package:smooth_app/pages/guides/helpers/guides_translations.dart';
-import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
@@ -31,24 +29,15 @@ class GuidesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: FutureBuilder<void>(
-      future: GuidesTranslations.init(
-        Locale(ProductQuery.getLanguage().offTag),
+      body: _GuidesPageBody(
+        pageName: pageName,
+        slivers: <Widget>[
+          header,
+          ...body,
+          if (footer != null) footer!,
+        ],
       ),
-      builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
-        if (snapshot.connectionState == ConnectionState.done) {
-          return _GuidesPageBody(
-            pageName: pageName,
-            slivers: <Widget>[
-              header,
-              ...body,
-              if (footer != null) footer!,
-            ],
-          );
-        }
-        return const Center(child: CircularProgressIndicator());
-      },
-    ));
+    );
   }
 }
 
