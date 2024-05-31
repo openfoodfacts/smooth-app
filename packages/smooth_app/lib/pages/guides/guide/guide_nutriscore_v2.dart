@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_app/pages/guides/helpers/guides_content.dart';
 import 'package:smooth_app/pages/guides/helpers/guides_footer.dart';
 import 'package:smooth_app/pages/guides/helpers/guides_header.dart';
-import 'package:smooth_app/pages/guides/helpers/guides_translations.dart';
 import 'package:smooth_app/resources/app_icons.dart';
 
 class GuideNutriscoreV2 extends StatelessWidget {
@@ -11,9 +11,12 @@ class GuideNutriscoreV2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const GuidesPage(
-      header: _NutriscoreHeader(),
-      body: <Widget>[
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+    return GuidesPage(
+      pageName: 'NutriscoreV2',
+      header: const _NutriscoreHeader(),
+      body: const <Widget>[
         _NutriScoreSection1(),
         _NutriScoreSection2(),
         _NutriScoreSection3(),
@@ -21,7 +24,10 @@ class GuideNutriscoreV2 extends StatelessWidget {
         _NutriScoreSection5(),
       ],
       footer: SliverToBoxAdapter(
-        child: GuidesFooter(),
+        child: GuidesFooter(
+          shareMessage: appLocalizations.guide_nutriscore_v2_share_message,
+          shareUrl: appLocalizations.guide_nutriscore_v2_share_link,
+        ),
       ),
     );
   }
@@ -32,8 +38,10 @@ class _NutriscoreHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
     return GuidesHeader(
-      title: 'guide_nutriscore_v2_title'.translation,
+      title: appLocalizations.guide_nutriscore_v2_title,
       illustration: const _NutriScoreHeaderIllustration(),
     );
   }
@@ -59,7 +67,7 @@ class _NutriScoreHeaderIllustration extends StatelessWidget {
         Expanded(
           flex: 40,
           child: SvgPicture.asset(
-              'assets/cache/nutriscore-a-new-${'guide_nutriscore_v2_file_language'.translation}.svg'),
+              'assets/cache/nutriscore-a-new-${AppLocalizations.of(context).guide_nutriscore_v2_file_language}.svg'),
         ),
       ],
     );
@@ -71,18 +79,22 @@ class _NutriScoreSection1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
     return GuidesParagraph(
-      title: 'guide_nutriscore_v2_what_is_nutriscore_title'.translation,
+      title: appLocalizations.guide_nutriscore_v2_what_is_nutriscore_title,
       content: <Widget>[
         GuidesText(
-          text: 'guide_nutriscore_v2_what_is_nutriscore_paragraph1'.translation,
+          text: appLocalizations
+              .guide_nutriscore_v2_what_is_nutriscore_paragraph1,
         ),
         GuidesText(
-          text: 'guide_nutriscore_v2_what_is_nutriscore_paragraph2'.translation,
+          text: appLocalizations
+              .guide_nutriscore_v2_what_is_nutriscore_paragraph2,
         ),
         GuidesImage(
           imagePath: 'assets/cache/nutriscore-a.svg',
-          caption: 'guide_nutriscore_v2_nutriscore_a_caption'.translation,
+          caption: appLocalizations.guide_nutriscore_v2_nutriscore_a_caption,
           desiredWidthPercent: 0.30,
         ),
       ],
@@ -95,36 +107,38 @@ class _NutriScoreSection2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
     return GuidesParagraph(
-      title: 'guide_nutriscore_v2_why_v2_title'.translation,
+      title: appLocalizations.guide_nutriscore_v2_why_v2_title,
       content: <Widget>[
         GuidesText(
-          text: 'guide_nutriscore_v2_why_v2_intro'.translation,
+          text: appLocalizations.guide_nutriscore_v2_why_v2_intro,
         ),
         GuidesTitleWithText(
-          title: 'guide_nutriscore_v2_why_v2_arg1_title'.translation,
+          title: appLocalizations.guide_nutriscore_v2_why_v2_arg1_title,
           icon: const Milk(),
-          text: 'guide_nutriscore_v2_why_v2_arg1_text'.translation,
+          text: appLocalizations.guide_nutriscore_v2_why_v2_arg1_text,
         ),
         GuidesTitleWithText(
-          title: 'guide_nutriscore_v2_why_v2_arg2_title'.translation,
+          title: appLocalizations.guide_nutriscore_v2_why_v2_arg2_title,
           icon: const Soda.unhappy(),
-          text: 'guide_nutriscore_v2_why_v2_arg2_text'.translation,
+          text: appLocalizations.guide_nutriscore_v2_why_v2_arg2_text,
         ),
         GuidesTitleWithText(
-          title: 'guide_nutriscore_v2_why_v2_arg3_title'.translation,
+          title: appLocalizations.guide_nutriscore_v2_why_v2_arg3_title,
           icon: const Salt(),
-          text: 'guide_nutriscore_v2_why_v2_arg3_text'.translation,
+          text: appLocalizations.guide_nutriscore_v2_why_v2_arg3_text,
         ),
         GuidesTitleWithText(
-          title: 'guide_nutriscore_v2_why_v2_arg4_title'.translation,
+          title: appLocalizations.guide_nutriscore_v2_why_v2_arg4_title,
           icon: const Fish(),
-          text: 'guide_nutriscore_v2_why_v2_arg4_text'.translation,
+          text: appLocalizations.guide_nutriscore_v2_why_v2_arg4_text,
         ),
         GuidesTitleWithText(
-          title: 'guide_nutriscore_v2_why_v2_arg5_title'.translation,
+          title: appLocalizations.guide_nutriscore_v2_why_v2_arg5_title,
           icon: const Chicken(),
-          text: 'guide_nutriscore_v2_why_v2_arg5_text'.translation,
+          text: appLocalizations.guide_nutriscore_v2_why_v2_arg5_text,
         ),
       ],
     );
@@ -136,16 +150,18 @@ class _NutriScoreSection3 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
     return GuidesParagraph(
-      title: 'guide_nutriscore_v2_new_logo_title'.translation,
+      title: appLocalizations.guide_nutriscore_v2_new_logo_title,
       content: <Widget>[
         GuidesText(
-          text: 'guide_nutriscore_v2_new_logo_text'.translation,
+          text: appLocalizations.guide_nutriscore_v2_new_logo_text,
         ),
         GuidesImage(
           imagePath:
-              'assets/cache/nutriscore-a-new-${'guide_nutriscore_v2_file_language'.translation}.svg',
-          caption: 'guide_nutriscore_v2_new_logo_image_caption'.translation,
+              'assets/cache/nutriscore-a-new-${AppLocalizations.of(context).guide_nutriscore_v2_file_language}.svg',
+          caption: appLocalizations.guide_nutriscore_v2_new_logo_image_caption,
           desiredWidthPercent: 0.30,
         ),
       ],
@@ -158,13 +174,15 @@ class _NutriScoreSection4 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
     return GuidesParagraph(
-      title: 'guide_nutriscore_v2_where_title'.translation,
+      title: appLocalizations.guide_nutriscore_v2_where_title,
       content: <Widget>[
-        GuidesText(text: 'guide_nutriscore_v2_where_paragraph1'.translation),
-        GuidesText(text: 'guide_nutriscore_v2_where_paragraph2'.translation),
+        GuidesText(text: appLocalizations.guide_nutriscore_v2_where_paragraph1),
+        GuidesText(text: appLocalizations.guide_nutriscore_v2_where_paragraph2),
         GuidesIllustratedText(
-          text: 'guide_nutriscore_v2_where_paragraph3'.translation,
+          text: appLocalizations.guide_nutriscore_v2_where_paragraph3,
           imagePath: 'assets/app/release_icon_light_transparent_no_border.svg',
           desiredWidthPercent: 0.15,
         )
@@ -178,14 +196,16 @@ class _NutriScoreSection5 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
     return GuidesParagraph(
-      title: 'guide_nutriscore_v2_unchanged_title'.translation,
+      title: appLocalizations.guide_nutriscore_v2_unchanged_title,
       content: <Widget>[
         GuidesText(
-          text: 'guide_nutriscore_v2_unchanged_paragraph1'.translation,
+          text: appLocalizations.guide_nutriscore_v2_unchanged_paragraph1,
         ),
         GuidesText(
-          text: 'guide_nutriscore_v2_unchanged_paragraph2'.translation,
+          text: appLocalizations.guide_nutriscore_v2_unchanged_paragraph2,
         ),
       ],
     );

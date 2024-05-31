@@ -74,6 +74,7 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage> {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    // TODO(monsieurtanuki): add WillPopScope2
     return ChangeNotifierProvider<PriceModel>(
       create: (_) => _model,
       child: Form(

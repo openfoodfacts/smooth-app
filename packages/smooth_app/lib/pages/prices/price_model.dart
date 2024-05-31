@@ -1,12 +1,10 @@
-import 'dart:io';
-
-import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_add_price.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
+import 'package:smooth_app/pages/crop_parameters.dart';
 import 'package:smooth_app/pages/locations/osm_location.dart';
 import 'package:smooth_app/pages/onboarding/currency_selector_helper.dart';
 
@@ -22,12 +20,12 @@ class PriceModel with ChangeNotifier {
 
   final String barcode;
 
-  XFile? _xFile;
+  CropParameters? _cropParameters;
 
-  XFile? get xFile => _xFile;
+  CropParameters? get cropParameters => _cropParameters;
 
-  set xFile(final XFile? xFile) {
-    _xFile = xFile;
+  set cropParameters(final CropParameters? value) {
+    _cropParameters = value;
     notifyListeners();
   }
 
@@ -86,7 +84,7 @@ class PriceModel with ChangeNotifier {
 
   Future<String?> addPrice(final BuildContext context) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    if (xFile == null) {
+    if (cropParameters == null) {
       return appLocalizations.prices_proof_mandatory;
     }
 
@@ -110,16 +108,16 @@ class PriceModel with ChangeNotifier {
     }
 
     await BackgroundTaskAddPrice.addTask(
-      barcode,
-      fullFile: File(xFile!.path),
+      cropObject: cropParameters!,
+      locationOSMId: location!.osmId,
+      locationOSMType: location!.osmType,
       date: date,
       proofType: proofType,
       currency: currency,
+      barcode: barcode,
       priceIsDiscounted: promo,
       price: paidPrice,
       priceWithoutDiscount: priceWithoutDiscount,
-      locationOSMId: location!.osmId,
-      locationOSMType: location!.osmType,
       context: context,
     );
     return null;

@@ -18,7 +18,10 @@ import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/helpers/database_helper.dart';
+import 'package:smooth_app/pages/crop_helper.dart';
 import 'package:smooth_app/pages/crop_page.dart';
+import 'package:smooth_app/pages/crop_parameters.dart';
+import 'package:smooth_app/pages/product_crop_helper.dart';
 
 /// Safely picks an image file from gallery or camera, regarding access denied.
 Future<XFile?> pickImageFile(final BuildContext context) async {
@@ -249,31 +252,45 @@ class _ImageSourceButton extends StatelessWidget {
   }
 }
 
-/// Lets the user pick a picture, crop it, and save it.
-Future<File?> confirmAndUploadNewPicture(
+/// Lets the user pick a new product picture, crop it, and save it.
+Future<CropParameters?> confirmAndUploadNewPicture(
   final BuildContext context, {
   required final ImageField imageField,
   required final String barcode,
   required final OpenFoodFactsLanguage language,
   required final bool isLoggedInMandatory,
+}) async =>
+    confirmAndUploadNewImage(
+      context,
+      cropHelper: ProductCropNewHelper(
+        imageField: imageField,
+        language: language,
+        barcode: barcode,
+      ),
+      isLoggedInMandatory: isLoggedInMandatory,
+    );
+
+/// Lets the user pick a picture, crop it, and save it.
+Future<CropParameters?> confirmAndUploadNewImage(
+  final BuildContext context, {
+  required final CropHelper cropHelper,
+  required final bool isLoggedInMandatory,
 }) async {
-  final XFile? croppedPhoto = await pickImageFile(context);
-  if (croppedPhoto == null) {
+  final XFile? fullPhoto = await pickImageFile(context);
+  if (fullPhoto == null) {
     return null;
   }
   if (!context.mounted) {
     return null;
   }
-  return Navigator.push<File>(
+  return Navigator.push<CropParameters>(
     context,
-    MaterialPageRoute<File>(
+    MaterialPageRoute<CropParameters>(
       builder: (BuildContext context) => CropPage(
-        barcode: barcode,
-        imageField: imageField,
-        inputFile: File(croppedPhoto.path),
+        inputFile: File(fullPhoto.path),
         initiallyDifferent: true,
-        language: language,
         isLoggedInMandatory: isLoggedInMandatory,
+        cropHelper: cropHelper,
       ),
       fullscreenDialog: true,
     ),

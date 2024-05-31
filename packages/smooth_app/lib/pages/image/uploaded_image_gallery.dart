@@ -10,7 +10,10 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/images/smooth_image.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/pages/crop_page.dart';
+import 'package:smooth_app/pages/crop_parameters.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
+import 'package:smooth_app/pages/product_crop_helper.dart';
+import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
@@ -63,6 +66,7 @@ class UploadedImageGallery extends StatelessWidget {
           final String url = rawImage.getUrl(
             barcode,
             imageSize: ImageSize.DISPLAY,
+            uriHelper: ProductQuery.uriProductHelper,
           );
           return GestureDetector(
             onTap: () async {
@@ -73,27 +77,31 @@ class UploadedImageGallery extends StatelessWidget {
                 rawImage.getUrl(
                   barcode,
                   imageSize: ImageSize.ORIGINAL,
+                  uriHelper: ProductQuery.uriProductHelper,
                 ),
                 DaoInt(localDatabase),
               );
               if (imageFile == null) {
                 return;
               }
-              final File? croppedFile = await navigatorState.push<File>(
-                MaterialPageRoute<File>(
+              final CropParameters? parameters =
+                  await navigatorState.push<CropParameters>(
+                MaterialPageRoute<CropParameters>(
                   builder: (BuildContext context) => CropPage(
-                    barcode: barcode,
-                    imageField: imageField,
                     inputFile: imageFile,
-                    imageId: int.parse(rawImage.imgid!),
                     initiallyDifferent: true,
-                    language: language,
                     isLoggedInMandatory: isLoggedInMandatory,
+                    cropHelper: ProductCropAgainHelper(
+                      barcode: barcode,
+                      imageField: imageField,
+                      imageId: int.parse(rawImage.imgid!),
+                      language: language,
+                    ),
                   ),
                   fullscreenDialog: true,
                 ),
               );
-              if (croppedFile != null) {
+              if (parameters != null) {
                 navigatorState.pop();
               }
             },

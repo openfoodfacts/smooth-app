@@ -63,7 +63,6 @@ Web:
   - any-glob-to-any-file: 'packages/smooth_app/test/widget_test.dart'
   - any-glob-to-any-file: 'packages/smooth_app/test/basic_test.dart'
   - any-glob-to-any-file: 'packages/scanner/shared/test/shared_test.dart'
-  - any-glob-to-any-file: 'packages/smooth_app/test/cache/cache_test.dart'
   - any-glob-to-any-file: 'packages/smooth_app/integration_test/app_test.dart'
   - any-glob-to-any-file: 'packages/data_importer/test/data_importer_test.dart'
   - any-glob-to-any-file: 'packages/scanner/mlkit/test/scanner_mlkit_test.dart'
