@@ -17,7 +17,6 @@ dependencies:
   barcode_widget: 2.0.4
   carousel_slider: 4.2.1
   cupertino_icons: 1.0.8
-  device_preview: 1.1.0
   flutter_svg: 2.0.10+1
   flutter_map: 6.1.0
   html: 0.15.4
@@ -27,6 +26,7 @@ dependencies:
   hive: 2.2.3
   hive_flutter: 1.1.0
   http: 1.2.0
+  http_parser: 4.0.2
   image_picker: 1.1.1
   iso_countries: 2.2.0
   latlong2: 0.9.1
@@ -47,7 +47,6 @@ dependencies:
   app_store_shared:
     path: ../app_store/shared
   audioplayers: 5.2.1
-  percent_indicator: 4.2.3
   flutter_email_sender: 6.0.3
   flutter_native_splash: 2.4.0
   image: 4.1.7
@@ -62,7 +61,6 @@ dependencies:
   fimber: 0.7.0
   shimmer: ^3.0.0
   rive: 0.13.4
-  sensors_plus: 3.1.0
   webview_flutter: 4.7.0
   webview_flutter_android: 3.16.1
   webview_flutter_wkwebview: 3.13.0
@@ -74,8 +72,6 @@ dependencies:
   flutter_animation_progress_bar: 2.3.1
   email_validator: 2.1.17
   sliver_tools: 0.2.12
-  crowdin_sdk:
-    git: https://github.com/g123k/crowdin_flutter-sdk.git
 
   # According to the build variant, only one "app store" implementation must be added when building a release
   # Call "flutter pub remove xxxx" to remove unused dependencies
@@ -103,7 +99,7 @@ dependencies:
     path: ../scanner/zxing
 
 
-  openfoodfacts: 3.9.0
+  openfoodfacts: 3.10.0
   # openfoodfacts:
   #   path: ../../../openfoodfacts-dart
 

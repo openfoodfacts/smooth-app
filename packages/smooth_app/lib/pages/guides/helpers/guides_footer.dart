@@ -1,11 +1,21 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
 class GuidesFooter extends StatelessWidget {
-  const GuidesFooter({super.key});
+  const GuidesFooter({
+    required this.shareUrl,
+    this.shareMessage,
+    super.key,
+  });
+
+  final String? shareMessage;
+  final String shareUrl;
 
   @override
   Widget build(BuildContext context) {
@@ -38,19 +48,29 @@ class GuidesFooter extends StatelessWidget {
                 vertical: VERY_LARGE_SPACE,
               ),
             ),
-            // TODO(g123k): Implement sharing functionality
-            child: const Text(
-              'Partager',
-              style: TextStyle(
+            child: Text(
+              AppLocalizations.of(context).guide_share_label,
+              style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 15.5,
               ),
             ),
-            onPressed: () {},
+            onPressed: () {
+              Share.share(_shareText);
+              AnalyticsHelper.trackOutlink(url: shareUrl);
+            },
           ),
         ),
       ),
     );
+  }
+
+  String get _shareText {
+    if (shareMessage?.isNotEmpty == true) {
+      return '$shareMessage\n$shareUrl';
+    } else {
+      return shareUrl;
+    }
   }
 }
 

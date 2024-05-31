@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -17,6 +18,7 @@ class ProductPriceItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final String locale = ProductQuery.getLocaleString();
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final DateFormat dateFormat = DateFormat.yMd(locale);
     final DateFormat timeFormat = DateFormat.Hms(locale);
     final NumberFormat currencyFormat = NumberFormat.simpleCurrency(
@@ -24,14 +26,40 @@ class ProductPriceItem extends StatelessWidget {
       name: price.currency.name,
     );
     final String? locationTitle = _getLocationTitle(price.location);
-    final double? pricePerKg = _getPricePerKg(price);
+
+    String? getPricePerKg() {
+      if (price.product == null) {
+        return null;
+      }
+      if (price.product!.quantityUnit != 'g') {
+        return null;
+      }
+      return '${currencyFormat.format(price.price / (price.product!.quantity! / 1000))} / kg';
+    }
+
+    String? getNotDiscountedPrice() {
+      if (price.product == null) {
+        return null;
+      }
+      if (price.priceIsDiscounted != true) {
+        return null;
+      }
+      if (price.priceWithoutDiscount == null) {
+        return null;
+      }
+      return '${appLocalizations.prices_amount_price_not_discounted} ${currencyFormat.format(price.priceWithoutDiscount)}';
+    }
+
+    final String? pricePerKg = getPricePerKg();
+    final String? notDiscountedPrice = getNotDiscountedPrice();
     return SmoothCard(
       child: ListTile(
         title: Text(
           '${currencyFormat.format(price.price)}'
-          '${pricePerKg == null ? '' : ' (${currencyFormat.format(pricePerKg)} / kg)'}'
+          '${pricePerKg == null ? '' : ' ($pricePerKg)'}'
           '   '
-          '${dateFormat.format(price.date)}',
+          '${dateFormat.format(price.date)}'
+          '${notDiscountedPrice == null ? '' : '  ($notDiscountedPrice)'}',
         ),
         subtitle: Wrap(
           spacing: MEDIUM_SPACE,
@@ -80,16 +108,6 @@ class ProductPriceItem extends StatelessWidget {
     );
   }
 
-  static double? _getPricePerKg(final Price price) {
-    if (price.product == null) {
-      return null;
-    }
-    if (price.product!.quantityUnit != 'g') {
-      return null;
-    }
-    return price.price / (price.product!.quantity! / 1000);
-  }
-
   static String? _getLocationTitle(final Location? location) {
     if (location == null) {
       return null;
@@ -119,13 +137,6 @@ class ProductPriceItem extends StatelessWidget {
     return result.toString();
   }
 
-  // TODO(monsieurtanuki): enrich the data or find something more elegant
-  // TODO(monsieurtanuki): wait until https://github.com/openfoodfacts/open-prices/issues/292 is solved
   static OpenFoodFactsCountry? _getCountry(final Location location) =>
-      switch (location.country) {
-        'France' => OpenFoodFactsCountry.FRANCE,
-        'Italia' => OpenFoodFactsCountry.ITALY,
-        'Monaco' => OpenFoodFactsCountry.MONACO,
-        _ => null,
-      };
+      OpenFoodFactsCountry.fromOffTag(location.countryCode);
 }

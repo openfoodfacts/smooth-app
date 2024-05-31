@@ -764,6 +764,16 @@
     "@could_not_refresh": {
         "description": "The product data couldn't be refreshed"
     },
+    "product_internet_error_modal_title": "An error has occurred!",
+    "product_internet_error_modal_message": "We are unable to fetch information about this product due to a network error. Please check your internet connection and try again.\n\nInternal error:\n{error}",
+    "@product_internet_error_modal_message": {
+        "placeholders": {
+            "error": {
+                "type": "String",
+                "description": "The error message"
+            }
+        }
+    },
     "product_internet_error": "Nelze načíst informace o tomto produktu kvůli chybě sítě.",
     "cached_results_from": "Zobrazit výsledky z:",
     "@cached_results_from": {
@@ -2638,5 +2648,59 @@
                 "type": "String"
             }
         }
+    },
+    "guide_title": "Průvodce",
+    "@guide_title": {
+        "description": "A title for a guide"
+    },
+    "guide_share_label": "Sdílet",
+    "guide_nutriscore_v2_enabled": "pravda",
+    "@guide_nutriscore_v2_enabled": {
+        "description": "Please NEVER touch this value and let the OFF team change it!"
+    },
+    "guide_nutriscore_v2_title": "Nutri-Score se vyvíjí: vysvětlení!",
+    "@guide_nutriscore_v2_title": {
+        "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+    },
+    "guide_nutriscore_v2_file_language": "en",
+    "@guide_nutriscore_v2_file_language": {
+        "description": "The logo is only available in de/en/fr/ln/nl. Please use en if not available (in lowercase, please)."
+    },
+    "guide_nutriscore_v2_what_is_nutriscore_title": "Co je Nutri-Score?",
+    "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "Nutri-Score je logo, jehož cílem je informovat vás o **nutriční kvalitě potravin**.",
+    "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
+        "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+    },
+    "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "Barevný kód se liší od tmavě zelené (**A**) pro **nejzdravější** produkty až po tmavě červenou (**E**) pro **méně zdravé**.",
+    "@guide_nutriscore_v2_what_is_nutriscore_paragraph2": {
+        "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+    },
+    "guide_nutriscore_v2_nutriscore_a_caption": "Logo Nutri-Score A",
+    "guide_nutriscore_v2_why_v2_title": "Proč se Nutri-Score vyvíjí?",
+    "guide_nutriscore_v2_why_v2_intro": "Vzorec pro Nutri-Score **se vyvíjí** k poskytování lepších doporučení:",
+    "guide_nutriscore_v2_why_v2_arg1_title": "Lepší hodnocení všech nápojů",
+    "guide_nutriscore_v2_why_v2_arg1_text": "Srovnávací poznámky **mléka**, **mléčných nápojů** s přidaným cukrem a **zeleninových** nápojů byly v novém algoritmu lépe rozlišeny.",
+    "guide_nutriscore_v2_why_v2_arg2_title": "Lepší hodnocení nápojů",
+    "guide_nutriscore_v2_why_v2_arg2_text": "**Obsah cukru** je lépe zohledněn a upřednostňuje **nízce slazené** nápoje.\\n**Sladidla budou rovněž penalizována**: dietní limonády budou sníženy z hodnocení B na hodnotu mezi C a E. Doporučeným nápojem zůstává voda.",
+    "guide_nutriscore_v2_why_v2_arg3_title": "Sůl a cukr penalizovány",
+    "guide_nutriscore_v2_why_v2_arg3_text": "**Příliš sladké** nebo **příliš slané** produkty budou mít své **hodnocení dále sníženo**.",
+    "guide_nutriscore_v2_why_v2_arg4_title": "Hierarchie v olejích a rybách",
+    "guide_nutriscore_v2_why_v2_arg4_text": "Hodnocení určitých **tučných ryb** a **olejů bohatých na dobré tuky** se zlepší.",
+    "guide_nutriscore_v2_why_v2_arg5_title": "Omezené červené maso",
+    "guide_nutriscore_v2_why_v2_arg5_text": "Konzumace **červeného masa by měla být omezena**. To je důvod, proč **drůbež bude mít poměrně lepší hodnocení**.",
+    "guide_nutriscore_v2_new_logo_title": "Jak odlišit staré Nutri-Score a nový výpočet?",
+    "guide_nutriscore_v2_new_logo_text": "Od této chvíle může logo zobrazovat zmínku „**Nový výpočet**“, aby bylo jasné, že se skutečně jedná o nový výpočet.",
+    "guide_nutriscore_v2_new_logo_image_caption": "Logo nového Nutri-Score",
+    "guide_nutriscore_v2_where_title": "Kde najít nový výpočet NutriScore?",
+    "guide_nutriscore_v2_where_paragraph1": "Nutri-Score se používá v několika zemích: Německo, Belgie, Španělsko, Francie, Lucembursko, Nizozemsko a Švýcarsko.",
+    "guide_nutriscore_v2_where_paragraph2": "Výrobci mají nejpozději do **2026** čas **nahradit** starý výpočet novým.",
+    "guide_nutriscore_v2_where_paragraph3": "Bez čekání **už najdete v aplikaci OpenFoodFacts** nový výpočet, včetně případů, kdy výrobci neaktualizovali skóre.",
+    "guide_nutriscore_v2_unchanged_title": "Co se nemění",
+    "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score je skóre navržené k **měření nutriční kvality**. Je **doplňkem skupiny NOVA** pro **ultra zpracované potraviny** (taktéž přítomných v aplikaci).",
+    "guide_nutriscore_v2_unchanged_paragraph2": "Pro výrobce zůstává zobrazení Nutri-Score **nepovinné**.",
+    "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/guide/nutriscore-v2",
+    "guide_nutriscore_v2_share_message": "",
+    "@guide_nutriscore_v2_share_message": {
+        "description": "Please let empty for now (maybe use in the future)"
     }
 }

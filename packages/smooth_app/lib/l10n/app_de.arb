@@ -764,6 +764,16 @@
     "@could_not_refresh": {
         "description": "The product data couldn't be refreshed"
     },
+    "product_internet_error_modal_title": "Ein Fehler ist aufgetreten!",
+    "product_internet_error_modal_message": "Aufgrund eines Netzwerkfehlers konnten keine Informationen zu diesem Produkt abgerufen werden. Bitte überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.\n\nInterner Fehler:\n{error}",
+    "@product_internet_error_modal_message": {
+        "placeholders": {
+            "error": {
+                "type": "String",
+                "description": "The error message"
+            }
+        }
+    },
     "product_internet_error": "Informationen über dieses Produkt können aufgrund eines Netzwerkfehlers nicht abgerufen werden.",
     "cached_results_from": "Ergebnisse anzeigen von:",
     "@cached_results_from": {
@@ -2638,5 +2648,59 @@
                 "type": "String"
             }
         }
+    },
+    "guide_title": "Anleitung",
+    "@guide_title": {
+        "description": "A title for a guide"
+    },
+    "guide_share_label": "Teilen",
+    "guide_nutriscore_v2_enabled": "true",
+    "@guide_nutriscore_v2_enabled": {
+        "description": "Please NEVER touch this value and let the OFF team change it!"
+    },
+    "guide_nutriscore_v2_title": "Der Nutri-Score entwickelt sich weiter: Erklärungen!",
+    "@guide_nutriscore_v2_title": {
+        "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+    },
+    "guide_nutriscore_v2_file_language": "de",
+    "@guide_nutriscore_v2_file_language": {
+        "description": "The logo is only available in de/en/fr/ln/nl. Please use en if not available (in lowercase, please)."
+    },
+    "guide_nutriscore_v2_what_is_nutriscore_title": "Was ist der Nutri-Score?",
+    "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "Der Nutri-Score ist eine Kennzeichnung, die Sie über die **Nährwertqualität von Lebensmitteln** informieren soll.",
+    "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
+        "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+    },
+    "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "Der Farbcode reicht von dunkelgrün (**A**) für die **gesündesten** Produkte bis dunkelrot (**E**) für die **weniger gesunden** Produkte.",
+    "@guide_nutriscore_v2_what_is_nutriscore_paragraph2": {
+        "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+    },
+    "guide_nutriscore_v2_nutriscore_a_caption": "Das Nutri-Score A-Logo",
+    "guide_nutriscore_v2_why_v2_title": "Warum wird Nutri-Score weiterentwickelt?",
+    "guide_nutriscore_v2_why_v2_intro": "Die Nutri-Score-Formel wird **weiterentwickelt**, um bessere Empfehlungen geben zu können:",
+    "guide_nutriscore_v2_why_v2_arg1_title": "Alle Getränke besser bewerten",
+    "guide_nutriscore_v2_why_v2_arg1_text": "Die Vergleichsnoten für **Milch**, **Milchgetränke** mit Zuckerzusatz und **Gemüsegetränke** wurden in dem neuen Algorithmus besser unterschieden.",
+    "guide_nutriscore_v2_why_v2_arg2_title": "Bessere Einstufung von Getränken",
+    "guide_nutriscore_v2_why_v2_arg2_text": "Der **Zuckergehalt** wird besser berücksichtigt und begünstigt **wenig gesüßte** Getränke.\\n**Süßstoffe werden ebenfalls abgewertet**: Diät-Limonaden werden von einer B-Bewertung auf eine Bewertung zwischen C und E herabgestuft. Wasser bleibt das empfohlene Getränk.",
+    "guide_nutriscore_v2_why_v2_arg3_title": "Salz und Zucker werden abgewertet",
+    "guide_nutriscore_v2_why_v2_arg3_text": "Bei Produkten, die **zu süß** oder **zu salzig** sind, wird die **Bewertung weiter herabgestuft**.",
+    "guide_nutriscore_v2_why_v2_arg4_title": "Hierarchie bei Ölen und Fischen",
+    "guide_nutriscore_v2_why_v2_arg4_text": "Die Bewertung von bestimmten **fetten Fischen** und **fettreichen Ölen** wird sich verbessern.",
+    "guide_nutriscore_v2_why_v2_arg5_title": "Die Bewertung von bestimmten **fetten Fischen** und **fettreichen Ölen** wird sich verbessern",
+    "guide_nutriscore_v2_why_v2_arg5_text": "Der Verzehr von **rotem Fleisch sollte eingeschränkt werden**. Aus diesem Grund wird **Geflügel vergleichsweise besser bewertet**.",
+    "guide_nutriscore_v2_new_logo_title": "Wie unterscheidet sich der alte Nutri-Score durch die neue Berechnung?",
+    "guide_nutriscore_v2_new_logo_text": "Von nun an kann das Logo einen Hinweis \"**Neue Berechnung**\" enthalten, um zu verdeutlichen, dass es sich tatsächlich um die neue Berechnung handelt.",
+    "guide_nutriscore_v2_new_logo_image_caption": "Das Logo des neuen Nutri-Score",
+    "guide_nutriscore_v2_where_title": "Wo finde ich die neue NutriScore-Berechnung?",
+    "guide_nutriscore_v2_where_paragraph1": "Der Nutri-Score wird in mehreren Ländern angewendet: Deutschland, Belgien, Spanien, Frankreich, Luxemburg, die Niederlande und die Schweiz.",
+    "guide_nutriscore_v2_where_paragraph2": "Die Hersteller haben bis spätestens **2026** Zeit, **die alte Berechnung durch die neue zu ersetzen**.",
+    "guide_nutriscore_v2_where_paragraph3": "Ohne zu warten, **finden Sie bereits in der OpenFoodFacts-Anwendung** die neue Berechnung, auch wenn die Hersteller die Punktzahl noch nicht aktualisiert haben.",
+    "guide_nutriscore_v2_unchanged_title": "Was sich nicht ändert",
+    "guide_nutriscore_v2_unchanged_paragraph1": "Der Nutri-Score ist ein Punktesystem zur **Bewertung der Nährwertqualität**. Er ist eine **Ergänzung zur NOVA-Gruppe** für **hochverarbeitete Lebensmittel** (ebenfalls in der App enthalten).",
+    "guide_nutriscore_v2_unchanged_paragraph2": "Für die Hersteller ist die Angabe des Nutri-Score **weiterhin optional**.",
+    "guide_nutriscore_v2_share_link": "https://de.openfoodfacts.org/guide/nutriscore-v2",
+    "guide_nutriscore_v2_share_message": "",
+    "@guide_nutriscore_v2_share_message": {
+        "description": "Please let empty for now (maybe use in the future)"
     }
 }

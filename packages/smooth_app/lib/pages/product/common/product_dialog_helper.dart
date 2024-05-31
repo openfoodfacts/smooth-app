@@ -167,13 +167,18 @@ class ProductDialogHelper {
 
   void _openErrorMessage(final String message) => showDialog<void>(
         context: context,
-        builder: (BuildContext context) => SmoothAlertDialog(
-          body: getErrorMessage(message),
-          positiveAction: SmoothActionButton(
-            text: AppLocalizations.of(context).close,
-            onPressed: () => Navigator.pop(context),
-          ),
-        ),
+        builder: (BuildContext context) {
+          final AppLocalizations localizations = AppLocalizations.of(context);
+
+          return SmoothAlertDialog(
+            title: localizations.product_internet_error_modal_title,
+            body: getErrorMessage(message),
+            positiveAction: SmoothActionButton(
+              text: localizations.close,
+              onPressed: () => Navigator.pop(context),
+            ),
+          );
+        },
       );
 
   /// Opens an error dialog; to be used only if the status is not ok.
@@ -185,7 +190,10 @@ class ProductDialogHelper {
       case FetchedProductStatus.userCancelled:
         return;
       case FetchedProductStatus.internetError:
-        _openErrorMessage(appLocalizations.product_internet_error);
+        _openErrorMessage(
+          appLocalizations.product_internet_error_modal_message(
+              fetchedProduct.exceptionString ?? '-'),
+        );
         return;
       case FetchedProductStatus.internetNotFound:
         _openProductNotFoundDialog();

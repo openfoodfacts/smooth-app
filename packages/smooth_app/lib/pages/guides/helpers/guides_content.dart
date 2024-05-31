@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:provider/provider.dart';
 import 'package:sliver_tools/sliver_tools.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/physics.dart';
 import 'package:smooth_app/helpers/strings_helper.dart';
 import 'package:smooth_app/pages/guides/helpers/guides_header.dart';
-import 'package:smooth_app/pages/guides/helpers/guides_translations.dart';
-import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
@@ -15,6 +14,7 @@ class GuidesPage extends StatelessWidget {
   const GuidesPage({
     required this.header,
     required this.body,
+    required this.pageName,
     this.footer,
     super.key,
   });
@@ -23,34 +23,39 @@ class GuidesPage extends StatelessWidget {
   final List<Widget> body;
   final Widget? footer;
 
+  // Page name for the Analytics event
+  final String pageName;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: FutureBuilder<void>(
-      future: GuidesTranslations.init(
-        Locale(ProductQuery.getLanguage().offTag),
+      body: _GuidesPageBody(
+        pageName: pageName,
+        slivers: <Widget>[
+          header,
+          ...body,
+          if (footer != null) footer!,
+        ],
       ),
-      builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
-        if (snapshot.connectionState == ConnectionState.done) {
-          return _GuidesPageBody(
-            slivers: <Widget>[
-              header,
-              ...body,
-              if (footer != null) footer!,
-            ],
-          );
-        }
-        return const Center(child: CircularProgressIndicator());
-      },
-    ));
+    );
   }
 }
 
-class _GuidesPageBody extends StatelessWidget {
-  _GuidesPageBody({required this.slivers});
+class _GuidesPageBody extends StatefulWidget {
+  const _GuidesPageBody({
+    required this.slivers,
+    required this.pageName,
+  }) : assert(pageName.length > 0);
 
   final List<Widget> slivers;
+  final String pageName;
 
+  @override
+  State<_GuidesPageBody> createState() => _GuidesPageBodyState();
+}
+
+class _GuidesPageBodyState extends State<_GuidesPageBody>
+    with TraceableClientMixin {
   final ScrollController _controller = ScrollController();
 
   @override
@@ -92,11 +97,14 @@ class _GuidesPageBody extends StatelessWidget {
               GuidesHeader.HEADER_HEIGHT - kToolbarHeight,
             ],
           ),
-          slivers: slivers,
+          slivers: widget.slivers,
         ),
       ),
     );
   }
+
+  @override
+  String get actionName => 'Opened ${widget.pageName}';
 }
 
 class GuidesParagraph extends StatelessWidget {

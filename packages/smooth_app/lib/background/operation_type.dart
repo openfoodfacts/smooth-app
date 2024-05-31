@@ -1,5 +1,6 @@
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/background/background_task.dart';
+import 'package:smooth_app/background/background_task_add_price.dart';
 import 'package:smooth_app/background/background_task_crop.dart';
 import 'package:smooth_app/background/background_task_details.dart';
 import 'package:smooth_app/background/background_task_download_products.dart';
@@ -35,6 +36,7 @@ enum OperationType {
   offlineProducts('P', 'OFFLINE_PRODUCTS'),
   fullRefresh('F', 'FULL_REFRESH'),
   languageRefresh('L', 'LANGUAGE_REFRESH'),
+  addPrice('A', 'ADD_PRICE'),
   details('D', 'PRODUCT_EDIT');
 
   const OperationType(this.header, this.processName);
@@ -69,6 +71,8 @@ enum OperationType {
     switch (this) {
       case crop:
         return BackgroundTaskCrop.fromJson(map);
+      case addPrice:
+        return BackgroundTaskAddPrice.fromJson(map);
       case details:
         return BackgroundTaskDetails.fromJson(map);
       case hungerGames:
@@ -99,6 +103,8 @@ enum OperationType {
     switch (this) {
       case OperationType.details:
         return appLocalizations.background_task_operation_details;
+      case OperationType.addPrice:
+        return 'Add price';
       case OperationType.image:
         return appLocalizations.background_task_operation_image;
       case OperationType.unselect:
