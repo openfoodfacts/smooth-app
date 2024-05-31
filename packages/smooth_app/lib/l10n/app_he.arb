@@ -1665,7 +1665,7 @@
     "prices_add_a_price": "הוספת מחיר",
     "prices_send_the_price": "שליחת המחיר",
     "prices_view_prices": "View the prices",
-    "prices_list_length_one_page": "{count,plural, one {} two {כל {count} המחירים} many {כל {count} המחירים}=0{אין מחיר עדיין} =1{מחיר אחד בלבד} other{כל {count} המחירים}}",
+    "prices_list_length_one_page": "{count,plural, two {כל {count} המחירים} many {כל {count} המחירים}=0{אין מחיר עדיין} =1{מחיר אחד בלבד} other{כל {count} המחירים}}",
     "@prices_list_length_one_page": {
         "description": "Number of prices for one-page result",
         "placeholders": {
