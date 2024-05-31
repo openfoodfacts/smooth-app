@@ -764,6 +764,16 @@
     "@could_not_refresh": {
         "description": "The product data couldn't be refreshed"
     },
+    "product_internet_error_modal_title": "An error has occurred!",
+    "product_internet_error_modal_message": "We are unable to fetch information about this product due to a network error. Please check your internet connection and try again.\n\nInternal error:\n{error}",
+    "@product_internet_error_modal_message": {
+        "placeholders": {
+            "error": {
+                "type": "String",
+                "description": "The error message"
+            }
+        }
+    },
     "product_internet_error": "לא ניתן למשוך מידע על המוצר הזה עקב שגיאת רשת.",
     "cached_results_from": "להציג תוצאות מ־:",
     "@cached_results_from": {
@@ -1655,7 +1665,7 @@
     "prices_add_a_price": "הוספת מחיר",
     "prices_send_the_price": "שליחת המחיר",
     "prices_view_prices": "View the prices",
-    "prices_list_length_one_page": "{count,plural, one {} two {כל {count} המחירים} many {כל {count} המחירים}=0{אין מחיר עדיין} =1{מחיר אחד בלבד} other{כל {count} המחירים}}",
+    "prices_list_length_one_page": "{count,plural, two {כל {count} המחירים} many {כל {count} המחירים}=0{אין מחיר עדיין} =1{מחיר אחד בלבד} other{כל {count} המחירים}}",
     "@prices_list_length_one_page": {
         "description": "Number of prices for one-page result",
         "placeholders": {
@@ -2638,5 +2648,59 @@
                 "type": "String"
             }
         }
+    },
+    "guide_title": "מדריך",
+    "@guide_title": {
+        "description": "A title for a guide"
+    },
+    "guide_share_label": "שיתוף",
+    "guide_nutriscore_v2_enabled": "true",
+    "@guide_nutriscore_v2_enabled": {
+        "description": "Please NEVER touch this value and let the OFF team change it!"
+    },
+    "guide_nutriscore_v2_title": "Nutri-Score מתפתח: הסברים!",
+    "@guide_nutriscore_v2_title": {
+        "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+    },
+    "guide_nutriscore_v2_file_language": "he",
+    "@guide_nutriscore_v2_file_language": {
+        "description": "The logo is only available in de/en/fr/ln/nl. Please use en if not available (in lowercase, please)."
+    },
+    "guide_nutriscore_v2_what_is_nutriscore_title": "מה זה Nutri-Score?",
+    "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "ה־Nutri-Score הוא לוגו שמטרתו ליידע אותך על **האיכות התזונתית של מוצרי המזון**.",
+    "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
+        "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+    },
+    "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "קוד הצבע משתנה מירוק כהה (**A**) למוצרים **הבריאים** ביותר ועד אדום כהה (**E**) לאלו **שפחות בריאים**.",
+    "@guide_nutriscore_v2_what_is_nutriscore_paragraph2": {
+        "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+    },
+    "guide_nutriscore_v2_nutriscore_a_caption": "הלוגו Nutri-Score A",
+    "guide_nutriscore_v2_why_v2_title": "למה Nutri-Score מתפתח?",
+    "guide_nutriscore_v2_why_v2_intro": "נוסחת Nutri-Score **מתפתחת** כדי לספק המלצות טובות יותר:",
+    "guide_nutriscore_v2_why_v2_arg1_title": "הערכה טובה יותר של משקאות",
+    "guide_nutriscore_v2_why_v2_arg1_text": "הערות ההשוואה של **חלב**, **משקאות חלב** בתוספת סוכר ומשקאות **צמחיים** יהיו ברורים יותר באלגוריתם החדש.",
+    "guide_nutriscore_v2_why_v2_arg2_title": "דירוג טוב יותר של משקאות",
+    "guide_nutriscore_v2_why_v2_arg2_text": "**תכולת הסוכר** תילקח בחשבון בצורה יותר משמעותית ותינתן העדפה למשקאות **פחות ממותקים**.\\n**ענישה לממתיקים מלאכותיים**: משקאות דיאטטים מוגזים שונמכו מדירוג B לאיפשהו בין C ל־E. מים הם עדיין המשקה המומלץ.",
+    "guide_nutriscore_v2_why_v2_arg3_title": "מלח וסוכר נענשים",
+    "guide_nutriscore_v2_why_v2_arg3_text": "מוצרים **מתוקים מדי** או **מלוחים מדי** יזכו **לדירוג נחות עוד יותר**.",
+    "guide_nutriscore_v2_why_v2_arg4_title": "היררכיה בתוך שמנים ודגים",
+    "guide_nutriscore_v2_why_v2_arg4_text": "דירוג סוגים מסוימים של **דגים שמנים** ו**שמנים עשירים בשומנים טובים** ישתפר.",
+    "guide_nutriscore_v2_why_v2_arg5_title": "הגבלת בשר אדום",
+    "guide_nutriscore_v2_why_v2_arg5_text": "צריכת **בשר אדום אמורה להיות מוגבלת**. לכן **עוף יזכה לדירוג טוב יותר בהשוואה**.",
+    "guide_nutriscore_v2_new_logo_title": "כיצד להבדיל בין Nutri-Score הישן לבין הנוסחה החדשה?",
+    "guide_nutriscore_v2_new_logo_text": "מעתה, הלוגו יציג אזכור „**נוסחה חדשה**” (New calculation) כדי להבהיר שאכן זו הנוסחה החדשה.",
+    "guide_nutriscore_v2_new_logo_image_caption": "הלוגו של Nutri-Score החדש",
+    "guide_nutriscore_v2_where_title": "היכן ניתן למצוא את נוסחת NutriScore החדשה?",
+    "guide_nutriscore_v2_where_paragraph1": "Nutri-Score מיושם במספר מדינות: גרמניה, בלגיה, ספרד, צרפת, לוקסמבורג, הולנד ושווייץ.",
+    "guide_nutriscore_v2_where_paragraph2": "ליצרנים יש עד **2026** לכל המאוחר **להחליף** את החישוב הישן בחדש.",
+    "guide_nutriscore_v2_where_paragraph3": "מבלי להמתין, כבר אפשר למצוא את הנוסחה החדשה ב**יישומון של Open Food Facts**ֿ גם אם היצרנים טרם עדכנו את הניקוד.",
+    "guide_nutriscore_v2_unchanged_title": "מה לא משתנה",
+    "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score הוא ציון שנועד **למדוד איכות תזונתית**. הוא **משלים לקבוצת NOVA** על **מזון אולטרה מעובד** (קיים גם ביישום).",
+    "guide_nutriscore_v2_unchanged_paragraph2": "ליצרנים, התצוגה של Nutri-Score **נותרת בגדר רשות**.",
+    "guide_nutriscore_v2_share_link": "https://il.openfoodfacts.org/guide/nutriscore-v2",
+    "guide_nutriscore_v2_share_message": "",
+    "@guide_nutriscore_v2_share_message": {
+        "description": "Please let empty for now (maybe use in the future)"
     }
 }

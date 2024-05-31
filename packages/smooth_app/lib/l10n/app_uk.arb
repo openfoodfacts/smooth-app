@@ -764,6 +764,16 @@
     "@could_not_refresh": {
         "description": "The product data couldn't be refreshed"
     },
+    "product_internet_error_modal_title": "Сталася помилка!",
+    "product_internet_error_modal_message": "Ми не можемо отримати інформацію про цей продукт через помилку мережі. Перевірте підключення до Інтернету та повторіть спробу.\n\nВнутрішня помилка:\n{error}",
+    "@product_internet_error_modal_message": {
+        "placeholders": {
+            "error": {
+                "type": "String",
+                "description": "The error message"
+            }
+        }
+    },
     "product_internet_error": "Неможливо отримати інформацію про цей продукт через помилку мережі.",
     "cached_results_from": "Показати результати з:",
     "@cached_results_from": {
@@ -2638,5 +2648,59 @@
                 "type": "String"
             }
         }
+    },
+    "guide_title": "Посібник",
+    "@guide_title": {
+        "description": "A title for a guide"
+    },
+    "guide_share_label": "Поділитися",
+    "guide_nutriscore_v2_enabled": "true",
+    "@guide_nutriscore_v2_enabled": {
+        "description": "Please NEVER touch this value and let the OFF team change it!"
+    },
+    "guide_nutriscore_v2_title": "Nutri-Score розвивається: пояснення!",
+    "@guide_nutriscore_v2_title": {
+        "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+    },
+    "guide_nutriscore_v2_file_language": "en",
+    "@guide_nutriscore_v2_file_language": {
+        "description": "The logo is only available in de/en/fr/ln/nl. Please use en if not available (in lowercase, please)."
+    },
+    "guide_nutriscore_v2_what_is_nutriscore_title": "Що таке Nutri-Score?",
+    "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "Nutri-Score – це логотип, мета якого інформувати вас про **поживну якість харчових продуктів**.",
+    "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
+        "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+    },
+    "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "Кольоровий код варіюється від темно-зеленого (**A**) для **найздоровіших** продуктів до темно-червоного (**E**) для **менш корисних** продуктів.",
+    "@guide_nutriscore_v2_what_is_nutriscore_paragraph2": {
+        "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+    },
+    "guide_nutriscore_v2_nutriscore_a_caption": "Логотип Nutri-Score A",
+    "guide_nutriscore_v2_why_v2_title": "Чому Nutri-Score розвивається?",
+    "guide_nutriscore_v2_why_v2_intro": "Формула Nutri-Score **еволюціонує**, щоб надавати кращі рекомендації:",
+    "guide_nutriscore_v2_why_v2_arg1_title": "Краще оцініть всі напої",
+    "guide_nutriscore_v2_why_v2_arg1_text": "Порівняльні ноти **молока**, **молочних напоїв** з додаванням цукру та **овочевих** напоїв у новому алгоритмі краще розрізнили.",
+    "guide_nutriscore_v2_why_v2_arg2_title": "Кращий рейтинг напоїв",
+    "guide_nutriscore_v2_why_v2_arg2_text": "**Вміст цукру** краще брати до уваги, і він надає перевагу напоям із **слабким вмістом цукру**.\\n**Підсолоджувачі також будуть штрафуватися**: рейтинг дієтичних газованих напоїв буде знижено з B до C і E. Вода залишається рекомендованим напоєм.",
+    "guide_nutriscore_v2_why_v2_arg3_title": "Сіль і цукор штрафні",
+    "guide_nutriscore_v2_why_v2_arg3_text": "Продукти **занадто солодкі** або **занадто солоні** отримають **рейтинг ще більше знижений**.",
+    "guide_nutriscore_v2_why_v2_arg4_title": "Ієрархія в оліях і рибі",
+    "guide_nutriscore_v2_why_v2_arg4_text": "Поліпшиться рейтинг певної **жирної риби** та **олій, багатих хорошими жирами**.",
+    "guide_nutriscore_v2_why_v2_arg5_title": "Обмежити червоне м'ясо",
+    "guide_nutriscore_v2_why_v2_arg5_text": "Споживання **червоного м’яса слід обмежити**. Ось чому **птах матиме порівняно кращий рейтинг**.",
+    "guide_nutriscore_v2_new_logo_title": "Як відрізнити старий Nutri-Score від нового розрахунку?",
+    "guide_nutriscore_v2_new_logo_text": "Відтепер логотип може показувати згадку «**Новий розрахунок**», щоб уточнити, що це справді новий розрахунок.",
+    "guide_nutriscore_v2_new_logo_image_caption": "Логотип нового Nutri-Score",
+    "guide_nutriscore_v2_where_title": "Де знайти новий розрахунок Nutri-Score?",
+    "guide_nutriscore_v2_where_paragraph1": "Nutri-Score застосовується в кількох країнах: Німеччині, Бельгії, Іспанії, Франції, Люксембурзі, Нідерландах та Швейцарії.",
+    "guide_nutriscore_v2_where_paragraph2": "Постачальники мають до **2026 року** останній термін **на заміну** старого розрахунку на новий.",
+    "guide_nutriscore_v2_where_paragraph3": "Без очікування ви вже знайдете в додатку OpenFoodFacts новий розрахунок, включаючи в тому числі якщо постачальники не оновили бали.",
+    "guide_nutriscore_v2_unchanged_title": "Що не змінилося",
+    "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score – це оцінка, розроблена для **вимірювання якості харчування**. Він **доповнює групу NOVA** щодо **ультраоброблених продуктів** (також присутня в додатку).",
+    "guide_nutriscore_v2_unchanged_paragraph2": "Для постачальників зображення Nutri-Score **залишається необов’язковим**.",
+    "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/guide/nutriscore-v2",
+    "guide_nutriscore_v2_share_message": "",
+    "@guide_nutriscore_v2_share_message": {
+        "description": "Please let empty for now (maybe use in the future)"
     }
 }

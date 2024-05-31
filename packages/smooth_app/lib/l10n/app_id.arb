@@ -764,6 +764,16 @@
     "@could_not_refresh": {
         "description": "The product data couldn't be refreshed"
     },
+    "product_internet_error_modal_title": "An error has occurred!",
+    "product_internet_error_modal_message": "We are unable to fetch information about this product due to a network error. Please check your internet connection and try again.\n\nInternal error:\n{error}",
+    "@product_internet_error_modal_message": {
+        "placeholders": {
+            "error": {
+                "type": "String",
+                "description": "The error message"
+            }
+        }
+    },
     "product_internet_error": "Pengambilan informasi tentang produk ini gagal karena kesalahan jaringan.",
     "cached_results_from": "Menampilkan hasil dari:",
     "@cached_results_from": {
@@ -2638,5 +2648,59 @@
                 "type": "String"
             }
         }
+    },
+    "guide_title": "Panduan",
+    "@guide_title": {
+        "description": "A title for a guide"
+    },
+    "guide_share_label": "Bagikan",
+    "guide_nutriscore_v2_enabled": "benar",
+    "@guide_nutriscore_v2_enabled": {
+        "description": "Please NEVER touch this value and let the OFF team change it!"
+    },
+    "guide_nutriscore_v2_title": "Nutri-Score terus berkembang: penjelasan!",
+    "@guide_nutriscore_v2_title": {
+        "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+    },
+    "guide_nutriscore_v2_file_language": "en",
+    "@guide_nutriscore_v2_file_language": {
+        "description": "The logo is only available in de/en/fr/ln/nl. Please use en if not available (in lowercase, please)."
+    },
+    "guide_nutriscore_v2_what_is_nutriscore_title": "Apa itu Nutri-Score?",
+    "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "Nutri-Score merupakan sebuah logo yang bertujuan untuk memberikan informasi kepada Anda tentang **kualitas nutrisi makanan**.",
+    "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
+        "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+    },
+    "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "Kode warna bervariasi mulai dari hijau tua (**A**) untuk produk **tersehat** hingga merah tua (**E**) untuk produk *kurang sehat**.",
+    "@guide_nutriscore_v2_what_is_nutriscore_paragraph2": {
+        "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+    },
+    "guide_nutriscore_v2_nutriscore_a_caption": "Logo Nutri-Score A",
+    "guide_nutriscore_v2_why_v2_title": "Mengapa Nutri-Score terus berkembang?",
+    "guide_nutriscore_v2_why_v2_intro": "Formula Nutri-Score **berkembang** agar bisa memberikan rekomendasi yang lebih baik:",
+    "guide_nutriscore_v2_why_v2_arg1_title": "Lebih baik dalam mengevaluasi semua minuman",
+    "guide_nutriscore_v2_why_v2_arg1_text": "Catatan perbandingan antara **susu**, **minuman susu* dengan gula tambahan, dan minuman berbasis **sayuran** dibedakan secara lebih baik dengan algoritma baru.",
+    "guide_nutriscore_v2_why_v2_arg2_title": "Pemeringkatan minuman lebih baik",
+    "guide_nutriscore_v2_why_v2_arg2_text": "**Kandungan gula** diperhitungan dengan lebih baik dan mengutamakan minuman **rendah pemanis**. \\n**Pemanis juga akan dikenakan sanksi**: soda diet akan diturunkan peringkatnya dari B ke antara C dan E. Air tetap minuman yang direkomendasikan.",
+    "guide_nutriscore_v2_why_v2_arg3_title": "Garam dan gula dikenai sanksi",
+    "guide_nutriscore_v2_why_v2_arg3_text": "Produk yang **terlalu manis** atau **terlalu asin** akan makin mengalami *penurunan peringkat**.",
+    "guide_nutriscore_v2_why_v2_arg4_title": "Hierarki minyak dan ikan",
+    "guide_nutriscore_v2_why_v2_arg4_text": "Peringkat **ikan berlemak** tertentu dan **minyak kaya lemak baik** akan diperbaiki.",
+    "guide_nutriscore_v2_why_v2_arg5_title": "Pembatasan daging merah",
+    "guide_nutriscore_v2_why_v2_arg5_text": "Konsumsi **daging merah sebaiknya dibatasi**. Oleh karena itu, **unggas akan diberi peringkat yang relatif lebih baik**.",
+    "guide_nutriscore_v2_new_logo_title": "Bagaimana membedakan perhitungan Nutri-Score lama dan baru?",
+    "guide_nutriscore_v2_new_logo_text": "Mulai saat ini, logo dapat menampilkan penyebutan \"**Perhitungan baru**\" untuk memperjelas bahwa ini merupakan perhitungan baru.",
+    "guide_nutriscore_v2_new_logo_image_caption": "Logo baru Nutri-Score",
+    "guide_nutriscore_v2_where_title": "Di mana dapat ditemukan perhitungan NutriScore baru?",
+    "guide_nutriscore_v2_where_paragraph1": "Nutri-Score diterapkan di beberapa negara: Jerman, Belgia, Spanyol, Prancis, Luksemburg, Belanda, dan Swiss.",
+    "guide_nutriscore_v2_where_paragraph2": "Produsen memiliki waktu paling lambat hingga **2026** **untuk mengganti** perhitungan lama dengan yang baru.",
+    "guide_nutriscore_v2_where_paragraph3": "Tanpa perlu menunggu, Anda **akan langsung menemukan di dalam aplikasi OpenFoodFacts**, perhitungan baru, termasuk jika produsen belum memperbarui skor.",
+    "guide_nutriscore_v2_unchanged_title": "Apa yang tidak berubah",
+    "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score merupakan skor yang dirancang untuk **mengukur kualitas nutrisi**. Ini **melengkapi klasifikasi grup NOVA** untuk **makanan ultra proses** (yang juga ada di dalam aplikasi).",
+    "guide_nutriscore_v2_unchanged_paragraph2": "Bagi produsen, tampilan Nutri-Score **tetap opsional**.",
+    "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/guide/nutriscore-v2",
+    "guide_nutriscore_v2_share_message": "",
+    "@guide_nutriscore_v2_share_message": {
+        "description": "Please let empty for now (maybe use in the future)"
     }
 }

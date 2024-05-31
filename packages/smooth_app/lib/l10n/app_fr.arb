@@ -764,6 +764,16 @@
     "@could_not_refresh": {
         "description": "The product data couldn't be refreshed"
     },
+    "product_internet_error_modal_title": "An error has occurred!",
+    "product_internet_error_modal_message": "We are unable to fetch information about this product due to a network error. Please check your internet connection and try again.\n\nInternal error:\n{error}",
+    "@product_internet_error_modal_message": {
+        "placeholders": {
+            "error": {
+                "type": "String",
+                "description": "The error message"
+            }
+        }
+    },
     "product_internet_error": "Impossible de récupérer les informations sur ce produit en raison d'une erreur réseau.",
     "cached_results_from": "Résultats mis en cache depuis :",
     "@cached_results_from": {
@@ -1679,7 +1689,7 @@
     "prices_amount_subtitle": "Montant",
     "prices_amount_is_discounted": "En promotion ?",
     "prices_amount_price_normal": "Prix",
-    "prices_amount_price_discounted": "Prix en promotion",
+    "prices_amount_price_discounted": "Prix en promo",
     "prices_amount_price_not_discounted": "Prix d'origine",
     "prices_amount_price_incorrect": "Valeur incorrecte",
     "prices_amount_price_mandatory": "Valeur obligatoire",
@@ -2642,5 +2652,59 @@
                 "type": "String"
             }
         }
+    },
+    "guide_title": "Guide",
+    "@guide_title": {
+        "description": "A title for a guide"
+    },
+    "guide_share_label": "Partager",
+    "guide_nutriscore_v2_enabled": "true",
+    "@guide_nutriscore_v2_enabled": {
+        "description": "Please NEVER touch this value and let the OFF team change it!"
+    },
+    "guide_nutriscore_v2_title": "Le Nutri-Score change : explications !",
+    "@guide_nutriscore_v2_title": {
+        "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+    },
+    "guide_nutriscore_v2_file_language": "en",
+    "@guide_nutriscore_v2_file_language": {
+        "description": "The logo is only available in de/en/fr/ln/nl. Please use en if not available (in lowercase, please)."
+    },
+    "guide_nutriscore_v2_what_is_nutriscore_title": "Qu'est ce que le Nutri-Score ?",
+    "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "Le Nutri-Score est un logo qui a pour objectif de vous informer sur la **qualité nutritionnelle des aliments**.",
+    "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
+        "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+    },
+    "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "Le code couleur varie en allant du vert foncé (**A**) pour les produits les **plus sains** au rouge foncé (**E**) pour les **moins sains**.",
+    "@guide_nutriscore_v2_what_is_nutriscore_paragraph2": {
+        "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+    },
+    "guide_nutriscore_v2_nutriscore_a_caption": "Le logo Nutri-Score A",
+    "guide_nutriscore_v2_why_v2_title": "Pourquoi le Nutri-Score change-t-il ?",
+    "guide_nutriscore_v2_why_v2_intro": "La formule du Nutri-Score **évolue** pour fournir de meilleures recommandations :",
+    "guide_nutriscore_v2_why_v2_arg1_title": "Mieux évaluer l'ensemble des boissons",
+    "guide_nutriscore_v2_why_v2_arg1_text": "Les notes comparées du **lait**, les **boissons lactées** avec ajout de sucre et **végétales** ont été mieux différenciées dans le nouvel algorithme.",
+    "guide_nutriscore_v2_why_v2_arg2_title": "Un meilleur classement des boissons",
+    "guide_nutriscore_v2_why_v2_arg2_text": "La **teneur en sucres** est mieux prise en compte et avantage les boissons **faiblement sucrées**.\\nLes **édulcorants seront également pénalisés** : les sodas light vont être déclassés pour passer d’une note B à entre C et E. L’eau reste la boisson recommandée.",
+    "guide_nutriscore_v2_why_v2_arg3_title": "Le sel et sucre pénalisés",
+    "guide_nutriscore_v2_why_v2_arg3_text": "Les produits **trop sucrés** ou **trop salés** verront leur **note encore dégradée**.",
+    "guide_nutriscore_v2_why_v2_arg4_title": "Hiérarchisation des huiles et poissons",
+    "guide_nutriscore_v2_why_v2_arg4_text": "La note de certains **poissons gras** et des **huiles riches en bonnes graisses** va s’améliorer.",
+    "guide_nutriscore_v2_why_v2_arg5_title": "Limiter la viande rouge",
+    "guide_nutriscore_v2_why_v2_arg5_text": "La consommation de **viande rouge est à limiter**. C’est pourquoi la **volaille sera comparativement mieux classée**.",
+    "guide_nutriscore_v2_new_logo_title": "Comment différencier ancien Nutri-Score et nouveau calcul ?",
+    "guide_nutriscore_v2_new_logo_text": "Désormais le logo peut arborer une mention \"**Nouveau calcul**\" pour clarifier qu'il s'agit bien du nouveau calcul.",
+    "guide_nutriscore_v2_new_logo_image_caption": "Le logo du nouveau Nutri-Score",
+    "guide_nutriscore_v2_where_title": "Où trouver le nouveau calcul du Nutri-Score ?",
+    "guide_nutriscore_v2_where_paragraph1": "Le Nutri-Score est en application dans plusieurs pays : l'Allemagne, la Belgique, l'Espagne, la France, le Luxembourg, les Pays-Bas et la Suisse.",
+    "guide_nutriscore_v2_where_paragraph2": "Les fabricants ont jusqu'en **2026** au plus tard **pour remplacer** l'ancien calcul par le nouveau.",
+    "guide_nutriscore_v2_where_paragraph3": "Sans attendre, vous **retrouvez déjà dans l'application Open Food Facts**, le nouveau calcul, y compris si les fabriquants n’ont pas mis à jour le score.",
+    "guide_nutriscore_v2_unchanged_title": "Ce qui ne change pas",
+    "guide_nutriscore_v2_unchanged_paragraph1": "Le Nutri-Score est un score conçu pour **mesurer la qualité nutritionnelle**. Il est **complémentaire au groupe NOVA** sur les **aliments ultra-transformés** (également présent dans l'application).",
+    "guide_nutriscore_v2_unchanged_paragraph2": "Pour les fabricants, l'affichage du Nutri-Score **reste optionnel**.",
+    "guide_nutriscore_v2_share_link": "https://fr.openfoodfacts.org/guide/nutriscore-v2",
+    "guide_nutriscore_v2_share_message": "",
+    "@guide_nutriscore_v2_share_message": {
+        "description": "Please let empty for now (maybe use in the future)"
     }
 }
