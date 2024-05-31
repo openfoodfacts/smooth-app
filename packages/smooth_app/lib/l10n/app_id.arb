@@ -1763,6 +1763,10 @@
     "@user_search_to_be_completed_title": {
         "description": "User search (to be completed): list tile title"
     },
+    "user_search_prices_title": "Harga saya",
+    "@user_search_prices_title": {
+        "description": "User prices: list tile title"
+    },
     "all_search_to_be_completed_title": "Semua produk yang akan diselesaikan",
     "@all_search_to_be_completed_title": {
         "description": "All products to be completed: list tile title"
@@ -2691,7 +2695,7 @@
     "guide_nutriscore_v2_new_logo_title": "Bagaimana membedakan perhitungan Nutri-Score lama dan baru?",
     "guide_nutriscore_v2_new_logo_text": "Mulai saat ini, logo dapat menampilkan penyebutan \"**Perhitungan baru**\" untuk memperjelas bahwa ini merupakan perhitungan baru.",
     "guide_nutriscore_v2_new_logo_image_caption": "Logo baru Nutri-Score",
-    "guide_nutriscore_v2_where_title": "Di mana dapat ditemukan perhitungan NutriScore baru?",
+    "guide_nutriscore_v2_where_title": "Where to find the new Nutri-Score calculation?",
     "guide_nutriscore_v2_where_paragraph1": "Nutri-Score diterapkan di beberapa negara: Jerman, Belgia, Spanyol, Prancis, Luksemburg, Belanda, dan Swiss.",
     "guide_nutriscore_v2_where_paragraph2": "Produsen memiliki waktu paling lambat hingga **2026** **untuk mengganti** perhitungan lama dengan yang baru.",
     "guide_nutriscore_v2_where_paragraph3": "Tanpa perlu menunggu, Anda **akan langsung menemukan di dalam aplikasi OpenFoodFacts**, perhitungan baru, termasuk jika produsen belum memperbarui skor.",
