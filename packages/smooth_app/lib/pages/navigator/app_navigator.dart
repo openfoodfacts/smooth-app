@@ -19,6 +19,7 @@ import 'package:smooth_app/pages/product/new_product_page.dart';
 import 'package:smooth_app/pages/product/product_loader_page.dart';
 import 'package:smooth_app/pages/scan/search_page.dart';
 import 'package:smooth_app/pages/scan/search_product_helper.dart';
+import 'package:smooth_app/pages/user_management/sign_up_page.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 /// A replacement for the [Navigator], where we internally use [GoRouter].
@@ -227,6 +228,10 @@ class _SmoothGoRouter {
                 return ExternalPage(path: state.uri.queryParameters['path']!);
               },
             ),
+            GoRoute(
+              path: _InternalAppRoutes.SIGNUP_PAGE,
+              builder:(_, __) => const SignUpPage(),
+              )
           ],
         ),
       ],
@@ -387,6 +392,7 @@ class _InternalAppRoutes {
   static const String PREFERENCES_PAGE = '_preferences';
   static const String SEARCH_PAGE = '_search';
   static const String EXTERNAL_PAGE = '_external';
+  static const String SIGNUP_PAGE = '_signup';
 
   static const String _GUIDES = '_guides';
   static const String GUIDE_NUTRISCORE_V2_PAGE = '_nutriscore-v2';
