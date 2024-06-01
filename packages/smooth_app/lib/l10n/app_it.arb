@@ -740,7 +740,7 @@
     "@view_more_photo_button": {},
     "no_product_found": "Nessun prodotto trovato",
     "@no_product_found": {},
-    "no_location_found": "No location found",
+    "no_location_found": "Nessuna posizione individuata",
     "not_found": "non trovato:",
     "searchPanelHeader": "Cerca o scansiona il tuo primo prodotto",
     "@Product query status": {},
@@ -764,8 +764,8 @@
     "@could_not_refresh": {
         "description": "The product data couldn't be refreshed"
     },
-    "product_internet_error_modal_title": "An error has occurred!",
-    "product_internet_error_modal_message": "We are unable to fetch information about this product due to a network error. Please check your internet connection and try again.\n\nInternal error:\n{error}",
+    "product_internet_error_modal_title": "C'è stato un errore!",
+    "product_internet_error_modal_message": "Non riusciamo a raccogliere informazioni sul prodotto a causa di un errore di rete. La preghiamo di controllare la connessione a internet e riprovare.\n\nErrore interno: \n{error}",
     "@product_internet_error_modal_message": {
         "placeholders": {
             "error": {
@@ -1663,8 +1663,8 @@
     "prices_app_button": "Vai all'app Prezzi",
     "prices_generic_title": "Prezzi",
     "prices_add_a_price": "Aggiungi un prezzo",
-    "prices_send_the_price": "Send the price",
-    "prices_view_prices": "View the prices",
+    "prices_send_the_price": "Invia il prezzo",
+    "prices_view_prices": "Guarda i prezzi",
     "prices_list_length_one_page": "{count,plural, =0{Ancora nessun prezzo} =1{Solo un prezzo} other{Tutti i {count} prezzi}}",
     "@prices_list_length_one_page": {
         "description": "Number of prices for one-page result",
@@ -1686,18 +1686,18 @@
             }
         }
     },
-    "prices_amount_subtitle": "Amount",
-    "prices_amount_is_discounted": "Is discounted?",
+    "prices_amount_subtitle": "Quantità",
+    "prices_amount_is_discounted": "È scontato?",
     "prices_amount_price_normal": "Prezzo",
     "prices_amount_price_discounted": "Prezzo scontato",
     "prices_amount_price_not_discounted": "Prezzo originale",
-    "prices_amount_price_incorrect": "Incorrect value",
-    "prices_amount_price_mandatory": "Mandatory value",
+    "prices_amount_price_incorrect": "Valore scorretto",
+    "prices_amount_price_mandatory": "Valore obbligatorio",
     "prices_currency_subtitle": "Moneta",
     "prices_date_subtitle": "Data",
-    "prices_location_subtitle": "Shop",
-    "prices_location_find": "Find a shop",
-    "prices_location_mandatory": "You need to select a shop!",
+    "prices_location_subtitle": "Negozio",
+    "prices_location_find": "Trova un negozio",
+    "prices_location_mandatory": "Devi selezionare un negozio!",
     "prices_proof_subtitle": "Prova",
     "prices_proof_find": "Select a proof",
     "prices_proof_receipt": "Ricevuta",
