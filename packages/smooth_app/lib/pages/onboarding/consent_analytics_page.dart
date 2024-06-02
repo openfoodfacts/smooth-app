@@ -20,7 +20,7 @@ class ConsentAnalyticsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Size screenSize = MediaQuery.of(context).size;
+    final Size screenSize = MediaQuery.sizeOf(context);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return ColoredBox(
       color: backgroundColor,

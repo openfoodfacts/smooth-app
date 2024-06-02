@@ -203,7 +203,7 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
   }
 
   double _computeViewPortFraction() {
-    final double screenWidth = MediaQuery.of(context).size.width;
+    final double screenWidth = MediaQuery.sizeOf(context).width;
     return (screenWidth -
             (SmoothBarcodeScannerVisor.CORNER_PADDING * 2) -
             (SmoothBarcodeScannerVisor.STROKE_WIDTH * 2) +

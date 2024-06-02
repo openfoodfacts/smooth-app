@@ -87,7 +87,7 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final Size size = MediaQuery.of(context).size;
+    final Size size = MediaQuery.sizeOf(context);
 
     return SmoothScaffold(
       statusBarBackgroundColor: SmoothScaffold.semiTranslucentStatusBar,
@@ -121,7 +121,7 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                     children: <Widget>[
                       SvgPicture.asset(
                         'assets/preferences/login.svg',
-                        height: MediaQuery.of(context).size.height * .15,
+                        height: MediaQuery.sizeOf(context).height * .15,
                         package: AppHelper.APP_PACKAGE,
                       ),
                       Text(

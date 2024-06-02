@@ -104,7 +104,7 @@ class _CompareProducts3PageState extends State<CompareProducts3Page> {
     final List<String> brands = <String>[];
     final List<String> quantities = <String>[];
     final List<Widget> pictures = <Widget>[];
-    final Size screenSize = MediaQuery.of(context).size;
+    final Size screenSize = MediaQuery.sizeOf(context);
     for (final Product product in widget.products) {
       names.add(getProductName(product, appLocalizations));
       brands.add(getProductBrands(product, appLocalizations));

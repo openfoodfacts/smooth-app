@@ -239,7 +239,7 @@ class UserPreferencesFaq extends AbstractUserPreferences {
                 children: <Widget>[
                   SvgPicture.asset(
                     logo,
-                    width: MediaQuery.of(context).size.width * 0.1,
+                    width: MediaQuery.sizeOf(context).width * 0.1,
                     package: AppHelper.APP_PACKAGE,
                   ),
                   const SizedBox(width: SMALL_SPACE),
@@ -320,7 +320,7 @@ class UserPreferencesFaq extends AbstractUserPreferences {
                           applicationVersion: packageInfo.version,
                           applicationIcon: SvgPicture.asset(
                             logo,
-                            height: MediaQuery.of(context).size.height * 0.1,
+                            height: MediaQuery.sizeOf(context).height * 0.1,
                           ),
                         ),
                         label: appLocalizations.licenses,

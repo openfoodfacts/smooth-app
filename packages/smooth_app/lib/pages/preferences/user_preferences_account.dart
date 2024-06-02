@@ -97,7 +97,7 @@ class UserPreferencesAccount extends AbstractUserPreferences {
       return null;
     }
     final ThemeData theme = Theme.of(context);
-    final Size size = MediaQuery.of(context).size;
+    final Size size = MediaQuery.sizeOf(context);
     return Container(
       margin: EdgeInsets.only(
         left: size.width / 4,
@@ -131,7 +131,7 @@ class UserPreferencesAccount extends AbstractUserPreferences {
   List<UserPreferencesItem> getChildren() {
     if (OpenFoodAPIConfiguration.globalUser == null) {
       // No credentials
-      final Size size = MediaQuery.of(context).size;
+      final Size size = MediaQuery.sizeOf(context);
       return <UserPreferencesItem>[
         UserPreferencesItemSimple(
           labels: <String>[appLocalizations.sign_in],

@@ -169,7 +169,7 @@ class AddNewProductScoreIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     final String url = iconUrl ?? defaultIconUrl;
     final String fileName = Uri.parse(url).pathSegments.last;
-    final double height = MediaQuery.of(context).size.height * .2;
+    final double height = MediaQuery.sizeOf(context).height * .2;
 
     if (fileName.startsWith('nutriscore')) {
       return _AddNewProductNutriScoreIcon(

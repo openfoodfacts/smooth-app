@@ -103,8 +103,7 @@ class _KnowledgePanelPageTemplateState
                             children: <Widget>[
                               SvgPicture.asset(
                                 widget.svgAsset,
-                                height:
-                                    MediaQuery.of(context).size.height * .25,
+                                height: MediaQuery.sizeOf(context).height * .25,
                                 package: AppHelper.APP_PACKAGE,
                               ),
                               Padding(
