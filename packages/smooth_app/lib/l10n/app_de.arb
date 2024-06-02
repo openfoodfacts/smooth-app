@@ -1767,7 +1767,7 @@
     "@user_search_prices_title": {
         "description": "User prices: list tile title"
     },
-    "all_search_prices_latest_title": "Latest Prices added",
+    "all_search_prices_latest_title": "Neueste Preise hinzugefügt",
     "@all_search_prices_latest_title": {
         "description": "Latest prices: list tile title"
     },
@@ -1775,11 +1775,11 @@
     "@all_search_prices_top_user_title": {
         "description": "Top price users: list tile title"
     },
-    "all_search_prices_top_location_title": "Stores with the most prices",
+    "all_search_prices_top_location_title": "Läden mit den meisten Preisen",
     "@all_search_prices_top_location_title": {
         "description": "Top price locations: list tile title"
     },
-    "all_search_prices_top_product_title": "Products with the most prices",
+    "all_search_prices_top_product_title": "Produkte mit den meisten Preisen",
     "@all_search_prices_top_product_title": {
         "description": "Top price products: list tile title"
     },
