@@ -210,20 +210,26 @@ class UserPreferencesAccount extends AbstractUserPreferences {
         localDatabase: localDatabase,
         myCount: _getMyCount(UserSearchType.TO_BE_COMPLETED),
       ),
-      _getListTile(
+      _getPriceListTile(
         appLocalizations.user_search_prices_title,
-        () async {
-          final UriProductHelper uriProductHelper =
-              ProductQuery.uriProductHelper;
-          final Uri uri = Uri(
-            scheme: uriProductHelper.scheme,
-            host: uriProductHelper.getHost('prices'),
-            path: 'app/dashboard/prices',
-          );
-          return LaunchUrlHelper.launchURL(uri.toString());
-        },
-        Icons.open_in_new,
+        'app/dashboard/prices',
         myCount: _getMyPricesCount(),
+      ),
+      _getPriceListTile(
+        appLocalizations.all_search_prices_latest_title,
+        'app/prices',
+      ),
+      _getPriceListTile(
+        appLocalizations.all_search_prices_top_user_title,
+        'app/users',
+      ),
+      _getPriceListTile(
+        appLocalizations.all_search_prices_top_location_title,
+        'app/locations',
+      ),
+      _getPriceListTile(
+        appLocalizations.all_search_prices_top_product_title,
+        'app/products',
       ),
       _buildProductQueryTile(
         productQuery: PagedToBeCompletedProductQuery(),
@@ -274,6 +280,28 @@ class UserPreferencesAccount extends AbstractUserPreferences {
         Icons.clear,
       ),
     ];
+  }
+
+  UserPreferencesItem _getPriceListTile(
+    final String title,
+    final String path, {
+    final Future<int?>? myCount,
+  }) =>
+      _getListTile(
+        title,
+        () async => LaunchUrlHelper.launchURL(_getPriceUrl(path)),
+        Icons.open_in_new,
+        myCount: myCount,
+      );
+
+  String _getPriceUrl(final String path) {
+    final UriProductHelper uriProductHelper = ProductQuery.uriProductHelper;
+    final Uri uri = Uri(
+      scheme: uriProductHelper.scheme,
+      host: uriProductHelper.getHost('prices'),
+      path: path,
+    );
+    return uri.toString();
   }
 
   Future<bool?> _confirmLogout() async => showDialog<bool>(
