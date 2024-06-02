@@ -7,10 +7,10 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/database/dao_int.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/widgets/images/smooth_image.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/pages/crop_page.dart';
 import 'package:smooth_app/pages/crop_parameters.dart';
+import 'package:smooth_app/pages/image/product_image_widget.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product_crop_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
@@ -39,7 +39,7 @@ class UploadedImageGallery extends StatelessWidget {
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final MediaQueryData mediaQueryData = MediaQuery.of(context);
-    final double columnWidth = mediaQueryData.size.width * .45;
+    final double columnWidth = mediaQueryData.size.width / 2;
     return SmoothScaffold(
       backgroundColor: Colors.black,
       appBar: SmoothAppBar(
@@ -54,20 +54,13 @@ class UploadedImageGallery extends StatelessWidget {
       body: GridView.builder(
         itemCount: rawImages.length,
         gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-          maxCrossAxisExtent: mediaQueryData.size.width / 2,
+          maxCrossAxisExtent: columnWidth,
           childAspectRatio: 1,
-          mainAxisSpacing: MEDIUM_SPACE,
-          crossAxisSpacing: MEDIUM_SPACE,
         ),
         itemBuilder: (final BuildContext context, int index) {
           // order by descending ids
           index = rawImages.length - 1 - index;
           final ProductImage rawImage = rawImages[index];
-          final String url = rawImage.getUrl(
-            barcode,
-            imageSize: ImageSize.DISPLAY,
-            uriHelper: ProductQuery.uriProductHelper,
-          );
           return GestureDetector(
             onTap: () async {
               final LocalDatabase localDatabase = context.read<LocalDatabase>();
@@ -105,19 +98,10 @@ class UploadedImageGallery extends StatelessWidget {
                 navigatorState.pop();
               }
             },
-            child: ClipRRect(
-              borderRadius: ROUNDED_BORDER_RADIUS,
-              child: Container(
-                width: columnWidth,
-                height: columnWidth,
-                color: Colors.grey[900],
-                child: SmoothImage(
-                  width: columnWidth,
-                  height: columnWidth,
-                  imageProvider: NetworkImage(url),
-                  fit: BoxFit.contain,
-                ),
-              ),
+            child: ProductImageWidget(
+              productImage: rawImage,
+              barcode: barcode,
+              squareSize: columnWidth,
             ),
           );
         },
