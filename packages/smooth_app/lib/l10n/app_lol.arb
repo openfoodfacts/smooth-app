@@ -1767,6 +1767,22 @@
     "@user_search_prices_title": {
         "description": "User prices: list tile title"
     },
+    "all_search_prices_latest_title": "crwdns248734:0crwdne248734:0",
+    "@all_search_prices_latest_title": {
+        "description": "Latest prices: list tile title"
+    },
+    "all_search_prices_top_user_title": "crwdns248736:0crwdne248736:0",
+    "@all_search_prices_top_user_title": {
+        "description": "Top price users: list tile title"
+    },
+    "all_search_prices_top_location_title": "crwdns248738:0crwdne248738:0",
+    "@all_search_prices_top_location_title": {
+        "description": "Top price locations: list tile title"
+    },
+    "all_search_prices_top_product_title": "crwdns248740:0crwdne248740:0",
+    "@all_search_prices_top_product_title": {
+        "description": "Top price products: list tile title"
+    },
     "all_search_to_be_completed_title": "crwdns221639:0crwdne221639:0",
     "@all_search_to_be_completed_title": {
         "description": "All products to be completed: list tile title"
