@@ -40,6 +40,7 @@ class SmoothTheme {
 
     return ThemeData(
       useMaterial3: false,
+      fontFamily: 'OpenSans',
       primaryColor: DARK_BROWN_COLOR,
       extensions: <SmoothColorsThemeExtension>[
         SmoothColorsThemeExtension.defaultValues(),
