@@ -35,7 +35,7 @@ class SmoothProductCardFound extends StatelessWidget {
     final UserPreferences userPreferences = context.watch<UserPreferences>();
     final ProductPreferences productPreferences =
         context.watch<ProductPreferences>();
-    final Size screenSize = MediaQuery.of(context).size;
+    final Size screenSize = MediaQuery.sizeOf(context);
     final ThemeData themeData = Theme.of(context);
     final bool isDarkMode = themeData.colorScheme.brightness == Brightness.dark;
     final List<String> excludedAttributeIds =

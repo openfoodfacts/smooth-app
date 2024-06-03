@@ -22,7 +22,7 @@ class RankingFloatingActionButton extends StatelessWidget {
         child: Container(
           height: MINIMUM_TOUCH_SIZE,
           margin:
-              EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.09),
+              EdgeInsets.only(left: MediaQuery.sizeOf(context).width * 0.09),
           alignment: Alignment.center,
           child: SizedBox(
             height: MINIMUM_TOUCH_SIZE,

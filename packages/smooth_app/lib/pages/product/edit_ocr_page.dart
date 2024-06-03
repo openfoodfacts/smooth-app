@@ -156,7 +156,7 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
       );
 
   Widget _getImageWidget(final TransientFile transientFile) {
-    final Size size = MediaQuery.of(context).size;
+    final Size size = MediaQuery.sizeOf(context);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final ImageProvider? imageProvider = transientFile.getImageProvider();
 

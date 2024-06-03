@@ -96,7 +96,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final Size screenSize = MediaQuery.of(context).size;
+    final Size screenSize = MediaQuery.sizeOf(context);
     final ThemeData themeData = Theme.of(context);
 
     return ChangeNotifierProvider<ProductQueryModel>.value(
@@ -264,7 +264,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
                     return const Center(child: CircularProgressIndicator());
                   }
                   return SizedBox(
-                    height: MediaQuery.of(context).size.height / 4,
+                    height: MediaQuery.sizeOf(context).height / 4,
                   );
                 }
                 return ProductListItemSimple(

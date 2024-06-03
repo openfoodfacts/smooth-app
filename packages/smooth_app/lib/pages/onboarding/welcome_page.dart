@@ -22,7 +22,7 @@ class WelcomePage extends StatelessWidget {
     final ThemeData theme = Theme.of(context);
     final TextStyle headlineStyle = theme.textTheme.displayMedium!.wellSpaced;
     final TextStyle bodyTextStyle = theme.textTheme.bodyLarge!.wellSpaced;
-    final Size screenSize = MediaQuery.of(context).size;
+    final Size screenSize = MediaQuery.sizeOf(context);
 
     return SmoothScaffold(
       backgroundColor: backgroundColor,

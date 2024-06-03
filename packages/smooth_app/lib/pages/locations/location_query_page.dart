@@ -44,7 +44,7 @@ class _LocationQueryPageState extends State<LocationQueryPage>
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final Size screenSize = MediaQuery.of(context).size;
+    final Size screenSize = MediaQuery.sizeOf(context);
     final ThemeData themeData = Theme.of(context);
 
     return ChangeNotifierProvider<LocationQueryModel>.value(

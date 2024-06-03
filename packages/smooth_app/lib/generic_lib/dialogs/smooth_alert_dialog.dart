@@ -670,9 +670,9 @@ class SmoothListAlertDialog extends StatelessWidget {
         vertical: SMALL_SPACE,
       ),
       body: SizedBox(
-        height: MediaQuery.of(context).size.height /
+        height: MediaQuery.sizeOf(context).height /
             (context.keyboardVisible ? 1.0 : 1.5),
-        width: MediaQuery.of(context).size.width,
+        width: MediaQuery.sizeOf(context).width,
         child: Column(
           children: <Widget>[
             Container(

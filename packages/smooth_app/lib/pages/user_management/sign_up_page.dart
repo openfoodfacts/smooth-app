@@ -53,7 +53,7 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final Size size = MediaQuery.of(context).size;
+    final Size size = MediaQuery.sizeOf(context);
 
     Color getCheckBoxColor(Set<MaterialState> states) {
       const Set<MaterialState> interactiveStates = <MaterialState>{

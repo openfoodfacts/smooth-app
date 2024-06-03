@@ -52,7 +52,7 @@ class _AddOtherDetailsPageState extends State<AddOtherDetailsPage> {
 
   @override
   Widget build(BuildContext context) {
-    final Size size = MediaQuery.of(context).size;
+    final Size size = MediaQuery.sizeOf(context);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return WillPopScope2(
       onWillPop: () async => (await _mayExitPage(saving: false), null),

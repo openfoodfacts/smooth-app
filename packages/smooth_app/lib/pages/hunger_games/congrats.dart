@@ -167,7 +167,7 @@ class _Header extends StatelessWidget {
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final double multiplier =
-        math.min(350, MediaQuery.of(context).size.height * 0.3) / 235;
+        math.min(350, MediaQuery.sizeOf(context).height * 0.3) / 235;
 
     return Semantics(
       enabled: true,
