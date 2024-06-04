@@ -1771,7 +1771,7 @@
     "@all_search_prices_latest_title": {
         "description": "Latest prices: list tile title"
     },
-    "all_search_prices_top_user_title": "Top price contributors",
+    "all_search_prices_top_user_title": "Aktivste Preis-Mitwirkende",
     "@all_search_prices_top_user_title": {
         "description": "Top price users: list tile title"
     },
