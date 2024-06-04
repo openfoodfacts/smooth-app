@@ -283,6 +283,8 @@ class _SmoothGoRouter {
             return AppRoutes.HOME;
           } else if (path == _ExternalRoutes.GUIDE_NUTRISCORE_V2) {
             return AppRoutes.GUIDE_NUTRISCORE_V2;
+          } else if (path == _ExternalRoutes.SIGNUP) {
+            return AppRoutes.SIGNUP;
           } else if (path != _InternalAppRoutes.HOME_PAGE) {
             externalLink = true;
           }
@@ -402,6 +404,7 @@ class _ExternalRoutes {
   static const String MOBILE_APP_DOWNLOAD = '/open-food-facts-mobile-app';
   static const String PRODUCT_EDITION = '/cgi/product.pl';
   static const String GUIDE_NUTRISCORE_V2 = '/nutriscore-v2';
+  static const String SIGNUP = '/signup';
 }
 
 /// A list of internal routes to use with [AppNavigator]
@@ -446,6 +449,7 @@ class AppRoutes {
   static String get GUIDE_NUTRISCORE_V2 =>
       '/${_InternalAppRoutes._GUIDES}/${_InternalAppRoutes.GUIDE_NUTRISCORE_V2_PAGE}';
 
+  static String get SIGNUP => '/${_InternalAppRoutes.SIGNUP_PAGE}';
   // Open an external link (where path is relative to the OFF website)
   static String EXTERNAL(String path) =>
       '/${_InternalAppRoutes.EXTERNAL_PAGE}/?path=$path';
