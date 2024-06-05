@@ -60,7 +60,7 @@ class ProductDialogHelper {
   void _openProductNotFoundDialog() => showDialog<Widget>(
       context: context,
       builder: (BuildContext context) {
-        final double availableWidth = MediaQuery.of(context).size.width -
+        final double availableWidth = MediaQuery.sizeOf(context).width -
             SmoothAlertDialog.defaultMargin.horizontal -
             SmoothAlertDialog.defaultContentPadding(context).horizontal;
 

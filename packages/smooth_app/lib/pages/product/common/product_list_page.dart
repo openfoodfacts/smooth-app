@@ -261,7 +261,7 @@ class _ProductListPageState extends State<ProductListPage>
                     SvgPicture.asset(
                       'assets/misc/empty-list.svg',
                       package: AppHelper.APP_PACKAGE,
-                      width: MediaQuery.of(context).size.width / 2,
+                      width: MediaQuery.sizeOf(context).width / 2,
                     ),
                     Text(
                       appLocalizations.product_list_empty_message,

@@ -88,7 +88,7 @@ class UserPreferencesContribute extends AbstractUserPreferences {
         _getListTile(
           appLocalizations.contribute_join_skill_pool,
           () async => LaunchUrlHelper.launchURL(
-            'https://docs.google.com/forms/d/e/1FAIpQLSfGHAn5KxW7ko3_GlDfQpVGKpPAMHMbDvY2IjtxfJSXxKJQ2A/viewform?usp=sf_link',
+            'https://connect.openfoodfacts.org/join-the-contributor-skill-pool-open-food-facts',
           ),
           Icons.group,
           externalLink: true,

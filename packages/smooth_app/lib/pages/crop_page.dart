@@ -141,7 +141,7 @@ class _CropPageState extends State<CropPage> {
 
   @override
   Widget build(final BuildContext context) {
-    _screenSize = MediaQuery.of(context).size;
+    _screenSize = MediaQuery.sizeOf(context);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return WillPopScope2(
       onWillPop: _onWillPop,

@@ -386,7 +386,7 @@ class _ProductBarcodeState extends State<_ProductBarcode> {
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final Brightness brightness = Theme.of(context).brightness;
-    final Size screenSize = MediaQuery.of(context).size;
+    final Size screenSize = MediaQuery.sizeOf(context);
 
     return BarcodeWidget(
       padding: EdgeInsets.symmetric(

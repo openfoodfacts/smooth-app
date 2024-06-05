@@ -30,7 +30,7 @@ class AttributeButton extends StatelessWidget {
         productPreferences.getImportanceIdForAttributeId(attribute.id!);
     const double horizontalPadding = LARGE_SPACE;
     final double widgetWidth =
-        MediaQuery.of(context).size.width - 2 * horizontalPadding;
+        MediaQuery.sizeOf(context).width - 2 * horizontalPadding;
     final double importanceWidth = widgetWidth / 4;
     final TextStyle style = themeData.textTheme.headlineMedium!;
     final String? info = attribute.settingNote;
