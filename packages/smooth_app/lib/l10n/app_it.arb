@@ -764,8 +764,8 @@
     "@could_not_refresh": {
         "description": "The product data couldn't be refreshed"
     },
-    "product_internet_error_modal_title": "C'è stato un errore!",
-    "product_internet_error_modal_message": "Non riusciamo a raccogliere informazioni sul prodotto a causa di un errore di rete. La preghiamo di controllare la connessione a internet e riprovare.\n\nErrore interno: \n{error}",
+    "product_internet_error_modal_title": "Si è verificato un errore!",
+    "product_internet_error_modal_message": "Non siamo in grado di recuperare informazioni su questo prodotto a causa di un errore di rete. Controlla la tua connessione internet e riprova.\n\nErrore interno:\n{error}",
     "@product_internet_error_modal_message": {
         "placeholders": {
             "error": {
@@ -1699,11 +1699,11 @@
     "prices_location_find": "Trova un negozio",
     "prices_location_mandatory": "Devi selezionare un negozio!",
     "prices_proof_subtitle": "Prova",
-    "prices_proof_find": "Select a proof",
+    "prices_proof_find": "Seleziona una prova",
     "prices_proof_receipt": "Ricevuta",
     "prices_proof_price_tag": "Etichetta del prezzo",
-    "prices_proof_mandatory": "You need to select a proof!",
-    "prices_add_validation_error": "Validation error",
+    "prices_proof_mandatory": "Devi selezionare una prova!",
+    "prices_add_validation_error": "Errore di validazione",
     "dev_preferences_import_history_result_success": "Fatto",
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"
@@ -1767,19 +1767,19 @@
     "@user_search_prices_title": {
         "description": "User prices: list tile title"
     },
-    "all_search_prices_latest_title": "Latest Prices added",
+    "all_search_prices_latest_title": "Ultimi prezzi aggiunti",
     "@all_search_prices_latest_title": {
         "description": "Latest prices: list tile title"
     },
-    "all_search_prices_top_user_title": "Top price contributors",
+    "all_search_prices_top_user_title": "Collaboratori principali prezzi",
     "@all_search_prices_top_user_title": {
         "description": "Top price users: list tile title"
     },
-    "all_search_prices_top_location_title": "Stores with the most prices",
+    "all_search_prices_top_location_title": "Negozi con più prezzi",
     "@all_search_prices_top_location_title": {
         "description": "Top price locations: list tile title"
     },
-    "all_search_prices_top_product_title": "Products with the most prices",
+    "all_search_prices_top_product_title": "Prodotti con più prezzi",
     "@all_search_prices_top_product_title": {
         "description": "Top price products: list tile title"
     },
@@ -2049,7 +2049,7 @@
     "@image_upload_queued": {
         "description": "Message when a photo is queued for upload"
     },
-    "add_price_queued": "The price will be sent to the server as soon as possible.",
+    "add_price_queued": "Il prezzo verrà inviato al server il prima possibile.",
     "@add_price_queued": {
         "description": "Message when an added price is queued for the server"
     },
@@ -2606,7 +2606,7 @@
             }
         }
     },
-    "nutriscore_new_formula_title": "Nutri-Score (New calculation)",
+    "nutriscore_new_formula_title": "Nutri-Score (Nuovo calcolo)",
     "nutriscore_unknown": "Nutri-Score Sconosciuto",
     "nutriscore_unknown_new_formula": "Nutri-Score sconosciuto (Nuovo calcolo)",
     "nutriscore_not_applicable": "Nutri-Score non applicabile",
