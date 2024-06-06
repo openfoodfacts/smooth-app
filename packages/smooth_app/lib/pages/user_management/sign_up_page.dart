@@ -47,21 +47,9 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
   bool _subscribe = false;
   bool _disagreed = false;
 
-  late UserPreferences _userPreferences;
-
   @override
   String get actionName => 'Opened sign_up_page';
   
-  @override
-  void initState() {
-  super.initState();
-  getUserPreferences();
-  }
-
-  Future<void> getUserPreferences() async {
-    _userPreferences = await UserPreferences.getUserPreferences();
-  }
-
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
@@ -425,8 +413,8 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
     if (!mounted) {
       return;
     }
-    debugPrint('Reseting Onboarding');
-    _userPreferences.resetOnboarding();
+    final UserPreferences userPreferences = await UserPreferences.getUserPreferences();
+    userPreferences.resetOnboarding();
     await showDialog<void>(
       context: context,
       builder: (BuildContext context) => SmoothAlertDialog(
