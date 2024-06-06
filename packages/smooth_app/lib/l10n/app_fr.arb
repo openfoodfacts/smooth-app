@@ -566,7 +566,7 @@
     "@new_product_dialog_description": {
         "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
     },
-    "new_product_dialog_illustration_description": "An illustration with unknown Nutri-Score and Eco-Score",
+    "new_product_dialog_illustration_description": "Une illustration avec un Nutri-Score et un Eco-Score inconnus",
     "@new_product_dialog_illustration_description": {
         "description": "A description for accessibility of two images side by side: a Nutri-Score and an EcoScore."
     },
@@ -764,8 +764,8 @@
     "@could_not_refresh": {
         "description": "The product data couldn't be refreshed"
     },
-    "product_internet_error_modal_title": "An error has occurred!",
-    "product_internet_error_modal_message": "We are unable to fetch information about this product due to a network error. Please check your internet connection and try again.\n\nInternal error:\n{error}",
+    "product_internet_error_modal_title": "Une erreur est survenue !",
+    "product_internet_error_modal_message": "Nous ne parvenons pas à récupérer des informations sur ce produit en raison d'une erreur réseau. Veuillez vérifier votre connexion internet et réessayer.\n\nErreur interne :\n{error}",
     "@product_internet_error_modal_message": {
         "placeholders": {
             "error": {
@@ -818,11 +818,11 @@
     "@currency_chooser_label": {
         "description": "Label shown above a selector where the user can select their currency (in the preferences)"
     },
-    "country_change_message": "You have just changed countries.",
+    "country_change_message": "Vous venez de changer de pays.",
     "@country_change_message": {
         "description": "Message stating the change of countries"
     },
-    "currency_auto_change_message": "Do you want to change the currency from {previousCurrency} to {possibleCurrency}?",
+    "currency_auto_change_message": "Voulez-vous changer la devise de {previousCurrency} à {possibleCurrency}?",
     "@currency_auto_change_message": {
         "description": "Message asking to confirm the change of currencies",
         "placeholders": {
@@ -2597,7 +2597,7 @@
     "nutriscore_c": "Nutri-Score C",
     "nutriscore_d": "Nutri-Score D",
     "nutriscore_e": "Nutri-Score E",
-    "nutriscore_new_formula": "Nutri-Score {letter} (New calculation)",
+    "nutriscore_new_formula": "Nutri-Score {letter} (Nouveau calcul)",
     "@nutriscore_new_formula": {
         "description": "A generic string to define a Nutri-Score V2 with a letter [eg: \"Nutri-Score A (New calculation)\"]",
         "placeholders": {
@@ -2608,9 +2608,9 @@
     },
     "nutriscore_new_formula_title": "Nutri-Score (nouveau calcul)",
     "nutriscore_unknown": "Nutri-Score inconnu",
-    "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
+    "nutriscore_unknown_new_formula": "Nutri-Score inconnu (Nouveau calcul)",
     "nutriscore_not_applicable": "Nutri-Score non applicable",
-    "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
+    "nutriscore_not_applicable_new_formula": "Le Nutri-Score n'est pas applicable (Nouveau calcul)",
     "ecoscore_generic": "Eco-Score",
     "ecoscore_a": "Éco-Score A",
     "ecoscore_b": "Éco-Score B",
@@ -2711,7 +2711,7 @@
     "guide_nutriscore_v2_new_logo_title": "Comment différencier ancien Nutri-Score et nouveau calcul ?",
     "guide_nutriscore_v2_new_logo_text": "Désormais le logo peut arborer une mention \"**Nouveau calcul**\" pour clarifier qu'il s'agit bien du nouveau calcul.",
     "guide_nutriscore_v2_new_logo_image_caption": "Le logo du nouveau Nutri-Score",
-    "guide_nutriscore_v2_where_title": "Où trouver le nouveau calcul du Nutri-Score ?",
+    "guide_nutriscore_v2_where_title": "Where to find the new Nutri-Score calculation?",
     "guide_nutriscore_v2_where_paragraph1": "Le Nutri-Score est en application dans plusieurs pays : l'Allemagne, la Belgique, l'Espagne, la France, le Luxembourg, les Pays-Bas et la Suisse.",
     "guide_nutriscore_v2_where_paragraph2": "Les fabricants ont jusqu'en **2026** au plus tard **pour remplacer** l'ancien calcul par le nouveau.",
     "guide_nutriscore_v2_where_paragraph3": "Sans attendre, vous **retrouvez déjà dans l'application Open Food Facts**, le nouveau calcul, y compris si les fabriquants n’ont pas mis à jour le score.",

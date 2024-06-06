@@ -1665,7 +1665,7 @@
     "prices_add_a_price": "Voeg een prijs toe",
     "prices_send_the_price": "Prijs verzenden",
     "prices_view_prices": "Bekijk de prijzen",
-    "prices_list_length_one_page": "{count,plural, =0{Nog geen prijs} =1{Slechts één prijs} other{Alle {count} prijzen}}",
+    "prices_list_length_one_page": "{count,plural, one {}=0{Nog geen prijs} =1{Slechts één prijs} other{Alle {count} prijzen}}",
     "@prices_list_length_one_page": {
         "description": "Number of prices for one-page result",
         "placeholders": {
@@ -1762,6 +1762,26 @@
     "user_search_to_be_completed_title": "Mijn te voltooien producten",
     "@user_search_to_be_completed_title": {
         "description": "User search (to be completed): list tile title"
+    },
+    "user_search_prices_title": "Mijn prijzen",
+    "@user_search_prices_title": {
+        "description": "User prices: list tile title"
+    },
+    "all_search_prices_latest_title": "Laatst toegevoegde prijzen",
+    "@all_search_prices_latest_title": {
+        "description": "Latest prices: list tile title"
+    },
+    "all_search_prices_top_user_title": "Beste prijsbijdragers",
+    "@all_search_prices_top_user_title": {
+        "description": "Top price users: list tile title"
+    },
+    "all_search_prices_top_location_title": "Winkels met de meeste prijzen",
+    "@all_search_prices_top_location_title": {
+        "description": "Top price locations: list tile title"
+    },
+    "all_search_prices_top_product_title": "Producten met de meeste prijzen",
+    "@all_search_prices_top_product_title": {
+        "description": "Top price products: list tile title"
     },
     "all_search_to_be_completed_title": "Alle te voltooien producten",
     "@all_search_to_be_completed_title": {
@@ -2691,7 +2711,7 @@
     "guide_nutriscore_v2_new_logo_title": "Hoe onderscheid ik de oude Nutri-Score van de nieuwe berekening?",
     "guide_nutriscore_v2_new_logo_text": "From now on, the logo can display a mention \"**New calculation**\" to clarify that this is indeed the new calculation.",
     "guide_nutriscore_v2_new_logo_image_caption": "Het logo van de nieuwe Nutri-Score",
-    "guide_nutriscore_v2_where_title": "Waar vind je de nieuwe NutriScore-berekening?",
+    "guide_nutriscore_v2_where_title": "Waar vind je de nieuwe Nutri-Score berekening?",
     "guide_nutriscore_v2_where_paragraph1": "De Nutri-Score wordt in meerdere landen toegepast: Duitsland, België, Spanje, Frankrijk, Luxemburg, Nederland en Zwitserland.",
     "guide_nutriscore_v2_where_paragraph2": "Fabrikanten hebben tot uiterlijk **2026** de tijd om de oude berekening door de nieuwe te **vervangen**.",
     "guide_nutriscore_v2_where_paragraph3": "Without waiting, you **will already find in the OpenFoodFacts application**, the new calculation, including if the manufacturers have not updated the score.",

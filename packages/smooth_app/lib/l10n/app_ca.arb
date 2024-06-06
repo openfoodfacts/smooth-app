@@ -145,9 +145,9 @@
     "@ecoCardUtility": {
         "description": "Description of what a user can use the Eco data in a product for."
     },
-    "server_error_open_new_issue": "No server response! You may open an issue with the following link.",
+    "server_error_open_new_issue": "No hi ha resposta del servidor! Podeu obrir una incidència amb el següent enllaç.",
     "@user_management": {},
-    "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
+    "sign_in_text": "Inicieu la sessió al vostre compte d'Open Food Facts per desar les vostres contribucions",
     "incorrect_credentials": "Usuari o contrasenya incorrectes.",
     "password_lost_incorrect_credentials": "This email or username doesn't exist. Please check your credentials.",
     "password_lost_server_unavailable": "We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.",
@@ -856,7 +856,7 @@
     "@native_app_settings": {
         "description": "Native App Settings in app settings"
     },
-    "native_app_description": "Open systems settings for Open Food Facts",
+    "native_app_description": "Obre la configuració del sistema per a Open Food Facts",
     "@native_app_description": {
         "description": "Native App description in app settings"
     },
@@ -875,7 +875,7 @@
     "@Lists": {},
     "no_prodcut_in_list": "No hi ha cap producte en aquesta llista",
     "no_product_in_section": "No hi ha cap producte en aquesta secció",
-    "recently_seen_products": "All viewed products",
+    "recently_seen_products": "Tots els productes vistos",
     "clear": "Esborra",
     "@clear": {
         "description": "Clears a product list (short label)"
@@ -949,12 +949,12 @@
     },
     "retry_button_label": "Torna a provar",
     "connect_with_us": "Connecta amb nosaltres",
-    "instagram": "Follow us on Instagram",
+    "instagram": "Segueix-nos a Instagram",
     "instagram_link": "https://instagram.com/open.food.facts",
-    "twitter": "Follow us on X (formerly Twitter)",
+    "twitter": "Segueix-nos a X (abans Twitter)",
     "twitter_link": "https://www.twitter.com/openfoodfacts",
     "blog": "Bloc",
-    "faq": "FAQ",
+    "faq": "PMF",
     "discover": "Descobrir",
     "how_to_contribute": "Com contribuir",
     "hint_knowledge_panel_message": "Podeu fer clic a qualsevol part de la targeta per obtenir més detalls del que veieu. Proveu-ho ara!",
@@ -965,7 +965,7 @@
     "@consent_analytics_title": {
         "description": "Title for the consent analytics UI Page"
     },
-    "consent_analytics_body1": "Help the Open Food Facts volunteers to improve the app. You decide whether to submit anonymous analytics.",
+    "consent_analytics_body1": "Ajudeu als voluntaris d'Open Food Facts a millorar l'aplicació. Decidiu si voleu enviar analítiques anònimes.",
     "@conset_analytics_body1": {
         "description": "first paragraph for the consent analytics UI Page"
     },
@@ -1762,6 +1762,26 @@
     "user_search_to_be_completed_title": "Els meus productes pendents de completar",
     "@user_search_to_be_completed_title": {
         "description": "User search (to be completed): list tile title"
+    },
+    "user_search_prices_title": "My prices",
+    "@user_search_prices_title": {
+        "description": "User prices: list tile title"
+    },
+    "all_search_prices_latest_title": "Latest Prices added",
+    "@all_search_prices_latest_title": {
+        "description": "Latest prices: list tile title"
+    },
+    "all_search_prices_top_user_title": "Top price contributors",
+    "@all_search_prices_top_user_title": {
+        "description": "Top price users: list tile title"
+    },
+    "all_search_prices_top_location_title": "Stores with the most prices",
+    "@all_search_prices_top_location_title": {
+        "description": "Top price locations: list tile title"
+    },
+    "all_search_prices_top_product_title": "Products with the most prices",
+    "@all_search_prices_top_product_title": {
+        "description": "Top price products: list tile title"
     },
     "all_search_to_be_completed_title": "Tots els productes per completar",
     "@all_search_to_be_completed_title": {
@@ -2628,7 +2648,7 @@
     "@link_cant_be_opened": {
         "description": "An error may happen if the device doesn't have a browser installed."
     },
-    "knowledge_panel_page_title_no_title": "Details for {productName}",
+    "knowledge_panel_page_title_no_title": "Detalls per a {productName}",
     "@knowledge_panel_page_title_no_title": {
         "description": "The title of the page when we click on an item in the product page and this page is unnamed",
         "placeholders": {
@@ -2637,7 +2657,7 @@
             }
         }
     },
-    "knowledge_panel_page_title": "Details for {pageName} with {productName}",
+    "knowledge_panel_page_title": "Detalls per a {pageName} amb {productName}",
     "@knowledge_panel_page_title": {
         "description": "The title of the page when we click on an item in the product page",
         "placeholders": {
@@ -2691,7 +2711,7 @@
     "guide_nutriscore_v2_new_logo_title": "How to differentiate old Nutri-Score and new calculation?",
     "guide_nutriscore_v2_new_logo_text": "From now on, the logo can display a mention \"**New calculation**\" to clarify that this is indeed the new calculation.",
     "guide_nutriscore_v2_new_logo_image_caption": "The logo of the new Nutri-Score",
-    "guide_nutriscore_v2_where_title": "Where to find the new NutriScore calculation?",
+    "guide_nutriscore_v2_where_title": "Where to find the new Nutri-Score calculation?",
     "guide_nutriscore_v2_where_paragraph1": "The Nutri-Score is applied in several countries: Germany, Belgium, Spain, France, Luxembourg, the Netherlands and Switzerland.",
     "guide_nutriscore_v2_where_paragraph2": "Manufacturers have until **2026** at the latest **to replace** the old calculation with the new one.",
     "guide_nutriscore_v2_where_paragraph3": "Without waiting, you **will already find in the OpenFoodFacts application**, the new calculation, including if the manufacturers have not updated the score.",

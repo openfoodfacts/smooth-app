@@ -1763,6 +1763,26 @@
     "@user_search_to_be_completed_title": {
         "description": "User search (to be completed): list tile title"
     },
+    "user_search_prices_title": "המחירים שלי",
+    "@user_search_prices_title": {
+        "description": "User prices: list tile title"
+    },
+    "all_search_prices_latest_title": "Latest Prices added",
+    "@all_search_prices_latest_title": {
+        "description": "Latest prices: list tile title"
+    },
+    "all_search_prices_top_user_title": "Top price contributors",
+    "@all_search_prices_top_user_title": {
+        "description": "Top price users: list tile title"
+    },
+    "all_search_prices_top_location_title": "Stores with the most prices",
+    "@all_search_prices_top_location_title": {
+        "description": "Top price locations: list tile title"
+    },
+    "all_search_prices_top_product_title": "Products with the most prices",
+    "@all_search_prices_top_product_title": {
+        "description": "Top price products: list tile title"
+    },
     "all_search_to_be_completed_title": "כל המוצרים להשלמה",
     "@all_search_to_be_completed_title": {
         "description": "All products to be completed: list tile title"
@@ -2691,7 +2711,7 @@
     "guide_nutriscore_v2_new_logo_title": "כיצד להבדיל בין Nutri-Score הישן לבין הנוסחה החדשה?",
     "guide_nutriscore_v2_new_logo_text": "מעתה, הלוגו יציג אזכור „**נוסחה חדשה**” (New calculation) כדי להבהיר שאכן זו הנוסחה החדשה.",
     "guide_nutriscore_v2_new_logo_image_caption": "הלוגו של Nutri-Score החדש",
-    "guide_nutriscore_v2_where_title": "היכן ניתן למצוא את נוסחת NutriScore החדשה?",
+    "guide_nutriscore_v2_where_title": "Where to find the new Nutri-Score calculation?",
     "guide_nutriscore_v2_where_paragraph1": "Nutri-Score מיושם במספר מדינות: גרמניה, בלגיה, ספרד, צרפת, לוקסמבורג, הולנד ושווייץ.",
     "guide_nutriscore_v2_where_paragraph2": "ליצרנים יש עד **2026** לכל המאוחר **להחליף** את החישוב הישן בחדש.",
     "guide_nutriscore_v2_where_paragraph3": "מבלי להמתין, כבר אפשר למצוא את הנוסחה החדשה ב**יישומון של Open Food Facts**ֿ גם אם היצרנים טרם עדכנו את הניקוד.",
