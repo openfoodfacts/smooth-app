@@ -2597,7 +2597,7 @@
     "nutriscore_c": "Nutri-Score C",
     "nutriscore_d": "Nutri-Score D",
     "nutriscore_e": "Nutri-Score E",
-    "nutriscore_new_formula": "Nutri-Score {letter} (New calculation)",
+    "nutriscore_new_formula": "Nutri-Score {letter} (nou càlcul)",
     "@nutriscore_new_formula": {
         "description": "A generic string to define a Nutri-Score V2 with a letter [eg: \"Nutri-Score A (New calculation)\"]",
         "placeholders": {
@@ -2606,9 +2606,9 @@
             }
         }
     },
-    "nutriscore_new_formula_title": "Nutri-Score (New calculation)",
-    "nutriscore_unknown": "Unknown Nutri-Score",
-    "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
+    "nutriscore_new_formula_title": "Nutri-Score (nou càlcul)",
+    "nutriscore_unknown": "Nutri-Score desconegut",
+    "nutriscore_unknown_new_formula": "Nutri-score desconegut (nou càlcul)",
     "nutriscore_not_applicable": "Nutri-Score is not applicable",
     "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
     "ecoscore_generic": "Eco-Score",
