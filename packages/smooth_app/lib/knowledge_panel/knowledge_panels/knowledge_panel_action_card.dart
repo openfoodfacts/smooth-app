@@ -31,7 +31,7 @@ class KnowledgePanelActionCard extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        SmoothHtmlWidget(element.html),
+        if (element.html != null) SmoothHtmlWidget(element.html!),
         const SizedBox(height: SMALL_SPACE),
         ...actionWidgets,
       ],

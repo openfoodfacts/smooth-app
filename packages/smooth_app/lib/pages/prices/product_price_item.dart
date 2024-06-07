@@ -96,16 +96,13 @@ class ProductPriceItem extends StatelessWidget {
             ),
             if (price.proof?.filePath != null)
               ElevatedButton(
-                onPressed: () async {
-                  final UriProductHelper uriProductHelper =
-                      ProductQuery.uriProductHelper;
-                  final Uri uri = Uri(
-                    scheme: uriProductHelper.scheme,
-                    host: uriProductHelper.getHost('prices'),
-                    path: 'img/${price.proof?.filePath}',
-                  );
-                  return LaunchUrlHelper.launchURL(uri.toString());
-                },
+                onPressed: () async => LaunchUrlHelper.launchURL(
+                  price.proof!
+                      .getFileUrl(
+                        uriProductHelper: ProductQuery.uriProductHelper,
+                      )
+                      .toString(),
+                ),
                 child: const Icon(Icons.image),
               ),
           ],
