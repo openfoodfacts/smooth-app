@@ -19,6 +19,7 @@ import 'package:smooth_app/pages/product/new_product_page.dart';
 import 'package:smooth_app/pages/product/product_loader_page.dart';
 import 'package:smooth_app/pages/scan/search_page.dart';
 import 'package:smooth_app/pages/scan/search_product_helper.dart';
+import 'package:smooth_app/pages/user_management/sign_up_page.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 /// A replacement for the [Navigator], where we internally use [GoRouter].
@@ -227,6 +228,10 @@ class _SmoothGoRouter {
                 return ExternalPage(path: state.uri.queryParameters['path']!);
               },
             ),
+            GoRoute(
+              path: _InternalAppRoutes.SIGNUP_PAGE,
+              builder:(_, __) => const SignUpPage(),
+              )
           ],
         ),
       ],
@@ -278,6 +283,8 @@ class _SmoothGoRouter {
             return AppRoutes.HOME;
           } else if (path == _ExternalRoutes.GUIDE_NUTRISCORE_V2) {
             return AppRoutes.GUIDE_NUTRISCORE_V2;
+          } else if (path == _ExternalRoutes.SIGNUP) {
+            return AppRoutes.SIGNUP;
           } else if (path != _InternalAppRoutes.HOME_PAGE) {
             externalLink = true;
           }
@@ -387,6 +394,7 @@ class _InternalAppRoutes {
   static const String PREFERENCES_PAGE = '_preferences';
   static const String SEARCH_PAGE = '_search';
   static const String EXTERNAL_PAGE = '_external';
+  static const String SIGNUP_PAGE = '_signup';
 
   static const String _GUIDES = '_guides';
   static const String GUIDE_NUTRISCORE_V2_PAGE = '_nutriscore-v2';
@@ -396,6 +404,7 @@ class _ExternalRoutes {
   static const String MOBILE_APP_DOWNLOAD = '/open-food-facts-mobile-app';
   static const String PRODUCT_EDITION = '/cgi/product.pl';
   static const String GUIDE_NUTRISCORE_V2 = '/nutriscore-v2';
+  static const String SIGNUP = '/signup';
 }
 
 /// A list of internal routes to use with [AppNavigator]
@@ -440,6 +449,7 @@ class AppRoutes {
   static String get GUIDE_NUTRISCORE_V2 =>
       '/${_InternalAppRoutes._GUIDES}/${_InternalAppRoutes.GUIDE_NUTRISCORE_V2_PAGE}';
 
+  static String get SIGNUP => '/${_InternalAppRoutes.SIGNUP_PAGE}';
   // Open an external link (where path is relative to the OFF website)
   static String EXTERNAL(String path) =>
       '/${_InternalAppRoutes.EXTERNAL_PAGE}/?path=$path';

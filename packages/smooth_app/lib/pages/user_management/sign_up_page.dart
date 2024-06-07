@@ -4,6 +4,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
@@ -48,7 +49,7 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
 
   @override
   String get actionName => 'Opened sign_up_page';
-
+  
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
@@ -314,6 +315,7 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
   }
 
   Future<void> _signUp() async {
+    ///add and make complete onboarding false at signup.
     final AppLocalizations appLocalisations = AppLocalizations.of(context);
     _disagreed = !_agree;
     setState(() {});
@@ -411,6 +413,8 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
     if (!mounted) {
       return;
     }
+    final UserPreferences userPreferences = await UserPreferences.getUserPreferences();
+    userPreferences.resetOnboarding();
     await showDialog<void>(
       context: context,
       builder: (BuildContext context) => SmoothAlertDialog(
