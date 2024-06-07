@@ -96,10 +96,16 @@ class ProductPriceItem extends StatelessWidget {
             ),
             if (price.proof?.filePath != null)
               ElevatedButton(
-                onPressed: () async => LaunchUrlHelper.launchURL(
-                  // TODO(monsieurtanuki): probably won't work in TEST env
-                  'https://prices.openfoodfacts.org/img/${price.proof?.filePath}',
-                ),
+                onPressed: () async {
+                  final UriProductHelper uriProductHelper =
+                      ProductQuery.uriProductHelper;
+                  final Uri uri = Uri(
+                    scheme: uriProductHelper.scheme,
+                    host: uriProductHelper.getHost('prices'),
+                    path: 'img/${price.proof?.filePath}',
+                  );
+                  return LaunchUrlHelper.launchURL(uri.toString());
+                },
                 child: const Icon(Icons.image),
               ),
           ],

@@ -10,6 +10,7 @@ class CropParameters {
     required this.y1,
     required this.x2,
     required this.y2,
+    this.eraserCoordinates,
   });
 
   /// File of the full image.
@@ -23,4 +24,6 @@ class CropParameters {
   final int y1;
   final int x2;
   final int y2;
+
+  final List<double>? eraserCoordinates;
 }
