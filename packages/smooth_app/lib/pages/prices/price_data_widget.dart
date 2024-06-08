@@ -3,17 +3,22 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/pages/prices/emoji_helper.dart';
+import 'package:smooth_app/pages/prices/get_prices_model.dart';
+import 'package:smooth_app/pages/prices/price_button.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 
-/// Single product price widget.
-class ProductPriceItem extends StatelessWidget {
-  const ProductPriceItem(this.price);
+/// Price Data display (no product data here).
+class PriceDataWidget extends StatelessWidget {
+  const PriceDataWidget(
+    this.price, {
+    required this.model,
+  });
 
   final Price price;
+  final GetPricesModel model;
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +36,7 @@ class ProductPriceItem extends StatelessWidget {
       if (price.product == null) {
         return null;
       }
-      if (price.product!.quantityUnit != 'g') {
+      if ((price.product!.quantityUnit ?? 'g') != 'g') {
         return null;
       }
       return '${currencyFormat.format(price.price / (price.product!.quantity! / 1000))} / kg';
@@ -52,62 +57,59 @@ class ProductPriceItem extends StatelessWidget {
 
     final String? pricePerKg = getPricePerKg();
     final String? notDiscountedPrice = getNotDiscountedPrice();
-    return SmoothCard(
-      child: ListTile(
-        title: Text(
+
+    return Wrap(
+      alignment: WrapAlignment.start,
+      crossAxisAlignment: WrapCrossAlignment.center,
+      spacing: MEDIUM_SPACE,
+      children: <Widget>[
+        Text(
           '${currencyFormat.format(price.price)}'
-          '${pricePerKg == null ? '' : ' ($pricePerKg)'}'
-          '   '
-          '${dateFormat.format(price.date)}'
-          '${notDiscountedPrice == null ? '' : '  ($notDiscountedPrice)'}',
+          ' ${pricePerKg == null ? '' : ' ($pricePerKg)'}',
         ),
-        subtitle: Wrap(
-          spacing: MEDIUM_SPACE,
-          children: <Widget>[
-            if (locationTitle != null)
-              ElevatedButton.icon(
-                // TODO(monsieurtanuki): open a still-to-be-done "price x location" page
-                onPressed: () {},
-                icon: const Icon(Icons.location_on_outlined),
-                label: Text(locationTitle),
-              ),
-            ElevatedButton.icon(
-              // TODO(monsieurtanuki): open a still-to-be-done "price x user" page
-              onPressed: () {},
-              icon: const Icon(Icons.account_box),
-              label: Text(price.owner),
+        Text(dateFormat.format(price.date)),
+        if (notDiscountedPrice != null) Text('($notDiscountedPrice)'),
+        if (locationTitle != null)
+          // TODO(monsieurtanuki): open a still-to-be-done "price x location" page
+          PriceButton(
+            title: locationTitle,
+            iconData: Icons.location_on_outlined,
+            onPressed: () {},
+          ),
+        if (model.displayOwner)
+          PriceButton(
+            // TODO(monsieurtanuki): open a still-to-be-done "price x owner" page
+            title: price.owner,
+            iconData: Icons.account_box,
+            onPressed: () {},
+          ),
+        Tooltip(
+          message: '${dateFormat.format(price.created)}'
+              ' '
+              '${timeFormat.format(price.created)}',
+          child: PriceButton(
+            // TODO(monsieurtanuki): misleading "active" button
+            onPressed: () {},
+            iconData: Icons.history,
+            title: ProductQueryPageHelper.getDurationStringFromTimestamp(
+              price.created.millisecondsSinceEpoch,
+              context,
+              compact: true,
             ),
-            Tooltip(
-              message: '${dateFormat.format(price.created)}'
-                  ' '
-                  '${timeFormat.format(price.created)}',
-              child: ElevatedButton.icon(
-                // TODO(monsieurtanuki): misleading "active" button
-                onPressed: () {},
-                icon: const Icon(Icons.history),
-                label: Text(
-                  ProductQueryPageHelper.getDurationStringFromTimestamp(
-                    price.created.millisecondsSinceEpoch,
-                    context,
-                    compact: true,
-                  ),
-                ),
-              ),
-            ),
-            if (price.proof?.filePath != null)
-              ElevatedButton(
-                onPressed: () async => LaunchUrlHelper.launchURL(
-                  price.proof!
-                      .getFileUrl(
-                        uriProductHelper: ProductQuery.uriProductHelper,
-                      )
-                      .toString(),
-                ),
-                child: const Icon(Icons.image),
-              ),
-          ],
+          ),
         ),
-      ),
+        if (price.proof?.filePath != null)
+          PriceButton(
+            iconData: Icons.image,
+            onPressed: () async => LaunchUrlHelper.launchURL(
+              price.proof!
+                  .getFileUrl(
+                    uriProductHelper: ProductQuery.uriProductHelper,
+                  )
+                  .toString(),
+            ),
+          ),
+      ],
     );
   }
 
