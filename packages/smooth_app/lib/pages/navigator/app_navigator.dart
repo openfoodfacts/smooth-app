@@ -230,8 +230,8 @@ class _SmoothGoRouter {
             ),
             GoRoute(
               path: _InternalAppRoutes.SIGNUP_PAGE,
-              builder:(_, __) => const SignUpPage(),
-              )
+              builder: (_, __) => const SignUpPage(),
+            )
           ],
         ),
       ],

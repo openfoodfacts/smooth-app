@@ -49,7 +49,7 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
 
   @override
   String get actionName => 'Opened sign_up_page';
-  
+
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
@@ -413,7 +413,8 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
     if (!mounted) {
       return;
     }
-    final UserPreferences userPreferences = await UserPreferences.getUserPreferences();
+    final UserPreferences userPreferences =
+        await UserPreferences.getUserPreferences();
     userPreferences.resetOnboarding();
     await showDialog<void>(
       context: context,
