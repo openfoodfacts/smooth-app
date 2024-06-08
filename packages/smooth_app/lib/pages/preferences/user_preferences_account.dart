@@ -241,7 +241,6 @@ class UserPreferencesAccount extends AbstractUserPreferences {
             ),
           ),
         ),
-        //() async => LaunchUrlHelper.launchURL(),
         CupertinoIcons.money_dollar_circle,
         myCount: _getMyPricesCount(),
       ),
