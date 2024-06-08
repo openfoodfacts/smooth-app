@@ -39,10 +39,10 @@ class PricesPage extends StatelessWidget {
       floatingActionButton: model.addButton == null
           ? null
           : FloatingActionButton.extended(
-        onPressed: model.addButton,
-        label: Text(appLocalizations.prices_add_a_price),
-        icon: const Icon(Icons.add),
-      ),
+              onPressed: model.addButton,
+              label: Text(appLocalizations.prices_add_a_price),
+              icon: const Icon(Icons.add),
+            ),
     );
   }
 }
