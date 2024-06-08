@@ -289,20 +289,15 @@ class UserPreferencesAccount extends AbstractUserPreferences {
   }) =>
       _getListTile(
         title,
-        () async => LaunchUrlHelper.launchURL(_getPriceUrl(path)),
+        () async => LaunchUrlHelper.launchURL(
+          OpenPricesAPIClient.getUri(
+            path: path,
+            uriHelper: ProductQuery.uriProductHelper,
+          ).toString(),
+        ),
         Icons.open_in_new,
         myCount: myCount,
       );
-
-  String _getPriceUrl(final String path) {
-    final UriProductHelper uriProductHelper = ProductQuery.uriProductHelper;
-    final Uri uri = Uri(
-      scheme: uriProductHelper.scheme,
-      host: uriProductHelper.getHost('prices'),
-      path: path,
-    );
-    return uri.toString();
-  }
 
   Future<bool?> _confirmLogout() async => showDialog<bool>(
         context: context,

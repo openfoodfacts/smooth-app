@@ -52,9 +52,9 @@ class BackgroundTaskAddPrice extends BackgroundTask {
         cropY1 = json[_jsonTagY1] as int? ?? 0,
         cropX2 = json[_jsonTagX2] as int? ?? 0,
         cropY2 = json[_jsonTagY2] as int? ?? 0,
-        proofType = getProofTypeFromOffTag(json[_jsonTagProofType] as String)!,
+        proofType = ProofType.fromOffTag(json[_jsonTagProofType] as String)!,
         date = JsonHelper.stringTimestampToDate(json[_jsonTagDate] as String),
-        currency = getCurrencyFromName(json[_jsonTagCurrency] as String)!,
+        currency = Currency.fromName(json[_jsonTagCurrency] as String)!,
         locationOSMId = json[_jsonTagOSMId] as int,
         locationOSMType =
             LocationOSMType.fromOffTag(json[_jsonTagOSMType] as String)!,
@@ -356,26 +356,6 @@ class BackgroundTaskAddPrice extends BackgroundTask {
       // throw Exception('Could not really close session');
       return;
     }
-  }
-
-  // TODO(monsieurtanuki): move it to off-dart
-  static Currency? getCurrencyFromName(final String name) {
-    for (final Currency currency in Currency.values) {
-      if (currency.name == name) {
-        return currency;
-      }
-    }
-    return null;
-  }
-
-  // TODO(monsieurtanuki): move it to off-dart
-  static ProofType? getProofTypeFromOffTag(final String offTag) {
-    for (final ProofType value in ProofType.values) {
-      if (value.offTag == offTag) {
-        return value;
-      }
-    }
-    return null;
   }
 
   @override

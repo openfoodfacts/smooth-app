@@ -76,28 +76,33 @@ class PriceModel with ChangeNotifier {
   set paidPrice(final String value) => _paidPrice = value;
   set priceWithoutDiscount(final String value) => _priceWithoutDiscount = value;
 
+  late Currency _checkedCurrency;
+  late double _checkedPaidPrice;
+  double? _checkedPriceWithoutDiscount;
+
   double? validateDouble(final String value) =>
       double.tryParse(value) ??
       double.tryParse(
         value.replaceAll(',', '.'),
       );
 
-  Future<String?> addPrice(final BuildContext context) async {
+  /// Returns the error message of the parameter check, or null if OK.
+  Future<String?> checkParameters(final BuildContext context) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     if (cropParameters == null) {
       return appLocalizations.prices_proof_mandatory;
     }
 
     final UserPreferences userPreferences = context.read<UserPreferences>();
-    final Currency currency =
+    _checkedCurrency =
         CurrencySelectorHelper().getSelected(userPreferences.userCurrencyCode);
 
-    final double paidPrice = validateDouble(_paidPrice)!;
-    double? priceWithoutDiscount;
+    _checkedPaidPrice = validateDouble(_paidPrice)!;
+    _checkedPriceWithoutDiscount = null;
     if (promo) {
       if (_priceWithoutDiscount.isNotEmpty) {
-        priceWithoutDiscount = validateDouble(_priceWithoutDiscount);
-        if (priceWithoutDiscount == null) {
+        _checkedPriceWithoutDiscount = validateDouble(_priceWithoutDiscount);
+        if (_checkedPriceWithoutDiscount == null) {
           return appLocalizations.prices_amount_price_incorrect;
         }
       }
@@ -107,19 +112,22 @@ class PriceModel with ChangeNotifier {
       return appLocalizations.prices_location_mandatory;
     }
 
-    await BackgroundTaskAddPrice.addTask(
-      cropObject: cropParameters!,
-      locationOSMId: location!.osmId,
-      locationOSMType: location!.osmType,
-      date: date,
-      proofType: proofType,
-      currency: currency,
-      barcode: barcode,
-      priceIsDiscounted: promo,
-      price: paidPrice,
-      priceWithoutDiscount: priceWithoutDiscount,
-      context: context,
-    );
     return null;
   }
+
+  /// Adds the related background task.
+  Future<void> addTask(final BuildContext context) async =>
+      BackgroundTaskAddPrice.addTask(
+        cropObject: cropParameters!,
+        locationOSMId: location!.osmId,
+        locationOSMType: location!.osmType,
+        date: date,
+        proofType: proofType,
+        currency: _checkedCurrency,
+        barcode: barcode,
+        priceIsDiscounted: promo,
+        price: _checkedPaidPrice,
+        priceWithoutDiscount: _checkedPriceWithoutDiscount,
+        context: context,
+      );
 }

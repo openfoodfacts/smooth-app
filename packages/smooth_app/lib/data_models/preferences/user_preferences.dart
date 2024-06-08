@@ -89,6 +89,9 @@ class UserPreferences extends ChangeNotifier {
   /// Vibrations / haptic feedback
   static const String _TAG_HAPTIC_FEEDBACK_IN_APP = 'haptic_feedback_enabled';
 
+  /// Price privacy warning
+  static const String TAG_PRICE_PRIVACY_WARNING = 'price_privacy_warning';
+
   /// Attribute group that is not collapsed
   static const String _TAG_ACTIVE_ATTRIBUTE_GROUP = 'activeAttributeGroup';
 
