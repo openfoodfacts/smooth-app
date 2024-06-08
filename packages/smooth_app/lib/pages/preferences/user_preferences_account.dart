@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -16,6 +17,8 @@ import 'package:smooth_app/pages/preferences/account_deletion_webview.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
+import 'package:smooth_app/pages/prices/get_prices_model.dart';
+import 'package:smooth_app/pages/prices/prices_page.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/user_management/login_page.dart';
 import 'package:smooth_app/query/paged_product_query.dart';
@@ -210,9 +213,36 @@ class UserPreferencesAccount extends AbstractUserPreferences {
         localDatabase: localDatabase,
         myCount: _getMyCount(UserSearchType.TO_BE_COMPLETED),
       ),
-      _getPriceListTile(
+      _getListTile(
         appLocalizations.user_search_prices_title,
-        'app/dashboard/prices',
+        () async => Navigator.of(context).push(
+          MaterialPageRoute<void>(
+            builder: (BuildContext context) => PricesPage(
+              GetPricesModel(
+                parameters: GetPricesParameters()
+                  ..owner = userId
+                  ..orderBy = <OrderBy<GetPricesOrderField>>[
+                    const OrderBy<GetPricesOrderField>(
+                      field: GetPricesOrderField.created,
+                      ascending: false,
+                    ),
+                  ]
+                  ..pageSize = GetPricesModel.pageSize
+                  ..pageNumber = 1,
+                displayOwner: false,
+                displayProduct: true,
+                uri: OpenPricesAPIClient.getUri(
+                  path: 'app/users/${ProductQuery.getWriteUser().userId}',
+                  uriHelper: ProductQuery.uriProductHelper,
+                ),
+                title: appLocalizations.user_search_prices_title,
+                subtitle: ProductQuery.getWriteUser().userId,
+              ),
+            ),
+          ),
+        ),
+        //() async => LaunchUrlHelper.launchURL(),
+        CupertinoIcons.money_dollar_circle,
         myCount: _getMyPricesCount(),
       ),
       _getPriceListTile(

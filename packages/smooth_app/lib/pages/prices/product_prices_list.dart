@@ -3,14 +3,18 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
-import 'package:smooth_app/pages/prices/product_price_item.dart';
+import 'package:smooth_app/pages/prices/get_prices_model.dart';
+import 'package:smooth_app/pages/prices/price_data_widget.dart';
+import 'package:smooth_app/pages/prices/price_product_widget.dart';
 import 'package:smooth_app/query/product_query.dart';
 
-/// List of the latest prices for a given product.
+/// List of the latest prices for a given model.
 class ProductPricesList extends StatefulWidget {
-  const ProductPricesList(this.barcode);
+  const ProductPricesList(
+    this.model,
+  );
 
-  final String barcode;
+  final GetPricesModel model;
 
   @override
   State<ProductPricesList> createState() => _ProductPricesListState();
@@ -18,9 +22,7 @@ class ProductPricesList extends StatefulWidget {
 
 class _ProductPricesListState extends State<ProductPricesList> {
   late final Future<MaybeError<GetPricesResult>> _prices =
-      _showProductPrices(widget.barcode);
-
-  static const int _pageSize = 10;
+      _showProductPrices(widget.model.parameters);
 
   // TODO(monsieurtanuki): add a refresh gesture
   // TODO(monsieurtanuki): add a "download the next 10" items
@@ -51,15 +53,46 @@ class _ProductPricesListState extends State<ProductPricesList> {
             return const Text('empty list');
           }
           final List<Widget> children = <Widget>[];
+
+          if (!widget.model.displayProduct) {
+            // in that case we display the product only once, if possible.
+            for (final Price price in result.items!) {
+              final PriceProduct? priceProduct = price.product;
+              if (priceProduct == null) {
+                continue;
+              }
+              children.add(
+                SmoothCard(child: PriceProductWidget(priceProduct)),
+              );
+              break;
+            }
+          }
+
           for (final Price price in result.items!) {
-            children.add(ProductPriceItem(price));
+            final PriceProduct? priceProduct = price.product;
+            children.add(
+              SmoothCard(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    if (widget.model.displayProduct && priceProduct != null)
+                      PriceProductWidget(priceProduct),
+                    PriceDataWidget(
+                      price,
+                      model: widget.model,
+                    ),
+                  ],
+                ),
+              ),
+            );
           }
           final AppLocalizations appLocalizations =
               AppLocalizations.of(context);
           final String title = result.numberOfPages == 1
               ? appLocalizations.prices_list_length_one_page(children.length)
               : appLocalizations.prices_list_length_many_pages(
-                  _pageSize,
+                  widget.model.parameters.pageSize!,
                   result.total!,
                 );
           children.insert(
@@ -77,21 +110,10 @@ class _ProductPricesListState extends State<ProductPricesList> {
       );
 
   static Future<MaybeError<GetPricesResult>> _showProductPrices(
-    final String barcode, {
-    final int pageSize = _pageSize,
-    final int pageNumber = 1,
-  }) async =>
+    final GetPricesParameters parameters,
+  ) async =>
       OpenPricesAPIClient.getPrices(
-        GetPricesParameters()
-          ..productCode = barcode
-          ..orderBy = <OrderBy<GetPricesOrderField>>[
-            const OrderBy<GetPricesOrderField>(
-              field: GetPricesOrderField.created,
-              ascending: false,
-            ),
-          ]
-          ..pageSize = pageSize
-          ..pageNumber = pageNumber,
+        parameters,
         uriHelper: ProductQuery.uriProductHelper,
       );
 }
