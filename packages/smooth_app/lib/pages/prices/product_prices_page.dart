@@ -49,16 +49,12 @@ class _ProductPricesPageState extends State<ProductPricesPage>
           IconButton(
             tooltip: appLocalizations.prices_app_button,
             icon: const Icon(Icons.open_in_new),
-            onPressed: () async {
-              final UriProductHelper uriProductHelper =
-                  ProductQuery.uriProductHelper;
-              final Uri uri = Uri(
-                scheme: uriProductHelper.scheme,
-                host: uriProductHelper.getHost('prices'),
+            onPressed: () async => LaunchUrlHelper.launchURL(
+              OpenPricesAPIClient.getUri(
                 path: 'app/products/${upToDateProduct.barcode!}',
-              );
-              return LaunchUrlHelper.launchURL(uri.toString());
-            },
+                uriHelper: ProductQuery.uriProductHelper,
+              ).toString(),
+            ),
           ),
         ],
       ),
