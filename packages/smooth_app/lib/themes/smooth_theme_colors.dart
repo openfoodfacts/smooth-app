@@ -60,8 +60,8 @@ class SmoothColorsThemeExtension
     Color? green,
     Color? orange,
     Color? red,
-    Color? grayDark,
-    Color? grayLight,
+    Color? greyDark,
+    Color? greyLight,
   }) {
     return SmoothColorsThemeExtension(
       primaryBlack: primaryBlack ?? this.primaryBlack,
@@ -75,8 +75,8 @@ class SmoothColorsThemeExtension
       green: green ?? this.green,
       orange: orange ?? this.orange,
       red: red ?? this.red,
-      greyDark: grayDark ?? this.greyDark,
-      greyLight: grayLight ?? this.greyLight,
+      greyDark: greyDark ?? this.greyDark,
+      greyLight: greyLight ?? this.greyLight,
     );
   }
 

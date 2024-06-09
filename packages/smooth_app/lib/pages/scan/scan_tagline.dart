@@ -46,7 +46,7 @@ class ScanTagLine extends StatelessWidget {
 }
 
 class _ScanTagLineLoading extends StatelessWidget {
-  const _ScanTagLineLoading({super.key});
+  const _ScanTagLineLoading();
 
   @override
   Widget build(BuildContext context) {
