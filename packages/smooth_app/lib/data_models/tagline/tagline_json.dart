@@ -25,14 +25,20 @@ class _TagLineJSON {
     );
 
     final _TagLineJSONFeedLocale localizedFeed = taglineFeed.loadNews(locale);
-    final Iterable<TagLineFeedItem> feed =
-        localizedFeed.news.map((_TagLineJSONFeedLocaleItem item) {
-      if (news[item.id] == null) {
-        // The asked ID doesn't exist in the news
-        return null;
-      }
-      return item.overrideNewsItem(news[item.id]!, locale);
-    }).whereNotNull();
+    final Iterable<TagLineFeedItem> feed = localizedFeed.news
+        .map((_TagLineJSONFeedLocaleItem item) {
+          if (news[item.id] == null) {
+            // The asked ID doesn't exist in the news
+            return null;
+          }
+          return item.overrideNewsItem(news[item.id]!, locale);
+        })
+        .where((TagLineFeedItem? item) =>
+            item != null &&
+            (item.startDate == null ||
+                item.startDate!.isBefore(DateTime.now())) &&
+            (item.endDate == null || item.endDate!.isAfter(DateTime.now())))
+        .whereNotNull();
 
     return TagLine(
       news: TagLineNewsList(tagLineNews),

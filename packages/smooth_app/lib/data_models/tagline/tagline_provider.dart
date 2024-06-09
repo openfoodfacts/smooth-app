@@ -31,6 +31,10 @@ class TagLineProvider extends ChangeNotifier {
     _emit(const TagLineLoading());
 
     final String locale = ProductQuery.getLocaleString();
+    if (locale.startsWith('-')) {
+      // ProductQuery not ready
+      return;
+    }
 
     final File cacheFile = await _tagLineCacheFile;
     String? jsonString;
@@ -59,7 +63,9 @@ class TagLineProvider extends ChangeNotifier {
 
   void _emit(TagLineState state) {
     _state = state;
-    notifyListeners();
+    try {
+      notifyListeners();
+    } catch (_) {}
   }
 
   TagLineState get state => _state;
