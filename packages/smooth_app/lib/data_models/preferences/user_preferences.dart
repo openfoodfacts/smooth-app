@@ -108,6 +108,11 @@ class UserPreferences extends ChangeNotifier {
   static const String _TAG_USER_KNOWLEDGE_PANEL_ORDER =
       'userKnowledgePanelOrder';
 
+  /// Tagline feed (news displayed / clicked)
+  static const String _TAG_TAGLINE_FEED_NEWS_DISPLAYED =
+      'taglineFeedNewsDisplayed';
+  static const String _TAG_TAGLINE_FEED_NEWS_CLICKED = 'taglineFeedNewsClicked';
+
   Future<void> init(final ProductPreferences productPreferences) async {
     await _onMigrate();
 
@@ -371,5 +376,57 @@ class UserPreferences extends ChangeNotifier {
     await _sharedPreferences.setStringList(
         _TAG_USER_KNOWLEDGE_PANEL_ORDER, source);
     notifyListeners();
+  }
+
+  List<String> get taglineFeedDisplayedNews =>
+      _sharedPreferences.getStringList(_TAG_TAGLINE_FEED_NEWS_DISPLAYED) ??
+      <String>[];
+
+  List<String> get taglineFeedClickedNews =>
+      _sharedPreferences.getStringList(_TAG_TAGLINE_FEED_NEWS_CLICKED) ??
+      <String>[];
+
+  // This method voluntarily does not notify listeners (not needed)
+  Future<void> taglineFeedMarkNewsAsDisplayed(final String ids) async {
+    final List<String> displayedNews = taglineFeedDisplayedNews;
+    final List<String> clickedNews = taglineFeedClickedNews;
+
+    if (!displayedNews.contains(ids)) {
+      displayedNews.add(ids);
+      _sharedPreferences.setStringList(
+        _TAG_TAGLINE_FEED_NEWS_DISPLAYED,
+        displayedNews,
+      );
+    }
+
+    if (clickedNews.contains(ids)) {
+      clickedNews.remove(ids);
+      _sharedPreferences.setStringList(
+        _TAG_TAGLINE_FEED_NEWS_CLICKED,
+        clickedNews,
+      );
+    }
+  }
+
+  // This method voluntarily does not notify listeners (not needed)
+  Future<void> taglineFeedMarkNewsAsClicked(final String ids) async {
+    final List<String> displayedNews = taglineFeedDisplayedNews;
+    final List<String> clickedNews = taglineFeedClickedNews;
+
+    if (displayedNews.contains(ids)) {
+      displayedNews.remove(ids);
+      _sharedPreferences.setStringList(
+        _TAG_TAGLINE_FEED_NEWS_DISPLAYED,
+        displayedNews,
+      );
+    }
+
+    if (!clickedNews.contains(ids)) {
+      clickedNews.add(ids);
+      _sharedPreferences.setStringList(
+        _TAG_TAGLINE_FEED_NEWS_CLICKED,
+        clickedNews,
+      );
+    }
   }
 }

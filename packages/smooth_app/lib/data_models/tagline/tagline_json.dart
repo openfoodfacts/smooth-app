@@ -5,10 +5,9 @@ part of 'tagline_provider.dart';
 class _TagLineJSON {
   _TagLineJSON.fromJson(Map<dynamic, dynamic> json)
       : news = (json['news'] as Map<dynamic, dynamic>).map(
-          (dynamic key, dynamic value) =>
-              MapEntry<String, _TagLineItemNewsItem>(
-            key,
-            _TagLineItemNewsItem.fromJson(value),
+          (dynamic id, dynamic value) => MapEntry<String, _TagLineItemNewsItem>(
+            id,
+            _TagLineItemNewsItem.fromJson(id, value),
           ),
         ),
         taglineFeed = _TaglineJSONFeed.fromJson(json['tagline_feed']);
@@ -48,6 +47,7 @@ typedef _TagLineJSONNewsList = Map<String, _TagLineItemNewsItem>;
 
 class _TagLineItemNewsItem {
   const _TagLineItemNewsItem._({
+    required this.id,
     required this.url,
     required _TagLineItemNewsTranslations translations,
     this.startDate,
@@ -55,7 +55,7 @@ class _TagLineItemNewsItem {
     this.style,
   }) : _translations = translations;
 
-  _TagLineItemNewsItem.fromJson(Map<dynamic, dynamic> json)
+  _TagLineItemNewsItem.fromJson(this.id, Map<dynamic, dynamic> json)
       : assert((json['url'] as String).isNotEmpty),
         url = json['url'],
         assert((json['translations'] as Map<dynamic, dynamic>)
@@ -78,6 +78,7 @@ class _TagLineItemNewsItem {
             ? null
             : _TagLineNewsStyle.fromJson(json['style']);
 
+  final String id;
   final String url;
   final _TagLineItemNewsTranslations _translations;
   final DateTime? startDate;
@@ -103,6 +104,7 @@ class _TagLineItemNewsItem {
     final _TagLineItemNewsTranslation translation = loadTranslation(locale);
     // We can assume the default translation has a non-null title and message
     return TagLineNewsItem(
+      id: id,
       title: translation.title!,
       message: translation.message!,
       url: translation.url ?? url,
@@ -122,6 +124,8 @@ class _TagLineItemNewsItem {
     _TagLineNewsStyle? style,
   }) {
     return _TagLineItemNewsItem._(
+      id: id,
+      // Still the same
       url: url ?? this.url,
       translations: translations ?? _translations,
       startDate: startDate ?? this.startDate,
@@ -201,35 +205,24 @@ class _TagLineItemNewsTranslationDefault extends _TagLineItemNewsTranslation {
 }
 
 class _TagLineNewsImage {
-  _TagLineNewsImage._({
-    required this.url,
-    this.width,
-  });
-
   _TagLineNewsImage.fromJson(Map<dynamic, dynamic> json)
       : assert((json['url'] as String).isNotEmpty),
         assert(json['width'] == null ||
             ((json['width'] as num) >= 0.0 && (json['width'] as num) <= 1.0)),
+        assert(json['alt'] == null || (json['alt'] as String).isNotEmpty),
         url = json['url'],
-        width = json['width'];
+        width = json['width'],
+        alt = json['alt'];
+
   final String url;
-
   final double? width;
-
-  _TagLineNewsImage copyWith({
-    String? url,
-    double? width,
-  }) {
-    return _TagLineNewsImage._(
-      url: url ?? this.url,
-      width: width ?? this.width,
-    );
-  }
+  final String? alt;
 
   TagLineImage toTagLineImage() {
     return TagLineImage(
       src: url,
       width: width,
+      alt: alt,
     );
   }
 }
@@ -238,10 +231,12 @@ class _TagLineNewsStyle {
   _TagLineNewsStyle._({
     this.titleBackground,
     this.titleTextColor,
+    this.titleIndicatorColor,
     this.messageBackground,
     this.messageTextColor,
     this.buttonBackground,
     this.buttonTextColor,
+    this.contentBackgroundColor,
   });
 
   _TagLineNewsStyle.fromJson(Map<dynamic, dynamic> json)
@@ -249,6 +244,8 @@ class _TagLineNewsStyle {
             (json['title_background'] as String).startsWith('#')),
         assert(json['title_text_color'] == null ||
             (json['title_text_color'] as String).startsWith('#')),
+        assert(json['title_indicator_color'] == null ||
+            (json['title_indicator_color'] as String).startsWith('#')),
         assert(json['message_background'] == null ||
             (json['message_background'] as String).startsWith('#')),
         assert(json['message_text_color'] == null ||
@@ -257,44 +254,58 @@ class _TagLineNewsStyle {
             (json['button_background'] as String).startsWith('#')),
         assert(json['button_text_color'] == null ||
             (json['button_text_color'] as String).startsWith('#')),
+        assert(json['content_background_color'] == null ||
+            (json['content_background_color'] as String).startsWith('#')),
         titleBackground = json['title_background'],
         titleTextColor = json['title_text_color'],
+        titleIndicatorColor = json['title_indicator_color'],
         messageBackground = json['message_background'],
         messageTextColor = json['message_text_color'],
         buttonBackground = json['button_background'],
-        buttonTextColor = json['button_text_color'];
+        buttonTextColor = json['button_text_color'],
+        contentBackgroundColor = json['content_background_color'];
+
   final String? titleBackground;
   final String? titleTextColor;
+  final String? titleIndicatorColor;
   final String? messageBackground;
   final String? messageTextColor;
   final String? buttonBackground;
   final String? buttonTextColor;
+  final String? contentBackgroundColor;
 
   _TagLineNewsStyle copyWith({
     String? titleBackground,
     String? titleTextColor,
+    String? titleIndicatorColor,
     String? messageBackground,
     String? messageTextColor,
     String? buttonBackground,
     String? buttonTextColor,
+    String? contentBackgroundColor,
   }) {
     return _TagLineNewsStyle._(
       titleBackground: titleBackground ?? this.titleBackground,
       titleTextColor: titleTextColor ?? this.titleTextColor,
+      titleIndicatorColor: titleIndicatorColor ?? this.titleIndicatorColor,
       messageBackground: messageBackground ?? this.messageBackground,
       messageTextColor: messageTextColor ?? this.messageTextColor,
       buttonBackground: buttonBackground ?? this.buttonBackground,
       buttonTextColor: buttonTextColor ?? this.buttonTextColor,
+      contentBackgroundColor:
+          contentBackgroundColor ?? this.contentBackgroundColor,
     );
   }
 
   TagLineStyle toTagLineStyle() => TagLineStyle.fromHexa(
         titleBackground: titleBackground,
         titleTextColor: titleTextColor,
+        titleIndicatorColor: titleIndicatorColor,
         messageBackground: messageBackground,
         messageTextColor: messageTextColor,
         buttonBackground: buttonBackground,
         buttonTextColor: buttonTextColor,
+        contentBackgroundColor: contentBackgroundColor,
       );
 }
 

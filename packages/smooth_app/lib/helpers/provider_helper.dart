@@ -90,3 +90,7 @@ class _ConsumerFilterState<T> extends State<ConsumerFilter<T>> {
     );
   }
 }
+
+extension ValueNotifierExtensions<T> on ValueNotifier<T> {
+  void emit(T value) => this.value = value;
+}

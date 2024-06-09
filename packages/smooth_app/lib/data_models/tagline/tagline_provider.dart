@@ -28,30 +28,38 @@ class TagLineProvider extends ChangeNotifier {
   bool get hasContent => _state is TagLineLoaded;
 
   Future<void> loadTagLine({bool forceUpdate = false}) async {
-    _state = const TagLineLoading();
+    _emit(const TagLineLoading());
 
     final String locale = ProductQuery.getLocaleString();
 
     final File cacheFile = await _tagLineCacheFile;
     String? jsonString;
+    // Try from the cache first
     if (!forceUpdate && _isTagLineCacheValid(cacheFile)) {
       jsonString = cacheFile.readAsStringSync();
-    } else {
+    }
+
+    if (jsonString == null || jsonString.isEmpty == true) {
       jsonString = await _fetchTagLine();
     }
 
     if (jsonString?.isNotEmpty != true) {
-      _state = const TagLineError('JSON file is empty');
+      _emit(const TagLineError('JSON file is empty'));
       return;
     }
 
     final TagLine? tagLine = await Isolate.run(
         () => _parseJSONAndGetLocalizedContent(jsonString!, locale));
     if (tagLine == null) {
-      _state = const TagLineError('Unable to parse the JSON file');
+      _emit(const TagLineError('Unable to parse the JSON file'));
     } else {
-      _state = TagLineLoaded(tagLine);
+      _emit(TagLineLoaded(tagLine));
     }
+  }
+
+  void _emit(TagLineState state) {
+    _state = state;
+    notifyListeners();
   }
 
   TagLineState get state => _state;
@@ -73,11 +81,11 @@ class TagLineProvider extends ChangeNotifier {
   /// or [https://world.openfoodfacts.org/files/tagline-off-android-v3.json]
   Future<String?> _fetchTagLine() async {
     try {
-      final http.Response response = await http.get(Uri.https(
-          'mock_18ef88079f344225853f73970c3fa2b2.mock.insomnia.rest',
-          _tagLineUrl));
+      final http.Response response =
+          await http.get(Uri.https('world.openfoodfacts.org', _tagLineUrl));
 
       final String json = const Utf8Decoder().convert(response.bodyBytes);
+
       if (!json.startsWith('[') && !json.startsWith('{')) {
         throw Exception('Invalid JSON');
       }

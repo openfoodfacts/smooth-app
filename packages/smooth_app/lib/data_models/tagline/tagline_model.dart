@@ -30,6 +30,7 @@ class TagLineNewsList {
 
 class TagLineNewsItem {
   const TagLineNewsItem({
+    required this.id,
     required this.title,
     required this.message,
     required this.url,
@@ -40,6 +41,7 @@ class TagLineNewsItem {
     this.style,
   });
 
+  final String id;
   final String title;
   final String message;
   final String url;
@@ -51,7 +53,7 @@ class TagLineNewsItem {
 
   @override
   String toString() {
-    return 'TagLineNewsItem{title: $title, message: $message, url: $url, buttonLabel: $buttonLabel, startDate: $startDate, endDate: $endDate, image: $image, style: $style}';
+    return 'TagLineNewsItem{id: $id, title: $title, message: $message, url: $url, buttonLabel: $buttonLabel, startDate: $startDate, endDate: $endDate, image: $image, style: $style}';
   }
 }
 
@@ -59,32 +61,40 @@ class TagLineStyle {
   const TagLineStyle({
     this.titleBackground,
     this.titleTextColor,
+    this.titleIndicatorColor,
     this.messageBackground,
     this.messageTextColor,
     this.buttonBackground,
     this.buttonTextColor,
+    this.contentBackgroundColor,
   });
 
   TagLineStyle.fromHexa({
     String? titleBackground,
     String? titleTextColor,
+    String? titleIndicatorColor,
     String? messageBackground,
     String? messageTextColor,
     String? buttonBackground,
     String? buttonTextColor,
+    String? contentBackgroundColor,
   })  : titleBackground = _parseColor(titleBackground),
         titleTextColor = _parseColor(titleTextColor),
+        titleIndicatorColor = _parseColor(titleIndicatorColor),
         messageBackground = _parseColor(messageBackground),
         messageTextColor = _parseColor(messageTextColor),
         buttonBackground = _parseColor(buttonBackground),
-        buttonTextColor = _parseColor(buttonTextColor);
+        buttonTextColor = _parseColor(buttonTextColor),
+        contentBackgroundColor = _parseColor(contentBackgroundColor);
 
   final Color? titleBackground;
   final Color? titleTextColor;
+  final Color? titleIndicatorColor;
   final Color? messageBackground;
   final Color? messageTextColor;
   final Color? buttonBackground;
   final Color? buttonTextColor;
+  final Color? contentBackgroundColor;
 
   static Color? _parseColor(String? hexa) {
     if (hexa == null || hexa.length != 7) {
@@ -95,19 +105,24 @@ class TagLineStyle {
 
   @override
   String toString() {
-    return 'TagLineStyle{titleBackground: $titleBackground, titleTextColor: $titleTextColor, messageBackground: $messageBackground, messageTextColor: $messageTextColor, buttonBackground: $buttonBackground, buttonTextColor: $buttonTextColor}';
+    return 'TagLineStyle{titleBackground: $titleBackground, titleTextColor: $titleTextColor, titleIndicatorColor: $titleIndicatorColor, messageBackground: $messageBackground, messageTextColor: $messageTextColor, buttonBackground: $buttonBackground, buttonTextColor: $buttonTextColor, contentBackgroundColor: $contentBackgroundColor}';
   }
 }
 
 class TagLineImage {
-  const TagLineImage({required this.src, this.width});
+  const TagLineImage({
+    required this.src,
+    this.width,
+    this.alt,
+  });
 
   final String src;
   final double? width;
+  final String? alt;
 
   @override
   String toString() {
-    return 'TagLineImage{src: $src, width: $width}';
+    return 'TagLineImage{src: $src, width: $width, alt: $alt}';
   }
 }
 
@@ -115,6 +130,8 @@ class TagLineFeed {
   const TagLineFeed(this.news);
 
   final List<TagLineFeedItem> news;
+
+  bool get isNotEmpty => news.isNotEmpty;
 
   @override
   String toString() {
@@ -133,6 +150,8 @@ class TagLineFeedItem {
   final TagLineNewsItem news;
   final DateTime? _startDate;
   final DateTime? _endDate;
+
+  String get id => news.id;
 
   DateTime? get startDate => _startDate ?? news.startDate;
 

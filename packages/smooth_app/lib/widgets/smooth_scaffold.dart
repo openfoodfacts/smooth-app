@@ -165,14 +165,15 @@ class SmoothScaffoldState extends ScaffoldState {
         return const SystemUiOverlayStyle(
           statusBarIconBrightness: Brightness.dark,
           statusBarBrightness: Brightness.light,
-          systemNavigationBarContrastEnforced: false,
+          systemNavigationBarContrastEnforced: true,
         );
+
       case Brightness.light:
       default:
         return const SystemUiOverlayStyle(
           statusBarIconBrightness: Brightness.light,
           statusBarBrightness: Brightness.dark,
-          systemNavigationBarContrastEnforced: false,
+          systemNavigationBarContrastEnforced: true,
         );
     }
   }
