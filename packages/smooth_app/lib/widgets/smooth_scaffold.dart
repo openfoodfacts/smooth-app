@@ -165,7 +165,7 @@ class SmoothScaffoldState extends ScaffoldState {
         return const SystemUiOverlayStyle(
           statusBarIconBrightness: Brightness.dark,
           statusBarBrightness: Brightness.light,
-          systemNavigationBarContrastEnforced: true,
+          systemNavigationBarContrastEnforced: false,
         );
 
       case Brightness.light:
@@ -173,7 +173,7 @@ class SmoothScaffoldState extends ScaffoldState {
         return const SystemUiOverlayStyle(
           statusBarIconBrightness: Brightness.light,
           statusBarBrightness: Brightness.dark,
-          systemNavigationBarContrastEnforced: true,
+          systemNavigationBarContrastEnforced: false,
         );
     }
   }
