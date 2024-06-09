@@ -1704,6 +1704,8 @@
     "prices_proof_price_tag": "Étiquette de prix",
     "prices_proof_mandatory": "Vous devez choisir une preuve !",
     "prices_add_validation_error": "Erreur de validation",
+    "prices_privacy_warning_title": "Avertissement de confidentialité",
+    "prices_privacy_warning_message": "Les prix seront publics, ainsi que le magasin auquel ils font référence.\nCela pourrait permettre aux personnes qui connaissent votre pseudonyme Open Food Facts de :\n* déduire dans quelle région vous habitez\n* savoir ce que vous achetez\nSi vous êtes pas à l'aise avec cela, veuillez changer votre pseudonyme ou créer un nouveau compte Open Food Facts et vous connecter à l'application avec celui-ci.",
     "dev_preferences_import_history_result_success": "Fait",
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"

@@ -1704,6 +1704,8 @@
     "prices_proof_price_tag": "Preisschild",
     "prices_proof_mandatory": "Sie müssen einen Nachweis auswählen!",
     "prices_add_validation_error": "Überprüfungsfehler",
+    "prices_privacy_warning_title": "Datenschutzwarnung",
+    "prices_privacy_warning_message": "Die Preise werden zusammen mit dem Laden, auf den sie sich beziehen, veröffentlicht.\nDas könnte es Leuten, die Ihr Open Food Facts-Pseudonym kennen, ermöglichen:\n• Rückschlüsse auf Ihre Wohngegend ziehen\n• wissen, was Sie kaufen\nWenn Sie damit nicht einverstanden sind, ändern Sie bitte Ihr Pseudonym oder erstellen Sie ein neues Open Food Facts-Konto und melden Sie sich damit bei der App an.",
     "dev_preferences_import_history_result_success": "Fertig",
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"
