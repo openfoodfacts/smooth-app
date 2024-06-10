@@ -742,8 +742,6 @@
     "@no_product_found": {},
     "no_location_found": "crwdns248432:0crwdne248432:0",
     "not_found": "crwdns221165:0crwdne221165:0",
-    "searchPanelHeader": "crwdns221167:0crwdne221167:0",
-    "@Product query status": {},
     "refreshing_product": "crwdns221169:0crwdne221169:0",
     "@refreshing_product": {
         "description": "Confirmation, that the product data of a cached product is queried again"
@@ -752,10 +750,24 @@
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
+    "homepage_main_card_logo_description": "crwdns248794:0crwdne248794:0",
+    "@homepage_main_card_logo_description": {
+        "description": "Description for accessibility of the Open Food Facts logo on the homepage"
+    },
+    "homepage_main_card_subheading": "crwdns248796:0crwdne248796:0",
+    "@homepage_main_card_subheading": {
+        "description": "Text between asterisks (eg: **My Text**) means text in bold. Please keep it."
+    },
+    "homepage_main_card_search_field_hint": "crwdns248798:0crwdne248798:0",
+    "homepage_main_card_search_field_tooltip": "crwdns248800:0crwdne248800:0",
+    "@homepage_main_card_search_field_tooltip": {
+        "description": "Description for accessibility of the search field on the homepage"
+    },
     "tagline_app_review": "crwdns244943:0crwdne244943:0",
     "tagline_app_review_button_positive": "crwdns244945:0crwdne244945:0",
     "tagline_app_review_button_negative": "crwdns244947:0crwdne244947:0",
     "tagline_app_review_button_later": "crwdns244949:0crwdne244949:0",
+    "tagline_feed_news_button": "crwdns248802:0crwdne248802:0",
     "app_review_negative_modal_title": "crwdns244951:0crwdne244951:0",
     "app_review_negative_modal_text": "crwdns244953:0crwdne244953:0",
     "app_review_negative_modal_positive_button": "crwdns244955:0crwdne244955:0",
