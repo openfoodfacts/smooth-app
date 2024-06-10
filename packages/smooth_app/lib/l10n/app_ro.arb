@@ -742,8 +742,6 @@
     "@no_product_found": {},
     "no_location_found": "No location found",
     "not_found": "nu a fost găsit:",
-    "searchPanelHeader": "Cauta sau scaneaza primul produs",
-    "@Product query status": {},
     "refreshing_product": "Reîmprospătare produs",
     "@refreshing_product": {
         "description": "Confirmation, that the product data of a cached product is queried again"
@@ -752,10 +750,24 @@
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
+    "homepage_main_card_logo_description": "Welcome to Open Food Facts",
+    "@homepage_main_card_logo_description": {
+        "description": "Description for accessibility of the Open Food Facts logo on the homepage"
+    },
+    "homepage_main_card_subheading": "**Scan** a barcode or\n**search** for a product",
+    "@homepage_main_card_subheading": {
+        "description": "Text between asterisks (eg: **My Text**) means text in bold. Please keep it."
+    },
+    "homepage_main_card_search_field_hint": "Search for a product",
+    "homepage_main_card_search_field_tooltip": "Start search",
+    "@homepage_main_card_search_field_tooltip": {
+        "description": "Description for accessibility of the search field on the homepage"
+    },
     "tagline_app_review": "Îți place aplicația?",
     "tagline_app_review_button_positive": "O ador! 😍",
     "tagline_app_review_button_negative": "Nu chiar...",
     "tagline_app_review_button_later": "Întreabă-mă mai târziu",
+    "tagline_feed_news_button": "Know more",
     "app_review_negative_modal_title": "Nu îți place aplicația noastră?",
     "app_review_negative_modal_text": "Poți să aloci câteva secunde pentru a ne spune de ce?",
     "app_review_negative_modal_positive_button": "Da, cu siguranță!",
