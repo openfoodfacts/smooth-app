@@ -1677,7 +1677,7 @@
     "prices_add_a_price": "Aggiungi un prezzo",
     "prices_send_the_price": "Invia il prezzo",
     "prices_view_prices": "Guarda i prezzi",
-    "prices_list_length_one_page": "{count,plural, =0{Ancora nessun prezzo} =1{Solo un prezzo} other{Tutti i {count} prezzi}}",
+    "prices_list_length_one_page": "{count,plural, =0{Ancora nessun prezzo} =1{Solo un prezzo} other{Tutti e {count} i prezzi}}",
     "@prices_list_length_one_page": {
         "description": "Number of prices for one-page result",
         "placeholders": {
@@ -1703,7 +1703,7 @@
     "prices_amount_price_normal": "Prezzo",
     "prices_amount_price_discounted": "Prezzo scontato",
     "prices_amount_price_not_discounted": "Prezzo originale",
-    "prices_amount_price_incorrect": "Valore scorretto",
+    "prices_amount_price_incorrect": "Valore non corretto",
     "prices_amount_price_mandatory": "Valore obbligatorio",
     "prices_currency_subtitle": "Moneta",
     "prices_date_subtitle": "Data",
