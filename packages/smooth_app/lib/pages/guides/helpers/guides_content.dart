@@ -264,27 +264,7 @@ class _GuidesFormattedText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const TextStyle defaultTextStyle = TextStyle();
-
-    return RichText(
-      text: TextSpan(
-        style: DefaultTextStyle.of(context).style,
-        children: TextHelper.getPartsBetweenSymbol(
-                text: text,
-                symbol: r'\*\*',
-                symbolLength: 2,
-                defaultStyle: defaultTextStyle,
-                highlightedStyle: const TextStyle(fontWeight: FontWeight.bold))
-            .map(
-          ((String, TextStyle?) part) {
-            return TextSpan(
-              text: part.$1,
-              style: defaultTextStyle.merge(part.$2),
-            );
-          },
-        ).toList(growable: false),
-      ),
-    );
+    return FormattedText(text: text);
   }
 }
 

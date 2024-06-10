@@ -5,6 +5,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
+import 'package:smooth_app/data_models/tagline/tagline_provider.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/extension_on_text_helper.dart';
 import 'package:smooth_app/pages/carousel_manager.dart';
@@ -312,6 +313,7 @@ class _SmoothGoRouter {
     // Must be set first to ensure the method is only called once
     _appLanguageInitialized = true;
     ProductQuery.setLanguage(context, context.read<UserPreferences>());
+    context.read<TagLineProvider>().loadTagLine();
     return context.read<ProductPreferences>().refresh();
   }
 

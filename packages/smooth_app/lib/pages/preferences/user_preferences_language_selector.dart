@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_language_refresh.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
+import 'package:smooth_app/data_models/tagline/tagline_provider.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/language_selector.dart';
@@ -55,6 +56,11 @@ class UserPreferencesLanguageSelector extends StatelessWidget {
             await BackgroundTaskLanguageRefresh.addTask(
               context.read<LocalDatabase>(),
             );
+
+            // Refresh the tagline
+            if (context.mounted) {
+              context.read<TagLineProvider>().loadTagLine();
+            }
             // TODO(monsieurtanuki): make it a background task also?
             // no await
             productPreferences.refresh();
