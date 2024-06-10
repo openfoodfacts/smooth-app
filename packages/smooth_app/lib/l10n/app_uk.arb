@@ -750,16 +750,16 @@
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
-    "homepage_main_card_logo_description": "Welcome to Open Food Facts",
+    "homepage_main_card_logo_description": "Вітаємо в Open Food Facts",
     "@homepage_main_card_logo_description": {
         "description": "Description for accessibility of the Open Food Facts logo on the homepage"
     },
-    "homepage_main_card_subheading": "**Scan** a barcode or\n**search** for a product",
+    "homepage_main_card_subheading": "**Відскануйте** штрих-код або\n**знайдіть** продукт",
     "@homepage_main_card_subheading": {
         "description": "Text between asterisks (eg: **My Text**) means text in bold. Please keep it."
     },
     "homepage_main_card_search_field_hint": "Пошук товару",
-    "homepage_main_card_search_field_tooltip": "Start search",
+    "homepage_main_card_search_field_tooltip": "Почати пошук",
     "@homepage_main_card_search_field_tooltip": {
         "description": "Description for accessibility of the search field on the homepage"
     },
@@ -767,7 +767,7 @@
     "tagline_app_review_button_positive": "Я в захопленні! 😍",
     "tagline_app_review_button_negative": "Не дуже…",
     "tagline_app_review_button_later": "Запитайте мене пізніше",
-    "tagline_feed_news_button": "Know more",
+    "tagline_feed_news_button": "Докладніше",
     "app_review_negative_modal_title": "Вам не подобається наш додаток?",
     "app_review_negative_modal_text": "Не могли б ви витратити кілька секунд, щоб сказати нам, чому?",
     "app_review_negative_modal_positive_button": "Так, звичайно!",
