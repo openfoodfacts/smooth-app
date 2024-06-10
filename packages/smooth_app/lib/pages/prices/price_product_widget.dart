@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/images/smooth_image.dart';
@@ -16,7 +17,9 @@ class PriceProductWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final String? name = priceProduct.name;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final String name = priceProduct.name ?? priceProduct.code;
+    final bool unknown = priceProduct.name == null;
     final String? imageURL = priceProduct.imageURL;
     final int priceCount = priceProduct.priceCount;
     final List<String>? brands = priceProduct.brands?.split(',');
@@ -32,30 +35,31 @@ class PriceProductWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          if (imageURL != null)
-            SizedBox(
-              width: _imageSize,
-              child: SmoothImage(
-                width: _imageSize,
-                height: _imageSize,
-                imageProvider: NetworkImage(imageURL),
-              ),
-            ),
-          if (imageURL != null) const SizedBox(width: SMALL_SPACE),
           SizedBox(
-            width: imageURL == null
-                ? constraints.maxWidth
-                : constraints.maxWidth - _imageSize - SMALL_SPACE,
+            width: _imageSize,
+            child: imageURL == null
+                ? const Icon(
+                    Icons.question_mark,
+                    size: _imageSize / 2,
+                  )
+                : SmoothImage(
+                    width: _imageSize,
+                    height: _imageSize,
+                    imageProvider: NetworkImage(imageURL),
+                  ),
+          ),
+          const SizedBox(width: SMALL_SPACE),
+          SizedBox(
+            width: constraints.maxWidth - _imageSize - SMALL_SPACE,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                if (name != null)
-                  AutoSizeText(
-                    name,
-                    maxLines: 2,
-                    style: Theme.of(context).textTheme.titleMedium,
-                  ),
+                AutoSizeText(
+                  name,
+                  maxLines: 2,
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
                 Wrap(
                   spacing: VERY_SMALL_SPACE,
                   crossAxisAlignment: WrapCrossAlignment.center,
@@ -69,6 +73,16 @@ class PriceProductWidget extends StatelessWidget {
                           onPressed: () {},
                         ),
                     if (quantity != null) Text(quantity),
+                    if (unknown)
+                      PriceButton(
+                        title: appLocalizations.prices_unknown_product,
+                        iconData: Icons.warning,
+                        onPressed: null,
+                        buttonStyle: ElevatedButton.styleFrom(
+                          disabledForegroundColor: Colors.red,
+                          disabledBackgroundColor: Colors.red[100],
+                        ),
+                      ),
                   ],
                 ),
               ],

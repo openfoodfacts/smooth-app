@@ -244,9 +244,33 @@ class UserPreferencesAccount extends AbstractUserPreferences {
         CupertinoIcons.money_dollar_circle,
         myCount: _getMyPricesCount(),
       ),
-      _getPriceListTile(
+      _getListTile(
         appLocalizations.all_search_prices_latest_title,
-        'app/prices',
+        () async => Navigator.of(context).push(
+          MaterialPageRoute<void>(
+            builder: (BuildContext context) => PricesPage(
+              GetPricesModel(
+                parameters: GetPricesParameters()
+                  ..orderBy = <OrderBy<GetPricesOrderField>>[
+                    const OrderBy<GetPricesOrderField>(
+                      field: GetPricesOrderField.created,
+                      ascending: false,
+                    ),
+                  ]
+                  ..pageSize = GetPricesModel.pageSize
+                  ..pageNumber = 1,
+                displayOwner: true,
+                displayProduct: true,
+                uri: OpenPricesAPIClient.getUri(
+                  path: 'app/prices',
+                  uriHelper: ProductQuery.uriProductHelper,
+                ),
+                title: appLocalizations.all_search_prices_latest_title,
+              ),
+            ),
+          ),
+        ),
+        CupertinoIcons.money_dollar_circle,
       ),
       _getPriceListTile(
         appLocalizations.all_search_prices_top_user_title,
