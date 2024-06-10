@@ -1,33 +1,26 @@
-import 'dart:math';
-
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:scanner_shared/scanner_shared.dart' hide EMPTY_WIDGET;
-import 'package:smooth_app/cards/product_cards/smooth_product_base_card.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_error.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_loading.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_not_found.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_thanks.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
-import 'package:smooth_app/data_models/preferences/user_preferences.dart';
-import 'package:smooth_app/data_models/tagline.dart';
+import 'package:smooth_app/data_models/tagline/tagline_provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
-import 'package:smooth_app/helpers/app_helper.dart';
-import 'package:smooth_app/helpers/camera_helper.dart';
-import 'package:smooth_app/helpers/launch_url_helper.dart';
-import 'package:smooth_app/helpers/user_feedback_helper.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
+import 'package:smooth_app/helpers/provider_helper.dart';
+import 'package:smooth_app/helpers/strings_helper.dart';
 import 'package:smooth_app/pages/carousel_manager.dart';
 import 'package:smooth_app/pages/navigator/app_navigator.dart';
-import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
 import 'package:smooth_app/pages/scan/scan_product_card_loader.dart';
-import 'package:smooth_app/pages/scan/search_page.dart';
-import 'package:smooth_app/pages/scan/search_product_helper.dart';
-import 'package:smooth_app/services/smooth_services.dart';
+import 'package:smooth_app/pages/scan/scan_tagline.dart';
+import 'package:smooth_app/resources/app_icons.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 
 class SmoothProductCarousel extends StatefulWidget {
   const SmoothProductCarousel({
@@ -127,7 +120,7 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
                   horizontal: HORIZONTAL_SPACE_BETWEEN_CARDS,
                 ),
                 child: widget.containSearchCard && itemIndex == 0
-                    ? SearchCard(height: constraints.maxHeight)
+                    ? const _MainCard()
                     : _getWidget(itemIndex - _searchCardAdjustment),
               ),
             );
@@ -204,6 +197,10 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
 
   double _computeViewPortFraction() {
     final double screenWidth = MediaQuery.sizeOf(context).width;
+    if (barcodes.isEmpty) {
+      return 0.95;
+    }
+
     return (screenWidth -
             (SmoothBarcodeScannerVisor.CORNER_PADDING * 2) -
             (SmoothBarcodeScannerVisor.STROKE_WIDTH * 2) +
@@ -212,335 +209,171 @@ class _SmoothProductCarouselState extends State<SmoothProductCarousel> {
   }
 }
 
-class SearchCard extends StatelessWidget {
-  const SearchCard({required this.height});
+class _MainCard extends StatelessWidget {
+  const _MainCard();
 
-  final double height;
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        Expanded(
+          child: ConsumerFilter<TagLineProvider>(
+            buildWhen:
+                (TagLineProvider? previousValue, TagLineProvider currentValue) {
+              return previousValue?.hasContent != currentValue.hasContent;
+            },
+            builder: (BuildContext context, TagLineProvider tagLineManager, _) {
+              if (!tagLineManager.hasContent) {
+                return const _SearchCard(
+                  expandedMode: true,
+                );
+              } else {
+                return const Column(
+                  children: <Widget>[
+                    Expanded(
+                      flex: 6,
+                      child: _SearchCard(
+                        expandedMode: false,
+                      ),
+                    ),
+                    SizedBox(height: MEDIUM_SPACE),
+                    Expanded(
+                      flex: 4,
+                      child: ScanTagLine(),
+                    ),
+                  ],
+                );
+              }
+            },
+          ),
+        ),
+      ],
+    );
+  }
+}
 
-  static const double OPACITY = 0.85;
+class _SearchCard extends StatelessWidget {
+  const _SearchCard({
+    required this.expandedMode,
+  });
+
+  /// Expanded is when this card is the only one (no tagline, no app review…)
+  final bool expandedMode;
 
   @override
   Widget build(BuildContext context) {
     final AppLocalizations localizations = AppLocalizations.of(context);
+    final ThemeProvider themeProvider = context.watch<ThemeProvider>();
 
-    return SmoothProductBaseCard(
-      backgroundColorOpacity: OPACITY,
+    final Widget widget = SmoothCard(
+      color: themeProvider.isLightTheme
+          ? Colors.grey.withOpacity(0.1)
+          : Colors.black,
+      padding: const EdgeInsets.symmetric(
+        vertical: MEDIUM_SPACE,
+        horizontal: LARGE_SPACE,
+      ),
       margin: const EdgeInsets.symmetric(
+        horizontal: 0.0,
         vertical: VERY_SMALL_SPACE,
       ),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           SvgPicture.asset(
             Theme.of(context).brightness == Brightness.light
-                ? 'assets/app/release_icon_light_transparent_no_border.svg'
-                : 'assets/app/release_icon_dark_transparent_no_border.svg',
-            width: height * 0.2,
-            height: height * 0.2,
-            package: AppHelper.APP_PACKAGE,
+                ? 'assets/app/logo_text_black.svg'
+                : 'assets/app/logo_text_white.svg',
+            semanticsLabel: localizations.homepage_main_card_logo_description,
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: MEDIUM_SPACE),
-            child: AutoSizeText(
-              localizations.welcomeToOpenFoodFacts,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontSize: 26.0,
-                fontWeight: FontWeight.bold,
-                height: 1.00,
-              ),
-              maxLines: 1,
-            ),
+          FormattedText(
+            text: localizations.homepage_main_card_subheading,
+            textAlign: TextAlign.center,
+            textStyle: const TextStyle(height: 1.3),
           ),
-          const Expanded(child: _SearchCardContent()),
+          const _SearchBar(),
         ],
       ),
     );
-  }
-}
 
-class _SearchCardContent extends StatefulWidget {
-  const _SearchCardContent({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  State<_SearchCardContent> createState() => _SearchCardContentState();
-}
-
-class _SearchCardContentState extends State<_SearchCardContent>
-    with AutomaticKeepAliveClientMixin {
-  late _SearchCardContentType _content;
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-
-    final UserPreferences preferences = context.read<UserPreferences>();
-    final int scans = preferences.numberOfScans;
-    if (CameraHelper.hasACamera && scans < 1) {
-      _content = _SearchCardContentType.DEFAULT;
-    } else if (!preferences.inAppReviewAlreadyAsked &&
-        Random().nextInt(10) == 0) {
-      _content = _SearchCardContentType.REVIEW_APP;
+    if (expandedMode) {
+      return ConstrainedBox(
+        constraints: BoxConstraints(
+          maxHeight: MediaQuery.sizeOf(context).height * 0.4,
+        ),
+        child: widget,
+      );
     } else {
-      _content = _SearchCardContentType.TAG_LINE;
+      return widget;
     }
   }
-
-  @override
-  Widget build(BuildContext context) {
-    super.build(context);
-    final ThemeData themeData = Theme.of(context);
-    final bool darkMode = themeData.brightness == Brightness.dark;
-
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: VERY_SMALL_SPACE),
-      child: DefaultTextStyle.merge(
-        style: const TextStyle(
-          fontSize: LARGE_SPACE,
-          height: 1.22,
-        ),
-        textAlign: TextAlign.center,
-        overflow: TextOverflow.ellipsis,
-        maxLines: 5,
-        child: Column(
-          children: <Widget>[
-            Expanded(
-              child: switch (_content) {
-                _SearchCardContentType.DEFAULT =>
-                  const _SearchCardContentDefault(),
-                _SearchCardContentType.TAG_LINE =>
-                  const _SearchCardContentTagLine(),
-                _SearchCardContentType.REVIEW_APP =>
-                  _SearchCardContentAppReview(
-                    onHideReview: () {
-                      setState(() => _content = _SearchCardContentType.DEFAULT);
-                    },
-                  ),
-              },
-            ),
-            if (_content != _SearchCardContentType.REVIEW_APP)
-              SearchField(
-                searchHelper: const SearchProductHelper(),
-                onFocus: () => _openSearchPage(context),
-                readOnly: true,
-                showClearButton: false,
-                backgroundColor: darkMode
-                    ? Colors.white10
-                    : const Color.fromARGB(255, 240, 240, 240)
-                        .withOpacity(SearchCard.OPACITY),
-                foregroundColor: themeData.colorScheme.onSurface
-                    .withOpacity(SearchCard.OPACITY),
-              ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  void _openSearchPage(BuildContext context) {
-    AppNavigator.of(context).push(AppRoutes.SEARCH);
-  }
-
-  @override
-  bool get wantKeepAlive => true;
 }
 
-enum _SearchCardContentType {
-  TAG_LINE,
-  REVIEW_APP,
-  DEFAULT,
-}
+class _SearchBar extends StatelessWidget {
+  const _SearchBar();
 
-class _SearchCardContentDefault extends StatelessWidget {
-  const _SearchCardContentDefault({Key? key}) : super(key: key);
+  static const double SEARCH_BAR_HEIGHT = 47.0;
 
   @override
   Widget build(BuildContext context) {
     final AppLocalizations localizations = AppLocalizations.of(context);
+    final ThemeProvider themeProvider = context.watch<ThemeProvider>();
+    final SmoothColorsThemeExtension theme =
+        Theme.of(context).extension<SmoothColorsThemeExtension>()!;
 
-    return Center(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 10.0,
-        ),
-        child: AutoSizeText(
-          localizations.searchPanelHeader,
-        ),
-      ),
-    );
-  }
-}
-
-class _SearchCardContentTagLine extends StatelessWidget {
-  const _SearchCardContentTagLine();
-
-  @override
-  Widget build(BuildContext context) {
-    return FutureBuilder<TagLineItem?>(
-      future: fetchTagLine(),
-      builder: (BuildContext context, AsyncSnapshot<TagLineItem?> data) {
-        if (data.data != null) {
-          final TagLineItem tagLine = data.data!;
-          return InkWell(
-            borderRadius: ANGULAR_BORDER_RADIUS,
-            onTap: tagLine.hasLink
-                ? () async => LaunchUrlHelper.launchURL(tagLine.url)
-                : null,
-            child: Center(
-              child: AutoSizeText(
-                tagLine.message,
-                style: TextStyle(
-                  color: Theme.of(context).colorScheme.primary,
-                ),
-              ),
-            ),
-          );
-        } else {
-          return const _SearchCardContentDefault();
-        }
-      },
-    );
-  }
-}
-
-class _SearchCardContentAppReview extends StatelessWidget {
-  const _SearchCardContentAppReview({
-    required this.onHideReview,
-  });
-
-  final VoidCallback onHideReview;
-
-  @override
-  Widget build(BuildContext context) {
-    final AppLocalizations localizations = AppLocalizations.of(context);
-    final UserPreferences preferences = context.read<UserPreferences>();
-
-    return Center(
-      child: OutlinedButtonTheme(
-        data: OutlinedButtonThemeData(
-          style: OutlinedButton.styleFrom(
-            shape: const RoundedRectangleBorder(
-              borderRadius: ROUNDED_BORDER_RADIUS,
-            ),
-            side: BorderSide(
-              color: Theme.of(context).colorScheme.primary,
-            ),
-            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+    return SizedBox(
+      height: SEARCH_BAR_HEIGHT,
+      child: InkWell(
+        onTap: () => AppNavigator.of(context).push(AppRoutes.SEARCH),
+        borderRadius: BorderRadius.circular(30.0),
+        child: Ink(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(30.0),
+            color: themeProvider.isLightTheme ? Colors.white : theme.greyDark,
+            border: Border.all(color: theme.primaryBlack),
           ),
-        ),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            const Spacer(),
-            const UserPreferencesListItemDivider(
-              margin: EdgeInsetsDirectional.only(
-                top: MEDIUM_SPACE,
-                bottom: SMALL_SPACE,
-              ),
-            ),
-            AutoSizeText(
-              localizations.tagline_app_review,
-              style: const TextStyle(
-                fontSize: 16.0,
-              ),
-            ),
-            const SizedBox(height: SMALL_SPACE),
-            SizedBox(
-              width: double.infinity,
-              child: OutlinedButton(
-                onPressed: () async {
-                  if (await ApplicationStore.openAppReview()) {
-                    await preferences.markInAppReviewAsShown();
-                    onHideReview.call();
-                  }
-                },
-                style: OutlinedButton.styleFrom(
-                  padding: const EdgeInsetsDirectional.symmetric(
-                    vertical: SMALL_SPACE,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsetsDirectional.only(
+                    start: 20.0,
+                    end: 10.0,
+                    bottom: 3.0,
                   ),
-                ),
-                child: Text(
-                  localizations.tagline_app_review_button_positive,
-                  style: const TextStyle(fontSize: 17.0),
-                  textAlign: TextAlign.center,
-                ),
-              ),
-            ),
-            const SizedBox(height: VERY_SMALL_SPACE),
-            IntrinsicHeight(
-              child: Row(
-                children: <Widget>[
-                  Expanded(
-                    child: OutlinedButton(
-                      onPressed: () async {
-                        preferences.markInAppReviewAsShown();
-                        await _showNegativeDialog(context, localizations);
-                        onHideReview();
-                      },
-                      child: Text(
-                        localizations.tagline_app_review_button_negative,
-                        textAlign: TextAlign.center,
-                      ),
+                  child: Text(
+                    localizations.homepage_main_card_search_field_hint,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      color: themeProvider.isLightTheme
+                          ? Colors.black
+                          : Colors.white,
                     ),
                   ),
-                  const SizedBox(width: VERY_SMALL_SPACE),
-                  Expanded(
-                    child: OutlinedButton(
-                      onPressed: () => onHideReview(),
-                      child: Text(
-                        localizations.tagline_app_review_button_later,
-                        textAlign: TextAlign.center,
-                      ),
+                ),
+              ),
+              AspectRatio(
+                aspectRatio: 1.0,
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                    color: theme.primaryDark,
+                    shape: BoxShape.circle,
+                  ),
+                  child: const Padding(
+                    padding: EdgeInsets.all(10.0),
+                    child: Search(
+                      size: 20.0,
+                      color: Colors.white,
                     ),
                   ),
-                ],
-              ),
-            ),
-            const Spacer(),
-          ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
-    );
-  }
-
-  Future<void> _showNegativeDialog(
-    BuildContext context,
-    AppLocalizations localizations,
-  ) {
-    return showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return SmoothAlertDialog(
-          title: localizations.app_review_negative_modal_title,
-          body: Padding(
-            padding: const EdgeInsetsDirectional.only(
-              start: SMALL_SPACE,
-              end: SMALL_SPACE,
-              bottom: MEDIUM_SPACE,
-            ),
-            child: Text(
-              localizations.app_review_negative_modal_text,
-              textAlign: TextAlign.center,
-            ),
-          ),
-          positiveAction: SmoothActionButton(
-            text: localizations.app_review_negative_modal_positive_button,
-            onPressed: () {
-              final String formLink = UserFeedbackHelper.getFeedbackFormLink();
-              LaunchUrlHelper.launchURL(formLink);
-              Navigator.of(context).pop();
-            },
-          ),
-          negativeAction: SmoothActionButton(
-            text: localizations.app_review_negative_modal_negative_button,
-            onPressed: () => Navigator.of(context).pop(),
-          ),
-          actionsAxis: Axis.vertical,
-        );
-      },
     );
   }
 }

@@ -18,6 +18,7 @@ import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
+import 'package:smooth_app/data_models/tagline/tagline_provider.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
 import 'package:smooth_app/database/dao_string.dart';
 import 'package:smooth_app/database/local_database.dart';
@@ -105,6 +106,7 @@ late TextContrastProvider _textContrastProvider;
 final ContinuousScanModel _continuousScanModel = ContinuousScanModel();
 final PermissionListener _permissionListener =
     PermissionListener(permission: Permission.camera);
+final TagLineProvider _tagLineProvider = TagLineProvider();
 bool _init1done = false;
 
 // Had to split init in 2 methods, for test/screenshots reasons.
@@ -199,8 +201,12 @@ class _SmoothAppState extends State<SmoothApp> {
 
         // The `create` constructor of [ChangeNotifierProvider] takes care of
         // disposing the value.
-        ChangeNotifierProvider<T> provide<T extends ChangeNotifier>(T value) =>
-            ChangeNotifierProvider<T>(create: (BuildContext context) => value);
+        ChangeNotifierProvider<T> provide<T extends ChangeNotifier>(T value,
+                {bool? lazy}) =>
+            ChangeNotifierProvider<T>(
+              create: (BuildContext context) => value,
+              lazy: lazy,
+            );
 
         if (!_screenshots) {
           // ending FlutterNativeSplash.preserve()
@@ -218,6 +224,7 @@ class _SmoothAppState extends State<SmoothApp> {
             provide<UserManagementProvider>(_userManagementProvider),
             provide<ContinuousScanModel>(_continuousScanModel),
             provide<PermissionListener>(_permissionListener),
+            provide<TagLineProvider>(_tagLineProvider, lazy: true),
           ],
           child: AnimationsLoader(
             child: AppNavigator(

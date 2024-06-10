@@ -14,8 +14,8 @@ class SmoothColorsThemeExtension
     required this.green,
     required this.orange,
     required this.red,
-    required this.grayDark,
-    required this.grayLight,
+    required this.greyDark,
+    required this.greyLight,
   });
 
   SmoothColorsThemeExtension.defaultValues()
@@ -30,8 +30,8 @@ class SmoothColorsThemeExtension
         green = const Color(0xFF219653),
         orange = const Color(0xFFFB8229),
         red = const Color(0xFFEB5757),
-        grayDark = const Color(0xFF666666),
-        grayLight = const Color(0xFF8F8F8F);
+        greyDark = const Color(0xFF666666),
+        greyLight = const Color(0xFF8F8F8F);
 
   final Color primaryBlack;
   final Color primaryDark;
@@ -44,8 +44,8 @@ class SmoothColorsThemeExtension
   final Color green;
   final Color orange;
   final Color red;
-  final Color grayDark;
-  final Color grayLight;
+  final Color greyDark;
+  final Color greyLight;
 
   @override
   ThemeExtension<SmoothColorsThemeExtension> copyWith({
@@ -60,8 +60,8 @@ class SmoothColorsThemeExtension
     Color? green,
     Color? orange,
     Color? red,
-    Color? grayDark,
-    Color? grayLight,
+    Color? greyDark,
+    Color? greyLight,
   }) {
     return SmoothColorsThemeExtension(
       primaryBlack: primaryBlack ?? this.primaryBlack,
@@ -75,8 +75,8 @@ class SmoothColorsThemeExtension
       green: green ?? this.green,
       orange: orange ?? this.orange,
       red: red ?? this.red,
-      grayDark: grayDark ?? this.grayDark,
-      grayLight: grayLight ?? this.grayLight,
+      greyDark: greyDark ?? this.greyDark,
+      greyLight: greyLight ?? this.greyLight,
     );
   }
 
@@ -145,14 +145,14 @@ class SmoothColorsThemeExtension
         other.red,
         t,
       )!,
-      grayDark: Color.lerp(
-        grayDark,
-        other.grayDark,
+      greyDark: Color.lerp(
+        greyDark,
+        other.greyDark,
         t,
       )!,
-      grayLight: Color.lerp(
-        grayLight,
-        other.grayLight,
+      greyLight: Color.lerp(
+        greyLight,
+        other.greyLight,
         t,
       )!,
     );
