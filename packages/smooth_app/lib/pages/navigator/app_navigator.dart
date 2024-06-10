@@ -416,6 +416,8 @@ class _ExternalRoutes {
   static const String MOBILE_APP_DOWNLOAD = '/open-food-facts-mobile-app';
   static const String PRODUCT_EDITION = '/cgi/product.pl';
   static const String GUIDE_NUTRISCORE_V2 = '/nutriscore-v2';
+  static const String SIGNUP = '/signup';
+  static const String FORGOT_PASSWORD = '/forgot-password';
 }
 
 /// A list of internal routes to use with [AppNavigator]
