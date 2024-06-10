@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/database/dao_osm_location.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -21,17 +22,44 @@ import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Single page that displays all the elements of price adding.
 class ProductPriceAddPage extends StatefulWidget {
-  const ProductPriceAddPage(
-    this.product, {
+  const ProductPriceAddPage({
+    required this.barcode,
+    required this.title,
     required this.latestOsmLocations,
   });
 
-  final Product product;
+  final String barcode;
+  final String title;
   final List<OsmLocation> latestOsmLocations;
 
-  static Future<void> showPage({
+  static Future<void> showBarcodePage({
+    required final BuildContext context,
+    required final String barcode,
+    required final String title,
+  }) async =>
+      _showPage(
+        context: context,
+        barcode: barcode,
+        title: title,
+      );
+
+  static Future<void> showProductPage({
     required final BuildContext context,
     required final Product product,
+  }) async =>
+      _showPage(
+        context: context,
+        barcode: product.barcode!,
+        title: getProductNameAndBrands(
+          product,
+          AppLocalizations.of(context),
+        ),
+      );
+
+  static Future<void> _showPage({
+    required final BuildContext context,
+    required final String barcode,
+    required final String title,
   }) async {
     if (!await ProductRefresher().checkIfLoggedIn(
       context,
@@ -51,7 +79,8 @@ class ProductPriceAddPage extends StatefulWidget {
     await Navigator.of(context).push(
       MaterialPageRoute<void>(
         builder: (BuildContext context) => ProductPriceAddPage(
-          product,
+          barcode: barcode,
+          title: title,
           latestOsmLocations: osmLocations,
         ),
       ),
@@ -66,7 +95,7 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage> {
   late final PriceModel _model = PriceModel(
     proofType: ProofType.priceTag,
     locations: widget.latestOsmLocations,
-    barcode: widget.product.barcode!,
+    barcode: widget.barcode,
   );
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -84,10 +113,16 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage> {
             centerTitle: false,
             leading: const SmoothBackButton(),
             title: Text(
-              getProductNameAndBrands(widget.product, appLocalizations),
+              widget.title,
               maxLines: 1,
             ),
-            subTitle: Text(widget.product.barcode!),
+            subTitle: Text(widget.barcode),
+            actions: <Widget>[
+              IconButton(
+                icon: const Icon(Icons.info),
+                onPressed: () async => _doesAcceptWarning(justInfo: true),
+              ),
+            ],
           ),
           body: const SingleChildScrollView(
             padding: EdgeInsets.all(LARGE_SPACE),
@@ -115,7 +150,7 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage> {
 
               String? error;
               try {
-                error = await _model.addPrice(context);
+                error = await _model.checkParameters(context);
               } catch (e) {
                 error = e.toString();
               }
@@ -136,12 +171,54 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage> {
               if (!context.mounted) {
                 return;
               }
+
+              final UserPreferences userPreferences =
+                  context.read<UserPreferences>();
+              const String flagTag = UserPreferences.TAG_PRICE_PRIVACY_WARNING;
+              final bool? already = userPreferences.getFlag(flagTag);
+              if (already != true) {
+                final bool? accepts = await _doesAcceptWarning(justInfo: false);
+                if (accepts != true) {
+                  return;
+                }
+                await userPreferences.setFlag(flagTag, true);
+              }
+              if (!context.mounted) {
+                return;
+              }
+
+              await _model.addTask(context);
+              if (!context.mounted) {
+                return;
+              }
               Navigator.of(context).pop();
             },
             icon: const Icon(Icons.send),
             label: Text(appLocalizations.prices_send_the_price),
           ),
         ),
+      ),
+    );
+  }
+
+  Future<bool?> _doesAcceptWarning({required final bool justInfo}) async {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    return showDialog<bool>(
+      context: context,
+      builder: (final BuildContext context) => SmoothAlertDialog(
+        title: appLocalizations.prices_privacy_warning_title,
+        actionsAxis: Axis.vertical,
+        body: Text(appLocalizations.prices_privacy_warning_message),
+        positiveAction: SmoothActionButton(
+          text: appLocalizations.okay,
+          onPressed: () => Navigator.of(context).pop(true),
+        ),
+        negativeAction: justInfo
+            ? null
+            : SmoothActionButton(
+                text: appLocalizations.cancel,
+                onPressed: () => Navigator.of(context).pop(),
+              ),
       ),
     );
   }

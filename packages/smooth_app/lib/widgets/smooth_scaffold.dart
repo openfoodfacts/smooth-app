@@ -167,6 +167,7 @@ class SmoothScaffoldState extends ScaffoldState {
           statusBarBrightness: Brightness.light,
           systemNavigationBarContrastEnforced: false,
         );
+
       case Brightness.light:
       default:
         return const SystemUiOverlayStyle(

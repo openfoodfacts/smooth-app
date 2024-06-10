@@ -1704,6 +1704,8 @@
     "prices_proof_price_tag": "Cenovka",
     "prices_proof_mandatory": "Musíte vybrat důkaz!",
     "prices_add_validation_error": "Chyba ověření",
+    "prices_privacy_warning_title": "Upozornění na soukromí",
+    "prices_privacy_warning_message": "Ceny budou veřejné, spolu s obchodem, na který odkazují.\nTo by mohlo umožnit lidem, kteří znají váš pseudonym Open Food Facts:\n* odvodit, ve které oblasti žijete\n* vědět, co kupujete\nPokud s tím jste znepokojeni, změňte si prosím svůj pseudonym nebo si vytvořte nový účet Open Food Facts a přihlaste se pomocí něj do aplikace.",
     "dev_preferences_import_history_result_success": "Hotovo",
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"

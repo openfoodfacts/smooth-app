@@ -1704,6 +1704,8 @@
     "prices_proof_price_tag": "Etichetta del prezzo",
     "prices_proof_mandatory": "Devi selezionare una prova!",
     "prices_add_validation_error": "Errore di validazione",
+    "prices_privacy_warning_title": "Privacy warning",
+    "prices_privacy_warning_message": "Prices will be public, along with the store they refer to.\nThat might allow people who know about your Open Food Facts pseudonym to:\n* infer in which area you live\n* know what you are buying\nIf you are uneasy with that, please change your pseudonym, or create a new Open Food Facts account and log into the app with it.",
     "dev_preferences_import_history_result_success": "Fatto",
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"
@@ -2711,7 +2713,7 @@
     "guide_nutriscore_v2_new_logo_title": "How to differentiate old Nutri-Score and new calculation?",
     "guide_nutriscore_v2_new_logo_text": "From now on, the logo can display a mention \"**New calculation**\" to clarify that this is indeed the new calculation.",
     "guide_nutriscore_v2_new_logo_image_caption": "The logo of the new Nutri-Score",
-    "guide_nutriscore_v2_where_title": "Where to find the new Nutri-Score calculation?",
+    "guide_nutriscore_v2_where_title": "Dove trovare il nuovo calcolo del Nutri-Score?",
     "guide_nutriscore_v2_where_paragraph1": "The Nutri-Score is applied in several countries: Germany, Belgium, Spain, France, Luxembourg, the Netherlands and Switzerland.",
     "guide_nutriscore_v2_where_paragraph2": "Manufacturers have until **2026** at the latest **to replace** the old calculation with the new one.",
     "guide_nutriscore_v2_where_paragraph3": "Without waiting, you **will already find in the OpenFoodFacts application**, the new calculation, including if the manufacturers have not updated the score.",

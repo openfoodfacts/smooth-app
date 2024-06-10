@@ -202,7 +202,7 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
   static Rect getUpsizedRect(final Rect source) =>
       getResizedRect(source, _cropConversionFactor);
 
-  static Rect _getDownsizedRect(
+  static Rect getDownsizedRect(
     final int cropX1,
     final int cropY1,
     final int cropX2,
@@ -234,6 +234,7 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
     required final int cropY1,
     required final int cropX2,
     required final int cropY2,
+    final CustomPainter? overlayPainter,
   }) async {
     final ui.Image full = await loadUiImage(
         await (await BackgroundTaskUpload.getFile(fullPath)).readAsBytes());
@@ -246,11 +247,13 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
         return null;
       }
       // in that case, no need to crop
-      return fullPath;
+      if (overlayPainter == null) {
+        return fullPath;
+      }
     }
 
     Size getCroppedSize() {
-      final Rect cropRect = _getDownsizedRect(cropX1, cropY1, cropX2, cropY2);
+      final Rect cropRect = getDownsizedRect(cropX1, cropY1, cropX2, cropY2);
       switch (CropRotationExtension.fromDegrees(rotationDegrees)!) {
         case CropRotation.up:
         case CropRotation.down:
@@ -272,11 +275,12 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
       return null;
     }
     final ui.Image cropped = await CropController.getCroppedBitmap(
-      crop: _getDownsizedRect(cropX1, cropY1, cropX2, cropY2),
+      crop: getDownsizedRect(cropX1, cropY1, cropX2, cropY2),
       rotation: CropRotationExtension.fromDegrees(rotationDegrees)!,
       image: full,
       maxSize: null,
       quality: FilterQuality.high,
+      overlayPainter: overlayPainter,
     );
     await saveJpeg(
       file: await BackgroundTaskUpload.getFile(croppedPath),

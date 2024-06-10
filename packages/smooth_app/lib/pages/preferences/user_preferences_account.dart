@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -16,6 +17,8 @@ import 'package:smooth_app/pages/preferences/account_deletion_webview.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
+import 'package:smooth_app/pages/prices/get_prices_model.dart';
+import 'package:smooth_app/pages/prices/prices_page.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/user_management/login_page.dart';
 import 'package:smooth_app/query/paged_product_query.dart';
@@ -210,14 +213,65 @@ class UserPreferencesAccount extends AbstractUserPreferences {
         localDatabase: localDatabase,
         myCount: _getMyCount(UserSearchType.TO_BE_COMPLETED),
       ),
-      _getPriceListTile(
+      _getListTile(
         appLocalizations.user_search_prices_title,
-        'app/dashboard/prices',
-        myCount: _getMyPricesCount(),
+        () async => Navigator.of(context).push(
+          MaterialPageRoute<void>(
+            builder: (BuildContext context) => PricesPage(
+              GetPricesModel(
+                parameters: GetPricesParameters()
+                  ..owner = userId
+                  ..orderBy = <OrderBy<GetPricesOrderField>>[
+                    const OrderBy<GetPricesOrderField>(
+                      field: GetPricesOrderField.created,
+                      ascending: false,
+                    ),
+                  ]
+                  ..pageSize = GetPricesModel.pageSize
+                  ..pageNumber = 1,
+                displayOwner: false,
+                displayProduct: true,
+                uri: OpenPricesAPIClient.getUri(
+                  path: 'app/users/${ProductQuery.getWriteUser().userId}',
+                  uriHelper: ProductQuery.uriProductHelper,
+                ),
+                title: appLocalizations.user_search_prices_title,
+                subtitle: ProductQuery.getWriteUser().userId,
+              ),
+            ),
+          ),
+        ),
+        CupertinoIcons.money_dollar_circle,
+        myCount: _getPricesCount(owner: ProductQuery.getWriteUser().userId),
       ),
-      _getPriceListTile(
+      _getListTile(
         appLocalizations.all_search_prices_latest_title,
-        'app/prices',
+        () async => Navigator.of(context).push(
+          MaterialPageRoute<void>(
+            builder: (BuildContext context) => PricesPage(
+              GetPricesModel(
+                parameters: GetPricesParameters()
+                  ..orderBy = <OrderBy<GetPricesOrderField>>[
+                    const OrderBy<GetPricesOrderField>(
+                      field: GetPricesOrderField.created,
+                      ascending: false,
+                    ),
+                  ]
+                  ..pageSize = GetPricesModel.pageSize
+                  ..pageNumber = 1,
+                displayOwner: true,
+                displayProduct: true,
+                uri: OpenPricesAPIClient.getUri(
+                  path: 'app/prices',
+                  uriHelper: ProductQuery.uriProductHelper,
+                ),
+                title: appLocalizations.all_search_prices_latest_title,
+              ),
+            ),
+          ),
+        ),
+        CupertinoIcons.money_dollar_circle,
+        myCount: _getPricesCount(),
       ),
       _getPriceListTile(
         appLocalizations.all_search_prices_top_user_title,
@@ -284,25 +338,18 @@ class UserPreferencesAccount extends AbstractUserPreferences {
 
   UserPreferencesItem _getPriceListTile(
     final String title,
-    final String path, {
-    final Future<int?>? myCount,
-  }) =>
+    final String path,
+  ) =>
       _getListTile(
         title,
-        () async => LaunchUrlHelper.launchURL(_getPriceUrl(path)),
+        () async => LaunchUrlHelper.launchURL(
+          OpenPricesAPIClient.getUri(
+            path: path,
+            uriHelper: ProductQuery.uriProductHelper,
+          ).toString(),
+        ),
         Icons.open_in_new,
-        myCount: myCount,
       );
-
-  String _getPriceUrl(final String path) {
-    final UriProductHelper uriProductHelper = ProductQuery.uriProductHelper;
-    final Uri uri = Uri(
-      scheme: uriProductHelper.scheme,
-      host: uriProductHelper.getHost('prices'),
-      path: path,
-    );
-    return uri.toString();
-  }
 
   Future<bool?> _confirmLogout() async => showDialog<bool>(
         context: context,
@@ -354,11 +401,11 @@ class UserPreferencesAccount extends AbstractUserPreferences {
     }
   }
 
-  Future<int?> _getMyPricesCount() async {
+  Future<int?> _getPricesCount({final String? owner}) async {
     final MaybeError<GetPricesResult> result =
         await OpenPricesAPIClient.getPrices(
       GetPricesParameters()
-        ..owner = ProductQuery.getWriteUser().userId
+        ..owner = owner
         ..pageSize = 1,
       uriHelper: ProductQuery.uriProductHelper,
     );

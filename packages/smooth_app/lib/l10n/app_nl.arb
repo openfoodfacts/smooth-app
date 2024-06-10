@@ -1704,6 +1704,8 @@
     "prices_proof_price_tag": "Prijskaartje",
     "prices_proof_mandatory": "Je moet een bewijs selecteren!",
     "prices_add_validation_error": "Validatiefout",
+    "prices_privacy_warning_title": "Privacy warning",
+    "prices_privacy_warning_message": "Prices will be public, along with the store they refer to.\nThat might allow people who know about your Open Food Facts pseudonym to:\n* infer in which area you live\n* know what you are buying\nIf you are uneasy with that, please change your pseudonym, or create a new Open Food Facts account and log into the app with it.",
     "dev_preferences_import_history_result_success": "Voltooid",
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"

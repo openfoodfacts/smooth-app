@@ -5,8 +5,9 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
+import 'package:smooth_app/pages/prices/get_prices_model.dart';
+import 'package:smooth_app/pages/prices/prices_page.dart';
 import 'package:smooth_app/pages/prices/product_price_add_page.dart';
-import 'package:smooth_app/pages/prices/product_prices_page.dart';
 
 /// Card that displays buttons related to prices.
 class PricesCard extends StatelessWidget {
@@ -37,8 +38,12 @@ class PricesCard extends StatelessWidget {
                 icon: CupertinoIcons.tag_fill,
                 onPressed: () async => Navigator.of(context).push(
                   MaterialPageRoute<void>(
-                    builder: (BuildContext context) =>
-                        ProductPricesPage(product),
+                    builder: (BuildContext context) => PricesPage(
+                      GetPricesModel.product(
+                        product: product,
+                        context: context,
+                      ),
+                    ),
                   ),
                 ),
               ),
@@ -48,7 +53,7 @@ class PricesCard extends StatelessWidget {
               child: SmoothLargeButtonWithIcon(
                 text: appLocalizations.prices_add_a_price,
                 icon: Icons.add,
-                onPressed: () async => ProductPriceAddPage.showPage(
+                onPressed: () async => ProductPriceAddPage.showProductPage(
                   context: context,
                   product: product,
                 ),

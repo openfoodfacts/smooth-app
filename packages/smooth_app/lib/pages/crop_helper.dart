@@ -31,7 +31,11 @@ abstract class CropHelper {
     required final File smallCroppedFile,
     required final Directory directory,
     required final int sequenceNumber,
+    final List<Offset>? offsets,
   });
+
+  /// Should we display the eraser with the crop grid?
+  bool get enableEraser;
 
   /// Returns the crop rect according to local cropping method * factor.
   @protected
@@ -43,8 +47,16 @@ abstract class CropHelper {
     required final CropController controller,
     required final File? fullFile,
     required final File smallCroppedFile,
+    final List<Offset>? offsets,
   }) {
     final Rect cropRect = getLocalCropRect(controller);
+    final List<double> eraserCoordinates = <double>[];
+    if (offsets != null) {
+      for (final Offset offset in offsets) {
+        eraserCoordinates.add(offset.dx);
+        eraserCoordinates.add(offset.dy);
+      }
+    }
     return CropParameters(
       fullFile: fullFile,
       smallCroppedFile: smallCroppedFile,
@@ -53,6 +65,7 @@ abstract class CropHelper {
       y1: cropRect.top.ceil(),
       x2: cropRect.right.floor(),
       y2: cropRect.bottom.floor(),
+      eraserCoordinates: eraserCoordinates,
     );
   }
 

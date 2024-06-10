@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:crop_image/crop_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:http_parser/http_parser.dart';
@@ -11,6 +12,8 @@ import 'package:smooth_app/background/background_task_upload.dart';
 import 'package:smooth_app/background/operation_type.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/crop_parameters.dart';
+import 'package:smooth_app/pages/prices/eraser_model.dart';
+import 'package:smooth_app/pages/prices/eraser_painter.dart';
 
 // TODO(monsieurtanuki): use transient file, in order to have instant access to proof image?
 // TODO(monsieurtanuki): add source
@@ -33,6 +36,8 @@ class BackgroundTaskAddPrice extends BackgroundTask {
     required this.currency,
     required this.locationOSMId,
     required this.locationOSMType,
+    // lines
+    required this.eraserCoordinates,
     // multi
     required this.barcode,
     required this.priceIsDiscounted,
@@ -47,17 +52,30 @@ class BackgroundTaskAddPrice extends BackgroundTask {
         cropY1 = json[_jsonTagY1] as int? ?? 0,
         cropX2 = json[_jsonTagX2] as int? ?? 0,
         cropY2 = json[_jsonTagY2] as int? ?? 0,
-        proofType = getProofTypeFromOffTag(json[_jsonTagProofType] as String)!,
+        proofType = ProofType.fromOffTag(json[_jsonTagProofType] as String)!,
         date = JsonHelper.stringTimestampToDate(json[_jsonTagDate] as String),
-        currency = getCurrencyFromName(json[_jsonTagCurrency] as String)!,
+        currency = Currency.fromName(json[_jsonTagCurrency] as String)!,
         locationOSMId = json[_jsonTagOSMId] as int,
         locationOSMType =
             LocationOSMType.fromOffTag(json[_jsonTagOSMType] as String)!,
+        eraserCoordinates =
+            _fromJsonListDouble(json[_jsonTagEraserCoordinates]),
         barcode = json[_jsonTagBarcode] as String,
         priceIsDiscounted = json[_jsonTagIsDiscounted] as bool,
         price = json[_jsonTagPrice] as double,
         priceWithoutDiscount = json[_jsonTagPriceWithoutDiscount] as double?,
         super.fromJson(json);
+
+  static List<double>? _fromJsonListDouble(final List<dynamic>? input) {
+    if (input == null) {
+      return null;
+    }
+    final List<double> result = <double>[];
+    for (final dynamic item in input) {
+      result.add(item as double);
+    }
+    return result;
+  }
 
   static const String _jsonTagImagePath = 'imagePath';
   static const String _jsonTagRotation = 'rotation';
@@ -67,6 +85,7 @@ class BackgroundTaskAddPrice extends BackgroundTask {
   static const String _jsonTagY2 = 'y2';
   static const String _jsonTagProofType = 'proofType';
   static const String _jsonTagDate = 'date';
+  static const String _jsonTagEraserCoordinates = 'eraserCoordinates';
   static const String _jsonTagCurrency = 'currency';
   static const String _jsonTagOSMId = 'osmId';
   static const String _jsonTagOSMType = 'osmType';
@@ -88,6 +107,7 @@ class BackgroundTaskAddPrice extends BackgroundTask {
   final Currency currency;
   final int locationOSMId;
   final LocationOSMType locationOSMType;
+  final List<double>? eraserCoordinates;
   final String barcode;
   final bool priceIsDiscounted;
   final double price;
@@ -107,6 +127,7 @@ class BackgroundTaskAddPrice extends BackgroundTask {
     result[_jsonTagCurrency] = currency.name;
     result[_jsonTagOSMId] = locationOSMId;
     result[_jsonTagOSMType] = locationOSMType.offTag;
+    result[_jsonTagEraserCoordinates] = eraserCoordinates;
     result[_jsonTagBarcode] = barcode;
     result[_jsonTagIsDiscounted] = priceIsDiscounted;
     result[_jsonTagPrice] = price;
@@ -185,6 +206,7 @@ class BackgroundTaskAddPrice extends BackgroundTask {
         currency: currency,
         locationOSMId: locationOSMId,
         locationOSMType: locationOSMType,
+        eraserCoordinates: cropObject.eraserCoordinates,
         barcode: barcode,
         priceIsDiscounted: priceIsDiscounted,
         price: price,
@@ -238,6 +260,16 @@ class BackgroundTaskAddPrice extends BackgroundTask {
       ..priceWithoutDiscount = priceWithoutDiscount
       ..productCode = barcode;
 
+    final List<Offset> offsets = <Offset>[];
+    if (eraserCoordinates != null) {
+      for (int i = 0; i < eraserCoordinates!.length; i += 2) {
+        final Offset offset = Offset(
+          eraserCoordinates![i],
+          eraserCoordinates![i + 1],
+        );
+        offsets.add(offset);
+      }
+    }
     final String? path = await BackgroundTaskImage.cropIfNeeded(
       fullPath: fullPath,
       croppedPath: BackgroundTaskImage.getCroppedPath(fullPath),
@@ -246,6 +278,20 @@ class BackgroundTaskAddPrice extends BackgroundTask {
       cropY1: cropY1,
       cropX2: cropX2,
       cropY2: cropY2,
+      overlayPainter: offsets.isEmpty
+          ? null
+          : EraserPainter(
+              eraserModel: EraserModel(
+                rotation: CropRotationExtension.fromDegrees(rotationDegrees)!,
+                offsets: offsets,
+              ),
+              cropRect: BackgroundTaskImage.getDownsizedRect(
+                cropX1,
+                cropY1,
+                cropX2,
+                cropY2,
+              ),
+            ),
     );
     if (path == null) {
       // TODO(monsieurtanuki): maybe something more refined when we dismiss the picture, like alerting the user, though it's not supposed to happen anymore from upstream.
@@ -310,26 +356,6 @@ class BackgroundTaskAddPrice extends BackgroundTask {
       // throw Exception('Could not really close session');
       return;
     }
-  }
-
-  // TODO(monsieurtanuki): move it to off-dart
-  static Currency? getCurrencyFromName(final String name) {
-    for (final Currency currency in Currency.values) {
-      if (currency.name == name) {
-        return currency;
-      }
-    }
-    return null;
-  }
-
-  // TODO(monsieurtanuki): move it to off-dart
-  static ProofType? getProofTypeFromOffTag(final String offTag) {
-    for (final ProofType value in ProofType.values) {
-      if (value.offTag == offTag) {
-        return value;
-      }
-    }
-    return null;
   }
 
   @override

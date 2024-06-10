@@ -51,7 +51,7 @@ dependencies:
   flutter_native_splash: 2.4.0
   image: 4.1.7
   auto_size_text: 3.0.0
-  crop_image: 1.0.12
+  crop_image: 1.0.13
   shared_preferences: 2.2.3
   intl: 0.18.1
   collection: 1.18.0
@@ -99,7 +99,7 @@ dependencies:
     path: ../scanner/zxing
 
 
-  openfoodfacts: 3.10.0
+  openfoodfacts: 3.11.0
   # openfoodfacts:
   #   path: ../../../openfoodfacts-dart
 

@@ -38,6 +38,9 @@ abstract class ProductCropHelper extends CropHelper {
   String getProcessLabel(final AppLocalizations appLocalizations) =>
       appLocalizations.send_image_button_label;
 
+  @override
+  bool get enableEraser => false;
+
   @protected
   Future<void> refresh(final BuildContext context) async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
@@ -67,6 +70,7 @@ class ProductCropNewHelper extends ProductCropHelper {
     required final File smallCroppedFile,
     required final Directory directory,
     required final int sequenceNumber,
+    final List<Offset>? offsets,
   }) async {
     // in this case, it's a brand new picture, with crop parameters.
     // for performance reasons, we do not crop the image full-size here,
@@ -130,6 +134,7 @@ class ProductCropAgainHelper extends ProductCropHelper {
     required final File smallCroppedFile,
     required final Directory directory,
     required final int sequenceNumber,
+    final List<Offset>? offsets,
   }) async {
     // in this case, it's an existing picture, with crop parameters.
     // we let the server do everything: better performance, and no privacy

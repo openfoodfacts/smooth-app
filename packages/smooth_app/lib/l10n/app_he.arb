@@ -566,7 +566,7 @@
     "@new_product_dialog_description": {
         "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
     },
-    "new_product_dialog_illustration_description": "An illustration with unknown Nutri-Score and Eco-Score",
+    "new_product_dialog_illustration_description": "איור עם ציוני Nutri-Score ו־Eco-Score לא ידועים",
     "@new_product_dialog_illustration_description": {
         "description": "A description for accessibility of two images side by side: a Nutri-Score and an EcoScore."
     },
@@ -1704,6 +1704,8 @@
     "prices_proof_price_tag": "תווית מחיר",
     "prices_proof_mandatory": "חובה לבחור הוכחה!",
     "prices_add_validation_error": "שגיאת אימות",
+    "prices_privacy_warning_title": "אזהרת פרטיות",
+    "prices_privacy_warning_message": "המחירים יהיו גלויים לציבור, לצד החנויות שקשורות אליהם.\nכך יכולים אנשים שמכירים את הכינוי שלך ב־Open Food Facts:\n* להסיק מה אזור המגורים שלך\n* לדעת מה בסל הקניות שלך\nאם לא נוח לך לחשוף מידע שכזה, נא לשנות את הכינוי שלך או ליצור חשבון חדש ב־Open Food Facts ולהיכנס אליו ביישומון.",
     "dev_preferences_import_history_result_success": "בוצע",
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"
@@ -1767,19 +1769,19 @@
     "@user_search_prices_title": {
         "description": "User prices: list tile title"
     },
-    "all_search_prices_latest_title": "Latest Prices added",
+    "all_search_prices_latest_title": "המחירים האחרים שנוספו",
     "@all_search_prices_latest_title": {
         "description": "Latest prices: list tile title"
     },
-    "all_search_prices_top_user_title": "Top price contributors",
+    "all_search_prices_top_user_title": "תורמי המחירים המובילים",
     "@all_search_prices_top_user_title": {
         "description": "Top price users: list tile title"
     },
-    "all_search_prices_top_location_title": "Stores with the most prices",
+    "all_search_prices_top_location_title": "חנויות עם הכי הרבה מחירים",
     "@all_search_prices_top_location_title": {
         "description": "Top price locations: list tile title"
     },
-    "all_search_prices_top_product_title": "Products with the most prices",
+    "all_search_prices_top_product_title": "מוצרים עם הכי הרבה מחירים",
     "@all_search_prices_top_product_title": {
         "description": "Top price products: list tile title"
     },

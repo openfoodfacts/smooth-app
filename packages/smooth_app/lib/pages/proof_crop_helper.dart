@@ -37,6 +37,9 @@ class ProofCropHelper extends CropHelper {
       appLocalizations.okay;
 
   @override
+  bool get enableEraser => true;
+
+  @override
   Future<CropParameters?> process({
     required final BuildContext context,
     required final CropController controller,
@@ -45,6 +48,7 @@ class ProofCropHelper extends CropHelper {
     required final File smallCroppedFile,
     required final Directory directory,
     required final int sequenceNumber,
+    final List<Offset>? offsets,
   }) async {
     // It's a brand new picture, with crop parameters.
     // For performance reasons, we do not crop the image full-size here,
@@ -63,6 +67,7 @@ class ProofCropHelper extends CropHelper {
       controller: controller,
       fullFile: fullFile,
       smallCroppedFile: smallCroppedFile,
+      offsets: offsets,
     );
   }
 }
