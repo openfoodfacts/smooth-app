@@ -742,8 +742,6 @@
     "@no_product_found": {},
     "no_location_found": "Aucun magasin trouvé",
     "not_found": "non trouvé :",
-    "searchPanelHeader": "Recherchez ou scannez votre premier produit",
-    "@Product query status": {},
     "refreshing_product": "Actualisation du produit",
     "@refreshing_product": {
         "description": "Confirmation, that the product data of a cached product is queried again"
@@ -752,10 +750,24 @@
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
+    "homepage_main_card_logo_description": "Welcome to Open Food Facts",
+    "@homepage_main_card_logo_description": {
+        "description": "Description for accessibility of the Open Food Facts logo on the homepage"
+    },
+    "homepage_main_card_subheading": "**Scan** a barcode or\n**search** for a product",
+    "@homepage_main_card_subheading": {
+        "description": "Text between asterisks (eg: **My Text**) means text in bold. Please keep it."
+    },
+    "homepage_main_card_search_field_hint": "Chercher un produit",
+    "homepage_main_card_search_field_tooltip": "Start search",
+    "@homepage_main_card_search_field_tooltip": {
+        "description": "Description for accessibility of the search field on the homepage"
+    },
     "tagline_app_review": "Aimez-vous cette appli ?",
     "tagline_app_review_button_positive": "Je l'adore! 😍",
     "tagline_app_review_button_negative": "Pas vraiment…",
     "tagline_app_review_button_later": "Me demander plus tard",
+    "tagline_feed_news_button": "Know more",
     "app_review_negative_modal_title": "Vous n'aimez pas notre application ?",
     "app_review_negative_modal_text": "Pourriez-vous prendre quelques secondes pour nous dire pourquoi ?",
     "app_review_negative_modal_positive_button": "Oui, absolument !",
