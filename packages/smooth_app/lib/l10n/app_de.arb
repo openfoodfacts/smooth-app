@@ -750,16 +750,16 @@
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
-    "homepage_main_card_logo_description": "Welcome to Open Food Facts",
+    "homepage_main_card_logo_description": "Willkommen bei Open Food Facts",
     "@homepage_main_card_logo_description": {
         "description": "Description for accessibility of the Open Food Facts logo on the homepage"
     },
-    "homepage_main_card_subheading": "**Scan** a barcode or\n**search** for a product",
+    "homepage_main_card_subheading": "**Scannen** eines Barcodes oder\n**Suchen** nach einem Produkt",
     "@homepage_main_card_subheading": {
         "description": "Text between asterisks (eg: **My Text**) means text in bold. Please keep it."
     },
     "homepage_main_card_search_field_hint": "Produkt suchen",
-    "homepage_main_card_search_field_tooltip": "Start search",
+    "homepage_main_card_search_field_tooltip": "Suche starten",
     "@homepage_main_card_search_field_tooltip": {
         "description": "Description for accessibility of the search field on the homepage"
     },
@@ -767,7 +767,7 @@
     "tagline_app_review_button_positive": "Ich liebe sie! 😍",
     "tagline_app_review_button_negative": "Nicht wirklich …",
     "tagline_app_review_button_later": "Später erneut fragen",
-    "tagline_feed_news_button": "Know more",
+    "tagline_feed_news_button": "Mehr erfahren",
     "app_review_negative_modal_title": "Gefällt Ihnen diese App?",
     "app_review_negative_modal_text": "Könnten Sie sich ein paar Sekunden Zeit nehmen und uns sagen, warum?",
     "app_review_negative_modal_positive_button": "Ja, natürlich!",
