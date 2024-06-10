@@ -750,16 +750,16 @@
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
-    "homepage_main_card_logo_description": "Welcome to Open Food Facts",
+    "homepage_main_card_logo_description": "Benvenuti in Open Food Facts",
     "@homepage_main_card_logo_description": {
         "description": "Description for accessibility of the Open Food Facts logo on the homepage"
     },
-    "homepage_main_card_subheading": "**Scan** a barcode or\n**search** for a product",
+    "homepage_main_card_subheading": "**Scansiona** un codice a barre o\n**cerca** un prodotto",
     "@homepage_main_card_subheading": {
         "description": "Text between asterisks (eg: **My Text**) means text in bold. Please keep it."
     },
     "homepage_main_card_search_field_hint": "Cerca un prodotto",
-    "homepage_main_card_search_field_tooltip": "Start search",
+    "homepage_main_card_search_field_tooltip": "Inizia la ricerca",
     "@homepage_main_card_search_field_tooltip": {
         "description": "Description for accessibility of the search field on the homepage"
     },
@@ -767,7 +767,7 @@
     "tagline_app_review_button_positive": "La adoro! 😍",
     "tagline_app_review_button_negative": "Non proprio…",
     "tagline_app_review_button_later": "Chiedimelo più tardi",
-    "tagline_feed_news_button": "Know more",
+    "tagline_feed_news_button": "Scopri di più",
     "app_review_negative_modal_title": "Non ti piace la nostra app?",
     "app_review_negative_modal_text": "Potrebbe dedicarci qualche secondo per dirci perché?",
     "app_review_negative_modal_positive_button": "Sì, assolutamente!",
@@ -1716,8 +1716,8 @@
     "prices_proof_price_tag": "Etichetta del prezzo",
     "prices_proof_mandatory": "Devi selezionare una prova!",
     "prices_add_validation_error": "Errore di validazione",
-    "prices_privacy_warning_title": "Privacy warning",
-    "prices_privacy_warning_message": "Prices will be public, along with the store they refer to.\nThat might allow people who know about your Open Food Facts pseudonym to:\n* infer in which area you live\n* know what you are buying\nIf you are uneasy with that, please change your pseudonym, or create a new Open Food Facts account and log into the app with it.",
+    "prices_privacy_warning_title": "Avviso sulla privacy",
+    "prices_privacy_warning_message": "I prezzi saranno pubblici, insieme al negozio a cui si riferiscono.\nQuesto potrebbe permettere alle persone che conoscono il tuo pseudonimo di Open Food Facts di:\n* dedurre in quale zona vivi\n* sapere cosa stai comprando\nSe ti senti a disagio con ciò, cambia il tuo pseudonimo, oppure crea un nuovo account di Open Food Facts e accedi all'app con esso.",
     "prices_unknown_product": "Prodotto sconosciuto",
     "@prices_unknown_product": {
         "description": "Very small text, in the context of prices, to say that the product is unknown"
@@ -2687,7 +2687,7 @@
             }
         }
     },
-    "guide_title": "Guide",
+    "guide_title": "Guida",
     "@guide_title": {
         "description": "A title for a guide"
     },
@@ -2696,7 +2696,7 @@
     "@guide_nutriscore_v2_enabled": {
         "description": "Please NEVER touch this value and let the OFF team change it!"
     },
-    "guide_nutriscore_v2_title": "The Nutri-Score is evolving: explanations!",
+    "guide_nutriscore_v2_title": "Il Nutri-Score è in evoluzione: spiegazioni!",
     "@guide_nutriscore_v2_title": {
         "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
     },
@@ -2705,34 +2705,34 @@
         "description": "The logo is only available in de/en/fr/ln/nl. Please use en if not available (in lowercase, please)."
     },
     "guide_nutriscore_v2_what_is_nutriscore_title": "Cos'è il Nutri-Score?",
-    "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "The Nutri-Score is a logo which aims to inform you about the **nutritional quality of foods**.",
+    "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "Il Nutri-Score è un logo che ha lo scopo d'informarti sulla **qualità nutrizionale degli alimenti**.",
     "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
         "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
     },
-    "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "The color code varies from dark green (**A**) for the **healthiest** products to dark red (**E**) for the **less healthy** ones.",
+    "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "Il codice colore varia dal verde scuro (**A**) per i prodotti **più salutari** al rosso scuro (**E**) per quelli **meno salutari**.",
     "@guide_nutriscore_v2_what_is_nutriscore_paragraph2": {
         "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
     },
-    "guide_nutriscore_v2_nutriscore_a_caption": "The Nutri-Score A logo",
-    "guide_nutriscore_v2_why_v2_title": "Why is Nutri-Score evolving?",
-    "guide_nutriscore_v2_why_v2_intro": "The Nutri-Score formula **is evolving** to provide better recommendations:",
-    "guide_nutriscore_v2_why_v2_arg1_title": "Better evaluate all drinks",
-    "guide_nutriscore_v2_why_v2_arg1_text": "The comparative notes of **milk**, **dairy drinks** with added sugar and **vegetable** drinks were better differentiated in the new algorithm.",
-    "guide_nutriscore_v2_why_v2_arg2_title": "Better ranking of drinks",
-    "guide_nutriscore_v2_why_v2_arg2_text": "The **sugar content** is better taken into account and favors **lowly sweetened** drinks.\\n**Sweeteners will also be penalized**: diet sodas will be downgraded from a B rating to between C and E. Water remains the recommended drink.",
-    "guide_nutriscore_v2_why_v2_arg3_title": "Salt and sugar penalized",
-    "guide_nutriscore_v2_why_v2_arg3_text": "Products **too sweet** or **too salty** will see their **rating further downgraded**.",
-    "guide_nutriscore_v2_why_v2_arg4_title": "Hierarchy within oils and fishes",
-    "guide_nutriscore_v2_why_v2_arg4_text": "The rating of certain **fatty fish** and **oils rich in good fats** will improve.",
-    "guide_nutriscore_v2_why_v2_arg5_title": "Limit red meat",
-    "guide_nutriscore_v2_why_v2_arg5_text": "Consumption of **red meat should be limited**. This is why **poultry will be comparatively better ranked**.",
-    "guide_nutriscore_v2_new_logo_title": "How to differentiate old Nutri-Score and new calculation?",
-    "guide_nutriscore_v2_new_logo_text": "From now on, the logo can display a mention \"**New calculation**\" to clarify that this is indeed the new calculation.",
-    "guide_nutriscore_v2_new_logo_image_caption": "The logo of the new Nutri-Score",
+    "guide_nutriscore_v2_nutriscore_a_caption": "Il logo A del Nutri-Score",
+    "guide_nutriscore_v2_why_v2_title": "Perché il Nutri-Score si sta evolvendo?",
+    "guide_nutriscore_v2_why_v2_intro": "La formula del Nutri-Score **sta evolvendo** per fornire raccomandazioni migliori:",
+    "guide_nutriscore_v2_why_v2_arg1_title": "Valutazione migliore di tutte le bevande",
+    "guide_nutriscore_v2_why_v2_arg1_text": "Le note comparative di **latte**, **bevande lattiero-casearie** con zucchero aggiunto e **bevande vegetali** sono stati meglio differenziate nel nuovo algoritmo.",
+    "guide_nutriscore_v2_why_v2_arg2_title": "Migliore classificazione delle bevande",
+    "guide_nutriscore_v2_why_v2_arg2_text": "Il **contenuto di zucchero** viene meglio preso in considerazione e favorisce le bevande **poco zuccherate**.\\n**I dolcificanti verranno anch'essi penalizzati**: le bibite dietetiche passeranno da un punteggio B a uno compreso tra C ed E. L'acqua rimane la bevanda consigliata.",
+    "guide_nutriscore_v2_why_v2_arg3_title": "Il sale e lo zucchero penalizzati",
+    "guide_nutriscore_v2_why_v2_arg3_text": "I prodotti **troppo dolci** o **troppo salati** vedranno la loro **valutazione ulteriormente declassata**.",
+    "guide_nutriscore_v2_why_v2_arg4_title": "La gerarchia negli oli e nei pesci",
+    "guide_nutriscore_v2_why_v2_arg4_text": "La valutazione di alcuni **pesci grassi** e **oli ricchi in grassi buoni** migliorerà.",
+    "guide_nutriscore_v2_why_v2_arg5_title": "Limita la carne rossa",
+    "guide_nutriscore_v2_why_v2_arg5_text": "Il consumo di **carne rossa dovrebbe essere limitato**. Ecco perché il **pollame sarà classificato relativamente meglio**.",
+    "guide_nutriscore_v2_new_logo_title": "Come distinguere tra il vecchio e il nuovo calcolo del Nutri-Score?",
+    "guide_nutriscore_v2_new_logo_text": "D'ora in poi, il logo può mostrare la dicitura \"**Nuovo calcolo**\" per chiarire che si tratta effettivamente del nuovo calcolo.",
+    "guide_nutriscore_v2_new_logo_image_caption": "Il logo del nuovo Nutri-Score",
     "guide_nutriscore_v2_where_title": "Dove trovare il nuovo calcolo del Nutri-Score?",
-    "guide_nutriscore_v2_where_paragraph1": "The Nutri-Score is applied in several countries: Germany, Belgium, Spain, France, Luxembourg, the Netherlands and Switzerland.",
-    "guide_nutriscore_v2_where_paragraph2": "Manufacturers have until **2026** at the latest **to replace** the old calculation with the new one.",
-    "guide_nutriscore_v2_where_paragraph3": "Without waiting, you **will already find in the OpenFoodFacts application**, the new calculation, including if the manufacturers have not updated the score.",
+    "guide_nutriscore_v2_where_paragraph1": "Il Nutri-Score è in uso in diversi Paesi: Germania, Belgio, Spagna, Francia, Lussemburgo, Paesi Bassi e Svizzera.",
+    "guide_nutriscore_v2_where_paragraph2": "I produttori hanno tempo al massimo fino al **2026** **per sostituire** il vecchio calcolo con quello nuovo.",
+    "guide_nutriscore_v2_where_paragraph3": "Senza dover aspettare, **troverai già nell'applicazione OpenFoodFacts**, il nuovo calcolo, anche se i produttori non hanno aggiornato il punteggio.",
     "guide_nutriscore_v2_unchanged_title": "Cosa non cambia",
     "guide_nutriscore_v2_unchanged_paragraph1": "Il Nutri-Score è un punteggio progettato per **misurare la qualità nutrizionale**. È **complementare al gruppo NOVA** sugli **alimenti ultra-trasformati** (anch'esso presente nell'applicazione).",
     "guide_nutriscore_v2_unchanged_paragraph2": "Per i produttori, l'esposizione del Nutri-Score **rimane facoltativa**.",
