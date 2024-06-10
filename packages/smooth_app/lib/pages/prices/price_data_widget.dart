@@ -36,6 +36,9 @@ class PriceDataWidget extends StatelessWidget {
       if (price.product == null) {
         return null;
       }
+      if (price.product!.quantity == null) {
+        return null;
+      }
       if ((price.product!.quantityUnit ?? 'g') != 'g') {
         return null;
       }
