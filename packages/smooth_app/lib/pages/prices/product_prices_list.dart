@@ -62,7 +62,12 @@ class _ProductPricesListState extends State<ProductPricesList> {
                 continue;
               }
               children.add(
-                SmoothCard(child: PriceProductWidget(priceProduct)),
+                SmoothCard(
+                  child: PriceProductWidget(
+                    priceProduct,
+                    model: widget.model,
+                  ),
+                ),
               );
               break;
             }
@@ -77,7 +82,10 @@ class _ProductPricesListState extends State<ProductPricesList> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     if (widget.model.displayProduct && priceProduct != null)
-                      PriceProductWidget(priceProduct),
+                      PriceProductWidget(
+                        priceProduct,
+                        model: widget.model,
+                      ),
                     PriceDataWidget(
                       price,
                       model: widget.model,
@@ -90,7 +98,9 @@ class _ProductPricesListState extends State<ProductPricesList> {
           final AppLocalizations appLocalizations =
               AppLocalizations.of(context);
           final String title = result.numberOfPages == 1
-              ? appLocalizations.prices_list_length_one_page(children.length)
+              ? appLocalizations.prices_list_length_one_page(
+                  result.items!.length,
+                )
               : appLocalizations.prices_list_length_many_pages(
                   widget.model.parameters.pageSize!,
                   result.total!,

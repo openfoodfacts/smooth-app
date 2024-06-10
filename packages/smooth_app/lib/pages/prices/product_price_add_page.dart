@@ -22,17 +22,44 @@ import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Single page that displays all the elements of price adding.
 class ProductPriceAddPage extends StatefulWidget {
-  const ProductPriceAddPage(
-    this.product, {
+  const ProductPriceAddPage({
+    required this.barcode,
+    required this.title,
     required this.latestOsmLocations,
   });
 
-  final Product product;
+  final String barcode;
+  final String title;
   final List<OsmLocation> latestOsmLocations;
 
-  static Future<void> showPage({
+  static Future<void> showBarcodePage({
+    required final BuildContext context,
+    required final String barcode,
+    required final String title,
+  }) async =>
+      _showPage(
+        context: context,
+        barcode: barcode,
+        title: title,
+      );
+
+  static Future<void> showProductPage({
     required final BuildContext context,
     required final Product product,
+  }) async =>
+      _showPage(
+        context: context,
+        barcode: product.barcode!,
+        title: getProductNameAndBrands(
+          product,
+          AppLocalizations.of(context),
+        ),
+      );
+
+  static Future<void> _showPage({
+    required final BuildContext context,
+    required final String barcode,
+    required final String title,
   }) async {
     if (!await ProductRefresher().checkIfLoggedIn(
       context,
@@ -52,7 +79,8 @@ class ProductPriceAddPage extends StatefulWidget {
     await Navigator.of(context).push(
       MaterialPageRoute<void>(
         builder: (BuildContext context) => ProductPriceAddPage(
-          product,
+          barcode: barcode,
+          title: title,
           latestOsmLocations: osmLocations,
         ),
       ),
@@ -67,7 +95,7 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage> {
   late final PriceModel _model = PriceModel(
     proofType: ProofType.priceTag,
     locations: widget.latestOsmLocations,
-    barcode: widget.product.barcode!,
+    barcode: widget.barcode,
   );
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -85,10 +113,10 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage> {
             centerTitle: false,
             leading: const SmoothBackButton(),
             title: Text(
-              getProductNameAndBrands(widget.product, appLocalizations),
+              widget.title,
               maxLines: 1,
             ),
-            subTitle: Text(widget.product.barcode!),
+            subTitle: Text(widget.barcode),
             actions: <Widget>[
               IconButton(
                 icon: const Icon(Icons.info),
