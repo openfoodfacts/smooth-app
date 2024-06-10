@@ -4,14 +4,19 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/images/smooth_image.dart';
+import 'package:smooth_app/pages/prices/get_prices_model.dart';
 import 'package:smooth_app/pages/prices/price_button.dart';
 import 'package:smooth_app/pages/prices/price_count_widget.dart';
 
 /// Price Product display (no price data here).
 class PriceProductWidget extends StatelessWidget {
-  const PriceProductWidget(this.priceProduct);
+  const PriceProductWidget(
+    this.priceProduct, {
+    required this.model,
+  });
 
   final PriceProduct priceProduct;
+  final GetPricesModel model;
 
   static const double _imageSize = 75;
 
@@ -65,7 +70,12 @@ class PriceProductWidget extends StatelessWidget {
                   crossAxisAlignment: WrapCrossAlignment.center,
                   runSpacing: 0,
                   children: <Widget>[
-                    PriceCountWidget(priceCount),
+                    PriceCountWidget(
+                      priceCount,
+                      barcode: priceProduct.code,
+                      name: name,
+                      enableCountButton: model.enableCountButton,
+                    ),
                     if (brands != null)
                       for (final String brand in brands)
                         PriceButton(

@@ -257,7 +257,7 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
               _ListTitleItem(
                 title: appLocalizations.prices_add_a_price,
                 leading: const Icon(Icons.add),
-                onTap: () async => ProductPriceAddPage.showPage(
+                onTap: () async => ProductPriceAddPage.showProductPage(
                   context: context,
                   product: upToDateProduct,
                 ),

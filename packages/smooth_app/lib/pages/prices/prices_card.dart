@@ -8,7 +8,6 @@ import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/prices/get_prices_model.dart';
 import 'package:smooth_app/pages/prices/prices_page.dart';
 import 'package:smooth_app/pages/prices/product_price_add_page.dart';
-import 'package:smooth_app/query/product_query.dart';
 
 /// Card that displays buttons related to prices.
 class PricesCard extends StatelessWidget {
@@ -40,31 +39,9 @@ class PricesCard extends StatelessWidget {
                 onPressed: () async => Navigator.of(context).push(
                   MaterialPageRoute<void>(
                     builder: (BuildContext context) => PricesPage(
-                      GetPricesModel(
-                        parameters: GetPricesParameters()
-                          ..productCode = product.barcode
-                          ..orderBy = <OrderBy<GetPricesOrderField>>[
-                            const OrderBy<GetPricesOrderField>(
-                              field: GetPricesOrderField.created,
-                              ascending: false,
-                            ),
-                          ]
-                          ..pageSize = GetPricesModel.pageSize
-                          ..pageNumber = 1,
-                        displayOwner: true,
-                        displayProduct: false,
-                        uri: OpenPricesAPIClient.getUri(
-                          path: 'app/products/${product.barcode!}',
-                          uriHelper: ProductQuery.uriProductHelper,
-                        ),
-                        title: getProductNameAndBrands(
-                          product,
-                          appLocalizations,
-                        ),
-                        addButton: () async => ProductPriceAddPage.showPage(
-                          context: context,
-                          product: product,
-                        ),
+                      GetPricesModel.product(
+                        product: product,
+                        context: context,
                       ),
                     ),
                   ),
@@ -76,7 +53,7 @@ class PricesCard extends StatelessWidget {
               child: SmoothLargeButtonWithIcon(
                 text: appLocalizations.prices_add_a_price,
                 icon: Icons.add,
-                onPressed: () async => ProductPriceAddPage.showPage(
+                onPressed: () async => ProductPriceAddPage.showProductPage(
                   context: context,
                   product: product,
                 ),

@@ -242,7 +242,7 @@ class UserPreferencesAccount extends AbstractUserPreferences {
           ),
         ),
         CupertinoIcons.money_dollar_circle,
-        myCount: _getMyPricesCount(),
+        myCount: _getPricesCount(owner: ProductQuery.getWriteUser().userId),
       ),
       _getListTile(
         appLocalizations.all_search_prices_latest_title,
@@ -271,6 +271,7 @@ class UserPreferencesAccount extends AbstractUserPreferences {
           ),
         ),
         CupertinoIcons.money_dollar_circle,
+        myCount: _getPricesCount(),
       ),
       _getPriceListTile(
         appLocalizations.all_search_prices_top_user_title,
@@ -337,9 +338,8 @@ class UserPreferencesAccount extends AbstractUserPreferences {
 
   UserPreferencesItem _getPriceListTile(
     final String title,
-    final String path, {
-    final Future<int?>? myCount,
-  }) =>
+    final String path,
+  ) =>
       _getListTile(
         title,
         () async => LaunchUrlHelper.launchURL(
@@ -349,7 +349,6 @@ class UserPreferencesAccount extends AbstractUserPreferences {
           ).toString(),
         ),
         Icons.open_in_new,
-        myCount: myCount,
       );
 
   Future<bool?> _confirmLogout() async => showDialog<bool>(
@@ -402,11 +401,11 @@ class UserPreferencesAccount extends AbstractUserPreferences {
     }
   }
 
-  Future<int?> _getMyPricesCount() async {
+  Future<int?> _getPricesCount({final String? owner}) async {
     final MaybeError<GetPricesResult> result =
         await OpenPricesAPIClient.getPrices(
       GetPricesParameters()
-        ..owner = ProductQuery.getWriteUser().userId
+        ..owner = owner
         ..pageSize = 1,
       uriHelper: ProductQuery.uriProductHelper,
     );
