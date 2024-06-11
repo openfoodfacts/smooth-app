@@ -2736,7 +2736,7 @@
     "guide_nutriscore_v2_unchanged_title": "Apa yang tidak berubah",
     "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score merupakan skor yang dirancang untuk **mengukur kualitas nutrisi**. Ini **melengkapi klasifikasi grup NOVA** untuk **makanan ultra proses** (yang juga ada di dalam aplikasi).",
     "guide_nutriscore_v2_unchanged_paragraph2": "Bagi produsen, tampilan Nutri-Score **tetap opsional**.",
-    "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/guide/nutriscore-v2",
+    "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
     "guide_nutriscore_v2_share_message": "",
     "@guide_nutriscore_v2_share_message": {
         "description": "Please let empty for now (maybe use in the future)"
