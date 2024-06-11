@@ -1120,7 +1120,7 @@
     "@product_list_empty_title": {
         "description": "When the history list is empty, title of the message explaining to start scanning"
     },
-    "product_list_empty_message": "Scanned products will appear here and you can check detailed information about them",
+    "product_list_empty_message": "A beolvasott termékek itt fognak megjelenni és megtekintheti a velük kapcsolatos részleteket",
     "@product_list_empty_message": {
         "description": "When the history list is empty, body of the message explaining to start scanning"
     },
@@ -1474,7 +1474,7 @@
     "@user_list_dialog_new_title": {
         "description": "Title of the 'new user list' dialog"
     },
-    "user_list_dialog_rename_title": "Rename list",
+    "user_list_dialog_rename_title": "Lista átnevezése",
     "@user_list_dialog_rename_title": {
         "description": "Title of the 'rename user list' dialog"
     },
@@ -1644,7 +1644,7 @@
     "@dev_preferences_export_history_dialog_title": {
         "description": "User dev preferences - Export history - Dialog title"
     },
-    "dev_preferences_button_positive": "OK",
+    "dev_preferences_button_positive": "Ok",
     "@dev_preferences_button_positive": {
         "description": "User dev preferences - Positive button label"
     },
@@ -1664,7 +1664,7 @@
     "dev_preferences_migration_status_already_done": "success or fresh install",
     "dev_preferences_migration_status_success": "success",
     "dev_preferences_migration_status_error": "error",
-    "dev_preferences_migration_status_in_progress": "in progress",
+    "dev_preferences_migration_status_in_progress": "folyamatban",
     "dev_preferences_migration_status_required": "required (click to start)",
     "dev_preferences_migration_status_not_started": "unknown",
     "dev_preferences_import_history_subtitle": "Will clear history and put 3 products in there",
@@ -2109,7 +2109,7 @@
     "@paste_from_clipboard": {
         "description": "Paste the content of the clipboard"
     },
-    "no_data_available_in_clipboard": "No data available in your clipboard",
+    "no_data_available_in_clipboard": "Nincs adat a vágólapon",
     "@no_data_available_in_clipboard": {
         "description": "No data available in your clipboard"
     },
@@ -2229,11 +2229,11 @@
     "@offline_data": {
         "description": "App bar title for the offline data page"
     },
-    "ocr_image_upload_instruction": "Upload an image to automatically extract the information it contains.",
+    "ocr_image_upload_instruction": "Töltsön fel egy képet, hogy automatikusan kinyerje a benne lévő információt.",
     "@ocr_image_upload_instruction": {
         "description": "Message shown when there is no image on the OCR extraction page for ingredients or recycling instructions"
     },
-    "upload_image": "Upload Photo",
+    "upload_image": "Fénykép feltöltése",
     "@upload_image": {
         "description": "Message shown on asking to upload image"
     },
@@ -2366,7 +2366,7 @@
     "background_task_subtitle": "Your contributions are automatically saved to our server, but not always in real-time.",
     "background_task_list_empty": "No Pending Background Tasks",
     "background_task_error_server_time_out": "Server timeout",
-    "background_task_error_no_internet": "Internet connection error. Try later.",
+    "background_task_error_no_internet": "Internetkapcsolati hiba. Próbálja újra.",
     "background_task_operation_unknown": "unknown operation type",
     "background_task_operation_details": "detailed changes",
     "background_task_operation_image": "photo upload",
