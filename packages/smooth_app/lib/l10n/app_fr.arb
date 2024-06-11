@@ -2736,7 +2736,7 @@
     "guide_nutriscore_v2_unchanged_title": "Ce qui ne change pas",
     "guide_nutriscore_v2_unchanged_paragraph1": "Le Nutri-Score est un score conçu pour **mesurer la qualité nutritionnelle**. Il est **complémentaire au groupe NOVA** sur les **aliments ultra-transformés** (également présent dans l'application).",
     "guide_nutriscore_v2_unchanged_paragraph2": "Pour les fabricants, l'affichage du Nutri-Score **reste optionnel**.",
-    "guide_nutriscore_v2_share_link": "https://fr.openfoodfacts.org/guide/nutriscore-v2",
+    "guide_nutriscore_v2_share_link": "https://fr.openfoodfacts.org/nutriscore-v2",
     "guide_nutriscore_v2_share_message": "",
     "@guide_nutriscore_v2_share_message": {
         "description": "Please let empty for now (maybe use in the future)"
