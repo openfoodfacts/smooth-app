@@ -2736,7 +2736,7 @@
     "guide_nutriscore_v2_unchanged_title": "Co se nemění",
     "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score je skóre navržené k **měření nutriční kvality**. Je **doplňkem skupiny NOVA** pro **ultra zpracované potraviny** (taktéž přítomných v aplikaci).",
     "guide_nutriscore_v2_unchanged_paragraph2": "Pro výrobce zůstává zobrazení Nutri-Score **nepovinné**.",
-    "guide_nutriscore_v2_share_link": "https://world-cs.openfoodfacts.org/guide/nutriscore-v2",
+    "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
     "guide_nutriscore_v2_share_message": "",
     "@guide_nutriscore_v2_share_message": {
         "description": "Please let empty for now (maybe use in the future)"
