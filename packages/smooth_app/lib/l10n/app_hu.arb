@@ -199,7 +199,7 @@
         "description": "Forgot password page title"
     },
     "reset_password_explanation_text": "Elfelejtett jelszó esetén adja meg felhasználónevét vagy e-mail címét, hogy megkapja a jelszó visszaállítására vonatkozó utasításokat. Ne felejtse el ellenőrizni a Spam mappát is.",
-    "username_or_email": "Felhasználónév vagy e-mail",
+    "username_or_email": "Felhasználónév vagy e-mail cím",
     "@username_or_email": {
         "description": "Text field hint for password reset"
     },
@@ -1933,7 +1933,7 @@
             }
         }
     },
-    "confirm_delete_user_list_title": "Delete the list?",
+    "confirm_delete_user_list_title": "Törli a listát?",
     "@confirm_delete_user_list_title": {
         "description": "Title when asking about whether to delete the list or not"
     },
