@@ -199,7 +199,7 @@
         "description": "Forgot password page title"
     },
     "reset_password_explanation_text": "Elfelejtett jelszó esetén adja meg felhasználónevét vagy e-mail címét, hogy megkapja a jelszó visszaállítására vonatkozó utasításokat. Ne felejtse el ellenőrizni a Spam mappát is.",
-    "username_or_email": "Felhasználónév vagy e-mail",
+    "username_or_email": "Felhasználónév vagy e-mail cím",
     "@username_or_email": {
         "description": "Text field hint for password reset"
     },
@@ -742,8 +742,6 @@
     "@no_product_found": {},
     "no_location_found": "No location found",
     "not_found": "nem található:",
-    "searchPanelHeader": "Keresse meg vagy szkennelje első termékét",
-    "@Product query status": {},
     "refreshing_product": "Termék frissítése",
     "@refreshing_product": {
         "description": "Confirmation, that the product data of a cached product is queried again"
@@ -752,10 +750,24 @@
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
+    "homepage_main_card_logo_description": "Welcome to Open Food Facts",
+    "@homepage_main_card_logo_description": {
+        "description": "Description for accessibility of the Open Food Facts logo on the homepage"
+    },
+    "homepage_main_card_subheading": "**Scan** a barcode or\n**search** for a product",
+    "@homepage_main_card_subheading": {
+        "description": "Text between asterisks (eg: **My Text**) means text in bold. Please keep it."
+    },
+    "homepage_main_card_search_field_hint": "Search for a product",
+    "homepage_main_card_search_field_tooltip": "Start search",
+    "@homepage_main_card_search_field_tooltip": {
+        "description": "Description for accessibility of the search field on the homepage"
+    },
     "tagline_app_review": "Do you like the app?",
     "tagline_app_review_button_positive": "I love it! 😍",
     "tagline_app_review_button_negative": "Not really…",
     "tagline_app_review_button_later": "Ask me later",
+    "tagline_feed_news_button": "Know more",
     "app_review_negative_modal_title": "You don't like our app?",
     "app_review_negative_modal_text": "Could you take a few seconds to tell us why?",
     "app_review_negative_modal_positive_button": "Yes, absolutely!",
@@ -1108,7 +1120,7 @@
     "@product_list_empty_title": {
         "description": "When the history list is empty, title of the message explaining to start scanning"
     },
-    "product_list_empty_message": "Scanned products will appear here and you can check detailed information about them",
+    "product_list_empty_message": "A beolvasott termékek itt fognak megjelenni és megtekintheti a velük kapcsolatos részleteket",
     "@product_list_empty_message": {
         "description": "When the history list is empty, body of the message explaining to start scanning"
     },
@@ -1462,7 +1474,7 @@
     "@user_list_dialog_new_title": {
         "description": "Title of the 'new user list' dialog"
     },
-    "user_list_dialog_rename_title": "Rename list",
+    "user_list_dialog_rename_title": "Lista átnevezése",
     "@user_list_dialog_rename_title": {
         "description": "Title of the 'rename user list' dialog"
     },
@@ -1632,7 +1644,7 @@
     "@dev_preferences_export_history_dialog_title": {
         "description": "User dev preferences - Export history - Dialog title"
     },
-    "dev_preferences_button_positive": "OK",
+    "dev_preferences_button_positive": "Ok",
     "@dev_preferences_button_positive": {
         "description": "User dev preferences - Positive button label"
     },
@@ -1652,7 +1664,7 @@
     "dev_preferences_migration_status_already_done": "success or fresh install",
     "dev_preferences_migration_status_success": "success",
     "dev_preferences_migration_status_error": "error",
-    "dev_preferences_migration_status_in_progress": "in progress",
+    "dev_preferences_migration_status_in_progress": "folyamatban",
     "dev_preferences_migration_status_required": "required (click to start)",
     "dev_preferences_migration_status_not_started": "unknown",
     "dev_preferences_import_history_subtitle": "Will clear history and put 3 products in there",
@@ -1706,6 +1718,10 @@
     "prices_add_validation_error": "Validation error",
     "prices_privacy_warning_title": "Privacy warning",
     "prices_privacy_warning_message": "Prices will be public, along with the store they refer to.\nThat might allow people who know about your Open Food Facts pseudonym to:\n* infer in which area you live\n* know what you are buying\nIf you are uneasy with that, please change your pseudonym, or create a new Open Food Facts account and log into the app with it.",
+    "prices_unknown_product": "Unknown product",
+    "@prices_unknown_product": {
+        "description": "Very small text, in the context of prices, to say that the product is unknown"
+    },
     "dev_preferences_import_history_result_success": "Kész",
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"
@@ -1917,7 +1933,7 @@
             }
         }
     },
-    "confirm_delete_user_list_title": "Delete the list?",
+    "confirm_delete_user_list_title": "Törli a listát?",
     "@confirm_delete_user_list_title": {
         "description": "Title when asking about whether to delete the list or not"
     },
@@ -2093,7 +2109,7 @@
     "@paste_from_clipboard": {
         "description": "Paste the content of the clipboard"
     },
-    "no_data_available_in_clipboard": "No data available in your clipboard",
+    "no_data_available_in_clipboard": "Nincs adat a vágólapon",
     "@no_data_available_in_clipboard": {
         "description": "No data available in your clipboard"
     },
@@ -2213,11 +2229,11 @@
     "@offline_data": {
         "description": "App bar title for the offline data page"
     },
-    "ocr_image_upload_instruction": "Upload an image to automatically extract the information it contains.",
+    "ocr_image_upload_instruction": "Töltsön fel egy képet, hogy automatikusan kinyerje a benne lévő információt.",
     "@ocr_image_upload_instruction": {
         "description": "Message shown when there is no image on the OCR extraction page for ingredients or recycling instructions"
     },
-    "upload_image": "Upload Photo",
+    "upload_image": "Fénykép feltöltése",
     "@upload_image": {
         "description": "Message shown on asking to upload image"
     },
@@ -2350,7 +2366,7 @@
     "background_task_subtitle": "Your contributions are automatically saved to our server, but not always in real-time.",
     "background_task_list_empty": "No Pending Background Tasks",
     "background_task_error_server_time_out": "Server timeout",
-    "background_task_error_no_internet": "Internet connection error. Try later.",
+    "background_task_error_no_internet": "Internetkapcsolati hiba. Próbálja újra.",
     "background_task_operation_unknown": "unknown operation type",
     "background_task_operation_details": "detailed changes",
     "background_task_operation_image": "photo upload",

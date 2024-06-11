@@ -742,8 +742,6 @@
     "@no_product_found": {},
     "no_location_found": "No location found",
     "not_found": "no se ha encontrado:",
-    "searchPanelHeader": "Busca o escanea tu primer producto",
-    "@Product query status": {},
     "refreshing_product": "Actualizando producto",
     "@refreshing_product": {
         "description": "Confirmation, that the product data of a cached product is queried again"
@@ -752,10 +750,24 @@
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
+    "homepage_main_card_logo_description": "Bienvenida a Open Food Facts∫",
+    "@homepage_main_card_logo_description": {
+        "description": "Description for accessibility of the Open Food Facts logo on the homepage"
+    },
+    "homepage_main_card_subheading": "**Escanee** un código de barras o\n**busque** un producto",
+    "@homepage_main_card_subheading": {
+        "description": "Text between asterisks (eg: **My Text**) means text in bold. Please keep it."
+    },
+    "homepage_main_card_search_field_hint": "Buscar un producto",
+    "homepage_main_card_search_field_tooltip": "Iniciar búsqueda",
+    "@homepage_main_card_search_field_tooltip": {
+        "description": "Description for accessibility of the search field on the homepage"
+    },
     "tagline_app_review": "¿Te gusta la aplicación?",
     "tagline_app_review_button_positive": "¡Me encanta! 😍",
     "tagline_app_review_button_negative": "No mucho…",
     "tagline_app_review_button_later": "Pregúntame más tarde",
+    "tagline_feed_news_button": "Más información",
     "app_review_negative_modal_title": "¿No te gusta nuestra aplicación?",
     "app_review_negative_modal_text": "¿Nos podrías explicar por qué?",
     "app_review_negative_modal_positive_button": "¡Sí, por supuesto!",
@@ -1706,6 +1718,10 @@
     "prices_add_validation_error": "Validation error",
     "prices_privacy_warning_title": "Privacy warning",
     "prices_privacy_warning_message": "Prices will be public, along with the store they refer to.\nThat might allow people who know about your Open Food Facts pseudonym to:\n* infer in which area you live\n* know what you are buying\nIf you are uneasy with that, please change your pseudonym, or create a new Open Food Facts account and log into the app with it.",
+    "prices_unknown_product": "Producto desconocido",
+    "@prices_unknown_product": {
+        "description": "Very small text, in the context of prices, to say that the product is unknown"
+    },
     "dev_preferences_import_history_result_success": "Hecho",
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"
