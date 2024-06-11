@@ -2736,7 +2736,7 @@
     "guide_nutriscore_v2_unchanged_title": "Was sich nicht ändert",
     "guide_nutriscore_v2_unchanged_paragraph1": "Der Nutri-Score ist ein Punktesystem zur **Bewertung der Nährwertqualität**. Er ist eine **Ergänzung zur NOVA-Gruppe** für **hochverarbeitete Lebensmittel** (ebenfalls in der App enthalten).",
     "guide_nutriscore_v2_unchanged_paragraph2": "Für die Hersteller ist die Angabe des Nutri-Score **weiterhin optional**.",
-    "guide_nutriscore_v2_share_link": "https://de.openfoodfacts.org/guide/nutriscore-v2",
+    "guide_nutriscore_v2_share_link": "https://de.openfoodfacts.org/nutriscore-v2",
     "guide_nutriscore_v2_share_message": "",
     "@guide_nutriscore_v2_share_message": {
         "description": "Please let empty for now (maybe use in the future)"
