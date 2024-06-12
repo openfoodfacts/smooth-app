@@ -742,8 +742,6 @@
     "@no_product_found": {},
     "no_location_found": "לא נמצא מקום",
     "not_found": "לא נמצאו:",
-    "searchPanelHeader": "כדאי לך לחפש או לסרוק את המוצר הראשון שלך",
-    "@Product query status": {},
     "refreshing_product": "המוצר מתרענן",
     "@refreshing_product": {
         "description": "Confirmation, that the product data of a cached product is queried again"
@@ -752,10 +750,24 @@
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
+    "homepage_main_card_logo_description": "ברוך בואך ל־Open Food Facts",
+    "@homepage_main_card_logo_description": {
+        "description": "Description for accessibility of the Open Food Facts logo on the homepage"
+    },
+    "homepage_main_card_subheading": "ניתן **לסרוק** ברקוד או\n**לחפש** מוצר",
+    "@homepage_main_card_subheading": {
+        "description": "Text between asterisks (eg: **My Text**) means text in bold. Please keep it."
+    },
+    "homepage_main_card_search_field_hint": "חיפוש מוצר",
+    "homepage_main_card_search_field_tooltip": "התחלת חיפוש",
+    "@homepage_main_card_search_field_tooltip": {
+        "description": "Description for accessibility of the search field on the homepage"
+    },
     "tagline_app_review": "איך היישומון שלנו?",
     "tagline_app_review_button_positive": "הוא מעולה! 😍",
     "tagline_app_review_button_negative": "ככה ככה…",
     "tagline_app_review_button_later": "אחר כך",
+    "tagline_feed_news_button": "מידע נוסף",
     "app_review_negative_modal_title": "לא אהבת את היישומון שלנו?",
     "app_review_negative_modal_text": "נוכל לבקש ממך להקדיש מספר שניות ולספר לנו למה?",
     "app_review_negative_modal_positive_button": "כן, כמובן!",
@@ -1706,6 +1718,10 @@
     "prices_add_validation_error": "שגיאת אימות",
     "prices_privacy_warning_title": "אזהרת פרטיות",
     "prices_privacy_warning_message": "המחירים יהיו גלויים לציבור, לצד החנויות שקשורות אליהם.\nכך יכולים אנשים שמכירים את הכינוי שלך ב־Open Food Facts:\n* להסיק מה אזור המגורים שלך\n* לדעת מה בסל הקניות שלך\nאם לא נוח לך לחשוף מידע שכזה, נא לשנות את הכינוי שלך או ליצור חשבון חדש ב־Open Food Facts ולהיכנס אליו ביישומון.",
+    "prices_unknown_product": "מוצר לא ידוע",
+    "@prices_unknown_product": {
+        "description": "Very small text, in the context of prices, to say that the product is unknown"
+    },
     "dev_preferences_import_history_result_success": "בוצע",
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"

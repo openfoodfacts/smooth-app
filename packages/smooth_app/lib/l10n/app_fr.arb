@@ -742,8 +742,6 @@
     "@no_product_found": {},
     "no_location_found": "Aucun magasin trouvé",
     "not_found": "non trouvé :",
-    "searchPanelHeader": "Recherchez ou scannez votre premier produit",
-    "@Product query status": {},
     "refreshing_product": "Actualisation du produit",
     "@refreshing_product": {
         "description": "Confirmation, that the product data of a cached product is queried again"
@@ -752,10 +750,24 @@
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
+    "homepage_main_card_logo_description": "Bienvenue sur Open Food Facts",
+    "@homepage_main_card_logo_description": {
+        "description": "Description for accessibility of the Open Food Facts logo on the homepage"
+    },
+    "homepage_main_card_subheading": "**Scannez** un code-barres ou\n**recherchez** un produit",
+    "@homepage_main_card_subheading": {
+        "description": "Text between asterisks (eg: **My Text**) means text in bold. Please keep it."
+    },
+    "homepage_main_card_search_field_hint": "Chercher un produit",
+    "homepage_main_card_search_field_tooltip": "Démarrer la recherche",
+    "@homepage_main_card_search_field_tooltip": {
+        "description": "Description for accessibility of the search field on the homepage"
+    },
     "tagline_app_review": "Aimez-vous cette appli ?",
     "tagline_app_review_button_positive": "Je l'adore! 😍",
     "tagline_app_review_button_negative": "Pas vraiment…",
     "tagline_app_review_button_later": "Me demander plus tard",
+    "tagline_feed_news_button": "En savoir plus",
     "app_review_negative_modal_title": "Vous n'aimez pas notre application ?",
     "app_review_negative_modal_text": "Pourriez-vous prendre quelques secondes pour nous dire pourquoi ?",
     "app_review_negative_modal_positive_button": "Oui, absolument !",
@@ -2717,14 +2729,14 @@
     "guide_nutriscore_v2_new_logo_title": "Comment différencier ancien Nutri-Score et nouveau calcul ?",
     "guide_nutriscore_v2_new_logo_text": "Désormais le logo peut arborer une mention \"**Nouveau calcul**\" pour clarifier qu'il s'agit bien du nouveau calcul.",
     "guide_nutriscore_v2_new_logo_image_caption": "Le logo du nouveau Nutri-Score",
-    "guide_nutriscore_v2_where_title": "Where to find the new Nutri-Score calculation?",
+    "guide_nutriscore_v2_where_title": "Où trouver le nouveau calcul du Nutri-Score ?",
     "guide_nutriscore_v2_where_paragraph1": "Le Nutri-Score est en application dans plusieurs pays : l'Allemagne, la Belgique, l'Espagne, la France, le Luxembourg, les Pays-Bas et la Suisse.",
     "guide_nutriscore_v2_where_paragraph2": "Les fabricants ont jusqu'en **2026** au plus tard **pour remplacer** l'ancien calcul par le nouveau.",
     "guide_nutriscore_v2_where_paragraph3": "Sans attendre, vous **retrouvez déjà dans l'application Open Food Facts**, le nouveau calcul, y compris si les fabriquants n’ont pas mis à jour le score.",
     "guide_nutriscore_v2_unchanged_title": "Ce qui ne change pas",
     "guide_nutriscore_v2_unchanged_paragraph1": "Le Nutri-Score est un score conçu pour **mesurer la qualité nutritionnelle**. Il est **complémentaire au groupe NOVA** sur les **aliments ultra-transformés** (également présent dans l'application).",
     "guide_nutriscore_v2_unchanged_paragraph2": "Pour les fabricants, l'affichage du Nutri-Score **reste optionnel**.",
-    "guide_nutriscore_v2_share_link": "https://fr.openfoodfacts.org/guide/nutriscore-v2",
+    "guide_nutriscore_v2_share_link": "https://fr.openfoodfacts.org/nutriscore-v2",
     "guide_nutriscore_v2_share_message": "",
     "@guide_nutriscore_v2_share_message": {
         "description": "Please let empty for now (maybe use in the future)"

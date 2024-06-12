@@ -742,8 +742,6 @@
     "@no_product_found": {},
     "no_location_found": "No location found",
     "not_found": "не знайдено:",
-    "searchPanelHeader": "Шукайте або відскануйте ваш перший товар",
-    "@Product query status": {},
     "refreshing_product": "Освіжаючий товар",
     "@refreshing_product": {
         "description": "Confirmation, that the product data of a cached product is queried again"
@@ -752,10 +750,24 @@
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
+    "homepage_main_card_logo_description": "Вітаємо в Open Food Facts",
+    "@homepage_main_card_logo_description": {
+        "description": "Description for accessibility of the Open Food Facts logo on the homepage"
+    },
+    "homepage_main_card_subheading": "**Відскануйте** штрих-код або\n**знайдіть** продукт",
+    "@homepage_main_card_subheading": {
+        "description": "Text between asterisks (eg: **My Text**) means text in bold. Please keep it."
+    },
+    "homepage_main_card_search_field_hint": "Пошук товару",
+    "homepage_main_card_search_field_tooltip": "Почати пошук",
+    "@homepage_main_card_search_field_tooltip": {
+        "description": "Description for accessibility of the search field on the homepage"
+    },
     "tagline_app_review": "Вам подобається цей додаток?",
     "tagline_app_review_button_positive": "Я в захопленні! 😍",
     "tagline_app_review_button_negative": "Не дуже…",
     "tagline_app_review_button_later": "Запитайте мене пізніше",
+    "tagline_feed_news_button": "Докладніше",
     "app_review_negative_modal_title": "Вам не подобається наш додаток?",
     "app_review_negative_modal_text": "Не могли б ви витратити кілька секунд, щоб сказати нам, чому?",
     "app_review_negative_modal_positive_button": "Так, звичайно!",
@@ -1706,6 +1718,10 @@
     "prices_add_validation_error": "Validation error",
     "prices_privacy_warning_title": "Попередження про конфіденційність",
     "prices_privacy_warning_message": "Prices will be public, along with the store they refer to.\nThat might allow people who know about your Open Food Facts pseudonym to:\n* infer in which area you live\n* know what you are buying\nIf you are uneasy with that, please change your pseudonym, or create a new Open Food Facts account and log into the app with it.",
+    "prices_unknown_product": "Невідомий продукт",
+    "@prices_unknown_product": {
+        "description": "Very small text, in the context of prices, to say that the product is unknown"
+    },
     "dev_preferences_import_history_result_success": "Виконано",
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"

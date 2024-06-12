@@ -105,9 +105,9 @@ class TagLineProvider extends ChangeNotifier {
   /// Based on the platform, the URL may differ
   String get _tagLineUrl {
     if (Platform.isIOS || Platform.isMacOS) {
-      return '/files/tagline-off-ios-v3.json';
+      return '/resources/files/tagline-off-ios-v3.json';
     } else {
-      return '/files/tagline-off-android-v3.json';
+      return '/resources/files/tagline-off-android-v3.json';
     }
   }
 

@@ -742,8 +742,6 @@
     "@no_product_found": {},
     "no_location_found": "No location found",
     "not_found": "見つかりません:",
-    "searchPanelHeader": "最初の製品を検索またはスキャン",
-    "@Product query status": {},
     "refreshing_product": "製品を更新中",
     "@refreshing_product": {
         "description": "Confirmation, that the product data of a cached product is queried again"
@@ -752,10 +750,24 @@
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
+    "homepage_main_card_logo_description": "Welcome to Open Food Facts",
+    "@homepage_main_card_logo_description": {
+        "description": "Description for accessibility of the Open Food Facts logo on the homepage"
+    },
+    "homepage_main_card_subheading": "**Scan** a barcode or\n**search** for a product",
+    "@homepage_main_card_subheading": {
+        "description": "Text between asterisks (eg: **My Text**) means text in bold. Please keep it."
+    },
+    "homepage_main_card_search_field_hint": "商品を検索",
+    "homepage_main_card_search_field_tooltip": "Start search",
+    "@homepage_main_card_search_field_tooltip": {
+        "description": "Description for accessibility of the search field on the homepage"
+    },
     "tagline_app_review": "アプリを気に入っていただけましたか？",
     "tagline_app_review_button_positive": "大好きです！ 😍",
     "tagline_app_review_button_negative": "そうでもないんですが...",
     "tagline_app_review_button_later": "あとで",
+    "tagline_feed_news_button": "Know more",
     "app_review_negative_modal_title": "このアプリを気に入っていますか？",
     "app_review_negative_modal_text": "その理由を少し教えていただけますか?",
     "app_review_negative_modal_positive_button": "そのとおり！",
@@ -1706,6 +1718,10 @@
     "prices_add_validation_error": "Validation error",
     "prices_privacy_warning_title": "Privacy warning",
     "prices_privacy_warning_message": "Prices will be public, along with the store they refer to.\nThat might allow people who know about your Open Food Facts pseudonym to:\n* infer in which area you live\n* know what you are buying\nIf you are uneasy with that, please change your pseudonym, or create a new Open Food Facts account and log into the app with it.",
+    "prices_unknown_product": "Unknown product",
+    "@prices_unknown_product": {
+        "description": "Very small text, in the context of prices, to say that the product is unknown"
+    },
     "dev_preferences_import_history_result_success": "完了",
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"
