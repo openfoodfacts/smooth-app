@@ -68,15 +68,15 @@
     "@unknown": {
         "description": "Short label for product list view: the compatibility of that product with your preferences is unknown"
     },
-    "match_very_good": "Labai geras atitikimas",
+    "match_very_good": "Puikus atitikmuo",
     "@match_very_good": {
         "description": "Label for product page regarding product compatibility with the user preferences: very good match"
     },
-    "match_good": "Geras atitikimas",
+    "match_good": "Geras atitikmuo",
     "@match_good": {
         "description": "Label for product page regarding product compatibility with the user preferences: good match"
     },
-    "match_poor": "Blogas atitikimas",
+    "match_poor": "Prastas atitikmuo",
     "@match_poor": {
         "description": "Label for product page regarding product compatibility with the user preferences: poor match"
     },
@@ -88,19 +88,19 @@
     "@match_does_not": {
         "description": "Label for product page regarding product compatibility with the user preferences: does not match"
     },
-    "match_unknown": "Nežinomas pasirinkimas",
+    "match_unknown": "Nežinomas atitikmuo",
     "@match_unknown": {
         "description": "Label for product page regarding product compatibility with the user preferences: unknown match"
     },
-    "match_short_very_good": "Labai geras atitikimas",
+    "match_short_very_good": "Puikus atitikmuo",
     "@match_short_very_good": {
         "description": "Short label for product list view regarding product compatibility with the user preferences: very good match"
     },
-    "match_short_good": "Geras atitikimas",
+    "match_short_good": "Geras atitikmuo",
     "@match_short_good": {
         "description": "Short label for product list view regarding product compatibility with the user preferences: good match"
     },
-    "match_short_poor": "Blogas atitikimas",
+    "match_short_poor": "Prastas atitikmuo",
     "@match_short_poor": {
         "description": "Short label for product list view regarding product compatibility with the user preferences: poor match"
     },
@@ -112,7 +112,7 @@
     "@match_short_does_not": {
         "description": "Short label for product list view regarding product compatibility with the user preferences: does not match"
     },
-    "match_short_unknown": "Nežinomas pasirinkimas",
+    "match_short_unknown": "Nežinomas atitikmuo",
     "@match_short_unknown": {
         "description": "Short label for product list view regarding product compatibility with the user preferences: unknown match"
     },
@@ -125,7 +125,7 @@
     "@Introduction screen": {},
     "welcomeToOpenFoodFacts": "Sveiki atvykę į Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
-    "whatIsOff": "Open Food Facts is a global non-profit powered by local communities.",
+    "whatIsOff": "„Open Food Facts“ yra pasaulinė ne pelno siekianti organizacija, kurios veiklą skatina vietos bendruomenės.",
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
@@ -145,11 +145,11 @@
     "@ecoCardUtility": {
         "description": "Description of what a user can use the Eco data in a product for."
     },
-    "server_error_open_new_issue": "No server response! You may open an issue with the following link.",
+    "server_error_open_new_issue": "Serveris nepasiekimas! Galite iškelti problemą naudodami šią nuorodą.",
     "@user_management": {},
-    "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
+    "sign_in_text": "Prisijunkite prie „Open Food Facts“ paskyros, kad jūsų įneštas savanoriškas indėlis būtų išsaugotas",
     "incorrect_credentials": "Neteisingas prisijungimo vardas arba slaptažodis.",
-    "password_lost_incorrect_credentials": "This email or username doesn't exist. Please check your credentials.",
+    "password_lost_incorrect_credentials": "Šis el. pašto adresas arba naudotojo vardas neegzistuoja. Patikrinkite savo prisijungimo duomenis.",
     "password_lost_server_unavailable": "We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.",
     "login": "Prisijungti",
     "@login": {
@@ -297,7 +297,7 @@
     "@darkmode_system_default": {
         "description": "Indicator inside the darkmode switch (system default)"
     },
-    "thanks_for_contributing": "Thanks for contributing!",
+    "thanks_for_contributing": "Ačiū, kad prisidėjote!",
     "contributors_label": "Jie kuria programėlę",
     "@contributors_label": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
@@ -332,7 +332,7 @@
     "@legalNotices": {
         "description": "A link to open the legal notices on the website"
     },
-    "privacy_policy": "Privacy policy",
+    "privacy_policy": "Privatumo politika",
     "@privacy_policy": {
         "description": "A link to open the privacy policy on the website"
     },
@@ -349,7 +349,7 @@
     "@contribute_sw_development": {
         "description": "Button label + page title: Ways to help"
     },
-    "contribute_develop_text": "The code for every Open Food Facts product is available on GitHub. You are welcome to reuse the code (it's open source) and help us improve it, for everyone, on all the planet.",
+    "contribute_develop_text": "Kiekvieno „Open Food Facts“ produkto kodą galite rasti „GitHub“. Kviečiame pakartotinai naudoti kodą (jis yra atvirojo kodo) ir padėti mums jį tobulinti visiems, visoje planetoje.",
     "@contribute_develop_text": {},
     "contribute_develop_text_2": "You can join the Open Food Facts Slack chatroom which is the preferred way to ask questions.",
     "@contribute_develop_text_2": {},
@@ -429,7 +429,7 @@
         "description": "Join which is actually Signup"
     },
     "myPreferences_profile_title": "Jūsų profilis",
-    "myPreferences_profile_subtitle": "Manage your Open Food Facts contributor account.",
+    "myPreferences_profile_subtitle": "Tvarkykite savo „Open Food Facts“ paskyrą.",
     "myPreferences_settings_title": "Programos nustatymai",
     "myPreferences_settings_subtitle": "Tamsusis režimas; Analizė…",
     "myPreferences_food_title": "Maisto pasirinkimai",
@@ -445,8 +445,8 @@
     },
     "ranking_tab_all": "Visi",
     "ranking_subtitle_match_yes": "Puikus pasirinkimas jums",
-    "ranking_subtitle_match_no": "Labai prastas pasirinkimas",
-    "ranking_subtitle_match_maybe": "Nežinomas pasirinkimas",
+    "ranking_subtitle_match_no": "Itin prastas atitikmuo",
+    "ranking_subtitle_match_maybe": "Nežinomas atitikmuo",
     "refresh_with_new_preferences": "Atnaujinkite sąrašą naudodami naujas nuostatas",
     "@refresh_with_new_preferences": {
         "description": "Action button label: Refresh the list with your new preferences"
@@ -554,7 +554,7 @@
     "@new_product_dialog_title": {
         "description": "Please keep it short, like 50 characters. Title of the dialog when the user searched for an unknown barcode."
     },
-    "new_product_leave_title": "Leave this page?",
+    "new_product_leave_title": "Palikti šį puslapį?",
     "@new_product_leave_title": {
         "description": "Alert dialog title when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
     },
@@ -679,7 +679,7 @@
     "@take_more_photo_button_label": {},
     "other_photo_uploaded": "Įkelta įvairi nuotrauka",
     "@other_photo_uploaded": {},
-    "retake_photo_button_label": "Retake",
+    "retake_photo_button_label": "Pakartoti",
     "@retake_photo_button_label": {
         "description": "Button clicking on which allows users to retake the last photo they took."
     },
@@ -750,7 +750,7 @@
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
-    "homepage_main_card_logo_description": "Welcome to Open Food Facts",
+    "homepage_main_card_logo_description": "Sveiki atvykę į „Open Food Facts“",
     "@homepage_main_card_logo_description": {
         "description": "Description for accessibility of the Open Food Facts logo on the homepage"
     },
@@ -759,7 +759,7 @@
         "description": "Text between asterisks (eg: **My Text**) means text in bold. Please keep it."
     },
     "homepage_main_card_search_field_hint": "Ieškoti produkto",
-    "homepage_main_card_search_field_tooltip": "Start search",
+    "homepage_main_card_search_field_tooltip": "Pradėti paiešką",
     "@homepage_main_card_search_field_tooltip": {
         "description": "Description for accessibility of the search field on the homepage"
     },
@@ -767,7 +767,7 @@
     "tagline_app_review_button_positive": "Man ji labai patinka! 😍",
     "tagline_app_review_button_negative": "Nelabai…",
     "tagline_app_review_button_later": "Paklauskite manęs vėliau",
-    "tagline_feed_news_button": "Know more",
+    "tagline_feed_news_button": "Sužinoti daugiau",
     "app_review_negative_modal_title": "Jums nepatinka mūsų programėlė?",
     "app_review_negative_modal_text": "Ar galėtumėte skirti kelias sekundes ir pasakyti kodėl?",
     "app_review_negative_modal_positive_button": "Taip, žinoma!",
@@ -776,7 +776,7 @@
     "@could_not_refresh": {
         "description": "The product data couldn't be refreshed"
     },
-    "product_internet_error_modal_title": "An error has occurred!",
+    "product_internet_error_modal_title": "Įvyko klaida!",
     "product_internet_error_modal_message": "We are unable to fetch information about this product due to a network error. Please check your internet connection and try again.\n\nInternal error:\n{error}",
     "@product_internet_error_modal_message": {
         "placeholders": {
@@ -1717,7 +1717,7 @@
     "prices_proof_mandatory": "You need to select a proof!",
     "prices_add_validation_error": "Validation error",
     "prices_privacy_warning_title": "Privacy warning",
-    "prices_privacy_warning_message": "Prices will be public, along with the store they refer to.\nThat might allow people who know about your Open Food Facts pseudonym to:\n* infer in which area you live\n* know what you are buying\nIf you are uneasy with that, please change your pseudonym, or create a new Open Food Facts account and log into the app with it.",
+    "prices_privacy_warning_message": "Kainos bus skelbiamos viešai, kartu pateikiant informaciją apie parduotuvę, kurioje produktas buvo pirktas.\nTai gali leisti žmonėms, žinantiems jūsų „Open Food Facts“ slapyvardį:\n* padaryti išvadą, kurioje vietovėje gyvenate\n* sužinoti, ką perkate\nJei tai jums nepatinka, galite pakeisti savo slapyvardį arba sukurti naują „Open Food Facts“ paskyrą ir su ja prisijungti prie programėlės.",
     "prices_unknown_product": "Nežinomas produktas",
     "@prices_unknown_product": {
         "description": "Very small text, in the context of prices, to say that the product is unknown"
@@ -1758,7 +1758,7 @@
             }
         }
     },
-    "product_search_loading_message": "Your search of {search} is in progress.\n\nPlease wait a few seconds…",
+    "product_search_loading_message": "Vykdoma jūsų paieška - {search}.\n\nŠiek tiek luktelėkite…",
     "@product_search_loading_message": {
         "description": "This message will be displayed when a search is in progress.",
         "search": {
@@ -2021,7 +2021,7 @@
     "@gallery_source_label": {
         "description": "Label for the gallery image source"
     },
-    "gallery_source_access_denied_dialog_title": "Access denied",
+    "gallery_source_access_denied_dialog_title": "Prieiga uždrausta",
     "@gallery_source_access_denied_dialog_title": {
         "description": "On iOS, the user has refused to give the permission (title of the dialog)"
     },
