@@ -752,9 +752,9 @@
     },
     "product_image_date_format": "yyyy-MM-dd",
     "@product_image_date_format": {
-        "description": "'yyyy' means year (= 2024) / MM means month (= January) / dd means day of the week '= 20)"
+        "description": "'yyyy' means year (= 2024) / MM means month (= January) / dd means day of the week = 20)"
     },
-    "product_image_accessibility_label": "Image taken the {date}",
+    "product_image_accessibility_label": "Image taken on {date}",
     "@product_image_accessibility_label": {
         "placeholders": {
             "date": {
@@ -763,7 +763,7 @@
             }
         }
     },
-    "product_image_outdated_accessibility_label": "Image taken the {date}. This image may be outdated",
+    "product_image_outdated_accessibility_label": "Image taken on {date}. This image may be outdated",
     "@product_image_outdated_accessibility_label": {
         "placeholders": {
             "date": {
