@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
-import 'package:smooth_app/pages/prices/price_model.dart';
+import 'package:smooth_app/pages/prices/price_amount_model.dart';
 
 /// Text field that displays a single amount for price adding.
 class PriceAmountField extends StatelessWidget {
@@ -11,7 +11,7 @@ class PriceAmountField extends StatelessWidget {
     required this.controller,
   });
 
-  final PriceModel model;
+  final PriceAmountModel model;
   final bool isPaidPrice;
   final TextEditingController controller;
 
@@ -46,7 +46,7 @@ class PriceAmountField extends StatelessWidget {
           if (value == null || value.isEmpty) {
             return appLocalizations.prices_amount_price_mandatory;
           }
-          final double? doubleValue = model.validateDouble(value);
+          final double? doubleValue = PriceAmountModel.validateDouble(value);
           if (doubleValue == null) {
             return appLocalizations.prices_amount_price_incorrect;
           }
@@ -57,7 +57,7 @@ class PriceAmountField extends StatelessWidget {
         if (value == null || value.isEmpty) {
           return null;
         }
-        final double? doubleValue = model.validateDouble(value);
+        final double? doubleValue = PriceAmountModel.validateDouble(value);
         if (doubleValue == null) {
           return appLocalizations.prices_amount_price_incorrect;
         }
