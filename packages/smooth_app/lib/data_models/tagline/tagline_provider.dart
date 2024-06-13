@@ -5,10 +5,14 @@ import 'dart:isolate';
 import 'package:collection/collection.dart';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/tagline/tagline_model.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/services/smooth_services.dart';
 
 part 'tagline_json.dart';
 
@@ -19,9 +23,20 @@ part 'tagline_json.dart';
 /// To be notified of changes, listen to this [ChangeNotifier] and more
 /// particularly to the [state] property
 class TagLineProvider extends ChangeNotifier {
-  TagLineProvider() : _state = const TagLineLoading() {
+  TagLineProvider(UserPreferences preferences)
+      : _state = const TagLineLoading(),
+        _preferences = preferences,
+        _domain = preferences.getDevModeString(
+                UserPreferencesDevMode.userPreferencesTestEnvDomain) ??
+            '',
+        _prodEnv = preferences
+                .getFlag(UserPreferencesDevMode.userPreferencesFlagProd) ??
+            true {
+    _preferences.addListener(_onPreferencesChanged);
     loadTagLine();
   }
+
+  final UserPreferences _preferences;
 
   TagLineState _state;
 
@@ -56,8 +71,10 @@ class TagLineProvider extends ChangeNotifier {
         () => _parseJSONAndGetLocalizedContent(jsonString!, locale));
     if (tagLine == null) {
       _emit(const TagLineError('Unable to parse the JSON file'));
+      Logs.e('Unable to parse the Tagline file');
     } else {
       _emit(TagLineLoaded(tagLine));
+      Logs.i('TagLine reloaded');
     }
   }
 
@@ -83,12 +100,25 @@ class TagLineProvider extends ChangeNotifier {
     }
   }
 
-  /// API URL: [https://world.openfoodfacts.org/files/tagline-off-ios-v3.json]
-  /// or [https://world.openfoodfacts.org/files/tagline-off-android-v3.json]
+  /// API URL: [https://world.openfoodfacts.[org/net]/files/tagline-off-ios-v3.json]
+  /// or [https://world.openfoodfacts.[org/net]/files/tagline-off-android-v3.json]
   Future<String?> _fetchTagLine() async {
     try {
-      final http.Response response =
-          await http.get(Uri.https('world.openfoodfacts.org', _tagLineUrl));
+      final UriProductHelper uriProductHelper = ProductQuery.uriProductHelper;
+      final Map<String, String> headers = <String, String>{};
+      final Uri uri = uriProductHelper.getUri(path: _tagLineUrl);
+
+      if (uriProductHelper.userInfoForPatch != null) {
+        headers['Authorization'] =
+            'Basic ${base64Encode(utf8.encode(uriProductHelper.userInfoForPatch!))}';
+      }
+
+      final http.Response response = await http.get(uri, headers: headers);
+
+      if (response.statusCode == 404) {
+        Logs.e("Remote file $uri doesn't exist!");
+        throw Exception('Incorrect URL= $uri');
+      }
 
       final String json = const Utf8Decoder().convert(response.bodyBytes);
 
@@ -125,6 +155,32 @@ class TagLineProvider extends ChangeNotifier {
       file
           .lastModifiedSync()
           .isAfter(DateTime.now().add(const Duration(days: -1)));
+
+  bool? _prodEnv;
+  String? _domain;
+
+  /// [ProductQuery.uriProductHelper] is not synced yet,
+  /// so we have to check it manually
+  Future<void> _onPreferencesChanged() async {
+    final String domain = _preferences.getDevModeString(
+            UserPreferencesDevMode.userPreferencesTestEnvDomain) ??
+        '';
+    final bool prodEnv =
+        _preferences.getFlag(UserPreferencesDevMode.userPreferencesFlagProd) ??
+            true;
+
+    if (domain != _domain || prodEnv != _prodEnv) {
+      _domain = domain;
+      _prodEnv = prodEnv;
+      loadTagLine(forceUpdate: true);
+    }
+  }
+
+  @override
+  void dispose() {
+    _preferences.removeListener(_onPreferencesChanged);
+    super.dispose();
+  }
 }
 
 sealed class TagLineState {
