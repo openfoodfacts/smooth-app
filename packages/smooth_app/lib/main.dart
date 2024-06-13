@@ -106,7 +106,6 @@ late TextContrastProvider _textContrastProvider;
 final ContinuousScanModel _continuousScanModel = ContinuousScanModel();
 final PermissionListener _permissionListener =
     PermissionListener(permission: Permission.camera);
-final TagLineProvider _tagLineProvider = TagLineProvider();
 bool _init1done = false;
 
 // Had to split init in 2 methods, for test/screenshots reasons.
@@ -224,15 +223,20 @@ class _SmoothAppState extends State<SmoothApp> {
             provide<UserManagementProvider>(_userManagementProvider),
             provide<ContinuousScanModel>(_continuousScanModel),
             provide<PermissionListener>(_permissionListener),
-            provide<TagLineProvider>(_tagLineProvider, lazy: true),
           ],
-          child: AnimationsLoader(
-            child: AppNavigator(
-              observers: <NavigatorObserver>[
-                SentryNavigatorObserver(),
-                matomoObserver,
-              ],
-              child: Builder(builder: _buildApp),
+          child: ChangeNotifierProvider<TagLineProvider>(
+            create: (BuildContext context) => TagLineProvider(
+              context.read<UserPreferences>(),
+            ),
+            lazy: true,
+            child: AnimationsLoader(
+              child: AppNavigator(
+                observers: <NavigatorObserver>[
+                  SentryNavigatorObserver(),
+                  matomoObserver,
+                ],
+                child: Builder(builder: _buildApp),
+              ),
             ),
           ),
         );
