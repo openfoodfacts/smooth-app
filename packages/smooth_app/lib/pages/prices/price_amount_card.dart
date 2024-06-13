@@ -5,9 +5,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/pages/prices/price_amount_field.dart';
 import 'package:smooth_app/pages/prices/price_amount_model.dart';
-import 'package:smooth_app/pages/prices/price_meta_product.dart';
 import 'package:smooth_app/pages/prices/price_product_list_tile.dart';
-import 'package:smooth_app/pages/prices/price_product_search_page.dart';
 
 /// Card that displays the amounts (discounted or not) for price adding.
 class PriceAmountCard extends StatefulWidget {
@@ -33,23 +31,6 @@ class _PriceAmountCardState extends State<PriceAmountCard> {
           Text(appLocalizations.prices_amount_subtitle),
           PriceProductListTile(
             product: widget.model.product,
-            trailingIconData: Icons.edit,
-            onPressed: () async {
-              final PriceMetaProduct? product =
-                  await Navigator.of(context).push(
-                MaterialPageRoute<PriceMetaProduct>(
-                  builder: (BuildContext context) => PriceProductSearchPage(
-                    widget.model.product,
-                  ),
-                ),
-              );
-              if (product == null) {
-                return;
-              }
-              setState(
-                () => widget.model.product = product,
-              );
-            },
           ),
           SmoothLargeButtonWithIcon(
             icon: widget.model.promo
