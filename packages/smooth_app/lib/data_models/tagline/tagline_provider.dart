@@ -3,7 +3,7 @@ import 'dart:io';
 import 'dart:isolate';
 
 import 'package:collection/collection.dart';
-import 'package:flutter/foundation.dart';
+import 'package:flutter/widgets.dart';
 import 'package:http/http.dart' as http;
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
@@ -63,9 +63,9 @@ class TagLineProvider extends ChangeNotifier {
 
   void _emit(TagLineState state) {
     _state = state;
-    try {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       notifyListeners();
-    } catch (_) {}
+    });
   }
 
   TagLineState get state => _state;

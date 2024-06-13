@@ -112,7 +112,7 @@ class _ScanTagLineContentState extends State<_ScanTagLineContent> {
         DecoratedBox(
           decoration: BoxDecoration(
             color: currentNews.style?.titleBackground ??
-                (themeProvider.isLightTheme
+                (!themeProvider.isDarkMode(context)
                     ? theme.primarySemiDark
                     : theme.primaryBlack),
             borderRadius: const BorderRadiusDirectional.only(
@@ -137,7 +137,7 @@ class _ScanTagLineContentState extends State<_ScanTagLineContent> {
           child: DecoratedBox(
             decoration: BoxDecoration(
               color: currentNews.style?.contentBackgroundColor ??
-                  (themeProvider.isLightTheme
+                  (!themeProvider.isDarkMode(context)
                       ? theme.primaryMedium
                       : theme.primaryDark),
               borderRadius: const BorderRadiusDirectional.only(
@@ -253,7 +253,7 @@ class _TagLineContentBody extends StatelessWidget {
       text: message,
       textStyle: TextStyle(
         color: textColor ??
-            (themeProvider.isLightTheme
+            (!themeProvider.isDarkMode(context)
                 ? theme.primarySemiDark
                 : theme.primaryLight),
       ),
