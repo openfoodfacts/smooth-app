@@ -100,8 +100,8 @@ class TagLineProvider extends ChangeNotifier {
     }
   }
 
-  /// API URL: [https://world.openfoodfacts.[org/net]/files/tagline-off-ios-v3.json]
-  /// or [https://world.openfoodfacts.[org/net]/files/tagline-off-android-v3.json]
+  /// API URL: [https://world.openfoodfacts.[org/net]/resources/files/tagline-off-ios-v3.json]
+  /// or [https://world.openfoodfacts.[org/net]/resources/files/tagline-off-android-v3.json]
   Future<String?> _fetchTagLine() async {
     try {
       final UriProductHelper uriProductHelper = ProductQuery.uriProductHelper;
