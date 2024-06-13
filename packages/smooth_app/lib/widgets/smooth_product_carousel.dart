@@ -263,12 +263,10 @@ class _SearchCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations localizations = AppLocalizations.of(context);
-    final ThemeProvider themeProvider = context.watch<ThemeProvider>();
+    final bool lightTheme = !context.watch<ThemeProvider>().isDarkMode(context);
 
     final Widget widget = SmoothCard(
-      color: themeProvider.isLightTheme
-          ? Colors.grey.withOpacity(0.1)
-          : Colors.black,
+      color: lightTheme ? Colors.grey.withOpacity(0.1) : Colors.black,
       padding: const EdgeInsets.symmetric(
         vertical: MEDIUM_SPACE,
         horizontal: LARGE_SPACE,
@@ -281,7 +279,7 @@ class _SearchCard extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           SvgPicture.asset(
-            Theme.of(context).brightness == Brightness.light
+            lightTheme
                 ? 'assets/app/logo_text_black.svg'
                 : 'assets/app/logo_text_white.svg',
             semanticsLabel: localizations.homepage_main_card_logo_description,
@@ -317,9 +315,9 @@ class _SearchBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations localizations = AppLocalizations.of(context);
-    final ThemeProvider themeProvider = context.watch<ThemeProvider>();
     final SmoothColorsThemeExtension theme =
         Theme.of(context).extension<SmoothColorsThemeExtension>()!;
+    final bool lightTheme = !context.watch<ThemeProvider>().isDarkMode(context);
 
     return SizedBox(
       height: SEARCH_BAR_HEIGHT,
@@ -329,7 +327,7 @@ class _SearchBar extends StatelessWidget {
         child: Ink(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(30.0),
-            color: themeProvider.isLightTheme ? Colors.white : theme.greyDark,
+            color: lightTheme ? Colors.white : theme.greyDark,
             border: Border.all(color: theme.primaryBlack),
           ),
           child: Row(
@@ -347,9 +345,7 @@ class _SearchBar extends StatelessWidget {
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
-                      color: themeProvider.isLightTheme
-                          ? Colors.black
-                          : Colors.white,
+                      color: lightTheme ? Colors.black : Colors.white,
                     ),
                   ),
                 ),
