@@ -750,16 +750,12 @@
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
-    "product_image_date_format": "yyyy-MM-dd",
-    "@product_image_date_format": {
-        "description": "'yyyy' means year (= 2024) / MM means month (= January) / dd means day of the week = 20)"
-    },
     "product_image_accessibility_label": "Image taken on {date}",
     "@product_image_accessibility_label": {
         "placeholders": {
             "date": {
                 "type": "String",
-                "description": "The date of picture (formatted with product_image_date_format key)"
+                "description": "The date of picture (in localized format for YYYY-MM-DD)"
             }
         }
     },
@@ -768,7 +764,7 @@
         "placeholders": {
             "date": {
                 "type": "String",
-                "description": "The date of picture (formatted with product_image_date_format key)"
+                "description": "The date of picture (in localized format for YYYY-MM-DD)"
             }
         }
     },

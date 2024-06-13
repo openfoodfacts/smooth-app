@@ -7,7 +7,6 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/images/smooth_image.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart';
-import 'package:smooth_app/services/smooth_services.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
 /// Displays a product image thumbnail with the upload date on top.
@@ -25,15 +24,8 @@ class ProductImageWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    DateFormat dateFormat;
-
-    try {
-      dateFormat = DateFormat(appLocalizations.product_image_date_format);
-    } catch (_) {
-      dateFormat = DateFormat('yyyy-MM-dd');
-      Logs.e(
-          'Invalid date format detected: ${appLocalizations.product_image_date_format}');
-    }
+    final DateFormat dateFormat =
+        DateFormat.yMd(ProductQuery.getLanguage().offTag);
 
     final Widget image = SmoothImage(
       width: squareSize,
