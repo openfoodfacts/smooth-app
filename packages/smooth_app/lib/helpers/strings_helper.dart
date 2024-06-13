@@ -58,6 +58,8 @@ class TextHelper {
     required TextStyle? defaultStyle,
     required TextStyle? highlightedStyle,
   }) {
+    text = text.replaceAll(r'\n', '\n');
+
     final Iterable<RegExpMatch> highlightedParts =
         RegExp('$symbol[^$symbol]+$symbol').allMatches(text);
 
@@ -108,7 +110,6 @@ class FormattedText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final TextStyle defaultTextStyle = textStyle ?? const TextStyle();
-
     return RichText(
       text: TextSpan(
         style: DefaultTextStyle.of(context).style,
