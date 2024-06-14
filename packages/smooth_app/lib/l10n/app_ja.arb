@@ -1674,8 +1674,10 @@
     "prices_app_dev_mode_flag": "製品ページの価格アプリへのショートカット",
     "prices_app_button": "価格アプリに移動",
     "prices_generic_title": "Prices",
+    "prices_add_n_prices": "{count,plural, =1{Add a price} other{App {count} prices}}",
+    "prices_send_n_prices": "{count,plural, =1{Send the price} other{Send {count} prices}}",
+    "prices_add_an_item": "Add an item",
     "prices_add_a_price": "Add a price",
-    "prices_send_the_price": "Send the price",
     "prices_barcode_search_title": "Product search",
     "prices_barcode_search_running": "Looking for {barcode}",
     "@prices_barcode_search_running": {
