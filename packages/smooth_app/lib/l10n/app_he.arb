@@ -1676,6 +1676,16 @@
     "prices_generic_title": "מחירים",
     "prices_add_a_price": "הוספת מחיר",
     "prices_send_the_price": "שליחת המחיר",
+    "prices_barcode_search_title": "חיפוש מוצרים",
+    "prices_barcode_search_running": "Looking for {barcode}",
+    "@prices_barcode_search_running": {
+        "description": "Dialog title about barcode look-up",
+        "placeholders": {
+            "barcode": {
+                "type": "String"
+            }
+        }
+    },
     "prices_view_prices": "View the prices",
     "prices_list_length_one_page": "{count,plural, two {כל {count} המחירים} many {כל {count} המחירים}=0{אין מחיר עדיין} =1{מחיר אחד בלבד} other{כל {count} המחירים}}",
     "@prices_list_length_one_page": {
