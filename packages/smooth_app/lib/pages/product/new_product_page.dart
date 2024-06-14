@@ -217,7 +217,6 @@ class _ProductPageState extends State<ProductPage>
                     upToDateProduct,
                     _productPreferences,
                     isFullVersion: true,
-                    showUnansweredQuestions: true,
                   ),
                 ),
               ),
