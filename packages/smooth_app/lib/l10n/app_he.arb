@@ -1674,8 +1674,10 @@
     "prices_app_dev_mode_flag": "קיצור דרך ליישומון מחירים בעמוד המוצר",
     "prices_app_button": "מעבר ליישומון המחירים",
     "prices_generic_title": "מחירים",
+    "prices_add_n_prices": "{count,plural, =1{Add a price} other{App {count} prices}}",
+    "prices_send_n_prices": "{count,plural, =1{Send the price} other{Send {count} prices}}",
+    "prices_add_an_item": "Add an item",
     "prices_add_a_price": "הוספת מחיר",
-    "prices_send_the_price": "שליחת המחיר",
     "prices_barcode_search_title": "חיפוש מוצרים",
     "prices_barcode_search_running": "Looking for {barcode}",
     "@prices_barcode_search_running": {
