@@ -1674,8 +1674,10 @@
     "prices_app_dev_mode_flag": "crwdns246536:0crwdne246536:0",
     "prices_app_button": "crwdns246538:0crwdne246538:0",
     "prices_generic_title": "crwdns248426:0crwdne248426:0",
+    "prices_add_n_prices": "crwdns248878:0count={count}crwdnd248878:0count={count}crwdne248878:0",
+    "prices_send_n_prices": "crwdns248880:0count={count}crwdnd248880:0count={count}crwdne248880:0",
+    "prices_add_an_item": "crwdns248882:0crwdne248882:0",
     "prices_add_a_price": "crwdns248428:0crwdne248428:0",
-    "prices_send_the_price": "crwdns248444:0crwdne248444:0",
     "prices_barcode_search_title": "crwdns248862:0crwdne248862:0",
     "prices_barcode_search_running": "crwdns248864:0{barcode}crwdne248864:0",
     "@prices_barcode_search_running": {
