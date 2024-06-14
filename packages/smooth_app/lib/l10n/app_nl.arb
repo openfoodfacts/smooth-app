@@ -1676,6 +1676,16 @@
     "prices_generic_title": "Prijzen",
     "prices_add_a_price": "Voeg een prijs toe",
     "prices_send_the_price": "Prijs verzenden",
+    "prices_barcode_search_title": "Product zoeken",
+    "prices_barcode_search_running": "Looking for {barcode}",
+    "@prices_barcode_search_running": {
+        "description": "Dialog title about barcode look-up",
+        "placeholders": {
+            "barcode": {
+                "type": "String"
+            }
+        }
+    },
     "prices_view_prices": "Bekijk de prijzen",
     "prices_list_length_one_page": "{count,plural, one {}=0{Nog geen prijs} =1{Slechts één prijs} other{Alle {count} prijzen}}",
     "@prices_list_length_one_page": {
