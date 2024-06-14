@@ -1674,8 +1674,10 @@
     "prices_app_dev_mode_flag": "Raccourci vers l'application Prix sur la page produit",
     "prices_app_button": "Accéder à l'application Prix",
     "prices_generic_title": "Prix",
+    "prices_add_n_prices": "{count,plural, =1{Ajouter un prix} other{Ajouter {count} prix}}",
+    "prices_send_n_prices": "{count,plural, =1{Envoyer le prix} other{Envoyer {count} prix}}",
+    "prices_add_an_item": "Ajouter un article",
     "prices_add_a_price": "Ajouter un prix",
-    "prices_send_the_price": "Envoyer le prix",
     "prices_barcode_search_title": "Recherche de produits",
     "prices_barcode_search_running": "À la recherche de {barcode}",
     "@prices_barcode_search_running": {
