@@ -1736,6 +1736,11 @@
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"
     },
+    "dev_mode_section_server": "crwdns248866:0crwdne248866:0",
+    "dev_mode_section_product_page": "crwdns248868:0crwdne248868:0",
+    "dev_mode_section_ui": "crwdns248870:0crwdne248870:0",
+    "dev_mode_section_data": "crwdns248872:0crwdne248872:0",
+    "dev_mode_section_experimental_features": "crwdns248874:0crwdne248874:0",
     "dev_mode_hide_ecoscore_title": "crwdns221613:0crwdne221613:0",
     "@dev_mode_hide_ecoscore_title": {
         "description": "User dev preferences - Disable Ecoscore - Title"
@@ -2750,5 +2755,9 @@
     "guide_nutriscore_v2_share_message": "crwdns248722:0crwdne248722:0",
     "@guide_nutriscore_v2_share_message": {
         "description": "Please let empty for now (maybe use in the future)"
+    },
+    "preview_badge": "crwdns248876:0crwdne248876:0",
+    "@preview_badge": {
+        "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
     }
 }
