@@ -1736,6 +1736,11 @@
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"
     },
+    "dev_mode_section_server": "Server configuration",
+    "dev_mode_section_product_page": "Product page",
+    "dev_mode_section_ui": "User Interface",
+    "dev_mode_section_data": "Andmed",
+    "dev_mode_section_experimental_features": "Experimental features",
     "dev_mode_hide_ecoscore_title": "Exclude Eco-Score",
     "@dev_mode_hide_ecoscore_title": {
         "description": "User dev preferences - Disable Ecoscore - Title"
@@ -2750,5 +2755,9 @@
     "guide_nutriscore_v2_share_message": "",
     "@guide_nutriscore_v2_share_message": {
         "description": "Please let empty for now (maybe use in the future)"
+    },
+    "preview_badge": "Preview",
+    "@preview_badge": {
+        "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
     }
 }
