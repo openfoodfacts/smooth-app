@@ -1676,6 +1676,16 @@
     "prices_generic_title": "crwdns248426:0crwdne248426:0",
     "prices_add_a_price": "crwdns248428:0crwdne248428:0",
     "prices_send_the_price": "crwdns248444:0crwdne248444:0",
+    "prices_barcode_search_title": "crwdns248862:0crwdne248862:0",
+    "prices_barcode_search_running": "crwdns248864:0{barcode}crwdne248864:0",
+    "@prices_barcode_search_running": {
+        "description": "Dialog title about barcode look-up",
+        "placeholders": {
+            "barcode": {
+                "type": "String"
+            }
+        }
+    },
     "prices_view_prices": "crwdns248430:0crwdne248430:0",
     "prices_list_length_one_page": "crwdns248446:0count={count}crwdnd248446:0count={count}crwdne248446:0",
     "@prices_list_length_one_page": {
