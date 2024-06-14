@@ -18,10 +18,10 @@ class PriceProductWidget extends StatelessWidget {
   final PriceProduct priceProduct;
   final GetPricesModel model;
 
-  static const double _imageSize = 75;
-
   @override
   Widget build(BuildContext context) {
+    final Size screenSize = MediaQuery.sizeOf(context);
+    final double size = screenSize.width * 0.20;
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final String name = priceProduct.name ?? priceProduct.code;
     final bool unknown = priceProduct.name == null;
@@ -31,75 +31,62 @@ class PriceProductWidget extends StatelessWidget {
     final String? quantity = priceProduct.quantity == null
         ? null
         : '${priceProduct.quantity} ${priceProduct.quantityUnit ?? 'g'}';
-    return LayoutBuilder(
-      builder: (
-        final BuildContext context,
-        final BoxConstraints constraints,
-      ) =>
-          Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          SizedBox(
-            width: _imageSize,
-            child: imageURL == null
-                ? const Icon(
-                    Icons.question_mark,
-                    size: _imageSize / 2,
-                  )
-                : SmoothImage(
-                    width: _imageSize,
-                    height: _imageSize,
-                    imageProvider: NetworkImage(imageURL),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        SizedBox(
+          width: size,
+          child: SmoothImage(
+            width: size,
+            height: size,
+            imageProvider: imageURL == null ? null : NetworkImage(imageURL),
+          ),
+        ),
+        const SizedBox(width: SMALL_SPACE),
+        Expanded(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              AutoSizeText(
+                name,
+                maxLines: 2,
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
+              Wrap(
+                spacing: VERY_SMALL_SPACE,
+                crossAxisAlignment: WrapCrossAlignment.center,
+                runSpacing: 0,
+                children: <Widget>[
+                  PriceCountWidget(
+                    priceCount,
+                    priceProduct: priceProduct,
+                    enableCountButton: model.enableCountButton,
                   ),
-          ),
-          const SizedBox(width: SMALL_SPACE),
-          SizedBox(
-            width: constraints.maxWidth - _imageSize - SMALL_SPACE,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                AutoSizeText(
-                  name,
-                  maxLines: 2,
-                  style: Theme.of(context).textTheme.titleMedium,
-                ),
-                Wrap(
-                  spacing: VERY_SMALL_SPACE,
-                  crossAxisAlignment: WrapCrossAlignment.center,
-                  runSpacing: 0,
-                  children: <Widget>[
-                    PriceCountWidget(
-                      priceCount,
-                      barcode: priceProduct.code,
-                      name: name,
-                      enableCountButton: model.enableCountButton,
-                    ),
-                    if (brands != null)
-                      for (final String brand in brands)
-                        PriceButton(
-                          title: brand,
-                          onPressed: () {},
-                        ),
-                    if (quantity != null) Text(quantity),
-                    if (unknown)
+                  if (brands != null)
+                    for (final String brand in brands)
                       PriceButton(
-                        title: appLocalizations.prices_unknown_product,
-                        iconData: Icons.warning,
-                        onPressed: null,
-                        buttonStyle: ElevatedButton.styleFrom(
-                          disabledForegroundColor: Colors.red,
-                          disabledBackgroundColor: Colors.red[100],
-                        ),
+                        title: brand,
+                        onPressed: () {},
                       ),
-                  ],
-                ),
-              ],
-            ),
+                  if (quantity != null) Text(quantity),
+                  if (unknown)
+                    PriceButton(
+                      title: appLocalizations.prices_unknown_product,
+                      iconData: Icons.warning,
+                      onPressed: null,
+                      buttonStyle: ElevatedButton.styleFrom(
+                        disabledForegroundColor: Colors.red,
+                        disabledBackgroundColor: Colors.red[100],
+                      ),
+                    ),
+                ],
+              ),
+            ],
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

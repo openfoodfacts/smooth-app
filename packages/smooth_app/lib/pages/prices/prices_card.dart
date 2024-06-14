@@ -6,6 +6,7 @@ import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dar
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/prices/get_prices_model.dart';
+import 'package:smooth_app/pages/prices/price_meta_product.dart';
 import 'package:smooth_app/pages/prices/prices_page.dart';
 import 'package:smooth_app/pages/prices/product_price_add_page.dart';
 
@@ -40,7 +41,7 @@ class PricesCard extends StatelessWidget {
                   MaterialPageRoute<void>(
                     builder: (BuildContext context) => PricesPage(
                       GetPricesModel.product(
-                        product: product,
+                        product: PriceMetaProduct.product(product),
                         context: context,
                       ),
                     ),
@@ -55,7 +56,7 @@ class PricesCard extends StatelessWidget {
                 icon: Icons.add,
                 onPressed: () async => ProductPriceAddPage.showProductPage(
                   context: context,
-                  product: product,
+                  product: PriceMetaProduct.product(product),
                 ),
               ),
             ),

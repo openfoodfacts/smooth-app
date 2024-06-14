@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/pages/prices/price_amount_field.dart';
-import 'package:smooth_app/pages/prices/price_model.dart';
+import 'package:smooth_app/pages/prices/price_amount_model.dart';
+import 'package:smooth_app/pages/prices/price_product_list_tile.dart';
 
 /// Card that displays the amounts (discounted or not) for price adding.
 class PriceAmountCard extends StatefulWidget {
-  const PriceAmountCard();
+  const PriceAmountCard(this.model);
+
+  final PriceAmountModel model;
 
   @override
   State<PriceAmountCard> createState() => _PriceAmountCardState();
@@ -22,16 +24,22 @@ class _PriceAmountCardState extends State<PriceAmountCard> {
 
   @override
   Widget build(BuildContext context) {
-    final PriceModel model = context.watch<PriceModel>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return SmoothCard(
       child: Column(
         children: <Widget>[
           Text(appLocalizations.prices_amount_subtitle),
+          PriceProductListTile(
+            product: widget.model.product,
+          ),
           SmoothLargeButtonWithIcon(
-            icon: model.promo ? Icons.check_box : Icons.check_box_outline_blank,
+            icon: widget.model.promo
+                ? Icons.check_box
+                : Icons.check_box_outline_blank,
             text: appLocalizations.prices_amount_is_discounted,
-            onPressed: () => model.promo = !model.promo,
+            onPressed: () => setState(
+              () => widget.model.promo = !widget.model.promo,
+            ),
           ),
           const SizedBox(height: SMALL_SPACE),
           LayoutBuilder(
@@ -46,10 +54,10 @@ class _PriceAmountCardState extends State<PriceAmountCard> {
                 child: PriceAmountField(
                   controller: _controllerPaid,
                   isPaidPrice: true,
-                  model: model,
+                  model: widget.model,
                 ),
               );
-              if (!model.promo) {
+              if (!widget.model.promo) {
                 return Align(
                   alignment: Alignment.centerLeft,
                   child: columnPaid,
@@ -60,7 +68,7 @@ class _PriceAmountCardState extends State<PriceAmountCard> {
                 child: PriceAmountField(
                   controller: _controllerWithoutDiscount,
                   isPaidPrice: false,
-                  model: model,
+                  model: widget.model,
                 ),
               );
               return Row(
