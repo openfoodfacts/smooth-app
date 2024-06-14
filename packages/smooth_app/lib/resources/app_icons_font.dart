@@ -16,6 +16,8 @@ class _IconsFont {
       IconData(0xe801, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData settings =
       IconData(0xe802, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData magic_wand =
+      IconData(0xe803, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData camera_outlined =
       IconData(0xe804, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData camera_filled =
@@ -28,6 +30,8 @@ class _IconsFont {
       IconData(0xe808, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData circled_arrow =
       IconData(0xe809, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData lab =
+      IconData(0xe80a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData compare =
       IconData(0xe80b, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData countries =
@@ -40,6 +44,8 @@ class _IconsFont {
       IconData(0xe80f, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData expand =
       IconData(0xe810, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData sparkles =
+      IconData(0xe811, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData fruit =
       IconData(0xe812, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData info =
