@@ -1676,6 +1676,16 @@
     "prices_generic_title": "Harga",
     "prices_add_a_price": "Tambahkan harga",
     "prices_send_the_price": "Kirim harga",
+    "prices_barcode_search_title": "Pencarian produk",
+    "prices_barcode_search_running": "Looking for {barcode}",
+    "@prices_barcode_search_running": {
+        "description": "Dialog title about barcode look-up",
+        "placeholders": {
+            "barcode": {
+                "type": "String"
+            }
+        }
+    },
     "prices_view_prices": "Lihat harga",
     "prices_list_length_one_page": "{count,plural, =0{Belum ada harga} =1{Hanya satu harga} other{Semua {count} harga}}",
     "@prices_list_length_one_page": {
