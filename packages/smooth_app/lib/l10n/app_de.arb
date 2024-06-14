@@ -1674,10 +1674,12 @@
     "prices_app_dev_mode_flag": "Verknüpfung zur Preise-App auf der Produktseite",
     "prices_app_button": "Zur Preise-App wechseln",
     "prices_generic_title": "Preise",
+    "prices_add_n_prices": "{count,plural, one {}=1{Preis hinzufügen} other{{count} Preise hinzufügen}}",
+    "prices_send_n_prices": "{count,plural, one {}=1{Preis senden} other{{count} Preise senden}}",
+    "prices_add_an_item": "Ein Element hinzufügen",
     "prices_add_a_price": "Preis hinzufügen",
-    "prices_send_the_price": "Preis senden",
     "prices_barcode_search_title": "Produkte suchen",
-    "prices_barcode_search_running": "Looking for {barcode}",
+    "prices_barcode_search_running": "Nach {barcode} suchen",
     "@prices_barcode_search_running": {
         "description": "Dialog title about barcode look-up",
         "placeholders": {
@@ -1736,11 +1738,11 @@
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"
     },
-    "dev_mode_section_server": "Server configuration",
-    "dev_mode_section_product_page": "Product page",
-    "dev_mode_section_ui": "User Interface",
+    "dev_mode_section_server": "Serverkonfiguration",
+    "dev_mode_section_product_page": "Produktseite",
+    "dev_mode_section_ui": "Benutzeroberfläche",
     "dev_mode_section_data": "Daten",
-    "dev_mode_section_experimental_features": "Experimental features",
+    "dev_mode_section_experimental_features": "Experimentelle Funktionen",
     "dev_mode_hide_ecoscore_title": "Eco-Score ausschließen",
     "@dev_mode_hide_ecoscore_title": {
         "description": "User dev preferences - Disable Ecoscore - Title"
@@ -2756,7 +2758,7 @@
     "@guide_nutriscore_v2_share_message": {
         "description": "Please let empty for now (maybe use in the future)"
     },
-    "preview_badge": "Preview",
+    "preview_badge": "Vorschau",
     "@preview_badge": {
         "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
     }
