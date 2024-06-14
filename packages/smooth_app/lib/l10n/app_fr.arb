@@ -1676,6 +1676,16 @@
     "prices_generic_title": "Prix",
     "prices_add_a_price": "Ajouter un prix",
     "prices_send_the_price": "Envoyer le prix",
+    "prices_barcode_search_title": "Recherche de produits",
+    "prices_barcode_search_running": "À la recherche de {barcode}",
+    "@prices_barcode_search_running": {
+        "description": "Dialog title about barcode look-up",
+        "placeholders": {
+            "barcode": {
+                "type": "String"
+            }
+        }
+    },
     "prices_view_prices": "Voir les prix",
     "prices_list_length_one_page": "{count,plural, =0{Aucun prix} =1{Un seul prix} other{Tous les {count} prix}}",
     "@prices_list_length_one_page": {
@@ -2700,7 +2710,7 @@
     "@guide_nutriscore_v2_title": {
         "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
     },
-    "guide_nutriscore_v2_file_language": "en",
+    "guide_nutriscore_v2_file_language": "fr",
     "@guide_nutriscore_v2_file_language": {
         "description": "The logo is only available in de/en/fr/ln/nl. Please use en if not available (in lowercase, please)."
     },
