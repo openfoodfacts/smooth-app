@@ -1677,7 +1677,7 @@
     "prices_add_a_price": "Add a price",
     "prices_send_the_price": "Send the price",
     "prices_barcode_search_title": "Product search",
-    "prices_barcode_search_running": "Looking for {barcode}",
+    "prices_barcode_search_running": "{barcode} ஐத் தேடுகிறது அல்லது தேடுகிறோம்",
     "@prices_barcode_search_running": {
         "description": "Dialog title about barcode look-up",
         "placeholders": {
