@@ -1674,8 +1674,10 @@
     "prices_app_dev_mode_flag": "Pintasan ke aplikasi Harga di halaman produk",
     "prices_app_button": "Buka aplikasi Harga",
     "prices_generic_title": "Harga",
+    "prices_add_n_prices": "{count,plural, =1{Add a price} other{App {count} prices}}",
+    "prices_send_n_prices": "{count,plural, =1{Send the price} other{Send {count} prices}}",
+    "prices_add_an_item": "Add an item",
     "prices_add_a_price": "Tambahkan harga",
-    "prices_send_the_price": "Kirim harga",
     "prices_barcode_search_title": "Pencarian produk",
     "prices_barcode_search_running": "Looking for {barcode}",
     "@prices_barcode_search_running": {
