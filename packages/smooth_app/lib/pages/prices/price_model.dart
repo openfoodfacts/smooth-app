@@ -105,7 +105,7 @@ class PriceModel with ChangeNotifier {
       prices.add(priceAmountModel.checkedPaidPrice);
       pricesWithoutDiscount.add(priceAmountModel.checkedPriceWithoutDiscount);
     }
-    BackgroundTaskAddPrice.addTask(
+    return BackgroundTaskAddPrice.addTask(
       context: context,
       // per receipt
       cropObject: cropParameters!,
