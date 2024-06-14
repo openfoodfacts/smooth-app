@@ -1674,8 +1674,10 @@
     "prices_app_dev_mode_flag": "Shortcut to Prices app on product page",
     "prices_app_button": "Go to Prices app",
     "prices_generic_title": "Prices",
+    "prices_add_n_prices": "{count,plural, =1{Add a price} other{App {count} prices}}",
+    "prices_send_n_prices": "{count,plural, =1{Send the price} other{Send {count} prices}}",
+    "prices_add_an_item": "Add an item",
     "prices_add_a_price": "एक मूल्य जोड़े",
-    "prices_send_the_price": "Send the price",
     "prices_barcode_search_title": "Product search",
     "prices_barcode_search_running": "Looking for {barcode}",
     "@prices_barcode_search_running": {
