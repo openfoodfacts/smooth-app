@@ -1674,8 +1674,10 @@
     "prices_app_dev_mode_flag": "Ярлик програми «Ціни» на сторінці продукту",
     "prices_app_button": "Перейдіть у додаток Ціни",
     "prices_generic_title": "Ціни",
+    "prices_add_n_prices": "{count,plural, =1{Add a price} other{App {count} prices}}",
+    "prices_send_n_prices": "{count,plural, =1{Send the price} other{Send {count} prices}}",
+    "prices_add_an_item": "Add an item",
     "prices_add_a_price": "Додати ціну",
-    "prices_send_the_price": "Send the price",
     "prices_barcode_search_title": "Пошук товару",
     "prices_barcode_search_running": "Шукаю {barcode}",
     "@prices_barcode_search_running": {
@@ -1736,11 +1738,11 @@
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"
     },
-    "dev_mode_section_server": "Server configuration",
-    "dev_mode_section_product_page": "Product page",
-    "dev_mode_section_ui": "User Interface",
+    "dev_mode_section_server": "Конфігурація сервера",
+    "dev_mode_section_product_page": "Сторінка продукту",
+    "dev_mode_section_ui": "Інтерфейс користувача",
     "dev_mode_section_data": "Дані",
-    "dev_mode_section_experimental_features": "Experimental features",
+    "dev_mode_section_experimental_features": "Експериментальні функції",
     "dev_mode_hide_ecoscore_title": "Вимкнути Eco-Score",
     "@dev_mode_hide_ecoscore_title": {
         "description": "User dev preferences - Disable Ecoscore - Title"
@@ -2756,7 +2758,7 @@
     "@guide_nutriscore_v2_share_message": {
         "description": "Please let empty for now (maybe use in the future)"
     },
-    "preview_badge": "Preview",
+    "preview_badge": "Попередній перегляд",
     "@preview_badge": {
         "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
     }
