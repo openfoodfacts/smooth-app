@@ -1676,7 +1676,7 @@
     "prices_generic_title": "Ціни",
     "prices_add_n_prices": "{count,plural, =1{Add a price} other{App {count} prices}}",
     "prices_send_n_prices": "{count,plural, =1{Send the price} other{Send {count} prices}}",
-    "prices_add_an_item": "Add an item",
+    "prices_add_an_item": "Додати елемент",
     "prices_add_a_price": "Додати ціну",
     "prices_barcode_search_title": "Пошук товару",
     "prices_barcode_search_running": "Шукаю {barcode}",
