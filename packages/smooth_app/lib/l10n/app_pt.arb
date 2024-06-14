@@ -1676,6 +1676,16 @@
     "prices_generic_title": "Preços",
     "prices_add_a_price": "Adicionar um preço",
     "prices_send_the_price": "Enviar o preço",
+    "prices_barcode_search_title": "Pesquisa de produtos",
+    "prices_barcode_search_running": "Looking for {barcode}",
+    "@prices_barcode_search_running": {
+        "description": "Dialog title about barcode look-up",
+        "placeholders": {
+            "barcode": {
+                "type": "String"
+            }
+        }
+    },
     "prices_view_prices": "Ver os preços",
     "prices_list_length_one_page": "{count,plural, one {}=0{Ainda sem preço} =1{Apenas um preço} other{Todos os {count} preços}}",
     "@prices_list_length_one_page": {
