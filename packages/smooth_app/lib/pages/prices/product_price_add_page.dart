@@ -5,16 +5,20 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/database/dao_osm_location.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/pages/locations/osm_location.dart';
 import 'package:smooth_app/pages/prices/price_amount_card.dart';
+import 'package:smooth_app/pages/prices/price_amount_model.dart';
 import 'package:smooth_app/pages/prices/price_currency_card.dart';
 import 'package:smooth_app/pages/prices/price_date_card.dart';
 import 'package:smooth_app/pages/prices/price_location_card.dart';
 import 'package:smooth_app/pages/prices/price_meta_product.dart';
 import 'package:smooth_app/pages/prices/price_model.dart';
+import 'package:smooth_app/pages/prices/price_product_search_page.dart';
 import 'package:smooth_app/pages/prices/price_proof_card.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
@@ -85,7 +89,9 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage> {
             centerTitle: false,
             leading: const SmoothBackButton(),
             title: Text(
-              appLocalizations.prices_add_a_price,
+              appLocalizations.prices_add_n_prices(
+                _model.priceAmountModels.length,
+              ),
             ),
             actions: <Widget>[
               IconButton(
@@ -106,7 +112,37 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage> {
                 const SizedBox(height: LARGE_SPACE),
                 const PriceCurrencyCard(),
                 const SizedBox(height: LARGE_SPACE),
-                PriceAmountCard(_model.priceAmountModel),
+                for (int i = 0; i < _model.priceAmountModels.length; i++)
+                  PriceAmountCard(
+                    priceModel: _model,
+                    index: i,
+                    refresh: () => setState(() {}),
+                  ),
+                SmoothCard(
+                  child: SmoothLargeButtonWithIcon(
+                    text: appLocalizations.prices_add_an_item,
+                    icon: Icons.add,
+                    onPressed: () async {
+                      final PriceMetaProduct? product =
+                          await Navigator.of(context).push<PriceMetaProduct>(
+                        MaterialPageRoute<PriceMetaProduct>(
+                          builder: (BuildContext context) =>
+                              const PriceProductSearchPage(),
+                        ),
+                      );
+                      if (product == null) {
+                        return;
+                      }
+                      setState(
+                        () => _model.priceAmountModels.add(
+                          PriceAmountModel(
+                            product: product,
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ),
                 // so that the last items don't get hidden by the FAB
                 const SizedBox(height: MINIMUM_TOUCH_SIZE * 2),
               ],
@@ -143,7 +179,11 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage> {
               Navigator.of(context).pop();
             },
             icon: const Icon(Icons.send),
-            label: Text(appLocalizations.prices_send_the_price),
+            label: Text(
+              appLocalizations.prices_send_n_prices(
+                _model.priceAmountModels.length,
+              ),
+            ),
           ),
         ),
       ),

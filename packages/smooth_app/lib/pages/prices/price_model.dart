@@ -19,9 +19,11 @@ class PriceModel with ChangeNotifier {
   })  : _proofType = proofType,
         _date = DateTime.now(),
         _locations = locations,
-        priceAmountModel = PriceAmountModel(product: product);
+        priceAmountModels = <PriceAmountModel>[
+          PriceAmountModel(product: product),
+        ];
 
-  final PriceAmountModel priceAmountModel;
+  final List<PriceAmountModel> priceAmountModels;
 
   CropParameters? _cropParameters;
 
@@ -77,9 +79,11 @@ class PriceModel with ChangeNotifier {
     _checkedCurrency =
         CurrencySelectorHelper().getSelected(userPreferences.userCurrencyCode);
 
-    final String? checkParameters = priceAmountModel.checkParameters(context);
-    if (checkParameters != null) {
-      return checkParameters;
+    for (final PriceAmountModel priceAmountModel in priceAmountModels) {
+      final String? checkParameters = priceAmountModel.checkParameters(context);
+      if (checkParameters != null) {
+        return checkParameters;
+      }
     }
 
     if (location == null) {
@@ -90,20 +94,31 @@ class PriceModel with ChangeNotifier {
   }
 
   /// Adds the related background task.
-  Future<void> addTask(final BuildContext context) async =>
-      BackgroundTaskAddPrice.addTask(
-        context: context,
-        // per receipt
-        cropObject: cropParameters!,
-        locationOSMId: location!.osmId,
-        locationOSMType: location!.osmType,
-        date: date,
-        proofType: proofType,
-        currency: _checkedCurrency,
-        // per item
-        barcode: priceAmountModel.product.barcode,
-        priceIsDiscounted: priceAmountModel.promo,
-        price: priceAmountModel.checkedPaidPrice,
-        priceWithoutDiscount: priceAmountModel.checkedPriceWithoutDiscount,
-      );
+  Future<void> addTask(final BuildContext context) async {
+    final List<String> barcodes = <String>[];
+    final List<bool> pricesAreDiscounted = <bool>[];
+    final List<double> prices = <double>[];
+    final List<double?> pricesWithoutDiscount = <double?>[];
+    for (final PriceAmountModel priceAmountModel in priceAmountModels) {
+      barcodes.add(priceAmountModel.product.barcode);
+      pricesAreDiscounted.add(priceAmountModel.promo);
+      prices.add(priceAmountModel.checkedPaidPrice);
+      pricesWithoutDiscount.add(priceAmountModel.checkedPriceWithoutDiscount);
+    }
+    BackgroundTaskAddPrice.addTask(
+      context: context,
+      // per receipt
+      cropObject: cropParameters!,
+      locationOSMId: location!.osmId,
+      locationOSMType: location!.osmType,
+      date: date,
+      proofType: proofType,
+      currency: _checkedCurrency,
+      // per item
+      barcodes: barcodes,
+      pricesAreDiscounted: pricesAreDiscounted,
+      prices: prices,
+      pricesWithoutDiscount: pricesWithoutDiscount,
+    );
+  }
 }
