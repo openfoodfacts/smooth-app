@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
 /// A dashed line
 class UserPreferencesListItemDivider extends StatelessWidget {
@@ -123,7 +124,7 @@ class UserPreferencesItemSwitch implements UserPreferencesItem {
       ];
 
   @override
-  Widget Function(BuildContext) get builder =>
+  WidgetBuilder get builder =>
       (final BuildContext context) => UserPreferencesSwitchWidget(
             title: title,
             subtitle: subtitle,
@@ -154,14 +155,59 @@ class UserPreferencesItemTile implements UserPreferencesItem {
       ];
 
   @override
-  Widget Function(BuildContext) get builder =>
-      (final BuildContext context) => ListTile(
-            title: Text(title),
-            subtitle: subtitle == null ? null : Text(subtitle!),
-            onTap: onTap,
-            leading: leading,
-            trailing: trailing,
-          );
+  WidgetBuilder get builder => (final BuildContext context) => ListTile(
+        title: Text(title),
+        subtitle: subtitle == null ? null : Text(subtitle!),
+        onTap: onTap,
+        leading: leading,
+        trailing: trailing,
+      );
+}
+
+class UserPreferencesItemSection implements UserPreferencesItem {
+  const UserPreferencesItemSection({
+    required this.label,
+    this.icon,
+  }) : assert(label.length > 0);
+
+  final String label;
+  final Widget? icon;
+
+  @override
+  WidgetBuilder get builder => (BuildContext context) {
+        final SmoothColorsThemeExtension colors =
+            Theme.of(context).extension<SmoothColorsThemeExtension>()!;
+
+        return Container(
+          color: colors.primaryDark,
+          padding: const EdgeInsets.symmetric(
+            horizontal: LARGE_SPACE,
+            vertical: SMALL_SPACE,
+          ),
+          child: Row(
+            children: <Widget>[
+              Expanded(
+                child: Text(
+                  label,
+                  style: TextStyle(
+                    color: colors.primaryLight,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              if (icon != null)
+                IconTheme(
+                  data: IconThemeData(color: colors.primaryLight),
+                  child: icon!,
+                ),
+            ],
+          ),
+        );
+      };
+
+  @override
+  Iterable<String> get labels => <String>[label];
 }
 
 /// A preference allowing to choose between a list of items.

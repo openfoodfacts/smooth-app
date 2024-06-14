@@ -17,5 +17,5 @@ class UserPreferencesItemSimple implements UserPreferencesItem {
   final Iterable<String> labels;
 
   @override
-  final Widget Function(BuildContext) builder;
+  final WidgetBuilder builder;
 }

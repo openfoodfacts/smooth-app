@@ -98,74 +98,35 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           value: userPreferences.devMode == 1,
         ),
         UserPreferencesItemTile(
-          title: appLocalizations.dev_preferences_reset_onboarding_title,
-          subtitle: appLocalizations.dev_preferences_reset_onboarding_subtitle,
-          onTap: () async {
-            await userPreferences.resetOnboarding();
-            _showSuccessMessage();
-          },
+          title: 'Debugging information',
+          onTap: () async => Navigator.of(context).push(MaterialPageRoute<void>(
+              builder: (BuildContext context) =>
+                  const UserPreferencesDebugInfo())),
+        ),
+        UserPreferencesItemSection(
+          label: appLocalizations.dev_mode_section_data,
         ),
         UserPreferencesItemTile(
-          title: appLocalizations.dev_preferences_environment_switch_title,
-          trailing: DropdownButton<bool>(
-            value: userPreferences.getFlag(userPreferencesFlagProd) ?? true,
-            elevation: 16,
-            onChanged: (bool? newValue) async {
-              await userPreferences.setFlag(userPreferencesFlagProd, newValue);
-              ProductQuery.setQueryType(userPreferences);
-            },
-            items: const <DropdownMenuItem<bool>>[
-              DropdownMenuItem<bool>(
-                value: true,
-                child: Text('PROD'),
-              ),
-              DropdownMenuItem<bool>(
-                value: false,
-                child: Text('TEST'),
-              ),
-            ],
+          title: appLocalizations.background_task_title,
+          subtitle: appLocalizations.background_task_subtitle,
+          trailing: const BackgroundTaskBadge(
+            child: Icon(Icons.edit_notifications_outlined),
+          ),
+          onTap: () async => Navigator.push<void>(
+            context,
+            MaterialPageRoute<void>(
+              builder: (BuildContext context) => const OfflineTaskPage(),
+            ),
           ),
         ),
         UserPreferencesItemTile(
-          title: appLocalizations.dev_preferences_test_environment_title,
-          subtitle: appLocalizations.dev_preferences_test_environment_subtitle(
-            ProductQuery.getTestUriProductHelper(userPreferences)
-                .getPostUri(path: '')
-                .toString(),
+          title: appLocalizations.offline_data,
+          onTap: () => Navigator.push<void>(
+            context,
+            MaterialPageRoute<void>(
+              builder: (BuildContext context) => const OfflineDataPage(),
+            ),
           ),
-          onTap: () async => _changeTestEnvDomain(),
-        ),
-        UserPreferencesItemSwitch(
-          title: appLocalizations.dev_preferences_edit_ingredients_title,
-          value: userPreferences.getFlag(userPreferencesFlagEditIngredients) ??
-              false,
-          onChanged: (bool value) async {
-            await userPreferences.setFlag(
-                userPreferencesFlagEditIngredients, value);
-            _showSuccessMessage();
-          },
-        ),
-        UserPreferencesItemSwitch(
-          title: 'Accessibility: remove colors',
-          value: userPreferences
-                  .getFlag(userPreferencesFlagAccessibilityNoColor) ??
-              false,
-          onChanged: (bool value) async {
-            await userPreferences.setFlag(
-                userPreferencesFlagAccessibilityNoColor, value);
-            _showSuccessMessage();
-          },
-        ),
-        UserPreferencesItemSwitch(
-          title: 'Accessibility: show emoji',
-          value:
-              userPreferences.getFlag(userPreferencesFlagAccessibilityEmoji) ??
-                  false,
-          onChanged: (bool value) async {
-            await userPreferences.setFlag(
-                userPreferencesFlagAccessibilityEmoji, value);
-            _showSuccessMessage();
-          },
         ),
         UserPreferencesItemTile(
           title: appLocalizations.dev_preferences_export_history_title,
@@ -235,26 +196,23 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           },
         ),
         UserPreferencesItemTile(
-          title: appLocalizations.offline_data,
-          onTap: () => Navigator.push<void>(
-            context,
-            MaterialPageRoute<void>(
-              builder: (BuildContext context) => const OfflineDataPage(),
-            ),
-          ),
+          title: 'Refresh all products from server (cf. Nutriscore v2)',
+          trailing: const Icon(Icons.refresh),
+          onTap: () async {
+            final LocalDatabase localDatabase = context.read<LocalDatabase>();
+            final DaoProduct daoProduct = DaoProduct(localDatabase);
+            await daoProduct.clearAllLanguages();
+            await BackgroundTaskLanguageRefresh.addTask(localDatabase);
+            _showSuccessMessage();
+          },
         ),
         UserPreferencesItemTile(
-          title: appLocalizations.background_task_title,
-          subtitle: appLocalizations.background_task_subtitle,
-          trailing: const BackgroundTaskBadge(
-            child: Icon(Icons.edit_notifications_outlined),
-          ),
-          onTap: () async => Navigator.push<void>(
-            context,
-            MaterialPageRoute<void>(
-              builder: (BuildContext context) => const OfflineTaskPage(),
-            ),
-          ),
+          // Do not translate
+          title: 'Reset app language',
+          onTap: () async {
+            userPreferences.setAppLanguageCode(null);
+            ProductQuery.setLanguage(context, userPreferences);
+          },
         ),
         UserPreferencesItemTile(
           title: 'Add cards to scanner',
@@ -273,6 +231,52 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
             }
           },
         ),
+        UserPreferencesItemSection(
+          label: appLocalizations.dev_mode_section_server,
+        ),
+        UserPreferencesItemTile(
+          title: appLocalizations.dev_preferences_environment_switch_title,
+          trailing: DropdownButton<bool>(
+            value: userPreferences.getFlag(userPreferencesFlagProd) ?? true,
+            elevation: 16,
+            onChanged: (bool? newValue) async {
+              await userPreferences.setFlag(userPreferencesFlagProd, newValue);
+              ProductQuery.setQueryType(userPreferences);
+            },
+            items: const <DropdownMenuItem<bool>>[
+              DropdownMenuItem<bool>(
+                value: true,
+                child: Text('PROD'),
+              ),
+              DropdownMenuItem<bool>(
+                value: false,
+                child: Text('TEST'),
+              ),
+            ],
+          ),
+        ),
+        UserPreferencesItemTile(
+          title: appLocalizations.dev_preferences_test_environment_title,
+          subtitle: appLocalizations.dev_preferences_test_environment_subtitle(
+            ProductQuery.getTestUriProductHelper(userPreferences)
+                .getPostUri(path: '')
+                .toString(),
+          ),
+          onTap: () async => _changeTestEnvDomain(),
+        ),
+        UserPreferencesItemSection(
+          label: appLocalizations.dev_mode_section_product_page,
+        ),
+        UserPreferencesItemSwitch(
+          title: appLocalizations.dev_preferences_edit_ingredients_title,
+          value: userPreferences.getFlag(userPreferencesFlagEditIngredients) ??
+              false,
+          onChanged: (bool value) async {
+            await userPreferences.setFlag(
+                userPreferencesFlagEditIngredients, value);
+            _showSuccessMessage();
+          },
+        ),
         UserPreferencesItemSwitch(
           title: appLocalizations.dev_mode_hide_ecoscore_title,
           value: userPreferences
@@ -288,41 +292,41 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
             await userPreferences.setExcludedAttributeIds(list);
           },
         ),
-        UserPreferencesItemTile(
-          // Do not translate
-          title: 'Reset app language',
-          onTap: () async {
-            userPreferences.setAppLanguageCode(null);
-            ProductQuery.setLanguage(context, userPreferences);
-          },
+        UserPreferencesItemSection(
+          label: appLocalizations.dev_mode_section_ui,
         ),
         UserPreferencesItemTile(
-          title: 'Refresh all products from server (cf. Nutriscore v2)',
-          trailing: const Icon(Icons.refresh),
+          title: appLocalizations.dev_preferences_reset_onboarding_title,
+          subtitle: appLocalizations.dev_preferences_reset_onboarding_subtitle,
           onTap: () async {
-            final LocalDatabase localDatabase = context.read<LocalDatabase>();
-            final DaoProduct daoProduct = DaoProduct(localDatabase);
-            await daoProduct.clearAllLanguages();
-            await BackgroundTaskLanguageRefresh.addTask(localDatabase);
+            await userPreferences.resetOnboarding();
             _showSuccessMessage();
           },
         ),
         UserPreferencesItemSwitch(
-          title: 'Side by side comparison for 2 or 3 products',
-          value:
-              userPreferences.getFlag(userPreferencesFlagBoostedComparison) ??
-                  false,
+          title: 'Accessibility: remove colors',
+          value: userPreferences
+                  .getFlag(userPreferencesFlagAccessibilityNoColor) ??
+              false,
           onChanged: (bool value) async {
             await userPreferences.setFlag(
-                userPreferencesFlagBoostedComparison, value);
+                userPreferencesFlagAccessibilityNoColor, value);
             _showSuccessMessage();
           },
         ),
-        UserPreferencesItemTile(
-          title: 'Debugging information',
-          onTap: () async => Navigator.of(context).push(MaterialPageRoute<void>(
-              builder: (BuildContext context) =>
-                  const UserPreferencesDebugInfo())),
+        UserPreferencesItemSwitch(
+          title: 'Accessibility: show emoji',
+          value:
+              userPreferences.getFlag(userPreferencesFlagAccessibilityEmoji) ??
+                  false,
+          onChanged: (bool value) async {
+            await userPreferences.setFlag(
+                userPreferencesFlagAccessibilityEmoji, value);
+            _showSuccessMessage();
+          },
+        ),
+        UserPreferencesItemSection(
+          label: appLocalizations.dev_mode_section_experimental_features,
         ),
         UserPreferencesItemSwitch(
           title: 'User ordered knowledge panels',
@@ -390,6 +394,17 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
                   const UserPreferencesSearchPage(),
             ),
           ),
+        ),
+        UserPreferencesItemSwitch(
+          title: 'Side by side comparison for 2 or 3 products',
+          value:
+              userPreferences.getFlag(userPreferencesFlagBoostedComparison) ??
+                  false,
+          onChanged: (bool value) async {
+            await userPreferences.setFlag(
+                userPreferencesFlagBoostedComparison, value);
+            _showSuccessMessage();
+          },
         ),
       ];
 
