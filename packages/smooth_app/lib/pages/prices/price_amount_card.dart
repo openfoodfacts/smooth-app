@@ -5,13 +5,24 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/pages/prices/price_amount_field.dart';
 import 'package:smooth_app/pages/prices/price_amount_model.dart';
+import 'package:smooth_app/pages/prices/price_model.dart';
 import 'package:smooth_app/pages/prices/price_product_list_tile.dart';
 
 /// Card that displays the amounts (discounted or not) for price adding.
 class PriceAmountCard extends StatefulWidget {
-  const PriceAmountCard(this.model);
+  PriceAmountCard({
+    required this.priceModel,
+    required this.index,
+    required this.refresh,
+  })  : model = priceModel.priceAmountModels[index],
+        total = priceModel.priceAmountModels.length;
 
+  final PriceModel priceModel;
   final PriceAmountModel model;
+  final int index;
+  final int total;
+  // TODO(monsieurtanuki): not elegant, the display was not refreshed when removing an item
+  final VoidCallback refresh;
 
   @override
   State<PriceAmountCard> createState() => _PriceAmountCardState();
@@ -28,9 +39,19 @@ class _PriceAmountCardState extends State<PriceAmountCard> {
     return SmoothCard(
       child: Column(
         children: <Widget>[
-          Text(appLocalizations.prices_amount_subtitle),
+          Text(
+            '${appLocalizations.prices_amount_subtitle}'
+            '${widget.total == 1 ? '' : ' (${widget.index + 1}/${widget.total})'}',
+          ),
           PriceProductListTile(
             product: widget.model.product,
+            trailingIconData: widget.total == 1 ? null : Icons.clear,
+            onPressed: widget.total == 1
+                ? null
+                : () {
+                    widget.priceModel.priceAmountModels.removeAt(widget.index);
+                    widget.refresh.call();
+                  },
           ),
           SmoothLargeButtonWithIcon(
             icon: widget.model.promo
@@ -42,43 +63,26 @@ class _PriceAmountCardState extends State<PriceAmountCard> {
             ),
           ),
           const SizedBox(height: SMALL_SPACE),
-          LayoutBuilder(
-            builder: (
-              final BuildContext context,
-              final BoxConstraints boxConstraints,
-            ) {
-              final double columnWidth =
-                  (boxConstraints.maxWidth - LARGE_SPACE) / 2;
-              final Widget columnPaid = SizedBox(
-                width: columnWidth,
+          Row(
+            children: <Widget>[
+              Expanded(
                 child: PriceAmountField(
                   controller: _controllerPaid,
                   isPaidPrice: true,
                   model: widget.model,
                 ),
-              );
-              if (!widget.model.promo) {
-                return Align(
-                  alignment: Alignment.centerLeft,
-                  child: columnPaid,
-                );
-              }
-              final Widget columnWithoutDiscount = SizedBox(
-                width: columnWidth,
-                child: PriceAmountField(
-                  controller: _controllerWithoutDiscount,
-                  isPaidPrice: false,
-                  model: widget.model,
-                ),
-              );
-              return Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  columnPaid,
-                  columnWithoutDiscount,
-                ],
-              );
-            },
+              ),
+              const SizedBox(width: LARGE_SPACE),
+              Expanded(
+                child: !widget.model.promo
+                    ? Container()
+                    : PriceAmountField(
+                        controller: _controllerWithoutDiscount,
+                        isPaidPrice: false,
+                        model: widget.model,
+                      ),
+              ),
+            ],
           ),
         ],
       ),

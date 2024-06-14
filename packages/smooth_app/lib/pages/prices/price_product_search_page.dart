@@ -18,11 +18,11 @@ import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Product Search Page, for Prices.
 class PriceProductSearchPage extends StatefulWidget {
-  const PriceProductSearchPage(
+  const PriceProductSearchPage({
     this.product,
-  );
+  });
 
-  final PriceMetaProduct product;
+  final PriceMetaProduct? product;
   // TODO(monsieurtanuki): as a parameter, add a list of barcodes already there: we're not supposed to select twice the same product
 
   @override
