@@ -1688,6 +1688,7 @@
             }
         }
     },
+    "prices_barcode_reader_action": "Barcode reader",
     "prices_view_prices": "Переглянути ціни",
     "prices_list_length_one_page": "{count,plural, =0{No price yet} =1{Only one price} other{All {count} prices}}",
     "@prices_list_length_one_page": {
