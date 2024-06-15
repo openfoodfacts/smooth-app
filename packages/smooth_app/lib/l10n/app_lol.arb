@@ -1688,6 +1688,7 @@
             }
         }
     },
+    "prices_barcode_reader_action": "crwdns248884:0crwdne248884:0",
     "prices_view_prices": "crwdns248430:0crwdne248430:0",
     "prices_list_length_one_page": "crwdns248446:0count={count}crwdnd248446:0count={count}crwdne248446:0",
     "@prices_list_length_one_page": {
