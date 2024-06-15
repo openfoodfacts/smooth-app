@@ -1686,7 +1686,7 @@
             }
         }
     },
-    "prices_barcode_reader_action": "Barcode reader",
+    "prices_barcode_reader_action": "Barcodelesegerät",
     "prices_view_prices": "Preise anzeigen",
     "prices_list_length_one_page": "{count,plural, =0{Noch kein Preis} =1{Nur ein Preis} other{Alle {count} Preise}}",
     "@prices_list_length_one_page": {
@@ -2665,7 +2665,7 @@
     "faq_title_install_beauty": "Installieren Sie Open Beauty Facts, um eine Kosmetikdatenbank zu erstellen",
     "faq_title_install_pet": "Installieren Sie Open Pet Food Facts, um eine Tierfutterdatenbank zu erstellen",
     "faq_title_install_product": "Installieren Sie Open Products Facts, um eine Produktdatenbank zur Verlängerung der Lebensdauer von Objekten zu erstellen",
-    "faq_nutriscore_nutriscore": "New calculation of the Nutri-Score: what's new?",
+    "faq_nutriscore_nutriscore": "Neue Berechnung des Nutri-Score: Was ist neu?",
     "contact_title_pro_page": "Pro? Importieren Sie Ihre Produkte in Open Food Facts",
     "contact_title_pro_email": "Kontakt zum Produzenten",
     "contact_title_press_page": "Pressemappe",
