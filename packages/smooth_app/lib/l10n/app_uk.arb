@@ -1092,14 +1092,12 @@
             }
         }
     },
-    "onboarding_reinventing_text1": "Ми розробили додаток\nдля спільного сканування\nу 2012 році",
-    "@onboarding_reinventing_text1": {
-        "description": "Onboarding / Reinventing page: text 1/2. If possible, balanced on 3 lines."
+    "onboarding_home_welcome_text1": "Welcome !",
+    "onboarding_home_welcome_text2": "The app that helps you choose food that is good for **you** and the **planet**!",
+    "@onboarding_home_welcome_text2": {
+        "description": "Onboarding home screen welcome text, text surrounded by * will be bold"
     },
-    "onboarding_reinventing_text2": "Оскільки нам виповнюється 10 років,\nми переосмислюємо його\nз нуля!",
-    "@onboarding_reinventing_text2": {
-        "description": "Onboarding / Reinventing page: text 2/2. If possible, balanced on 3 lines."
-    },
+    "onboarding_continue_button": "Продовжити",
     "onboarding_welcome_loading_dialog_title": "Завантаження вашого першого прикладу продукту",
     "@onboarding_welcome_loading_dialog_title": {
         "description": "Title for the onboarding loading dialog"
@@ -1688,7 +1686,7 @@
             }
         }
     },
-    "prices_barcode_reader_action": "Barcode reader",
+    "prices_barcode_reader_action": "Сканер штрих-коду",
     "prices_view_prices": "Переглянути ціни",
     "prices_list_length_one_page": "{count,plural, =0{No price yet} =1{Only one price} other{All {count} prices}}",
     "@prices_list_length_one_page": {
@@ -2667,6 +2665,7 @@
     "faq_title_install_beauty": "Встановіть Open Beauty Facts для створення косметичної бази даних",
     "faq_title_install_pet": "Встановіть Open Pet Food Facts щоб створити базу даних для домашніх тварин",
     "faq_title_install_product": "Встановіть Open Products Facts, щоб створити базу даних продуктів і подовжити термін служби об’єктів",
+    "faq_nutriscore_nutriscore": "New calculation of the Nutri-Score: what's new?",
     "contact_title_pro_page": "Pro? Імпортуйте свої продукти в Open Food Facts",
     "contact_title_pro_email": "Контакт виробника",
     "contact_title_press_page": "Інформація для преси",
