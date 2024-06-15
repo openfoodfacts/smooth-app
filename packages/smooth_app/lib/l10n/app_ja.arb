@@ -1092,14 +1092,12 @@
             }
         }
     },
-    "onboarding_reinventing_text1": "2012年に\n協同スキャンアプリを\n開発しました",
-    "@onboarding_reinventing_text1": {
-        "description": "Onboarding / Reinventing page: text 1/2. If possible, balanced on 3 lines."
+    "onboarding_home_welcome_text1": "Welcome !",
+    "onboarding_home_welcome_text2": "The app that helps you choose food that is good for **you** and the **planet**!",
+    "@onboarding_home_welcome_text2": {
+        "description": "Onboarding home screen welcome text, text surrounded by * will be bold"
     },
-    "onboarding_reinventing_text2": "10周年に合わせて\n一からアプリを\n再開発しています！",
-    "@onboarding_reinventing_text2": {
-        "description": "Onboarding / Reinventing page: text 2/2. If possible, balanced on 3 lines."
-    },
+    "onboarding_continue_button": "続ける",
     "onboarding_welcome_loading_dialog_title": "最初の見本となる製品を読み込んでいます",
     "@onboarding_welcome_loading_dialog_title": {
         "description": "Title for the onboarding loading dialog"
@@ -2667,6 +2665,7 @@
     "faq_title_install_beauty": "Open Beauty Facts をインストールして化粧品データベースを作成する",
     "faq_title_install_pet": "Open Pet Food Facts をインストールしてペットフード データベースを作成する",
     "faq_title_install_product": "Open Products Facts をインストールして製品データベースを作成し、オブジェクトの寿命を延ばす",
+    "faq_nutriscore_nutriscore": "New calculation of the Nutri-Score: what's new?",
     "contact_title_pro_page": "プロ？ Open Food Facts に製品をインポートします",
     "contact_title_pro_email": "プロデューサー連絡先",
     "contact_title_press_page": "プレスページ",
