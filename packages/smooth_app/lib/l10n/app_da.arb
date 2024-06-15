@@ -1092,14 +1092,12 @@
             }
         }
     },
-    "onboarding_reinventing_text1": "Vi opfandt\nden kollaborative\nskannings-app i 2012",
-    "@onboarding_reinventing_text1": {
-        "description": "Onboarding / Reinventing page: text 1/2. If possible, balanced on 3 lines."
+    "onboarding_home_welcome_text1": "Welcome !",
+    "onboarding_home_welcome_text2": "The app that helps you choose food that is good for **you** and the **planet**!",
+    "@onboarding_home_welcome_text2": {
+        "description": "Onboarding home screen welcome text, text surrounded by * will be bold"
     },
-    "onboarding_reinventing_text2": "Da vi fylder 10 år,\nvi genopfinder den\nfra bunden!",
-    "@onboarding_reinventing_text2": {
-        "description": "Onboarding / Reinventing page: text 2/2. If possible, balanced on 3 lines."
-    },
+    "onboarding_continue_button": "Fortsæt",
     "onboarding_welcome_loading_dialog_title": "Indlæser første eksempelprodukt",
     "@onboarding_welcome_loading_dialog_title": {
         "description": "Title for the onboarding loading dialog"
@@ -1688,7 +1686,7 @@
             }
         }
     },
-    "prices_barcode_reader_action": "Barcode reader",
+    "prices_barcode_reader_action": "Stregkodelæser",
     "prices_view_prices": "View the prices",
     "prices_list_length_one_page": "{count,plural, =0{No price yet} =1{Only one price} other{All {count} prices}}",
     "@prices_list_length_one_page": {
@@ -2667,6 +2665,7 @@
     "faq_title_install_beauty": "Install Open Beauty Facts to create a cosmetic database",
     "faq_title_install_pet": "Install Open Pet Food Facts to create a pet food database",
     "faq_title_install_product": "Install Open Products Facts to create a products database to extend the life of objects",
+    "faq_nutriscore_nutriscore": "New calculation of the Nutri-Score: what's new?",
     "contact_title_pro_page": "Pro? Import your products in Open Food Facts",
     "contact_title_pro_email": "Producer Contact",
     "contact_title_press_page": "Press Page",
