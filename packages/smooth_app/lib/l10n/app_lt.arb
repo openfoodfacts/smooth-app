@@ -1092,14 +1092,12 @@
             }
         }
     },
-    "onboarding_reinventing_text1": "2012 m. išradome\nbendradarbiavimo\nnuskaitymo programą",
-    "@onboarding_reinventing_text1": {
-        "description": "Onboarding / Reinventing page: text 1/2. If possible, balanced on 3 lines."
+    "onboarding_home_welcome_text1": "Welcome !",
+    "onboarding_home_welcome_text2": "The app that helps you choose food that is good for **you** and the **planet**!",
+    "@onboarding_home_welcome_text2": {
+        "description": "Onboarding home screen welcome text, text surrounded by * will be bold"
     },
-    "onboarding_reinventing_text2": "Mums sukankant 10 metų,\nmes jį perkuriame\nnuo pat pradžių!",
-    "@onboarding_reinventing_text2": {
-        "description": "Onboarding / Reinventing page: text 2/2. If possible, balanced on 3 lines."
-    },
+    "onboarding_continue_button": "Tęsti",
     "onboarding_welcome_loading_dialog_title": "Įkeliamas jūsų pirmasis produkto pavyzdys",
     "@onboarding_welcome_loading_dialog_title": {
         "description": "Title for the onboarding loading dialog"
@@ -2667,6 +2665,7 @@
     "faq_title_install_beauty": "Įdiekite „Open Beauty Facts“, kad sukurtumėte kosmetikos duomenų bazę",
     "faq_title_install_pet": "Įdiekite „Open Pet Food Facts“, kad sukurtumėte naminių gyvūnų pašarų duomenų bazę",
     "faq_title_install_product": "Įdiekite „Open Products Facts“, kad sukurtumėte produktų duomenų bazę ir pailgintumėte objektų eksploatavimo laiką",
+    "faq_nutriscore_nutriscore": "New calculation of the Nutri-Score: what's new?",
     "contact_title_pro_page": "„Pro“? Importuokite savo produktus į „Open Food Facts“",
     "contact_title_pro_email": "Gamintojo kontaktai",
     "contact_title_press_page": "Spaudos puslapis",
