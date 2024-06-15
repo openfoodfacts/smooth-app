@@ -1092,14 +1092,12 @@
             }
         }
     },
-    "onboarding_reinventing_text1": "המצאנו\nאת יישומון\nהסריקה השיתופי ב־2012",
-    "@onboarding_reinventing_text1": {
-        "description": "Onboarding / Reinventing page: text 1/2. If possible, balanced on 3 lines."
+    "onboarding_home_welcome_text1": "Welcome !",
+    "onboarding_home_welcome_text2": "The app that helps you choose food that is good for **you** and the **planet**!",
+    "@onboarding_home_welcome_text2": {
+        "description": "Onboarding home screen welcome text, text surrounded by * will be bold"
     },
-    "onboarding_reinventing_text2": "לרגל יום ההולדת\nהעשירי אנחנו מחדשים\nאותו לגמרי מאפס!",
-    "@onboarding_reinventing_text2": {
-        "description": "Onboarding / Reinventing page: text 2/2. If possible, balanced on 3 lines."
-    },
+    "onboarding_continue_button": "להמשיך",
     "onboarding_welcome_loading_dialog_title": "מוצר ההדגמה הראשוני שלך נטען",
     "@onboarding_welcome_loading_dialog_title": {
         "description": "Title for the onboarding loading dialog"
@@ -2667,6 +2665,7 @@
     "faq_title_install_beauty": "אפשר להתקין את Open Beauty Facts כדי ליצור מסד נתונים קוסמטי",
     "faq_title_install_pet": "אפשר להתקין את Open Pet Food Facts כדי ליצור מסד נתוני מזון לחיות מחמד",
     "faq_title_install_product": "אפשר להתקין את Open Products Facts כדי ליצור מסד נתונים של מוצרים להארכת חיי הפריטים",
+    "faq_nutriscore_nutriscore": "New calculation of the Nutri-Score: what's new?",
     "contact_title_pro_page": "יצרנים? אפשר לייבא את המוצרים שלכם ל־Open Food Facts",
     "contact_title_pro_email": "איש קשר ליצרנים",
     "contact_title_press_page": "עמוד לעיתונאים",
