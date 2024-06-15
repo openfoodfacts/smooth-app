@@ -45,7 +45,7 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
   late final MultilingualHelper _multilingualHelper;
 
   OcrHelper get _helper => widget.helper;
-  bool extractingData = false;
+  bool _extractingData = false;
 
   @override
   void initState() {
@@ -65,7 +65,7 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
   ///
   /// When done, populates the related page field.
   Future<void> _extractData() async {
-    setState(() => extractingData = true);
+    setState(() => _extractingData = true);
 
     try {
       final String? extractedText = await _helper.getExtractedText(
@@ -76,7 +76,7 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
         return;
       }
 
-      setState(() => extractingData = false);
+      setState(() => _extractingData = false);
 
       if (extractedText == null || extractedText.isEmpty) {
         await LoadingDialog.error(
@@ -377,7 +377,7 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
   }
 
   OcrState _extractState(TransientFile transientFile) {
-    if (extractingData) {
+    if (_extractingData) {
       return OcrState.EXTRACTING_DATA;
     } else if (transientFile.isServerImage()) {
       return OcrState.IMAGE_LOADED;
