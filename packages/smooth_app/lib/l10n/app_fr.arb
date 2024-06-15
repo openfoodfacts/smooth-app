@@ -1688,6 +1688,7 @@
             }
         }
     },
+    "prices_barcode_reader_action": "Lecteur de code-barres",
     "prices_view_prices": "Voir les prix",
     "prices_list_length_one_page": "{count,plural, =0{Aucun prix} =1{Un seul prix} other{Tous les {count} prix}}",
     "@prices_list_length_one_page": {
