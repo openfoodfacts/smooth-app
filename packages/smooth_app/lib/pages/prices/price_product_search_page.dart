@@ -10,8 +10,10 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
+import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/pages/prices/price_meta_product.dart';
 import 'package:smooth_app/pages/prices/price_product_list_tile.dart';
+import 'package:smooth_app/pages/prices/price_scan_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
@@ -48,7 +50,6 @@ class _PriceProductSearchPageState extends State<PriceProductSearchPage> {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final LocalDatabase localDatabase = context.read<LocalDatabase>();
     // TODO(monsieurtanuki): add WillPopScope2
     return SmoothScaffold(
       appBar: SmoothAppBar(
@@ -56,6 +57,13 @@ class _PriceProductSearchPageState extends State<PriceProductSearchPage> {
         leading: const SmoothBackButton(),
         title: Text(appLocalizations.prices_barcode_search_title),
       ),
+      floatingActionButton: !CameraHelper.hasACamera
+          ? null
+          : FloatingActionButton.extended(
+              onPressed: () async => _scan(context),
+              label: Text(appLocalizations.prices_barcode_reader_action),
+              icon: const Icon(Icons.barcode_reader),
+            ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(LARGE_SPACE),
         child: Column(
@@ -67,46 +75,8 @@ class _PriceProductSearchPageState extends State<PriceProductSearchPage> {
               controller: _controller,
               hintText: _barcodeHint,
               textInputType: _textInputType,
-              onChanged: (_) async {
-                final String barcode = _controller.text;
-                final String cleanBarcode = _getCleanBarcode(barcode);
-                if (barcode != cleanBarcode) {
-                  setState(() => _controller.text = cleanBarcode);
-                  return;
-                }
-
-                if (_product != null) {
-                  setState(
-                    () => _product = null,
-                  );
-                }
-
-                final Product? product = await _localSearch(
-                  barcode,
-                  localDatabase,
-                );
-                if (product != null) {
-                  setState(
-                    () => _product = PriceMetaProduct.product(product),
-                  );
-                  return;
-                }
-              },
-              onFieldSubmitted: (_) async {
-                final String barcode = _controller.text;
-                if (barcode.isEmpty) {
-                  return;
-                }
-
-                final Product? product = await _serverSearch(
-                  barcode,
-                  localDatabase,
-                  context,
-                );
-                if (product != null) {
-                  setState(() => _product = PriceMetaProduct.product(product));
-                }
-              },
+              onChanged: (_) async => _onChanged(context),
+              onFieldSubmitted: (_) async => _onFieldSubmitted(context),
               prefixIcon: const Icon(CupertinoIcons.barcode),
               textInputAction: TextInputAction.search,
             ),
@@ -174,5 +144,68 @@ class _PriceProductSearchPageState extends State<PriceProductSearchPage> {
       }
     }
     return buffer.toString();
+  }
+
+  Future<void> _onChanged(final BuildContext context) async {
+    final String barcode = _controller.text;
+    final String cleanBarcode = _getCleanBarcode(barcode);
+    if (barcode != cleanBarcode) {
+      setState(() => _controller.text = cleanBarcode);
+      return;
+    }
+
+    if (_product != null) {
+      setState(() => _product = null);
+    }
+
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
+    final Product? product = await _localSearch(
+      barcode,
+      localDatabase,
+    );
+    if (product != null) {
+      setState(() => _product = PriceMetaProduct.product(product));
+      return;
+    }
+  }
+
+  Future<void> _onFieldSubmitted(final BuildContext context) async {
+    final String barcode = _controller.text;
+    if (barcode.isEmpty) {
+      return;
+    }
+
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
+    final Product? product = await _serverSearch(
+      barcode,
+      localDatabase,
+      context,
+    );
+    if (product != null) {
+      setState(() => _product = PriceMetaProduct.product(product));
+    }
+  }
+
+  Future<void> _scan(final BuildContext context) async {
+    final String? barcode = await Navigator.of(context).push<String>(
+      MaterialPageRoute<String>(
+        builder: (BuildContext context) => const PriceScanPage(),
+      ),
+    );
+    if (barcode == null) {
+      return;
+    }
+    _controller.text = barcode;
+    if (!context.mounted) {
+      return;
+    }
+    await _onChanged(context);
+    if (_product != null) {
+      return;
+    }
+    if (!context.mounted) {
+      return;
+    }
+    await _onFieldSubmitted(context);
   }
 }
