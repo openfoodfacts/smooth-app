@@ -1092,14 +1092,12 @@
             }
         }
     },
-    "onboarding_reinventing_text1": "В 2012 году\nмы создали приложение\nдля коллективного сканирования",
-    "@onboarding_reinventing_text1": {
-        "description": "Onboarding / Reinventing page: text 1/2. If possible, balanced on 3 lines."
+    "onboarding_home_welcome_text1": "Welcome !",
+    "onboarding_home_welcome_text2": "The app that helps you choose food that is good for **you** and the **planet**!",
+    "@onboarding_home_welcome_text2": {
+        "description": "Onboarding home screen welcome text, text surrounded by * will be bold"
     },
-    "onboarding_reinventing_text2": "Теперь когда нам 10 лет,\nнами было пересоздано\nполностью с нуля!",
-    "@onboarding_reinventing_text2": {
-        "description": "Onboarding / Reinventing page: text 2/2. If possible, balanced on 3 lines."
-    },
+    "onboarding_continue_button": "Продолжить",
     "onboarding_welcome_loading_dialog_title": "Загрузка вашего первого примера продукта",
     "@onboarding_welcome_loading_dialog_title": {
         "description": "Title for the onboarding loading dialog"
@@ -2667,6 +2665,7 @@
     "faq_title_install_beauty": "Install Open Beauty Facts to create a cosmetic database",
     "faq_title_install_pet": "Install Open Pet Food Facts to create a pet food database",
     "faq_title_install_product": "Install Open Products Facts to create a products database to extend the life of objects",
+    "faq_nutriscore_nutriscore": "New calculation of the Nutri-Score: what's new?",
     "contact_title_pro_page": "Вы производитель? Импортируйте данные о своих продуктах в Open Food Facts",
     "contact_title_pro_email": "Связаться с нами (для производителей)",
     "contact_title_press_page": "Материалы для прессы",
