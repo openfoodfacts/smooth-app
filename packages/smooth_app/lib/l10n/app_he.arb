@@ -1688,6 +1688,7 @@
             }
         }
     },
+    "prices_barcode_reader_action": "Barcode reader",
     "prices_view_prices": "View the prices",
     "prices_list_length_one_page": "{count,plural, two {כל {count} המחירים} many {כל {count} המחירים}=0{אין מחיר עדיין} =1{מחיר אחד בלבד} other{כל {count} המחירים}}",
     "@prices_list_length_one_page": {
