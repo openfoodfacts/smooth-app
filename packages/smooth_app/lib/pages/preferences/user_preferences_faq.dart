@@ -76,7 +76,12 @@ class UserPreferencesFaq extends AbstractUserPreferences {
               builder: (BuildContext context) => const GuideNutriscoreV2(),
             ),
           ),
-          icon: null,
+
+          /// Hide the icon
+          icon: const Icon(
+            Icons.info,
+            size: 0.0,
+          ),
         ),
         _getNutriListTile(
           title: appLocalizations.ecoscore_generic,
