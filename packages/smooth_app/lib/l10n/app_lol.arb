@@ -1092,14 +1092,12 @@
             }
         }
     },
-    "onboarding_reinventing_text1": "crwdns221299:0crwdne221299:0",
-    "@onboarding_reinventing_text1": {
-        "description": "Onboarding / Reinventing page: text 1/2. If possible, balanced on 3 lines."
+    "onboarding_home_welcome_text1": "crwdns248886:0crwdne248886:0",
+    "onboarding_home_welcome_text2": "crwdns248888:0crwdne248888:0",
+    "@onboarding_home_welcome_text2": {
+        "description": "Onboarding home screen welcome text, text surrounded by * will be bold"
     },
-    "onboarding_reinventing_text2": "crwdns221301:0crwdne221301:0",
-    "@onboarding_reinventing_text2": {
-        "description": "Onboarding / Reinventing page: text 2/2. If possible, balanced on 3 lines."
-    },
+    "onboarding_continue_button": "crwdns248890:0crwdne248890:0",
     "onboarding_welcome_loading_dialog_title": "crwdns221303:0crwdne221303:0",
     "@onboarding_welcome_loading_dialog_title": {
         "description": "Title for the onboarding loading dialog"
@@ -2667,6 +2665,7 @@
     "faq_title_install_beauty": "crwdns245079:0crwdne245079:0",
     "faq_title_install_pet": "crwdns245081:0crwdne245081:0",
     "faq_title_install_product": "crwdns245083:0crwdne245083:0",
+    "faq_nutriscore_nutriscore": "crwdns248892:0crwdne248892:0",
     "contact_title_pro_page": "crwdns245085:0crwdne245085:0",
     "contact_title_pro_email": "crwdns245087:0crwdne245087:0",
     "contact_title_press_page": "crwdns245089:0crwdne245089:0",
