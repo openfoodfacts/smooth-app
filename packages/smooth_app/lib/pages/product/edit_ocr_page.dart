@@ -520,7 +520,6 @@ class _EditOcrActionExtractingContent extends StatelessWidget {
 
 class _ExtractMainActionContentLoaded extends StatelessWidget {
   const _ExtractMainActionContentLoaded({
-    super.key,
     required this.helper,
     required this.appLocalizations,
     required this.onPressed,
@@ -564,7 +563,6 @@ class _ExtractMainActionContentLoaded extends StatelessWidget {
 
 class _EditOcrActionLoadingContent extends StatelessWidget {
   const _EditOcrActionLoadingContent({
-    super.key,
     required this.helper,
     required this.appLocalizations,
   });
