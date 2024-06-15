@@ -18,7 +18,7 @@ import 'package:smooth_app/widgets/will_pop_scope.dart';
 
 enum OnboardingPage {
   NOT_STARTED,
-  REINVENTION,
+  HOME_PAGE,
   WELCOME,
   SCAN_EXAMPLE,
   HEALTH_CARD_EXAMPLE,
@@ -52,7 +52,7 @@ enum OnboardingPage {
   Color getBackgroundColor() {
     switch (this) {
       case OnboardingPage.NOT_STARTED:
-      case OnboardingPage.REINVENTION:
+      case OnboardingPage.HOME_PAGE:
         return const Color(0xFFDFF4FF);
       case OnboardingPage.WELCOME:
         return const Color(0xFFFCFCFC);
@@ -79,8 +79,8 @@ enum OnboardingPage {
     final Color backgroundColor = getBackgroundColor();
     switch (this) {
       case OnboardingPage.NOT_STARTED:
-      case OnboardingPage.REINVENTION:
-        return ReinventionPage(backgroundColor);
+      case OnboardingPage.HOME_PAGE:
+        return const OnboardingHomePage();
       case OnboardingPage.WELCOME:
         return WelcomePage(backgroundColor);
       case OnboardingPage.SCAN_EXAMPLE:
