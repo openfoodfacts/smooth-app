@@ -1688,6 +1688,7 @@
             }
         }
     },
+    "prices_barcode_reader_action": "Barcode reader",
     "prices_view_prices": "Zobrazit ceny",
     "prices_list_length_one_page": "{count,plural, =0{Zatím žádná cena} =1{Pouze 1 cena} few{Všechny {count} ceny} other{Všech {count} cen}}",
     "@prices_list_length_one_page": {
