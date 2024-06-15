@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class SmoothColorsThemeExtension
     extends ThemeExtension<SmoothColorsThemeExtension> {
   SmoothColorsThemeExtension({
+    required this.primaryUltraBlack,
     required this.primaryBlack,
     required this.primaryDark,
     required this.primarySemiDark,
@@ -19,7 +20,8 @@ class SmoothColorsThemeExtension
   });
 
   SmoothColorsThemeExtension.defaultValues()
-      : primaryBlack = const Color(0xFF341100),
+      : primaryUltraBlack = const Color(0xFF52443D),
+        primaryBlack = const Color(0xFF341100),
         primaryDark = const Color(0xFF483527),
         primarySemiDark = const Color(0xFF52443D),
         primaryNormal = const Color(0xFFA08D84),
@@ -33,11 +35,19 @@ class SmoothColorsThemeExtension
         greyDark = const Color(0xFF666666),
         greyLight = const Color(0xFF8F8F8F);
 
+  // Ristreto
+  final Color primaryUltraBlack;
+  // Chocolate
   final Color primaryBlack;
+  // Cortado
   final Color primaryDark;
+  // Mocha
   final Color primarySemiDark;
+  // Macchiato
   final Color primaryNormal;
+  // Cappuccino
   final Color primaryMedium;
+  // Latte
   final Color primaryLight;
   final Color secondaryNormal;
   final Color secondaryLight;
@@ -49,6 +59,7 @@ class SmoothColorsThemeExtension
 
   @override
   ThemeExtension<SmoothColorsThemeExtension> copyWith({
+    Color? primaryUltraBlack,
     Color? primaryBlack,
     Color? primaryDark,
     Color? primarySemiDark,
@@ -64,6 +75,7 @@ class SmoothColorsThemeExtension
     Color? greyLight,
   }) {
     return SmoothColorsThemeExtension(
+      primaryUltraBlack: primaryUltraBlack ?? this.primaryUltraBlack,
       primaryBlack: primaryBlack ?? this.primaryBlack,
       primaryDark: primaryDark ?? this.primaryDark,
       primarySemiDark: primarySemiDark ?? this.primarySemiDark,
@@ -90,6 +102,11 @@ class SmoothColorsThemeExtension
     }
 
     return SmoothColorsThemeExtension(
+      primaryUltraBlack: Color.lerp(
+        primaryUltraBlack,
+        other.primaryUltraBlack,
+        t,
+      )!,
       primaryBlack: Color.lerp(
         primaryBlack,
         other.primaryBlack,
