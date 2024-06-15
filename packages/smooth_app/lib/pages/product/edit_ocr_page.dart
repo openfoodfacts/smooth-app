@@ -421,46 +421,46 @@ class _EditOcrMainAction extends StatelessWidget {
       OcrState.OTHER => null,
     };
 
+    if (child == null) {
+      return EMPTY_WIDGET;
+    }
+
     final SmoothColorsThemeExtension theme =
         Theme.of(context).extension<SmoothColorsThemeExtension>()!;
 
-    if (child == null) {
-      return EMPTY_WIDGET;
-    } else {
-      return SizedBox(
-        height: 45.0 * (_computeFontScaleFactor(context)),
-        width: double.infinity,
-        child: DecoratedBox(
-          decoration: BoxDecoration(
-            borderRadius: ANGULAR_BORDER_RADIUS,
-            color: theme.primarySemiDark,
-            border: Border.all(
-              color: theme.primaryBlack,
-              width: 2.0,
-            ),
+    return SizedBox(
+      height: 45.0 * (_computeFontScaleFactor(context)),
+      width: double.infinity,
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          borderRadius: ANGULAR_BORDER_RADIUS,
+          color: theme.primarySemiDark,
+          border: Border.all(
+            color: theme.primaryBlack,
+            width: 2.0,
           ),
-          child: Material(
-            type: MaterialType.transparency,
-            child: ProgressIndicatorTheme(
-              data: const ProgressIndicatorThemeData(
-                color: Colors.white,
-              ),
-              child: IconTheme(
-                data: const IconThemeData(color: Colors.white),
-                child: DefaultTextStyle(
-                  style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 15.5,
-                    color: Colors.white,
-                  ),
-                  child: child,
+        ),
+        child: Material(
+          type: MaterialType.transparency,
+          child: ProgressIndicatorTheme(
+            data: const ProgressIndicatorThemeData(
+              color: Colors.white,
+            ),
+            child: IconTheme(
+              data: const IconThemeData(color: Colors.white),
+              child: DefaultTextStyle(
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 15.5,
+                  color: Colors.white,
                 ),
+                child: child,
               ),
             ),
           ),
         ),
-      );
-    }
+      ),
+    );
   }
 
   double _computeFontScaleFactor(BuildContext context) {
