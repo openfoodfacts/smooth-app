@@ -1092,14 +1092,12 @@
             }
         }
     },
-    "onboarding_reinventing_text1": "Kami membuat\naplikasi pemindaian\nkolaboratif ini pada tahun 2012",
-    "@onboarding_reinventing_text1": {
-        "description": "Onboarding / Reinventing page: text 1/2. If possible, balanced on 3 lines."
+    "onboarding_home_welcome_text1": "Welcome !",
+    "onboarding_home_welcome_text2": "The app that helps you choose food that is good for **you** and the **planet**!",
+    "@onboarding_home_welcome_text2": {
+        "description": "Onboarding home screen welcome text, text surrounded by * will be bold"
     },
-    "onboarding_reinventing_text2": "Saat kami berusia 10 tahun,\nkami menciptakannya lagi\ndari awal!",
-    "@onboarding_reinventing_text2": {
-        "description": "Onboarding / Reinventing page: text 2/2. If possible, balanced on 3 lines."
-    },
+    "onboarding_continue_button": "Selanjutnya",
     "onboarding_welcome_loading_dialog_title": "Memuat produk contoh pertama Anda",
     "@onboarding_welcome_loading_dialog_title": {
         "description": "Title for the onboarding loading dialog"
@@ -2667,6 +2665,7 @@
     "faq_title_install_beauty": "Instal Open Beauty Facts untuk membuat basis data kosmetik",
     "faq_title_install_pet": "Instal Open Pet Food Facts untuk membuat basis data makanan hewan peliharaan",
     "faq_title_install_product": "Instal Open Products Facts untuk membuat basis data produk guna memperpanjang masa pakai objek",
+    "faq_nutriscore_nutriscore": "New calculation of the Nutri-Score: what's new?",
     "contact_title_pro_page": "Pro? Impor produk Anda di Open Food Facts",
     "contact_title_pro_email": "Kontak Produser",
     "contact_title_press_page": "Halaman Pers",
