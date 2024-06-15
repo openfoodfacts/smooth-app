@@ -1092,14 +1092,12 @@
             }
         }
     },
-    "onboarding_reinventing_text1": "Inventamos\nla aplicación de escaneo\ncolaborativa en 2012",
-    "@onboarding_reinventing_text1": {
-        "description": "Onboarding / Reinventing page: text 1/2. If possible, balanced on 3 lines."
+    "onboarding_home_welcome_text1": "Welcome !",
+    "onboarding_home_welcome_text2": "The app that helps you choose food that is good for **you** and the **planet**!",
+    "@onboarding_home_welcome_text2": {
+        "description": "Onboarding home screen welcome text, text surrounded by * will be bold"
     },
-    "onboarding_reinventing_text2": "Hemos cumplido 10 años\ny nos estamos reinventando\n¡por completo!",
-    "@onboarding_reinventing_text2": {
-        "description": "Onboarding / Reinventing page: text 2/2. If possible, balanced on 3 lines."
-    },
+    "onboarding_continue_button": "Continuar",
     "onboarding_welcome_loading_dialog_title": "Cargando tu primer producto de ejemplo",
     "@onboarding_welcome_loading_dialog_title": {
         "description": "Title for the onboarding loading dialog"
@@ -2667,6 +2665,7 @@
     "faq_title_install_beauty": "Instala Open Beauty Facts para crear una base de datos sobre cosmética",
     "faq_title_install_pet": "Instala Open Pet Food Facts para crear una base de datos sobre alimentación para mascotas",
     "faq_title_install_product": "Instala Open Products Facts para crear una base de datos sobre productos del día a día",
+    "faq_nutriscore_nutriscore": "New calculation of the Nutri-Score: what's new?",
     "contact_title_pro_page": "¿Eres profesional? Importa tus productos a Open Food Facts",
     "contact_title_pro_email": "Contacto para productores",
     "contact_title_press_page": "Página de prensa",
