@@ -85,7 +85,7 @@ class _KnowledgePanelPageTemplateState
             product: _product,
             onboardingMode: true,
           );
-          return Container(
+          return ColoredBox(
             color: widget.backgroundColor,
             child: SafeArea(
               bottom: Platform.isAndroid,

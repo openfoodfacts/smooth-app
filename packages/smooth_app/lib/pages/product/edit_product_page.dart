@@ -76,8 +76,9 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
                       theme.textTheme.titleLarge?.fontSize?.clamp(13.0, 17.0) ??
                           13.0,
                   maxLines: !_barcodeVisibleInAppbar ? 2 : 1,
-                  style: theme.textTheme.titleLarge
-                      ?.copyWith(fontWeight: FontWeight.w500),
+                  style: theme.textTheme.titleLarge?.copyWith(
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
                 if (barcode.isNotEmpty)
                   AnimatedContainer(
@@ -87,6 +88,7 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
                       barcode,
                       style: theme.textTheme.titleMedium?.copyWith(
                         fontWeight: FontWeight.normal,
+                        height: 0.9,
                       ),
                     ),
                   ),
