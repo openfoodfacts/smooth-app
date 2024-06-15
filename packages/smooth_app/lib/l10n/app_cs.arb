@@ -1092,14 +1092,12 @@
             }
         }
     },
-    "onboarding_reinventing_text1": "V roce 2012 jsme vynalezli\nkooperativní\naplikaci pro skenování",
-    "@onboarding_reinventing_text1": {
-        "description": "Onboarding / Reinventing page: text 1/2. If possible, balanced on 3 lines."
+    "onboarding_home_welcome_text1": "Welcome !",
+    "onboarding_home_welcome_text2": "The app that helps you choose food that is good for **you** and the **planet**!",
+    "@onboarding_home_welcome_text2": {
+        "description": "Onboarding home screen welcome text, text surrounded by * will be bold"
     },
-    "onboarding_reinventing_text2": "Jelikož je nám 10 let, vymýšlíme ji od základu znovu!",
-    "@onboarding_reinventing_text2": {
-        "description": "Onboarding / Reinventing page: text 2/2. If possible, balanced on 3 lines."
-    },
+    "onboarding_continue_button": "Pokračovat",
     "onboarding_welcome_loading_dialog_title": "Načítám váš první příklad produktu",
     "@onboarding_welcome_loading_dialog_title": {
         "description": "Title for the onboarding loading dialog"
@@ -2667,6 +2665,7 @@
     "faq_title_install_beauty": "Nainstalujte Open Beauty Facts a vytvořte kosmetickou databázi",
     "faq_title_install_pet": "Nainstalujte si Open Pet Food Facts a vytvořte databázi krmiv pro domácí zvířata",
     "faq_title_install_product": "Nainstalujte Open Products Facts pro vytvoření databáze produktů pro prodloužení životnosti objektů",
+    "faq_nutriscore_nutriscore": "New calculation of the Nutri-Score: what's new?",
     "contact_title_pro_page": "Pro? Importujte své produkty do Open Food Facts",
     "contact_title_pro_email": "Kontakt výrobce",
     "contact_title_press_page": "Pro média",
