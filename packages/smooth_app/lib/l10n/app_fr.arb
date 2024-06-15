@@ -1092,14 +1092,12 @@
             }
         }
     },
-    "onboarding_reinventing_text1": "Nous avons inventé\nl'appli de scan\ncollaborative en 2012",
-    "@onboarding_reinventing_text1": {
-        "description": "Onboarding / Reinventing page: text 1/2. If possible, balanced on 3 lines."
+    "onboarding_home_welcome_text1": "Welcome !",
+    "onboarding_home_welcome_text2": "The app that helps you choose food that is good for **you** and the **planet**!",
+    "@onboarding_home_welcome_text2": {
+        "description": "Onboarding home screen welcome text, text surrounded by * will be bold"
     },
-    "onboarding_reinventing_text2": "10 ans après,\nnous la réinventons\ncomplètement !",
-    "@onboarding_reinventing_text2": {
-        "description": "Onboarding / Reinventing page: text 2/2. If possible, balanced on 3 lines."
-    },
+    "onboarding_continue_button": "Continuer",
     "onboarding_welcome_loading_dialog_title": "Chargement de votre premier exemple de produit",
     "@onboarding_welcome_loading_dialog_title": {
         "description": "Title for the onboarding loading dialog"
@@ -2667,6 +2665,7 @@
     "faq_title_install_beauty": "Installez Open Beauty Facts pour créer une base de données cosmétiques",
     "faq_title_install_pet": "Installez Open Pet Food Facts pour créer une base de données sur les aliments pour animaux de compagnie",
     "faq_title_install_product": "Installez Open Products Facts pour créer une base de données de produits afin de prolonger la durée de vie des objets",
+    "faq_nutriscore_nutriscore": "New calculation of the Nutri-Score: what's new?",
     "contact_title_pro_page": "Pro? Importez vos produits dans Open Food Facts",
     "contact_title_pro_email": "Contact producteur",
     "contact_title_press_page": "Page de presse",
