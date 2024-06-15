@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -12,6 +13,8 @@ class CurrencySelectorHelper {
   CurrencySelectorHelper();
 
   final List<Currency> _currencyList = List<Currency>.from(Currency.values);
+
+  IconData get currencyIconData => CupertinoIcons.money_dollar_circle;
 
   Future<Currency?> openCurrencySelector({
     required final BuildContext context,
