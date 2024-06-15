@@ -260,16 +260,21 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
           ),
           Flexible(
             flex: 1,
-            child: Container(
+            child: DecoratedBox(
               decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.background,
-                  borderRadius: const BorderRadiusDirectional.only(
-                    topStart: ANGULAR_RADIUS,
-                    topEnd: ANGULAR_RADIUS,
-                  )),
+                color: Theme.of(context).colorScheme.background,
+                borderRadius: const BorderRadiusDirectional.only(
+                  topStart: ANGULAR_RADIUS,
+                  topEnd: ANGULAR_RADIUS,
+                ),
+              ),
               child: SingleChildScrollView(
                 child: Padding(
-                  padding: const EdgeInsets.all(LARGE_SPACE),
+                  padding: const EdgeInsetsDirectional.only(
+                    start: LARGE_SPACE,
+                    end: LARGE_SPACE,
+                    top: LARGE_SPACE,
+                  ),
                   child: Column(
                     children: <Widget>[
                       if (!_multilingualHelper.isMonolingual())
@@ -321,31 +326,30 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
                             iconData: Icons.add_a_photo,
                           ),
                         ),
-                      const SizedBox(height: MEDIUM_SPACE),
-                      SmoothActionButtonsBar(
-                        axis: Axis.horizontal,
-                        negativeAction: SmoothActionButton(
-                          text: appLocalizations.cancel,
-                          onPressed: () => Navigator.pop(context),
-                        ),
-                        positiveAction: SmoothActionButton(
-                          text: appLocalizations.save,
-                          onPressed: () async {
-                            await _updateText();
-                            if (!mounted) {
-                              return;
-                            }
-                            Navigator.pop(context);
-                          },
-                        ),
-                      ),
-                      const SizedBox(height: MEDIUM_SPACE),
                     ],
                   ),
                 ),
               ),
             ),
           ),
+          SmoothActionButtonsBar(
+            axis: Axis.horizontal,
+            negativeAction: SmoothActionButton(
+              text: appLocalizations.cancel,
+              onPressed: () => Navigator.pop(context),
+            ),
+            positiveAction: SmoothActionButton(
+              text: appLocalizations.save,
+              onPressed: () async {
+                await _updateText();
+                if (!mounted) {
+                  return;
+                }
+                Navigator.pop(context);
+              },
+            ),
+          ),
+          SizedBox(height: MediaQuery.paddingOf(context).bottom),
         ],
       ),
     );

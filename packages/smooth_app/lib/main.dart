@@ -81,11 +81,24 @@ Future<void> launchSmoothApp({
       WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
+  _enableEdgeToEdgeMode();
+
   if (kReleaseMode) {
     await AnalyticsHelper.initSentry(
         appRunner: () => runApp(const SmoothApp()));
   } else {
     runApp(const SmoothApp());
+  }
+}
+
+void _enableEdgeToEdgeMode() {
+  if (Platform.isAndroid) {
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(
+        systemNavigationBarColor: Colors.transparent,
+      ),
+    );
   }
 }
 
