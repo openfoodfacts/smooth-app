@@ -51,7 +51,7 @@ class CurrencySelector extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(
                   vertical: SMALL_SPACE,
                 ).add(padding ?? EdgeInsets.zero),
-                child: const Icon(Icons.currency_exchange),
+                child: Icon(helper.currencyIconData),
               ),
               Expanded(
                 flex: 1,
