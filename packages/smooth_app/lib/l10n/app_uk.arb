@@ -1092,8 +1092,8 @@
             }
         }
     },
-    "onboarding_home_welcome_text1": "Welcome !",
-    "onboarding_home_welcome_text2": "The app that helps you choose food that is good for **you** and the **planet**!",
+    "onboarding_home_welcome_text1": "Ласкаво просимо!",
+    "onboarding_home_welcome_text2": "Додаток, який допоможе вам вибрати їжу, яка корисна для **вас** і **планети**!",
     "@onboarding_home_welcome_text2": {
         "description": "Onboarding home screen welcome text, text surrounded by * will be bold"
     },
@@ -2665,7 +2665,7 @@
     "faq_title_install_beauty": "Встановіть Open Beauty Facts для створення косметичної бази даних",
     "faq_title_install_pet": "Встановіть Open Pet Food Facts щоб створити базу даних для домашніх тварин",
     "faq_title_install_product": "Встановіть Open Products Facts, щоб створити базу даних продуктів і подовжити термін служби об’єктів",
-    "faq_nutriscore_nutriscore": "New calculation of the Nutri-Score: what's new?",
+    "faq_nutriscore_nutriscore": "Новий розрахунок Nutri-Score: що нового?",
     "contact_title_pro_page": "Pro? Імпортуйте свої продукти в Open Food Facts",
     "contact_title_pro_email": "Контакт виробника",
     "contact_title_press_page": "Інформація для преси",
