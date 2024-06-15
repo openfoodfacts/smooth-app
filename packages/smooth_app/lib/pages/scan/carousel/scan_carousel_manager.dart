@@ -2,36 +2,38 @@ import 'package:carousel_slider/carousel_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 
-class ExternalCarouselManager extends StatefulWidget {
-  const ExternalCarouselManager({
+/// Allow to control the [ScanPageCarousel] from outside
+class ExternalScanCarouselManager extends StatefulWidget {
+  const ExternalScanCarouselManager({
     super.key,
     required this.child,
   });
 
   final Widget child;
 
-  static ExternalCarouselManagerState watch(BuildContext context) {
+  static ExternalScanCarouselManagerState watch(BuildContext context) {
     return context
         .dependOnInheritedWidgetOfExactType<_InheritedCarouselManager>()!
         .state;
   }
 
-  static ExternalCarouselManagerState? find(BuildContext context) {
+  static ExternalScanCarouselManagerState? find(BuildContext context) {
     return context
         .findAncestorWidgetOfExactType<_InheritedCarouselManager>()
         ?.state;
   }
 
-  static ExternalCarouselManagerState read(BuildContext context) {
+  static ExternalScanCarouselManagerState read(BuildContext context) {
     return find(context)!;
   }
 
   @override
-  State<ExternalCarouselManager> createState() =>
-      ExternalCarouselManagerState();
+  State<ExternalScanCarouselManager> createState() =>
+      ExternalScanCarouselManagerState();
 }
 
-class ExternalCarouselManagerState extends State<ExternalCarouselManager> {
+class ExternalScanCarouselManagerState
+    extends State<ExternalScanCarouselManager> {
   final CarouselController _controller = CarouselController();
 
   /// A hidden attribute to force to return to the Scanner tab
@@ -75,7 +77,7 @@ class ExternalCarouselManagerState extends State<ExternalCarouselManager> {
 
   CarouselController get controller => _controller;
 
-  bool updateShouldNotify(ExternalCarouselManagerState oldState) {
+  bool updateShouldNotify(ExternalScanCarouselManagerState oldState) {
     return oldState.currentBarcode != currentBarcode || _forceShowScannerTab;
   }
 }
@@ -87,7 +89,7 @@ class _InheritedCarouselManager extends InheritedWidget {
     Key? key,
   }) : super(key: key, child: child);
 
-  final ExternalCarouselManagerState state;
+  final ExternalScanCarouselManagerState state;
 
   @override
   bool updateShouldNotify(_InheritedCarouselManager oldWidget) {
