@@ -66,7 +66,7 @@ class UserPreferencesFaq extends AbstractUserPreferences {
           ),
         ),
         _getListTile(
-          title: appLocalizations.nutriscore_generic,
+          title: appLocalizations.faq_nutriscore_nutriscore,
           leadingSvg: SvgCache.getAssetsCacheForNutriscore(
             NutriScoreValue.b,
             true,
@@ -75,6 +75,12 @@ class UserPreferencesFaq extends AbstractUserPreferences {
             MaterialPageRoute<void>(
               builder: (BuildContext context) => const GuideNutriscoreV2(),
             ),
+          ),
+
+          /// Hide the icon
+          icon: const Icon(
+            Icons.info,
+            size: 0.0,
           ),
         ),
         _getNutriListTile(
