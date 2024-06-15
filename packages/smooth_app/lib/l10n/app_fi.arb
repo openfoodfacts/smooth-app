@@ -1092,14 +1092,12 @@
             }
         }
     },
-    "onboarding_reinventing_text1": "Teimme\nyhteisöllisen\nlukijasovelluksen vuonna 2012",
-    "@onboarding_reinventing_text1": {
-        "description": "Onboarding / Reinventing page: text 1/2. If possible, balanced on 3 lines."
+    "onboarding_home_welcome_text1": "Welcome !",
+    "onboarding_home_welcome_text2": "The app that helps you choose food that is good for **you** and the **planet**!",
+    "@onboarding_home_welcome_text2": {
+        "description": "Onboarding home screen welcome text, text surrounded by * will be bold"
     },
-    "onboarding_reinventing_text2": "Täyttäessämme 10\nuudistamme sitä\nalusta alkaen.",
-    "@onboarding_reinventing_text2": {
-        "description": "Onboarding / Reinventing page: text 2/2. If possible, balanced on 3 lines."
-    },
+    "onboarding_continue_button": "Jatka",
     "onboarding_welcome_loading_dialog_title": "Ladataan ensimmäistä esimerkkituotettasi",
     "@onboarding_welcome_loading_dialog_title": {
         "description": "Title for the onboarding loading dialog"
@@ -2667,6 +2665,7 @@
     "faq_title_install_beauty": "Luo kosmeettinen tietokanta asentamalla Open Beauty Facts",
     "faq_title_install_pet": "Luo lemmikkieläinten ruokatietokanta asentamalla Open Pet Food Facts",
     "faq_title_install_product": "Asenna Open Products Facts luodaksesi tuotetietokannan objektien käyttöiän pidentämiseksi",
+    "faq_nutriscore_nutriscore": "New calculation of the Nutri-Score: what's new?",
     "contact_title_pro_page": "Pro? Tuo tuotteesi Open Food Factsiin",
     "contact_title_pro_email": "Tuottajan yhteystiedot",
     "contact_title_press_page": "Lehdistösivu",
