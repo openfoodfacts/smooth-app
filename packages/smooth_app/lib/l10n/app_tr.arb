@@ -1092,14 +1092,12 @@
             }
         }
     },
-    "onboarding_reinventing_text1": "İşbirliğine dayalı tarama uygulamasını 2012'de icat ettik",
-    "@onboarding_reinventing_text1": {
-        "description": "Onboarding / Reinventing page: text 1/2. If possible, balanced on 3 lines."
+    "onboarding_home_welcome_text1": "Welcome !",
+    "onboarding_home_welcome_text2": "The app that helps you choose food that is good for **you** and the **planet**!",
+    "@onboarding_home_welcome_text2": {
+        "description": "Onboarding home screen welcome text, text surrounded by * will be bold"
     },
-    "onboarding_reinventing_text2": "10 yaşına geldiğimizde, onu sıfırdan yeniden keşfediyoruz!",
-    "@onboarding_reinventing_text2": {
-        "description": "Onboarding / Reinventing page: text 2/2. If possible, balanced on 3 lines."
-    },
+    "onboarding_continue_button": "Devam et",
     "onboarding_welcome_loading_dialog_title": "İlk örnek ürününüz yükleniyor",
     "@onboarding_welcome_loading_dialog_title": {
         "description": "Title for the onboarding loading dialog"
@@ -2667,6 +2665,7 @@
     "faq_title_install_beauty": "Bir kozmetik veritabanı oluşturmak için Open Beauty Facts'i yükleyin",
     "faq_title_install_pet": "Bir evcil hayvan maması veri tabanı oluşturmak için Open Pet Food Facts'i kurun",
     "faq_title_install_product": "Nesnelerin ömrünü uzatmak amacıyla bir ürün veritabanı oluşturmak için Open Products Facts'i kurun",
+    "faq_nutriscore_nutriscore": "New calculation of the Nutri-Score: what's new?",
     "contact_title_pro_page": "Profesyonel mi? Open Food Facts'te ürünlerinizi içe aktarın",
     "contact_title_pro_email": "Üretici İletişim",
     "contact_title_press_page": "Basın Sayfası",
