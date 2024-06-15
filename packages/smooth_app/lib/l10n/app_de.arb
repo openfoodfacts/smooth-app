@@ -1092,14 +1092,12 @@
             }
         }
     },
-    "onboarding_reinventing_text1": "Wir haben 2012 die\nApp für kollaboratives\nScannen erfunden",
-    "@onboarding_reinventing_text1": {
-        "description": "Onboarding / Reinventing page: text 1/2. If possible, balanced on 3 lines."
+    "onboarding_home_welcome_text1": "Willkommen!",
+    "onboarding_home_welcome_text2": "Die App, die Ihnen hilft, Lebensmittel auszuwählen, die gut für **Sie** und den **Planeten** sind!",
+    "@onboarding_home_welcome_text2": {
+        "description": "Onboarding home screen welcome text, text surrounded by * will be bold"
     },
-    "onboarding_reinventing_text2": "Anlässlich unseres\n10-jährigen Bestehens\nerfinden wir es von Grund auf neu!",
-    "@onboarding_reinventing_text2": {
-        "description": "Onboarding / Reinventing page: text 2/2. If possible, balanced on 3 lines."
-    },
+    "onboarding_continue_button": "Weiter",
     "onboarding_welcome_loading_dialog_title": "Ihr erstes Beispielprodukt wird geladen",
     "@onboarding_welcome_loading_dialog_title": {
         "description": "Title for the onboarding loading dialog"
@@ -2667,6 +2665,7 @@
     "faq_title_install_beauty": "Installieren Sie Open Beauty Facts, um eine Kosmetikdatenbank zu erstellen",
     "faq_title_install_pet": "Installieren Sie Open Pet Food Facts, um eine Tierfutterdatenbank zu erstellen",
     "faq_title_install_product": "Installieren Sie Open Products Facts, um eine Produktdatenbank zur Verlängerung der Lebensdauer von Objekten zu erstellen",
+    "faq_nutriscore_nutriscore": "New calculation of the Nutri-Score: what's new?",
     "contact_title_pro_page": "Pro? Importieren Sie Ihre Produkte in Open Food Facts",
     "contact_title_pro_email": "Kontakt zum Produzenten",
     "contact_title_press_page": "Pressemappe",
