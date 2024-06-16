@@ -1709,7 +1709,7 @@
             }
         }
     },
-    "prices_proofs_list_length_one_page": "{count,plural, =0{No proof yet} =1{Only one proof} other{All {count} proofs}}",
+    "prices_proofs_list_length_one_page": "{count,plural, one {}=0{Noch kein Nachweis} =1{Nur ein Nachweis} other{Alle {count} Nachweise}}",
     "@prices_proofs_list_length_one_page": {
         "description": "Number of proofs for one-page result",
         "placeholders": {
@@ -1718,7 +1718,7 @@
             }
         }
     },
-    "prices_proofs_list_length_many_pages": "Latest {pageSize} proofs (total: {total})",
+    "prices_proofs_list_length_many_pages": "Letzte {pageSize} Nachweise (insgesamt: {total})",
     "@prices_proofs_list_length_many_pages": {
         "description": "Number of proofs for one-page result",
         "placeholders": {
@@ -1838,7 +1838,7 @@
     "@user_search_proofs_title": {
         "description": "User proofs: list tile title"
     },
-    "user_search_proof_title": "My proof",
+    "user_search_proof_title": "Meine Nachweise",
     "@user_search_proof_title": {
         "description": "User proof: page title"
     },
