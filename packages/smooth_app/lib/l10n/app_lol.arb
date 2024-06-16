@@ -1709,6 +1709,27 @@
             }
         }
     },
+    "prices_proofs_list_length_one_page": "crwdns248898:0count={count}crwdnd248898:0count={count}crwdne248898:0",
+    "@prices_proofs_list_length_one_page": {
+        "description": "Number of proofs for one-page result",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_proofs_list_length_many_pages": "crwdns248900:0{pageSize}crwdnd248900:0{total}crwdne248900:0",
+    "@prices_proofs_list_length_many_pages": {
+        "description": "Number of proofs for one-page result",
+        "placeholders": {
+            "pageSize": {
+                "type": "int"
+            },
+            "total": {
+                "type": "int"
+            }
+        }
+    },
     "prices_users_list_length_many_pages": "crwdns248894:0{pageSize}crwdnd248894:0{total}crwdne248894:0",
     "@prices_users_list_length_many_pages": {
         "description": "Number of users for one-page result",
@@ -1812,6 +1833,14 @@
     "user_search_prices_title": "crwdns248724:0crwdne248724:0",
     "@user_search_prices_title": {
         "description": "User prices: list tile title"
+    },
+    "user_search_proofs_title": "crwdns248902:0crwdne248902:0",
+    "@user_search_proofs_title": {
+        "description": "User proofs: list tile title"
+    },
+    "user_search_proof_title": "crwdns248904:0crwdne248904:0",
+    "@user_search_proof_title": {
+        "description": "User proof: page title"
     },
     "user_any_search_prices_title": "crwdns248896:0crwdne248896:0",
     "@user_any_search_prices_title": {
