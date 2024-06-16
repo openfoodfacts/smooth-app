@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
-import 'package:smooth_app/pages/carousel_manager.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
+import 'package:smooth_app/pages/scan/carousel/scan_carousel_manager.dart';
 import 'package:smooth_app/widgets/tab_navigator.dart';
 import 'package:smooth_app/widgets/will_pop_scope.dart';
 
@@ -62,8 +62,8 @@ class PageManagerState extends State<PageManager> {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final ExternalCarouselManagerState carouselManager =
-        ExternalCarouselManager.watch(context);
+    final ExternalScanCarouselManagerState carouselManager =
+        ExternalScanCarouselManager.watch(context);
 
     if (carouselManager.forceShowScannerTab) {
       _currentPage = BottomNavigationTab.Scan;
