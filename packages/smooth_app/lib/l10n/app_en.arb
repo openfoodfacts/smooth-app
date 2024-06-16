@@ -1709,6 +1709,27 @@
             }
         }
     },
+    "prices_proofs_list_length_one_page": "{count,plural, =0{No proof yet} =1{Only one proof} other{All {count} proofs}}",
+    "@prices_proofs_list_length_one_page": {
+        "description": "Number of proofs for one-page result",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_proofs_list_length_many_pages": "Latest {pageSize} proofs (total: {total})",
+    "@prices_proofs_list_length_many_pages": {
+        "description": "Number of proofs for one-page result",
+        "placeholders": {
+            "pageSize": {
+                "type": "int"
+            },
+            "total": {
+                "type": "int"
+            }
+        }
+    },
     "prices_users_list_length_many_pages": "Top {pageSize} contributors (total: {total})",
     "@prices_users_list_length_many_pages": {
         "description": "Number of users for one-page result",
@@ -1812,6 +1833,10 @@
     "user_search_prices_title": "My prices",
     "@user_search_prices_title": {
         "description": "User prices: list tile title"
+    },
+    "user_search_proofs_title": "My proofs",
+    "@user_search_proofs_title": {
+        "description": "User proofs: list tile title"
     },
     "user_any_search_prices_title": "Contributor prices",
     "@user_any_search_prices_title": {

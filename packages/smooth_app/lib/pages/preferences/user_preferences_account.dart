@@ -20,6 +20,7 @@ import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/prices/get_prices_model.dart';
 import 'package:smooth_app/pages/prices/price_user_button.dart';
 import 'package:smooth_app/pages/prices/prices_page.dart';
+import 'package:smooth_app/pages/prices/prices_proofs_page.dart';
 import 'package:smooth_app/pages/prices/prices_users_page.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/user_management/login_page.dart';
@@ -226,6 +227,15 @@ class UserPreferencesAccount extends AbstractUserPreferences {
         ),
         CupertinoIcons.money_dollar_circle,
         myCount: _getPricesCount(owner: ProductQuery.getWriteUser().userId),
+      ),
+      _getListTile(
+        appLocalizations.user_search_proofs_title,
+        () async => Navigator.of(context).push(
+          MaterialPageRoute<void>(
+            builder: (BuildContext context) => const PricesProofsPage(),
+          ),
+        ),
+        Icons.receipt,
       ),
       _getListTile(
         appLocalizations.all_search_prices_latest_title,
