@@ -5,7 +5,6 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
-import 'package:smooth_app/pages/prices/get_prices_model.dart';
 import 'package:smooth_app/pages/prices/price_button.dart';
 import 'package:smooth_app/pages/prices/price_count_widget.dart';
 import 'package:smooth_app/pages/prices/price_user_button.dart';
@@ -23,6 +22,10 @@ class PricesUsersPage extends StatefulWidget {
 
 class _PricesUsersPageState extends State<PricesUsersPage> {
   late final Future<MaybeError<GetUsersResult>> _users = _showTopUsers();
+
+  // In this specific page, let's never try to go beyond the top 10.
+  // cf. https://github.com/openfoodfacts/smooth-app/pull/5383#issuecomment-2171117141
+  static const int _pageSize = 10;
 
   @override
   Widget build(BuildContext context) {
@@ -105,7 +108,7 @@ class _PricesUsersPageState extends State<PricesUsersPage> {
               AppLocalizations.of(context);
           final String title =
               appLocalizations.prices_users_list_length_many_pages(
-            GetPricesModel.pageSize,
+            _pageSize,
             result.total!,
           );
           children.insert(
@@ -133,7 +136,7 @@ class _PricesUsersPageState extends State<PricesUsersPage> {
               ascending: false,
             ),
           ]
-          ..pageSize = GetPricesModel.pageSize
+          ..pageSize = _pageSize
           ..pageNumber = 1,
         uriHelper: ProductQuery.uriProductHelper,
       );
