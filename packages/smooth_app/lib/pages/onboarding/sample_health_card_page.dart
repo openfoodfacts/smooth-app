@@ -16,7 +16,7 @@ class SampleHealthCardPage extends StatelessWidget {
         brightness: Brightness.dark,
         child: KnowledgePanelPageTemplate(
           headerTitle: AppLocalizations.of(context).healthCardUtility,
-          page: OnboardingPage.HEALTH_CARD_EXAMPLE,
+          page: OnboardingPage.SCAN_EXAMPLE,
           panelId: 'health_card',
           localDatabase: _localDatabase,
           backgroundColor: backgroundColor,

@@ -137,9 +137,9 @@ class WelcomePage extends StatelessWidget {
               ),
             ),
             NextButton(
-              OnboardingPage.WELCOME,
+              OnboardingPage.SCAN_EXAMPLE,
               backgroundColor: backgroundColor,
-              nextKey: const Key('nextAfterWelcome'),
+              nextKey: const Key('nextAfterScanExample'),
             ),
           ],
         ),
