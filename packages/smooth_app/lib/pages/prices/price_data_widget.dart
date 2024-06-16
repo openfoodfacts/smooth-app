@@ -3,10 +3,10 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/pages/prices/emoji_helper.dart';
 import 'package:smooth_app/pages/prices/get_prices_model.dart';
 import 'package:smooth_app/pages/prices/price_button.dart';
+import 'package:smooth_app/pages/prices/price_proof_page.dart';
 import 'package:smooth_app/pages/prices/price_user_button.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
@@ -99,13 +99,14 @@ class PriceDataWidget extends StatelessWidget {
         if (price.proof?.filePath != null)
           PriceButton(
             iconData: Icons.image,
-            onPressed: () async => LaunchUrlHelper.launchURL(
-              price.proof!
-                  .getFileUrl(
-                    uriProductHelper: ProductQuery.uriProductHelper,
-                  )
-                  .toString(),
-            ),
+            onPressed: () async => Navigator.push<void>(
+              context,
+              MaterialPageRoute<void>(
+                builder: (BuildContext context) => PriceProofPage(
+                  price.proof!,
+                ),
+              ),
+            ), // PriceProofPage
           ),
       ],
     );
