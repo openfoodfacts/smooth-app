@@ -49,21 +49,23 @@ class PriceCountWidget extends StatelessWidget {
         title: '$count',
         buttonStyle: ElevatedButton.styleFrom(
           disabledForegroundColor:
-              enableCountButton ? null : _getForegroundColor(),
+              enableCountButton ? null : getForegroundColor(count),
           disabledBackgroundColor:
-              enableCountButton ? null : _getBackgroundColor(),
-          foregroundColor: !enableCountButton ? null : _getForegroundColor(),
-          backgroundColor: !enableCountButton ? null : _getBackgroundColor(),
+              enableCountButton ? null : getBackgroundColor(count),
+          foregroundColor:
+              !enableCountButton ? null : getForegroundColor(count),
+          backgroundColor:
+              !enableCountButton ? null : getBackgroundColor(count),
         ),
       );
 
-  Color? _getForegroundColor() => switch (count) {
+  static Color? getForegroundColor(final int count) => switch (count) {
         0 => Colors.red,
         1 => Colors.orange,
         _ => Colors.green,
       };
 
-  Color? _getBackgroundColor() => switch (count) {
+  static Color? getBackgroundColor(final int count) => switch (count) {
         0 => Colors.red[100],
         1 => Colors.orange[100],
         _ => Colors.green[100],

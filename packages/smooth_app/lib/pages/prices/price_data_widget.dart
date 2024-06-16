@@ -7,6 +7,7 @@ import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/pages/prices/emoji_helper.dart';
 import 'package:smooth_app/pages/prices/get_prices_model.dart';
 import 'package:smooth_app/pages/prices/price_button.dart';
+import 'package:smooth_app/pages/prices/price_user_button.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 
@@ -79,13 +80,7 @@ class PriceDataWidget extends StatelessWidget {
             iconData: Icons.location_on_outlined,
             onPressed: () {},
           ),
-        if (model.displayOwner)
-          PriceButton(
-            // TODO(monsieurtanuki): open a still-to-be-done "price x owner" page
-            title: price.owner,
-            iconData: Icons.account_box,
-            onPressed: () {},
-          ),
+        if (model.displayOwner) PriceUserButton(price.owner),
         Tooltip(
           message: '${dateFormat.format(price.created)}'
               ' '
