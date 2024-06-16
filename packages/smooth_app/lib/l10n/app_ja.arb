@@ -1709,6 +1709,18 @@
             }
         }
     },
+    "prices_users_list_length_many_pages": "Top {pageSize} contributors (total: {total})",
+    "@prices_users_list_length_many_pages": {
+        "description": "Number of users for one-page result",
+        "placeholders": {
+            "pageSize": {
+                "type": "int"
+            },
+            "total": {
+                "type": "int"
+            }
+        }
+    },
     "prices_amount_subtitle": "Amount",
     "prices_amount_is_discounted": "Is discounted?",
     "prices_amount_price_normal": "Price",
@@ -1800,6 +1812,10 @@
     "user_search_prices_title": "私の価格",
     "@user_search_prices_title": {
         "description": "User prices: list tile title"
+    },
+    "user_any_search_prices_title": "Contributor prices",
+    "@user_any_search_prices_title": {
+        "description": "User prices (everybody except me): list tile title"
     },
     "all_search_prices_latest_title": "Latest Prices added",
     "@all_search_prices_latest_title": {
