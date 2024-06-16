@@ -1835,6 +1835,10 @@
     "@user_search_proofs_title": {
         "description": "User proofs: list tile title"
     },
+    "user_search_proof_title": "Ma preuve",
+    "@user_search_proof_title": {
+        "description": "User proof: page title"
+    },
     "user_any_search_prices_title": "Prix d'un contributeur",
     "@user_any_search_prices_title": {
         "description": "User prices (everybody except me): list tile title"

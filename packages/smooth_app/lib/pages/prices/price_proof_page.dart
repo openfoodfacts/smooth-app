@@ -22,7 +22,7 @@ class PriceProofPage extends StatelessWidget {
         DateFormat.yMd(ProductQuery.getLocaleString()).add_Hms();
     return SmoothScaffold(
       appBar: SmoothAppBar(
-        title: Text(appLocalizations.prices_proof_subtitle),
+        title: Text(appLocalizations.user_search_proof_title),
         subTitle: Text(dateFormat.format(proof.created)),
         actions: <Widget>[
           IconButton(
