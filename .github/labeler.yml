@@ -240,7 +240,7 @@ User lists:
 
 Product scan carousel:
 - changed-files:
-  - any-glob-to-any-file: 'packages/smooth_app/lib/widgets/smooth_product_carousel.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/scan/carousel/scan_carousel.dart'
 
 ✏️ Editing - 📦 Packaging input:
 - changed-files:

@@ -8,23 +8,23 @@ import 'package:http/http.dart' as http;
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:smooth_app/data_models/news_feed/newsfeed_model.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
-import 'package:smooth_app/data_models/tagline/tagline_model.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/services/smooth_services.dart';
 
-part 'tagline_json.dart';
+part 'newsfeed_json.dart';
 
-/// The TagLine provides one one side a list of news and on the other a feed
-/// containing the some of the news
+/// This provides one one side a list of news and on the other a feed of news.
+/// A feed contains some of the news?
 ///
-/// The TagLine is fetched on the server and cached locally (1 day).
+/// The content is fetched on the server and cached locally (1 day).
 /// To be notified of changes, listen to this [ChangeNotifier] and more
-/// particularly to the [state] property
-class TagLineProvider extends ChangeNotifier {
-  TagLineProvider(UserPreferences preferences)
-      : _state = const TagLineLoading(),
+/// particularly to the [state] property.
+class AppNewsProvider extends ChangeNotifier {
+  AppNewsProvider(UserPreferences preferences)
+      : _state = const AppNewsStateLoading(),
         _preferences = preferences,
         _domain = preferences.getDevModeString(
                 UserPreferencesDevMode.userPreferencesTestEnvDomain) ??
@@ -33,17 +33,17 @@ class TagLineProvider extends ChangeNotifier {
                 .getFlag(UserPreferencesDevMode.userPreferencesFlagProd) ??
             true {
     _preferences.addListener(_onPreferencesChanged);
-    loadTagLine();
+    loadLatestNews();
   }
 
   final UserPreferences _preferences;
 
-  TagLineState _state;
+  AppNewsState _state;
 
-  bool get hasContent => _state is TagLineLoaded;
+  bool get hasContent => _state is AppNewsStateLoaded;
 
-  Future<void> loadTagLine({bool forceUpdate = false}) async {
-    _emit(const TagLineLoading());
+  Future<void> loadLatestNews({bool forceUpdate = false}) async {
+    _emit(const AppNewsStateLoading());
 
     final String locale = ProductQuery.getLocaleString();
     if (locale.startsWith('-')) {
@@ -51,43 +51,43 @@ class TagLineProvider extends ChangeNotifier {
       return;
     }
 
-    final File cacheFile = await _tagLineCacheFile;
+    final File cacheFile = await _newsCacheFile;
     String? jsonString;
     // Try from the cache first
-    if (!forceUpdate && _isTagLineCacheValid(cacheFile)) {
+    if (!forceUpdate && _isNewsCacheValid(cacheFile)) {
       jsonString = cacheFile.readAsStringSync();
     }
 
     if (jsonString == null || jsonString.isEmpty == true) {
-      jsonString = await _fetchTagLine();
+      jsonString = await _fetchJSON();
     }
 
     if (jsonString?.isNotEmpty != true) {
-      _emit(const TagLineError('JSON file is empty'));
+      _emit(const AppNewsStateError('JSON news file is empty'));
       return;
     }
 
-    final TagLine? tagLine = await Isolate.run(
+    final AppNews? tagLine = await Isolate.run(
         () => _parseJSONAndGetLocalizedContent(jsonString!, locale));
     if (tagLine == null) {
-      _emit(const TagLineError('Unable to parse the JSON file'));
-      Logs.e('Unable to parse the Tagline file');
+      _emit(const AppNewsStateError('Unable to parse the JSON news file'));
+      Logs.e('Unable to parse the JSON news file');
     } else {
-      _emit(TagLineLoaded(tagLine));
-      Logs.i('TagLine reloaded');
+      _emit(AppNewsStateLoaded(tagLine));
+      Logs.i('News ${forceUpdate ? 're' : ''}loaded');
     }
   }
 
-  void _emit(TagLineState state) {
+  void _emit(AppNewsState state) {
     _state = state;
     WidgetsBinding.instance.addPostFrameCallback((_) {
       notifyListeners();
     });
   }
 
-  TagLineState get state => _state;
+  AppNewsState get state => _state;
 
-  static Future<TagLine?> _parseJSONAndGetLocalizedContent(
+  static Future<AppNews?> _parseJSONAndGetLocalizedContent(
     String json,
     String locale,
   ) async {
@@ -102,11 +102,11 @@ class TagLineProvider extends ChangeNotifier {
 
   /// API URL: [https://world.openfoodfacts.[org/net]/resources/files/tagline-off-ios-v3.json]
   /// or [https://world.openfoodfacts.[org/net]/resources/files/tagline-off-android-v3.json]
-  Future<String?> _fetchTagLine() async {
+  Future<String?> _fetchJSON() async {
     try {
       final UriProductHelper uriProductHelper = ProductQuery.uriProductHelper;
       final Map<String, String> headers = <String, String>{};
-      final Uri uri = uriProductHelper.getUri(path: _tagLineUrl);
+      final Uri uri = uriProductHelper.getUri(path: _newsUrl);
 
       if (uriProductHelper.userInfoForPatch != null) {
         headers['Authorization'] =
@@ -125,7 +125,7 @@ class TagLineProvider extends ChangeNotifier {
       if (!json.startsWith('[') && !json.startsWith('{')) {
         throw Exception('Invalid JSON');
       }
-      await _saveTagLineToCache(json);
+      await _saveNewsToCache(json);
       return json;
     } catch (_) {
       return null;
@@ -133,7 +133,7 @@ class TagLineProvider extends ChangeNotifier {
   }
 
   /// Based on the platform, the URL may differ
-  String get _tagLineUrl {
+  String get _newsUrl {
     if (Platform.isIOS || Platform.isMacOS) {
       return '/resources/files/tagline-off-ios-v3.json';
     } else {
@@ -141,15 +141,15 @@ class TagLineProvider extends ChangeNotifier {
     }
   }
 
-  Future<File> get _tagLineCacheFile => getApplicationCacheDirectory()
+  Future<File> get _newsCacheFile => getApplicationCacheDirectory()
       .then((Directory dir) => File(join(dir.path, 'tagline.json')));
 
-  Future<File> _saveTagLineToCache(final String json) async {
-    final File file = await _tagLineCacheFile;
+  Future<File> _saveNewsToCache(final String json) async {
+    final File file = await _newsCacheFile;
     return file.writeAsString(json);
   }
 
-  bool _isTagLineCacheValid(File file) =>
+  bool _isNewsCacheValid(File file) =>
       file.existsSync() &&
       file.lengthSync() > 0 &&
       file
@@ -172,7 +172,7 @@ class TagLineProvider extends ChangeNotifier {
     if (domain != _domain || prodEnv != _prodEnv) {
       _domain = domain;
       _prodEnv = prodEnv;
-      loadTagLine(forceUpdate: true);
+      loadLatestNews(forceUpdate: true);
     }
   }
 
@@ -183,22 +183,22 @@ class TagLineProvider extends ChangeNotifier {
   }
 }
 
-sealed class TagLineState {
-  const TagLineState();
+sealed class AppNewsState {
+  const AppNewsState();
 }
 
-final class TagLineLoading extends TagLineState {
-  const TagLineLoading();
+final class AppNewsStateLoading extends AppNewsState {
+  const AppNewsStateLoading();
 }
 
-class TagLineLoaded extends TagLineState {
-  const TagLineLoaded(this.tagLineContent);
+class AppNewsStateLoaded extends AppNewsState {
+  const AppNewsStateLoaded(this.tagLineContent);
 
-  final TagLine tagLineContent;
+  final AppNews tagLineContent;
 }
 
-class TagLineError extends TagLineState {
-  const TagLineError(this.exception);
+class AppNewsStateError extends AppNewsState {
+  const AppNewsStateError(this.exception);
 
   final dynamic exception;
 }

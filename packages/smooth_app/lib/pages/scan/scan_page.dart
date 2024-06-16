@@ -15,7 +15,7 @@ import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 import 'package:smooth_app/helpers/permission_helper.dart';
 import 'package:smooth_app/pages/scan/camera_scan_page.dart';
-import 'package:smooth_app/widgets/smooth_product_carousel.dart';
+import 'package:smooth_app/pages/scan/carousel/scan_carousel.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class ScanPage extends StatefulWidget {
@@ -92,8 +92,7 @@ class _ScanPageState extends State<ScanPage> {
                   flex: _carouselHeightPct,
                   child: Padding(
                     padding: const EdgeInsetsDirectional.only(bottom: 10.0),
-                    child: SmoothProductCarousel(
-                      containSearchCard: true,
+                    child: ScanPageCarousel(
                       onPageChangedTo: (int page, String? barcode) async {
                         if (barcode == null) {
                           // We only notify for new products
