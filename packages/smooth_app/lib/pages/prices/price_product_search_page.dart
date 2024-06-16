@@ -7,6 +7,7 @@ import 'package:smooth_app/data_models/fetched_product.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
@@ -50,6 +51,8 @@ class _PriceProductSearchPageState extends State<PriceProductSearchPage> {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final PriceMetaProduct priceMetaProduct =
+        _product ?? PriceMetaProduct.unknown(_controller.text);
     // TODO(monsieurtanuki): add WillPopScope2
     return SmoothScaffold(
       appBar: SmoothAppBar(
@@ -80,13 +83,13 @@ class _PriceProductSearchPageState extends State<PriceProductSearchPage> {
               prefixIcon: const Icon(CupertinoIcons.barcode),
               textInputAction: TextInputAction.search,
             ),
-            if (_product != null)
+            if (priceMetaProduct.isValid)
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: LARGE_SPACE),
                 child: PriceProductListTile(
-                  product: _product!,
+                  product: priceMetaProduct,
                   trailingIconData: Icons.check_circle,
-                  onPressed: () => Navigator.of(context).pop(_product),
+                  onPressed: () => Navigator.of(context).pop(priceMetaProduct),
                 ),
               ),
           ],
@@ -167,6 +170,7 @@ class _PriceProductSearchPageState extends State<PriceProductSearchPage> {
       setState(() => _product = PriceMetaProduct.product(product));
       return;
     }
+    setState(() {});
   }
 
   Future<void> _onFieldSubmitted(final BuildContext context) async {
@@ -187,6 +191,7 @@ class _PriceProductSearchPageState extends State<PriceProductSearchPage> {
   }
 
   Future<void> _scan(final BuildContext context) async {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final String? barcode = await Navigator.of(context).push<String>(
       MaterialPageRoute<String>(
         builder: (BuildContext context) => const PriceScanPage(),
@@ -204,6 +209,26 @@ class _PriceProductSearchPageState extends State<PriceProductSearchPage> {
       return;
     }
     if (!context.mounted) {
+      return;
+    }
+    final bool? accepts = await showDialog(
+      context: context,
+      builder: (final BuildContext context) => SmoothAlertDialog(
+        body: Text(appLocalizations.prices_barcode_search_question),
+        neutralAction: SmoothActionButton(
+          text: appLocalizations.cancel,
+          onPressed: () => Navigator.of(context).pop(false),
+        ),
+        positiveAction: SmoothActionButton(
+          text: appLocalizations.yes,
+          onPressed: () => Navigator.of(context).pop(true),
+        ),
+      ),
+    );
+    if (!context.mounted) {
+      return;
+    }
+    if (accepts != true) {
       return;
     }
     await _onFieldSubmitted(context);

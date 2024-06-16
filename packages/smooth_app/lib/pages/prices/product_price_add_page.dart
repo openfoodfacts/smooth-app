@@ -29,14 +29,17 @@ class ProductPriceAddPage extends StatefulWidget {
   const ProductPriceAddPage({
     required this.product,
     required this.latestOsmLocations,
+    required this.proofType,
   });
 
   final PriceMetaProduct product;
   final List<OsmLocation> latestOsmLocations;
+  final ProofType proofType;
 
   static Future<void> showProductPage({
     required final BuildContext context,
     required final PriceMetaProduct product,
+    required final ProofType proofType,
   }) async {
     if (!await ProductRefresher().checkIfLoggedIn(
       context,
@@ -58,6 +61,7 @@ class ProductPriceAddPage extends StatefulWidget {
         builder: (BuildContext context) => ProductPriceAddPage(
           product: product,
           latestOsmLocations: osmLocations,
+          proofType: proofType,
         ),
       ),
     );
@@ -69,7 +73,7 @@ class ProductPriceAddPage extends StatefulWidget {
 
 class _ProductPriceAddPageState extends State<ProductPriceAddPage> {
   late final PriceModel _model = PriceModel(
-    proofType: ProofType.priceTag,
+    proofType: widget.proofType,
     locations: widget.latestOsmLocations,
     product: widget.product,
   );
@@ -118,6 +122,7 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage> {
                     index: i,
                     refresh: () => setState(() {}),
                   ),
+                // TODO(monsieurtanuki): check if there's an empty barcode before displaying this card
                 SmoothCard(
                   child: SmoothLargeButtonWithIcon(
                     text: appLocalizations.prices_add_an_item,

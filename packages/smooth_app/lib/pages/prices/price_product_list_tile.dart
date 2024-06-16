@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/widgets/images/smooth_image.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_product_image.dart';
 import 'package:smooth_app/pages/prices/price_meta_product.dart';
 
 /// Displays a meta product with an action button, as a ListTile.
@@ -28,19 +26,7 @@ class PriceProductListTile extends StatelessWidget {
       children: <Widget>[
         SizedBox(
           width: size,
-          child: product.product != null
-              ? SmoothMainProductImage(
-                  product: product.product!,
-                  width: size,
-                  height: size,
-                )
-              : SmoothImage(
-                  width: size,
-                  height: size,
-                  imageProvider: product.imageUrl == null
-                      ? null
-                      : NetworkImage(product.imageUrl!),
-                ),
+          child: product.getImageWidget(size),
         ),
         const SizedBox(width: SMALL_SPACE),
         Expanded(

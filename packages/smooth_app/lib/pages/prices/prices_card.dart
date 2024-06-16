@@ -96,6 +96,7 @@ class PricesCard extends StatelessWidget {
                 onPressed: () async => ProductPriceAddPage.showProductPage(
                   context: context,
                   product: PriceMetaProduct.product(product),
+                  proofType: ProofType.priceTag,
                 ),
               ),
             ),

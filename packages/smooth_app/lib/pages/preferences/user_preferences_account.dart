@@ -18,10 +18,12 @@ import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/prices/get_prices_model.dart';
+import 'package:smooth_app/pages/prices/price_meta_product.dart';
 import 'package:smooth_app/pages/prices/price_user_button.dart';
 import 'package:smooth_app/pages/prices/prices_page.dart';
 import 'package:smooth_app/pages/prices/prices_proofs_page.dart';
 import 'package:smooth_app/pages/prices/prices_users_page.dart';
+import 'package:smooth_app/pages/prices/product_price_add_page.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/user_management/login_page.dart';
 import 'package:smooth_app/query/paged_product_query.dart';
@@ -236,6 +238,24 @@ class UserPreferencesAccount extends AbstractUserPreferences {
           ),
         ),
         Icons.receipt,
+      ),
+      _getListTile(
+        appLocalizations.prices_add_a_receipt,
+        () async => ProductPriceAddPage.showProductPage(
+          context: context,
+          product: PriceMetaProduct.empty(),
+          proofType: ProofType.receipt,
+        ),
+        Icons.add_shopping_cart,
+      ),
+      _getListTile(
+        appLocalizations.prices_add_price_tags,
+        () async => ProductPriceAddPage.showProductPage(
+          context: context,
+          product: PriceMetaProduct.empty(),
+          proofType: ProofType.priceTag,
+        ),
+        Icons.add_shopping_cart,
       ),
       _getListTile(
         appLocalizations.all_search_prices_latest_title,

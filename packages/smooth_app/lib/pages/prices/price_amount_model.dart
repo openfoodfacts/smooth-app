@@ -33,13 +33,17 @@ class PriceAmountModel {
       );
 
   String? checkParameters(final BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    if (product.barcode.isEmpty) {
+      return appLocalizations.prices_amount_no_product;
+    }
     _checkedPaidPrice = validateDouble(_paidPrice)!;
     _checkedPriceWithoutDiscount = null;
     if (promo) {
       if (_priceWithoutDiscount.isNotEmpty) {
         _checkedPriceWithoutDiscount = validateDouble(_priceWithoutDiscount);
         if (_checkedPriceWithoutDiscount == null) {
-          return AppLocalizations.of(context).prices_amount_price_incorrect;
+          return appLocalizations.prices_amount_price_incorrect;
         }
       }
     }

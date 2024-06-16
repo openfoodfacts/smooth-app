@@ -33,6 +33,7 @@ class GetPricesModel {
         addButton: () async => ProductPriceAddPage.showProductPage(
           context: context,
           product: product,
+          proofType: ProofType.priceTag,
         ),
         enableCountButton: false,
       );

@@ -263,6 +263,7 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
                 onTap: () async => ProductPriceAddPage.showProductPage(
                   context: context,
                   product: PriceMetaProduct.product(upToDateProduct),
+                  proofType: ProofType.priceTag,
                 ),
               ),
             ],
