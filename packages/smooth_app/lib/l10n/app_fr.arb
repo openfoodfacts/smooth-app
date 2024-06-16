@@ -1092,8 +1092,8 @@
             }
         }
     },
-    "onboarding_home_welcome_text1": "Welcome !",
-    "onboarding_home_welcome_text2": "The app that helps you choose food that is good for **you** and the **planet**!",
+    "onboarding_home_welcome_text1": "Bienvenue !",
+    "onboarding_home_welcome_text2": "L'application qui vous aide à choisir de la nourriture qui est bonne pour **vous** et la **planète** !",
     "@onboarding_home_welcome_text2": {
         "description": "Onboarding home screen welcome text, text surrounded by * will be bold"
     },
@@ -2681,7 +2681,7 @@
     "faq_title_install_beauty": "Installez Open Beauty Facts pour créer une base de données cosmétiques",
     "faq_title_install_pet": "Installez Open Pet Food Facts pour créer une base de données sur les aliments pour animaux de compagnie",
     "faq_title_install_product": "Installez Open Products Facts pour créer une base de données de produits afin de prolonger la durée de vie des objets",
-    "faq_nutriscore_nutriscore": "New calculation of the Nutri-Score: what's new?",
+    "faq_nutriscore_nutriscore": "Nouveau calcul du Nutri-Score : qu'est-ce qui a changé ?",
     "contact_title_pro_page": "Pro? Importez vos produits dans Open Food Facts",
     "contact_title_pro_email": "Contact producteur",
     "contact_title_press_page": "Page de presse",
