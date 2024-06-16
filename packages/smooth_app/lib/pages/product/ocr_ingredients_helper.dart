@@ -43,7 +43,15 @@ class OcrIngredientsHelper extends OcrHelper {
 
   @override
   String getActionExtractText(final AppLocalizations appLocalizations) =>
-      appLocalizations.edit_ingredients_extrait_ingredients_btn_text;
+      appLocalizations.edit_ingredients_extract_ingredients_btn_text;
+
+  @override
+  String getActionExtractingData(AppLocalizations appLocalizations) =>
+      appLocalizations.edit_ingredients_extracting_ingredients_btn_text;
+
+  @override
+  String getActionLoadingPhoto(AppLocalizations appLocalizations) =>
+      appLocalizations.edit_ingredients_loading_photo_btn_text;
 
   @override
   String getActionRefreshPhoto(final AppLocalizations appLocalizations) =>
