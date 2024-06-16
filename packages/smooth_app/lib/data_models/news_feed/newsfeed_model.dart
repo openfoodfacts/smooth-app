@@ -1,35 +1,35 @@
 import 'dart:ui';
 
-class TagLine {
-  const TagLine({
+class AppNews {
+  const AppNews({
     required this.news,
     required this.feed,
   });
 
-  final TagLineNewsList news;
-  final TagLineFeed feed;
+  final AppNewsList news;
+  final AppNewsFeed feed;
 
   @override
   String toString() {
-    return 'TagLine{news: $news, feed: $feed}';
+    return 'AppNews{news: $news, feed: $feed}';
   }
 }
 
-class TagLineNewsList {
-  const TagLineNewsList(Map<String, TagLineNewsItem> news) : _news = news;
+class AppNewsList {
+  const AppNewsList(Map<String, AppNewsItem> news) : _news = news;
 
-  final Map<String, TagLineNewsItem> _news;
+  final Map<String, AppNewsItem> _news;
 
-  TagLineNewsItem? operator [](String key) => _news[key];
+  AppNewsItem? operator [](String key) => _news[key];
 
   @override
   String toString() {
-    return 'TagLineNewsList{_news: $_news}';
+    return 'AppNewsList{_news: $_news}';
   }
 }
 
-class TagLineNewsItem {
-  const TagLineNewsItem({
+class AppNewsItem {
+  const AppNewsItem({
     required this.id,
     required this.title,
     required this.message,
@@ -48,17 +48,17 @@ class TagLineNewsItem {
   final String? buttonLabel;
   final DateTime? startDate;
   final DateTime? endDate;
-  final TagLineImage? image;
-  final TagLineStyle? style;
+  final AppNewsImage? image;
+  final AppNewsStyle? style;
 
   @override
   String toString() {
-    return 'TagLineNewsItem{id: $id, title: $title, message: $message, url: $url, buttonLabel: $buttonLabel, startDate: $startDate, endDate: $endDate, image: $image, style: $style}';
+    return 'AppNewsItem{id: $id, title: $title, message: $message, url: $url, buttonLabel: $buttonLabel, startDate: $startDate, endDate: $endDate, image: $image, style: $style}';
   }
 }
 
-class TagLineStyle {
-  const TagLineStyle({
+class AppNewsStyle {
+  const AppNewsStyle({
     this.titleBackground,
     this.titleTextColor,
     this.titleIndicatorColor,
@@ -69,7 +69,7 @@ class TagLineStyle {
     this.contentBackgroundColor,
   });
 
-  TagLineStyle.fromHexa({
+  AppNewsStyle.fromHexa({
     String? titleBackground,
     String? titleTextColor,
     String? titleIndicatorColor,
@@ -105,12 +105,12 @@ class TagLineStyle {
 
   @override
   String toString() {
-    return 'TagLineStyle{titleBackground: $titleBackground, titleTextColor: $titleTextColor, titleIndicatorColor: $titleIndicatorColor, messageBackground: $messageBackground, messageTextColor: $messageTextColor, buttonBackground: $buttonBackground, buttonTextColor: $buttonTextColor, contentBackgroundColor: $contentBackgroundColor}';
+    return 'AppNewsStyle{titleBackground: $titleBackground, titleTextColor: $titleTextColor, titleIndicatorColor: $titleIndicatorColor, messageBackground: $messageBackground, messageTextColor: $messageTextColor, buttonBackground: $buttonBackground, buttonTextColor: $buttonTextColor, contentBackgroundColor: $contentBackgroundColor}';
   }
 }
 
-class TagLineImage {
-  const TagLineImage({
+class AppNewsImage {
+  const AppNewsImage({
     required this.src,
     this.width,
     this.alt,
@@ -122,14 +122,14 @@ class TagLineImage {
 
   @override
   String toString() {
-    return 'TagLineImage{src: $src, width: $width, alt: $alt}';
+    return 'AppNewsImage{src: $src, width: $width, alt: $alt}';
   }
 }
 
-class TagLineFeed {
-  const TagLineFeed(this.news);
+class AppNewsFeed {
+  const AppNewsFeed(this.news);
 
-  final List<TagLineFeedItem> news;
+  final List<AppNewsFeedItem> news;
 
   bool get isNotEmpty => news.isNotEmpty;
 
@@ -139,15 +139,15 @@ class TagLineFeed {
   }
 }
 
-class TagLineFeedItem {
-  const TagLineFeedItem({
+class AppNewsFeedItem {
+  const AppNewsFeedItem({
     required this.news,
     DateTime? startDate,
     DateTime? endDate,
   })  : _startDate = startDate,
         _endDate = endDate;
 
-  final TagLineNewsItem news;
+  final AppNewsItem news;
   final DateTime? _startDate;
   final DateTime? _endDate;
 
@@ -159,6 +159,6 @@ class TagLineFeedItem {
 
   @override
   String toString() {
-    return 'TagLineFeedItem{news: $news, _startDate: $_startDate, _endDate: $_endDate}';
+    return 'AppNewsFeedItem{news: $news, _startDate: $_startDate, _endDate: $_endDate}';
   }
 }
