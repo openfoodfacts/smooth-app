@@ -1746,7 +1746,7 @@
             }
         }
     },
-    "prices_users_list_length_many_pages": "Top {pageSize} contributors (total: {total})",
+    "prices_users_list_length_many_pages": "{pageSize} המתנדבים המובילים (בסך הכול: {total})",
     "@prices_users_list_length_many_pages": {
         "description": "Number of users for one-page result",
         "placeholders": {
@@ -1858,7 +1858,7 @@
     "@user_search_proof_title": {
         "description": "User proof: page title"
     },
-    "user_any_search_prices_title": "Contributor prices",
+    "user_any_search_prices_title": "מחירי מתנדבים",
     "@user_any_search_prices_title": {
         "description": "User prices (everybody except me): list tile title"
     },
