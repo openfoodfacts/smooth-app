@@ -247,6 +247,13 @@ Product scan carousel:
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/edit_new_packagings.dart'
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/ocr_packaging_helper.dart'
 
+OCR page:
+- changed-files:
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/edit_ocr/edit_ocr_main_action.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/edit_ocr/edit_ocr_page.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/edit_ocr/ocr_ingredients_helper.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/edit_ocr/ocr_packaging_helper.dart'
+
 ✏️ Editing - Basic info input:
 - changed-files:
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/add_basic_details_page.dart'
