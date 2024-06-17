@@ -1,102 +1,100 @@
-import 'dart:async';
-
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/background/background_task_details.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
-import 'package:smooth_app/pages/product/ocr_helper.dart';
+import 'package:smooth_app/pages/product/edit_ocr/ocr_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 
-/// OCR Helper for packaging.
-class OcrPackagingHelper extends OcrHelper {
+/// OCR Helper for ingredients.
+class OcrIngredientsHelper extends OcrHelper {
   @override
-  // ignore: deprecated_member_use
-  String? getMonolingualText(final Product product) => product.packaging;
+  String? getMonolingualText(final Product product) => product.ingredientsText;
 
   @override
   void setMonolingualText(
     final Product product,
     final String text,
   ) =>
-      // ignore: deprecated_member_use
-      product.packaging = text;
+      product.ingredientsText = text;
 
   @override
   Map<OpenFoodFactsLanguage, String>? getMultilingualTexts(
-          final Product product) =>
-      product.packagingTextInLanguages;
+    final Product product,
+  ) =>
+      product.ingredientsTextInLanguages;
 
   @override
   void setMultilingualTexts(
     final Product product,
     final Map<OpenFoodFactsLanguage, String> texts,
   ) =>
-      product.packagingTextInLanguages = texts;
+      product.ingredientsTextInLanguages = texts;
 
   @override
-  String? getImageUrl(final Product product) => product.imagePackagingUrl;
+  String? getImageUrl(final Product product) => product.imageIngredientsUrl;
 
   @override
   String getImageError(final AppLocalizations appLocalizations) =>
-      appLocalizations.packaging_editing_image_error;
+      appLocalizations.ingredients_editing_image_error;
 
   @override
   String getError(final AppLocalizations appLocalizations) =>
-      appLocalizations.packaging_editing_error;
+      appLocalizations.ingredients_editing_error;
 
   @override
   String getActionExtractText(final AppLocalizations appLocalizations) =>
-      appLocalizations.edit_packaging_extract_btn_text;
+      appLocalizations.edit_ingredients_extract_ingredients_btn_text;
 
   @override
   String getActionExtractingData(AppLocalizations appLocalizations) =>
-      appLocalizations.edit_packaging_extracting_btn_text;
+      appLocalizations.edit_ingredients_extracting_ingredients_btn_text;
 
   @override
   String getActionLoadingPhoto(AppLocalizations appLocalizations) =>
-      appLocalizations.edit_packaging_loading_photo_btn_text;
+      appLocalizations.edit_ingredients_loading_photo_btn_text;
 
   @override
   String getActionRefreshPhoto(final AppLocalizations appLocalizations) =>
-      appLocalizations.edit_packaging_refresh_photo_btn_text;
+      appLocalizations.edit_ingredients_refresh_photo_btn_text;
 
   @override
   String getInstructions(final AppLocalizations appLocalizations) =>
-      appLocalizations.packaging_editing_instructions;
+      appLocalizations.ingredients_editing_instructions;
 
   @override
   String getTitle(final AppLocalizations appLocalizations) =>
-      appLocalizations.packaging_editing_title;
+      appLocalizations.ingredients_editing_title;
 
   @override
   String getAddButtonLabel(final AppLocalizations appLocalizations) =>
-      appLocalizations.score_add_missing_packaging_image;
+      appLocalizations.score_add_missing_ingredients;
 
   @override
-  ImageField getImageField() => ImageField.PACKAGING;
+  ImageField getImageField() => ImageField.INGREDIENTS;
 
   @override
   Future<String?> getExtractedText(
     final Product product,
     final OpenFoodFactsLanguage language,
   ) async {
-    final OcrPackagingResult result = await OpenFoodAPIClient.extractPackaging(
+    final OcrIngredientsResult result =
+        await OpenFoodAPIClient.extractIngredients(
       getUser(),
       product.barcode!,
       language,
       uriHelper: ProductQuery.uriProductHelper,
     );
-    return result.textFromImage;
+    return result.ingredientsTextFromImage;
   }
 
   @override
   BackgroundTaskDetailsStamp getStamp() =>
-      BackgroundTaskDetailsStamp.ocrPackaging;
+      BackgroundTaskDetailsStamp.ocrIngredients;
 
   @override
-  bool hasAddExtraPhotoButton() => true;
+  bool hasAddExtraPhotoButton() => false;
 
   @override
   AnalyticsEditEvents getEditEventAnalyticsTag() =>
-      AnalyticsEditEvents.recyclingInstructionsPhotos;
+      AnalyticsEditEvents.ingredients_and_Origins;
 }
