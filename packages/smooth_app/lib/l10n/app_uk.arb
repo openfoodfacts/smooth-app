@@ -1448,15 +1448,15 @@
     "completed_basic_details_btn_text": "Заповніть основні деталі",
     "not_implemented_snackbar_text": "Ще не реалізовано",
     "category_picker_page_appbar_text": "Категорії",
-    "edit_ingredients_extract_ingredients_btn_text": "Extract ingredients from the photo",
+    "edit_ingredients_extract_ingredients_btn_text": "Видобути інгредієнти з фото",
     "@edit_ingredients_extract_ingredients_btn_text": {
         "description": "Ingredients edition - Extract ingredients"
     },
-    "edit_ingredients_extracting_ingredients_btn_text": "Extracting ingredients\nfrom the photo",
+    "edit_ingredients_extracting_ingredients_btn_text": "Отримання інгредієнтів із зображення",
     "@edit_ingredients_extracting_ingredients_btn_text": {
         "description": "Ingredients edition - Extracting ingredients"
     },
-    "edit_ingredients_loading_photo_btn_text": "Loading photo…",
+    "edit_ingredients_loading_photo_btn_text": "Завантаження фото…",
     "@edit_ingredients_loading_photo_btn_text": {
         "description": "Ingredients edition - Loading photo from the server"
     },
@@ -1464,15 +1464,15 @@
     "@edit_ingredients_refresh_photo_btn_text": {
         "description": "Ingredients edition - Refresh photo"
     },
-    "edit_packaging_extract_btn_text": "Extract packaging\nfrom the photo",
+    "edit_packaging_extract_btn_text": "Видобути упаковку\nз фото",
     "@edit_packaging_extract_btn_text": {
         "description": "Packaging edition - OCR-Extract packaging"
     },
-    "edit_packaging_extracting_btn_text": "Extracting packaging from the photo",
+    "edit_packaging_extracting_btn_text": "Вилучення пакунка з фотографії",
     "@edit_packaging_extracting_btn_text": {
         "description": "Packaging edition - OCR-Extracting packaging"
     },
-    "edit_packaging_loading_photo_btn_text": "Loading photo…",
+    "edit_packaging_loading_photo_btn_text": "Завантаження фото…",
     "@edit_packaging_loading_photo_btn_text": {
         "description": "Packaging edition - Loading photo from the server"
     },
@@ -1734,7 +1734,7 @@
             }
         }
     },
-    "prices_proofs_list_length_many_pages": "Latest {pageSize} proofs (total: {total})",
+    "prices_proofs_list_length_many_pages": "Останні {pageSize} докази (всього: {total})",
     "@prices_proofs_list_length_many_pages": {
         "description": "Number of proofs for one-page result",
         "placeholders": {
@@ -1854,7 +1854,7 @@
     "@user_search_proofs_title": {
         "description": "User proofs: list tile title"
     },
-    "user_search_proof_title": "My proof",
+    "user_search_proof_title": "Мої докази",
     "@user_search_proof_title": {
         "description": "User proof: page title"
     },
