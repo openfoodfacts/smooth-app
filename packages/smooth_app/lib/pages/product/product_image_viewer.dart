@@ -44,11 +44,16 @@ class _ProductImageViewerState extends State<ProductImageViewer>
     initUpToDate(widget.product, context.read<LocalDatabase>());
   }
 
-  Widget _getImageButton(final ProductImageButtonType type) => Padding(
+  Widget _getImageButton(
+    final ProductImageButtonType type,
+    final bool imageExists,
+  ) =>
+      Padding(
         padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
         child: type.getButton(
           product: upToDateProduct,
           imageField: widget.imageField,
+          imageExists: imageExists,
           language: widget.language,
           isLoggedInMandatory: widget.isLoggedInMandatory,
         ),
@@ -65,6 +70,7 @@ class _ProductImageViewerState extends State<ProductImageViewer>
       widget.language,
     );
     final ImageProvider? imageProvider = _getTransientFile().getImageProvider();
+    final bool imageExists = imageProvider != null;
     final Iterable<OpenFoodFactsLanguage> selectedLanguages =
         getProductImageLanguages(
       upToDateProduct,
@@ -193,10 +199,16 @@ class _ProductImageViewerState extends State<ProductImageViewer>
             mainAxisSize: MainAxisSize.max,
             children: <Widget>[
               Expanded(
-                child: _getImageButton(ProductImageButtonType.server),
+                child: _getImageButton(
+                  ProductImageButtonType.server,
+                  imageExists,
+                ),
               ),
               Expanded(
-                child: _getImageButton(ProductImageButtonType.local),
+                child: _getImageButton(
+                  ProductImageButtonType.local,
+                  imageExists,
+                ),
               ),
             ],
           ),
@@ -207,10 +219,16 @@ class _ProductImageViewerState extends State<ProductImageViewer>
               mainAxisSize: MainAxisSize.max,
               children: <Widget>[
                 Expanded(
-                  child: _getImageButton(ProductImageButtonType.unselect),
+                  child: _getImageButton(
+                    ProductImageButtonType.unselect,
+                    imageExists,
+                  ),
                 ),
                 Expanded(
-                  child: _getImageButton(ProductImageButtonType.edit),
+                  child: _getImageButton(
+                    ProductImageButtonType.edit,
+                    imageExists,
+                  ),
                 ),
               ],
             ),
