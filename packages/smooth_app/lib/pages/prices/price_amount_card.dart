@@ -5,8 +5,10 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/pages/prices/price_amount_field.dart';
 import 'package:smooth_app/pages/prices/price_amount_model.dart';
+import 'package:smooth_app/pages/prices/price_meta_product.dart';
 import 'package:smooth_app/pages/prices/price_model.dart';
 import 'package:smooth_app/pages/prices/price_product_list_tile.dart';
+import 'package:smooth_app/pages/prices/price_product_search_page.dart';
 
 /// Card that displays the amounts (discounted or not) for price adding.
 class PriceAmountCard extends StatefulWidget {
@@ -36,6 +38,7 @@ class _PriceAmountCardState extends State<PriceAmountCard> {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final bool isEmpty = widget.model.product.barcode.isEmpty;
     return SmoothCard(
       child: Column(
         children: <Widget>[
@@ -45,13 +48,32 @@ class _PriceAmountCardState extends State<PriceAmountCard> {
           ),
           PriceProductListTile(
             product: widget.model.product,
-            trailingIconData: widget.total == 1 ? null : Icons.clear,
-            onPressed: widget.total == 1
-                ? null
-                : () {
-                    widget.priceModel.priceAmountModels.removeAt(widget.index);
-                    widget.refresh.call();
-                  },
+            trailingIconData: isEmpty
+                ? Icons.edit
+                : widget.total == 1
+                    ? null
+                    : Icons.clear,
+            onPressed: isEmpty
+                ? () async {
+                    final PriceMetaProduct? product =
+                        await Navigator.of(context).push<PriceMetaProduct>(
+                      MaterialPageRoute<PriceMetaProduct>(
+                        builder: (BuildContext context) =>
+                            const PriceProductSearchPage(),
+                      ),
+                    );
+                    if (product == null) {
+                      return;
+                    }
+                    setState(() => widget.model.product = product);
+                  }
+                : widget.total == 1
+                    ? null
+                    : () {
+                        widget.priceModel.priceAmountModels
+                            .removeAt(widget.index);
+                        widget.refresh.call();
+                      },
           ),
           SmoothLargeButtonWithIcon(
             icon: widget.model.promo
