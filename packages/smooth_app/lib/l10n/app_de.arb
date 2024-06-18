@@ -750,7 +750,7 @@
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
-    "product_image_accessibility_label": "Image taken on {date}",
+    "product_image_accessibility_label": "Foto aufgenommen am {date}",
     "@product_image_accessibility_label": {
         "placeholders": {
             "date": {
@@ -759,7 +759,7 @@
             }
         }
     },
-    "product_image_outdated_accessibility_label": "Image taken on {date}. This image may be outdated",
+    "product_image_outdated_accessibility_label": "Foto aufgenommen am {date}. Dieses Foto kann veraltet sein",
     "@product_image_outdated_accessibility_label": {
         "placeholders": {
             "date": {
@@ -1710,11 +1710,11 @@
     "prices_send_n_prices": "{count,plural, one {}=1{Preis senden} other{{count} Preise senden}}",
     "prices_add_an_item": "Ein Element hinzufügen",
     "prices_add_a_price": "Preis hinzufügen",
-    "prices_add_a_receipt": "Add a receipt",
-    "prices_add_price_tags": "Add price tags",
+    "prices_add_a_receipt": "Beleg hinzufügen",
+    "prices_add_price_tags": "Preisschilder hinzufügen",
     "prices_barcode_search_not_found": "Produkt nicht gefunden",
-    "prices_barcode_search_none_yet": "No product yet",
-    "prices_barcode_search_question": "Do you want to look for this product?",
+    "prices_barcode_search_none_yet": "Noch kein Produkt",
+    "prices_barcode_search_question": "Möchten Sie nach diesem Produkt suchen?",
     "prices_barcode_search_title": "Produkte suchen",
     "prices_barcode_search_running": "Nach {barcode} suchen",
     "@prices_barcode_search_running": {
@@ -1786,7 +1786,7 @@
     "prices_amount_price_normal": "Preis",
     "prices_amount_price_discounted": "Reduzierter Preis",
     "prices_amount_price_not_discounted": "Ursprünglicher Preis",
-    "prices_amount_no_product": "One product is missing!",
+    "prices_amount_no_product": "Ein Produkt fehlt!",
     "prices_amount_price_incorrect": "Ungültiger Wert",
     "prices_amount_price_mandatory": "Notwendiger Wert",
     "prices_currency_subtitle": "Währung",
