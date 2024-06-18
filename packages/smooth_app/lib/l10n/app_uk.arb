@@ -750,7 +750,7 @@
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
-    "product_image_accessibility_label": "Image taken on {date}",
+    "product_image_accessibility_label": "Зображення зроблене {date}",
     "@product_image_accessibility_label": {
         "placeholders": {
             "date": {
@@ -759,7 +759,7 @@
             }
         }
     },
-    "product_image_outdated_accessibility_label": "Image taken on {date}. This image may be outdated",
+    "product_image_outdated_accessibility_label": "Зображення, зроблене {date}. Це зображення може бути застарілим",
     "@product_image_outdated_accessibility_label": {
         "placeholders": {
             "date": {
@@ -1710,6 +1710,11 @@
     "prices_send_n_prices": "{count,plural, =1{Send the price} other{Send {count} prices}}",
     "prices_add_an_item": "Додати елемент",
     "prices_add_a_price": "Додати ціну",
+    "prices_add_a_receipt": "Add a receipt",
+    "prices_add_price_tags": "Add price tags",
+    "prices_barcode_search_not_found": "Товар не знайдено",
+    "prices_barcode_search_none_yet": "No product yet",
+    "prices_barcode_search_question": "Do you want to look for this product?",
     "prices_barcode_search_title": "Пошук товару",
     "prices_barcode_search_running": "Шукаю {barcode}",
     "@prices_barcode_search_running": {
@@ -1781,6 +1786,7 @@
     "prices_amount_price_normal": "Ціна",
     "prices_amount_price_discounted": "Ціна зі знижкою",
     "prices_amount_price_not_discounted": "Початкова ціна",
+    "prices_amount_no_product": "One product is missing!",
     "prices_amount_price_incorrect": "Помилкове значення",
     "prices_amount_price_mandatory": "Обов'язкове значення",
     "prices_currency_subtitle": "Currency",
