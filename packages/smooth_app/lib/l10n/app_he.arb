@@ -750,7 +750,7 @@
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
-    "product_image_accessibility_label": "Image taken on {date}",
+    "product_image_accessibility_label": "התמונה צולמה ב־{date}",
     "@product_image_accessibility_label": {
         "placeholders": {
             "date": {
@@ -759,7 +759,7 @@
             }
         }
     },
-    "product_image_outdated_accessibility_label": "Image taken on {date}. This image may be outdated",
+    "product_image_outdated_accessibility_label": "התמונה צולמה ב־{date}. היא כנראה לא עדכנית",
     "@product_image_outdated_accessibility_label": {
         "placeholders": {
             "date": {
@@ -1710,6 +1710,11 @@
     "prices_send_n_prices": "{count,plural, =1{Send the price} other{Send {count} prices}}",
     "prices_add_an_item": "Add an item",
     "prices_add_a_price": "הוספת מחיר",
+    "prices_add_a_receipt": "Add a receipt",
+    "prices_add_price_tags": "Add price tags",
+    "prices_barcode_search_not_found": "המוצר לא נמצא",
+    "prices_barcode_search_none_yet": "No product yet",
+    "prices_barcode_search_question": "Do you want to look for this product?",
     "prices_barcode_search_title": "חיפוש מוצרים",
     "prices_barcode_search_running": "Looking for {barcode}",
     "@prices_barcode_search_running": {
@@ -1781,6 +1786,7 @@
     "prices_amount_price_normal": "מחיר",
     "prices_amount_price_discounted": "מחיר מוזל",
     "prices_amount_price_not_discounted": "מחיר מקורי",
+    "prices_amount_no_product": "One product is missing!",
     "prices_amount_price_incorrect": "ערך שגוי",
     "prices_amount_price_mandatory": "ערך חובה",
     "prices_currency_subtitle": "מטבע",
