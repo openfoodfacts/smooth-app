@@ -750,7 +750,7 @@
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
-    "product_image_accessibility_label": "Image taken on {date}",
+    "product_image_accessibility_label": "Image prise le {date}",
     "@product_image_accessibility_label": {
         "placeholders": {
             "date": {
@@ -759,7 +759,7 @@
             }
         }
     },
-    "product_image_outdated_accessibility_label": "Image taken on {date}. This image may be outdated",
+    "product_image_outdated_accessibility_label": "Image prise le {date}. Cette image est peut-être obsolète",
     "@product_image_outdated_accessibility_label": {
         "placeholders": {
             "date": {
@@ -1482,7 +1482,7 @@
     "@edit_ingredients_refresh_photo_btn_text": {
         "description": "Ingredients edition - Refresh photo"
     },
-    "edit_packaging_extract_btn_text": "Extraire l'emballage\nà partir de la photo",
+    "edit_packaging_extract_btn_text": "Extraire l'emballage",
     "@edit_packaging_extract_btn_text": {
         "description": "Packaging edition - OCR-Extract packaging"
     },
@@ -1710,6 +1710,11 @@
     "prices_send_n_prices": "{count,plural, =1{Envoyer le prix} other{Envoyer {count} prix}}",
     "prices_add_an_item": "Ajouter un article",
     "prices_add_a_price": "Ajouter un prix",
+    "prices_add_a_receipt": "Ajouter un ticket de caisse",
+    "prices_add_price_tags": "Ajouter des étiquettes de prix",
+    "prices_barcode_search_not_found": "Produit introuvable",
+    "prices_barcode_search_none_yet": "Pas encore de produit",
+    "prices_barcode_search_question": "Voulez-vous chercher ce produit ?",
     "prices_barcode_search_title": "Recherche de produits",
     "prices_barcode_search_running": "À la recherche de {barcode}",
     "@prices_barcode_search_running": {
@@ -1781,6 +1786,7 @@
     "prices_amount_price_normal": "Prix",
     "prices_amount_price_discounted": "Prix en promo",
     "prices_amount_price_not_discounted": "Prix d'origine",
+    "prices_amount_no_product": "Il manque un produit !",
     "prices_amount_price_incorrect": "Valeur incorrecte",
     "prices_amount_price_mandatory": "Valeur obligatoire",
     "prices_currency_subtitle": "Devise",
