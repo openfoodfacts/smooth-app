@@ -12,19 +12,19 @@ import 'package:smooth_app/pages/prices/price_product_search_page.dart';
 
 /// Card that displays the amounts (discounted or not) for price adding.
 class PriceAmountCard extends StatefulWidget {
-  PriceAmountCard({
+  const PriceAmountCard({
     required this.priceModel,
     required this.index,
     required this.refresh,
-  })  : model = priceModel.priceAmountModels[index],
-        total = priceModel.priceAmountModels.length;
+    this.focusNode,
+    super.key,
+  });
 
   final PriceModel priceModel;
-  final PriceAmountModel model;
   final int index;
-  final int total;
   // TODO(monsieurtanuki): not elegant, the display was not refreshed when removing an item
   final VoidCallback refresh;
+  final FocusNode? focusNode;
 
   @override
   State<PriceAmountCard> createState() => _PriceAmountCardState();
@@ -36,21 +36,32 @@ class _PriceAmountCardState extends State<PriceAmountCard> {
       TextEditingController();
 
   @override
+  void initState() {
+    super.initState();
+    _controllerPaid.text = _model.paidPrice;
+    _controllerWithoutDiscount.text = _model.priceWithoutDiscount;
+  }
+
+  PriceAmountModel get _model =>
+      widget.priceModel.priceAmountModels[widget.index];
+  int get _total => widget.priceModel.priceAmountModels.length;
+
+  @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final bool isEmpty = widget.model.product.barcode.isEmpty;
+    final bool isEmpty = _model.product.barcode.isEmpty;
     return SmoothCard(
       child: Column(
         children: <Widget>[
           Text(
             '${appLocalizations.prices_amount_subtitle}'
-            '${widget.total == 1 ? '' : ' (${widget.index + 1}/${widget.total})'}',
+            '${_total == 1 ? '' : ' (${widget.index + 1}/$_total)'}',
           ),
           PriceProductListTile(
-            product: widget.model.product,
+            product: _model.product,
             trailingIconData: isEmpty
                 ? Icons.edit
-                : widget.total == 1
+                : _total == 1
                     ? null
                     : Icons.clear,
             onPressed: isEmpty
@@ -59,15 +70,18 @@ class _PriceAmountCardState extends State<PriceAmountCard> {
                         await Navigator.of(context).push<PriceMetaProduct>(
                       MaterialPageRoute<PriceMetaProduct>(
                         builder: (BuildContext context) =>
-                            const PriceProductSearchPage(),
+                            PriceProductSearchPage(
+                          barcodes: widget.priceModel.getBarcodes(),
+                        ),
                       ),
                     );
                     if (product == null) {
                       return;
                     }
-                    setState(() => widget.model.product = product);
+                    _model.product = product;
+                    widget.refresh.call();
                   }
-                : widget.total == 1
+                : _total == 1
                     ? null
                     : () {
                         widget.priceModel.priceAmountModels
@@ -76,12 +90,11 @@ class _PriceAmountCardState extends State<PriceAmountCard> {
                       },
           ),
           SmoothLargeButtonWithIcon(
-            icon: widget.model.promo
-                ? Icons.check_box
-                : Icons.check_box_outline_blank,
+            icon:
+                _model.promo ? Icons.check_box : Icons.check_box_outline_blank,
             text: appLocalizations.prices_amount_is_discounted,
             onPressed: () => setState(
-              () => widget.model.promo = !widget.model.promo,
+              () => _model.promo = !_model.promo,
             ),
           ),
           const SizedBox(height: SMALL_SPACE),
@@ -89,19 +102,20 @@ class _PriceAmountCardState extends State<PriceAmountCard> {
             children: <Widget>[
               Expanded(
                 child: PriceAmountField(
+                  focusNode: widget.focusNode,
                   controller: _controllerPaid,
                   isPaidPrice: true,
-                  model: widget.model,
+                  model: _model,
                 ),
               ),
               const SizedBox(width: LARGE_SPACE),
               Expanded(
-                child: !widget.model.promo
+                child: !_model.promo
                     ? Container()
                     : PriceAmountField(
                         controller: _controllerWithoutDiscount,
                         isPaidPrice: false,
-                        model: widget.model,
+                        model: _model,
                       ),
               ),
             ],

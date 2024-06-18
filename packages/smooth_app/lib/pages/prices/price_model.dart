@@ -25,6 +25,14 @@ class PriceModel with ChangeNotifier {
 
   final List<PriceAmountModel> priceAmountModels;
 
+  List<String> getBarcodes() {
+    final List<String> result = <String>[];
+    for (final PriceAmountModel priceAmountModel in priceAmountModels) {
+      result.add(priceAmountModel.product.barcode);
+    }
+    return result;
+  }
+
   CropParameters? _cropParameters;
 
   CropParameters? get cropParameters => _cropParameters;

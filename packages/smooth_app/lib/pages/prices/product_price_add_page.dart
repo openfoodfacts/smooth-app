@@ -80,6 +80,9 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage> {
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
+  int? _latestAddedItem;
+  FocusNode? _latestFocusNode;
+
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
@@ -118,36 +121,48 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage> {
                 const SizedBox(height: LARGE_SPACE),
                 for (int i = 0; i < _model.priceAmountModels.length; i++)
                   PriceAmountCard(
+                    key: Key(_model.priceAmountModels[i].product.barcode),
                     priceModel: _model,
                     index: i,
                     refresh: () => setState(() {}),
+                    focusNode: _latestAddedItem == i ? _latestFocusNode : null,
                   ),
-                // TODO(monsieurtanuki): check if there's an empty barcode before displaying this card
-                SmoothCard(
-                  child: SmoothLargeButtonWithIcon(
-                    text: appLocalizations.prices_add_an_item,
-                    icon: Icons.add,
-                    onPressed: () async {
-                      final PriceMetaProduct? product =
-                          await Navigator.of(context).push<PriceMetaProduct>(
-                        MaterialPageRoute<PriceMetaProduct>(
-                          builder: (BuildContext context) =>
-                              const PriceProductSearchPage(),
-                        ),
-                      );
-                      if (product == null) {
-                        return;
-                      }
-                      setState(
-                        () => _model.priceAmountModels.add(
-                          PriceAmountModel(
-                            product: product,
+                if (_model.priceAmountModels.isNotEmpty &&
+                    _model.priceAmountModels.first.product.barcode.isNotEmpty)
+                  SmoothCard(
+                    child: SmoothLargeButtonWithIcon(
+                      text: appLocalizations.prices_add_an_item,
+                      icon: Icons.add,
+                      onPressed: () async {
+                        final PriceMetaProduct? product =
+                            await Navigator.of(context).push<PriceMetaProduct>(
+                          MaterialPageRoute<PriceMetaProduct>(
+                            builder: (BuildContext context) =>
+                                PriceProductSearchPage(
+                              barcodes: _model.getBarcodes(),
+                            ),
                           ),
-                        ),
-                      );
-                    },
+                        );
+                        if (product == null) {
+                          return;
+                        }
+                        setState(
+                          () {
+                            _model.priceAmountModels.add(
+                              PriceAmountModel(
+                                product: product,
+                              ),
+                            );
+                            _latestAddedItem =
+                                _model.priceAmountModels.length - 1;
+                            _latestFocusNode?.dispose();
+                            _latestFocusNode = FocusNode();
+                            _latestFocusNode!.requestFocus();
+                          },
+                        );
+                      },
+                    ),
                   ),
-                ),
                 // so that the last items don't get hidden by the FAB
                 const SizedBox(height: MINIMUM_TOUCH_SIZE * 2),
               ],

@@ -1726,6 +1726,15 @@
         }
     },
     "prices_barcode_reader_action": "Barcode reader",
+    "prices_barcode_already": "Barcode {barcode} is already in the list!",
+    "@prices_barcode_already": {
+        "description": "Validation error message about barcode already being in the barcode list",
+        "placeholders": {
+            "barcode": {
+                "type": "String"
+            }
+        }
+    },
     "prices_view_prices": "View the prices",
     "prices_list_length_one_page": "{count,plural, =0{No price yet} =1{Only one price} other{All {count} prices}}",
     "@prices_list_length_one_page": {
@@ -2353,6 +2362,10 @@
     "image_edit_url_error": "Failed to edit image because the image URL was not set.",
     "@image_edit_url_error": {
         "description": "Error message, when editing image fails, due to missing url."
+    },
+    "remember_my_choice_session": "Remember my choice for the current session",
+    "@remember_my_choice_session": {
+        "description": "Checkbox label when we want to remember the choice"
     },
     "user_picture_source_remember": "Remember my choice",
     "@user_picture_source_remember": {

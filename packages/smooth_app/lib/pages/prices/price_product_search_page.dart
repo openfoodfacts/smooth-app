@@ -22,11 +22,14 @@ import 'package:smooth_app/widgets/smooth_scaffold.dart';
 /// Product Search Page, for Prices.
 class PriceProductSearchPage extends StatefulWidget {
   const PriceProductSearchPage({
-    this.product,
+    required this.barcodes,
   });
 
-  final PriceMetaProduct? product;
-  // TODO(monsieurtanuki): as a parameter, add a list of barcodes already there: we're not supposed to select twice the same product
+  /// List of barcodes already in the list.
+  final List<String> barcodes;
+
+  /// "Should we check the server?", saved here at the session level.
+  static bool? checkServer;
 
   @override
   State<PriceProductSearchPage> createState() => _PriceProductSearchPageState();
@@ -35,15 +38,22 @@ class PriceProductSearchPage extends StatefulWidget {
 class _PriceProductSearchPageState extends State<PriceProductSearchPage> {
   final TextEditingController _controller = TextEditingController();
 
-  late PriceMetaProduct? _product = widget.product;
+  PriceMetaProduct? _product;
+  late FocusNode _focusNode;
 
-  // TODO(monsieurtanuki): TextInputAction + focus
   static const TextInputType _textInputType = TextInputType.number;
 
   @override
   void initState() {
     super.initState();
     _controller.text = _product?.barcode ?? '';
+    _focusNode = FocusNode();
+  }
+
+  @override
+  void dispose() {
+    _focusNode.dispose();
+    super.dispose();
   }
 
   static const String _barcodeHint = '7300400481588';
@@ -74,6 +84,7 @@ class _PriceProductSearchPageState extends State<PriceProductSearchPage> {
             // TODO(monsieurtanuki): add a "clear" button
             // TODO(monsieurtanuki): add an automatic "validate barcode" feature (cf. https://en.wikipedia.org/wiki/International_Article_Number#Check_digit)
             SmoothTextFormField(
+              focusNode: _focusNode,
               type: TextFieldTypes.PLAIN_TEXT,
               controller: _controller,
               hintText: _barcodeHint,
@@ -82,8 +93,18 @@ class _PriceProductSearchPageState extends State<PriceProductSearchPage> {
               onFieldSubmitted: (_) async => _onFieldSubmitted(context),
               prefixIcon: const Icon(CupertinoIcons.barcode),
               textInputAction: TextInputAction.search,
+              validator: (final String? value) {
+                if (value == null || value.isEmpty) {
+                  return null;
+                }
+                if (widget.barcodes.contains(value)) {
+                  return appLocalizations.prices_barcode_already(value);
+                }
+                return null;
+              },
             ),
-            if (priceMetaProduct.isValid)
+            if (priceMetaProduct.isValid &&
+                !widget.barcodes.contains(priceMetaProduct.barcode))
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: LARGE_SPACE),
                 child: PriceProductListTile(
@@ -191,7 +212,6 @@ class _PriceProductSearchPageState extends State<PriceProductSearchPage> {
   }
 
   Future<void> _scan(final BuildContext context) async {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final String? barcode = await Navigator.of(context).push<String>(
       MaterialPageRoute<String>(
         builder: (BuildContext context) => const PriceScanPage(),
@@ -204,6 +224,7 @@ class _PriceProductSearchPageState extends State<PriceProductSearchPage> {
     if (!context.mounted) {
       return;
     }
+    _focusNode.requestFocus();
     await _onChanged(context);
     if (_product != null) {
       return;
@@ -211,20 +232,7 @@ class _PriceProductSearchPageState extends State<PriceProductSearchPage> {
     if (!context.mounted) {
       return;
     }
-    final bool? accepts = await showDialog(
-      context: context,
-      builder: (final BuildContext context) => SmoothAlertDialog(
-        body: Text(appLocalizations.prices_barcode_search_question),
-        neutralAction: SmoothActionButton(
-          text: appLocalizations.cancel,
-          onPressed: () => Navigator.of(context).pop(false),
-        ),
-        positiveAction: SmoothActionButton(
-          text: appLocalizations.yes,
-          onPressed: () => Navigator.of(context).pop(true),
-        ),
-      ),
-    );
+    final bool accepts = await _shouldCheckServer();
     if (!context.mounted) {
       return;
     }
@@ -232,5 +240,54 @@ class _PriceProductSearchPageState extends State<PriceProductSearchPage> {
       return;
     }
     await _onFieldSubmitted(context);
+  }
+
+  Future<bool> _shouldCheckServer() async {
+    if (PriceProductSearchPage.checkServer != null) {
+      return PriceProductSearchPage.checkServer!;
+    }
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    bool remember = false;
+    final bool? accepts = await showDialog(
+      context: context,
+      builder: (final BuildContext context) => StatefulBuilder(
+        builder: (
+          BuildContext context,
+          void Function(VoidCallback fn) setState,
+        ) =>
+            SmoothAlertDialog(
+          body: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              ListTile(
+                title: Text(appLocalizations.prices_barcode_search_question),
+              ),
+              CheckboxListTile(
+                controlAffinity: ListTileControlAffinity.leading,
+                value: remember,
+                title: Text(appLocalizations.remember_my_choice_session),
+                onChanged: (_) => setState(() => remember = !remember),
+              ),
+            ],
+          ),
+          neutralAction: SmoothActionButton(
+            text: appLocalizations.cancel,
+            onPressed: () => Navigator.of(context).pop(false),
+          ),
+          positiveAction: SmoothActionButton(
+            text: appLocalizations.yes,
+            onPressed: () => Navigator.of(context).pop(true),
+          ),
+        ),
+      ),
+    );
+    if (accepts == null) {
+      return false;
+    }
+    if (remember) {
+      PriceProductSearchPage.checkServer = accepts;
+    }
+    return accepts;
   }
 }

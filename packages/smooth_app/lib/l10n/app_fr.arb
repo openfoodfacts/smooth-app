@@ -1704,6 +1704,15 @@
             }
         }
     },
+    "prices_barcode_already": "Le code-barres {barcode} fait déjà partie de la liste !",
+    "@prices_barcode_already": {
+        "description": "Validation error message about barcode already being in the barcode list",
+        "placeholders": {
+            "barcode": {
+                "type": "String"
+            }
+        }
+    },
     "prices_list_length_many_pages": "{pageSize} prix les plus récents (total : {total})",
     "@prices_list_length_many_pages": {
         "description": "Number of prices for one-page result",
@@ -2316,6 +2325,10 @@
     "image_edit_url_error": "Impossible d'éditer l'image car l'URL de l'image n'a pas été définie.",
     "@image_edit_url_error": {
         "description": "Error message, when editing image fails, due to missing url."
+    },
+    "remember_my_choice_session": "Mémoriser mon choix pour la session en cours",
+    "@remember_my_choice_session": {
+        "description": "Checkbox label when we want to remember the choice"
     },
     "user_picture_source_remember": "Mémoriser mon choix",
     "@user_picture_source_remember": {
