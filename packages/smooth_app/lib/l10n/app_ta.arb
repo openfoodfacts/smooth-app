@@ -750,7 +750,7 @@
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
-    "product_image_accessibility_label": "Image taken on {date}",
+    "product_image_accessibility_label": "படம் எடுக்கப்பட்ட{date} அன்று",
     "@product_image_accessibility_label": {
         "placeholders": {
             "date": {
