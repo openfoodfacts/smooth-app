@@ -96,9 +96,13 @@ class _TagLineItemNewsItem {
     if (_translations.containsKey(locale)) {
       translation = _translations[locale];
     } else if (locale.contains('_')) {
-      final String languageCode = locale.split('_').first;
+      final List<String> splittedLocale = locale.split('_');
+      final String languageCode = splittedLocale.first;
+      final String countryCode = '_${splittedLocale.last}';
       if (_translations.containsKey(languageCode)) {
         translation = _translations[languageCode];
+      } else if (_translations.containsKey(countryCode)) {
+        translation = _translations[countryCode];
       }
     }
 
@@ -335,9 +339,13 @@ class _TaglineJSONFeed {
 
     // Try by language
     if (locale.contains('_')) {
-      final String languageCode = locale.split('_').first;
+      final List<String> splittedLocale = locale.split('_');
+      final String languageCode = splittedLocale.first;
+      final String countryCode = '_${splittedLocale.last}';
       if (_news.containsKey(languageCode)) {
         return _news[languageCode]!;
+      } else if (_news.containsKey(countryCode)) {
+        return _news[countryCode]!;
       }
     }
 
