@@ -750,6 +750,24 @@
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
+    "product_image_accessibility_label": "Image taken on {date}",
+    "@product_image_accessibility_label": {
+        "placeholders": {
+            "date": {
+                "type": "String",
+                "description": "The date of picture (in localized format for YYYY-MM-DD)"
+            }
+        }
+    },
+    "product_image_outdated_accessibility_label": "Image taken on {date}. This image may be outdated",
+    "@product_image_outdated_accessibility_label": {
+        "placeholders": {
+            "date": {
+                "type": "String",
+                "description": "The date of picture (in localized format for YYYY-MM-DD)"
+            }
+        }
+    },
     "homepage_main_card_logo_description": "Bienvenida a Open Food Facts∫",
     "@homepage_main_card_logo_description": {
         "description": "Description for accessibility of the Open Food Facts logo on the homepage"
