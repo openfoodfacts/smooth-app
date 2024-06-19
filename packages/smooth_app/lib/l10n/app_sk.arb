@@ -302,7 +302,7 @@
     "@contributors_label": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
     },
-    "contributors_dialog_title": "Contributors",
+    "contributors_dialog_title": "Prispievatelia",
     "@contributors_dialog_title": {
         "description": "Dialog title: A list of all contributors of this app"
     },
