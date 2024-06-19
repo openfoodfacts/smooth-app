@@ -781,6 +781,15 @@
     "@homepage_main_card_search_field_tooltip": {
         "description": "Description for accessibility of the search field on the homepage"
     },
+    "scan_tagline_news_item_accessibility": "crwdns248964:0{news_title}crwdne248964:0",
+    "@scan_tagline_news_item_accessibility": {
+        "description": "Accessibility label for the title of a news",
+        "placeholders": {
+            "news_title": {
+                "type": "String"
+            }
+        }
+    },
     "tagline_app_review": "crwdns244943:0crwdne244943:0",
     "tagline_app_review_button_positive": "crwdns244945:0crwdne244945:0",
     "tagline_app_review_button_negative": "crwdns244947:0crwdne244947:0",
@@ -1225,6 +1234,10 @@
     "camera_play_sound_subtitle": "crwdns221353:0crwdne221353:0",
     "@camera_play_sound_subtitle": {
         "description": "SubTitle for the Camera play sound toggle"
+    },
+    "camera_window_accessibility_label": "crwdns248966:0crwdne248966:0",
+    "@camera_window_accessibility_label": {
+        "description": "Accessibility label for the camera window"
     },
     "app_haptic_feedback_title": "crwdns221355:0crwdne221355:0",
     "@app_haptic_feedback_title": {
@@ -1818,6 +1831,14 @@
     "dev_mode_hide_ecoscore_title": "crwdns221613:0crwdne221613:0",
     "@dev_mode_hide_ecoscore_title": {
         "description": "User dev preferences - Disable Ecoscore - Title"
+    },
+    "dev_mode_spellchecker_for_ocr_title": "crwdns248968:0crwdne248968:0",
+    "@dev_mode_spellchecker_for_ocr_title": {
+        "description": "User dev preferences - Enable Spellchecker on OCR screens - Title"
+    },
+    "dev_mode_spellchecker_for_ocr_subtitle": "crwdns248970:0crwdne248970:0",
+    "@dev_mode_spellchecker_for_ocr_subtitle": {
+        "description": "User dev preferences - Enable Spellchecker on OCR screens - Subtitle"
     },
     "search_history_item_edit_tooltip": "crwdns221625:0crwdne221625:0",
     "@search_history_item_edit_tooltip": {
