@@ -60,13 +60,12 @@ class ThemeProvider with ChangeNotifier {
 
   Future<void> setTheme(String value) async {
     assert(
-    value != THEME_LIGHT || value != THEME_DARK || value != THEME_AMOLED);
+        value != THEME_LIGHT || value != THEME_DARK || value != THEME_AMOLED);
     await _userPreferences.setTheme(value);
     notifyListeners();
   }
 
   bool isDarkMode(BuildContext context) {
-
     if (currentTheme == THEME_SYSTEM_DEFAULT) {
       return MediaQuery.platformBrightnessOf(context) == Brightness.dark;
     }
