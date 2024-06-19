@@ -287,7 +287,7 @@ class _CropPageState extends State<CropPage> {
                       ),
                       child: SizedBox(
                         width: double.infinity,
-                        child: EditImageButton(
+                        child: EditImageButton.center(
                           iconData: widget.cropHelper.getProcessIcon(),
                           label: widget.cropHelper
                               .getProcessLabel(appLocalizations),
