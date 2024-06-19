@@ -7,6 +7,7 @@ import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/themes/color_schemes.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 
 part 'package:smooth_app/data_models/preferences/migration/user_preferences_migration.dart';
 
@@ -203,7 +204,8 @@ class UserPreferences extends ChangeNotifier {
       _sharedPreferences.getBool(_TAG_CRASH_REPORTS) ?? false;
 
   String get currentTheme =>
-      _sharedPreferences.getString(_TAG_CURRENT_THEME_MODE) ?? 'System Default';
+      _sharedPreferences.getString(_TAG_CURRENT_THEME_MODE) ??
+      THEME_SYSTEM_DEFAULT;
 
   String get currentColor =>
       _sharedPreferences.getString(_TAG_CURRENT_COLOR_SCHEME) ??
