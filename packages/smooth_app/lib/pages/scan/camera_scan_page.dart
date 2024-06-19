@@ -95,17 +95,21 @@ class _CameraScannerPageState extends State<CameraScannerPage>
     return ScreenVisibilityDetector(
       child: Stack(
         children: <Widget>[
-          GlobalVars.barcodeScanner.getScanner(
-            onScan: _onNewBarcodeDetected,
-            hapticFeedback: () => SmoothHapticFeedback.click(),
-            onCameraFlashError: CameraScannerPage.onCameraFlashError,
-            trackCustomEvent: AnalyticsHelper.trackCustomEvent,
-            hasMoreThanOneCamera: CameraHelper.hasMoreThanOneCamera,
-            toggleCameraModeTooltip: appLocalizations.camera_toggle_camera,
-            toggleFlashModeTooltip: appLocalizations.camera_toggle_flash,
-            contentPadding: _model.compareFeatureEnabled
-                ? EdgeInsets.only(top: _headerHeight ?? 0.0)
-                : null,
+          Semantics(
+            label: appLocalizations.camera_window_accessibility_label,
+            explicitChildNodes: true,
+            child: GlobalVars.barcodeScanner.getScanner(
+              onScan: _onNewBarcodeDetected,
+              hapticFeedback: () => SmoothHapticFeedback.click(),
+              onCameraFlashError: CameraScannerPage.onCameraFlashError,
+              trackCustomEvent: AnalyticsHelper.trackCustomEvent,
+              hasMoreThanOneCamera: CameraHelper.hasMoreThanOneCamera,
+              toggleCameraModeTooltip: appLocalizations.camera_toggle_camera,
+              toggleFlashModeTooltip: appLocalizations.camera_toggle_flash,
+              contentPadding: _model.compareFeatureEnabled
+                  ? EdgeInsets.only(top: _headerHeight ?? 0.0)
+                  : null,
+            ),
           ),
           Align(
             alignment: Alignment.topCenter,

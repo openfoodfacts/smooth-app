@@ -32,20 +32,23 @@ class ScanMainCard extends StatelessWidget {
                   expandedMode: true,
                 );
               } else {
-                return const Column(
-                  children: <Widget>[
-                    Expanded(
-                      flex: 6,
-                      child: _SearchCard(
-                        expandedMode: false,
+                return Semantics(
+                  explicitChildNodes: true,
+                  child: const Column(
+                    children: <Widget>[
+                      Expanded(
+                        flex: 6,
+                        child: _SearchCard(
+                          expandedMode: false,
+                        ),
                       ),
-                    ),
-                    SizedBox(height: MEDIUM_SPACE),
-                    Expanded(
-                      flex: 4,
-                      child: ScanTagLine(),
-                    ),
-                  ],
+                      SizedBox(height: MEDIUM_SPACE),
+                      Expanded(
+                        flex: 4,
+                        child: ScanTagLine(),
+                      ),
+                    ],
+                  ),
                 );
               }
             },
@@ -79,6 +82,7 @@ class _SearchCard extends StatelessWidget {
         horizontal: 0.0,
         vertical: VERY_SMALL_SPACE,
       ),
+      ignoreDefaultSemantics: true,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
@@ -123,54 +127,57 @@ class _SearchBar extends StatelessWidget {
         Theme.of(context).extension<SmoothColorsThemeExtension>()!;
     final bool lightTheme = !context.watch<ThemeProvider>().isDarkMode(context);
 
-    return SizedBox(
-      height: SEARCH_BAR_HEIGHT,
-      child: InkWell(
-        onTap: () => AppNavigator.of(context).push(AppRoutes.SEARCH),
-        borderRadius: BorderRadius.circular(30.0),
-        child: Ink(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(30.0),
-            color: lightTheme ? Colors.white : theme.greyDark,
-            border: Border.all(color: theme.primaryBlack),
-          ),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsetsDirectional.only(
-                    start: 20.0,
-                    end: 10.0,
-                    bottom: 3.0,
-                  ),
-                  child: Text(
-                    localizations.homepage_main_card_search_field_hint,
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                      color: lightTheme ? Colors.black : Colors.white,
+    return Semantics(
+      button: true,
+      child: SizedBox(
+        height: SEARCH_BAR_HEIGHT,
+        child: InkWell(
+          onTap: () => AppNavigator.of(context).push(AppRoutes.SEARCH),
+          borderRadius: BorderRadius.circular(30.0),
+          child: Ink(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(30.0),
+              color: lightTheme ? Colors.white : theme.greyDark,
+              border: Border.all(color: theme.primaryBlack),
+            ),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsetsDirectional.only(
+                      start: 20.0,
+                      end: 10.0,
+                      bottom: 3.0,
+                    ),
+                    child: Text(
+                      localizations.homepage_main_card_search_field_hint,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        color: lightTheme ? Colors.black : Colors.white,
+                      ),
                     ),
                   ),
                 ),
-              ),
-              AspectRatio(
-                aspectRatio: 1.0,
-                child: DecoratedBox(
-                  decoration: BoxDecoration(
-                    color: theme.primaryDark,
-                    shape: BoxShape.circle,
-                  ),
-                  child: const Padding(
-                    padding: EdgeInsets.all(10.0),
-                    child: Search(
-                      size: 20.0,
-                      color: Colors.white,
+                AspectRatio(
+                  aspectRatio: 1.0,
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(
+                      color: theme.primaryDark,
+                      shape: BoxShape.circle,
+                    ),
+                    child: const Padding(
+                      padding: EdgeInsets.all(10.0),
+                      child: Search(
+                        size: 20.0,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
-                ),
-              )
-            ],
+                )
+              ],
+            ),
           ),
         ),
       ),
