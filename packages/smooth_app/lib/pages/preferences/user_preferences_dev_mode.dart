@@ -333,7 +333,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           value:
               userPreferences.getFlag(userPreferencesFlagSpellCheckerOnOcr) ??
                   false,
-          onChanged: (bool value) => userPreferences.setFlag(
+          onChanged: (bool value) async => userPreferences.setFlag(
             userPreferencesFlagSpellCheckerOnOcr,
             value,
           ),
