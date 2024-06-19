@@ -66,8 +66,10 @@ class ThemeProvider with ChangeNotifier {
   }
 
   bool isDarkMode(BuildContext context) {
-    return currentThemeMode != ThemeMode.light &&
-        MediaQuery.platformBrightnessOf(context) == Brightness.dark;
+    if (currentTheme == THEME_SYSTEM_DEFAULT) {
+      return MediaQuery.platformBrightnessOf(context) == Brightness.dark;
+    }
+    return <String>[THEME_DARK, THEME_AMOLED].contains(currentTheme);
   }
 
   @override
