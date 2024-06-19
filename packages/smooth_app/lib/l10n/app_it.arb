@@ -750,7 +750,7 @@
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
-    "product_image_accessibility_label": "Image taken on {date}",
+    "product_image_accessibility_label": "Immagine acquisita in data {date}",
     "@product_image_accessibility_label": {
         "placeholders": {
             "date": {
@@ -759,7 +759,7 @@
             }
         }
     },
-    "product_image_outdated_accessibility_label": "Image taken on {date}. This image may be outdated",
+    "product_image_outdated_accessibility_label": "Immagine acquisita in data {date}. Questa immagine potrebbe essere obsoleta",
     "@product_image_outdated_accessibility_label": {
         "placeholders": {
             "date": {
@@ -1110,7 +1110,7 @@
             }
         }
     },
-    "onboarding_home_welcome_text1": "Benvenuti !",
+    "onboarding_home_welcome_text1": "Benvenuto !",
     "onboarding_home_welcome_text2": "L'app che ti aiuta a scegliere il cibo che fa bene a **te** e al **pianeta**!",
     "@onboarding_home_welcome_text2": {
         "description": "Onboarding home screen welcome text, text surrounded by * will be bold"
@@ -1710,11 +1710,11 @@
     "prices_send_n_prices": "{count,plural, =1{Invia il prezzo} other{Invia {count} prezzi}}",
     "prices_add_an_item": "Aggiungi un elemento",
     "prices_add_a_price": "Aggiungi un prezzo",
-    "prices_add_a_receipt": "Add a receipt",
-    "prices_add_price_tags": "Add price tags",
+    "prices_add_a_receipt": "Aggiungi una ricevuta",
+    "prices_add_price_tags": "Aggiungi prezzi",
     "prices_barcode_search_not_found": "Prodotto non trovato",
-    "prices_barcode_search_none_yet": "No product yet",
-    "prices_barcode_search_question": "Do you want to look for this product?",
+    "prices_barcode_search_none_yet": "Ancora nessun prodotto",
+    "prices_barcode_search_question": "Vuoi cercare questo prodotto?",
     "prices_barcode_search_title": "Ricerca prodotti",
     "prices_barcode_search_running": "Ricerca del codice a barre {barcode}",
     "@prices_barcode_search_running": {
@@ -1757,7 +1757,7 @@
             }
         }
     },
-    "prices_proofs_list_length_many_pages": "Ultime {pageSize} prove (totali: {total})",
+    "prices_proofs_list_length_many_pages": "Ultime {pageSize} prove (totale: {total})",
     "@prices_proofs_list_length_many_pages": {
         "description": "Number of proofs for one-page result",
         "placeholders": {
@@ -1786,7 +1786,7 @@
     "prices_amount_price_normal": "Prezzo",
     "prices_amount_price_discounted": "Prezzo scontato",
     "prices_amount_price_not_discounted": "Prezzo originale",
-    "prices_amount_no_product": "One product is missing!",
+    "prices_amount_no_product": "Manca un prodotto!",
     "prices_amount_price_incorrect": "Valore non corretto",
     "prices_amount_price_mandatory": "Valore obbligatorio",
     "prices_currency_subtitle": "Moneta",
