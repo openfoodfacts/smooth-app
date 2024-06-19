@@ -57,6 +57,8 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
   static const String userPreferencesFlagAccessibilityEmoji =
       '__accessibilityEmoji';
   static const String userPreferencesFlagUserOrderedKP = '__userOrderedKP';
+  static const String userPreferencesFlagSpellCheckerOnOcr =
+      '__spellcheckerOcr';
 
   final TextEditingController _textFieldController = TextEditingController();
 
@@ -323,6 +325,19 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
             await userPreferences.setFlag(
                 userPreferencesFlagAccessibilityEmoji, value);
             _showSuccessMessage();
+          },
+        ),
+        UserPreferencesItemSwitch(
+          title: appLocalizations.dev_mode_spellchecker_for_ocr_title,
+          subtitle: appLocalizations.dev_mode_spellchecker_for_ocr_subtitle,
+          value:
+              userPreferences.getFlag(userPreferencesFlagSpellCheckerOnOcr) ??
+                  false,
+          onChanged: (bool value) async {
+            await userPreferences.setFlag(
+              userPreferencesFlagSpellCheckerOnOcr,
+              value,
+            );
           },
         ),
         UserPreferencesItemSection(
