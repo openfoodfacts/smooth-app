@@ -750,6 +750,24 @@
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
+    "product_image_accessibility_label": "Image prise le {date}",
+    "@product_image_accessibility_label": {
+        "placeholders": {
+            "date": {
+                "type": "String",
+                "description": "The date of picture (in localized format for YYYY-MM-DD)"
+            }
+        }
+    },
+    "product_image_outdated_accessibility_label": "Image prise le {date}. Cette image est peut-être obsolète",
+    "@product_image_outdated_accessibility_label": {
+        "placeholders": {
+            "date": {
+                "type": "String",
+                "description": "The date of picture (in localized format for YYYY-MM-DD)"
+            }
+        }
+    },
     "homepage_main_card_logo_description": "Bienvenue sur Open Food Facts",
     "@homepage_main_card_logo_description": {
         "description": "Description for accessibility of the Open Food Facts logo on the homepage"
@@ -762,6 +780,15 @@
     "homepage_main_card_search_field_tooltip": "Démarrer la recherche",
     "@homepage_main_card_search_field_tooltip": {
         "description": "Description for accessibility of the search field on the homepage"
+    },
+    "scan_tagline_news_item_accessibility": "Latest news: {news_title}",
+    "@scan_tagline_news_item_accessibility": {
+        "description": "Accessibility label for the title of a news",
+        "placeholders": {
+            "news_title": {
+                "type": "String"
+            }
+        }
     },
     "tagline_app_review": "Aimez-vous cette appli ?",
     "tagline_app_review_button_positive": "Je l'adore! 😍",
@@ -1092,14 +1119,12 @@
             }
         }
     },
-    "onboarding_reinventing_text1": "Nous avons inventé\nl'appli de scan\ncollaborative en 2012",
-    "@onboarding_reinventing_text1": {
-        "description": "Onboarding / Reinventing page: text 1/2. If possible, balanced on 3 lines."
+    "onboarding_home_welcome_text1": "Bienvenue !",
+    "onboarding_home_welcome_text2": "L'application qui vous aide à choisir de la nourriture qui est bonne pour **vous** et la **planète** !",
+    "@onboarding_home_welcome_text2": {
+        "description": "Onboarding home screen welcome text, text surrounded by * will be bold"
     },
-    "onboarding_reinventing_text2": "10 ans après,\nnous la réinventons\ncomplètement !",
-    "@onboarding_reinventing_text2": {
-        "description": "Onboarding / Reinventing page: text 2/2. If possible, balanced on 3 lines."
-    },
+    "onboarding_continue_button": "Continuer",
     "onboarding_welcome_loading_dialog_title": "Chargement de votre premier exemple de produit",
     "@onboarding_welcome_loading_dialog_title": {
         "description": "Title for the onboarding loading dialog"
@@ -1209,6 +1234,10 @@
     "camera_play_sound_subtitle": "Bipper à chaque scan réussi",
     "@camera_play_sound_subtitle": {
         "description": "SubTitle for the Camera play sound toggle"
+    },
+    "camera_window_accessibility_label": "Scan a barcode with your camera",
+    "@camera_window_accessibility_label": {
+        "description": "Accessibility label for the camera window"
     },
     "app_haptic_feedback_title": "Vibration et retours tactiles",
     "@app_haptic_feedback_title": {
@@ -1450,9 +1479,17 @@
     "completed_basic_details_btn_text": "Compléter les informations de base",
     "not_implemented_snackbar_text": "Pas encore disponible",
     "category_picker_page_appbar_text": "Catégories",
-    "edit_ingredients_extrait_ingredients_btn_text": "Extraire les ingrédients",
-    "@edit_ingredients_extrait_ingredients_btn_text": {
+    "edit_ingredients_extract_ingredients_btn_text": "Extraire les ingrédients à partir de la photo",
+    "@edit_ingredients_extract_ingredients_btn_text": {
         "description": "Ingredients edition - Extract ingredients"
+    },
+    "edit_ingredients_extracting_ingredients_btn_text": "Extraction des ingrédients à partir de la photo",
+    "@edit_ingredients_extracting_ingredients_btn_text": {
+        "description": "Ingredients edition - Extracting ingredients"
+    },
+    "edit_ingredients_loading_photo_btn_text": "Chargement de la photo…",
+    "@edit_ingredients_loading_photo_btn_text": {
+        "description": "Ingredients edition - Loading photo from the server"
     },
     "edit_ingredients_refresh_photo_btn_text": "Mettre à jour la photo",
     "@edit_ingredients_refresh_photo_btn_text": {
@@ -1461,6 +1498,14 @@
     "edit_packaging_extract_btn_text": "Extraire l'emballage",
     "@edit_packaging_extract_btn_text": {
         "description": "Packaging edition - OCR-Extract packaging"
+    },
+    "edit_packaging_extracting_btn_text": "Extraction de l'emballage à partir de la photo",
+    "@edit_packaging_extracting_btn_text": {
+        "description": "Packaging edition - OCR-Extracting packaging"
+    },
+    "edit_packaging_loading_photo_btn_text": "Chargement de la photo…",
+    "@edit_packaging_loading_photo_btn_text": {
+        "description": "Packaging edition - Loading photo from the server"
     },
     "edit_packaging_refresh_photo_btn_text": "Mettre à jour la photo",
     "@edit_packaging_refresh_photo_btn_text": {
@@ -1778,9 +1823,22 @@
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"
     },
+    "dev_mode_section_server": "Configuration du serveur",
+    "dev_mode_section_product_page": "Page produit",
+    "dev_mode_section_ui": "Interface utilisateur",
+    "dev_mode_section_data": "Données",
+    "dev_mode_section_experimental_features": "Fonctionnalités expérimentales",
     "dev_mode_hide_ecoscore_title": "Exclure l'éco-score",
     "@dev_mode_hide_ecoscore_title": {
         "description": "User dev preferences - Disable Ecoscore - Title"
+    },
+    "dev_mode_spellchecker_for_ocr_title": "Use a spellchecker for OCR screens",
+    "@dev_mode_spellchecker_for_ocr_title": {
+        "description": "User dev preferences - Enable Spellchecker on OCR screens - Title"
+    },
+    "dev_mode_spellchecker_for_ocr_subtitle": "(Ingredients and packaging)",
+    "@dev_mode_spellchecker_for_ocr_subtitle": {
+        "description": "User dev preferences - Enable Spellchecker on OCR screens - Subtitle"
     },
     "search_history_item_edit_tooltip": "Réutiliser et modifier cette recherche",
     "@search_history_item_edit_tooltip": {
@@ -2713,6 +2771,7 @@
     "faq_title_install_beauty": "Installez Open Beauty Facts pour créer une base de données cosmétiques",
     "faq_title_install_pet": "Installez Open Pet Food Facts pour créer une base de données sur les aliments pour animaux de compagnie",
     "faq_title_install_product": "Installez Open Products Facts pour créer une base de données de produits afin de prolonger la durée de vie des objets",
+    "faq_nutriscore_nutriscore": "Nouveau calcul du Nutri-Score : qu'est-ce qui a changé ?",
     "contact_title_pro_page": "Pro? Importez vos produits dans Open Food Facts",
     "contact_title_pro_email": "Contact producteur",
     "contact_title_press_page": "Page de presse",
@@ -2764,7 +2823,7 @@
     "@guide_nutriscore_v2_title": {
         "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
     },
-    "guide_nutriscore_v2_file_language": "en",
+    "guide_nutriscore_v2_file_language": "fr",
     "@guide_nutriscore_v2_file_language": {
         "description": "The logo is only available in de/en/fr/ln/nl. Please use en if not available (in lowercase, please)."
     },
@@ -2804,5 +2863,9 @@
     "guide_nutriscore_v2_share_message": "",
     "@guide_nutriscore_v2_share_message": {
         "description": "Please let empty for now (maybe use in the future)"
+    },
+    "preview_badge": "Aperçu",
+    "@preview_badge": {
+        "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
     }
 }

@@ -1122,7 +1122,7 @@
     "onboarding_home_welcome_text1": "Welcome !",
     "onboarding_home_welcome_text2": "The app that helps you choose food that is good for **you** and the **planet**!",
     "@onboarding_home_welcome_text2": {
-      "description": "Onboarding home screen welcome text, text surrounded by * will be bold"
+        "description": "Onboarding home screen welcome text, text surrounded by * will be bold"
     },
     "onboarding_continue_button": "Continue",
     "onboarding_welcome_loading_dialog_title": "Loading your first example product",
