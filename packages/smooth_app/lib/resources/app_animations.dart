@@ -169,7 +169,7 @@ class _SearchEyeAnimationState extends State<SearchEyeAnimation> {
   @override
   Widget build(BuildContext context) {
     final double size = widget.size ?? IconTheme.of(context).size ?? 24.0;
-    final bool lightTheme = context.watch<ThemeProvider>().isDarkMode(context);
+    final bool lightTheme = !context.watch<ThemeProvider>().isDarkMode(context);
 
     return ExcludeSemantics(
       child: SizedBox(

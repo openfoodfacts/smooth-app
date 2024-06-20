@@ -192,9 +192,9 @@ final class AppNewsStateLoading extends AppNewsState {
 }
 
 class AppNewsStateLoaded extends AppNewsState {
-  const AppNewsStateLoaded(this.tagLineContent);
+  const AppNewsStateLoaded(this.content);
 
-  final AppNews tagLineContent;
+  final AppNews content;
 }
 
 class AppNewsStateError extends AppNewsState {
