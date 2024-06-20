@@ -2,7 +2,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/background/background_task_details.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
-import 'package:smooth_app/pages/product/ocr_helper.dart';
+import 'package:smooth_app/pages/product/edit_ocr/ocr_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 /// OCR Helper for ingredients.
@@ -43,7 +43,15 @@ class OcrIngredientsHelper extends OcrHelper {
 
   @override
   String getActionExtractText(final AppLocalizations appLocalizations) =>
-      appLocalizations.edit_ingredients_extrait_ingredients_btn_text;
+      appLocalizations.edit_ingredients_extract_ingredients_btn_text;
+
+  @override
+  String getActionExtractingData(AppLocalizations appLocalizations) =>
+      appLocalizations.edit_ingredients_extracting_ingredients_btn_text;
+
+  @override
+  String getActionLoadingPhoto(AppLocalizations appLocalizations) =>
+      appLocalizations.edit_ingredients_loading_photo_btn_text;
 
   @override
   String getActionRefreshPhoto(final AppLocalizations appLocalizations) =>

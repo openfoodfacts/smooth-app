@@ -16,8 +16,6 @@ import 'package:smooth_app/pages/prices/eraser_model.dart';
 import 'package:smooth_app/pages/prices/eraser_painter.dart';
 
 // TODO(monsieurtanuki): use transient file, in order to have instant access to proof image?
-// TODO(monsieurtanuki): add source
-// TODO(monsieurtanuki): make it work for several products
 /// Background task about adding a product price.
 class BackgroundTaskAddPrice extends BackgroundTask {
   BackgroundTaskAddPrice._({
@@ -39,10 +37,10 @@ class BackgroundTaskAddPrice extends BackgroundTask {
     // lines
     required this.eraserCoordinates,
     // multi
-    required this.barcode,
-    required this.priceIsDiscounted,
-    required this.price,
-    required this.priceWithoutDiscount,
+    required this.barcodes,
+    required this.pricesAreDiscounted,
+    required this.prices,
+    required this.pricesWithoutDiscount,
   });
 
   BackgroundTaskAddPrice.fromJson(Map<String, dynamic> json)
@@ -60,10 +58,18 @@ class BackgroundTaskAddPrice extends BackgroundTask {
             LocationOSMType.fromOffTag(json[_jsonTagOSMType] as String)!,
         eraserCoordinates =
             _fromJsonListDouble(json[_jsonTagEraserCoordinates]),
-        barcode = json[_jsonTagBarcode] as String,
-        priceIsDiscounted = json[_jsonTagIsDiscounted] as bool,
-        price = json[_jsonTagPrice] as double,
-        priceWithoutDiscount = json[_jsonTagPriceWithoutDiscount] as double?,
+        barcodes = json.containsKey(_jsonTagBarcode)
+            ? <String>[json[_jsonTagBarcode] as String]
+            : _fromJsonListString(json[_jsonTagBarcodes])!,
+        pricesAreDiscounted = json.containsKey(_jsonTagIsDiscounted)
+            ? <bool>[json[_jsonTagIsDiscounted] as bool]
+            : _fromJsonListBool(json[_jsonTagAreDiscounted])!,
+        prices = json.containsKey(_jsonTagPrice)
+            ? <double>[json[_jsonTagPrice] as double]
+            : _fromJsonListDouble(json[_jsonTagPrices])!,
+        pricesWithoutDiscount = json.containsKey(_jsonTagPriceWithoutDiscount)
+            ? <double?>[json[_jsonTagPriceWithoutDiscount] as double?]
+            : _fromJsonListNullableDouble(json[_jsonTagPricesWithoutDiscount])!,
         super.fromJson(json);
 
   static List<double>? _fromJsonListDouble(final List<dynamic>? input) {
@@ -73,6 +79,41 @@ class BackgroundTaskAddPrice extends BackgroundTask {
     final List<double> result = <double>[];
     for (final dynamic item in input) {
       result.add(item as double);
+    }
+    return result;
+  }
+
+  static List<double?>? _fromJsonListNullableDouble(
+    final List<dynamic>? input,
+  ) {
+    if (input == null) {
+      return null;
+    }
+    final List<double?> result = <double?>[];
+    for (final dynamic item in input) {
+      result.add(item as double?);
+    }
+    return result;
+  }
+
+  static List<String>? _fromJsonListString(final List<dynamic>? input) {
+    if (input == null) {
+      return null;
+    }
+    final List<String> result = <String>[];
+    for (final dynamic item in input) {
+      result.add(item as String);
+    }
+    return result;
+  }
+
+  static List<bool>? _fromJsonListBool(final List<dynamic>? input) {
+    if (input == null) {
+      return null;
+    }
+    final List<bool> result = <bool>[];
+    for (final dynamic item in input) {
+      result.add(item as bool);
     }
     return result;
   }
@@ -89,9 +130,17 @@ class BackgroundTaskAddPrice extends BackgroundTask {
   static const String _jsonTagCurrency = 'currency';
   static const String _jsonTagOSMId = 'osmId';
   static const String _jsonTagOSMType = 'osmType';
+  static const String _jsonTagBarcodes = 'barcodes';
+  static const String _jsonTagAreDiscounted = 'areDiscounted';
+  static const String _jsonTagPrices = 'prices';
+  static const String _jsonTagPricesWithoutDiscount = 'pricesWithoutDiscount';
+  @Deprecated('Use [_jsonTagBarcodes] instead')
   static const String _jsonTagBarcode = 'barcode';
+  @Deprecated('Use [_jsonTagAreDiscounted] instead')
   static const String _jsonTagIsDiscounted = 'isDiscounted';
+  @Deprecated('Use [_jsonTagPrices] instead')
   static const String _jsonTagPrice = 'price';
+  @Deprecated('Use [_jsonTagPricesWithoutDiscount] instead')
   static const String _jsonTagPriceWithoutDiscount = 'priceWithoutDiscount';
 
   static const OperationType _operationType = OperationType.addPrice;
@@ -108,10 +157,11 @@ class BackgroundTaskAddPrice extends BackgroundTask {
   final int locationOSMId;
   final LocationOSMType locationOSMType;
   final List<double>? eraserCoordinates;
-  final String barcode;
-  final bool priceIsDiscounted;
-  final double price;
-  final double? priceWithoutDiscount;
+  // per line
+  final List<String> barcodes;
+  final List<bool> pricesAreDiscounted;
+  final List<double> prices;
+  final List<double?> pricesWithoutDiscount;
 
   @override
   Map<String, dynamic> toJson() {
@@ -128,41 +178,41 @@ class BackgroundTaskAddPrice extends BackgroundTask {
     result[_jsonTagOSMId] = locationOSMId;
     result[_jsonTagOSMType] = locationOSMType.offTag;
     result[_jsonTagEraserCoordinates] = eraserCoordinates;
-    result[_jsonTagBarcode] = barcode;
-    result[_jsonTagIsDiscounted] = priceIsDiscounted;
-    result[_jsonTagPrice] = price;
-    result[_jsonTagPriceWithoutDiscount] = priceWithoutDiscount;
+    result[_jsonTagBarcodes] = barcodes;
+    result[_jsonTagAreDiscounted] = pricesAreDiscounted;
+    result[_jsonTagPrices] = prices;
+    result[_jsonTagPricesWithoutDiscount] = pricesWithoutDiscount;
     return result;
   }
 
   /// Adds the background task about uploading a product image.
   static Future<void> addTask({
+    required final BuildContext context,
     required final CropParameters cropObject,
     required final ProofType proofType,
     required final DateTime date,
     required final Currency currency,
     required final int locationOSMId,
     required final LocationOSMType locationOSMType,
-    required final String barcode,
-    required final bool priceIsDiscounted,
-    required final double price,
-    required final double? priceWithoutDiscount,
-    required final BuildContext context,
+    required final List<String> barcodes,
+    required final List<bool> pricesAreDiscounted,
+    required final List<double> prices,
+    required final List<double?> pricesWithoutDiscount,
   }) async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final String uniqueId = await _operationType.getNewKey(localDatabase);
     final BackgroundTask task = _getNewTask(
+      uniqueId: uniqueId,
       cropObject: cropObject,
       proofType: proofType,
       date: date,
       currency: currency,
       locationOSMId: locationOSMId,
       locationOSMType: locationOSMType,
-      barcode: barcode,
-      priceIsDiscounted: priceIsDiscounted,
-      price: price,
-      priceWithoutDiscount: priceWithoutDiscount,
-      uniqueId: uniqueId,
+      barcodes: barcodes,
+      pricesAreDiscounted: pricesAreDiscounted,
+      prices: prices,
+      pricesWithoutDiscount: pricesWithoutDiscount,
     );
     if (!context.mounted) {
       return;
@@ -180,17 +230,17 @@ class BackgroundTaskAddPrice extends BackgroundTask {
 
   /// Returns a new background task about changing a product.
   static BackgroundTaskAddPrice _getNewTask({
+    required final String uniqueId,
     required final CropParameters cropObject,
     required final ProofType proofType,
     required final DateTime date,
     required final Currency currency,
     required final int locationOSMId,
     required final LocationOSMType locationOSMType,
-    required final String barcode,
-    required final bool priceIsDiscounted,
-    required final double price,
-    required final double? priceWithoutDiscount,
-    required final String uniqueId,
+    required final List<String> barcodes,
+    required final List<bool> pricesAreDiscounted,
+    required final List<double> prices,
+    required final List<double?> pricesWithoutDiscount,
   }) =>
       BackgroundTaskAddPrice._(
         uniqueId: uniqueId,
@@ -207,10 +257,10 @@ class BackgroundTaskAddPrice extends BackgroundTask {
         locationOSMId: locationOSMId,
         locationOSMType: locationOSMType,
         eraserCoordinates: cropObject.eraserCoordinates,
-        barcode: barcode,
-        priceIsDiscounted: priceIsDiscounted,
-        price: price,
-        priceWithoutDiscount: priceWithoutDiscount,
+        barcodes: barcodes,
+        pricesAreDiscounted: pricesAreDiscounted,
+        prices: prices,
+        pricesWithoutDiscount: pricesWithoutDiscount,
         stamp: _getStamp(
           date: date,
           locationOSMId: locationOSMId,
@@ -250,16 +300,6 @@ class BackgroundTaskAddPrice extends BackgroundTask {
 
   @override
   Future<void> execute(final LocalDatabase localDatabase) async {
-    final Price newPrice = Price()
-      ..date = date
-      ..currency = currency
-      ..locationOSMId = locationOSMId
-      ..locationOSMType = locationOSMType
-      ..priceIsDiscounted = priceIsDiscounted
-      ..price = price
-      ..priceWithoutDiscount = priceWithoutDiscount
-      ..productCode = barcode;
-
     final List<Offset> offsets = <Offset>[];
     if (eraserCoordinates != null) {
       for (int i = 0; i < eraserCoordinates!.length; i += 2) {
@@ -328,16 +368,29 @@ class BackgroundTaskAddPrice extends BackgroundTask {
     if (uploadProof.isError) {
       throw Exception('Could not upload proof: ${uploadProof.error}');
     }
-    newPrice.proofId = uploadProof.value.id;
 
-    // create price
-    final MaybeError<Price> addedPrice = await OpenPricesAPIClient.createPrice(
-      price: newPrice,
-      bearerToken: bearerToken,
-      uriHelper: uriProductHelper,
-    );
-    if (addedPrice.isError) {
-      throw Exception('Could not add price: ${addedPrice.error}');
+    for (int i = 0; i < barcodes.length; i++) {
+      final Price newPrice = Price()
+        ..date = date
+        ..currency = currency
+        ..locationOSMId = locationOSMId
+        ..locationOSMType = locationOSMType
+        ..proofId = uploadProof.value.id
+        ..priceIsDiscounted = pricesAreDiscounted[i]
+        ..price = prices[i]
+        ..priceWithoutDiscount = pricesWithoutDiscount[i]
+        ..productCode = barcodes[i];
+
+      // create price
+      final MaybeError<Price> addedPrice =
+          await OpenPricesAPIClient.createPrice(
+        price: newPrice,
+        bearerToken: bearerToken,
+        uriHelper: uriProductHelper,
+      );
+      if (addedPrice.isError) {
+        throw Exception('Could not add price: ${addedPrice.error}');
+      }
     }
 
     // close session

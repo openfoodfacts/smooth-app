@@ -39,6 +39,12 @@ abstract class OcrHelper {
   /// Returns the "extract text" button label
   String getActionExtractText(final AppLocalizations appLocalizations);
 
+  /// Returns the "loading photo" button label
+  String getActionLoadingPhoto(final AppLocalizations appLocalizations);
+
+  /// Returns the "Extracting data…" button label
+  String getActionExtractingData(final AppLocalizations appLocalizations);
+
   /// Returns the "refresh photo" button label
   String getActionRefreshPhoto(final AppLocalizations appLocalizations);
 

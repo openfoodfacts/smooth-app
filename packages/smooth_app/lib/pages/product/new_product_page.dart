@@ -21,7 +21,6 @@ import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
-import 'package:smooth_app/pages/carousel_manager.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/prices/prices_card.dart';
 import 'package:smooth_app/pages/product/common/product_list_page.dart';
@@ -34,6 +33,7 @@ import 'package:smooth_app/pages/product/standard_knowledge_panel_cards.dart';
 import 'package:smooth_app/pages/product/summary_card.dart';
 import 'package:smooth_app/pages/product/website_card.dart';
 import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
+import 'package:smooth_app/pages/scan/carousel/scan_carousel_manager.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
@@ -85,8 +85,8 @@ class _ProductPageState extends State<ProductPage>
 
   @override
   Widget build(BuildContext context) {
-    final ExternalCarouselManagerState carouselManager =
-        ExternalCarouselManager.read(context);
+    final ExternalScanCarouselManagerState carouselManager =
+        ExternalScanCarouselManager.read(context);
     carouselManager.currentBarcode = barcode;
     final ThemeData themeData = Theme.of(context);
     _productPreferences = context.watch<ProductPreferences>();
@@ -217,7 +217,6 @@ class _ProductPageState extends State<ProductPage>
                     upToDateProduct,
                     _productPreferences,
                     isFullVersion: true,
-                    showUnansweredQuestions: true,
                   ),
                 ),
               ),
@@ -259,6 +258,8 @@ class _ProductPageState extends State<ProductPage>
           if (questionsLayout == ProductQuestionsLayout.banner)
             // assuming it's tall enough in order to go above the banner
             const SizedBox(height: 4 * VERY_LARGE_SPACE),
+          // Space for the navigation bar
+          SizedBox(height: MediaQuery.paddingOf(context).bottom),
         ],
       ),
     );

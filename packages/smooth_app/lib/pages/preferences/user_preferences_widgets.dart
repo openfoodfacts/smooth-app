@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
 /// A dashed line
 class UserPreferencesListItemDivider extends StatelessWidget {
@@ -123,7 +127,7 @@ class UserPreferencesItemSwitch implements UserPreferencesItem {
       ];
 
   @override
-  Widget Function(BuildContext) get builder =>
+  WidgetBuilder get builder =>
       (final BuildContext context) => UserPreferencesSwitchWidget(
             title: title,
             subtitle: subtitle,
@@ -154,14 +158,88 @@ class UserPreferencesItemTile implements UserPreferencesItem {
       ];
 
   @override
-  Widget Function(BuildContext) get builder =>
-      (final BuildContext context) => ListTile(
-            title: Text(title),
-            subtitle: subtitle == null ? null : Text(subtitle!),
-            onTap: onTap,
-            leading: leading,
-            trailing: trailing,
-          );
+  WidgetBuilder get builder => (final BuildContext context) => ListTile(
+        title: Text(title),
+        subtitle: subtitle == null ? null : Text(subtitle!),
+        onTap: onTap,
+        leading: leading,
+        trailing: trailing,
+      );
+}
+
+/// Same as [UserPreferencesItemTile] but with [WidgetBuilder].
+class UserPreferencesItemTileBuilder implements UserPreferencesItem {
+  const UserPreferencesItemTileBuilder({
+    required this.title,
+    required this.subtitleBuilder,
+    this.onTap,
+    this.leadingBuilder,
+    this.trailingBuilder,
+  });
+
+  final String title;
+  final WidgetBuilder subtitleBuilder;
+  final VoidCallback? onTap;
+  final WidgetBuilder? leadingBuilder;
+  final WidgetBuilder? trailingBuilder;
+
+  @override
+  List<String> get labels => <String>[title];
+
+  @override
+  WidgetBuilder get builder => (final BuildContext context) => ListTile(
+        title: Text(title),
+        subtitle: subtitleBuilder.call(context),
+        onTap: onTap,
+        leading: leadingBuilder?.call(context),
+        trailing: trailingBuilder?.call(context),
+      );
+}
+
+class UserPreferencesItemSection implements UserPreferencesItem {
+  const UserPreferencesItemSection({
+    required this.label,
+    this.icon,
+  }) : assert(label.length > 0);
+
+  final String label;
+  final Widget? icon;
+
+  @override
+  WidgetBuilder get builder => (BuildContext context) {
+        final SmoothColorsThemeExtension colors =
+            Theme.of(context).extension<SmoothColorsThemeExtension>()!;
+
+        return Container(
+          color: colors.primaryDark,
+          padding: const EdgeInsets.symmetric(
+            horizontal: LARGE_SPACE,
+            vertical: SMALL_SPACE,
+          ),
+          child: Row(
+            children: <Widget>[
+              Expanded(
+                child: Text(
+                  label,
+                  style: TextStyle(
+                    color: colors.primaryLight,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              if (icon != null)
+                IconTheme(
+                  data: IconThemeData(color: colors.primaryLight),
+                  child: icon!,
+                ),
+            ],
+          ),
+        );
+      };
+
+  @override
+  Iterable<String> get labels => <String>[label];
 }
 
 /// A preference allowing to choose between a list of items.
@@ -445,6 +523,131 @@ class UserPreferenceListTile extends StatelessWidget {
           ),
         ),
         if (showDivider) const UserPreferencesListItemDivider(),
+      ],
+    );
+  }
+}
+
+class UserPreferencesEditableItemTile extends UserPreferencesItemTile {
+  const UserPreferencesEditableItemTile({
+    required super.title,
+    required String dialogAction,
+    required this.onNewValue,
+    this.subtitleWithEmptyValue,
+    this.validator,
+    this.hint,
+    this.value,
+  })  : assert(dialogAction.length > 0),
+        super(subtitle: dialogAction);
+
+  final String? value;
+  final String? hint;
+  final String? subtitleWithEmptyValue;
+  final bool Function(String)? validator;
+  final Function(String) onNewValue;
+
+  @override
+  WidgetBuilder get builder => (BuildContext context) {
+        return ListTile(
+          title: Text(title),
+          subtitle: Text(value?.isNotEmpty == true
+              ? value!
+              : (subtitleWithEmptyValue ?? '-')),
+          onTap: () async => _showInputTextDialog(context),
+        );
+      };
+
+  Future<void> _showInputTextDialog(BuildContext context) async {
+    final TextEditingController controller =
+        TextEditingController(text: value ?? '');
+
+    final dynamic res = await showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+        return ChangeNotifierProvider<TextEditingController>.value(
+          value: controller,
+          child: Consumer<TextEditingController>(
+            builder:
+                (BuildContext context, TextEditingController controller, _) {
+              return SmoothAlertDialog(
+                title: title,
+                close: true,
+                body: _UserPreferencesEditableDialogContent(
+                  title: subtitle!,
+                  hint: hint,
+                ),
+                positiveAction: SmoothActionButton(
+                  text: appLocalizations.okay,
+                  onPressed: validator?.call(controller.text) != false
+                      ? () => Navigator.of(context).pop(controller.text)
+                      : null,
+                ),
+                negativeAction: SmoothActionButton(
+                  text: appLocalizations.cancel,
+                  onPressed: () => Navigator.of(context).pop(),
+                ),
+              );
+            },
+          ),
+        );
+      },
+    );
+
+    if (res is String && res != value) {
+      onNewValue.call(res);
+    }
+  }
+}
+
+class _UserPreferencesEditableDialogContent extends StatefulWidget {
+  const _UserPreferencesEditableDialogContent({
+    required this.title,
+    this.hint,
+  });
+
+  final String title;
+  final String? hint;
+
+  @override
+  State<_UserPreferencesEditableDialogContent> createState() =>
+      _InputTextDialogBodyState();
+}
+
+class _InputTextDialogBodyState
+    extends State<_UserPreferencesEditableDialogContent> {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Text(widget.title),
+        const SizedBox(height: 10),
+        TextField(
+          controller: Provider.of<TextEditingController>(context),
+          autocorrect: false,
+          autofocus: true,
+          textInputAction: TextInputAction.send,
+          decoration: InputDecoration(
+            hintText: widget.hint,
+            suffix: Semantics(
+              button: true,
+              label: MaterialLocalizations.of(context).deleteButtonTooltip,
+              excludeSemantics: true,
+              child: InkWell(
+                onTap: () => context.read<TextEditingController>().clear(),
+                customBorder: const CircleBorder(),
+                child: const Padding(
+                  padding: EdgeInsetsDirectional.all(SMALL_SPACE),
+                  child: Icon(Icons.clear),
+                ),
+              ),
+            ),
+          ),
+          onSubmitted: (String value) => Navigator.of(context).pop(value),
+        ),
       ],
     );
   }

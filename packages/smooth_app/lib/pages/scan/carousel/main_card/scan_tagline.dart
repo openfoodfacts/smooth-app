@@ -5,9 +5,9 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:smooth_app/cards/category_cards/svg_cache.dart';
+import 'package:smooth_app/data_models/news_feed/newsfeed_model.dart';
+import 'package:smooth_app/data_models/news_feed/newsfeed_provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
-import 'package:smooth_app/data_models/tagline/tagline_model.dart';
-import 'package:smooth_app/data_models/tagline/tagline_provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
@@ -22,12 +22,12 @@ class ScanTagLine extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<_ScanTagLineProvider>(
-      create: (BuildContext context) => _ScanTagLineProvider(context),
-      child: Consumer<_ScanTagLineProvider>(
+    return ChangeNotifierProvider<_ScanNewsFeedProvider>(
+      create: (BuildContext context) => _ScanNewsFeedProvider(context),
+      child: Consumer<_ScanNewsFeedProvider>(
         builder: (
           BuildContext context,
-          _ScanTagLineProvider scanTagLineProvider,
+          _ScanNewsFeedProvider scanTagLineProvider,
           Widget? child,
         ) {
           final _ScanTagLineState state = scanTagLineProvider.value;
@@ -70,7 +70,7 @@ class _ScanTagLineContent extends StatefulWidget {
     required this.news,
   });
 
-  final Iterable<TagLineNewsItem> news;
+  final Iterable<AppNewsItem> news;
 
   @override
   State<_ScanTagLineContent> createState() => _ScanTagLineContentState();
@@ -102,7 +102,7 @@ class _ScanTagLineContentState extends State<_ScanTagLineContent> {
     final ThemeProvider themeProvider = context.watch<ThemeProvider>();
     final SmoothColorsThemeExtension theme =
         Theme.of(context).extension<SmoothColorsThemeExtension>()!;
-    final TagLineNewsItem currentNews = widget.news.elementAt(_index);
+    final AppNewsItem currentNews = widget.news.elementAt(_index);
 
     // Default values seem weird
     const Radius radius = Radius.circular(16.0);
@@ -112,7 +112,7 @@ class _ScanTagLineContentState extends State<_ScanTagLineContent> {
         DecoratedBox(
           decoration: BoxDecoration(
             color: currentNews.style?.titleBackground ??
-                (themeProvider.isLightTheme
+                (!themeProvider.isDarkMode(context)
                     ? theme.primarySemiDark
                     : theme.primaryBlack),
             borderRadius: const BorderRadiusDirectional.only(
@@ -137,7 +137,7 @@ class _ScanTagLineContentState extends State<_ScanTagLineContent> {
           child: DecoratedBox(
             decoration: BoxDecoration(
               color: currentNews.style?.contentBackgroundColor ??
-                  (themeProvider.isLightTheme
+                  (!themeProvider.isDarkMode(context)
                       ? theme.primaryMedium
                       : theme.primaryDark),
               borderRadius: const BorderRadiusDirectional.only(
@@ -202,31 +202,36 @@ class _TagLineContentTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     final SmoothColorsThemeExtension theme =
         Theme.of(context).extension<SmoothColorsThemeExtension>()!;
+    final AppLocalizations localizations = AppLocalizations.of(context);
 
-    return ConstrainedBox(
-      constraints: const BoxConstraints(minHeight: 30.0),
-      child: Row(
-        children: <Widget>[
-          SizedBox.square(
-            dimension: 11.0,
-            child: DecoratedBox(
-              decoration: BoxDecoration(
-                color: indicatorColor ?? theme.secondaryLight,
-                borderRadius: const BorderRadius.all(ROUNDED_RADIUS),
+    return Semantics(
+      label: localizations.scan_tagline_news_item_accessibility(title),
+      excludeSemantics: true,
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(minHeight: 30.0),
+        child: Row(
+          children: <Widget>[
+            SizedBox.square(
+              dimension: 11.0,
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  color: indicatorColor ?? theme.secondaryLight,
+                  borderRadius: const BorderRadius.all(ROUNDED_RADIUS),
+                ),
               ),
             ),
-          ),
-          const SizedBox(width: SMALL_SPACE),
-          Expanded(
-              child: Text(
-            title,
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 16.0,
-              color: titleColor ?? Colors.white,
-            ),
-          ))
-        ],
+            const SizedBox(width: SMALL_SPACE),
+            Expanded(
+                child: Text(
+              title,
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 16.0,
+                color: titleColor ?? Colors.white,
+              ),
+            ))
+          ],
+        ),
       ),
     );
   }
@@ -241,7 +246,7 @@ class _TagLineContentBody extends StatelessWidget {
 
   final String message;
   final Color? textColor;
-  final TagLineImage? image;
+  final AppNewsImage? image;
 
   @override
   Widget build(BuildContext context) {
@@ -253,7 +258,7 @@ class _TagLineContentBody extends StatelessWidget {
       text: message,
       textStyle: TextStyle(
         color: textColor ??
-            (themeProvider.isLightTheme
+            (!themeProvider.isDarkMode(context)
                 ? theme.primarySemiDark
                 : theme.primaryLight),
       ),
@@ -346,49 +351,49 @@ class _TagLineContentButton extends StatelessWidget {
   }
 }
 
-/// Listen to [TagLineProvider] feed and provide a list of [TagLineNewsItem]
+/// Listen to [AppNewsProvider] feed and provide a list of [AppNewsItem]
 /// randomly sorted by unread, then displayed and clicked news.
-class _ScanTagLineProvider extends ValueNotifier<_ScanTagLineState> {
-  _ScanTagLineProvider(BuildContext context)
-      : _tagLineProvider = context.read<TagLineProvider>(),
+class _ScanNewsFeedProvider extends ValueNotifier<_ScanTagLineState> {
+  _ScanNewsFeedProvider(BuildContext context)
+      : _newsFeedProvider = context.read<AppNewsProvider>(),
         _userPreferences = context.read<UserPreferences>(),
         super(const _ScanTagLineStateLoading()) {
-    _tagLineProvider.addListener(_onTagLineStateChanged);
+    _newsFeedProvider.addListener(_onNewsFeedStateChanged);
     // Refresh with the current state
-    _onTagLineStateChanged();
+    _onNewsFeedStateChanged();
   }
 
-  final TagLineProvider _tagLineProvider;
+  final AppNewsProvider _newsFeedProvider;
   final UserPreferences _userPreferences;
 
-  void _onTagLineStateChanged() {
-    switch (_tagLineProvider.state) {
-      case TagLineLoading():
+  void _onNewsFeedStateChanged() {
+    switch (_newsFeedProvider.state) {
+      case AppNewsStateLoading():
         emit(const _ScanTagLineStateLoading());
-      case TagLineError():
+      case AppNewsStateError():
         emit(const _ScanTagLineStateNoContent());
-      case TagLineLoaded():
+      case AppNewsStateLoaded():
         _onTagLineContentAvailable(
-            (_tagLineProvider.state as TagLineLoaded).tagLineContent);
+            (_newsFeedProvider.state as AppNewsStateLoaded).content);
     }
   }
 
-  Future<void> _onTagLineContentAvailable(TagLine tagLine) async {
+  Future<void> _onTagLineContentAvailable(AppNews tagLine) async {
     if (!tagLine.feed.isNotEmpty) {
       emit(const _ScanTagLineStateNoContent());
       return;
     }
 
-    final List<TagLineNewsItem> unreadNews = <TagLineNewsItem>[];
-    final List<TagLineNewsItem> displayedNews = <TagLineNewsItem>[];
-    final List<TagLineNewsItem> clickedNews = <TagLineNewsItem>[];
+    final List<AppNewsItem> unreadNews = <AppNewsItem>[];
+    final List<AppNewsItem> displayedNews = <AppNewsItem>[];
+    final List<AppNewsItem> clickedNews = <AppNewsItem>[];
 
     final List<String> taglineFeedAlreadyClickedNews =
         _userPreferences.taglineFeedClickedNews;
     final List<String> taglineFeedAlreadyDisplayedNews =
         _userPreferences.taglineFeedDisplayedNews;
 
-    for (final TagLineFeedItem feedItem in tagLine.feed.news) {
+    for (final AppNewsFeedItem feedItem in tagLine.feed.news) {
       if (taglineFeedAlreadyClickedNews.contains(feedItem.id)) {
         clickedNews.add(feedItem.news);
       } else if (taglineFeedAlreadyDisplayedNews.contains(feedItem.id)) {
@@ -400,7 +405,7 @@ class _ScanTagLineProvider extends ValueNotifier<_ScanTagLineState> {
 
     emit(
       _ScanTagLineStateLoaded(
-        <TagLineNewsItem>[
+        <AppNewsItem>[
           ...unreadNews..shuffle(),
           ...displayedNews..shuffle(),
           ...clickedNews..shuffle(),
@@ -411,7 +416,7 @@ class _ScanTagLineProvider extends ValueNotifier<_ScanTagLineState> {
 
   @override
   void dispose() {
-    _tagLineProvider.removeListener(_onTagLineStateChanged);
+    _newsFeedProvider.removeListener(_onNewsFeedStateChanged);
     super.dispose();
   }
 }
@@ -431,5 +436,5 @@ class _ScanTagLineStateNoContent extends _ScanTagLineState {
 class _ScanTagLineStateLoaded extends _ScanTagLineState {
   const _ScanTagLineStateLoaded(this.tagLine);
 
-  final Iterable<TagLineNewsItem> tagLine;
+  final Iterable<AppNewsItem> tagLine;
 }

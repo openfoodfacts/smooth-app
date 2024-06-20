@@ -4,7 +4,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/background/background_task_details.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
-import 'package:smooth_app/pages/product/ocr_helper.dart';
+import 'package:smooth_app/pages/product/edit_ocr/ocr_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 /// OCR Helper for packaging.
@@ -47,6 +47,14 @@ class OcrPackagingHelper extends OcrHelper {
   @override
   String getActionExtractText(final AppLocalizations appLocalizations) =>
       appLocalizations.edit_packaging_extract_btn_text;
+
+  @override
+  String getActionExtractingData(AppLocalizations appLocalizations) =>
+      appLocalizations.edit_packaging_extracting_btn_text;
+
+  @override
+  String getActionLoadingPhoto(AppLocalizations appLocalizations) =>
+      appLocalizations.edit_packaging_loading_photo_btn_text;
 
   @override
   String getActionRefreshPhoto(final AppLocalizations appLocalizations) =>

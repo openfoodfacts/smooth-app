@@ -17,6 +17,7 @@ import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_page.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
+import 'package:smooth_app/pages/hunger_games/question_card.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/product/hideable_container.dart';
 import 'package:smooth_app/pages/product/product_compatibility_header.dart';
@@ -41,7 +42,7 @@ class SummaryCard extends StatefulWidget {
     this._product,
     this._productPreferences, {
     this.isFullVersion = false,
-    this.showUnansweredQuestions = false,
+    this.showQuestionsBanner = false,
     this.isRemovable = true,
     this.isSettingVisible = true,
     this.isProductEditable = true,
@@ -58,9 +59,8 @@ class SummaryCard extends StatefulWidget {
   /// Buttons should only be visible in full mode
   final bool isFullVersion;
 
-  /// If true, the summary card will try to load unanswered questions about this
-  /// product and give a prompt to answer those questions.
-  final bool showUnansweredQuestions;
+  /// If true, show the [QuestionCard] if there are questions for the product.
+  final bool showQuestionsBanner;
 
   /// If true, there will be a button to remove the product from the carousel.
   final bool isRemovable;
@@ -347,6 +347,7 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
           ProductIncompleteCard(product: upToDateProduct),
         ..._getAttributes(scoreAttributes),
         if (widget.isFullVersion &&
+            widget.showQuestionsBanner &&
             _questionsLayout == ProductQuestionsLayout.button)
           ProductQuestionsWidget(
             upToDateProduct,

@@ -373,6 +373,15 @@ class Ingredients extends AppIcon {
   }) : super._(_IconsFont.ingredients);
 }
 
+class Lab extends AppIcon {
+  const Lab({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  }) : super._(_IconsFont.lab);
+}
+
 class Labels extends AppIcon {
   const Labels({
     super.color,
@@ -389,6 +398,15 @@ class Lifebuoy extends AppIcon {
     super.shadow,
     super.key,
   }) : super._(_IconsFont.lifebuoy);
+}
+
+class MagicWand extends AppIcon {
+  const MagicWand({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  }) : super._(_IconsFont.magic_wand);
 }
 
 class Milk extends AppIcon {
@@ -580,6 +598,15 @@ class Sound extends AppIcon {
     super.shadow,
     super.key,
   }) : super._(_IconsFont.sound_off);
+}
+
+class Sparkles extends AppIcon {
+  const Sparkles({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  }) : super._(_IconsFont.sparkles);
 }
 
 class Stores extends AppIcon {

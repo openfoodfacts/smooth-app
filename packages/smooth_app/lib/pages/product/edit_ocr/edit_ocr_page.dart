@@ -1,8 +1,12 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
+import 'package:shimmer/shimmer.dart';
 import 'package:smooth_app/background/background_task_details.dart';
+import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/up_to_date_mixin.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/transient_file.dart';
@@ -12,13 +16,19 @@ import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/picture_not_found.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
+import 'package:smooth_app/helpers/provider_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
+import 'package:smooth_app/pages/product/edit_ocr/ocr_helper.dart';
 import 'package:smooth_app/pages/product/explanation_widget.dart';
 import 'package:smooth_app/pages/product/multilingual_helper.dart';
-import 'package:smooth_app/pages/product/ocr_helper.dart';
 import 'package:smooth_app/pages/product/product_image_button.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
+
+part 'edit_ocr_main_action.dart';
 
 /// Editing with OCR a product field and the corresponding image.
 ///
@@ -43,6 +53,7 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
   late final MultilingualHelper _multilingualHelper;
 
   OcrHelper get _helper => widget.helper;
+  bool _extractingData = false;
 
   @override
   void initState() {
@@ -62,7 +73,8 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
   ///
   /// When done, populates the related page field.
   Future<void> _extractData() async {
-    // TODO(monsieurtanuki): hide the "extract" button while extracting, or display a loading dialog on top
+    setState(() => _extractingData = true);
+
     try {
       final String? extractedText = await _helper.getExtractedText(
         widget.product,
@@ -83,8 +95,9 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
       if (_controller.text != extractedText) {
         setState(() => _controller.text = extractedText);
       }
-    } catch (e) {
-      //
+    } catch (_) {
+    } finally {
+      setState(() => _extractingData = false);
     }
   }
 
@@ -144,11 +157,16 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
     );
   }
 
-  Widget _getImageButton(final ProductImageButtonType type) => Padding(
+  Widget _getImageButton(
+    final ProductImageButtonType type,
+    final bool imageExists,
+  ) =>
+      Padding(
         padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
         child: type.getButton(
           product: upToDateProduct,
           imageField: _helper.getImageField(),
+          imageExists: imageExists,
           language: _multilingualHelper.getCurrentLanguage(),
           isLoggedInMandatory: widget.isLoggedInMandatory,
           borderWidth: 2,
@@ -210,6 +228,8 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
     final OpenFoodFactsLanguage language =
         _multilingualHelper.getCurrentLanguage();
     final ImageProvider? imageProvider = transientFile.getImageProvider();
+    final bool imageExists = imageProvider != null;
+
     return Align(
       alignment: AlignmentDirectional.bottomStart,
       child: Column(
@@ -232,10 +252,16 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
                     mainAxisSize: MainAxisSize.max,
                     children: <Widget>[
                       Expanded(
-                        child: _getImageButton(ProductImageButtonType.server),
+                        child: _getImageButton(
+                          ProductImageButtonType.server,
+                          imageExists,
+                        ),
                       ),
                       Expanded(
-                        child: _getImageButton(ProductImageButtonType.local),
+                        child: _getImageButton(
+                          ProductImageButtonType.local,
+                          imageExists,
+                        ),
                       ),
                     ],
                   ),
@@ -246,11 +272,16 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
                       mainAxisSize: MainAxisSize.max,
                       children: <Widget>[
                         Expanded(
-                          child:
-                              _getImageButton(ProductImageButtonType.unselect),
+                          child: _getImageButton(
+                            ProductImageButtonType.unselect,
+                            imageExists,
+                          ),
                         ),
                         Expanded(
-                          child: _getImageButton(ProductImageButtonType.edit),
+                          child: _getImageButton(
+                            ProductImageButtonType.edit,
+                            imageExists,
+                          ),
                         ),
                       ],
                     ),
@@ -260,16 +291,21 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
           ),
           Flexible(
             flex: 1,
-            child: Container(
+            child: DecoratedBox(
               decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.background,
-                  borderRadius: const BorderRadiusDirectional.only(
-                    topStart: ANGULAR_RADIUS,
-                    topEnd: ANGULAR_RADIUS,
-                  )),
+                color: Theme.of(context).colorScheme.background,
+                borderRadius: const BorderRadiusDirectional.only(
+                  topStart: ANGULAR_RADIUS,
+                  topEnd: ANGULAR_RADIUS,
+                ),
+              ),
               child: SingleChildScrollView(
                 child: Padding(
-                  padding: const EdgeInsets.all(LARGE_SPACE),
+                  padding: const EdgeInsetsDirectional.only(
+                    start: LARGE_SPACE,
+                    end: LARGE_SPACE,
+                    top: LARGE_SPACE,
+                  ),
                   child: Column(
                     children: <Widget>[
                       if (!_multilingualHelper.isMonolingual())
@@ -277,29 +313,60 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
                           setState: setState,
                           product: upToDateProduct,
                         ),
-                      if (transientFile.isServerImage())
-                        SmoothActionButtonsBar.single(
-                          action: SmoothActionButton(
-                            text:
-                                _helper.getActionExtractText(appLocalizations),
-                            onPressed: () async => _extractData(),
-                          ),
-                        )
-                      else if (transientFile.isImageAvailable())
-                        // TODO(monsieurtanuki): what if slow upload? text instead?
-                        const CircularProgressIndicator.adaptive(),
+                      _EditOcrMainAction(
+                        onPressed: _extractData,
+                        helper: _helper,
+                        state: _extractState(transientFile),
+                      ),
                       const SizedBox(height: MEDIUM_SPACE),
-                      TextField(
-                        controller: _controller,
-                        decoration: InputDecoration(
-                          fillColor: Colors.white.withOpacity(0.2),
-                          filled: true,
-                          enabledBorder: const OutlineInputBorder(
-                            borderRadius: ANGULAR_BORDER_RADIUS,
-                          ),
-                        ),
-                        maxLines: null,
-                        textInputAction: TextInputAction.newline,
+                      ConsumerFilter<UserPreferences>(
+                        buildWhen: (
+                          UserPreferences? previousValue,
+                          UserPreferences currentValue,
+                        ) {
+                          return previousValue?.getFlag(UserPreferencesDevMode
+                                  .userPreferencesFlagSpellCheckerOnOcr) !=
+                              currentValue.getFlag(UserPreferencesDevMode
+                                  .userPreferencesFlagSpellCheckerOnOcr);
+                        },
+                        builder: (
+                          BuildContext context,
+                          UserPreferences prefs,
+                          Widget? child,
+                        ) {
+                          final ThemeData theme = Theme.of(context);
+
+                          return Theme(
+                            data: theme.copyWith(
+                              colorScheme: theme.colorScheme.copyWith(
+                                onSurface: context
+                                        .read<ThemeProvider>()
+                                        .isDarkMode(context)
+                                    ? Colors.white
+                                    : Colors.black,
+                              ),
+                            ),
+                            child: TextField(
+                              controller: _controller,
+                              decoration: InputDecoration(
+                                fillColor: Colors.white.withOpacity(0.2),
+                                filled: true,
+                                enabledBorder: const OutlineInputBorder(
+                                  borderRadius: ANGULAR_BORDER_RADIUS,
+                                ),
+                              ),
+                              maxLines: null,
+                              textInputAction: TextInputAction.newline,
+                              spellCheckConfiguration: (prefs.getFlag(
+                                              UserPreferencesDevMode
+                                                  .userPreferencesFlagSpellCheckerOnOcr) ??
+                                          false) &&
+                                      (Platform.isAndroid || Platform.isIOS)
+                                  ? const SpellCheckConfiguration()
+                                  : const SpellCheckConfiguration.disabled(),
+                            ),
+                          );
+                        },
                       ),
                       const SizedBox(height: SMALL_SPACE),
                       ExplanationWidget(
@@ -321,31 +388,30 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
                             iconData: Icons.add_a_photo,
                           ),
                         ),
-                      const SizedBox(height: MEDIUM_SPACE),
-                      SmoothActionButtonsBar(
-                        axis: Axis.horizontal,
-                        negativeAction: SmoothActionButton(
-                          text: appLocalizations.cancel,
-                          onPressed: () => Navigator.pop(context),
-                        ),
-                        positiveAction: SmoothActionButton(
-                          text: appLocalizations.save,
-                          onPressed: () async {
-                            await _updateText();
-                            if (!mounted) {
-                              return;
-                            }
-                            Navigator.pop(context);
-                          },
-                        ),
-                      ),
-                      const SizedBox(height: MEDIUM_SPACE),
                     ],
                   ),
                 ),
               ),
             ),
           ),
+          SmoothActionButtonsBar(
+            axis: Axis.horizontal,
+            negativeAction: SmoothActionButton(
+              text: appLocalizations.cancel,
+              onPressed: () => Navigator.pop(context),
+            ),
+            positiveAction: SmoothActionButton(
+              text: appLocalizations.save,
+              onPressed: () async {
+                await _updateText();
+                if (!mounted) {
+                  return;
+                }
+                Navigator.pop(context);
+              },
+            ),
+          ),
+          SizedBox(height: MediaQuery.paddingOf(context).bottom),
         ],
       ),
     );
@@ -372,5 +438,17 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
       }
     }
     return result;
+  }
+
+  _OcrState _extractState(TransientFile transientFile) {
+    if (_extractingData) {
+      return _OcrState.EXTRACTING_DATA;
+    } else if (transientFile.isServerImage()) {
+      return _OcrState.IMAGE_LOADED;
+    } else if (transientFile.isImageAvailable()) {
+      return _OcrState.IMAGE_LOADING;
+    } else {
+      return _OcrState.OTHER;
+    }
   }
 }

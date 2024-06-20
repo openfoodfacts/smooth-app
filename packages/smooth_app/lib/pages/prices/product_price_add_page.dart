@@ -5,16 +5,20 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/database/dao_osm_location.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
-import 'package:smooth_app/helpers/product_cards_helper.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/pages/locations/osm_location.dart';
 import 'package:smooth_app/pages/prices/price_amount_card.dart';
+import 'package:smooth_app/pages/prices/price_amount_model.dart';
 import 'package:smooth_app/pages/prices/price_currency_card.dart';
 import 'package:smooth_app/pages/prices/price_date_card.dart';
 import 'package:smooth_app/pages/prices/price_location_card.dart';
+import 'package:smooth_app/pages/prices/price_meta_product.dart';
 import 'package:smooth_app/pages/prices/price_model.dart';
+import 'package:smooth_app/pages/prices/price_product_search_page.dart';
 import 'package:smooth_app/pages/prices/price_proof_card.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
@@ -23,43 +27,19 @@ import 'package:smooth_app/widgets/smooth_scaffold.dart';
 /// Single page that displays all the elements of price adding.
 class ProductPriceAddPage extends StatefulWidget {
   const ProductPriceAddPage({
-    required this.barcode,
-    required this.title,
+    required this.product,
     required this.latestOsmLocations,
+    required this.proofType,
   });
 
-  final String barcode;
-  final String title;
+  final PriceMetaProduct product;
   final List<OsmLocation> latestOsmLocations;
-
-  static Future<void> showBarcodePage({
-    required final BuildContext context,
-    required final String barcode,
-    required final String title,
-  }) async =>
-      _showPage(
-        context: context,
-        barcode: barcode,
-        title: title,
-      );
+  final ProofType proofType;
 
   static Future<void> showProductPage({
     required final BuildContext context,
-    required final Product product,
-  }) async =>
-      _showPage(
-        context: context,
-        barcode: product.barcode!,
-        title: getProductNameAndBrands(
-          product,
-          AppLocalizations.of(context),
-        ),
-      );
-
-  static Future<void> _showPage({
-    required final BuildContext context,
-    required final String barcode,
-    required final String title,
+    required final PriceMetaProduct product,
+    required final ProofType proofType,
   }) async {
     if (!await ProductRefresher().checkIfLoggedIn(
       context,
@@ -79,9 +59,9 @@ class ProductPriceAddPage extends StatefulWidget {
     await Navigator.of(context).push(
       MaterialPageRoute<void>(
         builder: (BuildContext context) => ProductPriceAddPage(
-          barcode: barcode,
-          title: title,
+          product: product,
           latestOsmLocations: osmLocations,
+          proofType: proofType,
         ),
       ),
     );
@@ -93,9 +73,9 @@ class ProductPriceAddPage extends StatefulWidget {
 
 class _ProductPriceAddPageState extends State<ProductPriceAddPage> {
   late final PriceModel _model = PriceModel(
-    proofType: ProofType.priceTag,
+    proofType: widget.proofType,
     locations: widget.latestOsmLocations,
-    barcode: widget.barcode,
+    product: widget.product,
   );
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -113,10 +93,10 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage> {
             centerTitle: false,
             leading: const SmoothBackButton(),
             title: Text(
-              widget.title,
-              maxLines: 1,
+              appLocalizations.prices_add_n_prices(
+                _model.priceAmountModels.length,
+              ),
             ),
-            subTitle: Text(widget.barcode),
             actions: <Widget>[
               IconButton(
                 icon: const Icon(Icons.info),
@@ -124,48 +104,58 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage> {
               ),
             ],
           ),
-          body: const SingleChildScrollView(
-            padding: EdgeInsets.all(LARGE_SPACE),
+          body: SingleChildScrollView(
+            padding: const EdgeInsets.all(LARGE_SPACE),
             child: Column(
               children: <Widget>[
-                PriceProofCard(),
-                SizedBox(height: LARGE_SPACE),
-                PriceDateCard(),
-                SizedBox(height: LARGE_SPACE),
-                PriceLocationCard(),
-                SizedBox(height: LARGE_SPACE),
-                PriceCurrencyCard(),
-                SizedBox(height: LARGE_SPACE),
-                PriceAmountCard(),
+                const PriceProofCard(),
+                const SizedBox(height: LARGE_SPACE),
+                const PriceDateCard(),
+                const SizedBox(height: LARGE_SPACE),
+                const PriceLocationCard(),
+                const SizedBox(height: LARGE_SPACE),
+                const PriceCurrencyCard(),
+                const SizedBox(height: LARGE_SPACE),
+                for (int i = 0; i < _model.priceAmountModels.length; i++)
+                  PriceAmountCard(
+                    priceModel: _model,
+                    index: i,
+                    refresh: () => setState(() {}),
+                  ),
+                // TODO(monsieurtanuki): check if there's an empty barcode before displaying this card
+                SmoothCard(
+                  child: SmoothLargeButtonWithIcon(
+                    text: appLocalizations.prices_add_an_item,
+                    icon: Icons.add,
+                    onPressed: () async {
+                      final PriceMetaProduct? product =
+                          await Navigator.of(context).push<PriceMetaProduct>(
+                        MaterialPageRoute<PriceMetaProduct>(
+                          builder: (BuildContext context) =>
+                              const PriceProductSearchPage(),
+                        ),
+                      );
+                      if (product == null) {
+                        return;
+                      }
+                      setState(
+                        () => _model.priceAmountModels.add(
+                          PriceAmountModel(
+                            product: product,
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ),
                 // so that the last items don't get hidden by the FAB
-                SizedBox(height: MINIMUM_TOUCH_SIZE * 2),
+                const SizedBox(height: MINIMUM_TOUCH_SIZE * 2),
               ],
             ),
           ),
           floatingActionButton: FloatingActionButton.extended(
             onPressed: () async {
-              if (!_formKey.currentState!.validate()) {
-                return;
-              }
-
-              String? error;
-              try {
-                error = await _model.checkParameters(context);
-              } catch (e) {
-                error = e.toString();
-              }
-              if (error != null) {
-                if (!context.mounted) {
-                  return;
-                }
-                await showDialog<void>(
-                  context: context,
-                  builder: (BuildContext context) =>
-                      SmoothSimpleErrorAlertDialog(
-                    title: appLocalizations.prices_add_validation_error,
-                    message: error!,
-                  ),
-                );
+              if (!await _check(context)) {
                 return;
               }
               if (!context.mounted) {
@@ -194,7 +184,11 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage> {
               Navigator.of(context).pop();
             },
             icon: const Icon(Icons.send),
-            label: Text(appLocalizations.prices_send_the_price),
+            label: Text(
+              appLocalizations.prices_send_n_prices(
+                _model.priceAmountModels.length,
+              ),
+            ),
           ),
         ),
       ),
@@ -221,5 +215,33 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage> {
               ),
       ),
     );
+  }
+
+  /// Returns true if the basic checks passed.
+  Future<bool> _check(final BuildContext context) async {
+    if (!_formKey.currentState!.validate()) {
+      return false;
+    }
+
+    String? error;
+    try {
+      error = _model.checkParameters(context);
+    } catch (e) {
+      error = e.toString();
+    }
+    if (error != null) {
+      if (!context.mounted) {
+        return false;
+      }
+      await showDialog<void>(
+        context: context,
+        builder: (BuildContext context) => SmoothSimpleErrorAlertDialog(
+          title: AppLocalizations.of(context).prices_add_validation_error,
+          message: error!,
+        ),
+      );
+      return false;
+    }
+    return true;
   }
 }

@@ -1725,10 +1725,10 @@
     "prices_add_a_price": "Ajouter un prix",
     "prices_add_a_receipt": "Ajouter un ticket de caisse",
     "prices_add_price_tags": "Ajouter des étiquettes de prix",
-    "prices_barcode_search_not_found": "Produit introuvable",
+    "prices_barcode_search_not_found": "Produit non trouvé",
     "prices_barcode_search_none_yet": "Pas encore de produit",
     "prices_barcode_search_question": "Voulez-vous chercher ce produit ?",
-    "prices_barcode_search_title": "Recherche de produits",
+    "prices_barcode_search_title": "Recherche de produit",
     "prices_barcode_search_running": "À la recherche de {barcode}",
     "@prices_barcode_search_running": {
         "description": "Dialog title about barcode look-up",

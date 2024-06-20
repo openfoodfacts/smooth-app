@@ -73,6 +73,21 @@ class BarcodeAnimation extends StatelessWidget {
   }
 }
 
+class CloudUploadAnimation extends StatelessWidget {
+  const CloudUploadAnimation({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return RiveAnimation.direct(
+      AnimationsLoader.of(context),
+      artboard: 'Cloud upload',
+      animations: const <String>['Animation'],
+    );
+  }
+}
+
 class ConsentAnimation extends StatelessWidget {
   const ConsentAnimation({
     super.key,
@@ -169,7 +184,7 @@ class _SearchEyeAnimationState extends State<SearchEyeAnimation> {
   @override
   Widget build(BuildContext context) {
     final double size = widget.size ?? IconTheme.of(context).size ?? 24.0;
-    final bool lightTheme = context.watch<ThemeProvider>().isLightTheme;
+    final bool lightTheme = !context.watch<ThemeProvider>().isDarkMode(context);
 
     return ExcludeSemantics(
       child: SizedBox(
