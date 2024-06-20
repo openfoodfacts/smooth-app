@@ -2156,7 +2156,7 @@
             }
         }
     },
-    "capture": "Capture New",
+    "capture": "Take a new picture",
     "@capture": {
         "description": "Button label for taking a new photo (= there's already one)"
     },
