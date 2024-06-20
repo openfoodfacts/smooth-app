@@ -26,12 +26,12 @@ class AppNewsProvider extends ChangeNotifier {
   AppNewsProvider(UserPreferences preferences)
       : _state = const AppNewsStateLoading(),
         _preferences = preferences,
+        _uriOverride = preferences.getDevModeString(
+            UserPreferencesDevMode.userPreferencesCustomNewsJSONURI),
         _domain = preferences.getDevModeString(
-                UserPreferencesDevMode.userPreferencesTestEnvDomain) ??
-            '',
+            UserPreferencesDevMode.userPreferencesTestEnvDomain),
         _prodEnv = preferences
-                .getFlag(UserPreferencesDevMode.userPreferencesFlagProd) ??
-            true {
+            .getFlag(UserPreferencesDevMode.userPreferencesFlagProd) {
     _preferences.addListener(_onPreferencesChanged);
     loadLatestNews();
   }
@@ -67,13 +67,13 @@ class AppNewsProvider extends ChangeNotifier {
       return;
     }
 
-    final AppNews? tagLine = await Isolate.run(
+    final AppNews? appNews = await Isolate.run(
         () => _parseJSONAndGetLocalizedContent(jsonString!, locale));
-    if (tagLine == null) {
+    if (appNews == null) {
       _emit(const AppNewsStateError('Unable to parse the JSON news file'));
       Logs.e('Unable to parse the JSON news file');
     } else {
-      _emit(AppNewsStateLoaded(tagLine));
+      _emit(AppNewsStateLoaded(appNews, cacheFile.lastModifiedSync()));
       Logs.i('News ${forceUpdate ? 're' : ''}loaded');
     }
   }
@@ -106,7 +106,13 @@ class AppNewsProvider extends ChangeNotifier {
     try {
       final UriProductHelper uriProductHelper = ProductQuery.uriProductHelper;
       final Map<String, String> headers = <String, String>{};
-      final Uri uri = uriProductHelper.getUri(path: _newsUrl);
+      final Uri uri;
+
+      if (_uriOverride?.isNotEmpty == true) {
+        uri = Uri.parse(_uriOverride!);
+      } else {
+        uri = uriProductHelper.getUri(path: _newsUrl);
+      }
 
       if (uriProductHelper.userInfoForPatch != null) {
         headers['Authorization'] =
@@ -158,10 +164,14 @@ class AppNewsProvider extends ChangeNotifier {
 
   bool? _prodEnv;
   String? _domain;
+  String? _uriOverride;
 
   /// [ProductQuery.uriProductHelper] is not synced yet,
   /// so we have to check it manually
   Future<void> _onPreferencesChanged() async {
+    final String jsonURI = _preferences.getDevModeString(
+            UserPreferencesDevMode.userPreferencesCustomNewsJSONURI) ??
+        '';
     final String domain = _preferences.getDevModeString(
             UserPreferencesDevMode.userPreferencesTestEnvDomain) ??
         '';
@@ -169,9 +179,10 @@ class AppNewsProvider extends ChangeNotifier {
         _preferences.getFlag(UserPreferencesDevMode.userPreferencesFlagProd) ??
             true;
 
-    if (domain != _domain || prodEnv != _prodEnv) {
+    if (domain != _domain || prodEnv != _prodEnv || jsonURI != _uriOverride) {
       _domain = domain;
       _prodEnv = prodEnv;
+      _uriOverride = jsonURI;
       loadLatestNews(forceUpdate: true);
     }
   }
@@ -192,9 +203,10 @@ final class AppNewsStateLoading extends AppNewsState {
 }
 
 class AppNewsStateLoaded extends AppNewsState {
-  const AppNewsStateLoaded(this.content);
+  const AppNewsStateLoaded(this.content, this.lastUpdate);
 
   final AppNews content;
+  final DateTime lastUpdate;
 }
 
 class AppNewsStateError extends AppNewsState {
