@@ -1720,11 +1720,11 @@
     "@dev_preferences_news_custom_url_title": {
         "description": "News dev preferences - Custom URL for news - Title"
     },
-    "dev_preferences_news_custom_url_subtitle": "URL of the JSON file:",
+    "dev_preferences_news_custom_url_subtitle": "URL der JSON-Datei:",
     "@dev_preferences_news_custom_url_subtitle": {
         "description": "News dev preferences - Custom URL for news - Title"
     },
-    "dev_preferences_news_custom_url_empty_value": "Not set",
+    "dev_preferences_news_custom_url_empty_value": "Nicht festgelegt",
     "@dev_preferences_news_custom_url_empty_value": {
         "description": "Message to show when the custom news URL is not set"
     },
@@ -1732,7 +1732,7 @@
     "@dev_preferences_news_provider_status_title": {
         "description": "News dev preferences - Status - Title"
     },
-    "dev_preferences_news_provider_status_subtitle": "Last refresh: {date}",
+    "dev_preferences_news_provider_status_subtitle": "Letzte Aktualisierung: {date}",
     "@dev_preferences_news_provider_status_subtitle": {
         "description": "News dev preferences - Custom URL for news - Subtitle",
         "placeholders": {
@@ -1892,7 +1892,7 @@
         "description": "User dev preferences - Import history - Result successful"
     },
     "dev_mode_section_server": "Serverkonfiguration",
-    "dev_mode_section_news": "News provider configuration",
+    "dev_mode_section_news": "Konfiguration des Nachrichtenanbieters",
     "dev_mode_section_product_page": "Produktseite",
     "dev_mode_section_ui": "Benutzeroberfläche",
     "dev_mode_section_data": "Daten",
