@@ -9,12 +9,21 @@ class EditImageButton extends StatelessWidget {
     required this.label,
     required this.onPressed,
     this.borderWidth,
-  });
+  }) : _centerContent = false;
+
+  /// Centered version of the button.
+  const EditImageButton.center({
+    required this.iconData,
+    required this.label,
+    required this.onPressed,
+    this.borderWidth,
+  }) : _centerContent = true;
 
   final IconData iconData;
   final String label;
   final VoidCallback onPressed;
   final double? borderWidth;
+  final bool _centerContent;
 
   @override
   Widget build(BuildContext context) {
@@ -36,10 +45,18 @@ class EditImageButton extends StatelessWidget {
                     width: borderWidth!,
                   ),
                 ),
+          padding: _centerContent
+              ? MaterialStateProperty.all(
+                  const EdgeInsets.symmetric(
+                    vertical: LARGE_SPACE,
+                  ),
+                )
+              : null,
+          alignment: _centerContent ? AlignmentDirectional.center : null,
         ),
         onPressed: onPressed,
         label: SizedBox(
-          width: double.infinity,
+          width: !_centerContent ? double.infinity : null,
           child: Padding(
             padding: EdgeInsets.all(borderWidth ?? 0),
             child: AutoSizeText(
