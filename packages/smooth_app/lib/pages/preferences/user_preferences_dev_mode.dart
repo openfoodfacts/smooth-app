@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:intl/intl.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_badge.dart';
 import 'package:smooth_app/background/background_task_language_refresh.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
+import 'package:smooth_app/data_models/news_feed/newsfeed_provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_osm_location.dart';
@@ -59,6 +61,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
   static const String userPreferencesFlagUserOrderedKP = '__userOrderedKP';
   static const String userPreferencesFlagSpellCheckerOnOcr =
       '__spellcheckerOcr';
+  static const String userPreferencesCustomNewsJSONURI = '__newsJsonURI';
 
   final TextEditingController _textFieldController = TextEditingController();
 
@@ -265,6 +268,49 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
                 .toString(),
           ),
           onTap: () async => _changeTestEnvDomain(),
+        ),
+        UserPreferencesItemSection(
+          label: appLocalizations.dev_mode_section_news,
+        ),
+        UserPreferencesEditableItemTile(
+          title: appLocalizations.dev_preferences_news_custom_url_title,
+          subtitleWithEmptyValue:
+              appLocalizations.dev_preferences_news_custom_url_empty_value,
+          dialogAction:
+              appLocalizations.dev_preferences_news_custom_url_subtitle,
+          value: userPreferences
+              .getDevModeString(userPreferencesCustomNewsJSONURI),
+          onNewValue: (String newUrl) => userPreferences.setDevModeString(
+            userPreferencesCustomNewsJSONURI,
+            newUrl,
+          ),
+          validator: (String value) =>
+              value.isEmpty || Uri.tryParse(value) != null,
+        ),
+        UserPreferencesItemTileBuilder(
+          title: appLocalizations.dev_preferences_news_provider_status_title,
+          subtitleBuilder: (BuildContext context) {
+            return Consumer<AppNewsProvider>(
+                builder: (_, AppNewsProvider provider, __) {
+              return Text(switch (provider.state) {
+                AppNewsStateLoading() => 'Loading...',
+                AppNewsStateLoaded(lastUpdate: final DateTime date) =>
+                  appLocalizations
+                      .dev_preferences_news_provider_status_subtitle(
+                    DateFormat.yMd().format(date),
+                  ),
+                AppNewsStateError(exception: final dynamic e) => 'Error $e',
+              });
+            });
+          },
+          trailingBuilder: (BuildContext context) {
+            return IconButton(
+              icon: const Icon(Icons.refresh),
+              onPressed: () => context
+                  .read<AppNewsProvider>()
+                  .loadLatestNews(forceUpdate: true),
+            );
+          },
         ),
         UserPreferencesItemSection(
           label: appLocalizations.dev_mode_section_product_page,
