@@ -2827,7 +2827,7 @@
     "@guide_nutriscore_v2_file_language": {
         "description": "The logo is only available in de/en/fr/ln/nl. Please use en if not available (in lowercase, please)."
     },
-    "guide_nutriscore_v2_what_is_nutriscore_title": "What is the Nutri-Score?",
+    "guide_nutriscore_v2_what_is_nutriscore_title": "อธิบายเพิ่มเติมเกี่ยวกับ Nutri-Score",
     "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "The Nutri-Score is a logo which aims to inform you about the **nutritional quality of foods**.",
     "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
         "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
