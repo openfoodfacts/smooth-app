@@ -53,7 +53,7 @@ dependencies:
   auto_size_text: 3.0.0
   crop_image: 1.0.13
   shared_preferences: 2.2.3
-  intl: ^0.18.1
+  intl: 0.18.1
   collection: 1.18.0
   path: 1.9.0
   path_provider: 2.1.3
