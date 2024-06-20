@@ -31,62 +31,94 @@ class PriceProductWidget extends StatelessWidget {
     final String? quantity = priceProduct.quantity == null
         ? null
         : '${priceProduct.quantity} ${priceProduct.quantityUnit ?? 'g'}';
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        SizedBox(
-          width: size,
-          child: SmoothImage(
+    return Semantics(
+      label: _generateSemanticsLabel(
+        appLocalizations,
+        name,
+        brands,
+        quantity,
+        priceCount,
+      ),
+      container: true,
+      excludeSemantics: true,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          SizedBox(
             width: size,
-            height: size,
-            imageProvider: imageURL == null ? null : NetworkImage(imageURL),
+            child: SmoothImage(
+              width: size,
+              height: size,
+              imageProvider: imageURL == null ? null : NetworkImage(imageURL),
+            ),
           ),
-        ),
-        const SizedBox(width: SMALL_SPACE),
-        Expanded(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              AutoSizeText(
-                name,
-                maxLines: 2,
-                style: Theme.of(context).textTheme.titleMedium,
-              ),
-              Wrap(
-                spacing: VERY_SMALL_SPACE,
-                crossAxisAlignment: WrapCrossAlignment.center,
-                runSpacing: 0,
-                children: <Widget>[
-                  PriceCountWidget(
-                    priceCount,
-                    priceProduct: priceProduct,
-                    enableCountButton: model.enableCountButton,
-                  ),
-                  if (brands != null)
-                    for (final String brand in brands)
-                      PriceButton(
-                        title: brand,
-                        onPressed: () {},
-                      ),
-                  if (quantity != null) Text(quantity),
-                  if (unknown)
-                    PriceButton(
-                      title: appLocalizations.prices_unknown_product,
-                      iconData: Icons.warning,
-                      onPressed: null,
-                      buttonStyle: ElevatedButton.styleFrom(
-                        disabledForegroundColor: Colors.red,
-                        disabledBackgroundColor: Colors.red[100],
-                      ),
+          const SizedBox(width: SMALL_SPACE),
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                AutoSizeText(
+                  name,
+                  maxLines: 2,
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
+                Wrap(
+                  spacing: VERY_SMALL_SPACE,
+                  crossAxisAlignment: WrapCrossAlignment.center,
+                  runSpacing: 0,
+                  children: <Widget>[
+                    PriceCountWidget(
+                      priceCount,
+                      priceProduct: priceProduct,
+                      enableCountButton: model.enableCountButton,
                     ),
-                ],
-              ),
-            ],
+                    if (brands != null)
+                      for (final String brand in brands)
+                        PriceButton(
+                          title: brand,
+                          onPressed: () {},
+                        ),
+                    if (quantity != null) Text(quantity),
+                    if (unknown)
+                      PriceButton(
+                        title: appLocalizations.prices_unknown_product,
+                        iconData: Icons.warning,
+                        onPressed: null,
+                        buttonStyle: ElevatedButton.styleFrom(
+                          disabledForegroundColor: Colors.red,
+                          disabledBackgroundColor: Colors.red[100],
+                        ),
+                      ),
+                  ],
+                ),
+              ],
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
+    );
+  }
+
+  String _generateSemanticsLabel(
+    AppLocalizations appLocalizations,
+    String productName,
+    List<String>? brands,
+    String? quantity,
+    int priceCount,
+  ) {
+    final StringBuffer product = StringBuffer(productName);
+    if (brands?.isNotEmpty == true) {
+      product.write(' - ${brands!.join(', ')}');
+    }
+    if (quantity?.isNotEmpty == true) {
+      product.write(' ($quantity)');
+    }
+
+    return appLocalizations.prices_product_accessibility_summary(
+      priceCount,
+      product.toString(),
     );
   }
 }

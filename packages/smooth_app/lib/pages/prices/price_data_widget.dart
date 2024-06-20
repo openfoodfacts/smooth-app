@@ -62,53 +62,67 @@ class PriceDataWidget extends StatelessWidget {
     final String? pricePerKg = getPricePerKg();
     final String? notDiscountedPrice = getNotDiscountedPrice();
 
-    return Wrap(
-      alignment: WrapAlignment.start,
-      crossAxisAlignment: WrapCrossAlignment.center,
-      spacing: MEDIUM_SPACE,
-      children: <Widget>[
-        Text(
-          '${currencyFormat.format(price.price)}'
-          ' ${pricePerKg == null ? '' : ' ($pricePerKg)'}',
-        ),
-        Text(dateFormat.format(price.date)),
-        if (notDiscountedPrice != null) Text('($notDiscountedPrice)'),
-        if (locationTitle != null)
-          // TODO(monsieurtanuki): open a still-to-be-done "price x location" page
-          PriceButton(
-            title: locationTitle,
-            iconData: Icons.location_on_outlined,
-            onPressed: () {},
-          ),
-        if (model.displayOwner) PriceUserButton(price.owner),
-        Tooltip(
-          message: '${dateFormat.format(price.created)}'
-              ' '
-              '${timeFormat.format(price.created)}',
-          child: PriceButton(
-            // TODO(monsieurtanuki): misleading "active" button
-            onPressed: () {},
-            iconData: Icons.history,
-            title: ProductQueryPageHelper.getDurationStringFromTimestamp(
-              price.created.millisecondsSinceEpoch,
-              context,
-              compact: true,
+    final String priceLabel = '${currencyFormat.format(price.price)}'
+        ' ${pricePerKg == null ? '' : ' ($pricePerKg)'}';
+    return Semantics(
+      container: true,
+      explicitChildNodes: false,
+      label: appLocalizations.prices_entry_accessibility_label(
+        priceLabel,
+        locationTitle ?? '-',
+        dateFormat.format(price.date),
+        price.owner,
+      ),
+      child: Wrap(
+        alignment: WrapAlignment.start,
+        crossAxisAlignment: WrapCrossAlignment.center,
+        spacing: MEDIUM_SPACE,
+        children: <Widget>[
+          ExcludeSemantics(child: Text(priceLabel)),
+          ExcludeSemantics(child: Text(dateFormat.format(price.date))),
+          if (notDiscountedPrice != null) Text('($notDiscountedPrice)'),
+          if (locationTitle != null)
+            // TODO(monsieurtanuki): open a still-to-be-done "price x location" page
+            ExcludeSemantics(
+              child: PriceButton(
+                title: locationTitle,
+                iconData: Icons.location_on_outlined,
+                onPressed: () {},
+              ),
             ),
-          ),
-        ),
-        if (price.proof?.filePath != null)
-          PriceButton(
-            iconData: Icons.image,
-            onPressed: () async => Navigator.push<void>(
-              context,
-              MaterialPageRoute<void>(
-                builder: (BuildContext context) => PriceProofPage(
-                  price.proof!,
+          if (model.displayOwner) PriceUserButton(price.owner),
+          ExcludeSemantics(
+            child: Tooltip(
+              message: '${dateFormat.format(price.created)}'
+                  ' '
+                  '${timeFormat.format(price.created)}',
+              child: PriceButton(
+                // TODO(monsieurtanuki): misleading "active" button
+                onPressed: () {},
+                iconData: Icons.history,
+                title: ProductQueryPageHelper.getDurationStringFromTimestamp(
+                  price.created.millisecondsSinceEpoch,
+                  context,
+                  compact: true,
                 ),
               ),
-            ), // PriceProofPage
+            ),
           ),
-      ],
+          if (price.proof?.filePath != null)
+            PriceButton(
+              iconData: Icons.image,
+              tooltip: appLocalizations.prices_open_proof,
+              onPressed: () async => Navigator.push<void>(
+                context,
+                MaterialPageRoute<void>(
+                  builder: (BuildContext context) => PriceProofPage(
+                    price.proof!,
+                  ),
+                ),
+              ), // PriceProofPage
+            ),
+        ],
+      ),
     );
   }
 
