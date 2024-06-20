@@ -4,7 +4,7 @@
     "@sep": {
         "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
     },
-    "yes": "Da",
+    "yes": "Yes",
     "@yes": {},
     "add": "Додај",
     "@add": {},
@@ -29,7 +29,7 @@
         "description": "A label on a button that says 'Previous', pressing the button takes the user to the previous screen."
     },
     "go_back_to_top": "Go back to top",
-    "save": "Sačuvaj",
+    "save": "Save",
     "save_confirmation": "Are you sure you want to save?",
     "skip": "Skip",
     "cancel": "Cancel",
@@ -38,9 +38,9 @@
     "@ignore": {
         "description": "'Ignore' button. Typical use case in combination with 'OK' and 'Cancel' buttons."
     },
-    "close": "Zatvori",
+    "close": "Затвори",
     "@close": {},
-    "no": "Ne",
+    "no": "No",
     "@no": {},
     "stop": "Stop",
     "@stop": {},
@@ -151,7 +151,7 @@
     "incorrect_credentials": "Incorrect username or password.",
     "password_lost_incorrect_credentials": "This email or username doesn't exist. Please check your credentials.",
     "password_lost_server_unavailable": "We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.",
-    "login": "Korisničko ime",
+    "login": "Login",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
@@ -185,7 +185,7 @@
     "@sign_out_confirmation": {
         "description": "Pop up title: Reassuring if the user really want to sign out"
     },
-    "password": "Lozinka",
+    "password": "Password",
     "forgot_password": "Forgot password",
     "@forgot_password": {
         "description": "Button label: Opens a page where a password reset e-mail can be requested"
@@ -225,7 +225,7 @@
         "description": "Progress indicator dialog during the actual signing up process"
     },
     "sign_up_page_action_ok": "Congratulations! Your account has just been created.",
-    "sign_up_page_display_name_hint": "Naziv",
+    "sign_up_page_display_name_hint": "Name",
     "sign_up_page_display_name_error_empty": "Please enter the display name you want to use",
     "sign_up_page_email_hint": "E-mail",
     "sign_up_page_email_error_empty": "E-mail is required",
@@ -242,7 +242,7 @@
             }
         }
     },
-    "sign_up_page_password_hint": "Lozinka",
+    "sign_up_page_password_hint": "Password",
     "sign_up_page_password_error_empty": "Please enter a password",
     "sign_up_page_password_error_invalid": "Please enter a valid password (at least 6 characters)",
     "sign_up_page_confirm_password_hint": "Confirm Password",
@@ -277,7 +277,7 @@
     "sign_up_page_provide_valid_email": "Please provide a valid email address.",
     "sign_up_page_server_busy": "We are deeply sorry, we have some technical difficulties to create your account. Please try again later.",
     "@Settings": {},
-    "settingsTitle": "Podešavanja",
+    "settingsTitle": "Settings",
     "@settingsTitle": {
         "description": "The title of the Settings page"
     },
@@ -460,11 +460,11 @@
     "@profile_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
-    "scan_navbar_label": "Scan",
+    "scan_navbar_label": "Скенирање",
     "@scan_navbar_label": {
         "description": "BottomNavigationBarLabel: For the scanning of products"
     },
-    "history_navbar_label": "Istorija",
+    "history_navbar_label": "History",
     "@history_navbar_label": {
         "description": "BottomNavigationBarLabel: For the history and compare mode"
     },
@@ -493,7 +493,7 @@
     "@scan_history": {
         "description": "Page title: List type: Products in the whole scan history"
     },
-    "search": "Pretraživanje",
+    "search": "Search",
     "@search": {
         "description": "Hint text of a search text input field"
     },
@@ -514,7 +514,7 @@
     "@front_photo": {
         "description": "Button label: For adding a picture of the front of a product"
     },
-    "ingredients": "Sastojci",
+    "ingredients": "Ingredients",
     "@ingredients": {},
     "ingredients_editing_instructions": "Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen, use parentheses for ingredients of an ingredient, and indicate allergens between underscores.",
     "ingredients_editing_error": "Failed to save the ingredients.",
@@ -528,7 +528,7 @@
     "packaging_editing_error": "Failed to save the packaging.",
     "packaging_editing_image_error": "Failed to get a new packaging image.",
     "packaging_editing_title": "Edit Packaging",
-    "nutrition": "Nutritivne vrednosti",
+    "nutrition": "Nutrition",
     "@nutrition": {},
     "nutrition_facts_photo": "Nutrition facts photo",
     "@nutrition_facts_photo": {
@@ -629,7 +629,7 @@
     "nutritional_facts_photo_title": "Nutrition Facts Photo",
     "recycling_photo_title": "Recycling Photo",
     "take_photo_title": "Take a picture",
-    "take_more_photo_title": "Take more photos",
+    "take_more_photo_title": "Take more pictures",
     "front_photo_uploaded": "Front photo uploaded",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "Ingredients photo",
@@ -675,7 +675,7 @@
     "@recycling_photo_button_label": {},
     "recycling_photo_uploaded": "Recycling photo uploaded",
     "@recycling_photo_uploaded": {},
-    "take_more_photo_button_label": "Take more photos",
+    "take_more_photo_button_label": "Take more pictures",
     "@take_more_photo_button_label": {},
     "other_photo_uploaded": "Miscellaneous photo uploaded",
     "@other_photo_uploaded": {},
@@ -730,7 +730,7 @@
     "nutrition_page_per_100g": "per 100g",
     "nutrition_page_per_serving": "per serving",
     "nutrition_page_add_nutrient": "Add a nutrient",
-    "nutrition_page_serving_size": "Porcija",
+    "nutrition_page_serving_size": "Serving size",
     "nutrition_page_invalid_number": "Invalid number",
     "nutrition_page_update_running": "Updating the product on the server…",
     "nutrition_page_update_done": "Product updated!",
@@ -798,7 +798,7 @@
     "app_review_negative_modal_title": "You don't like our app?",
     "app_review_negative_modal_text": "Could you take a few seconds to tell us why?",
     "app_review_negative_modal_positive_button": "Yes, absolutely!",
-    "app_review_negative_modal_negative_button": "Ne",
+    "app_review_negative_modal_negative_button": "No",
     "could_not_refresh": "Could not refresh product",
     "@could_not_refresh": {
         "description": "The product data couldn't be refreshed"
@@ -915,7 +915,7 @@
     "no_prodcut_in_list": "There is no product in this list",
     "no_product_in_section": "There is no product in this section",
     "recently_seen_products": "All viewed products",
-    "clear": "Obriši",
+    "clear": "Clear",
     "@clear": {
         "description": "Clears a product list (short label)"
     },
@@ -986,7 +986,7 @@
     "@compare_products_appbar_subtitle": {
         "description": "AppBar subtitle when in comparison mode"
     },
-    "retry_button_label": "Retry",
+    "retry_button_label": "Покушај поново",
     "connect_with_us": "Connect with us",
     "instagram": "Follow us on Instagram",
     "instagram_link": "https://instagram.com/open.food.facts",
@@ -1297,7 +1297,7 @@
     "@permission_photo_denied": {
         "description": "When the camera/photo permission is denied by user"
     },
-    "edit_product_label": "Izmenite proizvod",
+    "edit_product_label": "Edit product",
     "@edit_product_label": {
         "description": "Edit product button label"
     },
@@ -1310,7 +1310,7 @@
             }
         }
     },
-    "edit_product_form_item_barcode": "Barkod",
+    "edit_product_form_item_barcode": "Barcode",
     "@edit_product_form_item_barcode": {
         "description": "Product edition - Barcode"
     },
@@ -1354,7 +1354,7 @@
     "@edit_product_form_item_labels_type": {
         "description": "Product edition - Labels - input textfield label"
     },
-    "edit_product_form_item_stores_title": "Prodavnice",
+    "edit_product_form_item_stores_title": "Stores",
     "@edit_product_form_item_stores_title": {
         "description": "Product edition - Stores - Title"
     },
@@ -1445,7 +1445,7 @@
     "edit_product_form_item_exit_confirmation": "Do you want to save your changes before leaving this page?",
     "edit_product_form_item_exit_confirmation_positive_button": "Save changes",
     "edit_product_form_item_exit_confirmation_negative_button": "Discard changes",
-    "edit_product_form_item_ingredients_title": "Sastojci",
+    "edit_product_form_item_ingredients_title": "Ingredients",
     "@edit_product_form_item_ingredients_title": {
         "description": "Product edition - Ingredients - Title (note: this section was previously called Ingredients & Origins)"
     },
@@ -1456,7 +1456,7 @@
     "@edit_product_form_item_packaging_title": {
         "description": "Product edition - Packaging - Title"
     },
-    "edit_product_form_item_nutrition_facts_title": "Hranljiva vrednost",
+    "edit_product_form_item_nutrition_facts_title": "Nutrition facts",
     "@edit_product_form_item_nutrition_facts_title": {
         "description": "Product edition - Nutrition facts - Title"
     },
@@ -1464,7 +1464,7 @@
     "@edit_product_form_item_nutrition_facts_subtitle": {
         "description": "Product edition - Nutrition facts - SubTitle"
     },
-    "edit_product_form_save": "Izmeni",
+    "edit_product_form_save": "Edit",
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
     },
@@ -1612,7 +1612,7 @@
     "@camera_flash_error_dialog_message": {
         "description": "Content of the dialog explaining that an error happened while enabling/disabling the flash of the camera"
     },
-    "category_picker_no_category_found_button": "Nazad",
+    "category_picker_no_category_found_button": "Назад",
     "@category_picker_no_category_found_button": {
         "description": "Button label when no category is available"
     },
@@ -1716,6 +1716,31 @@
     "@dev_preferences_import_history_subtitle": {
         "description": "User dev preferences - Import history - Subtitle"
     },
+    "dev_preferences_news_custom_url_title": "Custom URL for news",
+    "@dev_preferences_news_custom_url_title": {
+        "description": "News dev preferences - Custom URL for news - Title"
+    },
+    "dev_preferences_news_custom_url_subtitle": "URL of the JSON file:",
+    "@dev_preferences_news_custom_url_subtitle": {
+        "description": "News dev preferences - Custom URL for news - Title"
+    },
+    "dev_preferences_news_custom_url_empty_value": "Not set",
+    "@dev_preferences_news_custom_url_empty_value": {
+        "description": "Message to show when the custom news URL is not set"
+    },
+    "dev_preferences_news_provider_status_title": "Status",
+    "@dev_preferences_news_provider_status_title": {
+        "description": "News dev preferences - Status - Title"
+    },
+    "dev_preferences_news_provider_status_subtitle": "Last refresh: {date}",
+    "@dev_preferences_news_provider_status_subtitle": {
+        "description": "News dev preferences - Custom URL for news - Subtitle",
+        "placeholders": {
+            "date": {
+                "type": "String"
+            }
+        }
+    },
     "prices_app_dev_mode_flag": "Shortcut to Prices app on product page",
     "prices_app_button": "Go to Prices app",
     "prices_generic_title": "Prices",
@@ -1740,6 +1765,18 @@
     },
     "prices_barcode_reader_action": "Barcode reader",
     "prices_view_prices": "View the prices",
+    "prices_product_accessibility_summary": "{count,plural, =1{1 price} other{{count} prices}} for {product}",
+    "@prices_product_accessibility_summary": {
+        "description": "A card summarizing the number of prices for a product",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            },
+            "product": {
+                "type": "String"
+            }
+        }
+    },
     "prices_list_length_one_page": "{count,plural, =0{No price yet} =1{Only one price} other{All {count} prices}}",
     "@prices_list_length_one_page": {
         "description": "Number of prices for one-page result",
@@ -1760,6 +1797,37 @@
                 "type": "int"
             }
         }
+    },
+    "prices_entry_accessibility_label": "Price: {price} / Store: \"{location}\" / Published on {date} by \"{user}\"",
+    "@prices_entry_accessibility_label": {
+        "description": "Accessibility label for a price entry",
+        "placeholders": {
+            "price": {
+                "type": "String"
+            },
+            "location": {
+                "type": "String"
+            },
+            "date": {
+                "type": "String"
+            },
+            "user": {
+                "type": "String"
+            }
+        }
+    },
+    "prices_open_user_proofs": "Open proofs of \"{user}\"",
+    "@prices_open_user_proofs": {
+        "description": "Button to open the proofs of a user",
+        "placeholders": {
+            "user": {
+                "type": "String"
+            }
+        }
+    },
+    "prices_open_proof": "Open price proof",
+    "@prices_open_proof": {
+        "description": "Button to open a proof"
     },
     "prices_proofs_list_length_one_page": "{count,plural, =0{No proof yet} =1{Only one proof} other{All {count} proofs}}",
     "@prices_proofs_list_length_one_page": {
@@ -1824,6 +1892,7 @@
         "description": "User dev preferences - Import history - Result successful"
     },
     "dev_mode_section_server": "Server configuration",
+    "dev_mode_section_news": "News provider configuration",
     "dev_mode_section_product_page": "Product page",
     "dev_mode_section_ui": "User Interface",
     "dev_mode_section_data": "Подаци",
@@ -1977,7 +2046,7 @@
     "@summary_card_button_add_basic_details": {
         "description": "Summary card - Button to add details about the product"
     },
-    "edit_photo_button_label": "Izmeni",
+    "edit_photo_button_label": "Edit",
     "@edit_photo_button_label": {
         "description": "Edit photo button label"
     },
@@ -2019,7 +2088,7 @@
     "brand_name": "Brand name",
     "add_basic_details_brand_name_error": "Please enter the brand name",
     "quantity": "Quantity and weight",
-    "barcode": "Barkod",
+    "barcode": "Barcode",
     "barcode_barcode": "Barcode: {barcode}",
     "@barcode_barcode": {
         "description": "Displaying the raw barcode with label",
@@ -2155,7 +2224,7 @@
     "@gallery_source_access_denied_dialog_button": {
         "description": "Button to open the app settings"
     },
-    "share": "Podeli",
+    "share": "Share",
     "@share": {
         "description": "Button label for sharing something on another app. For example sharing the link to a product via Email"
     },
@@ -2177,9 +2246,13 @@
             }
         }
     },
-    "capture": "Capture New",
+    "capture": "Take a new picture",
     "@capture": {
-        "description": "Button label for taking a photo"
+        "description": "Button label for taking a new photo (= there's already one)"
+    },
+    "capture_new_picture": "Take a picture",
+    "@capture_new_picture": {
+        "description": "Button label for taking a new photo (= the first one)"
     },
     "choose_from_gallery": "Choose from gallery",
     "@choose_from_gallery": {
@@ -2814,7 +2887,7 @@
     "@guide_title": {
         "description": "A title for a guide"
     },
-    "guide_share_label": "Podeli",
+    "guide_share_label": "Share",
     "guide_nutriscore_v2_enabled": "true",
     "@guide_nutriscore_v2_enabled": {
         "description": "Please NEVER touch this value and let the OFF team change it!"
