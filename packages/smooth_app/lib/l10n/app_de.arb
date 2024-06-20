@@ -1235,7 +1235,7 @@
     "@camera_play_sound_subtitle": {
         "description": "SubTitle for the Camera play sound toggle"
     },
-    "camera_window_accessibility_label": "Scan a barcode with your camera",
+    "camera_window_accessibility_label": "Lesen Sie einen Barcode mit Ihrer Kamera ein",
     "@camera_window_accessibility_label": {
         "description": "Accessibility label for the camera window"
     },
@@ -1832,11 +1832,11 @@
     "@dev_mode_hide_ecoscore_title": {
         "description": "User dev preferences - Disable Ecoscore - Title"
     },
-    "dev_mode_spellchecker_for_ocr_title": "Use a spellchecker for OCR screens",
+    "dev_mode_spellchecker_for_ocr_title": "Verwenden Sie eine Rechtschreibprüfung für OCR-Bildschirme",
     "@dev_mode_spellchecker_for_ocr_title": {
         "description": "User dev preferences - Enable Spellchecker on OCR screens - Title"
     },
-    "dev_mode_spellchecker_for_ocr_subtitle": "(Ingredients and packaging)",
+    "dev_mode_spellchecker_for_ocr_subtitle": "(Zutaten und Verpackung)",
     "@dev_mode_spellchecker_for_ocr_subtitle": {
         "description": "User dev preferences - Enable Spellchecker on OCR screens - Subtitle"
     },
