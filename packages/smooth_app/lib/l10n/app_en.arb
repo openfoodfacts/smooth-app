@@ -2203,9 +2203,13 @@
             }
         }
     },
-    "capture": "Capture New",
+    "capture": "Take a new picture",
     "@capture": {
-        "description": "Button label for taking a photo"
+        "description": "Button label for taking a new photo (= there's already one)"
+    },
+    "capture_new_picture": "Take a picture",
+    "@capture_new_picture": {
+        "description": "Button label for taking a new photo (= the first one)"
     },
     "choose_from_gallery": "Choose from gallery",
     "@choose_from_gallery": {

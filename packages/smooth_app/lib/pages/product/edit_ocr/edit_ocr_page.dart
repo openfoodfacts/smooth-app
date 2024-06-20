@@ -157,11 +157,16 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
     );
   }
 
-  Widget _getImageButton(final ProductImageButtonType type) => Padding(
+  Widget _getImageButton(
+    final ProductImageButtonType type,
+    final bool imageExists,
+  ) =>
+      Padding(
         padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
         child: type.getButton(
           product: upToDateProduct,
           imageField: _helper.getImageField(),
+          imageExists: imageExists,
           language: _multilingualHelper.getCurrentLanguage(),
           isLoggedInMandatory: widget.isLoggedInMandatory,
           borderWidth: 2,
@@ -223,6 +228,8 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
     final OpenFoodFactsLanguage language =
         _multilingualHelper.getCurrentLanguage();
     final ImageProvider? imageProvider = transientFile.getImageProvider();
+    final bool imageExists = imageProvider != null;
+
     return Align(
       alignment: AlignmentDirectional.bottomStart,
       child: Column(
@@ -245,10 +252,16 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
                     mainAxisSize: MainAxisSize.max,
                     children: <Widget>[
                       Expanded(
-                        child: _getImageButton(ProductImageButtonType.server),
+                        child: _getImageButton(
+                          ProductImageButtonType.server,
+                          imageExists,
+                        ),
                       ),
                       Expanded(
-                        child: _getImageButton(ProductImageButtonType.local),
+                        child: _getImageButton(
+                          ProductImageButtonType.local,
+                          imageExists,
+                        ),
                       ),
                     ],
                   ),
@@ -259,11 +272,16 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
                       mainAxisSize: MainAxisSize.max,
                       children: <Widget>[
                         Expanded(
-                          child:
-                              _getImageButton(ProductImageButtonType.unselect),
+                          child: _getImageButton(
+                            ProductImageButtonType.unselect,
+                            imageExists,
+                          ),
                         ),
                         Expanded(
-                          child: _getImageButton(ProductImageButtonType.edit),
+                          child: _getImageButton(
+                            ProductImageButtonType.edit,
+                            imageExists,
+                          ),
                         ),
                       ],
                     ),
