@@ -202,31 +202,36 @@ class _TagLineContentTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     final SmoothColorsThemeExtension theme =
         Theme.of(context).extension<SmoothColorsThemeExtension>()!;
+    final AppLocalizations localizations = AppLocalizations.of(context);
 
-    return ConstrainedBox(
-      constraints: const BoxConstraints(minHeight: 30.0),
-      child: Row(
-        children: <Widget>[
-          SizedBox.square(
-            dimension: 11.0,
-            child: DecoratedBox(
-              decoration: BoxDecoration(
-                color: indicatorColor ?? theme.secondaryLight,
-                borderRadius: const BorderRadius.all(ROUNDED_RADIUS),
+    return Semantics(
+      label: localizations.scan_tagline_news_item_accessibility(title),
+      excludeSemantics: true,
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(minHeight: 30.0),
+        child: Row(
+          children: <Widget>[
+            SizedBox.square(
+              dimension: 11.0,
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  color: indicatorColor ?? theme.secondaryLight,
+                  borderRadius: const BorderRadius.all(ROUNDED_RADIUS),
+                ),
               ),
             ),
-          ),
-          const SizedBox(width: SMALL_SPACE),
-          Expanded(
-              child: Text(
-            title,
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 16.0,
-              color: titleColor ?? Colors.white,
-            ),
-          ))
-        ],
+            const SizedBox(width: SMALL_SPACE),
+            Expanded(
+                child: Text(
+              title,
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 16.0,
+                color: titleColor ?? Colors.white,
+              ),
+            ))
+          ],
+        ),
       ),
     );
   }
@@ -369,7 +374,7 @@ class _ScanNewsFeedProvider extends ValueNotifier<_ScanTagLineState> {
         emit(const _ScanTagLineStateNoContent());
       case AppNewsStateLoaded():
         _onTagLineContentAvailable(
-            (_newsFeedProvider.state as AppNewsStateLoaded).tagLineContent);
+            (_newsFeedProvider.state as AppNewsStateLoaded).content);
     }
   }
 

@@ -110,25 +110,31 @@ class FormattedText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final TextStyle defaultTextStyle = textStyle ?? const TextStyle();
-    return RichText(
-      text: TextSpan(
-        style: DefaultTextStyle.of(context).style,
-        children: TextHelper.getPartsBetweenSymbol(
-                text: text,
-                symbol: r'\*\*',
-                symbolLength: 2,
-                defaultStyle: defaultTextStyle,
-                highlightedStyle: const TextStyle(fontWeight: FontWeight.bold))
-            .map(
-          ((String, TextStyle?) part) {
-            return TextSpan(
-              text: part.$1,
-              style: defaultTextStyle.merge(part.$2),
-            );
-          },
-        ).toList(growable: false),
+    return Semantics(
+      value: text.replaceAll(r'**', '').replaceAll('\n', ' '),
+      excludeSemantics: true,
+      child: RichText(
+        text: TextSpan(
+          style: DefaultTextStyle.of(context).style,
+          children: TextHelper.getPartsBetweenSymbol(
+                  text: text,
+                  symbol: r'\*\*',
+                  symbolLength: 2,
+                  defaultStyle: defaultTextStyle,
+                  highlightedStyle:
+                      const TextStyle(fontWeight: FontWeight.bold))
+              .map(
+            ((String, TextStyle?) part) {
+              return TextSpan(
+                text: part.$1,
+                style: defaultTextStyle.merge(part.$2),
+                semanticsLabel: '-',
+              );
+            },
+          ).toList(growable: false),
+        ),
+        textAlign: textAlign ?? TextAlign.start,
       ),
-      textAlign: textAlign ?? TextAlign.start,
     );
   }
 }

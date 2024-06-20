@@ -1,9 +1,12 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:smooth_app/background/background_task_details.dart';
+import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/up_to_date_mixin.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/transient_file.dart';
@@ -13,13 +16,16 @@ import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/picture_not_found.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
+import 'package:smooth_app/helpers/provider_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/edit_ocr/ocr_helper.dart';
 import 'package:smooth_app/pages/product/explanation_widget.dart';
 import 'package:smooth_app/pages/product/multilingual_helper.dart';
 import 'package:smooth_app/pages/product/product_image_button.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 part 'edit_ocr_main_action.dart';
@@ -295,17 +301,54 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
                         state: _extractState(transientFile),
                       ),
                       const SizedBox(height: MEDIUM_SPACE),
-                      TextField(
-                        controller: _controller,
-                        decoration: InputDecoration(
-                          fillColor: Colors.white.withOpacity(0.2),
-                          filled: true,
-                          enabledBorder: const OutlineInputBorder(
-                            borderRadius: ANGULAR_BORDER_RADIUS,
-                          ),
-                        ),
-                        maxLines: null,
-                        textInputAction: TextInputAction.newline,
+                      ConsumerFilter<UserPreferences>(
+                        buildWhen: (
+                          UserPreferences? previousValue,
+                          UserPreferences currentValue,
+                        ) {
+                          return previousValue?.getFlag(UserPreferencesDevMode
+                                  .userPreferencesFlagSpellCheckerOnOcr) !=
+                              currentValue.getFlag(UserPreferencesDevMode
+                                  .userPreferencesFlagSpellCheckerOnOcr);
+                        },
+                        builder: (
+                          BuildContext context,
+                          UserPreferences prefs,
+                          Widget? child,
+                        ) {
+                          final ThemeData theme = Theme.of(context);
+
+                          return Theme(
+                            data: theme.copyWith(
+                              colorScheme: theme.colorScheme.copyWith(
+                                onSurface: context
+                                        .read<ThemeProvider>()
+                                        .isDarkMode(context)
+                                    ? Colors.white
+                                    : Colors.black,
+                              ),
+                            ),
+                            child: TextField(
+                              controller: _controller,
+                              decoration: InputDecoration(
+                                fillColor: Colors.white.withOpacity(0.2),
+                                filled: true,
+                                enabledBorder: const OutlineInputBorder(
+                                  borderRadius: ANGULAR_BORDER_RADIUS,
+                                ),
+                              ),
+                              maxLines: null,
+                              textInputAction: TextInputAction.newline,
+                              spellCheckConfiguration: (prefs.getFlag(
+                                              UserPreferencesDevMode
+                                                  .userPreferencesFlagSpellCheckerOnOcr) ??
+                                          false) &&
+                                      (Platform.isAndroid || Platform.isIOS)
+                                  ? const SpellCheckConfiguration()
+                                  : const SpellCheckConfiguration.disabled(),
+                            ),
+                          );
+                        },
                       ),
                       const SizedBox(height: SMALL_SPACE),
                       ExplanationWidget(
