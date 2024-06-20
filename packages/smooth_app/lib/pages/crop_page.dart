@@ -179,47 +179,52 @@ class _CropPageState extends State<CropPage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        if (!_isErasing)
-                          _IconButton(
-                            iconData: Icons.rotate_90_degrees_ccw_outlined,
-                            onPressed: () => setState(
-                              () {
-                                _controller.rotateLeft();
-                                _eraserModel.rotation = _controller.rotation;
-                              },
+                    Padding(
+                      padding: const EdgeInsetsDirectional.only(
+                        top: SMALL_SPACE,
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          if (!_isErasing)
+                            _IconButton(
+                              iconData: Icons.rotate_90_degrees_ccw_outlined,
+                              onPressed: () => setState(
+                                () {
+                                  _controller.rotateLeft();
+                                  _eraserModel.rotation = _controller.rotation;
+                                },
+                              ),
                             ),
-                          ),
-                        if (widget.cropHelper.enableEraser)
-                          _IconButton(
-                            iconData: _isErasing ? Icons.crop : Icons.brush,
-                            color: _isErasing ? null : EraserPainter.color,
-                            onPressed: () => setState(
-                              () => _isErasing = !_isErasing,
+                          if (widget.cropHelper.enableEraser)
+                            _IconButton(
+                              iconData: _isErasing ? Icons.crop : Icons.brush,
+                              color: _isErasing ? null : EraserPainter.color,
+                              onPressed: () => setState(
+                                () => _isErasing = !_isErasing,
+                              ),
                             ),
-                          ),
-                        if (_isErasing)
-                          _IconButton(
-                            iconData: Icons.undo,
-                            onPressed: _eraserModel.isEmpty
-                                ? null
-                                : () => setState(
-                                      () => _eraserModel.undo(),
-                                    ),
-                          ),
-                        if (!_isErasing)
-                          _IconButton(
-                            iconData: Icons.rotate_90_degrees_cw_outlined,
-                            onPressed: () => setState(
-                              () {
-                                _controller.rotateRight();
-                                _eraserModel.rotation = _controller.rotation;
-                              },
+                          if (_isErasing)
+                            _IconButton(
+                              iconData: Icons.undo,
+                              onPressed: _eraserModel.isEmpty
+                                  ? null
+                                  : () => setState(
+                                        () => _eraserModel.undo(),
+                                      ),
                             ),
-                          ),
-                      ],
+                          if (!_isErasing)
+                            _IconButton(
+                              iconData: Icons.rotate_90_degrees_cw_outlined,
+                              onPressed: () => setState(
+                                () {
+                                  _controller.rotateRight();
+                                  _eraserModel.rotation = _controller.rotation;
+                                },
+                              ),
+                            ),
+                        ],
+                      ),
                     ),
                     Expanded(
                       child: Stack(
@@ -275,12 +280,19 @@ class _CropPageState extends State<CropPage> {
                         ],
                       ),
                     ),
-                    Center(
-                      child: EditImageButton(
-                        iconData: widget.cropHelper.getProcessIcon(),
-                        label:
-                            widget.cropHelper.getProcessLabel(appLocalizations),
-                        onPressed: () async => _saveImageAndPop(),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: VERY_SMALL_SPACE,
+                        vertical: SMALL_SPACE,
+                      ),
+                      child: SizedBox(
+                        width: double.infinity,
+                        child: EditImageButton.center(
+                          iconData: widget.cropHelper.getProcessIcon(),
+                          label: widget.cropHelper
+                              .getProcessLabel(appLocalizations),
+                          onPressed: () async => _saveImageAndPop(),
+                        ),
                       ),
                     ),
                   ],

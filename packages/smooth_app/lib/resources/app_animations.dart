@@ -73,6 +73,21 @@ class BarcodeAnimation extends StatelessWidget {
   }
 }
 
+class CloudUploadAnimation extends StatelessWidget {
+  const CloudUploadAnimation({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return RiveAnimation.direct(
+      AnimationsLoader.of(context),
+      artboard: 'Cloud upload',
+      animations: const <String>['Animation'],
+    );
+  }
+}
+
 class ConsentAnimation extends StatelessWidget {
   const ConsentAnimation({
     super.key,

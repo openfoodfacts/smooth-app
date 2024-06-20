@@ -750,6 +750,24 @@
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
+    "product_image_accessibility_label": "Image taken on {date}",
+    "@product_image_accessibility_label": {
+        "placeholders": {
+            "date": {
+                "type": "String",
+                "description": "The date of picture (in localized format for YYYY-MM-DD)"
+            }
+        }
+    },
+    "product_image_outdated_accessibility_label": "Image taken on {date}. This image may be outdated",
+    "@product_image_outdated_accessibility_label": {
+        "placeholders": {
+            "date": {
+                "type": "String",
+                "description": "The date of picture (in localized format for YYYY-MM-DD)"
+            }
+        }
+    },
     "homepage_main_card_logo_description": "Welcome to Open Food Facts",
     "@homepage_main_card_logo_description": {
         "description": "Description for accessibility of the Open Food Facts logo on the homepage"
@@ -762,6 +780,15 @@
     "homepage_main_card_search_field_tooltip": "Start search",
     "@homepage_main_card_search_field_tooltip": {
         "description": "Description for accessibility of the search field on the homepage"
+    },
+    "scan_tagline_news_item_accessibility": "Latest news: {news_title}",
+    "@scan_tagline_news_item_accessibility": {
+        "description": "Accessibility label for the title of a news",
+        "placeholders": {
+            "news_title": {
+                "type": "String"
+            }
+        }
     },
     "tagline_app_review": "Do you like the app?",
     "tagline_app_review_button_positive": "I love it! 😍",
@@ -1092,14 +1119,12 @@
             }
         }
     },
-    "onboarding_reinventing_text1": "We invented\nthe collaborative\nscanning app in 2012",
-    "@onboarding_reinventing_text1": {
-        "description": "Onboarding / Reinventing page: text 1/2. If possible, balanced on 3 lines."
+    "onboarding_home_welcome_text1": "Welcome !",
+    "onboarding_home_welcome_text2": "The app that helps you choose food that is good for **you** and the **planet**!",
+    "@onboarding_home_welcome_text2": {
+        "description": "Onboarding home screen welcome text, text surrounded by * will be bold"
     },
-    "onboarding_reinventing_text2": "As we turn 10,\nwe're reinventing it\nfrom the ground up!",
-    "@onboarding_reinventing_text2": {
-        "description": "Onboarding / Reinventing page: text 2/2. If possible, balanced on 3 lines."
-    },
+    "onboarding_continue_button": "Continue",
     "onboarding_welcome_loading_dialog_title": "Loading your first example product",
     "@onboarding_welcome_loading_dialog_title": {
         "description": "Title for the onboarding loading dialog"
@@ -1209,6 +1234,10 @@
     "camera_play_sound_subtitle": "Will beep on each successful scan",
     "@camera_play_sound_subtitle": {
         "description": "SubTitle for the Camera play sound toggle"
+    },
+    "camera_window_accessibility_label": "Scan a barcode with your camera",
+    "@camera_window_accessibility_label": {
+        "description": "Accessibility label for the camera window"
     },
     "app_haptic_feedback_title": "Vibration & Haptics",
     "@app_haptic_feedback_title": {
@@ -1450,17 +1479,33 @@
     "completed_basic_details_btn_text": "Complete basic details",
     "not_implemented_snackbar_text": "Not implemented yet",
     "category_picker_page_appbar_text": "શ્રેણીઓ",
-    "edit_ingredients_extrait_ingredients_btn_text": "Extract ingredients",
-    "@edit_ingredients_extrait_ingredients_btn_text": {
+    "edit_ingredients_extract_ingredients_btn_text": "Extract ingredients from the photo",
+    "@edit_ingredients_extract_ingredients_btn_text": {
         "description": "Ingredients edition - Extract ingredients"
+    },
+    "edit_ingredients_extracting_ingredients_btn_text": "Extracting ingredients\nfrom the photo",
+    "@edit_ingredients_extracting_ingredients_btn_text": {
+        "description": "Ingredients edition - Extracting ingredients"
+    },
+    "edit_ingredients_loading_photo_btn_text": "Loading photo…",
+    "@edit_ingredients_loading_photo_btn_text": {
+        "description": "Ingredients edition - Loading photo from the server"
     },
     "edit_ingredients_refresh_photo_btn_text": "Refresh photo",
     "@edit_ingredients_refresh_photo_btn_text": {
         "description": "Ingredients edition - Refresh photo"
     },
-    "edit_packaging_extract_btn_text": "Extract packaging",
+    "edit_packaging_extract_btn_text": "Extract packaging\nfrom the photo",
     "@edit_packaging_extract_btn_text": {
         "description": "Packaging edition - OCR-Extract packaging"
+    },
+    "edit_packaging_extracting_btn_text": "Extracting packaging from the photo",
+    "@edit_packaging_extracting_btn_text": {
+        "description": "Packaging edition - OCR-Extracting packaging"
+    },
+    "edit_packaging_loading_photo_btn_text": "Loading photo…",
+    "@edit_packaging_loading_photo_btn_text": {
+        "description": "Packaging edition - Loading photo from the server"
     },
     "edit_packaging_refresh_photo_btn_text": "Refresh photo",
     "@edit_packaging_refresh_photo_btn_text": {
@@ -1674,8 +1719,26 @@
     "prices_app_dev_mode_flag": "Shortcut to Prices app on product page",
     "prices_app_button": "Go to Prices app",
     "prices_generic_title": "Prices",
+    "prices_add_n_prices": "{count,plural, =1{Add a price} other{App {count} prices}}",
+    "prices_send_n_prices": "{count,plural, =1{Send the price} other{Send {count} prices}}",
+    "prices_add_an_item": "Add an item",
     "prices_add_a_price": "Add a price",
-    "prices_send_the_price": "Send the price",
+    "prices_add_a_receipt": "Add a receipt",
+    "prices_add_price_tags": "Add price tags",
+    "prices_barcode_search_not_found": "Product not found",
+    "prices_barcode_search_none_yet": "No product yet",
+    "prices_barcode_search_question": "Do you want to look for this product?",
+    "prices_barcode_search_title": "Product search",
+    "prices_barcode_search_running": "Looking for {barcode}",
+    "@prices_barcode_search_running": {
+        "description": "Dialog title about barcode look-up",
+        "placeholders": {
+            "barcode": {
+                "type": "String"
+            }
+        }
+    },
+    "prices_barcode_reader_action": "Barcode reader",
     "prices_view_prices": "View the prices",
     "prices_list_length_one_page": "{count,plural, =0{No price yet} =1{Only one price} other{All {count} prices}}",
     "@prices_list_length_one_page": {
@@ -1698,11 +1761,45 @@
             }
         }
     },
+    "prices_proofs_list_length_one_page": "{count,plural, =0{No proof yet} =1{Only one proof} other{All {count} proofs}}",
+    "@prices_proofs_list_length_one_page": {
+        "description": "Number of proofs for one-page result",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_proofs_list_length_many_pages": "Latest {pageSize} proofs (total: {total})",
+    "@prices_proofs_list_length_many_pages": {
+        "description": "Number of proofs for one-page result",
+        "placeholders": {
+            "pageSize": {
+                "type": "int"
+            },
+            "total": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_users_list_length_many_pages": "Top {pageSize} contributors (total: {total})",
+    "@prices_users_list_length_many_pages": {
+        "description": "Number of users for one-page result",
+        "placeholders": {
+            "pageSize": {
+                "type": "int"
+            },
+            "total": {
+                "type": "int"
+            }
+        }
+    },
     "prices_amount_subtitle": "Amount",
     "prices_amount_is_discounted": "Is discounted?",
     "prices_amount_price_normal": "Price",
     "prices_amount_price_discounted": "Discounted price",
     "prices_amount_price_not_discounted": "Original price",
+    "prices_amount_no_product": "One product is missing!",
     "prices_amount_price_incorrect": "Incorrect value",
     "prices_amount_price_mandatory": "Mandatory value",
     "prices_currency_subtitle": "Currency",
@@ -1726,9 +1823,22 @@
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"
     },
+    "dev_mode_section_server": "Server configuration",
+    "dev_mode_section_product_page": "Product page",
+    "dev_mode_section_ui": "User Interface",
+    "dev_mode_section_data": "માહિતી",
+    "dev_mode_section_experimental_features": "Experimental features",
     "dev_mode_hide_ecoscore_title": "Exclude Eco-Score",
     "@dev_mode_hide_ecoscore_title": {
         "description": "User dev preferences - Disable Ecoscore - Title"
+    },
+    "dev_mode_spellchecker_for_ocr_title": "Use a spellchecker for OCR screens",
+    "@dev_mode_spellchecker_for_ocr_title": {
+        "description": "User dev preferences - Enable Spellchecker on OCR screens - Title"
+    },
+    "dev_mode_spellchecker_for_ocr_subtitle": "(Ingredients and packaging)",
+    "@dev_mode_spellchecker_for_ocr_subtitle": {
+        "description": "User dev preferences - Enable Spellchecker on OCR screens - Subtitle"
     },
     "search_history_item_edit_tooltip": "Reuse and edit this search",
     "@search_history_item_edit_tooltip": {
@@ -1784,6 +1894,18 @@
     "user_search_prices_title": "My prices",
     "@user_search_prices_title": {
         "description": "User prices: list tile title"
+    },
+    "user_search_proofs_title": "My proofs",
+    "@user_search_proofs_title": {
+        "description": "User proofs: list tile title"
+    },
+    "user_search_proof_title": "My proof",
+    "@user_search_proof_title": {
+        "description": "User proof: page title"
+    },
+    "user_any_search_prices_title": "Contributor prices",
+    "@user_any_search_prices_title": {
+        "description": "User prices (everybody except me): list tile title"
     },
     "all_search_prices_latest_title": "Latest Prices added",
     "@all_search_prices_latest_title": {
@@ -2649,6 +2771,7 @@
     "faq_title_install_beauty": "Install Open Beauty Facts to create a cosmetic database",
     "faq_title_install_pet": "Install Open Pet Food Facts to create a pet food database",
     "faq_title_install_product": "Install Open Products Facts to create a products database to extend the life of objects",
+    "faq_nutriscore_nutriscore": "New calculation of the Nutri-Score: what's new?",
     "contact_title_pro_page": "Pro? Import your products in Open Food Facts",
     "contact_title_pro_email": "Producer Contact",
     "contact_title_press_page": "Press Page",
@@ -2736,9 +2859,13 @@
     "guide_nutriscore_v2_unchanged_title": "What doesn't change",
     "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
     "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
-    "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/guide/nutriscore-v2",
+    "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
     "guide_nutriscore_v2_share_message": "",
     "@guide_nutriscore_v2_share_message": {
         "description": "Please let empty for now (maybe use in the future)"
+    },
+    "preview_badge": "Preview",
+    "@preview_badge": {
+        "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
     }
 }
