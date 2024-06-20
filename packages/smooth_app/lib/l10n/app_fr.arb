@@ -1716,6 +1716,31 @@
     "@dev_preferences_import_history_subtitle": {
         "description": "User dev preferences - Import history - Subtitle"
     },
+    "dev_preferences_news_custom_url_title": "Custom URL for news",
+    "@dev_preferences_news_custom_url_title": {
+        "description": "News dev preferences - Custom URL for news - Title"
+    },
+    "dev_preferences_news_custom_url_subtitle": "URL of the JSON file:",
+    "@dev_preferences_news_custom_url_subtitle": {
+        "description": "News dev preferences - Custom URL for news - Title"
+    },
+    "dev_preferences_news_custom_url_empty_value": "Not set",
+    "@dev_preferences_news_custom_url_empty_value": {
+        "description": "Message to show when the custom news URL is not set"
+    },
+    "dev_preferences_news_provider_status_title": "État ",
+    "@dev_preferences_news_provider_status_title": {
+        "description": "News dev preferences - Status - Title"
+    },
+    "dev_preferences_news_provider_status_subtitle": "Last refresh: {date}",
+    "@dev_preferences_news_provider_status_subtitle": {
+        "description": "News dev preferences - Custom URL for news - Subtitle",
+        "placeholders": {
+            "date": {
+                "type": "String"
+            }
+        }
+    },
     "prices_app_dev_mode_flag": "Raccourci vers l'application Prix sur la page produit",
     "prices_app_button": "Accéder à l'application Prix",
     "prices_generic_title": "Prix",
@@ -1725,10 +1750,10 @@
     "prices_add_a_price": "Ajouter un prix",
     "prices_add_a_receipt": "Ajouter un ticket de caisse",
     "prices_add_price_tags": "Ajouter des étiquettes de prix",
-    "prices_barcode_search_not_found": "Produit non trouvé",
+    "prices_barcode_search_not_found": "Produit introuvable",
     "prices_barcode_search_none_yet": "Pas encore de produit",
     "prices_barcode_search_question": "Voulez-vous chercher ce produit ?",
-    "prices_barcode_search_title": "Recherche de produit",
+    "prices_barcode_search_title": "Recherche de produits",
     "prices_barcode_search_running": "À la recherche de {barcode}",
     "@prices_barcode_search_running": {
         "description": "Dialog title about barcode look-up",
@@ -1740,6 +1765,18 @@
     },
     "prices_barcode_reader_action": "Lecteur de code-barres",
     "prices_view_prices": "Voir les prix",
+    "prices_product_accessibility_summary": "{count,plural, =1{1 price} other{{count} prices}} for {product}",
+    "@prices_product_accessibility_summary": {
+        "description": "A card summarizing the number of prices for a product",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            },
+            "product": {
+                "type": "String"
+            }
+        }
+    },
     "prices_list_length_one_page": "{count,plural, =0{Aucun prix} =1{Un seul prix} other{Tous les {count} prix}}",
     "@prices_list_length_one_page": {
         "description": "Number of prices for one-page result",
@@ -1760,6 +1797,37 @@
                 "type": "int"
             }
         }
+    },
+    "prices_entry_accessibility_label": "Price: {price} / Store: \"{location}\" / Published on {date} by \"{user}\"",
+    "@prices_entry_accessibility_label": {
+        "description": "Accessibility label for a price entry",
+        "placeholders": {
+            "price": {
+                "type": "String"
+            },
+            "location": {
+                "type": "String"
+            },
+            "date": {
+                "type": "String"
+            },
+            "user": {
+                "type": "String"
+            }
+        }
+    },
+    "prices_open_user_proofs": "Open proofs of \"{user}\"",
+    "@prices_open_user_proofs": {
+        "description": "Button to open the proofs of a user",
+        "placeholders": {
+            "user": {
+                "type": "String"
+            }
+        }
+    },
+    "prices_open_proof": "Open price proof",
+    "@prices_open_proof": {
+        "description": "Button to open a proof"
     },
     "prices_proofs_list_length_one_page": "{count,plural, =0{Aucune preuve} =1{Une seule preuve} other{Toutes les {count} preuves}}",
     "@prices_proofs_list_length_one_page": {
@@ -1824,6 +1892,7 @@
         "description": "User dev preferences - Import history - Result successful"
     },
     "dev_mode_section_server": "Configuration du serveur",
+    "dev_mode_section_news": "News provider configuration",
     "dev_mode_section_product_page": "Page produit",
     "dev_mode_section_ui": "Interface utilisateur",
     "dev_mode_section_data": "Données",
@@ -2179,7 +2248,11 @@
     },
     "capture": "En prendre une autre",
     "@capture": {
-        "description": "Button label for taking a photo"
+        "description": "Button label for taking a new photo (= there's already one)"
+    },
+    "capture_new_picture": "Prendre une photo",
+    "@capture_new_picture": {
+        "description": "Button label for taking a new photo (= the first one)"
     },
     "choose_from_gallery": "Choisir depuis la galerie",
     "@choose_from_gallery": {
