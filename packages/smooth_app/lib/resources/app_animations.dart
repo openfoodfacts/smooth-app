@@ -75,15 +75,51 @@ class BarcodeAnimation extends StatelessWidget {
 
 class CloudUploadAnimation extends StatelessWidget {
   const CloudUploadAnimation({
+    required this.size,
     super.key,
-  });
+  }) : _circleColor = null;
+
+  const CloudUploadAnimation.circle({
+    required this.size,
+    Color? circleColor,
+    super.key,
+  }) : _circleColor = circleColor ?? Colors.black54;
+
+  final double size;
+  final Color? _circleColor;
 
   @override
   Widget build(BuildContext context) {
-    return RiveAnimation.direct(
-      AnimationsLoader.of(context),
-      artboard: 'Cloud upload',
-      animations: const <String>['Animation'],
+    Widget widget = SizedBox.square(
+      dimension: size,
+      child: RiveAnimation.direct(
+        AnimationsLoader.of(context),
+        artboard: 'Cloud upload',
+        animations: const <String>['Animation'],
+      ),
+    );
+
+    if (_circleColor != null) {
+      widget = DecoratedBox(
+        decoration: BoxDecoration(
+          color: _circleColor,
+          shape: BoxShape.circle,
+        ),
+        child: Padding(
+          padding: EdgeInsetsDirectional.only(
+            top: size * 0.2,
+            start: size * 0.2,
+            end: size * 0.2,
+            bottom: size * 0.13,
+          ),
+          child: widget,
+        ),
+      );
+    }
+
+    return SizedBox.square(
+      dimension: size,
+      child: widget,
     );
   }
 }
