@@ -9,6 +9,8 @@ class AppNews {
   final AppNewsList news;
   final AppNewsFeed feed;
 
+  bool get hasContent => news._news.isNotEmpty && feed.news.isNotEmpty;
+
   @override
   String toString() {
     return 'AppNews{news: $news, feed: $feed}';

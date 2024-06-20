@@ -40,7 +40,9 @@ class AppNewsProvider extends ChangeNotifier {
 
   AppNewsState _state;
 
-  bool get hasContent => _state is AppNewsStateLoaded;
+  bool get hasContent =>
+      _state is AppNewsStateLoaded &&
+      (_state as AppNewsStateLoaded).content.hasContent;
 
   Future<void> loadLatestNews({bool forceUpdate = false}) async {
     _emit(const AppNewsStateLoading());
