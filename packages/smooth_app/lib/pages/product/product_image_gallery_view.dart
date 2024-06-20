@@ -17,6 +17,7 @@ import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/product_image_swipeable_view.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/resources/app_animations.dart';
 import 'package:smooth_app/widgets/slivers.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
@@ -190,6 +191,8 @@ class _PhotoRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ImageField imageField = _getImageField(position);
+    final TransientFile transientFile = _getTransientFile(imageField);
+
     return Padding(
       padding: const EdgeInsets.only(
         top: SMALL_SPACE,
@@ -201,12 +204,40 @@ class _PhotoRow extends StatelessWidget {
         ),
         child: Column(
           children: <Widget>[
-            AspectRatio(
-              aspectRatio: 1.0,
-              child: SmoothImage(
-                rounded: false,
-                imageProvider: _getTransientFile(imageField).getImageProvider(),
-              ),
+            Stack(
+              children: <Widget>[
+                AspectRatio(
+                  aspectRatio: 1.0,
+                  child: SmoothImage(
+                    rounded: false,
+                    imageProvider: transientFile.getImageProvider(),
+                  ),
+                ),
+                if (transientFile.isImageAvailable() &&
+                    !transientFile.isServerImage())
+                  Positioned.directional(
+                    textDirection: Directionality.of(context),
+                    bottom: VERY_SMALL_SPACE,
+                    end: VERY_SMALL_SPACE,
+                    width: 30.0,
+                    height: 30.0,
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(
+                        color: Colors.black.withOpacity(0.5),
+                        shape: BoxShape.circle,
+                      ),
+                      child: const Padding(
+                        padding: EdgeInsetsDirectional.only(
+                          start: SMALL_SPACE,
+                          end: SMALL_SPACE,
+                          top: SMALL_SPACE,
+                          bottom: SMALL_SPACE - 1.0,
+                        ),
+                        child: CloudUploadAnimation(),
+                      ),
+                    ),
+                  ),
+              ],
             ),
             Expanded(
               child: Center(
