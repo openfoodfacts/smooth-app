@@ -26,11 +26,16 @@ class PricesPage extends StatelessWidget {
         ),
         subTitle: model.subtitle == null ? null : Text(model.subtitle!),
         actions: <Widget>[
-          IconButton(
-            tooltip: appLocalizations.prices_app_button,
-            icon: const Icon(Icons.open_in_new),
-            onPressed: () async => LaunchUrlHelper.launchURL(
-              model.uri.toString(),
+          Semantics(
+            link: true,
+            label: appLocalizations.prices_app_button,
+            excludeSemantics: true,
+            child: IconButton(
+              tooltip: appLocalizations.prices_app_button,
+              icon: const ExcludeSemantics(child: Icon(Icons.open_in_new)),
+              onPressed: () async => LaunchUrlHelper.launchURL(
+                model.uri.toString(),
+              ),
             ),
           ),
         ],

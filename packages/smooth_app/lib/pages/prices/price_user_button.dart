@@ -53,6 +53,7 @@ class PriceUserButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => PriceButton(
+        tooltip: AppLocalizations.of(context).prices_open_user_proofs(user),
         title: user,
         iconData: Icons.account_box,
         onPressed: () async => showUserPrices(
