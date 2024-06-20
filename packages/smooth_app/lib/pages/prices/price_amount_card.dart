@@ -31,15 +31,22 @@ class PriceAmountCard extends StatefulWidget {
 }
 
 class _PriceAmountCardState extends State<PriceAmountCard> {
-  final TextEditingController _controllerPaid = TextEditingController();
-  final TextEditingController _controllerWithoutDiscount =
-      TextEditingController();
+  late final TextEditingController _controllerPaid;
+  late final TextEditingController _controllerWithoutDiscount;
 
   @override
   void initState() {
     super.initState();
-    _controllerPaid.text = _model.paidPrice;
-    _controllerWithoutDiscount.text = _model.priceWithoutDiscount;
+    _controllerPaid = TextEditingController(text: _model.paidPrice);
+    _controllerWithoutDiscount =
+        TextEditingController(text: _model.priceWithoutDiscount);
+  }
+
+  @override
+  void dispose() {
+    _controllerPaid.dispose();
+    _controllerWithoutDiscount.dispose();
+    super.dispose();
   }
 
   PriceAmountModel get _model =>

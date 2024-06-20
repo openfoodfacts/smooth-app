@@ -36,7 +36,7 @@ class PriceProductSearchPage extends StatefulWidget {
 }
 
 class _PriceProductSearchPageState extends State<PriceProductSearchPage> {
-  final TextEditingController _controller = TextEditingController();
+  late final TextEditingController _controller;
 
   PriceMetaProduct? _product;
   late FocusNode _focusNode;
@@ -46,12 +46,13 @@ class _PriceProductSearchPageState extends State<PriceProductSearchPage> {
   @override
   void initState() {
     super.initState();
-    _controller.text = _product?.barcode ?? '';
+    _controller = TextEditingController(text: '');
     _focusNode = FocusNode();
   }
 
   @override
   void dispose() {
+    _controller.dispose();
     _focusNode.dispose();
     super.dispose();
   }
