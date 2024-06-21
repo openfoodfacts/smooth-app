@@ -129,10 +129,6 @@
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
-    "offUtility": "crwdns220635:0crwdne220635:0",
-    "@offUtility": {
-        "description": "Description of what a user can use Open Food Facts for."
-    },
     "productDataUtility": "crwdns220637:0crwdne220637:0",
     "@productDataUtility": {
         "description": "Description of what a user can use the product data for."
@@ -1491,6 +1487,14 @@
     "@edit_ingredients_loading_photo_btn_text": {
         "description": "Ingredients edition - Loading photo from the server"
     },
+    "edit_ingredients_loading_photo_help_dialog_title": "crwdns249038:0crwdne249038:0",
+    "@edit_ingredients_loading_photo_help_dialog_title": {
+        "description": "Ingredients edition - Dialog explaining why the photo is loading - Title"
+    },
+    "edit_ingredients_loading_photo_help_dialog_body": "crwdns249040:0crwdne249040:0",
+    "@edit_ingredients_loading_photo_help_dialog_body": {
+        "description": "Ingredients edition - Dialog explaining why the photo is loading - Content"
+    },
     "edit_ingredients_refresh_photo_btn_text": "crwdns221493:0crwdne221493:0",
     "@edit_ingredients_refresh_photo_btn_text": {
         "description": "Ingredients edition - Refresh photo"
@@ -1506,6 +1510,14 @@
     "edit_packaging_loading_photo_btn_text": "crwdns248916:0crwdne248916:0",
     "@edit_packaging_loading_photo_btn_text": {
         "description": "Packaging edition - Loading photo from the server"
+    },
+    "edit_packaging_loading_photo_help_dialog_title": "crwdns249042:0crwdne249042:0",
+    "@edit_packaging_loading_photo_help_dialog_title": {
+        "description": "Packaging edition - Dialog explaining why the photo is loading - Title"
+    },
+    "edit_packaging_loading_photo_help_dialog_body": "crwdns249044:0crwdne249044:0",
+    "@edit_packaging_loading_photo_help_dialog_body": {
+        "description": "Packaging edition - Dialog explaining why the photo is loading - Content"
     },
     "edit_packaging_refresh_photo_btn_text": "crwdns221497:0crwdne221497:0",
     "@edit_packaging_refresh_photo_btn_text": {
