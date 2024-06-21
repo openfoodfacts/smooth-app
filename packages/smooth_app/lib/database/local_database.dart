@@ -21,7 +21,7 @@ import 'package:smooth_app/database/dao_string_list.dart';
 import 'package:smooth_app/database/dao_string_list_map.dart';
 import 'package:smooth_app/database/dao_transient_operation.dart';
 import 'package:smooth_app/database/dao_work_barcode.dart';
-import 'package:sqflite/sqflite.dart';
+import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 
 class LocalDatabase extends ChangeNotifier {
   LocalDatabase._(final Database database) : _database = database {
@@ -53,14 +53,18 @@ class LocalDatabase extends ChangeNotifier {
 
   static Future<LocalDatabase> getLocalDatabase() async {
     // sql from there
-    final String databasesRootPath;
+    String? databasesRootPath;
     if (defaultTargetPlatform == TargetPlatform.iOS) {
       // as suggested in https://pub.dev/documentation/sqflite/latest/sqflite/getDatabasesPath.html
       final Directory directory = await getLibraryDirectory();
       databasesRootPath = directory.path;
-    } else {
-      databasesRootPath = await getDatabasesPath();
+    } else if (Platform.isLinux || Platform.isWindows) {
+      sqfliteFfiInit();
+      databaseFactory = databaseFactoryFfi;
     }
+
+    databasesRootPath ??= await getDatabasesPath();
+
     final String databasePath = join(databasesRootPath, 'smoothie.db');
     final Database database = await openDatabase(
       databasePath,
