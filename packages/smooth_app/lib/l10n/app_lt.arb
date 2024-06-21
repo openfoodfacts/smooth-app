@@ -1716,15 +1716,15 @@
     "@dev_preferences_import_history_subtitle": {
         "description": "User dev preferences - Import history - Subtitle"
     },
-    "dev_preferences_news_custom_url_title": "Custom URL for news",
+    "dev_preferences_news_custom_url_title": "Pasirinktinis naujienų URL",
     "@dev_preferences_news_custom_url_title": {
         "description": "News dev preferences - Custom URL for news - Title"
     },
-    "dev_preferences_news_custom_url_subtitle": "URL of the JSON file:",
+    "dev_preferences_news_custom_url_subtitle": "JSON failo URL:",
     "@dev_preferences_news_custom_url_subtitle": {
         "description": "News dev preferences - Custom URL for news - Title"
     },
-    "dev_preferences_news_custom_url_empty_value": "Not set",
+    "dev_preferences_news_custom_url_empty_value": "Nenustatytas",
     "@dev_preferences_news_custom_url_empty_value": {
         "description": "Message to show when the custom news URL is not set"
     },
@@ -1732,7 +1732,7 @@
     "@dev_preferences_news_provider_status_title": {
         "description": "News dev preferences - Status - Title"
     },
-    "dev_preferences_news_provider_status_subtitle": "Last refresh: {date}",
+    "dev_preferences_news_provider_status_subtitle": "Paskutinis atnaujinimas: {date}",
     "@dev_preferences_news_provider_status_subtitle": {
         "description": "News dev preferences - Custom URL for news - Subtitle",
         "placeholders": {
@@ -1765,7 +1765,7 @@
     },
     "prices_barcode_reader_action": "Barcode reader",
     "prices_view_prices": "View the prices",
-    "prices_product_accessibility_summary": "{count,plural, =1{1 price} other{{count} prices}} for {product}",
+    "prices_product_accessibility_summary": "{count,plural, =1{1 price} other{{{count} prices}}, skirtos {product}",
     "@prices_product_accessibility_summary": {
         "description": "A card summarizing the number of prices for a product",
         "placeholders": {
@@ -1798,7 +1798,7 @@
             }
         }
     },
-    "prices_entry_accessibility_label": "Price: {price} / Store: \"{location}\" / Published on {date} by \"{user}\"",
+    "prices_entry_accessibility_label": "Kaina: {price} / parduotuvė: \"{location}\" / Paskėlbė {date} \"{user}\"",
     "@prices_entry_accessibility_label": {
         "description": "Accessibility label for a price entry",
         "placeholders": {
@@ -1816,7 +1816,7 @@
             }
         }
     },
-    "prices_open_user_proofs": "Open proofs of \"{user}\"",
+    "prices_open_user_proofs": "Atverti \"{user}\" įrodymus",
     "@prices_open_user_proofs": {
         "description": "Button to open the proofs of a user",
         "placeholders": {
@@ -1825,7 +1825,7 @@
             }
         }
     },
-    "prices_open_proof": "Open price proof",
+    "prices_open_proof": "Atverti kainos įrodymą",
     "@prices_open_proof": {
         "description": "Button to open a proof"
     },
@@ -1892,7 +1892,7 @@
         "description": "User dev preferences - Import history - Result successful"
     },
     "dev_mode_section_server": "Server configuration",
-    "dev_mode_section_news": "News provider configuration",
+    "dev_mode_section_news": "Naujienų teikėjo konfigūravimas",
     "dev_mode_section_product_page": "Product page",
     "dev_mode_section_ui": "User Interface",
     "dev_mode_section_data": "Duomenys",
@@ -2246,7 +2246,7 @@
             }
         }
     },
-    "capture": "Užfiksuoti naują",
+    "capture": "Nufotografuoti naują nuotrauką",
     "@capture": {
         "description": "Button label for taking a new photo (= there's already one)"
     },
