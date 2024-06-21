@@ -78,7 +78,7 @@ class _UserPreferencesMigrationV2 extends UserPreferencesMigration {
         null) {
       await preferences._sharedPreferences.setInt(
         UserPreferences._TAG_USER_GROUP,
-        Random().nextInt(10),
+        math.Random().nextInt(10),
       );
     }
   }
