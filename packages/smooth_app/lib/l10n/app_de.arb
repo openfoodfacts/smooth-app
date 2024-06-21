@@ -1765,7 +1765,7 @@
     },
     "prices_barcode_reader_action": "Barcodelesegerät",
     "prices_view_prices": "Preise anzeigen",
-    "prices_product_accessibility_summary": "{count,plural, =1{1 price} other{{count} prices}} for {product}",
+    "prices_product_accessibility_summary": "{count,plural, one {}=1{1 Preis} other{{count} Preise}} für {product}",
     "@prices_product_accessibility_summary": {
         "description": "A card summarizing the number of prices for a product",
         "placeholders": {
@@ -1798,7 +1798,7 @@
             }
         }
     },
-    "prices_entry_accessibility_label": "Price: {price} / Store: \"{location}\" / Published on {date} by \"{user}\"",
+    "prices_entry_accessibility_label": "Preis: {price} / Laden: „{location}” / Veröffentlicht am {date} von „{user}”",
     "@prices_entry_accessibility_label": {
         "description": "Accessibility label for a price entry",
         "placeholders": {
@@ -1816,7 +1816,7 @@
             }
         }
     },
-    "prices_open_user_proofs": "Open proofs of \"{user}\"",
+    "prices_open_user_proofs": "Nachweise von „{user}” öffnen",
     "@prices_open_user_proofs": {
         "description": "Button to open the proofs of a user",
         "placeholders": {
@@ -1825,7 +1825,7 @@
             }
         }
     },
-    "prices_open_proof": "Open price proof",
+    "prices_open_proof": "Preisnachweis öffnen",
     "@prices_open_proof": {
         "description": "Button to open a proof"
     },
