@@ -57,6 +57,14 @@ class OcrPackagingHelper extends OcrHelper {
       appLocalizations.edit_packaging_loading_photo_btn_text;
 
   @override
+  String getActionLoadingPhotoDialogTitle(AppLocalizations appLocalizations) =>
+      appLocalizations.edit_packaging_loading_photo_help_dialog_title;
+
+  @override
+  String getActionLoadingPhotoDialogBody(AppLocalizations appLocalizations) =>
+      appLocalizations.edit_packaging_loading_photo_help_dialog_body;
+
+  @override
   String getActionRefreshPhoto(final AppLocalizations appLocalizations) =>
       appLocalizations.edit_packaging_refresh_photo_btn_text;
 

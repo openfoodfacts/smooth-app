@@ -54,6 +54,14 @@ class OcrIngredientsHelper extends OcrHelper {
       appLocalizations.edit_ingredients_loading_photo_btn_text;
 
   @override
+  String getActionLoadingPhotoDialogTitle(AppLocalizations appLocalizations) =>
+      appLocalizations.edit_ingredients_loading_photo_help_dialog_title;
+
+  @override
+  String getActionLoadingPhotoDialogBody(AppLocalizations appLocalizations) =>
+      appLocalizations.edit_ingredients_loading_photo_help_dialog_body;
+
+  @override
   String getActionRefreshPhoto(final AppLocalizations appLocalizations) =>
       appLocalizations.edit_ingredients_refresh_photo_btn_text;
 

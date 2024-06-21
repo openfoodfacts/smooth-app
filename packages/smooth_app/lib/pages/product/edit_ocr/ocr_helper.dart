@@ -42,6 +42,14 @@ abstract class OcrHelper {
   /// Returns the "loading photo" button label
   String getActionLoadingPhoto(final AppLocalizations appLocalizations);
 
+  /// Returns the title of the dialog to explain the "loading photo" state
+  String getActionLoadingPhotoDialogTitle(
+      final AppLocalizations appLocalizations);
+
+  /// Returns the content of the dialog to explain the "loading photo" state
+  String getActionLoadingPhotoDialogBody(
+      final AppLocalizations appLocalizations);
+
   /// Returns the "Extracting data…" button label
   String getActionExtractingData(final AppLocalizations appLocalizations);
 
