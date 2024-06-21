@@ -781,7 +781,7 @@
     "@homepage_main_card_search_field_tooltip": {
         "description": "Description for accessibility of the search field on the homepage"
     },
-    "scan_tagline_news_item_accessibility": "Latest news: {news_title}",
+    "scan_tagline_news_item_accessibility": "חדשות עדכניות: {news_title}",
     "@scan_tagline_news_item_accessibility": {
         "description": "Accessibility label for the title of a news",
         "placeholders": {
@@ -1119,8 +1119,8 @@
             }
         }
     },
-    "onboarding_home_welcome_text1": "Welcome !",
-    "onboarding_home_welcome_text2": "The app that helps you choose food that is good for **you** and the **planet**!",
+    "onboarding_home_welcome_text1": "ברוך בואך!",
+    "onboarding_home_welcome_text2": "היישומון שמסייע לך לבחור מזון שטוב **לך** ול**כדור הארץ**!",
     "@onboarding_home_welcome_text2": {
         "description": "Onboarding home screen welcome text, text surrounded by * will be bold"
     },
@@ -1235,7 +1235,7 @@
     "@camera_play_sound_subtitle": {
         "description": "SubTitle for the Camera play sound toggle"
     },
-    "camera_window_accessibility_label": "Scan a barcode with your camera",
+    "camera_window_accessibility_label": "סריקת ברקוד עם המצלמה שלך",
     "@camera_window_accessibility_label": {
         "description": "Accessibility label for the camera window"
     },
@@ -1744,17 +1744,17 @@
     "prices_app_dev_mode_flag": "קיצור דרך ליישומון מחירים בעמוד המוצר",
     "prices_app_button": "מעבר ליישומון המחירים",
     "prices_generic_title": "מחירים",
-    "prices_add_n_prices": "{count,plural, =1{Add a price} other{App {count} prices}}",
-    "prices_send_n_prices": "{count,plural, =1{Send the price} other{Send {count} prices}}",
-    "prices_add_an_item": "Add an item",
+    "prices_add_n_prices": "{count,plural, one {} two {הוספת {count} מחירים} many {הוספת {count} מחירים}=1{הוספת מחיר} other{הוספת {count} מחירים}}",
+    "prices_send_n_prices": "{count,plural, one {} two {שליחת {count} מחירים} many {שליחת {count} מחירים}=1{שליחת המחיר} other{שליחת {count} מחירים}}",
+    "prices_add_an_item": "הוספת פריט",
     "prices_add_a_price": "הוספת מחיר",
-    "prices_add_a_receipt": "Add a receipt",
-    "prices_add_price_tags": "Add price tags",
+    "prices_add_a_receipt": "הוספת קבלה",
+    "prices_add_price_tags": "הוספת תגי מחיר",
     "prices_barcode_search_not_found": "המוצר לא נמצא",
-    "prices_barcode_search_none_yet": "No product yet",
-    "prices_barcode_search_question": "Do you want to look for this product?",
+    "prices_barcode_search_none_yet": "אין מוצרים עדיין",
+    "prices_barcode_search_question": "לחפש את המוצר הזה?",
     "prices_barcode_search_title": "חיפוש מוצרים",
-    "prices_barcode_search_running": "Looking for {barcode}",
+    "prices_barcode_search_running": "מתבצע איתור אחר {barcode}",
     "@prices_barcode_search_running": {
         "description": "Dialog title about barcode look-up",
         "placeholders": {
@@ -1763,7 +1763,7 @@
             }
         }
     },
-    "prices_barcode_reader_action": "Barcode reader",
+    "prices_barcode_reader_action": "קורא ברקודים",
     "prices_view_prices": "View the prices",
     "prices_product_accessibility_summary": "{count,plural, one {} two {{count} מחירים} many {{count} מחירים}=1{מחיר} other{{count} מחירים}} ל{product}",
     "@prices_product_accessibility_summary": {
@@ -1867,7 +1867,7 @@
     "prices_amount_price_normal": "מחיר",
     "prices_amount_price_discounted": "מחיר מוזל",
     "prices_amount_price_not_discounted": "מחיר מקורי",
-    "prices_amount_no_product": "One product is missing!",
+    "prices_amount_no_product": "מוצר אחד חסר!",
     "prices_amount_price_incorrect": "ערך שגוי",
     "prices_amount_price_mandatory": "ערך חובה",
     "prices_currency_subtitle": "מטבע",
@@ -1891,21 +1891,21 @@
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"
     },
-    "dev_mode_section_server": "Server configuration",
+    "dev_mode_section_server": "הגדרות שרת",
     "dev_mode_section_news": "הגדרות ספק חדשות",
-    "dev_mode_section_product_page": "Product page",
-    "dev_mode_section_ui": "User Interface",
+    "dev_mode_section_product_page": "עמוד מוצר",
+    "dev_mode_section_ui": "מנשק משתמש",
     "dev_mode_section_data": "נתונים",
-    "dev_mode_section_experimental_features": "Experimental features",
+    "dev_mode_section_experimental_features": "יכולות ניסיוניות",
     "dev_mode_hide_ecoscore_title": "להחריג Eco-Score",
     "@dev_mode_hide_ecoscore_title": {
         "description": "User dev preferences - Disable Ecoscore - Title"
     },
-    "dev_mode_spellchecker_for_ocr_title": "Use a spellchecker for OCR screens",
+    "dev_mode_spellchecker_for_ocr_title": "להשתמש בבודק איות למסכי סריקה אופטית",
     "@dev_mode_spellchecker_for_ocr_title": {
         "description": "User dev preferences - Enable Spellchecker on OCR screens - Title"
     },
-    "dev_mode_spellchecker_for_ocr_subtitle": "(Ingredients and packaging)",
+    "dev_mode_spellchecker_for_ocr_subtitle": "(רכיבים ואריזה)",
     "@dev_mode_spellchecker_for_ocr_subtitle": {
         "description": "User dev preferences - Enable Spellchecker on OCR screens - Subtitle"
     },
@@ -2844,7 +2844,7 @@
     "faq_title_install_beauty": "אפשר להתקין את Open Beauty Facts כדי ליצור מסד נתונים קוסמטי",
     "faq_title_install_pet": "אפשר להתקין את Open Pet Food Facts כדי ליצור מסד נתוני מזון לחיות מחמד",
     "faq_title_install_product": "אפשר להתקין את Open Products Facts כדי ליצור מסד נתונים של מוצרים להארכת חיי הפריטים",
-    "faq_nutriscore_nutriscore": "New calculation of the Nutri-Score: what's new?",
+    "faq_nutriscore_nutriscore": "נוסחה חדשה ל־Nutri-Score: מה השתנה?",
     "contact_title_pro_page": "יצרנים? אפשר לייבא את המוצרים שלכם ל־Open Food Facts",
     "contact_title_pro_email": "איש קשר ליצרנים",
     "contact_title_press_page": "עמוד לעיתונאים",
@@ -2937,7 +2937,7 @@
     "@guide_nutriscore_v2_share_message": {
         "description": "Please let empty for now (maybe use in the future)"
     },
-    "preview_badge": "Preview",
+    "preview_badge": "תצוגה מקדימה",
     "@preview_badge": {
         "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
     }
