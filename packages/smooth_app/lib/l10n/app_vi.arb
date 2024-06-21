@@ -129,10 +129,6 @@
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
-    "offUtility": "Lựa chọn thực phẩm tốt cho bạn và hành tinh này.",
-    "@offUtility": {
-        "description": "Description of what a user can use Open Food Facts for."
-    },
     "productDataUtility": "Xem dữ liệu thực phẩm liên quan đến sở thích của bạn.",
     "@productDataUtility": {
         "description": "Description of what a user can use the product data for."
@@ -1491,6 +1487,14 @@
     "@edit_ingredients_loading_photo_btn_text": {
         "description": "Ingredients edition - Loading photo from the server"
     },
+    "edit_ingredients_loading_photo_help_dialog_title": "Why do I see this message?",
+    "@edit_ingredients_loading_photo_help_dialog_title": {
+        "description": "Ingredients edition - Dialog explaining why the photo is loading - Title"
+    },
+    "edit_ingredients_loading_photo_help_dialog_body": "To use the \"Extract ingredients\" feature, the photo needs to be uploaded first.\n\nPlease wait a few seconds or enter them manually.",
+    "@edit_ingredients_loading_photo_help_dialog_body": {
+        "description": "Ingredients edition - Dialog explaining why the photo is loading - Content"
+    },
     "edit_ingredients_refresh_photo_btn_text": "Làm mới ảnh",
     "@edit_ingredients_refresh_photo_btn_text": {
         "description": "Ingredients edition - Refresh photo"
@@ -1506,6 +1510,14 @@
     "edit_packaging_loading_photo_btn_text": "Loading photo…",
     "@edit_packaging_loading_photo_btn_text": {
         "description": "Packaging edition - Loading photo from the server"
+    },
+    "edit_packaging_loading_photo_help_dialog_title": "Why do I see this message?",
+    "@edit_packaging_loading_photo_help_dialog_title": {
+        "description": "Packaging edition - Dialog explaining why the photo is loading - Title"
+    },
+    "edit_packaging_loading_photo_help_dialog_body": "To use the \"Extract packaging\" feature, the photo needs to be uploaded first.\n\nPlease wait a few seconds or enter them manually.",
+    "@edit_packaging_loading_photo_help_dialog_body": {
+        "description": "Packaging edition - Dialog explaining why the photo is loading - Content"
     },
     "edit_packaging_refresh_photo_btn_text": "Làm mới ảnh",
     "@edit_packaging_refresh_photo_btn_text": {
