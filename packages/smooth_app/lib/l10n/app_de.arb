@@ -1487,11 +1487,11 @@
     "@edit_ingredients_loading_photo_btn_text": {
         "description": "Ingredients edition - Loading photo from the server"
     },
-    "edit_ingredients_loading_photo_help_dialog_title": "Why do I see this message?",
+    "edit_ingredients_loading_photo_help_dialog_title": "Warum wird diese Meldung angezeigt?",
     "@edit_ingredients_loading_photo_help_dialog_title": {
         "description": "Ingredients edition - Dialog explaining why the photo is loading - Title"
     },
-    "edit_ingredients_loading_photo_help_dialog_body": "To use the \"Extract ingredients\" feature, the photo needs to be uploaded first.\n\nPlease wait a few seconds or enter them manually.",
+    "edit_ingredients_loading_photo_help_dialog_body": "Um die Funktion \"Zutaten extrahieren\" nutzen zu können, muss das Foto zunächst hochgeladen werden.\n\nBitte warten Sie ein paar Sekunden oder geben Sie sie manuell ein.",
     "@edit_ingredients_loading_photo_help_dialog_body": {
         "description": "Ingredients edition - Dialog explaining why the photo is loading - Content"
     },
@@ -1511,11 +1511,11 @@
     "@edit_packaging_loading_photo_btn_text": {
         "description": "Packaging edition - Loading photo from the server"
     },
-    "edit_packaging_loading_photo_help_dialog_title": "Why do I see this message?",
+    "edit_packaging_loading_photo_help_dialog_title": "Warum wird diese Meldung angezeigt?",
     "@edit_packaging_loading_photo_help_dialog_title": {
         "description": "Packaging edition - Dialog explaining why the photo is loading - Title"
     },
-    "edit_packaging_loading_photo_help_dialog_body": "To use the \"Extract packaging\" feature, the photo needs to be uploaded first.\n\nPlease wait a few seconds or enter them manually.",
+    "edit_packaging_loading_photo_help_dialog_body": "Um die Funktion \"Verpackung extrahieren\" nutzen zu können, muss das Foto zunächst hochgeladen werden.\n\nBitte warten Sie ein paar Sekunden oder geben Sie es manuell ein.",
     "@edit_packaging_loading_photo_help_dialog_body": {
         "description": "Packaging edition - Dialog explaining why the photo is loading - Content"
     },
