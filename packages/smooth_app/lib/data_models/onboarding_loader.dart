@@ -45,7 +45,6 @@ class OnboardingLoader {
         return;
       case OnboardingPage.NOT_STARTED:
       case OnboardingPage.HOME_PAGE:
-      case OnboardingPage.SCAN_EXAMPLE:
       case OnboardingPage.HEALTH_CARD_EXAMPLE:
       case OnboardingPage.ECO_CARD_EXAMPLE:
       case OnboardingPage.PREFERENCES_PAGE:

@@ -129,10 +129,6 @@
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
-    "offUtility": "Choose food that is good for you and the planet.",
-    "@offUtility": {
-        "description": "Description of what a user can use Open Food Facts for."
-    },
     "productDataUtility": "See the food data relevant to your preferences.",
     "@productDataUtility": {
         "description": "Description of what a user can use the product data for."

@@ -9,7 +9,6 @@ import 'package:smooth_app/pages/onboarding/preferences_page.dart';
 import 'package:smooth_app/pages/onboarding/reinvention_page.dart';
 import 'package:smooth_app/pages/onboarding/sample_eco_card_page.dart';
 import 'package:smooth_app/pages/onboarding/sample_health_card_page.dart';
-import 'package:smooth_app/pages/onboarding/scan_example.dart';
 import 'package:smooth_app/pages/onboarding/welcome_page.dart';
 import 'package:smooth_app/pages/page_manager.dart';
 import 'package:smooth_app/pages/scan/carousel/scan_carousel_manager.dart';
@@ -20,7 +19,6 @@ enum OnboardingPage {
   NOT_STARTED,
   HOME_PAGE,
   WELCOME,
-  SCAN_EXAMPLE,
   HEALTH_CARD_EXAMPLE,
   ECO_CARD_EXAMPLE,
   PREFERENCES_PAGE,
@@ -56,8 +54,6 @@ enum OnboardingPage {
         return const Color(0xFFDFF4FF);
       case OnboardingPage.WELCOME:
         return const Color(0xFFFCFCFC);
-      case OnboardingPage.SCAN_EXAMPLE:
-        return const Color(0xFFE3F6FF);
       case OnboardingPage.HEALTH_CARD_EXAMPLE:
         return const Color(0xFFFFF1D1);
       case OnboardingPage.ECO_CARD_EXAMPLE:
@@ -83,11 +79,6 @@ enum OnboardingPage {
         return const OnboardingHomePage();
       case OnboardingPage.WELCOME:
         return WelcomePage(backgroundColor);
-      case OnboardingPage.SCAN_EXAMPLE:
-        return _wrapWidgetInCustomBackNavigator(
-          context,
-          ScanExample(backgroundColor),
-        );
       case OnboardingPage.HEALTH_CARD_EXAMPLE:
         return _wrapWidgetInCustomBackNavigator(
           context,
