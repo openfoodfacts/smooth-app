@@ -240,7 +240,7 @@
     },
     "sign_up_page_password_hint": "Password",
     "sign_up_page_password_error_empty": "Inserire una password",
-    "sign_up_page_password_error_invalid": "Sei pregato di inserire una password valida (almeno 6 caratteri)",
+    "sign_up_page_password_error_invalid": "Per favore inserisci una password valida (almeno 6 caratteri)",
     "sign_up_page_confirm_password_hint": "Ripeti la password",
     "sign_up_page_confirm_password_error_empty": "Ripeti la password",
     "sign_up_page_confirm_password_error_invalid": "Le password non corrispondono",
@@ -266,7 +266,7 @@
     },
     "sign_up_page_producer_checkbox": "Sono un produttore di alimenti",
     "sign_up_page_producer_hint": "Produttore/marca",
-    "sign_up_page_producer_error_empty": "Sei pregato di inserire il nome di un produttore o marchio",
+    "sign_up_page_producer_error_empty": "Per favore inserisci il nome di un produttore o di una marca",
     "sign_up_page_subscribe_checkbox": "Vorrei iscrivermi alla newsletter di Open Food facts (Puoi disiscriverti in qualsiasi momento)",
     "sign_up_page_user_name_already_used": "Il nome utente esiste già, ti preghiamo di sceglierne un altro.",
     "sign_up_page_email_already_exists": "esiste già, accedi al profilo o prova con un'altra email.",
@@ -394,7 +394,7 @@
     "@tap_to_answer_hint": {
         "description": "Hint for accessibility readers to answer Robotoff questions."
     },
-    "robotoff_questions_loading_hint": "Sei pregato di attendere durante il caricamento delle domande su questo prodotto",
+    "robotoff_questions_loading_hint": "Per favore attendi durante il caricamento delle domande su questo prodotto",
     "@robotoff_questions_loading_hint": {
         "description": "Hint for accessibility readers while Robotoff questions are loaded"
     },
@@ -833,11 +833,11 @@
     "@product_improvement_add_nutrition_facts_and_category": {
         "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
     },
-    "product_improvement_categories_but_no_nutriscore": "Il Nutri-Score per questo prodotto non è calcolabile, il che potrebbe dipendere da, es. una categoria non standard. Se ciò è considerato un errore, sei pregato di contattarci.",
+    "product_improvement_categories_but_no_nutriscore": "Il Nutri-Score per questo prodotto non può essere calcolato, il che potrebbe dipendere da ad es. una categoria non standard. Se consideri questo un errore, per favore contattaci.",
     "@product_improvement_categories_but_no_nutriscore": {
         "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
     },
-    "product_improvement_obsolete_nutrition_image": "L'immagine nutrizionale è obsoleta: sei pregato di aggiornarla.",
+    "product_improvement_obsolete_nutrition_image": "L'immagine nutrizionale è obsoleta: per favore aggiornala.",
     "@product_improvement_obsolete_nutrition_image": {
         "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
     },
@@ -1179,7 +1179,7 @@
     "@user_profile": {
         "description": "User account (if connected)"
     },
-    "user_profile_title_guest": "Benvenuto!",
+    "user_profile_title_guest": "Benvenuto/a!",
     "@user_profile_title_guest": {
         "description": "When the user is not connected"
     },
