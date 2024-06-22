@@ -64,6 +64,7 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
     final AppLocalizations appLocalization = AppLocalizations.of(context);
 
     return TextFormField(
+      spellCheckConfiguration: const SpellCheckConfiguration(),
       keyboardType: widget.textInputType,
       controller: widget.controller,
       enabled: widget.enabled,
