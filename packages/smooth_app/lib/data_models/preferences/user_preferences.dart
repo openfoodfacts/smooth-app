@@ -1,4 +1,4 @@
-import 'dart:math';
+import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -189,7 +189,7 @@ class UserPreferences extends ChangeNotifier {
     if (result != null) {
       return result;
     }
-    result = Random().nextInt(1 << 32);
+    result = math.Random().nextInt(1 << 32);
     await _sharedPreferences.setInt(tag, result);
     return result;
   }
@@ -251,7 +251,8 @@ class UserPreferences extends ChangeNotifier {
         _sharedPreferences.getInt(_TAG_LAST_VISITED_ONBOARDING_PAGE);
     return pageIndex == null
         ? OnboardingPage.NOT_STARTED
-        : OnboardingPage.values[pageIndex];
+        : OnboardingPage
+            .values[math.min(pageIndex, OnboardingPage.values.length - 1)];
   }
 
   Future<void> incrementScanCount() async {
