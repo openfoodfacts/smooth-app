@@ -841,11 +841,11 @@
     "@product_improvement_obsolete_nutrition_image": {
         "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
     },
-    "product_improvement_origins_to_be_completed": "L'Eco-Score tiene in considerazione le origini degli ingredienti. Sei pregato di scattare una foto della lista di ingredienti e/o ogni rivendicazione geografica o modifica il prodotto, così che possa esser preso in considerazione.",
+    "product_improvement_origins_to_be_completed": "L'Eco-Score tiene in considerazione le origini degli ingredienti. Se puoi scatta una foto della lista degli ingredienti e/o di qualsiasi dichiarazione geografica o modifica il prodotto, in modo che possano essere presi in considerazione.",
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
-    "country_chooser_label": "Sei pregato di scegliere un paese",
+    "country_chooser_label": "Scegli un Paese",
     "@country_chooser_label": {
         "description": "Label shown above a selector where the user can select their country (in the preferences)"
     },
@@ -1268,7 +1268,7 @@
         "description": "When the camera/photo permission failed to be acquired (!= denied)"
     },
     "permission_photo_denied_title": "Consenti l'uso della fotocamera per scansionare i codici a barre",
-    "permission_photo_denied_message": "Per un'esperienza migliore, sei pregato di consentire a {appName} di accedere alla tua fotocamera. Potrai scansionare direttamente i codici a barre.",
+    "permission_photo_denied_message": "Per un'esperienza migliore, consenti a {appName} di accedere alla tua fotocamera. Potrai scansionare direttamente i codici a barre.",
     "@permission_photo_denied_message": {
         "description": "When the camera/photo permission is denied by user",
         "placeholders": {
@@ -1446,7 +1446,7 @@
         "description": "Product edition - Ingredients - Title (note: this section was previously called Ingredients & Origins)"
     },
     "edit_product_form_item_add_valid_item_tooltip": "Aggiungi",
-    "edit_product_form_item_add_invalid_item_tooltip": "Sei pregato di inserire prima un testo",
+    "edit_product_form_item_add_invalid_item_tooltip": "Per favore inserisci prima un testo",
     "edit_product_form_item_remove_item_tooltip": "Rimuovi",
     "edit_product_form_item_packaging_title": "Foto delle istruzioni di riciclaggio",
     "@edit_product_form_item_packaging_title": {
@@ -1547,7 +1547,7 @@
     "@user_list_button_new": {
         "description": "Short label of a 'create a new list' button"
     },
-    "user_list_empty_label": "Ancora nessuna lista disponibile, ti preghiamo di iniziare a crearne una",
+    "user_list_empty_label": "Nessuna lista ancora disponibile, inizia creandone una",
     "@user_list_empty_label": {
         "description": "Content displayed when there is no list"
     },
@@ -2098,7 +2098,7 @@
     "product_name": "Nome del prodotto",
     "add_basic_details_product_name_error": "Si prega di inserire il nome del prodotto",
     "brand_name": "Nome del marchio",
-    "add_basic_details_brand_name_error": "Sei pregato di inserire il nome del marchio",
+    "add_basic_details_brand_name_error": "Si prega d'inserire il nome della marca",
     "quantity": "Quantità e peso",
     "barcode": "Codice a Barre",
     "barcode_barcode": "Codice a barre: {barcode}",
@@ -2588,7 +2588,7 @@
     "@copy_email_to_clip_board": {
         "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
     },
-    "please_send_us_an_email_to": "Sei pregato di inviarci manualmente un'email a",
+    "please_send_us_an_email_to": "Per favore inviaci manualmente un'e-mail a",
     "email_copied_to_clip_board": "Email copiata negli appunti!",
     "select_accent_color": "Seleziona il Colore Secondario",
     "@select_accent_color": {
@@ -2697,7 +2697,7 @@
     "@product_loader_network_error_title": {
         "description": "When fetching a product opened via a link and there is no connection"
     },
-    "product_loader_network_error_message": "Sei pregato di verificare che il tuo smartphone sia connesso a una rete WiFi o ai dati mobili",
+    "product_loader_network_error_message": "Sei pregato di verificare che il tuo smartphone sia connesso a una rete WiFi o abbia i dati mobili abilitati",
     "@product_loader_network_error_message": {
         "description": "When fetching a product opened via a link and there is no connection"
     },
