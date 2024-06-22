@@ -887,7 +887,7 @@
     "@product_removed_comparison": {
         "description": "Product got removed from comparison list"
     },
-    "native_app_settings": "Impostazioni dell'App Nativa",
+    "native_app_settings": "Impostazioni native dell'App",
     "@native_app_settings": {
         "description": "Native App Settings in app settings"
     },
@@ -1235,7 +1235,7 @@
     "@camera_window_accessibility_label": {
         "description": "Accessibility label for the camera window"
     },
-    "app_haptic_feedback_title": "Vibrazione e Tatto",
+    "app_haptic_feedback_title": "Vibrazione e sensazioni tattili",
     "@app_haptic_feedback_title": {
         "description": "Title for the Haptic feedback toggle"
     },
@@ -1243,11 +1243,11 @@
     "@app_haptic_feedback_subtitle": {
         "description": "SubTitle for the Haptic feedback toggle"
     },
-    "crash_reporting_toggle_title": "Segnala crash",
+    "crash_reporting_toggle_title": "Segnalazione di arresti anomali",
     "@crash_reporting_toggle_title": {
         "description": "Title for the Crash reporting toggle"
     },
-    "crash_reporting_toggle_subtitle": "Quando abilitati, i rapporti sugli arresti anomali sono inviati automaticamente al sistema di monitoraggio degli errori di Open Food Facts, così che i bug possano essere risolti e, dunque, che l'app possa essere migliorata.",
+    "crash_reporting_toggle_subtitle": "Quando abilitato, i rapporti sugli arresti anomali vengono inviati automaticamente al sistema di monitoraggio degli errori di Open Food Facts, così che i bug possano essere risolti e dunque che l'app possa essere migliorata.",
     "@crash_reporting_toggle_subtitle": {
         "description": "SubTitle for the Crash reporting toggle"
     },
@@ -1255,7 +1255,7 @@
     "@send_anonymous_toggle_title": {
         "description": "Title for the Send anonymous data toggle"
     },
-    "send_anonymous_data_toggle_subtitle": "Quando abilitate, alcune informazioni anonime relative all'utilizzo dell'app saranno inviate ai server di Open Food Facts, quindi, potremo comprendere come e quante funzionalità sono utilizzate, così da migliorarle.",
+    "send_anonymous_data_toggle_subtitle": "Quando abilitato, alcune informazioni anonime relative all'utilizzo dell'app saranno inviate ai server di Open Food Facts, in modo che possiamo comprendere come e quante funzionalità vengono utilizzate, così da migliorarle.",
     "@send_anonymous_toggle_subtitle": {
         "description": "SubTitle for the Send anonymous data toggle"
     },
