@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
@@ -56,6 +57,7 @@ class ProductPriceAddPage extends StatefulWidget {
     if (!context.mounted) {
       return;
     }
+
     await Navigator.of(context).push(
       MaterialPageRoute<void>(
         builder: (BuildContext context) => ProductPriceAddPage(
@@ -71,7 +73,8 @@ class ProductPriceAddPage extends StatefulWidget {
   State<ProductPriceAddPage> createState() => _ProductPriceAddPageState();
 }
 
-class _ProductPriceAddPageState extends State<ProductPriceAddPage> {
+class _ProductPriceAddPageState extends State<ProductPriceAddPage>
+    with TraceableClientMixin {
   late final PriceModel _model = PriceModel(
     proofType: widget.proofType,
     locations: widget.latestOsmLocations,
@@ -244,4 +247,7 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage> {
     }
     return true;
   }
+
+  @override
+  String get actionName => 'Opened price_page with ${widget.proofType.offTag}';
 }

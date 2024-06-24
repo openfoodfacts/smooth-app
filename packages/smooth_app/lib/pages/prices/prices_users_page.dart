@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
@@ -20,7 +21,8 @@ class PricesUsersPage extends StatefulWidget {
   State<PricesUsersPage> createState() => _PricesUsersPageState();
 }
 
-class _PricesUsersPageState extends State<PricesUsersPage> {
+class _PricesUsersPageState extends State<PricesUsersPage>
+    with TraceableClientMixin {
   late final Future<MaybeError<GetUsersResult>> _users = _showTopUsers();
 
   // In this specific page, let's never try to go beyond the top 10.
