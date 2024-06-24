@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
@@ -20,7 +21,8 @@ class ProductPricesList extends StatefulWidget {
   State<ProductPricesList> createState() => _ProductPricesListState();
 }
 
-class _ProductPricesListState extends State<ProductPricesList> {
+class _ProductPricesListState extends State<ProductPricesList>
+    with TraceableClientMixin {
   late final Future<MaybeError<GetPricesResult>> _prices =
       _showProductPrices(widget.model.parameters);
 
