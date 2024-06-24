@@ -42,7 +42,7 @@ class ScanMainCard extends StatelessWidget {
                           expandedMode: false,
                         ),
                       ),
-                      SizedBox(height: MEDIUM_SPACE),
+                      SizedBox(height: SMALL_SPACE),
                       Expanded(
                         flex: 4,
                         child: ScanTagLine(),
@@ -97,7 +97,10 @@ class _SearchCard extends StatelessWidget {
             textAlign: TextAlign.center,
             textStyle: const TextStyle(height: 1.3),
           ),
-          const _SearchBar(),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: SMALL_SPACE),
+            child: _SearchBar(),
+          ),
         ],
       ),
     );
