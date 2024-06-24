@@ -10,7 +10,6 @@ import 'package:smooth_app/data_models/news_feed/newsfeed_provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
-import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/provider_helper.dart';
 import 'package:smooth_app/helpers/strings_helper.dart';
@@ -369,10 +368,7 @@ class _TagLineContentButton extends StatelessWidget {
           ),
         ],
       ),
-      onPressed: () async {
-        AnalyticsHelper.trackOutlink(url: link);
-        return LaunchUrlHelper.launchURL(link);
-      },
+      onPressed: () => LaunchUrlHelper.launchURL(link),
     );
   }
 }
