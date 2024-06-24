@@ -220,7 +220,7 @@ class _TagLineContentTitle extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(width: SMALL_SPACE),
+            const SizedBox(width: VERY_SMALL_SPACE),
             Expanded(
                 child: Text(
               title,
