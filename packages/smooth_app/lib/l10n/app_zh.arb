@@ -24,7 +24,7 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
-    "previous_label": "前一頁",
+    "previous_label": "上一步",
     "@previous_label": {
         "description": "A label on a button that says 'Previous', pressing the button takes the user to the previous screen."
     },
@@ -116,7 +116,7 @@
     "@match_short_unknown": {
         "description": "Short label for product list view regarding product compatibility with the user preferences: unknown match"
     },
-    "licenses": "Licences",
+    "licenses": "许可证",
     "@licenses": {},
     "looking_for": "查找",
     "@looking_for": {
@@ -298,7 +298,7 @@
     "@contributors_label": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
     },
-    "contributors_dialog_title": "合作者",
+    "contributors_dialog_title": "贡献者",
     "@contributors_dialog_title": {
         "description": "Dialog title: A list of all contributors of this app"
     },
@@ -337,7 +337,7 @@
         "description": "Button label: Opens a pop up window which shows information about the app"
     },
     "@About this app section": {},
-    "contribute": "貢獻",
+    "contribute": "贡献",
     "@contribute": {
         "description": "Button label: Shows multiple ways how users can contribute to OFF"
     },
@@ -456,7 +456,7 @@
     "@profile_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
-    "scan_navbar_label": "掃描",
+    "scan_navbar_label": "扫描",
     "@scan_navbar_label": {
         "description": "BottomNavigationBarLabel: For the scanning of products"
     },
@@ -495,7 +495,7 @@
     },
     "tap_for_more": "点击获取更多信息",
     "@Product": {},
-    "product": "產品",
+    "product": "产品",
     "@product": {},
     "unknownBrand": "未知品牌",
     "@unknownBrand": {},
@@ -542,7 +542,7 @@
     "@add_product_take_photos": {},
     "add_product_take_photos_descriptive": "请您先拍几张照片，你可以在以后完成操作",
     "@add_product_take_photos_descriptive": {},
-    "add_product_information_button_label": "Add product information",
+    "add_product_information_button_label": "添加产品信息",
     "@add_product_information_button_label": {},
     "new_product": "新产品",
     "@new_product": {},
@@ -624,8 +624,8 @@
     "ingredients_photo_title": "配料表照片",
     "nutritional_facts_photo_title": "营养成分表",
     "recycling_photo_title": "循环利用照片",
-    "take_photo_title": "選一張圖片",
-    "take_more_photo_title": "拍攝更多照片",
+    "take_photo_title": "请拍照",
+    "take_more_photo_title": "Take more pictures",
     "front_photo_uploaded": "已上传正面照片",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "原料的照片",
@@ -671,7 +671,7 @@
     "@recycling_photo_button_label": {},
     "recycling_photo_uploaded": "已上传循环利用照片",
     "@recycling_photo_uploaded": {},
-    "take_more_photo_button_label": "拍攝更多照片",
+    "take_more_photo_button_label": "Take more pictures",
     "@take_more_photo_button_label": {},
     "other_photo_uploaded": "已上传其他照片",
     "@other_photo_uploaded": {},
@@ -772,7 +772,7 @@
     "@homepage_main_card_subheading": {
         "description": "Text between asterisks (eg: **My Text**) means text in bold. Please keep it."
     },
-    "homepage_main_card_search_field_hint": "Search for a product",
+    "homepage_main_card_search_field_hint": "搜索产品",
     "homepage_main_card_search_field_tooltip": "Start search",
     "@homepage_main_card_search_field_tooltip": {
         "description": "Description for accessibility of the search field on the homepage"
@@ -921,7 +921,7 @@
     },
     "really_clear": "确定要删除此列表吗？",
     "@Plural": {},
-    "pct_match": "{percent}% 匹配度",
+    "pct_match": "{Percent}% 匹配度",
     "@pct_match": {
         "description": "This product has a x percent match with your preferences",
         "placeholders": {
@@ -970,11 +970,11 @@
             "count": {}
         }
     },
-    "compare_products_mode": "Compare products",
+    "compare_products_mode": "比较产品",
     "@compare_products_mode": {
         "description": "Button to switch to 'compare products mode'"
     },
-    "compare_products_appbar_title": "Compare products",
+    "compare_products_appbar_title": "比较产品",
     "@compare_products_appbar_title": {
         "description": "AppBar title when in comparison mode "
     },
@@ -982,7 +982,7 @@
     "@compare_products_appbar_subtitle": {
         "description": "AppBar subtitle when in comparison mode"
     },
-    "retry_button_label": "重試",
+    "retry_button_label": "重试",
     "connect_with_us": "联系我们",
     "instagram": "Follow us on Instagram",
     "instagram_link": "https://instagram.com/open.food.facts",
@@ -990,7 +990,7 @@
     "twitter_link": "https://www.twitter.com/openfoodfacts",
     "blog": "博客",
     "faq": "常见问题",
-    "discover": "探索",
+    "discover": "发现",
     "how_to_contribute": "如何贡献数据",
     "hint_knowledge_panel_message": "点击卡片任意部分获取更多信息。立即尝试！",
     "@hint_knowledge_panel_message": {
@@ -1326,7 +1326,7 @@
     "@edit_product_form_item_other_details_subtitle": {
         "description": "Product edition - Other Details - Subtitle"
     },
-    "edit_product_form_item_photos_title": "相片",
+    "edit_product_form_item_photos_title": "照片",
     "@edit_product_form_item_photos_title": {
         "description": "Product edition - Photos - Title"
     },
@@ -1740,7 +1740,7 @@
     "@dev_preferences_news_custom_url_empty_value": {
         "description": "Message to show when the custom news URL is not set"
     },
-    "dev_preferences_news_provider_status_title": "狀態",
+    "dev_preferences_news_provider_status_title": "状态",
     "@dev_preferences_news_provider_status_title": {
         "description": "News dev preferences - Status - Title"
     },
@@ -1755,14 +1755,14 @@
     },
     "prices_app_dev_mode_flag": "Shortcut to Prices app on product page",
     "prices_app_button": "Go to Prices app",
-    "prices_generic_title": "Prices",
+    "prices_generic_title": "价格",
     "prices_add_n_prices": "{count,plural, =1{Add a price} other{App {count} prices}}",
     "prices_send_n_prices": "{count,plural, =1{Send the price} other{Send {count} prices}}",
     "prices_add_an_item": "Add an item",
-    "prices_add_a_price": "Add a price",
+    "prices_add_a_price": "添加价格",
     "prices_add_a_receipt": "Add a receipt",
     "prices_add_price_tags": "Add price tags",
-    "prices_barcode_search_not_found": "Product not found",
+    "prices_barcode_search_not_found": "未找到产品",
     "prices_barcode_search_none_yet": "No product yet",
     "prices_barcode_search_question": "Do you want to look for this product?",
     "prices_barcode_search_title": "Product search",
@@ -1876,26 +1876,26 @@
     },
     "prices_amount_subtitle": "Amount",
     "prices_amount_is_discounted": "Is discounted?",
-    "prices_amount_price_normal": "Price",
-    "prices_amount_price_discounted": "Discounted price",
+    "prices_amount_price_normal": "价格",
+    "prices_amount_price_discounted": "打折后价格",
     "prices_amount_price_not_discounted": "Original price",
     "prices_amount_no_product": "One product is missing!",
     "prices_amount_price_incorrect": "Incorrect value",
     "prices_amount_price_mandatory": "Mandatory value",
-    "prices_currency_subtitle": "Currency",
-    "prices_date_subtitle": "Date",
+    "prices_currency_subtitle": "货币",
+    "prices_date_subtitle": "日期",
     "prices_location_subtitle": "Shop",
     "prices_location_find": "Find a shop",
     "prices_location_mandatory": "You need to select a shop!",
-    "prices_proof_subtitle": "Proof",
+    "prices_proof_subtitle": "证明",
     "prices_proof_find": "Select a proof",
-    "prices_proof_receipt": "Receipt",
-    "prices_proof_price_tag": "Price tag",
+    "prices_proof_receipt": "收据",
+    "prices_proof_price_tag": "价格标签",
     "prices_proof_mandatory": "You need to select a proof!",
     "prices_add_validation_error": "Validation error",
     "prices_privacy_warning_title": "Privacy warning",
     "prices_privacy_warning_message": "Prices will be public, along with the store they refer to.\nThat might allow people who know about your Open Food Facts pseudonym to:\n* infer in which area you live\n* know what you are buying\nIf you are uneasy with that, please change your pseudonym, or create a new Open Food Facts account and log into the app with it.",
-    "prices_unknown_product": "Unknown product",
+    "prices_unknown_product": "未知产品",
     "@prices_unknown_product": {
         "description": "Very small text, in the context of prices, to say that the product is unknown"
     },
@@ -1907,7 +1907,7 @@
     "dev_mode_section_news": "News provider configuration",
     "dev_mode_section_product_page": "Product page",
     "dev_mode_section_ui": "User Interface",
-    "dev_mode_section_data": "數據",
+    "dev_mode_section_data": "数据",
     "dev_mode_section_experimental_features": "Experimental features",
     "dev_mode_hide_ecoscore_title": "排除 Eco-Score",
     "@dev_mode_hide_ecoscore_title": {
@@ -1972,11 +1972,11 @@
     "@user_search_to_be_completed_title": {
         "description": "User search (to be completed): list tile title"
     },
-    "user_search_prices_title": "My prices",
+    "user_search_prices_title": "我的价格",
     "@user_search_prices_title": {
         "description": "User prices: list tile title"
     },
-    "user_search_proofs_title": "My proofs",
+    "user_search_proofs_title": "我的样张",
     "@user_search_proofs_title": {
         "description": "User proofs: list tile title"
     },
@@ -2258,11 +2258,11 @@
             }
         }
     },
-    "capture": "拍摄",
+    "capture": "Take a new picture",
     "@capture": {
         "description": "Button label for taking a new photo (= there's already one)"
     },
-    "capture_new_picture": "選一張圖片",
+    "capture_new_picture": "请拍照",
     "@capture_new_picture": {
         "description": "Button label for taking a new photo (= the first one)"
     },
@@ -2816,7 +2816,7 @@
     "@product_list_create_tooltip": {
         "description": "Button description to create a new list (long sentence)"
     },
-    "nutriscore_generic": "Nutri-Score",
+    "nutriscore_generic": "营养分数",
     "nutriscore_a": "Nutri-Score A",
     "nutriscore_b": "Nutri-Score B",
     "nutriscore_c": "Nutri-Score C",
@@ -2836,7 +2836,7 @@
     "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
     "nutriscore_not_applicable": "Nutri-Score is not applicable",
     "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
-    "ecoscore_generic": "Eco-Score",
+    "ecoscore_generic": "生态得分",
     "ecoscore_a": "Eco-Score A",
     "ecoscore_b": "Eco-Score B",
     "ecoscore_c": "Eco-Score C",
@@ -2861,7 +2861,7 @@
     "contact_title_pro_email": "Producer Contact",
     "contact_title_press_page": "Press Page",
     "contact_title_press_email": "Press Contact",
-    "contact_title_newsletter": "Subscribe to our newsletter",
+    "contact_title_newsletter": "订阅新闻资讯",
     "hunger_games_loading_line1": "Please give us a few seconds…",
     "hunger_games_loading_line2": "We're downloading the questions!",
     "hunger_games_error_label": "Argh! Something went wrong… and we couldn't load the questions.",
@@ -2952,5 +2952,9 @@
     "preview_badge": "Preview",
     "@preview_badge": {
         "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
+    },
+    "prices_feedback_form": "Click here to send us your feedback about this new feature!",
+    "@prices_feedback_form": {
+        "description": "A button to send feedback about the prices feature"
     }
 }
