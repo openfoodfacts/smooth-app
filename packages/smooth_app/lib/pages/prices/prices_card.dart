@@ -50,18 +50,18 @@ class PricesCard extends StatelessWidget {
                     horizontal: MEDIUM_SPACE,
                     vertical: VERY_SMALL_SPACE,
                   ),
-                  child: const Row(
+                  child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       Text(
-                        'Preview',
-                        style: TextStyle(
+                        appLocalizations.preview_badge,
+                        style: const TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(width: SMALL_SPACE),
-                      Lab(
+                      const SizedBox(width: SMALL_SPACE),
+                      const Lab(
                         color: Colors.white,
                         size: 13.0,
                       ),
