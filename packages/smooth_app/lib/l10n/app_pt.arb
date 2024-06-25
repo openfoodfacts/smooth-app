@@ -1777,7 +1777,7 @@
     },
     "prices_barcode_reader_action": "Leitor de código de barras",
     "prices_view_prices": "Ver os preços",
-    "prices_product_accessibility_summary": "{count,plural, =1{1 price} other{{count} prices}} for {product}",
+    "prices_product_accessibility_summary": "{count,plural, one {}=1{1 preço} other{{count} preços}} de {product}",
     "@prices_product_accessibility_summary": {
         "description": "A card summarizing the number of prices for a product",
         "placeholders": {
@@ -1810,7 +1810,7 @@
             }
         }
     },
-    "prices_entry_accessibility_label": "Price: {price} / Store: \"{location}\" / Published on {date} by \"{user}\"",
+    "prices_entry_accessibility_label": "Preço: {price} / Loja: \"{location}\" / Publicado em {date} por \"{user}\"",
     "@prices_entry_accessibility_label": {
         "description": "Accessibility label for a price entry",
         "placeholders": {
@@ -1828,7 +1828,7 @@
             }
         }
     },
-    "prices_open_user_proofs": "Open proofs of \"{user}\"",
+    "prices_open_user_proofs": "Abrir comprovativos de \"{user}\"",
     "@prices_open_user_proofs": {
         "description": "Button to open the proofs of a user",
         "placeholders": {
@@ -1837,11 +1837,11 @@
             }
         }
     },
-    "prices_open_proof": "Open price proof",
+    "prices_open_proof": "Abrir comprovativos dos preços",
     "@prices_open_proof": {
         "description": "Button to open a proof"
     },
-    "prices_proofs_list_length_one_page": "{count,plural, =0{No proof yet} =1{Only one proof} other{All {count} proofs}}",
+    "prices_proofs_list_length_one_page": "{count,plural, one {}=0{Ainda sem comprovativos} =1{Apenas um comprovativo} other{Todos os {count} comprovativos}}",
     "@prices_proofs_list_length_one_page": {
         "description": "Number of proofs for one-page result",
         "placeholders": {
@@ -1850,7 +1850,7 @@
             }
         }
     },
-    "prices_proofs_list_length_many_pages": "Latest {pageSize} proofs (total: {total})",
+    "prices_proofs_list_length_many_pages": "Últimos {pageSize} comprovativos (total: {total})",
     "@prices_proofs_list_length_many_pages": {
         "description": "Number of proofs for one-page result",
         "placeholders": {
@@ -1862,7 +1862,7 @@
             }
         }
     },
-    "prices_users_list_length_many_pages": "Top {pageSize} contributors (total: {total})",
+    "prices_users_list_length_many_pages": "Principais {pageSize} contribuidores (total: {total})",
     "@prices_users_list_length_many_pages": {
         "description": "Number of users for one-page result",
         "placeholders": {
@@ -1879,7 +1879,7 @@
     "prices_amount_price_normal": "Preço",
     "prices_amount_price_discounted": "Preços com desconto",
     "prices_amount_price_not_discounted": "Preço original",
-    "prices_amount_no_product": "One product is missing!",
+    "prices_amount_no_product": "Falta um produto!",
     "prices_amount_price_incorrect": "Valor incorreto",
     "prices_amount_price_mandatory": "Valor obrigatório",
     "prices_currency_subtitle": "Moeda",
@@ -1904,7 +1904,7 @@
         "description": "User dev preferences - Import history - Result successful"
     },
     "dev_mode_section_server": "Configuração do servidor",
-    "dev_mode_section_news": "News provider configuration",
+    "dev_mode_section_news": "Configuração do fornecedor de notícias",
     "dev_mode_section_product_page": "Página do produto",
     "dev_mode_section_ui": "Interface do utilizador",
     "dev_mode_section_data": "Dados",
@@ -1913,11 +1913,11 @@
     "@dev_mode_hide_ecoscore_title": {
         "description": "User dev preferences - Disable Ecoscore - Title"
     },
-    "dev_mode_spellchecker_for_ocr_title": "Use a spellchecker for OCR screens",
+    "dev_mode_spellchecker_for_ocr_title": "Utilizar um corretor ortográfico para ecrãs de OCR",
     "@dev_mode_spellchecker_for_ocr_title": {
         "description": "User dev preferences - Enable Spellchecker on OCR screens - Title"
     },
-    "dev_mode_spellchecker_for_ocr_subtitle": "(Ingredients and packaging)",
+    "dev_mode_spellchecker_for_ocr_subtitle": "(Ingredientes e embalagem)",
     "@dev_mode_spellchecker_for_ocr_subtitle": {
         "description": "User dev preferences - Enable Spellchecker on OCR screens - Subtitle"
     },
@@ -1980,11 +1980,11 @@
     "@user_search_proofs_title": {
         "description": "User proofs: list tile title"
     },
-    "user_search_proof_title": "My proof",
+    "user_search_proof_title": "Meu comprovativo",
     "@user_search_proof_title": {
         "description": "User proof: page title"
     },
-    "user_any_search_prices_title": "Contributor prices",
+    "user_any_search_prices_title": "Preços dos contribuintes",
     "@user_any_search_prices_title": {
         "description": "User prices (everybody except me): list tile title"
     },
@@ -2258,7 +2258,7 @@
             }
         }
     },
-    "capture": "Take a new picture",
+    "capture": "Tirar uma nova fotografia",
     "@capture": {
         "description": "Button label for taking a new photo (= there's already one)"
     },
@@ -2856,7 +2856,7 @@
     "faq_title_install_beauty": "Instale o Open Beauty Facts para criar uma base de dados de cosméticos",
     "faq_title_install_pet": "Instale o Open Pet Food Facts para criar uma base de dados de comida para animais de estimação",
     "faq_title_install_product": "Instale o Open Products Facts para criar uma base de dados de produtos para prolongar a vida útil dos objetos",
-    "faq_nutriscore_nutriscore": "New calculation of the Nutri-Score: what's new?",
+    "faq_nutriscore_nutriscore": "Novo cálculo do Nutri-Score: o que há de novo?",
     "contact_title_pro_page": "Profissional? Importe os seus produtos no Open Food Facts",
     "contact_title_pro_email": "Contacto do produtor",
     "contact_title_press_page": "Página de imprensa",
@@ -2953,7 +2953,7 @@
     "@preview_badge": {
         "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
     },
-    "prices_feedback_form": "Click here to send us your feedback about this new feature!",
+    "prices_feedback_form": "Clique aqui para nos enviar os seus comentários sobre esta nova funcionalidade!",
     "@prices_feedback_form": {
         "description": "A button to send feedback about the prices feature"
     }
