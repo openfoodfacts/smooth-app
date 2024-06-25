@@ -65,9 +65,9 @@ class PricesPage extends StatelessWidget {
           final UserPreferences userPreferences,
           _,
         ) {
-          if (!userPreferences.shouldShowPricesFeedbackForm) {
+          /*if (!userPreferences.shouldShowPricesFeedbackForm) {
             return EMPTY_WIDGET;
-          }
+          }*/
 
           return const _PricesFeedbackForm();
         },
@@ -92,9 +92,12 @@ class _PricesFeedbackForm extends StatelessWidget {
       child: IconTheme(
         data: const IconThemeData(color: Colors.white),
         child: InkWell(
-          onTap: () => LaunchUrlHelper.launchURL(
-            'https://forms.gle/Vmh9SR3HhPpjMnVF7',
-          ),
+          onTap: () async {
+            LaunchUrlHelper.launchURL(
+              'https://forms.gle/Vmh9SR3HhPpjMnVF7',
+            );
+            context.read<UserPreferences>().markPricesFeedbackFormAsCompleted();
+          },
           child: Padding(
             padding: const EdgeInsets.symmetric(
               horizontal: MEDIUM_SPACE,
