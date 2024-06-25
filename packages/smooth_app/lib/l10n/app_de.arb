@@ -2952,5 +2952,9 @@
     "preview_badge": "Vorschau",
     "@preview_badge": {
         "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
+    },
+    "prices_feedback_form": "Click here to send us your feedback about this new feature!",
+    "@prices_feedback_form": {
+        "description": "A button to send feedback about the prices feature"
     }
 }
