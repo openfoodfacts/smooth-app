@@ -68,6 +68,8 @@ class UserPreferences extends ChangeNotifier {
   static const String _TAG_CURRENT_COLOR_SCHEME = 'currentColorScheme';
   static const String _TAG_CURRENT_CONTRAST_MODE = 'contrastMode';
   static const String _TAG_USER_COUNTRY_CODE = 'userCountry';
+  static const String _TAG_USER_COUNTRY_CODE_LAST_UPDATE =
+      'userCountryLastUpdate';
   static const String _TAG_USER_CURRENCY_CODE = 'userCurrency';
   static const String _TAG_LAST_VISITED_ONBOARDING_PAGE =
       'lastVisitedOnboardingPage';
@@ -227,6 +229,10 @@ class UserPreferences extends ChangeNotifier {
   /// Please use [ProductQuery.setCountry] as interface
   Future<void> setUserCountryCode(final String countryCode) async {
     await _sharedPreferences.setString(_TAG_USER_COUNTRY_CODE, countryCode);
+    await _sharedPreferences.setInt(
+      _TAG_USER_COUNTRY_CODE_LAST_UPDATE,
+      DateTime.now().millisecondsSinceEpoch,
+    );
     notifyListeners();
   }
 
