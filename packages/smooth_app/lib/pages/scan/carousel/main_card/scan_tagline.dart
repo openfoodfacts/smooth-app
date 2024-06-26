@@ -302,7 +302,7 @@ class _TagLineContentBodyState extends State<_TagLineContentBody> {
   }
 
   Widget _image() {
-    if (widget.image!.src.endsWith('svg')) {
+    if (widget.image!.src?.endsWith('svg') == true) {
       return SvgCache(
         widget.image!.src,
         semanticsLabel: widget.image!.alt,
@@ -323,7 +323,7 @@ class _TagLineContentBodyState extends State<_TagLineContentBody> {
 
           return EMPTY_WIDGET;
         },
-        widget.image!.src,
+        widget.image!.src ?? '-',
       );
     }
   }
