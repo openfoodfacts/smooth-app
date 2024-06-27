@@ -16,11 +16,15 @@ class ProductImageWidget extends StatelessWidget {
     required this.productImage,
     required this.barcode,
     required this.squareSize,
+    this.imageSize,
   });
 
   final ProductImage productImage;
   final String barcode;
   final double squareSize;
+
+  /// Allows to fetch the optimized version of the image
+  final ImageSize? imageSize;
 
   @override
   Widget build(BuildContext context) {
@@ -39,6 +43,7 @@ class ProductImageWidget extends StatelessWidget {
         productImage.getUrl(
           barcode,
           uriHelper: ProductQuery.uriProductHelper,
+          imageSize: imageSize,
         ),
       ),
       rounded: false,
