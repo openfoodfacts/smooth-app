@@ -1776,7 +1776,7 @@
         }
     },
     "prices_barcode_reader_action": "קורא ברקודים",
-    "prices_view_prices": "View the prices",
+    "prices_view_prices": "הצגת המחירים",
     "prices_product_accessibility_summary": "{count,plural, one {} two {{count} מחירים} many {{count} מחירים}=1{מחיר} other{{count} מחירים}} ל{product}",
     "@prices_product_accessibility_summary": {
         "description": "A card summarizing the number of prices for a product",
