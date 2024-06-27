@@ -153,6 +153,7 @@ class LanguageSelector extends StatelessWidget {
           header: SmoothTextFormField(
             type: TextFieldTypes.PLAIN_TEXT,
             hintText: appLocalizations.search,
+            borderRadius: BorderRadius.zero,
             prefixIcon: const Icon(Icons.search),
             controller: languageSelectorController,
             onChanged: (String? query) {

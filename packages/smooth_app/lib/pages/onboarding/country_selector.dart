@@ -8,6 +8,7 @@ import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
+import 'package:smooth_app/helpers/strings_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_text.dart';
 
@@ -68,7 +69,7 @@ class _CountrySelectorState extends State<CountrySelector> {
             if (snapshot.hasError) {
               return Text('Fatal Error: ${snapshot.error}');
             } else if (snapshot.connectionState != ConnectionState.done) {
-              return const CircularProgressIndicator.adaptive();
+              return const Center(child: CircularProgressIndicator.adaptive());
             }
             final UserPreferences userPreferences =
                 context.watch<UserPreferences>();
@@ -97,6 +98,7 @@ class _CountrySelectorState extends State<CountrySelector> {
                           header: SmoothTextFormField(
                             type: TextFieldTypes.PLAIN_TEXT,
                             prefixIcon: const Icon(Icons.search),
+                            borderRadius: BorderRadius.zero,
                             controller: _countryController,
                             onChanged: (String? query) {
                               query = query!.trim().getComparisonSafeString();
@@ -134,6 +136,9 @@ class _CountrySelectorState extends State<CountrySelector> {
                                 contentPadding: const EdgeInsets.symmetric(
                                   horizontal: horizontalPadding,
                                 ),
+                                horizontalTitleGap: 0,
+                                leading: Text(country.emoji),
+                                minLeadingWidth: 30.0,
                                 trailing:
                                     selected ? const Icon(Icons.check) : null,
                                 title: TextHighlighter(

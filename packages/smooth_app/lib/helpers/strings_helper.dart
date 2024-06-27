@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iso_countries/country.dart';
 
 extension StringExtensions on String {
   /// Returns a list containing all positions of a [charCode]
@@ -137,4 +138,12 @@ class FormattedText extends StatelessWidget {
       ),
     );
   }
+}
+
+extension CountryExtension on Country {
+  String get emoji => countryCode.toUpperCase().replaceAllMapped(
+        RegExp(r'[A-Z]'),
+        (Match match) =>
+            String.fromCharCode(match.group(0)!.codeUnitAt(0) + 127397),
+      );
 }

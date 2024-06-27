@@ -24,6 +24,7 @@ class SmoothTextFormField extends StatefulWidget {
     this.onFieldSubmitted,
     this.autofocus,
     this.focusNode,
+    this.borderRadius,
   });
 
   final TextFieldTypes type;
@@ -40,6 +41,7 @@ class SmoothTextFormField extends StatefulWidget {
   final ValueChanged<String>? onFieldSubmitted;
   final bool? autofocus;
   final FocusNode? focusNode;
+  final BorderRadius? borderRadius;
 
   @override
   State<SmoothTextFormField> createState() => _SmoothTextFormFieldState();
@@ -99,12 +101,12 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
         ),
         hintText: widget.hintText,
         hintMaxLines: 2,
-        border: const OutlineInputBorder(
-          borderRadius: CIRCULAR_BORDER_RADIUS,
+        border: OutlineInputBorder(
+          borderRadius: widget.borderRadius ?? CIRCULAR_BORDER_RADIUS,
         ),
-        enabledBorder: const OutlineInputBorder(
-          borderRadius: CIRCULAR_BORDER_RADIUS,
-          borderSide: BorderSide(
+        enabledBorder: OutlineInputBorder(
+          borderRadius: widget.borderRadius ?? CIRCULAR_BORDER_RADIUS,
+          borderSide: const BorderSide(
             color: Colors.transparent,
             width: 5.0,
           ),
