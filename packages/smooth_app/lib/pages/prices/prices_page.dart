@@ -65,9 +65,9 @@ class PricesPage extends StatelessWidget {
           final UserPreferences userPreferences,
           _,
         ) {
-          /*if (!userPreferences.shouldShowPricesFeedbackForm) {
+          if (!userPreferences.shouldShowPricesFeedbackForm) {
             return EMPTY_WIDGET;
-          }*/
+          }
 
           return const _PricesFeedbackForm();
         },
@@ -85,10 +85,13 @@ class _PricesFeedbackForm extends StatelessWidget {
     final SmoothColorsThemeExtension? themeExtension =
         Theme.of(context).extension<SmoothColorsThemeExtension>();
 
+    final double bottomPadding = MediaQuery.viewPaddingOf(context).bottom;
+
     return Ink(
       width: double.infinity,
-      height: kBottomNavigationBarHeight,
+      height: kBottomNavigationBarHeight + bottomPadding,
       color: themeExtension!.primaryBlack,
+      padding: EdgeInsetsDirectional.only(bottom: bottomPadding),
       child: IconTheme(
         data: const IconThemeData(color: Colors.white),
         child: InkWell(
@@ -99,7 +102,7 @@ class _PricesFeedbackForm extends StatelessWidget {
             context.read<UserPreferences>().markPricesFeedbackFormAsCompleted();
           },
           child: Padding(
-            padding: const EdgeInsets.symmetric(
+            padding: const EdgeInsetsDirectional.symmetric(
               horizontal: MEDIUM_SPACE,
               vertical: SMALL_SPACE,
             ),
