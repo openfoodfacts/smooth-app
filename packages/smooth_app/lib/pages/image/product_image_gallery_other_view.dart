@@ -156,6 +156,6 @@ class _RawGridGallery extends StatelessWidget {
         ImageSize.SMALL,
         ImageSize.DISPLAY
       ].firstWhereOrNull(
-        (ImageSize element) => squareSize < int.parse(element.number),
+        (ImageSize element) => squareSize <= int.parse(element.number),
       );
 }
