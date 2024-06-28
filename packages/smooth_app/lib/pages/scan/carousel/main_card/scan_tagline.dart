@@ -368,7 +368,10 @@ class _TagLineContentButton extends StatelessWidget {
           ),
         ],
       ),
-      onPressed: () => LaunchUrlHelper.launchURL(link),
+      onPressed: () => LaunchUrlHelper.launchURLAndFollowDeepLinks(
+        context,
+        link,
+      ),
     );
   }
 }
