@@ -219,23 +219,7 @@ class _PhotoRow extends StatelessWidget {
                     textDirection: Directionality.of(context),
                     bottom: VERY_SMALL_SPACE,
                     end: VERY_SMALL_SPACE,
-                    width: 30.0,
-                    height: 30.0,
-                    child: DecoratedBox(
-                      decoration: BoxDecoration(
-                        color: Colors.black.withOpacity(0.5),
-                        shape: BoxShape.circle,
-                      ),
-                      child: const Padding(
-                        padding: EdgeInsetsDirectional.only(
-                          start: SMALL_SPACE,
-                          end: SMALL_SPACE,
-                          top: SMALL_SPACE,
-                          bottom: SMALL_SPACE - 1.0,
-                        ),
-                        child: CloudUploadAnimation(),
-                      ),
-                    ),
+                    child: const CloudUploadAnimation.circle(size: 30.0),
                   ),
               ],
             ),

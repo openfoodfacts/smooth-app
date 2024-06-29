@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/fetched_product.dart';
@@ -26,13 +27,15 @@ class PriceProductSearchPage extends StatefulWidget {
   });
 
   final PriceMetaProduct? product;
+
   // TODO(monsieurtanuki): as a parameter, add a list of barcodes already there: we're not supposed to select twice the same product
 
   @override
   State<PriceProductSearchPage> createState() => _PriceProductSearchPageState();
 }
 
-class _PriceProductSearchPageState extends State<PriceProductSearchPage> {
+class _PriceProductSearchPageState extends State<PriceProductSearchPage>
+    with TraceableClientMixin {
   final TextEditingController _controller = TextEditingController();
 
   late PriceMetaProduct? _product = widget.product;

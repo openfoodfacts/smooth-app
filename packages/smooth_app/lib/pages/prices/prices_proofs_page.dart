@@ -2,6 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
+import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/images/smooth_image.dart';
@@ -21,7 +22,8 @@ class PricesProofsPage extends StatefulWidget {
   State<PricesProofsPage> createState() => _PricesProofsPageState();
 }
 
-class _PricesProofsPageState extends State<PricesProofsPage> {
+class _PricesProofsPageState extends State<PricesProofsPage>
+    with TraceableClientMixin {
   late final Future<MaybeError<GetProofsResult>> _results = _download();
 
   static const int _columns = 3;
