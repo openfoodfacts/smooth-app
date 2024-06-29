@@ -220,7 +220,7 @@ class _TagLineContentTitle extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(width: SMALL_SPACE),
+            const SizedBox(width: VERY_SMALL_SPACE),
             Expanded(
                 child: Text(
               title,
@@ -237,7 +237,7 @@ class _TagLineContentTitle extends StatelessWidget {
   }
 }
 
-class _TagLineContentBody extends StatelessWidget {
+class _TagLineContentBody extends StatefulWidget {
   const _TagLineContentBody({
     required this.message,
     this.textColor,
@@ -249,41 +249,50 @@ class _TagLineContentBody extends StatelessWidget {
   final AppNewsImage? image;
 
   @override
+  State<_TagLineContentBody> createState() => _TagLineContentBodyState();
+}
+
+class _TagLineContentBodyState extends State<_TagLineContentBody> {
+  bool _imageError = false;
+
+  @override
   Widget build(BuildContext context) {
     final ThemeProvider themeProvider = context.watch<ThemeProvider>();
     final SmoothColorsThemeExtension theme =
         Theme.of(context).extension<SmoothColorsThemeExtension>()!;
 
     final Widget text = FormattedText(
-      text: message,
+      text: widget.message,
       textStyle: TextStyle(
-        color: textColor ??
+        color: widget.textColor ??
             (!themeProvider.isDarkMode(context)
                 ? theme.primarySemiDark
                 : theme.primaryLight),
       ),
     );
 
-    if (image == null) {
+    if (widget.image == null) {
       return text;
     }
 
-    final int imageFlex = ((image!.width ?? 0.2) * 10).toInt();
+    final int imageFlex = ((widget.image!.width ?? 0.2) * 10).toInt();
     return Row(
       children: <Widget>[
-        Expanded(
-          flex: imageFlex,
-          child: ConstrainedBox(
-            constraints: BoxConstraints(
-              maxHeight: MediaQuery.sizeOf(context).height * 0.06,
-            ),
-            child: AspectRatio(
-              aspectRatio: 1.0,
-              child: _image(),
+        if (!_imageError) ...<Widget>[
+          Expanded(
+            flex: imageFlex,
+            child: ConstrainedBox(
+              constraints: BoxConstraints(
+                maxHeight: MediaQuery.sizeOf(context).height * 0.06,
+              ),
+              child: AspectRatio(
+                aspectRatio: 1.0,
+                child: _image(),
+              ),
             ),
           ),
-        ),
-        const SizedBox(width: MEDIUM_SPACE),
+          const SizedBox(width: MEDIUM_SPACE),
+        ],
         Expanded(
           flex: 10 - imageFlex,
           child: text,
@@ -293,15 +302,28 @@ class _TagLineContentBody extends StatelessWidget {
   }
 
   Widget _image() {
-    if (image!.src.endsWith('svg')) {
+    if (widget.image!.src.endsWith('svg')) {
       return SvgCache(
-        image!.src,
-        semanticsLabel: image!.alt,
+        widget.image!.src,
+        semanticsLabel: widget.image!.alt,
       );
     } else {
       return Image.network(
-        semanticLabel: image!.alt,
-        image!.src,
+        semanticLabel: widget.image!.alt,
+        errorBuilder: (
+          BuildContext context,
+          Object error,
+          StackTrace? stackTrace,
+        ) {
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            if (_imageError != true) {
+              setState(() => _imageError = true);
+            }
+          });
+
+          return EMPTY_WIDGET;
+        },
+        widget.image!.src,
       );
     }
   }
@@ -346,7 +368,10 @@ class _TagLineContentButton extends StatelessWidget {
           ),
         ],
       ),
-      onPressed: () => LaunchUrlHelper.launchURL(link),
+      onPressed: () => LaunchUrlHelper.launchURLAndFollowDeepLinks(
+        context,
+        link,
+      ),
     );
   }
 }

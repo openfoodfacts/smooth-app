@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -108,6 +109,8 @@ class _RawGridGallery extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double squareSize = _getSquareSize(context);
+    final ImageSize? imageSize = _computeImageSize(squareSize);
+
     return SliverGrid(
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: _columns,
@@ -137,6 +140,7 @@ class _RawGridGallery extends StatelessWidget {
                 productImage: productImage,
                 barcode: product.barcode!,
                 squareSize: squareSize,
+                imageSize: imageSize,
               ),
             ),
           );
@@ -146,4 +150,12 @@ class _RawGridGallery extends StatelessWidget {
       ),
     );
   }
+
+  ImageSize? _computeImageSize(double squareSize) => <ImageSize>[
+        ImageSize.THUMB,
+        ImageSize.SMALL,
+        ImageSize.DISPLAY
+      ].firstWhereOrNull(
+        (ImageSize element) => squareSize <= int.parse(element.number),
+      );
 }

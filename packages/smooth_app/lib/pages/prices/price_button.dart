@@ -6,6 +6,7 @@ class PriceButton extends StatelessWidget {
     this.title,
     this.iconData,
     this.buttonStyle,
+    this.tooltip,
     required this.onPressed,
   });
 
@@ -13,28 +14,44 @@ class PriceButton extends StatelessWidget {
   final IconData? iconData;
   final ButtonStyle? buttonStyle;
   final VoidCallback? onPressed;
+  final String? tooltip;
 
   @override
   Widget build(BuildContext context) {
+    final Widget widget;
+
     if (iconData == null) {
-      return ElevatedButton(
+      widget = ElevatedButton(
         onPressed: onPressed,
         style: buttonStyle,
         child: Text(title!),
       );
-    }
-    if (title == null) {
-      return ElevatedButton(
+    } else if (title == null) {
+      widget = ElevatedButton(
         onPressed: onPressed,
         style: buttonStyle,
         child: Icon(iconData),
       );
+    } else {
+      widget = ElevatedButton.icon(
+        onPressed: onPressed,
+        icon: Icon(iconData),
+        label: Text(title!),
+        style: buttonStyle,
+      );
     }
-    return ElevatedButton.icon(
-      onPressed: onPressed,
-      icon: Icon(iconData),
-      label: Text(title!),
-      style: buttonStyle,
-    );
+
+    if (tooltip?.isNotEmpty == true) {
+      return Semantics(
+        value: tooltip,
+        button: true,
+        excludeSemantics: true,
+        child: Tooltip(
+          message: tooltip,
+          child: widget,
+        ),
+      );
+    }
+    return widget;
   }
 }

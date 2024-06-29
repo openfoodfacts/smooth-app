@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/fetched_product.dart';
@@ -35,7 +36,8 @@ class PriceProductSearchPage extends StatefulWidget {
   State<PriceProductSearchPage> createState() => _PriceProductSearchPageState();
 }
 
-class _PriceProductSearchPageState extends State<PriceProductSearchPage> {
+class _PriceProductSearchPageState extends State<PriceProductSearchPage>
+    with TraceableClientMixin {
   late final TextEditingController _controller;
 
   PriceMetaProduct? _product;

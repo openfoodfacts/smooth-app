@@ -11,43 +11,20 @@ import 'package:smooth_app/resources/app_icons.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
 /// Displays a product image thumbnail with the upload date on top.
-class ProductImageWidget extends StatefulWidget {
+class ProductImageWidget extends StatelessWidget {
   const ProductImageWidget({
     required this.productImage,
     required this.barcode,
     required this.squareSize,
+    this.imageSize,
   });
 
   final ProductImage productImage;
   final String barcode;
   final double squareSize;
 
-  @override
-  State<ProductImageWidget> createState() => _ProductImageWidgetState();
-}
-
-class _ProductImageWidgetState extends State<ProductImageWidget> {
-  @override
-  void initState() {
-    super.initState();
-    _loadImagePalette();
-  }
-
-  Future<void> _loadImagePalette() async {
-    final ColorScheme palette = await ColorScheme.fromImageProvider(
-        provider: NetworkImage(widget.productImage.getUrl(
-      widget.barcode,
-      uriHelper: ProductQuery.uriProductHelper,
-    )));
-
-    setState(() {
-      backgroundColor = palette.primaryContainer;
-      darkBackground = backgroundColor!.computeLuminance() < 0.5;
-    });
-  }
-
-  Color? backgroundColor;
-  bool? darkBackground;
+  /// Allows to fetch the optimized version of the image
+  final ImageSize? imageSize;
 
   @override
   Widget build(BuildContext context) {
@@ -57,20 +34,21 @@ class _ProductImageWidgetState extends State<ProductImageWidget> {
     final DateFormat dateFormat =
         DateFormat.yMd(ProductQuery.getLanguage().offTag);
 
-    darkBackground = darkBackground ?? true;
-
     final Widget image = SmoothImage(
-      width: widget.squareSize,
-      height: widget.squareSize,
+      cacheHeight:
+          (squareSize * MediaQuery.devicePixelRatioOf(context)).toInt(),
+      width: squareSize,
+      height: squareSize,
       imageProvider: NetworkImage(
-        widget.productImage.getUrl(
-          widget.barcode,
+        productImage.getUrl(
+          barcode,
           uriHelper: ProductQuery.uriProductHelper,
+          imageSize: imageSize,
         ),
       ),
       rounded: false,
     );
-    final DateTime? uploaded = widget.productImage.uploaded;
+    final DateTime? uploaded = productImage.uploaded;
     if (uploaded == null) {
       return image;
     }
@@ -85,7 +63,7 @@ class _ProductImageWidgetState extends State<ProductImageWidget> {
       button: true,
       child: SmoothCard(
         padding: EdgeInsets.zero,
-        color: backgroundColor ?? colors.primaryBlack,
+        color: colors.primaryBlack,
         borderRadius: ANGULAR_BORDER_RADIUS,
         margin: EdgeInsets.zero,
         child: ClipRRect(
@@ -108,11 +86,7 @@ class _ProductImageWidgetState extends State<ProductImageWidget> {
                         child: AutoSizeText(
                           date,
                           maxLines: 1,
-                          style: TextStyle(
-                            color: darkBackground!
-                                ? Colors.white
-                                : colors.primaryDark,
-                          ),
+                          style: const TextStyle(color: Colors.white),
                         ),
                       ),
                       if (expired)

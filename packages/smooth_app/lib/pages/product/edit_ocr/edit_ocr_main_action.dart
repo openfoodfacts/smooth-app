@@ -113,14 +113,13 @@ class _EditOcrActionExtractingContent extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              const CircularProgressIndicator.adaptive(),
+              const _ExtractMainActionProgressIndicator(),
               Expanded(
                 child: Text(
                   helper.getActionExtractingData(appLocalizations),
                   textAlign: TextAlign.center,
                 ),
               ),
-              const CircularProgressIndicator.adaptive(),
             ],
           ),
         ),
@@ -184,18 +183,104 @@ class _EditOcrActionLoadingContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: MEDIUM_SPACE),
+      padding: const EdgeInsetsDirectional.only(
+        start: MEDIUM_SPACE,
+        end: VERY_SMALL_SPACE,
+      ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
+          const _ExtractMainActionProgressIndicator(),
           Expanded(
             child: Text(
               helper.getActionLoadingPhoto(appLocalizations),
             ),
           ),
-          const CircularProgressIndicator.adaptive(),
+          AspectRatio(
+            aspectRatio: 1.0,
+            child: InkWell(
+              onTap: () => _openExplanation(context),
+              borderRadius: ANGULAR_BORDER_RADIUS,
+              child: Icon(
+                Icons.info_outline,
+                semanticLabel: helper.getActionLoadingPhotoDialogTitle(
+                  appLocalizations,
+                ),
+              ),
+            ),
+          )
         ],
+      ),
+    );
+  }
+
+  void _openExplanation(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+        return SmoothAlertDialog(
+          title: helper.getActionLoadingPhotoDialogTitle(
+            appLocalizations,
+          ),
+          leadingTitle: const Icon(
+            Icons.info_outline,
+            semanticLabel: '',
+          ),
+          close: true,
+          body: Text(
+            helper.getActionLoadingPhotoDialogBody(
+              appLocalizations,
+            ),
+          ),
+          positiveAction: SmoothActionButton(
+            text: appLocalizations.okay,
+            onPressed: () => Navigator.pop(context),
+          ),
+        );
+      },
+    );
+  }
+}
+
+/// We use a custom progress indicator, because Material and Cupertino Widgets
+/// don't have the same size.
+class _ExtractMainActionProgressIndicator extends StatelessWidget {
+  const _ExtractMainActionProgressIndicator();
+
+  @override
+  Widget build(BuildContext context) {
+    if (Platform.isIOS || Platform.isMacOS) {
+      return const Padding(
+        padding: EdgeInsetsDirectional.only(
+          start: SMALL_SPACE,
+          end: MEDIUM_SPACE,
+          top: SMALL_SPACE,
+          bottom: SMALL_SPACE,
+        ),
+        child: CupertinoActivityIndicator(
+          radius: 10.0,
+          color: Colors.white,
+        ),
+      );
+    }
+
+    return const Padding(
+      padding: EdgeInsetsDirectional.only(
+        start: SMALL_SPACE,
+        end: MEDIUM_SPACE,
+        top: MEDIUM_SPACE,
+        bottom: MEDIUM_SPACE,
+      ),
+      child: AspectRatio(
+        aspectRatio: 1.0,
+        child: CircularProgressIndicator(
+          strokeWidth: 2.5,
+          valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+          // backgroundColor: Colors.white,
+        ),
       ),
     );
   }
