@@ -2895,7 +2895,7 @@
             }
         }
     },
-    "guide_title": "Guide",
+    "guide_title": "Opas",
     "@guide_title": {
         "description": "A title for a guide"
     },
@@ -2904,7 +2904,7 @@
     "@guide_nutriscore_v2_enabled": {
         "description": "Please NEVER touch this value and let the OFF team change it!"
     },
-    "guide_nutriscore_v2_title": "The Nutri-Score is evolving: explanations!",
+    "guide_nutriscore_v2_title": "Nutri-Score kehittyy: selityksiä!",
     "@guide_nutriscore_v2_title": {
         "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
     },
@@ -2913,37 +2913,37 @@
         "description": "The logo is only available in de/en/fr/ln/nl. Please use en if not available (in lowercase, please)."
     },
     "guide_nutriscore_v2_what_is_nutriscore_title": "Mikä on Nutri-Score?",
-    "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "The Nutri-Score is a logo which aims to inform you about the **nutritional quality of foods**.",
+    "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "Nutri-Score on logo, jonka tarkoituksena on kertoa sinulle **ruokien ravintoarvosta**.",
     "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
         "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
     },
-    "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "The color code varies from dark green (**A**) for the **healthiest** products to dark red (**E**) for the **less healthy** ones.",
+    "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "Värikoodi vaihtelee tummanvihreästä (**A**) **terveellisimmille** tuotteille tummanpunaiseen (**E**) **vähemmän terveellisille** tuotteille.",
     "@guide_nutriscore_v2_what_is_nutriscore_paragraph2": {
         "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
     },
-    "guide_nutriscore_v2_nutriscore_a_caption": "The Nutri-Score A logo",
-    "guide_nutriscore_v2_why_v2_title": "Why is Nutri-Score evolving?",
-    "guide_nutriscore_v2_why_v2_intro": "The Nutri-Score formula **is evolving** to provide better recommendations:",
-    "guide_nutriscore_v2_why_v2_arg1_title": "Better evaluate all drinks",
-    "guide_nutriscore_v2_why_v2_arg1_text": "The comparative notes of **milk**, **dairy drinks** with added sugar and **vegetable** drinks were better differentiated in the new algorithm.",
-    "guide_nutriscore_v2_why_v2_arg2_title": "Better ranking of drinks",
-    "guide_nutriscore_v2_why_v2_arg2_text": "The **sugar content** is better taken into account and favors **lowly sweetened** drinks.\\n**Sweeteners will also be penalized**: diet sodas will be downgraded from a B rating to between C and E. Water remains the recommended drink.",
-    "guide_nutriscore_v2_why_v2_arg3_title": "Salt and sugar penalized",
-    "guide_nutriscore_v2_why_v2_arg3_text": "Products **too sweet** or **too salty** will see their **rating further downgraded**.",
-    "guide_nutriscore_v2_why_v2_arg4_title": "Hierarchy within oils and fishes",
-    "guide_nutriscore_v2_why_v2_arg4_text": "The rating of certain **fatty fish** and **oils rich in good fats** will improve.",
-    "guide_nutriscore_v2_why_v2_arg5_title": "Limit red meat",
-    "guide_nutriscore_v2_why_v2_arg5_text": "Consumption of **red meat should be limited**. This is why **poultry will be comparatively better ranked**.",
-    "guide_nutriscore_v2_new_logo_title": "How to differentiate old Nutri-Score and new calculation?",
-    "guide_nutriscore_v2_new_logo_text": "From now on, the logo can display a mention \"**New calculation**\" to clarify that this is indeed the new calculation.",
-    "guide_nutriscore_v2_new_logo_image_caption": "The logo of the new Nutri-Score",
+    "guide_nutriscore_v2_nutriscore_a_caption": "Nutri-Score A -logo",
+    "guide_nutriscore_v2_why_v2_title": "Miksi Nutri-Score kehittyy?",
+    "guide_nutriscore_v2_why_v2_intro": "Nutri-Score-kaava **kehitetään** tarjotakseen parempia suosituksia:",
+    "guide_nutriscore_v2_why_v2_arg1_title": "Paranna kaikkien juomien arviointia",
+    "guide_nutriscore_v2_why_v2_arg1_text": "Uuden algoritmin mukaan **maito**, **sokerilla maustetut maitojuomat** ja **kasvijuomat** eroteltiin paremmin vertailevissa muistiinpanoissa.",
+    "guide_nutriscore_v2_why_v2_arg2_title": "Parempi juomien sijoitus",
+    "guide_nutriscore_v2_why_v2_arg2_text": "**Sokeripitoisuus** otetaan paremmin huomioon ja suosii **vähän makeutettuja** juomia.\\n**Makeutusaineista myös rangaistaan**: dieettivirvoitusjuomat alennetaan B-luokituksen tasosta C:n ja E:n välille. Vesi on edelleen suositeltu juoma.",
+    "guide_nutriscore_v2_why_v2_arg3_title": "Suolasta ja sokerista rangaistaan",
+    "guide_nutriscore_v2_why_v2_arg3_text": "Tuotteiden, jotka ovat **liian makeita** tai **liian suolaisia**, **luokitusta alennetaan edelleen**.",
+    "guide_nutriscore_v2_why_v2_arg4_title": "Hierarkia öljyjen ja kalojen välillä",
+    "guide_nutriscore_v2_why_v2_arg4_text": "Tiettyjen **rasvaisten kalojen** ja **hyviä rasvoja sisältävien öljyjen** luokitus paranee.",
+    "guide_nutriscore_v2_why_v2_arg5_title": "Rajoita punaista lihaa",
+    "guide_nutriscore_v2_why_v2_arg5_text": "**Punaisen lihan kulutusta tulisi rajoittaa**. Tämä on syy siihen, miksi **siipikarja sijoittuu suhteellisesti paremmin**.",
+    "guide_nutriscore_v2_new_logo_title": "Kuinka erottaa vanha Nutri-Score ja uusi laskelma?",
+    "guide_nutriscore_v2_new_logo_text": "Tästä eteenpäin logossa voi näkyä maininta \"**Uusi laskelma**\" selventääkseen, että kyseessä on todellakin uusi laskelma.",
+    "guide_nutriscore_v2_new_logo_image_caption": "Uuden Nutri-Scoren logo",
     "guide_nutriscore_v2_where_title": "Where to find the new Nutri-Score calculation?",
-    "guide_nutriscore_v2_where_paragraph1": "The Nutri-Score is applied in several countries: Germany, Belgium, Spain, France, Luxembourg, the Netherlands and Switzerland.",
-    "guide_nutriscore_v2_where_paragraph2": "Manufacturers have until **2026** at the latest **to replace** the old calculation with the new one.",
-    "guide_nutriscore_v2_where_paragraph3": "Without waiting, you **will already find in the OpenFoodFacts application**, the new calculation, including if the manufacturers have not updated the score.",
-    "guide_nutriscore_v2_unchanged_title": "What doesn't change",
-    "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
-    "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
+    "guide_nutriscore_v2_where_paragraph1": "Nutri-Scorea sovelletaan useissa maissa: Saksassa, Belgiassa, Espanjassa, Ranskassa, Luxemburgissa, Alankomaissa ja Sveitsissä.",
+    "guide_nutriscore_v2_where_paragraph2": "Valmistajilla on viimeistään **2026** asti **korvattava** vanha laskelma uudella.",
+    "guide_nutriscore_v2_where_paragraph3": "Odotamatta **löydät jo OpenFoodFacts-sovelluksesta** uuden laskelman, myös jos valmistajat eivät ole päivittäneet arvosanaa.",
+    "guide_nutriscore_v2_unchanged_title": "Mikä ei muutu",
+    "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score on pistemäärä, joka on suunniteltu **mittaamaan ravintoarvoa**. Se **täydentää NOVA-ryhmää** **ultrajalostetuissa elintarvikkeissa** (sisältyy myös hakemukseen).",
+    "guide_nutriscore_v2_unchanged_paragraph2": "Valmistajille Nutri-Score-näyttö **pysyy valinnaisena**.",
     "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
     "guide_nutriscore_v2_share_message": "",
     "@guide_nutriscore_v2_share_message": {
