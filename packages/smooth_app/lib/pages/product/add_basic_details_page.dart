@@ -133,52 +133,56 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                             UserPreferences? previousValue,
                             UserPreferences currentValue,
                           ) {
-                            return previousValue?.getFlag(UserPreferencesDevMode.userPreferencesFlagSpellCheckerOnOcr) !=
-                             currentValue.getFlag(UserPreferencesDevMode.userPreferencesFlagSpellCheckerOnOcr);
+                            return previousValue?.getFlag(UserPreferencesDevMode
+                                    .userPreferencesFlagSpellCheckerOnOcr) !=
+                                currentValue.getFlag(UserPreferencesDevMode
+                                    .userPreferencesFlagSpellCheckerOnOcr);
                           },
-                        builder: (BuildContext context, UserPreferences prefs, Widget? child) { 
-                          if (_multilingualHelper.isMonolingual()){
-                           return SmoothTextFormField(
-                            controller: _productNameController,
-                            type: TextFieldTypes.PLAIN_TEXT,
-                            hintText: appLocalizations.product_name,
-                            spellCheckConfiguration: (prefs.getFlag(
-                                              UserPreferencesDevMode
-                                                  .userPreferencesFlagSpellCheckerOnOcr) ??
-                                          false) &&
-                                      (Platform.isAndroid || Platform.isIOS)
-                                  ? const SpellCheckConfiguration()
-                                  : const SpellCheckConfiguration.disabled(),
-                          );
-                          } 
-                          else {
-                            return Card(
-                            child: Column(
-                              children: <Widget>[
-                                _multilingualHelper.getLanguageSelector(
-                                  setState: setState,
-                                  product: _product,
+                          builder: (BuildContext context, UserPreferences prefs,
+                              Widget? child) {
+                            if (_multilingualHelper.isMonolingual()) {
+                              return SmoothTextFormField(
+                                controller: _productNameController,
+                                type: TextFieldTypes.PLAIN_TEXT,
+                                hintText: appLocalizations.product_name,
+                                spellCheckConfiguration: (prefs.getFlag(
+                                                UserPreferencesDevMode
+                                                    .userPreferencesFlagSpellCheckerOnOcr) ??
+                                            false) &&
+                                        (Platform.isAndroid || Platform.isIOS)
+                                    ? const SpellCheckConfiguration()
+                                    : const SpellCheckConfiguration.disabled(),
+                              );
+                            } else {
+                              return Card(
+                                child: Column(
+                                  children: <Widget>[
+                                    _multilingualHelper.getLanguageSelector(
+                                      setState: setState,
+                                      product: _product,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: SmoothTextFormField(
+                                        controller: _productNameController,
+                                        type: TextFieldTypes.PLAIN_TEXT,
+                                        hintText: appLocalizations.product_name,
+                                        spellCheckConfiguration: (prefs.getFlag(
+                                                        UserPreferencesDevMode
+                                                            .userPreferencesFlagSpellCheckerOnOcr) ??
+                                                    false) &&
+                                                (Platform.isAndroid ||
+                                                    Platform.isIOS)
+                                            ? const SpellCheckConfiguration()
+                                            : const SpellCheckConfiguration
+                                                .disabled(),
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: SmoothTextFormField(
-                                    controller: _productNameController,
-                                    type: TextFieldTypes.PLAIN_TEXT,
-                                    hintText: appLocalizations.product_name,
-                                    spellCheckConfiguration: (prefs.getFlag(
-                                              UserPreferencesDevMode
-                                                  .userPreferencesFlagSpellCheckerOnOcr) ??
-                                          false) &&
-                                      (Platform.isAndroid || Platform.isIOS)
-                                  ? const SpellCheckConfiguration()
-                                  : const SpellCheckConfiguration.disabled(),
-                                 ),
-                                ),
-                              ],
-                            ),
-                          );
-                          }
-                        },
+                              );
+                            }
+                          },
                         ),
                         SizedBox(height: _heightSpace),
                         LayoutBuilder(

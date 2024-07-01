@@ -85,7 +85,8 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
               setState(() {});
             }
           },
-      spellCheckConfiguration: widget.spellCheckConfiguration ?? const SpellCheckConfiguration.disabled(),
+      spellCheckConfiguration: widget.spellCheckConfiguration ??
+          const SpellCheckConfiguration.disabled(),
       onFieldSubmitted: widget.onFieldSubmitted,
       style: TextStyle(fontSize: textSize),
       cursorHeight: textSize * (textStyle.height ?? 1.4),
