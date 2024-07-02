@@ -20,8 +20,8 @@ import 'package:smooth_app/pages/product/new_product_page.dart';
 import 'package:smooth_app/pages/product/product_loader_page.dart';
 import 'package:smooth_app/pages/scan/search_page.dart';
 import 'package:smooth_app/pages/scan/search_product_helper.dart';
-import 'package:smooth_app/pages/user_management/sign_up_page.dart';
 import 'package:smooth_app/pages/user_management/forgot_password_page.dart';
+import 'package:smooth_app/pages/user_management/sign_up_page.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 /// A replacement for the [Navigator], where we internally use [GoRouter].
