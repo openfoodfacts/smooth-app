@@ -1,14 +1,19 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/background/background_task_details.dart';
 import 'package:smooth_app/cards/product_cards/product_image_carousel.dart';
+import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
+import 'package:smooth_app/helpers/provider_helper.dart';
 import 'package:smooth_app/pages/input/smooth_autocomplete_text_field.dart';
 import 'package:smooth_app/pages/input/unfocus_field_when_tap_outside.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/product/common/product_buttons.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
@@ -123,31 +128,62 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                                   ),
                         ),
                         SizedBox(height: _heightSpace),
-                        if (_multilingualHelper.isMonolingual())
-                          SmoothTextFormField(
-                            controller: _productNameController,
-                            type: TextFieldTypes.PLAIN_TEXT,
-                            hintText: appLocalizations.product_name,
-                          )
-                        else
-                          Card(
-                            child: Column(
-                              children: <Widget>[
-                                _multilingualHelper.getLanguageSelector(
-                                  setState: setState,
-                                  product: _product,
+                        ConsumerFilter<UserPreferences>(
+                          buildWhen: (
+                            UserPreferences? previousValue,
+                            UserPreferences currentValue,
+                          ) {
+                            return previousValue?.getFlag(UserPreferencesDevMode
+                                    .userPreferencesFlagSpellCheckerOnOcr) !=
+                                currentValue.getFlag(UserPreferencesDevMode
+                                    .userPreferencesFlagSpellCheckerOnOcr);
+                          },
+                          builder: (BuildContext context, UserPreferences prefs,
+                              Widget? child) {
+                            if (_multilingualHelper.isMonolingual()) {
+                              return SmoothTextFormField(
+                                controller: _productNameController,
+                                type: TextFieldTypes.PLAIN_TEXT,
+                                hintText: appLocalizations.product_name,
+                                spellCheckConfiguration: (prefs.getFlag(
+                                                UserPreferencesDevMode
+                                                    .userPreferencesFlagSpellCheckerOnOcr) ??
+                                            false) &&
+                                        (Platform.isAndroid || Platform.isIOS)
+                                    ? const SpellCheckConfiguration()
+                                    : const SpellCheckConfiguration.disabled(),
+                              );
+                            } else {
+                              return Card(
+                                child: Column(
+                                  children: <Widget>[
+                                    _multilingualHelper.getLanguageSelector(
+                                      setState: setState,
+                                      product: _product,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: SmoothTextFormField(
+                                        controller: _productNameController,
+                                        type: TextFieldTypes.PLAIN_TEXT,
+                                        hintText: appLocalizations.product_name,
+                                        spellCheckConfiguration: (prefs.getFlag(
+                                                        UserPreferencesDevMode
+                                                            .userPreferencesFlagSpellCheckerOnOcr) ??
+                                                    false) &&
+                                                (Platform.isAndroid ||
+                                                    Platform.isIOS)
+                                            ? const SpellCheckConfiguration()
+                                            : const SpellCheckConfiguration
+                                                .disabled(),
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: SmoothTextFormField(
-                                    controller: _productNameController,
-                                    type: TextFieldTypes.PLAIN_TEXT,
-                                    hintText: appLocalizations.product_name,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
+                              );
+                            }
+                          },
+                        ),
                         SizedBox(height: _heightSpace),
                         LayoutBuilder(
                           builder: (
