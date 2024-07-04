@@ -2,18 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/database/dao_string_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/pages/product/common/search_helper.dart';
+import 'package:smooth_app/pages/product/common/search_preloaded_item.dart';
 
 class SearchHistoryView extends StatefulWidget {
   const SearchHistoryView({
-    this.onTap,
-    this.focusNode,
+    required this.onTap,
+    required this.focusNode,
+    required this.searchHelper,
+    required this.preloadedList,
   });
 
-  final void Function(String)? onTap;
-  final FocusNode? focusNode;
+  final void Function(String) onTap;
+  final FocusNode focusNode;
+  final SearchHelper searchHelper;
+  final List<SearchPreloadedItem> preloadedList;
 
   @override
   State<SearchHistoryView> createState() => _SearchHistoryViewState();
@@ -31,8 +36,8 @@ class _SearchHistoryViewState extends State<SearchHistoryView> {
   void _fetchQueries() {
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     final List<String> queries =
-        DaoStringList(localDatabase).getAll(DaoStringList.keySearchHistory);
-    setState(() => _queries = queries.reversed.toList());
+        widget.searchHelper.getAllQueries(localDatabase);
+    setState(() => _queries = queries);
   }
 
   @override
@@ -48,28 +53,45 @@ class _SearchHistoryViewState extends State<SearchHistoryView> {
         itemBuilder: (BuildContext context, int i) {
           if (i == 0) {
             return _SearchItemPasteFromClipboard(
-              onData: (String data) => widget.onTap?.call(data),
+              onData: (String data) => widget.onTap.call(data),
             );
           }
+          i--;
 
-          final String query = _queries[i - 1];
+          if (i < widget.preloadedList.length) {
+            final SearchPreloadedItem item = widget.preloadedList[i];
+            return item.getWidget(
+              context,
+              onDismissItem: () async {
+                // we need an immediate action for the display refresh
+                widget.preloadedList.removeAt(i);
+                // and we need to impact the database too
+                await item.delete(context);
 
+                setState(() {});
+              },
+            );
+          }
+          i -= widget.preloadedList.length;
+
+          final String query = _queries[i];
           return _SearchHistoryTile(
             query: query,
-            onTap: () => widget.onTap?.call(query),
+            onTap: () => widget.onTap.call(query),
             onEditItem: () => _onEditItem(query),
             onDismissItem: () async {
               // we need an immediate action for the display refresh
               _queries.remove(query);
               // and we need to impact the database too
               final LocalDatabase localDatabase = context.read<LocalDatabase>();
-              await DaoStringList(localDatabase)
-                  .remove(DaoStringList.keySearchHistory, query);
+              await widget.searchHelper.removeQuery(localDatabase, query);
               setState(() {});
             },
           );
         },
-        itemCount: _queries.length + 1, // +1 for the "Copy to clipboard"
+        itemCount: _queries.length +
+            widget.preloadedList.length +
+            1, // +1 for the "Copy from clipboard"
       ),
     );
   }
@@ -86,7 +108,7 @@ class _SearchHistoryViewState extends State<SearchHistoryView> {
 
     // If the keyboard is hidden, show it.
     if (View.of(context).viewInsets.bottom == 0) {
-      widget.focusNode?.unfocus();
+      widget.focusNode.unfocus();
 
       WidgetsBinding.instance.addPostFrameCallback((_) {
         FocusScope.of(context).requestFocus(widget.focusNode);

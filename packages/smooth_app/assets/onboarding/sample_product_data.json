@@ -9,11 +9,11 @@
                   "description" : "",
                   "description_short" : "Very good nutritional quality",
                   "grade" : "a",
-                  "icon_url" : "https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a.svg",
+                  "icon_url" : "https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-en.svg",
                   "id" : "nutriscore",
-                  "match" : 85.0714285714286,
+                  "match" : 81,
                   "name" : "Nutri-Score",
-                  "panel_id" : "nutriscore",
+                  "panel_id" : "nutriscore_2023",
                   "status" : "known",
                   "title" : "Nutri-Score A"
                },
@@ -336,8 +336,6 @@
          "Aliments d'origine végétale",
          "Aliments à base de fruits et de légumes",
          "Plats préparés",
-         "Alternatives à la viande",
-         "Substituts de viande",
          "Soupes",
          "Soupes de légumes"
       ],
@@ -567,7 +565,6 @@
                      "ecoscore_material_score" : 81,
                      "ecoscore_shape_ratio" : 1,
                      "material" : "en:glass",
-                     "number_of_units" : 1,
                      "recycling" : "en:recycle",
                      "shape" : "en:bottle"
                   },
@@ -575,7 +572,6 @@
                      "ecoscore_material_score" : 76,
                      "ecoscore_shape_ratio" : 0.1,
                      "material" : "en:steel",
-                     "number_of_units" : 1,
                      "recycling" : "en:recycle",
                      "shape" : "en:bottle-cap"
                   }
@@ -779,8 +775,6 @@
       "ecoscore_grade" : "a",
       "ecoscore_score" : 115,
       "environment_impact_level_tags" : [],
-      "image_ingredients_url" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/ingredients_en.120.400.jpg",
-      "image_nutrition_url" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/nutrition_en.109.400.jpg",
       "ingredients_analysis_tags" : [
          "en:palm-oil-free",
          "en:vegan",
@@ -1183,7 +1177,7 @@
                         {
                            "values" : [
                               {
-                                 "text" : "1 Bottle"
+                                 "text" : "Bottle"
                               },
                               {
                                  "text" : "Glass"
@@ -1201,7 +1195,7 @@
                         {
                            "values" : [
                               {
-                                 "text" : "1 Bottle cap"
+                                 "text" : "Bottle cap"
                               },
                               {
                                  "text" : "Steel"
@@ -1283,7 +1277,7 @@
             "title_element" : {
                "grade" : "a",
                "icon_url" : "https://static.openfoodfacts.org/images/attributes/dist/ecoscore-a.svg",
-               "subtitle" : "Product: A good product for you - Open Food Facts - 100 g",
+               "subtitle" : "Product: A good product for you - Open Food Facts - 200 g",
                "title" : "Impact for this product: A (Score: 115/100)",
                "type" : "grade"
             },
@@ -1373,37 +1367,9 @@
                {
                   "element_type" : "panel_group",
                   "panel_group_element" : {
-                     "image" : {
-                        "alt" : "A good product for you - Nutrition facts",
-                        "id" : "nutrition_en",
-                        "lc" : "en",
-                        "sizes" : {
-                           "100" : {
-                              "height" : 100,
-                              "url" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/nutrition_en.109.100.jpg",
-                              "width" : 75
-                           },
-                           "200" : {
-                              "height" : 200,
-                              "url" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/nutrition_en.109.200.jpg",
-                              "width" : 150
-                           },
-                           "400" : {
-                              "height" : 400,
-                              "url" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/nutrition_en.109.400.jpg",
-                              "width" : 300
-                           },
-                           "full" : {
-                              "height" : 4032,
-                              "url" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/nutrition_en.109.full.jpg",
-                              "width" : 3024
-                           }
-                        },
-                        "type" : "nutrition"
-                     },
                      "panel_group_id" : "nutrition",
                      "panel_ids" : [
-                        "nutriscore",
+                        "nutriscore_2023",
                         "nutrient_levels"
                      ],
                      "title" : "Nutrition",
@@ -1422,34 +1388,6 @@
                {
                   "element_type" : "panel_group",
                   "panel_group_element" : {
-                     "image" : {
-                        "alt" : "A good product for you - Ingredients",
-                        "id" : "ingredients_en",
-                        "lc" : "en",
-                        "sizes" : {
-                           "100" : {
-                              "height" : 100,
-                              "url" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/ingredients_en.120.100.jpg",
-                              "width" : 56
-                           },
-                           "200" : {
-                              "height" : 200,
-                              "url" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/ingredients_en.120.200.jpg",
-                              "width" : 113
-                           },
-                           "400" : {
-                              "height" : 400,
-                              "url" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/ingredients_en.120.400.jpg",
-                              "width" : 225
-                           },
-                           "full" : {
-                              "height" : 4624,
-                              "url" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/ingredients_en.120.full.jpg",
-                              "width" : 2604
-                           }
-                        },
-                        "type" : "ingredients"
-                     },
                      "panel_group_id" : "ingredients",
                      "panel_ids" : [
                         "ingredients"
@@ -1492,7 +1430,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                If the information does not match the information on the packaging, please complete or correct it.\n                Open Food Facts is a collaborative database, and every contribution is useful for all.\n                "
+                     "html" : "\n                If the information does not match the information on the packaging, you can complete or correct it. Thank you!\n                Open Food Facts is a collaborative database, and every contribution is useful for all.\n                "
                   }
                },
                {
@@ -1900,19 +1838,211 @@
                "health"
             ]
          },
-         "nutriscore" : {
+         "nutriscore_2023" : {
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "nutriscore_description"
+                  }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "evaluation" : "bad",
+                     "icon_color_from_evaluation" : true,
+                     "icon_size" : "small",
+                     "icon_url" : "https://static.openfoodfacts.org/images/icons/dist/circle-minus.svg",
+                     "panel_ids" : [
+                        "nutriscore_component_energy",
+                        "nutriscore_component_sugars",
+                        "nutriscore_component_saturated_fat",
+                        "nutriscore_component_salt"
+                     ],
+                     "title" : "Negative points: 1/55"
+                  }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "evaluation" : "good",
+                     "icon_color_from_evaluation" : true,
+                     "icon_size" : "small",
+                     "icon_url" : "https://static.openfoodfacts.org/images/icons/dist/circle-plus.svg",
+                     "panel_ids" : [
+                        "nutriscore_component_proteins",
+                        "nutriscore_component_fiber",
+                        "nutriscore_component_fruits_vegetables_legumes"
+                     ],
+                     "title" : "Positive points: 2/17"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "nutriscore_details"
+                  }
+               }
+            ],
+            "level" : "info",
+            "title_element" : {
+               "grade" : "a",
+               "icon_url" : "https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-en.svg",
+               "subtitle" : "Very good nutritional quality",
+               "title" : "Nutri-Score A",
+               "type" : "grade"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutriscore_component_energy" : {
             "elements" : [
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: 65\n                    ",
-                     "type" : "warning"
+                     "html" : "\n<p>\n    \n    Energy intakes above energy requirements are associated with increased risks of weight gain, overweight, obesity, and consequently risk of diet-related chronic diseases.\n</p>\n                "
                   }
-               },
+               }
+            ],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "icon_url" : "https://static.openfoodfacts.org/images/attributes/dist/points-negative-0-10.svg",
+               "subtitle" : "0/10 points (120kJ)",
+               "title" : "Calories"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutriscore_component_fiber" : {
+            "elements" : [
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "<!-- start templates/web/pages/product/includes/nutriscore_details.tt.html -->\n\n<p>This product is not considered a beverage for the calculation of the Nutri-Score.</p>\n\n\n\n\n\n  <p> \n    <strong>Positive points: 5</strong> \n  </p>\n\n  <ul>\n    \n      <li>\n        <strong>Proteins:\n0&nbsp;</strong>/&nbsp;5\n(value: 1, \n        rounded value: 1)\n      </li>\n    \n      <li>\n        <strong>Fiber:\n3&nbsp;</strong>/&nbsp;5\n(value: 3, \n        rounded value: 3)\n      </li>\n    \n      <li>\n        <strong>Fruits, vegetables, nuts, and colza/walnut/olive oils:\n2&nbsp;</strong>/&nbsp;5\n(value: 65, \n        rounded value: 65)\n      </li>\n    \n  </ul>\n\n\n\n  <p> \n    <strong>Negative points: 1</strong> \n  </p>\n\n  <ul>\n    \n      <li>\n        <strong>Energy:\n0&nbsp;</strong>/&nbsp;10\n(value: 120, \n        rounded value: 120)\n      </li>\n    \n      <li>\n        <strong>Sugars:\n0&nbsp;</strong>/&nbsp;10\n(value: 0.5, \n        rounded value: 0.5)\n      </li>\n    \n      <li>\n        <strong>Saturated fat:\n0&nbsp;</strong>/&nbsp;10\n(value: 0.2, \n        rounded value: 0.2)\n      </li>\n    \n      <li>\n        <strong>Sodium:\n1&nbsp;</strong>/&nbsp;10\n(value: 160, \n        rounded value: 160)\n      </li>\n    \n  </ul>\n\n\n\n<p>The points for proteins are counted because the negative points are less than 11.</p>\n\n<p>\n  <strong>Nutritional score: </strong>\n  (1 - 5)\n</p>\n<p><strong>Nutri-Score: </strong></p>\n\n<!-- end templates/web/pages/product/includes/nutriscore_details.tt.html -->"
+                     "html" : "\n<p>\n    Consuming foods rich in fiber (especially whole grain foods) reduces the risks of aerodigestive cancers, cardiovascular diseases, obesity and diabetes.\n    \n</p>\n                "
+                  }
+               }
+            ],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "icon_url" : "https://static.openfoodfacts.org/images/attributes/dist/points-positive-0-5.svg",
+               "subtitle" : "0/5 points (3g)",
+               "title" : "Fiber"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutriscore_component_fruits_vegetables_legumes" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n<p>\n    Consuming foods rich in fruits, vegetables and legumes reduces the risks of aerodigestive cancers, cardiovascular diseases, obesity and diabetes.\n    \n</p>\n                "
+                  }
+               }
+            ],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "icon_url" : "https://static.openfoodfacts.org/images/attributes/dist/points-positive-2-5.svg",
+               "subtitle" : "2/5 points (65%)",
+               "title" : "Fruits, vegetables and legumes"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutriscore_component_proteins" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n<p>\n    Foods that are rich in proteins are usually rich in calcium or iron which are essential minerals with numerous health benefits.\n    \n</p>\n                "
+                  }
+               }
+            ],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "icon_url" : "https://static.openfoodfacts.org/images/attributes/dist/points-positive-0-7.svg",
+               "subtitle" : "0/7 points (1g)",
+               "title" : "Proteins"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutriscore_component_salt" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n<p>\n    \n    A high consumption of salt (or sodium) can cause raised blood pressure, which can increase the risk of heart disease and stroke.\n</p>\n                "
+                  }
+               }
+            ],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "icon_url" : "https://static.openfoodfacts.org/images/attributes/dist/points-negative-1-20.svg",
+               "subtitle" : "1/20 points (0.4g)",
+               "title" : "Salt"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutriscore_component_saturated_fat" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n<p>\n    \n    A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases.\n</p>\n                "
+                  }
+               }
+            ],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "icon_url" : "https://static.openfoodfacts.org/images/attributes/dist/points-negative-0-10.svg",
+               "subtitle" : "0/10 points (0.2g)",
+               "title" : "Saturated fat"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutriscore_component_sugars" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n<p>\n    \n    A high consumption of sugar can cause weight gain and tooth decay. It also augments the risk of type 2 diabetes and cardio-vascular diseases.\n</p>\n                "
+                  }
+               }
+            ],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "icon_url" : "https://static.openfoodfacts.org/images/attributes/dist/points-negative-0-15.svg",
+               "subtitle" : "0/15 points (0.5g)",
+               "title" : "Sugar"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutriscore_description" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<p>The Nutri-Score is a logo on the overall nutritional quality of products.</p>\n<p>\nThe score from A to E is calculated based on nutrients and foods to favor (proteins, fiber, fruits, vegetables and legumes ...) and nutrients to limit (calories, saturated fat, sugars, salt).\nThe score is calculated from the data of the nutrition facts table and the composition data (fruits, vegetables and legumes).\n</p>\n\n                ",
+                     "type" : "info"
                   }
                },
                {
@@ -1924,10 +2054,37 @@
             ],
             "level" : "info",
             "title_element" : {
-               "grade" : "a",
-               "icon_url" : "https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a.svg",
-               "title" : "Very good nutritional quality",
-               "type" : "grade"
+               "icon_size" : "small",
+               "icon_url" : "https://static.openfoodfacts.org/images/icons/dist/info.svg",
+               "title" : "What is the Nutri-Score?",
+               "type" : "info"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutriscore_details" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: 65\n                    ",
+                     "type" : "warning"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n\n    <p>This product is not considered a beverage for the calculation of the Nutri-Score.</p>\n\n\n\n\n\n<p>Points for proteins are counted because the negative points are less than 11.</p>\n\n<p>\n  <strong>Nutritional score: -1</strong>\n  (1 - 2)\n</p>\n<p><strong>Nutri-Score: A</strong></p>                \n                "
+                  }
+               }
+            ],
+            "level" : "info",
+            "title_element" : {
+               "icon_size" : "small",
+               "icon_url" : "https://static.openfoodfacts.org/images/icons/dist/info.svg",
+               "title" : "Details of the calculation of the Nutri-Score",
+               "type" : "info"
             },
             "topics" : [
                "health"
@@ -1942,13 +2099,6 @@
                         {
                            "style" : "max-width:15rem",
                            "text" : "Nutrition facts",
-                           "type" : "text"
-                        },
-                        {
-                           "column_group_id" : "product",
-                           "shown_by_default" : true,
-                           "text" : "As sold<br>for 100 g / 100 ml",
-                           "text_for_small_screens" : "100g",
                            "type" : "text"
                         },
                         {
@@ -1968,9 +2118,6 @@
                                  "text" : "Energy"
                               },
                               {
-                                 "text" : "120 kj<br>(252 kcal)"
-                              },
-                              {
                                  "evaluation" : "good",
                                  "text" : "-54%"
                               }
@@ -1984,11 +2131,8 @@
                                  "text" : "Fat"
                               },
                               {
-                                 "text" : "0.5 g"
-                              },
-                              {
                                  "evaluation" : "good",
-                                 "text" : "-69%"
+                                 "text" : "-68%"
                               }
                            ]
                         },
@@ -2000,11 +2144,8 @@
                                  "text" : "Saturated fat"
                               },
                               {
-                                 "text" : "0.2 g"
-                              },
-                              {
                                  "evaluation" : "good",
-                                 "text" : "-45%"
+                                 "text" : "-42%"
                               }
                            ]
                         },
@@ -2016,11 +2157,8 @@
                                  "text" : "Salt"
                               },
                               {
-                                 "text" : "0.4 g"
-                              },
-                              {
                                  "evaluation" : "good",
-                                 "text" : "-41%"
+                                 "text" : "-40%"
                               }
                            ]
                         },
@@ -2030,9 +2168,6 @@
                                  "level" : 0,
                                  "style" : "max-width:15rem",
                                  "text" : "Carbohydrates"
-                              },
-                              {
-                                 "text" : "4 g"
                               },
                               {
                                  "text" : "-63%"
@@ -2047,11 +2182,8 @@
                                  "text" : "Fiber"
                               },
                               {
-                                 "text" : "3 g"
-                              },
-                              {
                                  "evaluation" : "good",
-                                 "text" : "+94%"
+                                 "text" : "+96%"
                               }
                            ]
                         },
@@ -2063,11 +2195,8 @@
                                  "text" : "Sugars"
                               },
                               {
-                                 "text" : "0.5 g"
-                              },
-                              {
                                  "evaluation" : "good",
-                                 "text" : "-82%"
+                                 "text" : "-83%"
                               }
                            ]
                         },
@@ -2077,9 +2206,6 @@
                                  "level" : 0,
                                  "style" : "max-width:15rem",
                                  "text" : "Proteins"
-                              },
-                              {
-                                 "text" : "1 g"
                               },
                               {
                                  "evaluation" : "bad",
@@ -2093,9 +2219,6 @@
                                  "level" : 0,
                                  "style" : "max-width:15rem",
                                  "text" : "Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (estimate from ingredients list analysis)"
-                              },
-                              {
-                                 "text" : "65 %"
                               },
                               {
                                  "text" : ""
@@ -2182,7 +2305,7 @@
                   "element_type" : "text",
                   "text_element" : {
                      "evaluation" : "good",
-                     "html" : "\n                        \n                            \n                                1 x \n                                <strong>\n                                    Bottle\n                                    \n                                </strong>\n                                    \n                                        (Glass)\n                                    \n                                    <br>\n                            \n                        \n                            \n                                1 x \n                                <strong>\n                                    Bottle cap\n                                    \n                                </strong>\n                                    \n                                        (Steel)\n                                    \n                                    <br>\n                            \n                        \n                        ",
+                     "html" : "\n                        \n                            \n                                \n                                <strong>\n                                    Bottle\n                                    \n                                </strong>\n                                    \n                                        (Glass)\n                                    \n                                    <br>\n                            \n                        \n                            \n                                \n                                <strong>\n                                    Bottle cap\n                                    \n                                </strong>\n                                    \n                                        (Steel)\n                                    \n                                    <br>\n                            \n                        \n                        ",
                      "icon_alt" : "Recycle",
                      "icon_color_from_evaluation" : true,
                      "icon_url" : "https://static.openfoodfacts.org/images/icons/dist/recycle-variant.svg",
@@ -2358,22 +2481,14 @@
          }
       },
       "labels_tags" : [
-         "en:fair-trade",
          "en:organic",
-         "en:vegetarian",
          "en:eu-organic",
-         "en:vegan",
-         "en:green-dot",
-         "en:nutriscore"
+         "en:fair-trade"
       ],
       "labels_tags_fr" : [
-         "Commerce équitable",
          "Bio",
-         "Végétarien",
          "Bio européen",
-         "Végétalien",
-         "Point Vert",
-         "Nutriscore"
+         "Commerce équitable"
       ],
       "lang" : "en",
       "nutrient_levels" : {
@@ -2388,13 +2503,8 @@
          "carbohydrates_unit" : "g",
          "carbohydrates_value" : 4,
          "carbon-footprint-from-known-ingredients_100g" : 18,
-         "carbon-footprint-from-known-ingredients_product" : 18,
+         "carbon-footprint-from-known-ingredients_product" : 36,
          "energy" : 120,
-         "energy-kcal" : 252,
-         "energy-kcal_100g" : 252,
-         "energy-kcal_unit" : "kcal",
-         "energy-kcal_value" : 252,
-         "energy-kcal_value_computed" : 30.5,
          "energy-kj" : 120,
          "energy-kj_100g" : 120,
          "energy-kj_unit" : "kJ",
@@ -2443,44 +2553,8 @@
       },
       "nutrition_grade_fr" : "a",
       "product_name" : "A good product for you",
-      "product_quantity" : "100",
-      "quantity" : "100 g",
-      "selected_images" : {
-         "ingredients" : {
-            "display" : {
-               "en" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/ingredients_en.120.400.jpg",
-               "es" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/ingredients_es.113.400.jpg",
-               "fr" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/ingredients_fr.123.400.jpg",
-               "it" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/ingredients_it.140.400.jpg"
-            },
-            "small" : {
-               "en" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/ingredients_en.120.200.jpg",
-               "es" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/ingredients_es.113.200.jpg",
-               "fr" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/ingredients_fr.123.200.jpg",
-               "it" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/ingredients_it.140.200.jpg"
-            },
-            "thumb" : {
-               "en" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/ingredients_en.120.100.jpg",
-               "es" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/ingredients_es.113.100.jpg",
-               "fr" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/ingredients_fr.123.100.jpg",
-               "it" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/ingredients_it.140.100.jpg"
-            }
-         },
-         "nutrition" : {
-            "display" : {
-               "en" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/nutrition_en.109.400.jpg",
-               "es" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/nutrition_es.115.400.jpg"
-            },
-            "small" : {
-               "en" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/nutrition_en.109.200.jpg",
-               "es" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/nutrition_es.115.200.jpg"
-            },
-            "thumb" : {
-               "en" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/nutrition_en.109.100.jpg",
-               "es" : "https://images.openfoodfacts.org/images/products/093/270/067/481501/nutrition_es.115.100.jpg"
-            }
-         }
-      },
+      "product_quantity" : "200",
+      "quantity" : "200 g",
       "states_tags" : [
          "en:to-be-completed",
          "en:nutrition-facts-completed",
@@ -2494,12 +2568,7 @@
          "en:packaging-to-be-completed",
          "en:quantity-completed",
          "en:product-name-completed",
-         "en:photos-to-be-validated",
-         "en:packaging-photo-to-be-selected",
-         "en:nutrition-photo-selected",
-         "en:ingredients-photo-selected",
-         "en:front-photo-to-be-selected",
-         "en:photos-uploaded"
+         "en:photos-to-be-uploaded"
       ]
    },
    "status" : 1,

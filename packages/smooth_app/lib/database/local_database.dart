@@ -12,6 +12,7 @@ import 'package:smooth_app/database/abstract_dao.dart';
 import 'package:smooth_app/database/dao_hive_product.dart';
 import 'package:smooth_app/database/dao_instant_string.dart';
 import 'package:smooth_app/database/dao_int.dart';
+import 'package:smooth_app/database/dao_osm_location.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_last_access.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
@@ -20,7 +21,7 @@ import 'package:smooth_app/database/dao_string_list.dart';
 import 'package:smooth_app/database/dao_string_list_map.dart';
 import 'package:smooth_app/database/dao_transient_operation.dart';
 import 'package:smooth_app/database/dao_work_barcode.dart';
-import 'package:sqflite/sqflite.dart';
+import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 
 class LocalDatabase extends ChangeNotifier {
   LocalDatabase._(final Database database) : _database = database {
@@ -52,18 +53,22 @@ class LocalDatabase extends ChangeNotifier {
 
   static Future<LocalDatabase> getLocalDatabase() async {
     // sql from there
-    final String databasesRootPath;
+    String? databasesRootPath;
     if (defaultTargetPlatform == TargetPlatform.iOS) {
       // as suggested in https://pub.dev/documentation/sqflite/latest/sqflite/getDatabasesPath.html
       final Directory directory = await getLibraryDirectory();
       databasesRootPath = directory.path;
-    } else {
-      databasesRootPath = await getDatabasesPath();
+    } else if (Platform.isLinux || Platform.isWindows) {
+      sqfliteFfiInit();
+      databaseFactory = databaseFactoryFfi;
     }
+
+    databasesRootPath ??= await getDatabasesPath();
+
     final String databasePath = join(databasesRootPath, 'smoothie.db');
     final Database database = await openDatabase(
       databasePath,
-      version: 5,
+      version: 6,
       singleInstance: true,
       onUpgrade: _onUpgrade,
     );
@@ -107,5 +112,6 @@ class LocalDatabase extends ChangeNotifier {
     await DaoProduct.onUpgrade(db, oldVersion, newVersion);
     await DaoWorkBarcode.onUpgrade(db, oldVersion, newVersion);
     await DaoProductLastAccess.onUpgrade(db, oldVersion, newVersion);
+    await DaoOsmLocation.onUpgrade(db, oldVersion, newVersion);
   }
 }

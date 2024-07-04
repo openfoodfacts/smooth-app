@@ -37,7 +37,7 @@ class ProductRefresher {
             children: <Widget>[
               SvgPicture.asset(
                 'assets/onboarding/globe.svg',
-                height: MediaQuery.of(context).size.height * .5,
+                height: MediaQuery.sizeOf(context).height * .5,
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25),

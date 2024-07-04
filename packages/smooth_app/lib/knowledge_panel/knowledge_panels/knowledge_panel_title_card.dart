@@ -79,6 +79,7 @@ class KnowledgePanelTitleCard extends StatelessWidget {
       child: Semantics(
         value: _generateSemanticsValue(context),
         button: isClickable,
+        container: true,
         excludeSemantics: true,
         child: Row(
           children: <Widget>[

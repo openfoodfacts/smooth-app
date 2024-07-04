@@ -99,7 +99,7 @@ class _CountrySelectorState extends State<CountrySelector> {
                             prefixIcon: const Icon(Icons.search),
                             controller: _countryController,
                             onChanged: (String? query) {
-                              query = query!.trim()..getComparisonSafeString();
+                              query = query!.trim().getComparisonSafeString();
 
                               setState(
                                 () {

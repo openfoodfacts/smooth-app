@@ -329,10 +329,10 @@ packages:
     dependency: "direct main"
     description:
       name: crop_image
-      sha256: "67d379ea927f4a9e48bf3d314a74bff7d86cdefd4a58af4554b37daa3c10bb9c"
+      sha256: "6cf20655ecbfba99c369d43ec7adcfa49bf135af88fb75642173d6224a95d3f1"
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.12"
+    version: "1.0.13"
   cross_file:
     dependency: transitive
     description:
@@ -397,14 +397,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.7.10"
-  device_frame:
-    dependency: transitive
-    description:
-      name: device_frame
-      sha256: afe76182aec178d171953d9b4a50a43c57c7cf3c77d8b09a48bf30c8fa04dd9d
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.1.0"
   device_info_plus:
     dependency: "direct main"
     description:
@@ -421,14 +413,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "7.0.0"
-  device_preview:
-    dependency: "direct main"
-    description:
-      name: device_preview
-      sha256: "2f097bf31b929e15e6756dbe0ec1bcb63952ab9ed51c25dc5a2c722d2b21fdaf"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.1.0"
   diacritic:
     dependency: "direct main"
     description:
@@ -758,14 +742,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.8.5+3"
-  freezed_annotation:
-    dependency: transitive
-    description:
-      name: freezed_annotation
-      sha256: c3fd9336eb55a38cc1bbd79ab17573113a8deccd0ecbbf926cca3c62803b5c2d
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.4.1"
   fuchsia_remote_debug_protocol:
     dependency: transitive
     description: flutter
@@ -844,7 +820,7 @@ packages:
     source: hosted
     version: "1.2.0"
   http_parser:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: http_parser
       sha256: "2aa08ce0341cc9b354a498388e30986515406668dbcc4f7c950c3e715496693b"
@@ -1132,10 +1108,10 @@ packages:
     dependency: "direct main"
     description:
       name: openfoodfacts
-      sha256: "19c49aee1093dae611e79240e09ee46f3537b6083235307eec044fb3e5ecc750"
+      sha256: "90a853e7536d0f97a665b18cd602055215520bf424765ef06930e4be25b760ba"
       url: "https://pub.dev"
     source: hosted
-    version: "3.8.0"
+    version: "3.11.0"
   openfoodfacts_flutter_lints:
     dependency: "direct dev"
     description:
@@ -1233,14 +1209,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.2.1"
-  percent_indicator:
-    dependency: "direct main"
-    description:
-      name: percent_indicator
-      sha256: c37099ad833a883c9d71782321cb65c3a848c21b6939b6185f0ff6640d05814c
-      url: "https://pub.dev"
-    source: hosted
-    version: "4.2.3"
   permission_handler:
     dependency: "direct main"
     description:
@@ -1414,22 +1382,6 @@ packages:
       relative: true
     source: path
     version: "1.0.0"
-  sensors_plus:
-    dependency: "direct main"
-    description:
-      name: sensors_plus
-      sha256: a1e461f28a8e8d3f81feb07d5c4e87e948379ea91f0b5131266bb79f72b38acb
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.1.0"
-  sensors_plus_platform_interface:
-    dependency: transitive
-    description:
-      name: sensors_plus_platform_interface
-      sha256: bc472d6cfd622acb4f020e726433ee31788b038056691ba433fec80e448a094f
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.2.0"
   sentry:
     dependency: transitive
     description:
@@ -1531,6 +1483,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.99"
+  sliver_tools:
+    dependency: "direct main"
+    description:
+      name: sliver_tools
+      sha256: eae28220badfb9d0559207badcbbc9ad5331aac829a88cb0964d330d2a4636a6
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.2.12"
   source_gen:
     dependency: transitive
     description:
@@ -1563,6 +1523,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.5.4"
+  sqflite_common_ffi:
+    dependency: "direct main"
+    description:
+      name: sqflite_common_ffi
+      sha256: "4d6137c29e930d6e4a8ff373989dd9de7bac12e3bc87bce950f6e844e8ad3bb5"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.3.3"
+  sqlite3:
+    dependency: transitive
+    description:
+      name: sqlite3
+      sha256: "1abbeb84bf2b1a10e5e1138c913123c8aa9d83cd64e5f9a0dd847b3c83063202"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.4.2"
   stack_trace:
     dependency: transitive
     description:

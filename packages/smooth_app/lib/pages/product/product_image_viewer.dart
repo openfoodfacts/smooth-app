@@ -8,10 +8,13 @@ import 'package:smooth_app/data_models/up_to_date_mixin.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/transient_file.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/language_selector.dart';
 import 'package:smooth_app/generic_lib/widgets/picture_not_found.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
+import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/product_image_button.dart';
+import 'package:smooth_app/resources/app_animations.dart';
 
 /// Displays a full-screen image with an "edit" floating button.
 class ProductImageViewer extends StatefulWidget {
@@ -43,11 +46,16 @@ class _ProductImageViewerState extends State<ProductImageViewer>
     initUpToDate(widget.product, context.read<LocalDatabase>());
   }
 
-  Widget _getImageButton(final ProductImageButtonType type) => Padding(
+  Widget _getImageButton(
+    final ProductImageButtonType type,
+    final bool imageExists,
+  ) =>
+      Padding(
         padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
         child: type.getButton(
           product: upToDateProduct,
           imageField: widget.imageField,
+          imageExists: imageExists,
           language: widget.language,
           isLoggedInMandatory: widget.isLoggedInMandatory,
         ),
@@ -63,7 +71,11 @@ class _ProductImageViewerState extends State<ProductImageViewer>
       widget.imageField,
       widget.language,
     );
-    final ImageProvider? imageProvider = _getTransientFile().getImageProvider();
+    final TransientFile transientFile = _getTransientFile();
+    final ImageProvider? imageProvider = transientFile.getImageProvider();
+    final bool imageExists = imageProvider != null;
+    final bool isLoading =
+        transientFile.isImageAvailable() && !transientFile.isServerImage();
     final Iterable<OpenFoodFactsLanguage> selectedLanguages =
         getProductImageLanguages(
       upToDateProduct,
@@ -96,42 +108,80 @@ class _ProductImageViewerState extends State<ProductImageViewer>
                             textAlign: TextAlign.center,
                           ),
                         ),
+                        Positioned.fill(
+                          child: Material(
+                            type: MaterialType.transparency,
+                            child: Semantics(
+                              label: appLocalizations.take_photo_title,
+                              child: InkWell(
+                                onTap: () async {
+                                  await confirmAndUploadNewPicture(
+                                    context,
+                                    imageField: widget.imageField,
+                                    barcode: barcode,
+                                    language: widget.language,
+                                    isLoggedInMandatory: true,
+                                  );
+                                },
+                              ),
+                            ),
+                          ),
+                        ),
                       ],
                     )
-                  : PhotoView(
-                      minScale: 0.2,
-                      imageProvider: imageProvider,
-                      heroAttributes: PhotoViewHeroAttributes(
-                          tag: 'photo_${widget.imageField.offTag}',
-                          flightShuttleBuilder: (
-                            _,
-                            Animation<double> animation,
-                            HeroFlightDirection flightDirection,
-                            BuildContext fromHeroContext,
-                            BuildContext toHeroContext,
-                          ) {
-                            return AnimatedBuilder(
-                              animation: animation,
-                              builder: (_, __) {
-                                Widget widget;
-                                if (flightDirection ==
-                                    HeroFlightDirection.push) {
-                                  widget = fromHeroContext.widget;
-                                } else {
-                                  widget = toHeroContext.widget;
-                                }
+                  : SizedBox.expand(
+                      child: Stack(
+                        children: <Widget>[
+                          Positioned.fill(
+                            child: AnimatedOpacity(
+                              opacity: isLoading ? 0.5 : 1.0,
+                              duration: SmoothAnimationsDuration.short,
+                              child: PhotoView(
+                                minScale: 0.2,
+                                imageProvider: imageProvider,
+                                heroAttributes: PhotoViewHeroAttributes(
+                                    tag: 'photo_${widget.imageField.offTag}',
+                                    flightShuttleBuilder: (
+                                      _,
+                                      Animation<double> animation,
+                                      HeroFlightDirection flightDirection,
+                                      BuildContext fromHeroContext,
+                                      BuildContext toHeroContext,
+                                    ) {
+                                      return AnimatedBuilder(
+                                        animation: animation,
+                                        builder: (_, __) {
+                                          Widget widget;
+                                          if (flightDirection ==
+                                              HeroFlightDirection.push) {
+                                            widget = fromHeroContext.widget;
+                                          } else {
+                                            widget = toHeroContext.widget;
+                                          }
 
-                                return ClipRRect(
-                                  borderRadius: BorderRadius.circular(
-                                          1 - animation.value) *
-                                      ROUNDED_RADIUS.x,
-                                  child: widget,
-                                );
-                              },
-                            );
-                          }),
-                      backgroundDecoration: const BoxDecoration(
-                        color: Colors.black,
+                                          return ClipRRect(
+                                            borderRadius: BorderRadius.circular(
+                                                    1 - animation.value) *
+                                                ROUNDED_RADIUS.x,
+                                            child: widget,
+                                          );
+                                        },
+                                      );
+                                    }),
+                                backgroundDecoration: const BoxDecoration(
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ),
+                          ),
+                          if (isLoading)
+                            Center(
+                              child: CloudUploadAnimation.circle(
+                                size: MediaQuery.sizeOf(context).longestSide *
+                                    0.2,
+                              ),
+                            ),
+                        ],
                       ),
                     ),
             ),
@@ -173,10 +223,16 @@ class _ProductImageViewerState extends State<ProductImageViewer>
             mainAxisSize: MainAxisSize.max,
             children: <Widget>[
               Expanded(
-                child: _getImageButton(ProductImageButtonType.server),
+                child: _getImageButton(
+                  ProductImageButtonType.server,
+                  imageExists,
+                ),
               ),
               Expanded(
-                child: _getImageButton(ProductImageButtonType.local),
+                child: _getImageButton(
+                  ProductImageButtonType.local,
+                  imageExists,
+                ),
               ),
             ],
           ),
@@ -187,10 +243,16 @@ class _ProductImageViewerState extends State<ProductImageViewer>
               mainAxisSize: MainAxisSize.max,
               children: <Widget>[
                 Expanded(
-                  child: _getImageButton(ProductImageButtonType.unselect),
+                  child: _getImageButton(
+                    ProductImageButtonType.unselect,
+                    imageExists,
+                  ),
                 ),
                 Expanded(
-                  child: _getImageButton(ProductImageButtonType.edit),
+                  child: _getImageButton(
+                    ProductImageButtonType.edit,
+                    imageExists,
+                  ),
                 ),
               ],
             ),

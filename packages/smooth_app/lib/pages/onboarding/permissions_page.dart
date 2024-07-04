@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart' hide Listener;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -46,63 +48,65 @@ class _PermissionsPageState extends State<PermissionsPage> {
       },
       child: ColoredBox(
         color: widget.backgroundColor,
-        child: Column(
-          children: <Widget>[
-            Expanded(
-                child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: LARGE_SPACE),
-              child: Center(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    LayoutBuilder(builder:
-                        (BuildContext context, BoxConstraints constraints) {
-                      return SizedBox.square(
-                        dimension: constraints.maxWidth * 0.5,
-                        child: Transform.rotate(
-                          angle: -0.2,
-                          child: const animations.BarcodeAnimation(),
-                        ),
-                      );
-                    }),
-                    const SizedBox(height: LARGE_SPACE),
-                    AutoSizeText(
-                      appLocalizations.permissions_page_title,
-                      maxLines: 2,
-                      style: Theme.of(context)
-                          .textTheme
-                          .displayLarge!
-                          .apply(color: const Color.fromARGB(255, 51, 51, 51)),
-                      textAlign: TextAlign.center,
-                    ),
-                    const SizedBox(height: SMALL_SPACE),
-                    AutoSizeText(
-                      appLocalizations.permissions_page_body1,
-                      maxLines: 2,
-                      textAlign: TextAlign.center,
-                      style: WellSpacedTextHelper.TEXT_STYLE_WITH_WELL_SPACED,
-                    ),
-                    const SizedBox(height: MEDIUM_SPACE),
-                    AutoSizeText(
-                      appLocalizations.permissions_page_body2,
-                      maxLines: 3,
-                      textAlign: TextAlign.center,
-                      style: WellSpacedTextHelper.TEXT_STYLE_WITH_WELL_SPACED,
-                    ),
-                  ],
+        child: SafeArea(
+          bottom: Platform.isAndroid,
+          child: Column(
+            children: <Widget>[
+              Expanded(
+                  child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: LARGE_SPACE),
+                child: Center(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      LayoutBuilder(builder:
+                          (BuildContext context, BoxConstraints constraints) {
+                        return SizedBox.square(
+                          dimension: constraints.maxWidth * 0.5,
+                          child: Transform.rotate(
+                            angle: -0.2,
+                            child: const animations.BarcodeAnimation(),
+                          ),
+                        );
+                      }),
+                      const SizedBox(height: LARGE_SPACE),
+                      AutoSizeText(
+                        appLocalizations.permissions_page_title,
+                        maxLines: 2,
+                        style: Theme.of(context).textTheme.displayLarge!.apply(
+                            color: const Color.fromARGB(255, 51, 51, 51)),
+                        textAlign: TextAlign.center,
+                      ),
+                      const SizedBox(height: SMALL_SPACE),
+                      AutoSizeText(
+                        appLocalizations.permissions_page_body1,
+                        maxLines: 2,
+                        textAlign: TextAlign.center,
+                        style: WellSpacedTextHelper.TEXT_STYLE_WITH_WELL_SPACED,
+                      ),
+                      const SizedBox(height: MEDIUM_SPACE),
+                      AutoSizeText(
+                        appLocalizations.permissions_page_body2,
+                        maxLines: 3,
+                        textAlign: TextAlign.center,
+                        style: WellSpacedTextHelper.TEXT_STYLE_WITH_WELL_SPACED,
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            )),
-            OnboardingBottomBar(
-              startButton: _IgnoreButton(
-                onPermissionIgnored: () => _moveToNextScreen(context),
-              ),
-              endButton: _AskPermissionButton(
-                onPermissionIgnored: () => _moveToNextScreen(context),
-              ),
-              backgroundColor: widget.backgroundColor,
-            )
-          ],
+              )),
+              OnboardingBottomBar(
+                rightButton: _IgnoreButton(
+                  onPermissionIgnored: () => _moveToNextScreen(context),
+                ),
+                leftButton: _AskPermissionButton(
+                  onPermissionIgnored: () => _moveToNextScreen(context),
+                ),
+                backgroundColor: widget.backgroundColor,
+                semanticsHorizontalOrder: false,
+              )
+            ],
+          ),
         ),
       ),
     );

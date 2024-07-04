@@ -149,7 +149,7 @@ class BackgroundTaskCrop extends BackgroundTaskUpload {
   ) async {
     await super.postExecute(localDatabase, success);
     try {
-      (await getFile(croppedPath)).deleteSync();
+      (await BackgroundTaskUpload.getFile(croppedPath)).deleteSync();
     } catch (e) {
       // not likely, but let's not spoil the task for that either.
     }

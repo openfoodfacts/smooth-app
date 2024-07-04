@@ -1,131 +1,45 @@
-import 'dart:async';
-import 'dart:io';
-
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:provider/provider.dart';
 import 'package:rive/rive.dart';
-import 'package:sensors_plus/sensors_plus.dart';
-import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/duration_constants.dart';
-import 'package:smooth_app/helpers/app_helper.dart';
-import 'package:smooth_app/pages/onboarding/next_button.dart';
+import 'package:smooth_app/data_models/onboarding_loader.dart';
+import 'package:smooth_app/data_models/preferences/user_preferences.dart';
+import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
+import 'package:smooth_app/pages/onboarding/v2/onboarding_bottom_hills.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/widgets/smooth_text.dart';
 
 /// Onboarding page: "reinvention"
-class ReinventionPage extends StatelessWidget {
-  const ReinventionPage(this.backgroundColor);
-
-  final Color backgroundColor;
+class OnboardingHomePage extends StatelessWidget {
+  const OnboardingHomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    const double muchTooBigFontSize = 150;
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final TextStyle headlineStyle = Theme.of(context)
-        .textTheme
-        .displayMedium!
-        .copyWith(fontSize: muchTooBigFontSize);
-    final Size screenSize = MediaQuery.of(context).size;
-    final double animHeight = 352.0 * screenSize.width / 375.0;
-
-    return Container(
-      color: backgroundColor,
-      child: SafeArea(
-        bottom: false,
+    return Scaffold(
+      backgroundColor: const Color(0xFFE3F3FE),
+      body: Provider<OnboardingConfig>.value(
+        value: OnboardingConfig._(MediaQuery.of(context)),
         child: Stack(
           children: <Widget>[
-            Positioned(
-              left: 0.0,
-              right: 0.0,
-              bottom: 0.0,
-              top: screenSize.height * 0.75,
-              child: Background(
-                screenWidth: screenSize.width,
-              ),
-            ),
-            Positioned(
-              left: 0.0,
-              right: 0.0,
-              bottom: 0.0,
-              child: RepaintBoundary(
-                child: SizedBox(
-                  width: screenSize.width,
-                  height: animHeight,
-                  child: const RiveAnimation.asset(
-                    'assets/onboarding/onboarding.riv',
-                    artboard: 'Reinvention',
-                    animations: <String>['Loop'],
-                    alignment: Alignment.bottomCenter,
-                  ),
-                ),
-              ),
-            ),
-            Positioned(
-              top: 0.0,
-              left: 0.0,
-              right: 0.0,
-              bottom: animHeight - 20.0,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  Flexible(
-                    flex: 30,
-                    child: Padding(
-                      padding: const EdgeInsets.all(SMALL_SPACE),
-                      child: Center(
-                        child: AutoSizeText(
-                          appLocalizations.onboarding_reinventing_text1,
-                          style: headlineStyle,
-                          maxLines: 3,
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Flexible(
-                    flex: 15,
-                    child: SvgPicture.asset(
-                      'assets/onboarding/birthday-cake.svg',
-                      package: AppHelper.APP_PACKAGE,
-                    ),
-                  ),
-                  Flexible(
-                    flex: 30,
-                    child: Padding(
-                      padding: const EdgeInsets.all(SMALL_SPACE),
-                      child: Center(
-                        child: AutoSizeText(
-                          appLocalizations.onboarding_reinventing_text2,
-                          style: headlineStyle,
-                          maxLines: 3,
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Flexible(
-                    flex: 25,
-                    child: SvgPicture.asset(
-                      'assets/onboarding/title.svg',
-                      package: AppHelper.APP_PACKAGE,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Positioned(
-              bottom: 0,
-              child: SafeArea(
-                bottom: !Platform.isIOS,
-                child: const NextButton(
-                  OnboardingPage.REINVENTION,
-                  backgroundColor: null,
-                  nextKey: Key('nextAfterReinvention'),
-                ),
-              ),
+            const _OnboardingWelcomePageContent(),
+            OnboardingBottomHills(
+              onTap: () async {
+                final UserPreferences userPreferences =
+                    context.read<UserPreferences>();
+                final LocalDatabase localDatabase =
+                    context.read<LocalDatabase>();
+
+                await OnboardingLoader(localDatabase)
+                    .runAtNextTime(OnboardingPage.HOME_PAGE, context);
+                if (context.mounted) {
+                  await OnboardingFlowNavigator(userPreferences).navigateToPage(
+                    context,
+                    OnboardingPage.HOME_PAGE.getNextPage(),
+                  );
+                }
+              },
             ),
           ],
         ),
@@ -134,65 +48,230 @@ class ReinventionPage extends StatelessWidget {
   }
 }
 
-class Background extends StatefulWidget {
-  const Background({required this.screenWidth});
-
-  final double screenWidth;
+class _OnboardingWelcomePageContent extends StatelessWidget {
+  const _OnboardingWelcomePageContent();
 
   @override
-  State<Background> createState() => _BackgroundState();
+  Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final double fontMultiplier = OnboardingConfig.of(context).fontMultiplier;
+    final double hillsHeight = OnboardingBottomHills.height(context);
+
+    return Padding(
+      padding: EdgeInsetsDirectional.only(
+        top: hillsHeight * 0.5 + MediaQuery.viewPaddingOf(context).top,
+        bottom: hillsHeight,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          Expanded(
+            flex: 15,
+            child: Text(
+              appLocalizations.onboarding_home_welcome_text1,
+              style: TextStyle(
+                fontSize: 45 * fontMultiplier,
+                fontWeight: FontWeight.bold,
+              ),
+              textAlign: TextAlign.center,
+            ),
+          ),
+          const Expanded(
+            flex: 37,
+            child: _SunAndCloud(),
+          ),
+          Expanded(
+            flex: 45,
+            child: FractionallySizedBox(
+              widthFactor: 0.65,
+              child: Align(
+                alignment: const Alignment(0, -0.2),
+                child: OnboardingText(
+                  text: appLocalizations.onboarding_home_welcome_text2,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 }
 
-class _BackgroundState extends State<Background> {
-  StreamSubscription<GyroscopeEvent>? _subscription;
-  double parallax = 0.0;
+class _SunAndCloud extends StatefulWidget {
+  const _SunAndCloud();
+
+  @override
+  State<_SunAndCloud> createState() => _SunAndCloudState();
+}
+
+class _SunAndCloudState extends State<_SunAndCloud>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _animation;
 
   @override
   void initState() {
     super.initState();
-
-    if (Platform.isAndroid || Platform.isIOS) {
-      _subscription = gyroscopeEvents.listen((GyroscopeEvent event) {
-        setState(() => parallax = event.y);
-      });
-    }
+    _controller =
+        AnimationController(vsync: this, duration: const Duration(seconds: 2))
+          ..addListener(() => setState(() {}));
+    _animation = Tween<double>(
+      begin: -1.0,
+      end: 1.0,
+    ).animate(_controller);
+    _controller.repeat(reverse: true);
   }
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox.expand(
-      child: RepaintBoundary(
-        child: Stack(
+    final TextDirection textDirection = Directionality.of(context);
+
+    return RepaintBoundary(
+      child: LayoutBuilder(builder: (
+        BuildContext context,
+        BoxConstraints constraints,
+      ) {
+        return Stack(
           children: <Widget>[
-            AnimatedPositioned(
-              bottom: 0.0,
-              right: (-15.0 * parallax).clamp(-30.0, 0.0),
-              width: widget.screenWidth * 0.808,
-              duration: SmoothAnimationsDuration.short,
-              child: SvgPicture.asset(
-                'assets/onboarding/hill_end.svg',
-                fit: BoxFit.fill,
+            Positioned.directional(
+              top: constraints.maxHeight * 0.3,
+              bottom: constraints.maxHeight * 0.2,
+              start: (_animation.value * 161.0) * 0.3,
+              textDirection: textDirection,
+              child: SvgPicture.asset('assets/onboarding/cloud.svg'),
+            ),
+            const Align(
+              alignment: Alignment.center,
+              child: RiveAnimation.asset(
+                'assets/animations/off.riv',
+                artboard: 'Success',
+                animations: <String>['Timeline 1'],
               ),
             ),
-            AnimatedPositioned(
-              bottom: 0.0,
-              left: (-10.0 * parallax).clamp(-20.0, 0.0),
-              width: widget.screenWidth * 0.855,
-              duration: SmoothAnimationsDuration.short,
-              child: SvgPicture.asset(
-                'assets/onboarding/hill_start.svg',
-                fit: BoxFit.fill,
-              ),
-            )
+            Positioned.directional(
+              top: constraints.maxHeight * 0.22,
+              bottom: constraints.maxHeight * 0.35,
+              end: (_animation.value * 40.0) - 31,
+              textDirection: textDirection,
+              child: SvgPicture.asset('assets/onboarding/cloud.svg'),
+            ),
           ],
-        ),
-      ),
+        );
+      }),
     );
   }
 
   @override
   void dispose() {
-    _subscription?.cancel();
+    _controller.dispose();
     super.dispose();
   }
+}
+
+class OnboardingText extends StatelessWidget {
+  const OnboardingText({
+    required this.text,
+    this.margin,
+    super.key,
+  });
+
+  final String text;
+  final EdgeInsetsGeometry? margin;
+
+  @override
+  Widget build(BuildContext context) {
+    double fontMultiplier;
+    try {
+      fontMultiplier = OnboardingConfig.of(context).fontMultiplier;
+    } catch (_) {
+      fontMultiplier =
+          OnboardingConfig.computeFontMultiplier(MediaQuery.of(context));
+    }
+
+    final Color backgroundColor =
+        Theme.of(context).extension<SmoothColorsThemeExtension>()!.orange;
+
+    return RichText(
+      text: TextSpan(
+        children: _extractChunks().map(((String text, bool highlighted) el) {
+          if (el.$2) {
+            return _createSpan(
+              el.$1,
+              30 * fontMultiplier,
+              backgroundColor,
+            );
+          } else {
+            return TextSpan(text: el.$1);
+          }
+        }).toList(growable: false),
+        style: DefaultTextStyle.of(context).style.copyWith(
+              fontSize: 30 * fontMultiplier,
+              height: 1.53,
+              fontWeight: FontWeight.w600,
+            ),
+      ),
+      textAlign: TextAlign.center,
+    );
+  }
+
+  Iterable<(String, bool)> _extractChunks() {
+    final Iterable<RegExpMatch> matches =
+        RegExp(r'\*\*(.*?)\*\*').allMatches(text);
+
+    if (matches.length <= 1) {
+      return <(String, bool)>[(text, false)];
+    }
+
+    final List<(String, bool)> chunks = <(String, bool)>[];
+
+    int lastMatch = 0;
+
+    for (final RegExpMatch match in matches) {
+      if (matches.first.start > 0) {
+        chunks.add((text.substring(lastMatch, match.start), false));
+      }
+
+      chunks.add((text.substring(match.start + 2, match.end - 2), true));
+      lastMatch = match.end;
+    }
+
+    if (lastMatch < text.length) {
+      chunks.add((text.substring(lastMatch), false));
+    }
+
+    return chunks;
+  }
+
+  WidgetSpan _createSpan(String text, double fontSize, Color backgroundColor) =>
+      HighlightedTextSpan(
+        text: text,
+        textStyle: TextStyle(
+          color: Colors.white,
+          fontSize: fontSize,
+          fontWeight: FontWeight.w700,
+        ),
+        padding: const EdgeInsetsDirectional.only(
+          top: 1.0,
+          bottom: 5.0,
+          start: 15.0,
+          end: 15.0,
+        ),
+        margin: margin ?? const EdgeInsetsDirectional.symmetric(vertical: 2.5),
+        backgroundColor: backgroundColor,
+        radius: 30.0,
+      );
+}
+
+// TODO(g123k): Move elsewhere when the onboarding will be redesigned
+class OnboardingConfig {
+  OnboardingConfig._(MediaQueryData mediaQuery)
+      : fontMultiplier = computeFontMultiplier(mediaQuery);
+  final double fontMultiplier;
+
+  static double computeFontMultiplier(MediaQueryData mediaQuery) =>
+      ((mediaQuery.size.width * 45) / 428) / 45;
+
+  static OnboardingConfig of(BuildContext context) =>
+      context.watch<OnboardingConfig>();
 }

@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_animation_progress_bar/flutter_animation_progress_bar.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -17,6 +15,7 @@ import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/image_field_extension.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
+import 'package:smooth_app/pages/crop_parameters.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
 import 'package:smooth_app/pages/product/add_new_product_helper.dart';
@@ -564,7 +563,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
     );
     for (final ProductImageData data in productImagesData) {
       // Everything else can only be uploaded once
-      rows.add(_buildMainImageButton(context, data));
+      rows.add(_buildMainImageButton(context, upToDateProduct, data));
       rows.add(
         const Padding(
           padding: EdgeInsets.symmetric(vertical: 10.0),
@@ -591,14 +590,15 @@ class _AddNewProductPageState extends State<AddNewProductPage>
             ? AddNewProductButton.doneIconData
             : AddNewProductButton.cameraIconData,
         () async {
-          final File? finalPhoto = await confirmAndUploadNewPicture(
+          final CropParameters? cropParameters =
+              await confirmAndUploadNewPicture(
             context,
             barcode: barcode,
             imageField: ImageField.OTHER,
             language: ProductQuery.getLanguage(),
             isLoggedInMandatory: widget.isLoggedInMandatory,
           );
-          if (finalPhoto != null) {
+          if (cropParameters != null) {
             setState(() => ++_otherCount);
           }
         },
@@ -609,9 +609,10 @@ class _AddNewProductPageState extends State<AddNewProductPage>
   /// Button specific to one of the main 4 images.
   Widget _buildMainImageButton(
     final BuildContext context,
+    final Product product,
     final ProductImageData productImageData,
   ) {
-    final bool done = _helper.isMainImagePopulated(productImageData, barcode);
+    final bool done = _helper.isMainImagePopulated(productImageData, product);
     return AddNewProductButton(
       productImageData.imageField
           .getAddPhotoButtonText(AppLocalizations.of(context)),

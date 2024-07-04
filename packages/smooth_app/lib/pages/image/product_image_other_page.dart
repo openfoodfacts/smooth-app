@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
+import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Full page display of a raw product image.
@@ -28,7 +29,10 @@ class ProductImageOtherPage extends StatelessWidget {
           ProductImage.raw(
             imgid: imageId.toString(),
             size: ImageSize.ORIGINAL,
-          ).getUrl(product.barcode!),
+          ).getUrl(
+            product.barcode!,
+            uriHelper: ProductQuery.uriProductHelper,
+          ),
         ),
         fit: BoxFit.cover,
       ),

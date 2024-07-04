@@ -566,6 +566,10 @@
     "@new_product_dialog_description": {
         "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
     },
+    "new_product_dialog_illustration_description": "Ілюстрація з невідомими Nutri-Score та Eco-Score",
+    "@new_product_dialog_illustration_description": {
+        "description": "A description for accessibility of two images side by side: a Nutri-Score and an EcoScore."
+    },
     "front_packaging_photo_button_label": "Фото передньої частини продукту",
     "@front_packaging_photo_button_label": {},
     "confirm_front_packaging_photo_button_label": "Підтвердьте завантаження передньої фотографії продукту",
@@ -624,6 +628,7 @@
     "ingredients_photo_title": "Фото інгредієнтів",
     "nutritional_facts_photo_title": "Світлина харчової цінності продукту",
     "recycling_photo_title": "Обробка фото",
+    "take_photo_title": "Сфотографувати",
     "take_more_photo_title": "Зробити більше фото",
     "front_photo_uploaded": "Попереднє фото завантажено",
     "@front_photo_uploaded": {},
@@ -735,9 +740,8 @@
     "@view_more_photo_button": {},
     "no_product_found": "Продукт не знайдено",
     "@no_product_found": {},
+    "no_location_found": "No location found",
     "not_found": "не знайдено:",
-    "searchPanelHeader": "Шукайте або відскануйте ваш перший товар",
-    "@Product query status": {},
     "refreshing_product": "Освіжаючий товар",
     "@refreshing_product": {
         "description": "Confirmation, that the product data of a cached product is queried again"
@@ -746,10 +750,51 @@
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
+    "product_image_accessibility_label": "Зображення зроблене {date}",
+    "@product_image_accessibility_label": {
+        "placeholders": {
+            "date": {
+                "type": "String",
+                "description": "The date of picture (in localized format for YYYY-MM-DD)"
+            }
+        }
+    },
+    "product_image_outdated_accessibility_label": "Зображення, зроблене {date}. Це зображення може бути застарілим",
+    "@product_image_outdated_accessibility_label": {
+        "placeholders": {
+            "date": {
+                "type": "String",
+                "description": "The date of picture (in localized format for YYYY-MM-DD)"
+            }
+        }
+    },
+    "homepage_main_card_logo_description": "Вітаємо в Open Food Facts",
+    "@homepage_main_card_logo_description": {
+        "description": "Description for accessibility of the Open Food Facts logo on the homepage"
+    },
+    "homepage_main_card_subheading": "**Відскануйте** штрих-код або\n**знайдіть** продукт",
+    "@homepage_main_card_subheading": {
+        "description": "Text between asterisks (eg: **My Text**) means text in bold. Please keep it."
+    },
+    "homepage_main_card_search_field_hint": "Пошук товару",
+    "homepage_main_card_search_field_tooltip": "Почати пошук",
+    "@homepage_main_card_search_field_tooltip": {
+        "description": "Description for accessibility of the search field on the homepage"
+    },
+    "scan_tagline_news_item_accessibility": "Останні новини: {news_title}",
+    "@scan_tagline_news_item_accessibility": {
+        "description": "Accessibility label for the title of a news",
+        "placeholders": {
+            "news_title": {
+                "type": "String"
+            }
+        }
+    },
     "tagline_app_review": "Вам подобається цей додаток?",
     "tagline_app_review_button_positive": "Я в захопленні! 😍",
     "tagline_app_review_button_negative": "Не дуже…",
     "tagline_app_review_button_later": "Запитайте мене пізніше",
+    "tagline_feed_news_button": "Докладніше",
     "app_review_negative_modal_title": "Вам не подобається наш додаток?",
     "app_review_negative_modal_text": "Не могли б ви витратити кілька секунд, щоб сказати нам, чому?",
     "app_review_negative_modal_positive_button": "Так, звичайно!",
@@ -757,6 +802,16 @@
     "could_not_refresh": "Не вдалося оновити продукт",
     "@could_not_refresh": {
         "description": "The product data couldn't be refreshed"
+    },
+    "product_internet_error_modal_title": "Сталася помилка!",
+    "product_internet_error_modal_message": "Ми не можемо отримати інформацію про цей продукт через помилку мережі. Перевірте підключення до Інтернету та повторіть спробу.\n\nВнутрішня помилка:\n{error}",
+    "@product_internet_error_modal_message": {
+        "placeholders": {
+            "error": {
+                "type": "String",
+                "description": "The error message"
+            }
+        }
     },
     "product_internet_error": "Неможливо отримати інформацію про цей продукт через помилку мережі.",
     "cached_results_from": "Показати результати з:",
@@ -797,6 +852,28 @@
     "country_chooser_label": "Будь ласка, виберіть країну",
     "@country_chooser_label": {
         "description": "Label shown above a selector where the user can select their country (in the preferences)"
+    },
+    "currency_chooser_label": "Будь ласка виберіть валюту",
+    "@currency_chooser_label": {
+        "description": "Label shown above a selector where the user can select their currency (in the preferences)"
+    },
+    "country_change_message": "Ви щойно змінили країну.",
+    "@country_change_message": {
+        "description": "Message stating the change of countries"
+    },
+    "currency_auto_change_message": "Ви хочете змінити валюту з {previousCurrency} на {possibleCurrency}?",
+    "@currency_auto_change_message": {
+        "description": "Message asking to confirm the change of currencies",
+        "placeholders": {
+            "previousCurrency": {
+                "type": "String",
+                "description": "Current currency"
+            },
+            "possibleCurrency": {
+                "type": "String",
+                "description": "Possible currency"
+            }
+        }
     },
     "onboarding_country_chooser_label": "Будь ласка, виберіть країну:",
     "@onboarding_country_chooser_label": {
@@ -1042,14 +1119,12 @@
             }
         }
     },
-    "onboarding_reinventing_text1": "Ми розробили додаток\nдля спільного сканування\nу 2012 році",
-    "@onboarding_reinventing_text1": {
-        "description": "Onboarding / Reinventing page: text 1/2. If possible, balanced on 3 lines."
+    "onboarding_home_welcome_text1": "Ласкаво просимо!",
+    "onboarding_home_welcome_text2": "Додаток, який допоможе вам вибрати їжу, яка корисна для **вас** і **планети**!",
+    "@onboarding_home_welcome_text2": {
+        "description": "Onboarding home screen welcome text, text surrounded by * will be bold"
     },
-    "onboarding_reinventing_text2": "Оскільки нам виповнюється 10 років,\nми переосмислюємо його\nз нуля!",
-    "@onboarding_reinventing_text2": {
-        "description": "Onboarding / Reinventing page: text 2/2. If possible, balanced on 3 lines."
-    },
+    "onboarding_continue_button": "Продовжити",
     "onboarding_welcome_loading_dialog_title": "Завантаження вашого першого прикладу продукту",
     "@onboarding_welcome_loading_dialog_title": {
         "description": "Title for the onboarding loading dialog"
@@ -1159,6 +1234,10 @@
     "camera_play_sound_subtitle": "Буде відтворення звукового сигналу після кожного успішного сканування",
     "@camera_play_sound_subtitle": {
         "description": "SubTitle for the Camera play sound toggle"
+    },
+    "camera_window_accessibility_label": "Відскануйте штрих-код камерою",
+    "@camera_window_accessibility_label": {
+        "description": "Accessibility label for the camera window"
     },
     "app_haptic_feedback_title": "Вібрація та тактильні відчуття",
     "@app_haptic_feedback_title": {
@@ -1400,17 +1479,33 @@
     "completed_basic_details_btn_text": "Заповніть основні деталі",
     "not_implemented_snackbar_text": "Ще не реалізовано",
     "category_picker_page_appbar_text": "Категорії",
-    "edit_ingredients_extrait_ingredients_btn_text": "Вилучити інгредієнти",
-    "@edit_ingredients_extrait_ingredients_btn_text": {
+    "edit_ingredients_extract_ingredients_btn_text": "Видобути інгредієнти з фото",
+    "@edit_ingredients_extract_ingredients_btn_text": {
         "description": "Ingredients edition - Extract ingredients"
+    },
+    "edit_ingredients_extracting_ingredients_btn_text": "Отримання інгредієнтів із зображення",
+    "@edit_ingredients_extracting_ingredients_btn_text": {
+        "description": "Ingredients edition - Extracting ingredients"
+    },
+    "edit_ingredients_loading_photo_btn_text": "Завантаження фото…",
+    "@edit_ingredients_loading_photo_btn_text": {
+        "description": "Ingredients edition - Loading photo from the server"
     },
     "edit_ingredients_refresh_photo_btn_text": "Оновити фото",
     "@edit_ingredients_refresh_photo_btn_text": {
         "description": "Ingredients edition - Refresh photo"
     },
-    "edit_packaging_extract_btn_text": "Розпакування пакунків",
+    "edit_packaging_extract_btn_text": "Видобути упаковку\nз фото",
     "@edit_packaging_extract_btn_text": {
         "description": "Packaging edition - OCR-Extract packaging"
+    },
+    "edit_packaging_extracting_btn_text": "Вилучення пакунка з фотографії",
+    "@edit_packaging_extracting_btn_text": {
+        "description": "Packaging edition - OCR-Extracting packaging"
+    },
+    "edit_packaging_loading_photo_btn_text": "Завантаження фото…",
+    "@edit_packaging_loading_photo_btn_text": {
+        "description": "Packaging edition - Loading photo from the server"
     },
     "edit_packaging_refresh_photo_btn_text": "Оновити фото",
     "@edit_packaging_refresh_photo_btn_text": {
@@ -1623,13 +1718,127 @@
     },
     "prices_app_dev_mode_flag": "Ярлик програми «Ціни» на сторінці продукту",
     "prices_app_button": "Перейдіть у додаток Ціни",
+    "prices_generic_title": "Ціни",
+    "prices_add_n_prices": "{count,plural, =1{Add a price} other{App {count} prices}}",
+    "prices_send_n_prices": "{count,plural, =1{Send the price} other{Send {count} prices}}",
+    "prices_add_an_item": "Додати елемент",
+    "prices_add_a_price": "Додати ціну",
+    "prices_add_a_receipt": "Додати чек",
+    "prices_add_price_tags": "Додайте цінові бірки",
+    "prices_barcode_search_not_found": "Товар не знайдено",
+    "prices_barcode_search_none_yet": "Ще немає товару",
+    "prices_barcode_search_question": "Ви хочете шукати цей продукт?",
+    "prices_barcode_search_title": "Пошук товару",
+    "prices_barcode_search_running": "Шукаю {barcode}",
+    "@prices_barcode_search_running": {
+        "description": "Dialog title about barcode look-up",
+        "placeholders": {
+            "barcode": {
+                "type": "String"
+            }
+        }
+    },
+    "prices_barcode_reader_action": "Сканер штрих-коду",
+    "prices_view_prices": "Переглянути ціни",
+    "prices_list_length_one_page": "{count,plural, =0{No price yet} =1{Only one price} other{All {count} prices}}",
+    "@prices_list_length_one_page": {
+        "description": "Number of prices for one-page result",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_list_length_many_pages": "Latest {pageSize} prices (total: {total})",
+    "@prices_list_length_many_pages": {
+        "description": "Number of prices for one-page result",
+        "placeholders": {
+            "pageSize": {
+                "type": "int"
+            },
+            "total": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_proofs_list_length_one_page": "{count,plural, =0{No proof yet} =1{Only one proof} other{All {count} proofs}}",
+    "@prices_proofs_list_length_one_page": {
+        "description": "Number of proofs for one-page result",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_proofs_list_length_many_pages": "Останні {pageSize} докази (всього: {total})",
+    "@prices_proofs_list_length_many_pages": {
+        "description": "Number of proofs for one-page result",
+        "placeholders": {
+            "pageSize": {
+                "type": "int"
+            },
+            "total": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_users_list_length_many_pages": "Топ {pageSize} учасників (всього: {total})",
+    "@prices_users_list_length_many_pages": {
+        "description": "Number of users for one-page result",
+        "placeholders": {
+            "pageSize": {
+                "type": "int"
+            },
+            "total": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_amount_subtitle": "Кількість",
+    "prices_amount_is_discounted": "Чи є знижка?",
+    "prices_amount_price_normal": "Ціна",
+    "prices_amount_price_discounted": "Ціна зі знижкою",
+    "prices_amount_price_not_discounted": "Початкова ціна",
+    "prices_amount_no_product": "Бракує одного товару!",
+    "prices_amount_price_incorrect": "Помилкове значення",
+    "prices_amount_price_mandatory": "Обов'язкове значення",
+    "prices_currency_subtitle": "Currency",
+    "prices_date_subtitle": "Date",
+    "prices_location_subtitle": "Крамниця",
+    "prices_location_find": "Find a shop",
+    "prices_location_mandatory": "You need to select a shop!",
+    "prices_proof_subtitle": "Доказ",
+    "prices_proof_find": "Select a proof",
+    "prices_proof_receipt": "Квитанція",
+    "prices_proof_price_tag": "Цінник",
+    "prices_proof_mandatory": "You need to select a proof!",
+    "prices_add_validation_error": "Validation error",
+    "prices_privacy_warning_title": "Попередження про конфіденційність",
+    "prices_privacy_warning_message": "Prices will be public, along with the store they refer to.\nThat might allow people who know about your Open Food Facts pseudonym to:\n* infer in which area you live\n* know what you are buying\nIf you are uneasy with that, please change your pseudonym, or create a new Open Food Facts account and log into the app with it.",
+    "prices_unknown_product": "Невідомий продукт",
+    "@prices_unknown_product": {
+        "description": "Very small text, in the context of prices, to say that the product is unknown"
+    },
     "dev_preferences_import_history_result_success": "Виконано",
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"
     },
+    "dev_mode_section_server": "Конфігурація сервера",
+    "dev_mode_section_product_page": "Сторінка продукту",
+    "dev_mode_section_ui": "Інтерфейс користувача",
+    "dev_mode_section_data": "Дані",
+    "dev_mode_section_experimental_features": "Експериментальні функції",
     "dev_mode_hide_ecoscore_title": "Вимкнути Eco-Score",
     "@dev_mode_hide_ecoscore_title": {
         "description": "User dev preferences - Disable Ecoscore - Title"
+    },
+    "dev_mode_spellchecker_for_ocr_title": "Використовуйте перевірку орфографії для OCR екранів",
+    "@dev_mode_spellchecker_for_ocr_title": {
+        "description": "User dev preferences - Enable Spellchecker on OCR screens - Title"
+    },
+    "dev_mode_spellchecker_for_ocr_subtitle": "(Інгредієнти та упаковка)",
+    "@dev_mode_spellchecker_for_ocr_subtitle": {
+        "description": "User dev preferences - Enable Spellchecker on OCR screens - Subtitle"
     },
     "search_history_item_edit_tooltip": "Повторно використовуйте та редагуйте цей пошук",
     "@search_history_item_edit_tooltip": {
@@ -1681,6 +1890,38 @@
     "user_search_to_be_completed_title": "Мої завершені товари",
     "@user_search_to_be_completed_title": {
         "description": "User search (to be completed): list tile title"
+    },
+    "user_search_prices_title": "Мої ціни",
+    "@user_search_prices_title": {
+        "description": "User prices: list tile title"
+    },
+    "user_search_proofs_title": "Мої докази",
+    "@user_search_proofs_title": {
+        "description": "User proofs: list tile title"
+    },
+    "user_search_proof_title": "Мої докази",
+    "@user_search_proof_title": {
+        "description": "User proof: page title"
+    },
+    "user_any_search_prices_title": "Ціни вкладників",
+    "@user_any_search_prices_title": {
+        "description": "User prices (everybody except me): list tile title"
+    },
+    "all_search_prices_latest_title": "Останні додані ціни",
+    "@all_search_prices_latest_title": {
+        "description": "Latest prices: list tile title"
+    },
+    "all_search_prices_top_user_title": "Найбільші учасники цін",
+    "@all_search_prices_top_user_title": {
+        "description": "Top price users: list tile title"
+    },
+    "all_search_prices_top_location_title": "Магазини з найбільшими цінами",
+    "@all_search_prices_top_location_title": {
+        "description": "Top price locations: list tile title"
+    },
+    "all_search_prices_top_product_title": "Товари з найбільшою ціною",
+    "@all_search_prices_top_product_title": {
+        "description": "Top price products: list tile title"
     },
     "all_search_to_be_completed_title": "Мої завершені товари",
     "@all_search_to_be_completed_title": {
@@ -1947,6 +2188,10 @@
     "image_upload_queued": "Зображення буде завантажено у фоновому режимі якомога швидше.",
     "@image_upload_queued": {
         "description": "Message when a photo is queued for upload"
+    },
+    "add_price_queued": "The price will be sent to the server as soon as possible.",
+    "@add_price_queued": {
+        "description": "Message when an added price is queued for the server"
     },
     "background_task_title_full_refresh": "Запуск оновлення всіх продуктів, які зберігаються локальна",
     "@background_task_title_full_refresh": {
@@ -2462,6 +2707,10 @@
     "@country_selector_title": {
         "description": "Label written as the title of the dialog to select the user country"
     },
+    "currency_selector_title": "Оберіть Вашу валюту:",
+    "@currency_selector_title": {
+        "description": "Label written as the title of the dialog to select the user currency"
+    },
     "language_selector_title": "Виберіть свою мову:",
     "@language_selector_title": {
         "description": "Label written as the title of the dialog to select the user language"
@@ -2488,8 +2737,20 @@
     "nutriscore_c": "Оцінка Nutri-Score C",
     "nutriscore_d": "Оцінка Nutri-Score D",
     "nutriscore_e": "Оцінка Nutri-Score E",
+    "nutriscore_new_formula": "Nutri-Score {letter} (новий розрахунок)",
+    "@nutriscore_new_formula": {
+        "description": "A generic string to define a Nutri-Score V2 with a letter [eg: \"Nutri-Score A (New calculation)\"]",
+        "placeholders": {
+            "letter": {
+                "type": "String"
+            }
+        }
+    },
+    "nutriscore_new_formula_title": "Nutri-Score (Новий розрахунок)",
     "nutriscore_unknown": "Невідома оцінка Nutri-Score",
+    "nutriscore_unknown_new_formula": "Невідомий Nutri-Score (новий розрахунок)",
     "nutriscore_not_applicable": "Nutri-Score не застосовується",
+    "nutriscore_not_applicable_new_formula": "Nutri-Score не застосовується (новий розрахунок)",
     "ecoscore_generic": "Eco-Score (показник впливу на довкілля)",
     "ecoscore_a": "Eco-Score A",
     "ecoscore_b": "Eco-Score B",
@@ -2510,6 +2771,7 @@
     "faq_title_install_beauty": "Встановіть Open Beauty Facts для створення косметичної бази даних",
     "faq_title_install_pet": "Встановіть Open Pet Food Facts щоб створити базу даних для домашніх тварин",
     "faq_title_install_product": "Встановіть Open Products Facts, щоб створити базу даних продуктів і подовжити термін служби об’єктів",
+    "faq_nutriscore_nutriscore": "Новий розрахунок Nutri-Score: що нового?",
     "contact_title_pro_page": "Pro? Імпортуйте свої продукти в Open Food Facts",
     "contact_title_pro_email": "Контакт виробника",
     "contact_title_press_page": "Інформація для преси",
@@ -2526,5 +2788,84 @@
     "link_cant_be_opened": "Це посилання не може бути відкрито на вашому пристрої. Будь ласка, перевірте чи встановлено браузер.",
     "@link_cant_be_opened": {
         "description": "An error may happen if the device doesn't have a browser installed."
+    },
+    "knowledge_panel_page_title_no_title": "Деталі для {productName}",
+    "@knowledge_panel_page_title_no_title": {
+        "description": "The title of the page when we click on an item in the product page and this page is unnamed",
+        "placeholders": {
+            "productName": {
+                "type": "String"
+            }
+        }
+    },
+    "knowledge_panel_page_title": "Деталі для {pageName} з {productName}",
+    "@knowledge_panel_page_title": {
+        "description": "The title of the page when we click on an item in the product page",
+        "placeholders": {
+            "pageName": {
+                "type": "String"
+            },
+            "productName": {
+                "type": "String"
+            }
+        }
+    },
+    "guide_title": "Посібник",
+    "@guide_title": {
+        "description": "A title for a guide"
+    },
+    "guide_share_label": "Поділитися",
+    "guide_nutriscore_v2_enabled": "true",
+    "@guide_nutriscore_v2_enabled": {
+        "description": "Please NEVER touch this value and let the OFF team change it!"
+    },
+    "guide_nutriscore_v2_title": "Nutri-Score розвивається: пояснення!",
+    "@guide_nutriscore_v2_title": {
+        "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+    },
+    "guide_nutriscore_v2_file_language": "en",
+    "@guide_nutriscore_v2_file_language": {
+        "description": "The logo is only available in de/en/fr/ln/nl. Please use en if not available (in lowercase, please)."
+    },
+    "guide_nutriscore_v2_what_is_nutriscore_title": "Що таке Nutri-Score?",
+    "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "Nutri-Score – це логотип, мета якого інформувати вас про **поживну якість харчових продуктів**.",
+    "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
+        "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+    },
+    "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "Кольоровий код варіюється від темно-зеленого (**A**) для **найздоровіших** продуктів до темно-червоного (**E**) для **менш корисних** продуктів.",
+    "@guide_nutriscore_v2_what_is_nutriscore_paragraph2": {
+        "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+    },
+    "guide_nutriscore_v2_nutriscore_a_caption": "Логотип Nutri-Score A",
+    "guide_nutriscore_v2_why_v2_title": "Чому Nutri-Score розвивається?",
+    "guide_nutriscore_v2_why_v2_intro": "Формула Nutri-Score **еволюціонує**, щоб надавати кращі рекомендації:",
+    "guide_nutriscore_v2_why_v2_arg1_title": "Краще оцініть всі напої",
+    "guide_nutriscore_v2_why_v2_arg1_text": "Порівняльні ноти **молока**, **молочних напоїв** з додаванням цукру та **овочевих** напоїв у новому алгоритмі краще розрізнили.",
+    "guide_nutriscore_v2_why_v2_arg2_title": "Кращий рейтинг напоїв",
+    "guide_nutriscore_v2_why_v2_arg2_text": "**Вміст цукру** краще брати до уваги, і він надає перевагу напоям із **слабким вмістом цукру**.\\n**Підсолоджувачі також будуть штрафуватися**: рейтинг дієтичних газованих напоїв буде знижено з B до C і E. Вода залишається рекомендованим напоєм.",
+    "guide_nutriscore_v2_why_v2_arg3_title": "Сіль і цукор штрафні",
+    "guide_nutriscore_v2_why_v2_arg3_text": "Продукти **занадто солодкі** або **занадто солоні** отримають **рейтинг ще більше знижений**.",
+    "guide_nutriscore_v2_why_v2_arg4_title": "Ієрархія в оліях і рибі",
+    "guide_nutriscore_v2_why_v2_arg4_text": "Поліпшиться рейтинг певної **жирної риби** та **олій, багатих хорошими жирами**.",
+    "guide_nutriscore_v2_why_v2_arg5_title": "Обмежити червоне м'ясо",
+    "guide_nutriscore_v2_why_v2_arg5_text": "Споживання **червоного м’яса слід обмежити**. Ось чому **птах матиме порівняно кращий рейтинг**.",
+    "guide_nutriscore_v2_new_logo_title": "Як відрізнити старий Nutri-Score від нового розрахунку?",
+    "guide_nutriscore_v2_new_logo_text": "Відтепер логотип може показувати згадку «**Новий розрахунок**», щоб уточнити, що це справді новий розрахунок.",
+    "guide_nutriscore_v2_new_logo_image_caption": "Логотип нового Nutri-Score",
+    "guide_nutriscore_v2_where_title": "Де знайти новий розрахунок Nutri-Score?",
+    "guide_nutriscore_v2_where_paragraph1": "Nutri-Score застосовується в кількох країнах: Німеччині, Бельгії, Іспанії, Франції, Люксембурзі, Нідерландах та Швейцарії.",
+    "guide_nutriscore_v2_where_paragraph2": "Постачальники мають до **2026 року** останній термін **на заміну** старого розрахунку на новий.",
+    "guide_nutriscore_v2_where_paragraph3": "Без очікування ви вже знайдете в додатку OpenFoodFacts новий розрахунок, включаючи в тому числі якщо постачальники не оновили бали.",
+    "guide_nutriscore_v2_unchanged_title": "Що не змінилося",
+    "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score – це оцінка, розроблена для **вимірювання якості харчування**. Він **доповнює групу NOVA** щодо **ультраоброблених продуктів** (також присутня в додатку).",
+    "guide_nutriscore_v2_unchanged_paragraph2": "Для постачальників зображення Nutri-Score **залишається необов’язковим**.",
+    "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore",
+    "guide_nutriscore_v2_share_message": "",
+    "@guide_nutriscore_v2_share_message": {
+        "description": "Please let empty for now (maybe use in the future)"
+    },
+    "preview_badge": "Попередній перегляд",
+    "@preview_badge": {
+        "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
     }
 }

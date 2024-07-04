@@ -1,4 +1,4 @@
-import 'dart:math';
+import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -7,6 +7,7 @@ import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/themes/color_schemes.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 
 part 'package:smooth_app/data_models/preferences/migration/user_preferences_migration.dart';
 
@@ -74,6 +75,7 @@ class UserPreferences extends ChangeNotifier {
   static const String _TAG_DEV_MODE = 'devMode';
   static const String _TAG_USER_TRACKING = 'user_tracking';
   static const String _TAG_CRASH_REPORTS = 'crash_reports';
+  static const String _TAG_PRICES_FEEDBACK_FORM = 'prices_feedback_form';
   static const String _TAG_EXCLUDED_ATTRIBUTE_IDS = 'excluded_attributes';
   static const String _TAG_USER_GROUP = '_user_group';
   static const String _TAG_UNIQUE_RANDOM = '_unique_random';
@@ -88,6 +90,9 @@ class UserPreferences extends ChangeNotifier {
 
   /// Vibrations / haptic feedback
   static const String _TAG_HAPTIC_FEEDBACK_IN_APP = 'haptic_feedback_enabled';
+
+  /// Price privacy warning
+  static const String TAG_PRICE_PRIVACY_WARNING = 'price_privacy_warning';
 
   /// Attribute group that is not collapsed
   static const String _TAG_ACTIVE_ATTRIBUTE_GROUP = 'activeAttributeGroup';
@@ -104,6 +109,11 @@ class UserPreferences extends ChangeNotifier {
   /// User knowledge panel order
   static const String _TAG_USER_KNOWLEDGE_PANEL_ORDER =
       'userKnowledgePanelOrder';
+
+  /// Tagline feed (news displayed / clicked)
+  static const String _TAG_TAGLINE_FEED_NEWS_DISPLAYED =
+      'taglineFeedNewsDisplayed';
+  static const String _TAG_TAGLINE_FEED_NEWS_CLICKED = 'taglineFeedNewsClicked';
 
   Future<void> init(final ProductPreferences productPreferences) async {
     await _onMigrate();
@@ -180,7 +190,7 @@ class UserPreferences extends ChangeNotifier {
     if (result != null) {
       return result;
     }
-    result = Random().nextInt(1 << 32);
+    result = math.Random().nextInt(1 << 32);
     await _sharedPreferences.setInt(tag, result);
     return result;
   }
@@ -194,8 +204,17 @@ class UserPreferences extends ChangeNotifier {
   bool get crashReports =>
       _sharedPreferences.getBool(_TAG_CRASH_REPORTS) ?? false;
 
+  Future<void> markPricesFeedbackFormAsCompleted() async {
+    await _sharedPreferences.setBool(_TAG_PRICES_FEEDBACK_FORM, false);
+    notifyListeners();
+  }
+
+  bool get shouldShowPricesFeedbackForm =>
+      _sharedPreferences.getBool(_TAG_PRICES_FEEDBACK_FORM) ?? true;
+
   String get currentTheme =>
-      _sharedPreferences.getString(_TAG_CURRENT_THEME_MODE) ?? 'System Default';
+      _sharedPreferences.getString(_TAG_CURRENT_THEME_MODE) ??
+      THEME_SYSTEM_DEFAULT;
 
   String get currentColor =>
       _sharedPreferences.getString(_TAG_CURRENT_COLOR_SCHEME) ??
@@ -241,7 +260,8 @@ class UserPreferences extends ChangeNotifier {
         _sharedPreferences.getInt(_TAG_LAST_VISITED_ONBOARDING_PAGE);
     return pageIndex == null
         ? OnboardingPage.NOT_STARTED
-        : OnboardingPage.values[pageIndex];
+        : OnboardingPage
+            .values[math.min(pageIndex, OnboardingPage.values.length - 1)];
   }
 
   Future<void> incrementScanCount() async {
@@ -368,5 +388,57 @@ class UserPreferences extends ChangeNotifier {
     await _sharedPreferences.setStringList(
         _TAG_USER_KNOWLEDGE_PANEL_ORDER, source);
     notifyListeners();
+  }
+
+  List<String> get taglineFeedDisplayedNews =>
+      _sharedPreferences.getStringList(_TAG_TAGLINE_FEED_NEWS_DISPLAYED) ??
+      <String>[];
+
+  List<String> get taglineFeedClickedNews =>
+      _sharedPreferences.getStringList(_TAG_TAGLINE_FEED_NEWS_CLICKED) ??
+      <String>[];
+
+  // This method voluntarily does not notify listeners (not needed)
+  Future<void> taglineFeedMarkNewsAsDisplayed(final String ids) async {
+    final List<String> displayedNews = taglineFeedDisplayedNews;
+    final List<String> clickedNews = taglineFeedClickedNews;
+
+    if (!displayedNews.contains(ids)) {
+      displayedNews.add(ids);
+      _sharedPreferences.setStringList(
+        _TAG_TAGLINE_FEED_NEWS_DISPLAYED,
+        displayedNews,
+      );
+    }
+
+    if (clickedNews.contains(ids)) {
+      clickedNews.remove(ids);
+      _sharedPreferences.setStringList(
+        _TAG_TAGLINE_FEED_NEWS_CLICKED,
+        clickedNews,
+      );
+    }
+  }
+
+  // This method voluntarily does not notify listeners (not needed)
+  Future<void> taglineFeedMarkNewsAsClicked(final String ids) async {
+    final List<String> displayedNews = taglineFeedDisplayedNews;
+    final List<String> clickedNews = taglineFeedClickedNews;
+
+    if (displayedNews.contains(ids)) {
+      displayedNews.remove(ids);
+      _sharedPreferences.setStringList(
+        _TAG_TAGLINE_FEED_NEWS_DISPLAYED,
+        displayedNews,
+      );
+    }
+
+    if (!clickedNews.contains(ids)) {
+      clickedNews.add(ids);
+      _sharedPreferences.setStringList(
+        _TAG_TAGLINE_FEED_NEWS_CLICKED,
+        clickedNews,
+      );
+    }
   }
 }

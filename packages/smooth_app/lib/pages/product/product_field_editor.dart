@@ -5,11 +5,11 @@ import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/pages/product/add_basic_details_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/edit_new_packagings.dart';
-import 'package:smooth_app/pages/product/edit_ocr_page.dart';
+import 'package:smooth_app/pages/product/edit_ocr/edit_ocr_page.dart';
+import 'package:smooth_app/pages/product/edit_ocr/ocr_helper.dart';
+import 'package:smooth_app/pages/product/edit_ocr/ocr_ingredients_helper.dart';
+import 'package:smooth_app/pages/product/edit_ocr/ocr_packaging_helper.dart';
 import 'package:smooth_app/pages/product/nutrition_page_loaded.dart';
-import 'package:smooth_app/pages/product/ocr_helper.dart';
-import 'package:smooth_app/pages/product/ocr_ingredients_helper.dart';
-import 'package:smooth_app/pages/product/ocr_packaging_helper.dart';
 import 'package:smooth_app/pages/product/simple_input_page.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
 

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="161px" height="108px" viewBox="0 0 161 108" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Vector</title>
+    <g id="Illustrations" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Illustrations---Intro" transform="translate(-311, -61)" fill="#FFFFFF" fill-rule="nonzero">
+            <g id="Calque_1-2" transform="translate(311, 61)">
+                <path d="M95.476745,0 C118.704071,0 135.546217,18.7337433 136.779793,39.219828 C150.840549,43.9481534 161,57.0823894 161,72.6206904 C161,92.1158885 145.030381,108 125.430235,108 L35.5697675,108 C14.8965119,108 0,93.8915082 0,76.3448325 C0,62.5455709 9.06962234,49.1785725 22.8161334,45.4444592 C23.7120637,34.6644102 29.0308124,26.3615779 36.445638,21.9358387 C43.6030506,17.6630551 52.3918589,16.9215522 60.3148242,19.7246312 C67.0610452,8.73177317 79.4068325,0 95.476745,0 Z" id="Vector"></path>
+            </g>
+        </g>
+    </g>
+</svg>

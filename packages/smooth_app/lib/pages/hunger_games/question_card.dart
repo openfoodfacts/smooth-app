@@ -30,7 +30,7 @@ class QuestionCard extends StatelessWidget {
       context.read<LocalDatabase>(),
     );
 
-    final Size screenSize = MediaQuery.of(context).size;
+    final Size screenSize = MediaQuery.sizeOf(context);
 
     return FutureBuilder<FetchedProduct>(
       future: productFuture,

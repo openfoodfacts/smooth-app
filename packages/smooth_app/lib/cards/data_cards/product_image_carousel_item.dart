@@ -31,7 +31,7 @@ class ProductImageCarouselItem extends StatefulWidget {
 class _ProductImageCarouselItemState extends State<ProductImageCarouselItem> {
   @override
   Widget build(BuildContext context) {
-    final Size screenSize = MediaQuery.of(context).size;
+    final Size screenSize = MediaQuery.sizeOf(context);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     context.watch<LocalDatabase>();
     final ImageProvider? imageProvider = TransientFile.fromProductImageData(

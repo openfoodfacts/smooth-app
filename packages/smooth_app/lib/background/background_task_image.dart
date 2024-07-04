@@ -135,12 +135,6 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
         ),
       );
 
-  /// Returns true if the stamp is an "image/OTHER" stamp.
-  ///
-  /// That's important because "image/OTHER" task are never duplicates.
-  static bool isOtherStamp(final String stamp) =>
-      stamp.contains(';image;${ImageField.OTHER.offTag};');
-
   /// Returns a fake value that means: "remove the previous value when merging".
   ///
   /// If we use this task, it means that we took a brand new picture. Therefore,
@@ -162,17 +156,18 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
   ) async {
     await super.postExecute(localDatabase, success);
     try {
-      (await getFile(fullPath)).deleteSync();
+      (await BackgroundTaskUpload.getFile(fullPath)).deleteSync();
     } catch (e) {
       // not likely, but let's not spoil the task for that either.
     }
     try {
-      (await getFile(croppedPath)).deleteSync();
+      (await BackgroundTaskUpload.getFile(croppedPath)).deleteSync();
     } catch (e) {
       // not likely, but let's not spoil the task for that either.
     }
     try {
-      (await getFile(_getCroppedPath())).deleteSync();
+      (await BackgroundTaskUpload.getFile(getCroppedPath(fullPath)))
+          .deleteSync();
     } catch (e) {
       // possible, but let's not spoil the task for that either.
     }
@@ -204,38 +199,61 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
         source.bottom * factor,
       );
 
-  /// Conversion factor to `int` from / to UI / background task.
-  static const int cropConversionFactor = 1000000;
+  static Rect getUpsizedRect(final Rect source) =>
+      getResizedRect(source, _cropConversionFactor);
 
-  /// Returns true if a crop operation is needed - after having performed it.
-  ///
-  /// Returns false if no crop operation is needed.
-  /// Returns null if the image (cropped or not) is too small.
-  Future<bool?> _crop(final File file) async {
-    final ui.Image full =
-        await loadUiImage(await (await getFile(fullPath)).readAsBytes());
-    if (cropX1 == 0 &&
-        cropY1 == 0 &&
-        cropX2 == cropConversionFactor &&
-        cropY2 == cropConversionFactor &&
-        rotationDegrees == 0) {
-      if (!isPictureBigEnough(full.width, full.height)) {
-        return null;
-      }
-      // in that case, no need to crop
-      return false;
-    }
-
-    Size getCroppedSize() {
-      final Rect cropRect = getResizedRect(
+  static Rect getDownsizedRect(
+    final int cropX1,
+    final int cropY1,
+    final int cropX2,
+    final int cropY2,
+  ) =>
+      getResizedRect(
         Rect.fromLTRB(
           cropX1.toDouble(),
           cropY1.toDouble(),
           cropX2.toDouble(),
           cropY2.toDouble(),
         ),
-        1 / cropConversionFactor,
+        1 / _cropConversionFactor,
       );
+
+  /// Conversion factor to `int` from / to UI / background task.
+  static const int _cropConversionFactor = 1000000;
+
+  /// Returns the file path of a crop operation.
+  ///
+  /// Returns directly the original [fullPath] if no crop operation was needed.
+  /// Returns the path of the cropped file if relevant.
+  /// Returns null if the image (cropped or not) is too small.
+  static Future<String?> cropIfNeeded({
+    required final String fullPath,
+    required final String croppedPath,
+    required final int rotationDegrees,
+    required final int cropX1,
+    required final int cropY1,
+    required final int cropX2,
+    required final int cropY2,
+    final CustomPainter? overlayPainter,
+  }) async {
+    final ui.Image full = await loadUiImage(
+        await (await BackgroundTaskUpload.getFile(fullPath)).readAsBytes());
+    if (cropX1 == 0 &&
+        cropY1 == 0 &&
+        cropX2 == _cropConversionFactor &&
+        cropY2 == _cropConversionFactor &&
+        rotationDegrees == 0) {
+      if (!isPictureBigEnough(full.width, full.height)) {
+        return null;
+      }
+      // in that case, no need to crop
+      if (overlayPainter == null) {
+        return fullPath;
+      }
+    }
+
+    Size getCroppedSize() {
+      final Rect cropRect = getDownsizedRect(cropX1, cropY1, cropX2, cropY2);
       switch (CropRotationExtension.fromDegrees(rotationDegrees)!) {
         case CropRotation.up:
         case CropRotation.down:
@@ -257,43 +275,39 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
       return null;
     }
     final ui.Image cropped = await CropController.getCroppedBitmap(
-      crop: getResizedRect(
-        Rect.fromLTRB(
-          cropX1.toDouble(),
-          cropY1.toDouble(),
-          cropX2.toDouble(),
-          cropY2.toDouble(),
-        ),
-        1 / cropConversionFactor,
-      ),
+      crop: getDownsizedRect(cropX1, cropY1, cropX2, cropY2),
       rotation: CropRotationExtension.fromDegrees(rotationDegrees)!,
       image: full,
       maxSize: null,
       quality: FilterQuality.high,
+      overlayPainter: overlayPainter,
     );
-    await saveJpeg(file: file, source: cropped);
-    return true;
+    await saveJpeg(
+      file: await BackgroundTaskUpload.getFile(croppedPath),
+      source: cropped,
+    );
+    return croppedPath;
   }
 
-  /// Returns the path of the locally computed cropped path (if relevant).
-  String _getCroppedPath() => '$fullPath.cropped.jpg';
+  static String getCroppedPath(final String fullPath) =>
+      '$fullPath.cropped.jpg';
 
   /// Uploads the product image.
   @override
   Future<void> upload() async {
-    final String path;
-    final String croppedPath = _getCroppedPath();
-    final bool? neededCrop = await _crop(await getFile(croppedPath));
-    if (neededCrop == null) {
+    final String? path = await cropIfNeeded(
+      fullPath: fullPath,
+      croppedPath: getCroppedPath(fullPath),
+      rotationDegrees: rotationDegrees,
+      cropX1: cropX1,
+      cropY1: cropY1,
+      cropX2: cropX2,
+      cropY2: cropY2,
+    );
+    if (path == null) {
       // TODO(monsieurtanuki): maybe something more refined when we dismiss the picture, like alerting the user, though it's not supposed to happen anymore from upstream.
       return;
     }
-    if (neededCrop) {
-      path = croppedPath;
-    } else {
-      path = fullPath;
-    }
-
     final ImageField imageField = ImageField.fromOffTag(this.imageField)!;
     final OpenFoodFactsLanguage language = getLanguage();
     final User user = getUser();

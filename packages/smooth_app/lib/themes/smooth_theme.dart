@@ -4,6 +4,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/themes/color_provider.dart';
 import 'package:smooth_app/themes/color_schemes.dart';
 import 'package:smooth_app/themes/contrast_provider.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
 class SmoothTheme {
@@ -39,7 +40,11 @@ class SmoothTheme {
 
     return ThemeData(
       useMaterial3: false,
+      fontFamily: 'OpenSans',
       primaryColor: DARK_BROWN_COLOR,
+      extensions: <SmoothColorsThemeExtension>[
+        SmoothColorsThemeExtension.defaultValues(),
+      ],
       colorScheme: myColorScheme,
       canvasColor: themeProvider.currentTheme == THEME_AMOLED
           ? myColorScheme.background

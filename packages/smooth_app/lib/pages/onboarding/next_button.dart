@@ -36,7 +36,7 @@ class NextButton extends StatelessWidget {
         OnboardingFlowNavigator(userPreferences);
     final OnboardingPage previousPage = currentPage.getPrevPage();
     return OnboardingBottomBar(
-      startButton: previousPage.isOnboardingNotStarted()
+      rightButton: previousPage.isOnboardingNotStarted()
           ? null
           : OnboardingBottomIcon(
               onPressed: () async => navigator.navigateToPage(
@@ -50,7 +50,7 @@ class NextButton extends StatelessWidget {
                   ? const EdgeInsetsDirectional.only(end: 2.0)
                   : EdgeInsets.zero,
             ),
-      endButton: OnboardingBottomButton(
+      leftButton: OnboardingBottomButton(
         onPressed: () async {
           await OnboardingLoader(localDatabase)
               .runAtNextTime(currentPage, context);

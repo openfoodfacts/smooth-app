@@ -11,15 +11,19 @@ class ProductImageLocalButton extends ProductImageButton {
     required super.imageField,
     required super.language,
     required super.isLoggedInMandatory,
+    required this.imageExists,
     super.borderWidth,
   });
+
+  final bool imageExists;
 
   @override
   IconData getIconData() => Icons.add_a_photo;
 
   @override
-  String getLabel(final AppLocalizations appLocalizations) =>
-      appLocalizations.capture;
+  String getLabel(final AppLocalizations appLocalizations) => imageExists
+      ? appLocalizations.capture
+      : appLocalizations.capture_new_picture;
 
   @override
   Future<void> action(final BuildContext context) async {

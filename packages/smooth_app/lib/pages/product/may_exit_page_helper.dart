@@ -10,7 +10,10 @@ class MayExitPageHelper {
   /// * `null` means the user's dismissed the dialog and doesn't want to leave.
   /// * `true` means the user wants to save the changes and leave.
   /// * `false` means the user wants to ignore the changes and leave.
-  Future<bool?> openSaveBeforeLeavingDialog(final BuildContext context) async =>
+  Future<bool?> openSaveBeforeLeavingDialog(
+    final BuildContext context, {
+    final String? title,
+  }) async =>
       showDialog<bool>(
         context: context,
         builder: (final BuildContext context) {
@@ -21,7 +24,7 @@ class MayExitPageHelper {
             actionsAxis: Axis.vertical,
             body:
                 Text(appLocalizations.edit_product_form_item_exit_confirmation),
-            title: appLocalizations.edit_product_label,
+            title: title ?? appLocalizations.edit_product_label,
             negativeAction: SmoothActionButton(
               text: appLocalizations
                   .edit_product_form_item_exit_confirmation_negative_button,

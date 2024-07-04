@@ -4,6 +4,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
@@ -53,7 +54,7 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final Size size = MediaQuery.of(context).size;
+    final Size size = MediaQuery.sizeOf(context);
 
     Color getCheckBoxColor(Set<MaterialState> states) {
       const Set<MaterialState> interactiveStates = <MaterialState>{
@@ -314,6 +315,7 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
   }
 
   Future<void> _signUp() async {
+    ///add and make complete onboarding false at signup.
     final AppLocalizations appLocalisations = AppLocalizations.of(context);
     _disagreed = !_agree;
     setState(() {});
@@ -408,6 +410,12 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
       return;
     }
     await context.read<UserManagementProvider>().putUser(user);
+    if (!mounted) {
+      return;
+    }
+    final UserPreferences userPreferences =
+        await UserPreferences.getUserPreferences();
+    userPreferences.resetOnboarding();
     if (!mounted) {
       return;
     }

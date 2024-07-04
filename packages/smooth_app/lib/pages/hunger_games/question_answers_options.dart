@@ -23,7 +23,7 @@ class QuestionAnswersOptions extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double yesNoHeight = MediaQuery.of(context).size.width / (3 * 1.25);
+    final double yesNoHeight = MediaQuery.sizeOf(context).width / (3 * 1.25);
 
     return Column(
       mainAxisSize: MainAxisSize.min,

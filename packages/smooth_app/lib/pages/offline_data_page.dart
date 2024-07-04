@@ -32,7 +32,7 @@ class _OfflineDataPageState extends State<OfflineDataPage> {
     // TODO(ashaman999): replaace the header asset with a custom one for this page
     const String headerAsset = 'assets/preferences/main.svg';
     final bool dark = Theme.of(context).brightness == Brightness.dark;
-    final double backgroundHeight = MediaQuery.of(context).size.height * .20;
+    final double backgroundHeight = MediaQuery.sizeOf(context).height * .20;
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     final DaoProduct daoProduct = DaoProduct(localDatabase);
     final DaoProductLastAccess daoProductLastAccess =

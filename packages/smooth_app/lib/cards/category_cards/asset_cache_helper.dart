@@ -9,6 +9,7 @@ class AssetCacheHelper {
     this.width,
     this.height,
     this.color,
+    this.semanticsLabel,
   });
 
   /// Full asset names, e.g. 'assets/cache/ab-agriculture-biologique.74x90.svg'
@@ -21,9 +22,15 @@ class AssetCacheHelper {
   final double? height;
   final Color? color;
 
-  Widget getEmptySpace() => SizedBox(
-        width: width ?? height,
-        height: height ?? width,
+  final String? semanticsLabel;
+
+  Widget getEmptySpace() => Semantics(
+        label: semanticsLabel,
+        image: true,
+        child: SizedBox(
+          width: width ?? height,
+          height: height ?? width,
+        ),
       );
 
   void notFound() => Logs.d(

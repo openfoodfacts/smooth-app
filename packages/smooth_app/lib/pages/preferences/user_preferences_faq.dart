@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import 'package:smooth_app/cards/category_cards/svg_cache.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
@@ -11,6 +12,7 @@ import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/helpers/global_vars.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/user_feedback_helper.dart';
+import 'package:smooth_app/pages/guides/guide/guide_nutriscore_v2.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
@@ -58,8 +60,30 @@ class UserPreferencesFaq extends AbstractUserPreferences {
         _getNutriListTile(
           title: appLocalizations.nutriscore_generic,
           url: 'https://world.openfoodfacts.org/nutriscore',
-          svg: 'assets/cache/nutriscore-b.svg',
+          svg: SvgCache.getAssetsCacheForNutriscore(
+            NutriScoreValue.b,
+            false,
+          ),
         ),
+        if (userPreferences.userCountryCode != 'fr')
+          _getListTile(
+            title: appLocalizations.faq_nutriscore_nutriscore,
+            leadingSvg: SvgCache.getAssetsCacheForNutriscore(
+              NutriScoreValue.b,
+              true,
+            ),
+            onTap: () => Navigator.of(context, rootNavigator: true).push(
+              MaterialPageRoute<void>(
+                builder: (BuildContext context) => const GuideNutriscoreV2(),
+              ),
+            ),
+
+            /// Hide the icon
+            icon: const Icon(
+              Icons.info,
+              size: 0.0,
+            ),
+          ),
         _getNutriListTile(
           title: appLocalizations.ecoscore_generic,
           url: 'https://world.openfoodfacts.org/ecoscore',
@@ -222,7 +246,7 @@ class UserPreferencesFaq extends AbstractUserPreferences {
                 children: <Widget>[
                   SvgPicture.asset(
                     logo,
-                    width: MediaQuery.of(context).size.width * 0.1,
+                    width: MediaQuery.sizeOf(context).width * 0.1,
                     package: AppHelper.APP_PACKAGE,
                   ),
                   const SizedBox(width: SMALL_SPACE),
@@ -303,7 +327,7 @@ class UserPreferencesFaq extends AbstractUserPreferences {
                           applicationVersion: packageInfo.version,
                           applicationIcon: SvgPicture.asset(
                             logo,
-                            height: MediaQuery.of(context).size.height * 0.1,
+                            height: MediaQuery.sizeOf(context).height * 0.1,
                           ),
                         ),
                         label: appLocalizations.licenses,

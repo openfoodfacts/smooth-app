@@ -24,7 +24,7 @@ class SmoothProductCardTemplate extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Size screenSize = MediaQuery.of(context).size;
+    final Size screenSize = MediaQuery.sizeOf(context);
     final ThemeData themeData = Theme.of(context);
     final bool isDarkMode = themeData.colorScheme.brightness == Brightness.dark;
     final Color itemColor = isDarkMode ? PRIMARY_GREY_COLOR : LIGHT_GREY_COLOR;

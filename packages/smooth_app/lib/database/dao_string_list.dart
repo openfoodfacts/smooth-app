@@ -8,7 +8,11 @@ class DaoStringList extends AbstractDao {
 
   static const String _hiveBoxName = 'stringList';
 
-  static const String keySearchHistory = 'searchHistory';
+  /// Key for the list of product search history.
+  static const String keySearchProductHistory = 'searchHistory';
+
+  /// Key for the list of location search history
+  static const String keySearchLocationHistory = 'searchLocationHistory';
 
   /// Key for the list of task ids.
   static const String keyTasks = 'tasks';
@@ -18,7 +22,8 @@ class DaoStringList extends AbstractDao {
 
   /// Max lengths of each key (null means no limit).
   static const Map<String, int?> _maxLengths = <String, int?>{
-    keySearchHistory: 10,
+    keySearchProductHistory: 10,
+    keySearchLocationHistory: 10,
     keyTasks: null,
     // TODO(monsieurtanuki): more "latest" languages are possible if we create a page to remove some of them
     keyLanguages: 1,
