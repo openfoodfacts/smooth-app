@@ -108,8 +108,8 @@ class QuestionAnswersOptions extends StatelessWidget {
         child: TextButton.icon(
           onPressed: () => onAnswer(insightAnnotation),
           style: ButtonStyle(
-            backgroundColor: WidgetStateProperty.all(backgroundColor),
-            shape: WidgetStateProperty.all(
+            backgroundColor: MaterialStateProperty.all(backgroundColor),
+            shape: MaterialStateProperty.all(
               const RoundedRectangleBorder(
                 borderRadius: ROUNDED_BORDER_RADIUS,
               ),

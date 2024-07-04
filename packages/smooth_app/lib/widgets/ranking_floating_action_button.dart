@@ -29,7 +29,7 @@ class RankingFloatingActionButton extends StatelessWidget {
             child: ElevatedButton.icon(
               onPressed: onPressed,
               style: ButtonStyle(
-                shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                   const RoundedRectangleBorder(
                     borderRadius: CIRCULAR_BORDER_RADIUS,
                   ),

@@ -24,7 +24,7 @@ class _ScanHeaderState extends State<ScanHeader> {
     final ContinuousScanModel model = context.watch<ContinuousScanModel>();
 
     final ButtonStyle buttonStyle = ButtonStyle(
-      shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
         const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(18.0)),
         ),

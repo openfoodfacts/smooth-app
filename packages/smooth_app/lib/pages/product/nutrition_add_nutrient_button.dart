@@ -99,7 +99,7 @@ class NutritionAddNutrientButton extends StatelessWidget {
         }
       },
       style: ButtonStyle(
-        shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
           const RoundedRectangleBorder(
             borderRadius: ROUNDED_BORDER_RADIUS,
             side: BorderSide.none,

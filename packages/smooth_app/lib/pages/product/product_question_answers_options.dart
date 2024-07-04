@@ -91,7 +91,7 @@ class ProductQuestionAnswersOptions extends StatelessWidget {
       child: TextButton(
         onPressed: () => onAnswer(insightAnnotation),
         style: ButtonStyle(
-          backgroundColor: WidgetStateProperty.all(backgroundColor),
+          backgroundColor: MaterialStateProperty.all(backgroundColor),
         ),
         child: Text(
           buttonText,

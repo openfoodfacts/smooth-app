@@ -50,10 +50,10 @@ class UserPreferencesRateUs extends StatelessWidget {
               content: Text(
                 appLocalizations.error_occurred,
                 textAlign: TextAlign.center,
-                style: TextStyle(color: themeData.colorScheme.surface),
+                style: TextStyle(color: themeData.colorScheme.background),
               ),
               behavior: SnackBarBehavior.floating,
-              backgroundColor: themeData.colorScheme.onSurface,
+              backgroundColor: themeData.colorScheme.onBackground,
             ),
           );
         }

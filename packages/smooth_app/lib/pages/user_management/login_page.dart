@@ -221,12 +221,12 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                         ElevatedButton(
                           onPressed: () => _login(context),
                           style: ButtonStyle(
-                            minimumSize: WidgetStateProperty.all<Size>(
+                            minimumSize: MaterialStateProperty.all<Size>(
                               Size(size.width * 0.5,
                                   theme.buttonTheme.height + 10),
                             ),
-                            shape:
-                                WidgetStateProperty.all<RoundedRectangleBorder>(
+                            shape: MaterialStateProperty.all<
+                                RoundedRectangleBorder>(
                               const RoundedRectangleBorder(
                                 borderRadius: CIRCULAR_BORDER_RADIUS,
                               ),
@@ -249,14 +249,14 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                       //Forgot password
                       TextButton(
                         style: ButtonStyle(
-                          padding: WidgetStateProperty.all<EdgeInsets>(
+                          padding: MaterialStateProperty.all<EdgeInsets>(
                             const EdgeInsets.symmetric(
                               vertical: 10.0,
                               horizontal: VERY_LARGE_SPACE,
                             ),
                           ),
                           shape:
-                              WidgetStateProperty.all<RoundedRectangleBorder>(
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
                             const RoundedRectangleBorder(
                               borderRadius: CIRCULAR_BORDER_RADIUS,
                             ),
@@ -304,15 +304,15 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                             }
                           },
                           style: ButtonStyle(
-                            side: WidgetStateProperty.all<BorderSide>(
+                            side: MaterialStateProperty.all<BorderSide>(
                               BorderSide(
                                   color: theme.colorScheme.primary, width: 2.0),
                             ),
-                            minimumSize: WidgetStateProperty.all<Size>(
+                            minimumSize: MaterialStateProperty.all<Size>(
                               Size(size.width * 0.5, theme.buttonTheme.height),
                             ),
-                            shape:
-                                WidgetStateProperty.all<RoundedRectangleBorder>(
+                            shape: MaterialStateProperty.all<
+                                RoundedRectangleBorder>(
                               const RoundedRectangleBorder(
                                 borderRadius: CIRCULAR_BORDER_RADIUS,
                               ),

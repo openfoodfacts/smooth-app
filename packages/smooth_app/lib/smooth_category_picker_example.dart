@@ -167,8 +167,9 @@ class _ExampleAppState extends State<ExampleApp> {
           foregroundColor: Colors.black,
         ),
         checkboxTheme: CheckboxTheme.of(context).copyWith(
-          fillColor: WidgetStateColor.resolveWith((Set<WidgetState> states) {
-            if (states.contains(WidgetState.selected)) {
+          fillColor:
+              MaterialStateColor.resolveWith((Set<MaterialState> states) {
+            if (states.contains(MaterialState.selected)) {
               return Colors.green;
             }
             return Colors.black38;

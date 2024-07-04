@@ -56,11 +56,11 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final Size size = MediaQuery.sizeOf(context);
 
-    Color getCheckBoxColor(Set<WidgetState> states) {
-      const Set<WidgetState> interactiveStates = <WidgetState>{
-        WidgetState.pressed,
-        WidgetState.hovered,
-        WidgetState.focused,
+    Color getCheckBoxColor(Set<MaterialState> states) {
+      const Set<MaterialState> interactiveStates = <MaterialState>{
+        MaterialState.pressed,
+        MaterialState.hovered,
+        MaterialState.focused,
       };
       if (states.any(interactiveStates.contains)) {
         return theme.colorScheme.onSurface;
@@ -236,14 +236,14 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
                   child: Checkbox(
                     value: _foodProducer,
                     fillColor:
-                        WidgetStateProperty.resolveWith(getCheckBoxColor),
+                        MaterialStateProperty.resolveWith(getCheckBoxColor),
                     onChanged: (_) {},
                   ),
                 ),
                 title: Text(
                   appLocalizations.sign_up_page_producer_checkbox,
                   style: theme.textTheme.bodyMedium
-                      ?.copyWith(color: theme.colorScheme.onSurface),
+                      ?.copyWith(color: theme.colorScheme.onBackground),
                 ),
               ),
               if (_foodProducer) ...<Widget>[
@@ -274,24 +274,24 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
                   child: Checkbox(
                     value: _subscribe,
                     fillColor:
-                        WidgetStateProperty.resolveWith(getCheckBoxColor),
+                        MaterialStateProperty.resolveWith(getCheckBoxColor),
                     onChanged: (_) {},
                   ),
                 ),
                 title: Text(
                   appLocalizations.sign_up_page_subscribe_checkbox,
                   style: theme.textTheme.bodyMedium
-                      ?.copyWith(color: theme.colorScheme.onSurface),
+                      ?.copyWith(color: theme.colorScheme.onBackground),
                 ),
               ),
               const SizedBox(height: space),
               ElevatedButton(
                 onPressed: () async => _signUp(),
                 style: ButtonStyle(
-                  minimumSize: WidgetStateProperty.all<Size>(
+                  minimumSize: MaterialStateProperty.all<Size>(
                     Size(size.width * 0.5, theme.buttonTheme.height + 10),
                   ),
-                  shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                     const RoundedRectangleBorder(
                       borderRadius: CIRCULAR_BORDER_RADIUS,
                     ),
@@ -447,7 +447,7 @@ class _TermsOfUseCheckbox extends StatelessWidget {
 
   final bool agree;
   final bool disagree;
-  final WidgetPropertyResolver<Color?> checkboxColorResolver;
+  final MaterialPropertyResolver<Color?> checkboxColorResolver;
   final ValueChanged<bool> onCheckboxChanged;
 
   @override
@@ -470,7 +470,7 @@ class _TermsOfUseCheckbox extends StatelessWidget {
                   ignoring: true,
                   child: Checkbox(
                     value: agree,
-                    fillColor: WidgetStateProperty.resolveWith(
+                    fillColor: MaterialStateProperty.resolveWith(
                       checkboxColorResolver,
                     ),
                     onChanged: (_) {},
@@ -485,7 +485,7 @@ class _TermsOfUseCheckbox extends StatelessWidget {
                           // additional space needed because of the next text span
                           text: '${appLocalizations.sign_up_page_agree_text} ',
                           style: theme.textTheme.bodyMedium?.copyWith(
-                            color: theme.colorScheme.onSurface,
+                            color: theme.colorScheme.onBackground,
                           ),
                         ),
                         TextSpan(
@@ -509,7 +509,7 @@ class _TermsOfUseCheckbox extends StatelessWidget {
                       semanticLabel: appLocalizations.termsOfUse,
                       Icons.info,
                       color: checkboxColorResolver(
-                        <WidgetState>{WidgetState.selected},
+                        <MaterialState>{MaterialState.selected},
                       ),
                     ),
                   ),
