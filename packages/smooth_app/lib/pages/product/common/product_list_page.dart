@@ -267,7 +267,7 @@ class _ProductListPageState extends State<ProductListPage>
                       appLocalizations.product_list_empty_message,
                       textAlign: TextAlign.center,
                       style: themeData.textTheme.bodyMedium?.apply(
-                        color: themeData.colorScheme.onBackground,
+                        color: themeData.colorScheme.onSurface,
                       ),
                     ),
                     EMPTY_WIDGET,

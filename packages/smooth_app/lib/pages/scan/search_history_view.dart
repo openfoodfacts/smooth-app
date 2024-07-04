@@ -46,8 +46,8 @@ class _SearchHistoryViewState extends State<SearchHistoryView> {
       data: ListTileThemeData(
         titleTextStyle: const TextStyle(fontSize: 20.0),
         minLeadingWidth: 18.0,
-        iconColor: Theme.of(context).colorScheme.onBackground,
-        textColor: Theme.of(context).colorScheme.onBackground,
+        iconColor: Theme.of(context).colorScheme.onSurface,
+        textColor: Theme.of(context).colorScheme.onSurface,
       ),
       child: ListView.builder(
         itemBuilder: (BuildContext context, int i) {

@@ -88,7 +88,7 @@
 
 - Make sure you have installed flutter and all the requirements
   - [Official flutter installation guide](https://docs.flutter.dev/get-started/install)
-- Currently, the app uses the latest stable version of Flutter (3.19.x).
+- Currently, the app uses the following version of Flutter (3.22.x).
 
 
 We have predefined run configurations for Android Studio and Visual Studio Code
