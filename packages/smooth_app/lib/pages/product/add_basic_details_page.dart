@@ -128,6 +128,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                             controller: _productNameController,
                             type: TextFieldTypes.PLAIN_TEXT,
                             hintText: appLocalizations.product_name,
+                            allowEmojis: false,
                           )
                         else
                           Card(
@@ -143,6 +144,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                                     controller: _productNameController,
                                     type: TextFieldTypes.PLAIN_TEXT,
                                     hintText: appLocalizations.product_name,
+                                    allowEmojis: false,
                                   ),
                                 ),
                               ],
