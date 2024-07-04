@@ -13,7 +13,7 @@ dependencies:
   visibility_detector: 0.4.0+2
   async: 2.11.0
 
-  mobile_scanner: 3.5.2
+  mobile_scanner: 4.0.1
   scanner_shared:
     path: ../shared
 
