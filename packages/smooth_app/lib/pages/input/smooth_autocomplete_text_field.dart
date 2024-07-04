@@ -2,8 +2,10 @@ import 'dart:async';
 
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/helpers/strings_helper.dart';
 import 'package:smooth_app/pages/product/autocomplete.dart';
 
 /// Autocomplete text field.
@@ -16,6 +18,7 @@ class SmoothAutocompleteTextField extends StatefulWidget {
     required this.constraints,
     required this.manager,
     this.minLengthForSuggestions = 1,
+    this.allowEmojis = true,
   });
 
   final FocusNode focusNode;
@@ -25,6 +28,7 @@ class SmoothAutocompleteTextField extends StatefulWidget {
   final BoxConstraints constraints;
   final int minLengthForSuggestions;
   final AutocompleteManager? manager;
+  final bool allowEmojis;
 
   @override
   State<SmoothAutocompleteTextField> createState() =>
@@ -73,6 +77,10 @@ class _SmoothAutocompleteTextFieldState
           TextField(
         controller: widget.controller,
         onChanged: (_) => setState(() => _selectedSearch = null),
+        inputFormatters: <TextInputFormatter>[
+          if (!widget.allowEmojis)
+            FilteringTextInputFormatter.deny(TextHelper.emojiRegex),
+        ],
         decoration: InputDecoration(
           filled: true,
           border: const OutlineInputBorder(
