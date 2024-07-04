@@ -62,10 +62,10 @@ class OnboardingBottomHills extends StatelessWidget {
               end: 15.0,
               child: TextButton(
                 style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all<Color>(
+                  backgroundColor: WidgetStateProperty.all<Color>(
                     Colors.white,
                   ),
-                  padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
+                  padding: WidgetStateProperty.all<EdgeInsetsGeometry>(
                     const EdgeInsetsDirectional.only(
                       start: LARGE_SPACE + 1.0,
                       end: LARGE_SPACE,
@@ -73,20 +73,20 @@ class OnboardingBottomHills extends StatelessWidget {
                       bottom: SMALL_SPACE,
                     ),
                   ),
-                  elevation: MaterialStateProperty.all<double>(4.0),
-                  iconColor: MaterialStateProperty.all<Color>(
+                  elevation: WidgetStateProperty.all<double>(4.0),
+                  iconColor: WidgetStateProperty.all<Color>(
                     colors.orange,
                   ),
-                  foregroundColor: MaterialStateProperty.all<Color>(
+                  foregroundColor: WidgetStateProperty.all<Color>(
                     colors.orange,
                   ),
-                  iconSize: MaterialStateProperty.all<double>(21.0),
-                  shape: MaterialStateProperty.all<OutlinedBorder>(
+                  iconSize: WidgetStateProperty.all<double>(21.0),
+                  shape: WidgetStateProperty.all<OutlinedBorder>(
                     RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20.0),
                     ),
                   ),
-                  shadowColor: MaterialStateProperty.all<Color>(
+                  shadowColor: WidgetStateProperty.all<Color>(
                     Colors.black.withOpacity(0.50),
                   ),
                 ),

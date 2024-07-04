@@ -33,20 +33,20 @@ class EditImageButton extends StatelessWidget {
       child: OutlinedButton.icon(
         icon: Icon(iconData),
         style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(colorScheme.onPrimary),
-          shape: MaterialStateProperty.all(
+          backgroundColor: WidgetStateProperty.all(colorScheme.onPrimary),
+          shape: WidgetStateProperty.all(
             const RoundedRectangleBorder(borderRadius: ROUNDED_BORDER_RADIUS),
           ),
           side: borderWidth == null
               ? null
-              : MaterialStateBorderSide.resolveWith(
+              : WidgetStateBorderSide.resolveWith(
                   (_) => BorderSide(
                     color: colorScheme.primary,
                     width: borderWidth!,
                   ),
                 ),
           padding: _centerContent
-              ? MaterialStateProperty.all(
+              ? WidgetStateProperty.all(
                   const EdgeInsets.symmetric(
                     vertical: LARGE_SPACE,
                   ),

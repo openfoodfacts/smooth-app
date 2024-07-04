@@ -90,12 +90,11 @@ class OnboardingBottomButton extends StatelessWidget {
           key: nextKey,
           onPressed: onPressed,
           style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(backgroundColor),
+            backgroundColor: WidgetStateProperty.all(backgroundColor),
             overlayColor: backgroundColor == Colors.white
-                ? MaterialStateProperty.all<Color>(
-                    Theme.of(context).splashColor)
+                ? WidgetStateProperty.all<Color>(Theme.of(context).splashColor)
                 : null,
-            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+            shape: WidgetStateProperty.all<RoundedRectangleBorder>(
               const RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(40))),
             ),

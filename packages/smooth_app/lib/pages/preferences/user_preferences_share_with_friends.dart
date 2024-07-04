@@ -44,11 +44,11 @@ class UserPreferencesShareWithFriends extends StatelessWidget {
                   appLocalizations.error,
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    color: themeData.colorScheme.background,
+                    color: themeData.colorScheme.surface,
                   ),
                 ),
                 behavior: SnackBarBehavior.floating,
-                backgroundColor: themeData.colorScheme.onBackground,
+                backgroundColor: themeData.colorScheme.onSurface,
               ),
             );
           }
