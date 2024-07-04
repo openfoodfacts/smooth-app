@@ -77,14 +77,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.5.0"
-  assorted_layout_widgets:
-    dependency: "direct main"
-    description:
-      name: assorted_layout_widgets
-      sha256: "7d7688db393f02b8811f28bacdd9d791cf218f5805dee925f913a1849858e192"
-      url: "https://pub.dev"
-    source: hosted
-    version: "9.0.1"
   async:
     dependency: "direct main"
     description:
@@ -1040,14 +1032,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.1.1"
-  matrix4_transform:
-    dependency: transitive
-    description:
-      name: matrix4_transform
-      sha256: "42c42610deecc382be2653f4a21358537401bd5b027c168a174c7c6a64959908"
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.0.1"
   meta:
     dependency: transitive
     description:
