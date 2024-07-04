@@ -17,6 +17,7 @@ class RasterCache extends AbstractCache {
     if (fullFilenames.isEmpty) {
       return getDefaultUnknown();
     }
+
     return Image.network(
       iconUrl!,
       width: width,
@@ -30,6 +31,20 @@ class RasterCache extends AbstractCache {
         if (loadingProgress == null) {
           return child;
         }
+        return RasterAsyncAsset(
+          AssetCacheHelper(
+            fullFilenames,
+            iconUrl!,
+            width: width,
+            height: height,
+          ),
+        );
+      },
+      errorBuilder: (
+        final BuildContext context,
+        final Object error,
+        final StackTrace? stackTrace,
+      ) {
         return RasterAsyncAsset(
           AssetCacheHelper(
             fullFilenames,
