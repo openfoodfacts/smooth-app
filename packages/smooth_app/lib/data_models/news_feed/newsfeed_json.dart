@@ -121,7 +121,9 @@ class _TagLineItemNewsItem {
       startDate: startDate,
       endDate: endDate,
       style: style?.toTagLineStyle(),
-      image: translation.image?.toTagLineImage(),
+      image: translation.image?.overridesContent == true
+          ? translation.image?.toTagLineImage()
+          : null,
     );
   }
 
@@ -210,20 +212,22 @@ class _TagLineItemNewsTranslationDefault extends _TagLineItemNewsTranslation {
   _TagLineItemNewsTranslationDefault.fromJson(Map<dynamic, dynamic> json)
       : assert((json['title'] as String).isNotEmpty),
         assert((json['message'] as String).isNotEmpty),
+        assert(json['image'] == null ||
+            ((json['image'] as Map<String, dynamic>)['url'] as String)
+                .isNotEmpty),
         super.fromJson(json);
 }
 
 class _TagLineNewsImage {
   _TagLineNewsImage.fromJson(Map<dynamic, dynamic> json)
-      : assert((json['url'] as String).isNotEmpty),
-        assert(json['width'] == null ||
+      : assert(json['width'] == null ||
             ((json['width'] as num) >= 0.0 && (json['width'] as num) <= 1.0)),
         assert(json['alt'] == null || (json['alt'] as String).isNotEmpty),
         url = json['url'],
         width = json['width'],
         alt = json['alt'];
 
-  final String url;
+  final String? url;
   final double? width;
   final String? alt;
 
@@ -234,6 +238,8 @@ class _TagLineNewsImage {
       alt: alt,
     );
   }
+
+  bool get overridesContent => url != null || width != null || alt != null;
 }
 
 class _TagLineNewsStyle {
