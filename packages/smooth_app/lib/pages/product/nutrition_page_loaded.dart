@@ -322,7 +322,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
                 value: _nutritionContainer.noNutritionData,
                 onChanged: (final bool value) =>
                     setState(() => _nutritionContainer.noNutritionData = value),
-                trackColor: WidgetStateProperty.all(
+                trackColor: MaterialStateProperty.all(
                     Theme.of(context).colorScheme.onPrimary),
               ),
             ),

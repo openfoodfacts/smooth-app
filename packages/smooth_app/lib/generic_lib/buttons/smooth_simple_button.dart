@@ -33,19 +33,19 @@ class SmoothSimpleButton extends StatelessWidget {
         style: ButtonStyle(
           backgroundColor: buttonColor == null
               ? null
-              : WidgetStateProperty.all<Color>(buttonColor!),
-          shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+              : MaterialStateProperty.all<Color>(buttonColor!),
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(borderRadius: borderRadius),
           ),
           overlayColor: context.read<ThemeProvider>().isAmoledTheme
-              ? WidgetStateProperty.resolveWith((Set<WidgetState> states) {
-                  return states.contains(WidgetState.pressed)
+              ? MaterialStateProperty.resolveWith((Set<MaterialState> states) {
+                  return states.contains(MaterialState.pressed)
                       ? Theme.of(context).colorScheme.primary.withOpacity(0.3)
                       : null;
                 })
               : null,
           side: context.read<ThemeProvider>().isAmoledTheme
-              ? WidgetStateProperty.all<BorderSide>(
+              ? MaterialStateProperty.all<BorderSide>(
                   const BorderSide(color: Colors.white),
                 )
               : null,

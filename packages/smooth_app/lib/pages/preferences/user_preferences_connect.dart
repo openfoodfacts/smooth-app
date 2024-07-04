@@ -111,7 +111,7 @@ class UserPreferencesConnect extends AbstractUserPreferences {
             'assets/preferences/x-logo.svg',
             width: DEFAULT_ICON_SIZE,
             colorFilter: ui.ColorFilter.mode(
-              Theme.of(context).colorScheme.onSurface,
+              Theme.of(context).colorScheme.onBackground,
               ui.BlendMode.srcIn,
             ),
             package: AppHelper.APP_PACKAGE,

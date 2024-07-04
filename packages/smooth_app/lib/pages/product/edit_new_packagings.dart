@@ -324,7 +324,7 @@ Color _getSmoothCardColorAlternate(final BuildContext context, int index) {
     if (index.isOdd) {
       cardColor = PRIMARY_GREY_COLOR;
     } else {
-      cardColor = darkColorScheme.surface;
+      cardColor = darkColorScheme.background;
     }
   }
 

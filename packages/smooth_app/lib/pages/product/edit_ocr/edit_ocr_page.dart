@@ -294,7 +294,7 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
             flex: 1,
             child: DecoratedBox(
               decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.surface,
+                color: Theme.of(context).colorScheme.background,
                 borderRadius: const BorderRadiusDirectional.only(
                   topStart: ANGULAR_RADIUS,
                   topEnd: ANGULAR_RADIUS,

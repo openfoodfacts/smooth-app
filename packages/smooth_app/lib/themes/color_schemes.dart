@@ -12,8 +12,10 @@ const ColorScheme lightColorScheme = ColorScheme(
   onSecondary: Color(0xFF000000),
   error: Color(0xFFEB5757),
   onError: Color(0xFFFFFFFF),
-  surface: Color(0xFFFFFFFF),
-  onSurface: Color(0xFF000000),
+  background: Color(0xFFFFFFFF),
+  onBackground: Color(0xFF000000),
+  surface: Color(0xFF85746C),
+  onSurface: Color(0xFFFFFFFF),
 );
 
 const ColorScheme darkColorScheme = ColorScheme(
@@ -25,8 +27,10 @@ const ColorScheme darkColorScheme = ColorScheme(
   onSecondary: Color(0xFFFFFFFF),
   error: Color(0xFFEB5757),
   onError: Color(0xFFFFFFFF),
-  surface: Color(0xFF201A17),
-  onSurface: Color(0xFFFFFFFF),
+  background: Color(0xFF201A17),
+  onBackground: Color(0xFFFFFFFF),
+  surface: Color(0xFFEDE0DB),
+  onSurface: Color(0xFF000000),
 );
 
 const ColorScheme trueDarkColorScheme = ColorScheme(
@@ -38,8 +42,10 @@ const ColorScheme trueDarkColorScheme = ColorScheme(
   onSecondary: Color(0xFFE1E1E1),
   error: Color(0xFFEA2B2B),
   onError: Color(0xFFE1E1E1),
+  background: Color(0xFF000000),
+  onBackground: Color(0xFFE1E1E1),
   surface: Color(0xFF000000),
-  onSurface: Color(0xFFFFFFFF),
+  onSurface: Color(0xFFE1E1E1),
 );
 
 const String CONTRAST_LOW = 'Low';

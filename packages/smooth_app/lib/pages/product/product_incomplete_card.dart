@@ -111,13 +111,13 @@ class ProductIncompleteCard extends StatelessWidget {
           ),
         ),
         style: ButtonStyle(
-          backgroundColor: WidgetStateProperty.all<Color>(
+          backgroundColor: MaterialStateProperty.all<Color>(
             colorScheme.primary,
           ),
-          foregroundColor: WidgetStateProperty.all<Color>(
+          foregroundColor: MaterialStateProperty.all<Color>(
             colorScheme.onPrimary,
           ),
-          shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
             const RoundedRectangleBorder(borderRadius: ANGULAR_BORDER_RADIUS),
           ),
         ),

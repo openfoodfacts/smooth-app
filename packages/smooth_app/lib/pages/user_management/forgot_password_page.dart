@@ -150,10 +150,11 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage>
                         }
                       },
                       style: ButtonStyle(
-                        minimumSize: WidgetStateProperty.all<Size>(
+                        minimumSize: MaterialStateProperty.all<Size>(
                           Size(size.width * 0.5, theme.buttonTheme.height + 10),
                         ),
-                        shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
                           const RoundedRectangleBorder(
                             borderRadius: CIRCULAR_BORDER_RADIUS,
                           ),
