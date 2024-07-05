@@ -31,29 +31,25 @@ class RasterCache extends AbstractCache {
         if (loadingProgress == null) {
           return child;
         }
-        return RasterAsyncAsset(
-          AssetCacheHelper(
-            fullFilenames,
-            iconUrl!,
-            width: width,
-            height: height,
-          ),
-        );
+        return _localAssetWidget(fullFilenames);
       },
       errorBuilder: (
         final BuildContext context,
         final Object error,
         final StackTrace? stackTrace,
-      ) {
-        return RasterAsyncAsset(
-          AssetCacheHelper(
-            fullFilenames,
-            iconUrl!,
-            width: width,
-            height: height,
-          ),
-        );
-      },
+      ) =>
+          _localAssetWidget(fullFilenames),
+    );
+  }
+
+  RasterAsyncAsset _localAssetWidget(List<String> fullFilenames) {
+    return RasterAsyncAsset(
+      AssetCacheHelper(
+        fullFilenames,
+        iconUrl!,
+        width: width,
+        height: height,
+      ),
     );
   }
 }
