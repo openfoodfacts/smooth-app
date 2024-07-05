@@ -1231,7 +1231,7 @@
     "@camera_play_sound_subtitle": {
         "description": "SubTitle for the Camera play sound toggle"
     },
-    "camera_window_accessibility_label": "Scan a barcode with your camera",
+    "camera_window_accessibility_label": "Scannez un code-barres avec votre appareil photo",
     "@camera_window_accessibility_label": {
         "description": "Accessibility label for the camera window"
     },
@@ -2953,7 +2953,7 @@
     "@preview_badge": {
         "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
     },
-    "prices_feedback_form": "Click here to send us your feedback about this new feature!",
+    "prices_feedback_form": "Cliquez ici pour nous envoyer vos commentaires sur cette nouvelle fonctionnalité !",
     "@prices_feedback_form": {
         "description": "A button to send feedback about the prices feature"
     }
