@@ -225,13 +225,13 @@ class _ImageSourceButton extends StatelessWidget {
       child: OutlinedButton(
         onPressed: onPressed,
         style: ButtonStyle(
-          side: MaterialStatePropertyAll<BorderSide>(
+          side: WidgetStatePropertyAll<BorderSide>(
             BorderSide(color: primaryColor),
           ),
-          padding: const MaterialStatePropertyAll<EdgeInsetsGeometry>(
+          padding: const WidgetStatePropertyAll<EdgeInsetsGeometry>(
             EdgeInsets.symmetric(vertical: LARGE_SPACE),
           ),
-          shape: MaterialStatePropertyAll<OutlinedBorder>(
+          shape: WidgetStatePropertyAll<OutlinedBorder>(
             RoundedRectangleBorder(
               borderRadius: ROUNDED_BORDER_RADIUS,
               side: BorderSide(color: primaryColor),

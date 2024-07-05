@@ -64,7 +64,7 @@ class _ScanPageState extends State<ScanPage> {
         color: Colors.white,
         child: SafeArea(
           child: Container(
-            color: Theme.of(context).colorScheme.background,
+            color: Theme.of(context).colorScheme.surface,
             child: Column(
               children: <Widget>[
                 if (hasACamera)

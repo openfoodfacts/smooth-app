@@ -416,11 +416,11 @@ class _ProductPageState extends State<ProductPage>
           ),
           child: ElevatedButton(
             style: ButtonStyle(
-                padding: MaterialStateProperty.all(
+                padding: WidgetStateProperty.all(
                   const EdgeInsets.symmetric(
                       horizontal: VERY_LARGE_SPACE, vertical: MEDIUM_SPACE),
                 ),
-                shape: MaterialStateProperty.all(
+                shape: WidgetStateProperty.all(
                   const RoundedRectangleBorder(
                     borderRadius: ROUNDED_BORDER_RADIUS,
                   ),

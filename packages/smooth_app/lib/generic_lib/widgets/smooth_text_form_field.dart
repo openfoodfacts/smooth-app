@@ -24,6 +24,7 @@ class SmoothTextFormField extends StatefulWidget {
     this.onFieldSubmitted,
     this.autofocus,
     this.focusNode,
+    this.spellCheckConfiguration,
   });
 
   final TextFieldTypes type;
@@ -40,6 +41,7 @@ class SmoothTextFormField extends StatefulWidget {
   final ValueChanged<String>? onFieldSubmitted;
   final bool? autofocus;
   final FocusNode? focusNode;
+  final SpellCheckConfiguration? spellCheckConfiguration;
 
   @override
   State<SmoothTextFormField> createState() => _SmoothTextFormFieldState();
@@ -83,6 +85,8 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
               setState(() {});
             }
           },
+      spellCheckConfiguration: widget.spellCheckConfiguration ??
+          const SpellCheckConfiguration.disabled(),
       onFieldSubmitted: widget.onFieldSubmitted,
       style: TextStyle(fontSize: textSize),
       cursorHeight: textSize * (textStyle.height ?? 1.4),

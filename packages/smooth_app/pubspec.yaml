@@ -4,7 +4,7 @@ version: 0.0.0+734
 publish_to: "none"
 
 environment:
-  sdk: '>=3.3.3 <4.0.0'
+  sdk: '>=3.4.0 <4.0.0'
 
 dependencies:
   flutter:
@@ -63,7 +63,7 @@ dependencies:
   shimmer: ^3.0.0
   rive: 0.13.4
   webview_flutter: 4.7.0
-  webview_flutter_android: 3.16.1
+  webview_flutter_android: 3.16.4
   webview_flutter_wkwebview: 3.13.0
   flutter_custom_tabs: 2.0.0+1
   flutter_image_compress: 2.2.0
