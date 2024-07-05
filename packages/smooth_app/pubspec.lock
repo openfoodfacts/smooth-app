@@ -510,10 +510,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_custom_tabs
-      sha256: "961fe962ae55e9e41097c34e68c6d7d2de10e9a71034f83834919e31a891e728"
+      sha256: "34167bd15fa3479855c011f868e0789c9569c12b64358ca7250accc5a24c3312"
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.0+1"
+    version: "2.1.0"
   flutter_custom_tabs_android:
     dependency: transitive
     description:
