@@ -35,8 +35,9 @@
 
 ## Current Release
 
-- Latest commit deployed to Apple App Store: Released on Nov 29th as Build 835
-- Latest commit deployed to PlayStore: 792 from Nov 6th 11AM
+- Latest commit deployed to Apple App Store: Released on Feb 26 2024 as Version 4.13.1
+- Latest commit deployed to PlayStore: 1379 Released on Feb 24 2024 9:42 PM
+- Latest commit deployed to F-Droid: 9 March 2024 as Version 4.14.0 (1280)
 
 ## Presentation
 
@@ -87,7 +88,7 @@
 
 - Make sure you have installed flutter and all the requirements
   - [Official flutter installation guide](https://docs.flutter.dev/get-started/install)
-- Currently, the app uses the latest stable version of Flutter (3.19.x).
+- Currently, the app uses the following version of Flutter (3.22.x).
 
 
 We have predefined run configurations for Android Studio and Visual Studio Code

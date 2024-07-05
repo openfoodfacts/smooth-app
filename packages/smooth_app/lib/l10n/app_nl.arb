@@ -566,6 +566,10 @@
     "@new_product_dialog_description": {
         "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
     },
+    "new_product_dialog_illustration_description": "Een illustratie met onbekende Nutri-Score en Eco-Score",
+    "@new_product_dialog_illustration_description": {
+        "description": "A description for accessibility of two images side by side: a Nutri-Score and an EcoScore."
+    },
     "front_packaging_photo_button_label": "Foto van voorkant verpakking",
     "@front_packaging_photo_button_label": {},
     "confirm_front_packaging_photo_button_label": "Bevestig het uploaden van de foto van de voorkant",
@@ -624,6 +628,7 @@
     "ingredients_photo_title": "Foto van de ingrediëntenlijst",
     "nutritional_facts_photo_title": "Foto van voedingswaarden",
     "recycling_photo_title": "Recycling afbeelding",
+    "take_photo_title": "Maak een foto",
     "take_more_photo_title": "Maak meer foto's",
     "front_photo_uploaded": "Foto voorkant geüpload",
     "@front_photo_uploaded": {},
@@ -735,9 +740,8 @@
     "@view_more_photo_button": {},
     "no_product_found": "Geen product gevonden",
     "@no_product_found": {},
+    "no_location_found": "Geen locatie gevonden",
     "not_found": "niet gevonden:",
-    "searchPanelHeader": "Zoek of scan uw eerste product",
-    "@Product query status": {},
     "refreshing_product": "Product herladen",
     "@refreshing_product": {
         "description": "Confirmation, that the product data of a cached product is queried again"
@@ -746,10 +750,51 @@
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
+    "product_image_accessibility_label": "Foto gemaakt op {date}",
+    "@product_image_accessibility_label": {
+        "placeholders": {
+            "date": {
+                "type": "String",
+                "description": "The date of picture (in localized format for YYYY-MM-DD)"
+            }
+        }
+    },
+    "product_image_outdated_accessibility_label": "Afbeelding gemaakt op {date}. Deze afbeelding is mogelijk verouderd",
+    "@product_image_outdated_accessibility_label": {
+        "placeholders": {
+            "date": {
+                "type": "String",
+                "description": "The date of picture (in localized format for YYYY-MM-DD)"
+            }
+        }
+    },
+    "homepage_main_card_logo_description": "Welkom bij Open Food Facts",
+    "@homepage_main_card_logo_description": {
+        "description": "Description for accessibility of the Open Food Facts logo on the homepage"
+    },
+    "homepage_main_card_subheading": "**Scan** een streepjescode of\n**zoek** naar een product",
+    "@homepage_main_card_subheading": {
+        "description": "Text between asterisks (eg: **My Text**) means text in bold. Please keep it."
+    },
+    "homepage_main_card_search_field_hint": "Zoek naar een product",
+    "homepage_main_card_search_field_tooltip": "Begin met zoeken",
+    "@homepage_main_card_search_field_tooltip": {
+        "description": "Description for accessibility of the search field on the homepage"
+    },
+    "scan_tagline_news_item_accessibility": "Laatste nieuws: {news_title}",
+    "@scan_tagline_news_item_accessibility": {
+        "description": "Accessibility label for the title of a news",
+        "placeholders": {
+            "news_title": {
+                "type": "String"
+            }
+        }
+    },
     "tagline_app_review": "Vind je de app leuk?",
     "tagline_app_review_button_positive": "Ik vind het geweldig! 😍",
     "tagline_app_review_button_negative": "Niet echt…",
     "tagline_app_review_button_later": "Vraag me later nog eens",
+    "tagline_feed_news_button": "Meer weten",
     "app_review_negative_modal_title": "Vind je onze app niet leuk?",
     "app_review_negative_modal_text": "Kunt u een paar seconden de tijd nemen om ons te vertellen waarom?",
     "app_review_negative_modal_positive_button": "Ja, absoluut!",
@@ -757,6 +802,16 @@
     "could_not_refresh": "Kan product niet herladen",
     "@could_not_refresh": {
         "description": "The product data couldn't be refreshed"
+    },
+    "product_internet_error_modal_title": "Er is een fout opgetreden!",
+    "product_internet_error_modal_message": "We kunnen geen informatie over dit product ophalen vanwege een netwerkfout. Controleer uw internetverbinding en probeer het opnieuw.\n\nInterne fout:\n{error}",
+    "@product_internet_error_modal_message": {
+        "placeholders": {
+            "error": {
+                "type": "String",
+                "description": "The error message"
+            }
+        }
     },
     "product_internet_error": "Onmogelijk om informatie over dit product op te halen vanwege een netwerkfout.",
     "cached_results_from": "Resultaten weergeven van:",
@@ -797,6 +852,28 @@
     "country_chooser_label": "Kies een land a.u.b.",
     "@country_chooser_label": {
         "description": "Label shown above a selector where the user can select their country (in the preferences)"
+    },
+    "currency_chooser_label": "Kies een valuta",
+    "@currency_chooser_label": {
+        "description": "Label shown above a selector where the user can select their currency (in the preferences)"
+    },
+    "country_change_message": "Je bent zojuist van land veranderd.",
+    "@country_change_message": {
+        "description": "Message stating the change of countries"
+    },
+    "currency_auto_change_message": "Wilt u de valuta wijzigen van {previousCurrency} naar {possibleCurrency}?",
+    "@currency_auto_change_message": {
+        "description": "Message asking to confirm the change of currencies",
+        "placeholders": {
+            "previousCurrency": {
+                "type": "String",
+                "description": "Current currency"
+            },
+            "possibleCurrency": {
+                "type": "String",
+                "description": "Possible currency"
+            }
+        }
     },
     "onboarding_country_chooser_label": "Kies een land:",
     "@onboarding_country_chooser_label": {
@@ -1042,14 +1119,12 @@
             }
         }
     },
-    "onboarding_reinventing_text1": "We hebben in 2012\nde collaboratieve\nscan-app uitgevonden",
-    "@onboarding_reinventing_text1": {
-        "description": "Onboarding / Reinventing page: text 1/2. If possible, balanced on 3 lines."
+    "onboarding_home_welcome_text1": "Welkom !",
+    "onboarding_home_welcome_text2": "De app die je helpt bij het kiezen van voedsel dat goed is voor **jou** en de **planeet**!",
+    "@onboarding_home_welcome_text2": {
+        "description": "Onboarding home screen welcome text, text surrounded by * will be bold"
     },
-    "onboarding_reinventing_text2": "Naar aanleiding van ons 10-jarig bestaan, vinden we onszelf opnieuw uit!",
-    "@onboarding_reinventing_text2": {
-        "description": "Onboarding / Reinventing page: text 2/2. If possible, balanced on 3 lines."
-    },
+    "onboarding_continue_button": "Doorgaan",
     "onboarding_welcome_loading_dialog_title": "Uw eerste voorbeeldproduct wordt geladen",
     "@onboarding_welcome_loading_dialog_title": {
         "description": "Title for the onboarding loading dialog"
@@ -1159,6 +1234,10 @@
     "camera_play_sound_subtitle": "Piept bij elke geslaagde scan",
     "@camera_play_sound_subtitle": {
         "description": "SubTitle for the Camera play sound toggle"
+    },
+    "camera_window_accessibility_label": "Scan een streepjescode met uw camera",
+    "@camera_window_accessibility_label": {
+        "description": "Accessibility label for the camera window"
     },
     "app_haptic_feedback_title": "Trillen & haptieken",
     "@app_haptic_feedback_title": {
@@ -1400,17 +1479,33 @@
     "completed_basic_details_btn_text": "Basisdetails aanvullen",
     "not_implemented_snackbar_text": "Nog niet geïmplementeerd",
     "category_picker_page_appbar_text": "Categorieën",
-    "edit_ingredients_extrait_ingredients_btn_text": "Extract ingrediënten",
-    "@edit_ingredients_extrait_ingredients_btn_text": {
+    "edit_ingredients_extract_ingredients_btn_text": "Detecteer de ingrediënten op de foto",
+    "@edit_ingredients_extract_ingredients_btn_text": {
         "description": "Ingredients edition - Extract ingredients"
+    },
+    "edit_ingredients_extracting_ingredients_btn_text": "Detecteer de ingrediënten\nop de foto",
+    "@edit_ingredients_extracting_ingredients_btn_text": {
+        "description": "Ingredients edition - Extracting ingredients"
+    },
+    "edit_ingredients_loading_photo_btn_text": "Foto laden…",
+    "@edit_ingredients_loading_photo_btn_text": {
+        "description": "Ingredients edition - Loading photo from the server"
     },
     "edit_ingredients_refresh_photo_btn_text": "Foto vernieuwen",
     "@edit_ingredients_refresh_photo_btn_text": {
         "description": "Ingredients edition - Refresh photo"
     },
-    "edit_packaging_extract_btn_text": "Verpakking uitpakken",
+    "edit_packaging_extract_btn_text": "Detecteer de verpakking\nop de foto",
     "@edit_packaging_extract_btn_text": {
         "description": "Packaging edition - OCR-Extract packaging"
+    },
+    "edit_packaging_extracting_btn_text": "Detecteer de verpakking op de foto",
+    "@edit_packaging_extracting_btn_text": {
+        "description": "Packaging edition - OCR-Extracting packaging"
+    },
+    "edit_packaging_loading_photo_btn_text": "Foto laden…",
+    "@edit_packaging_loading_photo_btn_text": {
+        "description": "Packaging edition - Loading photo from the server"
     },
     "edit_packaging_refresh_photo_btn_text": "Foto vernieuwen",
     "@edit_packaging_refresh_photo_btn_text": {
@@ -1623,13 +1718,127 @@
     },
     "prices_app_dev_mode_flag": "Snelkoppeling naar de Prijzen-app op de productpagina",
     "prices_app_button": "Ga naar de Prijzen-app",
+    "prices_generic_title": "Prijzen",
+    "prices_add_n_prices": "{count,plural, one {}=1{Voeg 1 prijs toe} other{Voeg {count} prijzen toe}}",
+    "prices_send_n_prices": "{count,plural, one {}=1{Verstuur 1 prijs} other{Verstuur {count} prijzen}}",
+    "prices_add_an_item": "Item toevoegen",
+    "prices_add_a_price": "Voeg een prijs toe",
+    "prices_add_a_receipt": "Een ontvangstbewijs toevoegen",
+    "prices_add_price_tags": "Voeg prijskaartjes toe",
+    "prices_barcode_search_not_found": "Geen product gevonden",
+    "prices_barcode_search_none_yet": "Nog geen product",
+    "prices_barcode_search_question": "Wilt u dit product zoeken?",
+    "prices_barcode_search_title": "Product zoeken",
+    "prices_barcode_search_running": "Zoeken naar {barcode}",
+    "@prices_barcode_search_running": {
+        "description": "Dialog title about barcode look-up",
+        "placeholders": {
+            "barcode": {
+                "type": "String"
+            }
+        }
+    },
+    "prices_barcode_reader_action": "Streepjescodelezer",
+    "prices_view_prices": "Bekijk de prijzen",
+    "prices_list_length_one_page": "{count,plural, one {}=0{Nog geen prijs} =1{Slechts één prijs} other{Alle {count} prijzen}}",
+    "@prices_list_length_one_page": {
+        "description": "Number of prices for one-page result",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_list_length_many_pages": "Laatste {pageSize} prijzen (totaal: {total})",
+    "@prices_list_length_many_pages": {
+        "description": "Number of prices for one-page result",
+        "placeholders": {
+            "pageSize": {
+                "type": "int"
+            },
+            "total": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_proofs_list_length_one_page": "{count,plural, one {}=0{Nog geen bewijs} =1{Slechts één bewijs} other{Alle {count} bewijzen}}",
+    "@prices_proofs_list_length_one_page": {
+        "description": "Number of proofs for one-page result",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_proofs_list_length_many_pages": "Laatste {pageSize} bewijzen (totaal: {total})",
+    "@prices_proofs_list_length_many_pages": {
+        "description": "Number of proofs for one-page result",
+        "placeholders": {
+            "pageSize": {
+                "type": "int"
+            },
+            "total": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_users_list_length_many_pages": "Top {pageSize} bijdragers (totaal: {total})",
+    "@prices_users_list_length_many_pages": {
+        "description": "Number of users for one-page result",
+        "placeholders": {
+            "pageSize": {
+                "type": "int"
+            },
+            "total": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_amount_subtitle": "Hoeveelheid",
+    "prices_amount_is_discounted": "Wordt er korting gegeven?",
+    "prices_amount_price_normal": "Prijs",
+    "prices_amount_price_discounted": "Gereduceerde prijs",
+    "prices_amount_price_not_discounted": "Oorspronkelijke prijs",
+    "prices_amount_no_product": "Er ontbreekt één product!",
+    "prices_amount_price_incorrect": "Onjuiste waarde",
+    "prices_amount_price_mandatory": "Verplichte waarde",
+    "prices_currency_subtitle": "Valuta",
+    "prices_date_subtitle": "Datum",
+    "prices_location_subtitle": "Winkel",
+    "prices_location_find": "Zoek een winkel",
+    "prices_location_mandatory": "Je moet een winkel selecteren!",
+    "prices_proof_subtitle": "Bewijs",
+    "prices_proof_find": "Selecteer een bewijs",
+    "prices_proof_receipt": "Bon",
+    "prices_proof_price_tag": "Prijskaartje",
+    "prices_proof_mandatory": "Je moet een bewijs selecteren!",
+    "prices_add_validation_error": "Validatiefout",
+    "prices_privacy_warning_title": "Privacywaarschuwing",
+    "prices_privacy_warning_message": "De prijzen zijn openbaar, samen met de winkel waarnaar ze verwijzen.\nHierdoor kunnen mensen die uw Open Food Facts-pseudoniem kennen het volgende doen:\n* afleiden in welk gebied u woont\n* weten wat u koopt\n$Als u zich daar niet prettig bij voelt, wijzig dan uw pseudoniem of maak een nieuw Open Food Facts-account aan en log daarmee in op de app.",
+    "prices_unknown_product": "Onbekend product",
+    "@prices_unknown_product": {
+        "description": "Very small text, in the context of prices, to say that the product is unknown"
+    },
     "dev_preferences_import_history_result_success": "Voltooid",
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"
     },
+    "dev_mode_section_server": "Serverconfiguratie",
+    "dev_mode_section_product_page": "Productpagina",
+    "dev_mode_section_ui": "Gebruikersinterface",
+    "dev_mode_section_data": "Gegevens",
+    "dev_mode_section_experimental_features": "Experimentele functies",
     "dev_mode_hide_ecoscore_title": "Eco-Score uitsluiten",
     "@dev_mode_hide_ecoscore_title": {
         "description": "User dev preferences - Disable Ecoscore - Title"
+    },
+    "dev_mode_spellchecker_for_ocr_title": "Gebruik een spellingcontrole voor OCR-schermen",
+    "@dev_mode_spellchecker_for_ocr_title": {
+        "description": "User dev preferences - Enable Spellchecker on OCR screens - Title"
+    },
+    "dev_mode_spellchecker_for_ocr_subtitle": "(Ingrediënten en verpakking)",
+    "@dev_mode_spellchecker_for_ocr_subtitle": {
+        "description": "User dev preferences - Enable Spellchecker on OCR screens - Subtitle"
     },
     "search_history_item_edit_tooltip": "Hergebruik en bewerk deze zoekopdracht",
     "@search_history_item_edit_tooltip": {
@@ -1681,6 +1890,38 @@
     "user_search_to_be_completed_title": "Mijn te voltooien producten",
     "@user_search_to_be_completed_title": {
         "description": "User search (to be completed): list tile title"
+    },
+    "user_search_prices_title": "Mijn prijzen",
+    "@user_search_prices_title": {
+        "description": "User prices: list tile title"
+    },
+    "user_search_proofs_title": "Mijn bewijzen",
+    "@user_search_proofs_title": {
+        "description": "User proofs: list tile title"
+    },
+    "user_search_proof_title": "Mijn bewijs",
+    "@user_search_proof_title": {
+        "description": "User proof: page title"
+    },
+    "user_any_search_prices_title": "Prijzen van bijdragers",
+    "@user_any_search_prices_title": {
+        "description": "User prices (everybody except me): list tile title"
+    },
+    "all_search_prices_latest_title": "Laatst toegevoegde prijzen",
+    "@all_search_prices_latest_title": {
+        "description": "Latest prices: list tile title"
+    },
+    "all_search_prices_top_user_title": "Beste prijsbijdragers",
+    "@all_search_prices_top_user_title": {
+        "description": "Top price users: list tile title"
+    },
+    "all_search_prices_top_location_title": "Winkels met de meeste prijzen",
+    "@all_search_prices_top_location_title": {
+        "description": "Top price locations: list tile title"
+    },
+    "all_search_prices_top_product_title": "Producten met de meeste prijzen",
+    "@all_search_prices_top_product_title": {
+        "description": "Top price products: list tile title"
     },
     "all_search_to_be_completed_title": "Alle te voltooien producten",
     "@all_search_to_be_completed_title": {
@@ -1947,6 +2188,10 @@
     "image_upload_queued": "De afbeelding zal zo snel mogelijk op de achtergrond worden geüpload.",
     "@image_upload_queued": {
         "description": "Message when a photo is queued for upload"
+    },
+    "add_price_queued": "De prijs wordt zo snel mogelijk naar de server verzonden.",
+    "@add_price_queued": {
+        "description": "Message when an added price is queued for the server"
     },
     "background_task_title_full_refresh": "Het vernieuwen starten van alle producten die lokaal zijn opgeslagen",
     "@background_task_title_full_refresh": {
@@ -2462,6 +2707,10 @@
     "@country_selector_title": {
         "description": "Label written as the title of the dialog to select the user country"
     },
+    "currency_selector_title": "Selecteer uw valuta:",
+    "@currency_selector_title": {
+        "description": "Label written as the title of the dialog to select the user currency"
+    },
     "language_selector_title": "Selecteer uw taal:",
     "@language_selector_title": {
         "description": "Label written as the title of the dialog to select the user language"
@@ -2488,8 +2737,20 @@
     "nutriscore_c": "Nutri-Score C",
     "nutriscore_d": "Nutri-Score D",
     "nutriscore_e": "Nutri-Score E",
+    "nutriscore_new_formula": "Nutri-Score {letter} (Nieuwe berekening)",
+    "@nutriscore_new_formula": {
+        "description": "A generic string to define a Nutri-Score V2 with a letter [eg: \"Nutri-Score A (New calculation)\"]",
+        "placeholders": {
+            "letter": {
+                "type": "String"
+            }
+        }
+    },
+    "nutriscore_new_formula_title": "Nutri-Score (Nieuwe berekening)",
     "nutriscore_unknown": "Onbekende Nutri-Score",
+    "nutriscore_unknown_new_formula": "Onbekende Nutri-Score (Nieuwe berekening)",
     "nutriscore_not_applicable": "Nutri-Score is niet van toepassing",
+    "nutriscore_not_applicable_new_formula": "Nutri-Score is niet van toepassing (Nieuwe berekening)",
     "ecoscore_generic": "Eco-Score",
     "ecoscore_a": "Eco-Score A",
     "ecoscore_b": "Eco-Score B",
@@ -2510,6 +2771,7 @@
     "faq_title_install_beauty": "Installeer Open Beauty Facts om een cosmetische database te maken",
     "faq_title_install_pet": "Installeer Open Pet Food Facts om een dierenvoedingsdatabase te maken",
     "faq_title_install_product": "Installeer Open Products Facts om een productendatabase te creëren om de levensduur van objecten te verlengen",
+    "faq_nutriscore_nutriscore": "Nieuwe berekening van de Nutri-Score: wat is er nieuw?",
     "contact_title_pro_page": "Pro? Importeer je producten in Open Food Facts",
     "contact_title_pro_email": "Producentcontact",
     "contact_title_press_page": "Perspagina",
@@ -2526,5 +2788,84 @@
     "link_cant_be_opened": "Deze link kan niet worden geopend op uw apparaat. Controleer of u een browser heeft geïnstalleerd.",
     "@link_cant_be_opened": {
         "description": "An error may happen if the device doesn't have a browser installed."
+    },
+    "knowledge_panel_page_title_no_title": "Details voor {productName}",
+    "@knowledge_panel_page_title_no_title": {
+        "description": "The title of the page when we click on an item in the product page and this page is unnamed",
+        "placeholders": {
+            "productName": {
+                "type": "String"
+            }
+        }
+    },
+    "knowledge_panel_page_title": "Details voor {pageName} met {productName}",
+    "@knowledge_panel_page_title": {
+        "description": "The title of the page when we click on an item in the product page",
+        "placeholders": {
+            "pageName": {
+                "type": "String"
+            },
+            "productName": {
+                "type": "String"
+            }
+        }
+    },
+    "guide_title": "Gids",
+    "@guide_title": {
+        "description": "A title for a guide"
+    },
+    "guide_share_label": "Delen",
+    "guide_nutriscore_v2_enabled": "waar",
+    "@guide_nutriscore_v2_enabled": {
+        "description": "Please NEVER touch this value and let the OFF team change it!"
+    },
+    "guide_nutriscore_v2_title": "De Nutri-Score Evolueert: Toelichtingen!",
+    "@guide_nutriscore_v2_title": {
+        "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+    },
+    "guide_nutriscore_v2_file_language": "nl",
+    "@guide_nutriscore_v2_file_language": {
+        "description": "The logo is only available in de/en/fr/ln/nl. Please use en if not available (in lowercase, please)."
+    },
+    "guide_nutriscore_v2_what_is_nutriscore_title": "Wat is de Nutri-Score?",
+    "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "De Nutri-Score is een logo dat tot doel heeft u te informeren over de **voedingskwaliteit van voedingsmiddelen**.",
+    "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
+        "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+    },
+    "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "De kleurcode varieert van donkergroen (**A**) voor de **gezondste** producten tot donkerrood (**E**) voor de **minder gezonde** producten.",
+    "@guide_nutriscore_v2_what_is_nutriscore_paragraph2": {
+        "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+    },
+    "guide_nutriscore_v2_nutriscore_a_caption": "Het Nutri-Score A-logo",
+    "guide_nutriscore_v2_why_v2_title": "Waarom evolueert de Nutri-Score?",
+    "guide_nutriscore_v2_why_v2_intro": "De Nutri-Score-formule **evolueert** om betere aanbevelingen te doen:",
+    "guide_nutriscore_v2_why_v2_arg1_title": "Evalueert alle drankjes beter",
+    "guide_nutriscore_v2_why_v2_arg1_text": "De relatieve aantekeningen van **melk**, **zuiveldranken** met toegevoegde suikers en **groentedranken** werden beter gedifferentieerd in het nieuwe algoritme.",
+    "guide_nutriscore_v2_why_v2_arg2_title": "Betere rangschikking van drankjes",
+    "guide_nutriscore_v2_why_v2_arg2_text": "Er wordt meer rekening gehouden met het suikergehalte**, wat in voordeel is voor dranken met een laag suikergehalte.\\n** Zoetstoffen worden ook bestraft**: dieetdrankjes worden gedegradeerd van een B naar een C tot een E-score. Water is nog steeds de aanbevolen drank.",
+    "guide_nutriscore_v2_why_v2_arg3_title": "Zout en suiker bestraft",
+    "guide_nutriscore_v2_why_v2_arg3_text": "Producten die **te zoet** of **te zout** zijn, krijgen een lagere beoordeling**.",
+    "guide_nutriscore_v2_why_v2_arg4_title": "Hiërarchie binnen oliën en vis",
+    "guide_nutriscore_v2_why_v2_arg4_text": "De beoordeling van bepaalde **vette vis** en **oliën rijk aan goede vetten** zal verbeteren.",
+    "guide_nutriscore_v2_why_v2_arg5_title": "Beperk rood vlees",
+    "guide_nutriscore_v2_why_v2_arg5_text": "De consumptie van **rood vlees moet beperkt worden**. Daarom zal **gevogelte relatief beter scoren**.",
+    "guide_nutriscore_v2_new_logo_title": "Hoe onderscheid ik de oude Nutri-Score van de nieuwe berekening?",
+    "guide_nutriscore_v2_new_logo_text": "Vanaf nu kan het logo een vermelding \"**Nieuwe berekening**\" weergeven om te verduidelijken dat het daadwerkelijk om de nieuwe berekening gaat.",
+    "guide_nutriscore_v2_new_logo_image_caption": "Het logo van de nieuwe Nutri-Score",
+    "guide_nutriscore_v2_where_title": "Waar vind je de nieuwe Nutri-Score berekening?",
+    "guide_nutriscore_v2_where_paragraph1": "De Nutri-Score wordt in meerdere landen toegepast: Duitsland, België, Spanje, Frankrijk, Luxemburg, Nederland en Zwitserland.",
+    "guide_nutriscore_v2_where_paragraph2": "Fabrikanten hebben tot uiterlijk **2026** de tijd om de oude berekening door de nieuwe te **vervangen**.",
+    "guide_nutriscore_v2_where_paragraph3": "Zonder te moeten wachten **vind je in de OpenFoodFacts applicatie** al de nieuwe berekening, ook als de fabrikanten de score nog niet hebben aangepast.",
+    "guide_nutriscore_v2_unchanged_title": "Wat niet verandert",
+    "guide_nutriscore_v2_unchanged_paragraph1": "De Nutri-Score is een score die is ontworpen om **de voedingskwaliteit te meten**. Het is **complementair aan de NOVA-groep** op **ultrabewerkte voedingsmiddelen** (ook aanwezig in de applicatie).",
+    "guide_nutriscore_v2_unchanged_paragraph2": "Voor fabrikanten blijft de weergave van de Nutri-Score **optioneel**.",
+    "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
+    "guide_nutriscore_v2_share_message": "",
+    "@guide_nutriscore_v2_share_message": {
+        "description": "Please let empty for now (maybe use in the future)"
+    },
+    "preview_badge": "Voorbeeld",
+    "@preview_badge": {
+        "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
     }
 }

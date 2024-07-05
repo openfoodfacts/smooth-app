@@ -16,7 +16,7 @@ class IconWidgetSizer {
   static const double _ICON_WIDGET_SIZE_RATIO = 1 / 10;
 
   static double getIconSizeFromContext(BuildContext context) {
-    final Size screenSize = MediaQuery.of(context).size;
+    final Size screenSize = MediaQuery.sizeOf(context);
     return screenSize.width * _ICON_WIDGET_SIZE_RATIO;
   }
 

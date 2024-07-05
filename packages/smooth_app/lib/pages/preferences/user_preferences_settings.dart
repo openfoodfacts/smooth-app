@@ -11,6 +11,7 @@ import 'package:smooth_app/pages/preferences/user_preferences_choose_accent_colo
 import 'package:smooth_app/pages/preferences/user_preferences_choose_app_theme.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_choose_text_color_contrast.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_country_selector.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_currency_selector.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_image_source.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_language_selector.dart';
@@ -65,6 +66,8 @@ class UserPreferencesSettings extends AbstractUserPreferences {
         UserPreferencesChooseTextColorContrast.getUserPreferencesItem(context),
       _getDivider(),
       UserPreferencesCountrySelector.getUserPreferencesItem(context),
+      _getDivider(),
+      UserPreferencesCurrencySelector.getUserPreferencesItem(context),
       _getDivider(),
       UserPreferencesLanguageSelector.getUserPreferencesItem(context),
       _getDivider(),

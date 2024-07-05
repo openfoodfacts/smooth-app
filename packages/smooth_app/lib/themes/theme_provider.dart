@@ -7,15 +7,28 @@ const String THEME_DARK = 'Dark';
 const String THEME_AMOLED = 'AMOLED';
 
 class ThemeProvider with ChangeNotifier {
-  ThemeProvider(this._userPreferences);
+  ThemeProvider(this._userPreferences)
+      : _theme = _userPreferences.currentTheme {
+    _userPreferences.addListener(_onPreferencesChanged);
+  }
 
   final UserPreferences _userPreferences;
 
   // The onboarding needs the light mode.
   bool _forceLight = false;
 
-  String get currentTheme =>
-      _forceLight ? THEME_LIGHT : _userPreferences.currentTheme;
+  // Local cache for [_userPreferences.currentTheme]
+  String _theme;
+
+  void _onPreferencesChanged() {
+    final String newTheme = _userPreferences.currentTheme;
+    if (newTheme != _theme) {
+      _theme = newTheme;
+      notifyListeners();
+    }
+  }
+
+  String get currentTheme => _forceLight ? THEME_LIGHT : _theme;
 
   void setOnboardingComplete(final bool onboardingComplete) {
     _forceLight = !onboardingComplete;
@@ -53,6 +66,15 @@ class ThemeProvider with ChangeNotifier {
   }
 
   bool isDarkMode(BuildContext context) {
-    return MediaQuery.platformBrightnessOf(context) == Brightness.dark;
+    if (currentTheme == THEME_SYSTEM_DEFAULT) {
+      return MediaQuery.platformBrightnessOf(context) == Brightness.dark;
+    }
+    return <String>[THEME_DARK, THEME_AMOLED].contains(currentTheme);
+  }
+
+  @override
+  void dispose() {
+    _userPreferences.removeListener(_onPreferencesChanged);
+    super.dispose();
   }
 }

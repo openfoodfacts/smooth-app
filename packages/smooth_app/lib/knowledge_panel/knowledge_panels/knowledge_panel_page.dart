@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
@@ -9,8 +10,8 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_expanded_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
-import 'package:smooth_app/pages/carousel_manager.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
+import 'package:smooth_app/pages/scan/carousel/scan_carousel_manager.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
@@ -50,13 +51,19 @@ class _KnowledgePanelPageState extends State<KnowledgePanelPage>
 
   @override
   Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final String title = _getTitle();
+
     context.watch<LocalDatabase>();
     refreshUpToDate();
     return SmoothScaffold(
       appBar: SmoothAppBar(
-        title: Text(
-          _getTitle(),
-          maxLines: 2,
+        title: Semantics(
+          label: _getTitleForAccessibility(appLocalizations, title),
+          child: Text(
+            title,
+            maxLines: 2,
+          ),
         ),
       ),
       body: RefreshIndicator(
@@ -96,7 +103,7 @@ class _KnowledgePanelPageState extends State<KnowledgePanelPage>
   Future<void> _refreshProduct(BuildContext context) async {
     try {
       final String? barcode =
-          ExternalCarouselManager.read(context).currentBarcode;
+          ExternalScanCarouselManager.read(context).currentBarcode;
       if (barcode?.isEmpty == true) {
         return;
       }
@@ -124,6 +131,24 @@ class _KnowledgePanelPageState extends State<KnowledgePanelPage>
       return (panel?.titleElement?.title)!;
     }
     return '';
+  }
+
+  String _getTitleForAccessibility(
+    AppLocalizations appLocalizations,
+    String title,
+  ) {
+    final String productName = upToDateProduct.productName ??
+        upToDateProduct.abbreviatedName ??
+        upToDateProduct.genericName ??
+        '';
+    if (title.isEmpty) {
+      return appLocalizations.knowledge_panel_page_title_no_title(productName);
+    } else {
+      return appLocalizations.knowledge_panel_page_title(
+        title,
+        productName,
+      );
+    }
   }
 
   @override

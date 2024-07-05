@@ -162,17 +162,20 @@ class SmoothScaffoldState extends ScaffoldState {
 
     switch (brightness) {
       case Brightness.dark:
-        return const SystemUiOverlayStyle(
+        return SystemUiOverlayStyle(
           statusBarIconBrightness: Brightness.dark,
           statusBarBrightness: Brightness.light,
-          systemNavigationBarContrastEnforced: false,
+          systemNavigationBarContrastEnforced:
+              !Platform.isAndroid ? false : null,
         );
+
       case Brightness.light:
       default:
-        return const SystemUiOverlayStyle(
+        return SystemUiOverlayStyle(
           statusBarIconBrightness: Brightness.light,
           statusBarBrightness: Brightness.dark,
-          systemNavigationBarContrastEnforced: false,
+          systemNavigationBarContrastEnforced:
+              !Platform.isAndroid ? false : null,
         );
     }
   }

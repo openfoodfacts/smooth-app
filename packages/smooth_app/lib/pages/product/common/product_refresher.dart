@@ -37,7 +37,7 @@ class ProductRefresher {
             children: <Widget>[
               SvgPicture.asset(
                 'assets/onboarding/globe.svg',
-                height: MediaQuery.of(context).size.height * .5,
+                height: MediaQuery.sizeOf(context).height * .5,
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25),
@@ -178,9 +178,9 @@ class ProductRefresher {
       return const FetchedProduct.internetNotFound();
     } catch (e) {
       Logs.e('Refresh from server error', ex: e);
-      final List<ConnectivityResult> connectivityResults =
+      final ConnectivityResult connectivityResult =
           await Connectivity().checkConnectivity();
-      if (connectivityResults.contains(ConnectivityResult.none)) {
+      if (connectivityResult == ConnectivityResult.none) {
         return FetchedProduct.error(
           exceptionString: e.toString(),
           isConnected: false,

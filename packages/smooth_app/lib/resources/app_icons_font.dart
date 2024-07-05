@@ -10,10 +10,14 @@ class _IconsFont {
   static const String _kFontFam = 'SmoothIcons';
   static const String? _kFontPkg = null;
 
+  static const IconData chicken =
+      IconData(0xe800, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData add_to_list =
       IconData(0xe801, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData settings =
       IconData(0xe802, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData magic_wand =
+      IconData(0xe803, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData camera_outlined =
       IconData(0xe804, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData camera_filled =
@@ -26,6 +30,8 @@ class _IconsFont {
       IconData(0xe808, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData circled_arrow =
       IconData(0xe809, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData lab =
+      IconData(0xe80a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData compare =
       IconData(0xe80b, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData countries =
@@ -38,6 +44,8 @@ class _IconsFont {
       IconData(0xe80f, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData expand =
       IconData(0xe810, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData sparkles =
+      IconData(0xe811, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData fruit =
       IconData(0xe812, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData info =
@@ -86,6 +94,8 @@ class _IconsFont {
       IconData(0xe837, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData question =
       IconData(0xe838, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData salt =
+      IconData(0xe839, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData search =
       IconData(0xe83a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData advanced_search =
@@ -102,6 +112,14 @@ class _IconsFont {
       IconData(0xe840, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData barcode =
       IconData(0xe841, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData fish =
+      IconData(0xe842, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData milk =
+      IconData(0xe843, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData soda_happy =
+      IconData(0xe844, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData soda_unhappy =
+      IconData(0xe845, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData close =
       IconData(0xe851, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData suggestion =

@@ -228,7 +228,7 @@ class _UserPreferencesPageState extends State<UserPreferencesPage>
       );
     }
     final bool dark = Theme.of(context).brightness == Brightness.dark;
-    final double backgroundHeight = MediaQuery.of(context).size.height * .20;
+    final double backgroundHeight = MediaQuery.sizeOf(context).height * .20;
     children.insert(
       0,
       Container(

@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_app/data_models/product_list_supplier.dart';
-
-enum LoadingStatus {
-  LOADING,
-  LOADED,
-  ERROR,
-}
+import 'package:smooth_app/pages/product/common/loading_status.dart';
 
 class ProductQueryModel with ChangeNotifier {
   ProductQueryModel(this._supplier) {

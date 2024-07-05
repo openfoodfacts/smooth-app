@@ -3,6 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_language_refresh.dart';
+import 'package:smooth_app/data_models/news_feed/newsfeed_provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
@@ -55,6 +56,11 @@ class UserPreferencesLanguageSelector extends StatelessWidget {
             await BackgroundTaskLanguageRefresh.addTask(
               context.read<LocalDatabase>(),
             );
+
+            // Refresh the news feed
+            if (context.mounted) {
+              context.read<AppNewsProvider>().loadLatestNews();
+            }
             // TODO(monsieurtanuki): make it a background task also?
             // no await
             productPreferences.refresh();

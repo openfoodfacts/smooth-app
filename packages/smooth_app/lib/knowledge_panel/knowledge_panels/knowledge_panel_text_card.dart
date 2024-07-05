@@ -18,9 +18,11 @@ class KnowledgePanelTextCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Widget text = SmoothHtmlWidget(
-      textElement.html,
-      textStyle: WellSpacedTextHelper.TEXT_STYLE_WITH_WELL_SPACED,
+    final Widget text = MergeSemantics(
+      child: SmoothHtmlWidget(
+        textElement.html,
+        textStyle: WellSpacedTextHelper.TEXT_STYLE_WITH_WELL_SPACED,
+      ),
     );
 
     if (!_hasSource) {

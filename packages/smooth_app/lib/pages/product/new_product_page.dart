@@ -1,6 +1,5 @@
 import 'package:assorted_layout_widgets/assorted_layout_widgets.dart';
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -22,9 +21,8 @@ import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
-import 'package:smooth_app/helpers/launch_url_helper.dart';
-import 'package:smooth_app/pages/carousel_manager.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
+import 'package:smooth_app/pages/prices/prices_card.dart';
 import 'package:smooth_app/pages/product/common/product_list_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/edit_product_page.dart';
@@ -35,6 +33,7 @@ import 'package:smooth_app/pages/product/standard_knowledge_panel_cards.dart';
 import 'package:smooth_app/pages/product/summary_card.dart';
 import 'package:smooth_app/pages/product/website_card.dart';
 import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
+import 'package:smooth_app/pages/scan/carousel/scan_carousel_manager.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
@@ -86,8 +85,8 @@ class _ProductPageState extends State<ProductPage>
 
   @override
   Widget build(BuildContext context) {
-    final ExternalCarouselManagerState carouselManager =
-        ExternalCarouselManager.read(context);
+    final ExternalScanCarouselManagerState carouselManager =
+        ExternalScanCarouselManager.read(context);
     carouselManager.currentBarcode = barcode;
     final ThemeData themeData = Theme.of(context);
     _productPreferences = context.watch<ProductPreferences>();
@@ -218,7 +217,6 @@ class _ProductPageState extends State<ProductPage>
                     upToDateProduct,
                     _productPreferences,
                     isFullVersion: true,
-                    showUnansweredQuestions: true,
                   ),
                 ),
               ),
@@ -239,16 +237,7 @@ class _ProductPageState extends State<ProductPage>
           if (upToDateProduct.website != null &&
               upToDateProduct.website!.trim().isNotEmpty)
             WebsiteCard(upToDateProduct.website!),
-          Padding(
-            padding: const EdgeInsets.all(SMALL_SPACE),
-            child: SmoothLargeButtonWithIcon(
-              text: appLocalizations.prices_app_button,
-              icon: CupertinoIcons.tag_fill,
-              onPressed: () async => LaunchUrlHelper.launchURL(
-                'https://prices.openfoodfacts.org/app/products/${upToDateProduct.barcode!}',
-              ),
-            ),
-          ),
+          PricesCard(upToDateProduct),
           if (userPreferences.getFlag(
                   UserPreferencesDevMode.userPreferencesFlagUserOrderedKP) ??
               false)
@@ -269,6 +258,8 @@ class _ProductPageState extends State<ProductPage>
           if (questionsLayout == ProductQuestionsLayout.banner)
             // assuming it's tall enough in order to go above the banner
             const SizedBox(height: 4 * VERY_LARGE_SPACE),
+          // Space for the navigation bar
+          SizedBox(height: MediaQuery.paddingOf(context).bottom),
         ],
       ),
     );
@@ -425,11 +416,11 @@ class _ProductPageState extends State<ProductPage>
           ),
           child: ElevatedButton(
             style: ButtonStyle(
-                padding: MaterialStateProperty.all(
+                padding: WidgetStateProperty.all(
                   const EdgeInsets.symmetric(
                       horizontal: VERY_LARGE_SPACE, vertical: MEDIUM_SPACE),
                 ),
-                shape: MaterialStateProperty.all(
+                shape: WidgetStateProperty.all(
                   const RoundedRectangleBorder(
                     borderRadius: ROUNDED_BORDER_RADIUS,
                   ),

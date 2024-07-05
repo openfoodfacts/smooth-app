@@ -3,7 +3,6 @@ import 'dart:io';
 
 import 'package:app_store_shared/app_store_shared.dart';
 import 'package:dart_ping_ios/dart_ping_ios.dart';
-import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -17,6 +16,7 @@ import 'package:provider/single_child_widget.dart';
 import 'package:scanner_shared/scanner_shared.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
+import 'package:smooth_app/data_models/news_feed/newsfeed_provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
@@ -81,14 +81,22 @@ Future<void> launchSmoothApp({
       WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
+  _enableEdgeToEdgeMode();
+
   if (kReleaseMode) {
     await AnalyticsHelper.initSentry(
         appRunner: () => runApp(const SmoothApp()));
   } else {
-    runApp(
-      DevicePreview(
-        enabled: true,
-        builder: (_) => const SmoothApp(),
+    runApp(const SmoothApp());
+  }
+}
+
+void _enableEdgeToEdgeMode() {
+  if (Platform.isAndroid) {
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(
+        systemNavigationBarColor: Colors.transparent,
       ),
     );
   }
@@ -136,6 +144,7 @@ Future<bool> _init1() async {
     ),
     daoString: DaoString(_localDatabase),
   );
+  ProductQuery.setQueryType(_userPreferences);
   UserManagementProvider().checkUserLoginValidity();
 
   await AnalyticsHelper.linkPreferences(_userPreferences);
@@ -144,7 +153,6 @@ Future<bool> _init1() async {
   _themeProvider = ThemeProvider(_userPreferences);
   _colorProvider = ColorProvider(_userPreferences);
   _textContrastProvider = TextContrastProvider(_userPreferences);
-  ProductQuery.setQueryType(_userPreferences);
 
   await CameraHelper.init();
   await ProductQuery.setUuid(_localDatabase);
@@ -205,8 +213,12 @@ class _SmoothAppState extends State<SmoothApp> {
 
         // The `create` constructor of [ChangeNotifierProvider] takes care of
         // disposing the value.
-        ChangeNotifierProvider<T> provide<T extends ChangeNotifier>(T value) =>
-            ChangeNotifierProvider<T>(create: (BuildContext context) => value);
+        ChangeNotifierProvider<T> provide<T extends ChangeNotifier>(T value,
+                {bool? lazy}) =>
+            ChangeNotifierProvider<T>(
+              create: (BuildContext context) => value,
+              lazy: lazy,
+            );
 
         if (!_screenshots) {
           // ending FlutterNativeSplash.preserve()
@@ -225,13 +237,19 @@ class _SmoothAppState extends State<SmoothApp> {
             provide<ContinuousScanModel>(_continuousScanModel),
             provide<PermissionListener>(_permissionListener),
           ],
-          child: AnimationsLoader(
-            child: AppNavigator(
-              observers: <NavigatorObserver>[
-                SentryNavigatorObserver(),
-                matomoObserver,
-              ],
-              child: Builder(builder: _buildApp),
+          child: ChangeNotifierProvider<AppNewsProvider>(
+            create: (BuildContext context) => AppNewsProvider(
+              context.read<UserPreferences>(),
+            ),
+            lazy: true,
+            child: AnimationsLoader(
+              child: AppNavigator(
+                observers: <NavigatorObserver>[
+                  SentryNavigatorObserver(),
+                  matomoObserver,
+                ],
+                child: Builder(builder: _buildApp),
+              ),
             ),
           ),
         );

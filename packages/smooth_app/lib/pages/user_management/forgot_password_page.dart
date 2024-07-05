@@ -69,7 +69,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage>
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final Size size = MediaQuery.of(context).size;
+    final Size size = MediaQuery.sizeOf(context);
 
     return SmoothScaffold(
       appBar: SmoothAppBar(
@@ -150,11 +150,10 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage>
                         }
                       },
                       style: ButtonStyle(
-                        minimumSize: MaterialStateProperty.all<Size>(
+                        minimumSize: WidgetStateProperty.all<Size>(
                           Size(size.width * 0.5, theme.buttonTheme.height + 10),
                         ),
-                        shape:
-                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                        shape: WidgetStateProperty.all<RoundedRectangleBorder>(
                           const RoundedRectangleBorder(
                             borderRadius: CIRCULAR_BORDER_RADIUS,
                           ),

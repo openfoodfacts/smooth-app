@@ -1,5 +1,6 @@
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/background/background_task.dart';
+import 'package:smooth_app/background/background_task_add_price.dart';
 import 'package:smooth_app/background/background_task_crop.dart';
 import 'package:smooth_app/background/background_task_details.dart';
 import 'package:smooth_app/background/background_task_download_products.dart';
@@ -35,6 +36,7 @@ enum OperationType {
   offlineProducts('P', 'OFFLINE_PRODUCTS'),
   fullRefresh('F', 'FULL_REFRESH'),
   languageRefresh('L', 'LANGUAGE_REFRESH'),
+  addPrice('A', 'ADD_PRICE'),
   details('D', 'PRODUCT_EDIT');
 
   const OperationType(this.header, this.processName);
@@ -65,62 +67,41 @@ enum OperationType {
         '$_transientHeaderSeparator${work ?? ''}';
   }
 
-  BackgroundTask fromJson(Map<String, dynamic> map) {
-    switch (this) {
-      case crop:
-        return BackgroundTaskCrop.fromJson(map);
-      case details:
-        return BackgroundTaskDetails.fromJson(map);
-      case hungerGames:
-        return BackgroundTaskHungerGames.fromJson(map);
-      case image:
-        return BackgroundTaskImage.fromJson(map);
-      case refreshLater:
-        return BackgroundTaskRefreshLater.fromJson(map);
-      case unselect:
-        return BackgroundTaskUnselect.fromJson(map);
-      case offline:
-        return BackgroundTaskOffline.fromJson(map);
-      case offlineBarcodes:
-        return BackgroundTaskTopBarcodes.fromJson(map);
-      case offlineProducts:
-        return BackgroundTaskDownloadProducts.fromJson(map);
-      case fullRefresh:
-        return BackgroundTaskFullRefresh.fromJson(map);
-      case languageRefresh:
-        return BackgroundTaskLanguageRefresh.fromJson(map);
-    }
-  }
+  BackgroundTask fromJson(Map<String, dynamic> map) => switch (this) {
+        crop => BackgroundTaskCrop.fromJson(map),
+        addPrice => BackgroundTaskAddPrice.fromJson(map),
+        details => BackgroundTaskDetails.fromJson(map),
+        hungerGames => BackgroundTaskHungerGames.fromJson(map),
+        image => BackgroundTaskImage.fromJson(map),
+        refreshLater => BackgroundTaskRefreshLater.fromJson(map),
+        unselect => BackgroundTaskUnselect.fromJson(map),
+        offline => BackgroundTaskOffline.fromJson(map),
+        offlineBarcodes => BackgroundTaskTopBarcodes.fromJson(map),
+        offlineProducts => BackgroundTaskDownloadProducts.fromJson(map),
+        fullRefresh => BackgroundTaskFullRefresh.fromJson(map),
+        languageRefresh => BackgroundTaskLanguageRefresh.fromJson(map),
+      };
 
   bool matches(final TransientOperation action) =>
       action.key.startsWith('$header$_transientHeaderSeparator');
 
-  String getLabel(final AppLocalizations appLocalizations) {
-    switch (this) {
-      case OperationType.details:
-        return appLocalizations.background_task_operation_details;
-      case OperationType.image:
-        return appLocalizations.background_task_operation_image;
-      case OperationType.unselect:
-        return 'Unselect a product image';
-      case OperationType.hungerGames:
-        return 'Answering to a Hunger Games question';
-      case OperationType.crop:
-        return 'Crop an existing image';
-      case OperationType.refreshLater:
-        return 'Waiting 10 min before refreshing product to get all automatic edits';
-      case OperationType.offline:
-        return 'Downloading top n products for offline usage';
-      case OperationType.offlineBarcodes:
-        return 'Downloading top n barcodes';
-      case OperationType.offlineProducts:
-        return 'Downloading products';
-      case OperationType.fullRefresh:
-        return 'Refreshing the full local database';
-      case OperationType.languageRefresh:
-        return 'Refreshing the local database to a new language';
-    }
-  }
+  String getLabel(final AppLocalizations appLocalizations) => switch (this) {
+        OperationType.details =>
+          appLocalizations.background_task_operation_details,
+        OperationType.addPrice => 'Add price',
+        OperationType.image => appLocalizations.background_task_operation_image,
+        OperationType.unselect => 'Unselect a product image',
+        OperationType.hungerGames => 'Answering to a Hunger Games question',
+        OperationType.crop => 'Crop an existing image',
+        OperationType.refreshLater =>
+          'Waiting 10 min before refreshing product to get all automatic edits',
+        OperationType.offline => 'Downloading top n products for offline usage',
+        OperationType.offlineBarcodes => 'Downloading top n barcodes',
+        OperationType.offlineProducts => 'Downloading products',
+        OperationType.fullRefresh => 'Refreshing the full local database',
+        OperationType.languageRefresh =>
+          'Refreshing the local database to a new language',
+      };
 
   static int getSequentialId(final TransientOperation operation) {
     final List<String> keyItems =

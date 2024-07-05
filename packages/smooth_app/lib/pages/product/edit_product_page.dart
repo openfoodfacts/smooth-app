@@ -13,6 +13,8 @@ import 'package:smooth_app/generic_lib/widgets/smooth_list_tile_card.dart';
 import 'package:smooth_app/generic_lib/widgets/svg_icon.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
+import 'package:smooth_app/pages/prices/price_meta_product.dart';
+import 'package:smooth_app/pages/prices/product_price_add_page.dart';
 import 'package:smooth_app/pages/product/add_other_details_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/nutrition_page_loaded.dart';
@@ -74,8 +76,9 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
                       theme.textTheme.titleLarge?.fontSize?.clamp(13.0, 17.0) ??
                           13.0,
                   maxLines: !_barcodeVisibleInAppbar ? 2 : 1,
-                  style: theme.textTheme.titleLarge
-                      ?.copyWith(fontWeight: FontWeight.w500),
+                  style: theme.textTheme.titleLarge?.copyWith(
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
                 if (barcode.isNotEmpty)
                   AnimatedContainer(
@@ -85,6 +88,7 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
                       barcode,
                       style: theme.textTheme.titleMedium?.copyWith(
                         fontWeight: FontWeight.normal,
+                        height: 0.9,
                       ),
                     ),
                   ),
@@ -253,6 +257,15 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
                   );
                 },
               ),
+              _ListTitleItem(
+                title: appLocalizations.prices_add_a_price,
+                leading: const Icon(Icons.add),
+                onTap: () async => ProductPriceAddPage.showProductPage(
+                  context: context,
+                  product: PriceMetaProduct.product(upToDateProduct),
+                  proofType: ProofType.priceTag,
+                ),
+              ),
             ],
           ),
         ),
@@ -377,7 +390,7 @@ class _ProductBarcodeState extends State<_ProductBarcode> {
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final Brightness brightness = Theme.of(context).brightness;
-    final Size screenSize = MediaQuery.of(context).size;
+    final Size screenSize = MediaQuery.sizeOf(context);
 
     return BarcodeWidget(
       padding: EdgeInsets.symmetric(

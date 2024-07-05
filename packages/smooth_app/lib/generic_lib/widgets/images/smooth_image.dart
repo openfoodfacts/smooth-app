@@ -18,7 +18,16 @@ class SmoothImage extends StatelessWidget {
     this.fit = BoxFit.cover,
     this.rounded = true,
     this.heroTag,
-  });
+    this.cacheWidth,
+    this.cacheHeight,
+  })  : assert(
+          cacheWidth == null || imageProvider is NetworkImage,
+          'cacheWidth requires a NetworkImage',
+        ),
+        assert(
+          cacheHeight == null || imageProvider is NetworkImage,
+          'cacheHeight requires a NetworkImage',
+        );
 
   final ImageProvider? imageProvider;
   final double? height;
@@ -28,17 +37,28 @@ class SmoothImage extends StatelessWidget {
   final BoxFit fit;
   final String? heroTag;
   final bool rounded;
+  final int? cacheWidth;
+  final int? cacheHeight;
 
   @override
   Widget build(BuildContext context) {
-    Widget child = imageProvider == null
-        ? const PictureNotFound()
-        : Image(
-            image: imageProvider!,
-            fit: fit,
-            loadingBuilder: _loadingBuilder,
-            errorBuilder: _errorBuilder,
-          );
+    Widget child = switch (imageProvider) {
+      NetworkImage(url: final String url) => Image.network(
+          url,
+          fit: fit,
+          loadingBuilder: _loadingBuilder,
+          errorBuilder: _errorBuilder,
+          cacheWidth: cacheWidth,
+          cacheHeight: cacheHeight,
+        ),
+      ImageProvider<Object>() => Image(
+          image: imageProvider!,
+          fit: fit,
+          loadingBuilder: _loadingBuilder,
+          errorBuilder: _errorBuilder,
+        ),
+      _ => const PictureNotFound(),
+    };
 
     if (heroTag != null) {
       child = Hero(tag: heroTag!, child: child);

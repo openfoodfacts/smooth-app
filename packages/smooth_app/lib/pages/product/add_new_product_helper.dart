@@ -1,8 +1,10 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/cards/category_cards/svg_cache.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
-import 'package:smooth_app/database/transient_file.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/svg_icon_chip.dart';
@@ -10,6 +12,7 @@ import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/product/product_field_editor.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/resources/app_animations.dart';
 
 /// Tracks (only the first time) when a [check] is true.
 class AnalyticsProductTracker {
@@ -163,24 +166,69 @@ class AddNewProductScoreIcon extends StatelessWidget {
   final String defaultIconUrl;
 
   @override
-  Widget build(BuildContext context) => SvgIconChip(
-        iconUrl ?? defaultIconUrl,
-        height: MediaQuery.of(context).size.height * .2,
+  Widget build(BuildContext context) {
+    final String url = iconUrl ?? defaultIconUrl;
+    final String fileName = Uri.parse(url).pathSegments.last;
+    final double height = MediaQuery.sizeOf(context).height * .2;
+
+    if (fileName.startsWith('nutriscore')) {
+      return _AddNewProductNutriScoreIcon(
+        fileName: fileName,
+        height: height,
       );
+    } else {
+      return SvgIconChip(
+        iconUrl ?? defaultIconUrl,
+        height: height,
+      );
+    }
+  }
+}
+
+class _AddNewProductNutriScoreIcon extends StatelessWidget {
+  _AddNewProductNutriScoreIcon({
+    required String fileName,
+    required this.height,
+  }) : nutriScore = extractValue(fileName);
+
+  final NutriScoreValue nutriScore;
+  final double height;
+
+  static NutriScoreValue extractValue(String fileName) {
+    if (fileName.startsWith('nutriscore-a')) {
+      return NutriScoreValue.a;
+    } else if (fileName.startsWith('nutriscore-b')) {
+      return NutriScoreValue.b;
+    } else if (fileName.startsWith('nutriscore-c')) {
+      return NutriScoreValue.c;
+    } else if (fileName.startsWith('nutriscore-d')) {
+      return NutriScoreValue.d;
+    } else if (fileName.startsWith('nutriscore-e')) {
+      return NutriScoreValue.e;
+    } else {
+      return NutriScoreValue.unknown;
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return NutriScoreAnimation(
+      value: nutriScore,
+      size: Size.fromHeight(math.min(height, 200.0)),
+    );
+  }
 }
 
 /// Helper for the "Add new product" page.
 class AddNewProductHelper {
   bool isMainImagePopulated(
     final ProductImageData productImageData,
-    final String barcode,
+    final Product product,
   ) =>
-      TransientFile.fromProductImageData(
-        productImageData,
-        barcode,
-        ProductQuery.getLanguage(),
-      ).getImageProvider() !=
-      null;
+      getProductImageLanguages(
+        product,
+        productImageData.imageField,
+      ).isNotEmpty;
 
   bool isOneMainImagePopulated(final Product product) {
     final List<ProductImageData> productImagesData = getProductMainImagesData(
@@ -189,7 +237,7 @@ class AddNewProductHelper {
       ProductQuery.getLanguage(),
     );
     for (final ProductImageData productImageData in productImagesData) {
-      if (isMainImagePopulated(productImageData, product.barcode!)) {
+      if (isMainImagePopulated(productImageData, product)) {
         return true;
       }
     }

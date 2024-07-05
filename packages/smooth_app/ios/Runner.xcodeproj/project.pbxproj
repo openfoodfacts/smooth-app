@@ -266,6 +266,7 @@
 				9705A1C41CF9048500538489 /* Embed Frameworks */,
 				3B06AD1E1E4923F5004D2608 /* Thin Binary */,
 				63B6828CA84AAF83AA1EFDEA /* [CP] Embed Pods Frameworks */,
+				7B7420C49BA891584B8660ED /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -282,7 +283,7 @@
 		97C146E61CF9000F007C117D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1510;
 				ORGANIZATIONNAME = "";
 				TargetAttributes = {
 					97C146ED1CF9000F007C117D = {
@@ -483,6 +484,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Runner/Pods-Runner-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		7B7420C49BA891584B8660ED /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Runner/Pods-Runner-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Runner/Pods-Runner-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Runner/Pods-Runner-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		9740EEB61CF901F6004384FC /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
@@ -603,11 +621,9 @@
 				3B866D912A81BF8800CEE82C /* yi */,
 				3B866D922A81BF8800CEE82C /* xh */,
 				3B866D932A81BF8900CEE82C /* wo */,
-				3B866D942A81BF8900CEE82C /* vls */,
 				3B866D952A81BF8A00CEE82C /* cy */,
 				3B866D962A81BF8A00CEE82C /* wa */,
 				3B866D972A81BF8B00CEE82C /* vi */,
-				3B866D982A81BF8C00CEE82C /* vec */,
 				3B866D992A81BF8C00CEE82C /* ve */,
 				3B866D9B2A81BF8D00CEE82C /* uz */,
 				3B866D9C2A81BF8E00CEE82C /* ug */,

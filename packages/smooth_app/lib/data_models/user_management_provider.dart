@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -45,7 +47,7 @@ class UserManagementProvider with ChangeNotifier {
     try {
       effectiveUserId = userId ?? await DaoSecuredString.get(_USER_ID);
       effectivePassword = password ?? await DaoSecuredString.get(_PASSWORD);
-      effectiveCookie = password ?? await DaoSecuredString.get(_COOKIE);
+      effectiveCookie = await DaoSecuredString.get(_COOKIE);
     } on PlatformException {
       /// Decrypting the values can go wrong if, for example, the app was
       /// manually overwritten from an external apk.
@@ -55,9 +57,7 @@ class UserManagementProvider with ChangeNotifier {
       Logs.e('Credentials query failed, you have been logged out');
     }
 
-    if (effectiveUserId == null ||
-        effectivePassword == null ||
-        effectiveCookie == null) {
+    if (effectiveUserId == null || effectivePassword == null) {
       return;
     }
 
@@ -112,14 +112,16 @@ class UserManagementProvider with ChangeNotifier {
         password: user.password,
       ),
     );
-    switch (loginResult.type) {
-      case LoginResultType.successful:
-      case LoginResultType.serverIssue:
-      case LoginResultType.exception:
-        return;
-      case LoginResultType.unsuccessful:
-        // TODO(m123): Notify the user
-        await logout();
+
+    if (loginResult.type == LoginResultType.unsuccessful) {
+      // TODO(m123): Notify the user
+      await logout();
+      return;
+    }
+
+    /// Save the cookie if necessary
+    if (user.cookie == null && loginResult.user?.cookie != null) {
+      putUser(loginResult.user!);
     }
   }
 }

@@ -39,7 +39,6 @@ updates:
     commit-message:
       prefix: "chore"
       include: "scope"
-
       
   - package-ecosystem: "pub"
     directory: "/packages/scanner/mlkit/"

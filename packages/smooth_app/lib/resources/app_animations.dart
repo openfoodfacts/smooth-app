@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:rive/rive.dart';
+import 'package:smooth_app/cards/category_cards/svg_cache.dart';
 import 'package:smooth_app/services/smooth_services.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
@@ -67,6 +69,57 @@ class BarcodeAnimation extends StatelessWidget {
       AnimationsLoader.of(context),
       artboard: 'Barcode',
       stateMachines: const <String>['StateMachine'],
+    );
+  }
+}
+
+class CloudUploadAnimation extends StatelessWidget {
+  const CloudUploadAnimation({
+    required this.size,
+    super.key,
+  }) : _circleColor = null;
+
+  const CloudUploadAnimation.circle({
+    required this.size,
+    Color? circleColor,
+    super.key,
+  }) : _circleColor = circleColor ?? Colors.black54;
+
+  final double size;
+  final Color? _circleColor;
+
+  @override
+  Widget build(BuildContext context) {
+    Widget widget = SizedBox.square(
+      dimension: size,
+      child: RiveAnimation.direct(
+        AnimationsLoader.of(context),
+        artboard: 'Cloud upload',
+        animations: const <String>['Animation'],
+      ),
+    );
+
+    if (_circleColor != null) {
+      widget = DecoratedBox(
+        decoration: BoxDecoration(
+          color: _circleColor,
+          shape: BoxShape.circle,
+        ),
+        child: Padding(
+          padding: EdgeInsetsDirectional.only(
+            top: size * 0.2,
+            start: size * 0.2,
+            end: size * 0.2,
+            bottom: size * 0.13,
+          ),
+          child: widget,
+        ),
+      );
+    }
+
+    return SizedBox.square(
+      dimension: size,
+      child: widget,
     );
   }
 }
@@ -167,7 +220,7 @@ class _SearchEyeAnimationState extends State<SearchEyeAnimation> {
   @override
   Widget build(BuildContext context) {
     final double size = widget.size ?? IconTheme.of(context).size ?? 24.0;
-    final bool lightTheme = context.watch<ThemeProvider>().isLightTheme;
+    final bool lightTheme = !context.watch<ThemeProvider>().isDarkMode(context);
 
     return ExcludeSemantics(
       child: SizedBox(
@@ -343,7 +396,22 @@ class _TorchAnimationState extends State<TorchAnimation> {
 }
 
 class NutriScoreAnimation extends StatefulWidget {
-  const NutriScoreAnimation({
+  factory NutriScoreAnimation({
+    required NutriScoreValue value,
+    Size? size,
+    Key? key,
+  }) {
+    return switch (value) {
+      NutriScoreValue.a => NutriScoreAnimation.A(size: size, key: key),
+      NutriScoreValue.b => NutriScoreAnimation.B(size: size, key: key),
+      NutriScoreValue.c => NutriScoreAnimation.C(size: size, key: key),
+      NutriScoreValue.d => NutriScoreAnimation.D(size: size, key: key),
+      NutriScoreValue.e => NutriScoreAnimation.E(size: size, key: key),
+      _ => NutriScoreAnimation.unknown(size: size, key: key),
+    };
+  }
+
+  const NutriScoreAnimation.unknown({
     this.size,
     super.key,
   }) : level = -1;
@@ -374,7 +442,7 @@ class NutriScoreAnimation extends StatefulWidget {
   }) : level = 4;
 
   final int level;
-  final double? size;
+  final Size? size;
 
   @override
   State<NutriScoreAnimation> createState() => _NutriScoreAnimationState();
@@ -398,8 +466,7 @@ class _NutriScoreAnimationState extends State<NutriScoreAnimation> {
   /// You can test it here [https://rive.app/s/aSxao_1Mwkixud5Z2GbA5A/]
   void _changeNutriScoreState(int nutriScoreValue) {
     assert(nutriScoreValue >= -1 && nutriScoreValue <= 4);
-    final SMINumber currentValue =
-        _controller!.findInput<int>('value')! as SMINumber;
+    final SMINumber currentValue = _controller!.getNumberInput('value')!;
     if (currentValue.value != nutriScoreValue) {
       currentValue.value = nutriScoreValue.toDouble();
     }
@@ -407,23 +474,41 @@ class _NutriScoreAnimationState extends State<NutriScoreAnimation> {
 
   @override
   Widget build(BuildContext context) {
-    final double size = widget.size ?? IconTheme.of(context).size ?? 24.0;
+    final AppLocalizations localizations = AppLocalizations.of(context);
 
-    return SizedBox.square(
-      dimension: size,
-      child: RiveAnimation.asset(
-        'assets/animations/nutriscore.riv',
-        artboard: 'Nutriscore',
-        fit: BoxFit.cover,
-        onInit: (Artboard artboard) {
-          _controller = StateMachineController.fromArtboard(
-            artboard,
-            'Nutriscore',
-          );
+    return Semantics(
+      // TODO(g123k): Update with V2 once the animation is ready
+      label: switch (widget.level) {
+        0 => localizations.nutriscore_a,
+        1 => localizations.nutriscore_b,
+        2 => localizations.nutriscore_c,
+        3 => localizations.nutriscore_d,
+        4 => localizations.nutriscore_e,
+        _ => localizations.nutriscore_unknown,
+      },
+      image: true,
+      child: SizedBox.fromSize(
+        size: widget.size ??
+            Size.fromHeight(
+              IconTheme.of(context).size ?? 24.0,
+            ),
+        child: AspectRatio(
+          aspectRatio: 176 / 94,
+          child: RiveAnimation.asset(
+            'assets/animations/nutriscore.riv',
+            artboard: 'Nutriscore',
+            fit: BoxFit.contain,
+            onInit: (Artboard artboard) {
+              _controller = StateMachineController.fromArtboard(
+                artboard,
+                'Nutriscore',
+              );
 
-          artboard.addController(_controller!);
-          _changeNutriScoreState(widget.level);
-        },
+              artboard.addController(_controller!);
+              _changeNutriScoreState(widget.level);
+            },
+          ),
+        ),
       ),
     );
   }

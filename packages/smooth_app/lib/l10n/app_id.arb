@@ -332,7 +332,7 @@
     "@legalNotices": {
         "description": "A link to open the legal notices on the website"
     },
-    "privacy_policy": "Privacy policy",
+    "privacy_policy": "Kebijakan privasi",
     "@privacy_policy": {
         "description": "A link to open the privacy policy on the website"
     },
@@ -566,6 +566,10 @@
     "@new_product_dialog_description": {
         "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
     },
+    "new_product_dialog_illustration_description": "Ilustrasi untuk Nutri-Score dan Eco-Score yang tidak diketahui",
+    "@new_product_dialog_illustration_description": {
+        "description": "A description for accessibility of two images side by side: a Nutri-Score and an EcoScore."
+    },
     "front_packaging_photo_button_label": "Foto depan produk",
     "@front_packaging_photo_button_label": {},
     "confirm_front_packaging_photo_button_label": "Konfirmasi pengunggahan foto depan produk",
@@ -624,6 +628,7 @@
     "ingredients_photo_title": "Foto Komposisi",
     "nutritional_facts_photo_title": "Foto Informasi Nilai Gizi",
     "recycling_photo_title": "Foto daur ulang",
+    "take_photo_title": "Ambil gambar",
     "take_more_photo_title": "Ambil lebih banyak foto",
     "front_photo_uploaded": "Foto depan diunggah",
     "@front_photo_uploaded": {},
@@ -735,9 +740,8 @@
     "@view_more_photo_button": {},
     "no_product_found": "Produk tidak ditemukan",
     "@no_product_found": {},
+    "no_location_found": "Lokasi tidak ditemukan",
     "not_found": "tidak ditemukan:",
-    "searchPanelHeader": "Cari atau pindai produk pertama Anda",
-    "@Product query status": {},
     "refreshing_product": "Muat ulang produk",
     "@refreshing_product": {
         "description": "Confirmation, that the product data of a cached product is queried again"
@@ -746,10 +750,51 @@
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
+    "product_image_accessibility_label": "Image taken on {date}",
+    "@product_image_accessibility_label": {
+        "placeholders": {
+            "date": {
+                "type": "String",
+                "description": "The date of picture (in localized format for YYYY-MM-DD)"
+            }
+        }
+    },
+    "product_image_outdated_accessibility_label": "Image taken on {date}. This image may be outdated",
+    "@product_image_outdated_accessibility_label": {
+        "placeholders": {
+            "date": {
+                "type": "String",
+                "description": "The date of picture (in localized format for YYYY-MM-DD)"
+            }
+        }
+    },
+    "homepage_main_card_logo_description": "Welcome to Open Food Facts",
+    "@homepage_main_card_logo_description": {
+        "description": "Description for accessibility of the Open Food Facts logo on the homepage"
+    },
+    "homepage_main_card_subheading": "**Scan** a barcode or\n**search** for a product",
+    "@homepage_main_card_subheading": {
+        "description": "Text between asterisks (eg: **My Text**) means text in bold. Please keep it."
+    },
+    "homepage_main_card_search_field_hint": "Cari produk",
+    "homepage_main_card_search_field_tooltip": "Start search",
+    "@homepage_main_card_search_field_tooltip": {
+        "description": "Description for accessibility of the search field on the homepage"
+    },
+    "scan_tagline_news_item_accessibility": "Latest news: {news_title}",
+    "@scan_tagline_news_item_accessibility": {
+        "description": "Accessibility label for the title of a news",
+        "placeholders": {
+            "news_title": {
+                "type": "String"
+            }
+        }
+    },
     "tagline_app_review": "Suka dengan aplikasinya?",
     "tagline_app_review_button_positive": "Saya suka sekali! 😍",
     "tagline_app_review_button_negative": "Tidak begitu…",
     "tagline_app_review_button_later": "Tanya lagi nanti",
+    "tagline_feed_news_button": "Know more",
     "app_review_negative_modal_title": "Anda tidak menyukai aplikasi kami?",
     "app_review_negative_modal_text": "Bisakah Anda meluangkan waktu beberapa detik untuk memberi tahu kami alasannya?",
     "app_review_negative_modal_positive_button": "Ya, tentu saja!",
@@ -757,6 +802,16 @@
     "could_not_refresh": "Tidak dapat memuat ulang produk",
     "@could_not_refresh": {
         "description": "The product data couldn't be refreshed"
+    },
+    "product_internet_error_modal_title": "Terjadi kesalahan!",
+    "product_internet_error_modal_message": "Kami tidak dapat memperoleh informasi terkait produk ini karena kesalahan jaringan. Silakan periksa koneksi internet Anda dan coba lagi.\n\nKesalahan internal:\n{error}",
+    "@product_internet_error_modal_message": {
+        "placeholders": {
+            "error": {
+                "type": "String",
+                "description": "The error message"
+            }
+        }
     },
     "product_internet_error": "Pengambilan informasi tentang produk ini gagal karena kesalahan jaringan.",
     "cached_results_from": "Menampilkan hasil dari:",
@@ -797,6 +852,28 @@
     "country_chooser_label": "Silakan pilih negara",
     "@country_chooser_label": {
         "description": "Label shown above a selector where the user can select their country (in the preferences)"
+    },
+    "currency_chooser_label": "Silahkan pilih mata uang",
+    "@currency_chooser_label": {
+        "description": "Label shown above a selector where the user can select their currency (in the preferences)"
+    },
+    "country_change_message": "Anda baru saja mengganti negara.",
+    "@country_change_message": {
+        "description": "Message stating the change of countries"
+    },
+    "currency_auto_change_message": "Apakah Anda ingin mengganti mata uang dari {previousCurrency} ke {possibleCurrency}?",
+    "@currency_auto_change_message": {
+        "description": "Message asking to confirm the change of currencies",
+        "placeholders": {
+            "previousCurrency": {
+                "type": "String",
+                "description": "Current currency"
+            },
+            "possibleCurrency": {
+                "type": "String",
+                "description": "Possible currency"
+            }
+        }
     },
     "onboarding_country_chooser_label": "Silakan pilih negara:",
     "@onboarding_country_chooser_label": {
@@ -1042,14 +1119,12 @@
             }
         }
     },
-    "onboarding_reinventing_text1": "Kami membuat\naplikasi pemindaian\nkolaboratif ini pada tahun 2012",
-    "@onboarding_reinventing_text1": {
-        "description": "Onboarding / Reinventing page: text 1/2. If possible, balanced on 3 lines."
+    "onboarding_home_welcome_text1": "Welcome !",
+    "onboarding_home_welcome_text2": "The app that helps you choose food that is good for **you** and the **planet**!",
+    "@onboarding_home_welcome_text2": {
+        "description": "Onboarding home screen welcome text, text surrounded by * will be bold"
     },
-    "onboarding_reinventing_text2": "Saat kami berusia 10 tahun,\nkami menciptakannya lagi\ndari awal!",
-    "@onboarding_reinventing_text2": {
-        "description": "Onboarding / Reinventing page: text 2/2. If possible, balanced on 3 lines."
-    },
+    "onboarding_continue_button": "Selanjutnya",
     "onboarding_welcome_loading_dialog_title": "Memuat produk contoh pertama Anda",
     "@onboarding_welcome_loading_dialog_title": {
         "description": "Title for the onboarding loading dialog"
@@ -1159,6 +1234,10 @@
     "camera_play_sound_subtitle": "Akan berbunyi setiap pemindaian berhasil",
     "@camera_play_sound_subtitle": {
         "description": "SubTitle for the Camera play sound toggle"
+    },
+    "camera_window_accessibility_label": "Scan a barcode with your camera",
+    "@camera_window_accessibility_label": {
+        "description": "Accessibility label for the camera window"
     },
     "app_haptic_feedback_title": "Getaran & Haptik",
     "@app_haptic_feedback_title": {
@@ -1400,17 +1479,33 @@
     "completed_basic_details_btn_text": "Lengkapi informasi dasar",
     "not_implemented_snackbar_text": "Belum diimplementasi",
     "category_picker_page_appbar_text": "Kategori",
-    "edit_ingredients_extrait_ingredients_btn_text": "Ekstrak kandungan bahan",
-    "@edit_ingredients_extrait_ingredients_btn_text": {
+    "edit_ingredients_extract_ingredients_btn_text": "Extract ingredients from the photo",
+    "@edit_ingredients_extract_ingredients_btn_text": {
         "description": "Ingredients edition - Extract ingredients"
+    },
+    "edit_ingredients_extracting_ingredients_btn_text": "Extracting ingredients\nfrom the photo",
+    "@edit_ingredients_extracting_ingredients_btn_text": {
+        "description": "Ingredients edition - Extracting ingredients"
+    },
+    "edit_ingredients_loading_photo_btn_text": "Loading photo…",
+    "@edit_ingredients_loading_photo_btn_text": {
+        "description": "Ingredients edition - Loading photo from the server"
     },
     "edit_ingredients_refresh_photo_btn_text": "Muat ulang foto",
     "@edit_ingredients_refresh_photo_btn_text": {
         "description": "Ingredients edition - Refresh photo"
     },
-    "edit_packaging_extract_btn_text": "Kemasan ekstrak",
+    "edit_packaging_extract_btn_text": "Extract packaging\nfrom the photo",
     "@edit_packaging_extract_btn_text": {
         "description": "Packaging edition - OCR-Extract packaging"
+    },
+    "edit_packaging_extracting_btn_text": "Extracting packaging from the photo",
+    "@edit_packaging_extracting_btn_text": {
+        "description": "Packaging edition - OCR-Extracting packaging"
+    },
+    "edit_packaging_loading_photo_btn_text": "Loading photo…",
+    "@edit_packaging_loading_photo_btn_text": {
+        "description": "Packaging edition - Loading photo from the server"
     },
     "edit_packaging_refresh_photo_btn_text": "Muat ulang foto",
     "@edit_packaging_refresh_photo_btn_text": {
@@ -1623,13 +1718,127 @@
     },
     "prices_app_dev_mode_flag": "Pintasan ke aplikasi Harga di halaman produk",
     "prices_app_button": "Buka aplikasi Harga",
+    "prices_generic_title": "Harga",
+    "prices_add_n_prices": "{count,plural, =1{Add a price} other{App {count} prices}}",
+    "prices_send_n_prices": "{count,plural, =1{Send the price} other{Send {count} prices}}",
+    "prices_add_an_item": "Add an item",
+    "prices_add_a_price": "Tambahkan harga",
+    "prices_add_a_receipt": "Add a receipt",
+    "prices_add_price_tags": "Add price tags",
+    "prices_barcode_search_not_found": "Produk tidak ditemukan",
+    "prices_barcode_search_none_yet": "No product yet",
+    "prices_barcode_search_question": "Do you want to look for this product?",
+    "prices_barcode_search_title": "Pencarian produk",
+    "prices_barcode_search_running": "Looking for {barcode}",
+    "@prices_barcode_search_running": {
+        "description": "Dialog title about barcode look-up",
+        "placeholders": {
+            "barcode": {
+                "type": "String"
+            }
+        }
+    },
+    "prices_barcode_reader_action": "Barcode reader",
+    "prices_view_prices": "Lihat harga",
+    "prices_list_length_one_page": "{count,plural, =0{Belum ada harga} =1{Hanya satu harga} other{Semua {count} harga}}",
+    "@prices_list_length_one_page": {
+        "description": "Number of prices for one-page result",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_list_length_many_pages": "Harga {pageSize} terbaru (total: {total})",
+    "@prices_list_length_many_pages": {
+        "description": "Number of prices for one-page result",
+        "placeholders": {
+            "pageSize": {
+                "type": "int"
+            },
+            "total": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_proofs_list_length_one_page": "{count,plural, =0{No proof yet} =1{Only one proof} other{All {count} proofs}}",
+    "@prices_proofs_list_length_one_page": {
+        "description": "Number of proofs for one-page result",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_proofs_list_length_many_pages": "Latest {pageSize} proofs (total: {total})",
+    "@prices_proofs_list_length_many_pages": {
+        "description": "Number of proofs for one-page result",
+        "placeholders": {
+            "pageSize": {
+                "type": "int"
+            },
+            "total": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_users_list_length_many_pages": "Top {pageSize} contributors (total: {total})",
+    "@prices_users_list_length_many_pages": {
+        "description": "Number of users for one-page result",
+        "placeholders": {
+            "pageSize": {
+                "type": "int"
+            },
+            "total": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_amount_subtitle": "Jumlah",
+    "prices_amount_is_discounted": "Apakah didiskon?",
+    "prices_amount_price_normal": "Harga",
+    "prices_amount_price_discounted": "Harga sesudah diskon",
+    "prices_amount_price_not_discounted": "Harga asli",
+    "prices_amount_no_product": "One product is missing!",
+    "prices_amount_price_incorrect": "Nilai tidak valid",
+    "prices_amount_price_mandatory": "Nilai wajib",
+    "prices_currency_subtitle": "Mata uang",
+    "prices_date_subtitle": "Tanggal",
+    "prices_location_subtitle": "Toko",
+    "prices_location_find": "Temukan toko",
+    "prices_location_mandatory": "Anda harus memilih toko!",
+    "prices_proof_subtitle": "Bukti",
+    "prices_proof_find": "Pilih bukti",
+    "prices_proof_receipt": "Resi",
+    "prices_proof_price_tag": "Label harga",
+    "prices_proof_mandatory": "Anda harus memilih bukti!",
+    "prices_add_validation_error": "Kesalahan validasi",
+    "prices_privacy_warning_title": "Privacy warning",
+    "prices_privacy_warning_message": "Prices will be public, along with the store they refer to.\nThat might allow people who know about your Open Food Facts pseudonym to:\n* infer in which area you live\n* know what you are buying\nIf you are uneasy with that, please change your pseudonym, or create a new Open Food Facts account and log into the app with it.",
+    "prices_unknown_product": "Produk tidak diketahui",
+    "@prices_unknown_product": {
+        "description": "Very small text, in the context of prices, to say that the product is unknown"
+    },
     "dev_preferences_import_history_result_success": "Selesai",
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"
     },
+    "dev_mode_section_server": "Server configuration",
+    "dev_mode_section_product_page": "Product page",
+    "dev_mode_section_ui": "User Interface",
+    "dev_mode_section_data": "Data",
+    "dev_mode_section_experimental_features": "Experimental features",
     "dev_mode_hide_ecoscore_title": "Kecualikan Eco-Score",
     "@dev_mode_hide_ecoscore_title": {
         "description": "User dev preferences - Disable Ecoscore - Title"
+    },
+    "dev_mode_spellchecker_for_ocr_title": "Use a spellchecker for OCR screens",
+    "@dev_mode_spellchecker_for_ocr_title": {
+        "description": "User dev preferences - Enable Spellchecker on OCR screens - Title"
+    },
+    "dev_mode_spellchecker_for_ocr_subtitle": "(Ingredients and packaging)",
+    "@dev_mode_spellchecker_for_ocr_subtitle": {
+        "description": "User dev preferences - Enable Spellchecker on OCR screens - Subtitle"
     },
     "search_history_item_edit_tooltip": "Gunakan kembali dan sunting pencarian ini",
     "@search_history_item_edit_tooltip": {
@@ -1681,6 +1890,38 @@
     "user_search_to_be_completed_title": "Produk saya yang harus diselesaikan",
     "@user_search_to_be_completed_title": {
         "description": "User search (to be completed): list tile title"
+    },
+    "user_search_prices_title": "Harga saya",
+    "@user_search_prices_title": {
+        "description": "User prices: list tile title"
+    },
+    "user_search_proofs_title": "Bukti saya",
+    "@user_search_proofs_title": {
+        "description": "User proofs: list tile title"
+    },
+    "user_search_proof_title": "My proof",
+    "@user_search_proof_title": {
+        "description": "User proof: page title"
+    },
+    "user_any_search_prices_title": "Contributor prices",
+    "@user_any_search_prices_title": {
+        "description": "User prices (everybody except me): list tile title"
+    },
+    "all_search_prices_latest_title": "Latest Prices added",
+    "@all_search_prices_latest_title": {
+        "description": "Latest prices: list tile title"
+    },
+    "all_search_prices_top_user_title": "Top price contributors",
+    "@all_search_prices_top_user_title": {
+        "description": "Top price users: list tile title"
+    },
+    "all_search_prices_top_location_title": "Stores with the most prices",
+    "@all_search_prices_top_location_title": {
+        "description": "Top price locations: list tile title"
+    },
+    "all_search_prices_top_product_title": "Products with the most prices",
+    "@all_search_prices_top_product_title": {
+        "description": "Top price products: list tile title"
     },
     "all_search_to_be_completed_title": "Semua produk yang akan diselesaikan",
     "@all_search_to_be_completed_title": {
@@ -1947,6 +2188,10 @@
     "image_upload_queued": "Gambar akan diunggah di latar belakang sesegera mungkin.",
     "@image_upload_queued": {
         "description": "Message when a photo is queued for upload"
+    },
+    "add_price_queued": "Harga akan dikirim ke server sesegera mungkin.",
+    "@add_price_queued": {
+        "description": "Message when an added price is queued for the server"
     },
     "background_task_title_full_refresh": "Memulai penyegaran semua produk yang disimpan secara lokal",
     "@background_task_title_full_refresh": {
@@ -2462,6 +2707,10 @@
     "@country_selector_title": {
         "description": "Label written as the title of the dialog to select the user country"
     },
+    "currency_selector_title": "Pilih mata uang Anda:",
+    "@currency_selector_title": {
+        "description": "Label written as the title of the dialog to select the user currency"
+    },
     "language_selector_title": "Pilih bahasa:",
     "@language_selector_title": {
         "description": "Label written as the title of the dialog to select the user language"
@@ -2488,8 +2737,20 @@
     "nutriscore_c": "Nutri-Score C",
     "nutriscore_d": "Nutri-Score D",
     "nutriscore_e": "Nutri-Score E",
+    "nutriscore_new_formula": "Nutri-Score {letter} (Perhitungan baru)",
+    "@nutriscore_new_formula": {
+        "description": "A generic string to define a Nutri-Score V2 with a letter [eg: \"Nutri-Score A (New calculation)\"]",
+        "placeholders": {
+            "letter": {
+                "type": "String"
+            }
+        }
+    },
+    "nutriscore_new_formula_title": "Nutri-Score (Perhitungan baru)",
     "nutriscore_unknown": "Nutri-Score tidak diketahui",
+    "nutriscore_unknown_new_formula": "Nutri-Score tidak diketahui (Perhitungan baru)",
     "nutriscore_not_applicable": "Nutri-Score tidak dapat diterapkan",
+    "nutriscore_not_applicable_new_formula": "Nutri-Score tidak bisa diterapkan (Perhitungan baru)",
     "ecoscore_generic": "Eco-Score",
     "ecoscore_a": "Eco-Score A",
     "ecoscore_b": "Eco-Score B",
@@ -2510,6 +2771,7 @@
     "faq_title_install_beauty": "Instal Open Beauty Facts untuk membuat basis data kosmetik",
     "faq_title_install_pet": "Instal Open Pet Food Facts untuk membuat basis data makanan hewan peliharaan",
     "faq_title_install_product": "Instal Open Products Facts untuk membuat basis data produk guna memperpanjang masa pakai objek",
+    "faq_nutriscore_nutriscore": "New calculation of the Nutri-Score: what's new?",
     "contact_title_pro_page": "Pro? Impor produk Anda di Open Food Facts",
     "contact_title_pro_email": "Kontak Produser",
     "contact_title_press_page": "Halaman Pers",
@@ -2526,5 +2788,84 @@
     "link_cant_be_opened": "Tautan ini tidak dapat dibuka di perangkat Anda. Pastikan Anda telah menginstal browser.",
     "@link_cant_be_opened": {
         "description": "An error may happen if the device doesn't have a browser installed."
+    },
+    "knowledge_panel_page_title_no_title": "Rincian untuk {productName}",
+    "@knowledge_panel_page_title_no_title": {
+        "description": "The title of the page when we click on an item in the product page and this page is unnamed",
+        "placeholders": {
+            "productName": {
+                "type": "String"
+            }
+        }
+    },
+    "knowledge_panel_page_title": "Rincian untuk {pageName} dengan {productName}",
+    "@knowledge_panel_page_title": {
+        "description": "The title of the page when we click on an item in the product page",
+        "placeholders": {
+            "pageName": {
+                "type": "String"
+            },
+            "productName": {
+                "type": "String"
+            }
+        }
+    },
+    "guide_title": "Panduan",
+    "@guide_title": {
+        "description": "A title for a guide"
+    },
+    "guide_share_label": "Bagikan",
+    "guide_nutriscore_v2_enabled": "benar",
+    "@guide_nutriscore_v2_enabled": {
+        "description": "Please NEVER touch this value and let the OFF team change it!"
+    },
+    "guide_nutriscore_v2_title": "Nutri-Score terus berkembang: penjelasan!",
+    "@guide_nutriscore_v2_title": {
+        "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+    },
+    "guide_nutriscore_v2_file_language": "en",
+    "@guide_nutriscore_v2_file_language": {
+        "description": "The logo is only available in de/en/fr/ln/nl. Please use en if not available (in lowercase, please)."
+    },
+    "guide_nutriscore_v2_what_is_nutriscore_title": "Apa itu Nutri-Score?",
+    "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "Nutri-Score merupakan sebuah logo yang bertujuan untuk memberikan informasi kepada Anda tentang **kualitas nutrisi makanan**.",
+    "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
+        "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+    },
+    "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "Kode warna bervariasi mulai dari hijau tua (**A**) untuk produk **tersehat** hingga merah tua (**E**) untuk produk *kurang sehat**.",
+    "@guide_nutriscore_v2_what_is_nutriscore_paragraph2": {
+        "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+    },
+    "guide_nutriscore_v2_nutriscore_a_caption": "Logo Nutri-Score A",
+    "guide_nutriscore_v2_why_v2_title": "Mengapa Nutri-Score terus berkembang?",
+    "guide_nutriscore_v2_why_v2_intro": "Formula Nutri-Score **berkembang** agar bisa memberikan rekomendasi yang lebih baik:",
+    "guide_nutriscore_v2_why_v2_arg1_title": "Lebih baik dalam mengevaluasi semua minuman",
+    "guide_nutriscore_v2_why_v2_arg1_text": "Catatan perbandingan antara **susu**, **minuman susu* dengan gula tambahan, dan minuman berbasis **sayuran** dibedakan secara lebih baik dengan algoritma baru.",
+    "guide_nutriscore_v2_why_v2_arg2_title": "Pemeringkatan minuman lebih baik",
+    "guide_nutriscore_v2_why_v2_arg2_text": "**Kandungan gula** diperhitungan dengan lebih baik dan mengutamakan minuman **rendah pemanis**. \\n**Pemanis juga akan dikenakan sanksi**: soda diet akan diturunkan peringkatnya dari B ke antara C dan E. Air tetap minuman yang direkomendasikan.",
+    "guide_nutriscore_v2_why_v2_arg3_title": "Garam dan gula dikenai sanksi",
+    "guide_nutriscore_v2_why_v2_arg3_text": "Produk yang **terlalu manis** atau **terlalu asin** akan makin mengalami *penurunan peringkat**.",
+    "guide_nutriscore_v2_why_v2_arg4_title": "Hierarki minyak dan ikan",
+    "guide_nutriscore_v2_why_v2_arg4_text": "Peringkat **ikan berlemak** tertentu dan **minyak kaya lemak baik** akan diperbaiki.",
+    "guide_nutriscore_v2_why_v2_arg5_title": "Pembatasan daging merah",
+    "guide_nutriscore_v2_why_v2_arg5_text": "Konsumsi **daging merah sebaiknya dibatasi**. Oleh karena itu, **unggas akan diberi peringkat yang relatif lebih baik**.",
+    "guide_nutriscore_v2_new_logo_title": "Bagaimana membedakan perhitungan Nutri-Score lama dan baru?",
+    "guide_nutriscore_v2_new_logo_text": "Mulai saat ini, logo dapat menampilkan penyebutan \"**Perhitungan baru**\" untuk memperjelas bahwa ini merupakan perhitungan baru.",
+    "guide_nutriscore_v2_new_logo_image_caption": "Logo baru Nutri-Score",
+    "guide_nutriscore_v2_where_title": "Where to find the new Nutri-Score calculation?",
+    "guide_nutriscore_v2_where_paragraph1": "Nutri-Score diterapkan di beberapa negara: Jerman, Belgia, Spanyol, Prancis, Luksemburg, Belanda, dan Swiss.",
+    "guide_nutriscore_v2_where_paragraph2": "Produsen memiliki waktu paling lambat hingga **2026** **untuk mengganti** perhitungan lama dengan yang baru.",
+    "guide_nutriscore_v2_where_paragraph3": "Tanpa perlu menunggu, Anda **akan langsung menemukan di dalam aplikasi OpenFoodFacts**, perhitungan baru, termasuk jika produsen belum memperbarui skor.",
+    "guide_nutriscore_v2_unchanged_title": "Apa yang tidak berubah",
+    "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score merupakan skor yang dirancang untuk **mengukur kualitas nutrisi**. Ini **melengkapi klasifikasi grup NOVA** untuk **makanan ultra proses** (yang juga ada di dalam aplikasi).",
+    "guide_nutriscore_v2_unchanged_paragraph2": "Bagi produsen, tampilan Nutri-Score **tetap opsional**.",
+    "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
+    "guide_nutriscore_v2_share_message": "",
+    "@guide_nutriscore_v2_share_message": {
+        "description": "Please let empty for now (maybe use in the future)"
+    },
+    "preview_badge": "Preview",
+    "@preview_badge": {
+        "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
     }
 }

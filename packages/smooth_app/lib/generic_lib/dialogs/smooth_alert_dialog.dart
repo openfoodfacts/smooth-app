@@ -26,6 +26,7 @@ import 'package:smooth_app/helpers/keyboard_helper.dart';
 class SmoothAlertDialog extends StatelessWidget {
   const SmoothAlertDialog({
     this.title,
+    this.leadingTitle,
     required this.body,
     this.positiveAction,
     this.negativeAction,
@@ -41,6 +42,7 @@ class SmoothAlertDialog extends StatelessWidget {
         );
 
   final String? title;
+  final Widget? leadingTitle;
   final bool close;
   final Widget body;
   final SmoothActionButton? positiveAction;
@@ -143,7 +145,12 @@ class SmoothAlertDialog extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            if (title != null) _SmoothDialogTitle(label: title!, close: close),
+            if (title != null)
+              _SmoothDialogTitle(
+                label: title!,
+                close: close,
+                leading: leadingTitle,
+              ),
             body,
           ],
         ),
@@ -158,15 +165,20 @@ class _SmoothDialogTitle extends StatelessWidget {
   const _SmoothDialogTitle({
     required this.label,
     required this.close,
+    this.leading,
   });
 
   static const double _titleHeight = 32.0;
 
   final String label;
   final bool close;
+  final Widget? leading;
 
   @override
   Widget build(BuildContext context) {
+    final TextStyle textStyle =
+        Theme.of(context).textTheme.displayMedium ?? const TextStyle();
+
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
@@ -176,12 +188,24 @@ class _SmoothDialogTitle extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
+              if (leading != null)
+                Padding(
+                  padding: EdgeInsetsDirectional.only(
+                    top: leading is Icon ? 2.0 : 0.0,
+                    end: SMALL_SPACE,
+                  ),
+                  child: IconTheme(
+                      data: IconThemeData(
+                        color: textStyle.color,
+                      ),
+                      child: leading!),
+                ),
               _buildCross(true),
               Expanded(
                 child: FittedBox(
                   child: Text(
                     label,
-                    style: Theme.of(context).textTheme.displayMedium,
+                    style: textStyle,
                   ),
                 ),
               ),
@@ -189,7 +213,7 @@ class _SmoothDialogTitle extends StatelessWidget {
             ],
           ),
         ),
-        Divider(color: Theme.of(context).colorScheme.onBackground),
+        Divider(color: Theme.of(context).colorScheme.onSurface),
         const SizedBox(height: 12),
       ],
     );
@@ -221,16 +245,21 @@ class _SmoothDialogCrossButton extends StatelessWidget {
         maintainAnimation: true,
         maintainState: true,
         visible: visible,
-        child: InkWell(
-          customBorder: const CircleBorder(),
-          child: const Padding(
-            padding: EdgeInsets.all(SMALL_SPACE),
-            child: Icon(
-              Icons.close,
-              size: _SmoothDialogTitle._titleHeight - (2 * SMALL_SPACE),
+        child: Semantics(
+          label: MaterialLocalizations.of(context).closeButtonLabel,
+          button: true,
+          excludeSemantics: true,
+          child: InkWell(
+            customBorder: const CircleBorder(),
+            child: const Padding(
+              padding: EdgeInsets.all(SMALL_SPACE),
+              child: Icon(
+                Icons.close,
+                size: _SmoothDialogTitle._titleHeight - (2 * SMALL_SPACE),
+              ),
             ),
+            onTap: () => Navigator.of(context, rootNavigator: true).pop(),
           ),
-          onTap: () => Navigator.of(context, rootNavigator: true).pop(),
         ),
       );
     } else {
@@ -670,9 +699,9 @@ class SmoothListAlertDialog extends StatelessWidget {
         vertical: SMALL_SPACE,
       ),
       body: SizedBox(
-        height: MediaQuery.of(context).size.height /
+        height: MediaQuery.sizeOf(context).height /
             (context.keyboardVisible ? 1.0 : 1.5),
-        width: MediaQuery.of(context).size.width,
+        width: MediaQuery.sizeOf(context).width,
         child: Column(
           children: <Widget>[
             Container(

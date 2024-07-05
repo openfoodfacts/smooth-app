@@ -8,6 +8,7 @@ import 'package:smooth_app/cards/product_cards/smooth_product_card_template.dart
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/pages/product/common/product_loading_status.dart';
 import 'package:smooth_app/pages/product/common/product_model.dart';
 import 'package:smooth_app/services/smooth_services.dart';
 
@@ -49,16 +50,16 @@ class _ProductListItemSimpleState extends State<ProductListItemSimple> {
           context.watch<LocalDatabase>();
           _model.setLocalUpToDate();
           switch (_model.loadingStatus) {
-            case LoadingStatus.LOADING:
+            case ProductLoadingStatus.LOADING:
               return SmoothProductCardTemplate(
                 barcode: widget.barcode,
               );
-            case LoadingStatus.DOWNLOADING:
+            case ProductLoadingStatus.DOWNLOADING:
               return SmoothProductCardTemplate(
                 barcode: widget.barcode,
                 message: appLocalizations.loading_dialog_default_title,
               );
-            case LoadingStatus.LOADED:
+            case ProductLoadingStatus.LOADED:
               if (_model.product != null) {
                 return SmoothProductCardFound(
                   heroTag:
@@ -70,7 +71,7 @@ class _ProductListItemSimpleState extends State<ProductListItemSimple> {
                 );
               }
               break;
-            case LoadingStatus.ERROR:
+            case ProductLoadingStatus.ERROR:
           }
           Logs.w(
             'product list item simple / could not load ${widget.barcode}',

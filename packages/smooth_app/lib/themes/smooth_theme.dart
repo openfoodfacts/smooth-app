@@ -4,6 +4,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/themes/color_provider.dart';
 import 'package:smooth_app/themes/color_schemes.dart';
 import 'package:smooth_app/themes/contrast_provider.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
 class SmoothTheme {
@@ -39,10 +40,14 @@ class SmoothTheme {
 
     return ThemeData(
       useMaterial3: false,
+      fontFamily: 'OpenSans',
       primaryColor: DARK_BROWN_COLOR,
+      extensions: <SmoothColorsThemeExtension>[
+        SmoothColorsThemeExtension.defaultValues(),
+      ],
       colorScheme: myColorScheme,
       canvasColor: themeProvider.currentTheme == THEME_AMOLED
-          ? myColorScheme.background
+          ? myColorScheme.surface
           : null,
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         selectedIconTheme: const IconThemeData(size: 24.0),
@@ -56,11 +61,10 @@ class SmoothTheme {
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.resolveWith<Color?>(
-            (Set<MaterialState> states) =>
-                states.contains(MaterialState.disabled)
-                    ? Colors.grey
-                    : myColorScheme.primary,
+          backgroundColor: WidgetStateProperty.resolveWith<Color?>(
+            (Set<WidgetState> states) => states.contains(WidgetState.disabled)
+                ? Colors.grey
+                : myColorScheme.primary,
           ),
         ),
       ),
@@ -71,8 +75,8 @@ class SmoothTheme {
           ? getTextTheme(themeProvider, textContrastProvider)
           : _TEXT_THEME,
       appBarTheme: AppBarTheme(
-        color: myColorScheme.background,
-        foregroundColor: myColorScheme.onBackground,
+        color: myColorScheme.surface,
+        foregroundColor: myColorScheme.onSurface,
         systemOverlayStyle: SystemUiOverlayStyle.light,
       ),
       dividerColor: const Color(0xFFdfdfdf),
@@ -80,59 +84,59 @@ class SmoothTheme {
         fillColor: myColorScheme.secondary,
       ),
       iconTheme: IconThemeData(
-        color: myColorScheme.onBackground,
+        color: myColorScheme.onSurface,
       ),
       snackBarTheme: SnackBarThemeData(
         contentTextStyle:
             _TEXT_THEME.bodyMedium?.copyWith(color: myColorScheme.onPrimary),
         actionTextColor: myColorScheme.onPrimary,
-        backgroundColor: myColorScheme.onBackground,
+        backgroundColor: myColorScheme.onSurface,
       ),
       bannerTheme: MaterialBannerThemeData(
         contentTextStyle: TextStyle(color: myColorScheme.onSecondary),
         backgroundColor: myColorScheme.secondary,
       ),
       checkboxTheme: CheckboxThemeData(
-        fillColor: MaterialStateProperty.resolveWith<Color?>(
-            (Set<MaterialState> states) {
-          if (states.contains(MaterialState.disabled)) {
+        fillColor:
+            WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+          if (states.contains(WidgetState.disabled)) {
             return null;
           }
-          if (states.contains(MaterialState.selected)) {
+          if (states.contains(WidgetState.selected)) {
             return myColorScheme.primary;
           }
           return null;
         }),
       ),
       radioTheme: RadioThemeData(
-        fillColor: MaterialStateProperty.resolveWith<Color?>(
-            (Set<MaterialState> states) {
-          if (states.contains(MaterialState.disabled)) {
+        fillColor:
+            WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+          if (states.contains(WidgetState.disabled)) {
             return null;
           }
-          if (states.contains(MaterialState.selected)) {
+          if (states.contains(WidgetState.selected)) {
             return myColorScheme.primary;
           }
           return null;
         }),
       ),
       switchTheme: SwitchThemeData(
-        thumbColor: MaterialStateProperty.resolveWith<Color?>(
-            (Set<MaterialState> states) {
-          if (states.contains(MaterialState.disabled)) {
+        thumbColor:
+            WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+          if (states.contains(WidgetState.disabled)) {
             return null;
           }
-          if (states.contains(MaterialState.selected)) {
+          if (states.contains(WidgetState.selected)) {
             return myColorScheme.primary;
           }
           return null;
         }),
-        trackColor: MaterialStateProperty.resolveWith<Color?>(
-            (Set<MaterialState> states) {
-          if (states.contains(MaterialState.disabled)) {
+        trackColor:
+            WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+          if (states.contains(WidgetState.disabled)) {
             return null;
           }
-          if (states.contains(MaterialState.selected)) {
+          if (states.contains(WidgetState.selected)) {
             return myColorScheme.primary;
           }
           return null;

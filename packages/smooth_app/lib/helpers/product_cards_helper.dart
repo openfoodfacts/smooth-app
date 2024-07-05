@@ -270,6 +270,7 @@ ProductImageData getProductImageData(
       imageUrl: productImage.getUrl(
         product.barcode!,
         imageSize: ImageSize.DISPLAY,
+        uriHelper: ProductQuery.uriProductHelper,
       ),
       language: language,
     );

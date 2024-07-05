@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -20,75 +22,77 @@ class ConsentAnalyticsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Size screenSize = MediaQuery.of(context).size;
+    final Size screenSize = MediaQuery.sizeOf(context);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return ColoredBox(
       color: backgroundColor,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: LARGE_SPACE),
-              child: Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    SvgPicture.asset(
-                      'assets/onboarding/analytics.svg',
-                      width: screenSize.width * .50,
-                      package: AppHelper.APP_PACKAGE,
-                    ),
-                    const SizedBox(height: LARGE_SPACE),
-                    AutoSizeText(
-                      appLocalizations.consent_analytics_title,
-                      maxLines: 2,
-                      style: Theme.of(context)
-                          .textTheme
-                          .displayLarge!
-                          .apply(color: const Color.fromARGB(255, 51, 51, 51)),
-                      textAlign: TextAlign.center,
-                    ),
-                    const SizedBox(height: SMALL_SPACE),
-                    AutoSizeText(
-                      appLocalizations.consent_analytics_body1,
-                      maxLines: 3,
-                      textAlign: TextAlign.center,
-                      style: WellSpacedTextHelper.TEXT_STYLE_WITH_WELL_SPACED,
-                    ),
-                    const SizedBox(height: SMALL_SPACE),
-                    AutoSizeText(
-                      appLocalizations.consent_analytics_body2,
-                      maxLines: 3,
-                      textAlign: TextAlign.center,
-                      style: WellSpacedTextHelper.TEXT_STYLE_WITH_WELL_SPACED,
-                    ),
-                  ],
+      child: SafeArea(
+        bottom: Platform.isAndroid,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: LARGE_SPACE),
+                child: Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      SvgPicture.asset(
+                        'assets/onboarding/analytics.svg',
+                        width: screenSize.width * .50,
+                        package: AppHelper.APP_PACKAGE,
+                      ),
+                      const SizedBox(height: LARGE_SPACE),
+                      AutoSizeText(
+                        appLocalizations.consent_analytics_title,
+                        maxLines: 2,
+                        style: Theme.of(context).textTheme.displayLarge!.apply(
+                            color: const Color.fromARGB(255, 51, 51, 51)),
+                        textAlign: TextAlign.center,
+                      ),
+                      const SizedBox(height: SMALL_SPACE),
+                      AutoSizeText(
+                        appLocalizations.consent_analytics_body1,
+                        maxLines: 3,
+                        textAlign: TextAlign.center,
+                        style: WellSpacedTextHelper.TEXT_STYLE_WITH_WELL_SPACED,
+                      ),
+                      const SizedBox(height: SMALL_SPACE),
+                      AutoSizeText(
+                        appLocalizations.consent_analytics_body2,
+                        maxLines: 3,
+                        textAlign: TextAlign.center,
+                        style: WellSpacedTextHelper.TEXT_STYLE_WITH_WELL_SPACED,
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
-          ),
-          OnboardingBottomBar(
-            startButton: _buildButton(
-              context,
-              appLocalizations.refuse_button_label,
-              false,
-              const Color(0xFFA08D84),
-              Colors.white,
+            OnboardingBottomBar(
+              rightButton: _buildButton(
+                context,
+                appLocalizations.refuse_button_label,
+                false,
+                const Color(0xFFA08D84),
+                Colors.white,
+              ),
+              leftButton: _buildButton(
+                context,
+                appLocalizations.authorize_button_label,
+                true,
+                Colors.white,
+                Colors.black,
+              ),
+              backgroundColor: backgroundColor,
+              semanticsHorizontalOrder: false,
             ),
-            endButton: _buildButton(
-              context,
-              appLocalizations.authorize_button_label,
-              true,
-              Colors.white,
-              Colors.black,
-            ),
-            backgroundColor: backgroundColor,
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

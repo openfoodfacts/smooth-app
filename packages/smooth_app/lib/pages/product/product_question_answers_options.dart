@@ -22,7 +22,7 @@ class ProductQuestionAnswersOptions extends StatelessWidget {
     const Color yesNoTextColor = Colors.white;
     final Color maybeTextColor = Colors.grey.shade700;
 
-    final double yesNoHeight = MediaQuery.of(context).size.width / (6);
+    final double yesNoHeight = MediaQuery.sizeOf(context).width / (6);
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -91,7 +91,7 @@ class ProductQuestionAnswersOptions extends StatelessWidget {
       child: TextButton(
         onPressed: () => onAnswer(insightAnnotation),
         style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(backgroundColor),
+          backgroundColor: WidgetStateProperty.all(backgroundColor),
         ),
         child: Text(
           buttonText,

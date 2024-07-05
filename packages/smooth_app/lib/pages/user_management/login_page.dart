@@ -87,7 +87,7 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final Size size = MediaQuery.of(context).size;
+    final Size size = MediaQuery.sizeOf(context);
 
     return SmoothScaffold(
       statusBarBackgroundColor: SmoothScaffold.semiTranslucentStatusBar,
@@ -121,7 +121,7 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                     children: <Widget>[
                       SvgPicture.asset(
                         'assets/preferences/login.svg',
-                        height: MediaQuery.of(context).size.height * .15,
+                        height: MediaQuery.sizeOf(context).height * .15,
                         package: AppHelper.APP_PACKAGE,
                       ),
                       Text(
@@ -221,12 +221,12 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                         ElevatedButton(
                           onPressed: () => _login(context),
                           style: ButtonStyle(
-                            minimumSize: MaterialStateProperty.all<Size>(
+                            minimumSize: WidgetStateProperty.all<Size>(
                               Size(size.width * 0.5,
                                   theme.buttonTheme.height + 10),
                             ),
-                            shape: MaterialStateProperty.all<
-                                RoundedRectangleBorder>(
+                            shape:
+                                WidgetStateProperty.all<RoundedRectangleBorder>(
                               const RoundedRectangleBorder(
                                 borderRadius: CIRCULAR_BORDER_RADIUS,
                               ),
@@ -249,14 +249,14 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                       //Forgot password
                       TextButton(
                         style: ButtonStyle(
-                          padding: MaterialStateProperty.all<EdgeInsets>(
+                          padding: WidgetStateProperty.all<EdgeInsets>(
                             const EdgeInsets.symmetric(
                               vertical: 10.0,
                               horizontal: VERY_LARGE_SPACE,
                             ),
                           ),
                           shape:
-                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                              WidgetStateProperty.all<RoundedRectangleBorder>(
                             const RoundedRectangleBorder(
                               borderRadius: CIRCULAR_BORDER_RADIUS,
                             ),
@@ -304,15 +304,15 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                             }
                           },
                           style: ButtonStyle(
-                            side: MaterialStateProperty.all<BorderSide>(
+                            side: WidgetStateProperty.all<BorderSide>(
                               BorderSide(
                                   color: theme.colorScheme.primary, width: 2.0),
                             ),
-                            minimumSize: MaterialStateProperty.all<Size>(
+                            minimumSize: WidgetStateProperty.all<Size>(
                               Size(size.width * 0.5, theme.buttonTheme.height),
                             ),
-                            shape: MaterialStateProperty.all<
-                                RoundedRectangleBorder>(
+                            shape:
+                                WidgetStateProperty.all<RoundedRectangleBorder>(
                               const RoundedRectangleBorder(
                                 borderRadius: CIRCULAR_BORDER_RADIUS,
                               ),

@@ -3,12 +3,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
-
-enum LoadingStatus {
-  LOADING,
-  LOADED,
-  ERROR,
-}
+import 'package:smooth_app/pages/product/common/loading_status.dart';
 
 /// Model that computes the scores and sorts the barcodes accordingly.
 class PersonalizedRankingModel with ChangeNotifier {

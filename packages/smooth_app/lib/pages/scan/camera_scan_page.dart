@@ -19,10 +19,21 @@ class CameraScannerPage extends StatefulWidget {
   const CameraScannerPage();
 
   @override
-  CameraScannerPageState createState() => CameraScannerPageState();
+  State<CameraScannerPage> createState() => _CameraScannerPageState();
+
+  static Future<void> onCameraFlashError(BuildContext context) async {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    return showDialog<void>(
+      context: context,
+      builder: (_) => SmoothAlertDialog(
+        title: appLocalizations.camera_flash_error_dialog_title,
+        body: Text(appLocalizations.camera_flash_error_dialog_message),
+      ),
+    );
+  }
 }
 
-class CameraScannerPageState extends State<CameraScannerPage>
+class _CameraScannerPageState extends State<CameraScannerPage>
     with TraceableClientMixin {
   final GlobalKey<State<StatefulWidget>> _headerKey = GlobalKey();
 
@@ -84,17 +95,21 @@ class CameraScannerPageState extends State<CameraScannerPage>
     return ScreenVisibilityDetector(
       child: Stack(
         children: <Widget>[
-          GlobalVars.barcodeScanner.getScanner(
-            onScan: _onNewBarcodeDetected,
-            hapticFeedback: () => SmoothHapticFeedback.click(),
-            onCameraFlashError: _onCameraFlashError,
-            trackCustomEvent: AnalyticsHelper.trackCustomEvent,
-            hasMoreThanOneCamera: CameraHelper.hasMoreThanOneCamera,
-            toggleCameraModeTooltip: appLocalizations.camera_toggle_camera,
-            toggleFlashModeTooltip: appLocalizations.camera_toggle_flash,
-            contentPadding: _model.compareFeatureEnabled
-                ? EdgeInsets.only(top: _headerHeight ?? 0.0)
-                : null,
+          Semantics(
+            label: appLocalizations.camera_window_accessibility_label,
+            explicitChildNodes: true,
+            child: GlobalVars.barcodeScanner.getScanner(
+              onScan: _onNewBarcodeDetected,
+              hapticFeedback: () => SmoothHapticFeedback.click(),
+              onCameraFlashError: CameraScannerPage.onCameraFlashError,
+              trackCustomEvent: AnalyticsHelper.trackCustomEvent,
+              hasMoreThanOneCamera: CameraHelper.hasMoreThanOneCamera,
+              toggleCameraModeTooltip: appLocalizations.camera_toggle_camera,
+              toggleFlashModeTooltip: appLocalizations.camera_toggle_flash,
+              contentPadding: _model.compareFeatureEnabled
+                  ? EdgeInsets.only(top: _headerHeight ?? 0.0)
+                  : null,
+            ),
           ),
           Align(
             alignment: Alignment.topCenter,
@@ -114,17 +129,5 @@ class CameraScannerPageState extends State<CameraScannerPage>
 
     _userPreferences.incrementScanCount();
     return true;
-  }
-
-  void _onCameraFlashError(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-
-    showDialog<void>(
-      context: context,
-      builder: (_) => SmoothAlertDialog(
-        title: appLocalizations.camera_flash_error_dialog_title,
-        body: Text(appLocalizations.camera_flash_error_dialog_message),
-      ),
-    );
   }
 }

@@ -82,7 +82,7 @@ class _HelperState extends State<_Helper> {
     final List<Widget> pageData = <Widget>[
       SvgPicture.asset(
         'assets/onboarding/preferences.svg',
-        height: MediaQuery.of(context).size.height * .25,
+        height: MediaQuery.sizeOf(context).height * .25,
         package: AppHelper.APP_PACKAGE,
       ),
       Padding(
@@ -109,6 +109,7 @@ class _HelperState extends State<_Helper> {
           isRemovable: false,
           isSettingVisible: false,
           isProductEditable: false,
+          showQuestionsBanner: false,
         ),
       ),
     ];
