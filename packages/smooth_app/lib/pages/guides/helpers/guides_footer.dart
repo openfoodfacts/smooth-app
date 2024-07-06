@@ -34,7 +34,7 @@ class GuidesFooter extends StatelessWidget {
             top: _FooterPainter.WAVE_SIZE + MEDIUM_SPACE,
             start: VERY_LARGE_SPACE,
             end: VERY_LARGE_SPACE,
-            bottom: 10.0 + MediaQuery.viewPaddingOf(context).bottom,
+            bottom: BALANCED_SPACE + MediaQuery.viewPaddingOf(context).bottom,
           ),
           child: TextButton(
             style: TextButton.styleFrom(

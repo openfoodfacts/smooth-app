@@ -141,10 +141,10 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                           _loginResult!.type != LoginResultType.successful)
                         Padding(
                           padding: const EdgeInsets.only(
-                            bottom: 10.0 + LARGE_SPACE * 2,
+                            bottom: BALANCED_SPACE + LARGE_SPACE * 2,
                           ),
                           child: SmoothCard(
-                            padding: const EdgeInsets.all(10.0),
+                            padding: const EdgeInsets.all(BALANCED_SPACE),
                             color: const Color(0xFFEB0004),
                             child: Text(
                               _loginResult!.getErrorMessage(appLocalizations),
@@ -251,7 +251,7 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                         style: ButtonStyle(
                           padding: WidgetStateProperty.all<EdgeInsets>(
                             const EdgeInsets.symmetric(
-                              vertical: 10.0,
+                              vertical: BALANCED_SPACE,
                               horizontal: VERY_LARGE_SPACE,
                             ),
                           ),

@@ -2,14 +2,23 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 
 /// Generic helper about emoji display.
 class EmojiHelper {
+  const EmojiHelper._();
+
   /// Returns the country flag emoji.
   ///
   /// cf. https://emojipedia.org/flag-italy
-  String? getCountryEmoji(final OpenFoodFactsCountry? country) {
+  static String? getCountryEmoji(final OpenFoodFactsCountry? country) {
     if (country == null) {
       return null;
     }
-    return _getCountryEmojiFromUnicode(country.offTag);
+    return getEmojiByCountryCode(country.offTag);
+  }
+
+  static String? getEmojiByCountryCode(final String countryCode) {
+    if (countryCode.isEmpty) {
+      return null;
+    }
+    return _getCountryEmojiFromUnicode(countryCode);
   }
 
   static const int _emojiCountryLetterA = 0x1F1E6;
