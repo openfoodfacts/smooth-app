@@ -82,61 +82,64 @@ class _SmoothTopBar2State extends State<SmoothTopBar2> {
             padding: EdgeInsetsDirectional.only(
               top: MediaQuery.viewPaddingOf(context).top,
             ),
-            child: Stack(
-              children: <Widget>[
-                Positioned.directional(
-                  textDirection: textDirection,
-                  bottom: -(imageHeight / 2.1),
-                  end: -imageWidth * 0.15,
-                  child: ExcludeSemantics(
-                    child: SvgPicture.asset(
-                      'assets/product/product_completed_graphic_light.svg',
-                      width: MediaQuery.sizeOf(context).width * 0.22,
-                      height: imageHeight,
+            child: SizedBox(
+              height: SmoothTopBar2.kTopBar2Height,
+              child: Stack(
+                children: <Widget>[
+                  Positioned.directional(
+                    textDirection: textDirection,
+                    bottom: -(imageHeight / 2.1),
+                    end: -imageWidth * 0.15,
+                    child: ExcludeSemantics(
+                      child: SvgPicture.asset(
+                        'assets/product/product_completed_graphic_light.svg',
+                        width: MediaQuery.sizeOf(context).width * 0.22,
+                        height: imageHeight,
+                      ),
                     ),
                   ),
-                ),
-                Positioned.directional(
-                  textDirection: textDirection,
-                  top: MEDIUM_SPACE,
-                  bottom: VERY_LARGE_SPACE,
-                  start: widget.leadingAction != null
-                      ? BALANCED_SPACE
-                      : VERY_LARGE_SPACE,
-                  end: imageWidth * 0.7,
-                  child: Align(
-                    alignment: AlignmentDirectional.topStart,
-                    child: Row(
-                      children: <Widget>[
-                        if (widget.leadingAction != null) ...<Widget>[
-                          _SmoothTopBarLeadingButton(
-                              action: widget.leadingAction!),
-                          const SizedBox(width: BALANCED_SPACE)
-                        ],
-                        Expanded(
-                          child: Padding(
-                            padding: widget.leadingAction != null
-                                ? const EdgeInsets.only(bottom: 1.56)
-                                : EdgeInsets.zero,
-                            child: Text(
-                              widget.title,
-                              maxLines: 2,
-                              overflow: TextOverflow.ellipsis,
-                              style: TextStyle(
-                                color: darkTheme
-                                    ? colors.primaryMedium
-                                    : colors.primaryBlack,
-                                fontSize: 20.0,
-                                fontWeight: FontWeight.bold,
+                  Positioned.directional(
+                    textDirection: textDirection,
+                    top: MEDIUM_SPACE,
+                    bottom: VERY_LARGE_SPACE,
+                    start: widget.leadingAction != null
+                        ? BALANCED_SPACE
+                        : VERY_LARGE_SPACE,
+                    end: imageWidth * 0.7,
+                    child: Align(
+                      alignment: AlignmentDirectional.topStart,
+                      child: Row(
+                        children: <Widget>[
+                          if (widget.leadingAction != null) ...<Widget>[
+                            _SmoothTopBarLeadingButton(
+                                action: widget.leadingAction!),
+                            const SizedBox(width: BALANCED_SPACE)
+                          ],
+                          Expanded(
+                            child: Padding(
+                              padding: widget.leadingAction != null
+                                  ? const EdgeInsets.only(bottom: 1.56)
+                                  : EdgeInsets.zero,
+                              child: Text(
+                                widget.title,
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                  color: darkTheme
+                                      ? colors.primaryMedium
+                                      : colors.primaryBlack,
+                                  fontSize: 20.0,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                )
-              ],
+                  )
+                ],
+              ),
             ),
           ),
         ),

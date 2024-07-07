@@ -93,10 +93,7 @@ class _SmoothScaffold2Layout extends MultiChildLayoutDelegate {
     if (hasChild(_SmoothScaffold2Widget.topBar)) {
       topBarHeight = layoutChild(
         _SmoothScaffold2Widget.topBar,
-        BoxConstraints.tightFor(
-          width: size.width,
-          height: SmoothTopBar2.kTopBar2Height,
-        ),
+        BoxConstraints.loose(size),
       ).height;
     } else {
       topBarHeight = 0.0;

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart' hide Listener;
@@ -113,12 +115,11 @@ class _CountrySelectorButton extends StatelessWidget {
               children: <Widget>[
                 if (country != null)
                   SizedBox(
-                    height: IconTheme.of(context).size,
                     width: IconTheme.of(context).size! + LARGE_SPACE,
                     child: AutoSizeText(
                       EmojiHelper.getEmojiByCountryCode(country.countryCode)!,
                       textAlign: TextAlign.center,
-                      style: const TextStyle(fontSize: 25.0),
+                      style: TextStyle(fontSize: IconTheme.of(context).size!),
                     ),
                   )
                 else
@@ -284,9 +285,11 @@ class _CountrySelectorScreen extends StatelessWidget {
                     return _CountrySelectorListItem(
                       country: country,
                       selected: selected,
+                      isLastItem: index == state.countries.length - 1,
                     );
                   },
                   childCount: state.countries.length,
+                  addAutomaticKeepAlives: false,
                 ),
                 itemExtent: 60.0,
               );
@@ -357,10 +360,12 @@ class _CountrySelectorListItem extends StatelessWidget {
   const _CountrySelectorListItem({
     required this.country,
     required this.selected,
+    required this.isLastItem,
   });
 
   final Country country;
   final bool selected;
+  final bool isLastItem;
 
   @override
   Widget build(BuildContext context) {
@@ -376,11 +381,16 @@ class _CountrySelectorListItem extends StatelessWidget {
       excludeSemantics: true,
       child: AnimatedContainer(
         duration: SmoothAnimationsDuration.short,
-        margin: const EdgeInsetsDirectional.only(
-          start: SMALL_SPACE,
-          end: SMALL_SPACE,
-          bottom: SMALL_SPACE,
-        ),
+        margin: Platform.isIOS && isLastItem
+            ? const EdgeInsetsDirectional.only(
+                start: SMALL_SPACE,
+                end: SMALL_SPACE,
+              )
+            : const EdgeInsetsDirectional.only(
+                start: SMALL_SPACE,
+                end: SMALL_SPACE,
+                bottom: SMALL_SPACE,
+              ),
         decoration: BoxDecoration(
           borderRadius: ANGULAR_BORDER_RADIUS,
           border: Border.all(
