@@ -221,9 +221,9 @@ class AnalyticsHelper {
           ..dsn =
               'https://22ec5d0489534b91ba455462d3736680@o241488.ingest.sentry.io/5376745'
           ..beforeSend = (
-            SentryEvent event, {
-            Hint? hint,
-          }) async {
+            SentryEvent event,
+            Hint hint,
+          ) async {
             return event.copyWith(
               tags: <String, String>{
                 'store': GlobalVars.storeLabel.name,
@@ -265,8 +265,10 @@ class AnalyticsHelper {
   static bool get isEnabled =>
       _analyticsReporting == _AnalyticsTrackingMode.enabled;
 
-  static FutureOr<SentryEvent?> _beforeSend(SentryEvent event,
-      {dynamic hint}) async {
+  static FutureOr<SentryEvent?> _beforeSend(
+    SentryEvent event,
+    dynamic hint,
+  ) async {
     if (!_crashReports) {
       return null;
     }
