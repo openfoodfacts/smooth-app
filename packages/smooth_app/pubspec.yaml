@@ -37,7 +37,7 @@ dependencies:
   photo_view: 0.15.0
   uuid: 3.0.7
   provider: 6.1.2
-  sentry_flutter: 7.18.0
+  sentry_flutter: 8.3.0
   sqflite: 2.3.3+1
   sqflite_common_ffi: 2.3.3
   url_launcher: 6.1.3
