@@ -360,6 +360,10 @@ class BackgroundTaskAddPrice extends BackgroundTask {
         HttpHelper().imagineMediaType(initialImageUri.path)!;
     final MaybeError<Proof> uploadProof = await OpenPricesAPIClient.uploadProof(
       proofType: proofType,
+      date: date,
+      currency: currency,
+      locationOSMId: locationOSMId,
+      locationOSMType: locationOSMType,
       imageUri: initialImageUri,
       mediaType: initialMediaType,
       bearerToken: bearerToken,

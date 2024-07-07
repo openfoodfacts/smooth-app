@@ -42,7 +42,6 @@ dependencies:
   sqflite_common_ffi: 2.3.3
   url_launcher: 6.1.3
   visibility_detector: 0.4.0+2
-  assorted_layout_widgets: 9.0.1
   app_settings: 5.1.1
   diacritic: 0.1.5
   app_store_shared:
@@ -63,9 +62,9 @@ dependencies:
   shimmer: ^3.0.0
   rive: 0.13.4
   webview_flutter: 4.7.0
-  webview_flutter_android: 3.16.1
+  webview_flutter_android: 3.16.4
   webview_flutter_wkwebview: 3.13.0
-  flutter_custom_tabs: 2.0.0+1
+  flutter_custom_tabs: 2.1.0
   flutter_image_compress: 2.2.0
   connectivity_plus: 5.0.2
   dart_ping: 9.0.1
@@ -100,7 +99,7 @@ dependencies:
     path: ../scanner/zxing
 
 
-  openfoodfacts: 3.11.0
+  openfoodfacts: 3.12.0
   # openfoodfacts:
   #   path: ../../../openfoodfacts-dart
 
