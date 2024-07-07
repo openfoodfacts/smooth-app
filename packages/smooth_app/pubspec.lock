@@ -77,14 +77,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.5.0"
-  assorted_layout_widgets:
-    dependency: "direct main"
-    description:
-      name: assorted_layout_widgets
-      sha256: "7d7688db393f02b8811f28bacdd9d791cf218f5805dee925f913a1849858e192"
-      url: "https://pub.dev"
-    source: hosted
-    version: "9.0.1"
   async:
     dependency: "direct main"
     description:
@@ -518,10 +510,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_custom_tabs
-      sha256: "961fe962ae55e9e41097c34e68c6d7d2de10e9a71034f83834919e31a891e728"
+      sha256: "34167bd15fa3479855c011f868e0789c9569c12b64358ca7250accc5a24c3312"
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.0+1"
+    version: "2.1.0"
   flutter_custom_tabs_android:
     dependency: transitive
     description:
@@ -1040,14 +1032,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.1.1"
-  matrix4_transform:
-    dependency: transitive
-    description:
-      name: matrix4_transform
-      sha256: "42c42610deecc382be2653f4a21358537401bd5b027c168a174c7c6a64959908"
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.0.1"
   meta:
     dependency: transitive
     description:
@@ -1108,10 +1092,10 @@ packages:
     dependency: "direct main"
     description:
       name: openfoodfacts
-      sha256: "90a853e7536d0f97a665b18cd602055215520bf424765ef06930e4be25b760ba"
+      sha256: b8e90057fc04ecb407bdd48758172fc8200483ae15e926d6825fc3bd6a4d2468
       url: "https://pub.dev"
     source: hosted
-    version: "3.11.0"
+    version: "3.12.0"
   openfoodfacts_flutter_lints:
     dependency: "direct dev"
     description:
@@ -1386,18 +1370,18 @@ packages:
     dependency: transitive
     description:
       name: sentry
-      sha256: a460aa48568d47140dd0557410b624d344ffb8c05555107ac65035c1097cf1ad
+      sha256: "7342ef4c18932881730ac941a07a6e4cf76fe99cd1ea3bef06e53a6a1402dec0"
       url: "https://pub.dev"
     source: hosted
-    version: "7.18.0"
+    version: "8.3.0"
   sentry_flutter:
     dependency: "direct main"
     description:
       name: sentry_flutter
-      sha256: "3d0d1d4e0e407d276ae8128d123263ccbc37e988bae906765efd6f37d544f4c6"
+      sha256: "475cf49682e4d1eb48caa2577502721bcfdcbb63f215de57b3b246d52f4f7914"
       url: "https://pub.dev"
     source: hosted
-    version: "7.18.0"
+    version: "8.3.0"
   share_plus:
     dependency: "direct main"
     description:
@@ -1853,4 +1837,4 @@ packages:
     version: "3.1.2"
 sdks:
   dart: ">=3.4.0 <4.0.0"
-  flutter: ">=3.19.0"
+  flutter: ">=3.22.0"
