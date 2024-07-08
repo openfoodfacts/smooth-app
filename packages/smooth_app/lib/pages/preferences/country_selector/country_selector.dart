@@ -120,7 +120,7 @@ class _CountrySelectorButton extends StatelessWidget {
                     child: AutoSizeText(
                       EmojiHelper.getEmojiByCountryCode(country.countryCode)!,
                       textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: IconTheme.of(context).size!),
+                      style: TextStyle(fontSize: IconTheme.of(context).size),
                     ),
                   )
                 else
@@ -292,8 +292,7 @@ class _CountrySelectorScreen extends StatelessWidget {
     _CountrySelectorState? oldValue,
     _CountrySelectorState currentValue,
   ) {
-    if (provider.autoValidate &&
-        oldValue is _CountrySelectorEditingState &&
+    if (oldValue is _CountrySelectorEditingState &&
         currentValue is! _CountrySelectorEditingState &&
         currentValue is _CountrySelectorLoadedState) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -444,10 +443,11 @@ class _CountrySelectorListState extends State<_CountrySelectorList> {
         final Country? selectedCountry =
             state.runtimeType == _CountrySelectorEditingState
                 ? (state as _CountrySelectorEditingState).selectedCountry
-                : null;
+                : state.country;
 
         final Iterable<Country> countries = _filterCountries(
           state.countries,
+          state.country,
           selectedCountry,
           controller.text,
         );
@@ -476,6 +476,7 @@ class _CountrySelectorListState extends State<_CountrySelectorList> {
 
   Iterable<Country> _filterCountries(
     List<Country> countries,
+    Country? userCountry,
     Country? selectedCountry,
     String? filter,
   ) {
@@ -485,6 +486,7 @@ class _CountrySelectorListState extends State<_CountrySelectorList> {
 
     return countries.where(
       (Country country) =>
+          country == userCountry ||
           country == selectedCountry ||
           country.name.toLowerCase().contains(
                 filter.toLowerCase(),

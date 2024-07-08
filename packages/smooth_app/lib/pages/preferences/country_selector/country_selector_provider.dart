@@ -70,8 +70,13 @@ class _CountrySelectorProvider extends ValueNotifier<_CountrySelectorState> {
         final _CountrySelectorLoadedState state =
             value as _CountrySelectorLoadedState;
 
+        /// Reorder items
+        final List<Country> countries = state.countries;
+        _reorderCountries(countries, userCountryCode);
+
         value = state.copyWith(
           country: _getSelectedCountry(state.countries),
+          countries: countries,
         );
       }
     }
@@ -183,7 +188,9 @@ class _CountrySelectorProvider extends ValueNotifier<_CountrySelectorState> {
 
   /// Reorder countries alphabetically, bring user's locale country to top.
   static void _reorderCountries(
-      List<Country> countries, String? userCountryCode) {
+    List<Country> countries,
+    String? userCountryCode,
+  ) {
     countries.sort(
       (final Country a, final Country b) {
         if (a.countryCode == userCountryCode) {
