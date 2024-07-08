@@ -14,9 +14,10 @@ import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/helpers/provider_helper.dart';
 import 'package:smooth_app/pages/prices/emoji_helper.dart';
-import 'package:smooth_app/resources/app_icons.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:smooth_app/widgets/smooth_text.dart';
 import 'package:smooth_app/widgets/v2/smooth_buttons_bar.dart';
 import 'package:smooth_app/widgets/v2/smooth_scaffold2.dart';
 import 'package:smooth_app/widgets/v2/smooth_topbar2.dart';
@@ -258,44 +259,28 @@ class _CountrySelectorScreen extends StatelessWidget {
     return ValueNotifierListener<_CountrySelectorProvider,
         _CountrySelectorState>(
       listenerWithValueNotifier: _onValueChanged,
-      child: SmoothScaffold2(
-        topBar: SmoothTopBar2(
-          title: appLocalizations.country_selector_title,
-          leadingAction: provider.autoValidate
-              ? SmoothTopBarLeadingAction.minimize
-              : SmoothTopBarLeadingAction.close,
+      child: ChangeNotifierProvider<TextEditingController>(
+        create: (_) => TextEditingController(),
+        child: SmoothScaffold2(
+          topBar: SmoothTopBar2(
+            title: appLocalizations.country_selector_title,
+            leadingAction: provider.autoValidate
+                ? SmoothTopBarLeadingAction.minimize
+                : SmoothTopBarLeadingAction.close,
+          ),
+          bottomBar:
+              !provider.autoValidate ? const _CountrySelectorBottomBar() : null,
+          injectPaddingInBody: false,
+          children: const <Widget>[
+            _CountrySelectorSearchBar(),
+            SliverPadding(
+              padding: EdgeInsetsDirectional.only(
+                top: SMALL_SPACE,
+              ),
+            ),
+            _CountrySelectorList()
+          ],
         ),
-        bottomBar:
-            !provider.autoValidate ? const _CountrySelectorBottomBar() : null,
-        children: <Widget>[
-          Consumer<_CountrySelectorProvider>(
-            builder:
-                (BuildContext context, _CountrySelectorProvider provider, _) {
-              final _CountrySelectorLoadedState state =
-                  provider.value as _CountrySelectorLoadedState;
-
-              return SliverFixedExtentList(
-                delegate: SliverChildBuilderDelegate(
-                  (BuildContext context, int index) {
-                    final Country country = state.countries[index];
-                    final bool selected = state is _CountrySelectorEditingState
-                        ? country == state.selectedCountry
-                        : country == state.country;
-
-                    return _CountrySelectorListItem(
-                      country: country,
-                      selected: selected,
-                      isLastItem: index == state.countries.length - 1,
-                    );
-                  },
-                  childCount: state.countries.length,
-                  addAutomaticKeepAlives: false,
-                ),
-                itemExtent: 60.0,
-              );
-            },
-          )
-        ],
       ),
     );
   }
@@ -318,6 +303,87 @@ class _CountrySelectorScreen extends StatelessWidget {
   }
 }
 
+class _CountrySelectorSearchBar extends StatelessWidget {
+  const _CountrySelectorSearchBar();
+
+  @override
+  Widget build(BuildContext context) {
+    return SliverPersistentHeader(
+      pinned: true,
+      floating: false,
+      delegate: _CountrySelectorSearchBarDelegate(),
+    );
+  }
+}
+
+class _CountrySelectorSearchBarDelegate extends SliverPersistentHeaderDelegate {
+  @override
+  Widget build(
+    BuildContext context,
+    double shrinkOffset,
+    bool overlapsContent,
+  ) {
+    final SmoothColorsThemeExtension colors =
+        Theme.of(context).extension<SmoothColorsThemeExtension>()!;
+    final bool darkMode = context.darkTheme();
+
+    return ColoredBox(
+      color: Theme.of(context).scaffoldBackgroundColor,
+      child: Padding(
+        padding: const EdgeInsetsDirectional.only(
+          top: SMALL_SPACE,
+          start: SMALL_SPACE,
+          end: SMALL_SPACE,
+        ),
+        child: TextFormField(
+          controller: context.read<TextEditingController>(),
+          textAlignVertical: TextAlignVertical.center,
+          style: const TextStyle(
+            fontSize: 15.0,
+          ),
+          decoration: InputDecoration(
+            hintText: AppLocalizations.of(context).search,
+            enabledBorder: OutlineInputBorder(
+              borderRadius: const BorderRadius.all(Radius.circular(10.0)),
+              borderSide: BorderSide(
+                color: colors.primaryNormal,
+                width: 2.0,
+              ),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: const BorderRadius.all(Radius.circular(15.0)),
+              borderSide: BorderSide(
+                color: darkMode ? colors.primaryNormal : colors.primarySemiDark,
+                width: 2.0,
+              ),
+            ),
+            contentPadding: const EdgeInsetsDirectional.only(
+              start: 100,
+              end: SMALL_SPACE,
+              top: 10,
+              bottom: 0,
+            ),
+            prefixIcon: icons.Search(
+              size: 20.0,
+              color: darkMode ? colors.primaryNormal : colors.primarySemiDark,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  @override
+  double get maxExtent => 48.0;
+
+  @override
+  double get minExtent => 48.0;
+
+  @override
+  bool shouldRebuild(covariant _CountrySelectorSearchBarDelegate oldDelegate) =>
+      false;
+}
+
 class _CountrySelectorBottomBar extends StatelessWidget {
   const _CountrySelectorBottomBar();
 
@@ -337,7 +403,7 @@ class _CountrySelectorBottomBar extends StatelessWidget {
         return SmoothButtonsBar2(
           positiveButton: SmoothActionButton2(
               text: AppLocalizations.of(context).validate,
-              icon: const Arrow.right(),
+              icon: const icons.Arrow.right(),
               onPressed: () => _saveCountry(context)),
         );
       },
@@ -356,16 +422,92 @@ class _CountrySelectorBottomBar extends StatelessWidget {
   }
 }
 
+class _CountrySelectorList extends StatefulWidget {
+  const _CountrySelectorList();
+
+  @override
+  State<_CountrySelectorList> createState() => _CountrySelectorListState();
+}
+
+class _CountrySelectorListState extends State<_CountrySelectorList> {
+  @override
+  Widget build(BuildContext context) {
+    return Consumer2<_CountrySelectorProvider, TextEditingController>(
+      builder: (
+        BuildContext context,
+        _CountrySelectorProvider provider,
+        TextEditingController controller,
+        _,
+      ) {
+        final _CountrySelectorLoadedState state =
+            provider.value as _CountrySelectorLoadedState;
+        final Country? selectedCountry =
+            state.runtimeType == _CountrySelectorEditingState
+                ? (state as _CountrySelectorEditingState).selectedCountry
+                : null;
+
+        final Iterable<Country> countries = _filterCountries(
+          state.countries,
+          selectedCountry,
+          controller.text,
+        );
+
+        return SliverFixedExtentList(
+          delegate: SliverChildBuilderDelegate(
+            (BuildContext context, int index) {
+              final Country country = countries.elementAt(index);
+              final bool selected = selectedCountry == country;
+
+              return _CountrySelectorListItem(
+                country: country,
+                selected: selected,
+                isLastItem: index == countries.length - 1,
+                filter: controller.text,
+              );
+            },
+            childCount: countries.length,
+            addAutomaticKeepAlives: false,
+          ),
+          itemExtent: 60.0,
+        );
+      },
+    );
+  }
+
+  Iterable<Country> _filterCountries(
+    List<Country> countries,
+    Country? selectedCountry,
+    String? filter,
+  ) {
+    if (filter == null || filter.isEmpty) {
+      return countries;
+    }
+
+    return countries.where(
+      (Country country) =>
+          country == selectedCountry ||
+          country.name.toLowerCase().contains(
+                filter.toLowerCase(),
+              ) ||
+          country.countryCode.toLowerCase().contains(
+                filter.toLowerCase(),
+              ),
+    );
+  }
+}
+
 class _CountrySelectorListItem extends StatelessWidget {
   const _CountrySelectorListItem({
     required this.country,
     required this.selected,
     required this.isLastItem,
+    required this.filter,
   });
 
   final Country country;
   final bool selected;
   final bool isLastItem;
+  final String filter;
 
   @override
   Widget build(BuildContext context) {
@@ -432,9 +574,10 @@ class _CountrySelectorListItem extends StatelessWidget {
                 ),
                 Expanded(
                   flex: 7,
-                  child: Text(
-                    country.name,
-                    style: const TextStyle(
+                  child: TextHighlighter(
+                    text: country.name,
+                    filter: filter,
+                    textStyle: const TextStyle(
                       fontWeight: FontWeight.w600,
                     ),
                   ),

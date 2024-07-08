@@ -100,11 +100,21 @@ class _SmoothButtonsBar2State extends State<SmoothButtonsBar2>
           start: BALANCED_SPACE,
           end: BALANCED_SPACE,
           top: MEDIUM_SPACE,
-          bottom: (Platform.isIOS ? 0.0 : VERY_SMALL_SPACE) + viewPadding,
+          bottom: _bottomPadding + viewPadding,
         ),
         child: child,
       ),
     );
+  }
+
+  double get _bottomPadding {
+    if (Platform.isIOS) {
+      return 0.0;
+    } else if (Platform.isAndroid) {
+      return VERY_SMALL_SPACE;
+    } else {
+      return MEDIUM_SPACE;
+    }
   }
 
   @override

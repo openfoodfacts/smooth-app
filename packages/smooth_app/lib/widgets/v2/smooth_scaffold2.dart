@@ -8,12 +8,14 @@ class SmoothScaffold2 extends StatefulWidget {
     required this.children,
     this.topBar,
     this.bottomBar,
+    this.injectPaddingInBody = true,
     super.key,
   });
 
   final SmoothTopBar2? topBar;
   final List<Widget> children;
   final Widget? bottomBar;
+  final bool injectPaddingInBody;
 
   @override
   State<SmoothScaffold2> createState() => _SmoothScaffold2State();
@@ -32,6 +34,7 @@ class _SmoothScaffold2State extends State<SmoothScaffold2> {
         child: CustomMultiChildLayout(
           delegate: _SmoothScaffold2Layout(
             viewPadding: viewPadding,
+            injectPaddingInBody: widget.injectPaddingInBody,
           ),
           children: <Widget>[
             LayoutId(
@@ -39,13 +42,14 @@ class _SmoothScaffold2State extends State<SmoothScaffold2> {
               child: CustomScrollView(
                 controller: _controller,
                 slivers: <Widget>[
-                  SliverPadding(
-                    padding: EdgeInsetsDirectional.only(
-                      top: widget.topBar != null
-                          ? HEADER_ROUNDED_RADIUS.x + MEDIUM_SPACE
-                          : viewPadding.top,
+                  if (widget.injectPaddingInBody)
+                    SliverPadding(
+                      padding: EdgeInsetsDirectional.only(
+                        top: widget.topBar != null
+                            ? HEADER_ROUNDED_RADIUS.x + MEDIUM_SPACE
+                            : viewPadding.top,
+                      ),
                     ),
-                  ),
                   ...widget.children,
                   SliverPadding(
                     padding: EdgeInsetsDirectional.only(
@@ -81,9 +85,11 @@ enum _SmoothScaffold2Widget {
 class _SmoothScaffold2Layout extends MultiChildLayoutDelegate {
   _SmoothScaffold2Layout({
     required this.viewPadding,
+    required this.injectPaddingInBody,
   });
 
   final EdgeInsets viewPadding;
+  final bool injectPaddingInBody;
 
   @override
   void performLayout(Size size) {
@@ -114,8 +120,9 @@ class _SmoothScaffold2Layout extends MultiChildLayoutDelegate {
     }
 
     // Body
-    final double bodyTopPosition =
-        topBarHeight > 0.0 ? topBarHeight - HEADER_ROUNDED_RADIUS.x : 0.0;
+    final double bodyTopPosition = topBarHeight > 0.0
+        ? topBarHeight - (injectPaddingInBody ? HEADER_ROUNDED_RADIUS.x : 0.0)
+        : 0.0;
     layoutChild(
       _SmoothScaffold2Widget.body,
       BoxConstraints(
