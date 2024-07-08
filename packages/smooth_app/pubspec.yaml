@@ -22,7 +22,7 @@ dependencies:
   html: 0.15.4
   flutter_widget_from_html_core: 0.8.5+3
   fwfh_selectable_text: 0.8.3+1
-  flutter_secure_storage: 9.2.1
+  flutter_secure_storage: 9.2.2
   hive: 2.2.3
   hive_flutter: 1.1.0
   http: 1.2.0
