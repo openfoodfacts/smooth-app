@@ -1758,15 +1758,15 @@
     "prices_generic_title": "Ceny",
     "prices_add_n_prices": "{count,plural, =1{Add a price} other{App {count} prices}}",
     "prices_send_n_prices": "{count,plural, =1{Send the price} other{Send {count} prices}}",
-    "prices_add_an_item": "Add an item",
+    "prices_add_an_item": "Přidat položku",
     "prices_add_a_price": "Přidat cenu",
-    "prices_add_a_receipt": "Add a receipt",
+    "prices_add_a_receipt": "Přidat účtenku",
     "prices_add_price_tags": "Add price tags",
     "prices_barcode_search_not_found": "Produkt nebyl nalezen",
-    "prices_barcode_search_none_yet": "No product yet",
-    "prices_barcode_search_question": "Do you want to look for this product?",
+    "prices_barcode_search_none_yet": "Zatím žádný produkt",
+    "prices_barcode_search_question": "Chcete vyhledat tento produkt?",
     "prices_barcode_search_title": "Hledat produkt",
-    "prices_barcode_search_running": "Looking for {barcode}",
+    "prices_barcode_search_running": "Hledání {barcode}",
     "@prices_barcode_search_running": {
         "description": "Dialog title about barcode look-up",
         "placeholders": {
@@ -1775,7 +1775,7 @@
             }
         }
     },
-    "prices_barcode_reader_action": "Barcode reader",
+    "prices_barcode_reader_action": "Čtečka čárových kódů",
     "prices_view_prices": "Zobrazit ceny",
     "prices_product_accessibility_summary": "{count,plural, =1{1 price} other{{count} prices}} for {product}",
     "@prices_product_accessibility_summary": {
@@ -1903,10 +1903,10 @@
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"
     },
-    "dev_mode_section_server": "Server configuration",
-    "dev_mode_section_news": "News provider configuration",
-    "dev_mode_section_product_page": "Product page",
-    "dev_mode_section_ui": "User Interface",
+    "dev_mode_section_server": "Konfigurace serveru",
+    "dev_mode_section_news": "Konfigurace poskytovatele zpráv",
+    "dev_mode_section_product_page": "Stránka produktu",
+    "dev_mode_section_ui": "Uživatelské rozhraní",
     "dev_mode_section_data": "Údaje",
     "dev_mode_section_experimental_features": "Experimental features",
     "dev_mode_hide_ecoscore_title": "Vyloučit Eco-Score",
