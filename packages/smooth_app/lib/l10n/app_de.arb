@@ -1756,8 +1756,8 @@
     "prices_app_dev_mode_flag": "Verknüpfung zur Preise-App auf der Produktseite",
     "prices_app_button": "Zur Preise-App wechseln",
     "prices_generic_title": "Preise",
-    "prices_add_n_prices": "{count,plural, one {}=1{Preis hinzufügen} other{{count} Preise hinzufügen}}",
-    "prices_send_n_prices": "{count,plural, one {}=1{Preis senden} other{{count} Preise senden}}",
+    "prices_add_n_prices": "{count,plural, =1{Preis hinzufügen} other{{count} Preise hinzufügen}}",
+    "prices_send_n_prices": "{count,plural, =1{Preis senden} other{{count} Preise senden}}",
     "prices_add_an_item": "Ein Element hinzufügen",
     "prices_add_a_price": "Preis hinzufügen",
     "prices_add_a_receipt": "Beleg hinzufügen",
@@ -1777,7 +1777,7 @@
     },
     "prices_barcode_reader_action": "Barcodelesegerät",
     "prices_view_prices": "Preise anzeigen",
-    "prices_product_accessibility_summary": "{count,plural, one {}=1{1 Preis} other{{count} Preise}} für {product}",
+    "prices_product_accessibility_summary": "{count,plural, =1{1 Preis} other{{count} Preise}} für {product}",
     "@prices_product_accessibility_summary": {
         "description": "A card summarizing the number of prices for a product",
         "placeholders": {
@@ -1841,7 +1841,7 @@
     "@prices_open_proof": {
         "description": "Button to open a proof"
     },
-    "prices_proofs_list_length_one_page": "{count,plural, one {}=0{Noch kein Nachweis} =1{Nur ein Nachweis} other{Alle {count} Nachweise}}",
+    "prices_proofs_list_length_one_page": "{count,plural, =0{Noch kein Nachweis} =1{Nur ein Nachweis} other{Alle {count} Nachweise}}",
     "@prices_proofs_list_length_one_page": {
         "description": "Number of proofs for one-page result",
         "placeholders": {
