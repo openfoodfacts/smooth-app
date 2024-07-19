@@ -1756,8 +1756,8 @@
     "prices_app_dev_mode_flag": "קיצור דרך ליישומון מחירים בעמוד המוצר",
     "prices_app_button": "מעבר ליישומון המחירים",
     "prices_generic_title": "מחירים",
-    "prices_add_n_prices": "{count,plural, one {} two {הוספת {count} מחירים} many {הוספת {count} מחירים}=1{הוספת מחיר} other{הוספת {count} מחירים}}",
-    "prices_send_n_prices": "{count,plural, one {} two {שליחת {count} מחירים} many {שליחת {count} מחירים}=1{שליחת המחיר} other{שליחת {count} מחירים}}",
+    "prices_add_n_prices": "{count,plural, one {} two {הוספת {count} מחירים} many {הוספת {count} מחירים}=1{הוספת מחיר{count}} other{הוספת {count} מחירים}}",
+    "prices_send_n_prices": "{count,plural, one {} two {שליחת {count} מחירים} many {שליחת {count} מחירים}=1{שליחת מחיר {count}} other{שליחת {count} מחירים}}",
     "prices_add_an_item": "הוספת פריט",
     "prices_add_a_price": "הוספת מחיר",
     "prices_add_a_receipt": "הוספת קבלה",
@@ -1777,7 +1777,7 @@
     },
     "prices_barcode_reader_action": "קורא ברקודים",
     "prices_view_prices": "הצגת המחירים",
-    "prices_product_accessibility_summary": "{count,plural, one {} two {{count} מחירים} many {{count} מחירים}=1{מחיר} other{{count} מחירים}} ל{product}",
+    "prices_product_accessibility_summary": "{count,plural, one {} two {{count} מחירים} many {{count} מחירים}=1{מחיר {count}} other{{count} מחירים}} ל{product}",
     "@prices_product_accessibility_summary": {
         "description": "A card summarizing the number of prices for a product",
         "placeholders": {
@@ -1789,7 +1789,7 @@
             }
         }
     },
-    "prices_list_length_one_page": "{count,plural, two {כל {count} המחירים} many {כל {count} המחירים}=0{אין מחיר עדיין} =1{מחיר אחד בלבד} other{כל {count} המחירים}}",
+    "prices_list_length_one_page": "{count,plural, two {כל {count} המחירים} many {כל {count} המחירים}=0{אין מחיר עדיין} =1{מחיר {count} בלבד} other{כל {count} המחירים}}",
     "@prices_list_length_one_page": {
         "description": "Number of prices for one-page result",
         "placeholders": {
@@ -2177,7 +2177,7 @@
     "@product_list_select": {
         "description": "Top title for the selection of a list"
     },
-    "user_list_length": "{count,plural, two {שני מוצרים} many {{count} מוצרים} =0{רשימה ריקה} =1{מוצר אחד} other{{count} מוצרים}}",
+    "user_list_length": "{count,plural, two {{count} מוצרים} many {{count} מוצרים} =0{רשימה ריקה} =1{מוצר {count}} other{{count} מוצרים}}",
     "@user_list_length": {
         "description": "Length of a user product list",
         "placeholders": {
@@ -2472,7 +2472,7 @@
     "@robotoff_continue": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering"
     },
-    "robotoff_next_n_questions": "{count,plural,  two {{count} השאלות הבאות}  many {{count} השאלות הבאות}=1{השאלה הבאה} other{{count} השאלות הבאות}}",
+    "robotoff_next_n_questions": "{count,plural,  two {{count} השאלות הבאות}  many {{count} השאלות הבאות}=1{שאלה {count} הבאה} other{{count} השאלות הבאות}}",
     "@robotoff_next_n_questions": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering",
         "placeholders": {
