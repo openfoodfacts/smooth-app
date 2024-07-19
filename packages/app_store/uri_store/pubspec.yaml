@@ -13,7 +13,7 @@ dependencies:
   app_store_shared:
     path: ../shared
 
-  url_launcher: 6.1.3
+  url_launcher: 6.3.0
 
 dev_dependencies:
   flutter_test:
