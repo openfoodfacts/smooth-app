@@ -266,6 +266,7 @@ ProductImageData getProductImageData(
   if (productImage != null) {
     // we found a localized version for this image
     return ProductImageData(
+      imageId: productImage.imgid,
       imageField: imageField,
       imageUrl: productImage.getUrl(
         product.barcode!,
@@ -281,6 +282,7 @@ ProductImageData getProductImageData(
 ProductImageData getEmptyProductImageData(final ImageField imageField) =>
     ProductImageData(
       imageField: imageField,
+      imageId: null,
       imageUrl: null,
       language: null,
     );

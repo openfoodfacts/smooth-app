@@ -13,11 +13,13 @@ import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/image_field_extension.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/image/product_image_gallery_other_view.dart';
+import 'package:smooth_app/pages/image/product_image_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/product_image_swipeable_view.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_animations.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/widgets/slivers.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
@@ -193,50 +195,72 @@ class _PhotoRow extends StatelessWidget {
     final ImageField imageField = _getImageField(position);
     final TransientFile transientFile = _getTransientFile(imageField);
 
-    return Padding(
-      padding: const EdgeInsets.only(
-        top: SMALL_SPACE,
-      ),
-      child: InkWell(
-        onTap: () => _openImage(
-          context: context,
-          initialImageIndex: position,
+    final bool expired = transientFile.expired;
+
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final String label = imageField.getProductImageTitle(appLocalizations);
+
+    return Semantics(
+      image: true,
+      button: true,
+      label: expired
+          ? appLocalizations.product_image_outdated_accessibility_label(label)
+          : label,
+      excludeSemantics: true,
+      child: Padding(
+        padding: const EdgeInsets.only(
+          top: SMALL_SPACE,
         ),
-        child: Column(
-          children: <Widget>[
-            Stack(
-              children: <Widget>[
-                AspectRatio(
-                  aspectRatio: 1.0,
-                  child: SmoothImage(
-                    rounded: false,
-                    imageProvider: transientFile.getImageProvider(),
+        child: InkWell(
+          onTap: () => _openImage(
+            context: context,
+            initialImageIndex: position,
+          ),
+          child: Column(
+            children: <Widget>[
+              Stack(
+                children: <Widget>[
+                  AspectRatio(
+                    aspectRatio: 1.0,
+                    child: SmoothImage(
+                      rounded: false,
+                      imageProvider: transientFile.getImageProvider(),
+                    ),
                   ),
-                ),
-                if (transientFile.isImageAvailable() &&
-                    !transientFile.isServerImage())
-                  Positioned.directional(
-                    textDirection: Directionality.of(context),
-                    bottom: VERY_SMALL_SPACE,
-                    end: VERY_SMALL_SPACE,
-                    child: const CloudUploadAnimation.circle(size: 30.0),
-                  ),
-              ],
-            ),
-            Expanded(
-              child: Center(
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    imageField
-                        .getProductImageTitle(AppLocalizations.of(context)),
-                    style: Theme.of(context).textTheme.headlineMedium,
-                    textAlign: TextAlign.center,
+                  if (transientFile.isImageAvailable() &&
+                      !transientFile.isServerImage())
+                    const Center(
+                      child: CloudUploadAnimation.circle(size: 30.0),
+                    ),
+                  if (expired)
+                    Positioned.directional(
+                      textDirection: Directionality.of(context),
+                      bottom: VERY_SMALL_SPACE,
+                      end: VERY_SMALL_SPACE,
+                      child: const icons.Outdated(
+                        color: Colors.black87,
+                        shadow: Shadow(
+                          color: Colors.white38,
+                          blurRadius: 2.0,
+                        ),
+                      ),
+                    ),
+                ],
+              ),
+              Expanded(
+                child: Center(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      label,
+                      style: Theme.of(context).textTheme.headlineMedium,
+                      textAlign: TextAlign.center,
+                    ),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -261,9 +285,9 @@ class _PhotoRow extends StatelessWidget {
   TransientFile _getTransientFile(
     final ImageField imageField,
   ) =>
-      TransientFile.fromProductImageData(
-        getProductImageData(product, imageField, language),
-        product.barcode!,
+      TransientFile.fromProduct(
+        product,
+        imageField,
         language,
       );
 
