@@ -1777,7 +1777,7 @@
     },
     "prices_barcode_reader_action": "Barcode reader",
     "prices_view_prices": "View the prices",
-    "prices_product_accessibility_summary": "{count,plural, =1{1 price} other{{{count} prices}}, skirtos {product}",
+    "prices_product_accessibility_summary": "{count,plural, =1{1 price} other{{count} prices}} for {product}",
     "@prices_product_accessibility_summary": {
         "description": "A card summarizing the number of prices for a product",
         "placeholders": {
