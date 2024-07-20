@@ -33,7 +33,7 @@ class GuidesHeader extends StatelessWidget {
       style: const TextStyle(color: Colors.white),
       child: SliverPadding(
         padding: const EdgeInsetsDirectional.only(
-          bottom: 10.0,
+          bottom: BALANCED_SPACE,
         ),
         // Pinned = for the header to stay at the top of the screen
         sliver: SliverPersistentHeader(
@@ -79,7 +79,7 @@ class _GuidesHeaderDelegate extends SliverPersistentHeaderDelegate {
         decoration: ShapeDecoration(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(
-              bottom: Radius.circular(30.0 * (1 - progress)),
+              bottom: HEADER_ROUNDED_RADIUS * (1 - progress),
             ),
           ),
           color: colors.primaryDark,
@@ -113,7 +113,7 @@ class _GuidesHeaderDelegate extends SliverPersistentHeaderDelegate {
                     child: Align(
                       alignment: Alignment.bottomLeft,
                       child: Padding(
-                        padding: const EdgeInsets.only(bottom: 10.0),
+                        padding: const EdgeInsets.only(bottom: BALANCED_SPACE),
                         child: AutoSizeText(
                           title,
                           maxLines: 4,
@@ -193,8 +193,8 @@ class _GuidesHeaderLayout extends MultiChildLayoutDelegate {
 
   @override
   void performLayout(Size size) {
-    final double topMargin = topPadding + 10.0;
-    final double maxHeight = size.height - topPadding - (10.0 * 2);
+    final double topMargin = topPadding + BALANCED_SPACE;
+    final double maxHeight = size.height - topPadding - (BALANCED_SPACE * 2);
 
     final Size closeButtonSize = layoutChild(
       _GuidesHeaderLayoutId.closeButton,
@@ -250,7 +250,7 @@ class _GuidesHeaderLayout extends MultiChildLayoutDelegate {
     positionChild(
       _GuidesHeaderLayoutId.minimizedTitle,
       Offset(
-        _CloseButtonLayout._CLOSE_BUTTON_SIZE + 10.0,
+        _CloseButtonLayout._CLOSE_BUTTON_SIZE + BALANCED_SPACE,
         topMargin + 5.0,
       ),
     );
@@ -295,7 +295,7 @@ class _BackButton extends StatelessWidget {
                     child: ExcludeSemantics(
                       child: Padding(
                         padding: const EdgeInsetsDirectional.only(
-                          start: 10.0,
+                          start: BALANCED_SPACE,
                           end: 24.0,
                         ),
                         child: Opacity(

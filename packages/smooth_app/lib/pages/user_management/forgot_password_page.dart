@@ -109,7 +109,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage>
                   const Spacer(flex: 2),
                   if (_message != '') ...<Widget>[
                     SmoothCard(
-                      padding: const EdgeInsets.all(10.0),
+                      padding: const EdgeInsets.all(BALANCED_SPACE),
                       color: _send ? Colors.green : Colors.red,
                       child: Text(_message),
                     ),

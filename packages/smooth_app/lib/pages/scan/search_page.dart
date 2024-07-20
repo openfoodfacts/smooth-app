@@ -38,7 +38,7 @@ class _SearchPageState extends State<SearchPage> {
         child: Column(
           children: <Widget>[
             Padding(
-              padding: const EdgeInsets.all(10.0),
+              padding: const EdgeInsets.all(BALANCED_SPACE),
               child: SearchField(
                 autofocus: widget.autofocus,
                 focusNode: _searchFocusNode,

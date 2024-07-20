@@ -179,7 +179,7 @@ class _GuidesParagraphTitle extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsetsDirectional.symmetric(
             horizontal: GuidesParagraph._HORIZONTAL_PADDING,
-            vertical: 10.0,
+            vertical: BALANCED_SPACE,
           ),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.baseline,
@@ -189,7 +189,7 @@ class _GuidesParagraphTitle extends StatelessWidget {
                 padding: EdgeInsetsDirectional.only(top: 3.3),
                 child: _GuidesParagraphArrow(),
               ),
-              const SizedBox(width: 10.0),
+              const SizedBox(width: BALANCED_SPACE),
               Expanded(
                 child: Text(
                   title,
@@ -244,7 +244,7 @@ class GuidesText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsetsDirectional.only(
-        top: 10.0,
+        top: BALANCED_SPACE,
         start: GuidesParagraph._HORIZONTAL_PADDING,
         end: GuidesParagraph._HORIZONTAL_PADDING,
       ),
@@ -453,7 +453,7 @@ class GuidesImage extends StatelessWidget {
       excludeSemantics: true,
       child: Padding(
         padding: const EdgeInsetsDirectional.only(
-          top: 10.0,
+          top: BALANCED_SPACE,
           start: GuidesParagraph._HORIZONTAL_PADDING,
           end: GuidesParagraph._HORIZONTAL_PADDING,
         ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 
 const String THEME_SYSTEM_DEFAULT = 'System Default';
@@ -77,4 +78,11 @@ class ThemeProvider with ChangeNotifier {
     _userPreferences.removeListener(_onPreferencesChanged);
     super.dispose();
   }
+}
+
+extension ThemeProviderExtension on BuildContext {
+  bool lightTheme({bool listen = true}) => !darkTheme(listen: listen);
+
+  bool darkTheme({bool listen = true}) =>
+      Provider.of<ThemeProvider>(this, listen: listen).isDarkMode(this);
 }

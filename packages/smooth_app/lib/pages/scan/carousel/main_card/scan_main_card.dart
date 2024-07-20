@@ -150,7 +150,7 @@ class _SearchBar extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsetsDirectional.only(
                       start: 20.0,
-                      end: 10.0,
+                      end: BALANCED_SPACE,
                       bottom: 3.0,
                     ),
                     child: Text(
@@ -171,7 +171,7 @@ class _SearchBar extends StatelessWidget {
                       shape: BoxShape.circle,
                     ),
                     child: const Padding(
-                      padding: EdgeInsets.all(10.0),
+                      padding: EdgeInsets.all(BALANCED_SPACE),
                       child: Search(
                         size: 20.0,
                         color: Colors.white,
