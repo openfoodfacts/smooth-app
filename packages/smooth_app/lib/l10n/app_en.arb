@@ -775,6 +775,7 @@
             }
         }
     },
+    "product_image_outdated": "This image may be outdated",
     "homepage_main_card_logo_description": "Welcome to Open Food Facts",
     "@homepage_main_card_logo_description": {
         "description": "Description for accessibility of the Open Food Facts logo on the homepage"
@@ -2971,5 +2972,9 @@
     "menu_button_list_actions": "Select an action",
     "@menu_button_list_actions": {
         "description": "Button to select an action in a list (eg: Share, Delete, …)"
+    },
+    "error_loading_photo": "Error loading photo",
+    "@error_loading_photo": {
+        "description": "Error message when loading a photo fails to load"
     }
 }

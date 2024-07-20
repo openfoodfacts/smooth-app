@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
-import 'package:smooth_app/resources/app_icons.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
@@ -96,67 +96,104 @@ class _ProductImageViewer extends StatelessWidget {
     final SmoothColorsThemeExtension colors =
         Theme.of(context).extension<SmoothColorsThemeExtension>()!;
 
-    return Stack(
-      children: <Widget>[
-        Positioned.fill(
-          child: HeroMode(
-            enabled: heroTag?.isNotEmpty == true,
-            child: Hero(
-              tag: heroTag ?? '',
-              child: Image(
-                image: NetworkImage(
-                  image.getUrl(
-                    barcode,
-                    uriHelper: ProductQuery.uriProductHelper,
-                  ),
-                ),
-                fit: BoxFit.cover,
-              ),
+    return HeroMode(
+      enabled: heroTag?.isNotEmpty == true,
+      child: Hero(
+        tag: heroTag ?? '',
+        child: Image(
+          image: NetworkImage(
+            image.getUrl(
+              barcode,
+              uriHelper: ProductQuery.uriProductHelper,
             ),
           ),
-        ),
-        Positioned.directional(
-          textDirection: Directionality.of(context),
-          end: SMALL_SPACE,
-          bottom: SMALL_SPACE,
-          child: Offstage(
-            // TODOoffstage: image.expired,
-            offstage: false,
-            child: DecoratedBox(
-              decoration: BoxDecoration(
-                color: colors.red.withOpacity(0.9),
-                borderRadius: CIRCULAR_BORDER_RADIUS,
-                boxShadow: <BoxShadow>[
-                  BoxShadow(
-                    color: Colors.black12,
-                    offset: Offset(1.0, 1.0),
-                    blurRadius: 2.0,
+          fit: BoxFit.cover,
+          loadingBuilder: (
+            _,
+            final Widget child,
+            final ImageChunkEvent? loadingProgress,
+          ) {
+            bool expired = true;
+
+            if (loadingProgress != null) {
+              return const Center(
+                child: CircularProgressIndicator.adaptive(),
+              );
+            } else if (expired) {
+              return Stack(
+                children: <Widget>[
+                  Positioned.fill(child: child),
+                  Positioned(
+                    bottom: SMALL_SPACE,
+                    right: SMALL_SPACE,
+                    child: _OutdatedPhotoLabel(colors: colors),
                   ),
                 ],
+              );
+            } else {
+              return child;
+            }
+          },
+          errorBuilder: (_, __, ___) => Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              const icons.Warning(
+                size: 48.0,
+                color: Colors.red,
               ),
-              child: const Padding(
-                padding: EdgeInsets.all(SMALL_SPACE),
-                child: Row(
-                  children: <Widget>[
-                    Outdated(
-                      size: 18.0,
-                      color: Colors.white,
-                    ),
-                    SizedBox(width: SMALL_SPACE),
-                    Text(
-                      'This photo may be outdated',
-                      style: TextStyle(
-                        fontSize: 13.0,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
+              const SizedBox(height: SMALL_SPACE),
+              Text(AppLocalizations.of(context).error_loading_photo),
+            ],
           ),
         ),
-      ],
+      ),
+    );
+  }
+}
+
+class _OutdatedPhotoLabel extends StatelessWidget {
+  const _OutdatedPhotoLabel({
+    super.key,
+    required this.colors,
+  });
+
+  final SmoothColorsThemeExtension colors;
+
+  @override
+  Widget build(BuildContext context) {
+    return Semantics(
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          color: colors.red.withOpacity(0.9),
+          borderRadius: CIRCULAR_BORDER_RADIUS,
+          boxShadow: const <BoxShadow>[
+            BoxShadow(
+              color: Colors.black12,
+              offset: Offset(1.0, 1.0),
+              blurRadius: 2.0,
+            ),
+          ],
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(SMALL_SPACE),
+          child: Row(
+            children: <Widget>[
+              const icons.Outdated(
+                size: 18.0,
+                color: Colors.white,
+              ),
+              const SizedBox(width: SMALL_SPACE),
+              Text(
+                AppLocalizations.of(context).product_image_outdated,
+                style: const TextStyle(
+                  fontSize: 13.0,
+                  color: Colors.white,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
