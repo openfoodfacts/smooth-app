@@ -14,12 +14,12 @@ class SmoothPopupMenuButton<T> extends StatefulWidget {
   })  : assert(buttonLabel == null || buttonLabel.length > 0),
         assert(actionsTitle == null || actionsTitle.length > 0);
 
-  final Icon? buttonIcon;
-  final String? buttonLabel;
-  final String? actionsTitle;
   final void Function(T value) onSelected;
   final Iterable<SmoothPopupMenuItem<T>> Function(BuildContext context)
       itemBuilder;
+  final Icon? buttonIcon;
+  final String? buttonLabel;
+  final String? actionsTitle;
 
   @override
   State<SmoothPopupMenuButton<T>> createState() =>
