@@ -14,6 +14,10 @@
     "@reason": {},
     "okay": "확인",
     "@okay": {},
+    "validate": "검사",
+    "@validate": {
+        "description": "Button label: Validate the input"
+    },
     "create": "만들기",
     "@create": {
         "description": "An action to create"
