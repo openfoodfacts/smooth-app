@@ -14,6 +14,10 @@
     "@reason": {},
     "okay": "V redu",
     "@okay": {},
+    "validate": "Validate",
+    "@validate": {
+        "description": "Button label: Validate the input"
+    },
     "create": "Ustvari",
     "@create": {
         "description": "An action to create"
