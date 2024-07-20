@@ -14,6 +14,10 @@
     "@reason": {},
     "okay": "好的",
     "@okay": {},
+    "validate": "驗證",
+    "@validate": {
+        "description": "Button label: Validate the input"
+    },
     "create": "创建",
     "@create": {
         "description": "An action to create"
