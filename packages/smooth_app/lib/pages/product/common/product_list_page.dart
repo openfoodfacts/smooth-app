@@ -31,6 +31,7 @@ import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
 import 'package:smooth_app/pages/scan/carousel/scan_carousel_manager.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
+import 'package:smooth_app/widgets/smooth_menu_button.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 import 'package:smooth_app/widgets/will_pop_scope.dart';
 
@@ -181,7 +182,7 @@ class _ProductListPageState extends State<ProductListPage>
                 }
               },
             ),
-          PopupMenuButton<ProductListPopupItem>(
+          SmoothPopupMenuButton<ProductListPopupItem>(
             onSelected: (final ProductListPopupItem action) async {
               final ProductList? differentProductList =
                   await action.doSomething(
@@ -193,8 +194,7 @@ class _ProductListPageState extends State<ProductListPage>
                 setState(() => productList = differentProductList);
               }
             },
-            itemBuilder: (BuildContext context) =>
-                <PopupMenuEntry<ProductListPopupItem>>[
+            itemBuilder: (_) => <SmoothPopupMenuItem<ProductListPopupItem>>[
               if (enableRename) _rename.getMenuItem(appLocalizations),
               _share.getMenuItem(appLocalizations),
               _openInWeb.getMenuItem(appLocalizations),
@@ -215,7 +215,7 @@ class _ProductListPageState extends State<ProductListPage>
         },
         actionModeTitle: Text('${_selectedBarcodes.length}'),
         actionModeActions: <Widget>[
-          PopupMenuButton<ProductListItemPopupItem>(
+          SmoothPopupMenuButton<ProductListItemPopupItem>(
             onSelected: (final ProductListItemPopupItem action) async {
               final bool andThenSetState = await action.doSomething(
                 productList: productList,
@@ -229,8 +229,7 @@ class _ProductListPageState extends State<ProductListPage>
                 }
               }
             },
-            itemBuilder: (BuildContext context) =>
-                <PopupMenuEntry<ProductListItemPopupItem>>[
+            itemBuilder: (_) => <SmoothPopupMenuItem<ProductListItemPopupItem>>[
               if (userPreferences.getFlag(UserPreferencesDevMode
                       .userPreferencesFlagBoostedComparison) ==
                   true)
