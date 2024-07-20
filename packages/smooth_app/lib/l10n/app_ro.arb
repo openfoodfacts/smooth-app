@@ -14,6 +14,10 @@
     "@reason": {},
     "okay": "Bine",
     "@okay": {},
+    "validate": "Validați",
+    "@validate": {
+        "description": "Button label: Validate the input"
+    },
     "create": "Crează",
     "@create": {
         "description": "An action to create"
