@@ -14,6 +14,10 @@
     "@reason": {},
     "okay": "Oké",
     "@okay": {},
+    "validate": "Bevestigen",
+    "@validate": {
+        "description": "Button label: Validate the input"
+    },
     "create": "Aanmaken",
     "@create": {
         "description": "An action to create"
