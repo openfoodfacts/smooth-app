@@ -20,7 +20,7 @@ class OnboardingHomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xFFE3F3FE),
       body: Provider<OnboardingConfig>.value(
-        value: OnboardingConfig._(MediaQuery.of(context)),
+        value: OnboardingConfig._(MediaQuery.sizeOf(context)),
         child: Stack(
           children: <Widget>[
             const _OnboardingWelcomePageContent(),
@@ -186,7 +186,7 @@ class OnboardingText extends StatelessWidget {
       fontMultiplier = OnboardingConfig.of(context).fontMultiplier;
     } catch (_) {
       fontMultiplier =
-          OnboardingConfig.computeFontMultiplier(MediaQuery.of(context));
+          OnboardingConfig.computeFontMultiplier(MediaQuery.sizeOf(context));
     }
 
     final Color backgroundColor =
@@ -265,12 +265,12 @@ class OnboardingText extends StatelessWidget {
 
 // TODO(g123k): Move elsewhere when the onboarding will be redesigned
 class OnboardingConfig {
-  OnboardingConfig._(MediaQueryData mediaQuery)
-      : fontMultiplier = computeFontMultiplier(mediaQuery);
+  OnboardingConfig._(Size screenSize)
+      : fontMultiplier = computeFontMultiplier(screenSize);
   final double fontMultiplier;
 
-  static double computeFontMultiplier(MediaQueryData mediaQuery) =>
-      ((mediaQuery.size.width * 45) / 428) / 45;
+  static double computeFontMultiplier(Size screenSize) =>
+      ((screenSize.width * 45) / 428) / 45;
 
   static OnboardingConfig of(BuildContext context) =>
       context.watch<OnboardingConfig>();
