@@ -9,6 +9,7 @@ import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/pages/onboarding/next_button.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/pages/preferences/country_selector/country_selector.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 import 'package:smooth_app/widgets/smooth_text.dart';
 
@@ -83,7 +84,7 @@ class WelcomePage extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.symmetric(
                               vertical: MEDIUM_SPACE),
-                          child: Ink(
+                          child: Container(
                             decoration: BoxDecoration(
                               border: Border.fromBorderSide(
                                 BorderSide(
@@ -91,32 +92,27 @@ class WelcomePage extends StatelessWidget {
                                   width: 1,
                                 ),
                               ),
-                              borderRadius: ROUNDED_BORDER_RADIUS,
+                              borderRadius: ANGULAR_BORDER_RADIUS,
                               color: theme.colorScheme.onPrimary,
                             ),
                             child: SizedBox(
                               width: double.infinity,
-                              child: CountrySelector(
-                                forceCurrencyChange: true,
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: SMALL_SPACE,
-                                ),
-                                inkWellBorderRadius: ROUNDED_BORDER_RADIUS,
-                                icon: Container(
-                                  height: double.infinity,
-                                  decoration: BoxDecoration(
-                                    color: theme.primaryColor,
-                                    borderRadius: ROUNDED_BORDER_RADIUS,
+                              child: Material(
+                                type: MaterialType.transparency,
+                                child: CountrySelector(
+                                  autoValidate: true,
+                                  forceCurrencyChange: true,
+                                  padding: const EdgeInsetsDirectional.only(
+                                    start: SMALL_SPACE,
+                                    end: LARGE_SPACE,
                                   ),
-                                  child: AspectRatio(
-                                    aspectRatio: 1.0,
-                                    child: Icon(
-                                      Icons.edit,
-                                      color: Colors.white.withOpacity(0.9),
-                                    ),
+                                  inkWellBorderRadius: ANGULAR_BORDER_RADIUS,
+                                  icon: const icons.Arrow.right(
+                                    size: 15.0,
                                   ),
+                                  textStyle:
+                                      TextStyle(color: theme.primaryColor),
                                 ),
-                                textStyle: TextStyle(color: theme.primaryColor),
                               ),
                             ),
                           ),

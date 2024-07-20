@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart' hide Listener;
@@ -112,22 +110,22 @@ class _CountrySelectorButton extends StatelessWidget {
             final Country? country =
                 (value as _CountrySelectorLoadedState).country;
 
-            return Row(
-              children: <Widget>[
-                if (country != null)
-                  SizedBox(
-                    width: IconTheme.of(context).size! + LARGE_SPACE,
-                    child: AutoSizeText(
-                      EmojiHelper.getEmojiByCountryCode(country.countryCode)!,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: IconTheme.of(context).size),
-                    ),
-                  )
-                else
-                  const Icon(Icons.public),
-                Expanded(
-                  child: Padding(
-                    padding: innerPadding,
+            return Padding(
+              padding: innerPadding,
+              child: Row(
+                children: <Widget>[
+                  if (country != null)
+                    SizedBox(
+                      width: IconTheme.of(context).size! + LARGE_SPACE,
+                      child: AutoSizeText(
+                        EmojiHelper.getEmojiByCountryCode(country.countryCode)!,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: IconTheme.of(context).size),
+                      ),
+                    )
+                  else
+                    const Icon(Icons.public),
+                  Expanded(
                     child: Text(
                       country?.name ?? AppLocalizations.of(context).loading,
                       style: Theme.of(context)
@@ -136,9 +134,9 @@ class _CountrySelectorButton extends StatelessWidget {
                           ?.merge(textStyle),
                     ),
                   ),
-                ),
-                icon ?? const Icon(Icons.arrow_drop_down),
-              ],
+                  icon ?? const Icon(Icons.arrow_drop_down),
+                ],
+              ),
             );
           },
         ),
@@ -231,11 +229,12 @@ class _CountrySelectorButton extends StatelessWidget {
             )}',
           ),
           negativeAction: SmoothActionButton(
-            onPressed: () => Navigator.of(context).pop(),
+            onPressed: () => Navigator.of(context, rootNavigator: true).pop(),
             text: appLocalizations.no,
           ),
           positiveAction: SmoothActionButton(
-            onPressed: () => Navigator.of(context).pop(true),
+            onPressed: () =>
+                Navigator.of(context, rootNavigator: true).pop(true),
             text: appLocalizations.yes,
           ),
         ),
@@ -292,11 +291,15 @@ class _CountrySelectorScreen extends StatelessWidget {
     _CountrySelectorState? oldValue,
     _CountrySelectorState currentValue,
   ) {
-    if (oldValue is _CountrySelectorEditingState &&
+    if (provider.autoValidate &&
+        oldValue != null &&
         currentValue is! _CountrySelectorEditingState &&
         currentValue is _CountrySelectorLoadedState) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
-        Navigator.of(context).pop(currentValue.country);
+        final NavigatorState navigator = Navigator.of(context);
+        if (navigator.canPop()) {
+          navigator.pop(currentValue.country);
+        }
       });
     }
   }
@@ -415,9 +418,12 @@ class _CountrySelectorBottomBar extends StatelessWidget {
 
     /// Without autoValidate, we need to manually close the screen
     countryProvider.saveSelectedCountry();
-    Navigator.of(context).pop(
-      (countryProvider.value as _CountrySelectorLoadedState).country,
-    );
+
+    if (countryProvider.value is _CountrySelectorEditingState) {
+      Navigator.of(context).pop(
+        (countryProvider.value as _CountrySelectorEditingState).selectedCountry,
+      );
+    }
   }
 }
 
@@ -461,7 +467,6 @@ class _CountrySelectorListState extends State<_CountrySelectorList> {
               return _CountrySelectorListItem(
                 country: country,
                 selected: selected,
-                isLastItem: index == countries.length - 1,
                 filter: controller.text,
               );
             },
@@ -502,13 +507,11 @@ class _CountrySelectorListItem extends StatelessWidget {
   const _CountrySelectorListItem({
     required this.country,
     required this.selected,
-    required this.isLastItem,
     required this.filter,
   });
 
   final Country country;
   final bool selected;
-  final bool isLastItem;
   final String filter;
 
   @override
@@ -525,16 +528,11 @@ class _CountrySelectorListItem extends StatelessWidget {
       excludeSemantics: true,
       child: AnimatedContainer(
         duration: SmoothAnimationsDuration.short,
-        margin: Platform.isIOS && isLastItem
-            ? const EdgeInsetsDirectional.only(
-                start: SMALL_SPACE,
-                end: SMALL_SPACE,
-              )
-            : const EdgeInsetsDirectional.only(
-                start: SMALL_SPACE,
-                end: SMALL_SPACE,
-                bottom: SMALL_SPACE,
-              ),
+        margin: const EdgeInsetsDirectional.only(
+          start: SMALL_SPACE,
+          end: SMALL_SPACE,
+          bottom: SMALL_SPACE,
+        ),
         decoration: BoxDecoration(
           borderRadius: ANGULAR_BORDER_RADIUS,
           border: Border.all(
