@@ -2976,5 +2976,45 @@
     "error_loading_photo": "Error loading photo",
     "@error_loading_photo": {
         "description": "Error message when loading a photo fails to load"
+    },
+    "photo_viewer_details_button": "Details",
+    "@photo_viewer_details_button": {
+        "description": "Button to show details of the photo"
+    },
+    "photo_viewer_details_button_accessibility_label": "Details of this photo",
+    "@photo_viewer_details_button_accessibility_label": {
+        "description": "Accessibility label for the Details button on a photo"
+    },
+    "photo_viewer_details_title": "Details of the photo",
+    "@photo_viewer_details_title": {
+        "description": "Title of the photo details dialog"
+    },
+    "photo_viewer_details_contributor_title": "Contributor",
+    "@photo_viewer_details_contributor_title": {
+        "description": "Label for the author of a photo"
+    },
+    "photo_viewer_details_size_title": "Size",
+    "@photo_viewer_details_size_title": {
+        "description": "Label for the size of a photo"
+    },
+    "photo_viewer_details_size_value": "{width} x {height} pixels",
+    "@photo_viewer_details_size_value": {
+        "description": "Value for the size of a photo",
+        "placeholders": {
+            "width": {
+                "type": "int"
+            },
+            "height": {
+                "type": "int"
+            }
+        }
+    },
+    "photo_viewer_details_date_title": "Date",
+    "@photo_viewer_details_date_title": {
+        "description": "Label for the uploaded date of a photo"
+    },
+    "photo_viewer_details_url_title": "URL",
+    "@photo_viewer_details_url_title": {
+        "description": "Label for the link of a photo"
     }
 }

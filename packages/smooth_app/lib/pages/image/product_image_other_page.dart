@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:intl/intl.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
@@ -119,20 +122,28 @@ class _ProductImageViewer extends StatelessWidget {
               return const Center(
                 child: CircularProgressIndicator.adaptive(),
               );
-            } else if (expired) {
-              return Stack(
-                children: <Widget>[
-                  Positioned.fill(child: child),
-                  Positioned(
-                    bottom: SMALL_SPACE,
-                    right: SMALL_SPACE,
-                    child: _OutdatedPhotoLabel(colors: colors),
-                  ),
-                ],
-              );
-            } else {
-              return child;
             }
+
+            return Stack(
+              children: <Widget>[
+                Positioned.fill(child: child),
+                Positioned(
+                  bottom:
+                      SMALL_SPACE + MediaQuery.viewPaddingOf(context).bottom,
+                  left: SMALL_SPACE,
+                  right: SMALL_SPACE,
+                  child: IntrinsicHeight(
+                    child: Row(
+                      children: <Widget>[
+                        _ProductImageDetailsButton(image: image),
+                        const Spacer(),
+                        if (expired) _ProductImageOutdatedLabel(colors: colors),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            );
           },
           errorBuilder: (_, __, ___) => Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -151,9 +162,8 @@ class _ProductImageViewer extends StatelessWidget {
   }
 }
 
-class _OutdatedPhotoLabel extends StatelessWidget {
-  const _OutdatedPhotoLabel({
-    super.key,
+class _ProductImageOutdatedLabel extends StatelessWidget {
+  const _ProductImageOutdatedLabel({
     required this.colors,
   });
 
@@ -162,35 +172,134 @@ class _OutdatedPhotoLabel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Semantics(
-      child: DecoratedBox(
-        decoration: BoxDecoration(
-          color: colors.red.withOpacity(0.9),
-          borderRadius: CIRCULAR_BORDER_RADIUS,
-          boxShadow: const <BoxShadow>[
-            BoxShadow(
-              color: Colors.black12,
-              offset: Offset(1.0, 1.0),
-              blurRadius: 2.0,
-            ),
-          ],
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(SMALL_SPACE),
-          child: Row(
-            children: <Widget>[
-              const icons.Outdated(
-                size: 18.0,
-                color: Colors.white,
-              ),
-              const SizedBox(width: SMALL_SPACE),
-              Text(
-                AppLocalizations.of(context).product_image_outdated,
-                style: const TextStyle(
-                  fontSize: 13.0,
+      child: SizedBox(
+        height: double.infinity,
+        child: DecoratedBox(
+          decoration: BoxDecoration(
+            color: colors.red.withOpacity(0.9),
+            borderRadius: CIRCULAR_BORDER_RADIUS,
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(SMALL_SPACE),
+            child: Row(
+              children: <Widget>[
+                const icons.Outdated(
+                  size: 18.0,
                   color: Colors.white,
                 ),
+                const SizedBox(width: SMALL_SPACE),
+                Text(
+                  AppLocalizations.of(context).product_image_outdated,
+                  style: const TextStyle(
+                    fontSize: 13.0,
+                    color: Colors.white,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _ProductImageDetailsButton extends StatelessWidget {
+  const _ProductImageDetailsButton({required this.image});
+
+  final ProductImage image;
+
+  @override
+  Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+    return DecoratedBox(
+      decoration: const BoxDecoration(
+        color: Colors.black45,
+        borderRadius: CIRCULAR_BORDER_RADIUS,
+      ),
+      child: Material(
+        type: MaterialType.transparency,
+        child: InkWell(
+          borderRadius: CIRCULAR_BORDER_RADIUS,
+          onTap: () {
+            showSmoothModalSheet(
+                context: context,
+                builder: (BuildContext context) {
+                  return SmoothModalSheet(
+                    title: appLocalizations.photo_viewer_details_title,
+                    body: Column(
+                      children: <Widget>[
+                        ListTile(
+                          title: Text(appLocalizations
+                              .photo_viewer_details_contributor_title),
+                          subtitle: Text('TODO'),
+                        ),
+                        ListTile(
+                          title: Text(
+                              appLocalizations.photo_viewer_details_date_title),
+                          subtitle: Text(image.uploaded != null
+                              ? DateFormat.yMMMMEEEEd().format(image.uploaded!)
+                              : '-'),
+                        ),
+                        ListTile(
+                          title: Text(
+                              appLocalizations.photo_viewer_details_size_title),
+                          subtitle: Text(
+                            image.width != null && image.height != null
+                                ? appLocalizations
+                                    .photo_viewer_details_size_value(
+                                    image.width!,
+                                    image.height!,
+                                  )
+                                : '-',
+                          ),
+                        ),
+                        if (image.url != null)
+                          ListTile(
+                            title: Text(appLocalizations
+                                .photo_viewer_details_url_title),
+                            subtitle: Text(image.url!),
+                            trailing: const Icon(Icons.open_in_new_rounded),
+                            onTap: () {
+                              LaunchUrlHelper.launchURL(image.url!);
+                            },
+                          ),
+                        SizedBox(
+                            height: MediaQuery.viewPaddingOf(context).bottom),
+                      ],
+                    ),
+                  );
+                });
+          },
+          child: Padding(
+            padding: const EdgeInsetsDirectional.only(
+              start: SMALL_SPACE,
+              top: SMALL_SPACE,
+              bottom: SMALL_SPACE,
+              end: MEDIUM_SPACE,
+            ),
+            child: Semantics(
+              label: appLocalizations
+                  .photo_viewer_details_button_accessibility_label,
+              button: true,
+              excludeSemantics: true,
+              child: Row(
+                children: <Widget>[
+                  const icons.Info(
+                    size: 15.0,
+                    color: Colors.white,
+                  ),
+                  const SizedBox(width: SMALL_SPACE),
+                  Text(
+                    appLocalizations.photo_viewer_details_button,
+                    style: const TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
         ),
       ),
