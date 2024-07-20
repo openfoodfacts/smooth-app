@@ -14,6 +14,10 @@
     "@reason": {},
     "okay": "Rendben",
     "@okay": {},
+    "validate": "Érvényesítés",
+    "@validate": {
+        "description": "Button label: Validate the input"
+    },
     "create": "Létrehoz",
     "@create": {
         "description": "An action to create"
