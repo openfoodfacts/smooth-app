@@ -14,6 +14,10 @@
     "@reason": {},
     "okay": "Okay",
     "@okay": {},
+    "validate": "Xác thực",
+    "@validate": {
+        "description": "Button label: Validate the input"
+    },
     "create": "Tạo",
     "@create": {
         "description": "An action to create"
