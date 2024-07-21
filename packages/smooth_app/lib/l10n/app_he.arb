@@ -1760,8 +1760,8 @@
     "prices_app_dev_mode_flag": "קיצור דרך ליישומון מחירים בעמוד המוצר",
     "prices_app_button": "מעבר ליישומון המחירים",
     "prices_generic_title": "מחירים",
-    "prices_add_n_prices": "{count,plural, one {} two {הוספת {count} מחירים} many {הוספת {count} מחירים}=1{הוספת מחיר{count}} other{הוספת {count} מחירים}}",
-    "prices_send_n_prices": "{count,plural, one {} two {שליחת {count} מחירים} many {שליחת {count} מחירים}=1{שליחת מחיר {count}} other{שליחת {count} מחירים}}",
+    "prices_add_n_prices": "{count,plural, two {הוספת {count} מחירים} many {הוספת {count} מחירים}=1{הוספת מחיר{count}} other{הוספת {count} מחירים}}",
+    "prices_send_n_prices": "{count,plural, two {שליחת {count} מחירים} many {שליחת {count} מחירים}=1{שליחת מחיר {count}} other{שליחת {count} מחירים}}",
     "prices_add_an_item": "הוספת פריט",
     "prices_add_a_price": "הוספת מחיר",
     "prices_add_a_receipt": "הוספת קבלה",
@@ -1781,7 +1781,7 @@
     },
     "prices_barcode_reader_action": "קורא ברקודים",
     "prices_view_prices": "הצגת המחירים",
-    "prices_product_accessibility_summary": "{count,plural, one {} two {{count} מחירים} many {{count} מחירים}=1{מחיר {count}} other{{count} מחירים}} ל{product}",
+    "prices_product_accessibility_summary": "{count,plural, two {{count} מחירים} many {{count} מחירים}=1{מחיר {count}} other{{count} מחירים}} ל{product}",
     "@prices_product_accessibility_summary": {
         "description": "A card summarizing the number of prices for a product",
         "placeholders": {
