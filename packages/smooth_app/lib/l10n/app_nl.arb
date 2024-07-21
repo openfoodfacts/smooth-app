@@ -14,6 +14,10 @@
     "@reason": {},
     "okay": "Oké",
     "@okay": {},
+    "validate": "Bevestigen",
+    "@validate": {
+        "description": "Button label: Validate the input"
+    },
     "create": "Aanmaken",
     "@create": {
         "description": "An action to create"
@@ -128,10 +132,6 @@
     "whatIsOff": "Open Food Facts is een wereldwijde non-profitorganisatie die wordt ondersteund door lokale gemeenschappen.",
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
-    },
-    "offUtility": "Kies voedsel dat goed is voor jou en de planeet.",
-    "@offUtility": {
-        "description": "Description of what a user can use Open Food Facts for."
     },
     "productDataUtility": "Bekijk de voedselgegevens die relevant zijn voor uw voorkeuren.",
     "@productDataUtility": {
@@ -1491,6 +1491,14 @@
     "@edit_ingredients_loading_photo_btn_text": {
         "description": "Ingredients edition - Loading photo from the server"
     },
+    "edit_ingredients_loading_photo_help_dialog_title": "Waarom zie ik dit bericht?",
+    "@edit_ingredients_loading_photo_help_dialog_title": {
+        "description": "Ingredients edition - Dialog explaining why the photo is loading - Title"
+    },
+    "edit_ingredients_loading_photo_help_dialog_body": "Om de functie 'Ingrediënten extraheren' te gebruiken, moet de foto eerst worden geüpload.\n\nWacht een paar seconden of voer de ingrediënten handmatig in.",
+    "@edit_ingredients_loading_photo_help_dialog_body": {
+        "description": "Ingredients edition - Dialog explaining why the photo is loading - Content"
+    },
     "edit_ingredients_refresh_photo_btn_text": "Foto vernieuwen",
     "@edit_ingredients_refresh_photo_btn_text": {
         "description": "Ingredients edition - Refresh photo"
@@ -1506,6 +1514,14 @@
     "edit_packaging_loading_photo_btn_text": "Foto laden…",
     "@edit_packaging_loading_photo_btn_text": {
         "description": "Packaging edition - Loading photo from the server"
+    },
+    "edit_packaging_loading_photo_help_dialog_title": "Waarom zie ik dit bericht?",
+    "@edit_packaging_loading_photo_help_dialog_title": {
+        "description": "Packaging edition - Dialog explaining why the photo is loading - Title"
+    },
+    "edit_packaging_loading_photo_help_dialog_body": "Om de functie \"Verpakkingsgegevens extraheren\" te gebruiken, moet de foto eerst worden geüpload.\n\nWacht alstublieft een paar seconden of voer de verpakkingsgegevens handmatig in.",
+    "@edit_packaging_loading_photo_help_dialog_body": {
+        "description": "Packaging edition - Dialog explaining why the photo is loading - Content"
     },
     "edit_packaging_refresh_photo_btn_text": "Foto vernieuwen",
     "@edit_packaging_refresh_photo_btn_text": {
@@ -1716,6 +1732,31 @@
     "@dev_preferences_import_history_subtitle": {
         "description": "User dev preferences - Import history - Subtitle"
     },
+    "dev_preferences_news_custom_url_title": "Aangepaste URL voor nieuws",
+    "@dev_preferences_news_custom_url_title": {
+        "description": "News dev preferences - Custom URL for news - Title"
+    },
+    "dev_preferences_news_custom_url_subtitle": "URL van het JSON-bestand:",
+    "@dev_preferences_news_custom_url_subtitle": {
+        "description": "News dev preferences - Custom URL for news - Title"
+    },
+    "dev_preferences_news_custom_url_empty_value": "Niet ingesteld",
+    "@dev_preferences_news_custom_url_empty_value": {
+        "description": "Message to show when the custom news URL is not set"
+    },
+    "dev_preferences_news_provider_status_title": "Toestand",
+    "@dev_preferences_news_provider_status_title": {
+        "description": "News dev preferences - Status - Title"
+    },
+    "dev_preferences_news_provider_status_subtitle": "Laatste vernieuwing: {date}",
+    "@dev_preferences_news_provider_status_subtitle": {
+        "description": "News dev preferences - Custom URL for news - Subtitle",
+        "placeholders": {
+            "date": {
+                "type": "String"
+            }
+        }
+    },
     "prices_app_dev_mode_flag": "Snelkoppeling naar de Prijzen-app op de productpagina",
     "prices_app_button": "Ga naar de Prijzen-app",
     "prices_generic_title": "Prijzen",
@@ -1740,6 +1781,18 @@
     },
     "prices_barcode_reader_action": "Streepjescodelezer",
     "prices_view_prices": "Bekijk de prijzen",
+    "prices_product_accessibility_summary": "{count,plural, one {}=1{1 prijs} other{{count} prijzen}} voor {product}",
+    "@prices_product_accessibility_summary": {
+        "description": "A card summarizing the number of prices for a product",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            },
+            "product": {
+                "type": "String"
+            }
+        }
+    },
     "prices_list_length_one_page": "{count,plural, one {}=0{Nog geen prijs} =1{Slechts één prijs} other{Alle {count} prijzen}}",
     "@prices_list_length_one_page": {
         "description": "Number of prices for one-page result",
@@ -1760,6 +1813,37 @@
                 "type": "int"
             }
         }
+    },
+    "prices_entry_accessibility_label": "Prijs: {price} / Winkel: \"{location}\" / Gepubliceerd op {date} door \"{user}\"",
+    "@prices_entry_accessibility_label": {
+        "description": "Accessibility label for a price entry",
+        "placeholders": {
+            "price": {
+                "type": "String"
+            },
+            "location": {
+                "type": "String"
+            },
+            "date": {
+                "type": "String"
+            },
+            "user": {
+                "type": "String"
+            }
+        }
+    },
+    "prices_open_user_proofs": "Bewijzen openen van \"{user}\"",
+    "@prices_open_user_proofs": {
+        "description": "Button to open the proofs of a user",
+        "placeholders": {
+            "user": {
+                "type": "String"
+            }
+        }
+    },
+    "prices_open_proof": "Prijsbewijs openen",
+    "@prices_open_proof": {
+        "description": "Button to open a proof"
     },
     "prices_proofs_list_length_one_page": "{count,plural, one {}=0{Nog geen bewijs} =1{Slechts één bewijs} other{Alle {count} bewijzen}}",
     "@prices_proofs_list_length_one_page": {
@@ -1824,6 +1908,7 @@
         "description": "User dev preferences - Import history - Result successful"
     },
     "dev_mode_section_server": "Serverconfiguratie",
+    "dev_mode_section_news": "Configuratie van nieuwsprovider",
     "dev_mode_section_product_page": "Productpagina",
     "dev_mode_section_ui": "Gebruikersinterface",
     "dev_mode_section_data": "Gegevens",
@@ -2177,9 +2262,13 @@
             }
         }
     },
-    "capture": "Nieuwe vastleggen",
+    "capture": "Maak een nieuwe foto",
     "@capture": {
-        "description": "Button label for taking a photo"
+        "description": "Button label for taking a new photo (= there's already one)"
+    },
+    "capture_new_picture": "Maak een foto",
+    "@capture_new_picture": {
+        "description": "Button label for taking a new photo (= the first one)"
     },
     "choose_from_gallery": "Kies uit gallerij",
     "@choose_from_gallery": {
@@ -2867,5 +2956,9 @@
     "preview_badge": "Voorbeeld",
     "@preview_badge": {
         "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
+    },
+    "prices_feedback_form": "Klik hier om ons uw feedback over deze nieuwe functie te sturen!",
+    "@prices_feedback_form": {
+        "description": "A button to send feedback about the prices feature"
     }
 }
