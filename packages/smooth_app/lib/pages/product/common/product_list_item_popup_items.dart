@@ -10,6 +10,7 @@ import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/pages/product/compare_products3_page.dart';
 import 'package:smooth_app/pages/product/ordered_nutrients_cache.dart';
+import 'package:smooth_app/widgets/smooth_menu_button.dart';
 
 /// Popup menu item entries for the product list page, for selected items.
 enum ProductListItemPopupMenuEntry {
@@ -26,6 +27,9 @@ abstract class ProductListItemPopupItem {
   /// IconData of the popup menu item.
   IconData getIconData();
 
+  /// Is-it a destructive action?
+  bool isDestructive() => false;
+
   /// Action of the popup menu item.
   ///
   /// Returns true if the caller must refresh (setState) (e.g. after deleting).
@@ -37,17 +41,16 @@ abstract class ProductListItemPopupItem {
   });
 
   /// Returns the popup menu item.
-  PopupMenuItem<ProductListItemPopupItem> getMenuItem(
+  SmoothPopupMenuItem<ProductListItemPopupItem> getMenuItem(
     final AppLocalizations appLocalizations,
     final bool enabled,
   ) =>
-      PopupMenuItem<ProductListItemPopupItem>(
+      SmoothPopupMenuItem<ProductListItemPopupItem>(
         value: this,
+        icon: getIconData(),
+        label: getTitle(appLocalizations),
         enabled: enabled,
-        child: ListTile(
-          leading: Icon(getIconData()),
-          title: Text(getTitle(appLocalizations)),
-        ),
+        type: isDestructive() ? SmoothPopupMenuItemType.destructive : null,
       );
 }
 
@@ -138,6 +141,9 @@ class ProductListItemPopupDelete extends ProductListItemPopupItem {
 
   @override
   IconData getIconData() => Icons.delete;
+
+  @override
+  bool isDestructive() => true;
 
   @override
   Future<bool> doSomething({
