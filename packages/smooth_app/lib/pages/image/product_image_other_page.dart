@@ -7,6 +7,7 @@ import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
+import 'package:smooth_app/pages/image/product_image_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
@@ -99,65 +100,67 @@ class _ProductImageViewer extends StatelessWidget {
     final SmoothColorsThemeExtension colors =
         Theme.of(context).extension<SmoothColorsThemeExtension>()!;
 
-    return HeroMode(
-      enabled: heroTag?.isNotEmpty == true,
-      child: Hero(
-        tag: heroTag ?? '',
-        child: Image(
-          image: NetworkImage(
-            image.getUrl(
-              barcode,
-              uriHelper: ProductQuery.uriProductHelper,
-            ),
-          ),
-          fit: BoxFit.cover,
-          loadingBuilder: (
-            _,
-            final Widget child,
-            final ImageChunkEvent? loadingProgress,
-          ) {
-            bool expired = true;
-
-            if (loadingProgress != null) {
-              return const Center(
-                child: CircularProgressIndicator.adaptive(),
-              );
-            }
-
-            return Stack(
-              children: <Widget>[
-                Positioned.fill(child: child),
-                Positioned(
-                  bottom:
-                      SMALL_SPACE + MediaQuery.viewPaddingOf(context).bottom,
-                  left: SMALL_SPACE,
-                  right: SMALL_SPACE,
-                  child: IntrinsicHeight(
-                    child: Row(
-                      children: <Widget>[
-                        _ProductImageDetailsButton(image: image),
-                        const Spacer(),
-                        if (expired) _ProductImageOutdatedLabel(colors: colors),
-                      ],
-                    ),
+    return Stack(
+      children: <Widget>[
+        Positioned.fill(
+          child: HeroMode(
+            enabled: heroTag?.isNotEmpty == true,
+            child: Hero(
+              tag: heroTag ?? '',
+              child: Image(
+                image: NetworkImage(
+                  image.getUrl(
+                    barcode,
+                    uriHelper: ProductQuery.uriProductHelper,
                   ),
                 ),
-              ],
-            );
-          },
-          errorBuilder: (_, __, ___) => Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              const icons.Warning(
-                size: 48.0,
-                color: Colors.red,
+                fit: BoxFit.cover,
+                loadingBuilder: (
+                  _,
+                  final Widget child,
+                  final ImageChunkEvent? loadingProgress,
+                ) {
+                  if (loadingProgress != null) {
+                    return const Center(
+                      child: CircularProgressIndicator.adaptive(),
+                    );
+                  } else {
+                    return child;
+                  }
+                },
+                errorBuilder: (_, __, ___) => Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    const icons.Warning(
+                      size: 48.0,
+                      color: Colors.red,
+                    ),
+                    const SizedBox(height: SMALL_SPACE),
+                    Text(AppLocalizations.of(context).error_loading_photo),
+                  ],
+                ),
               ),
-              const SizedBox(height: SMALL_SPACE),
-              Text(AppLocalizations.of(context).error_loading_photo),
-            ],
+            ),
           ),
         ),
-      ),
+        Positioned(
+          bottom: SMALL_SPACE + MediaQuery.viewPaddingOf(context).bottom,
+          left: SMALL_SPACE,
+          right: SMALL_SPACE,
+          child: IntrinsicHeight(
+            child: Row(
+              children: <Widget>[
+                _ProductImageDetailsButton(
+                  image: image,
+                  barcode: barcode,
+                ),
+                const Spacer(),
+                if (image.expired) _ProductImageOutdatedLabel(colors: colors),
+              ],
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
@@ -205,13 +208,22 @@ class _ProductImageOutdatedLabel extends StatelessWidget {
 }
 
 class _ProductImageDetailsButton extends StatelessWidget {
-  const _ProductImageDetailsButton({required this.image});
+  const _ProductImageDetailsButton({
+    required this.image,
+    required this.barcode,
+  });
 
   final ProductImage image;
+  final String barcode;
 
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final String url = image.url ??
+        image.getUrl(
+          barcode,
+          uriHelper: ProductQuery.uriProductHelper,
+        );
 
     return DecoratedBox(
       decoration: const BoxDecoration(
@@ -233,7 +245,8 @@ class _ProductImageDetailsButton extends StatelessWidget {
                         ListTile(
                           title: Text(appLocalizations
                               .photo_viewer_details_contributor_title),
-                          subtitle: Text('TODO'),
+                          // TODO(g123k): add contributor
+                          subtitle: const Text('TODO'),
                         ),
                         ListTile(
                           title: Text(
@@ -255,14 +268,14 @@ class _ProductImageDetailsButton extends StatelessWidget {
                                 : '-',
                           ),
                         ),
-                        if (image.url != null)
+                        if (url.isNotEmpty)
                           ListTile(
                             title: Text(appLocalizations
                                 .photo_viewer_details_url_title),
-                            subtitle: Text(image.url!),
+                            subtitle: Text(url),
                             trailing: const Icon(Icons.open_in_new_rounded),
                             onTap: () {
-                              LaunchUrlHelper.launchURL(image.url!);
+                              LaunchUrlHelper.launchURL(url);
                             },
                           ),
                         SizedBox(
