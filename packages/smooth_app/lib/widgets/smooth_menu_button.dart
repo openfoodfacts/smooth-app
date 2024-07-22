@@ -4,6 +4,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+/// A Button similar to a [PopupMenuButton] for non Apple platforms.
+/// On iOS and macOS, it's still an [IconButton], but that opens a
+/// [CupertinoActionSheet].
 class SmoothPopupMenuButton<T> extends StatefulWidget {
   const SmoothPopupMenuButton({
     required this.onSelected,
@@ -105,6 +108,9 @@ class SmoothPopupMenuItem<T> {
   final bool enabled;
 }
 
+/// The style of an item in the menu
+/// On Material platforms, all values behave the same.
+/// On iOS, the [highlighted] value is in black and [destructive] in red.
 enum SmoothPopupMenuItemType {
   normal,
   highlighted,
