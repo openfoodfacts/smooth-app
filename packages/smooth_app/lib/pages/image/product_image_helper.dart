@@ -4,6 +4,8 @@ import 'package:smooth_app/database/transient_file.dart';
 class _ProductImageHelper {
   const _ProductImageHelper._();
 
+  /// An image is considered outdated/expired after 1 year.
+  /// Note: the value will be sent in the future by the backend.
   static bool isExpired(final DateTime? uploadedDate) {
     if (uploadedDate == null) {
       return false;

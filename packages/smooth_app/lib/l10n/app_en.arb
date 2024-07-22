@@ -512,7 +512,7 @@
     },
     "outdated_image_accessibility_label": "{imageType} (this image may be outdated)",
     "@outdated_image_accessibility_label": {
-        "description": "Accessibility label for images that are outdated",
+        "description": "Accessibility label for images that are outdated (image type may be front/ingredients/nutrition…)",
         "placeholders": {
             "imageType": {}
         }
