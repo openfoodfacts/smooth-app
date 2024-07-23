@@ -194,6 +194,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                             focusNode: _focusNode,
                             controller: _brandNameController,
                             autocompleteKey: _autocompleteKey,
+                            allowEmojis: false,
                             hintText: appLocalizations.brand_name,
                             constraints: constraints,
                             manager: AutocompleteManager(
