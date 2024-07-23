@@ -108,6 +108,12 @@ class UserPreferencesContribute extends AbstractUserPreferences {
               UserPreferencesListTile.getTintedIcon(Icons.open_in_new, context),
           externalLink: true,
         ),
+        _getListTile(
+            'Help improve Open Food Facts in your country',
+            () async => LaunchUrlHelper.launchURL(
+                'https://wiki.openfoodfacts.org/Country_Support_- ${userPreferences.userCountryCode ?? 'France'}'),
+            const IconData(0xf68d),
+            externalLink: true),
         if (GlobalVars.appStore.getEnrollInBetaURL() != null)
           _getListTile(
             appLocalizations.contribute_enroll_alpha,
