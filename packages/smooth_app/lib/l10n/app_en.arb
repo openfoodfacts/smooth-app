@@ -180,7 +180,7 @@
     "help_improve_country":"Help improve Open Food Facts in your country",
     "@help_improve_country": {
         "description" : "label for a tile that is on the contribute tile"
-    }
+    },
     "sign_out": "Sign out",
     "@sign_out": {
         "description": "Button label: For sign out"
