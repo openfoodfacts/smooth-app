@@ -8,25 +8,29 @@ class SearchEmptyScreen extends StatelessWidget {
     required this.name,
     required this.emptiness,
     this.actions,
+    this.includeAppBar = true,
     Key? key,
   }) : super(key: key);
 
   final String name;
   final Widget emptiness;
   final List<Widget>? actions;
+  final bool includeAppBar;
 
   @override
   Widget build(BuildContext context) {
     return SmoothScaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        leading: const SmoothBackButton(),
-        title: SearchAppBarTitle(
-          title: name,
-          editableAppBarTitle: false,
-        ),
-        actions: actions,
-      ),
+      appBar: includeAppBar
+          ? AppBar(
+              backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+              leading: const SmoothBackButton(),
+              title: SearchAppBarTitle(
+                title: name,
+                editableAppBarTitle: false,
+              ),
+              actions: actions,
+            )
+          : null,
       body: Center(child: emptiness),
     );
   }

@@ -8,14 +8,14 @@ import 'package:smooth_app/pages/product/common/search_helper.dart';
 
 /// Search helper dedicated to location search.
 class SearchLocationHelper extends SearchHelper {
-  const SearchLocationHelper();
+  SearchLocationHelper();
 
   @override
   String get historyKey => DaoStringList.keySearchLocationHistory;
 
   @override
   String getHintText(final AppLocalizations appLocalizations) =>
-      'Rechercher un magasin';
+      appLocalizations.search_store;
 
   @override
   void search(
