@@ -8,6 +8,7 @@ import 'package:path/path.dart' as path;
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/services/smooth_services.dart';
 
 /// This screen is only used for deep links!
 ///
@@ -58,19 +59,24 @@ class _ExternalPageState extends State<ExternalPage> {
         url = '$url?lc=${language.offTag}';
       }
 
-      if (Platform.isAndroid) {
-        await tabs.launchUrl(
-          Uri.parse(url),
-          customTabsOptions: const tabs.CustomTabsOptions(
-            showTitle: true,
-          ),
-        );
-      } else {
-        await LaunchUrlHelper.launchURL(url);
-      }
-
-      if (mounted) {
-        AppNavigator.of(context).pop();
+      try {
+        if (Platform.isAndroid) {
+          WidgetsFlutterBinding.ensureInitialized();
+          await tabs.launchUrl(
+            Uri.parse(url),
+            customTabsOptions: const tabs.CustomTabsOptions(
+              showTitle: true,
+            ),
+          );
+        } else {
+          await LaunchUrlHelper.launchURL(url);
+        }
+      } catch (e) {
+        Logs.e('Unable to open an external link', ex: e);
+      } finally {
+        if (mounted) {
+          AppNavigator.of(context).pop();
+        }
       }
     });
   }
