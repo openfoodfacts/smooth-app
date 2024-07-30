@@ -6,6 +6,7 @@ const Widget EMPTY_WIDGET = SizedBox.shrink();
 
 const double VERY_SMALL_SPACE = 4.0;
 const double SMALL_SPACE = 8.0;
+const double BALANCED_SPACE = 10.0;
 const double MEDIUM_SPACE = 12.0;
 const double LARGE_SPACE = 16.0;
 const double VERY_LARGE_SPACE = 20.0;
@@ -20,6 +21,12 @@ const double DEFAULT_ICON_SIZE = 24.0;
 const Radius ROUNDED_RADIUS = Radius.circular(20.0);
 //ignore: non_constant_identifier_names
 const BorderRadius ROUNDED_BORDER_RADIUS = BorderRadius.all(ROUNDED_RADIUS);
+
+/// Topbar…
+const Radius HEADER_ROUNDED_RADIUS = Radius.circular(30.0);
+//ignore: non_constant_identifier_names
+const BorderRadius HEADER_BORDER_RADIUS =
+    BorderRadius.all(HEADER_ROUNDED_RADIUS);
 
 /// Full screen button, e.g. KnowledgePanel
 const Radius ANGULAR_RADIUS = Radius.circular(8.0);

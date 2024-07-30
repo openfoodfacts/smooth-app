@@ -1,9 +1,11 @@
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/fetched_product.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/image/product_image_other_page.dart';
 import 'package:smooth_app/pages/image/product_image_widget.dart';
@@ -107,6 +109,8 @@ class _RawGridGallery extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double squareSize = _getSquareSize(context);
+    final ImageSize? imageSize = _computeImageSize(squareSize);
+
     return SliverGrid(
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: _columns,
@@ -116,20 +120,28 @@ class _RawGridGallery extends StatelessWidget {
           // order by descending ids
           index = rawImages.length - 1 - index;
           final ProductImage productImage = rawImages[index];
-          return InkWell(
-            onTap: () async => Navigator.push<void>(
-              context,
-              MaterialPageRoute<bool>(
-                builder: (BuildContext context) => ProductImageOtherPage(
-                  product,
-                  int.parse(productImage.imgid!),
+          return Padding(
+            padding: EdgeInsetsDirectional.only(
+              start: VERY_SMALL_SPACE,
+              end: index % _columns == 0 ? VERY_SMALL_SPACE : 0.0,
+              bottom: VERY_SMALL_SPACE,
+            ),
+            child: InkWell(
+              onTap: () async => Navigator.push<void>(
+                context,
+                MaterialPageRoute<bool>(
+                  builder: (BuildContext context) => ProductImageOtherPage(
+                    product,
+                    int.parse(productImage.imgid!),
+                  ),
                 ),
               ),
-            ),
-            child: ProductImageWidget(
-              productImage: productImage,
-              barcode: product.barcode!,
-              squareSize: squareSize,
+              child: ProductImageWidget(
+                productImage: productImage,
+                barcode: product.barcode!,
+                squareSize: squareSize,
+                imageSize: imageSize,
+              ),
             ),
           );
         },
@@ -138,4 +150,12 @@ class _RawGridGallery extends StatelessWidget {
       ),
     );
   }
+
+  ImageSize? _computeImageSize(double squareSize) => <ImageSize>[
+        ImageSize.THUMB,
+        ImageSize.SMALL,
+        ImageSize.DISPLAY
+      ].firstWhereOrNull(
+        (ImageSize element) => squareSize <= int.parse(element.number),
+      );
 }

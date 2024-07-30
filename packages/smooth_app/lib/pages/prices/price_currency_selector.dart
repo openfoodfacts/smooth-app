@@ -30,7 +30,7 @@ class PriceCurrencySelector extends StatelessWidget {
         }
       },
       text: selected.getFullName(),
-      icon: Icons.currency_exchange,
+      icon: helper.currencyIconData,
     );
   }
 }

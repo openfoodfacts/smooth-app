@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/helpers/strings_helper.dart';
 
 enum TextFieldTypes {
   PLAIN_TEXT,
@@ -24,6 +26,8 @@ class SmoothTextFormField extends StatefulWidget {
     this.onFieldSubmitted,
     this.autofocus,
     this.focusNode,
+    this.spellCheckConfiguration,
+    this.allowEmojis = true,
   });
 
   final TextFieldTypes type;
@@ -40,6 +44,8 @@ class SmoothTextFormField extends StatefulWidget {
   final ValueChanged<String>? onFieldSubmitted;
   final bool? autofocus;
   final FocusNode? focusNode;
+  final SpellCheckConfiguration? spellCheckConfiguration;
+  final bool allowEmojis;
 
   @override
   State<SmoothTextFormField> createState() => _SmoothTextFormFieldState();
@@ -83,9 +89,15 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
               setState(() {});
             }
           },
+      spellCheckConfiguration: widget.spellCheckConfiguration ??
+          const SpellCheckConfiguration.disabled(),
       onFieldSubmitted: widget.onFieldSubmitted,
       style: TextStyle(fontSize: textSize),
       cursorHeight: textSize * (textStyle.height ?? 1.4),
+      inputFormatters: <TextInputFormatter>[
+        if (!widget.allowEmojis)
+          FilteringTextInputFormatter.deny(TextHelper.emojiRegex),
+      ],
       decoration: InputDecoration(
         contentPadding: const EdgeInsets.symmetric(
           horizontal: LARGE_SPACE,

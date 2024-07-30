@@ -318,9 +318,9 @@ class _AddNewProductPageState extends State<AddNewProductPage>
   Widget _backButton() {
     return Container(
       margin: const EdgeInsetsDirectional.only(
-        start: 10.0,
-        end: 10.0,
-        top: 10.0,
+        start: BALANCED_SPACE,
+        end: BALANCED_SPACE,
+        top: BALANCED_SPACE,
         bottom: 0.0,
       ),
       width: 20.0,
@@ -367,7 +367,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
             ),
           ),
         ),
-        const SizedBox(width: 10.0),
+        const SizedBox(width: BALANCED_SPACE),
         ElevatedButton(
           style: ElevatedButton.styleFrom(
             minimumSize: Size(MediaQuery.sizeOf(context).width * 0.35, 40.0),
@@ -459,7 +459,10 @@ class _AddNewProductPageState extends State<AddNewProductPage>
           setState(() => _ecoscoreExpanded = !_ecoscoreExpanded);
         },
         child: Container(
-          padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 15.0),
+          padding: const EdgeInsets.symmetric(
+            vertical: BALANCED_SPACE,
+            horizontal: 15.0,
+          ),
           decoration: BoxDecoration(
             borderRadius: ROUNDED_BORDER_RADIUS,
             color: _colorScheme.surface,
@@ -566,7 +569,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
       rows.add(_buildMainImageButton(context, upToDateProduct, data));
       rows.add(
         const Padding(
-          padding: EdgeInsets.symmetric(vertical: 10.0),
+          padding: EdgeInsets.symmetric(vertical: BALANCED_SPACE),
           child: UserPreferencesListItemDivider(),
         ),
       );

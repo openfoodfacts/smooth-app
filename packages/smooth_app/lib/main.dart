@@ -16,9 +16,9 @@ import 'package:provider/single_child_widget.dart';
 import 'package:scanner_shared/scanner_shared.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
+import 'package:smooth_app/data_models/news_feed/newsfeed_provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
-import 'package:smooth_app/data_models/tagline/tagline_provider.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
 import 'package:smooth_app/database/dao_string.dart';
 import 'package:smooth_app/database/local_database.dart';
@@ -81,11 +81,24 @@ Future<void> launchSmoothApp({
       WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
+  _enableEdgeToEdgeMode();
+
   if (kReleaseMode) {
     await AnalyticsHelper.initSentry(
         appRunner: () => runApp(const SmoothApp()));
   } else {
     runApp(const SmoothApp());
+  }
+}
+
+void _enableEdgeToEdgeMode() {
+  if (Platform.isAndroid) {
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(
+        systemNavigationBarColor: Colors.transparent,
+      ),
+    );
   }
 }
 
@@ -106,7 +119,6 @@ late TextContrastProvider _textContrastProvider;
 final ContinuousScanModel _continuousScanModel = ContinuousScanModel();
 final PermissionListener _permissionListener =
     PermissionListener(permission: Permission.camera);
-final TagLineProvider _tagLineProvider = TagLineProvider();
 bool _init1done = false;
 
 // Had to split init in 2 methods, for test/screenshots reasons.
@@ -224,15 +236,20 @@ class _SmoothAppState extends State<SmoothApp> {
             provide<UserManagementProvider>(_userManagementProvider),
             provide<ContinuousScanModel>(_continuousScanModel),
             provide<PermissionListener>(_permissionListener),
-            provide<TagLineProvider>(_tagLineProvider, lazy: true),
           ],
-          child: AnimationsLoader(
-            child: AppNavigator(
-              observers: <NavigatorObserver>[
-                SentryNavigatorObserver(),
-                matomoObserver,
-              ],
-              child: Builder(builder: _buildApp),
+          child: ChangeNotifierProvider<AppNewsProvider>(
+            create: (BuildContext context) => AppNewsProvider(
+              context.read<UserPreferences>(),
+            ),
+            lazy: true,
+            child: AnimationsLoader(
+              child: AppNavigator(
+                observers: <NavigatorObserver>[
+                  SentryNavigatorObserver(),
+                  matomoObserver,
+                ],
+                child: Builder(builder: _buildApp),
+              ),
             ),
           ),
         );

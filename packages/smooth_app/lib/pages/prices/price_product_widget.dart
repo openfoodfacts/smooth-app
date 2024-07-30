@@ -18,10 +18,10 @@ class PriceProductWidget extends StatelessWidget {
   final PriceProduct priceProduct;
   final GetPricesModel model;
 
-  static const double _imageSize = 75;
-
   @override
   Widget build(BuildContext context) {
+    final Size screenSize = MediaQuery.sizeOf(context);
+    final double size = screenSize.width * 0.20;
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final String name = priceProduct.name ?? priceProduct.code;
     final bool unknown = priceProduct.name == null;
@@ -31,31 +31,30 @@ class PriceProductWidget extends StatelessWidget {
     final String? quantity = priceProduct.quantity == null
         ? null
         : '${priceProduct.quantity} ${priceProduct.quantityUnit ?? 'g'}';
-    return LayoutBuilder(
-      builder: (
-        final BuildContext context,
-        final BoxConstraints constraints,
-      ) =>
-          Row(
+    return Semantics(
+      label: _generateSemanticsLabel(
+        appLocalizations,
+        name,
+        brands,
+        quantity,
+        priceCount,
+      ),
+      container: true,
+      excludeSemantics: true,
+      child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           SizedBox(
-            width: _imageSize,
-            child: imageURL == null
-                ? const Icon(
-                    Icons.question_mark,
-                    size: _imageSize / 2,
-                  )
-                : SmoothImage(
-                    width: _imageSize,
-                    height: _imageSize,
-                    imageProvider: NetworkImage(imageURL),
-                  ),
+            width: size,
+            child: SmoothImage(
+              width: size,
+              height: size,
+              imageProvider: imageURL == null ? null : NetworkImage(imageURL),
+            ),
           ),
           const SizedBox(width: SMALL_SPACE),
-          SizedBox(
-            width: constraints.maxWidth - _imageSize - SMALL_SPACE,
+          Expanded(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -72,8 +71,7 @@ class PriceProductWidget extends StatelessWidget {
                   children: <Widget>[
                     PriceCountWidget(
                       priceCount,
-                      barcode: priceProduct.code,
-                      name: name,
+                      priceProduct: priceProduct,
                       enableCountButton: model.enableCountButton,
                     ),
                     if (brands != null)
@@ -100,6 +98,27 @@ class PriceProductWidget extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+
+  String _generateSemanticsLabel(
+    AppLocalizations appLocalizations,
+    String productName,
+    List<String>? brands,
+    String? quantity,
+    int priceCount,
+  ) {
+    final StringBuffer product = StringBuffer(productName);
+    if (brands?.isNotEmpty == true) {
+      product.write(' - ${brands!.join(', ')}');
+    }
+    if (quantity?.isNotEmpty == true) {
+      product.write(' ($quantity)');
+    }
+
+    return appLocalizations.prices_product_accessibility_summary(
+      priceCount,
+      product.toString(),
     );
   }
 }

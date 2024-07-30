@@ -160,23 +160,27 @@ class VisorButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      type: MaterialType.transparency,
-      child: InkWell(
-        onTap: onTap,
-        borderRadius: const BorderRadius.all(
-          Radius.circular(
-            SmoothBarcodeScannerVisor.CORNER_PADDING,
+    return Semantics(
+      label: tooltip,
+      excludeSemantics: true,
+      child: Material(
+        type: MaterialType.transparency,
+        child: InkWell(
+          onTap: onTap,
+          borderRadius: const BorderRadius.all(
+            Radius.circular(
+              SmoothBarcodeScannerVisor.CORNER_PADDING,
+            ),
           ),
-        ),
-        child: Tooltip(
-          message: tooltip,
-          enableFeedback: true,
-          child: Padding(
-            padding: const EdgeInsets.all(12.0),
-            child: IconTheme(
-              data: const IconThemeData(color: Colors.white),
-              child: child,
+          child: Tooltip(
+            message: tooltip,
+            enableFeedback: true,
+            child: Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: IconTheme(
+                data: const IconThemeData(color: Colors.white),
+                child: child,
+              ),
             ),
           ),
         ),

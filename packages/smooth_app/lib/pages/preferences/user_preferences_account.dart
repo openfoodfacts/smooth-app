@@ -18,7 +18,12 @@ import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/prices/get_prices_model.dart';
+import 'package:smooth_app/pages/prices/price_meta_product.dart';
+import 'package:smooth_app/pages/prices/price_user_button.dart';
 import 'package:smooth_app/pages/prices/prices_page.dart';
+import 'package:smooth_app/pages/prices/prices_proofs_page.dart';
+import 'package:smooth_app/pages/prices/prices_users_page.dart';
+import 'package:smooth_app/pages/prices/product_price_add_page.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/user_management/login_page.dart';
 import 'package:smooth_app/query/paged_product_query.dart';
@@ -142,10 +147,10 @@ class UserPreferencesAccount extends AbstractUserPreferences {
             child: ElevatedButton(
               onPressed: () async => _goToLoginPage(),
               style: ButtonStyle(
-                minimumSize: MaterialStateProperty.all<Size>(
+                minimumSize: WidgetStateProperty.all<Size>(
                   Size(size.width * 0.5, themeData.buttonTheme.height + 10),
                 ),
-                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                shape: WidgetStateProperty.all<RoundedRectangleBorder>(
                   const RoundedRectangleBorder(
                     borderRadius: CIRCULAR_BORDER_RADIUS,
                   ),
@@ -214,35 +219,43 @@ class UserPreferencesAccount extends AbstractUserPreferences {
         myCount: _getMyCount(UserSearchType.TO_BE_COMPLETED),
       ),
       _getListTile(
-        appLocalizations.user_search_prices_title,
-        () async => Navigator.of(context).push(
-          MaterialPageRoute<void>(
-            builder: (BuildContext context) => PricesPage(
-              GetPricesModel(
-                parameters: GetPricesParameters()
-                  ..owner = userId
-                  ..orderBy = <OrderBy<GetPricesOrderField>>[
-                    const OrderBy<GetPricesOrderField>(
-                      field: GetPricesOrderField.created,
-                      ascending: false,
-                    ),
-                  ]
-                  ..pageSize = GetPricesModel.pageSize
-                  ..pageNumber = 1,
-                displayOwner: false,
-                displayProduct: true,
-                uri: OpenPricesAPIClient.getUri(
-                  path: 'app/users/${ProductQuery.getWriteUser().userId}',
-                  uriHelper: ProductQuery.uriProductHelper,
-                ),
-                title: appLocalizations.user_search_prices_title,
-                subtitle: ProductQuery.getWriteUser().userId,
-              ),
-            ),
-          ),
+        PriceUserButton.showUserTitle(
+          user: ProductQuery.getWriteUser().userId,
+          context: context,
+        ),
+        () async => PriceUserButton.showUserPrices(
+          user: ProductQuery.getWriteUser().userId,
+          context: context,
         ),
         CupertinoIcons.money_dollar_circle,
         myCount: _getPricesCount(owner: ProductQuery.getWriteUser().userId),
+      ),
+      _getListTile(
+        appLocalizations.user_search_proofs_title,
+        () async => Navigator.of(context).push(
+          MaterialPageRoute<void>(
+            builder: (BuildContext context) => const PricesProofsPage(),
+          ),
+        ),
+        Icons.receipt,
+      ),
+      _getListTile(
+        appLocalizations.prices_add_a_receipt,
+        () async => ProductPriceAddPage.showProductPage(
+          context: context,
+          product: PriceMetaProduct.empty(),
+          proofType: ProofType.receipt,
+        ),
+        Icons.add_shopping_cart,
+      ),
+      _getListTile(
+        appLocalizations.prices_add_price_tags,
+        () async => ProductPriceAddPage.showProductPage(
+          context: context,
+          product: PriceMetaProduct.empty(),
+          proofType: ProofType.priceTag,
+        ),
+        Icons.add_shopping_cart,
       ),
       _getListTile(
         appLocalizations.all_search_prices_latest_title,
@@ -273,9 +286,14 @@ class UserPreferencesAccount extends AbstractUserPreferences {
         CupertinoIcons.money_dollar_circle,
         myCount: _getPricesCount(),
       ),
-      _getPriceListTile(
+      _getListTile(
         appLocalizations.all_search_prices_top_user_title,
-        'app/users',
+        () async => Navigator.of(context).push(
+          MaterialPageRoute<void>(
+            builder: (BuildContext context) => const PricesUsersPage(),
+          ),
+        ),
+        Icons.account_box,
       ),
       _getPriceListTile(
         appLocalizations.all_search_prices_top_location_title,

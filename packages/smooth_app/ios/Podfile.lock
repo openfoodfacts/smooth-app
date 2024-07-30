@@ -101,7 +101,7 @@ PODS:
     - GTMSessionFetcher/Core (< 3.0, >= 1.1)
     - MLImage (= 1.0.0-beta4)
     - MLKitCommon (~> 9.0)
-  - mobile_scanner (3.5.2):
+  - mobile_scanner (3.5.6):
     - Flutter
     - GoogleMLKit/BarcodeScanning (~> 4.0.0)
   - MTBBarcodeScanner (5.0.11)
@@ -268,7 +268,7 @@ SPEC CHECKSUMS:
   connectivity_plus: bf0076dd84a130856aa636df1c71ccaff908fa1d
   device_info_plus: c6fb39579d0f423935b0c9ce7ee2f44b71b9fce6
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
-  flutter_custom_tabs_ios: 62439c843b2691aae516fd50119a01eb9755fff7
+  flutter_custom_tabs_ios: a651b18786388923b62de8c0537607de87c2eccf
   flutter_email_sender: 10a22605f92809a11ef52b2f412db806c6082d40
   flutter_icmp_ping: 2b159955eee0c487c766ad83fec224ae35e7c935
   flutter_image_compress_common: ec1d45c362c9d30a3f6a0426c297f47c52007e3e
@@ -281,8 +281,8 @@ SPEC CHECKSUMS:
   GoogleUtilitiesComponents: 679b2c881db3b615a2777504623df6122dd20afe
   GTMSessionFetcher: 3a63d75eecd6aa32c2fc79f578064e1214dfdec2
   image_picker_ios: c560581cceedb403a6ff17f2f816d7fea1421fc1
-  in_app_review: 4a97249f7a2f539a0f294c2d9196b7fe35e49541
-  integration_test: 13825b8a9334a850581300559b8839134b124670
+  in_app_review: 318597b3a06c22bb46dc454d56828c85f444f99d
+  integration_test: ce0a3ffa1de96d1a89ca0ac26fca7ea18a749ef4
   iso_countries: eb09d40f388e4c65e291e0bb36a701dfe7de6c74
   libwebp: 1786c9f4ff8a279e4dac1e8f385004d5fc253009
   Mantle: c5aa8794a29a022dfbbfc9799af95f477a69b62d
@@ -290,7 +290,7 @@ SPEC CHECKSUMS:
   MLKitBarcodeScanning: 04e264482c5f3810cb89ebc134ef6b61e67db505
   MLKitCommon: c1b791c3e667091918d91bda4bba69a91011e390
   MLKitVision: 8baa5f46ee3352614169b85250574fde38c36f49
-  mobile_scanner: 5090a13b7a35fc1c25b0d97e18e84f271a6eb605
+  mobile_scanner: 38dcd8a49d7d485f632b7de65e4900010187aef2
   MTBBarcodeScanner: f453b33c4b7dfe545d8c6484ed744d55671788cb
   nanopb: 438bc412db1928dac798aa6fd75726007be04262
   package_info_plus: 115f4ad11e0698c8c1c5d8a689390df880f47e85
@@ -311,6 +311,6 @@ SPEC CHECKSUMS:
   url_launcher_ios: 5334b05cef931de560670eeae103fd3e431ac3fe
   webview_flutter_wkwebview: be0f0d33777f1bfd0c9fdcb594786704dbf65f36
 
-PODFILE CHECKSUM: a2ded99d2ba03f677e98efb8fb92d57b3a65b96f
+PODFILE CHECKSUM: 31bd95b3ebe08a1371aec307f223993946c837a3
 
 COCOAPODS: 1.15.2

@@ -1,6 +1,6 @@
-part of 'tagline_provider.dart';
+part of 'newsfeed_provider.dart';
 
-/// Content from the JSON and converted to what's in "tagmodel.dart"
+/// Content from the JSON and converted to what's in "newsfeed_model.dart"
 
 class _TagLineJSON {
   _TagLineJSON.fromJson(Map<dynamic, dynamic> json)
@@ -15,17 +15,16 @@ class _TagLineJSON {
   final _TagLineJSONNewsList news;
   final _TaglineJSONFeed taglineFeed;
 
-  TagLine toTagLine(String locale) {
-    final Map<String, TagLineNewsItem> tagLineNews = news.map(
-      (String key, _TagLineItemNewsItem value) =>
-          MapEntry<String, TagLineNewsItem>(
+  AppNews toTagLine(String locale) {
+    final Map<String, AppNewsItem> tagLineNews = news.map(
+      (String key, _TagLineItemNewsItem value) => MapEntry<String, AppNewsItem>(
         key,
         value.toTagLineItem(locale),
       ),
     );
 
     final _TagLineJSONFeedLocale localizedFeed = taglineFeed.loadNews(locale);
-    final Iterable<TagLineFeedItem> feed = localizedFeed.news
+    final Iterable<AppNewsFeedItem> feed = localizedFeed.news
         .map((_TagLineJSONFeedLocaleItem item) {
           if (news[item.id] == null) {
             // The asked ID doesn't exist in the news
@@ -33,16 +32,16 @@ class _TagLineJSON {
           }
           return item.overrideNewsItem(news[item.id]!, locale);
         })
-        .where((TagLineFeedItem? item) =>
+        .where((AppNewsFeedItem? item) =>
             item != null &&
             (item.startDate == null ||
                 item.startDate!.isBefore(DateTime.now())) &&
             (item.endDate == null || item.endDate!.isAfter(DateTime.now())))
         .whereNotNull();
 
-    return TagLine(
-      news: TagLineNewsList(tagLineNews),
-      feed: TagLineFeed(
+    return AppNews(
+      news: AppNewsList(tagLineNews),
+      feed: AppNewsFeed(
         feed.toList(growable: false),
       ),
     );
@@ -97,19 +96,23 @@ class _TagLineItemNewsItem {
     if (_translations.containsKey(locale)) {
       translation = _translations[locale];
     } else if (locale.contains('_')) {
-      final String languageCode = locale.split('_').first;
+      final List<String> splittedLocale = locale.split('_');
+      final String languageCode = splittedLocale.first;
+      final String countryCode = '_${splittedLocale.last}';
       if (_translations.containsKey(languageCode)) {
         translation = _translations[languageCode];
+      } else if (_translations.containsKey(countryCode)) {
+        translation = _translations[countryCode];
       }
     }
 
     return _translations['default']!.merge(translation);
   }
 
-  TagLineNewsItem toTagLineItem(String locale) {
+  AppNewsItem toTagLineItem(String locale) {
     final _TagLineItemNewsTranslation translation = loadTranslation(locale);
     // We can assume the default translation has a non-null title and message
-    return TagLineNewsItem(
+    return AppNewsItem(
       id: id,
       title: translation.title!,
       message: translation.message!,
@@ -118,7 +121,9 @@ class _TagLineItemNewsItem {
       startDate: startDate,
       endDate: endDate,
       style: style?.toTagLineStyle(),
-      image: translation.image?.toTagLineImage(),
+      image: translation.image?.overridesContent == true
+          ? translation.image?.toTagLineImage()
+          : null,
     );
   }
 
@@ -207,30 +212,34 @@ class _TagLineItemNewsTranslationDefault extends _TagLineItemNewsTranslation {
   _TagLineItemNewsTranslationDefault.fromJson(Map<dynamic, dynamic> json)
       : assert((json['title'] as String).isNotEmpty),
         assert((json['message'] as String).isNotEmpty),
+        assert(json['image'] == null ||
+            ((json['image'] as Map<String, dynamic>)['url'] as String)
+                .isNotEmpty),
         super.fromJson(json);
 }
 
 class _TagLineNewsImage {
   _TagLineNewsImage.fromJson(Map<dynamic, dynamic> json)
-      : assert((json['url'] as String).isNotEmpty),
-        assert(json['width'] == null ||
+      : assert(json['width'] == null ||
             ((json['width'] as num) >= 0.0 && (json['width'] as num) <= 1.0)),
         assert(json['alt'] == null || (json['alt'] as String).isNotEmpty),
         url = json['url'],
         width = json['width'],
         alt = json['alt'];
 
-  final String url;
+  final String? url;
   final double? width;
   final String? alt;
 
-  TagLineImage toTagLineImage() {
-    return TagLineImage(
+  AppNewsImage toTagLineImage() {
+    return AppNewsImage(
       src: url,
       width: width,
       alt: alt,
     );
   }
+
+  bool get overridesContent => url != null || width != null || alt != null;
 }
 
 class _TagLineNewsStyle {
@@ -303,7 +312,7 @@ class _TagLineNewsStyle {
     );
   }
 
-  TagLineStyle toTagLineStyle() => TagLineStyle.fromHexa(
+  AppNewsStyle toTagLineStyle() => AppNewsStyle.fromHexa(
         titleBackground: titleBackground,
         titleTextColor: titleTextColor,
         titleIndicatorColor: titleIndicatorColor,
@@ -336,9 +345,13 @@ class _TaglineJSONFeed {
 
     // Try by language
     if (locale.contains('_')) {
-      final String languageCode = locale.split('_').first;
+      final List<String> splittedLocale = locale.split('_');
+      final String languageCode = splittedLocale.first;
+      final String countryCode = '_${splittedLocale.last}';
       if (_news.containsKey(languageCode)) {
         return _news[languageCode]!;
+      } else if (_news.containsKey(countryCode)) {
+        return _news[countryCode]!;
       }
     }
 
@@ -369,7 +382,7 @@ class _TagLineJSONFeedLocaleItem {
   final String id;
   final _TagLineJSONFeedNewsItemOverride? overrideContent;
 
-  TagLineFeedItem overrideNewsItem(
+  AppNewsFeedItem overrideNewsItem(
     _TagLineItemNewsItem newsItem,
     String locale,
   ) {
@@ -384,9 +397,9 @@ class _TagLineJSONFeedLocaleItem {
       );
     }
 
-    final TagLineNewsItem tagLineItem = item.toTagLineItem(locale);
+    final AppNewsItem tagLineItem = item.toTagLineItem(locale);
 
-    return TagLineFeedItem(
+    return AppNewsFeedItem(
       news: tagLineItem,
       startDate: tagLineItem.startDate,
       endDate: tagLineItem.endDate,

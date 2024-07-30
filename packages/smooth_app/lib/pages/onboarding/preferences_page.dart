@@ -109,6 +109,7 @@ class _HelperState extends State<_Helper> {
           isRemovable: false,
           isSettingVisible: false,
           isProductEditable: false,
+          showQuestionsBanner: false,
         ),
       ),
     ];

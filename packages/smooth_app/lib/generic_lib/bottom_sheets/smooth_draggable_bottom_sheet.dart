@@ -84,7 +84,7 @@ class SmoothDraggableBottomSheetState
                               : widget.initHeightFraction,
                           scrollController: controller,
                           cacheExtent: _calculateCacheExtent(
-                            MediaQuery.of(context).viewInsets.bottom,
+                            MediaQuery.viewInsetsOf(context).bottom,
                           ),
                         ),
                       ),

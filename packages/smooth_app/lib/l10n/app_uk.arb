@@ -14,6 +14,10 @@
     "@reason": {},
     "okay": "Okay",
     "@okay": {},
+    "validate": "Перевірити",
+    "@validate": {
+        "description": "Button label: Validate the input"
+    },
     "create": "Створити",
     "@create": {
         "description": "An action to create"
@@ -128,10 +132,6 @@
     "whatIsOff": "OpenFoodFacts - це світова некомерційна організація, що підтримується місцевими спільнотами.",
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
-    },
-    "offUtility": "Обирайте їжу, що не шкодить ні Вам, ні планеті.",
-    "@offUtility": {
-        "description": "Description of what a user can use Open Food Facts for."
     },
     "productDataUtility": "Продивіться дані про харчові продукти, що відповідають вашим вподобанням.",
     "@productDataUtility": {
@@ -750,6 +750,24 @@
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
+    "product_image_accessibility_label": "Зображення зроблене {date}",
+    "@product_image_accessibility_label": {
+        "placeholders": {
+            "date": {
+                "type": "String",
+                "description": "The date of picture (in localized format for YYYY-MM-DD)"
+            }
+        }
+    },
+    "product_image_outdated_accessibility_label": "Зображення, зроблене {date}. Це зображення може бути застарілим",
+    "@product_image_outdated_accessibility_label": {
+        "placeholders": {
+            "date": {
+                "type": "String",
+                "description": "The date of picture (in localized format for YYYY-MM-DD)"
+            }
+        }
+    },
     "homepage_main_card_logo_description": "Вітаємо в Open Food Facts",
     "@homepage_main_card_logo_description": {
         "description": "Description for accessibility of the Open Food Facts logo on the homepage"
@@ -762,6 +780,15 @@
     "homepage_main_card_search_field_tooltip": "Почати пошук",
     "@homepage_main_card_search_field_tooltip": {
         "description": "Description for accessibility of the search field on the homepage"
+    },
+    "scan_tagline_news_item_accessibility": "Останні новини: {news_title}",
+    "@scan_tagline_news_item_accessibility": {
+        "description": "Accessibility label for the title of a news",
+        "placeholders": {
+            "news_title": {
+                "type": "String"
+            }
+        }
     },
     "tagline_app_review": "Вам подобається цей додаток?",
     "tagline_app_review_button_positive": "Я в захопленні! 😍",
@@ -1092,14 +1119,12 @@
             }
         }
     },
-    "onboarding_reinventing_text1": "Ми розробили додаток\nдля спільного сканування\nу 2012 році",
-    "@onboarding_reinventing_text1": {
-        "description": "Onboarding / Reinventing page: text 1/2. If possible, balanced on 3 lines."
+    "onboarding_home_welcome_text1": "Ласкаво просимо!",
+    "onboarding_home_welcome_text2": "Додаток, який допоможе вам вибрати їжу, яка корисна для **вас** і **планети**!",
+    "@onboarding_home_welcome_text2": {
+        "description": "Onboarding home screen welcome text, text surrounded by * will be bold"
     },
-    "onboarding_reinventing_text2": "Оскільки нам виповнюється 10 років,\nми переосмислюємо його\nз нуля!",
-    "@onboarding_reinventing_text2": {
-        "description": "Onboarding / Reinventing page: text 2/2. If possible, balanced on 3 lines."
-    },
+    "onboarding_continue_button": "Продовжити",
     "onboarding_welcome_loading_dialog_title": "Завантаження вашого першого прикладу продукту",
     "@onboarding_welcome_loading_dialog_title": {
         "description": "Title for the onboarding loading dialog"
@@ -1209,6 +1234,10 @@
     "camera_play_sound_subtitle": "Буде відтворення звукового сигналу після кожного успішного сканування",
     "@camera_play_sound_subtitle": {
         "description": "SubTitle for the Camera play sound toggle"
+    },
+    "camera_window_accessibility_label": "Відскануйте штрих-код камерою",
+    "@camera_window_accessibility_label": {
+        "description": "Accessibility label for the camera window"
     },
     "app_haptic_feedback_title": "Вібрація та тактильні відчуття",
     "@app_haptic_feedback_title": {
@@ -1450,17 +1479,49 @@
     "completed_basic_details_btn_text": "Заповніть основні деталі",
     "not_implemented_snackbar_text": "Ще не реалізовано",
     "category_picker_page_appbar_text": "Категорії",
-    "edit_ingredients_extrait_ingredients_btn_text": "Вилучити інгредієнти",
-    "@edit_ingredients_extrait_ingredients_btn_text": {
+    "edit_ingredients_extract_ingredients_btn_text": "Видобути інгредієнти з фото",
+    "@edit_ingredients_extract_ingredients_btn_text": {
         "description": "Ingredients edition - Extract ingredients"
+    },
+    "edit_ingredients_extracting_ingredients_btn_text": "Отримання інгредієнтів із зображення",
+    "@edit_ingredients_extracting_ingredients_btn_text": {
+        "description": "Ingredients edition - Extracting ingredients"
+    },
+    "edit_ingredients_loading_photo_btn_text": "Завантаження фото…",
+    "@edit_ingredients_loading_photo_btn_text": {
+        "description": "Ingredients edition - Loading photo from the server"
+    },
+    "edit_ingredients_loading_photo_help_dialog_title": "Чому я бачу це повідомлення?",
+    "@edit_ingredients_loading_photo_help_dialog_title": {
+        "description": "Ingredients edition - Dialog explaining why the photo is loading - Title"
+    },
+    "edit_ingredients_loading_photo_help_dialog_body": "Щоб скористатися функцією «Витяг інгредієнтів», спершу потрібно завантажити фото.\n\nЗачекайте кілька секунд або введіть їх вручну.",
+    "@edit_ingredients_loading_photo_help_dialog_body": {
+        "description": "Ingredients edition - Dialog explaining why the photo is loading - Content"
     },
     "edit_ingredients_refresh_photo_btn_text": "Оновити фото",
     "@edit_ingredients_refresh_photo_btn_text": {
         "description": "Ingredients edition - Refresh photo"
     },
-    "edit_packaging_extract_btn_text": "Розпакування пакунків",
+    "edit_packaging_extract_btn_text": "Видобути упаковку\nз фото",
     "@edit_packaging_extract_btn_text": {
         "description": "Packaging edition - OCR-Extract packaging"
+    },
+    "edit_packaging_extracting_btn_text": "Вилучення пакунка з фотографії",
+    "@edit_packaging_extracting_btn_text": {
+        "description": "Packaging edition - OCR-Extracting packaging"
+    },
+    "edit_packaging_loading_photo_btn_text": "Завантаження фото…",
+    "@edit_packaging_loading_photo_btn_text": {
+        "description": "Packaging edition - Loading photo from the server"
+    },
+    "edit_packaging_loading_photo_help_dialog_title": "Чому я бачу це повідомлення?",
+    "@edit_packaging_loading_photo_help_dialog_title": {
+        "description": "Packaging edition - Dialog explaining why the photo is loading - Title"
+    },
+    "edit_packaging_loading_photo_help_dialog_body": "Щоб скористатися функцією «Витягнути упаковку», спочатку потрібно завантажити фотографію.\n\nЗачекайте кілька секунд або введіть їх вручну.",
+    "@edit_packaging_loading_photo_help_dialog_body": {
+        "description": "Packaging edition - Dialog explaining why the photo is loading - Content"
     },
     "edit_packaging_refresh_photo_btn_text": "Оновити фото",
     "@edit_packaging_refresh_photo_btn_text": {
@@ -1671,12 +1732,67 @@
     "@dev_preferences_import_history_subtitle": {
         "description": "User dev preferences - Import history - Subtitle"
     },
+    "dev_preferences_news_custom_url_title": "Custom URL for news",
+    "@dev_preferences_news_custom_url_title": {
+        "description": "News dev preferences - Custom URL for news - Title"
+    },
+    "dev_preferences_news_custom_url_subtitle": "URL of the JSON file:",
+    "@dev_preferences_news_custom_url_subtitle": {
+        "description": "News dev preferences - Custom URL for news - Title"
+    },
+    "dev_preferences_news_custom_url_empty_value": "Not set",
+    "@dev_preferences_news_custom_url_empty_value": {
+        "description": "Message to show when the custom news URL is not set"
+    },
+    "dev_preferences_news_provider_status_title": "Стан",
+    "@dev_preferences_news_provider_status_title": {
+        "description": "News dev preferences - Status - Title"
+    },
+    "dev_preferences_news_provider_status_subtitle": "Last refresh: {date}",
+    "@dev_preferences_news_provider_status_subtitle": {
+        "description": "News dev preferences - Custom URL for news - Subtitle",
+        "placeholders": {
+            "date": {
+                "type": "String"
+            }
+        }
+    },
     "prices_app_dev_mode_flag": "Ярлик програми «Ціни» на сторінці продукту",
     "prices_app_button": "Перейдіть у додаток Ціни",
     "prices_generic_title": "Ціни",
+    "prices_add_n_prices": "{count,plural, =1{Add a price} other{App {count} prices}}",
+    "prices_send_n_prices": "{count,plural, =1{Send the price} other{Send {count} prices}}",
+    "prices_add_an_item": "Додати елемент",
     "prices_add_a_price": "Додати ціну",
-    "prices_send_the_price": "Send the price",
+    "prices_add_a_receipt": "Додати чек",
+    "prices_add_price_tags": "Додайте цінові бірки",
+    "prices_barcode_search_not_found": "Товар не знайдено",
+    "prices_barcode_search_none_yet": "Ще немає товару",
+    "prices_barcode_search_question": "Ви хочете шукати цей продукт?",
+    "prices_barcode_search_title": "Пошук товару",
+    "prices_barcode_search_running": "Шукаю {barcode}",
+    "@prices_barcode_search_running": {
+        "description": "Dialog title about barcode look-up",
+        "placeholders": {
+            "barcode": {
+                "type": "String"
+            }
+        }
+    },
+    "prices_barcode_reader_action": "Сканер штрих-коду",
     "prices_view_prices": "Переглянути ціни",
+    "prices_product_accessibility_summary": "{count,plural, =1{1 price} other{{count} prices}} for {product}",
+    "@prices_product_accessibility_summary": {
+        "description": "A card summarizing the number of prices for a product",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            },
+            "product": {
+                "type": "String"
+            }
+        }
+    },
     "prices_list_length_one_page": "{count,plural, =0{No price yet} =1{Only one price} other{All {count} prices}}",
     "@prices_list_length_one_page": {
         "description": "Number of prices for one-page result",
@@ -1698,11 +1814,76 @@
             }
         }
     },
+    "prices_entry_accessibility_label": "Price: {price} / Store: \"{location}\" / Published on {date} by \"{user}\"",
+    "@prices_entry_accessibility_label": {
+        "description": "Accessibility label for a price entry",
+        "placeholders": {
+            "price": {
+                "type": "String"
+            },
+            "location": {
+                "type": "String"
+            },
+            "date": {
+                "type": "String"
+            },
+            "user": {
+                "type": "String"
+            }
+        }
+    },
+    "prices_open_user_proofs": "Open proofs of \"{user}\"",
+    "@prices_open_user_proofs": {
+        "description": "Button to open the proofs of a user",
+        "placeholders": {
+            "user": {
+                "type": "String"
+            }
+        }
+    },
+    "prices_open_proof": "Open price proof",
+    "@prices_open_proof": {
+        "description": "Button to open a proof"
+    },
+    "prices_proofs_list_length_one_page": "{count,plural, =0{No proof yet} =1{Only one proof} other{All {count} proofs}}",
+    "@prices_proofs_list_length_one_page": {
+        "description": "Number of proofs for one-page result",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_proofs_list_length_many_pages": "Останні {pageSize} докази (всього: {total})",
+    "@prices_proofs_list_length_many_pages": {
+        "description": "Number of proofs for one-page result",
+        "placeholders": {
+            "pageSize": {
+                "type": "int"
+            },
+            "total": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_users_list_length_many_pages": "Топ {pageSize} учасників (всього: {total})",
+    "@prices_users_list_length_many_pages": {
+        "description": "Number of users for one-page result",
+        "placeholders": {
+            "pageSize": {
+                "type": "int"
+            },
+            "total": {
+                "type": "int"
+            }
+        }
+    },
     "prices_amount_subtitle": "Кількість",
     "prices_amount_is_discounted": "Чи є знижка?",
     "prices_amount_price_normal": "Ціна",
     "prices_amount_price_discounted": "Ціна зі знижкою",
     "prices_amount_price_not_discounted": "Початкова ціна",
+    "prices_amount_no_product": "Бракує одного товару!",
     "prices_amount_price_incorrect": "Помилкове значення",
     "prices_amount_price_mandatory": "Обов'язкове значення",
     "prices_currency_subtitle": "Currency",
@@ -1726,9 +1907,23 @@
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"
     },
+    "dev_mode_section_server": "Конфігурація сервера",
+    "dev_mode_section_news": "News provider configuration",
+    "dev_mode_section_product_page": "Сторінка продукту",
+    "dev_mode_section_ui": "Інтерфейс користувача",
+    "dev_mode_section_data": "Дані",
+    "dev_mode_section_experimental_features": "Експериментальні функції",
     "dev_mode_hide_ecoscore_title": "Вимкнути Eco-Score",
     "@dev_mode_hide_ecoscore_title": {
         "description": "User dev preferences - Disable Ecoscore - Title"
+    },
+    "dev_mode_spellchecker_for_ocr_title": "Використовуйте перевірку орфографії для OCR екранів",
+    "@dev_mode_spellchecker_for_ocr_title": {
+        "description": "User dev preferences - Enable Spellchecker on OCR screens - Title"
+    },
+    "dev_mode_spellchecker_for_ocr_subtitle": "(Інгредієнти та упаковка)",
+    "@dev_mode_spellchecker_for_ocr_subtitle": {
+        "description": "User dev preferences - Enable Spellchecker on OCR screens - Subtitle"
     },
     "search_history_item_edit_tooltip": "Повторно використовуйте та редагуйте цей пошук",
     "@search_history_item_edit_tooltip": {
@@ -1784,6 +1979,18 @@
     "user_search_prices_title": "Мої ціни",
     "@user_search_prices_title": {
         "description": "User prices: list tile title"
+    },
+    "user_search_proofs_title": "Мої докази",
+    "@user_search_proofs_title": {
+        "description": "User proofs: list tile title"
+    },
+    "user_search_proof_title": "Мої докази",
+    "@user_search_proof_title": {
+        "description": "User proof: page title"
+    },
+    "user_any_search_prices_title": "Ціни вкладників",
+    "@user_any_search_prices_title": {
+        "description": "User prices (everybody except me): list tile title"
     },
     "all_search_prices_latest_title": "Останні додані ціни",
     "@all_search_prices_latest_title": {
@@ -2057,7 +2264,11 @@
     },
     "capture": "Зробити нове фото",
     "@capture": {
-        "description": "Button label for taking a photo"
+        "description": "Button label for taking a new photo (= there's already one)"
+    },
+    "capture_new_picture": "Сфотографувати",
+    "@capture_new_picture": {
+        "description": "Button label for taking a new photo (= the first one)"
     },
     "choose_from_gallery": "Вибрати з галереї",
     "@choose_from_gallery": {
@@ -2649,6 +2860,7 @@
     "faq_title_install_beauty": "Встановіть Open Beauty Facts для створення косметичної бази даних",
     "faq_title_install_pet": "Встановіть Open Pet Food Facts щоб створити базу даних для домашніх тварин",
     "faq_title_install_product": "Встановіть Open Products Facts, щоб створити базу даних продуктів і подовжити термін служби об’єктів",
+    "faq_nutriscore_nutriscore": "Новий розрахунок Nutri-Score: що нового?",
     "contact_title_pro_page": "Pro? Імпортуйте свої продукти в Open Food Facts",
     "contact_title_pro_email": "Контакт виробника",
     "contact_title_press_page": "Інформація для преси",
@@ -2736,9 +2948,17 @@
     "guide_nutriscore_v2_unchanged_title": "Що не змінилося",
     "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score – це оцінка, розроблена для **вимірювання якості харчування**. Він **доповнює групу NOVA** щодо **ультраоброблених продуктів** (також присутня в додатку).",
     "guide_nutriscore_v2_unchanged_paragraph2": "Для постачальників зображення Nutri-Score **залишається необов’язковим**.",
-    "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/guide/nutriscore-v2",
+    "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore",
     "guide_nutriscore_v2_share_message": "",
     "@guide_nutriscore_v2_share_message": {
         "description": "Please let empty for now (maybe use in the future)"
+    },
+    "preview_badge": "Попередній перегляд",
+    "@preview_badge": {
+        "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
+    },
+    "prices_feedback_form": "Натисніть тут, щоб надіслати нам свій відгук про цю нову функцію!",
+    "@prices_feedback_form": {
+        "description": "A button to send feedback about the prices feature"
     }
 }

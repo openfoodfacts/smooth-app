@@ -65,18 +65,25 @@ class UserPreferencesFaq extends AbstractUserPreferences {
             false,
           ),
         ),
-        _getListTile(
-          title: appLocalizations.nutriscore_generic,
-          leadingSvg: SvgCache.getAssetsCacheForNutriscore(
-            NutriScoreValue.b,
-            true,
-          ),
-          onTap: () => Navigator.of(context, rootNavigator: true).push(
-            MaterialPageRoute<void>(
-              builder: (BuildContext context) => const GuideNutriscoreV2(),
+        if (userPreferences.userCountryCode != 'fr')
+          _getListTile(
+            title: appLocalizations.faq_nutriscore_nutriscore,
+            leadingSvg: SvgCache.getAssetsCacheForNutriscore(
+              NutriScoreValue.b,
+              true,
+            ),
+            onTap: () => Navigator.of(context, rootNavigator: true).push(
+              MaterialPageRoute<void>(
+                builder: (BuildContext context) => const GuideNutriscoreV2(),
+              ),
+            ),
+
+            /// Hide the icon
+            icon: const Icon(
+              Icons.info,
+              size: 0.0,
             ),
           ),
-        ),
         _getNutriListTile(
           title: appLocalizations.ecoscore_generic,
           url: 'https://world.openfoodfacts.org/ecoscore',

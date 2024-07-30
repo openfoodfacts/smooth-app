@@ -145,7 +145,7 @@ abstract class ProductQuery {
     }
     OpenFoodAPIConfiguration.uuid = uuid;
     await Sentry.configureScope((Scope scope) {
-      scope.setExtra('uuid', OpenFoodAPIConfiguration.uuid);
+      scope.contexts['uuid'] = OpenFoodAPIConfiguration.uuid;
       scope.setUser(SentryUser(username: OpenFoodAPIConfiguration.uuid));
     });
   }

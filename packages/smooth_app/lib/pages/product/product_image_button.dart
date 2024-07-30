@@ -65,6 +65,7 @@ enum ProductImageButtonType {
     required final OpenFoodFactsLanguage language,
     required final bool isLoggedInMandatory,
     final double? borderWidth,
+    required bool imageExists,
   }) =>
       switch (this) {
         ProductImageButtonType.local => ProductImageLocalButton(
@@ -73,6 +74,7 @@ enum ProductImageButtonType {
             language: language,
             isLoggedInMandatory: isLoggedInMandatory,
             borderWidth: borderWidth,
+            imageExists: imageExists,
           ),
         ProductImageButtonType.server => ProductImageServerButton(
             product: product,

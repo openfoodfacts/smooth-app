@@ -240,12 +240,19 @@ User lists:
 
 Product scan carousel:
 - changed-files:
-  - any-glob-to-any-file: 'packages/smooth_app/lib/widgets/smooth_product_carousel.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/scan/carousel/scan_carousel.dart'
 
 ✏️ Editing - 📦 Packaging input:
 - changed-files:
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/edit_new_packagings.dart'
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/ocr_packaging_helper.dart'
+
+OCR page:
+- changed-files:
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/edit_ocr/edit_ocr_main_action.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/edit_ocr/edit_ocr_page.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/edit_ocr/ocr_ingredients_helper.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/edit_ocr/ocr_packaging_helper.dart'
 
 ✏️ Editing - Basic info input:
 - changed-files:

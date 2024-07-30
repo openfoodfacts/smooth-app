@@ -21,7 +21,6 @@ import 'package:smooth_app/generic_lib/widgets/smooth_responsive.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
 import 'package:smooth_app/pages/all_product_list_modal.dart';
-import 'package:smooth_app/pages/carousel_manager.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/product/common/product_list_item_popup_items.dart';
 import 'package:smooth_app/pages/product/common/product_list_item_simple.dart';
@@ -29,8 +28,10 @@ import 'package:smooth_app/pages/product/common/product_list_popup_items.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
+import 'package:smooth_app/pages/scan/carousel/scan_carousel_manager.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
+import 'package:smooth_app/widgets/smooth_menu_button.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 import 'package:smooth_app/widgets/will_pop_scope.dart';
 
@@ -133,7 +134,7 @@ class _ProductListPageState extends State<ProductListPage>
               icon: const Icon(CupertinoIcons.barcode),
               label: Text(appLocalizations.product_list_empty_title),
               onPressed: () =>
-                  ExternalCarouselManager.read(context).showSearchCard(),
+                  ExternalScanCarouselManager.read(context).showSearchCard(),
             )
           : _selectionMode
               ? null
@@ -181,7 +182,7 @@ class _ProductListPageState extends State<ProductListPage>
                 }
               },
             ),
-          PopupMenuButton<ProductListPopupItem>(
+          SmoothPopupMenuButton<ProductListPopupItem>(
             onSelected: (final ProductListPopupItem action) async {
               final ProductList? differentProductList =
                   await action.doSomething(
@@ -193,8 +194,7 @@ class _ProductListPageState extends State<ProductListPage>
                 setState(() => productList = differentProductList);
               }
             },
-            itemBuilder: (BuildContext context) =>
-                <PopupMenuEntry<ProductListPopupItem>>[
+            itemBuilder: (_) => <SmoothPopupMenuItem<ProductListPopupItem>>[
               if (enableRename) _rename.getMenuItem(appLocalizations),
               _share.getMenuItem(appLocalizations),
               _openInWeb.getMenuItem(appLocalizations),
@@ -215,7 +215,7 @@ class _ProductListPageState extends State<ProductListPage>
         },
         actionModeTitle: Text('${_selectedBarcodes.length}'),
         actionModeActions: <Widget>[
-          PopupMenuButton<ProductListItemPopupItem>(
+          SmoothPopupMenuButton<ProductListItemPopupItem>(
             onSelected: (final ProductListItemPopupItem action) async {
               final bool andThenSetState = await action.doSomething(
                 productList: productList,
@@ -229,8 +229,7 @@ class _ProductListPageState extends State<ProductListPage>
                 }
               }
             },
-            itemBuilder: (BuildContext context) =>
-                <PopupMenuEntry<ProductListItemPopupItem>>[
+            itemBuilder: (_) => <SmoothPopupMenuItem<ProductListItemPopupItem>>[
               if (userPreferences.getFlag(UserPreferencesDevMode
                       .userPreferencesFlagBoostedComparison) ==
                   true)
@@ -267,7 +266,7 @@ class _ProductListPageState extends State<ProductListPage>
                       appLocalizations.product_list_empty_message,
                       textAlign: TextAlign.center,
                       style: themeData.textTheme.bodyMedium?.apply(
-                        color: themeData.colorScheme.onBackground,
+                        color: themeData.colorScheme.onSurface,
                       ),
                     ),
                     EMPTY_WIDGET,

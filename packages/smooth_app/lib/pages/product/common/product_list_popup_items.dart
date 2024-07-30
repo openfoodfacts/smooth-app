@@ -8,6 +8,7 @@ import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/temp_product_list_share_helper.dart';
 import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
+import 'package:smooth_app/widgets/smooth_menu_button.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 /// Popup menu item entries for the product list page.
@@ -30,6 +31,9 @@ abstract class ProductListPopupItem {
   /// Popup menu entry of the popup menu item.
   ProductListPopupMenuEntry getEntry();
 
+  /// Is-it a destructive action?
+  bool isDestructive() => false;
+
   /// Action of the popup menu item.
   ///
   /// Returns a different product list if there are changes, else null.
@@ -40,15 +44,14 @@ abstract class ProductListPopupItem {
   });
 
   /// Returns the popup menu item.
-  PopupMenuItem<ProductListPopupItem> getMenuItem(
+  SmoothPopupMenuItem<ProductListPopupItem> getMenuItem(
     final AppLocalizations appLocalizations,
   ) =>
-      PopupMenuItem<ProductListPopupItem>(
+      SmoothPopupMenuItem<ProductListPopupItem>(
         value: this,
-        child: ListTile(
-          leading: Icon(getIconData()),
-          title: Text(getTitle(appLocalizations)),
-        ),
+        icon: getIconData(),
+        label: getTitle(appLocalizations),
+        type: isDestructive() ? SmoothPopupMenuItemType.destructive : null,
       );
 }
 
@@ -63,6 +66,9 @@ class ProductListPopupClear extends ProductListPopupItem {
 
   @override
   ProductListPopupMenuEntry getEntry() => ProductListPopupMenuEntry.clear;
+
+  @override
+  bool isDestructive() => true;
 
   @override
   Future<ProductList?> doSomething({

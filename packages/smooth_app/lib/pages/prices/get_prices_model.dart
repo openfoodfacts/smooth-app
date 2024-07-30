@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:smooth_app/helpers/product_cards_helper.dart';
+import 'package:smooth_app/pages/prices/price_meta_product.dart';
 import 'package:smooth_app/pages/prices/product_price_add_page.dart';
 import 'package:smooth_app/query/product_query.dart';
 
@@ -20,43 +20,20 @@ class GetPricesModel {
 
   /// Gets latest prices for a product.
   factory GetPricesModel.product({
-    required final Product product,
+    required final PriceMetaProduct product,
     required final BuildContext context,
   }) =>
       GetPricesModel(
-        parameters: _getProductPricesParameters(product.barcode!),
+        parameters: _getProductPricesParameters(product.barcode),
         displayOwner: true,
         displayProduct: false,
-        uri: _getProductPricesUri(product.barcode!),
-        title: getProductNameAndBrands(
-          product,
-          AppLocalizations.of(context),
-        ),
+        uri: _getProductPricesUri(product.barcode),
+        title: product.getName(AppLocalizations.of(context)),
         subtitle: product.barcode,
         addButton: () async => ProductPriceAddPage.showProductPage(
           context: context,
           product: product,
-        ),
-        enableCountButton: false,
-      );
-
-  /// Gets latest prices for a barcode.
-  factory GetPricesModel.barcode({
-    required final String barcode,
-    required final String name,
-    required final BuildContext context,
-  }) =>
-      GetPricesModel(
-        parameters: _getProductPricesParameters(barcode),
-        displayOwner: true,
-        displayProduct: false,
-        uri: _getProductPricesUri(barcode),
-        title: name,
-        subtitle: barcode,
-        addButton: () async => ProductPriceAddPage.showBarcodePage(
-          context: context,
-          barcode: barcode,
-          title: name,
+          proofType: ProofType.priceTag,
         ),
         enableCountButton: false,
       );

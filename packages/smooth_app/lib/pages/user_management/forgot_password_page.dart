@@ -109,7 +109,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage>
                   const Spacer(flex: 2),
                   if (_message != '') ...<Widget>[
                     SmoothCard(
-                      padding: const EdgeInsets.all(10.0),
+                      padding: const EdgeInsets.all(BALANCED_SPACE),
                       color: _send ? Colors.green : Colors.red,
                       child: Text(_message),
                     ),
@@ -150,11 +150,10 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage>
                         }
                       },
                       style: ButtonStyle(
-                        minimumSize: MaterialStateProperty.all<Size>(
+                        minimumSize: WidgetStateProperty.all<Size>(
                           Size(size.width * 0.5, theme.buttonTheme.height + 10),
                         ),
-                        shape:
-                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                        shape: WidgetStateProperty.all<RoundedRectangleBorder>(
                           const RoundedRectangleBorder(
                             borderRadius: CIRCULAR_BORDER_RADIUS,
                           ),

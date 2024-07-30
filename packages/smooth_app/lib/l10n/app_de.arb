@@ -14,6 +14,10 @@
     "@reason": {},
     "okay": "Okay",
     "@okay": {},
+    "validate": "Bestätigen",
+    "@validate": {
+        "description": "Button label: Validate the input"
+    },
     "create": "Erstellen",
     "@create": {
         "description": "An action to create"
@@ -128,10 +132,6 @@
     "whatIsOff": "Open Food Facts ist eine globale, gemeinnützige Organisation, die von lokalen Gemeinschaften getragen wird.",
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
-    },
-    "offUtility": "Wählen Sie die Lebensmittel, die gut für Sie und für den Planeten sind.",
-    "@offUtility": {
-        "description": "Description of what a user can use Open Food Facts for."
     },
     "productDataUtility": "Lassen Sie sich die für Ihre Vorlieben relevanten Lebensmitteldaten anzeigen.",
     "@productDataUtility": {
@@ -750,6 +750,24 @@
     "@product_refreshed": {
         "description": "Confirmation, that the product data refresh is done"
     },
+    "product_image_accessibility_label": "Foto aufgenommen am {date}",
+    "@product_image_accessibility_label": {
+        "placeholders": {
+            "date": {
+                "type": "String",
+                "description": "The date of picture (in localized format for YYYY-MM-DD)"
+            }
+        }
+    },
+    "product_image_outdated_accessibility_label": "Foto aufgenommen am {date}. Dieses Foto kann veraltet sein",
+    "@product_image_outdated_accessibility_label": {
+        "placeholders": {
+            "date": {
+                "type": "String",
+                "description": "The date of picture (in localized format for YYYY-MM-DD)"
+            }
+        }
+    },
     "homepage_main_card_logo_description": "Willkommen bei Open Food Facts",
     "@homepage_main_card_logo_description": {
         "description": "Description for accessibility of the Open Food Facts logo on the homepage"
@@ -762,6 +780,15 @@
     "homepage_main_card_search_field_tooltip": "Suche starten",
     "@homepage_main_card_search_field_tooltip": {
         "description": "Description for accessibility of the search field on the homepage"
+    },
+    "scan_tagline_news_item_accessibility": "Neueste Nachrichten: {news_title}",
+    "@scan_tagline_news_item_accessibility": {
+        "description": "Accessibility label for the title of a news",
+        "placeholders": {
+            "news_title": {
+                "type": "String"
+            }
+        }
     },
     "tagline_app_review": "Gefällt Ihnen die App?",
     "tagline_app_review_button_positive": "Ich liebe sie! 😍",
@@ -1092,14 +1119,12 @@
             }
         }
     },
-    "onboarding_reinventing_text1": "Wir haben 2012 die\nApp für kollaboratives\nScannen erfunden",
-    "@onboarding_reinventing_text1": {
-        "description": "Onboarding / Reinventing page: text 1/2. If possible, balanced on 3 lines."
+    "onboarding_home_welcome_text1": "Willkommen!",
+    "onboarding_home_welcome_text2": "Die App, die Ihnen hilft, Lebensmittel auszuwählen, die gut für **Sie** und den **Planeten** sind!",
+    "@onboarding_home_welcome_text2": {
+        "description": "Onboarding home screen welcome text, text surrounded by * will be bold"
     },
-    "onboarding_reinventing_text2": "Anlässlich unseres\n10-jährigen Bestehens\nerfinden wir es von Grund auf neu!",
-    "@onboarding_reinventing_text2": {
-        "description": "Onboarding / Reinventing page: text 2/2. If possible, balanced on 3 lines."
-    },
+    "onboarding_continue_button": "Weiter",
     "onboarding_welcome_loading_dialog_title": "Ihr erstes Beispielprodukt wird geladen",
     "@onboarding_welcome_loading_dialog_title": {
         "description": "Title for the onboarding loading dialog"
@@ -1209,6 +1234,10 @@
     "camera_play_sound_subtitle": "Signalton bei jedem erfolgreichen Scanvorgang",
     "@camera_play_sound_subtitle": {
         "description": "SubTitle for the Camera play sound toggle"
+    },
+    "camera_window_accessibility_label": "Lesen Sie einen Barcode mit Ihrer Kamera ein",
+    "@camera_window_accessibility_label": {
+        "description": "Accessibility label for the camera window"
     },
     "app_haptic_feedback_title": "Vibration und haptisches Feedback",
     "@app_haptic_feedback_title": {
@@ -1450,17 +1479,49 @@
     "completed_basic_details_btn_text": "Allgemeine Angaben vervollständigen",
     "not_implemented_snackbar_text": "Noch nicht implementiert",
     "category_picker_page_appbar_text": "Kategorien",
-    "edit_ingredients_extrait_ingredients_btn_text": "Zutaten extrahieren",
-    "@edit_ingredients_extrait_ingredients_btn_text": {
+    "edit_ingredients_extract_ingredients_btn_text": "Zutaten aus dem Foto extrahieren",
+    "@edit_ingredients_extract_ingredients_btn_text": {
         "description": "Ingredients edition - Extract ingredients"
+    },
+    "edit_ingredients_extracting_ingredients_btn_text": "Zutaten werden aus\ndem Foto extrahiert",
+    "@edit_ingredients_extracting_ingredients_btn_text": {
+        "description": "Ingredients edition - Extracting ingredients"
+    },
+    "edit_ingredients_loading_photo_btn_text": "Foto wird geladen …",
+    "@edit_ingredients_loading_photo_btn_text": {
+        "description": "Ingredients edition - Loading photo from the server"
+    },
+    "edit_ingredients_loading_photo_help_dialog_title": "Warum wird diese Meldung angezeigt?",
+    "@edit_ingredients_loading_photo_help_dialog_title": {
+        "description": "Ingredients edition - Dialog explaining why the photo is loading - Title"
+    },
+    "edit_ingredients_loading_photo_help_dialog_body": "Um die Funktion \"Zutaten extrahieren\" nutzen zu können, muss das Foto zunächst hochgeladen werden.\n\nBitte warten Sie ein paar Sekunden oder geben Sie sie manuell ein.",
+    "@edit_ingredients_loading_photo_help_dialog_body": {
+        "description": "Ingredients edition - Dialog explaining why the photo is loading - Content"
     },
     "edit_ingredients_refresh_photo_btn_text": "Foto aktualisieren",
     "@edit_ingredients_refresh_photo_btn_text": {
         "description": "Ingredients edition - Refresh photo"
     },
-    "edit_packaging_extract_btn_text": "Verpackung extrahieren",
+    "edit_packaging_extract_btn_text": "Verpackung aus dem\nFoto extrahieren",
     "@edit_packaging_extract_btn_text": {
         "description": "Packaging edition - OCR-Extract packaging"
+    },
+    "edit_packaging_extracting_btn_text": "Verpackung wird aus dem Foto extrahiert",
+    "@edit_packaging_extracting_btn_text": {
+        "description": "Packaging edition - OCR-Extracting packaging"
+    },
+    "edit_packaging_loading_photo_btn_text": "Foto wird geladen …",
+    "@edit_packaging_loading_photo_btn_text": {
+        "description": "Packaging edition - Loading photo from the server"
+    },
+    "edit_packaging_loading_photo_help_dialog_title": "Warum wird diese Meldung angezeigt?",
+    "@edit_packaging_loading_photo_help_dialog_title": {
+        "description": "Packaging edition - Dialog explaining why the photo is loading - Title"
+    },
+    "edit_packaging_loading_photo_help_dialog_body": "Um die Funktion \"Verpackung extrahieren\" nutzen zu können, muss das Foto zunächst hochgeladen werden.\n\nBitte warten Sie ein paar Sekunden oder geben Sie es manuell ein.",
+    "@edit_packaging_loading_photo_help_dialog_body": {
+        "description": "Packaging edition - Dialog explaining why the photo is loading - Content"
     },
     "edit_packaging_refresh_photo_btn_text": "Foto aktualisieren",
     "@edit_packaging_refresh_photo_btn_text": {
@@ -1671,12 +1732,67 @@
     "@dev_preferences_import_history_subtitle": {
         "description": "User dev preferences - Import history - Subtitle"
     },
+    "dev_preferences_news_custom_url_title": "Benutzerdefinierte URL für Nachrichten",
+    "@dev_preferences_news_custom_url_title": {
+        "description": "News dev preferences - Custom URL for news - Title"
+    },
+    "dev_preferences_news_custom_url_subtitle": "URL der JSON-Datei:",
+    "@dev_preferences_news_custom_url_subtitle": {
+        "description": "News dev preferences - Custom URL for news - Title"
+    },
+    "dev_preferences_news_custom_url_empty_value": "Nicht festgelegt",
+    "@dev_preferences_news_custom_url_empty_value": {
+        "description": "Message to show when the custom news URL is not set"
+    },
+    "dev_preferences_news_provider_status_title": "Status",
+    "@dev_preferences_news_provider_status_title": {
+        "description": "News dev preferences - Status - Title"
+    },
+    "dev_preferences_news_provider_status_subtitle": "Letzte Aktualisierung: {date}",
+    "@dev_preferences_news_provider_status_subtitle": {
+        "description": "News dev preferences - Custom URL for news - Subtitle",
+        "placeholders": {
+            "date": {
+                "type": "String"
+            }
+        }
+    },
     "prices_app_dev_mode_flag": "Verknüpfung zur Preise-App auf der Produktseite",
     "prices_app_button": "Zur Preise-App wechseln",
     "prices_generic_title": "Preise",
+    "prices_add_n_prices": "{count,plural, =1{Preis hinzufügen} other{{count} Preise hinzufügen}}",
+    "prices_send_n_prices": "{count,plural, =1{Preis senden} other{{count} Preise senden}}",
+    "prices_add_an_item": "Ein Element hinzufügen",
     "prices_add_a_price": "Preis hinzufügen",
-    "prices_send_the_price": "Preis senden",
+    "prices_add_a_receipt": "Beleg hinzufügen",
+    "prices_add_price_tags": "Preisschilder hinzufügen",
+    "prices_barcode_search_not_found": "Produkt nicht gefunden",
+    "prices_barcode_search_none_yet": "Noch kein Produkt",
+    "prices_barcode_search_question": "Möchten Sie nach diesem Produkt suchen?",
+    "prices_barcode_search_title": "Produkte suchen",
+    "prices_barcode_search_running": "Nach {barcode} suchen",
+    "@prices_barcode_search_running": {
+        "description": "Dialog title about barcode look-up",
+        "placeholders": {
+            "barcode": {
+                "type": "String"
+            }
+        }
+    },
+    "prices_barcode_reader_action": "Barcodelesegerät",
     "prices_view_prices": "Preise anzeigen",
+    "prices_product_accessibility_summary": "{count,plural, =1{1 Preis} other{{count} Preise}} für {product}",
+    "@prices_product_accessibility_summary": {
+        "description": "A card summarizing the number of prices for a product",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            },
+            "product": {
+                "type": "String"
+            }
+        }
+    },
     "prices_list_length_one_page": "{count,plural, =0{Noch kein Preis} =1{Nur ein Preis} other{Alle {count} Preise}}",
     "@prices_list_length_one_page": {
         "description": "Number of prices for one-page result",
@@ -1698,11 +1814,76 @@
             }
         }
     },
+    "prices_entry_accessibility_label": "Preis: {price} / Laden: „{location}” / Veröffentlicht am {date} von „{user}”",
+    "@prices_entry_accessibility_label": {
+        "description": "Accessibility label for a price entry",
+        "placeholders": {
+            "price": {
+                "type": "String"
+            },
+            "location": {
+                "type": "String"
+            },
+            "date": {
+                "type": "String"
+            },
+            "user": {
+                "type": "String"
+            }
+        }
+    },
+    "prices_open_user_proofs": "Nachweise von „{user}” öffnen",
+    "@prices_open_user_proofs": {
+        "description": "Button to open the proofs of a user",
+        "placeholders": {
+            "user": {
+                "type": "String"
+            }
+        }
+    },
+    "prices_open_proof": "Preisnachweis öffnen",
+    "@prices_open_proof": {
+        "description": "Button to open a proof"
+    },
+    "prices_proofs_list_length_one_page": "{count,plural, =0{Noch kein Nachweis} =1{Nur ein Nachweis} other{Alle {count} Nachweise}}",
+    "@prices_proofs_list_length_one_page": {
+        "description": "Number of proofs for one-page result",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_proofs_list_length_many_pages": "Letzte {pageSize} Nachweise (insgesamt: {total})",
+    "@prices_proofs_list_length_many_pages": {
+        "description": "Number of proofs for one-page result",
+        "placeholders": {
+            "pageSize": {
+                "type": "int"
+            },
+            "total": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_users_list_length_many_pages": "Die besten {pageSize} Mitwirkende (insgesamt: {total})",
+    "@prices_users_list_length_many_pages": {
+        "description": "Number of users for one-page result",
+        "placeholders": {
+            "pageSize": {
+                "type": "int"
+            },
+            "total": {
+                "type": "int"
+            }
+        }
+    },
     "prices_amount_subtitle": "Betrag",
     "prices_amount_is_discounted": "Preisreduziert?",
     "prices_amount_price_normal": "Preis",
     "prices_amount_price_discounted": "Reduzierter Preis",
     "prices_amount_price_not_discounted": "Ursprünglicher Preis",
+    "prices_amount_no_product": "Ein Produkt fehlt!",
     "prices_amount_price_incorrect": "Ungültiger Wert",
     "prices_amount_price_mandatory": "Notwendiger Wert",
     "prices_currency_subtitle": "Währung",
@@ -1726,9 +1907,23 @@
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"
     },
+    "dev_mode_section_server": "Serverkonfiguration",
+    "dev_mode_section_news": "Konfiguration des Nachrichtenanbieters",
+    "dev_mode_section_product_page": "Produktseite",
+    "dev_mode_section_ui": "Benutzeroberfläche",
+    "dev_mode_section_data": "Daten",
+    "dev_mode_section_experimental_features": "Experimentelle Funktionen",
     "dev_mode_hide_ecoscore_title": "Eco-Score ausschließen",
     "@dev_mode_hide_ecoscore_title": {
         "description": "User dev preferences - Disable Ecoscore - Title"
+    },
+    "dev_mode_spellchecker_for_ocr_title": "Verwenden Sie eine Rechtschreibprüfung für OCR-Bildschirme",
+    "@dev_mode_spellchecker_for_ocr_title": {
+        "description": "User dev preferences - Enable Spellchecker on OCR screens - Title"
+    },
+    "dev_mode_spellchecker_for_ocr_subtitle": "(Zutaten und Verpackung)",
+    "@dev_mode_spellchecker_for_ocr_subtitle": {
+        "description": "User dev preferences - Enable Spellchecker on OCR screens - Subtitle"
     },
     "search_history_item_edit_tooltip": "Diese Suche wiederverwenden und bearbeiten",
     "@search_history_item_edit_tooltip": {
@@ -1784,6 +1979,18 @@
     "user_search_prices_title": "Mein Preise",
     "@user_search_prices_title": {
         "description": "User prices: list tile title"
+    },
+    "user_search_proofs_title": "Meine Belege",
+    "@user_search_proofs_title": {
+        "description": "User proofs: list tile title"
+    },
+    "user_search_proof_title": "Meine Nachweise",
+    "@user_search_proof_title": {
+        "description": "User proof: page title"
+    },
+    "user_any_search_prices_title": "Preise der Mitwirkenden",
+    "@user_any_search_prices_title": {
+        "description": "User prices (everybody except me): list tile title"
     },
     "all_search_prices_latest_title": "Neueste Preise hinzugefügt",
     "@all_search_prices_latest_title": {
@@ -2057,7 +2264,11 @@
     },
     "capture": "Neu erfassen",
     "@capture": {
-        "description": "Button label for taking a photo"
+        "description": "Button label for taking a new photo (= there's already one)"
+    },
+    "capture_new_picture": "Foto aufnehmen",
+    "@capture_new_picture": {
+        "description": "Button label for taking a new photo (= the first one)"
     },
     "choose_from_gallery": "Aus Galerie wählen",
     "@choose_from_gallery": {
@@ -2649,6 +2860,7 @@
     "faq_title_install_beauty": "Installieren Sie Open Beauty Facts, um eine Kosmetikdatenbank zu erstellen",
     "faq_title_install_pet": "Installieren Sie Open Pet Food Facts, um eine Tierfutterdatenbank zu erstellen",
     "faq_title_install_product": "Installieren Sie Open Products Facts, um eine Produktdatenbank zur Verlängerung der Lebensdauer von Objekten zu erstellen",
+    "faq_nutriscore_nutriscore": "Neue Berechnung des Nutri-Score: Was ist neu?",
     "contact_title_pro_page": "Pro? Importieren Sie Ihre Produkte in Open Food Facts",
     "contact_title_pro_email": "Kontakt zum Produzenten",
     "contact_title_press_page": "Pressemappe",
@@ -2736,9 +2948,17 @@
     "guide_nutriscore_v2_unchanged_title": "Was sich nicht ändert",
     "guide_nutriscore_v2_unchanged_paragraph1": "Der Nutri-Score ist ein Punktesystem zur **Bewertung der Nährwertqualität**. Er ist eine **Ergänzung zur NOVA-Gruppe** für **hochverarbeitete Lebensmittel** (ebenfalls in der App enthalten).",
     "guide_nutriscore_v2_unchanged_paragraph2": "Für die Hersteller ist die Angabe des Nutri-Score **weiterhin optional**.",
-    "guide_nutriscore_v2_share_link": "https://de.openfoodfacts.org/guide/nutriscore-v2",
+    "guide_nutriscore_v2_share_link": "https://de.openfoodfacts.org/nutriscore-v2",
     "guide_nutriscore_v2_share_message": "",
     "@guide_nutriscore_v2_share_message": {
         "description": "Please let empty for now (maybe use in the future)"
+    },
+    "preview_badge": "Vorschau",
+    "@preview_badge": {
+        "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
+    },
+    "prices_feedback_form": "Klicken Sie hier, um uns Ihr Feedback zu dieser neuen Funktion zu senden!",
+    "@prices_feedback_form": {
+        "description": "A button to send feedback about the prices feature"
     }
 }

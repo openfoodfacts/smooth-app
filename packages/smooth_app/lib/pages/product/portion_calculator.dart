@@ -37,7 +37,6 @@ class _PortionCalculatorState extends State<PortionCalculator> {
 
   @override
   Widget build(BuildContext context) {
-    final MediaQueryData data = MediaQuery.of(context);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final bool isQuantityValid = _isInputValid();
 
@@ -66,7 +65,7 @@ class _PortionCalculatorState extends State<PortionCalculator> {
             textBaseline: TextBaseline.alphabetic,
             children: <Widget>[
               SizedBox(
-                width: data.size.width * 0.3,
+                width: MediaQuery.sizeOf(context).width * 0.3,
                 child: Semantics(
                   value:
                       '${_quantityController.text} ${UnitHelper.unitToString(Unit.G)}',

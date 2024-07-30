@@ -3,12 +3,11 @@ import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/data_models/news_feed/newsfeed_provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
-import 'package:smooth_app/data_models/tagline/tagline_provider.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/extension_on_text_helper.dart';
-import 'package:smooth_app/pages/carousel_manager.dart';
 import 'package:smooth_app/pages/guides/guide/guide_nutriscore_v2.dart';
 import 'package:smooth_app/pages/navigator/error_page.dart';
 import 'package:smooth_app/pages/navigator/external_page.dart';
@@ -18,6 +17,7 @@ import 'package:smooth_app/pages/product/add_new_product_page.dart';
 import 'package:smooth_app/pages/product/edit_product_page.dart';
 import 'package:smooth_app/pages/product/new_product_page.dart';
 import 'package:smooth_app/pages/product/product_loader_page.dart';
+import 'package:smooth_app/pages/scan/carousel/scan_carousel_manager.dart';
 import 'package:smooth_app/pages/scan/search_page.dart';
 import 'package:smooth_app/pages/scan/search_product_helper.dart';
 import 'package:smooth_app/pages/user_management/forgot_password_page.dart';
@@ -146,8 +146,8 @@ class _SmoothGoRouter {
                   heroTag: state.uri.queryParameters['heroTag'],
                 );
 
-                if (ExternalCarouselManager.find(context) == null) {
-                  return ExternalCarouselManager(child: widget);
+                if (ExternalScanCarouselManager.find(context) == null) {
+                  return ExternalScanCarouselManager(child: widget);
                 } else {
                   return widget;
                 }
@@ -320,7 +320,7 @@ class _SmoothGoRouter {
     // Must be set first to ensure the method is only called once
     _appLanguageInitialized = true;
     ProductQuery.setLanguage(context, context.read<UserPreferences>());
-    context.read<TagLineProvider>().loadTagLine();
+    context.read<AppNewsProvider>().loadLatestNews();
     return context.read<ProductPreferences>().refresh();
   }
 

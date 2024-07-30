@@ -7,18 +7,23 @@ import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/pages/crop_parameters.dart';
 import 'package:smooth_app/pages/locations/osm_location.dart';
 import 'package:smooth_app/pages/onboarding/currency_selector_helper.dart';
+import 'package:smooth_app/pages/prices/price_amount_model.dart';
+import 'package:smooth_app/pages/prices/price_meta_product.dart';
 
 /// Price Model (checks and background task call) for price adding.
 class PriceModel with ChangeNotifier {
   PriceModel({
     required final ProofType proofType,
     required final List<OsmLocation> locations,
-    required this.barcode,
+    required final PriceMetaProduct product,
   })  : _proofType = proofType,
         _date = DateTime.now(),
-        _locations = locations;
+        _locations = locations,
+        priceAmountModels = <PriceAmountModel>[
+          PriceAmountModel(product: product),
+        ];
 
-  final String barcode;
+  final List<PriceAmountModel> priceAmountModels;
 
   CropParameters? _cropParameters;
 
@@ -61,33 +66,10 @@ class PriceModel with ChangeNotifier {
 
   OsmLocation? get location => _locations.firstOrNull;
 
-  bool _promo = false;
-
-  bool get promo => _promo;
-
-  set promo(final bool promo) {
-    _promo = promo;
-    notifyListeners();
-  }
-
-  String _paidPrice = '';
-  String _priceWithoutDiscount = '';
-
-  set paidPrice(final String value) => _paidPrice = value;
-  set priceWithoutDiscount(final String value) => _priceWithoutDiscount = value;
-
   late Currency _checkedCurrency;
-  late double _checkedPaidPrice;
-  double? _checkedPriceWithoutDiscount;
-
-  double? validateDouble(final String value) =>
-      double.tryParse(value) ??
-      double.tryParse(
-        value.replaceAll(',', '.'),
-      );
 
   /// Returns the error message of the parameter check, or null if OK.
-  Future<String?> checkParameters(final BuildContext context) async {
+  String? checkParameters(final BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     if (cropParameters == null) {
       return appLocalizations.prices_proof_mandatory;
@@ -97,14 +79,10 @@ class PriceModel with ChangeNotifier {
     _checkedCurrency =
         CurrencySelectorHelper().getSelected(userPreferences.userCurrencyCode);
 
-    _checkedPaidPrice = validateDouble(_paidPrice)!;
-    _checkedPriceWithoutDiscount = null;
-    if (promo) {
-      if (_priceWithoutDiscount.isNotEmpty) {
-        _checkedPriceWithoutDiscount = validateDouble(_priceWithoutDiscount);
-        if (_checkedPriceWithoutDiscount == null) {
-          return appLocalizations.prices_amount_price_incorrect;
-        }
+    for (final PriceAmountModel priceAmountModel in priceAmountModels) {
+      final String? checkParameters = priceAmountModel.checkParameters(context);
+      if (checkParameters != null) {
+        return checkParameters;
       }
     }
 
@@ -116,18 +94,31 @@ class PriceModel with ChangeNotifier {
   }
 
   /// Adds the related background task.
-  Future<void> addTask(final BuildContext context) async =>
-      BackgroundTaskAddPrice.addTask(
-        cropObject: cropParameters!,
-        locationOSMId: location!.osmId,
-        locationOSMType: location!.osmType,
-        date: date,
-        proofType: proofType,
-        currency: _checkedCurrency,
-        barcode: barcode,
-        priceIsDiscounted: promo,
-        price: _checkedPaidPrice,
-        priceWithoutDiscount: _checkedPriceWithoutDiscount,
-        context: context,
-      );
+  Future<void> addTask(final BuildContext context) async {
+    final List<String> barcodes = <String>[];
+    final List<bool> pricesAreDiscounted = <bool>[];
+    final List<double> prices = <double>[];
+    final List<double?> pricesWithoutDiscount = <double?>[];
+    for (final PriceAmountModel priceAmountModel in priceAmountModels) {
+      barcodes.add(priceAmountModel.product.barcode);
+      pricesAreDiscounted.add(priceAmountModel.promo);
+      prices.add(priceAmountModel.checkedPaidPrice);
+      pricesWithoutDiscount.add(priceAmountModel.checkedPriceWithoutDiscount);
+    }
+    return BackgroundTaskAddPrice.addTask(
+      context: context,
+      // per receipt
+      cropObject: cropParameters!,
+      locationOSMId: location!.osmId,
+      locationOSMType: location!.osmType,
+      date: date,
+      proofType: proofType,
+      currency: _checkedCurrency,
+      // per item
+      barcodes: barcodes,
+      pricesAreDiscounted: pricesAreDiscounted,
+      prices: prices,
+      pricesWithoutDiscount: pricesWithoutDiscount,
+    );
+  }
 }

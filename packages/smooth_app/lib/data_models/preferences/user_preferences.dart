@@ -1,4 +1,4 @@
-import 'dart:math';
+import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -7,6 +7,7 @@ import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/themes/color_schemes.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 
 part 'package:smooth_app/data_models/preferences/migration/user_preferences_migration.dart';
 
@@ -67,6 +68,8 @@ class UserPreferences extends ChangeNotifier {
   static const String _TAG_CURRENT_COLOR_SCHEME = 'currentColorScheme';
   static const String _TAG_CURRENT_CONTRAST_MODE = 'contrastMode';
   static const String _TAG_USER_COUNTRY_CODE = 'userCountry';
+  static const String _TAG_USER_COUNTRY_CODE_LAST_UPDATE =
+      'userCountryLastUpdate';
   static const String _TAG_USER_CURRENCY_CODE = 'userCurrency';
   static const String _TAG_LAST_VISITED_ONBOARDING_PAGE =
       'lastVisitedOnboardingPage';
@@ -74,6 +77,7 @@ class UserPreferences extends ChangeNotifier {
   static const String _TAG_DEV_MODE = 'devMode';
   static const String _TAG_USER_TRACKING = 'user_tracking';
   static const String _TAG_CRASH_REPORTS = 'crash_reports';
+  static const String _TAG_PRICES_FEEDBACK_FORM = 'prices_feedback_form';
   static const String _TAG_EXCLUDED_ATTRIBUTE_IDS = 'excluded_attributes';
   static const String _TAG_USER_GROUP = '_user_group';
   static const String _TAG_UNIQUE_RANDOM = '_unique_random';
@@ -188,7 +192,7 @@ class UserPreferences extends ChangeNotifier {
     if (result != null) {
       return result;
     }
-    result = Random().nextInt(1 << 32);
+    result = math.Random().nextInt(1 << 32);
     await _sharedPreferences.setInt(tag, result);
     return result;
   }
@@ -202,8 +206,17 @@ class UserPreferences extends ChangeNotifier {
   bool get crashReports =>
       _sharedPreferences.getBool(_TAG_CRASH_REPORTS) ?? false;
 
+  Future<void> markPricesFeedbackFormAsCompleted() async {
+    await _sharedPreferences.setBool(_TAG_PRICES_FEEDBACK_FORM, false);
+    notifyListeners();
+  }
+
+  bool get shouldShowPricesFeedbackForm =>
+      _sharedPreferences.getBool(_TAG_PRICES_FEEDBACK_FORM) ?? true;
+
   String get currentTheme =>
-      _sharedPreferences.getString(_TAG_CURRENT_THEME_MODE) ?? 'System Default';
+      _sharedPreferences.getString(_TAG_CURRENT_THEME_MODE) ??
+      THEME_SYSTEM_DEFAULT;
 
   String get currentColor =>
       _sharedPreferences.getString(_TAG_CURRENT_COLOR_SCHEME) ??
@@ -216,6 +229,10 @@ class UserPreferences extends ChangeNotifier {
   /// Please use [ProductQuery.setCountry] as interface
   Future<void> setUserCountryCode(final String countryCode) async {
     await _sharedPreferences.setString(_TAG_USER_COUNTRY_CODE, countryCode);
+    await _sharedPreferences.setInt(
+      _TAG_USER_COUNTRY_CODE_LAST_UPDATE,
+      DateTime.now().millisecondsSinceEpoch,
+    );
     notifyListeners();
   }
 
@@ -249,7 +266,8 @@ class UserPreferences extends ChangeNotifier {
         _sharedPreferences.getInt(_TAG_LAST_VISITED_ONBOARDING_PAGE);
     return pageIndex == null
         ? OnboardingPage.NOT_STARTED
-        : OnboardingPage.values[pageIndex];
+        : OnboardingPage
+            .values[math.min(pageIndex, OnboardingPage.values.length - 1)];
   }
 
   Future<void> incrementScanCount() async {
