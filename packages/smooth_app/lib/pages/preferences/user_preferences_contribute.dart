@@ -20,6 +20,7 @@ import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
+import 'package:smooth_app/pages/product/common/country_wiki_links.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/query/paged_to_be_completed_product_query.dart';
 import 'package:smooth_app/query/product_query.dart';
@@ -106,13 +107,14 @@ class UserPreferencesContribute extends AbstractUserPreferences {
           Icons.volunteer_activism,
           icon:
               UserPreferencesListTile.getTintedIcon(Icons.open_in_new, context),
-          externalLink: true,
+          externalLink: true
         ),
-        _getListTile(
+       if(CountryWikiLinks().wikiLinks.containsKey(userPreferences.userCountryCode))
+          _getListTile(
             'Help improve Open Food Facts in your country',
             () async => LaunchUrlHelper.launchURL(
-                'https://wiki.openfoodfacts.org/Country_Support_- ${userPreferences.userCountryCode ?? 'France'}'),
-            const IconData(0xf68d),
+                CountryWikiLinks().wikiLinks[userPreferences.userCountryCode]!),
+            Icons.language,
             externalLink: true),
         if (GlobalVars.appStore.getEnrollInBetaURL() != null)
           _getListTile(
@@ -317,7 +319,7 @@ class UserPreferencesContribute extends AbstractUserPreferences {
       leading: UserPreferencesListTile.getTintedIcon(leading, context),
       externalLink: externalLink,
     );
-
+    
     if (description != null) {
       return UserPreferencesItemSimple(
         labels: <String>[title, description],
