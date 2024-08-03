@@ -152,8 +152,8 @@ class _SearchPageState extends State<SearchPage> {
         _searchTextController.text = value.search;
       });
     } else if (oldValue != null) {
-      /// If we were on the world results, ensure to go back the main list
-      /// of results
+      /// If we were on the world results, ensure to go back to
+      /// the main list of results
       WidgetsBinding.instance.addPostFrameCallback((_) {
         _navigatorKey.currentState?.popUntil((Route<dynamic> route) {
           return route.isFirst;
