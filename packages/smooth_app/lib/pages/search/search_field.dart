@@ -252,7 +252,7 @@ class SearchBarIcon extends StatelessWidget {
   }
 }
 
-/// Constant shared between [SearchField] and [_SearchBar]
+/// Constants shared between [SearchField] and [_SearchBar]
 class SearchFieldUIHelper {
   const SearchFieldUIHelper._();
 
