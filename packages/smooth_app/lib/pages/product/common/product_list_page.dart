@@ -517,47 +517,54 @@ class _ProductListAppBarTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final String title = ProductQueryPageHelper.getProductListLabel(
+      productList,
+      appLocalizations,
+    );
 
-    return SizedBox(
-      height: kToolbarHeight,
-      child: InkWell(
-        borderRadius: context.read<ThemeProvider>().isAmoledTheme
-            ? ANGULAR_BORDER_RADIUS
-            : null,
-        onTap: enabled ? onTap : null,
-        child: Padding(
-          padding: const EdgeInsetsDirectional.symmetric(
-            horizontal: NavigationToolbar.kMiddleSpacing,
-          ),
-          child: LayoutBuilder(
-            builder: (_, BoxConstraints constraints) {
-              return Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  ConstrainedBox(
-                    constraints: BoxConstraints(
-                      maxWidth: constraints.maxWidth * 0.9 -
-                          (enabled ? (MEDIUM_SPACE - 15.0) : 0),
-                    ),
-                    child: AutoSizeText(
-                      ProductQueryPageHelper.getProductListLabel(
-                        productList,
-                        appLocalizations,
+    return Semantics(
+      label: enabled ? appLocalizations.action_change_list : null,
+      value: title,
+      button: enabled,
+      excludeSemantics: true,
+      child: SizedBox(
+        height: kToolbarHeight,
+        child: InkWell(
+          borderRadius: context.read<ThemeProvider>().isAmoledTheme
+              ? ANGULAR_BORDER_RADIUS
+              : null,
+          onTap: enabled ? onTap : null,
+          child: Padding(
+            padding: const EdgeInsetsDirectional.symmetric(
+              horizontal: NavigationToolbar.kMiddleSpacing,
+            ),
+            child: LayoutBuilder(
+              builder: (_, BoxConstraints constraints) {
+                return Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    ConstrainedBox(
+                      constraints: BoxConstraints(
+                        maxWidth: constraints.maxWidth * 0.9 -
+                            (enabled ? (MEDIUM_SPACE - 15.0) : 0),
                       ),
-                      maxLines: 2,
+                      child: AutoSizeText(
+                        title,
+                        maxLines: 2,
+                      ),
                     ),
-                  ),
-                  if (enabled) ...<Widget>[
-                    const SizedBox(width: MEDIUM_SPACE),
-                    icons.AppIconTheme(
-                      semanticLabel: appLocalizations.action_change_list,
-                      size: 15.0,
-                      child: const icons.Chevron.down(),
-                    )
-                  ]
-                ],
-              );
-            },
+                    if (enabled) ...<Widget>[
+                      const SizedBox(width: MEDIUM_SPACE),
+                      icons.AppIconTheme(
+                        semanticLabel: appLocalizations.action_change_list,
+                        size: 15.0,
+                        child: const icons.Chevron.down(),
+                      )
+                    ]
+                  ],
+                );
+              },
+            ),
           ),
         ),
       ),
