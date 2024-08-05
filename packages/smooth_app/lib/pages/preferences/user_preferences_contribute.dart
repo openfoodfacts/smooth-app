@@ -107,7 +107,7 @@ class UserPreferencesContribute extends AbstractUserPreferences {
           Icons.volunteer_activism,
           icon:
               UserPreferencesListTile.getTintedIcon(Icons.open_in_new, context),
-          externalLink: true
+          externalLink: true,
         ),
        if(CountryWikiLinks().wikiLinks.containsKey(userPreferences.userCountryCode))
           _getListTile(
