@@ -18,11 +18,13 @@ class ProductImageWidget extends StatelessWidget {
     required this.barcode,
     required this.squareSize,
     this.imageSize,
+    this.heroTag,
   });
 
   final ProductImage productImage;
   final String barcode;
   final double squareSize;
+  final String? heroTag;
 
   /// Allows to fetch the optimized version of the image
   final ImageSize? imageSize;
@@ -47,6 +49,7 @@ class ProductImageWidget extends StatelessWidget {
           imageSize: imageSize,
         ),
       ),
+      heroTag: heroTag,
       rounded: false,
     );
     final DateTime? uploaded = productImage.uploaded;
