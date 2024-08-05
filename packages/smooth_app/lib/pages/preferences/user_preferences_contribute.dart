@@ -100,17 +100,16 @@ class UserPreferencesContribute extends AbstractUserPreferences {
           Icons.adaptive.share,
         ),
         _getListTile(
-            appLocalizations.contribute_donate_header,
-            () async => LaunchUrlHelper.launchURL(
-                  AppLocalizations.of(context).donate_url,
-                ),
-            Icons.volunteer_activism,
-            icon: UserPreferencesListTile.getTintedIcon(
-                Icons.open_in_new, context),
-            externalLink: true,),
-        if (TmpCountryWikiLinks()
-            .wikiLinks
-            .containsKey(userPreferences.userCountryCode))
+          appLocalizations.contribute_donate_header,
+          () async => LaunchUrlHelper.launchURL(
+            AppLocalizations.of(context).donate_url,
+          ),
+          Icons.volunteer_activism,
+          icon:
+              UserPreferencesListTile.getTintedIcon(Icons.open_in_new, context),
+          externalLink: true,
+        ),
+       if(CountryWikiLinks().wikiLinks.containsKey(userPreferences.userCountryCode))
           _getListTile(
               'Help improve Open Food Facts in your country',
               () async => LaunchUrlHelper.launchURL(TmpCountryWikiLinks()
