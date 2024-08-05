@@ -100,22 +100,26 @@ class UserPreferencesContribute extends AbstractUserPreferences {
           Icons.adaptive.share,
         ),
         _getListTile(
-          appLocalizations.contribute_donate_header,
-          () async => LaunchUrlHelper.launchURL(
-            AppLocalizations.of(context).donate_url,
-          ),
-          Icons.volunteer_activism,
-          icon:
-              UserPreferencesListTile.getTintedIcon(Icons.open_in_new, context),
-          externalLink: true
-        ),
-       if(CountryWikiLinks().wikiLinks.containsKey(userPreferences.userCountryCode))
-          _getListTile(
-            'Help improve Open Food Facts in your country',
+            appLocalizations.contribute_donate_header,
             () async => LaunchUrlHelper.launchURL(
-                CountryWikiLinks().wikiLinks[userPreferences.userCountryCode]!),
-            Icons.language,
-            externalLink: true),
+                  AppLocalizations.of(context).donate_url,
+                ),
+            Icons.volunteer_activism,
+            icon: UserPreferencesListTile.getTintedIcon(
+                Icons.open_in_new, context),
+            externalLink: true,),
+        if (TmpCountryWikiLinks()
+            .wikiLinks
+            .containsKey(userPreferences.userCountryCode))
+          _getListTile(
+              'Help improve Open Food Facts in your country',
+              () async => LaunchUrlHelper.launchURL(TmpCountryWikiLinks()
+                  .wikiLinks[userPreferences.userCountryCode]!),
+              Icons.language,
+              icon: UserPreferencesListTile.getTintedIcon(
+              Icons.open_in_new,
+              context,),
+              externalLink: true),
         if (GlobalVars.appStore.getEnrollInBetaURL() != null)
           _getListTile(
             appLocalizations.contribute_enroll_alpha,
@@ -319,7 +323,7 @@ class UserPreferencesContribute extends AbstractUserPreferences {
       leading: UserPreferencesListTile.getTintedIcon(leading, context),
       externalLink: externalLink,
     );
-    
+
     if (description != null) {
       return UserPreferencesItemSimple(
         labels: <String>[title, description],
