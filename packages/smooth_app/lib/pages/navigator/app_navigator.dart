@@ -20,6 +20,7 @@ import 'package:smooth_app/pages/product/product_loader_page.dart';
 import 'package:smooth_app/pages/scan/carousel/scan_carousel_manager.dart';
 import 'package:smooth_app/pages/scan/search_page.dart';
 import 'package:smooth_app/pages/scan/search_product_helper.dart';
+import 'package:smooth_app/pages/user_management/forgot_password_page.dart';
 import 'package:smooth_app/pages/user_management/sign_up_page.dart';
 import 'package:smooth_app/query/product_query.dart';
 
@@ -224,6 +225,10 @@ class _SmoothGoRouter {
               },
             ),
             GoRoute(
+              path: _InternalAppRoutes.FORGOT_PASSWORD_PAGE,
+              builder: (_, __) => const ForgotPasswordPage(),
+            ),
+            GoRoute(
               path: _InternalAppRoutes.EXTERNAL_PAGE,
               builder: (BuildContext context, GoRouterState state) {
                 return ExternalPage(path: state.uri.queryParameters['path']!);
@@ -282,6 +287,8 @@ class _SmoothGoRouter {
             }
           } else if (path == _ExternalRoutes.MOBILE_APP_DOWNLOAD) {
             return AppRoutes.HOME;
+          } else if (path == _ExternalRoutes.FORGOT_PASSWORD) {
+            return AppRoutes.FORGOT_PASSWORD;
           } else if (path == _ExternalRoutes.GUIDE_NUTRISCORE_V2) {
             return AppRoutes.GUIDE_NUTRISCORE_V2;
           } else if (path == _ExternalRoutes.SIGNUP) {
@@ -397,6 +404,7 @@ class _InternalAppRoutes {
   static const String SEARCH_PAGE = '_search';
   static const String EXTERNAL_PAGE = '_external';
   static const String SIGNUP_PAGE = '_signup';
+  static const String FORGOT_PASSWORD_PAGE = '_forgot_password';
 
   static const String _GUIDES = '_guides';
   static const String GUIDE_NUTRISCORE_V2_PAGE = '_nutriscore-v2';
@@ -407,6 +415,7 @@ class _ExternalRoutes {
   static const String PRODUCT_EDITION = '/cgi/product.pl';
   static const String GUIDE_NUTRISCORE_V2 = '/nutriscore-v2';
   static const String SIGNUP = '/signup';
+  static const String FORGOT_PASSWORD = '/forgot-password';
 }
 
 /// A list of internal routes to use with [AppNavigator]
@@ -452,6 +461,9 @@ class AppRoutes {
       '/${_InternalAppRoutes._GUIDES}/${_InternalAppRoutes.GUIDE_NUTRISCORE_V2_PAGE}';
 
   static String get SIGNUP => '/${_InternalAppRoutes.SIGNUP_PAGE}';
+  static String get FORGOT_PASSWORD =>
+      '/${_InternalAppRoutes.FORGOT_PASSWORD_PAGE}';
+
   // Open an external link (where path is relative to the OFF website)
   static String EXTERNAL(String path) =>
       '/${_InternalAppRoutes.EXTERNAL_PAGE}/?path=$path';
