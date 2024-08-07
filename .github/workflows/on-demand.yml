@@ -1,0 +1,54 @@
+# This file contains actions that can be performed on PRs by issuing a comment
+name: 🕹️ On demand PR action
+
+on:
+  issue_comment:
+    types: [created, edited]
+
+jobs:
+  # Action to update test results by issuing /lint
+  run_lint:
+    name: "On demand linting"
+    if: |
+      github.event.issue.pull_request &&
+      (github.event.comment.body == '/lint') &&
+      contains(fromJSON('["COLLABORATOR", "CONTRIBUTOR", "MEMBER", "OWNER"]'), github.event.comment.author_association)
+    runs-on: ubuntu-latest
+    steps:
+    - name: Get branch name
+      # see https://github.com/actions/checkout/issues/331
+      id: get-branch
+      run: echo ::set-output name=branch::$(gh pr view $PR_NO --repo $REPO --json headRefName --jq '.headRefName')
+      env:
+        REPO: ${{ github.repository }}
+        PR_NO: ${{ github.event.issue.number }}
+        GITHUB_TOKEN: ${{ secrets.RELEASE_PLEASE_TOKEN }}
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 1
+        # grab the PR branch
+        ref: ${{ steps.get-branch.outputs.branch }}
+        # We can't use GITHUB_TOKEN here because, github actions can't trigger actions
+        # see: https://docs.github.com/en/actions/security-guides/automatic-token-authentication#using-the-github_token-in-a-workflow
+        # So this is a personal access token
+        token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
+    # we need origin/main to have comparison linting work !
+    - name: Fetch origin/develop
+      run: |
+        git remote set-branches --add origin develop
+        git fetch origin
+    - name: Run linting
+      run: XXXXXXXX
+    - name: Push changes if needed
+      uses: stefanzweifel/git-auto-commit-action@v5
+      with:
+        commit_message: "chore: Linting changes"
+        branch: ${{ github.event.pull_request.head.ref }}
+        commit_user_name: Open Food Facts Bot
+        commit_user_email: contact@openfoodfacts.org
+        commit_author: Open Food Facts Bot <contact@openfoodfacts.org>
+        push_options: ""
+        status_options: '--untracked-files=no'
+        skip_dirty_check: false
+        create_branch: no
