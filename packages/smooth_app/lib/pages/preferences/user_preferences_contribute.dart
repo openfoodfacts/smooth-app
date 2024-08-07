@@ -172,7 +172,7 @@ class UserPreferencesContribute extends AbstractUserPreferences {
                 final LocalDatabase localDatabase =
                     context.read<LocalDatabase>();
                 Navigator.of(context).pop();
-                ProductQueryPageHelper().openBestChoice(
+                ProductQueryPageHelper.openBestChoice(
                   name: appLocalizations.all_search_to_be_completed_title,
                   localDatabase: localDatabase,
                   productQuery: PagedToBeCompletedProductQuery(),

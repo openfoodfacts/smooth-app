@@ -27,7 +27,7 @@ import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_search_page.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
-import 'package:smooth_app/pages/scan/search_page.dart';
+import 'package:smooth_app/pages/search/search_page.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 /// Full page display of "dev mode" for the preferences page.
@@ -421,7 +421,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
               context,
               MaterialPageRoute<OsmLocation>(
                 builder: (BuildContext context) => SearchPage(
-                  const SearchLocationHelper(),
+                  SearchLocationHelper(),
                   preloadedList: preloadedList,
                   autofocus: false,
                 ),

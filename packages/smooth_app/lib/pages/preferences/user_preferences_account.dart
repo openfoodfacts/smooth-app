@@ -443,7 +443,7 @@ class UserPreferencesAccount extends AbstractUserPreferences {
   }) =>
       _getListTile(
         title,
-        () async => ProductQueryPageHelper().openBestChoice(
+        () async => ProductQueryPageHelper.openBestChoice(
           name: title,
           localDatabase: localDatabase,
           productQuery: productQuery,

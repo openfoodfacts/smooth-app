@@ -32,17 +32,19 @@ import 'package:smooth_app/widgets/ranking_floating_action_button.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
+/// A page that can be used like a screen, if [includeAppBar] is true.
+/// Otherwise, it can be embedded in another screen.
 class ProductQueryPage extends StatefulWidget {
   const ProductQueryPage({
     required this.productListSupplier,
     required this.name,
-    required this.editableAppBarTitle,
+    this.includeAppBar = true,
     this.searchResult = true,
   });
 
   final ProductListSupplier productListSupplier;
   final String name;
-  final bool editableAppBarTitle;
+  final bool includeAppBar;
   final bool searchResult;
 
   @override
@@ -57,7 +59,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
   late ScrollController _scrollController;
 
   late ProductQueryModel _model;
-  late final OpenFoodFactsCountry? _country;
+  late OpenFoodFactsCountry? _country;
 
   @override
   String get actionName => 'Opened search_page';
@@ -88,9 +90,13 @@ class _ProductQueryPageState extends State<ProductQueryPage>
   }
 
   @override
-  void dispose() {
-    _scrollController.dispose();
-    super.dispose();
+  void didUpdateWidget(ProductQueryPage oldWidget) {
+    super.didUpdateWidget(oldWidget);
+
+    if (oldWidget.productListSupplier != widget.productListSupplier) {
+      _model = _getModel(widget.productListSupplier);
+      _country = widget.productListSupplier.productQuery.country;
+    }
   }
 
   @override
@@ -124,11 +130,11 @@ class _ProductQueryPageState extends State<ProductQueryPage>
               // TODO(monsieurtanuki): should be tracked as well, shouldn't it?
               return SearchEmptyScreen(
                 name: widget.name,
+                includeAppBar: widget.includeAppBar,
                 emptiness: _getEmptyText(
                   themeData,
                   appLocalizations.no_product_found,
                 ),
-                actions: _getAppBarButtons(),
               );
             }
             AnalyticsHelper.trackSearch(
@@ -149,6 +155,12 @@ class _ProductQueryPageState extends State<ProductQueryPage>
     );
   }
 
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
   // TODO(monsieurtanuki): put that in a specific Widget class
   Widget _getNotEmptyScreen(
     final Size screenSize,
@@ -162,8 +174,8 @@ class _ProductQueryPageState extends State<ProductQueryPage>
             children: <Widget>[
               Expanded(
                 child: RankingFloatingActionButton(
-                  onPressed: () => Navigator.push<Widget>(
-                    context,
+                  onPressed: () =>
+                      Navigator.of(context, rootNavigator: true).push<Widget>(
                     MaterialPageRoute<Widget>(
                       builder: (BuildContext context) =>
                           PersonalizedRankingPage(
@@ -212,26 +224,27 @@ class _ProductQueryPageState extends State<ProductQueryPage>
               ),
             ],
           ),
-          appBar: SmoothAppBar(
-            backgroundColor: themeData.scaffoldBackgroundColor,
-            elevation: 2,
-            automaticallyImplyLeading: false,
-            leading: const SmoothBackButton(),
-            title: SearchAppBarTitle(
-              title: widget.searchResult
-                  ? widget.name
-                  : appLocalizations.product_search_same_category,
-              editableAppBarTitle:
-                  widget.searchResult && widget.editableAppBarTitle,
-              multiLines: !widget.searchResult,
-            ),
-            subTitle: !widget.searchResult ? Text(widget.name) : null,
-            actions: _getAppBarButtons(),
-          ),
+          appBar: widget.includeAppBar
+              ? SmoothAppBar(
+                  backgroundColor: themeData.scaffoldBackgroundColor,
+                  elevation: 2,
+                  automaticallyImplyLeading: false,
+                  leading: const SmoothBackButton(),
+                  title: SearchAppBarTitle(
+                    title: widget.searchResult
+                        ? widget.name
+                        : appLocalizations.product_search_same_category,
+                    editableAppBarTitle: widget.searchResult,
+                    multiLines: !widget.searchResult,
+                  ),
+                  subTitle: !widget.searchResult ? Text(widget.name) : null,
+                )
+              : null,
           body: RefreshIndicator(
             onRefresh: () async => _refreshList(),
             child: ListView.builder(
               controller: _scrollController,
+              padding: widget.includeAppBar ? null : EdgeInsets.zero,
               // To allow refresh even when not the whole page is filled
               physics: const AlwaysScrollableScrollPhysics(),
               itemBuilder: (BuildContext context, int index) {
@@ -298,6 +311,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
   ) {
     return SearchEmptyScreen(
       name: widget.name,
+      includeAppBar: false,
       emptiness: Padding(
         padding: const EdgeInsets.all(SMALL_SPACE),
         child: SmoothErrorCard(
@@ -331,25 +345,21 @@ class _ProductQueryPageState extends State<ProductQueryPage>
           ),
           if (worldQuery != null)
             _getLargeButtonWithIcon(
-              _getWorldAction(appLocalizations, worldQuery),
+              _getWorldAction(
+                appLocalizations,
+                worldQuery,
+                widget.includeAppBar,
+              ),
             ),
         ],
       ),
     );
   }
 
-  List<Widget> _getAppBarButtons() {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final PagedProductQuery pagedProductQuery = _model.supplier.productQuery;
-    final PagedProductQuery? worldQuery = pagedProductQuery.getWorldQuery();
-    return <Widget>[
-      if (worldQuery != null)
-        _getIconButton(_getWorldAction(appLocalizations, worldQuery)),
-    ];
-  }
-
   Widget _getTopMessagesCard() {
     final PagedProductQuery pagedProductQuery = _model.supplier.productQuery;
+    final PagedProductQuery? worldQuery = pagedProductQuery.getWorldQuery();
+
     return FutureBuilder<String?>(
       future: _getTranslatedCountry(),
       builder: (
@@ -383,7 +393,19 @@ class _ProductQueryPageState extends State<ProductQueryPage>
           child: SmoothCard(
             child: Padding(
               padding: const EdgeInsets.all(SMALL_SPACE),
-              child: Text(messages.join('\n')),
+              child: Row(
+                children: <Widget>[
+                  Expanded(child: Text(messages.join('\n'))),
+                  if (pagedProductQuery.getWorldQuery() != null)
+                    _getIconButton(
+                      _getWorldAction(
+                        appLocalizations,
+                        worldQuery!,
+                        widget.includeAppBar,
+                      ),
+                    ),
+                ],
+              ),
             ),
           ),
         );
@@ -399,7 +421,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
     final List<Country> localizedCountries =
         await IsoCountries.isoCountriesForLocale(locale);
     for (final Country country in localizedCountries) {
-      if (country.countryCode.toLowerCase() == _country.offTag.toLowerCase()) {
+      if (country.countryCode.toLowerCase() == _country?.offTag.toLowerCase()) {
         return country.name;
       }
     }
@@ -422,15 +444,17 @@ class _ProductQueryPageState extends State<ProductQueryPage>
   _Action _getWorldAction(
     final AppLocalizations appLocalizations,
     final PagedProductQuery worldQuery,
+    final bool editableAppBarTitle,
   ) =>
       _Action(
         text: appLocalizations.world_results_action,
         iconData: Icons.public,
-        onPressed: () async => ProductQueryPageHelper().openBestChoice(
+        onPressed: () async => ProductQueryPageHelper.openBestChoice(
           productQuery: worldQuery,
           localDatabase: context.read<LocalDatabase>(),
           name: widget.name,
           context: context,
+          editableAppBarTitle: editableAppBarTitle,
         ),
       );
 
