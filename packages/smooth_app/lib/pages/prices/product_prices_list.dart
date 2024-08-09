@@ -126,6 +126,6 @@ class _ProductPricesListState extends State<ProductPricesList>
   ) async =>
       OpenPricesAPIClient.getPrices(
         parameters,
-        uriHelper: ProductQuery.uriProductHelper,
+        uriHelper: ProductQuery.uriPricesHelper,
       );
 }

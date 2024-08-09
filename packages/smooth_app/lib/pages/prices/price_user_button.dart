@@ -42,7 +42,7 @@ class PriceUserButton extends StatelessWidget {
               displayProduct: true,
               uri: OpenPricesAPIClient.getUri(
                 path: 'app/users/$user',
-                uriHelper: ProductQuery.uriProductHelper,
+                uriHelper: ProductQuery.uriPricesHelper,
               ),
               title: showUserTitle(user: user, context: context),
               subtitle: user,
