@@ -109,8 +109,8 @@ class _ScanPageState extends State<ScanPage> {
                           await _musicPlayer!.play(
                             AssetSource('audio/beep.wav'),
                             volume: 0.5,
-                            ctx: const AudioContext(
-                              android: AudioContextAndroid(
+                            ctx: AudioContext(
+                              android: const AudioContextAndroid(
                                 isSpeakerphoneOn: false,
                                 stayAwake: false,
                                 contentType: AndroidContentType.sonification,
@@ -120,9 +120,9 @@ class _ScanPageState extends State<ScanPage> {
                               ),
                               iOS: AudioContextIOS(
                                 category: AVAudioSessionCategory.soloAmbient,
-                                options: <AVAudioSessionOptions>[
+                                options: const <AVAudioSessionOptions>{
                                   AVAudioSessionOptions.mixWithOthers,
-                                ],
+                                },
                               ),
                             ),
                           );

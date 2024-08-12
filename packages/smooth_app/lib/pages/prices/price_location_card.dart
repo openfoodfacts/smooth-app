@@ -10,7 +10,7 @@ import 'package:smooth_app/pages/locations/osm_location.dart';
 import 'package:smooth_app/pages/locations/search_location_helper.dart';
 import 'package:smooth_app/pages/locations/search_location_preloaded_item.dart';
 import 'package:smooth_app/pages/prices/price_model.dart';
-import 'package:smooth_app/pages/scan/search_page.dart';
+import 'package:smooth_app/pages/search/search_page.dart';
 
 /// Card that displays the location for price adding.
 class PriceLocationCard extends StatelessWidget {
@@ -52,7 +52,7 @@ class PriceLocationCard extends StatelessWidget {
                 context,
                 MaterialPageRoute<OsmLocation>(
                   builder: (BuildContext context) => SearchPage(
-                    const SearchLocationHelper(),
+                    SearchLocationHelper(),
                     preloadedList: preloadedList,
                     autofocus: false,
                   ),

@@ -17,7 +17,10 @@ class EmojiHelper {
   static String? getEmojiByCountryCode(final String countryCode) {
     if (countryCode.isEmpty) {
       return null;
+    } else if (countryCode.toUpperCase() == 'UK') {
+      return _getCountryEmojiFromUnicode('GB');
     }
+
     return _getCountryEmojiFromUnicode(countryCode);
   }
 

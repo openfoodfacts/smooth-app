@@ -2,11 +2,13 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 
 class ProductImageData {
   const ProductImageData({
+    required this.imageId,
     required this.imageField,
     required this.imageUrl,
     required this.language,
   });
 
+  final String? imageId;
   final ImageField imageField;
   final String? imageUrl;
   final OpenFoodFactsLanguage? language;

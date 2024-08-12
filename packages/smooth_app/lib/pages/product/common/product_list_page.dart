@@ -30,7 +30,10 @@ import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
 import 'package:smooth_app/pages/scan/carousel/scan_carousel_manager.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
+import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
+import 'package:smooth_app/widgets/smooth_menu_button.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 import 'package:smooth_app/widgets/will_pop_scope.dart';
 
@@ -145,43 +148,7 @@ class _ProductListPageState extends State<ProductListPage>
       appBar: SmoothAppBar(
         centerTitle: false,
         actions: <Widget>[
-          if (widget.allowToSwitchBetweenLists)
-            IconButton(
-              icon: const Icon(CupertinoIcons.square_list),
-              tooltip: appLocalizations.action_change_list,
-              onPressed: () async {
-                final ProductList? selected =
-                    await showSmoothDraggableModalSheet<ProductList>(
-                  context: context,
-                  header: SmoothModalSheetHeader(
-                    title: appLocalizations.product_list_select,
-                    suffix: SmoothModalSheetHeaderButton(
-                      label: appLocalizations.product_list_create,
-                      prefix: const Icon(Icons.add_circle_outline_sharp),
-                      tooltip: appLocalizations.product_list_create_tooltip,
-                      onTap: () async =>
-                          ProductListUserDialogHelper(daoProductList)
-                              .showCreateUserListDialog(context),
-                    ),
-                  ),
-                  bodyBuilder: (BuildContext context) => AllProductListModal(
-                    currentList: productList,
-                  ),
-                  initHeight: _computeModalInitHeight(context),
-                );
-
-                if (selected == null) {
-                  return;
-                }
-                if (context.mounted) {
-                  await daoProductList.get(selected);
-                  if (context.mounted) {
-                    setState(() => productList = selected);
-                  }
-                }
-              },
-            ),
-          PopupMenuButton<ProductListPopupItem>(
+          SmoothPopupMenuButton<ProductListPopupItem>(
             onSelected: (final ProductListPopupItem action) async {
               final ProductList? differentProductList =
                   await action.doSomething(
@@ -193,8 +160,7 @@ class _ProductListPageState extends State<ProductListPage>
                 setState(() => productList = differentProductList);
               }
             },
-            itemBuilder: (BuildContext context) =>
-                <PopupMenuEntry<ProductListPopupItem>>[
+            itemBuilder: (_) => <SmoothPopupMenuItem<ProductListPopupItem>>[
               if (enableRename) _rename.getMenuItem(appLocalizations),
               _share.getMenuItem(appLocalizations),
               _openInWeb.getMenuItem(appLocalizations),
@@ -202,20 +168,19 @@ class _ProductListPageState extends State<ProductListPage>
             ],
           ),
         ],
-        title: AutoSizeText(
-          ProductQueryPageHelper.getProductListLabel(
-            productList,
-            appLocalizations,
-          ),
-          maxLines: 2,
+        title: _ProductListAppBarTitle(
+          productList: productList,
+          onTap: () => _onChangeList(appLocalizations, daoProductList),
+          enabled: widget.allowToSwitchBetweenLists,
         ),
+        titleSpacing: 0.0,
         actionMode: _selectionMode,
         onLeaveActionMode: () {
           setState(() => _selectionMode = false);
         },
         actionModeTitle: Text('${_selectedBarcodes.length}'),
         actionModeActions: <Widget>[
-          PopupMenuButton<ProductListItemPopupItem>(
+          SmoothPopupMenuButton<ProductListItemPopupItem>(
             onSelected: (final ProductListItemPopupItem action) async {
               final bool andThenSetState = await action.doSomething(
                 productList: productList,
@@ -229,8 +194,7 @@ class _ProductListPageState extends State<ProductListPage>
                 }
               }
             },
-            itemBuilder: (BuildContext context) =>
-                <PopupMenuEntry<ProductListItemPopupItem>>[
+            itemBuilder: (_) => <SmoothPopupMenuItem<ProductListItemPopupItem>>[
               if (userPreferences.getFlag(UserPreferencesDevMode
                       .userPreferencesFlagBoostedComparison) ==
                   true)
@@ -502,5 +466,108 @@ class _ProductListPageState extends State<ProductListPage>
       //
     }
     return false;
+  }
+
+  Future<void> _onChangeList(
+    AppLocalizations appLocalizations,
+    DaoProductList daoProductList,
+  ) async {
+    final ProductList? selected =
+        await showSmoothDraggableModalSheet<ProductList>(
+      context: context,
+      header: SmoothModalSheetHeader(
+        title: appLocalizations.product_list_select,
+        suffix: SmoothModalSheetHeaderButton(
+          label: appLocalizations.product_list_create,
+          prefix: const Icon(Icons.add_circle_outline_sharp),
+          tooltip: appLocalizations.product_list_create_tooltip,
+          onTap: () async => ProductListUserDialogHelper(daoProductList)
+              .showCreateUserListDialog(context),
+        ),
+      ),
+      bodyBuilder: (BuildContext context) => AllProductListModal(
+        currentList: productList,
+      ),
+      initHeight: _computeModalInitHeight(context),
+    );
+
+    if (selected == null) {
+      return;
+    }
+    if (context.mounted) {
+      await daoProductList.get(selected);
+      if (context.mounted) {
+        setState(() => productList = selected);
+      }
+    }
+  }
+}
+
+class _ProductListAppBarTitle extends StatelessWidget {
+  const _ProductListAppBarTitle({
+    required this.productList,
+    required this.onTap,
+    required this.enabled,
+  });
+
+  final ProductList productList;
+  final VoidCallback onTap;
+  final bool enabled;
+
+  @override
+  Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final String title = ProductQueryPageHelper.getProductListLabel(
+      productList,
+      appLocalizations,
+    );
+
+    return Semantics(
+      label: enabled ? appLocalizations.action_change_list : null,
+      value: title,
+      button: enabled,
+      excludeSemantics: true,
+      child: SizedBox(
+        height: kToolbarHeight,
+        child: InkWell(
+          borderRadius: context.read<ThemeProvider>().isAmoledTheme
+              ? ANGULAR_BORDER_RADIUS
+              : null,
+          onTap: enabled ? onTap : null,
+          child: Padding(
+            padding: const EdgeInsetsDirectional.symmetric(
+              horizontal: NavigationToolbar.kMiddleSpacing,
+            ),
+            child: LayoutBuilder(
+              builder: (_, BoxConstraints constraints) {
+                return Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    ConstrainedBox(
+                      constraints: BoxConstraints(
+                        maxWidth: constraints.maxWidth * 0.9 -
+                            (enabled ? (MEDIUM_SPACE - 15.0) : 0),
+                      ),
+                      child: AutoSizeText(
+                        title,
+                        maxLines: 2,
+                      ),
+                    ),
+                    if (enabled) ...<Widget>[
+                      const SizedBox(width: MEDIUM_SPACE),
+                      icons.AppIconTheme(
+                        semanticLabel: appLocalizations.action_change_list,
+                        size: 15.0,
+                        child: const icons.Chevron.down(),
+                      )
+                    ]
+                  ],
+                );
+              },
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }

@@ -6,8 +6,9 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/images/smooth_image.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
+import 'package:smooth_app/pages/image/product_image_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
-import 'package:smooth_app/resources/app_icons.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
 /// Displays a product image thumbnail with the upload date on top.
@@ -17,11 +18,13 @@ class ProductImageWidget extends StatelessWidget {
     required this.barcode,
     required this.squareSize,
     this.imageSize,
+    this.heroTag,
   });
 
   final ProductImage productImage;
   final String barcode;
   final double squareSize;
+  final String? heroTag;
 
   /// Allows to fetch the optimized version of the image
   final ImageSize? imageSize;
@@ -46,13 +49,14 @@ class ProductImageWidget extends StatelessWidget {
           imageSize: imageSize,
         ),
       ),
+      heroTag: heroTag,
       rounded: false,
     );
     final DateTime? uploaded = productImage.uploaded;
     if (uploaded == null) {
       return image;
     }
-    final bool expired = DateTime.now().difference(uploaded).inDays > 365;
+    final bool expired = productImage.expired;
     final String date = dateFormat.format(uploaded);
 
     return Semantics(
@@ -94,7 +98,7 @@ class ProductImageWidget extends StatelessWidget {
                           end: 0.0,
                           height: 20.0,
                           textDirection: Directionality.of(context),
-                          child: Outdated(
+                          child: icons.Outdated(
                             size: 18.0,
                             color: colors.red,
                           ),
