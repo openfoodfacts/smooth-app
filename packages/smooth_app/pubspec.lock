@@ -1028,10 +1028,10 @@ packages:
     dependency: "direct main"
     description:
       name: matomo_tracker
-      sha256: de5c08e80b566f8d1f0edf47f5704fe855fbef52377acb2796d28c2a3e36ea41
+      sha256: "9c4bfa031191655b09d757c35b9ffeabff2a267a982ebd385b8dff0556d9e50f"
       url: "https://pub.dev"
     source: hosted
-    version: "4.1.1"
+    version: "5.0.0-dev.2"
   meta:
     dependency: transitive
     description:
@@ -1491,6 +1491,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.10.0"
+  sprintf:
+    dependency: transitive
+    description:
+      name: sprintf
+      sha256: "1fc9ffe69d4df602376b52949af107d8f5703b77cda567c4d7d86a0693120f23"
+      url: "https://pub.dev"
+    source: hosted
+    version: "7.0.0"
   sqflite:
     dependency: "direct main"
     description:
@@ -1679,10 +1687,10 @@ packages:
     dependency: "direct main"
     description:
       name: uuid
-      sha256: "648e103079f7c64a36dc7d39369cabb358d377078a051d6ae2ad3aa539519313"
+      sha256: "83d37c7ad7aaf9aa8e275490669535c8080377cfa7a7004c24dfac53afffaa90"
       url: "https://pub.dev"
     source: hosted
-    version: "3.0.7"
+    version: "4.4.2"
   vector_graphics:
     dependency: transitive
     description:

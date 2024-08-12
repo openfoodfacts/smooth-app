@@ -286,7 +286,7 @@ class AnalyticsHelper {
     try {
       await MatomoTracker.instance.initialize(
         url: 'https://analytics.openfoodfacts.org/matomo.php',
-        siteId: 2,
+        siteId: '2',
         visitorId: _visitorId,
       );
     } catch (err) {
