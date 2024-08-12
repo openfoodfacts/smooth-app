@@ -166,16 +166,24 @@ abstract class ProductQuery {
 
   static late UriProductHelper uriProductHelper;
 
+  /// Product helper only for prices.
+  static late UriProductHelper uriPricesHelper;
+
   static bool isLoggedIn() => OpenFoodAPIConfiguration.globalUser != null;
 
   /// Sets the query type according to the current [UserPreferences]
   static void setQueryType(final UserPreferences userPreferences) {
-    final bool queryTypeProd = userPreferences
-            .getFlag(UserPreferencesDevMode.userPreferencesFlagProd) ??
-        true;
-    uriProductHelper = queryTypeProd
-        ? uriHelperFoodProd
-        : getTestUriProductHelper(userPreferences);
+    UriProductHelper getProductHelper(final String flagProd) =>
+        userPreferences.getFlag(flagProd) ?? true
+            ? uriHelperFoodProd
+            : getTestUriProductHelper(userPreferences);
+
+    uriProductHelper = getProductHelper(
+      UserPreferencesDevMode.userPreferencesFlagProd,
+    );
+    uriPricesHelper = getProductHelper(
+      UserPreferencesDevMode.userPreferencesFlagPriceProd,
+    );
   }
 
   /// Returns the standard test env, or the custom test env if relevant.
