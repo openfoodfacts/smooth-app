@@ -64,7 +64,7 @@ class _ScanPageState extends State<ScanPage> {
         color: Colors.white,
         child: SafeArea(
           child: Container(
-            color: Theme.of(context).colorScheme.background,
+            color: Theme.of(context).colorScheme.surface,
             child: Column(
               children: <Widget>[
                 if (hasACamera)
@@ -91,7 +91,8 @@ class _ScanPageState extends State<ScanPage> {
                 Expanded(
                   flex: _carouselHeightPct,
                   child: Padding(
-                    padding: const EdgeInsetsDirectional.only(bottom: 10.0),
+                    padding: const EdgeInsetsDirectional.only(
+                        bottom: BALANCED_SPACE),
                     child: ScanPageCarousel(
                       onPageChangedTo: (int page, String? barcode) async {
                         if (barcode == null) {
@@ -108,8 +109,8 @@ class _ScanPageState extends State<ScanPage> {
                           await _musicPlayer!.play(
                             AssetSource('audio/beep.wav'),
                             volume: 0.5,
-                            ctx: const AudioContext(
-                              android: AudioContextAndroid(
+                            ctx: AudioContext(
+                              android: const AudioContextAndroid(
                                 isSpeakerphoneOn: false,
                                 stayAwake: false,
                                 contentType: AndroidContentType.sonification,
@@ -119,9 +120,9 @@ class _ScanPageState extends State<ScanPage> {
                               ),
                               iOS: AudioContextIOS(
                                 category: AVAudioSessionCategory.soloAmbient,
-                                options: <AVAudioSessionOptions>[
+                                options: const <AVAudioSessionOptions>{
                                   AVAudioSessionOptions.mixWithOthers,
-                                ],
+                                },
                               ),
                             ),
                           );
@@ -185,7 +186,7 @@ class _PermissionDeniedCard extends StatelessWidget {
             ),
             child: SmoothCard(
               padding: const EdgeInsetsDirectional.only(
-                top: 10.0,
+                top: BALANCED_SPACE,
                 start: SMALL_SPACE,
                 end: SMALL_SPACE,
                 bottom: 5.0,
@@ -206,8 +207,8 @@ class _PermissionDeniedCard extends StatelessWidget {
                       child: SingleChildScrollView(
                         child: Padding(
                           padding: const EdgeInsets.symmetric(
-                            horizontal: 10.0,
-                            vertical: 10.0,
+                            horizontal: BALANCED_SPACE,
+                            vertical: BALANCED_SPACE,
                           ),
                           child: Text(
                             localizations.permission_photo_denied_message(

@@ -1,4 +1,3 @@
-import 'package:assorted_layout_widgets/assorted_layout_widgets.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -416,11 +415,11 @@ class _ProductPageState extends State<ProductPage>
           ),
           child: ElevatedButton(
             style: ButtonStyle(
-                padding: MaterialStateProperty.all(
+                padding: WidgetStateProperty.all(
                   const EdgeInsets.symmetric(
                       horizontal: VERY_LARGE_SPACE, vertical: MEDIUM_SPACE),
                 ),
-                shape: MaterialStateProperty.all(
+                shape: WidgetStateProperty.all(
                   const RoundedRectangleBorder(
                     borderRadius: ROUNDED_BORDER_RADIUS,
                   ),
@@ -464,9 +463,7 @@ class _ProductPageState extends State<ProductPage>
               appLocalizations.user_list_subtitle_product,
               style: Theme.of(context).textTheme.displaySmall,
             ),
-            WrapSuper(
-              wrapType: WrapType.fit,
-              wrapFit: WrapFit.proportional,
+            Wrap(
               spacing: VERY_SMALL_SPACE,
               children: children,
             ),

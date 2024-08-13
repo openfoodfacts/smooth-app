@@ -44,12 +44,13 @@ class _SearchHistoryViewState extends State<SearchHistoryView> {
   Widget build(BuildContext context) {
     return ListTileTheme(
       data: ListTileThemeData(
-        titleTextStyle: const TextStyle(fontSize: 20.0),
-        minLeadingWidth: 18.0,
-        iconColor: Theme.of(context).colorScheme.onBackground,
-        textColor: Theme.of(context).colorScheme.onBackground,
+        titleTextStyle: const TextStyle(fontSize: 18.0),
+        minLeadingWidth: 10.0,
+        iconColor: Theme.of(context).colorScheme.onSurface,
+        textColor: Theme.of(context).colorScheme.onSurface,
       ),
       child: ListView.builder(
+        padding: EdgeInsets.zero,
         itemBuilder: (BuildContext context, int i) {
           if (i == 0) {
             return _SearchItemPasteFromClipboard(
@@ -150,7 +151,7 @@ class _SearchHistoryTile extends StatelessWidget {
       child: InkWell(
         onTap: () => onTap(),
         child: Padding(
-          padding: const EdgeInsetsDirectional.only(start: 18.0, end: 13.0),
+          padding: const EdgeInsetsDirectional.only(start: 8.0),
           child: ListTile(
             leading: const Padding(
               padding: EdgeInsetsDirectional.only(top: VERY_SMALL_SPACE),
@@ -204,7 +205,7 @@ class _SearchItemPasteFromClipboard extends StatelessWidget {
         }
       },
       child: Padding(
-        padding: const EdgeInsetsDirectional.only(start: 18.0, end: 13.0),
+        padding: const EdgeInsetsDirectional.only(start: 8.0, end: 13.0),
         child: ListTile(
           title: Text(localizations.paste_from_clipboard),
           leading: const Icon(Icons.copy),

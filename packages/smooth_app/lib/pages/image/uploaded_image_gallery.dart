@@ -38,8 +38,8 @@ class UploadedImageGallery extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final MediaQueryData mediaQueryData = MediaQuery.of(context);
-    final double columnWidth = mediaQueryData.size.width / 2;
+    final double columnWidth = MediaQuery.sizeOf(context).width / 2;
+
     return SmoothScaffold(
       backgroundColor: Colors.black,
       appBar: SmoothAppBar(

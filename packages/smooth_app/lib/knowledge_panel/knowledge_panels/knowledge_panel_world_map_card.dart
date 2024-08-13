@@ -71,6 +71,7 @@ class KnowledgePanelWorldMapCard extends StatelessWidget {
             RichAttributionWidget(
               popupInitialDisplayDuration: const Duration(seconds: 5),
               animationConfig: const ScaleRAWA(),
+              showFlutterMapAttribution: false,
               attributions: <SourceAttribution>[
                 TextSourceAttribution(
                   'OpenStreetMap contributors',

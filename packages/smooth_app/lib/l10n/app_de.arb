@@ -14,6 +14,10 @@
     "@reason": {},
     "okay": "Okay",
     "@okay": {},
+    "validate": "Bestätigen",
+    "@validate": {
+        "description": "Button label: Validate the input"
+    },
     "create": "Erstellen",
     "@create": {
         "description": "An action to create"
@@ -128,10 +132,6 @@
     "whatIsOff": "Open Food Facts ist eine globale, gemeinnützige Organisation, die von lokalen Gemeinschaften getragen wird.",
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
-    },
-    "offUtility": "Wählen Sie die Lebensmittel, die gut für Sie und für den Planeten sind.",
-    "@offUtility": {
-        "description": "Description of what a user can use Open Food Facts for."
     },
     "productDataUtility": "Lassen Sie sich die für Ihre Vorlieben relevanten Lebensmitteldaten anzeigen.",
     "@productDataUtility": {
@@ -1491,6 +1491,14 @@
     "@edit_ingredients_loading_photo_btn_text": {
         "description": "Ingredients edition - Loading photo from the server"
     },
+    "edit_ingredients_loading_photo_help_dialog_title": "Warum wird diese Meldung angezeigt?",
+    "@edit_ingredients_loading_photo_help_dialog_title": {
+        "description": "Ingredients edition - Dialog explaining why the photo is loading - Title"
+    },
+    "edit_ingredients_loading_photo_help_dialog_body": "Um die Funktion \"Zutaten extrahieren\" nutzen zu können, muss das Foto zunächst hochgeladen werden.\n\nBitte warten Sie ein paar Sekunden oder geben Sie sie manuell ein.",
+    "@edit_ingredients_loading_photo_help_dialog_body": {
+        "description": "Ingredients edition - Dialog explaining why the photo is loading - Content"
+    },
     "edit_ingredients_refresh_photo_btn_text": "Foto aktualisieren",
     "@edit_ingredients_refresh_photo_btn_text": {
         "description": "Ingredients edition - Refresh photo"
@@ -1506,6 +1514,14 @@
     "edit_packaging_loading_photo_btn_text": "Foto wird geladen …",
     "@edit_packaging_loading_photo_btn_text": {
         "description": "Packaging edition - Loading photo from the server"
+    },
+    "edit_packaging_loading_photo_help_dialog_title": "Warum wird diese Meldung angezeigt?",
+    "@edit_packaging_loading_photo_help_dialog_title": {
+        "description": "Packaging edition - Dialog explaining why the photo is loading - Title"
+    },
+    "edit_packaging_loading_photo_help_dialog_body": "Um die Funktion \"Verpackung extrahieren\" nutzen zu können, muss das Foto zunächst hochgeladen werden.\n\nBitte warten Sie ein paar Sekunden oder geben Sie es manuell ein.",
+    "@edit_packaging_loading_photo_help_dialog_body": {
+        "description": "Packaging edition - Dialog explaining why the photo is loading - Content"
     },
     "edit_packaging_refresh_photo_btn_text": "Foto aktualisieren",
     "@edit_packaging_refresh_photo_btn_text": {
@@ -1716,11 +1732,36 @@
     "@dev_preferences_import_history_subtitle": {
         "description": "User dev preferences - Import history - Subtitle"
     },
+    "dev_preferences_news_custom_url_title": "Benutzerdefinierte URL für Nachrichten",
+    "@dev_preferences_news_custom_url_title": {
+        "description": "News dev preferences - Custom URL for news - Title"
+    },
+    "dev_preferences_news_custom_url_subtitle": "URL der JSON-Datei:",
+    "@dev_preferences_news_custom_url_subtitle": {
+        "description": "News dev preferences - Custom URL for news - Title"
+    },
+    "dev_preferences_news_custom_url_empty_value": "Nicht festgelegt",
+    "@dev_preferences_news_custom_url_empty_value": {
+        "description": "Message to show when the custom news URL is not set"
+    },
+    "dev_preferences_news_provider_status_title": "Status",
+    "@dev_preferences_news_provider_status_title": {
+        "description": "News dev preferences - Status - Title"
+    },
+    "dev_preferences_news_provider_status_subtitle": "Letzte Aktualisierung: {date}",
+    "@dev_preferences_news_provider_status_subtitle": {
+        "description": "News dev preferences - Custom URL for news - Subtitle",
+        "placeholders": {
+            "date": {
+                "type": "String"
+            }
+        }
+    },
     "prices_app_dev_mode_flag": "Verknüpfung zur Preise-App auf der Produktseite",
     "prices_app_button": "Zur Preise-App wechseln",
     "prices_generic_title": "Preise",
-    "prices_add_n_prices": "{count,plural, one {}=1{Preis hinzufügen} other{{count} Preise hinzufügen}}",
-    "prices_send_n_prices": "{count,plural, one {}=1{Preis senden} other{{count} Preise senden}}",
+    "prices_add_n_prices": "{count,plural, =1{Preis hinzufügen} other{{count} Preise hinzufügen}}",
+    "prices_send_n_prices": "{count,plural, =1{Preis senden} other{{count} Preise senden}}",
     "prices_add_an_item": "Ein Element hinzufügen",
     "prices_add_a_price": "Preis hinzufügen",
     "prices_add_a_receipt": "Beleg hinzufügen",
@@ -1740,6 +1781,18 @@
     },
     "prices_barcode_reader_action": "Barcodelesegerät",
     "prices_view_prices": "Preise anzeigen",
+    "prices_product_accessibility_summary": "{count,plural, =1{1 Preis} other{{count} Preise}} für {product}",
+    "@prices_product_accessibility_summary": {
+        "description": "A card summarizing the number of prices for a product",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            },
+            "product": {
+                "type": "String"
+            }
+        }
+    },
     "prices_list_length_one_page": "{count,plural, =0{Noch kein Preis} =1{Nur ein Preis} other{Alle {count} Preise}}",
     "@prices_list_length_one_page": {
         "description": "Number of prices for one-page result",
@@ -1761,7 +1814,38 @@
             }
         }
     },
-    "prices_proofs_list_length_one_page": "{count,plural, one {}=0{Noch kein Nachweis} =1{Nur ein Nachweis} other{Alle {count} Nachweise}}",
+    "prices_entry_accessibility_label": "Preis: {price} / Laden: „{location}” / Veröffentlicht am {date} von „{user}”",
+    "@prices_entry_accessibility_label": {
+        "description": "Accessibility label for a price entry",
+        "placeholders": {
+            "price": {
+                "type": "String"
+            },
+            "location": {
+                "type": "String"
+            },
+            "date": {
+                "type": "String"
+            },
+            "user": {
+                "type": "String"
+            }
+        }
+    },
+    "prices_open_user_proofs": "Nachweise von „{user}” öffnen",
+    "@prices_open_user_proofs": {
+        "description": "Button to open the proofs of a user",
+        "placeholders": {
+            "user": {
+                "type": "String"
+            }
+        }
+    },
+    "prices_open_proof": "Preisnachweis öffnen",
+    "@prices_open_proof": {
+        "description": "Button to open a proof"
+    },
+    "prices_proofs_list_length_one_page": "{count,plural, =0{Noch kein Nachweis} =1{Nur ein Nachweis} other{Alle {count} Nachweise}}",
     "@prices_proofs_list_length_one_page": {
         "description": "Number of proofs for one-page result",
         "placeholders": {
@@ -1824,6 +1908,7 @@
         "description": "User dev preferences - Import history - Result successful"
     },
     "dev_mode_section_server": "Serverkonfiguration",
+    "dev_mode_section_news": "Konfiguration des Nachrichtenanbieters",
     "dev_mode_section_product_page": "Produktseite",
     "dev_mode_section_ui": "Benutzeroberfläche",
     "dev_mode_section_data": "Daten",
@@ -2179,7 +2264,11 @@
     },
     "capture": "Neu erfassen",
     "@capture": {
-        "description": "Button label for taking a photo"
+        "description": "Button label for taking a new photo (= there's already one)"
+    },
+    "capture_new_picture": "Foto aufnehmen",
+    "@capture_new_picture": {
+        "description": "Button label for taking a new photo (= the first one)"
     },
     "choose_from_gallery": "Aus Galerie wählen",
     "@choose_from_gallery": {
@@ -2867,5 +2956,9 @@
     "preview_badge": "Vorschau",
     "@preview_badge": {
         "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
+    },
+    "prices_feedback_form": "Klicken Sie hier, um uns Ihr Feedback zu dieser neuen Funktion zu senden!",
+    "@prices_feedback_form": {
+        "description": "A button to send feedback about the prices feature"
     }
 }

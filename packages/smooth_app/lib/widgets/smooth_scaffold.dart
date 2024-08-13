@@ -66,7 +66,7 @@ class SmoothScaffoldState extends ScaffoldState {
   Widget build(BuildContext context) {
     Widget child = super.build(context);
 
-    final MediaQueryData mediaQuery = MediaQuery.of(context);
+    final EdgeInsets viewPadding = MediaQuery.viewPaddingOf(context);
 
     if (_contentBehindStatusBar) {
       final Color statusBarColor =
@@ -79,7 +79,7 @@ class SmoothScaffoldState extends ScaffoldState {
           children: <Widget>[
             SizedBox(
               width: double.infinity,
-              height: mediaQuery.viewPadding.top,
+              height: viewPadding.top,
               child: ColoredBox(
                 color: statusBarColor,
               ),
@@ -98,7 +98,7 @@ class SmoothScaffoldState extends ScaffoldState {
             child,
             SizedBox(
               width: double.infinity,
-              height: mediaQuery.viewPadding.top,
+              height: viewPadding.top,
               child: ColoredBox(
                 color: statusBarColor,
               ),
@@ -109,8 +109,8 @@ class SmoothScaffoldState extends ScaffoldState {
     }
 
     if ((widget as SmoothScaffold).fixKeyboard) {
-      final double padding = MediaQuery.of(context).viewInsets.bottom -
-          MediaQuery.of(context).viewPadding.bottom;
+      final double padding = MediaQuery.viewInsetsOf(context).bottom -
+          MediaQuery.viewPaddingOf(context).bottom;
 
       if (padding > 0.0) {
         child = Padding(

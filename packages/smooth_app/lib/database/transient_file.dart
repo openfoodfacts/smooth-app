@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
@@ -11,34 +12,48 @@ class TransientFile {
   TransientFile(
     this.imageField,
     this.barcode,
-    this.language,
-  ) : url = null;
+    this.language, [
+    this.uploadedDate,
+  ]) : url = null;
 
   TransientFile.fromProductImageData(
     final ProductImageData productImageData,
     this.barcode,
-    this.language,
-  )   : imageField = productImageData.imageField,
+    this.language, [
+    this.uploadedDate,
+  ])  : imageField = productImageData.imageField,
         url = productImageData.imageUrl;
 
-  TransientFile.fromProduct(
+  factory TransientFile.fromProduct(
     final Product product,
     final ImageField imageField,
     final OpenFoodFactsLanguage language,
-  ) : this.fromProductImageData(
-          getProductImageData(
-            product,
-            imageField,
-            language,
-          ),
-          product.barcode!,
-          language,
-        );
+  ) {
+    final ProductImageData productImageData = getProductImageData(
+      product,
+      imageField,
+      language,
+    );
+
+    return TransientFile.fromProductImageData(
+      productImageData,
+      product.barcode!,
+      language,
+      product
+          .getRawImages()
+          ?.firstWhereOrNull(
+            (final ProductImage productImage) =>
+                productImage.imgid == productImageData.imageId,
+          )
+          ?.uploaded,
+    );
+  }
 
   final ImageField imageField;
   final String barcode;
   final OpenFoodFactsLanguage language;
   final String? url;
+  final DateTime? uploadedDate;
 
   /// {File "key": file path} map.
   static final Map<String, String> _transientFiles = <String, String>{};

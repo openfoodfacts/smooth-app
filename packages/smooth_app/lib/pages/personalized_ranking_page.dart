@@ -16,6 +16,7 @@ import 'package:smooth_app/pages/product/common/loading_status.dart';
 import 'package:smooth_app/pages/product/common/product_list_item_simple.dart';
 import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
+import 'package:smooth_app/widgets/smooth_menu_button.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class PersonalizedRankingPage extends StatefulWidget {
@@ -97,13 +98,13 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
       appBar: SmoothAppBar(
         title: Text(widget.title, overflow: TextOverflow.fade),
         actions: <Widget>[
-          PopupMenuButton<String>(
+          SmoothPopupMenuButton<String>(
             onSelected: _handlePopUpClick,
             itemBuilder: (BuildContext context) {
-              return <PopupMenuEntry<String>>[
-                PopupMenuItem<String>(
+              return <SmoothPopupMenuItem<String>>[
+                SmoothPopupMenuItem<String>(
                   value: 'add_to_list',
-                  child: Text(appLocalizations.user_list_button_add_product),
+                  label: appLocalizations.user_list_button_add_product,
                 ),
               ];
             },

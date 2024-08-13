@@ -46,7 +46,7 @@ class _PricesUsersPageState extends State<PricesUsersPage>
             onPressed: () async => LaunchUrlHelper.launchURL(
               OpenPricesAPIClient.getUri(
                 path: 'app/users',
-                uriHelper: ProductQuery.uriProductHelper,
+                uriHelper: ProductQuery.uriPricesHelper,
               ).toString(),
             ),
           ),
@@ -140,6 +140,6 @@ class _PricesUsersPageState extends State<PricesUsersPage>
           ]
           ..pageSize = _pageSize
           ..pageNumber = 1,
-        uriHelper: ProductQuery.uriProductHelper,
+        uriHelper: ProductQuery.uriPricesHelper,
       );
 }

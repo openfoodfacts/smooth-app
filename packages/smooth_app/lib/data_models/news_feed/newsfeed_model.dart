@@ -118,7 +118,7 @@ class AppNewsImage {
     this.alt,
   });
 
-  final String src;
+  final String? src;
   final double? width;
   final String? alt;
 

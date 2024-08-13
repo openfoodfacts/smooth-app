@@ -14,6 +14,7 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/crop_parameters.dart';
 import 'package:smooth_app/pages/prices/eraser_model.dart';
 import 'package:smooth_app/pages/prices/eraser_painter.dart';
+import 'package:smooth_app/query/product_query.dart';
 
 // TODO(monsieurtanuki): use transient file, in order to have instant access to proof image?
 /// Background task about adding a product price.
@@ -344,7 +345,7 @@ class BackgroundTaskAddPrice extends BackgroundTask {
         await OpenPricesAPIClient.getAuthenticationToken(
       username: user.userId,
       password: user.password,
-      uriHelper: uriProductHelper,
+      uriHelper: ProductQuery.uriPricesHelper,
     );
     if (token.isError) {
       throw Exception('Could not get token: ${token.error}');
@@ -360,10 +361,14 @@ class BackgroundTaskAddPrice extends BackgroundTask {
         HttpHelper().imagineMediaType(initialImageUri.path)!;
     final MaybeError<Proof> uploadProof = await OpenPricesAPIClient.uploadProof(
       proofType: proofType,
+      date: date,
+      currency: currency,
+      locationOSMId: locationOSMId,
+      locationOSMType: locationOSMType,
       imageUri: initialImageUri,
       mediaType: initialMediaType,
       bearerToken: bearerToken,
-      uriHelper: uriProductHelper,
+      uriHelper: ProductQuery.uriPricesHelper,
     );
     if (uploadProof.isError) {
       throw Exception('Could not upload proof: ${uploadProof.error}');
@@ -386,7 +391,7 @@ class BackgroundTaskAddPrice extends BackgroundTask {
           await OpenPricesAPIClient.createPrice(
         price: newPrice,
         bearerToken: bearerToken,
-        uriHelper: uriProductHelper,
+        uriHelper: ProductQuery.uriPricesHelper,
       );
       if (addedPrice.isError) {
         throw Exception('Could not add price: ${addedPrice.error}');
@@ -396,7 +401,7 @@ class BackgroundTaskAddPrice extends BackgroundTask {
     // close session
     final MaybeError<bool> closedSession =
         await OpenPricesAPIClient.deleteUserSession(
-      uriHelper: uriProductHelper,
+      uriHelper: ProductQuery.uriPricesHelper,
       bearerToken: bearerToken,
     );
     if (closedSession.isError) {

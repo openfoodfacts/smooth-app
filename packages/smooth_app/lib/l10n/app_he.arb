@@ -14,6 +14,10 @@
     "@reason": {},
     "okay": "בסדר",
     "@okay": {},
+    "validate": "אימות",
+    "@validate": {
+        "description": "Button label: Validate the input"
+    },
     "create": "יצירה",
     "@create": {
         "description": "An action to create"
@@ -128,10 +132,6 @@
     "whatIsOff": "Open Food Facts הוא ארגון כלל עולמי ללא מטרות רווח שמופעל על ידי קהילות מקומיות.",
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
-    },
-    "offUtility": "בחירה במזון שטוב לך ולכדור הארץ.",
-    "@offUtility": {
-        "description": "Description of what a user can use Open Food Facts for."
     },
     "productDataUtility": "הצגת נתוני המזון שתואמים להעדפות שלך.",
     "@productDataUtility": {
@@ -781,7 +781,7 @@
     "@homepage_main_card_search_field_tooltip": {
         "description": "Description for accessibility of the search field on the homepage"
     },
-    "scan_tagline_news_item_accessibility": "Latest news: {news_title}",
+    "scan_tagline_news_item_accessibility": "חדשות עדכניות: {news_title}",
     "@scan_tagline_news_item_accessibility": {
         "description": "Accessibility label for the title of a news",
         "placeholders": {
@@ -1119,8 +1119,8 @@
             }
         }
     },
-    "onboarding_home_welcome_text1": "Welcome !",
-    "onboarding_home_welcome_text2": "The app that helps you choose food that is good for **you** and the **planet**!",
+    "onboarding_home_welcome_text1": "ברוך בואך!",
+    "onboarding_home_welcome_text2": "היישומון שמסייע לך לבחור מזון שטוב **לך** ול**כדור הארץ**!",
     "@onboarding_home_welcome_text2": {
         "description": "Onboarding home screen welcome text, text surrounded by * will be bold"
     },
@@ -1235,7 +1235,7 @@
     "@camera_play_sound_subtitle": {
         "description": "SubTitle for the Camera play sound toggle"
     },
-    "camera_window_accessibility_label": "Scan a barcode with your camera",
+    "camera_window_accessibility_label": "סריקת ברקוד עם המצלמה שלך",
     "@camera_window_accessibility_label": {
         "description": "Accessibility label for the camera window"
     },
@@ -1491,6 +1491,14 @@
     "@edit_ingredients_loading_photo_btn_text": {
         "description": "Ingredients edition - Loading photo from the server"
     },
+    "edit_ingredients_loading_photo_help_dialog_title": "למה ההודעה הזאת מופיעה?",
+    "@edit_ingredients_loading_photo_help_dialog_title": {
+        "description": "Ingredients edition - Dialog explaining why the photo is loading - Title"
+    },
+    "edit_ingredients_loading_photo_help_dialog_body": "כדי להשתמש ביכולת „חילוץ רכיבים”, קודם יש להעלות את התמונה. \n\nנא להמתין מספר שניות או למלא אותם ידנית.",
+    "@edit_ingredients_loading_photo_help_dialog_body": {
+        "description": "Ingredients edition - Dialog explaining why the photo is loading - Content"
+    },
     "edit_ingredients_refresh_photo_btn_text": "רענון תמונה",
     "@edit_ingredients_refresh_photo_btn_text": {
         "description": "Ingredients edition - Refresh photo"
@@ -1506,6 +1514,14 @@
     "edit_packaging_loading_photo_btn_text": "Loading photo…",
     "@edit_packaging_loading_photo_btn_text": {
         "description": "Packaging edition - Loading photo from the server"
+    },
+    "edit_packaging_loading_photo_help_dialog_title": "למה ההודעה הזאת מופיעה?",
+    "@edit_packaging_loading_photo_help_dialog_title": {
+        "description": "Packaging edition - Dialog explaining why the photo is loading - Title"
+    },
+    "edit_packaging_loading_photo_help_dialog_body": "כדי להשתמש ביכולת „חילוץ אריזה”, קודם יש להעלות את התמונה. \n\nנא להמתין מספר שניות או למלא אותם ידנית.",
+    "@edit_packaging_loading_photo_help_dialog_body": {
+        "description": "Packaging edition - Dialog explaining why the photo is loading - Content"
     },
     "edit_packaging_refresh_photo_btn_text": "רענון תמונה",
     "@edit_packaging_refresh_photo_btn_text": {
@@ -1716,20 +1732,45 @@
     "@dev_preferences_import_history_subtitle": {
         "description": "User dev preferences - Import history - Subtitle"
     },
+    "dev_preferences_news_custom_url_title": "כתובת מותאמת לחדשות",
+    "@dev_preferences_news_custom_url_title": {
+        "description": "News dev preferences - Custom URL for news - Title"
+    },
+    "dev_preferences_news_custom_url_subtitle": "כתובת קובץ JSON:",
+    "@dev_preferences_news_custom_url_subtitle": {
+        "description": "News dev preferences - Custom URL for news - Title"
+    },
+    "dev_preferences_news_custom_url_empty_value": "לא הוגדרה",
+    "@dev_preferences_news_custom_url_empty_value": {
+        "description": "Message to show when the custom news URL is not set"
+    },
+    "dev_preferences_news_provider_status_title": "מצב",
+    "@dev_preferences_news_provider_status_title": {
+        "description": "News dev preferences - Status - Title"
+    },
+    "dev_preferences_news_provider_status_subtitle": "רענון אחרון: {date}",
+    "@dev_preferences_news_provider_status_subtitle": {
+        "description": "News dev preferences - Custom URL for news - Subtitle",
+        "placeholders": {
+            "date": {
+                "type": "String"
+            }
+        }
+    },
     "prices_app_dev_mode_flag": "קיצור דרך ליישומון מחירים בעמוד המוצר",
     "prices_app_button": "מעבר ליישומון המחירים",
     "prices_generic_title": "מחירים",
-    "prices_add_n_prices": "{count,plural, =1{Add a price} other{App {count} prices}}",
-    "prices_send_n_prices": "{count,plural, =1{Send the price} other{Send {count} prices}}",
-    "prices_add_an_item": "Add an item",
+    "prices_add_n_prices": "{count,plural, two {הוספת {count} מחירים} many {הוספת {count} מחירים}=1{הוספת מחיר{count}} other{הוספת {count} מחירים}}",
+    "prices_send_n_prices": "{count,plural, two {שליחת {count} מחירים} many {שליחת {count} מחירים}=1{שליחת מחיר {count}} other{שליחת {count} מחירים}}",
+    "prices_add_an_item": "הוספת פריט",
     "prices_add_a_price": "הוספת מחיר",
-    "prices_add_a_receipt": "Add a receipt",
-    "prices_add_price_tags": "Add price tags",
+    "prices_add_a_receipt": "הוספת קבלה",
+    "prices_add_price_tags": "הוספת תגי מחיר",
     "prices_barcode_search_not_found": "המוצר לא נמצא",
-    "prices_barcode_search_none_yet": "No product yet",
-    "prices_barcode_search_question": "Do you want to look for this product?",
+    "prices_barcode_search_none_yet": "אין מוצרים עדיין",
+    "prices_barcode_search_question": "לחפש את המוצר הזה?",
     "prices_barcode_search_title": "חיפוש מוצרים",
-    "prices_barcode_search_running": "Looking for {barcode}",
+    "prices_barcode_search_running": "מתבצע איתור אחר {barcode}",
     "@prices_barcode_search_running": {
         "description": "Dialog title about barcode look-up",
         "placeholders": {
@@ -1738,9 +1779,21 @@
             }
         }
     },
-    "prices_barcode_reader_action": "Barcode reader",
-    "prices_view_prices": "View the prices",
-    "prices_list_length_one_page": "{count,plural, two {כל {count} המחירים} many {כל {count} המחירים}=0{אין מחיר עדיין} =1{מחיר אחד בלבד} other{כל {count} המחירים}}",
+    "prices_barcode_reader_action": "קורא ברקודים",
+    "prices_view_prices": "הצגת המחירים",
+    "prices_product_accessibility_summary": "{count,plural, two {{count} מחירים} many {{count} מחירים}=1{מחיר {count}} other{{count} מחירים}} ל{product}",
+    "@prices_product_accessibility_summary": {
+        "description": "A card summarizing the number of prices for a product",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            },
+            "product": {
+                "type": "String"
+            }
+        }
+    },
+    "prices_list_length_one_page": "{count,plural, two {כל {count} המחירים} many {כל {count} המחירים}=0{אין מחיר עדיין} =1{מחיר {count} בלבד} other{כל {count} המחירים}}",
     "@prices_list_length_one_page": {
         "description": "Number of prices for one-page result",
         "placeholders": {
@@ -1760,6 +1813,37 @@
                 "type": "int"
             }
         }
+    },
+    "prices_entry_accessibility_label": "מחיר: {price} / חנות: „{location}” / פורסם ב־{date} על ידי „{user}”",
+    "@prices_entry_accessibility_label": {
+        "description": "Accessibility label for a price entry",
+        "placeholders": {
+            "price": {
+                "type": "String"
+            },
+            "location": {
+                "type": "String"
+            },
+            "date": {
+                "type": "String"
+            },
+            "user": {
+                "type": "String"
+            }
+        }
+    },
+    "prices_open_user_proofs": "הוכחות פתוחות של „{user}”",
+    "@prices_open_user_proofs": {
+        "description": "Button to open the proofs of a user",
+        "placeholders": {
+            "user": {
+                "type": "String"
+            }
+        }
+    },
+    "prices_open_proof": "הוכחת מחיר פתוח",
+    "@prices_open_proof": {
+        "description": "Button to open a proof"
     },
     "prices_proofs_list_length_one_page": "{count,plural, =0{No proof yet} =1{Only one proof} other{All {count} proofs}}",
     "@prices_proofs_list_length_one_page": {
@@ -1799,7 +1883,7 @@
     "prices_amount_price_normal": "מחיר",
     "prices_amount_price_discounted": "מחיר מוזל",
     "prices_amount_price_not_discounted": "מחיר מקורי",
-    "prices_amount_no_product": "One product is missing!",
+    "prices_amount_no_product": "מוצר אחד חסר!",
     "prices_amount_price_incorrect": "ערך שגוי",
     "prices_amount_price_mandatory": "ערך חובה",
     "prices_currency_subtitle": "מטבע",
@@ -1823,20 +1907,21 @@
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"
     },
-    "dev_mode_section_server": "Server configuration",
-    "dev_mode_section_product_page": "Product page",
-    "dev_mode_section_ui": "User Interface",
+    "dev_mode_section_server": "הגדרות שרת",
+    "dev_mode_section_news": "הגדרות ספק חדשות",
+    "dev_mode_section_product_page": "עמוד מוצר",
+    "dev_mode_section_ui": "מנשק משתמש",
     "dev_mode_section_data": "נתונים",
-    "dev_mode_section_experimental_features": "Experimental features",
+    "dev_mode_section_experimental_features": "יכולות ניסיוניות",
     "dev_mode_hide_ecoscore_title": "להחריג Eco-Score",
     "@dev_mode_hide_ecoscore_title": {
         "description": "User dev preferences - Disable Ecoscore - Title"
     },
-    "dev_mode_spellchecker_for_ocr_title": "Use a spellchecker for OCR screens",
+    "dev_mode_spellchecker_for_ocr_title": "להשתמש בבודק איות למסכי סריקה אופטית",
     "@dev_mode_spellchecker_for_ocr_title": {
         "description": "User dev preferences - Enable Spellchecker on OCR screens - Title"
     },
-    "dev_mode_spellchecker_for_ocr_subtitle": "(Ingredients and packaging)",
+    "dev_mode_spellchecker_for_ocr_subtitle": "(רכיבים ואריזה)",
     "@dev_mode_spellchecker_for_ocr_subtitle": {
         "description": "User dev preferences - Enable Spellchecker on OCR screens - Subtitle"
     },
@@ -2096,7 +2181,7 @@
     "@product_list_select": {
         "description": "Top title for the selection of a list"
     },
-    "user_list_length": "{count,plural, two {שני מוצרים} many {{count} מוצרים} =0{רשימה ריקה} =1{מוצר אחד} other{{count} מוצרים}}",
+    "user_list_length": "{count,plural, two {{count} מוצרים} many {{count} מוצרים} =0{רשימה ריקה} =1{מוצר {count}} other{{count} מוצרים}}",
     "@user_list_length": {
         "description": "Length of a user product list",
         "placeholders": {
@@ -2179,7 +2264,11 @@
     },
     "capture": "לצלם חדשה",
     "@capture": {
-        "description": "Button label for taking a photo"
+        "description": "Button label for taking a new photo (= there's already one)"
+    },
+    "capture_new_picture": "צילום תמונה",
+    "@capture_new_picture": {
+        "description": "Button label for taking a new photo (= the first one)"
     },
     "choose_from_gallery": "בחירה מהגלריה",
     "@choose_from_gallery": {
@@ -2387,7 +2476,7 @@
     "@robotoff_continue": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering"
     },
-    "robotoff_next_n_questions": "{count,plural,  two {{count} השאלות הבאות}  many {{count} השאלות הבאות}=1{השאלה הבאה} other{{count} השאלות הבאות}}",
+    "robotoff_next_n_questions": "{count,plural,  two {{count} השאלות הבאות}  many {{count} השאלות הבאות}=1{שאלה {count} הבאה} other{{count} השאלות הבאות}}",
     "@robotoff_next_n_questions": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering",
         "placeholders": {
@@ -2771,7 +2860,7 @@
     "faq_title_install_beauty": "אפשר להתקין את Open Beauty Facts כדי ליצור מסד נתונים קוסמטי",
     "faq_title_install_pet": "אפשר להתקין את Open Pet Food Facts כדי ליצור מסד נתוני מזון לחיות מחמד",
     "faq_title_install_product": "אפשר להתקין את Open Products Facts כדי ליצור מסד נתונים של מוצרים להארכת חיי הפריטים",
-    "faq_nutriscore_nutriscore": "New calculation of the Nutri-Score: what's new?",
+    "faq_nutriscore_nutriscore": "נוסחה חדשה ל־Nutri-Score: מה השתנה?",
     "contact_title_pro_page": "יצרנים? אפשר לייבא את המוצרים שלכם ל־Open Food Facts",
     "contact_title_pro_email": "איש קשר ליצרנים",
     "contact_title_press_page": "עמוד לעיתונאים",
@@ -2864,8 +2953,12 @@
     "@guide_nutriscore_v2_share_message": {
         "description": "Please let empty for now (maybe use in the future)"
     },
-    "preview_badge": "Preview",
+    "preview_badge": "תצוגה מקדימה",
     "@preview_badge": {
         "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
+    },
+    "prices_feedback_form": "נא ללחוץ כאן כדי לשלוח לנו משוב על היכולת החדשה הזאת!",
+    "@prices_feedback_form": {
+        "description": "A button to send feedback about the prices feature"
     }
 }

@@ -99,14 +99,15 @@ class _ProductPricesListState extends State<ProductPricesList>
           }
           final AppLocalizations appLocalizations =
               AppLocalizations.of(context);
-          final String title = result.numberOfPages == 1
-              ? appLocalizations.prices_list_length_one_page(
-                  result.items!.length,
-                )
-              : appLocalizations.prices_list_length_many_pages(
-                  widget.model.parameters.pageSize!,
-                  result.total!,
-                );
+          final String title =
+              result.numberOfPages != null && result.numberOfPages! <= 1
+                  ? appLocalizations.prices_list_length_one_page(
+                      result.items!.length,
+                    )
+                  : appLocalizations.prices_list_length_many_pages(
+                      widget.model.parameters.pageSize!,
+                      result.total!,
+                    );
           children.insert(
             0,
             SmoothCard(child: ListTile(title: Text(title))),
@@ -126,6 +127,6 @@ class _ProductPricesListState extends State<ProductPricesList>
   ) async =>
       OpenPricesAPIClient.getPrices(
         parameters,
-        uriHelper: ProductQuery.uriProductHelper,
+        uriHelper: ProductQuery.uriPricesHelper,
       );
 }

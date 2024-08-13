@@ -261,7 +261,7 @@ class _ExtractMainActionProgressIndicator extends StatelessWidget {
           bottom: SMALL_SPACE,
         ),
         child: CupertinoActivityIndicator(
-          radius: 10.0,
+          radius: BALANCED_SPACE,
           color: Colors.white,
         ),
       );

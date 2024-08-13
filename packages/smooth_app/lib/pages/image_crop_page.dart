@@ -98,7 +98,7 @@ Future<UserPictureSource?> _getUserPictureSource(
           closeButtonSemanticsOrder: 5.0,
           body: const _ImageSourcePicker(),
           bodyPadding: const EdgeInsetsDirectional.only(
-            start: 10.0,
+            start: BALANCED_SPACE,
             end: MEDIUM_SPACE,
             top: LARGE_SPACE,
             bottom: MEDIUM_SPACE,
@@ -127,7 +127,7 @@ class _ImageSourcePickerState extends State<_ImageSourcePicker> {
       children: <Widget>[
         IntrinsicHeight(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+            padding: const EdgeInsets.symmetric(horizontal: BALANCED_SPACE),
             child: Row(
               children: <Widget>[
                 Expanded(
@@ -225,13 +225,13 @@ class _ImageSourceButton extends StatelessWidget {
       child: OutlinedButton(
         onPressed: onPressed,
         style: ButtonStyle(
-          side: MaterialStatePropertyAll<BorderSide>(
+          side: WidgetStatePropertyAll<BorderSide>(
             BorderSide(color: primaryColor),
           ),
-          padding: const MaterialStatePropertyAll<EdgeInsetsGeometry>(
+          padding: const WidgetStatePropertyAll<EdgeInsetsGeometry>(
             EdgeInsets.symmetric(vertical: LARGE_SPACE),
           ),
-          shape: MaterialStatePropertyAll<OutlinedBorder>(
+          shape: WidgetStatePropertyAll<OutlinedBorder>(
             RoundedRectangleBorder(
               borderRadius: ROUNDED_BORDER_RADIUS,
               side: BorderSide(color: primaryColor),

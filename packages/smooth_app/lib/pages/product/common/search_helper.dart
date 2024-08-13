@@ -6,8 +6,10 @@ import 'package:smooth_app/database/local_database.dart';
 typedef SearchQueryCallback = void Function(String query);
 
 /// Common "text-field + history" search helper.
-abstract class SearchHelper {
-  const SearchHelper();
+/// Will emit a [SearchQuery] when a search is performed.
+/// By default (with the [null] value), the history will be displayed.
+abstract class SearchHelper extends ValueNotifier<SearchQuery?> {
+  SearchHelper() : super(null);
 
   /// Action to perform for a search.
   @protected
@@ -57,4 +59,14 @@ abstract class SearchHelper {
           focusNode.requestFocus();
         },
       );
+}
+
+class SearchQuery {
+  const SearchQuery({
+    required this.search,
+    required this.widget,
+  }) : assert(search.length > 0);
+
+  final String search;
+  final Widget widget;
 }

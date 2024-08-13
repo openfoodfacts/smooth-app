@@ -120,6 +120,8 @@ class _RawGridGallery extends StatelessWidget {
           // order by descending ids
           index = rawImages.length - 1 - index;
           final ProductImage productImage = rawImages[index];
+          final String? heroTag = productImage.imgid;
+
           return Padding(
             padding: EdgeInsetsDirectional.only(
               start: VERY_SMALL_SPACE,
@@ -130,10 +132,14 @@ class _RawGridGallery extends StatelessWidget {
               onTap: () async => Navigator.push<void>(
                 context,
                 MaterialPageRoute<bool>(
-                  builder: (BuildContext context) => ProductImageOtherPage(
-                    product,
-                    int.parse(productImage.imgid!),
-                  ),
+                  builder: (BuildContext context) {
+                    return ProductImageOtherPage(
+                      product: product,
+                      images: rawImages.reversed.toList(growable: false),
+                      currentImage: productImage,
+                      heroTag: heroTag,
+                    );
+                  },
                 ),
               ),
               child: ProductImageWidget(
@@ -141,6 +147,7 @@ class _RawGridGallery extends StatelessWidget {
                 barcode: product.barcode!,
                 squareSize: squareSize,
                 imageSize: imageSize,
+                heroTag: heroTag,
               ),
             ),
           );

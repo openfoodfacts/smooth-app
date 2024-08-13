@@ -131,7 +131,7 @@ class PriceDataWidget extends StatelessWidget {
       return null;
     }
     final StringBuffer result = StringBuffer();
-    final String? countryEmoji = EmojiHelper().getCountryEmoji(
+    final String? countryEmoji = EmojiHelper.getCountryEmoji(
       _getCountry(location),
     );
     if (location.name != null) {

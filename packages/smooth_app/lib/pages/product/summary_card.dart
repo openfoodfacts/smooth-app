@@ -298,7 +298,7 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
           addPanelButton(
             localizations.product_search_same_category,
             iconData: Icons.leaderboard,
-            onPressed: () async => ProductQueryPageHelper().openBestChoice(
+            onPressed: () async => ProductQueryPageHelper.openBestChoice(
               name: categoryLabel!,
               localDatabase: context.read<LocalDatabase>(),
               productQuery: CategoryProductQuery(categoryTag!),

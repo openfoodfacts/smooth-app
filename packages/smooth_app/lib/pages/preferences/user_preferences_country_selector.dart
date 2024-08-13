@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/pages/onboarding/country_selector.dart';
+import 'package:smooth_app/pages/preferences/country_selector/country_selector.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
 
 class UserPreferencesCountrySelector extends StatelessWidget {
@@ -34,6 +34,7 @@ class UserPreferencesCountrySelector extends StatelessWidget {
           bottom: SMALL_SPACE,
         ),
         child: CountrySelector(
+          autoValidate: false,
           forceCurrencyChange: false,
           textStyle: themeData.textTheme.bodyMedium,
           icon: const Icon(Icons.edit),

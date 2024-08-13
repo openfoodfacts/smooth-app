@@ -61,7 +61,7 @@ jobs:
         run: bundle install
         working-directory: ./packages/smooth_app/android/
       - name: Setup Java JDK
-        uses: actions/setup-java@v4.2.1
+        uses: actions/setup-java@v4.2.2
         with:
           distribution: 'zulu'
           java-version: ${{ env.JAVA_VERSION }}
@@ -110,7 +110,7 @@ jobs:
           VERSION_CODE: ${{ inputs.VERSION_CODE }}
 
       - name: Build app
-        run: cd ./packages/smooth_app && cd ios && rm -rf Pods && rm Podfile.lock && flutter pub get && pod install && cd .. && flutter build ios --release --no-codesign -t lib/entrypoints/ios/main_ios.dart
+        run: cd ./packages/smooth_app && cd ios && rm -rf Pods && rm -f Podfile.lock && flutter pub get && pod install && cd .. && flutter build ios --release --no-codesign -t lib/entrypoints/ios/main_ios.dart
         env:
           GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}

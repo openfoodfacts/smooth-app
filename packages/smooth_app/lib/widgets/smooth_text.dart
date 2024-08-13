@@ -66,6 +66,7 @@ class TextHighlighter extends StatelessWidget {
     this.textAlign,
     this.selected = false,
     this.softWrap = false,
+    this.textStyle,
   });
 
   final String text;
@@ -73,15 +74,17 @@ class TextHighlighter extends StatelessWidget {
   final TextAlign? textAlign;
   final bool? softWrap;
   final bool selected;
+  final TextStyle? textStyle;
 
   @override
   Widget build(BuildContext context) {
     List<(String, TextStyle?)> parts;
     try {
+      final TextStyle defaultStyle =
+          textStyle ?? TextStyle(fontWeight: selected ? FontWeight.bold : null);
       parts = _getParts(
-        defaultStyle: TextStyle(fontWeight: selected ? FontWeight.bold : null),
-        highlightedStyle: TextStyle(
-          fontWeight: selected ? FontWeight.bold : null,
+        defaultStyle: defaultStyle,
+        highlightedStyle: defaultStyle.copyWith(
           backgroundColor: Theme.of(context).primaryColor.withOpacity(0.2),
         ),
       );
