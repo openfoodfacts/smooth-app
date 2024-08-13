@@ -32,7 +32,7 @@ dependencies:
   latlong2: 0.9.1
   matomo_tracker: 5.0.0-dev.2
   package_info_plus: 7.0.0
-  device_info_plus: 9.1.2
+  device_info_plus: 10.1.2
   permission_handler: 11.3.1
   photo_view: 0.15.0
   uuid: 4.4.2
