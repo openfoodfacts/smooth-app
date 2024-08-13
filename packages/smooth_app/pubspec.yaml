@@ -18,7 +18,7 @@ dependencies:
   carousel_slider: 4.2.1
   cupertino_icons: 1.0.8
   flutter_svg: 2.0.10+1
-  flutter_map: 6.1.0
+  flutter_map: 7.0.2
   html: 0.15.4
   flutter_widget_from_html_core: 0.8.3+1
   fwfh_selectable_text: 0.8.3+1
