@@ -18,8 +18,8 @@ import 'package:smooth_app/pages/product/edit_product_page.dart';
 import 'package:smooth_app/pages/product/new_product_page.dart';
 import 'package:smooth_app/pages/product/product_loader_page.dart';
 import 'package:smooth_app/pages/scan/carousel/scan_carousel_manager.dart';
-import 'package:smooth_app/pages/scan/search_page.dart';
-import 'package:smooth_app/pages/scan/search_product_helper.dart';
+import 'package:smooth_app/pages/search/search_page.dart';
+import 'package:smooth_app/pages/search/search_product_helper.dart';
 import 'package:smooth_app/pages/user_management/sign_up_page.dart';
 import 'package:smooth_app/query/product_query.dart';
 
@@ -204,7 +204,13 @@ class _SmoothGoRouter {
             ),
             GoRoute(
               path: _InternalAppRoutes.SEARCH_PAGE,
-              builder: (_, __) => const SearchPage(SearchProductHelper()),
+              builder: (_, GoRouterState state) {
+                if (state.extra != null) {
+                  return SearchPage.fromExtra(state.extra! as SearchPageExtra);
+                } else {
+                  return SearchPage(SearchProductHelper());
+                }
+              },
             ),
             GoRoute(
               path: _InternalAppRoutes._GUIDES,
@@ -452,6 +458,7 @@ class AppRoutes {
       '/${_InternalAppRoutes._GUIDES}/${_InternalAppRoutes.GUIDE_NUTRISCORE_V2_PAGE}';
 
   static String get SIGNUP => '/${_InternalAppRoutes.SIGNUP_PAGE}';
+
   // Open an external link (where path is relative to the OFF website)
   static String EXTERNAL(String path) =>
       '/${_InternalAppRoutes.EXTERNAL_PAGE}/?path=$path';

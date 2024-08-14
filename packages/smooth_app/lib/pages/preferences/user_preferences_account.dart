@@ -276,7 +276,7 @@ class UserPreferencesAccount extends AbstractUserPreferences {
                 displayProduct: true,
                 uri: OpenPricesAPIClient.getUri(
                   path: 'app/prices',
-                  uriHelper: ProductQuery.uriProductHelper,
+                  uriHelper: ProductQuery.uriPricesHelper,
                 ),
                 title: appLocalizations.all_search_prices_latest_title,
               ),
@@ -363,7 +363,7 @@ class UserPreferencesAccount extends AbstractUserPreferences {
         () async => LaunchUrlHelper.launchURL(
           OpenPricesAPIClient.getUri(
             path: path,
-            uriHelper: ProductQuery.uriProductHelper,
+            uriHelper: ProductQuery.uriPricesHelper,
           ).toString(),
         ),
         Icons.open_in_new,
@@ -425,7 +425,7 @@ class UserPreferencesAccount extends AbstractUserPreferences {
       GetPricesParameters()
         ..owner = owner
         ..pageSize = 1,
-      uriHelper: ProductQuery.uriProductHelper,
+      uriHelper: ProductQuery.uriPricesHelper,
     );
     if (result.isError) {
       return null;
@@ -443,7 +443,7 @@ class UserPreferencesAccount extends AbstractUserPreferences {
   }) =>
       _getListTile(
         title,
-        () async => ProductQueryPageHelper().openBestChoice(
+        () async => ProductQueryPageHelper.openBestChoice(
           name: title,
           localDatabase: localDatabase,
           productQuery: productQuery,

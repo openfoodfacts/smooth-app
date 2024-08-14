@@ -5,6 +5,7 @@ import 'package:smooth_app/data_models/fetched_product.dart';
 import 'package:smooth_app/database/dao_string_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
+import 'package:smooth_app/helpers/provider_helper.dart';
 import 'package:smooth_app/helpers/string_extension.dart';
 import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
@@ -14,7 +15,7 @@ import 'package:smooth_app/query/keywords_product_query.dart';
 
 /// Search helper dedicated to product search.
 class SearchProductHelper extends SearchHelper {
-  const SearchProductHelper();
+  SearchProductHelper();
 
   @override
   String get historyKey => DaoStringList.keySearchProductHistory;
@@ -52,7 +53,6 @@ class SearchProductHelper extends SearchHelper {
         query,
         context,
         localDatabase,
-        editProductQueryCallback: searchQueryCallback,
       );
     }
   }
@@ -99,14 +99,19 @@ class SearchProductHelper extends SearchHelper {
   Future<void> _onSubmittedText(
     final String value,
     final BuildContext context,
-    final LocalDatabase localDatabase, {
-    SearchQueryCallback? editProductQueryCallback,
-  }) async =>
-      ProductQueryPageHelper().openBestChoice(
-        name: value,
-        localDatabase: localDatabase,
-        productQuery: KeywordsProductQuery(value),
-        context: context,
-        editQueryCallback: editProductQueryCallback,
-      );
+    final LocalDatabase localDatabase,
+  ) async {
+    emit(
+      SearchQuery(
+        search: value,
+        widget: await ProductQueryPageHelper.getBestChoiceWidget(
+          name: value,
+          localDatabase: localDatabase,
+          productQuery: KeywordsProductQuery(value),
+          context: context,
+          editableAppBarTitle: false,
+        ),
+      ),
+    );
+  }
 }

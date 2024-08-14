@@ -27,7 +27,7 @@ import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_search_page.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
-import 'package:smooth_app/pages/scan/search_page.dart';
+import 'package:smooth_app/pages/search/search_page.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 /// Full page display of "dev mode" for the preferences page.
@@ -48,6 +48,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
         );
 
   static const String userPreferencesFlagProd = '__devWorkingOnProd';
+  static const String userPreferencesFlagPriceProd = '__devWorkingOnPricesProd';
   static const String userPreferencesTestEnvDomain = '__testEnvHost';
   static const String userPreferencesFlagEditIngredients = '__editIngredients';
   static const String userPreferencesFlagBoostedComparison =
@@ -269,6 +270,34 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           ),
           onTap: () async => _changeTestEnvDomain(),
         ),
+        const UserPreferencesItemSection(
+          label: 'Prices Server configuration',
+        ),
+        UserPreferencesItemTile(
+          title: 'Switch between prices.openfoodfacts.org (PROD) and test env',
+          trailing: DropdownButton<bool>(
+            value:
+                userPreferences.getFlag(userPreferencesFlagPriceProd) ?? true,
+            elevation: 16,
+            onChanged: (bool? newValue) async {
+              await userPreferences.setFlag(
+                userPreferencesFlagPriceProd,
+                newValue,
+              );
+              ProductQuery.setQueryType(userPreferences);
+            },
+            items: const <DropdownMenuItem<bool>>[
+              DropdownMenuItem<bool>(
+                value: true,
+                child: Text('PROD'),
+              ),
+              DropdownMenuItem<bool>(
+                value: false,
+                child: Text('TEST'),
+              ),
+            ],
+          ),
+        ),
         UserPreferencesItemSection(
           label: appLocalizations.dev_mode_section_news,
         ),
@@ -421,7 +450,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
               context,
               MaterialPageRoute<OsmLocation>(
                 builder: (BuildContext context) => SearchPage(
-                  const SearchLocationHelper(),
+                  SearchLocationHelper(),
                   preloadedList: preloadedList,
                   autofocus: false,
                 ),

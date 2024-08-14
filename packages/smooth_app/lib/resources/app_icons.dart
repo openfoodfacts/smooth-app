@@ -695,6 +695,7 @@ abstract class AppIcon extends StatelessWidget {
     this.color,
     this.shadow,
     this.size,
+    this.semanticLabel,
     super.key,
   }) : assert(size == null || size >= 0);
 
@@ -702,6 +703,7 @@ abstract class AppIcon extends StatelessWidget {
   final Color? color;
   final double? size;
   final Shadow? shadow;
+  final String? semanticLabel;
 
   @override
   @mustCallSuper
@@ -719,14 +721,17 @@ abstract class AppIcon extends StatelessWidget {
           Theme.of(context).iconTheme.color,
     };
 
-    return Icon(icon,
-        color: color,
-        size: size ?? iconTheme?.size,
-        shadows: shadow != null
-            ? <Shadow>[shadow!]
-            : iconTheme?.shadow != null
-                ? <Shadow>[iconTheme!.shadow!]
-                : null);
+    return Icon(
+      icon,
+      color: color,
+      size: size ?? iconTheme?.size,
+      semanticLabel: iconTheme?.semanticLabel ?? semanticLabel,
+      shadows: shadow != null
+          ? <Shadow>[shadow!]
+          : iconTheme?.shadow != null
+              ? <Shadow>[iconTheme!.shadow!]
+              : null,
+    );
   }
 }
 
@@ -739,11 +744,13 @@ class AppIconTheme extends InheritedWidget {
     this.color,
     this.size,
     this.shadow,
+    this.semanticLabel,
   });
 
   final Color? color;
   final double? size;
   final Shadow? shadow;
+  final String? semanticLabel;
 
   static AppIconTheme of(BuildContext context) {
     final AppIconTheme? result = maybeOf(context);
@@ -758,7 +765,8 @@ class AppIconTheme extends InheritedWidget {
   @override
   bool updateShouldNotify(AppIconTheme oldWidget) {
     return color != oldWidget.color ||
-        size != oldWidget.size ||
+        semanticLabel != oldWidget.semanticLabel ||
+        shadow != oldWidget.shadow ||
         shadow != oldWidget.shadow;
   }
 }

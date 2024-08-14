@@ -47,7 +47,7 @@ class _PricesProofsPageState extends State<PricesProofsPage>
             onPressed: () async => LaunchUrlHelper.launchURL(
               OpenPricesAPIClient.getUri(
                 path: 'app/dashboard/proofs',
-                uriHelper: ProductQuery.uriProductHelper,
+                uriHelper: ProductQuery.uriPricesHelper,
               ).toString(),
             ),
           ),
@@ -152,7 +152,7 @@ class _PricesProofsPageState extends State<PricesProofsPage>
         await OpenPricesAPIClient.getAuthenticationToken(
       username: user.userId,
       password: user.password,
-      uriHelper: ProductQuery.uriProductHelper,
+      uriHelper: ProductQuery.uriPricesHelper,
     );
     final String bearerToken = token.value;
 
@@ -167,12 +167,12 @@ class _PricesProofsPageState extends State<PricesProofsPage>
         ]
         ..pageSize = _pageSize
         ..pageNumber = 1,
-      uriHelper: ProductQuery.uriProductHelper,
+      uriHelper: ProductQuery.uriPricesHelper,
       bearerToken: bearerToken,
     );
 
     await OpenPricesAPIClient.deleteUserSession(
-      uriHelper: ProductQuery.uriProductHelper,
+      uriHelper: ProductQuery.uriPricesHelper,
       bearerToken: bearerToken,
     );
 
