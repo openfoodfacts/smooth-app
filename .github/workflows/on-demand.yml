@@ -72,7 +72,7 @@ jobs:
     name: "On demand deletion of 3-letter translation files"
     if: |
       github.event.issue.pull_request &&
-      (github.event.comment.body == '/lint') &&
+      (github.event.comment.body == '/delete-3-letter-translations') &&
       contains(fromJSON('["COLLABORATOR", "CONTRIBUTOR", "MEMBER", "OWNER"]'), github.event.comment.author_association)
     runs-on: ubuntu-latest
     steps:
