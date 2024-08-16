@@ -1,4 +1,4 @@
-name: SmoothApp Pre-Submit Tests
+name: 🤳🥫 Open Food Facts mobile app Pre-Submit Tests
 
 on:
   pull_request:
@@ -17,14 +17,14 @@ jobs:
         shell: bash
 
     steps:
-      - name: Checkout code
+      - name: 📂 Checkout code
         uses: actions/checkout@v4
 
       # Get the Flutter version from ./flutter-version.txt
       - run: echo "FLUTTER_VERSION=$(cat flutter-version.txt)" >> $GITHUB_OUTPUT
         id: flutter-version
 
-      - name: Setup Flutter
+      - name: 🪺 Setup Flutter
         uses: subosito/flutter-action@v2
         with:
           #channel: stable
@@ -35,11 +35,11 @@ jobs:
       - run: flutter --version
 
       # Get dependencies
-      - name: Get dependencies
+      - name: 📦 Get dependencies
         run: ci/pub_upgrade.sh
 
       # Check for formatting issues
-      - name: Check for formatting issues (run "dart format . ")
+      - name: 🧹 Check for formatting issues (run "dart format . ")
         run: dart format --set-exit-if-changed .
 
       # Analyze Dart for errors
@@ -47,7 +47,7 @@ jobs:
         run: flutter analyze --fatal-infos --fatal-warnings .
 
       # Run tests
-      - name: Run Tests with coverage
+      - name: 🧪 Run Tests with coverage
         run: ci/testing.sh
 
       - name: Upload coverage to codecov
