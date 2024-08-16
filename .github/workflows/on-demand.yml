@@ -22,7 +22,7 @@ jobs:
       env:
         REPO: ${{ github.repository }}
         PR_NO: ${{ github.event.issue.number }}
-        GITHUB_TOKEN: ${{ secrets.RELEASE_PLEASE_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Checkout
       uses: actions/checkout@v4
       with:
@@ -32,7 +32,7 @@ jobs:
         # We can't use GITHUB_TOKEN here because, github actions can't trigger actions
         # see: https://docs.github.com/en/actions/security-guides/automatic-token-authentication#using-the-github_token-in-a-workflow
         # So this is a personal access token
-        token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
+        token: ${{ secrets.GITHUB_TOKEN }}
     # we need origin/main to have comparison linting work !
     - name: Fetch origin/develop
       run: |
@@ -83,7 +83,7 @@ jobs:
       env:
         REPO: ${{ github.repository }}
         PR_NO: ${{ github.event.issue.number }}
-        GITHUB_TOKEN: ${{ secrets.RELEASE_PLEASE_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Checkout
       uses: actions/checkout@v4
       with:
@@ -93,7 +93,7 @@ jobs:
         # We can't use GITHUB_TOKEN here because, github actions can't trigger actions
         # see: https://docs.github.com/en/actions/security-guides/automatic-token-authentication#using-the-github_token-in-a-workflow
         # So this is a personal access token
-        token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
+        token: ${{ secrets.GITHUB_TOKEN }}
     # we need origin/main to have comparison linting work !
     - name: Fetch origin/develop
       run: |
