@@ -54,7 +54,7 @@ jobs:
 
       # Check for formatting issues and fix them
     - name: Check for formatting issues (run "dart format . ")
-      run: dart format --set-exit-if-changed .
+      run: dart format .
     - name: Push changes if needed
       uses: stefanzweifel/git-auto-commit-action@v5
       with:
