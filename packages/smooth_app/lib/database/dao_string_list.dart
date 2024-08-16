@@ -20,6 +20,9 @@ class DaoStringList extends AbstractDao {
   /// Key for the list of latest languages used in the app.
   static const String keyLanguages = 'languages';
 
+  /// Key for the list of favorite stores (for price additions).
+  static const String keyPriceStores = 'priceStores';
+
   /// Max lengths of each key (null means no limit).
   static const Map<String, int?> _maxLengths = <String, int?>{
     keySearchProductHistory: 10,
