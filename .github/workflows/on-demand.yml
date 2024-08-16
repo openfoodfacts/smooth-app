@@ -38,8 +38,23 @@ jobs:
       run: |
         git remote set-branches --add origin develop
         git fetch origin
-    - name: Run linting
-      run: XXXXXXXX
+    - name: Setup Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        #channel: stable
+        cache: true
+        flutter-version: ${{ steps.flutter-version.outputs.FLUTTER_VERSION }}
+        cache-key: flutter-${{ hashFiles('flutter-version.txt')}}-${{ hashFiles('packages\smooth_app\pubspec.lock')}}
+
+    - run: flutter --version
+
+      # Get dependencies
+    - name: Get dependencies
+      run: ci/pub_upgrade.sh
+
+      # Check for formatting issues and fix them
+    - name: Check for formatting issues (run "dart format . ")
+      run: dart format --set-exit-if-changed .
     - name: Push changes if needed
       uses: stefanzweifel/git-auto-commit-action@v5
       with:
