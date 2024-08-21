@@ -117,7 +117,7 @@ GEM
       xcpretty (~> 0.3.0)
       xcpretty-travis-formatter (>= 0.0.3, < 2.0.0)
     fastlane-plugin-flutter_dart_version_manager (0.1.5)
-    fastlane-plugin-versioning (0.5.2)
+    fastlane-plugin-versioning (0.6.0)
     gh_inspector (1.1.3)
     google-apis-androidpublisher_v3 (0.54.0)
       google-apis-core (>= 0.11.0, < 2.a)
