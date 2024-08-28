@@ -203,7 +203,7 @@ class _PriceProofImage extends StatelessWidget {
           imageProvider: NetworkImage(
             proof
                 .getFileUrl(
-                  uriProductHelper: ProductQuery.uriProductHelper,
+                  uriProductHelper: ProductQuery.uriPricesHelper,
                 )
                 .toString(),
           ),

@@ -40,6 +40,6 @@ class PriceProofPage extends StatelessWidget {
   }
 
   String _getUrl() => proof
-      .getFileUrl(uriProductHelper: ProductQuery.uriProductHelper)
+      .getFileUrl(uriProductHelper: ProductQuery.uriPricesHelper)
       .toString();
 }
