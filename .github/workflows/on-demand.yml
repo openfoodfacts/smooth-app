@@ -22,7 +22,7 @@ jobs:
       env:
         REPO: ${{ github.repository }}
         PR_NO: ${{ github.event.issue.number }}
-        GITHUB_TOKEN: ${{ secrets.RELEASE_PLEASE_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Checkout
       uses: actions/checkout@v4
       with:
@@ -32,14 +32,29 @@ jobs:
         # We can't use GITHUB_TOKEN here because, github actions can't trigger actions
         # see: https://docs.github.com/en/actions/security-guides/automatic-token-authentication#using-the-github_token-in-a-workflow
         # So this is a personal access token
-        token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
+        token: ${{ secrets.GITHUB_TOKEN }}
     # we need origin/main to have comparison linting work !
     - name: Fetch origin/develop
       run: |
         git remote set-branches --add origin develop
         git fetch origin
-    - name: Run linting
-      run: XXXXXXXX
+    - name: Setup Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        #channel: stable
+        cache: true
+        flutter-version: ${{ steps.flutter-version.outputs.FLUTTER_VERSION }}
+        cache-key: flutter-${{ hashFiles('flutter-version.txt')}}-${{ hashFiles('packages\smooth_app\pubspec.lock')}}
+
+    - run: flutter --version
+
+      # Get dependencies
+    - name: Get dependencies
+      run: ci/pub_upgrade.sh
+
+      # Check for formatting issues and fix them
+    - name: Check for formatting issues (run "dart format . ")
+      run: dart format .
     - name: Push changes if needed
       uses: stefanzweifel/git-auto-commit-action@v5
       with:
@@ -57,7 +72,7 @@ jobs:
     name: "On demand deletion of 3-letter translation files"
     if: |
       github.event.issue.pull_request &&
-      (github.event.comment.body == '/lint') &&
+      (github.event.comment.body == '/delete-3-letter-translations') &&
       contains(fromJSON('["COLLABORATOR", "CONTRIBUTOR", "MEMBER", "OWNER"]'), github.event.comment.author_association)
     runs-on: ubuntu-latest
     steps:
@@ -68,7 +83,7 @@ jobs:
       env:
         REPO: ${{ github.repository }}
         PR_NO: ${{ github.event.issue.number }}
-        GITHUB_TOKEN: ${{ secrets.RELEASE_PLEASE_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Checkout
       uses: actions/checkout@v4
       with:
@@ -78,7 +93,7 @@ jobs:
         # We can't use GITHUB_TOKEN here because, github actions can't trigger actions
         # see: https://docs.github.com/en/actions/security-guides/automatic-token-authentication#using-the-github_token-in-a-workflow
         # So this is a personal access token
-        token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
+        token: ${{ secrets.GITHUB_TOKEN }}
     # we need origin/main to have comparison linting work !
     - name: Fetch origin/develop
       run: |
