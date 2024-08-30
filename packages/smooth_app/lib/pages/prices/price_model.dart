@@ -15,12 +15,12 @@ class PriceModel with ChangeNotifier {
   PriceModel({
     required final ProofType proofType,
     required final List<OsmLocation> locations,
-    required final PriceMetaProduct product,
+    final PriceMetaProduct? initialProduct,
   })  : _proofType = proofType,
         _date = DateTime.now(),
         _locations = locations,
         priceAmountModels = <PriceAmountModel>[
-          PriceAmountModel(product: product),
+          if (initialProduct != null) PriceAmountModel(product: initialProduct),
         ];
 
   final List<PriceAmountModel> priceAmountModels;
@@ -67,6 +67,10 @@ class PriceModel with ChangeNotifier {
   OsmLocation? get location => _locations.firstOrNull;
 
   late Currency _checkedCurrency;
+
+  // overriding in order to make it public
+  @override
+  void notifyListeners() => super.notifyListeners();
 
   /// Returns the error message of the parameter check, or null if OK.
   String? checkParameters(final BuildContext context) {
