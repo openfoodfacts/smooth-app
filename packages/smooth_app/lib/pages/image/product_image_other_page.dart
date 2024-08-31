@@ -243,10 +243,11 @@ class _ProductImageDetailsButton extends StatelessWidget {
                     body: Column(
                       children: <Widget>[
                         ListTile(
-                          title: Text(appLocalizations
-                              .photo_viewer_details_contributor_title),
-                          // TODO(g123k): add contributor
-                          subtitle: const Text('TODO'),
+                          title: Text(
+                            appLocalizations
+                                .photo_viewer_details_contributor_title,
+                          ),
+                          subtitle: Text(image.contributor ?? '-'),
                         ),
                         ListTile(
                           title: Text(
