@@ -28,3 +28,15 @@ jobs:
           github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
           labeled: accessibility
           label-operator: OR
+      - uses: actions/add-to-project@main
+        with:
+          project-url: https://github.com/orgs/openfoodfacts/projects/132 # Add issue to the Top upvoted issues board
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          labeled: ⭐ top issue, 👍 Top 10 Issue!
+          label-operator: OR
+      - uses: actions/add-to-project@main
+        with:
+          project-url: https://github.com/orgs/openfoodfacts/projects/57 # Add issue to the Most impactful issues board
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          labeled: 🎯 P0, 🎯 P1
+          label-operator: OR
