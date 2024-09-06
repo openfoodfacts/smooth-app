@@ -5,6 +5,7 @@ on:
     types:
       - opened
       - labeled
+      - edited
 jobs:
   add-to-project:
     name: Add issue to the openfoodfacts-design project
