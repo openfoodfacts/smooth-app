@@ -18,7 +18,6 @@ import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/prices/get_prices_model.dart';
-import 'package:smooth_app/pages/prices/price_meta_product.dart';
 import 'package:smooth_app/pages/prices/price_user_button.dart';
 import 'package:smooth_app/pages/prices/prices_page.dart';
 import 'package:smooth_app/pages/prices/prices_proofs_page.dart';
@@ -243,7 +242,6 @@ class UserPreferencesAccount extends AbstractUserPreferences {
         appLocalizations.prices_add_a_receipt,
         () async => ProductPriceAddPage.showProductPage(
           context: context,
-          product: PriceMetaProduct.empty(),
           proofType: ProofType.receipt,
         ),
         Icons.add_shopping_cart,
@@ -252,7 +250,6 @@ class UserPreferencesAccount extends AbstractUserPreferences {
         appLocalizations.prices_add_price_tags,
         () async => ProductPriceAddPage.showProductPage(
           context: context,
-          product: PriceMetaProduct.empty(),
           proofType: ProofType.priceTag,
         ),
         Icons.add_shopping_cart,
