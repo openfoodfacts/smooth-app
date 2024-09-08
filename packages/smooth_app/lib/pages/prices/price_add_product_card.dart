@@ -12,10 +12,17 @@ import 'package:smooth_app/pages/prices/price_model.dart';
 import 'package:smooth_app/pages/prices/price_scan_page.dart';
 
 /// Card where the user can input a price product: type the barcode or scan.
-class PriceAddProductCard extends StatelessWidget {
+class PriceAddProductCard extends StatefulWidget {
   const PriceAddProductCard();
 
+  @override
+  State<PriceAddProductCard> createState() => _PriceAddProductCardState();
+}
+
+class _PriceAddProductCardState extends State<PriceAddProductCard> {
   static const TextInputType _textInputType = TextInputType.number;
+
+  String? _latestScannedBarcode;
 
   @override
   Widget build(BuildContext context) {
@@ -85,12 +92,15 @@ class PriceAddProductCard extends StatelessWidget {
             onPressed: () async {
               final String? barcode = await Navigator.of(context).push<String>(
                 MaterialPageRoute<String>(
-                  builder: (BuildContext context) => const PriceScanPage(),
+                  builder: (BuildContext context) => PriceScanPage(
+                    latestScannedBarcode: _latestScannedBarcode,
+                  ),
                 ),
               );
               if (barcode == null) {
                 return;
               }
+              _latestScannedBarcode = barcode;
               if (!context.mounted) {
                 return;
               }

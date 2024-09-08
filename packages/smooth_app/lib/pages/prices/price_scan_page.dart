@@ -6,11 +6,14 @@ import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/helpers/global_vars.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 import 'package:smooth_app/pages/scan/camera_scan_page.dart';
+import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Page showing the camera feed and decoding the first barcode, for Prices.
 class PriceScanPage extends StatefulWidget {
-  const PriceScanPage();
+  const PriceScanPage({required this.latestScannedBarcode});
+
+  final String? latestScannedBarcode;
 
   @override
   State<PriceScanPage> createState() => _PriceScanPageState();
@@ -31,8 +34,16 @@ class _PriceScanPageState extends State<PriceScanPage>
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return SmoothScaffold(
+      appBar: SmoothAppBar(
+        title: Text(appLocalizations.prices_add_an_item),
+      ),
       body: GlobalVars.barcodeScanner.getScanner(
         onScan: (final String barcode) async {
+          // for some reason, the scanner sometimes returns immediately the
+          // previously scanned barcode.
+          if (widget.latestScannedBarcode == barcode) {
+            return false;
+          }
           if (_mutex) {
             return false;
           }
