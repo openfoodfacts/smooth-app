@@ -29,7 +29,7 @@ class PriceAddProductCard extends StatelessWidget {
             ),
           ),
           SmoothLargeButtonWithIcon(
-            text: appLocalizations.barcode,
+            text: appLocalizations.prices_barcode_enter,
             icon: Icons.text_fields,
             onPressed: () async {
               final TextEditingController controller = TextEditingController();
@@ -106,11 +106,27 @@ class PriceAddProductCard extends StatelessWidget {
     final String barcode,
     final BuildContext context,
   ) async {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final PriceModel priceModel = Provider.of<PriceModel>(
       context,
       listen: false,
     );
+    for (final PriceAmountModel model in priceModel.priceAmountModels) {
+      if (model.product.barcode == barcode) {
+        await showDialog<void>(
+          context: context,
+          builder: (final BuildContext context) => SmoothAlertDialog(
+            body: Text(appLocalizations.prices_barcode_already(barcode)),
+            positiveAction: SmoothActionButton(
+              text: appLocalizations.okay,
+              onPressed: () => Navigator.of(context).pop(),
+            ),
+          ),
+        );
+        return;
+      }
+    }
     priceModel.priceAmountModels.add(
       PriceAmountModel(
         product: PriceMetaProduct.unknown(

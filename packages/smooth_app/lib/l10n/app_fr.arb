@@ -1766,10 +1766,17 @@
     "prices_add_a_price": "Ajouter un prix",
     "prices_add_a_receipt": "Ajouter un ticket de caisse",
     "prices_add_price_tags": "Ajouter des étiquettes de prix",
+    "prices_barcode_already": "Ce code-barres ({barcode}) est déjà dans la liste !",
+    "@prices_barcode_already": {
+        "description": "Error message about barcode being already there",
+        "placeholders": {
+            "barcode": {
+                "type": "String"
+            }
+        }
+    },
     "prices_barcode_search_not_found": "Produit introuvable",
     "prices_barcode_search_none_yet": "Pas encore de produit",
-    "prices_barcode_search_question": "Voulez-vous chercher ce produit ?",
-    "prices_barcode_search_title": "Recherche de produits",
     "prices_barcode_search_running": "À la recherche de {barcode}",
     "@prices_barcode_search_running": {
         "description": "Dialog title about barcode look-up",
@@ -1779,6 +1786,7 @@
             }
         }
     },
+    "prices_barcode_enter": "Saisie du code-barres",
     "prices_barcode_reader_action": "Lecteur de code-barres",
     "prices_view_prices": "Voir les prix",
     "prices_product_accessibility_summary": "{count,plural, =1{1 price} other{{count} prices}} for {product}",

@@ -1778,10 +1778,17 @@
     "prices_add_a_price": "Add a price",
     "prices_add_a_receipt": "Add a receipt",
     "prices_add_price_tags": "Add price tags",
+    "prices_barcode_already": "This barcode ({barcode}) is already in the list!",
+    "@prices_barcode_already": {
+        "description": "Error message about barcode being already there",
+        "placeholders": {
+            "barcode": {
+                "type": "String"
+            }
+        }
+    },
     "prices_barcode_search_not_found": "Product not found",
     "prices_barcode_search_none_yet": "No product yet",
-    "prices_barcode_search_question": "Do you want to look for this product?",
-    "prices_barcode_search_title": "Product search",
     "prices_barcode_search_running": "Looking for {barcode}",
     "@prices_barcode_search_running": {
         "description": "Dialog title about barcode look-up",
@@ -1791,6 +1798,7 @@
             }
         }
     },
+    "prices_barcode_enter": "Enter the Barcode",
     "prices_barcode_reader_action": "Barcode reader",
     "prices_view_prices": "View the prices",
     "prices_product_accessibility_summary": "{count,plural, =1{1 price} other{{count} prices}} for {product}",
