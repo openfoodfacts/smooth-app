@@ -68,7 +68,7 @@ class LocalDatabase extends ChangeNotifier {
     final String databasePath = join(databasesRootPath, 'smoothie.db');
     final Database database = await openDatabase(
       databasePath,
-      version: 6,
+      version: 7,
       singleInstance: true,
       onUpgrade: _onUpgrade,
     );

@@ -1911,6 +1911,7 @@
     "prices_location_subtitle": "Shop",
     "prices_location_find": "Find a shop",
     "prices_location_mandatory": "You need to select a shop!",
+    "prices_location_search_broader": "Couldn't find what you were looking for? Let's try a broader search!",
     "prices_proof_subtitle": "Proof",
     "prices_proof_find": "Select a proof",
     "prices_proof_receipt": "Receipt",
