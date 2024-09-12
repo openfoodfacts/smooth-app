@@ -1,10 +1,11 @@
-name: Add mockup-required and mockup-available issues to the openfoodfacts-design project
+name: 🎨 Add mockup-required and mockup-available issues to the openfoodfacts-design project
 
 on:
   issues:
     types:
+      - opened
       - labeled
-
+      - edited
 jobs:
   add-to-project:
     name: Add issue to the openfoodfacts-design project
@@ -14,7 +15,7 @@ jobs:
         with:
           project-url: https://github.com/orgs/openfoodfacts/projects/11
           github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
-          labeled: mockups available, needs mockup
+          labeled: 🎨 Mockups available, 🎨 Mockup required
           label-operator: OR
       - uses: actions/add-to-project@main
         with:
@@ -27,4 +28,16 @@ jobs:
           project-url: https://github.com/orgs/openfoodfacts/projects/35 # Add issue to the a11y project
           github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
           labeled: accessibility
+          label-operator: OR
+      - uses: actions/add-to-project@main
+        with:
+          project-url: https://github.com/orgs/openfoodfacts/projects/132 # Add issue to the Top upvoted issues board
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          labeled: ⭐ top issue, 👍 Top 10 Issue!
+          label-operator: OR
+      - uses: actions/add-to-project@main
+        with:
+          project-url: https://github.com/orgs/openfoodfacts/projects/57 # Add issue to the Most impactful issues board
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          labeled: 🎯 P0, 🎯 P1
           label-operator: OR

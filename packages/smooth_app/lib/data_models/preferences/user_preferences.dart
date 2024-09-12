@@ -81,6 +81,7 @@ class UserPreferences extends ChangeNotifier {
   static const String _TAG_EXCLUDED_ATTRIBUTE_IDS = 'excluded_attributes';
   static const String _TAG_USER_GROUP = '_user_group';
   static const String _TAG_UNIQUE_RANDOM = '_unique_random';
+  static const String _TAG_LAZY_COUNT_PREFIX = '_lazy_count_prefix';
 
   /// Camera preferences
 
@@ -172,6 +173,14 @@ class UserPreferences extends ChangeNotifier {
         _TAG_CURRENT_CONTRAST_MODE, contrastLevel);
     notifyListeners();
   }
+
+  String _getLazyCountTag(final String tag) => '$_TAG_LAZY_COUNT_PREFIX$tag';
+
+  Future<void> setLazyCount(final int value, final String suffixTag) async =>
+      _sharedPreferences.setInt(_getLazyCountTag(suffixTag), value);
+
+  int? getLazyCount(final String suffixTag) =>
+      _sharedPreferences.getInt(_getLazyCountTag(suffixTag));
 
   Future<void> setUserTracking(final bool state) async {
     await _sharedPreferences.setBool(_TAG_USER_TRACKING, state);

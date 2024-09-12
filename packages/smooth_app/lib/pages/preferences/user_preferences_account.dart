@@ -14,11 +14,12 @@ import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/user_management_helper.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/account_deletion_webview.dart';
+import 'package:smooth_app/pages/preferences/lazy_counter.dart';
+import 'package:smooth_app/pages/preferences/lazy_counter_widget.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/prices/get_prices_model.dart';
-import 'package:smooth_app/pages/prices/price_meta_product.dart';
 import 'package:smooth_app/pages/prices/price_user_button.dart';
 import 'package:smooth_app/pages/prices/prices_page.dart';
 import 'package:smooth_app/pages/prices/prices_proofs_page.dart';
@@ -30,7 +31,6 @@ import 'package:smooth_app/query/paged_product_query.dart';
 import 'package:smooth_app/query/paged_to_be_completed_product_query.dart';
 import 'package:smooth_app/query/paged_user_product_query.dart';
 import 'package:smooth_app/query/product_query.dart';
-import 'package:smooth_app/services/smooth_services.dart';
 
 class UserPreferencesAccount extends AbstractUserPreferences {
   UserPreferencesAccount({
@@ -183,7 +183,7 @@ class UserPreferencesAccount extends AbstractUserPreferences {
         iconData: Icons.add_circle_outline,
         context: context,
         localDatabase: localDatabase,
-        myCount: _getMyCount(UserSearchType.CONTRIBUTOR),
+        lazyCounter: const LazyCounterUserSearch(UserSearchType.CONTRIBUTOR),
       ),
       _buildProductQueryTile(
         productQuery: PagedUserProductQuery(
@@ -194,7 +194,7 @@ class UserPreferencesAccount extends AbstractUserPreferences {
         iconData: Icons.edit,
         context: context,
         localDatabase: localDatabase,
-        myCount: _getMyCount(UserSearchType.INFORMER),
+        lazyCounter: const LazyCounterUserSearch(UserSearchType.INFORMER),
       ),
       _buildProductQueryTile(
         productQuery: PagedUserProductQuery(
@@ -205,7 +205,7 @@ class UserPreferencesAccount extends AbstractUserPreferences {
         iconData: Icons.add_a_photo,
         context: context,
         localDatabase: localDatabase,
-        myCount: _getMyCount(UserSearchType.PHOTOGRAPHER),
+        lazyCounter: const LazyCounterUserSearch(UserSearchType.PHOTOGRAPHER),
       ),
       _buildProductQueryTile(
         productQuery: PagedUserProductQuery(
@@ -216,7 +216,8 @@ class UserPreferencesAccount extends AbstractUserPreferences {
         iconData: Icons.more_horiz,
         context: context,
         localDatabase: localDatabase,
-        myCount: _getMyCount(UserSearchType.TO_BE_COMPLETED),
+        lazyCounter:
+            const LazyCounterUserSearch(UserSearchType.TO_BE_COMPLETED),
       ),
       _getListTile(
         PriceUserButton.showUserTitle(
@@ -228,7 +229,7 @@ class UserPreferencesAccount extends AbstractUserPreferences {
           context: context,
         ),
         CupertinoIcons.money_dollar_circle,
-        myCount: _getPricesCount(owner: ProductQuery.getWriteUser().userId),
+        lazyCounter: LazyCounterPrices(ProductQuery.getWriteUser().userId),
       ),
       _getListTile(
         appLocalizations.user_search_proofs_title,
@@ -243,7 +244,6 @@ class UserPreferencesAccount extends AbstractUserPreferences {
         appLocalizations.prices_add_a_receipt,
         () async => ProductPriceAddPage.showProductPage(
           context: context,
-          product: PriceMetaProduct.empty(),
           proofType: ProofType.receipt,
         ),
         Icons.add_shopping_cart,
@@ -252,7 +252,6 @@ class UserPreferencesAccount extends AbstractUserPreferences {
         appLocalizations.prices_add_price_tags,
         () async => ProductPriceAddPage.showProductPage(
           context: context,
-          product: PriceMetaProduct.empty(),
           proofType: ProofType.priceTag,
         ),
         Icons.add_shopping_cart,
@@ -284,7 +283,7 @@ class UserPreferencesAccount extends AbstractUserPreferences {
           ),
         ),
         CupertinoIcons.money_dollar_circle,
-        myCount: _getPricesCount(),
+        lazyCounter: const LazyCounterPrices(null),
       ),
       _getListTile(
         appLocalizations.all_search_prices_top_user_title,
@@ -389,57 +388,13 @@ class UserPreferencesAccount extends AbstractUserPreferences {
         },
       );
 
-  Future<int?> _getMyCount(
-    final UserSearchType type,
-  ) async {
-    final User user = ProductQuery.getWriteUser();
-    final ProductSearchQueryConfiguration configuration = type.getConfiguration(
-      user.userId,
-      1,
-      1,
-      ProductQuery.getLanguage(),
-      // one field is enough as we want only the count
-      // and we need at least one field (no field meaning all fields)
-      <ProductField>[ProductField.BARCODE],
-    );
-
-    try {
-      final SearchResult result = await OpenFoodAPIClient.searchProducts(
-        user,
-        configuration,
-        uriHelper: ProductQuery.uriProductHelper,
-      );
-      return result.count;
-    } catch (e) {
-      Logs.e(
-        'Could not count the number of products for $type, ${user.userId}',
-        ex: e,
-      );
-      return null;
-    }
-  }
-
-  Future<int?> _getPricesCount({final String? owner}) async {
-    final MaybeError<GetPricesResult> result =
-        await OpenPricesAPIClient.getPrices(
-      GetPricesParameters()
-        ..owner = owner
-        ..pageSize = 1,
-      uriHelper: ProductQuery.uriPricesHelper,
-    );
-    if (result.isError) {
-      return null;
-    }
-    return result.value.total;
-  }
-
   UserPreferencesItem _buildProductQueryTile({
     required final PagedProductQuery productQuery,
     required final String title,
     required final IconData iconData,
     required final BuildContext context,
     required final LocalDatabase localDatabase,
-    final Future<int?>? myCount,
+    final LazyCounter? lazyCounter,
   }) =>
       _getListTile(
         title,
@@ -451,14 +406,14 @@ class UserPreferencesAccount extends AbstractUserPreferences {
           editableAppBarTitle: false,
         ),
         iconData,
-        myCount: myCount,
+        lazyCounter: lazyCounter,
       );
 
   UserPreferencesItem _getListTile(
     final String title,
     final VoidCallback onTap,
     final IconData leading, {
-    final Future<int?>? myCount,
+    final LazyCounter? lazyCounter,
   }) =>
       UserPreferencesItemSimple(
         labels: <String>[title],
@@ -475,23 +430,8 @@ class UserPreferencesAccount extends AbstractUserPreferences {
               borderRadius: BorderRadius.circular(15),
             ),
             leading: UserPreferencesListTile.getTintedIcon(leading, context),
-            trailing: myCount == null
-                ? null
-                : FutureBuilder<int?>(
-                    future: myCount,
-                    builder:
-                        (BuildContext context, AsyncSnapshot<int?> snapshot) {
-                      if (snapshot.connectionState != ConnectionState.done) {
-                        return const SizedBox(
-                            height: LARGE_SPACE,
-                            width: LARGE_SPACE,
-                            child: CircularProgressIndicator.adaptive());
-                      }
-                      return snapshot.data == null
-                          ? EMPTY_WIDGET
-                          : Text(snapshot.data.toString());
-                    },
-                  ),
+            trailing:
+                lazyCounter == null ? null : LazyCounterWidget(lazyCounter),
           ),
         ),
       );

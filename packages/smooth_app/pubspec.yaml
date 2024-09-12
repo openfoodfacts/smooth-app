@@ -32,7 +32,7 @@ dependencies:
   latlong2: 0.9.1
   matomo_tracker: 5.0.0-dev.2
   package_info_plus: 7.0.0
-  device_info_plus: 9.1.2
+  device_info_plus: 10.1.2
   permission_handler: 11.3.1
   photo_view: 0.15.0
   uuid: 4.4.2
@@ -60,7 +60,7 @@ dependencies:
   share_plus: 7.2.2
   fimber: 0.7.0
   shimmer: ^3.0.0
-  rive: 0.13.4
+  rive: 0.13.13
   webview_flutter: 4.8.0
   webview_flutter_android: 3.16.6
   webview_flutter_wkwebview: 3.14.0
@@ -99,7 +99,7 @@ dependencies:
     path: ../scanner/zxing
 
 
-  openfoodfacts: 3.13.0
+  openfoodfacts: 3.14.0
   # openfoodfacts:
   #   path: ../../../openfoodfacts-dart
 

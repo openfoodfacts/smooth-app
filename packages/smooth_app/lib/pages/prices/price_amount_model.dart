@@ -10,12 +10,8 @@ class PriceAmountModel {
 
   PriceMetaProduct product;
 
-  String _paidPrice = '';
-  String _priceWithoutDiscount = '';
-
-  set paidPrice(final String value) => _paidPrice = value;
-
-  set priceWithoutDiscount(final String value) => _priceWithoutDiscount = value;
+  String paidPrice = '';
+  String priceWithoutDiscount = '';
 
   late double _checkedPaidPrice;
   double? _checkedPriceWithoutDiscount;
@@ -37,11 +33,11 @@ class PriceAmountModel {
     if (product.barcode.isEmpty) {
       return appLocalizations.prices_amount_no_product;
     }
-    _checkedPaidPrice = validateDouble(_paidPrice)!;
+    _checkedPaidPrice = validateDouble(paidPrice)!;
     _checkedPriceWithoutDiscount = null;
     if (promo) {
-      if (_priceWithoutDiscount.isNotEmpty) {
-        _checkedPriceWithoutDiscount = validateDouble(_priceWithoutDiscount);
+      if (priceWithoutDiscount.isNotEmpty) {
+        _checkedPriceWithoutDiscount = validateDouble(priceWithoutDiscount);
         if (_checkedPriceWithoutDiscount == null) {
           return appLocalizations.prices_amount_price_incorrect;
         }
