@@ -117,6 +117,7 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
                 setState(() => _removePackagingAt(deleteIndex)),
             helper: _helpers[index],
             categories: upToDateProduct.categories,
+            productType: upToDateProduct.productType,
           ),
         ),
       );

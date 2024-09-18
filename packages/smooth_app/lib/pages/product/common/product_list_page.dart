@@ -450,7 +450,7 @@ class _ProductListPageState extends State<ProductListPage>
           barcodes,
           language,
         ),
-        uriHelper: ProductQuery.uriProductHelper,
+        uriHelper: ProductQuery.getUriProductHelper(),
       );
       final List<Product>? freshProducts = searchResult.products;
       if (freshProducts == null) {

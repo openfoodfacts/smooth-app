@@ -66,6 +66,7 @@ class _ProductImageOtherPageState extends State<ProductImageOtherPage> {
                       barcode: widget.product.barcode!,
                       heroTag:
                           widget.currentImage == image ? widget.heroTag : null,
+                      productType: widget.product.productType,
                     );
                   },
                 ).toList(growable: false),
@@ -89,11 +90,13 @@ class _ProductImageViewer extends StatelessWidget {
     required this.image,
     required this.barcode,
     this.heroTag,
+    required this.productType,
   });
 
   final ProductImage image;
   final String barcode;
   final String? heroTag;
+  final ProductType? productType;
 
   @override
   Widget build(BuildContext context) {
@@ -111,7 +114,9 @@ class _ProductImageViewer extends StatelessWidget {
                 image: NetworkImage(
                   image.getUrl(
                     barcode,
-                    uriHelper: ProductQuery.uriProductHelper,
+                    uriHelper: ProductQuery.getUriProductHelper(
+                      productType: productType,
+                    ),
                   ),
                 ),
                 fit: BoxFit.cover,
@@ -153,6 +158,7 @@ class _ProductImageViewer extends StatelessWidget {
                 _ProductImageDetailsButton(
                   image: image,
                   barcode: barcode,
+                  productType: productType,
                 ),
                 const Spacer(),
                 if (image.expired) _ProductImageOutdatedLabel(colors: colors),
@@ -211,10 +217,12 @@ class _ProductImageDetailsButton extends StatelessWidget {
   const _ProductImageDetailsButton({
     required this.image,
     required this.barcode,
+    required this.productType,
   });
 
   final ProductImage image;
   final String barcode;
+  final ProductType? productType;
 
   @override
   Widget build(BuildContext context) {
@@ -222,7 +230,9 @@ class _ProductImageDetailsButton extends StatelessWidget {
     final String url = image.url ??
         image.getUrl(
           barcode,
-          uriHelper: ProductQuery.uriProductHelper,
+          uriHelper: ProductQuery.getUriProductHelper(
+            productType: productType,
+          ),
         );
 
     return DecoratedBox(

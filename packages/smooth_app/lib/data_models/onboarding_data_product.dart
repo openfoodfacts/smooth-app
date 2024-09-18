@@ -40,7 +40,9 @@ class OnboardingDataProduct extends AbstractOnboardingData<Product> {
           AbstractOnboardingData.barcode,
           ProductQuery.getLanguage(),
         ),
-        uriHelper: ProductQuery.uriProductHelper,
+        uriHelper: ProductQuery.getUriProductHelper(
+          productType: ProductType.food,
+        ),
       ).timeout(SnackBarDuration.long);
 
   @override

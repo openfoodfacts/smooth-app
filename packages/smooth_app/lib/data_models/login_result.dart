@@ -38,7 +38,7 @@ class LoginResult {
     try {
       final LoginStatus? loginStatus = await OpenFoodAPIClient.login2(
         user,
-        uriHelper: ProductQuery.uriProductHelper,
+        uriHelper: ProductQuery.getUriProductHelper(),
       );
       if (loginStatus == null) {
         return const LoginResult(LoginResultType.serverIssue);

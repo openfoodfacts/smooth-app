@@ -164,7 +164,7 @@ abstract class ProductQuery {
         comment: 'Test user for project smoothie',
       );
 
-  static late UriProductHelper uriProductHelper;
+  static late UriProductHelper _uriProductHelper;
 
   /// Product helper only for prices.
   static late UriProductHelper uriPricesHelper;
@@ -178,7 +178,7 @@ abstract class ProductQuery {
             ? uriHelperFoodProd
             : getTestUriProductHelper(userPreferences);
 
-    uriProductHelper = getProductHelper(
+    _uriProductHelper = getProductHelper(
       UserPreferencesDevMode.userPreferencesFlagProd,
     );
     uriPricesHelper = getProductHelper(
@@ -199,6 +199,42 @@ abstract class ProductQuery {
             userInfoForPatch: HttpHelper.userInfoForTest,
             domain: testEnvDomain,
           );
+  }
+
+  static ProductType? extractProductType(
+    final UriProductHelper uriProductHelper,
+  ) {
+    final String domain = uriProductHelper.domain;
+    for (final ProductType productType in ProductType.values) {
+      if (domain.contains(productType.getDomain())) {
+        return productType;
+      }
+    }
+    return null;
+  }
+
+  // TODO(monsieurtanuki): make the parameter "required"
+  static UriProductHelper getUriProductHelper({
+    final ProductType? productType,
+  }) {
+    final UriProductHelper currentUriProductHelper = _uriProductHelper;
+    if (productType == null) {
+      return currentUriProductHelper;
+    }
+    final ProductType? currentProductType =
+        extractProductType(currentUriProductHelper);
+    if (currentProductType == null) {
+      return currentUriProductHelper;
+    }
+    if (currentProductType == productType) {
+      return currentUriProductHelper;
+    }
+    return UriProductHelper(
+      domain: currentUriProductHelper.domain.replaceFirst(
+        currentProductType.getDomain(),
+        productType.getDomain(),
+      ),
+    );
   }
 
   static List<ProductField> get fields => const <ProductField>[
@@ -254,4 +290,13 @@ abstract class ProductQuery {
         ProductField.OBSOLETE,
         ProductField.OWNER_FIELDS,
       ];
+}
+
+extension ProductTypeExtension on ProductType {
+  String getDomain() => switch (this) {
+        ProductType.food => 'openfoodfacts',
+        ProductType.beauty => 'openbeautyfacts',
+        ProductType.petFood => 'openpetfoodfacts',
+        ProductType.product => 'openproductsfacts',
+      };
 }

@@ -336,7 +336,7 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
         orgName: _foodProducer ? _brandController.trimmedText : null,
         country: ProductQuery.getCountry(),
         language: ProductQuery.getLanguage(),
-        uriHelper: ProductQuery.uriProductHelper,
+        uriHelper: ProductQuery.getUriProductHelper(),
       ),
       title: appLocalisations.sign_up_page_action_doing_it,
     );

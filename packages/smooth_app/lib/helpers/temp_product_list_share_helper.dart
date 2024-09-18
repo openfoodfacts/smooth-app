@@ -6,7 +6,7 @@ Uri shareProductList(List<String> barcodes) {
   final String barcodesString = barcodes.join(',');
 
   return UriHelper.replaceSubdomain(
-    ProductQuery.uriProductHelper.getUri(
+    ProductQuery.getUriProductHelper().getUri(
       path: 'products/$barcodesString',
       addUserAgentParameters: false,
     ),

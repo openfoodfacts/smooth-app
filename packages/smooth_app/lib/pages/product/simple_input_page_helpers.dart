@@ -445,6 +445,12 @@ class SimpleInputPageCategoryHelper extends AbstractSimpleInputPageHelper {
   AnalyticsEditEvents getAnalyticsEditEvent() => AnalyticsEditEvents.categories;
 }
 
+class SimpleInputPageCategoryNotFoodHelper
+    extends SimpleInputPageCategoryHelper {
+  @override
+  Widget getIcon() => const Icon(Icons.edit);
+}
+
 /// Implementation for "Countries" of an [AbstractSimpleInputPageHelper].
 class SimpleInputPageCountryHelper extends AbstractSimpleInputPageHelper {
   @override

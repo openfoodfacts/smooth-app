@@ -183,7 +183,7 @@ abstract class BackgroundTask {
 
 // TODO(monsieurtanuki): store the uriProductHelper as well
   @protected
-  UriProductHelper get uriProductHelper => ProductQuery.uriProductHelper;
+  UriProductHelper get uriProductHelper => ProductQuery.getUriProductHelper();
 
   /// Returns true if tasks with the same stamp would overwrite each-other.
   bool isDeduplicable() => true;
