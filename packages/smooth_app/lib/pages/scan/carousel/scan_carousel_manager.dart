@@ -1,4 +1,4 @@
-import 'package:carousel_slider/carousel_controller.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 
@@ -34,7 +34,7 @@ class ExternalScanCarouselManager extends StatefulWidget {
 
 class ExternalScanCarouselManagerState
     extends State<ExternalScanCarouselManager> {
-  final CarouselController _controller = CarouselController();
+  final CarouselSliderController _controller = CarouselSliderController();
 
   /// A hidden attribute to force to return to the Scanner tab
   /// This value should only be accessed via [forceShowScannerTab], as it will
@@ -75,7 +75,7 @@ class ExternalScanCarouselManagerState
   // Without an animation
   void moveToSearchCard() => _controller.jumpToPage(0);
 
-  CarouselController get controller => _controller;
+  CarouselSliderController get controller => _controller;
 
   bool updateShouldNotify(ExternalScanCarouselManagerState oldState) {
     return oldState.currentBarcode != currentBarcode || _forceShowScannerTab;
