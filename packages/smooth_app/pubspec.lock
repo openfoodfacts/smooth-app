@@ -89,10 +89,10 @@ packages:
     dependency: "direct main"
     description:
       name: audioplayers
-      sha256: "752039d6aa752597c98ec212e9759519061759e402e7da59a511f39d43aa07d2"
+      sha256: c346ba5a39dc208f1bab55fc239855f573d69b0e832402114bf0b793622adc4d
       url: "https://pub.dev"
     source: hosted
-    version: "6.0.0"
+    version: "6.1.0"
   audioplayers_android:
     dependency: transitive
     description:
@@ -129,10 +129,10 @@ packages:
     dependency: transitive
     description:
       name: audioplayers_web
-      sha256: db8fc420dadf80da18e2286c18e746fb4c3b2c5adbf0c963299dde046828886d
+      sha256: "3609bdf0e05e66a3d9750ee40b1e37f2a622c4edb796cc600b53a90a30a2ace4"
       url: "https://pub.dev"
     source: hosted
-    version: "5.0.0"
+    version: "5.0.1"
   audioplayers_windows:
     dependency: transitive
     description:
@@ -241,10 +241,10 @@ packages:
     dependency: "direct main"
     description:
       name: carousel_slider
-      sha256: "9c695cc963bf1d04a47bd6021f68befce8970bcd61d24938e1fb0918cf5d9c42"
+      sha256: "7b006ec356205054af5beaef62e2221160ea36b90fb70a35e4deacd49d0349ae"
       url: "https://pub.dev"
     source: hosted
-    version: "4.2.1"
+    version: "5.0.0"
   characters:
     dependency: transitive
     description:
@@ -1695,10 +1695,10 @@ packages:
     dependency: "direct main"
     description:
       name: uuid
-      sha256: "83d37c7ad7aaf9aa8e275490669535c8080377cfa7a7004c24dfac53afffaa90"
+      sha256: f33d6bb662f0e4f79dcd7ada2e6170f3b3a2530c28fc41f49a411ddedd576a77
       url: "https://pub.dev"
     source: hosted
-    version: "4.4.2"
+    version: "4.5.0"
   vector_graphics:
     dependency: transitive
     description:
