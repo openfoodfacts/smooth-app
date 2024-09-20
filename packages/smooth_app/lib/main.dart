@@ -13,6 +13,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
+import 'package:rive/rive.dart';
 import 'package:scanner_shared/scanner_shared.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
@@ -65,6 +66,8 @@ Future<void> launchSmoothApp({
   required ScannerLabel scannerLabel,
   final bool screenshots = false,
 }) async {
+  unawaited(RiveFile.initialize());
+
   _screenshots = screenshots;
 
   GlobalVars.barcodeScanner = barcodeScanner;
