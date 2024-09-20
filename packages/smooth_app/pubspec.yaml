@@ -57,12 +57,12 @@ dependencies:
   collection: 1.18.0
   path: 1.9.0
   path_provider: 2.1.4
-  share_plus: 7.2.2
+  share_plus: 10.0.0
   fimber: 0.7.0
   shimmer: ^3.0.0
   rive: 0.13.13
   webview_flutter: 4.8.0
-  webview_flutter_android: 3.16.6
+  webview_flutter_android: 3.16.7
   webview_flutter_wkwebview: 3.14.0
   flutter_custom_tabs: 2.1.0
   flutter_image_compress: 2.3.0
