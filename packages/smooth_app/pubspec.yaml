@@ -4,7 +4,7 @@ version: 0.0.0+734
 publish_to: "none"
 
 environment:
-  sdk: '>=3.4.0 <4.0.0'
+  sdk: ^3.5.3
 
 dependencies:
   flutter:
@@ -114,9 +114,11 @@ dev_dependencies:
   mockito: 5.4.4
   path_provider_platform_interface: 2.1.2
   plugin_platform_interface: 2.1.8
-  flutter_lints: 2.0.3
+  flutter_lints: 4.0.0
   openfoodfacts_flutter_lints:
-    git: https://github.com/openfoodfacts/openfoodfacts_flutter_lints.git
+    git:
+      url: https://github.com/openfoodfacts/openfoodfacts_flutter_lints.git
+      ref: flutter_3_24
 
 # 'flutter pub run flutter_launcher_icons:main' to update
 flutter_icons:

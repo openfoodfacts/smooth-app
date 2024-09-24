@@ -16,9 +16,8 @@ class ProductLoaderPage extends StatefulWidget {
   const ProductLoaderPage({
     required this.barcode,
     required this.mode,
-    Key? key,
-  })  : assert(barcode != ''),
-        super(key: key);
+    super.key,
+  }) : assert(barcode != '');
 
   final String barcode;
   final ProductLoaderMode mode;
@@ -111,7 +110,7 @@ class _ProductLoaderPageState extends State<ProductLoaderPage> {
 }
 
 class _ProductLoaderLoadingState extends StatelessWidget {
-  const _ProductLoaderLoadingState({Key? key}) : super(key: key);
+  const _ProductLoaderLoadingState();
 
   @override
   Widget build(BuildContext context) {
@@ -122,8 +121,7 @@ class _ProductLoaderLoadingState extends StatelessWidget {
 class _ProductLoaderNotFoundState extends StatelessWidget {
   const _ProductLoaderNotFoundState({
     required this.barcode,
-    Key? key,
-  }) : super(key: key);
+  });
 
   final String barcode;
 
@@ -168,8 +166,7 @@ class _ProductLoaderNotFoundState extends StatelessWidget {
 class _ProductLoaderNetworkErrorState extends StatelessWidget {
   const _ProductLoaderNetworkErrorState({
     required this.onRetry,
-    Key? key,
-  }) : super(key: key);
+  });
 
   final VoidCallback onRetry;
 

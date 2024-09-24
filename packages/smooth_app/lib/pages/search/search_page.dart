@@ -124,12 +124,6 @@ class _SearchPageState extends State<SearchPage> {
                           child: searchHelper.value!.widget,
                         ),
                       ],
-                      onPopPage: (Route<dynamic> route, dynamic result) {
-                        if (!route.didPop(result)) {
-                          return false;
-                        }
-                        return true;
-                      },
                     );
                   }
                 },

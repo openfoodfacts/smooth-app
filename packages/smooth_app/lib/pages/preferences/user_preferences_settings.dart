@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -24,17 +23,12 @@ import 'package:smooth_app/themes/theme_provider.dart';
 /// Collapsed/expanded display of settings for the preferences page.
 class UserPreferencesSettings extends AbstractUserPreferences {
   UserPreferencesSettings({
-    required final BuildContext context,
-    required final UserPreferences userPreferences,
-    required final AppLocalizations appLocalizations,
-    required final ThemeData themeData,
+    required super.context,
+    required super.userPreferences,
+    required super.appLocalizations,
+    required super.themeData,
     required this.themeProvider,
-  }) : super(
-          context: context,
-          userPreferences: userPreferences,
-          appLocalizations: appLocalizations,
-          themeData: themeData,
-        );
+  });
 
   final ThemeProvider themeProvider;
 

@@ -1,10 +1,9 @@
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:smooth_app/database/abstract_dao.dart';
-import 'package:smooth_app/database/local_database.dart';
 
 /// Where we store string lists with unique items.
 class DaoStringList extends AbstractDao {
-  DaoStringList(final LocalDatabase localDatabase) : super(localDatabase);
+  DaoStringList(super.localDatabase);
 
   static const String _hiveBoxName = 'stringList';
 

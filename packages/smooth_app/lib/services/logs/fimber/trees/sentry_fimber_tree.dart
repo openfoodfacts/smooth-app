@@ -1,13 +1,12 @@
 import 'package:fimber/fimber.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:smooth_app/services/logs/fimber/trees/base_fimber_tree.dart';
-import 'package:smooth_app/services/logs/smooth_log_levels.dart';
 
 /// Custom Fimber [LogTree] that send logs to Sentry
 class SentryFimberTree extends BaseFimberTree {
   SentryFimberTree({
-    required List<LogLevel> logLevels,
-  }) : super(logLevels: logLevels);
+    required super.logLevels,
+  });
 
   @override
   void log(

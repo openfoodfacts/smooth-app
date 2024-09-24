@@ -1,10 +1,9 @@
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:smooth_app/database/abstract_dao.dart';
-import 'package:smooth_app/database/local_database.dart';
 
 /// Where we store strings that need INSTANT access (= not lazy, no await).
 class DaoInstantString extends AbstractDao {
-  DaoInstantString(final LocalDatabase localDatabase) : super(localDatabase);
+  DaoInstantString(super.localDatabase);
 
   static const String _hiveBoxName = 'instantString';
 

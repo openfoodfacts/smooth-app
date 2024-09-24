@@ -7,9 +7,9 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 class ProductQuestionAnswersOptions extends StatelessWidget {
   const ProductQuestionAnswersOptions(
     this.question, {
-    Key? key,
+    super.key,
     required this.onAnswer,
-  }) : super(key: key);
+  });
 
   final RobotoffQuestion question;
   final Function(InsightAnnotation) onAnswer;

@@ -3,10 +3,9 @@ import 'package:flutter/material.dart';
 /// A [TextEditingController] that saves the value passed to the constructor
 /// and persists the previous value.
 class TextEditingControllerWithHistory extends TextEditingController {
-  TextEditingControllerWithHistory({String? text})
+  TextEditingControllerWithHistory({super.text})
       : _initialValue = text,
-        _previousValue = text,
-        super(text: text);
+        _previousValue = text;
 
   final String? _initialValue;
   String? _previousValue;

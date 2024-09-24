@@ -11,9 +11,9 @@ import 'package:smooth_app/query/product_query.dart';
 /// Helper around a product we download, store and reuse at onboarding.
 class OnboardingDataProduct extends AbstractOnboardingData<Product> {
   OnboardingDataProduct(
-    final LocalDatabase localDatabase,
+    super.localDatabase,
     this.assetPath,
-  ) : super(localDatabase);
+  );
 
   /// Was computed from [downloadDataString] in en_US
   ///

@@ -9,9 +9,9 @@ import 'package:smooth_app/query/product_query.dart';
 
 class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
   ProductPreferences(
-    final ProductPreferencesSelection productPreferencesSelection, {
+    super.productPreferencesSelection, {
     this.daoString,
-  }) : super(productPreferencesSelection);
+  });
 
   final DaoString? daoString;
 

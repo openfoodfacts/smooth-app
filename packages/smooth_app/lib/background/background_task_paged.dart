@@ -9,9 +9,9 @@ abstract class BackgroundTaskPaged extends BackgroundTask {
     required this.pageSize,
   });
 
-  BackgroundTaskPaged.fromJson(Map<String, dynamic> json)
+  BackgroundTaskPaged.fromJson(super.json)
       : pageSize = json[_jsonTagPageSize] as int,
-        super.fromJson(json);
+        super.fromJson();
 
   final int pageSize;
 

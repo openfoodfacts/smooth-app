@@ -635,10 +635,10 @@ packages:
     dependency: "direct dev"
     description:
       name: flutter_lints
-      sha256: a25a15ebbdfc33ab1cd26c63a6ee519df92338a9c10f122adda92938253bef04
+      sha256: "3f41d009ba7172d5ff9be5f6e6e6abb4300e263aab8866d2a0842ed2a70f8f0c"
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.3"
+    version: "4.0.0"
   flutter_localizations:
     dependency: "direct main"
     description: flutter
@@ -988,10 +988,10 @@ packages:
     dependency: transitive
     description:
       name: lints
-      sha256: "0a217c6c989d21039f1498c3ed9f3ed71b354e69873f13a8dfc3c9fe76f1b452"
+      sha256: "976c774dd944a42e83e2467f4cc670daef7eed6295b10b36ae8c85bcbf828235"
       url: "https://pub.dev"
     source: hosted
-    version: "2.1.1"
+    version: "4.0.0"
   lists:
     dependency: transitive
     description:
@@ -1108,8 +1108,8 @@ packages:
     dependency: "direct dev"
     description:
       path: "."
-      ref: HEAD
-      resolved-ref: e91bc71bccc317948dc769b8c5d55052d949ec2e
+      ref: flutter_3_24
+      resolved-ref: eba41af0e05c6474224851fe85bf67f0829f8192
       url: "https://github.com/openfoodfacts/openfoodfacts_flutter_lints.git"
     source: git
     version: "1.0.0"
@@ -1852,5 +1852,5 @@ packages:
     source: hosted
     version: "3.1.2"
 sdks:
-  dart: ">=3.4.0 <4.0.0"
+  dart: ">=3.5.3 <4.0.0"
   flutter: ">=3.22.0"

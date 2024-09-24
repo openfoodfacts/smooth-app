@@ -5,9 +5,8 @@ import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class _SwitchablePage extends StatefulWidget {
   const _SwitchablePage({
-    Key? key,
     this.delay = 0,
-  }) : super(key: key);
+  });
 
   final int delay;
 

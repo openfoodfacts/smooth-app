@@ -261,11 +261,10 @@ class ProductListUserDialogHelper {
 /// Handles click rebuilds
 class _UserLists extends StatefulWidget {
   const _UserLists({
-    Key? key,
     required this.lists,
     required this.selectedLists,
     required this.onListsSubmitted,
-  }) : super(key: key);
+  });
 
   final Set<String> lists;
   final Set<String> selectedLists;
@@ -326,7 +325,9 @@ class _UserListsState extends State<_UserLists> {
 /// Widget indicate that the user has no lists yet
 /// Pop returns true if a new list is created
 class _UserEmptyLists extends StatefulWidget {
-  const _UserEmptyLists(this.daoProductList, {Key? key}) : super(key: key);
+  const _UserEmptyLists(
+    this.daoProductList,
+  );
 
   final DaoProductList daoProductList;
 

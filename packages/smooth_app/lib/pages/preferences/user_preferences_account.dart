@@ -1,9 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_simple_button.dart';
@@ -34,16 +32,11 @@ import 'package:smooth_app/query/product_query.dart';
 
 class UserPreferencesAccount extends AbstractUserPreferences {
   UserPreferencesAccount({
-    required final BuildContext context,
-    required final UserPreferences userPreferences,
-    required final AppLocalizations appLocalizations,
-    required final ThemeData themeData,
-  }) : super(
-          context: context,
-          userPreferences: userPreferences,
-          appLocalizations: appLocalizations,
-          themeData: themeData,
-        );
+    required super.context,
+    required super.userPreferences,
+    required super.appLocalizations,
+    required super.themeData,
+  });
 
   @override
   PreferencePageType getPreferencePageType() => PreferencePageType.ACCOUNT;
