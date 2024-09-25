@@ -181,34 +181,40 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
                   product: upToDateProduct,
                 ),
               ),
-              _getSimpleListTileItem(SimpleInputPageCategoryHelper()),
-              _ListTitleItem(
-                  leading:
-                      const SvgIcon('assets/cacheTintable/scale-balance.svg'),
-                  title: appLocalizations
-                      .edit_product_form_item_nutrition_facts_title,
-                  subtitle: appLocalizations
-                      .edit_product_form_item_nutrition_facts_subtitle,
-                  onTap: () async {
-                    if (!await ProductRefresher().checkIfLoggedIn(
-                      context,
-                      isLoggedInMandatory: true,
-                    )) {
-                      return;
-                    }
-                    AnalyticsHelper.trackProductEdit(
-                      AnalyticsEditEvents.nutrition_Facts,
-                      barcode,
-                    );
-                    if (!context.mounted) {
-                      return;
-                    }
-                    await NutritionPageLoaded.showNutritionPage(
-                      product: upToDateProduct,
-                      isLoggedInMandatory: true,
-                      context: context,
-                    );
-                  }),
+              if (upToDateProduct.productType == null ||
+                  upToDateProduct.productType == ProductType.food)
+                _getSimpleListTileItem(SimpleInputPageCategoryHelper())
+              else
+                _getSimpleListTileItem(SimpleInputPageCategoryNotFoodHelper()),
+              if (upToDateProduct.productType != ProductType.beauty &&
+                  upToDateProduct.productType != ProductType.product)
+                _ListTitleItem(
+                    leading:
+                        const SvgIcon('assets/cacheTintable/scale-balance.svg'),
+                    title: appLocalizations
+                        .edit_product_form_item_nutrition_facts_title,
+                    subtitle: appLocalizations
+                        .edit_product_form_item_nutrition_facts_subtitle,
+                    onTap: () async {
+                      if (!await ProductRefresher().checkIfLoggedIn(
+                        context,
+                        isLoggedInMandatory: true,
+                      )) {
+                        return;
+                      }
+                      AnalyticsHelper.trackProductEdit(
+                        AnalyticsEditEvents.nutrition_Facts,
+                        barcode,
+                      );
+                      if (!context.mounted) {
+                        return;
+                      }
+                      await NutritionPageLoaded.showNutritionPage(
+                        product: upToDateProduct,
+                        isLoggedInMandatory: true,
+                        context: context,
+                      );
+                    }),
               _getSimpleListTileItem(SimpleInputPageLabelHelper()),
               _ListTitleItem(
                 leading: const SvgIcon('assets/cacheTintable/packaging.svg'),

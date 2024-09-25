@@ -17,12 +17,14 @@ class EditNewPackagingsComponent extends StatefulWidget {
     required this.deleteCallback,
     required this.helper,
     required this.categories,
+    required this.productType,
   });
 
   final String title;
   final VoidCallback deleteCallback;
   final EditNewPackagingsHelper helper;
   final String? categories;
+  final ProductType? productType;
 
   @override
   State<EditNewPackagingsComponent> createState() =>
@@ -58,6 +60,7 @@ class _EditNewPackagingsComponentState
               iconColor: iconColor,
               minLengthForSuggestions: 0,
               categories: widget.categories,
+              productType: widget.productType,
             ),
             _EditTextLine(
               title: appLocalizations.edit_packagings_element_field_material,
@@ -69,6 +72,7 @@ class _EditNewPackagingsComponentState
               minLengthForSuggestions: 0,
               categories: widget.categories,
               shapeProvider: () => widget.helper.controllerShape.text,
+              productType: widget.productType,
             ),
             _EditTextLine(
               title: appLocalizations.edit_packagings_element_field_recycling,
@@ -76,12 +80,14 @@ class _EditNewPackagingsComponentState
               tagType: TagType.PACKAGING_RECYCLING,
               iconName: 'recycling',
               iconColor: iconColor,
+              productType: widget.productType,
             ),
             _EditTextLine(
               title: appLocalizations.edit_packagings_element_field_quantity,
               controller: widget.helper.controllerQuantity,
               iconName: 'quantity',
               iconColor: iconColor,
+              productType: widget.productType,
             ),
             _EditNumberLine(
               title: appLocalizations.edit_packagings_element_field_weight,
@@ -133,6 +139,7 @@ class _EditTextLine extends StatefulWidget {
     this.minLengthForSuggestions = 1,
     this.categories,
     this.shapeProvider,
+    required this.productType,
   });
 
   final String title;
@@ -144,6 +151,7 @@ class _EditTextLine extends StatefulWidget {
   final int minLengthForSuggestions;
   final String? categories;
   final String? Function()? shapeProvider;
+  final ProductType? productType;
 
   @override
   State<_EditTextLine> createState() => _EditTextLineState();
@@ -195,6 +203,7 @@ class _EditTextLineState extends State<_EditTextLine> {
                 minLengthForSuggestions: widget.minLengthForSuggestions,
                 categories: widget.categories,
                 shapeProvider: widget.shapeProvider,
+                productType: widget.productType,
               ),
             ),
           ),

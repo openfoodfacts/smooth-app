@@ -133,9 +133,15 @@ class BackgroundTaskDownloadProducts extends BackgroundTaskProgressing {
       throw Exception('Something bad happened downloading products');
     }
     final DaoProduct daoProduct = DaoProduct(localDatabase);
+    final ProductType? productType =
+        ProductQuery.extractProductType(uriProductHelper);
     for (final Product product in downloadedProducts) {
       if (await _shouldBeUpdated(daoProduct, product.barcode!)) {
-        await daoProduct.put(product, language);
+        await daoProduct.put(
+          product,
+          language,
+          productType: productType,
+        );
       }
     }
     final int deleted = await daoWorkBarcode.deleteBarcodes(work, barcodes);

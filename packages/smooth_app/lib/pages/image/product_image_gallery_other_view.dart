@@ -148,6 +148,7 @@ class _RawGridGallery extends StatelessWidget {
                 squareSize: squareSize,
                 imageSize: imageSize,
                 heroTag: heroTag,
+                productType: product.productType,
               ),
             ),
           );

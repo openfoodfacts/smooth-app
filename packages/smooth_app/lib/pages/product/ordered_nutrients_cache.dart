@@ -59,7 +59,7 @@ class OrderedNutrientsCache {
     final String string = await OpenFoodAPIClient.getOrderedNutrientsJsonString(
       country: ProductQuery.getCountry(),
       language: ProductQuery.getLanguage(),
-      uriHelper: ProductQuery.uriProductHelper,
+      uriHelper: ProductQuery.getUriProductHelper(),
     );
     final OrderedNutrients result = OrderedNutrients.fromJson(
       jsonDecode(string) as Map<String, dynamic>,
@@ -75,6 +75,6 @@ class OrderedNutrientsCache {
     return 'nutrients.pl'
         '/${country.offTag}'
         '/${language.code}'
-        '/${ProductQuery.uriProductHelper.domain}';
+        '/${ProductQuery.getUriProductHelper().domain}';
   }
 }

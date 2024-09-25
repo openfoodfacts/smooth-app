@@ -53,7 +53,12 @@ class ProductImageCropButton extends ProductImageButton {
     if (productImage != null) {
       final int? imageId = int.tryParse(productImage.imgid!);
       if (imageId != null) {
-        await _openCropAgainPage(context, imageId, productImage);
+        await _openCropAgainPage(
+          context,
+          imageId,
+          productImage,
+          product.productType,
+        );
         return;
       }
     }
@@ -84,6 +89,7 @@ class ProductImageCropButton extends ProductImageButton {
     final BuildContext context,
     final int imageId,
     final ProductImage productImage,
+    final ProductType? productType,
   ) async {
     final NavigatorState navigatorState = Navigator.of(context);
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
@@ -94,7 +100,9 @@ class ProductImageCropButton extends ProductImageButton {
         size: ImageSize.ORIGINAL,
       ).getUrl(
         barcode,
-        uriHelper: ProductQuery.uriProductHelper,
+        uriHelper: ProductQuery.getUriProductHelper(
+          productType: productType,
+        ),
       ),
       DaoInt(localDatabase),
     );

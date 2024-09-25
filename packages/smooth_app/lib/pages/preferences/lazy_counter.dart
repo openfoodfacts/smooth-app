@@ -79,7 +79,7 @@ class LazyCounterUserSearch extends LazyCounter {
       final SearchResult result = await OpenFoodAPIClient.searchProducts(
         user,
         configuration,
-        uriHelper: ProductQuery.uriProductHelper,
+        uriHelper: ProductQuery.getUriProductHelper(),
       );
       return result.count;
     } catch (e) {

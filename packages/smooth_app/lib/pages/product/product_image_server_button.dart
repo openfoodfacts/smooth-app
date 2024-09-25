@@ -51,7 +51,11 @@ class ProductImageServerButton extends ProductImageButton {
       ImageSize.DISPLAY,
     );
     if (rawImages.isNotEmpty) {
-      await _openGallery(context: context, rawImages: rawImages);
+      await _openGallery(
+        context: context,
+        rawImages: rawImages,
+        productType: product.productType,
+      );
       return;
     }
 
@@ -95,12 +99,17 @@ class ProductImageServerButton extends ProductImageButton {
       );
       return;
     }
-    await _openGallery(context: context, rawImages: rawImages);
+    await _openGallery(
+      context: context,
+      rawImages: rawImages,
+      productType: product.productType,
+    );
   }
 
   Future<void> _openGallery({
     required final BuildContext context,
     required final List<ProductImage> rawImages,
+    required final ProductType? productType,
   }) =>
       Navigator.push<void>(
         context,
@@ -111,6 +120,7 @@ class ProductImageServerButton extends ProductImageButton {
             imageField: imageField,
             language: language,
             isLoggedInMandatory: isLoggedInMandatory,
+            productType: productType,
           ),
         ),
       );
