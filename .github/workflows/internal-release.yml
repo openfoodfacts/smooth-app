@@ -1,4 +1,4 @@
-name: Create internal releases
+name: Create internal releases of the Mobile app for Android & iOS
 on:
   workflow_dispatch:
 
