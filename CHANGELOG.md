@@ -1,5 +1,33 @@
 # Changelog
 
+## [4.16.0](https://github.com/openfoodfacts/smooth-app/compare/v4.15.0...v4.16.0) (2024-09-25)
+
+
+### Features
+
+* 5400 - flagging stores as favorite ([#5533](https://github.com/openfoodfacts/smooth-app/issues/5533)) ([e7154a6](https://github.com/openfoodfacts/smooth-app/commit/e7154a66dc69e4fb7ce222f01ad26681950d503d))
+* 5526 - new Prices prod/test url flag ([#5528](https://github.com/openfoodfacts/smooth-app/issues/5528)) ([a8bce8a](https://github.com/openfoodfacts/smooth-app/commit/a8bce8ac40238d1bf2610cc929681d4480079eb9))
+* Add the outdated indicator to the photo grid ([#5491](https://github.com/openfoodfacts/smooth-app/issues/5491)) ([a797ebd](https://github.com/openfoodfacts/smooth-app/commit/a797ebde6de4d0d2a1496e0a8145618d836346cb))
+* Country selector redesign ([#5483](https://github.com/openfoodfacts/smooth-app/issues/5483)) ([1573d32](https://github.com/openfoodfacts/smooth-app/commit/1573d329491cb49ddf9c6f275ee2a32284855b4b))
+* Disallow emojis on brand name ([#5461](https://github.com/openfoodfacts/smooth-app/issues/5461)) ([9cbcf75](https://github.com/openfoodfacts/smooth-app/commit/9cbcf75d5ddc27e4237fb7cf44dc008c2c85ed42))
+* improved price product selection ([#5564](https://github.com/openfoodfacts/smooth-app/issues/5564)) ([45b8b33](https://github.com/openfoodfacts/smooth-app/commit/45b8b3357aa494f57b303cd375eca5b8c2820cbe))
+* Improvements for the search experience ([#5519](https://github.com/openfoodfacts/smooth-app/issues/5519)) ([30ca6b6](https://github.com/openfoodfacts/smooth-app/commit/30ca6b64b2e3a4fd9834d150a43a9ce95858c0ad))
+* new parameters for uploadProof ([#5480](https://github.com/openfoodfacts/smooth-app/issues/5480)) ([3a4c0c9](https://github.com/openfoodfacts/smooth-app/commit/3a4c0c94170bc68c1f606a1eda143281737f7ba6))
+* Photo gallery for "Others" ([#5501](https://github.com/openfoodfacts/smooth-app/issues/5501)) ([344518d](https://github.com/openfoodfacts/smooth-app/commit/344518d048a9e5f9291055978ae2f9e06e62a079))
+* Popup Menu now uses the iOS actions sheet ([#5494](https://github.com/openfoodfacts/smooth-app/issues/5494)) ([a9e216c](https://github.com/openfoodfacts/smooth-app/commit/a9e216c72d467533da9ea815eb69131f5cc909bf))
+* Spellchecker on product name 5415 ([#5451](https://github.com/openfoodfacts/smooth-app/issues/5451)) ([1ff9a0a](https://github.com/openfoodfacts/smooth-app/commit/1ff9a0a9b01c39439b258b5b1aa9db3b8123c051))
+* User lists: change the way to switch between lists ([#5521](https://github.com/openfoodfacts/smooth-app/issues/5521)) ([7b3cfab](https://github.com/openfoodfacts/smooth-app/commit/7b3cfab9d5dd08f2b108ce6aabc02887046a0b5d))
+
+
+### Bug Fixes
+
+* 5437 - fine-tuning about price result display ([#5531](https://github.com/openfoodfacts/smooth-app/issues/5531)) ([3e2bc4b](https://github.com/openfoodfacts/smooth-app/commit/3e2bc4b1e11e6823240f70e2014791c0ee6ae7b5))
+* 5554 - display of cached counts on user page ([#5573](https://github.com/openfoodfacts/smooth-app/issues/5573)) ([74660f8](https://github.com/openfoodfacts/smooth-app/commit/74660f80d012486b0e07361e7ebf1be72ae519f6))
+* 5560 - proof files from PROD/DEV ([#5561](https://github.com/openfoodfacts/smooth-app/issues/5561)) ([c50a10c](https://github.com/openfoodfacts/smooth-app/commit/c50a10ccffe6ebb5e602722119042900db95ee64))
+* 5591 - added a call to initialize rive ([#5592](https://github.com/openfoodfacts/smooth-app/issues/5592)) ([2b47024](https://github.com/openfoodfacts/smooth-app/commit/2b47024f8e07d58280b6bddc3e3d9451b4100a11))
+* plurals for hebrew and dutch ([#5496](https://github.com/openfoodfacts/smooth-app/issues/5496)) ([737d359](https://github.com/openfoodfacts/smooth-app/commit/737d3591dee4082f031d927424f939a9a17862ab))
+* Raster cache should support `ErrorBuilder` ([#5475](https://github.com/openfoodfacts/smooth-app/issues/5475)) ([68e8140](https://github.com/openfoodfacts/smooth-app/commit/68e814064a229ffcf31057ee98fb7c634f90f4b6))
+
 ## [4.15.0](https://github.com/openfoodfacts/smooth-app/compare/v4.14.0...v4.15.0) (2024-06-28)
 
 
