@@ -119,7 +119,7 @@ class _ProductImageViewer extends StatelessWidget {
                     ),
                   ),
                 ),
-                fit: BoxFit.cover,
+                fit: BoxFit.contain,
                 loadingBuilder: (
                   _,
                   final Widget child,
