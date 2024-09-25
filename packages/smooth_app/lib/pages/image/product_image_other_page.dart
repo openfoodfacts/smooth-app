@@ -114,7 +114,7 @@ class _ProductImageViewer extends StatelessWidget {
                     uriHelper: ProductQuery.uriProductHelper,
                   ),
                 ),
-                fit: BoxFit.cover,
+                fit: BoxFit.contain,
                 loadingBuilder: (
                   _,
                   final Widget child,
