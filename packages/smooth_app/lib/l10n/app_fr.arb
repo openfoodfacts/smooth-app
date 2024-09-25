@@ -1899,6 +1899,7 @@
     "prices_location_subtitle": "Magasin",
     "prices_location_find": "Chercher un magasin",
     "prices_location_mandatory": "Vous devez choisir un magasin !",
+    "prices_location_search_broader": "Vous n'avez pas trouvé ce que vous cherchiez ? Essayons une recherche plus large !",
     "prices_proof_subtitle": "Preuve",
     "prices_proof_find": "Choisir une preuve",
     "prices_proof_receipt": "Ticket de caisse",

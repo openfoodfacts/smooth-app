@@ -20,6 +20,8 @@ class DaoOsmLocation extends AbstractSqlDao {
   static const String _columnPostCode = 'post_code';
   static const String _columnCountry = 'country';
   static const String _columnCountryCode = 'country_code';
+  static const String _columnOsmKey = 'osm_key';
+  static const String _columnOsmValue = 'osm_value';
   static const String _columnLastAccess = 'last_access';
 
   static const List<String> _columns = <String>[
@@ -33,6 +35,8 @@ class DaoOsmLocation extends AbstractSqlDao {
     _columnPostCode,
     _columnCountry,
     _columnCountryCode,
+    _columnOsmKey,
+    _columnOsmValue,
     _columnLastAccess,
   ];
 
@@ -57,6 +61,10 @@ class DaoOsmLocation extends AbstractSqlDao {
           // cf. https://www.sqlite.org/lang_conflict.html
           ',PRIMARY KEY($_columnId,$_columnType) on conflict replace'
           ')');
+    }
+    if (oldVersion < 7) {
+      await db.execute('alter table $_table add column $_columnOsmKey TEXT');
+      await db.execute('alter table $_table add column $_columnOsmValue TEXT');
     }
   }
 
@@ -100,6 +108,8 @@ class DaoOsmLocation extends AbstractSqlDao {
           _columnPostCode: osmLocation.postcode,
           _columnCountry: osmLocation.country,
           _columnCountryCode: osmLocation.countryCode,
+          _columnOsmKey: osmLocation.osmKey,
+          _columnOsmValue: osmLocation.osmValue,
           _columnLastAccess: LocalDatabase.nowInMillis(),
         },
       );
@@ -122,6 +132,8 @@ class DaoOsmLocation extends AbstractSqlDao {
       postcode: row[_columnPostCode] as String?,
       country: row[_columnCountry] as String?,
       countryCode: row[_columnCountryCode] as String?,
+      osmKey: row[_columnOsmKey] as String?,
+      osmValue: row[_columnOsmValue] as String?,
     );
   }
 }
