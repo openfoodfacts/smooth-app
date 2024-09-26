@@ -41,11 +41,10 @@ class SmoothAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.actionModeCloseTooltip,
     this.onLeaveActionMode,
     this.ignoreSemanticsForSubtitle = false,
-    Key? key,
+    super.key,
   })  : assert(!actionMode || actionModeTitle != null),
         preferredSize =
-            _PreferredAppBarSize(toolbarHeight, bottom?.preferredSize.height),
-        super(key: key);
+            _PreferredAppBarSize(toolbarHeight, bottom?.preferredSize.height);
 
   final Widget? leading;
   final bool automaticallyImplyLeading;
@@ -234,8 +233,7 @@ class _AppBarTitle extends StatelessWidget {
     required this.title,
     required this.subTitle,
     this.ignoreSemanticsForSubtitle,
-    Key? key,
-  }) : super(key: key);
+  });
 
   final Widget title;
   final Widget? subTitle;

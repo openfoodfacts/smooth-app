@@ -442,8 +442,7 @@ class _TermsOfUseCheckbox extends StatelessWidget {
     required this.disagree,
     required this.onCheckboxChanged,
     required this.checkboxColorResolver,
-    Key? key,
-  }) : super(key: key);
+  });
 
   final bool agree;
   final bool disagree;

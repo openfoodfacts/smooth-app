@@ -18,9 +18,9 @@ class BackgroundTaskRefreshLater extends BackgroundTaskBarcode {
     required this.timestamp,
   });
 
-  BackgroundTaskRefreshLater.fromJson(Map<String, dynamic> json)
+  BackgroundTaskRefreshLater.fromJson(super.json)
       : timestamp = json[_jsonTagTimestamp] as int,
-        super.fromJson(json);
+        super.fromJson();
 
   static const String _jsonTagTimestamp = 'timestamp';
 

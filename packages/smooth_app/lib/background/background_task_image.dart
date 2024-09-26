@@ -34,9 +34,9 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
     required this.fullPath,
   });
 
-  BackgroundTaskImage.fromJson(Map<String, dynamic> json)
+  BackgroundTaskImage.fromJson(super.json)
       : fullPath = json[_jsonTagImagePath] as String,
-        super.fromJson(json);
+        super.fromJson();
 
   static const String _jsonTagImagePath = 'imagePath';
 

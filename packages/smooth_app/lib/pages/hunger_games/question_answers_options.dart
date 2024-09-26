@@ -14,9 +14,9 @@ const Color _maybeTextColor = Colors.black;
 class QuestionAnswersOptions extends StatelessWidget {
   const QuestionAnswersOptions(
     this.question, {
-    Key? key,
+    super.key,
     required this.onAnswer,
-  }) : super(key: key);
+  });
 
   final RobotoffQuestion question;
   final Function(InsightAnnotation) onAnswer;

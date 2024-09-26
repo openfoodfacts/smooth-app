@@ -3,7 +3,7 @@ import 'package:flutter/rendering.dart';
 
 class SmoothDraggableBottomSheet extends StatefulWidget {
   const SmoothDraggableBottomSheet({
-    Key? key,
+    super.key,
     required this.headerBuilder,
     required this.headerHeight,
     required this.bodyBuilder,
@@ -13,8 +13,7 @@ class SmoothDraggableBottomSheet extends StatefulWidget {
     this.animationController,
     this.bottomSheetColor,
     this.draggableScrollableController,
-  })  : assert(maxHeightFraction > 0.0 && maxHeightFraction <= 1.0),
-        super(key: key);
+  }) : assert(maxHeightFraction > 0.0 && maxHeightFraction <= 1.0);
 
   final double initHeightFraction;
   final double maxHeightFraction;
@@ -152,8 +151,7 @@ class _SmoothDraggableContent extends StatefulWidget {
     required this.headerHeight,
     required this.headerBuilder,
     required this.bodyBuilder,
-    Key? key,
-  }) : super(key: key);
+  });
 
   final WidgetBuilder headerBuilder;
   final double headerHeight;

@@ -20,8 +20,7 @@ class BackgroundTaskFullRefresh extends BackgroundTaskPaged {
     required super.pageSize,
   });
 
-  BackgroundTaskFullRefresh.fromJson(Map<String, dynamic> json)
-      : super.fromJson(json);
+  BackgroundTaskFullRefresh.fromJson(super.json) : super.fromJson();
 
   static const OperationType _operationType = OperationType.fullRefresh;
 

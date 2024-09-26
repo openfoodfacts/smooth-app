@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/intl.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -9,7 +8,6 @@ import 'package:smooth_app/background/background_task_badge.dart';
 import 'package:smooth_app/background/background_task_language_refresh.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/data_models/news_feed/newsfeed_provider.dart';
-import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_osm_location.dart';
 import 'package:smooth_app/database/dao_product.dart';
@@ -36,16 +34,11 @@ import 'package:smooth_app/query/product_query.dart';
 /// Settings => FAQ => Develop => Clicking switch
 class UserPreferencesDevMode extends AbstractUserPreferences {
   UserPreferencesDevMode({
-    required final BuildContext context,
-    required final UserPreferences userPreferences,
-    required final AppLocalizations appLocalizations,
-    required final ThemeData themeData,
-  }) : super(
-          context: context,
-          userPreferences: userPreferences,
-          appLocalizations: appLocalizations,
-          themeData: themeData,
-        );
+    required super.context,
+    required super.userPreferences,
+    required super.appLocalizations,
+    required super.themeData,
+  });
 
   static const String userPreferencesFlagProd = '__devWorkingOnProd';
   static const String userPreferencesFlagPriceProd = '__devWorkingOnPricesProd';

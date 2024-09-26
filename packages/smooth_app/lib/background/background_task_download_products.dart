@@ -21,9 +21,9 @@ class BackgroundTaskDownloadProducts extends BackgroundTaskProgressing {
     required this.downloadFlag,
   });
 
-  BackgroundTaskDownloadProducts.fromJson(Map<String, dynamic> json)
+  BackgroundTaskDownloadProducts.fromJson(super.json)
       : downloadFlag = json[_jsonTagDownloadFlag] as int,
-        super.fromJson(json);
+        super.fromJson();
 
   /// Download flag. Normal case: 0, meaning all fields are downloaded.
   final int downloadFlag;
