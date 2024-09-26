@@ -18,10 +18,10 @@ class BackgroundTaskHungerGames extends BackgroundTaskBarcode {
     required this.insightAnnotation,
   });
 
-  BackgroundTaskHungerGames.fromJson(Map<String, dynamic> json)
+  BackgroundTaskHungerGames.fromJson(super.json)
       : insightId = json[_jsonTagInsightId] as String,
         insightAnnotation = json[_jsonTagInsightAnnotation] as int,
-        super.fromJson(json);
+        super.fromJson();
 
   static const String _jsonTagInsightId = 'insightId';
   static const String _jsonTagInsightAnnotation = 'insightAnnotation';

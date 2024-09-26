@@ -169,7 +169,7 @@ class _ScanPageState extends State<ScanPage> {
 }
 
 class _PermissionDeniedCard extends StatelessWidget {
-  const _PermissionDeniedCard({Key? key}) : super(key: key);
+  const _PermissionDeniedCard();
 
   @override
   Widget build(BuildContext context) {

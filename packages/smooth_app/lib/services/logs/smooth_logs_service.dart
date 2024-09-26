@@ -1,7 +1,8 @@
-/// Please use this file for import statements, as it allows to easily change
-/// the logging solution
 import 'package:smooth_app/services/logs/smooth_log_levels.dart';
 import 'package:smooth_app/services/smooth_service.dart';
+
+/// Please use this file for import statements, as it allows to easily change
+/// the logging solution
 
 class LogsService extends SmoothService<AppLogService> {
   LogsService() : super();

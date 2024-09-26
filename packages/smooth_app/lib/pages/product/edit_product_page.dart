@@ -355,8 +355,7 @@ class _ListTitleItem extends SmoothListTileCard {
     Widget? leading,
     String? title,
     String? subtitle,
-    void Function()? onTap,
-    Key? key,
+    super.onTap,
   }) : super.icon(
           title: title == null
               ? null
@@ -364,8 +363,6 @@ class _ListTitleItem extends SmoothListTileCard {
                   title,
                   style: const TextStyle(fontWeight: FontWeight.bold),
                 ),
-          onTap: onTap,
-          key: key,
           icon: leading,
           subtitle: subtitle == null ? null : Text(subtitle),
         );
@@ -373,10 +370,9 @@ class _ListTitleItem extends SmoothListTileCard {
 
 /// Barcodes only allowed have a length of 7, 8, 12 or 13 characters
 class _ProductBarcode extends StatefulWidget {
-  _ProductBarcode({required this.product, Key? key})
+  _ProductBarcode({required this.product})
       : assert(product.barcode?.isNotEmpty == true),
-        assert(isAValidBarcode(product.barcode)),
-        super(key: key);
+        assert(isAValidBarcode(product.barcode));
 
   static const double _barcodeHeight = 120.0;
 

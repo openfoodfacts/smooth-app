@@ -18,9 +18,10 @@ import 'package:smooth_app/services/smooth_services.dart';
 /// (eg: de.openfoodfacts.org), that's why we try to guess it with the country
 /// and the locale of the user
 class ExternalPage extends StatefulWidget {
-  const ExternalPage({required this.path, Key? key})
-      : assert(path != ''),
-        super(key: key);
+  const ExternalPage({
+    required this.path,
+    super.key,
+  }) : assert(path != '');
 
   final String path;
 

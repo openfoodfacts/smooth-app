@@ -42,9 +42,9 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode
     required this.inputMap,
   });
 
-  BackgroundTaskDetails.fromJson(Map<String, dynamic> json)
+  BackgroundTaskDetails.fromJson(super.json)
       : inputMap = json[_jsonTagInputMap] as String,
-        super.fromJson(json);
+        super.fromJson();
 
   static const String _jsonTagInputMap = 'inputMap';
 

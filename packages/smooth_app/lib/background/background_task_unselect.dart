@@ -23,9 +23,9 @@ class BackgroundTaskUnselect extends BackgroundTaskBarcode
     required this.imageField,
   });
 
-  BackgroundTaskUnselect.fromJson(Map<String, dynamic> json)
+  BackgroundTaskUnselect.fromJson(super.json)
       : imageField = json[_jsonTagImageField] as String,
-        super.fromJson(json);
+        super.fromJson();
 
   static const String _jsonTagImageField = 'imageField';
 

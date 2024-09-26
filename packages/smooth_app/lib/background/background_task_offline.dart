@@ -19,8 +19,7 @@ class BackgroundTaskOffline extends BackgroundTaskProgressing {
     required super.totalSize,
   });
 
-  BackgroundTaskOffline.fromJson(Map<String, dynamic> json)
-      : super.fromJson(json);
+  BackgroundTaskOffline.fromJson(super.json) : super.fromJson();
 
   static const OperationType _operationType = OperationType.offline;
 

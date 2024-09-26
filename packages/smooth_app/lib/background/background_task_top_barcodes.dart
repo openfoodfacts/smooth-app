@@ -21,9 +21,9 @@ class BackgroundTaskTopBarcodes extends BackgroundTaskProgressing {
     required this.pageNumber,
   });
 
-  BackgroundTaskTopBarcodes.fromJson(Map<String, dynamic> json)
+  BackgroundTaskTopBarcodes.fromJson(super.json)
       : pageNumber = json[_jsonTagPageNumber] as int? ?? 1,
-        super.fromJson(json);
+        super.fromJson();
 
   final int pageNumber;
 

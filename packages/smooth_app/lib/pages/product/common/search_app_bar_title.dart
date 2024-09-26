@@ -7,8 +7,8 @@ class SearchAppBarTitle extends StatelessWidget {
     required this.title,
     this.multiLines = true,
     required this.editableAppBarTitle,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final String title;
   final bool multiLines;

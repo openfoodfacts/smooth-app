@@ -442,8 +442,8 @@ class KeepQuestionWidgetAlive extends InheritedWidget {
   const KeepQuestionWidgetAlive({
     super.key,
     required this.keepWidgetAlive,
-    required Widget child,
-  }) : super(child: child);
+    required super.child,
+  });
 
   final bool keepWidgetAlive;
 

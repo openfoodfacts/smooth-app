@@ -11,8 +11,8 @@ import 'package:smooth_app/themes/smooth_theme_colors.dart';
 class UserPreferencesListItemDivider extends StatelessWidget {
   const UserPreferencesListItemDivider({
     this.margin,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final EdgeInsetsGeometry? margin;
 
@@ -261,12 +261,11 @@ class UserPreferencesMultipleChoicesItem<T> extends StatelessWidget {
     this.leadingBuilder,
     this.descriptions,
     this.dialogHeight,
-    Key? key,
+    super.key,
   })  : assert(labels.length > 0),
         assert(values.length == labels.length),
         assert(descriptions == null || descriptions.length == labels.length),
-        assert(dialogHeight == null || dialogHeight > 0.0),
-        super(key: key);
+        assert(dialogHeight == null || dialogHeight > 0.0);
 
   final String title;
   final IconData? leading;

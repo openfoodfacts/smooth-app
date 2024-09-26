@@ -209,13 +209,13 @@ class _TagLineItemNewsTranslation {
 }
 
 class _TagLineItemNewsTranslationDefault extends _TagLineItemNewsTranslation {
-  _TagLineItemNewsTranslationDefault.fromJson(Map<dynamic, dynamic> json)
+  _TagLineItemNewsTranslationDefault.fromJson(super.json)
       : assert((json['title'] as String).isNotEmpty),
         assert((json['message'] as String).isNotEmpty),
         assert(json['image'] == null ||
             ((json['image'] as Map<String, dynamic>)['url'] as String)
                 .isNotEmpty),
-        super.fromJson(json);
+        super.fromJson();
 }
 
 class _TagLineNewsImage {
