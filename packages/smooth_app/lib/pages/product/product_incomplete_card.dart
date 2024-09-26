@@ -21,6 +21,10 @@ class ProductIncompleteCard extends StatelessWidget {
   final bool isLoggedInMandatory;
 
   static bool isProductIncomplete(final Product product) {
+    if (product.productType != null &&
+        product.productType != ProductType.food) {
+      return false;
+    }
     bool checkScores = true;
     if (_isNutriscoreNotApplicable(product)) {
       AnalyticsHelper.trackEvent(
