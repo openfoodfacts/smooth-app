@@ -301,7 +301,10 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
             onPressed: () async => ProductQueryPageHelper.openBestChoice(
               name: categoryLabel!,
               localDatabase: context.read<LocalDatabase>(),
-              productQuery: CategoryProductQuery(categoryTag!),
+              productQuery: CategoryProductQuery(
+                categoryTag!,
+                productType: upToDateProduct.productType ?? ProductType.food,
+              ),
               context: context,
               searchResult: false,
             ),

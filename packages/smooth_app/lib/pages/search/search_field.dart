@@ -73,6 +73,7 @@ class _SearchFieldState extends State<SearchField> {
 
     final TextStyle textStyle = SearchFieldUIHelper.textStyle(context);
 
+    final Widget? additionalFilter = widget.searchHelper.getAdditionalFilter();
     return ChangeNotifierProvider<TextEditingController>.value(
       value: _controller!,
       child: SmoothHero(
@@ -90,19 +91,24 @@ class _SearchFieldState extends State<SearchField> {
             : null,
         child: Material(
           // ↑ Needed by the Hero Widget
-          child: TextField(
-            controller: _controller,
-            focusNode: _focusNode,
-            onSubmitted: (String query) => _performSearch(context, query),
-            textInputAction: TextInputAction.search,
-            enableSuggestions: widget.enableSuggestions,
-            autocorrect: widget.autocorrect,
-            style: textStyle,
-            decoration: _getInputDecoration(
-              context,
-              localizations,
-            ),
-            cursorColor: textStyle.color,
+          child: Column(
+            children: <Widget>[
+              TextField(
+                controller: _controller,
+                focusNode: _focusNode,
+                onSubmitted: (String query) => _performSearch(context, query),
+                textInputAction: TextInputAction.search,
+                enableSuggestions: widget.enableSuggestions,
+                autocorrect: widget.autocorrect,
+                style: textStyle,
+                decoration: _getInputDecoration(
+                  context,
+                  localizations,
+                ),
+                cursorColor: textStyle.color,
+              ),
+              if (additionalFilter != null) additionalFilter,
+            ],
           ),
         ),
       ),
