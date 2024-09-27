@@ -171,6 +171,8 @@ class UserPreferencesAccount extends AbstractUserPreferences {
         productQuery: PagedUserProductQuery(
           userId: userId,
           type: UserSearchType.CONTRIBUTOR,
+          // TODO(monsieurtanuki): only food?
+          productType: ProductType.food,
         ),
         title: appLocalizations.user_search_contributor_title,
         iconData: Icons.add_circle_outline,
@@ -182,6 +184,7 @@ class UserPreferencesAccount extends AbstractUserPreferences {
         productQuery: PagedUserProductQuery(
           userId: userId,
           type: UserSearchType.INFORMER,
+          productType: ProductType.food,
         ),
         title: appLocalizations.user_search_informer_title,
         iconData: Icons.edit,
@@ -193,6 +196,7 @@ class UserPreferencesAccount extends AbstractUserPreferences {
         productQuery: PagedUserProductQuery(
           userId: userId,
           type: UserSearchType.PHOTOGRAPHER,
+          productType: ProductType.food,
         ),
         title: appLocalizations.user_search_photographer_title,
         iconData: Icons.add_a_photo,
@@ -204,6 +208,7 @@ class UserPreferencesAccount extends AbstractUserPreferences {
         productQuery: PagedUserProductQuery(
           userId: userId,
           type: UserSearchType.TO_BE_COMPLETED,
+          productType: ProductType.food,
         ),
         title: appLocalizations.user_search_to_be_completed_title,
         iconData: Icons.more_horiz,
@@ -296,7 +301,9 @@ class UserPreferencesAccount extends AbstractUserPreferences {
         'app/products',
       ),
       _buildProductQueryTile(
-        productQuery: PagedToBeCompletedProductQuery(),
+        productQuery: PagedToBeCompletedProductQuery(
+          productType: ProductType.food,
+        ),
         title: appLocalizations.all_search_to_be_completed_title,
         iconData: Icons.more_outlined,
         context: context,

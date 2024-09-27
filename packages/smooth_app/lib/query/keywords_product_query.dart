@@ -5,7 +5,11 @@ import 'package:smooth_app/query/paged_search_product_query.dart';
 
 /// Back-end query around user-entered keywords.
 class KeywordsProductQuery extends PagedSearchProductQuery {
-  KeywordsProductQuery(this.keywords, {super.world});
+  KeywordsProductQuery(
+    this.keywords, {
+    required super.productType,
+    super.world,
+  });
 
   final String keywords;
 
@@ -19,6 +23,7 @@ class KeywordsProductQuery extends PagedSearchProductQuery {
         pageNumber: pageNumber,
         language: language,
         country: country,
+        productType: productType,
       );
 
   @override
@@ -28,11 +33,17 @@ class KeywordsProductQuery extends PagedSearchProductQuery {
       ', $pageNumber'
       ', $language'
       ', $country'
+      ', $productType'
       ')';
 
   @override
-  PagedProductQuery? getWorldQuery() =>
-      world ? null : KeywordsProductQuery(keywords, world: true);
+  PagedProductQuery? getWorldQuery() => world
+      ? null
+      : KeywordsProductQuery(
+          keywords,
+          productType: productType,
+          world: true,
+        );
 
   @override
   bool hasDifferentCountryWorldData() => true;
