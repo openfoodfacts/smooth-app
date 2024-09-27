@@ -140,12 +140,13 @@ class SmoothProductCardFound extends StatelessWidget {
                     padding:
                         EdgeInsetsDirectional.only(start: VERY_SMALL_SPACE),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(VERY_SMALL_SPACE),
-                    child: Column(
-                      children: scores,
+                  if (scores.isNotEmpty)
+                    Padding(
+                      padding: const EdgeInsets.all(VERY_SMALL_SPACE),
+                      child: Column(
+                        children: scores,
+                      ),
                     ),
-                  ),
                 ],
               ),
             ),
