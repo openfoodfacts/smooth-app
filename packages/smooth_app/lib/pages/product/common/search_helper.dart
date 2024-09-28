@@ -26,6 +26,8 @@ abstract class SearchHelper extends ValueNotifier<SearchQuery?> {
   /// Hint text for the search field.
   String getHintText(final AppLocalizations appLocalizations);
 
+  Widget? getAdditionalFilter() => null;
+
   /// Returns all the previous queries, in reverse order.
   List<String> getAllQueries(final LocalDatabase localDatabase) =>
       DaoStringList(localDatabase).getAll(historyKey).reversed.toList();
