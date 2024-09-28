@@ -84,10 +84,9 @@ class ExternalScanCarouselManagerState
 
 class _InheritedCarouselManager extends InheritedWidget {
   const _InheritedCarouselManager({
-    required Widget child,
+    required super.child,
     required this.state,
-    Key? key,
-  }) : super(key: key, child: child);
+  });
 
   final ExternalScanCarouselManagerState state;
 

@@ -1,10 +1,9 @@
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:smooth_app/database/abstract_dao.dart';
-import 'package:smooth_app/database/local_database.dart';
 
 /// Where we store ints.
 class DaoInt extends AbstractDao {
-  DaoInt(final LocalDatabase localDatabase) : super(localDatabase);
+  DaoInt(super.localDatabase);
 
   static const String _hiveBoxName = 'int';
 

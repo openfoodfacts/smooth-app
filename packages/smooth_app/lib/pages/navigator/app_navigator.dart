@@ -37,13 +37,12 @@ import 'package:smooth_app/query/product_query.dart';
 /// /!\ [GoRouter] doesn't support [maybePop] or returning a result from a push.
 class AppNavigator extends InheritedWidget {
   AppNavigator({
-    Key? key,
+    super.key,
     List<NavigatorObserver>? observers,
-    required Widget child,
-  })  : _router = _SmoothGoRouter(
+    required super.child,
+  }) : _router = _SmoothGoRouter(
           observers: observers,
-        ),
-        super(key: key, child: child);
+        );
 
   // GoRouter is never accessible directly
   final _SmoothGoRouter _router;

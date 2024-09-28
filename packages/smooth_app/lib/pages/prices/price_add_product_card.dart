@@ -36,57 +36,6 @@ class _PriceAddProductCardState extends State<PriceAddProductCard> {
             ),
           ),
           SmoothLargeButtonWithIcon(
-            text: appLocalizations.prices_barcode_enter,
-            icon: Icons.text_fields,
-            onPressed: () async {
-              final TextEditingController controller = TextEditingController();
-              final String? barcode = await showDialog<String>(
-                context: context,
-                builder: (final BuildContext context) => StatefulBuilder(
-                  builder: (
-                    final BuildContext context,
-                    void Function(VoidCallback fn) setState,
-                  ) =>
-                      SmoothAlertDialog(
-                    title: appLocalizations.prices_add_an_item,
-                    body: SmoothTextFormField(
-                      autofocus: true,
-                      type: TextFieldTypes.PLAIN_TEXT,
-                      controller: controller,
-                      hintText: appLocalizations.barcode,
-                      textInputType: _textInputType,
-                      onChanged: (_) {
-                        final String barcode = controller.text;
-                        final String cleanBarcode = _getCleanBarcode(barcode);
-                        setState(() => controller.text = cleanBarcode);
-                      },
-                      onFieldSubmitted: (_) => !_isValidBarcode(controller.text)
-                          ? null
-                          : Navigator.of(context).pop(controller.text),
-                    ),
-                    positiveAction: SmoothActionButton(
-                      text: appLocalizations.validate,
-                      onPressed: !_isValidBarcode(controller.text)
-                          ? null
-                          : () => Navigator.of(context).pop(controller.text),
-                    ),
-                    negativeAction: SmoothActionButton(
-                      text: appLocalizations.cancel,
-                      onPressed: () => Navigator.of(context).pop(),
-                    ),
-                  ),
-                ),
-              );
-              if (barcode == null) {
-                return;
-              }
-              if (!context.mounted) {
-                return;
-              }
-              await _addToList(barcode, context);
-            },
-          ),
-          SmoothLargeButtonWithIcon(
             text: appLocalizations.prices_barcode_reader_action,
             icon: Icons.barcode_reader,
             onPressed: () async {
@@ -101,6 +50,20 @@ class _PriceAddProductCardState extends State<PriceAddProductCard> {
                 return;
               }
               _latestScannedBarcode = barcode;
+              if (!context.mounted) {
+                return;
+              }
+              await _addToList(barcode, context);
+            },
+          ),
+          SmoothLargeButtonWithIcon(
+            text: appLocalizations.prices_barcode_enter,
+            icon: Icons.text_fields,
+            onPressed: () async {
+              final String? barcode = await _textInput(context);
+              if (barcode == null) {
+                return;
+              }
               if (!context.mounted) {
                 return;
               }
@@ -147,6 +110,48 @@ class _PriceAddProductCardState extends State<PriceAddProductCard> {
       ),
     );
     priceModel.notifyListeners();
+  }
+
+  Future<String?> _textInput(final BuildContext context) async {
+    final TextEditingController controller = TextEditingController();
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    return showDialog<String>(
+      context: context,
+      builder: (final BuildContext context) => StatefulBuilder(
+        builder: (
+          final BuildContext context,
+          void Function(VoidCallback fn) setState,
+        ) =>
+            SmoothAlertDialog(
+          title: appLocalizations.prices_add_an_item,
+          body: SmoothTextFormField(
+            autofocus: true,
+            type: TextFieldTypes.PLAIN_TEXT,
+            controller: controller,
+            hintText: appLocalizations.barcode,
+            textInputType: _textInputType,
+            onChanged: (_) {
+              final String barcode = controller.text;
+              final String cleanBarcode = _getCleanBarcode(barcode);
+              setState(() => controller.text = cleanBarcode);
+            },
+            onFieldSubmitted: (_) => !_isValidBarcode(controller.text)
+                ? null
+                : Navigator.of(context).pop(controller.text),
+          ),
+          positiveAction: SmoothActionButton(
+            text: appLocalizations.validate,
+            onPressed: !_isValidBarcode(controller.text)
+                ? null
+                : () => Navigator.of(context).pop(controller.text),
+          ),
+          negativeAction: SmoothActionButton(
+            text: appLocalizations.cancel,
+            onPressed: () => Navigator.of(context).pop(),
+          ),
+        ),
+      ),
+    );
   }
 
   bool _isValidBarcode(final String barcode) => barcode.length >= 8;

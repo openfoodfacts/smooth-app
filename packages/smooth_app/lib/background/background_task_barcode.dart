@@ -13,9 +13,9 @@ abstract class BackgroundTaskBarcode extends BackgroundTask {
     required this.barcode,
   });
 
-  BackgroundTaskBarcode.fromJson(Map<String, dynamic> json)
+  BackgroundTaskBarcode.fromJson(super.json)
       : barcode = json[_jsonTagBarcode] as String,
-        super.fromJson(json);
+        super.fromJson();
 
   final String barcode;
 

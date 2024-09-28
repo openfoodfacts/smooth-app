@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:http/http.dart' as http;
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:smooth_app/data_models/github_contributors_model.dart';
@@ -27,16 +28,11 @@ import 'package:smooth_app/query/product_query.dart';
 /// Display of "Contribute" for the preferences page.
 class UserPreferencesContribute extends AbstractUserPreferences {
   UserPreferencesContribute({
-    required final BuildContext context,
-    required final UserPreferences userPreferences,
-    required final AppLocalizations appLocalizations,
-    required final ThemeData themeData,
-  }) : super(
-          context: context,
-          userPreferences: userPreferences,
-          appLocalizations: appLocalizations,
-          themeData: themeData,
-        );
+    required super.context,
+    required super.userPreferences,
+    required super.appLocalizations,
+    required super.themeData,
+  });
 
   @override
   PreferencePageType getPreferencePageType() => PreferencePageType.CONTRIBUTE;
@@ -175,7 +171,10 @@ class UserPreferencesContribute extends AbstractUserPreferences {
                 ProductQueryPageHelper.openBestChoice(
                   name: appLocalizations.all_search_to_be_completed_title,
                   localDatabase: localDatabase,
-                  productQuery: PagedToBeCompletedProductQuery(),
+                  productQuery: PagedToBeCompletedProductQuery(
+                    // TODO(monsieurtanuki): only food?
+                    productType: ProductType.food,
+                  ),
                   // the other "context"s being popped
                   context: this.context,
                   editableAppBarTitle: false,
@@ -288,6 +287,7 @@ class UserPreferencesContribute extends AbstractUserPreferences {
         context: context,
         builder: (BuildContext context) => _ContributorsDialog(),
       );
+
   Future<void> _hungerGames() async {
     // Track the hunger game analytics event
     AnalyticsHelper.trackEvent(

@@ -28,9 +28,9 @@ class BackgroundTaskCrop extends BackgroundTaskUpload {
     required this.imageId,
   });
 
-  BackgroundTaskCrop.fromJson(Map<String, dynamic> json)
+  BackgroundTaskCrop.fromJson(super.json)
       : imageId = json[_jsonTagImageId] as int,
-        super.fromJson(json);
+        super.fromJson();
 
   static const String _jsonTagImageId = 'imageId';
 

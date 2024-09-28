@@ -11,10 +11,10 @@ abstract class BackgroundTaskProgressing extends BackgroundTaskPaged {
     required this.totalSize,
   });
 
-  BackgroundTaskProgressing.fromJson(Map<String, dynamic> json)
+  BackgroundTaskProgressing.fromJson(super.json)
       : work = json[_jsonTagWork] as String,
         totalSize = json[_jsonTagTotalSize] as int,
-        super.fromJson(json);
+        super.fromJson();
 
   final String work;
   final int totalSize;
