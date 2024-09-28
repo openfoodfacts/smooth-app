@@ -53,115 +53,117 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView>
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     context.watch<LocalDatabase>();
     refreshUpToDate();
-    return SmoothScaffold(
-      appBar: buildEditProductAppBar(
-        context: context,
-        title: appLocalizations.edit_product_form_item_photos_title,
-        product: upToDateProduct,
-      ),
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: () async {
-          AnalyticsHelper.trackProductEdit(
-            AnalyticsEditEvents.photos,
-            barcode,
-            true,
-          );
-          await confirmAndUploadNewPicture(
-            context,
-            imageField: ImageField.OTHER,
-            barcode: barcode,
-            language: ProductQuery.getLanguage(),
-            isLoggedInMandatory: true,
-          );
-        },
-        label: Text(appLocalizations.add_photo_button_label),
-        icon: const Icon(Icons.add_a_photo),
-      ),
-      body: Column(
-        children: <Widget>[
-          LanguageSelector(
-            setLanguage: (final OpenFoodFactsLanguage? newLanguage) async {
-              if (newLanguage == null || newLanguage == _language) {
-                return;
-              }
-              setState(() => _language = newLanguage);
-            },
-            displayedLanguage: _language,
-            selectedLanguages: null,
-            padding: const EdgeInsetsDirectional.symmetric(
-              horizontal: 13.0,
-              vertical: SMALL_SPACE,
-            ),
-          ),
-          Expanded(
-            child: RefreshIndicator(
-              onRefresh: () async => ProductRefresher().fetchAndRefresh(
-                barcode: barcode,
-                context: context,
+    return SmoothSharedAnimationController(
+      child: SmoothScaffold(
+        appBar: buildEditProductAppBar(
+          context: context,
+          title: appLocalizations.edit_product_form_item_photos_title,
+          product: upToDateProduct,
+        ),
+        floatingActionButton: FloatingActionButton.extended(
+          onPressed: () async {
+            AnalyticsHelper.trackProductEdit(
+              AnalyticsEditEvents.photos,
+              barcode,
+              true,
+            );
+            await confirmAndUploadNewPicture(
+              context,
+              imageField: ImageField.OTHER,
+              barcode: barcode,
+              language: ProductQuery.getLanguage(),
+              isLoggedInMandatory: true,
+            );
+          },
+          label: Text(appLocalizations.add_photo_button_label),
+          icon: const Icon(Icons.add_a_photo),
+        ),
+        body: Column(
+          children: <Widget>[
+            LanguageSelector(
+              setLanguage: (final OpenFoodFactsLanguage? newLanguage) async {
+                if (newLanguage == null || newLanguage == _language) {
+                  return;
+                }
+                setState(() => _language = newLanguage);
+              },
+              displayedLanguage: _language,
+              selectedLanguages: null,
+              padding: const EdgeInsetsDirectional.symmetric(
+                horizontal: 13.0,
+                vertical: SMALL_SPACE,
               ),
-              child: CustomScrollView(
-                slivers: <Widget>[
-                  SliverGrid(
-                    gridDelegate:
-                        SliverGridDelegateWithFixedCrossAxisCountAndFixedHeight(
-                      crossAxisCount: 2,
-                      height: _computeItemHeight(),
-                    ),
-                    delegate: SliverChildBuilderDelegate(
-                      (BuildContext context, int index) {
-                        return _PhotoRow(
-                          position: index,
-                          product: upToDateProduct,
-                          language: _language,
-                        );
-                      },
-                      childCount: 4,
-                    ),
-                  ),
-                  SliverPadding(
-                    padding: const EdgeInsetsDirectional.symmetric(
-                      vertical: MEDIUM_SPACE,
-                      horizontal: SMALL_SPACE,
-                    ),
-                    sliver: SliverToBoxAdapter(
-                      child: Text(
-                        appLocalizations.more_photos,
-                        style: Theme.of(context).textTheme.displayMedium,
+            ),
+            Expanded(
+              child: RefreshIndicator(
+                onRefresh: () async => ProductRefresher().fetchAndRefresh(
+                  barcode: barcode,
+                  context: context,
+                ),
+                child: CustomScrollView(
+                  slivers: <Widget>[
+                    SliverGrid(
+                      gridDelegate:
+                          SliverGridDelegateWithFixedCrossAxisCountAndFixedHeight(
+                        crossAxisCount: 2,
+                        height: _computeItemHeight(),
+                      ),
+                      delegate: SliverChildBuilderDelegate(
+                        (BuildContext context, int index) {
+                          return _PhotoRow(
+                            position: index,
+                            product: upToDateProduct,
+                            language: _language,
+                          );
+                        },
+                        childCount: 4,
                       ),
                     ),
-                  ),
-                  if (_shouldDisplayRawGallery())
-                    ProductImageGalleryOtherView(product: upToDateProduct)
-                  else
-                    SliverToBoxAdapter(
-                      child: Padding(
-                        padding: const EdgeInsets.all(SMALL_SPACE),
-                        child: SmoothLargeButtonWithIcon(
-                          text: appLocalizations.view_more_photo_button,
-                          icon: Icons.photo_camera_rounded,
-                          onPressed: () => setState(
-                            () => _clickedOtherPictureButton = true,
-                          ),
+                    SliverPadding(
+                      padding: const EdgeInsetsDirectional.symmetric(
+                        vertical: MEDIUM_SPACE,
+                        horizontal: SMALL_SPACE,
+                      ),
+                      sliver: SliverToBoxAdapter(
+                        child: Text(
+                          appLocalizations.more_photos,
+                          style: Theme.of(context).textTheme.displayMedium,
                         ),
                       ),
                     ),
-                  // Extra space to be above the FAB
-                  SliverFillRemaining(
-                    hasScrollBody: false,
-                    child: SizedBox(
-                      height: (Theme.of(context)
-                                  .floatingActionButtonTheme
-                                  .extendedSizeConstraints
-                                  ?.maxHeight ??
-                              56.0) +
-                          16.0,
+                    if (_shouldDisplayRawGallery())
+                      ProductImageGalleryOtherView(product: upToDateProduct)
+                    else
+                      SliverToBoxAdapter(
+                        child: Padding(
+                          padding: const EdgeInsets.all(SMALL_SPACE),
+                          child: SmoothLargeButtonWithIcon(
+                            text: appLocalizations.view_more_photo_button,
+                            icon: Icons.photo_camera_rounded,
+                            onPressed: () => setState(
+                              () => _clickedOtherPictureButton = true,
+                            ),
+                          ),
+                        ),
+                      ),
+                    // Extra space to be above the FAB
+                    SliverFillRemaining(
+                      hasScrollBody: false,
+                      child: SizedBox(
+                        height: (Theme.of(context)
+                                    .floatingActionButtonTheme
+                                    .extendedSizeConstraints
+                                    ?.maxHeight ??
+                                56.0) +
+                            16.0,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
