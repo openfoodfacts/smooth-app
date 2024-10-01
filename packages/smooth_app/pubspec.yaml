@@ -108,7 +108,6 @@ dev_dependencies:
     sdk: flutter
   flutter_driver:
     sdk: flutter
-  flutter_launcher_icons: 0.13.1
   flutter_test:
     sdk: flutter
   mockito: 5.4.4
@@ -117,18 +116,6 @@ dev_dependencies:
   flutter_lints: 4.0.0
   openfoodfacts_flutter_lints:
     git: https://github.com/openfoodfacts/openfoodfacts_flutter_lints.git
-
-# 'flutter pub run flutter_launcher_icons:main' to update
-flutter_icons:
-  android: "launcher_icon"
-  ios: true
-  remove_alpha_ios: true
-  image_path: "assets/app/release_icon_transparent_1152x1152.png"
-  adaptive_icon_background: "#FFFFFF"
-  # Only the inner 72x72dp of the 108x108dp adaptive icon is shown
-  # (extra padding of 18dp on all sides is used for visual effects)
-  # https://developer.android.com/guide/practices/ui_guidelines/icon_design_adaptive
-  adaptive_icon_foreground: "assets/app/release_icon_transparent_70pct_1152x1152.png"
 
 # 'flutter pub run flutter_native_splash:create' to update
 flutter_native_splash:
