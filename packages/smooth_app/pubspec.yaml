@@ -35,7 +35,7 @@ dependencies:
   device_info_plus: 10.1.2
   permission_handler: 11.3.1
   photo_view: 0.15.0
-  uuid: 4.5.0
+  uuid: 4.5.1
   provider: 6.1.2
   sentry_flutter: 8.9.0
   sqflite: 2.3.3+1
