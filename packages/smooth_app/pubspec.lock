@@ -1341,10 +1341,10 @@ packages:
     dependency: "direct main"
     description:
       name: rive
-      sha256: daa5394a7d064b4997b39e9afa02f6882c479c38b19fa0dd60f052b99c105400
+      sha256: cd45b071b288e4bef05f25423e1001a9b3218b81745deae18c9b4d2a2952cc56
       url: "https://pub.dev"
     source: hosted
-    version: "0.13.13"
+    version: "0.13.14"
   rive_common:
     dependency: transitive
     description:
