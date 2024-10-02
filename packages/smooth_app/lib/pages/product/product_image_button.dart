@@ -85,6 +85,7 @@ enum ProductImageButtonType {
           ),
         ProductImageButtonType.unselect => ProductImageUnselectButton(
             product: product,
+            productType: product.productType,
             imageField: imageField,
             language: language,
             isLoggedInMandatory: isLoggedInMandatory,

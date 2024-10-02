@@ -190,6 +190,7 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
         context: context,
         stamp: entry.key,
         showSnackBar: first,
+        productType: widget.product.productType,
       );
       first = false;
     }

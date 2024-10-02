@@ -257,6 +257,7 @@ Future<CropParameters?> confirmAndUploadNewPicture(
   final BuildContext context, {
   required final ImageField imageField,
   required final String barcode,
+  required final ProductType? productType,
   required final OpenFoodFactsLanguage language,
   required final bool isLoggedInMandatory,
 }) async =>
@@ -266,6 +267,7 @@ Future<CropParameters?> confirmAndUploadNewPicture(
         imageField: imageField,
         language: language,
         barcode: barcode,
+        productType: productType,
       ),
       isLoggedInMandatory: isLoggedInMandatory,
     );

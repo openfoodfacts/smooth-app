@@ -176,6 +176,7 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
             context,
             imageField: ImageField.OTHER,
             barcode: barcode,
+            productType: upToDateProduct.productType,
             language: ProductQuery.getLanguage(),
             isLoggedInMandatory: widget.isLoggedInMandatory,
           ),
@@ -302,6 +303,7 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
       changedProduct,
       context: context,
       stamp: BackgroundTaskDetailsStamp.structuredPackaging,
+      productType: upToDateProduct.productType,
     );
     return true;
   }

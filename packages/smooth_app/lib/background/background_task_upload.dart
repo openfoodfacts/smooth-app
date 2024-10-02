@@ -16,6 +16,7 @@ abstract class BackgroundTaskUpload extends BackgroundTaskBarcode
     required super.processName,
     required super.uniqueId,
     required super.barcode,
+    required super.productType,
     required super.language,
     required super.stamp,
     required this.imageField,

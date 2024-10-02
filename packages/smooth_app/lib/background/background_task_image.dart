@@ -22,6 +22,7 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
     required super.processName,
     required super.uniqueId,
     required super.barcode,
+    required super.productType,
     required super.language,
     required super.stamp,
     required super.imageField,
@@ -58,6 +59,7 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
   /// Adds the background task about uploading a product image.
   static Future<void> addTask(
     final String barcode, {
+    required final ProductType? productType,
     required final OpenFoodFactsLanguage language,
     required final ImageField imageField,
     required final File fullFile,
@@ -77,6 +79,7 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
     final BackgroundTaskBarcode task = _getNewTask(
       language,
       barcode,
+      productType ?? ProductType.food,
       imageField,
       fullFile,
       croppedFile,
@@ -105,6 +108,7 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
   static BackgroundTaskImage _getNewTask(
     final OpenFoodFactsLanguage language,
     final String barcode,
+    final ProductType productType,
     final ImageField imageField,
     final File fullFile,
     final File croppedFile,
@@ -118,6 +122,7 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
       BackgroundTaskImage._(
         uniqueId: uniqueId,
         barcode: barcode,
+        productType: productType,
         processName: _operationType.processName,
         imageField: imageField.offTag,
         fullPath: fullFile.path,
@@ -176,6 +181,7 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
       await BackgroundTaskRefreshLater.addTask(
         barcode,
         localDatabase: localDatabase,
+        productType: productType,
       );
     }
   }

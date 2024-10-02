@@ -141,6 +141,7 @@ class _AddOtherDetailsPageState extends State<AddOtherDetailsPage> {
       _getMinimalistProduct(),
       context: context,
       stamp: BackgroundTaskDetailsStamp.otherDetails,
+      productType: _product.productType,
     );
 
     return true;

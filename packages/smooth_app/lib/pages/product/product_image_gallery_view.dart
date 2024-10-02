@@ -73,6 +73,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView>
               barcode: barcode,
               language: ProductQuery.getLanguage(),
               isLoggedInMandatory: true,
+              productType: upToDateProduct.productType,
             );
           },
           label: Text(appLocalizations.add_photo_button_label),
