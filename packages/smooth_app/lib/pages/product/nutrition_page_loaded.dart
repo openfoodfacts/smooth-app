@@ -430,6 +430,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
       changedProduct,
       context: context,
       stamp: BackgroundTaskDetailsStamp.nutrition,
+      productType: widget.product.productType,
     );
     return true;
   }

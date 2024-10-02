@@ -13,6 +13,7 @@ class BackgroundTaskHungerGames extends BackgroundTaskBarcode {
     required super.processName,
     required super.uniqueId,
     required super.barcode,
+    required super.productType,
     required super.stamp,
     required this.insightId,
     required this.insightAnnotation,
@@ -80,6 +81,8 @@ class BackgroundTaskHungerGames extends BackgroundTaskBarcode {
         processName: _operationType.processName,
         uniqueId: uniqueId,
         barcode: barcode,
+        // not really relevant for Robotoff
+        productType: ProductType.food,
         stamp: _getStamp(barcode, insightId),
         insightId: insightId,
         insightAnnotation: insightAnnotation,

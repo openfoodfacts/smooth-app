@@ -296,6 +296,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
       minimalistProduct,
       context: context,
       stamp: BackgroundTaskDetailsStamp.basicDetails,
+      productType: _product.productType,
     );
 
     return true;

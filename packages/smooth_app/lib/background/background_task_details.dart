@@ -13,6 +13,7 @@ import 'package:smooth_app/database/local_database.dart';
 ///
 /// With that stamp, we can de-duplicate similar tasks.
 enum BackgroundTaskDetailsStamp {
+  productType('product_type'),
   basicDetails('basic_details'),
   otherDetails('other_details'),
   ocrIngredients('ocr_ingredients'),
@@ -38,6 +39,7 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode
     required super.processName,
     required super.uniqueId,
     required super.barcode,
+    required super.productType,
     required super.stamp,
     required this.inputMap,
   });
@@ -70,6 +72,7 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode
     required final BuildContext context,
     required final BackgroundTaskDetailsStamp stamp,
     final bool showSnackBar = true,
+    required final ProductType? productType,
   }) async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final String uniqueId = await _operationType.getNewKey(
@@ -80,6 +83,7 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode
       minimalistProduct,
       uniqueId,
       stamp,
+      productType ?? ProductType.food,
     );
     if (!context.mounted) {
       return;
@@ -104,11 +108,13 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode
     final Product minimalistProduct,
     final String uniqueId,
     final BackgroundTaskDetailsStamp stamp,
+    final ProductType productType,
   ) =>
       BackgroundTaskDetails._(
         uniqueId: uniqueId,
         processName: _operationType.processName,
         barcode: minimalistProduct.barcode!,
+        productType: productType,
         inputMap: jsonEncode(minimalistProduct.toJson()),
         stamp: getStamp(minimalistProduct.barcode!, stamp.tag),
       );

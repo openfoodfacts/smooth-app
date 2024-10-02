@@ -1,5 +1,6 @@
 import 'package:flutter/painting.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/background/background_task_barcode.dart';
 import 'package:smooth_app/background/operation_type.dart';
 import 'package:smooth_app/database/local_database.dart';
@@ -14,6 +15,7 @@ class BackgroundTaskRefreshLater extends BackgroundTaskBarcode {
     required super.processName,
     required super.uniqueId,
     required super.barcode,
+    required super.productType,
     required super.stamp,
     required this.timestamp,
   });
@@ -49,12 +51,17 @@ class BackgroundTaskRefreshLater extends BackgroundTaskBarcode {
   static Future<void> addTask(
     final String barcode, {
     required final LocalDatabase localDatabase,
+    required final ProductType productType,
   }) async {
     final String uniqueId = await _operationType.getNewKey(
       localDatabase,
       barcode: barcode,
     );
-    final BackgroundTaskBarcode task = _getNewTask(barcode, uniqueId);
+    final BackgroundTaskBarcode task = _getNewTask(
+      barcode,
+      uniqueId,
+      productType,
+    );
     await task.addToManager(localDatabase);
   }
 
@@ -67,11 +74,13 @@ class BackgroundTaskRefreshLater extends BackgroundTaskBarcode {
   static BackgroundTaskRefreshLater _getNewTask(
     final String barcode,
     final String uniqueId,
+    final ProductType productType,
   ) =>
       BackgroundTaskRefreshLater._(
         uniqueId: uniqueId,
         processName: _operationType.processName,
         barcode: barcode,
+        productType: productType,
         timestamp: LocalDatabase.nowInMillis(),
         stamp: _getStamp(barcode),
       );
