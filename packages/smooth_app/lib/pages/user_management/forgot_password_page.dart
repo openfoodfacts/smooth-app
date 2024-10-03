@@ -37,7 +37,9 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage>
         _userIdController.text,
         country: ProductQuery.getCountry(),
         language: ProductQuery.getLanguage(),
-        uriHelper: ProductQuery.getUriProductHelper(),
+        uriHelper: ProductQuery.getUriProductHelper(
+          productType: ProductType.food,
+        ),
       );
       if (status.status == 200) {
         _send = true;
