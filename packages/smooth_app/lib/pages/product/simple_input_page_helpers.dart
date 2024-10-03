@@ -130,6 +130,7 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
             context,
             imageField: ImageField.OTHER,
             barcode: product.barcode!,
+            productType: product.productType,
             language: ProductQuery.getLanguage(),
             // we're already logged in if needed
             isLoggedInMandatory: false,

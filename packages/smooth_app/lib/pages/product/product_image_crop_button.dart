@@ -122,6 +122,7 @@ class ProductImageCropButton extends ProductImageButton {
           cropHelper: ProductCropAgainHelper(
             language: language,
             barcode: barcode,
+            productType: productType,
             imageField: _imageData.imageField,
             imageId: imageId,
           ),
@@ -144,6 +145,7 @@ class ProductImageCropButton extends ProductImageButton {
             cropHelper: ProductCropNewHelper(
               language: language,
               barcode: barcode,
+              productType: product.productType,
               imageField: _imageData.imageField,
             ),
           ),

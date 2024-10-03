@@ -90,6 +90,7 @@ class UploadedImageGallery extends StatelessWidget {
                     isLoggedInMandatory: isLoggedInMandatory,
                     cropHelper: ProductCropAgainHelper(
                       barcode: barcode,
+                      productType: productType,
                       imageField: imageField,
                       imageId: int.parse(rawImage.imgid!),
                       language: language,

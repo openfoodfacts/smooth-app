@@ -21,11 +21,13 @@ abstract class ProductCropHelper extends CropHelper {
     required this.imageField,
     required this.language,
     required this.barcode,
+    required this.productType,
   });
 
   final ImageField imageField;
   final OpenFoodFactsLanguage language;
   final String barcode;
+  final ProductType? productType;
 
   @override
   String getPageTitle(final AppLocalizations appLocalizations) =>
@@ -56,6 +58,7 @@ class ProductCropNewHelper extends ProductCropHelper {
     required super.imageField,
     required super.language,
     required super.barcode,
+    required super.productType,
   });
 
   @override
@@ -88,6 +91,7 @@ class ProductCropNewHelper extends ProductCropHelper {
     }
     await BackgroundTaskImage.addTask(
       barcode,
+      productType: productType,
       language: language,
       imageField: imageField,
       fullFile: fullFile,
@@ -117,6 +121,7 @@ class ProductCropAgainHelper extends ProductCropHelper {
     required super.imageField,
     required super.language,
     required super.barcode,
+    required super.productType,
     required this.imageId,
   });
 
@@ -143,6 +148,7 @@ class ProductCropAgainHelper extends ProductCropHelper {
     final Rect cropRect = _getServerCropRect(controller, image);
     await BackgroundTaskCrop.addTask(
       barcode,
+      productType: productType,
       language: language,
       imageField: imageField,
       imageId: imageId,

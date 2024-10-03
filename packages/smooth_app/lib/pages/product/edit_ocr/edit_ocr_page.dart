@@ -126,6 +126,7 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
       changedProduct,
       context: context,
       stamp: _helper.getStamp(),
+      productType: upToDateProduct.productType,
     );
     return;
   }
@@ -383,6 +384,7 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
                               context,
                               imageField: ImageField.OTHER,
                               barcode: widget.product.barcode!,
+                              productType: upToDateProduct.productType,
                               language: language,
                               isLoggedInMandatory: widget.isLoggedInMandatory,
                             ),

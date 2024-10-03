@@ -301,6 +301,10 @@ extension ProductTypeExtension on ProductType {
         ProductType.product => 'openproductsfacts',
       };
 
-  // TODO(monsieurtanuki): localize with very short names, or use icons instead
-  String getLabel(final AppLocalizations appLocalizations) => name;
+  String getLabel(final AppLocalizations appLocalizations) => switch (this) {
+        ProductType.food => appLocalizations.product_type_label_food,
+        ProductType.beauty => appLocalizations.product_type_label_beauty,
+        ProductType.petFood => appLocalizations.product_type_label_pet_food,
+        ProductType.product => appLocalizations.product_type_label_product,
+      };
 }
