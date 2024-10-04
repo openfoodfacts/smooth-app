@@ -39,6 +39,7 @@ class ProductImageGalleryView extends StatefulWidget {
 class _ProductImageGalleryViewState extends State<ProductImageGalleryView>
     with UpToDateMixin {
   late OpenFoodFactsLanguage _language;
+  late final List<ImageField> _mainImageFields;
   bool _clickedOtherPictureButton = false;
 
   @override
@@ -46,6 +47,9 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView>
     super.initState();
     initUpToDate(widget.product, context.read<LocalDatabase>());
     _language = ProductQuery.getLanguage();
+    _mainImageFields = ImageFieldSmoothieExtension.getOrderedMainImageFields(
+      widget.product.productType,
+    );
   }
 
   @override
@@ -113,11 +117,12 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView>
                         (BuildContext context, int index) {
                           return _PhotoRow(
                             position: index,
+                            imageField: _mainImageFields[index],
                             product: upToDateProduct,
                             language: _language,
                           );
                         },
-                        childCount: 4,
+                        childCount: _mainImageFields.length,
                       ),
                     ),
                     SliverPadding(
@@ -187,15 +192,16 @@ class _PhotoRow extends StatelessWidget {
     required this.position,
     required this.product,
     required this.language,
+    required this.imageField,
   });
 
   final int position;
   final Product product;
   final OpenFoodFactsLanguage language;
+  final ImageField imageField;
 
   @override
   Widget build(BuildContext context) {
-    final ImageField imageField = _getImageField(position);
     final TransientFile transientFile = _getTransientFile(imageField);
 
     final bool expired = transientFile.expired;
@@ -293,7 +299,4 @@ class _PhotoRow extends StatelessWidget {
         imageField,
         language,
       );
-
-  ImageField _getImageField(final int index) =>
-      ImageFieldSmoothieExtension.orderedMain[index];
 }

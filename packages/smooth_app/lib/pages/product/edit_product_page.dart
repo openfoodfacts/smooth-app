@@ -172,15 +172,17 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
                   SimpleInputPageCategoryHelper(),
                 ],
               ),
-              _ListTitleItem(
-                leading: const SvgIcon('assets/cacheTintable/ingredients.svg'),
-                title:
-                    appLocalizations.edit_product_form_item_ingredients_title,
-                onTap: () async => ProductFieldOcrIngredientEditor().edit(
-                  context: context,
-                  product: upToDateProduct,
+              if (upToDateProduct.productType != ProductType.product)
+                _ListTitleItem(
+                  leading:
+                      const SvgIcon('assets/cacheTintable/ingredients.svg'),
+                  title:
+                      appLocalizations.edit_product_form_item_ingredients_title,
+                  onTap: () async => ProductFieldOcrIngredientEditor().edit(
+                    context: context,
+                    product: upToDateProduct,
+                  ),
                 ),
-              ),
               if (upToDateProduct.productType == null ||
                   upToDateProduct.productType == ProductType.food)
                 _getSimpleListTileItem(SimpleInputPageCategoryHelper())

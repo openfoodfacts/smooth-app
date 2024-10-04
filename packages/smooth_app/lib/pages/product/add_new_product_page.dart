@@ -82,9 +82,20 @@ class _AddNewProductPageState extends State<AddNewProductPage>
     with TraceableClientMixin, UpToDateMixin {
   /// Count of "other" pictures uploaded.
   int _otherCount = 0;
-  int _totalPages = 0;
-  double _progress = 0.0;
-  bool _isLastPage = false;
+
+  /// The behavior is different for FOOD. And we don't know about it at first.
+  bool get _probablyFood =>
+      (_inputProductType ?? ProductType.food) == ProductType.food;
+
+  /// Total number of pages: depends on product type.
+  int get _totalPages =>
+      (_probablyFood ? 3 : 1) +
+      (widget.displayProductType ? 1 : 0) +
+      (_probablyFood && widget.displayMisc ? 1 : 0) +
+      (widget.displayPictures ? 1 : 0);
+
+  double get _progress => (_pageNumber + 1) / _totalPages;
+  bool get _isLastPage => (_pageNumber + 1) == _totalPages;
   ProductType? _inputProductType;
   late ColorScheme _colorScheme;
 
@@ -112,7 +123,8 @@ class _AddNewProductPageState extends State<AddNewProductPage>
 
   bool _ecoscoreExpanded = false;
 
-  int get _pageNumber => _pageController.page!.round();
+  int get _pageNumber =>
+      _pageController.hasClients ? _pageController.page!.round() : 0;
 
   @override
   String get actionName => 'Opened add_new_product_page';
@@ -159,18 +171,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
       widget.events[EditProductAction.openPage]!,
       barcode: barcode,
     );
-    _totalPages = 3 +
-        (widget.displayProductType ? 1 : 0) +
-        (widget.displayMisc ? 1 : 0) +
-        (widget.displayPictures ? 1 : 0);
-    _progress = 1 / _totalPages;
-
-    _pageController.addListener(() {
-      setState(() {
-        _progress = (_pageNumber + 1) / _totalPages;
-        _isLastPage = (_pageNumber + 1) == _totalPages;
-      });
-    });
+    _pageController.addListener(() => setState(() {}));
   }
 
   Future<bool> _onWillPop() async {
@@ -262,10 +263,12 @@ class _AddNewProductPageState extends State<AddNewProductPage>
                       _buildCard(_getProductTypes(context)),
                     if (widget.displayPictures)
                       _buildCard(_getImageRows(context)),
-                    _buildCard(_getNutriscoreRows(context)),
-                    _buildCard(_getEcoscoreRows(context)),
-                    _buildCard(_getNovaRows(context)),
-                    if (widget.displayMisc) _buildCard(_getMiscRows(context)),
+                    if (_probablyFood) _buildCard(_getNutriscoreRows(context)),
+                    if (_probablyFood) _buildCard(_getEcoscoreRows(context)),
+                    if (_probablyFood) _buildCard(_getNovaRows(context)),
+                    if (!_probablyFood) _buildCard(_getOxFRows(context)),
+                    if (_probablyFood && widget.displayMisc)
+                      _buildCard(_getMiscRows(context)),
                   ],
                 ),
               ),
@@ -387,7 +390,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
             );
           },
           child: Text(
-            (_pageController.hasClients ? _pageNumber : 0) >= 1
+            _pageNumber >= 1
                 ? appLocalizations.previous_label
                 : appLocalizations.cancel,
             style: const TextStyle(
@@ -623,6 +626,31 @@ class _AddNewProductPageState extends State<AddNewProductPage>
     return rows;
   }
 
+  /// More compact, for non-FOOD only.
+  List<Widget> _getOxFRows(final BuildContext context) {
+    return <Widget>[
+      AddNewProductTitle(AppLocalizations.of(context).new_product_title_misc),
+      AddNewProductEditorButton(
+        upToDateProduct,
+        _categoryEditor,
+        isLoggedInMandatory: widget.isLoggedInMandatory,
+      ),
+      if (_inputProductType != ProductType.product)
+        AddNewProductEditorButton(
+          upToDateProduct,
+          _ingredientsEditor,
+          isLoggedInMandatory: widget.isLoggedInMandatory,
+        ),
+      if (_inputProductType == ProductType.petFood)
+        AddNewProductEditorButton(
+          upToDateProduct,
+          _nutritionEditor,
+          isLoggedInMandatory: widget.isLoggedInMandatory,
+        ),
+      _buildDetailsButton(context),
+    ];
+  }
+
   List<Widget> _getImageRows(final BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final List<Widget> rows = <Widget>[];
@@ -635,7 +663,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
           appLocalizations.new_product_title_pictures_details),
     );
 
-    // Main 4 images first.
+    // Main images first.
     final List<ProductImageData> productImagesData = getProductMainImagesData(
       upToDateProduct,
       ProductQuery.getLanguage(),
@@ -726,12 +754,15 @@ class _AddNewProductPageState extends State<AddNewProductPage>
         AddNewProductTitle(
           AppLocalizations.of(context).new_product_title_misc,
         ),
-        AddNewProductEditorButton(
-          upToDateProduct,
-          _detailsEditor,
-          isLoggedInMandatory: widget.isLoggedInMandatory,
-        ),
+        _buildDetailsButton(context),
       ];
+
+  Widget _buildDetailsButton(final BuildContext context) =>
+      AddNewProductEditorButton(
+        upToDateProduct,
+        _detailsEditor,
+        isLoggedInMandatory: widget.isLoggedInMandatory,
+      );
 
   Widget _buildIngredientsButton(
     final BuildContext context, {

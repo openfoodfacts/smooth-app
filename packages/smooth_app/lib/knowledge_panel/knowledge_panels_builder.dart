@@ -201,9 +201,14 @@ class KnowledgePanelsBuilder {
         if (panel == null) {
           // happened in https://github.com/openfoodfacts/smooth-app/issues/2682
           // due to some inconsistencies in the data sent by the server
-          Logs.w(
-            'unknown panel "$panelId" for barcode "${product.barcode}"',
-          );
+          if (panelId == 'ecoscore' &&
+              (product.productType ?? ProductType.food) != ProductType.food) {
+            // just ignore
+          } else {
+            Logs.w(
+              'unknown panel "$panelId" for barcode "${product.barcode}"',
+            );
+          }
           return null;
         }
         return KnowledgePanelCard(

@@ -65,7 +65,9 @@ class _ProductImageSwipeableViewState extends State<ProductImageSwipeableView>
     if (widget.imageField != null) {
       _imageFields = <ImageField>[widget.imageField!];
     } else {
-      _imageFields = ImageFieldSmoothieExtension.orderedMain;
+      _imageFields = ImageFieldSmoothieExtension.getOrderedMainImageFields(
+        widget.product.productType,
+      );
     }
   }
 
