@@ -9,8 +9,8 @@ class SearchEmptyScreen extends StatelessWidget {
     required this.emptiness,
     this.actions,
     this.includeAppBar = true,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final String name;
   final Widget emptiness;

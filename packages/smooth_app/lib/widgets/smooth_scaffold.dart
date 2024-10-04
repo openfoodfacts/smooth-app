@@ -185,10 +185,10 @@ class SmoothScaffoldState extends ScaffoldState {
 /// a [SmoothScaffold].
 class SmoothBrightnessOverride extends InheritedWidget {
   const SmoothBrightnessOverride({
-    required Widget child,
-    Key? key,
+    required super.child,
+    super.key,
     this.brightness,
-  }) : super(key: key, child: child);
+  });
 
   final Brightness? brightness;
 

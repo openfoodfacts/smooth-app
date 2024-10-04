@@ -94,25 +94,34 @@ class DaoProduct extends AbstractSqlDao implements BulkDeletable {
 
   Future<void> put(
     final Product product,
-    final OpenFoodFactsLanguage language,
-  ) async =>
+    final OpenFoodFactsLanguage language, {
+    final ProductType? productType,
+  }) async =>
       putAll(
         <Product>[product],
         language,
+        productType: productType,
       );
 
   /// Replaces products in database
   Future<void> putAll(
     final Iterable<Product> products,
-    final OpenFoodFactsLanguage language,
-  ) async =>
-      localDatabase.database.transaction(
-        (final Transaction transaction) async => _bulkReplaceLoop(
-          transaction,
-          products,
-          language,
-        ),
-      );
+    final OpenFoodFactsLanguage language, {
+    final ProductType? productType,
+  }) async {
+    if (productType != null) {
+      for (final Product product in products) {
+        product.productType = productType;
+      }
+    }
+    await localDatabase.database.transaction(
+      (final Transaction transaction) async => _bulkReplaceLoop(
+        transaction,
+        products,
+        language,
+      ),
+    );
+  }
 
   Future<List<String>> getAllKeys() async {
     final List<String> result = <String>[];

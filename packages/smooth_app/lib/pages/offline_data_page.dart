@@ -14,7 +14,7 @@ import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class OfflineDataPage extends StatefulWidget {
-  const OfflineDataPage({Key? key}) : super(key: key);
+  const OfflineDataPage({super.key});
 
   @override
   State<OfflineDataPage> createState() => _OfflineDataPageState();
@@ -117,9 +117,9 @@ class _OfflineDataPageState extends State<OfflineDataPage> {
 // in the database and the size of the database
 class _StatsWidget extends StatelessWidget {
   const _StatsWidget({
-    Key? key,
     required this.daoProduct,
-  }) : super(key: key);
+  });
+
   final DaoProduct daoProduct;
 
   @override
@@ -164,12 +164,12 @@ class _StatsWidget extends StatelessWidget {
 // and a trailing widget and an onTap callback for OfflineDataPage
 class _OfflinePageListTile extends StatelessWidget {
   const _OfflinePageListTile({
-    Key? key,
     required this.title,
     required this.subtitle,
     required this.trailing,
     required this.onTap,
-  }) : super(key: key);
+  });
+
   final String title;
   final String subtitle;
   final Widget trailing;

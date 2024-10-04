@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/picture_not_found.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 
 /// Container to display a product image on a product card.
 ///
@@ -163,9 +165,16 @@ class _SmoothAnimatedLogoState extends State<_SmoothAnimatedLogo>
   Animation<double>? _animation;
 
   @override
-  Widget build(BuildContext context) {
-    _attachAnimation();
+  void initState() {
+    super.initState();
 
+    SchedulerBinding.instance.addPostFrameCallback((_) {
+      _attachAnimation();
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Opacity(
       opacity: _animation?.value ?? widget.opacityMin,
       child: const _SmoothAppLogo(),
@@ -173,10 +182,6 @@ class _SmoothAnimatedLogoState extends State<_SmoothAnimatedLogo>
   }
 
   void _attachAnimation() {
-    if (_animation != null) {
-      return;
-    }
-
     AnimationController? controller =
         _SmoothSharedAnimationControllerState.of(context);
 
@@ -214,7 +219,13 @@ class _SmoothAppLogo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SvgPicture.asset('assets/app/release_icon_transparent.svg');
+    final ThemeProvider themeProvider = context.watch<ThemeProvider>();
+
+    return SvgPicture.asset(
+      !themeProvider.isDarkMode(context)
+          ? 'assets/app/release_icon_transparent.svg'
+          : 'assets/app/release_icon_dark_transparent_no_border.svg',
+    );
   }
 }
 
@@ -248,8 +259,8 @@ class _SmoothSharedAnimationControllerState
 
   @override
   Widget build(BuildContext context) {
-    return Provider<_SmoothSharedAnimationControllerState>.value(
-      value: this,
+    return Provider<_SmoothSharedAnimationControllerState>(
+      create: (_) => this,
       child: widget.child,
     );
   }
@@ -262,8 +273,10 @@ class _SmoothSharedAnimationControllerState
 
   static AnimationController? of(BuildContext context) {
     try {
-      return Provider.of<_SmoothSharedAnimationControllerState>(context)
-          ._controller;
+      return Provider.of<_SmoothSharedAnimationControllerState>(
+        context,
+        listen: false,
+      )._controller;
     } catch (_) {
       return null;
     }

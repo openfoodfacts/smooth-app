@@ -19,13 +19,14 @@ class BackgroundTaskUnselect extends BackgroundTaskBarcode
     required super.uniqueId,
     required OpenFoodFactsLanguage super.language,
     required super.barcode,
+    required super.productType,
     required super.stamp,
     required this.imageField,
   });
 
-  BackgroundTaskUnselect.fromJson(Map<String, dynamic> json)
+  BackgroundTaskUnselect.fromJson(super.json)
       : imageField = json[_jsonTagImageField] as String,
-        super.fromJson(json);
+        super.fromJson();
 
   static const String _jsonTagImageField = 'imageField';
 
@@ -43,6 +44,7 @@ class BackgroundTaskUnselect extends BackgroundTaskBarcode
   /// Adds the background task about unselecting a product image.
   static Future<void> addTask(
     final String barcode, {
+    required final ProductType? productType,
     required final ImageField imageField,
     required final BuildContext context,
     required final OpenFoodFactsLanguage language,
@@ -54,6 +56,7 @@ class BackgroundTaskUnselect extends BackgroundTaskBarcode
     );
     final BackgroundTaskBarcode task = _getNewTask(
       barcode,
+      productType ?? ProductType.food,
       imageField,
       uniqueId,
       language,
@@ -75,6 +78,7 @@ class BackgroundTaskUnselect extends BackgroundTaskBarcode
   /// Returns a new background task about unselecting a product image.
   static BackgroundTaskUnselect _getNewTask(
     final String barcode,
+    final ProductType productType,
     final ImageField imageField,
     final String uniqueId,
     final OpenFoodFactsLanguage language,
@@ -82,6 +86,7 @@ class BackgroundTaskUnselect extends BackgroundTaskBarcode
       BackgroundTaskUnselect._(
         uniqueId: uniqueId,
         barcode: barcode,
+        productType: productType,
         language: language,
         processName: _operationType.processName,
         imageField: imageField.offTag,
@@ -116,6 +121,7 @@ class BackgroundTaskUnselect extends BackgroundTaskBarcode
       await BackgroundTaskRefreshLater.addTask(
         barcode,
         localDatabase: localDatabase,
+        productType: productType,
       );
     }
   }

@@ -17,6 +17,7 @@ class ProductImageWidget extends StatelessWidget {
     required this.productImage,
     required this.barcode,
     required this.squareSize,
+    required this.productType,
     this.imageSize,
     this.heroTag,
   });
@@ -25,6 +26,7 @@ class ProductImageWidget extends StatelessWidget {
   final String barcode;
   final double squareSize;
   final String? heroTag;
+  final ProductType? productType;
 
   /// Allows to fetch the optimized version of the image
   final ImageSize? imageSize;
@@ -45,7 +47,9 @@ class ProductImageWidget extends StatelessWidget {
       imageProvider: NetworkImage(
         productImage.getUrl(
           barcode,
-          uriHelper: ProductQuery.uriProductHelper,
+          uriHelper: ProductQuery.getUriProductHelper(
+            productType: productType,
+          ),
           imageSize: imageSize,
         ),
       ),

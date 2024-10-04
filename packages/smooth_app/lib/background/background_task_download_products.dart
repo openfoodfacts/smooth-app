@@ -21,9 +21,9 @@ class BackgroundTaskDownloadProducts extends BackgroundTaskProgressing {
     required this.downloadFlag,
   });
 
-  BackgroundTaskDownloadProducts.fromJson(Map<String, dynamic> json)
+  BackgroundTaskDownloadProducts.fromJson(super.json)
       : downloadFlag = json[_jsonTagDownloadFlag] as int,
-        super.fromJson(json);
+        super.fromJson();
 
   /// Download flag. Normal case: 0, meaning all fields are downloaded.
   final int downloadFlag;
@@ -133,9 +133,15 @@ class BackgroundTaskDownloadProducts extends BackgroundTaskProgressing {
       throw Exception('Something bad happened downloading products');
     }
     final DaoProduct daoProduct = DaoProduct(localDatabase);
+    final ProductType? productType =
+        ProductQuery.extractProductType(uriProductHelper);
     for (final Product product in downloadedProducts) {
       if (await _shouldBeUpdated(daoProduct, product.barcode!)) {
-        await daoProduct.put(product, language);
+        await daoProduct.put(
+          product,
+          language,
+          productType: productType,
+        );
       }
     }
     final int deleted = await daoWorkBarcode.deleteBarcodes(work, barcodes);

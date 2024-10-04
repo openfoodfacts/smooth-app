@@ -106,7 +106,8 @@ class AppNewsProvider extends ChangeNotifier {
   /// or [https://world.openfoodfacts.[org/net]/resources/files/tagline-off-android-v3.json]
   Future<String?> _fetchJSON() async {
     try {
-      final UriProductHelper uriProductHelper = ProductQuery.uriProductHelper;
+      final UriProductHelper uriProductHelper =
+          ProductQuery.getUriProductHelper();
       final Map<String, String> headers = <String, String>{};
       final Uri uri;
 

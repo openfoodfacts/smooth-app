@@ -16,9 +16,9 @@ class BackgroundTaskLanguageRefresh extends BackgroundTask {
     required this.excludeBarcodes,
   });
 
-  BackgroundTaskLanguageRefresh.fromJson(Map<String, dynamic> json)
+  BackgroundTaskLanguageRefresh.fromJson(super.json)
       : excludeBarcodes = _getStringList(json, _jsonTagExcludeBarcodes),
-        super.fromJson(json);
+        super.fromJson();
 
   static List<String> _getStringList(
       final Map<String, dynamic> json, final String tag) {

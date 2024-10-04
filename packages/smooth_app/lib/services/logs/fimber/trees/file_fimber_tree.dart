@@ -3,15 +3,14 @@ import 'dart:io';
 import 'package:fimber/fimber.dart';
 import 'package:intl/intl.dart';
 import 'package:smooth_app/services/logs/fimber/trees/base_fimber_tree.dart';
-import 'package:smooth_app/services/logs/smooth_log_levels.dart';
 
 /// Single file fimber implementation
 /// When the maxDataSize is reached, half of the content is removed
 class FileFimberTree extends BaseFimberTree {
   FileFimberTree({
-    required List<LogLevel> logLevels,
+    required super.logLevels,
     required this.outputFile,
-  }) : super(logLevels: logLevels) {
+  }) {
     outputFile.createSync();
   }
 

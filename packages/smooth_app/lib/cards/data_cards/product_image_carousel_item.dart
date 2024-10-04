@@ -45,6 +45,7 @@ class _ProductImageCarouselItemState extends State<ProductImageCarouselItem> {
         onPressed: () async => confirmAndUploadNewPicture(
           context,
           barcode: widget.product.barcode!,
+          productType: widget.product.productType,
           imageField: widget.productImageData.imageField,
           language: ProductQuery.getLanguage(),
           isLoggedInMandatory: true,

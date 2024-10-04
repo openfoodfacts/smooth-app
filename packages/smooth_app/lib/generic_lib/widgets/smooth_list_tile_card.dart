@@ -10,8 +10,8 @@ class SmoothListTileCard extends StatelessWidget {
     this.subtitle,
     this.onTap,
     this.leading,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   /// Displays a [ListTile] inside a [SmoothCard] with a leading [Column]
   /// containing the specified [icon]

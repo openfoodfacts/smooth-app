@@ -1,9 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_simple_button.dart';
@@ -34,16 +32,11 @@ import 'package:smooth_app/query/product_query.dart';
 
 class UserPreferencesAccount extends AbstractUserPreferences {
   UserPreferencesAccount({
-    required final BuildContext context,
-    required final UserPreferences userPreferences,
-    required final AppLocalizations appLocalizations,
-    required final ThemeData themeData,
-  }) : super(
-          context: context,
-          userPreferences: userPreferences,
-          appLocalizations: appLocalizations,
-          themeData: themeData,
-        );
+    required super.context,
+    required super.userPreferences,
+    required super.appLocalizations,
+    required super.themeData,
+  });
 
   @override
   PreferencePageType getPreferencePageType() => PreferencePageType.ACCOUNT;
@@ -178,6 +171,8 @@ class UserPreferencesAccount extends AbstractUserPreferences {
         productQuery: PagedUserProductQuery(
           userId: userId,
           type: UserSearchType.CONTRIBUTOR,
+          // TODO(monsieurtanuki): only food?
+          productType: ProductType.food,
         ),
         title: appLocalizations.user_search_contributor_title,
         iconData: Icons.add_circle_outline,
@@ -189,6 +184,7 @@ class UserPreferencesAccount extends AbstractUserPreferences {
         productQuery: PagedUserProductQuery(
           userId: userId,
           type: UserSearchType.INFORMER,
+          productType: ProductType.food,
         ),
         title: appLocalizations.user_search_informer_title,
         iconData: Icons.edit,
@@ -200,6 +196,7 @@ class UserPreferencesAccount extends AbstractUserPreferences {
         productQuery: PagedUserProductQuery(
           userId: userId,
           type: UserSearchType.PHOTOGRAPHER,
+          productType: ProductType.food,
         ),
         title: appLocalizations.user_search_photographer_title,
         iconData: Icons.add_a_photo,
@@ -211,6 +208,7 @@ class UserPreferencesAccount extends AbstractUserPreferences {
         productQuery: PagedUserProductQuery(
           userId: userId,
           type: UserSearchType.TO_BE_COMPLETED,
+          productType: ProductType.food,
         ),
         title: appLocalizations.user_search_to_be_completed_title,
         iconData: Icons.more_horiz,
@@ -303,7 +301,9 @@ class UserPreferencesAccount extends AbstractUserPreferences {
         'app/products',
       ),
       _buildProductQueryTile(
-        productQuery: PagedToBeCompletedProductQuery(),
+        productQuery: PagedToBeCompletedProductQuery(
+          productType: ProductType.food,
+        ),
         title: appLocalizations.all_search_to_be_completed_title,
         iconData: Icons.more_outlined,
         context: context,

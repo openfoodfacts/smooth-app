@@ -13,15 +13,16 @@ class BackgroundTaskHungerGames extends BackgroundTaskBarcode {
     required super.processName,
     required super.uniqueId,
     required super.barcode,
+    required super.productType,
     required super.stamp,
     required this.insightId,
     required this.insightAnnotation,
   });
 
-  BackgroundTaskHungerGames.fromJson(Map<String, dynamic> json)
+  BackgroundTaskHungerGames.fromJson(super.json)
       : insightId = json[_jsonTagInsightId] as String,
         insightAnnotation = json[_jsonTagInsightAnnotation] as int,
-        super.fromJson(json);
+        super.fromJson();
 
   static const String _jsonTagInsightId = 'insightId';
   static const String _jsonTagInsightAnnotation = 'insightAnnotation';
@@ -80,6 +81,8 @@ class BackgroundTaskHungerGames extends BackgroundTaskBarcode {
         processName: _operationType.processName,
         uniqueId: uniqueId,
         barcode: barcode,
+        // not really relevant for Robotoff
+        productType: ProductType.food,
         stamp: _getStamp(barcode, insightId),
         insightId: insightId,
         insightAnnotation: insightAnnotation,

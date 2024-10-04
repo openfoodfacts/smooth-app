@@ -172,43 +172,51 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
                   SimpleInputPageCategoryHelper(),
                 ],
               ),
-              _ListTitleItem(
-                leading: const SvgIcon('assets/cacheTintable/ingredients.svg'),
-                title:
-                    appLocalizations.edit_product_form_item_ingredients_title,
-                onTap: () async => ProductFieldOcrIngredientEditor().edit(
-                  context: context,
-                  product: upToDateProduct,
-                ),
-              ),
-              _getSimpleListTileItem(SimpleInputPageCategoryHelper()),
-              _ListTitleItem(
+              if (upToDateProduct.productType != ProductType.product)
+                _ListTitleItem(
                   leading:
-                      const SvgIcon('assets/cacheTintable/scale-balance.svg'),
-                  title: appLocalizations
-                      .edit_product_form_item_nutrition_facts_title,
-                  subtitle: appLocalizations
-                      .edit_product_form_item_nutrition_facts_subtitle,
-                  onTap: () async {
-                    if (!await ProductRefresher().checkIfLoggedIn(
-                      context,
-                      isLoggedInMandatory: true,
-                    )) {
-                      return;
-                    }
-                    AnalyticsHelper.trackProductEdit(
-                      AnalyticsEditEvents.nutrition_Facts,
-                      barcode,
-                    );
-                    if (!context.mounted) {
-                      return;
-                    }
-                    await NutritionPageLoaded.showNutritionPage(
-                      product: upToDateProduct,
-                      isLoggedInMandatory: true,
-                      context: context,
-                    );
-                  }),
+                      const SvgIcon('assets/cacheTintable/ingredients.svg'),
+                  title:
+                      appLocalizations.edit_product_form_item_ingredients_title,
+                  onTap: () async => ProductFieldOcrIngredientEditor().edit(
+                    context: context,
+                    product: upToDateProduct,
+                  ),
+                ),
+              if (upToDateProduct.productType == null ||
+                  upToDateProduct.productType == ProductType.food)
+                _getSimpleListTileItem(SimpleInputPageCategoryHelper())
+              else
+                _getSimpleListTileItem(SimpleInputPageCategoryNotFoodHelper()),
+              if (upToDateProduct.productType != ProductType.beauty &&
+                  upToDateProduct.productType != ProductType.product)
+                _ListTitleItem(
+                    leading:
+                        const SvgIcon('assets/cacheTintable/scale-balance.svg'),
+                    title: appLocalizations
+                        .edit_product_form_item_nutrition_facts_title,
+                    subtitle: appLocalizations
+                        .edit_product_form_item_nutrition_facts_subtitle,
+                    onTap: () async {
+                      if (!await ProductRefresher().checkIfLoggedIn(
+                        context,
+                        isLoggedInMandatory: true,
+                      )) {
+                        return;
+                      }
+                      AnalyticsHelper.trackProductEdit(
+                        AnalyticsEditEvents.nutrition_Facts,
+                        barcode,
+                      );
+                      if (!context.mounted) {
+                        return;
+                      }
+                      await NutritionPageLoaded.showNutritionPage(
+                        product: upToDateProduct,
+                        isLoggedInMandatory: true,
+                        context: context,
+                      );
+                    }),
               _getSimpleListTileItem(SimpleInputPageLabelHelper()),
               _ListTitleItem(
                 leading: const SvgIcon('assets/cacheTintable/packaging.svg'),
@@ -349,8 +357,7 @@ class _ListTitleItem extends SmoothListTileCard {
     Widget? leading,
     String? title,
     String? subtitle,
-    void Function()? onTap,
-    Key? key,
+    super.onTap,
   }) : super.icon(
           title: title == null
               ? null
@@ -358,8 +365,6 @@ class _ListTitleItem extends SmoothListTileCard {
                   title,
                   style: const TextStyle(fontWeight: FontWeight.bold),
                 ),
-          onTap: onTap,
-          key: key,
           icon: leading,
           subtitle: subtitle == null ? null : Text(subtitle),
         );
@@ -367,10 +372,9 @@ class _ListTitleItem extends SmoothListTileCard {
 
 /// Barcodes only allowed have a length of 7, 8, 12 or 13 characters
 class _ProductBarcode extends StatefulWidget {
-  _ProductBarcode({required this.product, Key? key})
+  _ProductBarcode({required this.product})
       : assert(product.barcode?.isNotEmpty == true),
-        assert(isAValidBarcode(product.barcode)),
-        super(key: key);
+        assert(isAValidBarcode(product.barcode));
 
   static const double _barcodeHeight = 120.0;
 

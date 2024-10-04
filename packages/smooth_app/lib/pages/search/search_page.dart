@@ -7,6 +7,7 @@ import 'package:smooth_app/pages/product/common/search_preloaded_item.dart';
 import 'package:smooth_app/pages/search/search_field.dart';
 import 'package:smooth_app/pages/search/search_history_view.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
+import 'package:smooth_app/widgets/will_pop_scope.dart';
 
 /// The [SearchPage] screen.
 /// It can opened directly with the [SearchPageExtra] constructor.
@@ -61,81 +62,90 @@ class _SearchPageState extends State<SearchPage> {
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: <ChangeNotifierProvider<dynamic>>[
-        ChangeNotifierProvider<TextEditingController>.value(
-          value: _searchTextController,
-        ),
-        ChangeNotifierProvider<SearchHelper>.value(
-          value: widget.searchHelper,
-        ),
-      ],
-      child: SmoothScaffold(
-        body: Column(
-          children: <Widget>[
-            ValueNotifierListener<SearchHelper, SearchQuery?>(
-              listener: _onSearchChanged,
-              child: SafeArea(
-                bottom: false,
-                child: Padding(
-                  padding: const EdgeInsetsDirectional.symmetric(
-                    vertical: SMALL_SPACE,
-                    horizontal: BALANCED_SPACE,
-                  ),
-                  child: SearchField(
-                    autofocus: widget.autofocus,
-                    focusNode: _searchFocusNode,
-                    searchHelper: widget.searchHelper,
-                    heroTag: widget.heroTag,
+    return WillPopScope2(
+      onWillPop: () async {
+        /// For the world view, we need to intercept the back button from here
+        /// See below for the custom [Navigator]
+        if (widget.searchHelper.value != null) {
+          setState(() => widget.searchHelper.value = null);
+          return (false, null);
+        }
+        return (true, null);
+      },
+      child: MultiProvider(
+        providers: <ChangeNotifierProvider<dynamic>>[
+          ChangeNotifierProvider<TextEditingController>.value(
+            value: _searchTextController,
+          ),
+          ChangeNotifierProvider<SearchHelper>.value(
+            value: widget.searchHelper,
+          ),
+        ],
+        child: SmoothScaffold(
+          body: Column(
+            children: <Widget>[
+              ValueNotifierListener<SearchHelper, SearchQuery?>(
+                listener: _onSearchChanged,
+                child: SafeArea(
+                  bottom: false,
+                  child: Padding(
+                    padding: const EdgeInsetsDirectional.symmetric(
+                      vertical: SMALL_SPACE,
+                      horizontal: BALANCED_SPACE,
+                    ),
+                    child: SearchField(
+                      autofocus: widget.autofocus,
+                      focusNode: _searchFocusNode,
+                      searchHelper: widget.searchHelper,
+                      heroTag: widget.heroTag,
+                    ),
                   ),
                 ),
               ),
-            ),
-            Expanded(
-              child: Consumer<SearchHelper>(
-                builder: (
-                  BuildContext context,
-                  SearchHelper searchHelper,
-                  _,
-                ) {
-                  /// Show the history when there is no search
-                  if (searchHelper.value == null) {
-                    return SearchHistoryView(
-                      focusNode: _searchFocusNode,
-                      onTap: (String query) =>
-                          widget.searchHelper.searchWithController(
-                        context,
-                        query,
-                        _searchTextController,
-                        _searchFocusNode,
-                      ),
-                      searchHelper: widget.searchHelper,
-                      preloadedList:
-                          widget.preloadedList ?? <SearchPreloadedItem>[],
-                    );
-                  } else {
-                    /// A custom [Navigator] is used to intercept the World
-                    /// results to be embedded in this part of the screen and
-                    /// not on a new one.
-                    return Navigator(
-                      key: _navigatorKey,
-                      pages: <MaterialPage<dynamic>>[
-                        MaterialPage<void>(
-                          child: searchHelper.value!.widget,
+              Expanded(
+                child: Consumer<SearchHelper>(
+                  builder: (
+                    BuildContext context,
+                    SearchHelper searchHelper,
+                    _,
+                  ) {
+                    /// Show the history when there is no search
+                    if (searchHelper.value == null) {
+                      return SearchHistoryView(
+                        focusNode: _searchFocusNode,
+                        onTap: (String query) =>
+                            widget.searchHelper.searchWithController(
+                          context,
+                          query,
+                          _searchTextController,
+                          _searchFocusNode,
                         ),
-                      ],
-                      onPopPage: (Route<dynamic> route, dynamic result) {
-                        if (!route.didPop(result)) {
-                          return false;
-                        }
-                        return true;
-                      },
-                    );
-                  }
-                },
+                        searchHelper: widget.searchHelper,
+                        preloadedList:
+                            widget.preloadedList ?? <SearchPreloadedItem>[],
+                      );
+                    } else {
+                      /// A custom [Navigator] is used to intercept the World
+                      /// results to be embedded in this part of the screen and
+                      /// not on a new one.
+                      return Navigator(
+                        key: _navigatorKey,
+                        pages: <MaterialPage<dynamic>>[
+                          MaterialPage<void>(
+                            child: searchHelper.value!.widget,
+                          ),
+                        ],
+                        onDidRemovePage: (_) {
+                          /// Mandatory to provide this method
+                          /// The event is intercepted by the [WillPopScope2]
+                        },
+                      );
+                    }
+                  },
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

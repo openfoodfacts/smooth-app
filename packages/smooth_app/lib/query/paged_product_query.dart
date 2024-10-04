@@ -4,8 +4,12 @@ import 'package:smooth_app/query/product_query.dart';
 
 /// Paged product query (with [pageSize] and [pageNumber]).
 abstract class PagedProductQuery {
-  PagedProductQuery({this.world = false});
+  PagedProductQuery({
+    required this.productType,
+    this.world = false,
+  });
 
+  final ProductType productType;
   final int pageSize = _typicalPageSize;
 
   /// Likely to change: to next page, and back to top.
@@ -38,7 +42,7 @@ abstract class PagedProductQuery {
       OpenFoodAPIClient.searchProducts(
         ProductQuery.getReadUser(),
         getQueryConfiguration(),
-        uriHelper: ProductQuery.uriProductHelper,
+        uriHelper: ProductQuery.getUriProductHelper(productType: productType),
       );
 
   AbstractQueryConfiguration getQueryConfiguration();

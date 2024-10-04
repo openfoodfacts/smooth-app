@@ -5,12 +5,26 @@ import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dar
 import 'package:smooth_app/pages/product/product_image_swipeable_view.dart';
 
 extension ImageFieldSmoothieExtension on ImageField {
-  static const List<ImageField> orderedMain = <ImageField>[
-    ImageField.FRONT,
-    ImageField.INGREDIENTS,
-    ImageField.NUTRITION,
-    ImageField.PACKAGING,
-  ];
+  static List<ImageField> getOrderedMainImageFields(
+    final ProductType? productType,
+  ) =>
+      switch (productType) {
+        ProductType.product => const <ImageField>[
+            ImageField.FRONT,
+            ImageField.PACKAGING,
+          ],
+        ProductType.beauty => const <ImageField>[
+            ImageField.FRONT,
+            ImageField.INGREDIENTS,
+            ImageField.PACKAGING,
+          ],
+        null || ProductType.food || ProductType.petFood => const <ImageField>[
+            ImageField.FRONT,
+            ImageField.INGREDIENTS,
+            ImageField.NUTRITION,
+            ImageField.PACKAGING,
+          ],
+      };
 
   void setUrl(final Product product, final String url) {
     switch (this) {
@@ -31,67 +45,45 @@ extension ImageFieldSmoothieExtension on ImageField {
     }
   }
 
-  String getProductImageButtonText(final AppLocalizations appLocalizations) {
-    switch (this) {
-      case ImageField.FRONT:
-        return appLocalizations.front_photo;
-      case ImageField.INGREDIENTS:
-        return appLocalizations.ingredients_photo;
-      case ImageField.NUTRITION:
-        return appLocalizations.nutrition_facts_photo;
-      case ImageField.PACKAGING:
-        return appLocalizations.packaging_information_photo;
-      case ImageField.OTHER:
-        return appLocalizations.more_photos;
-    }
-  }
+  String getProductImageButtonText(final AppLocalizations appLocalizations) =>
+      switch (this) {
+        ImageField.FRONT => appLocalizations.front_photo,
+        ImageField.INGREDIENTS => appLocalizations.ingredients_photo,
+        ImageField.NUTRITION => appLocalizations.nutrition_facts_photo,
+        ImageField.PACKAGING => appLocalizations.packaging_information_photo,
+        ImageField.OTHER => appLocalizations.more_photos,
+      };
 
   /// Returns a verbose description of the image field.
-  String getImagePageTitle(final AppLocalizations appLocalizations) {
-    switch (this) {
-      case ImageField.FRONT:
-        return appLocalizations.front_packaging_photo_title;
-      case ImageField.INGREDIENTS:
-        return appLocalizations.ingredients_photo_title;
-      case ImageField.NUTRITION:
-        return appLocalizations.nutritional_facts_photo_title;
-      case ImageField.PACKAGING:
-        return appLocalizations.recycling_photo_title;
-      case ImageField.OTHER:
-        return appLocalizations.take_more_photo_title;
-    }
-  }
+  String getImagePageTitle(final AppLocalizations appLocalizations) =>
+      switch (this) {
+        ImageField.FRONT => appLocalizations.front_packaging_photo_title,
+        ImageField.INGREDIENTS => appLocalizations.ingredients_photo_title,
+        ImageField.NUTRITION => appLocalizations.nutritional_facts_photo_title,
+        ImageField.PACKAGING => appLocalizations.recycling_photo_title,
+        ImageField.OTHER => appLocalizations.take_more_photo_title,
+      };
 
   /// Returns a compact description of the image field.
-  String getProductImageTitle(final AppLocalizations appLocalizations) {
-    switch (this) {
-      case ImageField.FRONT:
-        return appLocalizations.product;
-      case ImageField.INGREDIENTS:
-        return appLocalizations.ingredients;
-      case ImageField.NUTRITION:
-        return appLocalizations.nutrition;
-      case ImageField.PACKAGING:
-        return appLocalizations.packaging_information;
-      case ImageField.OTHER:
-        return appLocalizations.more_photos;
-    }
-  }
+  String getProductImageTitle(final AppLocalizations appLocalizations) =>
+      switch (this) {
+        ImageField.FRONT => appLocalizations.product,
+        ImageField.INGREDIENTS => appLocalizations.ingredients,
+        ImageField.NUTRITION => appLocalizations.nutrition,
+        ImageField.PACKAGING => appLocalizations.packaging_information,
+        ImageField.OTHER => appLocalizations.more_photos,
+      };
 
-  String getAddPhotoButtonText(final AppLocalizations appLocalizations) {
-    switch (this) {
-      case ImageField.FRONT:
-        return appLocalizations.front_packaging_photo_button_label;
-      case ImageField.INGREDIENTS:
-        return appLocalizations.ingredients_photo_button_label;
-      case ImageField.NUTRITION:
-        return appLocalizations.nutritional_facts_photo_button_label;
-      case ImageField.PACKAGING:
-        return appLocalizations.recycling_photo_button_label;
-      case ImageField.OTHER:
-        return appLocalizations.take_more_photo_button_label;
-    }
-  }
+  String getAddPhotoButtonText(final AppLocalizations appLocalizations) =>
+      switch (this) {
+        ImageField.FRONT => appLocalizations.front_packaging_photo_button_label,
+        ImageField.INGREDIENTS =>
+          appLocalizations.ingredients_photo_button_label,
+        ImageField.NUTRITION =>
+          appLocalizations.nutritional_facts_photo_button_label,
+        ImageField.PACKAGING => appLocalizations.recycling_photo_button_label,
+        ImageField.OTHER => appLocalizations.take_more_photo_button_label,
+      };
 
   Widget getPhotoButton(
     final BuildContext context,

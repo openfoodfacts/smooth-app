@@ -95,6 +95,7 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
                     padding: const EdgeInsetsDirectional.only(
                       start: 9.0,
                     ),
+                    productType: widget.product.productType,
                   ),
                 ),
                 Tooltip(

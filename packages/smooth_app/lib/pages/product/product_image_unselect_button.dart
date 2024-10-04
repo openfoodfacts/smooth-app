@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_unselect.dart';
 import 'package:smooth_app/database/local_database.dart';
@@ -14,8 +15,11 @@ class ProductImageUnselectButton extends ProductImageButton {
     required super.imageField,
     required super.language,
     required super.isLoggedInMandatory,
+    required this.productType,
     super.borderWidth,
   });
+
+  final ProductType? productType;
 
   @override
   IconData getIconData() => Icons.do_disturb_on;
@@ -70,6 +74,7 @@ class ProductImageUnselectButton extends ProductImageButton {
       imageField: imageField,
       context: context,
       language: language,
+      productType: productType,
     );
     localDatabase.notifyListeners();
     if (!context.mounted) {

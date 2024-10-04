@@ -90,7 +90,7 @@ Full list of features on the wiki: https://wiki.openfoodfacts.org/Mobile_App/Fea
 
 - Make sure you have installed flutter and all the requirements
   - [Official flutter installation guide](https://docs.flutter.dev/get-started/install)
-- Currently, the app uses the following version of Flutter (3.22.x).
+- Currently, the app uses the following version of Flutter (3.24.x).
 
 
 We have predefined run configurations for Android Studio and Visual Studio Code

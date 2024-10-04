@@ -71,7 +71,7 @@ class _BarcodeListAdapter extends TypeAdapter<_BarcodeList> {
 }
 
 class DaoProductList extends AbstractDao {
-  DaoProductList(final LocalDatabase localDatabase) : super(localDatabase);
+  DaoProductList(super.localDatabase);
 
   static const String _hiveBoxName = 'barcodeLists';
   static const String _keySeparator = '::';

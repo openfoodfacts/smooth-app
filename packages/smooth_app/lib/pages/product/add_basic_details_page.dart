@@ -207,7 +207,9 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                                 user: ProductQuery.getReadUser(),
                                 limit: 25,
                                 fuzziness: Fuzziness.none,
-                                uriHelper: ProductQuery.uriProductHelper,
+                                uriHelper: ProductQuery.getUriProductHelper(
+                                  productType: widget.product.productType,
+                                ),
                               ),
                             ),
                           ),
@@ -294,6 +296,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
       minimalistProduct,
       context: context,
       stamp: BackgroundTaskDetailsStamp.basicDetails,
+      productType: _product.productType,
     );
 
     return true;

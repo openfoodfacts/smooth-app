@@ -44,7 +44,7 @@ class BackgroundTaskAddPrice extends BackgroundTask {
     required this.pricesWithoutDiscount,
   });
 
-  BackgroundTaskAddPrice.fromJson(Map<String, dynamic> json)
+  BackgroundTaskAddPrice.fromJson(super.json)
       : fullPath = json[_jsonTagImagePath] as String,
         rotationDegrees = json[_jsonTagRotation] as int? ?? 0,
         cropX1 = json[_jsonTagX1] as int? ?? 0,
@@ -71,7 +71,7 @@ class BackgroundTaskAddPrice extends BackgroundTask {
         pricesWithoutDiscount = json.containsKey(_jsonTagPriceWithoutDiscount)
             ? <double?>[json[_jsonTagPriceWithoutDiscount] as double?]
             : _fromJsonListNullableDouble(json[_jsonTagPricesWithoutDiscount])!,
-        super.fromJson(json);
+        super.fromJson();
 
   static List<double>? _fromJsonListDouble(final List<dynamic>? input) {
     if (input == null) {
@@ -158,6 +158,7 @@ class BackgroundTaskAddPrice extends BackgroundTask {
   final int locationOSMId;
   final LocationOSMType locationOSMType;
   final List<double>? eraserCoordinates;
+
   // per line
   final List<String> barcodes;
   final List<bool> pricesAreDiscounted;

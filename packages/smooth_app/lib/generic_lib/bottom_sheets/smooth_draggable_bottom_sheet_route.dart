@@ -40,8 +40,8 @@ class _FlexibleBottomSheetRoute<T> extends PopupRoute<T> {
     required this.borderRadius,
     this.barrierLabel,
     this.bottomSheetBackgroundColor,
-    RouteSettings? settings,
-  }) : super(settings: settings);
+    super.settings,
+  });
 
   final WidgetBuilder headerBuilder;
   final double headerHeight;

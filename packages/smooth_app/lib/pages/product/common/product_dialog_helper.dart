@@ -1,10 +1,7 @@
-import 'dart:math' as math;
-
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:smooth_app/cards/category_cards/svg_cache.dart';
 import 'package:smooth_app/data_models/fetched_product.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
@@ -60,16 +57,6 @@ class ProductDialogHelper {
   void _openProductNotFoundDialog() => showDialog<Widget>(
       context: context,
       builder: (BuildContext context) {
-        final double availableWidth = MediaQuery.sizeOf(context).width -
-            SmoothAlertDialog.defaultMargin.horizontal -
-            SmoothAlertDialog.defaultContentPadding(context).horizontal;
-
-        /// The nutriscore logo is 240*130
-        final double svgHeight = math.min(
-          (availableWidth * 0.4) / 240.0 * 130.0,
-          175.0,
-        );
-
         final double heightMultiplier = switch (context.deviceType) {
           DeviceType.small => 1,
           DeviceType.smartphone => 2,
@@ -100,33 +87,6 @@ class ProductDialogHelper {
               Text(
                 appLocalizations.barcode_barcode(barcode),
                 textAlign: TextAlign.center,
-              ),
-              SizedBox(height: MEDIUM_SPACE * heightMultiplier),
-              Semantics(
-                label: appLocalizations
-                    .new_product_dialog_illustration_description,
-                excludeSemantics: true,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    Expanded(
-                      flex: 4,
-                      child: SvgCache(
-                        unknownSvgNutriscore,
-                        height: svgHeight,
-                      ),
-                    ),
-                    const Spacer(),
-                    Expanded(
-                      flex: 4,
-                      child: SvgCache(
-                        unknownSvgEcoscore,
-                        height: svgHeight,
-                      ),
-                    ),
-                  ],
-                ),
               ),
               SizedBox(height: SMALL_SPACE * heightMultiplier),
               Text(

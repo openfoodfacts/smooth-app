@@ -246,7 +246,9 @@ List<ProductImageData> getProductMainImagesData(
   final OpenFoodFactsLanguage language,
 ) {
   final List<ProductImageData> result = <ProductImageData>[];
-  for (final ImageField imageField in ImageFieldSmoothieExtension.orderedMain) {
+  for (final ImageField imageField
+      in ImageFieldSmoothieExtension.getOrderedMainImageFields(
+          product.productType)) {
     result.add(getProductImageData(product, imageField, language));
   }
   return result;
@@ -271,7 +273,9 @@ ProductImageData getProductImageData(
       imageUrl: productImage.getUrl(
         product.barcode!,
         imageSize: ImageSize.DISPLAY,
-        uriHelper: ProductQuery.uriProductHelper,
+        uriHelper: ProductQuery.getUriProductHelper(
+          productType: product.productType,
+        ),
       ),
       language: language,
     );

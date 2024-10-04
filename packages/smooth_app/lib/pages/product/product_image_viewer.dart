@@ -119,6 +119,7 @@ class _ProductImageViewerState extends State<ProductImageViewer>
                                     context,
                                     imageField: widget.imageField,
                                     barcode: barcode,
+                                    productType: upToDateProduct.productType,
                                     language: widget.language,
                                     isLoggedInMandatory: true,
                                   );

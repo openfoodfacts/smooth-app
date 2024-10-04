@@ -1,7 +1,8 @@
-/// Contains UI related constant that are shared across the entire app.
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+
+/// Contains UI related constant that are shared across the entire app.
 
 /// Main attributes, to be displayed on top
 const List<String> SCORE_ATTRIBUTE_IDS = <String>[

@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:path_provider/path_provider.dart';
@@ -15,6 +16,7 @@ abstract class BackgroundTaskUpload extends BackgroundTaskBarcode
     required super.processName,
     required super.uniqueId,
     required super.barcode,
+    required super.productType,
     required super.language,
     required super.stamp,
     required this.imageField,
@@ -26,7 +28,7 @@ abstract class BackgroundTaskUpload extends BackgroundTaskBarcode
     required this.cropY2,
   });
 
-  BackgroundTaskUpload.fromJson(Map<String, dynamic> json)
+  BackgroundTaskUpload.fromJson(super.json)
       : imageField = json[_jsonTagImageField] as String,
         croppedPath = json[_jsonTagCroppedPath] as String,
         rotationDegrees = json[_jsonTagRotation] as int? ?? 0,
@@ -34,7 +36,7 @@ abstract class BackgroundTaskUpload extends BackgroundTaskBarcode
         cropY1 = json[_jsonTagY1] as int? ?? 0,
         cropX2 = json[_jsonTagX2] as int? ?? 0,
         cropY2 = json[_jsonTagY2] as int? ?? 0,
-        super.fromJson(json);
+        super.fromJson();
 
   final String imageField;
   final String croppedPath;

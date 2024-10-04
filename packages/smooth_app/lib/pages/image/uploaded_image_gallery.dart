@@ -25,12 +25,14 @@ class UploadedImageGallery extends StatelessWidget {
     required this.imageField,
     required this.language,
     required this.isLoggedInMandatory,
+    required this.productType,
   });
 
   final String barcode;
   final List<ProductImage> rawImages;
   final ImageField imageField;
   final bool isLoggedInMandatory;
+  final ProductType? productType;
 
   /// Language for which we'll save the cropped image.
   final OpenFoodFactsLanguage language;
@@ -70,7 +72,9 @@ class UploadedImageGallery extends StatelessWidget {
                 rawImage.getUrl(
                   barcode,
                   imageSize: ImageSize.ORIGINAL,
-                  uriHelper: ProductQuery.uriProductHelper,
+                  uriHelper: ProductQuery.getUriProductHelper(
+                    productType: productType,
+                  ),
                 ),
                 DaoInt(localDatabase),
               );
@@ -86,6 +90,7 @@ class UploadedImageGallery extends StatelessWidget {
                     isLoggedInMandatory: isLoggedInMandatory,
                     cropHelper: ProductCropAgainHelper(
                       barcode: barcode,
+                      productType: productType,
                       imageField: imageField,
                       imageId: int.parse(rawImage.imgid!),
                       language: language,
@@ -102,6 +107,7 @@ class UploadedImageGallery extends StatelessWidget {
               productImage: rawImage,
               barcode: barcode,
               squareSize: columnWidth,
+              productType: productType,
             ),
           );
         },
