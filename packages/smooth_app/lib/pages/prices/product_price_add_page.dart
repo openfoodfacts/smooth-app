@@ -10,6 +10,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/pages/locations/osm_location.dart';
+import 'package:smooth_app/pages/onboarding/currency_selector_helper.dart';
 import 'package:smooth_app/pages/prices/price_add_product_card.dart';
 import 'package:smooth_app/pages/prices/price_amount_card.dart';
 import 'package:smooth_app/pages/prices/price_currency_card.dart';
@@ -24,15 +25,11 @@ import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Single page that displays all the elements of price adding.
 class ProductPriceAddPage extends StatefulWidget {
-  const ProductPriceAddPage({
-    required this.product,
-    required this.latestOsmLocations,
-    required this.proofType,
-  });
+  const ProductPriceAddPage(
+    this.model,
+  );
 
-  final PriceMetaProduct? product;
-  final List<OsmLocation> latestOsmLocations;
-  final ProofType proofType;
+  final PriceModel model;
 
   static Future<void> showProductPage({
     required final BuildContext context,
@@ -55,12 +52,20 @@ class ProductPriceAddPage extends StatefulWidget {
       return;
     }
 
+    final UserPreferences userPreferences = context.read<UserPreferences>();
+    final Currency currency = CurrencySelectorHelper().getSelected(
+      userPreferences.userCurrencyCode,
+    );
+
     await Navigator.of(context).push(
       MaterialPageRoute<void>(
         builder: (BuildContext context) => ProductPriceAddPage(
-          product: product,
-          latestOsmLocations: osmLocations,
-          proofType: proofType,
+          PriceModel(
+            proofType: proofType,
+            locations: osmLocations,
+            initialProduct: product,
+            currency: currency,
+          ),
         ),
       ),
     );
@@ -72,19 +77,13 @@ class ProductPriceAddPage extends StatefulWidget {
 
 class _ProductPriceAddPageState extends State<ProductPriceAddPage>
     with TraceableClientMixin {
-  late final PriceModel _model = PriceModel(
-    proofType: widget.proofType,
-    locations: widget.latestOsmLocations,
-    initialProduct: widget.product,
-  );
-
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     // TODO(monsieurtanuki): add WillPopScope2
     return ChangeNotifierProvider<PriceModel>.value(
-      value: _model,
+      value: widget.model,
       builder: (
         final BuildContext context,
         final Widget? child,
@@ -231,5 +230,6 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
   }
 
   @override
-  String get actionName => 'Opened price_page with ${widget.proofType.offTag}';
+  String get actionName =>
+      'Opened price_page with ${widget.model.proofType.offTag}';
 }

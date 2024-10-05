@@ -45,7 +45,7 @@ class _PricesUsersPageState extends State<PricesUsersPage>
             icon: const Icon(Icons.open_in_new),
             onPressed: () async => LaunchUrlHelper.launchURL(
               OpenPricesAPIClient.getUri(
-                path: 'app/users',
+                path: 'users',
                 uriHelper: ProductQuery.uriPricesHelper,
               ).toString(),
             ),
@@ -79,6 +79,7 @@ class _PricesUsersPageState extends State<PricesUsersPage>
           final List<Widget> children = <Widget>[];
 
           for (final PriceUser item in result.items!) {
+            final int priceCount = item.priceCount ?? 0;
             children.add(
               SmoothCard(
                 child: Wrap(
@@ -91,13 +92,13 @@ class _PricesUsersPageState extends State<PricesUsersPage>
                         context: context,
                       ),
                       iconData: Icons.label,
-                      title: '${item.priceCount}',
+                      title: '$priceCount',
                       buttonStyle: ElevatedButton.styleFrom(
                         foregroundColor: PriceCountWidget.getForegroundColor(
-                          item.priceCount,
+                          priceCount,
                         ),
                         backgroundColor: PriceCountWidget.getBackgroundColor(
-                          item.priceCount,
+                          priceCount,
                         ),
                       ),
                     ),

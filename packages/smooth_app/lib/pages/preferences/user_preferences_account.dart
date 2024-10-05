@@ -272,7 +272,7 @@ class UserPreferencesAccount extends AbstractUserPreferences {
                 displayOwner: true,
                 displayProduct: true,
                 uri: OpenPricesAPIClient.getUri(
-                  path: 'app/prices',
+                  path: 'prices',
                   uriHelper: ProductQuery.uriPricesHelper,
                 ),
                 title: appLocalizations.all_search_prices_latest_title,
@@ -294,11 +294,11 @@ class UserPreferencesAccount extends AbstractUserPreferences {
       ),
       _getPriceListTile(
         appLocalizations.all_search_prices_top_location_title,
-        'app/locations',
+        'locations',
       ),
       _getPriceListTile(
         appLocalizations.all_search_prices_top_product_title,
-        'app/products',
+        'products',
       ),
       _buildProductQueryTile(
         productQuery: PagedToBeCompletedProductQuery(

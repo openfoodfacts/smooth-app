@@ -18,6 +18,20 @@ class OsmLocation {
     this.osmValue,
   });
 
+  OsmLocation.fromPrice(final Location location)
+      : osmId = location.osmId,
+        osmType = location.type,
+        longitude = location.longitude!,
+        latitude = location.latitude!,
+        name = location.name,
+        street = null,
+        city = location.city,
+        postcode = location.postcode,
+        country = location.country,
+        countryCode = location.countryCode,
+        osmKey = location.osmKey,
+        osmValue = location.osmValue;
+
   final int osmId;
   final LocationOSMType osmType;
   final double longitude;
