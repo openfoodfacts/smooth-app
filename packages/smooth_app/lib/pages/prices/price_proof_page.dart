@@ -24,28 +24,30 @@ class PriceProofPage extends StatelessWidget {
     final DateFormat dateFormat =
         DateFormat.yMd(ProductQuery.getLocaleString()).add_Hms();
     return SmoothScaffold(
-      floatingActionButton: FloatingActionButton.extended(
-        label: Text(appLocalizations.prices_add_a_price),
-        icon: const Icon(Icons.add),
-        onPressed: () async {
-          if (!await ProductRefresher().checkIfLoggedIn(
-            context,
-            isLoggedInMandatory: true,
-          )) {
-            return;
-          }
-          if (!context.mounted) {
-            return;
-          }
-          await Navigator.of(context).push(
-            MaterialPageRoute<void>(
-              builder: (BuildContext context) => ProductPriceAddPage(
-                PriceModel.proof(proof: proof),
-              ),
+      floatingActionButton: PriceModel.isProofNotGoodEnough(proof)
+          ? null
+          : FloatingActionButton.extended(
+              label: Text(appLocalizations.prices_add_a_price),
+              icon: const Icon(Icons.add),
+              onPressed: () async {
+                if (!await ProductRefresher().checkIfLoggedIn(
+                  context,
+                  isLoggedInMandatory: true,
+                )) {
+                  return;
+                }
+                if (!context.mounted) {
+                  return;
+                }
+                await Navigator.of(context).push(
+                  MaterialPageRoute<void>(
+                    builder: (BuildContext context) => ProductPriceAddPage(
+                      PriceModel.proof(proof: proof),
+                    ),
+                  ),
+                );
+              },
             ),
-          );
-        },
-      ),
       appBar: SmoothAppBar(
         title: Text(appLocalizations.user_search_proof_title),
         subTitle: Text(dateFormat.format(proof.created)),
@@ -67,9 +69,13 @@ class PriceProofPage extends StatelessWidget {
               return child;
             }
             return Center(
-              child: Image.network(
-                _getUrl(true),
-                fit: BoxFit.cover,
+              child: SizedBox(
+                width: double.maxFinite,
+                height: double.maxFinite,
+                child: Image.network(
+                  _getUrl(true),
+                  fit: BoxFit.contain,
+                ),
               ),
             );
           },

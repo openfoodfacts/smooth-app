@@ -36,6 +36,19 @@ class PriceModel with ChangeNotifier {
         _currency = proof.currency!,
         priceAmountModels = <PriceAmountModel>[];
 
+  /// Checks if a proof cannot be reused for prices adding.
+  ///
+  /// Sometimes we get partial data from the Prices server.
+  static bool isProofNotGoodEnough(final Proof proof) =>
+      proof.currency == null ||
+      proof.date == null ||
+      proof.type == null ||
+      proof.location == null ||
+      proof.locationOSMId == null ||
+      proof.locationOSMType == null ||
+      proof.imageThumbPath == null ||
+      proof.filePath == null;
+
   final List<PriceAmountModel> priceAmountModels;
 
   CropParameters? _cropParameters;
