@@ -109,6 +109,13 @@ class SmoothProductCardFound extends StatelessWidget {
                             overflow: TextOverflow.ellipsis,
                             style: themeData.textTheme.titleMedium,
                           ),
+                          Text(
+                            getMagicPoints(product),
+                            overflow: TextOverflow.ellipsis,
+                            style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                           Row(
                             children: <Widget>[
                               Icon(

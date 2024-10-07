@@ -52,6 +52,13 @@ class ProductTitleCard extends StatelessWidget {
                 title,
               ],
             ),
+            Text(
+              getMagicPoints(product),
+              overflow: TextOverflow.ellipsis,
+              style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                fontWeight: FontWeight.bold,
+              ),
+            ),
             _ProductTitleCardBrand(
               removable: isRemovable,
               selectable: isSelectable,
@@ -78,7 +85,8 @@ class _ProductTitleCardName extends StatelessWidget {
     final Product product = context.read<Product>();
 
     return Text(
-      getProductName(product, appLocalizations),
+     // getProductName(product, appLocalizations),
+      'TOTO',
       style: Theme.of(context).textTheme.headlineMedium,
       textAlign: TextAlign.start,
       maxLines: dense ? 2 : 3,

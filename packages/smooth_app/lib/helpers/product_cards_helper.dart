@@ -71,6 +71,24 @@ String getProductBrands(
   return formatProductBrands(brands);
 }
 
+String getMagicPoints(
+    final Product product,
+    ) {
+
+  if (product.nutriments == null) {
+    return '';
+  }
+
+  final double magicPointsPer100g = (product.nutriments!.getValue(Nutrient.energyKCal, PerSize.oneHundredGrams) ?? 0) * 0.0305 + (product.nutriments!.getValue(Nutrient.sugars, PerSize.oneHundredGrams) ?? 0) * 0.12 + (product.nutriments!.getValue(Nutrient.saturatedFat, PerSize.oneHundredGrams) ?? 0) * 0.275 - (product.nutriments!.getValue(Nutrient.proteins, PerSize.oneHundredGrams) ?? 0) * 0.098;
+  final double magicPointsPerServing = (product.nutriments!.getValue(Nutrient.energyKCal, PerSize.serving) ?? 0) * 0.0305 + (product.nutriments!.getValue(Nutrient.sugars, PerSize.serving) ?? 0) * 0.12 + (product.nutriments!.getValue(Nutrient.saturatedFat, PerSize.serving) ?? 0) * 0.275 - (product.nutriments!.getValue(Nutrient.proteins, PerSize.serving) ?? 0) * 0.098;
+
+  if (magicPointsPerServing == 0 || magicPointsPerServing == magicPointsPer100g) {
+    return '⚗️ ${magicPointsPer100g.toStringAsFixed(2)}';
+  }
+
+  return '⚗️ ${magicPointsPer100g.toStringAsFixed(2)} 🔬 ${magicPointsPerServing.toStringAsFixed(2)}';
+}
+
 /// Correctly format word separators between words.
 String formatProductBrands(String brands) {
   const String separator = ', ';
