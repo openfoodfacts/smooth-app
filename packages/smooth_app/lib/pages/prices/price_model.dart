@@ -1,12 +1,14 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/background/background_task_add_other_price.dart';
 import 'package:smooth_app/background/background_task_add_price.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/pages/crop_parameters.dart';
 import 'package:smooth_app/pages/locations/osm_location.dart';
-import 'package:smooth_app/pages/onboarding/currency_selector_helper.dart';
 import 'package:smooth_app/pages/prices/price_amount_model.dart';
 import 'package:smooth_app/pages/prices/price_meta_product.dart';
 
@@ -14,14 +16,38 @@ import 'package:smooth_app/pages/prices/price_meta_product.dart';
 class PriceModel with ChangeNotifier {
   PriceModel({
     required final ProofType proofType,
-    required final List<OsmLocation> locations,
+    required final List<OsmLocation>? locations,
+    required final Currency currency,
     final PriceMetaProduct? initialProduct,
-  })  : _proofType = proofType,
+  })  : proof = null,
+        _proofType = proofType,
         _date = DateTime.now(),
+        _currency = currency,
         _locations = locations,
         priceAmountModels = <PriceAmountModel>[
           if (initialProduct != null) PriceAmountModel(product: initialProduct),
         ];
+
+  PriceModel.proof({
+    required Proof this.proof,
+  })  : _proofType = proof.type!,
+        _date = proof.date!,
+        _locations = null,
+        _currency = proof.currency!,
+        priceAmountModels = <PriceAmountModel>[];
+
+  /// Checks if a proof cannot be reused for prices adding.
+  ///
+  /// Sometimes we get partial data from the Prices server.
+  static bool isProofNotGoodEnough(final Proof proof) =>
+      proof.currency == null ||
+      proof.date == null ||
+      proof.type == null ||
+      proof.location == null ||
+      proof.locationOSMId == null ||
+      proof.locationOSMType == null ||
+      proof.imageThumbPath == null ||
+      proof.filePath == null;
 
   final List<PriceAmountModel> priceAmountModels;
 
@@ -34,9 +60,11 @@ class PriceModel with ChangeNotifier {
     notifyListeners();
   }
 
+  final Proof? proof;
+
   ProofType _proofType;
 
-  ProofType get proofType => _proofType;
+  ProofType get proofType => proof != null ? proof!.type! : _proofType;
 
   set proofType(final ProofType proofType) {
     _proofType = proofType;
@@ -55,18 +83,27 @@ class PriceModel with ChangeNotifier {
   final DateTime today = DateTime.now();
   final DateTime firstDate = DateTime.utc(2020, 1, 1);
 
-  late List<OsmLocation> _locations;
+  List<OsmLocation>? _locations;
 
-  List<OsmLocation> get locations => _locations;
+  List<OsmLocation>? get locations => _locations;
 
-  set locations(final List<OsmLocation> locations) {
+  set locations(final List<OsmLocation>? locations) {
     _locations = locations;
     notifyListeners();
   }
 
-  OsmLocation? get location => _locations.firstOrNull;
+  OsmLocation? get location => proof != null
+      ? OsmLocation.fromPrice(proof!.location!)
+      : _locations!.firstOrNull;
 
-  late Currency _checkedCurrency;
+  Currency _currency;
+
+  Currency get currency => _currency;
+
+  set currency(final Currency currency) {
+    _currency = currency;
+    notifyListeners();
+  }
 
   // overriding in order to make it public
   @override
@@ -75,13 +112,14 @@ class PriceModel with ChangeNotifier {
   /// Returns the error message of the parameter check, or null if OK.
   String? checkParameters(final BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    if (cropParameters == null) {
-      return appLocalizations.prices_proof_mandatory;
+    if (proof == null) {
+      if (cropParameters == null) {
+        return appLocalizations.prices_proof_mandatory;
+      }
+      if (location == null) {
+        return appLocalizations.prices_location_mandatory;
+      }
     }
-
-    final UserPreferences userPreferences = context.read<UserPreferences>();
-    _checkedCurrency =
-        CurrencySelectorHelper().getSelected(userPreferences.userCurrencyCode);
 
     for (final PriceAmountModel priceAmountModel in priceAmountModels) {
       final String? checkParameters = priceAmountModel.checkParameters(context);
@@ -90,9 +128,8 @@ class PriceModel with ChangeNotifier {
       }
     }
 
-    if (location == null) {
-      return appLocalizations.prices_location_mandatory;
-    }
+    final UserPreferences userPreferences = context.read<UserPreferences>();
+    unawaited(userPreferences.setUserCurrencyCode(currency.name));
 
     return null;
   }
@@ -109,15 +146,32 @@ class PriceModel with ChangeNotifier {
       prices.add(priceAmountModel.checkedPaidPrice);
       pricesWithoutDiscount.add(priceAmountModel.checkedPriceWithoutDiscount);
     }
+    if (proof != null) {
+      return BackgroundTaskAddOtherPrice.addTask(
+        context: context,
+        // per receipt
+        locationOSMId: proof!.locationOSMId!,
+        locationOSMType: proof!.locationOSMType!,
+        date: proof!.date!,
+        currency: proof!.currency!,
+        proofId: proof!.id,
+        // per item
+        barcodes: barcodes,
+        pricesAreDiscounted: pricesAreDiscounted,
+        prices: prices,
+        pricesWithoutDiscount: pricesWithoutDiscount,
+      );
+    }
     return BackgroundTaskAddPrice.addTask(
       context: context,
-      // per receipt
+      // proof display
       cropObject: cropParameters!,
+      // per receipt
       locationOSMId: location!.osmId,
       locationOSMType: location!.osmType,
       date: date,
       proofType: proofType,
-      currency: _checkedCurrency,
+      currency: currency,
       // per item
       barcodes: barcodes,
       pricesAreDiscounted: pricesAreDiscounted,
