@@ -11,6 +11,7 @@ import 'package:smooth_app/pages/crop_parameters.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/prices/price_model.dart';
 import 'package:smooth_app/pages/proof_crop_helper.dart';
+import 'package:smooth_app/query/product_query.dart';
 
 /// Card that displays the proof for price adding.
 class PriceProofCard extends StatelessWidget {
@@ -27,6 +28,20 @@ class PriceProofCard extends StatelessWidget {
       child: Column(
         children: <Widget>[
           Text(appLocalizations.prices_proof_subtitle),
+          if (model.proof != null)
+            LayoutBuilder(
+              builder: (BuildContext context, BoxConstraints constraints) =>
+                  Image(
+                image: NetworkImage(
+                  model.proof!
+                      .getFileUrl(
+                        uriProductHelper: ProductQuery.uriPricesHelper,
+                        isThumbnail: true,
+                      )!
+                      .toString(),
+                ),
+              ),
+            ),
           if (model.cropParameters != null)
             LayoutBuilder(
               builder: (BuildContext context, BoxConstraints constraints) =>
@@ -40,23 +55,27 @@ class PriceProofCard extends StatelessWidget {
             ),
           //Text(model.cropParameters!.smallCroppedFile.path),
           SmoothLargeButtonWithIcon(
-            text: model.cropParameters == null
+            text: model.proof == null && model.cropParameters == null
                 ? appLocalizations.prices_proof_find
                 : model.proofType == ProofType.receipt
                     ? appLocalizations.prices_proof_receipt
                     : appLocalizations.prices_proof_price_tag,
-            icon: model.cropParameters == null ? _iconTodo : _iconDone,
-            onPressed: () async {
-              final CropParameters? cropParameters =
-                  await confirmAndUploadNewImage(
-                context,
-                cropHelper: ProofCropHelper(model: model),
-                isLoggedInMandatory: true,
-              );
-              if (cropParameters != null) {
-                model.cropParameters = cropParameters;
-              }
-            },
+            icon: model.proof == null && model.cropParameters == null
+                ? _iconTodo
+                : _iconDone,
+            onPressed: model.proof != null
+                ? null
+                : () async {
+                    final CropParameters? cropParameters =
+                        await confirmAndUploadNewImage(
+                      context,
+                      cropHelper: ProofCropHelper(model: model),
+                      isLoggedInMandatory: true,
+                    );
+                    if (cropParameters != null) {
+                      model.cropParameters = cropParameters;
+                    }
+                  },
           ),
           LayoutBuilder(
             builder: (BuildContext context, BoxConstraints constraints) => Row(
@@ -67,8 +86,10 @@ class PriceProofCard extends StatelessWidget {
                     title: Text(appLocalizations.prices_proof_receipt),
                     value: ProofType.receipt,
                     groupValue: model.proofType,
-                    onChanged: (final ProofType? proofType) =>
-                        model.proofType = proofType!,
+                    onChanged: model.proof != null
+                        ? null
+                        : (final ProofType? proofType) =>
+                            model.proofType = proofType!,
                   ),
                 ),
                 SizedBox(
@@ -77,8 +98,10 @@ class PriceProofCard extends StatelessWidget {
                     title: Text(appLocalizations.prices_proof_price_tag),
                     value: ProofType.priceTag,
                     groupValue: model.proofType,
-                    onChanged: (final ProofType? proofType) =>
-                        model.proofType = proofType!,
+                    onChanged: model.proof != null
+                        ? null
+                        : (final ProofType? proofType) =>
+                            model.proofType = proofType!,
                   ),
                 ),
               ],

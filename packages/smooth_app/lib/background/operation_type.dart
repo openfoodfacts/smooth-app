@@ -1,5 +1,6 @@
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/background/background_task.dart';
+import 'package:smooth_app/background/background_task_add_other_price.dart';
 import 'package:smooth_app/background/background_task_add_price.dart';
 import 'package:smooth_app/background/background_task_crop.dart';
 import 'package:smooth_app/background/background_task_details.dart';
@@ -37,6 +38,7 @@ enum OperationType {
   fullRefresh('F', 'FULL_REFRESH'),
   languageRefresh('L', 'LANGUAGE_REFRESH'),
   addPrice('A', 'ADD_PRICE'),
+  addOtherPrice('E', 'ADD_OTHER_PRICE'),
   details('D', 'PRODUCT_EDIT');
 
   const OperationType(this.header, this.processName);
@@ -70,6 +72,7 @@ enum OperationType {
   BackgroundTask fromJson(Map<String, dynamic> map) => switch (this) {
         crop => BackgroundTaskCrop.fromJson(map),
         addPrice => BackgroundTaskAddPrice.fromJson(map),
+        addOtherPrice => BackgroundTaskAddOtherPrice.fromJson(map),
         details => BackgroundTaskDetails.fromJson(map),
         hungerGames => BackgroundTaskHungerGames.fromJson(map),
         image => BackgroundTaskImage.fromJson(map),
@@ -89,6 +92,7 @@ enum OperationType {
         OperationType.details =>
           appLocalizations.background_task_operation_details,
         OperationType.addPrice => 'Add price',
+        OperationType.addOtherPrice => 'Add price to existing proof',
         OperationType.image => appLocalizations.background_task_operation_image,
         OperationType.unselect => 'Unselect a product image',
         OperationType.hungerGames => 'Answering to a Hunger Games question',

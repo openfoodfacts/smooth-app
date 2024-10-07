@@ -46,7 +46,7 @@ class _PricesProofsPageState extends State<PricesProofsPage>
             icon: const Icon(Icons.open_in_new),
             onPressed: () async => LaunchUrlHelper.launchURL(
               OpenPricesAPIClient.getUri(
-                path: 'app/dashboard/proofs',
+                path: 'dashboard/proofs',
                 uriHelper: ProductQuery.uriPricesHelper,
               ).toString(),
             ),
@@ -204,6 +204,7 @@ class _PriceProofImage extends StatelessWidget {
             proof
                 .getFileUrl(
                   uriProductHelper: ProductQuery.uriPricesHelper,
+                  isThumbnail: true,
                 )
                 .toString(),
           ),

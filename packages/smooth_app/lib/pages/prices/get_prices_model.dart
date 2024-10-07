@@ -56,7 +56,7 @@ class GetPricesModel {
     final String barcode,
   ) =>
       OpenPricesAPIClient.getUri(
-        path: 'app/products/$barcode',
+        path: 'products/$barcode',
         uriHelper: ProductQuery.uriPricesHelper,
       );
 

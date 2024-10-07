@@ -35,39 +35,42 @@ class PriceLocationCard extends StatelessWidget {
                     location.getSubtitle() ??
                     location.getLatLng().toString(),
             icon: location == null ? _iconTodo : _iconDone,
-            onPressed: () async {
-              final LocalDatabase localDatabase = context.read<LocalDatabase>();
-              final List<SearchLocationPreloadedItem> preloadedList =
-                  <SearchLocationPreloadedItem>[];
-              for (final OsmLocation osmLocation in model.locations) {
-                preloadedList.add(
-                  SearchLocationPreloadedItem(
-                    osmLocation,
-                    popFirst: false,
-                  ),
-                );
-              }
-              final OsmLocation? osmLocation =
-                  await Navigator.push<OsmLocation>(
-                context,
-                MaterialPageRoute<OsmLocation>(
-                  builder: (BuildContext context) => SearchPage(
-                    SearchLocationHelper(),
-                    preloadedList: preloadedList,
-                    autofocus: false,
-                  ),
-                ),
-              );
-              if (osmLocation == null) {
-                return;
-              }
-              final DaoOsmLocation daoOsmLocation =
-                  DaoOsmLocation(localDatabase);
-              await daoOsmLocation.put(osmLocation);
-              final List<OsmLocation> newOsmLocations =
-                  await daoOsmLocation.getAll();
-              model.locations = newOsmLocations;
-            },
+            onPressed: model.proof != null
+                ? null
+                : () async {
+                    final LocalDatabase localDatabase =
+                        context.read<LocalDatabase>();
+                    final List<SearchLocationPreloadedItem> preloadedList =
+                        <SearchLocationPreloadedItem>[];
+                    for (final OsmLocation osmLocation in model.locations!) {
+                      preloadedList.add(
+                        SearchLocationPreloadedItem(
+                          osmLocation,
+                          popFirst: false,
+                        ),
+                      );
+                    }
+                    final OsmLocation? osmLocation =
+                        await Navigator.push<OsmLocation>(
+                      context,
+                      MaterialPageRoute<OsmLocation>(
+                        builder: (BuildContext context) => SearchPage(
+                          SearchLocationHelper(),
+                          preloadedList: preloadedList,
+                          autofocus: false,
+                        ),
+                      ),
+                    );
+                    if (osmLocation == null) {
+                      return;
+                    }
+                    final DaoOsmLocation daoOsmLocation =
+                        DaoOsmLocation(localDatabase);
+                    await daoOsmLocation.put(osmLocation);
+                    final List<OsmLocation> newOsmLocations =
+                        await daoOsmLocation.getAll();
+                    model.locations = newOsmLocations;
+                  },
           ),
         ],
       ),
