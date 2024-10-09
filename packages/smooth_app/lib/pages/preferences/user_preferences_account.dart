@@ -276,6 +276,7 @@ class UserPreferencesAccount extends AbstractUserPreferences {
                   uriHelper: ProductQuery.uriPricesHelper,
                 ),
                 title: appLocalizations.all_search_prices_latest_title,
+                lazyCounterPrices: const LazyCounterPrices(null),
               ),
             ),
           ),

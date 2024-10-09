@@ -176,8 +176,20 @@ class UserPreferences extends ChangeNotifier {
 
   String _getLazyCountTag(final String tag) => '$_TAG_LAZY_COUNT_PREFIX$tag';
 
-  Future<void> setLazyCount(final int value, final String suffixTag) async =>
-      _sharedPreferences.setInt(_getLazyCountTag(suffixTag), value);
+  Future<void> setLazyCount(
+    final int value,
+    final String suffixTag, {
+    required final bool notify,
+  }) async {
+    final int? oldValue = getLazyCount(suffixTag);
+    if (value == oldValue) {
+      return;
+    }
+    await _sharedPreferences.setInt(_getLazyCountTag(suffixTag), value);
+    if (notify) {
+      notifyListeners();
+    }
+  }
 
   int? getLazyCount(final String suffixTag) =>
       _sharedPreferences.getInt(_getLazyCountTag(suffixTag));
