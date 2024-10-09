@@ -233,7 +233,9 @@ class UserPreferencesAccount extends AbstractUserPreferences {
         appLocalizations.user_search_proofs_title,
         () async => Navigator.of(context).push(
           MaterialPageRoute<void>(
-            builder: (BuildContext context) => const PricesProofsPage(),
+            builder: (BuildContext context) => const PricesProofsPage(
+              selectProof: false,
+            ),
           ),
         ),
         Icons.receipt,
