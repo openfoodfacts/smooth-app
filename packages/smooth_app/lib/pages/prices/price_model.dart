@@ -19,7 +19,7 @@ class PriceModel with ChangeNotifier {
     required final List<OsmLocation>? locations,
     required final Currency currency,
     final PriceMetaProduct? initialProduct,
-  })  : proof = null,
+  })  : _proof = null,
         _proofType = proofType,
         _date = DateTime.now(),
         _currency = currency,
@@ -29,12 +29,19 @@ class PriceModel with ChangeNotifier {
         ];
 
   PriceModel.proof({
-    required Proof this.proof,
-  })  : _proofType = proof.type!,
-        _date = proof.date!,
-        _locations = null,
-        _currency = proof.currency!,
-        priceAmountModels = <PriceAmountModel>[];
+    required Proof proof,
+  }) : priceAmountModels = <PriceAmountModel>[] {
+    setProof(proof);
+  }
+
+  void setProof(final Proof proof) {
+    _proof = proof;
+    _cropParameters = null;
+    _proofType = proof.type!;
+    _date = proof.date!;
+    _locations = null;
+    _currency = proof.currency!;
+  }
 
   /// Checks if a proof cannot be reused for prices adding.
   ///
@@ -49,6 +56,8 @@ class PriceModel with ChangeNotifier {
       proof.imageThumbPath == null ||
       proof.filePath == null;
 
+  bool get hasImage => _proof != null || _cropParameters != null;
+
   final List<PriceAmountModel> priceAmountModels;
 
   CropParameters? _cropParameters;
@@ -57,21 +66,24 @@ class PriceModel with ChangeNotifier {
 
   set cropParameters(final CropParameters? value) {
     _cropParameters = value;
+    _proof = null;
     notifyListeners();
   }
 
-  final Proof? proof;
+  Proof? _proof;
 
-  ProofType _proofType;
+  Proof? get proof => _proof;
 
-  ProofType get proofType => proof != null ? proof!.type! : _proofType;
+  late ProofType _proofType;
+
+  ProofType get proofType => _proof != null ? _proof!.type! : _proofType;
 
   set proofType(final ProofType proofType) {
     _proofType = proofType;
     notifyListeners();
   }
 
-  DateTime _date;
+  late DateTime _date;
 
   DateTime get date => _date;
 
@@ -96,7 +108,7 @@ class PriceModel with ChangeNotifier {
       ? OsmLocation.fromPrice(proof!.location!)
       : _locations!.firstOrNull;
 
-  Currency _currency;
+  late Currency _currency;
 
   Currency get currency => _currency;
 
