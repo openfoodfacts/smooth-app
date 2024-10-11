@@ -61,8 +61,8 @@ dependencies:
   fimber: 0.7.0
   shimmer: ^3.0.0
   rive: 0.13.14
-  webview_flutter: 4.9.0
-  webview_flutter_android: 3.16.9
+  webview_flutter: 4.10.0
+  webview_flutter_android: 4.0.0
   webview_flutter_wkwebview: 3.16.0
   flutter_custom_tabs: 2.1.0
   flutter_image_compress: 2.3.0
