@@ -38,7 +38,7 @@ dependencies:
   uuid: 4.5.1
   provider: 6.1.2
   sentry_flutter: 8.9.0
-  sqflite: 2.3.3+1
+  sqflite: 2.4.0
   sqflite_common_ffi: 2.3.3
   url_launcher: 6.3.0
   visibility_detector: 0.4.0+2
@@ -61,8 +61,8 @@ dependencies:
   fimber: 0.7.0
   shimmer: ^3.0.0
   rive: 0.13.14
-  webview_flutter: 4.9.0
-  webview_flutter_android: 3.16.9
+  webview_flutter: 4.10.0
+  webview_flutter_android: 4.0.0
   webview_flutter_wkwebview: 3.16.0
   flutter_custom_tabs: 2.1.0
   flutter_image_compress: 2.3.0
