@@ -1,5 +1,6 @@
 package org.openfoodfacts.app
 
+import android.app.PendingIntent
 import android.content.Intent
 import android.os.Build
 import android.service.quicksettings.Tile
@@ -27,7 +28,7 @@ class AppMainTile : TileService() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
             startActivityAndCollapse(
                 PendingIntent.getActivity(
-                    appContext,
+                    applicationContext,
                     0,
                     intent,
                     PendingIntent.FLAG_IMMUTABLE
