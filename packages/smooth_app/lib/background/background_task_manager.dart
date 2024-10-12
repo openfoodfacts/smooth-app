@@ -161,15 +161,8 @@ class BackgroundTaskManager {
   /// `forceNowIfPossible = true`
   /// 2. we're just checking casually if there are pending tasks
   /// `forceNowIfPossible = false`
-  void run({final bool forceNowIfPossible = false}) {
-    final int? now = _canStartNow(forceNowIfPossible);
-    if (now == null) {
-      return;
-    }
-    // we need to put _running = true there in order to avoid async side-effects
-    _running = true;
-    unawaited(_runAsync(now));
-  }
+  void run({final bool forceNowIfPossible = false}) =>
+      unawaited(_runAsync(forceNowIfPossible));
 
   /// Runs all the pending tasks, and then smoothly ends.
   ///
@@ -178,7 +171,13 @@ class BackgroundTaskManager {
   /// If a task fails and another task with the same stamp comes after,
   /// we can remove the failed task from the list: it would have been
   /// overwritten anyway.
-  Future<void> _runAsync(final int now) async {
+  Future<void> _runAsync(final bool forceNowIfPossible) async {
+    final int? now = _canStartNow(forceNowIfPossible);
+    if (now == null) {
+      return;
+    }
+    _running = true;
+
     /// Will also set the "latest start timestamp".
     /// With this, we can detect a run that went wrong.
     /// Like, still running 1 hour later.
