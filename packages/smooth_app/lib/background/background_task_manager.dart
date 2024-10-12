@@ -107,10 +107,9 @@ class BackgroundTaskManager {
   /// With [forceNowIfPossible] we can be more aggressive and force the decision
   /// of running now or at least just after the current running block.
   int? _canStartNow(final bool forceNowIfPossible) {
-    final DaoInt daoInt = DaoInt(localDatabase);
     final int now = LocalDatabase.nowInMillis();
-    final int? latestRunStart = daoInt.get(_lastStartTimestampKey);
-    final int? latestRunStop = daoInt.get(_lastStopTimestampKey);
+    final int? latestRunStart = localDatabase.daoIntGet(_lastStartTimestampKey);
+    final int? latestRunStop = localDatabase.daoIntGet(_lastStopTimestampKey);
     if (_running) {
       // if pretending to be running but started a very very long time ago
       if (latestRunStart != null &&
@@ -142,8 +141,8 @@ class BackgroundTaskManager {
 
   /// Signals we've just finished working and that we're ready for a new run.
   Future<void> _justFinished() async {
-    await DaoInt(localDatabase).put(_lastStartTimestampKey, null);
-    await DaoInt(localDatabase).put(
+    await localDatabase.daoIntPut(_lastStartTimestampKey, null);
+    await localDatabase.daoIntPut(
       _lastStopTimestampKey,
       LocalDatabase.nowInMillis(),
     );
@@ -181,8 +180,7 @@ class BackgroundTaskManager {
     /// Will also set the "latest start timestamp".
     /// With this, we can detect a run that went wrong.
     /// Like, still running 1 hour later.
-    final DaoInt daoInt = DaoInt(localDatabase);
-    await daoInt.put(_lastStartTimestampKey, now);
+    await localDatabase.daoIntPut(_lastStartTimestampKey, now);
     bool runAgain = true;
     while (runAgain) {
       runAgain = false;
