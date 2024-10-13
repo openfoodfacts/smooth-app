@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
@@ -15,41 +17,44 @@ class LazyCounterWidget extends StatefulWidget {
 
 class _LazyCounterWidgetState extends State<LazyCounterWidget> {
   bool _loading = false;
-  int? _count;
 
   @override
   void initState() {
     super.initState();
     final UserPreferences userPreferences = context.read<UserPreferences>();
-    _count = widget.lazyCounter.getLocalCount(userPreferences);
-    if (_count == null) {
-      _asyncLoad();
+    final int? count = widget.lazyCounter.getLocalCount(userPreferences);
+    if (count == null) {
+      unawaited(_asyncLoad());
     }
   }
 
   @override
-  Widget build(BuildContext context) => Row(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.end,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          if (_count != null) Text(_count.toString()),
-          if (_loading)
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 12),
-              child: SizedBox(
-                width: 24,
-                height: 24,
-                child: CircularProgressIndicator.adaptive(),
-              ),
-            )
-          else
-            IconButton(
-              onPressed: () => _asyncLoad(),
-              icon: const Icon(Icons.refresh),
+  Widget build(BuildContext context) {
+    final UserPreferences userPreferences = context.watch<UserPreferences>();
+    final int? count = widget.lazyCounter.getLocalCount(userPreferences);
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      mainAxisAlignment: MainAxisAlignment.end,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: <Widget>[
+        if (count != null) Text(count.toString()),
+        if (_loading)
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 12),
+            child: SizedBox(
+              width: 24,
+              height: 24,
+              child: CircularProgressIndicator.adaptive(),
             ),
-        ],
-      );
+          )
+        else
+          IconButton(
+            onPressed: () => _asyncLoad(),
+            icon: const Icon(Icons.refresh),
+          ),
+      ],
+    );
+  }
 
   Future<void> _asyncLoad() async {
     if (_loading) {
@@ -63,8 +68,11 @@ class _LazyCounterWidgetState extends State<LazyCounterWidget> {
     try {
       final int? value = await widget.lazyCounter.getServerCount();
       if (value != null) {
-        await widget.lazyCounter.setLocalCount(value, userPreferences);
-        _count = value;
+        await widget.lazyCounter.setLocalCount(
+          value,
+          userPreferences,
+          notify: false,
+        );
       }
     } catch (e) {
       //
