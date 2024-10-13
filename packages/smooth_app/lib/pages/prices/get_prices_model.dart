@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/pages/preferences/lazy_counter.dart';
 import 'package:smooth_app/pages/prices/price_meta_product.dart';
 import 'package:smooth_app/pages/prices/product_price_add_page.dart';
 import 'package:smooth_app/query/product_query.dart';
@@ -13,6 +14,7 @@ class GetPricesModel {
     required this.displayProduct,
     required this.uri,
     required this.title,
+    this.lazyCounterPrices,
     this.enableCountButton = true,
     this.subtitle,
     this.addButton,
@@ -83,6 +85,9 @@ class GetPricesModel {
 
   /// "Enable the count button?". Typically "false" for product price pages.
   final bool enableCountButton;
+
+  /// Lazy Counter to refresh.
+  final LazyCounterPrices? lazyCounterPrices;
 
   static const int pageSize = 10;
 }
