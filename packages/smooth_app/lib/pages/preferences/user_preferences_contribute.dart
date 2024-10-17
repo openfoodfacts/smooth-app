@@ -21,6 +21,7 @@ import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
+import 'package:smooth_app/pages/product/common/country_wiki_links.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/query/paged_to_be_completed_product_query.dart';
 import 'package:smooth_app/query/product_query.dart';
@@ -104,6 +105,16 @@ class UserPreferencesContribute extends AbstractUserPreferences {
               UserPreferencesListTile.getTintedIcon(Icons.open_in_new, context),
           externalLink: true,
         ),
+       if(CountryWikiLinks().wikiLinks.containsKey(userPreferences.userCountryCode))
+          _getListTile(
+              'Help improve Open Food Facts in your country',
+              () async => LaunchUrlHelper.launchURL(TmpCountryWikiLinks()
+                  .wikiLinks[userPreferences.userCountryCode]!),
+              Icons.language,
+              icon: UserPreferencesListTile.getTintedIcon(
+              Icons.open_in_new,
+              context,),
+              externalLink: true),
         if (GlobalVars.appStore.getEnrollInBetaURL() != null)
           _getListTile(
             appLocalizations.contribute_enroll_alpha,
