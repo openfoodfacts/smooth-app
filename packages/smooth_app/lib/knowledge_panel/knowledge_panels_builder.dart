@@ -149,6 +149,24 @@ class KnowledgePanelsBuilder {
     return elements.first;
   }
 
+  /// Returns true if there are elements to display for that panel.
+  static bool hasSomethingToDisplay(
+    final Product product,
+    final String panelId,
+  ) {
+    final KnowledgePanel panel =
+        KnowledgePanelsBuilder.getKnowledgePanel(product, panelId)!;
+    if (panel.elements == null) {
+      return false;
+    }
+    for (final KnowledgePanelElement element in panel.elements!) {
+      if (_hasSomethingToDisplay(element: element, product: product)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   /// Returns a padded widget that displays the KP element, or rarely null.
   static Widget? getElementWidget({
     required final KnowledgePanelElement knowledgePanelElement,
@@ -178,6 +196,8 @@ class KnowledgePanelsBuilder {
   }
 
   /// Returns the widget that displays the KP element, or rarely null.
+  ///
+  /// cf. [_hasSomethingToDisplay].
   static Widget? _getElementWidget({
     required final KnowledgePanelElement element,
     required final Product product,
@@ -242,10 +262,33 @@ class KnowledgePanelsBuilder {
           element.actionElement!,
           product,
         );
+    }
+  }
 
-      default:
-        Logs.e('unexpected element type: ${element.elementType}');
-        return null;
+  /// Returns true if the element has something to display.
+  ///
+  /// cf. [_getElementWidget].
+  static bool _hasSomethingToDisplay({
+    required final KnowledgePanelElement element,
+    required final Product product,
+  }) {
+    switch (element.elementType) {
+      case KnowledgePanelElementType.TEXT:
+      case KnowledgePanelElementType.IMAGE:
+      case KnowledgePanelElementType.PANEL_GROUP:
+      case KnowledgePanelElementType.TABLE:
+      case KnowledgePanelElementType.MAP:
+      case KnowledgePanelElementType.ACTION:
+        return true;
+      case KnowledgePanelElementType.UNKNOWN:
+        return false;
+      case KnowledgePanelElementType.PANEL:
+        final String panelId = element.panelElement!.panelId;
+        final KnowledgePanel? panel = getKnowledgePanel(product, panelId);
+        if (panel == null) {
+          return false;
+        }
+        return true;
     }
   }
 
