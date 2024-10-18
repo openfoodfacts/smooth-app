@@ -21,8 +21,7 @@
 </head>
 
 
-<body data-base-href="../"
-      data-using-base-href="false">
+<body data-base-href="../" data-using-base-href="false">
 
 <div id="overlay-under-drawer"></div>
 
@@ -44,124 +43,229 @@
 
   <div id="dartdoc-main-content" class="main-content">
       <div>
-<h1><span class="kind-enum">ProductListType</span> enum 
+
+        <h1>
+          <span class="kind-enum">ProductListType</span>
+          enum 
     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
  
-</h1></div>
+
+        </h1>
+      </div>
 
     
 
 
     <section>
       <dl class="dl-horizontal">
-        <dt>Inheritance</dt>
-        <dd><ul class="gt-separated dark eNum-relationships">
-          <li><a href="https://api.flutter.dev/flutter/dart-core/Object-class.html">Object</a></li>
-          <li><a href="https://api.flutter.dev/flutter/dart-core/Enum-class.html">Enum</a></li>
-          <li>ProductListType</li>
-        </ul></dd>
+        
+  <dt>Inheritance</dt>
+  <dd>
+    <ul class="gt-separated dark eNum-relationships">
+      <li><a href="https://api.flutter.dev/flutter/dart-core/Object-class.html">Object</a></li>
+        <li><a href="https://api.flutter.dev/flutter/dart-core/Enum-class.html">Enum</a></li>
+      <li>ProductListType</li>
+    </ul>
+  </dd>
 
+        
+        
+        
       </dl>
     </section>
 
-    <section class="summary offset-anchor" id="constants">
-      <h2>Constants</h2>
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>Constructors</h2>
+
+    <dl class="constructor-summary-list">
+        <dt id="ProductListType" class="callable">
+          <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_product_list/ProductListType/ProductListType.html">ProductListType</a></span><span class="signature">(<span class="parameter" id="-param-key"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">key</span></span>)</span>
+        </dt>
+        <dd>
+          
+            <div class="constructor-modifier features">const</div>
+        </dd>
+    </dl>
+  </section>
+
+    <section class="summary offset-anchor" id="values">
+      <h2>Values</h2>
 
       <dl class="properties">
-        <dt id="HISTORY" class="constant">
-  <span class="name ">HISTORY</span>
+          <dt id="HTTP_SEARCH_KEYWORDS" class="constant">
+    <span class="name ">HTTP_SEARCH_KEYWORDS</span>
   <span class="signature">&#8594; const <a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_product_list/ProductListType.html">ProductListType</a></span>
   
 
 </dt>
 <dd>
-  <p>History of products seen by the end-user</p> 
+  <p>API search by <code>SearchTerms</code> keywords</p>
   
 
   <div>
-    <span class="signature"><code>const ProductListType(3)</code></span>
+    <span class="signature"><code>ProductListType(&#39;http&#47;search&#47;keywords&#39;)</code></span>
   </div>
 </dd>
 
-        <dt id="HTTP_SEARCH_CATEGORY" class="constant">
-  <span class="name ">HTTP_SEARCH_CATEGORY</span>
+          <dt id="HTTP_SEARCH_CATEGORY" class="constant">
+    <span class="name ">HTTP_SEARCH_CATEGORY</span>
   <span class="signature">&#8594; const <a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_product_list/ProductListType.html">ProductListType</a></span>
   
 
 </dt>
 <dd>
-  <p>API search for <a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_category_product_query/CategoryProductQuery-class.html">CategoryProductQuery</a> category</p> 
+  <p>API search for <a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_query_category_product_query/CategoryProductQuery-class.html">CategoryProductQuery</a> category</p>
   
 
   <div>
-    <span class="signature"><code>const ProductListType(1)</code></span>
+    <span class="signature"><code>ProductListType(&#39;http&#47;search&#47;category&#39;)</code></span>
   </div>
 </dd>
 
-        <dt id="HTTP_SEARCH_KEYWORDS" class="constant">
-  <span class="name ">HTTP_SEARCH_KEYWORDS</span>
+          <dt id="SCAN_SESSION" class="constant">
+    <span class="name ">SCAN_SESSION</span>
   <span class="signature">&#8594; const <a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_product_list/ProductListType.html">ProductListType</a></span>
   
 
 </dt>
 <dd>
-  <p>API search by <code>SearchTerms</code> keywords</p> 
+  <p>Current scan session; can be easily cleared by the end-user</p>
   
 
   <div>
-    <span class="signature"><code>const ProductListType(0)</code></span>
+    <span class="signature"><code>ProductListType(&#39;scan_session&#39;)</code></span>
   </div>
 </dd>
 
-        <dt id="SCAN_SESSION" class="constant">
-  <span class="name ">SCAN_SESSION</span>
+          <dt id="SCAN_HISTORY" class="constant">
+    <span class="name ">SCAN_HISTORY</span>
   <span class="signature">&#8594; const <a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_product_list/ProductListType.html">ProductListType</a></span>
   
 
 </dt>
 <dd>
-  <p>Current scan session; can be easily cleared by the end-user</p> 
+  <p>Whole scan history; items may be removed by the end-user</p>
   
 
   <div>
-    <span class="signature"><code>const ProductListType(2)</code></span>
+    <span class="signature"><code>ProductListType(&#39;scan_history&#39;)</code></span>
   </div>
 </dd>
 
-        <dt id="USER" class="constant">
-  <span class="name ">USER</span>
+          <dt id="HISTORY" class="constant">
+    <span class="name ">HISTORY</span>
   <span class="signature">&#8594; const <a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_product_list/ProductListType.html">ProductListType</a></span>
   
 
 </dt>
 <dd>
-  <p>End-user product list</p> 
+  <p>History of products seen by the end-user</p>
   
 
   <div>
-    <span class="signature"><code>const ProductListType(4)</code></span>
+    <span class="signature"><code>ProductListType(&#39;history&#39;)</code></span>
   </div>
 </dd>
 
-        <dt id="values" class="constant">
-  <span class="name ">values</span>
-  <span class="signature">&#8594; const <a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_product_list/ProductListType.html">ProductListType</a></span>&gt;</span></span>
+          <dt id="USER" class="constant">
+    <span class="name ">USER</span>
+  <span class="signature">&#8594; const <a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_product_list/ProductListType.html">ProductListType</a></span>
   
 
 </dt>
 <dd>
-  <p>A constant List of the values in this enum, in order of their declaration.</p> 
+  <p>End-user product list</p>
   
 
   <div>
-    <span class="signature"><code>const List&lt;<wbr><span class="type-parameter">ProductListType</span>&gt;</code></span>
+    <span class="signature"><code>ProductListType(&#39;user&#39;)</code></span>
+  </div>
+</dd>
+
+          <dt id="HTTP_USER_CONTRIBUTOR" class="constant">
+    <span class="name ">HTTP_USER_CONTRIBUTOR</span>
+  <span class="signature">&#8594; const <a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_product_list/ProductListType.html">ProductListType</a></span>
+  
+
+</dt>
+<dd>
+  <p>End-user as a contributor</p>
+  
+
+  <div>
+    <span class="signature"><code>ProductListType(&#39;http&#47;user&#47;contributor&#39;)</code></span>
+  </div>
+</dd>
+
+          <dt id="HTTP_USER_INFORMER" class="constant">
+    <span class="name ">HTTP_USER_INFORMER</span>
+  <span class="signature">&#8594; const <a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_product_list/ProductListType.html">ProductListType</a></span>
+  
+
+</dt>
+<dd>
+  <p>End-user as an informer</p>
+  
+
+  <div>
+    <span class="signature"><code>ProductListType(&#39;http&#47;user&#47;informer&#39;)</code></span>
+  </div>
+</dd>
+
+          <dt id="HTTP_USER_PHOTOGRAPHER" class="constant">
+    <span class="name ">HTTP_USER_PHOTOGRAPHER</span>
+  <span class="signature">&#8594; const <a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_product_list/ProductListType.html">ProductListType</a></span>
+  
+
+</dt>
+<dd>
+  <p>End-user as a photographer</p>
+  
+
+  <div>
+    <span class="signature"><code>ProductListType(&#39;http&#47;user&#47;photographer&#39;)</code></span>
+  </div>
+</dd>
+
+          <dt id="HTTP_USER_TO_BE_COMPLETED" class="constant">
+    <span class="name ">HTTP_USER_TO_BE_COMPLETED</span>
+  <span class="signature">&#8594; const <a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_product_list/ProductListType.html">ProductListType</a></span>
+  
+
+</dt>
+<dd>
+  <p>End-user for products to be completed</p>
+  
+
+  <div>
+    <span class="signature"><code>ProductListType(&#39;http&#47;user&#47;to_be_completed&#39;)</code></span>
+  </div>
+</dd>
+
+          <dt id="HTTP_ALL_TO_BE_COMPLETED" class="constant">
+    <span class="name ">HTTP_ALL_TO_BE_COMPLETED</span>
+  <span class="signature">&#8594; const <a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_product_list/ProductListType.html">ProductListType</a></span>
+  
+
+</dt>
+<dd>
+  <p>For products to be completed, all of them.</p>
+  
+
+  <div>
+    <span class="signature"><code>ProductListType(&#39;http&#47;all&#47;to_be_completed&#39;)</code></span>
   </div>
 </dd>
 
       </dl>
     </section>
 
-    <section class="summary offset-anchor inherited" id="instance-properties">
+    <section
+        class="
+          summary
+          offset-anchor"
+        id="instance-properties">
       <h2>Properties</h2>
 
       <dl class="properties">
@@ -171,7 +275,7 @@
 
 </dt>
 <dd class="inherited">
-  The hash code for this object. <a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">[...]</a>
+  The hash code for this object.
   <div class="features">read-only, inherited</div>
 
 </dd>
@@ -182,8 +286,19 @@
 
 </dt>
 <dd class="inherited">
-  A numeric identifier for the enumerated value. <a href="https://api.flutter.dev/flutter/dart-core/Enum/index.html">[...]</a>
+  A numeric identifier for the enumerated value.
   <div class="features">read-only, inherited</div>
+
+</dd>
+
+        <dt id="key" class="property">
+  <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_product_list/ProductListType/key.html">key</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> 
+
+</dt>
+<dd>
+  
+  <div class="features">final</div>
 
 </dd>
 
@@ -193,7 +308,7 @@
 
 </dt>
 <dd class="inherited">
-  A representation of the runtime type of the object. 
+  A representation of the runtime type of the object.
   <div class="features">read-only, inherited</div>
 
 </dd>
@@ -201,9 +316,12 @@
       </dl>
     </section>
 
-    <section class="summary offset-anchor inherited" id="instance-methods">
-      <h2>Methods</h2>
-      <dl class="callables">
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="instance-methods">
+    <h2>Methods</h2>
+    <dl class="callables">
         <dt id="noSuchMethod" class="callable inherited">
   <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
     <span class="returntype parameter">&#8594; dynamic</span>
@@ -212,7 +330,7 @@
 
 </dt>
 <dd class="inherited">
-  Invoked when a non-existent method or property is accessed. <a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">[...]</a>
+  Invoked when a non-existent method or property is accessed.
   <div class="features">inherited</div>
 
 </dd>
@@ -225,17 +343,19 @@
 
 </dt>
 <dd class="inherited">
-  A string representation of this object. <a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">[...]</a>
+  A string representation of this object.
   <div class="features">inherited</div>
 
 </dd>
 
-      </dl>
-    </section>
-
-    <section class="summary offset-anchor inherited" id="operators">
-      <h2>Operators</h2>
-      <dl class="callables">
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>Operators</h2>
+    <dl class="callables">
         <dt id="operator ==" class="callable inherited">
   <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
     <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
@@ -244,16 +364,39 @@
 
 </dt>
 <dd class="inherited">
-  The equality operator. <a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">[...]</a>
+  The equality operator.
   <div class="features">inherited</div>
 
 </dd>
 
-      </dl>
-    </section>
+    </dl>
+  </section>
+    
+    
+    
 
+  <section class="summary offset-anchor" id="constants">
+    <h2>Constants</h2>
 
-  </div> <!-- /.main-content -->
+    <dl class="properties">
+        <dt id="values" class="constant">
+    <span class="name "><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_product_list/ProductListType/values-constant.html">values</a></span>
+  <span class="signature">&#8594; const <a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_product_list/ProductListType.html">ProductListType</a></span>&gt;</span></span>
+  
+
+</dt>
+<dd>
+  A constant List of the values in this enum, in order of their declaration.
+  
+
+  <div>
+    <span class="signature"><code>[HTTP_SEARCH_KEYWORDS, HTTP_SEARCH_CATEGORY, SCAN_SESSION, SCAN_HISTORY, HISTORY, USER, HTTP_USER_CONTRIBUTOR, HTTP_USER_INFORMER, HTTP_USER_PHOTOGRAPHER, HTTP_USER_TO_BE_COMPLETED, HTTP_ALL_TO_BE_COM…</code></span>
+  </div>
+</dd>
+
+    </dl>
+  </section>
+  </div><!-- /.main-content -->
 
   <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
     <header id="header-search-sidebar" class="hidden-l">
@@ -274,8 +417,6 @@
   <li class="section-title"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_product_list/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_product_list-library.html#classes">Classes</a></li>
   <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_product_list/ProductList-class.html">ProductList</a></li>
 
-  <li class="section-title"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_product_list/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_product_list-library.html#extensions">Extensions</a></li>
-  <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_product_list/ProductListTypeExtension.html">ProductListTypeExtension</a></li>
 
 
 
@@ -292,20 +433,28 @@
   <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
     <ol>
 
+        <li class="section-title"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_product_list/ProductListType.html#constructors">Constructors</a></li>
+          <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_product_list/ProductListType/ProductListType.html">ProductListType</a></li>
 
-    <li class="section-title"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_product_list/ProductListType.html#constants">Constants</a></li>
-    <li>HISTORY</li>
-    <li>HTTP_SEARCH_CATEGORY</li>
-    <li>HTTP_SEARCH_KEYWORDS</li>
-    <li>SCAN_SESSION</li>
-    <li>USER</li>
-    <li>values</li>
+    <li class="section-title"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_product_list/ProductListType.html#values">Values</a></li>
+    <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_product_list/ProductListType.html#HTTP_SEARCH_KEYWORDS">HTTP_SEARCH_KEYWORDS</a></li>
+    <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_product_list/ProductListType.html#HTTP_SEARCH_CATEGORY">HTTP_SEARCH_CATEGORY</a></li>
+    <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_product_list/ProductListType.html#SCAN_SESSION">SCAN_SESSION</a></li>
+    <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_product_list/ProductListType.html#SCAN_HISTORY">SCAN_HISTORY</a></li>
+    <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_product_list/ProductListType.html#HISTORY">HISTORY</a></li>
+    <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_product_list/ProductListType.html#USER">USER</a></li>
+    <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_product_list/ProductListType.html#HTTP_USER_CONTRIBUTOR">HTTP_USER_CONTRIBUTOR</a></li>
+    <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_product_list/ProductListType.html#HTTP_USER_INFORMER">HTTP_USER_INFORMER</a></li>
+    <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_product_list/ProductListType.html#HTTP_USER_PHOTOGRAPHER">HTTP_USER_PHOTOGRAPHER</a></li>
+    <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_product_list/ProductListType.html#HTTP_USER_TO_BE_COMPLETED">HTTP_USER_TO_BE_COMPLETED</a></li>
+    <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_product_list/ProductListType.html#HTTP_ALL_TO_BE_COMPLETED">HTTP_ALL_TO_BE_COMPLETED</a></li>
 
-    <li class="section-title inherited">
+    <li class="section-title">
       <a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_product_list/ProductListType.html#instance-properties">Properties</a>
     </li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Enum/index.html">index</a></li>
+    <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_product_list/ProductListType/key.html">key</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
 
     <li class="section-title inherited"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_product_list/ProductListType.html#instance-methods">Methods</a></li>
@@ -316,16 +465,20 @@
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">operator ==</a></li>
 
 
+
+
+        <li class="section-title"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_product_list/ProductListType.html#constants">Constants</a></li>
+          <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_product_list/ProductListType/values-constant.html">values</a></li>
 </ol>
 
-  </div><!--/.sidebar-offcanvas-->
+  </div><!-- /.sidebar-offcanvas -->
 
 </main>
 
 <footer>
   <span class="no-break">
     smooth_app
-      0.0.0
+      0.0.0+734
   </span>
 
   
@@ -334,7 +487,7 @@
 
 
 <script src="../static-assets/highlight.pack.js?v1"></script>
-<script src="../static-assets/script.js?v1"></script>
+<script src="../static-assets/docs.dart.js"></script>
 
 
 

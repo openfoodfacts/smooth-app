@@ -21,8 +21,7 @@
 </head>
 
 
-<body data-base-href="../../"
-      data-using-base-href="false">
+<body data-base-href="../../" data-using-base-href="false">
 
 <div id="overlay-under-drawer"></div>
 
@@ -74,30 +73,34 @@
 Widget build(BuildContext context) {
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-  return Container(
-    decoration: BoxDecoration(
-      color: Theme.of(context).colorScheme.surface,
-      borderRadius: ROUNDED_BORDER_RADIUS,
-    ),
+  return SmoothProductBaseCard(
     child: Column(
       mainAxisSize: MainAxisSize.max,
       mainAxisAlignment: MainAxisAlignment.center,
       children: &lt;Widget&gt;[
-        Row(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: &lt;Widget&gt;[
-            Text(barcode, style: Theme.of(context).textTheme.subtitle1),
-          ],
+        SvgPicture.asset(
+          &#39;assets&#47;misc&#47;error.svg&#39;,
+          width: MINIMUM_TOUCH_SIZE * 2,
+          package: AppHelper.APP_PACKAGE,
         ),
         const SizedBox(
-          height: 12.0,
+          height: SMALL_SPACE,
+        ),
+        Text(
+          barcode,
+          style: Theme.of(context).textTheme.titleMedium,
+        ),
+        const SizedBox(
+          height: MEDIUM_SPACE,
         ),
         ProductDialogHelper.getErrorMessage(
-          appLocalizations.product_internet_error,
+          _getErrorMessage(
+            errorType,
+            appLocalizations,
+          ),
         ),
         const SizedBox(
-          height: 12.0,
+          height: MEDIUM_SPACE,
         ),
         ElevatedButton(
           onPressed: () async {
@@ -134,14 +137,15 @@ Widget build(BuildContext context) {
     <h5>SmoothProductCardError class</h5>
     <ol>
 
-    <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_smooth_product_card_error/SmoothProductCardError-class.html#constructors">Constructors</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_smooth_product_card_error/SmoothProductCardError/SmoothProductCardError.html">SmoothProductCardError</a></li>
+        <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_smooth_product_card_error/SmoothProductCardError-class.html#constructors">Constructors</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_smooth_product_card_error/SmoothProductCardError/SmoothProductCardError.html">SmoothProductCardError</a></li>
 
 
     <li class="section-title">
       <a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_smooth_product_card_error/SmoothProductCardError-class.html#instance-properties">Properties</a>
     </li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_smooth_product_card_error/SmoothProductCardError/barcode.html">barcode</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_smooth_product_card_error/SmoothProductCardError/errorType.html">errorType</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
 
@@ -168,7 +172,7 @@ Widget build(BuildContext context) {
 <footer>
   <span class="no-break">
     smooth_app
-      0.0.0
+      0.0.0+734
   </span>
 
   
@@ -177,7 +181,7 @@ Widget build(BuildContext context) {
 
 
 <script src="../../static-assets/highlight.pack.js?v1"></script>
-<script src="../../static-assets/script.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
 
 
 

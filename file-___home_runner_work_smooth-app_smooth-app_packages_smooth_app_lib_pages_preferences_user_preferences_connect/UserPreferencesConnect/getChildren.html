@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the getChildren method from the UserPreferencesConnect class, for the Dart programming language.">
+  <title>getChildren method - UserPreferencesConnect class - user_preferences_connect library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="../../" data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">smooth_app</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_connect/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_connect-library.html">user_preferences_connect</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_connect/UserPreferencesConnect-class.html">UserPreferencesConnect</a></li>
+    <li class="self-crumb">getChildren method</li>
+  </ol>
+  <div class="self-name">getChildren</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div>
+<h1><span class="kind-method">getChildren</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+<div>
+  <ol class="annotation-list">
+    <li>@<a href="https://api.flutter.dev/flutter/dart-core/override-constant.html">override</a></li>
+  </ol>
+</div>
+
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a></span>
+<span class="name ">getChildren</span>(<wbr>)
+
+      
+
+    </section>
+    
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">@override
+List&lt;UserPreferencesItem&gt; getChildren() =&gt; &lt;UserPreferencesItem&gt;[
+      _getListTile(
+        title: appLocalizations.contact_title_newsletter,
+        url: &#39;https:&#47;&#47;link.openfoodfacts.org&#47;newsletter-en&#39;,
+        leadingIconData: CupertinoIcons.news_solid,
+      ),
+      _getListTile(
+        title: appLocalizations.support_via_email,
+        leadingIconData: Icons.drafts,
+        onTap: () async {
+          final bool? includeLogs = await showDialog&lt;bool&gt;(
+              context: context,
+              builder: (BuildContext context) {
+                return SmoothAlertDialog(
+                  title: appLocalizations
+                      .support_via_email_include_logs_dialog_title,
+                  body: Text(
+                    appLocalizations
+                        .support_via_email_include_logs_dialog_body,
+                  ),
+                  close: true,
+                  positiveAction: SmoothActionButton(
+                      text: appLocalizations.yes,
+                      onPressed: () =&gt; Navigator.of(context).pop(true)),
+                  negativeAction: SmoothActionButton(
+                      text: appLocalizations.no,
+                      onPressed: () =&gt; Navigator.of(context).pop(false)),
+                );
+              });
+
+          if (includeLogs == null) {
+            return;
+          }
+
+          await _sendEmail(
+            body: await _emailBody,
+            subject:
+                &#39;${appLocalizations.help_with_openfoodfacts} (Help with Open Food Facts)&#39;,
+            recipient: &#39;mobile@openfoodfacts.org&#39;,
+            attachmentPaths: includeLogs == true ? Logs.logFilesPaths : null,
+          );
+        },
+      ),
+      _getDivider(),
+      _getListTile(
+        title: appLocalizations.instagram,
+        url: appLocalizations.instagram_link,
+        leadingWidget: SvgPicture.asset(
+          &#39;assets&#47;preferences&#47;instagram-camera.svg&#39;,
+          width: DEFAULT_ICON_SIZE,
+          package: AppHelper.APP_PACKAGE,
+        ),
+      ),
+      _getListTile(
+        title: appLocalizations.twitter,
+        url: appLocalizations.twitter_link,
+        leadingWidget: SvgPicture.asset(
+          &#39;assets&#47;preferences&#47;x-logo.svg&#39;,
+          width: DEFAULT_ICON_SIZE,
+          colorFilter: ui.ColorFilter.mode(
+            Theme.of(context).colorScheme.onSurface,
+            ui.BlendMode.srcIn,
+          ),
+          package: AppHelper.APP_PACKAGE,
+        ),
+      ),
+      _getListTile(
+        title: appLocalizations.blog,
+        url: &#39;https:&#47;&#47;blog.openfoodfacts.org&#39;,
+        leadingIconData: Icons.newspaper,
+      ),
+      _getDivider(),
+      _getListTile(
+        title: appLocalizations.support_via_forum,
+        url: &#39;https:&#47;&#47;forum.openfoodfacts.org&#47;&#39;,
+        leadingIconData: Icons.forum,
+      ),
+      _getListTile(
+        title: appLocalizations.support_join_slack,
+        url: &#39;https:&#47;&#47;slack.openfoodfacts.org&#47;&#39;,
+        leadingIconData: Icons.chat,
+      ),
+      _getDivider(),
+      _getListTile(
+        title: appLocalizations.contact_title_pro_page,
+        url: ProductQuery.replaceSubdomain(
+          &#39;https:&#47;&#47;world.pro.openfoodfacts.org&#47;&#39;,
+        ),
+        leadingIconData: Icons.factory_outlined,
+      ),
+      _getListTile(
+        title: appLocalizations.contact_title_pro_email,
+        leadingIconData: Icons.drafts,
+        onTap: () async =&gt; _sendEmail(
+          recipient:
+              ProductQuery.getLanguage() == OpenFoodFactsLanguage.FRENCH
+                  ? &#39;producteurs@openfoodfacts.org&#39;
+                  : &#39;producers@openfoodfacts.org&#39;,
+        ),
+      ),
+      _getDivider(),
+      _getListTile(
+        title: appLocalizations.contact_title_press_page,
+        url: ProductQuery.replaceSubdomain(
+          &#39;https:&#47;&#47;world.openfoodfacts.org&#47;press&#39;,
+        ),
+        leadingIconData: CupertinoIcons.news_solid,
+      ),
+      _getListTile(
+        title: appLocalizations.contact_title_press_email,
+        leadingIconData: Icons.drafts,
+        onTap: () async =&gt; _sendEmail(
+          recipient:
+              ProductQuery.getLanguage() == OpenFoodFactsLanguage.FRENCH
+                  ? &#39;presse@openfoodfacts.org&#39;
+                  : &#39;press@openfoodfacts.org&#39;,
+        ),
+      ),
+    ];</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../../index.html">smooth_app</a></li>
+  <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_connect/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_connect-library.html">user_preferences_connect</a></li>
+  <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_connect/UserPreferencesConnect-class.html">UserPreferencesConnect</a></li>
+  <li class="self-crumb">getChildren method</li>
+</ol>
+
+
+    <h5>UserPreferencesConnect class</h5>
+    <ol>
+
+        <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_connect/UserPreferencesConnect-class.html#constructors">Constructors</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_connect/UserPreferencesConnect/UserPreferencesConnect.html">UserPreferencesConnect</a></li>
+
+
+    <li class="section-title inherited">
+      <a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_connect/UserPreferencesConnect-class.html#instance-properties">Properties</a>
+    </li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
+
+    <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_connect/UserPreferencesConnect-class.html#instance-methods">Methods</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_connect/UserPreferencesConnect/getChildren.html">getChildren</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_connect/UserPreferencesConnect/getHeaderAsset.html">getHeaderAsset</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_connect/UserPreferencesConnect/getHeaderColor.html">getHeaderColor</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_connect/UserPreferencesConnect/getLeadingIconData.html">getLeadingIconData</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_connect/UserPreferencesConnect/getPreferencePageType.html">getPreferencePageType</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_connect/UserPreferencesConnect/getTitleString.html">getTitleString</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
+
+    <li class="section-title inherited"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_connect/UserPreferencesConnect-class.html#operators">Operators</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">operator ==</a></li>
+
+
+
+
+</ol>
+
+  </div><!--/.sidebar-offcanvas-->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    smooth_app
+      0.0.0+734
+  </span>
+
+  
+</footer>
+
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
+
+
+
+</body>
+
+</html>
+

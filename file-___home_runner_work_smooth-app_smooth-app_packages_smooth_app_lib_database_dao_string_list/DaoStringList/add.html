@@ -21,8 +21,7 @@
 </head>
 
 
-<body data-base-href="../../"
-      data-using-base-href="false">
+<body data-base-href="../../" data-using-base-href="false">
 
 <div id="overlay-under-drawer"></div>
 
@@ -53,26 +52,33 @@
       
 
 <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
-<span class="name ">add</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="add-param-string"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">string</span></span></li>
+<span class="name ">add</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="add-param-key"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">key</span>, </span></li>
+<li><span class="parameter" id="add-param-string"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">string</span></span></li>
 </ol>)
 
       
 
     </section>
     
+<section class="desc markdown">
+  <p>Adds a unique value to the end. Removes is before if it pre-existed.</p>
+</section>
 
 
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; add(final String string) async {
-  final List&lt;String&gt; value = await getAll();
+  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; add(final String key, final String string) async {
+  final List&lt;String&gt; value = getAll(key);
   value.remove(string);
   value.add(string);
-  while (value.length &gt; _max) {
-    value.removeAt(0);
+  final int? maxLength = _maxLengths[key];
+  if (maxLength != null) {
+    while (value.length &gt; maxLength) {
+      value.removeAt(0);
+    }
   }
-  await _getBox().put(_key, value);
+  await _getBox().put(key, value);
   localDatabase.notifyListeners();
 }</code></pre>
 </section>
@@ -98,8 +104,8 @@
     <h5>DaoStringList class</h5>
     <ol>
 
-    <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_dao_string_list/DaoStringList-class.html#constructors">Constructors</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_dao_string_list/DaoStringList/DaoStringList.html">DaoStringList</a></li>
+        <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_dao_string_list/DaoStringList-class.html#constructors">Constructors</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_dao_string_list/DaoStringList/DaoStringList.html">DaoStringList</a></li>
 
 
     <li class="section-title inherited">
@@ -123,6 +129,12 @@
 
 
 
+        <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_dao_string_list/DaoStringList-class.html#constants">Constants</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_dao_string_list/DaoStringList/keyLanguages-constant.html">keyLanguages</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_dao_string_list/DaoStringList/keyPriceStores-constant.html">keyPriceStores</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_dao_string_list/DaoStringList/keySearchLocationHistory-constant.html">keySearchLocationHistory</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_dao_string_list/DaoStringList/keySearchProductHistory-constant.html">keySearchProductHistory</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_dao_string_list/DaoStringList/keyTasks-constant.html">keyTasks</a></li>
 </ol>
 
   </div><!--/.sidebar-offcanvas-->
@@ -135,7 +147,7 @@
 <footer>
   <span class="no-break">
     smooth_app
-      0.0.0
+      0.0.0+734
   </span>
 
   
@@ -144,7 +156,7 @@
 
 
 <script src="../../static-assets/highlight.pack.js?v1"></script>
-<script src="../../static-assets/script.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
 
 
 

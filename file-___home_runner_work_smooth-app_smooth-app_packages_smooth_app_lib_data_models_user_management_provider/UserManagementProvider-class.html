@@ -21,8 +21,7 @@
 </head>
 
 
-<body data-base-href="../"
-      data-using-base-href="false">
+<body data-base-href="../" data-using-base-href="false">
 
 <div id="overlay-under-drawer"></div>
 
@@ -53,18 +52,19 @@
 
 
 
-    <section class="summary offset-anchor" id="constructors">
-      <h2>Constructors</h2>
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>Constructors</h2>
 
-      <dl class="constructor-summary-list">
+    <dl class="constructor-summary-list">
         <dt id="UserManagementProvider" class="callable">
           <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_user_management_provider/UserManagementProvider/UserManagementProvider.html">UserManagementProvider</a></span><span class="signature">()</span>
         </dt>
         <dd>
-           
+          
         </dd>
-      </dl>
-    </section>
+    </dl>
+  </section>
 
     <section class="summary offset-anchor inherited" id="instance-properties">
       <h2>Properties</h2>
@@ -76,7 +76,7 @@
 
 </dt>
 <dd class="inherited">
-  The hash code for this object. <a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">[...]</a>
+  The hash code for this object.
   <div class="features">read-only, inherited</div>
 
 </dd>
@@ -87,7 +87,7 @@
 
 </dt>
 <dd class="inherited">
-  A representation of the runtime type of the object. 
+  A representation of the runtime type of the object.
   <div class="features">read-only, inherited</div>
 
 </dd>
@@ -95,9 +95,26 @@
       </dl>
     </section>
 
-    <section class="summary offset-anchor" id="instance-methods">
-      <h2>Methods</h2>
-      <dl class="callables">
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>Methods</h2>
+    <dl class="callables">
+        <dt id="checkUserLoginValidity" class="callable">
+  <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_user_management_provider/UserManagementProvider/checkUserLoginValidity.html">checkUserLoginValidity</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Check if the user is still logged in and the credentials are still valid
+If not, the user is logged out
+  
+
+</dd>
+
         <dt id="credentialsInStorage" class="callable">
   <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_user_management_provider/UserManagementProvider/credentialsInStorage.html">credentialsInStorage</a></span><span class="signature">(<wbr>)
     <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>&gt;</span></span>
@@ -106,20 +123,20 @@
 
 </dt>
 <dd>
-  Checks if any credentials exist in storage 
+  Checks if any credentials exist in storage
   
 
 </dd>
 
         <dt id="login" class="callable">
   <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_user_management_provider/UserManagementProvider/login.html">login</a></span><span class="signature">(<wbr><span class="parameter" id="login-param-user"><span class="type-annotation">dynamic</span> <span class="parameter-name">user</span></span>)
-    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>&gt;</span></span>
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a></span>
   </span>
   
 
 </dt>
 <dd>
-  Checks credentials and conditionally saves them 
+  Checks credentials and conditionally saves them.
   
 
 </dd>
@@ -132,7 +149,7 @@
 
 </dt>
 <dd>
-  Deletes saved credentials from storage 
+  Deletes saved credentials from storage
   
 
 </dd>
@@ -145,7 +162,7 @@
 
 </dt>
 <dd class="inherited">
-  Invoked when a non-existent method or property is accessed. <a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">[...]</a>
+  Invoked when a non-existent method or property is accessed.
   <div class="features">inherited</div>
 
 </dd>
@@ -158,7 +175,7 @@
 
 </dt>
 <dd>
-  Saves user to storage 
+  Saves user to storage
   
 
 </dd>
@@ -171,17 +188,19 @@
 
 </dt>
 <dd class="inherited">
-  A string representation of this object. <a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">[...]</a>
+  A string representation of this object.
   <div class="features">inherited</div>
 
 </dd>
 
-      </dl>
-    </section>
-
-    <section class="summary offset-anchor inherited" id="operators">
-      <h2>Operators</h2>
-      <dl class="callables">
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>Operators</h2>
+    <dl class="callables">
         <dt id="operator ==" class="callable inherited">
   <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
     <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
@@ -190,33 +209,34 @@
 
 </dt>
 <dd class="inherited">
-  The equality operator. <a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">[...]</a>
+  The equality operator.
   <div class="features">inherited</div>
 
 </dd>
 
-      </dl>
-    </section>
-
-
-    <section class="summary offset-anchor" id="static-methods">
-      <h2>Static Methods</h2>
-      <dl class="callables">
+    </dl>
+  </section>
+    
+    
+  <section class="summary offset-anchor" id="static-methods">
+    <h2>Static Methods</h2>
+    <dl class="callables">
         <dt id="mountCredentials" class="callable">
-  <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_user_management_provider/UserManagementProvider/mountCredentials.html">mountCredentials</a></span><span class="signature">(<wbr>)
+  <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_user_management_provider/UserManagementProvider/mountCredentials.html">mountCredentials</a></span><span class="signature">(<wbr><span class="parameter" id="mountCredentials-param-userId">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">userId</span>, </span><span class="parameter" id="mountCredentials-param-password"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">password</span>}</span>)
     <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
   </span>
   
 
 </dt>
 <dd>
-  Mounts already stored credentials, called at app startup 
+  Mounts already stored credentials, called at app startup
   
 
 </dd>
 
-      </dl>
-    </section>
+    </dl>
+  </section>
+    
 
 
   </div> <!-- /.main-content -->
@@ -254,8 +274,8 @@
   <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
     <ol>
 
-    <li class="section-title"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_user_management_provider/UserManagementProvider-class.html#constructors">Constructors</a></li>
-    <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_user_management_provider/UserManagementProvider/UserManagementProvider.html">UserManagementProvider</a></li>
+        <li class="section-title"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_user_management_provider/UserManagementProvider-class.html#constructors">Constructors</a></li>
+          <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_user_management_provider/UserManagementProvider/UserManagementProvider.html">UserManagementProvider</a></li>
 
 
     <li class="section-title inherited">
@@ -265,6 +285,7 @@
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
 
     <li class="section-title"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_user_management_provider/UserManagementProvider-class.html#instance-methods">Methods</a></li>
+    <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_user_management_provider/UserManagementProvider/checkUserLoginValidity.html">checkUserLoginValidity</a></li>
     <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_user_management_provider/UserManagementProvider/credentialsInStorage.html">credentialsInStorage</a></li>
     <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_user_management_provider/UserManagementProvider/login.html">login</a></li>
     <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_user_management_provider/UserManagementProvider/logout.html">logout</a></li>
@@ -277,8 +298,8 @@
 
 
 
-    <li class="section-title"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_user_management_provider/UserManagementProvider-class.html#static-methods">Static methods</a></li>
-    <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_user_management_provider/UserManagementProvider/mountCredentials.html">mountCredentials</a></li>
+        <li class="section-title"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_user_management_provider/UserManagementProvider-class.html#static-methods">Static methods</a></li>
+          <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_user_management_provider/UserManagementProvider/mountCredentials.html">mountCredentials</a></li>
 
 </ol>
 
@@ -289,7 +310,7 @@
 <footer>
   <span class="no-break">
     smooth_app
-      0.0.0
+      0.0.0+734
   </span>
 
   
@@ -298,7 +319,7 @@
 
 
 <script src="../static-assets/highlight.pack.js?v1"></script>
-<script src="../static-assets/script.js?v1"></script>
+<script src="../static-assets/docs.dart.js"></script>
 
 
 

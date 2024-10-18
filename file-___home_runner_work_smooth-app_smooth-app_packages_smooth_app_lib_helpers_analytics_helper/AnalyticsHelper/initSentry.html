@@ -21,8 +21,7 @@
 </head>
 
 
-<body data-base-href="../../"
-      data-using-base-href="false">
+<body data-base-href="../../" data-using-base-href="false">
 
 <div id="overlay-under-drawer"></div>
 
@@ -53,7 +52,7 @@
       
 
 <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
-<span class="name ">initSentry</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="initSentry-param-appRunner">{<span class="type-annotation">dynamic</span> <span class="parameter-name">appRunner</span>(<ol class="parameter-list"></ol>
+<span class="name ">initSentry</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="initSentry-param-appRunner">{<span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">appRunner</span>(<ol class="parameter-list"></ol>
 )?}</span></li>
 </ol>)
 
@@ -66,18 +65,31 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">static Future&lt;void&gt; initSentry({Function()? appRunner}) async {
-  final PackageInfo packageInfo = await PackageInfo.fromPlatform();
-
+  <pre class="language-dart"><code class="language-dart">static Future&lt;void&gt; initSentry({
+  required Function()? appRunner,
+}) async {
   await SentryFlutter.init(
     (SentryOptions options) {
-      options.dsn =
-          &#39;https:&#47;&#47;22ec5d0489534b91ba455462d3736680@o241488.ingest.sentry.io&#47;5376745&#39;;
-      options.sentryClientName =
-          &#39;sentry.dart.smoothie&#47;${packageInfo.version}&#39;;
+      options
+        ..dsn =
+            &#39;https:&#47;&#47;22ec5d0489534b91ba455462d3736680@o241488.ingest.sentry.io&#47;5376745&#39;
+        ..beforeSend = (
+          SentryEvent event,
+          Hint hint,
+        ) async {
+          return event.copyWith(
+            tags: &lt;String, String&gt;{
+              &#39;store&#39;: GlobalVars.storeLabel.name,
+              &#39;scanner&#39;: GlobalVars.scannerLabel.name,
+            },
+          );
+        };
       &#47;&#47; To set a uniform sample rate
-      options.tracesSampleRate = 1.0;
-      options.beforeSend = _beforeSend;
+      options
+        ..tracesSampleRate = 1.0
+        ..beforeSend = _beforeSend
+        ..environment =
+            &#39;${GlobalVars.storeLabel.name}-${GlobalVars.scannerLabel.name}&#39;;
     },
     appRunner: appRunner,
   );
@@ -121,21 +133,21 @@
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">operator ==</a></li>
 
 
-    <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsHelper-class.html#static-properties">Static properties</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsHelper/latestSearch.html">latestSearch</a></li>
+        <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsHelper-class.html#static-properties">Static properties</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsHelper/isEnabled.html">isEnabled</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsHelper/latestSearch.html">latestSearch</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsHelper/matomoVisitorId.html">matomoVisitorId</a></li>
 
-    <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsHelper-class.html#static-methods">Static methods</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsHelper/initMatomo.html">initMatomo</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsHelper/initSentry.html">initSentry</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsHelper/setAnalyticsReports.html">setAnalyticsReports</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsHelper/setCrashReports.html">setCrashReports</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsHelper/trackKnowledgePanelOpen.html">trackKnowledgePanelOpen</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsHelper/trackOpenLink.html">trackOpenLink</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsHelper/trackPersonalizedRanking.html">trackPersonalizedRanking</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsHelper/trackProductPageOpen.html">trackProductPageOpen</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsHelper/trackScannedProduct.html">trackScannedProduct</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsHelper/trackSearch.html">trackSearch</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsHelper/trackStart.html">trackStart</a></li>
+        <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsHelper-class.html#static-methods">Static methods</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsHelper/initMatomo.html">initMatomo</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsHelper/initSentry.html">initSentry</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsHelper/linkPreferences.html">linkPreferences</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsHelper/sendException.html">sendException</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsHelper/trackCustomEvent.html">trackCustomEvent</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsHelper/trackEvent.html">trackEvent</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsHelper/trackOutlink.html">trackOutlink</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsHelper/trackProductEdit.html">trackProductEdit</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsHelper/trackSearch.html">trackSearch</a></li>
 
 </ol>
 
@@ -149,7 +161,7 @@
 <footer>
   <span class="no-break">
     smooth_app
-      0.0.0
+      0.0.0+734
   </span>
 
   
@@ -158,7 +170,7 @@
 
 
 <script src="../../static-assets/highlight.pack.js?v1"></script>
-<script src="../../static-assets/script.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
 
 
 

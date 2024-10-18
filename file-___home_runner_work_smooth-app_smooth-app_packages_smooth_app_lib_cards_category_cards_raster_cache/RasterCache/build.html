@@ -21,8 +21,7 @@
 </head>
 
 
-<body data-base-href="../../"
-      data-using-base-href="false">
+<body data-base-href="../../" data-using-base-href="false">
 
 <div id="overlay-under-drawer"></div>
 
@@ -76,6 +75,7 @@ Widget build(BuildContext context) {
   if (fullFilenames.isEmpty) {
     return getDefaultUnknown();
   }
+
   return Image.network(
     iconUrl!,
     width: width,
@@ -89,17 +89,14 @@ Widget build(BuildContext context) {
       if (loadingProgress == null) {
         return child;
       }
-      return displayAssetWhileWaiting
-          ? RasterAsyncAsset(
-              AssetCacheHelper(
-                fullFilenames,
-                iconUrl!,
-                width: width,
-                height: height,
-              ),
-            )
-          : getCircularProgressIndicator();
+      return _localAssetWidget(fullFilenames);
     },
+    errorBuilder: (
+      final BuildContext context,
+      final Object error,
+      final StackTrace? stackTrace,
+    ) =&gt;
+        _localAssetWidget(fullFilenames),
   );
 }</code></pre>
 </section>
@@ -125,8 +122,8 @@ Widget build(BuildContext context) {
     <h5>RasterCache class</h5>
     <ol>
 
-    <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_category_cards_raster_cache/RasterCache-class.html#constructors">Constructors</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_category_cards_raster_cache/RasterCache/RasterCache.html">RasterCache</a></li>
+        <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_category_cards_raster_cache/RasterCache-class.html#constructors">Constructors</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_category_cards_raster_cache/RasterCache/RasterCache.html">RasterCache</a></li>
 
 
     <li class="section-title inherited">
@@ -158,7 +155,7 @@ Widget build(BuildContext context) {
 <footer>
   <span class="no-break">
     smooth_app
-      0.0.0
+      0.0.0+734
   </span>
 
   
@@ -167,7 +164,7 @@ Widget build(BuildContext context) {
 
 
 <script src="../../static-assets/highlight.pack.js?v1"></script>
-<script src="../../static-assets/script.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
 
 
 

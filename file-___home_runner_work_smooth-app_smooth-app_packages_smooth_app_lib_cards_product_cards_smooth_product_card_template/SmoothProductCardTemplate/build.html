@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the build method from the SmoothProductCardTemplate class, for the Dart programming language.">
+  <title>build method - SmoothProductCardTemplate class - smooth_product_card_template library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="../../" data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">smooth_app</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_smooth_product_card_template/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_smooth_product_card_template-library.html">smooth_product_card_template</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_smooth_product_card_template/SmoothProductCardTemplate-class.html">SmoothProductCardTemplate</a></li>
+    <li class="self-crumb">build method</li>
+  </ol>
+  <div class="self-name">build</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div>
+<h1><span class="kind-method">build</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+<div>
+  <ol class="annotation-list">
+    <li>@<a href="https://api.flutter.dev/flutter/dart-core/override-constant.html">override</a></li>
+  </ol>
+</div>
+
+<span class="returntype">dynamic</span>
+<span class="name ">build</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="build-param-context"><span class="type-annotation">dynamic</span> <span class="parameter-name">context</span></span></li>
+</ol>)
+
+      
+
+    </section>
+    
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">@override
+Widget build(BuildContext context) {
+  final Size screenSize = MediaQuery.sizeOf(context);
+  final ThemeData themeData = Theme.of(context);
+  final bool isDarkMode = themeData.colorScheme.brightness == Brightness.dark;
+  final Color itemColor = isDarkMode ? PRIMARY_GREY_COLOR : LIGHT_GREY_COLOR;
+  final Color backgroundColor = isDarkMode ? Colors.black : Colors.white;
+  final double iconSize = IconWidgetSizer.getIconSizeFromContext(context);
+  final Widget textWidget = Container(
+    width: double.infinity,
+    height: screenSize.width * .04,
+    decoration: BoxDecoration(
+      color: itemColor,
+      borderRadius: ROUNDED_BORDER_RADIUS,
+    ),
+  );
+  &#47;&#47; In the actual display, it&#39;s a 240x130 svg resized with iconSize
+  final double svgWidth = 240 * iconSize &#47; 130;
+  final Widget svgWidget = Container(
+    height: iconSize * .9,
+    width: svgWidth,
+    color: itemColor,
+  );
+  return Padding(
+    padding: const EdgeInsets.symmetric(
+      horizontal: MEDIUM_SPACE,
+      vertical: SMALL_SPACE,
+    ),
+    child: Container(
+      decoration: BoxDecoration(
+        borderRadius: ROUNDED_BORDER_RADIUS,
+        color: backgroundColor,
+      ),
+      child: SmoothCard(
+        elevation: SmoothProductCardFound.elevation,
+        color: Colors.transparent,
+        padding: const EdgeInsets.all(VERY_SMALL_SPACE),
+        child: Row(
+          children: &lt;Widget&gt;[
+            SmoothImage(
+              width: screenSize.width * 0.20,
+              height: screenSize.width * 0.20,
+              color: itemColor,
+            ),
+            const Padding(
+                padding: EdgeInsetsDirectional.only(start: VERY_SMALL_SPACE)),
+            Expanded(
+              child: SizedBox(
+                height: screenSize.width * 0.2,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: &lt;Widget&gt;[
+                    if (barcode == null)
+                      textWidget
+                    else
+                      Text(
+                        barcode!,
+                        style: const TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                    if (message == null)
+                      textWidget
+                    else
+                      Padding(
+                        padding: const EdgeInsetsDirectional.only(
+                            top: SMALL_SPACE),
+                        child: AutoSizeText(
+                          message!,
+                          maxLines: 3,
+                          minFontSize: 5,
+                        ),
+                      ),
+                    Opacity(opacity: 0, child: textWidget)
+                  ],
+                ),
+              ),
+            ),
+            const Padding(
+                padding: EdgeInsetsDirectional.only(start: VERY_SMALL_SPACE)),
+            Padding(
+              padding: const EdgeInsets.all(VERY_SMALL_SPACE),
+              child: actionButton == null
+                  ? Column(
+                      children: &lt;Widget&gt;[
+                        svgWidget,
+                        Container(height: iconSize * .2),
+                        svgWidget,
+                      ],
+                    )
+                  : SizedBox(
+                      width: svgWidth,
+                      height: iconSize * (.9 * 2 + .2),
+                      child: actionButton,
+                    ),
+            ),
+          ],
+        ),
+      ),
+    ),
+  );
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../../index.html">smooth_app</a></li>
+  <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_smooth_product_card_template/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_smooth_product_card_template-library.html">smooth_product_card_template</a></li>
+  <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_smooth_product_card_template/SmoothProductCardTemplate-class.html">SmoothProductCardTemplate</a></li>
+  <li class="self-crumb">build method</li>
+</ol>
+
+
+    <h5>SmoothProductCardTemplate class</h5>
+    <ol>
+
+        <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_smooth_product_card_template/SmoothProductCardTemplate-class.html#constructors">Constructors</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_smooth_product_card_template/SmoothProductCardTemplate/SmoothProductCardTemplate.html">SmoothProductCardTemplate</a></li>
+
+
+    <li class="section-title">
+      <a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_smooth_product_card_template/SmoothProductCardTemplate-class.html#instance-properties">Properties</a>
+    </li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_smooth_product_card_template/SmoothProductCardTemplate/actionButton.html">actionButton</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_smooth_product_card_template/SmoothProductCardTemplate/barcode.html">barcode</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_smooth_product_card_template/SmoothProductCardTemplate/message.html">message</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
+
+    <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_smooth_product_card_template/SmoothProductCardTemplate-class.html#instance-methods">Methods</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_smooth_product_card_template/SmoothProductCardTemplate/build.html">build</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
+
+    <li class="section-title inherited"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_smooth_product_card_template/SmoothProductCardTemplate-class.html#operators">Operators</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">operator ==</a></li>
+
+
+
+
+</ol>
+
+  </div><!--/.sidebar-offcanvas-->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    smooth_app
+      0.0.0+734
+  </span>
+
+  
+</footer>
+
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
+
+
+
+</body>
+
+</html>
+

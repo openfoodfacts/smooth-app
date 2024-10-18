@@ -21,8 +21,7 @@
 </head>
 
 
-<body data-base-href="../"
-      data-using-base-href="false">
+<body data-base-href="../" data-using-base-href="false">
 
 <div id="overlay-under-drawer"></div>
 
@@ -55,6 +54,7 @@
 <span class="returntype">dynamic</span>
 <span class="name ">addPanelButton</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="addPanelButton-param-label"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">label</span>, </span></li>
 <li><span class="parameter" id="addPanelButton-param-iconData">{<span class="type-annotation">dynamic</span> <span class="parameter-name">iconData</span>, </span></li>
+<li><span class="parameter" id="addPanelButton-param-textAlign"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">textAlign</span>, </span></li>
 <li><span class="parameter" id="addPanelButton-param-onPressed"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">onPressed</span>(<ol class="parameter-list"></ol>
 )}</span></li>
 </ol>)
@@ -69,21 +69,16 @@
   <pre class="language-dart"><code class="language-dart">Widget addPanelButton(
   final String label, {
   final IconData? iconData,
+  final String? textAlign,
   required final Function() onPressed,
 }) =&gt;
-    SizedBox(
-      width: double.infinity,
-      child: ElevatedButton.icon(
-        icon: Icon(iconData ?? Icons.add),
-        style: ButtonStyle(
-          shape: MaterialStateProperty.all&lt;RoundedRectangleBorder&gt;(
-            const RoundedRectangleBorder(
-              borderRadius: ROUNDED_BORDER_RADIUS,
-            ),
-          ),
-        ),
-        label: Text(label),
+    Padding(
+      padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
+      child: SmoothLargeButtonWithIcon(
+        text: label,
+        icon: iconData ?? Icons.add,
         onPressed: onPressed,
+        textAlign: iconData == null ? TextAlign.center : null,
       ),
     );</code></pre>
 </section>
@@ -116,9 +111,22 @@
 
   <li class="section-title"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_cards_helper/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_cards_helper-library.html#functions">Functions</a></li>
   <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_cards_helper/addPanelButton.html">addPanelButton</a></li>
+  <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_cards_helper/buildEditProductAppBar.html">buildEditProductAppBar</a></li>
   <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_cards_helper/buildProductSmoothCard.html">buildProductSmoothCard</a></li>
+  <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_cards_helper/formatProductBrands.html">formatProductBrands</a></li>
+  <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_cards_helper/getEmptyProductImageData.html">getEmptyProductImageData</a></li>
+  <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_cards_helper/getFilteredAttributes.html">getFilteredAttributes</a></li>
+  <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_cards_helper/getLocalizedProductImage.html">getLocalizedProductImage</a></li>
+  <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_cards_helper/getMandatoryAttributes.html">getMandatoryAttributes</a></li>
   <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_cards_helper/getPopulatedAttributes.html">getPopulatedAttributes</a></li>
+  <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_cards_helper/getProductBrands.html">getProductBrands</a></li>
+  <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_cards_helper/getProductImageData.html">getProductImageData</a></li>
+  <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_cards_helper/getProductImageLanguages.html">getProductImageLanguages</a></li>
+  <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_cards_helper/getProductMainImagesData.html">getProductMainImagesData</a></li>
   <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_cards_helper/getProductName.html">getProductName</a></li>
+  <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_cards_helper/getProductNameAndBrands.html">getProductNameAndBrands</a></li>
+  <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_cards_helper/getRawProductImages.html">getRawProductImages</a></li>
+  <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_cards_helper/getSortedAttributes.html">getSortedAttributes</a></li>
 
 
 
@@ -134,7 +142,7 @@
 <footer>
   <span class="no-break">
     smooth_app
-      0.0.0
+      0.0.0+734
   </span>
 
   
@@ -143,7 +151,7 @@
 
 
 <script src="../static-assets/highlight.pack.js?v1"></script>
-<script src="../static-assets/script.js?v1"></script>
+<script src="../static-assets/docs.dart.js"></script>
 
 
 

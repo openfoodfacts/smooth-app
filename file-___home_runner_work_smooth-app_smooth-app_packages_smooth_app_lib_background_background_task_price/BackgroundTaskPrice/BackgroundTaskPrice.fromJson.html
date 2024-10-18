@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the BackgroundTaskPrice.fromJson constructor from Class BackgroundTaskPrice from the background_task_price library, for the Dart programming language.">
+  <title>BackgroundTaskPrice.fromJson constructor - BackgroundTaskPrice - background_task_price library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="../../" data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">smooth_app</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_background_background_task_price/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_background_background_task_price-library.html">background_task_price</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_background_background_task_price/BackgroundTaskPrice-class.html">BackgroundTaskPrice</a></li>
+    <li class="self-crumb">BackgroundTaskPrice.fromJson constructor</li>
+  </ol>
+  <div class="self-name">BackgroundTaskPrice.fromJson</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div>
+<h1><span class="kind-constructor">BackgroundTaskPrice.fromJson</span> constructor 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+</h1></div>
+
+    <section class="multi-line-signature">
+      <span class="name ">BackgroundTaskPrice.fromJson</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="fromJson-param-json"><span class="type-annotation">dynamic</span> <span class="parameter-name">json</span></span></li>
+</ol>)
+    </section>
+
+    
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">BackgroundTaskPrice.fromJson(super.json)
+    : date = JsonHelper.stringTimestampToDate(json[_jsonTagDate] as String),
+      currency = Currency.fromName(json[_jsonTagCurrency] as String)!,
+      locationOSMId = json[_jsonTagOSMId] as int,
+      locationOSMType =
+          LocationOSMType.fromOffTag(json[_jsonTagOSMType] as String)!,
+      barcodes = json.containsKey(_jsonTagBarcode)
+          ? &lt;String&gt;[json[_jsonTagBarcode] as String]
+          : _fromJsonListString(json[_jsonTagBarcodes])!,
+      pricesAreDiscounted = json.containsKey(_jsonTagIsDiscounted)
+          ? &lt;bool&gt;[json[_jsonTagIsDiscounted] as bool]
+          : _fromJsonListBool(json[_jsonTagAreDiscounted])!,
+      prices = json.containsKey(_jsonTagPrice)
+          ? &lt;double&gt;[json[_jsonTagPrice] as double]
+          : fromJsonListDouble(json[_jsonTagPrices])!,
+      pricesWithoutDiscount = json.containsKey(_jsonTagPriceWithoutDiscount)
+          ? &lt;double?&gt;[json[_jsonTagPriceWithoutDiscount] as double?]
+          : _fromJsonListNullableDouble(json[_jsonTagPricesWithoutDiscount])!,
+      super.fromJson();</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../../index.html">smooth_app</a></li>
+  <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_background_background_task_price/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_background_background_task_price-library.html">background_task_price</a></li>
+  <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_background_background_task_price/BackgroundTaskPrice-class.html">BackgroundTaskPrice</a></li>
+  <li class="self-crumb">BackgroundTaskPrice.fromJson constructor</li>
+</ol>
+
+
+    <h5>BackgroundTaskPrice class</h5>
+    <ol>
+
+        <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_background_background_task_price/BackgroundTaskPrice-class.html#constructors">Constructors</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_background_background_task_price/BackgroundTaskPrice/BackgroundTaskPrice.html">BackgroundTaskPrice</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_background_background_task_price/BackgroundTaskPrice/BackgroundTaskPrice.fromJson.html">fromJson</a></li>
+
+
+    <li class="section-title">
+      <a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_background_background_task_price/BackgroundTaskPrice-class.html#instance-properties">Properties</a>
+    </li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_background_background_task_price/BackgroundTaskPrice/barcodes.html">barcodes</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_background_background_task_price/BackgroundTaskPrice/currency.html">currency</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_background_background_task_price/BackgroundTaskPrice/date.html">date</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_background_background_task_price/BackgroundTaskPrice/locationOSMId.html">locationOSMId</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_background_background_task_price/BackgroundTaskPrice/locationOSMType.html">locationOSMType</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_background_background_task_price/BackgroundTaskPrice/prices.html">prices</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_background_background_task_price/BackgroundTaskPrice/pricesAreDiscounted.html">pricesAreDiscounted</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_background_background_task_price/BackgroundTaskPrice/pricesWithoutDiscount.html">pricesWithoutDiscount</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
+
+    <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_background_background_task_price/BackgroundTaskPrice-class.html#instance-methods">Methods</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_background_background_task_price/BackgroundTaskPrice/addPrices.html">addPrices</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_background_background_task_price/BackgroundTaskPrice/closeSession.html">closeSession</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_background_background_task_price/BackgroundTaskPrice/getBearerToken.html">getBearerToken</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_background_background_task_price/BackgroundTaskPrice/getFloatingMessage.html">getFloatingMessage</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_background_background_task_price/BackgroundTaskPrice/isDeduplicable.html">isDeduplicable</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_background_background_task_price/BackgroundTaskPrice/preExecute.html">preExecute</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_background_background_task_price/BackgroundTaskPrice/toJson.html">toJson</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
+
+    <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_background_background_task_price/BackgroundTaskPrice-class.html#operators">Operators</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">operator ==</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_background_background_task_price/BackgroundTaskPrice/?.html">operator ?</a></li>
+
+
+
+        <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_background_background_task_price/BackgroundTaskPrice-class.html#static-methods">Static methods</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_background_background_task_price/BackgroundTaskPrice/fromJsonListDouble.html">fromJsonListDouble</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_background_background_task_price/BackgroundTaskPrice/getStamp.html">getStamp</a></li>
+
+</ol>
+
+  </div><!--/.sidebar-offcanvas-left-->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    smooth_app
+      0.0.0+734
+  </span>
+
+  
+</footer>
+
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
+
+
+
+</body>
+
+</html>
+

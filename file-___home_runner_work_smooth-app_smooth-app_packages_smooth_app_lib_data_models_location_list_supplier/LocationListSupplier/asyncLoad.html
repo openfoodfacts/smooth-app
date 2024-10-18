@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the asyncLoad method from the LocationListSupplier class, for the Dart programming language.">
+  <title>asyncLoad method - LocationListSupplier class - location_list_supplier library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="../../" data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">smooth_app</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_location_list_supplier/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_location_list_supplier-library.html">location_list_supplier</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_location_list_supplier/LocationListSupplier-class.html">LocationListSupplier</a></li>
+    <li class="self-crumb">asyncLoad method</li>
+  </ol>
+  <div class="self-name">asyncLoad</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div>
+<h1><span class="kind-method">asyncLoad</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span>&gt;</span></span>
+<span class="name ">asyncLoad</span>(<wbr>)
+
+      
+
+    </section>
+    
+<section class="desc markdown">
+  <p>Returns null if OK, or the message error</p>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">Future&lt;String?&gt; asyncLoad() async {
+  &#47;&#47; don&#39;t ask me why, but it looks like we need to explicitly set a language,
+  &#47;&#47; or else we get different (and not relevant) results
+  &#47;&#47; and only en,fr,de can be used.
+  OpenFoodFactsLanguage getQueryLanguage() =&gt;
+      switch (ProductQuery.getLanguage()) {
+        OpenFoodFactsLanguage.FRENCH =&gt; OpenFoodFactsLanguage.FRENCH,
+        OpenFoodFactsLanguage.GERMAN =&gt; OpenFoodFactsLanguage.GERMAN,
+        OpenFoodFactsLanguage.ENGLISH =&gt; OpenFoodFactsLanguage.ENGLISH,
+        _ =&gt; OpenFoodFactsLanguage.ENGLISH,
+      };
+
+  try {
+    locations.clear();
+    final http.Response response = await http.get(
+      Uri(
+        scheme: &#39;https&#39;,
+        host: &#39;photon.komoot.io&#39;,
+        path: &#39;api&#39;,
+        query: &#39;q=${Uri.encodeComponent(query)}&#39;
+            &#39;&amp;lang=${getQueryLanguage().offTag}&#39;
+            &#39;${_getAdditionalParameters()}&#39;,
+      ),
+    );
+    if (response.statusCode != 200) {
+      return &#39;Could not retrieve locations&#39;;
+    }
+    final Map&lt;String, dynamic&gt; map = json.decode(response.body);
+    if (map[&#39;type&#39;] != &#39;FeatureCollection&#39;) {
+      return &#39;Unexpected result type: ${map[&#39;type&#39;]}&#39;;
+    }
+    final List&lt;dynamic&gt; features = map[&#39;features&#39;];
+    for (final Map&lt;String, dynamic&gt; item in features) {
+      final Map&lt;String, dynamic&gt; properties = item[&#39;properties&#39;];
+      final LocationOSMType? osmType = _convertType(properties[&#39;osm_type&#39;]);
+      if (osmType == null) {
+        continue;
+      }
+      final Map&lt;String, dynamic&gt; geometry = item[&#39;geometry&#39;];
+      final String type = geometry[&#39;type&#39;];
+      if (type != &#39;Point&#39;) {
+        continue;
+      }
+      final List&lt;dynamic&gt; coordinates = geometry[&#39;coordinates&#39;];
+      final double longitude = coordinates[0] as double;
+      final double latitude = coordinates[1] as double;
+      final int osmId = properties[&#39;osm_id&#39;];
+      final String? name = properties[&#39;name&#39;];
+      final String? street = properties[&#39;street&#39;];
+      final String? city = properties[&#39;city&#39;];
+      final String? countryCode = properties[&#39;countrycode&#39;];
+      final String? country = properties[&#39;country&#39;];
+      final String? postCode = properties[&#39;postcode&#39;];
+      final String? osmKey = properties[&#39;osm_key&#39;];
+      final String? osmValue = properties[&#39;osm_value&#39;];
+      final OsmLocation osmLocation = OsmLocation(
+        osmId: osmId,
+        osmType: osmType,
+        longitude: longitude,
+        latitude: latitude,
+        name: name,
+        city: city,
+        postcode: postCode,
+        street: street,
+        country: country,
+        countryCode: countryCode,
+        osmKey: osmKey,
+        osmValue: osmValue,
+      );
+      locations.add(osmLocation);
+    }
+  } catch (e) {
+    locations.clear();
+    return e.toString();
+  }
+  return null;
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../../index.html">smooth_app</a></li>
+  <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_location_list_supplier/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_location_list_supplier-library.html">location_list_supplier</a></li>
+  <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_location_list_supplier/LocationListSupplier-class.html">LocationListSupplier</a></li>
+  <li class="self-crumb">asyncLoad method</li>
+</ol>
+
+
+    <h5>LocationListSupplier class</h5>
+    <ol>
+
+        <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_location_list_supplier/LocationListSupplier-class.html#constructors">Constructors</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_location_list_supplier/LocationListSupplier/LocationListSupplier.html">LocationListSupplier</a></li>
+
+
+    <li class="section-title">
+      <a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_location_list_supplier/LocationListSupplier-class.html#instance-properties">Properties</a>
+    </li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_location_list_supplier/LocationListSupplier/locations.html">locations</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_location_list_supplier/LocationListSupplier/optimizedSearch.html">optimizedSearch</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_location_list_supplier/LocationListSupplier/query.html">query</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
+
+    <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_location_list_supplier/LocationListSupplier-class.html#instance-methods">Methods</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_location_list_supplier/LocationListSupplier/asyncLoad.html">asyncLoad</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
+
+    <li class="section-title inherited"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_location_list_supplier/LocationListSupplier-class.html#operators">Operators</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">operator ==</a></li>
+
+
+
+
+</ol>
+
+  </div><!--/.sidebar-offcanvas-->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    smooth_app
+      0.0.0+734
+  </span>
+
+  
+</footer>
+
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
+
+
+
+</body>
+
+</html>
+

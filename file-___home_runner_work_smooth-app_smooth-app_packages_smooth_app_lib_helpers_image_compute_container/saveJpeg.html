@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the saveJpeg function from the image_compute_container library, for the Dart programming language.">
+  <title>saveJpeg function - image_compute_container library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../static-assets/styles.css?v1">
+  <link rel="icon" href="../static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="../" data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../index.html">smooth_app</a></li>
+    <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_image_compute_container/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_image_compute_container-library.html">image_compute_container</a></li>
+    <li class="self-crumb">saveJpeg function</li>
+  </ol>
+  <div class="self-name">saveJpeg</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div>
+<h1><span class="kind-function">saveJpeg</span> function 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+ 
+</h1></div>
+
+    <section class="multi-line-signature">
+        
+
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+<span class="name ">saveJpeg</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="saveJpeg-param-file">{<span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-io/File-class.html">File</a></span> <span class="parameter-name">file</span>, </span></li>
+<li><span class="parameter" id="saveJpeg-param-source"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">source</span>}</span></li>
+</ol>)
+
+    </section>
+    
+<section class="desc markdown">
+  <p>Saves an image to a JPEG file.</p>
+<p>It's faster to encode as BMP and then compress to JPEG, instead of directly
+compressing the image to JPEG (standard flutter being slow).</p>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; saveJpeg({
+  required final File file,
+  required final ui.Image source,
+}) async {
+  final ByteData? rawData = await source.toByteData(
+    format: ui.ImageByteFormat.rawRgba,
+  );
+  if (rawData == null) {
+    throw Exception(&#39;Cannot convert file&#39;);
+  }
+  final _ImageComputeContainer container = _ImageComputeContainer(
+    file: file,
+    rawData: rawData,
+    width: source.width,
+    height: source.height,
+  );
+  if (container.isIsolatePossible) {
+    try {
+      &#47;&#47; with an isolate if possible
+      await compute(_saveJpeg, container);
+    } catch (e) {
+      &#47;&#47; fallback version: async (cf. https:&#47;&#47;github.com&#47;openfoodfacts&#47;smooth-app&#47;issues&#47;4304)
+      await _saveJpeg(container, withIsolate: false);
+    }
+    return;
+  }
+  await _saveJpeg(container, withIsolate: false);
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../index.html">smooth_app</a></li>
+  <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_image_compute_container/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_image_compute_container-library.html">image_compute_container</a></li>
+  <li class="self-crumb">saveJpeg function</li>
+</ol>
+
+
+    <h5>image_compute_container library</h5>
+    <ol>
+
+
+
+
+
+  <li class="section-title"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_image_compute_container/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_image_compute_container-library.html#functions">Functions</a></li>
+  <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_image_compute_container/saveBmp.html">saveBmp</a></li>
+  <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_image_compute_container/saveJpeg.html">saveJpeg</a></li>
+
+
+
+</ol>
+
+  </div><!--/.sidebar-offcanvas-left-->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    smooth_app
+      0.0.0+734
+  </span>
+
+  
+</footer>
+
+
+
+<script src="../static-assets/highlight.pack.js?v1"></script>
+<script src="../static-assets/docs.dart.js"></script>
+
+
+
+</body>
+
+</html>
+

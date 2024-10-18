@@ -21,8 +21,7 @@
 </head>
 
 
-<body data-base-href="../../"
-      data-using-base-href="false">
+<body data-base-href="../../" data-using-base-href="false">
 
 <div id="overlay-under-drawer"></div>
 
@@ -72,16 +71,31 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  final Widget result = Material(
+  Widget result = Container(
+    padding: padding,
+    child: child,
+  );
+
+  if (ignoreDefaultSemantics) {
+    result = Semantics(
+      container: false,
+      explicitChildNodes: true,
+      child: child,
+    );
+  }
+
+  result = Material(
     elevation: elevation,
     shadowColor: const Color.fromARGB(25, 0, 0, 0),
-    borderRadius: ROUNDED_BORDER_RADIUS,
-    color: color ?? Theme.of(context).colorScheme.surface,
-    child: Container(
-      padding: padding,
-      child: child,
-    ),
+    borderRadius: borderRadius ?? ROUNDED_BORDER_RADIUS,
+    color: color ??
+        (Theme.of(context).brightness == Brightness.light
+            ? Colors.white
+            : Colors.black),
+    clipBehavior: clipBehavior ?? Clip.none,
+    child: result,
   );
+
   return margin == null
       ? result
       : Padding(
@@ -112,18 +126,22 @@ Widget build(BuildContext context) {
     <h5>SmoothCard class</h5>
     <ol>
 
-    <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_smooth_card/SmoothCard-class.html#constructors">Constructors</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_smooth_card/SmoothCard/SmoothCard.html">SmoothCard</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_smooth_card/SmoothCard/SmoothCard.flat.html">flat</a></li>
+        <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_smooth_card/SmoothCard-class.html#constructors">Constructors</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_smooth_card/SmoothCard/SmoothCard.html">SmoothCard</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_smooth_card/SmoothCard/SmoothCard.angular.html">angular</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_smooth_card/SmoothCard/SmoothCard.flat.html">flat</a></li>
 
 
     <li class="section-title">
       <a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_smooth_card/SmoothCard-class.html#instance-properties">Properties</a>
     </li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_smooth_card/SmoothCard/borderRadius.html">borderRadius</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_smooth_card/SmoothCard/child.html">child</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_smooth_card/SmoothCard/clipBehavior.html">clipBehavior</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_smooth_card/SmoothCard/color.html">color</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_smooth_card/SmoothCard/elevation.html">elevation</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_smooth_card/SmoothCard/ignoreDefaultSemantics.html">ignoreDefaultSemantics</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_smooth_card/SmoothCard/margin.html">margin</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_smooth_card/SmoothCard/padding.html">padding</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
@@ -151,7 +169,7 @@ Widget build(BuildContext context) {
 <footer>
   <span class="no-break">
     smooth_app
-      0.0.0
+      0.0.0+734
   </span>
 
   
@@ -160,7 +178,7 @@ Widget build(BuildContext context) {
 
 
 <script src="../../static-assets/highlight.pack.js?v1"></script>
-<script src="../../static-assets/script.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
 
 
 

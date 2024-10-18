@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the insert method from the BulkManager class, for the Dart programming language.">
+  <title>insert method - BulkManager class - bulk_manager library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="../../" data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">smooth_app</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_bulk_manager/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_bulk_manager-library.html">bulk_manager</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_bulk_manager/BulkManager-class.html">BulkManager</a></li>
+    <li class="self-crumb">insert method</li>
+  </ol>
+  <div class="self-name">insert</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div>
+<h1><span class="kind-method">insert</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span>&gt;</span></span>
+<span class="name ">insert</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="insert-param-bulkInsertable">{<span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">bulkInsertable</span>, </span></li>
+<li><span class="parameter" id="insert-param-parameters"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a></span> <span class="parameter-name">parameters</span>, </span></li>
+<li><span class="parameter" id="insert-param-databaseExecutor"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">databaseExecutor</span>}</span></li>
+</ol>)
+
+      
+
+    </section>
+    
+<section class="desc markdown">
+  <p>Returns the number of inserted rows by optimized bulk insert</p>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">Future&lt;int&gt; insert({
+  required final BulkInsertable bulkInsertable,
+  required final List&lt;dynamic&gt; parameters,
+  required final DatabaseExecutor databaseExecutor,
+}) async {
+  int result = 0;
+  final String tableName = bulkInsertable.getTableName();
+  final List&lt;String&gt; columnNames = bulkInsertable.getInsertColumns();
+  final int numCols = columnNames.length;
+  if (parameters.isEmpty) {
+    return result;
+  }
+  if (columnNames.isEmpty) {
+    throw Exception(&#39;There must be at least one column!&#39;);
+  }
+  if (parameters.length % numCols != 0) {
+    throw Exception(
+        &#39;Parameter list size (${parameters.length}) cannot be divided by $numCols&#39;);
+  }
+  final String variables = &#39;?${&#39;,?&#39; * (columnNames.length - 1)}&#39;;
+  final int maxSlice = (SQLITE_MAX_VARIABLE_NUMBER ~&#47; numCols) * numCols;
+  for (int start = 0; start &lt; parameters.length; start += maxSlice) {
+    final int size = min(parameters.length - start, maxSlice);
+    final int insertedRows = size ~&#47; numCols;
+    final int additionalRecordsNumber = -1 + insertedRows;
+    await databaseExecutor.rawInsert(
+      &#39;insert into $tableName(${columnNames.join(&#39;,&#39;)}) &#39;
+      &#39;values($variables)${&#39;,($variables)&#39; * additionalRecordsNumber}&#39;,
+      parameters.sublist(start, start + size),
+    );
+    result += insertedRows;
+  }
+  return result;
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../../index.html">smooth_app</a></li>
+  <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_bulk_manager/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_bulk_manager-library.html">bulk_manager</a></li>
+  <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_bulk_manager/BulkManager-class.html">BulkManager</a></li>
+  <li class="self-crumb">insert method</li>
+</ol>
+
+
+    <h5>BulkManager class</h5>
+    <ol>
+
+        <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_bulk_manager/BulkManager-class.html#constructors">Constructors</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_bulk_manager/BulkManager/BulkManager.html">BulkManager</a></li>
+
+
+    <li class="section-title inherited">
+      <a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_bulk_manager/BulkManager-class.html#instance-properties">Properties</a>
+    </li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
+
+    <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_bulk_manager/BulkManager-class.html#instance-methods">Methods</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_bulk_manager/BulkManager/delete.html">delete</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_bulk_manager/BulkManager/insert.html">insert</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
+
+    <li class="section-title inherited"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_bulk_manager/BulkManager-class.html#operators">Operators</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">operator ==</a></li>
+
+
+
+
+        <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_bulk_manager/BulkManager-class.html#constants">Constants</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_bulk_manager/BulkManager/SQLITE_MAX_VARIABLE_NUMBER-constant.html">SQLITE_MAX_VARIABLE_NUMBER</a></li>
+</ol>
+
+  </div><!--/.sidebar-offcanvas-->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    smooth_app
+      0.0.0+734
+  </span>
+
+  
+</footer>
+
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
+
+
+
+</body>
+
+</html>
+

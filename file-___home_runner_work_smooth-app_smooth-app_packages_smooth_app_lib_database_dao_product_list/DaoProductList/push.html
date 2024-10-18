@@ -21,8 +21,7 @@
 </head>
 
 
-<body data-base-href="../../"
-      data-using-base-href="false">
+<body data-base-href="../../" data-using-base-href="false">
 
 <div id="overlay-under-drawer"></div>
 
@@ -52,7 +51,7 @@
     <section class="multi-line-signature">
       
 
-<span class="returntype">void</span>
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
 <span class="name ">push</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="push-param-productList"><span class="type-annotation">dynamic</span> <span class="parameter-name">productList</span>, </span></li>
 <li><span class="parameter" id="push-param-barcode"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">barcode</span></span></li>
 </ol>)
@@ -74,8 +73,11 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">void push(final ProductList productList, final String barcode) {
-  final _BarcodeList? list = _get(productList);
+  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; push(
+  final ProductList productList,
+  final String barcode,
+) async {
+  final _BarcodeList? list = await _get(productList);
   final List&lt;String&gt; barcodes;
   if (list == null) {
     barcodes = &lt;String&gt;[];
@@ -85,7 +87,7 @@
   barcodes.remove(barcode); &#47;&#47; removes a potential duplicate
   barcodes.add(barcode);
   final _BarcodeList newList = _BarcodeList.now(barcodes);
-  _put(_getKey(productList), newList);
+  await _put(getKey(productList), newList);
 }</code></pre>
 </section>
 
@@ -110,8 +112,8 @@
     <h5>DaoProductList class</h5>
     <ol>
 
-    <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_dao_product_list/DaoProductList-class.html#constructors">Constructors</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_dao_product_list/DaoProductList/DaoProductList.html">DaoProductList</a></li>
+        <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_dao_product_list/DaoProductList-class.html#constructors">Constructors</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_dao_product_list/DaoProductList/DaoProductList.html">DaoProductList</a></li>
 
 
     <li class="section-title inherited">
@@ -121,13 +123,16 @@
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
 
     <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_dao_product_list/DaoProductList-class.html#instance-methods">Methods</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_dao_product_list/DaoProductList/bulkSet.html">bulkSet</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_dao_product_list/DaoProductList/clear.html">clear</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_dao_product_list/DaoProductList/delete.html">delete</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_dao_product_list/DaoProductList/exist.html">exist</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_dao_product_list/DaoProductList/export.html">export</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_dao_product_list/DaoProductList/get.html">get</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_dao_product_list/DaoProductList/getLength.html">getLength</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_dao_product_list/DaoProductList/getTimestamp.html">getTimestamp</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_dao_product_list/DaoProductList/getUserLists.html">getUserLists</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_dao_product_list/DaoProductList/getUserListsWithBarcodes.html">getUserListsWithBarcodes</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_dao_product_list/DaoProductList/init.html">init</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_dao_product_list/DaoProductList/push.html">push</a></li>
@@ -142,9 +147,10 @@
 
 
 
-    <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_dao_product_list/DaoProductList-class.html#static-methods">Static methods</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_dao_product_list/DaoProductList/getProductListParameters.html">getProductListParameters</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_dao_product_list/DaoProductList/getProductListType.html">getProductListType</a></li>
+        <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_dao_product_list/DaoProductList-class.html#static-methods">Static methods</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_dao_product_list/DaoProductList/getKey.html">getKey</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_dao_product_list/DaoProductList/getProductListParameters.html">getProductListParameters</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_dao_product_list/DaoProductList/getProductListType.html">getProductListType</a></li>
 
 </ol>
 
@@ -158,7 +164,7 @@
 <footer>
   <span class="no-break">
     smooth_app
-      0.0.0
+      0.0.0+734
   </span>
 
   
@@ -167,7 +173,7 @@
 
 
 <script src="../../static-assets/highlight.pack.js?v1"></script>
-<script src="../../static-assets/script.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
 
 
 

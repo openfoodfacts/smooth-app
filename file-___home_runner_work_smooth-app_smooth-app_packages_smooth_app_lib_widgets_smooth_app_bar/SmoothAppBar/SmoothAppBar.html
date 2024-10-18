@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the SmoothAppBar constructor from Class SmoothAppBar from the smooth_app_bar library, for the Dart programming language.">
+  <title>SmoothAppBar constructor - SmoothAppBar - smooth_app_bar library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="../../" data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">smooth_app</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_app_bar/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_app_bar-library.html">smooth_app_bar</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_app_bar/SmoothAppBar-class.html">SmoothAppBar</a></li>
+    <li class="self-crumb">SmoothAppBar constructor</li>
+  </ol>
+  <div class="self-name">SmoothAppBar</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div>
+<h1><span class="kind-constructor">SmoothAppBar</span> constructor 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+</h1></div>
+
+    <section class="multi-line-signature">
+      <span class="name ">SmoothAppBar</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-leading">{<span class="type-annotation">dynamic</span> <span class="parameter-name">leading</span>, </span></li>
+<li><span class="parameter" id="-param-automaticallyImplyLeading"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">automaticallyImplyLeading</span> = <span class="default-value">true</span>, </span></li>
+<li><span class="parameter" id="-param-actionModeTitle"><span class="type-annotation">dynamic</span> <span class="parameter-name">actionModeTitle</span>, </span></li>
+<li><span class="parameter" id="-param-actionModeSubTitle"><span class="type-annotation">dynamic</span> <span class="parameter-name">actionModeSubTitle</span>, </span></li>
+<li><span class="parameter" id="-param-title"><span class="type-annotation">dynamic</span> <span class="parameter-name">title</span>, </span></li>
+<li><span class="parameter" id="-param-subTitle"><span class="type-annotation">dynamic</span> <span class="parameter-name">subTitle</span>, </span></li>
+<li><span class="parameter" id="-param-actionModeActions"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a>?</span> <span class="parameter-name">actionModeActions</span>, </span></li>
+<li><span class="parameter" id="-param-actions"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a>?</span> <span class="parameter-name">actions</span>, </span></li>
+<li><span class="parameter" id="-param-flexibleSpace"><span class="type-annotation">dynamic</span> <span class="parameter-name">flexibleSpace</span>, </span></li>
+<li><span class="parameter" id="-param-bottom"><span class="type-annotation">dynamic</span> <span class="parameter-name">bottom</span>, </span></li>
+<li><span class="parameter" id="-param-elevation"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">elevation</span>, </span></li>
+<li><span class="parameter" id="-param-scrolledUnderElevation"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">scrolledUnderElevation</span>, </span></li>
+<li><span class="parameter" id="-param-shadowColor"><span class="type-annotation">dynamic</span> <span class="parameter-name">shadowColor</span>, </span></li>
+<li><span class="parameter" id="-param-surfaceTintColor"><span class="type-annotation">dynamic</span> <span class="parameter-name">surfaceTintColor</span>, </span></li>
+<li><span class="parameter" id="-param-backgroundColor"><span class="type-annotation">dynamic</span> <span class="parameter-name">backgroundColor</span>, </span></li>
+<li><span class="parameter" id="-param-foregroundColor"><span class="type-annotation">dynamic</span> <span class="parameter-name">foregroundColor</span>, </span></li>
+<li><span class="parameter" id="-param-iconTheme"><span class="type-annotation">dynamic</span> <span class="parameter-name">iconTheme</span>, </span></li>
+<li><span class="parameter" id="-param-actionsIconTheme"><span class="type-annotation">dynamic</span> <span class="parameter-name">actionsIconTheme</span>, </span></li>
+<li><span class="parameter" id="-param-primary"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">primary</span> = <span class="default-value">true</span>, </span></li>
+<li><span class="parameter" id="-param-centerTitle"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">centerTitle</span>, </span></li>
+<li><span class="parameter" id="-param-excludeHeaderSemantics"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">excludeHeaderSemantics</span> = <span class="default-value">false</span>, </span></li>
+<li><span class="parameter" id="-param-titleSpacing"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">titleSpacing</span>, </span></li>
+<li><span class="parameter" id="-param-shape"><span class="type-annotation">dynamic</span> <span class="parameter-name">shape</span>, </span></li>
+<li><span class="parameter" id="-param-toolbarOpacity"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">toolbarOpacity</span> = <span class="default-value">1.0</span>, </span></li>
+<li><span class="parameter" id="-param-bottomOpacity"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">bottomOpacity</span> = <span class="default-value">1.0</span>, </span></li>
+<li><span class="parameter" id="-param-toolbarHeight"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">toolbarHeight</span>, </span></li>
+<li><span class="parameter" id="-param-leadingWidth"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">leadingWidth</span>, </span></li>
+<li><span class="parameter" id="-param-toolbarTextStyle"><span class="type-annotation">dynamic</span> <span class="parameter-name">toolbarTextStyle</span>, </span></li>
+<li><span class="parameter" id="-param-titleTextStyle"><span class="type-annotation">dynamic</span> <span class="parameter-name">titleTextStyle</span>, </span></li>
+<li><span class="parameter" id="-param-systemOverlayStyle"><span class="type-annotation">dynamic</span> <span class="parameter-name">systemOverlayStyle</span>, </span></li>
+<li><span class="parameter" id="-param-actionMode"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">actionMode</span> = <span class="default-value">false</span>, </span></li>
+<li><span class="parameter" id="-param-actionModeCloseTooltip"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">actionModeCloseTooltip</span>, </span></li>
+<li><span class="parameter" id="-param-onLeaveActionMode"><span class="type-annotation">dynamic</span> <span class="parameter-name">onLeaveActionMode</span>, </span></li>
+<li><span class="parameter" id="-param-ignoreSemanticsForSubtitle"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">ignoreSemanticsForSubtitle</span> = <span class="default-value">false</span>, </span></li>
+<li><span class="parameter" id="-param-key"><span class="type-annotation">dynamic</span> <span class="parameter-name">key</span>}</span></li>
+</ol>)
+    </section>
+
+    
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">SmoothAppBar({
+  this.leading,
+  this.automaticallyImplyLeading = true,
+  this.actionModeTitle,
+  this.actionModeSubTitle,
+  this.title,
+  this.subTitle,
+  this.actionModeActions,
+  this.actions,
+  this.flexibleSpace,
+  this.bottom,
+  this.elevation,
+  this.scrolledUnderElevation,
+  this.shadowColor,
+  this.surfaceTintColor,
+  this.backgroundColor,
+  this.foregroundColor,
+  this.iconTheme,
+  this.actionsIconTheme,
+  this.primary = true,
+  this.centerTitle,
+  this.excludeHeaderSemantics = false,
+  this.titleSpacing,
+  this.shape,
+  this.toolbarOpacity = 1.0,
+  this.bottomOpacity = 1.0,
+  this.toolbarHeight,
+  this.leadingWidth,
+  this.toolbarTextStyle,
+  this.titleTextStyle,
+  this.systemOverlayStyle,
+  this.actionMode = false,
+  this.actionModeCloseTooltip,
+  this.onLeaveActionMode,
+  this.ignoreSemanticsForSubtitle = false,
+  super.key,
+})  : assert(!actionMode || actionModeTitle != null),
+      preferredSize =
+          _PreferredAppBarSize(toolbarHeight, bottom?.preferredSize.height);</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../../index.html">smooth_app</a></li>
+  <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_app_bar/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_app_bar-library.html">smooth_app_bar</a></li>
+  <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_app_bar/SmoothAppBar-class.html">SmoothAppBar</a></li>
+  <li class="self-crumb">SmoothAppBar constructor</li>
+</ol>
+
+
+    <h5>SmoothAppBar class</h5>
+    <ol>
+
+        <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_app_bar/SmoothAppBar-class.html#constructors">Constructors</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_app_bar/SmoothAppBar/SmoothAppBar.html">SmoothAppBar</a></li>
+
+
+    <li class="section-title">
+      <a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_app_bar/SmoothAppBar-class.html#instance-properties">Properties</a>
+    </li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_app_bar/SmoothAppBar/actionMode.html">actionMode</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_app_bar/SmoothAppBar/actionModeActions.html">actionModeActions</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_app_bar/SmoothAppBar/actionModeCloseTooltip.html">actionModeCloseTooltip</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_app_bar/SmoothAppBar/actionModeSubTitle.html">actionModeSubTitle</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_app_bar/SmoothAppBar/actionModeTitle.html">actionModeTitle</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_app_bar/SmoothAppBar/actions.html">actions</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_app_bar/SmoothAppBar/actionsIconTheme.html">actionsIconTheme</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_app_bar/SmoothAppBar/automaticallyImplyLeading.html">automaticallyImplyLeading</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_app_bar/SmoothAppBar/backgroundColor.html">backgroundColor</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_app_bar/SmoothAppBar/bottom.html">bottom</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_app_bar/SmoothAppBar/bottomOpacity.html">bottomOpacity</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_app_bar/SmoothAppBar/centerTitle.html">centerTitle</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_app_bar/SmoothAppBar/elevation.html">elevation</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_app_bar/SmoothAppBar/excludeHeaderSemantics.html">excludeHeaderSemantics</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_app_bar/SmoothAppBar/flexibleSpace.html">flexibleSpace</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_app_bar/SmoothAppBar/foregroundColor.html">foregroundColor</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_app_bar/SmoothAppBar/iconTheme.html">iconTheme</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_app_bar/SmoothAppBar/ignoreSemanticsForSubtitle.html">ignoreSemanticsForSubtitle</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_app_bar/SmoothAppBar/leading.html">leading</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_app_bar/SmoothAppBar/leadingWidth.html">leadingWidth</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_app_bar/SmoothAppBar/onLeaveActionMode.html">onLeaveActionMode</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_app_bar/SmoothAppBar/preferredSize.html">preferredSize</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_app_bar/SmoothAppBar/primary.html">primary</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_app_bar/SmoothAppBar/scrolledUnderElevation.html">scrolledUnderElevation</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_app_bar/SmoothAppBar/shadowColor.html">shadowColor</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_app_bar/SmoothAppBar/shape.html">shape</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_app_bar/SmoothAppBar/subTitle.html">subTitle</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_app_bar/SmoothAppBar/surfaceTintColor.html">surfaceTintColor</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_app_bar/SmoothAppBar/systemOverlayStyle.html">systemOverlayStyle</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_app_bar/SmoothAppBar/title.html">title</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_app_bar/SmoothAppBar/titleSpacing.html">titleSpacing</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_app_bar/SmoothAppBar/titleTextStyle.html">titleTextStyle</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_app_bar/SmoothAppBar/toolbarHeight.html">toolbarHeight</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_app_bar/SmoothAppBar/toolbarOpacity.html">toolbarOpacity</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_app_bar/SmoothAppBar/toolbarTextStyle.html">toolbarTextStyle</a></li>
+
+    <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_app_bar/SmoothAppBar-class.html#instance-methods">Methods</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_app_bar/SmoothAppBar/build.html">build</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
+
+    <li class="section-title inherited"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_app_bar/SmoothAppBar-class.html#operators">Operators</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">operator ==</a></li>
+
+
+
+
+</ol>
+
+  </div><!--/.sidebar-offcanvas-left-->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    smooth_app
+      0.0.0+734
+  </span>
+
+  
+</footer>
+
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
+
+
+
+</body>
+
+</html>
+

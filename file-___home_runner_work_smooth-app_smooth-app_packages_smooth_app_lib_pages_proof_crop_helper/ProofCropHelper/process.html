@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the process method from the ProofCropHelper class, for the Dart programming language.">
+  <title>process method - ProofCropHelper class - proof_crop_helper library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="../../" data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">smooth_app</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_proof_crop_helper/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_proof_crop_helper-library.html">proof_crop_helper</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_proof_crop_helper/ProofCropHelper-class.html">ProofCropHelper</a></li>
+    <li class="self-crumb">process method</li>
+  </ol>
+  <div class="self-name">process</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div>
+<h1><span class="kind-method">process</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+<div>
+  <ol class="annotation-list">
+    <li>@<a href="https://api.flutter.dev/flutter/dart-core/override-constant.html">override</a></li>
+  </ol>
+</div>
+
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a></span>
+<span class="name ">process</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="process-param-context">{<span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">context</span>, </span></li>
+<li><span class="parameter" id="process-param-controller"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">controller</span>, </span></li>
+<li><span class="parameter" id="process-param-image"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">image</span>, </span></li>
+<li><span class="parameter" id="process-param-inputFile"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-io/File-class.html">File</a></span> <span class="parameter-name">inputFile</span>, </span></li>
+<li><span class="parameter" id="process-param-smallCroppedFile"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-io/File-class.html">File</a></span> <span class="parameter-name">smallCroppedFile</span>, </span></li>
+<li><span class="parameter" id="process-param-directory"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-io/Directory-class.html">Directory</a></span> <span class="parameter-name">directory</span>, </span></li>
+<li><span class="parameter" id="process-param-sequenceNumber"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">sequenceNumber</span>, </span></li>
+<li><span class="parameter" id="process-param-offsets"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a>?</span> <span class="parameter-name">offsets</span>}</span></li>
+</ol>)
+
+      
+
+    </section>
+    
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">@override
+Future&lt;CropParameters?&gt; process({
+  required final BuildContext context,
+  required final CropController controller,
+  required final ui.Image image,
+  required final File inputFile,
+  required final File smallCroppedFile,
+  required final Directory directory,
+  required final int sequenceNumber,
+  final List&lt;Offset&gt;? offsets,
+}) async {
+  &#47;&#47; It&#39;s a brand new picture, with crop parameters.
+  &#47;&#47; For performance reasons, we do not crop the image full-size here,
+  &#47;&#47; but in the background task.
+  &#47;&#47; For privacy reasons, we won&#39;t send the full image to the server and
+  &#47;&#47; let it crop it: we&#39;ll send the cropped image directly.
+  final File fullFile = await copyFullImageFile(
+    directory,
+    sequenceNumber,
+    inputFile,
+  );
+  if (!context.mounted) {
+    return null;
+  }
+  return getCropParameters(
+    controller: controller,
+    fullFile: fullFile,
+    smallCroppedFile: smallCroppedFile,
+    offsets: offsets,
+  );
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../../index.html">smooth_app</a></li>
+  <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_proof_crop_helper/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_proof_crop_helper-library.html">proof_crop_helper</a></li>
+  <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_proof_crop_helper/ProofCropHelper-class.html">ProofCropHelper</a></li>
+  <li class="self-crumb">process method</li>
+</ol>
+
+
+    <h5>ProofCropHelper class</h5>
+    <ol>
+
+        <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_proof_crop_helper/ProofCropHelper-class.html#constructors">Constructors</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_proof_crop_helper/ProofCropHelper/ProofCropHelper.html">ProofCropHelper</a></li>
+
+
+    <li class="section-title">
+      <a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_proof_crop_helper/ProofCropHelper-class.html#instance-properties">Properties</a>
+    </li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_proof_crop_helper/ProofCropHelper/enableEraser.html">enableEraser</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_proof_crop_helper/ProofCropHelper/model.html">model</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
+
+    <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_proof_crop_helper/ProofCropHelper-class.html#instance-methods">Methods</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_proof_crop_helper/ProofCropHelper/getPageTitle.html">getPageTitle</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_proof_crop_helper/ProofCropHelper/getProcessIcon.html">getProcessIcon</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_proof_crop_helper/ProofCropHelper/getProcessLabel.html">getProcessLabel</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_proof_crop_helper/ProofCropHelper/isNewImage.html">isNewImage</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_proof_crop_helper/ProofCropHelper/process.html">process</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
+
+    <li class="section-title inherited"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_proof_crop_helper/ProofCropHelper-class.html#operators">Operators</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">operator ==</a></li>
+
+
+
+
+</ol>
+
+  </div><!--/.sidebar-offcanvas-->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    smooth_app
+      0.0.0+734
+  </span>
+
+  
+</footer>
+
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
+
+
+
+</body>
+
+</html>
+

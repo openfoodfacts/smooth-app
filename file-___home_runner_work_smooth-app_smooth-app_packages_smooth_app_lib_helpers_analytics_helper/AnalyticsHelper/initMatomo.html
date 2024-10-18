@@ -21,8 +21,7 @@
 </head>
 
 
-<body data-base-href="../../"
-      data-using-base-href="false">
+<body data-base-href="../../" data-using-base-href="false">
 
 <div id="overlay-under-drawer"></div>
 
@@ -52,9 +51,8 @@
     <section class="multi-line-signature">
       
 
-<span class="returntype">void</span>
-<span class="name ">initMatomo</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="initMatomo-param-context"><span class="type-annotation">dynamic</span> <span class="parameter-name">context</span>, </span></li>
-<li><span class="parameter" id="initMatomo-param-screenshotMode"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">screenshotMode</span></span></li>
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+<span class="name ">initMatomo</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="initMatomo-param-screenshotMode"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">screenshotMode</span></span></li>
 </ol>)
 
       
@@ -66,27 +64,23 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">static void initMatomo(
-  final BuildContext context,
+  <pre class="language-dart"><code class="language-dart">static Future&lt;void&gt; initMatomo(
   final bool screenshotMode,
-) {
+) async {
   if (screenshotMode) {
-    setCrashReports(false);
-    setAnalyticsReports(false);
+    _setCrashReports(false);
+    _setAnalyticsReports(false);
     return;
   }
-  MatomoForever.init(
-    &#39;https:&#47;&#47;analytics.openfoodfacts.org&#47;matomo.php&#39;,
-    2,
-    id: _getId(),
-    &#47;&#47; If we track or not, should be decidable later
-    rec: true,
-    method: MatomoForeverMethod.post,
-    sendImage: false,
-    &#47;&#47; 32 character authorization key used to authenticate the API request
-    &#47;&#47; only needed for request which are more then 24h old
-    &#47;&#47; tokenAuth: &#39;xxx&#39;,
-  );
+  try {
+    await MatomoTracker.instance.initialize(
+      url: &#39;https:&#47;&#47;analytics.openfoodfacts.org&#47;matomo.php&#39;,
+      siteId: &#39;2&#39;,
+      visitorId: _visitorId,
+    );
+  } catch (err) {
+    &#47;&#47; With Hot Reload, this may trigger a late field already initialized
+  }
 }</code></pre>
 </section>
 
@@ -127,21 +121,21 @@
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">operator ==</a></li>
 
 
-    <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsHelper-class.html#static-properties">Static properties</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsHelper/latestSearch.html">latestSearch</a></li>
+        <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsHelper-class.html#static-properties">Static properties</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsHelper/isEnabled.html">isEnabled</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsHelper/latestSearch.html">latestSearch</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsHelper/matomoVisitorId.html">matomoVisitorId</a></li>
 
-    <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsHelper-class.html#static-methods">Static methods</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsHelper/initMatomo.html">initMatomo</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsHelper/initSentry.html">initSentry</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsHelper/setAnalyticsReports.html">setAnalyticsReports</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsHelper/setCrashReports.html">setCrashReports</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsHelper/trackKnowledgePanelOpen.html">trackKnowledgePanelOpen</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsHelper/trackOpenLink.html">trackOpenLink</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsHelper/trackPersonalizedRanking.html">trackPersonalizedRanking</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsHelper/trackProductPageOpen.html">trackProductPageOpen</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsHelper/trackScannedProduct.html">trackScannedProduct</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsHelper/trackSearch.html">trackSearch</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsHelper/trackStart.html">trackStart</a></li>
+        <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsHelper-class.html#static-methods">Static methods</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsHelper/initMatomo.html">initMatomo</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsHelper/initSentry.html">initSentry</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsHelper/linkPreferences.html">linkPreferences</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsHelper/sendException.html">sendException</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsHelper/trackCustomEvent.html">trackCustomEvent</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsHelper/trackEvent.html">trackEvent</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsHelper/trackOutlink.html">trackOutlink</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsHelper/trackProductEdit.html">trackProductEdit</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsHelper/trackSearch.html">trackSearch</a></li>
 
 </ol>
 
@@ -155,7 +149,7 @@
 <footer>
   <span class="no-break">
     smooth_app
-      0.0.0
+      0.0.0+734
   </span>
 
   
@@ -164,7 +158,7 @@
 
 
 <script src="../../static-assets/highlight.pack.js?v1"></script>
-<script src="../../static-assets/script.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
 
 
 

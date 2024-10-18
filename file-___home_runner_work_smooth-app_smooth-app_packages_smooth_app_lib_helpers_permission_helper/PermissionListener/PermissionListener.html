@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the PermissionListener constructor from the Class PermissionListener class from the permission_helper library, for the Dart programming language.">
-  <title>PermissionListener constructor - PermissionListener class - permission_helper library - Dart API</title>
+  <meta name="description" content="API docs for the PermissionListener constructor from Class PermissionListener from the permission_helper library, for the Dart programming language.">
+  <title>PermissionListener constructor - PermissionListener - permission_helper library - Dart API</title>
 
 
   
@@ -21,8 +21,7 @@
 </head>
 
 
-<body data-base-href="../../"
-      data-using-base-href="false">
+<body data-base-href="../../" data-using-base-href="false">
 
 <div id="overlay-under-drawer"></div>
 
@@ -62,9 +61,8 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">PermissionListener({
   required this.permission,
-}) : super(DevicePermission._initial(permission)) {
-  checkPermission();
-}</code></pre>
+})  : _status = _DevicePermissionStatus.initial,
+      super(DevicePermission._initial(permission));</code></pre>
 </section>
 
 
@@ -88,8 +86,8 @@
     <h5>PermissionListener class</h5>
     <ol>
 
-    <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_permission_helper/PermissionListener-class.html#constructors">Constructors</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_permission_helper/PermissionListener/PermissionListener.html">PermissionListener</a></li>
+        <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_permission_helper/PermissionListener-class.html#constructors">Constructors</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_permission_helper/PermissionListener/PermissionListener.html">PermissionListener</a></li>
 
 
     <li class="section-title">
@@ -98,10 +96,11 @@
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_permission_helper/PermissionListener/permission.html">permission</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_permission_helper/PermissionListener/value.html">value</a></li>
 
     <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_permission_helper/PermissionListener-class.html#instance-methods">Methods</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_permission_helper/PermissionListener/addListener.html">addListener</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_permission_helper/PermissionListener/askPermission.html">askPermission</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_permission_helper/PermissionListener/checkPermission.html">checkPermission</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
 
@@ -123,7 +122,7 @@
 <footer>
   <span class="no-break">
     smooth_app
-      0.0.0
+      0.0.0+734
   </span>
 
   
@@ -132,7 +131,7 @@
 
 
 <script src="../../static-assets/highlight.pack.js?v1"></script>
-<script src="../../static-assets/script.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
 
 
 

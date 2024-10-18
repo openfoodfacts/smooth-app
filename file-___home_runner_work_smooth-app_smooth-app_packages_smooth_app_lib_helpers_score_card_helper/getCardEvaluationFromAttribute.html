@@ -21,8 +21,7 @@
 </head>
 
 
-<body data-base-href="../"
-      data-using-base-href="false">
+<body data-base-href="../" data-using-base-href="false">
 
 <div id="overlay-under-drawer"></div>
 
@@ -64,20 +63,7 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">CardEvaluation getCardEvaluationFromAttribute(Attribute attribute) {
-  switch (getAttributeEvaluation(attribute)) {
-    case AttributeEvaluation.UNKNOWN:
-      return CardEvaluation.UNKNOWN;
-    case AttributeEvaluation.VERY_BAD:
-      return CardEvaluation.VERY_BAD;
-    case AttributeEvaluation.BAD:
-      return CardEvaluation.BAD;
-    case AttributeEvaluation.NEUTRAL:
-      return CardEvaluation.NEUTRAL;
-    case AttributeEvaluation.GOOD:
-      return CardEvaluation.GOOD;
-    case AttributeEvaluation.VERY_GOOD:
-      return CardEvaluation.VERY_GOOD;
-  }
+  return getAttributeEvaluation(attribute).getCardEvaluation();
 }</code></pre>
 </section>
 
@@ -101,16 +87,15 @@
     <h5>score_card_helper library</h5>
     <ol>
 
+  <li class="section-title"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_score_card_helper/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_score_card_helper-library.html#extensions">Extensions</a></li>
+  <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_score_card_helper/GradeExtension.html">GradeExtension</a></li>
 
 
 
 
   <li class="section-title"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_score_card_helper/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_score_card_helper-library.html#functions">Functions</a></li>
-  <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_score_card_helper/getBackgroundColor.html">getBackgroundColor</a></li>
-  <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_score_card_helper/getBackgroundColorFromAttribute.html">getBackgroundColorFromAttribute</a></li>
   <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_score_card_helper/getCardEvaluationFromAttribute.html">getCardEvaluationFromAttribute</a></li>
   <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_score_card_helper/getCardEvaluationFromKnowledgePanelTitleElement.html">getCardEvaluationFromKnowledgePanelTitleElement</a></li>
-  <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_score_card_helper/getTextColor.html">getTextColor</a></li>
 
 
 
@@ -126,7 +111,7 @@
 <footer>
   <span class="no-break">
     smooth_app
-      0.0.0
+      0.0.0+734
   </span>
 
   
@@ -135,7 +120,7 @@
 
 
 <script src="../static-assets/highlight.pack.js?v1"></script>
-<script src="../static-assets/script.js?v1"></script>
+<script src="../static-assets/docs.dart.js"></script>
 
 
 

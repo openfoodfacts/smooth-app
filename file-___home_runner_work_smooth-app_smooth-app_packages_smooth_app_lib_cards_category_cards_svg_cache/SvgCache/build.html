@@ -21,8 +21,7 @@
 </head>
 
 
-<body data-base-href="../../"
-      data-using-base-href="false">
+<body data-base-href="../../" data-using-base-href="false">
 
 <div id="overlay-under-drawer"></div>
 
@@ -76,23 +75,28 @@ Widget build(BuildContext context) {
   if (cachedFilenames.isEmpty) {
     return getDefaultUnknown();
   }
-  return SvgPicture.network(
+  Color? forcedColor = color;
+  &#47;&#47; cf. https:&#47;&#47;github.com&#47;openfoodfacts&#47;smooth-app&#47;issues&#47;2268
+  &#47;&#47; For tinted icons, when there&#39;s no color it&#39;s not good, as it will always
+  &#47;&#47; be black - not good for dark mode.
+  &#47;&#47; Here we detect lazily tinted icons if the URL contains &quot;&#47;icons&#47;&quot;
+  &#47;&#47; e.g. https:&#47;&#47;static.openfoodfacts.org&#47;images&#47;icons&#47;dist&#47;nutrition.svg
+  if (forcedColor == null &amp;&amp; iconUrl!.contains(&#39;&#47;icons&#47;&#39;)) {
+    forcedColor = Theme.of(context).brightness == Brightness.dark
+        ? Colors.white
+        : Colors.black;
+  }
+  final AssetCacheHelper helper = AssetCacheHelper(
+    cachedFilenames,
     iconUrl!,
-    color: color,
     width: width,
     height: height,
-    fit: BoxFit.contain,
-    placeholderBuilder: (BuildContext context) =&gt; displayAssetWhileWaiting
-        ? SvgAsyncAsset(
-            AssetCacheHelper(
-              cachedFilenames,
-              iconUrl!,
-              width: width,
-              height: height,
-              color: color,
-            ),
-          )
-        : getCircularProgressIndicator(),
+    color: forcedColor,
+    semanticsLabel: semanticsLabel,
+  );
+  return SvgSafeNetwork(
+    helper,
+    key: helper.getKey(),
   );
 }</code></pre>
 </section>
@@ -118,8 +122,8 @@ Widget build(BuildContext context) {
     <h5>SvgCache class</h5>
     <ol>
 
-    <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_category_cards_svg_cache/SvgCache-class.html#constructors">Constructors</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_category_cards_svg_cache/SvgCache/SvgCache.html">SvgCache</a></li>
+        <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_category_cards_svg_cache/SvgCache-class.html#constructors">Constructors</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_category_cards_svg_cache/SvgCache/SvgCache.html">SvgCache</a></li>
 
 
     <li class="section-title">
@@ -128,6 +132,7 @@ Widget build(BuildContext context) {
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_category_cards_svg_cache/SvgCache/color.html">color</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_category_cards_svg_cache/SvgCache/semanticsLabel.html">semanticsLabel</a></li>
 
     <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_category_cards_svg_cache/SvgCache-class.html#instance-methods">Methods</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_category_cards_svg_cache/SvgCache/build.html">build</a></li>
@@ -140,6 +145,9 @@ Widget build(BuildContext context) {
 
 
 
+        <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_category_cards_svg_cache/SvgCache-class.html#static-methods">Static methods</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_category_cards_svg_cache/SvgCache/getAssetsCacheForNutriscore.html">getAssetsCacheForNutriscore</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_category_cards_svg_cache/SvgCache/getSemanticsLabel.html">getSemanticsLabel</a></li>
 
 </ol>
 
@@ -153,7 +161,7 @@ Widget build(BuildContext context) {
 <footer>
   <span class="no-break">
     smooth_app
-      0.0.0
+      0.0.0+734
   </span>
 
   
@@ -162,7 +170,7 @@ Widget build(BuildContext context) {
 
 
 <script src="../../static-assets/highlight.pack.js?v1"></script>
-<script src="../../static-assets/script.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
 
 
 

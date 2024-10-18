@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the getChildren method from the UserPreferencesDevMode class, for the Dart programming language.">
+  <title>getChildren method - UserPreferencesDevMode class - user_preferences_dev_mode library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="../../" data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">smooth_app</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_dev_mode/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_dev_mode-library.html">user_preferences_dev_mode</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_dev_mode/UserPreferencesDevMode-class.html">UserPreferencesDevMode</a></li>
+    <li class="self-crumb">getChildren method</li>
+  </ol>
+  <div class="self-name">getChildren</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div>
+<h1><span class="kind-method">getChildren</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+<div>
+  <ol class="annotation-list">
+    <li>@<a href="https://api.flutter.dev/flutter/dart-core/override-constant.html">override</a></li>
+  </ol>
+</div>
+
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a></span>
+<span class="name ">getChildren</span>(<wbr>)
+
+      
+
+    </section>
+    
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">@override
+List&lt;UserPreferencesItem&gt; getChildren() =&gt; &lt;UserPreferencesItem&gt;[
+      UserPreferencesItemSwitch(
+        title: appLocalizations.contribute_develop_dev_mode_title,
+        onChanged: (bool value) async {
+          final NavigatorState navigator = Navigator.of(context);
+          &#47;&#47; resetting back to &quot;no dev mode&quot;
+          await userPreferences.setDevMode(0);
+          &#47;&#47; resetting back to PROD
+          await userPreferences.setFlag(userPreferencesFlagProd, true);
+          ProductQuery.setQueryType(userPreferences);
+          navigator.pop();
+        },
+        value: userPreferences.devMode == 1,
+      ),
+      UserPreferencesItemTile(
+        title: &#39;Debugging information&#39;,
+        onTap: () async =&gt; Navigator.of(context).push(MaterialPageRoute&lt;void&gt;(
+            builder: (BuildContext context) =&gt;
+                const UserPreferencesDebugInfo())),
+      ),
+      UserPreferencesItemSection(
+        label: appLocalizations.dev_mode_section_data,
+      ),
+      UserPreferencesItemTile(
+        title: appLocalizations.background_task_title,
+        subtitle: appLocalizations.background_task_subtitle,
+        trailing: const BackgroundTaskBadge(
+          child: Icon(Icons.edit_notifications_outlined),
+        ),
+        onTap: () async =&gt; Navigator.push&lt;void&gt;(
+          context,
+          MaterialPageRoute&lt;void&gt;(
+            builder: (BuildContext context) =&gt; const OfflineTaskPage(),
+          ),
+        ),
+      ),
+      UserPreferencesItemTile(
+        title: appLocalizations.offline_data,
+        onTap: () =&gt; Navigator.push&lt;void&gt;(
+          context,
+          MaterialPageRoute&lt;void&gt;(
+            builder: (BuildContext context) =&gt; const OfflineDataPage(),
+          ),
+        ),
+      ),
+      UserPreferencesItemTile(
+        title: appLocalizations.dev_preferences_export_history_title,
+        subtitle: appLocalizations.clipboard_barcode_copy,
+        onTap: () async {
+          final LocalDatabase localDatabase = context.read&lt;LocalDatabase&gt;();
+          final Map&lt;String, dynamic&gt; export =
+              await DaoProductList(localDatabase).export(
+            ProductList.history(),
+          );
+          final List&lt;Widget&gt; children = &lt;Widget&gt;[];
+          for (final String barcode in export.keys) {
+            final bool? exists = export[barcode] as bool?;
+            children.add(
+              ListTile(
+                leading: Icon(exists == null
+                    ? Icons.error
+                    : exists
+                        ? Icons.check
+                        : Icons.help_outline),
+                title: Text(barcode),
+                subtitle: Text(exists == null
+                    ? appLocalizations
+                        .dev_preferences_export_history_progress_error
+                    : exists
+                        ? appLocalizations
+                            .dev_preferences_export_history_progress_found
+                        : appLocalizations
+                            .dev_preferences_export_history_progress_not_found),
+              ),
+            );
+          }
+
+          if (!context.mounted) {
+            return;
+          }
+          await showDialog&lt;void&gt;(
+            context: context,
+            builder: (BuildContext context) =&gt; SmoothAlertDialog(
+              title: appLocalizations
+                  .dev_preferences_export_history_dialog_title,
+              body: SizedBox(
+                height: 400,
+                width: 300,
+                child: ListView(children: children),
+              ),
+              negativeAction: SmoothActionButton(
+                text: appLocalizations.copy_to_clipboard,
+                onPressed: () async {
+                  final StringBuffer data = StringBuffer();
+
+                  for (final String key in export.keys) {
+                    data.write(&#39;$key, &#39;);
+                  }
+
+                  await Clipboard.setData(
+                    ClipboardData(text: data.toString()),
+                  );
+                },
+              ),
+              positiveAction: SmoothActionButton(
+                text: appLocalizations.okay,
+                onPressed: () =&gt; Navigator.pop(context),
+              ),
+            ),
+          );
+        },
+      ),
+      UserPreferencesItemTile(
+        title: &#39;Refresh all products from server (cf. Nutriscore v2)&#39;,
+        trailing: const Icon(Icons.refresh),
+        onTap: () async {
+          final LocalDatabase localDatabase = context.read&lt;LocalDatabase&gt;();
+          final DaoProduct daoProduct = DaoProduct(localDatabase);
+          await daoProduct.clearAllLanguages();
+          await BackgroundTaskLanguageRefresh.addTask(localDatabase);
+          _showSuccessMessage();
+        },
+      ),
+      UserPreferencesItemTile(
+        &#47;&#47; Do not translate
+        title: &#39;Reset app language&#39;,
+        onTap: () async {
+          userPreferences.setAppLanguageCode(null);
+          ProductQuery.setLanguage(context, userPreferences);
+        },
+      ),
+      UserPreferencesItemTile(
+        title: &#39;Add cards to scanner&#39;,
+        subtitle: &#39;Adds 3 sample products to the scanner&#39;,
+        onTap: () async {
+          final ContinuousScanModel model =
+              context.read&lt;ContinuousScanModel&gt;();
+
+          const List&lt;String&gt; barcodes = &lt;String&gt;[
+            &#39;5449000000996&#39;,
+            &#39;3017620425035&#39;,
+            &#39;3175680011480&#39;,
+          ];
+          for (int i = 0; i &lt; barcodes.length; i++) {
+            await model.onScan(barcodes[i]);
+          }
+        },
+      ),
+      UserPreferencesItemSection(
+        label: appLocalizations.dev_mode_section_server,
+      ),
+      UserPreferencesItemTile(
+        title: appLocalizations.dev_preferences_environment_switch_title,
+        trailing: DropdownButton&lt;bool&gt;(
+          value: userPreferences.getFlag(userPreferencesFlagProd) ?? true,
+          elevation: 16,
+          onChanged: (bool? newValue) async {
+            await userPreferences.setFlag(userPreferencesFlagProd, newValue);
+            ProductQuery.setQueryType(userPreferences);
+          },
+          items: const &lt;DropdownMenuItem&lt;bool&gt;&gt;[
+            DropdownMenuItem&lt;bool&gt;(
+              value: true,
+              child: Text(&#39;PROD&#39;),
+            ),
+            DropdownMenuItem&lt;bool&gt;(
+              value: false,
+              child: Text(&#39;TEST&#39;),
+            ),
+          ],
+        ),
+      ),
+      UserPreferencesItemTile(
+        title: appLocalizations.dev_preferences_test_environment_title,
+        subtitle: appLocalizations.dev_preferences_test_environment_subtitle(
+          ProductQuery.getTestUriProductHelper(userPreferences)
+              .getPostUri(path: &#39;&#39;)
+              .toString(),
+        ),
+        onTap: () async =&gt; _changeTestEnvDomain(),
+      ),
+      const UserPreferencesItemSection(
+        label: &#39;Prices Server configuration&#39;,
+      ),
+      UserPreferencesItemTile(
+        title: &#39;Switch between prices.openfoodfacts.org (PROD) and test env&#39;,
+        trailing: DropdownButton&lt;bool&gt;(
+          value:
+              userPreferences.getFlag(userPreferencesFlagPriceProd) ?? true,
+          elevation: 16,
+          onChanged: (bool? newValue) async {
+            await userPreferences.setFlag(
+              userPreferencesFlagPriceProd,
+              newValue,
+            );
+            ProductQuery.setQueryType(userPreferences);
+          },
+          items: const &lt;DropdownMenuItem&lt;bool&gt;&gt;[
+            DropdownMenuItem&lt;bool&gt;(
+              value: true,
+              child: Text(&#39;PROD&#39;),
+            ),
+            DropdownMenuItem&lt;bool&gt;(
+              value: false,
+              child: Text(&#39;TEST&#39;),
+            ),
+          ],
+        ),
+      ),
+      UserPreferencesItemSection(
+        label: appLocalizations.dev_mode_section_news,
+      ),
+      UserPreferencesEditableItemTile(
+        title: appLocalizations.dev_preferences_news_custom_url_title,
+        subtitleWithEmptyValue:
+            appLocalizations.dev_preferences_news_custom_url_empty_value,
+        dialogAction:
+            appLocalizations.dev_preferences_news_custom_url_subtitle,
+        value: userPreferences
+            .getDevModeString(userPreferencesCustomNewsJSONURI),
+        onNewValue: (String newUrl) =&gt; userPreferences.setDevModeString(
+          userPreferencesCustomNewsJSONURI,
+          newUrl,
+        ),
+        validator: (String value) =&gt;
+            value.isEmpty || Uri.tryParse(value) != null,
+      ),
+      UserPreferencesItemTileBuilder(
+        title: appLocalizations.dev_preferences_news_provider_status_title,
+        subtitleBuilder: (BuildContext context) {
+          return Consumer&lt;AppNewsProvider&gt;(
+              builder: (_, AppNewsProvider provider, __) {
+            return Text(switch (provider.state) {
+              AppNewsStateLoading() =&gt; &#39;Loading...&#39;,
+              AppNewsStateLoaded(lastUpdate: final DateTime date) =&gt;
+                appLocalizations
+                    .dev_preferences_news_provider_status_subtitle(
+                  DateFormat.yMd().format(date),
+                ),
+              AppNewsStateError(exception: final dynamic e) =&gt; &#39;Error $e&#39;,
+            });
+          });
+        },
+        trailingBuilder: (BuildContext context) {
+          return IconButton(
+            icon: const Icon(Icons.refresh),
+            onPressed: () =&gt; context
+                .read&lt;AppNewsProvider&gt;()
+                .loadLatestNews(forceUpdate: true),
+          );
+        },
+      ),
+      UserPreferencesItemSection(
+        label: appLocalizations.dev_mode_section_product_page,
+      ),
+      UserPreferencesItemSwitch(
+        title: appLocalizations.dev_preferences_edit_ingredients_title,
+        value: userPreferences.getFlag(userPreferencesFlagEditIngredients) ??
+            false,
+        onChanged: (bool value) async {
+          await userPreferences.setFlag(
+              userPreferencesFlagEditIngredients, value);
+          _showSuccessMessage();
+        },
+      ),
+      UserPreferencesItemSwitch(
+        title: appLocalizations.dev_mode_hide_ecoscore_title,
+        value: userPreferences
+            .getExcludedAttributeIds()
+            .contains(Attribute.ATTRIBUTE_ECOSCORE),
+        onChanged: (bool value) async {
+          const String tag = Attribute.ATTRIBUTE_ECOSCORE;
+          final List&lt;String&gt; list = userPreferences.getExcludedAttributeIds();
+          list.removeWhere((final String element) =&gt; element == tag);
+          if (value) {
+            list.add(tag);
+          }
+          await userPreferences.setExcludedAttributeIds(list);
+        },
+      ),
+      UserPreferencesItemSection(
+        label: appLocalizations.dev_mode_section_ui,
+      ),
+      UserPreferencesItemTile(
+        title: appLocalizations.dev_preferences_reset_onboarding_title,
+        subtitle: appLocalizations.dev_preferences_reset_onboarding_subtitle,
+        onTap: () async {
+          await userPreferences.resetOnboarding();
+          _showSuccessMessage();
+        },
+      ),
+      UserPreferencesItemSwitch(
+        title: &#39;Accessibility: remove colors&#39;,
+        value: userPreferences
+                .getFlag(userPreferencesFlagAccessibilityNoColor) ??
+            false,
+        onChanged: (bool value) async {
+          await userPreferences.setFlag(
+              userPreferencesFlagAccessibilityNoColor, value);
+          _showSuccessMessage();
+        },
+      ),
+      UserPreferencesItemSwitch(
+        title: &#39;Accessibility: show emoji&#39;,
+        value:
+            userPreferences.getFlag(userPreferencesFlagAccessibilityEmoji) ??
+                false,
+        onChanged: (bool value) async {
+          await userPreferences.setFlag(
+              userPreferencesFlagAccessibilityEmoji, value);
+          _showSuccessMessage();
+        },
+      ),
+      UserPreferencesItemSwitch(
+        title: appLocalizations.dev_mode_spellchecker_for_ocr_title,
+        subtitle: appLocalizations.dev_mode_spellchecker_for_ocr_subtitle,
+        value:
+            userPreferences.getFlag(userPreferencesFlagSpellCheckerOnOcr) ??
+                false,
+        onChanged: (bool value) async =&gt; userPreferences.setFlag(
+          userPreferencesFlagSpellCheckerOnOcr,
+          value,
+        ),
+      ),
+      UserPreferencesItemSection(
+        label: appLocalizations.dev_mode_section_experimental_features,
+      ),
+      UserPreferencesItemSwitch(
+        title: &#39;User ordered knowledge panels&#39;,
+        value: userPreferences.getFlag(userPreferencesFlagUserOrderedKP) ??
+            false,
+        onChanged: (bool value) async {
+          await userPreferences.setFlag(
+              userPreferencesFlagUserOrderedKP, value);
+          _showSuccessMessage();
+        },
+      ),
+      UserPreferencesItemTile(
+        title: &#39;Temporary access to location search&#39;,
+        onTap: () async {
+          final LocalDatabase localDatabase = context.read&lt;LocalDatabase&gt;();
+          final DaoOsmLocation daoOsmLocation = DaoOsmLocation(localDatabase);
+          final List&lt;OsmLocation&gt; osmLocations =
+              await daoOsmLocation.getAll();
+          if (!context.mounted) {
+            return;
+          }
+          final List&lt;SearchLocationPreloadedItem&gt; preloadedList =
+              &lt;SearchLocationPreloadedItem&gt;[];
+          for (final OsmLocation osmLocation in osmLocations) {
+            preloadedList.add(
+              SearchLocationPreloadedItem(
+                osmLocation,
+                popFirst: false,
+              ),
+            );
+          }
+          final OsmLocation? osmLocation = await Navigator.push&lt;OsmLocation&gt;(
+            context,
+            MaterialPageRoute&lt;OsmLocation&gt;(
+              builder: (BuildContext context) =&gt; SearchPage(
+                SearchLocationHelper(),
+                preloadedList: preloadedList,
+                autofocus: false,
+              ),
+            ),
+          );
+          if (osmLocation == null) {
+            return;
+          }
+          await daoOsmLocation.put(osmLocation);
+          if (!context.mounted) {
+            return;
+          }
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(
+                osmLocation.getTitle() ??
+                    osmLocation.getSubtitle() ??
+                    osmLocation.getLatLng().toString(),
+              ),
+            ),
+          );
+        },
+      ),
+      UserPreferencesItemTile(
+        title: &#39;Preference Search...&#39;,
+        onTap: () async =&gt; Navigator.of(context).push(
+          MaterialPageRoute&lt;void&gt;(
+            builder: (BuildContext context) =&gt;
+                const UserPreferencesSearchPage(),
+          ),
+        ),
+      ),
+      UserPreferencesItemSwitch(
+        title: &#39;Side by side comparison for 2 or 3 products&#39;,
+        value:
+            userPreferences.getFlag(userPreferencesFlagBoostedComparison) ??
+                false,
+        onChanged: (bool value) async {
+          await userPreferences.setFlag(
+              userPreferencesFlagBoostedComparison, value);
+          _showSuccessMessage();
+        },
+      ),
+    ];</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../../index.html">smooth_app</a></li>
+  <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_dev_mode/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_dev_mode-library.html">user_preferences_dev_mode</a></li>
+  <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_dev_mode/UserPreferencesDevMode-class.html">UserPreferencesDevMode</a></li>
+  <li class="self-crumb">getChildren method</li>
+</ol>
+
+
+    <h5>UserPreferencesDevMode class</h5>
+    <ol>
+
+        <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_dev_mode/UserPreferencesDevMode-class.html#constructors">Constructors</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_dev_mode/UserPreferencesDevMode/UserPreferencesDevMode.html">UserPreferencesDevMode</a></li>
+
+
+    <li class="section-title inherited">
+      <a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_dev_mode/UserPreferencesDevMode-class.html#instance-properties">Properties</a>
+    </li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
+
+    <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_dev_mode/UserPreferencesDevMode-class.html#instance-methods">Methods</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_dev_mode/UserPreferencesDevMode/getChildren.html">getChildren</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_dev_mode/UserPreferencesDevMode/getLeadingIconData.html">getLeadingIconData</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_dev_mode/UserPreferencesDevMode/getPreferencePageType.html">getPreferencePageType</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_dev_mode/UserPreferencesDevMode/getTitle.html">getTitle</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_dev_mode/UserPreferencesDevMode/getTitleString.html">getTitleString</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
+
+    <li class="section-title inherited"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_dev_mode/UserPreferencesDevMode-class.html#operators">Operators</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">operator ==</a></li>
+
+
+
+
+        <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_dev_mode/UserPreferencesDevMode-class.html#constants">Constants</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_dev_mode/UserPreferencesDevMode/delegate-constant.html">delegate</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_dev_mode/UserPreferencesDevMode/userPreferencesAppLanguageCode-constant.html">userPreferencesAppLanguageCode</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_dev_mode/UserPreferencesDevMode/userPreferencesCustomNewsJSONURI-constant.html">userPreferencesCustomNewsJSONURI</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_dev_mode/UserPreferencesDevMode/userPreferencesEnumScanMode-constant.html">userPreferencesEnumScanMode</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_dev_mode/UserPreferencesDevMode/userPreferencesFlagAccessibilityEmoji-constant.html">userPreferencesFlagAccessibilityEmoji</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_dev_mode/UserPreferencesDevMode/userPreferencesFlagAccessibilityNoColor-constant.html">userPreferencesFlagAccessibilityNoColor</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_dev_mode/UserPreferencesDevMode/userPreferencesFlagBoostedComparison-constant.html">userPreferencesFlagBoostedComparison</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_dev_mode/UserPreferencesDevMode/userPreferencesFlagEditIngredients-constant.html">userPreferencesFlagEditIngredients</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_dev_mode/UserPreferencesDevMode/userPreferencesFlagPriceProd-constant.html">userPreferencesFlagPriceProd</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_dev_mode/UserPreferencesDevMode/userPreferencesFlagProd-constant.html">userPreferencesFlagProd</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_dev_mode/UserPreferencesDevMode/userPreferencesFlagSpellCheckerOnOcr-constant.html">userPreferencesFlagSpellCheckerOnOcr</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_dev_mode/UserPreferencesDevMode/userPreferencesFlagUserOrderedKP-constant.html">userPreferencesFlagUserOrderedKP</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_dev_mode/UserPreferencesDevMode/userPreferencesTestEnvDomain-constant.html">userPreferencesTestEnvDomain</a></li>
+</ol>
+
+  </div><!--/.sidebar-offcanvas-->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    smooth_app
+      0.0.0+734
+  </span>
+
+  
+</footer>
+
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
+
+
+
+</body>
+
+</html>
+

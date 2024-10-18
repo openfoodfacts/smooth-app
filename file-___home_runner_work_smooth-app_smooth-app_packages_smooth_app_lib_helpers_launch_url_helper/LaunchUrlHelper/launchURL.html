@@ -21,8 +21,7 @@
 </head>
 
 
-<body data-base-href="../../"
-      data-using-base-href="false">
+<body data-base-href="../../" data-using-base-href="false">
 
 <div id="overlay-under-drawer"></div>
 
@@ -53,8 +52,7 @@
       
 
 <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
-<span class="name ">launchURL</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="launchURL-param-url"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">url</span>, </span></li>
-<li><span class="parameter" id="launchURL-param-isOFF"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">isOFF</span></span></li>
+<span class="name ">launchURL</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="launchURL-param-url"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">url</span></span></li>
 </ol>)
 
       
@@ -62,27 +60,25 @@
     </section>
     
 <section class="desc markdown">
-  <p>ifOFF true adds the users country code in front of the url
-Throws a error when already populated
-YES https://   openfoodfacts.org/...
-NO  <a href="https://de.openfoodfacts.org/">https://de.openfoodfacts.org/</a>...</p>
+  <p>Launches the url in an external browser.</p>
 </section>
 
 
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">static Future&lt;void&gt; launchURL(String url, bool isOFF) async {
-  if (isOFF) {
-    url = _replaceSubdomainWithCodes(url);
-  }
+  <pre class="language-dart"><code class="language-dart">static Future&lt;void&gt; launchURL(String url) async {
+  AnalyticsHelper.trackOutlink(url: url);
 
-  AnalyticsHelper.trackOpenLink(url: url);
-
-  if (await canLaunchUrl(Uri.parse(url))) {
-    await launchUrl(Uri.parse(url));
-  } else {
-    throw &#39;Could not launch $url&#39;;
+  try {
+    await launchUrl(
+      Uri.parse(url),
+      mode: Platform.isAndroid
+          ? LaunchMode.externalApplication
+          : LaunchMode.platformDefault,
+    );
+  } catch (e) {
+    throw &#39;Could not launch $url,Error: $e&#39;;
   }
 }</code></pre>
 </section>
@@ -125,8 +121,9 @@ NO  <a href="https://de.openfoodfacts.org/">https://de.openfoodfacts.org/</a>...
 
 
 
-    <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_launch_url_helper/LaunchUrlHelper-class.html#static-methods">Static methods</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_launch_url_helper/LaunchUrlHelper/launchURL.html">launchURL</a></li>
+        <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_launch_url_helper/LaunchUrlHelper-class.html#static-methods">Static methods</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_launch_url_helper/LaunchUrlHelper/launchURL.html">launchURL</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_launch_url_helper/LaunchUrlHelper/launchURLAndFollowDeepLinks.html">launchURLAndFollowDeepLinks</a></li>
 
 </ol>
 
@@ -140,7 +137,7 @@ NO  <a href="https://de.openfoodfacts.org/">https://de.openfoodfacts.org/</a>...
 <footer>
   <span class="no-break">
     smooth_app
-      0.0.0
+      0.0.0+734
   </span>
 
   
@@ -149,7 +146,7 @@ NO  <a href="https://de.openfoodfacts.org/">https://de.openfoodfacts.org/</a>...
 
 
 <script src="../../static-assets/highlight.pack.js?v1"></script>
-<script src="../../static-assets/script.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
 
 
 

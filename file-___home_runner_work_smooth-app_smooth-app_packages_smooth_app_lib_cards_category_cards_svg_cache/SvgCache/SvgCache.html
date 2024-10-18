@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the SvgCache constructor from the Class SvgCache class from the svg_cache library, for the Dart programming language.">
-  <title>SvgCache constructor - SvgCache class - svg_cache library - Dart API</title>
+  <meta name="description" content="API docs for the SvgCache constructor from Class SvgCache from the svg_cache library, for the Dart programming language.">
+  <title>SvgCache constructor - SvgCache - svg_cache library - Dart API</title>
 
 
   
@@ -21,8 +21,7 @@
 </head>
 
 
-<body data-base-href="../../"
-      data-using-base-href="false">
+<body data-base-href="../../" data-using-base-href="false">
 
 <div id="overlay-under-drawer"></div>
 
@@ -50,11 +49,11 @@
 </h1></div>
 
     <section class="multi-line-signature">const
-      <span class="name ">SvgCache</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-iconUrl"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">iconUrl</span>, </span></li>
-<li><span class="parameter" id="-param-width">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">width</span>, </span></li>
-<li><span class="parameter" id="-param-height"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">height</span>, </span></li>
+      <span class="name ">SvgCache</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-iconUrl"><span class="type-annotation">dynamic</span> <span class="parameter-name">iconUrl</span>, </span></li>
+<li><span class="parameter" id="-param-width">{<span class="type-annotation">dynamic</span> <span class="parameter-name">width</span>, </span></li>
+<li><span class="parameter" id="-param-height"><span class="type-annotation">dynamic</span> <span class="parameter-name">height</span>, </span></li>
 <li><span class="parameter" id="-param-color"><span class="type-annotation">dynamic</span> <span class="parameter-name">color</span>, </span></li>
-<li><span class="parameter" id="-param-displayAssetWhileWaiting"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">displayAssetWhileWaiting</span> = <span class="default-value">true</span>}</span></li>
+<li><span class="parameter" id="-param-semanticsLabel"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">semanticsLabel</span>}</span></li>
 </ol>)
     </section>
 
@@ -65,17 +64,12 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">const SvgCache(
-  final String? iconUrl, {
-  final double? width,
-  final double? height,
+  super.iconUrl, {
+  super.width,
+  super.height,
   this.color,
-  final bool displayAssetWhileWaiting = true,
-}) : super(
-        iconUrl,
-        width: width,
-        height: height,
-        displayAssetWhileWaiting: displayAssetWhileWaiting,
-      );</code></pre>
+  this.semanticsLabel,
+});</code></pre>
 </section>
 
 
@@ -99,8 +93,8 @@
     <h5>SvgCache class</h5>
     <ol>
 
-    <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_category_cards_svg_cache/SvgCache-class.html#constructors">Constructors</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_category_cards_svg_cache/SvgCache/SvgCache.html">SvgCache</a></li>
+        <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_category_cards_svg_cache/SvgCache-class.html#constructors">Constructors</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_category_cards_svg_cache/SvgCache/SvgCache.html">SvgCache</a></li>
 
 
     <li class="section-title">
@@ -109,6 +103,7 @@
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_category_cards_svg_cache/SvgCache/color.html">color</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_category_cards_svg_cache/SvgCache/semanticsLabel.html">semanticsLabel</a></li>
 
     <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_category_cards_svg_cache/SvgCache-class.html#instance-methods">Methods</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_category_cards_svg_cache/SvgCache/build.html">build</a></li>
@@ -121,6 +116,9 @@
 
 
 
+        <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_category_cards_svg_cache/SvgCache-class.html#static-methods">Static methods</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_category_cards_svg_cache/SvgCache/getAssetsCacheForNutriscore.html">getAssetsCacheForNutriscore</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_category_cards_svg_cache/SvgCache/getSemanticsLabel.html">getSemanticsLabel</a></li>
 
 </ol>
 
@@ -134,7 +132,7 @@
 <footer>
   <span class="no-break">
     smooth_app
-      0.0.0
+      0.0.0+734
   </span>
 
   
@@ -143,7 +141,7 @@
 
 
 <script src="../../static-assets/highlight.pack.js?v1"></script>
-<script src="../../static-assets/script.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
 
 
 

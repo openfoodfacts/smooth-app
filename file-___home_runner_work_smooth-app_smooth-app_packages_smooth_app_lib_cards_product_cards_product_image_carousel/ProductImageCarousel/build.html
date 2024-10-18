@@ -21,8 +21,7 @@
 </head>
 
 
-<body data-base-href="../../"
-      data-using-base-href="false">
+<body data-base-href="../../" data-using-base-href="false">
 
 <div id="overlay-under-drawer"></div>
 
@@ -72,59 +71,29 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  final AppLocalizations appLocalizations = AppLocalizations.of(context);
-  final List&lt;ProductImageData&gt; allProductImagesData = &lt;ProductImageData&gt;[
-    ProductImageData(
-      imageField: ImageField.FRONT,
-      imageUrl: product.imageFrontUrl,
-      title: appLocalizations.product,
-      buttonText: appLocalizations.front_photo,
-    ),
-    ProductImageData(
-      imageField: ImageField.INGREDIENTS,
-      imageUrl: product.imageIngredientsUrl,
-      title: appLocalizations.ingredients,
-      buttonText: appLocalizations.ingredients_photo,
-    ),
-    ProductImageData(
-      imageField: ImageField.NUTRITION,
-      imageUrl: product.imageNutritionUrl,
-      title: appLocalizations.nutrition,
-      buttonText: appLocalizations.nutrition_facts_photo,
-    ),
-    ProductImageData(
-      imageField: ImageField.PACKAGING,
-      imageUrl: product.imagePackagingUrl,
-      title: appLocalizations.packaging_information,
-      buttonText: appLocalizations.packaging_information_photo,
-    ),
-    ProductImageData(
-      imageField: ImageField.OTHER,
-      imageUrl: null,
-      title: appLocalizations.more_photos,
-      buttonText: appLocalizations.more_photos,
-    ),
-  ];
-
+  final List&lt;ProductImageData&gt; productImagesData = getProductMainImagesData(
+    product,
+    ProductQuery.getLanguage(),
+  );
+  productImagesData.add(getEmptyProductImageData(ImageField.OTHER));
   return SizedBox(
     height: height,
-    child: ListView(
+    child: ListView.builder(
       &#47;&#47; This next line does the trick.
       scrollDirection: Axis.horizontal,
-      children: allProductImagesData
-          .map(
-            (ProductImageData item) =&gt; Container(
-              margin: const EdgeInsets.fromLTRB(0, 0, 5, 0),
-              decoration: const BoxDecoration(color: Colors.black12),
-              child: ImageUploadCard(
-                product: product,
-                productImageData: item,
-                allProductImagesData: allProductImagesData,
-                onUpload: onUpload,
-              ),
-            ),
-          )
-          .toList(),
+      controller: controller,
+      itemCount: productImagesData.length,
+      itemBuilder: (_, int index) {
+        final ProductImageData data = productImagesData[index];
+        return Container(
+          margin: const EdgeInsets.fromLTRB(0, 0, 5, 0),
+          decoration: const BoxDecoration(color: Colors.black12),
+          child: ProductImageCarouselItem(
+            product: product,
+            productImageData: data,
+          ),
+        );
+      },
     ),
   );
 }</code></pre>
@@ -151,16 +120,16 @@ Widget build(BuildContext context) {
     <h5>ProductImageCarousel class</h5>
     <ol>
 
-    <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_product_image_carousel/ProductImageCarousel-class.html#constructors">Constructors</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_product_image_carousel/ProductImageCarousel/ProductImageCarousel.html">ProductImageCarousel</a></li>
+        <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_product_image_carousel/ProductImageCarousel-class.html#constructors">Constructors</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_product_image_carousel/ProductImageCarousel/ProductImageCarousel.html">ProductImageCarousel</a></li>
 
 
     <li class="section-title">
       <a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_product_image_carousel/ProductImageCarousel-class.html#instance-properties">Properties</a>
     </li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_product_image_carousel/ProductImageCarousel/controller.html">controller</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_product_image_carousel/ProductImageCarousel/height.html">height</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_product_image_carousel/ProductImageCarousel/onUpload.html">onUpload</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_product_image_carousel/ProductImageCarousel/product.html">product</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
 
@@ -187,7 +156,7 @@ Widget build(BuildContext context) {
 <footer>
   <span class="no-break">
     smooth_app
-      0.0.0
+      0.0.0+734
   </span>
 
   
@@ -196,7 +165,7 @@ Widget build(BuildContext context) {
 
 
 <script src="../../static-assets/highlight.pack.js?v1"></script>
-<script src="../../static-assets/script.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
 
 
 

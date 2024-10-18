@@ -21,8 +21,7 @@
 </head>
 
 
-<body data-base-href="../"
-      data-using-base-href="false">
+<body data-base-href="../" data-using-base-href="false">
 
 <div id="overlay-under-drawer"></div>
 
@@ -53,6 +52,7 @@
 
 
 
+    
 
     <section class="summary offset-anchor inherited" id="instance-properties">
       <h2>Properties</h2>
@@ -64,7 +64,7 @@
 
 </dt>
 <dd class="inherited">
-  The hash code for this object. <a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">[...]</a>
+  The hash code for this object.
   <div class="features">read-only, inherited</div>
 
 </dd>
@@ -75,7 +75,7 @@
 
 </dt>
 <dd class="inherited">
-  A representation of the runtime type of the object. 
+  A representation of the runtime type of the object.
   <div class="features">read-only, inherited</div>
 
 </dd>
@@ -83,9 +83,12 @@
       </dl>
     </section>
 
-    <section class="summary offset-anchor inherited" id="instance-methods">
-      <h2>Methods</h2>
-      <dl class="callables">
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="instance-methods">
+    <h2>Methods</h2>
+    <dl class="callables">
         <dt id="noSuchMethod" class="callable inherited">
   <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
     <span class="returntype parameter">&#8594; dynamic</span>
@@ -94,7 +97,7 @@
 
 </dt>
 <dd class="inherited">
-  Invoked when a non-existent method or property is accessed. <a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">[...]</a>
+  Invoked when a non-existent method or property is accessed.
   <div class="features">inherited</div>
 
 </dd>
@@ -107,17 +110,19 @@
 
 </dt>
 <dd class="inherited">
-  A string representation of this object. <a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">[...]</a>
+  A string representation of this object.
   <div class="features">inherited</div>
 
 </dd>
 
-      </dl>
-    </section>
-
-    <section class="summary offset-anchor inherited" id="operators">
-      <h2>Operators</h2>
-      <dl class="callables">
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>Operators</h2>
+    <dl class="callables">
         <dt id="operator ==" class="callable inherited">
   <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
     <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
@@ -126,52 +131,57 @@
 
 </dt>
 <dd class="inherited">
-  The equality operator. <a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">[...]</a>
+  The equality operator.
   <div class="features">inherited</div>
 
 </dd>
 
-      </dl>
-    </section>
+    </dl>
+  </section>
+    
+  <section class="summary offset-anchor" id="static-properties">
+    <h2>Static Properties</h2>
 
-    <section class="summary offset-anchor" id="static-properties">
-      <h2>Static Properties</h2>
-
-      <dl class="properties">
-        <dt id="controller" class="property">
-  <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_camera_helper/CameraHelper/controller.html">controller</a></span>
-  <span class="signature">&#8594; dynamic</span> 
+    <dl class="properties">
+        <dt id="hasACamera" class="property">
+  <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_camera_helper/CameraHelper/hasACamera.html">hasACamera</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> 
 
 </dt>
 <dd>
-   
+  Returns if the device has at least one camera
   <div class="features">read-only</div>
 
 </dd>
 
-      </dl>
-    </section>
-
-    <section class="summary offset-anchor" id="static-methods">
-      <h2>Static Methods</h2>
-      <dl class="callables">
-        <dt id="findBestCamera" class="callable">
-  <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_camera_helper/CameraHelper/findBestCamera.html">findBestCamera</a></span><span class="signature">(<wbr><span class="parameter" id="findBestCamera-param-cameraLensDirection">{<span class="type-annotation">dynamic</span> <span class="parameter-name">cameraLensDirection</span> = <span class="default-value">CameraLensDirection.back</span>}</span>)
-    <span class="returntype parameter">&#8594; dynamic</span>
-  </span>
-  
+        <dt id="hasMoreThanOneCamera" class="property">
+  <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_camera_helper/CameraHelper/hasMoreThanOneCamera.html">hasMoreThanOneCamera</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> 
 
 </dt>
 <dd>
-  Find the most relevant camera to use if none of these criteria are met,
-the default value of <code>_cameraIndex</code> will be used to select the first
-camera in the global cameras list.
-if non matching is found we fall back to the first in the list
-initValue of <code>_cameraIndex</code>/ 
-  
+  Returns if the device has more than one camera
+  <div class="features">read-only</div>
 
 </dd>
 
+        <dt id="isSupported" class="property">
+  <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_camera_helper/CameraHelper/isSupported.html">isSupported</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> 
+
+</dt>
+<dd>
+  
+  <div class="features">read-only</div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section class="summary offset-anchor" id="static-methods">
+    <h2>Static Methods</h2>
+    <dl class="callables">
         <dt id="init" class="callable">
   <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_camera_helper/CameraHelper/init.html">init</a></span><span class="signature">(<wbr>)
     <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
@@ -180,27 +190,14 @@ initValue of <code>_cameraIndex</code>/
 
 </dt>
 <dd>
-  Mandatory method to call before <a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_camera_helper/CameraHelper/findBestCamera.html">findBestCamera</a> 
+  Mandatory method to call before <code>findBestCamera</code>
   
 
 </dd>
 
-        <dt id="initController" class="callable">
-  <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_camera_helper/CameraHelper/initController.html">initController</a></span><span class="signature">(<wbr><span class="parameter" id="initController-param-controller"><span class="type-annotation">dynamic</span> <span class="parameter-name">controller</span></span>)
-    <span class="returntype parameter">&#8594; void</span>
-  </span>
-  
-
-</dt>
-<dd>
-  Init the controller
-And prevents the redefinition of it 
-  
-
-</dd>
-
-      </dl>
-    </section>
+    </dl>
+  </section>
+    
 
 
   </div> <!-- /.main-content -->
@@ -254,13 +251,13 @@ And prevents the redefinition of it
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">operator ==</a></li>
 
 
-    <li class="section-title"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_camera_helper/CameraHelper-class.html#static-properties">Static properties</a></li>
-    <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_camera_helper/CameraHelper/controller.html">controller</a></li>
+        <li class="section-title"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_camera_helper/CameraHelper-class.html#static-properties">Static properties</a></li>
+          <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_camera_helper/CameraHelper/hasACamera.html">hasACamera</a></li>
+          <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_camera_helper/CameraHelper/hasMoreThanOneCamera.html">hasMoreThanOneCamera</a></li>
+          <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_camera_helper/CameraHelper/isSupported.html">isSupported</a></li>
 
-    <li class="section-title"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_camera_helper/CameraHelper-class.html#static-methods">Static methods</a></li>
-    <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_camera_helper/CameraHelper/findBestCamera.html">findBestCamera</a></li>
-    <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_camera_helper/CameraHelper/init.html">init</a></li>
-    <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_camera_helper/CameraHelper/initController.html">initController</a></li>
+        <li class="section-title"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_camera_helper/CameraHelper-class.html#static-methods">Static methods</a></li>
+          <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_camera_helper/CameraHelper/init.html">init</a></li>
 
 </ol>
 
@@ -271,7 +268,7 @@ And prevents the redefinition of it
 <footer>
   <span class="no-break">
     smooth_app
-      0.0.0
+      0.0.0+734
   </span>
 
   
@@ -280,7 +277,7 @@ And prevents the redefinition of it
 
 
 <script src="../static-assets/highlight.pack.js?v1"></script>
-<script src="../static-assets/script.js?v1"></script>
+<script src="../static-assets/docs.dart.js"></script>
 
 
 

@@ -21,8 +21,7 @@
 </head>
 
 
-<body data-base-href="../../"
-      data-using-base-href="false">
+<body data-base-href="../../" data-using-base-href="false">
 
 <div id="overlay-under-drawer"></div>
 
@@ -52,8 +51,9 @@
     <section class="multi-line-signature">
       
 
-<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span></span>&gt;</span></span>
-<span class="name ">getAll</span>(<wbr>)
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span></span>
+<span class="name ">getAll</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="getAll-param-key"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">key</span></span></li>
+</ol>)
 
       
 
@@ -64,8 +64,8 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;List&lt;String&gt;&gt; getAll() async =&gt;
-    _getBox().get(_key, defaultValue: &lt;String&gt;[])!;</code></pre>
+  <pre class="language-dart"><code class="language-dart">List&lt;String&gt; getAll(final String key) =&gt;
+    _getBox().get(key, defaultValue: &lt;String&gt;[])!;</code></pre>
 </section>
 
 
@@ -89,8 +89,8 @@
     <h5>DaoStringList class</h5>
     <ol>
 
-    <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_dao_string_list/DaoStringList-class.html#constructors">Constructors</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_dao_string_list/DaoStringList/DaoStringList.html">DaoStringList</a></li>
+        <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_dao_string_list/DaoStringList-class.html#constructors">Constructors</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_dao_string_list/DaoStringList/DaoStringList.html">DaoStringList</a></li>
 
 
     <li class="section-title inherited">
@@ -114,6 +114,12 @@
 
 
 
+        <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_dao_string_list/DaoStringList-class.html#constants">Constants</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_dao_string_list/DaoStringList/keyLanguages-constant.html">keyLanguages</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_dao_string_list/DaoStringList/keyPriceStores-constant.html">keyPriceStores</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_dao_string_list/DaoStringList/keySearchLocationHistory-constant.html">keySearchLocationHistory</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_dao_string_list/DaoStringList/keySearchProductHistory-constant.html">keySearchProductHistory</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_dao_string_list/DaoStringList/keyTasks-constant.html">keyTasks</a></li>
 </ol>
 
   </div><!--/.sidebar-offcanvas-->
@@ -126,7 +132,7 @@
 <footer>
   <span class="no-break">
     smooth_app
-      0.0.0
+      0.0.0+734
   </span>
 
   
@@ -135,7 +141,7 @@
 
 
 <script src="../../static-assets/highlight.pack.js?v1"></script>
-<script src="../../static-assets/script.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
 
 
 

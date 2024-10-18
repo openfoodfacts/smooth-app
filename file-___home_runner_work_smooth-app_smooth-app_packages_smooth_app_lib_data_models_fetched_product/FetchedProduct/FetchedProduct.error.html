@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the FetchedProduct.error constructor from the Class FetchedProduct class from the fetched_product library, for the Dart programming language.">
-  <title>FetchedProduct.error constructor - FetchedProduct class - fetched_product library - Dart API</title>
+  <meta name="description" content="API docs for the FetchedProduct.error constructor from Class FetchedProduct from the fetched_product library, for the Dart programming language.">
+  <title>FetchedProduct.error constructor - FetchedProduct - fetched_product library - Dart API</title>
 
 
   
@@ -21,8 +21,7 @@
 </head>
 
 
-<body data-base-href="../../"
-      data-using-base-href="false">
+<body data-base-href="../../" data-using-base-href="false">
 
 <div id="overlay-under-drawer"></div>
 
@@ -32,7 +31,7 @@
     <li><a href="../../index.html">smooth_app</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_fetched_product/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_fetched_product-library.html">fetched_product</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_fetched_product/FetchedProduct-class.html">FetchedProduct</a></li>
-    <li class="self-crumb">FetchedProduct.error constructor</li>
+    <li class="self-crumb">FetchedProduct.error const constructor</li>
   </ol>
   <div class="self-name">FetchedProduct.error</div>
   <form class="search navbar-right" role="search">
@@ -49,23 +48,32 @@
     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
-    <section class="multi-line-signature">
-      <span class="name ">FetchedProduct.error</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="error-param-status"><span class="type-annotation"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_fetched_product/FetchedProductStatus.html">FetchedProductStatus</a></span> <span class="parameter-name">status</span></span></li>
+    <section class="multi-line-signature">const
+      <span class="name ">FetchedProduct.error</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="error-param-exceptionString">{<span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">exceptionString</span>, </span></li>
+<li><span class="parameter" id="error-param-isConnected"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">isConnected</span>, </span></li>
+<li><span class="parameter" id="error-param-failedPingedHost"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">failedPingedHost</span>}</span></li>
 </ol>)
     </section>
 
     
 <section class="desc markdown">
-  <p>When the "fetch product" operation didn't go well (no status "ok" here)</p>
+  <p>When the "fetch product" operation had an internet error.</p>
 </section>
 
 
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">FetchedProduct.error(this.status)
-    : product = null,
-      assert(status != FetchedProductStatus.ok);</code></pre>
+  <pre class="language-dart"><code class="language-dart">const FetchedProduct.error({
+  required final String exceptionString,
+  required final bool isConnected,
+  final String? failedPingedHost,
+}) : this._(
+        status: FetchedProductStatus.internetError,
+        isConnected: isConnected,
+        exceptionString: exceptionString,
+        failedPingedHost: failedPingedHost,
+      );</code></pre>
 </section>
 
 
@@ -82,27 +90,33 @@
   <li><a href="../../index.html">smooth_app</a></li>
   <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_fetched_product/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_fetched_product-library.html">fetched_product</a></li>
   <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_fetched_product/FetchedProduct-class.html">FetchedProduct</a></li>
-  <li class="self-crumb">FetchedProduct.error constructor</li>
+  <li class="self-crumb">FetchedProduct.error const constructor</li>
 </ol>
 
 
     <h5>FetchedProduct class</h5>
     <ol>
 
-    <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_fetched_product/FetchedProduct-class.html#constructors">Constructors</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_fetched_product/FetchedProduct/FetchedProduct.html">FetchedProduct</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_fetched_product/FetchedProduct/FetchedProduct.error.html">error</a></li>
+        <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_fetched_product/FetchedProduct-class.html#constructors">Constructors</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_fetched_product/FetchedProduct/FetchedProduct.error.html">error</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_fetched_product/FetchedProduct/FetchedProduct.found.html">found</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_fetched_product/FetchedProduct/FetchedProduct.internetNotFound.html">internetNotFound</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_fetched_product/FetchedProduct/FetchedProduct.userCancelled.html">userCancelled</a></li>
 
 
     <li class="section-title">
       <a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_fetched_product/FetchedProduct-class.html#instance-properties">Properties</a>
     </li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_fetched_product/FetchedProduct/exceptionString.html">exceptionString</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_fetched_product/FetchedProduct/failedPingedHost.html">failedPingedHost</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_fetched_product/FetchedProduct/isConnected.html">isConnected</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_fetched_product/FetchedProduct/product.html">product</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_fetched_product/FetchedProduct/status.html">status</a></li>
 
-    <li class="section-title inherited"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_fetched_product/FetchedProduct-class.html#instance-methods">Methods</a></li>
+    <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_fetched_product/FetchedProduct-class.html#instance-methods">Methods</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_fetched_product/FetchedProduct/getErrorTitle.html">getErrorTitle</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
 
@@ -124,7 +138,7 @@
 <footer>
   <span class="no-break">
     smooth_app
-      0.0.0
+      0.0.0+734
   </span>
 
   
@@ -133,7 +147,7 @@
 
 
 <script src="../../static-assets/highlight.pack.js?v1"></script>
-<script src="../../static-assets/script.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
 
 
 

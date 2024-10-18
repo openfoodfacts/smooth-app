@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the build method from the LocationMapPage class, for the Dart programming language.">
+  <title>build method - LocationMapPage class - location_map_page library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="../../" data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">smooth_app</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_locations_location_map_page/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_locations_location_map_page-library.html">location_map_page</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_locations_location_map_page/LocationMapPage-class.html">LocationMapPage</a></li>
+    <li class="self-crumb">build method</li>
+  </ol>
+  <div class="self-name">build</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div>
+<h1><span class="kind-method">build</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+<div>
+  <ol class="annotation-list">
+    <li>@<a href="https://api.flutter.dev/flutter/dart-core/override-constant.html">override</a></li>
+  </ol>
+</div>
+
+<span class="returntype">dynamic</span>
+<span class="name ">build</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="build-param-context"><span class="type-annotation">dynamic</span> <span class="parameter-name">context</span></span></li>
+</ol>)
+
+      
+
+    </section>
+    
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">@override
+Widget build(BuildContext context) {
+  const double markerSize = 50;
+  final LatLng latLng = osmLocation.getLatLng();
+  final String? title = osmLocation.getTitle();
+  final String? subtitle = osmLocation.getSubtitle();
+  return SmoothScaffold(
+    appBar: SmoothAppBar(
+      title: title == null ? null : Text(title),
+      subTitle: subtitle == null ? null : Text(subtitle),
+      actions: &lt;Widget&gt;[
+        IconButton(
+          icon: const Icon(Icons.check),
+          onPressed: () {
+            &#47;&#47; pops that map page
+            Navigator.of(context).pop();
+            if (popFirst) {
+              &#47;&#47; pops the result page
+              Navigator.of(context).pop();
+            }
+            &#47;&#47; returns the result
+            Navigator.of(context).pop(osmLocation);
+          },
+        ),
+        IconButton(
+          icon: const Icon(Icons.info),
+          onPressed: () =&gt; showCupertinoModalPopup&lt;void&gt;(
+            context: context,
+            builder: (final BuildContext context) =&gt; CupertinoActionSheet(
+              actions: &lt;Widget&gt;[
+                if (osmLocation.name != null)
+                  _getItem(context, osmLocation.name!, &#39;Name&#39;),
+                if (osmLocation.street != null)
+                  _getItem(context, osmLocation.street!, &#39;Street&#39;),
+                if (osmLocation.city != null)
+                  _getItem(context, osmLocation.city!, &#39;City&#39;),
+                if (osmLocation.postcode != null)
+                  _getItem(context, osmLocation.postcode!, &#39;Postcode&#39;),
+                if (osmLocation.country != null)
+                  _getItem(context, osmLocation.country!, &#39;Country&#39;),
+                _getItem(
+                  context,
+                  &#39;${osmLocation.latitude}, ${osmLocation.longitude}&#39;,
+                  &#39;Coordinates&#39;,
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
+    ),
+    body: FlutterMap(
+      options: MapOptions(
+        initialCenter: latLng,
+        initialZoom: 17,
+      ),
+      children: &lt;Widget&gt;[
+        TileLayer(
+          urlTemplate: &#39;https:&#47;&#47;tile.openstreetmap.org&#47;{z}&#47;{x}&#47;{y}.png&#39;,
+          userAgentPackageName: &#39;org.openfoodfacts.app&#39;,
+        ),
+        MarkerLayer(
+          markers: &lt;Marker&gt;[
+            Marker(
+              point: latLng,
+              child: const Icon(
+                Icons.pin_drop,
+                color: Colors.lightBlue,
+                size: markerSize,
+              ),
+              alignment: Alignment.topCenter,
+              width: markerSize,
+              height: markerSize,
+            ),
+          ],
+        ),
+        RichAttributionWidget(
+          popupInitialDisplayDuration: const Duration(seconds: 5),
+          animationConfig: const ScaleRAWA(),
+          attributions: &lt;SourceAttribution&gt;[
+            TextSourceAttribution(
+              &#39;OpenStreetMap contributors&#39;,
+              onTap: () =&gt; LaunchUrlHelper.launchURL(
+                &#39;https:&#47;&#47;www.openstreetmap.org&#47;copyright&#39;,
+              ),
+            ),
+          ],
+        ),
+      ],
+    ),
+  );
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../../index.html">smooth_app</a></li>
+  <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_locations_location_map_page/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_locations_location_map_page-library.html">location_map_page</a></li>
+  <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_locations_location_map_page/LocationMapPage-class.html">LocationMapPage</a></li>
+  <li class="self-crumb">build method</li>
+</ol>
+
+
+    <h5>LocationMapPage class</h5>
+    <ol>
+
+        <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_locations_location_map_page/LocationMapPage-class.html#constructors">Constructors</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_locations_location_map_page/LocationMapPage/LocationMapPage.html">LocationMapPage</a></li>
+
+
+    <li class="section-title">
+      <a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_locations_location_map_page/LocationMapPage-class.html#instance-properties">Properties</a>
+    </li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_locations_location_map_page/LocationMapPage/osmLocation.html">osmLocation</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_locations_location_map_page/LocationMapPage/popFirst.html">popFirst</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
+
+    <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_locations_location_map_page/LocationMapPage-class.html#instance-methods">Methods</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_locations_location_map_page/LocationMapPage/build.html">build</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
+
+    <li class="section-title inherited"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_locations_location_map_page/LocationMapPage-class.html#operators">Operators</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">operator ==</a></li>
+
+
+
+
+</ol>
+
+  </div><!--/.sidebar-offcanvas-->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    smooth_app
+      0.0.0+734
+  </span>
+
+  
+</footer>
+
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
+
+
+
+</body>
+
+</html>
+

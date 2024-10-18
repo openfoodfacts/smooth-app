@@ -21,8 +21,7 @@
 </head>
 
 
-<body data-base-href="../../"
-      data-using-base-href="false">
+<body data-base-href="../../" data-using-base-href="false">
 
 <div id="overlay-under-drawer"></div>
 
@@ -72,9 +71,13 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
+  final ThemeData themeData = Theme.of(context);
+
   return Container(
     decoration: BoxDecoration(
-      color: Theme.of(context).colorScheme.surface,
+      color: themeData.brightness == Brightness.light
+          ? Colors.white
+          : Colors.black,
       borderRadius: ROUNDED_BORDER_RADIUS,
     ),
     child: Column(
@@ -93,7 +96,11 @@ Widget build(BuildContext context) {
               &#39;assets&#47;misc&#47;checkmark.svg&#39;,
               width: 36.0,
               height: 36.0,
-              color: Colors.greenAccent,
+              colorFilter: const ui.ColorFilter.mode(
+                Colors.greenAccent,
+                ui.BlendMode.srcIn,
+              ),
+              package: AppHelper.APP_PACKAGE,
             ),
           ],
         ),
@@ -124,8 +131,8 @@ Widget build(BuildContext context) {
     <h5>SmoothProductCardThanks class</h5>
     <ol>
 
-    <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_smooth_product_card_thanks/SmoothProductCardThanks-class.html#constructors">Constructors</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_smooth_product_card_thanks/SmoothProductCardThanks/SmoothProductCardThanks.html">SmoothProductCardThanks</a></li>
+        <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_smooth_product_card_thanks/SmoothProductCardThanks-class.html#constructors">Constructors</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_smooth_product_card_thanks/SmoothProductCardThanks/SmoothProductCardThanks.html">SmoothProductCardThanks</a></li>
 
 
     <li class="section-title inherited">
@@ -157,7 +164,7 @@ Widget build(BuildContext context) {
 <footer>
   <span class="no-break">
     smooth_app
-      0.0.0
+      0.0.0+734
   </span>
 
   
@@ -166,7 +173,7 @@ Widget build(BuildContext context) {
 
 
 <script src="../../static-assets/highlight.pack.js?v1"></script>
-<script src="../../static-assets/script.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
 
 
 

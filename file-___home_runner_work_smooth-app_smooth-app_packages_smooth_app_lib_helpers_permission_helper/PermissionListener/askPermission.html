@@ -21,8 +21,7 @@
 </head>
 
 
-<body data-base-href="../../"
-      data-using-base-href="false">
+<body data-base-href="../../" data-using-base-href="false">
 
 <div id="overlay-under-drawer"></div>
 
@@ -53,8 +52,8 @@
       
 
 <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
-<span class="name ">askPermission</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="askPermission-param-onRationaleNotAvailable"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span>&gt;</span></span> <span class="parameter-name">onRationaleNotAvailable</span>(<ol class="parameter-list"></ol>
-)</span></li>
+<span class="name ">askPermission</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="askPermission-param-onRationaleNotAvailable">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span>&gt;</span></span> <span class="parameter-name">onRationaleNotAvailable</span>(<ol class="parameter-list"></ol>
+)?}</span></li>
 </ol>)
 
       
@@ -66,21 +65,41 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; askPermission(
-  Future&lt;bool?&gt; Function() onRationaleNotAvailable,
-) async {
+  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; askPermission({
+  Future&lt;bool?&gt; Function()? onRationaleNotAvailable,
+}) async {
+  &#47;&#47; Prevent multiples calls to this method
+  if (_status == _DevicePermissionStatus.asked) {
+    return;
+  }
+
+  _status = _DevicePermissionStatus.asked;
+
+  &#47;&#47; On non-Android platforms, this call will always return false
   final bool showRationale = await permission.shouldShowRequestRationale;
 
-  if (showRationale) {
-    _onNewPermissionStatus(await permission.request());
-  } else {
+  &#47;&#47; Directly ask for the permission on Android (first time) and iOS
+  if (showRationale ||
+      !Platform.isAndroid ||
+      value.status == DevicePermissionStatus.unknown) {
+    await _requestPermission();
+  }
+
+  if (!value.isGranted &amp;&amp; onRationaleNotAvailable != null) {
     final bool? shouldOpenSettings = await onRationaleNotAvailable.call();
 
     if (shouldOpenSettings == true) {
       await openAppSettings();
-      return checkPermission();
+      await _refreshPermissionStatus();
+
+      if (!value.isGranted) {
+        await _requestPermission();
+        return;
+      }
     }
   }
+
+  _status = _DevicePermissionStatus.answered;
 }</code></pre>
 </section>
 
@@ -105,8 +124,8 @@
     <h5>PermissionListener class</h5>
     <ol>
 
-    <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_permission_helper/PermissionListener-class.html#constructors">Constructors</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_permission_helper/PermissionListener/PermissionListener.html">PermissionListener</a></li>
+        <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_permission_helper/PermissionListener-class.html#constructors">Constructors</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_permission_helper/PermissionListener/PermissionListener.html">PermissionListener</a></li>
 
 
     <li class="section-title">
@@ -115,10 +134,11 @@
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_permission_helper/PermissionListener/permission.html">permission</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_permission_helper/PermissionListener/value.html">value</a></li>
 
     <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_permission_helper/PermissionListener-class.html#instance-methods">Methods</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_permission_helper/PermissionListener/addListener.html">addListener</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_permission_helper/PermissionListener/askPermission.html">askPermission</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_permission_helper/PermissionListener/checkPermission.html">checkPermission</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
 
@@ -140,7 +160,7 @@
 <footer>
   <span class="no-break">
     smooth_app
-      0.0.0
+      0.0.0+734
   </span>
 
   
@@ -149,7 +169,7 @@
 
 
 <script src="../../static-assets/highlight.pack.js?v1"></script>
-<script src="../../static-assets/script.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
 
 
 

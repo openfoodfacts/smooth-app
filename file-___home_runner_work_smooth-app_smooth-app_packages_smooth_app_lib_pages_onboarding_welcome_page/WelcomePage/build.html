@@ -21,8 +21,7 @@
 </head>
 
 
-<body data-base-href="../../"
-      data-using-base-href="false">
+<body data-base-href="../../" data-using-base-href="false">
 
 <div id="overlay-under-drawer"></div>
 
@@ -73,88 +72,124 @@
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
-  final TextStyle headlineStyle =
-      Theme.of(context).textTheme.headline2!.apply(color: Colors.white);
-  final TextStyle bodyTextStyle =
-      Theme.of(context).textTheme.bodyText1!.apply(color: Colors.white);
-  &#47;&#47; Side padding is 8% of total width.
-  final double sidePadding = MediaQuery.of(context).size.width * .08;
+  final ThemeData theme = Theme.of(context);
+  final TextStyle headlineStyle = theme.textTheme.displayMedium!.wellSpaced;
+  final TextStyle bodyTextStyle = theme.textTheme.bodyLarge!.wellSpaced;
+  final Size screenSize = MediaQuery.sizeOf(context);
 
-  return Scaffold(
-    body: Column(children: &lt;Widget&gt;[
-      Expanded(
-        child: Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: sidePadding,
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: &lt;Widget&gt;[
-              const Spacer(flex: 1),
-              Flexible(
-                flex: 4,
-                child: Text(
-                  appLocalizations.whatIsOff,
-                  style: headlineStyle,
-                ),
-              ),
-              Flexible(
-                flex: 3,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.min,
-                  children: &lt;Widget&gt;[
-                    Padding(
-                      padding: const EdgeInsetsDirectional.only(
-                        start: SMALL_SPACE,
+  return SmoothScaffold(
+    backgroundColor: backgroundColor,
+    brightness: Brightness.dark,
+    resizeToAvoidBottomInset: false,
+    body: SafeArea(
+      bottom: Platform.isAndroid,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: &lt;Widget&gt;[
+          Flexible(
+            flex: 1,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: LARGE_SPACE),
+              child: ListView(
+                children: &lt;Widget&gt;[
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: &lt;Widget&gt;[
+                      SizedBox(height: screenSize.height * .05),
+                      SvgPicture.asset(
+                        &#39;assets&#47;onboarding&#47;title.svg&#39;,
+                        height: screenSize.height * .10,
+                        package: AppHelper.APP_PACKAGE,
                       ),
-                      child: Text(
-                        appLocalizations.country_chooser_label,
+                      SvgPicture.asset(
+                        &#39;assets&#47;onboarding&#47;globe.svg&#39;,
+                        height: screenSize.height * .20,
+                        package: AppHelper.APP_PACKAGE,
+                      ),
+                      Padding(
+                        padding: const EdgeInsetsDirectional.only(
+                            top: SMALL_SPACE),
+                        child: SizedBox(
+                          height: screenSize.height * .15,
+                          child: AutoSizeText(
+                            appLocalizations.whatIsOff,
+                            style: headlineStyle,
+                            maxLines: 3,
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: &lt;Widget&gt;[
+                      Text(
+                        appLocalizations.onboarding_country_chooser_label,
                         style: bodyTextStyle,
                       ),
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          color: Colors.white,
-                          width: 1,
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: MEDIUM_SPACE),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            border: Border.fromBorderSide(
+                              BorderSide(
+                                color: theme.colorScheme.inversePrimary,
+                                width: 1,
+                              ),
+                            ),
+                            borderRadius: ANGULAR_BORDER_RADIUS,
+                            color: theme.colorScheme.onPrimary,
+                          ),
+                          child: SizedBox(
+                            width: double.infinity,
+                            child: Material(
+                              type: MaterialType.transparency,
+                              child: CountrySelector(
+                                autoValidate: true,
+                                forceCurrencyChange: true,
+                                padding: const EdgeInsetsDirectional.only(
+                                  start: SMALL_SPACE,
+                                  end: LARGE_SPACE,
+                                ),
+                                inkWellBorderRadius: ANGULAR_BORDER_RADIUS,
+                                icon: const icons.Arrow.right(
+                                  size: 15.0,
+                                ),
+                                textStyle:
+                                    TextStyle(color: theme.primaryColor),
+                              ),
+                            ),
+                          ),
                         ),
-                        borderRadius: BorderRadius.circular(
-                          LARGE_SPACE,
+                      ),
+                      Padding(
+                        padding: const EdgeInsetsDirectional.only(
+                          bottom: VERY_SMALL_SPACE,
                         ),
-                        color: Theme.of(context).cardColor,
+                        child: Text(
+                          appLocalizations.country_selection_explanation,
+                          style: bodyTextStyle,
+                        ),
                       ),
-                      margin:
-                          const EdgeInsets.symmetric(vertical: MEDIUM_SPACE),
-                      child: CountrySelector(
-                        initialCountryCode: WidgetsBinding
-                            .instance.window.locale.countryCode
-                            ?.toLowerCase(),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsetsDirectional.only(
-                        start: SMALL_SPACE,
-                        bottom: VERY_SMALL_SPACE,
-                      ),
-                      child: Text(
-                        appLocalizations.country_selection_explanation,
-                        style: bodyTextStyle,
-                      ),
-                    ),
-                  ],
-                ),
+                    ],
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
-        ),
+          NextButton(
+            OnboardingPage.WELCOME,
+            backgroundColor: backgroundColor,
+            nextKey: const Key(&#39;nextAfterWelcome&#39;),
+          ),
+        ],
       ),
-      const Align(
-        alignment: Alignment.bottomCenter,
-        child: NextButton(OnboardingPage.WELCOME),
-      ),
-    ]),
-    backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
+    ),
   );
 }</code></pre>
 </section>
@@ -180,13 +215,14 @@ Widget build(BuildContext context) {
     <h5>WelcomePage class</h5>
     <ol>
 
-    <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_onboarding_welcome_page/WelcomePage-class.html#constructors">Constructors</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_onboarding_welcome_page/WelcomePage/WelcomePage.html">WelcomePage</a></li>
+        <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_onboarding_welcome_page/WelcomePage-class.html#constructors">Constructors</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_onboarding_welcome_page/WelcomePage/WelcomePage.html">WelcomePage</a></li>
 
 
-    <li class="section-title inherited">
+    <li class="section-title">
       <a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_onboarding_welcome_page/WelcomePage-class.html#instance-properties">Properties</a>
     </li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_onboarding_welcome_page/WelcomePage/backgroundColor.html">backgroundColor</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
 
@@ -213,7 +249,7 @@ Widget build(BuildContext context) {
 <footer>
   <span class="no-break">
     smooth_app
-      0.0.0
+      0.0.0+734
   </span>
 
   
@@ -222,7 +258,7 @@ Widget build(BuildContext context) {
 
 
 <script src="../../static-assets/highlight.pack.js?v1"></script>
-<script src="../../static-assets/script.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
 
 
 

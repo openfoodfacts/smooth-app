@@ -21,8 +21,7 @@
 </head>
 
 
-<body data-base-href="../../"
-      data-using-base-href="false">
+<body data-base-href="../../" data-using-base-href="false">
 
 <div id="overlay-under-drawer"></div>
 
@@ -54,7 +53,8 @@
 
 <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
 <span class="name ">error</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="error-param-context">{<span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">context</span>, </span></li>
-<li><span class="parameter" id="error-param-title"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">title</span>}</span></li>
+<li><span class="parameter" id="error-param-title"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">title</span>, </span></li>
+<li><span class="parameter" id="error-param-shouldOpenNewIssue"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">shouldOpenNewIssue</span> = <span class="default-value">false</span>}</span></li>
 </ol>)
 
       
@@ -73,6 +73,7 @@
   <pre class="language-dart"><code class="language-dart">static Future&lt;void&gt; error({
   required final BuildContext context,
   final String? title,
+  final bool shouldOpenNewIssue = false,
 }) async =&gt;
     showDialog&lt;void&gt;(
       context: context,
@@ -80,18 +81,47 @@
         final AppLocalizations appLocalizations =
             AppLocalizations.of(context);
         return SmoothAlertDialog(
-          body: ListTile(
-            leading: const Icon(Icons.error),
-            title: Text(
-              title ?? appLocalizations.loading_dialog_default_error_message,
-            ),
+          body: Column(
+            children: &lt;Widget&gt;[
+              SvgPicture.asset(
+                &#39;assets&#47;misc&#47;error.svg&#39;,
+                width: MINIMUM_TOUCH_SIZE * 2,
+                package: AppHelper.APP_PACKAGE,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: MEDIUM_SPACE),
+                child: Text(
+                  shouldOpenNewIssue
+                      ? appLocalizations.server_error_open_new_issue
+                      : title ??
+                          appLocalizations
+                              .loading_dialog_default_error_message,
+                  textAlign: TextAlign.center,
+                ),
+              ),
+              if (shouldOpenNewIssue)
+                Padding(
+                  padding: const EdgeInsets.only(bottom: MEDIUM_SPACE),
+                  child: RichText(
+                    textAlign: TextAlign.center,
+                    text: TextSpan(
+                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                            color: Colors.blue,
+                          ),
+                      text: Status.openNewIssueUrl,
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () =&gt; LaunchUrlHelper.launchURL(
+                              Status.openNewIssueUrl,
+                            ),
+                    ),
+                  ),
+                ),
+            ],
           ),
-          actions: &lt;SmoothActionButton&gt;[
-            SmoothActionButton(
-              text: appLocalizations.close,
-              onPressed: () =&gt; Navigator.maybePop(context),
-            ),
-          ],
+          positiveAction: SmoothActionButton(
+            text: appLocalizations.close,
+            onPressed: () =&gt; Navigator.maybePop(context),
+          ),
         );
       },
     );</code></pre>
@@ -135,9 +165,9 @@
 
 
 
-    <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_loading_dialog/LoadingDialog-class.html#static-methods">Static methods</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_loading_dialog/LoadingDialog/error.html">error</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_loading_dialog/LoadingDialog/run.html">run</a></li>
+        <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_loading_dialog/LoadingDialog-class.html#static-methods">Static methods</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_loading_dialog/LoadingDialog/error.html">error</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_loading_dialog/LoadingDialog/run.html">run</a></li>
 
 </ol>
 
@@ -151,7 +181,7 @@
 <footer>
   <span class="no-break">
     smooth_app
-      0.0.0
+      0.0.0+734
   </span>
 
   
@@ -160,7 +190,7 @@
 
 
 <script src="../../static-assets/highlight.pack.js?v1"></script>
-<script src="../../static-assets/script.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
 
 
 

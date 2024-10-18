@@ -21,8 +21,7 @@
 </head>
 
 
-<body data-base-href="../"
-      data-using-base-href="false">
+<body data-base-href="../" data-using-base-href="false">
 
 <div id="overlay-under-drawer"></div>
 
@@ -52,9 +51,8 @@
     <section class="multi-line-signature">
         
 
-<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
-<span class="name ">main</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="main-param-screenshots">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">screenshots</span> = <span class="default-value">false</span>}</span></li>
-</ol>)
+<span class="returntype">void</span>
+<span class="name ">main</span>(<wbr>)
 
     </section>
     
@@ -63,26 +61,20 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; main({final bool screenshots = false}) async {
-  _screenshots = screenshots;
-  if (_screenshots) {
-    await _init1();
-    runApp(const SmoothApp());
-    return;
-  }
-  final WidgetsBinding widgetsBinding =
-      WidgetsFlutterBinding.ensureInitialized();
-  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+  <pre class="language-dart"><code class="language-dart">void main() {
+  debugPrint(&#39;--------&#39;);
+  debugPrint(&#39;The app must not be started using the main.dart file&#39;);
+  debugPrint(&#39;Please start the app using:&#39;);
+  debugPrint(&#39; - flutter run -t lib&#47;entrypoints&#47;android&#47;main_google_play.dart&#39;);
+  debugPrint(&#39; - flutter run -t lib&#47;entrypoints&#47;ios&#47;main_ios.dart&#39;);
+  debugPrint(
+      &#39;More information here: https:&#47;&#47;github.com&#47;openfoodfacts&#47;smooth-app#how-to-run-the-project&#39;);
+  debugPrint(&#39;--------&#39;);
 
-  if (kReleaseMode) {
-    await AnalyticsHelper.initSentry(
-      appRunner: () =&gt; runApp(const SmoothApp()),
-    );
+  if (Platform.isAndroid) {
+    SystemNavigator.pop();
   } else {
-    runApp(DevicePreview(
-      enabled: true,
-      builder: (_) =&gt; const SmoothApp(),
-    ));
+    exit(2);
   }
 }</code></pre>
 </section>
@@ -108,13 +100,13 @@
     <ol>
   <li class="section-title"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_main/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_main-library.html#classes">Classes</a></li>
   <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_main/SmoothApp-class.html">SmoothApp</a></li>
-  <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_main/SmoothAppGetLanguage-class.html">SmoothAppGetLanguage</a></li>
 
 
 
 
 
   <li class="section-title"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_main/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_main-library.html#functions">Functions</a></li>
+  <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_main/launchSmoothApp.html">launchSmoothApp</a></li>
   <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_main/main.html">main</a></li>
 
 
@@ -131,7 +123,7 @@
 <footer>
   <span class="no-break">
     smooth_app
-      0.0.0
+      0.0.0+734
   </span>
 
   
@@ -140,7 +132,7 @@
 
 
 <script src="../static-assets/highlight.pack.js?v1"></script>
-<script src="../static-assets/script.js?v1"></script>
+<script src="../static-assets/docs.dart.js"></script>
 
 
 

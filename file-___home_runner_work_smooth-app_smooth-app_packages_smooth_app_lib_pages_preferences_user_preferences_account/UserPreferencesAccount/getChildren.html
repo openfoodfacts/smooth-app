@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the getChildren method from the UserPreferencesAccount class, for the Dart programming language.">
+  <title>getChildren method - UserPreferencesAccount class - user_preferences_account library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="../../" data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">smooth_app</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_account/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_account-library.html">user_preferences_account</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_account/UserPreferencesAccount-class.html">UserPreferencesAccount</a></li>
+    <li class="self-crumb">getChildren method</li>
+  </ol>
+  <div class="self-name">getChildren</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div>
+<h1><span class="kind-method">getChildren</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+<div>
+  <ol class="annotation-list">
+    <li>@<a href="https://api.flutter.dev/flutter/dart-core/override-constant.html">override</a></li>
+  </ol>
+</div>
+
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a></span>
+<span class="name ">getChildren</span>(<wbr>)
+
+      
+
+    </section>
+    
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">@override
+List&lt;UserPreferencesItem&gt; getChildren() {
+  if (OpenFoodAPIConfiguration.globalUser == null) {
+    &#47;&#47; No credentials
+    final Size size = MediaQuery.sizeOf(context);
+    return &lt;UserPreferencesItem&gt;[
+      UserPreferencesItemSimple(
+        labels: &lt;String&gt;[appLocalizations.sign_in],
+        builder: (_) =&gt; Center(
+          child: ElevatedButton(
+            onPressed: () async =&gt; _goToLoginPage(),
+            style: ButtonStyle(
+              minimumSize: WidgetStateProperty.all&lt;Size&gt;(
+                Size(size.width * 0.5, themeData.buttonTheme.height + 10),
+              ),
+              shape: WidgetStateProperty.all&lt;RoundedRectangleBorder&gt;(
+                const RoundedRectangleBorder(
+                  borderRadius: CIRCULAR_BORDER_RADIUS,
+                ),
+              ),
+            ),
+            child: Text(
+              appLocalizations.sign_in,
+              style: themeData.textTheme.bodyMedium?.copyWith(
+                fontSize: 18.0,
+                fontWeight: FontWeight.bold,
+                color: themeData.colorScheme.onPrimary,
+              ),
+            ),
+          ),
+        ),
+      ),
+    ];
+  }
+
+  final LocalDatabase localDatabase = context.read&lt;LocalDatabase&gt;();
+  &#47;&#47; Credentials
+  final String userId = ProductQuery.getWriteUser().userId;
+  return &lt;UserPreferencesItem&gt;[
+    _buildProductQueryTile(
+      productQuery: PagedUserProductQuery(
+        userId: userId,
+        type: UserSearchType.CONTRIBUTOR,
+        &#47;&#47; TODO(monsieurtanuki): only food?
+        productType: ProductType.food,
+      ),
+      title: appLocalizations.user_search_contributor_title,
+      iconData: Icons.add_circle_outline,
+      context: context,
+      localDatabase: localDatabase,
+      lazyCounter: const LazyCounterUserSearch(UserSearchType.CONTRIBUTOR),
+    ),
+    _buildProductQueryTile(
+      productQuery: PagedUserProductQuery(
+        userId: userId,
+        type: UserSearchType.INFORMER,
+        productType: ProductType.food,
+      ),
+      title: appLocalizations.user_search_informer_title,
+      iconData: Icons.edit,
+      context: context,
+      localDatabase: localDatabase,
+      lazyCounter: const LazyCounterUserSearch(UserSearchType.INFORMER),
+    ),
+    _buildProductQueryTile(
+      productQuery: PagedUserProductQuery(
+        userId: userId,
+        type: UserSearchType.PHOTOGRAPHER,
+        productType: ProductType.food,
+      ),
+      title: appLocalizations.user_search_photographer_title,
+      iconData: Icons.add_a_photo,
+      context: context,
+      localDatabase: localDatabase,
+      lazyCounter: const LazyCounterUserSearch(UserSearchType.PHOTOGRAPHER),
+    ),
+    _buildProductQueryTile(
+      productQuery: PagedUserProductQuery(
+        userId: userId,
+        type: UserSearchType.TO_BE_COMPLETED,
+        productType: ProductType.food,
+      ),
+      title: appLocalizations.user_search_to_be_completed_title,
+      iconData: Icons.more_horiz,
+      context: context,
+      localDatabase: localDatabase,
+      lazyCounter:
+          const LazyCounterUserSearch(UserSearchType.TO_BE_COMPLETED),
+    ),
+    _getListTile(
+      PriceUserButton.showUserTitle(
+        user: ProductQuery.getWriteUser().userId,
+        context: context,
+      ),
+      () async =&gt; PriceUserButton.showUserPrices(
+        user: ProductQuery.getWriteUser().userId,
+        context: context,
+      ),
+      CupertinoIcons.money_dollar_circle,
+      lazyCounter: LazyCounterPrices(ProductQuery.getWriteUser().userId),
+    ),
+    _getListTile(
+      appLocalizations.user_search_proofs_title,
+      () async =&gt; Navigator.of(context).push(
+        MaterialPageRoute&lt;void&gt;(
+          builder: (BuildContext context) =&gt; const PricesProofsPage(
+            selectProof: false,
+          ),
+        ),
+      ),
+      Icons.receipt,
+    ),
+    _getListTile(
+      appLocalizations.prices_add_a_receipt,
+      () async =&gt; ProductPriceAddPage.showProductPage(
+        context: context,
+        proofType: ProofType.receipt,
+      ),
+      Icons.add_shopping_cart,
+    ),
+    _getListTile(
+      appLocalizations.prices_add_price_tags,
+      () async =&gt; ProductPriceAddPage.showProductPage(
+        context: context,
+        proofType: ProofType.priceTag,
+      ),
+      Icons.add_shopping_cart,
+    ),
+    _getListTile(
+      appLocalizations.all_search_prices_latest_title,
+      () async =&gt; Navigator.of(context).push(
+        MaterialPageRoute&lt;void&gt;(
+          builder: (BuildContext context) =&gt; PricesPage(
+            GetPricesModel(
+              parameters: GetPricesParameters()
+                ..orderBy = &lt;OrderBy&lt;GetPricesOrderField&gt;&gt;[
+                  const OrderBy&lt;GetPricesOrderField&gt;(
+                    field: GetPricesOrderField.created,
+                    ascending: false,
+                  ),
+                ]
+                ..pageSize = GetPricesModel.pageSize
+                ..pageNumber = 1,
+              displayOwner: true,
+              displayProduct: true,
+              uri: OpenPricesAPIClient.getUri(
+                path: &#39;prices&#39;,
+                uriHelper: ProductQuery.uriPricesHelper,
+              ),
+              title: appLocalizations.all_search_prices_latest_title,
+              lazyCounterPrices: const LazyCounterPrices(null),
+            ),
+          ),
+        ),
+      ),
+      CupertinoIcons.money_dollar_circle,
+      lazyCounter: const LazyCounterPrices(null),
+    ),
+    _getListTile(
+      appLocalizations.all_search_prices_top_user_title,
+      () async =&gt; Navigator.of(context).push(
+        MaterialPageRoute&lt;void&gt;(
+          builder: (BuildContext context) =&gt; const PricesUsersPage(),
+        ),
+      ),
+      Icons.account_box,
+    ),
+    _getPriceListTile(
+      appLocalizations.all_search_prices_top_location_title,
+      &#39;locations&#39;,
+    ),
+    _getPriceListTile(
+      appLocalizations.all_search_prices_top_product_title,
+      &#39;products&#39;,
+    ),
+    _buildProductQueryTile(
+      productQuery: PagedToBeCompletedProductQuery(
+        productType: ProductType.food,
+      ),
+      title: appLocalizations.all_search_to_be_completed_title,
+      iconData: Icons.more_outlined,
+      context: context,
+      localDatabase: localDatabase,
+    ),
+    _getListTile(
+      appLocalizations.categorize_products_country_title,
+      () async =&gt; LaunchUrlHelper.launchURL(
+        &#39;https:&#47;&#47;hunger.openfoodfacts.org&#47;eco-score?cc=${ProductQuery.getCountry().offTag}&#39;,
+      ),
+      Icons.open_in_new,
+    ),
+    _getListTile(
+      appLocalizations.view_profile,
+      () async =&gt; LaunchUrlHelper.launchURL(
+        ProductQuery.replaceSubdomain(
+          &#39;https:&#47;&#47;world.openfoodfacts.org&#47;editor&#47;$userId&#39;,
+        ),
+      ),
+      Icons.open_in_new,
+    ),
+    _getListTile(
+      appLocalizations.account_delete,
+      () async =&gt; Navigator.push&lt;void&gt;(
+        context,
+        MaterialPageRoute&lt;void&gt;(
+          builder: (BuildContext context) =&gt; AccountDeletionWebview(),
+        ),
+      ),
+      Icons.delete,
+    ),
+    _getListTile(
+      appLocalizations.sign_out,
+      () async {
+        if (await _confirmLogout() == true) {
+          if (context.mounted) {
+            await context.read&lt;UserManagementProvider&gt;().logout();
+            AnalyticsHelper.trackEvent(AnalyticsEvent.logoutAction);
+            if (context.mounted) {
+              Navigator.pop(context);
+            }
+          }
+        }
+      },
+      Icons.clear,
+    ),
+  ];
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../../index.html">smooth_app</a></li>
+  <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_account/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_account-library.html">user_preferences_account</a></li>
+  <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_account/UserPreferencesAccount-class.html">UserPreferencesAccount</a></li>
+  <li class="self-crumb">getChildren method</li>
+</ol>
+
+
+    <h5>UserPreferencesAccount class</h5>
+    <ol>
+
+        <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_account/UserPreferencesAccount-class.html#constructors">Constructors</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_account/UserPreferencesAccount/UserPreferencesAccount.html">UserPreferencesAccount</a></li>
+
+
+    <li class="section-title inherited">
+      <a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_account/UserPreferencesAccount-class.html#instance-properties">Properties</a>
+    </li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
+
+    <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_account/UserPreferencesAccount-class.html#instance-methods">Methods</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_account/UserPreferencesAccount/getAdditionalSubtitle.html">getAdditionalSubtitle</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_account/UserPreferencesAccount/getChildren.html">getChildren</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_account/UserPreferencesAccount/getForwardIcon.html">getForwardIcon</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_account/UserPreferencesAccount/getLabels.html">getLabels</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_account/UserPreferencesAccount/getLeadingIconData.html">getLeadingIconData</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_account/UserPreferencesAccount/getPageTitleString.html">getPageTitleString</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_account/UserPreferencesAccount/getPreferencePageType.html">getPreferencePageType</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_account/UserPreferencesAccount/getSubtitleString.html">getSubtitleString</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_account/UserPreferencesAccount/getTitleString.html">getTitleString</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_account/UserPreferencesAccount/runHeaderAction.html">runHeaderAction</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
+
+    <li class="section-title inherited"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_account/UserPreferencesAccount-class.html#operators">Operators</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">operator ==</a></li>
+
+
+
+
+</ol>
+
+  </div><!--/.sidebar-offcanvas-->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    smooth_app
+      0.0.0+734
+  </span>
+
+  
+</footer>
+
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
+
+
+
+</body>
+
+</html>
+

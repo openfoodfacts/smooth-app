@@ -21,8 +21,7 @@
 </head>
 
 
-<body data-base-href="../../"
-      data-using-base-href="false">
+<body data-base-href="../../" data-using-base-href="false">
 
 <div id="overlay-under-drawer"></div>
 
@@ -72,54 +71,40 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  final AppLocalizations appLocalizations = AppLocalizations.of(context);
-  final ThemeData themeData = Theme.of(context);
-  final String subtitleText;
-  final Widget trailingWidget;
-  final String brands = product.brands ?? appLocalizations.unknownBrand;
-  final String quantity = product.quantity ?? &#39;&#39;;
-  if (isRemovable &amp;&amp; !isSelectable) {
-    final ContinuousScanModel model = context.watch&lt;ContinuousScanModel&gt;();
-    subtitleText = &#39;$brands${quantity == &#39;&#39; ? &#39;&#39; : &#39;, $quantity&#39;}&#39;;
-    trailingWidget = InkWell(
-      onTap: () async =&gt; model.removeBarcode(product.barcode!),
-      child: const Icon(
-        Icons.clear_rounded,
-        size: MINIMUM_TOUCH_SIZE,
-      ),
-    );
-  } else {
-    subtitleText = brands;
-    trailingWidget = Text(
-      quantity,
-      style: themeData.textTheme.headline3,
-    ).selectable(isSelectable: isSelectable);
+  Widget title = _ProductTitleCardTrailing(
+    removable: isRemovable,
+    selectable: isSelectable,
+    onRemove: onRemove,
+  );
+
+  if (!dense &amp;&amp; !(isRemovable &amp;&amp; !isSelectable)) {
+    title = Expanded(child: title);
   }
-  return Align(
-    alignment: Alignment.topLeft,
-    child: InkWell(
-      onTap: () async {
-        if (getProductName(product, appLocalizations) ==
-            appLocalizations.unknownProductName) {
-          await Navigator.push&lt;bool&gt;(
-            context,
-            MaterialPageRoute&lt;bool&gt;(
-              builder: (BuildContext context) =&gt; AddBasicDetailsPage(product),
-            ),
-          );
-        }
-      },
-      child: ListTile(
-        dense: dense,
-        contentPadding: EdgeInsets.zero,
-        title: Text(
-          getProductName(product, appLocalizations),
-          style: themeData.textTheme.headline4,
-        ).selectable(isSelectable: isSelectable),
-        subtitle: Text(
-          subtitleText,
-        ).selectable(isSelectable: isSelectable),
-        trailing: trailingWidget,
+
+  return Provider&lt;Product&gt;.value(
+    value: product,
+    child: Align(
+      alignment: AlignmentDirectional.topStart,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: &lt;Widget&gt;[
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: &lt;Widget&gt;[
+              Expanded(
+                child: _ProductTitleCardName(
+                  selectable: isSelectable,
+                  dense: dense,
+                ),
+              ),
+              title,
+            ],
+          ),
+          _ProductTitleCardBrand(
+            removable: isRemovable,
+            selectable: isSelectable,
+          ),
+        ],
       ),
     ),
   );
@@ -147,8 +132,8 @@ Widget build(BuildContext context) {
     <h5>ProductTitleCard class</h5>
     <ol>
 
-    <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_product_title_card/ProductTitleCard-class.html#constructors">Constructors</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_product_title_card/ProductTitleCard/ProductTitleCard.html">ProductTitleCard</a></li>
+        <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_product_title_card/ProductTitleCard-class.html#constructors">Constructors</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_product_title_card/ProductTitleCard/ProductTitleCard.html">ProductTitleCard</a></li>
 
 
     <li class="section-title">
@@ -158,6 +143,7 @@ Widget build(BuildContext context) {
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_product_title_card/ProductTitleCard/isRemovable.html">isRemovable</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_product_title_card/ProductTitleCard/isSelectable.html">isSelectable</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_product_title_card/ProductTitleCard/onRemove.html">onRemove</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_product_title_card/ProductTitleCard/product.html">product</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
 
@@ -184,7 +170,7 @@ Widget build(BuildContext context) {
 <footer>
   <span class="no-break">
     smooth_app
-      0.0.0
+      0.0.0+734
   </span>
 
   
@@ -193,7 +179,7 @@ Widget build(BuildContext context) {
 
 
 <script src="../../static-assets/highlight.pack.js?v1"></script>
-<script src="../../static-assets/script.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
 
 
 

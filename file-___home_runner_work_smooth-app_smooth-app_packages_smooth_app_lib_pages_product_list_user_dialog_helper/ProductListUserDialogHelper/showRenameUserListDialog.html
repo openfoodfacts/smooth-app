@@ -21,8 +21,7 @@
 </head>
 
 
-<body data-base-href="../../"
-      data-using-base-href="false">
+<body data-base-href="../../" data-using-base-href="false">
 
 <div id="overlay-under-drawer"></div>
 
@@ -79,11 +78,12 @@
 
   final String initialName = initialProductList.parameters;
   textEditingController.text = initialName;
+  final List&lt;String&gt; lists = daoProductList.getUserLists();
   final String? newName = await showDialog&lt;String&gt;(
     context: context,
-    builder: (final BuildContext context) =&gt; AlertDialog(
-      title: Text(appLocalizations.user_list_dialog_rename_title),
-      content: Form(
+    builder: (final BuildContext context) =&gt; SmoothAlertDialog(
+      title: appLocalizations.user_list_dialog_rename_title,
+      body: Form(
         key: formKey,
         child: SmoothTextFormField(
           type: TextFieldTypes.PLAIN_TEXT,
@@ -91,7 +91,6 @@
           hintText: appLocalizations.user_list_name_hint,
           textInputAction: TextInputAction.done,
           validator: (String? value) {
-            final List&lt;String&gt; lists = daoProductList.getUserLists();
             if (value == null || value.isEmpty) {
               return appLocalizations.user_list_name_error_empty;
             }
@@ -105,27 +104,28 @@
           },
         ),
       ),
-      actions: &lt;Widget&gt;[
-        TextButton(
-          onPressed: () =&gt; Navigator.pop(context),
-          child: Text(appLocalizations.cancel),
-        ),
-        ElevatedButton(
-          onPressed: () {
-            if (!formKey.currentState!.validate()) {
-              return;
-            }
-            Navigator.pop(context, textEditingController.text);
-          },
-          child: Text(appLocalizations.okay),
-        ),
-      ],
+      negativeAction: SmoothActionButton(
+        onPressed: () =&gt; Navigator.pop(context),
+        text: appLocalizations.cancel,
+      ),
+      positiveAction: SmoothActionButton(
+        onPressed: () {
+          if (!formKey.currentState!.validate()) {
+            return;
+          }
+          Navigator.pop(context, textEditingController.text);
+        },
+        text: appLocalizations.okay,
+      ),
     ),
   );
   if (newName == null) {
     return null;
   }
-  return daoProductList.rename(initialProductList, newName);
+  final ProductList result =
+      await daoProductList.rename(initialProductList, newName);
+  daoProductList.localDatabase.notifyListeners();
+  return result;
 }</code></pre>
 </section>
 
@@ -150,8 +150,8 @@
     <h5>ProductListUserDialogHelper class</h5>
     <ol>
 
-    <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_list_user_dialog_helper/ProductListUserDialogHelper-class.html#constructors">Constructors</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_list_user_dialog_helper/ProductListUserDialogHelper/ProductListUserDialogHelper.html">ProductListUserDialogHelper</a></li>
+        <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_list_user_dialog_helper/ProductListUserDialogHelper-class.html#constructors">Constructors</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_list_user_dialog_helper/ProductListUserDialogHelper/ProductListUserDialogHelper.html">ProductListUserDialogHelper</a></li>
 
 
     <li class="section-title">
@@ -166,7 +166,7 @@
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_list_user_dialog_helper/ProductListUserDialogHelper/showCreateUserListDialog.html">showCreateUserListDialog</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_list_user_dialog_helper/ProductListUserDialogHelper/showDeleteUserListDialog.html">showDeleteUserListDialog</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_list_user_dialog_helper/ProductListUserDialogHelper/showRenameUserListDialog.html">showRenameUserListDialog</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_list_user_dialog_helper/ProductListUserDialogHelper/showUserListsWithBarcodeDialog.html">showUserListsWithBarcodeDialog</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_list_user_dialog_helper/ProductListUserDialogHelper/showUserAddProductsDialog.html">showUserAddProductsDialog</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
 
     <li class="section-title inherited"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_list_user_dialog_helper/ProductListUserDialogHelper-class.html#operators">Operators</a></li>
@@ -187,7 +187,7 @@
 <footer>
   <span class="no-break">
     smooth_app
-      0.0.0
+      0.0.0+734
   </span>
 
   
@@ -196,7 +196,7 @@
 
 
 <script src="../../static-assets/highlight.pack.js?v1"></script>
-<script src="../../static-assets/script.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
 
 
 

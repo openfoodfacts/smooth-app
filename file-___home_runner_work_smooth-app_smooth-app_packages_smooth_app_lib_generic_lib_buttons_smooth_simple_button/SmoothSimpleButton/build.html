@@ -21,8 +21,7 @@
 </head>
 
 
-<body data-base-href="../../"
-      data-using-base-href="false">
+<body data-base-href="../../" data-using-base-href="false">
 
 <div id="overlay-under-drawer"></div>
 
@@ -72,18 +71,37 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  final ThemeData themeData = Theme.of(context);
-  return MaterialButton(
-    color: buttonColor ?? themeData.colorScheme.primary,
-    height: height,
-    minWidth: minWidth,
-    shape: RoundedRectangleBorder(
-      borderRadius: borderRadius,
+  return ConstrainedBox(
+    constraints: BoxConstraints(
+      minWidth: minWidth,
+      minHeight: height,
     ),
-    onPressed: onPressed,
-    child: Padding(
-      padding: padding,
-      child: child,
+    child: ElevatedButton(
+      style: ButtonStyle(
+        backgroundColor: buttonColor == null
+            ? null
+            : WidgetStateProperty.all&lt;Color&gt;(buttonColor!),
+        shape: WidgetStateProperty.all&lt;RoundedRectangleBorder&gt;(
+          RoundedRectangleBorder(borderRadius: borderRadius),
+        ),
+        overlayColor: context.read&lt;ThemeProvider&gt;().isAmoledTheme
+            ? WidgetStateProperty.resolveWith((Set&lt;WidgetState&gt; states) {
+                return states.contains(WidgetState.pressed)
+                    ? Theme.of(context).colorScheme.primary.withOpacity(0.3)
+                    : null;
+              })
+            : null,
+        side: context.read&lt;ThemeProvider&gt;().isAmoledTheme
+            ? WidgetStateProperty.all&lt;BorderSide&gt;(
+                const BorderSide(color: Colors.white),
+              )
+            : null,
+      ),
+      onPressed: onPressed,
+      child: Padding(
+        padding: padding,
+        child: child,
+      ),
     ),
   );
 }</code></pre>
@@ -110,8 +128,8 @@ Widget build(BuildContext context) {
     <h5>SmoothSimpleButton class</h5>
     <ol>
 
-    <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_buttons_smooth_simple_button/SmoothSimpleButton-class.html#constructors">Constructors</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_buttons_smooth_simple_button/SmoothSimpleButton/SmoothSimpleButton.html">SmoothSimpleButton</a></li>
+        <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_buttons_smooth_simple_button/SmoothSimpleButton-class.html#constructors">Constructors</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_buttons_smooth_simple_button/SmoothSimpleButton/SmoothSimpleButton.html">SmoothSimpleButton</a></li>
 
 
     <li class="section-title">
@@ -150,7 +168,7 @@ Widget build(BuildContext context) {
 <footer>
   <span class="no-break">
     smooth_app
-      0.0.0
+      0.0.0+734
   </span>
 
   
@@ -159,7 +177,7 @@ Widget build(BuildContext context) {
 
 
 <script src="../../static-assets/highlight.pack.js?v1"></script>
-<script src="../../static-assets/script.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
 
 
 

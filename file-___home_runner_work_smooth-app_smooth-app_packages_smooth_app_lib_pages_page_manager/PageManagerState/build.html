@@ -21,8 +21,7 @@
 </head>
 
 
-<body data-base-href="../../"
-      data-using-base-href="false">
+<body data-base-href="../../" data-using-base-href="false">
 
 <div id="overlay-under-drawer"></div>
 
@@ -73,67 +72,71 @@
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
-  _tabs = &lt;Widget&gt;[
+  final ExternalScanCarouselManagerState carouselManager =
+      ExternalScanCarouselManager.watch(context);
+
+  if (carouselManager.forceShowScannerTab) {
+    _currentPage = BottomNavigationTab.Scan;
+  }
+
+  final List&lt;Widget&gt; tabs = &lt;Widget&gt;[
     _buildOffstageNavigator(BottomNavigationTab.Profile),
     _buildOffstageNavigator(BottomNavigationTab.Scan),
-    _buildOffstageNavigator(BottomNavigationTab.History),
+    _buildOffstageNavigator(BottomNavigationTab.List),
   ];
 
-  final ThemeData themeData = Theme.of(context);
-  final bool brightnessCheck = themeData.brightness == Brightness.light;
-  return WillPopScope(
+  final UserPreferences userPreferences = context.watch&lt;UserPreferences&gt;();
+  final bool isProd = userPreferences
+          .getFlag(UserPreferencesDevMode.userPreferencesFlagProd) ??
+      true;
+  final BottomNavigationBar bar = BottomNavigationBar(
+    onTap: (int index) {
+      if (_currentPage == BottomNavigationTab.Scan &amp;&amp;
+          _pageKeys[index] == BottomNavigationTab.Scan) {
+        carouselManager.showSearchCard();
+      }
+
+      _selectTab(_pageKeys[index], index);
+    },
+    currentIndex: _currentPage.index,
+    items: &lt;BottomNavigationBarItem&gt;[
+      BottomNavigationBarItem(
+        icon: const Icon(Icons.account_circle),
+        label: appLocalizations.profile_navbar_label,
+      ),
+      BottomNavigationBarItem(
+        icon: const Icon(Icons.search),
+        label: appLocalizations.scan_navbar_label,
+      ),
+      BottomNavigationBarItem(
+        icon: const Icon(Icons.list),
+        label: appLocalizations.list_navbar_label,
+      ),
+    ],
+  );
+  return WillPopScope2(
     onWillPop: () async {
       final bool isFirstRouteInCurrentTab =
           !await _navigatorKeys[_currentPage]!.currentState!.maybePop();
       if (isFirstRouteInCurrentTab) {
         if (_currentPage != BottomNavigationTab.Scan) {
           _selectTab(BottomNavigationTab.Scan, 1);
-          return false;
+          return (false, null);
         }
       }
       &#47;&#47; let system handle back button if we&#39;re on the first route
-      return isFirstRouteInCurrentTab;
+      return (isFirstRouteInCurrentTab, null);
     },
     child: Scaffold(
-      body: Stack(children: _tabs),
-      bottomNavigationBar: BottomNavigationBar(
-        unselectedItemColor: brightnessCheck ? Colors.black : Colors.grey,
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        selectedItemColor: Colors.white,
-        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
-        onTap: (int index) {
-          final InheritedDataManagerState inheritedDataManager =
-              InheritedDataManager.of(context);
-          if (_currentPage == BottomNavigationTab.Scan &amp;&amp;
-              _pageKeys[index] == BottomNavigationTab.Scan) {
-            if (!inheritedDataManager.showSearchCard) {
-              inheritedDataManager.resetShowSearchCard(true);
-            }
-            _selectTab(_pageKeys[index], index);
-          } else {
-            if (inheritedDataManager.showSearchCard) {
-              inheritedDataManager.resetShowSearchCard(false);
-            }
-            _selectTab(_pageKeys[index], index);
-          }
-        },
-        currentIndex: _currentPage.index,
-        items: &lt;BottomNavigationBarItem&gt;[
-          BottomNavigationBarItem(
-            icon: const Icon(Icons.account_circle),
-            label: appLocalizations.profile_navbar_label,
-          ),
-          BottomNavigationBarItem(
-            icon: const Icon(Icons.search),
-            label: appLocalizations.scan_navbar_label,
-          ),
-          BottomNavigationBarItem(
-            icon: const Icon(Icons.history),
-            label: appLocalizations.history_navbar_label,
-          ),
-        ],
-      ),
+      body: Stack(children: tabs),
+      bottomNavigationBar: isProd
+          ? bar
+          : Banner(
+              message: &#39;TEST ENV&#39;,
+              location: BannerLocation.bottomEnd,
+              color: Colors.blue,
+              child: bar,
+            ),
     ),
   );
 }</code></pre>
@@ -160,8 +163,8 @@ Widget build(BuildContext context) {
     <h5>PageManagerState class</h5>
     <ol>
 
-    <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_page_manager/PageManagerState-class.html#constructors">Constructors</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_page_manager/PageManagerState/PageManagerState.html">PageManagerState</a></li>
+        <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_page_manager/PageManagerState-class.html#constructors">Constructors</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_page_manager/PageManagerState/PageManagerState.html">PageManagerState</a></li>
 
 
     <li class="section-title inherited">
@@ -193,7 +196,7 @@ Widget build(BuildContext context) {
 <footer>
   <span class="no-break">
     smooth_app
-      0.0.0
+      0.0.0+734
   </span>
 
   
@@ -202,7 +205,7 @@ Widget build(BuildContext context) {
 
 
 <script src="../../static-assets/highlight.pack.js?v1"></script>
-<script src="../../static-assets/script.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
 
 
 

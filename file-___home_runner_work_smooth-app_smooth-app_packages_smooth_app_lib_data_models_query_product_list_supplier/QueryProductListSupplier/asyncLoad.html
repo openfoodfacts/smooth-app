@@ -21,8 +21,7 @@
 </head>
 
 
-<body data-base-href="../../"
-      data-using-base-href="false">
+<body data-base-href="../../" data-using-base-href="false">
 
 <div id="overlay-under-drawer"></div>
 
@@ -77,11 +76,14 @@ Future&lt;String?&gt; asyncLoad() async {
     partialProductList.clear();
     if (searchResult.products != null) {
       productList.setAll(searchResult.products!);
-      productList.totalSize = searchResult.count!;
+      productList.totalSize = searchResult.count ?? 0;
       partialProductList.add(productList);
-      await DaoProduct(localDatabase).putAll(searchResult.products!);
+      await DaoProduct(localDatabase).putAll(
+        searchResult.products!,
+        productQuery.language,
+      );
     }
-    DaoProductList(localDatabase).put(productList);
+    await DaoProductList(localDatabase).put(productList);
     return null;
   } catch (e) {
     return e.toString();
@@ -110,8 +112,8 @@ Future&lt;String?&gt; asyncLoad() async {
     <h5>QueryProductListSupplier class</h5>
     <ol>
 
-    <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_query_product_list_supplier/QueryProductListSupplier-class.html#constructors">Constructors</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_query_product_list_supplier/QueryProductListSupplier/QueryProductListSupplier.html">QueryProductListSupplier</a></li>
+        <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_query_product_list_supplier/QueryProductListSupplier-class.html#constructors">Constructors</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_query_product_list_supplier/QueryProductListSupplier/QueryProductListSupplier.html">QueryProductListSupplier</a></li>
 
 
     <li class="section-title inherited">
@@ -144,7 +146,7 @@ Future&lt;String?&gt; asyncLoad() async {
 <footer>
   <span class="no-break">
     smooth_app
-      0.0.0
+      0.0.0+734
   </span>
 
   
@@ -153,7 +155,7 @@ Future&lt;String?&gt; asyncLoad() async {
 
 
 <script src="../../static-assets/highlight.pack.js?v1"></script>
-<script src="../../static-assets/script.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
 
 
 

@@ -21,8 +21,7 @@
 </head>
 
 
-<body data-base-href="../"
-      data-using-base-href="false">
+<body data-base-href="../" data-using-base-href="false">
 
 <div id="overlay-under-drawer"></div>
 
@@ -63,18 +62,14 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Widget getAttributeDisplayIcon(final Attribute attribute) =&gt; Padding(
-      padding: const EdgeInsets.only(right: VERY_SMALL_SPACE),
-      child: _attributeMatchComparison(
-        attribute,
-        const Icon(CupertinoIcons.question, color: RED_COLOR),
-        const Icon(Icons.lens, color: RED_COLOR),
-        const Icon(Icons.lens, color: LIGHT_ORANGE_COLOR),
-        const Icon(Icons.lens, color: LIGHT_ORANGE_COLOR),
-        const Icon(Icons.lens, color: LIGHT_GREEN_COLOR),
-        const Icon(Icons.lens, color: LIGHT_GREEN_COLOR),
-      ),
-    );</code></pre>
+  <pre class="language-dart"><code class="language-dart">Widget getAttributeDisplayIcon(final Attribute attribute) {
+  final Color color = getAttributeDisplayBackgroundColor(attribute);
+  final IconData iconData = getAttributeDisplayIconData(attribute);
+  return Padding(
+    padding: const EdgeInsetsDirectional.only(end: VERY_SMALL_SPACE),
+    child: Icon(iconData, color: color),
+  );
+}</code></pre>
 </section>
 
 
@@ -102,7 +97,9 @@
 
 
   <li class="section-title"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_attributes_card_helper/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_attributes_card_helper-library.html#functions">Functions</a></li>
+  <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_attributes_card_helper/getAttributeDisplayBackgroundColor.html">getAttributeDisplayBackgroundColor</a></li>
   <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_attributes_card_helper/getAttributeDisplayIcon.html">getAttributeDisplayIcon</a></li>
+  <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_attributes_card_helper/getAttributeDisplayIconData.html">getAttributeDisplayIconData</a></li>
   <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_attributes_card_helper/getAttributeEvaluation.html">getAttributeEvaluation</a></li>
   <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_attributes_card_helper/getDisplayTitle.html">getDisplayTitle</a></li>
   <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_attributes_card_helper/isMatchAvailable.html">isMatchAvailable</a></li>
@@ -123,7 +120,7 @@
 <footer>
   <span class="no-break">
     smooth_app
-      0.0.0
+      0.0.0+734
   </span>
 
   
@@ -132,7 +129,7 @@
 
 
 <script src="../static-assets/highlight.pack.js?v1"></script>
-<script src="../static-assets/script.js?v1"></script>
+<script src="../static-assets/docs.dart.js"></script>
 
 
 

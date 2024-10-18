@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the loadLatestNews method from the AppNewsProvider class, for the Dart programming language.">
+  <title>loadLatestNews method - AppNewsProvider class - newsfeed_provider library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="../../" data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">smooth_app</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_news_feed_newsfeed_provider/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_news_feed_newsfeed_provider-library.html">newsfeed_provider</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_news_feed_newsfeed_provider/AppNewsProvider-class.html">AppNewsProvider</a></li>
+    <li class="self-crumb">loadLatestNews method</li>
+  </ol>
+  <div class="self-name">loadLatestNews</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div>
+<h1><span class="kind-method">loadLatestNews</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+<span class="name ">loadLatestNews</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="loadLatestNews-param-forceUpdate">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">forceUpdate</span> = <span class="default-value">false</span>}</span></li>
+</ol>)
+
+      
+
+    </section>
+    
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; loadLatestNews({bool forceUpdate = false}) async {
+  _emit(const AppNewsStateLoading());
+
+  final String locale = ProductQuery.getLocaleString();
+  if (locale.startsWith(&#39;-&#39;)) {
+    &#47;&#47; ProductQuery not ready
+    return;
+  }
+
+  final File cacheFile = await _newsCacheFile;
+  String? jsonString;
+  &#47;&#47; Try from the cache first
+  if (!forceUpdate &amp;&amp; _isNewsCacheValid(cacheFile)) {
+    jsonString = cacheFile.readAsStringSync();
+  }
+
+  if (jsonString == null || jsonString.isEmpty == true) {
+    jsonString = await _fetchJSON();
+  }
+
+  if (jsonString?.isNotEmpty != true) {
+    _emit(const AppNewsStateError(&#39;JSON news file is empty&#39;));
+    return;
+  }
+
+  final AppNews? appNews = await Isolate.run(
+      () =&gt; _parseJSONAndGetLocalizedContent(jsonString!, locale));
+  if (appNews == null) {
+    _emit(const AppNewsStateError(&#39;Unable to parse the JSON news file&#39;));
+    Logs.e(&#39;Unable to parse the JSON news file&#39;);
+  } else {
+    _emit(AppNewsStateLoaded(appNews, cacheFile.lastModifiedSync()));
+    Logs.i(&#39;News ${forceUpdate ? &#39;re&#39; : &#39;&#39;}loaded&#39;);
+  }
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../../index.html">smooth_app</a></li>
+  <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_news_feed_newsfeed_provider/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_news_feed_newsfeed_provider-library.html">newsfeed_provider</a></li>
+  <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_news_feed_newsfeed_provider/AppNewsProvider-class.html">AppNewsProvider</a></li>
+  <li class="self-crumb">loadLatestNews method</li>
+</ol>
+
+
+    <h5>AppNewsProvider class</h5>
+    <ol>
+
+        <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_news_feed_newsfeed_provider/AppNewsProvider-class.html#constructors">Constructors</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_news_feed_newsfeed_provider/AppNewsProvider/AppNewsProvider.html">AppNewsProvider</a></li>
+
+
+    <li class="section-title">
+      <a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_news_feed_newsfeed_provider/AppNewsProvider-class.html#instance-properties">Properties</a>
+    </li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_news_feed_newsfeed_provider/AppNewsProvider/hasContent.html">hasContent</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_news_feed_newsfeed_provider/AppNewsProvider/state.html">state</a></li>
+
+    <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_news_feed_newsfeed_provider/AppNewsProvider-class.html#instance-methods">Methods</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_news_feed_newsfeed_provider/AppNewsProvider/dispose.html">dispose</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_news_feed_newsfeed_provider/AppNewsProvider/loadLatestNews.html">loadLatestNews</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
+
+    <li class="section-title inherited"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_news_feed_newsfeed_provider/AppNewsProvider-class.html#operators">Operators</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">operator ==</a></li>
+
+
+
+
+</ol>
+
+  </div><!--/.sidebar-offcanvas-->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    smooth_app
+      0.0.0+734
+  </span>
+
+  
+</footer>
+
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
+
+
+
+</body>
+
+</html>
+

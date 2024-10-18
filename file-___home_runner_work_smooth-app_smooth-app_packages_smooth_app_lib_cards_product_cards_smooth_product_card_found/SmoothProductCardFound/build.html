@@ -21,8 +21,7 @@
 </head>
 
 
-<body data-base-href="../../"
-      data-using-base-href="false">
+<body data-base-href="../../" data-using-base-href="false">
 
 <div id="overlay-under-drawer"></div>
 
@@ -76,7 +75,7 @@ Widget build(BuildContext context) {
   final UserPreferences userPreferences = context.watch&lt;UserPreferences&gt;();
   final ProductPreferences productPreferences =
       context.watch&lt;ProductPreferences&gt;();
-  final Size screenSize = MediaQuery.of(context).size;
+  final Size screenSize = MediaQuery.sizeOf(context);
   final ThemeData themeData = Theme.of(context);
   final bool isDarkMode = themeData.colorScheme.brightness == Brightness.dark;
   final List&lt;String&gt; excludedAttributeIds =
@@ -91,90 +90,117 @@ Widget build(BuildContext context) {
   for (final Attribute attribute in attributes) {
     scores.add(SvgIconChip(attribute.iconUrl!, height: iconSize));
   }
-  final MatchedProduct matchedProduct = MatchedProduct.getMatchedProduct(
+  final MatchedProductV2 matchedProduct = MatchedProductV2(
     product,
     productPreferences,
-    userPreferences,
   );
   final ProductCompatibilityHelper helper =
-      ProductCompatibilityHelper(matchedProduct);
-  return GestureDetector(
+      ProductCompatibilityHelper.product(matchedProduct);
+  final Widget child = InkWell(
+    borderRadius: ROUNDED_BORDER_RADIUS,
     onTap: onTap ??
-        () async {
-          await Navigator.push&lt;Widget&gt;(
-            context,
-            MaterialPageRoute&lt;Widget&gt;(
-              builder: (BuildContext context) =&gt; ProductPage(product),
+        () =&gt; AppNavigator.of(context).push(
+              AppRoutes.PRODUCT(
+                product.barcode!,
+                heroTag: heroTag,
+              ),
+              extra: product,
             ),
-          );
-          refresh?.call();
-        },
-    onLongPress: () {
-      onLongPress?.call();
-    },
+    onLongPress: () =&gt; onLongPress?.call(),
     child: Hero(
       tag: heroTag,
-      child: SmoothCard(
-        elevation: elevation,
-        color: backgroundColor,
-        padding: const EdgeInsets.all(VERY_SMALL_SPACE),
-        child: Row(
-          children: &lt;Widget&gt;[
-            SmoothProductImage(
-              product: product,
-              width: screenSize.width * 0.20,
-              height: screenSize.width * 0.20,
-            ),
-            const Padding(padding: EdgeInsets.only(left: VERY_SMALL_SPACE)),
-            Expanded(
-              child: SizedBox(
-                height: screenSize.width * 0.2,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: &lt;Widget&gt;[
-                    Text(
-                      getProductName(product, appLocalizations),
-                      overflow: TextOverflow.ellipsis,
-                      style: themeData.textTheme.headline4,
-                    ),
-                    Text(
-                      product.brands ?? appLocalizations.unknownBrand,
-                      overflow: TextOverflow.ellipsis,
-                      style: themeData.textTheme.subtitle1,
-                    ),
-                    Row(
+      child: Material(
+        type: MaterialType.transparency,
+        child: Ink(
+          decoration: BoxDecoration(
+            borderRadius: ROUNDED_BORDER_RADIUS,
+            color:
+                backgroundColor ?? (isDarkMode ? Colors.black : Colors.white),
+          ),
+          child: SmoothCard(
+            elevation: elevation,
+            color: Colors.transparent,
+            padding: const EdgeInsets.all(VERY_SMALL_SPACE),
+            child: Row(
+              children: &lt;Widget&gt;[
+                SmoothMainProductImage(
+                  product: product,
+                  width: screenSize.width * 0.20,
+                  height: screenSize.width * 0.20,
+                ),
+                const Padding(
+                  padding:
+                      EdgeInsetsDirectional.only(start: VERY_SMALL_SPACE),
+                ),
+                Expanded(
+                  child: SizedBox(
+                    height: screenSize.width * 0.2,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: &lt;Widget&gt;[
-                        Icon(
-                          Icons.circle,
-                          size: 15,
-                          color: helper.getButtonColor(isDarkMode),
-                        ),
-                        const Padding(
-                            padding: EdgeInsets.only(left: VERY_SMALL_SPACE)),
                         Text(
-                          helper.getSubtitle(appLocalizations),
-                          style: themeData.textTheme.bodyText2!.apply(
-                              color: helper
-                                  .getButtonForegroundColor(isDarkMode)),
+                          getProductName(product, appLocalizations),
+                          overflow: TextOverflow.ellipsis,
+                          style: themeData.textTheme.headlineMedium,
+                        ),
+                        Text(
+                          getProductBrands(product, appLocalizations),
+                          overflow: TextOverflow.ellipsis,
+                          style: themeData.textTheme.titleMedium,
+                        ),
+                        Row(
+                          children: &lt;Widget&gt;[
+                            Icon(
+                              Icons.circle,
+                              size: 15,
+                              color: helper.getButtonColor(isDarkMode),
+                            ),
+                            const Padding(
+                              padding: EdgeInsetsDirectional.only(
+                                  start: VERY_SMALL_SPACE),
+                            ),
+                            Expanded(
+                              child: FittedBox(
+                                fit: BoxFit.scaleDown,
+                                alignment: AlignmentDirectional.centerStart,
+                                child: Text(
+                                  helper.getSubtitle(appLocalizations),
+                                  style: themeData.textTheme.bodyMedium,
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ],
                     ),
-                  ],
+                  ),
                 ),
-              ),
+                const Padding(
+                  padding:
+                      EdgeInsetsDirectional.only(start: VERY_SMALL_SPACE),
+                ),
+                if (scores.isNotEmpty)
+                  Padding(
+                    padding: const EdgeInsets.all(VERY_SMALL_SPACE),
+                    child: Column(
+                      children: scores,
+                    ),
+                  ),
+              ],
             ),
-            const Padding(padding: EdgeInsets.only(left: VERY_SMALL_SPACE)),
-            Padding(
-              padding: const EdgeInsets.all(VERY_SMALL_SPACE),
-              child: Column(
-                children: scores,
-              ),
-            ),
-          ],
+          ),
         ),
       ),
     ),
+  );
+  &#47;&#47; TODO(monsieurtanuki): check localDatabase.upToDate.hasPendingChanges and display a &quot;pending changes&quot; mark if relevant
+  return Padding(
+    padding: const EdgeInsets.symmetric(
+      horizontal: MEDIUM_SPACE,
+      vertical: SMALL_SPACE,
+    ),
+    child: child,
   );
 }</code></pre>
 </section>
@@ -200,22 +226,19 @@ Widget build(BuildContext context) {
     <h5>SmoothProductCardFound class</h5>
     <ol>
 
-    <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_smooth_product_card_found/SmoothProductCardFound-class.html#constructors">Constructors</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_smooth_product_card_found/SmoothProductCardFound/SmoothProductCardFound.html">SmoothProductCardFound</a></li>
+        <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_smooth_product_card_found/SmoothProductCardFound-class.html#constructors">Constructors</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_smooth_product_card_found/SmoothProductCardFound/SmoothProductCardFound.html">SmoothProductCardFound</a></li>
 
 
     <li class="section-title">
       <a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_smooth_product_card_found/SmoothProductCardFound-class.html#instance-properties">Properties</a>
     </li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_smooth_product_card_found/SmoothProductCardFound/backgroundColor.html">backgroundColor</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_smooth_product_card_found/SmoothProductCardFound/elevation.html">elevation</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_smooth_product_card_found/SmoothProductCardFound/handle.html">handle</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_smooth_product_card_found/SmoothProductCardFound/heroTag.html">heroTag</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_smooth_product_card_found/SmoothProductCardFound/onLongPress.html">onLongPress</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_smooth_product_card_found/SmoothProductCardFound/onTap.html">onTap</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_smooth_product_card_found/SmoothProductCardFound/product.html">product</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_smooth_product_card_found/SmoothProductCardFound/refresh.html">refresh</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
 
     <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_smooth_product_card_found/SmoothProductCardFound-class.html#instance-methods">Methods</a></li>
@@ -229,6 +252,8 @@ Widget build(BuildContext context) {
 
 
 
+        <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_smooth_product_card_found/SmoothProductCardFound-class.html#constants">Constants</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_smooth_product_card_found/SmoothProductCardFound/elevation-constant.html">elevation</a></li>
 </ol>
 
   </div><!--/.sidebar-offcanvas-->
@@ -241,7 +266,7 @@ Widget build(BuildContext context) {
 <footer>
   <span class="no-break">
     smooth_app
-      0.0.0
+      0.0.0+734
   </span>
 
   
@@ -250,7 +275,7 @@ Widget build(BuildContext context) {
 
 
 <script src="../../static-assets/highlight.pack.js?v1"></script>
-<script src="../../static-assets/script.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
 
 
 

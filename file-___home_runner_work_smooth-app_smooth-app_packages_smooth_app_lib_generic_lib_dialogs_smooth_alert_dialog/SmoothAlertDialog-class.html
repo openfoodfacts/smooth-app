@@ -21,8 +21,7 @@
 </head>
 
 
-<body data-base-href="../"
-      data-using-base-href="false">
+<body data-base-href="../" data-using-base-href="false">
 
 <div id="overlay-under-drawer"></div>
 
@@ -51,49 +50,62 @@
 
     
 <section class="desc markdown">
-  <p>Open by calling</p>
-<p>showDialog<void>(
-context: context,
-builder: (BuildContext context) {
-return SmoothAlertDialog(...)
-}
-)</void></p>
+  <p>Custom Dialog to use in the app</p>
+<pre class="language-dart"><code class="language-dart">showDialog&lt;void&gt;(
+       context: context,
+       builder: (BuildContext context) {
+         return SmoothAlertDialog(...)
+	       }
+)
+</code></pre>
+<p>If only one action button is provided, simply pass a <a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothAlertDialog/positiveAction.html">positiveAction</a></p>
+<ul>
+<li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothAlertDialog/actionsAxis.html">actionsAxis</a> allows to specify the axis of the buttons. By default, will
+be <code>Axis.horizontal</code>, unless it is a small device</li>
+<li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothAlertDialog/actionsOrder.html">actionsOrder</a> allows to force the order of the buttons. By default, will
+be "smart" by guessing the order based on the axis</li>
+</ul>
 </section>
 
 
 
-    <section class="summary offset-anchor" id="constructors">
-      <h2>Constructors</h2>
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>Constructors</h2>
 
-      <dl class="constructor-summary-list">
+    <dl class="constructor-summary-list">
         <dt id="SmoothAlertDialog" class="callable">
-          <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothAlertDialog/SmoothAlertDialog.html">SmoothAlertDialog</a></span><span class="signature">(<span class="parameter" id="-param-title">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">title</span>, </span><span class="parameter" id="-param-body"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">body</span>, </span><span class="parameter" id="-param-actions"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a>?</span> <span class="parameter-name">actions</span>}</span>)</span>
+          <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothAlertDialog/SmoothAlertDialog.html">SmoothAlertDialog</a></span><span class="signature">(<span class="parameter" id="-param-title">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">title</span>, </span><span class="parameter" id="-param-leadingTitle"><span class="type-annotation">dynamic</span> <span class="parameter-name">leadingTitle</span>, </span><span class="parameter" id="-param-body"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">body</span>, </span><span class="parameter" id="-param-positiveAction"><span class="type-annotation"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothActionButton-class.html">SmoothActionButton</a>?</span> <span class="parameter-name">positiveAction</span>, </span><span class="parameter" id="-param-negativeAction"><span class="type-annotation"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothActionButton-class.html">SmoothActionButton</a>?</span> <span class="parameter-name">negativeAction</span>, </span><span class="parameter" id="-param-neutralAction"><span class="type-annotation"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothActionButton-class.html">SmoothActionButton</a>?</span> <span class="parameter-name">neutralAction</span>, </span><span class="parameter" id="-param-actionsAxis"><span class="type-annotation">dynamic</span> <span class="parameter-name">actionsAxis</span>, </span><span class="parameter" id="-param-actionsOrder"><span class="type-annotation"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothButtonsBarOrder.html">SmoothButtonsBarOrder</a>?</span> <span class="parameter-name">actionsOrder</span>, </span><span class="parameter" id="-param-close"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">close</span> = <span class="default-value">false</span>, </span><span class="parameter" id="-param-margin"><span class="type-annotation">dynamic</span> <span class="parameter-name">margin</span>, </span><span class="parameter" id="-param-contentPadding"><span class="type-annotation">dynamic</span> <span class="parameter-name">contentPadding</span>}</span>)</span>
         </dt>
         <dd>
-          The most simple alert dialog: no fancy effects. 
-          <div class="constructor-modifier features">const</div>
+          
+            <div class="constructor-modifier features">const</div>
         </dd>
-        <dt id="SmoothAlertDialog.advanced" class="callable">
-          <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothAlertDialog/SmoothAlertDialog.advanced.html">SmoothAlertDialog.advanced</a></span><span class="signature">(<span class="parameter" id="advanced-param-title">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">title</span>, </span><span class="parameter" id="advanced-param-close"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">close</span> = <span class="default-value">true</span>, </span><span class="parameter" id="advanced-param-maxHeight"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">maxHeight</span>, </span><span class="parameter" id="advanced-param-body"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">body</span>, </span><span class="parameter" id="advanced-param-actions"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a>?</span> <span class="parameter-name">actions</span>}</span>)</span>
-        </dt>
-        <dd>
-          Advanced alert dialog with fancy effects. 
-          <div class="constructor-modifier features">const</div>
-        </dd>
-      </dl>
-    </section>
+    </dl>
+  </section>
 
     <section class="summary offset-anchor" id="instance-properties">
       <h2>Properties</h2>
 
       <dl class="properties">
-        <dt id="actions" class="property">
-  <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothAlertDialog/actions.html">actions</a></span>
-  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a>?</span> 
+        <dt id="actionsAxis" class="property">
+  <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothAlertDialog/actionsAxis.html">actionsAxis</a></span>
+  <span class="signature">&#8594; dynamic</span> 
 
 </dt>
 <dd>
-   
+  
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="actionsOrder" class="property">
+  <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothAlertDialog/actionsOrder.html">actionsOrder</a></span>
+  <span class="signature">&#8594; <a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothButtonsBarOrder.html">SmoothButtonsBarOrder</a>?</span> 
+
+</dt>
+<dd>
+  
   <div class="features">final</div>
 
 </dd>
@@ -104,7 +116,7 @@ return SmoothAlertDialog(...)
 
 </dt>
 <dd>
-   
+  
   <div class="features">final</div>
 
 </dd>
@@ -115,8 +127,30 @@ return SmoothAlertDialog(...)
 
 </dt>
 <dd>
-   
+  
   <div class="features">final</div>
+
+</dd>
+
+        <dt id="contentPadding" class="property">
+  <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothAlertDialog/contentPadding.html">contentPadding</a></span>
+  <span class="signature">&#8594; dynamic</span> 
+
+</dt>
+<dd>
+  
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="hasActions" class="property">
+  <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothAlertDialog/hasActions.html">hasActions</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> 
+
+</dt>
+<dd>
+  
+  <div class="features">read-only</div>
 
 </dd>
 
@@ -126,18 +160,62 @@ return SmoothAlertDialog(...)
 
 </dt>
 <dd class="inherited">
-  The hash code for this object. <a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">[...]</a>
+  The hash code for this object.
   <div class="features">read-only, inherited</div>
 
 </dd>
 
-        <dt id="maxHeight" class="property">
-  <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothAlertDialog/maxHeight.html">maxHeight</a></span>
-  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> 
+        <dt id="leadingTitle" class="property">
+  <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothAlertDialog/leadingTitle.html">leadingTitle</a></span>
+  <span class="signature">&#8594; dynamic</span> 
 
 </dt>
 <dd>
-   
+  
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="margin" class="property">
+  <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothAlertDialog/margin.html">margin</a></span>
+  <span class="signature">&#8594; dynamic</span> 
+
+</dt>
+<dd>
+  
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="negativeAction" class="property">
+  <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothAlertDialog/negativeAction.html">negativeAction</a></span>
+  <span class="signature">&#8594; <a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothActionButton-class.html">SmoothActionButton</a>?</span> 
+
+</dt>
+<dd>
+  
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="neutralAction" class="property">
+  <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothAlertDialog/neutralAction.html">neutralAction</a></span>
+  <span class="signature">&#8594; <a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothActionButton-class.html">SmoothActionButton</a>?</span> 
+
+</dt>
+<dd>
+  
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="positiveAction" class="property">
+  <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothAlertDialog/positiveAction.html">positiveAction</a></span>
+  <span class="signature">&#8594; <a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothActionButton-class.html">SmoothActionButton</a>?</span> 
+
+</dt>
+<dd>
+  
   <div class="features">final</div>
 
 </dd>
@@ -148,7 +226,7 @@ return SmoothAlertDialog(...)
 
 </dt>
 <dd class="inherited">
-  A representation of the runtime type of the object. 
+  A representation of the runtime type of the object.
   <div class="features">read-only, inherited</div>
 
 </dd>
@@ -159,7 +237,7 @@ return SmoothAlertDialog(...)
 
 </dt>
 <dd>
-   
+  
   <div class="features">final</div>
 
 </dd>
@@ -167,9 +245,12 @@ return SmoothAlertDialog(...)
       </dl>
     </section>
 
-    <section class="summary offset-anchor" id="instance-methods">
-      <h2>Methods</h2>
-      <dl class="callables">
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>Methods</h2>
+    <dl class="callables">
         <dt id="build" class="callable">
   <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothAlertDialog/build.html">build</a></span><span class="signature">(<wbr><span class="parameter" id="build-param-context"><span class="type-annotation">dynamic</span> <span class="parameter-name">context</span></span>)
     <span class="returntype parameter">&#8594; dynamic</span>
@@ -178,7 +259,7 @@ return SmoothAlertDialog(...)
 
 </dt>
 <dd>
-   
+  
   
 
 </dd>
@@ -191,7 +272,7 @@ return SmoothAlertDialog(...)
 
 </dt>
 <dd class="inherited">
-  Invoked when a non-existent method or property is accessed. <a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">[...]</a>
+  Invoked when a non-existent method or property is accessed.
   <div class="features">inherited</div>
 
 </dd>
@@ -204,17 +285,19 @@ return SmoothAlertDialog(...)
 
 </dt>
 <dd class="inherited">
-  A string representation of this object. <a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">[...]</a>
+  A string representation of this object.
   <div class="features">inherited</div>
 
 </dd>
 
-      </dl>
-    </section>
-
-    <section class="summary offset-anchor inherited" id="operators">
-      <h2>Operators</h2>
-      <dl class="callables">
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>Operators</h2>
+    <dl class="callables">
         <dt id="operator ==" class="callable inherited">
   <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
     <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
@@ -223,16 +306,56 @@ return SmoothAlertDialog(...)
 
 </dt>
 <dd class="inherited">
-  The equality operator. <a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">[...]</a>
+  The equality operator.
   <div class="features">inherited</div>
 
 </dd>
 
-      </dl>
-    </section>
+    </dl>
+  </section>
+    
+    
+  <section class="summary offset-anchor" id="static-methods">
+    <h2>Static Methods</h2>
+    <dl class="callables">
+        <dt id="defaultContentPadding" class="callable">
+  <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothAlertDialog/defaultContentPadding.html">defaultContentPadding</a></span><span class="signature">(<wbr><span class="parameter" id="defaultContentPadding-param-context"><span class="type-annotation">dynamic</span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
 
+</dt>
+<dd>
+  
+  
 
+</dd>
 
+    </dl>
+  </section>
+    
+
+  <section class="summary offset-anchor" id="constants">
+    <h2>Constants</h2>
+
+    <dl class="properties">
+        <dt id="defaultMargin" class="constant">
+    <span class="name "><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothAlertDialog/defaultMargin-constant.html">defaultMargin</a></span>
+  <span class="signature">&#8594; const dynamic</span>
+  
+
+</dt>
+<dd>
+  Default value <code>_defaultInsetPadding</code> in dialog.dart
+  
+
+  <div>
+    <span class="signature"><code>EdgeInsets.symmetric(horizontal: 40.0, vertical: 24.0)</code></span>
+  </div>
+</dd>
+
+    </dl>
+  </section>
 
   </div> <!-- /.main-content -->
 
@@ -253,13 +376,20 @@ return SmoothAlertDialog(...)
     <h5>smooth_alert_dialog library</h5>
     <ol>
   <li class="section-title"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog-library.html#classes">Classes</a></li>
+  <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothActionButton-class.html">SmoothActionButton</a></li>
+  <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothActionButtonsBar-class.html">SmoothActionButtonsBar</a></li>
+  <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothAlertContentButton-class.html">SmoothAlertContentButton</a></li>
   <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothAlertDialog-class.html">SmoothAlertDialog</a></li>
+  <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothListAlertDialog-class.html">SmoothListAlertDialog</a></li>
+  <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothSimpleErrorAlertDialog-class.html">SmoothSimpleErrorAlertDialog</a></li>
 
 
 
 
 
 
+  <li class="section-title"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog-library.html#enums">Enums</a></li>
+  <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothButtonsBarOrder.html">SmoothButtonsBarOrder</a></li>
 
 
 </ol>
@@ -269,19 +399,25 @@ return SmoothAlertDialog(...)
   <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
     <ol>
 
-    <li class="section-title"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothAlertDialog-class.html#constructors">Constructors</a></li>
-    <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothAlertDialog/SmoothAlertDialog.html">SmoothAlertDialog</a></li>
-    <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothAlertDialog/SmoothAlertDialog.advanced.html">advanced</a></li>
+        <li class="section-title"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothAlertDialog-class.html#constructors">Constructors</a></li>
+          <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothAlertDialog/SmoothAlertDialog.html">SmoothAlertDialog</a></li>
 
 
     <li class="section-title">
       <a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothAlertDialog-class.html#instance-properties">Properties</a>
     </li>
-    <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothAlertDialog/actions.html">actions</a></li>
+    <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothAlertDialog/actionsAxis.html">actionsAxis</a></li>
+    <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothAlertDialog/actionsOrder.html">actionsOrder</a></li>
     <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothAlertDialog/body.html">body</a></li>
     <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothAlertDialog/close.html">close</a></li>
+    <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothAlertDialog/contentPadding.html">contentPadding</a></li>
+    <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothAlertDialog/hasActions.html">hasActions</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
-    <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothAlertDialog/maxHeight.html">maxHeight</a></li>
+    <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothAlertDialog/leadingTitle.html">leadingTitle</a></li>
+    <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothAlertDialog/margin.html">margin</a></li>
+    <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothAlertDialog/negativeAction.html">negativeAction</a></li>
+    <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothAlertDialog/neutralAction.html">neutralAction</a></li>
+    <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothAlertDialog/positiveAction.html">positiveAction</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
     <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothAlertDialog/title.html">title</a></li>
 
@@ -295,7 +431,11 @@ return SmoothAlertDialog(...)
 
 
 
+        <li class="section-title"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothAlertDialog-class.html#static-methods">Static methods</a></li>
+          <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothAlertDialog/defaultContentPadding.html">defaultContentPadding</a></li>
 
+        <li class="section-title"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothAlertDialog-class.html#constants">Constants</a></li>
+          <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_dialogs_smooth_alert_dialog/SmoothAlertDialog/defaultMargin-constant.html">defaultMargin</a></li>
 </ol>
 
   </div><!--/.sidebar-offcanvas-->
@@ -305,7 +445,7 @@ return SmoothAlertDialog(...)
 <footer>
   <span class="no-break">
     smooth_app
-      0.0.0
+      0.0.0+734
   </span>
 
   
@@ -314,7 +454,7 @@ return SmoothAlertDialog(...)
 
 
 <script src="../static-assets/highlight.pack.js?v1"></script>
-<script src="../static-assets/script.js?v1"></script>
+<script src="../static-assets/docs.dart.js"></script>
 
 
 

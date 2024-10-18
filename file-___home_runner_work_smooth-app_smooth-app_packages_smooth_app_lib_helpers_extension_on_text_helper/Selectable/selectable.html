@@ -21,8 +21,7 @@
 </head>
 
 
-<body data-base-href="../../"
-      data-using-base-href="false">
+<body data-base-href="../../" data-using-base-href="false">
 
 <div id="overlay-under-drawer"></div>
 
@@ -70,6 +69,13 @@
       ? SelectableText(
           data!,
           style: style,
+          strutStyle: strutStyle,
+          textDirection: textDirection,
+          textScaler: textScaler,
+          textAlign: textAlign,
+          maxLines: maxLines,
+          &#47;&#47; TODO(m123): Fix or remove alltogether
+          &#47;&#47; ignore: deprecated_member_use
           toolbarOptions: const ToolbarOptions(
             copy: true,
             selectAll: true,
@@ -78,6 +84,11 @@
       : Text(
           data!,
           style: style,
+          strutStyle: strutStyle,
+          textDirection: textDirection,
+          textScaler: textScaler,
+          textAlign: textAlign,
+          maxLines: maxLines,
         );
 }</code></pre>
 </section>
@@ -125,7 +136,7 @@
 <footer>
   <span class="no-break">
     smooth_app
-      0.0.0
+      0.0.0+734
   </span>
 
   
@@ -134,7 +145,7 @@
 
 
 <script src="../../static-assets/highlight.pack.js?v1"></script>
-<script src="../../static-assets/script.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
 
 
 

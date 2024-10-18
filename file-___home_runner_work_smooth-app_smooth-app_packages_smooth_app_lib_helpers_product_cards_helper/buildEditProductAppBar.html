@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the buildEditProductAppBar function from the product_cards_helper library, for the Dart programming language.">
+  <title>buildEditProductAppBar function - product_cards_helper library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../static-assets/styles.css?v1">
+  <link rel="icon" href="../static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="../" data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../index.html">smooth_app</a></li>
+    <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_cards_helper/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_cards_helper-library.html">product_cards_helper</a></li>
+    <li class="self-crumb">buildEditProductAppBar function</li>
+  </ol>
+  <div class="self-name">buildEditProductAppBar</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div>
+<h1><span class="kind-function">buildEditProductAppBar</span> function 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+ 
+</h1></div>
+
+    <section class="multi-line-signature">
+        
+
+<span class="returntype">dynamic</span>
+<span class="name ">buildEditProductAppBar</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="buildEditProductAppBar-param-context">{<span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">context</span>, </span></li>
+<li><span class="parameter" id="buildEditProductAppBar-param-title"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">title</span>, </span></li>
+<li><span class="parameter" id="buildEditProductAppBar-param-product"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">product</span>}</span></li>
+</ol>)
+
+    </section>
+    
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">SmoothAppBar buildEditProductAppBar({
+  required final BuildContext context,
+  required final String title,
+  required final Product product,
+}) =&gt;
+    SmoothAppBar(
+      centerTitle: false,
+      title: Text(
+        title,
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
+      ),
+      subTitle: Text(
+        getProductNameAndBrands(product, AppLocalizations.of(context)),
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
+      ),
+      ignoreSemanticsForSubtitle: true,
+    );</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../index.html">smooth_app</a></li>
+  <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_cards_helper/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_cards_helper-library.html">product_cards_helper</a></li>
+  <li class="self-crumb">buildEditProductAppBar function</li>
+</ol>
+
+
+    <h5>product_cards_helper library</h5>
+    <ol>
+
+
+
+  <li class="section-title"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_cards_helper/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_cards_helper-library.html#constants">Constants</a></li>
+  <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_cards_helper/SMOOTH_CARD_PADDING-constant.html">SMOOTH_CARD_PADDING</a></li>
+
+
+  <li class="section-title"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_cards_helper/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_cards_helper-library.html#functions">Functions</a></li>
+  <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_cards_helper/addPanelButton.html">addPanelButton</a></li>
+  <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_cards_helper/buildEditProductAppBar.html">buildEditProductAppBar</a></li>
+  <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_cards_helper/buildProductSmoothCard.html">buildProductSmoothCard</a></li>
+  <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_cards_helper/formatProductBrands.html">formatProductBrands</a></li>
+  <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_cards_helper/getEmptyProductImageData.html">getEmptyProductImageData</a></li>
+  <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_cards_helper/getFilteredAttributes.html">getFilteredAttributes</a></li>
+  <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_cards_helper/getLocalizedProductImage.html">getLocalizedProductImage</a></li>
+  <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_cards_helper/getMandatoryAttributes.html">getMandatoryAttributes</a></li>
+  <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_cards_helper/getPopulatedAttributes.html">getPopulatedAttributes</a></li>
+  <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_cards_helper/getProductBrands.html">getProductBrands</a></li>
+  <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_cards_helper/getProductImageData.html">getProductImageData</a></li>
+  <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_cards_helper/getProductImageLanguages.html">getProductImageLanguages</a></li>
+  <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_cards_helper/getProductMainImagesData.html">getProductMainImagesData</a></li>
+  <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_cards_helper/getProductName.html">getProductName</a></li>
+  <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_cards_helper/getProductNameAndBrands.html">getProductNameAndBrands</a></li>
+  <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_cards_helper/getRawProductImages.html">getRawProductImages</a></li>
+  <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_product_cards_helper/getSortedAttributes.html">getSortedAttributes</a></li>
+
+
+
+</ol>
+
+  </div><!--/.sidebar-offcanvas-left-->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    smooth_app
+      0.0.0+734
+  </span>
+
+  
+</footer>
+
+
+
+<script src="../static-assets/highlight.pack.js?v1"></script>
+<script src="../static-assets/docs.dart.js"></script>
+
+
+
+</body>
+
+</html>
+

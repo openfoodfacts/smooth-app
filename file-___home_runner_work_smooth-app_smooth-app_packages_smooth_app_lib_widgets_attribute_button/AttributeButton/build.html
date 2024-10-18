@@ -21,8 +21,7 @@
 </head>
 
 
-<body data-base-href="../../"
-      data-using-base-href="false">
+<body data-base-href="../../" data-using-base-href="false">
 
 <div id="overlay-under-drawer"></div>
 
@@ -77,57 +76,48 @@ Widget build(BuildContext context) {
       productPreferences.getImportanceIdForAttributeId(attribute.id!);
   const double horizontalPadding = LARGE_SPACE;
   final double widgetWidth =
-      MediaQuery.of(context).size.width - 2 * horizontalPadding;
+      MediaQuery.sizeOf(context).width - 2 * horizontalPadding;
   final double importanceWidth = widgetWidth &#47; 4;
-  final TextStyle style = themeData.textTheme.headline4!;
+  final TextStyle style = themeData.textTheme.headlineMedium!;
   final String? info = attribute.settingNote;
   final List&lt;Widget&gt; children = &lt;Widget&gt;[];
   for (final String importanceId in _importanceIds) {
     children.add(
-      GestureDetector(
-        onTap: () async {
-          await productPreferences.setImportance(attribute.id!, importanceId);
-
-          final AppLocalizations appLocalizations =
-              &#47;&#47;ignore: use_build_context_synchronously
-              AppLocalizations.of(context);
-          await showDialog&lt;void&gt;(
-            context: context,
-            builder: (BuildContext context) =&gt; SmoothAlertDialog(
-              body: Text(
-                appLocalizations.importance_label(
-                    attribute.name.toString(), importanceId),
-              ),
-              actions: &lt;SmoothActionButton&gt;[
-                SmoothActionButton(
-                  text: appLocalizations.close,
-                  onPressed: () =&gt; Navigator.pop(context),
-                ),
-              ],
+      Expanded(
+        child: Material(
+          type: MaterialType.transparency,
+          child: InkWell(
+            onTap: () async =&gt; productPreferences.setImportance(
+              attribute.id!,
+              importanceId,
             ),
-          );
-        },
-        child: Container(
-          width: importanceWidth,
-          constraints: const BoxConstraints(minHeight: MINIMUM_TARGET_SIZE),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: &lt;Widget&gt;[
-              Icon(
-                currentImportanceId == importanceId
-                    ? Icons.radio_button_checked
-                    : Icons.radio_button_off,
-                color: themeData.colorScheme.primary,
+            child: Container(
+              width: importanceWidth,
+              margin: const EdgeInsets.symmetric(horizontal: 2.0),
+              constraints:
+                  const BoxConstraints(minHeight: MINIMUM_TOUCH_SIZE),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: &lt;Widget&gt;[
+                  Icon(
+                    currentImportanceId == importanceId
+                        ? Icons.radio_button_checked
+                        : Icons.radio_button_off,
+                    color: themeData.colorScheme.primary,
+                  ),
+                  const SizedBox(height: VERY_SMALL_SPACE),
+                  AutoSizeText(
+                    productPreferences
+                        .getPreferenceImportanceFromImportanceId(
+                            importanceId)!
+                        .name!,
+                    maxLines: 2,
+                    textAlign: TextAlign.center,
+                  ),
+                ],
               ),
-              AutoSizeText(
-                productPreferences
-                    .getPreferenceImportanceFromImportanceId(importanceId)!
-                    .name!,
-                maxLines: 2,
-                textAlign: TextAlign.center,
-              ),
-            ],
+            ),
           ),
         ),
       ),
@@ -158,12 +148,10 @@ Widget build(BuildContext context) {
                           AppLocalizations.of(context);
                       return SmoothAlertDialog(
                         body: Text(info),
-                        actions: &lt;SmoothActionButton&gt;[
-                          SmoothActionButton(
-                            text: appLocalizations.close,
-                            onPressed: () =&gt; Navigator.pop(context),
-                          ),
-                        ],
+                        positiveAction: SmoothActionButton(
+                          text: appLocalizations.close,
+                          onPressed: () =&gt; Navigator.pop(context),
+                        ),
                       );
                     },
                   ),
@@ -200,8 +188,8 @@ Widget build(BuildContext context) {
     <h5>AttributeButton class</h5>
     <ol>
 
-    <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_attribute_button/AttributeButton-class.html#constructors">Constructors</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_attribute_button/AttributeButton/AttributeButton.html">AttributeButton</a></li>
+        <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_attribute_button/AttributeButton-class.html#constructors">Constructors</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_attribute_button/AttributeButton/AttributeButton.html">AttributeButton</a></li>
 
 
     <li class="section-title">
@@ -235,7 +223,7 @@ Widget build(BuildContext context) {
 <footer>
   <span class="no-break">
     smooth_app
-      0.0.0
+      0.0.0+734
   </span>
 
   
@@ -244,7 +232,7 @@ Widget build(BuildContext context) {
 
 
 <script src="../../static-assets/highlight.pack.js?v1"></script>
-<script src="../../static-assets/script.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
 
 
 

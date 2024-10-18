@@ -21,8 +21,7 @@
 </head>
 
 
-<body data-base-href="../../"
-      data-using-base-href="false">
+<body data-base-href="../../" data-using-base-href="false">
 
 <div id="overlay-under-drawer"></div>
 
@@ -63,6 +62,7 @@
     
 <section class="desc markdown">
   <p>To be called first thing when we click on "next" during onboarding.</p>
+<p>The <code>page</code> parameter refers to the current page (before the next).</p>
 </section>
 
 
@@ -73,25 +73,44 @@
   final OnboardingPage page,
   final BuildContext context,
 ) async {
+  final AppLocalizations appLocalizations = AppLocalizations.of(context);
   switch (page) {
     case OnboardingPage.WELCOME:
-      await LoadingDialog.run&lt;void&gt;(
+      final bool? downloaded = await LoadingDialog.run&lt;bool&gt;(
         context: context,
         future: _downloadData(),
         title: AppLocalizations.of(context)
             .onboarding_welcome_loading_dialog_title,
         dismissible: false,
       );
+      if (downloaded != true) {
+        if (!context.mounted) {
+          return;
+        }
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(appLocalizations.onboarding_welcome_loading_error),
+            duration: SnackBarDuration.short,
+            behavior: SnackBarBehavior.floating,
+            elevation: 0,
+          ),
+        );
+      }
       return;
     case OnboardingPage.NOT_STARTED:
-    case OnboardingPage.SCAN_EXAMPLE:
+    case OnboardingPage.HOME_PAGE:
     case OnboardingPage.HEALTH_CARD_EXAMPLE:
     case OnboardingPage.ECO_CARD_EXAMPLE:
     case OnboardingPage.PREFERENCES_PAGE:
+    case OnboardingPage.PERMISSIONS_PAGE:
+      &#47;&#47; nothing special to do
+      return;
     case OnboardingPage.CONSENT_PAGE:
+      &#47;&#47; that was the last page of onboarding: after that, we clean up
+      await _unloadData();
       return;
     case OnboardingPage.ONBOARDING_COMPLETE:
-      await _unloadData();
+      &#47;&#47; will never happen: we never click &quot;next&quot; on a &quot;complete&quot; page
       return;
   }
 }</code></pre>
@@ -118,8 +137,8 @@
     <h5>OnboardingLoader class</h5>
     <ol>
 
-    <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_onboarding_loader/OnboardingLoader-class.html#constructors">Constructors</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_onboarding_loader/OnboardingLoader/OnboardingLoader.html">OnboardingLoader</a></li>
+        <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_onboarding_loader/OnboardingLoader-class.html#constructors">Constructors</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_onboarding_loader/OnboardingLoader/OnboardingLoader.html">OnboardingLoader</a></li>
 
 
     <li class="section-title inherited">
@@ -151,7 +170,7 @@
 <footer>
   <span class="no-break">
     smooth_app
-      0.0.0
+      0.0.0+734
   </span>
 
   
@@ -160,7 +179,7 @@
 
 
 <script src="../../static-assets/highlight.pack.js?v1"></script>
-<script src="../../static-assets/script.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
 
 
 

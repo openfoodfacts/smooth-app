@@ -21,8 +21,7 @@
 </head>
 
 
-<body data-base-href="../../"
-      data-using-base-href="false">
+<body data-base-href="../../" data-using-base-href="false">
 
 <div id="overlay-under-drawer"></div>
 
@@ -53,8 +52,7 @@
       
 
 <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
-<span class="name ">refresh</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="refresh-param-languageCode"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">languageCode</span></span></li>
-</ol>)
+<span class="name ">refresh</span>(<wbr>)
 
       
 
@@ -68,7 +66,18 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; refresh(final String languageCode) async {
+  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; refresh() async {
+  final String lc = ProductQuery.getLanguage().code;
+  if (daoString != null) {
+    final String? latestLanguage =
+        await daoString!.get(_DAO_STRING_KEY_LANGUAGE);
+    if (latestLanguage == null || latestLanguage != lc) {
+      &#47;&#47; we restart from scratch
+      &#47;&#47; typical use-case: language change
+      _isNetwork = false;
+      _isDownloading = false;
+    }
+  }
   if (_isNetwork) {
     return;
   }
@@ -76,11 +85,11 @@
     return;
   }
   _isDownloading = true;
-  final bool successful = await _loadFromNetwork(languageCode);
+  final bool successful = await _loadFromNetwork(lc);
   if (successful) {
     _isNetwork = true;
     if (daoString != null) {
-      await daoString!.put(_DAO_STRING_KEY_LANGUAGE, languageCode);
+      await daoString!.put(_DAO_STRING_KEY_LANGUAGE, lc);
     }
     notify();
   }
@@ -109,8 +118,8 @@
     <h5>ProductPreferences class</h5>
     <ol>
 
-    <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_product_preferences/ProductPreferences-class.html#constructors">Constructors</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_product_preferences/ProductPreferences/ProductPreferences.html">ProductPreferences</a></li>
+        <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_product_preferences/ProductPreferences-class.html#constructors">Constructors</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_product_preferences/ProductPreferences/ProductPreferences.html">ProductPreferences</a></li>
 
 
     <li class="section-title">
@@ -122,6 +131,7 @@
 
     <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_product_preferences/ProductPreferences-class.html#instance-methods">Methods</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_product_preferences/ProductPreferences/getAttributeGroup.html">getAttributeGroup</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_product_preferences/ProductPreferences/getCompactView.html">getCompactView</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_product_preferences/ProductPreferences/init.html">init</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_product_preferences/ProductPreferences/notifyListeners.html">notifyListeners</a></li>
@@ -147,7 +157,7 @@
 <footer>
   <span class="no-break">
     smooth_app
-      0.0.0
+      0.0.0+734
   </span>
 
   
@@ -156,7 +166,7 @@
 
 
 <script src="../../static-assets/highlight.pack.js?v1"></script>
-<script src="../../static-assets/script.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
 
 
 

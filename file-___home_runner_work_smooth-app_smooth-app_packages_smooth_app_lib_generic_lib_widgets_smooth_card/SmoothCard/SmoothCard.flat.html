@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the SmoothCard.flat constructor from the Class SmoothCard class from the smooth_card library, for the Dart programming language.">
-  <title>SmoothCard.flat constructor - SmoothCard class - smooth_card library - Dart API</title>
+  <meta name="description" content="API docs for the SmoothCard.flat constructor from Class SmoothCard from the smooth_card library, for the Dart programming language.">
+  <title>SmoothCard.flat constructor - SmoothCard - smooth_card library - Dart API</title>
 
 
   
@@ -21,8 +21,7 @@
 </head>
 
 
-<body data-base-href="../../"
-      data-using-base-href="false">
+<body data-base-href="../../" data-using-base-href="false">
 
 <div id="overlay-under-drawer"></div>
 
@@ -52,9 +51,12 @@
     <section class="multi-line-signature">const
       <span class="name ">SmoothCard.flat</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="flat-param-child">{<span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">child</span>, </span></li>
 <li><span class="parameter" id="flat-param-color"><span class="type-annotation">dynamic</span> <span class="parameter-name">color</span>, </span></li>
-<li><span class="parameter" id="flat-param-margin"><span class="type-annotation">dynamic</span> <span class="parameter-name">margin</span> = <span class="default-value">const EdgeInsets.only(right: SMALL_SPACE, left: SMALL_SPACE, top: VERY_SMALL_SPACE, bottom: VERY_SMALL_SPACE)</span>, </span></li>
+<li><span class="parameter" id="flat-param-margin"><span class="type-annotation">dynamic</span> <span class="parameter-name">margin</span> = <span class="default-value">const EdgeInsetsDirectional.only(start: SMALL_SPACE, end: SMALL_SPACE, top: VERY_SMALL_SPACE, bottom: VERY_SMALL_SPACE)</span>, </span></li>
 <li><span class="parameter" id="flat-param-padding"><span class="type-annotation">dynamic</span> <span class="parameter-name">padding</span> = <span class="default-value">const EdgeInsets.all(5.0)</span>, </span></li>
-<li><span class="parameter" id="flat-param-elevation"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">elevation</span> = <span class="default-value">0</span>}</span></li>
+<li><span class="parameter" id="flat-param-elevation"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">elevation</span> = <span class="default-value">0</span>, </span></li>
+<li><span class="parameter" id="flat-param-borderRadius"><span class="type-annotation">dynamic</span> <span class="parameter-name">borderRadius</span>, </span></li>
+<li><span class="parameter" id="flat-param-ignoreDefaultSemantics"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">ignoreDefaultSemantics</span> = <span class="default-value">false</span>, </span></li>
+<li><span class="parameter" id="flat-param-clipBehavior"><span class="type-annotation">dynamic</span> <span class="parameter-name">clipBehavior</span>}</span></li>
 </ol>)
     </section>
 
@@ -67,14 +69,17 @@
   <pre class="language-dart"><code class="language-dart">const SmoothCard.flat({
   required this.child,
   this.color,
-  this.margin = const EdgeInsets.only(
-    right: SMALL_SPACE,
-    left: SMALL_SPACE,
+  this.margin = const EdgeInsetsDirectional.only(
+    start: SMALL_SPACE,
+    end: SMALL_SPACE,
     top: VERY_SMALL_SPACE,
     bottom: VERY_SMALL_SPACE,
   ),
   this.padding = const EdgeInsets.all(5.0),
   this.elevation = 0,
+  this.borderRadius,
+  this.ignoreDefaultSemantics = false,
+  this.clipBehavior,
 });</code></pre>
 </section>
 
@@ -99,18 +104,22 @@
     <h5>SmoothCard class</h5>
     <ol>
 
-    <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_smooth_card/SmoothCard-class.html#constructors">Constructors</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_smooth_card/SmoothCard/SmoothCard.html">SmoothCard</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_smooth_card/SmoothCard/SmoothCard.flat.html">flat</a></li>
+        <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_smooth_card/SmoothCard-class.html#constructors">Constructors</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_smooth_card/SmoothCard/SmoothCard.html">SmoothCard</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_smooth_card/SmoothCard/SmoothCard.angular.html">angular</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_smooth_card/SmoothCard/SmoothCard.flat.html">flat</a></li>
 
 
     <li class="section-title">
       <a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_smooth_card/SmoothCard-class.html#instance-properties">Properties</a>
     </li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_smooth_card/SmoothCard/borderRadius.html">borderRadius</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_smooth_card/SmoothCard/child.html">child</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_smooth_card/SmoothCard/clipBehavior.html">clipBehavior</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_smooth_card/SmoothCard/color.html">color</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_smooth_card/SmoothCard/elevation.html">elevation</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_smooth_card/SmoothCard/ignoreDefaultSemantics.html">ignoreDefaultSemantics</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_smooth_card/SmoothCard/margin.html">margin</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_smooth_card/SmoothCard/padding.html">padding</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
@@ -138,7 +147,7 @@
 <footer>
   <span class="no-break">
     smooth_app
-      0.0.0
+      0.0.0+734
   </span>
 
   
@@ -147,7 +156,7 @@
 
 
 <script src="../../static-assets/highlight.pack.js?v1"></script>
-<script src="../../static-assets/script.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
 
 
 
