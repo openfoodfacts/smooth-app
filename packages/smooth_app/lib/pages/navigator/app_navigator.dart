@@ -229,16 +229,16 @@ class _SmoothGoRouter {
               },
             ),
             GoRoute(
-              path: _InternalAppRoutes.EXTERNAL_PAGE,
-              builder: (BuildContext context, GoRouterState state) {
-                return ExternalPage(path: state.uri.queryParameters['path']!);
-              },
-            ),
-            GoRoute(
               path: _InternalAppRoutes.SIGNUP_PAGE,
               builder: (_, __) => const SignUpPage(),
             )
           ],
+        ),
+        GoRoute(
+          path: '/${_InternalAppRoutes.EXTERNAL_PAGE}/:page',
+          builder: (BuildContext context, GoRouterState state) {
+            return ExternalPage(path: state.pathParameters['page']!);
+          },
         ),
       ],
       redirect: (BuildContext context, GoRouterState state) {
@@ -460,5 +460,5 @@ class AppRoutes {
 
   // Open an external link (where path is relative to the OFF website)
   static String EXTERNAL(String path) =>
-      '/${_InternalAppRoutes.EXTERNAL_PAGE}/?path=$path';
+      '/${_InternalAppRoutes.EXTERNAL_PAGE}/$path';
 }
