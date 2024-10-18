@@ -65,7 +65,9 @@ class KnowledgePanelsBuilder {
                 ProductState.NUTRITION_FACTS_COMPLETED.toBeCompletedTag) ??
             false;
         if (nutritionAddOrUpdate) {
-          children.add(AddNutritionButton(product));
+          if (AddNutritionButton.acceptsNutritionFacts(product)) {
+            children.add(AddNutritionButton(product));
+          }
         }
 
         final bool needEditIngredients = context
