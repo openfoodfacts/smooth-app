@@ -177,6 +177,10 @@
     "@sign_in_mandatory": {
         "description": "Error message: for some features like product edits you need to be signed in"
     },
+    "help_improve_country":"Help improve Open Food Facts in your country",
+    "@help_improve_country": {
+        "description" : "label for a tile that is on the contribute tile"
+    },
     "sign_out": "Sign out",
     "@sign_out": {
         "description": "Button label: For sign out"
