@@ -40,7 +40,7 @@ class BackgroundTaskManager {
     );
     await DaoStringList(localDatabase).add(DaoStringList.keyTasks, taskId);
     await task.preExecute(localDatabase);
-    run();
+    run(forceNowIfPossible: true);
   }
 
   /// Finishes a task cleanly.
@@ -103,17 +103,23 @@ class BackgroundTaskManager {
   static const int _minimumDurationBetweenRuns = 5 * 1000;
 
   /// Returns the "now" timestamp if we can run now, or `null`.
-  int? _canStartNow() {
-    final DaoInt daoInt = DaoInt(localDatabase);
+  ///
+  /// With [forceNowIfPossible] we can be more aggressive and force the decision
+  /// of running now or at least just after the current running block.
+  int? _canStartNow(final bool forceNowIfPossible) {
     final int now = LocalDatabase.nowInMillis();
-    final int? latestRunStart = daoInt.get(_lastStartTimestampKey);
-    final int? latestRunStop = daoInt.get(_lastStopTimestampKey);
+    final int? latestRunStart = localDatabase.daoIntGet(_lastStartTimestampKey);
+    final int? latestRunStop = localDatabase.daoIntGet(_lastStopTimestampKey);
     if (_running) {
       // if pretending to be running but started a very very long time ago
       if (latestRunStart != null &&
           latestRunStart + _aLongEnoughTimeInMilliseconds < now) {
         // we assume we can run now.
         return now;
+      }
+      // let's try again at the end of the current run.
+      if (forceNowIfPossible) {
+        _forceRunAgain = true;
       }
       return null;
     }
@@ -123,7 +129,10 @@ class BackgroundTaskManager {
       // if the last run stopped not enough time ago.
       if (latestRunStop != null &&
           latestRunStop + _minimumDurationBetweenRuns >= now) {
-        return null;
+        // let's apply that minimum duration if there's no rush
+        if (!forceNowIfPossible) {
+          return null;
+        }
       }
       return now;
     }
@@ -132,8 +141,8 @@ class BackgroundTaskManager {
 
   /// Signals we've just finished working and that we're ready for a new run.
   Future<void> _justFinished() async {
-    await DaoInt(localDatabase).put(_lastStartTimestampKey, null);
-    await DaoInt(localDatabase).put(
+    await localDatabase.daoIntPut(_lastStartTimestampKey, null);
+    await localDatabase.daoIntPut(
       _lastStopTimestampKey,
       LocalDatabase.nowInMillis(),
     );
@@ -141,11 +150,18 @@ class BackgroundTaskManager {
 
   bool _running = false;
 
+  /// Flag to say: I know you're running, please try again, it's worth it.
+  bool _forceRunAgain = false;
+
   /// Runs all the pending tasks, and then smoothly ends, without awaiting.
-  void run() {
-    // no await
-    _runAsync();
-  }
+  ///
+  /// Can be called in 2 cases:
+  /// 1. we've just created a task and we really want it to be executed ASAP
+  /// `forceNowIfPossible = true`
+  /// 2. we're just checking casually if there are pending tasks
+  /// `forceNowIfPossible = false`
+  void run({final bool forceNowIfPossible = false}) =>
+      unawaited(_runAsync(forceNowIfPossible));
 
   /// Runs all the pending tasks, and then smoothly ends.
   ///
@@ -154,19 +170,17 @@ class BackgroundTaskManager {
   /// If a task fails and another task with the same stamp comes after,
   /// we can remove the failed task from the list: it would have been
   /// overwritten anyway.
-  Future<void> _runAsync() async {
-    final int? now = _canStartNow();
+  Future<void> _runAsync(final bool forceNowIfPossible) async {
+    final int? now = _canStartNow(forceNowIfPossible);
     if (now == null) {
       return;
     }
     _running = true;
 
-    ///
     /// Will also set the "latest start timestamp".
     /// With this, we can detect a run that went wrong.
     /// Like, still running 1 hour later.
-    final DaoInt daoInt = DaoInt(localDatabase);
-    await daoInt.put(_lastStartTimestampKey, now);
+    await localDatabase.daoIntPut(_lastStartTimestampKey, now);
     bool runAgain = true;
     while (runAgain) {
       runAgain = false;
@@ -196,6 +210,12 @@ class BackgroundTaskManager {
         }
       }
       await _justFinished();
+      if (!runAgain) {
+        if (_forceRunAgain) {
+          runAgain = true;
+          _forceRunAgain = false;
+        }
+      }
     }
     _running = false;
   }

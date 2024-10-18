@@ -11,6 +11,7 @@ import 'package:smooth_app/themes/contrast_provider.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
 import '../tests_utils/goldens.dart';
+import '../tests_utils/local_database_mock.dart';
 import '../tests_utils/mocks.dart';
 
 void main() {
@@ -51,6 +52,7 @@ void main() {
             textContrastProvider,
             colorProvider,
             const LoginPage(),
+            localDatabase: MockLocalDatabase(),
           ),
         );
         await tester.pump();
