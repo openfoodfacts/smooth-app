@@ -125,11 +125,21 @@ class _SvgSafeNetworkState extends State<SvgSafeNetwork> {
             }
           }
           if (snapshot.error != null) {
-            final bool serverOrConnectionIssue =
-                snapshot.error.toString().contains("Failed host lookup: '");
-            if (!serverOrConnectionIssue) {
+            if (snapshot.error.toString().contains("Failed host lookup: '")) {
+              Logs.w(
+                'Failed host lookup for "$_url"',
+                ex: snapshot.error,
+              );
+            } else if (snapshot.error
+                .toString()
+                .contains('Connection timed out')) {
+              Logs.w(
+                'Connection timed out for "$_url"',
+                ex: snapshot.error,
+              );
+            } else {
               Logs.e(
-                'Could not download "$_url"',
+                'Could really not download "$_url"',
                 ex: snapshot.error,
               );
             }

@@ -1,7 +1,11 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:provider/provider.dart';
+import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/pages/prices/get_prices_model.dart';
@@ -50,6 +54,15 @@ class _ProductPricesListState extends State<ProductPricesList>
             return Text(snapshot.data!.error!);
           }
           final GetPricesResult result = snapshot.data!.value;
+          if (widget.model.lazyCounterPrices != null && result.total != null) {
+            unawaited(
+              widget.model.lazyCounterPrices!.setLocalCount(
+                result.total!,
+                context.read<UserPreferences>(),
+                notify: true,
+              ),
+            );
+          }
           // highly improbable
           if (result.items == null) {
             return const Text('empty list');

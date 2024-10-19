@@ -278,23 +278,42 @@ class DaoProduct extends AbstractSqlDao implements BulkDeletable {
     required final int limit,
     required final List<String> excludeBarcodes,
   }) async {
-    final List<Map<String, dynamic>> queryResults =
-        await localDatabase.database.rawQuery(
-      'select p.$_TABLE_PRODUCT_COLUMN_BARCODE '
-      'from'
-      ' $_TABLE_PRODUCT p'
-      ' left outer join ${DaoProductLastAccess.TABLE} a'
-      '  on p.$_TABLE_PRODUCT_COLUMN_BARCODE = a.${DaoProductLastAccess.COLUMN_BARCODE} '
-      'where'
-      ' p.$_TABLE_PRODUCT_COLUMN_LANGUAGE is null'
-      ' or p.$_TABLE_PRODUCT_COLUMN_LANGUAGE != ? '
-      'order by a.${DaoProductLastAccess.COLUMN_LAST_ACCESS} desc nulls last '
-      'limit ?',
-      <Object>[
-        language.offTag,
-        limit + excludeBarcodes.length,
-      ],
-    );
+    /// Unfortunately, some SQFlite implementations don't support "nulls last"
+    String getRawQuery(final bool withNullsLast) =>
+        'select p.$_TABLE_PRODUCT_COLUMN_BARCODE '
+        'from'
+        ' $_TABLE_PRODUCT p'
+        ' left outer join ${DaoProductLastAccess.TABLE} a'
+        '  on p.$_TABLE_PRODUCT_COLUMN_BARCODE = a.${DaoProductLastAccess.COLUMN_BARCODE} '
+        'where'
+        ' p.$_TABLE_PRODUCT_COLUMN_LANGUAGE is null'
+        ' or p.$_TABLE_PRODUCT_COLUMN_LANGUAGE != ? '
+        'order by a.${DaoProductLastAccess.COLUMN_LAST_ACCESS} desc ${withNullsLast ? 'nulls last' : ''} '
+        'limit ?';
+
+    List<Map<String, dynamic>> queryResults = <Map<String, dynamic>>[];
+    try {
+      queryResults = await localDatabase.database.rawQuery(
+        getRawQuery(true),
+        <Object>[
+          language.offTag,
+          limit + excludeBarcodes.length,
+        ],
+      );
+    } catch (e) {
+      if (!e.toString().startsWith(
+            'DatabaseException(near "nulls": syntax error (code 1 SQLITE_ERROR[1])',
+          )) {
+        rethrow;
+      }
+      queryResults = await localDatabase.database.rawQuery(
+        getRawQuery(false),
+        <Object>[
+          language.offTag,
+          limit + excludeBarcodes.length,
+        ],
+      );
+    }
 
     final List<String> result = <String>[];
 
