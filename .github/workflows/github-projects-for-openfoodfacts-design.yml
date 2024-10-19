@@ -1,4 +1,4 @@
-name: 🎨 Add mockup-required and mockup-available issues to the openfoodfacts-design project
+name: Add issues to the relevant GitHub projects
 
 on:
   issues:
@@ -8,7 +8,7 @@ on:
       - edited
 jobs:
   add-to-project:
-    name: Add issue to the openfoodfacts-design project
+    name: Add issues to the relevant GitHub projects
     runs-on: ubuntu-latest
     steps:
       - uses: actions/add-to-project@main
@@ -40,4 +40,10 @@ jobs:
           project-url: https://github.com/orgs/openfoodfacts/projects/57 # Add issue to the Most impactful issues board
           github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
           labeled: 🎯 P0, 🎯 P1
+          label-operator: OR
+      - uses: actions/add-to-project@main
+        with:
+          project-url: https://github.com/orgs/openfoodfacts/projects/42 # Add issue to the Knowledge Panels issues board
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          labeled: 📖 Knowledge panels
           label-operator: OR
