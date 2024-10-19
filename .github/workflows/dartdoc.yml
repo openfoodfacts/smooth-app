@@ -12,18 +12,18 @@ jobs:
             working-directory: ./packages/smooth_app
         steps:
 
-        - name: Chekout code
-          uses: actions/checkout@v3
+            - name: Checkout code	
+              uses: actions/checkout@v4	
 
-        - name: Setup Flutter
-          uses: actions/cache@v3
-          with:
-            path: ${{ runner.tool_cache }}/flutter
-            key: flutter-2.5.0-stable
-        - uses: subosito/flutter-action@v2
-          with:
-            channel: stable
-            flutter-version: 2.5.0
+            - name: Setup Flutter	
+              uses: actions/cache@v4	
+              with:	
+                path: ${{ runner.tool_cache }}/flutter	
+                key: flutter-2.5.0-stable	
+            - uses: subosito/flutter-action@v2	
+              with:	
+                channel: stable	
+                flutter-version: 2.5.0	
 
         - name: Run Dartdoc
           run: pub global activate dartdoc && dartdoc
@@ -37,13 +37,13 @@ jobs:
           run: mkdocs build
 
         - name: Deploy smooth_app documentation to Github Pages
-          uses: JamesIves/github-pages-deploy-action@v4.3.3
+          uses: JamesIves/github-pages-deploy-action@v4.6.8
           with:
             BRANCH: gh-pages
             FOLDER: packages/smooth_app/docs/
 
         - name: Deploy scanner documentation to Github Pages
-          uses: JamesIves/github-pages-deploy-action@v4.3.3
+          uses: JamesIves/github-pages-deploy-action@v4.6.8	
           with:
             BRANCH: gh-pages
             FOLDER: packages/smooth_app/docs/
