@@ -51,6 +51,13 @@ class LocalDatabase extends ChangeNotifier {
   List<String> getAllTaskIds() =>
       DaoStringList(this).getAll(DaoStringList.keyTasks);
 
+  /// Ugly solution to be able to mock hive data.
+  int? daoIntGet(final String key) => DaoInt(this).get(key);
+
+  /// Ugly solution to be able to mock hive data.
+  Future<void> daoIntPut(final String key, final int? value) =>
+      DaoInt(this).put(key, value);
+
   static Future<LocalDatabase> getLocalDatabase() async {
     // sql from there
     String? databasesRootPath;

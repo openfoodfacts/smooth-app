@@ -5,9 +5,11 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/background/background_task_manager.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
+import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
@@ -44,6 +46,8 @@ enum PreferencePageType {
     required final UserPreferences userPreferences,
     required final BuildContext context,
   }) {
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
+    BackgroundTaskManager.getInstance(localDatabase).run();
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final ThemeProvider themeProvider = context.read<ThemeProvider>();
     final ThemeData themeData = Theme.of(context);
