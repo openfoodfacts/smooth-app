@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the getAllTaskIds method from the LocalDatabase class, for the Dart programming language.">
-  <title>getAllTaskIds method - LocalDatabase class - local_database library - Dart API</title>
+  <meta name="description" content="API docs for the daoIntGet method from the LocalDatabase class, for the Dart programming language.">
+  <title>daoIntGet method - LocalDatabase class - local_database library - Dart API</title>
 
 
   
@@ -31,9 +31,9 @@
     <li><a href="../../index.html">smooth_app</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_local_database/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_local_database-library.html">local_database</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_local_database/LocalDatabase-class.html">LocalDatabase</a></li>
-    <li class="self-crumb">getAllTaskIds method</li>
+    <li class="self-crumb">daoIntGet method</li>
   </ol>
-  <div class="self-name">getAllTaskIds</div>
+  <div class="self-name">daoIntGet</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -44,31 +44,30 @@
 
   <div id="dartdoc-main-content" class="main-content">
       <div>
-<h1><span class="kind-method">getAllTaskIds</span> method 
+<h1><span class="kind-method">daoIntGet</span> method 
     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
     <section class="multi-line-signature">
       
 
-<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span></span>
-<span class="name ">getAllTaskIds</span>(<wbr>)
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span>
+<span class="name ">daoIntGet</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="daoIntGet-param-key"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">key</span></span></li>
+</ol>)
 
       
 
     </section>
     
 <section class="desc markdown">
-  <p>Returns all the pending background task ids.</p>
-<p>Ugly solution to be able to mock hive data.</p>
+  <p>Ugly solution to be able to mock hive data.</p>
 </section>
 
 
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">List&lt;String&gt; getAllTaskIds() =&gt;
-    DaoStringList(this).getAll(DaoStringList.keyTasks);</code></pre>
+  <pre class="language-dart"><code class="language-dart">int? daoIntGet(final String key) =&gt; DaoInt(this).get(key);</code></pre>
 </section>
 
 
@@ -85,7 +84,7 @@
   <li><a href="../../index.html">smooth_app</a></li>
   <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_local_database/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_local_database-library.html">local_database</a></li>
   <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_database_local_database/LocalDatabase-class.html">LocalDatabase</a></li>
-  <li class="self-crumb">getAllTaskIds method</li>
+  <li class="self-crumb">daoIntGet method</li>
 </ol>
 
 

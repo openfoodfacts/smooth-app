@@ -52,7 +52,8 @@
       
 
 <span class="returntype">void</span>
-<span class="name ">run</span>(<wbr>)
+<span class="name ">run</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="run-param-forceNowIfPossible">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">forceNowIfPossible</span> = <span class="default-value">false</span>}</span></li>
+</ol>)
 
       
 
@@ -60,16 +61,21 @@
     
 <section class="desc markdown">
   <p>Runs all the pending tasks, and then smoothly ends, without awaiting.</p>
+<p>Can be called in 2 cases:</p>
+<ol>
+<li>we've just created a task and we really want it to be executed ASAP
+<code>forceNowIfPossible = true</code></li>
+<li>we're just checking casually if there are pending tasks
+<code>forceNowIfPossible = false</code></li>
+</ol>
 </section>
 
 
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">void run() {
-  &#47;&#47; no await
-  _runAsync();
-}</code></pre>
+  <pre class="language-dart"><code class="language-dart">void run({final bool forceNowIfPossible = false}) =&gt;
+    unawaited(_runAsync(forceNowIfPossible));</code></pre>
 </section>
 
 

@@ -75,7 +75,7 @@
   );
   await DaoStringList(localDatabase).add(DaoStringList.keyTasks, taskId);
   await task.preExecute(localDatabase);
-  run();
+  run(forceNowIfPossible: true);
 }</code></pre>
 </section>
 

@@ -69,6 +69,8 @@
   required final UserPreferences userPreferences,
   required final BuildContext context,
 }) {
+  final LocalDatabase localDatabase = context.read&lt;LocalDatabase&gt;();
+  BackgroundTaskManager.getInstance(localDatabase).run();
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
   final ThemeProvider themeProvider = context.read&lt;ThemeProvider&gt;();
   final ThemeData themeData = Theme.of(context);
