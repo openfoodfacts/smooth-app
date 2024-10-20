@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the getKnowledgePanel method from the KnowledgePanelsBuilder class, for the Dart programming language.">
-  <title>getKnowledgePanel method - KnowledgePanelsBuilder class - knowledge_panels_builder library - Dart API</title>
+  <meta name="description" content="API docs for the hasSomethingToDisplay method from the KnowledgePanelsBuilder class, for the Dart programming language.">
+  <title>hasSomethingToDisplay method - KnowledgePanelsBuilder class - knowledge_panels_builder library - Dart API</title>
 
 
   
@@ -31,9 +31,9 @@
     <li><a href="../../index.html">smooth_app</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_builder/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_builder-library.html">knowledge_panels_builder</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_builder/KnowledgePanelsBuilder-class.html">KnowledgePanelsBuilder</a></li>
-    <li class="self-crumb">getKnowledgePanel method</li>
+    <li class="self-crumb">hasSomethingToDisplay method</li>
   </ol>
-  <div class="self-name">getKnowledgePanel</div>
+  <div class="self-name">hasSomethingToDisplay</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -44,16 +44,16 @@
 
   <div id="dartdoc-main-content" class="main-content">
       <div>
-<h1><span class="kind-method">getKnowledgePanel</span> method 
+<h1><span class="kind-method">hasSomethingToDisplay</span> method 
     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
     <section class="multi-line-signature">
       
 
-<span class="returntype">dynamic</span>
-<span class="name ">getKnowledgePanel</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="getKnowledgePanel-param-product"><span class="type-annotation">dynamic</span> <span class="parameter-name">product</span>, </span></li>
-<li><span class="parameter" id="getKnowledgePanel-param-panelId"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">panelId</span></span></li>
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+<span class="name ">hasSomethingToDisplay</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="hasSomethingToDisplay-param-product"><span class="type-annotation">dynamic</span> <span class="parameter-name">product</span>, </span></li>
+<li><span class="parameter" id="hasSomethingToDisplay-param-panelId"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">panelId</span></span></li>
 </ol>)
 
       
@@ -61,18 +61,29 @@
     </section>
     
 <section class="desc markdown">
-  <p>Returns the KP that matches the <code>panelId</code>.</p>
+  <p>Returns true if there are elements to display for that panel.</p>
 </section>
 
 
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">static KnowledgePanel? getKnowledgePanel(
+  <pre class="language-dart"><code class="language-dart">static bool hasSomethingToDisplay(
   final Product product,
   final String panelId,
-) =&gt;
-    product.knowledgePanels?.panelIdToPanelMap[panelId];</code></pre>
+) {
+  final KnowledgePanel panel =
+      KnowledgePanelsBuilder.getKnowledgePanel(product, panelId)!;
+  if (panel.elements == null) {
+    return false;
+  }
+  for (final KnowledgePanelElement element in panel.elements!) {
+    if (_hasSomethingToDisplay(element: element, product: product)) {
+      return true;
+    }
+  }
+  return false;
+}</code></pre>
 </section>
 
 
@@ -89,7 +100,7 @@
   <li><a href="../../index.html">smooth_app</a></li>
   <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_builder/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_builder-library.html">knowledge_panels_builder</a></li>
   <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_builder/KnowledgePanelsBuilder-class.html">KnowledgePanelsBuilder</a></li>
-  <li class="self-crumb">getKnowledgePanel method</li>
+  <li class="self-crumb">hasSomethingToDisplay method</li>
 </ol>
 
 
