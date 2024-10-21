@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the pushReplacement method from the AppNavigator class, for the Dart programming language.">
-  <title>pushReplacement method - AppNavigator class - app_navigator library - Dart API</title>
+  <meta name="description" content="API docs for the clearStack method from the AppNavigator class, for the Dart programming language.">
+  <title>clearStack method - AppNavigator class - app_navigator library - Dart API</title>
 
 
   
@@ -31,9 +31,9 @@
     <li><a href="../../index.html">smooth_app</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_navigator_app_navigator/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_navigator_app_navigator-library.html">app_navigator</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_navigator_app_navigator/AppNavigator-class.html">AppNavigator</a></li>
-    <li class="self-crumb">pushReplacement method</li>
+    <li class="self-crumb">clearStack method</li>
   </ol>
-  <div class="self-name">pushReplacement</div>
+  <div class="self-name">clearStack</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -44,7 +44,7 @@
 
   <div id="dartdoc-main-content" class="main-content">
       <div>
-<h1><span class="kind-method">pushReplacement</span> method 
+<h1><span class="kind-method">clearStack</span> method 
     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
@@ -52,22 +52,24 @@
       
 
 <span class="returntype">void</span>
-<span class="name ">pushReplacement</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="pushReplacement-param-routeName"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">routeName</span>, </span></li>
-<li><span class="parameter" id="pushReplacement-param-extra">{<span class="type-annotation">dynamic</span> <span class="parameter-name">extra</span>}</span></li>
-</ol>)
+<span class="name ">clearStack</span>(<wbr>)
 
       
 
     </section>
     
+<section class="desc markdown">
+  <p>Remove all the screens from the stack</p>
+</section>
 
 
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">void pushReplacement(String routeName, {dynamic extra}) {
-  assert(routeName.isNotEmpty);
-  _router.router.pushReplacement(routeName, extra: extra);
+  <pre class="language-dart"><code class="language-dart">void clearStack() {
+  while (_router.router.canPop() == true) {
+    _router.router.pop();
+  }
 }</code></pre>
 </section>
 
@@ -85,7 +87,7 @@
   <li><a href="../../index.html">smooth_app</a></li>
   <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_navigator_app_navigator/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_navigator_app_navigator-library.html">app_navigator</a></li>
   <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_navigator_app_navigator/AppNavigator-class.html">AppNavigator</a></li>
-  <li class="self-crumb">pushReplacement method</li>
+  <li class="self-crumb">clearStack method</li>
 </ol>
 
 

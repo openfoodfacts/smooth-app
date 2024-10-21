@@ -66,16 +66,23 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; navigateToPage(BuildContext context, OnboardingPage page) async {
-  _userPreferences.setLastVisitedOnboardingPage(page);
+  await _userPreferences.setLastVisitedOnboardingPage(page);
   _historyOnboardingNav.add(page);
 
-  final MaterialPageRoute&lt;void&gt; route = MaterialPageRoute&lt;void&gt;(
-    builder: (BuildContext context) =&gt; page.getPageWidget(context),
-  );
+  if (!context.mounted) {
+    return;
+  }
 
   if (page.isOnboardingComplete()) {
-    AppNavigator.of(context).pushReplacement(AppRoutes.HOME);
+    AppNavigator.of(context)
+      ..clearStack()
+      ..pushReplacement(
+        AppRoutes.HOME(redraw: true),
+      );
   } else {
+    final MaterialPageRoute&lt;void&gt; route = MaterialPageRoute&lt;void&gt;(
+      builder: (BuildContext context) =&gt; page.getPageWidget(context),
+    );
     await Navigator.of(context).push&lt;void&gt;(route);
   }
 }</code></pre>
