@@ -20,4 +20,6 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: 2.0.3
   openfoodfacts_flutter_lints:
-    git: https://github.com/openfoodfacts/openfoodfacts_flutter_lints.git
+    git:
+      url: https://github.com/openfoodfacts/openfoodfacts_flutter_lints.git
+      ref: e91bc71bccc317948dc769b8c5d55052d949ec2e

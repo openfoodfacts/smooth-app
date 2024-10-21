@@ -116,7 +116,9 @@ dev_dependencies:
   plugin_platform_interface: 2.1.8
   flutter_lints: 2.0.3
   openfoodfacts_flutter_lints:
-    git: https://github.com/openfoodfacts/openfoodfacts_flutter_lints.git
+    git:
+      url: https://github.com/openfoodfacts/openfoodfacts_flutter_lints.git
+      ref: e91bc71bccc317948dc769b8c5d55052d949ec2e
 
 # 'flutter pub run flutter_launcher_icons:main' to update
 flutter_icons:
