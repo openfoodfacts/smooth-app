@@ -56,7 +56,7 @@ abstract class BackgroundTaskBarcode extends BackgroundTask {
         localDatabase: localDatabase,
       );
 
-  @override
+  @protected
   UriProductHelper get uriProductHelper => ProductQuery.getUriProductHelper(
         productType: productType,
       );

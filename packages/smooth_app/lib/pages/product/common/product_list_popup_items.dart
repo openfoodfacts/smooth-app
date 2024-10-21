@@ -1,7 +1,11 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:smooth_app/data_models/product_list.dart';
+import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
@@ -53,6 +57,22 @@ abstract class ProductListPopupItem {
         label: getTitle(appLocalizations),
         type: isDestructive() ? SmoothPopupMenuItemType.destructive : null,
       );
+
+  /// Returns the first possible URL/server that contains at least one product.
+  @protected
+  Future<Uri?> _getFirstUrl({
+    required final ProductList productList,
+    required final LocalDatabase localDatabase,
+  }) async {
+    final List<String> products = productList.getList();
+    final Map<ProductType, List<String>> productTypes =
+        await DaoProduct(localDatabase).getProductTypes(products);
+    for (final MapEntry<ProductType, List<String>> entry
+        in productTypes.entries) {
+      return shareProductList(entry.value, entry.key);
+    }
+    return null;
+  }
 }
 
 /// Popup menu item for the product list page: clear list.
@@ -147,15 +167,21 @@ class ProductListPopupShare extends ProductListPopupItem {
     required final BuildContext context,
   }) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final List<String> products = productList.getList();
-    final String url = shareProductList(products).toString();
-
     final RenderBox? box = context.findRenderObject() as RenderBox?;
-    AnalyticsHelper.trackEvent(AnalyticsEvent.shareList);
-    Share.share(
-      appLocalizations.share_product_list_text(url),
-      sharePositionOrigin: box!.localToGlobal(Offset.zero) & box.size,
-    );
+    final String? url = (await _getFirstUrl(
+      productList: productList,
+      localDatabase: localDatabase,
+    ))
+        ?.toString();
+    if (url != null) {
+      AnalyticsHelper.trackEvent(AnalyticsEvent.shareList);
+      unawaited(
+        Share.share(
+          appLocalizations.share_product_list_text(url),
+          sharePositionOrigin: box!.localToGlobal(Offset.zero) & box.size,
+        ),
+      );
+    }
     return null;
   }
 }
@@ -179,9 +205,14 @@ class ProductListPopupOpenInWeb extends ProductListPopupItem {
     required final LocalDatabase localDatabase,
     required final BuildContext context,
   }) async {
-    final List<String> products = productList.getList();
-    AnalyticsHelper.trackEvent(AnalyticsEvent.openListWeb);
-    await launchUrl(shareProductList(products));
+    final Uri? firstUrl = await _getFirstUrl(
+      productList: productList,
+      localDatabase: localDatabase,
+    );
+    if (firstUrl != null) {
+      AnalyticsHelper.trackEvent(AnalyticsEvent.openListWeb);
+      unawaited(launchUrl(firstUrl));
+    }
     return null;
   }
 }
