@@ -31,6 +31,7 @@ class RandomQuestionsQuery extends QuestionsQuery {
     await ProductRefresher().silentFetchAndRefreshList(
       barcodes: barcodes,
       localDatabase: localDatabase,
+      productType: ProductType.food,
     );
     return result.questions ?? <RobotoffQuestion>[];
   }

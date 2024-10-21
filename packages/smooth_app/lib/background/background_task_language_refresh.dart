@@ -14,10 +14,15 @@ class BackgroundTaskLanguageRefresh extends BackgroundTask {
     required super.uniqueId,
     required super.stamp,
     required this.excludeBarcodes,
+    required this.productType,
   });
 
   BackgroundTaskLanguageRefresh.fromJson(super.json)
       : excludeBarcodes = _getStringList(json, _jsonTagExcludeBarcodes),
+        productType =
+            ProductType.fromOffTag(json[_jsonTagProductType] as String?) ??
+// for legacy reason (not refreshed products = no product type)
+                ProductType.food,
         super.fromJson();
 
   static List<String> _getStringList(
@@ -32,28 +37,48 @@ class BackgroundTaskLanguageRefresh extends BackgroundTask {
   }
 
   final List<String> excludeBarcodes;
+  final ProductType productType;
 
   static const String _jsonTagExcludeBarcodes = 'excludeBarcodes';
+  static const String _jsonTagProductType = 'productType';
 
   @override
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> result = super.toJson();
     result[_jsonTagExcludeBarcodes] = excludeBarcodes;
+    result[_jsonTagProductType] = productType.offTag;
     return result;
   }
 
   static const OperationType _operationType = OperationType.languageRefresh;
 
+  UriProductHelper get _uriProductHelper => ProductQuery.getUriProductHelper(
+        productType: productType,
+      );
+
   static Future<void> addTask(
     final LocalDatabase localDatabase, {
     final List<String> excludeBarcodes = const <String>[],
+    final ProductType? productType,
   }) async {
+    if (productType == null) {
+      for (final ProductType item in ProductType.values) {
+        await addTask(
+          localDatabase,
+          excludeBarcodes: excludeBarcodes,
+          productType: item,
+        );
+      }
+      return;
+    }
     final String uniqueId = await _operationType.getNewKey(
       localDatabase,
+      productType: productType,
     );
     final BackgroundTask task = _getNewTask(
       uniqueId,
       excludeBarcodes,
+      productType,
     );
     await task.addToManager(localDatabase);
   }
@@ -66,12 +91,14 @@ class BackgroundTaskLanguageRefresh extends BackgroundTask {
   static BackgroundTask _getNewTask(
     final String uniqueId,
     final List<String> excludeBarcodes,
+    final ProductType productType,
   ) =>
       BackgroundTaskLanguageRefresh._(
         processName: _operationType.processName,
         uniqueId: uniqueId,
-        stamp: ';languageRefresh',
+        stamp: ';languageRefresh;${productType.offTag}',
         excludeBarcodes: excludeBarcodes,
+        productType: productType,
       );
 
   @override
@@ -91,6 +118,7 @@ class BackgroundTaskLanguageRefresh extends BackgroundTask {
       language,
       limit: _pageSize,
       excludeBarcodes: excludeBarcodes,
+      productType: productType,
     );
     if (barcodes.isEmpty) {
       return;
@@ -108,7 +136,7 @@ class BackgroundTaskLanguageRefresh extends BackgroundTask {
         country: ProductQuery.getCountry(),
         version: ProductQuery.productQueryVersion,
       ),
-      uriHelper: uriProductHelper,
+      uriHelper: _uriProductHelper,
     );
     if (searchResult.products == null || searchResult.count == null) {
       throw Exception('Cannot refresh language');

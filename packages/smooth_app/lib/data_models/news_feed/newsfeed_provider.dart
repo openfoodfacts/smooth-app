@@ -107,7 +107,9 @@ class AppNewsProvider extends ChangeNotifier {
   Future<String?> _fetchJSON() async {
     try {
       final UriProductHelper uriProductHelper =
-          ProductQuery.getUriProductHelper();
+          ProductQuery.getUriProductHelper(
+        productType: ProductType.food,
+      );
       final Map<String, String> headers = <String, String>{};
       final Uri uri;
 
@@ -169,7 +171,7 @@ class AppNewsProvider extends ChangeNotifier {
   String? _domain;
   String? _uriOverride;
 
-  /// [ProductQuery.uriProductHelper] is not synced yet,
+  /// [ProductQuery._uriProductHelper] is not synced yet,
   /// so we have to check it manually
   Future<void> _onPreferencesChanged() async {
     final String jsonURI = _preferences.getDevModeString(

@@ -107,8 +107,9 @@ class ProductRefresher {
   Future<void> silentFetchAndRefreshList({
     required final List<String> barcodes,
     required final LocalDatabase localDatabase,
+    required final ProductType productType,
   }) async =>
-      _fetchAndRefreshList(localDatabase, barcodes);
+      _fetchAndRefreshList(localDatabase, barcodes, productType);
 
   /// Fetches the product from the server and refreshes the local database.
   ///
@@ -246,13 +247,14 @@ class ProductRefresher {
   Future<int?> _fetchAndRefreshList(
     final LocalDatabase localDatabase,
     final List<String> barcodes,
+    final ProductType productType,
   ) async {
     try {
       final OpenFoodFactsLanguage language = ProductQuery.getLanguage();
       final SearchResult searchResult = await OpenFoodAPIClient.searchProducts(
         ProductQuery.getReadUser(),
         getBarcodeListQueryConfiguration(barcodes, language),
-        uriHelper: ProductQuery.getUriProductHelper(),
+        uriHelper: ProductQuery.getUriProductHelper(productType: productType),
       );
       if (searchResult.products == null) {
         return null;
