@@ -73,6 +73,13 @@ class AppNavigator extends InheritedWidget {
     _router.router.pushReplacement(routeName, extra: extra);
   }
 
+  /// Remove all the screens from the stack
+  void clearStack() {
+    while (_router.router.canPop() == true) {
+      _router.router.pop();
+    }
+  }
+
   void pop([dynamic result]) {
     _router.router.pop(result);
   }
@@ -287,7 +294,7 @@ class _SmoothGoRouter {
               externalLink = true;
             }
           } else if (path == _ExternalRoutes.MOBILE_APP_DOWNLOAD) {
-            return AppRoutes.HOME;
+            return AppRoutes.HOME();
           } else if (path == _ExternalRoutes.GUIDE_NUTRISCORE_V2) {
             return AppRoutes.GUIDE_NUTRISCORE_V2;
           } else if (path == _ExternalRoutes.SIGNUP) {
@@ -422,7 +429,8 @@ class AppRoutes {
   AppRoutes._();
 
   // Home page (or walkthrough during the onboarding)
-  static String get HOME => _InternalAppRoutes.HOME_PAGE;
+  static String HOME({bool redraw = false}) =>
+      '${_InternalAppRoutes.HOME_PAGE}?redraw:$redraw';
 
   // Product details (a [Product] is mandatory in the extra)
   static String PRODUCT(
