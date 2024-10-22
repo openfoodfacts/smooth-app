@@ -24,7 +24,13 @@ class OnboardingBottomHills extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final TextDirection textDirection = Directionality.of(context);
-    final double bottomPadding = MediaQuery.viewPaddingOf(context).bottom;
+    double bottomPadding = MediaQuery.viewPaddingOf(context).bottom;
+    if (bottomPadding == 0) {
+      // Add a slight padding for devices without a transparent nav bar
+      // (eg: iPhone SE)
+      bottomPadding = 4.0;
+    }
+
     final double maxHeight = OnboardingBottomHills.height(context);
     final SmoothColorsThemeExtension colors =
         Theme.of(context).extension<SmoothColorsThemeExtension>()!;
