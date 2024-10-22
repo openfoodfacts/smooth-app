@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_manager.dart';
 import 'package:smooth_app/background/background_task_progressing.dart';
 import 'package:smooth_app/background/operation_type.dart';
+import 'package:smooth_app/background/work_type.dart';
 import 'package:smooth_app/database/dao_instant_string.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
@@ -126,16 +128,13 @@ class _OfflineTaskState extends State<OfflineTaskPage> {
 
   String? _getWorkText(final String taskId) {
     final String? work = OperationType.getWork(taskId);
-    switch (work) {
-      case null:
-      case '':
-        return null;
-      case BackgroundTaskProgressing.workOffline:
-        return 'Top products';
-      case BackgroundTaskProgressing.workFreshWithoutKP:
-        return 'Refresh products without KP';
-      case BackgroundTaskProgressing.workFreshWithKP:
-        return 'Refresh products with KP';
+    if (work == null || work.isEmpty) {
+      return null;
+    }
+    final (WorkType workType, ProductType productType)? item =
+        WorkType.extract(work);
+    if (item != null) {
+      return '${item.$1.englishLabel} (${item.$2.offTag})';
     }
     return 'Unknown work ($work)!';
   }

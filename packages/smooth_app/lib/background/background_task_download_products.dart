@@ -18,6 +18,7 @@ class BackgroundTaskDownloadProducts extends BackgroundTaskProgressing {
     required super.work,
     required super.pageSize,
     required super.totalSize,
+    required super.productType,
     required this.downloadFlag,
   });
 
@@ -49,12 +50,14 @@ class BackgroundTaskDownloadProducts extends BackgroundTaskProgressing {
     required final int totalSize,
     required final int soFarSize,
     required final int downloadFlag,
+    required final ProductType productType,
   }) async {
     final String uniqueId = await _operationType.getNewKey(
       localDatabase,
       soFarSize: soFarSize,
       totalSize: totalSize,
       work: work,
+      productType: productType,
     );
     final BackgroundTask task = _getNewTask(
       uniqueId,
@@ -62,6 +65,7 @@ class BackgroundTaskDownloadProducts extends BackgroundTaskProgressing {
       pageSize,
       totalSize,
       downloadFlag,
+      productType,
     );
     await task.addToManager(localDatabase);
   }
@@ -77,6 +81,7 @@ class BackgroundTaskDownloadProducts extends BackgroundTaskProgressing {
     final int pageSize,
     final int totalSize,
     final int downloadFlag,
+    final ProductType productType,
   ) =>
       BackgroundTaskDownloadProducts._(
         processName: _operationType.processName,
@@ -86,6 +91,7 @@ class BackgroundTaskDownloadProducts extends BackgroundTaskProgressing {
         pageSize: pageSize,
         totalSize: totalSize,
         downloadFlag: downloadFlag,
+        productType: productType,
       );
 
   @override
@@ -133,8 +139,6 @@ class BackgroundTaskDownloadProducts extends BackgroundTaskProgressing {
       throw Exception('Something bad happened downloading products');
     }
     final DaoProduct daoProduct = DaoProduct(localDatabase);
-    final ProductType? productType =
-        ProductQuery.extractProductType(uriProductHelper);
     for (final Product product in downloadedProducts) {
       if (await _shouldBeUpdated(daoProduct, product.barcode!)) {
         await daoProduct.put(
@@ -159,6 +163,7 @@ class BackgroundTaskDownloadProducts extends BackgroundTaskProgressing {
         totalSize: totalSize,
         soFarSize: totalSize - remaining,
         downloadFlag: downloadFlag,
+        productType: productType,
       );
     }
   }

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task.dart';
 import 'package:smooth_app/background/background_task_progressing.dart';
 import 'package:smooth_app/background/background_task_top_barcodes.dart';
 import 'package:smooth_app/background/operation_type.dart';
+import 'package:smooth_app/background/work_type.dart';
 import 'package:smooth_app/database/dao_work_barcode.dart';
 import 'package:smooth_app/database/local_database.dart';
 
@@ -17,6 +19,7 @@ class BackgroundTaskOffline extends BackgroundTaskProgressing {
     required super.work,
     required super.pageSize,
     required super.totalSize,
+    required super.productType,
   });
 
   BackgroundTaskOffline.fromJson(super.json) : super.fromJson();
@@ -27,6 +30,7 @@ class BackgroundTaskOffline extends BackgroundTaskProgressing {
     required final BuildContext context,
     required final int pageSize,
     required final int totalSize,
+    required final ProductType productType,
   }) async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final String uniqueId = await _operationType.getNewKey(
@@ -36,9 +40,10 @@ class BackgroundTaskOffline extends BackgroundTaskProgressing {
     );
     final BackgroundTask task = _getNewTask(
       uniqueId,
-      BackgroundTaskProgressing.workOffline,
+      WorkType.offline.getWorkTag(productType),
       pageSize,
       totalSize,
+      productType,
     );
     if (!context.mounted) {
       return;
@@ -59,6 +64,7 @@ class BackgroundTaskOffline extends BackgroundTaskProgressing {
     final String work,
     final int pageSize,
     final int totalSize,
+    final ProductType productType,
   ) =>
       BackgroundTaskOffline._(
         processName: _operationType.processName,
@@ -67,6 +73,7 @@ class BackgroundTaskOffline extends BackgroundTaskProgressing {
         work: work,
         pageSize: pageSize,
         totalSize: totalSize,
+        productType: productType,
       );
 
   @override
@@ -85,6 +92,7 @@ class BackgroundTaskOffline extends BackgroundTaskProgressing {
       pageSize: pageSize,
       totalSize: totalSize,
       soFarSize: 0,
+      productType: productType,
     );
   }
 }
