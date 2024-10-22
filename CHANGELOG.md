@@ -1,5 +1,33 @@
 # Changelog
 
+## [4.17.0](https://github.com/openfoodfacts/smooth-app/compare/v4.16.0...v4.17.0) (2024-10-22)
+
+
+### Features
+
+* 5326 - add prices to proof from gallery (and thumbnails) ([#5670](https://github.com/openfoodfacts/smooth-app/issues/5670)) ([19ed4f0](https://github.com/openfoodfacts/smooth-app/commit/19ed4f0e74e7487662822f483d9c06f38eaad4eb))
+* 5326 - users can now select proof from gallery in "add price" page ([#5679](https://github.com/openfoodfacts/smooth-app/issues/5679)) ([449ae5a](https://github.com/openfoodfacts/smooth-app/commit/449ae5a9283903a82b488b6a393eabdd835d0345))
+* 5568 - optimized search for price locations ([#5587](https://github.com/openfoodfacts/smooth-app/issues/5587)) ([8e5ea75](https://github.com/openfoodfacts/smooth-app/commit/8e5ea75f615531a7d4407840e67e027ce7a0fb80))
+* 5586 - explicit call to "food" server for user login actions ([#5662](https://github.com/openfoodfacts/smooth-app/issues/5662)) ([778b3fb](https://github.com/openfoodfacts/smooth-app/commit/778b3fbf2a7b37903cf819df00c8cfe21f36eb79))
+* 5586 - OxF filter for term searches ([#5637](https://github.com/openfoodfacts/smooth-app/issues/5637)) ([077bf5e](https://github.com/openfoodfacts/smooth-app/commit/077bf5ef8c1b51335118a9b88bc11e89dd89f9cd))
+* 5643 - edit of products of any product type ([#5661](https://github.com/openfoodfacts/smooth-app/issues/5661)) ([899cb0f](https://github.com/openfoodfacts/smooth-app/commit/899cb0f4acbfd6217d65c41683420f1b308c7c88))
+* 5643 - removed irrelevant editors for non-FOOD products ([#5663](https://github.com/openfoodfacts/smooth-app/issues/5663)) ([3c12fe0](https://github.com/openfoodfacts/smooth-app/commit/3c12fe0245058048c0c8bc09c60d802bbdf3f488))
+* 5700 - no click for KP title without additional elements ([#5709](https://github.com/openfoodfacts/smooth-app/issues/5709)) ([29f433c](https://github.com/openfoodfacts/smooth-app/commit/29f433c8069487147d7854871788da1c0de757ab))
+* Upgrade the Flutter version to 3.24 ([#5613](https://github.com/openfoodfacts/smooth-app/issues/5613)) ([a656986](https://github.com/openfoodfacts/smooth-app/commit/a6569866d4e5202a3d21782e24c5321d481d28dc))
+
+
+### Bug Fixes
+
+* 5570 - no nutriscore ecoscore for non-food products ([#5629](https://github.com/openfoodfacts/smooth-app/issues/5629)) ([50a64f8](https://github.com/openfoodfacts/smooth-app/commit/50a64f8a58a80d78e4d24a033bf4276a9010e43e))
+* 5576 - first step towards multi product types ([#5593](https://github.com/openfoodfacts/smooth-app/issues/5593)) ([93fc899](https://github.com/openfoodfacts/smooth-app/commit/93fc89930154f73f0e320c7def0f6f703b4c2fb0))
+* 5630 - changed button order for prices "new product" ([#5633](https://github.com/openfoodfacts/smooth-app/issues/5633)) ([72056fc](https://github.com/openfoodfacts/smooth-app/commit/72056fc827effeb44d4b044b65230e41a687d8d2))
+* 5634 - refresh of price lazy counters when accessing lists ([#5678](https://github.com/openfoodfacts/smooth-app/issues/5678)) ([db080d2](https://github.com/openfoodfacts/smooth-app/commit/db080d2d095f1600dcf7d872660c7aa81c71cfca))
+* 5665 - display "add nutrition facts" button only for relevant types ([#5674](https://github.com/openfoodfacts/smooth-app/issues/5674)) ([3185c72](https://github.com/openfoodfacts/smooth-app/commit/3185c72a36c2dc1cc96369941f92f62a16ad6fd7))
+* 5682 - "Connection timed out" as possible gentle error for svg files ([#5683](https://github.com/openfoodfacts/smooth-app/issues/5683)) ([43c773b](https://github.com/openfoodfacts/smooth-app/commit/43c773b02aceccf8e00302d004c49d7a3d126a12))
+* 5691 - fallback when "nulls last" not supported by db ([#5695](https://github.com/openfoodfacts/smooth-app/issues/5695)) ([e9eba42](https://github.com/openfoodfacts/smooth-app/commit/e9eba42552a4adece44e27f063dcdfbda59132c1))
+* 5693 - able to run tasks without minimum duration wait ([#5694](https://github.com/openfoodfacts/smooth-app/issues/5694)) ([a8cfcd0](https://github.com/openfoodfacts/smooth-app/commit/a8cfcd02ce8fd71289971513e744897f6f857bbe))
+* Invisible loading animation ([#5641](https://github.com/openfoodfacts/smooth-app/issues/5641)) ([3c8c299](https://github.com/openfoodfacts/smooth-app/commit/3c8c299d2819a53ff406289f886f2c4ce2d4dd54))
+
 ## [4.16.0](https://github.com/openfoodfacts/smooth-app/compare/v4.15.0...v4.16.0) (2024-09-25)
 
 
