@@ -94,16 +94,6 @@ class UserPreferencesContribute extends AbstractUserPreferences {
           () async => _share(appLocalizations.contribute_share_content),
           Icons.adaptive.share,
         ),
-        _getListTile(
-          appLocalizations.contribute_donate_header,
-          () async => LaunchUrlHelper.launchURL(
-            AppLocalizations.of(context).donate_url,
-          ),
-          Icons.volunteer_activism,
-          icon:
-              UserPreferencesListTile.getTintedIcon(Icons.open_in_new, context),
-          externalLink: true,
-        ),
         if (GlobalVars.appStore.getEnrollInBetaURL() != null)
           _getListTile(
             appLocalizations.contribute_enroll_alpha,
