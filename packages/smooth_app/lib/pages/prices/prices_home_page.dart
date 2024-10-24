@@ -154,7 +154,7 @@ class PricesHomePage extends StatelessWidget {
               : trailingIconData == null
                   ? null
                   : Padding(
-                      padding: EdgeInsets.only(right: 12),
+                      padding: const EdgeInsets.only(right: 12),
                       child: Icon(trailingIconData),
                     ),
         ),
