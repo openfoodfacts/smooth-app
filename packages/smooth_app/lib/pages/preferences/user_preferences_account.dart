@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
@@ -17,7 +16,6 @@ import 'package:smooth_app/pages/preferences/lazy_counter_widget.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
-import 'package:smooth_app/pages/prices/prices_home_page.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/user_management/login_page.dart';
 import 'package:smooth_app/query/paged_product_query.dart';
@@ -211,16 +209,6 @@ class UserPreferencesAccount extends AbstractUserPreferences {
         localDatabase: localDatabase,
         lazyCounter:
             const LazyCounterUserSearch(UserSearchType.TO_BE_COMPLETED),
-      ),
-      _getListTile(
-        appLocalizations.prices_generic_title,
-        () async => Navigator.push<void>(
-          context,
-          MaterialPageRoute<void>(
-            builder: (BuildContext context) => const PricesHomePage(),
-          ),
-        ),
-        CupertinoIcons.money_dollar_circle,
       ),
       _buildProductQueryTile(
         productQuery: PagedToBeCompletedProductQuery(
