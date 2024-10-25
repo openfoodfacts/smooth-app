@@ -39,7 +39,6 @@ class SmoothTheme {
     }
 
     return ThemeData(
-      useMaterial3: false,
       fontFamily: 'OpenSans',
       primaryColor: DARK_BROWN_COLOR,
       extensions: <SmoothColorsThemeExtension>[
@@ -49,7 +48,11 @@ class SmoothTheme {
       canvasColor: themeProvider.currentTheme == THEME_AMOLED
           ? myColorScheme.surface
           : null,
+      scaffoldBackgroundColor:
+          brightness == Brightness.light ? null : const Color(0xFF303030),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        backgroundColor:
+            brightness == Brightness.light ? null : const Color(0xFF303030),
         selectedIconTheme: const IconThemeData(size: 24.0),
         showSelectedLabels: true,
         selectedItemColor: brightness == Brightness.dark

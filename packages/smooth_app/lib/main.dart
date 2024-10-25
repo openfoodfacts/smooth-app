@@ -304,7 +304,7 @@ class _SmoothAppState extends State<SmoothApp> {
 
   Widget _buildError(AsyncSnapshot<void> snapshot) {
     return MaterialApp(
-      theme: ThemeData(useMaterial3: false),
+      theme: ThemeData(),
       home: SmoothScaffold(
         body: Center(
           child: Text(
