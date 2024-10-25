@@ -355,6 +355,8 @@
     "@contribute_develop_text_2": {},
     "contribute_develop_dev_mode_title": "DEV Mode?",
     "contribute_develop_dev_mode_subtitle": "Activate the DEV Mode",
+    "contribute_donate_title": "Donate",
+    "@contribute_donate_title": {},
     "contribute_donate_header": "Donate to Open Food Facts",
     "@contribute_donate_header": {},
     "contribute_enroll_alpha": "Enroll in internal alpha version",

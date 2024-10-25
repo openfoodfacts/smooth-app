@@ -18,9 +18,11 @@ import 'package:smooth_app/pages/preferences/user_preferences_account.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_connect.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_contribute.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_donation.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_faq.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_food.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_prices.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_settings.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -34,6 +36,8 @@ enum PreferencePageType {
   SETTINGS('settings'),
   CONTRIBUTE('contribute'),
   FAQ('faq'),
+  DONATION('donation'),
+  PRICES('prices'),
   CONNECT('connect');
 
   const PreferencePageType(this.tag);
@@ -101,6 +105,20 @@ enum PreferencePageType {
           appLocalizations: appLocalizations,
           themeData: themeData,
         );
+      case PreferencePageType.DONATION:
+        return UserPreferencesDonation(
+          context: context,
+          userPreferences: userPreferences,
+          appLocalizations: appLocalizations,
+          themeData: themeData,
+        );
+      case PreferencePageType.PRICES:
+        return UserPreferencesPrices(
+          context: context,
+          userPreferences: userPreferences,
+          appLocalizations: appLocalizations,
+          themeData: themeData,
+        );
       case PreferencePageType.CONNECT:
         return UserPreferencesConnect(
           context: context,
@@ -117,6 +135,8 @@ enum PreferencePageType {
       <PreferencePageType>[
         PreferencePageType.ACCOUNT,
         PreferencePageType.FOOD,
+        PreferencePageType.PRICES,
+        PreferencePageType.DONATION,
         PreferencePageType.SETTINGS,
         PreferencePageType.CONTRIBUTE,
         PreferencePageType.FAQ,
