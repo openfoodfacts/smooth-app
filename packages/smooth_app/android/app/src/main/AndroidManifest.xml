@@ -52,7 +52,11 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                
+
+                <!-- Prices -->
+                <data android:scheme="http" android:host="prices.openfoodfacts.org" />
+                <data android:scheme="http" android:host="prices.openfoodfacts.net" />
+
                 <!-- OpenFoodFacts.org -->
                 <data android:scheme="http" android:host="ae.openfoodfacts.org" />
                 <data android:scheme="http" android:host="ar.openfoodfacts.org" />

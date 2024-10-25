@@ -96,7 +96,8 @@ class _PriceAddProductCardState extends State<PriceAddProductCard> {
       context,
       listen: false,
     );
-    for (final PriceAmountModel model in priceModel.priceAmountModels) {
+    for (int i = 0; i < priceModel.length; i++) {
+      final PriceAmountModel model = priceModel.elementAt(i);
       if (model.product.barcode == barcode) {
         await showDialog<void>(
           context: context,
@@ -111,7 +112,7 @@ class _PriceAddProductCardState extends State<PriceAddProductCard> {
         return;
       }
     }
-    priceModel.priceAmountModels.add(
+    priceModel.add(
       PriceAmountModel(
         product: PriceMetaProduct.unknown(
           barcode,

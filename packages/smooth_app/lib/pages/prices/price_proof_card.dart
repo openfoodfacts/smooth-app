@@ -128,7 +128,6 @@ enum _ProofSource {
         );
         if (proof != null) {
           model.setProof(proof);
-          model.notifyListeners();
         }
         return;
       case _ProofSource.camera:
