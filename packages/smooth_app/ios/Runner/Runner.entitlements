@@ -5,6 +5,7 @@
 	<key>com.apple.developer.associated-domains</key>
 	<array>
 	    <string>applinks:prices.openfoodfacts.org</string>
+	    <string>applinks:prices.openfoodfacts.net</string>
 
 	    <string>applinks:ae.openfoodfacts.org</string>
 		<string>applinks:ar.openfoodfacts.org</string>

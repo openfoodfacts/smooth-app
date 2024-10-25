@@ -55,6 +55,7 @@
 
                 <!-- Prices -->
                 <data android:scheme="http" android:host="prices.openfoodfacts.org" />
+                <data android:scheme="http" android:host="prices.openfoodfacts.net" />
 
                 <!-- OpenFoodFacts.org -->
                 <data android:scheme="http" android:host="ae.openfoodfacts.org" />
