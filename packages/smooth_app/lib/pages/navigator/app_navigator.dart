@@ -72,6 +72,13 @@ class AppNavigator extends InheritedWidget {
     _router.router.pushReplacement(routeName, extra: extra);
   }
 
+  /// Remove all the screens from the stack
+  void clearStack() {
+    while (_router.router.canPop() == true) {
+      _router.router.pop();
+    }
+  }
+
   void pop([dynamic result]) {
     _router.router.pop(result);
   }
@@ -229,16 +236,16 @@ class _SmoothGoRouter {
               },
             ),
             GoRoute(
-              path: _InternalAppRoutes.EXTERNAL_PAGE,
-              builder: (BuildContext context, GoRouterState state) {
-                return ExternalPage(path: state.uri.queryParameters['path']!);
-              },
-            ),
-            GoRoute(
               path: _InternalAppRoutes.SIGNUP_PAGE,
               builder: (_, __) => const SignUpPage(),
             )
           ],
+        ),
+        GoRoute(
+          path: '/${_InternalAppRoutes.EXTERNAL_PAGE}/:page',
+          builder: (BuildContext context, GoRouterState state) {
+            return ExternalPage(path: state.pathParameters['page']!);
+          },
         ),
       ],
       redirect: (BuildContext context, GoRouterState state) {
@@ -286,7 +293,7 @@ class _SmoothGoRouter {
               externalLink = true;
             }
           } else if (path == _ExternalRoutes.MOBILE_APP_DOWNLOAD) {
-            return AppRoutes.HOME;
+            return AppRoutes.HOME();
           } else if (path == _ExternalRoutes.GUIDE_NUTRISCORE_V2) {
             return AppRoutes.GUIDE_NUTRISCORE_V2;
           } else if (path == _ExternalRoutes.SIGNUP) {
@@ -421,7 +428,8 @@ class AppRoutes {
   AppRoutes._();
 
   // Home page (or walkthrough during the onboarding)
-  static String get HOME => _InternalAppRoutes.HOME_PAGE;
+  static String HOME({bool redraw = false}) =>
+      '${_InternalAppRoutes.HOME_PAGE}?redraw:$redraw';
 
   // Product details (a [Product] is mandatory in the extra)
   static String PRODUCT(
@@ -460,5 +468,5 @@ class AppRoutes {
 
   // Open an external link (where path is relative to the OFF website)
   static String EXTERNAL(String path) =>
-      '/${_InternalAppRoutes.EXTERNAL_PAGE}/?path=$path';
+      '/${_InternalAppRoutes.EXTERNAL_PAGE}/$path';
 }

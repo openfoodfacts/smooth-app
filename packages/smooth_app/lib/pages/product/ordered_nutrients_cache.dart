@@ -54,12 +54,16 @@ class OrderedNutrientsCache {
     return null;
   }
 
+  UriProductHelper get _uriProductHelper => ProductQuery.getUriProductHelper(
+        productType: ProductType.food,
+      );
+
   /// Downloads the ordered nutrients and caches them in the database.
   Future<OrderedNutrients> _download() async {
     final String string = await OpenFoodAPIClient.getOrderedNutrientsJsonString(
       country: ProductQuery.getCountry(),
       language: ProductQuery.getLanguage(),
-      uriHelper: ProductQuery.getUriProductHelper(),
+      uriHelper: _uriProductHelper,
     );
     final OrderedNutrients result = OrderedNutrients.fromJson(
       jsonDecode(string) as Map<String, dynamic>,
@@ -75,6 +79,6 @@ class OrderedNutrientsCache {
     return 'nutrients.pl'
         '/${country.offTag}'
         '/${language.code}'
-        '/${ProductQuery.getUriProductHelper().domain}';
+        '/${_uriProductHelper.domain}';
   }
 }

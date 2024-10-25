@@ -14,7 +14,9 @@ class LaunchUrlHelper {
   ) async {
     assert(url.isNotEmpty);
 
-    if (url.startsWith(RegExp('http(s)?://[a-z]*.openfoodfacts.(net|org)'))) {
+    if (url.startsWith(RegExp(
+      'http(s)?://[a-z]*.open(food|beauty|products|petfood)facts.(net|org)',
+    ))) {
       AnalyticsHelper.trackOutlink(url: url);
       GoRouter.of(context).go(url);
     } else {

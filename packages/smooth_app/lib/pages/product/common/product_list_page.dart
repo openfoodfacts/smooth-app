@@ -447,26 +447,34 @@ class _ProductListPageState extends State<ProductListPage>
     final List<String> barcodes,
     final LocalDatabase localDatabase,
   ) async {
+    bool fresh = true;
     try {
       final OpenFoodFactsLanguage language = ProductQuery.getLanguage();
-      final SearchResult searchResult = await OpenFoodAPIClient.searchProducts(
-        ProductQuery.getReadUser(),
-        ProductRefresher().getBarcodeListQueryConfiguration(
-          barcodes,
-          language,
-        ),
-        uriHelper: ProductQuery.getUriProductHelper(),
-      );
-      final List<Product>? freshProducts = searchResult.products;
-      if (freshProducts == null) {
-        return false;
+      final Map<ProductType, List<String>> productTypes =
+          await DaoProduct(localDatabase).getProductTypes(barcodes);
+      for (final MapEntry<ProductType, List<String>> entry
+          in productTypes.entries) {
+        final SearchResult searchResult =
+            await OpenFoodAPIClient.searchProducts(
+          ProductQuery.getReadUser(),
+          ProductRefresher().getBarcodeListQueryConfiguration(
+            entry.value,
+            language,
+          ),
+          uriHelper: ProductQuery.getUriProductHelper(productType: entry.key),
+        );
+        final List<Product>? freshProducts = searchResult.products;
+        if (freshProducts == null) {
+          fresh = false;
+        } else {
+          await DaoProduct(localDatabase).putAll(freshProducts, language);
+          localDatabase.upToDate.setLatestDownloadedProducts(freshProducts);
+        }
       }
-      await DaoProduct(localDatabase).putAll(freshProducts, language);
-      localDatabase.upToDate.setLatestDownloadedProducts(freshProducts);
       final RobotoffInsightHelper robotoffInsightHelper =
           RobotoffInsightHelper(localDatabase);
       await robotoffInsightHelper.clearInsightAnnotationsSaved();
-      return true;
+      return fresh;
     } catch (e) {
       //
     }

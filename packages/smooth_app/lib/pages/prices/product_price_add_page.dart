@@ -20,8 +20,10 @@ import 'package:smooth_app/pages/prices/price_meta_product.dart';
 import 'package:smooth_app/pages/prices/price_model.dart';
 import 'package:smooth_app/pages/prices/price_proof_card.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
+import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
+import 'package:smooth_app/widgets/will_pop_scope.dart';
 
 /// Single page that displays all the elements of price adding.
 class ProductPriceAddPage extends StatefulWidget {
@@ -81,7 +83,6 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
 
   @override
   Widget build(BuildContext context) {
-    // TODO(monsieurtanuki): add WillPopScope2
     return ChangeNotifierProvider<PriceModel>.value(
       value: widget.model,
       builder: (
@@ -90,85 +91,67 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
       ) {
         final AppLocalizations appLocalizations = AppLocalizations.of(context);
         final PriceModel model = Provider.of<PriceModel>(context);
-        return Form(
-          key: _formKey,
-          child: SmoothScaffold(
-            appBar: SmoothAppBar(
-              centerTitle: false,
-              leading: const SmoothBackButton(),
-              title: Text(
-                appLocalizations.prices_add_n_prices(
-                  model.priceAmountModels.length,
-                ),
-              ),
-              actions: <Widget>[
-                IconButton(
-                  icon: const Icon(Icons.info),
-                  onPressed: () async => _doesAcceptWarning(justInfo: true),
-                ),
-              ],
+        return WillPopScope2(
+          onWillPop: () async => (
+            await _mayExitPage(
+              saving: false,
+              model: model,
             ),
-            body: SingleChildScrollView(
-              padding: const EdgeInsets.all(LARGE_SPACE),
-              child: Column(
-                children: <Widget>[
-                  const PriceProofCard(),
-                  const SizedBox(height: LARGE_SPACE),
-                  const PriceDateCard(),
-                  const SizedBox(height: LARGE_SPACE),
-                  const PriceLocationCard(),
-                  const SizedBox(height: LARGE_SPACE),
-                  const PriceCurrencyCard(),
-                  const SizedBox(height: LARGE_SPACE),
-                  for (int i = 0; i < model.priceAmountModels.length; i++)
-                    PriceAmountCard(
-                      key: Key(model.priceAmountModels[i].product.barcode),
-                      index: i,
-                    ),
-                  const PriceAddProductCard(),
-                  // so that the last items don't get hidden by the FAB
-                  const SizedBox(height: MINIMUM_TOUCH_SIZE * 2),
+            null
+          ),
+          child: Form(
+            key: _formKey,
+            child: SmoothScaffold(
+              appBar: SmoothAppBar(
+                centerTitle: false,
+                leading: const SmoothBackButton(),
+                title: Text(
+                  appLocalizations.prices_add_n_prices(
+                    model.length,
+                  ),
+                ),
+                actions: <Widget>[
+                  IconButton(
+                    icon: const Icon(Icons.info),
+                    onPressed: () async => _doesAcceptWarning(justInfo: true),
+                  ),
                 ],
               ),
-            ),
-            floatingActionButton: FloatingActionButton.extended(
-              onPressed: model.priceAmountModels.isEmpty
-                  ? null
-                  : () async {
-                      if (!await _check(context)) {
-                        return;
-                      }
-                      if (!context.mounted) {
-                        return;
-                      }
-
-                      final UserPreferences userPreferences =
-                          context.read<UserPreferences>();
-                      const String flagTag =
-                          UserPreferences.TAG_PRICE_PRIVACY_WARNING;
-                      final bool? already = userPreferences.getFlag(flagTag);
-                      if (already != true) {
-                        final bool? accepts =
-                            await _doesAcceptWarning(justInfo: false);
-                        if (accepts != true) {
-                          return;
-                        }
-                        await userPreferences.setFlag(flagTag, true);
-                      }
-                      if (!context.mounted) {
-                        return;
-                      }
-
-                      await model.addTask(context);
-                      if (!context.mounted) {
-                        return;
-                      }
-                      Navigator.of(context).pop();
-                    },
-              icon: const Icon(Icons.send),
-              label: Text(
-                appLocalizations.prices_send_n_prices(
-                  model.priceAmountModels.length,
+              body: SingleChildScrollView(
+                padding: const EdgeInsets.all(LARGE_SPACE),
+                child: Column(
+                  children: <Widget>[
+                    const PriceProofCard(),
+                    const SizedBox(height: LARGE_SPACE),
+                    const PriceDateCard(),
+                    const SizedBox(height: LARGE_SPACE),
+                    const PriceLocationCard(),
+                    const SizedBox(height: LARGE_SPACE),
+                    const PriceCurrencyCard(),
+                    const SizedBox(height: LARGE_SPACE),
+                    for (int i = 0; i < model.length; i++)
+                      PriceAmountCard(
+                        key: Key(model.elementAt(i).product.barcode),
+                        index: i,
+                      ),
+                    const PriceAddProductCard(),
+                    // so that the last items don't get hidden by the FAB
+                    const SizedBox(height: MINIMUM_TOUCH_SIZE * 2),
+                  ],
+                ),
+              ),
+              floatingActionButton: FloatingActionButton.extended(
+                onPressed: () async => _exitPage(
+                  await _mayExitPage(
+                    saving: true,
+                    model: model,
+                  ),
+                ),
+                icon: const Icon(Icons.send),
+                label: Text(
+                  appLocalizations.prices_send_n_prices(
+                    model.length,
+                  ),
                 ),
               ),
             ),
@@ -201,15 +184,17 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
   }
 
   /// Returns true if the basic checks passed.
-  Future<bool> _check(final BuildContext context) async {
+  Future<bool> _check(
+    final BuildContext context,
+    final PriceModel model,
+  ) async {
     if (!_formKey.currentState!.validate()) {
       return false;
     }
 
     String? error;
     try {
-      error = Provider.of<PriceModel>(context, listen: false)
-          .checkParameters(context);
+      error = model.checkParameters(context);
     } catch (e) {
       error = e.toString();
     }
@@ -232,4 +217,68 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
   @override
   String get actionName =>
       'Opened price_page with ${widget.model.proofType.offTag}';
+
+  /// Exits the page if the [flag] is `true`.
+  void _exitPage(final bool flag) {
+    if (flag) {
+      Navigator.of(context).pop();
+    }
+  }
+
+  /// Returns `true` if we should really exit the page.
+  ///
+  /// Parameter [saving] tells about the context: are we leaving the page,
+  /// or have we clicked on the "save" button?
+  Future<bool> _mayExitPage({
+    required final bool saving,
+    required PriceModel model,
+  }) async {
+    if (!model.hasChanged) {
+      return true;
+    }
+
+    if (!saving) {
+      final bool? pleaseSave =
+          await MayExitPageHelper().openSaveBeforeLeavingDialog(
+        context,
+        title: AppLocalizations.of(context).prices_add_n_prices(
+          model.length,
+        ),
+      );
+      if (pleaseSave == null) {
+        return false;
+      }
+      if (pleaseSave == false) {
+        return true;
+      }
+      if (!mounted) {
+        return false;
+      }
+    }
+
+    if (!await _check(context, model)) {
+      return false;
+    }
+    if (!mounted) {
+      return false;
+    }
+
+    final UserPreferences userPreferences = context.read<UserPreferences>();
+    const String flagTag = UserPreferences.TAG_PRICE_PRIVACY_WARNING;
+    final bool? already = userPreferences.getFlag(flagTag);
+    if (already != true) {
+      final bool? accepts = await _doesAcceptWarning(justInfo: false);
+      if (accepts != true) {
+        return false;
+      }
+      await userPreferences.setFlag(flagTag, true);
+    }
+    if (!mounted) {
+      return true;
+    }
+
+    await model.addTask(context);
+
+    return true;
+  }
 }

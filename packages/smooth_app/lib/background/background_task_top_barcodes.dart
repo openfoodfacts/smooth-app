@@ -18,6 +18,7 @@ class BackgroundTaskTopBarcodes extends BackgroundTaskProgressing {
     required super.work,
     required super.pageSize,
     required super.totalSize,
+    required super.productType,
     required this.pageNumber,
   });
 
@@ -44,12 +45,14 @@ class BackgroundTaskTopBarcodes extends BackgroundTaskProgressing {
     required final int pageSize,
     required final int totalSize,
     required final int soFarSize,
+    required final ProductType productType,
     final int pageNumber = 1,
   }) async {
     final String uniqueId = await _operationType.getNewKey(
       localDatabase,
       totalSize: totalSize,
       soFarSize: soFarSize,
+      productType: productType,
     );
     final BackgroundTask task = _getNewTask(
       uniqueId,
@@ -57,6 +60,7 @@ class BackgroundTaskTopBarcodes extends BackgroundTaskProgressing {
       pageSize,
       totalSize,
       pageNumber,
+      productType,
     );
     await task.addToManager(localDatabase);
   }
@@ -72,6 +76,7 @@ class BackgroundTaskTopBarcodes extends BackgroundTaskProgressing {
     final int pageSize,
     final int totalSize,
     final int pageNumber,
+    final ProductType productType,
   ) =>
       BackgroundTaskTopBarcodes._(
         processName: _operationType.processName,
@@ -81,6 +86,7 @@ class BackgroundTaskTopBarcodes extends BackgroundTaskProgressing {
         pageSize: pageSize,
         totalSize: totalSize,
         pageNumber: pageNumber,
+        productType: productType,
       );
 
   @override
@@ -131,6 +137,7 @@ class BackgroundTaskTopBarcodes extends BackgroundTaskProgressing {
         totalSize: newTotalSize,
         soFarSize: soFarAfter,
         pageNumber: pageNumber + 1,
+        productType: productType,
       );
     } else {
       // we have all the barcodes; now we need to download the products.
@@ -141,6 +148,7 @@ class BackgroundTaskTopBarcodes extends BackgroundTaskProgressing {
         totalSize: soFarAfter,
         soFarSize: 0,
         downloadFlag: BackgroundTaskDownloadProducts.flagMaskExcludeKP,
+        productType: productType,
       );
     }
   }

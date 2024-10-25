@@ -1,4 +1,5 @@
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/background/background_task.dart';
 import 'package:smooth_app/background/background_task_add_other_price.dart';
 import 'package:smooth_app/background/background_task_add_price.dart';
@@ -58,6 +59,7 @@ enum OperationType {
     final int? totalSize,
     final int? soFarSize,
     final String? work,
+    final ProductType? productType,
   }) async {
     final int sequentialId =
         await getNextSequenceNumber(DaoInt(localDatabase), _uniqueSequenceKey);
@@ -66,7 +68,8 @@ enum OperationType {
         '$_transientHeaderSeparator$barcode'
         '$_transientHeaderSeparator${totalSize == null ? '' : totalSize.toString()}'
         '$_transientHeaderSeparator${soFarSize == null ? '' : soFarSize.toString()}'
-        '$_transientHeaderSeparator${work ?? ''}';
+        '$_transientHeaderSeparator${work ?? ''}'
+        '$_transientHeaderSeparator${productType == null ? '' : productType.offTag}';
   }
 
   BackgroundTask fromJson(Map<String, dynamic> map) => switch (this) {

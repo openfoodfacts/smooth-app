@@ -65,7 +65,9 @@ class KnowledgePanelActionCard extends StatelessWidget {
       );
     }
     if (kpAction == KnowledgePanelAction.addNutritionFacts) {
-      return AddNutritionButton(product);
+      if (AddNutritionButton.acceptsNutritionFacts(product)) {
+        return AddNutritionButton(product);
+      }
     }
     Logs.e('unhandled knowledge panel action: $action');
     return null;

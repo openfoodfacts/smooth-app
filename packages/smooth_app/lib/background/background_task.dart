@@ -18,6 +18,7 @@ abstract class BackgroundTask {
     required this.stamp,
     final OpenFoodFactsLanguage? language,
   })   // TODO(monsieurtanuki): don't store the password in a clear format...
+// TODO(monsieurtanuki): store the uriProductHelper as well
   : user = jsonEncode(ProductQuery.getWriteUser().toJson()),
         country = ProductQuery.getCountry().offTag,
         languageCode = (language ?? ProductQuery.getLanguage()).offTag;
@@ -180,10 +181,6 @@ abstract class BackgroundTask {
   /// We return true only in rare cases. Typically, when we split an task in
   /// subtasks that call the next one at the end.
   bool get hasImmediateNextTask => false;
-
-// TODO(monsieurtanuki): store the uriProductHelper as well
-  @protected
-  UriProductHelper get uriProductHelper => ProductQuery.getUriProductHelper();
 
   /// Returns true if tasks with the same stamp would overwrite each-other.
   bool isDeduplicable() => true;

@@ -24,6 +24,17 @@ class _PriceAddProductCardState extends State<PriceAddProductCard> {
 
   String? _latestScannedBarcode;
 
+  // we create dummy focus nodes to focus on, when we need to unfocus.
+  final List<FocusNode> _dummyFocusNodes = <FocusNode>[];
+
+  @override
+  void dispose() {
+    for (final FocusNode focusNode in _dummyFocusNodes) {
+      focusNode.dispose();
+    }
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
@@ -85,7 +96,8 @@ class _PriceAddProductCardState extends State<PriceAddProductCard> {
       context,
       listen: false,
     );
-    for (final PriceAmountModel model in priceModel.priceAmountModels) {
+    for (int i = 0; i < priceModel.length; i++) {
+      final PriceAmountModel model = priceModel.elementAt(i);
       if (model.product.barcode == barcode) {
         await showDialog<void>(
           context: context,
@@ -100,7 +112,7 @@ class _PriceAddProductCardState extends State<PriceAddProductCard> {
         return;
       }
     }
-    priceModel.priceAmountModels.add(
+    priceModel.add(
       PriceAmountModel(
         product: PriceMetaProduct.unknown(
           barcode,
@@ -109,6 +121,13 @@ class _PriceAddProductCardState extends State<PriceAddProductCard> {
         ),
       ),
     );
+
+    // unfocus from the previous price amount text field.
+    // looks like the most efficient way to unfocus: focus somewhere in space...
+    final FocusNode focusNode = FocusNode();
+    _dummyFocusNodes.add(focusNode);
+    FocusScope.of(context).requestFocus(focusNode);
+
     priceModel.notifyListeners();
   }
 

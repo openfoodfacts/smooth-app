@@ -32,7 +32,7 @@ class _PriceAmountCardState extends State<PriceAmountCard> {
     final PriceAmountModel model = Provider.of<PriceModel>(
       context,
       listen: false,
-    ).priceAmountModels[widget.index];
+    ).elementAt(widget.index);
     _controllerPaid = TextEditingController(text: model.paidPrice);
     _controllerWithoutDiscount =
         TextEditingController(text: model.priceWithoutDiscount);
@@ -49,8 +49,8 @@ class _PriceAmountCardState extends State<PriceAmountCard> {
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final PriceModel priceModel = Provider.of<PriceModel>(context);
-    final PriceAmountModel model = priceModel.priceAmountModels[widget.index];
-    final int total = priceModel.priceAmountModels.length;
+    final PriceAmountModel model = priceModel.elementAt(widget.index);
+    final int total = priceModel.length;
 
     return SmoothCard(
       child: Column(
@@ -62,12 +62,8 @@ class _PriceAmountCardState extends State<PriceAmountCard> {
           PriceProductListTile(
             product: model.product,
             trailingIconData: total == 1 ? null : Icons.clear,
-            onPressed: total == 1
-                ? null
-                : () {
-                    priceModel.priceAmountModels.removeAt(widget.index);
-                    priceModel.notifyListeners();
-                  },
+            onPressed:
+                total == 1 ? null : () => priceModel.removeAt(widget.index),
           ),
           SmoothLargeButtonWithIcon(
             icon: model.promo ? Icons.check_box : Icons.check_box_outline_blank,

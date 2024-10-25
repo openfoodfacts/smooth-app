@@ -216,7 +216,7 @@ abstract class ProductQuery {
 
   // TODO(monsieurtanuki): make the parameter "required"
   static UriProductHelper getUriProductHelper({
-    final ProductType? productType,
+    required final ProductType? productType,
   }) {
     final UriProductHelper currentUriProductHelper = _uriProductHelper;
     if (productType == null) {
