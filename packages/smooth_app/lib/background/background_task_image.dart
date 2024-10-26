@@ -9,6 +9,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_barcode.dart';
+import 'package:smooth_app/background/background_task_queue.dart';
 import 'package:smooth_app/background/background_task_refresh_later.dart';
 import 'package:smooth_app/background/background_task_upload.dart';
 import 'package:smooth_app/background/operation_type.dart';
@@ -93,7 +94,11 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
     if (!context.mounted) {
       return;
     }
-    await task.addToManager(localDatabase, context: context);
+    await task.addToManager(
+      localDatabase,
+      context: context,
+      queue: BackgroundTaskQueue.slow,
+    );
   }
 
   @override

@@ -4,6 +4,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/background/background_task.dart';
 import 'package:smooth_app/background/background_task_download_products.dart';
 import 'package:smooth_app/background/background_task_progressing.dart';
+import 'package:smooth_app/background/background_task_queue.dart';
 import 'package:smooth_app/background/operation_type.dart';
 import 'package:smooth_app/database/dao_work_barcode.dart';
 import 'package:smooth_app/database/local_database.dart';
@@ -62,7 +63,10 @@ class BackgroundTaskTopBarcodes extends BackgroundTaskProgressing {
       pageNumber,
       productType,
     );
-    await task.addToManager(localDatabase);
+    await task.addToManager(
+      localDatabase,
+      queue: BackgroundTaskQueue.longHaul,
+    );
   }
 
   @override

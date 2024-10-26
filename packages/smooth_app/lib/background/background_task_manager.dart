@@ -3,25 +3,38 @@ import 'dart:convert';
 
 import 'package:flutter/rendering.dart';
 import 'package:smooth_app/background/background_task.dart';
+import 'package:smooth_app/background/background_task_queue.dart';
 import 'package:smooth_app/background/background_task_refresh_later.dart';
 import 'package:smooth_app/background/operation_type.dart';
 import 'package:smooth_app/data_models/login_result.dart';
 import 'package:smooth_app/database/dao_instant_string.dart';
-import 'package:smooth_app/database/dao_int.dart';
 import 'package:smooth_app/database/dao_string_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/services/smooth_services.dart';
 
 /// Management of background tasks: single thread, block, restart, display.
 class BackgroundTaskManager {
-  BackgroundTaskManager._(this.localDatabase);
+  BackgroundTaskManager._(this.localDatabase, this.queue);
 
   final LocalDatabase localDatabase;
+  final BackgroundTaskQueue queue;
 
-  static BackgroundTaskManager? _instance;
+  static Map<BackgroundTaskQueue, BackgroundTaskManager>? _instances;
 
-  static BackgroundTaskManager getInstance(final LocalDatabase localDatabase) =>
-      _instance ??= BackgroundTaskManager._(localDatabase);
+  static BackgroundTaskManager getInstance(
+    final LocalDatabase localDatabase, {
+    required final BackgroundTaskQueue queue,
+  }) {
+    if (_instances == null) {
+      final Map<BackgroundTaskQueue, BackgroundTaskManager> result =
+          <BackgroundTaskQueue, BackgroundTaskManager>{};
+      for (final BackgroundTaskQueue queue in BackgroundTaskQueue.values) {
+        result[queue] = BackgroundTaskManager._(localDatabase, queue);
+      }
+      _instances ??= result;
+    }
+    return _instances![queue]!;
+  }
 
   /// Returns [DaoInstantString] key for tasks.
   static String _taskIdToDaoInstantStringKey(final String taskId) =>
@@ -31,6 +44,21 @@ class BackgroundTaskManager {
   static String taskIdToErrorDaoInstantStringKey(final String taskId) =>
       'taskError:$taskId';
 
+  /// Runs all background task queues.
+  static void runAgain(
+    final LocalDatabase localDatabase, {
+    final bool forceNowIfPossible = false,
+  }) {
+    for (final BackgroundTaskQueue queue in BackgroundTaskQueue.values) {
+      getInstance(
+        localDatabase,
+        queue: queue,
+      )._run(
+        forceNowIfPossible: forceNowIfPossible,
+      );
+    }
+  }
+
   /// Adds a task to the pending task list.
   Future<void> add(final BackgroundTask task) async {
     final String taskId = task.uniqueId;
@@ -38,9 +66,9 @@ class BackgroundTaskManager {
       _taskIdToDaoInstantStringKey(taskId),
       jsonEncode(task.toJson()),
     );
-    await DaoStringList(localDatabase).add(DaoStringList.keyTasks, taskId);
+    await DaoStringList(localDatabase).add(queue.tagTaskQueue, taskId);
     await task.preExecute(localDatabase);
-    run(forceNowIfPossible: true);
+    _run(forceNowIfPossible: true);
   }
 
   /// Finishes a task cleanly.
@@ -58,7 +86,7 @@ class BackgroundTaskManager {
     if (task != null) {
       await task.postExecute(localDatabase, success);
     }
-    await DaoStringList(localDatabase).remove(DaoStringList.keyTasks, taskId);
+    await DaoStringList(localDatabase).remove(queue.tagTaskQueue, taskId);
     await DaoInstantString(localDatabase)
         .put(_taskIdToDaoInstantStringKey(taskId), null);
     await DaoInstantString(localDatabase)
@@ -90,30 +118,20 @@ class BackgroundTaskManager {
     return null;
   }
 
-  /// [DaoInt] key we use to store the latest start timestamp.
-  static const String _lastStartTimestampKey = 'taskLastStartTimestamp';
-
-  /// [DaoInt] key we use to store the latest stop timestamp.
-  static const String _lastStopTimestampKey = 'taskLastStopTimestamp';
-
-  /// Duration in millis after which we can imagine the previous run failed.
-  static const int _aLongEnoughTimeInMilliseconds = 3600 * 1000;
-
-  /// Minimum duration in millis between each run.
-  static const int _minimumDurationBetweenRuns = 5 * 1000;
-
   /// Returns the "now" timestamp if we can run now, or `null`.
   ///
   /// With [forceNowIfPossible] we can be more aggressive and force the decision
   /// of running now or at least just after the current running block.
   int? _canStartNow(final bool forceNowIfPossible) {
     final int now = LocalDatabase.nowInMillis();
-    final int? latestRunStart = localDatabase.daoIntGet(_lastStartTimestampKey);
-    final int? latestRunStop = localDatabase.daoIntGet(_lastStopTimestampKey);
+    final int? latestRunStart =
+        localDatabase.daoIntGet(queue.tagLastStartTimestamp);
+    final int? latestRunStop =
+        localDatabase.daoIntGet(queue.tagLastStopTimestamp);
     if (_running) {
       // if pretending to be running but started a very very long time ago
       if (latestRunStart != null &&
-          latestRunStart + _aLongEnoughTimeInMilliseconds < now) {
+          latestRunStart + queue.aLongEnoughTimeInMilliseconds < now) {
         // we assume we can run now.
         return now;
       }
@@ -125,10 +143,10 @@ class BackgroundTaskManager {
     }
     // if the last run stopped correctly or was started a long time ago.
     if (latestRunStart == null ||
-        latestRunStart + _aLongEnoughTimeInMilliseconds < now) {
+        latestRunStart + queue.aLongEnoughTimeInMilliseconds < now) {
       // if the last run stopped not enough time ago.
       if (latestRunStop != null &&
-          latestRunStop + _minimumDurationBetweenRuns >= now) {
+          latestRunStop + queue.minimumDurationBetweenRuns >= now) {
         // let's apply that minimum duration if there's no rush
         if (!forceNowIfPossible) {
           return null;
@@ -141,9 +159,9 @@ class BackgroundTaskManager {
 
   /// Signals we've just finished working and that we're ready for a new run.
   Future<void> _justFinished() async {
-    await localDatabase.daoIntPut(_lastStartTimestampKey, null);
+    await localDatabase.daoIntPut(queue.tagLastStartTimestamp, null);
     await localDatabase.daoIntPut(
-      _lastStopTimestampKey,
+      queue.tagLastStopTimestamp,
       LocalDatabase.nowInMillis(),
     );
   }
@@ -160,7 +178,7 @@ class BackgroundTaskManager {
   /// `forceNowIfPossible = true`
   /// 2. we're just checking casually if there are pending tasks
   /// `forceNowIfPossible = false`
-  void run({final bool forceNowIfPossible = false}) =>
+  void _run({final bool forceNowIfPossible = false}) =>
       unawaited(_runAsync(forceNowIfPossible));
 
   /// Runs all the pending tasks, and then smoothly ends.
@@ -180,7 +198,7 @@ class BackgroundTaskManager {
     /// Will also set the "latest start timestamp".
     /// With this, we can detect a run that went wrong.
     /// Like, still running 1 hour later.
-    await localDatabase.daoIntPut(_lastStartTimestampKey, now);
+    await localDatabase.daoIntPut(queue.tagLastStartTimestamp, now);
     bool runAgain = true;
     while (runAgain) {
       runAgain = false;
@@ -262,7 +280,7 @@ class BackgroundTaskManager {
 
   // TODO(monsieurtanuki): get rid of this once we're relaxed about the tasks.
   void _debugPrint(final String message) {
-    // debugPrint('${LocalDatabase.nowInMillis()} $message');
+    // debugPrint('${LocalDatabase.nowInMillis()} $queue $message');
   }
 
   /// Returns the list of tasks we can run now.
@@ -273,7 +291,9 @@ class BackgroundTaskManager {
   Future<List<BackgroundTask>> _getAllTasks() async {
     _debugPrint('get all tasks/0');
     final List<BackgroundTask> result = <BackgroundTask>[];
-    final List<String> list = localDatabase.getAllTaskIds();
+    final List<String> list = localDatabase.getAllTaskIds(
+      queue.tagTaskQueue,
+    );
     final List<String> removeTaskIds = <String>[];
     if (list.isEmpty) {
       return result;

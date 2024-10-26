@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/background/background_task_manager.dart';
+import 'package:smooth_app/background/background_task_queue.dart';
 import 'package:smooth_app/background/background_task_refresh_later.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
@@ -122,10 +123,14 @@ abstract class BackgroundTask {
   @protected
   Future<void> addToManager(
     final LocalDatabase localDatabase, {
+    required final BackgroundTaskQueue queue,
     final BuildContext? context,
     final bool showSnackBar = true,
   }) async {
-    await BackgroundTaskManager.getInstance(localDatabase).add(this);
+    await BackgroundTaskManager.getInstance(
+      localDatabase,
+      queue: queue,
+    ).add(this);
     if (context == null || !context.mounted) {
       return;
     }

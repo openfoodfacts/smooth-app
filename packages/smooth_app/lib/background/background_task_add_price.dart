@@ -8,6 +8,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task.dart';
 import 'package:smooth_app/background/background_task_image.dart';
 import 'package:smooth_app/background/background_task_price.dart';
+import 'package:smooth_app/background/background_task_queue.dart';
 import 'package:smooth_app/background/background_task_upload.dart';
 import 'package:smooth_app/background/operation_type.dart';
 import 'package:smooth_app/database/local_database.dart';
@@ -122,7 +123,11 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
     if (!context.mounted) {
       return;
     }
-    await task.addToManager(localDatabase, context: context);
+    await task.addToManager(
+      localDatabase,
+      context: context,
+      queue: BackgroundTaskQueue.slow,
+    );
   }
 
   /// Returns a new background task about changing a product.
