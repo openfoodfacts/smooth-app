@@ -79,30 +79,42 @@ class PageManagerState extends State<PageManager> {
     final bool isProd = userPreferences
             .getFlag(UserPreferencesDevMode.userPreferencesFlagProd) ??
         true;
-    final BottomNavigationBar bar = BottomNavigationBar(
-      onTap: (int index) {
-        if (_currentPage == BottomNavigationTab.Scan &&
-            _pageKeys[index] == BottomNavigationTab.Scan) {
-          carouselManager.showSearchCard();
-        }
+    final Widget bar = DecoratedBox(
+      decoration: BoxDecoration(
+        boxShadow: <BoxShadow>[
+          BoxShadow(
+            color: Theme.of(context).shadowColor.withOpacity(0.3),
+            offset: Offset.zero,
+            blurRadius: 10.0,
+            spreadRadius: 1.0,
+          ),
+        ],
+      ),
+      child: BottomNavigationBar(
+        onTap: (int index) {
+          if (_currentPage == BottomNavigationTab.Scan &&
+              _pageKeys[index] == BottomNavigationTab.Scan) {
+            carouselManager.showSearchCard();
+          }
 
-        _selectTab(_pageKeys[index], index);
-      },
-      currentIndex: _currentPage.index,
-      items: <BottomNavigationBarItem>[
-        BottomNavigationBarItem(
-          icon: const Icon(Icons.account_circle),
-          label: appLocalizations.profile_navbar_label,
-        ),
-        BottomNavigationBarItem(
-          icon: const Icon(Icons.search),
-          label: appLocalizations.scan_navbar_label,
-        ),
-        BottomNavigationBarItem(
-          icon: const Icon(Icons.list),
-          label: appLocalizations.list_navbar_label,
-        ),
-      ],
+          _selectTab(_pageKeys[index], index);
+        },
+        currentIndex: _currentPage.index,
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: const Icon(Icons.account_circle),
+            label: appLocalizations.profile_navbar_label,
+          ),
+          BottomNavigationBarItem(
+            icon: const Icon(Icons.search),
+            label: appLocalizations.scan_navbar_label,
+          ),
+          BottomNavigationBarItem(
+            icon: const Icon(Icons.list),
+            label: appLocalizations.list_navbar_label,
+          ),
+        ],
+      ),
     );
     return WillPopScope2(
       onWillPop: () async {

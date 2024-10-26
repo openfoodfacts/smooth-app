@@ -61,6 +61,8 @@ class SmoothTheme {
         selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
         showUnselectedLabels: true,
         unselectedIconTheme: const IconThemeData(size: 20.0),
+        elevation: 0.0,
+        enableFeedback: true,
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ButtonStyle(

@@ -29,6 +29,12 @@ class _ScanHeaderState extends State<ScanHeader> {
           borderRadius: BorderRadius.all(Radius.circular(18.0)),
         ),
       ),
+      foregroundColor: WidgetStateProperty.all<Color>(
+        Theme.of(context).colorScheme.onPrimary,
+      ),
+      textStyle: WidgetStateProperty.all<TextStyle>(
+        const TextStyle(fontWeight: FontWeight.w600),
+      ),
     );
 
     final bool compareFeatureAvailable = model.compareFeatureAvailable;
