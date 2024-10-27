@@ -6,14 +6,11 @@ part of 'app_icons.dart';
 class _IconsFont {
   _IconsFont._();
 
-  /// Please ensure this font is embedded
   static const String _kFontFam = 'SmoothIcons';
   static const String? _kFontPkg = null;
 
   static const IconData chicken =
       IconData(0xe800, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData add_to_list =
-      IconData(0xe801, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData settings =
       IconData(0xe802, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData magic_wand =
@@ -58,6 +55,10 @@ class _IconsFont {
       IconData(0xe816, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData nutrition_facts =
       IconData(0xe817, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData add_price_british_pound =
+      IconData(0xe818, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData add_price_dollar =
+      IconData(0xe819, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData packaging =
       IconData(0xe81a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData toggle_camera =
@@ -66,6 +67,20 @@ class _IconsFont {
       IconData(0xe81c, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData store =
       IconData(0xe81d, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData add_price_euro =
+      IconData(0xe81e, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData add_price_ruble =
+      IconData(0xe81f, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData add_price_rupee =
+      IconData(0xe820, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData add_price_swiss_franc =
+      IconData(0xe821, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData add_price_turkish_lira =
+      IconData(0xe822, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData add_price_ukrainian_hryvnia =
+      IconData(0xe823, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData add_price_won =
+      IconData(0xe824, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData torch_off =
       IconData(0xe825, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData sound_off =
@@ -120,6 +135,10 @@ class _IconsFont {
       IconData(0xe844, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData soda_unhappy =
       IconData(0xe845, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData add_price_yen =
+      IconData(0xe846, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData add_to_list =
+      IconData(0xe847, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData close =
       IconData(0xe851, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData suggestion =

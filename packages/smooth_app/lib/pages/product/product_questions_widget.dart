@@ -225,7 +225,7 @@ class _ProductQuestionButton extends StatelessWidget {
                   color: backgroundColor,
                   borderRadius: ANGULAR_BORDER_RADIUS,
                 ),
-                padding: const EdgeInsets.all(
+                padding: const EdgeInsetsDirectional.all(
                   SMALL_SPACE,
                 ),
                 child: child,
@@ -245,7 +245,7 @@ class _ProductQuestionButton extends StatelessWidget {
                   color: backgroundColor,
                   borderRadius: ANGULAR_BORDER_RADIUS,
                 ),
-                padding: const EdgeInsets.all(
+                padding: const EdgeInsetsDirectional.all(
                   SMALL_SPACE,
                 ),
                 child: child,
@@ -338,9 +338,13 @@ class _ProductQuestionBanner extends StatelessWidget {
             child: Ink(
               width: double.infinity,
               color: backgroundColor,
-              padding: const EdgeInsets.symmetric(
+              padding: const EdgeInsetsDirectional.symmetric(
                 vertical: SMALL_SPACE,
                 horizontal: VERY_LARGE_SPACE,
+              ).add(
+                EdgeInsetsDirectional.only(
+                  bottom: MediaQuery.viewPaddingOf(context).bottom,
+                ),
               ),
               child: Row(
                 children: <Widget>[

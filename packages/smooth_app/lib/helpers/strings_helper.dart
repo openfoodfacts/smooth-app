@@ -105,11 +105,15 @@ class FormattedText extends StatelessWidget {
     required this.text,
     this.textStyle,
     this.textAlign,
+    this.overflow,
+    this.maxLines,
   });
 
   final String text;
   final TextStyle? textStyle;
   final TextAlign? textAlign;
+  final TextOverflow? overflow;
+  final int? maxLines;
 
   @override
   Widget build(BuildContext context) {
@@ -138,6 +142,8 @@ class FormattedText extends StatelessWidget {
           ).toList(growable: false),
         ),
         textAlign: textAlign ?? TextAlign.start,
+        overflow: overflow ?? TextOverflow.clip,
+        maxLines: maxLines,
       ),
     );
   }

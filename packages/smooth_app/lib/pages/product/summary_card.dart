@@ -18,15 +18,12 @@ import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_page.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
 import 'package:smooth_app/pages/hunger_games/question_card.dart';
-import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/product/hideable_container.dart';
 import 'package:smooth_app/pages/product/product_compatibility_header.dart';
 import 'package:smooth_app/pages/product/product_field_editor.dart';
 import 'package:smooth_app/pages/product/product_incomplete_card.dart';
 import 'package:smooth_app/pages/product/product_questions_widget.dart';
 import 'package:smooth_app/pages/product/summary_attribute_group.dart';
-import 'package:smooth_app/query/category_product_query.dart';
-import 'package:smooth_app/query/product_query.dart';
 
 const List<String> _ATTRIBUTE_GROUP_ORDER = <String>[
   AttributeGroup.ATTRIBUTE_GROUP_ALLERGENS,
@@ -254,63 +251,12 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
       child: Column(children: displayedGroups),
     );
     // cf. https://github.com/openfoodfacts/smooth-app/issues/2147
-    const Set<String> blackListedCategories = <String>{
-      'fr:vegan',
-    };
-    String? categoryTag;
-    String? categoryLabel;
-    final List<String>? labels =
-        upToDateProduct.categoriesTagsInLanguages?[ProductQuery.getLanguage()];
-    final List<String>? tags = upToDateProduct.categoriesTags;
-    if (tags != null &&
-        labels != null &&
-        tags.isNotEmpty &&
-        tags.length == labels.length) {
-      categoryTag = upToDateProduct.comparedToCategory;
-      if (categoryTag == null || blackListedCategories.contains(categoryTag)) {
-        // fallback algorithm
-        int index = tags.length - 1;
-        // cf. https://github.com/openfoodfacts/openfoodfacts-dart/pull/474
-        // looking for the most detailed non blacklisted category
-        categoryTag = tags[index];
-        while (blackListedCategories.contains(categoryTag) && index > 0) {
-          index--;
-          categoryTag = tags[index];
-        }
-      }
-      if (categoryTag != null) {
-        for (int i = 0; i < tags.length; i++) {
-          if (categoryTag == tags[i]) {
-            categoryLabel = labels[i];
-          }
-        }
-      }
-    }
-    final List<String> statesTags =
-        upToDateProduct.statesTags ?? List<String>.empty();
 
     final List<Widget> summaryCardButtons = <Widget>[];
 
     if (widget.isFullVersion) {
-      // Compare to category
-      if (categoryTag != null && categoryLabel != null) {
-        summaryCardButtons.add(
-          addPanelButton(
-            localizations.product_search_same_category,
-            iconData: Icons.leaderboard,
-            onPressed: () async => ProductQueryPageHelper.openBestChoice(
-              name: categoryLabel!,
-              localDatabase: context.read<LocalDatabase>(),
-              productQuery: CategoryProductQuery(
-                categoryTag!,
-                productType: upToDateProduct.productType ?? ProductType.food,
-              ),
-              context: context,
-              searchResult: false,
-            ),
-          ),
-        );
-      }
+      final List<String> statesTags =
+          upToDateProduct.statesTags ?? List<String>.empty();
 
       // Complete basic details
       if (statesTags

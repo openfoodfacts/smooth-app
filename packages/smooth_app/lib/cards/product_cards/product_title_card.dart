@@ -23,14 +23,45 @@ class ProductTitleCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget title = _ProductTitleCardTrailing(
+    final Widget title = _ProductTitleCardTrailing(
       removable: isRemovable,
       selectable: isSelectable,
       onRemove: onRemove,
     );
 
-    if (!dense && !(isRemovable && !isSelectable)) {
-      title = Expanded(child: title);
+    final List<Widget> children;
+
+    if (dense) {
+      children = <Widget>[
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Expanded(
+              child: _ProductTitleCardName(
+                selectable: isSelectable,
+                dense: dense,
+              ),
+            ),
+            title,
+          ],
+        ),
+        _ProductTitleCardBrand(
+          removable: isRemovable,
+          selectable: isSelectable,
+        ),
+      ];
+    } else {
+      children = <Widget>[
+        _ProductTitleCardName(
+          selectable: isSelectable,
+          dense: dense,
+        ),
+        _ProductTitleCardBrand(
+          removable: isRemovable,
+          selectable: isSelectable,
+        ),
+        title,
+      ];
     }
 
     return Provider<Product>.value(
@@ -39,24 +70,7 @@ class ProductTitleCard extends StatelessWidget {
         alignment: AlignmentDirectional.topStart,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Expanded(
-                  child: _ProductTitleCardName(
-                    selectable: isSelectable,
-                    dense: dense,
-                  ),
-                ),
-                title,
-              ],
-            ),
-            _ProductTitleCardBrand(
-              removable: isRemovable,
-              selectable: isSelectable,
-            ),
-          ],
+          children: children,
         ),
       ),
     );
@@ -81,7 +95,7 @@ class _ProductTitleCardName extends StatelessWidget {
       getProductName(product, appLocalizations),
       style: Theme.of(context).textTheme.headlineMedium,
       textAlign: TextAlign.start,
-      maxLines: dense ? 2 : 3,
+      maxLines: dense ? 2 : null,
       overflow: TextOverflow.ellipsis,
     ).selectable(isSelectable: selectable);
   }
@@ -145,7 +159,7 @@ class _ProductTitleCardTrailing extends StatelessWidget {
     } else {
       return Text(
         product.quantity ?? '',
-        style: Theme.of(context).textTheme.displaySmall,
+        style: Theme.of(context).textTheme.headlineMedium,
         textAlign: TextAlign.end,
       ).selectable(isSelectable: selectable);
     }
