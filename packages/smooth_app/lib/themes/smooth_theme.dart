@@ -69,6 +69,11 @@ class SmoothTheme {
                 ? Colors.grey
                 : myColorScheme.primary,
           ),
+          foregroundColor: WidgetStateProperty.resolveWith<Color?>(
+            (Set<WidgetState> states) => states.contains(WidgetState.disabled)
+                ? Colors.white
+                : myColorScheme.onPrimary,
+          ),
         ),
       ),
       floatingActionButtonTheme: FloatingActionButtonThemeData(
