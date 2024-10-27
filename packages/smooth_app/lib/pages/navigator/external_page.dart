@@ -85,7 +85,7 @@ class _ExternalPageState extends State<ExternalPage> {
         if (mounted) {
           final bool success = AppNavigator.of(context).pop();
           if (!success) {
-            /// This page was called with go() without an history
+            /// This page was called with the go() without an history
             /// (mainly for an external deep link)
             GoRouter.of(context).go('/');
           }
