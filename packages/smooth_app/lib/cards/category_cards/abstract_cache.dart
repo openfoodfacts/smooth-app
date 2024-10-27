@@ -37,11 +37,13 @@ abstract class AbstractCache extends StatelessWidget {
   @protected
   List<String> getCachedFilenames() {
     final List<String> result = <String>[];
-    final String? filename = getFilename();
-    if (filename == null) {
-      return result;
+    for (int i = 0; i <= 1; i++) {
+      final String? filename = getFilename(withFolder: i == 0);
+      if (filename == null) {
+        continue;
+      }
+      result.add(getCacheFilename(filename));
     }
-    result.add(getCacheFilename(filename));
     return result;
   }
 
@@ -54,17 +56,21 @@ abstract class AbstractCache extends StatelessWidget {
   String getCacheTintableFilename(final String filename) =>
       'assets/cacheTintable/$filename';
 
-  /// Returns the simple filename of the icon url (without the full path).
+  /// Returns the simple filename of the icon url, possibly with its folder.
   @protected
-  String? getFilename() {
+  String? getFilename({required final bool withFolder}) {
+    const String folderSeparator = '__';
     if (iconUrl == null) {
       return null;
     }
-    final int position = iconUrl!.lastIndexOf('/');
-    if (position == -1) {
+    final List<String> bits = iconUrl!.split('/');
+    if (bits.length <= 1) {
       return null;
     }
-    return iconUrl!.substring(position + 1);
+    if (!withFolder) {
+      return bits.last;
+    }
+    return '${bits[bits.length - 2]}$folderSeparator${bits[bits.length - 1]}';
   }
 
   @protected

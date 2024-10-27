@@ -21,18 +21,20 @@ class SvgCache extends AbstractCache {
   @override
   List<String> getCachedFilenames() {
     final List<String> result = <String>[];
-    final String? filename = getFilename();
-    if (filename == null) {
-      return result;
-    }
-    final String cacheFilename = getCacheFilename(filename);
-    final String cacheTintableFilename = getCacheTintableFilename(filename);
-    if (color == null) {
-      result.add(cacheFilename);
-      result.add(cacheTintableFilename);
-    } else {
-      result.add(cacheTintableFilename);
-      result.add(cacheFilename);
+    for (int i = 0; i <= 1; i++) {
+      final String? filename = getFilename(withFolder: i == 0);
+      if (filename == null) {
+        continue;
+      }
+      final String cacheFilename = getCacheFilename(filename);
+      final String cacheTintableFilename = getCacheTintableFilename(filename);
+      if (color == null) {
+        result.add(cacheFilename);
+        result.add(cacheTintableFilename);
+      } else {
+        result.add(cacheTintableFilename);
+        result.add(cacheFilename);
+      }
     }
     return result;
   }
