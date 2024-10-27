@@ -79,8 +79,15 @@ class AppNavigator extends InheritedWidget {
     }
   }
 
-  void pop([dynamic result]) {
-    _router.router.pop(result);
+  /// Returns [true] if the pop was successful
+  /// Returns [false] if there is nothing to pop (= no history)
+  bool pop([dynamic result]) {
+    try {
+      _router.router.pop(result);
+      return true;
+    } on GoError catch (_) {
+      return false;
+    }
   }
 }
 
