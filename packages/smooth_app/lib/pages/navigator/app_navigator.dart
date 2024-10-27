@@ -1,5 +1,5 @@
 import 'package:collection/collection.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
@@ -249,9 +249,11 @@ class _SmoothGoRouter {
           ],
         ),
         GoRoute(
-          path: '/${_InternalAppRoutes.EXTERNAL_PAGE}/:page',
+          path: '/${_InternalAppRoutes.EXTERNAL_PAGE}',
           builder: (BuildContext context, GoRouterState state) {
-            return ExternalPage(path: state.pathParameters['page']!);
+            return ExternalPage(
+              path: Uri.decodeFull(state.uri.queryParameters['path']!),
+            );
           },
         ),
       ],
@@ -475,5 +477,5 @@ class AppRoutes {
 
   // Open an external link (where path is relative to the OFF website)
   static String EXTERNAL(String path) =>
-      '/${_InternalAppRoutes.EXTERNAL_PAGE}/$path';
+      '/${_InternalAppRoutes.EXTERNAL_PAGE}?path=${Uri.encodeFull(path)}';
 }

@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_tabs/flutter_custom_tabs.dart' as tabs;
+import 'package:go_router/go_router.dart';
 import 'package:http/http.dart' as http;
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:path/path.dart' as path;
@@ -82,7 +83,12 @@ class _ExternalPageState extends State<ExternalPage> {
         Logs.e('Unable to open an external link', ex: e);
       } finally {
         if (mounted) {
-          AppNavigator.of(context).pop();
+          final bool success = AppNavigator.of(context).pop();
+          if (!success) {
+            /// This page was called with go() without an history
+            /// (mainly for an external deep link)
+            GoRouter.of(context).go('/');
+          }
         }
       }
     });
