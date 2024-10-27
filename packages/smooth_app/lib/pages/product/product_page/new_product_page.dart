@@ -179,9 +179,8 @@ class ProductPageState extends State<ProductPage>
 
   Widget _buildProductBody(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final UserPreferences userPreferences = context.watch<UserPreferences>();
-    final DaoProductList daoProductList = DaoProductList(localDatabase);
+
     return RefreshIndicator(
       onRefresh: () async => ProductRefresher().fetchAndRefresh(
         barcode: barcode,
