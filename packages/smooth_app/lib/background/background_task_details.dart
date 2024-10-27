@@ -102,7 +102,7 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode
           final AppLocalizations appLocalizations) =>
       (
         appLocalizations.product_task_background_schedule,
-        AlignmentDirectional.bottomCenter,
+        AlignmentDirectional.center,
       );
 
   /// Returns a new background task about changing a product.
