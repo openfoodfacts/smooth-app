@@ -4,7 +4,6 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
-import 'package:smooth_app/themes/theme_provider.dart';
 
 class KnowledgePanelProductCards extends StatelessWidget {
   const KnowledgePanelProductCards(this.knowledgePanelWidgets);
@@ -26,31 +25,12 @@ class KnowledgePanelProductCards extends StatelessWidget {
 
       if (hasTitle) {
         content = buildProductSmoothCard(
-          body: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Container(
-                decoration: BoxDecoration(
-                  color: context.lightTheme()
-                      ? colors.primaryMedium
-                      : colors.primarySemiDark,
-                  borderRadius: const BorderRadius.vertical(
-                    top: ROUNDED_RADIUS,
-                  ),
-                ),
-                width: double.infinity,
-                padding: const EdgeInsetsDirectional.symmetric(
-                  vertical: SMALL_SPACE,
-                ),
-                child: Center(child: widget.children.first),
-              ),
-              Padding(
-                padding: SMOOTH_CARD_PADDING,
-                child: Column(
-                  children: widget.children.sublist(1),
-                ),
-              ),
-            ],
+          title: Text((widget.children.first as KnowledgePanelTitle).title),
+          body: Padding(
+            padding: SMOOTH_CARD_PADDING,
+            child: Column(
+              children: widget.children.sublist(1),
+            ),
           ),
           padding: EdgeInsets.zero,
           margin: EdgeInsets.zero,
@@ -71,10 +51,8 @@ class KnowledgePanelProductCards extends StatelessWidget {
 
     return Center(
       child: Padding(
-        padding: const EdgeInsetsDirectional.only(
-          bottom: SMALL_SPACE,
-          start: SMALL_SPACE,
-          end: SMALL_SPACE,
+        padding: const EdgeInsetsDirectional.symmetric(
+          horizontal: SMALL_SPACE,
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

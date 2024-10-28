@@ -4,6 +4,8 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_card.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 
 class KnowledgePanelGroupCard extends StatelessWidget {
   const KnowledgePanelGroupCard({
@@ -19,6 +21,9 @@ class KnowledgePanelGroupCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeData themeData = Theme.of(context);
+    final SmoothColorsThemeExtension themeExtension =
+        themeData.extension<SmoothColorsThemeExtension>()!;
+
     return Provider<KnowledgePanelPanelGroupElement>(
       lazy: true,
       create: (_) => groupElement,
@@ -32,8 +37,13 @@ class KnowledgePanelGroupCard extends StatelessWidget {
                 explicitChildNodes: true,
                 child: Text(
                   groupElement.title!,
-                  style:
-                      themeData.textTheme.titleSmall!.apply(color: Colors.grey),
+                  style: themeData.textTheme.titleSmall!.copyWith(
+                    fontSize: 15.5,
+                    fontWeight: FontWeight.w700,
+                    color: context.lightTheme()
+                        ? themeExtension.primaryUltraBlack
+                        : themeExtension.primaryLight,
+                  ),
                 ),
               ),
             ),
