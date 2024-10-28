@@ -13,6 +13,78 @@ class Add extends AppIcon {
   }) : super._(_IconsFont.add);
 }
 
+class AddPrice extends AppIcon {
+  const AddPrice.britishPound({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  }) : super._(_IconsFont.add_price_british_pound);
+
+  const AddPrice.dollar({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  }) : super._(_IconsFont.add_price_dollar);
+
+  const AddPrice.euro({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  }) : super._(_IconsFont.add_price_euro);
+
+  const AddPrice.ruble({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  }) : super._(_IconsFont.add_price_ruble);
+
+  const AddPrice.rupee({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  }) : super._(_IconsFont.add_price_rupee);
+
+  const AddPrice.swissFranc({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  }) : super._(_IconsFont.add_price_swiss_franc);
+
+  const AddPrice.turkishLira({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  }) : super._(_IconsFont.add_price_turkish_lira);
+
+  const AddPrice.ukrainianHryvnia({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  }) : super._(_IconsFont.add_price_ukrainian_hryvnia);
+
+  const AddPrice.won({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  }) : super._(_IconsFont.add_price_won);
+
+  const AddPrice.yen({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  }) : super._(_IconsFont.add_price_yen);
+}
+
 class AddToList extends AppIcon {
   const AddToList({
     super.color,

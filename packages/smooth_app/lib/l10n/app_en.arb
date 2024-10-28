@@ -839,6 +839,14 @@
     "@product_search_same_category": {
         "description": "Button looking for the other products within the same category. Less than 30 characters"
     },
+    "product_search_same_category_short": "Compare",
+    "@product_search_same_category_short": {
+        "description": "Button looking for the other products within the same category. Just the verb compare"
+    },
+    "product_search_same_category_error": "This feature can only be used for products with a category.\n\nPlease edit the product to add a category.",
+    "@product_search_same_category_error": {
+        "description": "Button looking for the other products within the same category. Just the verb compare"
+    },
     "product_improvement_add_category": "Add a category to calculate the Nutri-Score.",
     "@product_improvement_add_category": {
         "description": "Message for ProductImprovement.ADD_CATEGORY"
@@ -1314,6 +1322,10 @@
     "edit_product_label": "Edit product",
     "@edit_product_label": {
         "description": "Edit product button label"
+    },
+    "edit_product_label_short": "Edit",
+    "@edit_product_label_short": {
+        "description": "Edit product button short label (only the verb)"
     },
     "edit_product_form_item_add_action": "Add a new {itemType}",
     "description": "Tooltip to show when the user long presses the (+) button",
