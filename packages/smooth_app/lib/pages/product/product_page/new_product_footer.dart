@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -56,8 +58,8 @@ class _ProductFooterButtonsBar extends StatelessWidget {
 
     double bottomPadding = MediaQuery.viewPaddingOf(context).bottom;
     // Add an extra padding (for Android)
-    if (bottomPadding == 0.0) {
-      bottomPadding = LARGE_SPACE;
+    if (Platform.isAndroid) {
+      bottomPadding += MEDIUM_SPACE;
     }
 
     return SizedBox(
@@ -71,7 +73,6 @@ class _ProductFooterButtonsBar extends StatelessWidget {
             side: BorderSide(color: themeExtension.greyLight),
             padding: const EdgeInsetsDirectional.symmetric(
               horizontal: 19.0,
-              vertical: 14.0,
             ),
           ),
         ),
