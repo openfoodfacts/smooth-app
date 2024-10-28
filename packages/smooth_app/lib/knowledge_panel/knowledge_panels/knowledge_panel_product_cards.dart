@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
-import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
 class KnowledgePanelProductCards extends StatelessWidget {
   const KnowledgePanelProductCards(this.knowledgePanelWidgets);
@@ -12,9 +11,6 @@ class KnowledgePanelProductCards extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension colors =
-        Theme.of(context).extension<SmoothColorsThemeExtension>()!;
-
     final List<Widget> widgetsWrappedInSmoothCards =
         knowledgePanelWidgets.map((Widget widget) {
       /// When we have a panel with a title (e.g. "Health"), we change
