@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -25,33 +27,23 @@ import 'package:smooth_app/themes/theme_provider.dart';
 class ProductFooter extends StatelessWidget {
   const ProductFooter({super.key});
 
-  static const double kHeight = 46.0;
+  static const double kHeight = 48.0;
 
   @override
   Widget build(BuildContext context) {
-    double bottomPadding = MediaQuery.viewPaddingOf(context).bottom;
-    // Add an extra padding (for Android)
-    if (bottomPadding == 0.0) {
-      bottomPadding = 16.0;
-    }
-
     return DecoratedBox(
       decoration: BoxDecoration(
         color: Theme.of(context).scaffoldBackgroundColor,
         boxShadow: <BoxShadow>[
           BoxShadow(
-            color: Theme.of(context).shadowColor.withOpacity(0.1),
+            color: Theme.of(context)
+                .shadowColor
+                .withOpacity(context.lightTheme() ? 0.25 : 0.6),
             blurRadius: 10.0,
           ),
         ],
       ),
-      child: Padding(
-        padding: EdgeInsetsDirectional.only(
-          top: 16.0,
-          bottom: bottomPadding,
-        ),
-        child: const _ProductFooterButtonsBar(),
-      ),
+      child: const _ProductFooterButtonsBar(),
     );
   }
 }
@@ -64,8 +56,14 @@ class _ProductFooterButtonsBar extends StatelessWidget {
     final SmoothColorsThemeExtension themeExtension =
         Theme.of(context).extension<SmoothColorsThemeExtension>()!;
 
+    double bottomPadding = MediaQuery.viewPaddingOf(context).bottom;
+    // Add an extra padding (for Android)
+    if (Platform.isAndroid) {
+      bottomPadding += MEDIUM_SPACE;
+    }
+
     return SizedBox(
-      height: ProductFooter.kHeight,
+      height: ProductFooter.kHeight + LARGE_SPACE + bottomPadding,
       child: OutlinedButtonTheme(
         data: OutlinedButtonThemeData(
           style: OutlinedButton.styleFrom(
@@ -75,13 +73,16 @@ class _ProductFooterButtonsBar extends StatelessWidget {
             side: BorderSide(color: themeExtension.greyLight),
             padding: const EdgeInsetsDirectional.symmetric(
               horizontal: 19.0,
-              vertical: 14.0,
             ),
           ),
         ),
         child: ListView(
-          padding:
-              const EdgeInsetsDirectional.symmetric(horizontal: SMALL_SPACE),
+          padding: EdgeInsetsDirectional.only(
+            start: SMALL_SPACE,
+            end: SMALL_SPACE,
+            top: LARGE_SPACE,
+            bottom: bottomPadding,
+          ),
           scrollDirection: Axis.horizontal,
           children: const <Widget>[
             SizedBox(width: 10.0),
@@ -383,6 +384,7 @@ class _ProductFooterFilledButton extends StatelessWidget {
           side: BorderSide.none,
         ),
         child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             IconTheme(
               data: const IconThemeData(

@@ -57,7 +57,7 @@ dependencies:
   collection: 1.18.0
   path: 1.9.0
   path_provider: 2.1.4
-  share_plus: 10.0.0
+  share_plus: 10.1.1
   fimber: 0.7.0
   shimmer: ^3.0.0
   rive: 0.13.15

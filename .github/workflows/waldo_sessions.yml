@@ -30,7 +30,7 @@ jobs:
         uses: actions/setup-java@v4.5.0
         with:
           distribution: 'zulu'
-          java-version: 17
+          java-version: 21
 
       # Get the flutter version from ./flutter-version.txt
       - run: echo "FLUTTER_VERSION=$(cat flutter-version.txt)" >> $GITHUB_OUTPUT
