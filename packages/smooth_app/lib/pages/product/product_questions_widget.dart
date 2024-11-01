@@ -12,6 +12,7 @@ import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
 import 'package:smooth_app/pages/hunger_games/question_page.dart';
 import 'package:smooth_app/query/product_questions_query.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 
 class ProductQuestionsWidget extends StatefulWidget {
   const ProductQuestionsWidget(
@@ -313,8 +314,7 @@ class _ProductQuestionBanner extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
-    final Color contentColor = isDarkMode ? Colors.black : WHITE_COLOR;
+    final Color contentColor = context.darkTheme() ? Colors.black : WHITE_COLOR;
 
     // We need to differentiate with / without a Shimmer, because
     // [Shimmer] doesn't support [Ink]
@@ -340,7 +340,7 @@ class _ProductQuestionBanner extends StatelessWidget {
               color: backgroundColor,
               padding: const EdgeInsetsDirectional.symmetric(
                 vertical: SMALL_SPACE,
-                horizontal: VERY_LARGE_SPACE,
+                horizontal: MEDIUM_SPACE,
               ).add(
                 EdgeInsetsDirectional.only(
                   bottom: MediaQuery.viewPaddingOf(context).bottom,
@@ -359,6 +359,7 @@ class _ProductQuestionBanner extends StatelessWidget {
                             .copyWith(
                               color: contentColor,
                               height: 1.5,
+                              fontWeight: FontWeight.bold,
                             ),
                         children: <TextSpan>[
                           TextSpan(
