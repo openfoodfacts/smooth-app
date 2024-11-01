@@ -26,21 +26,14 @@ class LocationMapPage extends StatelessWidget {
     return SmoothScaffold(
       appBar: SmoothAppBar(
         title: title == null ? null : Text(title),
-        subTitle: subtitle == null ? null : Text(subtitle),
+        subTitle: subtitle == null
+            ? null
+            : Text(
+                subtitle,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              ),
         actions: <Widget>[
-          IconButton(
-            icon: const Icon(Icons.check),
-            onPressed: () {
-              // pops that map page
-              Navigator.of(context).pop();
-              if (popFirst) {
-                // pops the result page
-                Navigator.of(context).pop();
-              }
-              // returns the result
-              Navigator.of(context).pop(osmLocation);
-            },
-          ),
           IconButton(
             icon: const Icon(Icons.info),
             onPressed: () => showCupertinoModalPopup<void>(
@@ -65,6 +58,19 @@ class LocationMapPage extends StatelessWidget {
                 ],
               ),
             ),
+          ),
+          IconButton(
+            icon: const Icon(Icons.check),
+            onPressed: () {
+              // pops that map page
+              Navigator.of(context).pop();
+              if (popFirst) {
+                // pops the result page
+                Navigator.of(context).pop();
+              }
+              // returns the result
+              Navigator.of(context).pop(osmLocation);
+            },
           ),
         ],
       ),
