@@ -3,6 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_base_card.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/extension_on_text_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 
@@ -52,15 +53,30 @@ class ProductTitleCard extends StatelessWidget {
       ];
     } else {
       children = <Widget>[
-        _ProductTitleCardName(
-          selectable: isSelectable,
-          dense: dense,
+        Padding(
+          padding: const EdgeInsetsDirectional.only(top: VERY_SMALL_SPACE),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    _ProductTitleCardName(
+                      selectable: isSelectable,
+                      dense: dense,
+                    ),
+                    _ProductTitleCardBrand(
+                      removable: isRemovable,
+                      selectable: isSelectable,
+                    ),
+                  ],
+                ),
+              ),
+              title,
+            ],
+          ),
         ),
-        _ProductTitleCardBrand(
-          removable: isRemovable,
-          selectable: isSelectable,
-        ),
-        title,
       ];
     }
 
@@ -154,6 +170,11 @@ class _ProductTitleCardTrailing extends StatelessWidget {
         alignment: AlignmentDirectional.centerEnd,
         child: ProductCardCloseButton(
           onRemove: onRemove,
+          padding: const EdgeInsetsDirectional.only(
+            start: SMALL_SPACE,
+            top: SMALL_SPACE,
+            bottom: SMALL_SPACE,
+          ),
         ),
       );
     } else {
