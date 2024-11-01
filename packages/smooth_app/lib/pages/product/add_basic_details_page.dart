@@ -145,7 +145,6 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                                 suffixIcon: _getOwnerFieldIcon(
                                   _product,
                                   ProductField.NAME,
-                                  appLocalizations.product_name,
                                 ),
                                 controller: _productNameController,
                                 type: TextFieldTypes.PLAIN_TEXT,
@@ -172,7 +171,6 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                                         suffixIcon: _getOwnerFieldIcon(
                                           _product,
                                           ProductField.NAME_IN_LANGUAGES,
-                                          appLocalizations.product_name,
                                           language: _multilingualHelper
                                               .getCurrentLanguage(),
                                         ),
@@ -212,7 +210,6 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                             suffixIcon: _getOwnerFieldIcon(
                               _product,
                               ProductField.BRANDS,
-                              appLocalizations.brand_name,
                             ),
                             manager: AutocompleteManager(
                               TaxonomyNameAutocompleter(
@@ -236,7 +233,6 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                           suffixIcon: _getOwnerFieldIcon(
                             _product,
                             ProductField.QUANTITY,
-                            appLocalizations.quantity,
                           ),
                           controller: _weightController,
                           type: TextFieldTypes.PLAIN_TEXT,
@@ -357,8 +353,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
 
   Widget? _getOwnerFieldIcon(
     final Product product,
-    final ProductField productField,
-    final String title, {
+    final ProductField productField, {
     final OpenFoodFactsLanguage? language,
   }) =>
       product.getOwnerFieldTimestamp(
