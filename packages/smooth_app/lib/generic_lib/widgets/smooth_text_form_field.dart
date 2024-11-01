@@ -21,6 +21,7 @@ class SmoothTextFormField extends StatefulWidget {
     required this.hintText,
     this.hintTextFontSize,
     this.prefixIcon,
+    this.suffixIcon,
     this.textInputType,
     this.onChanged,
     this.onFieldSubmitted,
@@ -34,6 +35,7 @@ class SmoothTextFormField extends StatefulWidget {
   final TextEditingController? controller;
   final String hintText;
   final Widget? prefixIcon;
+  final Widget? suffixIcon;
   final bool? enabled;
   final TextInputAction? textInputAction;
   final String? Function(String?)? validator;
@@ -121,18 +123,19 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
             width: 5.0,
           ),
         ),
-        suffixIcon: widget.type == TextFieldTypes.PASSWORD
-            ? IconButton(
-                tooltip: appLocalization.show_password,
-                splashRadius: 10.0,
-                onPressed: () => setState(() {
-                  _obscureText = !_obscureText;
-                }),
-                icon: _obscureText
-                    ? const Icon(Icons.visibility_off)
-                    : const Icon(Icons.visibility),
-              )
-            : null,
+        suffixIcon: widget.suffixIcon ??
+            (widget.type == TextFieldTypes.PASSWORD
+                ? IconButton(
+                    tooltip: appLocalization.show_password,
+                    splashRadius: 10.0,
+                    onPressed: () => setState(() {
+                      _obscureText = !_obscureText;
+                    }),
+                    icon: _obscureText
+                        ? const Icon(Icons.visibility_off)
+                        : const Icon(Icons.visibility),
+                  )
+                : null),
         errorMaxLines: 2,
       ),
     );
