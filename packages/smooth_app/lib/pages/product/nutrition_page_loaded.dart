@@ -524,11 +524,6 @@ class _NutrientValueCell extends StatelessWidget {
         context.watch<TextEditingControllerWithHistory>();
     final bool isLast = position == focusNodes.length - 1;
     final Nutrient? nutrient = orderedNutrient.nutrient;
-    final Widget? ownerFieldIcon = nutrient == null ||
-            product.getOwnerFieldTimestamp(OwnerField.nutrient(nutrient)) ==
-                null
-        ? null
-        : const Icon(ProductQuery.ownerFieldIconData);
 
     return TextFormField(
       controller: controller,
@@ -537,7 +532,11 @@ class _NutrientValueCell extends StatelessWidget {
       decoration: InputDecoration(
         enabledBorder: const UnderlineInputBorder(),
         labelText: orderedNutrient.name,
-        suffixIcon: ownerFieldIcon,
+        suffixIcon: nutrient == null ||
+                product.getOwnerFieldTimestamp(OwnerField.nutrient(nutrient)) ==
+                    null
+            ? null
+            : const Icon(ProductQuery.ownerFieldIconData),
       ),
       keyboardType: const TextInputType.numberWithOptions(
         signed: false,
