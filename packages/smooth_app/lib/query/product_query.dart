@@ -307,4 +307,15 @@ extension ProductTypeExtension on ProductType {
         ProductType.petFood => appLocalizations.product_type_label_pet_food,
         ProductType.product => appLocalizations.product_type_label_product,
       };
+
+  String getRoadToScoreLabel(final AppLocalizations appLocalizations) =>
+      switch (this) {
+        ProductType.food => appLocalizations.hey_incomplete_product_message,
+        ProductType.beauty =>
+          appLocalizations.hey_incomplete_product_message_beauty,
+        ProductType.petFood =>
+          appLocalizations.hey_incomplete_product_message_pet_food,
+        ProductType.product =>
+          appLocalizations.hey_incomplete_product_message_product,
+      };
 }
