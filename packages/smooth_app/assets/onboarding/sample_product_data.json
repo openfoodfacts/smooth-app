@@ -1269,7 +1269,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                Life cycle analysis score: 98<br>\n                Sum of bonuses and maluses:\n                    \n                        +13\n                    <br><br>\n                Final score: 100/100\n                \n                ",
+                     "html" : "\n                Life cycle analysis score: 98<br>\n                Sum of bonuses and maluses:\n                    \n                        +13\n                    <br><br>\n                Final score: 100/100\n                ",
                      "type" : "summary"
                   }
                }
@@ -2169,7 +2169,7 @@
                               },
                               {
                                  "evaluation" : "good",
-                                 "text" : "-68%"
+                                 "text" : "-69%"
                               }
                            ]
                         },
@@ -2185,7 +2185,7 @@
                               },
                               {
                                  "evaluation" : "good",
-                                 "text" : "-41%"
+                                 "text" : "-42%"
                               }
                            ]
                         },
