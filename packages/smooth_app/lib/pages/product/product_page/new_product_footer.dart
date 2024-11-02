@@ -6,8 +6,8 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
-import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_snackbar.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
@@ -16,8 +16,8 @@ import 'package:smooth_app/pages/prices/price_meta_product.dart';
 import 'package:smooth_app/pages/prices/product_price_add_page.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/product/edit_product_page.dart';
+import 'package:smooth_app/pages/product/product_list_helper.dart';
 import 'package:smooth_app/pages/product/product_page/new_product_page.dart';
-import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
 import 'package:smooth_app/query/category_product_query.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
@@ -117,13 +117,27 @@ class _ProductAddToListButton extends StatelessWidget {
   }
 
   Future<bool?> _editList(BuildContext context, Product product) async {
-    final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    final DaoProductList daoProductList = DaoProductList(localDatabase);
-    return ProductListUserDialogHelper(daoProductList)
-        .showUserAddProductsDialog(
-      context,
-      <String>{product.barcode!},
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final SmoothColorsThemeExtension? extension =
+        Theme.of(context).extension<SmoothColorsThemeExtension>();
+
+    showSmoothDraggableModalSheet(
+      context: context,
+      header: SmoothModalSheetHeader(
+        backgroundColor: extension!.primaryDark,
+        foregroundColor: Colors.white,
+        prefix: const SmoothModalSheetHeaderPrefixIndicator(),
+        title: appLocalizations.user_list_title,
+        suffix: const SmoothModalSheetHeaderCloseButton(
+          addPadding: true,
+        ),
+      ),
+      bodyBuilder: (BuildContext context) => AddProductToListContainer(
+        barcode: product.barcode!,
+      ),
     );
+
+    return true;
   }
 }
 

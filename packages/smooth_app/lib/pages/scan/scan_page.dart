@@ -16,6 +16,8 @@ import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 import 'package:smooth_app/helpers/permission_helper.dart';
 import 'package:smooth_app/pages/scan/camera_scan_page.dart';
 import 'package:smooth_app/pages/scan/carousel/scan_carousel.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class ScanPage extends StatefulWidget {
@@ -52,6 +54,8 @@ class _ScanPageState extends State<ScanPage> {
     }
 
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final SmoothColorsThemeExtension themeExtension =
+        Theme.of(context).extension<SmoothColorsThemeExtension>()!;
     final TextDirection direction = Directionality.of(context);
     final bool hasACamera = CameraHelper.hasACamera;
 
@@ -60,86 +64,81 @@ class _ScanPageState extends State<ScanPage> {
           Theme.of(context).brightness == Brightness.light && Platform.isIOS
               ? Brightness.dark
               : null,
-      body: Container(
-        color: Colors.white,
-        child: SafeArea(
-          child: Container(
-            color: Theme.of(context).colorScheme.surface,
-            child: Column(
-              children: <Widget>[
-                if (hasACamera)
-                  Expanded(
-                    flex: 100 - _carouselHeightPct,
-                    child: Consumer<PermissionListener>(
-                      builder: (
-                        BuildContext context,
-                        PermissionListener listener,
-                        _,
-                      ) {
-                        switch (listener.value.status) {
-                          case DevicePermissionStatus.checking:
-                            return EMPTY_WIDGET;
-                          case DevicePermissionStatus.granted:
-                            // TODO(m123): change
-                            return const CameraScannerPage();
-                          default:
-                            return const _PermissionDeniedCard();
-                        }
-                      },
-                    ),
-                  ),
-                Expanded(
-                  flex: _carouselHeightPct,
-                  child: Padding(
-                    padding: const EdgeInsetsDirectional.only(
-                        bottom: BALANCED_SPACE),
-                    child: ScanPageCarousel(
-                      onPageChangedTo: (int page, String? barcode) async {
-                        if (barcode == null) {
-                          // We only notify for new products
-                          return;
-                        }
-
-                        // Both are Future methods, but it doesn't matter to wait here
-                        SmoothHapticFeedback.lightNotification();
-
-                        if (_userPreferences.playCameraSound) {
-                          await _initSoundManagerIfNecessary();
-                          await _musicPlayer!.stop();
-                          await _musicPlayer!.play(
-                            AssetSource('audio/beep.wav'),
-                            volume: 0.5,
-                            ctx: AudioContext(
-                              android: const AudioContextAndroid(
-                                isSpeakerphoneOn: false,
-                                stayAwake: false,
-                                contentType: AndroidContentType.sonification,
-                                usageType: AndroidUsageType.notification,
-                                audioFocus:
-                                    AndroidAudioFocus.gainTransientMayDuck,
-                              ),
-                              iOS: AudioContextIOS(
-                                category: AVAudioSessionCategory.soloAmbient,
-                                options: const <AVAudioSessionOptions>{
-                                  AVAudioSessionOptions.mixWithOthers,
-                                },
-                              ),
-                            ),
-                          );
-                        }
-
-                        SemanticsService.announce(
-                          appLocalizations.scan_announce_new_barcode(barcode),
-                          direction,
-                          assertiveness: Assertiveness.assertive,
-                        );
-                      },
-                    ),
-                  ),
+      backgroundColor:
+          context.lightTheme() ? themeExtension.primaryLight : null,
+      body: SafeArea(
+        child: Column(
+          children: <Widget>[
+            if (hasACamera)
+              Expanded(
+                flex: 100 - _carouselHeightPct,
+                child: Consumer<PermissionListener>(
+                  builder: (
+                    BuildContext context,
+                    PermissionListener listener,
+                    _,
+                  ) {
+                    switch (listener.value.status) {
+                      case DevicePermissionStatus.checking:
+                        return EMPTY_WIDGET;
+                      case DevicePermissionStatus.granted:
+                        // TODO(m123): change
+                        return const CameraScannerPage();
+                      default:
+                        return const _PermissionDeniedCard();
+                    }
+                  },
                 ),
-              ],
+              ),
+            Expanded(
+              flex: _carouselHeightPct,
+              child: Padding(
+                padding:
+                    const EdgeInsetsDirectional.only(bottom: BALANCED_SPACE),
+                child: ScanPageCarousel(
+                  onPageChangedTo: (int page, String? barcode) async {
+                    if (barcode == null) {
+                      // We only notify for new products
+                      return;
+                    }
+
+                    // Both are Future methods, but it doesn't matter to wait here
+                    SmoothHapticFeedback.lightNotification();
+
+                    if (_userPreferences.playCameraSound) {
+                      await _initSoundManagerIfNecessary();
+                      await _musicPlayer!.stop();
+                      await _musicPlayer!.play(
+                        AssetSource('audio/beep.wav'),
+                        volume: 0.5,
+                        ctx: AudioContext(
+                          android: const AudioContextAndroid(
+                            isSpeakerphoneOn: false,
+                            stayAwake: false,
+                            contentType: AndroidContentType.sonification,
+                            usageType: AndroidUsageType.notification,
+                            audioFocus: AndroidAudioFocus.gainTransientMayDuck,
+                          ),
+                          iOS: AudioContextIOS(
+                            category: AVAudioSessionCategory.soloAmbient,
+                            options: const <AVAudioSessionOptions>{
+                              AVAudioSessionOptions.mixWithOthers,
+                            },
+                          ),
+                        ),
+                      );
+                    }
+
+                    SemanticsService.announce(
+                      appLocalizations.scan_announce_new_barcode(barcode),
+                      direction,
+                      assertiveness: Assertiveness.assertive,
+                    );
+                  },
+                ),
+              ),
             ),
-          ),
+          ],
         ),
       ),
     );
@@ -191,9 +190,12 @@ class _PermissionDeniedCard extends StatelessWidget {
                 end: SMALL_SPACE,
                 bottom: 5.0,
               ),
+              borderRadius: BorderRadius.zero,
+              margin: EdgeInsets.zero,
               child: Align(
                 alignment: Alignment.topCenter,
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Text(
                       localizations.permission_photo_denied_title,
@@ -203,22 +205,20 @@ class _PermissionDeniedCard extends StatelessWidget {
                       ),
                       textAlign: TextAlign.center,
                     ),
-                    Expanded(
-                      child: SingleChildScrollView(
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: BALANCED_SPACE,
-                            vertical: BALANCED_SPACE,
+                    SingleChildScrollView(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: BALANCED_SPACE,
+                          vertical: BALANCED_SPACE,
+                        ),
+                        child: Text(
+                          localizations.permission_photo_denied_message(
+                            APP_NAME,
                           ),
-                          child: Text(
-                            localizations.permission_photo_denied_message(
-                              APP_NAME,
-                            ),
-                            textAlign: TextAlign.center,
-                            style: const TextStyle(
-                              height: 1.4,
-                              fontSize: 15.5,
-                            ),
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                            height: 1.4,
+                            fontSize: 15.5,
                           ),
                         ),
                       ),

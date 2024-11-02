@@ -12,6 +12,7 @@ import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
 import 'package:smooth_app/pages/hunger_games/question_page.dart';
 import 'package:smooth_app/query/product_questions_query.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 
 class ProductQuestionsWidget extends StatefulWidget {
   const ProductQuestionsWidget(
@@ -313,12 +314,13 @@ class _ProductQuestionBanner extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
-    final Color contentColor = isDarkMode ? Colors.black : WHITE_COLOR;
+    final bool darkTheme = context.darkTheme();
+    final Color contentColor = darkTheme ? Colors.black : WHITE_COLOR;
 
     // We need to differentiate with / without a Shimmer, because
     // [Shimmer] doesn't support [Ink]
-    final Color backgroundColor = Theme.of(context).colorScheme.primary;
+    final ThemeData theme = Theme.of(context);
+    final Color backgroundColor = theme.colorScheme.primary;
 
     final Widget child;
     if (state is! _ProductQuestionsWithQuestions) {
@@ -327,59 +329,66 @@ class _ProductQuestionBanner extends StatelessWidget {
         child: EMPTY_WIDGET,
       );
     } else {
-      child = Semantics(
-        value: appLocalizations.tap_to_answer_hint,
-        button: true,
-        excludeSemantics: true,
-        child: Material(
-          type: MaterialType.transparency,
-          child: InkWell(
-            onTap: openQuestionsCallback,
-            child: Ink(
-              width: double.infinity,
-              color: backgroundColor,
-              padding: const EdgeInsetsDirectional.symmetric(
-                vertical: SMALL_SPACE,
-                horizontal: VERY_LARGE_SPACE,
-              ).add(
-                EdgeInsetsDirectional.only(
-                  bottom: MediaQuery.viewPaddingOf(context).bottom,
+      child = DecoratedBox(
+        decoration: BoxDecoration(
+          boxShadow: <BoxShadow>[
+            BoxShadow(
+              color: theme.shadowColor.withOpacity(darkTheme ? 0.5 : 0.2),
+              blurRadius: 2.5,
+              offset: const Offset(0.0, -4.0),
+            ),
+          ],
+        ),
+        child: Semantics(
+          value: appLocalizations.tap_to_answer_hint,
+          button: true,
+          excludeSemantics: true,
+          child: Material(
+            type: MaterialType.transparency,
+            child: InkWell(
+              onTap: openQuestionsCallback,
+              child: Ink(
+                width: double.infinity,
+                color: backgroundColor,
+                padding: const EdgeInsetsDirectional.symmetric(
+                  vertical: SMALL_SPACE,
+                  horizontal: MEDIUM_SPACE,
+                ).add(
+                  EdgeInsetsDirectional.only(
+                    bottom: MediaQuery.viewPaddingOf(context).bottom,
+                  ),
                 ),
-              ),
-              child: Row(
-                children: <Widget>[
-                  const _ProductQuestionIcon(),
-                  Expanded(
-                    child: RichText(
-                      text: TextSpan(
-                        text: '${appLocalizations.tap_to_answer}\n',
-                        style: Theme.of(context)
-                            .primaryTextTheme
-                            .bodyLarge!
-                            .copyWith(
-                              color: contentColor,
-                              height: 1.5,
-                            ),
-                        children: <TextSpan>[
-                          TextSpan(
-                            text: appLocalizations.contribute_to_get_rewards,
-                            style: Theme.of(context)
-                                .primaryTextTheme
-                                .bodyMedium!
-                                .copyWith(
-                                  color: contentColor,
-                                ),
+                child: Row(
+                  children: <Widget>[
+                    const _ProductQuestionIcon(),
+                    Expanded(
+                      child: RichText(
+                        text: TextSpan(
+                          text: '${appLocalizations.tap_to_answer}\n',
+                          style: theme.primaryTextTheme.bodyLarge!.copyWith(
+                            color: contentColor,
+                            height: 1.5,
+                            fontWeight: FontWeight.bold,
                           ),
-                        ],
+                          children: <TextSpan>[
+                            TextSpan(
+                              text: appLocalizations.contribute_to_get_rewards,
+                              style:
+                                  theme.primaryTextTheme.bodyMedium!.copyWith(
+                                color: contentColor,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                  Icon(
-                    Icons.arrow_circle_right_outlined,
-                    color: contentColor,
-                    size: 20.0,
-                  )
-                ],
+                    Icon(
+                      Icons.arrow_circle_right_outlined,
+                      color: contentColor,
+                      size: 20.0,
+                    )
+                  ],
+                ),
               ),
             ),
           ),

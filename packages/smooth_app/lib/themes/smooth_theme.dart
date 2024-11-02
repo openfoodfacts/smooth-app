@@ -116,10 +116,22 @@ class SmoothTheme {
             return null;
           }
           if (states.contains(WidgetState.selected)) {
-            return myColorScheme.primary;
+            return brightness == Brightness.light
+                ? smoothExtension.primarySemiDark
+                : smoothExtension.primaryNormal;
           }
           return null;
         }),
+        side: BorderSide(
+          color: brightness == Brightness.light
+              ? smoothExtension.primaryBlack
+              : smoothExtension.primarySemiDark,
+          width: 2.0,
+        ),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(3.0),
+        ),
+        checkColor: const WidgetStatePropertyAll<Color>(Colors.white),
       ),
       radioTheme: RadioThemeData(
         fillColor:
