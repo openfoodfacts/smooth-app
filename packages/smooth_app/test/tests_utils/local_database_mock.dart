@@ -5,7 +5,7 @@ class MockLocalDatabase extends Mock implements LocalDatabase {
   final Map<String, int?> _daoInt = <String, int?>{};
 
   @override
-  List<String> getAllTaskIds() => <String>[];
+  List<String> getAllTaskIds(final String key) => <String>[];
 
   @override
   int? daoIntGet(final String key) => _daoInt[key];

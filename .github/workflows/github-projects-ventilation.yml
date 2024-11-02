@@ -4,8 +4,21 @@ on:
   issues:
     types:
       - opened
-      - labeled
       - edited
+      - deleted
+      - transferred
+      - pinned
+      - unpinned
+      - closed
+      - reopened
+      - assigned
+      - unassigned
+      - labeled
+      - unlabeled
+      - locked
+      - unlocked
+      - milestoned
+      - demilestoned
 jobs:
   add-to-project:
     name: Add issues to the relevant GitHub projects

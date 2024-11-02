@@ -287,3 +287,7 @@ Prices:
 router:
 - changed-files:
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/navigator/app_navigator.dart'
+
+🛣️ Road to scores:
+- changed-files:
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/product_incomplete_card.dart'

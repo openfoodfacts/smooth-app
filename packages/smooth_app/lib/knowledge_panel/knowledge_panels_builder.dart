@@ -33,18 +33,7 @@ class KnowledgePanelsBuilder {
         panelId == null ? null : getKnowledgePanel(product, panelId);
     final List<Widget> children = <Widget>[];
     if (rootPanel != null) {
-      children.add(
-        Padding(
-          padding: const EdgeInsets.symmetric(
-            vertical: VERY_SMALL_SPACE,
-            horizontal: SMALL_SPACE,
-          ),
-          child: Text(
-            rootPanel.titleElement!.title,
-            style: Theme.of(context).textTheme.displaySmall,
-          ),
-        ),
-      );
+      children.add(KnowledgePanelTitle(title: rootPanel.titleElement!.title));
       if (rootPanel.elements != null) {
         for (final KnowledgePanelElement element in rootPanel.elements!) {
           final Widget? widget = getElementWidget(
@@ -323,5 +312,27 @@ class KnowledgePanelsBuilder {
           ),
         );
     }
+  }
+}
+
+class KnowledgePanelTitle extends StatelessWidget {
+  const KnowledgePanelTitle({
+    required this.title,
+    super.key,
+  });
+
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsetsDirectional.symmetric(
+        vertical: VERY_SMALL_SPACE,
+      ),
+      child: Text(
+        title,
+        style: Theme.of(context).textTheme.displaySmall,
+      ),
+    );
   }
 }

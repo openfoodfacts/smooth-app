@@ -52,6 +52,8 @@ class ProductCompatibilityHeader extends StatelessWidget {
                   helper.getHeaderText(appLocalizations),
                   style: themeData.textTheme.titleMedium?.copyWith(
                     color: helper.getHeaderForegroundColor(isDarkMode),
+                    fontSize: 15.0,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
               ),

@@ -1,5 +1,5 @@
 import 'package:collection/collection.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
@@ -15,8 +15,8 @@ import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/product/add_new_product_page.dart';
 import 'package:smooth_app/pages/product/edit_product_page.dart';
-import 'package:smooth_app/pages/product/new_product_page.dart';
 import 'package:smooth_app/pages/product/product_loader_page.dart';
+import 'package:smooth_app/pages/product/product_page/new_product_page.dart';
 import 'package:smooth_app/pages/scan/carousel/scan_carousel_manager.dart';
 import 'package:smooth_app/pages/search/search_page.dart';
 import 'package:smooth_app/pages/search/search_product_helper.dart';
@@ -79,8 +79,15 @@ class AppNavigator extends InheritedWidget {
     }
   }
 
-  void pop([dynamic result]) {
-    _router.router.pop(result);
+  /// Returns [true] if the pop was successful
+  /// Returns [false] if there is nothing to pop (= no history)
+  bool pop([dynamic result]) {
+    try {
+      _router.router.pop(result);
+      return true;
+    } on GoError catch (_) {
+      return false;
+    }
   }
 }
 
@@ -242,9 +249,11 @@ class _SmoothGoRouter {
           ],
         ),
         GoRoute(
-          path: '/${_InternalAppRoutes.EXTERNAL_PAGE}/:page',
+          path: '/${_InternalAppRoutes.EXTERNAL_PAGE}',
           builder: (BuildContext context, GoRouterState state) {
-            return ExternalPage(path: state.pathParameters['page']!);
+            return ExternalPage(
+              path: Uri.decodeFull(state.uri.queryParameters['path']!),
+            );
           },
         ),
       ],
@@ -468,5 +477,5 @@ class AppRoutes {
 
   // Open an external link (where path is relative to the OFF website)
   static String EXTERNAL(String path) =>
-      '/${_InternalAppRoutes.EXTERNAL_PAGE}/$path';
+      '/${_InternalAppRoutes.EXTERNAL_PAGE}?path=${Uri.encodeFull(path)}';
 }

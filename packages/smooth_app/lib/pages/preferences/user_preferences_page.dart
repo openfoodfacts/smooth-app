@@ -51,7 +51,7 @@ enum PreferencePageType {
     required final BuildContext context,
   }) {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    BackgroundTaskManager.getInstance(localDatabase).run();
+    BackgroundTaskManager.runAgain(localDatabase);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final ThemeProvider themeProvider = context.read<ThemeProvider>();
     final ThemeData themeData = Theme.of(context);

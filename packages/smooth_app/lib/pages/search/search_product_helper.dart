@@ -3,6 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/fetched_product.dart';
+import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/database/dao_string_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
@@ -17,10 +18,11 @@ import 'package:smooth_app/query/product_query.dart';
 
 /// Search helper dedicated to product search.
 class SearchProductHelper extends SearchHelper {
-  SearchProductHelper();
+  SearchProductHelper() {
+    _productType = UserPreferences.getUserPreferencesSync().latestProductType;
+  }
 
-  // TODO(monsieurtanuki): maybe reinit it with latest value
-  ProductType _productType = ProductType.food;
+  late ProductType _productType;
 
   @override
   String get historyKey => DaoStringList.keySearchProductHistory;
@@ -154,7 +156,8 @@ class _ProductTypeFilterState extends State<_ProductTypeFilter> {
       segments: segments,
       selected: <ProductType>{widget.searchProductHelper._productType},
       onSelectionChanged: (Set<ProductType> newSelection) => setState(
-        () => widget.searchProductHelper._productType = newSelection.first,
+        () => UserPreferences.getUserPreferencesSync().latestProductType =
+            widget.searchProductHelper._productType = newSelection.first,
       ),
     );
   }

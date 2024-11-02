@@ -408,9 +408,9 @@
     "@saving_answer": {
         "description": "Dialog shown to users after they have answered a question, while the answer is being saved in the BE."
     },
-    "contribute_to_get_rewards": "Help improve food transparency and get rewards",
+    "contribute_to_get_rewards": "Become an actor of food transparency",
     "@contribute_to_get_rewards": {
-        "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts and gain rewards."
+        "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts."
     },
     "question_sign_in_text": "Sign in to your Open Food Facts account to get credit for your contributions",
     "question_yes_button_accessibility_value": "Answer with yes",
@@ -682,6 +682,9 @@
         "description": "Button at the end of new product page, that takes you to completed product"
     },
     "hey_incomplete_product_message": "Tap to answer 3 questions NOW to compute Nutri-Score, Eco-Score & Ultra-processing (NOVA)!",
+    "hey_incomplete_product_message_beauty": "Tap now to answer 2 questions to help analyze this cosmetic!",
+    "hey_incomplete_product_message_pet_food": "Tap now to answer 3 questions to help analyze this pet food product!",
+    "hey_incomplete_product_message_product": "Tap now to help complete this product!",
     "nutritional_facts_photo_uploaded": "Nutrition facts photo uploaded",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "Recycling photo",
@@ -838,6 +841,14 @@
     "product_search_same_category": "Compare to Category",
     "@product_search_same_category": {
         "description": "Button looking for the other products within the same category. Less than 30 characters"
+    },
+    "product_search_same_category_short": "Compare",
+    "@product_search_same_category_short": {
+        "description": "Button looking for the other products within the same category. Just the verb compare"
+    },
+    "product_search_same_category_error": "This feature can only be used for products with a category.\n\nPlease edit the product to add a category.",
+    "@product_search_same_category_error": {
+        "description": "Button looking for the other products within the same category. Just the verb compare"
     },
     "product_improvement_add_category": "Add a category to calculate the Nutri-Score.",
     "@product_improvement_add_category": {
@@ -1314,6 +1325,10 @@
     "edit_product_label": "Edit product",
     "@edit_product_label": {
         "description": "Edit product button label"
+    },
+    "edit_product_label_short": "Edit",
+    "@edit_product_label_short": {
+        "description": "Edit product button short label (only the verb)"
     },
     "edit_product_form_item_add_action": "Add a new {itemType}",
     "description": "Tooltip to show when the user long presses the (+) button",

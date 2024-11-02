@@ -38,12 +38,13 @@ class SmoothTheme {
       }
     }
 
+    final SmoothColorsThemeExtension smoothExtension =
+        SmoothColorsThemeExtension.defaultValues();
+
     return ThemeData(
       fontFamily: 'OpenSans',
       primaryColor: DARK_BROWN_COLOR,
-      extensions: <SmoothColorsThemeExtension>[
-        SmoothColorsThemeExtension.defaultValues(),
-      ],
+      extensions: <ThemeExtension<dynamic>>[smoothExtension],
       colorScheme: myColorScheme,
       canvasColor: themeProvider.currentTheme == THEME_AMOLED
           ? myColorScheme.surface
@@ -97,10 +98,12 @@ class SmoothTheme {
         color: myColorScheme.onSurface,
       ),
       snackBarTheme: SnackBarThemeData(
-        contentTextStyle:
-            _TEXT_THEME.bodyMedium?.copyWith(color: myColorScheme.onPrimary),
-        actionTextColor: myColorScheme.onPrimary,
-        backgroundColor: myColorScheme.onSurface,
+        contentTextStyle: _TEXT_THEME.bodyMedium?.copyWith(
+          color: Colors.white,
+          fontWeight: FontWeight.w500,
+        ),
+        actionTextColor: Colors.white,
+        backgroundColor: smoothExtension.primaryBlack,
       ),
       bannerTheme: MaterialBannerThemeData(
         contentTextStyle: TextStyle(color: myColorScheme.onSecondary),

@@ -1,5 +1,5 @@
 {
-   "code" : "093270067481501",
+   "code" : "93270067481501",
    "product" : {
       "additives_tags" : [],
       "attribute_groups" : [
@@ -278,13 +278,13 @@
                   "description" : "",
                   "description_short" : "Very low environmental impact",
                   "grade" : "a",
-                  "icon_url" : "https://static.openfoodfacts.org/images/attributes/dist/ecoscore-a.svg",
+                  "icon_url" : "https://static.openfoodfacts.org/images/attributes/dist/ecoscore-a-plus.svg",
                   "id" : "ecoscore",
                   "match" : 100,
                   "name" : "Eco-Score",
                   "panel_id" : "ecoscore",
                   "status" : "known",
-                  "title" : "Eco-Score A"
+                  "title" : "Eco-Score A+"
                },
                {
                   "description" : "",
@@ -351,8 +351,8 @@
                      "transportation_score" : 0
                   }
                ],
-               "epi_score" : 93,
-               "epi_value" : 4,
+               "epi_score" : 0,
+               "epi_value" : 0,
                "origins_from_categories" : [
                   "en:unknown"
                ],
@@ -491,71 +491,71 @@
                   "world" : 0,
                   "xk" : 4
                },
-               "value" : 4,
+               "value" : 0,
                "values" : {
-                  "ad" : 13,
-                  "al" : 4,
-                  "at" : 10,
-                  "ax" : 14,
-                  "ba" : 6,
-                  "be" : 17,
-                  "bg" : 7,
-                  "ch" : 14,
-                  "cy" : 10,
-                  "cz" : 11,
-                  "de" : 13,
-                  "dk" : 10,
-                  "dz" : 11,
-                  "ee" : 15,
-                  "eg" : 9,
-                  "es" : 10,
-                  "fi" : 14,
-                  "fo" : 13,
-                  "fr" : 19,
-                  "gg" : 16,
-                  "gi" : 5,
-                  "gr" : 11,
-                  "hr" : 9,
-                  "hu" : 8,
-                  "ie" : 11,
-                  "il" : 9,
-                  "im" : 12,
-                  "is" : 12,
-                  "it" : 11,
-                  "je" : 15,
-                  "lb" : 10,
-                  "li" : 14,
-                  "lt" : 13,
-                  "lu" : 16,
-                  "lv" : 15,
-                  "ly" : 12,
-                  "ma" : 13,
-                  "mc" : 12,
-                  "md" : 8,
-                  "me" : 10,
-                  "mk" : 8,
-                  "mt" : 13,
-                  "nl" : 16,
-                  "no" : 7,
-                  "pl" : 8,
-                  "ps" : 10,
-                  "pt" : 6,
-                  "ro" : 9,
-                  "rs" : 5,
-                  "se" : 6,
-                  "si" : 10,
-                  "sj" : 12,
-                  "sk" : 8,
-                  "sm" : 10,
-                  "sy" : 8,
-                  "tn" : 5,
-                  "tr" : 5,
-                  "ua" : 10,
-                  "uk" : 14,
-                  "us" : 4,
-                  "va" : 8,
-                  "world" : 4,
-                  "xk" : 8
+                  "ad" : 9,
+                  "al" : 0,
+                  "at" : 6,
+                  "ax" : 10,
+                  "ba" : 2,
+                  "be" : 13,
+                  "bg" : 3,
+                  "ch" : 10,
+                  "cy" : 6,
+                  "cz" : 7,
+                  "de" : 9,
+                  "dk" : 6,
+                  "dz" : 7,
+                  "ee" : 11,
+                  "eg" : 5,
+                  "es" : 6,
+                  "fi" : 10,
+                  "fo" : 9,
+                  "fr" : 15,
+                  "gg" : 12,
+                  "gi" : 1,
+                  "gr" : 7,
+                  "hr" : 5,
+                  "hu" : 4,
+                  "ie" : 7,
+                  "il" : 5,
+                  "im" : 8,
+                  "is" : 8,
+                  "it" : 7,
+                  "je" : 11,
+                  "lb" : 6,
+                  "li" : 10,
+                  "lt" : 9,
+                  "lu" : 12,
+                  "lv" : 11,
+                  "ly" : 8,
+                  "ma" : 9,
+                  "mc" : 8,
+                  "md" : 4,
+                  "me" : 6,
+                  "mk" : 4,
+                  "mt" : 9,
+                  "nl" : 12,
+                  "no" : 3,
+                  "pl" : 4,
+                  "ps" : 6,
+                  "pt" : 2,
+                  "ro" : 5,
+                  "rs" : 1,
+                  "se" : 2,
+                  "si" : 6,
+                  "sj" : 8,
+                  "sk" : 4,
+                  "sm" : 6,
+                  "sy" : 4,
+                  "tn" : 1,
+                  "tr" : 1,
+                  "ua" : 6,
+                  "uk" : 10,
+                  "us" : 0,
+                  "va" : 4,
+                  "world" : 0,
+                  "xk" : 4
                }
             },
             "packaging" : {
@@ -611,71 +611,71 @@
             "score" : 98,
             "version" : "3.1.1"
          },
-         "grade" : "a",
+         "grade" : "a-plus",
          "grades" : {
-            "ad" : "a",
-            "al" : "a",
-            "at" : "a",
-            "ax" : "a",
-            "ba" : "a",
-            "be" : "a",
-            "bg" : "a",
-            "ch" : "a",
-            "cy" : "a",
-            "cz" : "a",
-            "de" : "a",
-            "dk" : "a",
-            "dz" : "a",
-            "ee" : "a",
-            "eg" : "a",
-            "es" : "a",
-            "fi" : "a",
-            "fo" : "a",
-            "fr" : "a",
-            "gg" : "a",
-            "gi" : "a",
-            "gr" : "a",
-            "hr" : "a",
-            "hu" : "a",
-            "ie" : "a",
-            "il" : "a",
-            "im" : "a",
-            "is" : "a",
-            "it" : "a",
-            "je" : "a",
-            "lb" : "a",
-            "li" : "a",
-            "lt" : "a",
-            "lu" : "a",
-            "lv" : "a",
-            "ly" : "a",
-            "ma" : "a",
-            "mc" : "a",
-            "md" : "a",
-            "me" : "a",
-            "mk" : "a",
-            "mt" : "a",
-            "nl" : "a",
-            "no" : "a",
-            "pl" : "a",
-            "ps" : "a",
-            "pt" : "a",
-            "ro" : "a",
-            "rs" : "a",
-            "se" : "a",
-            "si" : "a",
-            "sj" : "a",
-            "sk" : "a",
-            "sm" : "a",
-            "sy" : "a",
-            "tn" : "a",
-            "tr" : "a",
-            "ua" : "a",
-            "uk" : "a",
-            "us" : "a",
-            "va" : "a",
-            "world" : "a",
-            "xk" : "a"
+            "ad" : "a-plus",
+            "al" : "a-plus",
+            "at" : "a-plus",
+            "ax" : "a-plus",
+            "ba" : "a-plus",
+            "be" : "a-plus",
+            "bg" : "a-plus",
+            "ch" : "a-plus",
+            "cy" : "a-plus",
+            "cz" : "a-plus",
+            "de" : "a-plus",
+            "dk" : "a-plus",
+            "dz" : "a-plus",
+            "ee" : "a-plus",
+            "eg" : "a-plus",
+            "es" : "a-plus",
+            "fi" : "a-plus",
+            "fo" : "a-plus",
+            "fr" : "a-plus",
+            "gg" : "a-plus",
+            "gi" : "a-plus",
+            "gr" : "a-plus",
+            "hr" : "a-plus",
+            "hu" : "a-plus",
+            "ie" : "a-plus",
+            "il" : "a-plus",
+            "im" : "a-plus",
+            "is" : "a-plus",
+            "it" : "a-plus",
+            "je" : "a-plus",
+            "lb" : "a-plus",
+            "li" : "a-plus",
+            "lt" : "a-plus",
+            "lu" : "a-plus",
+            "lv" : "a-plus",
+            "ly" : "a-plus",
+            "ma" : "a-plus",
+            "mc" : "a-plus",
+            "md" : "a-plus",
+            "me" : "a-plus",
+            "mk" : "a-plus",
+            "mt" : "a-plus",
+            "nl" : "a-plus",
+            "no" : "a-plus",
+            "pl" : "a-plus",
+            "ps" : "a-plus",
+            "pt" : "a-plus",
+            "ro" : "a-plus",
+            "rs" : "a-plus",
+            "se" : "a-plus",
+            "si" : "a-plus",
+            "sj" : "a-plus",
+            "sk" : "a-plus",
+            "sm" : "a-plus",
+            "sy" : "a-plus",
+            "tn" : "a-plus",
+            "tr" : "a-plus",
+            "ua" : "a-plus",
+            "uk" : "a-plus",
+            "us" : "a-plus",
+            "va" : "a-plus",
+            "world" : "a-plus",
+            "xk" : "a-plus"
          },
          "previous_data" : {
             "agribalyse" : {
@@ -704,76 +704,76 @@
             "grade" : "a",
             "score" : 122
          },
-         "score" : 115,
+         "score" : 111,
          "scores" : {
-            "ad" : 123,
-            "al" : 115,
-            "at" : 121,
-            "ax" : 123,
-            "ba" : 117,
+            "ad" : 120,
+            "al" : 111,
+            "at" : 117,
+            "ax" : 121,
+            "ba" : 113,
             "be" : 123,
-            "bg" : 118,
-            "ch" : 123,
-            "cy" : 121,
-            "cz" : 122,
-            "de" : 123,
-            "dk" : 121,
-            "dz" : 122,
-            "ee" : 123,
-            "eg" : 120,
-            "es" : 121,
-            "fi" : 123,
-            "fo" : 123,
+            "bg" : 114,
+            "ch" : 121,
+            "cy" : 117,
+            "cz" : 118,
+            "de" : 120,
+            "dk" : 117,
+            "dz" : 118,
+            "ee" : 122,
+            "eg" : 116,
+            "es" : 117,
+            "fi" : 121,
+            "fo" : 120,
             "fr" : 123,
             "gg" : 123,
-            "gi" : 116,
-            "gr" : 122,
-            "hr" : 120,
-            "hu" : 119,
-            "ie" : 122,
-            "il" : 120,
-            "im" : 123,
-            "is" : 123,
-            "it" : 122,
-            "je" : 123,
-            "lb" : 121,
-            "li" : 123,
-            "lt" : 123,
+            "gi" : 112,
+            "gr" : 118,
+            "hr" : 116,
+            "hu" : 115,
+            "ie" : 118,
+            "il" : 116,
+            "im" : 119,
+            "is" : 119,
+            "it" : 118,
+            "je" : 122,
+            "lb" : 117,
+            "li" : 121,
+            "lt" : 120,
             "lu" : 123,
-            "lv" : 123,
-            "ly" : 123,
-            "ma" : 123,
-            "mc" : 123,
-            "md" : 119,
-            "me" : 121,
-            "mk" : 119,
-            "mt" : 123,
+            "lv" : 122,
+            "ly" : 119,
+            "ma" : 120,
+            "mc" : 119,
+            "md" : 115,
+            "me" : 117,
+            "mk" : 115,
+            "mt" : 120,
             "nl" : 123,
-            "no" : 118,
-            "pl" : 119,
-            "ps" : 121,
-            "pt" : 117,
-            "ro" : 120,
-            "rs" : 116,
-            "se" : 117,
-            "si" : 121,
-            "sj" : 123,
-            "sk" : 119,
-            "sm" : 121,
-            "sy" : 119,
-            "tn" : 116,
-            "tr" : 116,
-            "ua" : 121,
-            "uk" : 123,
-            "us" : 115,
-            "va" : 119,
-            "world" : 115,
-            "xk" : 119
+            "no" : 114,
+            "pl" : 115,
+            "ps" : 117,
+            "pt" : 113,
+            "ro" : 116,
+            "rs" : 112,
+            "se" : 113,
+            "si" : 117,
+            "sj" : 119,
+            "sk" : 115,
+            "sm" : 117,
+            "sy" : 115,
+            "tn" : 112,
+            "tr" : 112,
+            "ua" : 117,
+            "uk" : 121,
+            "us" : 111,
+            "va" : 115,
+            "world" : 111,
+            "xk" : 115
          },
          "status" : "known"
       },
-      "ecoscore_grade" : "a",
-      "ecoscore_score" : 115,
+      "ecoscore_grade" : "a-plus",
+      "ecoscore_score" : 111,
       "environment_impact_level_tags" : [],
       "ingredients_analysis_tags" : [
          "en:palm-oil-free",
@@ -895,7 +895,7 @@
             "title_element" : {
                "icon_color_from_evaluation" : true,
                "icon_url" : "https://static.openfoodfacts.org/images/icons/dist/car.svg",
-               "subtitle" : "51 g CO² per 100g of product",
+               "subtitle" : "51 g CO₂e per 100g of product",
                "title" : "Equal to driving 0.3 km in a petrol car"
             },
             "topics" : [
@@ -956,9 +956,10 @@
             ],
             "level" : "info",
             "title_element" : {
-               "grade" : "a",
-               "icon_url" : "https://static.openfoodfacts.org/images/attributes/dist/ecoscore-a.svg",
-               "title" : "Eco-Score A - Very low environmental impact",
+               "grade" : "a_plus",
+               "icon_url" : "https://static.openfoodfacts.org/images/attributes/dist/ecoscore-a-plus.svg",
+               "name" : "Eco-Score",
+               "title" : "Eco-Score A-PLUS - Very low environmental impact",
                "type" : "grade"
             },
             "topics" : [
@@ -1075,12 +1076,12 @@
             ],
             "level" : "info",
             "title_element" : {
-               "grade" : "a",
+               "grade" : "a_plus",
                "icon_color_from_evaluation" : true,
                "icon_size" : "small",
                "icon_url" : "https://static.openfoodfacts.org/images/icons/dist/lca.svg",
                "subtitle" : "Category: Soup, mixed vegetables, prepacked, to be reheated",
-               "title" : "Average impact of products of the same category: A (Score: 98/100)",
+               "title" : "Average impact of products of the same category: A+ (Score: 98/100)",
                "type" : "grade"
             },
             "topics" : [
@@ -1092,7 +1093,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                <strong>Environmental policy: +4</strong><br>\n                <strong>Transportation: 0</strong><br>\n                ",
+                     "html" : "\n                <strong>Environmental policy: 0</strong><br>\n                <strong>Transportation: 0</strong><br>\n                ",
                      "type" : "default"
                   }
                },
@@ -1136,14 +1137,14 @@
                   }
                }
             ],
-            "evaluation" : "average",
+            "evaluation" : "bad",
             "level" : "info",
             "title_element" : {
                "icon_color_from_evaluation" : true,
                "icon_size" : "small",
                "icon_url" : "https://static.openfoodfacts.org/images/icons/dist/public.svg",
-               "subtitle" : "Bonus: +4",
-               "title" : "Origins of ingredients with a medium impact"
+               "subtitle" : "Malus: 0",
+               "title" : "Origins of ingredients with a high impact"
             },
             "topics" : [
                "environment"
@@ -1268,17 +1269,17 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                Life cycle analysis score: 98<br>\n                Sum of bonuses and maluses:\n                    \n                        +17\n                    <br><br>\n                Final score: 115/100\n                \n                ",
+                     "html" : "\n                Life cycle analysis score: 98<br>\n                Sum of bonuses and maluses:\n                    \n                        +13\n                    <br><br>\n                Final score: 100/100\n                ",
                      "type" : "summary"
                   }
                }
             ],
             "level" : "info",
             "title_element" : {
-               "grade" : "a",
-               "icon_url" : "https://static.openfoodfacts.org/images/attributes/dist/ecoscore-a.svg",
+               "grade" : "a_plus",
+               "icon_url" : "https://static.openfoodfacts.org/images/attributes/dist/ecoscore-a-plus.svg",
                "subtitle" : "Product: A good product for you - Open Food Facts - 200 g",
-               "title" : "Impact for this product: A (Score: 115/100)",
+               "title" : "Impact for this product: A+ (Score: 100/100)",
                "type" : "grade"
             },
             "topics" : [
@@ -1692,13 +1693,17 @@
                   }
                }
             ],
-            "evaluation" : "",
+            "evaluation" : "good",
+            "half_width_on_mobile" : true,
             "level" : "info",
             "size" : "small",
             "title_element" : {
                "icon_size" : "small",
                "icon_url" : "https://static.openfoodfacts.org/images/misc/low.svg",
-               "title" : "Fat in low quantity (0.5%)"
+               "name" : "Fat",
+               "title" : "Fat in low quantity (0.5%)",
+               "type" : "percentage",
+               "value" : 0.5
             },
             "topics" : [
                "health"
@@ -1734,13 +1739,17 @@
                   }
                }
             ],
-            "evaluation" : "",
+            "evaluation" : "average",
+            "half_width_on_mobile" : true,
             "level" : "info",
             "size" : "small",
             "title_element" : {
                "icon_size" : "small",
                "icon_url" : "https://static.openfoodfacts.org/images/misc/moderate.svg",
-               "title" : "Salt in moderate quantity (0.4%)"
+               "name" : "Salt",
+               "title" : "Salt in moderate quantity (0.4%)",
+               "type" : "percentage",
+               "value" : 0.4
             },
             "topics" : [
                "health"
@@ -1766,13 +1775,17 @@
                   }
                }
             ],
-            "evaluation" : "",
+            "evaluation" : "good",
+            "half_width_on_mobile" : true,
             "level" : "info",
             "size" : "small",
             "title_element" : {
                "icon_size" : "small",
                "icon_url" : "https://static.openfoodfacts.org/images/misc/low.svg",
-               "title" : "Saturated fat in low quantity (0.2%)"
+               "name" : "Saturated fat",
+               "title" : "Saturated fat in low quantity (0.2%)",
+               "type" : "percentage",
+               "value" : 0.2
             },
             "topics" : [
                "health"
@@ -1798,13 +1811,17 @@
                   }
                }
             ],
-            "evaluation" : "",
+            "evaluation" : "good",
+            "half_width_on_mobile" : true,
             "level" : "info",
             "size" : "small",
             "title_element" : {
                "icon_size" : "small",
                "icon_url" : "https://static.openfoodfacts.org/images/misc/low.svg",
-               "title" : "Sugars in low quantity (0.5%)"
+               "name" : "Sugars",
+               "title" : "Sugars in low quantity (0.5%)",
+               "type" : "percentage",
+               "value" : 0.5
             },
             "topics" : [
                "health"
@@ -1840,6 +1857,13 @@
          },
          "nutriscore_2023" : {
             "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: 65\n                    ",
+                     "type" : "warning"
+                  }
+               },
                {
                   "element_type" : "panel",
                   "panel_element" : {
@@ -2102,6 +2126,13 @@
                            "type" : "text"
                         },
                         {
+                           "column_group_id" : "product",
+                           "shown_by_default" : true,
+                           "text" : "As sold<br>for 100 g / 100 ml",
+                           "text_for_small_screens" : "100g",
+                           "type" : "text"
+                        },
+                        {
                            "column_group_id" : "comparisons",
                            "shown_by_default" : true,
                            "text" : "Compared to: Vegetable soups",
@@ -2118,6 +2149,9 @@
                                  "text" : "Energy"
                               },
                               {
+                                 "text" : "120 kj<br>(29 kcal)"
+                              },
+                              {
                                  "evaluation" : "good",
                                  "text" : "-54%"
                               }
@@ -2131,8 +2165,11 @@
                                  "text" : "Fat"
                               },
                               {
+                                 "text" : "0.5 g"
+                              },
+                              {
                                  "evaluation" : "good",
-                                 "text" : "-68%"
+                                 "text" : "-69%"
                               }
                            ]
                         },
@@ -2142,6 +2179,9 @@
                                  "level" : 1,
                                  "style" : "max-width:15rem",
                                  "text" : "Saturated fat"
+                              },
+                              {
+                                 "text" : "0.2 g"
                               },
                               {
                                  "evaluation" : "good",
@@ -2157,8 +2197,11 @@
                                  "text" : "Salt"
                               },
                               {
+                                 "text" : "0.4 g"
+                              },
+                              {
                                  "evaluation" : "good",
-                                 "text" : "-40%"
+                                 "text" : "-39%"
                               }
                            ]
                         },
@@ -2170,7 +2213,10 @@
                                  "text" : "Carbohydrates"
                               },
                               {
-                                 "text" : "-63%"
+                                 "text" : "4 g"
+                              },
+                              {
+                                 "text" : "-62%"
                               }
                            ]
                         },
@@ -2182,8 +2228,11 @@
                                  "text" : "Fiber"
                               },
                               {
+                                 "text" : "3 g"
+                              },
+                              {
                                  "evaluation" : "good",
-                                 "text" : "+96%"
+                                 "text" : "+95%"
                               }
                            ]
                         },
@@ -2195,8 +2244,11 @@
                                  "text" : "Sugars"
                               },
                               {
+                                 "text" : "0.5 g"
+                              },
+                              {
                                  "evaluation" : "good",
-                                 "text" : "-83%"
+                                 "text" : "-82%"
                               }
                            ]
                         },
@@ -2206,6 +2258,9 @@
                                  "level" : 0,
                                  "style" : "max-width:15rem",
                                  "text" : "Proteins"
+                              },
+                              {
+                                 "text" : "1 g"
                               },
                               {
                                  "evaluation" : "bad",
@@ -2219,6 +2274,9 @@
                                  "level" : 0,
                                  "style" : "max-width:15rem",
                                  "text" : "Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (estimate from ingredients list analysis)"
+                              },
+                              {
+                                 "text" : "65 %"
                               },
                               {
                                  "text" : ""
@@ -2286,13 +2344,13 @@
                   }
                }
             ],
-            "evaluation" : "average",
+            "evaluation" : "bad",
             "expanded" : false,
             "level" : "info",
             "title_element" : {
                "icon_color_from_evaluation" : true,
                "icon_url" : "https://static.openfoodfacts.org/images/icons/dist/public.svg",
-               "subtitle" : "Origins of ingredients with a medium impact",
+               "subtitle" : "Origins of ingredients with a high impact",
                "title" : "Origins of ingredients"
             },
             "topics" : [
@@ -2481,14 +2539,14 @@
          }
       },
       "labels_tags" : [
+         "en:fair-trade",
          "en:organic",
-         "en:eu-organic",
-         "en:fair-trade"
+         "en:eu-organic"
       ],
       "labels_tags_fr" : [
+         "Commerce équitable",
          "Bio",
-         "Bio européen",
-         "Commerce équitable"
+         "Bio européen"
       ],
       "lang" : "en",
       "nutrient_levels" : {

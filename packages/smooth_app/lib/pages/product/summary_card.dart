@@ -18,15 +18,14 @@ import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_page.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
 import 'package:smooth_app/pages/hunger_games/question_card.dart';
-import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/product/hideable_container.dart';
 import 'package:smooth_app/pages/product/product_compatibility_header.dart';
 import 'package:smooth_app/pages/product/product_field_editor.dart';
 import 'package:smooth_app/pages/product/product_incomplete_card.dart';
 import 'package:smooth_app/pages/product/product_questions_widget.dart';
 import 'package:smooth_app/pages/product/summary_attribute_group.dart';
-import 'package:smooth_app/query/category_product_query.dart';
-import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
 const List<String> _ATTRIBUTE_GROUP_ORDER = <String>[
   AttributeGroup.ATTRIBUTE_GROUP_ALLERGENS,
@@ -48,6 +47,7 @@ class SummaryCard extends StatefulWidget {
     this.isProductEditable = true,
     this.attributeGroupsClickable = true,
     this.padding,
+    this.shadow,
   });
 
   final Product _product;
@@ -75,6 +75,9 @@ class SummaryCard extends StatefulWidget {
   final bool attributeGroupsClickable;
 
   final EdgeInsetsGeometry? padding;
+
+  /// An optional shadow to apply to the card
+  final BoxShadow? shadow;
 
   @override
   State<SummaryCard> createState() => _SummaryCardState();
@@ -123,6 +126,9 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
   }
 
   Widget _buildLimitedSizeSummaryCard(double parentHeight) {
+    final SmoothColorsThemeExtension? themeExtension =
+        Theme.of(context).extension<SmoothColorsThemeExtension>();
+
     return Padding(
       padding: widget.padding ??
           const EdgeInsets.symmetric(
@@ -131,23 +137,30 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
           ),
       child: Stack(
         children: <Widget>[
-          ClipRRect(
-            borderRadius: ROUNDED_BORDER_RADIUS,
-            child: OverflowBox(
-              alignment: AlignmentDirectional.topStart,
-              minHeight: parentHeight,
-              maxHeight: double.infinity,
-              child: buildProductSmoothCard(
-                header: ProductCompatibilityHeader(
-                  product: upToDateProduct,
-                  productPreferences: widget._productPreferences,
-                  isSettingVisible: widget.isSettingVisible,
+          DecoratedBox(
+            decoration: BoxDecoration(
+              boxShadow:
+                  widget.shadow != null ? <BoxShadow>[widget.shadow!] : null,
+              borderRadius: ROUNDED_BORDER_RADIUS,
+            ),
+            child: ClipRRect(
+              borderRadius: ROUNDED_BORDER_RADIUS,
+              child: OverflowBox(
+                alignment: AlignmentDirectional.topStart,
+                minHeight: parentHeight,
+                maxHeight: double.infinity,
+                child: buildProductSmoothCard(
+                  header: ProductCompatibilityHeader(
+                    product: upToDateProduct,
+                    productPreferences: widget._productPreferences,
+                    isSettingVisible: widget.isSettingVisible,
+                  ),
+                  body: Padding(
+                    padding: SMOOTH_CARD_PADDING,
+                    child: _buildSummaryCardContent(context),
+                  ),
+                  margin: EdgeInsets.zero,
                 ),
-                body: Padding(
-                  padding: SMOOTH_CARD_PADDING,
-                  child: _buildSummaryCardContent(context),
-                ),
-                margin: EdgeInsets.zero,
               ),
             ),
           ),
@@ -160,18 +173,39 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
                   vertical: SMALL_SPACE,
                 ),
                 decoration: BoxDecoration(
-                  color: Theme.of(context).cardColor,
+                  color: themeExtension!.primaryNormal,
                   borderRadius:
                       const BorderRadius.vertical(bottom: ROUNDED_RADIUS),
                 ),
-                child: Center(
-                  child: Text(
-                    AppLocalizations.of(context).tap_for_more,
-                    style:
-                        Theme.of(context).primaryTextTheme.bodyLarge?.copyWith(
-                              color: PRIMARY_BLUE_COLOR,
-                            ),
-                  ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsetsDirectional.only(bottom: 2.0),
+                      child: Text(
+                        AppLocalizations.of(context).tap_for_more,
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 15.0,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      width: BALANCED_SPACE,
+                    ),
+                    Container(
+                      decoration: const BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.white,
+                      ),
+                      padding: const EdgeInsets.all(VERY_SMALL_SPACE),
+                      child: icons.Arrow.right(
+                        color: themeExtension.primaryNormal,
+                        size: 12.0,
+                      ),
+                    )
+                  ],
                 ),
               ),
             ],
@@ -254,63 +288,12 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
       child: Column(children: displayedGroups),
     );
     // cf. https://github.com/openfoodfacts/smooth-app/issues/2147
-    const Set<String> blackListedCategories = <String>{
-      'fr:vegan',
-    };
-    String? categoryTag;
-    String? categoryLabel;
-    final List<String>? labels =
-        upToDateProduct.categoriesTagsInLanguages?[ProductQuery.getLanguage()];
-    final List<String>? tags = upToDateProduct.categoriesTags;
-    if (tags != null &&
-        labels != null &&
-        tags.isNotEmpty &&
-        tags.length == labels.length) {
-      categoryTag = upToDateProduct.comparedToCategory;
-      if (categoryTag == null || blackListedCategories.contains(categoryTag)) {
-        // fallback algorithm
-        int index = tags.length - 1;
-        // cf. https://github.com/openfoodfacts/openfoodfacts-dart/pull/474
-        // looking for the most detailed non blacklisted category
-        categoryTag = tags[index];
-        while (blackListedCategories.contains(categoryTag) && index > 0) {
-          index--;
-          categoryTag = tags[index];
-        }
-      }
-      if (categoryTag != null) {
-        for (int i = 0; i < tags.length; i++) {
-          if (categoryTag == tags[i]) {
-            categoryLabel = labels[i];
-          }
-        }
-      }
-    }
-    final List<String> statesTags =
-        upToDateProduct.statesTags ?? List<String>.empty();
 
     final List<Widget> summaryCardButtons = <Widget>[];
 
     if (widget.isFullVersion) {
-      // Compare to category
-      if (categoryTag != null && categoryLabel != null) {
-        summaryCardButtons.add(
-          addPanelButton(
-            localizations.product_search_same_category,
-            iconData: Icons.leaderboard,
-            onPressed: () async => ProductQueryPageHelper.openBestChoice(
-              name: categoryLabel!,
-              localDatabase: context.read<LocalDatabase>(),
-              productQuery: CategoryProductQuery(
-                categoryTag!,
-                productType: upToDateProduct.productType ?? ProductType.food,
-              ),
-              context: context,
-              searchResult: false,
-            ),
-          ),
-        );
-      }
+      final List<String> statesTags =
+          upToDateProduct.statesTags ?? List<String>.empty();
 
       // Complete basic details
       if (statesTags

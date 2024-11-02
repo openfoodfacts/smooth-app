@@ -2,6 +2,7 @@ import 'package:flutter/painting.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/background/background_task.dart';
+import 'package:smooth_app/background/background_task_queue.dart';
 import 'package:smooth_app/background/operation_type.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
@@ -80,7 +81,10 @@ class BackgroundTaskLanguageRefresh extends BackgroundTask {
       excludeBarcodes,
       productType,
     );
-    await task.addToManager(localDatabase);
+    await task.addToManager(
+      localDatabase,
+      queue: BackgroundTaskQueue.longHaul,
+    );
   }
 
   @override

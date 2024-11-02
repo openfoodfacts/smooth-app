@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task.dart';
 import 'package:smooth_app/background/background_task_download_products.dart';
 import 'package:smooth_app/background/background_task_paged.dart';
+import 'package:smooth_app/background/background_task_queue.dart';
 import 'package:smooth_app/background/operation_type.dart';
 import 'package:smooth_app/background/work_type.dart';
 import 'package:smooth_app/database/dao_product.dart';
@@ -39,7 +40,11 @@ class BackgroundTaskFullRefresh extends BackgroundTaskPaged {
     if (!context.mounted) {
       return;
     }
-    await task.addToManager(localDatabase, context: context);
+    await task.addToManager(
+      localDatabase,
+      context: context,
+      queue: BackgroundTaskQueue.longHaul,
+    );
   }
 
   @override
