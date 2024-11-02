@@ -116,12 +116,16 @@ class SmoothTheme {
             return null;
           }
           if (states.contains(WidgetState.selected)) {
-            return smoothExtension.primarySemiDark;
+            return brightness == Brightness.light
+                ? smoothExtension.primarySemiDark
+                : smoothExtension.primaryNormal;
           }
           return null;
         }),
         side: BorderSide(
-          color: smoothExtension.primaryBlack,
+          color: brightness == Brightness.light
+              ? smoothExtension.primaryBlack
+              : smoothExtension.primarySemiDark,
           width: 2.0,
         ),
         shape: RoundedRectangleBorder(
