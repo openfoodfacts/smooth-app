@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:provider/provider.dart';
 
 class SmoothDraggableBottomSheet extends StatefulWidget {
   const SmoothDraggableBottomSheet({
@@ -172,20 +173,23 @@ class _SmoothDraggableContentState extends State<_SmoothDraggableContent> {
   Widget build(BuildContext context) {
     return Scrollbar(
       controller: widget.scrollController,
-      child: CustomScrollView(
-        cacheExtent: widget.cacheExtent,
-        key: _contentKey,
-        controller: widget.scrollController,
-        slivers: <Widget>[
-          SliverPersistentHeader(
-            pinned: true,
-            delegate: _SliverHeader(
-              child: widget.headerBuilder(context),
-              height: widget.headerHeight,
+      child: ChangeNotifierProvider<ScrollController>.value(
+        value: widget.scrollController,
+        child: CustomScrollView(
+          cacheExtent: widget.cacheExtent,
+          key: _contentKey,
+          controller: widget.scrollController,
+          slivers: <Widget>[
+            SliverPersistentHeader(
+              pinned: true,
+              delegate: _SliverHeader(
+                child: widget.headerBuilder(context),
+                height: widget.headerHeight,
+              ),
             ),
-          ),
-          widget.bodyBuilder(context),
-        ],
+            widget.bodyBuilder(context),
+          ],
+        ),
       ),
     );
   }

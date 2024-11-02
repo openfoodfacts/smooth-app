@@ -116,10 +116,18 @@ class SmoothTheme {
             return null;
           }
           if (states.contains(WidgetState.selected)) {
-            return myColorScheme.primary;
+            return smoothExtension.primarySemiDark;
           }
           return null;
         }),
+        side: BorderSide(
+          color: smoothExtension.primaryBlack,
+          width: 2.0,
+        ),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(3.0),
+        ),
+        checkColor: const WidgetStatePropertyAll<Color>(Colors.white),
       ),
       radioTheme: RadioThemeData(
         fillColor:
