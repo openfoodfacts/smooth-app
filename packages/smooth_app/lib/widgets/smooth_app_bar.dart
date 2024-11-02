@@ -18,9 +18,10 @@ class SmoothAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.flexibleSpace,
     this.bottom,
     this.elevation,
-    this.scrolledUnderElevation,
+    this.scrolledUnderElevation = 0.0,
+    this.notificationPredicate,
     this.shadowColor,
-    this.surfaceTintColor,
+    // this.surfaceTintColor,
     this.backgroundColor,
     this.foregroundColor,
     this.iconTheme,
@@ -41,6 +42,8 @@ class SmoothAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.actionModeCloseTooltip,
     this.onLeaveActionMode,
     this.ignoreSemanticsForSubtitle = false,
+    this.forceMaterialTransparency = false,
+    this.clipBehavior,
     super.key,
   })  : assert(!actionMode || actionModeTitle != null),
         preferredSize =
@@ -58,8 +61,11 @@ class SmoothAppBar extends StatelessWidget implements PreferredSizeWidget {
   final PreferredSizeWidget? bottom;
   final double? elevation;
   final double? scrolledUnderElevation;
+  final ScrollNotificationPredicate? notificationPredicate;
   final Color? shadowColor;
-  final Color? surfaceTintColor;
+
+  // Disabled as it will do unexpected things with [backgroundColor]
+  // final Color? surfaceTintColor;
   final Color? backgroundColor;
   final Color? foregroundColor;
   final IconThemeData? iconTheme;
@@ -79,6 +85,8 @@ class SmoothAppBar extends StatelessWidget implements PreferredSizeWidget {
   final TextStyle? titleTextStyle;
   final SystemUiOverlayStyle? systemOverlayStyle;
   final bool? ignoreSemanticsForSubtitle;
+  final bool forceMaterialTransparency;
+  final Clip? clipBehavior;
 
   final VoidCallback? onLeaveActionMode;
   final String? actionModeCloseTooltip;
@@ -101,11 +109,11 @@ class SmoothAppBar extends StatelessWidget implements PreferredSizeWidget {
       },
       child: actionMode
           ? _createActionModeAppBar(context)
-          : _createAppBar(parentRoute),
+          : _createAppBar(context, parentRoute),
     );
   }
 
-  Widget _createAppBar(ModalRoute<dynamic>? parentRoute) {
+  Widget _createAppBar(BuildContext context, ModalRoute<dynamic>? parentRoute) {
     final bool useCloseButton =
         parentRoute is PageRoute<dynamic> && parentRoute.fullscreenDialog;
     Widget? leadingWidget = leading;
@@ -127,8 +135,11 @@ class SmoothAppBar extends StatelessWidget implements PreferredSizeWidget {
       bottom: bottom,
       elevation: elevation,
       scrolledUnderElevation: scrolledUnderElevation,
+      notificationPredicate:
+          notificationPredicate ?? defaultScrollNotificationPredicate,
       shadowColor: shadowColor,
-      surfaceTintColor: surfaceTintColor,
+      surfaceTintColor:
+          backgroundColor ?? Theme.of(context).appBarTheme.backgroundColor,
       backgroundColor: backgroundColor,
       foregroundColor: foregroundColor,
       iconTheme: iconTheme,
@@ -143,8 +154,9 @@ class SmoothAppBar extends StatelessWidget implements PreferredSizeWidget {
       toolbarHeight: toolbarHeight,
       leadingWidth: leadingWidth,
       toolbarTextStyle: toolbarTextStyle,
-      titleTextStyle: titleTextStyle,
       systemOverlayStyle: systemOverlayStyle,
+      forceMaterialTransparency: forceMaterialTransparency,
+      clipBehavior: clipBehavior,
     );
   }
 
@@ -171,7 +183,8 @@ class SmoothAppBar extends StatelessWidget implements PreferredSizeWidget {
           elevation: elevation,
           scrolledUnderElevation: scrolledUnderElevation,
           shadowColor: shadowColor,
-          surfaceTintColor: surfaceTintColor,
+          surfaceTintColor:
+              backgroundColor ?? Theme.of(context).appBarTheme.backgroundColor,
           backgroundColor: backgroundColor,
           foregroundColor: foregroundColor,
           iconTheme: iconTheme,
