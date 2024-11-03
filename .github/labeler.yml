@@ -106,10 +106,6 @@ History:
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/onboarding/**/*'
   - any-glob-to-any-file: 'packages/smooth_app/assets/onboarding/**/*'
 
-✏️ Editing - Nutrition input:
-- changed-files:
-  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/nutrition_page_loaded.dart'
-
 🤳🥫 Scan:
 - changed-files:
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/scan/**/*'
@@ -206,18 +202,6 @@ GitHub:
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/user_preferences_attribute_group.dart'
   - any-glob-to-any-file: 'packages/smooth_app/lib/helpers/user_management_helper.dart'
 
-#tag picker:
-
-✏️ Editing - Category picker:
-- changed-files:
-  - any-glob-to-any-file: 'packages/smooth_app/lib/data_models/category_tree_supplier.dart'
-  - any-glob-to-any-file: 'packages/smooth_app/example/smooth_category_picker_example.dart'
-  - any-glob-to-any-file: 'packages/smooth_app/generic_lib/dialogs/smooth_category_picker.dart'
-  - any-glob-to-any-file: 'packages/smooth_app/test/dialogs/smooth_category_picker_test.dart'
-  - any-glob-to-any-file: 'packages/smooth_app/lib/data_models/category_query_model.dart'
-  - any-glob-to-any-file: 'packages/smooth_app/lib/data_models/query_category_tree_supplier.dart'
-  - any-glob-to-any-file: 'packages/smooth_app/lib/data_models/smooth_category.dart'
-
 Ranking:
 - changed-files:
   - any-glob-to-any-file: 'packages/smooth_app/lib/helpers/product_compatibility_helper.dart'
@@ -242,10 +226,34 @@ Product scan carousel:
 - changed-files:
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/scan/carousel/scan_carousel.dart'
 
+✏️ Editing:
+- changed-files:
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/edit_product_page.dart'
+
+✏️ Editing - Nutrition input:
+- changed-files:
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/nutrition_page_loaded.dart'
+
+#tag picker:
+
+✏️ Editing - Category picker:
+- changed-files:
+  - any-glob-to-any-file: 'packages/smooth_app/lib/data_models/category_tree_supplier.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/example/smooth_category_picker_example.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/generic_lib/dialogs/smooth_category_picker.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/test/dialogs/smooth_category_picker_test.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/data_models/category_query_model.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/data_models/query_category_tree_supplier.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/data_models/smooth_category.dart'
+
 ✏️ Editing - 📦 Packaging input:
 - changed-files:
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/edit_new_packagings.dart'
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/ocr_packaging_helper.dart'
+
+✏️ Editing - Basic info input:
+- changed-files:
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/add_basic_details_page.dart'
 
 OCR page:
 - changed-files:
@@ -253,10 +261,6 @@ OCR page:
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/edit_ocr/edit_ocr_page.dart'
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/edit_ocr/ocr_ingredients_helper.dart'
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/edit_ocr/ocr_packaging_helper.dart'
-
-✏️ Editing - Basic info input:
-- changed-files:
-  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/add_basic_details_page.dart'
 
 Prices:
 - changed-files:
