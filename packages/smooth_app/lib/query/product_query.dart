@@ -238,9 +238,6 @@ abstract class ProductQuery {
     );
   }
 
-  /// Icon to display when the product field value is "producer provided".
-  static const IconData ownerFieldIconData = Icons.factory;
-
   static List<ProductField> get fields => const <ProductField>[
         ProductField.NAME,
         ProductField.NAME_ALL_LANGUAGES,

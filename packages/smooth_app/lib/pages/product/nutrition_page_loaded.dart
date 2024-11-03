@@ -20,6 +20,7 @@ import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
 import 'package:smooth_app/pages/product/nutrition_add_nutrient_button.dart';
 import 'package:smooth_app/pages/product/nutrition_container.dart';
 import 'package:smooth_app/pages/product/ordered_nutrients_cache.dart';
+import 'package:smooth_app/pages/product/owner_field_info.dart';
 import 'package:smooth_app/pages/product/simple_input_number_field.dart';
 import 'package:smooth_app/pages/text_field_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
@@ -131,6 +132,9 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
     children.add(_switchNoNutrition(appLocalizations));
 
     if (!_nutritionContainer.noNutritionData) {
+      final Iterable<OrderedNutrient> displayableNutrients =
+          _nutritionContainer.getDisplayableNutrients();
+
       children.add(
         Padding(
           padding: const EdgeInsets.symmetric(vertical: MEDIUM_SPACE),
@@ -141,11 +145,12 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
           ),
         ),
       );
+      if (_hasOwnerField(displayableNutrients)) {
+        children.add(const OwnerFieldInfo());
+      }
+
       children.add(_getServingField(appLocalizations));
       children.add(_getServingSwitch(appLocalizations));
-
-      final Iterable<OrderedNutrient> displayableNutrients =
-          _nutritionContainer.getDisplayableNutrients();
 
       if (_focusNodes.length != displayableNutrients.length) {
         _focusNodes.clear();
@@ -227,6 +232,30 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
     );
   }
 
+  bool _hasOwnerField(
+    final Iterable<OrderedNutrient> displayableNutrients,
+  ) {
+    if (upToDateProduct.getOwnerFieldTimestamp(
+          OwnerField.productField(
+            ProductField.SERVING_SIZE,
+            ProductQuery.getLanguage(),
+          ),
+        ) !=
+        null) {
+      return true;
+    }
+    for (final OrderedNutrient orderedNutrient in displayableNutrients) {
+      final Nutrient nutrient = _getNutrient(orderedNutrient);
+      if (upToDateProduct.getOwnerFieldTimestamp(
+            OwnerField.nutrient(nutrient),
+          ) !=
+          null) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   Widget _getServingField(final AppLocalizations appLocalizations) {
     final String value = _nutritionContainer.servingSize;
 
@@ -255,7 +284,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
                       ) ==
                       null
                   ? null
-                  : const Icon(ProductQuery.ownerFieldIconData),
+                  : const Icon(OwnerFieldInfo.ownerFieldIconData),
             ),
             textInputAction: TextInputAction.next,
             onFieldSubmitted: (_) {
@@ -536,7 +565,7 @@ class _NutrientValueCell extends StatelessWidget {
                 product.getOwnerFieldTimestamp(OwnerField.nutrient(nutrient)) ==
                     null
             ? null
-            : const Icon(ProductQuery.ownerFieldIconData),
+            : const Icon(OwnerFieldInfo.ownerFieldIconData),
       ),
       keyboardType: const TextInputType.numberWithOptions(
         signed: false,
