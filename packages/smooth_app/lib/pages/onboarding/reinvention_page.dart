@@ -9,6 +9,7 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/pages/onboarding/v2/onboarding_bottom_hills.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/widgets/smooth_scaffold.dart';
 import 'package:smooth_app/widgets/smooth_text.dart';
 
 /// Onboarding page: "reinvention"
@@ -17,7 +18,7 @@ class OnboardingHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return SmoothScaffold(
       backgroundColor: const Color(0xFFE3F3FE),
       body: Provider<OnboardingConfig>.value(
         value: OnboardingConfig._(MediaQuery.sizeOf(context)),
