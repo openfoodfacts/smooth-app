@@ -298,7 +298,7 @@ class UserPreferencesAccount extends AbstractUserPreferences {
           localDatabase: localDatabase,
           productQuery: productQuery,
           context: context,
-          editableAppBarTitle: false,
+          editableAppBarTitle: true,
         ),
         iconData,
         lazyCounter: lazyCounter,
