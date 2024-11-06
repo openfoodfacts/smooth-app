@@ -222,6 +222,7 @@ class ProductPageState extends State<ProductPage>
                     upToDateProduct,
                     _productPreferences,
                     isFullVersion: true,
+                    showQuestionsBanner: true,
                   ),
                 ),
               ),
