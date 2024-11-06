@@ -98,7 +98,7 @@ class SmoothModalSheetHeader extends StatelessWidget implements SizeWidget {
     this.backgroundColor,
   });
 
-  static const double MIN_HEIGHT = 50.0;
+  static const double MIN_HEIGHT = 55.0;
 
   final String title;
   final SizeWidget? prefix;
@@ -108,13 +108,15 @@ class SmoothModalSheetHeader extends StatelessWidget implements SizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Color primaryColor = Theme.of(context).primaryColor;
+    final Color primaryColor =
+        Theme.of(context).extension<SmoothColorsThemeExtension>()!.primaryDark;
+    final Color tintColor = foregroundColor ?? Colors.white;
 
     return IconTheme(
-      data: IconThemeData(color: foregroundColor),
+      data: IconThemeData(color: tintColor),
       child: Container(
         height: suffix is SmoothModalSheetHeaderButton ? double.infinity : null,
-        color: backgroundColor ?? primaryColor.withOpacity(0.2),
+        color: backgroundColor ?? primaryColor,
         constraints: const BoxConstraints(minHeight: MIN_HEIGHT),
         padding: EdgeInsetsDirectional.only(
           start: (prefix?.requiresPadding == true ? 0 : VERY_LARGE_SPACE),
@@ -143,7 +145,7 @@ class SmoothModalSheetHeader extends StatelessWidget implements SizeWidget {
                     style: Theme.of(context).textTheme.titleLarge?.copyWith(
                           fontWeight: FontWeight.bold,
                           fontSize: 18.0,
-                          color: foregroundColor,
+                          color: tintColor,
                         ),
                   ),
                 ),
@@ -266,29 +268,55 @@ class SmoothModalSheetHeaderCloseButton extends StatelessWidget
   const SmoothModalSheetHeaderCloseButton({
     this.semanticsOrder,
     this.addPadding,
+    this.circled = true,
   });
 
   final double? semanticsOrder;
   final bool? addPadding;
+  final bool circled;
 
   @override
   Widget build(BuildContext context) {
+    final Widget icon;
+
+    if (circled == true) {
+      icon = Container(
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          border: Border.all(
+            color: IconTheme.of(context).color ?? Colors.white,
+            width: 1.5,
+          ),
+        ),
+        margin: const EdgeInsets.all(VERY_SMALL_SPACE),
+        padding: const EdgeInsets.all(SMALL_SPACE),
+        child: const icons.Close(
+          size: 13.0,
+        ),
+      );
+    } else {
+      icon = const Padding(
+        padding: EdgeInsets.all(MEDIUM_SPACE),
+        child: icons.Close(
+          size: 15.0,
+        ),
+      );
+    }
+
     return Semantics(
       value: MaterialLocalizations.of(context).closeButtonTooltip,
       button: true,
       excludeSemantics: true,
       sortKey: OrdinalSortKey(semanticsOrder ?? 2.0),
-      child: Tooltip(
-        message: MaterialLocalizations.of(context).closeButtonTooltip,
-        enableFeedback: true,
-        child: InkWell(
-          onTap: () => Navigator.of(context).pop(),
-          customBorder: const CircleBorder(),
-          child: const Padding(
-            padding: EdgeInsets.all(MEDIUM_SPACE),
-            child: icons.Close(
-              size: 15.0,
-            ),
+      child: Padding(
+        padding: const EdgeInsetsDirectional.only(end: SMALL_SPACE),
+        child: Tooltip(
+          message: MaterialLocalizations.of(context).closeButtonTooltip,
+          enableFeedback: true,
+          child: InkWell(
+            onTap: () => Navigator.of(context).pop(),
+            customBorder: const CircleBorder(),
+            child: icon,
           ),
         ),
       ),

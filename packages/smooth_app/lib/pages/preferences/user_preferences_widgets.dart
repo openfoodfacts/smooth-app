@@ -6,6 +6,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 
 /// A dashed line
 class UserPreferencesListItemDivider extends StatelessWidget {
@@ -443,7 +444,13 @@ class _ChoiceItem<T> extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
-    final Color? selectedColor = selected ? theme.primaryColor : null;
+    final SmoothColorsThemeExtension extension =
+        theme.extension<SmoothColorsThemeExtension>()!;
+    final Color? selectedColor = selected
+        ? context.lightTheme()
+            ? extension.primaryMedium
+            : extension.primaryDark
+        : null;
 
     return Semantics(
       value: label,
@@ -451,7 +458,7 @@ class _ChoiceItem<T> extends StatelessWidget {
       button: true,
       excludeSemantics: true,
       child: Ink(
-        color: selectedColor?.withOpacity(0.1) ?? Colors.transparent,
+        color: selectedColor ?? Colors.transparent,
         child: Column(
           children: <Widget>[
             ListTile(

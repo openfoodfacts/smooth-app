@@ -118,14 +118,10 @@ class _ProductAddToListButton extends StatelessWidget {
 
   Future<bool?> _editList(BuildContext context, Product product) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final SmoothColorsThemeExtension? extension =
-        Theme.of(context).extension<SmoothColorsThemeExtension>();
 
     showSmoothDraggableModalSheet(
       context: context,
       header: SmoothModalSheetHeader(
-        backgroundColor: extension!.primaryDark,
-        foregroundColor: Colors.white,
         prefix: const SmoothModalSheetHeaderPrefixIndicator(),
         title: appLocalizations.user_list_title,
         suffix: const SmoothModalSheetHeaderCloseButton(

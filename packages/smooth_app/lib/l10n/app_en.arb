@@ -2537,6 +2537,10 @@
     "@user_picture_source_select": {
         "description": "Choice of selecting the picture source each time"
     },
+    "user_picture_source_ask": "Ask each time",
+    "@user_picture_source_ask": {
+        "description": "Choice of asking the picture source every time"
+    },
     "robotoff_continue": "Continue",
     "@robotoff_continue": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering"
