@@ -62,9 +62,31 @@ class DaoOsmLocation extends AbstractSqlDao {
           ',PRIMARY KEY($_columnId,$_columnType) on conflict replace'
           ')');
     }
+
+    /// Not brilliant, but for historical reasons we have to catch that here.
+    bool isDuplicateColumnException(
+      final DatabaseException e,
+      final String column,
+    ) =>
+        e.toString().startsWith(
+            'DatabaseException(duplicate column name: $column (code 1 SQLITE_ERROR)');
+
     if (oldVersion < 7) {
-      await db.execute('alter table $_table add column $_columnOsmKey TEXT');
-      await db.execute('alter table $_table add column $_columnOsmValue TEXT');
+      try {
+        await db.execute('alter table $_table add column $_columnOsmKey TEXT');
+      } on DatabaseException catch (e) {
+        if (!isDuplicateColumnException(e, _columnOsmKey)) {
+          rethrow;
+        }
+      }
+      try {
+        await db
+            .execute('alter table $_table add column $_columnOsmValue TEXT');
+      } on DatabaseException catch (e) {
+        if (!isDuplicateColumnException(e, _columnOsmValue)) {
+          rethrow;
+        }
+      }
     }
   }
 
