@@ -408,9 +408,9 @@
     "@saving_answer": {
         "description": "Dialog shown to users after they have answered a question, while the answer is being saved in the BE."
     },
-    "contribute_to_get_rewards": "Help improve food transparency and get rewards",
+    "contribute_to_get_rewards": "Become an actor of food transparency",
     "@contribute_to_get_rewards": {
-        "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts and gain rewards."
+        "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts."
     },
     "question_sign_in_text": "Sign in to your Open Food Facts account to get credit for your contributions",
     "question_yes_button_accessibility_value": "Answer with yes",
@@ -682,6 +682,9 @@
         "description": "Button at the end of new product page, that takes you to completed product"
     },
     "hey_incomplete_product_message": "Tap to answer 3 questions NOW to compute Nutri-Score, Eco-Score & Ultra-processing (NOVA)!",
+    "hey_incomplete_product_message_beauty": "Tap now to answer 2 questions to help analyze this cosmetic!",
+    "hey_incomplete_product_message_pet_food": "Tap now to answer 3 questions to help analyze this pet food product!",
+    "hey_incomplete_product_message_product": "Tap now to help complete this product!",
     "nutritional_facts_photo_uploaded": "Nutrition facts photo uploaded",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "Recycling photo",
@@ -1569,6 +1572,10 @@
     "@user_list_subtitle_product": {
         "description": "Subtitle of a paragraph about user lists in a product context"
     },
+    "user_list_title": "Your lists",
+    "@user_list_title": {
+        "description": "Label for the user lists (when the user wants to add a product to a list)"
+    },
     "user_list_add_product": "Add the product to your lists",
     "@user_list_add_product": {
         "description": "Label for the dialog to add a product to a list"
@@ -1612,6 +1619,10 @@
     "user_list_name_error_same": "That is the same name",
     "@user_list_name_error_same": {
         "description": "Validation error about the renamed name that is the same as the initial list name"
+    },
+    "user_list_name_input_hint": "Name of the list",
+    "@user_list_name_input_hint": {
+        "description": "A hint to indicate that the user should input a name of a list"
     },
     "try_again": "Try Again",
     "@try_again": {

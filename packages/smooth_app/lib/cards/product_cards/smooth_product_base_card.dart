@@ -59,10 +59,12 @@ class ProductCardCloseButton extends StatelessWidget {
   const ProductCardCloseButton({
     this.onRemove,
     this.iconData = Icons.clear_rounded,
+    this.padding,
   });
 
   final OnRemoveCallback? onRemove;
   final IconData iconData;
+  final EdgeInsetsGeometry? padding;
 
   @override
   Widget build(BuildContext context) {
@@ -79,7 +81,7 @@ class ProductCardCloseButton extends StatelessWidget {
         child: Tooltip(
           message: appLocalizations.product_card_remove_product_tooltip,
           child: Padding(
-            padding: const EdgeInsets.all(SMALL_SPACE),
+            padding: padding ?? const EdgeInsets.all(SMALL_SPACE),
             child: Icon(
               iconData,
               size: DEFAULT_ICON_SIZE,

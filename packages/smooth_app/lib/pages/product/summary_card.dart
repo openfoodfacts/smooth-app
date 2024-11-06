@@ -24,6 +24,8 @@ import 'package:smooth_app/pages/product/product_field_editor.dart';
 import 'package:smooth_app/pages/product/product_incomplete_card.dart';
 import 'package:smooth_app/pages/product/product_questions_widget.dart';
 import 'package:smooth_app/pages/product/summary_attribute_group.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
 const List<String> _ATTRIBUTE_GROUP_ORDER = <String>[
   AttributeGroup.ATTRIBUTE_GROUP_ALLERGENS,
@@ -45,6 +47,7 @@ class SummaryCard extends StatefulWidget {
     this.isProductEditable = true,
     this.attributeGroupsClickable = true,
     this.padding,
+    this.shadow,
   });
 
   final Product _product;
@@ -72,6 +75,9 @@ class SummaryCard extends StatefulWidget {
   final bool attributeGroupsClickable;
 
   final EdgeInsetsGeometry? padding;
+
+  /// An optional shadow to apply to the card
+  final BoxShadow? shadow;
 
   @override
   State<SummaryCard> createState() => _SummaryCardState();
@@ -120,6 +126,9 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
   }
 
   Widget _buildLimitedSizeSummaryCard(double parentHeight) {
+    final SmoothColorsThemeExtension? themeExtension =
+        Theme.of(context).extension<SmoothColorsThemeExtension>();
+
     return Padding(
       padding: widget.padding ??
           const EdgeInsets.symmetric(
@@ -128,23 +137,30 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
           ),
       child: Stack(
         children: <Widget>[
-          ClipRRect(
-            borderRadius: ROUNDED_BORDER_RADIUS,
-            child: OverflowBox(
-              alignment: AlignmentDirectional.topStart,
-              minHeight: parentHeight,
-              maxHeight: double.infinity,
-              child: buildProductSmoothCard(
-                header: ProductCompatibilityHeader(
-                  product: upToDateProduct,
-                  productPreferences: widget._productPreferences,
-                  isSettingVisible: widget.isSettingVisible,
+          DecoratedBox(
+            decoration: BoxDecoration(
+              boxShadow:
+                  widget.shadow != null ? <BoxShadow>[widget.shadow!] : null,
+              borderRadius: ROUNDED_BORDER_RADIUS,
+            ),
+            child: ClipRRect(
+              borderRadius: ROUNDED_BORDER_RADIUS,
+              child: OverflowBox(
+                alignment: AlignmentDirectional.topStart,
+                minHeight: parentHeight,
+                maxHeight: double.infinity,
+                child: buildProductSmoothCard(
+                  header: ProductCompatibilityHeader(
+                    product: upToDateProduct,
+                    productPreferences: widget._productPreferences,
+                    isSettingVisible: widget.isSettingVisible,
+                  ),
+                  body: Padding(
+                    padding: SMOOTH_CARD_PADDING,
+                    child: _buildSummaryCardContent(context),
+                  ),
+                  margin: EdgeInsets.zero,
                 ),
-                body: Padding(
-                  padding: SMOOTH_CARD_PADDING,
-                  child: _buildSummaryCardContent(context),
-                ),
-                margin: EdgeInsets.zero,
               ),
             ),
           ),
@@ -157,18 +173,39 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
                   vertical: SMALL_SPACE,
                 ),
                 decoration: BoxDecoration(
-                  color: Theme.of(context).cardColor,
+                  color: themeExtension!.primaryNormal,
                   borderRadius:
                       const BorderRadius.vertical(bottom: ROUNDED_RADIUS),
                 ),
-                child: Center(
-                  child: Text(
-                    AppLocalizations.of(context).tap_for_more,
-                    style:
-                        Theme.of(context).primaryTextTheme.bodyLarge?.copyWith(
-                              color: PRIMARY_BLUE_COLOR,
-                            ),
-                  ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsetsDirectional.only(bottom: 2.0),
+                      child: Text(
+                        AppLocalizations.of(context).tap_for_more,
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 15.0,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      width: BALANCED_SPACE,
+                    ),
+                    Container(
+                      decoration: const BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.white,
+                      ),
+                      padding: const EdgeInsets.all(VERY_SMALL_SPACE),
+                      child: icons.Arrow.right(
+                        color: themeExtension.primaryNormal,
+                        size: 12.0,
+                      ),
+                    )
+                  ],
                 ),
               ),
             ],

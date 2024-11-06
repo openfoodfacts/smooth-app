@@ -6,6 +6,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/product/hideable_container.dart';
 import 'package:smooth_app/pages/product/summary_card.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 
 class ScanProductCard extends StatelessWidget {
   ScanProductCard(this.product)
@@ -37,6 +38,14 @@ class ScanProductCard extends StatelessWidget {
             attributeGroupsClickable: false,
             padding: const EdgeInsets.symmetric(
               vertical: VERY_SMALL_SPACE,
+            ),
+            shadow: BoxShadow(
+              color: Theme.of(context)
+                  .shadowColor
+                  .withOpacity(context.lightTheme() ? 0.08 : 0.3),
+              offset: const Offset(0.0, 2.0),
+              blurRadius: 5.0,
+              spreadRadius: 1.0,
             ),
           ),
         ),
