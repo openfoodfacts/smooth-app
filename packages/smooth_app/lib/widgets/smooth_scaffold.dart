@@ -146,8 +146,7 @@ class SmoothScaffoldState extends ScaffoldState {
   SystemUiOverlayStyle get _overlayStyle {
     final Brightness? brightness;
 
-    // Invert brightness on iOS devices
-    if (Platform.isIOS && _brightness == null) {
+    if (_brightness == null) {
       switch (Theme.of(context).brightness) {
         case Brightness.dark:
           brightness = Brightness.light;
