@@ -124,9 +124,7 @@ class _ProductAddToListButton extends StatelessWidget {
       header: SmoothModalSheetHeader(
         prefix: const SmoothModalSheetHeaderPrefixIndicator(),
         title: appLocalizations.user_list_title,
-        suffix: const SmoothModalSheetHeaderCloseButton(
-          addPadding: true,
-        ),
+        suffix: const SmoothModalSheetHeaderCloseButton(),
       ),
       bodyBuilder: (BuildContext context) => AddProductToListContainer(
         barcode: product.barcode!,
