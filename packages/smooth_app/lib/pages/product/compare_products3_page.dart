@@ -85,7 +85,7 @@ class _CompareProducts3PageState extends State<CompareProducts3Page> {
       scoreWidgets.add(
         Expanded(
           child: Container(
-            color: helper.getHeaderBackgroundColor(darkMode),
+            color: helper.getColor(context),
             child: Center(
               child: Text(
                 matchedProduct.score.toInt().toString(),

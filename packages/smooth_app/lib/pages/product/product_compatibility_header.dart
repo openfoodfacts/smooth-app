@@ -25,6 +25,7 @@ class ProductCompatibilityHeader extends StatelessWidget {
       product,
       productPreferences,
     );
+
     final ProductCompatibilityHelper helper =
         ProductCompatibilityHelper.product(matchedProduct);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
@@ -33,7 +34,7 @@ class ProductCompatibilityHeader extends StatelessWidget {
 
     return Ink(
       decoration: BoxDecoration(
-        color: helper.getHeaderBackgroundColor(isDarkMode),
+        color: helper.getColor(context),
         // Ensure that the header has the same circular radius as the SmoothCard.
         borderRadius: const BorderRadiusDirectional.only(
           topStart: ROUNDED_RADIUS,

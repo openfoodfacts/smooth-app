@@ -17,6 +17,7 @@ import 'package:smooth_app/pages/prices/product_price_add_page.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/product/edit_product_page.dart';
 import 'package:smooth_app/pages/product/product_list_helper.dart';
+import 'package:smooth_app/pages/product/product_page/new_product_header.dart';
 import 'package:smooth_app/pages/product/product_page/new_product_page.dart';
 import 'package:smooth_app/query/category_product_query.dart';
 import 'package:smooth_app/query/product_query.dart';
@@ -383,6 +384,8 @@ class _ProductFooterFilledButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final SmoothColorsThemeExtension themeExtension =
         Theme.of(context).extension<SmoothColorsThemeExtension>()!;
+    final ProductPageCompatibility compatibility =
+        context.watch<ProductPageCompatibility>();
 
     return Semantics(
       excludeSemantics: true,
@@ -392,9 +395,11 @@ class _ProductFooterFilledButton extends StatelessWidget {
         onPressed: onTap,
         style: OutlinedButton.styleFrom(
           foregroundColor: Colors.white,
-          backgroundColor: context.lightTheme()
-              ? themeExtension.primaryBlack
-              : themeExtension.primarySemiDark,
+          backgroundColor: compatibility.score > 0
+              ? compatibility.color
+              : context.lightTheme()
+                  ? themeExtension.primaryBlack
+                  : themeExtension.primarySemiDark,
           side: BorderSide.none,
         ),
         child: Row(

@@ -11,6 +11,7 @@ class SmoothScaffold extends Scaffold {
     this.contentBehindStatusBar = false,
     this.spaceBehindStatusBar = false,
     this.fixKeyboard = false,
+    this.changeStatusBarBrightness = true,
     bool? resizeToAvoidBottomInset,
     super.key,
     super.appBar,
@@ -52,6 +53,7 @@ class SmoothScaffold extends Scaffold {
   final Color? statusBarBackgroundColor;
   final bool contentBehindStatusBar;
   final bool spaceBehindStatusBar;
+  final bool changeStatusBarBrightness;
 
   /// On some screens an extra padding maybe wrongly added when the keyboard is
   /// visible
@@ -120,6 +122,10 @@ class SmoothScaffoldState extends ScaffoldState {
       }
     }
 
+    if (!_changeStatusBarBrightness) {
+      return child;
+    }
+
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: _overlayStyle,
       child: Theme(
@@ -138,6 +144,9 @@ class SmoothScaffoldState extends ScaffoldState {
 
   bool get _spaceBehindStatusBar =>
       (widget as SmoothScaffold).spaceBehindStatusBar == true;
+
+  bool get _changeStatusBarBrightness =>
+      (widget as SmoothScaffold).changeStatusBarBrightness == true;
 
   Brightness? get _brightness =>
       (widget as SmoothScaffold).brightness ??
