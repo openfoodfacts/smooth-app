@@ -13,6 +13,7 @@ import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/product/product_page/new_product_page.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
+import 'package:smooth_app/themes/constant_icons.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
 class ProductHeader extends StatefulWidget {
@@ -131,10 +132,8 @@ class _ProductHeaderBackButton extends StatelessWidget {
           onTap: () {
             Navigator.of(context).maybePop();
           },
-          child: const SizedBox.expand(
-            child: icons.Chevron.left(
-              size: 14.0,
-            ),
+          child: SizedBox.expand(
+            child: Icon(ConstantIcons.instance.getBackIcon()),
           ),
         ),
       ),
