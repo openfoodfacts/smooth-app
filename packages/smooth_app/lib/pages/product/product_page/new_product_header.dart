@@ -126,7 +126,7 @@ class _ProductHeaderBackButton extends StatelessWidget {
     return SizedBox(
       width: 56.0,
       child: Tooltip(
-        message: MaterialLocalizations.of(context).closeButtonTooltip,
+        message: MaterialLocalizations.of(context).backButtonTooltip,
         child: InkWell(
           customBorder: const CircleBorder(),
           onTap: () {
