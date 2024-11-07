@@ -17,9 +17,9 @@ class ProductCompatibilityHelper {
 
     return switch (status) {
       MatchedProductStatusV2.VERY_GOOD_MATCH => theme.green,
-      MatchedProductStatusV2.GOOD_MATCH => theme.orange,
-      MatchedProductStatusV2.POOR_MATCH => theme.red,
-      MatchedProductStatusV2.MAY_NOT_MATCH => theme.red,
+      MatchedProductStatusV2.GOOD_MATCH => theme.green,
+      MatchedProductStatusV2.POOR_MATCH => theme.orange,
+      MatchedProductStatusV2.MAY_NOT_MATCH => theme.orange,
       MatchedProductStatusV2.DOES_NOT_MATCH => theme.red,
       MatchedProductStatusV2.UNKNOWN_MATCH => theme.greyNormal,
     };
