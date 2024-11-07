@@ -3073,5 +3073,9 @@
     "photo_viewer_details_url_title": "URL",
     "@photo_viewer_details_url_title": {
         "description": "Label for the link of a photo"
+    },
+    "product_page_compatibility_score": "Compatible",
+    "@product_page_compatibility_score": {
+        "description": "Compatibility score on top of the product page. The sentence is \"100%\" Compatible"
     }
 }

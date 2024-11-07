@@ -3,6 +3,7 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart' hide Listener;
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -271,9 +272,10 @@ class _ProductCompatibilityScore extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const Text(
-                    'Compatible',
-                    style: TextStyle(
+                  Text(
+                    AppLocalizations.of(context)
+                        .product_page_compatibility_score,
+                    style: const TextStyle(
                       fontSize: 9.0,
                       height: 0.9,
                       fontWeight: FontWeight.w500,
