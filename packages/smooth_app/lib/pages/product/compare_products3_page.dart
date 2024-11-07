@@ -69,8 +69,6 @@ class _CompareProducts3PageState extends State<CompareProducts3Page> {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     context.watch<LocalDatabase>();
 
-    final bool darkMode = Theme.of(context).brightness == Brightness.dark;
-
     final ProductPreferences productPreferences =
         context.watch<ProductPreferences>();
     final List<List<Attribute>> scoreAttributesArray = <List<Attribute>>[];
