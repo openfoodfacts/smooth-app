@@ -11,6 +11,8 @@ class _IconsFont {
 
   static const IconData chicken =
       IconData(0xe800, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData eye_invisible =
+      IconData(0xe801, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData settings =
       IconData(0xe802, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData magic_wand =
@@ -83,12 +85,20 @@ class _IconsFont {
       IconData(0xe824, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData torch_off =
       IconData(0xe825, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData language =
+      IconData(0xe826, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData sound_off =
       IconData(0xe827, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData sound_on =
       IconData(0xe828, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData torch_on =
       IconData(0xe829, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData camera_happy =
+      IconData(0xe82a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData vibration =
+      IconData(0xe82b, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData programming =
+      IconData(0xe82c, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData add =
       IconData(0xe82d, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData barcode_corners =
@@ -139,16 +149,62 @@ class _IconsFont {
       IconData(0xe846, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData add_to_list =
       IconData(0xe847, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData eye_visible =
+      IconData(0xe848, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData delete_trash =
+      IconData(0xe84a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData image_check =
+      IconData(0xe84b, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData image_add =
+      IconData(0xe84c, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData app_store =
+      IconData(0xe84d, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData document =
+      IconData(0xe84e, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData github =
+      IconData(0xe84f, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData ingredients_basket =
+      IconData(0xe850, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData close =
       IconData(0xe851, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData suggestion =
       IconData(0xe852, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData clear_text =
       IconData(0xe853, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData contribute =
+      IconData(0xe854, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData crash =
+      IconData(0xe855, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData currency =
+      IconData(0xe856, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData nutritional_facts =
+      IconData(0xe857, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData help_circled =
       IconData(0xe858, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData dots_vertical =
       IconData(0xe859, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData country =
+      IconData(0xe85a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData hamburger_menu =
+      IconData(0xe85c, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData password =
+      IconData(0xe85d, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData incognito =
+      IconData(0xe85e, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData logout =
+      IconData(0xe85f, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData donate =
+      IconData(0xe861, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData dangerous_zone =
+      IconData(0xe862, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData happy_toast =
+      IconData(0xe863, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData light_bulb =
+      IconData(0xe864, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData language_world =
+      IconData(0xe865, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData personalization_alt =
+      IconData(0xe866, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData share_cupertino =
       IconData(0xe8a4, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData share_material =
