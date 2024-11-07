@@ -520,22 +520,6 @@ class GitHub extends AppIcon {
   }) : super._(_IconsFont.github);
 }
 
-class Image extends AppIcon {
-  const Image.add({
-    super.color,
-    super.size,
-    super.shadow,
-    super.key,
-  }) : super._(_IconsFont.image_add);
-
-  const Image.check({
-    super.color,
-    super.size,
-    super.shadow,
-    super.key,
-  }) : super._(_IconsFont.image_check);
-}
-
 class Info extends AppIcon {
   const Info({
     super.color,
@@ -751,6 +735,22 @@ class Personalization extends AppIcon {
     super.shadow,
     super.key,
   }) : super._(_IconsFont.personalization_alt);
+}
+
+class Picture extends AppIcon {
+  const Picture.add({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  }) : super._(_IconsFont.image_add);
+
+  const Picture.check({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  }) : super._(_IconsFont.image_check);
 }
 
 class Programming extends AppIcon {
