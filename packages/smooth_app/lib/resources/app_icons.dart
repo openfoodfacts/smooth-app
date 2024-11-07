@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:openfoodfacts/openfoodfacts.dart' as off;
 
 part 'app_icons_font.dart';
 
@@ -15,18 +15,18 @@ class Add extends AppIcon {
 }
 
 class AddPrice extends AppIcon {
-  factory AddPrice(Currency currency) {
+  factory AddPrice(off.Currency currency) {
     return switch (currency) {
-      Currency.GBP => const AddPrice.britishPound(),
-      Currency.USD => const AddPrice.dollar(),
-      Currency.EUR => const AddPrice.euro(),
-      Currency.RUB => const AddPrice.ruble(),
-      Currency.INR => const AddPrice.rupee(),
-      Currency.CHF => const AddPrice.swissFranc(),
-      Currency.TRY => const AddPrice.turkishLira(),
-      Currency.UAH => const AddPrice.ukrainianHryvnia(),
-      Currency.KRW => const AddPrice.won(),
-      Currency.JPY => const AddPrice.yen(),
+      off.Currency.GBP => const AddPrice.britishPound(),
+      off.Currency.USD => const AddPrice.dollar(),
+      off.Currency.EUR => const AddPrice.euro(),
+      off.Currency.RUB => const AddPrice.ruble(),
+      off.Currency.INR => const AddPrice.rupee(),
+      off.Currency.CHF => const AddPrice.swissFranc(),
+      off.Currency.TRY => const AddPrice.turkishLira(),
+      off.Currency.UAH => const AddPrice.ukrainianHryvnia(),
+      off.Currency.KRW => const AddPrice.won(),
+      off.Currency.JPY => const AddPrice.yen(),
       _ => const AddPrice.dollar(),
     };
   }
