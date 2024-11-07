@@ -1584,7 +1584,7 @@
     "@user_list_button_new": {
         "description": "Short label of a 'create a new list' button"
     },
-    "user_list_empty_label": "No list available yet, please start by creating one",
+    "user_list_empty_label": "No list available yet!\nPlease start by creating one.",
     "@user_list_empty_label": {
         "description": "Content displayed when there is no list"
     },

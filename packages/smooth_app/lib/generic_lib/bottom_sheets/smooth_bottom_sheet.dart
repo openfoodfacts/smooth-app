@@ -32,14 +32,20 @@ Future<T?> showSmoothDraggableModalSheet<T>({
   /// You must return a Sliver Widget
   required WidgetBuilder bodyBuilder,
   double? initHeight,
+  double? minHeight,
+  double? maxHeight,
+  DraggableScrollableController? draggableScrollableController,
 }) {
   return showDraggableModalSheet<T>(
     context: context,
+    draggableScrollableController: draggableScrollableController,
     borderRadius: const BorderRadius.vertical(top: ROUNDED_RADIUS),
     headerBuilder: (_) => header,
     headerHeight: header.computeHeight(context),
     bodyBuilder: bodyBuilder,
     initHeight: initHeight,
+    minHeight: minHeight,
+    maxHeight: maxHeight,
   );
 }
 

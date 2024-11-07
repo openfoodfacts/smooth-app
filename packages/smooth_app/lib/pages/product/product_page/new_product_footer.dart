@@ -160,19 +160,7 @@ class _ProductAddPriceButton extends StatelessWidget {
 
         return _ProductFooterFilledButton(
           label: appLocalizations.prices_add_a_price,
-          icon: switch (currency) {
-            Currency.GBP => const icons.AddPrice.britishPound(),
-            Currency.USD => const icons.AddPrice.dollar(),
-            Currency.EUR => const icons.AddPrice.euro(),
-            Currency.RUB => const icons.AddPrice.ruble(),
-            Currency.INR => const icons.AddPrice.rupee(),
-            Currency.CHF => const icons.AddPrice.swissFranc(),
-            Currency.TRY => const icons.AddPrice.turkishLira(),
-            Currency.UAH => const icons.AddPrice.ukrainianHryvnia(),
-            Currency.KRW => const icons.AddPrice.won(),
-            Currency.JPY => const icons.AddPrice.yen(),
-            _ => const icons.AddPrice.dollar(),
-          },
+          icon: icons.AddPrice(currency),
           onTap: () => _addAPrice(context, context.read<Product>()),
         );
       },

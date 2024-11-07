@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_list.dart';
@@ -8,12 +9,14 @@ import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_simple_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/helpers/collections_helper.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 import 'package:smooth_app/helpers/provider_helper.dart';
 import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
 import 'package:smooth_app/resources/app_icons.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_checkbox.dart';
 
 class AddProductToListContainer extends StatelessWidget {
@@ -137,35 +140,51 @@ class _AddToProductListNoListAvailable extends StatelessWidget {
 class _AddToProductListWithLists extends StatelessWidget {
   const _AddToProductListWithLists();
 
-  static const double MIN_ITEM_HEIGHT = 48.0;
+  static const double MIN_ITEM_HEIGHT = 58.0;
 
   @override
   Widget build(BuildContext context) {
     final _ProductUserListsWithState state = context
         .watch<_ProductUserListsProvider>()
         .value as _ProductUserListsWithState;
+    final List<MapEntry<String, bool>> userLists = state.userLists;
+    final bool? scrollBarVisible = userLists.length > 5 ? true : null;
 
-    return SliverList(
-      delegate: SliverChildBuilderDelegate(
-        (BuildContext context, int index) {
-          if (index == 0) {
-            return _AddToProductListAddNewList(
-              userLists: state.userLists.map((MapEntry<String, bool> entry) {
-                return entry.key;
-              }),
-            );
-          } else if (index <= state.userLists.length) {
-            final MapEntry<String, bool> entry = state.userLists[index - 1];
-            return _AddToProductListItem(
-              listId: entry.key,
-              selected: entry.value,
-              includeDivider: index < state.userLists.length,
-            );
-          } else {
-            return SizedBox(height: MediaQuery.viewPaddingOf(context).bottom);
-          }
-        },
-        childCount: state.userLists.length + 2,
+    return DefaultTextStyle.merge(
+      style: TextStyle(
+        fontSize: 15.0,
+        color: Theme.of(context).colorScheme.onSurface,
+      ),
+      child: SliverFillRemaining(
+        child: Column(children: <Widget>[
+          Expanded(
+            child: Scrollbar(
+              thumbVisibility: scrollBarVisible,
+              trackVisibility: scrollBarVisible,
+              child: ListView.builder(
+                padding: EdgeInsets.zero,
+                itemCount: userLists.length,
+                itemBuilder: (BuildContext context, int index) {
+                  final MapEntry<String, bool> entry = userLists[index];
+                  return KeyedSubtree(
+                    key: ValueKey<String>(entry.key),
+                    child: _AddToProductListItem(
+                      listId: entry.key,
+                      selected: entry.value,
+                      // Force the divider when there is just one item
+                      includeDivider:
+                          userLists.length == 1 || index < userLists.length - 1,
+                    ),
+                  );
+                },
+              ),
+            ),
+          ),
+          _AddToProductListAddNewList(
+            userLists:
+                userLists.map((MapEntry<String, bool> entry) => entry.key),
+          )
+        ]),
       ),
     );
   }
@@ -244,97 +263,165 @@ class _AddToProductListAddNewList extends StatefulWidget {
 }
 
 class _AddToProductListAddNewListState
-    extends State<_AddToProductListAddNewList> {
+    extends State<_AddToProductListAddNewList>
+    with WidgetsBindingObserver, SingleTickerProviderStateMixin {
   final TextEditingController _controller = TextEditingController();
+  late final AnimationController _animationController;
+  Animation<Color?>? _colorAnimation;
+  int animationRepeat = 0;
+
   bool _editMode = false;
   bool _inputValid = false;
 
   @override
+  void initState() {
+    super.initState();
+    _animationController = AnimationController(
+      vsync: this,
+      duration: SmoothAnimationsDuration.short,
+    );
+
+    SchedulerBinding.instance.addPostFrameCallback((_) {
+      _initAnimation();
+    });
+  }
+
+  void _initAnimation() {
+    final SmoothColorsThemeExtension extension =
+        Theme.of(context).extension<SmoothColorsThemeExtension>()!;
+    final bool lightTheme = context.lightTheme(listen: false);
+
+    _colorAnimation = ColorTween(
+      begin: lightTheme ? extension.primaryLight : extension.primarySemiDark,
+      end: extension.red,
+    ).animate(_animationController)
+      ..addListener(() {
+        setState(() {});
+      })
+      ..addStatusListener((AnimationStatus status) {
+        // Run back and forth the animation twice
+        if (status == AnimationStatus.completed && animationRepeat < 2) {
+          _animationController.reverse();
+        } else if (status == AnimationStatus.dismissed && animationRepeat < 1) {
+          animationRepeat++;
+          _animationController.forward();
+        }
+      });
+
+    setState(() {});
+  }
+
+  @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final Color? mainColor = Theme.of(context)
-        .checkboxTheme
-        .fillColor!
-        .resolve(<WidgetState>{WidgetState.selected});
+    final SmoothColorsThemeExtension extension =
+        Theme.of(context).extension<SmoothColorsThemeExtension>()!;
+    final bool lightTheme = context.lightTheme();
 
-    return Column(
-      children: <Widget>[
-        IconTheme(
-          data: IconThemeData(color: mainColor),
-          child: InkWell(
-            onTap: () {
-              setState(() {
-                if (!_editMode) {
-                  _controller.clear();
-                  _editMode = true;
-                  _inputValid = false;
-                }
-              });
-            },
-            child: ConstrainedBox(
-              constraints: const BoxConstraints(
-                minHeight: _AddToProductListWithLists.MIN_ITEM_HEIGHT,
+    final Color iconColor = lightTheme
+        ? Theme.of(context)
+            .checkboxTheme
+            .fillColor!
+            .resolve(<WidgetState>{WidgetState.selected})!
+        : Colors.white;
+
+    return IconTheme(
+      data: IconThemeData(color: iconColor),
+      child: Padding(
+        padding: const EdgeInsetsDirectional.symmetric(horizontal: SMALL_SPACE),
+        child: InkWell(
+          borderRadius: const BorderRadius.vertical(top: Radius.circular(10.0)),
+          onTap: () {
+            setState(() {
+              if (!_editMode) {
+                _controller.clear();
+                _editMode = true;
+                _inputValid = false;
+              }
+            });
+          },
+          child: DecoratedBox(
+            decoration: BoxDecoration(
+              borderRadius: const BorderRadius.all(Radius.circular(10.0)),
+              color: _colorAnimation?.value,
+              border: Border.all(
+                color: lightTheme
+                    ? extension.primaryNormal
+                    : extension.primaryLight,
               ),
-              child: Padding(
-                padding: EdgeInsetsDirectional.symmetric(
-                  horizontal:
-                      (Platform.isIOS || Platform.isMacOS) ? 25.5 : 28.0,
+            ),
+            child: Padding(
+              padding: EdgeInsetsDirectional.only(
+                bottom: MediaQuery.viewInsetsOf(context).bottom,
+              ),
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(
+                  minHeight: _AddToProductListWithLists.MIN_ITEM_HEIGHT,
                 ),
-                child: Row(
-                  children: <Widget>[
-                    const Icon(Icons.add_circle_rounded),
-                    const SizedBox(width: VERY_LARGE_SPACE),
-                    Expanded(
-                      child: _editMode
-                          ? Padding(
-                              padding:
-                                  const EdgeInsetsDirectional.only(bottom: 1.0),
-                              child: TextField(
-                                controller: _controller,
-                                autofocus: true,
-                                decoration: InputDecoration(
-                                  isDense: true,
-                                  hintText: appLocalizations
-                                      .user_list_name_input_hint,
-                                  hintStyle: TextStyle(
-                                    fontStyle: FontStyle.italic,
-                                    color: Theme.of(context).hintColor,
+                child: Padding(
+                  padding: EdgeInsetsDirectional.only(
+                    start: (Platform.isIOS || Platform.isMacOS) ? 18.5 : 21.0,
+                    end: 5.0,
+                  ),
+                  child: Row(
+                    children: <Widget>[
+                      const Icon(Icons.add_circle_rounded),
+                      const SizedBox(width: VERY_LARGE_SPACE),
+                      Expanded(
+                        child: _editMode
+                            ? Padding(
+                                padding: const EdgeInsetsDirectional.only(
+                                    bottom: 1.0),
+                                child: TextField(
+                                  controller: _controller,
+                                  autofocus: true,
+                                  decoration: InputDecoration(
+                                    isDense: true,
+                                    hintText: appLocalizations
+                                        .user_list_name_input_hint,
+                                    hintStyle: TextStyle(
+                                      fontStyle: FontStyle.italic,
+                                      color: Theme.of(context).hintColor,
+                                    ),
+                                    contentPadding: EdgeInsets.zero,
+                                    border: InputBorder.none,
                                   ),
-                                  contentPadding: EdgeInsets.zero,
-                                  border: InputBorder.none,
+                                  textInputAction: TextInputAction.done,
+                                  maxLines: 1,
+                                  textAlignVertical: TextAlignVertical.top,
+                                  style: DefaultTextStyle.of(context).style,
+                                  onChanged: _checkInput,
+                                  onSubmitted: (_) => _addList(context),
                                 ),
-                                textInputAction: TextInputAction.done,
-                                maxLines: 1,
-                                textAlignVertical: TextAlignVertical.top,
-                                style: DefaultTextStyle.of(context).style,
-                                onChanged: _checkInput,
-                                onSubmitted: (_) => _inputValid
-                                    ? () => _addList(context)
-                                    : null,
+                              )
+                            : Text(
+                                appLocalizations.user_list_button_new,
                               ),
-                            )
-                          : Text(
-                              appLocalizations.user_list_button_new,
-                            ),
-                    ),
-                    if (_editMode)
-                      IconButton(
-                        icon: const Icon(Icons.cancel),
-                        onPressed: () => setState(() => _editMode = false),
                       ),
-                    if (_editMode)
-                      IconButton(
-                        icon: const Icon(Icons.check_circle),
-                        onPressed: _inputValid ? () => _addList(context) : null,
-                      ),
-                  ],
+                      if (_editMode)
+                        IconButton(
+                          icon: const Icon(Icons.cancel),
+                          onPressed: () => setState(() => _editMode = false),
+                          tooltip: MaterialLocalizations.of(context)
+                              .cancelButtonLabel,
+                        ),
+                      if (_editMode)
+                        IconButton(
+                          icon: const Icon(Icons.check_circle),
+                          color: _inputValid
+                              ? iconColor
+                              : iconColor.withOpacity(0.4),
+                          tooltip: appLocalizations.product_list_create_tooltip,
+                          onPressed: () => _addList(context),
+                        ),
+                    ],
+                  ),
                 ),
               ),
             ),
           ),
         ),
-        const _AddToProductListDivider(),
-      ],
+      ),
     );
   }
 
@@ -351,6 +438,7 @@ class _AddToProductListAddNewListState
 
   void _addList(BuildContext context) {
     if (!_inputValid) {
+      _notifyWrongInput();
       return;
     }
 
@@ -360,28 +448,82 @@ class _AddToProductListAddNewListState
 
     setState(() => _editMode = false);
   }
+
+  void _notifyWrongInput() {
+    animationRepeat = 0;
+    _animationController.forward(from: 0.0);
+    SmoothHapticFeedback.error();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 }
 
+/// A dashed divider
 class _AddToProductListDivider extends StatelessWidget {
   const _AddToProductListDivider();
 
   @override
   Widget build(BuildContext context) {
+    final SmoothColorsThemeExtension extension =
+        Theme.of(context).extension<SmoothColorsThemeExtension>()!;
     return Padding(
       padding: const EdgeInsetsDirectional.symmetric(
         horizontal: LARGE_SPACE,
       ),
-      child: SizedBox(
-        height: 1.0,
-        width: double.infinity,
-        child: ColoredBox(
-          color: Theme.of(context)
-              .extension<SmoothColorsThemeExtension>()!
-              .primaryLight,
+      child: CustomPaint(
+        size: const Size(double.infinity, 1.0),
+        painter: _AddToProductListDividerPainter(
+          dashWidth: 8.0,
+          dashSpace: 5.0,
+          color: context.lightTheme()
+              ? extension.primaryNormal
+              : extension.primaryLight,
         ),
       ),
     );
   }
+}
+
+class _AddToProductListDividerPainter extends CustomPainter {
+  _AddToProductListDividerPainter({
+    required Color color,
+    required this.dashWidth,
+    required this.dashSpace,
+  })  : assert(color != Colors.transparent),
+        assert(dashWidth >= 0),
+        assert(dashSpace >= 0),
+        _paint = Paint()
+          ..color = color
+          ..strokeWidth = 1.0
+          ..style = PaintingStyle.stroke;
+
+  final Paint _paint;
+  final double dashWidth;
+  final double dashSpace;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    double startX = 0.0;
+    while (startX < size.width) {
+      canvas.drawLine(
+        Offset(startX, 0),
+        Offset(startX + dashWidth, 0),
+        _paint,
+      );
+      startX += dashWidth + dashSpace;
+    }
+  }
+
+  @override
+  bool shouldRepaint(_AddToProductListDividerPainter oldDelegate) => false;
+
+  @override
+  bool shouldRebuildSemantics(_AddToProductListDividerPainter oldDelegate) =>
+      false;
 }
 
 /// Logic for the user lists
@@ -403,12 +545,12 @@ class _ProductUserListsProvider extends ValueNotifier<_ProductUserListsState> {
       return;
     }
 
-    // Sort by ignoring case
+// Sort by ignoring case
     lists.sort(
       (String a, String b) => a.toLowerCase().compareTo(b.toLowerCase()),
     );
 
-    // Create a list of user lists with a boolean if the product is in it
+// Create a list of user lists with a boolean if the product is in it
     final List<String> listsWithProduct =
         await dao.getUserListsWithBarcodes(<String>[barcode]);
 
