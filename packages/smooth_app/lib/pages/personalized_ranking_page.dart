@@ -241,7 +241,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
           barcode: matchedProduct.barcode,
           backgroundColor:
               ProductCompatibilityHelper.status(matchedProduct.status)
-                  .getHeaderBackgroundColor(darkMode)
+                  .getColor(context)
                   .withAlpha(_backgroundAlpha),
         ),
       );
