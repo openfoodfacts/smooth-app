@@ -42,6 +42,7 @@ class SummaryCard extends StatefulWidget {
     this._productPreferences, {
     this.isFullVersion = false,
     this.showQuestionsBanner = false,
+    this.showCompatibilityHeader = true,
     this.isRemovable = true,
     this.isSettingVisible = true,
     this.isProductEditable = true,
@@ -73,6 +74,9 @@ class SummaryCard extends StatefulWidget {
 
   /// If true, all chips / groups are clickable
   final bool attributeGroupsClickable;
+
+  /// If true, the compatibility header will be shown
+  final bool showCompatibilityHeader;
 
   final EdgeInsetsGeometry? padding;
 
@@ -107,11 +111,13 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
     refreshUpToDate();
     if (widget.isFullVersion) {
       return buildProductSmoothCard(
-        header: ProductCompatibilityHeader(
-          product: upToDateProduct,
-          productPreferences: widget._productPreferences,
-          isSettingVisible: widget.isSettingVisible,
-        ),
+        header: widget.showCompatibilityHeader
+            ? ProductCompatibilityHeader(
+                product: upToDateProduct,
+                productPreferences: widget._productPreferences,
+                isSettingVisible: widget.isSettingVisible,
+              )
+            : null,
         body: Padding(
           padding: widget.padding ?? SMOOTH_CARD_PADDING,
           child: _buildSummaryCardContent(context),

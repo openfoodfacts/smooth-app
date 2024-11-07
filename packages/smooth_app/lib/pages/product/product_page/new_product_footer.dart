@@ -365,6 +365,8 @@ class _ProductFooterFilledButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final SmoothColorsThemeExtension themeExtension =
         Theme.of(context).extension<SmoothColorsThemeExtension>()!;
+    final ProductPageCompatibility compatibility =
+        context.watch<ProductPageCompatibility>();
 
     return Semantics(
       excludeSemantics: true,
@@ -374,9 +376,11 @@ class _ProductFooterFilledButton extends StatelessWidget {
         onPressed: onTap,
         style: OutlinedButton.styleFrom(
           foregroundColor: Colors.white,
-          backgroundColor: context.lightTheme()
-              ? themeExtension.primaryBlack
-              : themeExtension.primarySemiDark,
+          backgroundColor: compatibility.score > 0
+              ? compatibility.color
+              : context.lightTheme()
+                  ? themeExtension.primaryBlack
+                  : themeExtension.primarySemiDark,
           side: BorderSide.none,
         ),
         child: Row(

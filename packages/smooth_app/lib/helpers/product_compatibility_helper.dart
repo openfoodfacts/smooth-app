@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
 class ProductCompatibilityHelper {
   ProductCompatibilityHelper.product(final MatchedProductV2 product)
@@ -11,20 +11,18 @@ class ProductCompatibilityHelper {
 
   final MatchedProductStatusV2 status;
 
-  Color getHeaderBackgroundColor(bool darkMode) {
-    if (darkMode) {
-      return _getDarkColors();
-    } else {
-      return _getLightColors();
-    }
-  }
+  Color getColor(BuildContext context) {
+    final SmoothColorsThemeExtension theme =
+        Theme.of(context).extension<SmoothColorsThemeExtension>()!;
 
-  Color getButtonColor(bool darkMode) {
-    if (darkMode) {
-      return _getLightColors();
-    } else {
-      return _getDarkColors();
-    }
+    return switch (status) {
+      MatchedProductStatusV2.VERY_GOOD_MATCH => theme.green,
+      MatchedProductStatusV2.GOOD_MATCH => theme.green,
+      MatchedProductStatusV2.POOR_MATCH => theme.orange,
+      MatchedProductStatusV2.MAY_NOT_MATCH => theme.orange,
+      MatchedProductStatusV2.DOES_NOT_MATCH => theme.red,
+      MatchedProductStatusV2.UNKNOWN_MATCH => theme.greyNormal,
+    };
   }
 
   Color getHeaderForegroundColor(bool darkMode) =>
@@ -32,30 +30,6 @@ class ProductCompatibilityHelper {
 
   Color getButtonForegroundColor(bool darkMode) =>
       getHeaderForegroundColor(darkMode);
-
-  // According to color contrast tool https://material.io/resources/color
-  // on all those background colors the best is to write in black.
-  Color _getDarkColors() {
-    switch (status) {
-      case MatchedProductStatusV2.VERY_GOOD_MATCH:
-        return DARK_GREEN_COLOR;
-      case MatchedProductStatusV2.GOOD_MATCH:
-        return LIGHT_GREEN_COLOR;
-      case MatchedProductStatusV2.POOR_MATCH:
-        return DARK_YELLOW_COLOR;
-      case MatchedProductStatusV2.MAY_NOT_MATCH:
-        return DARK_ORANGE_COLOR;
-      case MatchedProductStatusV2.DOES_NOT_MATCH:
-        return RED_COLOR;
-      case MatchedProductStatusV2.UNKNOWN_MATCH:
-        return FAIR_GREY_COLOR;
-    }
-  }
-
-  Color _getLightColors() {
-    // TODO(monsieurtanuki): difference between dark and light
-    return _getDarkColors();
-  }
 
   String getHeaderText(final AppLocalizations appLocalizations) {
     switch (status) {
