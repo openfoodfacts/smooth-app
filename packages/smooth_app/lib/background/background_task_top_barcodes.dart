@@ -9,6 +9,7 @@ import 'package:smooth_app/background/operation_type.dart';
 import 'package:smooth_app/database/dao_work_barcode.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/query/search_products_manager.dart';
 
 /// Background progressing task about downloading top n barcodes.
 class BackgroundTaskTopBarcodes extends BackgroundTaskProgressing {
@@ -101,7 +102,8 @@ class BackgroundTaskTopBarcodes extends BackgroundTaskProgressing {
 
   @override
   Future<void> execute(final LocalDatabase localDatabase) async {
-    final SearchResult searchResult = await OpenFoodAPIClient.searchProducts(
+    final SearchResult searchResult =
+        await SearchProductsManager.searchProducts(
       ProductQuery.getReadUser(),
       ProductSearchQueryConfiguration(
         fields: <ProductField>[ProductField.BARCODE],
@@ -115,6 +117,7 @@ class BackgroundTaskTopBarcodes extends BackgroundTaskProgressing {
         version: ProductQuery.productQueryVersion,
       ),
       uriHelper: uriProductHelper,
+      type: SearchProductsType.background,
     );
     if (searchResult.products == null || searchResult.count == null) {
       throw Exception('Cannot download top barcodes');

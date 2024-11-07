@@ -7,6 +7,7 @@ import 'package:smooth_app/background/operation_type.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/query/search_products_manager.dart';
 
 /// Background task about downloading products to translate.
 class BackgroundTaskLanguageRefresh extends BackgroundTask {
@@ -127,7 +128,8 @@ class BackgroundTaskLanguageRefresh extends BackgroundTask {
     if (barcodes.isEmpty) {
       return;
     }
-    final SearchResult searchResult = await OpenFoodAPIClient.searchProducts(
+    final SearchResult searchResult =
+        await SearchProductsManager.searchProducts(
       getUser(),
       ProductSearchQueryConfiguration(
         fields: ProductQuery.fields,
@@ -141,6 +143,7 @@ class BackgroundTaskLanguageRefresh extends BackgroundTask {
         version: ProductQuery.productQueryVersion,
       ),
       uriHelper: _uriProductHelper,
+      type: SearchProductsType.background,
     );
     if (searchResult.products == null || searchResult.count == null) {
       throw Exception('Cannot refresh language');

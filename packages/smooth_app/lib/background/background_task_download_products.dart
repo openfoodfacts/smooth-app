@@ -9,6 +9,7 @@ import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_work_barcode.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/query/search_products_manager.dart';
 
 /// Background progressing task about downloading products.
 class BackgroundTaskDownloadProducts extends BackgroundTaskProgressing {
@@ -123,7 +124,8 @@ class BackgroundTaskDownloadProducts extends BackgroundTaskProgressing {
       fields.remove(ProductField.KNOWLEDGE_PANELS);
     }
     final OpenFoodFactsLanguage language = ProductQuery.getLanguage();
-    final SearchResult searchResult = await OpenFoodAPIClient.searchProducts(
+    final SearchResult searchResult =
+        await SearchProductsManager.searchProducts(
       ProductQuery.getReadUser(),
       ProductSearchQueryConfiguration(
         fields: fields,
@@ -137,6 +139,7 @@ class BackgroundTaskDownloadProducts extends BackgroundTaskProgressing {
         version: ProductQuery.productQueryVersion,
       ),
       uriHelper: uriProductHelper,
+      type: SearchProductsType.background,
     );
     final List<Product>? downloadedProducts = searchResult.products;
     if (downloadedProducts == null) {

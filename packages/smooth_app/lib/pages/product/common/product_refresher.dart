@@ -13,6 +13,7 @@ import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_snackbar.dart';
 import 'package:smooth_app/pages/user_management/login_page.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/query/search_products_manager.dart';
 import 'package:smooth_app/services/smooth_services.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
@@ -263,10 +264,12 @@ class ProductRefresher {
   ) async {
     try {
       final OpenFoodFactsLanguage language = ProductQuery.getLanguage();
-      final SearchResult searchResult = await OpenFoodAPIClient.searchProducts(
+      final SearchResult searchResult =
+          await SearchProductsManager.searchProducts(
         ProductQuery.getReadUser(),
         getBarcodeListQueryConfiguration(barcodes, language),
         uriHelper: ProductQuery.getUriProductHelper(productType: productType),
+        type: SearchProductsType.live,
       );
       if (searchResult.products == null) {
         return null;
