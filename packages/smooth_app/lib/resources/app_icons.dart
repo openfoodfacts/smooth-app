@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:openfoodfacts/openfoodfacts.dart' as off;
 
 part 'app_icons_font.dart';
 
@@ -14,6 +15,22 @@ class Add extends AppIcon {
 }
 
 class AddPrice extends AppIcon {
+  factory AddPrice(off.Currency currency) {
+    return switch (currency) {
+      off.Currency.GBP => const AddPrice.britishPound(),
+      off.Currency.USD => const AddPrice.dollar(),
+      off.Currency.EUR => const AddPrice.euro(),
+      off.Currency.RUB => const AddPrice.ruble(),
+      off.Currency.INR => const AddPrice.rupee(),
+      off.Currency.CHF => const AddPrice.swissFranc(),
+      off.Currency.TRY => const AddPrice.turkishLira(),
+      off.Currency.UAH => const AddPrice.ukrainianHryvnia(),
+      off.Currency.KRW => const AddPrice.won(),
+      off.Currency.JPY => const AddPrice.yen(),
+      _ => const AddPrice.dollar(),
+    };
+  }
+
   const AddPrice.britishPound({
     super.color,
     super.size,
@@ -92,6 +109,15 @@ class AddToList extends AppIcon {
     super.shadow,
     super.key,
   }) : super._(_IconsFont.add_to_list);
+}
+
+class AppStore extends AppIcon {
+  const AppStore({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  }) : super._(_IconsFont.app_store);
 }
 
 class Arrow extends AppIcon {
@@ -175,6 +201,13 @@ class Camera extends AppIcon {
     super.shadow,
     super.key,
   }) : super._(_IconsFont.camera_outlined);
+
+  const Camera.happy({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  }) : super._(_IconsFont.camera_happy);
 }
 
 class Categories extends AppIcon {
@@ -266,6 +299,24 @@ class ClearText extends AppIcon {
   }
 }
 
+class Delete extends AppIcon {
+  const Delete.trash({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  }) : super._(_IconsFont.delete_trash);
+}
+
+class Document extends AppIcon {
+  const Document({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  }) : super._(_IconsFont.document);
+}
+
 class DoubleChevron extends AppIcon {
   const DoubleChevron.left({
     super.color,
@@ -337,6 +388,15 @@ class Compare extends AppIcon {
   }) : super._(_IconsFont.compare);
 }
 
+class Contribute extends AppIcon {
+  const Contribute({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  }) : super._(_IconsFont.contribute);
+}
+
 class Countries extends AppIcon {
   const Countries({
     super.color,
@@ -344,6 +404,13 @@ class Countries extends AppIcon {
     super.shadow,
     super.key,
   }) : super._(_IconsFont.countries);
+
+  const Countries.alt({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  }) : super._(_IconsFont.country);
 }
 
 class Cupcake extends AppIcon {
@@ -353,6 +420,42 @@ class Cupcake extends AppIcon {
     super.shadow,
     super.key,
   }) : super._(_IconsFont.cupcake);
+}
+
+class Crash extends AppIcon {
+  const Crash({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  }) : super._(_IconsFont.crash);
+}
+
+class Currency extends AppIcon {
+  const Currency({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  }) : super._(_IconsFont.currency);
+}
+
+class DangerousZone extends AppIcon {
+  const DangerousZone({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  }) : super._(_IconsFont.dangerous_zone);
+}
+
+class Donate extends AppIcon {
+  const Donate({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  }) : super._(_IconsFont.donate);
 }
 
 class Edit extends AppIcon {
@@ -391,6 +494,22 @@ class Expand extends AppIcon {
   }) : super._(_IconsFont.expand);
 }
 
+class Eye extends AppIcon {
+  const Eye.visible({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  }) : super._(_IconsFont.eye_visible);
+
+  const Eye.invisible({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  }) : super._(_IconsFont.eye_invisible);
+}
+
 class Fish extends AppIcon {
   const Fish({
     super.color,
@@ -409,6 +528,15 @@ class Fruit extends AppIcon {
   }) : super._(_IconsFont.fruit);
 }
 
+class GitHub extends AppIcon {
+  const GitHub({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  }) : super._(_IconsFont.github);
+}
+
 class Info extends AppIcon {
   const Info({
     super.color,
@@ -416,6 +544,15 @@ class Info extends AppIcon {
     super.shadow,
     super.key,
   }) : super._(_IconsFont.info);
+}
+
+class HappyToast extends AppIcon {
+  const HappyToast({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  }) : super._(_IconsFont.happy_toast);
 }
 
 class History extends AppIcon {
@@ -436,6 +573,15 @@ class Help extends AppIcon {
   }) : super._(_IconsFont.help_circled);
 }
 
+class Incognito extends AppIcon {
+  const Incognito({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  }) : super._(_IconsFont.incognito);
+}
+
 class Ingredients extends AppIcon {
   const Ingredients({
     super.color,
@@ -443,6 +589,13 @@ class Ingredients extends AppIcon {
     super.shadow,
     super.key,
   }) : super._(_IconsFont.ingredients);
+
+  const Ingredients.basket({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  }) : super._(_IconsFont.ingredients_basket);
 }
 
 class Lab extends AppIcon {
@@ -463,6 +616,22 @@ class Labels extends AppIcon {
   }) : super._(_IconsFont.labels);
 }
 
+class Language extends AppIcon {
+  const Language({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  }) : super._(_IconsFont.language);
+
+  const Language.world({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  }) : super._(_IconsFont.language_world);
+}
+
 class Lifebuoy extends AppIcon {
   const Lifebuoy({
     super.color,
@@ -472,6 +641,24 @@ class Lifebuoy extends AppIcon {
   }) : super._(_IconsFont.lifebuoy);
 }
 
+class LightBulb extends AppIcon {
+  const LightBulb({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  }) : super._(_IconsFont.light_bulb);
+}
+
+class Logout extends AppIcon {
+  const Logout({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  }) : super._(_IconsFont.logout);
+}
+
 class MagicWand extends AppIcon {
   const MagicWand({
     super.color,
@@ -479,6 +666,15 @@ class MagicWand extends AppIcon {
     super.shadow,
     super.key,
   }) : super._(_IconsFont.magic_wand);
+}
+
+class Menu extends AppIcon {
+  const Menu.hamburger({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  }) : super._(_IconsFont.hamburger_menu);
 }
 
 class Milk extends AppIcon {
@@ -506,6 +702,13 @@ class NutritionFacts extends AppIcon {
     super.shadow,
     super.key,
   }) : super._(_IconsFont.nutrition_facts);
+
+  const NutritionFacts.alt({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  }) : super._(_IconsFont.nutritional_facts);
 }
 
 class Outdated extends AppIcon {
@@ -526,6 +729,15 @@ class Packaging extends AppIcon {
   }) : super._(_IconsFont.packaging);
 }
 
+class Password extends AppIcon {
+  const Password.lock({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  }) : super._(_IconsFont.password);
+}
+
 class Personalization extends AppIcon {
   const Personalization({
     super.color,
@@ -533,6 +745,38 @@ class Personalization extends AppIcon {
     super.shadow,
     super.key,
   }) : super._(_IconsFont.personalization);
+
+  const Personalization.alt({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  }) : super._(_IconsFont.personalization_alt);
+}
+
+class Picture extends AppIcon {
+  const Picture.add({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  }) : super._(_IconsFont.image_add);
+
+  const Picture.check({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  }) : super._(_IconsFont.image_check);
+}
+
+class Programming extends AppIcon {
+  const Programming({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  }) : super._(_IconsFont.programming);
 }
 
 class Question extends AppIcon {
@@ -750,6 +994,15 @@ class Torch extends AppIcon {
     super.shadow,
     super.key,
   }) : super._(_IconsFont.torch_off);
+}
+
+class Vibration extends AppIcon {
+  const Vibration({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  }) : super._(_IconsFont.vibration);
 }
 
 class Warning extends AppIcon {

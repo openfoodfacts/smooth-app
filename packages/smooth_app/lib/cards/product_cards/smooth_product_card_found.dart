@@ -114,7 +114,7 @@ class SmoothProductCardFound extends StatelessWidget {
                               Icon(
                                 Icons.circle,
                                 size: 15,
-                                color: helper.getButtonColor(isDarkMode),
+                                color: helper.getColor(context),
                               ),
                               const Padding(
                                 padding: EdgeInsetsDirectional.only(

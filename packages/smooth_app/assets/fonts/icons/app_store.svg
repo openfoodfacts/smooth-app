@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>app_store</title>
+    <g id="app_store" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M8,0.5 C6.9069372,0.5 6,1.4069372 6,2.5 L6,4.5 L0,4.5 L0,16.5 C0,18.154 1.346,19.5 3,19.5 L17,19.5 C18.654,19.5 20,18.154 20,16.5 L20,4.5 L14,4.5 L14,2.5 C14,1.4069372 13.093063,0.5 12,0.5 L8,0.5 Z M8,2.5 L12,2.5 L12,4.5 L8,4.5 L8,2.5 Z M7,8 L14,12 L7,16 L7,8 Z" id="Shape" fill="#000000" fill-rule="nonzero"></path>
+    </g>
+</svg>

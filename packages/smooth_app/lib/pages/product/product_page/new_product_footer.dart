@@ -118,19 +118,13 @@ class _ProductAddToListButton extends StatelessWidget {
 
   Future<bool?> _editList(BuildContext context, Product product) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final SmoothColorsThemeExtension? extension =
-        Theme.of(context).extension<SmoothColorsThemeExtension>();
 
     showSmoothDraggableModalSheet(
       context: context,
       header: SmoothModalSheetHeader(
-        backgroundColor: extension!.primaryDark,
-        foregroundColor: Colors.white,
         prefix: const SmoothModalSheetHeaderPrefixIndicator(),
         title: appLocalizations.user_list_title,
-        suffix: const SmoothModalSheetHeaderCloseButton(
-          addPadding: true,
-        ),
+        suffix: const SmoothModalSheetHeaderCloseButton(),
       ),
       bodyBuilder: (BuildContext context) => AddProductToListContainer(
         barcode: product.barcode!,
@@ -160,19 +154,7 @@ class _ProductAddPriceButton extends StatelessWidget {
 
         return _ProductFooterFilledButton(
           label: appLocalizations.prices_add_a_price,
-          icon: switch (currency) {
-            Currency.GBP => const icons.AddPrice.britishPound(),
-            Currency.USD => const icons.AddPrice.dollar(),
-            Currency.EUR => const icons.AddPrice.euro(),
-            Currency.RUB => const icons.AddPrice.ruble(),
-            Currency.INR => const icons.AddPrice.rupee(),
-            Currency.CHF => const icons.AddPrice.swissFranc(),
-            Currency.TRY => const icons.AddPrice.turkishLira(),
-            Currency.UAH => const icons.AddPrice.ukrainianHryvnia(),
-            Currency.KRW => const icons.AddPrice.won(),
-            Currency.JPY => const icons.AddPrice.yen(),
-            _ => const icons.AddPrice.dollar(),
-          },
+          icon: icons.AddPrice(currency),
           onTap: () => _addAPrice(context, context.read<Product>()),
         );
       },
@@ -383,6 +365,8 @@ class _ProductFooterFilledButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final SmoothColorsThemeExtension themeExtension =
         Theme.of(context).extension<SmoothColorsThemeExtension>()!;
+    final ProductPageCompatibility compatibility =
+        context.watch<ProductPageCompatibility>();
 
     return Semantics(
       excludeSemantics: true,
@@ -392,9 +376,11 @@ class _ProductFooterFilledButton extends StatelessWidget {
         onPressed: onTap,
         style: OutlinedButton.styleFrom(
           foregroundColor: Colors.white,
-          backgroundColor: context.lightTheme()
-              ? themeExtension.primaryBlack
-              : themeExtension.primarySemiDark,
+          backgroundColor: compatibility.score > 0
+              ? compatibility.color
+              : context.lightTheme()
+                  ? themeExtension.primaryBlack
+                  : themeExtension.primarySemiDark,
           side: BorderSide.none,
         ),
         child: Row(

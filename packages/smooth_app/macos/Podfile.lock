@@ -117,13 +117,13 @@ SPEC CHECKSUMS:
   FlutterMacOS: 8f6f14fa908a6fb3fba0cd85dbd81ec4b251fb24
   in_app_review: a850789fad746e89bce03d4aeee8078b45a53fd0
   mobile_scanner: 54ceceae0c8da2457e26a362a6be5c61154b1829
-  package_info_plus: fa739dd842b393193c5ca93c26798dff6e3d0e0c
+  package_info_plus: f5790acc797bf17c3e959e9d6cf162cc68ff7523
   path_provider_foundation: 2b6b4c569c0fb62ec74538f866245ac84301af46
   ReachabilitySwift: 7f151ff156cea1481a8411701195ac6a984f4979
   rive_common: cf5ab646aa576b2d742d0e2d528126fbf032c856
   Sentry: f8374b5415bc38dfb5645941b3ae31230fbeae57
   sentry_flutter: 0eb93e5279eb41e2392212afe1ccd2fecb4f8cbe
-  share_plus: 36537c04ce0c3e3f5bd297ce4318b6d5ee5fd6cf
+  share_plus: fd717ef89a2801d3491e737630112b80c310640e
   shared_preferences_foundation: fcdcbc04712aee1108ac7fda236f363274528f78
   sqflite_darwin: a553b1fd6fe66f53bbb0fe5b4f5bab93f08d7a13
   url_launcher_macos: 5f437abeda8c85500ceb03f5c1938a8c5a705399
@@ -131,4 +131,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 0d3963a09fc94f580682bd88480486da345dc3f0
 
-COCOAPODS: 1.15.2
+COCOAPODS: 1.16.2

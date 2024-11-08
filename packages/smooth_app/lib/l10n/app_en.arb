@@ -1584,7 +1584,7 @@
     "@user_list_button_new": {
         "description": "Short label of a 'create a new list' button"
     },
-    "user_list_empty_label": "No list available yet, please start by creating one",
+    "user_list_empty_label": "No list available yet!\nPlease start by creating one.",
     "@user_list_empty_label": {
         "description": "Content displayed when there is no list"
     },
@@ -2533,9 +2533,9 @@
     "@user_picture_source_remember": {
         "description": "Checkbox label when select a picture source"
     },
-    "user_picture_source_select": "Select each time",
-    "@user_picture_source_select": {
-        "description": "Choice of selecting the picture source each time"
+    "user_picture_source_ask": "Ask each time",
+    "@user_picture_source_ask": {
+        "description": "Choice of asking the picture source every time"
     },
     "robotoff_continue": "Continue",
     "@robotoff_continue": {
@@ -3073,5 +3073,9 @@
     "photo_viewer_details_url_title": "URL",
     "@photo_viewer_details_url_title": {
         "description": "Label for the link of a photo"
+    },
+    "product_page_compatibility_score": "Compatible",
+    "@product_page_compatibility_score": {
+        "description": "Compatibility score on top of the product page. The sentence is \"100%\" Compatible"
     }
 }
