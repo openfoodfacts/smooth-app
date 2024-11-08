@@ -31,7 +31,7 @@ dependencies:
   iso_countries: 2.2.0
   latlong2: 0.9.1
   matomo_tracker: 5.1.0
-  package_info_plus: 8.1.0
+  package_info_plus: 8.1.1
   device_info_plus: 10.1.2
   permission_handler: 11.3.1
   photo_view: 0.15.0
@@ -57,7 +57,7 @@ dependencies:
   collection: 1.18.0
   path: 1.9.0
   path_provider: 2.1.5
-  share_plus: 10.1.1
+  share_plus: 10.1.2
   fimber: 0.7.0
   shimmer: ^3.0.0
   rive: 0.13.15
