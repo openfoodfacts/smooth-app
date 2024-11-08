@@ -696,10 +696,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_svg
-      sha256: de82e6bf958cec7190fbc1c5298282c851228e35ae2b14e2b103e7f777818c64
+      sha256: "578bd8c508144fdaffd4f77b8ef2d8c523602275cd697cc3db284dbd762ef4ce"
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.13"
+    version: "2.0.14"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -1354,18 +1354,18 @@ packages:
     dependency: transitive
     description:
       name: sentry
-      sha256: "033287044a6644a93498969449d57c37907e56f5cedb17b88a3ff20a882261dd"
+      sha256: "2440763ae96fa8fd1bcdfc224f5232e1b7a09af76a72f4e626ee313a261faf6f"
       url: "https://pub.dev"
     source: hosted
-    version: "8.9.0"
+    version: "8.10.1"
   sentry_flutter:
     dependency: "direct main"
     description:
       name: sentry_flutter
-      sha256: "3780b5a0bb6afd476857cfbc6c7444d969c29a4d9bd1aa5b6960aa76c65b737a"
+      sha256: "3b30038b3b9303540a8b2c8b1c8f0bb93a207f8e4b25691c59d969ddeb4734fd"
       url: "https://pub.dev"
     source: hosted
-    version: "8.9.0"
+    version: "8.10.1"
   share_plus:
     dependency: "direct main"
     description:
@@ -1703,10 +1703,10 @@ packages:
     dependency: transitive
     description:
       name: vector_graphics
-      sha256: "32c3c684e02f9bc0afb0ae0aa653337a2fe022e8ab064bcd7ffda27a74e288e3"
+      sha256: "773c9522d66d523e1c7b25dfb95cc91c26a1e17b107039cfe147285e92de7878"
       url: "https://pub.dev"
     source: hosted
-    version: "1.1.11+1"
+    version: "1.1.14"
   vector_graphics_codec:
     dependency: transitive
     description:
@@ -1719,10 +1719,10 @@ packages:
     dependency: transitive
     description:
       name: vector_graphics_compiler
-      sha256: "12faff3f73b1741a36ca7e31b292ddeb629af819ca9efe9953b70bd63fc8cd81"
+      sha256: "26d520739b7c6b5d2a2b3274427874a8390831fd4cd5bb8cfbd7d913477d3a2e"
       url: "https://pub.dev"
     source: hosted
-    version: "1.1.11+1"
+    version: "1.1.14"
   vector_math:
     dependency: transitive
     description:
