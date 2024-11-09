@@ -333,6 +333,7 @@ class _ProductShareButton extends StatelessWidget {
   }
 
   Future<void> _shareProduct(BuildContext context, Product product) async {
+    final ProductType productType = product.productType ?? ProductType.food;
     AnalyticsHelper.trackEvent(
       AnalyticsEvent.shareProduct,
       barcode: product.barcode,
@@ -341,10 +342,10 @@ class _ProductShareButton extends StatelessWidget {
     // We need to provide a sharePositionOrigin to make the plugin work on ipad
     final RenderBox? box = context.findRenderObject() as RenderBox?;
     final String url = 'https://'
-        '${ProductQuery.getCountry().offTag}.${(product.productType ?? ProductType.food).getDomain()}.org'
+        '${ProductQuery.getCountry().offTag}.${productType.getDomain()}.org'
         '/product/${product.barcode}';
     Share.share(
-      appLocalizations.share_product_text(url),
+      productType.getShareProductLabel(appLocalizations, url),
       sharePositionOrigin:
           box == null ? null : box.localToGlobal(Offset.zero) & box.size,
     );
