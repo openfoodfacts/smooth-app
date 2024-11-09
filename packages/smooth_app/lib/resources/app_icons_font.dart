@@ -113,6 +113,8 @@ class _IconsFont {
       IconData(0xe832, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData qrcode_corners =
       IconData(0xe833, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData hamburger_menu =
+      IconData(0xe834, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData outdated =
       IconData(0xe836, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData question_circled =
@@ -185,8 +187,6 @@ class _IconsFont {
       IconData(0xe859, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData country =
       IconData(0xe85a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData hamburger_menu =
-      IconData(0xe85c, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData password =
       IconData(0xe85d, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData incognito =

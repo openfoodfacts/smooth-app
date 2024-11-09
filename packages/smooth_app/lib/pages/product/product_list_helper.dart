@@ -156,35 +156,37 @@ class _AddToProductListWithLists extends StatelessWidget {
         color: Theme.of(context).colorScheme.onSurface,
       ),
       child: SliverFillRemaining(
-        child: Column(children: <Widget>[
-          Expanded(
-            child: Scrollbar(
-              thumbVisibility: scrollBarVisible,
-              trackVisibility: scrollBarVisible,
-              child: ListView.builder(
-                padding: EdgeInsets.zero,
-                itemCount: userLists.length,
-                itemBuilder: (BuildContext context, int index) {
-                  final MapEntry<String, bool> entry = userLists[index];
-                  return KeyedSubtree(
-                    key: ValueKey<String>(entry.key),
-                    child: _AddToProductListItem(
-                      listId: entry.key,
-                      selected: entry.value,
-                      // Force the divider when there is just one item
-                      includeDivider:
-                          userLists.length == 1 || index < userLists.length - 1,
-                    ),
-                  );
-                },
+        child: Column(
+          children: <Widget>[
+            Expanded(
+              child: Scrollbar(
+                thumbVisibility: scrollBarVisible,
+                trackVisibility: scrollBarVisible,
+                child: ListView.builder(
+                  padding: EdgeInsets.zero,
+                  itemCount: userLists.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    final MapEntry<String, bool> entry = userLists[index];
+                    return KeyedSubtree(
+                      key: ValueKey<String>(entry.key),
+                      child: _AddToProductListItem(
+                        listId: entry.key,
+                        selected: entry.value,
+                        // Force the divider when there is just one item
+                        includeDivider: userLists.length == 1 ||
+                            index < userLists.length - 1,
+                      ),
+                    );
+                  },
+                ),
               ),
             ),
-          ),
-          _AddToProductListAddNewList(
-            userLists:
-                userLists.map((MapEntry<String, bool> entry) => entry.key),
-          )
-        ]),
+            _AddToProductListAddNewList(
+              userLists:
+                  userLists.map((MapEntry<String, bool> entry) => entry.key),
+            )
+          ],
+        ),
       ),
     );
   }
@@ -396,6 +398,9 @@ class _AddToProductListAddNewListState
                               )
                             : Text(
                                 appLocalizations.user_list_button_new,
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                       ),
                       if (_editMode)
