@@ -3,6 +3,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/query/paged_user_product_query.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/query/search_products_manager.dart';
 import 'package:smooth_app/services/smooth_services.dart';
 
 /// Lazy Counter, with a cached value stored locally, and a call to the server.
@@ -81,12 +82,13 @@ class LazyCounterUserSearch extends LazyCounter {
     );
 
     try {
-      final SearchResult result = await OpenFoodAPIClient.searchProducts(
+      final SearchResult result = await SearchProductsManager.searchProducts(
         user,
         configuration,
         uriHelper: ProductQuery.getUriProductHelper(
           productType: ProductType.food,
         ),
+        type: SearchProductsType.count,
       );
       return result.count;
     } catch (e) {

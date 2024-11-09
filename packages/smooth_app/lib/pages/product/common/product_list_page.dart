@@ -31,6 +31,7 @@ import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
 import 'package:smooth_app/pages/scan/carousel/scan_carousel_manager.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/query/search_products_manager.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
@@ -455,19 +456,24 @@ class _ProductListPageState extends State<ProductListPage>
       for (final MapEntry<ProductType, List<String>> entry
           in productTypes.entries) {
         final SearchResult searchResult =
-            await OpenFoodAPIClient.searchProducts(
+            await SearchProductsManager.searchProducts(
           ProductQuery.getReadUser(),
           ProductRefresher().getBarcodeListQueryConfiguration(
             entry.value,
             language,
           ),
           uriHelper: ProductQuery.getUriProductHelper(productType: entry.key),
+          type: SearchProductsType.live,
         );
         final List<Product>? freshProducts = searchResult.products;
         if (freshProducts == null) {
           fresh = false;
         } else {
-          await DaoProduct(localDatabase).putAll(freshProducts, language);
+          await DaoProduct(localDatabase).putAll(
+            freshProducts,
+            language,
+            productType: entry.key,
+          );
           localDatabase.upToDate.setLatestDownloadedProducts(freshProducts);
         }
       }
