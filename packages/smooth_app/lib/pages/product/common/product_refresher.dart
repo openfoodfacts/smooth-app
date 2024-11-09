@@ -274,7 +274,11 @@ class ProductRefresher {
       if (searchResult.products == null) {
         return null;
       }
-      await DaoProduct(localDatabase).putAll(searchResult.products!, language);
+      await DaoProduct(localDatabase).putAll(
+        searchResult.products!,
+        language,
+        productType: productType,
+      );
       localDatabase.upToDate
           .setLatestDownloadedProducts(searchResult.products!);
       return searchResult.products!.length;

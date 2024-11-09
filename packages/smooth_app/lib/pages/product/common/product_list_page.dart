@@ -469,7 +469,11 @@ class _ProductListPageState extends State<ProductListPage>
         if (freshProducts == null) {
           fresh = false;
         } else {
-          await DaoProduct(localDatabase).putAll(freshProducts, language);
+          await DaoProduct(localDatabase).putAll(
+            freshProducts,
+            language,
+            productType: entry.key,
+          );
           localDatabase.upToDate.setLatestDownloadedProducts(freshProducts);
         }
       }

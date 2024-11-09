@@ -150,7 +150,11 @@ class BackgroundTaskLanguageRefresh extends BackgroundTask {
     }
 
     // save into database and refresh all visible products.
-    await daoProduct.putAll(searchResult.products!, language);
+    await daoProduct.putAll(
+      searchResult.products!,
+      language,
+      productType: productType,
+    );
     localDatabase.upToDate.setLatestDownloadedProducts(searchResult.products!);
 
     // Next page

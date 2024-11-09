@@ -227,22 +227,26 @@ class _ProductCompareButton extends StatelessWidget {
         tags.isNotEmpty &&
         tags.length == labels.length) {
       categoryTag = product.comparedToCategory;
-      if (categoryTag == null || blackListedCategories.contains(categoryTag)) {
+      if (categoryTag != null) {
+        for (int i = 0; i < tags.length; i++) {
+          if (categoryTag == tags[i]) {
+            categoryLabel = labels[i];
+            break;
+          }
+        }
+      }
+      if (categoryLabel == null ||
+          blackListedCategories.contains(categoryTag)) {
         // fallback algorithm
         int index = tags.length - 1;
         // cf. https://github.com/openfoodfacts/openfoodfacts-dart/pull/474
         // looking for the most detailed non blacklisted category
         categoryTag = tags[index];
+        categoryLabel = labels[index];
         while (blackListedCategories.contains(categoryTag) && index > 0) {
           index--;
           categoryTag = tags[index];
-        }
-      }
-      if (categoryTag != null) {
-        for (int i = 0; i < tags.length; i++) {
-          if (categoryTag == tags[i]) {
-            categoryLabel = labels[i];
-          }
+          categoryLabel = labels[index];
         }
       }
     }
