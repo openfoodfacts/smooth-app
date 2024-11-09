@@ -8,6 +8,7 @@ import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
+import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 import 'package:smooth_app/helpers/provider_helper.dart';
 import 'package:smooth_app/pages/product/product_page/footer/new_product_footer.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
@@ -247,6 +248,8 @@ class _ProductActionBarModalItemEditorState
                     context
                         .read<_ProductActionBarProvider>()
                         .changeVisibility(widget.entry);
+
+                    SmoothHapticFeedback.lightNotification();
                   },
                 ),
                 const SizedBox(width: VERY_LARGE_SPACE * 2),
@@ -279,6 +282,8 @@ class _ProductActionBarModalItemEditorState
                     context
                         .read<_ProductActionBarProvider>()
                         .reorderPosition(widget.position, widget.position - 1);
+
+                    SmoothHapticFeedback.lightNotification();
                   },
                 ),
                 const SizedBox(width: SMALL_SPACE),
@@ -289,6 +294,8 @@ class _ProductActionBarModalItemEditorState
                     context
                         .read<_ProductActionBarProvider>()
                         .reorderPosition(widget.position, widget.position + 1);
+
+                    SmoothHapticFeedback.lightNotification();
                   },
                 ),
               ],
