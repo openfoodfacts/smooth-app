@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/semantics.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_draggable_bottom_sheet_route.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
@@ -351,7 +352,10 @@ class SmoothModalSheetHeaderCloseButton extends StatelessWidget
           message: MaterialLocalizations.of(context).closeButtonTooltip,
           enableFeedback: true,
           child: InkWell(
-            onTap: () => Navigator.of(context).pop(),
+            onTap: () {
+              SmoothHapticFeedback.click();
+              Navigator.of(context).pop();
+            },
             customBorder: const CircleBorder(),
             child: icon,
           ),
