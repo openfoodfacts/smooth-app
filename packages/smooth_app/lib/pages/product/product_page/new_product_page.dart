@@ -177,8 +177,8 @@ class ProductPageState extends State<ProductPage>
           physics: const AlwaysScrollableScrollPhysics(),
           controller: _scrollController,
           padding: const EdgeInsets.only(
-            top: kToolbarHeight + SMALL_SPACE,
-            bottom: SMALL_SPACE,
+            top: kToolbarHeight + LARGE_SPACE,
+            bottom: LARGE_SPACE,
           ),
           children: <Widget>[
             Padding(

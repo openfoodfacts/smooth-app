@@ -66,7 +66,7 @@ class ProductTitleCard extends StatelessWidget {
     } else {
       children = <Widget>[
         Padding(
-          padding: const EdgeInsetsDirectional.only(top: VERY_SMALL_SPACE),
+          padding: const EdgeInsetsDirectional.only(top: SMALL_SPACE),
           child: IntrinsicHeight(
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -139,9 +139,11 @@ class _ProductTitleCardName extends StatelessWidget {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final Product product = context.watch<Product>();
 
+    final TextStyle? textStyle = Theme.of(context).textTheme.headlineMedium;
+
     return Text(
       getProductName(product, appLocalizations),
-      style: Theme.of(context).textTheme.headlineMedium,
+      style: dense ? textStyle : textStyle?.copyWith(fontSize: 18.0),
       textAlign: TextAlign.start,
       maxLines: dense ? 2 : null,
       overflow: TextOverflow.ellipsis,
@@ -397,7 +399,7 @@ class _ProductTitleCardPictureWithProvider extends StatelessWidget {
       ),
     );
 
-    if (outdated) {
+    if (!outdated) {
       return Semantics(
         label: appLocalizations
             .product_page_image_front_outdated_message_accessibility_label,

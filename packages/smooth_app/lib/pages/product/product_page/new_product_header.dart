@@ -92,10 +92,17 @@ class _ProductHeaderState extends State<ProductHeader> {
 
   void _onScroll(ScrollController scrollController) {
     /// Get the title opacity depending on the scroll position
-    final double titleOpacity =
-        scrollController.offset.progressAndClamp(20.0, kToolbarHeight, 1.0);
+    final double titleOpacity = scrollController.offset.progressAndClamp(
+      LARGE_SPACE * 2 + kToolbarHeight * 0.22,
+      LARGE_SPACE * 2 + kToolbarHeight * 1.5,
+      1.0,
+    );
     final double compatibilityScoreOpacity =
-        scrollController.offset.progressAndClamp(20.0, kToolbarHeight * 2, 1.0);
+        scrollController.offset.progressAndClamp(
+      LARGE_SPACE * 1.5,
+      LARGE_SPACE + kToolbarHeight * 2,
+      1.0,
+    );
 
     if (_titleOpacity != titleOpacity ||
         _compatibilityScoreOpacity != compatibilityScoreOpacity) {
