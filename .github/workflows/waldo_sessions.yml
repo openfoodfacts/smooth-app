@@ -55,7 +55,7 @@ jobs:
         working-directory: ./packages/smooth_app
 
       - name: Upload APK to Waldo
-        uses: waldoapp/gh-action-upload@v2
+        uses: waldoapp/gh-action-upload@v3
         with:
           build_path: packages/smooth_app/build/app/outputs/flutter-apk/app-debug.apk
           upload_token: ${{ secrets.WALDO_SESSIONS_ANDROID }}
