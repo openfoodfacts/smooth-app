@@ -99,7 +99,7 @@ class ProductPageState extends State<ProductPage>
             color: ProductCompatibilityHelper.product(
               matchedProductV2,
             ).getColor(context),
-            score: matchedProductV2.score,
+            matchedProductV2: matchedProductV2,
           ),
         ),
         ChangeNotifierProvider<ScrollController>.value(
@@ -127,15 +127,18 @@ class ProductPageState extends State<ProductPage>
                 left: 0.0,
                 right: 0.0,
                 bottom: 0.0,
-                child: MeasureSize(
-                  onChange: (Size size) {
-                    if (size.height != bottomPadding) {
-                      setState(() => bottomPadding = size.height);
-                    }
-                  },
-                  child: ProductQuestionsWidget(
-                    upToDateProduct,
-                    layout: ProductQuestionsLayout.banner,
+                child: Padding(
+                  padding: EdgeInsets.only(bottom: bottomPadding),
+                  child: MeasureSize(
+                    onChange: (Size size) {
+                      if (size.height != bottomPadding) {
+                        setState(() => bottomPadding = size.height);
+                      }
+                    },
+                    child: ProductQuestionsWidget(
+                      upToDateProduct,
+                      layout: ProductQuestionsLayout.banner,
+                    ),
                   ),
                 ),
               ),
@@ -258,12 +261,17 @@ class ProductPageState extends State<ProductPage>
 
 class ProductPageCompatibility {
   ProductPageCompatibility({
-    required this.color,
-    required this.score,
-  });
+    required Color color,
+    required MatchedProductV2 matchedProductV2,
+  })  : _color = color,
+        score = matchedProductV2.status != MatchedProductStatusV2.UNKNOWN_MATCH
+            ? matchedProductV2.score
+            : null;
 
-  final Color color;
-  final double score;
+  final Color _color;
+  final double? score;
+
+  Color? get color => score != null ? _color : null;
 
   @override
   //ignore: avoid_equals_and_hash_code_on_mutable_classes (false positive)
@@ -271,10 +279,10 @@ class ProductPageCompatibility {
       identical(this, other) ||
       other is ProductPageCompatibility &&
           runtimeType == other.runtimeType &&
-          color == other.color &&
+          _color == other._color &&
           score == other.score;
 
   @override
   //ignore: avoid_equals_and_hash_code_on_mutable_classes (false positive)
-  int get hashCode => color.hashCode ^ score.hashCode;
+  int get hashCode => _color.hashCode ^ score.hashCode;
 }
