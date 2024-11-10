@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/up_to_date_mixin.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -13,6 +14,7 @@ import 'package:smooth_app/generic_lib/widgets/smooth_list_tile_card.dart';
 import 'package:smooth_app/generic_lib/widgets/svg_icon.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
+import 'package:smooth_app/pages/onboarding/currency_selector_helper.dart';
 import 'package:smooth_app/pages/prices/price_meta_product.dart';
 import 'package:smooth_app/pages/prices/product_price_add_page.dart';
 import 'package:smooth_app/pages/product/add_other_details_page.dart';
@@ -22,6 +24,7 @@ import 'package:smooth_app/pages/product/product_field_editor.dart';
 import 'package:smooth_app/pages/product/product_image_gallery_view.dart';
 import 'package:smooth_app/pages/product/simple_input_page.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
@@ -81,8 +84,11 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
                 AutoSizeText(
                   '${productName.trim()}, ${productBrand.trim()}',
                   minFontSize:
-                      theme.textTheme.titleLarge?.fontSize?.clamp(13.0, 17.0) ??
+                      theme.textTheme.titleLarge?.fontSize?.clamp(10.0, 13.0) ??
                           13.0,
+                  maxFontSize:
+                      theme.textTheme.titleLarge?.fontSize?.clamp(13.0, 20.0) ??
+                          18.0,
                   maxLines: !_barcodeVisibleInAppbar ? 2 : 1,
                   style: theme.textTheme.titleLarge?.copyWith(
                     fontWeight: FontWeight.w500,
@@ -140,6 +146,7 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
               if (_ProductBarcode.isAValidBarcode(barcode))
                 _ProductBarcode(product: upToDateProduct),
               _ListTitleItem(
+                leading: const icons.Edit(size: 18.0),
                 title: appLocalizations.edit_product_form_item_details_title,
                 subtitle:
                     appLocalizations.edit_product_form_item_details_subtitle,
@@ -182,9 +189,9 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
               ),
               if (upToDateProduct.productType != ProductType.product)
                 _ListTitleItem(
-                  leading: const SvgIcon(
+                  leading: SvgIcon(
                     'assets/cacheTintable/ingredients.svg',
-                    dontAddColor: true,
+                    dontAddColor: context.lightTheme(),
                   ),
                   title:
                       appLocalizations.edit_product_form_item_ingredients_title,
@@ -201,10 +208,7 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
               if (upToDateProduct.productType != ProductType.beauty &&
                   upToDateProduct.productType != ProductType.product)
                 _ListTitleItem(
-                    leading: const SvgIcon(
-                      'assets/cacheTintable/scale-balance.svg',
-                      dontAddColor: true,
-                    ),
+                    leading: const icons.NutritionFacts(size: 18.0),
                     title: appLocalizations
                         .edit_product_form_item_nutrition_facts_title,
                     subtitle: appLocalizations
@@ -231,9 +235,9 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
                     }),
               _getSimpleListTileItem(SimpleInputPageLabelHelper()),
               _ListTitleItem(
-                leading: const SvgIcon(
+                leading: SvgIcon(
                   'assets/cacheTintable/packaging.svg',
-                  dontAddColor: true,
+                  dontAddColor: context.lightTheme(),
                 ),
                 title: appLocalizations.edit_packagings_title,
                 onTap: () async => ProductFieldPackagingEditor().edit(
@@ -280,14 +284,23 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
                   );
                 },
               ),
-              _ListTitleItem(
-                title: appLocalizations.prices_add_a_price,
-                leading: const Icon(Icons.add),
-                onTap: () async => ProductPriceAddPage.showProductPage(
-                  context: context,
-                  product: PriceMetaProduct.product(upToDateProduct),
-                  proofType: ProofType.priceTag,
-                ),
+              Consumer<UserPreferences>(
+                builder:
+                    (BuildContext context, UserPreferences preferences, _) {
+                  return _ListTitleItem(
+                    title: appLocalizations.prices_add_a_price,
+                    leading: icons.AddPrice(
+                      CurrencySelectorHelper().getSelected(
+                        preferences.userCurrencyCode,
+                      ),
+                    ),
+                    onTap: () async => ProductPriceAddPage.showProductPage(
+                      context: context,
+                      product: PriceMetaProduct.product(upToDateProduct),
+                      proofType: ProofType.priceTag,
+                    ),
+                  );
+                },
               ),
             ],
           ),
