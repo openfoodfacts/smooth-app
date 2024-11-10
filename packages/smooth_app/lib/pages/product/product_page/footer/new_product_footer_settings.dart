@@ -262,7 +262,7 @@ class _ProductActionBarModalItemEditorState
                   color: extension.primaryDark,
                   child: _icon,
                 ),
-                const SizedBox(width: MEDIUM_SPACE),
+                const SizedBox(width: VERY_LARGE_SPACE),
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsetsDirectional.only(bottom: 0.5),

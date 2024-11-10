@@ -63,8 +63,6 @@ class _SmoothAnimatedListState<T> extends State<SmoothAnimatedList<T>> {
       SchedulerBinding.instance.addPostFrameCallback((_) {
         final OverlayState overlay = Overlay.of(context);
         _floatingItems.forEach(overlay.insert);
-
-        setState(() => _hideOldItems = true);
       });
     }
   }
@@ -80,26 +78,31 @@ class _SmoothAnimatedListState<T> extends State<SmoothAnimatedList<T>> {
     final OverlayEntry floatingItem = OverlayEntry(
       builder: (BuildContext context) {
         return _MovingOverlayItem(
-            widgetPosition:
-                widgetPosition.translate(0.0, widget.padding?.top ?? 0.0),
-            startTop:
-                (_itemSizes[move.oldIndex]!.height + widget.separatorSize) *
-                    move.oldIndex,
-            endTop: (_itemSizes[move.oldIndex]!.height + widget.separatorSize) *
-                move.newIndex,
-            start: widget.padding?.start ?? 0.0,
-            end: widget.padding?.end ?? 0.0,
-            child: widget.itemBuilder(context, move.item, move.oldIndex),
-            onAnimationEnd: () {
-              _hiddenPositions.remove(move.oldIndex);
+          widgetPosition:
+              widgetPosition.translate(0.0, widget.padding?.top ?? 0.0),
+          startTop: (_itemSizes[move.oldIndex]!.height + widget.separatorSize) *
+              move.oldIndex,
+          endTop: (_itemSizes[move.oldIndex]!.height + widget.separatorSize) *
+              move.newIndex,
+          start: widget.padding?.start ?? 0.0,
+          end: widget.padding?.end ?? 0.0,
+          child: widget.itemBuilder(context, move.item, move.oldIndex),
+          onVisible: () {
+            if (!_hideOldItems) {
+              setState(() => _hideOldItems = true);
+            }
+          },
+          onAnimationEnd: () {
+            _hiddenPositions.remove(move.oldIndex);
 
-              if (_hiddenPositions.isEmpty) {
-                _hideOldItems = false;
-                _oldData.clear();
-                _clearFloatingItems();
-                setState(() {});
-              }
-            });
+            if (_hiddenPositions.isEmpty) {
+              _hideOldItems = false;
+              _oldData.clear();
+              _clearFloatingItems();
+              setState(() {});
+            }
+          },
+        );
       },
     );
 
@@ -171,6 +174,31 @@ typedef SmoothSliverListItemBuilder<T> = Widget Function(
   int index,
 );
 
+class _MovingOverlayItem extends StatefulWidget {
+  const _MovingOverlayItem({
+    required this.widgetPosition,
+    required this.startTop,
+    required this.endTop,
+    required this.start,
+    required this.end,
+    required this.child,
+    required this.onVisible,
+    required this.onAnimationEnd,
+  });
+
+  final Offset widgetPosition;
+  final double startTop;
+  final double endTop;
+  final double start;
+  final double end;
+  final Widget child;
+  final VoidCallback onVisible;
+  final VoidCallback onAnimationEnd;
+
+  @override
+  State<_MovingOverlayItem> createState() => _MovingOverlayItemState();
+}
+
 class _MovingOverlayItemState extends State<_MovingOverlayItem>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
@@ -218,6 +246,7 @@ class _MovingOverlayItemState extends State<_MovingOverlayItem>
 
     /// Start the animation immediately
     SchedulerBinding.instance.addPostFrameCallback((_) {
+      widget.onVisible();
       _controller.forward();
     });
   }
@@ -276,27 +305,4 @@ class _DataMove<T> {
   final T item;
   final int oldIndex;
   final int newIndex;
-}
-
-class _MovingOverlayItem extends StatefulWidget {
-  const _MovingOverlayItem({
-    required this.widgetPosition,
-    required this.startTop,
-    required this.endTop,
-    required this.start,
-    required this.end,
-    required this.child,
-    required this.onAnimationEnd,
-  });
-
-  final Offset widgetPosition;
-  final double startTop;
-  final double endTop;
-  final double start;
-  final double end;
-  final Widget child;
-  final VoidCallback onAnimationEnd;
-
-  @override
-  State<_MovingOverlayItem> createState() => _MovingOverlayItemState();
 }
