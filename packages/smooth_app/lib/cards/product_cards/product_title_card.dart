@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -15,6 +17,7 @@ import 'package:smooth_app/pages/product/product_page/new_product_page.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 
 class ProductTitleCard extends StatelessWidget {
   const ProductTitleCard(
@@ -348,28 +351,48 @@ class _ProductTitleCardPictureWithProvider extends StatelessWidget {
       label: appLocalizations.product_page_image_front_accessibility_label,
       image: true,
       excludeSemantics: true,
-      child: Material(
-        child: DecoratedBox(
-          decoration: BoxDecoration(
-            borderRadius: const BorderRadius.all(Radius.circular(14.0)),
-            border: Border.all(
-              color: Theme.of(context).dividerColor,
-              width: 1.0,
+      child: SizedBox.square(
+        dimension: size,
+        child: Stack(
+          children: <Widget>[
+            ColoredBox(
+              color: Colors.white,
+              child: Opacity(
+                opacity: context.lightTheme() ? 0.2 : 0.65,
+                child: ImageFiltered(
+                  imageFilter: ImageFilter.blur(sigmaX: 8.0, sigmaY: 8.0),
+                  child: Image(
+                    image: imageProvider,
+                    fit: BoxFit.cover,
+                    height: size,
+                    width: size,
+                  ),
+                ),
+              ),
             ),
-          ),
-          child: Ink(
-            color: Colors.white,
-            child: Ink.image(
+            Image(
               width: size,
               height: size,
               fit: BoxFit.contain,
               image: imageProvider,
-              onImageError: (Object exception, StackTrace? stackTrace) {
+              errorBuilder: (_, __, ___) {
                 onError.call();
+                return EMPTY_WIDGET;
               },
-              child: child,
             ),
-          ),
+            Material(
+              type: MaterialType.transparency,
+              child: DecoratedBox(
+                  decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.all(Radius.circular(14.0)),
+                    border: Border.all(
+                      color: Theme.of(context).dividerColor,
+                      width: 1.0,
+                    ),
+                  ),
+                  child: child),
+            )
+          ],
         ),
       ),
     );

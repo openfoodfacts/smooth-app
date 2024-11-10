@@ -115,7 +115,7 @@ class ProductPageState extends State<ProductPage>
             !context.darkTheme() ? themeExtension.primaryLight : null,
         body: Stack(
           children: <Widget>[
-            _buildProductBody(context),
+            _buildProductBody(context, bottomPadding),
             const Positioned(
               left: 0.0,
               right: 0.0,
@@ -127,18 +127,15 @@ class ProductPageState extends State<ProductPage>
                 left: 0.0,
                 right: 0.0,
                 bottom: 0.0,
-                child: Padding(
-                  padding: EdgeInsets.only(bottom: bottomPadding),
-                  child: MeasureSize(
-                    onChange: (Size size) {
-                      if (size.height != bottomPadding) {
-                        setState(() => bottomPadding = size.height);
-                      }
-                    },
-                    child: ProductQuestionsWidget(
-                      upToDateProduct,
-                      layout: ProductQuestionsLayout.banner,
-                    ),
+                child: MeasureSize(
+                  onChange: (Size size) {
+                    if (size.height != bottomPadding) {
+                      setState(() => bottomPadding = size.height);
+                    }
+                  },
+                  child: ProductQuestionsWidget(
+                    upToDateProduct,
+                    layout: ProductQuestionsLayout.banner,
                   ),
                 ),
               ),
@@ -160,7 +157,7 @@ class ProductPageState extends State<ProductPage>
     localDatabase.notifyListeners();
   }
 
-  Widget _buildProductBody(BuildContext context) {
+  Widget _buildProductBody(BuildContext context, double bottomPadding) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final UserPreferences userPreferences = context.watch<UserPreferences>();
 
@@ -234,9 +231,7 @@ class ProductPageState extends State<ProductPage>
                   ),
                 ),
               ),
-            if (questionsLayout == ProductQuestionsLayout.banner)
-              // assuming it's tall enough in order to go above the banner
-              const SizedBox(height: 4 * VERY_LARGE_SPACE),
+            if (bottomPadding > 0) SizedBox(height: bottomPadding),
           ],
         ),
       ),
