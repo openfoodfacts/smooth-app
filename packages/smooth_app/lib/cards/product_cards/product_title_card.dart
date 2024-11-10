@@ -374,7 +374,7 @@ class _ProductTitleCardPictureWithProvider extends StatelessWidget {
       ),
     );
 
-    if (!outdated) {
+    if (outdated) {
       return Semantics(
         label: appLocalizations
             .product_page_image_front_outdated_message_accessibility_label,
