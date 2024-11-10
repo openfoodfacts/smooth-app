@@ -8,6 +8,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/num_utils.dart';
+import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/helpers/provider_helper.dart';
 import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
@@ -155,6 +156,8 @@ class _ProductHeaderName extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
     return ConsumerFilter<Product>(
       buildWhen: (Product? previousValue, Product currentValue) {
         return previousValue?.brands != currentValue.brands ||
@@ -166,7 +169,7 @@ class _ProductHeaderName extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(
-              product.productName ?? '',
+              getProductName(product, appLocalizations),
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
               style: const TextStyle(
@@ -176,7 +179,7 @@ class _ProductHeaderName extends StatelessWidget {
               ),
             ),
             Text(
-              product.brands ?? '',
+              getProductBrands(product, appLocalizations),
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
               style: const TextStyle(

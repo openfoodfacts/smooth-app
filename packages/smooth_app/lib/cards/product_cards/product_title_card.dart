@@ -160,7 +160,7 @@ class _ProductTitleCardBrand extends StatelessWidget {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final Product product = context.watch<Product>();
 
-    final String brands = product.brands ?? appLocalizations.unknownBrand;
+    final String brands = getProductBrands(product, appLocalizations);
     final String quantity = product.quantity ?? '';
 
     final String subtitleText;
