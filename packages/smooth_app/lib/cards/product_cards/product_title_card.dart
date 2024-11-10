@@ -464,7 +464,8 @@ class _ProductTitleCardPictureAssetsSvg extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: const BorderRadius.all(Radius.circular(14.0)),
                   border: Border.all(
-                    color: textStyle?.color ?? Theme.of(context).dividerColor,
+                    color: (textStyle?.color ?? Theme.of(context).dividerColor)
+                        .withOpacity(0.2),
                     width: 1.0,
                   ),
                 ),
