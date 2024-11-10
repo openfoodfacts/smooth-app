@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 import 'package:smooth_app/helpers/provider_helper.dart';
 import 'package:smooth_app/pages/product/product_page/footer/new_product_footer_add_price.dart';
 import 'package:smooth_app/pages/product/product_page/footer/new_product_footer_add_to_lists.dart';
@@ -160,14 +161,18 @@ class ProductFooterButton extends StatelessWidget {
     required this.icon,
     required this.onTap,
     this.label,
+    this.tooltip,
     this.semanticsLabel,
     this.enabled = true,
+    this.vibrate = false,
   });
 
   final String? label;
   final String? semanticsLabel;
+  final String? tooltip;
   final icons.AppIcon icon;
   final VoidCallback onTap;
+  final bool vibrate;
   final bool enabled;
 
   @override
@@ -175,22 +180,38 @@ class ProductFooterButton extends StatelessWidget {
     final _ProductFooterButtonType buttonType =
         context.watch<_ProductFooterButtonType>();
 
-    return switch (buttonType) {
+    final Widget button = switch (buttonType) {
       _ProductFooterButtonType.filled => _ProductFooterFilledButton(
           label: label,
           icon: icon,
-          onTap: onTap,
+          onTap: _onTap,
           enabled: enabled,
           semanticsLabel: semanticsLabel,
         ),
       _ProductFooterButtonType.outlined => _ProductFooterOutlinedButton(
           label: label,
           icon: icon,
-          onTap: onTap,
+          onTap: _onTap,
           enabled: enabled,
           semanticsLabel: semanticsLabel,
         ),
     };
+
+    if (tooltip?.isNotEmpty == true) {
+      return Tooltip(
+        message: tooltip,
+        child: button,
+      );
+    } else {
+      return button;
+    }
+  }
+
+  void _onTap() {
+    if (vibrate) {
+      SmoothHapticFeedback.lightNotification();
+    }
+    onTap();
   }
 }
 

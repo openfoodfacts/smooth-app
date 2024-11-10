@@ -17,6 +17,7 @@ class ProductFooterShareButton extends StatelessWidget {
 
     return ProductFooterButton(
       label: appLocalizations.share,
+      vibrate: true,
       icon: icons.Share(),
       onTap: () => _shareProduct(context, context.read<Product>()),
     );

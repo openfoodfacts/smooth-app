@@ -3104,9 +3104,9 @@
     "@product_page_compatibility_score": {
         "description": "Compatibility score on top of the product page. The sentence is: \"100%\" Compatible"
     },
-    "product_page_action_bar_settings": "Settings",
-    "@product_page_action_bar_settings": {
-        "description": "Settings for the action bar (= bottom bar) on the product page"
+    "product_page_action_bar_settings_accessibility_label": "Reorder or hide actions",
+    "@product_page_action_bar_settings_accessibility_label": {
+        "description": "Accessibility label for the Settings icon in the action bar (= bottom bar) on the product page"
     },
     "product_page_action_bar_setting_modal_title": "Edit actions",
     "@product_page_action_bar_setting_modal_title": {

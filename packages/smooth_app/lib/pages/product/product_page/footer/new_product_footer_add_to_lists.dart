@@ -16,6 +16,7 @@ class ProductFooterAddToListButton extends StatelessWidget {
 
     return ProductFooterButton(
       label: appLocalizations.user_list_button_add_product,
+      vibrate: true,
       icon: const icons.AddToList(),
       onTap: () => _editList(context, context.read<Product>()),
     );

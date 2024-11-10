@@ -26,7 +26,11 @@ class ProductFooterSettingsButton extends StatelessWidget {
 
     return ProductFooterButton(
       icon: const icons.Personalization(),
-      semanticsLabel: appLocalizations.product_page_action_bar_settings,
+      vibrate: true,
+      tooltip:
+          appLocalizations.product_page_action_bar_settings_accessibility_label,
+      semanticsLabel:
+          appLocalizations.product_page_action_bar_settings_accessibility_label,
       onTap: () => _openActionBarSettings(context, appLocalizations),
     );
   }
