@@ -299,56 +299,38 @@ class ClearText extends AppIcon {
   }
 }
 
-class Delete extends AppIcon {
-  const Delete.trash({
-    super.color,
-    super.size,
-    super.shadow,
-    super.key,
-  }) : super._(_IconsFont.delete_trash);
-}
-
-class Document extends AppIcon {
-  const Document({
-    super.color,
-    super.size,
-    super.shadow,
-    super.key,
-  }) : super._(_IconsFont.document);
-}
-
-class DoubleChevron extends AppIcon {
-  const DoubleChevron.left({
-    super.color,
-    super.size,
-    super.shadow,
-    super.key,
-  })  : turns = 3,
-        super._(_IconsFont.double_chevron);
-
-  const DoubleChevron.right({
-    super.color,
-    super.size,
-    super.shadow,
-    super.key,
-  })  : turns = 1,
-        super._(_IconsFont.double_chevron);
-
-  const DoubleChevron.up({
+class CircledArrow extends AppIcon {
+  const CircledArrow.right({
     super.color,
     super.size,
     super.shadow,
     super.key,
   })  : turns = 0,
-        super._(_IconsFont.double_chevron);
+        super._(_IconsFont.circled_arrow);
 
-  const DoubleChevron.down({
+  const CircledArrow.left({
     super.color,
     super.size,
     super.shadow,
     super.key,
   })  : turns = 2,
-        super._(_IconsFont.double_chevron);
+        super._(_IconsFont.circled_arrow);
+
+  const CircledArrow.down({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  })  : turns = 1,
+        super._(_IconsFont.circled_arrow);
+
+  const CircledArrow.up({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  })  : turns = 3,
+        super._(_IconsFont.circled_arrow);
 
   final int turns;
 
@@ -359,15 +341,6 @@ class DoubleChevron extends AppIcon {
       child: super.build(context),
     );
   }
-}
-
-class CircledArrow extends AppIcon {
-  const CircledArrow({
-    super.color,
-    super.size,
-    super.shadow,
-    super.key,
-  }) : super._(_IconsFont.circled_arrow);
 }
 
 class Close extends AppIcon {
@@ -449,6 +422,24 @@ class DangerousZone extends AppIcon {
   }) : super._(_IconsFont.dangerous_zone);
 }
 
+class Delete extends AppIcon {
+  const Delete.trash({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  }) : super._(_IconsFont.delete_trash);
+}
+
+class Document extends AppIcon {
+  const Document({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  }) : super._(_IconsFont.document);
+}
+
 class Donate extends AppIcon {
   const Donate({
     super.color,
@@ -456,6 +447,50 @@ class Donate extends AppIcon {
     super.shadow,
     super.key,
   }) : super._(_IconsFont.donate);
+}
+
+class DoubleChevron extends AppIcon {
+  const DoubleChevron.left({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  })  : turns = 3,
+        super._(_IconsFont.double_chevron);
+
+  const DoubleChevron.right({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  })  : turns = 1,
+        super._(_IconsFont.double_chevron);
+
+  const DoubleChevron.up({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  })  : turns = 0,
+        super._(_IconsFont.double_chevron);
+
+  const DoubleChevron.down({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  })  : turns = 2,
+        super._(_IconsFont.double_chevron);
+
+  final int turns;
+
+  @override
+  Widget build(BuildContext context) {
+    return RotatedBox(
+      quarterTurns: turns,
+      child: super.build(context),
+    );
+  }
 }
 
 class Edit extends AppIcon {

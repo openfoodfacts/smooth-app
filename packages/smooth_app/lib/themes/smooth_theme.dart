@@ -41,6 +41,10 @@ class SmoothTheme {
     final SmoothColorsThemeExtension smoothExtension =
         SmoothColorsThemeExtension.defaultValues();
 
+    final TextTheme textTheme = brightness == Brightness.dark
+        ? getTextTheme(themeProvider, textContrastProvider)
+        : _TEXT_THEME;
+
     return ThemeData(
       fontFamily: 'OpenSans',
       primaryColor: DARK_BROWN_COLOR,
@@ -82,13 +86,12 @@ class SmoothTheme {
       floatingActionButtonTheme: FloatingActionButtonThemeData(
           backgroundColor: myColorScheme.primary,
           foregroundColor: myColorScheme.onPrimary),
-      textTheme: brightness == Brightness.dark
-          ? getTextTheme(themeProvider, textContrastProvider)
-          : _TEXT_THEME,
+      textTheme: textTheme,
       appBarTheme: AppBarTheme(
         color: myColorScheme.surface,
         foregroundColor: myColorScheme.onSurface,
         systemOverlayStyle: SystemUiOverlayStyle.light,
+        titleTextStyle: textTheme.titleLarge,
       ),
       dividerColor: const Color(0xFFdfdfdf),
       inputDecorationTheme: InputDecorationTheme(

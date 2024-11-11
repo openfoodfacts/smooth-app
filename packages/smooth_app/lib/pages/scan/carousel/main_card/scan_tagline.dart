@@ -9,6 +9,7 @@ import 'package:smooth_app/data_models/news_feed/newsfeed_model.dart';
 import 'package:smooth_app/data_models/news_feed/newsfeed_provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_app_logo.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/provider_helper.dart';
@@ -121,9 +122,11 @@ class _ScanTagLineContentState extends State<_ScanTagLineContent> {
             ),
           ),
           child: Padding(
-            padding: const EdgeInsets.symmetric(
-              vertical: VERY_SMALL_SPACE,
-              horizontal: MEDIUM_SPACE,
+            padding: const EdgeInsetsDirectional.only(
+              start: LARGE_SPACE,
+              end: MEDIUM_SPACE,
+              top: VERY_SMALL_SPACE,
+              bottom: VERY_SMALL_SPACE,
             ),
             child: _TagLineContentTitle(
               title: currentNews.title,
@@ -146,7 +149,7 @@ class _ScanTagLineContentState extends State<_ScanTagLineContent> {
               ),
             ),
             child: Padding(
-              padding: const EdgeInsets.symmetric(
+              padding: const EdgeInsetsDirectional.symmetric(
                 vertical: SMALL_SPACE,
                 horizontal: MEDIUM_SPACE,
               ),
@@ -220,16 +223,19 @@ class _TagLineContentTitle extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(width: VERY_SMALL_SPACE),
+            const SizedBox(width: BALANCED_SPACE),
             Expanded(
-                child: Text(
-              title,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 16.0,
-                color: titleColor ?? Colors.white,
+              child: Text(
+                title,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16.0,
+                  color: titleColor ?? Colors.white,
+                ),
               ),
-            ))
+            ),
           ],
         ),
       ),
@@ -306,26 +312,40 @@ class _TagLineContentBodyState extends State<_TagLineContentBody> {
       return SvgCache(
         widget.image!.src,
         semanticsLabel: widget.image!.alt,
+        loadingBuilder: (_) => _onLoading(),
       );
     } else {
       return Image.network(
         semanticLabel: widget.image!.alt,
-        errorBuilder: (
-          BuildContext context,
-          Object error,
-          StackTrace? stackTrace,
+        loadingBuilder: (
+          _,
+          Widget child,
+          ImageChunkEvent? loadingProgress,
         ) {
-          WidgetsBinding.instance.addPostFrameCallback((_) {
-            if (_imageError != true) {
-              setState(() => _imageError = true);
-            }
-          });
+          if (loadingProgress == null) {
+            return _onLoading();
+          }
 
-          return EMPTY_WIDGET;
+          return child;
         },
+        errorBuilder: (_, __, ___) => _onError(),
         widget.image!.src ?? '-',
       );
     }
+  }
+
+  Widget _onLoading() {
+    return const SmoothAnimatedLogo();
+  }
+
+  Widget _onError() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (_imageError != true) {
+        setState(() => _imageError = true);
+      }
+    });
+
+    return EMPTY_WIDGET;
   }
 }
 
@@ -352,19 +372,25 @@ class _TagLineContentButton extends StatelessWidget {
       style: FilledButton.styleFrom(
         backgroundColor: backgroundColor ?? theme.primaryBlack,
         foregroundColor: foregroundColor ?? Colors.white,
-        padding: const EdgeInsets.symmetric(
+        padding: const EdgeInsetsDirectional.symmetric(
           vertical: VERY_SMALL_SPACE,
-          horizontal: MEDIUM_SPACE,
+          horizontal: VERY_LARGE_SPACE,
         ),
         minimumSize: const Size(0, 20.0),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          Text(label ?? localizations.tagline_feed_news_button),
+          Padding(
+            padding: const EdgeInsetsDirectional.only(bottom: 0.5),
+            child: Text(
+              label ?? localizations.tagline_feed_news_button,
+              style: const TextStyle(fontWeight: FontWeight.bold),
+            ),
+          ),
           const SizedBox(width: MEDIUM_SPACE),
-          const Arrow.right(
-            size: 12.0,
+          const CircledArrow.right(
+            size: 20.0,
           ),
         ],
       ),

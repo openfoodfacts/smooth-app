@@ -8,12 +8,14 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/num_utils.dart';
+import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/helpers/provider_helper.dart';
 import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/product/product_page/new_product_page.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/constant_icons.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
 class ProductHeader extends StatefulWidget {
@@ -47,7 +49,10 @@ class _ProductHeaderState extends State<ProductHeader> {
           builder: (BuildContext context,
               ProductPageCompatibility productCompatibility, _) {
             return Material(
-              color: productCompatibility.color,
+              color: productCompatibility.color ??
+                  Theme.of(context)
+                      .extension<SmoothColorsThemeExtension>()!
+                      .greyNormal,
               child: DefaultTextStyle.merge(
                 style: const TextStyle(color: Colors.white),
                 child: IconTheme(
@@ -68,7 +73,7 @@ class _ProductHeaderState extends State<ProductHeader> {
                               ),
                             ),
                           ),
-                          if (productCompatibility.score > 0)
+                          if (productCompatibility.score != null)
                             _ProductCompatibilityScore(
                               progress: _compatibilityScoreOpacity,
                             ),
@@ -87,10 +92,17 @@ class _ProductHeaderState extends State<ProductHeader> {
 
   void _onScroll(ScrollController scrollController) {
     /// Get the title opacity depending on the scroll position
-    final double titleOpacity =
-        scrollController.offset.progressAndClamp(20.0, kToolbarHeight, 1.0);
+    final double titleOpacity = scrollController.offset.progressAndClamp(
+      LARGE_SPACE * 2 + kToolbarHeight * 0.22,
+      LARGE_SPACE * 2 + kToolbarHeight * 1.5,
+      1.0,
+    );
     final double compatibilityScoreOpacity =
-        scrollController.offset.progressAndClamp(20.0, kToolbarHeight * 2, 1.0);
+        scrollController.offset.progressAndClamp(
+      LARGE_SPACE * 1.5,
+      LARGE_SPACE + kToolbarHeight * 2,
+      1.0,
+    );
 
     if (_titleOpacity != titleOpacity ||
         _compatibilityScoreOpacity != compatibilityScoreOpacity) {
@@ -123,17 +135,22 @@ class _ProductHeaderBackButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: 56.0,
-      child: Tooltip(
-        message: MaterialLocalizations.of(context).backButtonTooltip,
-        child: InkWell(
-          customBorder: const CircleBorder(),
-          onTap: () {
-            Navigator.of(context).maybePop();
-          },
-          child: SizedBox.expand(
-            child: Icon(ConstantIcons.instance.getBackIcon()),
+    return Semantics(
+      value: MaterialLocalizations.of(context).backButtonTooltip,
+      excludeSemantics: true,
+      button: true,
+      child: SizedBox(
+        width: 56.0,
+        child: Tooltip(
+          message: MaterialLocalizations.of(context).backButtonTooltip,
+          child: InkWell(
+            customBorder: const CircleBorder(),
+            onTap: () {
+              Navigator.of(context).maybePop();
+            },
+            child: SizedBox.expand(
+              child: Icon(ConstantIcons.instance.getBackIcon()),
+            ),
           ),
         ),
       ),
@@ -146,6 +163,8 @@ class _ProductHeaderName extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
     return ConsumerFilter<Product>(
       buildWhen: (Product? previousValue, Product currentValue) {
         return previousValue?.brands != currentValue.brands ||
@@ -157,7 +176,7 @@ class _ProductHeaderName extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(
-              product.productName ?? '',
+              getProductName(product, appLocalizations),
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
               style: const TextStyle(
@@ -167,7 +186,7 @@ class _ProductHeaderName extends StatelessWidget {
               ),
             ),
             Text(
-              product.brands ?? '',
+              getProductBrands(product, appLocalizations),
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
               style: const TextStyle(
@@ -200,23 +219,36 @@ class _ProductCompatibilityScore extends StatelessWidget {
     final ProductPageCompatibility compatibility =
         context.watch<ProductPageCompatibility>();
 
-    return Padding(
-      padding: PADDING,
-      child: SizedBox(
-        width: computeWidth(context) + (MAX_WIDTH * progress),
-        child: DecoratedBox(
-          decoration: BoxDecoration(
-            borderRadius: ROUNDED_BORDER_RADIUS,
-            border: Border.all(color: Colors.white),
-          ),
-          child: InkWell(
-            onTap: () => AppNavigator.of(context).push(
-              AppRoutes.PREFERENCES(PreferencePageType.FOOD),
-            ),
-            borderRadius: ROUNDED_BORDER_RADIUS,
-            child: ClipRRect(
-              borderRadius: ROUNDED_BORDER_RADIUS,
-              child: _getScoreWidget(context, compatibility),
+    final String tooltipMessage =
+        AppLocalizations.of(context).product_page_compatibility_score_tooltip(
+      compatibility.score!.toInt(),
+    );
+
+    return Semantics(
+      excludeSemantics: true,
+      button: true,
+      label: tooltipMessage,
+      child: Tooltip(
+        message: tooltipMessage,
+        child: Padding(
+          padding: PADDING,
+          child: SizedBox(
+            width: computeWidth(context) + (MAX_WIDTH * progress),
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                borderRadius: ROUNDED_BORDER_RADIUS,
+                border: Border.all(color: Colors.white),
+              ),
+              child: InkWell(
+                onTap: () => AppNavigator.of(context).push(
+                  AppRoutes.PREFERENCES(PreferencePageType.FOOD),
+                ),
+                borderRadius: ROUNDED_BORDER_RADIUS,
+                child: ClipRRect(
+                  borderRadius: ROUNDED_BORDER_RADIUS,
+                  child: _getScoreWidget(context, compatibility),
+                ),
+              ),
             ),
           ),
         ),
@@ -264,7 +296,7 @@ class _ProductCompatibilityScore extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
                   Text(
-                    '${compatibility.score.toInt()}%',
+                    '${compatibility.score!.toInt()}%',
                     style: const TextStyle(
                       fontSize: 12.0,
                       height: 0.9,
