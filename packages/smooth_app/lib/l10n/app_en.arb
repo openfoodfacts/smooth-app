@@ -999,9 +999,21 @@
             "count": {}
         }
     },
-    "compare_products_mode": "Compare products",
+    "compare_products_mode": "Compare selected products",
     "@compare_products_mode": {
         "description": "Button to switch to 'compare products mode'"
+    },
+    "delete_products_mode": "Delete selected products",
+    "@delete_products_mode": {
+        "description": "Button to switch to 'delete products'"
+    },
+    "select_all_products_mode": "Select all products",
+    "@select_all_products_mode": {
+        "description": "Button to switch to 'select all products'"
+    },
+    "select_none_products_mode": "Select none",
+    "@select_none_products_mode": {
+        "description": "Button to switch to 'select no products'"
     },
     "compare_products_appbar_title": "Compare products",
     "@compare_products_appbar_title": {

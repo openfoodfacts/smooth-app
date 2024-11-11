@@ -75,6 +75,10 @@ class _ProductListPageState extends State<ProductListPage>
   final ProductListItemPopupItem _rankItems = ProductListItemPopupRank();
   final ProductListItemPopupItem _sideBySideItems =
       ProductListItemPopupSideBySide();
+  final ProductListItemPopupItem _selectAllItems =
+      ProductListItemPopupSelectAll();
+  final ProductListItemPopupItem _selectNoneItems =
+      ProductListItemPopupUnselectAll();
 
   //returns bool to handle WillPopScope
   Future<bool> _handleUserBacktap() async {
@@ -213,6 +217,14 @@ class _ProductListPageState extends State<ProductListPage>
                   _selectedBarcodes.length >= 2,
                 ),
                 _deleteItems.getMenuItem(
+                  appLocalizations,
+                  _selectedBarcodes.isNotEmpty,
+                ),
+                _selectAllItems.getMenuItem(
+                  appLocalizations,
+                  _selectedBarcodes.length < productList.barcodes.length,
+                ),
+                _selectNoneItems.getMenuItem(
                   appLocalizations,
                   _selectedBarcodes.isNotEmpty,
                 ),
