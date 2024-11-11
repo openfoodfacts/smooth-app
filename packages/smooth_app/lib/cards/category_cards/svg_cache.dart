@@ -12,11 +12,15 @@ class SvgCache extends AbstractCache {
     super.width,
     super.height,
     this.color,
+    this.loadingBuilder,
+    this.errorBuilder,
     this.semanticsLabel,
   });
 
   final Color? color;
   final String? semanticsLabel;
+  final WidgetBuilder? loadingBuilder;
+  final WidgetErrorBuilder? errorBuilder;
 
   @override
   List<String> getCachedFilenames() {
@@ -65,6 +69,8 @@ class SvgCache extends AbstractCache {
     return SvgSafeNetwork(
       helper,
       key: helper.getKey(),
+      loadingBuilder: loadingBuilder,
+      errorBuilder: errorBuilder,
     );
   }
 
