@@ -816,6 +816,7 @@
     "app_review_negative_modal_text": "Could you take a few seconds to tell us why?",
     "app_review_negative_modal_positive_button": "Yes, absolutely!",
     "app_review_negative_modal_negative_button": "No",
+    "loading_in_progress": "Loading in progress…",
     "could_not_refresh": "Could not refresh product",
     "@could_not_refresh": {
         "description": "The product data couldn't be refreshed"
