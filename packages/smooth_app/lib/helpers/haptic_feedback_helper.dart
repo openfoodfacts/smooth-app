@@ -43,9 +43,10 @@ class SmoothHapticFeedback {
     }
 
     await HapticFeedback.heavyImpact();
-    return Future<void>.delayed(const Duration(milliseconds: 50), () {
-      HapticFeedback.heavyImpact();
-    });
+    await Future<void>.delayed(const Duration(milliseconds: 150));
+    await HapticFeedback.heavyImpact();
+    await Future<void>.delayed(const Duration(milliseconds: 150));
+    return HapticFeedback.heavyImpact();
   }
 
   static Future<bool> _areHapticFeedbackEnabled() async {
