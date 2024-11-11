@@ -381,11 +381,10 @@ class _ProductFooterFilledButton extends StatelessWidget {
         onPressed: onTap,
         style: OutlinedButton.styleFrom(
           foregroundColor: Colors.white,
-          backgroundColor: compatibility.score > 0
-              ? compatibility.color
-              : context.lightTheme()
+          backgroundColor: compatibility.color ??
+              (context.lightTheme()
                   ? themeExtension.primaryBlack
-                  : themeExtension.primarySemiDark,
+                  : themeExtension.primarySemiDark),
           side: BorderSide.none,
         ),
         child: Row(

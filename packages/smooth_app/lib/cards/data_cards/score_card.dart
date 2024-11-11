@@ -116,6 +116,7 @@ class ScoreCard extends StatelessWidget {
                     description,
                     style: themeData.textTheme.headlineMedium!
                         .apply(color: textColor),
+                    textAlign: TextAlign.center,
                   ),
                 ),
               ),

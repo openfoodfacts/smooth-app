@@ -20,8 +20,10 @@ import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
 import 'package:smooth_app/pages/product/nutrition_add_nutrient_button.dart';
 import 'package:smooth_app/pages/product/nutrition_container.dart';
 import 'package:smooth_app/pages/product/ordered_nutrients_cache.dart';
+import 'package:smooth_app/pages/product/owner_field_info.dart';
 import 'package:smooth_app/pages/product/simple_input_number_field.dart';
 import 'package:smooth_app/pages/text_field_helper.dart';
+import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 import 'package:smooth_app/widgets/will_pop_scope.dart';
 
@@ -130,6 +132,9 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
     children.add(_switchNoNutrition(appLocalizations));
 
     if (!_nutritionContainer.noNutritionData) {
+      final Iterable<OrderedNutrient> displayableNutrients =
+          _nutritionContainer.getDisplayableNutrients();
+
       children.add(
         Padding(
           padding: const EdgeInsets.symmetric(vertical: MEDIUM_SPACE),
@@ -140,11 +145,12 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
           ),
         ),
       );
+      if (_hasOwnerField(displayableNutrients)) {
+        children.add(const OwnerFieldInfo());
+      }
+
       children.add(_getServingField(appLocalizations));
       children.add(_getServingSwitch(appLocalizations));
-
-      final Iterable<OrderedNutrient> displayableNutrients =
-          _nutritionContainer.getDisplayableNutrients();
 
       if (_focusNodes.length != displayableNutrients.length) {
         _focusNodes.clear();
@@ -177,6 +183,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
               _decimalNumberFormat,
               orderedNutrient,
               i,
+              upToDateProduct,
             ),
           ),
         );
@@ -225,6 +232,30 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
     );
   }
 
+  bool _hasOwnerField(
+    final Iterable<OrderedNutrient> displayableNutrients,
+  ) {
+    if (upToDateProduct.getOwnerFieldTimestamp(
+          OwnerField.productField(
+            ProductField.SERVING_SIZE,
+            ProductQuery.getLanguage(),
+          ),
+        ) !=
+        null) {
+      return true;
+    }
+    for (final OrderedNutrient orderedNutrient in displayableNutrients) {
+      final Nutrient nutrient = _getNutrient(orderedNutrient);
+      if (upToDateProduct.getOwnerFieldTimestamp(
+            OwnerField.nutrient(nutrient),
+          ) !=
+          null) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   Widget _getServingField(final AppLocalizations appLocalizations) {
     final String value = _nutritionContainer.servingSize;
 
@@ -245,6 +276,18 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
             decoration: InputDecoration(
               enabledBorder: const UnderlineInputBorder(),
               labelText: appLocalizations.nutrition_page_serving_size,
+              suffixIcon: widget.product.getOwnerFieldTimestamp(
+                        OwnerField.productField(
+                          ProductField.SERVING_SIZE,
+                          ProductQuery.getLanguage(),
+                        ),
+                      ) ==
+                      null
+                  ? null
+                  : Semantics(
+                      label: appLocalizations.owner_field_info_title,
+                      child: const Icon(OwnerFieldInfo.ownerFieldIconData),
+                    ),
             ),
             textInputAction: TextInputAction.next,
             onFieldSubmitted: (_) {
@@ -442,12 +485,14 @@ class _NutrientRow extends StatelessWidget {
     this.decimalNumberFormat,
     this.orderedNutrient,
     this.position,
+    this.product,
   );
 
   final NutritionContainer nutritionContainer;
   final NumberFormat decimalNumberFormat;
   final OrderedNutrient orderedNutrient;
   final int position;
+  final Product product;
 
   @override
   Widget build(BuildContext context) {
@@ -465,6 +510,7 @@ class _NutrientRow extends StatelessWidget {
               decimalNumberFormat,
               orderedNutrient,
               position,
+              product,
             ),
           ),
         ),
@@ -492,14 +538,17 @@ class _NutrientValueCell extends StatelessWidget {
     this.decimalNumberFormat,
     this.orderedNutrient,
     this.position,
+    this.product,
   );
 
   final NumberFormat decimalNumberFormat;
   final OrderedNutrient orderedNutrient;
   final int position;
+  final Product product;
 
   @override
   Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final List<FocusNode> focusNodes = Provider.of<List<FocusNode>>(
       context,
       listen: false,
@@ -507,6 +556,7 @@ class _NutrientValueCell extends StatelessWidget {
     final TextEditingControllerWithHistory controller =
         context.watch<TextEditingControllerWithHistory>();
     final bool isLast = position == focusNodes.length - 1;
+    final Nutrient? nutrient = orderedNutrient.nutrient;
 
     return TextFormField(
       controller: controller,
@@ -515,6 +565,14 @@ class _NutrientValueCell extends StatelessWidget {
       decoration: InputDecoration(
         enabledBorder: const UnderlineInputBorder(),
         labelText: orderedNutrient.name,
+        suffixIcon: nutrient == null ||
+                product.getOwnerFieldTimestamp(OwnerField.nutrient(nutrient)) ==
+                    null
+            ? null
+            : Semantics(
+                label: appLocalizations.owner_field_info_title,
+                child: const Icon(OwnerFieldInfo.ownerFieldIconData),
+              ),
       ),
       keyboardType: const TextInputType.numberWithOptions(
         signed: false,
@@ -540,7 +598,7 @@ class _NutrientValueCell extends StatelessWidget {
           decimalNumberFormat.parse(value);
           return null;
         } catch (e) {
-          return AppLocalizations.of(context).nutrition_page_invalid_number;
+          return appLocalizations.nutrition_page_invalid_number;
         }
       },
     );

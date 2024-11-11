@@ -355,6 +355,8 @@
     "@contribute_develop_text_2": {},
     "contribute_develop_dev_mode_title": "Geliştirici Modu?",
     "contribute_develop_dev_mode_subtitle": "DEV Modunu Etkinleştirin",
+    "contribute_donate_title": "Bağış Yapın",
+    "@contribute_donate_title": {},
     "contribute_donate_header": "OpenFoodFacts'e bağış yapın",
     "@contribute_donate_header": {},
     "contribute_enroll_alpha": "Dahili alfa sürümüne kaydolun",
@@ -406,9 +408,9 @@
     "@saving_answer": {
         "description": "Dialog shown to users after they have answered a question, while the answer is being saved in the BE."
     },
-    "contribute_to_get_rewards": "Gıda şeffaflığını geliştirmeye yardımcı olun ve ödüller kazanın",
+    "contribute_to_get_rewards": "Gıda şeffaflığının katılımcısı ol",
     "@contribute_to_get_rewards": {
-        "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts and gain rewards."
+        "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts."
     },
     "question_sign_in_text": "Katkılarınız için kredi almak üzere OpenFoodFacts hesabınızda oturum açın",
     "question_yes_button_accessibility_value": "Evet ile cevapla",
@@ -497,6 +499,10 @@
     "@search": {
         "description": "Hint text of a search text input field"
     },
+    "search_store": "Search for a store",
+    "@search_store": {
+        "description": "Hint text of a search store text input field"
+    },
     "tap_for_more": "Daha fazla bilgi görmek için dokunun…",
     "@Product": {},
     "product": "Ürün",
@@ -513,6 +519,13 @@
     "front_photo": "Ön fotoğraf",
     "@front_photo": {
         "description": "Button label: For adding a picture of the front of a product"
+    },
+    "outdated_image_accessibility_label": "{imageType} (this image may be outdated)",
+    "@outdated_image_accessibility_label": {
+        "description": "Accessibility label for images that are outdated (image type may be front/ingredients/nutrition…)",
+        "placeholders": {
+            "imageType": {}
+        }
     },
     "ingredients": "İçindekiler",
     "@ingredients": {},
@@ -669,6 +682,9 @@
         "description": "Button at the end of new product page, that takes you to completed product"
     },
     "hey_incomplete_product_message": "Nutri-Score, Eco-Score ve Ultra-processing'i (NOVA) hesaplamada ŞİMDİ 3 soruyu yanıtlamak için dokunun!",
+    "hey_incomplete_product_message_beauty": "Tap now to answer 2 questions to help analyze this cosmetic!",
+    "hey_incomplete_product_message_pet_food": "Tap now to answer 3 questions to help analyze this pet food product!",
+    "hey_incomplete_product_message_product": "Tap now to help complete this product!",
     "nutritional_facts_photo_uploaded": "\"Besin değerleri\" fotoğrafı yüklendi",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "Geri dönüşüm bilgisi fotoğrafı",
@@ -740,7 +756,7 @@
     "@view_more_photo_button": {},
     "no_product_found": "Ürün bulunamadı",
     "@no_product_found": {},
-    "no_location_found": "No location found",
+    "no_location_found": "Konum bulunamadı",
     "not_found": "bulunamadı:",
     "refreshing_product": "Ürün yenileme",
     "@refreshing_product": {
@@ -768,7 +784,8 @@
             }
         }
     },
-    "homepage_main_card_logo_description": "Welcome to Open Food Facts",
+    "product_image_outdated": "This image may be outdated",
+    "homepage_main_card_logo_description": "Open Food Facts'e Hoş Geldiniz",
     "@homepage_main_card_logo_description": {
         "description": "Description for accessibility of the Open Food Facts logo on the homepage"
     },
@@ -777,11 +794,11 @@
         "description": "Text between asterisks (eg: **My Text**) means text in bold. Please keep it."
     },
     "homepage_main_card_search_field_hint": "Bir ürün arayın",
-    "homepage_main_card_search_field_tooltip": "Start search",
+    "homepage_main_card_search_field_tooltip": "Aramayı başlat",
     "@homepage_main_card_search_field_tooltip": {
         "description": "Description for accessibility of the search field on the homepage"
     },
-    "scan_tagline_news_item_accessibility": "Latest news: {news_title}",
+    "scan_tagline_news_item_accessibility": "Son haberler: {news_title}",
     "@scan_tagline_news_item_accessibility": {
         "description": "Accessibility label for the title of a news",
         "placeholders": {
@@ -794,7 +811,7 @@
     "tagline_app_review_button_positive": "Bayıldım! 😍",
     "tagline_app_review_button_negative": "Pek sayılmaz…",
     "tagline_app_review_button_later": "Daha sonra sor",
-    "tagline_feed_news_button": "Know more",
+    "tagline_feed_news_button": "Daha fazla bilgi",
     "app_review_negative_modal_title": "Uygulamamızı beğenmediniz mi?",
     "app_review_negative_modal_text": "Bize nedenini söylemek için birkaç saniyenizi ayırabilir misiniz?",
     "app_review_negative_modal_positive_button": "Evet kesinlikle!",
@@ -803,8 +820,8 @@
     "@could_not_refresh": {
         "description": "The product data couldn't be refreshed"
     },
-    "product_internet_error_modal_title": "An error has occurred!",
-    "product_internet_error_modal_message": "We are unable to fetch information about this product due to a network error. Please check your internet connection and try again.\n\nInternal error:\n{error}",
+    "product_internet_error_modal_title": "Bir hata oluştu!",
+    "product_internet_error_modal_message": "Bir ağ hatası nedeniyle bu ürün hakkında bilgi alamıyoruz. Lütfen internet bağlantınızı kontrol edin ve tekrar deneyin.\n\nDahili hata:\n{error}",
     "@product_internet_error_modal_message": {
         "placeholders": {
             "error": {
@@ -824,6 +841,14 @@
     "product_search_same_category": "Kategoriye göre karşılaştır",
     "@product_search_same_category": {
         "description": "Button looking for the other products within the same category. Less than 30 characters"
+    },
+    "product_search_same_category_short": "Karşılaştır",
+    "@product_search_same_category_short": {
+        "description": "Button looking for the other products within the same category. Just the verb compare"
+    },
+    "product_search_same_category_error": "This feature can only be used for products with a category.\n\nPlease edit the product to add a category.",
+    "@product_search_same_category_error": {
+        "description": "Button looking for the other products within the same category. Just the verb compare"
     },
     "product_improvement_add_category": "Nutri-Score'u hesaplamak için bir kategori ekleyin.",
     "@product_improvement_add_category": {
@@ -1119,8 +1144,8 @@
             }
         }
     },
-    "onboarding_home_welcome_text1": "Welcome !",
-    "onboarding_home_welcome_text2": "The app that helps you choose food that is good for **you** and the **planet**!",
+    "onboarding_home_welcome_text1": "Hoş geldiniz!",
+    "onboarding_home_welcome_text2": "**sizin** ve **gezegen** için iyi olan yiyecekleri seçmenize yardımcı olan uygulama!",
     "@onboarding_home_welcome_text2": {
         "description": "Onboarding home screen welcome text, text surrounded by * will be bold"
     },
@@ -1235,7 +1260,7 @@
     "@camera_play_sound_subtitle": {
         "description": "SubTitle for the Camera play sound toggle"
     },
-    "camera_window_accessibility_label": "Scan a barcode with your camera",
+    "camera_window_accessibility_label": "Kameranızla bir barkodu tarayın",
     "@camera_window_accessibility_label": {
         "description": "Accessibility label for the camera window"
     },
@@ -1300,6 +1325,10 @@
     "edit_product_label": "Ürünü Düzenle",
     "@edit_product_label": {
         "description": "Edit product button label"
+    },
+    "edit_product_label_short": "Düzenle",
+    "@edit_product_label_short": {
+        "description": "Edit product button short label (only the verb)"
     },
     "edit_product_form_item_add_action": "Yeni bir {itemType} ekle",
     "description": "Kullanıcı (+) düğmesine uzun bastığında gösterilecek araç ipucu",
@@ -1479,19 +1508,19 @@
     "completed_basic_details_btn_text": "Temel bilgileri tamamlayın",
     "not_implemented_snackbar_text": "Henüz uygulanmadı",
     "category_picker_page_appbar_text": "Kategoriler",
-    "edit_ingredients_extract_ingredients_btn_text": "Extract ingredients from the photo",
+    "edit_ingredients_extract_ingredients_btn_text": "Fotoğraftan içerikleri çıkar",
     "@edit_ingredients_extract_ingredients_btn_text": {
         "description": "Ingredients edition - Extract ingredients"
     },
-    "edit_ingredients_extracting_ingredients_btn_text": "Extracting ingredients\nfrom the photo",
+    "edit_ingredients_extracting_ingredients_btn_text": "Fotoğraftan içerikleri çıkarma",
     "@edit_ingredients_extracting_ingredients_btn_text": {
         "description": "Ingredients edition - Extracting ingredients"
     },
-    "edit_ingredients_loading_photo_btn_text": "Loading photo…",
+    "edit_ingredients_loading_photo_btn_text": "Fotoğraf yükleniyor…",
     "@edit_ingredients_loading_photo_btn_text": {
         "description": "Ingredients edition - Loading photo from the server"
     },
-    "edit_ingredients_loading_photo_help_dialog_title": "Why do I see this message?",
+    "edit_ingredients_loading_photo_help_dialog_title": "Bu mesajı neden görüyorum?",
     "@edit_ingredients_loading_photo_help_dialog_title": {
         "description": "Ingredients edition - Dialog explaining why the photo is loading - Title"
     },
@@ -1503,7 +1532,7 @@
     "@edit_ingredients_refresh_photo_btn_text": {
         "description": "Ingredients edition - Refresh photo"
     },
-    "edit_packaging_extract_btn_text": "Extract packaging\nfrom the photo",
+    "edit_packaging_extract_btn_text": "Fotoğraftan ambalajı\nçıkarın",
     "@edit_packaging_extract_btn_text": {
         "description": "Packaging edition - OCR-Extract packaging"
     },
@@ -1511,11 +1540,11 @@
     "@edit_packaging_extracting_btn_text": {
         "description": "Packaging edition - OCR-Extracting packaging"
     },
-    "edit_packaging_loading_photo_btn_text": "Loading photo…",
+    "edit_packaging_loading_photo_btn_text": "Fotoğraf yükleniyor…",
     "@edit_packaging_loading_photo_btn_text": {
         "description": "Packaging edition - Loading photo from the server"
     },
-    "edit_packaging_loading_photo_help_dialog_title": "Why do I see this message?",
+    "edit_packaging_loading_photo_help_dialog_title": "Bu mesajı neden görüyorum?",
     "@edit_packaging_loading_photo_help_dialog_title": {
         "description": "Packaging edition - Dialog explaining why the photo is loading - Title"
     },
@@ -1542,6 +1571,10 @@
     "user_list_subtitle_product": "Listeler",
     "@user_list_subtitle_product": {
         "description": "Subtitle of a paragraph about user lists in a product context"
+    },
+    "user_list_title": "Listeleriniz",
+    "@user_list_title": {
+        "description": "Label for the user lists (when the user wants to add a product to a list)"
     },
     "user_list_add_product": "Ürünü listelerinize ekleyin",
     "@user_list_add_product": {
@@ -1586,6 +1619,10 @@
     "user_list_name_error_same": "Bu aynı isim",
     "@user_list_name_error_same": {
         "description": "Validation error about the renamed name that is the same as the initial list name"
+    },
+    "user_list_name_input_hint": "Name of the list",
+    "@user_list_name_input_hint": {
+        "description": "A hint to indicate that the user should input a name of a list"
     },
     "try_again": "Tekrar Dene",
     "@try_again": {
@@ -1740,7 +1777,7 @@
     "@dev_preferences_news_custom_url_subtitle": {
         "description": "News dev preferences - Custom URL for news - Title"
     },
-    "dev_preferences_news_custom_url_empty_value": "Not set",
+    "dev_preferences_news_custom_url_empty_value": "Ayarlanmadı",
     "@dev_preferences_news_custom_url_empty_value": {
         "description": "Message to show when the custom news URL is not set"
     },
@@ -1748,11 +1785,30 @@
     "@dev_preferences_news_provider_status_title": {
         "description": "News dev preferences - Status - Title"
     },
-    "dev_preferences_news_provider_status_subtitle": "Last refresh: {date}",
+    "dev_preferences_news_provider_status_subtitle": "Son yenileme: {date}",
     "@dev_preferences_news_provider_status_subtitle": {
         "description": "News dev preferences - Custom URL for news - Subtitle",
         "placeholders": {
             "date": {
+                "type": "String"
+            }
+        }
+    },
+    "product_type_label_food": "Gıda",
+    "product_type_label_beauty": "Personal care",
+    "product_type_label_pet_food": "Evcil hayvan maması",
+    "product_type_label_product": "Diğer",
+    "product_type_selection_title": "Product type",
+    "product_type_selection_subtitle": "Select the type of this product",
+    "product_type_selection_empty": "You need to select a product type first!",
+    "@product_type_selection_empty": {
+        "description": "Error message about product type that needs to be set"
+    },
+    "product_type_selection_already": "You cannot change the product type ({productType})!",
+    "@product_type_selection_already": {
+        "description": "Error message about product type that cannot be set again",
+        "placeholders": {
+            "productType": {
                 "type": "String"
             }
         }
@@ -1762,15 +1818,22 @@
     "prices_generic_title": "Fiyatlar",
     "prices_add_n_prices": "{count,plural, =1{Add a price} other{App {count} prices}}",
     "prices_send_n_prices": "{count,plural, =1{Send the price} other{Send {count} prices}}",
-    "prices_add_an_item": "Add an item",
+    "prices_add_an_item": "Bir öge ekle",
     "prices_add_a_price": "Fiyat ekleyin",
-    "prices_add_a_receipt": "Add a receipt",
-    "prices_add_price_tags": "Add price tags",
+    "prices_add_a_receipt": "Bir makbuz ekle",
+    "prices_add_price_tags": "Fiyat etiketleri ekle",
+    "prices_barcode_already": "This barcode ({barcode}) is already in the list!",
+    "@prices_barcode_already": {
+        "description": "Error message about barcode being already there",
+        "placeholders": {
+            "barcode": {
+                "type": "String"
+            }
+        }
+    },
     "prices_barcode_search_not_found": "Ürün bulunamadı",
-    "prices_barcode_search_none_yet": "No product yet",
-    "prices_barcode_search_question": "Do you want to look for this product?",
-    "prices_barcode_search_title": "Ürün Arama",
-    "prices_barcode_search_running": "Looking for {barcode}",
+    "prices_barcode_search_none_yet": "Henüz ürün yok",
+    "prices_barcode_search_running": "{barcode} aranıyor",
     "@prices_barcode_search_running": {
         "description": "Dialog title about barcode look-up",
         "placeholders": {
@@ -1779,8 +1842,9 @@
             }
         }
     },
-    "prices_barcode_reader_action": "Barcode reader",
-    "prices_view_prices": "View the prices",
+    "prices_barcode_enter": "Enter the Barcode",
+    "prices_barcode_reader_action": "Barkod okuyucu",
+    "prices_view_prices": "Fiyatları görüntüle",
     "prices_product_accessibility_summary": "{count,plural, =1{1 price} other{{count} prices}} for {product}",
     "@prices_product_accessibility_summary": {
         "description": "A card summarizing the number of prices for a product",
@@ -1866,7 +1930,7 @@
             }
         }
     },
-    "prices_users_list_length_many_pages": "Top {pageSize} contributors (total: {total})",
+    "prices_users_list_length_many_pages": "En çok katkıda bulunan {pageSize} kişi (toplam: {total})",
     "@prices_users_list_length_many_pages": {
         "description": "Number of users for one-page result",
         "placeholders": {
@@ -1878,26 +1942,27 @@
             }
         }
     },
-    "prices_amount_subtitle": "Amount",
-    "prices_amount_is_discounted": "Is discounted?",
+    "prices_amount_subtitle": "Miktar",
+    "prices_amount_is_discounted": "İndirimli mi?",
     "prices_amount_price_normal": "Fiyat",
     "prices_amount_price_discounted": "İndirimli fiyat",
-    "prices_amount_price_not_discounted": "Original price",
-    "prices_amount_no_product": "One product is missing!",
-    "prices_amount_price_incorrect": "Incorrect value",
-    "prices_amount_price_mandatory": "Mandatory value",
+    "prices_amount_price_not_discounted": "Orjinal fiyat",
+    "prices_amount_no_product": "Bir ürün eksik!",
+    "prices_amount_price_incorrect": "Yanlış değer",
+    "prices_amount_price_mandatory": "Zorunlu değer",
     "prices_currency_subtitle": "Kur",
     "prices_date_subtitle": "Tarih",
-    "prices_location_subtitle": "Shop",
-    "prices_location_find": "Find a shop",
-    "prices_location_mandatory": "You need to select a shop!",
+    "prices_location_subtitle": "Mağaza",
+    "prices_location_find": "Bir mağaza bul",
+    "prices_location_mandatory": "Bir mağaza seçmeniz gerekiyor!",
+    "prices_location_search_broader": "Couldn't find what you were looking for? Let's try a broader search!",
     "prices_proof_subtitle": "Kanıt",
-    "prices_proof_find": "Select a proof",
+    "prices_proof_find": "Bedeli sil",
     "prices_proof_receipt": "Makbuz",
     "prices_proof_price_tag": "Fiyat etiketi",
-    "prices_proof_mandatory": "You need to select a proof!",
-    "prices_add_validation_error": "Validation error",
-    "prices_privacy_warning_title": "Privacy warning",
+    "prices_proof_mandatory": "Bir bedel seçmeniz gerekiyor!",
+    "prices_add_validation_error": "Doğrulama hatası",
+    "prices_privacy_warning_title": "Gizlilik uyarısı",
     "prices_privacy_warning_message": "Prices will be public, along with the store they refer to.\nThat might allow people who know about your Open Food Facts pseudonym to:\n* infer in which area you live\n* know what you are buying\nIf you are uneasy with that, please change your pseudonym, or create a new Open Food Facts account and log into the app with it.",
     "prices_unknown_product": "Bilinmeyen ürün",
     "@prices_unknown_product": {
@@ -1907,12 +1972,12 @@
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"
     },
-    "dev_mode_section_server": "Server configuration",
-    "dev_mode_section_news": "News provider configuration",
-    "dev_mode_section_product_page": "Product page",
-    "dev_mode_section_ui": "User Interface",
+    "dev_mode_section_server": "Sunucu yapılandırması",
+    "dev_mode_section_news": "Haber sağlayıcı yapılandırması",
+    "dev_mode_section_product_page": "Ürün sayfası",
+    "dev_mode_section_ui": "Kullanıcı Arayüzü",
     "dev_mode_section_data": "Veri",
-    "dev_mode_section_experimental_features": "Experimental features",
+    "dev_mode_section_experimental_features": "Deneysel özellikler",
     "dev_mode_hide_ecoscore_title": "EcoScore'u hariç tut",
     "@dev_mode_hide_ecoscore_title": {
         "description": "User dev preferences - Disable Ecoscore - Title"
@@ -1988,19 +2053,19 @@
     "@user_search_proof_title": {
         "description": "User proof: page title"
     },
-    "user_any_search_prices_title": "Contributor prices",
+    "user_any_search_prices_title": "Katkıda bulunanların fiyatları",
     "@user_any_search_prices_title": {
         "description": "User prices (everybody except me): list tile title"
     },
-    "all_search_prices_latest_title": "Latest Prices added",
+    "all_search_prices_latest_title": "Son Fiyatlar eklendi",
     "@all_search_prices_latest_title": {
         "description": "Latest prices: list tile title"
     },
-    "all_search_prices_top_user_title": "Top price contributors",
+    "all_search_prices_top_user_title": "En çok fiyat katkısı sağlayanlar",
     "@all_search_prices_top_user_title": {
         "description": "Top price users: list tile title"
     },
-    "all_search_prices_top_location_title": "Stores with the most prices",
+    "all_search_prices_top_location_title": "En çok fiyatı olan mağazalar",
     "@all_search_prices_top_location_title": {
         "description": "Top price locations: list tile title"
     },
@@ -2246,7 +2311,34 @@
     },
     "share_product_text": "Open Food Facts'teki bu ürüne bir göz atın: {url}",
     "@share_product_text": {
-        "description": "The content which is send, when sharing a product",
+        "description": "The content which is send, when sharing a 'food' product",
+        "placeholders": {
+            "url": {
+                "type": "String"
+            }
+        }
+    },
+    "share_product_text_beauty": "Have a look at this product on Open Beauty Facts: {url}",
+    "@share_product_text_beauty": {
+        "description": "The content which is send, when sharing a 'beauty' product",
+        "placeholders": {
+            "url": {
+                "type": "String"
+            }
+        }
+    },
+    "share_product_text_pet_food": "Have a look at this product on Open PetFood Facts: {url}",
+    "@share_product_text_pet_food": {
+        "description": "The content which is send, when sharing a 'pet food' product",
+        "placeholders": {
+            "url": {
+                "type": "String"
+            }
+        }
+    },
+    "share_product_text_product": "Have a look at this product on Open Products Facts: {url}",
+    "@share_product_text_product": {
+        "description": "The content which is send, when sharing a 'products' product",
         "placeholders": {
             "url": {
                 "type": "String"
@@ -2468,9 +2560,9 @@
     "@user_picture_source_remember": {
         "description": "Checkbox label when select a picture source"
     },
-    "user_picture_source_select": "Her seferinde seç",
-    "@user_picture_source_select": {
-        "description": "Choice of selecting the picture source each time"
+    "user_picture_source_ask": "Ask each time",
+    "@user_picture_source_ask": {
+        "description": "Choice of asking the picture source every time"
     },
     "robotoff_continue": "Devam et",
     "@robotoff_continue": {
@@ -2835,7 +2927,7 @@
             }
         }
     },
-    "nutriscore_new_formula_title": "Nutri-Score (New calculation)",
+    "nutriscore_new_formula_title": "Nutri-Score (Yeni hesaplama)",
     "nutriscore_unknown": "Bilinmeyen Nutri-Score",
     "nutriscore_unknown_new_formula": "Bilinmeyen Nutri-Score (Yeni hesaplama)",
     "nutriscore_not_applicable": "Nutri-Score geçerli değildir",
@@ -2878,7 +2970,7 @@
     "@link_cant_be_opened": {
         "description": "An error may happen if the device doesn't have a browser installed."
     },
-    "knowledge_panel_page_title_no_title": "Details for {productName}",
+    "knowledge_panel_page_title_no_title": "{productName} için ayrıntılar",
     "@knowledge_panel_page_title_no_title": {
         "description": "The title of the page when we click on an item in the product page and this page is unnamed",
         "placeholders": {
@@ -2953,12 +3045,64 @@
     "@guide_nutriscore_v2_share_message": {
         "description": "Please let empty for now (maybe use in the future)"
     },
-    "preview_badge": "Preview",
+    "preview_badge": "Ön izleme",
     "@preview_badge": {
         "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
     },
     "prices_feedback_form": "Click here to send us your feedback about this new feature!",
     "@prices_feedback_form": {
         "description": "A button to send feedback about the prices feature"
+    },
+    "menu_button_list_actions": "Select an action",
+    "@menu_button_list_actions": {
+        "description": "Button to select an action in a list (eg: Share, Delete, …)"
+    },
+    "error_loading_photo": "Error loading photo",
+    "@error_loading_photo": {
+        "description": "Error message when loading a photo fails to load"
+    },
+    "photo_viewer_details_button": "Ayrıntılar",
+    "@photo_viewer_details_button": {
+        "description": "Button to show details of the photo"
+    },
+    "photo_viewer_details_button_accessibility_label": "Details of this photo",
+    "@photo_viewer_details_button_accessibility_label": {
+        "description": "Accessibility label for the Details button on a photo"
+    },
+    "photo_viewer_details_title": "Details of the photo",
+    "@photo_viewer_details_title": {
+        "description": "Title of the photo details dialog"
+    },
+    "photo_viewer_details_contributor_title": "Katkı sağlayan",
+    "@photo_viewer_details_contributor_title": {
+        "description": "Label for the author of a photo"
+    },
+    "photo_viewer_details_size_title": "Size",
+    "@photo_viewer_details_size_title": {
+        "description": "Label for the size of a photo"
+    },
+    "photo_viewer_details_size_value": "{width} x {height} pixels",
+    "@photo_viewer_details_size_value": {
+        "description": "Value for the size of a photo",
+        "placeholders": {
+            "width": {
+                "type": "int"
+            },
+            "height": {
+                "type": "int"
+            }
+        }
+    },
+    "photo_viewer_details_date_title": "Tarih",
+    "@photo_viewer_details_date_title": {
+        "description": "Label for the uploaded date of a photo"
+    },
+    "photo_viewer_details_url_title": "URL",
+    "@photo_viewer_details_url_title": {
+        "description": "Label for the link of a photo"
+    },
+    "product_page_compatibility_score": "Compatible",
+    "@product_page_compatibility_score": {
+        "description": "Compatibility score on top of the product page. The sentence is \"100%\" Compatible"
     }
 }
