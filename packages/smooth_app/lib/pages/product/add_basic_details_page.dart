@@ -18,6 +18,7 @@ import 'package:smooth_app/pages/product/common/product_buttons.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
 import 'package:smooth_app/pages/product/multilingual_helper.dart';
+import 'package:smooth_app/pages/product/owner_field_info.dart';
 import 'package:smooth_app/pages/text_field_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
@@ -99,7 +100,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
           appBar: buildEditProductAppBar(
             context: context,
             title: appLocalizations.basic_details,
-            product: widget.product,
+            product: _product,
           ),
           body: Form(
             key: _formKey,
@@ -142,6 +143,9 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                               Widget? child) {
                             if (_multilingualHelper.isMonolingual()) {
                               return SmoothTextFormField(
+                                suffixIcon: _getOwnerFieldIcon(
+                                  ProductField.NAME,
+                                ),
                                 controller: _productNameController,
                                 type: TextFieldTypes.PLAIN_TEXT,
                                 hintText: appLocalizations.product_name,
@@ -164,6 +168,11 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                                     Padding(
                                       padding: const EdgeInsets.all(8.0),
                                       child: SmoothTextFormField(
+                                        suffixIcon: _getOwnerFieldIcon(
+                                          ProductField.NAME_IN_LANGUAGES,
+                                          language: _multilingualHelper
+                                              .getCurrentLanguage(),
+                                        ),
                                         controller: _productNameController,
                                         type: TextFieldTypes.PLAIN_TEXT,
                                         hintText: appLocalizations.product_name,
@@ -197,6 +206,9 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                             allowEmojis: false,
                             hintText: appLocalizations.brand_name,
                             constraints: constraints,
+                            suffixIcon: _getOwnerFieldIcon(
+                              ProductField.BRANDS,
+                            ),
                             manager: AutocompleteManager(
                               TaxonomyNameAutocompleter(
                                 taxonomyNames: <TaxonomyName>[
@@ -208,7 +220,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                                 limit: 25,
                                 fuzziness: Fuzziness.none,
                                 uriHelper: ProductQuery.getUriProductHelper(
-                                  productType: widget.product.productType,
+                                  productType: _product.productType,
                                 ),
                               ),
                             ),
@@ -216,10 +228,18 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                         ),
                         SizedBox(height: _heightSpace),
                         SmoothTextFormField(
+                          suffixIcon: _getOwnerFieldIcon(
+                            ProductField.QUANTITY,
+                          ),
                           controller: _weightController,
                           type: TextFieldTypes.PLAIN_TEXT,
                           hintText: appLocalizations.quantity,
                         ),
+                        if (_hasOwnerField())
+                          const Padding(
+                            padding: EdgeInsets.only(top: LARGE_SPACE),
+                            child: Card(child: OwnerFieldInfo()),
+                          ),
                         // in order to be able to scroll suggestions
                         SizedBox(height: MediaQuery.sizeOf(context).height),
                       ],
@@ -332,4 +352,44 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
     }
     return result;
   }
+
+  Widget? _getOwnerFieldIcon(
+    final ProductField productField, {
+    final OpenFoodFactsLanguage? language,
+  }) =>
+      _isOwnerField(productField, language: language)
+          ? Semantics(
+              label: AppLocalizations.of(context).owner_field_info_title,
+              child: const Icon(OwnerFieldInfo.ownerFieldIconData),
+            )
+          : null;
+
+  bool _hasOwnerField() {
+    if (_multilingualHelper.isMonolingual()) {
+      if (_isOwnerField(ProductField.NAME)) {
+        return true;
+      }
+    } else {
+      if (_isOwnerField(
+        ProductField.NAME_IN_LANGUAGES,
+        language: _multilingualHelper.getCurrentLanguage(),
+      )) {
+        return true;
+      }
+    }
+    return _isOwnerField(ProductField.BRANDS) ||
+        _isOwnerField(ProductField.QUANTITY);
+  }
+
+  bool _isOwnerField(
+    final ProductField productField, {
+    final OpenFoodFactsLanguage? language,
+  }) =>
+      _product.getOwnerFieldTimestamp(
+        OwnerField.productField(
+          productField,
+          language ?? ProductQuery.getLanguage(),
+        ),
+      ) !=
+      null;
 }
