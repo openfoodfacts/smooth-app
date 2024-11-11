@@ -7,6 +7,7 @@ import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 
 /// Abstract helper for Simple Input Page.
 ///
@@ -491,7 +492,7 @@ class SimpleInputPageCountryHelper extends AbstractSimpleInputPageHelper {
   TagType? getTagType() => TagType.COUNTRIES;
 
   @override
-  Widget getIcon() => const Icon(Icons.public);
+  Widget getIcon() => const icons.Countries(size: 20.0);
 
   @override
   BackgroundTaskDetailsStamp getStamp() => BackgroundTaskDetailsStamp.countries;

@@ -17,7 +17,7 @@ import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
-import 'package:smooth_app/generic_lib/widgets/images/smooth_image.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_app_logo.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_responsive.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
@@ -145,7 +145,8 @@ class _ProductListPageState extends State<ProductListPage>
                 ? null
                 : FloatingActionButton.extended(
                     onPressed: () => setState(() => _selectionMode = true),
-                    label: const Text('Multi-select'),
+                    label:
+                        Text(appLocalizations.user_lists_action_multi_select),
                     icon: const Icon(Icons.checklist),
                   ),
         appBar: SmoothAppBar(
