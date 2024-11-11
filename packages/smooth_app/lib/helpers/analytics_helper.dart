@@ -282,13 +282,13 @@ class AnalyticsHelper {
   static Future<void> initMatomo(
     final bool screenshotMode,
   ) async {
+    _packageInfo = await PackageInfo.fromPlatform();
     if (screenshotMode) {
       _setCrashReports(false);
       _setAnalyticsReports(false);
       return;
     }
     try {
-      _packageInfo = await PackageInfo.fromPlatform();
       await MatomoTracker.instance.initialize(
         url: 'https://analytics.openfoodfacts.org/matomo.php',
         siteId: '2',
