@@ -1,1 +1,1 @@
-NSCameraUsageDescription = "Este aplicativo precisa de acesso à câmera para digitalizar códigos de barras e tirar fotos de produtos";
+NSCameraUsageDescription = "Esta aplicação precisa de acesso à câmara para ler códigos de barras e para tirar fotografias a produtos";
