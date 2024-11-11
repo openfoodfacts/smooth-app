@@ -285,7 +285,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
                       null
                   ? null
                   : Semantics(
-                      label: appLocalizations.owner_field_title,
+                      label: appLocalizations.owner_field_info_title,
                       child: const Icon(OwnerFieldInfo.ownerFieldIconData),
                     ),
             ),
@@ -570,7 +570,7 @@ class _NutrientValueCell extends StatelessWidget {
                     null
             ? null
             : Semantics(
-                label: appLocalizations.owner_field_title,
+                label: appLocalizations.owner_field_info_title,
                 child: const Icon(OwnerFieldInfo.ownerFieldIconData),
               ),
       ),

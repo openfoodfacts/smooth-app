@@ -359,7 +359,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
   }) =>
       _isOwnerField(productField, language: language)
           ? Semantics(
-              label: AppLocalizations.of(context).owner_field_title,
+              label: AppLocalizations.of(context).owner_field_info_title,
               child: const Icon(OwnerFieldInfo.ownerFieldIconData),
             )
           : null;
