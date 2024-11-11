@@ -277,7 +277,7 @@ class AnalyticsHelper {
     return event;
   }
 
-  static late final PackageInfo _packageInfo;
+  static late PackageInfo _packageInfo;
 
   static Future<void> initMatomo(
     final bool screenshotMode,
