@@ -284,7 +284,10 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
                       ) ==
                       null
                   ? null
-                  : const Icon(OwnerFieldInfo.ownerFieldIconData),
+                  : Semantics(
+                      label: appLocalizations.owner_field_title,
+                      child: const Icon(OwnerFieldInfo.ownerFieldIconData),
+                    ),
             ),
             textInputAction: TextInputAction.next,
             onFieldSubmitted: (_) {
@@ -545,6 +548,7 @@ class _NutrientValueCell extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final List<FocusNode> focusNodes = Provider.of<List<FocusNode>>(
       context,
       listen: false,
@@ -565,7 +569,10 @@ class _NutrientValueCell extends StatelessWidget {
                 product.getOwnerFieldTimestamp(OwnerField.nutrient(nutrient)) ==
                     null
             ? null
-            : const Icon(OwnerFieldInfo.ownerFieldIconData),
+            : Semantics(
+                label: appLocalizations.owner_field_title,
+                child: const Icon(OwnerFieldInfo.ownerFieldIconData),
+              ),
       ),
       keyboardType: const TextInputType.numberWithOptions(
         signed: false,
@@ -591,7 +598,7 @@ class _NutrientValueCell extends StatelessWidget {
           decimalNumberFormat.parse(value);
           return null;
         } catch (e) {
-          return AppLocalizations.of(context).nutrition_page_invalid_number;
+          return appLocalizations.nutrition_page_invalid_number;
         }
       },
     );
