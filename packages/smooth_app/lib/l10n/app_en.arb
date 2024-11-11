@@ -3176,4 +3176,5 @@
     "product_page_action_bar_item_disable": "Disable action",
     "@product_page_action_bar_item_disable": {
         "description": "Accessibility label to disable action (= make it invisible)"
+},
 }
