@@ -355,6 +355,8 @@
     "@contribute_develop_text_2": {},
     "contribute_develop_dev_mode_title": "Режим DEV?",
     "contribute_develop_dev_mode_subtitle": "Активувати режим DEV",
+    "contribute_donate_title": "Підтримати проект",
+    "@contribute_donate_title": {},
     "contribute_donate_header": "Донатьте на Open Food Facts",
     "@contribute_donate_header": {},
     "contribute_enroll_alpha": "Зареєструватися у внутрішній альфа-версії",
@@ -406,9 +408,9 @@
     "@saving_answer": {
         "description": "Dialog shown to users after they have answered a question, while the answer is being saved in the BE."
     },
-    "contribute_to_get_rewards": "Допоможіть підвищити прозорість харчових продуктів та отримайте винагороду",
+    "contribute_to_get_rewards": "Станьте учасником Food Transparency",
     "@contribute_to_get_rewards": {
-        "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts and gain rewards."
+        "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts."
     },
     "question_sign_in_text": "Увійдіть до свого облікового запису Open Food Fact, щоб ваші внески було оцінено",
     "question_yes_button_accessibility_value": "Відповідайте так",
@@ -497,6 +499,10 @@
     "@search": {
         "description": "Hint text of a search text input field"
     },
+    "search_store": "Search for a store",
+    "@search_store": {
+        "description": "Hint text of a search store text input field"
+    },
     "tap_for_more": "Натисніть, щоб побачити більше…",
     "@Product": {},
     "product": "Продукт",
@@ -513,6 +519,13 @@
     "front_photo": "Фото переднього плану",
     "@front_photo": {
         "description": "Button label: For adding a picture of the front of a product"
+    },
+    "outdated_image_accessibility_label": "{imageType} (this image may be outdated)",
+    "@outdated_image_accessibility_label": {
+        "description": "Accessibility label for images that are outdated (image type may be front/ingredients/nutrition…)",
+        "placeholders": {
+            "imageType": {}
+        }
     },
     "ingredients": "Інгредієнти",
     "@ingredients": {},
@@ -645,10 +658,10 @@
     "new_product_title_nutriscore": "Розрахувати Nutri-Score",
     "new_product_subtitle_nutriscore": "Допоможіть нам, заповнивши принаймні категорію та харчові цінності",
     "new_product_title_ecoscore": "Розрахувати Eco-Score",
-    "new_product_subtitle_ecoscore": "Get it by filling at least a category",
+    "new_product_subtitle_ecoscore": "Отримайте це, заповнивши принаймні одну категорію",
     "new_product_additional_ecoscore": "Зробіть обчислення Eco-Score більш точним за походженням, пакуванням тощо",
-    "new_product_title_nova": "Compute the food processing level (NOVA)",
-    "new_product_subtitle_nova": "Get it by filling the food category and ingredients",
+    "new_product_title_nova": "Обчисліть рівень обробки харчових продуктів (NOVA)",
+    "new_product_subtitle_nova": "Отримайте це, заповнивши категорію продукту та інгредієнти",
     "new_product_desc_nova_unknown": "Рівень обробки їжі є невідомим",
     "new_product_title_pictures": "Новий товар",
     "new_product_title_pictures_details": "Будь ласка, зробіть наступні фотографії, і система Open Food Facts зможе розібратися з усіма іншими!",
@@ -669,6 +682,9 @@
         "description": "Button at the end of new product page, that takes you to completed product"
     },
     "hey_incomplete_product_message": "Натисніть, щоб відповісти на 3 запитання ЗАРАЗ для обчислення Nutri-Score, Eco-Score та ультра-обробки (ЗАРАЗ)!",
+    "hey_incomplete_product_message_beauty": "Tap now to answer 2 questions to help analyze this cosmetic!",
+    "hey_incomplete_product_message_pet_food": "Tap now to answer 3 questions to help analyze this pet food product!",
+    "hey_incomplete_product_message_product": "Tap now to help complete this product!",
     "nutritional_facts_photo_uploaded": "Завантаження фотографій харчових фактів",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "Фотографія з інформацією щодо перероблювання",
@@ -740,7 +756,7 @@
     "@view_more_photo_button": {},
     "no_product_found": "Продукт не знайдено",
     "@no_product_found": {},
-    "no_location_found": "No location found",
+    "no_location_found": "Локацію не знайдено",
     "not_found": "не знайдено:",
     "refreshing_product": "Освіжаючий товар",
     "@refreshing_product": {
@@ -768,6 +784,7 @@
             }
         }
     },
+    "product_image_outdated": "This image may be outdated",
     "homepage_main_card_logo_description": "Вітаємо в Open Food Facts",
     "@homepage_main_card_logo_description": {
         "description": "Description for accessibility of the Open Food Facts logo on the homepage"
@@ -824,6 +841,14 @@
     "product_search_same_category": "Порівняти з Категорією",
     "@product_search_same_category": {
         "description": "Button looking for the other products within the same category. Less than 30 characters"
+    },
+    "product_search_same_category_short": "Порівняти",
+    "@product_search_same_category_short": {
+        "description": "Button looking for the other products within the same category. Just the verb compare"
+    },
+    "product_search_same_category_error": "This feature can only be used for products with a category.\n\nPlease edit the product to add a category.",
+    "@product_search_same_category_error": {
+        "description": "Button looking for the other products within the same category. Just the verb compare"
     },
     "product_improvement_add_category": "Додати категорію для розрахунку харчової цінності Nutri-Score.",
     "@product_improvement_add_category": {
@@ -1301,6 +1326,10 @@
     "@edit_product_label": {
         "description": "Edit product button label"
     },
+    "edit_product_label_short": "Редагувати",
+    "@edit_product_label_short": {
+        "description": "Edit product button short label (only the verb)"
+    },
     "edit_product_form_item_add_action": "Додати новий {itemType}",
     "description": "Підказка, яка показується, коли користувач довго натискає кнопку (+)",
     "@edit_product_form_item_add_action": {
@@ -1543,6 +1572,10 @@
     "@user_list_subtitle_product": {
         "description": "Subtitle of a paragraph about user lists in a product context"
     },
+    "user_list_title": "Ваші списки",
+    "@user_list_title": {
+        "description": "Label for the user lists (when the user wants to add a product to a list)"
+    },
     "user_list_add_product": "Додати продукт до ваших списків",
     "@user_list_add_product": {
         "description": "Label for the dialog to add a product to a list"
@@ -1586,6 +1619,10 @@
     "user_list_name_error_same": "Це та ж сама назва",
     "@user_list_name_error_same": {
         "description": "Validation error about the renamed name that is the same as the initial list name"
+    },
+    "user_list_name_input_hint": "Name of the list",
+    "@user_list_name_input_hint": {
+        "description": "A hint to indicate that the user should input a name of a list"
     },
     "try_again": "Спробувати ще раз",
     "@try_again": {
@@ -1732,15 +1769,15 @@
     "@dev_preferences_import_history_subtitle": {
         "description": "User dev preferences - Import history - Subtitle"
     },
-    "dev_preferences_news_custom_url_title": "Custom URL for news",
+    "dev_preferences_news_custom_url_title": "Користувацьке URL для новин",
     "@dev_preferences_news_custom_url_title": {
         "description": "News dev preferences - Custom URL for news - Title"
     },
-    "dev_preferences_news_custom_url_subtitle": "URL of the JSON file:",
+    "dev_preferences_news_custom_url_subtitle": "URL для JSON файлу:",
     "@dev_preferences_news_custom_url_subtitle": {
         "description": "News dev preferences - Custom URL for news - Title"
     },
-    "dev_preferences_news_custom_url_empty_value": "Not set",
+    "dev_preferences_news_custom_url_empty_value": "Не встановлено",
     "@dev_preferences_news_custom_url_empty_value": {
         "description": "Message to show when the custom news URL is not set"
     },
@@ -1748,7 +1785,7 @@
     "@dev_preferences_news_provider_status_title": {
         "description": "News dev preferences - Status - Title"
     },
-    "dev_preferences_news_provider_status_subtitle": "Last refresh: {date}",
+    "dev_preferences_news_provider_status_subtitle": "Останнє оновлення: {date}",
     "@dev_preferences_news_provider_status_subtitle": {
         "description": "News dev preferences - Custom URL for news - Subtitle",
         "placeholders": {
@@ -1757,19 +1794,45 @@
             }
         }
     },
+    "product_type_label_food": "Їжа",
+    "product_type_label_beauty": "Personal care",
+    "product_type_label_pet_food": "Корм для домашніх тварин",
+    "product_type_label_product": "Інше",
+    "product_type_selection_title": "Product type",
+    "product_type_selection_subtitle": "Select the type of this product",
+    "product_type_selection_empty": "You need to select a product type first!",
+    "@product_type_selection_empty": {
+        "description": "Error message about product type that needs to be set"
+    },
+    "product_type_selection_already": "You cannot change the product type ({productType})!",
+    "@product_type_selection_already": {
+        "description": "Error message about product type that cannot be set again",
+        "placeholders": {
+            "productType": {
+                "type": "String"
+            }
+        }
+    },
     "prices_app_dev_mode_flag": "Ярлик програми «Ціни» на сторінці продукту",
     "prices_app_button": "Перейдіть у додаток Ціни",
     "prices_generic_title": "Ціни",
-    "prices_add_n_prices": "{count,plural, =1{Add a price} other{App {count} prices}}",
-    "prices_send_n_prices": "{count,plural, =1{Send the price} other{Send {count} prices}}",
+    "prices_add_n_prices": "{count,plural, one {Додати{count} ціну} few {Додати {count} ціни} many {Додати {count} цін}=1{Додати ціну} other{Додати {count} ціни}}",
+    "prices_send_n_prices": "{count,plural, one {Надіслати{count} ціну} few {Надіслати {count} ціни} many {Надіслати {count} цін}=1{Надіслати ціну} other{Надіслати {count} ціни}}",
     "prices_add_an_item": "Додати елемент",
     "prices_add_a_price": "Додати ціну",
     "prices_add_a_receipt": "Додати чек",
     "prices_add_price_tags": "Додайте цінові бірки",
+    "prices_barcode_already": "This barcode ({barcode}) is already in the list!",
+    "@prices_barcode_already": {
+        "description": "Error message about barcode being already there",
+        "placeholders": {
+            "barcode": {
+                "type": "String"
+            }
+        }
+    },
     "prices_barcode_search_not_found": "Товар не знайдено",
     "prices_barcode_search_none_yet": "Ще немає товару",
-    "prices_barcode_search_question": "Ви хочете шукати цей продукт?",
-    "prices_barcode_search_title": "Пошук товару",
     "prices_barcode_search_running": "Шукаю {barcode}",
     "@prices_barcode_search_running": {
         "description": "Dialog title about barcode look-up",
@@ -1779,9 +1842,10 @@
             }
         }
     },
+    "prices_barcode_enter": "Enter the Barcode",
     "prices_barcode_reader_action": "Сканер штрих-коду",
     "prices_view_prices": "Переглянути ціни",
-    "prices_product_accessibility_summary": "{count,plural, =1{1 price} other{{count} prices}} for {product}",
+    "prices_product_accessibility_summary": "{count,plural, one {{count} ціна} few {{count} ціни} many {{count} цін}=1{1 ціна} other{{count} ціни}} за {product}",
     "@prices_product_accessibility_summary": {
         "description": "A card summarizing the number of prices for a product",
         "placeholders": {
@@ -1793,7 +1857,7 @@
             }
         }
     },
-    "prices_list_length_one_page": "{count,plural, =0{No price yet} =1{Only one price} other{All {count} prices}}",
+    "prices_list_length_one_page": "{count,plural, one {Усього {count} ціна} few {Усі {count} ціни} many {Усі {count} ціни}=0{Ціни ще немає} =1{Тільки одна ціна} other{Усі {count} ціни}}",
     "@prices_list_length_one_page": {
         "description": "Number of prices for one-page result",
         "placeholders": {
@@ -1802,7 +1866,7 @@
             }
         }
     },
-    "prices_list_length_many_pages": "Latest {pageSize} prices (total: {total})",
+    "prices_list_length_many_pages": "Останні {pageSize} ціни (всього: {total})",
     "@prices_list_length_many_pages": {
         "description": "Number of prices for one-page result",
         "placeholders": {
@@ -1814,7 +1878,7 @@
             }
         }
     },
-    "prices_entry_accessibility_label": "Price: {price} / Store: \"{location}\" / Published on {date} by \"{user}\"",
+    "prices_entry_accessibility_label": "Ціна: {price} / Магазин: \"{location}\" / Опубліковано {date} користувачем \"{user}\"",
     "@prices_entry_accessibility_label": {
         "description": "Accessibility label for a price entry",
         "placeholders": {
@@ -1832,7 +1896,7 @@
             }
         }
     },
-    "prices_open_user_proofs": "Open proofs of \"{user}\"",
+    "prices_open_user_proofs": "Відкрити докази від \"{user}\"",
     "@prices_open_user_proofs": {
         "description": "Button to open the proofs of a user",
         "placeholders": {
@@ -1841,11 +1905,11 @@
             }
         }
     },
-    "prices_open_proof": "Open price proof",
+    "prices_open_proof": "Доказ відкритої ціни",
     "@prices_open_proof": {
         "description": "Button to open a proof"
     },
-    "prices_proofs_list_length_one_page": "{count,plural, =0{No proof yet} =1{Only one proof} other{All {count} proofs}}",
+    "prices_proofs_list_length_one_page": "{count,plural, one {Усього {count} доказ} few {Усі {count} докази} many {Усі {count} докази}=0{Доказів ще немає} =1{Тільки один доказ} other{Усі {count} докази}}",
     "@prices_proofs_list_length_one_page": {
         "description": "Number of proofs for one-page result",
         "placeholders": {
@@ -1886,19 +1950,20 @@
     "prices_amount_no_product": "Бракує одного товару!",
     "prices_amount_price_incorrect": "Помилкове значення",
     "prices_amount_price_mandatory": "Обов'язкове значення",
-    "prices_currency_subtitle": "Currency",
-    "prices_date_subtitle": "Date",
+    "prices_currency_subtitle": "Валюта",
+    "prices_date_subtitle": "Дата",
     "prices_location_subtitle": "Крамниця",
-    "prices_location_find": "Find a shop",
-    "prices_location_mandatory": "You need to select a shop!",
+    "prices_location_find": "Знайти магазин",
+    "prices_location_mandatory": "Вам потрібно вибрати магазин!",
+    "prices_location_search_broader": "Couldn't find what you were looking for? Let's try a broader search!",
     "prices_proof_subtitle": "Доказ",
-    "prices_proof_find": "Select a proof",
+    "prices_proof_find": "Виберіть доказ",
     "prices_proof_receipt": "Квитанція",
     "prices_proof_price_tag": "Цінник",
-    "prices_proof_mandatory": "You need to select a proof!",
-    "prices_add_validation_error": "Validation error",
+    "prices_proof_mandatory": "Вам потрібно вибрати доказ!",
+    "prices_add_validation_error": "Помилка перевірки",
     "prices_privacy_warning_title": "Попередження про конфіденційність",
-    "prices_privacy_warning_message": "Prices will be public, along with the store they refer to.\nThat might allow people who know about your Open Food Facts pseudonym to:\n* infer in which area you live\n* know what you are buying\nIf you are uneasy with that, please change your pseudonym, or create a new Open Food Facts account and log into the app with it.",
+    "prices_privacy_warning_message": "Ціни будуть публічними разом із магазином, до якого вони відносяться.\nЦе може дозволити людям, які знають ваш псевдонім в Open Food Facts,:\n* припустити, в якій місцевості ви живете\n* дізнатися, що ви купуєте\nЯкщо вам це неприємно, будь ласка, змініть свій псевдонім або створіть новий обліковий запис Open Food Facts і увійдіть в застосунок з ним.",
     "prices_unknown_product": "Невідомий продукт",
     "@prices_unknown_product": {
         "description": "Very small text, in the context of prices, to say that the product is unknown"
@@ -1908,7 +1973,7 @@
         "description": "User dev preferences - Import history - Result successful"
     },
     "dev_mode_section_server": "Конфігурація сервера",
-    "dev_mode_section_news": "News provider configuration",
+    "dev_mode_section_news": "Конфігурація постачальника новин",
     "dev_mode_section_product_page": "Сторінка продукту",
     "dev_mode_section_ui": "Інтерфейс користувача",
     "dev_mode_section_data": "Дані",
@@ -2246,7 +2311,34 @@
     },
     "share_product_text": "Перегляньте цей продукт на Open  Food  Facts: {url}",
     "@share_product_text": {
-        "description": "The content which is send, when sharing a product",
+        "description": "The content which is send, when sharing a 'food' product",
+        "placeholders": {
+            "url": {
+                "type": "String"
+            }
+        }
+    },
+    "share_product_text_beauty": "Have a look at this product on Open Beauty Facts: {url}",
+    "@share_product_text_beauty": {
+        "description": "The content which is send, when sharing a 'beauty' product",
+        "placeholders": {
+            "url": {
+                "type": "String"
+            }
+        }
+    },
+    "share_product_text_pet_food": "Have a look at this product on Open PetFood Facts: {url}",
+    "@share_product_text_pet_food": {
+        "description": "The content which is send, when sharing a 'pet food' product",
+        "placeholders": {
+            "url": {
+                "type": "String"
+            }
+        }
+    },
+    "share_product_text_product": "Have a look at this product on Open Products Facts: {url}",
+    "@share_product_text_product": {
+        "description": "The content which is send, when sharing a 'products' product",
         "placeholders": {
             "url": {
                 "type": "String"
@@ -2278,7 +2370,7 @@
     "@image_upload_queued": {
         "description": "Message when a photo is queued for upload"
     },
-    "add_price_queued": "The price will be sent to the server as soon as possible.",
+    "add_price_queued": "Ціна буде надіслана на сервер якнайшвидше.",
     "@add_price_queued": {
         "description": "Message when an added price is queued for the server"
     },
@@ -2468,15 +2560,15 @@
     "@user_picture_source_remember": {
         "description": "Checkbox label when select a picture source"
     },
-    "user_picture_source_select": "Обирати кожного разу",
-    "@user_picture_source_select": {
-        "description": "Choice of selecting the picture source each time"
+    "user_picture_source_ask": "Ask each time",
+    "@user_picture_source_ask": {
+        "description": "Choice of asking the picture source every time"
     },
     "robotoff_continue": "Продовжити",
     "@robotoff_continue": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering"
     },
-    "robotoff_next_n_questions": "Next {count,plural,  =1{question} other{{count} questions}}",
+    "robotoff_next_n_questions": "Наступне {count,plural,  one {{count} запитання}  few {{count} запитання}  many {{count} запитань}=1{запитання} other{{count} запитання}}",
     "@robotoff_next_n_questions": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering",
         "placeholders": {
@@ -2721,7 +2813,7 @@
     "@download_top_products": {
         "description": "Download the top 1000 products in your country for instant scanning"
     },
-    "download_top_n_products": "Download the top {count,plural,  other{{count} products}} in your country for instant scanning",
+    "download_top_n_products": "Завантажте найкращі {count,plural,  one {{count} продукти}  few {{count} продукти}  many {{count} продуктів}other{{count} продуктів}} у вашій країні для миттєвого сканування",
     "@download_top_n_products": {
         "placeholders": {
             "count": {
@@ -2960,5 +3052,57 @@
     "prices_feedback_form": "Натисніть тут, щоб надіслати нам свій відгук про цю нову функцію!",
     "@prices_feedback_form": {
         "description": "A button to send feedback about the prices feature"
+    },
+    "menu_button_list_actions": "Select an action",
+    "@menu_button_list_actions": {
+        "description": "Button to select an action in a list (eg: Share, Delete, …)"
+    },
+    "error_loading_photo": "Error loading photo",
+    "@error_loading_photo": {
+        "description": "Error message when loading a photo fails to load"
+    },
+    "photo_viewer_details_button": "Подробиці",
+    "@photo_viewer_details_button": {
+        "description": "Button to show details of the photo"
+    },
+    "photo_viewer_details_button_accessibility_label": "Details of this photo",
+    "@photo_viewer_details_button_accessibility_label": {
+        "description": "Accessibility label for the Details button on a photo"
+    },
+    "photo_viewer_details_title": "Details of the photo",
+    "@photo_viewer_details_title": {
+        "description": "Title of the photo details dialog"
+    },
+    "photo_viewer_details_contributor_title": "Учасник",
+    "@photo_viewer_details_contributor_title": {
+        "description": "Label for the author of a photo"
+    },
+    "photo_viewer_details_size_title": "Size",
+    "@photo_viewer_details_size_title": {
+        "description": "Label for the size of a photo"
+    },
+    "photo_viewer_details_size_value": "{width} x {height} pixels",
+    "@photo_viewer_details_size_value": {
+        "description": "Value for the size of a photo",
+        "placeholders": {
+            "width": {
+                "type": "int"
+            },
+            "height": {
+                "type": "int"
+            }
+        }
+    },
+    "photo_viewer_details_date_title": "Дата",
+    "@photo_viewer_details_date_title": {
+        "description": "Label for the uploaded date of a photo"
+    },
+    "photo_viewer_details_url_title": "URL-адреса",
+    "@photo_viewer_details_url_title": {
+        "description": "Label for the link of a photo"
+    },
+    "product_page_compatibility_score": "Compatible",
+    "@product_page_compatibility_score": {
+        "description": "Compatibility score on top of the product page. The sentence is \"100%\" Compatible"
     }
 }
