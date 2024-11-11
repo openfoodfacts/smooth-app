@@ -219,7 +219,7 @@ class ProductListItemPopupUnselectAll extends ProductListItemPopupItem {
       appLocalizations.select_none_products_mode;
 
   @override
-  IconData getIconData() => Icons.clear;
+  IconData getIconData() => Icons.check_box_outline_blank;
 
   @override
   Future<bool> doSomething({

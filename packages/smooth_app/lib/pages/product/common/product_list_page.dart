@@ -186,7 +186,9 @@ class _ProductListPageState extends State<ProductListPage>
           onLeaveActionMode: () {
             setState(() => _selectionMode = false);
           },
-          actionModeTitle: Text('${_selectedBarcodes.length}'),
+          actionModeTitle: Text(
+            appLocalizations.multiselect_title(_selectedBarcodes.length),
+          ),
           actionModeActions: <Widget>[
             SmoothPopupMenuButton<ProductListItemPopupItem>(
               onSelected: (final ProductListItemPopupItem action) async {

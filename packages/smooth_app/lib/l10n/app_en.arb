@@ -999,6 +999,13 @@
             "count": {}
         }
     },
+    "multiselect_title": "{count,plural, =0{No selected product} =1{One selected product} other{{count} selected products}}",
+    "@multiselect_title": {
+        "description": "Page title with the number of selected items",
+        "placeholders": {
+            "count": {}
+        }
+    },
     "compare_products_mode": "Compare selected products",
     "@compare_products_mode": {
         "description": "Button to switch to 'compare products mode'"
