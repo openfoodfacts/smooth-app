@@ -4,7 +4,7 @@
     "@sep": {
         "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
     },
-    "yes": "Yes",
+    "yes": "Wi",
     "@yes": {},
     "add": "Add",
     "@add": {},
@@ -22,9 +22,9 @@
     "@create": {
         "description": "An action to create"
     },
-    "applyButtonText": "Apply",
+    "applyButtonText": "Aplike",
     "@applyButtonText": {},
-    "next_label": "Next",
+    "next_label": "Swivan",
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
@@ -33,18 +33,18 @@
         "description": "A label on a button that says 'Previous', pressing the button takes the user to the previous screen."
     },
     "go_back_to_top": "Go back to top",
-    "save": "Save",
+    "save": "Anrejistre",
     "save_confirmation": "Are you sure you want to save?",
-    "skip": "Skip",
-    "cancel": "Cancel",
+    "skip": "Pase",
+    "cancel": "Anile",
     "@cancel": {},
     "ignore": "Ignore",
     "@ignore": {
         "description": "'Ignore' button. Typical use case in combination with 'OK' and 'Cancel' buttons."
     },
-    "close": "Close",
+    "close": "Fèmen",
     "@close": {},
-    "no": "No",
+    "no": "Non",
     "@no": {},
     "stop": "Stop",
     "@stop": {},
@@ -151,7 +151,7 @@
     "incorrect_credentials": "Incorrect username or password.",
     "password_lost_incorrect_credentials": "This email or username doesn't exist. Please check your credentials.",
     "password_lost_server_unavailable": "We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.",
-    "login": "Login",
+    "login": "Konekte",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
@@ -277,7 +277,7 @@
     "sign_up_page_provide_valid_email": "Please provide a valid email address.",
     "sign_up_page_server_busy": "We are deeply sorry, we have some technical difficulties to create your account. Please try again later.",
     "@Settings": {},
-    "settingsTitle": "Settings",
+    "settingsTitle": "Paramèt",
     "@settingsTitle": {
         "description": "The title of the Settings page"
     },
@@ -355,6 +355,8 @@
     "@contribute_develop_text_2": {},
     "contribute_develop_dev_mode_title": "DEV Mode?",
     "contribute_develop_dev_mode_subtitle": "Activate the DEV Mode",
+    "contribute_donate_title": "Fè yon don",
+    "@contribute_donate_title": {},
     "contribute_donate_header": "Donate to Open Food Facts",
     "@contribute_donate_header": {},
     "contribute_enroll_alpha": "Enroll in internal alpha version",
@@ -406,9 +408,9 @@
     "@saving_answer": {
         "description": "Dialog shown to users after they have answered a question, while the answer is being saved in the BE."
     },
-    "contribute_to_get_rewards": "Help improve food transparency and get rewards",
+    "contribute_to_get_rewards": "Become an actor of food transparency",
     "@contribute_to_get_rewards": {
-        "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts and gain rewards."
+        "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts."
     },
     "question_sign_in_text": "Sign in to your Open Food Facts account to get credit for your contributions",
     "question_yes_button_accessibility_value": "Answer with yes",
@@ -443,7 +445,7 @@
     "@myPersonalizedRanking": {
         "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
     },
-    "ranking_tab_all": "All",
+    "ranking_tab_all": "Tout",
     "ranking_subtitle_match_yes": "A great match for you",
     "ranking_subtitle_match_no": "Very poor match",
     "ranking_subtitle_match_maybe": "Unknown match",
@@ -476,7 +478,7 @@
     "@category": {
         "description": "From a product list, there's a category filter: this is its title"
     },
-    "category_all": "All",
+    "category_all": "Tout",
     "@category_al": {
         "description": "Top meta-entry on a category filter"
     },
@@ -493,19 +495,23 @@
     "@scan_history": {
         "description": "Page title: List type: Products in the whole scan history"
     },
-    "search": "Search",
+    "search": "Rechèch",
     "@search": {
         "description": "Hint text of a search text input field"
     },
+    "search_store": "Search for a store",
+    "@search_store": {
+        "description": "Hint text of a search store text input field"
+    },
     "tap_for_more": "Tap to see more info…",
     "@Product": {},
-    "product": "Product",
+    "product": "Pwodwi",
     "@product": {},
     "unknownBrand": "Unknown brand",
     "@unknownBrand": {},
     "unknownProductName": "Unknown product name",
     "@unknownProductName": {},
-    "label_refresh": "Refresh",
+    "label_refresh": "Rafrechi",
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
@@ -514,7 +520,14 @@
     "@front_photo": {
         "description": "Button label: For adding a picture of the front of a product"
     },
-    "ingredients": "Ingredients",
+    "outdated_image_accessibility_label": "{imageType} (this image may be outdated)",
+    "@outdated_image_accessibility_label": {
+        "description": "Accessibility label for images that are outdated (image type may be front/ingredients/nutrition…)",
+        "placeholders": {
+            "imageType": {}
+        }
+    },
+    "ingredients": "Engredyan",
     "@ingredients": {},
     "ingredients_editing_instructions": "Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen, use parentheses for ingredients of an ingredient, and indicate allergens between underscores.",
     "ingredients_editing_error": "Failed to save the ingredients.",
@@ -669,6 +682,9 @@
         "description": "Button at the end of new product page, that takes you to completed product"
     },
     "hey_incomplete_product_message": "Tap to answer 3 questions NOW to compute Nutri-Score, Eco-Score & Ultra-processing (NOVA)!",
+    "hey_incomplete_product_message_beauty": "Tap now to answer 2 questions to help analyze this cosmetic!",
+    "hey_incomplete_product_message_pet_food": "Tap now to answer 3 questions to help analyze this pet food product!",
+    "hey_incomplete_product_message_product": "Tap now to help complete this product!",
     "nutritional_facts_photo_uploaded": "Nutrition facts photo uploaded",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "Recycling photo",
@@ -768,6 +784,7 @@
             }
         }
     },
+    "product_image_outdated": "This image may be outdated",
     "homepage_main_card_logo_description": "Welcome to Open Food Facts",
     "@homepage_main_card_logo_description": {
         "description": "Description for accessibility of the Open Food Facts logo on the homepage"
@@ -776,7 +793,7 @@
     "@homepage_main_card_subheading": {
         "description": "Text between asterisks (eg: **My Text**) means text in bold. Please keep it."
     },
-    "homepage_main_card_search_field_hint": "Search for a product",
+    "homepage_main_card_search_field_hint": "Chèche yon pwodwi",
     "homepage_main_card_search_field_tooltip": "Start search",
     "@homepage_main_card_search_field_tooltip": {
         "description": "Description for accessibility of the search field on the homepage"
@@ -798,7 +815,7 @@
     "app_review_negative_modal_title": "You don't like our app?",
     "app_review_negative_modal_text": "Could you take a few seconds to tell us why?",
     "app_review_negative_modal_positive_button": "Yes, absolutely!",
-    "app_review_negative_modal_negative_button": "No",
+    "app_review_negative_modal_negative_button": "Non",
     "could_not_refresh": "Could not refresh product",
     "@could_not_refresh": {
         "description": "The product data couldn't be refreshed"
@@ -824,6 +841,14 @@
     "product_search_same_category": "Compare to Category",
     "@product_search_same_category": {
         "description": "Button looking for the other products within the same category. Less than 30 characters"
+    },
+    "product_search_same_category_short": "Compare",
+    "@product_search_same_category_short": {
+        "description": "Button looking for the other products within the same category. Just the verb compare"
+    },
+    "product_search_same_category_error": "This feature can only be used for products with a category.\n\nPlease edit the product to add a category.",
+    "@product_search_same_category_error": {
+        "description": "Button looking for the other products within the same category. Just the verb compare"
     },
     "product_improvement_add_category": "Add a category to calculate the Nutri-Score.",
     "@product_improvement_add_category": {
@@ -1288,7 +1313,7 @@
     "permission_photo_denied_dialog_settings_title": "Permission denied",
     "permission_photo_denied_dialog_settings_message": "As you've previously denied the camera permission, you must allow it manually from the Settings.",
     "permission_photo_denied_dialog_settings_button_open": "Open settings",
-    "permission_photo_denied_dialog_settings_button_cancel": "Cancel",
+    "permission_photo_denied_dialog_settings_button_cancel": "Anile",
     "permission_photo_none_found": "No camera detected",
     "@permission_photo_none_found": {
         "description": "Message for the user when no camera was detected, replacing the barcode scanner"
@@ -1301,6 +1326,10 @@
     "@edit_product_label": {
         "description": "Edit product button label"
     },
+    "edit_product_label_short": "Modifye",
+    "@edit_product_label_short": {
+        "description": "Edit product button short label (only the verb)"
+    },
     "edit_product_form_item_add_action": "Add a new {itemType}",
     "description": "Tooltip to show when the user long presses the (+) button",
     "@edit_product_form_item_add_action": {
@@ -1310,7 +1339,7 @@
             }
         }
     },
-    "edit_product_form_item_barcode": "Barcode",
+    "edit_product_form_item_barcode": "Kòd ba",
     "@edit_product_form_item_barcode": {
         "description": "Product edition - Barcode"
     },
@@ -1346,11 +1375,11 @@
     "@edit_product_form_item_labels_subtitle": {
         "description": "Product edition - Labels - SubTitle"
     },
-    "edit_product_form_item_labels_hint": "label",
+    "edit_product_form_item_labels_hint": "etikèt",
     "@edit_product_form_item_labels_hint": {
         "description": "Product edition - Labels - input textfield hint"
     },
-    "edit_product_form_item_labels_type": "label",
+    "edit_product_form_item_labels_type": "etikèt",
     "@edit_product_form_item_labels_type": {
         "description": "Product edition - Labels - input textfield label"
     },
@@ -1374,7 +1403,7 @@
     "@edit_product_form_item_origins_hint": {
         "description": "Product edition - Origins - input textfield hint"
     },
-    "edit_product_form_item_origins_type": "country",
+    "edit_product_form_item_origins_type": "peyi",
     "@edit_product_form_item_origins_type": {
         "description": "Product edition - Origins - input textfield type"
     },
@@ -1386,7 +1415,7 @@
     "@edit_product_form_item_origins_explainer_2": {
         "description": "Product edition - Origins - input explainer, part 2"
     },
-    "edit_product_form_item_countries_title": "Country",
+    "edit_product_form_item_countries_title": "Peyi",
     "@edit_product_form_item_countries_title": {
         "description": "Product edition - Countries - Title"
     },
@@ -1394,7 +1423,7 @@
     "@edit_product_form_item_countries_hint": {
         "description": "Product edition - Countries - input textfield hint"
     },
-    "edit_product_form_item_countries_type": "country",
+    "edit_product_form_item_countries_type": "peyi",
     "@edit_product_form_item_countries_type": {
         "description": "Product edition - Countries - input textfield type"
     },
@@ -1418,15 +1447,15 @@
     "@edit_product_form_item_emb_codes_examples": {
         "description": "Product edition - EMB Codes - explanations"
     },
-    "edit_product_form_item_categories_title": "Categories",
+    "edit_product_form_item_categories_title": "Kategori",
     "@edit_product_form_item_categories_title": {
         "description": "Product edition - Categories - Title"
     },
-    "edit_product_form_item_categories_hint": "category",
+    "edit_product_form_item_categories_hint": "kategori",
     "@edit_product_form_item_categories_hint": {
         "description": "Product edition - Categories - input textfield hint"
     },
-    "edit_product_form_item_categories_type": "category",
+    "edit_product_form_item_categories_type": "kategori",
     "@edit_product_form_item_categories_type": {
         "description": "Product edition - Categories - input textfield type"
     },
@@ -1445,7 +1474,7 @@
     "edit_product_form_item_exit_confirmation": "Do you want to save your changes before leaving this page?",
     "edit_product_form_item_exit_confirmation_positive_button": "Save changes",
     "edit_product_form_item_exit_confirmation_negative_button": "Discard changes",
-    "edit_product_form_item_ingredients_title": "Ingredients",
+    "edit_product_form_item_ingredients_title": "Engredyan",
     "@edit_product_form_item_ingredients_title": {
         "description": "Product edition - Ingredients - Title (note: this section was previously called Ingredients & Origins)"
     },
@@ -1464,7 +1493,7 @@
     "@edit_product_form_item_nutrition_facts_subtitle": {
         "description": "Product edition - Nutrition facts - SubTitle"
     },
-    "edit_product_form_save": "Edit",
+    "edit_product_form_save": "Modifye",
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
     },
@@ -1478,7 +1507,7 @@
     },
     "completed_basic_details_btn_text": "Complete basic details",
     "not_implemented_snackbar_text": "Not implemented yet",
-    "category_picker_page_appbar_text": "Categories",
+    "category_picker_page_appbar_text": "Kategori",
     "edit_ingredients_extract_ingredients_btn_text": "Extract ingredients from the photo",
     "@edit_ingredients_extract_ingredients_btn_text": {
         "description": "Ingredients edition - Extract ingredients"
@@ -1543,6 +1572,10 @@
     "@user_list_subtitle_product": {
         "description": "Subtitle of a paragraph about user lists in a product context"
     },
+    "user_list_title": "Your lists",
+    "@user_list_title": {
+        "description": "Label for the user lists (when the user wants to add a product to a list)"
+    },
     "user_list_add_product": "Add the product to your lists",
     "@user_list_add_product": {
         "description": "Label for the dialog to add a product to a list"
@@ -1586,6 +1619,10 @@
     "user_list_name_error_same": "That is the same name",
     "@user_list_name_error_same": {
         "description": "Validation error about the renamed name that is the same as the initial list name"
+    },
+    "user_list_name_input_hint": "Name of the list",
+    "@user_list_name_input_hint": {
+        "description": "A hint to indicate that the user should input a name of a list"
     },
     "try_again": "Try Again",
     "@try_again": {
@@ -1709,7 +1746,7 @@
     "@dev_preferences_button_positive": {
         "description": "User dev preferences - Positive button label"
     },
-    "dev_preferences_button_negative": "Cancel",
+    "dev_preferences_button_negative": "Anile",
     "@dev_preferences_button_negative": {
         "description": "User dev preferences - Negative button label"
     },
@@ -1757,19 +1794,45 @@
             }
         }
     },
+    "product_type_label_food": "Manje",
+    "product_type_label_beauty": "Personal care",
+    "product_type_label_pet_food": "Manje bèt",
+    "product_type_label_product": "Other",
+    "product_type_selection_title": "Product type",
+    "product_type_selection_subtitle": "Select the type of this product",
+    "product_type_selection_empty": "You need to select a product type first!",
+    "@product_type_selection_empty": {
+        "description": "Error message about product type that needs to be set"
+    },
+    "product_type_selection_already": "You cannot change the product type ({productType})!",
+    "@product_type_selection_already": {
+        "description": "Error message about product type that cannot be set again",
+        "placeholders": {
+            "productType": {
+                "type": "String"
+            }
+        }
+    },
     "prices_app_dev_mode_flag": "Shortcut to Prices app on product page",
     "prices_app_button": "Go to Prices app",
-    "prices_generic_title": "Prices",
+    "prices_generic_title": "Pri",
     "prices_add_n_prices": "{count,plural, =1{Add a price} other{App {count} prices}}",
     "prices_send_n_prices": "{count,plural, =1{Send the price} other{Send {count} prices}}",
     "prices_add_an_item": "Add an item",
-    "prices_add_a_price": "Add a price",
+    "prices_add_a_price": "Ajoute yon pri",
     "prices_add_a_receipt": "Add a receipt",
     "prices_add_price_tags": "Add price tags",
+    "prices_barcode_already": "This barcode ({barcode}) is already in the list!",
+    "@prices_barcode_already": {
+        "description": "Error message about barcode being already there",
+        "placeholders": {
+            "barcode": {
+                "type": "String"
+            }
+        }
+    },
     "prices_barcode_search_not_found": "Product not found",
     "prices_barcode_search_none_yet": "No product yet",
-    "prices_barcode_search_question": "Do you want to look for this product?",
-    "prices_barcode_search_title": "Product search",
     "prices_barcode_search_running": "Looking for {barcode}",
     "@prices_barcode_search_running": {
         "description": "Dialog title about barcode look-up",
@@ -1779,6 +1842,7 @@
             }
         }
     },
+    "prices_barcode_enter": "Enter the Barcode",
     "prices_barcode_reader_action": "Barcode reader",
     "prices_view_prices": "View the prices",
     "prices_product_accessibility_summary": "{count,plural, =1{1 price} other{{count} prices}} for {product}",
@@ -1880,26 +1944,27 @@
     },
     "prices_amount_subtitle": "Amount",
     "prices_amount_is_discounted": "Is discounted?",
-    "prices_amount_price_normal": "Price",
-    "prices_amount_price_discounted": "Discounted price",
+    "prices_amount_price_normal": "Pri",
+    "prices_amount_price_discounted": "Pri rabè",
     "prices_amount_price_not_discounted": "Original price",
     "prices_amount_no_product": "One product is missing!",
     "prices_amount_price_incorrect": "Incorrect value",
     "prices_amount_price_mandatory": "Mandatory value",
-    "prices_currency_subtitle": "Currency",
-    "prices_date_subtitle": "Date",
+    "prices_currency_subtitle": "Lajan",
+    "prices_date_subtitle": "Dat",
     "prices_location_subtitle": "Shop",
     "prices_location_find": "Find a shop",
     "prices_location_mandatory": "You need to select a shop!",
-    "prices_proof_subtitle": "Proof",
+    "prices_location_search_broader": "Couldn't find what you were looking for? Let's try a broader search!",
+    "prices_proof_subtitle": "Prèv",
     "prices_proof_find": "Select a proof",
-    "prices_proof_receipt": "Receipt",
-    "prices_proof_price_tag": "Price tag",
+    "prices_proof_receipt": "Resi",
+    "prices_proof_price_tag": "Pri tag",
     "prices_proof_mandatory": "You need to select a proof!",
     "prices_add_validation_error": "Validation error",
     "prices_privacy_warning_title": "Privacy warning",
     "prices_privacy_warning_message": "Prices will be public, along with the store they refer to.\nThat might allow people who know about your Open Food Facts pseudonym to:\n* infer in which area you live\n* know what you are buying\nIf you are uneasy with that, please change your pseudonym, or create a new Open Food Facts account and log into the app with it.",
-    "prices_unknown_product": "Unknown product",
+    "prices_unknown_product": "Pwodwi enkoni",
     "@prices_unknown_product": {
         "description": "Very small text, in the context of prices, to say that the product is unknown"
     },
@@ -1976,11 +2041,11 @@
     "@user_search_to_be_completed_title": {
         "description": "User search (to be completed): list tile title"
     },
-    "user_search_prices_title": "My prices",
+    "user_search_prices_title": "Pri mwen yo",
     "@user_search_prices_title": {
         "description": "User prices: list tile title"
     },
-    "user_search_proofs_title": "My proofs",
+    "user_search_proofs_title": "Prèv mwen yo",
     "@user_search_proofs_title": {
         "description": "User proofs: list tile title"
     },
@@ -2062,7 +2127,7 @@
     "@summary_card_button_add_basic_details": {
         "description": "Summary card - Button to add details about the product"
     },
-    "edit_photo_button_label": "Edit",
+    "edit_photo_button_label": "Modifye",
     "@edit_photo_button_label": {
         "description": "Edit photo button label"
     },
@@ -2094,7 +2159,7 @@
     "@edit_photo_language_none": {
         "description": "Warning message: for this product and this field, there are no images at all, in any language"
     },
-    "category_picker_screen_title": "Categories",
+    "category_picker_screen_title": "Kategori",
     "@category_picker_screen_title": {
         "description": "Categories picker screen title"
     },
@@ -2104,7 +2169,7 @@
     "brand_name": "Brand name",
     "add_basic_details_brand_name_error": "Please enter the brand name",
     "quantity": "Quantity and weight",
-    "barcode": "Barcode",
+    "barcode": "Kòd ba",
     "barcode_barcode": "Barcode: {barcode}",
     "@barcode_barcode": {
         "description": "Displaying the raw barcode with label",
@@ -2246,7 +2311,34 @@
     },
     "share_product_text": "Have a look at this product on Open Food Facts: {url}",
     "@share_product_text": {
-        "description": "The content which is send, when sharing a product",
+        "description": "The content which is send, when sharing a 'food' product",
+        "placeholders": {
+            "url": {
+                "type": "String"
+            }
+        }
+    },
+    "share_product_text_beauty": "Have a look at this product on Open Beauty Facts: {url}",
+    "@share_product_text_beauty": {
+        "description": "The content which is send, when sharing a 'beauty' product",
+        "placeholders": {
+            "url": {
+                "type": "String"
+            }
+        }
+    },
+    "share_product_text_pet_food": "Have a look at this product on Open PetFood Facts: {url}",
+    "@share_product_text_pet_food": {
+        "description": "The content which is send, when sharing a 'pet food' product",
+        "placeholders": {
+            "url": {
+                "type": "String"
+            }
+        }
+    },
+    "share_product_text_product": "Have a look at this product on Open Products Facts: {url}",
+    "@share_product_text_product": {
+        "description": "The content which is send, when sharing a 'products' product",
         "placeholders": {
             "url": {
                 "type": "String"
@@ -2468,9 +2560,9 @@
     "@user_picture_source_remember": {
         "description": "Checkbox label when select a picture source"
     },
-    "user_picture_source_select": "Select each time",
-    "@user_picture_source_select": {
-        "description": "Choice of selecting the picture source each time"
+    "user_picture_source_ask": "Ask each time",
+    "@user_picture_source_ask": {
+        "description": "Choice of asking the picture source every time"
     },
     "robotoff_continue": "Continue",
     "@robotoff_continue": {
@@ -2767,7 +2859,7 @@
             }
         }
     },
-    "loading": "Loading…",
+    "loading": "Chaje…",
     "@loading": {
         "description": "Loading…"
     },
@@ -2960,5 +3052,57 @@
     "prices_feedback_form": "Click here to send us your feedback about this new feature!",
     "@prices_feedback_form": {
         "description": "A button to send feedback about the prices feature"
+    },
+    "menu_button_list_actions": "Select an action",
+    "@menu_button_list_actions": {
+        "description": "Button to select an action in a list (eg: Share, Delete, …)"
+    },
+    "error_loading_photo": "Error loading photo",
+    "@error_loading_photo": {
+        "description": "Error message when loading a photo fails to load"
+    },
+    "photo_viewer_details_button": "Detay yo",
+    "@photo_viewer_details_button": {
+        "description": "Button to show details of the photo"
+    },
+    "photo_viewer_details_button_accessibility_label": "Details of this photo",
+    "@photo_viewer_details_button_accessibility_label": {
+        "description": "Accessibility label for the Details button on a photo"
+    },
+    "photo_viewer_details_title": "Details of the photo",
+    "@photo_viewer_details_title": {
+        "description": "Title of the photo details dialog"
+    },
+    "photo_viewer_details_contributor_title": "Kontribitè",
+    "@photo_viewer_details_contributor_title": {
+        "description": "Label for the author of a photo"
+    },
+    "photo_viewer_details_size_title": "Size",
+    "@photo_viewer_details_size_title": {
+        "description": "Label for the size of a photo"
+    },
+    "photo_viewer_details_size_value": "{width} x {height} pixels",
+    "@photo_viewer_details_size_value": {
+        "description": "Value for the size of a photo",
+        "placeholders": {
+            "width": {
+                "type": "int"
+            },
+            "height": {
+                "type": "int"
+            }
+        }
+    },
+    "photo_viewer_details_date_title": "Dat",
+    "@photo_viewer_details_date_title": {
+        "description": "Label for the uploaded date of a photo"
+    },
+    "photo_viewer_details_url_title": "URL",
+    "@photo_viewer_details_url_title": {
+        "description": "Label for the link of a photo"
+    },
+    "product_page_compatibility_score": "Compatible",
+    "@product_page_compatibility_score": {
+        "description": "Compatibility score on top of the product page. The sentence is \"100%\" Compatible"
     }
 }
