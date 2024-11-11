@@ -241,8 +241,8 @@ class _ProductFooterFilledButton extends StatelessWidget {
         Theme.of(context).extension<SmoothColorsThemeExtension>()!;
     final ProductPageCompatibility compatibility =
         context.watch<ProductPageCompatibility>();
-    final Color contentColor = compatibility.score > 0
-        ? compatibility.color
+    final Color contentColor = compatibility.color != null
+        ? compatibility.color!
         : context.lightTheme()
             ? themeExtension.primaryBlack
             : themeExtension.primarySemiDark;
