@@ -276,7 +276,6 @@
     "sign_up_page_email_already_exists": "already exists, login to the account or try with another email.",
     "sign_up_page_provide_valid_email": "Please provide a valid email address.",
     "sign_up_page_server_busy": "We are deeply sorry, we have some technical difficulties to create your account. Please try again later.",
-    "@Settings": {},
     "settingsTitle": "Settings",
     "@settingsTitle": {
         "description": "The title of the Settings page"
@@ -3165,5 +3164,29 @@
     "product_page_image_no_image_available_accessibility_label": "No picture available for this product",
     "@product_page_image_no_image_available_accessibility_label": {
         "description": "Accessibility label for the image on the product page when there is no image available on the database"
+    },
+        "product_page_action_bar_settings_accessibility_label": "Reorder or hide actions",
+    "@product_page_action_bar_settings_accessibility_label": {
+        "description": "Accessibility label for the Settings icon in the action bar (= bottom bar) on the product page"
+    },
+    "product_page_action_bar_setting_modal_title": "Edit actions",
+    "@product_page_action_bar_setting_modal_title": {
+        "description": "Title for the modal allowing to show and reorder actions"
+    },
+    "product_page_action_bar_item_move_up": "Move up",
+    "@product_page_action_bar_item_move_up": {
+        "description": "Accessibility label to move up an action"
+    },
+    "product_page_action_bar_item_move_down": "Move down",
+    "@product_page_action_bar_item_move_down": {
+        "description": "Accessibility label to move down an action"
+    },
+    "product_page_action_bar_item_enable": "Enable action",
+    "@product_page_action_bar_item_enable": {
+        "description": "Accessibility label to enable action (= make it visible)"
+    },
+    "product_page_action_bar_item_disable": "Disable action",
+    "@product_page_action_bar_item_disable": {
+        "description": "Accessibility label to disable action (= make it invisible)"
     }
 }
