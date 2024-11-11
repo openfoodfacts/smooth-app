@@ -28,16 +28,16 @@ class ProductIncompleteCard extends StatelessWidget {
     }
     bool checkScores = true;
     if (_isNutriscoreNotApplicable(product)) {
-      AnalyticsHelper.trackEvent(
+      AnalyticsHelper.trackProductEvent(
         AnalyticsEvent.notShowFastTrackProductEditCardNutriscore,
-        barcode: product.barcode,
+        product: product,
       );
       checkScores = false;
     }
     if (_isEcoscoreNotApplicable(product)) {
-      AnalyticsHelper.trackEvent(
+      AnalyticsHelper.trackProductEvent(
         AnalyticsEvent.notShowFastTrackProductEditCardEcoscore,
-        barcode: product.barcode,
+        product: product,
       );
       checkScores = false;
     }
