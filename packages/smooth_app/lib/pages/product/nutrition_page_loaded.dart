@@ -208,15 +208,19 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
           product: upToDateProduct,
         ),
         body: Padding(
-          padding: const EdgeInsets.symmetric(
+          padding: const EdgeInsetsDirectional.symmetric(
             horizontal: LARGE_SPACE,
-            vertical: SMALL_SPACE,
           ),
           child: Form(
             key: _formKey,
             child: Provider<List<FocusNode>>.value(
               value: _focusNodes,
-              child: ListView(children: children),
+              child: ListView(
+                padding: const EdgeInsetsDirectional.symmetric(
+                  vertical: SMALL_SPACE,
+                ),
+                children: children,
+              ),
             ),
           ),
         ),

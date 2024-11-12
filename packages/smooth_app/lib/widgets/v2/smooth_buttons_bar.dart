@@ -11,11 +11,15 @@ class SmoothButtonsBar2 extends StatefulWidget {
   const SmoothButtonsBar2({
     required this.positiveButton,
     this.negativeButton,
+    this.backgroundColor,
+    this.animate = false,
     super.key,
   });
 
   final SmoothActionButton2 positiveButton;
   final SmoothActionButton2? negativeButton;
+  final Color? backgroundColor;
+  final bool animate;
 
   @override
   State<SmoothButtonsBar2> createState() => _SmoothButtonsBar2State();
@@ -29,7 +33,7 @@ class _SmoothButtonsBar2State extends State<SmoothButtonsBar2>
   void initState() {
     super.initState();
     _controller = AnimationController(
-      duration: SmoothAnimationsDuration.brief,
+      duration: widget.animate ? SmoothAnimationsDuration.brief : Duration.zero,
       vsync: this,
     )..addListener(() => setState(() {}));
 
@@ -86,13 +90,13 @@ class _SmoothButtonsBar2State extends State<SmoothButtonsBar2>
         ),
         width: double.infinity,
         decoration: BoxDecoration(
-          color:
-              context.darkTheme() ? colors!.primaryDark : colors!.primaryMedium,
-          boxShadow: <BoxShadow>[
+          color: widget.backgroundColor ??
+              (context.lightTheme() ? Colors.white : colors!.primaryDark),
+          boxShadow: const <BoxShadow>[
             BoxShadow(
-              color: context.darkTheme() ? Colors.white10 : Colors.black12,
+              color: Colors.black12,
               blurRadius: 6.0,
-              offset: const Offset(0.0, -4.0),
+              offset: Offset(0.0, -4.0),
             ),
           ],
         ),
@@ -146,10 +150,49 @@ class _SmoothPositiveButton2 extends StatelessWidget {
     final SmoothColorsThemeExtension colors =
         Theme.of(context).extension<SmoothColorsThemeExtension>()!;
 
+    return _SmoothBaseButton2(
+      data: data,
+      backgroundColor: colors.primaryBlack,
+      foregroundColor: Colors.white,
+    );
+  }
+}
+
+class _SmoothNegativeButton2 extends StatelessWidget {
+  const _SmoothNegativeButton2({required this.data});
+
+  final SmoothActionButton2 data;
+
+  @override
+  Widget build(BuildContext context) {
+    final SmoothColorsThemeExtension colors =
+        Theme.of(context).extension<SmoothColorsThemeExtension>()!;
+
+    return _SmoothBaseButton2(
+      data: data,
+      backgroundColor: colors.primaryMedium,
+      foregroundColor: colors.primaryDark,
+    );
+  }
+}
+
+class _SmoothBaseButton2 extends StatelessWidget {
+  const _SmoothBaseButton2({
+    required this.data,
+    required this.backgroundColor,
+    required this.foregroundColor,
+  });
+
+  final SmoothActionButton2 data;
+  final Color backgroundColor;
+  final Color foregroundColor;
+
+  @override
+  Widget build(BuildContext context) {
     return TextButton(
       style: TextButton.styleFrom(
-        backgroundColor: colors.primaryBlack,
-        foregroundColor: Colors.white,
+        backgroundColor: backgroundColor,
+        foregroundColor: foregroundColor,
         shape: const RoundedRectangleBorder(
           borderRadius: CIRCULAR_BORDER_RADIUS,
         ),
@@ -187,17 +230,5 @@ class _SmoothPositiveButton2 extends StatelessWidget {
         ],
       ),
     );
-  }
-}
-
-// TODO(g123k): Not implemented
-class _SmoothNegativeButton2 extends StatelessWidget {
-  const _SmoothNegativeButton2({required this.data});
-
-  final SmoothActionButton2 data;
-
-  @override
-  Widget build(BuildContext context) {
-    throw Exception('Not implemented!');
   }
 }

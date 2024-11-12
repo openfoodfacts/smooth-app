@@ -402,7 +402,13 @@ class _CountrySelectorBottomBar extends StatelessWidget {
           return EMPTY_WIDGET;
         }
 
+        final SmoothColorsThemeExtension? colors =
+            Theme.of(context).extension<SmoothColorsThemeExtension>();
+
         return SmoothButtonsBar2(
+          animate: true,
+          backgroundColor:
+              context.darkTheme() ? colors!.primaryDark : colors!.primaryMedium,
           positiveButton: SmoothActionButton2(
               text: AppLocalizations.of(context).validate,
               icon: const icons.Arrow.right(),

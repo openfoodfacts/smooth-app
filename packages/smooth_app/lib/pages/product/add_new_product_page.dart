@@ -27,6 +27,7 @@ import 'package:smooth_app/pages/product/product_image_swipeable_view.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
+import 'package:smooth_app/widgets/v2/smooth_buttons_bar.dart';
 import 'package:smooth_app/widgets/will_pop_scope.dart';
 
 /// "Create a product we couldn't find on the server" page.
@@ -95,6 +96,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
       (widget.displayPictures ? 1 : 0);
 
   double get _progress => (_pageNumber + 1) / _totalPages;
+
   bool get _isLastPage => (_pageNumber + 1) == _totalPages;
   ProductType? _inputProductType;
   late ColorScheme _colorScheme;
@@ -272,14 +274,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
                   ],
                 ),
               ),
-              Card(
-                margin: EdgeInsets.zero,
-                elevation: 15.0,
-                child: SizedBox(
-                  height: MediaQuery.sizeOf(context).height * 0.1,
-                  child: _getButtons(),
-                ),
-              )
+              _getButtons(),
             ],
           ),
         ),
@@ -351,31 +346,56 @@ class _AddNewProductPageState extends State<AddNewProductPage>
 
   Widget _getButtons() {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            minimumSize: Size(MediaQuery.sizeOf(context).width * 0.35, 40.0),
-            backgroundColor: _colorScheme.secondary,
-            shape: const RoundedRectangleBorder(
-              borderRadius: ROUNDED_BORDER_RADIUS,
-            ),
-          ),
-          onPressed: () async {
-            if (_pageNumber == 0) {
-              Navigator.of(context).maybePop();
-              return;
-            }
-            if (widget.displayProductType && _pageNumber == 1) {
+
+    return SmoothButtonsBar2(
+      negativeButton: SmoothActionButton2(
+        text: _pageNumber >= 1
+            ? appLocalizations.previous_label
+            : appLocalizations.cancel,
+        onPressed: () async {
+          if (_pageNumber == 0) {
+            Navigator.of(context).maybePop();
+            return;
+          }
+          if (widget.displayProductType && _pageNumber == 1) {
+            return showDialog(
+              context: context,
+              builder: (final BuildContext context) => SmoothAlertDialog(
+                title: appLocalizations.product_type_selection_title,
+                body: Text(
+                  appLocalizations.product_type_selection_already(
+                    upToDateProduct.productType!.getLabel(appLocalizations),
+                  ),
+                ),
+                positiveAction: SmoothActionButton(
+                  text: appLocalizations.okay,
+                  onPressed: () => Navigator.of(context).pop(),
+                ),
+              ),
+            );
+          }
+          _pageController.previousPage(
+            duration: SmoothAnimationsDuration.short,
+            curve: Curves.easeOut,
+          );
+        },
+      ),
+      positiveButton: SmoothActionButton2(
+        text:
+            _isLastPage ? appLocalizations.finish : appLocalizations.next_label,
+        onPressed: () async {
+          if (_isLastPage) {
+            Navigator.of(context).pop();
+            return;
+          }
+          if (widget.displayProductType && _pageNumber == 0) {
+            if (_inputProductType == null) {
               return showDialog(
                 context: context,
                 builder: (final BuildContext context) => SmoothAlertDialog(
                   title: appLocalizations.product_type_selection_title,
                   body: Text(
-                    appLocalizations.product_type_selection_already(
-                      upToDateProduct.productType!.getLabel(appLocalizations),
-                    ),
+                    appLocalizations.product_type_selection_empty,
                   ),
                   positiveAction: SmoothActionButton(
                     text: appLocalizations.okay,
@@ -384,74 +404,19 @@ class _AddNewProductPageState extends State<AddNewProductPage>
                 ),
               );
             }
-            _pageController.previousPage(
-              duration: SmoothAnimationsDuration.short,
-              curve: Curves.easeOut,
+            await BackgroundTaskDetails.addTask(
+              Product(barcode: barcode)..productType = _inputProductType,
+              context: context,
+              stamp: BackgroundTaskDetailsStamp.productType,
+              productType: _inputProductType,
             );
-          },
-          child: Text(
-            _pageNumber >= 1
-                ? appLocalizations.previous_label
-                : appLocalizations.cancel,
-            style: const TextStyle(
-              color: Colors.black,
-              fontSize: 20.0,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ),
-        const SizedBox(width: BALANCED_SPACE),
-        ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            minimumSize: Size(MediaQuery.sizeOf(context).width * 0.35, 40.0),
-            backgroundColor: DARK_BROWN_COLOR,
-            shape: const RoundedRectangleBorder(
-              borderRadius: ROUNDED_BORDER_RADIUS,
-            ),
-          ),
-          onPressed: () async {
-            if (_isLastPage) {
-              Navigator.of(context).pop();
-              return;
-            }
-            if (widget.displayProductType && _pageNumber == 0) {
-              if (_inputProductType == null) {
-                return showDialog(
-                  context: context,
-                  builder: (final BuildContext context) => SmoothAlertDialog(
-                    title: appLocalizations.product_type_selection_title,
-                    body: Text(
-                      appLocalizations.product_type_selection_empty,
-                    ),
-                    positiveAction: SmoothActionButton(
-                      text: appLocalizations.okay,
-                      onPressed: () => Navigator.of(context).pop(),
-                    ),
-                  ),
-                );
-              }
-              await BackgroundTaskDetails.addTask(
-                Product(barcode: barcode)..productType = _inputProductType,
-                context: context,
-                stamp: BackgroundTaskDetailsStamp.productType,
-                productType: _inputProductType,
-              );
-            }
-            _pageController.nextPage(
-              duration: SmoothAnimationsDuration.short,
-              curve: Curves.easeOut,
-            );
-          },
-          child: Text(
-            _isLastPage ? appLocalizations.finish : appLocalizations.next_label,
-            style: const TextStyle(
-              color: Colors.white,
-              fontSize: 20.0,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        )
-      ],
+          }
+          _pageController.nextPage(
+            duration: SmoothAnimationsDuration.short,
+            curve: Curves.easeOut,
+          );
+        },
+      ),
     );
   }
 

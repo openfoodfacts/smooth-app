@@ -241,7 +241,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                             child: Card(child: OwnerFieldInfo()),
                           ),
                         // in order to be able to scroll suggestions
-                        SizedBox(height: MediaQuery.sizeOf(context).height),
+                        const SizedBox(height: 150),
                       ],
                     ),
                   ),
