@@ -184,6 +184,9 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
 
   /// Returns the enum to be used for matomo analytics.
   AnalyticsEditEvents getAnalyticsEditEvent();
+
+  /// Returns true if the field is an owner field.
+  bool isOwnerField(final Product product) => false;
 }
 
 /// Implementation for "Stores" of an [AbstractSimpleInputPageHelper].
@@ -396,6 +399,16 @@ class SimpleInputPageLabelHelper extends AbstractSimpleInputPageHelper {
 
 /// Implementation for "Categories" of an [AbstractSimpleInputPageHelper].
 class SimpleInputPageCategoryHelper extends AbstractSimpleInputPageHelper {
+  @override
+  bool isOwnerField(final Product product) =>
+      product.getOwnerFieldTimestamp(
+        OwnerField.productField(
+          ProductField.CATEGORIES,
+          ProductQuery.getLanguage(),
+        ),
+      ) !=
+      null;
+
   @override
   List<String> initTerms(final Product product) =>
       product.categoriesTagsInLanguages?[getLanguage()] ?? <String>[];

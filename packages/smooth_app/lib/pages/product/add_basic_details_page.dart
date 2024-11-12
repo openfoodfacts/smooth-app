@@ -358,10 +358,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
     final OpenFoodFactsLanguage? language,
   }) =>
       _isOwnerField(productField, language: language)
-          ? Semantics(
-              label: AppLocalizations.of(context).owner_field_info_title,
-              child: const Icon(OwnerFieldInfo.ownerFieldIconData),
-            )
+          ? const OwnerFieldIcon()
           : null;
 
   bool _hasOwnerField() {

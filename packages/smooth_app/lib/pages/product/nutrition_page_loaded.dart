@@ -284,10 +284,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
                       ) ==
                       null
                   ? null
-                  : Semantics(
-                      label: appLocalizations.owner_field_info_title,
-                      child: const Icon(OwnerFieldInfo.ownerFieldIconData),
-                    ),
+                  : const OwnerFieldIcon(),
             ),
             textInputAction: TextInputAction.next,
             onFieldSubmitted: (_) {
@@ -569,10 +566,7 @@ class _NutrientValueCell extends StatelessWidget {
                 product.getOwnerFieldTimestamp(OwnerField.nutrient(nutrient)) ==
                     null
             ? null
-            : Semantics(
-                label: appLocalizations.owner_field_info_title,
-                child: const Icon(OwnerFieldInfo.ownerFieldIconData),
-              ),
+            : const OwnerFieldIcon(),
       ),
       keyboardType: const TextInputType.numberWithOptions(
         signed: false,

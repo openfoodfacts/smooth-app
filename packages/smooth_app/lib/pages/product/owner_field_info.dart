@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+/// Icon to display when the product field value is "producer provided".
+const IconData _ownerFieldIconData = Icons.factory;
+
 /// Standard info tile about "owner fields".
 class OwnerFieldInfo extends StatelessWidget {
   const OwnerFieldInfo({super.key});
-
-  /// Icon to display when the product field value is "producer provided".
-  static const IconData ownerFieldIconData = Icons.factory;
 
   @override
   Widget build(BuildContext context) {
@@ -16,9 +16,20 @@ class OwnerFieldInfo extends StatelessWidget {
     final Color? lightGrey = Colors.grey[300];
     return ListTile(
       tileColor: dark ? darkGrey : lightGrey,
-      leading: const Icon(ownerFieldIconData),
+      leading: const Icon(_ownerFieldIconData),
       title: Text(appLocalizations.owner_field_info_title),
       subtitle: Text(appLocalizations.owner_field_info_message),
     );
   }
+}
+
+/// Standard icon about "owner fields".
+class OwnerFieldIcon extends StatelessWidget {
+  const OwnerFieldIcon();
+
+  @override
+  Widget build(BuildContext context) => Semantics(
+        label: AppLocalizations.of(context).owner_field_info_title,
+        child: const Icon(_ownerFieldIconData),
+      );
 }

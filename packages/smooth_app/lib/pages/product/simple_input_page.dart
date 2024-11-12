@@ -11,6 +11,7 @@ import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/input/unfocus_field_when_tap_outside.dart';
 import 'package:smooth_app/pages/product/common/product_buttons.dart';
 import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
+import 'package:smooth_app/pages/product/owner_field_info.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
 import 'package:smooth_app/pages/product/simple_input_widget.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
@@ -56,6 +57,17 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
     final List<Widget> simpleInputs = <Widget>[];
     final List<String> titles = <String>[];
 
+    bool hasOwnerField = false;
+    for (final AbstractSimpleInputPageHelper helper in widget.helpers) {
+      if (helper.isOwnerField(widget.product)) {
+        hasOwnerField = true;
+        break;
+      }
+    }
+
+    if (hasOwnerField) {
+      simpleInputs.add(const OwnerFieldInfo());
+    }
     for (int i = 0; i < widget.helpers.length; i++) {
       titles.add(widget.helpers[i].getTitle(appLocalizations));
       simpleInputs.add(
