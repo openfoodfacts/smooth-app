@@ -170,9 +170,9 @@ class _AddNewProductPageState extends State<AddNewProductPage>
       ),
     ];
     _daoProductList = DaoProductList(localDatabase);
-    AnalyticsHelper.trackEvent(
+    AnalyticsHelper.trackProductEvent(
       widget.events[EditProductAction.openPage]!,
-      barcode: barcode,
+      product: upToDateProduct,
     );
     _pageController.addListener(() => setState(() {}));
   }
@@ -206,9 +206,9 @@ class _AddNewProductPageState extends State<AddNewProductPage>
       ),
     );
     if (leaveThePage == true) {
-      AnalyticsHelper.trackEvent(
+      AnalyticsHelper.trackProductEvent(
         widget.events[EditProductAction.leaveEmpty]!,
-        barcode: barcode,
+        product: upToDateProduct,
       );
     }
     return leaveThePage ?? false;
@@ -581,9 +581,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
           productType: productType,
           checked: productType == _inputProductType,
           onChanged: (ProductType value) {
-            if (value != null) {
-              setState(() => _inputProductType = value);
-            }
+            setState(() => _inputProductType = value);
           },
         ),
       );
