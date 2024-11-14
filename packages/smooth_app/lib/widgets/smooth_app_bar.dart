@@ -145,6 +145,7 @@ class SmoothAppBar extends StatelessWidget implements PreferredSizeWidget {
               title: title!,
               subTitle: subTitle,
               titleTextStyle: titleTextStyle,
+              color: foregroundColor,
             )
           : null,
       actions: actions,
@@ -262,6 +263,7 @@ class _AppBarTitle extends StatelessWidget {
     required this.title,
     required this.titleTextStyle,
     required this.subTitle,
+    this.color,
     this.ignoreSemanticsForSubtitle,
   });
 
@@ -269,6 +271,7 @@ class _AppBarTitle extends StatelessWidget {
   final TextStyle? titleTextStyle;
   final Widget? subTitle;
   final bool? ignoreSemanticsForSubtitle;
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
@@ -278,18 +281,19 @@ class _AppBarTitle extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         DefaultTextStyle(
-          style: titleTextStyle ??
-              AppBarTheme.of(context).titleTextStyle ??
-              theme.appBarTheme.titleTextStyle?.copyWith(
-                fontWeight: FontWeight.w500,
-              ) ??
-              theme.textTheme.titleLarge?.copyWith(
-                fontWeight: FontWeight.w500,
-              ) ??
-              const TextStyle(
-                fontSize: 20.0,
-                fontWeight: FontWeight.w500,
-              ),
+          style: (titleTextStyle ??
+                  AppBarTheme.of(context).titleTextStyle ??
+                  theme.appBarTheme.titleTextStyle?.copyWith(
+                    fontWeight: FontWeight.w500,
+                  ) ??
+                  theme.textTheme.titleLarge?.copyWith(
+                    fontWeight: FontWeight.w500,
+                  ) ??
+                  const TextStyle(
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.w500,
+                  ))
+              .copyWith(color: color),
           child: title,
         ),
         if (subTitle != null)

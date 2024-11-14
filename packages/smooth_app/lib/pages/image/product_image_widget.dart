@@ -9,9 +9,10 @@ import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/pages/image/product_image_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
+import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
-/// Displays a product image thumbnail with the upload date on top.
+/// Displays a product image thumbnail with the upload date.
 class ProductImageWidget extends StatelessWidget {
   const ProductImageWidget({
     required this.productImage,
@@ -34,7 +35,7 @@ class ProductImageWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final SmoothColorsThemeExtension colors =
-        Theme.of(context).extension<SmoothColorsThemeExtension>()!;
+        context.extension<SmoothColorsThemeExtension>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final DateFormat dateFormat =
         DateFormat.yMd(ProductQuery.getLanguage().offTag);
@@ -104,7 +105,7 @@ class ProductImageWidget extends StatelessWidget {
                           textDirection: Directionality.of(context),
                           child: icons.Outdated(
                             size: 18.0,
-                            color: colors.red,
+                            color: colors.orange,
                           ),
                         ),
                     ],

@@ -18,6 +18,8 @@ SmoothAppBar buildEditProductAppBar({
   required final BuildContext context,
   required final String title,
   required final Product product,
+  final PreferredSizeWidget? bottom,
+  final List<Widget>? actions,
 }) =>
     SmoothAppBar(
       centerTitle: false,
@@ -31,6 +33,8 @@ SmoothAppBar buildEditProductAppBar({
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
       ),
+      actions: actions,
+      bottom: bottom,
       ignoreSemanticsForSubtitle: true,
     );
 
