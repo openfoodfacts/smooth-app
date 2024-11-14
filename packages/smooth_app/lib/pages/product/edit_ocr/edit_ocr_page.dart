@@ -120,7 +120,7 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
     }
     AnalyticsHelper.trackProductEdit(
       _helper.getEditEventAnalyticsTag(),
-      upToDateProduct,
+      barcode,
       true,
     );
     await BackgroundTaskDetails.addTask(

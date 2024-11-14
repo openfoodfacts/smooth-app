@@ -27,9 +27,9 @@ class BarcodeProductQuery {
     ProductQuery.setUserAgentComment('');
     if (fetchedProduct.product != null) {
       if (fetchedProduct.product!.obsolete == true) {
-        AnalyticsHelper.trackProductEvent(
+        AnalyticsHelper.trackEvent(
           AnalyticsEvent.obsoleteProduct,
-          product: fetchedProduct.product!,
+          barcode: barcode,
         );
       }
       return fetchedProduct;

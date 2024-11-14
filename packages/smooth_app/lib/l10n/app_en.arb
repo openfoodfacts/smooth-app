@@ -3271,5 +3271,21 @@
     "carousel_loading_text": "We are searching for it in our database of more than **3 million products!**",
     "@carousel_loading_text": {
         "description": "Please keep the ** syntax to make the text bold"
+    },
+    "product_type_subtitle_food": "Vegetebles, fruits, frozen food...",
+    "@product_type_subtitle_food" : {
+        "description": "Exemple of products for food category"
+    },
+    "product_type_subtitle_beauty": "Makeup, soap, toothpaste...",
+    "@product_type_subtitle_beauty" : {
+        "description": "Exemple of products for beauty category"
+    },
+    "product_type_subtitle_pet_food": "Food for dogs, cats...",
+    "@product_type_subtitle_pet_food" : {
+        "description": "Exemple of products for pet food category"
+    },
+    "product_type_subtitle_product": "Smartphone, furniture...",
+    "@product_type_subtitle_product" : {
+        "description": "Exemple of products for other categories"
     }
 }

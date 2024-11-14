@@ -19,6 +19,7 @@ import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/crop_parameters.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
+import 'package:smooth_app/pages/product/add_new_product/add_new_product_type.dart';
 import 'package:smooth_app/pages/product/add_new_product_helper.dart';
 import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
 import 'package:smooth_app/pages/product/nutrition_page_loaded.dart';
@@ -169,9 +170,9 @@ class _AddNewProductPageState extends State<AddNewProductPage>
       ),
     ];
     _daoProductList = DaoProductList(localDatabase);
-    AnalyticsHelper.trackProductEvent(
+    AnalyticsHelper.trackEvent(
       widget.events[EditProductAction.openPage]!,
-      product: upToDateProduct,
+      barcode: barcode,
     );
     _pageController.addListener(() => setState(() {}));
   }
@@ -205,9 +206,9 @@ class _AddNewProductPageState extends State<AddNewProductPage>
       ),
     );
     if (leaveThePage == true) {
-      AnalyticsHelper.trackProductEvent(
+      AnalyticsHelper.trackEvent(
         widget.events[EditProductAction.leaveEmpty]!,
-        product: upToDateProduct,
+        barcode: barcode,
       );
     }
     return leaveThePage ?? false;
@@ -576,18 +577,18 @@ class _AddNewProductPageState extends State<AddNewProductPage>
 
     for (final ProductType productType in ProductType.values) {
       rows.add(
-        RadioListTile<ProductType>(
-          title: Text(productType.getLabel(appLocalizations)),
-          onChanged: (ProductType? value) {
+        AddNewProductType(
+          productType: productType,
+          checked: productType == _inputProductType,
+          onChanged: (ProductType value) {
             if (value != null) {
               setState(() => _inputProductType = value);
             }
           },
-          value: productType,
-          groupValue: _inputProductType,
         ),
       );
     }
+
     return rows;
   }
 

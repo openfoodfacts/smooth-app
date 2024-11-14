@@ -48,7 +48,7 @@ class ProductImageGalleryView extends StatefulWidget {
   }) async {
     AnalyticsHelper.trackProductEdit(
       AnalyticsEditEvents.photos,
-      product,
+      product.barcode!,
       true,
     );
 

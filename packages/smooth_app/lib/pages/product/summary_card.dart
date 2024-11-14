@@ -111,9 +111,9 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
     initUpToDate(widget._product, context.read<LocalDatabase>());
     _questionsLayout = getUserQuestionsLayout(context.read<UserPreferences>());
     if (ProductIncompleteCard.isProductIncomplete(upToDateProduct)) {
-      AnalyticsHelper.trackProductEvent(
+      AnalyticsHelper.trackEvent(
         AnalyticsEvent.showFastTrackProductEditCard,
-        product: widget._product,
+        barcode: barcode,
       );
     }
   }

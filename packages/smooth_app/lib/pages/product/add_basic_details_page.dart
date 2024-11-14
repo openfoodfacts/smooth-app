@@ -316,7 +316,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
 
     AnalyticsHelper.trackProductEdit(
       AnalyticsEditEvents.basicDetails,
-      _product,
+      _product.barcode!,
       true,
     );
     await BackgroundTaskDetails.addTask(

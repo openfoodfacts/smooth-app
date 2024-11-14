@@ -3,7 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
-import 'package:smooth_app/pages/product/add_new_product_page.dart';
+import 'package:smooth_app/pages/product/add_new_product/add_new_product_page.dart';
 import 'package:smooth_app/pages/product/product_field_editor.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
 import 'package:smooth_app/query/product_query.dart';
@@ -28,16 +28,16 @@ class ProductIncompleteCard extends StatelessWidget {
     }
     bool checkScores = true;
     if (_isNutriscoreNotApplicable(product)) {
-      AnalyticsHelper.trackProductEvent(
+      AnalyticsHelper.trackEvent(
         AnalyticsEvent.notShowFastTrackProductEditCardNutriscore,
-        product: product,
+        barcode: product.barcode,
       );
       checkScores = false;
     }
     if (_isEcoscoreNotApplicable(product)) {
-      AnalyticsHelper.trackProductEvent(
+      AnalyticsHelper.trackEvent(
         AnalyticsEvent.notShowFastTrackProductEditCardEcoscore,
-        product: product,
+        barcode: product.barcode,
       );
       checkScores = false;
     }

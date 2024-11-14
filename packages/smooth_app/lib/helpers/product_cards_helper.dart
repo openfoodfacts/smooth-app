@@ -416,9 +416,10 @@ List<ProductImage> getRawProductImages(
   final Product product,
   final ImageSize imageSize,
 ) {
+  final List<ProductImage> result = <ProductImage>[];
   final List<ProductImage>? rawImages = product.getRawImages();
   if (rawImages == null) {
-    return <ProductImage>[];
+    return result;
   }
   final Map<int, ProductImage> map = <int, ProductImage>{};
   for (final ProductImage productImage in rawImages) {
@@ -444,22 +445,10 @@ List<ProductImage> getRawProductImages(
     }
     map[imageId] = productImage;
   }
-  final List<ProductImage> result = List<ProductImage>.of(map.values);
-  result.sort(
-    (
-      final ProductImage a,
-      final ProductImage b,
-    ) {
-      final int result = (a.uploaded?.millisecondsSinceEpoch ?? 0).compareTo(
-        b.uploaded?.millisecondsSinceEpoch ?? 0,
-      );
-      if (result != 0) {
-        return result;
-      }
-      return (int.tryParse(a.imgid ?? '0') ?? 0).compareTo(
-        int.tryParse(b.imgid ?? '0') ?? 0,
-      );
-    },
-  );
+  final List<int> sortedIds = List<int>.of(map.keys);
+  sortedIds.sort();
+  for (final int id in sortedIds) {
+    result.add(map[id]!);
+  }
   return result;
 }

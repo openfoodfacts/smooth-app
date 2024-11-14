@@ -127,7 +127,7 @@ class AttributeFirstRowNutritionHelper extends AttributeFirstRowHelper {
 
     AnalyticsHelper.trackProductEdit(
       AnalyticsEditEvents.nutrition_Facts,
-      product,
+      product.barcode!,
     );
 
     if (!context.mounted) {

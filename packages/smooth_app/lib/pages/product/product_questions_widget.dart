@@ -122,13 +122,12 @@ class _ProductQuestionsWidgetState extends State<ProductQuestionsWidget>
     }
   }
 
-  void _trackEvent(AnalyticsEvent event) => AnalyticsHelper.trackProductEvent(
+  void _trackEvent(AnalyticsEvent event) => AnalyticsHelper.trackEvent(
         event,
         eventValue: switch (widget.layout) {
           ProductQuestionsLayout.button => 0,
           ProductQuestionsLayout.banner => 1,
         },
-        product: widget.product,
       );
 
   Future<List<RobotoffQuestion>?> _loadProductQuestions() async {

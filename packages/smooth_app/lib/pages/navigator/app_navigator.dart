@@ -13,7 +13,7 @@ import 'package:smooth_app/pages/navigator/error_page.dart';
 import 'package:smooth_app/pages/navigator/external_page.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
-import 'package:smooth_app/pages/product/add_new_product_page.dart';
+import 'package:smooth_app/pages/product/add_new_product/add_new_product_page.dart';
 import 'package:smooth_app/pages/product/edit_product_page.dart';
 import 'package:smooth_app/pages/product/product_loader_page.dart';
 import 'package:smooth_app/pages/product/product_page/new_product_header.dart';
