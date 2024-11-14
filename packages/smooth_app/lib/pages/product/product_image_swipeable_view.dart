@@ -42,6 +42,9 @@ class ProductImageSwipeableView extends StatefulWidget {
   @override
   State<ProductImageSwipeableView> createState() =>
       _ProductImageSwipeableViewState();
+
+  static String getHeroTag(ImageField imageField) =>
+      'photo_${imageField.offTag}';
 }
 
 class _ProductImageSwipeableViewState extends State<ProductImageSwipeableView>
@@ -74,6 +77,7 @@ class _ProductImageSwipeableViewState extends State<ProductImageSwipeableView>
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
     context.watch<LocalDatabase>();
     refreshUpToDate();
     return SmoothScaffold(
