@@ -63,7 +63,7 @@ dependencies:
   rive: 0.13.15
   webview_flutter: 4.10.0
   webview_flutter_android: 4.0.2
-  webview_flutter_wkwebview: 3.16.1
+  webview_flutter_wkwebview: 3.16.2
   flutter_custom_tabs: 2.1.0
   flutter_image_compress: 2.3.0
   connectivity_plus: 5.0.2
