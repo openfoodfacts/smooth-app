@@ -250,3 +250,9 @@ class SmoothTheme {
     return hslDark.toColor();
   }
 }
+
+extension SmoothThemeExtension on BuildContext {
+  T extension<T>() {
+    return Theme.of(this).extension<T>()!;
+  }
+}

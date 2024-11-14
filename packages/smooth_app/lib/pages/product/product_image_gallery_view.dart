@@ -1,13 +1,14 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/cards/product_cards/smooth_product_image.dart';
 import 'package:smooth_app/data_models/up_to_date_mixin.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/transient_file.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/widgets/images/smooth_image.dart';
 import 'package:smooth_app/generic_lib/widgets/language_selector.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_app_logo.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
@@ -20,7 +21,9 @@ import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/product_image_swipeable_view.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_animations.dart';
-import 'package:smooth_app/resources/app_icons.dart' as icons;
+import 'package:smooth_app/resources/app_icons.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/widgets/slivers.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
@@ -64,42 +67,50 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView>
           context: context,
           title: appLocalizations.edit_product_form_item_photos_title,
           product: upToDateProduct,
-        ),
-        floatingActionButton: FloatingActionButton.extended(
-          onPressed: () async {
-            AnalyticsHelper.trackProductEdit(
-              AnalyticsEditEvents.photos,
-              upToDateProduct,
-              true,
-            );
-            await confirmAndUploadNewPicture(
-              context,
-              imageField: ImageField.OTHER,
-              barcode: barcode,
-              language: ProductQuery.getLanguage(),
-              isLoggedInMandatory: true,
-              productType: upToDateProduct.productType,
-            );
-          },
-          label: Text(appLocalizations.add_photo_button_label),
-          icon: const Icon(Icons.add_a_photo),
+          bottom: PreferredSize(
+            preferredSize: const Size(double.infinity, 50.0),
+            child: Padding(
+              padding: const EdgeInsetsDirectional.only(start: 55.0),
+              child: LanguageSelector(
+                setLanguage: (final OpenFoodFactsLanguage? newLanguage) async {
+                  if (newLanguage == null || newLanguage == _language) {
+                    return;
+                  }
+                  setState(() => _language = newLanguage);
+                },
+                displayedLanguage: _language,
+                selectedLanguages: null,
+                padding: const EdgeInsetsDirectional.symmetric(
+                  horizontal: 13.0,
+                  vertical: SMALL_SPACE,
+                ),
+              ),
+            ),
+          ),
+          actions: <Widget>[
+            IconButton(
+              onPressed: () async {
+                AnalyticsHelper.trackProductEdit(
+                  AnalyticsEditEvents.photos,
+                  upToDateProduct,
+                  true,
+                );
+                await confirmAndUploadNewPicture(
+                  context,
+                  imageField: ImageField.OTHER,
+                  barcode: barcode,
+                  language: ProductQuery.getLanguage(),
+                  isLoggedInMandatory: true,
+                  productType: upToDateProduct.productType,
+                );
+              },
+              tooltip: appLocalizations.add_photo_button_label,
+              icon: const Icon(Icons.add_a_photo),
+            ),
+          ],
         ),
         body: Column(
           children: <Widget>[
-            LanguageSelector(
-              setLanguage: (final OpenFoodFactsLanguage? newLanguage) async {
-                if (newLanguage == null || newLanguage == _language) {
-                  return;
-                }
-                setState(() => _language = newLanguage);
-              },
-              displayedLanguage: _language,
-              selectedLanguages: null,
-              padding: const EdgeInsetsDirectional.symmetric(
-                horizontal: 13.0,
-                vertical: SMALL_SPACE,
-              ),
-            ),
             Expanded(
               child: RefreshIndicator(
                 onRefresh: () async => ProductRefresher().fetchAndRefresh(
@@ -112,18 +123,31 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView>
                       gridDelegate:
                           SliverGridDelegateWithFixedCrossAxisCountAndFixedHeight(
                         crossAxisCount: 2,
-                        height: _computeItemHeight(),
+                        height: (MediaQuery.sizeOf(context).width / 2.15) +
+                            _PhotoRow.itemHeight,
                       ),
                       delegate: SliverChildBuilderDelegate(
                         (BuildContext context, int index) {
-                          return _PhotoRow(
-                            position: index,
-                            imageField: _mainImageFields[index],
-                            product: upToDateProduct,
-                            language: _language,
+                          return Padding(
+                            padding: EdgeInsetsDirectional.only(
+                              top: VERY_SMALL_SPACE,
+                              start: index.isOdd
+                                  ? VERY_SMALL_SPACE / 2
+                                  : VERY_SMALL_SPACE,
+                              end: index.isOdd
+                                  ? VERY_SMALL_SPACE
+                                  : VERY_SMALL_SPACE / 2,
+                            ),
+                            child: _PhotoRow(
+                              position: index,
+                              imageField: _mainImageFields[index],
+                              product: upToDateProduct,
+                              language: _language,
+                            ),
                           );
                         },
                         childCount: _mainImageFields.length,
+                        addAutomaticKeepAlives: false,
                       ),
                     ),
                     SliverPadding(
@@ -153,18 +177,6 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView>
                           ),
                         ),
                       ),
-                    // Extra space to be above the FAB
-                    SliverFillRemaining(
-                      hasScrollBody: false,
-                      child: SizedBox(
-                        height: (Theme.of(context)
-                                    .floatingActionButtonTheme
-                                    .extendedSizeConstraints
-                                    ?.maxHeight ??
-                                56.0) +
-                            16.0,
-                      ),
-                    ),
                   ],
                 ),
               ),
@@ -173,14 +185,6 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView>
         ),
       ),
     );
-  }
-
-  double _computeItemHeight() {
-    final TextStyle? textStyle = Theme.of(context).textTheme.headlineMedium;
-
-    return (MediaQuery.sizeOf(context).width / 2) +
-        SMALL_SPACE +
-        ((textStyle?.fontSize ?? 15.0) * 2) * (textStyle?.height ?? 2.0);
   }
 
   bool _shouldDisplayRawGallery() =>
@@ -196,6 +200,8 @@ class _PhotoRow extends StatelessWidget {
     required this.imageField,
   });
 
+  static double itemHeight = 55.0;
+
   final int position;
   final Product product;
   final OpenFoodFactsLanguage language;
@@ -210,6 +216,9 @@ class _PhotoRow extends StatelessWidget {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final String label = imageField.getProductImageTitle(appLocalizations);
 
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
+
     return Semantics(
       image: true,
       button: true,
@@ -217,59 +226,91 @@ class _PhotoRow extends StatelessWidget {
           ? appLocalizations.product_image_outdated_accessibility_label(label)
           : label,
       excludeSemantics: true,
-      child: Padding(
-        padding: const EdgeInsets.only(
-          top: SMALL_SPACE,
-        ),
+      child: Material(
+        elevation: 1.0,
+        type: MaterialType.card,
+        color: extension.primaryBlack,
+        borderRadius: ANGULAR_BORDER_RADIUS,
         child: InkWell(
+          borderRadius: ANGULAR_BORDER_RADIUS,
           onTap: () => _openImage(
             context: context,
             initialImageIndex: position,
           ),
-          child: Column(
-            children: <Widget>[
-              Stack(
-                children: <Widget>[
-                  AspectRatio(
-                    aspectRatio: 1.0,
-                    child: SmoothImage(
-                      rounded: false,
-                      imageProvider: transientFile.getImageProvider(),
-                    ),
-                  ),
-                  if (transientFile.isImageAvailable() &&
-                      !transientFile.isServerImage())
-                    const Center(
-                      child: CloudUploadAnimation.circle(size: 30.0),
-                    ),
-                  if (expired)
-                    Positioned.directional(
-                      textDirection: Directionality.of(context),
-                      bottom: VERY_SMALL_SPACE,
-                      end: VERY_SMALL_SPACE,
-                      child: const icons.Outdated(
-                        color: Colors.black87,
-                        shadow: Shadow(
-                          color: Colors.white38,
-                          blurRadius: 2.0,
+          child: ClipRRect(
+            borderRadius: ANGULAR_BORDER_RADIUS,
+            child: Column(
+              children: <Widget>[
+                SizedBox(
+                  height: itemHeight,
+                  child: Row(
+                    children: <Widget>[
+                      _PhotoRowIndicator(transientFile: transientFile),
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: SMALL_SPACE,
+                          ),
+                          child: Row(
+                            children: <Widget>[
+                              Expanded(
+                                child: AutoSizeText(
+                                  label,
+                                  maxLines: 2,
+                                  minFontSize: 10.0,
+                                  style: const TextStyle(
+                                    fontSize: 15.0,
+                                    height: 1.2,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(width: SMALL_SPACE),
+                              CircledArrow.right(
+                                color: extension.primaryDark,
+                                type: CircledArrowType.normal,
+                                circleColor: Colors.white,
+                                size: 20.0,
+                              ),
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                ],
-              ),
-              Expanded(
-                child: Center(
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(
-                      label,
-                      style: Theme.of(context).textTheme.headlineMedium,
-                      textAlign: TextAlign.center,
-                    ),
+                    ],
                   ),
                 ),
-              ),
-            ],
+                Expanded(
+                  child: Stack(
+                    children: <Widget>[
+                      Positioned.fill(
+                        child: LayoutBuilder(builder:
+                            (BuildContext context, BoxConstraints box) {
+                          return ProductPicture(
+                            product: product,
+                            imageField: imageField,
+                            size: Size(box.maxWidth, box.maxHeight),
+                            onTap: null,
+                            errorTextStyle: const TextStyle(
+                              fontSize: 16.0,
+                              fontWeight: FontWeight.w600,
+                            ),
+                            heroTag: ProductImageSwipeableView.getHeroTag(
+                              imageField,
+                            ),
+                          );
+                        }),
+                      ),
+                      if (transientFile.isImageAvailable() &&
+                          !transientFile.isServerImage())
+                        const Center(
+                          child: CloudUploadAnimation.circle(size: 50.0),
+                        ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -300,4 +341,61 @@ class _PhotoRow extends StatelessWidget {
         imageField,
         language,
       );
+}
+
+class _PhotoRowIndicator extends StatelessWidget {
+  const _PhotoRowIndicator({
+    required this.transientFile,
+  });
+
+  final TransientFile transientFile;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: 30.0,
+      height: double.infinity,
+      child: Ink(
+        decoration: BoxDecoration(
+          borderRadius: const BorderRadius.only(
+            topLeft: ANGULAR_RADIUS,
+          ),
+          color: _getColor(
+            context.extension<SmoothColorsThemeExtension>(),
+          ),
+        ),
+        child: Center(child: child()),
+      ),
+    );
+  }
+
+  Widget? child() {
+    if (transientFile.isImageAvailable()) {
+      if (transientFile.expired) {
+        return const Outdated(
+          size: 18.0,
+          color: Colors.white,
+        );
+      } else {
+        return null;
+      }
+    } else {
+      return const Warning(
+        size: 15.0,
+        color: Colors.white,
+      );
+    }
+  }
+
+  Color _getColor(SmoothColorsThemeExtension extension) {
+    if (transientFile.isImageAvailable()) {
+      if (transientFile.expired) {
+        return extension.orange;
+      } else {
+        return extension.green;
+      }
+    } else {
+      return extension.red;
+    }
+  }
 }

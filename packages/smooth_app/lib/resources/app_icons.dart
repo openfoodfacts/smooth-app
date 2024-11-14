@@ -301,46 +301,127 @@ class ClearText extends AppIcon {
 
 class CircledArrow extends AppIcon {
   const CircledArrow.right({
-    super.color,
-    super.size,
-    super.shadow,
-    super.key,
-  })  : turns = 0,
-        super._(_IconsFont.circled_arrow);
+    CircledArrowType? type,
+    Color? circleColor,
+    Color? color,
+    double? size,
+    Shadow? shadow,
+    Key? key,
+  }) : this._base(
+          type: type,
+          turns: 0,
+          circleColor: circleColor,
+          color: color,
+          size: size,
+          shadow: shadow,
+          key: key,
+        );
 
   const CircledArrow.left({
-    super.color,
-    super.size,
-    super.shadow,
-    super.key,
-  })  : turns = 2,
-        super._(_IconsFont.circled_arrow);
+    CircledArrowType? type,
+    Color? circleColor,
+    Color? color,
+    double? size,
+    Shadow? shadow,
+    Key? key,
+  }) : this._base(
+          type: type,
+          turns: 2,
+          circleColor: circleColor,
+          color: color,
+          size: size,
+          shadow: shadow,
+          key: key,
+        );
 
   const CircledArrow.down({
-    super.color,
-    super.size,
-    super.shadow,
-    super.key,
-  })  : turns = 1,
-        super._(_IconsFont.circled_arrow);
+    CircledArrowType? type,
+    Color? circleColor,
+    Color? color,
+    double? size,
+    Shadow? shadow,
+    Key? key,
+  }) : this._base(
+          type: type,
+          turns: 1,
+          circleColor: circleColor,
+          color: color,
+          size: size,
+          shadow: shadow,
+          key: key,
+        );
 
   const CircledArrow.up({
+    CircledArrowType? type,
+    Color? circleColor,
+    Color? color,
+    double? size,
+    Shadow? shadow,
+    Key? key,
+  }) : this._base(
+          type: type,
+          turns: 3,
+          circleColor: circleColor,
+          color: color,
+          size: size,
+          shadow: shadow,
+          key: key,
+        );
+
+  const CircledArrow._base({
+    CircledArrowType? type,
+    required this.turns,
+    this.circleColor,
     super.color,
     super.size,
     super.shadow,
     super.key,
-  })  : turns = 3,
-        super._(_IconsFont.circled_arrow);
+  })  : assert(
+          (circleColor == null &&
+                  (type == null || type == CircledArrowType.thin)) ||
+              (circleColor != null && type == CircledArrowType.normal),
+          'circleColor is only support and must be provided when type = CircledArrowType.normal',
+        ),
+        type = type ?? CircledArrowType.thin,
+        super._(
+          type == CircledArrowType.thin
+              ? _IconsFont.circled_arrow
+              : _IconsFont.arrow_right,
+        );
 
   final int turns;
+  final CircledArrowType type;
+  final Color? circleColor;
 
   @override
   Widget build(BuildContext context) {
-    return RotatedBox(
+    final Widget child = RotatedBox(
       quarterTurns: turns,
       child: super.build(context),
     );
+
+    if (type == CircledArrowType.normal) {
+      return Container(
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: circleColor,
+        ),
+        padding: const EdgeInsets.all(4.0),
+        child: child,
+      );
+    } else {
+      return child;
+    }
   }
+
+  @override
+  double? get size =>
+      type == CircledArrowType.thin ? super.size : ((super.size ?? 20.0) - 8.0);
+}
+
+enum CircledArrowType {
+  thin,
+  normal,
 }
 
 class Close extends AppIcon {
@@ -1052,16 +1133,18 @@ class Warning extends AppIcon {
 abstract class AppIcon extends StatelessWidget {
   const AppIcon._(
     this.icon, {
-    this.color,
+    Color? color,
     this.shadow,
-    this.size,
+    double? size,
     this.semanticLabel,
     super.key,
-  }) : assert(size == null || size >= 0);
+  })  : _size = size,
+        _color = color,
+        assert(size == null || size >= 0);
 
   final IconData icon;
-  final Color? color;
-  final double? size;
+  final Color? _color;
+  final double? _size;
   final Shadow? shadow;
   final String? semanticLabel;
 
@@ -1084,7 +1167,7 @@ abstract class AppIcon extends StatelessWidget {
     return Icon(
       icon,
       color: color,
-      size: size ?? iconTheme?.size,
+      size: size ?? iconTheme?.size ?? iconThemeData.size,
       semanticLabel: iconTheme?.semanticLabel ?? semanticLabel,
       shadows: shadow != null
           ? <Shadow>[shadow!]
@@ -1093,6 +1176,12 @@ abstract class AppIcon extends StatelessWidget {
               : null,
     );
   }
+
+  /// Allow to override the size by a children
+  double? get size => _size;
+
+  /// Allow to override the color tint by a children
+  Color? get color => _color;
 }
 
 /// Allows to override the default theme of an [AppIcon]

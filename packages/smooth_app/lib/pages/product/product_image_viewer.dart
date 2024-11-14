@@ -14,6 +14,7 @@ import 'package:smooth_app/generic_lib/widgets/picture_not_found.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/product_image_button.dart';
+import 'package:smooth_app/pages/product/product_image_swipeable_view.dart';
 import 'package:smooth_app/resources/app_animations.dart';
 
 /// Displays a full-screen image with an "edit" floating button.
@@ -141,7 +142,9 @@ class _ProductImageViewerState extends State<ProductImageViewer>
                                 minScale: 0.2,
                                 imageProvider: imageProvider,
                                 heroAttributes: PhotoViewHeroAttributes(
-                                    tag: 'photo_${widget.imageField.offTag}',
+                                    tag: ProductImageSwipeableView.getHeroTag(
+                                      widget.imageField,
+                                    ),
                                     flightShuttleBuilder: (
                                       _,
                                       Animation<double> animation,
