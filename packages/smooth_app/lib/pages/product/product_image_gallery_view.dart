@@ -237,77 +237,80 @@ class _PhotoRow extends StatelessWidget {
             context: context,
             initialImageIndex: position,
           ),
-          child: Column(
-            children: <Widget>[
-              SizedBox(
-                height: itemHeight,
-                child: Row(
-                  children: <Widget>[
-                    _PhotoRowIndicator(transientFile: transientFile),
-                    Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: SMALL_SPACE,
-                        ),
-                        child: Row(
-                          children: <Widget>[
-                            Expanded(
-                              child: AutoSizeText(
-                                label,
-                                maxLines: 2,
-                                minFontSize: 10.0,
-                                style: const TextStyle(
-                                  fontSize: 15.0,
-                                  height: 1.2,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white,
+          child: ClipRRect(
+            borderRadius: ANGULAR_BORDER_RADIUS,
+            child: Column(
+              children: <Widget>[
+                SizedBox(
+                  height: itemHeight,
+                  child: Row(
+                    children: <Widget>[
+                      _PhotoRowIndicator(transientFile: transientFile),
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: SMALL_SPACE,
+                          ),
+                          child: Row(
+                            children: <Widget>[
+                              Expanded(
+                                child: AutoSizeText(
+                                  label,
+                                  maxLines: 2,
+                                  minFontSize: 10.0,
+                                  style: const TextStyle(
+                                    fontSize: 15.0,
+                                    height: 1.2,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                  ),
                                 ),
                               ),
-                            ),
-                            const SizedBox(width: SMALL_SPACE),
-                            CircledArrow.right(
-                              color: extension.primaryDark,
-                              type: CircledArrowType.normal,
-                              circleColor: Colors.white,
-                              size: 20.0,
-                            ),
-                          ],
+                              const SizedBox(width: SMALL_SPACE),
+                              CircledArrow.right(
+                                color: extension.primaryDark,
+                                type: CircledArrowType.normal,
+                                circleColor: Colors.white,
+                                size: 20.0,
+                              ),
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-              Expanded(
-                child: Stack(
-                  children: <Widget>[
-                    Positioned.fill(
-                      child: LayoutBuilder(
-                          builder: (BuildContext context, BoxConstraints box) {
-                        return ProductPicture(
-                          product: product,
-                          imageField: imageField,
-                          size: Size(box.maxWidth, box.maxHeight),
-                          onTap: null,
-                          errorTextStyle: const TextStyle(
-                            fontSize: 16.0,
-                            fontWeight: FontWeight.w600,
-                          ),
-                          heroTag: ProductImageSwipeableView.getHeroTag(
-                            imageField,
-                          ),
-                        );
-                      }),
-                    ),
-                    if (transientFile.isImageAvailable() &&
-                        !transientFile.isServerImage())
-                      const Center(
-                        child: CloudUploadAnimation.circle(size: 50.0),
+                Expanded(
+                  child: Stack(
+                    children: <Widget>[
+                      Positioned.fill(
+                        child: LayoutBuilder(builder:
+                            (BuildContext context, BoxConstraints box) {
+                          return ProductPicture(
+                            product: product,
+                            imageField: imageField,
+                            size: Size(box.maxWidth, box.maxHeight),
+                            onTap: null,
+                            errorTextStyle: const TextStyle(
+                              fontSize: 16.0,
+                              fontWeight: FontWeight.w600,
+                            ),
+                            heroTag: ProductImageSwipeableView.getHeroTag(
+                              imageField,
+                            ),
+                          );
+                        }),
                       ),
-                  ],
+                      if (transientFile.isImageAvailable() &&
+                          !transientFile.isServerImage())
+                        const Center(
+                          child: CloudUploadAnimation.circle(size: 50.0),
+                        ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
