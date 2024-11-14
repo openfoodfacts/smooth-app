@@ -97,7 +97,6 @@ class _AddNewProductPageState extends State<AddNewProductPage>
       (widget.displayPictures ? 1 : 0);
 
   double get _progress => (_pageNumber + 1) / _totalPages;
-
   bool get _isLastPage => (_pageNumber + 1) == _totalPages;
   ProductType? _inputProductType;
   late ColorScheme _colorScheme;
@@ -586,7 +585,6 @@ class _AddNewProductPageState extends State<AddNewProductPage>
         ),
       );
     }
-
     return rows;
   }
 
