@@ -59,7 +59,7 @@ class ProductFieldSimpleEditor extends ProductFieldEditor {
 
     AnalyticsHelper.trackProductEdit(
       helper.getAnalyticsEditEvent(),
-      product.barcode!,
+      product,
     );
 
     if (!context.mounted) {
@@ -107,7 +107,7 @@ class ProductFieldDetailsEditor extends ProductFieldEditor {
 
     AnalyticsHelper.trackProductEdit(
       AnalyticsEditEvents.basicDetails,
-      product.barcode!,
+      product,
     );
 
     if (!context.mounted) {
@@ -149,7 +149,7 @@ class ProductFieldPackagingEditor extends ProductFieldEditor {
 
     AnalyticsHelper.trackProductEdit(
       AnalyticsEditEvents.packagingComponents,
-      product.barcode!,
+      product,
     );
 
     if (!context.mounted) {
@@ -213,7 +213,7 @@ abstract class ProductFieldOcrEditor extends ProductFieldEditor {
 
     AnalyticsHelper.trackProductEdit(
       helper.getEditEventAnalyticsTag(),
-      product.barcode!,
+      product,
     );
 
     if (!context.mounted) {

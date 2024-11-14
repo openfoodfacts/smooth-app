@@ -163,7 +163,7 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
                 onTap: () async {
                   AnalyticsHelper.trackProductEdit(
                     AnalyticsEditEvents.photos,
-                    barcode,
+                    upToDateProduct,
                   );
 
                   await Navigator.push<void>(
@@ -222,7 +222,7 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
                       }
                       AnalyticsHelper.trackProductEdit(
                         AnalyticsEditEvents.nutrition_Facts,
-                        barcode,
+                        upToDateProduct,
                       );
                       if (!context.mounted) {
                         return;
@@ -274,7 +274,7 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
                   }
                   AnalyticsHelper.trackProductEdit(
                     AnalyticsEditEvents.otherDetails,
-                    barcode,
+                    upToDateProduct,
                   );
                   await Navigator.push<void>(
                     context,
@@ -346,7 +346,7 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
         }
         AnalyticsHelper.trackProductEdit(
           AnalyticsEditEvents.powerEditScreen,
-          barcode,
+          upToDateProduct,
         );
         await Navigator.push<void>(
           context,

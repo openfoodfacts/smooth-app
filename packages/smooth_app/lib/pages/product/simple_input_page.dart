@@ -194,13 +194,13 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
     if (widget.helpers.length > 1) {
       AnalyticsHelper.trackProductEdit(
         AnalyticsEditEvents.powerEditScreen,
-        widget.product.barcode!,
+        widget.product,
         true,
       );
     } else {
       AnalyticsHelper.trackProductEdit(
         widget.helpers[0].getAnalyticsEditEvent(),
-        widget.product.barcode!,
+        widget.product,
         true,
       );
     }

@@ -188,9 +188,9 @@ class _ProductEditButton extends StatelessWidget {
   Future<void> _editProduct(BuildContext context, Product product) async {
     ProductPageState.of(context).stopRobotoffQuestion();
 
-    AnalyticsHelper.trackEvent(
+    AnalyticsHelper.trackProductEvent(
       AnalyticsEvent.openProductEditPage,
-      barcode: product.barcode,
+      product: product,
     );
 
     await Navigator.push<void>(
@@ -334,9 +334,9 @@ class _ProductShareButton extends StatelessWidget {
 
   Future<void> _shareProduct(BuildContext context, Product product) async {
     final ProductType productType = product.productType ?? ProductType.food;
-    AnalyticsHelper.trackEvent(
+    AnalyticsHelper.trackProductEvent(
       AnalyticsEvent.shareProduct,
-      barcode: product.barcode,
+      product: product,
     );
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     // We need to provide a sharePositionOrigin to make the plugin work on ipad
