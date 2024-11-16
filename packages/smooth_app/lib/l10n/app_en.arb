@@ -3238,32 +3238,32 @@
     "@carousel_error_header": {
         "description": "A label on top of the carousel card when there is an error (mainly network issues)"
     },
-    "carousel_error_title": "C’est la tuile !",
-    "carousel_error_text_1": "Nous n’avons pas pu télécharger les informations sur ce code-barres :",
-    "carousel_error_text_2": "Veuillez vérifier votre connexion Internet ou cliquer sur ce bouton :",
+    "carousel_error_title": "It's a bummer!",
+    "carousel_error_text_1": "We couldn't download information on this barcode:",
+    "carousel_error_text_2": "Please check your Internet connection or click this button:",
     "@carousel_error_text_2": {
         "description": "Please keep the ** syntax to make the text bold"
     },
-    "carousel_error_button": "Ré-essayer",
-    "carousel_unknown_product_header": "Produit inconnu",
+    "carousel_error_button": "Retry",
+    "carousel_unknown_product_header": "Unknown product",
     "@carousel_unknown_product_header": {
         "description": "A label on top of the carousel card when the product is not in the database (= it needs to be created)"
     },
-    "carousel_unknown_product_title": "Félicitations !\nVous venez de tomber sur __la perle rare !__",
+    "carousel_unknown_product_title": "Congratulations!\nYou've found __the rare gem!__",
     "@carousel_unknown_product_title": {
         "description": "Please keep the __ syntax to underline the text"
     },
-    "carousel_unknown_product_text": "Notre base de données collaborative contient plus de **3 millions de produits**, mais ce code-barres n’existe pas :",
+    "carousel_unknown_product_text": "Our collaborative database contains more than **3 million products**, but this barcode doesn't exist: ",
     "@carousel_unknown_product_text": {
         "description": "Please keep the ** syntax to make the text bold"
     },
-    "carousel_unknown_product_button": "Ajouter ce produit",
-    "carousel_loading_header": "Chargement des informations…",
+    "carousel_unknown_product_button": "Add this product",
+    "carousel_loading_header": "Loading information...",
     "@carousel_loading_header": {
         "description": "A label on top of the carousel card when data about the product is loading"
     },
-    "carousel_loading_title": "Vous venez de scanner un produit avec le code-barres suivant :",
-    "carousel_loading_text": "Nous le cherchons dans notre base de données de plus de **3 million de produits !**",
+    "carousel_loading_title": "You've just scanned a product with the following barcode:",
+    "carousel_loading_text": "We are searching for it in our database of more than **3 million products!**",
     "@carousel_loading_text": {
         "description": "Please keep the ** syntax to make the text bold"
     }
