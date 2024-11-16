@@ -30,6 +30,7 @@ class ProductHeader extends StatefulWidget {
 class _ProductHeaderState extends State<ProductHeader> {
   double _titleOpacity = 0.0;
   double _compatibilityScoreOpacity = 0.0;
+  double _shadow = 0.0;
 
   @override
   Widget build(BuildContext context) {
@@ -46,13 +47,20 @@ class _ProductHeaderState extends State<ProductHeader> {
         ) =>
             _onScroll(scrollController),
         child: Consumer<ProductPageCompatibility>(
-          builder: (BuildContext context,
-              ProductPageCompatibility productCompatibility, _) {
+          builder: (
+            BuildContext context,
+            ProductPageCompatibility productCompatibility,
+            _,
+          ) {
+            final Color tintColor = productCompatibility.color ??
+                Theme.of(context)
+                    .extension<SmoothColorsThemeExtension>()!
+                    .greyNormal;
+
             return Material(
-              color: productCompatibility.color ??
-                  Theme.of(context)
-                      .extension<SmoothColorsThemeExtension>()!
-                      .greyNormal,
+              color: tintColor,
+              shadowColor: tintColor,
+              elevation: _shadow,
               child: DefaultTextStyle.merge(
                 style: const TextStyle(color: Colors.white),
                 child: IconTheme(
@@ -103,11 +111,18 @@ class _ProductHeaderState extends State<ProductHeader> {
       LARGE_SPACE + kToolbarHeight * 2,
       1.0,
     );
+    final double shadow = scrollController.offset.progressAndClamp(
+      0.0,
+      kToolbarHeight / 2,
+      2.0,
+    );
 
     if (_titleOpacity != titleOpacity ||
-        _compatibilityScoreOpacity != compatibilityScoreOpacity) {
+        _compatibilityScoreOpacity != compatibilityScoreOpacity ||
+        _shadow != shadow) {
       _titleOpacity = titleOpacity;
       _compatibilityScoreOpacity = compatibilityScoreOpacity;
+      _shadow = shadow;
 
       // Calling setState() may already be in a build() call
       SchedulerBinding.instance.addPostFrameCallback((_) {

@@ -262,13 +262,14 @@ class _ProductActionBarModalItemEditorState
                   color: extension.primaryDark,
                   child: _icon,
                 ),
-                const SizedBox(width: VERY_LARGE_SPACE),
+                const SizedBox(width: LARGE_SPACE),
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsetsDirectional.only(bottom: 0.5),
                     child: Text(
                       _text(AppLocalizations.of(context)),
                       maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
                       style: TextStyle(
                         fontSize: 15.0,
                         fontWeight: FontWeight.bold,
@@ -315,7 +316,7 @@ class _ProductActionBarModalItemEditorState
       ProductFooterActionBar.addPrice => icons.AddPrice(off.Currency.USD),
       ProductFooterActionBar.edit => const icons.Edit(),
       ProductFooterActionBar.compare => const icons.Compare(),
-      ProductFooterActionBar.addToList => const icons.AddToList(),
+      ProductFooterActionBar.addToList => const icons.AddToList.symbol(),
       ProductFooterActionBar.share => icons.Share(),
       ProductFooterActionBar.settings =>
         throw Exception('This item should not be displayed'),

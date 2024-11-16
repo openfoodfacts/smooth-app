@@ -103,12 +103,61 @@ class AddPrice extends AppIcon {
 }
 
 class AddToList extends AppIcon {
-  const AddToList({
+  factory AddToList({
+    required int count,
+    Color? color,
+    double? size,
+    Shadow? shadow,
+    Key? key,
+  }) {
+    return AddToList._count(
+      iconData: _getResource(count),
+      color: color,
+      size: size,
+      shadow: shadow,
+      key: key,
+    );
+  }
+
+  const AddToList._count({
+    required IconData iconData,
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  }) : super._(iconData);
+
+  const AddToList.symbol({
     super.color,
     super.size,
     super.shadow,
     super.key,
   }) : super._(_IconsFont.add_to_list);
+
+  static IconData _getResource(int count) {
+    switch (count) {
+      case 1:
+        return _IconsFont.add_to_list_1;
+      case 2:
+        return _IconsFont.add_to_list_2;
+      case 3:
+        return _IconsFont.add_to_list_3;
+      case 4:
+        return _IconsFont.add_to_list_4;
+      case 5:
+        return _IconsFont.add_to_list_5;
+      case 6:
+        return _IconsFont.add_to_list_6;
+      case 7:
+        return _IconsFont.add_to_list_7;
+      case 8:
+        return _IconsFont.add_to_list_8;
+      case 9:
+        return _IconsFont.add_to_list_9;
+      default:
+        return _IconsFont.add_to_list_9_plus;
+    }
+  }
 }
 
 class AppStore extends AppIcon {

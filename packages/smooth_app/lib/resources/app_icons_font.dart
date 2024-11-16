@@ -115,6 +115,8 @@ class _IconsFont {
       IconData(0xe833, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData hamburger_menu =
       IconData(0xe834, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData add_to_list =
+      IconData(0xe835, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData outdated =
       IconData(0xe836, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData question_circled =
@@ -149,10 +151,12 @@ class _IconsFont {
       IconData(0xe845, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData add_price_yen =
       IconData(0xe846, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData add_to_list =
+  static const IconData add_to_list_5 =
       IconData(0xe847, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData eye_visible =
       IconData(0xe848, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData add_to_list_4 =
+      IconData(0xe849, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData delete_trash =
       IconData(0xe84a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData image_check =
@@ -187,6 +191,8 @@ class _IconsFont {
       IconData(0xe859, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData country =
       IconData(0xe85a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData add_to_list_1 =
+      IconData(0xe85b, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData password =
       IconData(0xe85d, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData incognito =
@@ -205,6 +211,20 @@ class _IconsFont {
       IconData(0xe865, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData personalization_alt =
       IconData(0xe866, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData add_to_list_3 =
+      IconData(0xe867, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData add_to_list_2 =
+      IconData(0xe868, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData add_to_list_6 =
+      IconData(0xe869, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData add_to_list_7 =
+      IconData(0xe86b, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData add_to_list_8 =
+      IconData(0xe86c, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData add_to_list_9_plus =
+      IconData(0xe86d, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData add_to_list_9 =
+      IconData(0xe86e, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData share_cupertino =
       IconData(0xe8a4, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData share_material =

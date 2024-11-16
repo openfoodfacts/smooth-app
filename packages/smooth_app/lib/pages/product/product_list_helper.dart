@@ -533,8 +533,10 @@ class _AddToProductListDividerPainter extends CustomPainter {
 
 /// Logic for the user lists
 class _ProductUserListsProvider extends ValueNotifier<_ProductUserListsState> {
-  _ProductUserListsProvider(this.dao, this.barcode)
-      : super(const _ProductUserListsLoadingState()) {
+  _ProductUserListsProvider(
+    this.dao,
+    this.barcode,
+  ) : super(const _ProductUserListsLoadingState()) {
     reloadLists();
   }
 
