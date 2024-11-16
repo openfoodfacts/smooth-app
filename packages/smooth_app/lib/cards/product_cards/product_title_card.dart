@@ -13,57 +13,38 @@ class ProductTitleCard extends StatelessWidget {
   const ProductTitleCard(
     this.product,
     this.isSelectable, {
+    this.heroTag,
+    this.isPictureVisible = true,
     this.dense = false,
-    this.isRemovable = true,
     this.onRemove,
   });
 
   final Product product;
   final bool dense;
   final bool isSelectable;
-  final bool isRemovable;
+  final String? heroTag;
   final OnRemoveCallback? onRemove;
+  final bool isPictureVisible;
 
   @override
   Widget build(BuildContext context) {
     final Widget trailing = _ProductTitleCardTrailing(
-      removable: isRemovable,
       selectable: isSelectable,
-      onRemove: onRemove,
     );
 
     final List<Widget> children;
 
-    if (dense) {
-      children = <Widget>[
-        Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Expanded(
-              child: _ProductTitleCardName(
-                selectable: isSelectable,
-                dense: dense,
-              ),
-            ),
-            trailing,
-          ],
-        ),
-        _ProductTitleCardBrand(
-          removable: isRemovable,
-          selectable: isSelectable,
-        ),
-      ];
-    } else {
-      final Size imageSize =
-          Size.square(MediaQuery.sizeOf(context).width * 0.25);
+    final Size imageSize =
+        Size.square(MediaQuery.sizeOf(context).width * (dense ? 0.22 : 0.25));
 
-      children = <Widget>[
-        Padding(
-          padding: const EdgeInsetsDirectional.only(top: SMALL_SPACE),
-          child: IntrinsicHeight(
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
+    children = <Widget>[
+      Padding(
+        padding: const EdgeInsetsDirectional.only(top: SMALL_SPACE),
+        child: IntrinsicHeight(
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              if (isPictureVisible)
                 TooltipTheme(
                   data: TooltipThemeData(
                     verticalOffset: imageSize.width / 2,
@@ -77,57 +58,58 @@ class ProductTitleCard extends StatelessWidget {
                     showObsoleteIcon: true,
                     imageFoundBorder: 1.0,
                     imageNotFoundBorder: 1.0,
+                    heroTag: heroTag,
                     borderRadius: BorderRadius.circular(14.0),
-                    onTap: () async => Navigator.push<void>(
-                      context,
-                      MaterialPageRoute<bool>(
-                        builder: (BuildContext context) =>
-                            ProductImageGalleryView(
-                          product: product,
+                    onTap: !dense
+                        ? () async => Navigator.push<void>(
+                              context,
+                              MaterialPageRoute<bool>(
+                                builder: (BuildContext context) =>
+                                    ProductImageGalleryView(
+                                  product: product,
+                                ),
+                              ),
+                            )
+                        : null,
+                  ),
+                ),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsetsDirectional.only(
+                    start: SMALL_SPACE,
+                    top: VERY_SMALL_SPACE,
+                    bottom: VERY_SMALL_SPACE,
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      ConstrainedBox(
+                        constraints: BoxConstraints(
+                          minHeight:
+                              DefaultTextStyle.of(context).style.fontSize! *
+                                  2.0,
+                        ),
+                        child: _ProductTitleCardName(
+                          selectable: isSelectable,
+                          dense: dense,
                         ),
                       ),
-                    ),
+                      const SizedBox(height: SMALL_SPACE),
+                      _ProductTitleCardBrand(
+                        selectable: isSelectable,
+                      ),
+                      const SizedBox(height: 2.0),
+                      trailing,
+                    ],
                   ),
                 ),
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsetsDirectional.only(
-                      start: SMALL_SPACE,
-                      top: VERY_SMALL_SPACE,
-                      bottom: VERY_SMALL_SPACE,
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        ConstrainedBox(
-                          constraints: BoxConstraints(
-                            minHeight:
-                                DefaultTextStyle.of(context).style.fontSize! *
-                                    2.0,
-                          ),
-                          child: _ProductTitleCardName(
-                            selectable: isSelectable,
-                            dense: dense,
-                          ),
-                        ),
-                        const SizedBox(height: SMALL_SPACE),
-                        _ProductTitleCardBrand(
-                          removable: isRemovable,
-                          selectable: isSelectable,
-                        ),
-                        const SizedBox(height: 2.0),
-                        trailing,
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
-      ];
-    }
+      ),
+    ];
 
     return Provider<Product>.value(
       value: product,
@@ -171,11 +153,9 @@ class _ProductTitleCardName extends StatelessWidget {
 class _ProductTitleCardBrand extends StatelessWidget {
   const _ProductTitleCardBrand({
     required this.selectable,
-    required this.removable,
   });
 
   final bool selectable;
-  final bool removable;
 
   @override
   Widget build(BuildContext context) {
@@ -183,18 +163,9 @@ class _ProductTitleCardBrand extends StatelessWidget {
     final Product product = context.watch<Product>();
 
     final String brands = getProductBrands(product, appLocalizations);
-    final String quantity = product.quantity ?? '';
-
-    final String subtitleText;
-
-    if (removable && !selectable) {
-      subtitleText = '$brands${quantity == '' ? '' : ', $quantity'}';
-    } else {
-      subtitleText = brands;
-    }
 
     return Text(
-      subtitleText,
+      brands,
       style: Theme.of(context).textTheme.bodyMedium,
       textAlign: TextAlign.start,
     ).selectable(isSelectable: selectable);
@@ -204,36 +175,18 @@ class _ProductTitleCardBrand extends StatelessWidget {
 class _ProductTitleCardTrailing extends StatelessWidget {
   const _ProductTitleCardTrailing({
     required this.selectable,
-    required this.removable,
-    required this.onRemove,
   });
 
   final bool selectable;
-  final bool removable;
-  final OnRemoveCallback? onRemove;
 
   @override
   Widget build(BuildContext context) {
     final Product product = context.watch<Product>();
 
-    if (removable && !selectable) {
-      return Align(
-        alignment: AlignmentDirectional.centerEnd,
-        child: ProductCardCloseButton(
-          onRemove: onRemove,
-          padding: const EdgeInsetsDirectional.only(
-            start: SMALL_SPACE,
-            top: SMALL_SPACE,
-            bottom: SMALL_SPACE,
-          ),
-        ),
-      );
-    } else {
-      return Text(
-        product.quantity ?? '',
-        style: Theme.of(context).textTheme.bodyMedium,
-        textAlign: TextAlign.end,
-      ).selectable(isSelectable: selectable);
-    }
+    return Text(
+      product.quantity ?? '',
+      style: Theme.of(context).textTheme.bodyMedium,
+      textAlign: TextAlign.end,
+    ).selectable(isSelectable: selectable);
   }
 }

@@ -12,6 +12,9 @@ class SmoothColorsThemeExtension
     required this.primaryLight,
     required this.secondaryNormal,
     required this.secondaryLight,
+    required this.error,
+    required this.warning,
+    required this.success,
     required this.green,
     required this.orange,
     required this.red,
@@ -30,6 +33,9 @@ class SmoothColorsThemeExtension
         primaryLight = const Color(0xFFF6F3F0),
         secondaryNormal = const Color(0xFFF2994A),
         secondaryLight = const Color(0xFFEE8858),
+        success = const Color(0xFF219653),
+        warning = const Color(0xFFFB8229),
+        error = const Color(0xFFEB5757),
         green = const Color(0xFF219653),
         orange = const Color(0xFFFB8229),
         red = const Color(0xFFEB5757),
@@ -59,6 +65,11 @@ class SmoothColorsThemeExtension
   final Color primaryLight;
   final Color secondaryNormal;
   final Color secondaryLight;
+
+  final Color error;
+  final Color warning;
+  final Color success;
+
   final Color green;
   final Color orange;
   final Color red;
@@ -77,6 +88,9 @@ class SmoothColorsThemeExtension
     Color? primaryLight,
     Color? secondaryNormal,
     Color? secondaryLight,
+    Color? error,
+    Color? warning,
+    Color? success,
     Color? green,
     Color? orange,
     Color? red,
@@ -94,6 +108,9 @@ class SmoothColorsThemeExtension
       primaryLight: primaryLight ?? this.primaryLight,
       secondaryNormal: secondaryNormal ?? this.secondaryNormal,
       secondaryLight: secondaryLight ?? this.secondaryLight,
+      error: error ?? this.error,
+      warning: warning ?? this.warning,
+      success: success ?? this.success,
       green: green ?? this.green,
       orange: orange ?? this.orange,
       red: red ?? this.red,
@@ -156,6 +173,21 @@ class SmoothColorsThemeExtension
       secondaryLight: Color.lerp(
         secondaryLight,
         other.secondaryLight,
+        t,
+      )!,
+      error: Color.lerp(
+        error,
+        other.error,
+        t,
+      )!,
+      warning: Color.lerp(
+        warning,
+        other.warning,
+        t,
+      )!,
+      success: Color.lerp(
+        success,
+        other.success,
         t,
       )!,
       green: Color.lerp(

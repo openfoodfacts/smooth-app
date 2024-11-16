@@ -20,8 +20,11 @@ import 'package:visibility_detector/visibility_detector.dart';
 
 class ProductHeader extends StatefulWidget {
   const ProductHeader({
+    this.backButtonType,
     super.key,
   });
+
+  final ProductPageBackButton? backButtonType;
 
   @override
   State<ProductHeader> createState() => _ProductHeaderState();
@@ -71,7 +74,9 @@ class _ProductHeaderState extends State<ProductHeader> {
                       padding: EdgeInsetsDirectional.only(top: statusBarHeight),
                       child: Row(
                         children: <Widget>[
-                          const _ProductHeaderBackButton(),
+                          _ProductHeaderBackButton(
+                            backButtonType: widget.backButtonType,
+                          ),
                           Expanded(
                             child: Offstage(
                               offstage: _titleOpacity == 0.0,
@@ -146,7 +151,11 @@ class _ProductHeaderState extends State<ProductHeader> {
 }
 
 class _ProductHeaderBackButton extends StatelessWidget {
-  const _ProductHeaderBackButton();
+  const _ProductHeaderBackButton({
+    this.backButtonType,
+  });
+
+  final ProductPageBackButton? backButtonType;
 
   @override
   Widget build(BuildContext context) {
@@ -164,7 +173,9 @@ class _ProductHeaderBackButton extends StatelessWidget {
               Navigator.of(context).maybePop();
             },
             child: SizedBox.expand(
-              child: Icon(ConstantIcons.instance.getBackIcon()),
+              child: backButtonType == ProductPageBackButton.minimize
+                  ? const icons.Chevron.down(size: 16.0)
+                  : Icon(ConstantIcons.instance.getBackIcon()),
             ),
           ),
         ),
@@ -236,7 +247,7 @@ class _ProductCompatibilityScore extends StatelessWidget {
 
     final String tooltipMessage =
         AppLocalizations.of(context).product_page_compatibility_score_tooltip(
-      compatibility.score!.toInt(),
+      compatibility.score!,
     );
 
     return Semantics(
@@ -311,7 +322,7 @@ class _ProductCompatibilityScore extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
                   Text(
-                    '${compatibility.score!.toInt()}%',
+                    '${compatibility.score}%',
                     style: const TextStyle(
                       fontSize: 12.0,
                       height: 0.9,
@@ -341,5 +352,18 @@ class _ProductCompatibilityScore extends StatelessWidget {
       80.0,
       (MediaQuery.sizeOf(context).width - PADDING.horizontal) * (18 / 100),
     );
+  }
+}
+
+enum ProductPageBackButton {
+  back,
+  minimize;
+
+  static ProductPageBackButton? byName(String? type) {
+    return switch (type) {
+      'back' => ProductPageBackButton.back,
+      'minimize' => ProductPageBackButton.minimize,
+      _ => null,
+    };
   }
 }

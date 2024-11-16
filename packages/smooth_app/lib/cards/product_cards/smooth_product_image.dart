@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -111,6 +112,9 @@ class ProductPicture extends StatefulWidget {
 
   @override
   State<ProductPicture> createState() => _ProductPictureState();
+
+  static String generateHeroTag(String barcode, ImageField imageField) =>
+      'photo_${barcode}_${imageField.offTag}';
 }
 
 class _ProductPictureState extends State<ProductPicture> {
@@ -156,7 +160,11 @@ class _ProductPictureState extends State<ProductPicture> {
         showOutdated: widget.showObsoleteIcon,
         borderRadius: widget.borderRadius,
         border: widget.imageFoundBorder,
-        onError: () => setState(() => _imageError = true),
+        onError: () {
+          SchedulerBinding.instance.addPostFrameCallback((_) {
+            setState(() => _imageError = true);
+          });
+        },
         child: inkWell,
       );
     } else {

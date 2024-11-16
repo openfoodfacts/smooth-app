@@ -13,10 +13,10 @@ import 'package:smooth_app/generic_lib/widgets/smooth_app_logo.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/provider_helper.dart';
-import 'package:smooth_app/helpers/strings_helper.dart';
 import 'package:smooth_app/resources/app_icons.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:smooth_app/widgets/smooth_text.dart';
 
 class ScanTagLine extends StatelessWidget {
   const ScanTagLine({super.key});
@@ -267,7 +267,7 @@ class _TagLineContentBodyState extends State<_TagLineContentBody> {
     final SmoothColorsThemeExtension theme =
         Theme.of(context).extension<SmoothColorsThemeExtension>()!;
 
-    final Widget text = FormattedText(
+    final Widget text = TextWithBoldParts(
       text: widget.message,
       textStyle: TextStyle(
         color: widget.textColor ??

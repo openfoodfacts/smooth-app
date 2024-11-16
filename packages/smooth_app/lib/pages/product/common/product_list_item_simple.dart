@@ -61,7 +61,7 @@ class _ProductListItemSimpleState extends State<ProductListItemSimple> {
               );
             case ProductLoadingStatus.LOADED:
               if (_model.product != null) {
-                return SmoothProductCardFound(
+                return SmoothProductCardItemFound(
                   heroTag:
                       '${_model.product!.barcode!}_${Random().nextInt(100)}',
                   product: _model.product!,

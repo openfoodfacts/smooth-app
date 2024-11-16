@@ -8,7 +8,7 @@ import 'package:smooth_app/helpers/ui_helpers.dart';
 
 /// Empty template for a product card display.
 ///
-/// Based on the "real" [SmoothProductCardFound].
+/// Based on the "real" [SmoothProductCardItemFound].
 class SmoothProductCardTemplate extends StatelessWidget {
   const SmoothProductCardTemplate({
     this.message,
@@ -56,7 +56,7 @@ class SmoothProductCardTemplate extends StatelessWidget {
           color: backgroundColor,
         ),
         child: SmoothCard(
-          elevation: SmoothProductCardFound.elevation,
+          elevation: SmoothProductCardItemFound.elevation,
           color: Colors.transparent,
           padding: const EdgeInsets.all(VERY_SMALL_SPACE),
           child: Row(

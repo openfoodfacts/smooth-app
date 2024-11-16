@@ -42,9 +42,6 @@ class ProductImageSwipeableView extends StatefulWidget {
   @override
   State<ProductImageSwipeableView> createState() =>
       _ProductImageSwipeableViewState();
-
-  static String getHeroTag(ImageField imageField) =>
-      'photo_${imageField.offTag}';
 }
 
 class _ProductImageSwipeableViewState extends State<ProductImageSwipeableView>
@@ -107,6 +104,7 @@ class _ProductImageSwipeableViewState extends State<ProductImageSwipeableView>
         itemBuilder: (BuildContext context, int index) => ProductImageViewer(
           product: widget.product,
           imageField: _imageFields[index],
+          isInitialImageViewed: widget.initialImageIndex == index,
           language: _currentLanguage,
           setLanguage: (final OpenFoodFactsLanguage? newLanguage) async {
             if (newLanguage == null || newLanguage == _currentLanguage) {

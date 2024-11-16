@@ -16,6 +16,7 @@ import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/product/add_new_product_page.dart';
 import 'package:smooth_app/pages/product/edit_product_page.dart';
 import 'package:smooth_app/pages/product/product_loader_page.dart';
+import 'package:smooth_app/pages/product/product_page/new_product_header.dart';
 import 'package:smooth_app/pages/product/product_page/new_product_page.dart';
 import 'package:smooth_app/pages/scan/carousel/scan_carousel_manager.dart';
 import 'package:smooth_app/pages/search/search_page.dart';
@@ -156,6 +157,9 @@ class _SmoothGoRouter {
                   withHeroAnimation:
                       state.uri.queryParameters['heroAnimation'] != 'false',
                   heroTag: state.uri.queryParameters['heroTag'],
+                  backButton: ProductPageBackButton.byName(
+                    state.uri.queryParameters['backButtonType'],
+                  ),
                 );
 
                 if (ExternalScanCarouselManager.find(context) == null) {
@@ -445,10 +449,12 @@ class AppRoutes {
     String barcode, {
     bool useHeroAnimation = true,
     String? heroTag = '',
+    ProductPageBackButton? backButtonType,
   }) =>
       '/${_InternalAppRoutes.PRODUCT_DETAILS_PAGE}/$barcode'
       '?heroAnimation=$useHeroAnimation'
-      '&heroTag=$heroTag';
+      '&heroTag=$heroTag'
+      '&backButtonType=${backButtonType?.name}';
 
   // Product loader (= when a product is not in the database) - typical use case: deep links
   static String PRODUCT_LOADER(String barcode, {bool edit = false}) =>
