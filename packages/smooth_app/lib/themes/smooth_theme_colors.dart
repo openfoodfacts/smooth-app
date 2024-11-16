@@ -21,7 +21,7 @@ class SmoothColorsThemeExtension
   });
 
   SmoothColorsThemeExtension.defaultValues()
-      : primaryUltraBlack = const Color(0xFF52443D),
+      : primaryUltraBlack = const Color(0xFF201A17),
         primaryBlack = const Color(0xFF341100),
         primaryDark = const Color(0xFF483527),
         primarySemiDark = const Color(0xFF52443D),
