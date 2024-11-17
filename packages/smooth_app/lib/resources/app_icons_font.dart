@@ -193,6 +193,8 @@ class _IconsFont {
       IconData(0xe85a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData add_to_list_1 =
       IconData(0xe85b, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData compare_disabled =
+      IconData(0xe85c, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData password =
       IconData(0xe85d, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData incognito =

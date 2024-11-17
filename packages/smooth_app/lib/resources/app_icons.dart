@@ -489,6 +489,13 @@ class Compare extends AppIcon {
     super.shadow,
     super.key,
   }) : super._(_IconsFont.compare);
+
+  const Compare.disabled({
+    super.color,
+    super.size,
+    super.shadow,
+    super.key,
+  }) : super._(_IconsFont.compare_disabled);
 }
 
 class Contribute extends AppIcon {
