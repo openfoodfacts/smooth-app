@@ -3216,5 +3216,9 @@
     "product_page_action_bar_item_disable": "Disable action",
     "@product_page_action_bar_item_disable": {
         "description": "Accessibility label to disable action (= make it invisible)"
+    },
+    "product_add_a_language": "Add a language",
+    "@product_add_a_language": {
+        "description": "Button to add a language (eg: for photos) to a product"
     }
 }

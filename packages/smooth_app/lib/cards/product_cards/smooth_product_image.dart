@@ -17,9 +17,63 @@ import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
 class ProductPicture extends StatefulWidget {
-  ProductPicture({
+  ProductPicture.fromProduct({
+    required Product product,
+    required ImageField imageField,
+    required Size size,
+    String? fallbackUrl,
+    VoidCallback? onTap,
+    String? heroTag,
+    bool? showObsoleteIcon,
+    BorderRadius? borderRadius,
+    double? imageFoundBorder,
+    double? imageNotFoundBorder,
+    TextStyle? errorTextStyle,
+  }) : this._(
+          transientFile: null,
+          product: product,
+          imageField: imageField,
+          size: size,
+          fallbackUrl: fallbackUrl,
+          heroTag: heroTag,
+          onTap: onTap,
+          borderRadius: borderRadius,
+          imageFoundBorder: imageFoundBorder ?? 0.0,
+          imageNotFoundBorder: imageNotFoundBorder ?? 0.0,
+          errorTextStyle: errorTextStyle,
+          showObsoleteIcon: showObsoleteIcon ?? false,
+        );
+
+  ProductPicture.fromTransientFile({
+    required TransientFile transientFile,
+    required Size size,
+    String? fallbackUrl,
+    VoidCallback? onTap,
+    String? heroTag,
+    bool? showObsoleteIcon,
+    BorderRadius? borderRadius,
+    double? imageFoundBorder,
+    double? imageNotFoundBorder,
+    TextStyle? errorTextStyle,
+  }) : this._(
+          transientFile: transientFile,
+          product: null,
+          imageField: null,
+          size: size,
+          fallbackUrl: fallbackUrl,
+          heroTag: heroTag,
+          onTap: onTap,
+          borderRadius: borderRadius,
+          imageFoundBorder: imageFoundBorder ?? 0.0,
+          imageNotFoundBorder: imageNotFoundBorder ?? 0.0,
+          errorTextStyle: errorTextStyle,
+          showObsoleteIcon: showObsoleteIcon ?? false,
+        );
+
+  ProductPicture._({
     required this.product,
     required this.imageField,
+    required this.transientFile,
     required this.size,
     this.fallbackUrl,
     this.heroTag,
@@ -35,8 +89,9 @@ class ProductPicture extends StatefulWidget {
         assert(heroTag == null || heroTag.isNotEmpty),
         assert(size.width >= 0.0 && size.height >= 0.0);
 
-  final Product product;
-  final ImageField imageField;
+  final Product? product;
+  final ImageField? imageField;
+  final TransientFile? transientFile;
   final Size size;
   final String? fallbackUrl;
   final VoidCallback? onTap;
@@ -63,8 +118,9 @@ class _ProductPictureState extends State<ProductPicture> {
 
   @override
   Widget build(BuildContext context) {
-    final (ImageProvider, bool)? imageProvider = _getImageProvider(
+    final (ImageProvider?, bool)? imageProvider = _getImageProvider(
       widget.product,
+      widget.transientFile,
     );
 
     final Widget? inkWell = widget.onTap != null
@@ -91,9 +147,9 @@ class _ProductPictureState extends State<ProductPicture> {
         border: widget.imageNotFoundBorder,
         child: inkWell,
       );
-    } else if (imageProvider != null) {
+    } else if (imageProvider?.$1 != null) {
       child = _ProductPictureWithImageProvider(
-        imageProvider: imageProvider.$1,
+        imageProvider: imageProvider!.$1!,
         outdated: imageProvider.$2,
         heroTag: widget.heroTag,
         size: widget.size,
@@ -143,16 +199,24 @@ class _ProductPictureState extends State<ProductPicture> {
   /// Returns the image provider for the product.
   /// If this is a [TransientFile], the boolean indicates whether the image is
   /// outdated or not.
-  (ImageProvider, bool)? _getImageProvider(Product product) {
-    final TransientFile transientFile = TransientFile.fromProduct(
-      product,
-      widget.imageField,
+  (ImageProvider?, bool)? _getImageProvider(
+    Product? product,
+    TransientFile? transientFile,
+  ) {
+    if (transientFile != null) {
+      return (transientFile.getImageProvider(), transientFile.expired);
+    }
+
+    final TransientFile productTransientFile = TransientFile.fromProduct(
+      product!,
+      widget.imageField!,
       ProductQuery.getLanguage(),
     );
-    final ImageProvider? imageProvider = transientFile.getImageProvider();
+    final ImageProvider? imageProvider =
+        productTransientFile.getImageProvider();
 
     if (imageProvider != null) {
-      return (imageProvider, transientFile.expired);
+      return (imageProvider, productTransientFile.expired);
     } else if (widget.fallbackUrl?.isNotEmpty == true) {
       return (NetworkImage(widget.fallbackUrl!), false);
     } else {

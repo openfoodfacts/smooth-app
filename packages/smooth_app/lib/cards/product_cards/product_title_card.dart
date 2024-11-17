@@ -7,7 +7,7 @@ import 'package:smooth_app/cards/product_cards/smooth_product_image.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/extension_on_text_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
-import 'package:smooth_app/pages/product/product_image_gallery_view.dart';
+import 'package:smooth_app/pages/product/gallery_view/product_image_gallery_view.dart';
 
 class ProductTitleCard extends StatelessWidget {
   const ProductTitleCard(
@@ -69,7 +69,7 @@ class ProductTitleCard extends StatelessWidget {
                     verticalOffset: imageSize.width / 2,
                     preferBelow: true,
                   ),
-                  child: ProductPicture(
+                  child: ProductPicture.fromProduct(
                     product: product,
                     imageField: ImageField.FRONT,
                     fallbackUrl: product.imageFrontUrl,
