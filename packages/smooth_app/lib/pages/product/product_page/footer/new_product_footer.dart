@@ -239,7 +239,7 @@ class _ProductFooterFilledButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final SmoothColorsThemeExtension themeExtension =
-        context.extension<SmoothColorsThemeExtension>()!;
+        context.extension<SmoothColorsThemeExtension>();
     final ProductPageCompatibility compatibility =
         context.watch<ProductPageCompatibility>();
 
