@@ -245,6 +245,7 @@ abstract class ProductQuery {
         ProductField.NAME_ALL_LANGUAGES,
         ProductField.BRANDS,
         ProductField.BARCODE,
+        ProductField.PRODUCT_TYPE,
         ProductField.NUTRISCORE,
         ProductField.FRONT_IMAGE,
         ProductField.IMAGE_FRONT_URL,

@@ -45,6 +45,8 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
   static const String userPreferencesTestEnvDomain = '__testEnvHost';
   static const String userPreferencesFlagEditIngredients = '__editIngredients';
   static const String userPreferencesFlagHideFolksonomy = '__hideFolksonomy';
+  static const String userPreferencesFlagHideProductTypeFilter =
+      '__hideProductTypeFilter';
   static const String userPreferencesFlagBoostedComparison =
       '__boostedComparison';
   static const String userPreferencesEnumScanMode = '__scanMode';
@@ -370,6 +372,19 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           onChanged: (bool value) async {
             await userPreferences.setFlag(
               userPreferencesFlagHideFolksonomy,
+              value,
+            );
+            _showSuccessMessage();
+          },
+        ),
+        UserPreferencesItemSwitch(
+          title: 'Hide Product Type Filter',
+          value: userPreferences
+                  .getFlag(userPreferencesFlagHideProductTypeFilter) ??
+              true,
+          onChanged: (bool value) async {
+            await userPreferences.setFlag(
+              userPreferencesFlagHideProductTypeFilter,
               value,
             );
             _showSuccessMessage();

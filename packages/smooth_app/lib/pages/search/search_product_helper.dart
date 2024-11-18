@@ -10,6 +10,7 @@ import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/provider_helper.dart';
 import 'package:smooth_app/helpers/string_extension.dart';
 import 'package:smooth_app/pages/navigator/app_navigator.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/product/common/search_helper.dart';
@@ -32,7 +33,13 @@ class SearchProductHelper extends SearchHelper {
       appLocalizations.search;
 
   @override
-  Widget getAdditionalFilter() => _ProductTypeFilter(this);
+  Widget? getAdditionalFilter() =>
+      UserPreferences.getUserPreferencesSync().getFlag(
+                UserPreferencesDevMode.userPreferencesFlagHideProductTypeFilter,
+              ) ??
+              true
+          ? null
+          : _ProductTypeFilter(this);
 
   @override
   void search(
@@ -119,7 +126,13 @@ class SearchProductHelper extends SearchHelper {
           localDatabase: localDatabase,
           productQuery: KeywordsProductQuery(
             value,
-            productType: _productType,
+            productType: UserPreferences.getUserPreferencesSync().getFlag(
+                      UserPreferencesDevMode
+                          .userPreferencesFlagHideProductTypeFilter,
+                    ) ??
+                    true
+                ? ProductType.food
+                : _productType,
           ),
           context: context,
           editableAppBarTitle: false,

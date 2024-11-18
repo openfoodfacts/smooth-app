@@ -169,7 +169,9 @@ class DaoProduct extends AbstractSqlDao implements BulkDeletable {
     required final ProductType productType,
   }) async {
     for (final Product product in products) {
-      product.productType = productType;
+      // in case the server product has no product type, which shouldn't happen
+      // in the future
+      product.productType ??= productType;
     }
     await localDatabase.database.transaction(
       (final Transaction transaction) async => _bulkReplaceLoop(
