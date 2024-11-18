@@ -1,6 +1,9 @@
 import 'package:diacritic/diacritic.dart' as lib show removeDiacritics;
 import 'package:flutter/material.dart';
+import 'package:smooth_app/helpers/strings_helper.dart';
 import 'package:smooth_app/services/smooth_services.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
 /// An extension on [String]
 extension StringExtension on String {
@@ -221,3 +224,211 @@ class HighlightedTextSpan extends WidgetSpan {
           ),
         );
 }
+
+/// A Text where parts between "**" are in bold
+class TextWithBoldParts extends StatelessWidget {
+  const TextWithBoldParts({
+    required this.text,
+    this.textStyle,
+    this.textAlign,
+    this.overflow,
+    this.maxLines,
+  });
+
+  final String text;
+  final TextStyle? textStyle;
+  final TextAlign? textAlign;
+  final TextOverflow? overflow;
+  final int? maxLines;
+
+  @override
+  Widget build(BuildContext context) {
+    final TextStyle defaultTextStyle = textStyle ?? const TextStyle();
+    return Semantics(
+      value: text.replaceAll(r'**', '').replaceAll('\n', ' '),
+      excludeSemantics: true,
+      child: RichText(
+        textScaler: MediaQuery.textScalerOf(context),
+        text: TextSpan(
+          style: DefaultTextStyle.of(context).style,
+          children: TextHelper.getPartsBetweenSymbol(
+            text: text,
+            symbol: r'\*\*',
+            symbolLength: 2,
+            defaultStyle: defaultTextStyle,
+            highlightedStyle: const TextStyle(fontWeight: FontWeight.bold),
+          ).map(
+            ((String, TextStyle?) part) {
+              return TextSpan(
+                text: part.$1,
+                style: defaultTextStyle.merge(part.$2),
+                semanticsLabel: '-',
+              );
+            },
+          ).toList(growable: false),
+        ),
+        textAlign: textAlign ?? TextAlign.start,
+        overflow: overflow ?? TextOverflow.clip,
+        maxLines: maxLines,
+      ),
+    );
+  }
+}
+
+/// A Text where parts between "__" are underlined
+class TextWithUnderlinedParts extends StatelessWidget {
+  const TextWithUnderlinedParts({
+    required this.text,
+    this.textStyle,
+    this.textAlign,
+    this.overflow,
+    this.maxLines,
+  });
+
+  final String text;
+  final TextStyle? textStyle;
+  final TextAlign? textAlign;
+  final TextOverflow? overflow;
+  final int? maxLines;
+
+  @override
+  Widget build(BuildContext context) {
+    final TextStyle defaultTextStyle = textStyle ?? const TextStyle();
+
+    return Semantics(
+      value: text.replaceAll(r'__', '').replaceAll('\n', ' '),
+      excludeSemantics: true,
+      child: RichText(
+        textScaler: MediaQuery.textScalerOf(context),
+        text: TextSpan(
+          style: DefaultTextStyle.of(context).style,
+          children: TextHelper.getPartsBetweenSymbol(
+            text: text,
+            symbol: r'\_\_',
+            symbolLength: 2,
+            defaultStyle: defaultTextStyle,
+            highlightedStyle: const TextStyle(
+              decoration: TextDecoration.underline,
+            ),
+          ).map(
+            ((String, TextStyle?) part) {
+              return TextSpan(
+                text: part.$1,
+                style: defaultTextStyle.merge(part.$2),
+                semanticsLabel: '-',
+              );
+            },
+          ).toList(growable: false),
+        ),
+        textAlign: textAlign ?? TextAlign.start,
+        overflow: overflow ?? TextOverflow.clip,
+        maxLines: maxLines,
+      ),
+    );
+  }
+}
+
+/// A Text where parts between "**" are highlighted in bubbles
+class TextWithBubbleParts extends StatelessWidget {
+  const TextWithBubbleParts({
+    required this.text,
+    this.backgroundColor,
+    this.fontMultiplier,
+    this.textAlign,
+    this.textStyle,
+    this.bubbleTextStyle,
+    this.bubblePadding,
+    this.margin,
+    super.key,
+  });
+
+  final String text;
+  final double? fontMultiplier;
+  final Color? backgroundColor;
+  final TextAlign? textAlign;
+  final TextStyle? textStyle;
+  final TextStyle? bubbleTextStyle;
+  final EdgeInsetsGeometry? bubblePadding;
+  final EdgeInsetsGeometry? margin;
+
+  @override
+  Widget build(BuildContext context) {
+    final Color backgroundColor = this.backgroundColor ??
+        context.extension<SmoothColorsThemeExtension>().orange;
+
+    return RichText(
+      textScaler: MediaQuery.textScalerOf(context),
+      text: TextSpan(
+        children: _extractChunks().map(((String text, bool highlighted) el) {
+          if (el.$2) {
+            return _createSpan(
+              el.$1,
+              bubblePadding,
+              bubbleTextStyle ?? textStyle?.merge(bubbleTextStyle),
+              backgroundColor,
+            );
+          } else {
+            return TextSpan(text: el.$1);
+          }
+        }).toList(growable: false),
+        style: DefaultTextStyle.of(context).style.merge(textStyle),
+      ),
+      textAlign: textAlign ?? TextAlign.start,
+    );
+  }
+
+  Iterable<(String, bool)> _extractChunks() {
+    final Iterable<RegExpMatch> matches =
+        RegExp(r'\*\*(.*?)\*\*').allMatches(text);
+
+    if (matches.isEmpty) {
+      return <(String, bool)>[(text, false)];
+    }
+
+    final List<(String, bool)> chunks = <(String, bool)>[];
+
+    int lastMatch = 0;
+
+    for (final RegExpMatch match in matches) {
+      if (matches.first.start > 0) {
+        chunks.add((text.substring(lastMatch, match.start), false));
+      }
+
+      chunks.add((text.substring(match.start + 2, match.end - 2), true));
+      lastMatch = match.end;
+    }
+
+    if (lastMatch < text.length) {
+      chunks.add((text.substring(lastMatch), false));
+    }
+
+    return chunks;
+  }
+
+  WidgetSpan _createSpan(
+    String text,
+    EdgeInsetsGeometry? padding,
+    TextStyle? textStyle,
+    Color backgroundColor,
+  ) =>
+      HighlightedTextSpan(
+        text: text,
+        textStyle: textStyle ??
+            const TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.w700,
+            ),
+        padding: padding ??
+            const EdgeInsetsDirectional.only(
+              top: 2.0,
+              bottom: 2.0,
+              start: 15.0,
+              end: 15.0,
+            ),
+        margin: margin ?? const EdgeInsetsDirectional.symmetric(vertical: 2.5),
+        backgroundColor: backgroundColor,
+        radius: 30.0,
+      );
+}
+
+typedef TextStyleProvider = TextStyle Function(double multiplier);

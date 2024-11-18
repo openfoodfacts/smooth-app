@@ -101,6 +101,7 @@ Widget buildProductSmoothCard({
   EdgeInsetsGeometry? margin = const EdgeInsets.symmetric(
     horizontal: SMALL_SPACE,
   ),
+  BorderRadius? borderRadius,
 }) {
   assert(
     (header != null && title == null) || header == null,
@@ -135,6 +136,7 @@ Widget buildProductSmoothCard({
   return SmoothCard(
     margin: margin,
     padding: padding,
+    borderRadius: borderRadius,
     child: child,
   );
 }

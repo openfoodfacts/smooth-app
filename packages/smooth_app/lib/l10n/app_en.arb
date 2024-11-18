@@ -852,8 +852,6 @@
         "description": "Cached results from: x time ago (time ago should not be added to the string)"
     },
     "@Product Addition": {},
-    "added_product_thanks": "Thank you for adding this product!",
-    "@added_product_thanks": {},
     "product_search_same_category": "Compare to Category",
     "@product_search_same_category": {
         "description": "Button looking for the other products within the same category. Less than 30 characters"
@@ -1373,10 +1371,6 @@
                 "type": "String"
             }
         }
-    },
-    "edit_product_form_item_barcode": "Barcode",
-    "@edit_product_form_item_barcode": {
-        "description": "Product edition - Barcode"
     },
     "edit_product_form_item_details_title": "Basic details",
     "@edit_product_form_item_details_title": {
@@ -3166,7 +3160,7 @@
         "description": "Message explaining that the score is the compatibility score",
         "placeholders": {
             "score": {
-                "type": "int"
+                "type": "String"
             }
         }
     },
@@ -3225,5 +3219,57 @@
     "product_add_a_language": "Add a language",
     "@product_add_a_language": {
         "description": "Button to add a language (eg: for photos) to a product"
+    },
+    "barcode_accessibility_label": "Barcode {barcode}",
+    "@barcode_accessibility_label": {
+        "description": "Accessibility label for a barcode image",
+        "placeholders": {
+            "barcode": {
+                "type": "String"
+            }
+        }
+    },
+    "carousel_close_tooltip": "Remove this product from the carousel",
+    "@carousel_close_tooltip": {
+        "description": "A message explaining the goal of the Close button on a card of the carousel"
+    },
+    "carousel_unsupported_header": "Unsupported barcode!",
+    "@carousel_unsupported_header": {
+        "description": "A label on top of the carousel card when the barcode is not supported by the app"
+    },
+    "carousel_unsupported_title": "Ooops!",
+    "carousel_unsupported_text": "The barcode scanned is not supported by Open Food Facts!",
+    "carousel_error_header": "Error!",
+    "@carousel_error_header": {
+        "description": "A label on top of the carousel card when there is an error (mainly network issues)"
+    },
+    "carousel_error_title": "It's a bummer!",
+    "carousel_error_text_1": "We couldn't download information on this barcode:",
+    "carousel_error_text_2": "Please check your Internet connection or click this button:",
+    "@carousel_error_text_2": {
+        "description": "Please keep the ** syntax to make the text bold"
+    },
+    "carousel_error_button": "Retry",
+    "carousel_unknown_product_header": "Unknown product",
+    "@carousel_unknown_product_header": {
+        "description": "A label on top of the carousel card when the product is not in the database (= it needs to be created)"
+    },
+    "carousel_unknown_product_title": "Congratulations!\nYou've found __the rare gem!__",
+    "@carousel_unknown_product_title": {
+        "description": "Please keep the __ syntax to underline the text"
+    },
+    "carousel_unknown_product_text": "Our collaborative database contains more than **3 million products**, but this barcode doesn't exist: ",
+    "@carousel_unknown_product_text": {
+        "description": "Please keep the ** syntax to make the text bold"
+    },
+    "carousel_unknown_product_button": "Add this product",
+    "carousel_loading_header": "Loading information...",
+    "@carousel_loading_header": {
+        "description": "A label on top of the carousel card when data about the product is loading"
+    },
+    "carousel_loading_title": "You've just scanned a product with the following barcode:",
+    "carousel_loading_text": "We are searching for it in our database of more than **3 million products!**",
+    "@carousel_loading_text": {
+        "description": "Please keep the ** syntax to make the text bold"
     }
 }

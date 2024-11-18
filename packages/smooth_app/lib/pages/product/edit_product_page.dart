@@ -1,5 +1,4 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:barcode_widget/barcode_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -28,6 +27,7 @@ import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
+import 'package:smooth_app/widgets/smooth_barcode_widget.dart';
 import 'package:smooth_app/widgets/smooth_floating_message.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
@@ -420,45 +420,22 @@ class _ProductBarcodeState extends State<_ProductBarcode> {
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final Brightness brightness = Theme.of(context).brightness;
     final Size screenSize = MediaQuery.sizeOf(context);
 
-    return BarcodeWidget(
+    return SmoothBarcodeWidget(
       padding: EdgeInsets.symmetric(
         horizontal: screenSize.width / 4,
         vertical: SMALL_SPACE,
       ),
-      barcode: _barcodeType,
-      data: widget.product.barcode!,
-      color: brightness == Brightness.dark ? Colors.white : Colors.black,
-      errorBuilder: (final BuildContext context, String? _) {
+      barcode: widget.product.barcode!,
+      onInvalidBarcode: () {
         if (!_isAnInvalidBarcode) {
           WidgetsBinding.instance.addPostFrameCallback((_) {
             setState(() => _isAnInvalidBarcode = true);
           });
         }
-
-        return Text(
-          '${appLocalizations.edit_product_form_item_barcode}\n'
-          '${widget.product.barcode}',
-          textAlign: TextAlign.center,
-        );
       },
       height: _isAnInvalidBarcode ? null : _ProductBarcode._barcodeHeight,
     );
-  }
-
-  Barcode get _barcodeType {
-    switch (widget.product.barcode!.length) {
-      case 7:
-      case 8:
-        return Barcode.ean8();
-      case 12:
-      case 13:
-        return Barcode.ean13();
-      default:
-        throw Exception('Unknown barcode type!');
-    }
   }
 }

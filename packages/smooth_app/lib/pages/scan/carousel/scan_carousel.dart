@@ -5,7 +5,7 @@ import 'package:scanner_shared/scanner_shared.dart' hide EMPTY_WIDGET;
 import 'package:smooth_app/cards/product_cards/smooth_product_card_error.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_loading.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_card_not_found.dart';
-import 'package:smooth_app/cards/product_cards/smooth_product_card_thanks.dart';
+import 'package:smooth_app/cards/product_cards/smooth_product_card_not_supported.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/scan/carousel/main_card/scan_main_card.dart';
@@ -146,18 +146,22 @@ class _ScanPageCarouselState extends State<ScanPageCarousel> {
     if (index >= barcodes.length) {
       return EMPTY_WIDGET;
     }
+
     final String barcode = barcodes[index];
     switch (_model.getBarcodeState(barcode)!) {
       case ScannedProductState.FOUND:
       case ScannedProductState.CACHED:
-        return ScanProductCardLoader(barcode);
+        return ScanProductCardLoader(
+          barcode: barcode,
+          onRemoveProduct: (_) => _model.removeBarcode(barcode),
+        );
       case ScannedProductState.LOADING:
-        return SmoothProductCardLoading(
+        return ScanProductCardLoading(
           barcode: barcode,
           onRemoveProduct: (_) => _model.removeBarcode(barcode),
         );
       case ScannedProductState.NOT_FOUND:
-        return SmoothProductCardNotFound(
+        return ScanProductCardNotFound(
           barcode: barcode,
           onAddProduct: () async {
             await _model.refresh();
@@ -165,17 +169,15 @@ class _ScanPageCarouselState extends State<ScanPageCarousel> {
           },
           onRemoveProduct: (_) => _model.removeBarcode(barcode),
         );
-      case ScannedProductState.THANKS:
-        return const SmoothProductCardThanks();
       case ScannedProductState.ERROR_INTERNET:
-        return SmoothProductCardError(
+        return ScanProductCardError(
           barcode: barcode,
           errorType: ScannedProductState.ERROR_INTERNET,
         );
       case ScannedProductState.ERROR_INVALID_CODE:
-        return SmoothProductCardError(
+        return ScanProductCardNotSupported(
           barcode: barcode,
-          errorType: ScannedProductState.ERROR_INVALID_CODE,
+          onRemoveProduct: (_) => _model.removeBarcode(barcode),
         );
     }
   }

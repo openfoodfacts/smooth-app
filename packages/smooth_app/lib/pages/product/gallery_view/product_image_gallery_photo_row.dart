@@ -115,7 +115,8 @@ class PhotoRow extends StatelessWidget {
                                 fontSize: 16.0,
                                 fontWeight: FontWeight.w600,
                               ),
-                              heroTag: ProductImageSwipeableView.getHeroTag(
+                              heroTag: ProductPicture.generateHeroTag(
+                                product.barcode!,
                                 imageField,
                               ),
                             );

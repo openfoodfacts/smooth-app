@@ -5,76 +5,69 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_base_card.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/helpers/app_helper.dart';
-import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
 /// Product Card when an exception is caught
-class SmoothProductCardError extends StatelessWidget {
-  const SmoothProductCardError({
+
+class ScanProductCardError extends StatelessWidget {
+  ScanProductCardError({
     required this.barcode,
     required this.errorType,
-  });
+    this.onRemoveProduct,
+  }) : assert(barcode.isNotEmpty);
 
   final String barcode;
   final ScannedProductState errorType;
+  final OnRemoveCallback? onRemoveProduct;
 
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final SmoothColorsThemeExtension theme =
+        context.extension<SmoothColorsThemeExtension>();
 
-    return SmoothProductBaseCard(
+    return ScanProductBaseCard(
+      headerLabel: appLocalizations.carousel_error_header,
+      headerIndicatorColor: theme.error,
+      onRemove: onRemoveProduct,
+      backgroundChild: PositionedDirectional(
+        top: 0.0,
+        end: 5.0,
+        child: SvgPicture.asset('assets/product/scan_card_product_error.svg'),
+      ),
       child: Column(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          SvgPicture.asset(
-            'assets/misc/error.svg',
-            width: MINIMUM_TOUCH_SIZE * 2,
-            package: AppHelper.APP_PACKAGE,
+          ScanProductBaseCardTitle(
+            title: appLocalizations.carousel_error_title,
+            padding: const EdgeInsetsDirectional.only(top: 5.0, end: 25.0),
           ),
-          const SizedBox(
-            height: SMALL_SPACE,
+          const SizedBox(height: LARGE_SPACE),
+          ScanProductBaseCardText(
+            text: Text(appLocalizations.carousel_error_text_1),
           ),
-          Text(
-            barcode,
-            style: Theme.of(context).textTheme.titleMedium,
+          ScanProductBaseCardBarcode(
+            barcode: barcode,
+            height: 75.0,
           ),
-          const SizedBox(
-            height: MEDIUM_SPACE,
+          const Spacer(),
+          ScanProductBaseCardText(
+            text: Text(appLocalizations.carousel_error_text_2),
           ),
-          ProductDialogHelper.getErrorMessage(
-            _getErrorMessage(
-              errorType,
-              appLocalizations,
-            ),
-          ),
-          const SizedBox(
-            height: MEDIUM_SPACE,
-          ),
-          ElevatedButton(
-            onPressed: () async {
-              await context
-                  .read<ContinuousScanModel>()
-                  .retryBarcodeFetch(barcode);
+          const SizedBox(height: LARGE_SPACE),
+          ScanProductBaseCardButton(
+            text: appLocalizations.carousel_error_button,
+            onTap: () async {
+              final ContinuousScanModel model =
+                  context.read<ContinuousScanModel>();
+
+              model.retryBarcodeFetch(barcode);
             },
-            child: Text(appLocalizations.retry_button_label),
           ),
         ],
       ),
     );
-  }
-
-  String _getErrorMessage(
-    ScannedProductState errorType,
-    AppLocalizations appLocalizations,
-  ) {
-    switch (errorType) {
-      case ScannedProductState.ERROR_INVALID_CODE:
-        return appLocalizations.barcode_invalid_error;
-      case ScannedProductState.ERROR_INTERNET:
-        return appLocalizations.product_internet_error;
-      default:
-        return appLocalizations.error_occurred;
-    }
   }
 }

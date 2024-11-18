@@ -1,73 +1,77 @@
-import 'package:auto_size_text/auto_size_text.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_base_card.dart';
-import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/pages/navigator/app_navigator.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/widgets/smooth_text.dart';
 
-class SmoothProductCardNotFound extends StatelessWidget {
-  SmoothProductCardNotFound({
+class ScanProductCardNotFound extends StatelessWidget {
+  ScanProductCardNotFound({
     required this.barcode,
     this.onAddProduct,
     this.onRemoveProduct,
   }) : assert(barcode.isNotEmpty);
 
+  final String barcode;
   final Future<void> Function()? onAddProduct;
   final OnRemoveCallback? onRemoveProduct;
-  final String barcode;
 
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final TextTheme textTheme = Theme.of(context).textTheme;
+    final SmoothColorsThemeExtension theme =
+        context.extension<SmoothColorsThemeExtension>();
 
-    return SmoothProductBaseCard(
-      margin: const EdgeInsets.symmetric(
-        vertical: VERY_SMALL_SPACE,
+    return ScanProductBaseCard(
+      headerLabel: appLocalizations.carousel_unknown_product_header,
+      headerIndicatorColor: theme.error,
+      onRemove: onRemoveProduct,
+      backgroundChild: PositionedDirectional(
+        top: 0.0,
+        end: 5.0,
+        child: SvgPicture.asset('assets/product/scan_card_product_error.svg'),
       ),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Align(
-            alignment: AlignmentDirectional.topEnd,
-            child: ProductCardCloseButton(
-              onRemove: (BuildContext context) {
-                AnalyticsHelper.trackEvent(
-                  AnalyticsEvent.ignoreProductNotFound,
-                  barcode: barcode,
-                );
-
-                onRemoveProduct?.call(context);
-              },
-              iconData: CupertinoIcons.clear_circled,
+          ScanProductBaseCardTitle(
+            title: appLocalizations.carousel_unknown_product_title,
+            padding: const EdgeInsetsDirectional.only(top: 5.0, end: 25.0),
+          ),
+          const SizedBox(height: LARGE_SPACE),
+          ScanProductBaseCardText(
+            text: TextWithBubbleParts(
+              text: appLocalizations.carousel_unknown_product_text,
+              backgroundColor: theme.primarySemiDark,
+              textStyle: const TextStyle(
+                fontSize: 14.5,
+              ),
+              bubbleTextStyle: const TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.w600,
+                fontSize: 12.5,
+              ),
+              bubblePadding: const EdgeInsetsDirectional.only(
+                top: 2.5,
+                bottom: 3.5,
+                start: 10.0,
+                end: 10.0,
+              ),
             ),
           ),
-          Expanded(
-            flex: 2,
-            child: AutoSizeText(
-              appLocalizations.missing_product,
-              style: textTheme.displayMedium,
-              textAlign: TextAlign.center,
-            ),
+          ScanProductBaseCardBarcode(
+            barcode: barcode,
+            height: 75.0,
+            padding: const EdgeInsetsDirectional.only(top: MEDIUM_SPACE),
           ),
-          Expanded(
-            flex: 3,
-            child: AutoSizeText(
-              '\n${appLocalizations.add_product_take_photos}\n'
-              '(${appLocalizations.barcode_barcode(barcode)})',
-              style: textTheme.bodyMedium,
-              textAlign: TextAlign.center,
-            ),
-          ),
-          SmoothLargeButtonWithIcon(
-            text: appLocalizations.add_product_information_button_label,
-            icon: Icons.add,
-            padding: const EdgeInsets.symmetric(vertical: LARGE_SPACE),
-            onPressed: () async {
+          const Spacer(),
+          ScanProductBaseCardButton(
+            text: appLocalizations.carousel_unknown_product_button,
+            onTap: () async {
               await AppNavigator.of(context).push(
                 AppRoutes.PRODUCT_CREATOR(barcode),
               );
