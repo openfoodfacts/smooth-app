@@ -282,7 +282,7 @@ class SmoothModalSheetHeaderButton extends StatelessWidget
               ],
               Text(
                 label,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 16.5,
                   fontWeight: FontWeight.bold,
                 ),
