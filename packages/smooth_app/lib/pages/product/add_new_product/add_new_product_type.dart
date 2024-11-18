@@ -7,8 +7,8 @@ import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
-class AddNewProductType extends StatefulWidget {
-  const AddNewProductType({
+class ProductTypeRadioListTile extends StatefulWidget {
+  const ProductTypeRadioListTile({
     super.key,
     required this.productType,
     required this.checked,
@@ -20,20 +20,18 @@ class AddNewProductType extends StatefulWidget {
   final void Function(ProductType) onChanged;
 
   @override
-  State<AddNewProductType> createState() => _AddNewProductType();
+  State<ProductTypeRadioListTile> createState() => _AddNewProductType();
 }
 
-class _AddNewProductType extends State<AddNewProductType>
+class _AddNewProductType extends State<ProductTypeRadioListTile>
     with TickerProviderStateMixin {
   AnimationController? _controller;
-  // ignore: use_late_for_private_fields_and_variables
-  Animation<Color?>? _colorAnimation;
-  // ignore: use_late_for_private_fields_and_variables
-  Animation<double>? _opacityAnimation;
+  late Animation<Color?> _colorAnimation;
+  late Animation<double> _opacityAnimation;
   bool? _currentTheme;
 
   @override
-  void didUpdateWidget(AddNewProductType oldWidget) {
+  void didUpdateWidget(ProductTypeRadioListTile oldWidget) {
     super.didUpdateWidget(oldWidget);
 
     if (oldWidget.checked != widget.checked) {
@@ -66,7 +64,7 @@ class _AddNewProductType extends State<AddNewProductType>
 
     return Semantics(
       label:
-          '${_title(appLocalizations, context)} ${_subtitle(appLocalizations, context)}',
+          '${widget.productType.getTitle(AppLocalizations.of(context))} ${widget.productType.getSubtitle(AppLocalizations.of(context))}',
       checked: widget.checked,
       excludeSemantics: true,
       child: Container(
@@ -96,7 +94,8 @@ class _AddNewProductType extends State<AddNewProductType>
                     bottomRight: Radius.circular(ANGULAR_RADIUS.x - 2.0),
                   ),
                   child: SvgPicture.asset(
-                    _illustration,
+                    widget.productType
+                        .getIllustration(AppLocalizations.of(context)),
                     width: 50.0,
                   ),
                 ),
@@ -137,7 +136,8 @@ class _AddNewProductType extends State<AddNewProductType>
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             Text(
-                              _title(appLocalizations, context),
+                              widget.productType
+                                  .getTitle(AppLocalizations.of(context)),
                               overflow: TextOverflow.ellipsis,
                               maxLines: 1,
                               style: TextStyle(
@@ -147,7 +147,8 @@ class _AddNewProductType extends State<AddNewProductType>
                             ),
                             const SizedBox(height: 0.0),
                             Text(
-                              _subtitle(appLocalizations, context),
+                              widget.productType
+                                  .getSubtitle(AppLocalizations.of(context)),
                               overflow: TextOverflow.ellipsis,
                               style: TextStyle(
                                 color: lightTheme
@@ -193,35 +194,29 @@ class _AddNewProductType extends State<AddNewProductType>
     _opacityAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
         CurvedAnimation(parent: _controller!, curve: Curves.fastOutSlowIn));
   }
+}
 
-  String _title(AppLocalizations appLocalizations, final BuildContext context) {
-    return switch (widget.productType) {
-      ProductType.food => AppLocalizations.of(context).product_type_label_food,
-      ProductType.beauty =>
-        AppLocalizations.of(context).product_type_label_beauty,
-      ProductType.petFood =>
-        AppLocalizations.of(context).product_type_label_pet_food,
-      ProductType.product =>
-        AppLocalizations.of(context).product_type_label_product,
+extension ProductTypeExtension on ProductType {
+  String getTitle(AppLocalizations appLocalizations) {
+    return switch (this) {
+      ProductType.food => appLocalizations.product_type_label_food,
+      ProductType.beauty => appLocalizations.product_type_label_beauty,
+      ProductType.petFood => appLocalizations.product_type_label_pet_food,
+      ProductType.product => appLocalizations.product_type_label_product,
     };
   }
 
-  String _subtitle(
-      AppLocalizations appLocalizations, final BuildContext context) {
-    return switch (widget.productType) {
-      ProductType.food =>
-        AppLocalizations.of(context).product_type_subtitle_food,
-      ProductType.beauty =>
-        AppLocalizations.of(context).product_type_subtitle_beauty,
-      ProductType.petFood =>
-        AppLocalizations.of(context).product_type_subtitle_pet_food,
-      ProductType.product =>
-        AppLocalizations.of(context).product_type_subtitle_product,
+  String getSubtitle(AppLocalizations appLocalizations) {
+    return switch (this) {
+      ProductType.food => appLocalizations.product_type_subtitle_food,
+      ProductType.beauty => appLocalizations.product_type_subtitle_beauty,
+      ProductType.petFood => appLocalizations.product_type_subtitle_pet_food,
+      ProductType.product => appLocalizations.product_type_subtitle_product,
     };
   }
 
-  String get _illustration {
-    return switch (widget.productType) {
+  String getIllustration(AppLocalizations appLocalizations) {
+    return switch (this) {
       ProductType.food => 'assets/misc/logo_off_half.svg',
       ProductType.beauty => 'assets/misc/logo_obf_half.svg',
       ProductType.petFood => 'assets/misc/logo_opff_half.svg',

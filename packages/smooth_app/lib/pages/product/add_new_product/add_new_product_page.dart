@@ -576,7 +576,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
 
     for (final ProductType productType in ProductType.values) {
       rows.add(
-        AddNewProductType(
+        ProductTypeRadioListTile(
           productType: productType,
           checked: productType == _inputProductType,
           onChanged: (ProductType value) {
