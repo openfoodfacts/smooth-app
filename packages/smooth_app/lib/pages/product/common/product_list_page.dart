@@ -511,6 +511,7 @@ class _ProductListPageState extends State<ProductListPage>
       context: context,
       header: SmoothModalSheetHeader(
         title: appLocalizations.product_list_select,
+        prefix: const SmoothModalSheetHeaderPrefixIndicator(),
         suffix: SmoothModalSheetHeaderButton(
           label: appLocalizations.product_list_create,
           prefix: const Icon(Icons.add_circle_outline_sharp),

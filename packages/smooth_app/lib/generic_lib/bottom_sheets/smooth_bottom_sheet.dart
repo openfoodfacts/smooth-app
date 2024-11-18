@@ -6,7 +6,9 @@ import 'package:smooth_app/generic_lib/bottom_sheets/smooth_draggable_bottom_she
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
+import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 
 Future<T?> showSmoothModalSheet<T>({
   required BuildContext context,
@@ -98,7 +100,7 @@ class SmoothModalSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Widget bodyChild = Padding(
-      padding: bodyPadding ?? const EdgeInsets.all(MEDIUM_SPACE),
+      padding: bodyPadding ?? const EdgeInsetsDirectional.all(MEDIUM_SPACE),
       child: body,
     );
 
@@ -147,15 +149,23 @@ class SmoothModalSheetHeader extends StatelessWidget implements SizeWidget {
   @override
   Widget build(BuildContext context) {
     final Color primaryColor =
-        Theme.of(context).extension<SmoothColorsThemeExtension>()!.primaryDark;
+        context.extension<SmoothColorsThemeExtension>().primaryDark;
     final Color tintColor = foregroundColor ?? Colors.white;
 
     return IconTheme(
       data: IconThemeData(color: tintColor),
       child: Container(
         height: suffix is SmoothModalSheetHeaderButton ? double.infinity : null,
-        color: backgroundColor ?? primaryColor,
         constraints: const BoxConstraints(minHeight: MIN_HEIGHT),
+        decoration: BoxDecoration(
+          color: backgroundColor ?? primaryColor,
+          boxShadow: <BoxShadow>[
+            BoxShadow(
+              color: Colors.black.withOpacity(0.2),
+              blurRadius: 5.0,
+            ),
+          ],
+        ),
         padding: EdgeInsetsDirectional.only(
           start: (prefix?.requiresPadding == true ? 0 : VERY_LARGE_SPACE),
           top: VERY_SMALL_SPACE,
@@ -225,9 +235,11 @@ class SmoothModalSheetHeaderButton extends StatelessWidget
     this.tooltip,
   });
 
-  static const EdgeInsetsGeometry _padding = EdgeInsetsDirectional.symmetric(
-    horizontal: 15.0,
-    vertical: 10.0,
+  static const EdgeInsetsGeometry _padding = EdgeInsetsDirectional.only(
+    start: LARGE_SPACE - 1,
+    end: LARGE_SPACE,
+    top: BALANCED_SPACE,
+    bottom: BALANCED_SPACE,
   );
 
   final String label;
@@ -238,6 +250,10 @@ class SmoothModalSheetHeaderButton extends StatelessWidget
 
   @override
   Widget build(BuildContext context) {
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
+    final bool lightTheme = context.lightTheme();
+
     return Semantics(
       value: tooltip,
       button: true,
@@ -251,39 +267,34 @@ class SmoothModalSheetHeaderButton extends StatelessWidget
             shape: const RoundedRectangleBorder(
               borderRadius: ROUNDED_BORDER_RADIUS,
             ),
-            foregroundColor: Colors.white,
-            backgroundColor: Theme.of(context).primaryColor,
-            iconColor: Colors.white,
+            foregroundColor: lightTheme ? Colors.black : Colors.white,
+            backgroundColor:
+                lightTheme ? extension.primaryMedium : extension.primaryBlack,
+            iconColor: lightTheme ? Colors.black : Colors.white,
           ),
-          child: IconTheme(
-            data: const IconThemeData(
-              color: Colors.white,
-              size: 20.0,
-            ),
-            child: Row(
-              children: <Widget>[
-                if (prefix != null) ...<Widget>[
-                  prefix!,
-                  const SizedBox(
-                    width: SMALL_SPACE,
-                  ),
-                ],
-                Text(
-                  label,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 17.0,
-                  ),
-                  maxLines: 1,
+          child: Row(
+            children: <Widget>[
+              if (prefix != null) ...<Widget>[
+                prefix!,
+                const SizedBox(
+                  width: SMALL_SPACE,
                 ),
-                if (suffix != null) ...<Widget>[
-                  const SizedBox(
-                    width: SMALL_SPACE,
-                  ),
-                  suffix!,
-                ],
               ],
-            ),
+              Text(
+                label,
+                style: TextStyle(
+                  fontSize: 16.5,
+                  fontWeight: FontWeight.bold,
+                ),
+                maxLines: 1,
+              ),
+              if (suffix != null) ...<Widget>[
+                const SizedBox(
+                  width: SMALL_SPACE,
+                ),
+                suffix!,
+              ],
+            ],
           ),
         ),
       ),
@@ -326,15 +337,15 @@ class SmoothModalSheetHeaderCloseButton extends StatelessWidget
             width: 1.5,
           ),
         ),
-        margin: const EdgeInsets.all(VERY_SMALL_SPACE),
-        padding: const EdgeInsets.all(SMALL_SPACE),
+        margin: const EdgeInsetsDirectional.all(VERY_SMALL_SPACE),
+        padding: const EdgeInsetsDirectional.all(SMALL_SPACE),
         child: const icons.Close(
           size: 13.0,
         ),
       );
     } else {
       icon = const Padding(
-        padding: EdgeInsets.all(MEDIUM_SPACE),
+        padding: EdgeInsetsDirectional.all(MEDIUM_SPACE),
         child: icons.Close(
           size: 15.0,
         ),
@@ -379,14 +390,19 @@ class SmoothModalSheetHeaderPrefixIndicator extends StatelessWidget
   @override
   Widget build(BuildContext context) {
     final SmoothColorsThemeExtension extension =
-        Theme.of(context).extension<SmoothColorsThemeExtension>()!;
+        context.extension<SmoothColorsThemeExtension>();
 
-    return Container(
-      width: 10.0,
-      height: 10.0,
-      decoration: BoxDecoration(
-        color: extension.secondaryNormal,
-        shape: BoxShape.circle,
+    return Padding(
+      padding: const EdgeInsetsDirectional.only(end: VERY_SMALL_SPACE),
+      child: SizedBox(
+        width: 10.0,
+        height: 10.0,
+        child: DecoratedBox(
+          decoration: BoxDecoration(
+            color: extension.secondaryNormal,
+            shape: BoxShape.circle,
+          ),
+        ),
       ),
     );
   }

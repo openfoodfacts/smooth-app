@@ -337,13 +337,16 @@ class UserPreferencesMultipleChoicesItem<T> extends StatelessWidget {
 
         // If there is not enough space, we use the scrolling sheet
         final T? res;
-        final SmoothModalSheetHeader header =
-            SmoothModalSheetHeader(title: title);
+        final SmoothModalSheetHeader header = SmoothModalSheetHeader(
+          title: title,
+          prefix: const SmoothModalSheetHeaderPrefixIndicator(),
+        );
+
         if ((itemHeight * labels.length + header.computeHeight(context)) >
             (queryData.size.height * 0.9) - queryData.viewPadding.top) {
           res = await showSmoothDraggableModalSheet<T>(
               context: context,
-              header: SmoothModalSheetHeader(title: title),
+              header: header,
               bodyBuilder: (BuildContext context) {
                 return SliverList(
                   delegate: SliverChildBuilderDelegate(
@@ -370,6 +373,7 @@ class UserPreferencesMultipleChoicesItem<T> extends StatelessWidget {
         } else {
           final SmoothModalSheet smoothModalSheet = SmoothModalSheet(
             title: title,
+            prefixIndicator: true,
             bodyPadding: EdgeInsets.zero,
             body: SizedBox(
               height: itemHeight * labels.length,
@@ -446,11 +450,13 @@ class _ChoiceItem<T> extends StatelessWidget {
     final ThemeData theme = Theme.of(context);
     final SmoothColorsThemeExtension extension =
         theme.extension<SmoothColorsThemeExtension>()!;
-    final Color? selectedColor = selected
-        ? context.lightTheme()
-            ? extension.primaryMedium
-            : extension.primaryDark
-        : null;
+    final bool lightTheme = context.lightTheme();
+
+    final Color backgroundColor = selected
+        ? (lightTheme ? extension.primaryMedium : extension.primarySemiDark)
+        : context.lightTheme()
+            ? Colors.transparent
+            : extension.primaryUltraBlack;
 
     return Semantics(
       value: label,
@@ -458,7 +464,7 @@ class _ChoiceItem<T> extends StatelessWidget {
       button: true,
       excludeSemantics: true,
       child: Ink(
-        color: selectedColor ?? Colors.transparent,
+        color: backgroundColor,
         child: Column(
           children: <Widget>[
             ListTile(
@@ -467,6 +473,7 @@ class _ChoiceItem<T> extends StatelessWidget {
               title: Text(
                 label,
                 style: theme.textTheme.headlineMedium?.copyWith(
+                  color: !lightTheme ? Colors.white : null,
                   fontWeight: selected ? FontWeight.bold : FontWeight.normal,
                 ),
               ),
