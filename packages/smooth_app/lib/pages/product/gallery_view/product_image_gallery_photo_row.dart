@@ -1,22 +1,25 @@
+import 'dart:io';
+
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_image.dart';
 import 'package:smooth_app/database/transient_file.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/image_field_extension.dart';
 import 'package:smooth_app/pages/image/product_image_helper.dart';
+import 'package:smooth_app/pages/product/gallery_view/product_image_gallery_view.dart';
 import 'package:smooth_app/pages/product/product_image_swipeable_view.dart';
 import 'package:smooth_app/resources/app_animations.dart';
 import 'package:smooth_app/resources/app_icons.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
-class PhotoRow extends StatelessWidget {
-  const PhotoRow({
+class ImageGalleryPhotoRow extends StatefulWidget {
+  const ImageGalleryPhotoRow({
     required this.position,
-    required this.product,
     required this.language,
     required this.imageField,
   });
@@ -24,18 +27,40 @@ class PhotoRow extends StatelessWidget {
   static double itemHeight = 55.0;
 
   final int position;
-  final Product product;
   final OpenFoodFactsLanguage language;
   final ImageField imageField;
 
   @override
+  State<ImageGalleryPhotoRow> createState() => _ImageGalleryPhotoRowState();
+}
+
+class _ImageGalleryPhotoRowState extends State<ImageGalleryPhotoRow> {
+  TransientFile? _initialTransientFile;
+
+  /// A temporary file when the photo is uploading
+  File? _temporaryFile;
+
+  @override
   Widget build(BuildContext context) {
-    final TransientFile transientFile = _getTransientFile(imageField);
+    final Product product = context.watch<Product>();
+
+    final TransientFile transientFile = _getTransientFile(
+      product,
+      widget.imageField,
+    );
+    _initialTransientFile ??= transientFile;
+
+    if (_temporaryFile != null &&
+        _initialTransientFile?.uploadedDate != transientFile.uploadedDate) {
+      /// The temporary file is not needed anymore
+      _temporaryFile = null;
+    }
 
     final bool expired = transientFile.expired;
 
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final String label = imageField.getProductImageTitle(appLocalizations);
+    final String label =
+        widget.imageField.getProductImageTitle(appLocalizations);
 
     final SmoothColorsThemeExtension extension =
         context.extension<SmoothColorsThemeExtension>();
@@ -54,16 +79,18 @@ class PhotoRow extends StatelessWidget {
         borderRadius: ANGULAR_BORDER_RADIUS,
         child: InkWell(
           borderRadius: ANGULAR_BORDER_RADIUS,
-          onTap: () => _openImage(
+          onTap: () => _onTap(
             context: context,
-            initialImageIndex: position,
+            product: product,
+            transientFile: transientFile,
+            initialImageIndex: widget.position,
           ),
           child: ClipRRect(
             borderRadius: ANGULAR_BORDER_RADIUS,
             child: Column(
               children: <Widget>[
                 SizedBox(
-                  height: itemHeight,
+                  height: ImageGalleryPhotoRow.itemHeight,
                   child: Row(
                     children: <Widget>[
                       _PhotoRowIndicator(transientFile: transientFile),
@@ -107,6 +134,13 @@ class PhotoRow extends StatelessWidget {
                       Positioned.fill(
                         child: LayoutBuilder(
                           builder: (BuildContext context, BoxConstraints box) {
+                            if (_temporaryFile != null) {
+                              return Image.file(
+                                _temporaryFile!,
+                                fit: BoxFit.contain,
+                              );
+                            }
+
                             return ProductPicture.fromTransientFile(
                               transientFile: transientFile,
                               size: Size(box.maxWidth, box.maxHeight),
@@ -117,14 +151,15 @@ class PhotoRow extends StatelessWidget {
                               ),
                               heroTag: ProductPicture.generateHeroTag(
                                 product.barcode!,
-                                imageField,
+                                widget.imageField,
                               ),
                             );
                           },
                         ),
                       ),
-                      if (transientFile.isImageAvailable() &&
-                          !transientFile.isServerImage())
+                      if (_temporaryFile != null ||
+                          transientFile.isImageAvailable() &&
+                              !transientFile.isServerImage())
                         const Center(
                           child: CloudUploadAnimation.circle(size: 50.0),
                         ),
@@ -139,8 +174,35 @@ class PhotoRow extends StatelessWidget {
     );
   }
 
+  Future<void> _onTap({
+    required final BuildContext context,
+    required final Product product,
+    required final TransientFile transientFile,
+    required int initialImageIndex,
+  }) async {
+    if (transientFile.isImageAvailable()) {
+      return _openImage(
+        context: context,
+        product: product,
+        initialImageIndex: initialImageIndex,
+      );
+    } else {
+      _temporaryFile = await ProductImageGalleryView.takePicture(
+        context: context,
+        product: product,
+        language: widget.language,
+        imageField: widget.imageField,
+      );
+
+      if (_temporaryFile != null) {
+        setState(() {});
+      }
+    }
+  }
+
   Future<void> _openImage({
     required BuildContext context,
+    required final Product product,
     required int initialImageIndex,
   }) async =>
       Navigator.push(
@@ -150,18 +212,19 @@ class PhotoRow extends StatelessWidget {
             initialImageIndex: initialImageIndex,
             product: product,
             isLoggedInMandatory: true,
-            initialLanguage: language,
+            initialLanguage: widget.language,
           ),
         ),
       );
 
   TransientFile _getTransientFile(
+    final Product product,
     final ImageField imageField,
   ) =>
       TransientFile.fromProduct(
         product,
         imageField,
-        language,
+        widget.language,
       );
 }
 

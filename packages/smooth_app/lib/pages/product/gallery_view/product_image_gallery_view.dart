@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -12,6 +14,7 @@ import 'package:smooth_app/helpers/border_radius_helper.dart';
 import 'package:smooth_app/helpers/image_field_extension.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
+import 'package:smooth_app/pages/crop_parameters.dart';
 import 'package:smooth_app/pages/image/product_image_gallery_other_view.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
@@ -36,6 +39,30 @@ class ProductImageGalleryView extends StatefulWidget {
   @override
   State<ProductImageGalleryView> createState() =>
       _ProductImageGalleryViewState();
+
+  static Future<File?> takePicture({
+    required BuildContext context,
+    required Product product,
+    required ImageField imageField,
+    required OpenFoodFactsLanguage language,
+  }) async {
+    AnalyticsHelper.trackProductEdit(
+      AnalyticsEditEvents.photos,
+      product,
+      true,
+    );
+
+    final CropParameters? cropParameters = await confirmAndUploadNewPicture(
+      context,
+      imageField: imageField,
+      barcode: product.barcode!,
+      language: language,
+      isLoggedInMandatory: true,
+      productType: product.productType,
+    );
+
+    return cropParameters?.smallCroppedFile;
+  }
 }
 
 class _ProductImageGalleryViewState extends State<ProductImageGalleryView>
@@ -60,126 +87,137 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView>
     context.watch<LocalDatabase>();
     refreshUpToDate();
 
-    return Provider<Product>.value(
-      value: upToDateProduct,
-      child: SmoothSharedAnimationController(
-        child: SmoothScaffold(
-          appBar: buildEditProductAppBar(
-            context: context,
-            title: appLocalizations.edit_product_form_item_photos_title,
-            product: upToDateProduct,
-            bottom: ProductImageGalleryTabBar(
-              onTabChanged: (final OpenFoodFactsLanguage language) =>
-                  onNextFrame(
-                () => setState(() => _language = language),
+    return MultiProvider(
+      providers: <Provider<dynamic>>[
+        Provider<Product>(
+          create: (_) => upToDateProduct,
+        ),
+        Provider<OpenFoodFactsLanguage>.value(
+          value: _language,
+        ),
+      ],
+      child: Provider<Product>.value(
+        value: upToDateProduct,
+        child: SmoothSharedAnimationController(
+          child: SmoothScaffold(
+            appBar: buildEditProductAppBar(
+              context: context,
+              title: appLocalizations.edit_product_form_item_photos_title,
+              product: upToDateProduct,
+              bottom: ProductImageGalleryTabBar(
+                onTabChanged: (final OpenFoodFactsLanguage language) =>
+                    onNextFrame(
+                  () => setState(() => _language = language),
+                ),
+                padding: const EdgeInsetsDirectional.only(start: 55.0),
               ),
-              padding: const EdgeInsetsDirectional.only(start: 55.0),
             ),
-          ),
-          body: Stack(
-            children: <Widget>[
-              Positioned.fill(
-                child: Column(
-                  children: <Widget>[
-                    Expanded(
-                      child: RefreshIndicator(
-                        onRefresh: () async =>
-                            ProductRefresher().fetchAndRefresh(
-                          barcode: barcode,
-                          context: context,
-                        ),
-                        child: CustomScrollView(
-                          slivers: <Widget>[
-                            SliverPadding(
-                              padding: const EdgeInsetsDirectional.only(
-                                top: VERY_SMALL_SPACE,
-                              ),
-                              sliver: SliverGrid(
-                                gridDelegate:
-                                    SliverGridDelegateWithFixedCrossAxisCountAndFixedHeight(
-                                  crossAxisCount: 2,
-                                  height: (MediaQuery.sizeOf(context).width /
-                                          2.15) +
-                                      PhotoRow.itemHeight,
+            body: Stack(
+              children: <Widget>[
+                Positioned.fill(
+                  child: Column(
+                    children: <Widget>[
+                      Expanded(
+                        child: RefreshIndicator(
+                          onRefresh: () async =>
+                              ProductRefresher().fetchAndRefresh(
+                            barcode: barcode,
+                            context: context,
+                          ),
+                          child: CustomScrollView(
+                            slivers: <Widget>[
+                              SliverPadding(
+                                padding: const EdgeInsetsDirectional.only(
+                                  top: VERY_SMALL_SPACE,
                                 ),
-                                delegate: SliverChildBuilderDelegate(
-                                  (BuildContext context, int index) {
-                                    return Padding(
-                                      padding: EdgeInsetsDirectional.only(
-                                        top: VERY_SMALL_SPACE,
-                                        start: index.isOdd
-                                            ? VERY_SMALL_SPACE / 2
-                                            : VERY_SMALL_SPACE,
-                                        end: index.isOdd
-                                            ? VERY_SMALL_SPACE
-                                            : VERY_SMALL_SPACE / 2,
-                                      ),
-                                      child: PhotoRow(
-                                        position: index,
-                                        imageField: _mainImageFields[index],
-                                        product: upToDateProduct,
-                                        language: _language,
-                                      ),
-                                    );
-                                  },
-                                  childCount: _mainImageFields.length,
-                                  addAutomaticKeepAlives: false,
-                                ),
-                              ),
-                            ),
-                            SliverPadding(
-                              padding: const EdgeInsetsDirectional.symmetric(
-                                vertical: MEDIUM_SPACE,
-                                horizontal: SMALL_SPACE,
-                              ),
-                              sliver: SliverToBoxAdapter(
-                                child: Text(
-                                  appLocalizations.more_photos,
-                                  style:
-                                      Theme.of(context).textTheme.displayMedium,
-                                ),
-                              ),
-                            ),
-                            if (_shouldDisplayRawGallery())
-                              ProductImageGalleryOtherView(
-                                  product: upToDateProduct)
-                            else
-                              SliverToBoxAdapter(
-                                child: Padding(
-                                  padding: const EdgeInsets.all(SMALL_SPACE),
-                                  child: SmoothLargeButtonWithIcon(
-                                    text:
-                                        appLocalizations.view_more_photo_button,
-                                    icon: Icons.photo_camera_rounded,
-                                    onPressed: () => setState(
-                                      () => _clickedOtherPictureButton = true,
-                                    ),
+                                sliver: SliverGrid(
+                                  gridDelegate:
+                                      SliverGridDelegateWithFixedCrossAxisCountAndFixedHeight(
+                                    crossAxisCount: 2,
+                                    height: (MediaQuery.sizeOf(context).width /
+                                            2.15) +
+                                        ImageGalleryPhotoRow.itemHeight,
+                                  ),
+                                  delegate: SliverChildBuilderDelegate(
+                                    (BuildContext context, int index) {
+                                      return Padding(
+                                        padding: EdgeInsetsDirectional.only(
+                                          top: VERY_SMALL_SPACE,
+                                          start: index.isOdd
+                                              ? VERY_SMALL_SPACE / 2
+                                              : VERY_SMALL_SPACE,
+                                          end: index.isOdd
+                                              ? VERY_SMALL_SPACE
+                                              : VERY_SMALL_SPACE / 2,
+                                        ),
+                                        child: ImageGalleryPhotoRow(
+                                          position: index,
+                                          imageField: _mainImageFields[index],
+                                          language: _language,
+                                        ),
+                                      );
+                                    },
+                                    childCount: _mainImageFields.length,
+                                    addAutomaticKeepAlives: false,
                                   ),
                                 ),
                               ),
-                            SliverToBoxAdapter(
-                              child: SizedBox(
-                                height:
-                                    MediaQuery.viewPaddingOf(context).bottom +
-                                        (VERY_LARGE_SPACE * 2.5),
+                              SliverPadding(
+                                padding: const EdgeInsetsDirectional.symmetric(
+                                  vertical: MEDIUM_SPACE,
+                                  horizontal: SMALL_SPACE,
+                                ),
+                                sliver: SliverToBoxAdapter(
+                                  child: Text(
+                                    appLocalizations.more_photos,
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .displayMedium,
+                                  ),
+                                ),
                               ),
-                            )
-                          ],
+                              if (_shouldDisplayRawGallery())
+                                ProductImageGalleryOtherView(
+                                  product: upToDateProduct,
+                                )
+                              else
+                                SliverToBoxAdapter(
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(SMALL_SPACE),
+                                    child: SmoothLargeButtonWithIcon(
+                                      text: appLocalizations
+                                          .view_more_photo_button,
+                                      icon: Icons.photo_camera_rounded,
+                                      onPressed: () => setState(
+                                        () => _clickedOtherPictureButton = true,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              SliverToBoxAdapter(
+                                child: SizedBox(
+                                  height:
+                                      MediaQuery.viewPaddingOf(context).bottom +
+                                          (VERY_LARGE_SPACE * 2.5),
+                                ),
+                              )
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-              Positioned.directional(
-                textDirection: Directionality.of(context),
-                bottom: 0.0,
-                end: 0.0,
-                child: const _ProductImageGalleryFooterButton(),
-              ),
-            ],
+                Positioned.directional(
+                  textDirection: Directionality.of(context),
+                  bottom: 0.0,
+                  end: 0.0,
+                  child: const _ProductImageGalleryFooterButton(),
+                ),
+              ],
+            ),
+            persistentFooterAlignment: AlignmentDirectional.bottomEnd,
           ),
-          persistentFooterAlignment: AlignmentDirectional.bottomEnd,
         ),
       ),
     );
@@ -226,23 +264,12 @@ class _ProductImageGalleryFooterButton extends StatelessWidget {
           type: MaterialType.transparency,
           child: InkWell(
             borderRadius: borderRadius,
-            onTap: () async {
-              final Product product = context.read<Product>();
-
-              AnalyticsHelper.trackProductEdit(
-                AnalyticsEditEvents.photos,
-                product,
-                true,
-              );
-              await confirmAndUploadNewPicture(
-                context,
-                imageField: ImageField.OTHER,
-                barcode: product.barcode!,
-                language: ProductQuery.getLanguage(),
-                isLoggedInMandatory: true,
-                productType: product.productType,
-              );
-            },
+            onTap: () async => ProductImageGalleryView.takePicture(
+              context: context,
+              product: context.read<Product>(),
+              imageField: ImageField.OTHER,
+              language: context.read<OpenFoodFactsLanguage>(),
+            ),
             child: Padding(
               padding: EdgeInsetsDirectional.only(
                 top: LARGE_SPACE,

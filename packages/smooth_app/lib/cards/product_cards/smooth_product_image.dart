@@ -22,6 +22,7 @@ class ProductPicture extends StatefulWidget {
     required Product product,
     required ImageField imageField,
     required Size size,
+    OpenFoodFactsLanguage? language,
     String? fallbackUrl,
     VoidCallback? onTap,
     String? heroTag,
@@ -34,6 +35,7 @@ class ProductPicture extends StatefulWidget {
           transientFile: null,
           product: product,
           imageField: imageField,
+          language: language ?? ProductQuery.getLanguage(),
           size: size,
           fallbackUrl: fallbackUrl,
           heroTag: heroTag,
@@ -60,6 +62,7 @@ class ProductPicture extends StatefulWidget {
           transientFile: transientFile,
           product: null,
           imageField: null,
+          language: null,
           size: size,
           fallbackUrl: fallbackUrl,
           heroTag: heroTag,
@@ -74,6 +77,7 @@ class ProductPicture extends StatefulWidget {
   ProductPicture._({
     required this.product,
     required this.imageField,
+    required this.language,
     required this.transientFile,
     required this.size,
     this.fallbackUrl,
@@ -92,6 +96,8 @@ class ProductPicture extends StatefulWidget {
 
   final Product? product;
   final ImageField? imageField;
+  final OpenFoodFactsLanguage? language;
+
   final TransientFile? transientFile;
   final Size size;
   final String? fallbackUrl;
@@ -218,7 +224,7 @@ class _ProductPictureState extends State<ProductPicture> {
     final TransientFile productTransientFile = TransientFile.fromProduct(
       product!,
       widget.imageField!,
-      ProductQuery.getLanguage(),
+      widget.language ?? ProductQuery.getLanguage(),
     );
     final ImageProvider? imageProvider =
         productTransientFile.getImageProvider();
