@@ -151,23 +151,29 @@ class SmoothTheme {
       switchTheme: SwitchThemeData(
         thumbColor:
             WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
-          if (states.contains(WidgetState.disabled)) {
+          if (states.contains(WidgetState.selected)) {
+            if (brightness == Brightness.light) {
+              return smoothExtension.primaryDark;
+            } else {
+              return smoothExtension.primarySemiDark;
+            }
+          } else if (states.contains(WidgetState.disabled)) {
+            if (brightness == Brightness.light) {
+              return const Color(0xFFC2B5B0);
+            } else {
+              return smoothExtension.primaryNormal;
+            }
+          } else {
             return null;
           }
-          if (states.contains(WidgetState.selected)) {
-            return myColorScheme.primary;
-          }
-          return null;
         }),
         trackColor:
             WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
-          if (states.contains(WidgetState.disabled)) {
-            return null;
+          if (brightness == Brightness.light) {
+            return smoothExtension.primaryMedium;
+          } else {
+            return const Color(0xFFEDE0DB);
           }
-          if (states.contains(WidgetState.selected)) {
-            return myColorScheme.primary;
-          }
-          return null;
         }),
       ),
     );
