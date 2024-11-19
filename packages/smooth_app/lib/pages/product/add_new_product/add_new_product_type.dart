@@ -64,13 +64,13 @@ class _AddNewProductType extends State<ProductTypeRadioListTile>
 
     return Semantics(
       label:
-          '${widget.productType.getTitle(AppLocalizations.of(context))} ${widget.productType.getSubtitle(AppLocalizations.of(context))}',
+          '${widget.productType.getTitle(appLocalizations)} ${widget.productType.getSubtitle(appLocalizations)}',
       checked: widget.checked,
       excludeSemantics: true,
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(
-          color: _colorAnimation!.value,
+          color: _colorAnimation.value,
           borderRadius: ANGULAR_BORDER_RADIUS,
           border: Border.all(
             color: lightTheme ? theme.primarySemiDark : theme.primaryNormal,
@@ -94,8 +94,7 @@ class _AddNewProductType extends State<ProductTypeRadioListTile>
                     bottomRight: Radius.circular(ANGULAR_RADIUS.x - 2.0),
                   ),
                   child: SvgPicture.asset(
-                    widget.productType
-                        .getIllustration(AppLocalizations.of(context)),
+                    widget.productType.getIllustration(appLocalizations),
                     width: 50.0,
                   ),
                 ),
@@ -120,7 +119,7 @@ class _AddNewProductType extends State<ProductTypeRadioListTile>
                         shape: BoxShape.circle,
                       ),
                       child: Opacity(
-                        opacity: _opacityAnimation!.value,
+                        opacity: _opacityAnimation.value,
                         child: const icons.Check(
                           size: 9.0,
                         ),
@@ -136,8 +135,7 @@ class _AddNewProductType extends State<ProductTypeRadioListTile>
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             Text(
-                              widget.productType
-                                  .getTitle(AppLocalizations.of(context)),
+                              widget.productType.getTitle(appLocalizations),
                               overflow: TextOverflow.ellipsis,
                               maxLines: 1,
                               style: TextStyle(
@@ -147,8 +145,7 @@ class _AddNewProductType extends State<ProductTypeRadioListTile>
                             ),
                             const SizedBox(height: 0.0),
                             Text(
-                              widget.productType
-                                  .getSubtitle(AppLocalizations.of(context)),
+                              widget.productType.getSubtitle(appLocalizations),
                               overflow: TextOverflow.ellipsis,
                               style: TextStyle(
                                 color: lightTheme
