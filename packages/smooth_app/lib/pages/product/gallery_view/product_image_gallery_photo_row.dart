@@ -22,6 +22,7 @@ class ImageGalleryPhotoRow extends StatefulWidget {
     required this.position,
     required this.language,
     required this.imageField,
+    super.key,
   });
 
   static double itemHeight = 55.0;
@@ -35,6 +36,7 @@ class ImageGalleryPhotoRow extends StatefulWidget {
 }
 
 class _ImageGalleryPhotoRowState extends State<ImageGalleryPhotoRow> {
+  /// Save the initial file
   TransientFile? _initialTransientFile;
 
   /// A temporary file when the photo is uploading

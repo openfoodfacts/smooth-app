@@ -151,6 +151,9 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView>
                                               : VERY_SMALL_SPACE / 2,
                                         ),
                                         child: ImageGalleryPhotoRow(
+                                          key: Key(
+                                            '${_mainImageFields[index]}_${_language.offTag}}',
+                                          ),
                                           position: index,
                                           imageField: _mainImageFields[index],
                                           language: _language,
