@@ -9,10 +9,10 @@ import 'package:smooth_app/themes/theme_provider.dart';
 
 class ProductTypeRadioListTile extends StatefulWidget {
   const ProductTypeRadioListTile({
-    super.key,
     required this.productType,
     required this.checked,
     required this.onChanged,
+    super.key,
   });
 
   final ProductType productType;
