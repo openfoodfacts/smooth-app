@@ -265,6 +265,7 @@ class _ProductPictureWithImageProvider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final bool lightTheme = context.lightTheme();
 
     final Widget image = Semantics(
       label: appLocalizations.product_page_image_front_accessibility_label,
@@ -276,10 +277,10 @@ class _ProductPictureWithImageProvider extends StatelessWidget {
           children: <Widget>[
             Positioned.fill(
               child: ColoredBox(
-                color: Colors.white,
+                color: lightTheme ? Colors.white : Colors.black,
                 child: ClipRRect(
                   child: Opacity(
-                    opacity: context.lightTheme() ? 0.2 : 0.65,
+                    opacity: lightTheme ? 0.2 : 0.55,
                     child: ImageFiltered(
                       imageFilter: ImageFilter.blur(sigmaX: 8.0, sigmaY: 8.0),
                       child: Image(
@@ -370,13 +371,9 @@ class _ProductPictureWithImageProvider extends StatelessWidget {
         if (loadingProgress == null) {
           return child;
         }
-        return Center(
-          child: CircularProgressIndicator.adaptive(
-            value: loadingProgress.expectedTotalBytes != null
-                ? loadingProgress.cumulativeBytesLoaded /
-                    loadingProgress.expectedTotalBytes!
-                : null,
-          ),
+
+        return const Center(
+          child: CircularProgressIndicator(),
         );
       },
       errorBuilder: (_, __, ___) {

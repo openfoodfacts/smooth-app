@@ -280,6 +280,7 @@ Future<CropParameters?> confirmAndUploadNewPicture(
   required final ProductType? productType,
   required final OpenFoodFactsLanguage language,
   required final bool isLoggedInMandatory,
+  final UserPictureSource? forcedSource,
 }) async =>
     confirmAndUploadNewImage(
       context,
@@ -290,6 +291,7 @@ Future<CropParameters?> confirmAndUploadNewPicture(
         productType: productType,
       ),
       isLoggedInMandatory: isLoggedInMandatory,
+      forcedSource: forcedSource,
     );
 
 /// Lets the user pick a picture, crop it, and save it.

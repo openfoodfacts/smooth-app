@@ -10,7 +10,6 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_list_tile_card.dart';
-import 'package:smooth_app/generic_lib/widgets/svg_icon.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/onboarding/currency_selector_helper.dart';
@@ -189,10 +188,7 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
               ),
               if (upToDateProduct.productType != ProductType.product)
                 _ListTitleItem(
-                  leading: SvgIcon(
-                    'assets/cacheTintable/ingredients.svg',
-                    dontAddColor: context.lightTheme(),
-                  ),
+                  leading: const icons.Ingredients.alt(),
                   title:
                       appLocalizations.edit_product_form_item_ingredients_title,
                   onTap: () async => ProductFieldOcrIngredientEditor().edit(
@@ -235,10 +231,7 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
                     }),
               _getSimpleListTileItem(SimpleInputPageLabelHelper()),
               _ListTitleItem(
-                leading: SvgIcon(
-                  'assets/cacheTintable/packaging.svg',
-                  dontAddColor: context.lightTheme(),
-                ),
+                leading: const icons.Packaging(),
                 title: appLocalizations.edit_packagings_title,
                 onTap: () async => ProductFieldPackagingEditor().edit(
                   context: context,
@@ -246,7 +239,7 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
                 ),
               ),
               _ListTitleItem(
-                leading: const Icon(Icons.recycling),
+                leading: const icons.Recycling(),
                 title: appLocalizations.edit_product_form_item_packaging_title,
                 onTap: () async => ProductFieldOcrPackagingEditor().edit(
                   context: context,
@@ -427,6 +420,7 @@ class _ProductBarcodeState extends State<_ProductBarcode> {
         horizontal: screenSize.width / 4,
         vertical: SMALL_SPACE,
       ),
+      color: context.lightTheme() ? Colors.black : Colors.white,
       barcode: widget.product.barcode!,
       onInvalidBarcode: () {
         if (!_isAnInvalidBarcode) {

@@ -207,7 +207,7 @@ class _ProductHeaderName extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
               style: const TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 18.0,
+                fontSize: 17.0,
                 height: 0.9,
               ),
             ),

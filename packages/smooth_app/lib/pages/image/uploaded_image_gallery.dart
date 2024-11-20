@@ -44,8 +44,11 @@ class UploadedImageGallery extends StatelessWidget {
 
     return SmoothScaffold(
       backgroundColor: Colors.black,
+      brightness: Brightness.light,
       appBar: SmoothAppBar(
         title: Text(appLocalizations.edit_photo_select_existing_all_label),
+        subTitle:
+            Text(appLocalizations.edit_photo_select_existing_all_subtitle),
         backgroundColor: Colors.black,
         foregroundColor: WHITE_COLOR,
         elevation: 0,
@@ -63,54 +66,95 @@ class UploadedImageGallery extends StatelessWidget {
           // order by descending ids
           index = rawImages.length - 1 - index;
           final ProductImage rawImage = rawImages[index];
-          return GestureDetector(
-            onTap: () async {
-              final LocalDatabase localDatabase = context.read<LocalDatabase>();
-              final NavigatorState navigatorState = Navigator.of(context);
-              final File? imageFile = await downloadImageUrl(
-                context,
-                rawImage.getUrl(
-                  barcode,
-                  imageSize: ImageSize.ORIGINAL,
-                  uriHelper: ProductQuery.getUriProductHelper(
-                    productType: productType,
-                  ),
-                ),
-                DaoInt(localDatabase),
-              );
-              if (imageFile == null) {
-                return;
-              }
-              final CropParameters? parameters =
-                  await navigatorState.push<CropParameters>(
-                MaterialPageRoute<CropParameters>(
-                  builder: (BuildContext context) => CropPage(
-                    inputFile: imageFile,
-                    initiallyDifferent: true,
-                    isLoggedInMandatory: isLoggedInMandatory,
-                    cropHelper: ProductCropAgainHelper(
+
+          return Padding(
+            padding: EdgeInsetsDirectional.only(
+              start: VERY_SMALL_SPACE,
+              end: index.isEven ? VERY_SMALL_SPACE : 0.0,
+              bottom: VERY_SMALL_SPACE,
+            ),
+            child: InkWell(
+              borderRadius: ANGULAR_BORDER_RADIUS,
+              onTap: () async {},
+              child: Stack(
+                children: <Widget>[
+                  Positioned.fill(
+                    child: ProductImageWidget(
+                      productImage: rawImage,
                       barcode: barcode,
+                      squareSize: columnWidth,
                       productType: productType,
-                      imageField: imageField,
-                      imageId: int.parse(rawImage.imgid!),
-                      language: language,
                     ),
                   ),
-                  fullscreenDialog: true,
-                ),
-              );
-              if (parameters != null) {
-                navigatorState.pop();
-              }
-            },
-            child: ProductImageWidget(
-              productImage: rawImage,
-              barcode: barcode,
-              squareSize: columnWidth,
-              productType: productType,
+                  Positioned.fill(
+                    child: Material(
+                      type: MaterialType.transparency,
+                      child: InkWell(
+                        borderRadius: ANGULAR_BORDER_RADIUS,
+                        onTap: () async =>
+                            Navigator.of(context).pop<CropParameters?>(
+                          await useExistingPhotoFor(
+                            context: context,
+                            rawImage: rawImage,
+                            barcode: barcode,
+                            imageField: imageField,
+                            isLoggedInMandatory: isLoggedInMandatory,
+                            productType: productType,
+                            language: language,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           );
         },
+      ),
+    );
+  }
+
+  static Future<CropParameters?> useExistingPhotoFor({
+    required final BuildContext context,
+    required final ProductImage rawImage,
+    required final String barcode,
+    required final ImageField imageField,
+    required final bool isLoggedInMandatory,
+    required final ProductType? productType,
+    required final OpenFoodFactsLanguage language,
+  }) async {
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
+    final File? imageFile = await downloadImageUrl(
+      context,
+      rawImage.getUrl(
+        barcode,
+        imageSize: ImageSize.ORIGINAL,
+        uriHelper: ProductQuery.getUriProductHelper(
+          productType: productType,
+        ),
+      ),
+      DaoInt(localDatabase),
+    );
+    if (imageFile == null || !context.mounted) {
+      return null;
+    }
+
+    return Navigator.of(context).push<CropParameters>(
+      MaterialPageRoute<CropParameters>(
+        builder: (BuildContext context) => CropPage(
+          inputFile: imageFile,
+          initiallyDifferent: true,
+          isLoggedInMandatory: isLoggedInMandatory,
+          cropHelper: ProductCropAgainHelper(
+            barcode: barcode,
+            productType: productType,
+            imageField: imageField,
+            imageId: int.parse(rawImage.imgid!),
+            language: language,
+          ),
+        ),
+        fullscreenDialog: true,
       ),
     );
   }

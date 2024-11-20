@@ -298,7 +298,8 @@ class _AppBarTitle extends StatelessWidget {
         ),
         if (subTitle != null)
           DefaultTextStyle(
-            style: theme.textTheme.bodyMedium ?? const TextStyle(),
+            style: (theme.textTheme.bodyMedium ?? const TextStyle())
+                .copyWith(color: color),
             child: ExcludeSemantics(
               excluding: ignoreSemanticsForSubtitle ?? false,
               child: subTitle,

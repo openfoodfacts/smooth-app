@@ -70,7 +70,8 @@ class _ProductImageGalleryTabBarState extends State<ProductImageGalleryTabBar>
             ) {
               if (provider.value.languages == null) {
                 return const Center(
-                    child: CircularProgressIndicator.adaptive());
+                  child: CircularProgressIndicator.adaptive(),
+                );
               }
 
               /// We need a Stack to have to tab bar shadow below the button
@@ -116,16 +117,17 @@ class _ProductImageGalleryTabBarState extends State<ProductImageGalleryTabBar>
   }
 
   void _updateListener() {
-    if (_provider.value.languages != null) {
+    final _ImageGalleryLanguagesState value = _provider.value;
+
+    if (value.languages != null) {
       final int initialIndex = _tabController?.index ?? -1;
-      final int newIndex = _provider.value.selectedLanguage != null
-          ? _provider.value.languages!
-              .indexOf(_provider.value.selectedLanguage!)
+      final int newIndex = value.selectedLanguage != null
+          ? value.languages!.indexOf(value.selectedLanguage!)
           : initialIndex;
 
-      if (_tabController?.length != _provider.value.languages!.length) {
+      if (_tabController?.length != value.languages!.length) {
         _tabController = TabController(
-          length: _provider.value.languages!.length,
+          length: value.languages!.length,
           vsync: this,
           initialIndex: newIndex >= 0 ? newIndex : 0,
         );
@@ -136,8 +138,8 @@ class _ProductImageGalleryTabBarState extends State<ProductImageGalleryTabBar>
         });
       }
 
-      if (newIndex >= 0 && initialIndex != newIndex) {
-        widget.onTabChanged.call(_provider.value.selectedLanguage!);
+      if (value.initialValue || (newIndex >= 0 && initialIndex != newIndex)) {
+        widget.onTabChanged.call(value.selectedLanguage!);
       }
     }
   }
@@ -150,6 +152,7 @@ class _ImageGalleryAddLanguageButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final SmoothColorsThemeExtension theme =
         context.extension<SmoothColorsThemeExtension>();
+    final bool lightTheme = context.lightTheme();
 
     final BorderRadius borderRadius = BorderRadiusHelper.fromDirectional(
       context: context,
@@ -167,8 +170,13 @@ class _ImageGalleryAddLanguageButton extends StatelessWidget {
         child: DecoratedBox(
           decoration: BoxDecoration(
             borderRadius: borderRadius,
-            color:
-                context.lightTheme() ? theme.primaryDark : theme.primaryNormal,
+            border: Border(
+              bottom: BorderSide(
+                color: lightTheme ? theme.primarySemiDark : theme.primaryDark,
+                width: lightTheme ? 1.5 : 2.0,
+              ),
+            ),
+            color: lightTheme ? theme.primaryDark : theme.primaryNormal,
           ),
           child: Material(
             type: MaterialType.transparency,
@@ -227,18 +235,19 @@ class _ImageGalleryLanguagesProvider
 
   void attachProduct(final Product product) {
     this.product = product;
-    refreshLanguages();
+    refreshLanguages(initial: true);
   }
 
-  void refreshLanguages() {
+  void refreshLanguages({bool initial = false}) {
     final List<OpenFoodFactsLanguage> imageLanguages = <OpenFoodFactsLanguage>{
       ...getProductImageLanguages(product, ImageField.FRONT),
       ...getProductImageLanguages(product, ImageField.INGREDIENTS),
       ...getProductImageLanguages(product, ImageField.NUTRITION),
       ...getProductImageLanguages(product, ImageField.PACKAGING),
     }.toList(growable: false)
-      ..sort((final OpenFoodFactsLanguage a, final OpenFoodFactsLanguage b) =>
-          a.name.compareTo(b.name));
+      ..sort((final OpenFoodFactsLanguage a, final OpenFoodFactsLanguage b) {
+        return a.code.compareTo(b.code);
+      });
 
     /// The main language is always the first, then the user one
     final OpenFoodFactsLanguage userLanguage = ProductQuery.getLanguage();
@@ -263,6 +272,7 @@ class _ImageGalleryLanguagesProvider
     value = _ImageGalleryLanguagesState(
       languages: languages,
       selectedLanguage: mainLanguage ?? userLanguage,
+      initialValue: initial,
     );
   }
 
@@ -300,15 +310,19 @@ class _ImageGalleryLanguagesState {
     required this.languages,
     required this.selectedLanguage,
     this.hasNewLanguage = false,
+    this.initialValue = false,
   }) : assert(
-            selectedLanguage == null || languages!.contains(selectedLanguage));
+          selectedLanguage == null || languages!.contains(selectedLanguage),
+        );
 
   const _ImageGalleryLanguagesState.empty()
       : languages = null,
         selectedLanguage = null,
-        hasNewLanguage = false;
+        hasNewLanguage = false,
+        initialValue = false;
 
   final List<OpenFoodFactsLanguage>? languages;
   final OpenFoodFactsLanguage? selectedLanguage;
+  final bool initialValue;
   final bool hasNewLanguage;
 }

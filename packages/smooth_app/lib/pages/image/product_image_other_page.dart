@@ -3,26 +3,34 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/database/transient_file.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
+import 'package:smooth_app/pages/crop_parameters.dart';
 import 'package:smooth_app/pages/image/product_image_helper.dart';
+import 'package:smooth_app/pages/image/uploaded_image_gallery.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_languages_list.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
+import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Full page display of a raw product image.
 class ProductImageOtherPage extends StatefulWidget {
   const ProductImageOtherPage({
     required this.product,
+    required this.language,
     required this.images,
     required this.currentImage,
     this.heroTag,
   });
 
   final Product product;
+  final OpenFoodFactsLanguage language;
   final List<ProductImage> images;
   final ProductImage currentImage;
   final String? heroTag;
@@ -44,7 +52,10 @@ class _ProductImageOtherPageState extends State<ProductImageOtherPage> {
 
   @override
   Widget build(BuildContext context) {
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
     return ChangeNotifierProvider<PageController>.value(
       value: _pageController,
       child: SmoothScaffold(
@@ -52,6 +63,31 @@ class _ProductImageOtherPageState extends State<ProductImageOtherPage> {
           context: context,
           title: appLocalizations.edit_product_form_item_photos_title,
           product: widget.product,
+          actions: <Widget>[
+            PopupMenuButton<int>(
+              icon: const Icon(Icons.more_vert),
+              color: context.lightTheme()
+                  ? extension.primaryLight
+                  : extension.primarySemiDark,
+              menuPadding: EdgeInsets.zero,
+              offset: const Offset(0, 46.0),
+              itemBuilder: (BuildContext context) {
+                return <PopupMenuEntry<int>>[
+                  PopupMenuItem<int>(
+                    value: 1,
+                    child: ListTile(
+                      leading: const icons.Select.photo(),
+                      title: Text(
+                        appLocalizations.photo_viewer_action_use_picture_as,
+                        style: const TextStyle(fontWeight: FontWeight.w600),
+                      ),
+                    ),
+                  ),
+                ];
+              },
+              onSelected: (int value) => _usePhotoAs(),
+            ),
+          ],
         ),
         body: Stack(
           alignment: Alignment.bottomCenter,
@@ -64,6 +100,7 @@ class _ProductImageOtherPageState extends State<ProductImageOtherPage> {
                     return _ProductImageViewer(
                       image: image,
                       barcode: widget.product.barcode!,
+                      language: widget.language,
                       heroTag:
                           widget.currentImage == image ? widget.heroTag : null,
                       productType: widget.product.productType,
@@ -83,18 +120,94 @@ class _ProductImageOtherPageState extends State<ProductImageOtherPage> {
       ),
     );
   }
+
+  Future<void> _usePhotoAs() async {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
+
+    final List<ImageField> imageFields = <ImageField>[
+      ImageField.FRONT,
+      ImageField.INGREDIENTS,
+      ImageField.NUTRITION,
+      ImageField.PACKAGING,
+    ];
+
+    final Widget existingPictureIcon = icons.Picture.checkAlt(
+      color: extension.success,
+      semanticLabel: appLocalizations.photo_already_exists,
+    );
+    final Widget missingPictureIcon = icons.Picture.error(
+      color: extension.error,
+      semanticLabel: appLocalizations.photo_missing,
+    );
+
+    final ImageField? selectedImageField =
+        await showSmoothListOfChoicesModalSheet<ImageField>(
+      context: context,
+      title: appLocalizations.photo_viewer_use_picture_as_title(
+        Languages().getNameInLanguage(widget.language),
+      ),
+      padding: const EdgeInsetsDirectional.only(
+        start: 15.0,
+        end: 19.0,
+      ),
+      labels: <String>[
+        appLocalizations.photo_field_front,
+        appLocalizations.photo_field_ingredients,
+        appLocalizations.photo_field_nutrition,
+        appLocalizations.photo_field_packaging,
+      ],
+      values: imageFields,
+      prefixIcons: <Widget>[
+        const icons.Milk.filled(),
+        const icons.Ingredients.alt(),
+        const icons.NutritionFacts(),
+        const icons.Recycling(),
+      ],
+      suffixIcons: imageFields.map((final ImageField imageField) {
+        final bool exists = TransientFile.fromProduct(
+          widget.product,
+          imageField,
+          widget.language,
+        ).isImageAvailable();
+        return exists ? existingPictureIcon : missingPictureIcon;
+      }).toList(growable: false),
+    );
+
+    if (mounted && selectedImageField != null) {
+      final CropParameters? parameters =
+          await UploadedImageGallery.useExistingPhotoFor(
+        context: context,
+        rawImage: widget.currentImage,
+        barcode: widget.product.barcode!,
+        imageField: selectedImageField,
+        isLoggedInMandatory: true,
+        productType: widget.product.productType,
+        language: widget.language,
+      );
+
+      if (mounted && parameters != null) {
+        Navigator.of(context).pop<ProductImagePageResult>(
+          ProductImagePageResult(parameters, selectedImageField),
+        );
+      }
+    }
+  }
 }
 
 class _ProductImageViewer extends StatelessWidget {
   const _ProductImageViewer({
     required this.image,
     required this.barcode,
-    this.heroTag,
+    required this.language,
     required this.productType,
+    this.heroTag,
   });
 
   final ProductImage image;
   final String barcode;
+  final OpenFoodFactsLanguage language;
   final String? heroTag;
   final ProductType? productType;
 
@@ -372,4 +485,11 @@ class _ProductImagePageIndicator extends StatelessWidget {
       ),
     );
   }
+}
+
+class ProductImagePageResult {
+  ProductImagePageResult(this.cropParameters, this.imageField);
+
+  final CropParameters cropParameters;
+  final ImageField imageField;
 }

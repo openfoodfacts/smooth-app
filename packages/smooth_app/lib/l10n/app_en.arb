@@ -784,6 +784,42 @@
         }
     },
     "product_image_outdated": "This image may be outdated",
+    "product_image_action_replace_photo": "Replace photo ({type})",
+    "@product_image_action_replace_photo": {
+        "description": "Action on the photo gallery to replace an existing picture",
+        "placeholders": {
+            "type": {
+                "type": "String",
+                "description": "The type of the photo (eg: ingredients)"
+            }
+        }
+    },
+    "product_image_action_add_photo": "Add a photo ({type})",
+    "@product_image_action_add_photo": {
+        "description": "Action on the photo gallery to add a photo (eg: ingredients)",
+        "placeholders": {
+            "type": {
+                "type": "String",
+                "description": "The type of the photo (eg: ingredients)"
+            }
+        }
+    },
+    "product_image_action_take_new_picture": "Take a new picture",
+    "@product_image_action_take_new_picture": {
+        "description": "Replace the existing picture with a new one"
+    },
+    "product_image_action_take_picture": "Take a picture",
+    "@product_image_action_take_picture": {
+        "description": "Take a picture (eg: for ingredients) when there is no one"
+    },
+    "product_image_action_from_gallery": "Select from your phone's gallery",
+    "@product_image_action_from_gallery": {
+        "description": "Replace the existing picture with one from the device's gallery"
+    },
+    "product_image_action_choose_existing_photo": "Select from the product photos",
+    "@product_image_action_choose_existing_photo": {
+        "description": "Replace the existing picture with one from the product's photos"
+    },
     "homepage_main_card_logo_description": "Welcome to Open Food Facts",
     "@homepage_main_card_logo_description": {
         "description": "Description for accessibility of the Open Food Facts logo on the homepage"
@@ -2172,8 +2208,12 @@
     "@edit_photo_select_existing_button_label": {
         "description": "Edit 'select existing image' button label"
     },
-    "edit_photo_select_existing_all_label": "Existing images",
+    "edit_photo_select_existing_all_label": "Existing images for this product",
     "@edit_photo_select_existing_all_label": {
+        "description": "Page title"
+    },
+    "edit_photo_select_existing_all_subtitle": "Select an image by clicking on it",
+    "@edit_photo_select_existing_all_subtitle": {
         "description": "Page title"
     },
     "edit_photo_select_existing_download_label": "Retrieving existing images…",
@@ -3107,6 +3147,19 @@
     "@error_loading_photo": {
         "description": "Error message when loading a photo fails to load"
     },
+    "photo_viewer_action_use_picture_as": "Use as…",
+    "@photo_viewer_action_use_picture_as": {
+        "description": "An action to use the current picture to be used as front/ingredients…"
+    },
+    "photo_viewer_use_picture_as_title": "Use this picture as… ({language})",
+    "@photo_viewer_use_picture_as": {
+        "description": "The title of a dialog to use the current picture as front/ingredients…",
+        "placeholders": {
+            "language": {
+                "type": "String"
+            }
+        }
+    },
     "photo_viewer_details_button": "Details",
     "@photo_viewer_details_button": {
         "description": "Button to show details of the photo"
@@ -3287,5 +3340,11 @@
     "product_type_subtitle_product": "Smartphones, furniture…",
     "@product_type_subtitle_product" : {
         "description": "Example of products for other categories"
-    }
+    },
+    "photo_field_front": "Product photo",
+    "photo_field_ingredients": "Ingredients photo",
+    "photo_field_nutrition": "Nutrition photo",
+    "photo_field_packaging": "Packaging information photo",
+    "photo_already_exists": "This photo already exists",
+    "photo_missing": "This photo is missing"
 }

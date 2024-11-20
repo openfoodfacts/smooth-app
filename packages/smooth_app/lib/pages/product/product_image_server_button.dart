@@ -6,6 +6,7 @@ import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
+import 'package:smooth_app/pages/crop_parameters.dart';
 import 'package:smooth_app/pages/image/uploaded_image_gallery.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/product_image_button.dart';
@@ -26,7 +27,7 @@ class ProductImageServerButton extends ProductImageButton {
   bool isHidden() => !_hasServerImages;
 
   @override
-  IconData getIconData() => Icons.image_search;
+  IconData getIconData() => Icons.image_search_rounded;
 
   @override
   String getLabel(final AppLocalizations appLocalizations) =>
@@ -34,16 +35,32 @@ class ProductImageServerButton extends ProductImageButton {
 
   @override
   Future<void> action(final BuildContext context) async {
+    await selectImageFromGallery(
+      context: context,
+      product: product,
+      imageField: imageField,
+      language: language,
+      isLoggedInMandatory: isLoggedInMandatory,
+    );
+  }
+
+  static Future<CropParameters?> selectImageFromGallery({
+    required final BuildContext context,
+    required final Product product,
+    required final ImageField imageField,
+    required final OpenFoodFactsLanguage language,
+    required final bool isLoggedInMandatory,
+  }) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     if (!await ProductRefresher().checkIfLoggedIn(
       context,
       isLoggedInMandatory: isLoggedInMandatory,
     )) {
-      return;
+      return null;
     }
 
     if (!context.mounted) {
-      return;
+      return null;
     }
 
     List<ProductImage> rawImages = getRawProductImages(
@@ -51,30 +68,34 @@ class ProductImageServerButton extends ProductImageButton {
       ImageSize.DISPLAY,
     );
     if (rawImages.isNotEmpty) {
-      await _openGallery(
+      return _openGallery(
         context: context,
         rawImages: rawImages,
         productType: product.productType,
+        barcode: product.barcode!,
+        imageField: imageField,
+        language: language,
+        isLoggedInMandatory: isLoggedInMandatory,
       );
-      return;
     }
 
     final bool fetched = await ProductRefresher().fetchAndRefresh(
-      barcode: barcode,
+      barcode: product.barcode!,
       context: context,
     );
     if (!fetched) {
-      return;
+      return null;
     }
 
     if (!context.mounted) {
-      return;
+      return null;
     }
 
-    final Product? latestProduct =
-        await DaoProduct(context.read<LocalDatabase>()).get(barcode);
+    final Product? latestProduct = await DaoProduct(
+      context.read<LocalDatabase>(),
+    ).get(product.barcode!);
     if (!context.mounted) {
-      return;
+      return null;
     }
     if (latestProduct != null) {
       // very likely
@@ -97,23 +118,31 @@ class ProductImageServerButton extends ProductImageButton {
           ),
         ),
       );
-      return;
+      return null;
     }
-    await _openGallery(
+    return _openGallery(
       context: context,
       rawImages: rawImages,
       productType: product.productType,
+      barcode: product.barcode!,
+      imageField: imageField,
+      language: language,
+      isLoggedInMandatory: isLoggedInMandatory,
     );
   }
 
-  Future<void> _openGallery({
+  static Future<CropParameters?> _openGallery({
     required final BuildContext context,
     required final List<ProductImage> rawImages,
     required final ProductType? productType,
+    required final String barcode,
+    required final ImageField imageField,
+    required final OpenFoodFactsLanguage language,
+    required final bool isLoggedInMandatory,
   }) =>
-      Navigator.push<void>(
+      Navigator.push<CropParameters?>(
         context,
-        MaterialPageRoute<void>(
+        MaterialPageRoute<CropParameters?>(
           builder: (BuildContext context) => UploadedImageGallery(
             barcode: barcode,
             rawImages: rawImages,
