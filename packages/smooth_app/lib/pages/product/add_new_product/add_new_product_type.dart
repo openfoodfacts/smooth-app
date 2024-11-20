@@ -94,7 +94,7 @@ class _AddNewProductType extends State<ProductTypeRadioListTile>
                     bottomRight: Radius.circular(ANGULAR_RADIUS.x - 2.0),
                   ),
                   child: SvgPicture.asset(
-                    widget.productType.getIllustration(appLocalizations),
+                    widget.productType.getIllustration(),
                     width: 50.0,
                   ),
                 ),
@@ -143,7 +143,7 @@ class _AddNewProductType extends State<ProductTypeRadioListTile>
                                 color: lightTheme ? Colors.black : Colors.white,
                               ),
                             ),
-                            const SizedBox(height: 0.0),
+                            const SizedBox(height: SMALL_SPACE),
                             Text(
                               widget.productType.getSubtitle(appLocalizations),
                               overflow: TextOverflow.ellipsis,
@@ -175,8 +175,9 @@ class _AddNewProductType extends State<ProductTypeRadioListTile>
     _currentTheme = lightTheme;
 
     _controller = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 300))
-      ..addListener(() => setState(() {}));
+      vsync: this,
+      duration: const Duration(milliseconds: 300),
+    )..addListener(() => setState(() {}));
 
     final ThemeData themeData = Theme.of(context);
 
@@ -186,10 +187,12 @@ class _AddNewProductType extends State<ProductTypeRadioListTile>
           ? themeData.extension<SmoothColorsThemeExtension>()!.primaryMedium
           : themeData.extension<SmoothColorsThemeExtension>()!.primarySemiDark,
     ).animate(
-        CurvedAnimation(parent: _controller!, curve: Curves.fastOutSlowIn));
+      CurvedAnimation(parent: _controller!, curve: Curves.fastOutSlowIn),
+    );
 
     _opacityAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
-        CurvedAnimation(parent: _controller!, curve: Curves.fastOutSlowIn));
+      CurvedAnimation(parent: _controller!, curve: Curves.fastOutSlowIn),
+    );
   }
 }
 
@@ -212,7 +215,7 @@ extension ProductTypeExtension on ProductType {
     };
   }
 
-  String getIllustration(AppLocalizations appLocalizations) {
+  String getIllustration() {
     return switch (this) {
       ProductType.food => 'assets/misc/logo_off_half.svg',
       ProductType.beauty => 'assets/misc/logo_obf_half.svg',
