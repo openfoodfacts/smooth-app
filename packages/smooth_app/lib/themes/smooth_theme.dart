@@ -55,20 +55,6 @@ class SmoothTheme {
           : null,
       scaffoldBackgroundColor:
           brightness == Brightness.light ? null : const Color(0xFF303030),
-      bottomNavigationBarTheme: BottomNavigationBarThemeData(
-        backgroundColor:
-            brightness == Brightness.light ? null : const Color(0xFF303030),
-        selectedIconTheme: const IconThemeData(size: 24.0),
-        showSelectedLabels: true,
-        selectedItemColor: brightness == Brightness.dark
-            ? myColorScheme.primary
-            : DARK_BROWN_COLOR,
-        selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
-        showUnselectedLabels: true,
-        unselectedIconTheme: const IconThemeData(size: 20.0),
-        elevation: 0.0,
-        enableFeedback: true,
-      ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ButtonStyle(
           backgroundColor: WidgetStateProperty.resolveWith<Color?>(
