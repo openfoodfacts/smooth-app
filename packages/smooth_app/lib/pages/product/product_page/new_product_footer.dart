@@ -18,6 +18,7 @@ import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/product/edit_product_page.dart';
 import 'package:smooth_app/pages/product/product_list_helper.dart';
 import 'package:smooth_app/pages/product/product_page/new_product_page.dart';
+import 'package:smooth_app/pages/product/product_type_extensions.dart';
 import 'package:smooth_app/query/category_product_query.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;

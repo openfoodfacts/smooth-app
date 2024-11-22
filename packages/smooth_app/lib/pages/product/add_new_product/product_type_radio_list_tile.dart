@@ -3,6 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/pages/product/product_type_extensions.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -20,10 +21,10 @@ class ProductTypeRadioListTile extends StatefulWidget {
   final void Function(ProductType) onChanged;
 
   @override
-  State<ProductTypeRadioListTile> createState() => _AddNewProductType();
+  State<ProductTypeRadioListTile> createState() => _ProductTypeRadioListTile();
 }
 
-class _AddNewProductType extends State<ProductTypeRadioListTile>
+class _ProductTypeRadioListTile extends State<ProductTypeRadioListTile>
     with TickerProviderStateMixin {
   AnimationController? _controller;
   late Animation<Color?> _colorAnimation;
@@ -193,34 +194,5 @@ class _AddNewProductType extends State<ProductTypeRadioListTile>
     _opacityAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
       CurvedAnimation(parent: _controller!, curve: Curves.fastOutSlowIn),
     );
-  }
-}
-
-extension ProductTypeExtension on ProductType {
-  String getTitle(AppLocalizations appLocalizations) {
-    return switch (this) {
-      ProductType.food => appLocalizations.product_type_label_food,
-      ProductType.beauty => appLocalizations.product_type_label_beauty,
-      ProductType.petFood => appLocalizations.product_type_label_pet_food,
-      ProductType.product => appLocalizations.product_type_label_product,
-    };
-  }
-
-  String getSubtitle(AppLocalizations appLocalizations) {
-    return switch (this) {
-      ProductType.food => appLocalizations.product_type_subtitle_food,
-      ProductType.beauty => appLocalizations.product_type_subtitle_beauty,
-      ProductType.petFood => appLocalizations.product_type_subtitle_pet_food,
-      ProductType.product => appLocalizations.product_type_subtitle_product,
-    };
-  }
-
-  String getIllustration() {
-    return switch (this) {
-      ProductType.food => 'assets/misc/logo_off_half.svg',
-      ProductType.beauty => 'assets/misc/logo_obf_half.svg',
-      ProductType.petFood => 'assets/misc/logo_opff_half.svg',
-      ProductType.product => 'assets/misc/logo_opf_half.svg',
-    };
   }
 }
