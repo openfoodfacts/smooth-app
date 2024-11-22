@@ -461,7 +461,7 @@
     "@profile_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
-    "scan_navbar_label": "Beolvasás",
+    "scan_navbar_label": "Leolvasás",
     "@scan_navbar_label": {
         "description": "BottomNavigationBarLabel: For the scanning of products"
     },
@@ -486,11 +486,11 @@
     "@filter": {
         "description": "A button that opens a menu where you can filter within categories. Juices => Apple juices/Orange juices"
     },
-    "scan": "Termékek a Beolvasás képernyőről",
+    "scan": "Termékek a Leolvasás képernyőről",
     "@scan": {
         "description": "Page title: List type: Products in the scan session"
     },
-    "scan_history": "Beolvasási előzmények",
+    "scan_history": "Leolvasási előzmények",
     "@scan_history": {
         "description": "Page title: List type: Products in the whole scan history"
     },
@@ -1074,7 +1074,7 @@
     "@permissions_page_title": {
         "description": "Title for the camera permission's page (onboarding)"
     },
-    "permissions_page_body1": "Ha vonalkódokat szeretne beolvasni a telefon kamerájával, engedélyezze a hozzáférést.",
+    "permissions_page_body1": "Ha vonalkódokat szeretne leolvasni a telefon kamerájával, engedélyezze a hozzáférést.",
     "@permissions_page_body1": {
         "description": "first paragraph for the camera permission's page (onboarding)"
     },
@@ -1329,7 +1329,7 @@
     "@permission_photo_error": {
         "description": "When the camera/photo permission failed to be acquired (!= denied)"
     },
-    "permission_photo_denied_title": "Lehetővé teszi a kamera használatát vonalkódok beolvasásához",
+    "permission_photo_denied_title": "Lehetővé teszi a kamera használatát vonalkódok leolvasásához",
     "permission_photo_denied_message": "A jobb élmény érdekében engedélyezze, hogy az {appName} hozzáférjen a kamerához. Így közvetlenül le tudja majd olvasni a vonalkódokat.",
     "@permission_photo_denied_message": {
         "description": "When the camera/photo permission is denied by user",
@@ -2491,7 +2491,7 @@
     "@product_card_remove_product_tooltip": {
         "description": "Tooltip (message visible with a long-press) on a product item in the carousel"
     },
-    "scan_announce_new_barcode": "Új vonalkód beolvasva: {barcode}",
+    "scan_announce_new_barcode": "Új vonalkód leolvasva: {barcode}",
     "@scan_announce_new_barcode": {
         "description": "Text to pronounce by the Accessibility tool when a new barcode is decoded",
         "placeholders": {
@@ -2855,11 +2855,11 @@
     "@download_data": {
         "description": "App bar title for the download data page"
     },
-    "download_top_products": "Töltse le országa 1000 legnépszerűbb termékét az azonnali beolvasáshoz",
+    "download_top_products": "Töltse le országa 1000 legnépszerűbb termékét az azonnali leolvasáshoz",
     "@download_top_products": {
         "description": "Download the top 1000 products in your country for instant scanning"
     },
-    "download_top_n_products": "Töltse le országa {count,plural,  other{{count} legnépszerűbb termékét}} az azonnali beolvasáshoz",
+    "download_top_n_products": "Töltse le országa {count,plural,  other{{count} legnépszerűbb termékét}} az azonnali leolvasáshoz",
     "@download_top_n_products": {
         "placeholders": {
             "count": {
@@ -2921,7 +2921,7 @@
     "@offline_product_data_title": {
         "description": "Offline Product Data"
     },
-    "available_for_download": "{num} termék elérhető azonnali beolvasáshoz",
+    "available_for_download": "{num} termék elérhető azonnali leolvasáshoz",
     "@available_for_download": {
         "description": "text to show details of products available for download",
         "placeholders": {
