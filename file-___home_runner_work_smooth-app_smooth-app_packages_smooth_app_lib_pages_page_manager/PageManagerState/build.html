@@ -100,30 +100,33 @@ Widget build(BuildContext context) {
         ),
       ],
     ),
-    child: BottomNavigationBar(
-      onTap: (int index) {
-        if (_currentPage == BottomNavigationTab.Scan &amp;&amp;
-            _pageKeys[index] == BottomNavigationTab.Scan) {
-          carouselManager.showSearchCard();
-        }
+    child: icons.AppIconTheme(
+      size: 20.0,
+      child: SmoothNavigationBar(
+        destinations: &lt;SmoothNavigationDestination&gt;[
+          SmoothNavigationDestination(
+            icon: const icons.Profile(),
+            label: appLocalizations.profile_navbar_label,
+          ),
+          SmoothNavigationDestination(
+            icon: const icons.Search.alt(),
+            label: appLocalizations.scan_navbar_label,
+          ),
+          SmoothNavigationDestination(
+            icon: const icons.Lists(),
+            label: appLocalizations.list_navbar_label,
+          ),
+        ],
+        selectedIndex: _currentPage.index,
+        onDestinationSelected: (int index) {
+          if (_currentPage == BottomNavigationTab.Scan &amp;&amp;
+              _pageKeys[index] == BottomNavigationTab.Scan) {
+            carouselManager.showSearchCard();
+          }
 
-        _selectTab(_pageKeys[index], index);
-      },
-      currentIndex: _currentPage.index,
-      items: &lt;BottomNavigationBarItem&gt;[
-        BottomNavigationBarItem(
-          icon: const Icon(Icons.account_circle),
-          label: appLocalizations.profile_navbar_label,
-        ),
-        BottomNavigationBarItem(
-          icon: const Icon(Icons.search),
-          label: appLocalizations.scan_navbar_label,
-        ),
-        BottomNavigationBarItem(
-          icon: const Icon(Icons.list),
-          label: appLocalizations.list_navbar_label,
-        ),
-      ],
+          _selectTab(_pageKeys[index], index);
+        },
+      ),
     ),
   );
   return WillPopScope2(
