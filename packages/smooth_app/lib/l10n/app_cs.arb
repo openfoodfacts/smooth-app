@@ -3271,5 +3271,21 @@
     "carousel_loading_text": "Hledáme ho v naší databázi více než **3 milionů produktů!**",
     "@carousel_loading_text": {
         "description": "Please keep the ** syntax to make the text bold"
+    },
+    "product_type_subtitle_food": "Vegetables, fruits, frozen food…",
+    "@product_type_subtitle_food": {
+        "description": "Example of products for food category"
+    },
+    "product_type_subtitle_beauty": "Makeup, soaps, toothpastes…",
+    "@product_type_subtitle_beauty": {
+        "description": "Example of products for beauty category"
+    },
+    "product_type_subtitle_pet_food": "Food for dogs, cats…",
+    "@product_type_subtitle_pet_food": {
+        "description": "Example of products for pet food category"
+    },
+    "product_type_subtitle_product": "Smartphones, furniture…",
+    "@product_type_subtitle_product": {
+        "description": "Example of products for other categories"
     }
 }
