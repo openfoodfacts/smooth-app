@@ -1,15 +1,15 @@
 # Add labels to any any pull request with changes to the specified paths
 Android:
 - changed-files:
-  - any-glob-to-any-file: 'packages/smooth_app/android/**/*.md'
+  - any-glob-to-any-file: 'packages/smooth_app/android/**/*'
 
 🖥️ MacOS:
 - changed-files:
-  - any-glob-to-any-file: 'packages/smooth_app/macos/**/*.md'
+  - any-glob-to-any-file: 'packages/smooth_app/macos/**/*'
 
 Assets cache:
 - changed-files:
-  - any-glob-to-any-file: 'packages/smooth_app/assets/cache/**/*.md'
+  - any-glob-to-any-file: 'packages/smooth_app/assets/cache/**/*'
 
 navigation:
 - changed-files:
@@ -46,7 +46,7 @@ Dependencies:
 
 🍎 iOS:
 - changed-files:
-  - any-glob-to-any-file: 'packages/smooth_app/ios/**/*.md'
+  - any-glob-to-any-file: 'packages/smooth_app/ios/**/*'
 
 ⚡️ Fastlane:
 - changed-files:
@@ -55,11 +55,11 @@ Dependencies:
 
 Asset cache:
 - changed-files:
-  - any-glob-to-any-file: 'packages/smooth_app/assets/cache/**/*.md'
+  - any-glob-to-any-file: 'packages/smooth_app/assets/cache/**/*'
 
 Web:
 - changed-files:
-  - any-glob-to-any-file: 'packages/smooth_app/web/**/*.md'
+  - any-glob-to-any-file: 'packages/smooth_app/web/**/*'
 
 🧪 Tests:
 - changed-files:
@@ -87,11 +87,11 @@ Web:
 
 Database:
 - changed-files:
-  - any-glob-to-any-file: 'packages/smooth_app/lib/database/**/*.md'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/database/**/*'
 
 🌐 l10n:
 - changed-files:
-  - any-glob-to-any-file: 'packages/smooth_app/lib/l10n/**/*.md'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/l10n/**/*'
 
 History:
 - changed-files:
