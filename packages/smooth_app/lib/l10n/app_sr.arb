@@ -6,13 +6,13 @@
     },
     "yes": "Da",
     "@yes": {},
-    "add": "Dodajte",
+    "add": "Додај",
     "@add": {},
     "account_delete_message": "Are you sure you want to delete your account?\nIf there is a specific reason, please share below",
     "@account_delete_message": {},
     "reason": "Reason",
     "@reason": {},
-    "okay": "U redu",
+    "okay": "Okay",
     "@okay": {},
     "validate": "Validate",
     "@validate": {
@@ -22,9 +22,9 @@
     "@create": {
         "description": "An action to create"
     },
-    "applyButtonText": "Primeni",
+    "applyButtonText": "Apply",
     "@applyButtonText": {},
-    "next_label": "Sledeće",
+    "next_label": "Next",
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
@@ -46,7 +46,7 @@
     "@close": {},
     "no": "Ne",
     "@no": {},
-    "stop": "Stani",
+    "stop": "Stop",
     "@stop": {},
     "finish": "Finish",
     "@finish": {},
@@ -54,21 +54,21 @@
     "@calculate": {
         "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
     },
-    "reset_food_prefs": "Resetujte preferencije hrane",
+    "reset_food_prefs": "Reset food preferences",
     "@reset": {
         "description": "Button label, clicking on the button will reset user's food preferences."
     },
     "error": "Something went wrong",
     "@error": {},
-    "error_occurred": "Došlo je do greške",
+    "error_occurred": "An error occurred",
     "@error_occurred": {},
-    "featureInProgress": "I dalje radimo na ovoj funkciji, budite u toku",
+    "featureInProgress": "We're still working on this feature, stay tuned",
     "@featureInProgress": {},
     "label_web": "View on the web",
     "@label_web": {},
-    "learnMore": "Saznajte Više",
+    "learnMore": "Learn more",
     "@learnMore": {},
-    "unknown": "Nepoznato",
+    "unknown": "Unknown",
     "@unknown": {
         "description": "Short label for product list view: the compatibility of that product with your preferences is unknown"
     },
@@ -122,7 +122,7 @@
     },
     "licenses": "Licences",
     "@licenses": {},
-    "looking_for": "Tražimo",
+    "looking_for": "Looking for",
     "@looking_for": {
         "description": "Looking for: BARCODE"
     },
@@ -133,11 +133,11 @@
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
-    "productDataUtility": "Pogledajte podatke o hrani koji su relevantni za vaše preferencije.",
+    "productDataUtility": "See the food data relevant to your preferences.",
     "@productDataUtility": {
         "description": "Description of what a user can use the product data for."
     },
-    "healthCardUtility": "Birajte hranu koja je dobra za vas.",
+    "healthCardUtility": "Choose foods that are good for you.",
     "@healthCardUtility": {
         "description": "Description of what a user can use the health data in a product for."
     },
@@ -169,7 +169,7 @@
     "@create_account": {
         "description": "Button label: Opens a page where a new user can register"
     },
-    "sign_in": "Prijavite se",
+    "sign_in": "Sign in",
     "@sign_in": {
         "description": "Button label: For sign in"
     },
@@ -194,7 +194,7 @@
     "@view_profile": {
         "description": "Button label: For to show your account"
     },
-    "reset_password": "Resetuj lozinku",
+    "reset_password": "Reset password",
     "@reset_password": {
         "description": "Forgot password page title"
     },
@@ -301,7 +301,7 @@
     "@contributors_label": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
     },
-    "contributors_dialog_title": "Saradnici",
+    "contributors_dialog_title": "Contributors",
     "@contributors_dialog_title": {
         "description": "Dialog title: A list of all contributors of this app"
     },
@@ -325,7 +325,7 @@
     "support_via_email": "Send us an e-mail",
     "support_via_email_include_logs_dialog_title": "Send app logs?",
     "support_via_email_include_logs_dialog_body": "Do you wish to include application logs in attachment to your email?",
-    "termsOfUse": "Uslovi korišćenja",
+    "termsOfUse": "Terms of use",
     "@termsOfUse": {},
     "legalNotices": "Legal notices",
     "@legalNotices": {
@@ -354,7 +354,7 @@
     "@contribute_develop_text_2": {},
     "contribute_develop_dev_mode_title": "DEV Mode?",
     "contribute_develop_dev_mode_subtitle": "Activate the DEV Mode",
-    "contribute_donate_title": "Doniraj",
+    "contribute_donate_title": "Donate",
     "@contribute_donate_title": {},
     "contribute_donate_header": "Donate to Open Food Facts",
     "@contribute_donate_header": {},
@@ -417,7 +417,7 @@
     "question_skip_button_accessibility_value": "Skip this question",
     "tap_to_edit_search": "Tap to edit search",
     "@Personal preferences": {},
-    "myPreferences": "Moje preference",
+    "myPreferences": "My preferences",
     "@myPreferences": {
         "description": "Page title: Page where the ranking preferences can be changed"
     },
@@ -440,7 +440,7 @@
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
     },
-    "myPersonalizedRanking": "Moje personalizovano rangiranje",
+    "myPersonalizedRanking": "My personalized ranking",
     "@myPersonalizedRanking": {
         "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
     },
@@ -461,7 +461,7 @@
     "@profile_navbar_label": {
         "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
     },
-    "scan_navbar_label": "Skeniraj",
+    "scan_navbar_label": "Scan",
     "@scan_navbar_label": {
         "description": "BottomNavigationBarLabel: For the scanning of products"
     },
@@ -504,7 +504,7 @@
     },
     "tap_for_more": "Tap to see more info…",
     "@Product": {},
-    "product": "Proizvod",
+    "product": "Производ",
     "@product": {},
     "unknownBrand": "Unknown brand",
     "@unknownBrand": {},
@@ -640,8 +640,8 @@
     "ingredients_photo_title": "Ingredients Photo",
     "nutritional_facts_photo_title": "Nutrition Facts Photo",
     "recycling_photo_title": "Recycling Photo",
-    "take_photo_title": "Uslikaj",
-    "take_more_photo_title": "Take more pictures",
+    "take_photo_title": "Take a picture",
+    "take_more_photo_title": "Take more photos",
     "front_photo_uploaded": "Front photo uploaded",
     "@front_photo_uploaded": {},
     "ingredients_photo_button_label": "Ingredients photo",
@@ -690,7 +690,7 @@
     "@recycling_photo_button_label": {},
     "recycling_photo_uploaded": "Recycling photo uploaded",
     "@recycling_photo_uploaded": {},
-    "take_more_photo_button_label": "Take more pictures",
+    "take_more_photo_button_label": "Take more photos",
     "@take_more_photo_button_label": {},
     "other_photo_uploaded": "Miscellaneous photo uploaded",
     "@other_photo_uploaded": {},
@@ -743,7 +743,7 @@
     "nutrition_page_title": "Nutrition Facts",
     "nutrition_page_unspecified": "Nutrition facts are not specified on the product",
     "nutrition_page_per_100g": "per 100g",
-    "nutrition_page_per_serving": "po porciji",
+    "nutrition_page_per_serving": "per serving",
     "nutrition_page_add_nutrient": "Add a nutrient",
     "nutrition_page_serving_size": "Porcija",
     "nutrition_page_invalid_number": "Invalid number",
@@ -1044,7 +1044,7 @@
     "@compare_products_appbar_subtitle": {
         "description": "AppBar subtitle when in comparison mode"
     },
-    "retry_button_label": "Pokušaj ponovo",
+    "retry_button_label": "Retry",
     "connect_with_us": "Connect with us",
     "instagram": "Follow us on Instagram",
     "instagram_link": "https://instagram.com/open.food.facts",
@@ -1052,7 +1052,7 @@
     "twitter_link": "https://www.twitter.com/openfoodfacts",
     "blog": "Blog",
     "faq": "FAQ",
-    "discover": "Otkrij",
+    "discover": "Discover",
     "how_to_contribute": "How to Contribute",
     "hint_knowledge_panel_message": "Your can tap on any part of the card to get more details about what you see. Try it now!",
     "@hint_knowledge_panel_message": {
@@ -1280,7 +1280,7 @@
     "settings_app_app": "Application",
     "settings_app_data": "Privacy & monitoring",
     "settings_app_camera": "Camera",
-    "settings_app_products": "Proizvodi",
+    "settings_app_products": "Products",
     "settings_app_miscellaneous": "Miscellaneous",
     "@camera_settings_title": {
         "description": "Name of the camera section in the settings"
@@ -1325,7 +1325,7 @@
     "@product_edit_photo_title": {
         "description": "Toolbar Title while editing a photo (Android only)"
     },
-    "permission_photo_error": "Greška",
+    "permission_photo_error": "Error",
     "@permission_photo_error": {
         "description": "When the camera/photo permission failed to be acquired (!= denied)"
     },
@@ -1404,11 +1404,11 @@
     "@edit_product_form_item_labels_subtitle": {
         "description": "Product edition - Labels - SubTitle"
     },
-    "edit_product_form_item_labels_hint": "oznaka",
+    "edit_product_form_item_labels_hint": "label",
     "@edit_product_form_item_labels_hint": {
         "description": "Product edition - Labels - input textfield hint"
     },
-    "edit_product_form_item_labels_type": "oznaka",
+    "edit_product_form_item_labels_type": "label",
     "@edit_product_form_item_labels_type": {
         "description": "Product edition - Labels - input textfield label"
     },
@@ -1416,11 +1416,11 @@
     "@edit_product_form_item_stores_title": {
         "description": "Product edition - Stores - Title"
     },
-    "edit_product_form_item_stores_hint": "prodavnica",
+    "edit_product_form_item_stores_hint": "store",
     "@edit_product_form_item_stores_hint": {
         "description": "Product edition - Stores - input textfield hint"
     },
-    "edit_product_form_item_stores_type": "prodavnica",
+    "edit_product_form_item_stores_type": "store",
     "@edit_product_form_item_stores_type": {
         "description": "Product edition - Stores - input textfield type"
     },
@@ -1432,7 +1432,7 @@
     "@edit_product_form_item_origins_hint": {
         "description": "Product edition - Origins - input textfield hint"
     },
-    "edit_product_form_item_origins_type": "država",
+    "edit_product_form_item_origins_type": "држава",
     "@edit_product_form_item_origins_type": {
         "description": "Product edition - Origins - input textfield type"
     },
@@ -1452,7 +1452,7 @@
     "@edit_product_form_item_countries_hint": {
         "description": "Product edition - Countries - input textfield hint"
     },
-    "edit_product_form_item_countries_type": "država",
+    "edit_product_form_item_countries_type": "држава",
     "@edit_product_form_item_countries_type": {
         "description": "Product edition - Countries - input textfield type"
     },
@@ -1480,11 +1480,11 @@
     "@edit_product_form_item_categories_title": {
         "description": "Product edition - Categories - Title"
     },
-    "edit_product_form_item_categories_hint": "kategorija",
+    "edit_product_form_item_categories_hint": "категорија",
     "@edit_product_form_item_categories_hint": {
         "description": "Product edition - Categories - input textfield hint"
     },
-    "edit_product_form_item_categories_type": "kategorija",
+    "edit_product_form_item_categories_type": "категорија",
     "@edit_product_form_item_categories_type": {
         "description": "Product edition - Categories - input textfield type"
     },
@@ -1507,7 +1507,7 @@
     "@edit_product_form_item_ingredients_title": {
         "description": "Product edition - Ingredients - Title (note: this section was previously called Ingredients & Origins)"
     },
-    "edit_product_form_item_add_valid_item_tooltip": "Dodajte",
+    "edit_product_form_item_add_valid_item_tooltip": "Додај",
     "edit_product_form_item_add_invalid_item_tooltip": "Please enter a text first",
     "edit_product_form_item_remove_item_tooltip": "Remove",
     "edit_product_form_item_packaging_title": "Recycling instructions photo",
@@ -1613,7 +1613,7 @@
     "@user_list_button_new": {
         "description": "Short label of a 'create a new list' button"
     },
-    "user_list_empty_label": "No list available yet!\nPlease start by creating one.",
+    "user_list_empty_label": "No list available yet, please start by creating one",
     "@user_list_empty_label": {
         "description": "Content displayed when there is no list"
     },
@@ -1771,7 +1771,7 @@
     "@dev_preferences_export_history_dialog_title": {
         "description": "User dev preferences - Export history - Dialog title"
     },
-    "dev_preferences_button_positive": "ОК",
+    "dev_preferences_button_positive": "OK",
     "@dev_preferences_button_positive": {
         "description": "User dev preferences - Positive button label"
     },
@@ -2005,7 +2005,7 @@
     "dev_mode_section_news": "News provider configuration",
     "dev_mode_section_product_page": "Product page",
     "dev_mode_section_ui": "User Interface",
-    "dev_mode_section_data": "Podaci",
+    "dev_mode_section_data": "Подаци",
     "dev_mode_section_experimental_features": "Experimental features",
     "dev_preferences_show_folksonomy_title": "Exclude Folksonomy",
     "@dev_preferences_show_folksonomy_title": {
@@ -2387,11 +2387,11 @@
             }
         }
     },
-    "capture": "Take a new picture",
+    "capture": "Capture New",
     "@capture": {
         "description": "Button label for taking a new photo (= there's already one)"
     },
-    "capture_new_picture": "Uslikaj",
+    "capture_new_picture": "Take a picture",
     "@capture_new_picture": {
         "description": "Button label for taking a new photo (= the first one)"
     },
@@ -2905,7 +2905,7 @@
             }
         }
     },
-    "loading": "Učitavam",
+    "loading": "Loading…",
     "@loading": {
         "description": "Loading…"
     },
@@ -2942,7 +2942,7 @@
     "@language_selector_title": {
         "description": "Label written as the title of the dialog to select the user language"
     },
-    "action_delete_list": "Obriši",
+    "action_delete_list": "Delete",
     "@action_delete_list": {
         "description": "Delete a list action in a menu"
     },
@@ -3119,7 +3119,7 @@
     "@photo_viewer_details_title": {
         "description": "Title of the photo details dialog"
     },
-    "photo_viewer_details_contributor_title": "Saradnik",
+    "photo_viewer_details_contributor_title": "Contributor",
     "@photo_viewer_details_contributor_title": {
         "description": "Label for the author of a photo"
     },
@@ -3164,7 +3164,7 @@
             }
         }
     },
-    "product_page_image_front_accessibility_label": "Fotografija proizvoda (spreda)",
+    "product_page_image_front_accessibility_label": "Front picture",
     "@product_page_image_front_accessibility_label": {
         "description": "Accessibility label for the image on the product page"
     },
@@ -3249,7 +3249,7 @@
     "@carousel_error_text_2": {
         "description": "Please keep the ** syntax to make the text bold"
     },
-    "carousel_error_button": "Pokušaj ponovo",
+    "carousel_error_button": "Retry",
     "carousel_unknown_product_header": "Unknown product",
     "@carousel_unknown_product_header": {
         "description": "A label on top of the carousel card when the product is not in the database (= it needs to be created)"
