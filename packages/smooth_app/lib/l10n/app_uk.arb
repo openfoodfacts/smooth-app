@@ -784,6 +784,42 @@
         }
     },
     "product_image_outdated": "Це зображення може бути застарілим",
+    "product_image_action_replace_photo": "Замінити фото ({type})",
+    "@product_image_action_replace_photo": {
+        "description": "Action on the photo gallery to replace an existing picture",
+        "placeholders": {
+            "type": {
+                "type": "String",
+                "description": "The type of the photo (eg: ingredients)"
+            }
+        }
+    },
+    "product_image_action_add_photo": "Додати фото ({type})",
+    "@product_image_action_add_photo": {
+        "description": "Action on the photo gallery to add a photo (eg: ingredients)",
+        "placeholders": {
+            "type": {
+                "type": "String",
+                "description": "The type of the photo (eg: ingredients)"
+            }
+        }
+    },
+    "product_image_action_take_new_picture": "Зробити нове фото",
+    "@product_image_action_take_new_picture": {
+        "description": "Replace the existing picture with a new one"
+    },
+    "product_image_action_take_picture": "Сфотографувати",
+    "@product_image_action_take_picture": {
+        "description": "Take a picture (eg: for ingredients) when there is no one"
+    },
+    "product_image_action_from_gallery": "Виберіть з галереї вашого пристрою",
+    "@product_image_action_from_gallery": {
+        "description": "Replace the existing picture with one from the device's gallery"
+    },
+    "product_image_action_choose_existing_photo": "Вибрати з фотографій товару",
+    "@product_image_action_choose_existing_photo": {
+        "description": "Replace the existing picture with one from the product's photos"
+    },
     "homepage_main_card_logo_description": "Вітаємо в Open Food Facts",
     "@homepage_main_card_logo_description": {
         "description": "Description for accessibility of the Open Food Facts logo on the homepage"
@@ -1845,7 +1881,7 @@
     "prices_app_dev_mode_flag": "Ярлик програми «Ціни» на сторінці продукту",
     "prices_app_button": "Перейдіть у додаток Ціни",
     "prices_generic_title": "Ціни",
-    "prices_add_n_prices": "{count,plural, one {Додати{count} ціну} few {Додати {count} ціни} many {Додати {count} цін}=1{Додати ціну} other{Додати {count} ціни}}",
+    "prices_add_n_prices": "{count,plural, =1{Add a price} other{Add {count} prices}}",
     "prices_send_n_prices": "{count,plural, one {Надіслати{count} ціну} few {Надіслати {count} ціни} many {Надіслати {count} цін}=1{Надіслати ціну} other{Надіслати {count} ціни}}",
     "prices_add_an_item": "Додати елемент",
     "prices_add_a_price": "Додати ціну",
@@ -2172,8 +2208,12 @@
     "@edit_photo_select_existing_button_label": {
         "description": "Edit 'select existing image' button label"
     },
-    "edit_photo_select_existing_all_label": "Наявні зображення",
+    "edit_photo_select_existing_all_label": "Існуючі зображення для цього продукту",
     "@edit_photo_select_existing_all_label": {
+        "description": "Page title"
+    },
+    "edit_photo_select_existing_all_subtitle": "Виберіть зображення, натиснувши на нього",
+    "@edit_photo_select_existing_all_subtitle": {
         "description": "Page title"
     },
     "edit_photo_select_existing_download_label": "Отримання наявних зображень…",
@@ -3107,6 +3147,19 @@
     "@error_loading_photo": {
         "description": "Error message when loading a photo fails to load"
     },
+    "photo_viewer_action_use_picture_as": "Використовувати як…",
+    "@photo_viewer_action_use_picture_as": {
+        "description": "An action to use the current picture to be used as front/ingredients…"
+    },
+    "photo_viewer_use_picture_as_title": "Використовуйте це зображення як… ({language})",
+    "@photo_viewer_use_picture_as": {
+        "description": "The title of a dialog to use the current picture as front/ingredients…",
+        "placeholders": {
+            "language": {
+                "type": "String"
+            }
+        }
+    },
     "photo_viewer_details_button": "Подробиці",
     "@photo_viewer_details_button": {
         "description": "Button to show details of the photo"
@@ -3272,20 +3325,26 @@
     "@carousel_loading_text": {
         "description": "Please keep the ** syntax to make the text bold"
     },
-    "product_type_subtitle_food": "Vegetables, fruits, frozen food…",
+    "product_type_subtitle_food": "Овочі, фрукти, заморожені продукти…",
     "@product_type_subtitle_food": {
         "description": "Example of products for food category"
     },
-    "product_type_subtitle_beauty": "Makeup, soaps, toothpastes…",
+    "product_type_subtitle_beauty": "Макіяж, мило, зубні пасти…",
     "@product_type_subtitle_beauty": {
         "description": "Example of products for beauty category"
     },
-    "product_type_subtitle_pet_food": "Food for dogs, cats…",
+    "product_type_subtitle_pet_food": "Корм для собак, котів…",
     "@product_type_subtitle_pet_food": {
         "description": "Example of products for pet food category"
     },
-    "product_type_subtitle_product": "Smartphones, furniture…",
+    "product_type_subtitle_product": "Смартфони, меблі…",
     "@product_type_subtitle_product": {
         "description": "Example of products for other categories"
-    }
+    },
+    "photo_field_front": "Фото товару",
+    "photo_field_ingredients": "Фото інгредієнтів",
+    "photo_field_nutrition": "Фото харчування",
+    "photo_field_packaging": "Фото з інформацією про упакування",
+    "photo_already_exists": "Це фото вже існує",
+    "photo_missing": "Немає цього фото"
 }
