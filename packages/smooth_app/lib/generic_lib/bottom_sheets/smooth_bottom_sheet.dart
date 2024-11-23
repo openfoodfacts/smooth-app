@@ -449,17 +449,14 @@ class SmoothModalSheetHeaderPrefixIndicator extends StatelessWidget
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
-
-    return Padding(
-      padding: const EdgeInsetsDirectional.only(end: VERY_SMALL_SPACE),
+    return const Padding(
+      padding: EdgeInsetsDirectional.only(end: VERY_SMALL_SPACE),
       child: SizedBox(
         width: 10.0,
         height: 10.0,
         child: DecoratedBox(
           decoration: BoxDecoration(
-            color: extension.secondaryNormal,
+            color: Colors.white,
             shape: BoxShape.circle,
           ),
         ),
