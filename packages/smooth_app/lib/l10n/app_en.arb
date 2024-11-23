@@ -440,7 +440,7 @@
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
     },
-    "myPersonalizedRanking": "My personalised ranking",
+    "myPersonalizedRanking": "My personalized ranking",
     "@myPersonalizedRanking": {
         "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
     },
@@ -1771,7 +1771,7 @@
     "@dev_preferences_export_history_dialog_title": {
         "description": "User dev preferences - Export history - Dialog title"
     },
-    "dev_preferences_button_positive": "Ok",
+    "dev_preferences_button_positive": "OK",
     "@dev_preferences_button_positive": {
         "description": "User dev preferences - Positive button label"
     },
@@ -2905,7 +2905,7 @@
             }
         }
     },
-    "loading": "Loading...",
+    "loading": "Loading…",
     "@loading": {
         "description": "Loading…"
     },
