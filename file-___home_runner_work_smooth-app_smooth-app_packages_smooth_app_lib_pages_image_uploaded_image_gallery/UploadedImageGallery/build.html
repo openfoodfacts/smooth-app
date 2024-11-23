@@ -76,8 +76,11 @@ Widget build(BuildContext context) {
 
   return SmoothScaffold(
     backgroundColor: Colors.black,
+    brightness: Brightness.light,
     appBar: SmoothAppBar(
       title: Text(appLocalizations.edit_photo_select_existing_all_label),
+      subTitle:
+          Text(appLocalizations.edit_photo_select_existing_all_subtitle),
       backgroundColor: Colors.black,
       foregroundColor: WHITE_COLOR,
       elevation: 0,
@@ -95,51 +98,48 @@ Widget build(BuildContext context) {
         &#47;&#47; order by descending ids
         index = rawImages.length - 1 - index;
         final ProductImage rawImage = rawImages[index];
-        return GestureDetector(
-          onTap: () async {
-            final LocalDatabase localDatabase = context.read&lt;LocalDatabase&gt;();
-            final NavigatorState navigatorState = Navigator.of(context);
-            final File? imageFile = await downloadImageUrl(
-              context,
-              rawImage.getUrl(
-                barcode,
-                imageSize: ImageSize.ORIGINAL,
-                uriHelper: ProductQuery.getUriProductHelper(
-                  productType: productType,
-                ),
-              ),
-              DaoInt(localDatabase),
-            );
-            if (imageFile == null) {
-              return;
-            }
-            final CropParameters? parameters =
-                await navigatorState.push&lt;CropParameters&gt;(
-              MaterialPageRoute&lt;CropParameters&gt;(
-                builder: (BuildContext context) =&gt; CropPage(
-                  inputFile: imageFile,
-                  initiallyDifferent: true,
-                  isLoggedInMandatory: isLoggedInMandatory,
-                  cropHelper: ProductCropAgainHelper(
+
+        return Padding(
+          padding: EdgeInsetsDirectional.only(
+            start: VERY_SMALL_SPACE,
+            end: index.isEven ? VERY_SMALL_SPACE : 0.0,
+            bottom: VERY_SMALL_SPACE,
+          ),
+          child: InkWell(
+            borderRadius: ANGULAR_BORDER_RADIUS,
+            onTap: () async {},
+            child: Stack(
+              children: &lt;Widget&gt;[
+                Positioned.fill(
+                  child: ProductImageWidget(
+                    productImage: rawImage,
                     barcode: barcode,
+                    squareSize: columnWidth,
                     productType: productType,
-                    imageField: imageField,
-                    imageId: int.parse(rawImage.imgid!),
-                    language: language,
                   ),
                 ),
-                fullscreenDialog: true,
-              ),
-            );
-            if (parameters != null) {
-              navigatorState.pop();
-            }
-          },
-          child: ProductImageWidget(
-            productImage: rawImage,
-            barcode: barcode,
-            squareSize: columnWidth,
-            productType: productType,
+                Positioned.fill(
+                  child: Material(
+                    type: MaterialType.transparency,
+                    child: InkWell(
+                      borderRadius: ANGULAR_BORDER_RADIUS,
+                      onTap: () async =&gt;
+                          Navigator.of(context).pop&lt;CropParameters?&gt;(
+                        await useExistingPhotoFor(
+                          context: context,
+                          rawImage: rawImage,
+                          barcode: barcode,
+                          imageField: imageField,
+                          isLoggedInMandatory: isLoggedInMandatory,
+                          productType: productType,
+                          language: language,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         );
       },
@@ -195,6 +195,8 @@ Widget build(BuildContext context) {
 
 
 
+        <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_image_uploaded_image_gallery/UploadedImageGallery-class.html#static-methods">Static methods</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_image_uploaded_image_gallery/UploadedImageGallery/useExistingPhotoFor.html">useExistingPhotoFor</a></li>
 
 </ol>
 

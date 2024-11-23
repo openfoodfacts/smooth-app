@@ -55,7 +55,8 @@
 <span class="name ">takePicture</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="takePicture-param-context">{<span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">context</span>, </span></li>
 <li><span class="parameter" id="takePicture-param-product"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">product</span>, </span></li>
 <li><span class="parameter" id="takePicture-param-imageField"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">imageField</span>, </span></li>
-<li><span class="parameter" id="takePicture-param-language"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">language</span>}</span></li>
+<li><span class="parameter" id="takePicture-param-language"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">language</span>, </span></li>
+<li><span class="parameter" id="takePicture-param-pictureSource"><span class="type-annotation">dynamic</span> <span class="parameter-name">pictureSource</span>}</span></li>
 </ol>)
 
       
@@ -72,6 +73,7 @@
   required Product product,
   required ImageField imageField,
   required OpenFoodFactsLanguage language,
+  UserPictureSource? pictureSource,
 }) async {
   AnalyticsHelper.trackProductEdit(
     AnalyticsEditEvents.photos,
@@ -86,6 +88,7 @@
     language: language,
     isLoggedInMandatory: true,
     productType: product.productType,
+    forcedSource: pictureSource,
   );
 
   return cropParameters?.smallCroppedFile;

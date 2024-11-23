@@ -71,17 +71,14 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  final SmoothColorsThemeExtension extension =
-      context.extension&lt;SmoothColorsThemeExtension&gt;();
-
-  return Padding(
-    padding: const EdgeInsetsDirectional.only(end: VERY_SMALL_SPACE),
+  return const Padding(
+    padding: EdgeInsetsDirectional.only(end: VERY_SMALL_SPACE),
     child: SizedBox(
       width: 10.0,
       height: 10.0,
       child: DecoratedBox(
         decoration: BoxDecoration(
-          color: extension.secondaryNormal,
+          color: Colors.white,
           shape: BoxShape.circle,
         ),
       ),
