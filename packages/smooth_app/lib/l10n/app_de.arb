@@ -784,6 +784,42 @@
         }
     },
     "product_image_outdated": "Dieses Bild ist möglicherweise veraltet",
+    "product_image_action_replace_photo": "Foto ersetzen ({type})",
+    "@product_image_action_replace_photo": {
+        "description": "Action on the photo gallery to replace an existing picture",
+        "placeholders": {
+            "type": {
+                "type": "String",
+                "description": "The type of the photo (eg: ingredients)"
+            }
+        }
+    },
+    "product_image_action_add_photo": "Foto hinzufügen ({type})",
+    "@product_image_action_add_photo": {
+        "description": "Action on the photo gallery to add a photo (eg: ingredients)",
+        "placeholders": {
+            "type": {
+                "type": "String",
+                "description": "The type of the photo (eg: ingredients)"
+            }
+        }
+    },
+    "product_image_action_take_new_picture": "Neu erfassen",
+    "@product_image_action_take_new_picture": {
+        "description": "Replace the existing picture with a new one"
+    },
+    "product_image_action_take_picture": "Foto aufnehmen",
+    "@product_image_action_take_picture": {
+        "description": "Take a picture (eg: for ingredients) when there is no one"
+    },
+    "product_image_action_from_gallery": "Wählen Sie aus der Galerie Ihres Telefons",
+    "@product_image_action_from_gallery": {
+        "description": "Replace the existing picture with one from the device's gallery"
+    },
+    "product_image_action_choose_existing_photo": "Wählen Sie aus den Produktfotos",
+    "@product_image_action_choose_existing_photo": {
+        "description": "Replace the existing picture with one from the product's photos"
+    },
     "homepage_main_card_logo_description": "Willkommen bei Open Food Facts",
     "@homepage_main_card_logo_description": {
         "description": "Description for accessibility of the Open Food Facts logo on the homepage"
@@ -2172,8 +2208,12 @@
     "@edit_photo_select_existing_button_label": {
         "description": "Edit 'select existing image' button label"
     },
-    "edit_photo_select_existing_all_label": "Vorhandene Fotos",
+    "edit_photo_select_existing_all_label": "Vorhandene Bilder für dieses Produkt",
     "@edit_photo_select_existing_all_label": {
+        "description": "Page title"
+    },
+    "edit_photo_select_existing_all_subtitle": "Wählen Sie ein Bild aus, indem Sie es anklicken",
+    "@edit_photo_select_existing_all_subtitle": {
         "description": "Page title"
     },
     "edit_photo_select_existing_download_label": "Vorhandene Fotos werden abgerufen …",
@@ -3107,6 +3147,19 @@
     "@error_loading_photo": {
         "description": "Error message when loading a photo fails to load"
     },
+    "photo_viewer_action_use_picture_as": "Verwenden als ...",
+    "@photo_viewer_action_use_picture_as": {
+        "description": "An action to use the current picture to be used as front/ingredients…"
+    },
+    "photo_viewer_use_picture_as_title": "Verwenden Sie dieses Bild als ... ({language})",
+    "@photo_viewer_use_picture_as": {
+        "description": "The title of a dialog to use the current picture as front/ingredients…",
+        "placeholders": {
+            "language": {
+                "type": "String"
+            }
+        }
+    },
     "photo_viewer_details_button": "Details",
     "@photo_viewer_details_button": {
         "description": "Button to show details of the photo"
@@ -3272,20 +3325,26 @@
     "@carousel_loading_text": {
         "description": "Please keep the ** syntax to make the text bold"
     },
-    "product_type_subtitle_food": "Vegetables, fruits, frozen food…",
+    "product_type_subtitle_food": "Gemüse, Obst, Tiefkühlkost ...",
     "@product_type_subtitle_food": {
         "description": "Example of products for food category"
     },
-    "product_type_subtitle_beauty": "Makeup, soaps, toothpastes…",
+    "product_type_subtitle_beauty": "Kosmetika, Seifen, Zahnpasta …",
     "@product_type_subtitle_beauty": {
         "description": "Example of products for beauty category"
     },
-    "product_type_subtitle_pet_food": "Food for dogs, cats…",
+    "product_type_subtitle_pet_food": "Futter für Hunde, Katzen ...",
     "@product_type_subtitle_pet_food": {
         "description": "Example of products for pet food category"
     },
-    "product_type_subtitle_product": "Smartphones, furniture…",
+    "product_type_subtitle_product": "Smartphones, Möbel ...",
     "@product_type_subtitle_product": {
         "description": "Example of products for other categories"
-    }
+    },
+    "photo_field_front": "Produktfoto",
+    "photo_field_ingredients": "Foto der Zutatenliste",
+    "photo_field_nutrition": "Nutrition photo",
+    "photo_field_packaging": "Foto der Verpackungsinformation",
+    "photo_already_exists": "This photo already exists",
+    "photo_missing": "This photo is missing"
 }
