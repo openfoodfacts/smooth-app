@@ -214,8 +214,6 @@ class _TagLineContentTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension theme =
-        Theme.of(context).extension<SmoothColorsThemeExtension>()!;
     final AppLocalizations localizations = AppLocalizations.of(context);
 
     return Semantics(
