@@ -143,44 +143,46 @@ class _ScanTagLineContentState extends State<_ScanTagLineContent> {
             ),
           ),
           Expanded(
-            child: DecoratedBox(
-              decoration: BoxDecoration(
-                color: currentNews.style?.contentBackgroundColor ??
-                    (!themeProvider.isDarkMode(context)
-                        ? theme.primaryMedium
-                        : theme.primaryDark),
-                borderRadius: const BorderRadiusDirectional.only(
-                  bottomStart: radius,
-                  bottomEnd: radius,
+            child: Material(
+              type: MaterialType.card,
+              color: currentNews.style?.contentBackgroundColor ??
+                  (!themeProvider.isDarkMode(context)
+                      ? theme.primaryMedium
+                      : theme.primaryDark),
+              borderRadius: const BorderRadius.vertical(bottom: radius),
+              child: InkWell(
+                borderRadius: const BorderRadius.vertical(bottom: radius),
+                onTap: () => LaunchUrlHelper.launchURLAndFollowDeepLinks(
+                  context,
+                  currentNews.url,
                 ),
-              ),
-              child: Padding(
-                padding: EdgeInsetsDirectional.symmetric(
-                  vertical: dense ? 6.0 : SMALL_SPACE,
-                  horizontal: MEDIUM_SPACE,
-                ),
-                child: Column(
-                  children: <Widget>[
-                    Expanded(
-                      child: _TagLineContentBody(
-                        message: currentNews.message,
-                        textColor: currentNews.style?.messageTextColor,
-                        image: currentNews.image,
-                        dense: dense,
+                child: Padding(
+                  padding: EdgeInsetsDirectional.symmetric(
+                    vertical: dense ? 6.0 : SMALL_SPACE,
+                    horizontal: MEDIUM_SPACE,
+                  ),
+                  child: Column(
+                    children: <Widget>[
+                      Expanded(
+                        child: _TagLineContentBody(
+                          message: currentNews.message,
+                          textColor: currentNews.style?.messageTextColor,
+                          image: currentNews.image,
+                          dense: dense,
+                        ),
                       ),
-                    ),
-                    SizedBox(height: dense ? VERY_SMALL_SPACE : SMALL_SPACE),
-                    Align(
-                      alignment: AlignmentDirectional.bottomEnd,
-                      child: _TagLineContentButton(
-                        link: currentNews.url,
-                        label: currentNews.buttonLabel,
-                        backgroundColor: currentNews.style?.buttonBackground,
-                        foregroundColor: currentNews.style?.buttonTextColor,
-                        dense: dense,
+                      SizedBox(height: dense ? VERY_SMALL_SPACE : SMALL_SPACE),
+                      Align(
+                        alignment: AlignmentDirectional.bottomEnd,
+                        child: _TagLineContentButton(
+                          label: currentNews.buttonLabel,
+                          backgroundColor: currentNews.style?.buttonBackground,
+                          foregroundColor: currentNews.style?.buttonTextColor,
+                          dense: dense,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -227,7 +229,7 @@ class _TagLineContentTitle extends StatelessWidget {
               dimension: 11.0,
               child: DecoratedBox(
                 decoration: BoxDecoration(
-                  color: indicatorColor ?? theme.secondaryLight,
+                  color: indicatorColor ?? Colors.white,
                   borderRadius: const BorderRadius.all(ROUNDED_RADIUS),
                 ),
               ),
@@ -364,14 +366,12 @@ class _TagLineContentBodyState extends State<_TagLineContentBody> {
 
 class _TagLineContentButton extends StatelessWidget {
   const _TagLineContentButton({
-    required this.link,
     required this.dense,
     this.label,
     this.backgroundColor,
     this.foregroundColor,
   });
 
-  final String link;
   final String? label;
   final Color? backgroundColor;
   final Color? foregroundColor;
@@ -392,40 +392,32 @@ class _TagLineContentButton extends StatelessWidget {
           borderRadius: const BorderRadius.all(ROUNDED_RADIUS),
           color: backgroundColor ?? theme.primaryBlack,
         ),
-        child: Material(
-          type: MaterialType.transparency,
-          child: InkWell(
-            borderRadius: const BorderRadius.all(ROUNDED_RADIUS),
-            onTap: () => LaunchUrlHelper.launchURLAndFollowDeepLinks(
-              context,
-              link,
-            ),
-            child: Padding(
-              padding: const EdgeInsetsDirectional.symmetric(
-                vertical: VERY_SMALL_SPACE,
-                horizontal: VERY_LARGE_SPACE,
-              ),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsetsDirectional.only(bottom: 0.5),
-                    child: Text(
-                      label ?? localizations.tagline_feed_news_button,
-                      style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(width: MEDIUM_SPACE),
-                  const CircledArrow.right(
-                    size: 18.0,
+        child: Padding(
+          padding: const EdgeInsetsDirectional.symmetric(
+            vertical: VERY_SMALL_SPACE,
+            horizontal: VERY_LARGE_SPACE,
+          ),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsetsDirectional.only(bottom: 1.0),
+                child: Text(
+                  label ?? localizations.tagline_feed_news_button,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
                     color: Colors.white,
                   ),
-                ],
+                ),
               ),
-            ),
+              const SizedBox(width: MEDIUM_SPACE),
+              CircledArrow.right(
+                type: CircledArrowType.normal,
+                size: 18.0,
+                color: backgroundColor ?? theme.primaryBlack,
+                circleColor: Colors.white,
+              ),
+            ],
           ),
         ),
       ),
