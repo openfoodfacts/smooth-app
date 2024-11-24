@@ -2208,11 +2208,11 @@
     "@edit_photo_select_existing_button_label": {
         "description": "Edit 'select existing image' button label"
     },
-    "edit_photo_select_existing_all_label": "Existing images for this product",
+    "edit_photo_select_existing_all_label": "תמונות קיימות למוצר הזה",
     "@edit_photo_select_existing_all_label": {
         "description": "Page title"
     },
-    "edit_photo_select_existing_all_subtitle": "Select an image by clicking on it",
+    "edit_photo_select_existing_all_subtitle": "אפשר לבחור תמונה על ידי לחיצה עליה",
     "@edit_photo_select_existing_all_subtitle": {
         "description": "Page title"
     },
@@ -3147,11 +3147,11 @@
     "@error_loading_photo": {
         "description": "Error message when loading a photo fails to load"
     },
-    "photo_viewer_action_use_picture_as": "Use as…",
+    "photo_viewer_action_use_picture_as": "להשתמש בתור…",
     "@photo_viewer_action_use_picture_as": {
         "description": "An action to use the current picture to be used as front/ingredients…"
     },
-    "photo_viewer_use_picture_as_title": "Use this picture as… ({language})",
+    "photo_viewer_use_picture_as_title": "להשתמש בתמונה הזאת בתור… ({language})",
     "@photo_viewer_use_picture_as": {
         "description": "The title of a dialog to use the current picture as front/ingredients…",
         "placeholders": {
@@ -3341,10 +3341,10 @@
     "@product_type_subtitle_product": {
         "description": "Example of products for other categories"
     },
-    "photo_field_front": "Product photo",
+    "photo_field_front": "תמונת המוצר",
     "photo_field_ingredients": "תמונת רכיבים",
-    "photo_field_nutrition": "Nutrition photo",
+    "photo_field_nutrition": "תמונת מפרט תזונתי",
     "photo_field_packaging": "תמונת פרטי אריזה",
-    "photo_already_exists": "This photo already exists",
-    "photo_missing": "This photo is missing"
+    "photo_already_exists": "התמונה הזאת כבר קיימת",
+    "photo_missing": "התמונה הזאת חסרה"
 }
