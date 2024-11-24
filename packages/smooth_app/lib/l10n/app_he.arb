@@ -784,7 +784,7 @@
         }
     },
     "product_image_outdated": "יכול להיות שהתמונה הזאת לא עדכנית",
-    "product_image_action_replace_photo": "Replace photo ({type})",
+    "product_image_action_replace_photo": "החלפת התמונה ({type})",
     "@product_image_action_replace_photo": {
         "description": "Action on the photo gallery to replace an existing picture",
         "placeholders": {
@@ -794,7 +794,7 @@
             }
         }
     },
-    "product_image_action_add_photo": "Add a photo ({type})",
+    "product_image_action_add_photo": "הוספת תמונה ({type})",
     "@product_image_action_add_photo": {
         "description": "Action on the photo gallery to add a photo (eg: ingredients)",
         "placeholders": {
@@ -812,11 +812,11 @@
     "@product_image_action_take_picture": {
         "description": "Take a picture (eg: for ingredients) when there is no one"
     },
-    "product_image_action_from_gallery": "Select from your phone's gallery",
+    "product_image_action_from_gallery": "נא לבחור מהגלריה של הטלפון שלך",
     "@product_image_action_from_gallery": {
         "description": "Replace the existing picture with one from the device's gallery"
     },
-    "product_image_action_choose_existing_photo": "Select from the product photos",
+    "product_image_action_choose_existing_photo": "בחירת מתמונות המוצר",
     "@product_image_action_choose_existing_photo": {
         "description": "Replace the existing picture with one from the product's photos"
     },
@@ -1881,7 +1881,7 @@
     "prices_app_dev_mode_flag": "קיצור דרך ליישומון מחירים בעמוד המוצר",
     "prices_app_button": "מעבר ליישומון המחירים",
     "prices_generic_title": "מחירים",
-    "prices_add_n_prices": "{count,plural, =1{Add a price} other{Add {count} prices}}",
+    "prices_add_n_prices": "{count,plural, one {} two {הוספת {count} מחירים} many {הוספת {count} מחירים}=1{הוספת מחיר} other{הוספת {count} מחירים}}",
     "prices_send_n_prices": "{count,plural, two {שליחת {count} מחירים} many {שליחת {count} מחירים}=1{שליחת מחיר {count}} other{שליחת {count} מחירים}}",
     "prices_add_an_item": "הוספת פריט",
     "prices_add_a_price": "הוספת מחיר",
@@ -3325,19 +3325,19 @@
     "@carousel_loading_text": {
         "description": "Please keep the ** syntax to make the text bold"
     },
-    "product_type_subtitle_food": "Vegetables, fruits, frozen food…",
+    "product_type_subtitle_food": "ירקות, פירות, מזון קפוא…",
     "@product_type_subtitle_food": {
         "description": "Example of products for food category"
     },
-    "product_type_subtitle_beauty": "Makeup, soaps, toothpastes…",
+    "product_type_subtitle_beauty": "איפור, סבונים, משחות שיניים…",
     "@product_type_subtitle_beauty": {
         "description": "Example of products for beauty category"
     },
-    "product_type_subtitle_pet_food": "Food for dogs, cats…",
+    "product_type_subtitle_pet_food": "מזון כלבים, חתולים…",
     "@product_type_subtitle_pet_food": {
         "description": "Example of products for pet food category"
     },
-    "product_type_subtitle_product": "Smartphones, furniture…",
+    "product_type_subtitle_product": "טלפונים חכמים, ריהוט…",
     "@product_type_subtitle_product": {
         "description": "Example of products for other categories"
     },
