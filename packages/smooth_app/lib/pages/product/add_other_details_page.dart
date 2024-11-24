@@ -134,7 +134,7 @@ class _AddOtherDetailsPageState extends State<AddOtherDetailsPage> {
 
     AnalyticsHelper.trackProductEdit(
       AnalyticsEditEvents.otherDetails,
-      widget.product.barcode!,
+      widget.product,
       true,
     );
     await BackgroundTaskDetails.addTask(

@@ -5,6 +5,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/collections_helper.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 import 'package:smooth_app/pages/product/explanation_widget.dart';
+import 'package:smooth_app/pages/product/owner_field_info.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
 import 'package:smooth_app/pages/product/simple_input_text_field.dart';
 
@@ -61,6 +62,7 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
       context,
       widget.product,
     );
+    final bool isOwnerField = widget.helper.isOwnerField(widget.product);
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
@@ -96,6 +98,7 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
                       start: 9.0,
                     ),
                     productType: widget.product.productType,
+                    suffixIcon: !isOwnerField ? null : const OwnerFieldIcon(),
                   ),
                 ),
                 Tooltip(

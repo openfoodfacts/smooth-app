@@ -632,10 +632,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_native_splash
-      sha256: ee5c9bd2b74ea8676442fd4ab876b5d41681df49276488854d6c81a5377c0ef1
+      sha256: "1152ab0067ca5a2ebeb862fe0a762057202cceb22b7e62692dcbabf6483891bb"
       url: "https://pub.dev"
     source: hosted
-    version: "2.4.2"
+    version: "2.4.3"
   flutter_plugin_android_lifecycle:
     dependency: transitive
     description:
@@ -751,10 +751,10 @@ packages:
     dependency: "direct main"
     description:
       name: go_router
-      sha256: ce89c5a993ca5eea74535f798478502c30a625ecb10a1de4d7fef5cd1bcac2a4
+      sha256: "8ae664a70174163b9f65ea68dd8673e29db8f9095de7b5cd00e167c621f4fef5"
       url: "https://pub.dev"
     source: hosted
-    version: "14.4.1"
+    version: "14.6.0"
   graphs:
     dependency: transitive
     description:
@@ -1076,10 +1076,10 @@ packages:
     dependency: "direct main"
     description:
       name: openfoodfacts
-      sha256: d35a213d6354246e3b27e0b18fe3def658e00c337346cf11c4f8ba082f92dfaa
+      sha256: "0ad8ac186a09427d74567460bbcdb1a984afd2558a172afaab87825f0bfec026"
       url: "https://pub.dev"
     source: hosted
-    version: "3.16.0"
+    version: "3.17.1"
   openfoodfacts_flutter_lints:
     dependency: "direct dev"
     description:
@@ -1317,10 +1317,10 @@ packages:
     dependency: "direct main"
     description:
       name: rive
-      sha256: "468f0880d49c513e09fdfba26e4abd9d50433c2cf398210b62948d8de3837dd5"
+      sha256: b44b62feb908610ca6c85e05f4573a66118a23867425926cf06152d171236141
       url: "https://pub.dev"
     source: hosted
-    version: "0.13.15"
+    version: "0.13.17"
   rive_common:
     dependency: transitive
     description:
@@ -1783,10 +1783,10 @@ packages:
     dependency: "direct main"
     description:
       name: webview_flutter_android
-      sha256: dec83a8da0a2dcd8a25418534cc59348dbc2855fa1dd0cc929c62b6029fde392
+      sha256: "285cedfd9441267f6cca8843458620b5fda1af75b04f5818d0441acda5d7df19"
       url: "https://pub.dev"
     source: hosted
-    version: "4.0.1"
+    version: "4.1.0"
   webview_flutter_platform_interface:
     dependency: transitive
     description:
@@ -1799,10 +1799,10 @@ packages:
     dependency: "direct main"
     description:
       name: webview_flutter_wkwebview
-      sha256: f14ee08021772fed913da8daebcfdeb46be457081e521e93e9918fe6cd1ce9e8
+      sha256: b7e92f129482460951d96ef9a46b49db34bd2e1621685de26e9eaafd9674e7eb
       url: "https://pub.dev"
     source: hosted
-    version: "3.16.1"
+    version: "3.16.3"
   win32:
     dependency: transitive
     description:

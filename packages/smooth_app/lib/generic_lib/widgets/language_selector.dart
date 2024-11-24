@@ -39,7 +39,7 @@ class LanguageSelector extends StatelessWidget {
   /// Product from which we can extract the languages that matter.
   final Product? product;
 
-  static const Languages _languages = Languages();
+  static final Languages _languages = Languages();
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +61,7 @@ class LanguageSelector extends StatelessWidget {
       type: MaterialType.transparency,
       child: InkWell(
         onTap: () async {
-          final OpenFoodFactsLanguage? language = await _openLanguageSelector(
+          final OpenFoodFactsLanguage? language = await openLanguageSelector(
             context,
             selectedLanguages: selectedLanguages,
             languagePriority: languagePriority,
@@ -117,7 +117,8 @@ class LanguageSelector extends StatelessWidget {
   /// Returns the language selected by the user.
   ///
   /// [selectedLanguages] have a specific "more important" display.
-  Future<OpenFoodFactsLanguage?> _openLanguageSelector(
+  // TODO(g123k): Improve the language selector to usable without the Widget
+  static Future<OpenFoodFactsLanguage?> openLanguageSelector(
     final BuildContext context, {
     final Iterable<OpenFoodFactsLanguage>? selectedLanguages,
     required final LanguagePriority languagePriority,
@@ -212,7 +213,7 @@ class LanguageSelector extends StatelessWidget {
     );
   }
 
-  String _getCompleteName(
+  static String _getCompleteName(
     final OpenFoodFactsLanguage language,
   ) {
     final String nameInLanguage = _languages.getNameInLanguage(language);

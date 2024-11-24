@@ -6,13 +6,13 @@ import 'package:smooth_app/data_models/news_feed/newsfeed_provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/provider_helper.dart';
-import 'package:smooth_app/helpers/strings_helper.dart';
 import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/scan/carousel/main_card/scan_tagline.dart';
 import 'package:smooth_app/pages/search/search_field.dart';
 import 'package:smooth_app/pages/search/search_page.dart';
 import 'package:smooth_app/pages/search/search_product_helper.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:smooth_app/widgets/smooth_text.dart';
 
 class ScanMainCard extends StatelessWidget {
   const ScanMainCard();
@@ -93,7 +93,7 @@ class _SearchCard extends StatelessWidget {
                 : 'assets/app/logo_text_white.svg',
             semanticsLabel: localizations.homepage_main_card_logo_description,
           ),
-          FormattedText(
+          TextWithBoldParts(
             text: localizations.homepage_main_card_subheading,
             textAlign: TextAlign.center,
             textStyle: const TextStyle(height: 1.3),

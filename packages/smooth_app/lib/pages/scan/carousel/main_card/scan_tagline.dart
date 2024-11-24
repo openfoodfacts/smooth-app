@@ -13,10 +13,10 @@ import 'package:smooth_app/generic_lib/widgets/smooth_app_logo.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/provider_helper.dart';
-import 'package:smooth_app/helpers/strings_helper.dart';
 import 'package:smooth_app/resources/app_icons.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:smooth_app/widgets/smooth_text.dart';
 
 class ScanTagLine extends StatelessWidget {
   const ScanTagLine({super.key});
@@ -108,77 +108,88 @@ class _ScanTagLineContentState extends State<_ScanTagLineContent> {
     // Default values seem weird
     const Radius radius = Radius.circular(16.0);
 
-    return Column(
-      children: <Widget>[
-        DecoratedBox(
-          decoration: BoxDecoration(
-            color: currentNews.style?.titleBackground ??
-                (!themeProvider.isDarkMode(context)
-                    ? theme.primarySemiDark
-                    : theme.primaryBlack),
-            borderRadius: const BorderRadiusDirectional.only(
-              topStart: radius,
-              topEnd: radius,
-            ),
-          ),
-          child: Padding(
-            padding: const EdgeInsetsDirectional.only(
-              start: LARGE_SPACE,
-              end: MEDIUM_SPACE,
-              top: VERY_SMALL_SPACE,
-              bottom: VERY_SMALL_SPACE,
-            ),
-            child: _TagLineContentTitle(
-              title: currentNews.title,
-              backgroundColor: currentNews.style?.titleBackground,
-              indicatorColor: currentNews.style?.titleIndicatorColor,
-              titleColor: currentNews.style?.titleTextColor,
-            ),
-          ),
-        ),
-        Expanded(
-          child: DecoratedBox(
+    return LayoutBuilder(builder: (
+      BuildContext context,
+      BoxConstraints constraints,
+    ) {
+      final bool dense = constraints.maxHeight <= 150.0;
+
+      return Column(
+        children: <Widget>[
+          DecoratedBox(
             decoration: BoxDecoration(
+              color: currentNews.style?.titleBackground ??
+                  (!themeProvider.isDarkMode(context)
+                      ? theme.primarySemiDark
+                      : theme.primaryBlack),
+              borderRadius: const BorderRadiusDirectional.only(
+                topStart: radius,
+                topEnd: radius,
+              ),
+            ),
+            child: Padding(
+              padding: EdgeInsetsDirectional.only(
+                start: dense ? LARGE_SPACE : MEDIUM_SPACE,
+                end: dense ? MEDIUM_SPACE : BALANCED_SPACE,
+                top: VERY_SMALL_SPACE,
+                bottom: VERY_SMALL_SPACE,
+              ),
+              child: _TagLineContentTitle(
+                title: currentNews.title,
+                backgroundColor: currentNews.style?.titleBackground,
+                indicatorColor: currentNews.style?.titleIndicatorColor,
+                titleColor: currentNews.style?.titleTextColor,
+              ),
+            ),
+          ),
+          Expanded(
+            child: Material(
+              type: MaterialType.card,
               color: currentNews.style?.contentBackgroundColor ??
                   (!themeProvider.isDarkMode(context)
                       ? theme.primaryMedium
                       : theme.primaryDark),
-              borderRadius: const BorderRadiusDirectional.only(
-                bottomStart: radius,
-                bottomEnd: radius,
-              ),
-            ),
-            child: Padding(
-              padding: const EdgeInsetsDirectional.symmetric(
-                vertical: SMALL_SPACE,
-                horizontal: MEDIUM_SPACE,
-              ),
-              child: Column(
-                children: <Widget>[
-                  Expanded(
-                    child: _TagLineContentBody(
-                      message: currentNews.message,
-                      textColor: currentNews.style?.messageTextColor,
-                      image: currentNews.image,
-                    ),
+              borderRadius: const BorderRadius.vertical(bottom: radius),
+              child: InkWell(
+                borderRadius: const BorderRadius.vertical(bottom: radius),
+                onTap: () => LaunchUrlHelper.launchURLAndFollowDeepLinks(
+                  context,
+                  currentNews.url,
+                ),
+                child: Padding(
+                  padding: EdgeInsetsDirectional.symmetric(
+                    vertical: dense ? 6.0 : SMALL_SPACE,
+                    horizontal: MEDIUM_SPACE,
                   ),
-                  const SizedBox(height: SMALL_SPACE),
-                  Align(
-                    alignment: AlignmentDirectional.bottomEnd,
-                    child: _TagLineContentButton(
-                      link: currentNews.url,
-                      label: currentNews.buttonLabel,
-                      backgroundColor: currentNews.style?.buttonBackground,
-                      foregroundColor: currentNews.style?.buttonTextColor,
-                    ),
+                  child: Column(
+                    children: <Widget>[
+                      Expanded(
+                        child: _TagLineContentBody(
+                          message: currentNews.message,
+                          textColor: currentNews.style?.messageTextColor,
+                          image: currentNews.image,
+                          dense: dense,
+                        ),
+                      ),
+                      SizedBox(height: dense ? VERY_SMALL_SPACE : SMALL_SPACE),
+                      Align(
+                        alignment: AlignmentDirectional.bottomEnd,
+                        child: _TagLineContentButton(
+                          label: currentNews.buttonLabel,
+                          backgroundColor: currentNews.style?.buttonBackground,
+                          foregroundColor: currentNews.style?.buttonTextColor,
+                          dense: dense,
+                        ),
+                      ),
+                    ],
                   ),
-                ],
+                ),
               ),
             ),
           ),
-        ),
-      ],
-    );
+        ],
+      );
+    });
   }
 
   @override
@@ -203,8 +214,6 @@ class _TagLineContentTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension theme =
-        Theme.of(context).extension<SmoothColorsThemeExtension>()!;
     final AppLocalizations localizations = AppLocalizations.of(context);
 
     return Semantics(
@@ -218,7 +227,7 @@ class _TagLineContentTitle extends StatelessWidget {
               dimension: 11.0,
               child: DecoratedBox(
                 decoration: BoxDecoration(
-                  color: indicatorColor ?? theme.secondaryLight,
+                  color: indicatorColor ?? Colors.white,
                   borderRadius: const BorderRadius.all(ROUNDED_RADIUS),
                 ),
               ),
@@ -246,11 +255,13 @@ class _TagLineContentTitle extends StatelessWidget {
 class _TagLineContentBody extends StatefulWidget {
   const _TagLineContentBody({
     required this.message,
+    required this.dense,
     this.textColor,
     this.image,
   });
 
   final String message;
+  final bool dense;
   final Color? textColor;
   final AppNewsImage? image;
 
@@ -267,8 +278,10 @@ class _TagLineContentBodyState extends State<_TagLineContentBody> {
     final SmoothColorsThemeExtension theme =
         Theme.of(context).extension<SmoothColorsThemeExtension>()!;
 
-    final Widget text = FormattedText(
+    final Widget text = TextWithBoldParts(
       text: widget.message,
+      maxLines: widget.dense ? 3 : null,
+      overflow: widget.dense ? TextOverflow.ellipsis : null,
       textStyle: TextStyle(
         color: widget.textColor ??
             (!themeProvider.isDarkMode(context)
@@ -351,16 +364,16 @@ class _TagLineContentBodyState extends State<_TagLineContentBody> {
 
 class _TagLineContentButton extends StatelessWidget {
   const _TagLineContentButton({
-    required this.link,
+    required this.dense,
     this.label,
     this.backgroundColor,
     this.foregroundColor,
   });
 
-  final String link;
   final String? label;
   final Color? backgroundColor;
   final Color? foregroundColor;
+  final bool dense;
 
   @override
   Widget build(BuildContext context) {
@@ -368,35 +381,43 @@ class _TagLineContentButton extends StatelessWidget {
     final SmoothColorsThemeExtension theme =
         Theme.of(context).extension<SmoothColorsThemeExtension>()!;
 
-    return FilledButton(
-      style: FilledButton.styleFrom(
-        backgroundColor: backgroundColor ?? theme.primaryBlack,
-        foregroundColor: foregroundColor ?? Colors.white,
-        padding: const EdgeInsetsDirectional.symmetric(
-          vertical: VERY_SMALL_SPACE,
-          horizontal: VERY_LARGE_SPACE,
+    return Semantics(
+      button: true,
+      label: label ?? localizations.tagline_feed_news_button,
+      excludeSemantics: true,
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          borderRadius: const BorderRadius.all(ROUNDED_RADIUS),
+          color: backgroundColor ?? theme.primaryBlack,
         ),
-        minimumSize: const Size(0, 20.0),
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          Padding(
-            padding: const EdgeInsetsDirectional.only(bottom: 0.5),
-            child: Text(
-              label ?? localizations.tagline_feed_news_button,
-              style: const TextStyle(fontWeight: FontWeight.bold),
-            ),
+        child: Padding(
+          padding: const EdgeInsetsDirectional.symmetric(
+            vertical: VERY_SMALL_SPACE,
+            horizontal: VERY_LARGE_SPACE,
           ),
-          const SizedBox(width: MEDIUM_SPACE),
-          const CircledArrow.right(
-            size: 20.0,
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsetsDirectional.only(bottom: 1.0),
+                child: Text(
+                  label ?? localizations.tagline_feed_news_button,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+              const SizedBox(width: MEDIUM_SPACE),
+              CircledArrow.right(
+                type: CircledArrowType.normal,
+                size: 18.0,
+                color: backgroundColor ?? theme.primaryBlack,
+                circleColor: Colors.white,
+              ),
+            ],
           ),
-        ],
-      ),
-      onPressed: () => LaunchUrlHelper.launchURLAndFollowDeepLinks(
-        context,
-        link,
+        ),
       ),
     );
   }

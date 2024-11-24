@@ -25,6 +25,7 @@ import 'package:smooth_app/pages/product/simple_input_number_field.dart';
 import 'package:smooth_app/pages/text_field_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
+import 'package:smooth_app/widgets/smooth_switch.dart';
 import 'package:smooth_app/widgets/will_pop_scope.dart';
 
 /// Actual nutrition page, with data already loaded.
@@ -208,15 +209,19 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
           product: upToDateProduct,
         ),
         body: Padding(
-          padding: const EdgeInsets.symmetric(
+          padding: const EdgeInsetsDirectional.symmetric(
             horizontal: LARGE_SPACE,
-            vertical: SMALL_SPACE,
           ),
           child: Form(
             key: _formKey,
             child: Provider<List<FocusNode>>.value(
               value: _focusNodes,
-              child: ListView(children: children),
+              child: ListView(
+                padding: const EdgeInsetsDirectional.symmetric(
+                  vertical: SMALL_SPACE,
+                ),
+                children: children,
+              ),
             ),
           ),
         ),
@@ -284,10 +289,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
                       ) ==
                       null
                   ? null
-                  : Semantics(
-                      label: appLocalizations.owner_field_info_title,
-                      child: const Icon(OwnerFieldInfo.ownerFieldIconData),
-                    ),
+                  : const OwnerFieldIcon(),
             ),
             textInputAction: TextInputAction.next,
             onFieldSubmitted: (_) {
@@ -308,44 +310,77 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
     );
   }
 
-  Widget _getServingSwitch(final AppLocalizations appLocalizations) => Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          Expanded(
-            child: Align(
-              alignment: AlignmentDirectional.centerEnd,
-              child: Text(
-                appLocalizations.nutrition_page_per_100g,
-                style: _nutritionContainer.perSize == PerSize.oneHundredGrams
-                    ? const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        decoration: TextDecoration.underline)
-                    : null,
+  Widget _getServingSwitch(final AppLocalizations appLocalizations) =>
+      IntrinsicHeight(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Expanded(
+              child: Semantics(
+                label: appLocalizations.nutrition_page_per_100g,
+                button: true,
+                child: InkWell(
+                  excludeFromSemantics: true,
+                  borderRadius: const BorderRadius.horizontal(
+                    left: CIRCULAR_RADIUS,
+                  ),
+                  onTap: () => setState(
+                    () => _nutritionContainer.perSize = PerSize.oneHundredGrams,
+                  ),
+                  child: Align(
+                    alignment: AlignmentDirectional.centerEnd,
+                    child: Text(
+                      appLocalizations.nutrition_page_per_100g,
+                      style:
+                          _nutritionContainer.perSize == PerSize.oneHundredGrams
+                              ? const TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  decoration: TextDecoration.underline)
+                              : null,
+                    ),
+                  ),
+                ),
               ),
             ),
-          ),
-          Switch(
-            value: _nutritionContainer.perSize == PerSize.serving,
-            onChanged: (final bool value) => setState(
-              () => _nutritionContainer.perSize =
-                  value ? PerSize.serving : PerSize.oneHundredGrams,
-            ),
-          ),
-          Expanded(
-            child: Align(
-              alignment: AlignmentDirectional.centerStart,
-              child: Text(
-                appLocalizations.nutrition_page_per_serving,
-                style: _nutritionContainer.perSize == PerSize.serving
-                    ? const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        decoration: TextDecoration.underline)
-                    : null,
+            ExcludeSemantics(
+              child: SmoothSwitch(
+                size: const Size(60.0, 30.0),
+                value: _nutritionContainer.perSize == PerSize.serving,
+                onChanged: (final bool value) => setState(
+                  () => _nutritionContainer.perSize =
+                      value ? PerSize.serving : PerSize.oneHundredGrams,
+                ),
               ),
             ),
-          )
-        ],
+            Expanded(
+              child: Semantics(
+                label: appLocalizations.nutrition_page_per_serving,
+                button: true,
+                child: InkWell(
+                  excludeFromSemantics: true,
+                  borderRadius: const BorderRadius.horizontal(
+                    right: CIRCULAR_RADIUS,
+                  ),
+                  onTap: () => setState(
+                    () => _nutritionContainer.perSize = PerSize.serving,
+                  ),
+                  child: Align(
+                    alignment: AlignmentDirectional.centerStart,
+                    child: Text(
+                      appLocalizations.nutrition_page_per_serving,
+                      style: _nutritionContainer.perSize == PerSize.serving
+                          ? const TextStyle(
+                              fontWeight: FontWeight.bold,
+                              decoration: TextDecoration.underline)
+                          : null,
+                    ),
+                  ),
+                ),
+              ),
+            )
+          ],
+        ),
       );
 
   Widget _switchNoNutrition(final AppLocalizations localizations) => SmoothCard(
@@ -466,7 +501,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
 
     AnalyticsHelper.trackProductEdit(
       AnalyticsEditEvents.nutrition_Facts,
-      barcode,
+      upToDateProduct,
       true,
     );
     await BackgroundTaskDetails.addTask(
@@ -569,10 +604,7 @@ class _NutrientValueCell extends StatelessWidget {
                 product.getOwnerFieldTimestamp(OwnerField.nutrient(nutrient)) ==
                     null
             ? null
-            : Semantics(
-                label: appLocalizations.owner_field_info_title,
-                child: const Icon(OwnerFieldInfo.ownerFieldIconData),
-              ),
+            : const OwnerFieldIcon(),
       ),
       keyboardType: const TextInputType.numberWithOptions(
         signed: false,

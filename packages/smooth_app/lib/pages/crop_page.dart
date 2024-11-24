@@ -4,6 +4,7 @@ import 'dart:ui' as ui;
 
 import 'package:crop_image/crop_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -465,9 +466,10 @@ class _CropPageState extends State<CropPage> {
     try {
       final CropParameters? cropParameters = await _saveImage();
       if (cropParameters != null) {
-        if (mounted) {
+        /// Checking if the context is still mounted is not enough here
+        SchedulerBinding.instance.addPostFrameCallback((_) {
           Navigator.of(context).pop<CropParameters>(cropParameters);
-        }
+        });
       }
     } catch (e) {
       await _showExceptionDialog(e);

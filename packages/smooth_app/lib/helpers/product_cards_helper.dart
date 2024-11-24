@@ -18,6 +18,8 @@ SmoothAppBar buildEditProductAppBar({
   required final BuildContext context,
   required final String title,
   required final Product product,
+  final PreferredSizeWidget? bottom,
+  final List<Widget>? actions,
 }) =>
     SmoothAppBar(
       centerTitle: false,
@@ -31,6 +33,8 @@ SmoothAppBar buildEditProductAppBar({
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
       ),
+      actions: actions,
+      bottom: bottom,
       ignoreSemanticsForSubtitle: true,
     );
 
@@ -97,6 +101,7 @@ Widget buildProductSmoothCard({
   EdgeInsetsGeometry? margin = const EdgeInsets.symmetric(
     horizontal: SMALL_SPACE,
   ),
+  BorderRadius? borderRadius,
 }) {
   assert(
     (header != null && title == null) || header == null,
@@ -131,6 +136,7 @@ Widget buildProductSmoothCard({
   return SmoothCard(
     margin: margin,
     padding: padding,
+    borderRadius: borderRadius,
     child: child,
   );
 }
@@ -410,10 +416,9 @@ List<ProductImage> getRawProductImages(
   final Product product,
   final ImageSize imageSize,
 ) {
-  final List<ProductImage> result = <ProductImage>[];
   final List<ProductImage>? rawImages = product.getRawImages();
   if (rawImages == null) {
-    return result;
+    return <ProductImage>[];
   }
   final Map<int, ProductImage> map = <int, ProductImage>{};
   for (final ProductImage productImage in rawImages) {
@@ -439,10 +444,22 @@ List<ProductImage> getRawProductImages(
     }
     map[imageId] = productImage;
   }
-  final List<int> sortedIds = List<int>.of(map.keys);
-  sortedIds.sort();
-  for (final int id in sortedIds) {
-    result.add(map[id]!);
-  }
+  final List<ProductImage> result = List<ProductImage>.of(map.values);
+  result.sort(
+    (
+      final ProductImage a,
+      final ProductImage b,
+    ) {
+      final int result = (a.uploaded?.millisecondsSinceEpoch ?? 0).compareTo(
+        b.uploaded?.millisecondsSinceEpoch ?? 0,
+      );
+      if (result != 0) {
+        return result;
+      }
+      return (int.tryParse(a.imgid ?? '0') ?? 0).compareTo(
+        int.tryParse(b.imgid ?? '0') ?? 0,
+      );
+    },
+  );
   return result;
 }

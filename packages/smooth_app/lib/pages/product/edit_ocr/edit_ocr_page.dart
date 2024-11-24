@@ -28,6 +28,7 @@ import 'package:smooth_app/pages/product/product_image_button.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
+import 'package:smooth_app/widgets/v2/smooth_buttons_bar.dart';
 
 part 'edit_ocr_main_action.dart';
 
@@ -119,7 +120,7 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
     }
     AnalyticsHelper.trackProductEdit(
       _helper.getEditEventAnalyticsTag(),
-      barcode,
+      upToDateProduct,
       true,
     );
     await BackgroundTaskDetails.addTask(
@@ -397,13 +398,8 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
               ),
             ),
           ),
-          SmoothActionButtonsBar(
-            axis: Axis.horizontal,
-            negativeAction: SmoothActionButton(
-              text: appLocalizations.cancel,
-              onPressed: () => Navigator.pop(context),
-            ),
-            positiveAction: SmoothActionButton(
+          SmoothButtonsBar2(
+            positiveButton: SmoothActionButton2(
               text: appLocalizations.save,
               onPressed: () async {
                 await _updateText();
@@ -413,8 +409,11 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
                 Navigator.pop(context);
               },
             ),
+            negativeButton: SmoothActionButton2(
+              text: appLocalizations.cancel,
+              onPressed: () => Navigator.pop(context),
+            ),
           ),
-          SizedBox(height: MediaQuery.paddingOf(context).bottom),
         ],
       ),
     );

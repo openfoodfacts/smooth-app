@@ -44,6 +44,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
   static const String userPreferencesFlagPriceProd = '__devWorkingOnPricesProd';
   static const String userPreferencesTestEnvDomain = '__testEnvHost';
   static const String userPreferencesFlagEditIngredients = '__editIngredients';
+  static const String userPreferencesFlagHideFolksonomy = '__hideFolksonomy';
   static const String userPreferencesFlagBoostedComparison =
       '__boostedComparison';
   static const String userPreferencesEnumScanMode = '__scanMode';
@@ -360,6 +361,18 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
               list.add(tag);
             }
             await userPreferences.setExcludedAttributeIds(list);
+          },
+        ),
+        UserPreferencesItemSwitch(
+          title: appLocalizations.dev_preferences_show_folksonomy_title,
+          value: userPreferences.getFlag(userPreferencesFlagHideFolksonomy) ??
+              true,
+          onChanged: (bool value) async {
+            await userPreferences.setFlag(
+              userPreferencesFlagHideFolksonomy,
+              value,
+            );
+            _showSuccessMessage();
           },
         ),
         UserPreferencesItemSection(

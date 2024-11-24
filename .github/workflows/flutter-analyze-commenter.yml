@@ -1,0 +1,31 @@
+name: flutter-analyze-commenter example
+
+on: pull_request  # Only supports run by pull request
+
+jobs:
+  flutter-analyze:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write # Write permission is required to add comments on a PR
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: subosito/flutter-action@v2
+
+      - run: flutter pub get
+
+      # Run flutter analyze with --write option
+      - run: flutter analyze --write=flutter_analyze.log
+
+      # (Optional)Run custom lint with --format=json option
+      - if: ${{ !cancelled() }}
+        run: dart run custom_lint --format=json > custom_lint.log
+
+      # Use flutter-analyze-commenter
+      - if: ${{ !cancelled() }}               # Required to run this step even if failure
+        uses: yorifuji/flutter-analyze-commenter@v1
+        with:
+          analyze-log: flutter_analyze.log    # file path for analyze log
+          custom-lint-log: custom_lint.log    # file path for custom lint log (optional)
+          verbose: false                      # verbose output (optional)

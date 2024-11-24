@@ -20,6 +20,7 @@ class SmoothScaffold extends Scaffold {
     super.floatingActionButtonLocation,
     super.floatingActionButtonAnimator,
     super.persistentFooterButtons,
+    super.persistentFooterAlignment,
     super.drawer,
     super.onDrawerChanged,
     super.endDrawer,

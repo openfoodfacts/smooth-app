@@ -74,6 +74,7 @@ class _ProductImageSwipeableViewState extends State<ProductImageSwipeableView>
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
     context.watch<LocalDatabase>();
     refreshUpToDate();
     return SmoothScaffold(
@@ -103,6 +104,7 @@ class _ProductImageSwipeableViewState extends State<ProductImageSwipeableView>
         itemBuilder: (BuildContext context, int index) => ProductImageViewer(
           product: widget.product,
           imageField: _imageFields[index],
+          isInitialImageViewed: widget.initialImageIndex == index,
           language: _currentLanguage,
           setLanguage: (final OpenFoodFactsLanguage? newLanguage) async {
             if (newLanguage == null || newLanguage == _currentLanguage) {

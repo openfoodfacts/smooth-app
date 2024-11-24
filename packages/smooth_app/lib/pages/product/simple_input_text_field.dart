@@ -19,6 +19,7 @@ class SimpleInputTextField extends StatefulWidget {
     this.shapeProvider,
     this.padding,
     required this.productType,
+    this.suffixIcon,
   });
 
   final FocusNode focusNode;
@@ -33,6 +34,7 @@ class SimpleInputTextField extends StatefulWidget {
   final String? Function()? shapeProvider;
   final EdgeInsetsGeometry? padding;
   final ProductType? productType;
+  final Widget? suffixIcon;
 
   @override
   State<SimpleInputTextField> createState() => _SimpleInputTextFieldState();
@@ -81,6 +83,7 @@ class _SimpleInputTextFieldState extends State<SimpleInputTextField> {
               hintText: widget.hintText,
               constraints: widget.constraints,
               manager: _manager,
+              suffixIcon: widget.suffixIcon,
             ),
           ),
           if (widget.withClearButton)

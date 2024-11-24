@@ -18,6 +18,7 @@ class SearchAppBarTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     final Widget child = Text(
       title,
+      overflow: TextOverflow.ellipsis,
       maxLines: multiLines ? 2 : 1,
     );
 

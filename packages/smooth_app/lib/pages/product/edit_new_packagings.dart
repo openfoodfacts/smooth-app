@@ -295,7 +295,7 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
 
     AnalyticsHelper.trackProductEdit(
       AnalyticsEditEvents.packagingComponents,
-      barcode,
+      upToDateProduct,
       true,
     );
 

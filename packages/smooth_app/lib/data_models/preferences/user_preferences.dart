@@ -88,6 +88,8 @@ class UserPreferences extends ChangeNotifier {
   static const String _TAG_UNIQUE_RANDOM = '_unique_random';
   static const String _TAG_LAZY_COUNT_PREFIX = '_lazy_count_prefix';
   static const String _TAG_LATEST_PRODUCT_TYPE = '_latest_product_type';
+  static const String _TAG_SEARCH_SHOW_PRODUCT_TYPE_FILTER =
+      '_search_show_product_type_filter';
   static const String _TAG_PRODUCT_PAGE_ACTIONS = '_product_page_actions';
 
   /// Camera preferences
@@ -487,6 +489,15 @@ class UserPreferences extends ChangeNotifier {
           value.offTag,
         ),
       );
+
+  Future<void> setSearchProductTypeFilter(final bool visible) async {
+    await _sharedPreferences.setBool(
+        _TAG_SEARCH_SHOW_PRODUCT_TYPE_FILTER, visible);
+    notifyListeners();
+  }
+
+  bool get searchProductTypeFilterVisible =>
+      _sharedPreferences.getBool(_TAG_SEARCH_SHOW_PRODUCT_TYPE_FILTER) ?? false;
 
   List<ProductFooterActionBar> get productPageActions {
     final List<String>? actions =

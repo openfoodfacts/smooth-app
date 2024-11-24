@@ -2208,7 +2208,7 @@
     "@edit_photo_select_existing_button_label": {
         "description": "Edit 'select existing image' button label"
     },
-    "edit_photo_select_existing_all_label": "Existing images",
+    "edit_photo_select_existing_all_label": "Existing images for this product",
     "@edit_photo_select_existing_all_label": {
         "description": "Page title"
     },

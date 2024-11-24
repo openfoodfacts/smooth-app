@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:intl/intl.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
 class ProductCompatibilityHelper {
   ProductCompatibilityHelper.product(final MatchedProductV2 product)
-      : status = product.status;
+      : status = product.status,
+        _score = product.score;
 
-  const ProductCompatibilityHelper.status(this.status);
+  const ProductCompatibilityHelper.status(this.status) : _score = null;
 
+  final double? _score;
   final MatchedProductStatusV2 status;
 
   Color getColor(BuildContext context) {
@@ -63,5 +66,13 @@ class ProductCompatibilityHelper {
       case MatchedProductStatusV2.UNKNOWN_MATCH:
         return appLocalizations.match_short_unknown;
     }
+  }
+
+  String? getFormattedScore() {
+    if (_score == null || status == MatchedProductStatusV2.UNKNOWN_MATCH) {
+      return null;
+    }
+
+    return NumberFormat('00').format(_score.toInt());
   }
 }
