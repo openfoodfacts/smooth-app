@@ -8,6 +8,7 @@ import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/pages/onboarding/v2/onboarding_bottom_hills.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 import 'package:smooth_app/widgets/smooth_text.dart';
@@ -87,8 +88,29 @@ class _OnboardingWelcomePageContent extends StatelessWidget {
               widthFactor: 0.65,
               child: Align(
                 alignment: const Alignment(0, -0.2),
-                child: OnboardingText(
+                child: TextWithBubbleParts(
                   text: appLocalizations.onboarding_home_welcome_text2,
+                  fontMultiplier: fontMultiplier,
+                  backgroundColor:
+                      context.extension<SmoothColorsThemeExtension>().orange,
+                  textAlign: TextAlign.center,
+                  textStyle: const TextStyle(
+                    fontSize: 26,
+                    height: 1.48,
+                    fontWeight: FontWeight.w600,
+                  ),
+                  bubblePadding: const EdgeInsetsDirectional.only(
+                    top: 1.0,
+                    bottom: 5.0,
+                    start: 15.0,
+                    end: 15.0,
+                  ),
+                  bubbleTextStyle: const TextStyle(
+                    fontSize: 22,
+                    height: 1.53,
+                    fontWeight: FontWeight.w700,
+                    color: Colors.white,
+                  ),
                 ),
               ),
             ),
@@ -168,100 +190,6 @@ class _SunAndCloudState extends State<_SunAndCloud>
     _controller.dispose();
     super.dispose();
   }
-}
-
-class OnboardingText extends StatelessWidget {
-  const OnboardingText({
-    required this.text,
-    this.margin,
-    super.key,
-  });
-
-  final String text;
-  final EdgeInsetsGeometry? margin;
-
-  @override
-  Widget build(BuildContext context) {
-    double fontMultiplier;
-    try {
-      fontMultiplier = OnboardingConfig.of(context).fontMultiplier;
-    } catch (_) {
-      fontMultiplier =
-          OnboardingConfig.computeFontMultiplier(MediaQuery.sizeOf(context));
-    }
-
-    final Color backgroundColor =
-        Theme.of(context).extension<SmoothColorsThemeExtension>()!.orange;
-
-    return RichText(
-      text: TextSpan(
-        children: _extractChunks().map(((String text, bool highlighted) el) {
-          if (el.$2) {
-            return _createSpan(
-              el.$1,
-              30 * fontMultiplier,
-              backgroundColor,
-            );
-          } else {
-            return TextSpan(text: el.$1);
-          }
-        }).toList(growable: false),
-        style: DefaultTextStyle.of(context).style.copyWith(
-              fontSize: 30 * fontMultiplier,
-              height: 1.53,
-              fontWeight: FontWeight.w600,
-            ),
-      ),
-      textAlign: TextAlign.center,
-    );
-  }
-
-  Iterable<(String, bool)> _extractChunks() {
-    final Iterable<RegExpMatch> matches =
-        RegExp(r'\*\*(.*?)\*\*').allMatches(text);
-
-    if (matches.length <= 1) {
-      return <(String, bool)>[(text, false)];
-    }
-
-    final List<(String, bool)> chunks = <(String, bool)>[];
-
-    int lastMatch = 0;
-
-    for (final RegExpMatch match in matches) {
-      if (matches.first.start > 0) {
-        chunks.add((text.substring(lastMatch, match.start), false));
-      }
-
-      chunks.add((text.substring(match.start + 2, match.end - 2), true));
-      lastMatch = match.end;
-    }
-
-    if (lastMatch < text.length) {
-      chunks.add((text.substring(lastMatch), false));
-    }
-
-    return chunks;
-  }
-
-  WidgetSpan _createSpan(String text, double fontSize, Color backgroundColor) =>
-      HighlightedTextSpan(
-        text: text,
-        textStyle: TextStyle(
-          color: Colors.white,
-          fontSize: fontSize,
-          fontWeight: FontWeight.w700,
-        ),
-        padding: const EdgeInsetsDirectional.only(
-          top: 1.0,
-          bottom: 5.0,
-          start: 15.0,
-          end: 15.0,
-        ),
-        margin: margin ?? const EdgeInsetsDirectional.symmetric(vertical: 2.5),
-        backgroundColor: backgroundColor,
-        radius: 30.0,
-      );
 }
 
 // TODO(g123k): Move elsewhere when the onboarding will be redesigned

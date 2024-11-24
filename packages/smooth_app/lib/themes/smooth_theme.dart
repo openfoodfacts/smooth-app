@@ -55,20 +55,6 @@ class SmoothTheme {
           : null,
       scaffoldBackgroundColor:
           brightness == Brightness.light ? null : const Color(0xFF303030),
-      bottomNavigationBarTheme: BottomNavigationBarThemeData(
-        backgroundColor:
-            brightness == Brightness.light ? null : const Color(0xFF303030),
-        selectedIconTheme: const IconThemeData(size: 24.0),
-        showSelectedLabels: true,
-        selectedItemColor: brightness == Brightness.dark
-            ? myColorScheme.primary
-            : DARK_BROWN_COLOR,
-        selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
-        showUnselectedLabels: true,
-        unselectedIconTheme: const IconThemeData(size: 20.0),
-        elevation: 0.0,
-        enableFeedback: true,
-      ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ButtonStyle(
           backgroundColor: WidgetStateProperty.resolveWith<Color?>(
@@ -88,6 +74,7 @@ class SmoothTheme {
           foregroundColor: myColorScheme.onPrimary),
       textTheme: textTheme,
       appBarTheme: AppBarTheme(
+        centerTitle: false,
         color: myColorScheme.surface,
         foregroundColor: myColorScheme.onSurface,
         systemOverlayStyle: SystemUiOverlayStyle.light,
@@ -151,23 +138,29 @@ class SmoothTheme {
       switchTheme: SwitchThemeData(
         thumbColor:
             WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
-          if (states.contains(WidgetState.disabled)) {
+          if (states.contains(WidgetState.selected)) {
+            if (brightness == Brightness.light) {
+              return smoothExtension.primaryDark;
+            } else {
+              return smoothExtension.primarySemiDark;
+            }
+          } else if (states.contains(WidgetState.disabled)) {
+            if (brightness == Brightness.light) {
+              return const Color(0xFFC2B5B0);
+            } else {
+              return smoothExtension.primaryNormal;
+            }
+          } else {
             return null;
           }
-          if (states.contains(WidgetState.selected)) {
-            return myColorScheme.primary;
-          }
-          return null;
         }),
         trackColor:
             WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
-          if (states.contains(WidgetState.disabled)) {
-            return null;
+          if (brightness == Brightness.light) {
+            return smoothExtension.primaryMedium;
+          } else {
+            return const Color(0xFFEDE0DB);
           }
-          if (states.contains(WidgetState.selected)) {
-            return myColorScheme.primary;
-          }
-          return null;
         }),
       ),
     );

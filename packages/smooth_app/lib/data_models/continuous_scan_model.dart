@@ -18,7 +18,6 @@ enum ScannedProductState {
   FOUND,
   NOT_FOUND,
   LOADING,
-  THANKS,
   CACHED,
   ERROR_INTERNET,
   ERROR_INVALID_CODE,
@@ -296,6 +295,8 @@ class ContinuousScanModel with ChangeNotifier {
   /// Sometimes the scanner may fail, this is a simple fix for now
   /// But could be improved in the future
   String _fixBarcodeIfNecessary(String code) {
+    code = code.replaceAll('-', '');
+
     if (code.length == 12) {
       return '0$code';
     } else {

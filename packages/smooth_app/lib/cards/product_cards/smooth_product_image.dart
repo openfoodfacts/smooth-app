@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -17,9 +18,67 @@ import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
 class ProductPicture extends StatefulWidget {
-  ProductPicture({
+  ProductPicture.fromProduct({
+    required Product product,
+    required ImageField imageField,
+    required Size size,
+    OpenFoodFactsLanguage? language,
+    String? fallbackUrl,
+    VoidCallback? onTap,
+    String? heroTag,
+    bool? showObsoleteIcon,
+    BorderRadius? borderRadius,
+    double? imageFoundBorder,
+    double? imageNotFoundBorder,
+    TextStyle? errorTextStyle,
+  }) : this._(
+          transientFile: null,
+          product: product,
+          imageField: imageField,
+          language: language ?? ProductQuery.getLanguage(),
+          size: size,
+          fallbackUrl: fallbackUrl,
+          heroTag: heroTag,
+          onTap: onTap,
+          borderRadius: borderRadius,
+          imageFoundBorder: imageFoundBorder ?? 0.0,
+          imageNotFoundBorder: imageNotFoundBorder ?? 0.0,
+          errorTextStyle: errorTextStyle,
+          showObsoleteIcon: showObsoleteIcon ?? false,
+        );
+
+  ProductPicture.fromTransientFile({
+    required TransientFile transientFile,
+    required Size size,
+    String? fallbackUrl,
+    VoidCallback? onTap,
+    String? heroTag,
+    bool? showObsoleteIcon,
+    BorderRadius? borderRadius,
+    double? imageFoundBorder,
+    double? imageNotFoundBorder,
+    TextStyle? errorTextStyle,
+  }) : this._(
+          transientFile: transientFile,
+          product: null,
+          imageField: null,
+          language: null,
+          size: size,
+          fallbackUrl: fallbackUrl,
+          heroTag: heroTag,
+          onTap: onTap,
+          borderRadius: borderRadius,
+          imageFoundBorder: imageFoundBorder ?? 0.0,
+          imageNotFoundBorder: imageNotFoundBorder ?? 0.0,
+          errorTextStyle: errorTextStyle,
+          showObsoleteIcon: showObsoleteIcon ?? false,
+        );
+
+  ProductPicture._({
     required this.product,
     required this.imageField,
+    required this.language,
+    required this.transientFile,
     required this.size,
     this.fallbackUrl,
     this.heroTag,
@@ -35,8 +94,11 @@ class ProductPicture extends StatefulWidget {
         assert(heroTag == null || heroTag.isNotEmpty),
         assert(size.width >= 0.0 && size.height >= 0.0);
 
-  final Product product;
-  final ImageField imageField;
+  final Product? product;
+  final ImageField? imageField;
+  final OpenFoodFactsLanguage? language;
+
+  final TransientFile? transientFile;
   final Size size;
   final String? fallbackUrl;
   final VoidCallback? onTap;
@@ -56,6 +118,9 @@ class ProductPicture extends StatefulWidget {
 
   @override
   State<ProductPicture> createState() => _ProductPictureState();
+
+  static String generateHeroTag(String barcode, ImageField imageField) =>
+      'photo_${barcode}_${imageField.offTag}';
 }
 
 class _ProductPictureState extends State<ProductPicture> {
@@ -63,8 +128,9 @@ class _ProductPictureState extends State<ProductPicture> {
 
   @override
   Widget build(BuildContext context) {
-    final (ImageProvider, bool)? imageProvider = _getImageProvider(
+    final (ImageProvider?, bool)? imageProvider = _getImageProvider(
       widget.product,
+      widget.transientFile,
     );
 
     final Widget? inkWell = widget.onTap != null
@@ -91,16 +157,20 @@ class _ProductPictureState extends State<ProductPicture> {
         border: widget.imageNotFoundBorder,
         child: inkWell,
       );
-    } else if (imageProvider != null) {
+    } else if (imageProvider?.$1 != null) {
       child = _ProductPictureWithImageProvider(
-        imageProvider: imageProvider.$1,
+        imageProvider: imageProvider!.$1!,
         outdated: imageProvider.$2,
         heroTag: widget.heroTag,
         size: widget.size,
         showOutdated: widget.showObsoleteIcon,
         borderRadius: widget.borderRadius,
         border: widget.imageFoundBorder,
-        onError: () => setState(() => _imageError = true),
+        onError: () {
+          SchedulerBinding.instance.addPostFrameCallback((_) {
+            setState(() => _imageError = true);
+          });
+        },
         child: inkWell,
       );
     } else {
@@ -143,16 +213,24 @@ class _ProductPictureState extends State<ProductPicture> {
   /// Returns the image provider for the product.
   /// If this is a [TransientFile], the boolean indicates whether the image is
   /// outdated or not.
-  (ImageProvider, bool)? _getImageProvider(Product product) {
-    final TransientFile transientFile = TransientFile.fromProduct(
-      product,
-      widget.imageField,
-      ProductQuery.getLanguage(),
+  (ImageProvider?, bool)? _getImageProvider(
+    Product? product,
+    TransientFile? transientFile,
+  ) {
+    if (transientFile != null) {
+      return (transientFile.getImageProvider(), transientFile.expired);
+    }
+
+    final TransientFile productTransientFile = TransientFile.fromProduct(
+      product!,
+      widget.imageField!,
+      widget.language ?? ProductQuery.getLanguage(),
     );
-    final ImageProvider? imageProvider = transientFile.getImageProvider();
+    final ImageProvider? imageProvider =
+        productTransientFile.getImageProvider();
 
     if (imageProvider != null) {
-      return (imageProvider, transientFile.expired);
+      return (imageProvider, productTransientFile.expired);
     } else if (widget.fallbackUrl?.isNotEmpty == true) {
       return (NetworkImage(widget.fallbackUrl!), false);
     } else {
@@ -187,6 +265,7 @@ class _ProductPictureWithImageProvider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final bool lightTheme = context.lightTheme();
 
     final Widget image = Semantics(
       label: appLocalizations.product_page_image_front_accessibility_label,
@@ -198,10 +277,10 @@ class _ProductPictureWithImageProvider extends StatelessWidget {
           children: <Widget>[
             Positioned.fill(
               child: ColoredBox(
-                color: Colors.white,
+                color: lightTheme ? Colors.white : Colors.black,
                 child: ClipRRect(
                   child: Opacity(
-                    opacity: context.lightTheme() ? 0.2 : 0.65,
+                    opacity: lightTheme ? 0.2 : 0.55,
                     child: ImageFiltered(
                       imageFilter: ImageFilter.blur(sigmaX: 8.0, sigmaY: 8.0),
                       child: Image(
@@ -292,13 +371,9 @@ class _ProductPictureWithImageProvider extends StatelessWidget {
         if (loadingProgress == null) {
           return child;
         }
-        return Center(
-          child: CircularProgressIndicator.adaptive(
-            value: loadingProgress.expectedTotalBytes != null
-                ? loadingProgress.cumulativeBytesLoaded /
-                    loadingProgress.expectedTotalBytes!
-                : null,
-          ),
+
+        return const Center(
+          child: CircularProgressIndicator(),
         );
       },
       errorBuilder: (_, __, ___) {

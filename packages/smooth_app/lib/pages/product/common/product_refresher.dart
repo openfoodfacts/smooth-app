@@ -89,11 +89,10 @@ class ProductRefresher {
   /// Returns the standard configuration for several barcodes product query.
   ProductSearchQueryConfiguration getBarcodeListQueryConfiguration(
     final List<String> barcodes,
-    final OpenFoodFactsLanguage language, {
-    final List<ProductField>? fields,
-  }) =>
+    final OpenFoodFactsLanguage language,
+  ) =>
       ProductSearchQueryConfiguration(
-        fields: fields ?? ProductQuery.fields,
+        fields: ProductQuery.fields,
         language: language,
         country: ProductQuery.getCountry(),
         parametersList: <Parameter>[

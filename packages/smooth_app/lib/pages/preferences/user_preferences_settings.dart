@@ -92,6 +92,14 @@ class UserPreferencesSettings extends AbstractUserPreferences {
         subtitle: appLocalizations.expand_ingredients_body,
         panelId: KnowledgePanelCard.PANEL_INGREDIENTS_ID,
       ),
+      _getDivider(),
+      UserPreferencesItemSwitch(
+        title: appLocalizations.search_product_filter_visibility_title,
+        subtitle: appLocalizations.search_product_filter_visibility_subtitle,
+        value: userPreferences.searchProductTypeFilterVisible,
+        onChanged: (final bool visible) async =>
+            userPreferences.setSearchProductTypeFilter(visible),
+      ),
       if (CameraHelper.hasACamera)
         _getTitle(
           label: appLocalizations.settings_app_miscellaneous,

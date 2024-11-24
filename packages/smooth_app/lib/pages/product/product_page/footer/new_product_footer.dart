@@ -14,6 +14,7 @@ import 'package:smooth_app/pages/product/product_page/footer/new_product_footer_
 import 'package:smooth_app/pages/product/product_page/footer/new_product_footer_share.dart';
 import 'package:smooth_app/pages/product/product_page/new_product_page.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
+import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
@@ -82,7 +83,7 @@ class _ProductFooterButtonsBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final SmoothColorsThemeExtension themeExtension =
-        Theme.of(context).extension<SmoothColorsThemeExtension>()!;
+        context.extension<SmoothColorsThemeExtension>();
 
     double bottomPadding = MediaQuery.viewPaddingOf(context).bottom;
     // Add an extra padding (for Android)
@@ -238,20 +239,24 @@ class _ProductFooterFilledButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final SmoothColorsThemeExtension themeExtension =
-        Theme.of(context).extension<SmoothColorsThemeExtension>()!;
+        context.extension<SmoothColorsThemeExtension>();
     final ProductPageCompatibility compatibility =
         context.watch<ProductPageCompatibility>();
+
+    final bool lightTheme = context.lightTheme();
     final Color contentColor = compatibility.color != null
         ? compatibility.color!
-        : context.lightTheme()
+        : lightTheme
             ? themeExtension.primaryBlack
             : themeExtension.primarySemiDark;
-    final Color mainColor =
-        enabled ? contentColor : contentColor.withOpacity(0.5);
+    final Color backgroundColor = enabled
+        ? contentColor
+        : (lightTheme ? Colors.grey.shade500 : Colors.black12);
+    final Color foregroundColor = Colors.white.withOpacity(enabled ? 1.0 : 0.2);
 
     final Widget child = IconTheme(
-      data: const IconThemeData(
-        color: Colors.white,
+      data: IconThemeData(
+        color: foregroundColor,
         size: 18.0,
       ),
       child: icon,
@@ -264,8 +269,8 @@ class _ProductFooterFilledButton extends StatelessWidget {
       child: OutlinedButton(
         onPressed: onTap,
         style: OutlinedButton.styleFrom(
-          foregroundColor: Colors.white,
-          backgroundColor: mainColor,
+          foregroundColor: foregroundColor,
+          backgroundColor: backgroundColor,
           side: BorderSide.none,
         ),
         child: label == null
@@ -306,15 +311,18 @@ class _ProductFooterOutlinedButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final SmoothColorsThemeExtension themeExtension =
-        Theme.of(context).extension<SmoothColorsThemeExtension>()!;
+        context.extension<SmoothColorsThemeExtension>();
+
+    final bool lightTheme = context.lightTheme();
     final Color contentColor =
-        context.lightTheme() ? themeExtension.primaryBlack : Colors.white;
-    final Color mainColor =
-        enabled ? contentColor : contentColor.withOpacity(0.5);
+        lightTheme ? themeExtension.primaryBlack : Colors.white;
+    final Color foregroundColor = enabled
+        ? contentColor
+        : contentColor.withOpacity(lightTheme ? 0.4 : 0.2);
 
     final Widget child = IconTheme(
       data: IconThemeData(
-        color: mainColor,
+        color: foregroundColor,
         size: 18.0,
       ),
       child: icon,
@@ -327,8 +335,10 @@ class _ProductFooterOutlinedButton extends StatelessWidget {
       child: OutlinedButton(
         onPressed: onTap,
         style: OutlinedButton.styleFrom(
-          foregroundColor: mainColor,
-          backgroundColor: Colors.transparent,
+          foregroundColor: foregroundColor,
+          backgroundColor: enabled
+              ? Colors.transparent
+              : (lightTheme ? Colors.grey.shade300 : Colors.black12),
         ),
         child: label == null
             ? child

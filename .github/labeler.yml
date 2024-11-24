@@ -1,15 +1,19 @@
 # Add labels to any any pull request with changes to the specified paths
 Android:
 - changed-files:
-  - any-glob-to-any-file: 'packages/smooth_app/android/**/*.md'
+  - any-glob-to-any-file: 'packages/smooth_app/android/**/*'
 
 🖥️ MacOS:
 - changed-files:
-  - any-glob-to-any-file: 'packages/smooth_app/macos/**/*.md'
+  - any-glob-to-any-file: 'packages/smooth_app/macos/**/*'
 
 Assets cache:
 - changed-files:
-  - any-glob-to-any-file: 'packages/smooth_app/assets/cache/**/*.md'
+  - any-glob-to-any-file: 'packages/smooth_app/assets/cache/**/*'
+
+navigation:
+- changed-files:
+  - any-glob-to-any-file: 'packages/smooth_app/lib/widgets/smooth_navigation_bar.dart'
 
 🔁 Background tasks:
 - changed-files:
@@ -42,7 +46,7 @@ Dependencies:
 
 🍎 iOS:
 - changed-files:
-  - any-glob-to-any-file: 'packages/smooth_app/ios/**/*.md'
+  - any-glob-to-any-file: 'packages/smooth_app/ios/**/*'
 
 ⚡️ Fastlane:
 - changed-files:
@@ -51,11 +55,11 @@ Dependencies:
 
 Asset cache:
 - changed-files:
-  - any-glob-to-any-file: 'packages/smooth_app/assets/cache/**/*.md'
+  - any-glob-to-any-file: 'packages/smooth_app/assets/cache/**/*'
 
 Web:
 - changed-files:
-  - any-glob-to-any-file: 'packages/smooth_app/web/**/*.md'
+  - any-glob-to-any-file: 'packages/smooth_app/web/**/*'
 
 🧪 Tests:
 - changed-files:
@@ -83,11 +87,11 @@ Web:
 
 Database:
 - changed-files:
-  - any-glob-to-any-file: 'packages/smooth_app/lib/database/**/*.md'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/database/**/*'
 
 🌐 l10n:
 - changed-files:
-  - any-glob-to-any-file: 'packages/smooth_app/lib/l10n/**/*.md'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/l10n/**/*'
 
 History:
 - changed-files:
@@ -295,3 +299,15 @@ router:
 🛣️ Road to scores:
 - changed-files:
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/product_incomplete_card.dart'
+
+tagline:
+- changed-files:
+  - any-glob-to-any-file: 'packages/smooth_app/lib/data_models/news_feed/newsfeed_json.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/data_models/news_feed/newsfeed_model.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/data_models/news_feed/newsfeed_provider.dart'
+
+🖼️ Photos - Photo manager:
+- changed-files:
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/image/product_image_gallery_other_view.dart'
+    - any-glob-to-any-file: 'packages/smooth_app/lib/pages/image/product_image_other_page.dart'
+    - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/gallery_view/product_image_gallery_view.dart'

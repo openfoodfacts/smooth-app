@@ -19,11 +19,13 @@ import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/crop_parameters.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
+import 'package:smooth_app/pages/product/add_new_product/product_type_radio_list_tile.dart';
 import 'package:smooth_app/pages/product/add_new_product_helper.dart';
 import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
 import 'package:smooth_app/pages/product/nutrition_page_loaded.dart';
 import 'package:smooth_app/pages/product/product_field_editor.dart';
 import 'package:smooth_app/pages/product/product_image_swipeable_view.dart';
+import 'package:smooth_app/pages/product/product_type_extensions.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
@@ -96,7 +98,6 @@ class _AddNewProductPageState extends State<AddNewProductPage>
       (widget.displayPictures ? 1 : 0);
 
   double get _progress => (_pageNumber + 1) / _totalPages;
-
   bool get _isLastPage => (_pageNumber + 1) == _totalPages;
   ProductType? _inputProductType;
   late ColorScheme _colorScheme;
@@ -576,15 +577,12 @@ class _AddNewProductPageState extends State<AddNewProductPage>
 
     for (final ProductType productType in ProductType.values) {
       rows.add(
-        RadioListTile<ProductType>(
-          title: Text(productType.getLabel(appLocalizations)),
-          onChanged: (ProductType? value) {
-            if (value != null) {
-              setState(() => _inputProductType = value);
-            }
+        ProductTypeRadioListTile(
+          productType: productType,
+          checked: productType == _inputProductType,
+          onChanged: (ProductType value) {
+            setState(() => _inputProductType = value);
           },
-          value: productType,
-          groupValue: _inputProductType,
         ),
       );
     }

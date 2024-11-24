@@ -48,7 +48,7 @@ dependencies:
     path: ../app_store/shared
   audioplayers: 6.1.0
   flutter_email_sender: 6.0.3
-  flutter_native_splash: 2.4.2
+  flutter_native_splash: 2.4.3
   image: 4.3.0
   auto_size_text: 3.0.0
   crop_image: 1.0.15
@@ -60,10 +60,10 @@ dependencies:
   share_plus: 10.1.2
   fimber: 0.7.0
   shimmer: ^3.0.0
-  rive: 0.13.16
+  rive: 0.13.17
   webview_flutter: 4.10.0
-  webview_flutter_android: 4.0.2
-  webview_flutter_wkwebview: 3.16.2
+  webview_flutter_android: 4.1.0
+  webview_flutter_wkwebview: 3.16.3
   flutter_custom_tabs: 2.1.0
   flutter_image_compress: 2.3.0
   connectivity_plus: 5.0.2
@@ -99,7 +99,7 @@ dependencies:
     path: ../scanner/zxing
 
 
-  openfoodfacts: 3.16.0
+  openfoodfacts: 3.17.1
   # openfoodfacts:
   #   path: ../../../openfoodfacts-dart
 

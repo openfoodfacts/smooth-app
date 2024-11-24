@@ -91,7 +91,7 @@ class _SmoothButtonsBar2State extends State<SmoothButtonsBar2>
         width: double.infinity,
         decoration: BoxDecoration(
           color: widget.backgroundColor ??
-              (context.lightTheme() ? Colors.white : colors!.primaryDark),
+              (context.lightTheme() ? Colors.white : colors!.primaryUltraBlack),
           boxShadow: const <BoxShadow>[
             BoxShadow(
               color: Colors.black12,
@@ -152,7 +152,8 @@ class _SmoothPositiveButton2 extends StatelessWidget {
 
     return _SmoothBaseButton2(
       data: data,
-      backgroundColor: colors.primaryBlack,
+      backgroundColor:
+          context.lightTheme() ? colors.primaryBlack : colors.primaryDark,
       foregroundColor: Colors.white,
     );
   }

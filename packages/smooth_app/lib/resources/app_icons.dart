@@ -10,6 +10,7 @@ class Add extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.add);
 }
@@ -35,6 +36,7 @@ class AddPrice extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.add_price_british_pound);
 
@@ -42,6 +44,7 @@ class AddPrice extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.add_price_dollar);
 
@@ -49,6 +52,7 @@ class AddPrice extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.add_price_euro);
 
@@ -56,6 +60,7 @@ class AddPrice extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.add_price_ruble);
 
@@ -63,6 +68,7 @@ class AddPrice extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.add_price_rupee);
 
@@ -70,6 +76,7 @@ class AddPrice extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.add_price_swiss_franc);
 
@@ -77,6 +84,7 @@ class AddPrice extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.add_price_turkish_lira);
 
@@ -84,6 +92,7 @@ class AddPrice extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.add_price_ukrainian_hryvnia);
 
@@ -91,6 +100,7 @@ class AddPrice extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.add_price_won);
 
@@ -98,17 +108,71 @@ class AddPrice extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.add_price_yen);
 }
 
 class AddToList extends AppIcon {
-  const AddToList({
+  factory AddToList({
+    required int count,
+    Color? color,
+    double? size,
+    Shadow? shadow,
+    String? semanticLabel,
+    Key? key,
+  }) {
+    return AddToList._count(
+      iconData: _getResource(count),
+      color: color,
+      size: size,
+      shadow: shadow,
+      semanticLabel: semanticLabel,
+      key: key,
+    );
+  }
+
+  const AddToList._count({
+    required IconData iconData,
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(iconData);
+
+  const AddToList.symbol({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.add_to_list);
+
+  static IconData _getResource(int count) {
+    switch (count) {
+      case 1:
+        return _IconsFont.add_to_list_1;
+      case 2:
+        return _IconsFont.add_to_list_2;
+      case 3:
+        return _IconsFont.add_to_list_3;
+      case 4:
+        return _IconsFont.add_to_list_4;
+      case 5:
+        return _IconsFont.add_to_list_5;
+      case 6:
+        return _IconsFont.add_to_list_6;
+      case 7:
+        return _IconsFont.add_to_list_7;
+      case 8:
+        return _IconsFont.add_to_list_8;
+      case 9:
+        return _IconsFont.add_to_list_9;
+      default:
+        return _IconsFont.add_to_list_9_plus;
+    }
+  }
 }
 
 class AppStore extends AppIcon {
@@ -116,6 +180,7 @@ class AppStore extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.app_store);
 }
@@ -125,6 +190,7 @@ class Arrow extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   })  : turns = 0,
         super._(_IconsFont.arrow_right);
@@ -133,6 +199,7 @@ class Arrow extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   })  : turns = 2,
         super._(_IconsFont.arrow_right);
@@ -141,6 +208,7 @@ class Arrow extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   })  : turns = 1,
         super._(_IconsFont.arrow_right);
@@ -149,6 +217,7 @@ class Arrow extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   })  : turns = 3,
         super._(_IconsFont.arrow_right);
@@ -169,6 +238,7 @@ class Barcode extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.barcode);
 
@@ -176,6 +246,7 @@ class Barcode extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.barcode_rounded);
 
@@ -183,6 +254,7 @@ class Barcode extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.barcode_corners);
 }
@@ -192,6 +264,7 @@ class Camera extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.camera_filled);
 
@@ -199,6 +272,7 @@ class Camera extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.camera_outlined);
 
@@ -206,6 +280,7 @@ class Camera extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.camera_happy);
 }
@@ -215,6 +290,7 @@ class Categories extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.categories);
 }
@@ -224,6 +300,7 @@ class Chicken extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.chicken);
 }
@@ -233,6 +310,7 @@ class Check extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.check);
 }
@@ -242,6 +320,7 @@ class Chevron extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   })  : turns = 2,
         super._(_IconsFont.chevron_right);
@@ -250,6 +329,7 @@ class Chevron extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   })  : turns = 0,
         super._(_IconsFont.chevron_right);
@@ -258,6 +338,7 @@ class Chevron extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   })  : turns = 2,
         super._(_IconsFont.chevron_down);
@@ -266,6 +347,7 @@ class Chevron extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   })  : turns = 0,
         super._(_IconsFont.chevron_down);
@@ -286,6 +368,7 @@ class ClearText extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.clear_text);
 
@@ -306,6 +389,7 @@ class CircledArrow extends AppIcon {
     Color? color,
     double? size,
     Shadow? shadow,
+    String? semanticLabel,
     Key? key,
   }) : this._base(
           type: type,
@@ -314,6 +398,7 @@ class CircledArrow extends AppIcon {
           color: color,
           size: size,
           shadow: shadow,
+          semanticLabel: semanticLabel,
           key: key,
         );
 
@@ -323,6 +408,7 @@ class CircledArrow extends AppIcon {
     Color? color,
     double? size,
     Shadow? shadow,
+    String? semanticLabel,
     Key? key,
   }) : this._base(
           type: type,
@@ -331,6 +417,7 @@ class CircledArrow extends AppIcon {
           color: color,
           size: size,
           shadow: shadow,
+          semanticLabel: semanticLabel,
           key: key,
         );
 
@@ -340,6 +427,7 @@ class CircledArrow extends AppIcon {
     Color? color,
     double? size,
     Shadow? shadow,
+    String? semanticLabel,
     Key? key,
   }) : this._base(
           type: type,
@@ -348,6 +436,7 @@ class CircledArrow extends AppIcon {
           color: color,
           size: size,
           shadow: shadow,
+          semanticLabel: semanticLabel,
           key: key,
         );
 
@@ -357,6 +446,7 @@ class CircledArrow extends AppIcon {
     Color? color,
     double? size,
     Shadow? shadow,
+    String? semanticLabel,
     Key? key,
   }) : this._base(
           type: type,
@@ -365,6 +455,7 @@ class CircledArrow extends AppIcon {
           color: color,
           size: size,
           shadow: shadow,
+          semanticLabel: semanticLabel,
           key: key,
         );
 
@@ -375,12 +466,13 @@ class CircledArrow extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   })  : assert(
           (circleColor == null &&
                   (type == null || type == CircledArrowType.thin)) ||
               (circleColor != null && type == CircledArrowType.normal),
-          'circleColor is only support and must be provided when type = CircledArrowType.normal',
+          'circleColor is only supported and must be provided when type = CircledArrowType.normal',
         ),
         type = type ?? CircledArrowType.thin,
         super._(
@@ -429,6 +521,7 @@ class Close extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.close);
 }
@@ -438,8 +531,17 @@ class Compare extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.compare);
+
+  const Compare.disabled({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.compare_disabled);
 }
 
 class Contribute extends AppIcon {
@@ -447,6 +549,7 @@ class Contribute extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.contribute);
 }
@@ -456,6 +559,7 @@ class Countries extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.countries);
 
@@ -463,6 +567,7 @@ class Countries extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.country);
 }
@@ -472,6 +577,7 @@ class Cupcake extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.cupcake);
 }
@@ -481,6 +587,7 @@ class Crash extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.crash);
 }
@@ -490,6 +597,7 @@ class Currency extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.currency);
 }
@@ -499,6 +607,7 @@ class DangerousZone extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.dangerous_zone);
 }
@@ -508,6 +617,7 @@ class Delete extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.delete_trash);
 }
@@ -517,6 +627,7 @@ class Document extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.document);
 }
@@ -526,6 +637,7 @@ class Donate extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.donate);
 }
@@ -535,6 +647,7 @@ class DoubleChevron extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   })  : turns = 3,
         super._(_IconsFont.double_chevron);
@@ -543,6 +656,7 @@ class DoubleChevron extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   })  : turns = 1,
         super._(_IconsFont.double_chevron);
@@ -551,6 +665,7 @@ class DoubleChevron extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   })  : turns = 0,
         super._(_IconsFont.double_chevron);
@@ -559,6 +674,7 @@ class DoubleChevron extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   })  : turns = 2,
         super._(_IconsFont.double_chevron);
@@ -579,6 +695,7 @@ class Edit extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.edit);
 }
@@ -588,6 +705,7 @@ class Environment extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.environment);
 }
@@ -597,6 +715,7 @@ class ExternalLink extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.external_link);
 }
@@ -606,6 +725,7 @@ class Expand extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.expand);
 }
@@ -615,6 +735,7 @@ class Eye extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.eye_visible);
 
@@ -622,6 +743,7 @@ class Eye extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.eye_invisible);
 }
@@ -631,6 +753,7 @@ class Fish extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.fish);
 }
@@ -640,6 +763,7 @@ class Fruit extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.fruit);
 }
@@ -649,6 +773,7 @@ class GitHub extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.github);
 }
@@ -658,6 +783,7 @@ class Info extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.info);
 }
@@ -667,6 +793,7 @@ class HappyToast extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.happy_toast);
 }
@@ -676,6 +803,7 @@ class History extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.history);
 }
@@ -685,6 +813,7 @@ class Help extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.help_circled);
 }
@@ -694,6 +823,7 @@ class Incognito extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.incognito);
 }
@@ -703,13 +833,23 @@ class Ingredients extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.ingredients);
+
+  const Ingredients.alt({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.ingredients_alt);
 
   const Ingredients.basket({
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.ingredients_basket);
 }
@@ -719,6 +859,7 @@ class Lab extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.lab);
 }
@@ -728,6 +869,7 @@ class Labels extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.labels);
 }
@@ -737,6 +879,7 @@ class Language extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.language);
 
@@ -744,6 +887,7 @@ class Language extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.language_world);
 }
@@ -753,6 +897,7 @@ class Lifebuoy extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.lifebuoy);
 }
@@ -762,8 +907,19 @@ class LightBulb extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.light_bulb);
+}
+
+class Lists extends AppIcon {
+  const Lists({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.lists);
 }
 
 class Logout extends AppIcon {
@@ -771,6 +927,7 @@ class Logout extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.logout);
 }
@@ -780,6 +937,7 @@ class MagicWand extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.magic_wand);
 }
@@ -789,6 +947,7 @@ class Menu extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.hamburger_menu);
 }
@@ -798,8 +957,17 @@ class Milk extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.milk);
+
+  const Milk.filled({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.milk_filled);
 }
 
 class NoPicture extends AppIcon {
@@ -807,6 +975,7 @@ class NoPicture extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.no_picture);
 }
@@ -816,6 +985,7 @@ class NutritionFacts extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.nutrition_facts);
 
@@ -823,6 +993,7 @@ class NutritionFacts extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.nutritional_facts);
 }
@@ -832,6 +1003,7 @@ class Outdated extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.outdated);
 }
@@ -841,6 +1013,7 @@ class Packaging extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.packaging);
 }
@@ -850,6 +1023,7 @@ class Password extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.password);
 }
@@ -859,6 +1033,7 @@ class Personalization extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.personalization);
 
@@ -866,6 +1041,7 @@ class Personalization extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.personalization_alt);
 }
@@ -875,6 +1051,7 @@ class Picture extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.image_add);
 
@@ -882,8 +1059,35 @@ class Picture extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.image_check);
+
+  const Picture.checkAlt({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.image_check_alt);
+
+  const Picture.error({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.image_error);
+}
+
+class Profile extends AppIcon {
+  const Profile({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.profile);
 }
 
 class Programming extends AppIcon {
@@ -891,6 +1095,7 @@ class Programming extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.programming);
 }
@@ -900,6 +1105,7 @@ class Question extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.question);
 
@@ -907,6 +1113,7 @@ class Question extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.question_circled);
 }
@@ -916,6 +1123,7 @@ class QRCode extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.qrcode);
 
@@ -923,8 +1131,19 @@ class QRCode extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.qrcode_corners);
+}
+
+class Recycling extends AppIcon {
+  const Recycling({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.recycling);
 }
 
 class Salt extends AppIcon {
@@ -932,6 +1151,7 @@ class Salt extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.salt);
 }
@@ -941,6 +1161,7 @@ class Share extends AppIcon {
     Color? color,
     double? size,
     Shadow? shadow,
+    String? semanticLabel,
     Key? key,
   }) {
     if (Platform.isIOS || Platform.isMacOS) {
@@ -948,6 +1169,7 @@ class Share extends AppIcon {
         color: color,
         size: size,
         shadow: shadow,
+        semanticLabel: semanticLabel,
         key: key,
       );
     } else {
@@ -955,6 +1177,7 @@ class Share extends AppIcon {
         color: color,
         size: size,
         shadow: shadow,
+        semanticLabel: semanticLabel,
         key: key,
       );
     }
@@ -964,6 +1187,7 @@ class Share extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.share_material);
 
@@ -971,6 +1195,7 @@ class Share extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.share_cupertino);
 }
@@ -980,15 +1205,35 @@ class Search extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.search);
+
+  const Search.alt({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.search_alt);
 
   const Search.advanced({
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.advanced_search);
+}
+
+class Select extends AppIcon {
+  const Select.photo({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.photo_select);
 }
 
 class Settings extends AppIcon {
@@ -996,6 +1241,7 @@ class Settings extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.settings);
 }
@@ -1005,6 +1251,7 @@ class Soda extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.soda_happy);
 
@@ -1012,6 +1259,7 @@ class Soda extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.soda_unhappy);
 }
@@ -1021,6 +1269,7 @@ class Sound extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.sound_on);
 
@@ -1028,6 +1277,7 @@ class Sound extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.sound_off);
 }
@@ -1037,6 +1287,7 @@ class Sparkles extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.sparkles);
 }
@@ -1046,6 +1297,7 @@ class Stores extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.store);
 }
@@ -1055,6 +1307,7 @@ class Suggestion extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.suggestion);
 }
@@ -1064,6 +1317,7 @@ class ThreeDots extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   })  : turns = 0,
         super._(_IconsFont.dots_vertical);
@@ -1072,6 +1326,7 @@ class ThreeDots extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   })  : turns = 1,
         super._(_IconsFont.dots_vertical);
@@ -1092,6 +1347,7 @@ class ToggleCamera extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.toggle_camera);
 }
@@ -1101,6 +1357,7 @@ class Torch extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.torch_on);
 
@@ -1108,6 +1365,7 @@ class Torch extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.torch_off);
 }
@@ -1117,6 +1375,7 @@ class Vibration extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.vibration);
 }
@@ -1126,6 +1385,7 @@ class Warning extends AppIcon {
     super.color,
     super.size,
     super.shadow,
+    super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.warning);
 }

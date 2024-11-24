@@ -20,8 +20,11 @@ import 'package:visibility_detector/visibility_detector.dart';
 
 class ProductHeader extends StatefulWidget {
   const ProductHeader({
+    this.backButtonType,
     super.key,
   });
+
+  final ProductPageBackButton? backButtonType;
 
   @override
   State<ProductHeader> createState() => _ProductHeaderState();
@@ -30,6 +33,7 @@ class ProductHeader extends StatefulWidget {
 class _ProductHeaderState extends State<ProductHeader> {
   double _titleOpacity = 0.0;
   double _compatibilityScoreOpacity = 0.0;
+  double _shadow = 0.0;
 
   @override
   Widget build(BuildContext context) {
@@ -46,13 +50,20 @@ class _ProductHeaderState extends State<ProductHeader> {
         ) =>
             _onScroll(scrollController),
         child: Consumer<ProductPageCompatibility>(
-          builder: (BuildContext context,
-              ProductPageCompatibility productCompatibility, _) {
+          builder: (
+            BuildContext context,
+            ProductPageCompatibility productCompatibility,
+            _,
+          ) {
+            final Color tintColor = productCompatibility.color ??
+                Theme.of(context)
+                    .extension<SmoothColorsThemeExtension>()!
+                    .greyNormal;
+
             return Material(
-              color: productCompatibility.color ??
-                  Theme.of(context)
-                      .extension<SmoothColorsThemeExtension>()!
-                      .greyNormal,
+              color: tintColor,
+              shadowColor: tintColor,
+              elevation: _shadow,
               child: DefaultTextStyle.merge(
                 style: const TextStyle(color: Colors.white),
                 child: IconTheme(
@@ -63,7 +74,9 @@ class _ProductHeaderState extends State<ProductHeader> {
                       padding: EdgeInsetsDirectional.only(top: statusBarHeight),
                       child: Row(
                         children: <Widget>[
-                          const _ProductHeaderBackButton(),
+                          _ProductHeaderBackButton(
+                            backButtonType: widget.backButtonType,
+                          ),
                           Expanded(
                             child: Offstage(
                               offstage: _titleOpacity == 0.0,
@@ -103,11 +116,18 @@ class _ProductHeaderState extends State<ProductHeader> {
       LARGE_SPACE + kToolbarHeight * 2,
       1.0,
     );
+    final double shadow = scrollController.offset.progressAndClamp(
+      0.0,
+      kToolbarHeight / 2,
+      2.0,
+    );
 
     if (_titleOpacity != titleOpacity ||
-        _compatibilityScoreOpacity != compatibilityScoreOpacity) {
+        _compatibilityScoreOpacity != compatibilityScoreOpacity ||
+        _shadow != shadow) {
       _titleOpacity = titleOpacity;
       _compatibilityScoreOpacity = compatibilityScoreOpacity;
+      _shadow = shadow;
 
       // Calling setState() may already be in a build() call
       SchedulerBinding.instance.addPostFrameCallback((_) {
@@ -131,7 +151,11 @@ class _ProductHeaderState extends State<ProductHeader> {
 }
 
 class _ProductHeaderBackButton extends StatelessWidget {
-  const _ProductHeaderBackButton();
+  const _ProductHeaderBackButton({
+    this.backButtonType,
+  });
+
+  final ProductPageBackButton? backButtonType;
 
   @override
   Widget build(BuildContext context) {
@@ -149,7 +173,9 @@ class _ProductHeaderBackButton extends StatelessWidget {
               Navigator.of(context).maybePop();
             },
             child: SizedBox.expand(
-              child: Icon(ConstantIcons.instance.getBackIcon()),
+              child: backButtonType == ProductPageBackButton.minimize
+                  ? const icons.Chevron.down(size: 16.0)
+                  : Icon(ConstantIcons.instance.getBackIcon()),
             ),
           ),
         ),
@@ -181,7 +207,7 @@ class _ProductHeaderName extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
               style: const TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 18.0,
+                fontSize: 17.0,
                 height: 0.9,
               ),
             ),
@@ -221,7 +247,7 @@ class _ProductCompatibilityScore extends StatelessWidget {
 
     final String tooltipMessage =
         AppLocalizations.of(context).product_page_compatibility_score_tooltip(
-      compatibility.score!.toInt(),
+      compatibility.score!,
     );
 
     return Semantics(
@@ -296,7 +322,7 @@ class _ProductCompatibilityScore extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
                   Text(
-                    '${compatibility.score!.toInt()}%',
+                    '${compatibility.score}%',
                     style: const TextStyle(
                       fontSize: 12.0,
                       height: 0.9,
@@ -326,5 +352,18 @@ class _ProductCompatibilityScore extends StatelessWidget {
       80.0,
       (MediaQuery.sizeOf(context).width - PADDING.horizontal) * (18 / 100),
     );
+  }
+}
+
+enum ProductPageBackButton {
+  back,
+  minimize;
+
+  static ProductPageBackButton? byName(String? type) {
+    return switch (type) {
+      'back' => ProductPageBackButton.back,
+      'minimize' => ProductPageBackButton.minimize,
+      _ => null,
+    };
   }
 }

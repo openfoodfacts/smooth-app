@@ -90,8 +90,18 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
 
   @override
   Widget build(BuildContext context) {
-    final Size size = MediaQuery.sizeOf(context);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+    Widget child = _buildForm(appLocalizations, context);
+    if (_hasOwnerField()) {
+      child = Column(
+        children: <Widget>[
+          Expanded(child: child),
+          const OwnerFieldBanner(),
+        ],
+      );
+    }
+
     return WillPopScope2(
       onWillPop: () async => (await _mayExitPage(saving: false), null),
       child: UnfocusFieldWhenTapOutside(
@@ -102,153 +112,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
             title: appLocalizations.basic_details,
             product: _product,
           ),
-          body: Form(
-            key: _formKey,
-            child: Scrollbar(
-              child: ListView(
-                children: <Widget>[
-                  Align(
-                    alignment: AlignmentDirectional.topStart,
-                    child: ProductImageCarousel(
-                      _product,
-                      height: size.height * 0.20,
-                    ),
-                  ),
-                  SizedBox(height: _heightSpace),
-                  Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: size.width * 0.05,
-                    ),
-                    child: Column(
-                      children: <Widget>[
-                        Text(
-                          appLocalizations.barcode_barcode(_product.barcode!),
-                          style:
-                              Theme.of(context).textTheme.bodyMedium?.copyWith(
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                        ),
-                        SizedBox(height: _heightSpace),
-                        ConsumerFilter<UserPreferences>(
-                          buildWhen: (
-                            UserPreferences? previousValue,
-                            UserPreferences currentValue,
-                          ) {
-                            return previousValue?.getFlag(UserPreferencesDevMode
-                                    .userPreferencesFlagSpellCheckerOnOcr) !=
-                                currentValue.getFlag(UserPreferencesDevMode
-                                    .userPreferencesFlagSpellCheckerOnOcr);
-                          },
-                          builder: (BuildContext context, UserPreferences prefs,
-                              Widget? child) {
-                            if (_multilingualHelper.isMonolingual()) {
-                              return SmoothTextFormField(
-                                suffixIcon: _getOwnerFieldIcon(
-                                  ProductField.NAME,
-                                ),
-                                controller: _productNameController,
-                                type: TextFieldTypes.PLAIN_TEXT,
-                                hintText: appLocalizations.product_name,
-                                spellCheckConfiguration: (prefs.getFlag(
-                                                UserPreferencesDevMode
-                                                    .userPreferencesFlagSpellCheckerOnOcr) ??
-                                            false) &&
-                                        (Platform.isAndroid || Platform.isIOS)
-                                    ? const SpellCheckConfiguration()
-                                    : const SpellCheckConfiguration.disabled(),
-                              );
-                            } else {
-                              return Card(
-                                child: Column(
-                                  children: <Widget>[
-                                    _multilingualHelper.getLanguageSelector(
-                                      setState: setState,
-                                      product: _product,
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: SmoothTextFormField(
-                                        suffixIcon: _getOwnerFieldIcon(
-                                          ProductField.NAME_IN_LANGUAGES,
-                                          language: _multilingualHelper
-                                              .getCurrentLanguage(),
-                                        ),
-                                        controller: _productNameController,
-                                        type: TextFieldTypes.PLAIN_TEXT,
-                                        hintText: appLocalizations.product_name,
-                                        spellCheckConfiguration: (prefs.getFlag(
-                                                        UserPreferencesDevMode
-                                                            .userPreferencesFlagSpellCheckerOnOcr) ??
-                                                    false) &&
-                                                (Platform.isAndroid ||
-                                                    Platform.isIOS)
-                                            ? const SpellCheckConfiguration()
-                                            : const SpellCheckConfiguration
-                                                .disabled(),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              );
-                            }
-                          },
-                        ),
-                        SizedBox(height: _heightSpace),
-                        LayoutBuilder(
-                          builder: (
-                            final BuildContext context,
-                            final BoxConstraints constraints,
-                          ) =>
-                              SmoothAutocompleteTextField(
-                            focusNode: _focusNode,
-                            controller: _brandNameController,
-                            autocompleteKey: _autocompleteKey,
-                            allowEmojis: false,
-                            hintText: appLocalizations.brand_name,
-                            constraints: constraints,
-                            suffixIcon: _getOwnerFieldIcon(
-                              ProductField.BRANDS,
-                            ),
-                            manager: AutocompleteManager(
-                              TaxonomyNameAutocompleter(
-                                taxonomyNames: <TaxonomyName>[
-                                  TaxonomyName.brand
-                                ],
-                                // for brands, language must be English
-                                language: OpenFoodFactsLanguage.ENGLISH,
-                                user: ProductQuery.getReadUser(),
-                                limit: 25,
-                                fuzziness: Fuzziness.none,
-                                uriHelper: ProductQuery.getUriProductHelper(
-                                  productType: _product.productType,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        SizedBox(height: _heightSpace),
-                        SmoothTextFormField(
-                          suffixIcon: _getOwnerFieldIcon(
-                            ProductField.QUANTITY,
-                          ),
-                          controller: _weightController,
-                          type: TextFieldTypes.PLAIN_TEXT,
-                          hintText: appLocalizations.quantity,
-                        ),
-                        if (_hasOwnerField())
-                          const Padding(
-                            padding: EdgeInsets.only(top: LARGE_SPACE),
-                            child: Card(child: OwnerFieldInfo()),
-                          ),
-                        // in order to be able to scroll suggestions
-                        const SizedBox(height: 150),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
+          body: child,
           bottomNavigationBar: ProductBottomButtonsBar(
             onSave: () async => _exitPage(
               await _mayExitPage(saving: true),
@@ -257,6 +121,149 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
               await _mayExitPage(saving: false),
             ),
           ),
+        ),
+      ),
+    );
+  }
+
+  Form _buildForm(AppLocalizations appLocalizations, BuildContext context) {
+    final Size size = MediaQuery.sizeOf(context);
+
+    return Form(
+      key: _formKey,
+      child: Scrollbar(
+        child: ListView(
+          children: <Widget>[
+            Align(
+              alignment: AlignmentDirectional.topStart,
+              child: ProductImageCarousel(
+                _product,
+                height: size.height * 0.20,
+              ),
+            ),
+            SizedBox(height: _heightSpace),
+            Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: size.width * 0.05,
+              ),
+              child: Column(
+                children: <Widget>[
+                  Text(
+                    appLocalizations.barcode_barcode(_product.barcode!),
+                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                          fontWeight: FontWeight.bold,
+                        ),
+                  ),
+                  SizedBox(height: _heightSpace),
+                  ConsumerFilter<UserPreferences>(
+                    buildWhen: (
+                      UserPreferences? previousValue,
+                      UserPreferences currentValue,
+                    ) {
+                      return previousValue?.getFlag(UserPreferencesDevMode
+                              .userPreferencesFlagSpellCheckerOnOcr) !=
+                          currentValue.getFlag(UserPreferencesDevMode
+                              .userPreferencesFlagSpellCheckerOnOcr);
+                    },
+                    builder: (BuildContext context, UserPreferences prefs,
+                        Widget? child) {
+                      if (_multilingualHelper.isMonolingual()) {
+                        return SmoothTextFormField(
+                          suffixIcon: _getOwnerFieldIcon(
+                            ProductField.NAME,
+                          ),
+                          controller: _productNameController,
+                          type: TextFieldTypes.PLAIN_TEXT,
+                          hintText: appLocalizations.product_name,
+                          spellCheckConfiguration: (prefs.getFlag(
+                                          UserPreferencesDevMode
+                                              .userPreferencesFlagSpellCheckerOnOcr) ??
+                                      false) &&
+                                  (Platform.isAndroid || Platform.isIOS)
+                              ? const SpellCheckConfiguration()
+                              : const SpellCheckConfiguration.disabled(),
+                        );
+                      } else {
+                        return Card(
+                          child: Column(
+                            children: <Widget>[
+                              _multilingualHelper.getLanguageSelector(
+                                setState: setState,
+                                product: _product,
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: SmoothTextFormField(
+                                  suffixIcon: _getOwnerFieldIcon(
+                                    ProductField.NAME_IN_LANGUAGES,
+                                    language: _multilingualHelper
+                                        .getCurrentLanguage(),
+                                  ),
+                                  controller: _productNameController,
+                                  type: TextFieldTypes.PLAIN_TEXT,
+                                  hintText: appLocalizations.product_name,
+                                  spellCheckConfiguration: (prefs.getFlag(
+                                                  UserPreferencesDevMode
+                                                      .userPreferencesFlagSpellCheckerOnOcr) ??
+                                              false) &&
+                                          (Platform.isAndroid || Platform.isIOS)
+                                      ? const SpellCheckConfiguration()
+                                      : const SpellCheckConfiguration
+                                          .disabled(),
+                                ),
+                              ),
+                            ],
+                          ),
+                        );
+                      }
+                    },
+                  ),
+                  SizedBox(height: _heightSpace),
+                  LayoutBuilder(
+                    builder: (
+                      final BuildContext context,
+                      final BoxConstraints constraints,
+                    ) =>
+                        SmoothAutocompleteTextField(
+                      focusNode: _focusNode,
+                      controller: _brandNameController,
+                      autocompleteKey: _autocompleteKey,
+                      allowEmojis: false,
+                      hintText: appLocalizations.brand_name,
+                      constraints: constraints,
+                      suffixIcon: _getOwnerFieldIcon(
+                        ProductField.BRANDS,
+                      ),
+                      manager: AutocompleteManager(
+                        TaxonomyNameAutocompleter(
+                          taxonomyNames: <TaxonomyName>[TaxonomyName.brand],
+                          // for brands, language must be English
+                          language: OpenFoodFactsLanguage.ENGLISH,
+                          user: ProductQuery.getReadUser(),
+                          limit: 25,
+                          fuzziness: Fuzziness.none,
+                          uriHelper: ProductQuery.getUriProductHelper(
+                            productType: _product.productType,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: _heightSpace),
+                  SmoothTextFormField(
+                    suffixIcon: _getOwnerFieldIcon(
+                      ProductField.QUANTITY,
+                    ),
+                    controller: _weightController,
+                    type: TextFieldTypes.PLAIN_TEXT,
+                    hintText: appLocalizations.quantity,
+                  ),
+                  // in order to be able to scroll suggestions
+                  const SizedBox(height: 150),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );

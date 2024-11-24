@@ -58,7 +58,7 @@ class ProductFooterCompareButton extends StatelessWidget {
     return ProductFooterButton(
       label: appLocalizations.product_search_same_category_short,
       semanticsLabel: appLocalizations.product_search_same_category,
-      icon: const icons.Compare(),
+      icon: enabled ? const icons.Compare() : const icons.Compare.disabled(),
       enabled: enabled,
       onTap: () => enabled
           ? _compareProduct(

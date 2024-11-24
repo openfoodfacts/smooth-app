@@ -19,13 +19,14 @@ import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_page
 import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
 import 'package:smooth_app/pages/hunger_games/question_card.dart';
 import 'package:smooth_app/pages/product/hideable_container.dart';
-import 'package:smooth_app/pages/product/product_compatibility_header.dart';
 import 'package:smooth_app/pages/product/product_field_editor.dart';
 import 'package:smooth_app/pages/product/product_incomplete_card.dart';
 import 'package:smooth_app/pages/product/product_questions_widget.dart';
 import 'package:smooth_app/pages/product/summary_attribute_group.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
+import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 
 const List<String> _ATTRIBUTE_GROUP_ORDER = <String>[
   AttributeGroup.ATTRIBUTE_GROUP_ALLERGENS,
@@ -42,13 +43,16 @@ class SummaryCard extends StatefulWidget {
     this._productPreferences, {
     this.isFullVersion = false,
     this.showQuestionsBanner = false,
-    this.showCompatibilityHeader = true,
     this.isRemovable = true,
     this.isSettingVisible = true,
     this.isProductEditable = true,
+    this.isPictureVisible = true,
     this.attributeGroupsClickable = true,
-    this.padding,
-    this.shadow,
+    this.scrollableContent = false,
+    this.margin,
+    this.contentPadding,
+    this.buttonPadding,
+    this.heroTag,
   });
 
   final Product _product;
@@ -72,16 +76,25 @@ class SummaryCard extends StatefulWidget {
   /// If true, the product will be editable
   final bool isProductEditable;
 
+  /// If true, a picture will be display next to the product name…
+  final bool isPictureVisible;
+
   /// If true, all chips / groups are clickable
   final bool attributeGroupsClickable;
 
-  /// If true, the compatibility header will be shown
-  final bool showCompatibilityHeader;
+  /// Margin for the card
+  final EdgeInsetsGeometry? margin;
 
-  final EdgeInsetsGeometry? padding;
+  /// Padding for the content (name of the product, attributes…)
+  final EdgeInsetsGeometry? contentPadding;
 
-  /// An optional shadow to apply to the card
-  final BoxShadow? shadow;
+  /// Padding for the "Tap for more" button
+  final EdgeInsetsGeometry? buttonPadding;
+
+  /// An optional Hero animation for [ProductPicture]
+  final String? heroTag;
+
+  final bool scrollableContent;
 
   @override
   State<SummaryCard> createState() => _SummaryCardState();
@@ -111,112 +124,86 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
     refreshUpToDate();
     if (widget.isFullVersion) {
       return buildProductSmoothCard(
-        header: widget.showCompatibilityHeader
-            ? ProductCompatibilityHeader(
-                product: upToDateProduct,
-                productPreferences: widget._productPreferences,
-                isSettingVisible: widget.isSettingVisible,
-              )
-            : null,
         body: Padding(
-          padding: widget.padding ?? SMOOTH_CARD_PADDING,
+          padding: widget.margin ?? SMOOTH_CARD_PADDING,
           child: _buildSummaryCardContent(context),
         ),
         margin: EdgeInsets.zero,
       );
+    } else {
+      return _buildLimitedSizeSummaryCard();
     }
-    return LayoutBuilder(
-      builder: (BuildContext context, BoxConstraints constraints) =>
-          _buildLimitedSizeSummaryCard(constraints.maxHeight),
-    );
   }
 
-  Widget _buildLimitedSizeSummaryCard(double parentHeight) {
-    final SmoothColorsThemeExtension? themeExtension =
-        Theme.of(context).extension<SmoothColorsThemeExtension>();
+  Widget _buildLimitedSizeSummaryCard() {
+    final SmoothColorsThemeExtension themeExtension =
+        context.extension<SmoothColorsThemeExtension>();
 
     return Padding(
-      padding: widget.padding ??
+      padding: widget.margin ??
           const EdgeInsets.symmetric(
             horizontal: SMALL_SPACE,
             vertical: VERY_SMALL_SPACE,
           ),
-      child: Stack(
-        children: <Widget>[
-          DecoratedBox(
-            decoration: BoxDecoration(
-              boxShadow:
-                  widget.shadow != null ? <BoxShadow>[widget.shadow!] : null,
-              borderRadius: ROUNDED_BORDER_RADIUS,
-            ),
-            child: ClipRRect(
-              borderRadius: ROUNDED_BORDER_RADIUS,
-              child: OverflowBox(
-                alignment: AlignmentDirectional.topStart,
-                minHeight: parentHeight,
-                maxHeight: double.infinity,
-                child: buildProductSmoothCard(
-                  header: ProductCompatibilityHeader(
-                    product: upToDateProduct,
-                    productPreferences: widget._productPreferences,
-                    isSettingVisible: widget.isSettingVisible,
-                  ),
-                  body: Padding(
-                    padding: SMOOTH_CARD_PADDING,
-                    child: _buildSummaryCardContent(context),
-                  ),
-                  margin: EdgeInsets.zero,
+      child: ClipRRect(
+        borderRadius: ROUNDED_BORDER_RADIUS,
+        child: Column(
+          children: <Widget>[
+            Expanded(
+              child: buildProductSmoothCard(
+                body: Padding(
+                  padding: widget.contentPadding ?? SMOOTH_CARD_PADDING,
+                  child: _buildSummaryCardContent(context),
                 ),
+                borderRadius: const BorderRadius.vertical(top: ROUNDED_RADIUS),
+                margin: EdgeInsets.zero,
               ),
             ),
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: <Widget>[
-              Container(
-                padding: const EdgeInsets.symmetric(
-                  vertical: SMALL_SPACE,
-                ),
-                decoration: BoxDecoration(
-                  color: themeExtension!.primaryNormal,
-                  borderRadius:
-                      const BorderRadius.vertical(bottom: ROUNDED_RADIUS),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsetsDirectional.only(bottom: 2.0),
-                      child: Text(
-                        AppLocalizations.of(context).tap_for_more,
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 15.0,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(
-                      width: BALANCED_SPACE,
-                    ),
-                    Container(
-                      decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
+            Container(
+              padding: widget.buttonPadding ??
+                  const EdgeInsets.symmetric(
+                    vertical: SMALL_SPACE,
+                  ),
+              decoration: BoxDecoration(
+                color: context.lightTheme()
+                    ? themeExtension.primaryDark
+                    : themeExtension.primarySemiDark,
+                borderRadius:
+                    const BorderRadius.vertical(bottom: ROUNDED_RADIUS),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsetsDirectional.only(bottom: 2.0),
+                    child: Text(
+                      AppLocalizations.of(context).tap_for_more,
+                      style: const TextStyle(
                         color: Colors.white,
+                        fontSize: 15.0,
+                        fontWeight: FontWeight.w600,
                       ),
-                      padding: const EdgeInsets.all(VERY_SMALL_SPACE),
-                      child: icons.Arrow.right(
-                        color: themeExtension.primaryNormal,
-                        size: 12.0,
-                      ),
-                    )
-                  ],
-                ),
+                    ),
+                  ),
+                  const SizedBox(
+                    width: BALANCED_SPACE,
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: themeExtension.orange,
+                    ),
+                    padding: const EdgeInsets.all(VERY_SMALL_SPACE),
+                    child: const icons.Arrow.right(
+                      color: Colors.white,
+                      size: 12.0,
+                    ),
+                  ),
+                ],
               ),
-            ],
-          ),
-        ],
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -318,12 +305,14 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
       }
     }
 
-    return Column(
+    final Widget child = Column(
       children: <Widget>[
         ProductTitleCard(
           upToDateProduct,
           widget.isFullVersion,
-          isRemovable: widget.isRemovable,
+          heroTag: widget.heroTag,
+          dense: !widget.isFullVersion,
+          isPictureVisible: widget.isPictureVisible,
           onRemove: (BuildContext context) async {
             HideableContainerState.of(context).hide(() async {
               final ContinuousScanModel model =
@@ -349,6 +338,14 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
         ...summaryCardButtons,
       ],
     );
+
+    if (widget.scrollableContent) {
+      return SingleChildScrollView(
+        child: child,
+      );
+    } else {
+      return child;
+    }
   }
 
   List<Widget> _getAttributes(List<Attribute> scoreAttributes) {
