@@ -377,6 +377,10 @@ class _ProductImageGalleryFooterButtonState
   }
 
   void _handleScrollNotification(ScrollNotification notification) {
+    if (notification.metrics.axis == Axis.horizontal) {
+      return;
+    }
+
     if (notification is ScrollStartNotification) {
       _scrollInitialPosition = notification.metrics.extentBefore;
       _scrollDirection = ScrollDirection.idle;
