@@ -79,9 +79,9 @@ class AppNewsProvider extends ChangeNotifier {
 
   void _emit(AppNewsState state) {
     _state = state;
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      notifyListeners();
-    });
+    WidgetsBinding.instance
+      ..addPostFrameCallback((_) => notifyListeners())
+      ..ensureVisualUpdate();
   }
 
   AppNewsState get state => _state;
