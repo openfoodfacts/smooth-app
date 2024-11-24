@@ -185,6 +185,8 @@ class _TagLineItemNewsItem {
     _TagLineItemNewsTranslations? translations,
     DateTime? startDate,
     DateTime? endDate,
+    String? minVersion,
+    String? maxVersion,
     _TagLineNewsStyle? style,
   }) {
     return _TagLineItemNewsItem._(
@@ -194,6 +196,8 @@ class _TagLineItemNewsItem {
       translations: translations ?? _translations,
       startDate: startDate ?? this.startDate,
       endDate: endDate ?? this.endDate,
+      minVersion: minVersion ?? this.minVersion,
+      maxVersion: maxVersion ?? this.maxVersion,
       style: style ?? this.style,
     );
   }
