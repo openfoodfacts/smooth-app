@@ -519,7 +519,7 @@
     "@front_photo": {
         "description": "Button label: For adding a picture of the front of a product"
     },
-    "outdated_image_accessibility_label": "{imageType} (this image may be outdated)",
+    "outdated_image_accessibility_label": "{imageType} (tento obrázek může být zastaralý)",
     "@outdated_image_accessibility_label": {
         "description": "Accessibility label for images that are outdated (image type may be front/ingredients/nutrition…)",
         "placeholders": {
@@ -784,7 +784,7 @@
         }
     },
     "product_image_outdated": "Tento obrázek může být zastaralý",
-    "product_image_action_replace_photo": "Replace photo ({type})",
+    "product_image_action_replace_photo": "Nahradit fotku ({type})",
     "@product_image_action_replace_photo": {
         "description": "Action on the photo gallery to replace an existing picture",
         "placeholders": {
@@ -794,7 +794,7 @@
             }
         }
     },
-    "product_image_action_add_photo": "Add a photo ({type})",
+    "product_image_action_add_photo": "Přidat fotku ({type})",
     "@product_image_action_add_photo": {
         "description": "Action on the photo gallery to add a photo (eg: ingredients)",
         "placeholders": {
@@ -812,11 +812,11 @@
     "@product_image_action_take_picture": {
         "description": "Take a picture (eg: for ingredients) when there is no one"
     },
-    "product_image_action_from_gallery": "Select from your phone's gallery",
+    "product_image_action_from_gallery": "Vyberte z galerie telefonu",
     "@product_image_action_from_gallery": {
         "description": "Replace the existing picture with one from the device's gallery"
     },
-    "product_image_action_choose_existing_photo": "Select from the product photos",
+    "product_image_action_choose_existing_photo": "Vybrat z fotografií produktu",
     "@product_image_action_choose_existing_photo": {
         "description": "Replace the existing picture with one from the product's photos"
     },
@@ -2208,11 +2208,11 @@
     "@edit_photo_select_existing_button_label": {
         "description": "Edit 'select existing image' button label"
     },
-    "edit_photo_select_existing_all_label": "Existing images for this product",
+    "edit_photo_select_existing_all_label": "Existující obrázky pro tento produkt",
     "@edit_photo_select_existing_all_label": {
         "description": "Page title"
     },
-    "edit_photo_select_existing_all_subtitle": "Select an image by clicking on it",
+    "edit_photo_select_existing_all_subtitle": "Vyberte obrázek kliknutím na něj",
     "@edit_photo_select_existing_all_subtitle": {
         "description": "Page title"
     },
@@ -3147,11 +3147,11 @@
     "@error_loading_photo": {
         "description": "Error message when loading a photo fails to load"
     },
-    "photo_viewer_action_use_picture_as": "Use as…",
+    "photo_viewer_action_use_picture_as": "Použít jako…",
     "@photo_viewer_action_use_picture_as": {
         "description": "An action to use the current picture to be used as front/ingredients…"
     },
-    "photo_viewer_use_picture_as_title": "Use this picture as… ({language})",
+    "photo_viewer_use_picture_as_title": "Použít tento obrázek jako… ({language})",
     "@photo_viewer_use_picture_as": {
         "description": "The title of a dialog to use the current picture as front/ingredients…",
         "placeholders": {
@@ -3325,26 +3325,26 @@
     "@carousel_loading_text": {
         "description": "Please keep the ** syntax to make the text bold"
     },
-    "product_type_subtitle_food": "Vegetables, fruits, frozen food…",
+    "product_type_subtitle_food": "Zelenina, ovoce, mražené potraviny…",
     "@product_type_subtitle_food": {
         "description": "Example of products for food category"
     },
-    "product_type_subtitle_beauty": "Makeup, soaps, toothpastes…",
+    "product_type_subtitle_beauty": "Make-up, mýdla, zubní pasty…",
     "@product_type_subtitle_beauty": {
         "description": "Example of products for beauty category"
     },
-    "product_type_subtitle_pet_food": "Food for dogs, cats…",
+    "product_type_subtitle_pet_food": "Krmivo pro psy, kočky…",
     "@product_type_subtitle_pet_food": {
         "description": "Example of products for pet food category"
     },
-    "product_type_subtitle_product": "Smartphones, furniture…",
+    "product_type_subtitle_product": "Smartphony, nábytek…",
     "@product_type_subtitle_product": {
         "description": "Example of products for other categories"
     },
-    "photo_field_front": "Product photo",
+    "photo_field_front": "Fotografie produktu",
     "photo_field_ingredients": "Fotografie ingrediencí",
-    "photo_field_nutrition": "Nutrition photo",
+    "photo_field_nutrition": "Fotografie výživových údajů",
     "photo_field_packaging": "Informační foto balení",
-    "photo_already_exists": "This photo already exists",
-    "photo_missing": "This photo is missing"
+    "photo_already_exists": "Tato fotografie již existuje",
+    "photo_missing": "Tato fotografie chybí"
 }
