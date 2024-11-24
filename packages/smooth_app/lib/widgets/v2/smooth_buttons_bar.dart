@@ -4,6 +4,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
+import 'package:smooth_app/helpers/keyboard_helper.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
@@ -112,13 +113,16 @@ class _SmoothButtonsBar2State extends State<SmoothButtonsBar2>
   }
 
   double get _bottomPadding {
+    final double padding;
     if (Platform.isIOS) {
-      return 0.0;
+      padding = 0.0;
     } else if (Platform.isAndroid) {
-      return VERY_SMALL_SPACE;
+      padding = VERY_SMALL_SPACE;
     } else {
-      return MEDIUM_SPACE;
+      padding = MEDIUM_SPACE;
     }
+
+    return padding + (context.keyboardVisible ? BALANCED_SPACE : 0.0);
   }
 
   @override
