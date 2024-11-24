@@ -49,8 +49,8 @@
 </h1></div>
 
     <section class="multi-line-signature">
-      <span class="name ">ProductImagePageResult</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-cropParameters"><span class="type-annotation">dynamic</span> <span class="parameter-name">cropParameters</span>, </span></li>
-<li><span class="parameter" id="-param-imageField"><span class="type-annotation">dynamic</span> <span class="parameter-name">imageField</span></span></li>
+      <span class="name ">ProductImagePageResult</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-cropParameters">{<span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">cropParameters</span>, </span></li>
+<li><span class="parameter" id="-param-imageField"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">imageField</span>}</span></li>
 </ol>)
     </section>
 
@@ -60,7 +60,10 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">ProductImagePageResult(this.cropParameters, this.imageField);</code></pre>
+  <pre class="language-dart"><code class="language-dart">ProductImagePageResult({
+  required this.cropParameters,
+  required this.imageField,
+});</code></pre>
 </section>
 
 
