@@ -154,6 +154,14 @@ class _RawGridGallery extends StatelessWidget {
                         heroTag: heroTag!,
                         language: language,
                       ),
+                      onLongPress: () async => _usePhotoAs(
+                        context: context,
+                        product: product,
+                        rawImages: rawImages,
+                        productImage: productImage,
+                        heroTag: heroTag!,
+                        language: language,
+                      ),
                     ),
                   ),
                 ),
@@ -198,4 +206,19 @@ class _RawGridGallery extends StatelessWidget {
       ),
     );
   }
+
+  Future<ProductImagePageResult?> _usePhotoAs({
+    required final BuildContext context,
+    required final Product product,
+    required final List<ProductImage> rawImages,
+    required final ProductImage productImage,
+    required final String heroTag,
+    required final OpenFoodFactsLanguage language,
+  }) =>
+      ProductImageOtherPage.usePhotoAs(
+        context: context,
+        product: product,
+        language: language,
+        productImage: productImage,
+      );
 }
