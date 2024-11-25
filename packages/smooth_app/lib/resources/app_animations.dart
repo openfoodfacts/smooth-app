@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:rive/rive.dart';
+import 'package:scanner_shared/scanner_shared.dart';
 import 'package:smooth_app/cards/category_cards/svg_cache.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 import 'package:smooth_app/services/smooth_services.dart';
@@ -66,10 +67,17 @@ class BarcodeAnimation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RiveAnimation.direct(
-      AnimationsLoader.of(context)!,
-      artboard: 'Barcode',
-      stateMachines: const <String>['StateMachine'],
+    return Consumer<RiveFile?>(
+      builder: (BuildContext context, RiveFile? riveFile, _) {
+        if (riveFile == null) {
+          return EMPTY_WIDGET;
+        }
+        return RiveAnimation.direct(
+          riveFile,
+          artboard: 'Barcode',
+          stateMachines: const <String>['StateMachine'],
+        );
+      },
     );
   }
 }
@@ -220,9 +228,9 @@ class _OrangeErrorAnimationState extends State<OrangeErrorAnimation> {
         width: 83.0,
         height: 77.0,
         child: Consumer<RiveFile?>(
-          builder: (BuildContext context, RiveFile? riveFile, Widget? child) {
+          builder: (BuildContext context, RiveFile? riveFile, _) {
             if (riveFile == null) {
-              return const SizedBox.shrink();
+              return EMPTY_WIDGET;
             }
             return GestureDetector(
               onTap: () {
@@ -367,17 +375,34 @@ enum SearchAnimationType {
 
 class SunAnimation extends StatelessWidget {
   const SunAnimation({
+    required this.type,
     super.key,
   });
 
+  final SunAnimationType type;
+
   @override
   Widget build(BuildContext context) {
-    return RiveAnimation.direct(
-      AnimationsLoader.of(context)!,
-      artboard: 'Success',
-      animations: const <String>['Timeline 1'],
+    return Consumer<RiveFile?>(
+      builder: (BuildContext context, RiveFile? riveFile, _) {
+        if (riveFile == null) {
+          return EMPTY_WIDGET;
+        }
+        return RiveAnimation.direct(
+          riveFile,
+          artboard: 'Success',
+          stateMachines: <String>[
+            if (type == SunAnimationType.loop) 'Loop' else 'Animation'
+          ],
+        );
+      },
     );
   }
+}
+
+enum SunAnimationType {
+  loop,
+  fullAnimation,
 }
 
 class TorchAnimation extends StatefulWidget {
