@@ -3233,11 +3233,11 @@
     "@product_page_image_error": {
         "description": "Small message that will be displayed above the picture (please keep it short)"
     },
-    "product_page_image_error_accessibility_label": "Impossible de charger l'image frontale (erreur de réseau?)",
+    "product_page_image_error_accessibility_label": "Impossible de charger l'image frontale (erreur réseau ?)",
     "@product_page_image_error_accessibility_label": {
         "description": "Accessibility label for the image on the product page when it fails to load"
     },
-    "product_page_image_no_image_available": "Pas d'image\n !",
+    "product_page_image_no_image_available": "Pas \nd'image !",
     "@product_page_image_no_image_available": {
         "description": "Small message that will be displayed above the picture (please keep it short) when there is no image available on the database. A line break is not mandatory."
     },
@@ -3291,7 +3291,7 @@
         "description": "A label on top of the carousel card when the barcode is not supported by the app"
     },
     "carousel_unsupported_title": "Ouuups!",
-    "carousel_unsupported_text": "Le code-barres scanné n'est pas pris en charge par Open Food Facts !",
+    "carousel_unsupported_text": "Le code-barres scanné n'est pas pris en charge par Open Food Facts !",
     "carousel_error_header": "Erreur !",
     "@carousel_error_header": {
         "description": "A label on top of the carousel card when there is an error (mainly network issues)"
@@ -3307,7 +3307,7 @@
     "@carousel_unknown_product_header": {
         "description": "A label on top of the carousel card when the product is not in the database (= it needs to be created)"
     },
-    "carousel_unknown_product_title": "Félicitations !\nVous avez trouvé __la perle rare !__",
+    "carousel_unknown_product_title": "Félicitations !\nVous avez trouvé __la perle rare !__",
     "@carousel_unknown_product_title": {
         "description": "Please keep the __ syntax to underline the text"
     },
