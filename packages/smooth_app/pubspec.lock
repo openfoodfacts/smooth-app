@@ -1317,18 +1317,18 @@ packages:
     dependency: "direct main"
     description:
       name: rive
-      sha256: b44b62feb908610ca6c85e05f4573a66118a23867425926cf06152d171236141
+      sha256: fb18e38f9de28261e6f4a2d097dff419b4b741b13999fc6c2fd459481a0bbc6f
       url: "https://pub.dev"
     source: hosted
-    version: "0.13.17"
+    version: "0.13.18"
   rive_common:
     dependency: transitive
     description:
       name: rive_common
-      sha256: a3e5786f8d85c89977062b9ceeb3b72a7c28f81e32fb68497744042ce20bee2f
+      sha256: "031b29f7b1fc2732d06f60d053e0d7fbe0358fa19e991a91fa3991aa2760b240"
       url: "https://pub.dev"
     source: hosted
-    version: "0.4.12"
+    version: "0.4.13"
   scanner_ml_kit:
     dependency: "direct main"
     description:
