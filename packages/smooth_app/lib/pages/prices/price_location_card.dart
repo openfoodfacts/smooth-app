@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
@@ -16,7 +15,7 @@ import 'package:smooth_app/pages/search/search_page.dart';
 class PriceLocationCard extends StatelessWidget {
   const PriceLocationCard();
 
-  static const IconData _iconTodo = CupertinoIcons.exclamationmark;
+  static const IconData _iconTodo = Icons.shopping_cart;
   static const IconData _iconDone = Icons.place;
 
   @override
