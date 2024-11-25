@@ -112,7 +112,7 @@ class _ScanTagLineContentState extends State<_ScanTagLineContent> {
       BuildContext context,
       BoxConstraints constraints,
     ) {
-      final bool dense = constraints.maxHeight <= 150.0;
+      final bool dense = constraints.maxHeight <= 155.0;
 
       return Column(
         children: <Widget>[
