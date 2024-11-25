@@ -71,11 +71,14 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
+  final bool dense = context.read&lt;ScanCardDensity&gt;() == ScanCardDensity.DENSE;
+
   return SizedBox(
     width: double.infinity,
     child: Padding(
-      padding:
-          const EdgeInsetsDirectional.only(bottom: MEDIUM_SPACE).copyWith(
+      padding: EdgeInsetsDirectional.only(
+        bottom: dense ? SMALL_SPACE : MEDIUM_SPACE,
+      ).copyWith(
         top: padding?.top,
         bottom: padding?.bottom,
         start: padding?.start,

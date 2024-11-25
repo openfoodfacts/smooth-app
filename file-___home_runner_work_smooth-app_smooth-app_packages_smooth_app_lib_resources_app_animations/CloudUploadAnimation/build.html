@@ -74,7 +74,7 @@ Widget build(BuildContext context) {
   Widget widget = SizedBox.square(
     dimension: size,
     child: RiveAnimation.direct(
-      AnimationsLoader.of(context),
+      AnimationsLoader.of(context)!,
       artboard: &#39;Cloud upload&#39;,
       animations: const &lt;String&gt;[&#39;Animation&#39;],
     ),

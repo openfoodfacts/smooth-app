@@ -74,11 +74,12 @@ Widget build(BuildContext context) {
   final SmoothColorsThemeExtension theme =
       context.extension&lt;SmoothColorsThemeExtension&gt;();
   final bool lightTheme = context.lightTheme();
+  final bool dense = context.read&lt;ScanCardDensity&gt;() == ScanCardDensity.DENSE;
 
   return Padding(
-    padding: const EdgeInsetsDirectional.only(
-      top: MEDIUM_SPACE,
-      bottom: LARGE_SPACE * 2,
+    padding: EdgeInsetsDirectional.only(
+      top: dense ? SMALL_SPACE : MEDIUM_SPACE,
+      bottom: dense ? BALANCED_SPACE : LARGE_SPACE * 2,
     ).copyWith(
       top: padding?.top,
       bottom: padding?.bottom,
@@ -92,14 +93,14 @@ Widget build(BuildContext context) {
       ),
       child: Center(
         child: ConstrainedBox(
-          constraints: const BoxConstraints(
-            minHeight: 100.0,
+          constraints: BoxConstraints(
+            minHeight: dense ? 75.0 : 100.0,
           ),
           child: SmoothBarcodeWidget(
             height: height ?? 100.0,
-            padding: const EdgeInsetsDirectional.symmetric(
+            padding: EdgeInsetsDirectional.symmetric(
               horizontal: 30.0,
-              vertical: MEDIUM_SPACE,
+              vertical: dense ? SMALL_SPACE : MEDIUM_SPACE,
             ),
             color: Colors.black,
             backgroundColor: lightTheme ? Colors.white : Colors.transparent,

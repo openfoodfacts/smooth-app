@@ -72,7 +72,7 @@
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
   return RiveAnimation.direct(
-    AnimationsLoader.of(context),
+    AnimationsLoader.of(context)!,
     artboard: &#39;Consent&#39;,
     animations: const &lt;String&gt;[&#39;Loop&#39;],
   );

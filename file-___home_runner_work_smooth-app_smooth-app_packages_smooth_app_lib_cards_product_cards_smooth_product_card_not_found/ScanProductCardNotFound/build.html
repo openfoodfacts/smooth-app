@@ -74,15 +74,16 @@ Widget build(BuildContext context) {
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
   final SmoothColorsThemeExtension theme =
       context.extension&lt;SmoothColorsThemeExtension&gt;();
+  final bool dense = context.read&lt;ScanCardDensity&gt;() == ScanCardDensity.DENSE;
 
   return ScanProductBaseCard(
     headerLabel: appLocalizations.carousel_unknown_product_header,
     headerIndicatorColor: theme.error,
     onRemove: onRemoveProduct,
-    backgroundChild: PositionedDirectional(
+    backgroundChild: const PositionedDirectional(
       top: 0.0,
       end: 5.0,
-      child: SvgPicture.asset(&#39;assets&#47;product&#47;scan_card_product_error.svg&#39;),
+      child: OrangeErrorAnimation(),
     ),
     child: Column(
       mainAxisAlignment: MainAxisAlignment.start,
@@ -90,9 +91,12 @@ Widget build(BuildContext context) {
       children: &lt;Widget&gt;[
         ScanProductBaseCardTitle(
           title: appLocalizations.carousel_unknown_product_title,
-          padding: const EdgeInsetsDirectional.only(top: 5.0, end: 25.0),
+          padding: EdgeInsetsDirectional.only(
+            top: dense ? 0.0 : 5.0,
+            end: 25.0,
+          ),
         ),
-        const SizedBox(height: LARGE_SPACE),
+        SizedBox(height: dense ? BALANCED_SPACE : LARGE_SPACE),
         ScanProductBaseCardText(
           text: TextWithBubbleParts(
             text: appLocalizations.carousel_unknown_product_text,
@@ -103,7 +107,7 @@ Widget build(BuildContext context) {
             bubbleTextStyle: const TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.w600,
-              fontSize: 12.5,
+              fontSize: 13.5,
             ),
             bubblePadding: const EdgeInsetsDirectional.only(
               top: 2.5,

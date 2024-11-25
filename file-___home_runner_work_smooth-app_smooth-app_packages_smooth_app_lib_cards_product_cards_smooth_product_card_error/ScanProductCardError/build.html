@@ -74,15 +74,16 @@ Widget build(BuildContext context) {
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
   final SmoothColorsThemeExtension theme =
       context.extension&lt;SmoothColorsThemeExtension&gt;();
+  final bool dense = context.read&lt;ScanCardDensity&gt;() == ScanCardDensity.DENSE;
 
   return ScanProductBaseCard(
     headerLabel: appLocalizations.carousel_error_header,
     headerIndicatorColor: theme.error,
     onRemove: onRemoveProduct,
-    backgroundChild: PositionedDirectional(
+    backgroundChild: const PositionedDirectional(
       top: 0.0,
       end: 5.0,
-      child: SvgPicture.asset(&#39;assets&#47;product&#47;scan_card_product_error.svg&#39;),
+      child: OrangeErrorAnimation(),
     ),
     child: Column(
       mainAxisAlignment: MainAxisAlignment.start,
@@ -90,7 +91,10 @@ Widget build(BuildContext context) {
       children: &lt;Widget&gt;[
         ScanProductBaseCardTitle(
           title: appLocalizations.carousel_error_title,
-          padding: const EdgeInsetsDirectional.only(top: 5.0, end: 25.0),
+          padding: EdgeInsetsDirectional.only(
+            top: dense ? 0.0 : 5.0,
+            end: 25.0,
+          ),
         ),
         const SizedBox(height: LARGE_SPACE),
         ScanProductBaseCardText(
@@ -98,13 +102,13 @@ Widget build(BuildContext context) {
         ),
         ScanProductBaseCardBarcode(
           barcode: barcode,
-          height: 75.0,
+          height: dense ? 60.0 : 75.0,
         ),
-        const Spacer(),
+        if (dense) const SizedBox(height: SMALL_SPACE) else const Spacer(),
         ScanProductBaseCardText(
           text: Text(appLocalizations.carousel_error_text_2),
         ),
-        const SizedBox(height: LARGE_SPACE),
+        if (dense) const Spacer() else const SizedBox(height: LARGE_SPACE),
         ScanProductBaseCardButton(
           text: appLocalizations.carousel_error_button,
           onTap: () async {

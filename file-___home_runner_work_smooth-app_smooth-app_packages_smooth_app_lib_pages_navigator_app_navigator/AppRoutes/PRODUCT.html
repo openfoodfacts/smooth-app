@@ -55,7 +55,8 @@
 <span class="name ">PRODUCT</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="PRODUCT-param-barcode"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">barcode</span>, </span></li>
 <li><span class="parameter" id="PRODUCT-param-useHeroAnimation">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">useHeroAnimation</span> = <span class="default-value">true</span>, </span></li>
 <li><span class="parameter" id="PRODUCT-param-heroTag"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">heroTag</span> = <span class="default-value">&#39;&#39;</span>, </span></li>
-<li><span class="parameter" id="PRODUCT-param-backButtonType"><span class="type-annotation">dynamic</span> <span class="parameter-name">backButtonType</span>}</span></li>
+<li><span class="parameter" id="PRODUCT-param-backButtonType"><span class="type-annotation">dynamic</span> <span class="parameter-name">backButtonType</span>, </span></li>
+<li><span class="parameter" id="PRODUCT-param-transition"><span class="type-annotation">dynamic</span> <span class="parameter-name">transition</span> = <span class="default-value">ProductPageTransition.standard</span>}</span></li>
 </ol>)
 
       
@@ -72,11 +73,13 @@
   bool useHeroAnimation = true,
   String? heroTag = &#39;&#39;,
   ProductPageBackButton? backButtonType,
+  ProductPageTransition? transition = ProductPageTransition.standard,
 }) =&gt;
     &#39;&#47;${_InternalAppRoutes.PRODUCT_DETAILS_PAGE}&#47;$barcode&#39;
     &#39;?heroAnimation=$useHeroAnimation&#39;
     &#39;&amp;heroTag=$heroTag&#39;
-    &#39;&amp;backButtonType=${backButtonType?.name}&#39;;</code></pre>
+    &#39;&amp;backButtonType=${backButtonType?.name}&#39;
+    &#39;&amp;transition=${transition?.name}&#39;;</code></pre>
 </section>
 
 
