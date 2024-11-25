@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
-import 'package:rive/rive.dart';
 import 'package:smooth_app/data_models/onboarding_loader.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/pages/onboarding/v2/onboarding_bottom_hills.dart';
+import 'package:smooth_app/resources/app_animations.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
@@ -166,11 +166,7 @@ class _SunAndCloudState extends State<_SunAndCloud>
             ),
             const Align(
               alignment: Alignment.center,
-              child: RiveAnimation.asset(
-                'assets/animations/off.riv',
-                artboard: 'Success',
-                animations: <String>['Timeline 1'],
-              ),
+              child: SunAnimation(type: SunAnimationType.loop),
             ),
             Positioned.directional(
               top: constraints.maxHeight * 0.22,
