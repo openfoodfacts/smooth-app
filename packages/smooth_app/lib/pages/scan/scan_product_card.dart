@@ -80,6 +80,7 @@ class ScanProductCardFound extends StatelessWidget {
         product.barcode!,
         heroTag: _heroTag,
         backButtonType: ProductPageBackButton.minimize,
+        transition: ProductPageTransition.slideUp,
       ),
       extra: product,
     );
