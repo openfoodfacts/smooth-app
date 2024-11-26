@@ -70,9 +70,9 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
-Widget build(BuildContext context) =&gt; Semantics(
-      label: AppLocalizations.of(context).owner_field_info_title,
-      child: const Icon(_ownerFieldIconData),
+Widget build(BuildContext context) =&gt; Icon(
+      _ownerFieldIconData,
+      semanticLabel: AppLocalizations.of(context).owner_field_info_title,
     );</code></pre>
 </section>
 

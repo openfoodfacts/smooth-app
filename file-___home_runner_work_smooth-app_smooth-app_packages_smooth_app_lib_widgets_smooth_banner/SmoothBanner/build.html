@@ -71,7 +71,7 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  return IntrinsicHeight(
+  Widget child = IntrinsicHeight(
     child: Row(
       children: &lt;Widget&gt;[
         Expanded(
@@ -100,24 +100,47 @@ Widget build(BuildContext context) {
           child: Container(
             width: double.infinity,
             color: const Color(0xFFECECEC),
-            padding: const EdgeInsetsDirectional.only(
+            padding: EdgeInsetsDirectional.only(
               start: MEDIUM_SPACE,
               end: MEDIUM_SPACE,
-              top: BALANCED_SPACE,
-              bottom: MEDIUM_SPACE,
+              top: onDismissClicked != null
+                  ? VERY_SMALL_SPACE
+                  : BALANCED_SPACE,
+              bottom: onDismissClicked != null ? LARGE_SPACE : MEDIUM_SPACE,
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: &lt;Widget&gt;[
-                Text(
-                  title,
-                  style: const TextStyle(
-                    fontSize: 16.0,
-                    fontWeight: FontWeight.bold,
-                    color: Color(0xFF373737),
-                  ),
+                Row(
+                  children: &lt;Widget&gt;[
+                    Expanded(
+                      child: Text(
+                        title,
+                        style: const TextStyle(
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.bold,
+                          color: _titleColor,
+                        ),
+                      ),
+                    ),
+                    if (onDismissClicked != null) ...&lt;Widget&gt;[
+                      const SizedBox(width: SMALL_SPACE),
+                      SmoothCloseButton(
+                        onClose: () =&gt; onDismissClicked!.call(
+                          SmoothBannerDismissEvent.fromButton,
+                        ),
+                        circleColor: _titleColor,
+                        crossColor: Colors.white,
+                        circleSize: 26.0,
+                        crossSize: 12.0,
+                        tooltip: AppLocalizations.of(context)
+                            .owner_field_info_close_button,
+                      ),
+                    ],
+                  ],
                 ),
-                const SizedBox(height: VERY_SMALL_SPACE),
+                if (onDismissClicked == null)
+                  const SizedBox(height: VERY_SMALL_SPACE),
                 Text(
                   content,
                   style: const TextStyle(
@@ -132,6 +155,36 @@ Widget build(BuildContext context) {
       ],
     ),
   );
+
+  if (topShadow) {
+    child = DecoratedBox(
+      decoration: const BoxDecoration(
+        boxShadow: &lt;BoxShadow&gt;[
+          BoxShadow(
+            color: Colors.black12,
+            blurRadius: 6.0,
+            offset: Offset(0.0, -4.0),
+          ),
+        ],
+      ),
+      child: child,
+    );
+  }
+
+  if (onDismissClicked != null) {
+    child = Dismissible(
+      key: const Key(&#39;SmoothBanner&#39;),
+      direction: DismissDirection.down,
+      onDismissed: (DismissDirection direction) {
+        if (direction == DismissDirection.down) {
+          onDismissClicked!.call(SmoothBannerDismissEvent.fromSwipe);
+        }
+      },
+      child: child,
+    );
+  }
+
+  return child;
 }</code></pre>
 </section>
 
@@ -166,8 +219,10 @@ Widget build(BuildContext context) {
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_banner/SmoothBanner/content.html">content</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_banner/SmoothBanner/icon.html">icon</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_banner/SmoothBanner/onDismissClicked.html">onDismissClicked</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_banner/SmoothBanner/title.html">title</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_banner/SmoothBanner/topShadow.html">topShadow</a></li>
 
     <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_banner/SmoothBanner-class.html#instance-methods">Methods</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_banner/SmoothBanner/build.html">build</a></li>
