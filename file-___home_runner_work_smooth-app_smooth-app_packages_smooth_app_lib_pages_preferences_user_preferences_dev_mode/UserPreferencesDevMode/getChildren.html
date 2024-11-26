@@ -302,7 +302,7 @@ List&lt;UserPreferencesItem&gt; getChildren() =&gt; &lt;UserPreferencesItem&gt;[
           return Consumer&lt;AppNewsProvider&gt;(
               builder: (_, AppNewsProvider provider, __) {
             return Text(switch (provider.state) {
-              AppNewsStateLoading() =&gt; &#39;Loading...&#39;,
+              AppNewsStateLoading() =&gt; &#39;Loading…&#39;,
               AppNewsStateLoaded(lastUpdate: final DateTime date) =&gt;
                 appLocalizations
                     .dev_preferences_news_provider_status_subtitle(
