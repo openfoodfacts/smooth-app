@@ -749,7 +749,7 @@
     "nutrition_page_invalid_number": "Недійсний номер",
     "nutrition_page_update_running": "Оновлення продукту на сервері…",
     "nutrition_page_update_done": "Продукт оновлено!",
-    "nutrition_page_take_serving_size_from_product_quantity": "Use the product quantity as serving size",
+    "nutrition_page_take_serving_size_from_product_quantity": "Використовувати кількість товару як розмір",
     "@nutrition_page_take_serving_size_from_product_quantity": {
         "description": "Button label: Use the product quantity as serving size (nutrition page)"
     },
@@ -2677,7 +2677,7 @@
     "@owner_field_info_message": {
         "description": "Title of the 'producer provided' info list-tile"
     },
-    "owner_field_info_close_button": "Close this info",
+    "owner_field_info_close_button": "Закрити цю інформацію",
     "@owner_field_info_close_button": {
         "description": "The owner info may be shown in a closeable dialog. This is the label of the button (used on a long press event and for the accessibility label)."
     },
