@@ -70,6 +70,66 @@ Future<T?> showSmoothDraggableModalSheet<T>({
   );
 }
 
+/// A modal sheet containing a limited list (no scroll)
+Future<T?> showSmoothListOfChoicesModalSheet<T>({
+  required BuildContext context,
+  required String title,
+  required Iterable<String> labels,
+  required Iterable<T> values,
+  List<Widget>? prefixIcons,
+  Color? prefixIconTint,
+  List<Widget>? suffixIcons,
+  Color? suffixIconTint,
+  EdgeInsetsGeometry? padding,
+}) {
+  assert(labels.length == values.length);
+  assert(prefixIcons == null || values.length == prefixIcons.length);
+  assert(suffixIcons == null || values.length == suffixIcons.length);
+  assert(prefixIconTint == null || prefixIcons != null);
+  assert(suffixIconTint == null || suffixIcons != null);
+
+  final List<Widget> items = <Widget>[];
+  for (int i = 0; i < labels.length; i++) {
+    items.add(
+      ListTile(
+        leading: prefixIcons != null
+            ? IconTheme.merge(
+                data: IconThemeData(color: prefixIconTint),
+                child: prefixIcons[i])
+            : null,
+        title: Text(
+          labels.elementAt(i),
+          style: const TextStyle(fontWeight: FontWeight.w500),
+        ),
+        contentPadding: padding,
+        trailing: suffixIcons != null
+            ? IconTheme.merge(
+                data: IconThemeData(color: suffixIconTint),
+                child: suffixIcons[i])
+            : null,
+        onTap: () {
+          Navigator.of(context).pop(values.elementAt(i));
+        },
+      ),
+    );
+
+    if (i < labels.length - 1) {
+      items.add(const Divider(height: 1.0));
+    }
+  }
+  items.add(SizedBox(height: MediaQuery.of(context).padding.bottom));
+
+  return showSmoothModalSheet<T>(
+    context: context,
+    builder: (BuildContext context) => SmoothModalSheet(
+      title: title,
+      prefixIndicator: true,
+      bodyPadding: EdgeInsets.zero,
+      body: Column(children: items),
+    ),
+  );
+}
+
 /// A non scrollable modal sheet
 class SmoothModalSheet extends StatelessWidget {
   SmoothModalSheet({
@@ -389,17 +449,14 @@ class SmoothModalSheetHeaderPrefixIndicator extends StatelessWidget
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
-
-    return Padding(
-      padding: const EdgeInsetsDirectional.only(end: VERY_SMALL_SPACE),
+    return const Padding(
+      padding: EdgeInsetsDirectional.only(end: VERY_SMALL_SPACE),
       child: SizedBox(
         width: 10.0,
         height: 10.0,
         child: DecoratedBox(
           decoration: BoxDecoration(
-            color: extension.secondaryNormal,
+            color: Colors.white,
             shape: BoxShape.circle,
           ),
         ),

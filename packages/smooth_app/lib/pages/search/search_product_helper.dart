@@ -13,8 +13,8 @@ import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/product/common/search_helper.dart';
+import 'package:smooth_app/pages/product/product_type_extensions.dart';
 import 'package:smooth_app/query/keywords_product_query.dart';
-import 'package:smooth_app/query/product_query.dart';
 
 /// Search helper dedicated to product search.
 class SearchProductHelper extends SearchHelper {

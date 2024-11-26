@@ -41,7 +41,8 @@ class _SmoothTabBarState<T> extends State<SmoothTabBar<T>> {
       painter: _ProductHeaderTabBarPainter(
         progress: _horizontalProgress,
         primaryColor: lightTheme ? theme.primaryLight : theme.primaryDark,
-        bottomSeparatorColor: theme.primaryDark,
+        bottomSeparatorColor:
+            lightTheme ? theme.primaryBlack : theme.primaryNormal,
         backgroundColor: AppBarTheme.of(context).backgroundColor ??
             Theme.of(context).scaffoldBackgroundColor,
       ),
@@ -73,7 +74,9 @@ class _SmoothTabBarState<T> extends State<SmoothTabBar<T>> {
             labelPadding: EdgeInsets.zero,
             tabAlignment: TabAlignment.start,
             overlayColor: WidgetStatePropertyAll<Color>(
-              theme.primaryLight,
+              lightTheme
+                  ? theme.primaryNormal.withOpacity(0.2)
+                  : theme.primaryLight.withOpacity(0.2),
             ),
             splashBorderRadius: const BorderRadius.vertical(
               top: Radius.circular(5.0),
@@ -86,8 +89,9 @@ class _SmoothTabBarState<T> extends State<SmoothTabBar<T>> {
             unselectedLabelStyle: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 15.0,
-              color: lightTheme ? theme.primarySemiDark : theme.primaryNormal,
+              color: lightTheme ? theme.primaryBlack : theme.primaryMedium,
             ),
+            dividerColor: theme.primaryDark,
             indicator: BoxDecoration(
               border: Border(
                 bottom: BorderSide(

@@ -43,7 +43,7 @@ class SmoothBarcodeWidget extends StatelessWidget {
             padding: EdgeInsets.zero,
             data: barcode,
             barcode: _barcodeType,
-            color: Colors.black,
+            color: color ?? Colors.black,
             style: TextStyle(
               color: contentColor,
             ),

@@ -57,7 +57,7 @@ jobs:
         working-directory: ./packages/smooth_app
 
       - name: Upload coverage to codecov
-        uses: codecov/codecov-action@v4
+        uses: codecov/codecov-action@v5
         with:
           fail_ci_if_error: false
 

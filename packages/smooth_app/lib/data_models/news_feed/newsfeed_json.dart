@@ -15,7 +15,25 @@ class _TagLineJSON {
   final _TagLineJSONNewsList news;
   final _TaglineJSONFeed taglineFeed;
 
-  AppNews toTagLine(String locale) {
+  Future<AppNews> toTagLine(String locale, String appVersion) async {
+    final Map<String, AppNewsItem> tagLineNews = _getAppNewsItem(
+      locale,
+      appVersion,
+    );
+
+    final _TagLineJSONFeedLocale localizedFeed = taglineFeed.loadNews(locale);
+    final Iterable<AppNewsFeedItem> feed =
+        _getAppNewsFeedItems(localizedFeed, locale);
+
+    return AppNews(
+      news: AppNewsList(tagLineNews),
+      feed: AppNewsFeed(
+        feed.toList(growable: false),
+      ),
+    );
+  }
+
+  Map<String, AppNewsItem> _getAppNewsItem(String locale, String appVersion) {
     final Map<String, AppNewsItem> tagLineNews = news.map(
       (String key, _TagLineItemNewsItem value) => MapEntry<String, AppNewsItem>(
         key,
@@ -23,7 +41,33 @@ class _TagLineJSON {
       ),
     );
 
-    final _TagLineJSONFeedLocale localizedFeed = taglineFeed.loadNews(locale);
+    final int? appVersionNumber = _extractVersionNumber(appVersion);
+
+    for (final AppNewsItem item in tagLineNews.values) {
+      if (item.minAppVersion != null) {
+        final int? minVersionNumber = _extractVersionNumber(item.minAppVersion);
+
+        if (minVersionNumber != null && appVersionNumber != null) {
+          if (appVersionNumber < minVersionNumber) {
+            tagLineNews.remove(item.id);
+          }
+        }
+      }
+      if (item.maxAppVersion != null) {
+        final int? maxVersionNumber = _extractVersionNumber(item.maxAppVersion);
+
+        if (maxVersionNumber != null && appVersionNumber != null) {
+          if (appVersionNumber > maxVersionNumber) {
+            tagLineNews.remove(item.id);
+          }
+        }
+      }
+    }
+    return tagLineNews;
+  }
+
+  Iterable<AppNewsFeedItem> _getAppNewsFeedItems(
+      _TagLineJSONFeedLocale localizedFeed, String locale) {
     final Iterable<AppNewsFeedItem> feed = localizedFeed.news
         .map((_TagLineJSONFeedLocaleItem item) {
           if (news[item.id] == null) {
@@ -38,13 +82,14 @@ class _TagLineJSON {
                 item.startDate!.isBefore(DateTime.now())) &&
             (item.endDate == null || item.endDate!.isAfter(DateTime.now())))
         .whereNotNull();
+    return feed;
+  }
 
-    return AppNews(
-      news: AppNewsList(tagLineNews),
-      feed: AppNewsFeed(
-        feed.toList(growable: false),
-      ),
-    );
+  int? _extractVersionNumber(String? version) {
+    if (version == null) {
+      return null;
+    }
+    return int.tryParse(version.replaceAll(r'.', '').trim());
   }
 }
 
@@ -57,6 +102,8 @@ class _TagLineItemNewsItem {
     required _TagLineItemNewsTranslations translations,
     this.startDate,
     this.endDate,
+    this.minVersion,
+    this.maxVersion,
     this.style,
   }) : _translations = translations;
 
@@ -79,6 +126,8 @@ class _TagLineItemNewsItem {
         }),
         startDate = DateTime.tryParse(json['start_date']),
         endDate = DateTime.tryParse(json['end_date']),
+        minVersion = json['min_version'],
+        maxVersion = json['max_version'],
         style = json['style'] == null
             ? null
             : _TagLineNewsStyle.fromJson(json['style']);
@@ -88,6 +137,8 @@ class _TagLineItemNewsItem {
   final _TagLineItemNewsTranslations _translations;
   final DateTime? startDate;
   final DateTime? endDate;
+  final String? minVersion;
+  final String? maxVersion;
   final _TagLineNewsStyle? style;
 
   _TagLineItemNewsTranslation loadTranslation(String locale) {
@@ -120,6 +171,8 @@ class _TagLineItemNewsItem {
       buttonLabel: translation.buttonLabel,
       startDate: startDate,
       endDate: endDate,
+      minAppVersion: minVersion,
+      maxAppVersion: maxVersion,
       style: style?.toTagLineStyle(),
       image: translation.image?.overridesContent == true
           ? translation.image?.toTagLineImage()
@@ -132,6 +185,8 @@ class _TagLineItemNewsItem {
     _TagLineItemNewsTranslations? translations,
     DateTime? startDate,
     DateTime? endDate,
+    String? minVersion,
+    String? maxVersion,
     _TagLineNewsStyle? style,
   }) {
     return _TagLineItemNewsItem._(
@@ -141,6 +196,8 @@ class _TagLineItemNewsItem {
       translations: translations ?? _translations,
       startDate: startDate ?? this.startDate,
       endDate: endDate ?? this.endDate,
+      minVersion: minVersion ?? this.minVersion,
+      maxVersion: maxVersion ?? this.maxVersion,
       style: style ?? this.style,
     );
   }
@@ -312,7 +369,7 @@ class _TagLineNewsStyle {
     );
   }
 
-  AppNewsStyle toTagLineStyle() => AppNewsStyle.fromHexa(
+  AppNewsStyle toTagLineStyle() => AppNewsStyle.fromHex(
         titleBackground: titleBackground,
         titleTextColor: titleTextColor,
         titleIndicatorColor: titleIndicatorColor,

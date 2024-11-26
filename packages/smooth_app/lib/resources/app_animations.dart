@@ -3,7 +3,9 @@ import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:rive/rive.dart';
+import 'package:scanner_shared/scanner_shared.dart';
 import 'package:smooth_app/cards/category_cards/svg_cache.dart';
+import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 import 'package:smooth_app/services/smooth_services.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
@@ -20,13 +22,13 @@ class AnimationsLoader extends StatefulWidget {
   @override
   State<AnimationsLoader> createState() => _AnimationsLoaderState();
 
-  static RiveFile of(BuildContext context) {
-    return context.read<_AnimationsLoaderState>()._file;
+  static RiveFile? of(BuildContext context) {
+    return context.read<RiveFile>();
   }
 }
 
 class _AnimationsLoaderState extends State<AnimationsLoader> {
-  late final RiveFile _file;
+  RiveFile? _file;
 
   @override
   void initState() {
@@ -51,8 +53,8 @@ class _AnimationsLoaderState extends State<AnimationsLoader> {
 
   @override
   Widget build(BuildContext context) {
-    return Provider<_AnimationsLoaderState>.value(
-      value: this,
+    return Provider<RiveFile?>.value(
+      value: _file,
       child: widget.child,
     );
   }
@@ -65,10 +67,17 @@ class BarcodeAnimation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RiveAnimation.direct(
-      AnimationsLoader.of(context),
-      artboard: 'Barcode',
-      stateMachines: const <String>['StateMachine'],
+    return Consumer<RiveFile?>(
+      builder: (BuildContext context, RiveFile? riveFile, _) {
+        if (riveFile == null) {
+          return EMPTY_WIDGET;
+        }
+        return RiveAnimation.direct(
+          riveFile,
+          artboard: 'Barcode',
+          stateMachines: const <String>['StateMachine'],
+        );
+      },
     );
   }
 }
@@ -93,7 +102,7 @@ class CloudUploadAnimation extends StatelessWidget {
     Widget widget = SizedBox.square(
       dimension: size,
       child: RiveAnimation.direct(
-        AnimationsLoader.of(context),
+        AnimationsLoader.of(context)!,
         artboard: 'Cloud upload',
         animations: const <String>['Animation'],
       ),
@@ -132,7 +141,7 @@ class ConsentAnimation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RiveAnimation.direct(
-      AnimationsLoader.of(context),
+      AnimationsLoader.of(context)!,
       artboard: 'Consent',
       animations: const <String>['Loop'],
     );
@@ -173,7 +182,7 @@ class _DoubleChevronAnimationState extends State<DoubleChevronAnimation> {
     return SizedBox.square(
       dimension: size,
       child: RiveAnimation.direct(
-        AnimationsLoader.of(context),
+        AnimationsLoader.of(context)!,
         artboard: 'Double chevron',
         onInit: (Artboard artboard) {
           _controller = StateMachineController.fromArtboard(
@@ -202,6 +211,54 @@ class _DoubleChevronAnimationState extends State<DoubleChevronAnimation> {
   }
 }
 
+class OrangeErrorAnimation extends StatefulWidget {
+  const OrangeErrorAnimation({super.key});
+
+  @override
+  State<OrangeErrorAnimation> createState() => _OrangeErrorAnimationState();
+}
+
+class _OrangeErrorAnimationState extends State<OrangeErrorAnimation> {
+  final SimpleAnimation _controller = SimpleAnimation('Animation');
+
+  @override
+  Widget build(BuildContext context) {
+    return ExcludeSemantics(
+      child: SizedBox(
+        width: 83.0,
+        height: 77.0,
+        child: Consumer<RiveFile?>(
+          builder: (BuildContext context, RiveFile? riveFile, _) {
+            if (riveFile == null) {
+              return EMPTY_WIDGET;
+            }
+            return GestureDetector(
+              onTap: () {
+                _controller.reset();
+                _controller.isActive = true;
+                SmoothHapticFeedback.click();
+              },
+              child: ClipRect(
+                child: RiveAnimation.direct(
+                  riveFile,
+                  artboard: 'Orange error',
+                  controllers: <RiveAnimationController<dynamic>>[_controller],
+                ),
+              ),
+            );
+          },
+        ),
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+}
+
 class SearchEyeAnimation extends StatefulWidget {
   const SearchEyeAnimation({
     this.size,
@@ -226,7 +283,7 @@ class _SearchEyeAnimationState extends State<SearchEyeAnimation> {
       child: SizedBox(
         width: size,
         height: (80 / 87) * size,
-        child: RiveAnimation.direct(AnimationsLoader.of(context),
+        child: RiveAnimation.direct(AnimationsLoader.of(context)!,
             artboard: 'Search eye', onInit: (Artboard artboard) {
           _controller = StateMachineController.fromArtboard(
             artboard,
@@ -277,7 +334,7 @@ class _SearchAnimationState extends State<SearchAnimation> {
     return SizedBox.square(
       dimension: size,
       child: RiveAnimation.direct(
-        AnimationsLoader.of(context),
+        AnimationsLoader.of(context)!,
         artboard: 'Search icon',
         onInit: (Artboard artboard) {
           _controller = StateMachineController.fromArtboard(
@@ -318,17 +375,34 @@ enum SearchAnimationType {
 
 class SunAnimation extends StatelessWidget {
   const SunAnimation({
+    required this.type,
     super.key,
   });
 
+  final SunAnimationType type;
+
   @override
   Widget build(BuildContext context) {
-    return RiveAnimation.direct(
-      AnimationsLoader.of(context),
-      artboard: 'Success',
-      animations: const <String>['Timeline 1'],
+    return Consumer<RiveFile?>(
+      builder: (BuildContext context, RiveFile? riveFile, _) {
+        if (riveFile == null) {
+          return EMPTY_WIDGET;
+        }
+        return RiveAnimation.direct(
+          riveFile,
+          artboard: 'Success',
+          stateMachines: <String>[
+            if (type == SunAnimationType.loop) 'Loop' else 'Animation'
+          ],
+        );
+      },
     );
   }
+}
+
+enum SunAnimationType {
+  loop,
+  fullAnimation,
 }
 
 class TorchAnimation extends StatefulWidget {

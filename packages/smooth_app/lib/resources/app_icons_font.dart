@@ -201,6 +201,8 @@ class _IconsFont {
       IconData(0xe85e, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData logout =
       IconData(0xe85f, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData lists =
+      IconData(0xe860, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData donate =
       IconData(0xe861, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData dangerous_zone =
@@ -227,8 +229,24 @@ class _IconsFont {
       IconData(0xe86d, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData add_to_list_9 =
       IconData(0xe86e, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData search_alt =
+      IconData(0xe86f, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData profile =
+      IconData(0xe870, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData photo_select =
+      IconData(0xe871, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData image_check_alt =
+      IconData(0xe875, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData image_error =
+      IconData(0xe876, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData share_cupertino =
       IconData(0xe8a4, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData share_material =
       IconData(0xe8a5, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData ingredients_alt =
+      IconData(0xe8e0, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData milk_filled =
+      IconData(0xe8e1, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData recycling =
+      IconData(0xe8e2, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }
