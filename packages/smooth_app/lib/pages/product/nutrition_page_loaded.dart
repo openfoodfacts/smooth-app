@@ -24,6 +24,7 @@ import 'package:smooth_app/pages/product/owner_field_info.dart';
 import 'package:smooth_app/pages/product/simple_input_number_field.dart';
 import 'package:smooth_app/pages/text_field_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 import 'package:smooth_app/widgets/smooth_switch.dart';
 import 'package:smooth_app/widgets/will_pop_scope.dart';
@@ -88,6 +89,10 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
     with UpToDateMixin {
   late final NumberFormat _decimalNumberFormat;
   late final NutritionContainer _nutritionContainer;
+  bool _ownerFieldBannerVisible = false;
+
+  /// When the banner is visible, we add a padding to the list
+  double _ownerFieldBannerHeight = 0.0;
 
   final Map<Nutrient, TextEditingControllerWithHistory> _controllers =
       <Nutrient, TextEditingControllerWithHistory>{};
@@ -98,14 +103,18 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
   @override
   void initState() {
     super.initState();
-    initUpToDate(widget.product, context.read<LocalDatabase>());
+    initUpToDate(
+      widget.product,
+      context.read<LocalDatabase>(),
+    );
     _nutritionContainer = NutritionContainer(
       orderedNutrients: widget.orderedNutrients,
       product: upToDateProduct,
     );
 
-    _decimalNumberFormat =
-        SimpleInputNumberField.getNumberFormat(decimal: true);
+    _decimalNumberFormat = SimpleInputNumberField.getNumberFormat(
+      decimal: true,
+    );
   }
 
   @override
@@ -126,6 +135,80 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
     context.watch<LocalDatabase>();
     refreshUpToDate();
 
+    final List<Widget> children = _generateListOfWidgets(
+      appLocalizations,
+      context,
+    );
+
+    return WillPopScope2(
+      onWillPop: () async => (await _mayExitPage(saving: false), null),
+      child: Provider<_NutritionPageLoadedState>.value(
+        value: this,
+        child: SmoothScaffold(
+          fixKeyboard: true,
+          appBar: buildEditProductAppBar(
+            context: context,
+            title: appLocalizations.nutrition_page_title,
+            product: upToDateProduct,
+          ),
+          body: Stack(
+            children: <Widget>[
+              Positioned.fill(
+                child: Padding(
+                  padding: const EdgeInsetsDirectional.symmetric(
+                    horizontal: LARGE_SPACE,
+                  ),
+                  child: Form(
+                    key: _formKey,
+                    child: Provider<List<FocusNode>>.value(
+                      value: _focusNodes,
+                      child: ListView(
+                        padding: const EdgeInsetsDirectional.symmetric(
+                          vertical: SMALL_SPACE,
+                        ),
+                        children: children,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Positioned(
+                bottom: 0.0,
+                left: 0.0,
+                right: 0.0,
+                child: AnimatedOwnerFieldBanner(
+                  visible: _ownerFieldBannerVisible,
+                  shadow: true,
+                  onHeightChanged: (double height) {
+                    _ownerFieldBannerHeight = height;
+                    if (_ownerFieldBannerVisible) {
+                      setState(() {});
+                    }
+                  },
+                  onDismissClicked: () {
+                    setState(() => _ownerFieldBannerVisible = false);
+                  },
+                ),
+              ),
+            ],
+          ),
+          bottomNavigationBar: ProductBottomButtonsBar(
+            onSave: () async => _exitPage(
+              await _mayExitPage(saving: true),
+            ),
+            onCancel: () async => _exitPage(
+              await _mayExitPage(saving: false),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  List<Widget> _generateListOfWidgets(
+    AppLocalizations appLocalizations,
+    BuildContext context,
+  ) {
     final List<Widget> children = <Widget>[];
 
     // List of focus nodes for all text fields except the serving one.
@@ -146,9 +229,6 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
           ),
         ),
       );
-      if (_hasOwnerField(displayableNutrients)) {
-        children.add(const OwnerFieldInfo());
-      }
 
       children.add(_getServingField(appLocalizations));
       children.add(_getServingSwitch(appLocalizations));
@@ -195,70 +275,14 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
           refreshParent: () => setState(() {}),
         ),
       );
+
+      if (_ownerFieldBannerVisible) {
+        children.add(SizedBox(height: _ownerFieldBannerHeight));
+      }
     } else {
       _focusNodes.clear();
     }
-
-    return WillPopScope2(
-      onWillPop: () async => (await _mayExitPage(saving: false), null),
-      child: SmoothScaffold(
-        fixKeyboard: true,
-        appBar: buildEditProductAppBar(
-          context: context,
-          title: appLocalizations.nutrition_page_title,
-          product: upToDateProduct,
-        ),
-        body: Padding(
-          padding: const EdgeInsetsDirectional.symmetric(
-            horizontal: LARGE_SPACE,
-          ),
-          child: Form(
-            key: _formKey,
-            child: Provider<List<FocusNode>>.value(
-              value: _focusNodes,
-              child: ListView(
-                padding: const EdgeInsetsDirectional.symmetric(
-                  vertical: SMALL_SPACE,
-                ),
-                children: children,
-              ),
-            ),
-          ),
-        ),
-        bottomNavigationBar: ProductBottomButtonsBar(
-          onSave: () async => _exitPage(
-            await _mayExitPage(saving: true),
-          ),
-          onCancel: () async => _exitPage(
-            await _mayExitPage(saving: false),
-          ),
-        ),
-      ),
-    );
-  }
-
-  bool _hasOwnerField(
-    final Iterable<OrderedNutrient> displayableNutrients,
-  ) {
-    if (upToDateProduct.getOwnerFieldTimestamp(
-          OwnerField.productField(
-            ProductField.SERVING_SIZE,
-            ProductQuery.getLanguage(),
-          ),
-        ) !=
-        null) {
-      return true;
-    }
-    for (final OrderedNutrient orderedNutrient in displayableNutrients) {
-      final Nutrient nutrient = _getNutrient(orderedNutrient);
-      if (upToDateProduct.getOwnerFieldTimestamp(
-            OwnerField.nutrient(nutrient),
-          ) !=
-          null) {
-        return true;
-      }
-    }
-    return false;
+    return children;
   }
 
   Widget _getServingField(final AppLocalizations appLocalizations) {
@@ -281,15 +305,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
             decoration: InputDecoration(
               enabledBorder: const UnderlineInputBorder(),
               labelText: appLocalizations.nutrition_page_serving_size,
-              suffixIcon: widget.product.getOwnerFieldTimestamp(
-                        OwnerField.productField(
-                          ProductField.SERVING_SIZE,
-                          ProductQuery.getLanguage(),
-                        ),
-                      ) ==
-                      null
-                  ? null
-                  : const OwnerFieldIcon(),
+              suffixIcon: _getServingFieldLeading(appLocalizations),
             ),
             textInputAction: TextInputAction.next,
             onFieldSubmitted: (_) {
@@ -308,6 +324,38 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
         },
       ),
     );
+  }
+
+  Widget? _getServingFieldLeading(final AppLocalizations appLocalizations) {
+    if (widget.product.getOwnerFieldTimestamp(OwnerField.productField(
+          ProductField.SERVING_SIZE,
+          ProductQuery.getLanguage(),
+        )) !=
+        null) {
+      return IconButton(
+        onPressed: () {
+          context.read<_NutritionPageLoadedState>().toggleOwnerFieldBanner();
+        },
+        icon: const OwnerFieldIcon(),
+      );
+    }
+
+    if (_servingController?.initialValue?.isEmpty == true &&
+        _servingController?.text.isEmpty == true &&
+        widget.product.quantity != null) {
+      return IconButton(
+        onPressed: () {
+          _servingController!.text = widget.product.quantity!;
+        },
+        icon: const icons.Milk.download(),
+        visualDensity: VisualDensity.compact,
+        enableFeedback: true,
+        tooltip: appLocalizations
+            .nutrition_page_take_serving_size_from_product_quantity,
+      );
+    }
+
+    return null;
   }
 
   Widget _getServingSwitch(final AppLocalizations appLocalizations) =>
@@ -512,6 +560,12 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
     );
     return true;
   }
+
+  void toggleOwnerFieldBanner() {
+    setState(() {
+      _ownerFieldBannerVisible = !_ownerFieldBannerVisible;
+    });
+  }
 }
 
 class _NutrientRow extends StatelessWidget {
@@ -604,7 +658,14 @@ class _NutrientValueCell extends StatelessWidget {
                 product.getOwnerFieldTimestamp(OwnerField.nutrient(nutrient)) ==
                     null
             ? null
-            : const OwnerFieldIcon(),
+            : IconButton(
+                onPressed: () {
+                  context
+                      .read<_NutritionPageLoadedState>()
+                      .toggleOwnerFieldBanner();
+                },
+                icon: const OwnerFieldIcon(),
+              ),
       ),
       keyboardType: const TextInputType.numberWithOptions(
         signed: false,

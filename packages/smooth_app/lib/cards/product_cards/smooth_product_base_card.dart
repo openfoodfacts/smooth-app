@@ -10,6 +10,7 @@ import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_barcode_widget.dart';
+import 'package:smooth_app/widgets/smooth_close_button.dart';
 import 'package:smooth_app/widgets/smooth_text.dart';
 
 /// A common Widget for carrousel item cards.
@@ -191,36 +192,12 @@ class _SmoothProductCardHeader extends StatelessWidget {
               ),
               if (onClose != null) ...<Widget>[
                 const SizedBox(width: MEDIUM_SPACE),
-                Semantics(
-                  label: closeTooltip,
-                  button: true,
-                  excludeSemantics: true,
-                  child: Tooltip(
-                    message: closeTooltip,
-                    child: Material(
-                      type: MaterialType.transparency,
-                      child: InkWell(
-                        onTap: onClose,
-                        customBorder: const CircleBorder(),
-                        child: Padding(
-                          padding: const EdgeInsetsDirectional.all(11.0),
-                          child: Ink(
-                            width: 28.0,
-                            height: 28.0,
-                            decoration: const BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: Colors.white,
-                            ),
-                            padding: const EdgeInsetsDirectional.all(7.0),
-                            child: icons.Close(
-                              size: 14.0,
-                              color: bgColor,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
+                SmoothCloseButton(
+                  onClose: onClose!,
+                  circleColor: bgColor,
+                  crossColor: Colors.white,
+                  padding: const EdgeInsetsDirectional.all(11.0),
+                  tooltip: closeTooltip,
                 ),
               ],
             ],

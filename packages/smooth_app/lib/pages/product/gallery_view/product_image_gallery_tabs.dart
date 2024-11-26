@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart' hide Listener;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -9,6 +10,7 @@ import 'package:smooth_app/generic_lib/widgets/language_priority.dart';
 import 'package:smooth_app/generic_lib/widgets/language_selector.dart';
 import 'package:smooth_app/helpers/border_radius_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
+import 'package:smooth_app/helpers/provider_helper.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_languages_list.dart';
 import 'package:smooth_app/query/product_query.dart';
@@ -57,61 +59,62 @@ class _ProductImageGalleryTabBarState extends State<ProductImageGalleryTabBar>
       size: widget.preferredSize,
       child: Padding(
         padding: const EdgeInsetsDirectional.only(top: BALANCED_SPACE),
-        child: ChangeNotifierProvider<_ImageGalleryLanguagesProvider>(
-          create: (BuildContext context) {
-            _provider.attachProduct(context.read<Product>());
-            return _provider;
-          },
-          child: Consumer<_ImageGalleryLanguagesProvider>(
-            builder: (
-              final BuildContext context,
-              final _ImageGalleryLanguagesProvider provider,
-              _,
-            ) {
-              if (provider.value.languages == null) {
-                return const Center(
-                  child: CircularProgressIndicator.adaptive(),
-                );
-              }
-
-              /// We need a Stack to have to tab bar shadow below the button
-              return Stack(
-                children: <Widget>[
-                  PositionedDirectional(
-                    top: 0.0,
-                    start: 0.0,
-                    bottom: 0.0,
-                    end: 40.0,
-                    child: SmoothTabBar<OpenFoodFactsLanguage>(
-                      tabController: _tabController!,
-                      items: provider.value.languages!.map(
-                        (final OpenFoodFactsLanguage language) =>
-                            SmoothTabBarItem<OpenFoodFactsLanguage>(
-                          label: Languages().getNameInLanguage(language),
-                          value: language,
-                        ),
-                      ),
-                      onTabChanged: (final OpenFoodFactsLanguage value) {
-                        widget.onTabChanged.call(value);
-                      },
-                      padding: widget.padding.add(
-                        const EdgeInsetsDirectional.only(
-                          end: 20.0,
-                        ),
-                      ),
-                    ),
-                  ),
-                  const PositionedDirectional(
-                    top: 0.0,
-                    end: 0.0,
-                    bottom: 0.0,
-                    child: _ImageGalleryAddLanguageButton(),
-                  ),
-                ],
-              );
+        child: Listener<Product>(
+            listener: (BuildContext context, _, Product product) {
+              _provider.attachProduct(product);
             },
-          ),
-        ),
+            child: ChangeNotifierProvider<_ImageGalleryLanguagesProvider>(
+              create: (_) => _provider,
+              child: Consumer<_ImageGalleryLanguagesProvider>(
+                builder: (
+                  final BuildContext context,
+                  final _ImageGalleryLanguagesProvider provider,
+                  _,
+                ) {
+                  if (provider.value.languages == null) {
+                    return const Center(
+                      child: CircularProgressIndicator.adaptive(),
+                    );
+                  }
+
+                  /// We need a Stack to have to tab bar shadow below the button
+                  return Stack(
+                    children: <Widget>[
+                      PositionedDirectional(
+                        top: 0.0,
+                        start: 0.0,
+                        bottom: 0.0,
+                        end: 40.0,
+                        child: SmoothTabBar<OpenFoodFactsLanguage>(
+                          tabController: _tabController!,
+                          items: provider.value.languages!.map(
+                            (final OpenFoodFactsLanguage language) =>
+                                SmoothTabBarItem<OpenFoodFactsLanguage>(
+                              label: Languages().getNameInLanguage(language),
+                              value: language,
+                            ),
+                          ),
+                          onTabChanged: (final OpenFoodFactsLanguage value) {
+                            widget.onTabChanged.call(value);
+                          },
+                          padding: widget.padding.add(
+                            const EdgeInsetsDirectional.only(
+                              end: 20.0,
+                            ),
+                          ),
+                        ),
+                      ),
+                      const PositionedDirectional(
+                        top: 0.0,
+                        end: 0.0,
+                        bottom: 0.0,
+                        child: _ImageGalleryAddLanguageButton(),
+                      ),
+                    ],
+                  );
+                },
+              ),
+            )),
       ),
     );
   }
@@ -231,19 +234,21 @@ class _ImageGalleryLanguagesProvider
   _ImageGalleryLanguagesProvider()
       : super(const _ImageGalleryLanguagesState.empty());
 
-  late Product product;
+  Product? product;
 
   void attachProduct(final Product product) {
-    this.product = product;
-    refreshLanguages(initial: true);
+    if (product != this.product) {
+      this.product = product;
+      refreshLanguages(initial: true);
+    }
   }
 
   void refreshLanguages({bool initial = false}) {
     final List<OpenFoodFactsLanguage> imageLanguages = <OpenFoodFactsLanguage>{
-      ...getProductImageLanguages(product, ImageField.FRONT),
-      ...getProductImageLanguages(product, ImageField.INGREDIENTS),
-      ...getProductImageLanguages(product, ImageField.NUTRITION),
-      ...getProductImageLanguages(product, ImageField.PACKAGING),
+      ...getProductImageLanguages(product!, ImageField.FRONT),
+      ...getProductImageLanguages(product!, ImageField.INGREDIENTS),
+      ...getProductImageLanguages(product!, ImageField.NUTRITION),
+      ...getProductImageLanguages(product!, ImageField.PACKAGING),
     }.toList(growable: false)
       ..sort((final OpenFoodFactsLanguage a, final OpenFoodFactsLanguage b) {
         return a.code.compareTo(b.code);
@@ -251,7 +256,7 @@ class _ImageGalleryLanguagesProvider
 
     /// The main language is always the first, then the user one
     final OpenFoodFactsLanguage userLanguage = ProductQuery.getLanguage();
-    final OpenFoodFactsLanguage? mainLanguage = product.lang;
+    final OpenFoodFactsLanguage? mainLanguage = product!.lang;
 
     final List<OpenFoodFactsLanguage> languages = <OpenFoodFactsLanguage>[];
 
@@ -269,11 +274,14 @@ class _ImageGalleryLanguagesProvider
       }
     }
 
-    value = _ImageGalleryLanguagesState(
-      languages: languages,
-      selectedLanguage: mainLanguage ?? userLanguage,
-      initialValue: initial,
-    );
+    if (!const ListEquality<OpenFoodFactsLanguage>()
+        .equals(value.languages, languages)) {
+      value = _ImageGalleryLanguagesState(
+        languages: languages,
+        selectedLanguage: mainLanguage ?? userLanguage,
+        initialValue: initial,
+      );
+    }
   }
 
   void addLanguage(OpenFoodFactsLanguage language) {
