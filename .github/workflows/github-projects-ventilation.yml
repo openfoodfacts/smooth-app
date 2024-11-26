@@ -64,5 +64,5 @@ jobs:
         with:
           project-url: https://github.com/orgs/openfoodfacts/projects/84 # Add issue to the Metrics project
           github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
-          labeled: matomo
+          labeled: 📈 Matomo
           label-operator: OR
