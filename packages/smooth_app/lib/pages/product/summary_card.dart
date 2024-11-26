@@ -17,11 +17,9 @@ import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_page.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
-import 'package:smooth_app/pages/hunger_games/question_card.dart';
 import 'package:smooth_app/pages/product/hideable_container.dart';
 import 'package:smooth_app/pages/product/product_field_editor.dart';
 import 'package:smooth_app/pages/product/product_incomplete_card.dart';
-import 'package:smooth_app/pages/product/product_questions_widget.dart';
 import 'package:smooth_app/pages/product/summary_attribute_group.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
@@ -42,7 +40,6 @@ class SummaryCard extends StatefulWidget {
     this._product,
     this._productPreferences, {
     this.isFullVersion = false,
-    this.showQuestionsBanner = false,
     this.isRemovable = true,
     this.isSettingVisible = true,
     this.isProductEditable = true,
@@ -63,9 +60,6 @@ class SummaryCard extends StatefulWidget {
   /// It should only be clickable in the full / in product page version
   /// Buttons should only be visible in full mode
   final bool isFullVersion;
-
-  /// If true, show the [QuestionCard] if there are questions for the product.
-  final bool showQuestionsBanner;
 
   /// If true, there will be a button to remove the product from the carousel.
   final bool isRemovable;
@@ -103,13 +97,11 @@ class SummaryCard extends StatefulWidget {
 class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
   // For some reason, special case for "label" attributes
   final Set<String> _attributesToExcludeIfStatusIsUnknown = <String>{};
-  late ProductQuestionsLayout _questionsLayout;
 
   @override
   void initState() {
     super.initState();
     initUpToDate(widget._product, context.read<LocalDatabase>());
-    _questionsLayout = getUserQuestionsLayout(context.read<UserPreferences>());
     if (ProductIncompleteCard.isProductIncomplete(upToDateProduct)) {
       AnalyticsHelper.trackProductEvent(
         AnalyticsEvent.showFastTrackProductEditCard,
@@ -327,13 +319,6 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
         if (ProductIncompleteCard.isProductIncomplete(upToDateProduct))
           ProductIncompleteCard(product: upToDateProduct),
         ..._getAttributes(scoreAttributes),
-        if (widget.isFullVersion &&
-            widget.showQuestionsBanner &&
-            _questionsLayout == ProductQuestionsLayout.button)
-          ProductQuestionsWidget(
-            upToDateProduct,
-            layout: ProductQuestionsLayout.button,
-          ),
         attributesContainer,
         ...summaryCardButtons,
       ],

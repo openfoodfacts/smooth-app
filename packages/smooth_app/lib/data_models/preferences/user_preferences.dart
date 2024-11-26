@@ -84,7 +84,6 @@ class UserPreferences extends ChangeNotifier {
   static const String _TAG_CRASH_REPORTS = 'crash_reports';
   static const String _TAG_PRICES_FEEDBACK_FORM = 'prices_feedback_form';
   static const String _TAG_EXCLUDED_ATTRIBUTE_IDS = 'excluded_attributes';
-  static const String _TAG_USER_GROUP = '_user_group';
   static const String _TAG_UNIQUE_RANDOM = '_unique_random';
   static const String _TAG_LAZY_COUNT_PREFIX = '_lazy_count_prefix';
   static const String _TAG_LATEST_PRODUCT_TYPE = '_latest_product_type';
@@ -211,9 +210,6 @@ class UserPreferences extends ChangeNotifier {
 
   bool get userTracking =>
       _sharedPreferences.getBool(_TAG_USER_TRACKING) ?? false;
-
-  /// A random int between 0 and 10 (a naive implementation to allow A/B testing)
-  int get userGroup => _sharedPreferences.getInt(_TAG_USER_GROUP)!;
 
   /// Returns a huge random value that will be computed just once.
   Future<int> getUniqueRandom() async {

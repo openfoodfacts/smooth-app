@@ -4,7 +4,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
@@ -15,13 +14,9 @@ import 'package:smooth_app/query/product_questions_query.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
 class ProductQuestionsWidget extends StatefulWidget {
-  const ProductQuestionsWidget(
-    this.product, {
-    this.layout = ProductQuestionsLayout.button,
-  });
+  const ProductQuestionsWidget(this.product);
 
   final Product product;
-  final ProductQuestionsLayout layout;
 
   @override
   State<ProductQuestionsWidget> createState() => _ProductQuestionsWidgetState();
@@ -72,16 +67,10 @@ class _ProductQuestionsWidgetState extends State<ProductQuestionsWidget>
     // Mandatory to call with an [AutomaticKeepAliveClientMixin]
     super.build(context);
 
-    return switch (widget.layout) {
-      ProductQuestionsLayout.button => _ProductQuestionButton(
-          state: _state,
-          openQuestionsCallback: _openQuestions,
-        ),
-      ProductQuestionsLayout.banner => _ProductQuestionBanner(
-          state: _state,
-          openQuestionsCallback: _openQuestions,
-        ),
-    };
+    return _ProductQuestionBanner(
+      state: _state,
+      openQuestionsCallback: _openQuestions,
+    );
   }
 
   Future<void> _openQuestions() async {
@@ -124,10 +113,7 @@ class _ProductQuestionsWidgetState extends State<ProductQuestionsWidget>
 
   void _trackEvent(AnalyticsEvent event) => AnalyticsHelper.trackProductEvent(
         event,
-        eventValue: switch (widget.layout) {
-          ProductQuestionsLayout.button => 0,
-          ProductQuestionsLayout.banner => 1,
-        },
+        eventValue: 1,
         product: widget.product,
       );
 
@@ -174,133 +160,6 @@ class _ProductQuestionsWidgetState extends State<ProductQuestionsWidget>
 
   @override
   bool get wantKeepAlive => _keepWidgetAlive;
-}
-
-/// A naive implementation to have a half of the user base using a button and
-/// the other half, the banner
-ProductQuestionsLayout getUserQuestionsLayout(UserPreferences preferences) {
-  return preferences.userGroup.isEven
-      ? ProductQuestionsLayout.button
-      : ProductQuestionsLayout.banner;
-}
-
-enum ProductQuestionsLayout {
-  button,
-  banner,
-}
-
-class _ProductQuestionButton extends StatelessWidget {
-  const _ProductQuestionButton({
-    required this.state,
-    required this.openQuestionsCallback,
-  });
-
-  final _ProductQuestionsState state;
-  final VoidCallback openQuestionsCallback;
-
-  @override
-  Widget build(BuildContext context) {
-    return AnimatedCrossFade(
-      crossFadeState: state is _ProductQuestionsWithoutQuestions
-          ? CrossFadeState.showFirst
-          : CrossFadeState.showSecond,
-      duration: SmoothAnimationsDuration.long,
-      firstChild: EMPTY_WIDGET,
-      secondChild: Builder(builder: (BuildContext context) {
-        final AppLocalizations appLocalizations = AppLocalizations.of(context);
-        final Widget child = _buildContent(context, appLocalizations);
-
-        // We need to differentiate with / without a Shimmer, because
-        // [Shimmer] doesn't support [Ink]
-        final Color backgroundColor = Theme.of(context).colorScheme.primary;
-
-        if (state is _ProductQuestionsWithQuestions) {
-          return Semantics(
-            value: appLocalizations.tap_to_answer_hint,
-            button: true,
-            excludeSemantics: true,
-            child: InkWell(
-              borderRadius: ANGULAR_BORDER_RADIUS,
-              onTap: openQuestionsCallback,
-              child: Ink(
-                decoration: BoxDecoration(
-                  color: backgroundColor,
-                  borderRadius: ANGULAR_BORDER_RADIUS,
-                ),
-                padding: const EdgeInsetsDirectional.all(
-                  SMALL_SPACE,
-                ),
-                child: child,
-              ),
-            ),
-          );
-        } else {
-          return Semantics(
-            value: appLocalizations.robotoff_questions_loading_hint,
-            excludeSemantics: true,
-            child: Shimmer.fromColors(
-              baseColor: backgroundColor,
-              highlightColor: WHITE_COLOR.withOpacity(0.5),
-              period: SmoothAnimationsDuration.long * 2,
-              child: Container(
-                decoration: BoxDecoration(
-                  color: backgroundColor,
-                  borderRadius: ANGULAR_BORDER_RADIUS,
-                ),
-                padding: const EdgeInsetsDirectional.all(
-                  SMALL_SPACE,
-                ),
-                child: child,
-              ),
-            ),
-          );
-        }
-      }),
-    );
-  }
-
-  Widget _buildContent(
-    BuildContext context,
-    AppLocalizations appLocalizations,
-  ) {
-    final bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
-
-    return SizedBox(
-      width: double.infinity,
-      child: Column(
-        children: <Widget>[
-          Row(
-            children: <Widget>[
-              const _ProductQuestionIcon(),
-              Expanded(
-                child: RichText(
-                  text: TextSpan(
-                    text: '${appLocalizations.tap_to_answer}\n',
-                    style:
-                        Theme.of(context).primaryTextTheme.bodyLarge!.copyWith(
-                              color: isDarkMode ? Colors.black : WHITE_COLOR,
-                              height: 1.5,
-                            ),
-                    children: <TextSpan>[
-                      TextSpan(
-                        text: appLocalizations.contribute_to_get_rewards,
-                        style: Theme.of(context)
-                            .primaryTextTheme
-                            .bodyMedium!
-                            .copyWith(
-                              color: isDarkMode ? Colors.black : WHITE_COLOR,
-                            ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
 }
 
 class _ProductQuestionBanner extends StatelessWidget {

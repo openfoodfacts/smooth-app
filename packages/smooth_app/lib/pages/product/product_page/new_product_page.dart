@@ -56,7 +56,6 @@ class ProductPageState extends State<ProductPage>
     with TraceableClientMixin, UpToDateMixin {
   final ScrollController _scrollController = ScrollController();
   late ProductPreferences _productPreferences;
-  late ProductQuestionsLayout questionsLayout;
   bool _keepRobotoffQuestionsAlive = true;
 
   double bottomPadding = 0.0;
@@ -70,7 +69,6 @@ class ProductPageState extends State<ProductPage>
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     initUpToDate(widget.product, localDatabase);
     DaoProductLastAccess(localDatabase).put(barcode);
-    questionsLayout = getUserQuestionsLayout(context.read<UserPreferences>());
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _updateLocalDatabaseWithProductHistory(context);
     });
@@ -127,23 +125,21 @@ class ProductPageState extends State<ProductPage>
                 backButtonType: widget.backButton,
               ),
             ),
-            if (questionsLayout == ProductQuestionsLayout.banner)
-              Positioned(
-                left: 0.0,
-                right: 0.0,
-                bottom: 0.0,
-                child: MeasureSize(
-                  onChange: (Size size) {
-                    if (size.height != bottomPadding) {
-                      setState(() => bottomPadding = size.height);
-                    }
-                  },
-                  child: ProductQuestionsWidget(
-                    upToDateProduct,
-                    layout: ProductQuestionsLayout.banner,
-                  ),
+            Positioned(
+              left: 0.0,
+              right: 0.0,
+              bottom: 0.0,
+              child: MeasureSize(
+                onChange: (Size size) {
+                  if (size.height != bottomPadding) {
+                    setState(() => bottomPadding = size.height);
+                  }
+                },
+                child: ProductQuestionsWidget(
+                  upToDateProduct,
                 ),
               ),
+            ),
           ],
         ),
         bottomNavigationBar: const ProductFooter(),
@@ -200,7 +196,6 @@ class ProductPageState extends State<ProductPage>
                     _productPreferences,
                     heroTag: widget.heroTag,
                     isFullVersion: true,
-                    showQuestionsBanner: true,
                   ),
                 ),
               ),
