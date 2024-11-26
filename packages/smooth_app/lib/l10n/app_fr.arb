@@ -749,6 +749,10 @@
     "nutrition_page_invalid_number": "Nombre invalide",
     "nutrition_page_update_running": "Mise à jour du produit sur le serveur...",
     "nutrition_page_update_done": "Produit mis à jour !",
+    "nutrition_page_take_serving_size_from_product_quantity": "Use the product quantity as serving size",
+    "@nutrition_page_take_serving_size_from_product_quantity": {
+        "description": "Button label: Use the product quantity as serving size (nutrition page)"
+    },
     "more_photos": "Plus de photos intéressantes",
     "@more_photos": {},
     "view_more_photo_button": "Voir toutes les photos existantes pour ce produit",
@@ -2672,6 +2676,10 @@
     "owner_field_info_message": "Avec ce logo, nous mettons en évidence les données fournies par le producteur, et qui peuvent ne pas être modifiables.",
     "@owner_field_info_message": {
         "description": "Title of the 'producer provided' info list-tile"
+    },
+    "owner_field_info_close_button": "Close this info",
+    "@owner_field_info_close_button": {
+        "description": "The owner info may be shown in a closeable dialog. This is the label of the button (used on a long press event and for the accessibility label)."
     },
     "edit_packagings_title": "Composants d'emballage",
     "@edit_packagings_title": {
