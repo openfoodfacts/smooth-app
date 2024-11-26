@@ -749,6 +749,10 @@
     "nutrition_page_invalid_number": "Invalid number",
     "nutrition_page_update_running": "Updating the product on the server…",
     "nutrition_page_update_done": "Product updated!",
+    "nutrition_page_take_serving_size_from_product_quantity": "Use the product quantity as serving size",
+    "@nutrition_page_take_serving_size_from_product_quantity": {
+        "description": "Button label: Use the product quantity as serving size (nutrition page)"
+    },
     "more_photos": "More interesting photos",
     "@more_photos": {},
     "view_more_photo_button": "View all existing photos for this product",
@@ -2672,6 +2676,10 @@
     "owner_field_info_message": "With that logo we highlight data provided by the producer, and that may not be editable.",
     "@owner_field_info_message": {
         "description": "Title of the 'producer provided' info list-tile"
+    },
+    "owner_field_info_close_button": "Close this info",
+    "@owner_field_info_close_button": {
+        "description": "The owner info may be shown in a closeable dialog. This is the label of the button (used on a long press event and for the accessibility label)."
     },
     "edit_packagings_title": "Packaging components",
     "@edit_packagings_title": {
