@@ -160,7 +160,8 @@ Product addition:
 - changed-files:
   - any-glob-to-any-file: 'packages/smooth_app/lib/database/robotoff_questions_query.dart'
   - any-glob-to-any-file: 'packages/smooth_app/lib/cards/product_cards/question_card.dart'
-
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/product_questions_widget.dart'
+  
 Hunger Games:
 - changed-files:
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/hunger_games/question_answers_options.dart'
