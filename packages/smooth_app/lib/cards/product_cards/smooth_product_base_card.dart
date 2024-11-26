@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/pages/product/hideable_container.dart';
+import 'package:smooth_app/pages/scan/carousel/scan_carousel.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
@@ -28,7 +30,8 @@ class ScanProductBaseCard extends StatelessWidget {
     super.key,
   });
 
-  static const double HEADER_MIN_HEIGHT = 50.0;
+  static const double HEADER_MIN_HEIGHT_NORMAL = 50.0;
+  static const double HEADER_MIN_HEIGHT_DENSE = 45.0;
 
   final String headerLabel;
   final Color headerIndicatorColor;
@@ -146,10 +149,13 @@ class _SmoothProductCardHeader extends StatelessWidget {
         context.extension<SmoothColorsThemeExtension>().primarySemiDark;
     final String closeTooltip =
         AppLocalizations.of(context).carousel_close_tooltip;
+    final bool dense = context.read<ScanCardDensity>() == ScanCardDensity.DENSE;
 
     return ConstrainedBox(
-      constraints: const BoxConstraints(
-        minHeight: ScanProductBaseCard.HEADER_MIN_HEIGHT,
+      constraints: BoxConstraints(
+        minHeight: dense
+            ? ScanProductBaseCard.HEADER_MIN_HEIGHT_DENSE
+            : ScanProductBaseCard.HEADER_MIN_HEIGHT_NORMAL,
       ),
       child: DecoratedBox(
         decoration: BoxDecoration(
@@ -171,7 +177,7 @@ class _SmoothProductCardHeader extends StatelessWidget {
                   color: indicatorColor,
                 ),
               ),
-              const SizedBox(width: MEDIUM_SPACE),
+              SizedBox(width: dense ? BALANCED_SPACE : MEDIUM_SPACE),
               Expanded(
                 child: Text(
                   label,
@@ -214,11 +220,14 @@ class ScanProductBaseCardTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bool dense = context.read<ScanCardDensity>() == ScanCardDensity.DENSE;
+
     return SizedBox(
       width: double.infinity,
       child: Padding(
-        padding:
-            const EdgeInsetsDirectional.only(bottom: MEDIUM_SPACE).copyWith(
+        padding: EdgeInsetsDirectional.only(
+          bottom: dense ? SMALL_SPACE : MEDIUM_SPACE,
+        ).copyWith(
           top: padding?.top,
           bottom: padding?.bottom,
           start: padding?.start,
@@ -270,11 +279,12 @@ class ScanProductBaseCardBarcode extends StatelessWidget {
     final SmoothColorsThemeExtension theme =
         context.extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();
+    final bool dense = context.read<ScanCardDensity>() == ScanCardDensity.DENSE;
 
     return Padding(
-      padding: const EdgeInsetsDirectional.only(
-        top: MEDIUM_SPACE,
-        bottom: LARGE_SPACE * 2,
+      padding: EdgeInsetsDirectional.only(
+        top: dense ? SMALL_SPACE : MEDIUM_SPACE,
+        bottom: dense ? BALANCED_SPACE : LARGE_SPACE * 2,
       ).copyWith(
         top: padding?.top,
         bottom: padding?.bottom,
@@ -288,14 +298,14 @@ class ScanProductBaseCardBarcode extends StatelessWidget {
         ),
         child: Center(
           child: ConstrainedBox(
-            constraints: const BoxConstraints(
-              minHeight: 100.0,
+            constraints: BoxConstraints(
+              minHeight: dense ? 75.0 : 100.0,
             ),
             child: SmoothBarcodeWidget(
               height: height ?? 100.0,
-              padding: const EdgeInsetsDirectional.symmetric(
+              padding: EdgeInsetsDirectional.symmetric(
                 horizontal: 30.0,
-                vertical: MEDIUM_SPACE,
+                vertical: dense ? SMALL_SPACE : MEDIUM_SPACE,
               ),
               color: Colors.black,
               backgroundColor: lightTheme ? Colors.white : Colors.transparent,
@@ -344,12 +354,15 @@ class ScanProductBaseCardButton extends StatelessWidget {
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            Text(
-              text,
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 15.0,
-                fontWeight: FontWeight.bold,
+            Padding(
+              padding: const EdgeInsetsDirectional.only(bottom: 3.0),
+              child: Text(
+                text,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 15.0,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
             const SizedBox(width: MEDIUM_SPACE),

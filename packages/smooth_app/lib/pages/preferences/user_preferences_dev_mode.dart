@@ -316,7 +316,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
             return Consumer<AppNewsProvider>(
                 builder: (_, AppNewsProvider provider, __) {
               return Text(switch (provider.state) {
-                AppNewsStateLoading() => 'Loading...',
+                AppNewsStateLoading() => 'Loading…',
                 AppNewsStateLoaded(lastUpdate: final DateTime date) =>
                   appLocalizations
                       .dev_preferences_news_provider_status_subtitle(

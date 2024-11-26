@@ -11,6 +11,7 @@ import 'package:smooth_app/helpers/extension_on_text_helper.dart';
 import 'package:smooth_app/pages/guides/guide/guide_nutriscore_v2.dart';
 import 'package:smooth_app/pages/navigator/error_page.dart';
 import 'package:smooth_app/pages/navigator/external_page.dart';
+import 'package:smooth_app/pages/navigator/slide_up_transition.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/product/add_new_product/add_new_product_page.dart';
@@ -139,7 +140,7 @@ class _SmoothGoRouter {
           routes: <GoRoute>[
             GoRoute(
               path: '${_InternalAppRoutes.PRODUCT_DETAILS_PAGE}/:productId',
-              builder: (BuildContext context, GoRouterState state) {
+              pageBuilder: (BuildContext context, GoRouterState state) {
                 Product product;
 
                 if (state.extra is Product) {
@@ -152,7 +153,7 @@ class _SmoothGoRouter {
                   throw Exception('No product provided!');
                 }
 
-                final Widget widget = ProductPage(
+                Widget widget = ProductPage(
                   product,
                   withHeroAnimation:
                       state.uri.queryParameters['heroAnimation'] != 'false',
@@ -163,10 +164,21 @@ class _SmoothGoRouter {
                 );
 
                 if (ExternalScanCarouselManager.find(context) == null) {
-                  return ExternalScanCarouselManager(child: widget);
-                } else {
-                  return widget;
+                  widget = ExternalScanCarouselManager(child: widget);
                 }
+
+                return switch (ProductPageTransition.byName(
+                    state.uri.queryParameters['transition'])) {
+                  ProductPageTransition.standard => MaterialPage<void>(
+                      key: state.pageKey,
+                      child: widget,
+                    ),
+                  ProductPageTransition.slideUp =>
+                    OpenUpwardsPage.getTransition<void>(
+                      key: state.pageKey,
+                      child: widget,
+                    ),
+                };
               },
             ),
             GoRoute(
@@ -450,11 +462,13 @@ class AppRoutes {
     bool useHeroAnimation = true,
     String? heroTag = '',
     ProductPageBackButton? backButtonType,
+    ProductPageTransition? transition = ProductPageTransition.standard,
   }) =>
       '/${_InternalAppRoutes.PRODUCT_DETAILS_PAGE}/$barcode'
       '?heroAnimation=$useHeroAnimation'
       '&heroTag=$heroTag'
-      '&backButtonType=${backButtonType?.name}';
+      '&backButtonType=${backButtonType?.name}'
+      '&transition=${transition?.name}';
 
   // Product loader (= when a product is not in the database) - typical use case: deep links
   static String PRODUCT_LOADER(String barcode, {bool edit = false}) =>

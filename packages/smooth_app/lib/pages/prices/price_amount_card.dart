@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/pages/prices/price_amount_field.dart';
@@ -65,12 +64,13 @@ class _PriceAmountCardState extends State<PriceAmountCard> {
             onPressed:
                 total == 1 ? null : () => priceModel.removeAt(widget.index),
           ),
-          SmoothLargeButtonWithIcon(
-            icon: model.promo ? Icons.check_box : Icons.check_box_outline_blank,
-            text: appLocalizations.prices_amount_is_discounted,
-            onPressed: () => setState(
+          SwitchListTile(
+            value: model.promo,
+            onChanged: (final bool value) => setState(
               () => model.promo = !model.promo,
             ),
+            title: Text(appLocalizations.prices_amount_is_discounted),
+            controlAffinity: ListTileControlAffinity.leading,
           ),
           const SizedBox(height: SMALL_SPACE),
           Row(

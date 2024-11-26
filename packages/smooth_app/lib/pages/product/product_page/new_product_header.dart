@@ -367,3 +367,15 @@ enum ProductPageBackButton {
     };
   }
 }
+
+enum ProductPageTransition {
+  standard,
+  slideUp;
+
+  static ProductPageTransition byName(String? type) {
+    return switch (type) {
+      'slideUp' => ProductPageTransition.slideUp,
+      _ => ProductPageTransition.standard,
+    };
+  }
+}
