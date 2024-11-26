@@ -640,7 +640,7 @@
     "ingredients_photo_title": "Összetevők fényképe",
     "nutritional_facts_photo_title": "Tápértékadatok fényképe",
     "recycling_photo_title": "Újrahasznosítási fénykép",
-    "take_photo_title": "Készítsen képet",
+    "take_photo_title": "Fénykép készítése",
     "take_more_photo_title": "Készítsen további képeket",
     "front_photo_uploaded": "Szemből készült kép feltöltve",
     "@front_photo_uploaded": {},
@@ -749,6 +749,10 @@
     "nutrition_page_invalid_number": "Érvénytelen szám",
     "nutrition_page_update_running": "Termék frissítése a szerveren…",
     "nutrition_page_update_done": "A termék frissítve!",
+    "nutrition_page_take_serving_size_from_product_quantity": "Use the product quantity as serving size",
+    "@nutrition_page_take_serving_size_from_product_quantity": {
+        "description": "Button label: Use the product quantity as serving size (nutrition page)"
+    },
     "more_photos": "További érdekes képek",
     "@more_photos": {},
     "view_more_photo_button": "Termék meglévő fotóinak megtekintése",
@@ -808,7 +812,7 @@
     "@product_image_action_take_new_picture": {
         "description": "Replace the existing picture with a new one"
     },
-    "product_image_action_take_picture": "Készítsen képet",
+    "product_image_action_take_picture": "Fénykép készítése",
     "@product_image_action_take_picture": {
         "description": "Take a picture (eg: for ingredients) when there is no one"
     },
@@ -2431,7 +2435,7 @@
     "@capture": {
         "description": "Button label for taking a new photo (= there's already one)"
     },
-    "capture_new_picture": "Készítsen képet",
+    "capture_new_picture": "Fénykép készítése",
     "@capture_new_picture": {
         "description": "Button label for taking a new photo (= the first one)"
     },
@@ -2672,6 +2676,10 @@
     "owner_field_info_message": "Ezzel a logóval a gyártó által megadott adatokat emeljük ki, amelyek nem szerkeszthetők.",
     "@owner_field_info_message": {
         "description": "Title of the 'producer provided' info list-tile"
+    },
+    "owner_field_info_close_button": "Close this info",
+    "@owner_field_info_close_button": {
+        "description": "The owner info may be shown in a closeable dialog. This is the label of the button (used on a long press event and for the accessibility label)."
     },
     "edit_packagings_title": "Csomagolás elemei",
     "@edit_packagings_title": {
@@ -3217,7 +3225,7 @@
             }
         }
     },
-    "product_page_image_front_accessibility_label": "Elülső nézet képe",
+    "product_page_image_front_accessibility_label": "Elülső oldal képe",
     "@product_page_image_front_accessibility_label": {
         "description": "Accessibility label for the image on the product page"
     },
