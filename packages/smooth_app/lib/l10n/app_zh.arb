@@ -832,7 +832,7 @@
     "@homepage_main_card_subheading": {
         "description": "Text between asterisks (eg: **My Text**) means text in bold. Please keep it."
     },
-    "homepage_main_card_search_field_hint": "Search for a product",
+    "homepage_main_card_search_field_hint": "搜尋產品",
     "homepage_main_card_search_field_tooltip": "Start search",
     "@homepage_main_card_search_field_tooltip": {
         "description": "Description for accessibility of the search field on the homepage"
@@ -1863,9 +1863,9 @@
             }
         }
     },
-    "product_type_label_food": "Food",
+    "product_type_label_food": "食物",
     "product_type_label_beauty": "Personal care",
-    "product_type_label_pet_food": "Pet food",
+    "product_type_label_pet_food": "寵物食品",
     "product_type_label_product": "其它",
     "product_type_selection_title": "Product type",
     "product_type_selection_subtitle": "Select the type of this product",
@@ -2033,7 +2033,7 @@
     "prices_add_validation_error": "Validation error",
     "prices_privacy_warning_title": "Privacy warning",
     "prices_privacy_warning_message": "Prices will be public, along with the store they refer to.\nThat might allow people who know about your Open Food Facts pseudonym to:\n* infer in which area you live\n* know what you are buying\nIf you are uneasy with that, please change your pseudonym, or create a new Open Food Facts account and log into the app with it.",
-    "prices_unknown_product": "Unknown product",
+    "prices_unknown_product": "不明產品",
     "@prices_unknown_product": {
         "description": "Very small text, in the context of prices, to say that the product is unknown"
     },
@@ -3168,7 +3168,7 @@
             }
         }
     },
-    "photo_viewer_details_button": "Details",
+    "photo_viewer_details_button": "詳細資訊",
     "@photo_viewer_details_button": {
         "description": "Button to show details of the photo"
     },
@@ -3204,7 +3204,7 @@
     "@photo_viewer_details_date_title": {
         "description": "Label for the uploaded date of a photo"
     },
-    "photo_viewer_details_url_title": "URL",
+    "photo_viewer_details_url_title": "網址",
     "@photo_viewer_details_url_title": {
         "description": "Label for the link of a photo"
     },
@@ -3311,7 +3311,7 @@
         "description": "Please keep the ** syntax to make the text bold"
     },
     "carousel_error_button": "重試",
-    "carousel_unknown_product_header": "Unknown product",
+    "carousel_unknown_product_header": "不明產品",
     "@carousel_unknown_product_header": {
         "description": "A label on top of the carousel card when the product is not in the database (= it needs to be created)"
     },
