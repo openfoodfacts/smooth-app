@@ -2,17 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/widgets/smooth_close_button.dart';
+import 'package:smooth_app/widgets/smooth_text.dart';
 
 class SmoothBanner extends StatelessWidget {
   const SmoothBanner({
     required this.icon,
     required this.title,
     required this.content,
+    this.titleColor,
+    this.contentColor,
+    this.iconAlignment,
+    this.iconColor,
+    this.iconBackgroundColor,
+    this.contentBackgroundColor,
     this.onDismissClicked,
     this.topShadow = false,
     super.key,
   });
 
+  final AlignmentGeometry? iconAlignment;
   final Widget icon;
   final String title;
   final String content;
@@ -20,6 +28,12 @@ class SmoothBanner extends StatelessWidget {
   /// If not null, a dismiss button is displayed
   final ValueChanged<SmoothBannerDismissEvent>? onDismissClicked;
   final bool topShadow;
+
+  final Color? iconColor;
+  final Color? iconBackgroundColor;
+  final Color? titleColor;
+  final Color? contentColor;
+  final Color? contentBackgroundColor;
 
   static const Color _titleColor = Color(0xFF373737);
 
@@ -34,15 +48,15 @@ class SmoothBanner extends StatelessWidget {
               child: Container(
                 width: double.infinity,
                 height: double.infinity,
-                color: const Color(0xFFE4E4E4),
+                color: iconBackgroundColor ?? const Color(0xFFE4E4E4),
                 padding: const EdgeInsetsDirectional.symmetric(
                   horizontal: LARGE_SPACE,
                   vertical: MEDIUM_SPACE,
                 ),
-                alignment: AlignmentDirectional.topCenter,
+                alignment: iconAlignment ?? AlignmentDirectional.topCenter,
                 child: IconTheme(
-                  data: const IconThemeData(
-                    color: Color(0xFF373737),
+                  data: IconThemeData(
+                    color: iconColor ?? const Color(0xFF373737),
                   ),
                   child: icon,
                 ),
@@ -53,7 +67,7 @@ class SmoothBanner extends StatelessWidget {
             flex: 85,
             child: Container(
               width: double.infinity,
-              color: const Color(0xFFECECEC),
+              color: contentBackgroundColor ?? const Color(0xFFECECEC),
               padding: EdgeInsetsDirectional.only(
                 start: MEDIUM_SPACE,
                 end: MEDIUM_SPACE,
@@ -70,10 +84,10 @@ class SmoothBanner extends StatelessWidget {
                       Expanded(
                         child: Text(
                           title,
-                          style: const TextStyle(
+                          style: TextStyle(
                             fontSize: 16.0,
                             fontWeight: FontWeight.bold,
-                            color: _titleColor,
+                            color: titleColor ?? _titleColor,
                           ),
                         ),
                       ),
@@ -83,7 +97,7 @@ class SmoothBanner extends StatelessWidget {
                           onClose: () => onDismissClicked!.call(
                             SmoothBannerDismissEvent.fromButton,
                           ),
-                          circleColor: _titleColor,
+                          circleColor: titleColor ?? _titleColor,
                           crossColor: Colors.white,
                           circleSize: 26.0,
                           crossSize: 12.0,
@@ -95,11 +109,11 @@ class SmoothBanner extends StatelessWidget {
                   ),
                   if (onDismissClicked == null)
                     const SizedBox(height: VERY_SMALL_SPACE),
-                  Text(
-                    content,
-                    style: const TextStyle(
+                  TextWithBoldParts(
+                    text: content,
+                    textStyle: TextStyle(
                       fontSize: 14.0,
-                      color: Color(0xFF373737),
+                      color: contentColor ?? const Color(0xFF373737),
                     ),
                   ),
                 ],

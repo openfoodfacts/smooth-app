@@ -151,7 +151,11 @@ class _SmoothAutocompleteTextFieldState
   void _setLoading(bool loading) {
     if (_loading != loading) {
       WidgetsBinding.instance.addPostFrameCallback(
-        (_) => setState(() => _loading = loading),
+        (_) {
+          if (context.mounted) {
+            setState(() => _loading = loading);
+          }
+        },
       );
     }
   }

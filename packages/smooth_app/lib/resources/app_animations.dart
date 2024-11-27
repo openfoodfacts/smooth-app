@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:rive/rive.dart';
+import 'package:rive/src/rive_core/component.dart';
 import 'package:scanner_shared/scanner_shared.dart';
 import 'package:smooth_app/cards/category_cards/svg_cache.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
@@ -85,16 +86,19 @@ class BarcodeAnimation extends StatelessWidget {
 class CloudUploadAnimation extends StatelessWidget {
   const CloudUploadAnimation({
     required this.size,
+    this.color,
     super.key,
   }) : _circleColor = null;
 
   const CloudUploadAnimation.circle({
     required this.size,
+    this.color,
     Color? circleColor,
     super.key,
   }) : _circleColor = circleColor ?? Colors.black54;
 
   final double size;
+  final Color? color;
   final Color? _circleColor;
 
   @override
@@ -105,6 +109,19 @@ class CloudUploadAnimation extends StatelessWidget {
         AnimationsLoader.of(context)!,
         artboard: 'Cloud upload',
         animations: const <String>['Animation'],
+        onInit: (Artboard artboard) {
+          if (color != null) {
+            artboard.forEachComponent(
+              (Component child) {
+                if (child is Stroke) {
+                  child.paint.color = color!;
+                } else if (child is SolidColor) {
+                  child.color = color!;
+                }
+              },
+            );
+          }
+        },
       ),
     );
 

@@ -208,7 +208,10 @@ class _ProductHeaderName extends StatelessWidget {
               style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 17.0,
-                height: 0.9,
+                height: 1.0,
+              ),
+              strutStyle: const StrutStyle(
+                forceStrutHeight: true,
               ),
             ),
             Text(
@@ -286,6 +289,9 @@ class _ProductCompatibilityScore extends StatelessWidget {
     BuildContext context,
     ProductPageCompatibility compatibility,
   ) {
+    final String compatibilityLabel =
+        AppLocalizations.of(context).product_page_compatibility_score;
+
     return IntrinsicHeight(
       child: Row(
         children: <Widget>[
@@ -314,15 +320,19 @@ class _ProductCompatibilityScore extends StatelessWidget {
           ),
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.only(
+              padding: const EdgeInsetsDirectional.only(
                 top: 6.0,
-                bottom: 8.0,
+                bottom: SMALL_SPACE,
+                start: 6.0,
+                end: 6.0,
               ),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
                   Text(
                     '${compatibility.score}%',
+                    maxLines: 1,
+                    textAlign: TextAlign.center,
                     style: const TextStyle(
                       fontSize: 12.0,
                       height: 0.9,
@@ -330,10 +340,12 @@ class _ProductCompatibilityScore extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    AppLocalizations.of(context)
-                        .product_page_compatibility_score,
-                    style: const TextStyle(
-                      fontSize: 9.0,
+                    compatibilityLabel,
+                    maxLines: 1,
+                    textAlign: TextAlign.center,
+                    overflow: TextOverflow.fade,
+                    style: TextStyle(
+                      fontSize: _getCompatibilityFontSize(compatibilityLabel),
                       height: 0.9,
                       fontWeight: FontWeight.w500,
                     ),
@@ -345,6 +357,24 @@ class _ProductCompatibilityScore extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  double _getCompatibilityFontSize(String compatibilityLabel) {
+    final int length = compatibilityLabel.length;
+
+    if (length < 13) {
+      return 9.0;
+    } else if (length == 13) {
+      return 8.5;
+    } else if (length == 14) {
+      return 7.5;
+    } else if (length == 15) {
+      return 7.0;
+    } else if (length == 16) {
+      return 6.5;
+    } else {
+      return 6.0;
+    }
   }
 
   double computeWidth(BuildContext context) {

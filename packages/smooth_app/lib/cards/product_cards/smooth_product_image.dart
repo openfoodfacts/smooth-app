@@ -280,7 +280,7 @@ class _ProductPictureWithImageProvider extends StatelessWidget {
                 color: lightTheme ? Colors.white : Colors.black,
                 child: ClipRRect(
                   child: Opacity(
-                    opacity: lightTheme ? 0.2 : 0.55,
+                    opacity: lightTheme ? 0.3 : 0.55,
                     child: ImageFiltered(
                       imageFilter: ImageFilter.blur(sigmaX: 8.0, sigmaY: 8.0),
                       child: Image(

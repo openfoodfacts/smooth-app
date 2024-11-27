@@ -7,6 +7,7 @@ import 'package:provider/single_child_widget.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
+import 'package:smooth_app/data_models/up_to_date_changes.dart';
 import 'package:smooth_app/data_models/up_to_date_mixin.dart';
 import 'package:smooth_app/database/dao_product_last_access.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
@@ -20,6 +21,7 @@ import 'package:smooth_app/pages/prices/prices_card.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/product_page/footer/new_product_footer.dart';
 import 'package:smooth_app/pages/product/product_page/new_product_header.dart';
+import 'package:smooth_app/pages/product/product_page/new_product_page_loading_indicator.dart';
 import 'package:smooth_app/pages/product/product_questions_widget.dart';
 import 'package:smooth_app/pages/product/reorderable_knowledge_panel_page.dart';
 import 'package:smooth_app/pages/product/reordered_knowledge_panel_cards.dart';
@@ -83,13 +85,16 @@ class ProductPageState extends State<ProductPage>
         Theme.of(context).extension<SmoothColorsThemeExtension>()!;
 
     _productPreferences = context.watch<ProductPreferences>();
-    context.watch<LocalDatabase>();
+    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     refreshUpToDate();
 
     final MatchedProductV2 matchedProductV2 = MatchedProductV2(
       upToDateProduct,
       _productPreferences,
     );
+
+    final bool hasPendingOperations = UpToDateChanges(localDatabase)
+        .hasNotTerminatedOperations(upToDateProduct.barcode!);
 
     return MultiProvider(
       providers: <SingleChildWidget>[
@@ -135,9 +140,11 @@ class ProductPageState extends State<ProductPage>
                     setState(() => bottomPadding = size.height);
                   }
                 },
-                child: ProductQuestionsWidget(
-                  upToDateProduct,
-                ),
+                child: !hasPendingOperations
+                    ? const ProductPageLoadingIndicator()
+                    : ProductQuestionsWidget(
+                        upToDateProduct,
+                      ),
               ),
             ),
           ],
