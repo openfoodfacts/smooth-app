@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:math' as math;
 
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
@@ -41,8 +42,11 @@ class _SmoothNavigationBarState extends State<SmoothNavigationBar> {
               : Theme.of(context).scaffoldBackgroundColor,
           child: Padding(
             padding: EdgeInsetsDirectional.only(
-              bottom: MediaQuery.of(context).padding.bottom -
-                  (Platform.isIOS ? 5.0 : 0.0),
+              bottom: math.max(
+                0,
+                MediaQuery.viewPaddingOf(context).bottom -
+                    (Platform.isIOS ? 5.0 : 0.0),
+              ),
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
