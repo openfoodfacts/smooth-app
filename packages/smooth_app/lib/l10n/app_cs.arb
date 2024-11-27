@@ -2047,7 +2047,7 @@
     "dev_mode_section_ui": "Uživatelské rozhraní",
     "dev_mode_section_data": "Údaje",
     "dev_mode_section_experimental_features": "Experimentální funkce",
-    "dev_preferences_show_folksonomy_title": "Exclude Folksonomy",
+    "dev_preferences_show_folksonomy_title": "Vyloučit uživatelské přidávání štítků",
     "@dev_preferences_show_folksonomy_title": {
         "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
     },
