@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:rive/rive.dart';
+// ignore: implementation_imports
 import 'package:rive/src/rive_core/component.dart';
 import 'package:scanner_shared/scanner_shared.dart';
 import 'package:smooth_app/cards/category_cards/svg_cache.dart';
