@@ -120,23 +120,21 @@ Widget build(BuildContext context) {
               backButtonType: widget.backButton,
             ),
           ),
-          if (questionsLayout == ProductQuestionsLayout.banner)
-            Positioned(
-              left: 0.0,
-              right: 0.0,
-              bottom: 0.0,
-              child: MeasureSize(
-                onChange: (Size size) {
-                  if (size.height != bottomPadding) {
-                    setState(() =&gt; bottomPadding = size.height);
-                  }
-                },
-                child: ProductQuestionsWidget(
-                  upToDateProduct,
-                  layout: ProductQuestionsLayout.banner,
-                ),
+          Positioned(
+            left: 0.0,
+            right: 0.0,
+            bottom: 0.0,
+            child: MeasureSize(
+              onChange: (Size size) {
+                if (size.height != bottomPadding) {
+                  setState(() =&gt; bottomPadding = size.height);
+                }
+              },
+              child: ProductQuestionsWidget(
+                upToDateProduct,
               ),
             ),
+          ),
         ],
       ),
       bottomNavigationBar: const ProductFooter(),
@@ -176,7 +174,6 @@ Widget build(BuildContext context) {
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_product_page_new_product_page/ProductPageState/actionName.html">actionName</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_product_page_new_product_page/ProductPageState/bottomPadding.html">bottomPadding</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_product_page_new_product_page/ProductPageState/questionsLayout.html">questionsLayout</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
 
     <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_product_page_new_product_page/ProductPageState-class.html#instance-methods">Methods</a></li>
