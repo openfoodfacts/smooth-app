@@ -3277,6 +3277,14 @@
     "@product_page_action_bar_item_disable": {
         "description": "Accessibility label to disable action (= make it invisible)"
     },
+    "product_page_pending_operations_banner_title": "Uploading your edits…",
+    "@product_page_pending_operations_banner_title": {
+        "description": "When a product has pending edits (being sent to the server), there is a message on the product page (here is the title of the message)."
+    },
+    "product_page_pending_operations_banner_message": "The data displayed on this page **does not yet reflect your modifications**.\nPlease wait a few seconds…",
+    "@product_page_pending_operations_banner_message": {
+        "description": "When a product has pending edits (being sent to the server), there is a message on the product page. Please keep the ** syntax to make the text bold."
+    },
     "product_add_a_language": "Add a language",
     "@product_add_a_language": {
         "description": "Button to add a language (eg: for photos) to a product"
