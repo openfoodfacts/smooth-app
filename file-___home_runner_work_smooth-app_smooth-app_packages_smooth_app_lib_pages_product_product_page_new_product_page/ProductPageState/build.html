@@ -78,13 +78,16 @@ Widget build(BuildContext context) {
       Theme.of(context).extension&lt;SmoothColorsThemeExtension&gt;()!;
 
   _productPreferences = context.watch&lt;ProductPreferences&gt;();
-  context.watch&lt;LocalDatabase&gt;();
+  final LocalDatabase localDatabase = context.watch&lt;LocalDatabase&gt;();
   refreshUpToDate();
 
   final MatchedProductV2 matchedProductV2 = MatchedProductV2(
     upToDateProduct,
     _productPreferences,
   );
+
+  final bool hasPendingOperations = UpToDateChanges(localDatabase)
+      .hasNotTerminatedOperations(upToDateProduct.barcode!);
 
   return MultiProvider(
     providers: &lt;SingleChildWidget&gt;[
@@ -130,9 +133,11 @@ Widget build(BuildContext context) {
                   setState(() =&gt; bottomPadding = size.height);
                 }
               },
-              child: ProductQuestionsWidget(
-                upToDateProduct,
-              ),
+              child: !hasPendingOperations
+                  ? const ProductPageLoadingIndicator()
+                  : ProductQuestionsWidget(
+                      upToDateProduct,
+                    ),
             ),
           ),
         ],

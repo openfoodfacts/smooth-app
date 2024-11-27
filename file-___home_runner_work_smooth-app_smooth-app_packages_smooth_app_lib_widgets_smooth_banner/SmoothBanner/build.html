@@ -80,15 +80,15 @@ Widget build(BuildContext context) {
             child: Container(
               width: double.infinity,
               height: double.infinity,
-              color: const Color(0xFFE4E4E4),
+              color: iconBackgroundColor ?? const Color(0xFFE4E4E4),
               padding: const EdgeInsetsDirectional.symmetric(
                 horizontal: LARGE_SPACE,
                 vertical: MEDIUM_SPACE,
               ),
-              alignment: AlignmentDirectional.topCenter,
+              alignment: iconAlignment ?? AlignmentDirectional.topCenter,
               child: IconTheme(
-                data: const IconThemeData(
-                  color: Color(0xFF373737),
+                data: IconThemeData(
+                  color: iconColor ?? const Color(0xFF373737),
                 ),
                 child: icon,
               ),
@@ -99,7 +99,7 @@ Widget build(BuildContext context) {
           flex: 85,
           child: Container(
             width: double.infinity,
-            color: const Color(0xFFECECEC),
+            color: contentBackgroundColor ?? const Color(0xFFECECEC),
             padding: EdgeInsetsDirectional.only(
               start: MEDIUM_SPACE,
               end: MEDIUM_SPACE,
@@ -116,10 +116,10 @@ Widget build(BuildContext context) {
                     Expanded(
                       child: Text(
                         title,
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontSize: 16.0,
                           fontWeight: FontWeight.bold,
-                          color: _titleColor,
+                          color: titleColor ?? _titleColor,
                         ),
                       ),
                     ),
@@ -129,7 +129,7 @@ Widget build(BuildContext context) {
                         onClose: () =&gt; onDismissClicked!.call(
                           SmoothBannerDismissEvent.fromButton,
                         ),
-                        circleColor: _titleColor,
+                        circleColor: titleColor ?? _titleColor,
                         crossColor: Colors.white,
                         circleSize: 26.0,
                         crossSize: 12.0,
@@ -141,11 +141,11 @@ Widget build(BuildContext context) {
                 ),
                 if (onDismissClicked == null)
                   const SizedBox(height: VERY_SMALL_SPACE),
-                Text(
-                  content,
-                  style: const TextStyle(
+                TextWithBoldParts(
+                  text: content,
+                  textStyle: TextStyle(
                     fontSize: 14.0,
-                    color: Color(0xFF373737),
+                    color: contentColor ?? const Color(0xFF373737),
                   ),
                 ),
               ],
@@ -217,11 +217,17 @@ Widget build(BuildContext context) {
       <a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_banner/SmoothBanner-class.html#instance-properties">Properties</a>
     </li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_banner/SmoothBanner/content.html">content</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_banner/SmoothBanner/contentBackgroundColor.html">contentBackgroundColor</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_banner/SmoothBanner/contentColor.html">contentColor</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_banner/SmoothBanner/icon.html">icon</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_banner/SmoothBanner/iconAlignment.html">iconAlignment</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_banner/SmoothBanner/iconBackgroundColor.html">iconBackgroundColor</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_banner/SmoothBanner/iconColor.html">iconColor</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_banner/SmoothBanner/onDismissClicked.html">onDismissClicked</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_banner/SmoothBanner/title.html">title</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_banner/SmoothBanner/titleColor.html">titleColor</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_banner/SmoothBanner/topShadow.html">topShadow</a></li>
 
     <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_banner/SmoothBanner-class.html#instance-methods">Methods</a></li>
