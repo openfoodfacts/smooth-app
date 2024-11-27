@@ -66,7 +66,7 @@ class _ProductImageSwipeableViewState extends State<ProductImageSwipeableView>
       _imageFields = <ImageField>[widget.imageField!];
     } else {
       _imageFields = ImageFieldSmoothieExtension.getOrderedMainImageFields(
-        widget.product.productType,
+        upToDateProduct.productType,
       );
     }
   }
@@ -102,7 +102,7 @@ class _ProductImageSwipeableViewState extends State<ProductImageSwipeableView>
         controller: _controller,
         itemCount: _imageFields.length,
         itemBuilder: (BuildContext context, int index) => ProductImageViewer(
-          product: widget.product,
+          product: upToDateProduct,
           imageField: _imageFields[index],
           isInitialImageViewed: widget.initialImageIndex == index,
           language: _currentLanguage,

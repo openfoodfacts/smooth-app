@@ -103,10 +103,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
   @override
   void initState() {
     super.initState();
-    initUpToDate(
-      widget.product,
-      context.read<LocalDatabase>(),
-    );
+    initUpToDate(widget.product, context.read<LocalDatabase>());
     _nutritionContainer = NutritionContainer(
       orderedNutrients: widget.orderedNutrients,
       product: upToDateProduct,
@@ -327,7 +324,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
   }
 
   Widget? _getServingFieldLeading(final AppLocalizations appLocalizations) {
-    if (widget.product.getOwnerFieldTimestamp(OwnerField.productField(
+    if (upToDateProduct.getOwnerFieldTimestamp(OwnerField.productField(
           ProductField.SERVING_SIZE,
           ProductQuery.getLanguage(),
         )) !=
@@ -342,10 +339,10 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
 
     if (_servingController?.initialValue?.isEmpty == true &&
         _servingController?.text.isEmpty == true &&
-        widget.product.quantity != null) {
+        upToDateProduct.quantity != null) {
       return IconButton(
         onPressed: () {
-          _servingController!.text = widget.product.quantity!;
+          _servingController!.text = upToDateProduct.quantity!;
         },
         icon: const icons.Milk.download(),
         visualDensity: VisualDensity.compact,
@@ -556,7 +553,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
       changedProduct,
       context: context,
       stamp: BackgroundTaskDetailsStamp.nutrition,
-      productType: widget.product.productType,
+      productType: upToDateProduct.productType,
     );
     return true;
   }

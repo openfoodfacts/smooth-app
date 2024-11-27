@@ -84,7 +84,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView>
     initUpToDate(widget.product, context.read<LocalDatabase>());
     _language = ProductQuery.getLanguage();
     _mainImageFields = ImageFieldSmoothieExtension.getOrderedMainImageFields(
-      widget.product.productType,
+      upToDateProduct.productType,
     );
   }
 

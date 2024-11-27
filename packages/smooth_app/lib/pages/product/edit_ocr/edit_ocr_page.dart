@@ -63,11 +63,11 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
     initUpToDate(widget.product, context.read<LocalDatabase>());
     _multilingualHelper = MultilingualHelper(controller: _controller);
     _multilingualHelper.init(
-      multilingualTexts: _helper.getMultilingualTexts(widget.product),
-      monolingualText: _helper.getMonolingualText(widget.product),
-      selectedImages: widget.product.selectedImages,
+      multilingualTexts: _helper.getMultilingualTexts(upToDateProduct),
+      monolingualText: _helper.getMonolingualText(upToDateProduct),
+      selectedImages: upToDateProduct.selectedImages,
       imageField: _helper.getImageField(),
-      productLanguage: widget.product.lang,
+      productLanguage: upToDateProduct.lang,
     );
   }
 
@@ -79,7 +79,7 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
 
     try {
       final String? extractedText = await _helper.getExtractedText(
-        widget.product,
+        upToDateProduct,
         _multilingualHelper.getCurrentLanguage(),
       );
       if (!mounted) {
@@ -384,7 +384,7 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
                             onPressed: () async => confirmAndUploadNewPicture(
                               context,
                               imageField: ImageField.OTHER,
-                              barcode: widget.product.barcode!,
+                              barcode: barcode,
                               productType: upToDateProduct.productType,
                               language: language,
                               isLoggedInMandatory: widget.isLoggedInMandatory,
@@ -423,7 +423,7 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
   Product? _getMinimalistProduct() {
     Product? result;
 
-    Product getBasicProduct() => Product(barcode: widget.product.barcode);
+    Product getBasicProduct() => Product(barcode: barcode);
 
     if (_multilingualHelper.isMonolingual()) {
       final String? changed = _multilingualHelper.getChangedMonolingualText();

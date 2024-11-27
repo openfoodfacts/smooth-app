@@ -74,7 +74,7 @@ class _KnowledgePanelPageState extends State<KnowledgePanelPage>
           ),
         ),
         subTitle: Text(
-          getProductNameAndBrands(widget.product, appLocalizations),
+          getProductNameAndBrands(upToDateProduct, appLocalizations),
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
         ),
