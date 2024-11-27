@@ -1218,7 +1218,7 @@
         }
     },
     "onboarding_home_welcome_text1": "Bienvenue !",
-    "onboarding_home_welcome_text2": "L'application qui vous aide à choisir de la nourriture qui est bonne pour **vous** et la **planète** !",
+    "onboarding_home_welcome_text2": "L'application qui vous aide à choisir de la nourriture qui est bonne\npour **vous**\net la **planète** !",
     "@onboarding_home_welcome_text2": {
         "description": "Onboarding home screen welcome text, text surrounded by * will be bold"
     },
