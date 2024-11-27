@@ -788,7 +788,7 @@
         }
     },
     "product_image_outdated": "This image may be outdated",
-    "product_image_action_replace_photo": "Replace photo ({type})",
+    "product_image_action_replace_photo": "Fotoğrafı değiştir ({type})",
     "@product_image_action_replace_photo": {
         "description": "Action on the photo gallery to replace an existing picture",
         "placeholders": {
@@ -798,7 +798,7 @@
             }
         }
     },
-    "product_image_action_add_photo": "Add a photo ({type})",
+    "product_image_action_add_photo": "Bir fotoğraf ekle ({type})",
     "@product_image_action_add_photo": {
         "description": "Action on the photo gallery to add a photo (eg: ingredients)",
         "placeholders": {
@@ -816,11 +816,11 @@
     "@product_image_action_take_picture": {
         "description": "Take a picture (eg: for ingredients) when there is no one"
     },
-    "product_image_action_from_gallery": "Select from your phone's gallery",
+    "product_image_action_from_gallery": "Telefonunuzun galerisinden seçin",
     "@product_image_action_from_gallery": {
         "description": "Replace the existing picture with one from the device's gallery"
     },
-    "product_image_action_choose_existing_photo": "Select from the product photos",
+    "product_image_action_choose_existing_photo": "Ürün fotoğraflarından seçin",
     "@product_image_action_choose_existing_photo": {
         "description": "Replace the existing picture with one from the product's photos"
     },
@@ -869,7 +869,7 @@
             }
         }
     },
-    "product_tags_title": "Product Tags",
+    "product_tags_title": "Ürün Etiketleri",
     "@product_tags_title": {
         "description": "The title for showing product tags, aka folksonomy data"
     },
@@ -877,10 +877,10 @@
     "@no_product_tags_found_message": {
         "description": "Message to show if there are no product tags found"
     },
-    "add_tag": "Add Tag",
-    "edit_tag": "Edit Tag",
-    "remove_tag": "Remove Tag",
-    "tag_key": "Key",
+    "add_tag": "Etiket Ekle",
+    "edit_tag": "Etiketi Düzenle",
+    "remove_tag": "Etiketi Kaldır",
+    "tag_key": "Anahtar",
     "tag_value": "Değer",
     "invalid_key_format": "Invalid key format. Must be lowercase and no spaces.",
     "@invalid_key_format": {
