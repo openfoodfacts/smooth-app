@@ -3362,5 +3362,6 @@
     "photo_field_nutrition": "Nutrition photo",
     "photo_field_packaging": "Packaging information photo",
     "photo_already_exists": "This photo already exists",
-    "photo_missing": "This photo is missing"
+    "photo_missing": "This photo is missing",
+    "date": "Date"
 }
