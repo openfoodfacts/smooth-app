@@ -3362,5 +3362,6 @@
     "photo_field_nutrition": "תמונת מפרט תזונתי",
     "photo_field_packaging": "תמונת פרטי אריזה",
     "photo_already_exists": "התמונה הזאת כבר קיימת",
-    "photo_missing": "התמונה הזאת חסרה"
+    "photo_missing": "התמונה הזאת חסרה",
+    "date": "תאריך"
 }
