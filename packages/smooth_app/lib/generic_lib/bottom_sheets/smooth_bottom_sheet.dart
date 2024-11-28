@@ -149,7 +149,7 @@ Future<T?> showSmoothListOfChoicesModalSheet<T>({
 }
 
 class _SmoothListOfChoicesEndArrow extends StatelessWidget {
-  const _SmoothListOfChoicesEndArrow({super.key});
+  const _SmoothListOfChoicesEndArrow();
 
   @override
   Widget build(BuildContext context) {
