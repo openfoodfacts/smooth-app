@@ -76,6 +76,9 @@ Future<T?> showSmoothListOfChoicesModalSheet<T>({
   required String title,
   required Iterable<String> labels,
   required Iterable<T> values,
+  bool addEndArrowToItems = false,
+  Widget? header,
+  Widget? footer,
   List<Widget>? prefixIcons,
   Color? prefixIconTint,
   List<Widget>? suffixIcons,
@@ -89,6 +92,11 @@ Future<T?> showSmoothListOfChoicesModalSheet<T>({
   assert(suffixIconTint == null || suffixIcons != null);
 
   final List<Widget> items = <Widget>[];
+
+  if (header != null) {
+    items.add(header);
+  }
+
   for (int i = 0; i < labels.length; i++) {
     items.add(
       ListTile(
@@ -101,12 +109,17 @@ Future<T?> showSmoothListOfChoicesModalSheet<T>({
           labels.elementAt(i),
           style: const TextStyle(fontWeight: FontWeight.w500),
         ),
-        contentPadding: padding,
-        trailing: suffixIcons != null
+        contentPadding: EdgeInsetsDirectional.only(
+          start: LARGE_SPACE,
+          end: addEndArrowToItems ? 18.25 : LARGE_SPACE,
+        ),
+        trailing: (suffixIcons != null
             ? IconTheme.merge(
                 data: IconThemeData(color: suffixIconTint),
                 child: suffixIcons[i])
-            : null,
+            : (addEndArrowToItems
+                ? const _SmoothListOfChoicesEndArrow()
+                : null)),
         onTap: () {
           Navigator.of(context).pop(values.elementAt(i));
         },
@@ -117,6 +130,11 @@ Future<T?> showSmoothListOfChoicesModalSheet<T>({
       items.add(const Divider(height: 1.0));
     }
   }
+
+  if (footer != null) {
+    items.add(footer);
+  }
+
   items.add(SizedBox(height: MediaQuery.of(context).padding.bottom));
 
   return showSmoothModalSheet<T>(
@@ -128,6 +146,33 @@ Future<T?> showSmoothListOfChoicesModalSheet<T>({
       body: Column(children: items),
     ),
   );
+}
+
+class _SmoothListOfChoicesEndArrow extends StatelessWidget {
+  const _SmoothListOfChoicesEndArrow({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
+    final bool lightTheme = context.lightTheme();
+
+    return ExcludeSemantics(
+      child: icons.CircledArrow.right(
+        color: lightTheme ? extension.primaryLight : extension.primaryDark,
+        type: icons.CircledArrowType.normal,
+        circleColor:
+            lightTheme ? extension.primaryDark : extension.primaryMedium,
+        size: 24.0,
+        padding: const EdgeInsetsDirectional.only(
+          start: 6.0,
+          end: 6.0,
+          top: 6.5,
+          bottom: 7.5,
+        ),
+      ),
+    );
+  }
 }
 
 /// A non scrollable modal sheet

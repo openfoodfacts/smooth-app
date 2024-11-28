@@ -241,6 +241,8 @@ class _IconsFont {
       IconData(0xe876, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData milk_download =
       IconData(0xe877, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData clock =
+      IconData(0xe878, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData share_cupertino =
       IconData(0xe8a4, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData share_material =

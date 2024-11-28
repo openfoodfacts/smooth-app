@@ -388,6 +388,7 @@ class CircledArrow extends AppIcon {
     Color? circleColor,
     Color? color,
     double? size,
+    EdgeInsetsGeometry? padding,
     Shadow? shadow,
     String? semanticLabel,
     Key? key,
@@ -397,6 +398,7 @@ class CircledArrow extends AppIcon {
           circleColor: circleColor,
           color: color,
           size: size,
+          padding: padding,
           shadow: shadow,
           semanticLabel: semanticLabel,
           key: key,
@@ -407,6 +409,7 @@ class CircledArrow extends AppIcon {
     Color? circleColor,
     Color? color,
     double? size,
+    EdgeInsetsGeometry? padding,
     Shadow? shadow,
     String? semanticLabel,
     Key? key,
@@ -416,6 +419,7 @@ class CircledArrow extends AppIcon {
           circleColor: circleColor,
           color: color,
           size: size,
+          padding: padding,
           shadow: shadow,
           semanticLabel: semanticLabel,
           key: key,
@@ -426,6 +430,7 @@ class CircledArrow extends AppIcon {
     Color? circleColor,
     Color? color,
     double? size,
+    EdgeInsetsGeometry? padding,
     Shadow? shadow,
     String? semanticLabel,
     Key? key,
@@ -435,6 +440,7 @@ class CircledArrow extends AppIcon {
           circleColor: circleColor,
           color: color,
           size: size,
+          padding: padding,
           shadow: shadow,
           semanticLabel: semanticLabel,
           key: key,
@@ -445,6 +451,7 @@ class CircledArrow extends AppIcon {
     Color? circleColor,
     Color? color,
     double? size,
+    EdgeInsetsGeometry? padding,
     Shadow? shadow,
     String? semanticLabel,
     Key? key,
@@ -454,6 +461,7 @@ class CircledArrow extends AppIcon {
           circleColor: circleColor,
           color: color,
           size: size,
+          padding: padding,
           shadow: shadow,
           semanticLabel: semanticLabel,
           key: key,
@@ -465,6 +473,7 @@ class CircledArrow extends AppIcon {
     this.circleColor,
     super.color,
     super.size,
+    this.padding,
     super.shadow,
     super.semanticLabel,
     super.key,
@@ -484,6 +493,7 @@ class CircledArrow extends AppIcon {
   final int turns;
   final CircledArrowType type;
   final Color? circleColor;
+  final EdgeInsetsGeometry? padding;
 
   @override
   Widget build(BuildContext context) {
@@ -498,7 +508,7 @@ class CircledArrow extends AppIcon {
           shape: BoxShape.circle,
           color: circleColor,
         ),
-        padding: const EdgeInsets.all(4.0),
+        padding: padding ?? const EdgeInsets.all(4.0),
         child: child,
       );
     } else {
@@ -514,6 +524,16 @@ class CircledArrow extends AppIcon {
 enum CircledArrowType {
   thin,
   normal,
+}
+
+class Clock extends AppIcon {
+  const Clock({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.clock);
 }
 
 class Close extends AppIcon {

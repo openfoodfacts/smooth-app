@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:intl/intl.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_image.dart';
@@ -16,8 +17,9 @@ import 'package:smooth_app/pages/image/product_image_helper.dart';
 import 'package:smooth_app/pages/product/gallery_view/product_image_gallery_view.dart';
 import 'package:smooth_app/pages/product/product_image_server_button.dart';
 import 'package:smooth_app/pages/product/product_image_swipeable_view.dart';
+import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_animations.dart';
-import 'package:smooth_app/resources/app_icons.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -72,119 +74,123 @@ class _ImageGalleryPhotoRowState extends State<ImageGalleryPhotoRow> {
     final SmoothColorsThemeExtension extension =
         context.extension<SmoothColorsThemeExtension>();
 
-    return Semantics(
-      image: true,
-      button: true,
-      label: expired
-          ? appLocalizations.product_image_outdated_accessibility_label(label)
-          : label,
-      excludeSemantics: true,
-      child: Material(
-        elevation: 1.0,
-        type: MaterialType.card,
-        shadowColor: Colors.white,
-        color: extension.primaryBlack,
-        borderRadius: ANGULAR_BORDER_RADIUS,
-        child: InkWell(
+    return Provider<TransientFile>(
+      create: (_) => transientFile,
+      child: Semantics(
+        image: true,
+        button: true,
+        label: expired
+            ? appLocalizations.product_image_outdated_accessibility_label(label)
+            : label,
+        excludeSemantics: true,
+        child: Material(
+          elevation: 1.0,
+          type: MaterialType.card,
+          shadowColor: Colors.white,
+          color: extension.primaryBlack,
           borderRadius: ANGULAR_BORDER_RADIUS,
-          onTap: () => _onTap(
-            context: context,
-            product: product,
-            transientFile: transientFile,
-            initialImageIndex: widget.position,
-          ),
-          onLongPress: () => _onLongTap(
-            context: context,
-            product: product,
-            transientFile: transientFile,
-          ),
-          child: ClipRRect(
+          child: InkWell(
             borderRadius: ANGULAR_BORDER_RADIUS,
-            child: Column(
-              children: <Widget>[
-                SizedBox(
-                  height: ImageGalleryPhotoRow.itemHeight,
-                  child: Row(
-                    children: <Widget>[
-                      _PhotoRowIndicator(transientFile: transientFile),
-                      Expanded(
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: SMALL_SPACE,
-                          ),
-                          child: Row(
-                            children: <Widget>[
-                              Expanded(
-                                child: AutoSizeText(
-                                  label,
-                                  maxLines: 2,
-                                  minFontSize: 10.0,
-                                  style: const TextStyle(
-                                    fontSize: 15.0,
-                                    height: 1.2,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white,
+            onTap: () => _onTap(
+              context: context,
+              product: product,
+              transientFile: transientFile,
+              initialImageIndex: widget.position,
+            ),
+            onLongPress: () => _onLongTap(
+              context: context,
+              product: product,
+              transientFile: transientFile,
+            ),
+            child: ClipRRect(
+              borderRadius: ANGULAR_BORDER_RADIUS,
+              child: Column(
+                children: <Widget>[
+                  SizedBox(
+                    height: ImageGalleryPhotoRow.itemHeight,
+                    child: Row(
+                      children: <Widget>[
+                        _PhotoRowIndicator(transientFile: transientFile),
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: SMALL_SPACE,
+                            ),
+                            child: Row(
+                              children: <Widget>[
+                                Expanded(
+                                  child: AutoSizeText(
+                                    label,
+                                    maxLines: 2,
+                                    minFontSize: 10.0,
+                                    style: const TextStyle(
+                                      fontSize: 15.0,
+                                      height: 1.2,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
                                   ),
                                 ),
-                              ),
-                              const SizedBox(width: SMALL_SPACE),
-                              CircledArrow.right(
-                                color: extension.primaryDark,
-                                type: CircledArrowType.normal,
-                                circleColor: Colors.white,
-                                size: 20.0,
-                              ),
-                            ],
+                                const SizedBox(width: SMALL_SPACE),
+                                icons.CircledArrow.right(
+                                  color: extension.primaryDark,
+                                  type: icons.CircledArrowType.normal,
+                                  circleColor: Colors.white,
+                                  size: 20.0,
+                                ),
+                              ],
+                            ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-                Expanded(
-                  child: Stack(
-                    children: <Widget>[
-                      Positioned.fill(
-                        child: LayoutBuilder(
-                          builder: (BuildContext context, BoxConstraints box) {
-                            if (_temporaryFile != null) {
-                              return Image.file(
-                                _temporaryFile!,
-                                fit: BoxFit.contain,
-                              );
-                            }
+                  Expanded(
+                    child: Stack(
+                      children: <Widget>[
+                        Positioned.fill(
+                          child: LayoutBuilder(
+                            builder:
+                                (BuildContext context, BoxConstraints box) {
+                              if (_temporaryFile != null) {
+                                return Image.file(
+                                  _temporaryFile!,
+                                  fit: BoxFit.contain,
+                                );
+                              }
 
-                            return ProductPicture.fromTransientFile(
-                              transientFile: transientFile,
-                              size: Size(box.maxWidth, box.maxHeight),
-                              onTap: null,
-                              errorTextStyle: const TextStyle(
-                                fontSize: 16.0,
-                                fontWeight: FontWeight.w600,
-                              ),
-                              heroTag: ProductPicture.generateHeroTag(
-                                product.barcode!,
-                                widget.imageField,
-                              ),
-                            );
-                          },
+                              return ProductPicture.fromTransientFile(
+                                transientFile: transientFile,
+                                size: Size(box.maxWidth, box.maxHeight),
+                                onTap: null,
+                                errorTextStyle: const TextStyle(
+                                  fontSize: 16.0,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                                heroTag: ProductPicture.generateHeroTag(
+                                  product.barcode!,
+                                  widget.imageField,
+                                ),
+                              );
+                            },
+                          ),
                         ),
-                      ),
-                      // Border
-                      const Positioned.fill(
-                        child: _PhotoBorder(),
-                      ),
-                      // Upload animation
-                      if (_temporaryFile != null ||
-                          transientFile.isImageAvailable() &&
-                              !transientFile.isServerImage())
-                        const Center(
-                          child: CloudUploadAnimation.circle(size: 50.0),
+                        // Border
+                        const Positioned.fill(
+                          child: _PhotoBorder(),
                         ),
-                    ],
+                        // Upload animation
+                        if (_temporaryFile != null ||
+                            transientFile.isImageAvailable() &&
+                                !transientFile.isServerImage())
+                          const Center(
+                            child: CloudUploadAnimation.circle(size: 50.0),
+                          ),
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),
@@ -249,6 +255,8 @@ class _ImageGalleryPhotoRowState extends State<ImageGalleryPhotoRow> {
         const Icon(Icons.perm_media_rounded),
         const Icon(Icons.image_search_rounded),
       ],
+      addEndArrowToItems: true,
+      footer: _PhotoRowDate(transientFile: transientFile),
     );
 
     if (!context.mounted || action == null) {
@@ -346,6 +354,117 @@ enum _PhotoRowActions {
   selectFromProductPhotos,
 }
 
+/// The date of the photo (used in the modal sheet)
+class _PhotoRowDate extends StatelessWidget {
+  const _PhotoRowDate({
+    required this.transientFile,
+  });
+
+  final TransientFile transientFile;
+
+  @override
+  Widget build(BuildContext context) {
+    if (!transientFile.isImageAvailable()) {
+      return EMPTY_WIDGET;
+    }
+
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
+    final bool outdated = transientFile.expired;
+
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+    return Padding(
+      padding: EdgeInsetsDirectional.only(
+        top: MEDIUM_SPACE,
+        bottom: !(Platform.isIOS || Platform.isMacOS) ? 0.0 : VERY_SMALL_SPACE,
+      ),
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          color: extension.primaryDark,
+          borderRadius: BorderRadius.all(
+            Radius.circular(MediaQuery.of(context).size.height),
+          ),
+        ),
+        child: IntrinsicHeight(
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              AspectRatio(
+                aspectRatio: 1.0,
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                    color: outdated ? extension.warning : extension.success,
+                    shape: BoxShape.circle,
+                  ),
+                  child: outdated ? _outdatedIcon : _successIcon,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsetsDirectional.only(
+                  start: MEDIUM_SPACE,
+                  end: VERY_LARGE_SPACE,
+                  bottom: 2.75,
+                ),
+                child: RichText(
+                  text: TextSpan(
+                    children: <TextSpan>[
+                      TextSpan(
+                        text:
+                            '${appLocalizations.date}${appLocalizations.sep}: ',
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      TextSpan(
+                        text: DateFormat.yMd(ProductQuery.getLocaleString())
+                            .format(transientFile.uploadedDate!),
+                      ),
+                    ],
+                    style: DefaultTextStyle.of(context).style.merge(
+                          const TextStyle(
+                            fontSize: 15.0,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.white,
+                          ),
+                        ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget get _outdatedIcon => const Padding(
+        padding: EdgeInsetsDirectional.only(
+          top: 12.0,
+          bottom: 16.5,
+          start: 12.5,
+          end: 12.0,
+        ),
+        child: icons.Outdated(
+          color: Colors.white,
+          size: 19.0,
+        ),
+      );
+
+  Widget get _successIcon => const Padding(
+        padding: EdgeInsetsDirectional.only(
+          top: 12.0,
+          bottom: 16.5,
+          start: 12.0,
+          end: 12.0,
+        ),
+        child: icons.Clock(
+          color: Colors.white,
+          size: 19.0,
+        ),
+      );
+}
+
 class _PhotoRowIndicator extends StatelessWidget {
   const _PhotoRowIndicator({
     required this.transientFile,
@@ -375,7 +494,7 @@ class _PhotoRowIndicator extends StatelessWidget {
   Widget? child() {
     if (transientFile.isImageAvailable()) {
       if (transientFile.expired) {
-        return const Outdated(
+        return const icons.Outdated(
           size: 18.0,
           color: Colors.white,
         );
@@ -383,7 +502,7 @@ class _PhotoRowIndicator extends StatelessWidget {
         return null;
       }
     } else {
-      return const Warning(
+      return const icons.Warning(
         size: 15.0,
         color: Colors.white,
       );
