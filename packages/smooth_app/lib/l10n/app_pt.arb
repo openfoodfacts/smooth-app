@@ -1885,13 +1885,13 @@
     "prices_app_dev_mode_flag": "Atalho para a aplicação Preços na página do produto",
     "prices_app_button": "Ir para a aplicação Preços",
     "prices_generic_title": "Preços",
-    "prices_add_n_prices": "{count,plural, =1{Add a price} other{Add {count} prices}}",
+    "prices_add_n_prices": "{count,plural, =1{Adicionar um preço} other{Adicionar {count} preços}}",
     "prices_send_n_prices": "{count,plural, one {}=1{Enviar o preço} other{Enviar {count} preços}}",
     "prices_add_an_item": "Adicionar um item",
     "prices_add_a_price": "Adicionar um preço",
     "prices_add_a_receipt": "Adicionar um recibo",
     "prices_add_price_tags": "Adicionar etiquetas de preço",
-    "prices_barcode_already": "This barcode ({barcode}) is already in the list!",
+    "prices_barcode_already": "Este código de barras ({barcode}) já está na lista!",
     "@prices_barcode_already": {
         "description": "Error message about barcode being already there",
         "placeholders": {
@@ -1911,7 +1911,7 @@
             }
         }
     },
-    "prices_barcode_enter": "Enter the Barcode",
+    "prices_barcode_enter": "Digite o código de barras",
     "prices_barcode_reader_action": "Leitor de código de barras",
     "prices_view_prices": "Ver os preços",
     "prices_product_accessibility_summary": "{count,plural, one {}=1{1 preço} other{{count} preços}} de {product}",
@@ -2024,7 +2024,7 @@
     "prices_location_subtitle": "Loja",
     "prices_location_find": "Encontrar uma loja",
     "prices_location_mandatory": "Tem de selecionar uma loja!",
-    "prices_location_search_broader": "Couldn't find what you were looking for? Let's try a broader search!",
+    "prices_location_search_broader": "Não encontrou o que estava à procura? Vamos tentar uma pesquisa mais avançada!",
     "prices_proof_subtitle": "Comprovativo",
     "prices_proof_find": "Selecionar um comprovativo",
     "prices_proof_receipt": "Talão",
@@ -2047,7 +2047,7 @@
     "dev_mode_section_ui": "Interface do utilizador",
     "dev_mode_section_data": "Dados",
     "dev_mode_section_experimental_features": "Funcionalidades experimentais",
-    "dev_preferences_show_folksonomy_title": "Exclude Folksonomy",
+    "dev_preferences_show_folksonomy_title": "Excluir Folksonomia",
     "@dev_preferences_show_folksonomy_title": {
         "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
     },
@@ -2212,11 +2212,11 @@
     "@edit_photo_select_existing_button_label": {
         "description": "Edit 'select existing image' button label"
     },
-    "edit_photo_select_existing_all_label": "Existing images",
+    "edit_photo_select_existing_all_label": "Imagens existentes para este produto",
     "@edit_photo_select_existing_all_label": {
         "description": "Page title"
     },
-    "edit_photo_select_existing_all_subtitle": "Select an image by clicking on it",
+    "edit_photo_select_existing_all_subtitle": "Selecione uma imagem clicando nela",
     "@edit_photo_select_existing_all_subtitle": {
         "description": "Page title"
     },
