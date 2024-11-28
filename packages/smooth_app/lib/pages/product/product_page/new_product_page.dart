@@ -140,11 +140,9 @@ class ProductPageState extends State<ProductPage>
                     setState(() => bottomPadding = size.height);
                   }
                 },
-                child: !hasPendingOperations
+                child: hasPendingOperations
                     ? const ProductPageLoadingIndicator()
-                    : ProductQuestionsWidget(
-                        upToDateProduct,
-                      ),
+                    : ProductQuestionsWidget(upToDateProduct),
               ),
             ),
           ],
