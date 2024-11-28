@@ -56,6 +56,9 @@
 <li><span class="parameter" id="showSmoothListOfChoicesModalSheet-param-title"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">title</span>, </span></li>
 <li><span class="parameter" id="showSmoothListOfChoicesModalSheet-param-labels"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span></span> <span class="parameter-name">labels</span>, </span></li>
 <li><span class="parameter" id="showSmoothListOfChoicesModalSheet-param-values"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> <span class="parameter-name">values</span>, </span></li>
+<li><span class="parameter" id="showSmoothListOfChoicesModalSheet-param-addEndArrowToItems"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">addEndArrowToItems</span> = <span class="default-value">false</span>, </span></li>
+<li><span class="parameter" id="showSmoothListOfChoicesModalSheet-param-header"><span class="type-annotation">dynamic</span> <span class="parameter-name">header</span>, </span></li>
+<li><span class="parameter" id="showSmoothListOfChoicesModalSheet-param-footer"><span class="type-annotation">dynamic</span> <span class="parameter-name">footer</span>, </span></li>
 <li><span class="parameter" id="showSmoothListOfChoicesModalSheet-param-prefixIcons"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a>?</span> <span class="parameter-name">prefixIcons</span>, </span></li>
 <li><span class="parameter" id="showSmoothListOfChoicesModalSheet-param-prefixIconTint"><span class="type-annotation">dynamic</span> <span class="parameter-name">prefixIconTint</span>, </span></li>
 <li><span class="parameter" id="showSmoothListOfChoicesModalSheet-param-suffixIcons"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a>?</span> <span class="parameter-name">suffixIcons</span>, </span></li>
@@ -78,6 +81,9 @@
   required String title,
   required Iterable&lt;String&gt; labels,
   required Iterable&lt;T&gt; values,
+  bool addEndArrowToItems = false,
+  Widget? header,
+  Widget? footer,
   List&lt;Widget&gt;? prefixIcons,
   Color? prefixIconTint,
   List&lt;Widget&gt;? suffixIcons,
@@ -91,6 +97,11 @@
   assert(suffixIconTint == null || suffixIcons != null);
 
   final List&lt;Widget&gt; items = &lt;Widget&gt;[];
+
+  if (header != null) {
+    items.add(header);
+  }
+
   for (int i = 0; i &lt; labels.length; i++) {
     items.add(
       ListTile(
@@ -103,12 +114,17 @@
           labels.elementAt(i),
           style: const TextStyle(fontWeight: FontWeight.w500),
         ),
-        contentPadding: padding,
-        trailing: suffixIcons != null
+        contentPadding: EdgeInsetsDirectional.only(
+          start: LARGE_SPACE,
+          end: addEndArrowToItems ? 18.0 : LARGE_SPACE,
+        ),
+        trailing: (suffixIcons != null
             ? IconTheme.merge(
                 data: IconThemeData(color: suffixIconTint),
                 child: suffixIcons[i])
-            : null,
+            : (addEndArrowToItems
+                ? const _SmoothListOfChoicesEndArrow()
+                : null)),
         onTap: () {
           Navigator.of(context).pop(values.elementAt(i));
         },
@@ -119,6 +135,11 @@
       items.add(const Divider(height: 1.0));
     }
   }
+
+  if (footer != null) {
+    items.add(footer);
+  }
+
   items.add(SizedBox(height: MediaQuery.of(context).padding.bottom));
 
   return showSmoothModalSheet&lt;T&gt;(
