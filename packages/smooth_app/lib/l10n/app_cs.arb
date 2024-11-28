@@ -3362,5 +3362,6 @@
     "photo_field_nutrition": "Fotografie výživových údajů",
     "photo_field_packaging": "Informační foto balení",
     "photo_already_exists": "Tato fotografie již existuje",
-    "photo_missing": "Tato fotografie chybí"
+    "photo_missing": "Tato fotografie chybí",
+    "date": "Datum"
 }
