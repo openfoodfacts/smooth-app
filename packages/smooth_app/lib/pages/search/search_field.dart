@@ -91,6 +91,7 @@ class _SearchFieldState extends State<SearchField> {
             : null,
         child: Material(
           // ↑ Needed by the Hero Widget
+          color: Colors.transparent,
           child: Column(
             children: <Widget>[
               TextField(
