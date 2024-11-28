@@ -133,11 +133,9 @@ Widget build(BuildContext context) {
                   setState(() =&gt; bottomPadding = size.height);
                 }
               },
-              child: !hasPendingOperations
+              child: hasPendingOperations
                   ? const ProductPageLoadingIndicator()
-                  : ProductQuestionsWidget(
-                      upToDateProduct,
-                    ),
+                  : ProductQuestionsWidget(upToDateProduct),
             ),
           ),
         ],
