@@ -111,7 +111,7 @@ Future<T?> showSmoothListOfChoicesModalSheet<T>({
         ),
         contentPadding: EdgeInsetsDirectional.only(
           start: LARGE_SPACE,
-          end: addEndArrowToItems ? 18.25 : LARGE_SPACE,
+          end: addEndArrowToItems ? 18.0 : LARGE_SPACE,
         ),
         trailing: (suffixIcons != null
             ? IconTheme.merge(
