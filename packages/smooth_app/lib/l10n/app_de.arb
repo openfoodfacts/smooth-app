@@ -3362,5 +3362,6 @@
     "photo_field_nutrition": "Foto der Nährwertangaben",
     "photo_field_packaging": "Foto der Verpackungsinformation",
     "photo_already_exists": "Dieses Foto bereits vorhanden",
-    "photo_missing": "Dieses Foto fehlt"
+    "photo_missing": "Dieses Foto fehlt",
+    "date": "Datum"
 }
