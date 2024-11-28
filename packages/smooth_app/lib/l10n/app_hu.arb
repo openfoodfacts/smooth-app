@@ -42,7 +42,7 @@
     "@ignore": {
         "description": "'Ignore' button. Typical use case in combination with 'OK' and 'Cancel' buttons."
     },
-    "close": "Bezár",
+    "close": "Bezárás",
     "@close": {},
     "no": "Nem",
     "@no": {},
@@ -3362,5 +3362,6 @@
     "photo_field_nutrition": "Tápértékadatok fényképe",
     "photo_field_packaging": "Csomagolási információk fényképe",
     "photo_already_exists": "Ez a fénykép már létezik",
-    "photo_missing": "Ez a fénykép hiányzik"
+    "photo_missing": "Ez a fénykép hiányzik",
+    "date": "Date"
 }
