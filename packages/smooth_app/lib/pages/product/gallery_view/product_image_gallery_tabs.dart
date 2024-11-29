@@ -10,7 +10,6 @@ import 'package:smooth_app/generic_lib/widgets/language_priority.dart';
 import 'package:smooth_app/generic_lib/widgets/language_selector.dart';
 import 'package:smooth_app/helpers/border_radius_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
-import 'package:smooth_app/helpers/product_extension.dart';
 import 'package:smooth_app/helpers/provider_helper.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_languages_list.dart';
