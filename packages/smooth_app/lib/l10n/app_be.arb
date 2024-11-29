@@ -869,22 +869,22 @@
             }
         }
     },
-    "product_tags_title": "Product Tags",
+    "product_tags_title": "Product properties",
     "@product_tags_title": {
-        "description": "The title for showing product tags, aka folksonomy data"
+        "description": "The title for showing product properties, aka folksonomy data"
     },
-    "no_product_tags_found_message": "No tags found. Tags can be used to better group similar products. Tap to add.",
+    "no_product_tags_found_message": "No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.",
     "@no_product_tags_found_message": {
-        "description": "Message to show if there are no product tags found"
+        "description": "Message to show if there are no product properties found"
     },
-    "add_tag": "Add Tag",
-    "edit_tag": "Edit Tag",
-    "remove_tag": "Remove Tag",
-    "tag_key": "Key",
+    "add_tag": "Add property",
+    "edit_tag": "Edit property",
+    "remove_tag": "Remove property",
+    "tag_key": "Property",
     "tag_value": "Value",
-    "invalid_key_format": "Invalid key format. Must be lowercase and no spaces.",
+    "invalid_key_format": "Invalid property format. It must be lowercase and without any spaces.",
     "@invalid_key_format": {
-        "description": "Message to show if the key value for a new product tag is invalid. This logic is identical to whats being validated in the folksonomy api"
+        "description": "Message to show if the property's value for a new product property is invalid. This logic is identical to whats being validated in the Folksonomy API"
     },
     "product_internet_error": "Немагчыма атрымаць інфармацыю аб гэтым прадукце з-за памылкі сеткі.",
     "cached_results_from": "Паказаць вынікі за:",
