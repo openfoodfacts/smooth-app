@@ -248,7 +248,7 @@
     "sign_up_page_confirm_password_hint": "Confirme a palavra-passe",
     "sign_up_page_confirm_password_error_empty": "Por favor, confirme a palavra-passe",
     "sign_up_page_confirm_password_error_invalid": "As palavras-passe não coincidem",
-    "sign_up_page_agree_text": "Concordo com",
+    "sign_up_page_agree_text": "Concordo com a Open Food Facts",
     "@sign_up_page_agree_text": {
         "description": "I agree to the Open Food Facts is followed by sign_up_page_terms_text"
     },
@@ -264,7 +264,7 @@
     "@donate_url": {
         "description": "Please insert the right url from the website here."
     },
-    "sign_up_page_agree_error_invalid": "Ao criar uma conta, é obrigatório concordar com os Termos de utilização. No entanto, podem ser feitas contribuições anónimas através da aplicação",
+    "sign_up_page_agree_error_invalid": "Ao criar uma conta, é obrigatório concordar com os Termos de Utilização. No entanto, as contribuições anónimas podem continuar a ser feitas através da aplicação",
     "@sign_up_page_agree_error_invalid": {
         "description": "Error message: You have to agree to the terms-of-use (A checkbox to do so is above this error message)"
     },
@@ -273,9 +273,9 @@
     "sign_up_page_producer_error_empty": "Por favor, introduza o nome de um produtor ou de uma marca",
     "sign_up_page_subscribe_checkbox": "Gostaria de subscrever o boletim informativo do Open Food Facts (pode cancelar a sua subscrição em qualquer momento)",
     "sign_up_page_user_name_already_used": "Este nome já existe; escolha outro.",
-    "sign_up_page_email_already_exists": "já existe, inicie sessão na conta ou tente com outro e-mail.",
+    "sign_up_page_email_already_exists": "já existe, inicie sessão nessa conta ou tente com outro e-mail.",
     "sign_up_page_provide_valid_email": "Por favor, indique um endereço de email válido.",
-    "sign_up_page_server_busy": "Pedimos desculpa, estamos com algumas dificuldades técnicas para criar a sua conta. Por favor, tente novamente mais tarde.",
+    "sign_up_page_server_busy": "Pedimos desculpa, estamos com algumas dificuldades técnicas para criar a sua conta. Por favor, tente mais tarde.",
     "settingsTitle": "Definições",
     "@settingsTitle": {
         "description": "The title of the Settings page"
