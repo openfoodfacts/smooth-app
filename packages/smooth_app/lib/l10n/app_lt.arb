@@ -2469,8 +2469,8 @@
         "description": "Label for expanding nutrition facts table in application setting"
     },
     "expand_ingredients_body": "Laikyti sudedamųjų dalių skydelį išplėstą",
-    "search_product_filter_visibility_title": "Show a filter in the search",
-    "search_product_filter_visibility_subtitle": "Select search site: Open Food Facts, Open Beauty Facts, Open Pet Food Facts or Open Products Facts",
+    "search_product_filter_visibility_title": "Rodyti filtrą paieškoje",
+    "search_product_filter_visibility_subtitle": "Pasirinkti paieškos svetainę: „Open Food Facts“, „Open Beauty Facts“, „Open Pet Food Facts“ arba „Open Products Facts“",
     "@search_product_filter_visibility_subtitle": {
         "description": "Label for showing the product type filter in the search bar"
     },
