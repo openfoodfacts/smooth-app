@@ -15,6 +15,7 @@ import 'package:smooth_app/helpers/image_field_extension.dart';
 import 'package:smooth_app/pages/crop_parameters.dart';
 import 'package:smooth_app/pages/image/product_image_helper.dart';
 import 'package:smooth_app/pages/product/gallery_view/product_image_gallery_view.dart';
+import 'package:smooth_app/pages/product/owner_field_info.dart';
 import 'package:smooth_app/pages/product/product_image_server_button.dart';
 import 'package:smooth_app/pages/product/product_image_swipeable_view.dart';
 import 'package:smooth_app/query/product_query.dart';
@@ -101,6 +102,7 @@ class _ImageGalleryPhotoRowState extends State<ImageGalleryPhotoRow> {
               context: context,
               product: product,
               transientFile: transientFile,
+              language: widget.language,
             ),
             child: ClipRRect(
               borderRadius: ANGULAR_BORDER_RADIUS,
@@ -160,6 +162,8 @@ class _ImageGalleryPhotoRowState extends State<ImageGalleryPhotoRow> {
                               }
 
                               return ProductPicture.fromTransientFile(
+                                product: product,
+                                imageField: widget.imageField,
                                 transientFile: transientFile,
                                 size: Size(box.maxWidth, box.maxHeight),
                                 onTap: null,
@@ -171,6 +175,8 @@ class _ImageGalleryPhotoRowState extends State<ImageGalleryPhotoRow> {
                                   product.barcode!,
                                   widget.imageField,
                                 ),
+                                showObsoleteIcon: false,
+                                showOwnerIcon: true,
                               );
                             },
                           ),
@@ -222,6 +228,7 @@ class _ImageGalleryPhotoRowState extends State<ImageGalleryPhotoRow> {
   Future<void> _onLongTap({
     required final BuildContext context,
     required final Product product,
+    required final OpenFoodFactsLanguage language,
     required final TransientFile transientFile,
   }) async {
     final SmoothColorsThemeExtension extension =
@@ -256,7 +263,16 @@ class _ImageGalleryPhotoRowState extends State<ImageGalleryPhotoRow> {
         const Icon(Icons.image_search_rounded),
       ],
       addEndArrowToItems: true,
-      footer: _PhotoRowDate(transientFile: transientFile),
+      footer: _PhotoRowBanner(
+        children: <Widget>[
+          _PhotoRowDate(transientFile: transientFile),
+          _PhotoRowLockedStatus(
+            product: product,
+            imageField: widget.imageField,
+            language: language,
+          ),
+        ],
+      ),
     );
 
     if (!context.mounted || action == null) {
@@ -374,64 +390,33 @@ class _PhotoRowDate extends StatelessWidget {
 
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-    return Padding(
-      padding: EdgeInsetsDirectional.only(
-        top: MEDIUM_SPACE,
-        bottom: !(Platform.isIOS || Platform.isMacOS) ? 0.0 : VERY_SMALL_SPACE,
-      ),
-      child: DecoratedBox(
-        decoration: BoxDecoration(
-          color: extension.primaryDark,
-          borderRadius: BorderRadius.all(
-            Radius.circular(MediaQuery.of(context).size.height),
-          ),
-        ),
-        child: IntrinsicHeight(
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              AspectRatio(
-                aspectRatio: 1.0,
-                child: DecoratedBox(
-                  decoration: BoxDecoration(
-                    color: outdated ? extension.warning : extension.success,
-                    shape: BoxShape.circle,
-                  ),
-                  child: outdated ? _outdatedIcon : _successIcon,
+    return _PhotoRowInfo(
+      icon: outdated ? _outdatedIcon : _successIcon,
+      iconBackgroundColor: outdated ? extension.warning : extension.success,
+      text: Padding(
+        /// Padding required by the use of [RichText]
+        padding: const EdgeInsetsDirectional.only(bottom: 2.75),
+        child: RichText(
+          text: TextSpan(
+            children: <TextSpan>[
+              TextSpan(
+                text: '${appLocalizations.date}${appLocalizations.sep}: ',
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
                 ),
               ),
-              Padding(
-                padding: const EdgeInsetsDirectional.only(
-                  start: MEDIUM_SPACE,
-                  end: VERY_LARGE_SPACE,
-                  bottom: 2.75,
-                ),
-                child: RichText(
-                  text: TextSpan(
-                    children: <TextSpan>[
-                      TextSpan(
-                        text:
-                            '${appLocalizations.date}${appLocalizations.sep}: ',
-                        style: const TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      TextSpan(
-                        text: DateFormat.yMd(ProductQuery.getLocaleString())
-                            .format(transientFile.uploadedDate!),
-                      ),
-                    ],
-                    style: DefaultTextStyle.of(context).style.merge(
-                          const TextStyle(
-                            fontSize: 15.0,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.white,
-                          ),
-                        ),
-                  ),
-                ),
+              TextSpan(
+                text: DateFormat.yMd(ProductQuery.getLocaleString())
+                    .format(transientFile.uploadedDate!),
               ),
             ],
+            style: DefaultTextStyle.of(context).style.merge(
+                  const TextStyle(
+                    fontSize: 15.0,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.white,
+                  ),
+                ),
           ),
         ),
       ),
@@ -440,10 +425,8 @@ class _PhotoRowDate extends StatelessWidget {
 
   Widget get _outdatedIcon => const Padding(
         padding: EdgeInsetsDirectional.only(
-          top: 12.0,
-          bottom: 16.5,
-          start: 12.5,
-          end: 12.0,
+          bottom: 1.5,
+          start: 1.5,
         ),
         child: icons.Outdated(
           color: Colors.white,
@@ -453,16 +436,159 @@ class _PhotoRowDate extends StatelessWidget {
 
   Widget get _successIcon => const Padding(
         padding: EdgeInsetsDirectional.only(
-          top: 12.0,
-          bottom: 16.5,
-          start: 12.0,
-          end: 12.0,
+          bottom: 0.5,
+          start: 0.5,
         ),
         child: icons.Clock(
           color: Colors.white,
           size: 19.0,
         ),
       );
+}
+
+/// If the photo is locked by the owner (used in the modal sheet)
+class _PhotoRowLockedStatus extends StatelessWidget {
+  const _PhotoRowLockedStatus({
+    required this.product,
+    required this.imageField,
+    required this.language,
+  });
+
+  final Product product;
+  final ImageField imageField;
+  final OpenFoodFactsLanguage language;
+
+  @override
+  Widget build(BuildContext context) {
+    if (product.isImageLocked(imageField, language) != true) {
+      return EMPTY_WIDGET;
+    }
+
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
+
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+    return Padding(
+      padding: const EdgeInsetsDirectional.only(top: SMALL_SPACE),
+      child: _PhotoRowInfo(
+        icon: const IconTheme(
+          data: IconThemeData(
+            size: 19.0,
+            color: Colors.white,
+          ),
+          child: Padding(
+            padding: EdgeInsetsDirectional.only(bottom: 2.0),
+            child: OwnerFieldIcon(),
+          ),
+        ),
+        iconBackgroundColor: extension.warning,
+        text: Text(
+          appLocalizations.owner_field_image,
+          style: const TextStyle(
+            fontWeight: FontWeight.w600,
+            color: Colors.white,
+          ),
+        ),
+        wrapTextInExpanded: true,
+      ),
+    );
+  }
+}
+
+class _PhotoRowBanner extends StatelessWidget {
+  const _PhotoRowBanner({required this.children});
+
+  final List<Widget> children;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsetsDirectional.only(
+        top: MEDIUM_SPACE,
+        bottom: !(Platform.isIOS || Platform.isMacOS) ? 0.0 : VERY_SMALL_SPACE,
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: children,
+      ),
+    );
+  }
+}
+
+/// Show an info in the modal sheet
+class _PhotoRowInfo extends StatelessWidget {
+  const _PhotoRowInfo({
+    required this.icon,
+    required this.iconBackgroundColor,
+    required this.text,
+    this.wrapTextInExpanded = false,
+  });
+
+  final Widget icon;
+  final Color iconBackgroundColor;
+  final Widget text;
+  final bool wrapTextInExpanded;
+
+  @override
+  Widget build(BuildContext context) {
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
+
+    return Padding(
+      padding: const EdgeInsetsDirectional.symmetric(horizontal: SMALL_SPACE),
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          color: extension.primaryDark,
+          borderRadius: BorderRadius.all(
+            Radius.circular(MediaQuery.of(context).size.height),
+          ),
+        ),
+        child: ConstrainedBox(
+          constraints: BoxConstraints(
+            minHeight: 47.5,
+            maxWidth: MediaQuery.sizeOf(context).width * 0.95,
+          ),
+          child: IntrinsicHeight(
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                SizedBox.square(
+                  dimension: 47.5,
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(
+                      color: iconBackgroundColor,
+                      shape: BoxShape.circle,
+                    ),
+                    child: Center(child: icon),
+                  ),
+                ),
+                _textWidget,
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget get _textWidget {
+    final Widget textWidget = Padding(
+      padding: const EdgeInsetsDirectional.only(
+        start: MEDIUM_SPACE,
+        end: VERY_LARGE_SPACE,
+      ),
+      child: text,
+    );
+
+    if (wrapTextInExpanded) {
+      return Expanded(
+        child: textWidget,
+      );
+    }
+
+    return textWidget;
+  }
 }
 
 class _PhotoRowIndicator extends StatelessWidget {
@@ -486,7 +612,9 @@ class _PhotoRowIndicator extends StatelessWidget {
             context.extension<SmoothColorsThemeExtension>(),
           ),
         ),
-        child: Center(child: child()),
+        child: Center(
+          child: child(),
+        ),
       ),
     );
   }
