@@ -1,4 +1,5 @@
 import 'dart:async';
+
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/database/abstract_sql_dao.dart';
 import 'package:smooth_app/database/local_database.dart';
@@ -95,7 +96,7 @@ class DaoOsmLocation extends AbstractSqlDao {
       localDatabase.database.delete(
         _table,
         where: '$_columnId = ? AND $_columnType = ?',
-        whereArgs: <Object>[osmLocation.osmId, osmLocation.osmType.offTag],
+        whereArgs: <Object>[osmLocation.osmId!, osmLocation.osmType!.offTag],
       );
 
   /// Returns all the [OsmLocation]s, ordered by descending last access.
@@ -121,7 +122,7 @@ class DaoOsmLocation extends AbstractSqlDao {
         _table,
         <String, Object?>{
           _columnId: osmLocation.osmId,
-          _columnType: osmLocation.osmType.offTag,
+          _columnType: osmLocation.osmType!.offTag,
           _columnLongitude: osmLocation.longitude,
           _columnLatitude: osmLocation.latitude,
           _columnName: osmLocation.name,

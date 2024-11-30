@@ -32,8 +32,8 @@ class OsmLocation {
         osmKey = location.osmKey,
         osmValue = location.osmValue;
 
-  final int osmId;
-  final LocationOSMType osmType;
+  final int? osmId;
+  final LocationOSMType? osmType;
   final double longitude;
   final double latitude;
   final String? name;
@@ -95,5 +95,5 @@ class OsmLocation {
     return result.toString();
   }
 
-  String get primaryKey => '${osmType.offTag}$osmId';
+  String get primaryKey => '${osmType!.offTag}$osmId';
 }

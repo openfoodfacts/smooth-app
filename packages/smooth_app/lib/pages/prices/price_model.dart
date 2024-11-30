@@ -220,8 +220,8 @@ class PriceModel with ChangeNotifier {
       // proof display
       cropObject: cropParameters!,
       // per receipt
-      locationOSMId: location!.osmId,
-      locationOSMType: location!.osmType,
+      locationOSMId: location!.osmId!,
+      locationOSMType: location!.osmType!,
       date: date,
       proofType: proofType,
       currency: currency,
