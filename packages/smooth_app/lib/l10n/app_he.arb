@@ -1053,7 +1053,7 @@
             "count": {}
         }
     },
-    "multiselect_title": "{count,plural, one {} two {{count} מוצרים נבחרו} many {{count} מוצרים נבחרו}=0{לא נבחרו מוצרים} =1{נבחר מוצר} other{{count} מוצרים נבחרו}}",
+    "multiselect_title": "{count,plural, two {{count} מוצרים נבחרו} many {{count} מוצרים נבחרו}=0{לא נבחרו מוצרים} =1{נבחר מוצר} other{{count} מוצרים נבחרו}}",
     "@multiselect_title": {
         "description": "Page title with the number of selected items",
         "placeholders": {
@@ -1885,7 +1885,7 @@
     "prices_app_dev_mode_flag": "קיצור דרך ליישומון מחירים בעמוד המוצר",
     "prices_app_button": "מעבר ליישומון המחירים",
     "prices_generic_title": "מחירים",
-    "prices_add_n_prices": "{count,plural, one {} two {הוספת {count} מחירים} many {הוספת {count} מחירים}=1{הוספת מחיר} other{הוספת {count} מחירים}}",
+    "prices_add_n_prices": "{count,plural, two {הוספת {count} מחירים} many {הוספת {count} מחירים}=1{הוספת מחיר} other{הוספת {count} מחירים}}",
     "prices_send_n_prices": "{count,plural, two {שליחת {count} מחירים} many {שליחת {count} מחירים}=1{שליחת מחיר {count}} other{שליחת {count} מחירים}}",
     "prices_add_an_item": "הוספת פריט",
     "prices_add_a_price": "הוספת מחיר",
@@ -1978,7 +1978,7 @@
     "@prices_open_proof": {
         "description": "Button to open a proof"
     },
-    "prices_proofs_list_length_one_page": "{count,plural, one {} two {כל {count} ההוכחות} many {כל {count} ההוכחות}=0{אין הוכחות עדיין} =1{הוכחה אחת בלבד} other{כל {count} ההוכחות}}",
+    "prices_proofs_list_length_one_page": "{count,plural, two {כל {count} ההוכחות} many {כל {count} ההוכחות}=0{אין הוכחות עדיין} =1{הוכחה אחת בלבד} other{כל {count} ההוכחות}}",
     "@prices_proofs_list_length_one_page": {
         "description": "Number of proofs for one-page result",
         "placeholders": {
