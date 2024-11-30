@@ -77,12 +77,10 @@
   final SmoothColorsThemeExtension extension =
       context.extension&lt;SmoothColorsThemeExtension&gt;();
 
-  final List&lt;ImageField&gt; imageFields = &lt;ImageField&gt;[
-    ImageField.FRONT,
-    ImageField.INGREDIENTS,
-    ImageField.NUTRITION,
-    ImageField.PACKAGING,
-  ];
+  final List&lt;ImageField&gt; imageFields =
+      ImageFieldSmoothieExtension.getOrderedMainImageFields(
+    product.productType,
+  );
 
   final Widget existingPictureIcon = icons.Picture.checkAlt(
     color: extension.success,
@@ -103,19 +101,25 @@
       start: 15.0,
       end: 19.0,
     ),
-    labels: &lt;String&gt;[
-      appLocalizations.photo_field_front,
-      appLocalizations.photo_field_ingredients,
-      appLocalizations.photo_field_nutrition,
-      appLocalizations.photo_field_packaging,
-    ],
+    labels: imageFields.map((final ImageField imageField) {
+      return switch (imageField) {
+        ImageField.FRONT =&gt; appLocalizations.photo_field_front,
+        ImageField.INGREDIENTS =&gt; appLocalizations.photo_field_ingredients,
+        ImageField.NUTRITION =&gt; appLocalizations.photo_field_nutrition,
+        ImageField.PACKAGING =&gt; appLocalizations.photo_field_packaging,
+        ImageField.OTHER =&gt; throw UnimplementedError(),
+      };
+    }).toList(growable: false),
     values: imageFields,
-    prefixIcons: &lt;Widget&gt;[
-      const icons.Milk.filled(),
-      const icons.Ingredients.alt(),
-      const icons.NutritionFacts(),
-      const icons.Recycling(),
-    ],
+    prefixIcons: imageFields.map((final ImageField imageField) {
+      return switch (imageField) {
+        ImageField.FRONT =&gt; const icons.Milk.filled(),
+        ImageField.INGREDIENTS =&gt; const icons.Ingredients.alt(),
+        ImageField.NUTRITION =&gt; const icons.NutritionFacts(),
+        ImageField.PACKAGING =&gt; const icons.Recycling(),
+        ImageField.OTHER =&gt; throw UnimplementedError(),
+      };
+    }).toList(growable: false),
     suffixIcons: imageFields.map((final ImageField imageField) {
       final bool exists = TransientFile.fromProduct(
         product,
