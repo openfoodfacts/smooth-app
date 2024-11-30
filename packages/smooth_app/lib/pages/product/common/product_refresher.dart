@@ -84,6 +84,7 @@ class ProductRefresher {
         language: language,
         country: ProductQuery.getCountry(),
         version: ProductQuery.productQueryVersion,
+        productTypeFilter: ProductTypeFilter.all,
       );
 
   /// Returns the standard configuration for several barcodes product query.
@@ -175,27 +176,6 @@ class ProductRefresher {
     return localProduct?.productType;
   }
 
-  /// Returns the list of types to use for that barcode.
-  Future<List<ProductType>> getOrderedProductTypes({
-    required final LocalDatabase localDatabase,
-    required final String barcode,
-  }) async {
-    final List<ProductType> result = <ProductType>[];
-    final ProductType? productType = await getCurrentProductType(
-      localDatabase: localDatabase,
-      barcode: barcode,
-    );
-    if (productType != null) {
-      result.add(productType);
-    }
-    for (final ProductType value in ProductType.values) {
-      if (!result.contains(value)) {
-        result.add(value);
-      }
-    }
-    return result;
-  }
-
   /// Fetches the product from the server and refreshes the local database.
   ///
   /// Silent version.
@@ -203,34 +183,30 @@ class ProductRefresher {
     required final LocalDatabase localDatabase,
     required final String barcode,
   }) async {
-    final List<ProductType> productTypes = await getOrderedProductTypes(
-      localDatabase: localDatabase,
-      barcode: barcode,
+    // Now we let "food" redirect the queries if needed, as we use
+    // ProductTypeFilter.all
+    const ProductType productType = ProductType.food;
+    final UriProductHelper uriProductHelper = ProductQuery.getUriProductHelper(
+      productType: productType,
     );
-    late UriProductHelper uriProductHelper;
-    final OpenFoodFactsLanguage language = ProductQuery.getLanguage();
     try {
-      for (final ProductType productType in productTypes) {
-        uriProductHelper = ProductQuery.getUriProductHelper(
+      final OpenFoodFactsLanguage language = ProductQuery.getLanguage();
+      final ProductResultV3 result = await OpenFoodAPIClient.getProductV3(
+        getBarcodeQueryConfiguration(
+          barcode,
+          language,
+        ),
+        uriHelper: uriProductHelper,
+        user: ProductQuery.getReadUser(),
+      );
+      if (result.product != null) {
+        await DaoProduct(localDatabase).put(
+          result.product!,
+          language,
           productType: productType,
         );
-        final ProductResultV3 result = await OpenFoodAPIClient.getProductV3(
-          getBarcodeQueryConfiguration(
-            barcode,
-            language,
-          ),
-          uriHelper: uriProductHelper,
-          user: ProductQuery.getReadUser(),
-        );
-        if (result.product != null) {
-          await DaoProduct(localDatabase).put(
-            result.product!,
-            language,
-            productType: productType,
-          );
-          localDatabase.upToDate.setLatestDownloadedProduct(result.product!);
-          return FetchedProduct.found(result.product!);
-        }
+        localDatabase.upToDate.setLatestDownloadedProduct(result.product!);
+        return FetchedProduct.found(result.product!);
       }
       return const FetchedProduct.internetNotFound();
     } catch (e) {

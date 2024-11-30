@@ -144,7 +144,7 @@ class PriceModel with ChangeNotifier {
     notifyListeners();
   }
 
-  OsmLocation? get location => proof != null
+  OsmLocation? get location => proof?.location?.osmId != null
       ? OsmLocation.fromPrice(proof!.location!)
       : _locations!.firstOrNull;
 

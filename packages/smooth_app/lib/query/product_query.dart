@@ -293,5 +293,6 @@ abstract class ProductQuery {
         ProductField.WEBSITE,
         ProductField.OBSOLETE,
         ProductField.OWNER_FIELDS,
+        ProductField.OWNER,
       ];
 }
