@@ -367,7 +367,7 @@ class DaoProduct extends AbstractSqlDao implements BulkDeletable {
       );
     } catch (e) {
       if (!e.toString().startsWith(
-            'DatabaseException(near "nulls": syntax error (code 1 SQLITE_ERROR[1])',
+            'DatabaseException(near "nulls": syntax error (code 1 SQLITE_ERROR',
           )) {
         rethrow;
       }
