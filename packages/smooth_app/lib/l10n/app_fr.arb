@@ -1053,7 +1053,7 @@
             "count": {}
         }
     },
-    "multiselect_title": "{count,plural, one {}=0{Aucun produit sélectionné} =1{Un produit sélectionné} other{{count} produits sélectionnés}}",
+    "multiselect_title": "{count,plural, =0{Aucun produit sélectionné} =1{Un produit sélectionné} other{{count} produits sélectionnés}}",
     "@multiselect_title": {
         "description": "Page title with the number of selected items",
         "placeholders": {
@@ -1885,7 +1885,7 @@
     "prices_app_dev_mode_flag": "Raccourci vers l'application Prix sur la page produit",
     "prices_app_button": "Accéder à l'application Prix",
     "prices_generic_title": "Prix",
-    "prices_add_n_prices": "{count,plural, one {}=1{Ajouter un prix} other{Ajouter {count} prix}}",
+    "prices_add_n_prices": "{count,plural, =1{Ajouter un prix} other{Ajouter {count} prix}}",
     "prices_send_n_prices": "{count,plural, =1{Envoyer le prix} other{Envoyer {count} prix}}",
     "prices_add_an_item": "Ajouter un article",
     "prices_add_a_price": "Ajouter un prix",
@@ -1914,7 +1914,7 @@
     "prices_barcode_enter": "Saisie du code-barres",
     "prices_barcode_reader_action": "Lecteur de code-barres",
     "prices_view_prices": "Voir les prix",
-    "prices_product_accessibility_summary": "{count,plural, one {}=1{1 prix} other{{count} prix}} pour {product}",
+    "prices_product_accessibility_summary": "{count,plural, =1{1 prix} other{{count} prix}} pour {product}",
     "@prices_product_accessibility_summary": {
         "description": "A card summarizing the number of prices for a product",
         "placeholders": {
