@@ -1914,7 +1914,7 @@
     "prices_barcode_enter": "Введіть штрих-код",
     "prices_barcode_reader_action": "Сканер штрих-коду",
     "prices_view_prices": "Переглянути ціни",
-    "prices_product_accessibility_summary": "{count,plural, one {{count} ціна} few {{count} ціни} many {{count} цін}=1{1 ціна} other{{count} ціни}} за {product}",
+    "prices_product_accessibility_summary": "{count,plural, =1{1 ціна} other{{count} ціни}} за {product}",
     "@prices_product_accessibility_summary": {
         "description": "A card summarizing the number of prices for a product",
         "placeholders": {
@@ -1926,7 +1926,7 @@
             }
         }
     },
-    "prices_list_length_one_page": "{count,plural, one {Усього {count} ціна} few {Усі {count} ціни} many {Усі {count} ціни}=0{Ціни ще немає} =1{Тільки одна ціна} other{Усі {count} ціни}}",
+    "prices_list_length_one_page": "{count,plural, =0{Ціни ще немає} =1{Тільки одна ціна} other{Усі {count} ціни}}",
     "@prices_list_length_one_page": {
         "description": "Number of prices for one-page result",
         "placeholders": {
@@ -1978,7 +1978,7 @@
     "@prices_open_proof": {
         "description": "Button to open a proof"
     },
-    "prices_proofs_list_length_one_page": "{count,plural, one {Усього {count} доказ} few {Усі {count} докази} many {Усі {count} докази}=0{Доказів ще немає} =1{Тільки один доказ} other{Усі {count} докази}}",
+    "prices_proofs_list_length_one_page": "{count,plural, =0{Доказів ще немає} =1{Тільки один доказ} other{Усі {count} докази}}",
     "@prices_proofs_list_length_one_page": {
         "description": "Number of proofs for one-page result",
         "placeholders": {
@@ -2650,7 +2650,7 @@
     "@robotoff_continue": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering"
     },
-    "robotoff_next_n_questions": "Наступне {count,plural,  one {{count} запитання}  few {{count} запитання}  many {{count} запитань}=1{запитання} other{{count} запитання}}",
+    "robotoff_next_n_questions": "Наступне {count,plural,  =1{запитання} other{{count} запитання}}",
     "@robotoff_next_n_questions": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering",
         "placeholders": {
