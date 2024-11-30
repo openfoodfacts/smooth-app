@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/database/transient_file.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/helpers/image_field_extension.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/crop_parameters.dart';
@@ -48,12 +49,10 @@ class ProductImageOtherPage extends StatefulWidget {
     final SmoothColorsThemeExtension extension =
         context.extension<SmoothColorsThemeExtension>();
 
-    final List<ImageField> imageFields = <ImageField>[
-      ImageField.FRONT,
-      ImageField.INGREDIENTS,
-      ImageField.NUTRITION,
-      ImageField.PACKAGING,
-    ];
+    final List<ImageField> imageFields =
+        ImageFieldSmoothieExtension.getOrderedMainImageFields(
+      product.productType,
+    );
 
     final Widget existingPictureIcon = icons.Picture.checkAlt(
       color: extension.success,
@@ -74,19 +73,25 @@ class ProductImageOtherPage extends StatefulWidget {
         start: 15.0,
         end: 19.0,
       ),
-      labels: <String>[
-        appLocalizations.photo_field_front,
-        appLocalizations.photo_field_ingredients,
-        appLocalizations.photo_field_nutrition,
-        appLocalizations.photo_field_packaging,
-      ],
+      labels: imageFields.map((final ImageField imageField) {
+        return switch (imageField) {
+          ImageField.FRONT => appLocalizations.photo_field_front,
+          ImageField.INGREDIENTS => appLocalizations.photo_field_ingredients,
+          ImageField.NUTRITION => appLocalizations.photo_field_nutrition,
+          ImageField.PACKAGING => appLocalizations.photo_field_packaging,
+          ImageField.OTHER => throw UnimplementedError(),
+        };
+      }).toList(growable: false),
       values: imageFields,
-      prefixIcons: <Widget>[
-        const icons.Milk.filled(),
-        const icons.Ingredients.alt(),
-        const icons.NutritionFacts(),
-        const icons.Recycling(),
-      ],
+      prefixIcons: imageFields.map((final ImageField imageField) {
+        return switch (imageField) {
+          ImageField.FRONT => const icons.Milk.filled(),
+          ImageField.INGREDIENTS => const icons.Ingredients.alt(),
+          ImageField.NUTRITION => const icons.NutritionFacts(),
+          ImageField.PACKAGING => const icons.Recycling(),
+          ImageField.OTHER => throw UnimplementedError(),
+        };
+      }).toList(growable: false),
       suffixIcons: imageFields.map((final ImageField imageField) {
         final bool exists = TransientFile.fromProduct(
           product,
