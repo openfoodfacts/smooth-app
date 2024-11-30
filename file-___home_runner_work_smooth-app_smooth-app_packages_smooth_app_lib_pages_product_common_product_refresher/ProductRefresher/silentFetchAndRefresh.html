@@ -73,34 +73,30 @@
   required final LocalDatabase localDatabase,
   required final String barcode,
 }) async {
-  final List&lt;ProductType&gt; productTypes = await getOrderedProductTypes(
-    localDatabase: localDatabase,
-    barcode: barcode,
+  &#47;&#47; Now we let &quot;food&quot; redirect the queries if needed, as we use
+  &#47;&#47; ProductTypeFilter.all
+  const ProductType productType = ProductType.food;
+  final UriProductHelper uriProductHelper = ProductQuery.getUriProductHelper(
+    productType: productType,
   );
-  late UriProductHelper uriProductHelper;
-  final OpenFoodFactsLanguage language = ProductQuery.getLanguage();
   try {
-    for (final ProductType productType in productTypes) {
-      uriProductHelper = ProductQuery.getUriProductHelper(
+    final OpenFoodFactsLanguage language = ProductQuery.getLanguage();
+    final ProductResultV3 result = await OpenFoodAPIClient.getProductV3(
+      getBarcodeQueryConfiguration(
+        barcode,
+        language,
+      ),
+      uriHelper: uriProductHelper,
+      user: ProductQuery.getReadUser(),
+    );
+    if (result.product != null) {
+      await DaoProduct(localDatabase).put(
+        result.product!,
+        language,
         productType: productType,
       );
-      final ProductResultV3 result = await OpenFoodAPIClient.getProductV3(
-        getBarcodeQueryConfiguration(
-          barcode,
-          language,
-        ),
-        uriHelper: uriProductHelper,
-        user: ProductQuery.getReadUser(),
-      );
-      if (result.product != null) {
-        await DaoProduct(localDatabase).put(
-          result.product!,
-          language,
-          productType: productType,
-        );
-        localDatabase.upToDate.setLatestDownloadedProduct(result.product!);
-        return FetchedProduct.found(result.product!);
-      }
+      localDatabase.upToDate.setLatestDownloadedProduct(result.product!);
+      return FetchedProduct.found(result.product!);
     }
     return const FetchedProduct.internetNotFound();
   } catch (e) {
@@ -160,7 +156,6 @@
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_common_product_refresher/ProductRefresher/fetchAndRefresh.html">fetchAndRefresh</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_common_product_refresher/ProductRefresher/getBarcodeListQueryConfiguration.html">getBarcodeListQueryConfiguration</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_common_product_refresher/ProductRefresher/getBarcodeQueryConfiguration.html">getBarcodeQueryConfiguration</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_common_product_refresher/ProductRefresher/getOrderedProductTypes.html">getOrderedProductTypes</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_common_product_refresher/ProductRefresher/silentFetchAndRefresh.html">silentFetchAndRefresh</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_common_product_refresher/ProductRefresher/silentFetchAndRefreshList.html">silentFetchAndRefreshList</a></li>

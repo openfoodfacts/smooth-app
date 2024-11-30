@@ -64,7 +64,7 @@
 
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">OsmLocation? get location =&gt; proof != null
+  <pre class="language-dart"><code class="language-dart">OsmLocation? get location =&gt; proof?.location?.osmId != null
     ? OsmLocation.fromPrice(proof!.location!)
     : _locations!.firstOrNull;</code></pre>
 </section>
