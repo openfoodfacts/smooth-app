@@ -208,7 +208,8 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           },
         ),
         UserPreferencesItemTile(
-          title: appLocalizations.reset_app_language,
+          // Do not translate
+          title: 'Reset app language',
           onTap: () async {
             userPreferences.setAppLanguageCode(null);
             ProductQuery.setLanguage(context, userPreferences);
@@ -246,11 +247,11 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
             items: <DropdownMenuItem<bool>>[
               DropdownMenuItem<bool>(
                 value: true,
-                child: Text(appLocalizations.prod),
+                child: Text('PROD'),
               ),
               DropdownMenuItem<bool>(
                 value: false,
-                child: Text(appLocalizations.test),
+                child: Text('TEST'),
               ),
             ],
           ),
@@ -283,11 +284,11 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
             items: <DropdownMenuItem<bool>>[
               DropdownMenuItem<bool>(
                 value: true,
-                child: Text(appLocalizations.prod),
+                child: Text('PROD'),
               ),
               DropdownMenuItem<bool>(
                 value: false,
-                child: Text(appLocalizations.test),
+                child: Text('TEST'),
               ),
             ],
           ),

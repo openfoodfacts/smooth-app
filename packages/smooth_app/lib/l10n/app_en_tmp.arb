@@ -17,8 +17,6 @@
   "add_cards_to_scanner": "Add Cards to Scanner",
   "adds_3_sample_products_to_scanner": "Adds 3 sample products to scanner",
   "dev_preferences_environment_switch_title": "Environment Switch",
-  "prod": "Prod",
-  "test": "Test",
   "dev_preferences_test_environment_title": "Test Environment",
   "dev_preferences_test_environment_subtitle": "Current Test Environment: {0}",
   "dev_preferences_test_environment_dialog_title": "Change Test Environment",
@@ -42,13 +40,13 @@
   "dev_mode_section_ui": "UI",
   "dev_preferences_reset_onboarding_title": "Reset Onboarding",
   "dev_preferences_reset_onboarding_subtitle": "Reset onboarding flow",
-  "remove_colors_from_knowledge_panels": "Remove Colors from Knowledge Panels",
-  "show_emoji_as_visual_help": "Show Emoji as Visual Help",
+  "remove_colors_from_knowledge_panels": "Remove colors from Knowledge Panels on the product page",
+  "show_emoji_as_visual_help": "Show emoji as a visual help on the product page",
   "dev_mode_spellchecker_for_ocr_title": "Spellchecker for OCR",
   "dev_mode_spellchecker_for_ocr_subtitle": "Enable spellchecker for OCR",
   "dev_mode_section_experimental_features": "Experimental Features",
-  "allow_reordering_knowledge_panels": "Allow Reordering Knowledge Panels",
+  "allow_reordering_knowledge_panels": "Allow reordering knowledge panels according to your preferences",
   "temporary_access_to_location_search": "Temporary Access to Location Search",
-  "search_within_help_and_preferences": "Search within Help and Preferences",
-  "side_by_side_comparison": "Side-by-Side Comparison"
+  "search_within_help_and_preferences": "Search within help & preferences…",
+  "side_by_side_comparison": "Side by side comparison for 2 to 3 products"
 }
