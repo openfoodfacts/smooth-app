@@ -869,22 +869,22 @@
             }
         }
     },
-    "product_tags_title": "Product Tags",
+    "product_tags_title": "Властивості продукції",
     "@product_tags_title": {
-        "description": "The title for showing product tags, aka folksonomy data"
+        "description": "The title for showing product properties, aka folksonomy data"
     },
-    "no_product_tags_found_message": "No tags found. Tags can be used to better group similar products. Tap to add.",
+    "no_product_tags_found_message": "Властивості продукту не знайдено. Властивості можна використовувати для більш детального опису продуктів у гнучкий спосіб. Торкніться, щоб додати.",
     "@no_product_tags_found_message": {
-        "description": "Message to show if there are no product tags found"
+        "description": "Message to show if there are no product properties found"
     },
-    "add_tag": "Add Tag",
-    "edit_tag": "Edit Tag",
-    "remove_tag": "Remove Tag",
-    "tag_key": "Key",
+    "add_tag": "Додати властивість",
+    "edit_tag": "Змінити властивість",
+    "remove_tag": "Видалити властивість",
+    "tag_key": "Властивість",
     "tag_value": "Цінність",
-    "invalid_key_format": "Невірний формат ключа. Повинен бути в нижньому регістрі і без пробілів.",
+    "invalid_key_format": "Невірний формат властивості. Він повинен бути в нижньому і без будь-яких прогалин.",
     "@invalid_key_format": {
-        "description": "Message to show if the key value for a new product tag is invalid. This logic is identical to whats being validated in the folksonomy api"
+        "description": "Message to show if the property's value for a new product property is invalid. This logic is identical to whats being validated in the Folksonomy API"
     },
     "product_internet_error": "Неможливо отримати інформацію про цей продукт через помилку мережі.",
     "cached_results_from": "Показати результати з:",
@@ -1914,7 +1914,7 @@
     "prices_barcode_enter": "Введіть штрих-код",
     "prices_barcode_reader_action": "Сканер штрих-коду",
     "prices_view_prices": "Переглянути ціни",
-    "prices_product_accessibility_summary": "{count,plural, one {{count} ціна} few {{count} ціни} many {{count} цін}=1{1 ціна} other{{count} ціни}} за {product}",
+    "prices_product_accessibility_summary": "{count,plural, =1{1 ціна} other{{count} ціни}} за {product}",
     "@prices_product_accessibility_summary": {
         "description": "A card summarizing the number of prices for a product",
         "placeholders": {
@@ -1926,7 +1926,7 @@
             }
         }
     },
-    "prices_list_length_one_page": "{count,plural, one {Усього {count} ціна} few {Усі {count} ціни} many {Усі {count} ціни}=0{Ціни ще немає} =1{Тільки одна ціна} other{Усі {count} ціни}}",
+    "prices_list_length_one_page": "{count,plural, =0{Ціни ще немає} =1{Тільки одна ціна} other{Усі {count} ціни}}",
     "@prices_list_length_one_page": {
         "description": "Number of prices for one-page result",
         "placeholders": {
@@ -1978,7 +1978,7 @@
     "@prices_open_proof": {
         "description": "Button to open a proof"
     },
-    "prices_proofs_list_length_one_page": "{count,plural, one {Усього {count} доказ} few {Усі {count} докази} many {Усі {count} докази}=0{Доказів ще немає} =1{Тільки один доказ} other{Усі {count} докази}}",
+    "prices_proofs_list_length_one_page": "{count,plural, =0{Доказів ще немає} =1{Тільки один доказ} other{Усі {count} докази}}",
     "@prices_proofs_list_length_one_page": {
         "description": "Number of proofs for one-page result",
         "placeholders": {
@@ -2650,7 +2650,7 @@
     "@robotoff_continue": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering"
     },
-    "robotoff_next_n_questions": "Наступне {count,plural,  one {{count} запитання}  few {{count} запитання}  many {{count} запитань}=1{запитання} other{{count} запитання}}",
+    "robotoff_next_n_questions": "Наступне {count,plural,  =1{запитання} other{{count} запитання}}",
     "@robotoff_next_n_questions": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering",
         "placeholders": {
@@ -2680,6 +2680,10 @@
     "owner_field_info_close_button": "Закрити цю інформацію",
     "@owner_field_info_close_button": {
         "description": "The owner info may be shown in a closeable dialog. This is the label of the button (used on a long press event and for the accessibility label)."
+    },
+    "owner_field_image": "This image is provided by the producer. It may not be editable.",
+    "@owner_field_image": {
+        "description": "An image is directly provided by the producer. It may be locked and not be editable."
     },
     "edit_packagings_title": "Пакетні компоненти",
     "@edit_packagings_title": {
@@ -3225,25 +3229,60 @@
             }
         }
     },
-    "product_page_image_front_accessibility_label": "Фронтальне фото",
-    "@product_page_image_front_accessibility_label": {
+    "product_image_front_accessibility_label": "Фронтальне фото",
+    "@product_image_front_accessibility_label": {
         "description": "Accessibility label for the image on the product page"
     },
-    "product_page_image_front_outdated_message": "Це зображення може бути застарілим",
-    "@product_page_image_front_outdated_message": {
+    "product_image_ingredients_accessibility_label": "Фото складників",
+    "@product_image_ingredients_accessibility_label": {
+        "description": "Accessibility label for the image of ingredients"
+    },
+    "product_image_nutrition_accessibility_label": "Nutrition picture",
+    "@product_image_nutrition_accessibility_label": {
+        "description": "Accessibility label for the image of the nutrition"
+    },
+    "product_image_packaging_accessibility_label": "Packaging picture",
+    "@product_image_packaging_accessibility_label": {
+        "description": "Accessibility label for the image of the packaging"
+    },
+    "product_image_other_accessibility_label": "Other picture",
+    "@product_image_other_accessibility_label": {
+        "description": "Accessibility label for an image"
+    },
+    "product_image_outdated_message": "This picture may be outdated",
+    "@product_image_outdated_message": {
         "description": "Small message to indicate that the image may be outdated"
     },
-    "product_page_image_front_outdated_message_accessibility_label": "Переднє зображення (це зображення може бути застарілим)",
-    "@product_page_image_front_outdated_message_accessibility_label": {
-        "description": "Accessibility label for the image on the product page when it may be outdated"
+    "product_image_outdated_message_accessibility_label": "{type} (this image may be outdated)",
+    "@product_image_outdated_message_accessibility_label": {
+        "description": "Accessibility label for the image on the product page when it may be outdated",
+        "placeholders": {
+            "type": {
+                "type": "String"
+            }
+        }
     },
-    "product_page_image_error": "Не вдалося завантажити зображення!",
-    "@product_page_image_error": {
+    "product_image_locked_message_accessibility_label": "{type} (this image may be locked by the producer)",
+    "@product_image_locked_message_accessibility_label": {
+        "description": "Accessibility label for the image on the product page when it may be locked (producer provided)",
+        "placeholders": {
+            "type": {
+                "type": "String"
+            }
+        }
+    },
+    "product_image_error": "Unable to load the image!",
+    "@product_image_error": {
         "description": "Small message that will be displayed above the picture (please keep it short)"
     },
-    "product_page_image_error_accessibility_label": "Не вдалося завантажити головне зображення (помилка мережі?)",
-    "@product_page_image_error_accessibility_label": {
-        "description": "Accessibility label for the image on the product page when it fails to load"
+    "product_image_error_accessibility_label": "Unable to load the {type} (network error?)",
+    "@product_image_error_accessibility_label": {
+        "description": "Accessibility label for the image on the product page when it fails to load",
+        "placeholders": {
+            "type": {
+                "type": "String"
+            }
+        }
     },
     "product_page_image_no_image_available": "Немає\nзображення!",
     "@product_page_image_no_image_available": {

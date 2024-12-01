@@ -13,6 +13,7 @@ import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/helpers/provider_helper.dart';
 import 'package:smooth_app/pages/prices/emoji_helper.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
+import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_text.dart';
@@ -402,13 +403,14 @@ class _CountrySelectorBottomBar extends StatelessWidget {
           return EMPTY_WIDGET;
         }
 
-        final SmoothColorsThemeExtension? colors =
-            Theme.of(context).extension<SmoothColorsThemeExtension>();
+        final SmoothColorsThemeExtension colors =
+            context.extension<SmoothColorsThemeExtension>();
 
         return SmoothButtonsBar2(
           animate: true,
-          backgroundColor:
-              context.darkTheme() ? colors!.primaryDark : colors!.primaryMedium,
+          backgroundColor: context.lightTheme()
+              ? colors.primaryMedium
+              : colors.primaryUltraBlack,
           positiveButton: SmoothActionButton2(
               text: AppLocalizations.of(context).validate,
               icon: const icons.Arrow.right(),

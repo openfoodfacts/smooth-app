@@ -749,7 +749,7 @@
     "nutrition_page_invalid_number": "מספר שגוי",
     "nutrition_page_update_running": "המוצר מתעדכן בשרת…",
     "nutrition_page_update_done": "המוצר עודכן!",
-    "nutrition_page_take_serving_size_from_product_quantity": "Use the product quantity as serving size",
+    "nutrition_page_take_serving_size_from_product_quantity": "להשתמש בכמות המוצר כגודל מנה",
     "@nutrition_page_take_serving_size_from_product_quantity": {
         "description": "Button label: Use the product quantity as serving size (nutrition page)"
     },
@@ -869,22 +869,22 @@
             }
         }
     },
-    "product_tags_title": "תגיות מוצרים",
+    "product_tags_title": "מאפייני מוצר",
     "@product_tags_title": {
-        "description": "The title for showing product tags, aka folksonomy data"
+        "description": "The title for showing product properties, aka folksonomy data"
     },
-    "no_product_tags_found_message": "לא נמצאו תגיות. אפשר להשתמש בתגיות כדי לקבץ בצורה נוחה יותר מוצרים דומים. נגיעה להוספה.",
+    "no_product_tags_found_message": "לא נמצאו מאפיינים מוצר. אפשר להשתמש במאפיינים כדי לתאר את המוצרים בפירוט נוסף, בצורה גמישה. לחיצה להוספה.",
     "@no_product_tags_found_message": {
-        "description": "Message to show if there are no product tags found"
+        "description": "Message to show if there are no product properties found"
     },
-    "add_tag": "הוספת תגית",
-    "edit_tag": "עריכת תגית",
-    "remove_tag": "הסרת תגית",
-    "tag_key": "מפתח",
+    "add_tag": "הוספת מאפיין",
+    "edit_tag": "עריכת מאפיין",
+    "remove_tag": "הסרת מאפיין",
+    "tag_key": "מאפיין",
     "tag_value": "ערך",
-    "invalid_key_format": "תסדיר המפתח שגוי. חייב להיות באותיות קטנות ובלי רווחים.",
+    "invalid_key_format": "תבנית המאפיין שגויה. היא חייבת להיות באותיות קטנות באנגלית וללא רווחים.",
     "@invalid_key_format": {
-        "description": "Message to show if the key value for a new product tag is invalid. This logic is identical to whats being validated in the folksonomy api"
+        "description": "Message to show if the property's value for a new product property is invalid. This logic is identical to whats being validated in the Folksonomy API"
     },
     "product_internet_error": "לא ניתן למשוך מידע על המוצר הזה עקב שגיאת רשת.",
     "cached_results_from": "להציג תוצאות מ־:",
@@ -1053,7 +1053,7 @@
             "count": {}
         }
     },
-    "multiselect_title": "{count,plural, one {} two {{count} מוצרים נבחרו} many {{count} מוצרים נבחרו}=0{לא נבחרו מוצרים} =1{נבחר מוצר} other{{count} מוצרים נבחרו}}",
+    "multiselect_title": "{count,plural, two {{count} מוצרים נבחרו} many {{count} מוצרים נבחרו}=0{לא נבחרו מוצרים} =1{נבחר מוצר} other{{count} מוצרים נבחרו}}",
     "@multiselect_title": {
         "description": "Page title with the number of selected items",
         "placeholders": {
@@ -1885,7 +1885,7 @@
     "prices_app_dev_mode_flag": "קיצור דרך ליישומון מחירים בעמוד המוצר",
     "prices_app_button": "מעבר ליישומון המחירים",
     "prices_generic_title": "מחירים",
-    "prices_add_n_prices": "{count,plural, one {} two {הוספת {count} מחירים} many {הוספת {count} מחירים}=1{הוספת מחיר} other{הוספת {count} מחירים}}",
+    "prices_add_n_prices": "{count,plural, two {הוספת {count} מחירים} many {הוספת {count} מחירים}=1{הוספת מחיר} other{הוספת {count} מחירים}}",
     "prices_send_n_prices": "{count,plural, two {שליחת {count} מחירים} many {שליחת {count} מחירים}=1{שליחת מחיר {count}} other{שליחת {count} מחירים}}",
     "prices_add_an_item": "הוספת פריט",
     "prices_add_a_price": "הוספת מחיר",
@@ -1978,7 +1978,7 @@
     "@prices_open_proof": {
         "description": "Button to open a proof"
     },
-    "prices_proofs_list_length_one_page": "{count,plural, one {} two {כל {count} ההוכחות} many {כל {count} ההוכחות}=0{אין הוכחות עדיין} =1{הוכחה אחת בלבד} other{כל {count} ההוכחות}}",
+    "prices_proofs_list_length_one_page": "{count,plural, two {כל {count} ההוכחות} many {כל {count} ההוכחות}=0{אין הוכחות עדיין} =1{הוכחה אחת בלבד} other{כל {count} ההוכחות}}",
     "@prices_proofs_list_length_one_page": {
         "description": "Number of proofs for one-page result",
         "placeholders": {
@@ -2677,9 +2677,13 @@
     "@owner_field_info_message": {
         "description": "Title of the 'producer provided' info list-tile"
     },
-    "owner_field_info_close_button": "Close this info",
+    "owner_field_info_close_button": "לסגור את הפרטים האלה",
     "@owner_field_info_close_button": {
         "description": "The owner info may be shown in a closeable dialog. This is the label of the button (used on a long press event and for the accessibility label)."
+    },
+    "owner_field_image": "This image is provided by the producer. It may not be editable.",
+    "@owner_field_image": {
+        "description": "An image is directly provided by the producer. It may be locked and not be editable."
     },
     "edit_packagings_title": "רכיבי אריזה",
     "@edit_packagings_title": {
@@ -3225,25 +3229,60 @@
             }
         }
     },
-    "product_page_image_front_accessibility_label": "תמונה קדמית",
-    "@product_page_image_front_accessibility_label": {
+    "product_image_front_accessibility_label": "תמונה קדמית",
+    "@product_image_front_accessibility_label": {
         "description": "Accessibility label for the image on the product page"
     },
-    "product_page_image_front_outdated_message": "יכול להיות שהתמונה הזאת לא עדכנית",
-    "@product_page_image_front_outdated_message": {
+    "product_image_ingredients_accessibility_label": "תמונת הרכיבים",
+    "@product_image_ingredients_accessibility_label": {
+        "description": "Accessibility label for the image of ingredients"
+    },
+    "product_image_nutrition_accessibility_label": "Nutrition picture",
+    "@product_image_nutrition_accessibility_label": {
+        "description": "Accessibility label for the image of the nutrition"
+    },
+    "product_image_packaging_accessibility_label": "Packaging picture",
+    "@product_image_packaging_accessibility_label": {
+        "description": "Accessibility label for the image of the packaging"
+    },
+    "product_image_other_accessibility_label": "Other picture",
+    "@product_image_other_accessibility_label": {
+        "description": "Accessibility label for an image"
+    },
+    "product_image_outdated_message": "This picture may be outdated",
+    "@product_image_outdated_message": {
         "description": "Small message to indicate that the image may be outdated"
     },
-    "product_page_image_front_outdated_message_accessibility_label": "תמונת חזית (יכול להיות שזאת לא תמונה עדכנית)",
-    "@product_page_image_front_outdated_message_accessibility_label": {
-        "description": "Accessibility label for the image on the product page when it may be outdated"
+    "product_image_outdated_message_accessibility_label": "{type} (this image may be outdated)",
+    "@product_image_outdated_message_accessibility_label": {
+        "description": "Accessibility label for the image on the product page when it may be outdated",
+        "placeholders": {
+            "type": {
+                "type": "String"
+            }
+        }
     },
-    "product_page_image_error": "לא ניתן לטעון את התמונה!",
-    "@product_page_image_error": {
+    "product_image_locked_message_accessibility_label": "{type} (this image may be locked by the producer)",
+    "@product_image_locked_message_accessibility_label": {
+        "description": "Accessibility label for the image on the product page when it may be locked (producer provided)",
+        "placeholders": {
+            "type": {
+                "type": "String"
+            }
+        }
+    },
+    "product_image_error": "Unable to load the image!",
+    "@product_image_error": {
         "description": "Small message that will be displayed above the picture (please keep it short)"
     },
-    "product_page_image_error_accessibility_label": "לא ניתן לטעון את תמונת החזית (שגיאת רשת?)",
-    "@product_page_image_error_accessibility_label": {
-        "description": "Accessibility label for the image on the product page when it fails to load"
+    "product_image_error_accessibility_label": "Unable to load the {type} (network error?)",
+    "@product_image_error_accessibility_label": {
+        "description": "Accessibility label for the image on the product page when it fails to load",
+        "placeholders": {
+            "type": {
+                "type": "String"
+            }
+        }
     },
     "product_page_image_no_image_available": "אין תמונה!",
     "@product_page_image_no_image_available": {
