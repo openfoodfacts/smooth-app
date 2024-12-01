@@ -196,7 +196,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           },
         ),
         UserPreferencesItemTile(
-          title: 'Refresh all products from server (cf. Nutriscore v2)',
+          title: 'Refresh all products from the server',
           trailing: const Icon(Icons.refresh),
           onTap: () async {
             final LocalDatabase localDatabase = context.read<LocalDatabase>();
@@ -265,7 +265,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           onTap: () async => _changeTestEnvDomain(),
         ),
         const UserPreferencesItemSection(
-          label: 'Prices Server configuration',
+          label: 'Open Prices server configuration',
         ),
         UserPreferencesItemTile(
           title: 'Switch between prices.openfoodfacts.org (PROD) and test env',
@@ -387,7 +387,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           },
         ),
         UserPreferencesItemSwitch(
-          title: 'Accessibility: remove colors',
+          title: 'Remove colors from Knowledge Panels on the product page',
           value: userPreferences
                   .getFlag(userPreferencesFlagAccessibilityNoColor) ??
               false,
@@ -398,7 +398,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           },
         ),
         UserPreferencesItemSwitch(
-          title: 'Accessibility: show emoji',
+          title: 'Show emoji as a visual help on the product page',
           value:
               userPreferences.getFlag(userPreferencesFlagAccessibilityEmoji) ??
                   false,
@@ -423,7 +423,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           label: appLocalizations.dev_mode_section_experimental_features,
         ),
         UserPreferencesItemSwitch(
-          title: 'User ordered knowledge panels',
+          title: 'Allow reordering knowledge panels according to your preferences',
           value: userPreferences.getFlag(userPreferencesFlagUserOrderedKP) ??
               false,
           onChanged: (bool value) async {
@@ -481,7 +481,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           },
         ),
         UserPreferencesItemTile(
-          title: 'Preference Search...',
+          title: 'Search within help & preferences…',
           onTap: () async => Navigator.of(context).push(
             MaterialPageRoute<void>(
               builder: (BuildContext context) =>
@@ -490,7 +490,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           ),
         ),
         UserPreferencesItemSwitch(
-          title: 'Side by side comparison for 2 or 3 products',
+          title: 'Side by side comparison for 2 to 3 products',
           value:
               userPreferences.getFlag(userPreferencesFlagBoostedComparison) ??
                   false,
