@@ -2681,6 +2681,10 @@
     "@owner_field_info_close_button": {
         "description": "The owner info may be shown in a closeable dialog. This is the label of the button (used on a long press event and for the accessibility label)."
     },
+    "owner_field_image": "This image is provided by the producer. It may not be editable.",
+    "@owner_field_image": {
+        "description": "An image is directly provided by the producer. It may be locked and not be editable."
+    },
     "edit_packagings_title": "Packaging components",
     "@edit_packagings_title": {
         "description": "Title of the structured packagings page"
@@ -3225,25 +3229,60 @@
             }
         }
     },
-    "product_page_image_front_accessibility_label": "전면 사진",
-    "@product_page_image_front_accessibility_label": {
+    "product_image_front_accessibility_label": "전면 사진",
+    "@product_image_front_accessibility_label": {
         "description": "Accessibility label for the image on the product page"
     },
-    "product_page_image_front_outdated_message": "This picture may be outdated",
-    "@product_page_image_front_outdated_message": {
+    "product_image_ingredients_accessibility_label": "성분 목록의 그림",
+    "@product_image_ingredients_accessibility_label": {
+        "description": "Accessibility label for the image of ingredients"
+    },
+    "product_image_nutrition_accessibility_label": "Nutrition picture",
+    "@product_image_nutrition_accessibility_label": {
+        "description": "Accessibility label for the image of the nutrition"
+    },
+    "product_image_packaging_accessibility_label": "Packaging picture",
+    "@product_image_packaging_accessibility_label": {
+        "description": "Accessibility label for the image of the packaging"
+    },
+    "product_image_other_accessibility_label": "Other picture",
+    "@product_image_other_accessibility_label": {
+        "description": "Accessibility label for an image"
+    },
+    "product_image_outdated_message": "This picture may be outdated",
+    "@product_image_outdated_message": {
         "description": "Small message to indicate that the image may be outdated"
     },
-    "product_page_image_front_outdated_message_accessibility_label": "Front picture (this image may be outdated)",
-    "@product_page_image_front_outdated_message_accessibility_label": {
-        "description": "Accessibility label for the image on the product page when it may be outdated"
+    "product_image_outdated_message_accessibility_label": "{type} (this image may be outdated)",
+    "@product_image_outdated_message_accessibility_label": {
+        "description": "Accessibility label for the image on the product page when it may be outdated",
+        "placeholders": {
+            "type": {
+                "type": "String"
+            }
+        }
     },
-    "product_page_image_error": "Unable to load the image!",
-    "@product_page_image_error": {
+    "product_image_locked_message_accessibility_label": "{type} (this image may be locked by the producer)",
+    "@product_image_locked_message_accessibility_label": {
+        "description": "Accessibility label for the image on the product page when it may be locked (producer provided)",
+        "placeholders": {
+            "type": {
+                "type": "String"
+            }
+        }
+    },
+    "product_image_error": "Unable to load the image!",
+    "@product_image_error": {
         "description": "Small message that will be displayed above the picture (please keep it short)"
     },
-    "product_page_image_error_accessibility_label": "Unable to load the front picture (network error?)",
-    "@product_page_image_error_accessibility_label": {
-        "description": "Accessibility label for the image on the product page when it fails to load"
+    "product_image_error_accessibility_label": "Unable to load the {type} (network error?)",
+    "@product_image_error_accessibility_label": {
+        "description": "Accessibility label for the image on the product page when it fails to load",
+        "placeholders": {
+            "type": {
+                "type": "String"
+            }
+        }
     },
     "product_page_image_no_image_available": "No\nimage!",
     "@product_page_image_no_image_available": {
