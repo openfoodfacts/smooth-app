@@ -749,7 +749,7 @@
     "nutrition_page_invalid_number": "Nombre invalide",
     "nutrition_page_update_running": "Mise à jour du produit sur le serveur...",
     "nutrition_page_update_done": "Produit mis à jour !",
-    "nutrition_page_take_serving_size_from_product_quantity": "Use the product quantity as serving size",
+    "nutrition_page_take_serving_size_from_product_quantity": "Utilisez la quantité de produit comme taille de portion",
     "@nutrition_page_take_serving_size_from_product_quantity": {
         "description": "Button label: Use the product quantity as serving size (nutrition page)"
     },
@@ -869,20 +869,20 @@
             }
         }
     },
-    "product_tags_title": "Product properties",
+    "product_tags_title": "Propriétés du produit",
     "@product_tags_title": {
         "description": "The title for showing product properties, aka folksonomy data"
     },
-    "no_product_tags_found_message": "No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.",
+    "no_product_tags_found_message": "Aucune propriété de produit trouvée. Les propriétés peuvent être utilisées pour décrire les produits de manière plus détaillée et flexible. Appuyez pour ajouter.",
     "@no_product_tags_found_message": {
         "description": "Message to show if there are no product properties found"
     },
-    "add_tag": "Add property",
-    "edit_tag": "Edit property",
-    "remove_tag": "Remove property",
-    "tag_key": "Property",
+    "add_tag": "Ajouter une propriété",
+    "edit_tag": "Modifier la propriété",
+    "remove_tag": "Supprimer la propriété",
+    "tag_key": "Propriété",
     "tag_value": "Valeur",
-    "invalid_key_format": "Invalid property format. It must be lowercase and without any spaces.",
+    "invalid_key_format": "Format de propriété non valide. Il doit être en minuscules et sans aucun espace.",
     "@invalid_key_format": {
         "description": "Message to show if the property's value for a new product property is invalid. This logic is identical to whats being validated in the Folksonomy API"
     },
@@ -974,7 +974,7 @@
     "@native_app_settings": {
         "description": "Native App Settings in app settings"
     },
-    "native_app_description": "Open system settings for Open Food Facts",
+    "native_app_description": "Ouvrir les paramètres systèmes pour Open Food Facts",
     "@native_app_description": {
         "description": "Native App description in app settings"
     },
@@ -2681,7 +2681,7 @@
     "@owner_field_info_close_button": {
         "description": "The owner info may be shown in a closeable dialog. This is the label of the button (used on a long press event and for the accessibility label)."
     },
-    "owner_field_image": "This image is provided by the producer. It may not be editable.",
+    "owner_field_image": "Cette image est fournie par le producteur. Elle peut ne pas être éditable.",
     "@owner_field_image": {
         "description": "An image is directly provided by the producer. It may be locked and not be editable."
     },
@@ -3237,23 +3237,23 @@
     "@product_image_ingredients_accessibility_label": {
         "description": "Accessibility label for the image of ingredients"
     },
-    "product_image_nutrition_accessibility_label": "Nutrition picture",
+    "product_image_nutrition_accessibility_label": "Photo de la nutrition",
     "@product_image_nutrition_accessibility_label": {
         "description": "Accessibility label for the image of the nutrition"
     },
-    "product_image_packaging_accessibility_label": "Packaging picture",
+    "product_image_packaging_accessibility_label": "Photo de l'emballage",
     "@product_image_packaging_accessibility_label": {
         "description": "Accessibility label for the image of the packaging"
     },
-    "product_image_other_accessibility_label": "Other picture",
+    "product_image_other_accessibility_label": "Autres photos",
     "@product_image_other_accessibility_label": {
         "description": "Accessibility label for an image"
     },
-    "product_image_outdated_message": "This picture may be outdated",
+    "product_image_outdated_message": "Cette image peut être obsolète",
     "@product_image_outdated_message": {
         "description": "Small message to indicate that the image may be outdated"
     },
-    "product_image_outdated_message_accessibility_label": "{type} (this image may be outdated)",
+    "product_image_outdated_message_accessibility_label": "{type} (cette image peut être obsolète)",
     "@product_image_outdated_message_accessibility_label": {
         "description": "Accessibility label for the image on the product page when it may be outdated",
         "placeholders": {
@@ -3262,7 +3262,7 @@
             }
         }
     },
-    "product_image_locked_message_accessibility_label": "{type} (this image may be locked by the producer)",
+    "product_image_locked_message_accessibility_label": "{type} (cette image peut être verrouillée par le producteur)",
     "@product_image_locked_message_accessibility_label": {
         "description": "Accessibility label for the image on the product page when it may be locked (producer provided)",
         "placeholders": {
@@ -3271,11 +3271,11 @@
             }
         }
     },
-    "product_image_error": "Unable to load the image!",
+    "product_image_error": "Impossible de charger la photo !",
     "@product_image_error": {
         "description": "Small message that will be displayed above the picture (please keep it short)"
     },
-    "product_image_error_accessibility_label": "Unable to load the {type} (network error?)",
+    "product_image_error_accessibility_label": "Impossible de charger le {type} (erreur réseau ?)",
     "@product_image_error_accessibility_label": {
         "description": "Accessibility label for the image on the product page when it fails to load",
         "placeholders": {
@@ -3316,11 +3316,11 @@
     "@product_page_action_bar_item_disable": {
         "description": "Accessibility label to disable action (= make it invisible)"
     },
-    "product_page_pending_operations_banner_title": "Uploading your edits…",
+    "product_page_pending_operations_banner_title": "Téléversement de vos modifications…",
     "@product_page_pending_operations_banner_title": {
         "description": "When a product has pending edits (being sent to the server), there is a message on the product page (here is the title of the message)."
     },
-    "product_page_pending_operations_banner_message": "The data displayed on this page **does not yet reflect your modifications**.\nPlease wait a few seconds…",
+    "product_page_pending_operations_banner_message": "Les données affichées sur cette page **ne reflètent pas encore vos modifications**.\nVeuillez patienter quelques secondes…",
     "@product_page_pending_operations_banner_message": {
         "description": "When a product has pending edits (being sent to the server), there is a message on the product page. Please keep the ** syntax to make the text bold."
     },
