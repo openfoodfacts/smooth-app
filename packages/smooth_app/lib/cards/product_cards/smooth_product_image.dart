@@ -9,6 +9,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/database/transient_file.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/helpers/image_field_extension.dart';
 import 'package:smooth_app/pages/image/product_image_helper.dart';
 import 'package:smooth_app/pages/product/owner_field_info.dart';
 import 'package:smooth_app/pages/product/product_page/new_product_page.dart';
@@ -27,11 +28,11 @@ class ProductPicture extends StatefulWidget {
     String? fallbackUrl,
     VoidCallback? onTap,
     String? heroTag,
-    bool? showObsoleteIcon,
-    bool? showOwnerIcon,
+    bool showObsoleteIcon = false,
+    bool showOwnerIcon = false,
     BorderRadius? borderRadius,
-    double? imageFoundBorder,
-    double? imageNotFoundBorder,
+    double imageFoundBorder = 0.0,
+    double imageNotFoundBorder = 0.0,
     TextStyle? errorTextStyle,
   }) : this._(
           transientFile: null,
@@ -43,42 +44,43 @@ class ProductPicture extends StatefulWidget {
           heroTag: heroTag,
           onTap: onTap,
           borderRadius: borderRadius,
-          imageFoundBorder: imageFoundBorder ?? 0.0,
-          imageNotFoundBorder: imageNotFoundBorder ?? 0.0,
+          imageFoundBorder: imageFoundBorder,
+          imageNotFoundBorder: imageNotFoundBorder,
           errorTextStyle: errorTextStyle,
-          showObsoleteIcon: showObsoleteIcon ?? false,
-          showOwnerIcon: showOwnerIcon ?? false,
+          showObsoleteIcon: showObsoleteIcon,
+          showOwnerIcon: showOwnerIcon,
         );
 
   ProductPicture.fromTransientFile({
     required TransientFile transientFile,
     required Size size,
+    OpenFoodFactsLanguage? language,
     Product? product,
     ImageField? imageField,
     String? fallbackUrl,
     VoidCallback? onTap,
     String? heroTag,
-    bool? showObsoleteIcon,
-    bool? showOwnerIcon,
+    bool showObsoleteIcon = false,
+    bool showOwnerIcon = false,
     BorderRadius? borderRadius,
-    double? imageFoundBorder,
-    double? imageNotFoundBorder,
+    double imageFoundBorder = 0.0,
+    double imageNotFoundBorder = 0.0,
     TextStyle? errorTextStyle,
   }) : this._(
           transientFile: transientFile,
           product: product,
           imageField: imageField,
-          language: null,
+          language: language,
           size: size,
           fallbackUrl: fallbackUrl,
           heroTag: heroTag,
           onTap: onTap,
           borderRadius: borderRadius,
-          imageFoundBorder: imageFoundBorder ?? 0.0,
-          imageNotFoundBorder: imageNotFoundBorder ?? 0.0,
+          imageFoundBorder: imageFoundBorder,
+          imageNotFoundBorder: imageNotFoundBorder,
           errorTextStyle: errorTextStyle,
-          showObsoleteIcon: showObsoleteIcon ?? false,
-          showOwnerIcon: showOwnerIcon ?? false,
+          showObsoleteIcon: showObsoleteIcon,
+          showOwnerIcon: showOwnerIcon,
         );
 
   ProductPicture._({
@@ -158,8 +160,11 @@ class _ProductPictureState extends State<ProductPicture> {
       child = _ProductPictureAssetsSvg(
         asset: 'assets/product/product_error.svg',
         semanticsLabel:
-            appLocalizations.product_page_image_error_accessibility_label,
-        text: appLocalizations.product_page_image_error,
+            appLocalizations.product_image_error_accessibility_label(
+          widget.imageField?.getPictureAccessibilityLabel(appLocalizations) ??
+              appLocalizations.product_image_front_accessibility_label,
+        ),
+        text: appLocalizations.product_image_error,
         textStyle: TextStyle(
           color: context.extension<SmoothColorsThemeExtension>().red,
         ).merge(widget.errorTextStyle ?? const TextStyle()),
@@ -171,6 +176,7 @@ class _ProductPictureState extends State<ProductPicture> {
     } else if (imageProvider?.$1 != null) {
       child = _ProductPictureWithImageProvider(
         imageProvider: imageProvider!.$1!,
+        imageField: widget.imageField,
         outdated: imageProvider.$2,
         locked: widget.imageField != null &&
             widget.product?.isImageLocked(
@@ -268,11 +274,13 @@ class _ProductPictureWithImageProvider extends StatelessWidget {
     required this.showOutdated,
     required this.showOwner,
     required this.border,
+    this.imageField,
     this.borderRadius,
     this.heroTag,
   });
 
   final ImageProvider imageProvider;
+  final ImageField? imageField;
   final bool outdated;
   final bool locked;
   final Size size;
@@ -290,7 +298,8 @@ class _ProductPictureWithImageProvider extends StatelessWidget {
     final bool lightTheme = context.lightTheme();
 
     final Widget image = Semantics(
-      label: appLocalizations.product_page_image_front_accessibility_label,
+      label: imageField?.getPictureAccessibilityLabel(appLocalizations) ??
+          appLocalizations.product_image_front_accessibility_label,
       image: true,
       excludeSemantics: true,
       child: SizedBox.fromSize(
@@ -340,33 +349,36 @@ class _ProductPictureWithImageProvider extends StatelessWidget {
       ),
     );
 
+    final Widget? iconOutdated = showOutdated && outdated
+        ? _OutdatedProductPictureIcon(
+            appLocalizations: appLocalizations,
+            borderRadius: borderRadius,
+            imageField: imageField,
+          )
+        : null;
+
+    final Widget? iconLocked = showOwner && locked
+        ? _LockedProductPictureIcon(
+            appLocalizations: appLocalizations,
+            borderRadius: borderRadius,
+            imageField: imageField,
+          )
+        : null;
+
     Widget? icons;
-
-    if (showOutdated && outdated) {
-      icons = _OutdatedProductPictureIcon(
-        appLocalizations: appLocalizations,
-        borderRadius: borderRadius,
+    if (iconOutdated == null) {
+      icons = iconLocked;
+    } else if (iconLocked == null) {
+      icons = iconOutdated;
+    } else {
+      icons = Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          iconOutdated,
+          const SizedBox(height: SMALL_SPACE),
+          iconLocked,
+        ],
       );
-    }
-
-    if (showOwner && locked) {
-      final Widget icon = _LockedProductPictureIcon(
-        appLocalizations: appLocalizations,
-        borderRadius: borderRadius,
-      );
-
-      if (icons != null) {
-        icons = Column(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            icons,
-            const SizedBox(height: SMALL_SPACE),
-            icon,
-          ],
-        );
-      } else {
-        icons = icon;
-      }
     }
 
     if (icons != null) {
@@ -427,16 +439,21 @@ class _OutdatedProductPictureIcon extends StatelessWidget {
   const _OutdatedProductPictureIcon({
     required this.appLocalizations,
     required this.borderRadius,
+    this.imageField,
   });
 
+  final ImageField? imageField;
   final AppLocalizations appLocalizations;
   final BorderRadius? borderRadius;
 
   @override
   Widget build(BuildContext context) {
     return _ProductPictureIcon(
-      semanticsLabel: appLocalizations
-          .product_page_image_front_outdated_message_accessibility_label,
+      semanticsLabel:
+          appLocalizations.product_image_outdated_message_accessibility_label(
+        imageField?.getPictureAccessibilityLabel(appLocalizations) ??
+            appLocalizations.product_image_front_accessibility_label,
+      ),
       icon: const icons.Outdated(size: 15.0),
       padding: const EdgeInsetsDirectional.only(
         top: 4.5,
@@ -453,16 +470,21 @@ class _LockedProductPictureIcon extends StatelessWidget {
   const _LockedProductPictureIcon({
     required this.appLocalizations,
     required this.borderRadius,
+    this.imageField,
   });
 
+  final ImageField? imageField;
   final AppLocalizations appLocalizations;
   final BorderRadius? borderRadius;
 
   @override
   Widget build(BuildContext context) {
     return _ProductPictureIcon(
-      semanticsLabel: appLocalizations
-          .product_page_image_front_locked_message_accessibility_label,
+      semanticsLabel:
+          appLocalizations.product_image_locked_message_accessibility_label(
+        imageField?.getPictureAccessibilityLabel(appLocalizations) ??
+            appLocalizations.product_image_front_accessibility_label,
+      ),
       icon: IconTheme.merge(
         data: const IconThemeData(size: 16.0),
         child: const OwnerFieldIcon(),
