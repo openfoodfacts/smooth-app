@@ -749,7 +749,7 @@
     "nutrition_page_invalid_number": "מספר שגוי",
     "nutrition_page_update_running": "המוצר מתעדכן בשרת…",
     "nutrition_page_update_done": "המוצר עודכן!",
-    "nutrition_page_take_serving_size_from_product_quantity": "Use the product quantity as serving size",
+    "nutrition_page_take_serving_size_from_product_quantity": "להשתמש בכמות המוצר כגודל מנה",
     "@nutrition_page_take_serving_size_from_product_quantity": {
         "description": "Button label: Use the product quantity as serving size (nutrition page)"
     },
@@ -869,20 +869,20 @@
             }
         }
     },
-    "product_tags_title": "Product properties",
+    "product_tags_title": "מאפייני מוצר",
     "@product_tags_title": {
         "description": "The title for showing product properties, aka folksonomy data"
     },
-    "no_product_tags_found_message": "No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.",
+    "no_product_tags_found_message": "לא נמצאו מאפיינים מוצר. אפשר להשתמש במאפיינים כדי לתאר את המוצרים בפירוט נוסף, בצורה גמישה. לחיצה להוספה.",
     "@no_product_tags_found_message": {
         "description": "Message to show if there are no product properties found"
     },
-    "add_tag": "Add property",
-    "edit_tag": "Edit property",
-    "remove_tag": "Remove property",
-    "tag_key": "Property",
+    "add_tag": "הוספת מאפיין",
+    "edit_tag": "עריכת מאפיין",
+    "remove_tag": "הסרת מאפיין",
+    "tag_key": "מאפיין",
     "tag_value": "ערך",
-    "invalid_key_format": "Invalid property format. It must be lowercase and without any spaces.",
+    "invalid_key_format": "תבנית המאפיין שגויה. היא חייבת להיות באותיות קטנות באנגלית וללא רווחים.",
     "@invalid_key_format": {
         "description": "Message to show if the property's value for a new product property is invalid. This logic is identical to whats being validated in the Folksonomy API"
     },
@@ -2677,7 +2677,7 @@
     "@owner_field_info_message": {
         "description": "Title of the 'producer provided' info list-tile"
     },
-    "owner_field_info_close_button": "Close this info",
+    "owner_field_info_close_button": "לסגור את הפרטים האלה",
     "@owner_field_info_close_button": {
         "description": "The owner info may be shown in a closeable dialog. This is the label of the button (used on a long press event and for the accessibility label)."
     },
