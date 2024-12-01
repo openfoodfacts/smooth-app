@@ -1011,7 +1011,7 @@
             "percent": {}
         }
     },
-    "plural_ago_days": "{count,plural,  one {}=1{egy napja} other{{count} napja}}",
+    "plural_ago_days": "{count,plural,  =1{egy napja} other{{count} napja}}",
     "@plural_ago_days": {
         "description": "Cached results from: x days ago",
         "placeholders": {
@@ -1247,7 +1247,7 @@
     "@product_list_empty_message": {
         "description": "When the history list is empty, body of the message explaining to start scanning"
     },
-    "product_list_reloading_in_progress_multiple": "{count,plural,  one {}=0{Termék} =1{Termék} other{Termékek}} frissítése az előzményekben",
+    "product_list_reloading_in_progress_multiple": "{count,plural, =0{Termék} =1{Termék} other{Termékek}} frissítése az előzményekben",
     "@product_list_reloading_in_progress_multiple": {
         "description": "Message to show while loading previous scanned items",
         "placeholders": {
