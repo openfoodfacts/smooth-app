@@ -93,8 +93,8 @@ Widget build(BuildContext context) {
         Icons.bolt,
         color: Colors.amber,
       ),
-      onPressed: () async =&gt; Navigator.push&lt;void&gt;(
-        context,
+      onPressed: () async =&gt;
+          Navigator.of(context, rootNavigator: true).push&lt;void&gt;(
         MaterialPageRoute&lt;void&gt;(
           builder: (BuildContext context) =&gt; AddNewProductPage.fromProduct(
             product,
