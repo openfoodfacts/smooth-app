@@ -110,8 +110,8 @@ class ProductIncompleteCard extends StatelessWidget {
           Icons.bolt,
           color: Colors.amber,
         ),
-        onPressed: () async => Navigator.push<void>(
-          context,
+        onPressed: () async =>
+            Navigator.of(context, rootNavigator: true).push<void>(
           MaterialPageRoute<void>(
             builder: (BuildContext context) => AddNewProductPage.fromProduct(
               product,

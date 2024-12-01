@@ -28,6 +28,9 @@ import 'package:smooth_app/pages/product/product_image_swipeable_view.dart';
 import 'package:smooth_app/pages/product/product_type_extensions.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 import 'package:smooth_app/widgets/v2/smooth_buttons_bar.dart';
 import 'package:smooth_app/widgets/will_pop_scope.dart';
@@ -98,6 +101,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
       (widget.displayPictures ? 1 : 0);
 
   double get _progress => (_pageNumber + 1) / _totalPages;
+
   bool get _isLastPage => (_pageNumber + 1) == _totalPages;
   ProductType? _inputProductType;
   late ColorScheme _colorScheme;
@@ -236,6 +240,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
       onWillPop: () async => (await _onWillPop(), null),
       child: SmoothScaffold(
         body: SafeArea(
+          bottom: false,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
@@ -261,6 +266,10 @@ class _AddNewProductPageState extends State<AddNewProductPage>
               Expanded(
                 child: PageView(
                   controller: _pageController,
+                  physics:
+                      widget.displayProductType && _inputProductType == null
+                          ? const NeverScrollableScrollPhysics()
+                          : null,
                   children: <Widget>[
                     if (widget.displayProductType)
                       _buildCard(_getProductTypes(context)),
@@ -460,6 +469,9 @@ class _AddNewProductPageState extends State<AddNewProductPage>
 
   List<Widget> _getEcoscoreRows(final BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
+
     final Attribute? attribute = _getAttribute(Attribute.ATTRIBUTE_ECOSCORE);
     return <Widget>[
       AddNewProductTitle(appLocalizations.new_product_title_ecoscore),
@@ -474,18 +486,21 @@ class _AddNewProductPageState extends State<AddNewProductPage>
         ),
       ),
       const SizedBox(height: 15.0),
-      GestureDetector(
+      InkWell(
+        borderRadius: ROUNDED_BORDER_RADIUS,
         onTap: () {
           setState(() => _ecoscoreExpanded = !_ecoscoreExpanded);
         },
-        child: Container(
+        child: Ink(
           padding: const EdgeInsets.symmetric(
             vertical: BALANCED_SPACE,
             horizontal: 15.0,
           ),
           decoration: BoxDecoration(
             borderRadius: ROUNDED_BORDER_RADIUS,
-            color: _colorScheme.surface,
+            color: context.lightTheme()
+                ? extension.primaryNormal
+                : extension.primaryMedium,
           ),
           child: Row(
             children: <Widget>[
