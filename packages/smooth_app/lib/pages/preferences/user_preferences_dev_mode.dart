@@ -14,6 +14,7 @@ import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/locations/osm_location.dart';
 import 'package:smooth_app/pages/locations/search_location_helper.dart';
 import 'package:smooth_app/pages/locations/search_location_preloaded_item.dart';
@@ -98,7 +99,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           value: userPreferences.devMode == 1,
         ),
         UserPreferencesItemTile(
-          title: 'Debugging information',
+          title: appLocalizations.debugging_information,
           onTap: () async => Navigator.of(context).push(MaterialPageRoute<void>(
               builder: (BuildContext context) =>
                   const UserPreferencesDebugInfo())),
@@ -196,7 +197,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           },
         ),
         UserPreferencesItemTile(
-          title: 'Refresh all products from the server',
+          title: appLocalizations.refresh_all_products_from_server,
           trailing: const Icon(Icons.refresh),
           onTap: () async {
             final LocalDatabase localDatabase = context.read<LocalDatabase>();
@@ -207,16 +208,15 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           },
         ),
         UserPreferencesItemTile(
-          // Do not translate
-          title: 'Reset app language',
+          title: appLocalizations.reset_app_language,
           onTap: () async {
             userPreferences.setAppLanguageCode(null);
             ProductQuery.setLanguage(context, userPreferences);
           },
         ),
         UserPreferencesItemTile(
-          title: 'Add cards to scanner',
-          subtitle: 'Adds 3 sample products to the scanner',
+          title: appLocalizations.add_cards_to_scanner,
+          subtitle: appLocalizations.adds_3_sample_products_to_scanner,
           onTap: () async {
             final ContinuousScanModel model =
                 context.read<ContinuousScanModel>();
@@ -243,14 +243,14 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
               await userPreferences.setFlag(userPreferencesFlagProd, newValue);
               ProductQuery.setQueryType(userPreferences);
             },
-            items: const <DropdownMenuItem<bool>>[
+            items: <DropdownMenuItem<bool>>[
               DropdownMenuItem<bool>(
                 value: true,
-                child: Text('PROD'),
+                child: Text(appLocalizations.prod),
               ),
               DropdownMenuItem<bool>(
                 value: false,
-                child: Text('TEST'),
+                child: Text(appLocalizations.test),
               ),
             ],
           ),
@@ -264,11 +264,11 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           ),
           onTap: () async => _changeTestEnvDomain(),
         ),
-        const UserPreferencesItemSection(
-          label: 'Open Prices server configuration',
+        UserPreferencesItemSection(
+          label: appLocalizations.open_prices_server_configuration,
         ),
         UserPreferencesItemTile(
-          title: 'Switch between prices.openfoodfacts.org (PROD) and test env',
+          title: appLocalizations.switch_between_prices_prod_and_test,
           trailing: DropdownButton<bool>(
             value:
                 userPreferences.getFlag(userPreferencesFlagPriceProd) ?? true,
@@ -280,14 +280,14 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
               );
               ProductQuery.setQueryType(userPreferences);
             },
-            items: const <DropdownMenuItem<bool>>[
+            items: <DropdownMenuItem<bool>>[
               DropdownMenuItem<bool>(
                 value: true,
-                child: Text('PROD'),
+                child: Text(appLocalizations.prod),
               ),
               DropdownMenuItem<bool>(
                 value: false,
-                child: Text('TEST'),
+                child: Text(appLocalizations.test),
               ),
             ],
           ),
@@ -316,7 +316,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
             return Consumer<AppNewsProvider>(
                 builder: (_, AppNewsProvider provider, __) {
               return Text(switch (provider.state) {
-                AppNewsStateLoading() => 'Loading…',
+                AppNewsStateLoading() => appLocalizations.loading,
                 AppNewsStateLoaded(lastUpdate: final DateTime date) =>
                   appLocalizations
                       .dev_preferences_news_provider_status_subtitle(
@@ -387,7 +387,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           },
         ),
         UserPreferencesItemSwitch(
-          title: 'Remove colors from Knowledge Panels on the product page',
+          title: appLocalizations.remove_colors_from_knowledge_panels,
           value: userPreferences
                   .getFlag(userPreferencesFlagAccessibilityNoColor) ??
               false,
@@ -398,7 +398,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           },
         ),
         UserPreferencesItemSwitch(
-          title: 'Show emoji as a visual help on the product page',
+          title: appLocalizations.show_emoji_as_visual_help,
           value:
               userPreferences.getFlag(userPreferencesFlagAccessibilityEmoji) ??
                   false,
@@ -423,7 +423,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           label: appLocalizations.dev_mode_section_experimental_features,
         ),
         UserPreferencesItemSwitch(
-          title: 'Allow reordering knowledge panels according to your preferences',
+          title: appLocalizations.allow_reordering_knowledge_panels,
           value: userPreferences.getFlag(userPreferencesFlagUserOrderedKP) ??
               false,
           onChanged: (bool value) async {
@@ -433,7 +433,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           },
         ),
         UserPreferencesItemTile(
-          title: 'Temporary access to location search',
+          title: appLocalizations.temporary_access_to_location_search,
           onTap: () async {
             final LocalDatabase localDatabase = context.read<LocalDatabase>();
             final DaoOsmLocation daoOsmLocation = DaoOsmLocation(localDatabase);
@@ -481,7 +481,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           },
         ),
         UserPreferencesItemTile(
-          title: 'Search within help & preferences…',
+          title: appLocalizations.search_within_help_and_preferences,
           onTap: () async => Navigator.of(context).push(
             MaterialPageRoute<void>(
               builder: (BuildContext context) =>
@@ -490,7 +490,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           ),
         ),
         UserPreferencesItemSwitch(
-          title: 'Side by side comparison for 2 to 3 products',
+          title: appLocalizations.side_by_side_comparison,
           value:
               userPreferences.getFlag(userPreferencesFlagBoostedComparison) ??
                   false,
