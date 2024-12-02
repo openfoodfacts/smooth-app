@@ -2,11 +2,11 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_button_with_arrow.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/pages/product/hideable_container.dart';
 import 'package:smooth_app/pages/scan/carousel/scan_carousel.dart';
-import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -331,58 +331,6 @@ class ScanProductBaseCardButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension theme =
-        context.extension<SmoothColorsThemeExtension>();
-
-    return Align(
-      alignment: AlignmentDirectional.centerEnd,
-      child: TextButton(
-        onPressed: onTap,
-        style: ButtonStyle(
-          backgroundColor: WidgetStatePropertyAll<Color>(theme.primarySemiDark),
-          padding: const WidgetStatePropertyAll<EdgeInsetsGeometry>(
-            EdgeInsetsDirectional.symmetric(
-              vertical: SMALL_SPACE,
-              horizontal: LARGE_SPACE,
-            ),
-          ),
-          shape: const WidgetStatePropertyAll<OutlinedBorder>(
-            RoundedRectangleBorder(
-              borderRadius: CIRCULAR_BORDER_RADIUS,
-            ),
-          ),
-        ),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsetsDirectional.only(bottom: 3.0),
-              child: Text(
-                text,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 15.0,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            const SizedBox(width: MEDIUM_SPACE),
-            Container(
-              width: 20.0,
-              height: 20.0,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: theme.orange,
-              ),
-              padding: const EdgeInsetsDirectional.all(VERY_SMALL_SPACE),
-              child: const icons.Arrow.right(
-                color: Colors.white,
-                size: 12.0,
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
+    return SmoothButtonWithArrow(text: text, onTap: onTap);
   }
 }

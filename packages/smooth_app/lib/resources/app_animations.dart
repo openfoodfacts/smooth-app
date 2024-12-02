@@ -230,7 +230,12 @@ class _DoubleChevronAnimationState extends State<DoubleChevronAnimation> {
 }
 
 class OrangeErrorAnimation extends StatefulWidget {
-  const OrangeErrorAnimation({super.key});
+  const OrangeErrorAnimation({
+    this.sizeMultiplier = 1.0,
+    super.key,
+  });
+
+  final double sizeMultiplier;
 
   @override
   State<OrangeErrorAnimation> createState() => _OrangeErrorAnimationState();
@@ -243,8 +248,8 @@ class _OrangeErrorAnimationState extends State<OrangeErrorAnimation> {
   Widget build(BuildContext context) {
     return ExcludeSemantics(
       child: SizedBox(
-        width: 83.0,
-        height: 77.0,
+        width: 83.0 * widget.sizeMultiplier,
+        height: 77.0 * widget.sizeMultiplier,
         child: Consumer<RiveFile?>(
           builder: (BuildContext context, RiveFile? riveFile, _) {
             if (riveFile == null) {
