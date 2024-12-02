@@ -4,15 +4,25 @@ import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
+/// A button with the following layout:
+///   TEXT →
 class SmoothButtonWithArrow extends StatelessWidget {
   const SmoothButtonWithArrow({
     required this.text,
     required this.onTap,
+    this.padding,
+    this.backgroundColor,
+    this.textColor,
+    this.arrowColor,
     super.key,
   });
 
   final String text;
   final VoidCallback onTap;
+  final EdgeInsetsGeometry? padding;
+  final Color? backgroundColor;
+  final Color? textColor;
+  final Color? arrowColor;
 
   @override
   Widget build(BuildContext context) {
@@ -24,12 +34,15 @@ class SmoothButtonWithArrow extends StatelessWidget {
       child: TextButton(
         onPressed: onTap,
         style: ButtonStyle(
-          backgroundColor: WidgetStatePropertyAll<Color>(theme.primarySemiDark),
-          padding: const WidgetStatePropertyAll<EdgeInsetsGeometry>(
-            EdgeInsetsDirectional.symmetric(
-              vertical: SMALL_SPACE,
-              horizontal: LARGE_SPACE,
-            ),
+          backgroundColor: WidgetStatePropertyAll<Color>(
+            backgroundColor ?? theme.primarySemiDark,
+          ),
+          padding: WidgetStatePropertyAll<EdgeInsetsGeometry>(
+            padding ??
+                const EdgeInsetsDirectional.symmetric(
+                  vertical: SMALL_SPACE,
+                  horizontal: LARGE_SPACE,
+                ),
           ),
           shape: const WidgetStatePropertyAll<OutlinedBorder>(
             RoundedRectangleBorder(
@@ -44,8 +57,8 @@ class SmoothButtonWithArrow extends StatelessWidget {
               padding: const EdgeInsetsDirectional.only(bottom: 3.0),
               child: Text(
                 text,
-                style: const TextStyle(
-                  color: Colors.white,
+                style: TextStyle(
+                  color: textColor ?? Colors.white,
                   fontSize: 15.0,
                   fontWeight: FontWeight.bold,
                 ),
@@ -57,11 +70,11 @@ class SmoothButtonWithArrow extends StatelessWidget {
               height: 20.0,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: theme.orange,
+                color: arrowColor ?? theme.orange,
               ),
               padding: const EdgeInsetsDirectional.all(VERY_SMALL_SPACE),
-              child: const icons.Arrow.right(
-                color: Colors.white,
+              child: icons.Arrow.right(
+                color: textColor ?? Colors.white,
                 size: 12.0,
               ),
             ),
