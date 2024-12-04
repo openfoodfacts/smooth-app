@@ -13,7 +13,7 @@ dependencies:
     sdk: flutter
 
   async: 2.11.0
-  go_router: 14.6.0
+  go_router: 14.6.2
   barcode_widget: 2.0.4
   carousel_slider: 5.0.0
   cupertino_icons: 1.0.8
