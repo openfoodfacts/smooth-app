@@ -89,20 +89,21 @@ class ProductImageWidget extends StatelessWidget {
                     horizontal: SMALL_SPACE,
                     vertical: VERY_SMALL_SPACE,
                   ),
-                  child: Stack(
+                  child: Row(
                     children: <Widget>[
-                      Center(
+                      Expanded(
                         child: AutoSizeText(
                           date,
                           maxLines: 1,
+                          textAlign: TextAlign.center,
                           style: const TextStyle(color: Colors.white),
                         ),
                       ),
                       if (expired)
-                        Positioned.directional(
-                          end: 0.0,
-                          height: 20.0,
-                          textDirection: Directionality.of(context),
+                        Padding(
+                          padding: const EdgeInsetsDirectional.only(
+                            start: VERY_SMALL_SPACE,
+                          ),
                           child: icons.Outdated(
                             size: 18.0,
                             color: colors.orange,
