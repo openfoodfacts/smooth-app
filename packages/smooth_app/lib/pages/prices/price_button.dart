@@ -16,6 +16,14 @@ class PriceButton extends StatelessWidget {
   final VoidCallback? onPressed;
   final String? tooltip;
 
+  static const IconData priceIconData = Icons.label;
+  static const IconData userIconData = Icons.account_box;
+  static const IconData proofIconData = Icons.image;
+  static const IconData locationIconData = Icons.location_on;
+  static const IconData historyIconData = Icons.history;
+  static const IconData productIconData = Icons.category;
+  static const IconData warningIconData = Icons.warning;
+
   @override
   Widget build(BuildContext context) {
     final Widget widget;
