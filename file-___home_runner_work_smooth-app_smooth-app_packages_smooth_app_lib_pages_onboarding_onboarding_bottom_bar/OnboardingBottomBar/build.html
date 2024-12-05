@@ -74,7 +74,7 @@ Widget build(BuildContext context) {
   final Size screenSize = MediaQuery.sizeOf(context);
   &#47;&#47; Side padding is 8% of total width.
   final double sidePadding = screenSize.width * .08;
-  final bool hasPrevious = rightButton != null;
+  final bool hasPrevious = leftButton != null;
   return Column(
     children: &lt;Widget&gt;[
       Container(
@@ -95,14 +95,14 @@ Widget build(BuildContext context) {
               : MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: &lt;Widget&gt;[
-            if (rightButton != null)
+            if (leftButton != null)
               Semantics(
-                sortKey: OrdinalSortKey(semanticsHorizontalOrder ? 1.0 : 2.0),
-                child: rightButton,
+                sortKey: OrdinalSortKey(semanticsHorizontalOrder ? 2.0 : 1.0),
+                child: leftButton,
               ),
             Semantics(
-              sortKey: OrdinalSortKey(semanticsHorizontalOrder ? 2.0 : 1.0),
-              child: leftButton,
+              sortKey: OrdinalSortKey(semanticsHorizontalOrder ? 1.0 : 2.0),
+              child: rightButton,
             ),
           ],
         ),

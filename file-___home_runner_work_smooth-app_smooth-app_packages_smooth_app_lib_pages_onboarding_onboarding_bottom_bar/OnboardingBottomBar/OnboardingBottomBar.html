@@ -49,9 +49,9 @@
 </h1></div>
 
     <section class="multi-line-signature">const
-      <span class="name ">OnboardingBottomBar</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-leftButton">{<span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">leftButton</span>, </span></li>
+      <span class="name ">OnboardingBottomBar</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-rightButton">{<span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">rightButton</span>, </span></li>
 <li><span class="parameter" id="-param-backgroundColor"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">backgroundColor</span>, </span></li>
-<li><span class="parameter" id="-param-rightButton"><span class="type-annotation">dynamic</span> <span class="parameter-name">rightButton</span>, </span></li>
+<li><span class="parameter" id="-param-leftButton"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">leftButton</span>, </span></li>
 <li><span class="parameter" id="-param-semanticsHorizontalOrder"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">semanticsHorizontalOrder</span> = <span class="default-value">true</span>}</span></li>
 </ol>)
     </section>
@@ -63,9 +63,9 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">const OnboardingBottomBar({
-  required this.leftButton,
+  required this.rightButton,
   required this.backgroundColor,
-  this.rightButton,
+  required this.leftButton,
   this.semanticsHorizontalOrder = true,
 });</code></pre>
 </section>
