@@ -9,11 +9,21 @@ import 'package:smooth_app/query/product_query.dart';
 class LocationListSupplier {
   LocationListSupplier(
     this.query,
+    this.optimizedSearch,
   );
 
+  /// Query text.
   final String query;
 
+  /// True if we want to focus on shops.
+  final bool optimizedSearch;
+
+  /// Locations as result.
   final List<OsmLocation> locations = <OsmLocation>[];
+
+  /// Returns additional query parameters.
+  String _getAdditionalParameters() =>
+      optimizedSearch ? '&osm_tag=shop&osm_tag=amenity' : '';
 
   /// Returns null if OK, or the message error
   Future<String?> asyncLoad() async {
@@ -35,10 +45,9 @@ class LocationListSupplier {
           scheme: 'https',
           host: 'photon.komoot.io',
           path: 'api',
-          queryParameters: <String, String>{
-            'q': query,
-            'lang': getQueryLanguage().offTag,
-          },
+          query: 'q=${Uri.encodeComponent(query)}'
+              '&lang=${getQueryLanguage().offTag}'
+              '${_getAdditionalParameters()}',
         ),
       );
       if (response.statusCode != 200) {
@@ -70,6 +79,8 @@ class LocationListSupplier {
         final String? countryCode = properties['countrycode'];
         final String? country = properties['country'];
         final String? postCode = properties['postcode'];
+        final String? osmKey = properties['osm_key'];
+        final String? osmValue = properties['osm_value'];
         final OsmLocation osmLocation = OsmLocation(
           osmId: osmId,
           osmType: osmType,
@@ -81,6 +92,8 @@ class LocationListSupplier {
           street: street,
           country: country,
           countryCode: countryCode,
+          osmKey: osmKey,
+          osmValue: osmValue,
         );
         locations.add(osmLocation);
       }

@@ -10,7 +10,7 @@ import 'package:smooth_app/widgets/smooth_text.dart';
 /// Inspiration was found in https://stackoverflow.com/questions/66935362
 class AutocompleteOptions<T extends Object> extends StatelessWidget {
   const AutocompleteOptions({
-    Key? key,
+    super.key,
     required this.displayStringForOption,
     required this.onSelected,
     required this.options,
@@ -18,8 +18,7 @@ class AutocompleteOptions<T extends Object> extends StatelessWidget {
     required this.maxOptionsWidth,
     this.search,
   })  : assert(maxOptionsHeight >= 0),
-        assert(maxOptionsWidth >= 0),
-        super(key: key);
+        assert(maxOptionsWidth >= 0);
 
   final AutocompleteOptionToString<T> displayStringForOption;
   final AutocompleteOnSelected<T> onSelected;
@@ -78,8 +77,8 @@ class _AutocompleteOptionsItem<T extends Object> extends StatelessWidget {
     required this.displayStringForOption,
     required this.onSelected,
     this.search,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final T option;
   final String? search;

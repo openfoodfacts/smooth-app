@@ -4,6 +4,7 @@ import 'package:smooth_app/database/dao_osm_location.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
+import 'package:smooth_app/pages/locations/favorite_location_helper.dart';
 import 'package:smooth_app/pages/locations/location_map_page.dart';
 import 'package:smooth_app/pages/locations/osm_location.dart';
 import 'package:smooth_app/pages/product/common/search_preloaded_item.dart';
@@ -20,10 +21,23 @@ class SearchLocationPreloadedItem extends SearchPreloadedItem {
     final BuildContext context, {
     final VoidCallback? onDismissItem,
   }) {
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
+    final bool isFavorite = FavoriteLocationHelper().isFavorite(
+      localDatabase,
+      osmLocation,
+    );
     final String? title = osmLocation.getTitle();
     final String? subtitle = osmLocation.getSubtitle();
     final Widget child = SmoothCard(
       child: ListTile(
+        leading: IconButton(
+          icon: Icon(isFavorite ? Icons.favorite : Icons.favorite_border),
+          onPressed: () async => FavoriteLocationHelper().setFavorite(
+            localDatabase,
+            osmLocation,
+            !isFavorite,
+          ),
+        ),
         onTap: () {
           if (popFirst) {
             // pops this result page

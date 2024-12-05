@@ -2,10 +2,12 @@ import 'package:flutter/painting.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/background/background_task.dart';
+import 'package:smooth_app/background/background_task_queue.dart';
 import 'package:smooth_app/background/operation_type.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/query/search_products_manager.dart';
 
 /// Background task about downloading products to translate.
 class BackgroundTaskLanguageRefresh extends BackgroundTask {
@@ -14,11 +16,16 @@ class BackgroundTaskLanguageRefresh extends BackgroundTask {
     required super.uniqueId,
     required super.stamp,
     required this.excludeBarcodes,
+    required this.productType,
   });
 
-  BackgroundTaskLanguageRefresh.fromJson(Map<String, dynamic> json)
+  BackgroundTaskLanguageRefresh.fromJson(super.json)
       : excludeBarcodes = _getStringList(json, _jsonTagExcludeBarcodes),
-        super.fromJson(json);
+        productType =
+            ProductType.fromOffTag(json[_jsonTagProductType] as String?) ??
+// for legacy reason (not refreshed products = no product type)
+                ProductType.food,
+        super.fromJson();
 
   static List<String> _getStringList(
       final Map<String, dynamic> json, final String tag) {
@@ -32,30 +39,53 @@ class BackgroundTaskLanguageRefresh extends BackgroundTask {
   }
 
   final List<String> excludeBarcodes;
+  final ProductType productType;
 
   static const String _jsonTagExcludeBarcodes = 'excludeBarcodes';
+  static const String _jsonTagProductType = 'productType';
 
   @override
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> result = super.toJson();
     result[_jsonTagExcludeBarcodes] = excludeBarcodes;
+    result[_jsonTagProductType] = productType.offTag;
     return result;
   }
 
   static const OperationType _operationType = OperationType.languageRefresh;
 
+  UriProductHelper get _uriProductHelper => ProductQuery.getUriProductHelper(
+        productType: productType,
+      );
+
   static Future<void> addTask(
     final LocalDatabase localDatabase, {
     final List<String> excludeBarcodes = const <String>[],
+    final ProductType? productType,
   }) async {
+    if (productType == null) {
+      for (final ProductType item in ProductType.values) {
+        await addTask(
+          localDatabase,
+          excludeBarcodes: excludeBarcodes,
+          productType: item,
+        );
+      }
+      return;
+    }
     final String uniqueId = await _operationType.getNewKey(
       localDatabase,
+      productType: productType,
     );
     final BackgroundTask task = _getNewTask(
       uniqueId,
       excludeBarcodes,
+      productType,
     );
-    await task.addToManager(localDatabase);
+    await task.addToManager(
+      localDatabase,
+      queue: BackgroundTaskQueue.longHaul,
+    );
   }
 
   @override
@@ -66,12 +96,14 @@ class BackgroundTaskLanguageRefresh extends BackgroundTask {
   static BackgroundTask _getNewTask(
     final String uniqueId,
     final List<String> excludeBarcodes,
+    final ProductType productType,
   ) =>
       BackgroundTaskLanguageRefresh._(
         processName: _operationType.processName,
         uniqueId: uniqueId,
-        stamp: ';languageRefresh',
+        stamp: ';languageRefresh;${productType.offTag}',
         excludeBarcodes: excludeBarcodes,
+        productType: productType,
       );
 
   @override
@@ -91,11 +123,13 @@ class BackgroundTaskLanguageRefresh extends BackgroundTask {
       language,
       limit: _pageSize,
       excludeBarcodes: excludeBarcodes,
+      productType: productType,
     );
     if (barcodes.isEmpty) {
       return;
     }
-    final SearchResult searchResult = await OpenFoodAPIClient.searchProducts(
+    final SearchResult searchResult =
+        await SearchProductsManager.searchProducts(
       getUser(),
       ProductSearchQueryConfiguration(
         fields: ProductQuery.fields,
@@ -108,14 +142,19 @@ class BackgroundTaskLanguageRefresh extends BackgroundTask {
         country: ProductQuery.getCountry(),
         version: ProductQuery.productQueryVersion,
       ),
-      uriHelper: uriProductHelper,
+      uriHelper: _uriProductHelper,
+      type: SearchProductsType.background,
     );
     if (searchResult.products == null || searchResult.count == null) {
       throw Exception('Cannot refresh language');
     }
 
     // save into database and refresh all visible products.
-    await daoProduct.putAll(searchResult.products!, language);
+    await daoProduct.putAll(
+      searchResult.products!,
+      language,
+      productType: productType,
+    );
     localDatabase.upToDate.setLatestDownloadedProducts(searchResult.products!);
 
     // Next page

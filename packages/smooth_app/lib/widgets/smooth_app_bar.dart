@@ -17,10 +17,11 @@ class SmoothAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.actions,
     this.flexibleSpace,
     this.bottom,
-    this.elevation,
-    this.scrolledUnderElevation,
+    this.elevation = 1.0,
+    this.scrolledUnderElevation = 0.0,
+    this.notificationPredicate,
     this.shadowColor,
-    this.surfaceTintColor,
+    this.elevationColor,
     this.backgroundColor,
     this.foregroundColor,
     this.iconTheme,
@@ -41,11 +42,16 @@ class SmoothAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.actionModeCloseTooltip,
     this.onLeaveActionMode,
     this.ignoreSemanticsForSubtitle = false,
-    Key? key,
+    this.forceMaterialTransparency = false,
+    this.clipBehavior,
+    super.key,
   })  : assert(!actionMode || actionModeTitle != null),
+        assert(
+          elevationColor == null || elevation >= 0.0,
+          'elevationColor requires a valid elevation',
+        ),
         preferredSize =
-            _PreferredAppBarSize(toolbarHeight, bottom?.preferredSize.height),
-        super(key: key);
+            _PreferredAppBarSize(toolbarHeight, bottom?.preferredSize.height);
 
   final Widget? leading;
   final bool automaticallyImplyLeading;
@@ -57,10 +63,11 @@ class SmoothAppBar extends StatelessWidget implements PreferredSizeWidget {
   final List<Widget>? actionModeActions;
   final Widget? flexibleSpace;
   final PreferredSizeWidget? bottom;
-  final double? elevation;
+  final double elevation;
   final double? scrolledUnderElevation;
+  final ScrollNotificationPredicate? notificationPredicate;
   final Color? shadowColor;
-  final Color? surfaceTintColor;
+  final Color? elevationColor;
   final Color? backgroundColor;
   final Color? foregroundColor;
   final IconThemeData? iconTheme;
@@ -80,6 +87,8 @@ class SmoothAppBar extends StatelessWidget implements PreferredSizeWidget {
   final TextStyle? titleTextStyle;
   final SystemUiOverlayStyle? systemOverlayStyle;
   final bool? ignoreSemanticsForSubtitle;
+  final bool forceMaterialTransparency;
+  final Clip? clipBehavior;
 
   final VoidCallback? onLeaveActionMode;
   final String? actionModeCloseTooltip;
@@ -88,6 +97,19 @@ class SmoothAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     final ModalRoute<dynamic>? parentRoute = ModalRoute.of(context);
+
+    Widget child = actionMode
+        ? _createActionModeAppBar(context)
+        : _createAppBar(context, parentRoute);
+
+    /// Elevation support is removed with Material 3.0
+    if (elevation > 0.0) {
+      child = Material(
+        color: elevationColor,
+        elevation: elevation,
+        child: child,
+      );
+    }
 
     return AnimatedSwitcher(
       duration: const Duration(milliseconds: 100),
@@ -100,13 +122,11 @@ class SmoothAppBar extends StatelessWidget implements PreferredSizeWidget {
           child: child,
         );
       },
-      child: actionMode
-          ? _createActionModeAppBar(context)
-          : _createAppBar(parentRoute),
+      child: child,
     );
   }
 
-  Widget _createAppBar(ModalRoute<dynamic>? parentRoute) {
+  Widget _createAppBar(BuildContext context, ModalRoute<dynamic>? parentRoute) {
     final bool useCloseButton =
         parentRoute is PageRoute<dynamic> && parentRoute.fullscreenDialog;
     Widget? leadingWidget = leading;
@@ -121,15 +141,22 @@ class SmoothAppBar extends StatelessWidget implements PreferredSizeWidget {
       leading: leadingWidget,
       automaticallyImplyLeading: automaticallyImplyLeading,
       title: title != null
-          ? _AppBarTitle(title: title!, subTitle: subTitle)
+          ? _AppBarTitle(
+              title: title!,
+              subTitle: subTitle,
+              titleTextStyle: titleTextStyle,
+              color: foregroundColor,
+            )
           : null,
       actions: actions,
       flexibleSpace: flexibleSpace,
       bottom: bottom,
-      elevation: elevation,
       scrolledUnderElevation: scrolledUnderElevation,
+      notificationPredicate:
+          notificationPredicate ?? defaultScrollNotificationPredicate,
       shadowColor: shadowColor,
-      surfaceTintColor: surfaceTintColor,
+      surfaceTintColor:
+          backgroundColor ?? Theme.of(context).appBarTheme.backgroundColor,
       backgroundColor: backgroundColor,
       foregroundColor: foregroundColor,
       iconTheme: iconTheme,
@@ -144,8 +171,9 @@ class SmoothAppBar extends StatelessWidget implements PreferredSizeWidget {
       toolbarHeight: toolbarHeight,
       leadingWidth: leadingWidth,
       toolbarTextStyle: toolbarTextStyle,
-      titleTextStyle: titleTextStyle,
       systemOverlayStyle: systemOverlayStyle,
+      forceMaterialTransparency: forceMaterialTransparency,
+      clipBehavior: clipBehavior,
     );
   }
 
@@ -162,6 +190,7 @@ class SmoothAppBar extends StatelessWidget implements PreferredSizeWidget {
           title: actionModeTitle != null
               ? _AppBarTitle(
                   title: actionModeTitle!,
+                  titleTextStyle: titleTextStyle,
                   subTitle: actionModeSubTitle,
                   ignoreSemanticsForSubtitle: ignoreSemanticsForSubtitle,
                 )
@@ -169,10 +198,10 @@ class SmoothAppBar extends StatelessWidget implements PreferredSizeWidget {
           actions: actionModeActions,
           flexibleSpace: flexibleSpace,
           bottom: bottom,
-          elevation: elevation,
           scrolledUnderElevation: scrolledUnderElevation,
           shadowColor: shadowColor,
-          surfaceTintColor: surfaceTintColor,
+          surfaceTintColor:
+              backgroundColor ?? Theme.of(context).appBarTheme.backgroundColor,
           backgroundColor: backgroundColor,
           foregroundColor: foregroundColor,
           iconTheme: iconTheme,
@@ -232,24 +261,47 @@ class _ActionModeCloseButton extends StatelessWidget {
 class _AppBarTitle extends StatelessWidget {
   const _AppBarTitle({
     required this.title,
+    required this.titleTextStyle,
     required this.subTitle,
+    this.color,
     this.ignoreSemanticsForSubtitle,
-    Key? key,
-  }) : super(key: key);
+  });
 
   final Widget title;
+  final TextStyle? titleTextStyle;
   final Widget? subTitle;
   final bool? ignoreSemanticsForSubtitle;
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        title,
+        DefaultTextStyle(
+          maxLines: subTitle != null ? 1 : 2,
+          overflow: TextOverflow.ellipsis,
+          style: (titleTextStyle ??
+                  AppBarTheme.of(context).titleTextStyle ??
+                  theme.appBarTheme.titleTextStyle?.copyWith(
+                    fontWeight: FontWeight.w500,
+                  ) ??
+                  theme.textTheme.titleLarge?.copyWith(
+                    fontWeight: FontWeight.w500,
+                  ) ??
+                  const TextStyle(
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.w500,
+                  ))
+              .copyWith(color: color),
+          child: title,
+        ),
         if (subTitle != null)
           DefaultTextStyle(
-            style: Theme.of(context).textTheme.bodyMedium ?? const TextStyle(),
+            style: (theme.textTheme.bodyMedium ?? const TextStyle())
+                .copyWith(color: color),
             child: ExcludeSemantics(
               excluding: ignoreSemanticsForSubtitle ?? false,
               child: subTitle,

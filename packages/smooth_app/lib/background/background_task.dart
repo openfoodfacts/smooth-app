@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/background/background_task_manager.dart';
+import 'package:smooth_app/background/background_task_queue.dart';
 import 'package:smooth_app/background/background_task_refresh_later.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
@@ -18,6 +19,7 @@ abstract class BackgroundTask {
     required this.stamp,
     final OpenFoodFactsLanguage? language,
   })   // TODO(monsieurtanuki): don't store the password in a clear format...
+// TODO(monsieurtanuki): store the uriProductHelper as well
   : user = jsonEncode(ProductQuery.getWriteUser().toJson()),
         country = ProductQuery.getCountry().offTag,
         languageCode = (language ?? ProductQuery.getLanguage()).offTag;
@@ -121,10 +123,14 @@ abstract class BackgroundTask {
   @protected
   Future<void> addToManager(
     final LocalDatabase localDatabase, {
+    required final BackgroundTaskQueue queue,
     final BuildContext? context,
     final bool showSnackBar = true,
   }) async {
-    await BackgroundTaskManager.getInstance(localDatabase).add(this);
+    await BackgroundTaskManager.getInstance(
+      localDatabase,
+      queue: queue,
+    ).add(this);
     if (context == null || !context.mounted) {
       return;
     }
@@ -180,10 +186,6 @@ abstract class BackgroundTask {
   /// We return true only in rare cases. Typically, when we split an task in
   /// subtasks that call the next one at the end.
   bool get hasImmediateNextTask => false;
-
-// TODO(monsieurtanuki): store the uriProductHelper as well
-  @protected
-  UriProductHelper get uriProductHelper => ProductQuery.uriProductHelper;
 
   /// Returns true if tasks with the same stamp would overwrite each-other.
   bool isDeduplicable() => true;

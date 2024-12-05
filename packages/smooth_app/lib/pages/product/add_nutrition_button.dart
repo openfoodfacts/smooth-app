@@ -10,6 +10,10 @@ class AddNutritionButton extends StatelessWidget {
 
   final Product product;
 
+  static bool acceptsNutritionFacts(final Product product) =>
+      product.productType != ProductType.product &&
+      product.productType != ProductType.beauty;
+
   @override
   Widget build(BuildContext context) => addPanelButton(
         AppLocalizations.of(context).score_add_missing_nutrition_facts,

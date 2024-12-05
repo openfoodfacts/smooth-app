@@ -5,7 +5,7 @@ import 'dart:isolate';
 import 'package:collection/collection.dart';
 import 'package:flutter/widgets.dart';
 import 'package:http/http.dart' as http;
-import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:smooth_app/data_models/news_feed/newsfeed_model.dart';
@@ -28,8 +28,6 @@ class AppNewsProvider extends ChangeNotifier {
         _preferences = preferences,
         _uriOverride = preferences.getDevModeString(
             UserPreferencesDevMode.userPreferencesCustomNewsJSONURI),
-        _domain = preferences.getDevModeString(
-            UserPreferencesDevMode.userPreferencesTestEnvDomain),
         _prodEnv = preferences
             .getFlag(UserPreferencesDevMode.userPreferencesFlagProd) {
     _preferences.addListener(_onPreferencesChanged);
@@ -69,8 +67,15 @@ class AppNewsProvider extends ChangeNotifier {
       return;
     }
 
+    final PackageInfo app = await PackageInfo.fromPlatform();
+
     final AppNews? appNews = await Isolate.run(
-        () => _parseJSONAndGetLocalizedContent(jsonString!, locale));
+      () => _parseJSONAndGetLocalizedContent(
+        jsonString!,
+        locale,
+        app.version,
+      ),
+    );
     if (appNews == null) {
       _emit(const AppNewsStateError('Unable to parse the JSON news file'));
       Logs.e('Unable to parse the JSON news file');
@@ -82,9 +87,9 @@ class AppNewsProvider extends ChangeNotifier {
 
   void _emit(AppNewsState state) {
     _state = state;
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      notifyListeners();
-    });
+    WidgetsBinding.instance
+      ..addPostFrameCallback((_) => notifyListeners())
+      ..ensureVisualUpdate();
   }
 
   AppNewsState get state => _state;
@@ -92,36 +97,32 @@ class AppNewsProvider extends ChangeNotifier {
   static Future<AppNews?> _parseJSONAndGetLocalizedContent(
     String json,
     String locale,
+    String appVersion,
   ) async {
     try {
-      final _TagLineJSON tagLineJSON =
-          _TagLineJSON.fromJson(jsonDecode(json) as Map<dynamic, dynamic>);
-      return tagLineJSON.toTagLine(locale);
+      final _TagLineJSON tagLineJSON = _TagLineJSON.fromJson(
+        jsonDecode(json) as Map<dynamic, dynamic>,
+      );
+      return tagLineJSON.toTagLine(locale, appVersion);
     } catch (_) {
       return null;
     }
   }
 
-  /// API URL: [https://world.openfoodfacts.[org/net]/resources/files/tagline-off-ios-v3.json]
-  /// or [https://world.openfoodfacts.[org/net]/resources/files/tagline-off-android-v3.json]
+  /// The content is stored on GitHub with two static files: one for Android,
+  /// and the other for iOS.
+  /// [https://github.com/openfoodfacts/smooth-app_assets/tree/main/prod/tagline]
   Future<String?> _fetchJSON() async {
     try {
-      final UriProductHelper uriProductHelper = ProductQuery.uriProductHelper;
-      final Map<String, String> headers = <String, String>{};
       final Uri uri;
 
       if (_uriOverride?.isNotEmpty == true) {
         uri = Uri.parse(_uriOverride!);
       } else {
-        uri = uriProductHelper.getUri(path: _newsUrl);
+        uri = Uri.parse(_newsUrl);
       }
 
-      if (uriProductHelper.userInfoForPatch != null) {
-        headers['Authorization'] =
-            'Basic ${base64Encode(utf8.encode(uriProductHelper.userInfoForPatch!))}';
-      }
-
-      final http.Response response = await http.get(uri, headers: headers);
+      final http.Response response = await http.get(uri);
 
       if (response.statusCode == 404) {
         Logs.e("Remote file $uri doesn't exist!");
@@ -142,10 +143,12 @@ class AppNewsProvider extends ChangeNotifier {
 
   /// Based on the platform, the URL may differ
   String get _newsUrl {
+    final String env = _prodEnv != false ? 'prod' : 'dev';
+
     if (Platform.isIOS || Platform.isMacOS) {
-      return '/resources/files/tagline-off-ios-v3.json';
+      return 'https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/$env/tagline/ios/main.json';
     } else {
-      return '/resources/files/tagline-off-android-v3.json';
+      return 'https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/$env/tagline/android/main.json';
     }
   }
 
@@ -165,24 +168,19 @@ class AppNewsProvider extends ChangeNotifier {
           .isAfter(DateTime.now().add(const Duration(days: -1)));
 
   bool? _prodEnv;
-  String? _domain;
   String? _uriOverride;
 
-  /// [ProductQuery.uriProductHelper] is not synced yet,
+  /// [ProductQuery._uriProductHelper] is not synced yet,
   /// so we have to check it manually
   Future<void> _onPreferencesChanged() async {
     final String jsonURI = _preferences.getDevModeString(
             UserPreferencesDevMode.userPreferencesCustomNewsJSONURI) ??
         '';
-    final String domain = _preferences.getDevModeString(
-            UserPreferencesDevMode.userPreferencesTestEnvDomain) ??
-        '';
     final bool prodEnv =
         _preferences.getFlag(UserPreferencesDevMode.userPreferencesFlagProd) ??
             true;
 
-    if (domain != _domain || prodEnv != _prodEnv || jsonURI != _uriOverride) {
-      _domain = domain;
+    if (prodEnv != _prodEnv || jsonURI != _uriOverride) {
       _prodEnv = prodEnv;
       _uriOverride = jsonURI;
       loadLatestNews(forceUpdate: true);

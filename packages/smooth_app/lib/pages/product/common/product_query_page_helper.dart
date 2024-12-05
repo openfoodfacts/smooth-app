@@ -8,7 +8,31 @@ import 'package:smooth_app/pages/product/common/search_helper.dart';
 import 'package:smooth_app/query/paged_product_query.dart';
 
 class ProductQueryPageHelper {
-  Future<void> openBestChoice({
+  const ProductQueryPageHelper._();
+
+  static Future<Widget> getBestChoiceWidget({
+    required final PagedProductQuery productQuery,
+    required final LocalDatabase localDatabase,
+    required final String name,
+    required final BuildContext context,
+    bool editableAppBarTitle = true,
+    bool searchResult = true,
+  }) async {
+    final ProductListSupplier supplier =
+        await ProductListSupplier.getBestSupplier(
+      productQuery,
+      localDatabase,
+    );
+
+    return ProductQueryPage(
+      productListSupplier: supplier,
+      name: name,
+      includeAppBar: editableAppBarTitle,
+      searchResult: searchResult,
+    );
+  }
+
+  static Future<void> openBestChoice({
     required final PagedProductQuery productQuery,
     required final LocalDatabase localDatabase,
     required final String name,
@@ -17,23 +41,22 @@ class ProductQueryPageHelper {
     bool searchResult = true,
     SearchQueryCallback? editQueryCallback,
   }) async {
-    final ProductListSupplier supplier =
-        await ProductListSupplier.getBestSupplier(
-      productQuery,
-      localDatabase,
+    final Widget widget = await getBestChoiceWidget(
+      productQuery: productQuery,
+      localDatabase: localDatabase,
+      name: name,
+      context: context,
+      editableAppBarTitle: editableAppBarTitle,
+      searchResult: searchResult,
     );
+
     if (!context.mounted) {
       return;
     }
-    final bool? result = await Navigator.push<bool>(
-      context,
+
+    final bool? result = await Navigator.of(context).push<bool>(
       MaterialPageRoute<bool>(
-        builder: (BuildContext context) => ProductQueryPage(
-          productListSupplier: supplier,
-          name: name,
-          editableAppBarTitle: editableAppBarTitle,
-          searchResult: searchResult,
-        ),
+        builder: (BuildContext context) => widget,
       ),
     );
 

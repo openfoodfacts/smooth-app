@@ -1,15 +1,19 @@
 # Add labels to any any pull request with changes to the specified paths
 Android:
 - changed-files:
-  - any-glob-to-any-file: 'packages/smooth_app/android/**/*.md'
+  - any-glob-to-any-file: 'packages/smooth_app/android/**/*'
 
 🖥️ MacOS:
 - changed-files:
-  - any-glob-to-any-file: 'packages/smooth_app/macos/**/*.md'
+  - any-glob-to-any-file: 'packages/smooth_app/macos/**/*'
 
 Assets cache:
 - changed-files:
-  - any-glob-to-any-file: 'packages/smooth_app/assets/cache/**/*.md'
+  - any-glob-to-any-file: 'packages/smooth_app/assets/cache/**/*'
+
+navigation:
+- changed-files:
+  - any-glob-to-any-file: 'packages/smooth_app/lib/widgets/smooth_navigation_bar.dart'
 
 🔁 Background tasks:
 - changed-files:
@@ -42,7 +46,7 @@ Dependencies:
 
 🍎 iOS:
 - changed-files:
-  - any-glob-to-any-file: 'packages/smooth_app/ios/**/*.md'
+  - any-glob-to-any-file: 'packages/smooth_app/ios/**/*'
 
 ⚡️ Fastlane:
 - changed-files:
@@ -51,11 +55,11 @@ Dependencies:
 
 Asset cache:
 - changed-files:
-  - any-glob-to-any-file: 'packages/smooth_app/assets/cache/**/*.md'
+  - any-glob-to-any-file: 'packages/smooth_app/assets/cache/**/*'
 
 Web:
 - changed-files:
-  - any-glob-to-any-file: 'packages/smooth_app/web/**/*.md'
+  - any-glob-to-any-file: 'packages/smooth_app/web/**/*'
 
 🧪 Tests:
 - changed-files:
@@ -83,11 +87,11 @@ Web:
 
 Database:
 - changed-files:
-  - any-glob-to-any-file: 'packages/smooth_app/lib/database/**/*.md'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/database/**/*'
 
 🌐 l10n:
 - changed-files:
-  - any-glob-to-any-file: 'packages/smooth_app/lib/l10n/**/*.md'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/l10n/**/*'
 
 History:
 - changed-files:
@@ -105,10 +109,6 @@ History:
 - changed-files:
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/onboarding/**/*'
   - any-glob-to-any-file: 'packages/smooth_app/assets/onboarding/**/*'
-
-✏️ Editing - Nutrition input:
-- changed-files:
-  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/nutrition_page_loaded.dart'
 
 🤳🥫 Scan:
 - changed-files:
@@ -154,12 +154,14 @@ Product addition:
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/reordered_knowledge_panel_cards.dart'
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/standard_knowledge_panel_cards.dart'
   - any-glob-to-any-file: 'packages/smooth_app/lib/knowledge_panel/knowledge_panels/knowledge_panel_card.dart'
-
+  - any-glob-to-any-file: 'packages/smooth_app/lib/knowledge_panel/knowledge_panels/knowledge_panel_page.dart'
+  
 🤖 Robotoff:
 - changed-files:
   - any-glob-to-any-file: 'packages/smooth_app/lib/database/robotoff_questions_query.dart'
   - any-glob-to-any-file: 'packages/smooth_app/lib/cards/product_cards/question_card.dart'
-
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/product_questions_widget.dart'
+  
 Hunger Games:
 - changed-files:
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/hunger_games/question_answers_options.dart'
@@ -206,18 +208,6 @@ GitHub:
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/user_preferences_attribute_group.dart'
   - any-glob-to-any-file: 'packages/smooth_app/lib/helpers/user_management_helper.dart'
 
-#tag picker:
-
-✏️ Editing - Category picker:
-- changed-files:
-  - any-glob-to-any-file: 'packages/smooth_app/lib/data_models/category_tree_supplier.dart'
-  - any-glob-to-any-file: 'packages/smooth_app/example/smooth_category_picker_example.dart'
-  - any-glob-to-any-file: 'packages/smooth_app/generic_lib/dialogs/smooth_category_picker.dart'
-  - any-glob-to-any-file: 'packages/smooth_app/test/dialogs/smooth_category_picker_test.dart'
-  - any-glob-to-any-file: 'packages/smooth_app/lib/data_models/category_query_model.dart'
-  - any-glob-to-any-file: 'packages/smooth_app/lib/data_models/query_category_tree_supplier.dart'
-  - any-glob-to-any-file: 'packages/smooth_app/lib/data_models/smooth_category.dart'
-
 Ranking:
 - changed-files:
   - any-glob-to-any-file: 'packages/smooth_app/lib/helpers/product_compatibility_helper.dart'
@@ -242,10 +232,34 @@ Product scan carousel:
 - changed-files:
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/scan/carousel/scan_carousel.dart'
 
+✏️ Editing:
+- changed-files:
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/edit_product_page.dart'
+
+✏️ Editing - Nutrition input:
+- changed-files:
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/nutrition_page_loaded.dart'
+
+#tag picker:
+
+✏️ Editing - Category picker:
+- changed-files:
+  - any-glob-to-any-file: 'packages/smooth_app/lib/data_models/category_tree_supplier.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/example/smooth_category_picker_example.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/generic_lib/dialogs/smooth_category_picker.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/test/dialogs/smooth_category_picker_test.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/data_models/category_query_model.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/data_models/query_category_tree_supplier.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/data_models/smooth_category.dart'
+
 ✏️ Editing - 📦 Packaging input:
 - changed-files:
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/edit_new_packagings.dart'
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/ocr_packaging_helper.dart'
+
+✏️ Editing - Basic info input:
+- changed-files:
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/add_basic_details_page.dart'
 
 OCR page:
 - changed-files:
@@ -253,10 +267,6 @@ OCR page:
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/edit_ocr/edit_ocr_page.dart'
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/edit_ocr/ocr_ingredients_helper.dart'
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/edit_ocr/ocr_packaging_helper.dart'
-
-✏️ Editing - Basic info input:
-- changed-files:
-  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/add_basic_details_page.dart'
 
 Prices:
 - changed-files:
@@ -284,5 +294,23 @@ Prices:
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/onboarding/currency_selector.dart'
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/onboarding/currency_selector_helper.dart'
 
-  
+router:
+- changed-files:
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/navigator/app_navigator.dart'
 
+🛣️ Road to scores:
+- changed-files:
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/product_incomplete_card.dart'
+
+tagline:
+- changed-files:
+  - any-glob-to-any-file: 'packages/smooth_app/lib/data_models/news_feed/newsfeed_json.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/data_models/news_feed/newsfeed_model.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/data_models/news_feed/newsfeed_provider.dart'
+
+🖼️ Photos - Photo manager:
+- changed-files:
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/image/product_image_gallery_other_view.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/image/product_image_other_page.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/gallery_view/product_image_gallery_view.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/gallery_view/product_image_gallery_tabs.dart'

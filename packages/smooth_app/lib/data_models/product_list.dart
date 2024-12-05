@@ -47,6 +47,7 @@ class ProductList {
     this.pageNumber = 0,
     this.language,
     this.country,
+    this.productType,
   });
 
   ProductList.keywordSearch(
@@ -55,6 +56,7 @@ class ProductList {
     required int pageNumber,
     required OpenFoodFactsLanguage language,
     required OpenFoodFactsCountry? country,
+    required ProductType productType,
   }) : this._(
           listType: ProductListType.HTTP_SEARCH_KEYWORDS,
           parameters: keywords,
@@ -62,6 +64,7 @@ class ProductList {
           pageNumber: pageNumber,
           language: language,
           country: country,
+          productType: productType,
         );
 
   ProductList.categorySearch(
@@ -70,6 +73,7 @@ class ProductList {
     required int pageNumber,
     required OpenFoodFactsLanguage language,
     required OpenFoodFactsCountry? country,
+    required ProductType productType,
   }) : this._(
           listType: ProductListType.HTTP_SEARCH_CATEGORY,
           parameters: category,
@@ -77,6 +81,7 @@ class ProductList {
           pageNumber: pageNumber,
           language: language,
           country: country,
+          productType: productType,
         );
 
   ProductList.contributor(
@@ -84,12 +89,14 @@ class ProductList {
     required int pageSize,
     required int pageNumber,
     required OpenFoodFactsLanguage language,
+    required ProductType productType,
   }) : this._(
           listType: ProductListType.HTTP_USER_CONTRIBUTOR,
           parameters: userId,
           pageSize: pageSize,
           pageNumber: pageNumber,
           language: language,
+          productType: productType,
         );
 
   ProductList.informer(
@@ -97,12 +104,14 @@ class ProductList {
     required int pageSize,
     required int pageNumber,
     required OpenFoodFactsLanguage language,
+    required ProductType productType,
   }) : this._(
           listType: ProductListType.HTTP_USER_INFORMER,
           parameters: userId,
           pageSize: pageSize,
           pageNumber: pageNumber,
           language: language,
+          productType: productType,
         );
 
   ProductList.photographer(
@@ -110,12 +119,14 @@ class ProductList {
     required int pageSize,
     required int pageNumber,
     required OpenFoodFactsLanguage language,
+    required ProductType productType,
   }) : this._(
           listType: ProductListType.HTTP_USER_PHOTOGRAPHER,
           parameters: userId,
           pageSize: pageSize,
           pageNumber: pageNumber,
           language: language,
+          productType: productType,
         );
 
   ProductList.toBeCompleted(
@@ -123,12 +134,14 @@ class ProductList {
     required int pageSize,
     required int pageNumber,
     required OpenFoodFactsLanguage language,
+    required ProductType productType,
   }) : this._(
           listType: ProductListType.HTTP_USER_TO_BE_COMPLETED,
           parameters: userId,
           pageSize: pageSize,
           pageNumber: pageNumber,
           language: language,
+          productType: productType,
         );
 
   ProductList.allToBeCompleted({
@@ -136,12 +149,14 @@ class ProductList {
     required int pageNumber,
     required OpenFoodFactsLanguage language,
     required OpenFoodFactsCountry? country,
+    required ProductType productType,
   }) : this._(
           listType: ProductListType.HTTP_ALL_TO_BE_COMPLETED,
           pageSize: pageSize,
           pageNumber: pageNumber,
           language: language,
           country: country,
+          productType: productType,
         );
 
   ProductList.history() : this._(listType: ProductListType.HISTORY);
@@ -170,6 +185,9 @@ class ProductList {
 
   /// Country at query time.
   final OpenFoodFactsCountry? country;
+
+  /// ProductType at query time.
+  final ProductType? productType;
 
   /// "Total size" returned by the query.
   int totalSize = 0;
@@ -251,7 +269,8 @@ class ProductList {
             ',$pageSize'
             ',$pageNumber'
             ',${language?.code ?? ''}'
-            ',${country?.offTag ?? ''}';
+            ',${country?.offTag ?? ''}'
+            '${productType == null || productType == ProductType.food ? '' : ',${productType!.offTag}'}';
     }
   }
 

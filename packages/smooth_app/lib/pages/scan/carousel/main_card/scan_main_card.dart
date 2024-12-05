@@ -6,12 +6,13 @@ import 'package:smooth_app/data_models/news_feed/newsfeed_provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/provider_helper.dart';
-import 'package:smooth_app/helpers/strings_helper.dart';
 import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/scan/carousel/main_card/scan_tagline.dart';
-import 'package:smooth_app/resources/app_icons.dart';
-import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/pages/search/search_field.dart';
+import 'package:smooth_app/pages/search/search_page.dart';
+import 'package:smooth_app/pages/search/search_product_helper.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:smooth_app/widgets/smooth_text.dart';
 
 class ScanMainCard extends StatelessWidget {
   const ScanMainCard();
@@ -92,7 +93,7 @@ class _SearchCard extends StatelessWidget {
                 : 'assets/app/logo_text_white.svg',
             semanticsLabel: localizations.homepage_main_card_logo_description,
           ),
-          FormattedText(
+          TextWithBoldParts(
             text: localizations.homepage_main_card_subheading,
             textAlign: TextAlign.center,
             textStyle: const TextStyle(height: 1.3),
@@ -121,65 +122,51 @@ class _SearchCard extends StatelessWidget {
 class _SearchBar extends StatelessWidget {
   const _SearchBar();
 
-  static const double SEARCH_BAR_HEIGHT = 47.0;
+  static const String HERO_TAG = 'search_field';
 
   @override
   Widget build(BuildContext context) {
     final AppLocalizations localizations = AppLocalizations.of(context);
-    final SmoothColorsThemeExtension theme =
-        Theme.of(context).extension<SmoothColorsThemeExtension>()!;
-    final bool lightTheme = !context.watch<ThemeProvider>().isDarkMode(context);
 
     return Semantics(
       button: true,
-      child: SizedBox(
-        height: SEARCH_BAR_HEIGHT,
-        child: InkWell(
-          onTap: () => AppNavigator.of(context).push(AppRoutes.SEARCH),
-          borderRadius: BorderRadius.circular(30.0),
-          child: Ink(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(30.0),
-              color: lightTheme ? Colors.white : theme.greyDark,
-              border: Border.all(color: theme.primaryBlack),
-            ),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsetsDirectional.only(
-                      start: 20.0,
-                      end: BALANCED_SPACE,
-                      bottom: 3.0,
-                    ),
-                    child: Text(
-                      localizations.homepage_main_card_search_field_hint,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
-                        color: lightTheme ? Colors.black : Colors.white,
-                      ),
-                    ),
-                  ),
+      child: Hero(
+        tag: HERO_TAG,
+        child: Material(
+          // ↑ Needed by the Hero Widget
+          type: MaterialType.transparency,
+          child: SizedBox(
+            height: SearchFieldUIHelper.SEARCH_BAR_HEIGHT,
+            child: InkWell(
+              onTap: () => AppNavigator.of(context).push(
+                AppRoutes.SEARCH,
+                extra: SearchPageExtra(
+                  searchHelper: SearchProductHelper(),
+                  autofocus: true,
+                  heroTag: HERO_TAG,
                 ),
-                AspectRatio(
-                  aspectRatio: 1.0,
-                  child: DecoratedBox(
-                    decoration: BoxDecoration(
-                      color: theme.primaryDark,
-                      shape: BoxShape.circle,
-                    ),
-                    child: const Padding(
-                      padding: EdgeInsets.all(BALANCED_SPACE),
-                      child: Search(
-                        size: 20.0,
-                        color: Colors.white,
+              ),
+              borderRadius: SearchFieldUIHelper.SEARCH_BAR_BORDER_RADIUS,
+              child: Ink(
+                decoration: SearchFieldUIHelper.decoration(context),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Expanded(
+                      child: Padding(
+                        padding: SearchFieldUIHelper.SEARCH_BAR_PADDING,
+                        child: Text(
+                          localizations.homepage_main_card_search_field_hint,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: SearchFieldUIHelper.textStyle(context),
+                        ),
                       ),
                     ),
-                  ),
-                )
-              ],
+                    const SearchBarIcon(),
+                  ],
+                ),
+              ),
             ),
           ),
         ),

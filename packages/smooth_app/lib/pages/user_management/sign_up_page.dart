@@ -336,7 +336,9 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
         orgName: _foodProducer ? _brandController.trimmedText : null,
         country: ProductQuery.getCountry(),
         language: ProductQuery.getLanguage(),
-        uriHelper: ProductQuery.uriProductHelper,
+        uriHelper: ProductQuery.getUriProductHelper(
+          productType: ProductType.food,
+        ),
       ),
       title: appLocalisations.sign_up_page_action_doing_it,
     );
@@ -442,8 +444,7 @@ class _TermsOfUseCheckbox extends StatelessWidget {
     required this.disagree,
     required this.onCheckboxChanged,
     required this.checkboxColorResolver,
-    Key? key,
-  }) : super(key: key);
+  });
 
   final bool agree;
   final bool disagree;

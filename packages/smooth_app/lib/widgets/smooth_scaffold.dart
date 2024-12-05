@@ -11,6 +11,7 @@ class SmoothScaffold extends Scaffold {
     this.contentBehindStatusBar = false,
     this.spaceBehindStatusBar = false,
     this.fixKeyboard = false,
+    this.changeStatusBarBrightness = true,
     bool? resizeToAvoidBottomInset,
     super.key,
     super.appBar,
@@ -19,6 +20,7 @@ class SmoothScaffold extends Scaffold {
     super.floatingActionButtonLocation,
     super.floatingActionButtonAnimator,
     super.persistentFooterButtons,
+    super.persistentFooterAlignment,
     super.drawer,
     super.onDrawerChanged,
     super.endDrawer,
@@ -52,6 +54,7 @@ class SmoothScaffold extends Scaffold {
   final Color? statusBarBackgroundColor;
   final bool contentBehindStatusBar;
   final bool spaceBehindStatusBar;
+  final bool changeStatusBarBrightness;
 
   /// On some screens an extra padding maybe wrongly added when the keyboard is
   /// visible
@@ -120,6 +123,10 @@ class SmoothScaffoldState extends ScaffoldState {
       }
     }
 
+    if (!_changeStatusBarBrightness) {
+      return child;
+    }
+
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: _overlayStyle,
       child: Theme(
@@ -139,6 +146,9 @@ class SmoothScaffoldState extends ScaffoldState {
   bool get _spaceBehindStatusBar =>
       (widget as SmoothScaffold).spaceBehindStatusBar == true;
 
+  bool get _changeStatusBarBrightness =>
+      (widget as SmoothScaffold).changeStatusBarBrightness == true;
+
   Brightness? get _brightness =>
       (widget as SmoothScaffold).brightness ??
       SmoothBrightnessOverride.of(context)?.brightness;
@@ -146,8 +156,7 @@ class SmoothScaffoldState extends ScaffoldState {
   SystemUiOverlayStyle get _overlayStyle {
     final Brightness? brightness;
 
-    // Invert brightness on iOS devices
-    if (Platform.isIOS && _brightness == null) {
+    if (_brightness == null) {
       switch (Theme.of(context).brightness) {
         case Brightness.dark:
           brightness = Brightness.light;
@@ -185,10 +194,10 @@ class SmoothScaffoldState extends ScaffoldState {
 /// a [SmoothScaffold].
 class SmoothBrightnessOverride extends InheritedWidget {
   const SmoothBrightnessOverride({
-    required Widget child,
-    Key? key,
+    required super.child,
+    super.key,
     this.brightness,
-  }) : super(key: key, child: child);
+  });
 
   final Brightness? brightness;
 

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_full_refresh.dart';
 import 'package:smooth_app/background/background_task_offline.dart';
@@ -10,11 +11,12 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
+import 'package:smooth_app/pages/product/product_type_extensions.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class OfflineDataPage extends StatefulWidget {
-  const OfflineDataPage({Key? key}) : super(key: key);
+  const OfflineDataPage({super.key});
 
   @override
   State<OfflineDataPage> createState() => _OfflineDataPageState();
@@ -60,16 +62,19 @@ class _OfflineDataPageState extends State<OfflineDataPage> {
             _StatsWidget(
               daoProduct: daoProduct,
             ),
-            _OfflinePageListTile(
-              title: appLocalizations.download_data,
-              subtitle: appLocalizations.download_top_n_products(_topNSize),
-              onTap: () async => BackgroundTaskOffline.addTask(
-                context: context,
-                pageSize: _pageSize,
-                totalSize: _topNSize,
+            for (final ProductType productType in ProductType.values)
+              _OfflinePageListTile(
+                title:
+                    '${appLocalizations.download_data} (${productType.getLabel(appLocalizations)})',
+                subtitle: appLocalizations.download_top_n_products(_topNSize),
+                onTap: () async => BackgroundTaskOffline.addTask(
+                  context: context,
+                  pageSize: _pageSize,
+                  totalSize: _topNSize,
+                  productType: productType,
+                ),
+                trailing: const Icon(Icons.download),
               ),
-              trailing: const Icon(Icons.download),
-            ),
             _OfflinePageListTile(
               title: appLocalizations.update_offline_data,
               subtitle: appLocalizations.update_local_database_sub,
@@ -117,9 +122,9 @@ class _OfflineDataPageState extends State<OfflineDataPage> {
 // in the database and the size of the database
 class _StatsWidget extends StatelessWidget {
   const _StatsWidget({
-    Key? key,
     required this.daoProduct,
-  }) : super(key: key);
+  });
+
   final DaoProduct daoProduct;
 
   @override
@@ -129,16 +134,26 @@ class _StatsWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
       child: ListTile(
         title: Text(applocalizations.offline_product_data_title),
-        subtitle: FutureBuilder<int>(
+        subtitle: FutureBuilder<Map<ProductType, int>>(
           future: daoProduct.getTotalNoOfProducts(),
-          builder: (BuildContext context, AsyncSnapshot<int> snapshot) {
-            if (snapshot.hasData) {
-              return Text(
-                applocalizations.available_for_download(snapshot.data!),
-              );
-            } else {
+          builder: (
+            BuildContext context,
+            AsyncSnapshot<Map<ProductType, int>> snapshot,
+          ) {
+            if (!snapshot.hasData) {
               return Text(applocalizations.loading);
             }
+            int count = 0;
+            final List<String> list = <String>[];
+            for (final MapEntry<ProductType, int> item
+                in snapshot.data!.entries) {
+              count += item.value;
+              list.add(
+                  '${item.value} (${item.key.getLabel(applocalizations)})');
+            }
+            return Text(
+              '${applocalizations.available_for_download(count)} ${list.join(', ')}',
+            );
           },
         ),
         trailing: FutureBuilder<double>(
@@ -164,12 +179,12 @@ class _StatsWidget extends StatelessWidget {
 // and a trailing widget and an onTap callback for OfflineDataPage
 class _OfflinePageListTile extends StatelessWidget {
   const _OfflinePageListTile({
-    Key? key,
     required this.title,
     required this.subtitle,
     required this.trailing,
     required this.onTap,
-  }) : super(key: key);
+  });
+
   final String title;
   final String subtitle;
   final Widget trailing;

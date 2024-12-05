@@ -24,30 +24,33 @@ class PriceDateCard extends StatelessWidget {
           SmoothLargeButtonWithIcon(
             text: dateFormat.format(model.date),
             icon: Icons.calendar_month,
-            onPressed: () async {
-              final DateTime? newDate = await showDatePicker(
-                context: context,
-                locale: Locale(ProductQuery.getLanguage().offTag),
-                firstDate: model.firstDate,
-                lastDate: model.today,
-                builder: (final BuildContext context, final Widget? child) {
-                  // for some reason we don't have a fine display without that theme.
-                  // cf. https://stackoverflow.com/questions/50321182/how-to-customize-a-date-picker
-                  final ThemeData themeData =
-                      Theme.of(context).brightness == Brightness.light
-                          ? ThemeData.light()
-                          : ThemeData.dark();
-                  return Theme(
-                    data: themeData.copyWith(),
-                    child: child!,
-                  );
-                },
-              );
-              if (newDate == null) {
-                return;
-              }
-              model.date = newDate;
-            },
+            onPressed: model.proof != null
+                ? null
+                : () async {
+                    final DateTime? newDate = await showDatePicker(
+                      context: context,
+                      locale: Locale(ProductQuery.getLanguage().offTag),
+                      firstDate: model.firstDate,
+                      lastDate: model.today,
+                      builder:
+                          (final BuildContext context, final Widget? child) {
+                        // for some reason we don't have a fine display without that theme.
+                        // cf. https://stackoverflow.com/questions/50321182/how-to-customize-a-date-picker
+                        final ThemeData themeData =
+                            Theme.of(context).brightness == Brightness.light
+                                ? ThemeData.light()
+                                : ThemeData.dark();
+                        return Theme(
+                          data: themeData.copyWith(),
+                          child: child!,
+                        );
+                      },
+                    );
+                    if (newDate == null) {
+                      return;
+                    }
+                    model.date = newDate;
+                  },
           ),
         ],
       ),

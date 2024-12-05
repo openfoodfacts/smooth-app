@@ -3,6 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/cards/product_cards/smooth_product_image.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
 import 'package:smooth_app/data_models/up_to_date_mixin.dart';
 import 'package:smooth_app/database/local_database.dart';
@@ -24,6 +25,7 @@ class ProductImageViewer extends StatefulWidget {
     required this.language,
     required this.setLanguage,
     required this.isLoggedInMandatory,
+    required this.isInitialImageViewed,
   });
 
   final Product product;
@@ -31,6 +33,11 @@ class ProductImageViewer extends StatefulWidget {
   final OpenFoodFactsLanguage language;
   final Future<void> Function(OpenFoodFactsLanguage? newLanguage) setLanguage;
   final bool isLoggedInMandatory;
+
+  /// If the image is opened from the gallery: is this image selected?
+  /// If true, the Hero animation will be enabled only on this picture
+  /// (otherwise, multiple Hero animations may start)
+  final bool isInitialImageViewed;
 
   @override
   State<ProductImageViewer> createState() => _ProductImageViewerState();
@@ -119,6 +126,7 @@ class _ProductImageViewerState extends State<ProductImageViewer>
                                     context,
                                     imageField: widget.imageField,
                                     barcode: barcode,
+                                    productType: upToDateProduct.productType,
                                     language: widget.language,
                                     isLoggedInMandatory: true,
                                   );
@@ -139,35 +147,41 @@ class _ProductImageViewerState extends State<ProductImageViewer>
                               child: PhotoView(
                                 minScale: 0.2,
                                 imageProvider: imageProvider,
-                                heroAttributes: PhotoViewHeroAttributes(
-                                    tag: 'photo_${widget.imageField.offTag}',
-                                    flightShuttleBuilder: (
-                                      _,
-                                      Animation<double> animation,
-                                      HeroFlightDirection flightDirection,
-                                      BuildContext fromHeroContext,
-                                      BuildContext toHeroContext,
-                                    ) {
-                                      return AnimatedBuilder(
-                                        animation: animation,
-                                        builder: (_, __) {
-                                          Widget widget;
-                                          if (flightDirection ==
-                                              HeroFlightDirection.push) {
-                                            widget = fromHeroContext.widget;
-                                          } else {
-                                            widget = toHeroContext.widget;
-                                          }
+                                heroAttributes: widget.isInitialImageViewed
+                                    ? PhotoViewHeroAttributes(
+                                        tag: ProductPicture.generateHeroTag(
+                                          barcode,
+                                          widget.imageField,
+                                        ),
+                                        flightShuttleBuilder: (
+                                          _,
+                                          Animation<double> animation,
+                                          HeroFlightDirection flightDirection,
+                                          BuildContext fromHeroContext,
+                                          BuildContext toHeroContext,
+                                        ) {
+                                          return AnimatedBuilder(
+                                            animation: animation,
+                                            builder: (_, __) {
+                                              Widget widget;
+                                              if (flightDirection ==
+                                                  HeroFlightDirection.push) {
+                                                widget = fromHeroContext.widget;
+                                              } else {
+                                                widget = toHeroContext.widget;
+                                              }
 
-                                          return ClipRRect(
-                                            borderRadius: BorderRadius.circular(
-                                                    1 - animation.value) *
-                                                ROUNDED_RADIUS.x,
-                                            child: widget,
+                                              return ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(1 -
+                                                            animation.value) *
+                                                        ROUNDED_RADIUS.x,
+                                                child: widget,
+                                              );
+                                            },
                                           );
-                                        },
-                                      );
-                                    }),
+                                        })
+                                    : null,
                                 backgroundDecoration: const BoxDecoration(
                                   color: Colors.black,
                                 ),

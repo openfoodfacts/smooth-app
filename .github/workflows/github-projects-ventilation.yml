@@ -1,0 +1,68 @@
+name: Add issues to the relevant GitHub projects
+
+on:
+  issues:
+    types:
+      - opened
+      - edited
+      - deleted
+      - transferred
+      - pinned
+      - unpinned
+      - closed
+      - reopened
+      - assigned
+      - unassigned
+      - labeled
+      - unlabeled
+      - locked
+      - unlocked
+      - milestoned
+      - demilestoned
+jobs:
+  add-to-project:
+    name: Add issues to the relevant GitHub projects
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/add-to-project@main
+        with:
+          project-url: https://github.com/orgs/openfoodfacts/projects/11
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          labeled: 🎨 Mockups available, 🎨 Mockup required
+          label-operator: OR
+      - uses: actions/add-to-project@main
+        with:
+          project-url: https://github.com/orgs/openfoodfacts/projects/4 # Add issue to the packaging project
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          labeled: packaging input
+          label-operator: OR
+      - uses: actions/add-to-project@main
+        with:
+          project-url: https://github.com/orgs/openfoodfacts/projects/35 # Add issue to the a11y project
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          labeled: accessibility
+          label-operator: OR
+      - uses: actions/add-to-project@main
+        with:
+          project-url: https://github.com/orgs/openfoodfacts/projects/132 # Add issue to the Top upvoted issues board
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          labeled: ⭐ top issue, 👍 Top 10 Issue!
+          label-operator: OR
+      - uses: actions/add-to-project@main
+        with:
+          project-url: https://github.com/orgs/openfoodfacts/projects/57 # Add issue to the Most impactful issues board
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          labeled: 🎯 P0, 🎯 P1
+          label-operator: OR
+      - uses: actions/add-to-project@main
+        with:
+          project-url: https://github.com/orgs/openfoodfacts/projects/42 # Add issue to the Knowledge Panels issues board
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          labeled: 📖 Knowledge panels
+          label-operator: OR
+      - uses: actions/add-to-project@main
+        with:
+          project-url: https://github.com/orgs/openfoodfacts/projects/84 # Add issue to the Metrics project
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          labeled: 📈 Matomo
+          label-operator: OR

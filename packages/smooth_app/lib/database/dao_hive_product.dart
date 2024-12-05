@@ -1,9 +1,9 @@
 import 'dart:async';
 import 'dart:convert';
+
 import 'package:hive/hive.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/database/abstract_dao.dart';
-import 'package:smooth_app/database/local_database.dart';
 
 /// Hive type adapter for [Product]
 class _ProductAdapter extends TypeAdapter<Product> {
@@ -25,7 +25,7 @@ class _ProductAdapter extends TypeAdapter<Product> {
 @Deprecated('use [DaoProduct] instead')
 class DaoHiveProduct extends AbstractDao {
   @Deprecated('use [DaoProduct] instead')
-  DaoHiveProduct(final LocalDatabase localDatabase) : super(localDatabase);
+  DaoHiveProduct(super.localDatabase);
 
   static const String _hiveBoxName = 'products';
 

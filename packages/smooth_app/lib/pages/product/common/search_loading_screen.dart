@@ -19,6 +19,7 @@ class SearchLoadingScreen extends StatelessWidget {
 
     return SearchEmptyScreen(
       name: title,
+      includeAppBar: false,
       emptiness: FractionallySizedBox(
         widthFactor: 0.75,
         child: Column(

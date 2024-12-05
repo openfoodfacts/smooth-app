@@ -3,10 +3,11 @@ import 'package:flutter/widgets.dart';
 
 class MeasureSize extends SingleChildRenderObjectWidget {
   const MeasureSize({
-    Key? key,
+    super.key,
     required this.onChange,
-    required Widget child,
-  }) : super(key: key, child: child);
+    required Widget super.child,
+  });
+
   final OnWidgetSizeChange onChange;
 
   @override

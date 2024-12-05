@@ -6,13 +6,14 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 
 /// A dashed line
 class UserPreferencesListItemDivider extends StatelessWidget {
   const UserPreferencesListItemDivider({
     this.margin,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final EdgeInsetsGeometry? margin;
 
@@ -261,12 +262,11 @@ class UserPreferencesMultipleChoicesItem<T> extends StatelessWidget {
     this.leadingBuilder,
     this.descriptions,
     this.dialogHeight,
-    Key? key,
+    super.key,
   })  : assert(labels.length > 0),
         assert(values.length == labels.length),
         assert(descriptions == null || descriptions.length == labels.length),
-        assert(dialogHeight == null || dialogHeight > 0.0),
-        super(key: key);
+        assert(dialogHeight == null || dialogHeight > 0.0);
 
   final String title;
   final IconData? leading;
@@ -337,13 +337,16 @@ class UserPreferencesMultipleChoicesItem<T> extends StatelessWidget {
 
         // If there is not enough space, we use the scrolling sheet
         final T? res;
-        final SmoothModalSheetHeader header =
-            SmoothModalSheetHeader(title: title);
+        final SmoothModalSheetHeader header = SmoothModalSheetHeader(
+          title: title,
+          prefix: const SmoothModalSheetHeaderPrefixIndicator(),
+        );
+
         if ((itemHeight * labels.length + header.computeHeight(context)) >
             (queryData.size.height * 0.9) - queryData.viewPadding.top) {
           res = await showSmoothDraggableModalSheet<T>(
               context: context,
-              header: SmoothModalSheetHeader(title: title),
+              header: header,
               bodyBuilder: (BuildContext context) {
                 return SliverList(
                   delegate: SliverChildBuilderDelegate(
@@ -370,6 +373,7 @@ class UserPreferencesMultipleChoicesItem<T> extends StatelessWidget {
         } else {
           final SmoothModalSheet smoothModalSheet = SmoothModalSheet(
             title: title,
+            prefixIndicator: true,
             bodyPadding: EdgeInsets.zero,
             body: SizedBox(
               height: itemHeight * labels.length,
@@ -444,7 +448,15 @@ class _ChoiceItem<T> extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
-    final Color? selectedColor = selected ? theme.primaryColor : null;
+    final SmoothColorsThemeExtension extension =
+        theme.extension<SmoothColorsThemeExtension>()!;
+    final bool lightTheme = context.lightTheme();
+
+    final Color backgroundColor = selected
+        ? (lightTheme ? extension.primaryMedium : extension.primarySemiDark)
+        : context.lightTheme()
+            ? Colors.transparent
+            : extension.primaryUltraBlack;
 
     return Semantics(
       value: label,
@@ -452,7 +464,7 @@ class _ChoiceItem<T> extends StatelessWidget {
       button: true,
       excludeSemantics: true,
       child: Ink(
-        color: selectedColor?.withOpacity(0.1) ?? Colors.transparent,
+        color: backgroundColor,
         child: Column(
           children: <Widget>[
             ListTile(
@@ -461,6 +473,7 @@ class _ChoiceItem<T> extends StatelessWidget {
               title: Text(
                 label,
                 style: theme.textTheme.headlineMedium?.copyWith(
+                  color: !lightTheme ? Colors.white : null,
                   fontWeight: selected ? FontWeight.bold : FontWeight.normal,
                 ),
               ),

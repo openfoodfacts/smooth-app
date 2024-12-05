@@ -12,15 +12,19 @@ class SmoothColorsThemeExtension
     required this.primaryLight,
     required this.secondaryNormal,
     required this.secondaryLight,
+    required this.error,
+    required this.warning,
+    required this.success,
     required this.green,
     required this.orange,
     required this.red,
     required this.greyDark,
+    required this.greyNormal,
     required this.greyLight,
   });
 
   SmoothColorsThemeExtension.defaultValues()
-      : primaryUltraBlack = const Color(0xFF52443D),
+      : primaryUltraBlack = const Color(0xFF201A17),
         primaryBlack = const Color(0xFF341100),
         primaryDark = const Color(0xFF483527),
         primarySemiDark = const Color(0xFF52443D),
@@ -29,32 +33,48 @@ class SmoothColorsThemeExtension
         primaryLight = const Color(0xFFF6F3F0),
         secondaryNormal = const Color(0xFFF2994A),
         secondaryLight = const Color(0xFFEE8858),
+        success = const Color(0xFF219653),
+        warning = const Color(0xFFFB8229),
+        error = const Color(0xFFEB5757),
         green = const Color(0xFF219653),
         orange = const Color(0xFFFB8229),
         red = const Color(0xFFEB5757),
         greyDark = const Color(0xFF666666),
+        greyNormal = const Color(0xFF6C6C6C),
         greyLight = const Color(0xFF8F8F8F);
 
   // Ristreto
   final Color primaryUltraBlack;
+
   // Chocolate
   final Color primaryBlack;
+
   // Cortado
   final Color primaryDark;
+
   // Mocha
   final Color primarySemiDark;
+
   // Macchiato
   final Color primaryNormal;
+
   // Cappuccino
   final Color primaryMedium;
+
   // Latte
   final Color primaryLight;
   final Color secondaryNormal;
   final Color secondaryLight;
+
+  final Color error;
+  final Color warning;
+  final Color success;
+
   final Color green;
   final Color orange;
   final Color red;
   final Color greyDark;
+  final Color greyNormal;
   final Color greyLight;
 
   @override
@@ -68,10 +88,14 @@ class SmoothColorsThemeExtension
     Color? primaryLight,
     Color? secondaryNormal,
     Color? secondaryLight,
+    Color? error,
+    Color? warning,
+    Color? success,
     Color? green,
     Color? orange,
     Color? red,
     Color? greyDark,
+    Color? greyNormal,
     Color? greyLight,
   }) {
     return SmoothColorsThemeExtension(
@@ -84,10 +108,14 @@ class SmoothColorsThemeExtension
       primaryLight: primaryLight ?? this.primaryLight,
       secondaryNormal: secondaryNormal ?? this.secondaryNormal,
       secondaryLight: secondaryLight ?? this.secondaryLight,
+      error: error ?? this.error,
+      warning: warning ?? this.warning,
+      success: success ?? this.success,
       green: green ?? this.green,
       orange: orange ?? this.orange,
       red: red ?? this.red,
       greyDark: greyDark ?? this.greyDark,
+      greyNormal: greyDark ?? this.greyDark,
       greyLight: greyLight ?? this.greyLight,
     );
   }
@@ -147,6 +175,21 @@ class SmoothColorsThemeExtension
         other.secondaryLight,
         t,
       )!,
+      error: Color.lerp(
+        error,
+        other.error,
+        t,
+      )!,
+      warning: Color.lerp(
+        warning,
+        other.warning,
+        t,
+      )!,
+      success: Color.lerp(
+        success,
+        other.success,
+        t,
+      )!,
       green: Color.lerp(
         green,
         other.green,
@@ -165,6 +208,11 @@ class SmoothColorsThemeExtension
       greyDark: Color.lerp(
         greyDark,
         other.greyDark,
+        t,
+      )!,
+      greyNormal: Color.lerp(
+        greyNormal,
+        other.greyNormal,
         t,
       )!,
       greyLight: Color.lerp(

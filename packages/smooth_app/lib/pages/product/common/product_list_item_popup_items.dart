@@ -37,7 +37,7 @@ abstract class ProductListItemPopupItem {
     required final ProductList productList,
     required final LocalDatabase localDatabase,
     required final BuildContext context,
-    required final Iterable<String> selectedBarcodes,
+    required final Set<String> selectedBarcodes,
   });
 
   /// Returns the popup menu item.
@@ -68,7 +68,7 @@ class ProductListItemPopupSideBySide extends ProductListItemPopupItem {
     required final ProductList productList,
     required final LocalDatabase localDatabase,
     required final BuildContext context,
-    required final Iterable<String> selectedBarcodes,
+    required final Set<String> selectedBarcodes,
   }) async {
     final OrderedNutrientsCache? cache =
         await OrderedNutrientsCache.getCache(context);
@@ -118,7 +118,7 @@ class ProductListItemPopupRank extends ProductListItemPopupItem {
     required final ProductList productList,
     required final LocalDatabase localDatabase,
     required final BuildContext context,
-    required final Iterable<String> selectedBarcodes,
+    required final Set<String> selectedBarcodes,
   }) async {
     await Navigator.push<void>(
       context,
@@ -137,7 +137,7 @@ class ProductListItemPopupRank extends ProductListItemPopupItem {
 class ProductListItemPopupDelete extends ProductListItemPopupItem {
   @override
   String getTitle(final AppLocalizations appLocalizations) =>
-      'Delete selected items'; //appLocalizations.action_delete_list;
+      appLocalizations.delete_products_mode;
 
   @override
   IconData getIconData() => Icons.delete;
@@ -150,7 +150,7 @@ class ProductListItemPopupDelete extends ProductListItemPopupItem {
     required final ProductList productList,
     required final LocalDatabase localDatabase,
     required final BuildContext context,
-    required final Iterable<String> selectedBarcodes,
+    required final Set<String> selectedBarcodes,
   }) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final DaoProductList daoProductList = DaoProductList(localDatabase);
@@ -187,6 +187,48 @@ class ProductListItemPopupDelete extends ProductListItemPopupItem {
       include: false,
     );
     await daoProductList.get(productList);
+    return true;
+  }
+}
+
+/// Popup menu item for the product list page: select all items.
+class ProductListItemPopupSelectAll extends ProductListItemPopupItem {
+  @override
+  String getTitle(final AppLocalizations appLocalizations) =>
+      appLocalizations.select_all_products_mode;
+
+  @override
+  IconData getIconData() => Icons.check_box;
+
+  @override
+  Future<bool> doSomething({
+    required final ProductList productList,
+    required final LocalDatabase localDatabase,
+    required final BuildContext context,
+    required final Set<String> selectedBarcodes,
+  }) async {
+    selectedBarcodes.addAll(productList.barcodes);
+    return true;
+  }
+}
+
+/// Popup menu item for the product list page: unselect all items.
+class ProductListItemPopupUnselectAll extends ProductListItemPopupItem {
+  @override
+  String getTitle(final AppLocalizations appLocalizations) =>
+      appLocalizations.select_none_products_mode;
+
+  @override
+  IconData getIconData() => Icons.check_box_outline_blank;
+
+  @override
+  Future<bool> doSomething({
+    required final ProductList productList,
+    required final LocalDatabase localDatabase,
+    required final BuildContext context,
+    required final Set<String> selectedBarcodes,
+  }) async {
+    selectedBarcodes.clear();
     return true;
   }
 }

@@ -5,7 +5,11 @@ import 'package:smooth_app/query/paged_search_product_query.dart';
 
 /// Back-end query about a category.
 class CategoryProductQuery extends PagedSearchProductQuery {
-  CategoryProductQuery(this.categoryTag, {super.world});
+  CategoryProductQuery(
+    this.categoryTag, {
+    required super.productType,
+    super.world,
+  });
 
   // e.g. 'en:unsweetened-natural-soy-milks'
   final String categoryTag;
@@ -24,6 +28,7 @@ class CategoryProductQuery extends PagedSearchProductQuery {
         pageNumber: pageNumber,
         language: language,
         country: country,
+        productType: productType,
       );
 
   @override
@@ -33,11 +38,17 @@ class CategoryProductQuery extends PagedSearchProductQuery {
       ', $pageNumber'
       ', $language'
       ', $country'
+      ', $productType'
       ')';
 
   @override
-  PagedProductQuery? getWorldQuery() =>
-      world ? null : CategoryProductQuery(categoryTag, world: true);
+  PagedProductQuery? getWorldQuery() => world
+      ? null
+      : CategoryProductQuery(
+          categoryTag,
+          world: true,
+          productType: productType,
+        );
 
   @override
   bool hasDifferentCountryWorldData() => true;

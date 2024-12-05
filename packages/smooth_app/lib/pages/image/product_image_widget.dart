@@ -9,14 +9,16 @@ import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/pages/image/product_image_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
+import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
-/// Displays a product image thumbnail with the upload date on top.
+/// Displays a product image thumbnail with the upload date.
 class ProductImageWidget extends StatelessWidget {
   const ProductImageWidget({
     required this.productImage,
     required this.barcode,
     required this.squareSize,
+    required this.productType,
     this.imageSize,
     this.heroTag,
   });
@@ -25,6 +27,7 @@ class ProductImageWidget extends StatelessWidget {
   final String barcode;
   final double squareSize;
   final String? heroTag;
+  final ProductType? productType;
 
   /// Allows to fetch the optimized version of the image
   final ImageSize? imageSize;
@@ -32,7 +35,7 @@ class ProductImageWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final SmoothColorsThemeExtension colors =
-        Theme.of(context).extension<SmoothColorsThemeExtension>()!;
+        context.extension<SmoothColorsThemeExtension>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final DateFormat dateFormat =
         DateFormat.yMd(ProductQuery.getLanguage().offTag);
@@ -45,7 +48,9 @@ class ProductImageWidget extends StatelessWidget {
       imageProvider: NetworkImage(
         productImage.getUrl(
           barcode,
-          uriHelper: ProductQuery.uriProductHelper,
+          uriHelper: ProductQuery.getUriProductHelper(
+            productType: productType,
+          ),
           imageSize: imageSize,
         ),
       ),
@@ -84,23 +89,24 @@ class ProductImageWidget extends StatelessWidget {
                     horizontal: SMALL_SPACE,
                     vertical: VERY_SMALL_SPACE,
                   ),
-                  child: Stack(
+                  child: Row(
                     children: <Widget>[
-                      Center(
+                      Expanded(
                         child: AutoSizeText(
                           date,
                           maxLines: 1,
+                          textAlign: TextAlign.center,
                           style: const TextStyle(color: Colors.white),
                         ),
                       ),
                       if (expired)
-                        Positioned.directional(
-                          end: 0.0,
-                          height: 20.0,
-                          textDirection: Directionality.of(context),
+                        Padding(
+                          padding: const EdgeInsetsDirectional.only(
+                            start: VERY_SMALL_SPACE,
+                          ),
                           child: icons.Outdated(
                             size: 18.0,
-                            color: colors.red,
+                            color: colors.orange,
                           ),
                         ),
                     ],

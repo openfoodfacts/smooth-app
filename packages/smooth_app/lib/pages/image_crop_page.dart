@@ -22,17 +22,28 @@ import 'package:smooth_app/pages/crop_helper.dart';
 import 'package:smooth_app/pages/crop_page.dart';
 import 'package:smooth_app/pages/crop_parameters.dart';
 import 'package:smooth_app/pages/product_crop_helper.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 
 /// Safely picks an image file from gallery or camera, regarding access denied.
-Future<XFile?> pickImageFile(final BuildContext context) async {
+Future<XFile?> pickImageFile(
+  final BuildContext context, {
+  final UserPictureSource? forcedSource,
+}) async {
   /// Picks an image file from gallery or camera.
   Future<XFile?> innerPickImageFile(
     final BuildContext context, {
     bool ignorePlatformException = false,
   }) async {
-    final UserPictureSource? source = await _getUserPictureSource(context);
-    if (source == null) {
-      return null;
+    final UserPictureSource? source;
+    if (forcedSource != null) {
+      source = forcedSource;
+    } else {
+      source = await _getUserPictureSource(context);
+      if (source == null) {
+        return null;
+      }
     }
     final ImagePicker picker = ImagePicker();
     if (source == UserPictureSource.GALLERY) {
@@ -122,76 +133,79 @@ class _ImageSourcePickerState extends State<_ImageSourcePicker> {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final Color primaryColor = Theme.of(context).primaryColor;
 
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: <Widget>[
-        IntrinsicHeight(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: BALANCED_SPACE),
-            child: Row(
-              children: <Widget>[
-                Expanded(
-                  flex: 5,
-                  child: _ImageSourceButton(
-                    semanticsOrder: 2.0,
-                    onPressed: () => _selectSource(UserPictureSource.CAMERA),
-                    label: Text(
-                      appLocalizations.settings_app_camera,
-                      textAlign: TextAlign.center,
+    return SafeArea(
+      top: false,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          IntrinsicHeight(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: BALANCED_SPACE),
+              child: Row(
+                children: <Widget>[
+                  Expanded(
+                    flex: 5,
+                    child: _ImageSourceButton(
+                      semanticsOrder: 2.0,
+                      onPressed: () => _selectSource(UserPictureSource.CAMERA),
+                      label: Text(
+                        appLocalizations.settings_app_camera,
+                        textAlign: TextAlign.center,
+                      ),
+                      icon: const Icon(Icons.camera_alt, size: 30.0),
                     ),
-                    icon: const Icon(Icons.camera_alt, size: 30.0),
                   ),
-                ),
-                const Spacer(),
-                Expanded(
-                  flex: 5,
-                  child: _ImageSourceButton(
-                    onPressed: () => _selectSource(UserPictureSource.GALLERY),
-                    semanticsOrder: 3.0,
-                    label: Text(
-                      appLocalizations.gallery_source_label,
-                      textAlign: TextAlign.center,
+                  const Spacer(),
+                  Expanded(
+                    flex: 5,
+                    child: _ImageSourceButton(
+                      onPressed: () => _selectSource(UserPictureSource.GALLERY),
+                      semanticsOrder: 3.0,
+                      label: Text(
+                        appLocalizations.gallery_source_label,
+                        textAlign: TextAlign.center,
+                      ),
+                      icon: const Icon(Icons.image, size: 30.0),
                     ),
-                    icon: const Icon(Icons.image, size: 30.0),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
-        ),
-        const SizedBox(height: VERY_LARGE_SPACE),
-        Semantics(
-          sortKey: const OrdinalSortKey(4.0),
-          value: appLocalizations.user_picture_source_remember,
-          checked: rememberChoice,
-          excludeSemantics: true,
-          child: InkWell(
-            onTap: () => setState(() => rememberChoice = !rememberChoice),
-            borderRadius: ANGULAR_BORDER_RADIUS,
-            splashColor: primaryColor.withOpacity(0.2),
-            child: Row(
-              children: <Widget>[
-                IgnorePointer(
-                  child: Checkbox.adaptive(
-                    shape: const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(6.0)),
-                    ),
-                    activeColor: Theme.of(context).primaryColor,
-                    materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                    value: rememberChoice,
-                    onChanged: (final bool? value) => setState(
-                      () => rememberChoice = value ?? false,
+          const SizedBox(height: VERY_LARGE_SPACE),
+          Semantics(
+            sortKey: const OrdinalSortKey(4.0),
+            value: appLocalizations.user_picture_source_remember,
+            checked: rememberChoice,
+            excludeSemantics: true,
+            child: InkWell(
+              onTap: () => setState(() => rememberChoice = !rememberChoice),
+              borderRadius: ANGULAR_BORDER_RADIUS,
+              splashColor: primaryColor.withOpacity(0.2),
+              child: Row(
+                children: <Widget>[
+                  IgnorePointer(
+                    child: Checkbox.adaptive(
+                      shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(6.0)),
+                      ),
+                      activeColor: Theme.of(context).primaryColor,
+                      materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                      value: rememberChoice,
+                      onChanged: (final bool? value) => setState(
+                        () => rememberChoice = value ?? false,
+                      ),
                     ),
                   ),
-                ),
-                Expanded(
-                  child: Text(appLocalizations.user_picture_source_remember),
-                )
-              ],
+                  Expanded(
+                    child: Text(appLocalizations.user_picture_source_remember),
+                  )
+                ],
+              ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 
@@ -226,7 +240,13 @@ class _ImageSourceButton extends StatelessWidget {
         onPressed: onPressed,
         style: ButtonStyle(
           side: WidgetStatePropertyAll<BorderSide>(
-            BorderSide(color: primaryColor),
+            BorderSide(
+              color: context.lightTheme()
+                  ? primaryColor
+                  : context
+                      .extension<SmoothColorsThemeExtension>()
+                      .primaryLight,
+            ),
           ),
           padding: const WidgetStatePropertyAll<EdgeInsetsGeometry>(
             EdgeInsets.symmetric(vertical: LARGE_SPACE),
@@ -257,8 +277,10 @@ Future<CropParameters?> confirmAndUploadNewPicture(
   final BuildContext context, {
   required final ImageField imageField,
   required final String barcode,
+  required final ProductType? productType,
   required final OpenFoodFactsLanguage language,
   required final bool isLoggedInMandatory,
+  final UserPictureSource? forcedSource,
 }) async =>
     confirmAndUploadNewImage(
       context,
@@ -266,8 +288,10 @@ Future<CropParameters?> confirmAndUploadNewPicture(
         imageField: imageField,
         language: language,
         barcode: barcode,
+        productType: productType,
       ),
       isLoggedInMandatory: isLoggedInMandatory,
+      forcedSource: forcedSource,
     );
 
 /// Lets the user pick a picture, crop it, and save it.
@@ -275,8 +299,12 @@ Future<CropParameters?> confirmAndUploadNewImage(
   final BuildContext context, {
   required final CropHelper cropHelper,
   required final bool isLoggedInMandatory,
+  final UserPictureSource? forcedSource,
 }) async {
-  final XFile? fullPhoto = await pickImageFile(context);
+  final XFile? fullPhoto = await pickImageFile(
+    context,
+    forcedSource: forcedSource,
+  );
   if (fullPhoto == null) {
     return null;
   }

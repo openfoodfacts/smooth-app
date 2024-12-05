@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Ingredients</title>
+    <g id="Ingredients" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M13.6,9.5 L0,9.5 L0,12.5 C0,16.4 3.1,19.5 7,19.5 L13,19.5 C16.9,19.5 20,16.4 20,12.5 L20,9.5 L13.6,9.5 Z" id="Path" fill="#000000" fill-rule="nonzero"></path>
+        <path d="M18.8265705,2.52379899 L19.2036857,2.75944669 C19.6720497,3.05211302 19.8144808,3.66905002 19.5218145,4.13741405 L16.7949356,8.49971314 L13.9129356,8.49971314 L17.4486032,2.84192782 C17.7412695,2.37356379 18.3582065,2.23113266 18.8265705,2.52379899 Z" id="Combined-Shape" fill="#000000"></path>
+    </g>
+</svg>

@@ -1,6 +1,5 @@
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:smooth_app/database/abstract_dao.dart';
-import 'package:smooth_app/database/local_database.dart';
 
 /// Where we store strings.
 ///
@@ -9,7 +8,7 @@ import 'package:smooth_app/database/local_database.dart';
 /// we're talking about large data (several 10Kb) that we almost never need,
 /// and that should not make the app boot slower.
 class DaoString extends AbstractDao {
-  DaoString(final LocalDatabase localDatabase) : super(localDatabase);
+  DaoString(super.localDatabase);
 
   static const String _hiveBoxName = 'string';
 

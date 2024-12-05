@@ -6,6 +6,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_barcode.dart';
 import 'package:smooth_app/background/background_task_product_change.dart';
+import 'package:smooth_app/background/background_task_queue.dart';
 import 'package:smooth_app/background/operation_type.dart';
 import 'package:smooth_app/database/local_database.dart';
 
@@ -13,6 +14,7 @@ import 'package:smooth_app/database/local_database.dart';
 ///
 /// With that stamp, we can de-duplicate similar tasks.
 enum BackgroundTaskDetailsStamp {
+  productType('product_type'),
   basicDetails('basic_details'),
   otherDetails('other_details'),
   ocrIngredients('ocr_ingredients'),
@@ -38,13 +40,14 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode
     required super.processName,
     required super.uniqueId,
     required super.barcode,
+    required super.productType,
     required super.stamp,
     required this.inputMap,
   });
 
-  BackgroundTaskDetails.fromJson(Map<String, dynamic> json)
+  BackgroundTaskDetails.fromJson(super.json)
       : inputMap = json[_jsonTagInputMap] as String,
-        super.fromJson(json);
+        super.fromJson();
 
   static const String _jsonTagInputMap = 'inputMap';
 
@@ -70,6 +73,7 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode
     required final BuildContext context,
     required final BackgroundTaskDetailsStamp stamp,
     final bool showSnackBar = true,
+    required final ProductType? productType,
   }) async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final String uniqueId = await _operationType.getNewKey(
@@ -80,6 +84,7 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode
       minimalistProduct,
       uniqueId,
       stamp,
+      productType ?? ProductType.food,
     );
     if (!context.mounted) {
       return;
@@ -88,6 +93,7 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode
       localDatabase,
       context: context,
       showSnackBar: showSnackBar,
+      queue: BackgroundTaskQueue.fast,
     );
   }
 
@@ -96,7 +102,7 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode
           final AppLocalizations appLocalizations) =>
       (
         appLocalizations.product_task_background_schedule,
-        AlignmentDirectional.bottomCenter,
+        AlignmentDirectional.center,
       );
 
   /// Returns a new background task about changing a product.
@@ -104,11 +110,13 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode
     final Product minimalistProduct,
     final String uniqueId,
     final BackgroundTaskDetailsStamp stamp,
+    final ProductType productType,
   ) =>
       BackgroundTaskDetails._(
         uniqueId: uniqueId,
         processName: _operationType.processName,
         barcode: minimalistProduct.barcode!,
+        productType: productType,
         inputMap: jsonEncode(minimalistProduct.toJson()),
         stamp: getStamp(minimalistProduct.barcode!, stamp.tag),
       );
@@ -178,8 +186,10 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode
       }
       throw Exception(
         'Could not save product - API V2'
-        ' - '
-        'status=${status.status} - errors=${status.error} ${isInvalidUser ? _getIncompleteUserData() : ''}',
+        ' - status=${status.status}'
+        ' - errors=${status.error}'
+        ' - status_verbose=${status.statusVerbose}'
+        ' ${isInvalidUser ? _getIncompleteUserData() : ''}',
       );
     }
   }

@@ -40,6 +40,7 @@ class ProductImageLocalButton extends ProductImageButton {
       context,
       imageField: imageField,
       barcode: barcode,
+      productType: product.productType,
       language: language,
       isLoggedInMandatory: isLoggedInMandatory,
     );

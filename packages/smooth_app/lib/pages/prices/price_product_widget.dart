@@ -26,8 +26,9 @@ class PriceProductWidget extends StatelessWidget {
     final String name = priceProduct.name ?? priceProduct.code;
     final bool unknown = priceProduct.name == null;
     final String? imageURL = priceProduct.imageURL;
-    final int priceCount = priceProduct.priceCount;
-    final List<String>? brands = priceProduct.brands?.split(',');
+    final int priceCount = priceProduct.priceCount ?? 0;
+    final List<String>? brands =
+        priceProduct.brands == '' ? null : priceProduct.brands?.split(',');
     final String? quantity = priceProduct.quantity == null
         ? null
         : '${priceProduct.quantity} ${priceProduct.quantityUnit ?? 'g'}';

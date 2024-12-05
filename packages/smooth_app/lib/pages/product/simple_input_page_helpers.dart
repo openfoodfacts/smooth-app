@@ -7,6 +7,7 @@ import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 
 /// Abstract helper for Simple Input Page.
 ///
@@ -130,6 +131,7 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
             context,
             imageField: ImageField.OTHER,
             barcode: product.barcode!,
+            productType: product.productType,
             language: ProductQuery.getLanguage(),
             // we're already logged in if needed
             isLoggedInMandatory: false,
@@ -182,6 +184,9 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
 
   /// Returns the enum to be used for matomo analytics.
   AnalyticsEditEvents getAnalyticsEditEvent();
+
+  /// Returns true if the field is an owner field.
+  bool isOwnerField(final Product product) => false;
 }
 
 /// Implementation for "Stores" of an [AbstractSimpleInputPageHelper].
@@ -395,6 +400,16 @@ class SimpleInputPageLabelHelper extends AbstractSimpleInputPageHelper {
 /// Implementation for "Categories" of an [AbstractSimpleInputPageHelper].
 class SimpleInputPageCategoryHelper extends AbstractSimpleInputPageHelper {
   @override
+  bool isOwnerField(final Product product) =>
+      product.getOwnerFieldTimestamp(
+        OwnerField.productField(
+          ProductField.CATEGORIES,
+          ProductQuery.getLanguage(),
+        ),
+      ) !=
+      null;
+
+  @override
   List<String> initTerms(final Product product) =>
       product.categoriesTagsInLanguages?[getLanguage()] ?? <String>[];
 
@@ -445,6 +460,12 @@ class SimpleInputPageCategoryHelper extends AbstractSimpleInputPageHelper {
   AnalyticsEditEvents getAnalyticsEditEvent() => AnalyticsEditEvents.categories;
 }
 
+class SimpleInputPageCategoryNotFoodHelper
+    extends SimpleInputPageCategoryHelper {
+  @override
+  Widget getIcon() => const Icon(Icons.edit);
+}
+
 /// Implementation for "Countries" of an [AbstractSimpleInputPageHelper].
 class SimpleInputPageCountryHelper extends AbstractSimpleInputPageHelper {
   @override
@@ -484,7 +505,7 @@ class SimpleInputPageCountryHelper extends AbstractSimpleInputPageHelper {
   TagType? getTagType() => TagType.COUNTRIES;
 
   @override
-  Widget getIcon() => const Icon(Icons.public);
+  Widget getIcon() => const icons.Countries(size: 20.0);
 
   @override
   BackgroundTaskDetailsStamp getStamp() => BackgroundTaskDetailsStamp.countries;

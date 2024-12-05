@@ -33,18 +33,7 @@ class KnowledgePanelsBuilder {
         panelId == null ? null : getKnowledgePanel(product, panelId);
     final List<Widget> children = <Widget>[];
     if (rootPanel != null) {
-      children.add(
-        Padding(
-          padding: const EdgeInsets.symmetric(
-            vertical: VERY_SMALL_SPACE,
-            horizontal: SMALL_SPACE,
-          ),
-          child: Text(
-            rootPanel.titleElement!.title,
-            style: Theme.of(context).textTheme.displaySmall,
-          ),
-        ),
-      );
+      children.add(KnowledgePanelTitle(title: rootPanel.titleElement!.title));
       if (rootPanel.elements != null) {
         for (final KnowledgePanelElement element in rootPanel.elements!) {
           final Widget? widget = getElementWidget(
@@ -65,7 +54,9 @@ class KnowledgePanelsBuilder {
                 ProductState.NUTRITION_FACTS_COMPLETED.toBeCompletedTag) ??
             false;
         if (nutritionAddOrUpdate) {
-          children.add(AddNutritionButton(product));
+          if (AddNutritionButton.acceptsNutritionFacts(product)) {
+            children.add(AddNutritionButton(product));
+          }
         }
 
         final bool needEditIngredients = context
@@ -149,6 +140,24 @@ class KnowledgePanelsBuilder {
     return elements.first;
   }
 
+  /// Returns true if there are elements to display for that panel.
+  static bool hasSomethingToDisplay(
+    final Product product,
+    final String panelId,
+  ) {
+    final KnowledgePanel panel =
+        KnowledgePanelsBuilder.getKnowledgePanel(product, panelId)!;
+    if (panel.elements == null) {
+      return false;
+    }
+    for (final KnowledgePanelElement element in panel.elements!) {
+      if (_hasSomethingToDisplay(element: element, product: product)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   /// Returns a padded widget that displays the KP element, or rarely null.
   static Widget? getElementWidget({
     required final KnowledgePanelElement knowledgePanelElement,
@@ -178,6 +187,8 @@ class KnowledgePanelsBuilder {
   }
 
   /// Returns the widget that displays the KP element, or rarely null.
+  ///
+  /// cf. [_hasSomethingToDisplay].
   static Widget? _getElementWidget({
     required final KnowledgePanelElement element,
     required final Product product,
@@ -201,9 +212,14 @@ class KnowledgePanelsBuilder {
         if (panel == null) {
           // happened in https://github.com/openfoodfacts/smooth-app/issues/2682
           // due to some inconsistencies in the data sent by the server
-          Logs.w(
-            'unknown panel "$panelId" for barcode "${product.barcode}"',
-          );
+          if (panelId == 'ecoscore' &&
+              (product.productType ?? ProductType.food) != ProductType.food) {
+            // just ignore
+          } else {
+            Logs.w(
+              'unknown panel "$panelId" for barcode "${product.barcode}"',
+            );
+          }
           return null;
         }
         return KnowledgePanelCard(
@@ -237,10 +253,33 @@ class KnowledgePanelsBuilder {
           element.actionElement!,
           product,
         );
+    }
+  }
 
-      default:
-        Logs.e('unexpected element type: ${element.elementType}');
-        return null;
+  /// Returns true if the element has something to display.
+  ///
+  /// cf. [_getElementWidget].
+  static bool _hasSomethingToDisplay({
+    required final KnowledgePanelElement element,
+    required final Product product,
+  }) {
+    switch (element.elementType) {
+      case KnowledgePanelElementType.TEXT:
+      case KnowledgePanelElementType.IMAGE:
+      case KnowledgePanelElementType.PANEL_GROUP:
+      case KnowledgePanelElementType.TABLE:
+      case KnowledgePanelElementType.MAP:
+      case KnowledgePanelElementType.ACTION:
+        return true;
+      case KnowledgePanelElementType.UNKNOWN:
+        return false;
+      case KnowledgePanelElementType.PANEL:
+        final String panelId = element.panelElement!.panelId;
+        final KnowledgePanel? panel = getKnowledgePanel(product, panelId);
+        if (panel == null) {
+          return false;
+        }
+        return true;
     }
   }
 
@@ -273,5 +312,27 @@ class KnowledgePanelsBuilder {
           ),
         );
     }
+  }
+}
+
+class KnowledgePanelTitle extends StatelessWidget {
+  const KnowledgePanelTitle({
+    required this.title,
+    super.key,
+  });
+
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsetsDirectional.symmetric(
+        vertical: VERY_SMALL_SPACE,
+      ),
+      child: Text(
+        title,
+        style: Theme.of(context).textTheme.displaySmall,
+      ),
+    );
   }
 }

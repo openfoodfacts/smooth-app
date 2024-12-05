@@ -5,8 +5,8 @@ import 'package:smooth_app/generic_lib/duration_constants.dart';
 class HideableContainer extends StatefulWidget {
   const HideableContainer({
     required this.child,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final Widget child;
 

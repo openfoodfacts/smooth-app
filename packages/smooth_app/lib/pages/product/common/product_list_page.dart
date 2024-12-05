@@ -17,6 +17,7 @@ import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_app_logo.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_responsive.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
@@ -30,6 +31,7 @@ import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
 import 'package:smooth_app/pages/scan/carousel/scan_carousel_manager.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/query/search_products_manager.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
@@ -73,6 +75,10 @@ class _ProductListPageState extends State<ProductListPage>
   final ProductListItemPopupItem _rankItems = ProductListItemPopupRank();
   final ProductListItemPopupItem _sideBySideItems =
       ProductListItemPopupSideBySide();
+  final ProductListItemPopupItem _selectAllItems =
+      ProductListItemPopupSelectAll();
+  final ProductListItemPopupItem _selectNoneItems =
+      ProductListItemPopupUnselectAll();
 
   //returns bool to handle WillPopScope
   Future<bool> _handleUserBacktap() async {
@@ -130,138 +136,153 @@ class _ProductListPageState extends State<ProductListPage>
     final bool enableClear = products.isNotEmpty;
     final bool enableRename = productList.listType == ProductListType.USER;
 
-    return SmoothScaffold(
-      floatingActionButton: products.isEmpty
-          ? FloatingActionButton.extended(
-              icon: const Icon(CupertinoIcons.barcode),
-              label: Text(appLocalizations.product_list_empty_title),
-              onPressed: () =>
-                  ExternalScanCarouselManager.read(context).showSearchCard(),
-            )
-          : _selectionMode
-              ? null
-              : FloatingActionButton.extended(
-                  onPressed: () => setState(() => _selectionMode = true),
-                  label: const Text('Multi-select'),
-                  icon: const Icon(Icons.checklist),
-                ),
-      appBar: SmoothAppBar(
-        centerTitle: false,
-        actions: <Widget>[
-          SmoothPopupMenuButton<ProductListPopupItem>(
-            onSelected: (final ProductListPopupItem action) async {
-              final ProductList? differentProductList =
-                  await action.doSomething(
-                productList: productList,
-                localDatabase: localDatabase,
-                context: context,
-              );
-              if (differentProductList != null) {
-                setState(() => productList = differentProductList);
-              }
-            },
-            itemBuilder: (_) => <SmoothPopupMenuItem<ProductListPopupItem>>[
-              if (enableRename) _rename.getMenuItem(appLocalizations),
-              _share.getMenuItem(appLocalizations),
-              _openInWeb.getMenuItem(appLocalizations),
-              if (enableClear) _clear.getMenuItem(appLocalizations),
-            ],
-          ),
-        ],
-        title: _ProductListAppBarTitle(
-          productList: productList,
-          onTap: () => _onChangeList(appLocalizations, daoProductList),
-          enabled: widget.allowToSwitchBetweenLists,
-        ),
-        titleSpacing: 0.0,
-        actionMode: _selectionMode,
-        onLeaveActionMode: () {
-          setState(() => _selectionMode = false);
-        },
-        actionModeTitle: Text('${_selectedBarcodes.length}'),
-        actionModeActions: <Widget>[
-          SmoothPopupMenuButton<ProductListItemPopupItem>(
-            onSelected: (final ProductListItemPopupItem action) async {
-              final bool andThenSetState = await action.doSomething(
-                productList: productList,
-                localDatabase: localDatabase,
-                context: context,
-                selectedBarcodes: _selectedBarcodes,
-              );
-              if (andThenSetState) {
-                if (context.mounted) {
-                  setState(() {});
+    return SmoothSharedAnimationController(
+      child: SmoothScaffold(
+        floatingActionButton: products.isEmpty
+            ? FloatingActionButton.extended(
+                icon: const Icon(CupertinoIcons.barcode),
+                label: Text(appLocalizations.product_list_empty_title),
+                onPressed: () =>
+                    ExternalScanCarouselManager.read(context).showSearchCard(),
+              )
+            : _selectionMode
+                ? null
+                : FloatingActionButton.extended(
+                    onPressed: () => setState(() => _selectionMode = true),
+                    label:
+                        Text(appLocalizations.user_lists_action_multi_select),
+                    icon: const Icon(Icons.checklist),
+                  ),
+        appBar: SmoothAppBar(
+          centerTitle: false,
+          actions: <Widget>[
+            SmoothPopupMenuButton<ProductListPopupItem>(
+              onSelected: (final ProductListPopupItem action) async {
+                final ProductList? differentProductList =
+                    await action.doSomething(
+                  productList: productList,
+                  localDatabase: localDatabase,
+                  context: context,
+                );
+                if (differentProductList != null) {
+                  setState(() => productList = differentProductList);
                 }
-              }
-            },
-            itemBuilder: (_) => <SmoothPopupMenuItem<ProductListItemPopupItem>>[
-              if (userPreferences.getFlag(UserPreferencesDevMode
-                      .userPreferencesFlagBoostedComparison) ==
-                  true)
-                _sideBySideItems.getMenuItem(
-                  appLocalizations,
-                  _selectedBarcodes.length >= 2 &&
-                      _selectedBarcodes.length <= 3,
-                ),
-              _rankItems.getMenuItem(
-                appLocalizations,
-                _selectedBarcodes.length >= 2,
-              ),
-              _deleteItems.getMenuItem(
-                appLocalizations,
-                _selectedBarcodes.isNotEmpty,
-              ),
-            ],
+              },
+              itemBuilder: (_) => <SmoothPopupMenuItem<ProductListPopupItem>>[
+                if (enableRename) _rename.getMenuItem(appLocalizations),
+                _share.getMenuItem(appLocalizations),
+                _openInWeb.getMenuItem(appLocalizations),
+                if (enableClear) _clear.getMenuItem(appLocalizations),
+              ],
+            ),
+          ],
+          title: _ProductListAppBarTitle(
+            productList: productList,
+            onTap: () => _onChangeList(appLocalizations, daoProductList),
+            enabled: widget.allowToSwitchBetweenLists,
           ),
-        ],
-      ),
-      body: products.isEmpty
-          ? Center(
-              child: Padding(
-                padding: const EdgeInsets.all(SMALL_SPACE),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: <Widget>[
-                    SvgPicture.asset(
-                      'assets/misc/empty-list.svg',
-                      package: AppHelper.APP_PACKAGE,
-                      width: MediaQuery.sizeOf(context).width / 2,
-                    ),
-                    Text(
-                      appLocalizations.product_list_empty_message,
-                      textAlign: TextAlign.center,
-                      style: themeData.textTheme.bodyMedium?.apply(
-                        color: themeData.colorScheme.onSurface,
-                      ),
-                    ),
-                    EMPTY_WIDGET,
-                  ],
-                ),
-              ),
-            )
-          : WillPopScope2(
-              onWillPop: () async => (await _handleUserBacktap(), null),
-              child: RefreshIndicator(
-                //if it is in selectmode then refresh indicator is not shown
-                notificationPredicate:
-                    _selectionMode ? (_) => false : (_) => true,
-                onRefresh: () async => _refreshListProducts(
-                  products,
-                  localDatabase,
+          titleSpacing: 0.0,
+          actionMode: _selectionMode,
+          onLeaveActionMode: () {
+            setState(() => _selectionMode = false);
+          },
+          actionModeTitle: Text(
+            appLocalizations.multiselect_title(_selectedBarcodes.length),
+          ),
+          actionModeActions: <Widget>[
+            SmoothPopupMenuButton<ProductListItemPopupItem>(
+              onSelected: (final ProductListItemPopupItem action) async {
+                final bool andThenSetState = await action.doSomething(
+                  productList: productList,
+                  localDatabase: localDatabase,
+                  context: context,
+                  selectedBarcodes: _selectedBarcodes,
+                );
+                if (andThenSetState) {
+                  if (context.mounted) {
+                    setState(() {});
+                  }
+                }
+              },
+              itemBuilder: (_) =>
+                  <SmoothPopupMenuItem<ProductListItemPopupItem>>[
+                if (userPreferences.getFlag(UserPreferencesDevMode
+                        .userPreferencesFlagBoostedComparison) ==
+                    true)
+                  _sideBySideItems.getMenuItem(
+                    appLocalizations,
+                    _selectedBarcodes.length >= 2 &&
+                        _selectedBarcodes.length <= 3,
+                  ),
+                _rankItems.getMenuItem(
                   appLocalizations,
+                  _selectedBarcodes.length >= 2,
                 ),
-                child: ListView.builder(
-                  itemCount: products.length,
-                  itemBuilder: (BuildContext context, int index) => _buildItem(
-                    dismissible,
+                _deleteItems.getMenuItem(
+                  appLocalizations,
+                  _selectedBarcodes.isNotEmpty,
+                ),
+                _selectAllItems.getMenuItem(
+                  appLocalizations,
+                  _selectedBarcodes.length < productList.barcodes.length,
+                ),
+                _selectNoneItems.getMenuItem(
+                  appLocalizations,
+                  _selectedBarcodes.isNotEmpty,
+                ),
+              ],
+            ),
+          ],
+        ),
+        body: products.isEmpty
+            ? Center(
+                child: Padding(
+                  padding: const EdgeInsets.all(SMALL_SPACE),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: <Widget>[
+                      SvgPicture.asset(
+                        'assets/misc/empty-list.svg',
+                        package: AppHelper.APP_PACKAGE,
+                        width: MediaQuery.sizeOf(context).width / 2,
+                      ),
+                      Text(
+                        appLocalizations.product_list_empty_message,
+                        textAlign: TextAlign.center,
+                        style: themeData.textTheme.bodyMedium?.apply(
+                          color: themeData.colorScheme.onSurface,
+                        ),
+                      ),
+                      EMPTY_WIDGET,
+                    ],
+                  ),
+                ),
+              )
+            : WillPopScope2(
+                onWillPop: () async => (await _handleUserBacktap(), null),
+                child: RefreshIndicator(
+                  //if it is in selectmode then refresh indicator is not shown
+                  notificationPredicate:
+                      _selectionMode ? (_) => false : (_) => true,
+                  onRefresh: () async => _refreshListProducts(
                     products,
-                    index,
                     localDatabase,
                     appLocalizations,
                   ),
+                  child: ListView.builder(
+                    itemCount: products.length,
+                    itemBuilder: (BuildContext context, int index) =>
+                        _buildItem(
+                      dismissible,
+                      products,
+                      index,
+                      localDatabase,
+                      appLocalizations,
+                    ),
+                  ),
                 ),
               ),
-            ),
+      ),
     );
   }
 
@@ -442,26 +463,39 @@ class _ProductListPageState extends State<ProductListPage>
     final List<String> barcodes,
     final LocalDatabase localDatabase,
   ) async {
+    bool fresh = true;
     try {
       final OpenFoodFactsLanguage language = ProductQuery.getLanguage();
-      final SearchResult searchResult = await OpenFoodAPIClient.searchProducts(
-        ProductQuery.getReadUser(),
-        ProductRefresher().getBarcodeListQueryConfiguration(
-          barcodes,
-          language,
-        ),
-        uriHelper: ProductQuery.uriProductHelper,
-      );
-      final List<Product>? freshProducts = searchResult.products;
-      if (freshProducts == null) {
-        return false;
+      final Map<ProductType, List<String>> productTypes =
+          await DaoProduct(localDatabase).getProductTypes(barcodes);
+      for (final MapEntry<ProductType, List<String>> entry
+          in productTypes.entries) {
+        final SearchResult searchResult =
+            await SearchProductsManager.searchProducts(
+          ProductQuery.getReadUser(),
+          ProductRefresher().getBarcodeListQueryConfiguration(
+            entry.value,
+            language,
+          ),
+          uriHelper: ProductQuery.getUriProductHelper(productType: entry.key),
+          type: SearchProductsType.live,
+        );
+        final List<Product>? freshProducts = searchResult.products;
+        if (freshProducts == null) {
+          fresh = false;
+        } else {
+          await DaoProduct(localDatabase).putAll(
+            freshProducts,
+            language,
+            productType: entry.key,
+          );
+          localDatabase.upToDate.setLatestDownloadedProducts(freshProducts);
+        }
       }
-      await DaoProduct(localDatabase).putAll(freshProducts, language);
-      localDatabase.upToDate.setLatestDownloadedProducts(freshProducts);
       final RobotoffInsightHelper robotoffInsightHelper =
           RobotoffInsightHelper(localDatabase);
       await robotoffInsightHelper.clearInsightAnnotationsSaved();
-      return true;
+      return fresh;
     } catch (e) {
       //
     }
@@ -477,6 +511,7 @@ class _ProductListPageState extends State<ProductListPage>
       context: context,
       header: SmoothModalSheetHeader(
         title: appLocalizations.product_list_select,
+        prefix: const SmoothModalSheetHeaderPrefixIndicator(),
         suffix: SmoothModalSheetHeaderButton(
           label: appLocalizations.product_list_create,
           prefix: const Icon(Icons.add_circle_outline_sharp),

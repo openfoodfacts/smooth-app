@@ -5,7 +5,10 @@ import 'package:smooth_app/query/product_query.dart';
 
 /// Back-end paged query for all "to-be-completed" products.
 class PagedToBeCompletedProductQuery extends PagedProductQuery {
-  PagedToBeCompletedProductQuery({super.world});
+  PagedToBeCompletedProductQuery({
+    required super.productType,
+    super.world,
+  });
 
   @override
   AbstractQueryConfiguration getQueryConfiguration() =>
@@ -32,6 +35,7 @@ class PagedToBeCompletedProductQuery extends PagedProductQuery {
         pageNumber: pageNumber,
         language: language,
         country: country,
+        productType: productType,
       );
 
   @override
@@ -40,11 +44,16 @@ class PagedToBeCompletedProductQuery extends PagedProductQuery {
       ', $pageNumber'
       ', $language'
       ', $country'
+      ', $productType'
       ')';
 
   @override
-  PagedProductQuery? getWorldQuery() =>
-      world ? null : PagedToBeCompletedProductQuery(world: true);
+  PagedProductQuery? getWorldQuery() => world
+      ? null
+      : PagedToBeCompletedProductQuery(
+          productType: productType,
+          world: true,
+        );
 
   @override
   bool hasDifferentCountryWorldData() => true;

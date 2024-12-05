@@ -1,28 +1,32 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:barcode_widget/barcode_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/up_to_date_mixin.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_list_tile_card.dart';
-import 'package:smooth_app/generic_lib/widgets/svg_icon.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
+import 'package:smooth_app/pages/onboarding/currency_selector_helper.dart';
 import 'package:smooth_app/pages/prices/price_meta_product.dart';
 import 'package:smooth_app/pages/prices/product_price_add_page.dart';
 import 'package:smooth_app/pages/product/add_other_details_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
+import 'package:smooth_app/pages/product/gallery_view/product_image_gallery_view.dart';
 import 'package:smooth_app/pages/product/nutrition_page_loaded.dart';
 import 'package:smooth_app/pages/product/product_field_editor.dart';
-import 'package:smooth_app/pages/product/product_image_gallery_view.dart';
 import 'package:smooth_app/pages/product/simple_input_page.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
+import 'package:smooth_app/widgets/smooth_barcode_widget.dart';
 import 'package:smooth_app/widgets/smooth_floating_message.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
@@ -53,6 +57,8 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
     context.watch<LocalDatabase>();
     refreshUpToDate();
     final ThemeData theme = Theme.of(context);
+    final bool lightTheme = context.lightTheme();
+
     final String productName = getProductName(
       upToDateProduct,
       appLocalizations,
@@ -61,9 +67,13 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
         getProductBrands(upToDateProduct, appLocalizations);
 
     return SmoothScaffold(
+      backgroundColor: lightTheme
+          ? theme.extension<SmoothColorsThemeExtension>()!.primaryLight
+          : null,
       appBar: SmoothAppBar(
         centerTitle: false,
         leading: const SmoothBackButton(),
+        backgroundColor: lightTheme ? Colors.white : null,
         title: Semantics(
           value: productName,
           child: ExcludeSemantics(
@@ -73,8 +83,11 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
                 AutoSizeText(
                   '${productName.trim()}, ${productBrand.trim()}',
                   minFontSize:
-                      theme.textTheme.titleLarge?.fontSize?.clamp(13.0, 17.0) ??
+                      theme.textTheme.titleLarge?.fontSize?.clamp(10.0, 13.0) ??
                           13.0,
+                  maxFontSize:
+                      theme.textTheme.titleLarge?.fontSize?.clamp(13.0, 20.0) ??
+                          18.0,
                   maxLines: !_barcodeVisibleInAppbar ? 2 : 1,
                   style: theme.textTheme.titleLarge?.copyWith(
                     fontWeight: FontWeight.w500,
@@ -132,6 +145,7 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
               if (_ProductBarcode.isAValidBarcode(barcode))
                 _ProductBarcode(product: upToDateProduct),
               _ListTitleItem(
+                leading: const icons.Edit(size: 18.0),
                 title: appLocalizations.edit_product_form_item_details_title,
                 subtitle:
                     appLocalizations.edit_product_form_item_details_subtitle,
@@ -148,7 +162,7 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
                 onTap: () async {
                   AnalyticsHelper.trackProductEdit(
                     AnalyticsEditEvents.photos,
-                    barcode,
+                    upToDateProduct,
                   );
 
                   await Navigator.push<void>(
@@ -172,46 +186,52 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
                   SimpleInputPageCategoryHelper(),
                 ],
               ),
-              _ListTitleItem(
-                leading: const SvgIcon('assets/cacheTintable/ingredients.svg'),
-                title:
-                    appLocalizations.edit_product_form_item_ingredients_title,
-                onTap: () async => ProductFieldOcrIngredientEditor().edit(
-                  context: context,
-                  product: upToDateProduct,
+              if (upToDateProduct.productType != ProductType.product)
+                _ListTitleItem(
+                  leading: const icons.Ingredients.alt(),
+                  title:
+                      appLocalizations.edit_product_form_item_ingredients_title,
+                  onTap: () async => ProductFieldOcrIngredientEditor().edit(
+                    context: context,
+                    product: upToDateProduct,
+                  ),
                 ),
-              ),
-              _getSimpleListTileItem(SimpleInputPageCategoryHelper()),
-              _ListTitleItem(
-                  leading:
-                      const SvgIcon('assets/cacheTintable/scale-balance.svg'),
-                  title: appLocalizations
-                      .edit_product_form_item_nutrition_facts_title,
-                  subtitle: appLocalizations
-                      .edit_product_form_item_nutrition_facts_subtitle,
-                  onTap: () async {
-                    if (!await ProductRefresher().checkIfLoggedIn(
-                      context,
-                      isLoggedInMandatory: true,
-                    )) {
-                      return;
-                    }
-                    AnalyticsHelper.trackProductEdit(
-                      AnalyticsEditEvents.nutrition_Facts,
-                      barcode,
-                    );
-                    if (!context.mounted) {
-                      return;
-                    }
-                    await NutritionPageLoaded.showNutritionPage(
-                      product: upToDateProduct,
-                      isLoggedInMandatory: true,
-                      context: context,
-                    );
-                  }),
+              if (upToDateProduct.productType == null ||
+                  upToDateProduct.productType == ProductType.food)
+                _getSimpleListTileItem(SimpleInputPageCategoryHelper())
+              else
+                _getSimpleListTileItem(SimpleInputPageCategoryNotFoodHelper()),
+              if (upToDateProduct.productType != ProductType.beauty &&
+                  upToDateProduct.productType != ProductType.product)
+                _ListTitleItem(
+                    leading: const icons.NutritionFacts(size: 18.0),
+                    title: appLocalizations
+                        .edit_product_form_item_nutrition_facts_title,
+                    subtitle: appLocalizations
+                        .edit_product_form_item_nutrition_facts_subtitle,
+                    onTap: () async {
+                      if (!await ProductRefresher().checkIfLoggedIn(
+                        context,
+                        isLoggedInMandatory: true,
+                      )) {
+                        return;
+                      }
+                      AnalyticsHelper.trackProductEdit(
+                        AnalyticsEditEvents.nutrition_Facts,
+                        upToDateProduct,
+                      );
+                      if (!context.mounted) {
+                        return;
+                      }
+                      await NutritionPageLoaded.showNutritionPage(
+                        product: upToDateProduct,
+                        isLoggedInMandatory: true,
+                        context: context,
+                      );
+                    }),
               _getSimpleListTileItem(SimpleInputPageLabelHelper()),
               _ListTitleItem(
-                leading: const SvgIcon('assets/cacheTintable/packaging.svg'),
+                leading: const icons.Packaging(),
                 title: appLocalizations.edit_packagings_title,
                 onTap: () async => ProductFieldPackagingEditor().edit(
                   context: context,
@@ -219,7 +239,7 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
                 ),
               ),
               _ListTitleItem(
-                leading: const Icon(Icons.recycling),
+                leading: const icons.Recycling(),
                 title: appLocalizations.edit_product_form_item_packaging_title,
                 onTap: () async => ProductFieldOcrPackagingEditor().edit(
                   context: context,
@@ -247,7 +267,7 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
                   }
                   AnalyticsHelper.trackProductEdit(
                     AnalyticsEditEvents.otherDetails,
-                    barcode,
+                    upToDateProduct,
                   );
                   await Navigator.push<void>(
                     context,
@@ -257,14 +277,23 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
                   );
                 },
               ),
-              _ListTitleItem(
-                title: appLocalizations.prices_add_a_price,
-                leading: const Icon(Icons.add),
-                onTap: () async => ProductPriceAddPage.showProductPage(
-                  context: context,
-                  product: PriceMetaProduct.product(upToDateProduct),
-                  proofType: ProofType.priceTag,
-                ),
+              Consumer<UserPreferences>(
+                builder:
+                    (BuildContext context, UserPreferences preferences, _) {
+                  return _ListTitleItem(
+                    title: appLocalizations.prices_add_a_price,
+                    leading: icons.AddPrice(
+                      CurrencySelectorHelper().getSelected(
+                        preferences.userCurrencyCode,
+                      ),
+                    ),
+                    onTap: () async => ProductPriceAddPage.showProductPage(
+                      context: context,
+                      product: PriceMetaProduct.product(upToDateProduct),
+                      proofType: ProofType.priceTag,
+                    ),
+                  );
+                },
               ),
             ],
           ),
@@ -310,7 +339,7 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
         }
         AnalyticsHelper.trackProductEdit(
           AnalyticsEditEvents.powerEditScreen,
-          barcode,
+          upToDateProduct,
         );
         await Navigator.push<void>(
           context,
@@ -349,8 +378,7 @@ class _ListTitleItem extends SmoothListTileCard {
     Widget? leading,
     String? title,
     String? subtitle,
-    void Function()? onTap,
-    Key? key,
+    super.onTap,
   }) : super.icon(
           title: title == null
               ? null
@@ -358,8 +386,6 @@ class _ListTitleItem extends SmoothListTileCard {
                   title,
                   style: const TextStyle(fontWeight: FontWeight.bold),
                 ),
-          onTap: onTap,
-          key: key,
           icon: leading,
           subtitle: subtitle == null ? null : Text(subtitle),
         );
@@ -367,10 +393,9 @@ class _ListTitleItem extends SmoothListTileCard {
 
 /// Barcodes only allowed have a length of 7, 8, 12 or 13 characters
 class _ProductBarcode extends StatefulWidget {
-  _ProductBarcode({required this.product, Key? key})
+  _ProductBarcode({required this.product})
       : assert(product.barcode?.isNotEmpty == true),
-        assert(isAValidBarcode(product.barcode)),
-        super(key: key);
+        assert(isAValidBarcode(product.barcode));
 
   static const double _barcodeHeight = 120.0;
 
@@ -388,45 +413,23 @@ class _ProductBarcodeState extends State<_ProductBarcode> {
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final Brightness brightness = Theme.of(context).brightness;
     final Size screenSize = MediaQuery.sizeOf(context);
 
-    return BarcodeWidget(
+    return SmoothBarcodeWidget(
       padding: EdgeInsets.symmetric(
         horizontal: screenSize.width / 4,
         vertical: SMALL_SPACE,
       ),
-      barcode: _barcodeType,
-      data: widget.product.barcode!,
-      color: brightness == Brightness.dark ? Colors.white : Colors.black,
-      errorBuilder: (final BuildContext context, String? _) {
+      color: context.lightTheme() ? Colors.black : Colors.white,
+      barcode: widget.product.barcode!,
+      onInvalidBarcode: () {
         if (!_isAnInvalidBarcode) {
           WidgetsBinding.instance.addPostFrameCallback((_) {
             setState(() => _isAnInvalidBarcode = true);
           });
         }
-
-        return Text(
-          '${appLocalizations.edit_product_form_item_barcode}\n'
-          '${widget.product.barcode}',
-          textAlign: TextAlign.center,
-        );
       },
       height: _isAnInvalidBarcode ? null : _ProductBarcode._barcodeHeight,
     );
-  }
-
-  Barcode get _barcodeType {
-    switch (widget.product.barcode!.length) {
-      case 7:
-      case 8:
-        return Barcode.ean8();
-      case 12:
-      case 13:
-        return Barcode.ean13();
-      default:
-        throw Exception('Unknown barcode type!');
-    }
   }
 }

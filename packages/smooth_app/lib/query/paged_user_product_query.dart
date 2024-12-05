@@ -55,6 +55,7 @@ class PagedUserProductQuery extends PagedProductQuery {
   PagedUserProductQuery({
     required this.userId,
     required this.type,
+    required super.productType,
   });
 
   final String userId;
@@ -78,6 +79,7 @@ class PagedUserProductQuery extends PagedProductQuery {
           pageSize: pageSize,
           pageNumber: pageNumber,
           language: language,
+          productType: productType,
         );
       case UserSearchType.INFORMER:
         return ProductList.informer(
@@ -85,6 +87,7 @@ class PagedUserProductQuery extends PagedProductQuery {
           pageSize: pageSize,
           pageNumber: pageNumber,
           language: language,
+          productType: productType,
         );
       case UserSearchType.PHOTOGRAPHER:
         return ProductList.photographer(
@@ -92,6 +95,7 @@ class PagedUserProductQuery extends PagedProductQuery {
           pageSize: pageSize,
           pageNumber: pageNumber,
           language: language,
+          productType: productType,
         );
       case UserSearchType.TO_BE_COMPLETED:
         return ProductList.toBeCompleted(
@@ -99,6 +103,7 @@ class PagedUserProductQuery extends PagedProductQuery {
           pageSize: pageSize,
           pageNumber: pageNumber,
           language: language,
+          productType: productType,
         );
     }
   }
@@ -110,5 +115,6 @@ class PagedUserProductQuery extends PagedProductQuery {
       ', $pageSize'
       ', $pageNumber'
       ', $language'
+      ', $productType'
       ')';
 }

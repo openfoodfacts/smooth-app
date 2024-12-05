@@ -139,16 +139,23 @@ class OnboardingFlowNavigator {
   static final List<OnboardingPage> _historyOnboardingNav = <OnboardingPage>[];
 
   Future<void> navigateToPage(BuildContext context, OnboardingPage page) async {
-    _userPreferences.setLastVisitedOnboardingPage(page);
+    await _userPreferences.setLastVisitedOnboardingPage(page);
     _historyOnboardingNav.add(page);
 
-    final MaterialPageRoute<void> route = MaterialPageRoute<void>(
-      builder: (BuildContext context) => page.getPageWidget(context),
-    );
+    if (!context.mounted) {
+      return;
+    }
 
     if (page.isOnboardingComplete()) {
-      AppNavigator.of(context).pushReplacement(AppRoutes.HOME);
+      AppNavigator.of(context)
+        ..clearStack()
+        ..pushReplacement(
+          AppRoutes.HOME(redraw: true),
+        );
     } else {
+      final MaterialPageRoute<void> route = MaterialPageRoute<void>(
+        builder: (BuildContext context) => page.getPageWidget(context),
+      );
       await Navigator.of(context).push<void>(route);
     }
   }

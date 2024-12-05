@@ -10,12 +10,16 @@ import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/image_field_extension.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 
 SmoothAppBar buildEditProductAppBar({
   required final BuildContext context,
   required final String title,
   required final Product product,
+  final PreferredSizeWidget? bottom,
+  final List<Widget>? actions,
 }) =>
     SmoothAppBar(
       centerTitle: false,
@@ -29,6 +33,8 @@ SmoothAppBar buildEditProductAppBar({
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
       ),
+      actions: actions,
+      bottom: bottom,
       ignoreSemanticsForSubtitle: true,
     );
 
@@ -88,26 +94,101 @@ const EdgeInsets SMOOTH_CARD_PADDING = EdgeInsets.symmetric(
 /// A SmoothCard on Product cards using default margin and padding.
 Widget buildProductSmoothCard({
   Widget? header,
+  Widget? title,
+  EdgeInsetsGeometry? titlePadding,
   required Widget body,
-  EdgeInsets? padding = EdgeInsets.zero,
-  EdgeInsets? margin = const EdgeInsets.symmetric(
+  EdgeInsetsGeometry? padding = EdgeInsets.zero,
+  EdgeInsetsGeometry? margin = const EdgeInsets.symmetric(
     horizontal: SMALL_SPACE,
   ),
-}) =>
-    SmoothCard(
-      margin: margin,
-      padding: padding,
-      child: switch (header) {
-        Object _ => Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              if (header != null) header,
-              body,
-            ],
-          ),
-        _ => body
-      },
+  BorderRadius? borderRadius,
+}) {
+  assert(
+    (header != null && title == null) || header == null,
+    "You can't pass a header and a title at the same time",
+  );
+
+  Widget child;
+
+  if (title != null) {
+    child = Column(
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        _ProductSmoothCardTitle(
+          title: title,
+          padding: titlePadding,
+        ),
+        body,
+      ],
     );
+  } else if (header != null) {
+    child = Column(
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        header,
+        body,
+      ],
+    );
+  } else {
+    child = body;
+  }
+
+  return SmoothCard(
+    margin: margin,
+    padding: padding,
+    borderRadius: borderRadius,
+    child: child,
+  );
+}
+
+class _ProductSmoothCardTitle extends StatelessWidget {
+  const _ProductSmoothCardTitle({
+    required this.title,
+    this.padding,
+  });
+
+  final Widget title;
+  final EdgeInsetsGeometry? padding;
+
+  @override
+  Widget build(BuildContext context) {
+    final SmoothColorsThemeExtension colors =
+        Theme.of(context).extension<SmoothColorsThemeExtension>()!;
+    final EdgeInsetsGeometry effectivePadding = padding ??
+        const EdgeInsetsDirectional.symmetric(
+          vertical: MEDIUM_SPACE,
+        );
+    final TextStyle titleStyle =
+        Theme.of(context).textTheme.displaySmall ?? const TextStyle();
+    final double fontSize = titleStyle.fontSize ?? 15.0;
+
+    return Container(
+      constraints: BoxConstraints(
+        minHeight:
+            MEDIUM_SPACE * 2 + MediaQuery.textScalerOf(context).scale(fontSize),
+      ),
+      decoration: BoxDecoration(
+        color: context.lightTheme()
+            ? colors.primaryMedium
+            : colors.primarySemiDark,
+        borderRadius: const BorderRadius.vertical(
+          top: ROUNDED_RADIUS,
+        ),
+      ),
+      padding: effectivePadding,
+      child: Center(
+        child: DefaultTextStyle(
+          style: titleStyle,
+          textAlign: TextAlign.center,
+          child: SizedBox(
+            width: double.infinity,
+            child: title,
+          ),
+        ),
+      ),
+    );
+  }
+}
 
 // used to be in now defunct `AttributeListExpandable`
 List<Attribute> getPopulatedAttributes(
@@ -170,7 +251,7 @@ List<Attribute> getSortedAttributes(
   }
   final Map<String, List<Attribute>> mandatoryAttributesByGroup =
       <String, List<Attribute>>{};
-  // collecting all the mandatory attributes, by group
+// collecting all the mandatory attributes, by group
   for (final AttributeGroup attributeGroup in product.attributeGroups!) {
     mandatoryAttributesByGroup[attributeGroup.id!] = getFilteredAttributes(
       attributeGroup,
@@ -181,7 +262,7 @@ List<Attribute> getSortedAttributes(
     );
   }
 
-  // now ordering by attribute group order
+// now ordering by attribute group order
   for (final String attributeGroupId in attributeGroupOrder) {
     final List<Attribute>? attributes =
         mandatoryAttributesByGroup[attributeGroupId];
@@ -246,7 +327,9 @@ List<ProductImageData> getProductMainImagesData(
   final OpenFoodFactsLanguage language,
 ) {
   final List<ProductImageData> result = <ProductImageData>[];
-  for (final ImageField imageField in ImageFieldSmoothieExtension.orderedMain) {
+  for (final ImageField imageField
+      in ImageFieldSmoothieExtension.getOrderedMainImageFields(
+          product.productType)) {
     result.add(getProductImageData(product, imageField, language));
   }
   return result;
@@ -264,14 +347,16 @@ ProductImageData getProductImageData(
     language,
   );
   if (productImage != null) {
-    // we found a localized version for this image
+// we found a localized version for this image
     return ProductImageData(
       imageId: productImage.imgid,
       imageField: imageField,
       imageUrl: productImage.getUrl(
         product.barcode!,
         imageSize: ImageSize.DISPLAY,
-        uriHelper: ProductQuery.uriProductHelper,
+        uriHelper: ProductQuery.getUriProductHelper(
+          productType: product.productType,
+        ),
       ),
       language: language,
     );
@@ -331,16 +416,15 @@ List<ProductImage> getRawProductImages(
   final Product product,
   final ImageSize imageSize,
 ) {
-  final List<ProductImage> result = <ProductImage>[];
   final List<ProductImage>? rawImages = product.getRawImages();
   if (rawImages == null) {
-    return result;
+    return <ProductImage>[];
   }
   final Map<int, ProductImage> map = <int, ProductImage>{};
   for (final ProductImage productImage in rawImages) {
     final int? imageId = int.tryParse(productImage.imgid!);
     if (imageId == null) {
-      // highly unlikely
+// highly unlikely
       continue;
     }
     final ProductImage? previous = map[imageId];
@@ -350,20 +434,32 @@ List<ProductImage> getRawProductImages(
     }
     final ImageSize? currentImageSize = productImage.size;
     if (currentImageSize == null) {
-      // highly unlikely
+// highly unlikely
       continue;
     }
     final ImageSize? previousImageSize = previous.size;
     if (previousImageSize == imageSize) {
-      // we already have the best
+// we already have the best
       continue;
     }
     map[imageId] = productImage;
   }
-  final List<int> sortedIds = List<int>.of(map.keys);
-  sortedIds.sort();
-  for (final int id in sortedIds) {
-    result.add(map[id]!);
-  }
+  final List<ProductImage> result = List<ProductImage>.of(map.values);
+  result.sort(
+    (
+      final ProductImage a,
+      final ProductImage b,
+    ) {
+      final int result = (a.uploaded?.millisecondsSinceEpoch ?? 0).compareTo(
+        b.uploaded?.millisecondsSinceEpoch ?? 0,
+      );
+      if (result != 0) {
+        return result;
+      }
+      return (int.tryParse(a.imgid ?? '0') ?? 0).compareTo(
+        int.tryParse(b.imgid ?? '0') ?? 0,
+      );
+    },
+  );
   return result;
 }

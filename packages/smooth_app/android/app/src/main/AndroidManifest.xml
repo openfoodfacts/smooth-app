@@ -1,6 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           xmlns:tools="http://schemas.android.com/tools"
-          package="org.openfoodfacts.app"
           android:installLocation="auto">
 
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -52,7 +51,11 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                
+
+                <!-- Prices -->
+                <data android:scheme="http" android:host="prices.openfoodfacts.org" />
+                <data android:scheme="http" android:host="prices.openfoodfacts.net" />
+
                 <!-- OpenFoodFacts.org -->
                 <data android:scheme="http" android:host="ae.openfoodfacts.org" />
                 <data android:scheme="http" android:host="ar.openfoodfacts.org" />

@@ -18,9 +18,16 @@ import 'package:smooth_app/services/smooth_services.dart';
 /// ecoscore svg widget when the URL changes.
 /// cf. https://api.flutter.dev/flutter/foundation/Key-class.html
 class SvgSafeNetwork extends StatefulWidget {
-  const SvgSafeNetwork(this.helper, {required super.key});
+  const SvgSafeNetwork(
+    this.helper, {
+    this.loadingBuilder,
+    this.errorBuilder,
+    required super.key,
+  });
 
   final AssetCacheHelper helper;
+  final WidgetBuilder? loadingBuilder;
+  final WidgetErrorBuilder? errorBuilder;
 
   @override
   State<SvgSafeNetwork> createState() => _SvgSafeNetworkState();
@@ -75,7 +82,8 @@ class _SvgSafeNetworkState extends State<SvgSafeNetwork> {
           return cached;
         }
         throw Exception(
-            'Failed to load SVG: $_url ${response1.statusCode} $alternateUrl ${response2.statusCode}');
+          'Failed to load SVG: $_url ${response1.statusCode} $alternateUrl ${response2.statusCode}',
+        );
       }
     }
 
@@ -119,17 +127,30 @@ class _SvgSafeNetworkState extends State<SvgSafeNetwork> {
                 fit: BoxFit.contain,
                 semanticsLabel: widget.helper.semanticsLabel ??
                     SvgCache.getSemanticsLabel(context, _url),
-                placeholderBuilder: (BuildContext context) =>
-                    SvgAsyncAsset(widget.helper),
+                placeholderBuilder: (BuildContext context) => SvgAsyncAsset(
+                  widget.helper,
+                  loadingBuilder: widget.loadingBuilder,
+                  errorBuilder: widget.errorBuilder,
+                ),
               );
             }
           }
           if (snapshot.error != null) {
-            final bool serverOrConnectionIssue =
-                snapshot.error.toString().contains("Failed host lookup: '");
-            if (!serverOrConnectionIssue) {
+            if (snapshot.error.toString().contains("Failed host lookup: '")) {
+              Logs.w(
+                'Failed host lookup for "$_url"',
+                ex: snapshot.error,
+              );
+            } else if (snapshot.error
+                .toString()
+                .contains('Connection timed out')) {
+              Logs.w(
+                'Connection timed out for "$_url"',
+                ex: snapshot.error,
+              );
+            } else {
               Logs.e(
-                'Could not download "$_url"',
+                'Could really not download "$_url"',
                 ex: snapshot.error,
               );
             }
@@ -141,3 +162,6 @@ class _SvgSafeNetworkState extends State<SvgSafeNetwork> {
 
 /// Network cache, with url as key and SVG data as value.
 Map<String, String> _networkCache = <String, String>{};
+
+typedef WidgetErrorBuilder = Widget Function(
+    BuildContext context, dynamic exception);

@@ -1,9 +1,9 @@
 import 'dart:async';
 import 'dart:convert';
+
 import 'package:hive/hive.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/database/abstract_dao.dart';
-import 'package:smooth_app/database/local_database.dart';
 
 /// Transient operation: a minimalist [product] with a [key].
 ///
@@ -54,8 +54,7 @@ class _ProductAdapter extends TypeAdapter<Product> {
 /// * it's supposed to be little anyway, so we can load it at startup
 /// * the way we use it may sometimes require instant access (no `await`)
 class DaoTransientOperation extends AbstractDao {
-  DaoTransientOperation(final LocalDatabase localDatabase)
-      : super(localDatabase);
+  DaoTransientOperation(super.localDatabase);
 
   static const String _hiveBoxName = 'transientOperations';
 

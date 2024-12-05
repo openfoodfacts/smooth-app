@@ -3,8 +3,10 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/location_query_model.dart';
+import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_error_card.dart';
 import 'package:smooth_app/pages/locations/search_location_preloaded_item.dart';
 import 'package:smooth_app/pages/product/common/loading_status.dart';
@@ -67,7 +69,7 @@ class _LocationQueryPageState extends State<LocationQueryPage>
             }
             break;
           case LoadingStatus.LOADED:
-            if (_model.isEmpty()) {
+            if (_model.isEmpty() && !_model.isOptimized) {
               return SearchEmptyScreen(
                 name: widget.query,
                 emptiness: _getEmptyText(
@@ -114,12 +116,35 @@ class _LocationQueryPageState extends State<LocationQueryPage>
             textColor: Theme.of(context).colorScheme.onSurface,
           ),
           child: ListView.builder(
-            itemBuilder: (BuildContext context, int index) =>
-                SearchLocationPreloadedItem(
-              _model.displayedResults[index],
-              popFirst: true,
-            ).getWidget(context),
-            itemCount: _model.displayedResults.length,
+            itemBuilder: (BuildContext context, int index) {
+              if (index >= _model.displayedResults.length) {
+                if (_model.isOptimized) {
+                  return SmoothCard(
+                    child: SmoothLargeButtonWithIcon(
+                      text: appLocalizations.prices_location_search_broader,
+                      icon: Icons.search,
+                      onPressed: () => _model.loadMore(),
+                    ),
+                  );
+                }
+                return const Padding(
+                  padding: EdgeInsets.only(top: SMALL_SPACE),
+                  child: Center(
+                    child: CircularProgressIndicator.adaptive(),
+                  ),
+                );
+              }
+              return SearchLocationPreloadedItem(
+                _model.displayedResults[index],
+                popFirst: true,
+              ).getWidget(context);
+            },
+            itemCount: _model.displayedResults.length +
+                (_model.isOptimized
+                    ? 1
+                    : _model.loadingStatus == LoadingStatus.LOADING
+                        ? 1
+                        : 0),
           ),
         ),
       );

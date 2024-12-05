@@ -3,6 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_barcode.dart';
+import 'package:smooth_app/background/background_task_queue.dart';
 import 'package:smooth_app/background/operation_type.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
@@ -13,15 +14,16 @@ class BackgroundTaskHungerGames extends BackgroundTaskBarcode {
     required super.processName,
     required super.uniqueId,
     required super.barcode,
+    required super.productType,
     required super.stamp,
     required this.insightId,
     required this.insightAnnotation,
   });
 
-  BackgroundTaskHungerGames.fromJson(Map<String, dynamic> json)
+  BackgroundTaskHungerGames.fromJson(super.json)
       : insightId = json[_jsonTagInsightId] as String,
         insightAnnotation = json[_jsonTagInsightAnnotation] as int,
-        super.fromJson(json);
+        super.fromJson();
 
   static const String _jsonTagInsightId = 'insightId';
   static const String _jsonTagInsightAnnotation = 'insightAnnotation';
@@ -60,7 +62,11 @@ class BackgroundTaskHungerGames extends BackgroundTaskBarcode {
     if (!context.mounted) {
       return;
     }
-    await task.addToManager(localDatabase, context: context);
+    await task.addToManager(
+      localDatabase,
+      context: context,
+      queue: BackgroundTaskQueue.fast,
+    );
   }
 
   @override
@@ -80,6 +86,8 @@ class BackgroundTaskHungerGames extends BackgroundTaskBarcode {
         processName: _operationType.processName,
         uniqueId: uniqueId,
         barcode: barcode,
+        // not really relevant for Robotoff
+        productType: ProductType.food,
         stamp: _getStamp(barcode, insightId),
         insightId: insightId,
         insightAnnotation: insightAnnotation,

@@ -18,6 +18,8 @@ class SimpleInputTextField extends StatefulWidget {
     this.categories,
     this.shapeProvider,
     this.padding,
+    required this.productType,
+    this.suffixIcon,
   });
 
   final FocusNode focusNode;
@@ -31,6 +33,8 @@ class SimpleInputTextField extends StatefulWidget {
   final String? categories;
   final String? Function()? shapeProvider;
   final EdgeInsetsGeometry? padding;
+  final ProductType? productType;
+  final Widget? suffixIcon;
 
   @override
   State<SimpleInputTextField> createState() => _SimpleInputTextFieldState();
@@ -54,7 +58,9 @@ class _SimpleInputTextFieldState extends State<SimpleInputTextField> {
               user: ProductQuery.getReadUser(),
               // number of suggestions the user can scroll through: compromise between quantity and readability of the suggestions
               limit: 15,
-              uriHelper: ProductQuery.uriProductHelper,
+              uriHelper: ProductQuery.getUriProductHelper(
+                productType: widget.productType,
+              ),
             ),
           );
   }
@@ -77,6 +83,7 @@ class _SimpleInputTextFieldState extends State<SimpleInputTextField> {
               hintText: widget.hintText,
               constraints: widget.constraints,
               manager: _manager,
+              suffixIcon: widget.suffixIcon,
             ),
           ),
           if (widget.withClearButton)

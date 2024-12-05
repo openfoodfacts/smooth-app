@@ -117,6 +117,7 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
                 setState(() => _removePackagingAt(deleteIndex)),
             helper: _helpers[index],
             categories: upToDateProduct.categories,
+            productType: upToDateProduct.productType,
           ),
         ),
       );
@@ -175,6 +176,7 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
             context,
             imageField: ImageField.OTHER,
             barcode: barcode,
+            productType: upToDateProduct.productType,
             language: ProductQuery.getLanguage(),
             isLoggedInMandatory: widget.isLoggedInMandatory,
           ),
@@ -293,7 +295,7 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
 
     AnalyticsHelper.trackProductEdit(
       AnalyticsEditEvents.packagingComponents,
-      barcode,
+      upToDateProduct,
       true,
     );
 
@@ -301,6 +303,7 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
       changedProduct,
       context: context,
       stamp: BackgroundTaskDetailsStamp.structuredPackaging,
+      productType: upToDateProduct.productType,
     );
     return true;
   }

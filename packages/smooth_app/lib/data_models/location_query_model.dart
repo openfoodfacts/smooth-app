@@ -4,9 +4,13 @@ import 'package:smooth_app/pages/locations/osm_location.dart';
 import 'package:smooth_app/pages/product/common/loading_status.dart';
 
 /// Location query model.
+///
+/// We use 2 location suppliers:
+/// * the first one optimized on shops, as it's what we want
+/// * an optional one with no restrictions, in case OSM data is a bit clumsy
 class LocationQueryModel with ChangeNotifier {
   LocationQueryModel(this.query) {
-    _asyncLoad(notify: true);
+    _asyncLoad(_supplierOptimized);
   }
 
   final String query;
@@ -15,39 +19,54 @@ class LocationQueryModel with ChangeNotifier {
   String? _loadingError;
   List<OsmLocation> displayedResults = <OsmLocation>[];
 
+  bool _isOptimized = true;
+  bool get isOptimized => _isOptimized;
+
   bool isEmpty() => displayedResults.isEmpty;
 
   String? get loadingError => _loadingError;
   LoadingStatus get loadingStatus => _loadingStatus;
 
-  late final LocationListSupplier supplier = LocationListSupplier(query);
+  /// A location supplier focused on shops.
+  late final LocationListSupplier _supplierOptimized =
+      LocationListSupplier(query, true);
 
-  Future<bool> _asyncLoad({
-    final bool notify = false,
-    final bool fromScratch = false,
-  }) async {
+  /// A location supplier without restrictions.
+  late final LocationListSupplier _supplierBroader =
+      LocationListSupplier(query, false);
+
+  Future<bool> _asyncLoad(final LocationListSupplier supplier) async {
     _loadingStatus = LoadingStatus.LOADING;
+    notifyListeners();
     _loadingError = await supplier.asyncLoad();
     if (_loadingError != null) {
       _loadingStatus = LoadingStatus.ERROR;
     } else {
-      await _process(supplier.locations, fromScratch);
+      await _process(supplier.locations);
       _loadingStatus = LoadingStatus.LOADED;
     }
-    if (notify) {
-      notifyListeners();
-    }
+    notifyListeners();
     return _loadingStatus == LoadingStatus.LOADED;
   }
 
+  final Set<String> _locationKeys = <String>{};
+
   Future<void> _process(
     final List<OsmLocation> locations,
-    final bool fromScratch,
   ) async {
-    if (fromScratch) {
-      displayedResults.clear();
+    for (final OsmLocation location in locations) {
+      final String primaryKey = location.primaryKey;
+      if (_locationKeys.contains(primaryKey)) {
+        continue;
+      }
+      displayedResults.add(location);
+      _locationKeys.add(primaryKey);
     }
-    displayedResults.addAll(locations);
     _loadingStatus = LoadingStatus.LOADED;
+  }
+
+  Future<void> loadMore() async {
+    _isOptimized = false;
+    _asyncLoad(_supplierBroader);
   }
 }

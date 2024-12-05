@@ -1,7 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/widgets/v2/smooth_buttons_bar.dart';
 
 /// A button bar containing two actions : Save and Cancel
 /// To ensure a fully working scroll, please set the [fixKeyboard] attribute in
@@ -20,18 +19,14 @@ class ProductBottomButtonsBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-    return SafeArea(
-      child: SmoothActionButtonsBar(
-        axis: Axis.horizontal,
-        padding: const EdgeInsets.symmetric(horizontal: LARGE_SPACE),
-        positiveAction: SmoothActionButton(
-          text: appLocalizations.save,
-          onPressed: onSave,
-        ),
-        negativeAction: SmoothActionButton(
-          text: appLocalizations.cancel,
-          onPressed: onCancel,
-        ),
+    return SmoothButtonsBar2(
+      positiveButton: SmoothActionButton2(
+        text: appLocalizations.save,
+        onPressed: onSave,
+      ),
+      negativeButton: SmoothActionButton2(
+        text: appLocalizations.cancel,
+        onPressed: onCancel,
       ),
     );
   }

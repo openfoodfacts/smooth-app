@@ -1,4 +1,4 @@
-name: Add PRs to the Release Smoothie GitHub Project
+name: Add PRs to the relevant GitHub Projects
 
 on:
 - pull_request_target
@@ -14,3 +14,15 @@ jobs:
           project-url: https://github.com/orgs/openfoodfacts/projects/7
           github-token: ${{ secrets.ADD_TO_PROJECT_PAT || github.token }}
           label-operator: AND
+      - uses: actions/add-to-project@main
+        with:
+          project-url: https://github.com/orgs/openfoodfacts/projects/133 # Add issue to the Releases project
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          labeled: autorelease:\pending
+          label-operator: OR   
+      - uses: actions/add-to-project@main
+        with:
+          project-url: https://github.com/orgs/openfoodfacts/projects/136 # Add issue to the Translations project
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          labeled: 🌐 Translations, translations, i18n, Translations
+          label-operator: OR

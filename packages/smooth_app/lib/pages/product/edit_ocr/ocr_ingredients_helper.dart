@@ -90,7 +90,9 @@ class OcrIngredientsHelper extends OcrHelper {
       getUser(),
       product.barcode!,
       language,
-      uriHelper: ProductQuery.uriProductHelper,
+      uriHelper: ProductQuery.getUriProductHelper(
+        productType: product.productType,
+      ),
     );
     return result.ingredientsTextFromImage;
   }

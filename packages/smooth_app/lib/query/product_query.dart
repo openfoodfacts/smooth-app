@@ -8,10 +8,13 @@ import 'package:smooth_app/database/dao_string.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
+import 'package:smooth_app/pages/product/product_type_extensions.dart';
 import 'package:uuid/uuid.dart';
 
 // ignore: avoid_classes_with_only_static_members
 abstract class ProductQuery {
+  const ProductQuery._();
+
   static const ProductQueryVersion productQueryVersion = ProductQueryVersion.v3;
 
   static late OpenFoodFactsCountry _country;
@@ -164,18 +167,26 @@ abstract class ProductQuery {
         comment: 'Test user for project smoothie',
       );
 
-  static late UriProductHelper uriProductHelper;
+  static late UriProductHelper _uriProductHelper;
+
+  /// Product helper only for prices.
+  static late UriProductHelper uriPricesHelper;
 
   static bool isLoggedIn() => OpenFoodAPIConfiguration.globalUser != null;
 
   /// Sets the query type according to the current [UserPreferences]
   static void setQueryType(final UserPreferences userPreferences) {
-    final bool queryTypeProd = userPreferences
-            .getFlag(UserPreferencesDevMode.userPreferencesFlagProd) ??
-        true;
-    uriProductHelper = queryTypeProd
-        ? uriHelperFoodProd
-        : getTestUriProductHelper(userPreferences);
+    UriProductHelper getProductHelper(final String flagProd) =>
+        userPreferences.getFlag(flagProd) ?? true
+            ? uriHelperFoodProd
+            : getTestUriProductHelper(userPreferences);
+
+    _uriProductHelper = getProductHelper(
+      UserPreferencesDevMode.userPreferencesFlagProd,
+    );
+    uriPricesHelper = getProductHelper(
+      UserPreferencesDevMode.userPreferencesFlagPriceProd,
+    );
   }
 
   /// Returns the standard test env, or the custom test env if relevant.
@@ -193,11 +204,48 @@ abstract class ProductQuery {
           );
   }
 
+  static ProductType? extractProductType(
+    final UriProductHelper uriProductHelper,
+  ) {
+    final String domain = uriProductHelper.domain;
+    for (final ProductType productType in ProductType.values) {
+      if (domain.contains(productType.getDomain())) {
+        return productType;
+      }
+    }
+    return null;
+  }
+
+  // TODO(monsieurtanuki): make the parameter "required"
+  static UriProductHelper getUriProductHelper({
+    required final ProductType? productType,
+  }) {
+    final UriProductHelper currentUriProductHelper = _uriProductHelper;
+    if (productType == null) {
+      return currentUriProductHelper;
+    }
+    final ProductType? currentProductType =
+        extractProductType(currentUriProductHelper);
+    if (currentProductType == null) {
+      return currentUriProductHelper;
+    }
+    if (currentProductType == productType) {
+      return currentUriProductHelper;
+    }
+    return UriProductHelper(
+      domain: currentUriProductHelper.domain.replaceFirst(
+        currentProductType.getDomain(),
+        productType.getDomain(),
+      ),
+    );
+  }
+
   static List<ProductField> get fields => const <ProductField>[
         ProductField.NAME,
         ProductField.NAME_ALL_LANGUAGES,
         ProductField.BRANDS,
         ProductField.BARCODE,
+        ProductField.PRODUCT_TYPE,
         ProductField.NUTRISCORE,
         ProductField.FRONT_IMAGE,
         ProductField.IMAGE_FRONT_URL,
@@ -244,5 +292,7 @@ abstract class ProductQuery {
         ProductField.ORIGINS,
         ProductField.WEBSITE,
         ProductField.OBSOLETE,
+        ProductField.OWNER_FIELDS,
+        ProductField.OWNER,
       ];
 }

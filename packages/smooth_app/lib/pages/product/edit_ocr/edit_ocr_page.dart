@@ -28,6 +28,7 @@ import 'package:smooth_app/pages/product/product_image_button.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
+import 'package:smooth_app/widgets/v2/smooth_buttons_bar.dart';
 
 part 'edit_ocr_main_action.dart';
 
@@ -62,11 +63,11 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
     initUpToDate(widget.product, context.read<LocalDatabase>());
     _multilingualHelper = MultilingualHelper(controller: _controller);
     _multilingualHelper.init(
-      multilingualTexts: _helper.getMultilingualTexts(widget.product),
-      monolingualText: _helper.getMonolingualText(widget.product),
-      selectedImages: widget.product.selectedImages,
+      multilingualTexts: _helper.getMultilingualTexts(upToDateProduct),
+      monolingualText: _helper.getMonolingualText(upToDateProduct),
+      selectedImages: upToDateProduct.selectedImages,
       imageField: _helper.getImageField(),
-      productLanguage: widget.product.lang,
+      productLanguage: upToDateProduct.lang,
     );
   }
 
@@ -78,7 +79,7 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
 
     try {
       final String? extractedText = await _helper.getExtractedText(
-        widget.product,
+        upToDateProduct,
         _multilingualHelper.getCurrentLanguage(),
       );
       if (!mounted) {
@@ -119,13 +120,14 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
     }
     AnalyticsHelper.trackProductEdit(
       _helper.getEditEventAnalyticsTag(),
-      barcode,
+      upToDateProduct,
       true,
     );
     await BackgroundTaskDetails.addTask(
       changedProduct,
       context: context,
       stamp: _helper.getStamp(),
+      productType: upToDateProduct.productType,
     );
     return;
   }
@@ -382,7 +384,8 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
                             onPressed: () async => confirmAndUploadNewPicture(
                               context,
                               imageField: ImageField.OTHER,
-                              barcode: widget.product.barcode!,
+                              barcode: barcode,
+                              productType: upToDateProduct.productType,
                               language: language,
                               isLoggedInMandatory: widget.isLoggedInMandatory,
                             ),
@@ -395,13 +398,8 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
               ),
             ),
           ),
-          SmoothActionButtonsBar(
-            axis: Axis.horizontal,
-            negativeAction: SmoothActionButton(
-              text: appLocalizations.cancel,
-              onPressed: () => Navigator.pop(context),
-            ),
-            positiveAction: SmoothActionButton(
+          SmoothButtonsBar2(
+            positiveButton: SmoothActionButton2(
               text: appLocalizations.save,
               onPressed: () async {
                 await _updateText();
@@ -411,8 +409,11 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
                 Navigator.pop(context);
               },
             ),
+            negativeButton: SmoothActionButton2(
+              text: appLocalizations.cancel,
+              onPressed: () => Navigator.pop(context),
+            ),
           ),
-          SizedBox(height: MediaQuery.paddingOf(context).bottom),
         ],
       ),
     );
@@ -422,7 +423,7 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
   Product? _getMinimalistProduct() {
     Product? result;
 
-    Product getBasicProduct() => Product(barcode: widget.product.barcode);
+    Product getBasicProduct() => Product(barcode: barcode);
 
     if (_multilingualHelper.isMonolingual()) {
       final String? changed = _multilingualHelper.getChangedMonolingualText();

@@ -4,7 +4,13 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/helpers/string_extension.dart';
 
 class Languages {
-  const Languages();
+  factory Languages() {
+    return _instance ??= const Languages._();
+  }
+
+  const Languages._();
+
+  static Languages? _instance;
 
   static const LocalizationsDelegate<MaterialLocalizations> _delegate =
       GlobalMaterialLocalizations.delegate;

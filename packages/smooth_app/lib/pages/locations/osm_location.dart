@@ -14,7 +14,23 @@ class OsmLocation {
     this.postcode,
     this.country,
     this.countryCode,
+    this.osmKey,
+    this.osmValue,
   });
+
+  OsmLocation.fromPrice(final Location location)
+      : osmId = location.osmId!,
+        osmType = location.type!,
+        longitude = location.longitude ?? 0,
+        latitude = location.latitude ?? 0,
+        name = location.name,
+        street = null,
+        city = location.city,
+        postcode = location.postcode,
+        country = location.country,
+        countryCode = location.countryCode,
+        osmKey = location.osmKey,
+        osmValue = location.osmValue;
 
   final int osmId;
   final LocationOSMType osmType;
@@ -26,6 +42,8 @@ class OsmLocation {
   final String? postcode;
   final String? country;
   final String? countryCode;
+  final String? osmKey;
+  final String? osmValue;
 
   LatLng getLatLng() => LatLng(latitude, longitude);
 
@@ -65,9 +83,17 @@ class OsmLocation {
       }
       result.write(country);
     }
+    if (osmKey != null && osmValue != null) {
+      if (result.isNotEmpty) {
+        result.write(', ');
+      }
+      result.write('$osmKey:$osmValue');
+    }
     if (result.isEmpty) {
       return null;
     }
     return result.toString();
   }
+
+  String get primaryKey => '${osmType.offTag}$osmId';
 }

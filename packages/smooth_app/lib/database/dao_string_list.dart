@@ -1,10 +1,9 @@
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:smooth_app/database/abstract_dao.dart';
-import 'package:smooth_app/database/local_database.dart';
 
 /// Where we store string lists with unique items.
 class DaoStringList extends AbstractDao {
-  DaoStringList(final LocalDatabase localDatabase) : super(localDatabase);
+  DaoStringList(super.localDatabase);
 
   static const String _hiveBoxName = 'stringList';
 
@@ -14,17 +13,28 @@ class DaoStringList extends AbstractDao {
   /// Key for the list of location search history
   static const String keySearchLocationHistory = 'searchLocationHistory';
 
-  /// Key for the list of task ids.
-  static const String keyTasks = 'tasks';
+  /// Key for the list of task ids (fast tasks like product detail change).
+  static const String keyTasksFast = 'tasks';
+
+  /// Key for the list of task ids (slow tasks like image uploads).
+  static const String keyTasksSlow = 'tasksSlow';
+
+  /// Key for the list of task ids (long haul tasks like full refresh).
+  static const String keyTasksLongHaul = 'tasksLongHaul';
 
   /// Key for the list of latest languages used in the app.
   static const String keyLanguages = 'languages';
+
+  /// Key for the list of favorite stores (for price additions).
+  static const String keyPriceStores = 'priceStores';
 
   /// Max lengths of each key (null means no limit).
   static const Map<String, int?> _maxLengths = <String, int?>{
     keySearchProductHistory: 10,
     keySearchLocationHistory: 10,
-    keyTasks: null,
+    keyTasksFast: null,
+    keyTasksSlow: null,
+    keyTasksLongHaul: null,
     // TODO(monsieurtanuki): more "latest" languages are possible if we create a page to remove some of them
     keyLanguages: 1,
   };

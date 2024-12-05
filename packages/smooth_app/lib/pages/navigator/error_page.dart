@@ -9,8 +9,8 @@ import 'package:smooth_app/pages/navigator/app_navigator.dart';
 class ErrorPage extends StatelessWidget {
   const ErrorPage({
     required this.url,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final String url;
 

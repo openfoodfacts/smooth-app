@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_manager.dart';
 import 'package:smooth_app/background/background_task_progressing.dart';
+import 'package:smooth_app/background/background_task_queue.dart';
 import 'package:smooth_app/background/operation_type.dart';
+import 'package:smooth_app/background/work_type.dart';
 import 'package:smooth_app/database/dao_instant_string.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
@@ -22,7 +25,18 @@ class _OfflineTaskState extends State<OfflineTaskPage> {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     final DaoInstantString daoInstantString = DaoInstantString(localDatabase);
-    final List<String> taskIds = localDatabase.getAllTaskIds();
+    final Map<String, BackgroundTaskQueue> queues =
+        <String, BackgroundTaskQueue>{};
+    final List<String> taskIds = <String>[];
+    for (final BackgroundTaskQueue queue in BackgroundTaskQueue.values) {
+      final List<String> list = localDatabase.getAllTaskIds(
+        queue.tagTaskQueue,
+      );
+      taskIds.addAll(list);
+      for (final String taskId in list) {
+        queues[taskId] = queue;
+      }
+    }
     return Scaffold(
       appBar: SmoothAppBar(
         title: Text(
@@ -31,8 +45,10 @@ class _OfflineTaskState extends State<OfflineTaskPage> {
         ),
         actions: <Widget>[
           IconButton(
-            onPressed: () =>
-                BackgroundTaskManager.getInstance(localDatabase).run(),
+            onPressed: () => BackgroundTaskManager.runAgain(
+              localDatabase,
+              forceNowIfPossible: true,
+            ),
             icon: const Icon(Icons.refresh),
           ),
         ],
@@ -63,7 +79,9 @@ class _OfflineTaskState extends State<OfflineTaskPage> {
                 } else {
                   info = '';
                 }
+                final BackgroundTaskQueue queue = queues[taskId]!;
                 return ListTile(
+                  leading: Icon(queue.iconData),
                   onTap: () async {
                     final bool? stopTask = await showDialog<bool>(
                       context: context,
@@ -82,8 +100,10 @@ class _OfflineTaskState extends State<OfflineTaskPage> {
                       ),
                     );
                     if (stopTask == true) {
-                      await BackgroundTaskManager.getInstance(localDatabase)
-                          .removeTaskAsap(taskId);
+                      await BackgroundTaskManager.getInstance(
+                        localDatabase,
+                        queue: queue,
+                      ).removeTaskAsap(taskId);
                     }
                   },
                   title: Text(
@@ -124,16 +144,13 @@ class _OfflineTaskState extends State<OfflineTaskPage> {
 
   String? _getWorkText(final String taskId) {
     final String? work = OperationType.getWork(taskId);
-    switch (work) {
-      case null:
-      case '':
-        return null;
-      case BackgroundTaskProgressing.workOffline:
-        return 'Top products';
-      case BackgroundTaskProgressing.workFreshWithoutKP:
-        return 'Refresh products without KP';
-      case BackgroundTaskProgressing.workFreshWithKP:
-        return 'Refresh products with KP';
+    if (work == null || work.isEmpty) {
+      return null;
+    }
+    final (WorkType workType, ProductType productType)? item =
+        WorkType.extract(work);
+    if (item != null) {
+      return '${item.$1.englishLabel} (${item.$2.offTag})';
     }
     return 'Unknown work ($work)!';
   }

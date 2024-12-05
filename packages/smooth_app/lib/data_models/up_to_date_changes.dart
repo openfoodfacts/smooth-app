@@ -51,6 +51,9 @@ class UpToDateChanges {
   /// * [BackgroundTaskDetails]
   /// * [BackgroundTaskImage]
   Product _overwrite(final Product initial, final Product change) {
+    if (change.productType != null) {
+      initial.productType = change.productType;
+    }
     if (change.productName != null) {
       initial.productName = change.productName;
     }

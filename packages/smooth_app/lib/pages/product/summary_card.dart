@@ -17,16 +17,14 @@ import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_page.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
-import 'package:smooth_app/pages/hunger_games/question_card.dart';
-import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/product/hideable_container.dart';
-import 'package:smooth_app/pages/product/product_compatibility_header.dart';
 import 'package:smooth_app/pages/product/product_field_editor.dart';
 import 'package:smooth_app/pages/product/product_incomplete_card.dart';
-import 'package:smooth_app/pages/product/product_questions_widget.dart';
 import 'package:smooth_app/pages/product/summary_attribute_group.dart';
-import 'package:smooth_app/query/category_product_query.dart';
-import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
+import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 
 const List<String> _ATTRIBUTE_GROUP_ORDER = <String>[
   AttributeGroup.ATTRIBUTE_GROUP_ALLERGENS,
@@ -42,12 +40,16 @@ class SummaryCard extends StatefulWidget {
     this._product,
     this._productPreferences, {
     this.isFullVersion = false,
-    this.showQuestionsBanner = false,
     this.isRemovable = true,
     this.isSettingVisible = true,
     this.isProductEditable = true,
+    this.isPictureVisible = true,
     this.attributeGroupsClickable = true,
-    this.padding,
+    this.scrollableContent = false,
+    this.margin,
+    this.contentPadding,
+    this.buttonPadding,
+    this.heroTag,
   });
 
   final Product _product;
@@ -59,9 +61,6 @@ class SummaryCard extends StatefulWidget {
   /// Buttons should only be visible in full mode
   final bool isFullVersion;
 
-  /// If true, show the [QuestionCard] if there are questions for the product.
-  final bool showQuestionsBanner;
-
   /// If true, there will be a button to remove the product from the carousel.
   final bool isRemovable;
 
@@ -71,10 +70,25 @@ class SummaryCard extends StatefulWidget {
   /// If true, the product will be editable
   final bool isProductEditable;
 
+  /// If true, a picture will be display next to the product name…
+  final bool isPictureVisible;
+
   /// If true, all chips / groups are clickable
   final bool attributeGroupsClickable;
 
-  final EdgeInsetsGeometry? padding;
+  /// Margin for the card
+  final EdgeInsetsGeometry? margin;
+
+  /// Padding for the content (name of the product, attributes…)
+  final EdgeInsetsGeometry? contentPadding;
+
+  /// Padding for the "Tap for more" button
+  final EdgeInsetsGeometry? buttonPadding;
+
+  /// An optional Hero animation for [ProductPicture]
+  final String? heroTag;
+
+  final bool scrollableContent;
 
   @override
   State<SummaryCard> createState() => _SummaryCardState();
@@ -83,17 +97,15 @@ class SummaryCard extends StatefulWidget {
 class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
   // For some reason, special case for "label" attributes
   final Set<String> _attributesToExcludeIfStatusIsUnknown = <String>{};
-  late ProductQuestionsLayout _questionsLayout;
 
   @override
   void initState() {
     super.initState();
     initUpToDate(widget._product, context.read<LocalDatabase>());
-    _questionsLayout = getUserQuestionsLayout(context.read<UserPreferences>());
     if (ProductIncompleteCard.isProductIncomplete(upToDateProduct)) {
-      AnalyticsHelper.trackEvent(
+      AnalyticsHelper.trackProductEvent(
         AnalyticsEvent.showFastTrackProductEditCard,
-        barcode: barcode,
+        product: widget._product,
       );
     }
   }
@@ -104,79 +116,86 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
     refreshUpToDate();
     if (widget.isFullVersion) {
       return buildProductSmoothCard(
-        header: ProductCompatibilityHeader(
-          product: upToDateProduct,
-          productPreferences: widget._productPreferences,
-          isSettingVisible: widget.isSettingVisible,
-        ),
         body: Padding(
-          padding: widget.padding ?? SMOOTH_CARD_PADDING,
+          padding: widget.margin ?? SMOOTH_CARD_PADDING,
           child: _buildSummaryCardContent(context),
         ),
         margin: EdgeInsets.zero,
       );
+    } else {
+      return _buildLimitedSizeSummaryCard();
     }
-    return LayoutBuilder(
-      builder: (BuildContext context, BoxConstraints constraints) =>
-          _buildLimitedSizeSummaryCard(constraints.maxHeight),
-    );
   }
 
-  Widget _buildLimitedSizeSummaryCard(double parentHeight) {
+  Widget _buildLimitedSizeSummaryCard() {
+    final SmoothColorsThemeExtension themeExtension =
+        context.extension<SmoothColorsThemeExtension>();
+
     return Padding(
-      padding: widget.padding ??
+      padding: widget.margin ??
           const EdgeInsets.symmetric(
             horizontal: SMALL_SPACE,
             vertical: VERY_SMALL_SPACE,
           ),
-      child: Stack(
-        children: <Widget>[
-          ClipRRect(
-            borderRadius: ROUNDED_BORDER_RADIUS,
-            child: OverflowBox(
-              alignment: AlignmentDirectional.topStart,
-              minHeight: parentHeight,
-              maxHeight: double.infinity,
+      child: ClipRRect(
+        borderRadius: ROUNDED_BORDER_RADIUS,
+        child: Column(
+          children: <Widget>[
+            Expanded(
               child: buildProductSmoothCard(
-                header: ProductCompatibilityHeader(
-                  product: upToDateProduct,
-                  productPreferences: widget._productPreferences,
-                  isSettingVisible: widget.isSettingVisible,
-                ),
                 body: Padding(
-                  padding: SMOOTH_CARD_PADDING,
+                  padding: widget.contentPadding ?? SMOOTH_CARD_PADDING,
                   child: _buildSummaryCardContent(context),
                 ),
+                borderRadius: const BorderRadius.vertical(top: ROUNDED_RADIUS),
                 margin: EdgeInsets.zero,
               ),
             ),
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: <Widget>[
-              Container(
-                padding: const EdgeInsets.symmetric(
-                  vertical: SMALL_SPACE,
-                ),
-                decoration: BoxDecoration(
-                  color: Theme.of(context).cardColor,
-                  borderRadius:
-                      const BorderRadius.vertical(bottom: ROUNDED_RADIUS),
-                ),
-                child: Center(
-                  child: Text(
-                    AppLocalizations.of(context).tap_for_more,
-                    style:
-                        Theme.of(context).primaryTextTheme.bodyLarge?.copyWith(
-                              color: PRIMARY_BLUE_COLOR,
-                            ),
+            Container(
+              padding: widget.buttonPadding ??
+                  const EdgeInsets.symmetric(
+                    vertical: SMALL_SPACE,
                   ),
-                ),
+              decoration: BoxDecoration(
+                color: context.lightTheme()
+                    ? themeExtension.primaryDark
+                    : themeExtension.primarySemiDark,
+                borderRadius:
+                    const BorderRadius.vertical(bottom: ROUNDED_RADIUS),
               ),
-            ],
-          ),
-        ],
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsetsDirectional.only(bottom: 2.0),
+                    child: Text(
+                      AppLocalizations.of(context).tap_for_more,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 15.0,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    width: BALANCED_SPACE,
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: themeExtension.orange,
+                    ),
+                    padding: const EdgeInsets.all(VERY_SMALL_SPACE),
+                    child: const icons.Arrow.right(
+                      color: Colors.white,
+                      size: 12.0,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -254,60 +273,12 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
       child: Column(children: displayedGroups),
     );
     // cf. https://github.com/openfoodfacts/smooth-app/issues/2147
-    const Set<String> blackListedCategories = <String>{
-      'fr:vegan',
-    };
-    String? categoryTag;
-    String? categoryLabel;
-    final List<String>? labels =
-        upToDateProduct.categoriesTagsInLanguages?[ProductQuery.getLanguage()];
-    final List<String>? tags = upToDateProduct.categoriesTags;
-    if (tags != null &&
-        labels != null &&
-        tags.isNotEmpty &&
-        tags.length == labels.length) {
-      categoryTag = upToDateProduct.comparedToCategory;
-      if (categoryTag == null || blackListedCategories.contains(categoryTag)) {
-        // fallback algorithm
-        int index = tags.length - 1;
-        // cf. https://github.com/openfoodfacts/openfoodfacts-dart/pull/474
-        // looking for the most detailed non blacklisted category
-        categoryTag = tags[index];
-        while (blackListedCategories.contains(categoryTag) && index > 0) {
-          index--;
-          categoryTag = tags[index];
-        }
-      }
-      if (categoryTag != null) {
-        for (int i = 0; i < tags.length; i++) {
-          if (categoryTag == tags[i]) {
-            categoryLabel = labels[i];
-          }
-        }
-      }
-    }
-    final List<String> statesTags =
-        upToDateProduct.statesTags ?? List<String>.empty();
 
     final List<Widget> summaryCardButtons = <Widget>[];
 
     if (widget.isFullVersion) {
-      // Compare to category
-      if (categoryTag != null && categoryLabel != null) {
-        summaryCardButtons.add(
-          addPanelButton(
-            localizations.product_search_same_category,
-            iconData: Icons.leaderboard,
-            onPressed: () async => ProductQueryPageHelper().openBestChoice(
-              name: categoryLabel!,
-              localDatabase: context.read<LocalDatabase>(),
-              productQuery: CategoryProductQuery(categoryTag!),
-              context: context,
-              searchResult: false,
-            ),
-          ),
-        );
-      }
+      final List<String> statesTags =
+          upToDateProduct.statesTags ?? List<String>.empty();
 
       // Complete basic details
       if (statesTags
@@ -326,12 +297,14 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
       }
     }
 
-    return Column(
+    final Widget child = Column(
       children: <Widget>[
         ProductTitleCard(
           upToDateProduct,
           widget.isFullVersion,
-          isRemovable: widget.isRemovable,
+          heroTag: widget.heroTag,
+          dense: !widget.isFullVersion,
+          isPictureVisible: widget.isPictureVisible,
           onRemove: (BuildContext context) async {
             HideableContainerState.of(context).hide(() async {
               final ContinuousScanModel model =
@@ -346,17 +319,18 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
         if (ProductIncompleteCard.isProductIncomplete(upToDateProduct))
           ProductIncompleteCard(product: upToDateProduct),
         ..._getAttributes(scoreAttributes),
-        if (widget.isFullVersion &&
-            widget.showQuestionsBanner &&
-            _questionsLayout == ProductQuestionsLayout.button)
-          ProductQuestionsWidget(
-            upToDateProduct,
-            layout: ProductQuestionsLayout.button,
-          ),
         attributesContainer,
         ...summaryCardButtons,
       ],
     );
+
+    if (widget.scrollableContent) {
+      return SingleChildScrollView(
+        child: child,
+      );
+    } else {
+      return child;
+    }
   }
 
   List<Widget> _getAttributes(List<Attribute> scoreAttributes) {

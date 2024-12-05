@@ -19,6 +19,7 @@ class SmoothAutocompleteTextField extends StatefulWidget {
     required this.manager,
     this.minLengthForSuggestions = 1,
     this.allowEmojis = true,
+    this.suffixIcon,
   });
 
   final FocusNode focusNode;
@@ -29,6 +30,7 @@ class SmoothAutocompleteTextField extends StatefulWidget {
   final int minLengthForSuggestions;
   final AutocompleteManager? manager;
   final bool allowEmojis;
+  final Widget? suffixIcon;
 
   @override
   State<SmoothAutocompleteTextField> createState() =>
@@ -82,6 +84,7 @@ class _SmoothAutocompleteTextFieldState
             FilteringTextInputFormatter.deny(TextHelper.emojiRegex),
         ],
         decoration: InputDecoration(
+          suffixIcon: widget.suffixIcon,
           filled: true,
           border: const OutlineInputBorder(
             borderRadius: ANGULAR_BORDER_RADIUS,
@@ -148,7 +151,11 @@ class _SmoothAutocompleteTextFieldState
   void _setLoading(bool loading) {
     if (_loading != loading) {
       WidgetsBinding.instance.addPostFrameCallback(
-        (_) => setState(() => _loading = loading),
+        (_) {
+          if (context.mounted) {
+            setState(() => _loading = loading);
+          }
+        },
       );
     }
   }

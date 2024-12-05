@@ -57,6 +57,8 @@
 
 ## Features
 
+Full list of features on the wiki: https://wiki.openfoodfacts.org/Mobile_App/Features
+
 - a scan that truly matches who you are (Green: the product matches your criteria, Red: there is a problem, Gray: Help us answer you by photographing the products)
 - a product page that's knowledgeable, building on the vast amount of food facts we collect collaboratively, and other sources of knowledge, to help you make better food decisions
 
@@ -88,7 +90,7 @@
 
 - Make sure you have installed flutter and all the requirements
   - [Official flutter installation guide](https://docs.flutter.dev/get-started/install)
-- Currently, the app uses the following version of Flutter (3.22.x).
+- Currently, the app uses the following version of Flutter (3.24.x).
 
 
 We have predefined run configurations for Android Studio and Visual Studio Code
