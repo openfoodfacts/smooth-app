@@ -749,7 +749,7 @@
     "nutrition_page_invalid_number": "Ongeldig nummer",
     "nutrition_page_update_running": "Het product bijwerken op de server…",
     "nutrition_page_update_done": "Product bijgewerkt!",
-    "nutrition_page_take_serving_size_from_product_quantity": "Use the product quantity as serving size",
+    "nutrition_page_take_serving_size_from_product_quantity": "Gebruik de producthoeveelheid als portiegrootte",
     "@nutrition_page_take_serving_size_from_product_quantity": {
         "description": "Button label: Use the product quantity as serving size (nutrition page)"
     },
@@ -869,20 +869,20 @@
             }
         }
     },
-    "product_tags_title": "Product properties",
+    "product_tags_title": "Producteigenschappen",
     "@product_tags_title": {
         "description": "The title for showing product properties, aka folksonomy data"
     },
-    "no_product_tags_found_message": "No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.",
+    "no_product_tags_found_message": "Geen producteigenschappen gevonden. Eigenschappen kunnen worden gebruikt om producten op een flexibele manier gedetailleerder te beschrijven. Tik om toe te voegen.",
     "@no_product_tags_found_message": {
         "description": "Message to show if there are no product properties found"
     },
-    "add_tag": "Add property",
-    "edit_tag": "Edit property",
-    "remove_tag": "Remove property",
-    "tag_key": "Property",
+    "add_tag": "Eigenschap toevoegen",
+    "edit_tag": "Eigenschap bewerken",
+    "remove_tag": "Eigenschap verwijderen",
+    "tag_key": "Eigenschap",
     "tag_value": "Waarde",
-    "invalid_key_format": "Invalid property format. It must be lowercase and without any spaces.",
+    "invalid_key_format": "Ongeldige eigenschapsopmaak. Het moet in kleine letters zijn en mag geen spaties bevatten.",
     "@invalid_key_format": {
         "description": "Message to show if the property's value for a new product property is invalid. This logic is identical to whats being validated in the Folksonomy API"
     },
@@ -2212,7 +2212,7 @@
     "@edit_photo_select_existing_button_label": {
         "description": "Edit 'select existing image' button label"
     },
-    "edit_photo_select_existing_all_label": "Bestaande afbeeldingen voor dit product",
+    "edit_photo_select_existing_all_label": "Bestaande afbeeldingen",
     "@edit_photo_select_existing_all_label": {
         "description": "Page title"
     },
@@ -2677,11 +2677,11 @@
     "@owner_field_info_message": {
         "description": "Title of the 'producer provided' info list-tile"
     },
-    "owner_field_info_close_button": "Close this info",
+    "owner_field_info_close_button": "Sluit deze info",
     "@owner_field_info_close_button": {
         "description": "The owner info may be shown in a closeable dialog. This is the label of the button (used on a long press event and for the accessibility label)."
     },
-    "owner_field_image": "This image is provided by the producer. It may not be editable.",
+    "owner_field_image": "Deze afbeelding is geleverd door de producent. Het is mogelijk niet bewerkbaar.",
     "@owner_field_image": {
         "description": "An image is directly provided by the producer. It may be locked and not be editable."
     },
@@ -3237,23 +3237,23 @@
     "@product_image_ingredients_accessibility_label": {
         "description": "Accessibility label for the image of ingredients"
     },
-    "product_image_nutrition_accessibility_label": "Nutrition picture",
+    "product_image_nutrition_accessibility_label": "Foto van voedingswaarde",
     "@product_image_nutrition_accessibility_label": {
         "description": "Accessibility label for the image of the nutrition"
     },
-    "product_image_packaging_accessibility_label": "Packaging picture",
+    "product_image_packaging_accessibility_label": "Verpakkingsfoto",
     "@product_image_packaging_accessibility_label": {
         "description": "Accessibility label for the image of the packaging"
     },
-    "product_image_other_accessibility_label": "Other picture",
+    "product_image_other_accessibility_label": "Andere foto",
     "@product_image_other_accessibility_label": {
         "description": "Accessibility label for an image"
     },
-    "product_image_outdated_message": "This picture may be outdated",
+    "product_image_outdated_message": "Deze afbeelding is mogelijk verouderd",
     "@product_image_outdated_message": {
         "description": "Small message to indicate that the image may be outdated"
     },
-    "product_image_outdated_message_accessibility_label": "{type} (this image may be outdated)",
+    "product_image_outdated_message_accessibility_label": "{type} (deze afbeelding kan verouderd zijn)",
     "@product_image_outdated_message_accessibility_label": {
         "description": "Accessibility label for the image on the product page when it may be outdated",
         "placeholders": {
@@ -3262,7 +3262,7 @@
             }
         }
     },
-    "product_image_locked_message_accessibility_label": "{type} (this image may be locked by the producer)",
+    "product_image_locked_message_accessibility_label": "{type} (deze afbeelding is mogelijk vergrendeld door de producent)",
     "@product_image_locked_message_accessibility_label": {
         "description": "Accessibility label for the image on the product page when it may be locked (producer provided)",
         "placeholders": {
@@ -3271,11 +3271,11 @@
             }
         }
     },
-    "product_image_error": "Unable to load the image!",
+    "product_image_error": "De afbeelding kan niet worden geladen!",
     "@product_image_error": {
         "description": "Small message that will be displayed above the picture (please keep it short)"
     },
-    "product_image_error_accessibility_label": "Unable to load the {type} (network error?)",
+    "product_image_error_accessibility_label": "Kan {type} niet laden (netwerkfout?)",
     "@product_image_error_accessibility_label": {
         "description": "Accessibility label for the image on the product page when it fails to load",
         "placeholders": {
@@ -3316,11 +3316,11 @@
     "@product_page_action_bar_item_disable": {
         "description": "Accessibility label to disable action (= make it invisible)"
     },
-    "product_page_pending_operations_banner_title": "Uploading your edits…",
+    "product_page_pending_operations_banner_title": "Bewerkingen uploaden…",
     "@product_page_pending_operations_banner_title": {
         "description": "When a product has pending edits (being sent to the server), there is a message on the product page (here is the title of the message)."
     },
-    "product_page_pending_operations_banner_message": "The data displayed on this page **does not yet reflect your modifications**.\nPlease wait a few seconds…",
+    "product_page_pending_operations_banner_message": "De gegevens die op deze pagina worden weergegeven, weerspiegelen uw wijzigingen nog niet.\nWacht een paar seconden…",
     "@product_page_pending_operations_banner_message": {
         "description": "When a product has pending edits (being sent to the server), there is a message on the product page. Please keep the ** syntax to make the text bold."
     },

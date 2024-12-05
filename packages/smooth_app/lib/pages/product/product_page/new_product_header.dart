@@ -344,6 +344,7 @@ class _ProductCompatibilityScore extends StatelessWidget {
                     maxLines: 1,
                     textAlign: TextAlign.center,
                     overflow: TextOverflow.fade,
+                    textScaler: TextScaler.noScaling,
                     style: TextStyle(
                       fontSize: _getCompatibilityFontSize(compatibilityLabel),
                       height: 0.9,

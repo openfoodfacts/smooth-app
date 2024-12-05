@@ -2681,7 +2681,7 @@
     "@owner_field_info_close_button": {
         "description": "The owner info may be shown in a closeable dialog. This is the label of the button (used on a long press event and for the accessibility label)."
     },
-    "owner_field_image": "This image is provided by the producer. It may not be editable.",
+    "owner_field_image": "התמונה הזאת סופקה על ידי היצרן. יכול להיות שלא ניתן לערוך אותה.",
     "@owner_field_image": {
         "description": "An image is directly provided by the producer. It may be locked and not be editable."
     },
@@ -3237,23 +3237,23 @@
     "@product_image_ingredients_accessibility_label": {
         "description": "Accessibility label for the image of ingredients"
     },
-    "product_image_nutrition_accessibility_label": "Nutrition picture",
+    "product_image_nutrition_accessibility_label": "תמונת מפרט תזונתי",
     "@product_image_nutrition_accessibility_label": {
         "description": "Accessibility label for the image of the nutrition"
     },
-    "product_image_packaging_accessibility_label": "Packaging picture",
+    "product_image_packaging_accessibility_label": "תמונת אריזה",
     "@product_image_packaging_accessibility_label": {
         "description": "Accessibility label for the image of the packaging"
     },
-    "product_image_other_accessibility_label": "Other picture",
+    "product_image_other_accessibility_label": "תמונה אחרת",
     "@product_image_other_accessibility_label": {
         "description": "Accessibility label for an image"
     },
-    "product_image_outdated_message": "This picture may be outdated",
+    "product_image_outdated_message": "לא בטוח שהתמונה עדכנית",
     "@product_image_outdated_message": {
         "description": "Small message to indicate that the image may be outdated"
     },
-    "product_image_outdated_message_accessibility_label": "{type} (this image may be outdated)",
+    "product_image_outdated_message_accessibility_label": "{type} (לא בטוח שהתמונה עדכנית)",
     "@product_image_outdated_message_accessibility_label": {
         "description": "Accessibility label for the image on the product page when it may be outdated",
         "placeholders": {
@@ -3262,7 +3262,7 @@
             }
         }
     },
-    "product_image_locked_message_accessibility_label": "{type} (this image may be locked by the producer)",
+    "product_image_locked_message_accessibility_label": "{type} (יכול להיות שהתמונה ננעלה על ידי היצרן)",
     "@product_image_locked_message_accessibility_label": {
         "description": "Accessibility label for the image on the product page when it may be locked (producer provided)",
         "placeholders": {
@@ -3271,11 +3271,11 @@
             }
         }
     },
-    "product_image_error": "Unable to load the image!",
+    "product_image_error": "לא ניתן לטעון את התמונה!",
     "@product_image_error": {
         "description": "Small message that will be displayed above the picture (please keep it short)"
     },
-    "product_image_error_accessibility_label": "Unable to load the {type} (network error?)",
+    "product_image_error_accessibility_label": "לא ניתן לטעון את ה{type} (תקלת רשת?)",
     "@product_image_error_accessibility_label": {
         "description": "Accessibility label for the image on the product page when it fails to load",
         "placeholders": {

@@ -226,7 +226,11 @@ class _SmoothNavigationBarItemState extends State<_SmoothNavigationBarItem>
               fontSize: 14.5,
               fontWeight: widget.selected ? FontWeight.w700 : FontWeight.w600,
             ),
-            child: Text(widget.destination.label),
+            child: Text(
+              widget.destination.label,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+            ),
           ),
         ],
       ),

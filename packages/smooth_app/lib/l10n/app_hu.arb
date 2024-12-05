@@ -869,20 +869,20 @@
             }
         }
     },
-    "product_tags_title": "Product properties",
+    "product_tags_title": "Terméktulajdonságok",
     "@product_tags_title": {
         "description": "The title for showing product properties, aka folksonomy data"
     },
-    "no_product_tags_found_message": "No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.",
+    "no_product_tags_found_message": "Nem találtunk terméktulajdonságokat. A tulajdonságok rugalmasan használhatók a termékek részletesebb leírására. Érintse meg a hozzáadáshoz.",
     "@no_product_tags_found_message": {
         "description": "Message to show if there are no product properties found"
     },
-    "add_tag": "Add property",
-    "edit_tag": "Edit property",
-    "remove_tag": "Remove property",
-    "tag_key": "Property",
+    "add_tag": "Tulajdonság hozzáadása",
+    "edit_tag": "Tulajdonság szerkesztése",
+    "remove_tag": "Tulajdonság eltávolítása",
+    "tag_key": "Tulajdonság",
     "tag_value": "Érték",
-    "invalid_key_format": "Invalid property format. It must be lowercase and without any spaces.",
+    "invalid_key_format": "Érvénytelen tulajdonságformátum. Kisbetűvel és szóközök nélkül kell írni.",
     "@invalid_key_format": {
         "description": "Message to show if the property's value for a new product property is invalid. This logic is identical to whats being validated in the Folksonomy API"
     },
@@ -1011,7 +1011,7 @@
             "percent": {}
         }
     },
-    "plural_ago_days": "{count,plural,  one {}=1{egy napja} other{{count} napja}}",
+    "plural_ago_days": "{count,plural,  =1{egy napja} other{{count} napja}}",
     "@plural_ago_days": {
         "description": "Cached results from: x days ago",
         "placeholders": {
@@ -1247,7 +1247,7 @@
     "@product_list_empty_message": {
         "description": "When the history list is empty, body of the message explaining to start scanning"
     },
-    "product_list_reloading_in_progress_multiple": "{count,plural,  one {}=0{Termék} =1{Termék} other{Termékek}} frissítése az előzményekben",
+    "product_list_reloading_in_progress_multiple": "{count,plural, =0{Termék} =1{Termék} other{Termékek}} frissítése az előzményekben",
     "@product_list_reloading_in_progress_multiple": {
         "description": "Message to show while loading previous scanned items",
         "placeholders": {
@@ -2681,7 +2681,7 @@
     "@owner_field_info_close_button": {
         "description": "The owner info may be shown in a closeable dialog. This is the label of the button (used on a long press event and for the accessibility label)."
     },
-    "owner_field_image": "This image is provided by the producer. It may not be editable.",
+    "owner_field_image": "Ezt a képet a gyártó biztosította. Lehet, hogy nem szerkeszthető.",
     "@owner_field_image": {
         "description": "An image is directly provided by the producer. It may be locked and not be editable."
     },
@@ -3237,23 +3237,23 @@
     "@product_image_ingredients_accessibility_label": {
         "description": "Accessibility label for the image of ingredients"
     },
-    "product_image_nutrition_accessibility_label": "Nutrition picture",
+    "product_image_nutrition_accessibility_label": "Tápértékadatok képe",
     "@product_image_nutrition_accessibility_label": {
         "description": "Accessibility label for the image of the nutrition"
     },
-    "product_image_packaging_accessibility_label": "Packaging picture",
+    "product_image_packaging_accessibility_label": "Csomagolás képe",
     "@product_image_packaging_accessibility_label": {
         "description": "Accessibility label for the image of the packaging"
     },
-    "product_image_other_accessibility_label": "Other picture",
+    "product_image_other_accessibility_label": "Egyéb kép",
     "@product_image_other_accessibility_label": {
         "description": "Accessibility label for an image"
     },
-    "product_image_outdated_message": "This picture may be outdated",
+    "product_image_outdated_message": "Ez a kép elavult lehet",
     "@product_image_outdated_message": {
         "description": "Small message to indicate that the image may be outdated"
     },
-    "product_image_outdated_message_accessibility_label": "{type} (this image may be outdated)",
+    "product_image_outdated_message_accessibility_label": "{type} (ez a kép elavult lehet)",
     "@product_image_outdated_message_accessibility_label": {
         "description": "Accessibility label for the image on the product page when it may be outdated",
         "placeholders": {
@@ -3262,7 +3262,7 @@
             }
         }
     },
-    "product_image_locked_message_accessibility_label": "{type} (this image may be locked by the producer)",
+    "product_image_locked_message_accessibility_label": "{type} (lehet, hogy ezt a képet a gyártó zárolta)",
     "@product_image_locked_message_accessibility_label": {
         "description": "Accessibility label for the image on the product page when it may be locked (producer provided)",
         "placeholders": {
@@ -3271,11 +3271,11 @@
             }
         }
     },
-    "product_image_error": "Unable to load the image!",
+    "product_image_error": "Nem sikerült betölteni a képet!",
     "@product_image_error": {
         "description": "Small message that will be displayed above the picture (please keep it short)"
     },
-    "product_image_error_accessibility_label": "Unable to load the {type} (network error?)",
+    "product_image_error_accessibility_label": "{type} betöltése nem sikerült (hálózati hiba?)",
     "@product_image_error_accessibility_label": {
         "description": "Accessibility label for the image on the product page when it fails to load",
         "placeholders": {
@@ -3316,11 +3316,11 @@
     "@product_page_action_bar_item_disable": {
         "description": "Accessibility label to disable action (= make it invisible)"
     },
-    "product_page_pending_operations_banner_title": "Uploading your edits…",
+    "product_page_pending_operations_banner_title": "Szerkesztések feltöltése…",
     "@product_page_pending_operations_banner_title": {
         "description": "When a product has pending edits (being sent to the server), there is a message on the product page (here is the title of the message)."
     },
-    "product_page_pending_operations_banner_message": "The data displayed on this page **does not yet reflect your modifications**.\nPlease wait a few seconds…",
+    "product_page_pending_operations_banner_message": "Az ezen az oldalon megjelenő adatok **még nem tartalmazzák az Ön módosításait**.\nVárjon pár másodpercet…",
     "@product_page_pending_operations_banner_message": {
         "description": "When a product has pending edits (being sent to the server), there is a message on the product page. Please keep the ** syntax to make the text bold."
     },
@@ -3351,8 +3351,8 @@
     "@carousel_error_header": {
         "description": "A label on top of the carousel card when there is an error (mainly network issues)"
     },
-    "carousel_error_title": "It's a bummer!",
-    "carousel_error_text_1": "Nem tudtunk információkat letölteni erről a vonalkódról:",
+    "carousel_error_title": "De nagy kár!",
+    "carousel_error_text_1": "Nem tudtunk adatokat lekérni erről a vonalkódról:",
     "carousel_error_text_2": "Ellenőrizze internetkapcsolatát, vagy kattintson erre a gombra:",
     "@carousel_error_text_2": {
         "description": "Please keep the ** syntax to make the text bold"
