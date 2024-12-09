@@ -3324,11 +3324,11 @@
     "@product_page_pending_operations_banner_message": {
         "description": "When a product has pending edits (being sent to the server), there is a message on the product page. Please keep the ** syntax to make the text bold."
     },
-    "product_add_a_language": "Add a language",
+    "product_add_a_language": "Pridėti kalbą",
     "@product_add_a_language": {
         "description": "Button to add a language (eg: for photos) to a product"
     },
-    "barcode_accessibility_label": "Barcode {barcode}",
+    "barcode_accessibility_label": "Brūkšninis kodas {barcode}",
     "@barcode_accessibility_label": {
         "description": "Accessibility label for a barcode image",
         "placeholders": {
@@ -3337,23 +3337,23 @@
             }
         }
     },
-    "carousel_close_tooltip": "Remove this product from the carousel",
+    "carousel_close_tooltip": "Pašalinti šį produktą iš karuselės",
     "@carousel_close_tooltip": {
         "description": "A message explaining the goal of the Close button on a card of the carousel"
     },
-    "carousel_unsupported_header": "Unsupported barcode!",
+    "carousel_unsupported_header": "Nepalaikomas brūkšninis kodas!",
     "@carousel_unsupported_header": {
         "description": "A label on top of the carousel card when the barcode is not supported by the app"
     },
-    "carousel_unsupported_title": "Ooops!",
-    "carousel_unsupported_text": "The barcode scanned is not supported by Open Food Facts!",
-    "carousel_error_header": "Error!",
+    "carousel_unsupported_title": "Oi!",
+    "carousel_unsupported_text": "Nuskaityto brūkšninio kodo „Open Food Facts“ nepalaiko!",
+    "carousel_error_header": "Klaida!",
     "@carousel_error_header": {
         "description": "A label on top of the carousel card when there is an error (mainly network issues)"
     },
-    "carousel_error_title": "It's a bummer!",
-    "carousel_error_text_1": "We couldn't download information on this barcode:",
-    "carousel_error_text_2": "Please check your Internet connection or click this button:",
+    "carousel_error_title": "Koks nusivylimas!",
+    "carousel_error_text_1": "Mums nepavyko atsisiųsti informacijos apie šį brūkšninį kodą:",
+    "carousel_error_text_2": "Patikrinkite interneto ryšį arba spustelėkite šį mygtuką:",
     "@carousel_error_text_2": {
         "description": "Please keep the ** syntax to make the text bold"
     },
@@ -3362,21 +3362,21 @@
     "@carousel_unknown_product_header": {
         "description": "A label on top of the carousel card when the product is not in the database (= it needs to be created)"
     },
-    "carousel_unknown_product_title": "Congratulations!\nYou've found __the rare gem!__",
+    "carousel_unknown_product_title": "Sveikiname!\nJūs radote __retą brangakmenį!__",
     "@carousel_unknown_product_title": {
         "description": "Please keep the __ syntax to underline the text"
     },
-    "carousel_unknown_product_text": "Our collaborative database contains more than **3 million products**, but this barcode doesn't exist: ",
+    "carousel_unknown_product_text": "Mūsų bendradarbiavimo duomenų bazėje yra daugiau negu **3 milijonai produktų**, tačiau šio brūkšninio kodo nėra: ",
     "@carousel_unknown_product_text": {
         "description": "Please keep the ** syntax to make the text bold"
     },
     "carousel_unknown_product_button": "Pridėti šį produktą",
-    "carousel_loading_header": "Loading information...",
+    "carousel_loading_header": "Įkeliama informacija...",
     "@carousel_loading_header": {
         "description": "A label on top of the carousel card when data about the product is loading"
     },
-    "carousel_loading_title": "You've just scanned a product with the following barcode:",
-    "carousel_loading_text": "We are searching for it in our database of more than **3 million products!**",
+    "carousel_loading_title": "Ką tik nuskaitėte produktą su šiuo brūkšniniu kodu:",
+    "carousel_loading_text": "Mes jo ieškome savo duomenų bazėje, kurioje yra daugiau negu **3 milijonai produktų!**",
     "@carousel_loading_text": {
         "description": "Please keep the ** syntax to make the text bold"
     },
