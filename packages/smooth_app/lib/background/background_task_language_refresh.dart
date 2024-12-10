@@ -59,20 +59,22 @@ class BackgroundTaskLanguageRefresh extends BackgroundTask {
       );
 
   static Future<void> addTask(
-    final LocalDatabase localDatabase, {
-    final List<String> excludeBarcodes = const <String>[],
-    final ProductType? productType,
-  }) async {
-    if (productType == null) {
-      for (final ProductType item in ProductType.values) {
-        await addTask(
-          localDatabase,
-          excludeBarcodes: excludeBarcodes,
-          productType: item,
-        );
-      }
-      return;
+    final LocalDatabase localDatabase,
+  ) async {
+    for (final ProductType productType in ProductType.values) {
+      await _addTask(
+        localDatabase,
+        excludeBarcodes: <String>[],
+        productType: productType,
+      );
     }
+  }
+
+  static Future<void> _addTask(
+    final LocalDatabase localDatabase, {
+    required final List<String> excludeBarcodes,
+    required final ProductType productType,
+  }) async {
     final String uniqueId = await _operationType.getNewKey(
       localDatabase,
       productType: productType,
@@ -167,9 +169,10 @@ class BackgroundTaskLanguageRefresh extends BackgroundTask {
     for (final Product product in searchResult.products!) {
       newExcludeBarcodes.remove(product.barcode);
     }
-    await addTask(
+    await _addTask(
       localDatabase,
       excludeBarcodes: newExcludeBarcodes,
+      productType: productType,
     );
   }
 }

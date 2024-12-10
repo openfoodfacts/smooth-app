@@ -116,33 +116,30 @@ enum OperationType {
     return int.parse(keyItems[1]);
   }
 
-  static String getBarcode(final String key) {
-    final List<String> keyItems = key.split(_transientHeaderSeparator);
-    return keyItems[2];
-  }
+  static String getBarcode(final String key) => _getNthParameter(key, 2)!;
 
-  static int? getTotalSize(final String key) {
+  static int? getTotalSize(final String key) => _getNthIntParameter(key, 3);
+
+  static int? getSoFarSize(final String key) => _getNthIntParameter(key, 4);
+
+  static String? getWork(final String key) => _getNthParameter(key, 5);
+
+  static String? getProductType(final String key) => _getNthParameter(key, 6);
+
+  static String? _getNthParameter(final String key, final int index) {
     final List<String> keyItems = key.split(_transientHeaderSeparator);
-    if (keyItems.length <= 3) {
+    if (keyItems.length <= index) {
       return null;
     }
-    return int.tryParse(keyItems[3]);
+    return keyItems[index];
   }
 
-  static int? getSoFarSize(final String key) {
-    final List<String> keyItems = key.split(_transientHeaderSeparator);
-    if (keyItems.length <= 4) {
+  static int? _getNthIntParameter(final String key, final int index) {
+    final String? parameter = _getNthParameter(key, index);
+    if (parameter == null) {
       return null;
     }
-    return int.tryParse(keyItems[4]);
-  }
-
-  static String? getWork(final String key) {
-    final List<String> keyItems = key.split(_transientHeaderSeparator);
-    if (keyItems.length <= 5) {
-      return null;
-    }
-    return keyItems[5];
+    return int.tryParse(parameter);
   }
 
   static OperationType? getOperationType(final String key) {
