@@ -407,7 +407,7 @@
     "@saving_answer": {
         "description": "Dialog shown to users after they have answered a question, while the answer is being saved in the BE."
     },
-    "contribute_to_get_rewards": "Legyen egy szereplője az élelmiszer átláthatóságnak",
+    "contribute_to_get_rewards": "Legyen szereplője az élelmiszer-átláthatóságnak",
     "@contribute_to_get_rewards": {
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts."
     },
@@ -3212,7 +3212,7 @@
     "@photo_viewer_details_url_title": {
         "description": "Label for the link of a photo"
     },
-    "product_page_compatibility_score": "megfelelőség",
+    "product_page_compatibility_score": "egyezés",
     "@product_page_compatibility_score": {
         "description": "Compatibility score on top of the product page. The sentence is \"100%\" Compatible"
     },
