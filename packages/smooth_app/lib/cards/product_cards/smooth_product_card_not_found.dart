@@ -88,7 +88,7 @@ class ScanProductCardNotFound extends StatelessWidget {
               spacer,
               ScanProductBaseCardButton(
                 text: appLocalizations.carousel_unknown_product_button,
-                onTap: () => _onTap(context),
+                onTap: dense ? () => _onTap(context) : null,
               ),
             ],
           );
