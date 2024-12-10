@@ -39,7 +39,6 @@ class ScanProductCardNotFound extends StatelessWidget {
       ),
       child: LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
-          final bool dense = constraints.maxHeight < 275.0;
           final Widget spacer;
 
           if (dense) {
