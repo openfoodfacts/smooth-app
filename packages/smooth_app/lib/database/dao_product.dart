@@ -383,7 +383,6 @@ class DaoProduct extends AbstractSqlDao implements BulkDeletable {
       queryWithoutLastAccess,
     ];
     for (final String query in queries) {
-      print('one query');
       // optimization: using a cursor, as we don't want all the rows,
       // and we don't know how many rows we'll need.
       final QueryCursor queryCursor =
