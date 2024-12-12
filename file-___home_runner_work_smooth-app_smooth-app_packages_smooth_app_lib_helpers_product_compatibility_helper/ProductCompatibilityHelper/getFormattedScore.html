@@ -66,6 +66,8 @@
   <pre class="language-dart"><code class="language-dart">String? getFormattedScore() {
   if (_score == null || status == MatchedProductStatusV2.UNKNOWN_MATCH) {
     return null;
+  } else if (_score == 0) {
+    return &#39;0&#39;;
   }
 
   return NumberFormat(&#39;00&#39;).format(_score.toInt());
