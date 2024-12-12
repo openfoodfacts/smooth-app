@@ -360,7 +360,7 @@
     "@contribute_donate_header": {},
     "contribute_enroll_alpha": "Feliratkozás a belső alfa verzióra",
     "@contribute_enroll_alpha": {},
-    "contribute_enroll_alpha_warning": "Cegye figyelembe, hogy a belső alfa verzióval a teljes adatvesztés is lehetséges, és az alkalmazás bármikor használhatatlanná válhat!",
+    "contribute_enroll_alpha_warning": "Vegye figyelembe, hogy a belső alfa verzióval a teljes adatvesztés is előfordulhat, és az alkalmazás bármikor használhatatlanná válhat!",
     "@contribute_enroll_alpha_warning": {},
     "contribute_improve_ProductsToBeCompleted": "Kiegészítendő termékek",
     "@contribute_improve_ProductsToBeCompleted": {
