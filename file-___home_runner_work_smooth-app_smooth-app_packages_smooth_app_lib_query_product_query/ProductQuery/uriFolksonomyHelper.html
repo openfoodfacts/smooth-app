@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the getTestUriProductHelper method from the ProductQuery class, for the Dart programming language.">
-  <title>getTestUriProductHelper method - ProductQuery class - product_query library - Dart API</title>
+  <meta name="description" content="API docs for the uriFolksonomyHelper property from the ProductQuery class, for the Dart programming language.">
+  <title>uriFolksonomyHelper property - ProductQuery class - product_query library - Dart API</title>
 
 
   
@@ -31,9 +31,9 @@
     <li><a href="../../index.html">smooth_app</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_query_product_query/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_query_product_query-library.html">product_query</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_query_product_query/ProductQuery-class.html">ProductQuery</a></li>
-    <li class="self-crumb">getTestUriProductHelper method</li>
+    <li class="self-crumb">uriFolksonomyHelper property</li>
   </ol>
-  <div class="self-name">getTestUriProductHelper</div>
+  <div class="self-name">uriFolksonomyHelper</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -44,42 +44,27 @@
 
   <div id="dartdoc-main-content" class="main-content">
       <div>
-<h1><span class="kind-method">getTestUriProductHelper</span> method 
+<h1><span class="kind-property">uriFolksonomyHelper</span> property 
     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
-    <section class="multi-line-signature">
-      
+        <section class="multi-line-signature">
+          dynamic
+          <span class="name ">uriFolksonomyHelper</span>
+          <div class="features">read / write</div>
 
-<span class="returntype">dynamic</span>
-<span class="name ">getTestUriProductHelper</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="getTestUriProductHelper-param-userPreferences"><span class="type-annotation">dynamic</span> <span class="parameter-name">userPreferences</span></span></li>
-</ol>)
-
-      
-
-    </section>
-    
+        </section>
+        
 <section class="desc markdown">
-  <p>Returns the standard test env, or the custom test env if relevant.</p>
+  <p>Product helper only for Folksonomy.</p>
 </section>
 
-
-    
+        
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">static UriProductHelper getTestUriProductHelper(
-    final UserPreferences userPreferences) {
-  final String testEnvDomain = userPreferences.getDevModeString(
-          UserPreferencesDevMode.userPreferencesTestEnvDomain) ??
-      &#39;&#39;;
-  return testEnvDomain.isEmpty
-      ? uriHelperFoodTest
-      : UriProductHelper(
-          isTestMode: true,
-          userInfoForPatch: HttpHelper.userInfoForTest,
-          domain: testEnvDomain,
-        );
-}</code></pre>
+  <pre class="language-dart"><code class="language-dart">static late UriHelper uriFolksonomyHelper;
+
+</code></pre>
 </section>
 
 
@@ -96,7 +81,7 @@
   <li><a href="../../index.html">smooth_app</a></li>
   <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_query_product_query/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_query_product_query-library.html">product_query</a></li>
   <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_query_product_query/ProductQuery-class.html">ProductQuery</a></li>
-  <li class="self-crumb">getTestUriProductHelper method</li>
+  <li class="self-crumb">uriFolksonomyHelper property</li>
 </ol>
 
 

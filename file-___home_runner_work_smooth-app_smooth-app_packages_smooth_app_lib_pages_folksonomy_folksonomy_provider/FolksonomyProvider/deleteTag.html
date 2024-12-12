@@ -69,10 +69,12 @@
     final String bearerToken = await getBearerToken();
     final int tagVersion = _productTags?[key]?.version ?? 0;
     await FolksonomyAPIClient.deleteProductTag(
-        barcode: barcode,
-        key: key,
-        version: tagVersion,
-        bearerToken: bearerToken);
+      barcode: barcode,
+      key: key,
+      version: tagVersion,
+      bearerToken: bearerToken,
+      uriHelper: ProductQuery.uriFolksonomyHelper,
+    );
     _productTags?.remove(key);
   } catch (e) {
     _error = e.toString();

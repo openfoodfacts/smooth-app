@@ -70,7 +70,12 @@
     final String bearerToken = await getBearerToken();
     &#47;&#47; to-do: The addProduct tag method does not yet have a way to add a comment.
     await FolksonomyAPIClient.addProductTag(
-        barcode: barcode, key: key, value: value, bearerToken: bearerToken);
+      barcode: barcode,
+      key: key,
+      value: value,
+      bearerToken: bearerToken,
+      uriHelper: ProductQuery.uriFolksonomyHelper,
+    );
     _productTags?[key] = ProductTag(
       barcode: barcode,
       key: key,

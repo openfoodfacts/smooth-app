@@ -71,11 +71,13 @@
 
     final int newVersion = (_productTags?[key]?.version ?? 0) + 1;
     await FolksonomyAPIClient.updateProductTag(
-        barcode: barcode,
-        key: key,
-        value: newValue,
-        version: newVersion,
-        bearerToken: bearerToken);
+      barcode: barcode,
+      key: key,
+      value: newValue,
+      version: newVersion,
+      bearerToken: bearerToken,
+      uriHelper: ProductQuery.uriFolksonomyHelper,
+    );
     _productTags?[key] = ProductTag(
       barcode: barcode,
       key: key,
