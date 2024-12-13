@@ -360,7 +360,7 @@
     "@contribute_donate_header": {},
     "contribute_enroll_alpha": "Feliratkozás a belső alfa verzióra",
     "@contribute_enroll_alpha": {},
-    "contribute_enroll_alpha_warning": "Cegye figyelembe, hogy a belső alfa verzióval a teljes adatvesztés is lehetséges, és az alkalmazás bármikor használhatatlanná válhat!",
+    "contribute_enroll_alpha_warning": "Vegye figyelembe, hogy a belső alfa verzióval a teljes adatvesztés is előfordulhat, és az alkalmazás bármikor használhatatlanná válhat!",
     "@contribute_enroll_alpha_warning": {},
     "contribute_improve_ProductsToBeCompleted": "Kiegészítendő termékek",
     "@contribute_improve_ProductsToBeCompleted": {
@@ -407,7 +407,7 @@
     "@saving_answer": {
         "description": "Dialog shown to users after they have answered a question, while the answer is being saved in the BE."
     },
-    "contribute_to_get_rewards": "Legyen egy szereplője az élelmiszer átláthatóságnak",
+    "contribute_to_get_rewards": "Legyen szereplője az élelmiszer-átláthatóságnak",
     "@contribute_to_get_rewards": {
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts."
     },
@@ -1235,7 +1235,7 @@
     "@product_list_your_ranking": {
         "description": "Your ranking screen title"
     },
-    "product_list_empty_icon_desc": "Az előzmények nem érhetők el",
+    "product_list_empty_icon_desc": "Az előzmények nem érhetőek el",
     "@product_list_icon_desc": {
         "description": "When the history list is empty, icon description (for accessibility) of the message explaining to start scanning"
     },
@@ -1965,7 +1965,7 @@
             }
         }
     },
-    "prices_open_user_proofs": "„{user}” igazolásainak megnyitása",
+    "prices_open_user_proofs": "„{user}” bizonylatainak megnyitása",
     "@prices_open_user_proofs": {
         "description": "Button to open the proofs of a user",
         "placeholders": {
@@ -1974,11 +1974,11 @@
             }
         }
     },
-    "prices_open_proof": "Árigazolás mengnyitása",
+    "prices_open_proof": "Bizonylat megnyitása",
     "@prices_open_proof": {
         "description": "Button to open a proof"
     },
-    "prices_proofs_list_length_one_page": "{count,plural,=0{Még nincs igazolás} =1{Csak egy igazolás} other{{count} igazolás}}",
+    "prices_proofs_list_length_one_page": "{count,plural,=0{Még nincs bizonylat} =1{Csak egy bizonylat} other{{count} bizonylat}}",
     "@prices_proofs_list_length_one_page": {
         "description": "Number of proofs for one-page result",
         "placeholders": {
@@ -1987,7 +1987,7 @@
             }
         }
     },
-    "prices_proofs_list_length_many_pages": "Legújabb {pageSize} igazolás (összesen: {total})",
+    "prices_proofs_list_length_many_pages": "Legújabb {pageSize} bizonylat (összesen: {total})",
     "@prices_proofs_list_length_many_pages": {
         "description": "Number of proofs for one-page result",
         "placeholders": {
@@ -2026,10 +2026,10 @@
     "prices_location_mandatory": "Ki kell választani egy boltot!",
     "prices_location_search_broader": "Nem találta, amit keresett? Próbáljunk meg egy átfogóbb keresést!",
     "prices_proof_subtitle": "Proof",
-    "prices_proof_find": "Igazolás kiválasztása",
+    "prices_proof_find": "Bizonylat kiválasztása",
     "prices_proof_receipt": "Receipt",
     "prices_proof_price_tag": "Price tag",
-    "prices_proof_mandatory": "Ki kell választani egy igazolást!",
+    "prices_proof_mandatory": "Ki kell választani egy bizonylatot!",
     "prices_add_validation_error": "Érvényesítési hiba",
     "prices_privacy_warning_title": "Adatvédelmi figyelmeztetés",
     "prices_privacy_warning_message": "Az árak nyilvánosak lesznek, a hozzájuk tartozó üzlettel együtt.\nEz lehetővé teheti az Open Food Factsen használt felhasználónevét ismerő emberek számára, hogy:\n* következtessenek a lakóhelyére\n* tudják, mit vásárol\nHa aggódik emiatt, változtassa meg a felhasználónevét, vagy hozzon létre egy másik Open Food Facts fiókot, és jelentkezzen be azzal az alkalmazásba.",
@@ -2122,7 +2122,7 @@
     "@user_search_proofs_title": {
         "description": "User proofs: list tile title"
     },
-    "user_search_proof_title": "Igazolásom",
+    "user_search_proof_title": "Bizonylataim",
     "@user_search_proof_title": {
         "description": "User proof: page title"
     },
@@ -2266,7 +2266,7 @@
     "@confirm_clearclear_search": {
         "description": "Tooltip to explain that the X button clears the content of the search"
     },
-    "confirm_clear": "A teljes előzmények törlésére készül: biztosan folytatja?",
+    "confirm_clear": "Az összes előzmény törlésére készül: biztosan folytatja?",
     "@confirm_clear": {
         "description": "Asking about whether to clear the history list or not"
     },
@@ -2662,7 +2662,7 @@
         "description": "Show hidden password in password field"
     },
     "rate_app": "Értékelje az alkalmazást",
-    "app_rating_dialog_title": "Nagyszerű! Tudasd másokkal, hogy mit gondolsz erről az appról!",
+    "app_rating_dialog_title": "Nagyszerű! Mondja el másoknak is, mit gondol az alkalmazásról!",
     "app_rating_dialog_positive_action": "Értékelje az alkalmazást",
     "app_rating_dialog_negative_action": "Később",
     "app_rating_dialog_title_enjoying_app": "Tetszik az alkalmazás?",
@@ -3131,14 +3131,14 @@
     "guide_nutriscore_v2_new_logo_title": "How to differentiate old Nutri-Score and new calculation?",
     "guide_nutriscore_v2_new_logo_text": "From now on, the logo can display a mention \"**New calculation**\" to clarify that this is indeed the new calculation.",
     "guide_nutriscore_v2_new_logo_image_caption": "The logo of the new Nutri-Score",
-    "guide_nutriscore_v2_where_title": "Where to find the new Nutri-Score calculation?",
+    "guide_nutriscore_v2_where_title": "Hol található meg az új Nutri-Score számítás?",
     "guide_nutriscore_v2_where_paragraph1": "The Nutri-Score is applied in several countries: Germany, Belgium, Spain, France, Luxembourg, the Netherlands and Switzerland.",
     "guide_nutriscore_v2_where_paragraph2": "Manufacturers have until **2026** at the latest **to replace** the old calculation with the new one.",
     "guide_nutriscore_v2_where_paragraph3": "Without waiting, you **will already find in the OpenFoodFacts application**, the new calculation, including if the manufacturers have not updated the score.",
     "guide_nutriscore_v2_unchanged_title": "What doesn't change",
     "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
     "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
-    "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
+    "guide_nutriscore_v2_share_link": "https://hu.openfoodfacts.org/nutriscore-v2",
     "guide_nutriscore_v2_share_message": "",
     "@guide_nutriscore_v2_share_message": {
         "description": "Please let empty for now (maybe use in the future)"
@@ -3212,7 +3212,7 @@
     "@photo_viewer_details_url_title": {
         "description": "Label for the link of a photo"
     },
-    "product_page_compatibility_score": "megfelelőség",
+    "product_page_compatibility_score": "egyezés",
     "@product_page_compatibility_score": {
         "description": "Compatibility score on top of the product page. The sentence is \"100%\" Compatible"
     },

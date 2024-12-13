@@ -145,7 +145,7 @@
     "@ecoCardUtility": {
         "description": "Description of what a user can use the Eco data in a product for."
     },
-    "server_error_open_new_issue": "Nenhuma resposta do servidor! Pode reportar o problema com a seguinte hiperligação.",
+    "server_error_open_new_issue": "Nenhuma resposta do servidor! Você pode reportar o problema com o link a seguir.",
     "@user_management": {},
     "sign_in_text": "Entre na sua conta Open Food Facts para guardar as suas contribuições",
     "incorrect_credentials": "Nome do usuário ou senha incorretos.",
@@ -869,20 +869,20 @@
             }
         }
     },
-    "product_tags_title": "Product properties",
+    "product_tags_title": "Propriedades do produto",
     "@product_tags_title": {
         "description": "The title for showing product properties, aka folksonomy data"
     },
-    "no_product_tags_found_message": "No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.",
+    "no_product_tags_found_message": "Propriedades do produto não encontradas. As propriedades podem ser usadas para descrever produtos com mais detalhes, de modo flexível. Clique para adicionar.",
     "@no_product_tags_found_message": {
         "description": "Message to show if there are no product properties found"
     },
-    "add_tag": "Add property",
-    "edit_tag": "Edit property",
-    "remove_tag": "Remove property",
-    "tag_key": "Property",
+    "add_tag": "Adicionar propriedade",
+    "edit_tag": "Editar propriedade",
+    "remove_tag": "Remover propriedade",
+    "tag_key": "Propriedade",
     "tag_value": "Valor",
-    "invalid_key_format": "Invalid property format. It must be lowercase and without any spaces.",
+    "invalid_key_format": "Formato de propriedade inválido. Deve ser em minúsculas e sem espaços.",
     "@invalid_key_format": {
         "description": "Message to show if the property's value for a new product property is invalid. This logic is identical to whats being validated in the Folksonomy API"
     },
@@ -2681,7 +2681,7 @@
     "@owner_field_info_close_button": {
         "description": "The owner info may be shown in a closeable dialog. This is the label of the button (used on a long press event and for the accessibility label)."
     },
-    "owner_field_image": "This image is provided by the producer. It may not be editable.",
+    "owner_field_image": "Esta imagem é fornecida pelo produtor. Pode não ser editável.",
     "@owner_field_image": {
         "description": "An image is directly provided by the producer. It may be locked and not be editable."
     },
@@ -3237,23 +3237,23 @@
     "@product_image_ingredients_accessibility_label": {
         "description": "Accessibility label for the image of ingredients"
     },
-    "product_image_nutrition_accessibility_label": "Nutrition picture",
+    "product_image_nutrition_accessibility_label": "Imagem com informação nutricional",
     "@product_image_nutrition_accessibility_label": {
         "description": "Accessibility label for the image of the nutrition"
     },
-    "product_image_packaging_accessibility_label": "Packaging picture",
+    "product_image_packaging_accessibility_label": "Imagem da embalagem",
     "@product_image_packaging_accessibility_label": {
         "description": "Accessibility label for the image of the packaging"
     },
-    "product_image_other_accessibility_label": "Other picture",
+    "product_image_other_accessibility_label": "Outra imagem",
     "@product_image_other_accessibility_label": {
         "description": "Accessibility label for an image"
     },
-    "product_image_outdated_message": "This picture may be outdated",
+    "product_image_outdated_message": "Esta imagem pode estar desatualizada",
     "@product_image_outdated_message": {
         "description": "Small message to indicate that the image may be outdated"
     },
-    "product_image_outdated_message_accessibility_label": "{type} (this image may be outdated)",
+    "product_image_outdated_message_accessibility_label": "{type} (esta imagem pode estar desatualizada)",
     "@product_image_outdated_message_accessibility_label": {
         "description": "Accessibility label for the image on the product page when it may be outdated",
         "placeholders": {
@@ -3262,7 +3262,7 @@
             }
         }
     },
-    "product_image_locked_message_accessibility_label": "{type} (this image may be locked by the producer)",
+    "product_image_locked_message_accessibility_label": "{type} (esta imagem pode estar bloqueada pelo produtor)",
     "@product_image_locked_message_accessibility_label": {
         "description": "Accessibility label for the image on the product page when it may be locked (producer provided)",
         "placeholders": {
@@ -3271,11 +3271,11 @@
             }
         }
     },
-    "product_image_error": "Unable to load the image!",
+    "product_image_error": "Não foi possível carregar a imagem!",
     "@product_image_error": {
         "description": "Small message that will be displayed above the picture (please keep it short)"
     },
-    "product_image_error_accessibility_label": "Unable to load the {type} (network error?)",
+    "product_image_error_accessibility_label": "Não foi possível carregar o {type} (erro de rede?)",
     "@product_image_error_accessibility_label": {
         "description": "Accessibility label for the image on the product page when it fails to load",
         "placeholders": {
@@ -3398,7 +3398,7 @@
     },
     "photo_field_front": "Foto do produto",
     "photo_field_ingredients": "Foto de ingredientes",
-    "photo_field_nutrition": "Nutrition photo",
+    "photo_field_nutrition": "Foto das informações nutricionais",
     "photo_field_packaging": "Foto de informações da embalagem",
     "photo_already_exists": "Esta foto já existe",
     "photo_missing": "Esta foto está faltando",

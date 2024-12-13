@@ -43,6 +43,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
   static const String userPreferencesFlagProd = '__devWorkingOnProd';
   static const String userPreferencesFlagPriceProd = '__devWorkingOnPricesProd';
   static const String userPreferencesTestEnvDomain = '__testEnvHost';
+  static const String userPreferencesFolksonomyHost = '__folksonomyHost';
   static const String userPreferencesFlagEditIngredients = '__editIngredients';
   static const String userPreferencesFlagHideFolksonomy = '__hideFolksonomy';
   static const String userPreferencesFlagBoostedComparison =
@@ -292,6 +293,14 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
             ],
           ),
         ),
+        const UserPreferencesItemSection(
+          label: 'Folksonomy Server configuration',
+        ),
+        UserPreferencesItemTile(
+          title: 'Folksonomy host',
+          subtitle: ProductQuery.uriFolksonomyHelper.host,
+          onTap: () async => _changeFolksonomyHost(),
+        ),
         UserPreferencesItemSection(
           label: appLocalizations.dev_mode_section_news,
         ),
@@ -531,6 +540,32 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
     if (result == true) {
       await userPreferences.setDevModeString(
           userPreferencesTestEnvDomain, _textFieldController.text);
+      ProductQuery.setQueryType(userPreferences);
+    }
+  }
+
+  Future<void> _changeFolksonomyHost() async {
+    _textFieldController.text = ProductQuery.uriFolksonomyHelper.host;
+    final String? result = await showDialog<String>(
+      context: context,
+      builder: (final BuildContext context) => SmoothAlertDialog(
+        title: 'Folksonomy host',
+        body: TextField(controller: _textFieldController),
+        negativeAction: SmoothActionButton(
+          text: appLocalizations.cancel,
+          onPressed: () => Navigator.pop(context),
+        ),
+        positiveAction: SmoothActionButton(
+          text: appLocalizations.okay,
+          onPressed: () => Navigator.pop(context, _textFieldController.text),
+        ),
+      ),
+    );
+    if (result != null) {
+      await userPreferences.setDevModeString(
+        userPreferencesFolksonomyHost,
+        result,
+      );
       ProductQuery.setQueryType(userPreferences);
     }
   }

@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
@@ -139,6 +140,7 @@ class _ScanTagLineContentState extends State<_ScanTagLineContent> {
                 backgroundColor: currentNews.style?.titleBackground,
                 indicatorColor: currentNews.style?.titleIndicatorColor,
                 titleColor: currentNews.style?.titleTextColor,
+                dense: dense,
               ),
             ),
           ),
@@ -202,6 +204,7 @@ class _ScanTagLineContentState extends State<_ScanTagLineContent> {
 class _TagLineContentTitle extends StatelessWidget {
   const _TagLineContentTitle({
     required this.title,
+    required this.dense,
     this.backgroundColor,
     this.indicatorColor,
     this.titleColor,
@@ -211,6 +214,7 @@ class _TagLineContentTitle extends StatelessWidget {
   final Color? backgroundColor;
   final Color? indicatorColor;
   final Color? titleColor;
+  final bool dense;
 
   @override
   Widget build(BuildContext context) {
@@ -220,7 +224,7 @@ class _TagLineContentTitle extends StatelessWidget {
       label: localizations.scan_tagline_news_item_accessibility(title),
       excludeSemantics: true,
       child: ConstrainedBox(
-        constraints: const BoxConstraints(minHeight: 30.0),
+        constraints: BoxConstraints(minHeight: dense ? 28.0 : 30.0),
         child: Row(
           children: <Widget>[
             SizedBox.square(
@@ -234,9 +238,10 @@ class _TagLineContentTitle extends StatelessWidget {
             ),
             const SizedBox(width: BALANCED_SPACE),
             Expanded(
-              child: Text(
+              child: AutoSizeText(
                 title,
                 maxLines: 1,
+                minFontSize: 8.0,
                 overflow: TextOverflow.ellipsis,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
@@ -310,7 +315,7 @@ class _TagLineContentBodyState extends State<_TagLineContentBody> {
               ),
             ),
           ),
-          const SizedBox(width: MEDIUM_SPACE),
+          SizedBox(width: widget.dense ? SMALL_SPACE : MEDIUM_SPACE),
         ],
         Expanded(
           flex: 10 - imageFlex,
