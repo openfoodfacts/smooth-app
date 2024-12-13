@@ -177,9 +177,11 @@ class _SmoothNavigationBarItemState extends State<_SmoothNavigationBarItem>
     final bool lightTheme = context.lightTheme();
 
     return Padding(
-      padding: const EdgeInsets.symmetric(
-        vertical: MEDIUM_SPACE,
-        horizontal: SMALL_SPACE,
+      padding: const EdgeInsetsDirectional.only(
+        start: MEDIUM_SPACE,
+        end: MEDIUM_SPACE,
+        top: SMALL_SPACE,
+        bottom: 6.0,
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
