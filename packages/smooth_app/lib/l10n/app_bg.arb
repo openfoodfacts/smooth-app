@@ -1349,7 +1349,7 @@
     "@crash_reporting_toggle_title": {
         "description": "Title for the Crash reporting toggle"
     },
-    "crash_reporting_toggle_subtitle": "When enabled, crash reports are automatically submitted to Open Food Facts' error tracking system, so that bugs can be fixed and thus improve the app.",
+    "crash_reporting_toggle_subtitle": "Когато е активирано, докладите за сривове се изпращат автоматично до системата за проследяване на грешки на Open Food Facts, така че те да бъдат коригирани и да се подобри приложението.",
     "@crash_reporting_toggle_subtitle": {
         "description": "SubTitle for the Crash reporting toggle"
     },
@@ -1884,8 +1884,8 @@
     },
     "prices_app_dev_mode_flag": "Shortcut to Prices app on product page",
     "prices_app_button": "Go to Prices app",
-    "prices_generic_title": "Prices",
-    "prices_add_n_prices": "{count,plural, =1{Add a price} other{Add {count} prices}}",
+    "prices_generic_title": "Цени",
+    "prices_add_n_prices": "{count,plural, =1{Добави цена} other{Добави {count} цени}}",
     "prices_send_n_prices": "{count,plural, =1{Send the price} other{Send {count} prices}}",
     "prices_add_an_item": "Add an item",
     "prices_add_a_price": "Add a price",
@@ -2013,19 +2013,19 @@
     },
     "prices_amount_subtitle": "Amount",
     "prices_amount_is_discounted": "Is discounted?",
-    "prices_amount_price_normal": "Price",
+    "prices_amount_price_normal": "Цена",
     "prices_amount_price_discounted": "Discounted price",
     "prices_amount_price_not_discounted": "Original price",
     "prices_amount_no_product": "One product is missing!",
     "prices_amount_price_incorrect": "Incorrect value",
     "prices_amount_price_mandatory": "Mandatory value",
-    "prices_currency_subtitle": "Currency",
-    "prices_date_subtitle": "Date",
-    "prices_location_subtitle": "Shop",
+    "prices_currency_subtitle": "Валута",
+    "prices_date_subtitle": "Дата",
+    "prices_location_subtitle": "Магазин",
     "prices_location_find": "Find a shop",
     "prices_location_mandatory": "You need to select a shop!",
     "prices_location_search_broader": "Couldn't find what you were looking for? Let's try a broader search!",
-    "prices_proof_subtitle": "Proof",
+    "prices_proof_subtitle": "Доказателство",
     "prices_proof_find": "Select a proof",
     "prices_proof_receipt": "Receipt",
     "prices_proof_price_tag": "Price tag",
@@ -2150,7 +2150,7 @@
     "@all_search_to_be_completed_title": {
         "description": "All products to be completed: list tile title"
     },
-    "categorize_products_country_title": "Help categorize products in your country",
+    "categorize_products_country_title": "Помогни с категоризирането на продукти в страната си",
     "@categorize_products_country_title": {
         "description": "Help categorize products in your country: list tile title"
     },
@@ -2469,8 +2469,8 @@
         "description": "Label for expanding nutrition facts table in application setting"
     },
     "expand_ingredients_body": "Дръж панела на съставките разгънат",
-    "search_product_filter_visibility_title": "Show a filter in the search",
-    "search_product_filter_visibility_subtitle": "Select search site: Open Food Facts, Open Beauty Facts, Open Pet Food Facts or Open Products Facts",
+    "search_product_filter_visibility_title": "Показване на филтър в търсенето",
+    "search_product_filter_visibility_subtitle": "Избер на сайт за търсене: Open Food Facts, Open Beauty Facts, Open Pet Food Facts или Open Products Facts",
     "@search_product_filter_visibility_subtitle": {
         "description": "Label for showing the product type filter in the search bar"
     },
@@ -2986,7 +2986,7 @@
     "@country_selector_title": {
         "description": "Label written as the title of the dialog to select the user country"
     },
-    "currency_selector_title": "Select your currency:",
+    "currency_selector_title": "Избери валута:",
     "@currency_selector_title": {
         "description": "Label written as the title of the dialog to select the user currency"
     },
@@ -3204,7 +3204,7 @@
             }
         }
     },
-    "photo_viewer_details_date_title": "Date",
+    "photo_viewer_details_date_title": "Дата",
     "@photo_viewer_details_date_title": {
         "description": "Label for the uploaded date of a photo"
     },
@@ -3212,7 +3212,7 @@
     "@photo_viewer_details_url_title": {
         "description": "Label for the link of a photo"
     },
-    "product_page_compatibility_score": "Compatible",
+    "product_page_compatibility_score": "Съвместим",
     "@product_page_compatibility_score": {
         "description": "Compatibility score on top of the product page. The sentence is \"100%\" Compatible"
     },
@@ -3402,5 +3402,5 @@
     "photo_field_packaging": "Снимка с информация за опаковката",
     "photo_already_exists": "This photo already exists",
     "photo_missing": "This photo is missing",
-    "date": "Date"
+    "date": "Дата"
 }

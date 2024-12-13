@@ -71,6 +71,8 @@ class ProductCompatibilityHelper {
   String? getFormattedScore() {
     if (_score == null || status == MatchedProductStatusV2.UNKNOWN_MATCH) {
       return null;
+    } else if (_score == 0) {
+      return '0';
     }
 
     return NumberFormat('00').format(_score.toInt());

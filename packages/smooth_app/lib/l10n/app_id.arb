@@ -498,7 +498,7 @@
     "@search": {
         "description": "Hint text of a search text input field"
     },
-    "search_store": "Search for a store",
+    "search_store": "Cari toko",
     "@search_store": {
         "description": "Hint text of a search store text input field"
     },
@@ -519,7 +519,7 @@
     "@front_photo": {
         "description": "Button label: For adding a picture of the front of a product"
     },
-    "outdated_image_accessibility_label": "{imageType} (this image may be outdated)",
+    "outdated_image_accessibility_label": "{imageType} (gambar ini mungkin sudah terlalu lama)",
     "@outdated_image_accessibility_label": {
         "description": "Accessibility label for images that are outdated (image type may be front/ingredients/nutrition…)",
         "placeholders": {
@@ -681,9 +681,9 @@
         "description": "Button at the end of new product page, that takes you to completed product"
     },
     "hey_incomplete_product_message": "Ketuk untuk menjawab 3 pertanyaan SEKARANG untuk menghitung Nutri-Score, Eco-Score & Ultra-processing (NOVA)!",
-    "hey_incomplete_product_message_beauty": "Tap now to answer 2 questions to help analyze this cosmetic!",
-    "hey_incomplete_product_message_pet_food": "Tap now to answer 3 questions to help analyze this pet food product!",
-    "hey_incomplete_product_message_product": "Tap now to help complete this product!",
+    "hey_incomplete_product_message_beauty": "Ketuk sekarang untuk menjawab 2 pertanyaan untuk membantu menganalisis kosmetik ini!",
+    "hey_incomplete_product_message_pet_food": "Ketuk sekarang untuk menjawab 3 pertanyaan untuk membantu menganalisis produk makanan hewan peliharaan ini!",
+    "hey_incomplete_product_message_product": "Ketuk sekarang untuk membantu menyelesaikan produk ini!",
     "nutritional_facts_photo_uploaded": "Foto informasi nilai gizi telah diunggah",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "Foto informasi daur ulang",
@@ -749,7 +749,7 @@
     "nutrition_page_invalid_number": "Nomor tidak valid",
     "nutrition_page_update_running": "Memperbarui produk di peladen…",
     "nutrition_page_update_done": "Produk diperbarui!",
-    "nutrition_page_take_serving_size_from_product_quantity": "Use the product quantity as serving size",
+    "nutrition_page_take_serving_size_from_product_quantity": "Gunakan jumlah produk sebagai takaran saji",
     "@nutrition_page_take_serving_size_from_product_quantity": {
         "description": "Button label: Use the product quantity as serving size (nutrition page)"
     },
@@ -787,8 +787,8 @@
             }
         }
     },
-    "product_image_outdated": "This image may be outdated",
-    "product_image_action_replace_photo": "Replace photo ({type})",
+    "product_image_outdated": "Gambar ini mungkin sudah terlalu lama",
+    "product_image_action_replace_photo": "Ganti foto ({type})",
     "@product_image_action_replace_photo": {
         "description": "Action on the photo gallery to replace an existing picture",
         "placeholders": {
@@ -798,7 +798,7 @@
             }
         }
     },
-    "product_image_action_add_photo": "Add a photo ({type})",
+    "product_image_action_add_photo": "Tambah foto ({type})",
     "@product_image_action_add_photo": {
         "description": "Action on the photo gallery to add a photo (eg: ingredients)",
         "placeholders": {
@@ -816,11 +816,11 @@
     "@product_image_action_take_picture": {
         "description": "Take a picture (eg: for ingredients) when there is no one"
     },
-    "product_image_action_from_gallery": "Select from your phone's gallery",
+    "product_image_action_from_gallery": "Pilih dari galeri perangkat Anda",
     "@product_image_action_from_gallery": {
         "description": "Replace the existing picture with one from the device's gallery"
     },
-    "product_image_action_choose_existing_photo": "Select from the product photos",
+    "product_image_action_choose_existing_photo": "Pilih dari foto produk",
     "@product_image_action_choose_existing_photo": {
         "description": "Replace the existing picture with one from the product's photos"
     },
@@ -869,20 +869,20 @@
             }
         }
     },
-    "product_tags_title": "Product properties",
+    "product_tags_title": "Karakteristik produk",
     "@product_tags_title": {
         "description": "The title for showing product properties, aka folksonomy data"
     },
-    "no_product_tags_found_message": "No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.",
+    "no_product_tags_found_message": "Properti produk tidak ditemukan. Properti dapat digunakan untuk mendeskripsikan produk secara lebih rinci, dengan cara yang fleksibel. Ketuk untuk menambahkan.",
     "@no_product_tags_found_message": {
         "description": "Message to show if there are no product properties found"
     },
-    "add_tag": "Add property",
-    "edit_tag": "Edit property",
-    "remove_tag": "Remove property",
-    "tag_key": "Property",
+    "add_tag": "Tambahkan properti",
+    "edit_tag": "Sunting properti",
+    "remove_tag": "Hapus properti",
+    "tag_key": "Properti",
     "tag_value": "Nilai",
-    "invalid_key_format": "Invalid property format. It must be lowercase and without any spaces.",
+    "invalid_key_format": "Format properti tidak valid. Formatnya harus berupa huruf kecil dan tanpa spasi.",
     "@invalid_key_format": {
         "description": "Message to show if the property's value for a new product property is invalid. This logic is identical to whats being validated in the Folksonomy API"
     },
@@ -900,7 +900,7 @@
     "@product_search_same_category_short": {
         "description": "Button looking for the other products within the same category. Just the verb compare"
     },
-    "product_search_same_category_error": "This feature can only be used for products with a category.\n\nPlease edit the product to add a category.",
+    "product_search_same_category_error": "Fitur ini hanya dapat digunakan untuk produk dengan kategori.\n\nHarap sunting produk untuk menambahkan kategori.",
     "@product_search_same_category_error": {
         "description": "Button looking for the other products within the same category. Just the verb compare"
     },
@@ -1053,26 +1053,26 @@
             "count": {}
         }
     },
-    "multiselect_title": "{count,plural, =0{No selected product} =1{One selected product} other{{count} selected products}}",
+    "multiselect_title": "{count,plural, =0{Tidak ada produk dipilih} =1{Satu produk terpilih} other{{count} produk terpilih}}",
     "@multiselect_title": {
         "description": "Page title with the number of selected items",
         "placeholders": {
             "count": {}
         }
     },
-    "compare_products_mode": "Compare selected products",
+    "compare_products_mode": "Bandingkan produk yang dipilih",
     "@compare_products_mode": {
         "description": "Button to switch to 'compare products mode'"
     },
-    "delete_products_mode": "Delete selected products",
+    "delete_products_mode": "Hapus produk yang dipilih",
     "@delete_products_mode": {
         "description": "Button to switch to 'delete products'"
     },
-    "select_all_products_mode": "Select all products",
+    "select_all_products_mode": "Pilih semua produk",
     "@select_all_products_mode": {
         "description": "Button to switch to 'select all products'"
     },
-    "select_none_products_mode": "Select none",
+    "select_none_products_mode": "Tidak memilih",
     "@select_none_products_mode": {
         "description": "Button to switch to 'select no products'"
     },
@@ -1689,7 +1689,7 @@
     "@user_list_name_error_same": {
         "description": "Validation error about the renamed name that is the same as the initial list name"
     },
-    "user_list_name_input_hint": "Name of the list",
+    "user_list_name_input_hint": "Nama daftar",
     "@user_list_name_input_hint": {
         "description": "A hint to indicate that the user should input a name of a list"
     },
@@ -1864,16 +1864,16 @@
         }
     },
     "product_type_label_food": "Makanan",
-    "product_type_label_beauty": "Personal care",
+    "product_type_label_beauty": "Perawatan Pribadi",
     "product_type_label_pet_food": "Makanan hewan",
     "product_type_label_product": "Lainnya",
-    "product_type_selection_title": "Product type",
-    "product_type_selection_subtitle": "Select the type of this product",
-    "product_type_selection_empty": "You need to select a product type first!",
+    "product_type_selection_title": "Tipe produk",
+    "product_type_selection_subtitle": "Pilih jenis produk ini",
+    "product_type_selection_empty": "Anda harus memilih jenis produk terlebih dahulu!",
     "@product_type_selection_empty": {
         "description": "Error message about product type that needs to be set"
     },
-    "product_type_selection_already": "You cannot change the product type ({productType})!",
+    "product_type_selection_already": "Anda tidak dapat mengubah jenis produk ({productType})!",
     "@product_type_selection_already": {
         "description": "Error message about product type that cannot be set again",
         "placeholders": {
@@ -1885,13 +1885,13 @@
     "prices_app_dev_mode_flag": "Pintasan ke aplikasi Harga di halaman produk",
     "prices_app_button": "Buka aplikasi Harga",
     "prices_generic_title": "Harga",
-    "prices_add_n_prices": "{count,plural, =1{Add a price} other{Add {count} prices}}",
+    "prices_add_n_prices": "{count,plural, =1{Tambahkan harga} other{Tambahkan {count} harga}}",
     "prices_send_n_prices": "{count,plural, =1{Kirim harga} other{Kirim {count} harga}}",
     "prices_add_an_item": "Tambahkan item",
     "prices_add_a_price": "Tambahkan harga",
     "prices_add_a_receipt": "Tambahkan tanda terima",
     "prices_add_price_tags": "Tambahkan label harga",
-    "prices_barcode_already": "This barcode ({barcode}) is already in the list!",
+    "prices_barcode_already": "Barcode ini ({barcode}) sudah ada dalam daftar!",
     "@prices_barcode_already": {
         "description": "Error message about barcode being already there",
         "placeholders": {
@@ -1911,7 +1911,7 @@
             }
         }
     },
-    "prices_barcode_enter": "Enter the Barcode",
+    "prices_barcode_enter": "Masukkan Barcode",
     "prices_barcode_reader_action": "Pembaca barcode",
     "prices_view_prices": "Lihat harga",
     "prices_product_accessibility_summary": "{count,plural, =1{1 harga} other{{count} harga}} untuk {product}",
@@ -2024,7 +2024,7 @@
     "prices_location_subtitle": "Toko",
     "prices_location_find": "Temukan toko",
     "prices_location_mandatory": "Anda harus memilih toko!",
-    "prices_location_search_broader": "Couldn't find what you were looking for? Let's try a broader search!",
+    "prices_location_search_broader": "Tidak dapat menemukan apa yang Anda cari? Coba pencarian yang lebih luas!",
     "prices_proof_subtitle": "Bukti",
     "prices_proof_find": "Pilih bukti",
     "prices_proof_receipt": "Resi",
@@ -2047,7 +2047,7 @@
     "dev_mode_section_ui": "Antarmuka Pengguna",
     "dev_mode_section_data": "Data",
     "dev_mode_section_experimental_features": "Fitur eksperimental",
-    "dev_preferences_show_folksonomy_title": "Exclude Folksonomy",
+    "dev_preferences_show_folksonomy_title": "Kecualikan Folksonomi",
     "@dev_preferences_show_folksonomy_title": {
         "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
     },
@@ -2216,7 +2216,7 @@
     "@edit_photo_select_existing_all_label": {
         "description": "Page title"
     },
-    "edit_photo_select_existing_all_subtitle": "Select an image by clicking on it",
+    "edit_photo_select_existing_all_subtitle": "Pilih gambar dengan mengekliknya",
     "@edit_photo_select_existing_all_subtitle": {
         "description": "Page title"
     },
@@ -2395,7 +2395,7 @@
             }
         }
     },
-    "share_product_text_beauty": "Have a look at this product on Open Beauty Facts: {url}",
+    "share_product_text_beauty": "Lihatlah produk ini di Open Beauty Facts: {url}",
     "@share_product_text_beauty": {
         "description": "The content which is send, when sharing a 'beauty' product",
         "placeholders": {
@@ -2404,7 +2404,7 @@
             }
         }
     },
-    "share_product_text_pet_food": "Have a look at this product on Open PetFood Facts: {url}",
+    "share_product_text_pet_food": "Lihatlah produk ini di Open Pet Food Facts: {url}",
     "@share_product_text_pet_food": {
         "description": "The content which is send, when sharing a 'pet food' product",
         "placeholders": {
@@ -3375,8 +3375,8 @@
     "@carousel_loading_header": {
         "description": "A label on top of the carousel card when data about the product is loading"
     },
-    "carousel_loading_title": "You've just scanned a product with the following barcode:",
-    "carousel_loading_text": "We are searching for it in our database of more than **3 million products!**",
+    "carousel_loading_title": "Anda baru saja memindai produk dengan barcode berikut:",
+    "carousel_loading_text": "Kami mencarinya dalam basis data kami yang berisi lebih dari **3 juta produk!**",
     "@carousel_loading_text": {
         "description": "Please keep the ** syntax to make the text bold"
     },

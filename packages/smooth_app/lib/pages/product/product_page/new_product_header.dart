@@ -333,6 +333,7 @@ class _ProductCompatibilityScore extends StatelessWidget {
                     '${compatibility.score}%',
                     maxLines: 1,
                     textAlign: TextAlign.center,
+                    textScaler: TextScaler.noScaling,
                     style: const TextStyle(
                       fontSize: 12.0,
                       height: 0.9,
