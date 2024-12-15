@@ -681,9 +681,9 @@
         "description": "Button at the end of new product page, that takes you to completed product"
     },
     "hey_incomplete_product_message": "Toque para responder a 3 perguntas AGORA para calcular o Nutri-Score, o Eco-Score e o ultra-processamento (NOVA)!",
-    "hey_incomplete_product_message_beauty": "Clique agora para responder a 2 perguntas para ajudar a analisar este cosmético!",
-    "hey_incomplete_product_message_pet_food": "Clique agora para responder a 3 perguntas para ajudar a analisar este produto de alimentação para animais de estimação!",
-    "hey_incomplete_product_message_product": "Clique agora para ajudar a completar este produto!",
+    "hey_incomplete_product_message_beauty": "Toque agora para responder a 2 perguntas para ajudar a analisar este cosmético!",
+    "hey_incomplete_product_message_pet_food": "Toque agora para responder a 3 perguntas para ajudar a analisar este produto de alimentação para animais de estimação!",
+    "hey_incomplete_product_message_product": "Toque agora para ajudar a completar este produto!",
     "nutritional_facts_photo_uploaded": "Fotografia das informações nutricionais enviada",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "Fotografia de informações sobre a reciclagem",
@@ -749,7 +749,7 @@
     "nutrition_page_invalid_number": "Número inválido",
     "nutrition_page_update_running": "A atualizar o produto no servidor…",
     "nutrition_page_update_done": "Produto atualizado!",
-    "nutrition_page_take_serving_size_from_product_quantity": "Use the product quantity as serving size",
+    "nutrition_page_take_serving_size_from_product_quantity": "Utilizar a quantidade do produto como tamanho da dose",
     "@nutrition_page_take_serving_size_from_product_quantity": {
         "description": "Button label: Use the product quantity as serving size (nutrition page)"
     },
@@ -798,7 +798,7 @@
             }
         }
     },
-    "product_image_action_add_photo": "Add a photo ({type})",
+    "product_image_action_add_photo": "Adicionar uma fotografia ({type})",
     "@product_image_action_add_photo": {
         "description": "Action on the photo gallery to add a photo (eg: ingredients)",
         "placeholders": {
@@ -820,7 +820,7 @@
     "@product_image_action_from_gallery": {
         "description": "Replace the existing picture with one from the device's gallery"
     },
-    "product_image_action_choose_existing_photo": "Select from the product photos",
+    "product_image_action_choose_existing_photo": "Selecionar entre as fotografias do produto",
     "@product_image_action_choose_existing_photo": {
         "description": "Replace the existing picture with one from the product's photos"
     },
@@ -873,16 +873,16 @@
     "@product_tags_title": {
         "description": "The title for showing product properties, aka folksonomy data"
     },
-    "no_product_tags_found_message": "No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.",
+    "no_product_tags_found_message": "Não foram encontradas propriedades de produtos. As propriedades podem ser utilizadas para descrever os produtos com mais pormenores, de uma forma flexível. Toque para adicionar.",
     "@no_product_tags_found_message": {
         "description": "Message to show if there are no product properties found"
     },
     "add_tag": "Adicionar propriedade",
-    "edit_tag": "Edit property",
-    "remove_tag": "Remove property",
-    "tag_key": "Property",
+    "edit_tag": "Editar propriedade",
+    "remove_tag": "Remover propriedade",
+    "tag_key": "Propriedade",
     "tag_value": "Valor",
-    "invalid_key_format": "Invalid property format. It must be lowercase and without any spaces.",
+    "invalid_key_format": "Formato de propriedade inválido. Tem de estar em minúsculas e sem espaços.",
     "@invalid_key_format": {
         "description": "Message to show if the property's value for a new product property is invalid. This logic is identical to whats being validated in the Folksonomy API"
     },
@@ -1965,7 +1965,7 @@
             }
         }
     },
-    "prices_open_user_proofs": "Abrir comprovativos de \"{user}\"",
+    "prices_open_user_proofs": "Abrir provas de compra de \"{user}\"",
     "@prices_open_user_proofs": {
         "description": "Button to open the proofs of a user",
         "placeholders": {
@@ -1974,11 +1974,11 @@
             }
         }
     },
-    "prices_open_proof": "Abrir comprovativos dos preços",
+    "prices_open_proof": "Abrir provas de compra dos preços",
     "@prices_open_proof": {
         "description": "Button to open a proof"
     },
-    "prices_proofs_list_length_one_page": "{count,plural, =0{Ainda sem comprovativos} =1{Apenas um comprovativo} other{Todos os {count} comprovativos}}",
+    "prices_proofs_list_length_one_page": "{count,plural, =0{Ainda sem provas de compra} =1{Apenas uma prova de compra} other{Todas as {count} provas de compra}}",
     "@prices_proofs_list_length_one_page": {
         "description": "Number of proofs for one-page result",
         "placeholders": {
@@ -1987,7 +1987,7 @@
             }
         }
     },
-    "prices_proofs_list_length_many_pages": "Últimos {pageSize} comprovativos (total: {total})",
+    "prices_proofs_list_length_many_pages": "Últimas {pageSize} provas de compra (total: {total})",
     "@prices_proofs_list_length_many_pages": {
         "description": "Number of proofs for one-page result",
         "placeholders": {
@@ -2025,11 +2025,11 @@
     "prices_location_find": "Encontrar uma loja",
     "prices_location_mandatory": "Tem de selecionar uma loja!",
     "prices_location_search_broader": "Não encontrou o que estava à procura? Vamos tentar uma pesquisa mais avançada!",
-    "prices_proof_subtitle": "Comprovativo",
-    "prices_proof_find": "Selecionar um comprovativo",
+    "prices_proof_subtitle": "Prova de compra",
+    "prices_proof_find": "Selecionar uma prova de compra",
     "prices_proof_receipt": "Talão",
     "prices_proof_price_tag": "Etiqueta de preço",
-    "prices_proof_mandatory": "Tem de selecionar um comprovativo!",
+    "prices_proof_mandatory": "Tem de selecionar uma prova de compra!",
     "prices_add_validation_error": "Erro de validação",
     "prices_privacy_warning_title": "Aviso de privacidade",
     "prices_privacy_warning_message": "Os preços serão públicos, juntamente com a loja a que se referem.\nIsto pode permitir que as pessoas que conhecem o seu pseudónimo Open Food Facts possam:\n* inferir em que zona vive\n* saber o que está a comprar\nSe não se sentir à vontade com isso, altere o seu pseudónimo ou crie uma nova conta Open Food Facts e inicie sessão na aplicação com essa conta.",
@@ -2118,11 +2118,11 @@
     "@user_search_prices_title": {
         "description": "User prices: list tile title"
     },
-    "user_search_proofs_title": "Os meus comprovativos",
+    "user_search_proofs_title": "As minhas provas de compra",
     "@user_search_proofs_title": {
         "description": "User proofs: list tile title"
     },
-    "user_search_proof_title": "Meu comprovativo",
+    "user_search_proof_title": "Minha prova de compra",
     "@user_search_proof_title": {
         "description": "User proof: page title"
     },
@@ -3271,11 +3271,11 @@
             }
         }
     },
-    "product_image_error": "Unable to load the image!",
+    "product_image_error": "Não foi possível carregar a imagem!",
     "@product_image_error": {
         "description": "Small message that will be displayed above the picture (please keep it short)"
     },
-    "product_image_error_accessibility_label": "Unable to load the {type} (network error?)",
+    "product_image_error_accessibility_label": "Não foi possível carregar a {type} (erro de rede?)",
     "@product_image_error_accessibility_label": {
         "description": "Accessibility label for the image on the product page when it fails to load",
         "placeholders": {
@@ -3316,15 +3316,15 @@
     "@product_page_action_bar_item_disable": {
         "description": "Accessibility label to disable action (= make it invisible)"
     },
-    "product_page_pending_operations_banner_title": "Uploading your edits…",
+    "product_page_pending_operations_banner_title": "A enviar as suas edições…",
     "@product_page_pending_operations_banner_title": {
         "description": "When a product has pending edits (being sent to the server), there is a message on the product page (here is the title of the message)."
     },
-    "product_page_pending_operations_banner_message": "The data displayed on this page **does not yet reflect your modifications**.\nPlease wait a few seconds…",
+    "product_page_pending_operations_banner_message": "Os dados mostrados nesta página **ainda não refletem as suas alterações**.\nAguarde alguns segundos…",
     "@product_page_pending_operations_banner_message": {
         "description": "When a product has pending edits (being sent to the server), there is a message on the product page. Please keep the ** syntax to make the text bold."
     },
-    "product_add_a_language": "Adiciona um idioma",
+    "product_add_a_language": "Adicionar um idioma",
     "@product_add_a_language": {
         "description": "Button to add a language (eg: for photos) to a product"
     },
@@ -3384,7 +3384,7 @@
     "@product_type_subtitle_food": {
         "description": "Example of products for food category"
     },
-    "product_type_subtitle_beauty": "Makeup, soaps, toothpastes…",
+    "product_type_subtitle_beauty": "Maquilhagem, sabonetes, pastas de dentes…",
     "@product_type_subtitle_beauty": {
         "description": "Example of products for beauty category"
     },
@@ -3392,15 +3392,15 @@
     "@product_type_subtitle_pet_food": {
         "description": "Example of products for pet food category"
     },
-    "product_type_subtitle_product": "Smartphones, furniture…",
+    "product_type_subtitle_product": "Telemóveis, mobiliário…",
     "@product_type_subtitle_product": {
         "description": "Example of products for other categories"
     },
-    "photo_field_front": "Product photo",
+    "photo_field_front": "Fotografia do produto",
     "photo_field_ingredients": "Foto de ingredientes",
-    "photo_field_nutrition": "Nutrition photo",
+    "photo_field_nutrition": "Fotografia das informações nutricionais",
     "photo_field_packaging": "Foto de informações da embalagem",
-    "photo_already_exists": "This photo already exists",
-    "photo_missing": "This photo is missing",
+    "photo_already_exists": "Esta fotografia já existe",
+    "photo_missing": "Esta fotografia está em falta",
     "date": "Data"
 }
