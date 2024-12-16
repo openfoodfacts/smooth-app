@@ -136,16 +136,25 @@ class _SvgSafeNetworkState extends State<SvgSafeNetwork> {
             }
           }
           if (snapshot.error != null) {
-            if (snapshot.error.toString().contains("Failed host lookup: '")) {
+            String? findWarningLabel() {
+              const List<String> warningLabels = <String>[
+                'Failed host lookup',
+                'Connection timed out',
+                'Connection reset by peer',
+              ];
+              final String error = snapshot.error.toString();
+              for (final String warningLabel in warningLabels) {
+                if (error.contains(warningLabel)) {
+                  return warningLabel;
+                }
+              }
+              return null;
+            }
+
+            final String? warningLabel = findWarningLabel();
+            if (warningLabel != null) {
               Logs.w(
-                'Failed host lookup for "$_url"',
-                ex: snapshot.error,
-              );
-            } else if (snapshot.error
-                .toString()
-                .contains('Connection timed out')) {
-              Logs.w(
-                'Connection timed out for "$_url"',
+                '$warningLabel for "$_url"',
                 ex: snapshot.error,
               );
             } else {

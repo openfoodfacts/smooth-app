@@ -16,10 +16,12 @@ import 'package:smooth_app/query/product_query.dart';
 /// List of the latest prices for a given model.
 class ProductPricesList extends StatefulWidget {
   const ProductPricesList(
-    this.model,
-  );
+    this.model, {
+    this.pricesResult,
+  });
 
   final GetPricesModel model;
+  final GetPricesResult? pricesResult;
 
   @override
   State<ProductPricesList> createState() => _ProductPricesListState();
@@ -27,8 +29,7 @@ class ProductPricesList extends StatefulWidget {
 
 class _ProductPricesListState extends State<ProductPricesList>
     with TraceableClientMixin {
-  late final Future<MaybeError<GetPricesResult>> _prices =
-      _showProductPrices(widget.model.parameters);
+  late final Future<MaybeError<GetPricesResult>> _prices = _showProductPrices();
 
   // TODO(monsieurtanuki): add a refresh gesture
   // TODO(monsieurtanuki): add a "download the next 10" items
@@ -135,11 +136,13 @@ class _ProductPricesListState extends State<ProductPricesList>
         },
       );
 
-  static Future<MaybeError<GetPricesResult>> _showProductPrices(
-    final GetPricesParameters parameters,
-  ) async =>
-      OpenPricesAPIClient.getPrices(
-        parameters,
-        uriHelper: ProductQuery.uriPricesHelper,
-      );
+  Future<MaybeError<GetPricesResult>> _showProductPrices() async {
+    if (widget.pricesResult != null) {
+      return MaybeError<GetPricesResult>.value(widget.pricesResult!);
+    }
+    return OpenPricesAPIClient.getPrices(
+      widget.model.parameters,
+      uriHelper: ProductQuery.uriPricesHelper,
+    );
+  }
 }
