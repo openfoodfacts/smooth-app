@@ -1,5 +1,23 @@
 # Changelog
 
+## [4.17.1](https://github.com/openfoodfacts/smooth-app/compare/v4.17.0...v4.17.1) (2024-12-12)
+
+
+### Features
+
+* 6001 - cached impact-co2.svg ([#6005](https://github.com/openfoodfacts/smooth-app/issues/6005)) ([3e7468a](https://github.com/openfoodfacts/smooth-app/commit/3e7468ac4592cc716ac787ea2d5b546ec30efdbd))
+* 6025 - settings for the folksonomy server ([#6027](https://github.com/openfoodfacts/smooth-app/issues/6027)) ([736f08c](https://github.com/openfoodfacts/smooth-app/commit/736f08c8ac41fac5f33b62d666eb6e19413dabe0))
+
+
+### Bug Fixes
+
+* Improvements for small screens ([#6036](https://github.com/openfoodfacts/smooth-app/issues/6036)) ([43fe60a](https://github.com/openfoodfacts/smooth-app/commit/43fe60afbd75539924ae2b0ee3c840cb63f2dd3a))
+
+
+### Miscellaneous Chores
+
+* release 4.17.1 ([ddbdb29](https://github.com/openfoodfacts/smooth-app/commit/ddbdb2927217488167bdf08d8f88a546939156a8))
+
 ## [4.17.0](https://github.com/openfoodfacts/smooth-app/compare/v4.16.0...v4.17.0) (2024-12-04)
 
 
