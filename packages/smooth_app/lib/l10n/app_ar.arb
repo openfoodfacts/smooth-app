@@ -3089,7 +3089,7 @@
             }
         }
     },
-    "guide_title": "Guide",
+    "guide_title": "دليل الاستخدام",
     "@guide_title": {
         "description": "A title for a guide"
     },
@@ -3098,7 +3098,7 @@
     "@guide_nutriscore_v2_enabled": {
         "description": "Please NEVER touch this value and let the OFF team change it!"
     },
-    "guide_nutriscore_v2_title": "The Nutri-Score is evolving: explanations!",
+    "guide_nutriscore_v2_title": "الدرجة الغذائية في تطور: تفسيرات!",
     "@guide_nutriscore_v2_title": {
         "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
     },
@@ -3107,11 +3107,11 @@
         "description": "The logo is only available in de/en/fr/ln/nl. Please use en if not available (in lowercase, please)."
     },
     "guide_nutriscore_v2_what_is_nutriscore_title": "What is the Nutri-Score?",
-    "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "The Nutri-Score is a logo which aims to inform you about the **nutritional quality of foods**.",
+    "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "الدرجة الغذائية هو شعار يهدف إلى إعلامك **بالجودة الغذائية للأطعمة**.",
     "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
         "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
     },
-    "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "The color code varies from dark green (**A**) for the **healthiest** products to dark red (**E**) for the **less healthy** ones.",
+    "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "يختلف رمز اللون من اللون الأخضر الداكن (**A**) للمنتجات **الأكثر صحة** إلى اللون الأحمر الداكن (**E**) للمنتجات **الأقل صحة**.",
     "@guide_nutriscore_v2_what_is_nutriscore_paragraph2": {
         "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
     },
