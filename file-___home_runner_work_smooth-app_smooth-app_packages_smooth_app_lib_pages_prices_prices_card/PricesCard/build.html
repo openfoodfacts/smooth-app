@@ -119,20 +119,7 @@ Widget build(BuildContext context) {
             children: &lt;Widget&gt;[
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
-                child: SmoothLargeButtonWithIcon(
-                  text: appLocalizations.prices_view_prices,
-                  icon: CupertinoIcons.tag_fill,
-                  onPressed: () async =&gt; Navigator.of(context).push(
-                    MaterialPageRoute&lt;void&gt;(
-                      builder: (BuildContext context) =&gt; PricesPage(
-                        GetPricesModel.product(
-                          product: PriceMetaProduct.product(product),
-                          context: context,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
+                child: _PricesCardViewButton(product),
               ),
               Padding(
                 padding: const EdgeInsets.all(SMALL_SPACE),
