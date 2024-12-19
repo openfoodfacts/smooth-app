@@ -10,6 +10,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/pages/prices/get_prices_model.dart';
 import 'package:smooth_app/pages/prices/price_data_widget.dart';
+import 'package:smooth_app/pages/prices/price_location_widget.dart';
 import 'package:smooth_app/pages/prices/price_product_widget.dart';
 import 'package:smooth_app/query/product_query.dart';
 
@@ -70,7 +71,7 @@ class _ProductPricesListState extends State<ProductPricesList>
           }
           final List<Widget> children = <Widget>[];
 
-          if (!widget.model.displayProduct) {
+          if (!widget.model.displayEachProduct) {
             // in that case we display the product only once, if possible.
             for (final Price price in result.items!) {
               final PriceProduct? priceProduct = price.product;
@@ -88,6 +89,21 @@ class _ProductPricesListState extends State<ProductPricesList>
               break;
             }
           }
+          if (!widget.model.displayEachLocation) {
+            // in that case we display the location only once, if possible.
+            for (final Price price in result.items!) {
+              final Location? location = price.location;
+              if (location == null) {
+                continue;
+              }
+              children.add(
+                SmoothCard(
+                  child: PriceLocationWidget(location),
+                ),
+              );
+              break;
+            }
+          }
 
           for (final Price price in result.items!) {
             final PriceProduct? priceProduct = price.product;
@@ -97,7 +113,7 @@ class _ProductPricesListState extends State<ProductPricesList>
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    if (widget.model.displayProduct && priceProduct != null)
+                    if (widget.model.displayEachProduct && priceProduct != null)
                       PriceProductWidget(
                         priceProduct,
                         model: widget.model,

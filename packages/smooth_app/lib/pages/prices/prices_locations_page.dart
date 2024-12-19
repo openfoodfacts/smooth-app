@@ -6,23 +6,25 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
+import 'package:smooth_app/pages/prices/price_button.dart';
 import 'package:smooth_app/pages/prices/price_count_widget.dart';
-import 'package:smooth_app/pages/prices/price_user_button.dart';
+import 'package:smooth_app/pages/prices/price_location_widget.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
-/// Page that displays the top prices users.
-class PricesUsersPage extends StatefulWidget {
-  const PricesUsersPage();
+/// Page that displays the top prices locations.
+class PricesLocationsPage extends StatefulWidget {
+  const PricesLocationsPage();
 
   @override
-  State<PricesUsersPage> createState() => _PricesUsersPageState();
+  State<PricesLocationsPage> createState() => _PricesLocationsPageState();
 }
 
-class _PricesUsersPageState extends State<PricesUsersPage>
+class _PricesLocationsPageState extends State<PricesLocationsPage>
     with TraceableClientMixin {
-  late final Future<MaybeError<GetUsersResult>> _users = _showTopUsers();
+  late final Future<MaybeError<GetLocationsResult>> _locations =
+      _showTopLocations();
 
   // In this specific page, let's never try to go beyond the top 10.
   // cf. https://github.com/openfoodfacts/smooth-app/pull/5383#issuecomment-2171117141
@@ -36,7 +38,7 @@ class _PricesUsersPageState extends State<PricesUsersPage>
         centerTitle: false,
         leading: const SmoothBackButton(),
         title: Text(
-          appLocalizations.all_search_prices_top_user_title,
+          appLocalizations.all_search_prices_top_location_title,
         ),
         actions: <Widget>[
           IconButton(
@@ -44,18 +46,18 @@ class _PricesUsersPageState extends State<PricesUsersPage>
             icon: const Icon(Icons.open_in_new),
             onPressed: () async => LaunchUrlHelper.launchURL(
               OpenPricesAPIClient.getUri(
-                path: 'users',
+                path: 'locations',
                 uriHelper: ProductQuery.uriPricesHelper,
               ).toString(),
             ),
           ),
         ],
       ),
-      body: FutureBuilder<MaybeError<GetUsersResult>>(
-        future: _users,
+      body: FutureBuilder<MaybeError<GetLocationsResult>>(
+        future: _locations,
         builder: (
           final BuildContext context,
-          final AsyncSnapshot<MaybeError<GetUsersResult>> snapshot,
+          final AsyncSnapshot<MaybeError<GetLocationsResult>> snapshot,
         ) {
           if (snapshot.connectionState != ConnectionState.done) {
             return const CircularProgressIndicator();
@@ -70,37 +72,68 @@ class _PricesUsersPageState extends State<PricesUsersPage>
           if (snapshot.data!.isError) {
             return Text(snapshot.data!.error!);
           }
-          final GetUsersResult result = snapshot.data!.value;
+          final GetLocationsResult result = snapshot.data!.value;
           // highly improbable
           if (result.items == null) {
             return const Text('empty list');
           }
           final List<Widget> children = <Widget>[];
+          final AppLocalizations appLocalizations =
+              AppLocalizations.of(context);
 
-          for (final PriceUser item in result.items!) {
+          for (final Location item in result.items!) {
             final int priceCount = item.priceCount ?? 0;
             children.add(
               SmoothCard(
                 child: Wrap(
                   spacing: VERY_SMALL_SPACE,
                   children: <Widget>[
-                    PriceUserButton(item.userId),
+                    PriceLocationWidget(item),
                     PriceCountWidget(
                       count: priceCount,
-                      onPressed: () async => PriceUserButton.showUserPrices(
-                        user: item.userId,
+                      onPressed: () async =>
+                          PriceLocationWidget.showLocationPrices(
+                        locationId: item.locationId,
                         context: context,
                       ),
+                    ),
+                    PriceButton(
+                      onPressed: () {},
+                      title: '${item.userCount}',
+                      iconData: PriceButton.userIconData,
+                      tooltip: item.userCount == null
+                          ? null
+                          : appLocalizations.prices_button_count_user(
+                              item.userCount!,
+                            ),
+                    ),
+                    PriceButton(
+                      onPressed: () {},
+                      title: '${item.productCount}',
+                      iconData: PriceButton.productIconData,
+                      tooltip: item.productCount == null
+                          ? null
+                          : appLocalizations.prices_button_count_product(
+                              item.productCount!,
+                            ),
+                    ),
+                    PriceButton(
+                      onPressed: () {},
+                      title: '${item.proofCount}',
+                      iconData: PriceButton.proofIconData,
+                      tooltip: item.proofCount == null
+                          ? null
+                          : appLocalizations.prices_button_count_proof(
+                              item.proofCount!,
+                            ),
                     ),
                   ],
                 ),
               ),
             );
           }
-          final AppLocalizations appLocalizations =
-              AppLocalizations.of(context);
           final String title =
-              appLocalizations.prices_users_list_length_many_pages(
+              appLocalizations.prices_locations_list_length_many_pages(
             _pageSize,
             result.total!,
           );
@@ -120,12 +153,12 @@ class _PricesUsersPageState extends State<PricesUsersPage>
     );
   }
 
-  static Future<MaybeError<GetUsersResult>> _showTopUsers() async =>
-      OpenPricesAPIClient.getUsers(
-        GetUsersParameters()
-          ..orderBy = <OrderBy<GetUsersOrderField>>[
-            const OrderBy<GetUsersOrderField>(
-              field: GetUsersOrderField.priceCount,
+  static Future<MaybeError<GetLocationsResult>> _showTopLocations() async =>
+      OpenPricesAPIClient.getLocations(
+        GetLocationsParameters()
+          ..orderBy = <OrderBy<GetLocationsOrderField>>[
+            const OrderBy<GetLocationsOrderField>(
+              field: GetLocationsOrderField.priceCount,
               ascending: false,
             ),
           ]
