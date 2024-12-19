@@ -73,18 +73,9 @@
       MaterialPageRoute&lt;void&gt;(
         builder: (BuildContext context) =&gt; PricesPage(
           GetPricesModel(
-            parameters: GetPricesParameters()
-              ..owner = user
-              ..orderBy = &lt;OrderBy&lt;GetPricesOrderField&gt;&gt;[
-                const OrderBy&lt;GetPricesOrderField&gt;(
-                  field: GetPricesOrderField.created,
-                  ascending: false,
-                ),
-              ]
-              ..pageSize = GetPricesModel.pageSize
-              ..pageNumber = 1,
-            displayOwner: false,
-            displayProduct: true,
+            parameters: GetPricesModel.getStandardPricesParameters()
+              ..owner = user,
+            displayEachOwner: false,
             uri: OpenPricesAPIClient.getUri(
               path: &#39;users&#47;$user&#39;,
               uriHelper: ProductQuery.uriPricesHelper,

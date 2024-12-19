@@ -73,7 +73,7 @@
 Widget build(BuildContext context) =&gt; PriceButton(
       tooltip: AppLocalizations.of(context).prices_open_user_proofs(user),
       title: user,
-      iconData: Icons.account_box,
+      iconData: PriceButton.userIconData,
       onPressed: () async =&gt; showUserPrices(
         user: user,
         context: context,

@@ -120,17 +120,7 @@ List&lt;UserPreferencesItem&gt; getChildren() {
         MaterialPageRoute&lt;void&gt;(
           builder: (BuildContext context) =&gt; PricesPage(
             GetPricesModel(
-              parameters: GetPricesParameters()
-                ..orderBy = &lt;OrderBy&lt;GetPricesOrderField&gt;&gt;[
-                  const OrderBy&lt;GetPricesOrderField&gt;(
-                    field: GetPricesOrderField.created,
-                    ascending: false,
-                  ),
-                ]
-                ..pageSize = GetPricesModel.pageSize
-                ..pageNumber = 1,
-              displayOwner: true,
-              displayProduct: true,
+              parameters: GetPricesModel.getStandardPricesParameters(),
               uri: OpenPricesAPIClient.getUri(
                 path: &#39;prices&#39;,
                 uriHelper: ProductQuery.uriPricesHelper,
@@ -151,11 +141,16 @@ List&lt;UserPreferencesItem&gt; getChildren() {
           builder: (BuildContext context) =&gt; const PricesUsersPage(),
         ),
       ),
-      Icons.account_box,
+      PriceButton.userIconData,
     ),
-    _getPriceListTile(
+    _getListTile(
       appLocalizations.all_search_prices_top_location_title,
-      &#39;locations&#39;,
+      () async =&gt; Navigator.of(context).push(
+        MaterialPageRoute&lt;void&gt;(
+          builder: (BuildContext context) =&gt; const PricesLocationsPage(),
+        ),
+      ),
+      PriceButton.locationIconData,
     ),
     _getPriceListTile(
       appLocalizations.all_search_prices_top_product_title,

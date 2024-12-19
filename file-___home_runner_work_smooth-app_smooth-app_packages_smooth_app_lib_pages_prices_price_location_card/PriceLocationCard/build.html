@@ -84,7 +84,9 @@ Widget build(BuildContext context) {
               : location.getTitle() ??
                   location.getSubtitle() ??
                   location.getLatLng().toString(),
-          icon: location == null ? _iconTodo : _iconDone,
+          icon: location == null
+              ? Icons.shopping_cart
+              : PriceButton.locationIconData,
           onPressed: model.proof != null
               ? null
               : () async {

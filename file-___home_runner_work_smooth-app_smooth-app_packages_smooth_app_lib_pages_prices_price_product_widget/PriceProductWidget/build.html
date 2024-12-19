@@ -122,9 +122,32 @@ Widget build(BuildContext context) {
                 runSpacing: 0,
                 children: &lt;Widget&gt;[
                   PriceCountWidget(
-                    priceCount,
-                    priceProduct: priceProduct,
-                    enableCountButton: model.enableCountButton,
+                    count: priceCount,
+                    onPressed: !model.enableCountButton
+                        ? null
+                        : () async {
+                            final LocalDatabase localDatabase =
+                                context.read&lt;LocalDatabase&gt;();
+                            final Product? newProduct =
+                                await DaoProduct(localDatabase)
+                                    .get(priceProduct.code);
+                            if (!context.mounted) {
+                              return;
+                            }
+                            return Navigator.of(context).push&lt;void&gt;(
+                              MaterialPageRoute&lt;void&gt;(
+                                builder: (BuildContext context) =&gt; PricesPage(
+                                  GetPricesModel.product(
+                                    product: newProduct != null
+                                        ? PriceMetaProduct.product(newProduct)
+                                        : PriceMetaProduct.priceProduct(
+                                            priceProduct),
+                                    context: context,
+                                  ),
+                                ),
+                              ),
+                            );
+                          },
                   ),
                   if (brands != null)
                     for (final String brand in brands)
@@ -136,7 +159,7 @@ Widget build(BuildContext context) {
                   if (unknown)
                     PriceButton(
                       title: appLocalizations.prices_unknown_product,
-                      iconData: Icons.warning,
+                      iconData: PriceButton.warningIconData,
                       onPressed: null,
                       buttonStyle: ElevatedButton.styleFrom(
                         disabledForegroundColor: Colors.red,
