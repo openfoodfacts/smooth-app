@@ -279,7 +279,6 @@ Prices:
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/prices/price_amount_card.dart'
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/prices/price_amount_field.dart'
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/prices/price_button.dart'
-  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/prices/price_count_widget.dart'
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/prices/price_currency_card.dart'
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/prices/price_currency_selector.dart'
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/prices/price_data_widget.dart'
