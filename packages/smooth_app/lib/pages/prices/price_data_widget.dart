@@ -3,9 +3,9 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/pages/prices/emoji_helper.dart';
 import 'package:smooth_app/pages/prices/get_prices_model.dart';
 import 'package:smooth_app/pages/prices/price_button.dart';
+import 'package:smooth_app/pages/prices/price_location_widget.dart';
 import 'package:smooth_app/pages/prices/price_proof_page.dart';
 import 'package:smooth_app/pages/prices/price_user_button.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
@@ -31,7 +31,8 @@ class PriceDataWidget extends StatelessWidget {
       locale: locale,
       name: price.currency.name,
     );
-    final String? locationTitle = _getLocationTitle(price.location);
+    final String? locationTitle =
+        PriceLocationWidget.getLocationTitle(price.location);
 
     String? getPricePerKg() {
       if (price.product == null) {
@@ -81,16 +82,21 @@ class PriceDataWidget extends StatelessWidget {
           ExcludeSemantics(child: Text(priceLabel)),
           ExcludeSemantics(child: Text(dateFormat.format(price.date))),
           if (notDiscountedPrice != null) Text('($notDiscountedPrice)'),
-          if (locationTitle != null)
+          if (model.displayEachLocation && locationTitle != null)
             // TODO(monsieurtanuki): open a still-to-be-done "price x location" page
             ExcludeSemantics(
               child: PriceButton(
                 title: locationTitle,
-                iconData: Icons.location_on_outlined,
-                onPressed: () {},
+                iconData: PriceButton.locationIconData,
+                onPressed: price.locationId == null
+                    ? () {}
+                    : () async => PriceLocationWidget.showLocationPrices(
+                          locationId: price.locationId!,
+                          context: context,
+                        ),
               ),
             ),
-          if (model.displayOwner) PriceUserButton(price.owner),
+          if (model.displayEachOwner) PriceUserButton(price.owner),
           ExcludeSemantics(
             child: Tooltip(
               message: '${dateFormat.format(price.created)}'
@@ -99,7 +105,7 @@ class PriceDataWidget extends StatelessWidget {
               child: PriceButton(
                 // TODO(monsieurtanuki): misleading "active" button
                 onPressed: () {},
-                iconData: Icons.history,
+                iconData: PriceButton.historyIconData,
                 title: ProductQueryPageHelper.getDurationStringFromTimestamp(
                   price.created.millisecondsSinceEpoch,
                   context,
@@ -110,7 +116,7 @@ class PriceDataWidget extends StatelessWidget {
           ),
           if (price.proof?.filePath != null)
             PriceButton(
-              iconData: Icons.image,
+              iconData: PriceButton.proofIconData,
               tooltip: appLocalizations.prices_open_proof,
               onPressed: () async => Navigator.push<void>(
                 context,
@@ -125,36 +131,4 @@ class PriceDataWidget extends StatelessWidget {
       ),
     );
   }
-
-  static String? _getLocationTitle(final Location? location) {
-    if (location == null) {
-      return null;
-    }
-    final StringBuffer result = StringBuffer();
-    final String? countryEmoji = EmojiHelper.getCountryEmoji(
-      _getCountry(location),
-    );
-    if (location.name != null) {
-      result.write(location.name);
-    }
-    if (location.city != null) {
-      if (result.isNotEmpty) {
-        result.write(', ');
-      }
-      result.write(location.city);
-    }
-    if (countryEmoji != null) {
-      if (result.isNotEmpty) {
-        result.write('  ');
-      }
-      result.write(countryEmoji);
-    }
-    if (result.isEmpty) {
-      return null;
-    }
-    return result.toString();
-  }
-
-  static OpenFoodFactsCountry? _getCountry(final Location location) =>
-      OpenFoodFactsCountry.fromOffTag(location.countryCode);
 }
