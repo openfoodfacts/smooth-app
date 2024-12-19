@@ -2011,7 +2011,7 @@
             }
         }
     },
-    "prices_locations_list_length_many_pages": "Top {pageSize} locations (total: {total})",
+    "prices_locations_list_length_many_pages": "Топ {pageSize} місць (всього: {total})",
     "@prices_locations_list_length_many_pages": {
         "description": "Number of locations for one-page result",
         "placeholders": {
@@ -2190,7 +2190,7 @@
     "@all_search_prices_top_location_title": {
         "description": "Top price locations: list tile title"
     },
-    "all_search_prices_top_location_single_title": "Prices in a store",
+    "all_search_prices_top_location_single_title": "Ціни в магазині",
     "@all_search_prices_top_location_single_title": {
         "description": "Top price locations: list tile title"
     },
