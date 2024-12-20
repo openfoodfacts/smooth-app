@@ -53,7 +53,8 @@
 
 <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
 <span class="name ">saveJpeg</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="saveJpeg-param-file">{<span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-io/File-class.html">File</a></span> <span class="parameter-name">file</span>, </span></li>
-<li><span class="parameter" id="saveJpeg-param-source"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">source</span>}</span></li>
+<li><span class="parameter" id="saveJpeg-param-source"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">source</span>, </span></li>
+<li><span class="parameter" id="saveJpeg-param-quality"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">quality</span>}</span></li>
 </ol>)
 
     </section>
@@ -71,6 +72,7 @@ compressing the image to JPEG (standard flutter being slow).</p>
   <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; saveJpeg({
   required final File file,
   required final ui.Image source,
+  required final int quality,
 }) async {
   final ByteData? rawData = await source.toByteData(
     format: ui.ImageByteFormat.rawRgba,
@@ -83,6 +85,7 @@ compressing the image to JPEG (standard flutter being slow).</p>
     rawData: rawData,
     width: source.width,
     height: source.height,
+    quality: quality,
   );
   if (container.isIsolatePossible) {
     try {

@@ -59,7 +59,9 @@
 <li><span class="parameter" id="cropIfNeeded-param-cropY1"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">cropY1</span>, </span></li>
 <li><span class="parameter" id="cropIfNeeded-param-cropX2"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">cropX2</span>, </span></li>
 <li><span class="parameter" id="cropIfNeeded-param-cropY2"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">cropY2</span>, </span></li>
-<li><span class="parameter" id="cropIfNeeded-param-overlayPainter"><span class="type-annotation">dynamic</span> <span class="parameter-name">overlayPainter</span>}</span></li>
+<li><span class="parameter" id="cropIfNeeded-param-overlayPainter"><span class="type-annotation">dynamic</span> <span class="parameter-name">overlayPainter</span>, </span></li>
+<li><span class="parameter" id="cropIfNeeded-param-compressQuality"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">compressQuality</span>, </span></li>
+<li><span class="parameter" id="cropIfNeeded-param-forceCompression"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">forceCompression</span>}</span></li>
 </ol>)
 
       
@@ -86,20 +88,24 @@ Returns null if the image (cropped or not) is too small.</p>
   required final int cropX2,
   required final int cropY2,
   final CustomPainter? overlayPainter,
+  required final int compressQuality,
+  required final bool forceCompression,
 }) async {
   final ui.Image full = await loadUiImage(
       await (await BackgroundTaskUpload.getFile(fullPath)).readAsBytes());
-  if (cropX1 == 0 &amp;&amp;
-      cropY1 == 0 &amp;&amp;
-      cropX2 == _cropConversionFactor &amp;&amp;
-      cropY2 == _cropConversionFactor &amp;&amp;
-      rotationDegrees == 0) {
-    if (!isPictureBigEnough(full.width, full.height)) {
-      return null;
-    }
-    &#47;&#47; in that case, no need to crop
-    if (overlayPainter == null) {
-      return fullPath;
+  if (!forceCompression) {
+    if (cropX1 == 0 &amp;&amp;
+        cropY1 == 0 &amp;&amp;
+        cropX2 == _cropConversionFactor &amp;&amp;
+        cropY2 == _cropConversionFactor &amp;&amp;
+        rotationDegrees == 0) {
+      if (!isPictureBigEnough(full.width, full.height)) {
+        return null;
+      }
+      &#47;&#47; in that case, no need to crop
+      if (overlayPainter == null) {
+        return fullPath;
+      }
     }
   }
 
@@ -136,6 +142,7 @@ Returns null if the image (cropped or not) is too small.</p>
   await saveJpeg(
     file: await BackgroundTaskUpload.getFile(croppedPath),
     source: cropped,
+    quality: compressQuality,
   );
   return croppedPath;
 }</code></pre>
