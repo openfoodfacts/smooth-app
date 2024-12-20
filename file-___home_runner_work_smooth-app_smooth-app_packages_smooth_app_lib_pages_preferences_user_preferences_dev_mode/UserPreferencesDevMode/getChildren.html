@@ -417,6 +417,19 @@ List&lt;UserPreferencesItem&gt; getChildren() =&gt; &lt;UserPreferencesItem&gt;[
         label: appLocalizations.dev_mode_section_experimental_features,
       ),
       UserPreferencesItemSwitch(
+        title: &#39;Multi-products selection for prices&#39;,
+        value: userPreferences
+                .getFlag(userPreferencesFlagPricesReceiptMultiSelection) ??
+            false,
+        onChanged: (bool value) async {
+          await userPreferences.setFlag(
+            userPreferencesFlagPricesReceiptMultiSelection,
+            value,
+          );
+          _showSuccessMessage();
+        },
+      ),
+      UserPreferencesItemSwitch(
         title: &#39;User ordered knowledge panels&#39;,
         value: userPreferences.getFlag(userPreferencesFlagUserOrderedKP) ??
             false,
@@ -554,6 +567,7 @@ List&lt;UserPreferencesItem&gt; getChildren() =&gt; &lt;UserPreferencesItem&gt;[
           <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_dev_mode/UserPreferencesDevMode/userPreferencesFlagEditIngredients-constant.html">userPreferencesFlagEditIngredients</a></li>
           <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_dev_mode/UserPreferencesDevMode/userPreferencesFlagHideFolksonomy-constant.html">userPreferencesFlagHideFolksonomy</a></li>
           <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_dev_mode/UserPreferencesDevMode/userPreferencesFlagPriceProd-constant.html">userPreferencesFlagPriceProd</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_dev_mode/UserPreferencesDevMode/userPreferencesFlagPricesReceiptMultiSelection-constant.html">userPreferencesFlagPricesReceiptMultiSelection</a></li>
           <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_dev_mode/UserPreferencesDevMode/userPreferencesFlagProd-constant.html">userPreferencesFlagProd</a></li>
           <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_dev_mode/UserPreferencesDevMode/userPreferencesFlagSpellCheckerOnOcr-constant.html">userPreferencesFlagSpellCheckerOnOcr</a></li>
           <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_dev_mode/UserPreferencesDevMode/userPreferencesFlagUserOrderedKP-constant.html">userPreferencesFlagUserOrderedKP</a></li>
