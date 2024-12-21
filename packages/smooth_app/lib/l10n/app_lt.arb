@@ -1053,26 +1053,26 @@
             "count": {}
         }
     },
-    "multiselect_title": "{count,plural, =0{No selected product} =1{One selected product} other{{count} selected products}}",
+    "multiselect_title": "{count,plural, =0{Nepasirinktas joks produktas} =1{Pasirinktas  vienas produktas} other{{count} pasirinkta produktų}}",
     "@multiselect_title": {
         "description": "Page title with the number of selected items",
         "placeholders": {
             "count": {}
         }
     },
-    "compare_products_mode": "Compare selected products",
+    "compare_products_mode": "Palyginti pasirinktus produktus",
     "@compare_products_mode": {
         "description": "Button to switch to 'compare products mode'"
     },
-    "delete_products_mode": "Delete selected products",
+    "delete_products_mode": "Trinti pasirinktus produktus",
     "@delete_products_mode": {
         "description": "Button to switch to 'delete products'"
     },
-    "select_all_products_mode": "Select all products",
+    "select_all_products_mode": "Pasirinkti visus produktus",
     "@select_all_products_mode": {
         "description": "Button to switch to 'select all products'"
     },
-    "select_none_products_mode": "Select none",
+    "select_none_products_mode": "Nepasirinkti nieko",
     "@select_none_products_mode": {
         "description": "Button to switch to 'select no products'"
     },
@@ -3344,27 +3344,27 @@
     "@product_page_image_no_image_available_accessibility_label": {
         "description": "Accessibility label for the image on the product page when there is no image available on the database"
     },
-    "product_page_action_bar_settings_accessibility_label": "Reorder or hide actions",
+    "product_page_action_bar_settings_accessibility_label": "Pertvarkyti arba slėpti veiksmus",
     "@product_page_action_bar_settings_accessibility_label": {
         "description": "Accessibility label for the Settings icon in the action bar (= bottom bar) on the product page"
     },
-    "product_page_action_bar_setting_modal_title": "Edit actions",
+    "product_page_action_bar_setting_modal_title": "Redaguoti veiksmus",
     "@product_page_action_bar_setting_modal_title": {
         "description": "Title for the modal allowing to show and reorder actions"
     },
-    "product_page_action_bar_item_move_up": "Move up",
+    "product_page_action_bar_item_move_up": "Kilti aukštyn",
     "@product_page_action_bar_item_move_up": {
         "description": "Accessibility label to move up an action"
     },
-    "product_page_action_bar_item_move_down": "Move down",
+    "product_page_action_bar_item_move_down": "Leistis žemyn",
     "@product_page_action_bar_item_move_down": {
         "description": "Accessibility label to move down an action"
     },
-    "product_page_action_bar_item_enable": "Enable action",
+    "product_page_action_bar_item_enable": "Įjungti veiksmą",
     "@product_page_action_bar_item_enable": {
         "description": "Accessibility label to enable action (= make it visible)"
     },
-    "product_page_action_bar_item_disable": "Disable action",
+    "product_page_action_bar_item_disable": "Išjungti veiksmą",
     "@product_page_action_bar_item_disable": {
         "description": "Accessibility label to disable action (= make it invisible)"
     },
