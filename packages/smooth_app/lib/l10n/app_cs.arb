@@ -2190,7 +2190,7 @@
     "@all_search_prices_top_location_title": {
         "description": "Top price locations: list tile title"
     },
-    "all_search_prices_top_location_single_title": "Prices in a store",
+    "all_search_prices_top_location_single_title": "Ceny v obchodě",
     "@all_search_prices_top_location_single_title": {
         "description": "Top price locations: list tile title"
     },
