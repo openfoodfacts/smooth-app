@@ -35,7 +35,7 @@
     "go_back_to_top": "Επιστροφή στην κορυφή",
     "save": "Αποθήκευση",
     "save_confirmation": "Είστε βέβαιοι ότι θέλετε να αποθηκεύσετε;",
-    "skip": "Skip",
+    "skip": "Παράλειψη",
     "cancel": "Ακύρωση",
     "@cancel": {},
     "ignore": "Αγνόηση",
@@ -151,7 +151,7 @@
     "incorrect_credentials": "Λάθος όνομα χρήστη ή κωδικός πρόσβασης.",
     "password_lost_incorrect_credentials": "This email or username doesn't exist. Please check your credentials.",
     "password_lost_server_unavailable": "We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.",
-    "login": "Όνομα χρήστη",
+    "login": "Σύνδεση",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
@@ -881,7 +881,7 @@
     "edit_tag": "Edit property",
     "remove_tag": "Remove property",
     "tag_key": "Property",
-    "tag_value": "Value",
+    "tag_value": "Τιμή",
     "invalid_key_format": "Invalid property format. It must be lowercase and without any spaces.",
     "@invalid_key_format": {
         "description": "Message to show if the property's value for a new product property is invalid. This logic is identical to whats being validated in the Folksonomy API"
@@ -1444,11 +1444,11 @@
     "@edit_product_form_item_labels_subtitle": {
         "description": "Product edition - Labels - SubTitle"
     },
-    "edit_product_form_item_labels_hint": "ετικετα",
+    "edit_product_form_item_labels_hint": "ετικέτα",
     "@edit_product_form_item_labels_hint": {
         "description": "Product edition - Labels - input textfield hint"
     },
-    "edit_product_form_item_labels_type": "ετικετα",
+    "edit_product_form_item_labels_type": "ετικέτα",
     "@edit_product_form_item_labels_type": {
         "description": "Product edition - Labels - input textfield label"
     },
@@ -1472,7 +1472,7 @@
     "@edit_product_form_item_origins_hint": {
         "description": "Product edition - Origins - input textfield hint"
     },
-    "edit_product_form_item_origins_type": "χωρα",
+    "edit_product_form_item_origins_type": "χώρα",
     "@edit_product_form_item_origins_type": {
         "description": "Product edition - Origins - input textfield type"
     },
@@ -1492,7 +1492,7 @@
     "@edit_product_form_item_countries_hint": {
         "description": "Product edition - Countries - input textfield hint"
     },
-    "edit_product_form_item_countries_type": "χωρα",
+    "edit_product_form_item_countries_type": "χώρα",
     "@edit_product_form_item_countries_type": {
         "description": "Product edition - Countries - input textfield type"
     },
@@ -1520,11 +1520,11 @@
     "@edit_product_form_item_categories_title": {
         "description": "Product edition - Categories - Title"
     },
-    "edit_product_form_item_categories_hint": "κατηγορια",
+    "edit_product_form_item_categories_hint": "κατηγορία",
     "@edit_product_form_item_categories_hint": {
         "description": "Product edition - Categories - input textfield hint"
     },
-    "edit_product_form_item_categories_type": "κατηγορια",
+    "edit_product_form_item_categories_type": "κατηγορία",
     "@edit_product_form_item_categories_type": {
         "description": "Product edition - Categories - input textfield type"
     },
@@ -2298,7 +2298,7 @@
     "brand_name": "Μάρκα",
     "add_basic_details_brand_name_error": "Παρακαλώ εισάγετε το όνομα της μάρκας",
     "quantity": "Ποσότητα και βάρος",
-    "barcode": "Barcode",
+    "barcode": "Γραμμικός κωδικός",
     "barcode_barcode": "Barcode: {barcode}",
     "@barcode_barcode": {
         "description": "Displaying the raw barcode with label",
@@ -3236,7 +3236,7 @@
     "@photo_viewer_details_title": {
         "description": "Title of the photo details dialog"
     },
-    "photo_viewer_details_contributor_title": "Συντελεστης",
+    "photo_viewer_details_contributor_title": "Συνεισφέρων",
     "@photo_viewer_details_contributor_title": {
         "description": "Label for the author of a photo"
     },
