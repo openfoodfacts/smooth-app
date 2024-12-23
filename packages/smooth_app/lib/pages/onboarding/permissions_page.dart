@@ -96,10 +96,12 @@ class _PermissionsPageState extends State<PermissionsPage> {
                 ),
               )),
               OnboardingBottomBar(
-                rightButton: _IgnoreButton(
-                  onPermissionIgnored: () => _moveToNextScreen(context),
-                ),
-                leftButton: _AskPermissionButton(
+                leftButton: !Platform.isIOS
+                    ? _IgnoreButton(
+                        onPermissionIgnored: () => _moveToNextScreen(context),
+                      )
+                    : null,
+                rightButton: _AskPermissionButton(
                   onPermissionIgnored: () => _moveToNextScreen(context),
                 ),
                 backgroundColor: widget.backgroundColor,
@@ -153,7 +155,9 @@ class _AskPermissionButton extends StatelessWidget {
       },
       backgroundColor: Colors.white,
       foregroundColor: Colors.black,
-      label: appLocalizations.authorize_button_label,
+      label: Platform.isIOS
+          ? appLocalizations.onboarding_continue_button
+          : appLocalizations.authorize_button_label,
     );
   }
 }

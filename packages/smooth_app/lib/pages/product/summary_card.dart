@@ -152,6 +152,7 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
               ),
             ),
             Container(
+              width: double.infinity,
               padding: widget.buttonPadding ??
                   const EdgeInsets.symmetric(
                     vertical: SMALL_SPACE,
@@ -163,35 +164,42 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
                 borderRadius:
                     const BorderRadius.vertical(bottom: ROUNDED_RADIUS),
               ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsetsDirectional.only(bottom: 2.0),
-                    child: Text(
-                      AppLocalizations.of(context).tap_for_more,
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 15.0,
-                        fontWeight: FontWeight.w600,
+              child: Padding(
+                padding: const EdgeInsetsDirectional.only(
+                  start: SMALL_SPACE,
+                  end: SMALL_SPACE,
+                  bottom: 2.0,
+                ),
+                child: FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        AppLocalizations.of(context).tap_for_more,
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 15.0,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
-                    ),
+                      const SizedBox(
+                        width: BALANCED_SPACE,
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: themeExtension.orange,
+                        ),
+                        padding: const EdgeInsets.all(VERY_SMALL_SPACE),
+                        child: const icons.Arrow.right(
+                          color: Colors.white,
+                          size: 12.0,
+                        ),
+                      ),
+                    ],
                   ),
-                  const SizedBox(
-                    width: BALANCED_SPACE,
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: themeExtension.orange,
-                    ),
-                    padding: const EdgeInsets.all(VERY_SMALL_SPACE),
-                    child: const icons.Arrow.right(
-                      color: Colors.white,
-                      size: 12.0,
-                    ),
-                  ),
-                ],
+                ),
               ),
             ),
           ],

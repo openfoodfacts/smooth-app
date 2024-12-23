@@ -129,7 +129,7 @@
     "@Introduction screen": {},
     "welcomeToOpenFoodFacts": "مرحبًا بكم في موقع Open Food Facts",
     "@welcomeToOpenFoodFacts": {},
-    "whatIsOff": "Open Food Facts is a global non-profit powered by local communities.",
+    "whatIsOff": "Open Food Facts هي منظمة عالمية غير ربحية مدعومة من المجتمعات المحلية.",
     "@whatIsOff": {
         "description": "Description of Open Food Facts organization."
     },
@@ -145,7 +145,7 @@
     "@ecoCardUtility": {
         "description": "Description of what a user can use the Eco data in a product for."
     },
-    "server_error_open_new_issue": "No server response! You may open an issue with the following link.",
+    "server_error_open_new_issue": "لا يوجد استجابة من الخادم! يمكنك فتح مشكلة باستخدام الرابط التالي.",
     "@user_management": {},
     "sign_in_text": "Sign in to your Open Food Facts account to save your contributions",
     "incorrect_credentials": "اسم المستخدم أو كلمة المرور غير صحيحة.",

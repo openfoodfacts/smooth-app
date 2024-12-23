@@ -210,6 +210,8 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
       cropY1: cropY1,
       cropX2: cropX2,
       cropY2: cropY2,
+      compressQuality: 80,
+      forceCompression: true,
       overlayPainter: offsets.isEmpty
           ? null
           : EraserPainter(

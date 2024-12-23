@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
@@ -179,7 +180,7 @@ class _SmoothProductCardHeader extends StatelessWidget {
               ),
               SizedBox(width: dense ? BALANCED_SPACE : MEDIUM_SPACE),
               Expanded(
-                child: Text(
+                child: AutoSizeText(
                   label,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
@@ -326,7 +327,7 @@ class ScanProductBaseCardButton extends StatelessWidget {
   });
 
   final String text;
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
