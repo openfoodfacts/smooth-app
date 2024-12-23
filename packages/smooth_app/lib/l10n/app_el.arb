@@ -14,7 +14,7 @@
     "@reason": {},
     "okay": "Εντάξει",
     "@okay": {},
-    "validate": "Validate",
+    "validate": "Επικύρωση",
     "@validate": {
         "description": "Button label: Validate the input"
     },
@@ -1484,7 +1484,7 @@
     "@edit_product_form_item_origins_explainer_2": {
         "description": "Product edition - Origins - input explainer, part 2"
     },
-    "edit_product_form_item_countries_title": "Country",
+    "edit_product_form_item_countries_title": "Χώρα",
     "@edit_product_form_item_countries_title": {
         "description": "Product edition - Countries - Title"
     },
