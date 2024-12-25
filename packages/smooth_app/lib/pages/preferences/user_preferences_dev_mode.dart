@@ -55,6 +55,8 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
   static const String userPreferencesFlagAccessibilityEmoji =
       '__accessibilityEmoji';
   static const String userPreferencesFlagUserOrderedKP = '__userOrderedKP';
+  static const String userPreferencesFlagPricesReceiptMultiSelection =
+      '__pricesReceiptMultiSelection';
   static const String userPreferencesFlagSpellCheckerOnOcr =
       '__spellcheckerOcr';
   static const String userPreferencesCustomNewsJSONURI = '__newsJsonURI';
@@ -430,6 +432,19 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
         ),
         UserPreferencesItemSection(
           label: appLocalizations.dev_mode_section_experimental_features,
+        ),
+        UserPreferencesItemSwitch(
+          title: 'Multi-products selection for prices',
+          value: userPreferences
+                  .getFlag(userPreferencesFlagPricesReceiptMultiSelection) ??
+              false,
+          onChanged: (bool value) async {
+            await userPreferences.setFlag(
+              userPreferencesFlagPricesReceiptMultiSelection,
+              value,
+            );
+            _showSuccessMessage();
+          },
         ),
         UserPreferencesItemSwitch(
           title: 'User ordered knowledge panels',

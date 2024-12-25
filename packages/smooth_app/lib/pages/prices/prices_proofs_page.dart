@@ -176,6 +176,7 @@ class _PricesProofsPageState extends State<PricesProofsPage>
             ascending: false,
           ),
         ]
+        ..owner = user.userId
         ..pageSize = _pageSize
         ..pageNumber = 1,
       uriHelper: ProductQuery.uriPricesHelper,

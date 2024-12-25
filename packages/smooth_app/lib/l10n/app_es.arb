@@ -2011,6 +2011,54 @@
             }
         }
     },
+    "prices_locations_list_length_many_pages": "Top {pageSize} locations (total: {total})",
+    "@prices_locations_list_length_many_pages": {
+        "description": "Number of locations for one-page result",
+        "placeholders": {
+            "pageSize": {
+                "type": "int"
+            },
+            "total": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_button_count_proof": "{count,plural, =0{No proof} =1{One proof} other{{count} proofs}}",
+    "@prices_button_count_proof": {
+        "description": "Number of proofs, for a button",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_button_count_product": "{count,plural, =0{No product} =1{One product} other{{count} products}}",
+    "@prices_button_count_product": {
+        "description": "Number of products, for a button",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_button_count_user": "{count,plural, =0{No user} =1{One user} other{{count} users}}",
+    "@prices_button_count_user": {
+        "description": "Number of users, for a button",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_button_count_price": "{count,plural, =0{No price} =1{One price} other{{count} prices}}",
+    "@prices_button_count_price": {
+        "description": "Number of prices, for a button",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
     "prices_amount_subtitle": "Amount",
     "prices_amount_is_discounted": "¿Está rebajado?",
     "prices_amount_price_normal": "Precio",
@@ -2140,6 +2188,10 @@
     },
     "all_search_prices_top_location_title": "Stores with the most prices",
     "@all_search_prices_top_location_title": {
+        "description": "Top price locations: list tile title"
+    },
+    "all_search_prices_top_location_single_title": "Prices in a store",
+    "@all_search_prices_top_location_single_title": {
         "description": "Top price locations: list tile title"
     },
     "all_search_prices_top_product_title": "Products with the most prices",

@@ -2011,6 +2011,54 @@
             }
         }
     },
+    "prices_locations_list_length_many_pages": "Legnépszerűbb {pageSize} hely (összesen: {total})",
+    "@prices_locations_list_length_many_pages": {
+        "description": "Number of locations for one-page result",
+        "placeholders": {
+            "pageSize": {
+                "type": "int"
+            },
+            "total": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_button_count_proof": "{count,plural, one {}=0{Nincsenek bizonylatok} =1{Egy bizonylat} other{{count} bizonylat}}",
+    "@prices_button_count_proof": {
+        "description": "Number of proofs, for a button",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_button_count_product": "{count,plural, one {}=0{Nincsenek termékek} =1{Egy termék} other{{count} termék}}",
+    "@prices_button_count_product": {
+        "description": "Number of products, for a button",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_button_count_user": "{count,plural, one {}=0{0 felhasználó} =1{Egy felhasználó} other{{count} felhasználó}}",
+    "@prices_button_count_user": {
+        "description": "Number of users, for a button",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_button_count_price": "{count,plural, one {}=0{Nincsenek árak} =1{Egy ár} other{{count} ár}}",
+    "@prices_button_count_price": {
+        "description": "Number of prices, for a button",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
     "prices_amount_subtitle": "Mennyiség",
     "prices_amount_is_discounted": "Akciós?",
     "prices_amount_price_normal": "Price",
@@ -2140,6 +2188,10 @@
     },
     "all_search_prices_top_location_title": "Legtöbb árral rendelkező boltok",
     "@all_search_prices_top_location_title": {
+        "description": "Top price locations: list tile title"
+    },
+    "all_search_prices_top_location_single_title": "Bolti árak",
+    "@all_search_prices_top_location_single_title": {
         "description": "Top price locations: list tile title"
     },
     "all_search_prices_top_product_title": "Legtöbb árral rendelkező termékek",

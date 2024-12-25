@@ -28,7 +28,7 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
-    "previous_label": "Précédente",
+    "previous_label": "Précédent",
     "@previous_label": {
         "description": "A label on a button that says 'Previous', pressing the button takes the user to the previous screen."
     },
@@ -2011,6 +2011,54 @@
             }
         }
     },
+    "prices_locations_list_length_many_pages": "Top {pageSize} contributeurs (total : {total})",
+    "@prices_locations_list_length_many_pages": {
+        "description": "Number of locations for one-page result",
+        "placeholders": {
+            "pageSize": {
+                "type": "int"
+            },
+            "total": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_button_count_proof": "{count,plural, =0{Liste vide} =1{Un produit} other{{count} produits}}",
+    "@prices_button_count_proof": {
+        "description": "Number of proofs, for a button",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_button_count_product": "{count,plural, =0{Liste vide} =1{Un produit} other{{count} produits}}",
+    "@prices_button_count_product": {
+        "description": "Number of products, for a button",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_button_count_user": "{count,plural, one {}=0{Aucun utilisateur} =1{Un utilisateur} other{{count} utilisateurs}}",
+    "@prices_button_count_user": {
+        "description": "Number of users, for a button",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_button_count_price": "{count,plural, =0{Aucun prix} =1{Un seul prix} other{Tous les {count} prix}}",
+    "@prices_button_count_price": {
+        "description": "Number of prices, for a button",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
     "prices_amount_subtitle": "Montant",
     "prices_amount_is_discounted": "En promotion ?",
     "prices_amount_price_normal": "Prix",
@@ -2140,6 +2188,10 @@
     },
     "all_search_prices_top_location_title": "Top lieux",
     "@all_search_prices_top_location_title": {
+        "description": "Top price locations: list tile title"
+    },
+    "all_search_prices_top_location_single_title": "Prix en magasin",
+    "@all_search_prices_top_location_single_title": {
         "description": "Top price locations: list tile title"
     },
     "all_search_prices_top_product_title": "Top produits",

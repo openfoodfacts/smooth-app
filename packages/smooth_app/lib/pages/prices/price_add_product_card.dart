@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/prices/price_amount_model.dart';
 import 'package:smooth_app/pages/prices/price_meta_product.dart';
 import 'package:smooth_app/pages/prices/price_model.dart';
@@ -50,21 +52,29 @@ class _PriceAddProductCardState extends State<PriceAddProductCard> {
             text: appLocalizations.prices_barcode_reader_action,
             icon: Icons.barcode_reader,
             onPressed: () async {
-              final String? barcode = await Navigator.of(context).push<String>(
-                MaterialPageRoute<String>(
+              final UserPreferences userPreferences =
+                  context.read<UserPreferences>();
+              final List<String>? barcodes =
+                  await Navigator.of(context).push<List<String>>(
+                MaterialPageRoute<List<String>>(
                   builder: (BuildContext context) => PriceScanPage(
                     latestScannedBarcode: _latestScannedBarcode,
+                    isMultiProducts: userPreferences.getFlag(
+                          UserPreferencesDevMode
+                              .userPreferencesFlagPricesReceiptMultiSelection,
+                        ) ??
+                        false,
                   ),
                 ),
               );
-              if (barcode == null) {
+              if (barcodes == null || barcodes.isEmpty) {
                 return;
               }
-              _latestScannedBarcode = barcode;
+              _latestScannedBarcode = barcodes.last;
               if (!context.mounted) {
                 return;
               }
-              await _addToList(barcode, context);
+              await _addBarcodesToList(barcodes, context);
             },
           ),
           SmoothLargeButtonWithIcon(
@@ -75,10 +85,11 @@ class _PriceAddProductCardState extends State<PriceAddProductCard> {
               if (barcode == null) {
                 return;
               }
+              _latestScannedBarcode = null;
               if (!context.mounted) {
                 return;
               }
-              await _addToList(barcode, context);
+              await _addBarcodesToList(<String>[barcode], context);
             },
           ),
         ],
@@ -86,8 +97,8 @@ class _PriceAddProductCardState extends State<PriceAddProductCard> {
     );
   }
 
-  Future<void> _addToList(
-    final String barcode,
+  Future<void> _addBarcodesToList(
+    final List<String> barcodes,
     final BuildContext context,
   ) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
@@ -96,39 +107,71 @@ class _PriceAddProductCardState extends State<PriceAddProductCard> {
       context,
       listen: false,
     );
-    for (int i = 0; i < priceModel.length; i++) {
-      final PriceAmountModel model = priceModel.elementAt(i);
-      if (model.product.barcode == barcode) {
-        await showDialog<void>(
-          context: context,
-          builder: (final BuildContext context) => SmoothAlertDialog(
-            body: Text(appLocalizations.prices_barcode_already(barcode)),
-            positiveAction: SmoothActionButton(
-              text: appLocalizations.okay,
-              onPressed: () => Navigator.of(context).pop(),
-            ),
-          ),
-        );
-        return;
+
+    bool barcodeAlreadyThere(final String barcode) {
+      for (int i = 0; i < priceModel.length; i++) {
+        final PriceAmountModel model = priceModel.elementAt(i);
+        if (model.product.barcode == barcode) {
+          return true;
+        }
+      }
+      return false;
+    }
+
+    final List<String> alreadyThere = <String>[];
+    final List<String> notThere = <String>[];
+    for (final String barcode in barcodes) {
+      if (barcodeAlreadyThere(barcode)) {
+        alreadyThere.add(barcode);
+      } else {
+        notThere.add(barcode);
       }
     }
-    priceModel.add(
-      PriceAmountModel(
-        product: PriceMetaProduct.unknown(
-          barcode,
-          localDatabase,
+
+    if (notThere.isNotEmpty) {
+      for (final String barcode in notThere) {
+        _addProductToList(
           priceModel,
+          PriceMetaProduct.unknown(
+            barcode,
+            localDatabase,
+            priceModel,
+          ),
+          context,
+        );
+      }
+      priceModel.notifyListeners();
+    }
+
+    for (final String barcode in alreadyThere) {
+      if (!context.mounted) {
+        return;
+      }
+      await showDialog<void>(
+        context: context,
+        builder: (final BuildContext context) => SmoothAlertDialog(
+          body: Text(appLocalizations.prices_barcode_already(barcode)),
+          positiveAction: SmoothActionButton(
+            text: appLocalizations.okay,
+            onPressed: () => Navigator.of(context).pop(),
+          ),
         ),
-      ),
-    );
+      );
+    }
+  }
+
+  void _addProductToList(
+    final PriceModel priceModel,
+    final PriceMetaProduct product,
+    final BuildContext context,
+  ) {
+    priceModel.add(PriceAmountModel(product: product));
 
     // unfocus from the previous price amount text field.
     // looks like the most efficient way to unfocus: focus somewhere in space...
     final FocusNode focusNode = FocusNode();
     _dummyFocusNodes.add(focusNode);
     FocusScope.of(context).requestFocus(focusNode);
-
-    priceModel.notifyListeners();
   }
 
   Future<String?> _textInput(final BuildContext context) async {
