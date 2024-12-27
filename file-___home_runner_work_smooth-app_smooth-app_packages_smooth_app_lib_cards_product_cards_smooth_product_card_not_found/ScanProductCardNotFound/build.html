@@ -135,7 +135,7 @@ Widget build(BuildContext context) {
             spacer,
             ScanProductBaseCardButton(
               text: appLocalizations.carousel_unknown_product_button,
-              onTap: dense ? () =&gt; _onTap(context) : null,
+              onTap: !dense ? () =&gt; _onTap(context) : null,
             ),
           ],
         );
