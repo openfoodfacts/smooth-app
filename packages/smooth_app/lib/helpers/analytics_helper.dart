@@ -76,7 +76,7 @@ enum AnalyticsEvent {
     tag: 'nutriscore not applicable - no fast-track product edit card',
     category: AnalyticsCategory.productFastTrackEdit,
   ),
-  notShowFastTrackProductEditCardEcoscore(
+  notShowFastTrackProductEditCardEnvironmentalScore(
     tag: 'ecoscore not applicable - no fast-track product edit card',
     category: AnalyticsCategory.productFastTrackEdit,
   ),

@@ -34,9 +34,9 @@ class ProductIncompleteCard extends StatelessWidget {
       );
       checkScores = false;
     }
-    if (_isEcoscoreNotApplicable(product)) {
+    if (_isEnvironmentalScoreNotApplicable(product)) {
       AnalyticsHelper.trackProductEvent(
-        AnalyticsEvent.notShowFastTrackProductEditCardEcoscore,
+        AnalyticsEvent.notShowFastTrackProductEditCardEnvironmentalScore,
         product: product,
       );
       checkScores = false;
@@ -61,7 +61,7 @@ class ProductIncompleteCard extends StatelessWidget {
   static bool _isNutriscoreNotApplicable(final Product product) =>
       _isScoreNotApplicable(product, 'nutriscore');
 
-  static bool _isEcoscoreNotApplicable(final Product product) =>
+  static bool _isEnvironmentalScoreNotApplicable(final Product product) =>
       _isScoreNotApplicable(product, 'ecoscore');
 
   static bool _isScoreNotApplicable(final Product product, final String tag) =>

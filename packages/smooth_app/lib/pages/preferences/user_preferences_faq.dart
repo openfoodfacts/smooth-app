@@ -78,9 +78,9 @@ class UserPreferencesFaq extends AbstractUserPreferences {
             ),
           ),
         _getNutriListTile(
-          title: appLocalizations.ecoscore_generic,
+          title: appLocalizations.environmental_score_generic,
           url: 'https://world.openfoodfacts.org/ecoscore',
-          svg: 'assets/cache/ecoscore-b.svg',
+          svg: 'assets/cache/green-score-b.svg',
         ),
         _getNutriListTile(
           title: appLocalizations.nova_group_generic,

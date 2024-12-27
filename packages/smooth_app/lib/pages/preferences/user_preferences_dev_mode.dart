@@ -360,7 +360,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           },
         ),
         UserPreferencesItemSwitch(
-          title: appLocalizations.dev_mode_hide_ecoscore_title,
+          title: appLocalizations.dev_mode_hide_environmental_score_title,
           value: userPreferences
               .getExcludedAttributeIds()
               .contains(Attribute.ATTRIBUTE_ECOSCORE),

@@ -128,7 +128,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
 
   bool _alreadyPushedToHistory = false;
 
-  bool _ecoscoreExpanded = false;
+  bool _environmentalScoreExpanded = false;
 
   int get _pageNumber =>
       _pageController.hasClients ? _pageController.page!.round() : 0;
@@ -276,7 +276,8 @@ class _AddNewProductPageState extends State<AddNewProductPage>
                     if (widget.displayPictures)
                       _buildCard(_getImageRows(context)),
                     if (_probablyFood) _buildCard(_getNutriscoreRows(context)),
-                    if (_probablyFood) _buildCard(_getEcoscoreRows(context)),
+                    if (_probablyFood)
+                      _buildCard(_getEnvironmentalScoreRows(context)),
                     if (_probablyFood) _buildCard(_getNovaRows(context)),
                     if (!_probablyFood) _buildCard(_getOxFRows(context)),
                     if (_probablyFood && widget.displayMisc)
@@ -467,29 +468,32 @@ class _AddNewProductPageState extends State<AddNewProductPage>
     ];
   }
 
-  List<Widget> _getEcoscoreRows(final BuildContext context) {
+  List<Widget> _getEnvironmentalScoreRows(final BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final SmoothColorsThemeExtension extension =
         context.extension<SmoothColorsThemeExtension>();
 
     final Attribute? attribute = _getAttribute(Attribute.ATTRIBUTE_ECOSCORE);
     return <Widget>[
-      AddNewProductTitle(appLocalizations.new_product_title_ecoscore),
+      AddNewProductTitle(
+          appLocalizations.new_product_title_environmental_score),
       const SizedBox(height: 15.0),
-      AddNewProductSubTitle(appLocalizations.new_product_subtitle_ecoscore),
+      AddNewProductSubTitle(
+          appLocalizations.new_product_subtitle_environmental_score),
       const SizedBox(height: 15.0),
       _buildCategoriesButton(context),
       Center(
         child: AddNewProductScoreIcon(
           iconUrl: attribute?.iconUrl,
-          defaultIconUrl: ProductDialogHelper.unknownSvgEcoscore,
+          defaultIconUrl: ProductDialogHelper.unknownSvgEnvironmentalScore,
         ),
       ),
       const SizedBox(height: 15.0),
       InkWell(
         borderRadius: ROUNDED_BORDER_RADIUS,
         onTap: () {
-          setState(() => _ecoscoreExpanded = !_ecoscoreExpanded);
+          setState(
+              () => _environmentalScoreExpanded = !_environmentalScoreExpanded);
         },
         child: Ink(
           padding: const EdgeInsets.symmetric(
@@ -511,7 +515,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
               const SizedBox(width: 15.0),
               Flexible(
                 child: Text(
-                  appLocalizations.new_product_additional_ecoscore,
+                  appLocalizations.new_product_additional_environmental_score,
                   style: TextStyle(
                     color: _colorScheme.onPrimary,
                   ),
@@ -519,32 +523,34 @@ class _AddNewProductPageState extends State<AddNewProductPage>
               ),
               const SizedBox(width: 5.0),
               Icon(
-                _ecoscoreExpanded ? Icons.expand_less : Icons.expand_more,
+                _environmentalScoreExpanded
+                    ? Icons.expand_less
+                    : Icons.expand_more,
                 color: _colorScheme.onPrimary,
               ),
             ],
           ),
         ),
       ),
-      if (_ecoscoreExpanded)
+      if (_environmentalScoreExpanded)
         AddNewProductEditorButton(
           upToDateProduct,
           _originEditor,
           isLoggedInMandatory: widget.isLoggedInMandatory,
         ),
-      if (_ecoscoreExpanded)
+      if (_environmentalScoreExpanded)
         AddNewProductEditorButton(
           upToDateProduct,
           _labelEditor,
           isLoggedInMandatory: widget.isLoggedInMandatory,
         ),
-      if (_ecoscoreExpanded)
+      if (_environmentalScoreExpanded)
         AddNewProductEditorButton(
           upToDateProduct,
           _packagingEditor,
           isLoggedInMandatory: widget.isLoggedInMandatory,
         ),
-      if (_ecoscoreExpanded) _buildIngredientsButton(context),
+      if (_environmentalScoreExpanded) _buildIngredientsButton(context),
     ];
   }
 
