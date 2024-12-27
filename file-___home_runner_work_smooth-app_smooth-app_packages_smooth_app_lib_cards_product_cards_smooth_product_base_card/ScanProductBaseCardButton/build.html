@@ -71,58 +71,9 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  final SmoothColorsThemeExtension theme =
-      context.extension&lt;SmoothColorsThemeExtension&gt;();
-
-  return Align(
-    alignment: AlignmentDirectional.centerEnd,
-    child: TextButton(
-      onPressed: onTap,
-      style: ButtonStyle(
-        backgroundColor: WidgetStatePropertyAll&lt;Color&gt;(theme.primarySemiDark),
-        padding: const WidgetStatePropertyAll&lt;EdgeInsetsGeometry&gt;(
-          EdgeInsetsDirectional.symmetric(
-            vertical: SMALL_SPACE,
-            horizontal: LARGE_SPACE,
-          ),
-        ),
-        shape: const WidgetStatePropertyAll&lt;OutlinedBorder&gt;(
-          RoundedRectangleBorder(
-            borderRadius: CIRCULAR_BORDER_RADIUS,
-          ),
-        ),
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: &lt;Widget&gt;[
-          Padding(
-            padding: const EdgeInsetsDirectional.only(bottom: 3.0),
-            child: Text(
-              text,
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 15.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-          const SizedBox(width: MEDIUM_SPACE),
-          Container(
-            width: 20.0,
-            height: 20.0,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: theme.orange,
-            ),
-            padding: const EdgeInsetsDirectional.all(VERY_SMALL_SPACE),
-            child: const icons.Arrow.right(
-              color: Colors.white,
-              size: 12.0,
-            ),
-          ),
-        ],
-      ),
-    ),
+  return SmoothButtonWithArrow(
+    text: text,
+    onTap: onTap,
   );
 }</code></pre>
 </section>
