@@ -562,10 +562,15 @@
     "@add_product_information_button_label": {},
     "new_product": "Produk Baru",
     "@new_product": {},
-    "new_product_dialog_title": "Anda menemukan produk baru!",
-    "@new_product_dialog_title": {
-        "description": "Please keep it short, like 50 characters. Title of the dialog when the user searched for an unknown barcode."
+    "new_product_found_title": "New product found!",
+    "@new_product_found_title": {
+        "description": "Title of a dialog that informs the user that a barcode doesn't exist in the database"
     },
+    "new_product_found_text": "Basis data kolaboratif kami berisi lebih dari **3 juta produk**, tetapi barcode ini tidak ada: ",
+    "@new_product_found_text": {
+        "description": "Please keep the ** syntax to make the text bold"
+    },
+    "new_product_found_button": "Tambahkan produk ini",
     "new_product_leave_title": "Keluar dari halaman ini?",
     "@new_product_leave_title": {
         "description": "Alert dialog title when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
@@ -573,14 +578,6 @@
     "new_product_leave_message": "Anda tidak memasukan informasi apapun, apakah Anda yakin ingin meninggalkan halaman ini?",
     "@new_product_leave_message": {
         "description": "Alert dialog message when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
-    },
-    "new_product_dialog_description": "Fotolah kemasan untuk menambahkan produk ini pada basis data kami",
-    "@new_product_dialog_description": {
-        "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
-    },
-    "new_product_dialog_illustration_description": "Ilustrasi untuk Nutri-Score dan Eco-Score yang tidak diketahui",
-    "@new_product_dialog_illustration_description": {
-        "description": "A description for accessibility of two images side by side: a Nutri-Score and an EcoScore."
     },
     "front_packaging_photo_button_label": "Foto depan produk",
     "@front_packaging_photo_button_label": {},
