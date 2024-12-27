@@ -77,9 +77,9 @@
     );
     checkScores = false;
   }
-  if (_isEcoscoreNotApplicable(product)) {
+  if (_isEnvironmentalScoreNotApplicable(product)) {
     AnalyticsHelper.trackProductEvent(
-      AnalyticsEvent.notShowFastTrackProductEditCardEcoscore,
+      AnalyticsEvent.notShowFastTrackProductEditCardEnvironmentalScore,
       product: product,
     );
     checkScores = false;
