@@ -562,10 +562,15 @@
     "@add_product_information_button_label": {},
     "new_product": "מוצר חדש",
     "@new_product": {},
-    "new_product_dialog_title": "כרגע גילית מוצר חדש!",
-    "@new_product_dialog_title": {
-        "description": "Please keep it short, like 50 characters. Title of the dialog when the user searched for an unknown barcode."
+    "new_product_found_title": "New product found!",
+    "@new_product_found_title": {
+        "description": "Title of a dialog that informs the user that a barcode doesn't exist in the database"
     },
+    "new_product_found_text": "מסד הנתונים השיתופי שלנו מכיל למעלה מ־**3 מיליון מוצרים**, אבל הברקוד הזה לא קיים: ",
+    "@new_product_found_text": {
+        "description": "Please keep the ** syntax to make the text bold"
+    },
+    "new_product_found_button": "הוספת המוצר הזה",
     "new_product_leave_title": "לעזוב את העמוד הזה?",
     "@new_product_leave_title": {
         "description": "Alert dialog title when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
@@ -573,14 +578,6 @@
     "new_product_leave_message": "נראה כאילו לא מילאת כלום. לעזוב את העמוד הזה?",
     "@new_product_leave_message": {
         "description": "Alert dialog message when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
-    },
-    "new_product_dialog_description": "נא לצלם את האריזה כדי להוסיף \nאת המוצר הזה למסד הנתונים השיתופי שלנו",
-    "@new_product_dialog_description": {
-        "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
-    },
-    "new_product_dialog_illustration_description": "איור עם ציוני Nutri-Score ו־Eco-Score לא ידועים",
-    "@new_product_dialog_illustration_description": {
-        "description": "A description for accessibility of two images side by side: a Nutri-Score and an EcoScore."
     },
     "front_packaging_photo_button_label": "תמונת החזית של המוצר",
     "@front_packaging_photo_button_label": {},
