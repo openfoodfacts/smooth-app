@@ -562,10 +562,15 @@
     "@add_product_information_button_label": {},
     "new_product": "Nouveau produit",
     "@new_product": {},
-    "new_product_dialog_title": "Vous venez de trouver un nouveau produit !",
-    "@new_product_dialog_title": {
-        "description": "Please keep it short, like 50 characters. Title of the dialog when the user searched for an unknown barcode."
+    "new_product_found_title": "New product found!",
+    "@new_product_found_title": {
+        "description": "Title of a dialog that informs the user that a barcode doesn't exist in the database"
     },
+    "new_product_found_text": "Notre base de données collaborative contient plus de **3 millions de produits**, mais ce code-barres n'existe pas : ",
+    "@new_product_found_text": {
+        "description": "Please keep the ** syntax to make the text bold"
+    },
+    "new_product_found_button": "Ajouter ce produit",
     "new_product_leave_title": "Quitter cette page ?",
     "@new_product_leave_title": {
         "description": "Alert dialog title when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
@@ -573,14 +578,6 @@
     "new_product_leave_message": "Il semble que vous n'ayez rien saisi. Voulez-vous vraiment quitter cette page ?",
     "@new_product_leave_message": {
         "description": "Alert dialog message when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
-    },
-    "new_product_dialog_description": "Veuillez prendre des photos de l'emballage pour ajouter ce produit à notre base de données commune",
-    "@new_product_dialog_description": {
-        "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
-    },
-    "new_product_dialog_illustration_description": "Une illustration avec un Nutri-Score et un Eco-Score inconnus",
-    "@new_product_dialog_illustration_description": {
-        "description": "A description for accessibility of two images side by side: a Nutri-Score and an EcoScore."
     },
     "front_packaging_photo_button_label": "Photo frontale du produit",
     "@front_packaging_photo_button_label": {},
