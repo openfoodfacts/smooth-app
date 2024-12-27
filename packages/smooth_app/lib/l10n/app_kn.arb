@@ -579,6 +579,14 @@
     "@new_product_leave_message": {
         "description": "Alert dialog message when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
     },
+    "new_product_dialog_description": "Please take photos of the packaging to add this product to our common database",
+    "@new_product_dialog_description": {
+        "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
+    },
+    "new_product_dialog_illustration_description": "An illustration with unknown Nutri-Score and Green Score",
+    "@new_product_dialog_illustration_description": {
+        "description": "A description for accessibility of two images side by side: a Nutri-Score and an Green Score."
+    },
     "front_packaging_photo_button_label": "Front packaging photo",
     "@front_packaging_photo_button_label": {},
     "confirm_front_packaging_photo_button_label": "Confirm upload of Front packaging photo",
@@ -653,9 +661,9 @@
     "categories_added": "Categories added",
     "new_product_title_nutriscore": "Compute the Nutri-Score",
     "new_product_subtitle_nutriscore": "Help us by filling at least a category and nutritional values",
-    "new_product_title_ecoscore": "Compute the Eco-Score",
-    "new_product_subtitle_ecoscore": "Get it by filling at least a category",
-    "new_product_additional_ecoscore": "Make Eco-Score computation more precise with origins, packaging & more",
+    "new_product_title_environmental_score": "Compute the Green Score",
+    "new_product_subtitle_environmental_score": "Get it by filling at least a category",
+    "new_product_additional_environmental_score": "Make Green Score computation more precise with origins, packaging & more",
     "new_product_title_nova": "Compute the food processing level (NOVA)",
     "new_product_subtitle_nova": "Get it by filling the food category and ingredients",
     "new_product_desc_nova_unknown": "Food processing level unknown",
@@ -677,7 +685,7 @@
     "@new_product_done_button_label": {
         "description": "Button at the end of new product page, that takes you to completed product"
     },
-    "hey_incomplete_product_message": "Tap to answer 3 questions NOW to compute Nutri-Score, Eco-Score & Ultra-processing (NOVA)!",
+    "hey_incomplete_product_message": "Tap to answer 3 questions NOW to compute Nutri-Score, Green Score & Ultra-processing (NOVA)!",
     "hey_incomplete_product_message_beauty": "Tap now to answer 2 questions to help analyze this cosmetic!",
     "hey_incomplete_product_message_pet_food": "Tap now to answer 3 questions to help analyze this pet food product!",
     "hey_incomplete_product_message_product": "Tap now to help complete this product!",
@@ -921,7 +929,7 @@
     "@product_improvement_obsolete_nutrition_image": {
         "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
     },
-    "product_improvement_origins_to_be_completed": "The Eco-Score takes into account the origins of the ingredients. Please take a photo of the ingredient list and/or any geographic claim or edit the product, so they can be taken into account.",
+    "product_improvement_origins_to_be_completed": "The Green Score takes into account the origins of the ingredients. Please take a photo of the ingredient list and/or any geographic claim or edit the product, so they can be taken into account.",
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
@@ -2096,9 +2104,9 @@
     "@dev_preferences_show_folksonomy_title": {
         "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
     },
-    "dev_mode_hide_ecoscore_title": "Exclude Eco-Score",
-    "@dev_mode_hide_ecoscore_title": {
-        "description": "User dev preferences - Disable Ecoscore - Title"
+    "dev_mode_hide_environmental_score_title": "Exclude Green Score",
+    "@dev_mode_hide_environmental_score_title": {
+        "description": "User dev preferences - Disable Green Score - Title"
     },
     "dev_mode_spellchecker_for_ocr_title": "Use a spellchecker for OCR screens",
     "@dev_mode_spellchecker_for_ocr_title": {
@@ -3079,14 +3087,14 @@
     "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
     "nutriscore_not_applicable": "Nutri-Score is not applicable",
     "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
-    "ecoscore_generic": "Eco-Score",
-    "ecoscore_a": "Eco-Score A",
-    "ecoscore_b": "Eco-Score B",
-    "ecoscore_c": "Eco-Score C",
-    "ecoscore_d": "Eco-Score D",
-    "ecoscore_e": "Eco-Score E",
-    "ecoscore_unknown": "Unknown Eco-Score",
-    "ecoscore_not_applicable": "Eco-Score is not applicable",
+    "environmental_score_generic": "Green Score",
+    "environmental_score_a": "Green Score A",
+    "environmental_score_b": "Green Score B",
+    "environmental_score_c": "Green Score C",
+    "environmental_score_d": "Green Score D",
+    "environmental_score_e": "Green Score E",
+    "environmental_score_unknown": "Unknown Green Score",
+    "environmental_score_not_applicable": "Green Score is not applicable",
     "nova_group_generic": "Ultra-processing - NOVA groups",
     "nova_group_1": "NOVA Group 1",
     "nova_group_2": "NOVA Group 2",
