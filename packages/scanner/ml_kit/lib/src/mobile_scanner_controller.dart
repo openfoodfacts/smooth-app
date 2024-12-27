@@ -30,8 +30,8 @@ class CustomScannerController {
     _isStarting = true;
     _isClosed = false;
     try {
-      await _controller.start();
       _controller.addListener(_onControllerChanged);
+      await _controller.start();
       _isStarted = true;
 
       if (isTorchOn) {
