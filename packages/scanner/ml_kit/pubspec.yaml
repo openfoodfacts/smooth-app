@@ -12,8 +12,11 @@ dependencies:
 
   visibility_detector: 0.4.0+2
   async: 2.11.0
+  provider: 6.1.2
 
-  mobile_scanner: 4.0.1
+  mobile_scanner: 6.0.2
+  torch_light: 1.1.0
+
   scanner_shared:
     path: ../shared
 
