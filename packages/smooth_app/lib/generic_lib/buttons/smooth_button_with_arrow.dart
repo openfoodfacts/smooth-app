@@ -18,7 +18,7 @@ class SmoothButtonWithArrow extends StatelessWidget {
   });
 
   final String text;
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
   final EdgeInsetsGeometry? padding;
   final Color? backgroundColor;
   final Color? textColor;

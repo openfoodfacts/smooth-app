@@ -331,6 +331,9 @@ class ScanProductBaseCardButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SmoothButtonWithArrow(text: text, onTap: onTap);
+    return SmoothButtonWithArrow(
+      text: text,
+      onTap: onTap,
+    );
   }
 }
