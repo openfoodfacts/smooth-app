@@ -562,7 +562,7 @@
     "@add_product_information_button_label": {},
     "new_product": "Naujas produktas",
     "@new_product": {},
-    "new_product_found_title": "New product found!",
+    "new_product_found_title": "Rastas naujas produktas!",
     "@new_product_found_title": {
         "description": "Title of a dialog that informs the user that a barcode doesn't exist in the database"
     },
@@ -579,11 +579,11 @@
     "@new_product_leave_message": {
         "description": "Alert dialog message when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
     },
-    "new_product_dialog_description": "Please take photos of the packaging to add this product to our common database",
+    "new_product_dialog_description": "Nufotografuokite pakuotę, kad pridėtumėte šį produktą prie mūsų bendros duomenų bazės",
     "@new_product_dialog_description": {
         "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
     },
-    "new_product_dialog_illustration_description": "An illustration with unknown Nutri-Score and Green Score",
+    "new_product_dialog_illustration_description": "Iliustracija su nežinomu „Nutri-Score“ ir „Green Score“",
     "@new_product_dialog_illustration_description": {
         "description": "A description for accessibility of two images side by side: a Nutri-Score and an Green Score."
     },
@@ -661,9 +661,9 @@
     "categories_added": "Pridėtos kategorijos",
     "new_product_title_nutriscore": "Apskaičiuoti „Nutri-Score“",
     "new_product_subtitle_nutriscore": "Gaukite jį užpildę maisto kategoriją ir maistines vertes",
-    "new_product_title_environmental_score": "Compute the Green Score",
-    "new_product_subtitle_environmental_score": "Get it by filling at least a category",
-    "new_product_additional_environmental_score": "Make Green Score computation more precise with origins, packaging & more",
+    "new_product_title_environmental_score": "Apskaičiuoti „Green Score“",
+    "new_product_subtitle_environmental_score": "Gaukite jį užpildę bent vieną kategoriją",
+    "new_product_additional_environmental_score": "Gaukite tikslesnį „Green Score“ skaičiavimą, nurodydami kilmę, pakuotę ir t. t.",
     "new_product_title_nova": "Apskaičiuoti maisto apdorojimo lygį (NOVA)",
     "new_product_subtitle_nova": "Gauti jį užpildžius maisto kategoriją ir ingredientus",
     "new_product_desc_nova_unknown": "Maisto perdirbimo lygis nežinomas",
@@ -685,7 +685,7 @@
     "@new_product_done_button_label": {
         "description": "Button at the end of new product page, that takes you to completed product"
     },
-    "hey_incomplete_product_message": "Tap to answer 3 questions NOW to compute Nutri-Score, Green Score & Ultra-processing (NOVA)!",
+    "hey_incomplete_product_message": "Bakstelėkite, kad atsakytumėte į 3 klausimus DABAR ir apskaičiuokite „Nutri-Score“, „Green Score“ ir ultraapdorojimą (NOVA)!",
     "hey_incomplete_product_message_beauty": "Bakstelėkite dabar, kad atsakytumėte į 2 klausimus, kurie padės išanalizuoti šią kosmetiką!",
     "hey_incomplete_product_message_pet_food": "Bakstelėkite dabar, kad atsakytumėte į 3 klausimus, kurie padės išanalizuoti šį maisto produktą!",
     "hey_incomplete_product_message_product": "Bakstelėkite dabar, kad padėtumėte baigti šį produktą!",
@@ -929,7 +929,7 @@
     "@product_improvement_obsolete_nutrition_image": {
         "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
     },
-    "product_improvement_origins_to_be_completed": "The Green Score takes into account the origins of the ingredients. Please take a photo of the ingredient list and/or any geographic claim or edit the product, so they can be taken into account.",
+    "product_improvement_origins_to_be_completed": "Apskaičiuojant „Green Score“, atsižvelgiama į sudedamųjų dalių kilmę. Nufotografuokite ingredientų sąrašą ir (arba) bet kokį geografinį teiginį ar redaguokite produktą, kad būtų galima į juos atsižvelgti.",
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
@@ -2104,7 +2104,7 @@
     "@dev_preferences_show_folksonomy_title": {
         "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
     },
-    "dev_mode_hide_environmental_score_title": "Exclude Green Score",
+    "dev_mode_hide_environmental_score_title": "Neįtraukti „Green Score“",
     "@dev_mode_hide_environmental_score_title": {
         "description": "User dev preferences - Disable Green Score - Title"
     },
@@ -3093,8 +3093,8 @@
     "environmental_score_c": "Green Score C",
     "environmental_score_d": "Green Score D",
     "environmental_score_e": "Green Score E",
-    "environmental_score_unknown": "Unknown Green Score",
-    "environmental_score_not_applicable": "Green Score is not applicable",
+    "environmental_score_unknown": "Nežinomas „Green Score“",
+    "environmental_score_not_applicable": "„Green Score“ netaikomas",
     "nova_group_generic": "Ultraapdorojimas – NOVA grupės",
     "nova_group_1": "NOVA Group 1",
     "nova_group_2": "NOVA Group 2",
