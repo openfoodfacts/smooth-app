@@ -562,7 +562,7 @@
     "@add_product_information_button_label": {},
     "new_product": "New Product",
     "@new_product": {},
-    "new_product_found_title": "New product found!",
+    "new_product_found_title": "புதிய தயாரிப்பு கிடைத்தது!",
     "@new_product_found_title": {
         "description": "Title of a dialog that informs the user that a barcode doesn't exist in the database"
     },
