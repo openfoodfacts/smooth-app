@@ -562,7 +562,7 @@
     "@add_product_information_button_label": {},
     "new_product": "Új termék",
     "@new_product": {},
-    "new_product_found_title": "New product found!",
+    "new_product_found_title": "Új terméket találtál!",
     "@new_product_found_title": {
         "description": "Title of a dialog that informs the user that a barcode doesn't exist in the database"
     },
@@ -579,11 +579,11 @@
     "@new_product_leave_message": {
         "description": "Alert dialog message when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
     },
-    "new_product_dialog_description": "Please take photos of the packaging to add this product to our common database",
+    "new_product_dialog_description": "Készítsen fotókat a csomagolásról, hogy hozzáadhassa a terméket a közös adatbázisunkhoz",
     "@new_product_dialog_description": {
         "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
     },
-    "new_product_dialog_illustration_description": "An illustration with unknown Nutri-Score and Green Score",
+    "new_product_dialog_illustration_description": "Ismeretlen Nutri-Score-t és Green Score-t ábrázoló illusztráció",
     "@new_product_dialog_illustration_description": {
         "description": "A description for accessibility of two images side by side: a Nutri-Score and an Green Score."
     },
@@ -661,9 +661,9 @@
     "categories_added": "Hozzáadott kategóriák",
     "new_product_title_nutriscore": "Nutri-Score kiszámítása",
     "new_product_subtitle_nutriscore": "Segítsen nekünk legalább a kategória és tápértékek kitöltésével",
-    "new_product_title_environmental_score": "Compute the Green Score",
-    "new_product_subtitle_environmental_score": "Get it by filling at least a category",
-    "new_product_additional_environmental_score": "Make Green Score computation more precise with origins, packaging & more",
+    "new_product_title_environmental_score": "Green Score kiszámítása",
+    "new_product_subtitle_environmental_score": "Egy kategória kitöltésével megtudhatja",
+    "new_product_additional_environmental_score": "Pontosabbá teheti a Green Score számítását a származás, a csomagolás és egyebek kitöltésével",
     "new_product_title_nova": "Élelmiszer-feldolgozási szint (NOVA) kiszámítása",
     "new_product_subtitle_nova": "Az élelmiszerkategória és az összetevők kitöltésével megtudhatja",
     "new_product_desc_nova_unknown": "Az élelmiszer-feldolgozottság szintje ismeretlen",
@@ -685,7 +685,7 @@
     "@new_product_done_button_label": {
         "description": "Button at the end of new product page, that takes you to completed product"
     },
-    "hey_incomplete_product_message": "Tap to answer 3 questions NOW to compute Nutri-Score, Green Score & Ultra-processing (NOVA)!",
+    "hey_incomplete_product_message": "Válaszoljon meg 3 kérdést MOST a Nutri-Score, Green Score és a feldolgozottság (NOVA) kiszámításához!",
     "hey_incomplete_product_message_beauty": "Válaszoljon meg 2 kérdést, és segítsen elemezni ezt a kozmetikumot!",
     "hey_incomplete_product_message_pet_food": "Válaszoljon meg 3 kérdést, és segítsen elemezni ezt az állateledelt!",
     "hey_incomplete_product_message_product": "Segítsen befejezni a terméket!",
@@ -929,7 +929,7 @@
     "@product_improvement_obsolete_nutrition_image": {
         "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
     },
-    "product_improvement_origins_to_be_completed": "The Green Score takes into account the origins of the ingredients. Please take a photo of the ingredient list and/or any geographic claim or edit the product, so they can be taken into account.",
+    "product_improvement_origins_to_be_completed": "A Green Score figyelembe veszi az összetevők eredetét. Fényképezze le az összetevők listáját és/vagy bármilyen földrajzi állítást, vagy módosítsa a terméket úgy, hogy figyelembe lehessen venni azt.",
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
@@ -2104,7 +2104,7 @@
     "@dev_preferences_show_folksonomy_title": {
         "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
     },
-    "dev_mode_hide_environmental_score_title": "Exclude Green Score",
+    "dev_mode_hide_environmental_score_title": "Green Score kizárása",
     "@dev_mode_hide_environmental_score_title": {
         "description": "User dev preferences - Disable Green Score - Title"
     },
@@ -3093,8 +3093,8 @@
     "environmental_score_c": "Green Score C",
     "environmental_score_d": "Green Score D",
     "environmental_score_e": "Green Score E",
-    "environmental_score_unknown": "Unknown Green Score",
-    "environmental_score_not_applicable": "Green Score is not applicable",
+    "environmental_score_unknown": "Ismeretlen Green Score",
+    "environmental_score_not_applicable": "A Green Score nem alkalmazható",
     "nova_group_generic": "Többszörös feldolgozottság – NOVA-csoportok",
     "nova_group_1": "1. NOVA-csoport",
     "nova_group_2": "2. NOVA-csoport",
