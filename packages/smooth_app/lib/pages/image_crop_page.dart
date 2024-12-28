@@ -181,7 +181,7 @@ class _ImageSourcePickerState extends State<_ImageSourcePicker> {
             child: InkWell(
               onTap: () => setState(() => rememberChoice = !rememberChoice),
               borderRadius: ANGULAR_BORDER_RADIUS,
-              splashColor: primaryColor.withOpacity(0.2),
+              splashColor: primaryColor.withValues(alpha: 0.2),
               child: Row(
                 children: <Widget>[
                   IgnorePointer(

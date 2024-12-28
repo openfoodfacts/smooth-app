@@ -193,7 +193,7 @@ class _ProductQuestionBanner extends StatelessWidget {
         decoration: BoxDecoration(
           boxShadow: <BoxShadow>[
             BoxShadow(
-              color: theme.shadowColor.withOpacity(darkTheme ? 0.5 : 0.2),
+              color: theme.shadowColor.withValues(alpha: darkTheme ? 0.5 : 0.2),
               blurRadius: 2.5,
               offset: const Offset(0.0, -4.0),
             ),

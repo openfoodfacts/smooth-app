@@ -74,7 +74,7 @@ class _SearchCard extends StatelessWidget {
     final bool lightTheme = !context.watch<ThemeProvider>().isDarkMode(context);
 
     final Widget widget = SmoothCard(
-      color: lightTheme ? Colors.grey.withOpacity(0.1) : Colors.black,
+      color: lightTheme ? Colors.grey.withValues(alpha: 0.1) : Colors.black,
       padding: const EdgeInsets.symmetric(
         vertical: MEDIUM_SPACE,
         horizontal: LARGE_SPACE,

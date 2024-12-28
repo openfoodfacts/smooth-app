@@ -228,7 +228,10 @@ class _ProductPictureState extends State<ProductPicture> {
   /// The splash tries to use the product compatibility as the accent color
   Color? _getSplashColor(BuildContext context) {
     try {
-      return context.read<ProductPageCompatibility>().color?.withOpacity(0.5);
+      return context
+          .read<ProductPageCompatibility>()
+          .color
+          ?.withValues(alpha: 0.5);
     } catch (_) {
       return null;
     }
@@ -598,7 +601,7 @@ class _ProductPictureAssetsSvg extends StatelessWidget {
                       ? Border.all(
                           color: (textStyle?.color ??
                                   Theme.of(context).dividerColor)
-                              .withOpacity(0.2),
+                              .withValues(alpha: 0.2),
                           width: 1.0,
                         )
                       : null,

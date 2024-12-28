@@ -152,7 +152,7 @@ class _KnowledgePanelPageTemplateState
       key: const Key('toolTipPopUp'),
       child: Card(
         margin: const EdgeInsets.symmetric(horizontal: 30),
-        color: Theme.of(context).hintColor.withOpacity(0.9),
+        color: Theme.of(context).hintColor.withValues(alpha: 0.9),
         shape: const TooltipShapeBorder(arrowArc: 0.5),
         child: Container(
           margin: const EdgeInsetsDirectional.only(

@@ -81,7 +81,7 @@ class _TagLineJSON {
             (item.startDate == null ||
                 item.startDate!.isBefore(DateTime.now())) &&
             (item.endDate == null || item.endDate!.isAfter(DateTime.now())))
-        .whereNotNull();
+        .nonNulls;
     return feed;
   }
 

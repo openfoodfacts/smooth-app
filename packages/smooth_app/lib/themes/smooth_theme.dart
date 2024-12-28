@@ -228,7 +228,7 @@ class SmoothTheme {
       800: getShade(color, value: 0.2, darker: true),
       900: getShade(color, value: 0.25, darker: true),
     };
-    return MaterialColor(color.value, colorShades);
+    return MaterialColor(color.intValue, colorShades);
   }
 
   //From: https://stackoverflow.com/a/58604669/13313941
@@ -247,5 +247,19 @@ class SmoothTheme {
 extension SmoothThemeExtension on BuildContext {
   T extension<T>() {
     return Theme.of(this).extension<T>()!;
+  }
+}
+
+extension SmoothColorExtension on Color {
+  /// ignore: deprecated_member_use
+  /// [Color.value] is deprecated, use [Color.intValue] instead
+  int get intValue {
+    final int a = (this.a * 255).round();
+    final int r = (this.r * 255).round();
+    final int g = (this.g * 255).round();
+    final int b = (this.b * 255).round();
+
+    // Combine the components into a single int using bit shifting
+    return (a << 24) | (r << 16) | (g << 8) | b;
   }
 }

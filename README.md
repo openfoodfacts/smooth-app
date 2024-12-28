@@ -35,9 +35,9 @@
 
 ## Current Release
 
-- Latest commit deployed to Apple App Store: Released on Feb 26 2024 as Version 4.13.1
-- Latest commit deployed to PlayStore: 1379 Released on Feb 24 2024 9:42 PM
-- Latest commit deployed to F-Droid: 9 March 2024 as Version 4.14.0 (1280)
+- Latest commit deployed to Apple App Store: Released on 28 October 2024 as Version 4.16.1
+- Latest commit deployed to PlayStore: 28 December 2024 as Version 4.17.1
+- Latest commit deployed to F-Droid: 21 December 2024 as Version 4.17.1
 
 ## Presentation
 
@@ -90,7 +90,7 @@ Full list of features on the wiki: https://wiki.openfoodfacts.org/Mobile_App/Fea
 
 - Make sure you have installed flutter and all the requirements
   - [Official flutter installation guide](https://docs.flutter.dev/get-started/install)
-- Currently, the app uses the following version of Flutter (3.24.x).
+- Currently, the app uses the following version of Flutter: **3.27**.
 
 
 We have predefined run configurations for Android Studio and Visual Studio Code

@@ -27,7 +27,7 @@ Future<void> openQuestionPage(
 }) =>
     showGeneralDialog<void>(
       context: context,
-      barrierColor: Colors.black.withOpacity(0.7),
+      barrierColor: Colors.black.withValues(alpha: 0.7),
       pageBuilder: (_, __, ___) => EMPTY_WIDGET,
       transitionBuilder: (
         BuildContext context,

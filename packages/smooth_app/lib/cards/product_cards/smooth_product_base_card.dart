@@ -70,7 +70,7 @@ class ScanProductBaseCard extends StatelessWidget {
                 BoxShadow(
                   color: Theme.of(context)
                       .shadowColor
-                      .withOpacity(context.lightTheme() ? 0.08 : 0.3),
+                      .withValues(alpha: context.lightTheme() ? 0.08 : 0.3),
                   offset: const Offset(0.0, 2.0),
                   blurRadius: 5.0,
                   spreadRadius: 1.0,

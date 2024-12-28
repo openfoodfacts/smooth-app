@@ -4,7 +4,7 @@ version: 0.0.0+734
 publish_to: "none"
 
 environment:
-  sdk: ^3.5.3
+  sdk: ^3.6.0
 
 dependencies:
   flutter:
@@ -54,7 +54,7 @@ dependencies:
   crop_image: 1.0.15
   shared_preferences: 2.3.3
   intl: 0.19.0
-  collection: 1.18.0
+  collection: 1.19.0
   path: 1.9.0
   path_provider: 2.1.5
   share_plus: 10.1.2

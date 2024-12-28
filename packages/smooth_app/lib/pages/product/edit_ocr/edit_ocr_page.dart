@@ -352,7 +352,7 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
                             child: TextField(
                               controller: _controller,
                               decoration: InputDecoration(
-                                fillColor: Colors.white.withOpacity(0.2),
+                                fillColor: Colors.white.withValues(alpha: 0.2),
                                 filled: true,
                                 enabledBorder: const OutlineInputBorder(
                                   borderRadius: ANGULAR_BORDER_RADIUS,
