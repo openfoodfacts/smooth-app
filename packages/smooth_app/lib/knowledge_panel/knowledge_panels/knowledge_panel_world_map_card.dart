@@ -136,8 +136,7 @@ class KnowledgePanelWorldMapCard extends StatelessWidget {
   String? _getTitle(BuildContext context) {
     try {
       return context.read<KnowledgePanel>().titleElement?.title;
-    } catch (e) {
-      print(e);
+    } catch (_) {
       return null;
     }
   }
