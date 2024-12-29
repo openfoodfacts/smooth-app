@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
+import 'package:smooth_app/pages/product/world_map_page.dart';
 
 class KnowledgePanelWorldMapCard extends StatelessWidget {
   const KnowledgePanelWorldMapCard(this.mapElement);
@@ -41,13 +43,78 @@ class KnowledgePanelWorldMapCard extends StatelessWidget {
       }
     }
 
+    final MapOptions mapOptions = _generateMapOptions(
+      coordinates: coordinates,
+      markerSize: markerSize,
+      interactive: false,
+    );
+
+    final List<Widget> children = <Widget>[
+      TileLayer(
+        urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+        userAgentPackageName: 'org.openfoodfacts.app',
+      ),
+      MarkerLayer(markers: markers),
+      RichAttributionWidget(
+        animationConfig: const ScaleRAWA(),
+        showFlutterMapAttribution: false,
+        attributions: <SourceAttribution>[
+          TextSourceAttribution(
+            'OpenStreetMap contributors',
+            onTap: () => LaunchUrlHelper.launchURL(
+              'https://www.openstreetmap.org/copyright',
+            ),
+          ),
+        ],
+      ),
+    ];
+
+    return Padding(
+      padding: const EdgeInsetsDirectional.only(bottom: MEDIUM_SPACE),
+      child: SizedBox(
+        height: 200,
+        child: InkWell(
+          onTap: () {
+            Navigator.of(context).push(
+              MaterialPageRoute<Widget>(
+                builder: (_) => WorldMapPage(
+                  title: _getTitle(context),
+                  mapOptions: _generateMapOptions(
+                    coordinates: coordinates,
+                    markerSize: markerSize,
+                    initialZoom: 12.0,
+                    interactive: true,
+                  ),
+                  children: children,
+                ),
+              ),
+            );
+          },
+          child: IgnorePointer(
+            ignoring: true,
+            child: FlutterMap(
+              options: mapOptions,
+              children: children,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  MapOptions _generateMapOptions({
+    required List<LatLng> coordinates,
+    required double markerSize,
+    double initialZoom = 6.0,
+    bool interactive = false,
+  }) {
     final MapOptions mapOptions;
     if (coordinates.length == 1) {
       mapOptions = MapOptions(
         initialCenter: coordinates.first,
-        initialZoom: 6.0,
-        interactionOptions: const InteractionOptions(
-          flags: InteractiveFlag.none,
+        initialZoom: initialZoom,
+        interactionOptions: InteractionOptions(
+          flags: interactive ? InteractiveFlag.all : InteractiveFlag.none,
         ),
       );
     } else {
@@ -56,41 +123,23 @@ class KnowledgePanelWorldMapCard extends StatelessWidget {
           coordinates: coordinates,
           maxZoom: 13.0,
           forceIntegerZoomLevel: true,
-          padding: const EdgeInsets.all(markerSize),
+          padding: EdgeInsets.all(markerSize),
         ),
-        interactionOptions: const InteractionOptions(
-          flags: InteractiveFlag.none,
+        interactionOptions: InteractionOptions(
+          flags: interactive ? InteractiveFlag.all : InteractiveFlag.none,
         ),
       );
     }
-    return Padding(
-      padding: const EdgeInsetsDirectional.only(bottom: MEDIUM_SPACE),
-      child: SizedBox(
-        height: 200,
-        child: FlutterMap(
-          options: mapOptions,
-          children: <Widget>[
-            TileLayer(
-              urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-              userAgentPackageName: 'org.openfoodfacts.app',
-            ),
-            MarkerLayer(markers: markers),
-            RichAttributionWidget(
-              animationConfig: const ScaleRAWA(),
-              showFlutterMapAttribution: false,
-              attributions: <SourceAttribution>[
-                TextSourceAttribution(
-                  'OpenStreetMap contributors',
-                  onTap: () => LaunchUrlHelper.launchURL(
-                    'https://www.openstreetmap.org/copyright',
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
+    return mapOptions;
+  }
+
+  String? _getTitle(BuildContext context) {
+    try {
+      return context.read<KnowledgePanel>().titleElement?.title;
+    } catch (e) {
+      print(e);
+      return null;
+    }
   }
 
   @override

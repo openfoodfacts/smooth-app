@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
 
@@ -47,9 +48,13 @@ class KnowledgePanelExpandedCard extends StatelessWidget {
         }
       }
     }
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: elementWidgets,
+    return Provider<KnowledgePanel>(
+      lazy: true,
+      create: (_) => panel,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: elementWidgets,
+      ),
     );
   }
 
