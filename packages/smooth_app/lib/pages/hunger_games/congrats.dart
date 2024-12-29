@@ -20,11 +20,15 @@ class CongratsWidget extends StatelessWidget {
     required this.continueButtonLabel,
     required this.anonymousAnnotationList,
     this.onContinue,
+    this.result,
   });
 
   final String? continueButtonLabel;
   final VoidCallback? onContinue;
   final AnonymousAnnotationList anonymousAnnotationList;
+
+  /// Result that will be sent to the [Navigator]
+  final dynamic result;
 
   @override
   Widget build(BuildContext context) {
@@ -75,7 +79,7 @@ class CongratsWidget extends StatelessWidget {
                   padding: const EdgeInsets.only(bottom: MEDIUM_SPACE),
                   child: SmoothSimpleButton(
                     child: Text(appLocalizations.close),
-                    onPressed: () => Navigator.maybePop<Widget>(context),
+                    onPressed: () => Navigator.of(context).pop(result),
                   ),
                 ),
               ),
