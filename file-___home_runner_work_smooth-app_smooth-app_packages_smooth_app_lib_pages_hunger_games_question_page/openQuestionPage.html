@@ -51,12 +51,10 @@
     <section class="multi-line-signature">
         
 
-<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span>&gt;</span></span>
 <span class="name ">openQuestionPage</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="openQuestionPage-param-context"><span class="type-annotation">dynamic</span> <span class="parameter-name">context</span>, </span></li>
 <li><span class="parameter" id="openQuestionPage-param-product">{<span class="type-annotation">dynamic</span> <span class="parameter-name">product</span>, </span></li>
-<li><span class="parameter" id="openQuestionPage-param-questions"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a>?</span> <span class="parameter-name">questions</span>, </span></li>
-<li><span class="parameter" id="openQuestionPage-param-updateProductUponAnswers"><span class="type-annotation">dynamic</span> <span class="parameter-name">updateProductUponAnswers</span>(<ol class="parameter-list"></ol>
-)?}</span></li>
+<li><span class="parameter" id="openQuestionPage-param-questions"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a>?</span> <span class="parameter-name">questions</span>}</span></li>
 </ol>)
 
     </section>
@@ -66,13 +64,12 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; openQuestionPage(
+  <pre class="language-dart"><code class="language-dart">Future&lt;int?&gt; openQuestionPage(
   BuildContext context, {
   Product? product,
   List&lt;RobotoffQuestion&gt;? questions,
-  Function()? updateProductUponAnswers,
 }) =&gt;
-    showGeneralDialog&lt;void&gt;(
+    showGeneralDialog&lt;int?&gt;(
       context: context,
       barrierColor: Colors.black.withOpacity(0.7),
       pageBuilder: (_, __, ___) =&gt; EMPTY_WIDGET,
@@ -82,44 +79,55 @@
         Animation&lt;double&gt; a2,
         Widget child,
       ) {
-        return SafeArea(
-          child: Stack(
-            children: &lt;Widget&gt;[
-              Positioned.fill(
-                child: GestureDetector(
-                  excludeFromSemantics: true,
-                  onTap: () =&gt; Navigator.of(context).maybePop(),
+        return ChangeNotifierProvider&lt;_QuestionsAnsweredNotifier&gt;(
+          create: (_) =&gt; _QuestionsAnsweredNotifier(),
+          child: SafeArea(
+            child: Stack(
+              children: &lt;Widget&gt;[
+                Positioned.fill(
+                  child: Builder(
+                    builder: (BuildContext context) {
+                      return GestureDetector(
+                        excludeFromSemantics: true,
+                        onTap: () =&gt; Navigator.of(context).pop(
+                          _QuestionsAnsweredNotifier.of(
+                            context,
+                            listen: false,
+                          ).value,
+                        ),
+                      );
+                    },
+                  ),
                 ),
-              ),
-              Align(
-                alignment: Alignment.center,
-                child: Transform.scale(
-                  scale: a1.value,
-                  child: Opacity(
-                    opacity: a1.value,
-                    child: SafeArea(
-                      child: BackdropFilter(
-                        filter: ImageFilter.blur(sigmaX: 1.0, sigmaY: 1.0),
-                        child: _QuestionPage(
-                          product: product,
-                          questions: questions,
-                          updateProductUponAnswers: updateProductUponAnswers,
+                Align(
+                  alignment: Alignment.center,
+                  child: Transform.scale(
+                    scale: a1.value,
+                    child: Opacity(
+                      opacity: a1.value,
+                      child: SafeArea(
+                        child: BackdropFilter(
+                          filter: ImageFilter.blur(sigmaX: 1.0, sigmaY: 1.0),
+                          child: _QuestionPage(
+                            product: product,
+                            questions: questions,
+                          ),
                         ),
                       ),
                     ),
                   ),
                 ),
-              ),
-              Positioned.directional(
-                textDirection: Directionality.of(context),
-                top: 0.0,
-                start: SMALL_SPACE,
-                child: Opacity(
-                  opacity: a1.value,
-                  child: const _CloseButton(),
+                Positioned.directional(
+                  textDirection: Directionality.of(context),
+                  top: 0.0,
+                  start: SMALL_SPACE,
+                  child: Opacity(
+                    opacity: a1.value,
+                    child: const _CloseButton(),
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         );
       },
