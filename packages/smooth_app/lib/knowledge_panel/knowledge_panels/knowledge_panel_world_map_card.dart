@@ -20,6 +20,7 @@ class KnowledgePanelWorldMapCard extends StatelessWidget {
     const double markerSize = 30;
     final List<Marker> markers = <Marker>[];
     final List<LatLng> coordinates = <LatLng>[];
+
     void addCoordinate(final LatLng latLng) {
       coordinates.add(latLng);
       markers.add(
@@ -45,6 +46,9 @@ class KnowledgePanelWorldMapCard extends StatelessWidget {
       mapOptions = MapOptions(
         initialCenter: coordinates.first,
         initialZoom: 6.0,
+        interactionOptions: const InteractionOptions(
+          flags: InteractiveFlag.none,
+        ),
       );
     } else {
       mapOptions = MapOptions(
@@ -53,6 +57,9 @@ class KnowledgePanelWorldMapCard extends StatelessWidget {
           maxZoom: 13.0,
           forceIntegerZoomLevel: true,
           padding: const EdgeInsets.all(markerSize),
+        ),
+        interactionOptions: const InteractionOptions(
+          flags: InteractiveFlag.none,
         ),
       );
     }
@@ -69,7 +76,6 @@ class KnowledgePanelWorldMapCard extends StatelessWidget {
             ),
             MarkerLayer(markers: markers),
             RichAttributionWidget(
-              popupInitialDisplayDuration: const Duration(seconds: 5),
               animationConfig: const ScaleRAWA(),
               showFlutterMapAttribution: false,
               attributions: <SourceAttribution>[
