@@ -76,35 +76,41 @@ class _ProductQuestionsWidgetState extends State<ProductQuestionsWidget>
   Future<void> _openQuestions() async {
     _trackEvent(AnalyticsEvent.questionClicked);
 
-    await openQuestionPage(
+    final int? answeredQuestions = await openQuestionPage(
       context,
       product: widget.product,
-      questions: (_state as _ProductQuestionsWithQuestions).questions.toList(
-            growable: false,
-          ),
-      updateProductUponAnswers: _updateProductUponAnswers,
+      questions: (_state as _ProductQuestionsWithQuestions)
+          .questions
+          .toList(growable: false),
     );
 
-    if (context.mounted) {
-      return _reloadQuestions(silentCheck: true);
+    if (context.mounted && answeredQuestions != null && answeredQuestions > 0) {
+      return _reloadQuestions(
+        removeInsightAnnotations: true,
+      );
     }
   }
 
   Future<void> _reloadQuestions({
-    bool silentCheck = false,
+    bool removeInsightAnnotations = false,
   }) async {
-    if (!silentCheck) {
-      setState(() => _state = const _ProductQuestionsLoading());
-    }
+    setState(() => _state = const _ProductQuestionsLoading());
 
-    final List<RobotoffQuestion>? list = await _loadProductQuestions();
+    final List<RobotoffQuestion>? questions = await _loadProductQuestions();
 
     if (!mounted) {
       return;
     }
 
-    if (list?.isNotEmpty == true && !_annotationVoted) {
-      setState(() => _state = _ProductQuestionsWithQuestions(list!));
+    if (removeInsightAnnotations && (questions == null || questions.isEmpty)) {
+      final LocalDatabase localDatabase = context.read<LocalDatabase>();
+
+      await RobotoffInsightHelper(localDatabase)
+          .removeInsightAnnotationsSavedForProduct(widget.product.barcode!);
+    }
+
+    if (questions?.isNotEmpty == true && !_annotationVoted) {
+      setState(() => _state = _ProductQuestionsWithQuestions(questions!));
       _trackEvent(AnalyticsEvent.questionVisible);
     } else {
       setState(() => _state = const _ProductQuestionsWithoutQuestions());
@@ -137,25 +143,6 @@ class _ProductQuestionsWidgetState extends State<ProductQuestionsWidget>
     } catch (_) {
       return null;
     }
-  }
-
-  Future<void> _updateProductUponAnswers() async {
-    // Reload the product questions, they might have been answered.
-    // Or the backend may have new ones.
-    final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    final List<RobotoffQuestion> questions =
-        await _loadProductQuestions() ?? <RobotoffQuestion>[];
-    if (!mounted) {
-      return;
-    }
-    final RobotoffInsightHelper robotoffInsightHelper =
-        RobotoffInsightHelper(localDatabase);
-    if (questions.isEmpty) {
-      await robotoffInsightHelper
-          .removeInsightAnnotationsSavedForProdcut(widget.product.barcode!);
-    }
-    _annotationVoted =
-        await robotoffInsightHelper.areQuestionsAlreadyVoted(questions);
   }
 
   @override

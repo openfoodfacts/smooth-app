@@ -34,7 +34,7 @@ class RobotoffInsightHelper {
     });
   }
 
-  Future<void> removeInsightAnnotationsSavedForProdcut(String barcode) async {
+  Future<void> removeInsightAnnotationsSavedForProduct(String barcode) async {
     await DaoStringListMap(_localDatabase).removeKey(barcode);
   }
 

@@ -17,15 +17,13 @@ import 'package:smooth_app/pages/hunger_games/question_card.dart';
 import 'package:smooth_app/query/product_questions_query.dart';
 import 'package:smooth_app/query/questions_query.dart';
 import 'package:smooth_app/query/random_questions_query.dart';
-import 'package:smooth_app/widgets/will_pop_scope.dart';
 
-Future<void> openQuestionPage(
+Future<int?> openQuestionPage(
   BuildContext context, {
   Product? product,
   List<RobotoffQuestion>? questions,
-  Function()? updateProductUponAnswers,
 }) =>
-    showGeneralDialog<void>(
+    showGeneralDialog<int?>(
       context: context,
       barrierColor: Colors.black.withOpacity(0.7),
       pageBuilder: (_, __, ___) => EMPTY_WIDGET,
@@ -35,44 +33,55 @@ Future<void> openQuestionPage(
         Animation<double> a2,
         Widget child,
       ) {
-        return SafeArea(
-          child: Stack(
-            children: <Widget>[
-              Positioned.fill(
-                child: GestureDetector(
-                  excludeFromSemantics: true,
-                  onTap: () => Navigator.of(context).maybePop(),
+        return ChangeNotifierProvider<_QuestionsAnsweredNotifier>(
+          create: (_) => _QuestionsAnsweredNotifier(),
+          child: SafeArea(
+            child: Stack(
+              children: <Widget>[
+                Positioned.fill(
+                  child: Builder(
+                    builder: (BuildContext context) {
+                      return GestureDetector(
+                        excludeFromSemantics: true,
+                        onTap: () => Navigator.of(context).pop(
+                          _QuestionsAnsweredNotifier.of(
+                            context,
+                            listen: false,
+                          ).value,
+                        ),
+                      );
+                    },
+                  ),
                 ),
-              ),
-              Align(
-                alignment: Alignment.center,
-                child: Transform.scale(
-                  scale: a1.value,
-                  child: Opacity(
-                    opacity: a1.value,
-                    child: SafeArea(
-                      child: BackdropFilter(
-                        filter: ImageFilter.blur(sigmaX: 1.0, sigmaY: 1.0),
-                        child: _QuestionPage(
-                          product: product,
-                          questions: questions,
-                          updateProductUponAnswers: updateProductUponAnswers,
+                Align(
+                  alignment: Alignment.center,
+                  child: Transform.scale(
+                    scale: a1.value,
+                    child: Opacity(
+                      opacity: a1.value,
+                      child: SafeArea(
+                        child: BackdropFilter(
+                          filter: ImageFilter.blur(sigmaX: 1.0, sigmaY: 1.0),
+                          child: _QuestionPage(
+                            product: product,
+                            questions: questions,
+                          ),
                         ),
                       ),
                     ),
                   ),
                 ),
-              ),
-              Positioned.directional(
-                textDirection: Directionality.of(context),
-                top: 0.0,
-                start: SMALL_SPACE,
-                child: Opacity(
-                  opacity: a1.value,
-                  child: const _CloseButton(),
+                Positioned.directional(
+                  textDirection: Directionality.of(context),
+                  top: 0.0,
+                  start: SMALL_SPACE,
+                  child: Opacity(
+                    opacity: a1.value,
+                    child: const _CloseButton(),
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         );
       },
@@ -96,7 +105,12 @@ class _CloseButton extends StatelessWidget {
         color: Theme.of(context).primaryColor,
         child: InkWell(
           customBorder: const CircleBorder(),
-          onTap: () => Navigator.maybePop(context),
+          onTap: () => Navigator.of(context).pop(
+            _QuestionsAnsweredNotifier.of(
+              context,
+              listen: false,
+            ).value,
+          ),
           child: Tooltip(
             message: tooltip,
             child: Container(
@@ -119,12 +133,10 @@ class _QuestionPage extends StatefulWidget {
   const _QuestionPage({
     this.product,
     this.questions,
-    this.updateProductUponAnswers,
   });
 
   final Product? product;
   final List<RobotoffQuestion>? questions;
-  final Function()? updateProductUponAnswers;
 
   @override
   State<_QuestionPage> createState() => _QuestionPageState();
@@ -204,51 +216,42 @@ class _QuestionPageState extends State<_QuestionPage>
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope2(
-      onWillPop: () async {
-        final Function()? callback = widget.updateProductUponAnswers;
-        if (_lastAnswer != null && callback != null) {
-          await callback();
-        }
-        return (true, null);
-      },
-      child: Center(
-        child: AnimatedSwitcher(
-          duration: SmoothAnimationsDuration.medium,
-          transitionBuilder: (Widget child, Animation<double> animation) {
-            final Offset animationStartOffset = _getAnimationStartOffset();
-            final Animation<Offset> inAnimation = Tween<Offset>(
-              begin: animationStartOffset,
-              end: Offset.zero,
-            ).animate(animation);
-            final Animation<Offset> outAnimation = Tween<Offset>(
-              begin: animationStartOffset.scale(-1, -1),
-              end: Offset.zero,
-            ).animate(animation);
+    return Center(
+      child: AnimatedSwitcher(
+        duration: SmoothAnimationsDuration.medium,
+        transitionBuilder: (Widget child, Animation<double> animation) {
+          final Offset animationStartOffset = _getAnimationStartOffset();
+          final Animation<Offset> inAnimation = Tween<Offset>(
+            begin: animationStartOffset,
+            end: Offset.zero,
+          ).animate(animation);
+          final Animation<Offset> outAnimation = Tween<Offset>(
+            begin: animationStartOffset.scale(-1, -1),
+            end: Offset.zero,
+          ).animate(animation);
 
-            return ClipRect(
-              child: SlideTransition(
-                position: child.key == ValueKey<int>(_currentQuestionIndex)
-                    ? // Animate in the new question card.
-                    inAnimation
-                    // Animate out the old question card.
-                    : outAnimation,
-                child: Padding(
-                  padding: const EdgeInsets.all(SMALL_SPACE),
-                  child: child,
-                ),
+          return ClipRect(
+            child: SlideTransition(
+              position: child.key == ValueKey<int>(_currentQuestionIndex)
+                  ? // Animate in the new question card.
+                  inAnimation
+                  // Animate out the old question card.
+                  : outAnimation,
+              child: Padding(
+                padding: const EdgeInsets.all(SMALL_SPACE),
+                child: child,
               ),
-            );
+            ),
+          );
+        },
+        child: KeyedSubtree(
+          key: ValueKey<int>(_currentQuestionIndex),
+          child: switch (_state) {
+            _RobotoffQuestionLoadingState _ => const _LoadingQuestionsView(),
+            _RobotoffQuestionSuccessState _ => _buildQuestionsWidget(),
+            _RobotoffQuestionErrorState _ =>
+              _ErrorLoadingView(onRetry: _loadQuestions),
           },
-          child: KeyedSubtree(
-            key: ValueKey<int>(_currentQuestionIndex),
-            child: switch (_state) {
-              _RobotoffQuestionLoadingState _ => const _LoadingQuestionsView(),
-              _RobotoffQuestionSuccessState _ => _buildQuestionsWidget(),
-              _RobotoffQuestionErrorState _ =>
-                _ErrorLoadingView(onRetry: _loadQuestions),
-            },
-          ),
         ),
       ),
     );
@@ -299,6 +302,8 @@ class _QuestionPageState extends State<_QuestionPage>
     final RobotoffQuestion question,
     final InsightAnnotation insightAnnotation,
   ) async {
+    _QuestionsAnsweredNotifier.of(context, listen: false).increment();
+
     final String? barcode = question.barcode;
     final String? insightId = question.insightId;
     if (barcode == null || insightId == null) {
@@ -446,6 +451,7 @@ class _QuestionsSuccessView extends StatelessWidget {
           : null,
       anonymousAnnotationList: anonymousAnnotationList,
       onContinue: onContinue,
+      result: _QuestionsAnsweredNotifier.of(context).value,
     );
   }
 }
@@ -491,4 +497,17 @@ class _ErrorLoadingView extends StatelessWidget {
       ),
     );
   }
+}
+
+/// Holds the number of questions answered
+class _QuestionsAnsweredNotifier extends ValueNotifier<int> {
+  _QuestionsAnsweredNotifier() : super(0);
+
+  void increment() {
+    value++;
+  }
+
+  static _QuestionsAnsweredNotifier of(BuildContext context,
+          {bool listen = true}) =>
+      Provider.of<_QuestionsAnsweredNotifier>(context, listen: listen);
 }
