@@ -1,5 +1,6 @@
-import 'dart:math';
+import 'dart:math' as math;
 
+import 'package:collection/collection.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -8,6 +9,9 @@ import 'package:smooth_app/generic_lib/smooth_html_widget.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_card.dart';
 import 'package:smooth_app/pages/product/portion_calculator.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 
 // Cells with a lot of text can get very large, we don't want to allocate
 // most of [availableWidth] to columns with large cells. So we cap the cell length
@@ -17,7 +21,7 @@ const int kMaxCellLengthInARow = 40;
 
 // Minimum length of a cell, without this a column may look unnaturally small
 // when put next to larger columns.
-const int kMinCellLengthInARow = 20;
+const int kMinCellLengthInARow = 2;
 
 /// ColumnGroup is a group of columns collapsed into a single column. Purpose of
 /// this is to show a dropdown menu which the users can use to select which column
@@ -89,20 +93,21 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
   Widget build(BuildContext context) {
     final bool withPortionCalculator =
         widget.tableElement.id == KnowledgePanelCard.PANEL_NUTRITION_TABLE_ID;
-    return LayoutBuilder(
-        builder: (BuildContext context, BoxConstraints constraints) {
+
+    return LayoutBuilder(builder: (
+      BuildContext context,
+      BoxConstraints constraints,
+    ) {
       final List<List<Widget>> rowsWidgets =
           _buildRowWidgets(_buildRowCells(), constraints);
+
       return Column(
         children: <Widget>[
           for (final List<Widget> row in rowsWidgets)
             Semantics(
               excludeSemantics: true,
               value: _buildSemanticsValue(row),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: row,
-              ),
+              child: IntrinsicHeight(child: Row(children: row)),
             ),
           if (withPortionCalculator) const Divider(),
           if (withPortionCalculator) PortionCalculator(widget.product)
@@ -125,20 +130,22 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
         case KnowledgePanelColumnType.TEXT:
           rows[0].add(
             TableCell(
-                text: text,
-                color: Colors.grey,
-                isHeader: true,
-                columnGroup: columnGroup),
+              text: text,
+              color: Colors.grey,
+              isHeader: true,
+              columnGroup: columnGroup,
+            ),
           );
           break;
         case KnowledgePanelColumnType.PERCENT:
           // TODO(jasmeet): Implement percent knowledge panels.
           rows[0].add(
             TableCell(
-                text: text,
-                color: Colors.grey,
-                isHeader: true,
-                columnGroup: columnGroup),
+              text: text,
+              color: Colors.grey,
+              isHeader: true,
+              columnGroup: columnGroup,
+            ),
           );
           break;
       }
@@ -175,25 +182,68 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
         _columnsMaxLength.reduce((int sum, int width) => sum + width);
 
     final List<List<Widget>> rowsWidgets = <List<Widget>>[];
+    final Widget verticalDivider = _verticalDivider;
+
     for (final List<TableCell> row in rows) {
       final List<Widget> rowWidgets = <Widget>[];
       int index = 0;
       for (final TableCell cell in row) {
         final double cellWidth =
             availableWidth / totalMaxColumnWidth * _columnsMaxLength[index++];
+        Widget tableCellWidget = TableCellWidget(
+          cell: cell,
+          tableElement: widget.tableElement,
+          rebuildTable: setState,
+          isInitiallyExpanded: widget.isInitiallyExpanded,
+        );
+
+        if (cell.isHeader) {
+          tableCellWidget = Column(
+            children: <Widget>[
+              Expanded(child: tableCellWidget),
+              _horizontalDivider,
+            ],
+          );
+        }
+
         rowWidgets.add(
-          TableCellWidget(
-            cell: cell,
-            cellWidth: cellWidth,
-            tableElement: widget.tableElement,
-            rebuildTable: setState,
-            isInitiallyExpanded: widget.isInitiallyExpanded,
+          Expanded(
+            flex: cellWidth.toInt(),
+            child: tableCellWidget,
           ),
         );
+
+        if (index < row.length) {
+          rowWidgets.add(verticalDivider);
+        }
       }
       rowsWidgets.add(rowWidgets);
     }
     return rowsWidgets;
+  }
+
+  Widget get _verticalDivider {
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
+
+    return VerticalDivider(
+      width: 1.0,
+      color: context.lightTheme()
+          ? extension.primaryMedium
+          : extension.primarySemiDark,
+    );
+  }
+
+  Widget get _horizontalDivider {
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
+
+    return Divider(
+      height: 1.0,
+      color: context.lightTheme()
+          ? extension.primaryMedium
+          : extension.primarySemiDark,
+    );
   }
 
   void _initColumnGroups() {
@@ -247,14 +297,28 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
       for (final TableCell cell in row) {
         if (cell.isHeader) {
           // Set value for the header row.
-          _columnsMaxLength.add(cell.text.length);
+          _columnsMaxLength
+              .add(math.max(cell.text.length, kMinCellLengthInARow));
         } else {
-          if (cell.text.length > _columnsMaxLength[index]) {
-            _columnsMaxLength[index] = max(kMinCellLengthInARow,
-                min(kMaxCellLengthInARow, cell.text.length));
-          }
+          /// When there is content, ensure the first word is fully visible
+          _columnsMaxLength[index] = math.max(
+            _columnsMaxLength[index],
+            cell.text.split(' ')[0].length,
+          );
         }
         index++;
+      }
+    }
+
+    final int sum = _columnsMaxLength.sum;
+    final int maxWidth = (sum ~/ _columnsMaxLength.length) - 2;
+    final int minWidth = maxWidth ~/ 4;
+
+    for (int i = 0; i < _columnsMaxLength.length; i++) {
+      if (_columnsMaxLength[i] > maxWidth) {
+        _columnsMaxLength[i] = maxWidth;
+      } else if (_columnsMaxLength[i] < minWidth) {
+        _columnsMaxLength[i] = minWidth;
       }
     }
   }
@@ -286,14 +350,12 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
 class TableCellWidget extends StatefulWidget {
   const TableCellWidget({
     required this.cell,
-    required this.cellWidth,
     required this.tableElement,
     required this.rebuildTable,
     required this.isInitiallyExpanded,
   });
 
   final TableCell cell;
-  final double cellWidth;
   final KnowledgePanelTableElement tableElement;
   final void Function(VoidCallback fn) rebuildTable;
   final bool isInitiallyExpanded;
@@ -313,18 +375,50 @@ class _TableCellWidgetState extends State<TableCellWidget> {
 
   @override
   Widget build(BuildContext context) {
-    EdgeInsetsGeometry padding =
-        const EdgeInsetsDirectional.only(bottom: VERY_SMALL_SPACE);
-    // header cells get a bigger vertical padding.
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
+
+    final EdgeInsetsGeometry padding;
+
     if (widget.cell.isHeader) {
-      padding = const EdgeInsets.symmetric(vertical: SMALL_SPACE);
+      padding = const EdgeInsetsDirectional.symmetric(
+        vertical: SMALL_SPACE,
+        horizontal: VERY_SMALL_SPACE,
+      );
+    } else {
+      padding = const EdgeInsetsDirectional.symmetric(
+        vertical: 6.0,
+        horizontal: VERY_SMALL_SPACE,
+      );
     }
+
     TextStyle style = Theme.of(context).textTheme.bodyMedium!;
     if (widget.cell.color != null) {
-      style = style.apply(color: widget.cell.color);
+      /// Override the default color
+      if (widget.cell.isHeader &&
+          widget.cell.color!.value == const Color(0xFF9e9e9e).value) {
+        if (context.lightTheme()) {
+          style = style.apply(color: extension.primaryDark);
+        } else {
+          style = style.apply(color: extension.primaryMedium);
+        }
+      } else {
+        style = style.apply(color: widget.cell.color);
+      }
     }
+
     if (widget.cell.isHeader && widget.cell.columnGroup!.columns.length == 1) {
-      return _buildHtmlCell(padding, style, isSelectable: false);
+      return SizedBox(
+        height: double.infinity,
+        child: _buildHtmlCell(
+          padding,
+          style.copyWith(fontWeight: FontWeight.w600),
+          isSelectable: false,
+          backgroundColor: context.lightTheme()
+              ? extension.primaryLight
+              : extension.primaryUltraBlack,
+        ),
+      );
     } else if (!widget.cell.isHeader ||
         widget.cell.columnGroup!.columns.length == 1) {
       return _buildHtmlCell(padding, style, isSelectable: true);
@@ -336,24 +430,20 @@ class _TableCellWidgetState extends State<TableCellWidget> {
     EdgeInsetsGeometry padding,
     TextStyle style, {
     required bool isSelectable,
+    Color? backgroundColor,
   }) {
     String cellText = widget.cell.text;
     if (!_isExpanded) {
-      const String htmlStyle = '''
-        "text-overflow: ellipsis;
-         overflow: hidden;
-         max-lines: 2;"
-        ''';
-      cellText = '<div style=$htmlStyle>${widget.cell.text}</div>';
+      cellText = '<div>${widget.cell.text}</div>';
     }
-    return GestureDetector(
+    final Widget child = GestureDetector(
       onTap: () => setState(() {
         _isExpanded = true;
       }),
       child: Padding(
         padding: padding,
-        child: SizedBox(
-          width: widget.cellWidth,
+        child: Align(
+          alignment: AlignmentDirectional.centerStart,
           child: SmoothHtmlWidget(
             cellText,
             textStyle: style,
@@ -362,6 +452,15 @@ class _TableCellWidgetState extends State<TableCellWidget> {
         ),
       ),
     );
+
+    if (backgroundColor != null) {
+      return ColoredBox(
+        color: backgroundColor,
+        child: child,
+      );
+    } else {
+      return child;
+    }
   }
 
   Widget _buildDropDownColumnHeader(
@@ -371,43 +470,35 @@ class _TableCellWidgetState extends State<TableCellWidget> {
     // Now we finally render [ColumnGroup]s as drop down menus.
     return Padding(
       padding: padding,
-      child: SizedBox(
-        width: widget.cellWidth,
-        child: DropdownButtonHideUnderline(
-          child: ButtonTheme(
-            child: DropdownButton<KnowledgePanelTableColumn>(
-              value: widget.cell.columnGroup!.currentColumn,
-              items: widget.cell.columnGroup!.columns
-                  .map((KnowledgePanelTableColumn column) {
-                return DropdownMenuItem<KnowledgePanelTableColumn>(
-                  value: column,
-                  child: Container(
-                    // 24 dp buffer is to allow the dropdown arrow icon to be displayed.
-                    constraints: BoxConstraints(maxWidth: widget.cellWidth - 24)
-                        .normalize(),
-                    child: Text(column.textForSmallScreens ?? column.text),
-                  ),
-                );
-              }).toList(),
-              onChanged: (KnowledgePanelTableColumn? selectedColumn) {
-                setState(() {
-                  widget.cell.columnGroup!.currentColumn = selectedColumn;
-                });
-                int i = 0;
-                for (final KnowledgePanelTableColumn column
-                    in widget.tableElement.columns) {
-                  if (column == selectedColumn) {
-                    widget.cell.columnGroup!.currentColumnIndex = i;
-                    // Since we have modified [currentColumn], re-rendering the
-                    // table will automagically select [selectedColumn].
-                    widget.rebuildTable(() {});
-                    return;
-                  }
-                  i++;
+      child: DropdownButtonHideUnderline(
+        child: ButtonTheme(
+          child: DropdownButton<KnowledgePanelTableColumn>(
+            value: widget.cell.columnGroup!.currentColumn,
+            items: widget.cell.columnGroup!.columns
+                .map((KnowledgePanelTableColumn column) {
+              return DropdownMenuItem<KnowledgePanelTableColumn>(
+                value: column,
+                child: Text(column.textForSmallScreens ?? column.text),
+              );
+            }).toList(growable: false),
+            onChanged: (KnowledgePanelTableColumn? selectedColumn) {
+              setState(() {
+                widget.cell.columnGroup!.currentColumn = selectedColumn;
+              });
+              int i = 0;
+              for (final KnowledgePanelTableColumn column
+                  in widget.tableElement.columns) {
+                if (column == selectedColumn) {
+                  widget.cell.columnGroup!.currentColumnIndex = i;
+                  // Since we have modified [currentColumn], re-rendering the
+                  // table will automagically select [selectedColumn].
+                  widget.rebuildTable(() {});
+                  return;
                 }
-              },
-              style: style,
-            ),
+                i++;
+              }
+            },
+            style: style,
           ),
         ),
       ),
@@ -417,8 +508,8 @@ class _TableCellWidgetState extends State<TableCellWidget> {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties
-        .add(DiagnosticsProperty<bool>('expanded', widget.isInitiallyExpanded));
-    properties.add(DoubleProperty('cellWidth', widget.cellWidth));
+    properties.add(
+      DiagnosticsProperty<bool>('expanded', widget.isInitiallyExpanded),
+    );
   }
 }
