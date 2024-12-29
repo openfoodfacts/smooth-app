@@ -183,6 +183,7 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
 
     final List<List<Widget>> rowsWidgets = <List<Widget>>[];
     final Widget verticalDivider = _verticalDivider;
+    final Widget horizontalDivider = _horizontalDivider;
 
     for (final List<TableCell> row in rows) {
       final List<Widget> rowWidgets = <Widget>[];
@@ -201,7 +202,7 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
           tableCellWidget = Column(
             children: <Widget>[
               Expanded(child: tableCellWidget),
-              _horizontalDivider,
+              horizontalDivider,
             ],
           );
         }
