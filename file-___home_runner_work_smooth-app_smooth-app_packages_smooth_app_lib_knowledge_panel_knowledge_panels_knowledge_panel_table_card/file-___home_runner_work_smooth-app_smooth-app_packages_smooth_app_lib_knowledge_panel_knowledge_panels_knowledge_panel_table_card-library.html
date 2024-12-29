@@ -81,14 +81,6 @@ be no dropdown on the UI.
   Represents the data in a single cell in this table.
 </dd>
 
-        <dt id="TableCellWidget">
-  <span class="name "><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_knowledge_panel_table_card/TableCellWidget-class.html">TableCellWidget</a></span> 
-
-</dt>
-<dd>
-  
-</dd>
-
       </dl>
     </section>
 
@@ -105,7 +97,10 @@ be no dropdown on the UI.
 
 </dt>
 <dd>
-  
+  Cells with a lot of text can get very large, we don't want to allocate
+most of <code>availableWidth</code> to columns with large cells. So we cap the cell length
+considered for width allocation to <a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_knowledge_panel_table_card/kMaxCellLengthInARow-constant.html">kMaxCellLengthInARow</a>. Cells with
+text larger than this limit will be wrapped in multiple rows.
   
 
   <div>
@@ -120,11 +115,27 @@ be no dropdown on the UI.
 
 </dt>
 <dd>
+  Minimum length of a cell, without this a column may look unnaturally small
+when put next to larger columns.
+  
+
+  <div>
+    <span class="signature"><code>2</code></span>
+  </div>
+</dd>
+
+        <dt id="kMinCellLengthInARowValue" class="constant">
+    <span class="name "><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_knowledge_panel_table_card/kMinCellLengthInARowValue-constant.html">kMinCellLengthInARowValue</a></span>
+  <span class="signature">&#8594; const <a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd>
   
   
 
   <div>
-    <span class="signature"><code>20</code></span>
+    <span class="signature"><code>4</code></span>
   </div>
 </dd>
 
@@ -283,6 +294,7 @@ be no dropdown on the UI.
       <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_haptic_feedback_helper/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_haptic_feedback_helper-library.html">haptic_feedback_helper</a></li>
       <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_hideable_container/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_hideable_container-library.html">hideable_container</a></li>
       <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_history_page/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_history_page-library.html">history_page</a></li>
+      <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_html_extension/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_html_extension-library.html">html_extension</a></li>
       <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_html_page/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_html_page-library.html">html_page</a></li>
       <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_image_compute_container/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_image_compute_container-library.html">image_compute_container</a></li>
       <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_image_crop_page/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_image_crop_page-library.html">image_crop_page</a></li>
@@ -536,8 +548,8 @@ be no dropdown on the UI.
       <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_smooth_product_card_not_found/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_smooth_product_card_not_found-library.html">smooth_product_card_not_found</a></li>
       <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_smooth_product_card_not_supported/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_smooth_product_card_not_supported-library.html">smooth_product_card_not_supported</a></li>
       <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_smooth_product_card_template/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_smooth_product_card_template-library.html">smooth_product_card_template</a></li>
-      <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_smooth_product_image/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_smooth_product_image-library.html">smooth_product_image</a></li>
       <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_smooth_product_image/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_smooth_product_image-library.html">smooth_product_image</a></li>
+      <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_smooth_product_image/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_smooth_product_image-library.html">smooth_product_image</a></li>
       <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_smooth_responsive/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_smooth_responsive-library.html">smooth_responsive</a></li>
       <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_animations_smooth_reveal_animation/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_animations_smooth_reveal_animation-library.html">smooth_reveal_animation</a></li>
       <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_scaffold/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_scaffold-library.html">smooth_scaffold</a></li>
@@ -627,13 +639,13 @@ be no dropdown on the UI.
   <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_knowledge_panel_table_card/ColumnGroup-class.html">ColumnGroup</a></li>
   <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_knowledge_panel_table_card/KnowledgePanelTableCard-class.html">KnowledgePanelTableCard</a></li>
   <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_knowledge_panel_table_card/TableCell-class.html">TableCell</a></li>
-  <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_knowledge_panel_table_card/TableCellWidget-class.html">TableCellWidget</a></li>
 
 
 
   <li class="section-title"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_knowledge_panel_table_card/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_knowledge_panel_table_card-library.html#constants">Constants</a></li>
   <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_knowledge_panel_table_card/kMaxCellLengthInARow-constant.html">kMaxCellLengthInARow</a></li>
   <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_knowledge_panel_table_card/kMinCellLengthInARow-constant.html">kMinCellLengthInARow</a></li>
+  <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_knowledge_panel_table_card/kMinCellLengthInARowValue-constant.html">kMinCellLengthInARowValue</a></li>
 
 
 
