@@ -86,31 +86,39 @@ class _ProductQuestionsWidgetState extends State<ProductQuestionsWidget>
 
     if (context.mounted && answeredQuestions != null && answeredQuestions > 0) {
       return _reloadQuestions(
-        removeInsightAnnotations: true,
+        updateInsightAnnotations: true,
       );
     }
   }
 
   Future<void> _reloadQuestions({
-    bool removeInsightAnnotations = false,
+    bool updateInsightAnnotations = false,
   }) async {
     setState(() => _state = const _ProductQuestionsLoading());
 
-    final List<RobotoffQuestion>? questions = await _loadProductQuestions();
+    final List<RobotoffQuestion> questions =
+        await _loadProductQuestions() ?? <RobotoffQuestion>[];
 
     if (!mounted) {
       return;
     }
 
-    if (removeInsightAnnotations && (questions == null || questions.isEmpty)) {
+    if (updateInsightAnnotations) {
       final LocalDatabase localDatabase = context.read<LocalDatabase>();
+      final RobotoffInsightHelper robotoffInsightHelper =
+          RobotoffInsightHelper(localDatabase);
 
-      await RobotoffInsightHelper(localDatabase)
-          .removeInsightAnnotationsSavedForProduct(widget.product.barcode!);
+      if (questions.isEmpty) {
+        await robotoffInsightHelper
+            .removeInsightAnnotationsSavedForProduct(widget.product.barcode!);
+      }
+
+      _annotationVoted =
+          await robotoffInsightHelper.areQuestionsAlreadyVoted(questions);
     }
 
-    if (questions?.isNotEmpty == true && !_annotationVoted) {
-      setState(() => _state = _ProductQuestionsWithQuestions(questions!));
+    if (questions.isNotEmpty == true && !_annotationVoted) {
+      setState(() => _state = _ProductQuestionsWithQuestions(questions));
       _trackEvent(AnalyticsEvent.questionVisible);
     } else {
       setState(() => _state = const _ProductQuestionsWithoutQuestions());
