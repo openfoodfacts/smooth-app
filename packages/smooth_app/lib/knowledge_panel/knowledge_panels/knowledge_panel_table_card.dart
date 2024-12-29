@@ -198,6 +198,7 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
           isInitiallyExpanded: widget.isInitiallyExpanded,
         );
 
+        /// Add a divider below the header cell
         if (cell.isHeader) {
           tableCellWidget = Column(
             children: <Widget>[
@@ -311,6 +312,7 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
       }
     }
 
+    /// Ensure the columns are not too wide or too narrow.
     final int sum = _columnsMaxLength.sum;
     final int maxWidth = (sum ~/ _columnsMaxLength.length) - 2;
     final int minWidth = maxWidth ~/ 4;
