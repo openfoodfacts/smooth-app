@@ -78,7 +78,7 @@ Widget build(BuildContext context) {
         BoxShadow(
           color: Theme.of(context)
               .shadowColor
-              .withOpacity(context.lightTheme() ? 0.25 : 0.6),
+              .withValues(alpha: context.lightTheme() ? 0.25 : 0.6),
           blurRadius: 10.0,
         ),
       ],

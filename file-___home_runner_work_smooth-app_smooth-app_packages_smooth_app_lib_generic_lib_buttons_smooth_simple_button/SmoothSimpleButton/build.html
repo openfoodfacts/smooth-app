@@ -87,7 +87,10 @@ Widget build(BuildContext context) {
         overlayColor: context.read&lt;ThemeProvider&gt;().isAmoledTheme
             ? WidgetStateProperty.resolveWith((Set&lt;WidgetState&gt; states) {
                 return states.contains(WidgetState.pressed)
-                    ? Theme.of(context).colorScheme.primary.withOpacity(0.3)
+                    ? Theme.of(context)
+                        .colorScheme
+                        .primary
+                        .withValues(alpha: 0.3)
                     : null;
               })
             : null,
