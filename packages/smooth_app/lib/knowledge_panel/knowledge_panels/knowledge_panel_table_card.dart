@@ -436,7 +436,7 @@ class _TableCellWidgetState extends State<_TableCellWidget> {
     if (widget.cell.color != null) {
       /// Override the default color
       if (widget.cell.isHeader &&
-          widget.cell.color!.value == const Color(0xFF9e9e9e).value) {
+          widget.cell.color!.intValue == const Color(0xFF9e9e9e).intValue) {
         if (context.lightTheme()) {
           style = style.apply(color: extension.primaryDark);
         } else {
