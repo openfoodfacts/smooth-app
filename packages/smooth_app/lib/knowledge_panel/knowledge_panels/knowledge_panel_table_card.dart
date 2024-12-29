@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/smooth_html_widget.dart';
+import 'package:smooth_app/helpers/html_extension.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_card.dart';
 import 'package:smooth_app/pages/product/portion_calculator.dart';
@@ -13,15 +14,17 @@ import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
-// Cells with a lot of text can get very large, we don't want to allocate
-// most of [availableWidth] to columns with large cells. So we cap the cell length
-// considered for width allocation to [kMaxCellLengthInARow]. Cells with
-// text larger than this limit will be wrapped in multiple rows.
+/// Cells with a lot of text can get very large, we don't want to allocate
+/// most of [availableWidth] to columns with large cells. So we cap the cell length
+/// considered for width allocation to [kMaxCellLengthInARow]. Cells with
+/// text larger than this limit will be wrapped in multiple rows.
 const int kMaxCellLengthInARow = 40;
 
-// Minimum length of a cell, without this a column may look unnaturally small
-// when put next to larger columns.
+/// Minimum length of a cell, without this a column may look unnaturally small
+/// when put next to larger columns.
 const int kMinCellLengthInARow = 2;
+// Min length when the cell has values (eg: percent or 100g)
+const int kMinCellLengthInARowValue = 4;
 
 /// ColumnGroup is a group of columns collapsed into a single column. Purpose of
 /// this is to show a dropdown menu which the users can use to select which column
@@ -81,6 +84,7 @@ class KnowledgePanelTableCard extends StatefulWidget {
 class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
   final List<ColumnGroup> _columnGroups = <ColumnGroup>[];
   final List<int> _columnsMaxLength = <int>[];
+  final List<_TableCellType> _columnsType = <_TableCellType>[];
 
   @override
   void initState() {
@@ -189,10 +193,14 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
       final List<Widget> rowWidgets = <Widget>[];
       int index = 0;
       for (final TableCell cell in row) {
-        final double cellWidth =
-            availableWidth / totalMaxColumnWidth * _columnsMaxLength[index++];
-        Widget tableCellWidget = TableCellWidget(
+        final int cellWidth =
+            (availableWidth / totalMaxColumnWidth * _columnsMaxLength[index++])
+                .toInt();
+
+        Widget tableCellWidget = _TableCellWidget(
           cell: cell,
+          cellType: _columnsType[index - 1],
+          cellWidthPercent: cellWidth,
           tableElement: widget.tableElement,
           rebuildTable: setState,
           isInitiallyExpanded: widget.isInitiallyExpanded,
@@ -210,7 +218,7 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
 
         rowWidgets.add(
           Expanded(
-            flex: cellWidth.toInt(),
+            flex: cellWidth,
             child: tableCellWidget,
           ),
         );
@@ -291,22 +299,43 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
 
   void _initColumnsMaxLength() {
     final List<List<TableCell>> rows = _buildRowCells();
-    // [columnMaxLength] contains the length of the largest cell in the columns.
-    // This helps us assign a dynamic width to the column depending upon the
-    // largest cell in the column.
+
     for (final List<TableCell> row in rows) {
       int index = 0;
       for (final TableCell cell in row) {
         if (cell.isHeader) {
+          _TableCellType type;
+          if (cell.text == '100g') {
+            type = _TableCellType.PER_100G;
+          } else if (cell.text == '%') {
+            type = _TableCellType.PERCENT;
+          } else {
+            type = _TableCellType.TEXT;
+          }
+
           // Set value for the header row.
-          _columnsMaxLength
-              .add(math.max(cell.text.length, kMinCellLengthInARow));
+          _columnsMaxLength.add(
+            math.max(
+                cell.text.length,
+                type != _TableCellType.TEXT
+                    ? kMinCellLengthInARowValue
+                    : kMinCellLengthInARow),
+          );
+
+          _columnsType.add(type);
         } else {
           /// When there is content, ensure the first word is fully visible
-          _columnsMaxLength[index] = math.max(
-            _columnsMaxLength[index],
-            cell.text.split(' ')[0].length,
-          );
+          if (_columnsType[index] != _TableCellType.TEXT) {
+            _columnsMaxLength[index] = math.max(
+              _columnsMaxLength[index],
+              cell.text.split('(')[0].length,
+            );
+          } else {
+            _columnsMaxLength[index] = math.max(
+              _columnsMaxLength[index],
+              cell.text.split(' ')[0].length,
+            );
+          }
         }
         index++;
       }
@@ -314,11 +343,15 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
 
     /// Ensure the columns are not too wide or too narrow.
     final int sum = _columnsMaxLength.sum;
-    final int maxWidth = (sum ~/ _columnsMaxLength.length) - 2;
+    final int maxWidth = (sum ~/ _columnsMaxLength.length) - 4;
     final int minWidth = maxWidth ~/ 4;
 
     for (int i = 0; i < _columnsMaxLength.length; i++) {
-      if (_columnsMaxLength[i] > maxWidth) {
+      if (_columnsType[i] == _TableCellType.PERCENT) {
+        _columnsMaxLength[i] = math.max(_columnsMaxLength[i] + 2, minWidth);
+      } else if (_columnsType[i] == _TableCellType.PER_100G) {
+        _columnsMaxLength[i] = math.max(_columnsMaxLength[i], minWidth);
+      } else if (_columnsMaxLength[i] > maxWidth) {
         _columnsMaxLength[i] = maxWidth;
       } else if (_columnsMaxLength[i] < minWidth) {
         _columnsMaxLength[i] = minWidth;
@@ -330,7 +363,7 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
     final StringBuffer buffer = StringBuffer();
 
     for (final Widget widget in row) {
-      if (widget is TableCellWidget && widget.cell.text.isNotEmpty) {
+      if (widget is _TableCellWidget && widget.cell.text.isNotEmpty) {
         if (buffer.isNotEmpty) {
           buffer.write(' - ');
         }
@@ -350,24 +383,28 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
   }
 }
 
-class TableCellWidget extends StatefulWidget {
-  const TableCellWidget({
+class _TableCellWidget extends StatefulWidget {
+  const _TableCellWidget({
     required this.cell,
+    required this.cellType,
+    required this.cellWidthPercent,
     required this.tableElement,
     required this.rebuildTable,
     required this.isInitiallyExpanded,
   });
 
   final TableCell cell;
+  final _TableCellType cellType;
+  final int cellWidthPercent;
   final KnowledgePanelTableElement tableElement;
   final void Function(VoidCallback fn) rebuildTable;
   final bool isInitiallyExpanded;
 
   @override
-  State<TableCellWidget> createState() => _TableCellWidgetState();
+  State<_TableCellWidget> createState() => _TableCellWidgetState();
 }
 
-class _TableCellWidgetState extends State<TableCellWidget> {
+class _TableCellWidgetState extends State<_TableCellWidget> {
   late bool _isExpanded;
 
   @override
@@ -417,6 +454,7 @@ class _TableCellWidgetState extends State<TableCellWidget> {
           padding,
           style.copyWith(fontWeight: FontWeight.w600),
           isSelectable: false,
+          alignment: widget.cellType.headerTextAlignment,
           backgroundColor: context.lightTheme()
               ? extension.primaryLight
               : extension.primaryUltraBlack,
@@ -424,21 +462,44 @@ class _TableCellWidgetState extends State<TableCellWidget> {
       );
     } else if (!widget.cell.isHeader ||
         widget.cell.columnGroup!.columns.length == 1) {
-      return _buildHtmlCell(padding, style, isSelectable: true);
+      return _buildHtmlCell(
+        padding,
+        style,
+        isSelectable: true,
+        alignment: widget.cellType.contentTextAlignment,
+      );
     }
-    return _buildDropDownColumnHeader(padding, style);
+    return _buildDropDownColumnHeader(
+      padding,
+      widget.cellWidthPercent,
+      style.copyWith(fontWeight: FontWeight.w600),
+      backgroundColor: context.lightTheme()
+          ? extension.primaryLight
+          : extension.primaryUltraBlack,
+    );
   }
 
   Widget _buildHtmlCell(
     EdgeInsetsGeometry padding,
     TextStyle style, {
     required bool isSelectable,
+    required AlignmentDirectional alignment,
     Color? backgroundColor,
   }) {
-    String cellText = widget.cell.text;
+    final StringBuffer styleBuilder =
+        StringBuffer('text-align:${alignment.toHTMLTextAlign()}');
+
     if (!_isExpanded) {
-      cellText = '<div>${widget.cell.text}</div>';
+      styleBuilder.write('''
+        text-overflow: ellipsis;
+          overflow: hidden;
+          max-lines: 2;
+          ''');
     }
+
+    final String cellText =
+        '<div style="text-align:${alignment.toHTMLTextAlign()}">${widget.cell.text}</div>';
+
     final Widget child = GestureDetector(
       onTap: () => setState(() {
         _isExpanded = true;
@@ -446,7 +507,7 @@ class _TableCellWidgetState extends State<TableCellWidget> {
       child: Padding(
         padding: padding,
         child: Align(
-          alignment: AlignmentDirectional.centerStart,
+          alignment: alignment,
           child: SmoothHtmlWidget(
             cellText,
             textStyle: style,
@@ -468,40 +529,52 @@ class _TableCellWidgetState extends State<TableCellWidget> {
 
   Widget _buildDropDownColumnHeader(
     EdgeInsetsGeometry padding,
-    TextStyle style,
-  ) {
+    int width,
+    TextStyle style, {
+    required Color backgroundColor,
+  }) {
     // Now we finally render [ColumnGroup]s as drop down menus.
-    return Padding(
-      padding: padding,
-      child: DropdownButtonHideUnderline(
-        child: ButtonTheme(
-          child: DropdownButton<KnowledgePanelTableColumn>(
-            value: widget.cell.columnGroup!.currentColumn,
-            items: widget.cell.columnGroup!.columns
-                .map((KnowledgePanelTableColumn column) {
-              return DropdownMenuItem<KnowledgePanelTableColumn>(
-                value: column,
-                child: Text(column.textForSmallScreens ?? column.text),
-              );
-            }).toList(growable: false),
-            onChanged: (KnowledgePanelTableColumn? selectedColumn) {
-              setState(() {
-                widget.cell.columnGroup!.currentColumn = selectedColumn;
-              });
-              int i = 0;
-              for (final KnowledgePanelTableColumn column
-                  in widget.tableElement.columns) {
-                if (column == selectedColumn) {
-                  widget.cell.columnGroup!.currentColumnIndex = i;
-                  // Since we have modified [currentColumn], re-rendering the
-                  // table will automagically select [selectedColumn].
-                  widget.rebuildTable(() {});
-                  return;
+    return ColoredBox(
+      color: backgroundColor,
+      child: Padding(
+        padding: padding,
+        child: DropdownButtonHideUnderline(
+          child: ButtonTheme(
+            child: DropdownButton<KnowledgePanelTableColumn>(
+              value: widget.cell.columnGroup!.currentColumn,
+              items: widget.cell.columnGroup!.columns
+                  .map((KnowledgePanelTableColumn column) {
+                return DropdownMenuItem<KnowledgePanelTableColumn>(
+                  value: column,
+                  child: SizedBox(
+                    width: width.toDouble() - 21.0 - padding.horizontal,
+                    child: Text(
+                      column.textForSmallScreens ?? column.text,
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 2,
+                    ),
+                  ),
+                );
+              }).toList(growable: false),
+              onChanged: (KnowledgePanelTableColumn? selectedColumn) {
+                setState(() {
+                  widget.cell.columnGroup!.currentColumn = selectedColumn;
+                });
+                int i = 0;
+                for (final KnowledgePanelTableColumn column
+                    in widget.tableElement.columns) {
+                  if (column == selectedColumn) {
+                    widget.cell.columnGroup!.currentColumnIndex = i;
+                    // Since we have modified [currentColumn], re-rendering the
+                    // table will automagically select [selectedColumn].
+                    widget.rebuildTable(() {});
+                    return;
+                  }
+                  i++;
                 }
-                i++;
-              }
-            },
-            style: style,
+              },
+              style: style,
+            ),
           ),
         ),
       ),
@@ -515,4 +588,24 @@ class _TableCellWidgetState extends State<TableCellWidget> {
       DiagnosticsProperty<bool>('expanded', widget.isInitiallyExpanded),
     );
   }
+}
+
+enum _TableCellType {
+  TEXT(
+      headerTextAlignment: AlignmentDirectional.centerStart,
+      contentTextAlignment: AlignmentDirectional.centerStart),
+  PERCENT(
+      headerTextAlignment: AlignmentDirectional.center,
+      contentTextAlignment: AlignmentDirectional.centerStart),
+  PER_100G(
+      headerTextAlignment: AlignmentDirectional.center,
+      contentTextAlignment: AlignmentDirectional.center);
+
+  const _TableCellType({
+    required this.headerTextAlignment,
+    required this.contentTextAlignment,
+  });
+
+  final AlignmentDirectional headerTextAlignment;
+  final AlignmentDirectional contentTextAlignment;
 }
