@@ -2046,7 +2046,7 @@
             }
         }
     },
-    "prices_button_count_user": "{count,plural, one {}=0{Aucun utilisateur} =1{Un utilisateur} other{{count} utilisateurs}}",
+    "prices_button_count_user": "{count,plural, =0{Aucun utilisateur} =1{Un utilisateur} other{{count} utilisateurs}}",
     "@prices_button_count_user": {
         "description": "Number of users, for a button",
         "placeholders": {
