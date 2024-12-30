@@ -3459,5 +3459,17 @@
     "photo_field_packaging": "תמונת פרטי אריזה",
     "photo_already_exists": "התמונה הזאת כבר קיימת",
     "photo_missing": "התמונה הזאת חסרה",
-    "date": "תאריך"
+    "date": "תאריך",
+    "photo_rotate_left": "הטייה לשמאל",
+    "@photo_rotate_left": {
+        "description": "Button to rotate a photo to the left"
+    },
+    "photo_rotate_right": "הטייה לימין",
+    "@photo_rotate_right": {
+        "description": "Button to rotate a photo to the right"
+    },
+    "photo_undo_action": "Undo the previous action",
+    "@photo_undo_action": {
+        "description": "Button to undo the previous action on a photo"
+    }
 }
