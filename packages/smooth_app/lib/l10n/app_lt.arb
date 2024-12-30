@@ -3459,5 +3459,17 @@
     "photo_field_packaging": "Informacijos apie pakuotę nuotrauka",
     "photo_already_exists": "This photo already exists",
     "photo_missing": "This photo is missing",
-    "date": "Data"
+    "date": "Data",
+    "photo_rotate_left": "Pasukite į kairę",
+    "@photo_rotate_left": {
+        "description": "Button to rotate a photo to the left"
+    },
+    "photo_rotate_right": "Pasukite į dešinę",
+    "@photo_rotate_right": {
+        "description": "Button to rotate a photo to the right"
+    },
+    "photo_undo_action": "Anuliuoti ankstesnį veiksmą",
+    "@photo_undo_action": {
+        "description": "Button to undo the previous action on a photo"
+    }
 }
