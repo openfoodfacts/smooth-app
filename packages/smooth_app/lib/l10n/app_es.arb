@@ -685,7 +685,7 @@
     "@new_product_done_button_label": {
         "description": "Button at the end of new product page, that takes you to completed product"
     },
-    "hey_incomplete_product_message": "Tap to answer 3 questions NOW to compute Nutri-Score, Green Score & Ultra-processing (NOVA)!",
+    "hey_incomplete_product_message": "¡Toque para responder 3 preguntas AHORA para calcular Nutri-Score, Green-Score y Ultraprocesado (NOVA)!",
     "hey_incomplete_product_message_beauty": "Tap now to answer 2 questions to help analyze this cosmetic!",
     "hey_incomplete_product_message_pet_food": "Tap now to answer 3 questions to help analyze this pet food product!",
     "hey_incomplete_product_message_product": "Tap now to help complete this product!",
@@ -929,7 +929,7 @@
     "@product_improvement_obsolete_nutrition_image": {
         "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
     },
-    "product_improvement_origins_to_be_completed": "The Green Score takes into account the origins of the ingredients. Please take a photo of the ingredient list and/or any geographic claim or edit the product, so they can be taken into account.",
+    "product_improvement_origins_to_be_completed": "El Green-Score tiene en cuenta el origen de los ingredientes. Haz una foto de los ingredientes o a cualquier indicio geográfico y edita el producto para que se tengan en cuenta estos datos.",
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
@@ -2104,7 +2104,7 @@
     "@dev_preferences_show_folksonomy_title": {
         "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
     },
-    "dev_mode_hide_environmental_score_title": "Exclude Green Score",
+    "dev_mode_hide_environmental_score_title": "Excluir Green-Score",
     "@dev_mode_hide_environmental_score_title": {
         "description": "User dev preferences - Disable Green Score - Title"
     },
@@ -3087,12 +3087,12 @@
     "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
     "nutriscore_not_applicable": "No es posible aplicar el Nutri-Score",
     "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
-    "environmental_score_generic": "Green Score",
-    "environmental_score_a": "Green Score A",
-    "environmental_score_b": "Green Score B",
-    "environmental_score_c": "Green Score C",
-    "environmental_score_d": "Green Score D",
-    "environmental_score_e": "Green Score E",
+    "environmental_score_generic": "Green-Score",
+    "environmental_score_a": "Green-Score A",
+    "environmental_score_b": "Green-Score B",
+    "environmental_score_c": "Green-Score C",
+    "environmental_score_d": "Green-Score D",
+    "environmental_score_e": "Green-Score E",
     "environmental_score_unknown": "Green-Score desconocido",
     "environmental_score_not_applicable": "No es posiible aplicar el Green-Score",
     "nova_group_generic": "Ultraprocesados: gurpos NOVA",
