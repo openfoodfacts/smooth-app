@@ -562,7 +562,7 @@
     "@add_product_information_button_label": {},
     "new_product": "Nuevo producto",
     "@new_product": {},
-    "new_product_found_title": "New product found!",
+    "new_product_found_title": "¡Nuevo producto encontrado!",
     "@new_product_found_title": {
         "description": "Title of a dialog that informs the user that a barcode doesn't exist in the database"
     },
@@ -579,11 +579,11 @@
     "@new_product_leave_message": {
         "description": "Alert dialog message when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
     },
-    "new_product_dialog_description": "Please take photos of the packaging to add this product to our common database",
+    "new_product_dialog_description": "Haz fotos del envase para añadir este producto a nuestra base de datos",
     "@new_product_dialog_description": {
         "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
     },
-    "new_product_dialog_illustration_description": "An illustration with unknown Nutri-Score and Green Score",
+    "new_product_dialog_illustration_description": "Una ilustración con Nutri-Score y Green-Score desconocidos",
     "@new_product_dialog_illustration_description": {
         "description": "A description for accessibility of two images side by side: a Nutri-Score and an Green Score."
     },
@@ -661,9 +661,9 @@
     "categories_added": "Categorías añadidas",
     "new_product_title_nutriscore": "Calcular Nutri-Score",
     "new_product_subtitle_nutriscore": "Ayúdanos completando la categoría de alimentos y los valores nutricionales.",
-    "new_product_title_environmental_score": "Compute the Green Score",
-    "new_product_subtitle_environmental_score": "Get it by filling at least a category",
-    "new_product_additional_environmental_score": "Make Green Score computation more precise with origins, packaging & more",
+    "new_product_title_environmental_score": "Calcular el Green-Score",
+    "new_product_subtitle_environmental_score": "Consíguelo rellenando al menos una categoría",
+    "new_product_additional_environmental_score": "Haz que el cálculo de Green-Score sea más preciso añadiendo orígenes, envase y más",
     "new_product_title_nova": "Calcula el nivel de procesado de los alimentos (NOVA)",
     "new_product_subtitle_nova": "Hazlo rellenando las categorías de alimentos e ingredientes.",
     "new_product_desc_nova_unknown": "Nivel de procesado de alimentos desconocido",
@@ -3093,8 +3093,8 @@
     "environmental_score_c": "Green Score C",
     "environmental_score_d": "Green Score D",
     "environmental_score_e": "Green Score E",
-    "environmental_score_unknown": "Unknown Green Score",
-    "environmental_score_not_applicable": "Green Score is not applicable",
+    "environmental_score_unknown": "Green-Score desconocido",
+    "environmental_score_not_applicable": "No es posiible aplicar el Green-Score",
     "nova_group_generic": "Ultraprocesados: gurpos NOVA",
     "nova_group_1": "Grupo NOVA 1",
     "nova_group_2": "Grupo NOVA 2",
@@ -3459,5 +3459,17 @@
     "photo_field_packaging": "Foto de la información del envase",
     "photo_already_exists": "This photo already exists",
     "photo_missing": "This photo is missing",
-    "date": "Fecha"
+    "date": "Fecha",
+    "photo_rotate_left": "Girar a la izquierda",
+    "@photo_rotate_left": {
+        "description": "Button to rotate a photo to the left"
+    },
+    "photo_rotate_right": "Girar a la derecha",
+    "@photo_rotate_right": {
+        "description": "Button to rotate a photo to the right"
+    },
+    "photo_undo_action": "Undo the previous action",
+    "@photo_undo_action": {
+        "description": "Button to undo the previous action on a photo"
+    }
 }
