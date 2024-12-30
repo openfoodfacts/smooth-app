@@ -78,6 +78,7 @@ Widget build(BuildContext context) {
   const double markerSize = 30;
   final List&lt;Marker&gt; markers = &lt;Marker&gt;[];
   final List&lt;LatLng&gt; coordinates = &lt;LatLng&gt;[];
+
   void addCoordinate(final LatLng latLng) {
     coordinates.add(latLng);
     markers.add(
@@ -98,48 +99,60 @@ Widget build(BuildContext context) {
     }
   }
 
-  final MapOptions mapOptions;
-  if (coordinates.length == 1) {
-    mapOptions = MapOptions(
-      initialCenter: coordinates.first,
-      initialZoom: 6.0,
-    );
-  } else {
-    mapOptions = MapOptions(
-      initialCameraFit: CameraFit.coordinates(
-        coordinates: coordinates,
-        maxZoom: 13.0,
-        forceIntegerZoomLevel: true,
-        padding: const EdgeInsets.all(markerSize),
-      ),
-    );
-  }
+  final MapOptions mapOptions = _generateMapOptions(
+    coordinates: coordinates,
+    markerSize: markerSize,
+    interactive: false,
+  );
+
+  final List&lt;Widget&gt; children = &lt;Widget&gt;[
+    TileLayer(
+      urlTemplate: &#39;https:&#47;&#47;tile.openstreetmap.org&#47;{z}&#47;{x}&#47;{y}.png&#39;,
+      userAgentPackageName: &#39;org.openfoodfacts.app&#39;,
+    ),
+    MarkerLayer(markers: markers),
+    RichAttributionWidget(
+      animationConfig: const ScaleRAWA(),
+      showFlutterMapAttribution: false,
+      attributions: &lt;SourceAttribution&gt;[
+        TextSourceAttribution(
+          &#39;OpenStreetMap contributors&#39;,
+          onTap: () =&gt; LaunchUrlHelper.launchURL(
+            &#39;https:&#47;&#47;www.openstreetmap.org&#47;copyright&#39;,
+          ),
+        ),
+      ],
+    ),
+  ];
+
   return Padding(
     padding: const EdgeInsetsDirectional.only(bottom: MEDIUM_SPACE),
     child: SizedBox(
       height: 200,
-      child: FlutterMap(
-        options: mapOptions,
-        children: &lt;Widget&gt;[
-          TileLayer(
-            urlTemplate: &#39;https:&#47;&#47;tile.openstreetmap.org&#47;{z}&#47;{x}&#47;{y}.png&#39;,
-            userAgentPackageName: &#39;org.openfoodfacts.app&#39;,
-          ),
-          MarkerLayer(markers: markers),
-          RichAttributionWidget(
-            popupInitialDisplayDuration: const Duration(seconds: 5),
-            animationConfig: const ScaleRAWA(),
-            showFlutterMapAttribution: false,
-            attributions: &lt;SourceAttribution&gt;[
-              TextSourceAttribution(
-                &#39;OpenStreetMap contributors&#39;,
-                onTap: () =&gt; LaunchUrlHelper.launchURL(
-                  &#39;https:&#47;&#47;www.openstreetmap.org&#47;copyright&#39;,
+      child: InkWell(
+        onTap: () {
+          Navigator.of(context).push(
+            MaterialPageRoute&lt;Widget&gt;(
+              builder: (_) =&gt; WorldMapPage(
+                title: _getTitle(context),
+                mapOptions: _generateMapOptions(
+                  coordinates: coordinates,
+                  markerSize: markerSize,
+                  initialZoom: 12.0,
+                  interactive: true,
                 ),
+                children: children,
               ),
-            ],
+            ),
+          );
+        },
+        child: IgnorePointer(
+          ignoring: true,
+          child: FlutterMap(
+            options: mapOptions,
+            children: children,
           ),
-        ],
+        ),
       ),
     ),
   );

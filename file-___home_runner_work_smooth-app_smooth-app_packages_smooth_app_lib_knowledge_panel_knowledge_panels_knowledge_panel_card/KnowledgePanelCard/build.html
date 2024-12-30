@@ -74,6 +74,7 @@ Widget build(BuildContext context) {
   final UserPreferences userPreferences = context.watch&lt;UserPreferences&gt;();
   final KnowledgePanel? panel =
       KnowledgePanelsBuilder.getKnowledgePanel(product, panelId);
+
   if (panel == null) {
     return EMPTY_WIDGET;
   }

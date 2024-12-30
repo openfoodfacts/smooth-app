@@ -99,9 +99,13 @@ Widget build(BuildContext context) {
       }
     }
   }
-  return Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: elementWidgets,
+  return Provider&lt;KnowledgePanel&gt;(
+    lazy: true,
+    create: (_) =&gt; panel,
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: elementWidgets,
+    ),
   );
 }</code></pre>
 </section>
