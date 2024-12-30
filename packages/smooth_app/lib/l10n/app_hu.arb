@@ -3459,5 +3459,17 @@
     "photo_field_packaging": "Csomagolási információk fényképe",
     "photo_already_exists": "Ez a fénykép már létezik",
     "photo_missing": "Ez a fénykép hiányzik",
-    "date": "Date"
+    "date": "Date",
+    "photo_rotate_left": "Forgatás balra",
+    "@photo_rotate_left": {
+        "description": "Button to rotate a photo to the left"
+    },
+    "photo_rotate_right": "Forgatás jobbra",
+    "@photo_rotate_right": {
+        "description": "Button to rotate a photo to the right"
+    },
+    "photo_undo_action": "Undo the previous action",
+    "@photo_undo_action": {
+        "description": "Button to undo the previous action on a photo"
+    }
 }
