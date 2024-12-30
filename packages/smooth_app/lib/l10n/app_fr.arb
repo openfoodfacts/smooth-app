@@ -3459,5 +3459,17 @@
     "photo_field_packaging": "Photo des informations sur l'emballage",
     "photo_already_exists": "Cette photo existe déjà",
     "photo_missing": "Cette photo est manquante",
-    "date": "Date"
+    "date": "Date",
+    "photo_rotate_left": "Pivoter à gauche",
+    "@photo_rotate_left": {
+        "description": "Button to rotate a photo to the left"
+    },
+    "photo_rotate_right": "Pivoter à droite",
+    "@photo_rotate_right": {
+        "description": "Button to rotate a photo to the right"
+    },
+    "photo_undo_action": "Undo the previous action",
+    "@photo_undo_action": {
+        "description": "Button to undo the previous action on a photo"
+    }
 }
