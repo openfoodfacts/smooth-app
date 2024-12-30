@@ -3468,7 +3468,7 @@
     "@photo_rotate_right": {
         "description": "Button to rotate a photo to the right"
     },
-    "photo_undo_action": "Undo the previous action",
+    "photo_undo_action": "Скасувати попередню дію",
     "@photo_undo_action": {
         "description": "Button to undo the previous action on a photo"
     }
