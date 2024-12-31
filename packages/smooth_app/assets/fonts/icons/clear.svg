@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Clear</title>
+    <g id="Clear" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M3,10 L15,10 C15.55,10 16,9.55 16,9 C16,8.45 15.55,8 15,8 L3,8 C2.44835363,8.00153816 2.00153816,8.44835363 2,9 C2,9.55 2.45,10 3,10 M1,14 L13,14 C13.55,14 14,13.55 14,13 C14,12.45 13.55,12 13,12 L1,12 C0.448353632,12.0015382 0.00153815856,12.4483536 0,13 C0,13.55 0.45,14 1,14 M4,5 C4,5.55 4.45,6 5,6 L17,6 C17.55,6 18,5.55 18,5 C18,4.45 17.55,4 17,4 L5,4 C4.44835363,4.00153816 4.00153816,4.44835363 4,5" id="Shape" fill="#000000" fill-rule="nonzero"></path>
+    </g>
+</svg>
