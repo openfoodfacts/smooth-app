@@ -151,7 +151,7 @@
     "incorrect_credentials": "Virheellinen käyttäjätunnus tai salasana.",
     "password_lost_incorrect_credentials": "Tätä sähköpostiosoitetta tai käyttäjätunnusta ei ole olemassa. Tarkista kirjautumistietosi.",
     "password_lost_server_unavailable": "Palvelimellamme on tällä hetkellä hidastuksia, pahoittelut. Yritä uudelleen myöhemmin.",
-    "login": "Käyttäjätunnus",
+    "login": "Kirjaudu",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
@@ -498,7 +498,7 @@
     "@search": {
         "description": "Hint text of a search text input field"
     },
-    "search_store": "Search for a store",
+    "search_store": "Hae myymälää",
     "@search_store": {
         "description": "Hint text of a search store text input field"
     },
@@ -519,7 +519,7 @@
     "@front_photo": {
         "description": "Button label: For adding a picture of the front of a product"
     },
-    "outdated_image_accessibility_label": "{imageType} (this image may be outdated)",
+    "outdated_image_accessibility_label": "{imageType} (tämä kuva saattaa olla vanhentunut)",
     "@outdated_image_accessibility_label": {
         "description": "Accessibility label for images that are outdated (image type may be front/ingredients/nutrition…)",
         "placeholders": {
@@ -562,7 +562,7 @@
     "@add_product_information_button_label": {},
     "new_product": "Uusi tuote",
     "@new_product": {},
-    "new_product_found_title": "New product found!",
+    "new_product_found_title": "Löysit uuden tuotteen!",
     "@new_product_found_title": {
         "description": "Title of a dialog that informs the user that a barcode doesn't exist in the database"
     },
@@ -579,11 +579,11 @@
     "@new_product_leave_message": {
         "description": "Alert dialog message when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
     },
-    "new_product_dialog_description": "Please take photos of the packaging to add this product to our common database",
+    "new_product_dialog_description": "Lisää tämä tuote yhteiseen tietokantaamme ottamalla sen pakkauksesta kuvia",
     "@new_product_dialog_description": {
         "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
     },
-    "new_product_dialog_illustration_description": "An illustration with unknown Nutri-Score and Green Score",
+    "new_product_dialog_illustration_description": "Kuva tuntemattomasta Nutri-Scoresta ja Green-Scoresta",
     "@new_product_dialog_illustration_description": {
         "description": "A description for accessibility of two images side by side: a Nutri-Score and an Green Score."
     },
@@ -661,9 +661,9 @@
     "categories_added": "Tuoteluokat lisätty",
     "new_product_title_nutriscore": "Laske Nutri-Score",
     "new_product_subtitle_nutriscore": "Hanki se täyttämällä ruokaluokka ja ravintoarvot",
-    "new_product_title_environmental_score": "Compute the Green Score",
-    "new_product_subtitle_environmental_score": "Get it by filling at least a category",
-    "new_product_additional_environmental_score": "Make Green Score computation more precise with origins, packaging & more",
+    "new_product_title_environmental_score": "Laske Green-Score",
+    "new_product_subtitle_environmental_score": "Sinun on lisättävä tuotteelle luokka, jotta laskelma voidaan suorittaa",
+    "new_product_additional_environmental_score": "Lisää tuotteen alkuperä- ja pakkaustiedot sekä muita tietoja, jotta Green-Score-laskelma olisi tarkempi",
     "new_product_title_nova": "Laske ruoan jalostustaso (NOVA)",
     "new_product_subtitle_nova": "Hanki se täyttämällä ruokaluokka ja ainesosat",
     "new_product_desc_nova_unknown": "Ruoan jalostusaste tuntematon",
@@ -685,7 +685,7 @@
     "@new_product_done_button_label": {
         "description": "Button at the end of new product page, that takes you to completed product"
     },
-    "hey_incomplete_product_message": "Tap to answer 3 questions NOW to compute Nutri-Score, Green Score & Ultra-processing (NOVA)!",
+    "hey_incomplete_product_message": "Napauta tästä ja vastaa Nutri-Scoren, Green-Scoren ja jalostusasteen (NOVA) laskemiseen tarvittaviin \nkolmeen kysymykseen!",
     "hey_incomplete_product_message_beauty": "Tap now to answer 2 questions to help analyze this cosmetic!",
     "hey_incomplete_product_message_pet_food": "Tap now to answer 3 questions to help analyze this pet food product!",
     "hey_incomplete_product_message_product": "Tap now to help complete this product!",
