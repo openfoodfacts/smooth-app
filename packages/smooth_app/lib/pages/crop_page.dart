@@ -553,12 +553,10 @@ class _IconButton extends StatelessWidget {
     required this.iconData,
     required this.onPressed,
     this.tooltip,
-    this.color,
   });
 
   final IconData iconData;
   final VoidCallback? onPressed;
-  final Color? color;
   final String? tooltip;
 
   @override
@@ -568,7 +566,6 @@ class _IconButton extends StatelessWidget {
       style: ElevatedButton.styleFrom(shape: const CircleBorder()),
       child: Icon(
         iconData,
-        color: color,
         semanticLabel: tooltip,
       ),
     );
