@@ -71,23 +71,45 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  return Column(
-    children: &lt;Widget&gt;[
-      Expanded(
-        child: ConsumerFilter&lt;AppNewsProvider&gt;(
-          buildWhen:
-              (AppNewsProvider? previousValue, AppNewsProvider currentValue) {
-            return previousValue?.hasContent != currentValue.hasContent;
-          },
-          builder: (BuildContext context, AppNewsProvider newsFeed, _) {
-            if (!newsFeed.hasContent) {
-              return const _SearchCard(
-                expandedMode: true,
-              );
-            } else {
-              return Semantics(
-                explicitChildNodes: true,
-                child: const Column(
+  return ConsumerFilter&lt;AppNewsProvider&gt;(
+    buildWhen:
+        (AppNewsProvider? previousValue, AppNewsProvider currentValue) {
+      return previousValue?.hasContent != currentValue.hasContent;
+    },
+    builder: (BuildContext context, AppNewsProvider newsFeed, _) {
+      if (!newsFeed.hasContent) {
+        return const _SearchCard(
+          expandedMode: true,
+        );
+      } else {
+        return Semantics(
+          explicitChildNodes: true,
+          child: LayoutBuilder(
+            builder: (_, BoxConstraints constraints) {
+              final bool dense = constraints.maxHeight * 0.4 &lt;=
+                  _maxHeight(context.textScaler());
+
+              if (dense) {
+                return ListView(
+                  padding: EdgeInsets.zero,
+                  children: &lt;Widget&gt;[
+                    ConstrainedBox(
+                      constraints: BoxConstraints(
+                        minHeight: math.max(
+                          _SearchCard.computeMinSize(context),
+                          constraints.maxHeight * 0.5,
+                        ),
+                      ),
+                      child: const _SearchCard(
+                        expandedMode: false,
+                      ),
+                    ),
+                    const SizedBox(height: SMALL_SPACE),
+                    const ScanTagLine(dense: true),
+                  ],
+                );
+              } else {
+                return const Column(
                   children: &lt;Widget&gt;[
                     Expanded(
                       flex: 6,
@@ -98,16 +120,16 @@ Widget build(BuildContext context) {
                     SizedBox(height: SMALL_SPACE),
                     Expanded(
                       flex: 4,
-                      child: ScanTagLine(),
+                      child: ScanTagLine(dense: false),
                     ),
                   ],
-                ),
-              );
-            }
-          },
-        ),
-      ),
-    ],
+                );
+              }
+            },
+          ),
+        );
+      }
+    },
   );
 }</code></pre>
 </section>
