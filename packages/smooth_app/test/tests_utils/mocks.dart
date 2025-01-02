@@ -62,14 +62,14 @@ class MockSmoothApp extends StatelessWidget {
           theme: SmoothTheme.getThemeData(
             Brightness.light,
             themeProvider,
-            () => context.watch<ColorProvider>(),
-            () => context.watch<TextContrastProvider>(),
+            () => colorProvider,
+            () => textContrastProvider,
           ),
           darkTheme: SmoothTheme.getThemeData(
             Brightness.dark,
             themeProvider,
-            () => context.watch<ColorProvider>(),
-            () => context.watch<TextContrastProvider>(),
+            () => colorProvider,
+            () => textContrastProvider,
           ),
           themeMode: themeProvider.currentThemeMode,
           home: child,
