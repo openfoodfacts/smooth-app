@@ -118,8 +118,6 @@ late ProductPreferences _productPreferences;
 late LocalDatabase _localDatabase;
 late ThemeProvider _themeProvider;
 final ContinuousScanModel _continuousScanModel = ContinuousScanModel();
-final PermissionListener _permissionListener =
-    PermissionListener(permission: Permission.camera);
 bool _init1done = false;
 
 // Had to split init in 2 methods, for test/screenshots reasons.
@@ -221,8 +219,9 @@ class _SmoothAppState extends State<SmoothApp> {
             _provide<ProductPreferences>(_productPreferences),
             _provide<UserManagementProvider>(_userManagementProvider),
             _provide<LocalDatabase>(_localDatabase),
-            _provide<PermissionListener>(_permissionListener),
-
+            _lazyProvide<PermissionListener>(
+              (_) => PermissionListener(permission: Permission.camera),
+            ),
             _provide<ThemeProvider>(_themeProvider),
 
             /// The next two providers are only used with the AMOLED theme
@@ -232,11 +231,9 @@ class _SmoothAppState extends State<SmoothApp> {
             _lazyProvide<TextContrastProvider>(
               (_) => TextContrastProvider(_userPreferences),
             ),
+            _provide<ContinuousScanModel>(_continuousScanModel),
 
-            /// The next two providers are only used after the onboarding
-            _lazyProvide<ContinuousScanModel>(
-              (_) => _continuousScanModel,
-            ),
+            /// Only used after the onboarding
             _lazyProvide<AppNewsProvider>(
               (_) => AppNewsProvider(_userPreferences),
             ),
