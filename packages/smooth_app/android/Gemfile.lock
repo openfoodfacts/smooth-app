@@ -117,7 +117,7 @@ GEM
       xcpretty (~> 0.4.0)
       xcpretty-travis-formatter (>= 0.0.3, < 2.0.0)
     fastlane-plugin-flutter_dart_version_manager (0.1.5)
-    fastlane-plugin-versioning (0.7.0)
+    fastlane-plugin-versioning (0.7.1)
     fastlane-sirp (1.0.0)
       sysrandom (~> 1.0)
     gh_inspector (1.1.3)
