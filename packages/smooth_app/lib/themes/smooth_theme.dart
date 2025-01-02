@@ -16,8 +16,8 @@ class SmoothTheme {
   static ThemeData getThemeData(
     final Brightness brightness,
     final ThemeProvider themeProvider,
-    final ColorProvider colorProvider,
-    final TextContrastProvider textContrastProvider,
+    final ColorProvider Function() colorProvider,
+    final TextContrastProvider Function() textContrastProvider,
   ) {
     ColorScheme myColorScheme;
 
@@ -25,10 +25,12 @@ class SmoothTheme {
       myColorScheme = lightColorScheme;
     } else {
       if (themeProvider.currentTheme == THEME_AMOLED) {
+        final ColorProvider colorNotifier = colorProvider();
+
         myColorScheme = trueDarkColorScheme.copyWith(
-          primary: getColorValue(colorProvider.currentColor),
+          primary: getColorValue(colorNotifier.currentColor),
           secondary: getShade(
-            getColorValue(colorProvider.currentColor),
+            getColorValue(colorNotifier.currentColor),
             darker: true,
             value: SECONDARY_COLOR_SHADE_VALUE,
           ),
@@ -167,9 +169,11 @@ class SmoothTheme {
   }
 
   static TextTheme getTextTheme(
-      ThemeProvider themeProvider, TextContrastProvider textContrastProvider) {
+    ThemeProvider themeProvider,
+    TextContrastProvider Function() textContrastProvider,
+  ) {
     final Color contrastLevel = themeProvider.currentTheme == THEME_AMOLED
-        ? getTextContrastLevel(textContrastProvider.currentContrastLevel)
+        ? getTextContrastLevel(textContrastProvider().currentContrastLevel)
         : Colors.white;
 
     return _TEXT_THEME.copyWith(
