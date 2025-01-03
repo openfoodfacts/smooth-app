@@ -151,7 +151,7 @@
     "incorrect_credentials": "Virheellinen käyttäjätunnus tai salasana.",
     "password_lost_incorrect_credentials": "Tätä sähköpostiosoitetta tai käyttäjätunnusta ei ole olemassa. Tarkista kirjautumistietosi.",
     "password_lost_server_unavailable": "Palvelimellamme on tällä hetkellä hidastuksia, pahoittelut. Yritä uudelleen myöhemmin.",
-    "login": "Käyttäjätunnus",
+    "login": "Kirjaudu",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
@@ -498,7 +498,7 @@
     "@search": {
         "description": "Hint text of a search text input field"
     },
-    "search_store": "Search for a store",
+    "search_store": "Hae myymälää",
     "@search_store": {
         "description": "Hint text of a search store text input field"
     },
@@ -519,7 +519,7 @@
     "@front_photo": {
         "description": "Button label: For adding a picture of the front of a product"
     },
-    "outdated_image_accessibility_label": "{imageType} (this image may be outdated)",
+    "outdated_image_accessibility_label": "{imageType} (tämä kuva saattaa olla vanhentunut)",
     "@outdated_image_accessibility_label": {
         "description": "Accessibility label for images that are outdated (image type may be front/ingredients/nutrition…)",
         "placeholders": {
@@ -562,7 +562,7 @@
     "@add_product_information_button_label": {},
     "new_product": "Uusi tuote",
     "@new_product": {},
-    "new_product_found_title": "New product found!",
+    "new_product_found_title": "Löysit uuden tuotteen!",
     "@new_product_found_title": {
         "description": "Title of a dialog that informs the user that a barcode doesn't exist in the database"
     },
@@ -579,11 +579,11 @@
     "@new_product_leave_message": {
         "description": "Alert dialog message when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
     },
-    "new_product_dialog_description": "Please take photos of the packaging to add this product to our common database",
+    "new_product_dialog_description": "Lisää tämä tuote yhteiseen tietokantaamme ottamalla sen pakkauksesta kuvia",
     "@new_product_dialog_description": {
         "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
     },
-    "new_product_dialog_illustration_description": "An illustration with unknown Nutri-Score and Green Score",
+    "new_product_dialog_illustration_description": "Kuva tuntemattomasta Nutri-Scoresta ja Green-Scoresta",
     "@new_product_dialog_illustration_description": {
         "description": "A description for accessibility of two images side by side: a Nutri-Score and an Green Score."
     },
@@ -661,9 +661,9 @@
     "categories_added": "Tuoteluokat lisätty",
     "new_product_title_nutriscore": "Laske Nutri-Score",
     "new_product_subtitle_nutriscore": "Hanki se täyttämällä ruokaluokka ja ravintoarvot",
-    "new_product_title_environmental_score": "Compute the Green Score",
-    "new_product_subtitle_environmental_score": "Get it by filling at least a category",
-    "new_product_additional_environmental_score": "Make Green Score computation more precise with origins, packaging & more",
+    "new_product_title_environmental_score": "Laske Green-Score",
+    "new_product_subtitle_environmental_score": "Sinun on lisättävä tuotteelle luokka, jotta laskelma voidaan suorittaa",
+    "new_product_additional_environmental_score": "Lisää tuotteen alkuperä- ja pakkaustiedot sekä muita tietoja, jotta Green-Score-laskelma olisi tarkempi",
     "new_product_title_nova": "Laske ruoan jalostustaso (NOVA)",
     "new_product_subtitle_nova": "Hanki se täyttämällä ruokaluokka ja ainesosat",
     "new_product_desc_nova_unknown": "Ruoan jalostusaste tuntematon",
@@ -685,10 +685,10 @@
     "@new_product_done_button_label": {
         "description": "Button at the end of new product page, that takes you to completed product"
     },
-    "hey_incomplete_product_message": "Tap to answer 3 questions NOW to compute Nutri-Score, Green Score & Ultra-processing (NOVA)!",
-    "hey_incomplete_product_message_beauty": "Tap now to answer 2 questions to help analyze this cosmetic!",
-    "hey_incomplete_product_message_pet_food": "Tap now to answer 3 questions to help analyze this pet food product!",
-    "hey_incomplete_product_message_product": "Tap now to help complete this product!",
+    "hey_incomplete_product_message": "Napauta tästä ja vastaa Nutri-Scoren, Green-Scoren ja jalostusasteen (NOVA) laskemiseen tarvittaviin \nkolmeen kysymykseen!",
+    "hey_incomplete_product_message_beauty": "Napauta tästä ja vastaa kahteen kosmetiikkatuotteen analysoimiseen tarvittavaan kysymykseen!",
+    "hey_incomplete_product_message_pet_food": "Napauta tästä ja vastaa kahteen lemmikkieläinten ruokatuotteen analysoimiseen tarvittavaan kysymykseen!",
+    "hey_incomplete_product_message_product": "Napauta tästä ja auta täydentämään tämän tuotteen tiedot!",
     "nutritional_facts_photo_uploaded": "Ravintosisältökuva ladattu",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "Kierrätyskuva",
@@ -754,7 +754,7 @@
     "nutrition_page_invalid_number": "Virheellinen numero",
     "nutrition_page_update_running": "Päivitetään tuotteita palvelimella…",
     "nutrition_page_update_done": "Tuote päivitetty!",
-    "nutrition_page_take_serving_size_from_product_quantity": "Use the product quantity as serving size",
+    "nutrition_page_take_serving_size_from_product_quantity": "Käytä tuotteen määrää annoskokona",
     "@nutrition_page_take_serving_size_from_product_quantity": {
         "description": "Button label: Use the product quantity as serving size (nutrition page)"
     },
@@ -792,8 +792,8 @@
             }
         }
     },
-    "product_image_outdated": "This image may be outdated",
-    "product_image_action_replace_photo": "Replace photo ({type})",
+    "product_image_outdated": "Tämä kuva saattaa olla vanhentunut",
+    "product_image_action_replace_photo": "Korvaa kuva ({type})",
     "@product_image_action_replace_photo": {
         "description": "Action on the photo gallery to replace an existing picture",
         "placeholders": {
@@ -803,7 +803,7 @@
             }
         }
     },
-    "product_image_action_add_photo": "Add a photo ({type})",
+    "product_image_action_add_photo": "Lisää kuva ({type})",
     "@product_image_action_add_photo": {
         "description": "Action on the photo gallery to add a photo (eg: ingredients)",
         "placeholders": {
@@ -821,11 +821,11 @@
     "@product_image_action_take_picture": {
         "description": "Take a picture (eg: for ingredients) when there is no one"
     },
-    "product_image_action_from_gallery": "Select from your phone's gallery",
+    "product_image_action_from_gallery": "Valitse puhelimen galleriasta",
     "@product_image_action_from_gallery": {
         "description": "Replace the existing picture with one from the device's gallery"
     },
-    "product_image_action_choose_existing_photo": "Select from the product photos",
+    "product_image_action_choose_existing_photo": "Valitse tuotekuvista",
     "@product_image_action_choose_existing_photo": {
         "description": "Replace the existing picture with one from the product's photos"
     },
@@ -874,20 +874,20 @@
             }
         }
     },
-    "product_tags_title": "Product properties",
+    "product_tags_title": "Tuotteen ominaisuudet",
     "@product_tags_title": {
         "description": "The title for showing product properties, aka folksonomy data"
     },
-    "no_product_tags_found_message": "No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.",
+    "no_product_tags_found_message": "Tuotteen ominaisuuksia ei löytynyt. Ominaisuuksien avulla voidaan kuvata tuotteita tarkemmin, joustavasti. Lisää napauttamalla.",
     "@no_product_tags_found_message": {
         "description": "Message to show if there are no product properties found"
     },
-    "add_tag": "Add property",
-    "edit_tag": "Edit property",
-    "remove_tag": "Remove property",
-    "tag_key": "Property",
+    "add_tag": "Lisää omaisuus",
+    "edit_tag": "Muokkaa ominaisuutta",
+    "remove_tag": "Poista ominaisuus",
+    "tag_key": "Ominaisuus",
     "tag_value": "Arvo",
-    "invalid_key_format": "Invalid property format. It must be lowercase and without any spaces.",
+    "invalid_key_format": "Virheellinen ominaisuuden muoto. Se pitää kirjoittaa pienillä kirjaimilla ilman välilyöntejä.",
     "@invalid_key_format": {
         "description": "Message to show if the property's value for a new product property is invalid. This logic is identical to whats being validated in the Folksonomy API"
     },
@@ -905,7 +905,7 @@
     "@product_search_same_category_short": {
         "description": "Button looking for the other products within the same category. Just the verb compare"
     },
-    "product_search_same_category_error": "This feature can only be used for products with a category.\n\nPlease edit the product to add a category.",
+    "product_search_same_category_error": "Tätä ominaisuutta voi käyttää vain tuotteissa, joilla on luokka.\n\nLisää luokka muokkaamalla tuotetta.",
     "@product_search_same_category_error": {
         "description": "Button looking for the other products within the same category. Just the verb compare"
     },
@@ -929,7 +929,7 @@
     "@product_improvement_obsolete_nutrition_image": {
         "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
     },
-    "product_improvement_origins_to_be_completed": "The Green Score takes into account the origins of the ingredients. Please take a photo of the ingredient list and/or any geographic claim or edit the product, so they can be taken into account.",
+    "product_improvement_origins_to_be_completed": "Green-Scoren laskelmassa otetaan huomioon ainesosien alkuperät. Ota kuva ainesosaluettelosta tai mistä vain maantieteellisestä alkuperästä kertovasta väittämästä, tai muokkaa tuotetta, jotta ainesosien alkuperä voidaan ottaa huomioon laskelmassa.",
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
@@ -1058,26 +1058,26 @@
             "count": {}
         }
     },
-    "multiselect_title": "{count,plural, =0{No selected product} =1{One selected product} other{{count} selected products}}",
+    "multiselect_title": "{count,plural, =0{Ei valittuja tuotteita} =1{Yksi tuote valittu} other{{count} tuotetta valittu}}",
     "@multiselect_title": {
         "description": "Page title with the number of selected items",
         "placeholders": {
             "count": {}
         }
     },
-    "compare_products_mode": "Compare selected products",
+    "compare_products_mode": "Vertaile valittuja tuotteita",
     "@compare_products_mode": {
         "description": "Button to switch to 'compare products mode'"
     },
-    "delete_products_mode": "Delete selected products",
+    "delete_products_mode": "Poista valitut tuotteet",
     "@delete_products_mode": {
         "description": "Button to switch to 'delete products'"
     },
-    "select_all_products_mode": "Select all products",
+    "select_all_products_mode": "Valitse kaikki tuotteet",
     "@select_all_products_mode": {
         "description": "Button to switch to 'select all products'"
     },
-    "select_none_products_mode": "Select none",
+    "select_none_products_mode": "Tyhjennä valinta",
     "@select_none_products_mode": {
         "description": "Button to switch to 'select no products'"
     },
@@ -1694,7 +1694,7 @@
     "@user_list_name_error_same": {
         "description": "Validation error about the renamed name that is the same as the initial list name"
     },
-    "user_list_name_input_hint": "Name of the list",
+    "user_list_name_input_hint": "Luettelon nimi",
     "@user_list_name_input_hint": {
         "description": "A hint to indicate that the user should input a name of a list"
     },
@@ -1869,16 +1869,16 @@
         }
     },
     "product_type_label_food": "Ruoka",
-    "product_type_label_beauty": "Personal care",
+    "product_type_label_beauty": "Henkilökohtainen hoito",
     "product_type_label_pet_food": "Lemmikin ruoka",
     "product_type_label_product": "Muu",
-    "product_type_selection_title": "Product type",
-    "product_type_selection_subtitle": "Select the type of this product",
-    "product_type_selection_empty": "You need to select a product type first!",
+    "product_type_selection_title": "Tuotetyyppi",
+    "product_type_selection_subtitle": "Valitse tuotteen tyyppi",
+    "product_type_selection_empty": "Tuotteen tyyppi on valittava ensin!",
     "@product_type_selection_empty": {
         "description": "Error message about product type that needs to be set"
     },
-    "product_type_selection_already": "You cannot change the product type ({productType})!",
+    "product_type_selection_already": "Et voi muuttaa tuotetyyppiä ({productType})!",
     "@product_type_selection_already": {
         "description": "Error message about product type that cannot be set again",
         "placeholders": {
@@ -1890,13 +1890,13 @@
     "prices_app_dev_mode_flag": "Pikakuvake Hinnat-sovellukseen tuotesivulla",
     "prices_app_button": "Siirry Hinnat-sovellukseen",
     "prices_generic_title": "Hinnat",
-    "prices_add_n_prices": "{count,plural, =1{Add a price} other{Add {count} prices}}",
+    "prices_add_n_prices": "{count,plural, =1{Lisää hinta} other{Lisää {count} hintaa}}",
     "prices_send_n_prices": "{count,plural, =1{Lähetä hinta} other{Lähetä {count} hintaa}}",
     "prices_add_an_item": "Lisää tuote",
     "prices_add_a_price": "Lisää hinta",
     "prices_add_a_receipt": "Lisää kuitti",
     "prices_add_price_tags": "Lisää hintalaput",
-    "prices_barcode_already": "This barcode ({barcode}) is already in the list!",
+    "prices_barcode_already": "Viivakoodi ({barcode}) on jo luettelossa!",
     "@prices_barcode_already": {
         "description": "Error message about barcode being already there",
         "placeholders": {
@@ -1916,7 +1916,7 @@
             }
         }
     },
-    "prices_barcode_enter": "Enter the Barcode",
+    "prices_barcode_enter": "Syötä viivakoodi",
     "prices_barcode_reader_action": "Viivakoodinlukija",
     "prices_view_prices": "Katso hinnat",
     "prices_product_accessibility_summary": "{count,plural, =1{1 hinta} other{{count} hintaa}} tuotteelle {product}",
@@ -2016,7 +2016,7 @@
             }
         }
     },
-    "prices_locations_list_length_many_pages": "Top {pageSize} locations (total: {total})",
+    "prices_locations_list_length_many_pages": "Näytetään {pageSize} kohdetta (yhteensä: {total})",
     "@prices_locations_list_length_many_pages": {
         "description": "Number of locations for one-page result",
         "placeholders": {
@@ -2028,7 +2028,7 @@
             }
         }
     },
-    "prices_button_count_proof": "{count,plural, =0{No proof} =1{One proof} other{{count} proofs}}",
+    "prices_button_count_proof": "{count,plural, =0{Ei todisteita} =1{Yksi todiste} other{{count} todistetta}}",
     "@prices_button_count_proof": {
         "description": "Number of proofs, for a button",
         "placeholders": {
@@ -2037,7 +2037,7 @@
             }
         }
     },
-    "prices_button_count_product": "{count,plural, =0{No product} =1{One product} other{{count} products}}",
+    "prices_button_count_product": "{count,plural, =0{Ei tuotteita} =1{Yksi tuote} other{{count} tuotetta}}",
     "@prices_button_count_product": {
         "description": "Number of products, for a button",
         "placeholders": {
@@ -2046,7 +2046,7 @@
             }
         }
     },
-    "prices_button_count_user": "{count,plural, =0{No user} =1{One user} other{{count} users}}",
+    "prices_button_count_user": "{count,plural, =0{Ei käyttäjiä} =1{Yksi käyttäjä} other{{count} käyttäjää}}",
     "@prices_button_count_user": {
         "description": "Number of users, for a button",
         "placeholders": {
@@ -2055,7 +2055,7 @@
             }
         }
     },
-    "prices_button_count_price": "{count,plural, =0{No price} =1{One price} other{{count} prices}}",
+    "prices_button_count_price": "{count,plural, =0{Ei hintoja} =1{Yksi hinta} other{{count} hintaa}}",
     "@prices_button_count_price": {
         "description": "Number of prices, for a button",
         "placeholders": {
@@ -2077,7 +2077,7 @@
     "prices_location_subtitle": "Myymälä",
     "prices_location_find": "Etsi kauppa",
     "prices_location_mandatory": "Sinun on valittava kauppa!",
-    "prices_location_search_broader": "Couldn't find what you were looking for? Let's try a broader search!",
+    "prices_location_search_broader": "Etkö löytänyt etsimääsi? Kokeillaan laajempaa hakua!",
     "prices_proof_subtitle": "Todiste",
     "prices_proof_find": "Valitse todiste",
     "prices_proof_receipt": "Kuitti",
@@ -2100,11 +2100,11 @@
     "dev_mode_section_ui": "Käyttöliittymä",
     "dev_mode_section_data": "Tiedot",
     "dev_mode_section_experimental_features": "Kokeelliset ominaisuudet",
-    "dev_preferences_show_folksonomy_title": "Exclude Folksonomy",
+    "dev_preferences_show_folksonomy_title": "Piilota folksonomia",
     "@dev_preferences_show_folksonomy_title": {
         "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
     },
-    "dev_mode_hide_environmental_score_title": "Exclude Green Score",
+    "dev_mode_hide_environmental_score_title": "Piilota Green-Score",
     "@dev_mode_hide_environmental_score_title": {
         "description": "User dev preferences - Disable Green Score - Title"
     },
@@ -2195,7 +2195,7 @@
     "@all_search_prices_top_location_title": {
         "description": "Top price locations: list tile title"
     },
-    "all_search_prices_top_location_single_title": "Prices in a store",
+    "all_search_prices_top_location_single_title": "Myymälähinnat",
     "@all_search_prices_top_location_single_title": {
         "description": "Top price locations: list tile title"
     },
@@ -2273,7 +2273,7 @@
     "@edit_photo_select_existing_all_label": {
         "description": "Page title"
     },
-    "edit_photo_select_existing_all_subtitle": "Select an image by clicking on it",
+    "edit_photo_select_existing_all_subtitle": "Valitse kuva napauttamalla sitä",
     "@edit_photo_select_existing_all_subtitle": {
         "description": "Page title"
     },
@@ -2452,7 +2452,7 @@
             }
         }
     },
-    "share_product_text_beauty": "Have a look at this product on Open Beauty Facts: {url}",
+    "share_product_text_beauty": "Katso tämä tuote Open Beauty Factsissa: {url}",
     "@share_product_text_beauty": {
         "description": "The content which is send, when sharing a 'beauty' product",
         "placeholders": {
@@ -2461,7 +2461,7 @@
             }
         }
     },
-    "share_product_text_pet_food": "Have a look at this product on Open PetFood Facts: {url}",
+    "share_product_text_pet_food": "Katso tämä tuote Open PetFood Factsissa: {url}",
     "@share_product_text_pet_food": {
         "description": "The content which is send, when sharing a 'pet food' product",
         "placeholders": {
@@ -2470,7 +2470,7 @@
             }
         }
     },
-    "share_product_text_product": "Have a look at this product on Open Products Facts: {url}",
+    "share_product_text_product": "Katso tämä tuote Open Products Factsissa: {url}",
     "@share_product_text_product": {
         "description": "The content which is send, when sharing a 'products' product",
         "placeholders": {
@@ -2526,8 +2526,8 @@
         "description": "Label for expanding nutrition facts table in application setting"
     },
     "expand_ingredients_body": "Pidä ainesosat laajennettuna",
-    "search_product_filter_visibility_title": "Show a filter in the search",
-    "search_product_filter_visibility_subtitle": "Select search site: Open Food Facts, Open Beauty Facts, Open Pet Food Facts or Open Products Facts",
+    "search_product_filter_visibility_title": "Näytä suodatin haussa",
+    "search_product_filter_visibility_subtitle": "Valitse hakusivusto: Open Food Facts, Open Beauty Facts, Open Pet Food Facts tai Open Products Facts",
     "@search_product_filter_visibility_subtitle": {
         "description": "Label for showing the product type filter in the search bar"
     },
@@ -2699,7 +2699,7 @@
     "@user_picture_source_remember": {
         "description": "Checkbox label when select a picture source"
     },
-    "user_picture_source_ask": "Ask each time",
+    "user_picture_source_ask": "Kysy aina",
     "@user_picture_source_ask": {
         "description": "Choice of asking the picture source every time"
     },
@@ -2726,19 +2726,19 @@
     "app_rating_dialog_title_enjoying_positive_actions": "Kyllä",
     "not_really": "En juurikaan",
     "app_rating_dialog_title_not_enjoying_app": "Ikävä kuulla! Voitko kertoa, mitä tapahtui?",
-    "owner_field_info_title": "Producer provided values",
+    "owner_field_info_title": "Tuottajan toimittamat arvot",
     "@owner_field_info_title": {
         "description": "Title of the 'producer provided' info list-tile"
     },
-    "owner_field_info_message": "With that logo we highlight data provided by the producer, and that may not be editable.",
+    "owner_field_info_message": "Logolla korostamme tuottajan toimittamia tietoja, joita ei välttämättä voi muokata.",
     "@owner_field_info_message": {
         "description": "Title of the 'producer provided' info list-tile"
     },
-    "owner_field_info_close_button": "Close this info",
+    "owner_field_info_close_button": "Sulje tiedot",
     "@owner_field_info_close_button": {
         "description": "The owner info may be shown in a closeable dialog. This is the label of the button (used on a long press event and for the accessibility label)."
     },
-    "owner_field_image": "This image is provided by the producer. It may not be editable.",
+    "owner_field_image": "Tämä on tuottajan toimittama kuva. Sitä ei ehkä voi muokata.",
     "@owner_field_image": {
         "description": "An image is directly provided by the producer. It may be locked and not be editable."
     },
@@ -3087,14 +3087,14 @@
     "nutriscore_unknown_new_formula": "Tuntematon Nutri-Score (Uusi laskukaava)",
     "nutriscore_not_applicable": "Nutri-Score ei sovellu",
     "nutriscore_not_applicable_new_formula": "Nutri-Score ei ole sovellettavissa (Uusi laskukaava)",
-    "environmental_score_generic": "Green Score",
-    "environmental_score_a": "Green Score A",
-    "environmental_score_b": "Green Score B",
-    "environmental_score_c": "Green Score C",
-    "environmental_score_d": "Green Score D",
-    "environmental_score_e": "Green Score E",
-    "environmental_score_unknown": "Unknown Green Score",
-    "environmental_score_not_applicable": "Green Score is not applicable",
+    "environmental_score_generic": "Green-Score",
+    "environmental_score_a": "Green-Score A",
+    "environmental_score_b": "Green-Score B",
+    "environmental_score_c": "Green-Score C",
+    "environmental_score_d": "Green-Score D",
+    "environmental_score_e": "Green-Score E",
+    "environmental_score_unknown": "Tuntematon Green-Score",
+    "environmental_score_not_applicable": "Green-Score ei sovellu",
     "nova_group_generic": "Ultraprosessointi - NOVA-ryhmät",
     "nova_group_1": "NOVA Ryhmä 1",
     "nova_group_2": "NOVA Ryhmä 2",
@@ -3208,19 +3208,19 @@
     "@prices_feedback_form": {
         "description": "A button to send feedback about the prices feature"
     },
-    "menu_button_list_actions": "Select an action",
+    "menu_button_list_actions": "Valitse toiminto",
     "@menu_button_list_actions": {
         "description": "Button to select an action in a list (eg: Share, Delete, …)"
     },
-    "error_loading_photo": "Error loading photo",
+    "error_loading_photo": "Virhe kuvaa ladattaessa",
     "@error_loading_photo": {
         "description": "Error message when loading a photo fails to load"
     },
-    "photo_viewer_action_use_picture_as": "Use as…",
+    "photo_viewer_action_use_picture_as": "Tee tästä kuvasta…",
     "@photo_viewer_action_use_picture_as": {
         "description": "An action to use the current picture to be used as front/ingredients…"
     },
-    "photo_viewer_use_picture_as_title": "Use this picture as… ({language})",
+    "photo_viewer_use_picture_as_title": "Tee tästä kuvasta… ({language})",
     "@photo_viewer_use_picture_as": {
         "description": "The title of a dialog to use the current picture as front/ingredients…",
         "placeholders": {
@@ -3233,11 +3233,11 @@
     "@photo_viewer_details_button": {
         "description": "Button to show details of the photo"
     },
-    "photo_viewer_details_button_accessibility_label": "Details of this photo",
+    "photo_viewer_details_button_accessibility_label": "Kuvan tiedot",
     "@photo_viewer_details_button_accessibility_label": {
         "description": "Accessibility label for the Details button on a photo"
     },
-    "photo_viewer_details_title": "Details of the photo",
+    "photo_viewer_details_title": "Kuvan tiedot",
     "@photo_viewer_details_title": {
         "description": "Title of the photo details dialog"
     },
@@ -3245,11 +3245,11 @@
     "@photo_viewer_details_contributor_title": {
         "description": "Label for the author of a photo"
     },
-    "photo_viewer_details_size_title": "Size",
+    "photo_viewer_details_size_title": "Koko",
     "@photo_viewer_details_size_title": {
         "description": "Label for the size of a photo"
     },
-    "photo_viewer_details_size_value": "{width} x {height} pixels",
+    "photo_viewer_details_size_value": "{width} x {height} kuvapistettä",
     "@photo_viewer_details_size_value": {
         "description": "Value for the size of a photo",
         "placeholders": {
@@ -3269,15 +3269,15 @@
     "@photo_viewer_details_url_title": {
         "description": "Label for the link of a photo"
     },
-    "product_page_compatibility_score": "Compatible",
+    "product_page_compatibility_score": "Yhteensopiva",
     "@product_page_compatibility_score": {
         "description": "Compatibility score on top of the product page. The sentence is \"100%\" Compatible"
     },
-    "user_lists_action_multi_select": "Multi-select",
+    "user_lists_action_multi_select": "Monivalinta",
     "@user_lists_action_multi_select": {
         "description": "The button label for multi-selecting products in a user list"
     },
-    "product_page_compatibility_score_tooltip": "Your compatibility score: {score}%",
+    "product_page_compatibility_score_tooltip": "Yhteensopivuuspisteesi: {score} %",
     "@product_page_compatibility_score_tooltip": {
         "description": "Message explaining that the score is the compatibility score",
         "placeholders": {
@@ -3294,23 +3294,23 @@
     "@product_image_ingredients_accessibility_label": {
         "description": "Accessibility label for the image of ingredients"
     },
-    "product_image_nutrition_accessibility_label": "Nutrition picture",
+    "product_image_nutrition_accessibility_label": "Ravintoarvokuva",
     "@product_image_nutrition_accessibility_label": {
         "description": "Accessibility label for the image of the nutrition"
     },
-    "product_image_packaging_accessibility_label": "Packaging picture",
+    "product_image_packaging_accessibility_label": "Pakkauksen kuva",
     "@product_image_packaging_accessibility_label": {
         "description": "Accessibility label for the image of the packaging"
     },
-    "product_image_other_accessibility_label": "Other picture",
+    "product_image_other_accessibility_label": "Muu kuva",
     "@product_image_other_accessibility_label": {
         "description": "Accessibility label for an image"
     },
-    "product_image_outdated_message": "This picture may be outdated",
+    "product_image_outdated_message": "Tämä kuva saattaa olla vanhentunut",
     "@product_image_outdated_message": {
         "description": "Small message to indicate that the image may be outdated"
     },
-    "product_image_outdated_message_accessibility_label": "{type} (this image may be outdated)",
+    "product_image_outdated_message_accessibility_label": "{type} (tämä kuva saattaa olla vanhentunut)",
     "@product_image_outdated_message_accessibility_label": {
         "description": "Accessibility label for the image on the product page when it may be outdated",
         "placeholders": {
@@ -3319,7 +3319,7 @@
             }
         }
     },
-    "product_image_locked_message_accessibility_label": "{type} (this image may be locked by the producer)",
+    "product_image_locked_message_accessibility_label": "{type} (tuottaja on saattanut lukita tämän kuvan)",
     "@product_image_locked_message_accessibility_label": {
         "description": "Accessibility label for the image on the product page when it may be locked (producer provided)",
         "placeholders": {
@@ -3328,11 +3328,11 @@
             }
         }
     },
-    "product_image_error": "Unable to load the image!",
+    "product_image_error": "Kuvaa ei voi ladata!",
     "@product_image_error": {
         "description": "Small message that will be displayed above the picture (please keep it short)"
     },
-    "product_image_error_accessibility_label": "Unable to load the {type} (network error?)",
+    "product_image_error_accessibility_label": "{type}a ei voitu ladata. (verkkovirhe?)",
     "@product_image_error_accessibility_label": {
         "description": "Accessibility label for the image on the product page when it fails to load",
         "placeholders": {
@@ -3341,15 +3341,15 @@
             }
         }
     },
-    "product_page_image_no_image_available": "No\nimage!",
+    "product_page_image_no_image_available": "Ei\nkuvaa!",
     "@product_page_image_no_image_available": {
         "description": "Small message that will be displayed above the picture (please keep it short) when there is no image available on the database. A line break is not mandatory."
     },
-    "product_page_image_no_image_available_accessibility_label": "No picture available for this product",
+    "product_page_image_no_image_available_accessibility_label": "Tästä tuotteesta ei ole saatavilla kuvaa",
     "@product_page_image_no_image_available_accessibility_label": {
         "description": "Accessibility label for the image on the product page when there is no image available on the database"
     },
-    "product_page_action_bar_settings_accessibility_label": "Reorder or hide actions",
+    "product_page_action_bar_settings_accessibility_label": "Järjestä tai piilota toimintoja",
     "@product_page_action_bar_settings_accessibility_label": {
         "description": "Accessibility label for the Settings icon in the action bar (= bottom bar) on the product page"
     },
