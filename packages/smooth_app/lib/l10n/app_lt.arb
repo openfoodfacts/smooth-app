@@ -562,10 +562,15 @@
     "@add_product_information_button_label": {},
     "new_product": "Naujas produktas",
     "@new_product": {},
-    "new_product_dialog_title": "Jūs ką tik radote naują produktą!",
-    "@new_product_dialog_title": {
-        "description": "Please keep it short, like 50 characters. Title of the dialog when the user searched for an unknown barcode."
+    "new_product_found_title": "Rastas naujas produktas!",
+    "@new_product_found_title": {
+        "description": "Title of a dialog that informs the user that a barcode doesn't exist in the database"
     },
+    "new_product_found_text": "Mūsų bendradarbiavimo duomenų bazėje yra daugiau negu **3 milijonai produktų**, tačiau šio brūkšninio kodo nėra: ",
+    "@new_product_found_text": {
+        "description": "Please keep the ** syntax to make the text bold"
+    },
+    "new_product_found_button": "Pridėti šį produktą",
     "new_product_leave_title": "Palikti šį puslapį?",
     "@new_product_leave_title": {
         "description": "Alert dialog title when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
@@ -578,9 +583,9 @@
     "@new_product_dialog_description": {
         "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
     },
-    "new_product_dialog_illustration_description": "An illustration with unknown Nutri-Score and Eco-Score",
+    "new_product_dialog_illustration_description": "Iliustracija su nežinomu „Nutri-Score“ ir „Green Score“",
     "@new_product_dialog_illustration_description": {
-        "description": "A description for accessibility of two images side by side: a Nutri-Score and an EcoScore."
+        "description": "A description for accessibility of two images side by side: a Nutri-Score and an Green Score."
     },
     "front_packaging_photo_button_label": "Produkto priekinė nuotrauka",
     "@front_packaging_photo_button_label": {},
@@ -656,9 +661,9 @@
     "categories_added": "Pridėtos kategorijos",
     "new_product_title_nutriscore": "Apskaičiuoti „Nutri-Score“",
     "new_product_subtitle_nutriscore": "Gaukite jį užpildę maisto kategoriją ir maistines vertes",
-    "new_product_title_ecoscore": "Apskaičiuoti „Eco-Score“",
-    "new_product_subtitle_ecoscore": "Gaukite jį užpildę bent vieną kategoriją",
-    "new_product_additional_ecoscore": "Padarykite Eco-Score skaičiavimą tikslesnį, nurodydami kilmę, pakuotę ir kt",
+    "new_product_title_environmental_score": "Apskaičiuoti „Green Score“",
+    "new_product_subtitle_environmental_score": "Gaukite jį užpildę bent vieną kategoriją",
+    "new_product_additional_environmental_score": "Gaukite tikslesnį „Green Score“ skaičiavimą, nurodydami kilmę, pakuotę ir t. t.",
     "new_product_title_nova": "Apskaičiuoti maisto apdorojimo lygį (NOVA)",
     "new_product_subtitle_nova": "Gauti jį užpildžius maisto kategoriją ir ingredientus",
     "new_product_desc_nova_unknown": "Maisto perdirbimo lygis nežinomas",
@@ -680,7 +685,7 @@
     "@new_product_done_button_label": {
         "description": "Button at the end of new product page, that takes you to completed product"
     },
-    "hey_incomplete_product_message": "Tap to answer 3 questions NOW to compute Nutri-Score, Eco-Score & Ultra-processing (NOVA)!",
+    "hey_incomplete_product_message": "Bakstelėkite, kad atsakytumėte į 3 klausimus DABAR ir apskaičiuokite „Nutri-Score“, „Green Score“ ir ultraapdorojimą (NOVA)!",
     "hey_incomplete_product_message_beauty": "Bakstelėkite dabar, kad atsakytumėte į 2 klausimus, kurie padės išanalizuoti šią kosmetiką!",
     "hey_incomplete_product_message_pet_food": "Bakstelėkite dabar, kad atsakytumėte į 3 klausimus, kurie padės išanalizuoti šį maisto produktą!",
     "hey_incomplete_product_message_product": "Bakstelėkite dabar, kad padėtumėte baigti šį produktą!",
@@ -924,7 +929,7 @@
     "@product_improvement_obsolete_nutrition_image": {
         "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
     },
-    "product_improvement_origins_to_be_completed": "Apskaičiuojant „Eco-Score“ atsižvelgiama į sudedamųjų dalių kilmę. Nufotografuokite ingredientų sąrašą ir (arba) bet kokį geografinį teiginį arba redaguokite produktą, kad būtų galima į juos atsižvelgti.",
+    "product_improvement_origins_to_be_completed": "Apskaičiuojant „Green Score“, atsižvelgiama į sudedamųjų dalių kilmę. Nufotografuokite ingredientų sąrašą ir (arba) bet kokį geografinį teiginį ar redaguokite produktą, kad būtų galima į juos atsižvelgti.",
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
@@ -2011,7 +2016,7 @@
             }
         }
     },
-    "prices_locations_list_length_many_pages": "Top {pageSize} locations (total: {total})",
+    "prices_locations_list_length_many_pages": "Geriausios {pageSize} vietos (iš viso: {total})",
     "@prices_locations_list_length_many_pages": {
         "description": "Number of locations for one-page result",
         "placeholders": {
@@ -2023,7 +2028,7 @@
             }
         }
     },
-    "prices_button_count_proof": "{count,plural, =0{No proof} =1{One proof} other{{count} proofs}}",
+    "prices_button_count_proof": "{count,plural, one {} few {{count} įrodymai} many {{count} įrodymų}=0{No proof} =1{One proof} other{{count} įrodumai}}",
     "@prices_button_count_proof": {
         "description": "Number of proofs, for a button",
         "placeholders": {
@@ -2032,7 +2037,7 @@
             }
         }
     },
-    "prices_button_count_product": "{count,plural, =0{No product} =1{One product} other{{count} products}}",
+    "prices_button_count_product": "{count,plural, =0{Nėra produktų} =1{Vienas produktas} other{{count} produktai}}",
     "@prices_button_count_product": {
         "description": "Number of products, for a button",
         "placeholders": {
@@ -2041,7 +2046,7 @@
             }
         }
     },
-    "prices_button_count_user": "{count,plural, =0{No user} =1{One user} other{{count} users}}",
+    "prices_button_count_user": "{count,plural, =0{Nėra vartotojų} =1{Vienas vartotojas} other{{count} vartotojai}}",
     "@prices_button_count_user": {
         "description": "Number of users, for a button",
         "placeholders": {
@@ -2050,7 +2055,7 @@
             }
         }
     },
-    "prices_button_count_price": "{count,plural, =0{No price} =1{One price} other{{count} prices}}",
+    "prices_button_count_price": "{count,plural, =0{Nėra kainų} =1{Viena kaina} other{{count} kainos}}}",
     "@prices_button_count_price": {
         "description": "Number of prices, for a button",
         "placeholders": {
@@ -2099,9 +2104,9 @@
     "@dev_preferences_show_folksonomy_title": {
         "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
     },
-    "dev_mode_hide_ecoscore_title": "Neįtraukti Eco-Score",
-    "@dev_mode_hide_ecoscore_title": {
-        "description": "User dev preferences - Disable Ecoscore - Title"
+    "dev_mode_hide_environmental_score_title": "Neįtraukti „Green Score“",
+    "@dev_mode_hide_environmental_score_title": {
+        "description": "User dev preferences - Disable Green Score - Title"
     },
     "dev_mode_spellchecker_for_ocr_title": "Use a spellchecker for OCR screens",
     "@dev_mode_spellchecker_for_ocr_title": {
@@ -2190,7 +2195,7 @@
     "@all_search_prices_top_location_title": {
         "description": "Top price locations: list tile title"
     },
-    "all_search_prices_top_location_single_title": "Prices in a store",
+    "all_search_prices_top_location_single_title": "Kainos parduotuvėje",
     "@all_search_prices_top_location_single_title": {
         "description": "Top price locations: list tile title"
     },
@@ -3082,14 +3087,14 @@
     "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
     "nutriscore_not_applicable": "Nutri-Score is not applicable",
     "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
-    "ecoscore_generic": "Eco-Score",
-    "ecoscore_a": "Eco-Score A",
-    "ecoscore_b": "Eco-Score B",
-    "ecoscore_c": "Eco-Score C",
-    "ecoscore_d": "Eco-Score D",
-    "ecoscore_e": "Eco-Score E",
-    "ecoscore_unknown": "Unknown Eco-Score",
-    "ecoscore_not_applicable": "Eco-Score is not applicable",
+    "environmental_score_generic": "Green Score",
+    "environmental_score_a": "Green Score A",
+    "environmental_score_b": "Green Score B",
+    "environmental_score_c": "Green Score C",
+    "environmental_score_d": "Green Score D",
+    "environmental_score_e": "Green Score E",
+    "environmental_score_unknown": "Nežinomas „Green Score“",
+    "environmental_score_not_applicable": "„Green Score“ netaikomas",
     "nova_group_generic": "Ultraapdorojimas – NOVA grupės",
     "nova_group_1": "NOVA Group 1",
     "nova_group_2": "NOVA Group 2",
@@ -3454,5 +3459,17 @@
     "photo_field_packaging": "Informacijos apie pakuotę nuotrauka",
     "photo_already_exists": "This photo already exists",
     "photo_missing": "This photo is missing",
-    "date": "Data"
+    "date": "Data",
+    "photo_rotate_left": "Pasukite į kairę",
+    "@photo_rotate_left": {
+        "description": "Button to rotate a photo to the left"
+    },
+    "photo_rotate_right": "Pasukite į dešinę",
+    "@photo_rotate_right": {
+        "description": "Button to rotate a photo to the right"
+    },
+    "photo_undo_action": "Anuliuoti ankstesnį veiksmą",
+    "@photo_undo_action": {
+        "description": "Button to undo the previous action on a photo"
+    }
 }

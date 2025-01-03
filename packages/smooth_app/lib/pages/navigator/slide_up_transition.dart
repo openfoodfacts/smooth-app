@@ -139,7 +139,7 @@ class _OpenUpwardsPageTransitionState
           animation: widget.animation,
           builder: (BuildContext context, Widget? child) {
             return Container(
-              color: Colors.black.withOpacity(opacityAnimation.value),
+              color: Colors.black.withValues(alpha: opacityAnimation.value),
               alignment: Alignment.bottomLeft,
               child: ClipRect(
                 child: SizedBox(

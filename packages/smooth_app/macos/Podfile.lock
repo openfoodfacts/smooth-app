@@ -15,7 +15,7 @@ PODS:
   - FlutterMacOS (1.0.0)
   - in_app_review (0.2.0):
     - FlutterMacOS
-  - mobile_scanner (3.5.6):
+  - mobile_scanner (6.0.2):
     - FlutterMacOS
   - package_info_plus (0.0.1):
     - FlutterMacOS
@@ -108,26 +108,26 @@ EXTERNAL SOURCES:
     :path: Flutter/ephemeral/.symlinks/plugins/webview_flutter_wkwebview/darwin
 
 SPEC CHECKSUMS:
-  audioplayers_darwin: dcad41de4fbd0099cb3749f7ab3b0cb8f70b810c
-  connectivity_plus: 18d3c32514c886e046de60e9c13895109866c747
-  device_info_plus: ce1b7762849d3ec103d0e0517299f2db7ad60720
-  file_selector_macos: 54fdab7caa3ac3fc43c9fac4d7d8d231277f8cf2
-  flutter_image_compress_macos: c26c3c13ea0f28ae6dea4e139b3292e7729f99f1
-  flutter_secure_storage_macos: 59459653abe1adb92abbc8ea747d79f8d19866c9
+  audioplayers_darwin: 761f2948df701d05b5db603220c384fb55720012
+  connectivity_plus: e74b9f74717d2d99d45751750e266e55912baeb5
+  device_info_plus: a56e6e74dbbd2bb92f2da12c64ddd4f67a749041
+  file_selector_macos: 585232b688707857504f9cb5f985a7c97fe4dd30
+  flutter_image_compress_macos: e68daf54bb4bf2144c580fd4d151c949cbf492f0
+  flutter_secure_storage_macos: b2d62a774c23b060f0b99d0173b0b36abb4a8632
   FlutterMacOS: 8f6f14fa908a6fb3fba0cd85dbd81ec4b251fb24
-  in_app_review: a850789fad746e89bce03d4aeee8078b45a53fd0
-  mobile_scanner: 54ceceae0c8da2457e26a362a6be5c61154b1829
-  package_info_plus: 12f1c5c2cfe8727ca46cbd0b26677728972d9a5b
-  path_provider_foundation: 2b6b4c569c0fb62ec74538f866245ac84301af46
+  in_app_review: ffac7b4a0a71cdaecb1383807e7a8244b09e6d93
+  mobile_scanner: 0e365ed56cad24f28c0fd858ca04edefb40dfac3
+  package_info_plus: f0052d280d17aa382b932f399edf32507174e870
+  path_provider_foundation: 080d55be775b7414fd5a5ef3ac137b97b097e564
   ReachabilitySwift: 7f151ff156cea1481a8411701195ac6a984f4979
-  rive_common: cf5ab646aa576b2d742d0e2d528126fbf032c856
+  rive_common: ea79040f86acf053a2d5a75a2506175ee39796a5
   Sentry: f8374b5415bc38dfb5645941b3ae31230fbeae57
-  sentry_flutter: 0eb93e5279eb41e2392212afe1ccd2fecb4f8cbe
-  share_plus: 1fa619de8392a4398bfaf176d441853922614e89
-  shared_preferences_foundation: fcdcbc04712aee1108ac7fda236f363274528f78
-  sqflite_darwin: 5a7236e3b501866c1c9befc6771dfd73ffb8702d
-  url_launcher_macos: 5f437abeda8c85500ceb03f5c1938a8c5a705399
-  webview_flutter_wkwebview: 0982481e3d9c78fd5c6f62a002fcd24fc791f1e4
+  sentry_flutter: 0a211008f52553ba5dd81ceb71f48d78f0f1f6ab
+  share_plus: 510bf0af1a42cd602274b4629920c9649c52f4cc
+  shared_preferences_foundation: 9e1978ff2562383bd5676f64ec4e9aa8fa06a6f7
+  sqflite_darwin: 20b2a3a3b70e43edae938624ce550a3cbf66a3d0
+  url_launcher_macos: de10e46d8d8b9e3a7b8a133e8de92b104379f05e
+  webview_flutter_wkwebview: 44d4dee7d7056d5ad185d25b38404436d56c547c
 
 PODFILE CHECKSUM: 0d3963a09fc94f580682bd88480486da345dc3f0
 

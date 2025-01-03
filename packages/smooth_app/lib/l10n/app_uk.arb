@@ -562,10 +562,15 @@
     "@add_product_information_button_label": {},
     "new_product": "Новий Продукт",
     "@new_product": {},
-    "new_product_dialog_title": "Ви щойно знайшли новий продукт!",
-    "@new_product_dialog_title": {
-        "description": "Please keep it short, like 50 characters. Title of the dialog when the user searched for an unknown barcode."
+    "new_product_found_title": "Знайдено новий товар!",
+    "@new_product_found_title": {
+        "description": "Title of a dialog that informs the user that a barcode doesn't exist in the database"
     },
+    "new_product_found_text": "Наша спільна база даних містить понад **3 млн продуктів**, але цей штрих-код не існує: ",
+    "@new_product_found_text": {
+        "description": "Please keep the ** syntax to make the text bold"
+    },
+    "new_product_found_button": "Додати цей продукт",
     "new_product_leave_title": "Покинути цю сторінку?",
     "@new_product_leave_title": {
         "description": "Alert dialog title when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
@@ -574,13 +579,13 @@
     "@new_product_leave_message": {
         "description": "Alert dialog message when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
     },
-    "new_product_dialog_description": "Зробіть фото пакування, щоб додати цей продукт до Вашої бази даних",
+    "new_product_dialog_description": "Будь ласка, сфотографуйте упаковку, щоб додати цей продукт до нашої спільної бази даних",
     "@new_product_dialog_description": {
         "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
     },
     "new_product_dialog_illustration_description": "Ілюстрація з невідомими Nutri-Score та Eco-Score",
     "@new_product_dialog_illustration_description": {
-        "description": "A description for accessibility of two images side by side: a Nutri-Score and an EcoScore."
+        "description": "A description for accessibility of two images side by side: a Nutri-Score and an Green Score."
     },
     "front_packaging_photo_button_label": "Фото передньої частини продукту",
     "@front_packaging_photo_button_label": {},
@@ -656,9 +661,9 @@
     "categories_added": "Категорії додано",
     "new_product_title_nutriscore": "Розрахувати Nutri-Score",
     "new_product_subtitle_nutriscore": "Допоможіть нам, заповнивши принаймні категорію та харчові цінності",
-    "new_product_title_ecoscore": "Розрахувати Eco-Score",
-    "new_product_subtitle_ecoscore": "Отримайте це, заповнивши принаймні одну категорію",
-    "new_product_additional_ecoscore": "Зробіть обчислення Eco-Score більш точним за походженням, пакуванням тощо",
+    "new_product_title_environmental_score": "Обчисліть бал Green Score",
+    "new_product_subtitle_environmental_score": "Отримайте це, заповнивши принаймні одну категорію",
+    "new_product_additional_environmental_score": "Зробіть обчислення Eco-Score більш точним за походженням, пакуванням тощо",
     "new_product_title_nova": "Обчисліть рівень обробки харчових продуктів (NOVA)",
     "new_product_subtitle_nova": "Отримайте це, заповнивши категорію продукту та інгредієнти",
     "new_product_desc_nova_unknown": "Рівень обробки їжі є невідомим",
@@ -680,7 +685,7 @@
     "@new_product_done_button_label": {
         "description": "Button at the end of new product page, that takes you to completed product"
     },
-    "hey_incomplete_product_message": "Натисніть, щоб відповісти на 3 запитання ЗАРАЗ для обчислення Nutri-Score, Eco-Score та ультра-обробки (ЗАРАЗ)!",
+    "hey_incomplete_product_message": "Натисніть, щоб відповісти на 3 запитання ЗАРАЗ для обчислення Nutri-Score, Green Score та ультра-обробки (ЗАРАЗ)!",
     "hey_incomplete_product_message_beauty": "Торкніться зараз, щоб відповісти на 2 запитання, щоб допомогти проаналізувати цю косметику!",
     "hey_incomplete_product_message_pet_food": "Торкніться зараз, щоб відповісти на 3 запитання, щоб допомогти проаналізувати цей корм для домашніх тварин!",
     "hey_incomplete_product_message_product": "Торкніться зараз, щоб допомогти завершити цей продукт!",
@@ -924,7 +929,7 @@
     "@product_improvement_obsolete_nutrition_image": {
         "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
     },
-    "product_improvement_origins_to_be_completed": "Eco-Score враховує походження інгредієнтів. Будь ласка, сфотографуйте список інгредієнтів та/або будь-яку географічну зону або відредагуйте продукт, щоб їх можна було врахувати.",
+    "product_improvement_origins_to_be_completed": "Eco-Score враховує походження інгредієнтів. Будь ласка, сфотографуйте перелік інгредієнтів та/або географічну характеристику або відредагуйте продукт, щоб вони були враховані.",
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
@@ -2099,9 +2104,9 @@
     "@dev_preferences_show_folksonomy_title": {
         "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
     },
-    "dev_mode_hide_ecoscore_title": "Вимкнути Eco-Score",
-    "@dev_mode_hide_ecoscore_title": {
-        "description": "User dev preferences - Disable Ecoscore - Title"
+    "dev_mode_hide_environmental_score_title": "Виключити Green Score",
+    "@dev_mode_hide_environmental_score_title": {
+        "description": "User dev preferences - Disable Green Score - Title"
     },
     "dev_mode_spellchecker_for_ocr_title": "Використовуйте перевірку орфографії для OCR екранів",
     "@dev_mode_spellchecker_for_ocr_title": {
@@ -3082,14 +3087,14 @@
     "nutriscore_unknown_new_formula": "Невідомий Nutri-Score (новий розрахунок)",
     "nutriscore_not_applicable": "Nutri-Score не застосовується",
     "nutriscore_not_applicable_new_formula": "Nutri-Score не застосовується (новий розрахунок)",
-    "ecoscore_generic": "Eco-Score (показник впливу на довкілля)",
-    "ecoscore_a": "Eco-Score A",
-    "ecoscore_b": "Eco-Score B",
-    "ecoscore_c": "Eco-Score C",
-    "ecoscore_d": "Eco-Score D",
-    "ecoscore_e": "Eco-Score E",
-    "ecoscore_unknown": "Невідомий показник Eco-Score",
-    "ecoscore_not_applicable": "Eco-Score не застосовується",
+    "environmental_score_generic": "Green Score",
+    "environmental_score_a": "Green Score A",
+    "environmental_score_b": "Green Score B",
+    "environmental_score_c": "Green Score C",
+    "environmental_score_d": "Green Score D",
+    "environmental_score_e": "Green Score E",
+    "environmental_score_unknown": "Невідомий Green Score",
+    "environmental_score_not_applicable": "Green Score не застосовується",
     "nova_group_generic": "Ультраобробка - групи НОВА",
     "nova_group_1": "Група NOVA 1",
     "nova_group_2": "Група NOVA 2",
@@ -3454,5 +3459,17 @@
     "photo_field_packaging": "Фото з інформацією про упакування",
     "photo_already_exists": "Це фото вже існує",
     "photo_missing": "Немає цього фото",
-    "date": "Дата"
+    "date": "Дата",
+    "photo_rotate_left": "Оберніть ліворуч",
+    "@photo_rotate_left": {
+        "description": "Button to rotate a photo to the left"
+    },
+    "photo_rotate_right": "Оберніть праворуч",
+    "@photo_rotate_right": {
+        "description": "Button to rotate a photo to the right"
+    },
+    "photo_undo_action": "Скасувати попередню дію",
+    "@photo_undo_action": {
+        "description": "Button to undo the previous action on a photo"
+    }
 }

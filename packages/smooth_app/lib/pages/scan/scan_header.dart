@@ -30,6 +30,9 @@ class _ScanHeaderState extends State<ScanHeader> {
           borderRadius: BorderRadius.all(Radius.circular(18.0)),
         ),
       ),
+      iconColor: WidgetStateProperty.all<Color>(
+        Theme.of(context).colorScheme.onPrimary,
+      ),
       foregroundColor: WidgetStateProperty.all<Color>(
         Theme.of(context).colorScheme.onPrimary,
       ),

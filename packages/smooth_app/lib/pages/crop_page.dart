@@ -184,47 +184,62 @@ class _CropPageState extends State<CropPage> {
                       padding: const EdgeInsetsDirectional.only(
                         top: SMALL_SPACE,
                       ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          if (!_isErasing)
-                            _IconButton(
-                              iconData: Icons.rotate_90_degrees_ccw_outlined,
-                              onPressed: () => setState(
-                                () {
-                                  _controller.rotateLeft();
-                                  _eraserModel.rotation = _controller.rotation;
-                                },
+                      child: ElevatedButtonTheme(
+                        data: ElevatedButtonThemeData(
+                          style:
+                              ElevatedButtonTheme.of(context).style?.copyWith(
+                                    iconColor: WidgetStateProperty.all<Color>(
+                                      Theme.of(context).colorScheme.onPrimary,
+                                    ),
+                                  ),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            if (!_isErasing)
+                              _IconButton(
+                                iconData: Icons.rotate_90_degrees_ccw_outlined,
+                                tooltip: appLocalizations.photo_rotate_left,
+                                onPressed: () => setState(
+                                  () {
+                                    _controller.rotateLeft();
+                                    _eraserModel.rotation =
+                                        _controller.rotation;
+                                  },
+                                ),
                               ),
-                            ),
-                          if (widget.cropHelper.enableEraser)
-                            _IconButton(
-                              iconData: _isErasing ? Icons.crop : Icons.brush,
-                              color: _isErasing ? null : EraserPainter.color,
-                              onPressed: () => setState(
-                                () => _isErasing = !_isErasing,
+                            if (widget.cropHelper.enableEraser)
+                              _IconButton(
+                                iconData: _isErasing ? Icons.crop : Icons.brush,
+                                color: _isErasing ? null : EraserPainter.color,
+                                onPressed: () => setState(
+                                  () => _isErasing = !_isErasing,
+                                ),
                               ),
-                            ),
-                          if (_isErasing)
-                            _IconButton(
-                              iconData: Icons.undo,
-                              onPressed: _eraserModel.isEmpty
-                                  ? null
-                                  : () => setState(
-                                        () => _eraserModel.undo(),
-                                      ),
-                            ),
-                          if (!_isErasing)
-                            _IconButton(
-                              iconData: Icons.rotate_90_degrees_cw_outlined,
-                              onPressed: () => setState(
-                                () {
-                                  _controller.rotateRight();
-                                  _eraserModel.rotation = _controller.rotation;
-                                },
+                            if (_isErasing)
+                              _IconButton(
+                                iconData: Icons.undo,
+                                tooltip: appLocalizations.photo_undo_action,
+                                onPressed: _eraserModel.isEmpty
+                                    ? null
+                                    : () => setState(
+                                          () => _eraserModel.undo(),
+                                        ),
                               ),
-                            ),
-                        ],
+                            if (!_isErasing)
+                              _IconButton(
+                                iconData: Icons.rotate_90_degrees_cw_outlined,
+                                tooltip: appLocalizations.photo_rotate_right,
+                                onPressed: () => setState(
+                                  () {
+                                    _controller.rotateRight();
+                                    _eraserModel.rotation =
+                                        _controller.rotation;
+                                  },
+                                ),
+                              ),
+                          ],
+                        ),
                       ),
                     ),
                     Expanded(
@@ -550,20 +565,34 @@ class _IconButton extends StatelessWidget {
   const _IconButton({
     required this.iconData,
     required this.onPressed,
+    this.tooltip,
     this.color,
   });
 
   final IconData iconData;
   final VoidCallback? onPressed;
   final Color? color;
+  final String? tooltip;
 
   @override
-  Widget build(BuildContext context) => ElevatedButton(
-        onPressed: onPressed,
-        style: ElevatedButton.styleFrom(shape: const CircleBorder()),
-        child: Icon(
-          iconData,
-          color: color,
-        ),
+  Widget build(BuildContext context) {
+    final Widget icon = ElevatedButton(
+      onPressed: onPressed,
+      style: ElevatedButton.styleFrom(shape: const CircleBorder()),
+      child: Icon(
+        iconData,
+        color: color,
+        semanticLabel: tooltip,
+      ),
+    );
+
+    if (tooltip != null) {
+      return Tooltip(
+        message: tooltip,
+        child: icon,
       );
+    } else {
+      return icon;
+    }
+  }
 }

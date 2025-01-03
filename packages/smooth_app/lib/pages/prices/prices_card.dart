@@ -113,7 +113,7 @@ class _PricesCardTitleIcon extends StatelessWidget {
       child: icons.Lab(
         size: 100.0,
         color: themeExtension?.orange
-            .withOpacity(context.lightTheme() ? 0.15 : 0.4),
+            .withValues(alpha: context.lightTheme() ? 0.15 : 0.4),
       ),
     );
   }

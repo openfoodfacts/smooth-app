@@ -88,7 +88,8 @@ class TextHighlighter extends StatelessWidget {
       parts = _getParts(
         defaultStyle: defaultStyle,
         highlightedStyle: defaultStyle.copyWith(
-          backgroundColor: Theme.of(context).primaryColor.withOpacity(0.2),
+          backgroundColor:
+              Theme.of(context).primaryColor.withValues(alpha: 0.2),
         ),
       );
     } catch (e, trace) {

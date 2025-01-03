@@ -298,7 +298,7 @@ class _ProductImageGalleryFooterButtonState
             borderRadius: borderRadius,
             boxShadow: <BoxShadow>[
               BoxShadow(
-                color: Theme.of(context).shadowColor.withOpacity(0.3),
+                color: Theme.of(context).shadowColor.withValues(alpha: 0.3),
                 blurRadius: 5.0,
                 spreadRadius: 1.0,
                 offset: Offset.zero,

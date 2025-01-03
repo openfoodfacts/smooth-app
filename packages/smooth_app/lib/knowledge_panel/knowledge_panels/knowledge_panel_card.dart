@@ -31,6 +31,7 @@ class KnowledgePanelCard extends StatelessWidget {
     final UserPreferences userPreferences = context.watch<UserPreferences>();
     final KnowledgePanel? panel =
         KnowledgePanelsBuilder.getKnowledgePanel(product, panelId);
+
     if (panel == null) {
       return EMPTY_WIDGET;
     }
