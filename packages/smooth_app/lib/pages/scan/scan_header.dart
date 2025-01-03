@@ -30,9 +30,6 @@ class _ScanHeaderState extends State<ScanHeader> {
           borderRadius: BorderRadius.all(Radius.circular(18.0)),
         ),
       ),
-      iconColor: WidgetStateProperty.all<Color>(
-        Theme.of(context).colorScheme.onPrimary,
-      ),
       foregroundColor: WidgetStateProperty.all<Color>(
         Theme.of(context).colorScheme.onPrimary,
       ),
@@ -59,21 +56,26 @@ class _ScanHeaderState extends State<ScanHeader> {
               children: <Widget>[
                 ConstrainedBox(
                   constraints: BoxConstraints(
-                    maxWidth: constraints.maxWidth * 0.4,
+                    maxWidth: constraints.maxWidth * 0.35,
                   ),
                   child: Tooltip(
                     message: appLocalizations.scan_header_clear_button_tooltip,
                     child: ElevatedButton.icon(
                       style: buttonStyle,
-                      icon: const Icon(Icons.clear_all),
+                      icon: const icons.Clear(),
                       onPressed: model.clearScanSession,
-                      label: Text(appLocalizations.clear),
+                      label: FittedBox(
+                        child: Text(
+                          appLocalizations.clear,
+                          maxLines: 1,
+                        ),
+                      ),
                     ),
                   ),
                 ),
                 ConstrainedBox(
                   constraints: BoxConstraints(
-                    maxWidth: constraints.maxWidth * 0.6,
+                    maxWidth: constraints.maxWidth * 0.55,
                   ),
                   child: Tooltip(
                     message: compareFeatureAvailable

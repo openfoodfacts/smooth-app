@@ -3459,5 +3459,17 @@
     "photo_field_packaging": "Informační foto balení",
     "photo_already_exists": "Tato fotografie již existuje",
     "photo_missing": "Tato fotografie chybí",
-    "date": "Datum"
+    "date": "Datum",
+    "photo_rotate_left": "Otočit doleva",
+    "@photo_rotate_left": {
+        "description": "Button to rotate a photo to the left"
+    },
+    "photo_rotate_right": "Otočit doprava",
+    "@photo_rotate_right": {
+        "description": "Button to rotate a photo to the right"
+    },
+    "photo_undo_action": "Undo the previous action",
+    "@photo_undo_action": {
+        "description": "Button to undo the previous action on a photo"
+    }
 }
