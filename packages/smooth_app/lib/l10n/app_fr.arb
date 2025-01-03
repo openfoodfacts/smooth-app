@@ -579,11 +579,11 @@
     "@new_product_leave_message": {
         "description": "Alert dialog message when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
     },
-    "new_product_dialog_description": "Please take photos of the packaging to add this product to our common database",
+    "new_product_dialog_description": "Veuillez prendre des photos de l'emballage pour ajouter ce produit à notre base de données commune",
     "@new_product_dialog_description": {
         "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
     },
-    "new_product_dialog_illustration_description": "An illustration with unknown Nutri-Score and Green Score",
+    "new_product_dialog_illustration_description": "Une illustration avec un Nutri-Score et un Green-Score inconnus",
     "@new_product_dialog_illustration_description": {
         "description": "A description for accessibility of two images side by side: a Nutri-Score and an Green Score."
     },
@@ -661,9 +661,9 @@
     "categories_added": "Catégories ajoutées",
     "new_product_title_nutriscore": "Calculez le Nutri-Score",
     "new_product_subtitle_nutriscore": "Merci d'indiquer la catégorie de l'aliment et les données nutritionnelles",
-    "new_product_title_environmental_score": "Compute the Green Score",
-    "new_product_subtitle_environmental_score": "Get it by filling at least a category",
-    "new_product_additional_environmental_score": "Make Green Score computation more precise with origins, packaging & more",
+    "new_product_title_environmental_score": "Calculez le Green-Score",
+    "new_product_subtitle_environmental_score": "Obtenez-le en remplissant au moins une catégorie",
+    "new_product_additional_environmental_score": "Rendre le calcul du Green-Score plus précis avec les origines géographiques, l'emballage et plus",
     "new_product_title_nova": "Calculer le niveau de transformation des aliments (NOVA)",
     "new_product_subtitle_nova": "Obtenez-le en remplissant la catégorie alimentaire et les ingrédients",
     "new_product_desc_nova_unknown": "Degré de transformation des aliments inconnu",
@@ -685,7 +685,7 @@
     "@new_product_done_button_label": {
         "description": "Button at the end of new product page, that takes you to completed product"
     },
-    "hey_incomplete_product_message": "Tap to answer 3 questions NOW to compute Nutri-Score, Green Score & Ultra-processing (NOVA)!",
+    "hey_incomplete_product_message": "Appuyez pour répondre MAINTENANT à 3 questions pour calculer le Nutri-Score, le Green-Score et le niveau d'ultra-transformation (NOVA) !",
     "hey_incomplete_product_message_beauty": "Appuyez maintenant pour répondre à 2 questions pour aider à analyser ce cosmétique !",
     "hey_incomplete_product_message_pet_food": "Appuyez maintenant pour répondre à 3 questions pour aider à analyser ce produit alimentaire pour animaux !",
     "hey_incomplete_product_message_product": "Appuyez maintenant pour aider à compléter ce produit !",
@@ -929,7 +929,7 @@
     "@product_improvement_obsolete_nutrition_image": {
         "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
     },
-    "product_improvement_origins_to_be_completed": "The Green Score takes into account the origins of the ingredients. Please take a photo of the ingredient list and/or any geographic claim or edit the product, so they can be taken into account.",
+    "product_improvement_origins_to_be_completed": "Le Green-Score prend en compte l'origine des ingrédients. Veuillez prendre en photo la liste d'ingrédients et/ou toute allégation géographique ou modifiez le produit afin qu'elles puissent être prises en compte.",
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
@@ -2046,7 +2046,7 @@
             }
         }
     },
-    "prices_button_count_user": "{count,plural, one {}=0{Aucun utilisateur} =1{Un utilisateur} other{{count} utilisateurs}}",
+    "prices_button_count_user": "{count,plural, =0{Aucun utilisateur} =1{Un utilisateur} other{{count} utilisateurs}}",
     "@prices_button_count_user": {
         "description": "Number of users, for a button",
         "placeholders": {
@@ -2104,7 +2104,7 @@
     "@dev_preferences_show_folksonomy_title": {
         "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
     },
-    "dev_mode_hide_environmental_score_title": "Exclude Green Score",
+    "dev_mode_hide_environmental_score_title": "Exclure le Green-Score",
     "@dev_mode_hide_environmental_score_title": {
         "description": "User dev preferences - Disable Green Score - Title"
     },
@@ -3087,12 +3087,12 @@
     "nutriscore_unknown_new_formula": "Nutri-Score inconnu (Nouveau calcul)",
     "nutriscore_not_applicable": "Nutri-Score non applicable",
     "nutriscore_not_applicable_new_formula": "Le Nutri-Score n'est pas applicable (Nouveau calcul)",
-    "environmental_score_generic": "Green Score",
-    "environmental_score_a": "Green Score A",
-    "environmental_score_b": "Green Score B",
-    "environmental_score_c": "Green Score C",
-    "environmental_score_d": "Green Score D",
-    "environmental_score_e": "Green Score E",
+    "environmental_score_generic": "Green-Score",
+    "environmental_score_a": "Green-Score A",
+    "environmental_score_b": "Green-Score B",
+    "environmental_score_c": "Green-Score C",
+    "environmental_score_d": "Green-Score D",
+    "environmental_score_e": "Green-Score E",
     "environmental_score_unknown": "Unknown Green Score",
     "environmental_score_not_applicable": "Green Score is not applicable",
     "nova_group_generic": "Groupe NOVA",
@@ -3459,5 +3459,17 @@
     "photo_field_packaging": "Photo des informations sur l'emballage",
     "photo_already_exists": "Cette photo existe déjà",
     "photo_missing": "Cette photo est manquante",
-    "date": "Date"
+    "date": "Date",
+    "photo_rotate_left": "Pivoter à gauche",
+    "@photo_rotate_left": {
+        "description": "Button to rotate a photo to the left"
+    },
+    "photo_rotate_right": "Pivoter à droite",
+    "@photo_rotate_right": {
+        "description": "Button to rotate a photo to the right"
+    },
+    "photo_undo_action": "Undo the previous action",
+    "@photo_undo_action": {
+        "description": "Button to undo the previous action on a photo"
+    }
 }

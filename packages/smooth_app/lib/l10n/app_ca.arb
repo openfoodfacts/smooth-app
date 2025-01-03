@@ -3459,5 +3459,17 @@
     "photo_field_packaging": "Foto de la informació de l'embolcall",
     "photo_already_exists": "This photo already exists",
     "photo_missing": "This photo is missing",
-    "date": "Data"
+    "date": "Data",
+    "photo_rotate_left": "Gira a l''esquerra",
+    "@photo_rotate_left": {
+        "description": "Button to rotate a photo to the left"
+    },
+    "photo_rotate_right": "Gira a la dreta",
+    "@photo_rotate_right": {
+        "description": "Button to rotate a photo to the right"
+    },
+    "photo_undo_action": "Undo the previous action",
+    "@photo_undo_action": {
+        "description": "Button to undo the previous action on a photo"
+    }
 }

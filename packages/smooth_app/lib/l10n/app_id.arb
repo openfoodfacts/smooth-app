@@ -3459,5 +3459,17 @@
     "photo_field_packaging": "Foto informasi kemasan",
     "photo_already_exists": "Foto ini sudah ada",
     "photo_missing": "Foto ini hilang",
-    "date": "Tanggal"
+    "date": "Tanggal",
+    "photo_rotate_left": "Putar ke kiri",
+    "@photo_rotate_left": {
+        "description": "Button to rotate a photo to the left"
+    },
+    "photo_rotate_right": "Putar ke kanan",
+    "@photo_rotate_right": {
+        "description": "Button to rotate a photo to the right"
+    },
+    "photo_undo_action": "Undo the previous action",
+    "@photo_undo_action": {
+        "description": "Button to undo the previous action on a photo"
+    }
 }
