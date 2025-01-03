@@ -10,10 +10,10 @@ PODS:
     - FlutterMacOS
   - flutter_image_compress_macos (1.0.0):
     - FlutterMacOS
-  - flutter_secure_storage_macos (6.1.1):
+  - flutter_secure_storage_macos (6.1.3):
     - FlutterMacOS
   - FlutterMacOS (1.0.0)
-  - in_app_review (0.2.0):
+  - in_app_review (2.0.0):
     - FlutterMacOS
   - mobile_scanner (6.0.2):
     - FlutterMacOS
@@ -22,14 +22,14 @@ PODS:
   - path_provider_foundation (0.0.1):
     - Flutter
     - FlutterMacOS
-  - ReachabilitySwift (5.2.3)
+  - ReachabilitySwift (5.2.4)
   - rive_common (0.0.1):
     - FlutterMacOS
-  - Sentry/HybridSDK (8.36.0)
-  - sentry_flutter (8.9.0):
+  - Sentry/HybridSDK (8.42.0)
+  - sentry_flutter (8.12.0):
     - Flutter
     - FlutterMacOS
-    - Sentry/HybridSDK (= 8.36.0)
+    - Sentry/HybridSDK (= 8.42.0)
   - share_plus (0.0.1):
     - FlutterMacOS
   - shared_preferences_foundation (0.0.1):
@@ -113,16 +113,16 @@ SPEC CHECKSUMS:
   device_info_plus: a56e6e74dbbd2bb92f2da12c64ddd4f67a749041
   file_selector_macos: 585232b688707857504f9cb5f985a7c97fe4dd30
   flutter_image_compress_macos: e68daf54bb4bf2144c580fd4d151c949cbf492f0
-  flutter_secure_storage_macos: b2d62a774c23b060f0b99d0173b0b36abb4a8632
+  flutter_secure_storage_macos: 7f45e30f838cf2659862a4e4e3ee1c347c2b3b54
   FlutterMacOS: 8f6f14fa908a6fb3fba0cd85dbd81ec4b251fb24
-  in_app_review: ffac7b4a0a71cdaecb1383807e7a8244b09e6d93
+  in_app_review: 0599bccaed5e02f6bed2b0d30d16f86b63ed8638
   mobile_scanner: 0e365ed56cad24f28c0fd858ca04edefb40dfac3
   package_info_plus: f0052d280d17aa382b932f399edf32507174e870
   path_provider_foundation: 080d55be775b7414fd5a5ef3ac137b97b097e564
-  ReachabilitySwift: 7f151ff156cea1481a8411701195ac6a984f4979
+  ReachabilitySwift: 32793e867593cfc1177f5d16491e3a197d2fccda
   rive_common: ea79040f86acf053a2d5a75a2506175ee39796a5
-  Sentry: f8374b5415bc38dfb5645941b3ae31230fbeae57
-  sentry_flutter: 0a211008f52553ba5dd81ceb71f48d78f0f1f6ab
+  Sentry: 38ed8bf38eab5812787274bf591e528074c19e02
+  sentry_flutter: a72ca0eb6e78335db7c4ddcddd1b9f6c8ed5b764
   share_plus: 510bf0af1a42cd602274b4629920c9649c52f4cc
   shared_preferences_foundation: 9e1978ff2562383bd5676f64ec4e9aa8fa06a6f7
   sqflite_darwin: 20b2a3a3b70e43edae938624ce550a3cbf66a3d0
