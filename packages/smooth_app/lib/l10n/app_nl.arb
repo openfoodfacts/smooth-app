@@ -3459,5 +3459,17 @@
     "photo_field_packaging": "Foto van verpakkingsinformatie",
     "photo_already_exists": "Deze foto bestaat al",
     "photo_missing": "Deze foto ontbreekt",
-    "date": "Datum"
+    "date": "Datum",
+    "photo_rotate_left": "Naar links draaien",
+    "@photo_rotate_left": {
+        "description": "Button to rotate a photo to the left"
+    },
+    "photo_rotate_right": "Naar rechts draaien",
+    "@photo_rotate_right": {
+        "description": "Button to rotate a photo to the right"
+    },
+    "photo_undo_action": "Undo the previous action",
+    "@photo_undo_action": {
+        "description": "Button to undo the previous action on a photo"
+    }
 }

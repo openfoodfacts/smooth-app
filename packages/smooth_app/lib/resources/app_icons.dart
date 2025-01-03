@@ -382,6 +382,16 @@ class ClearText extends AppIcon {
   }
 }
 
+class Clear extends AppIcon {
+  const Clear({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.clear);
+}
+
 class CircledArrow extends AppIcon {
   const CircledArrow.right({
     CircledArrowType? type,

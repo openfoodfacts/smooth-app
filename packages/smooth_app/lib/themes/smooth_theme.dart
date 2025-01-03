@@ -67,6 +67,7 @@ class SmoothTheme {
                 ? Colors.white
                 : myColorScheme.onPrimary,
           ),
+          iconColor: WidgetStateProperty.all<Color>(Colors.white),
         ),
       ),
       floatingActionButtonTheme: FloatingActionButtonThemeData(
