@@ -5,7 +5,6 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_base_card.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_image.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/helpers/extension_on_text_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/product/gallery_view/product_image_gallery_view.dart';
 
@@ -32,12 +31,36 @@ class ProductTitleCard extends StatelessWidget {
       selectable: isSelectable,
     );
 
-    final List<Widget> children;
-
     final Size imageSize =
         Size.square(MediaQuery.sizeOf(context).width * (dense ? 0.22 : 0.25));
 
-    children = <Widget>[
+    Widget child = Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        ConstrainedBox(
+          constraints: BoxConstraints(
+            minHeight: DefaultTextStyle.of(context).style.fontSize! * 2.0,
+          ),
+          child: _ProductTitleCardName(
+            selectable: isSelectable,
+            dense: dense,
+          ),
+        ),
+        const SizedBox(height: SMALL_SPACE),
+        _ProductTitleCardBrand(
+          selectable: isSelectable,
+        ),
+        const SizedBox(height: 2.0),
+        trailing,
+      ],
+    );
+
+    if (isSelectable) {
+      child = SelectionArea(child: child);
+    }
+
+    final List<Widget> children = <Widget>[
       Padding(
         padding: const EdgeInsetsDirectional.only(top: SMALL_SPACE),
         child: IntrinsicHeight(
@@ -80,28 +103,9 @@ class ProductTitleCard extends StatelessWidget {
                     top: VERY_SMALL_SPACE,
                     bottom: VERY_SMALL_SPACE,
                   ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      ConstrainedBox(
-                        constraints: BoxConstraints(
-                          minHeight:
-                              DefaultTextStyle.of(context).style.fontSize! *
-                                  2.0,
-                        ),
-                        child: _ProductTitleCardName(
-                          selectable: isSelectable,
-                          dense: dense,
-                        ),
-                      ),
-                      const SizedBox(height: SMALL_SPACE),
-                      _ProductTitleCardBrand(
-                        selectable: isSelectable,
-                      ),
-                      const SizedBox(height: 2.0),
-                      trailing,
-                    ],
+                  child: SelectionArea(
+                    selectionControls: null,
+                    child: child,
                   ),
                 ),
               ),
@@ -146,7 +150,7 @@ class _ProductTitleCardName extends StatelessWidget {
       textAlign: TextAlign.start,
       maxLines: dense ? 2 : null,
       overflow: TextOverflow.ellipsis,
-    ).selectable(isSelectable: selectable);
+    );
   }
 }
 
@@ -168,7 +172,7 @@ class _ProductTitleCardBrand extends StatelessWidget {
       brands,
       style: Theme.of(context).textTheme.bodyMedium,
       textAlign: TextAlign.start,
-    ).selectable(isSelectable: selectable);
+    );
   }
 }
 
@@ -187,6 +191,6 @@ class _ProductTitleCardTrailing extends StatelessWidget {
       product.quantity ?? '',
       style: Theme.of(context).textTheme.bodyMedium,
       textAlign: TextAlign.end,
-    ).selectable(isSelectable: selectable);
+    );
   }
 }

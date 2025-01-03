@@ -27,33 +27,35 @@ class KnowledgePanelGroupCard extends StatelessWidget {
     return Provider<KnowledgePanelPanelGroupElement>(
       lazy: true,
       create: (_) => groupElement,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          if (groupElement.title != null && groupElement.title!.isNotEmpty)
-            Padding(
-              padding: const EdgeInsetsDirectional.only(top: LARGE_SPACE),
-              child: Semantics(
-                explicitChildNodes: true,
-                child: Text(
-                  groupElement.title!,
-                  style: themeData.textTheme.titleSmall!.copyWith(
-                    fontSize: 15.5,
-                    fontWeight: FontWeight.w700,
-                    color: context.lightTheme()
-                        ? themeExtension.primaryUltraBlack
-                        : themeExtension.primaryLight,
+      child: SelectionArea(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            if (groupElement.title != null && groupElement.title!.isNotEmpty)
+              Padding(
+                padding: const EdgeInsetsDirectional.only(top: LARGE_SPACE),
+                child: Semantics(
+                  explicitChildNodes: true,
+                  child: Text(
+                    groupElement.title!,
+                    style: themeData.textTheme.titleSmall!.copyWith(
+                      fontSize: 15.5,
+                      fontWeight: FontWeight.w700,
+                      color: context.lightTheme()
+                          ? themeExtension.primaryUltraBlack
+                          : themeExtension.primaryLight,
+                    ),
                   ),
                 ),
               ),
-            ),
-          for (final String panelId in groupElement.panelIds)
-            KnowledgePanelCard(
-              panelId: panelId,
-              product: product,
-              isClickable: isClickable,
-            )
-        ],
+            for (final String panelId in groupElement.panelIds)
+              KnowledgePanelCard(
+                panelId: panelId,
+                product: product,
+                isClickable: isClickable,
+              )
+          ],
+        ),
       ),
     );
   }

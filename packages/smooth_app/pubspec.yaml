@@ -19,10 +19,8 @@ dependencies:
   cupertino_icons: 1.0.8
   flutter_svg: 2.0.16
   flutter_map: 7.0.2
-  ## html & flutter_widget_from_html_core blocked by fwfh_selectable_text
-  html: 0.15.4
-  flutter_widget_from_html_core: 0.8.3+1
-  fwfh_selectable_text: 0.8.3+1
+  html: 0.15.5
+  flutter_widget_from_html_core: 0.15.2
   flutter_secure_storage: 9.2.3
   hive: 2.2.3
   hive_flutter: 1.1.0
@@ -161,9 +159,9 @@ flutter:
     - assets/product/
     - assets/icons/
 
-# /!\
-# Don't use icons SVGs (in assets/fonts/icons), but add them to the font
-# cf (assets/fonts/icons/README.md)
+  # /!\
+  # Don't use icons SVGs (in assets/fonts/icons), but add them to the font
+  # cf (assets/fonts/icons/README.md)
 
   fonts:
     - family: OpenSans
