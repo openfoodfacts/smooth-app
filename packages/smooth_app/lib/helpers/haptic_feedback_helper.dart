@@ -49,6 +49,16 @@ class SmoothHapticFeedback {
     return HapticFeedback.heavyImpact();
   }
 
+  static Future<void> tadam() async {
+    if (!(await _areHapticFeedbackEnabled())) {
+      return;
+    }
+
+    await HapticFeedback.heavyImpact();
+    await Future<void>.delayed(const Duration(milliseconds: 150));
+    return HapticFeedback.heavyImpact();
+  }
+
   static Future<bool> _areHapticFeedbackEnabled() async {
     return UserPreferences.getUserPreferences()
         .then((UserPreferences userPreferences) {

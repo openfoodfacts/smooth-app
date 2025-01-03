@@ -32,7 +32,7 @@ class ProductFooter extends StatelessWidget {
           BoxShadow(
             color: Theme.of(context)
                 .shadowColor
-                .withOpacity(context.lightTheme() ? 0.25 : 0.6),
+                .withValues(alpha: context.lightTheme() ? 0.25 : 0.6),
             blurRadius: 10.0,
           ),
         ],
@@ -252,7 +252,8 @@ class _ProductFooterFilledButton extends StatelessWidget {
     final Color backgroundColor = enabled
         ? contentColor
         : (lightTheme ? Colors.grey.shade500 : Colors.black12);
-    final Color foregroundColor = Colors.white.withOpacity(enabled ? 1.0 : 0.2);
+    final Color foregroundColor =
+        Colors.white.withValues(alpha: enabled ? 1.0 : 0.2);
 
     final Widget child = IconTheme(
       data: IconThemeData(
@@ -318,7 +319,7 @@ class _ProductFooterOutlinedButton extends StatelessWidget {
         lightTheme ? themeExtension.primaryBlack : Colors.white;
     final Color foregroundColor = enabled
         ? contentColor
-        : contentColor.withOpacity(lightTheme ? 0.4 : 0.2);
+        : contentColor.withValues(alpha: lightTheme ? 0.4 : 0.2);
 
     final Widget child = IconTheme(
       data: IconThemeData(

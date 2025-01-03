@@ -99,7 +99,7 @@ class _SmoothFloatingMessageViewState extends State<_SmoothFloatingMessageView>
           alignment: widget.alignment ?? AlignmentDirectional.topCenter,
           child: Card(
             elevation: 4.0,
-            shadowColor: Colors.black.withOpacity(0.1),
+            shadowColor: Colors.black.withValues(alpha: 0.1),
             color: snackBarTheme.backgroundColor,
             child: Container(
               padding: const EdgeInsets.all(8.0),

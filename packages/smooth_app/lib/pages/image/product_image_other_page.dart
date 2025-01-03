@@ -324,7 +324,7 @@ class _ProductImageOutdatedLabel extends StatelessWidget {
         height: double.infinity,
         child: DecoratedBox(
           decoration: BoxDecoration(
-            color: colors.red.withOpacity(0.9),
+            color: colors.red.withValues(alpha: 0.9),
             borderRadius: CIRCULAR_BORDER_RADIUS,
           ),
           child: Padding(
@@ -479,7 +479,7 @@ class _ProductImagePageIndicator extends StatelessWidget {
   Widget build(BuildContext context) {
     return DecoratedBox(
       decoration: BoxDecoration(
-        color: Colors.black.withOpacity(0.5),
+        color: Colors.black.withValues(alpha: 0.5),
         borderRadius: CIRCULAR_BORDER_RADIUS,
       ),
       child: Padding(

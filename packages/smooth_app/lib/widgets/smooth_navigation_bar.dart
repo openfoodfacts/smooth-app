@@ -201,7 +201,7 @@ class _SmoothNavigationBarItemState extends State<_SmoothNavigationBarItem>
                       painter: _SmoothNavigationBarIconPainter(
                         defaultColor: lightTheme
                             ? const Color(0xFFEEDAD3)
-                            : extension.primarySemiDark.withOpacity(0.4),
+                            : extension.primarySemiDark.withValues(alpha: 0.4),
                         selectedColor: lightTheme
                             ? extension.primaryDark
                             : extension.primaryMedium,
@@ -277,7 +277,7 @@ class _SmoothNavigationBarIconPainter extends CustomPainter {
       );
     }
 
-    paint.color = selectedColor.withOpacity(progress);
+    paint.color = selectedColor.withValues(alpha: progress);
     if (progress == 1.0) {
       _paintSelected(canvas, size, paint);
     } else if (progress > 0.0) {

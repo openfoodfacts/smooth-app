@@ -44,3 +44,8 @@ extension StringExtensions on String {
     return count;
   }
 }
+
+extension TextScalerExtension on BuildContext {
+  /// Returns the text font multiplier
+  double textScaler() => MediaQuery.textScalerOf(this).scale(1.0);
+}

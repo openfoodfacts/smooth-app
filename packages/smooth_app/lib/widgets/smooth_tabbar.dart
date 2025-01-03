@@ -75,8 +75,8 @@ class _SmoothTabBarState<T> extends State<SmoothTabBar<T>> {
             tabAlignment: TabAlignment.start,
             overlayColor: WidgetStatePropertyAll<Color>(
               lightTheme
-                  ? theme.primaryNormal.withOpacity(0.2)
-                  : theme.primaryLight.withOpacity(0.2),
+                  ? theme.primaryNormal.withValues(alpha: 0.2)
+                  : theme.primaryLight.withValues(alpha: 0.2),
             ),
             splashBorderRadius: const BorderRadius.vertical(
               top: Radius.circular(5.0),
@@ -167,8 +167,8 @@ class _ProductHeaderTabBarPainter extends CustomPainter {
         Offset.zero,
         Offset(gradientSize, 0.0),
         <Color>[
-          primaryColor.withOpacity(
-            progress.progressAndClamp(0.0, 0.3, 1.0),
+          primaryColor.withValues(
+            alpha: progress.progressAndClamp(0.0, 0.3, 1.0),
           ),
           backgroundColor,
         ],
@@ -191,8 +191,8 @@ class _ProductHeaderTabBarPainter extends CustomPainter {
         Offset(size.width, 0.0),
         <Color>[
           backgroundColor,
-          primaryColor.withOpacity(
-            1 - progress.progressAndClamp(0.7, 1.0, 1.0),
+          primaryColor.withValues(
+            alpha: 1 - progress.progressAndClamp(0.7, 1.0, 1.0),
           ),
         ],
       );

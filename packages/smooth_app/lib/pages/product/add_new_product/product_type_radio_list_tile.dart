@@ -183,7 +183,7 @@ class _ProductTypeRadioListTile extends State<ProductTypeRadioListTile>
     final ThemeData themeData = Theme.of(context);
 
     _colorAnimation = ColorTween(
-      begin: themeData.scaffoldBackgroundColor.withOpacity(0.0),
+      begin: themeData.scaffoldBackgroundColor.withValues(alpha: 0.0),
       end: lightTheme
           ? themeData.extension<SmoothColorsThemeExtension>()!.primaryMedium
           : themeData.extension<SmoothColorsThemeExtension>()!.primarySemiDark,
