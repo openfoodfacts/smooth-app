@@ -7,5 +7,13 @@ pull_request_labels:
 files:
   - source: /packages/smooth_app/lib/l10n/app_en.arb
     translation: /packages/smooth_app/lib/l10n/app_%two_letters_code%.arb
+    languages_mapping:
+      two_letters_code:
+        pt-BR: pt_BR
+        pt-PT: pt
   - source: /packages/smooth_app/ios/Runner/en.lproj/InfoPlist.strings
     translation: /packages/smooth_app/ios/Runner/%two_letters_code%.lproj/InfoPlist.strings
+    languages_mapping:
+      two_letters_code:
+        pt-BR: pt_BR
+        pt-PT: pt
