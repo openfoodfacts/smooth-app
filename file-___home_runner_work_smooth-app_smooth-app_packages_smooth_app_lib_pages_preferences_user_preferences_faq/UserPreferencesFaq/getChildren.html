@@ -83,25 +83,24 @@ List&lt;UserPreferencesItem&gt; getChildren() =&gt; &lt;UserPreferencesItem&gt;[
           false,
         ),
       ),
-      if (userPreferences.userCountryCode != &#39;fr&#39;)
-        _getListTile(
-          title: appLocalizations.faq_nutriscore_nutriscore,
-          leadingSvg: SvgCache.getAssetsCacheForNutriscore(
-            NutriScoreValue.b,
-            true,
-          ),
-          onTap: () =&gt; Navigator.of(context, rootNavigator: true).push(
-            MaterialPageRoute&lt;void&gt;(
-              builder: (BuildContext context) =&gt; const GuideNutriscoreV2(),
-            ),
-          ),
-
-          &#47;&#47;&#47; Hide the icon
-          icon: const Icon(
-            Icons.info,
-            size: 0.0,
+      _getListTile(
+        title: appLocalizations.faq_nutriscore_nutriscore,
+        leadingSvg: SvgCache.getAssetsCacheForNutriscore(
+          NutriScoreValue.b,
+          true,
+        ),
+        onTap: () =&gt; Navigator.of(context, rootNavigator: true).push(
+          MaterialPageRoute&lt;void&gt;(
+            builder: (BuildContext context) =&gt; const GuideNutriscoreV2(),
           ),
         ),
+
+        &#47;&#47;&#47; Hide the icon
+        icon: const Icon(
+          Icons.info,
+          size: 0.0,
+        ),
+      ),
       _getNutriListTile(
         title: appLocalizations.environmental_score_generic,
         url: &#39;https:&#47;&#47;world.openfoodfacts.org&#47;ecoscore&#39;,
