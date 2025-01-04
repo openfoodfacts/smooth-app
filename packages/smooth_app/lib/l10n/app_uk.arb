@@ -2100,7 +2100,7 @@
     "dev_mode_section_ui": "Інтерфейс користувача",
     "dev_mode_section_data": "Дані",
     "dev_mode_section_experimental_features": "Експериментальні функції",
-    "dev_preferences_show_folksonomy_title": "Exclude Folksonomy",
+    "dev_preferences_show_folksonomy_title": "Виключити фольксономію",
     "@dev_preferences_show_folksonomy_title": {
         "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
     },
