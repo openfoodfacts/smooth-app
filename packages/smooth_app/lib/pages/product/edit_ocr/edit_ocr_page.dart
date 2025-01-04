@@ -160,6 +160,7 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
                       setState(() {});
                     }
                   },
+                  imageField: _helper.getImageField(),
                   languagesWithText: _getLanguagesWithText(),
                 )
               : null,

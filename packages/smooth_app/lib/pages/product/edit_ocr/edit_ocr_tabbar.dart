@@ -6,11 +6,13 @@ import 'package:smooth_app/pages/product/edit_language_tabbar.dart';
 class EditOcrTabBar extends StatelessWidget implements PreferredSizeWidget {
   const EditOcrTabBar({
     required this.onTabChanged,
+    required this.imageField,
     required this.languagesWithText,
     super.key,
   });
 
   final void Function(OpenFoodFactsLanguage) onTabChanged;
+  final ImageField imageField;
   final List<OpenFoodFactsLanguage> languagesWithText;
 
   @override
@@ -24,7 +26,7 @@ class EditOcrTabBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   List<ProductLanguageWithState> productLanguages(Product product) {
-    return getProductImageLanguages(product, ImageField.INGREDIENTS)
+    return getProductImageLanguages(product, imageField)
         .map((OpenFoodFactsLanguage l) => ProductLanguageWithState(
               language: l,
               state: languagesWithText.contains(l)
