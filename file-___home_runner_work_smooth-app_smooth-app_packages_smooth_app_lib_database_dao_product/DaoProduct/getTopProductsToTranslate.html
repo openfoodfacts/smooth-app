@@ -81,54 +81,64 @@ products being probably wiped out.</p>
   required final List&lt;String&gt; excludeBarcodes,
   required final ProductType productType,
 }) async {
-  &#47;&#47;&#47; Unfortunately, some SQFlite implementations don&#39;t support &quot;nulls last&quot;
-  String getRawQuery(final bool withNullsLast) =&gt;
-      &#39;select p.$_TABLE_PRODUCT_COLUMN_GZIPPED_JSON &#39;
-      &#39;from&#39;
-      &#39; $_TABLE_PRODUCT p&#39;
-      &#39; left outer join ${DaoProductLastAccess.TABLE} a&#39;
-      &#39;  on p.$_TABLE_PRODUCT_COLUMN_BARCODE = a.${DaoProductLastAccess.COLUMN_BARCODE} &#39;
-      &#39;where&#39;
-      &#39; p.$_TABLE_PRODUCT_COLUMN_LANGUAGE is null&#39;
-      &#39; or p.$_TABLE_PRODUCT_COLUMN_LANGUAGE != ? &#39;
-      &#39;order by a.${DaoProductLastAccess.COLUMN_LAST_ACCESS} desc ${withNullsLast ? &#39;nulls last&#39; : &#39;&#39;} &#39;;
-
-  List&lt;Map&lt;String, dynamic&gt;&gt; queryResults = &lt;Map&lt;String, dynamic&gt;&gt;[];
-  try {
-    queryResults = await localDatabase.database.rawQuery(
-      getRawQuery(true),
-      &lt;Object&gt;[
-        language.offTag,
-      ],
-    );
-  } catch (e) {
-    if (!e.toString().startsWith(
-          &#39;DatabaseException(near &quot;nulls&quot;: syntax error (code 1 SQLITE_ERROR&#39;,
-        )) {
-      rethrow;
-    }
-    queryResults = await localDatabase.database.rawQuery(
-      getRawQuery(false),
-      &lt;Object&gt;[
-        language.offTag,
-      ],
-    );
-  }
-
   final List&lt;String&gt; result = &lt;String&gt;[];
 
-  for (final Map&lt;String, dynamic&gt; row in queryResults) {
-    final Product product = _getProductFromQueryResult(row);
-    final String barcode = product.barcode!;
-    if (excludeBarcodes.contains(barcode)) {
-      continue;
-    }
-    if ((product.productType ?? ProductType.food) != productType) {
-      continue;
-    }
-    result.add(barcode);
-    if (result.length == limit) {
-      break;
+  const String tableJoin =
+      &#39;p.$_TABLE_PRODUCT_COLUMN_BARCODE = a.${DaoProductLastAccess.COLUMN_BARCODE}&#39;;
+  final String languageCondition = &#39; (&#39;
+      &#39;p.$_TABLE_PRODUCT_COLUMN_LANGUAGE is null &#39;
+      &quot;or p.$_TABLE_PRODUCT_COLUMN_LANGUAGE != &#39;${language.offTag}&#39;&quot;
+      &#39;) &#39;;
+
+  final String queryWithLastAccess =
+      &#39;select p.$_TABLE_PRODUCT_COLUMN_GZIPPED_JSON &#39;
+      &#39;from&#39;
+      &#39; $_TABLE_PRODUCT p &#39;
+      &#39; inner join ${DaoProductLastAccess.TABLE} a&#39;
+      &#39;  on $tableJoin &#39;
+      &#39;where&#39;
+      &#39; $languageCondition &#39;
+      &#39;order by a.${DaoProductLastAccess.COLUMN_LAST_ACCESS} desc&#39;;
+
+  final String queryWithoutLastAccess =
+      &#39;select p.$_TABLE_PRODUCT_COLUMN_GZIPPED_JSON &#39;
+      &#39;from&#39;
+      &#39; $_TABLE_PRODUCT p &#39;
+      &#39;where&#39;
+      &#39; not exists(&#39;
+      &#39;  select null&#39;
+      &#39;  from ${DaoProductLastAccess.TABLE} a &#39;
+      &#39;  where $tableJoin &#39;
+      &#39; ) &#39;
+      &#39; and $languageCondition&#39;;
+
+  &#47;&#47; optimization: using 2 more simple queries than a &quot;left join&quot; that proved
+  &#47;&#47; more expensive (less than .1s for each simple query, .5s for &quot;left join&quot;)
+  final List&lt;String&gt; queries = &lt;String&gt;[
+    queryWithLastAccess,
+    queryWithoutLastAccess,
+  ];
+  for (final String query in queries) {
+    &#47;&#47; optimization: using a cursor, as we don&#39;t want all the rows,
+    &#47;&#47; and we don&#39;t know how many rows we&#39;ll need.
+    final QueryCursor queryCursor =
+        await localDatabase.database.rawQueryCursor(
+      query,
+      null,
+    );
+    while (await queryCursor.moveNext()) {
+      final Product product = _getProductFromQueryResult(queryCursor.current);
+      final String barcode = product.barcode!;
+      if (excludeBarcodes.contains(barcode)) {
+        continue;
+      }
+      if ((product.productType ?? ProductType.food) != productType) {
+        continue;
+      }
+      result.add(barcode);
+      if (result.length == limit) {
+        return result;
+      }
     }
   }
 

@@ -121,9 +121,10 @@ Future&lt;void&gt; execute(final LocalDatabase localDatabase) async {
   for (final Product product in searchResult.products!) {
     newExcludeBarcodes.remove(product.barcode);
   }
-  await addTask(
+  await _addTask(
     localDatabase,
     excludeBarcodes: newExcludeBarcodes,
+    productType: productType,
   );
 }</code></pre>
 </section>
