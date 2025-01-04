@@ -53,7 +53,8 @@
 
 <span class="returntype">dynamic</span>
 <span class="name ">getTextTheme</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="getTextTheme-param-themeProvider"><span class="type-annotation">dynamic</span> <span class="parameter-name">themeProvider</span>, </span></li>
-<li><span class="parameter" id="getTextTheme-param-textContrastProvider"><span class="type-annotation">dynamic</span> <span class="parameter-name">textContrastProvider</span></span></li>
+<li><span class="parameter" id="getTextTheme-param-textContrastProvider"><span class="type-annotation">dynamic</span> <span class="parameter-name">textContrastProvider</span>(<ol class="parameter-list"></ol>
+)</span></li>
 </ol>)
 
       
@@ -66,9 +67,11 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static TextTheme getTextTheme(
-    ThemeProvider themeProvider, TextContrastProvider textContrastProvider) {
+  ThemeProvider themeProvider,
+  TextContrastProvider Function() textContrastProvider,
+) {
   final Color contrastLevel = themeProvider.currentTheme == THEME_AMOLED
-      ? getTextContrastLevel(textContrastProvider.currentContrastLevel)
+      ? getTextContrastLevel(textContrastProvider().currentContrastLevel)
       : Colors.white;
 
   return _TEXT_THEME.copyWith(

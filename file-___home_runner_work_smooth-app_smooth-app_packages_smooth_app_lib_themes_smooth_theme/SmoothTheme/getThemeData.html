@@ -54,8 +54,10 @@
 <span class="returntype">dynamic</span>
 <span class="name ">getThemeData</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="getThemeData-param-brightness"><span class="type-annotation">dynamic</span> <span class="parameter-name">brightness</span>, </span></li>
 <li><span class="parameter" id="getThemeData-param-themeProvider"><span class="type-annotation">dynamic</span> <span class="parameter-name">themeProvider</span>, </span></li>
-<li><span class="parameter" id="getThemeData-param-colorProvider"><span class="type-annotation">dynamic</span> <span class="parameter-name">colorProvider</span>, </span></li>
-<li><span class="parameter" id="getThemeData-param-textContrastProvider"><span class="type-annotation">dynamic</span> <span class="parameter-name">textContrastProvider</span></span></li>
+<li><span class="parameter" id="getThemeData-param-colorProvider"><span class="type-annotation">dynamic</span> <span class="parameter-name">colorProvider</span>(<ol class="parameter-list"></ol>
+), </span></li>
+<li><span class="parameter" id="getThemeData-param-textContrastProvider"><span class="type-annotation">dynamic</span> <span class="parameter-name">textContrastProvider</span>(<ol class="parameter-list"></ol>
+)</span></li>
 </ol>)
 
       
@@ -70,8 +72,8 @@
   <pre class="language-dart"><code class="language-dart">static ThemeData getThemeData(
   final Brightness brightness,
   final ThemeProvider themeProvider,
-  final ColorProvider colorProvider,
-  final TextContrastProvider textContrastProvider,
+  final ColorProvider Function() colorProvider,
+  final TextContrastProvider Function() textContrastProvider,
 ) {
   ColorScheme myColorScheme;
 
@@ -79,10 +81,12 @@
     myColorScheme = lightColorScheme;
   } else {
     if (themeProvider.currentTheme == THEME_AMOLED) {
+      final ColorProvider colorNotifier = colorProvider();
+
       myColorScheme = trueDarkColorScheme.copyWith(
-        primary: getColorValue(colorProvider.currentColor),
+        primary: getColorValue(colorNotifier.currentColor),
         secondary: getShade(
-          getColorValue(colorProvider.currentColor),
+          getColorValue(colorNotifier.currentColor),
           darker: true,
           value: SECONDARY_COLOR_SHADE_VALUE,
         ),
