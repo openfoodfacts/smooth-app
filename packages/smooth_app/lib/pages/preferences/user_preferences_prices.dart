@@ -10,7 +10,9 @@ import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/prices/get_prices_model.dart';
+import 'package:smooth_app/pages/prices/price_button.dart';
 import 'package:smooth_app/pages/prices/price_user_button.dart';
+import 'package:smooth_app/pages/prices/prices_locations_page.dart';
 import 'package:smooth_app/pages/prices/prices_page.dart';
 import 'package:smooth_app/pages/prices/prices_proofs_page.dart';
 import 'package:smooth_app/pages/prices/prices_users_page.dart';
@@ -87,17 +89,7 @@ class UserPreferencesPrices extends AbstractUserPreferences {
           MaterialPageRoute<void>(
             builder: (BuildContext context) => PricesPage(
               GetPricesModel(
-                parameters: GetPricesParameters()
-                  ..orderBy = <OrderBy<GetPricesOrderField>>[
-                    const OrderBy<GetPricesOrderField>(
-                      field: GetPricesOrderField.created,
-                      ascending: false,
-                    ),
-                  ]
-                  ..pageSize = GetPricesModel.pageSize
-                  ..pageNumber = 1,
-                displayOwner: true,
-                displayProduct: true,
+                parameters: GetPricesModel.getStandardPricesParameters(),
                 uri: OpenPricesAPIClient.getUri(
                   path: 'prices',
                   uriHelper: ProductQuery.uriPricesHelper,
@@ -118,11 +110,16 @@ class UserPreferencesPrices extends AbstractUserPreferences {
             builder: (BuildContext context) => const PricesUsersPage(),
           ),
         ),
-        Icons.account_box,
+        PriceButton.userIconData,
       ),
-      _getPriceListTile(
+      _getListTile(
         appLocalizations.all_search_prices_top_location_title,
-        'locations',
+        () async => Navigator.of(context).push(
+          MaterialPageRoute<void>(
+            builder: (BuildContext context) => const PricesLocationsPage(),
+          ),
+        ),
+        PriceButton.locationIconData,
       ),
       _getPriceListTile(
         appLocalizations.all_search_prices_top_product_title,

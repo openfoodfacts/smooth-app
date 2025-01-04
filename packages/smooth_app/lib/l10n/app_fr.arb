@@ -28,7 +28,7 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
-    "previous_label": "Précédente",
+    "previous_label": "Précédent",
     "@previous_label": {
         "description": "A label on a button that says 'Previous', pressing the button takes the user to the previous screen."
     },
@@ -562,10 +562,15 @@
     "@add_product_information_button_label": {},
     "new_product": "Nouveau produit",
     "@new_product": {},
-    "new_product_dialog_title": "Vous venez de trouver un nouveau produit !",
-    "@new_product_dialog_title": {
-        "description": "Please keep it short, like 50 characters. Title of the dialog when the user searched for an unknown barcode."
+    "new_product_found_title": "New product found!",
+    "@new_product_found_title": {
+        "description": "Title of a dialog that informs the user that a barcode doesn't exist in the database"
     },
+    "new_product_found_text": "Notre base de données collaborative contient plus de **3 millions de produits**, mais ce code-barres n'existe pas : ",
+    "@new_product_found_text": {
+        "description": "Please keep the ** syntax to make the text bold"
+    },
+    "new_product_found_button": "Ajouter ce produit",
     "new_product_leave_title": "Quitter cette page ?",
     "@new_product_leave_title": {
         "description": "Alert dialog title when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
@@ -578,9 +583,9 @@
     "@new_product_dialog_description": {
         "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
     },
-    "new_product_dialog_illustration_description": "Une illustration avec un Nutri-Score et un Eco-Score inconnus",
+    "new_product_dialog_illustration_description": "Une illustration avec un Nutri-Score et un Green-Score inconnus",
     "@new_product_dialog_illustration_description": {
-        "description": "A description for accessibility of two images side by side: a Nutri-Score and an EcoScore."
+        "description": "A description for accessibility of two images side by side: a Nutri-Score and an Green Score."
     },
     "front_packaging_photo_button_label": "Photo frontale du produit",
     "@front_packaging_photo_button_label": {},
@@ -656,9 +661,9 @@
     "categories_added": "Catégories ajoutées",
     "new_product_title_nutriscore": "Calculez le Nutri-Score",
     "new_product_subtitle_nutriscore": "Merci d'indiquer la catégorie de l'aliment et les données nutritionnelles",
-    "new_product_title_ecoscore": "Calculez l'Eco-Score",
-    "new_product_subtitle_ecoscore": "Merci d'indiquer au moins la catégorie de l'aliment",
-    "new_product_additional_ecoscore": "Rendre le calcul de l'Eco-Score plus précis avec les origines géographiques, l'emballage et plus",
+    "new_product_title_environmental_score": "Calculez le Green-Score",
+    "new_product_subtitle_environmental_score": "Obtenez-le en remplissant au moins une catégorie",
+    "new_product_additional_environmental_score": "Rendre le calcul du Green-Score plus précis avec les origines géographiques, l'emballage et plus",
     "new_product_title_nova": "Calculer le niveau de transformation des aliments (NOVA)",
     "new_product_subtitle_nova": "Obtenez-le en remplissant la catégorie alimentaire et les ingrédients",
     "new_product_desc_nova_unknown": "Degré de transformation des aliments inconnu",
@@ -680,7 +685,7 @@
     "@new_product_done_button_label": {
         "description": "Button at the end of new product page, that takes you to completed product"
     },
-    "hey_incomplete_product_message": "Appuyez pour répondre MAINTENANT à 3 questions pour calculer le Nutri-Score, l'Eco-Score et le niveau d'ultra-transformation NOVA.",
+    "hey_incomplete_product_message": "Appuyez pour répondre MAINTENANT à 3 questions pour calculer le Nutri-Score, le Green-Score et le niveau d'ultra-transformation (NOVA) !",
     "hey_incomplete_product_message_beauty": "Appuyez maintenant pour répondre à 2 questions pour aider à analyser ce cosmétique !",
     "hey_incomplete_product_message_pet_food": "Appuyez maintenant pour répondre à 3 questions pour aider à analyser ce produit alimentaire pour animaux !",
     "hey_incomplete_product_message_product": "Appuyez maintenant pour aider à compléter ce produit !",
@@ -924,7 +929,7 @@
     "@product_improvement_obsolete_nutrition_image": {
         "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
     },
-    "product_improvement_origins_to_be_completed": "L'Eco-Score prend en compte l'origine des ingrédients. Veuillez les prendre en photo (liste d'ingrédients et/ou toute allégation géographique) ou modifiez le produit afin qu'elles puissent être prises en compte.",
+    "product_improvement_origins_to_be_completed": "Le Green-Score prend en compte l'origine des ingrédients. Veuillez prendre en photo la liste d'ingrédients et/ou toute allégation géographique ou modifiez le produit afin qu'elles puissent être prises en compte.",
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
@@ -2011,6 +2016,54 @@
             }
         }
     },
+    "prices_locations_list_length_many_pages": "Top {pageSize} contributeurs (total : {total})",
+    "@prices_locations_list_length_many_pages": {
+        "description": "Number of locations for one-page result",
+        "placeholders": {
+            "pageSize": {
+                "type": "int"
+            },
+            "total": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_button_count_proof": "{count,plural, =0{Liste vide} =1{Un produit} other{{count} produits}}",
+    "@prices_button_count_proof": {
+        "description": "Number of proofs, for a button",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_button_count_product": "{count,plural, =0{Liste vide} =1{Un produit} other{{count} produits}}",
+    "@prices_button_count_product": {
+        "description": "Number of products, for a button",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_button_count_user": "{count,plural, =0{Aucun utilisateur} =1{Un utilisateur} other{{count} utilisateurs}}",
+    "@prices_button_count_user": {
+        "description": "Number of users, for a button",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_button_count_price": "{count,plural, =0{Aucun prix} =1{Un seul prix} other{Tous les {count} prix}}",
+    "@prices_button_count_price": {
+        "description": "Number of prices, for a button",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
     "prices_amount_subtitle": "Montant",
     "prices_amount_is_discounted": "En promotion ?",
     "prices_amount_price_normal": "Prix",
@@ -2051,9 +2104,9 @@
     "@dev_preferences_show_folksonomy_title": {
         "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
     },
-    "dev_mode_hide_ecoscore_title": "Exclure l'éco-score",
-    "@dev_mode_hide_ecoscore_title": {
-        "description": "User dev preferences - Disable Ecoscore - Title"
+    "dev_mode_hide_environmental_score_title": "Exclure le Green-Score",
+    "@dev_mode_hide_environmental_score_title": {
+        "description": "User dev preferences - Disable Green Score - Title"
     },
     "dev_mode_spellchecker_for_ocr_title": "Utiliser un correcteur orthographique pour les écrans OCR",
     "@dev_mode_spellchecker_for_ocr_title": {
@@ -2140,6 +2193,10 @@
     },
     "all_search_prices_top_location_title": "Top lieux",
     "@all_search_prices_top_location_title": {
+        "description": "Top price locations: list tile title"
+    },
+    "all_search_prices_top_location_single_title": "Prix en magasin",
+    "@all_search_prices_top_location_single_title": {
         "description": "Top price locations: list tile title"
     },
     "all_search_prices_top_product_title": "Top produits",
@@ -3030,14 +3087,14 @@
     "nutriscore_unknown_new_formula": "Nutri-Score inconnu (Nouveau calcul)",
     "nutriscore_not_applicable": "Nutri-Score non applicable",
     "nutriscore_not_applicable_new_formula": "Le Nutri-Score n'est pas applicable (Nouveau calcul)",
-    "ecoscore_generic": "Eco-Score",
-    "ecoscore_a": "Éco-Score A",
-    "ecoscore_b": "Éco-Score B",
-    "ecoscore_c": "Éco-Score C",
-    "ecoscore_d": "Éco-Score D",
-    "ecoscore_e": "Éco-Score E",
-    "ecoscore_unknown": "Éco-score inconnu",
-    "ecoscore_not_applicable": "Éco-Score non applicable",
+    "environmental_score_generic": "Green-Score",
+    "environmental_score_a": "Green-Score A",
+    "environmental_score_b": "Green-Score B",
+    "environmental_score_c": "Green-Score C",
+    "environmental_score_d": "Green-Score D",
+    "environmental_score_e": "Green-Score E",
+    "environmental_score_unknown": "Unknown Green Score",
+    "environmental_score_not_applicable": "Green Score is not applicable",
     "nova_group_generic": "Groupe NOVA",
     "nova_group_1": "Groupe NOVA 1",
     "nova_group_2": "Groupe NOVA 2",
@@ -3402,5 +3459,17 @@
     "photo_field_packaging": "Photo des informations sur l'emballage",
     "photo_already_exists": "Cette photo existe déjà",
     "photo_missing": "Cette photo est manquante",
-    "date": "Date"
+    "date": "Date",
+    "photo_rotate_left": "Pivoter à gauche",
+    "@photo_rotate_left": {
+        "description": "Button to rotate a photo to the left"
+    },
+    "photo_rotate_right": "Pivoter à droite",
+    "@photo_rotate_right": {
+        "description": "Button to rotate a photo to the right"
+    },
+    "photo_undo_action": "Undo the previous action",
+    "@photo_undo_action": {
+        "description": "Button to undo the previous action on a photo"
+    }
 }

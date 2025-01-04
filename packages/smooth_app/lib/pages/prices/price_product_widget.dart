@@ -2,11 +2,16 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:provider/provider.dart';
+import 'package:smooth_app/database/dao_product.dart';
+import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/images/smooth_image.dart';
 import 'package:smooth_app/pages/prices/get_prices_model.dart';
 import 'package:smooth_app/pages/prices/price_button.dart';
 import 'package:smooth_app/pages/prices/price_count_widget.dart';
+import 'package:smooth_app/pages/prices/price_meta_product.dart';
+import 'package:smooth_app/pages/prices/prices_page.dart';
 
 /// Price Product display (no price data here).
 class PriceProductWidget extends StatelessWidget {
@@ -71,9 +76,32 @@ class PriceProductWidget extends StatelessWidget {
                   runSpacing: 0,
                   children: <Widget>[
                     PriceCountWidget(
-                      priceCount,
-                      priceProduct: priceProduct,
-                      enableCountButton: model.enableCountButton,
+                      count: priceCount,
+                      onPressed: !model.enableCountButton
+                          ? null
+                          : () async {
+                              final LocalDatabase localDatabase =
+                                  context.read<LocalDatabase>();
+                              final Product? newProduct =
+                                  await DaoProduct(localDatabase)
+                                      .get(priceProduct.code);
+                              if (!context.mounted) {
+                                return;
+                              }
+                              return Navigator.of(context).push<void>(
+                                MaterialPageRoute<void>(
+                                  builder: (BuildContext context) => PricesPage(
+                                    GetPricesModel.product(
+                                      product: newProduct != null
+                                          ? PriceMetaProduct.product(newProduct)
+                                          : PriceMetaProduct.priceProduct(
+                                              priceProduct),
+                                      context: context,
+                                    ),
+                                  ),
+                                ),
+                              );
+                            },
                     ),
                     if (brands != null)
                       for (final String brand in brands)
@@ -85,7 +113,7 @@ class PriceProductWidget extends StatelessWidget {
                     if (unknown)
                       PriceButton(
                         title: appLocalizations.prices_unknown_product,
-                        iconData: Icons.warning,
+                        iconData: PriceButton.warningIconData,
                         onPressed: null,
                         buttonStyle: ElevatedButton.styleFrom(
                           disabledForegroundColor: Colors.red,

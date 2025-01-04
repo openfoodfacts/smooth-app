@@ -360,7 +360,7 @@
     "@contribute_donate_header": {},
     "contribute_enroll_alpha": "Feliratkozás a belső alfa verzióra",
     "@contribute_enroll_alpha": {},
-    "contribute_enroll_alpha_warning": "Cegye figyelembe, hogy a belső alfa verzióval a teljes adatvesztés is lehetséges, és az alkalmazás bármikor használhatatlanná válhat!",
+    "contribute_enroll_alpha_warning": "Vegye figyelembe, hogy a belső alfa verzióval a teljes adatvesztés is előfordulhat, és az alkalmazás bármikor használhatatlanná válhat!",
     "@contribute_enroll_alpha_warning": {},
     "contribute_improve_ProductsToBeCompleted": "Kiegészítendő termékek",
     "@contribute_improve_ProductsToBeCompleted": {
@@ -407,7 +407,7 @@
     "@saving_answer": {
         "description": "Dialog shown to users after they have answered a question, while the answer is being saved in the BE."
     },
-    "contribute_to_get_rewards": "Legyen egy szereplője az élelmiszer átláthatóságnak",
+    "contribute_to_get_rewards": "Legyen szereplője az élelmiszer-átláthatóságnak",
     "@contribute_to_get_rewards": {
         "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts."
     },
@@ -562,10 +562,15 @@
     "@add_product_information_button_label": {},
     "new_product": "Új termék",
     "@new_product": {},
-    "new_product_dialog_title": "Ön éppen egy új terméket talált!",
-    "@new_product_dialog_title": {
-        "description": "Please keep it short, like 50 characters. Title of the dialog when the user searched for an unknown barcode."
+    "new_product_found_title": "Új terméket találtál!",
+    "@new_product_found_title": {
+        "description": "Title of a dialog that informs the user that a barcode doesn't exist in the database"
     },
+    "new_product_found_text": "Együttműködésen alapuló adatbázisunk több mint **3 millió terméket** tartalmaz, de ez a vonalkód nincs benne: ",
+    "@new_product_found_text": {
+        "description": "Please keep the ** syntax to make the text bold"
+    },
+    "new_product_found_button": "Termék hozzáadása",
     "new_product_leave_title": "Elhagyja az oldalt?",
     "@new_product_leave_title": {
         "description": "Alert dialog title when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
@@ -578,9 +583,9 @@
     "@new_product_dialog_description": {
         "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
     },
-    "new_product_dialog_illustration_description": "Ismeretlen Nutri-Score-t és Eco-Score-t ábrázoló illusztráció",
+    "new_product_dialog_illustration_description": "Ismeretlen Nutri-Score-t és Green Score-t ábrázoló illusztráció",
     "@new_product_dialog_illustration_description": {
-        "description": "A description for accessibility of two images side by side: a Nutri-Score and an EcoScore."
+        "description": "A description for accessibility of two images side by side: a Nutri-Score and an Green Score."
     },
     "front_packaging_photo_button_label": "Csomagolás fényképe szemből",
     "@front_packaging_photo_button_label": {},
@@ -656,9 +661,9 @@
     "categories_added": "Hozzáadott kategóriák",
     "new_product_title_nutriscore": "Nutri-Score kiszámítása",
     "new_product_subtitle_nutriscore": "Segítsen nekünk legalább a kategória és tápértékek kitöltésével",
-    "new_product_title_ecoscore": "Eco-Score kiszámítása",
-    "new_product_subtitle_ecoscore": "Egy kategória kitöltésével megtudhatja",
-    "new_product_additional_ecoscore": "Pontosabbá teheti az Eco-Score számítását a származás, a csomagolás és egyebek kitöltésével",
+    "new_product_title_environmental_score": "Green Score kiszámítása",
+    "new_product_subtitle_environmental_score": "Egy kategória kitöltésével megtudhatja",
+    "new_product_additional_environmental_score": "Pontosabbá teheti a Green Score számítását a származás, a csomagolás és egyebek kitöltésével",
     "new_product_title_nova": "Élelmiszer-feldolgozási szint (NOVA) kiszámítása",
     "new_product_subtitle_nova": "Az élelmiszerkategória és az összetevők kitöltésével megtudhatja",
     "new_product_desc_nova_unknown": "Az élelmiszer-feldolgozottság szintje ismeretlen",
@@ -680,7 +685,7 @@
     "@new_product_done_button_label": {
         "description": "Button at the end of new product page, that takes you to completed product"
     },
-    "hey_incomplete_product_message": "Válaszoljon meg 3 kérdést MOST a Nutri-Score, Eco-Score és a feldolgozottság (NOVA) kiszámításához!",
+    "hey_incomplete_product_message": "Válaszoljon meg 3 kérdést MOST a Nutri-Score, Green Score és a feldolgozottság (NOVA) kiszámításához!",
     "hey_incomplete_product_message_beauty": "Válaszoljon meg 2 kérdést, és segítsen elemezni ezt a kozmetikumot!",
     "hey_incomplete_product_message_pet_food": "Válaszoljon meg 3 kérdést, és segítsen elemezni ezt az állateledelt!",
     "hey_incomplete_product_message_product": "Segítsen befejezni a terméket!",
@@ -869,20 +874,20 @@
             }
         }
     },
-    "product_tags_title": "Product properties",
+    "product_tags_title": "Terméktulajdonságok",
     "@product_tags_title": {
         "description": "The title for showing product properties, aka folksonomy data"
     },
-    "no_product_tags_found_message": "No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.",
+    "no_product_tags_found_message": "Nem találtunk terméktulajdonságokat. A tulajdonságok rugalmasan használhatók a termékek részletesebb leírására. Érintse meg a hozzáadáshoz.",
     "@no_product_tags_found_message": {
         "description": "Message to show if there are no product properties found"
     },
-    "add_tag": "Add property",
-    "edit_tag": "Edit property",
-    "remove_tag": "Remove property",
-    "tag_key": "Property",
+    "add_tag": "Tulajdonság hozzáadása",
+    "edit_tag": "Tulajdonság szerkesztése",
+    "remove_tag": "Tulajdonság eltávolítása",
+    "tag_key": "Tulajdonság",
     "tag_value": "Érték",
-    "invalid_key_format": "Invalid property format. It must be lowercase and without any spaces.",
+    "invalid_key_format": "Érvénytelen tulajdonságformátum. Kisbetűvel és szóközök nélkül kell írni.",
     "@invalid_key_format": {
         "description": "Message to show if the property's value for a new product property is invalid. This logic is identical to whats being validated in the Folksonomy API"
     },
@@ -924,7 +929,7 @@
     "@product_improvement_obsolete_nutrition_image": {
         "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
     },
-    "product_improvement_origins_to_be_completed": "Az Eco-Score figyelembe veszi az összetevők eredetét. Fényképezze le az összetevők listáját és/vagy bármilyen földrajzi állítást, vagy módosítsa a terméket úgy, hogy figyelembe lehessen venni azt.",
+    "product_improvement_origins_to_be_completed": "A Green Score figyelembe veszi az összetevők eredetét. Fényképezze le az összetevők listáját és/vagy bármilyen földrajzi állítást, vagy módosítsa a terméket úgy, hogy figyelembe lehessen venni azt.",
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
@@ -1011,7 +1016,7 @@
             "percent": {}
         }
     },
-    "plural_ago_days": "{count,plural,  one {}=1{egy napja} other{{count} napja}}",
+    "plural_ago_days": "{count,plural,  =1{egy napja} other{{count} napja}}",
     "@plural_ago_days": {
         "description": "Cached results from: x days ago",
         "placeholders": {
@@ -1235,7 +1240,7 @@
     "@product_list_your_ranking": {
         "description": "Your ranking screen title"
     },
-    "product_list_empty_icon_desc": "Az előzmények nem érhetők el",
+    "product_list_empty_icon_desc": "Az előzmények nem érhetőek el",
     "@product_list_icon_desc": {
         "description": "When the history list is empty, icon description (for accessibility) of the message explaining to start scanning"
     },
@@ -1247,7 +1252,7 @@
     "@product_list_empty_message": {
         "description": "When the history list is empty, body of the message explaining to start scanning"
     },
-    "product_list_reloading_in_progress_multiple": "{count,plural,  one {}=0{Termék} =1{Termék} other{Termékek}} frissítése az előzményekben",
+    "product_list_reloading_in_progress_multiple": "{count,plural, =0{Termék} =1{Termék} other{Termékek}} frissítése az előzményekben",
     "@product_list_reloading_in_progress_multiple": {
         "description": "Message to show while loading previous scanned items",
         "placeholders": {
@@ -1965,7 +1970,7 @@
             }
         }
     },
-    "prices_open_user_proofs": "„{user}” igazolásainak megnyitása",
+    "prices_open_user_proofs": "„{user}” bizonylatainak megnyitása",
     "@prices_open_user_proofs": {
         "description": "Button to open the proofs of a user",
         "placeholders": {
@@ -1974,11 +1979,11 @@
             }
         }
     },
-    "prices_open_proof": "Árigazolás mengnyitása",
+    "prices_open_proof": "Bizonylat megnyitása",
     "@prices_open_proof": {
         "description": "Button to open a proof"
     },
-    "prices_proofs_list_length_one_page": "{count,plural,=0{Még nincs igazolás} =1{Csak egy igazolás} other{{count} igazolás}}",
+    "prices_proofs_list_length_one_page": "{count,plural,=0{Még nincs bizonylat} =1{Csak egy bizonylat} other{{count} bizonylat}}",
     "@prices_proofs_list_length_one_page": {
         "description": "Number of proofs for one-page result",
         "placeholders": {
@@ -1987,7 +1992,7 @@
             }
         }
     },
-    "prices_proofs_list_length_many_pages": "Legújabb {pageSize} igazolás (összesen: {total})",
+    "prices_proofs_list_length_many_pages": "Legújabb {pageSize} bizonylat (összesen: {total})",
     "@prices_proofs_list_length_many_pages": {
         "description": "Number of proofs for one-page result",
         "placeholders": {
@@ -2011,6 +2016,54 @@
             }
         }
     },
+    "prices_locations_list_length_many_pages": "Legnépszerűbb {pageSize} hely (összesen: {total})",
+    "@prices_locations_list_length_many_pages": {
+        "description": "Number of locations for one-page result",
+        "placeholders": {
+            "pageSize": {
+                "type": "int"
+            },
+            "total": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_button_count_proof": "{count,plural, =0{Nincsenek bizonylatok} =1{Egy bizonylat} other{{count} bizonylat}}",
+    "@prices_button_count_proof": {
+        "description": "Number of proofs, for a button",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_button_count_product": "{count,plural, =0{Nincsenek termékek} =1{Egy termék} other{{count} termék}}",
+    "@prices_button_count_product": {
+        "description": "Number of products, for a button",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_button_count_user": "{count,plural, =0{0 felhasználó} =1{Egy felhasználó} other{{count} felhasználó}}",
+    "@prices_button_count_user": {
+        "description": "Number of users, for a button",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_button_count_price": "{count,plural, =0{Nincsenek árak} =1{Egy ár} other{{count} ár}}",
+    "@prices_button_count_price": {
+        "description": "Number of prices, for a button",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
     "prices_amount_subtitle": "Mennyiség",
     "prices_amount_is_discounted": "Akciós?",
     "prices_amount_price_normal": "Price",
@@ -2026,10 +2079,10 @@
     "prices_location_mandatory": "Ki kell választani egy boltot!",
     "prices_location_search_broader": "Nem találta, amit keresett? Próbáljunk meg egy átfogóbb keresést!",
     "prices_proof_subtitle": "Proof",
-    "prices_proof_find": "Igazolás kiválasztása",
+    "prices_proof_find": "Bizonylat kiválasztása",
     "prices_proof_receipt": "Receipt",
     "prices_proof_price_tag": "Price tag",
-    "prices_proof_mandatory": "Ki kell választani egy igazolást!",
+    "prices_proof_mandatory": "Ki kell választani egy bizonylatot!",
     "prices_add_validation_error": "Érvényesítési hiba",
     "prices_privacy_warning_title": "Adatvédelmi figyelmeztetés",
     "prices_privacy_warning_message": "Az árak nyilvánosak lesznek, a hozzájuk tartozó üzlettel együtt.\nEz lehetővé teheti az Open Food Factsen használt felhasználónevét ismerő emberek számára, hogy:\n* következtessenek a lakóhelyére\n* tudják, mit vásárol\nHa aggódik emiatt, változtassa meg a felhasználónevét, vagy hozzon létre egy másik Open Food Facts fiókot, és jelentkezzen be azzal az alkalmazásba.",
@@ -2051,9 +2104,9 @@
     "@dev_preferences_show_folksonomy_title": {
         "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
     },
-    "dev_mode_hide_ecoscore_title": "Eco-Score kizárása",
-    "@dev_mode_hide_ecoscore_title": {
-        "description": "User dev preferences - Disable Ecoscore - Title"
+    "dev_mode_hide_environmental_score_title": "Green Score kizárása",
+    "@dev_mode_hide_environmental_score_title": {
+        "description": "User dev preferences - Disable Green Score - Title"
     },
     "dev_mode_spellchecker_for_ocr_title": "Helyesírás-ellenőrző használata az OCR-képernyőkön",
     "@dev_mode_spellchecker_for_ocr_title": {
@@ -2122,7 +2175,7 @@
     "@user_search_proofs_title": {
         "description": "User proofs: list tile title"
     },
-    "user_search_proof_title": "Igazolásom",
+    "user_search_proof_title": "Bizonylataim",
     "@user_search_proof_title": {
         "description": "User proof: page title"
     },
@@ -2140,6 +2193,10 @@
     },
     "all_search_prices_top_location_title": "Legtöbb árral rendelkező boltok",
     "@all_search_prices_top_location_title": {
+        "description": "Top price locations: list tile title"
+    },
+    "all_search_prices_top_location_single_title": "Bolti árak",
+    "@all_search_prices_top_location_single_title": {
         "description": "Top price locations: list tile title"
     },
     "all_search_prices_top_product_title": "Legtöbb árral rendelkező termékek",
@@ -2266,7 +2323,7 @@
     "@confirm_clearclear_search": {
         "description": "Tooltip to explain that the X button clears the content of the search"
     },
-    "confirm_clear": "A teljes előzmények törlésére készül: biztosan folytatja?",
+    "confirm_clear": "Az összes előzmény törlésére készül: biztosan folytatja?",
     "@confirm_clear": {
         "description": "Asking about whether to clear the history list or not"
     },
@@ -2662,7 +2719,7 @@
         "description": "Show hidden password in password field"
     },
     "rate_app": "Értékelje az alkalmazást",
-    "app_rating_dialog_title": "Nagyszerű! Tudasd másokkal, hogy mit gondolsz erről az appról!",
+    "app_rating_dialog_title": "Nagyszerű! Mondja el másoknak is, mit gondol az alkalmazásról!",
     "app_rating_dialog_positive_action": "Értékelje az alkalmazást",
     "app_rating_dialog_negative_action": "Később",
     "app_rating_dialog_title_enjoying_app": "Tetszik az alkalmazás?",
@@ -2681,7 +2738,7 @@
     "@owner_field_info_close_button": {
         "description": "The owner info may be shown in a closeable dialog. This is the label of the button (used on a long press event and for the accessibility label)."
     },
-    "owner_field_image": "This image is provided by the producer. It may not be editable.",
+    "owner_field_image": "Ezt a képet a gyártó biztosította. Lehet, hogy nem szerkeszthető.",
     "@owner_field_image": {
         "description": "An image is directly provided by the producer. It may be locked and not be editable."
     },
@@ -3030,14 +3087,14 @@
     "nutriscore_unknown_new_formula": "Ismeretlen Nutri-Score (új számítás)",
     "nutriscore_not_applicable": "A Nutri-Score nem alkalmazható",
     "nutriscore_not_applicable_new_formula": "A Nutri-Score nem alkalmazható (új számítás)",
-    "ecoscore_generic": "Eco-Score",
-    "ecoscore_a": "Eco-Score A",
-    "ecoscore_b": "Eco-Score B",
-    "ecoscore_c": "Eco-Score C",
-    "ecoscore_d": "Eco-Score D",
-    "ecoscore_e": "Eco-Score E",
-    "ecoscore_unknown": "Ismeretlen Eco-Score",
-    "ecoscore_not_applicable": "Az Eco-Score nem alkalmazható",
+    "environmental_score_generic": "Green Score",
+    "environmental_score_a": "Green Score A",
+    "environmental_score_b": "Green Score B",
+    "environmental_score_c": "Green Score C",
+    "environmental_score_d": "Green Score D",
+    "environmental_score_e": "Green Score E",
+    "environmental_score_unknown": "Ismeretlen Green Score",
+    "environmental_score_not_applicable": "A Green Score nem alkalmazható",
     "nova_group_generic": "Többszörös feldolgozottság – NOVA-csoportok",
     "nova_group_1": "1. NOVA-csoport",
     "nova_group_2": "2. NOVA-csoport",
@@ -3131,14 +3188,14 @@
     "guide_nutriscore_v2_new_logo_title": "How to differentiate old Nutri-Score and new calculation?",
     "guide_nutriscore_v2_new_logo_text": "From now on, the logo can display a mention \"**New calculation**\" to clarify that this is indeed the new calculation.",
     "guide_nutriscore_v2_new_logo_image_caption": "The logo of the new Nutri-Score",
-    "guide_nutriscore_v2_where_title": "Where to find the new Nutri-Score calculation?",
+    "guide_nutriscore_v2_where_title": "Hol található meg az új Nutri-Score számítás?",
     "guide_nutriscore_v2_where_paragraph1": "The Nutri-Score is applied in several countries: Germany, Belgium, Spain, France, Luxembourg, the Netherlands and Switzerland.",
     "guide_nutriscore_v2_where_paragraph2": "Manufacturers have until **2026** at the latest **to replace** the old calculation with the new one.",
     "guide_nutriscore_v2_where_paragraph3": "Without waiting, you **will already find in the OpenFoodFacts application**, the new calculation, including if the manufacturers have not updated the score.",
     "guide_nutriscore_v2_unchanged_title": "What doesn't change",
     "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
     "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
-    "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
+    "guide_nutriscore_v2_share_link": "https://hu.openfoodfacts.org/nutriscore-v2",
     "guide_nutriscore_v2_share_message": "",
     "@guide_nutriscore_v2_share_message": {
         "description": "Please let empty for now (maybe use in the future)"
@@ -3212,7 +3269,7 @@
     "@photo_viewer_details_url_title": {
         "description": "Label for the link of a photo"
     },
-    "product_page_compatibility_score": "megfelelőség",
+    "product_page_compatibility_score": "egyezés",
     "@product_page_compatibility_score": {
         "description": "Compatibility score on top of the product page. The sentence is \"100%\" Compatible"
     },
@@ -3237,23 +3294,23 @@
     "@product_image_ingredients_accessibility_label": {
         "description": "Accessibility label for the image of ingredients"
     },
-    "product_image_nutrition_accessibility_label": "Nutrition picture",
+    "product_image_nutrition_accessibility_label": "Tápértékadatok képe",
     "@product_image_nutrition_accessibility_label": {
         "description": "Accessibility label for the image of the nutrition"
     },
-    "product_image_packaging_accessibility_label": "Packaging picture",
+    "product_image_packaging_accessibility_label": "Csomagolás képe",
     "@product_image_packaging_accessibility_label": {
         "description": "Accessibility label for the image of the packaging"
     },
-    "product_image_other_accessibility_label": "Other picture",
+    "product_image_other_accessibility_label": "Egyéb kép",
     "@product_image_other_accessibility_label": {
         "description": "Accessibility label for an image"
     },
-    "product_image_outdated_message": "This picture may be outdated",
+    "product_image_outdated_message": "Ez a kép elavult lehet",
     "@product_image_outdated_message": {
         "description": "Small message to indicate that the image may be outdated"
     },
-    "product_image_outdated_message_accessibility_label": "{type} (this image may be outdated)",
+    "product_image_outdated_message_accessibility_label": "{type} (ez a kép elavult lehet)",
     "@product_image_outdated_message_accessibility_label": {
         "description": "Accessibility label for the image on the product page when it may be outdated",
         "placeholders": {
@@ -3262,7 +3319,7 @@
             }
         }
     },
-    "product_image_locked_message_accessibility_label": "{type} (this image may be locked by the producer)",
+    "product_image_locked_message_accessibility_label": "{type} (lehet, hogy ezt a képet a gyártó zárolta)",
     "@product_image_locked_message_accessibility_label": {
         "description": "Accessibility label for the image on the product page when it may be locked (producer provided)",
         "placeholders": {
@@ -3271,11 +3328,11 @@
             }
         }
     },
-    "product_image_error": "Unable to load the image!",
+    "product_image_error": "Nem sikerült betölteni a képet!",
     "@product_image_error": {
         "description": "Small message that will be displayed above the picture (please keep it short)"
     },
-    "product_image_error_accessibility_label": "Unable to load the {type} (network error?)",
+    "product_image_error_accessibility_label": "{type} betöltése nem sikerült (hálózati hiba?)",
     "@product_image_error_accessibility_label": {
         "description": "Accessibility label for the image on the product page when it fails to load",
         "placeholders": {
@@ -3316,11 +3373,11 @@
     "@product_page_action_bar_item_disable": {
         "description": "Accessibility label to disable action (= make it invisible)"
     },
-    "product_page_pending_operations_banner_title": "Uploading your edits…",
+    "product_page_pending_operations_banner_title": "Szerkesztések feltöltése…",
     "@product_page_pending_operations_banner_title": {
         "description": "When a product has pending edits (being sent to the server), there is a message on the product page (here is the title of the message)."
     },
-    "product_page_pending_operations_banner_message": "The data displayed on this page **does not yet reflect your modifications**.\nPlease wait a few seconds…",
+    "product_page_pending_operations_banner_message": "Az ezen az oldalon megjelenő adatok **még nem tartalmazzák az Ön módosításait**.\nVárjon pár másodpercet…",
     "@product_page_pending_operations_banner_message": {
         "description": "When a product has pending edits (being sent to the server), there is a message on the product page. Please keep the ** syntax to make the text bold."
     },
@@ -3351,8 +3408,8 @@
     "@carousel_error_header": {
         "description": "A label on top of the carousel card when there is an error (mainly network issues)"
     },
-    "carousel_error_title": "It's a bummer!",
-    "carousel_error_text_1": "Nem tudtunk információkat letölteni erről a vonalkódról:",
+    "carousel_error_title": "De nagy kár!",
+    "carousel_error_text_1": "Nem tudtunk adatokat lekérni erről a vonalkódról:",
     "carousel_error_text_2": "Ellenőrizze internetkapcsolatát, vagy kattintson erre a gombra:",
     "@carousel_error_text_2": {
         "description": "Please keep the ** syntax to make the text bold"
@@ -3402,5 +3459,17 @@
     "photo_field_packaging": "Csomagolási információk fényképe",
     "photo_already_exists": "Ez a fénykép már létezik",
     "photo_missing": "Ez a fénykép hiányzik",
-    "date": "Date"
+    "date": "Date",
+    "photo_rotate_left": "Forgatás balra",
+    "@photo_rotate_left": {
+        "description": "Button to rotate a photo to the left"
+    },
+    "photo_rotate_right": "Forgatás jobbra",
+    "@photo_rotate_right": {
+        "description": "Button to rotate a photo to the right"
+    },
+    "photo_undo_action": "Undo the previous action",
+    "@photo_undo_action": {
+        "description": "Button to undo the previous action on a photo"
+    }
 }

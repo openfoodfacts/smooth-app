@@ -4,13 +4,13 @@ version: 0.0.1
 publish_to: "none"
 
 environment:
-  sdk: ^3.5.3
+  sdk: ^3.6.0
 
 dependencies:
   flutter:
     sdk: flutter
 
-  in_app_review: 2.0.9
+  in_app_review: 2.0.10
 
   app_store_shared:
     path: ../shared

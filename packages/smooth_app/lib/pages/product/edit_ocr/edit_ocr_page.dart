@@ -21,6 +21,7 @@ import 'package:smooth_app/helpers/provider_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
+import 'package:smooth_app/pages/product/edit_ocr/edit_ocr_tabbar.dart';
 import 'package:smooth_app/pages/product/edit_ocr/ocr_helper.dart';
 import 'package:smooth_app/pages/product/explanation_widget.dart';
 import 'package:smooth_app/pages/product/multilingual_helper.dart';
@@ -144,20 +145,49 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
     );
 
     // TODO(monsieurtanuki): add WillPopScope / MayExitPage system
-    return SmoothScaffold(
-      extendBodyBehindAppBar: true,
-      appBar: buildEditProductAppBar(
-        context: context,
-        title: _helper.getTitle(appLocalizations),
-        product: upToDateProduct,
-      ),
-      body: Stack(
-        children: <Widget>[
-          _getImageWidget(transientFile),
-          _getOcrWidget(transientFile),
-        ],
+    return Provider<Product>(
+      create: (BuildContext context) => upToDateProduct,
+      child: SmoothScaffold(
+        extendBodyBehindAppBar: true,
+        appBar: buildEditProductAppBar(
+          context: context,
+          title: _helper.getTitle(appLocalizations),
+          product: upToDateProduct,
+          bottom: !_multilingualHelper.isMonolingual()
+              ? EditOcrTabBar(
+                  onTabChanged: (OpenFoodFactsLanguage language) {
+                    if (_multilingualHelper.changeLanguage(language)) {
+                      setState(() {});
+                    }
+                  },
+                  imageField: _helper.getImageField(),
+                  languagesWithText: _getLanguagesWithText(),
+                )
+              : null,
+        ),
+        body: Stack(
+          children: <Widget>[
+            _getImageWidget(transientFile),
+            _getOcrWidget(transientFile),
+          ],
+        ),
       ),
     );
+  }
+
+  List<OpenFoodFactsLanguage> _getLanguagesWithText() {
+    final Map<OpenFoodFactsLanguage, String> allLanguages =
+        _multilingualHelper.getInitialMultiLingualTexts();
+
+    final List<OpenFoodFactsLanguage> languages = <OpenFoodFactsLanguage>[];
+
+    for (final OpenFoodFactsLanguage language in allLanguages.keys) {
+      if (allLanguages[language]?.isNotEmpty == true) {
+        languages.add(language);
+      }
+    }
+
+    return languages;
   }
 
   Widget _getImageButton(
@@ -311,11 +341,6 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
                   ),
                   child: Column(
                     children: <Widget>[
-                      if (!_multilingualHelper.isMonolingual())
-                        _multilingualHelper.getLanguageSelector(
-                          setState: setState,
-                          product: upToDateProduct,
-                        ),
                       _EditOcrMainAction(
                         onPressed: _extractData,
                         helper: _helper,
@@ -352,7 +377,7 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
                             child: TextField(
                               controller: _controller,
                               decoration: InputDecoration(
-                                fillColor: Colors.white.withOpacity(0.2),
+                                fillColor: Colors.white.withValues(alpha: 0.2),
                                 filled: true,
                                 enabledBorder: const OutlineInputBorder(
                                   borderRadius: ANGULAR_BORDER_RADIUS,

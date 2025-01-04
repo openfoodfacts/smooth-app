@@ -498,7 +498,7 @@
     "@search": {
         "description": "Hint text of a search text input field"
     },
-    "search_store": "Search for a store",
+    "search_store": "Ieškoti parduotuvės",
     "@search_store": {
         "description": "Hint text of a search store text input field"
     },
@@ -519,7 +519,7 @@
     "@front_photo": {
         "description": "Button label: For adding a picture of the front of a product"
     },
-    "outdated_image_accessibility_label": "{imageType} (this image may be outdated)",
+    "outdated_image_accessibility_label": "{imageType} (šis vaizdas gali būti pasenęs)",
     "@outdated_image_accessibility_label": {
         "description": "Accessibility label for images that are outdated (image type may be front/ingredients/nutrition…)",
         "placeholders": {
@@ -562,10 +562,15 @@
     "@add_product_information_button_label": {},
     "new_product": "Naujas produktas",
     "@new_product": {},
-    "new_product_dialog_title": "Jūs ką tik radote naują produktą!",
-    "@new_product_dialog_title": {
-        "description": "Please keep it short, like 50 characters. Title of the dialog when the user searched for an unknown barcode."
+    "new_product_found_title": "Rastas naujas produktas!",
+    "@new_product_found_title": {
+        "description": "Title of a dialog that informs the user that a barcode doesn't exist in the database"
     },
+    "new_product_found_text": "Mūsų bendradarbiavimo duomenų bazėje yra daugiau negu **3 milijonai produktų**, tačiau šio brūkšninio kodo nėra: ",
+    "@new_product_found_text": {
+        "description": "Please keep the ** syntax to make the text bold"
+    },
+    "new_product_found_button": "Pridėti šį produktą",
     "new_product_leave_title": "Palikti šį puslapį?",
     "@new_product_leave_title": {
         "description": "Alert dialog title when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
@@ -578,9 +583,9 @@
     "@new_product_dialog_description": {
         "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
     },
-    "new_product_dialog_illustration_description": "An illustration with unknown Nutri-Score and Eco-Score",
+    "new_product_dialog_illustration_description": "Iliustracija su nežinomu „Nutri-Score“ ir „Green Score“",
     "@new_product_dialog_illustration_description": {
-        "description": "A description for accessibility of two images side by side: a Nutri-Score and an EcoScore."
+        "description": "A description for accessibility of two images side by side: a Nutri-Score and an Green Score."
     },
     "front_packaging_photo_button_label": "Produkto priekinė nuotrauka",
     "@front_packaging_photo_button_label": {},
@@ -656,9 +661,9 @@
     "categories_added": "Pridėtos kategorijos",
     "new_product_title_nutriscore": "Apskaičiuoti „Nutri-Score“",
     "new_product_subtitle_nutriscore": "Gaukite jį užpildę maisto kategoriją ir maistines vertes",
-    "new_product_title_ecoscore": "Apskaičiuoti „Eco-Score“",
-    "new_product_subtitle_ecoscore": "Gaukite jį užpildę bent vieną kategoriją",
-    "new_product_additional_ecoscore": "Padarykite Eco-Score skaičiavimą tikslesnį, nurodydami kilmę, pakuotę ir kt",
+    "new_product_title_environmental_score": "Apskaičiuoti „Green Score“",
+    "new_product_subtitle_environmental_score": "Gaukite jį užpildę bent vieną kategoriją",
+    "new_product_additional_environmental_score": "Gaukite tikslesnį „Green Score“ skaičiavimą, nurodydami kilmę, pakuotę ir t. t.",
     "new_product_title_nova": "Apskaičiuoti maisto apdorojimo lygį (NOVA)",
     "new_product_subtitle_nova": "Gauti jį užpildžius maisto kategoriją ir ingredientus",
     "new_product_desc_nova_unknown": "Maisto perdirbimo lygis nežinomas",
@@ -680,10 +685,10 @@
     "@new_product_done_button_label": {
         "description": "Button at the end of new product page, that takes you to completed product"
     },
-    "hey_incomplete_product_message": "Tap to answer 3 questions NOW to compute Nutri-Score, Eco-Score & Ultra-processing (NOVA)!",
-    "hey_incomplete_product_message_beauty": "Tap now to answer 2 questions to help analyze this cosmetic!",
-    "hey_incomplete_product_message_pet_food": "Tap now to answer 3 questions to help analyze this pet food product!",
-    "hey_incomplete_product_message_product": "Tap now to help complete this product!",
+    "hey_incomplete_product_message": "Bakstelėkite, kad atsakytumėte į 3 klausimus DABAR ir apskaičiuokite „Nutri-Score“, „Green Score“ ir ultraapdorojimą (NOVA)!",
+    "hey_incomplete_product_message_beauty": "Bakstelėkite dabar, kad atsakytumėte į 2 klausimus, kurie padės išanalizuoti šią kosmetiką!",
+    "hey_incomplete_product_message_pet_food": "Bakstelėkite dabar, kad atsakytumėte į 3 klausimus, kurie padės išanalizuoti šį maisto produktą!",
+    "hey_incomplete_product_message_product": "Bakstelėkite dabar, kad padėtumėte baigti šį produktą!",
     "nutritional_facts_photo_uploaded": "Įkelta Maistingumo lentelės nuotrauka",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "Perdirbimo informacijos nuotrauka",
@@ -749,7 +754,7 @@
     "nutrition_page_invalid_number": "Neteisingas numeris",
     "nutrition_page_update_running": "Atnaujinamas produktas serveryje…",
     "nutrition_page_update_done": "Produktas atnaujintas!",
-    "nutrition_page_take_serving_size_from_product_quantity": "Use the product quantity as serving size",
+    "nutrition_page_take_serving_size_from_product_quantity": "Naudoti produkto kiekį kaip pateikiamą porciją",
     "@nutrition_page_take_serving_size_from_product_quantity": {
         "description": "Button label: Use the product quantity as serving size (nutrition page)"
     },
@@ -787,7 +792,7 @@
             }
         }
     },
-    "product_image_outdated": "This image may be outdated",
+    "product_image_outdated": "Ši vaizdas gali būti pasenęs",
     "product_image_action_replace_photo": "Replace photo ({type})",
     "@product_image_action_replace_photo": {
         "description": "Action on the photo gallery to replace an existing picture",
@@ -900,7 +905,7 @@
     "@product_search_same_category_short": {
         "description": "Button looking for the other products within the same category. Just the verb compare"
     },
-    "product_search_same_category_error": "This feature can only be used for products with a category.\n\nPlease edit the product to add a category.",
+    "product_search_same_category_error": "Šią funkciją galima naudoti tik produktams, priklausantiems kategorijai.\n\nKad pridėtumėte kategoriją, redaguokite produktą.",
     "@product_search_same_category_error": {
         "description": "Button looking for the other products within the same category. Just the verb compare"
     },
@@ -924,7 +929,7 @@
     "@product_improvement_obsolete_nutrition_image": {
         "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
     },
-    "product_improvement_origins_to_be_completed": "Apskaičiuojant „Eco-Score“ atsižvelgiama į sudedamųjų dalių kilmę. Nufotografuokite ingredientų sąrašą ir (arba) bet kokį geografinį teiginį arba redaguokite produktą, kad būtų galima į juos atsižvelgti.",
+    "product_improvement_origins_to_be_completed": "Apskaičiuojant „Green Score“, atsižvelgiama į sudedamųjų dalių kilmę. Nufotografuokite ingredientų sąrašą ir (arba) bet kokį geografinį teiginį ar redaguokite produktą, kad būtų galima į juos atsižvelgti.",
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
@@ -1053,26 +1058,26 @@
             "count": {}
         }
     },
-    "multiselect_title": "{count,plural, =0{No selected product} =1{One selected product} other{{count} selected products}}",
+    "multiselect_title": "{count,plural, =0{Nepasirinktas joks produktas} =1{Pasirinktas  vienas produktas} other{{count} pasirinkta produktų}}",
     "@multiselect_title": {
         "description": "Page title with the number of selected items",
         "placeholders": {
             "count": {}
         }
     },
-    "compare_products_mode": "Compare selected products",
+    "compare_products_mode": "Palyginti pasirinktus produktus",
     "@compare_products_mode": {
         "description": "Button to switch to 'compare products mode'"
     },
-    "delete_products_mode": "Delete selected products",
+    "delete_products_mode": "Trinti pasirinktus produktus",
     "@delete_products_mode": {
         "description": "Button to switch to 'delete products'"
     },
-    "select_all_products_mode": "Select all products",
+    "select_all_products_mode": "Pasirinkti visus produktus",
     "@select_all_products_mode": {
         "description": "Button to switch to 'select all products'"
     },
-    "select_none_products_mode": "Select none",
+    "select_none_products_mode": "Nepasirinkti nieko",
     "@select_none_products_mode": {
         "description": "Button to switch to 'select no products'"
     },
@@ -1653,7 +1658,7 @@
     "@user_list_button_new": {
         "description": "Short label of a 'create a new list' button"
     },
-    "user_list_empty_label": "Jokio sąrašo dar nėra, pradėkite sukurdami jį",
+    "user_list_empty_label": "Jokio sąrašo dar nėra!\nPradėkite ir sukurkite jį.",
     "@user_list_empty_label": {
         "description": "Content displayed when there is no list"
     },
@@ -1689,7 +1694,7 @@
     "@user_list_name_error_same": {
         "description": "Validation error about the renamed name that is the same as the initial list name"
     },
-    "user_list_name_input_hint": "Name of the list",
+    "user_list_name_input_hint": "Sąrašo pavadinimas",
     "@user_list_name_input_hint": {
         "description": "A hint to indicate that the user should input a name of a list"
     },
@@ -1864,16 +1869,16 @@
         }
     },
     "product_type_label_food": "Food",
-    "product_type_label_beauty": "Personal care",
+    "product_type_label_beauty": "Asmens higiena",
     "product_type_label_pet_food": "Pet food",
     "product_type_label_product": "Kita",
-    "product_type_selection_title": "Product type",
-    "product_type_selection_subtitle": "Select the type of this product",
-    "product_type_selection_empty": "You need to select a product type first!",
+    "product_type_selection_title": "Produkto tipas",
+    "product_type_selection_subtitle": "Pasirinkite šio produkto tipą",
+    "product_type_selection_empty": "Pirmiausia turite pasirinkti produkto tipą!",
     "@product_type_selection_empty": {
         "description": "Error message about product type that needs to be set"
     },
-    "product_type_selection_already": "You cannot change the product type ({productType})!",
+    "product_type_selection_already": "Negalite keisti produkto tipo ({productType})!",
     "@product_type_selection_already": {
         "description": "Error message about product type that cannot be set again",
         "placeholders": {
@@ -1891,7 +1896,7 @@
     "prices_add_a_price": "Pridėti kainą",
     "prices_add_a_receipt": "Pridėti kvitą",
     "prices_add_price_tags": "Pridėti kainų etiketes",
-    "prices_barcode_already": "This barcode ({barcode}) is already in the list!",
+    "prices_barcode_already": "Šis brūkšninis kodas ({barcode}) jau yra sąraše!",
     "@prices_barcode_already": {
         "description": "Error message about barcode being already there",
         "placeholders": {
@@ -1911,7 +1916,7 @@
             }
         }
     },
-    "prices_barcode_enter": "Enter the Barcode",
+    "prices_barcode_enter": "Įvesti brūkšninį kodą",
     "prices_barcode_reader_action": "Barcode reader",
     "prices_view_prices": "View the prices",
     "prices_product_accessibility_summary": "{count,plural, =1{1 price} other{{count} prices}} for {product}",
@@ -2011,6 +2016,54 @@
             }
         }
     },
+    "prices_locations_list_length_many_pages": "Geriausios {pageSize} vietos (iš viso: {total})",
+    "@prices_locations_list_length_many_pages": {
+        "description": "Number of locations for one-page result",
+        "placeholders": {
+            "pageSize": {
+                "type": "int"
+            },
+            "total": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_button_count_proof": "{count,plural, one {} few {{count} įrodymai} many {{count} įrodymų}=0{No proof} =1{One proof} other{{count} įrodumai}}",
+    "@prices_button_count_proof": {
+        "description": "Number of proofs, for a button",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_button_count_product": "{count,plural, =0{Nėra produktų} =1{Vienas produktas} other{{count} produktai}}",
+    "@prices_button_count_product": {
+        "description": "Number of products, for a button",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_button_count_user": "{count,plural, =0{Nėra vartotojų} =1{Vienas vartotojas} other{{count} vartotojai}}",
+    "@prices_button_count_user": {
+        "description": "Number of users, for a button",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_button_count_price": "{count,plural, =0{Nėra kainų} =1{Viena kaina} other{{count} kainos}}}",
+    "@prices_button_count_price": {
+        "description": "Number of prices, for a button",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
     "prices_amount_subtitle": "Amount",
     "prices_amount_is_discounted": "Is discounted?",
     "prices_amount_price_normal": "Kaina",
@@ -2024,7 +2077,7 @@
     "prices_location_subtitle": "Shop",
     "prices_location_find": "Find a shop",
     "prices_location_mandatory": "You need to select a shop!",
-    "prices_location_search_broader": "Couldn't find what you were looking for? Let's try a broader search!",
+    "prices_location_search_broader": "Neradote to, ko ieškojote? Išbandykime platesnę paiešką!",
     "prices_proof_subtitle": "Įrodymai",
     "prices_proof_find": "Select a proof",
     "prices_proof_receipt": "Čekis",
@@ -2051,9 +2104,9 @@
     "@dev_preferences_show_folksonomy_title": {
         "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
     },
-    "dev_mode_hide_ecoscore_title": "Neįtraukti Eco-Score",
-    "@dev_mode_hide_ecoscore_title": {
-        "description": "User dev preferences - Disable Ecoscore - Title"
+    "dev_mode_hide_environmental_score_title": "Neįtraukti „Green Score“",
+    "@dev_mode_hide_environmental_score_title": {
+        "description": "User dev preferences - Disable Green Score - Title"
     },
     "dev_mode_spellchecker_for_ocr_title": "Use a spellchecker for OCR screens",
     "@dev_mode_spellchecker_for_ocr_title": {
@@ -2142,6 +2195,10 @@
     "@all_search_prices_top_location_title": {
         "description": "Top price locations: list tile title"
     },
+    "all_search_prices_top_location_single_title": "Kainos parduotuvėje",
+    "@all_search_prices_top_location_single_title": {
+        "description": "Top price locations: list tile title"
+    },
     "all_search_prices_top_product_title": "Products with the most prices",
     "@all_search_prices_top_product_title": {
         "description": "Top price products: list tile title"
@@ -2212,7 +2269,7 @@
     "@edit_photo_select_existing_button_label": {
         "description": "Edit 'select existing image' button label"
     },
-    "edit_photo_select_existing_all_label": "Existing images for this product",
+    "edit_photo_select_existing_all_label": "Esami vaizdai",
     "@edit_photo_select_existing_all_label": {
         "description": "Page title"
     },
@@ -2395,7 +2452,7 @@
             }
         }
     },
-    "share_product_text_beauty": "Have a look at this product on Open Beauty Facts: {url}",
+    "share_product_text_beauty": "Peržiūrėkite šį produktą „Open Beauty Facts“: {url}",
     "@share_product_text_beauty": {
         "description": "The content which is send, when sharing a 'beauty' product",
         "placeholders": {
@@ -2404,7 +2461,7 @@
             }
         }
     },
-    "share_product_text_pet_food": "Have a look at this product on Open PetFood Facts: {url}",
+    "share_product_text_pet_food": "Peržiūrėkite šį produktą „Open PetFood Facts“: {url}",
     "@share_product_text_pet_food": {
         "description": "The content which is send, when sharing a 'pet food' product",
         "placeholders": {
@@ -2413,7 +2470,7 @@
             }
         }
     },
-    "share_product_text_product": "Have a look at this product on Open Products Facts: {url}",
+    "share_product_text_product": "Peržiūrėkite šį produktą „Open Products Facts“: {url}",
     "@share_product_text_product": {
         "description": "The content which is send, when sharing a 'products' product",
         "placeholders": {
@@ -2642,7 +2699,7 @@
     "@user_picture_source_remember": {
         "description": "Checkbox label when select a picture source"
     },
-    "user_picture_source_ask": "Ask each time",
+    "user_picture_source_ask": "Klausti kiekvieną kartą",
     "@user_picture_source_ask": {
         "description": "Choice of asking the picture source every time"
     },
@@ -2669,19 +2726,19 @@
     "app_rating_dialog_title_enjoying_positive_actions": "Aha!",
     "not_really": "Nelabai",
     "app_rating_dialog_title_not_enjoying_app": "Mes labai apgailestaujame dėl to! Ar galėtumėte mums papasakoti, kas nutiko?",
-    "owner_field_info_title": "Producer provided values",
+    "owner_field_info_title": "Gamintojas pateikė vertes",
     "@owner_field_info_title": {
         "description": "Title of the 'producer provided' info list-tile"
     },
-    "owner_field_info_message": "With that logo we highlight data provided by the producer, and that may not be editable.",
+    "owner_field_info_message": "Šiuo logotipu paryškiname gamintojo pateiktus duomenis, kurie gali būti neredaguotini.",
     "@owner_field_info_message": {
         "description": "Title of the 'producer provided' info list-tile"
     },
-    "owner_field_info_close_button": "Close this info",
+    "owner_field_info_close_button": "Uždaryti šią informaciją",
     "@owner_field_info_close_button": {
         "description": "The owner info may be shown in a closeable dialog. This is the label of the button (used on a long press event and for the accessibility label)."
     },
-    "owner_field_image": "This image is provided by the producer. It may not be editable.",
+    "owner_field_image": "Šį vaizdą pateikė gamintojas. Jis gali būti neredaguotinas.",
     "@owner_field_image": {
         "description": "An image is directly provided by the producer. It may be locked and not be editable."
     },
@@ -3030,14 +3087,14 @@
     "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
     "nutriscore_not_applicable": "Nutri-Score is not applicable",
     "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
-    "ecoscore_generic": "Eco-Score",
-    "ecoscore_a": "Eco-Score A",
-    "ecoscore_b": "Eco-Score B",
-    "ecoscore_c": "Eco-Score C",
-    "ecoscore_d": "Eco-Score D",
-    "ecoscore_e": "Eco-Score E",
-    "ecoscore_unknown": "Unknown Eco-Score",
-    "ecoscore_not_applicable": "Eco-Score is not applicable",
+    "environmental_score_generic": "Green Score",
+    "environmental_score_a": "Green Score A",
+    "environmental_score_b": "Green Score B",
+    "environmental_score_c": "Green Score C",
+    "environmental_score_d": "Green Score D",
+    "environmental_score_e": "Green Score E",
+    "environmental_score_unknown": "Nežinomas „Green Score“",
+    "environmental_score_not_applicable": "„Green Score“ netaikomas",
     "nova_group_generic": "Ultraapdorojimas – NOVA grupės",
     "nova_group_1": "NOVA Group 1",
     "nova_group_2": "NOVA Group 2",
@@ -3151,11 +3208,11 @@
     "@prices_feedback_form": {
         "description": "A button to send feedback about the prices feature"
     },
-    "menu_button_list_actions": "Select an action",
+    "menu_button_list_actions": "Rinktis veiksmą",
     "@menu_button_list_actions": {
         "description": "Button to select an action in a list (eg: Share, Delete, …)"
     },
-    "error_loading_photo": "Error loading photo",
+    "error_loading_photo": "Įkeliant nuotrauką, įvyko klaida",
     "@error_loading_photo": {
         "description": "Error message when loading a photo fails to load"
     },
@@ -3176,11 +3233,11 @@
     "@photo_viewer_details_button": {
         "description": "Button to show details of the photo"
     },
-    "photo_viewer_details_button_accessibility_label": "Details of this photo",
+    "photo_viewer_details_button_accessibility_label": "Šios nuotraukos duomenys",
     "@photo_viewer_details_button_accessibility_label": {
         "description": "Accessibility label for the Details button on a photo"
     },
-    "photo_viewer_details_title": "Details of the photo",
+    "photo_viewer_details_title": "Nuotraukos duomenys",
     "@photo_viewer_details_title": {
         "description": "Title of the photo details dialog"
     },
@@ -3188,11 +3245,11 @@
     "@photo_viewer_details_contributor_title": {
         "description": "Label for the author of a photo"
     },
-    "photo_viewer_details_size_title": "Size",
+    "photo_viewer_details_size_title": "Dydis",
     "@photo_viewer_details_size_title": {
         "description": "Label for the size of a photo"
     },
-    "photo_viewer_details_size_value": "{width} x {height} pixels",
+    "photo_viewer_details_size_value": "{width} x {height} pikselių",
     "@photo_viewer_details_size_value": {
         "description": "Value for the size of a photo",
         "placeholders": {
@@ -3212,15 +3269,15 @@
     "@photo_viewer_details_url_title": {
         "description": "Label for the link of a photo"
     },
-    "product_page_compatibility_score": "Compatible",
+    "product_page_compatibility_score": "Suderinama",
     "@product_page_compatibility_score": {
         "description": "Compatibility score on top of the product page. The sentence is \"100%\" Compatible"
     },
-    "user_lists_action_multi_select": "Multi-select",
+    "user_lists_action_multi_select": "Daugybinis pasirinkimas",
     "@user_lists_action_multi_select": {
         "description": "The button label for multi-selecting products in a user list"
     },
-    "product_page_compatibility_score_tooltip": "Your compatibility score: {score}%",
+    "product_page_compatibility_score_tooltip": "Jūsų suderinamumo balas: {score}%",
     "@product_page_compatibility_score_tooltip": {
         "description": "Message explaining that the score is the compatibility score",
         "placeholders": {
@@ -3237,23 +3294,23 @@
     "@product_image_ingredients_accessibility_label": {
         "description": "Accessibility label for the image of ingredients"
     },
-    "product_image_nutrition_accessibility_label": "Nutrition picture",
+    "product_image_nutrition_accessibility_label": "Maistingumo nuotrauka",
     "@product_image_nutrition_accessibility_label": {
         "description": "Accessibility label for the image of the nutrition"
     },
-    "product_image_packaging_accessibility_label": "Packaging picture",
+    "product_image_packaging_accessibility_label": "Pakuotės nuotrauka",
     "@product_image_packaging_accessibility_label": {
         "description": "Accessibility label for the image of the packaging"
     },
-    "product_image_other_accessibility_label": "Other picture",
+    "product_image_other_accessibility_label": "Kita nuotrauka",
     "@product_image_other_accessibility_label": {
         "description": "Accessibility label for an image"
     },
-    "product_image_outdated_message": "This picture may be outdated",
+    "product_image_outdated_message": "Ši nuotrauka gali būti pasenusi",
     "@product_image_outdated_message": {
         "description": "Small message to indicate that the image may be outdated"
     },
-    "product_image_outdated_message_accessibility_label": "{type} (this image may be outdated)",
+    "product_image_outdated_message_accessibility_label": "{type} (šis vaizdas gali būti pasenęs)",
     "@product_image_outdated_message_accessibility_label": {
         "description": "Accessibility label for the image on the product page when it may be outdated",
         "placeholders": {
@@ -3262,7 +3319,7 @@
             }
         }
     },
-    "product_image_locked_message_accessibility_label": "{type} (this image may be locked by the producer)",
+    "product_image_locked_message_accessibility_label": "{type} (šį vaizdą galėjo užrakinti gamintojas)",
     "@product_image_locked_message_accessibility_label": {
         "description": "Accessibility label for the image on the product page when it may be locked (producer provided)",
         "placeholders": {
@@ -3271,11 +3328,11 @@
             }
         }
     },
-    "product_image_error": "Unable to load the image!",
+    "product_image_error": "Nepavyko įkelti vaizdo!",
     "@product_image_error": {
         "description": "Small message that will be displayed above the picture (please keep it short)"
     },
-    "product_image_error_accessibility_label": "Unable to load the {type} (network error?)",
+    "product_image_error_accessibility_label": "Nepavyko įkelti {type} (tinklo klaida?)",
     "@product_image_error_accessibility_label": {
         "description": "Accessibility label for the image on the product page when it fails to load",
         "placeholders": {
@@ -3284,35 +3341,35 @@
             }
         }
     },
-    "product_page_image_no_image_available": "No\nimage!",
+    "product_page_image_no_image_available": "Nėra\nvaizdo!",
     "@product_page_image_no_image_available": {
         "description": "Small message that will be displayed above the picture (please keep it short) when there is no image available on the database. A line break is not mandatory."
     },
-    "product_page_image_no_image_available_accessibility_label": "No picture available for this product",
+    "product_page_image_no_image_available_accessibility_label": "Šio produkto paveikslėlio nėra",
     "@product_page_image_no_image_available_accessibility_label": {
         "description": "Accessibility label for the image on the product page when there is no image available on the database"
     },
-    "product_page_action_bar_settings_accessibility_label": "Reorder or hide actions",
+    "product_page_action_bar_settings_accessibility_label": "Pertvarkyti arba slėpti veiksmus",
     "@product_page_action_bar_settings_accessibility_label": {
         "description": "Accessibility label for the Settings icon in the action bar (= bottom bar) on the product page"
     },
-    "product_page_action_bar_setting_modal_title": "Edit actions",
+    "product_page_action_bar_setting_modal_title": "Redaguoti veiksmus",
     "@product_page_action_bar_setting_modal_title": {
         "description": "Title for the modal allowing to show and reorder actions"
     },
-    "product_page_action_bar_item_move_up": "Move up",
+    "product_page_action_bar_item_move_up": "Kilti aukštyn",
     "@product_page_action_bar_item_move_up": {
         "description": "Accessibility label to move up an action"
     },
-    "product_page_action_bar_item_move_down": "Move down",
+    "product_page_action_bar_item_move_down": "Leistis žemyn",
     "@product_page_action_bar_item_move_down": {
         "description": "Accessibility label to move down an action"
     },
-    "product_page_action_bar_item_enable": "Enable action",
+    "product_page_action_bar_item_enable": "Įjungti veiksmą",
     "@product_page_action_bar_item_enable": {
         "description": "Accessibility label to enable action (= make it visible)"
     },
-    "product_page_action_bar_item_disable": "Disable action",
+    "product_page_action_bar_item_disable": "Išjungti veiksmą",
     "@product_page_action_bar_item_disable": {
         "description": "Accessibility label to disable action (= make it invisible)"
     },
@@ -3324,11 +3381,11 @@
     "@product_page_pending_operations_banner_message": {
         "description": "When a product has pending edits (being sent to the server), there is a message on the product page. Please keep the ** syntax to make the text bold."
     },
-    "product_add_a_language": "Add a language",
+    "product_add_a_language": "Pridėti kalbą",
     "@product_add_a_language": {
         "description": "Button to add a language (eg: for photos) to a product"
     },
-    "barcode_accessibility_label": "Barcode {barcode}",
+    "barcode_accessibility_label": "Brūkšninis kodas {barcode}",
     "@barcode_accessibility_label": {
         "description": "Accessibility label for a barcode image",
         "placeholders": {
@@ -3337,23 +3394,23 @@
             }
         }
     },
-    "carousel_close_tooltip": "Remove this product from the carousel",
+    "carousel_close_tooltip": "Pašalinti šį produktą iš karuselės",
     "@carousel_close_tooltip": {
         "description": "A message explaining the goal of the Close button on a card of the carousel"
     },
-    "carousel_unsupported_header": "Unsupported barcode!",
+    "carousel_unsupported_header": "Nepalaikomas brūkšninis kodas!",
     "@carousel_unsupported_header": {
         "description": "A label on top of the carousel card when the barcode is not supported by the app"
     },
-    "carousel_unsupported_title": "Ooops!",
-    "carousel_unsupported_text": "The barcode scanned is not supported by Open Food Facts!",
-    "carousel_error_header": "Error!",
+    "carousel_unsupported_title": "Oi!",
+    "carousel_unsupported_text": "Nuskaityto brūkšninio kodo „Open Food Facts“ nepalaiko!",
+    "carousel_error_header": "Klaida!",
     "@carousel_error_header": {
         "description": "A label on top of the carousel card when there is an error (mainly network issues)"
     },
-    "carousel_error_title": "It's a bummer!",
-    "carousel_error_text_1": "We couldn't download information on this barcode:",
-    "carousel_error_text_2": "Please check your Internet connection or click this button:",
+    "carousel_error_title": "Koks nusivylimas!",
+    "carousel_error_text_1": "Mums nepavyko atsisiųsti informacijos apie šį brūkšninį kodą:",
+    "carousel_error_text_2": "Patikrinkite interneto ryšį arba spustelėkite šį mygtuką:",
     "@carousel_error_text_2": {
         "description": "Please keep the ** syntax to make the text bold"
     },
@@ -3362,21 +3419,21 @@
     "@carousel_unknown_product_header": {
         "description": "A label on top of the carousel card when the product is not in the database (= it needs to be created)"
     },
-    "carousel_unknown_product_title": "Congratulations!\nYou've found __the rare gem!__",
+    "carousel_unknown_product_title": "Sveikiname!\nJūs radote __retą brangakmenį!__",
     "@carousel_unknown_product_title": {
         "description": "Please keep the __ syntax to underline the text"
     },
-    "carousel_unknown_product_text": "Our collaborative database contains more than **3 million products**, but this barcode doesn't exist: ",
+    "carousel_unknown_product_text": "Mūsų bendradarbiavimo duomenų bazėje yra daugiau negu **3 milijonai produktų**, tačiau šio brūkšninio kodo nėra: ",
     "@carousel_unknown_product_text": {
         "description": "Please keep the ** syntax to make the text bold"
     },
     "carousel_unknown_product_button": "Pridėti šį produktą",
-    "carousel_loading_header": "Loading information...",
+    "carousel_loading_header": "Įkeliama informacija...",
     "@carousel_loading_header": {
         "description": "A label on top of the carousel card when data about the product is loading"
     },
-    "carousel_loading_title": "You've just scanned a product with the following barcode:",
-    "carousel_loading_text": "We are searching for it in our database of more than **3 million products!**",
+    "carousel_loading_title": "Ką tik nuskaitėte produktą su šiuo brūkšniniu kodu:",
+    "carousel_loading_text": "Mes jo ieškome savo duomenų bazėje, kurioje yra daugiau negu **3 milijonai produktų!**",
     "@carousel_loading_text": {
         "description": "Please keep the ** syntax to make the text bold"
     },
@@ -3402,5 +3459,17 @@
     "photo_field_packaging": "Informacijos apie pakuotę nuotrauka",
     "photo_already_exists": "This photo already exists",
     "photo_missing": "This photo is missing",
-    "date": "Data"
+    "date": "Data",
+    "photo_rotate_left": "Pasukite į kairę",
+    "@photo_rotate_left": {
+        "description": "Button to rotate a photo to the left"
+    },
+    "photo_rotate_right": "Pasukite į dešinę",
+    "@photo_rotate_right": {
+        "description": "Button to rotate a photo to the right"
+    },
+    "photo_undo_action": "Anuliuoti ankstesnį veiksmą",
+    "@photo_undo_action": {
+        "description": "Button to undo the previous action on a photo"
+    }
 }

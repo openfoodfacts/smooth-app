@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/query/product_query.dart';
 
 class FolksonomyProvider extends ChangeNotifier {
   FolksonomyProvider(this.barcode) {
@@ -30,6 +31,7 @@ class FolksonomyProvider extends ChangeNotifier {
           await FolksonomyAPIClient.getAuthenticationToken(
         username: user.userId,
         password: user.password,
+        uriHelper: ProductQuery.uriFolksonomyHelper,
       );
 
       if (token.isError) {
@@ -48,7 +50,10 @@ class FolksonomyProvider extends ChangeNotifier {
 
   Future<void> fetchProductTags() async {
     try {
-      _productTags = await FolksonomyAPIClient.getProductTags(barcode: barcode);
+      _productTags = await FolksonomyAPIClient.getProductTags(
+        barcode: barcode,
+        uriHelper: ProductQuery.uriFolksonomyHelper,
+      );
       _isLoading = false;
     } catch (e) {
       _error = e.toString();
@@ -62,7 +67,12 @@ class FolksonomyProvider extends ChangeNotifier {
       final String bearerToken = await getBearerToken();
       // to-do: The addProduct tag method does not yet have a way to add a comment.
       await FolksonomyAPIClient.addProductTag(
-          barcode: barcode, key: key, value: value, bearerToken: bearerToken);
+        barcode: barcode,
+        key: key,
+        value: value,
+        bearerToken: bearerToken,
+        uriHelper: ProductQuery.uriFolksonomyHelper,
+      );
       _productTags?[key] = ProductTag(
         barcode: barcode,
         key: key,
@@ -85,11 +95,13 @@ class FolksonomyProvider extends ChangeNotifier {
 
       final int newVersion = (_productTags?[key]?.version ?? 0) + 1;
       await FolksonomyAPIClient.updateProductTag(
-          barcode: barcode,
-          key: key,
-          value: newValue,
-          version: newVersion,
-          bearerToken: bearerToken);
+        barcode: barcode,
+        key: key,
+        value: newValue,
+        version: newVersion,
+        bearerToken: bearerToken,
+        uriHelper: ProductQuery.uriFolksonomyHelper,
+      );
       _productTags?[key] = ProductTag(
         barcode: barcode,
         key: key,
@@ -111,10 +123,12 @@ class FolksonomyProvider extends ChangeNotifier {
       final String bearerToken = await getBearerToken();
       final int tagVersion = _productTags?[key]?.version ?? 0;
       await FolksonomyAPIClient.deleteProductTag(
-          barcode: barcode,
-          key: key,
-          version: tagVersion,
-          bearerToken: bearerToken);
+        barcode: barcode,
+        key: key,
+        version: tagVersion,
+        bearerToken: bearerToken,
+        uriHelper: ProductQuery.uriFolksonomyHelper,
+      );
       _productTags?.remove(key);
     } catch (e) {
       _error = e.toString();

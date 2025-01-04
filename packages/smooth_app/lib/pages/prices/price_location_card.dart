@@ -8,15 +8,13 @@ import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/pages/locations/osm_location.dart';
 import 'package:smooth_app/pages/locations/search_location_helper.dart';
 import 'package:smooth_app/pages/locations/search_location_preloaded_item.dart';
+import 'package:smooth_app/pages/prices/price_button.dart';
 import 'package:smooth_app/pages/prices/price_model.dart';
 import 'package:smooth_app/pages/search/search_page.dart';
 
 /// Card that displays the location for price adding.
 class PriceLocationCard extends StatelessWidget {
   const PriceLocationCard();
-
-  static const IconData _iconTodo = Icons.shopping_cart;
-  static const IconData _iconDone = Icons.place;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +31,9 @@ class PriceLocationCard extends StatelessWidget {
                 : location.getTitle() ??
                     location.getSubtitle() ??
                     location.getLatLng().toString(),
-            icon: location == null ? _iconTodo : _iconDone,
+            icon: location == null
+                ? Icons.shopping_cart
+                : PriceButton.locationIconData,
             onPressed: model.proof != null
                 ? null
                 : () async {

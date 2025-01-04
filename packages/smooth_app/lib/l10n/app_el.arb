@@ -14,7 +14,7 @@
     "@reason": {},
     "okay": "Εντάξει",
     "@okay": {},
-    "validate": "Validate",
+    "validate": "Επικύρωση",
     "@validate": {
         "description": "Button label: Validate the input"
     },
@@ -35,7 +35,7 @@
     "go_back_to_top": "Επιστροφή στην κορυφή",
     "save": "Αποθήκευση",
     "save_confirmation": "Είστε βέβαιοι ότι θέλετε να αποθηκεύσετε;",
-    "skip": "Skip",
+    "skip": "Παράλειψη",
     "cancel": "Ακύρωση",
     "@cancel": {},
     "ignore": "Αγνόηση",
@@ -151,7 +151,7 @@
     "incorrect_credentials": "Λάθος όνομα χρήστη ή κωδικός πρόσβασης.",
     "password_lost_incorrect_credentials": "This email or username doesn't exist. Please check your credentials.",
     "password_lost_server_unavailable": "We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.",
-    "login": "Όνομα χρήστη",
+    "login": "Σύνδεση",
     "@login": {
         "description": "Text field hint: unified name for either username or e-mail address"
     },
@@ -562,10 +562,15 @@
     "@add_product_information_button_label": {},
     "new_product": "Νέο Προϊόν",
     "@new_product": {},
-    "new_product_dialog_title": "You have just found a new product!",
-    "@new_product_dialog_title": {
-        "description": "Please keep it short, like 50 characters. Title of the dialog when the user searched for an unknown barcode."
+    "new_product_found_title": "New product found!",
+    "@new_product_found_title": {
+        "description": "Title of a dialog that informs the user that a barcode doesn't exist in the database"
     },
+    "new_product_found_text": "Our collaborative database contains more than **3 million products**, but this barcode doesn't exist: ",
+    "@new_product_found_text": {
+        "description": "Please keep the ** syntax to make the text bold"
+    },
+    "new_product_found_button": "Προσθέστε αυτό το προϊόν",
     "new_product_leave_title": "Leave this page?",
     "@new_product_leave_title": {
         "description": "Alert dialog title when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
@@ -578,9 +583,9 @@
     "@new_product_dialog_description": {
         "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
     },
-    "new_product_dialog_illustration_description": "An illustration with unknown Nutri-Score and Eco-Score",
+    "new_product_dialog_illustration_description": "An illustration with unknown Nutri-Score and Green Score",
     "@new_product_dialog_illustration_description": {
-        "description": "A description for accessibility of two images side by side: a Nutri-Score and an EcoScore."
+        "description": "A description for accessibility of two images side by side: a Nutri-Score and an Green Score."
     },
     "front_packaging_photo_button_label": "Μπροστινή φωτογραφία προϊόντος",
     "@front_packaging_photo_button_label": {},
@@ -656,9 +661,9 @@
     "categories_added": "Categories added",
     "new_product_title_nutriscore": "Compute the Nutri-Score",
     "new_product_subtitle_nutriscore": "Help us by filling at least a category and nutritional values",
-    "new_product_title_ecoscore": "Compute the Eco-Score",
-    "new_product_subtitle_ecoscore": "Get it by filling at least a category",
-    "new_product_additional_ecoscore": "Make Eco-Score computation more precise with origins, packaging & more",
+    "new_product_title_environmental_score": "Compute the Green Score",
+    "new_product_subtitle_environmental_score": "Get it by filling at least a category",
+    "new_product_additional_environmental_score": "Make Green Score computation more precise with origins, packaging & more",
     "new_product_title_nova": "Compute the food processing level (NOVA)",
     "new_product_subtitle_nova": "Get it by filling the food category and ingredients",
     "new_product_desc_nova_unknown": "Food processing level unknown",
@@ -680,7 +685,7 @@
     "@new_product_done_button_label": {
         "description": "Button at the end of new product page, that takes you to completed product"
     },
-    "hey_incomplete_product_message": "Tap to answer 3 questions NOW to compute Nutri-Score, Eco-Score & Ultra-processing (NOVA)!",
+    "hey_incomplete_product_message": "Tap to answer 3 questions NOW to compute Nutri-Score, Green Score & Ultra-processing (NOVA)!",
     "hey_incomplete_product_message_beauty": "Tap now to answer 2 questions to help analyze this cosmetic!",
     "hey_incomplete_product_message_pet_food": "Tap now to answer 3 questions to help analyze this pet food product!",
     "hey_incomplete_product_message_product": "Tap now to help complete this product!",
@@ -881,7 +886,7 @@
     "edit_tag": "Edit property",
     "remove_tag": "Remove property",
     "tag_key": "Property",
-    "tag_value": "Value",
+    "tag_value": "Τιμή",
     "invalid_key_format": "Invalid property format. It must be lowercase and without any spaces.",
     "@invalid_key_format": {
         "description": "Message to show if the property's value for a new product property is invalid. This logic is identical to whats being validated in the Folksonomy API"
@@ -924,7 +929,7 @@
     "@product_improvement_obsolete_nutrition_image": {
         "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
     },
-    "product_improvement_origins_to_be_completed": "Το Eco-Score λαμβάνει υπόψη την προέλευση των συστατικών. Τραβήξτε μια φωτογραφία της λίστας συστατικών και/ή οποιουδήποτε γεωγραφικού ισχυρισμού ή επεξεργαστείτε το προϊόν, ώστε να μπορούν να ληφθούν υπόψη.",
+    "product_improvement_origins_to_be_completed": "The Green Score takes into account the origins of the ingredients. Please take a photo of the ingredient list and/or any geographic claim or edit the product, so they can be taken into account.",
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
@@ -1444,11 +1449,11 @@
     "@edit_product_form_item_labels_subtitle": {
         "description": "Product edition - Labels - SubTitle"
     },
-    "edit_product_form_item_labels_hint": "ετικετα",
+    "edit_product_form_item_labels_hint": "ετικέτα",
     "@edit_product_form_item_labels_hint": {
         "description": "Product edition - Labels - input textfield hint"
     },
-    "edit_product_form_item_labels_type": "ετικετα",
+    "edit_product_form_item_labels_type": "ετικέτα",
     "@edit_product_form_item_labels_type": {
         "description": "Product edition - Labels - input textfield label"
     },
@@ -1472,7 +1477,7 @@
     "@edit_product_form_item_origins_hint": {
         "description": "Product edition - Origins - input textfield hint"
     },
-    "edit_product_form_item_origins_type": "χωρα",
+    "edit_product_form_item_origins_type": "χώρα",
     "@edit_product_form_item_origins_type": {
         "description": "Product edition - Origins - input textfield type"
     },
@@ -1484,7 +1489,7 @@
     "@edit_product_form_item_origins_explainer_2": {
         "description": "Product edition - Origins - input explainer, part 2"
     },
-    "edit_product_form_item_countries_title": "Country",
+    "edit_product_form_item_countries_title": "Χώρα",
     "@edit_product_form_item_countries_title": {
         "description": "Product edition - Countries - Title"
     },
@@ -1492,7 +1497,7 @@
     "@edit_product_form_item_countries_hint": {
         "description": "Product edition - Countries - input textfield hint"
     },
-    "edit_product_form_item_countries_type": "χωρα",
+    "edit_product_form_item_countries_type": "χώρα",
     "@edit_product_form_item_countries_type": {
         "description": "Product edition - Countries - input textfield type"
     },
@@ -1520,11 +1525,11 @@
     "@edit_product_form_item_categories_title": {
         "description": "Product edition - Categories - Title"
     },
-    "edit_product_form_item_categories_hint": "κατηγορια",
+    "edit_product_form_item_categories_hint": "κατηγορία",
     "@edit_product_form_item_categories_hint": {
         "description": "Product edition - Categories - input textfield hint"
     },
-    "edit_product_form_item_categories_type": "κατηγορια",
+    "edit_product_form_item_categories_type": "κατηγορία",
     "@edit_product_form_item_categories_type": {
         "description": "Product edition - Categories - input textfield type"
     },
@@ -2011,6 +2016,54 @@
             }
         }
     },
+    "prices_locations_list_length_many_pages": "Top {pageSize} locations (total: {total})",
+    "@prices_locations_list_length_many_pages": {
+        "description": "Number of locations for one-page result",
+        "placeholders": {
+            "pageSize": {
+                "type": "int"
+            },
+            "total": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_button_count_proof": "{count,plural, =0{No proof} =1{One proof} other{{count} proofs}}",
+    "@prices_button_count_proof": {
+        "description": "Number of proofs, for a button",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_button_count_product": "{count,plural, =0{No product} =1{One product} other{{count} products}}",
+    "@prices_button_count_product": {
+        "description": "Number of products, for a button",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_button_count_user": "{count,plural, =0{No user} =1{One user} other{{count} users}}",
+    "@prices_button_count_user": {
+        "description": "Number of users, for a button",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_button_count_price": "{count,plural, =0{No price} =1{One price} other{{count} prices}}",
+    "@prices_button_count_price": {
+        "description": "Number of prices, for a button",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
     "prices_amount_subtitle": "Amount",
     "prices_amount_is_discounted": "Is discounted?",
     "prices_amount_price_normal": "Price",
@@ -2051,9 +2104,9 @@
     "@dev_preferences_show_folksonomy_title": {
         "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
     },
-    "dev_mode_hide_ecoscore_title": "Exclude Eco-Score",
-    "@dev_mode_hide_ecoscore_title": {
-        "description": "User dev preferences - Disable Ecoscore - Title"
+    "dev_mode_hide_environmental_score_title": "Exclude Green Score",
+    "@dev_mode_hide_environmental_score_title": {
+        "description": "User dev preferences - Disable Green Score - Title"
     },
     "dev_mode_spellchecker_for_ocr_title": "Use a spellchecker for OCR screens",
     "@dev_mode_spellchecker_for_ocr_title": {
@@ -2140,6 +2193,10 @@
     },
     "all_search_prices_top_location_title": "Stores with the most prices",
     "@all_search_prices_top_location_title": {
+        "description": "Top price locations: list tile title"
+    },
+    "all_search_prices_top_location_single_title": "Prices in a store",
+    "@all_search_prices_top_location_single_title": {
         "description": "Top price locations: list tile title"
     },
     "all_search_prices_top_product_title": "Products with the most prices",
@@ -2246,7 +2303,7 @@
     "brand_name": "Μάρκα",
     "add_basic_details_brand_name_error": "Παρακαλώ εισάγετε το όνομα της μάρκας",
     "quantity": "Ποσότητα και βάρος",
-    "barcode": "Barcode",
+    "barcode": "Γραμμικός κωδικός",
     "barcode_barcode": "Barcode: {barcode}",
     "@barcode_barcode": {
         "description": "Displaying the raw barcode with label",
@@ -3030,14 +3087,14 @@
     "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
     "nutriscore_not_applicable": "Nutri-Score is not applicable",
     "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
-    "ecoscore_generic": "Eco-Score",
-    "ecoscore_a": "Eco-Score A",
-    "ecoscore_b": "Eco-Score B",
-    "ecoscore_c": "Eco-Score C",
-    "ecoscore_d": "Eco-Score D",
-    "ecoscore_e": "Eco-Score E",
-    "ecoscore_unknown": "Unknown Eco-Score",
-    "ecoscore_not_applicable": "Eco-Score is not applicable",
+    "environmental_score_generic": "Green Score",
+    "environmental_score_a": "Green Score A",
+    "environmental_score_b": "Green Score B",
+    "environmental_score_c": "Green Score C",
+    "environmental_score_d": "Green Score D",
+    "environmental_score_e": "Green Score E",
+    "environmental_score_unknown": "Unknown Green Score",
+    "environmental_score_not_applicable": "Green Score is not applicable",
     "nova_group_generic": "Ultra-processing - NOVA groups",
     "nova_group_1": "NOVA Group 1",
     "nova_group_2": "NOVA Group 2",
@@ -3055,7 +3112,7 @@
     "contact_title_pro_email": "Producer Contact",
     "contact_title_press_page": "Press Page",
     "contact_title_press_email": "Press Contact",
-    "contact_title_newsletter": "Subscribe to our newsletter",
+    "contact_title_newsletter": "Εγγραφείτε στο ενημερωτικό μας δελτίο",
     "hunger_games_loading_line1": "Please give us a few seconds…",
     "hunger_games_loading_line2": "We're downloading the questions!",
     "hunger_games_error_label": "Argh! Something went wrong… and we couldn't load the questions.",
@@ -3184,7 +3241,7 @@
     "@photo_viewer_details_title": {
         "description": "Title of the photo details dialog"
     },
-    "photo_viewer_details_contributor_title": "Συντελεστης",
+    "photo_viewer_details_contributor_title": "Συνεισφέρων",
     "@photo_viewer_details_contributor_title": {
         "description": "Label for the author of a photo"
     },
@@ -3229,7 +3286,7 @@
             }
         }
     },
-    "product_image_front_accessibility_label": "Φωτογραφία εμπρόσθιας επιφάνειας",
+    "product_image_front_accessibility_label": "Μπροστινή εικόνα",
     "@product_image_front_accessibility_label": {
         "description": "Accessibility label for the image on the product page"
     },
@@ -3402,5 +3459,17 @@
     "photo_field_packaging": "Φωτογραφία πληροφοριών συσκευασίας",
     "photo_already_exists": "This photo already exists",
     "photo_missing": "This photo is missing",
-    "date": "Date"
+    "date": "Date",
+    "photo_rotate_left": "Περιστροφή αριστερά",
+    "@photo_rotate_left": {
+        "description": "Button to rotate a photo to the left"
+    },
+    "photo_rotate_right": "Περιστροφή δεξιά",
+    "@photo_rotate_right": {
+        "description": "Button to rotate a photo to the right"
+    },
+    "photo_undo_action": "Undo the previous action",
+    "@photo_undo_action": {
+        "description": "Button to undo the previous action on a photo"
+    }
 }

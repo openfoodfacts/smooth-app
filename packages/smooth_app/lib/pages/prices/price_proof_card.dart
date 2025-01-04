@@ -60,17 +60,19 @@ class PriceProofCard extends StatelessWidget {
                     ? appLocalizations.prices_proof_receipt
                     : appLocalizations.prices_proof_price_tag,
             icon: !model.hasImage ? _iconTodo : _iconDone,
-            onPressed: () async {
-              final _ProofSource? proofSource =
-                  await _ProofSource.select(context);
-              if (proofSource == null) {
-                return;
-              }
-              if (!context.mounted) {
-                return;
-              }
-              return proofSource.process(context, model);
-            },
+            onPressed: model.proof != null
+                ? null
+                : () async {
+                    final _ProofSource? proofSource =
+                        await _ProofSource.select(context);
+                    if (proofSource == null) {
+                      return;
+                    }
+                    if (!context.mounted) {
+                      return;
+                    }
+                    return proofSource.process(context, model);
+                  },
           ),
           LayoutBuilder(
             builder: (BuildContext context, BoxConstraints constraints) => Row(

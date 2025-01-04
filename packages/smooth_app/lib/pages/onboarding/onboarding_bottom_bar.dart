@@ -5,14 +5,14 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 /// Bottom Bar during onboarding. Typical use case: previous/next buttons.
 class OnboardingBottomBar extends StatelessWidget {
   const OnboardingBottomBar({
-    required this.leftButton,
+    required this.rightButton,
     required this.backgroundColor,
-    this.rightButton,
+    required this.leftButton,
     this.semanticsHorizontalOrder = true,
   });
 
-  final Widget leftButton;
-  final Widget? rightButton;
+  final Widget? leftButton;
+  final Widget rightButton;
 
   /// If [true], the [leftButton] will be said first by the screen reader.
   final bool semanticsHorizontalOrder;
@@ -27,7 +27,7 @@ class OnboardingBottomBar extends StatelessWidget {
     final Size screenSize = MediaQuery.sizeOf(context);
     // Side padding is 8% of total width.
     final double sidePadding = screenSize.width * .08;
-    final bool hasPrevious = rightButton != null;
+    final bool hasPrevious = leftButton != null;
     return Column(
       children: <Widget>[
         Container(
@@ -48,14 +48,14 @@ class OnboardingBottomBar extends StatelessWidget {
                 : MainAxisAlignment.end,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              if (rightButton != null)
+              if (leftButton != null)
                 Semantics(
-                  sortKey: OrdinalSortKey(semanticsHorizontalOrder ? 1.0 : 2.0),
-                  child: rightButton,
+                  sortKey: OrdinalSortKey(semanticsHorizontalOrder ? 2.0 : 1.0),
+                  child: leftButton,
                 ),
               Semantics(
-                sortKey: OrdinalSortKey(semanticsHorizontalOrder ? 2.0 : 1.0),
-                child: leftButton,
+                sortKey: OrdinalSortKey(semanticsHorizontalOrder ? 1.0 : 2.0),
+                child: rightButton,
               ),
             ],
           ),

@@ -155,6 +155,16 @@ Product addition:
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/standard_knowledge_panel_cards.dart'
   - any-glob-to-any-file: 'packages/smooth_app/lib/knowledge_panel/knowledge_panels/knowledge_panel_card.dart'
   - any-glob-to-any-file: 'packages/smooth_app/lib/knowledge_panel/knowledge_panels/knowledge_panel_page.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/knowledge_panel/knowledge_panels/knowledge_panel_table_card.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/knowledge_panel/knowledge_panels/knowledge_panel_world_map_card.dart'
+
+📖 Knowledge panels - Table widget:
+- changed-files:
+  - any-glob-to-any-file: 'packages/smooth_app/lib/knowledge_panel/knowledge_panels/knowledge_panel_table_card.dart'
+
+📖 Knowledge panels - Map widget:
+- changed-files:
+  - any-glob-to-any-file: 'packages/smooth_app/lib/knowledge_panel/knowledge_panels/knowledge_panel_world_map_card.dart'
   
 🤖 Robotoff:
 - changed-files:
@@ -279,7 +289,6 @@ Prices:
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/prices/price_amount_card.dart'
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/prices/price_amount_field.dart'
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/prices/price_button.dart'
-  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/prices/price_count_widget.dart'
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/prices/price_currency_card.dart'
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/prices/price_currency_selector.dart'
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/prices/price_data_widget.dart'
@@ -291,9 +300,10 @@ Prices:
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/prices/price_proof_card.dart'
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/prices/prices_card.dart'
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/prices/product_price_add_page.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/prices/price_add_product_card.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/prices/price_scan_page.dart'
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/onboarding/currency_selector.dart'
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/onboarding/currency_selector_helper.dart'
-
 router:
 - changed-files:
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/navigator/app_navigator.dart'

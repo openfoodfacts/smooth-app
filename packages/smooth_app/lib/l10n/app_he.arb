@@ -562,10 +562,15 @@
     "@add_product_information_button_label": {},
     "new_product": "מוצר חדש",
     "@new_product": {},
-    "new_product_dialog_title": "כרגע גילית מוצר חדש!",
-    "@new_product_dialog_title": {
-        "description": "Please keep it short, like 50 characters. Title of the dialog when the user searched for an unknown barcode."
+    "new_product_found_title": "נמצא מוצר חדש!",
+    "@new_product_found_title": {
+        "description": "Title of a dialog that informs the user that a barcode doesn't exist in the database"
     },
+    "new_product_found_text": "מסד הנתונים השיתופי שלנו מכיל למעלה מ־**3 מיליון מוצרים**, אבל הברקוד הזה לא קיים: ",
+    "@new_product_found_text": {
+        "description": "Please keep the ** syntax to make the text bold"
+    },
+    "new_product_found_button": "הוספת המוצר הזה",
     "new_product_leave_title": "לעזוב את העמוד הזה?",
     "@new_product_leave_title": {
         "description": "Alert dialog title when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
@@ -578,9 +583,9 @@
     "@new_product_dialog_description": {
         "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
     },
-    "new_product_dialog_illustration_description": "איור עם ציוני Nutri-Score ו־Eco-Score לא ידועים",
+    "new_product_dialog_illustration_description": "איור עם ציוני Nutri-Score ו־Green-Score לא ידועים",
     "@new_product_dialog_illustration_description": {
-        "description": "A description for accessibility of two images side by side: a Nutri-Score and an EcoScore."
+        "description": "A description for accessibility of two images side by side: a Nutri-Score and an Green Score."
     },
     "front_packaging_photo_button_label": "תמונת החזית של המוצר",
     "@front_packaging_photo_button_label": {},
@@ -656,9 +661,9 @@
     "categories_added": "נוספו קטגוריות",
     "new_product_title_nutriscore": "חישוב ה־Nutri-Score",
     "new_product_subtitle_nutriscore": "אפשר לגלות אותו על ידי מילוי קטגוריית המזון והערכים התזונתיים",
-    "new_product_title_ecoscore": "חישוב ה־Eco-Score",
-    "new_product_subtitle_ecoscore": "אפשר לגלות את זה על ידי מילוי הקטגוריה לכל הפחות",
-    "new_product_additional_ecoscore": "אפשר לשפר את דיוק חישוב ה־Eco-Score על ידי הוספה של מקורות, אריזות ועוד",
+    "new_product_title_environmental_score": "חישוב ה־Green-Score",
+    "new_product_subtitle_environmental_score": "אפשר לגלות את זה על ידי מילוי הקטגוריה לכל הפחות",
+    "new_product_additional_environmental_score": "אפשר לשפר את דיוק חישוב ה־Green-Score על ידי הוספה של מקורות, אריזות ועוד",
     "new_product_title_nova": "חישוב רמת עיבוד המזון (NOVA)",
     "new_product_subtitle_nova": "אפשר לגלות אותו על ידי מילוי קטגוריית המזון והרכיבים",
     "new_product_desc_nova_unknown": "רמת עיבוד המזון אינה ידועה",
@@ -680,7 +685,7 @@
     "@new_product_done_button_label": {
         "description": "Button at the end of new product page, that takes you to completed product"
     },
-    "hey_incomplete_product_message": "נא לגעת כאן כדי לענות על 3 שאלות כעת ולחשב את ה־Nutri-Score,‏ Eco-Score ואולטרא עיבוד (NOVA) כעת!",
+    "hey_incomplete_product_message": "נא לגעת כאן כדי לענות על 3 שאלות כעת ולחשב את ה־Nutri-Score,‏ Green-Score ואולטרא עיבוד (NOVA) כעת!",
     "hey_incomplete_product_message_beauty": "נא לגעת כדי לענות על 2 שאלות כדי לסייע בניתוח מוצר הטיפוח הזה!",
     "hey_incomplete_product_message_pet_food": "נא לגעת כדי לענות על 3 שאלות כדי לסייע בניתוח מוצר המזון לחיות מחמד הזה!",
     "hey_incomplete_product_message_product": "נא לגעת כדי לסייע בהשלמת המוצר הזה!",
@@ -924,7 +929,7 @@
     "@product_improvement_obsolete_nutrition_image": {
         "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
     },
-    "product_improvement_origins_to_be_completed": "ציון Eco-Score מתחשב במקורות הרכיבים. נא לצלם את רשימת הרכיבים ו/או טענה גאוגרפית כלשהי או לערוך את המוצר, כדי שאפשר יהיה לקחת אותם בחשבון.",
+    "product_improvement_origins_to_be_completed": "ציון Green-Score מתחשב במקורות הרכיבים. נא לצלם את רשימת הרכיבים ו/או טענה גאוגרפית כלשהי או לערוך את המוצר, כדי שאפשר יהיה לקחת אותם בחשבון.",
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
@@ -2011,6 +2016,54 @@
             }
         }
     },
+    "prices_locations_list_length_many_pages": "{pageSize} המקומות המובילים (בסך הכול: {total})",
+    "@prices_locations_list_length_many_pages": {
+        "description": "Number of locations for one-page result",
+        "placeholders": {
+            "pageSize": {
+                "type": "int"
+            },
+            "total": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_button_count_proof": "{count,plural, one {} two {{count} הוכחות} many {{count} הוכחות}=0{אין הוכחות} =1{הוכחה} other{{count} הוכחות}}",
+    "@prices_button_count_proof": {
+        "description": "Number of proofs, for a button",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_button_count_product": "{count,plural, two {{count} מוצרים} many {{count} מוצרים} =0{אין מוצרים} =1{מוצר} other{{count} מוצרים}}",
+    "@prices_button_count_product": {
+        "description": "Number of products, for a button",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_button_count_user": "{count,plural, one {} two {{count} משתמשים} many {{count} משתמשים}=0{אין משתמשים} =1{משתמש} other{{count} משתמשים}}",
+    "@prices_button_count_user": {
+        "description": "Number of users, for a button",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_button_count_price": "{count,plural, one {} two {{count} מחירים} many {{count} מחירים}=0{אין מחירים} =1{מחיר} other{{count} מחירים}}",
+    "@prices_button_count_price": {
+        "description": "Number of prices, for a button",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
     "prices_amount_subtitle": "סכום",
     "prices_amount_is_discounted": "בהנחה?",
     "prices_amount_price_normal": "מחיר",
@@ -2051,9 +2104,9 @@
     "@dev_preferences_show_folksonomy_title": {
         "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
     },
-    "dev_mode_hide_ecoscore_title": "להחריג Eco-Score",
-    "@dev_mode_hide_ecoscore_title": {
-        "description": "User dev preferences - Disable Ecoscore - Title"
+    "dev_mode_hide_environmental_score_title": "להחריג Green-Score",
+    "@dev_mode_hide_environmental_score_title": {
+        "description": "User dev preferences - Disable Green Score - Title"
     },
     "dev_mode_spellchecker_for_ocr_title": "להשתמש בבודק איות למסכי סריקה אופטית",
     "@dev_mode_spellchecker_for_ocr_title": {
@@ -2140,6 +2193,10 @@
     },
     "all_search_prices_top_location_title": "חנויות עם הכי הרבה מחירים",
     "@all_search_prices_top_location_title": {
+        "description": "Top price locations: list tile title"
+    },
+    "all_search_prices_top_location_single_title": "מחירים בחנות",
+    "@all_search_prices_top_location_single_title": {
         "description": "Top price locations: list tile title"
     },
     "all_search_prices_top_product_title": "מוצרים עם הכי הרבה מחירים",
@@ -2681,7 +2738,7 @@
     "@owner_field_info_close_button": {
         "description": "The owner info may be shown in a closeable dialog. This is the label of the button (used on a long press event and for the accessibility label)."
     },
-    "owner_field_image": "This image is provided by the producer. It may not be editable.",
+    "owner_field_image": "התמונה הזאת סופקה על ידי היצרן. יכול להיות שלא ניתן לערוך אותה.",
     "@owner_field_image": {
         "description": "An image is directly provided by the producer. It may be locked and not be editable."
     },
@@ -3030,14 +3087,14 @@
     "nutriscore_unknown_new_formula": "Nutri-Score לא ידוע (נוסחה חדשה)",
     "nutriscore_not_applicable": "Nutri-Score לא ניתן ליישום",
     "nutriscore_not_applicable_new_formula": "Nutri-Score לא תקף (נוסחה חדשה)",
-    "ecoscore_generic": "Eco-Score",
-    "ecoscore_a": "Eco-Score A",
-    "ecoscore_b": "Eco-Score B",
-    "ecoscore_c": "Eco-Score C",
-    "ecoscore_d": "Eco-Score D",
-    "ecoscore_e": "Eco-Score E",
-    "ecoscore_unknown": "Eco-Score לא ידוע",
-    "ecoscore_not_applicable": "Eco-Score לא ניתן ליישום",
+    "environmental_score_generic": "Green-Score",
+    "environmental_score_a": "Green-Score A",
+    "environmental_score_b": "Green-Score B",
+    "environmental_score_c": "Green-Score C",
+    "environmental_score_d": "Green-Score D",
+    "environmental_score_e": "Green-Score E",
+    "environmental_score_unknown": "Green Score לא ידוע",
+    "environmental_score_not_applicable": "Green-Score לא תקף",
     "nova_group_generic": "אולטרה־עיבוד - קבוצות NOVA",
     "nova_group_1": "קבוצת NOVA‏ 1",
     "nova_group_2": "קבוצת NOVA‏ 2",
@@ -3237,23 +3294,23 @@
     "@product_image_ingredients_accessibility_label": {
         "description": "Accessibility label for the image of ingredients"
     },
-    "product_image_nutrition_accessibility_label": "Nutrition picture",
+    "product_image_nutrition_accessibility_label": "תמונת מפרט תזונתי",
     "@product_image_nutrition_accessibility_label": {
         "description": "Accessibility label for the image of the nutrition"
     },
-    "product_image_packaging_accessibility_label": "Packaging picture",
+    "product_image_packaging_accessibility_label": "תמונת אריזה",
     "@product_image_packaging_accessibility_label": {
         "description": "Accessibility label for the image of the packaging"
     },
-    "product_image_other_accessibility_label": "Other picture",
+    "product_image_other_accessibility_label": "תמונה אחרת",
     "@product_image_other_accessibility_label": {
         "description": "Accessibility label for an image"
     },
-    "product_image_outdated_message": "This picture may be outdated",
+    "product_image_outdated_message": "לא בטוח שהתמונה עדכנית",
     "@product_image_outdated_message": {
         "description": "Small message to indicate that the image may be outdated"
     },
-    "product_image_outdated_message_accessibility_label": "{type} (this image may be outdated)",
+    "product_image_outdated_message_accessibility_label": "{type} (לא בטוח שהתמונה עדכנית)",
     "@product_image_outdated_message_accessibility_label": {
         "description": "Accessibility label for the image on the product page when it may be outdated",
         "placeholders": {
@@ -3262,7 +3319,7 @@
             }
         }
     },
-    "product_image_locked_message_accessibility_label": "{type} (this image may be locked by the producer)",
+    "product_image_locked_message_accessibility_label": "{type} (יכול להיות שהתמונה ננעלה על ידי היצרן)",
     "@product_image_locked_message_accessibility_label": {
         "description": "Accessibility label for the image on the product page when it may be locked (producer provided)",
         "placeholders": {
@@ -3271,11 +3328,11 @@
             }
         }
     },
-    "product_image_error": "Unable to load the image!",
+    "product_image_error": "לא ניתן לטעון את התמונה!",
     "@product_image_error": {
         "description": "Small message that will be displayed above the picture (please keep it short)"
     },
-    "product_image_error_accessibility_label": "Unable to load the {type} (network error?)",
+    "product_image_error_accessibility_label": "לא ניתן לטעון את ה{type} (תקלת רשת?)",
     "@product_image_error_accessibility_label": {
         "description": "Accessibility label for the image on the product page when it fails to load",
         "placeholders": {
@@ -3402,5 +3459,17 @@
     "photo_field_packaging": "תמונת פרטי אריזה",
     "photo_already_exists": "התמונה הזאת כבר קיימת",
     "photo_missing": "התמונה הזאת חסרה",
-    "date": "תאריך"
+    "date": "תאריך",
+    "photo_rotate_left": "הטייה לשמאל",
+    "@photo_rotate_left": {
+        "description": "Button to rotate a photo to the left"
+    },
+    "photo_rotate_right": "הטייה לימין",
+    "@photo_rotate_right": {
+        "description": "Button to rotate a photo to the right"
+    },
+    "photo_undo_action": "ביטול הפעולה הקודמת",
+    "@photo_undo_action": {
+        "description": "Button to undo the previous action on a photo"
+    }
 }

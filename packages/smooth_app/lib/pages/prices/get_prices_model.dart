@@ -10,8 +10,9 @@ import 'package:smooth_app/query/product_query.dart';
 class GetPricesModel {
   const GetPricesModel({
     required this.parameters,
-    required this.displayOwner,
-    required this.displayProduct,
+    this.displayEachOwner = true,
+    this.displayEachProduct = true,
+    this.displayEachLocation = true,
     required this.uri,
     required this.title,
     this.lazyCounterPrices,
@@ -26,10 +27,13 @@ class GetPricesModel {
     required final BuildContext context,
   }) =>
       GetPricesModel(
-        parameters: _getProductPricesParameters(product.barcode),
-        displayOwner: true,
-        displayProduct: false,
-        uri: _getProductPricesUri(product.barcode),
+        parameters: getStandardPricesParameters()
+          ..productCode = product.barcode,
+        displayEachProduct: false,
+        uri: OpenPricesAPIClient.getUri(
+          path: 'products/${product.barcode}',
+          uriHelper: ProductQuery.uriPricesHelper,
+        ),
         title: product.getName(AppLocalizations.of(context)),
         subtitle: product.barcode,
         addButton: () async => ProductPriceAddPage.showProductPage(
@@ -40,36 +44,32 @@ class GetPricesModel {
         enableCountButton: false,
       );
 
-  static GetPricesParameters _getProductPricesParameters(
-    final String barcode,
-  ) =>
+  static GetPricesParameters getStandardPricesParameters() =>
       GetPricesParameters()
-        ..productCode = barcode
-        ..orderBy = <OrderBy<GetPricesOrderField>>[
-          const OrderBy<GetPricesOrderField>(
+        ..orderBy = const <OrderBy<GetPricesOrderField>>[
+          OrderBy<GetPricesOrderField>(
             field: GetPricesOrderField.created,
             ascending: false,
           ),
+          OrderBy<GetPricesOrderField>(
+            field: GetPricesOrderField.date,
+            ascending: false,
+          ),
         ]
-        ..pageSize = pageSize
+        ..pageSize = 10
         ..pageNumber = 1;
-
-  static Uri _getProductPricesUri(
-    final String barcode,
-  ) =>
-      OpenPricesAPIClient.getUri(
-        path: 'products/$barcode',
-        uriHelper: ProductQuery.uriPricesHelper,
-      );
 
   /// Query parameters.
   final GetPricesParameters parameters;
 
   /// Should we display the owner for each price? No if it's an owner query.
-  final bool displayOwner;
+  final bool displayEachOwner;
 
   /// Should we display the product for each price? No if it's a product query.
-  final bool displayProduct;
+  final bool displayEachProduct;
+
+  /// Should we display the location for each price? No if it's a location query.
+  final bool displayEachLocation;
 
   /// Related web app URI.
   final Uri uri;
@@ -88,6 +88,4 @@ class GetPricesModel {
 
   /// Lazy Counter to refresh.
   final LazyCounterPrices? lazyCounterPrices;
-
-  static const int pageSize = 10;
 }

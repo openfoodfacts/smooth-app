@@ -95,7 +95,7 @@ class SmoothImage extends StatelessWidget {
           duration: SmoothAnimationsDuration.long,
           firstChild: child,
           secondChild: Container(
-            color: theme.primaryColor.withOpacity(0.1),
+            color: theme.primaryColor.withValues(alpha: 0.1),
             alignment: AlignmentDirectional.center,
             padding: const EdgeInsets.all(SMALL_SPACE),
             child: const SmoothAnimatedLogo(),
@@ -125,11 +125,11 @@ class SmoothImage extends StatelessWidget {
     StackTrace? __,
   ) {
     return Container(
-      color: Theme.of(context).primaryColor.withOpacity(0.1),
+      color: Theme.of(context).primaryColor.withValues(alpha: 0.1),
       padding: const EdgeInsets.all(SMALL_SPACE),
       child: ColorFiltered(
         colorFilter: ColorFilter.mode(
-          Colors.grey.withOpacity(0.7),
+          Colors.grey.withValues(alpha: 0.7),
           BlendMode.srcIn,
         ),
         child: const SmoothAppLogo(),

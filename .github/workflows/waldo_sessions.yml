@@ -27,7 +27,7 @@ jobs:
           fetch-depth: 0
 
       - name: Setup Java JDK
-        uses: actions/setup-java@v4.5.0
+        uses: actions/setup-java@v4.6.0
         with:
           distribution: 'zulu'
           java-version: 21

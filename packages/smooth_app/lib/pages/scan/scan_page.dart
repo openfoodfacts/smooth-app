@@ -200,28 +200,30 @@ class _PermissionDeniedCard extends StatelessWidget {
                       ),
                       textAlign: TextAlign.center,
                     ),
-                    SingleChildScrollView(
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: BALANCED_SPACE,
-                          vertical: BALANCED_SPACE,
-                        ),
-                        child: Text(
-                          localizations.permission_photo_denied_message(
-                            APP_NAME,
-                          ),
-                          textAlign: TextAlign.center,
-                          style: const TextStyle(
-                            height: 1.4,
-                            fontSize: 15.5,
-                          ),
-                        ),
-                      ),
-                    ),
                     SmoothActionButtonsBar.single(
                       action: SmoothActionButton(
                         text: localizations.permission_photo_denied_button,
                         onPressed: () => _askPermission(context),
+                      ),
+                    ),
+                    Expanded(
+                      child: SingleChildScrollView(
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: BALANCED_SPACE,
+                            vertical: BALANCED_SPACE,
+                          ),
+                          child: Text(
+                            localizations.permission_photo_denied_message(
+                              APP_NAME,
+                            ),
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(
+                              height: 1.4,
+                              fontSize: 15.5,
+                            ),
+                          ),
+                        ),
                       ),
                     ),
                   ],

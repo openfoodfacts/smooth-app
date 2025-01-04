@@ -187,6 +187,7 @@ class ProductListItemPopupDelete extends ProductListItemPopupItem {
       include: false,
     );
     await daoProductList.get(productList);
+    selectedBarcodes.clear();
     return true;
   }
 }

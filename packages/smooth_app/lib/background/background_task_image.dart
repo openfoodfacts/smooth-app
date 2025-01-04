@@ -246,20 +246,24 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
     required final int cropX2,
     required final int cropY2,
     final CustomPainter? overlayPainter,
+    required final int compressQuality,
+    required final bool forceCompression,
   }) async {
     final ui.Image full = await loadUiImage(
         await (await BackgroundTaskUpload.getFile(fullPath)).readAsBytes());
-    if (cropX1 == 0 &&
-        cropY1 == 0 &&
-        cropX2 == _cropConversionFactor &&
-        cropY2 == _cropConversionFactor &&
-        rotationDegrees == 0) {
-      if (!isPictureBigEnough(full.width, full.height)) {
-        return null;
-      }
-      // in that case, no need to crop
-      if (overlayPainter == null) {
-        return fullPath;
+    if (!forceCompression) {
+      if (cropX1 == 0 &&
+          cropY1 == 0 &&
+          cropX2 == _cropConversionFactor &&
+          cropY2 == _cropConversionFactor &&
+          rotationDegrees == 0) {
+        if (!isPictureBigEnough(full.width, full.height)) {
+          return null;
+        }
+        // in that case, no need to crop
+        if (overlayPainter == null) {
+          return fullPath;
+        }
       }
     }
 
@@ -296,6 +300,7 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
     await saveJpeg(
       file: await BackgroundTaskUpload.getFile(croppedPath),
       source: cropped,
+      quality: compressQuality,
     );
     return croppedPath;
   }
@@ -314,6 +319,8 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
       cropY1: cropY1,
       cropX2: cropX2,
       cropY2: cropY2,
+      compressQuality: 100,
+      forceCompression: false,
     );
     if (path == null) {
       // TODO(monsieurtanuki): maybe something more refined when we dismiss the picture, like alerting the user, though it's not supposed to happen anymore from upstream.

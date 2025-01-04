@@ -14,12 +14,14 @@ class _ImageComputeContainer {
     required this.rawData,
     required this.width,
     required this.height,
+    required this.quality,
   }) : rootIsolateToken = ui.RootIsolateToken.instance;
 
   final File file;
   final ByteData rawData;
   final int width;
   final int height;
+  final int quality;
   final ui.RootIsolateToken? rootIsolateToken;
 
   bool get isIsolatePossible => rootIsolateToken != null;
@@ -47,6 +49,8 @@ Future<void> saveBmp({
     rawData: rawData,
     width: source.width,
     height: source.height,
+    // whatever, we don't use it for bmp
+    quality: 100,
   );
   if (container.isIsolatePossible) {
     try {
@@ -68,6 +72,7 @@ Future<void> saveBmp({
 Future<void> saveJpeg({
   required final File file,
   required final ui.Image source,
+  required final int quality,
 }) async {
   final ByteData? rawData = await source.toByteData(
     format: ui.ImageByteFormat.rawRgba,
@@ -80,6 +85,7 @@ Future<void> saveJpeg({
     rawData: rawData,
     width: source.width,
     height: source.height,
+    quality: quality,
   );
   if (container.isIsolatePossible) {
     try {
@@ -148,7 +154,7 @@ Future<void> _saveJpeg(
   final Uint8List jpegData = await FlutterImageCompress.compressWithList(
     bmpData,
     autoCorrectionAngle: false,
-    quality: 100,
+    quality: container.quality,
     format: CompressFormat.jpeg,
     minWidth: container.width,
     minHeight: container.height,
