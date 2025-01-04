@@ -47,6 +47,15 @@ class SmoothImage extends StatelessWidget {
           fit: fit,
           loadingBuilder: _loadingBuilder,
           errorBuilder: _errorBuilder,
+          frameBuilder: (_, Widget child, int? frame, ____) {
+            if (frame == null) {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+
+            return child;
+          },
           cacheWidth: cacheWidth,
           cacheHeight: cacheHeight,
         ),
@@ -89,33 +98,38 @@ class SmoothImage extends StatelessWidget {
 
     return ExcludeSemantics(
       child: AnimatedCrossFade(
-          crossFadeState: progress == null
-              ? CrossFadeState.showFirst
-              : CrossFadeState.showSecond,
-          duration: SmoothAnimationsDuration.long,
-          firstChild: child,
-          secondChild: Container(
-            color: theme.primaryColor.withValues(alpha: 0.1),
-            alignment: AlignmentDirectional.center,
-            padding: const EdgeInsets.all(SMALL_SPACE),
-            child: const SmoothAnimatedLogo(),
-          ),
-          layoutBuilder: (Widget topChild, Key topChildKey, Widget bottomChild,
-              Key bottomChildKey) {
-            return Stack(
-              clipBehavior: Clip.none,
-              children: <Widget>[
-                Positioned.fill(
-                  key: bottomChildKey,
-                  child: bottomChild,
-                ),
-                Positioned.fill(
-                  key: topChildKey,
-                  child: topChild,
-                ),
-              ],
-            );
-          }),
+        crossFadeState: progress == null
+            ? CrossFadeState.showFirst
+            : CrossFadeState.showSecond,
+        duration: SmoothAnimationsDuration.long,
+        firstChild: child,
+        secondChild: Container(
+          color: theme.primaryColor.withValues(alpha: 0.1),
+          alignment: AlignmentDirectional.center,
+          padding: const EdgeInsets.all(SMALL_SPACE),
+          child: const SmoothAnimatedLogo(),
+        ),
+        layoutBuilder: (
+          Widget topChild,
+          Key topChildKey,
+          Widget bottomChild,
+          Key bottomChildKey,
+        ) {
+          return Stack(
+            clipBehavior: Clip.none,
+            children: <Widget>[
+              Positioned.fill(
+                key: bottomChildKey,
+                child: bottomChild,
+              ),
+              Positioned.fill(
+                key: topChildKey,
+                child: topChild,
+              ),
+            ],
+          );
+        },
+      ),
     );
   }
 
