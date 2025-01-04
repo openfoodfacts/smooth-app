@@ -312,6 +312,11 @@ class _TagLineContentBody extends StatefulWidget {
 class _TagLineContentBodyState extends State<_TagLineContentBody> {
   bool _imageError = false;
 
+  static const EdgeInsetsGeometry _contentPadding = EdgeInsetsDirectional.only(
+    top: SMALL_SPACE,
+    bottom: VERY_SMALL_SPACE,
+  );
+
   @override
   Widget build(BuildContext context) {
     final ThemeProvider themeProvider = context.watch<ThemeProvider>();
@@ -333,16 +338,16 @@ class _TagLineContentBodyState extends State<_TagLineContentBody> {
       ),
     );
 
-    if (widget.image == null) {
-      return text;
+    if (widget.image == null || _imageError) {
+      return Padding(
+        padding: _contentPadding,
+        child: text,
+      );
     }
 
     final int imageFlex = ((widget.image!.width ?? 0.2) * 10).toInt();
     return Padding(
-      padding: const EdgeInsetsDirectional.only(
-        top: SMALL_SPACE,
-        bottom: VERY_SMALL_SPACE,
-      ),
+      padding: _contentPadding,
       child: Row(
         children: <Widget>[
           if (!_imageError) ...<Widget>[
@@ -375,6 +380,7 @@ class _TagLineContentBodyState extends State<_TagLineContentBody> {
         widget.image!.src,
         semanticsLabel: widget.image!.alt,
         loadingBuilder: (_) => _onLoading(),
+        errorBuilder: (_, __) => _onError(),
       );
     } else {
       return Image.network(
