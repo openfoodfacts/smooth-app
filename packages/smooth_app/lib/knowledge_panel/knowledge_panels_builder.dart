@@ -41,6 +41,7 @@ class KnowledgePanelsBuilder {
             product: product,
             isInitiallyExpanded: false,
             isClickable: true,
+            isTextSelectable: !onboardingMode,
           );
           if (widget != null) {
             children.add(widget);
@@ -164,12 +165,14 @@ class KnowledgePanelsBuilder {
     required final Product product,
     required final bool isInitiallyExpanded,
     required final bool isClickable,
+    required final bool isTextSelectable,
   }) {
     final Widget? result = _getElementWidget(
       element: knowledgePanelElement,
       product: product,
       isInitiallyExpanded: isInitiallyExpanded,
       isClickable: isClickable,
+      isTextSelectable: isTextSelectable,
     );
     if (result == null) {
       return null;
@@ -194,6 +197,7 @@ class KnowledgePanelsBuilder {
     required final Product product,
     required final bool isInitiallyExpanded,
     required final bool isClickable,
+    required final bool isTextSelectable,
   }) {
     switch (element.elementType) {
       case KnowledgePanelElementType.TEXT:
@@ -233,6 +237,7 @@ class KnowledgePanelsBuilder {
           groupElement: element.panelGroupElement!,
           product: product,
           isClickable: isClickable,
+          isTextSelectable: isTextSelectable,
         );
 
       case KnowledgePanelElementType.TABLE:

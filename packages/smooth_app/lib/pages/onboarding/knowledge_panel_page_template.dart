@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -25,6 +23,7 @@ class KnowledgePanelPageTemplate extends StatefulWidget {
     required this.backgroundColor,
     required this.svgAsset,
     required this.nextKey,
+    this.selectableText = false,
   });
 
   final String headerTitle;
@@ -37,6 +36,8 @@ class KnowledgePanelPageTemplate extends StatefulWidget {
   final Color backgroundColor;
   final String svgAsset;
   final Key nextKey;
+
+  final bool selectableText;
 
   @override
   State<KnowledgePanelPageTemplate> createState() =>
@@ -88,7 +89,7 @@ class _KnowledgePanelPageTemplateState
           return ColoredBox(
             color: widget.backgroundColor,
             child: SafeArea(
-              bottom: Platform.isAndroid,
+              bottom: false,
               child: Stack(
                 fit: StackFit.expand,
                 children: <Widget>[

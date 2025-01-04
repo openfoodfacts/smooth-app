@@ -122,7 +122,7 @@ class OnboardingBottomIcon extends StatelessWidget {
   final VoidCallback onPressed;
   final Color backgroundColor;
   final Color foregroundColor;
-  final IconData icon;
+  final Widget icon;
   final EdgeInsetsGeometry? iconPadding;
 
   @override
@@ -132,11 +132,12 @@ class OnboardingBottomIcon extends StatelessWidget {
           padding: const EdgeInsets.all(MEDIUM_SPACE),
           backgroundColor: backgroundColor,
           foregroundColor: foregroundColor,
+          iconColor: foregroundColor,
         ),
         onPressed: onPressed,
         child: Padding(
           padding: iconPadding ?? EdgeInsets.zero,
-          child: Icon(icon),
+          child: icon,
         ),
       );
 }

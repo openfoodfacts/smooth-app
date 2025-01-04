@@ -37,6 +37,7 @@ class KnowledgePanelExpandedCard extends StatelessWidget {
           product: product,
           isInitiallyExpanded: isInitiallyExpanded,
           isClickable: isClickable,
+          isTextSelectable: true,
         );
         if (elementWidget != null) {
           elementWidgets.add(
