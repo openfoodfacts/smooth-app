@@ -51,10 +51,10 @@ class EditLanguageTabBar extends StatefulWidget {
         languageIndicatorError = null,
         showLanguageIndicator = false;
 
-  /// Compares two products to know if they are the same
+  /// Compare two products to know if they are the same
   final DidProductChanged productEquality;
 
-  /// Returns all languages of a product (eg: a gallery may return all languages
+  /// Return all languages of a product (eg: a gallery may return all languages
   /// of its images)
   final ProductLanguagesProvider productLanguages;
   final void Function(OpenFoodFactsLanguage language) onTabChanged;
@@ -336,7 +336,6 @@ class _EditLanguageProvider
       List<OpenFoodFactsLanguageState> languagesStates
     ) = _extractLanguages();
 
-    /// The main language is always the first, then the user one
     final OpenFoodFactsLanguage userLanguage = ProductQuery.getLanguage();
     final OpenFoodFactsLanguage? mainLanguage = product!.lang;
 
@@ -354,7 +353,7 @@ class _EditLanguageProvider
       );
     }
 
-    /// Inject the user language
+    /// Then, inject the user language
     /// - Forced even if it is not in the list with [forceUserLanguage]
     /// - Or if it is in the list
     if (mainLanguage != userLanguage) {
