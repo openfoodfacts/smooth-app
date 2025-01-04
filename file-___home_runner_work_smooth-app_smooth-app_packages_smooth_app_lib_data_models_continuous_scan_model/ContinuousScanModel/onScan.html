@@ -74,6 +74,9 @@ Will return <code>true</code> if this barcode is successfully added</p>
   }
 
   code = _fixBarcodeIfNecessary(code);
+  if (code.length &lt; 4) {
+    return false;
+  }
 
   if (_latestScannedBarcode == code || _barcodes.contains(code)) {
     lastConsultedBarcode = code;
