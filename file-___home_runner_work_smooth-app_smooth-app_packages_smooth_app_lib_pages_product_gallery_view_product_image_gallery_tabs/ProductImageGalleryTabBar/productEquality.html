@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the padding property from the ProductImageGalleryTabBar class, for the Dart programming language.">
-  <title>padding property - ProductImageGalleryTabBar class - product_image_gallery_tabs library - Dart API</title>
+  <meta name="description" content="API docs for the productEquality method from the ProductImageGalleryTabBar class, for the Dart programming language.">
+  <title>productEquality method - ProductImageGalleryTabBar class - product_image_gallery_tabs library - Dart API</title>
 
 
   
@@ -31,9 +31,9 @@
     <li><a href="../../index.html">smooth_app</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_gallery_view_product_image_gallery_tabs/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_gallery_view_product_image_gallery_tabs-library.html">product_image_gallery_tabs</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_gallery_view_product_image_gallery_tabs/ProductImageGalleryTabBar-class.html">ProductImageGalleryTabBar</a></li>
-    <li class="self-crumb">padding property</li>
+    <li class="self-crumb">productEquality method</li>
   </ol>
-  <div class="self-name">padding</div>
+  <div class="self-name">productEquality</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -44,24 +44,47 @@
 
   <div id="dartdoc-main-content" class="main-content">
       <div>
-<h1><span class="kind-property">padding</span> property 
+<h1><span class="kind-method">productEquality</span> method 
     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
-        <section class="multi-line-signature">
-          dynamic
-          <span class="name ">padding</span>
-          <div class="features">final</div>
+    <section class="multi-line-signature">
+      
 
-        </section>
-        
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+<span class="name ">productEquality</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="productEquality-param-oldProduct"><span class="type-annotation">dynamic</span> <span class="parameter-name">oldProduct</span>, </span></li>
+<li><span class="parameter" id="productEquality-param-product"><span class="type-annotation">dynamic</span> <span class="parameter-name">product</span></span></li>
+</ol>)
 
-        
+      
+
+    </section>
+    
+
+
+    
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">final EdgeInsetsGeometry padding;
-
-</code></pre>
+  <pre class="language-dart"><code class="language-dart">bool productEquality(Product oldProduct, Product product) {
+  return product.barcode == oldProduct.barcode &amp;&amp;
+      product.productType == oldProduct.productType &amp;&amp;
+      product.imageFrontUrl == oldProduct.imageFrontUrl &amp;&amp;
+      product.imageFrontSmallUrl == oldProduct.imageFrontSmallUrl &amp;&amp;
+      product.imageIngredientsUrl == oldProduct.imageIngredientsUrl &amp;&amp;
+      product.imageIngredientsSmallUrl ==
+          oldProduct.imageIngredientsSmallUrl &amp;&amp;
+      product.imageNutritionUrl == oldProduct.imageNutritionUrl &amp;&amp;
+      product.imageNutritionSmallUrl == oldProduct.imageNutritionSmallUrl &amp;&amp;
+      product.imagePackagingUrl == oldProduct.imagePackagingUrl &amp;&amp;
+      product.imagePackagingSmallUrl == oldProduct.imagePackagingSmallUrl &amp;&amp;
+      const ListEquality&lt;ProductImage&gt;()
+          .equals(product.selectedImages, oldProduct.selectedImages) &amp;&amp;
+      const ListEquality&lt;ProductImage&gt;()
+          .equals(product.images, oldProduct.images) &amp;&amp;
+      product.lastImage == oldProduct.lastImage &amp;&amp;
+      const ListEquality&lt;String&gt;()
+          .equals(product.lastImageDates, oldProduct.lastImageDates);
+}</code></pre>
 </section>
 
 
@@ -78,7 +101,7 @@
   <li><a href="../../index.html">smooth_app</a></li>
   <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_gallery_view_product_image_gallery_tabs/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_gallery_view_product_image_gallery_tabs-library.html">product_image_gallery_tabs</a></li>
   <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_gallery_view_product_image_gallery_tabs/ProductImageGalleryTabBar-class.html">ProductImageGalleryTabBar</a></li>
-  <li class="self-crumb">padding property</li>
+  <li class="self-crumb">productEquality method</li>
 </ol>
 
 
@@ -94,13 +117,14 @@
     </li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_gallery_view_product_image_gallery_tabs/ProductImageGalleryTabBar/onTabChanged.html">onTabChanged</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_gallery_view_product_image_gallery_tabs/ProductImageGalleryTabBar/padding.html">padding</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_gallery_view_product_image_gallery_tabs/ProductImageGalleryTabBar/preferredSize.html">preferredSize</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
 
     <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_gallery_view_product_image_gallery_tabs/ProductImageGalleryTabBar-class.html#instance-methods">Methods</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_gallery_view_product_image_gallery_tabs/ProductImageGalleryTabBar/createState.html">createState</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_gallery_view_product_image_gallery_tabs/ProductImageGalleryTabBar/build.html">build</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_gallery_view_product_image_gallery_tabs/ProductImageGalleryTabBar/productEquality.html">productEquality</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_gallery_view_product_image_gallery_tabs/ProductImageGalleryTabBar/productLanguages.html">productLanguages</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
 
     <li class="section-title inherited"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_gallery_view_product_image_gallery_tabs/ProductImageGalleryTabBar-class.html#operators">Operators</a></li>
