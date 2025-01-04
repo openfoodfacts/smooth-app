@@ -78,33 +78,35 @@ Widget build(BuildContext context) {
   return Provider&lt;KnowledgePanelPanelGroupElement&gt;(
     lazy: true,
     create: (_) =&gt; groupElement,
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: &lt;Widget&gt;[
-        if (groupElement.title != null &amp;&amp; groupElement.title!.isNotEmpty)
-          Padding(
-            padding: const EdgeInsetsDirectional.only(top: LARGE_SPACE),
-            child: Semantics(
-              explicitChildNodes: true,
-              child: Text(
-                groupElement.title!,
-                style: themeData.textTheme.titleSmall!.copyWith(
-                  fontSize: 15.5,
-                  fontWeight: FontWeight.w700,
-                  color: context.lightTheme()
-                      ? themeExtension.primaryUltraBlack
-                      : themeExtension.primaryLight,
+    child: SelectionArea(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: &lt;Widget&gt;[
+          if (groupElement.title != null &amp;&amp; groupElement.title!.isNotEmpty)
+            Padding(
+              padding: const EdgeInsetsDirectional.only(top: LARGE_SPACE),
+              child: Semantics(
+                explicitChildNodes: true,
+                child: Text(
+                  groupElement.title!,
+                  style: themeData.textTheme.titleSmall!.copyWith(
+                    fontSize: 15.5,
+                    fontWeight: FontWeight.w700,
+                    color: context.lightTheme()
+                        ? themeExtension.primaryUltraBlack
+                        : themeExtension.primaryLight,
+                  ),
                 ),
               ),
             ),
-          ),
-        for (final String panelId in groupElement.panelIds)
-          KnowledgePanelCard(
-            panelId: panelId,
-            product: product,
-            isClickable: isClickable,
-          )
-      ],
+          for (final String panelId in groupElement.panelIds)
+            KnowledgePanelCard(
+              panelId: panelId,
+              product: product,
+              isClickable: isClickable,
+            )
+        ],
+      ),
     ),
   );
 }</code></pre>

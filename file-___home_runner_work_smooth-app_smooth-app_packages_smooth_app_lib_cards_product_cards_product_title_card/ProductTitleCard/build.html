@@ -75,12 +75,36 @@ Widget build(BuildContext context) {
     selectable: isSelectable,
   );
 
-  final List&lt;Widget&gt; children;
-
   final Size imageSize =
       Size.square(MediaQuery.sizeOf(context).width * (dense ? 0.22 : 0.25));
 
-  children = &lt;Widget&gt;[
+  Widget child = Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: &lt;Widget&gt;[
+      ConstrainedBox(
+        constraints: BoxConstraints(
+          minHeight: DefaultTextStyle.of(context).style.fontSize! * 2.0,
+        ),
+        child: _ProductTitleCardName(
+          selectable: isSelectable,
+          dense: dense,
+        ),
+      ),
+      const SizedBox(height: SMALL_SPACE),
+      _ProductTitleCardBrand(
+        selectable: isSelectable,
+      ),
+      const SizedBox(height: 2.0),
+      trailing,
+    ],
+  );
+
+  if (isSelectable) {
+    child = SelectionArea(child: child);
+  }
+
+  final List&lt;Widget&gt; children = &lt;Widget&gt;[
     Padding(
       padding: const EdgeInsetsDirectional.only(top: SMALL_SPACE),
       child: IntrinsicHeight(
@@ -123,28 +147,9 @@ Widget build(BuildContext context) {
                   top: VERY_SMALL_SPACE,
                   bottom: VERY_SMALL_SPACE,
                 ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: &lt;Widget&gt;[
-                    ConstrainedBox(
-                      constraints: BoxConstraints(
-                        minHeight:
-                            DefaultTextStyle.of(context).style.fontSize! *
-                                2.0,
-                      ),
-                      child: _ProductTitleCardName(
-                        selectable: isSelectable,
-                        dense: dense,
-                      ),
-                    ),
-                    const SizedBox(height: SMALL_SPACE),
-                    _ProductTitleCardBrand(
-                      selectable: isSelectable,
-                    ),
-                    const SizedBox(height: 2.0),
-                    trailing,
-                  ],
+                child: SelectionArea(
+                  selectionControls: null,
+                  child: child,
                 ),
               ),
             ),

@@ -101,9 +101,9 @@
     return const FetchedProduct.internetNotFound();
   } catch (e) {
     Logs.e(&#39;Refresh from server error&#39;, ex: e);
-    final ConnectivityResult connectivityResult =
+    final List&lt;ConnectivityResult&gt; connectivityResult =
         await Connectivity().checkConnectivity();
-    if (connectivityResult == ConnectivityResult.none) {
+    if (connectivityResult.contains(ConnectivityResult.none)) {
       return FetchedProduct.error(
         exceptionString: e.toString(),
         isConnected: false,
