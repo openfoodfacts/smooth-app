@@ -412,18 +412,29 @@ class _ProductPictureWithImageProvider extends StatelessWidget {
       height: size.height,
       fit: BoxFit.contain,
       image: imageProvider,
-      loadingBuilder: (_, Widget child, ImageChunkEvent? loadingProgress) {
+      loadingBuilder: (
+        BuildContext context,
+        Widget child,
+        ImageChunkEvent? loadingProgress,
+      ) {
         if (loadingProgress == null) {
           return child;
         }
 
-        return const Center(
-          child: CircularProgressIndicator(),
-        );
+        return _loadingPlaceholder(context);
       },
       errorBuilder: (_, __, ___) {
         onError.call();
         return EMPTY_WIDGET;
+      },
+      frameBuilder: (BuildContext context, Widget child, int? frame, _) {
+        /// Force a loader, as the [loadingBuilder] has a [loadingProgress] of null,
+        /// which is not expected.
+        if (frame == null) {
+          return _loadingPlaceholder(context);
+        }
+
+        return child;
       },
     );
 
@@ -436,6 +447,21 @@ class _ProductPictureWithImageProvider extends StatelessWidget {
       return image;
     }
   }
+
+  Widget _loadingPlaceholder(BuildContext context) => DecoratedBox(
+        decoration: BoxDecoration(
+          borderRadius: borderRadius,
+          border: border > 0.0
+              ? Border.all(
+                  color: Theme.of(context).dividerColor,
+                  width: 1.0,
+                )
+              : null,
+        ),
+        child: const Center(
+          child: CircularProgressIndicator(),
+        ),
+      );
 }
 
 class _OutdatedProductPictureIcon extends StatelessWidget {
