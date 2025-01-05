@@ -427,7 +427,12 @@ class _ProductPictureWithImageProvider extends StatelessWidget {
         onError.call();
         return EMPTY_WIDGET;
       },
-      frameBuilder: (BuildContext context, Widget child, int? frame, _) {
+      frameBuilder: (
+        BuildContext context,
+        Widget child,
+        int? frame,
+        _,
+      ) {
         /// Force a loader, as the [loadingBuilder] has a [loadingProgress] of null,
         /// which is not expected.
         if (frame == null) {
