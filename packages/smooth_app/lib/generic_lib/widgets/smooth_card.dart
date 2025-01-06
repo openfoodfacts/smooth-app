@@ -108,13 +108,17 @@ class SmoothCardWithRoundedHeader extends StatelessWidget {
   const SmoothCardWithRoundedHeader({
     required this.title,
     required this.child,
-    this.iconTitle,
+    this.leading,
+    this.trailing,
+    this.titlePadding,
     this.contentPadding,
   });
 
   final String title;
-  final Widget? iconTitle;
+  final Widget? leading;
+  final Widget? trailing;
   final Widget child;
+  final EdgeInsetsGeometry? titlePadding;
   final EdgeInsetsGeometry? contentPadding;
 
   @override
@@ -137,36 +141,49 @@ class SmoothCardWithRoundedHeader extends StatelessWidget {
               radius: ROUNDED_RADIUS,
             ),
             child: Padding(
-              padding: const EdgeInsetsDirectional.symmetric(
-                vertical: MEDIUM_SPACE,
-                horizontal: LARGE_SPACE,
-              ),
+              padding: titlePadding ??
+                  const EdgeInsetsDirectional.symmetric(
+                    vertical: MEDIUM_SPACE,
+                    horizontal: LARGE_SPACE,
+                  ),
               child: Row(
                 children: <Widget>[
-                  if (iconTitle != null)
-                    DecoratedBox(
-                      decoration: const BoxDecoration(
-                        color: Colors.white,
-                        shape: BoxShape.circle,
+                  if (leading != null)
+                    IconTheme(
+                      data: IconThemeData(
+                        color: color,
+                        size: 18.0,
                       ),
-                      child: Padding(
-                        padding: const EdgeInsetsDirectional.all(SMALL_SPACE),
-                        child: IconTheme(
-                          data: IconThemeData(
-                            color: color,
-                            size: 18.0,
-                          ),
-                          child: iconTitle!,
+                      child: DecoratedBox(
+                        decoration: const BoxDecoration(
+                          color: Colors.white,
+                          shape: BoxShape.circle,
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsetsDirectional.all(SMALL_SPACE),
+                          child: leading,
                         ),
                       ),
                     ),
                   const SizedBox(width: MEDIUM_SPACE),
-                  Text(
-                    title,
-                    style: themeData.textTheme.displaySmall?.copyWith(
-                      color: Colors.white,
+                  Expanded(
+                    child: Text(
+                      title,
+                      style: themeData.textTheme.displaySmall?.copyWith(
+                        color: Colors.white,
+                      ),
                     ),
                   ),
+                  if (trailing != null) ...<Widget>[
+                    const SizedBox(width: MEDIUM_SPACE),
+                    IconTheme(
+                      data: const IconThemeData(
+                        color: Colors.white,
+                        size: 20.0,
+                      ),
+                      child: trailing!,
+                    ),
+                  ],
                 ],
               ),
             ),

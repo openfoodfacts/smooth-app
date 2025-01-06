@@ -1408,6 +1408,18 @@
     "@edit_product_label_short": {
         "description": "Edit product button short label (only the verb)"
     },
+    "edit_product_form_item_help": "How to enter \"{value}\"?",
+    "@edit_product_form_item_help": {
+        "description": "Help text for the input field. Eg 'How to enter stores?'",
+        "placeholders": {
+            "value": {
+                "type": "String"
+            }
+        }
+    },
+    "@edit_product_label_short": {
+        "description": "Edit product button short label (only the verb)"
+    },
     "edit_product_form_item_add_action": "Add a new {itemType}",
     "description": "Tooltip to show when the user long presses the (+) button",
     "@edit_product_form_item_add_action": {

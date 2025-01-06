@@ -83,7 +83,7 @@ class _AddOtherDetailsPageState extends State<AddOtherDetailsPage> {
               children: <Widget>[
                 SmoothCardWithRoundedHeader(
                   title: appLocalizations.product_field_website_title,
-                  iconTitle: const Icon(Icons.link),
+                  leading: const Icon(Icons.link),
                   child: Padding(
                     padding: const EdgeInsetsDirectional.only(
                       bottom: MEDIUM_SPACE,

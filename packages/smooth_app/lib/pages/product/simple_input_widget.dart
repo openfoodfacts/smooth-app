@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/collections_helper.dart';
@@ -9,6 +10,7 @@ import 'package:smooth_app/pages/product/explanation_widget.dart';
 import 'package:smooth_app/pages/product/owner_field_info.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
 import 'package:smooth_app/pages/product/simple_input_text_field.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -72,7 +74,7 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
     final Widget child = Column(
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
-        if (explanations != null)
+        if (explanations != null && !widget.displayTitle)
           Padding(
             padding:
                 const EdgeInsetsDirectional.symmetric(horizontal: SMALL_SPACE),
@@ -176,8 +178,22 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
 
     if (widget.displayTitle) {
       return SmoothCardWithRoundedHeader(
-        iconTitle: widget.helper.getIcon(),
+        leading: widget.helper.getIcon(),
         title: widget.helper.getTitle(appLocalizations),
+        trailing: explanations != null
+            ? _ExplanationTitleIcon(
+                text: explanations,
+                type: widget.helper.getTitle(appLocalizations),
+              )
+            : null,
+        titlePadding: explanations != null
+            ? const EdgeInsetsDirectional.only(
+                top: SMALL_SPACE,
+                bottom: SMALL_SPACE,
+                start: LARGE_SPACE,
+                end: SMALL_SPACE,
+              )
+            : null,
         child: child,
       );
     } else {
@@ -223,5 +239,67 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
 
       SmoothHapticFeedback.lightNotification();
     }
+  }
+}
+
+class _ExplanationTitleIcon extends StatelessWidget {
+  const _ExplanationTitleIcon({
+    required this.type,
+    required this.text,
+  });
+
+  final String type;
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    final String title =
+        AppLocalizations.of(context).edit_product_form_item_help(type);
+
+    return Material(
+      type: MaterialType.transparency,
+      child: Semantics(
+        label: title,
+        button: true,
+        excludeSemantics: true,
+        child: Tooltip(
+          message: title,
+          child: InkWell(
+            customBorder: const CircleBorder(),
+            onTap: () {
+              showSmoothModalSheet(
+                context: context,
+                builder: (BuildContext context) {
+                  return SmoothModalSheet(
+                    title: title,
+                    prefixIndicator: true,
+                    body: Padding(
+                      padding: EdgeInsetsDirectional.only(
+                        start: MEDIUM_SPACE,
+                        end: MEDIUM_SPACE,
+                        top: VERY_SMALL_SPACE,
+                        bottom: VERY_SMALL_SPACE +
+                            MediaQuery.viewPaddingOf(context).bottom,
+                      ),
+                      child: Text(
+                        text,
+                        style: const TextStyle(
+                          fontSize: 15.0,
+                          height: 1.7,
+                        ),
+                      ),
+                    ),
+                  );
+                },
+              );
+            },
+            child: const Padding(
+              padding: EdgeInsetsDirectional.all(MEDIUM_SPACE),
+              child: icons.Help(),
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }
