@@ -55,8 +55,8 @@ class _AddOtherDetailsPageState extends State<AddOtherDetailsPage> {
 
   @override
   Widget build(BuildContext context) {
-    final Size size = MediaQuery.sizeOf(context);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
     return WillPopScope2(
       onWillPop: () async => (await _mayExitPage(saving: false), null),
       child: SmoothScaffold(
@@ -85,7 +85,7 @@ class _AddOtherDetailsPageState extends State<AddOtherDetailsPage> {
                   title: appLocalizations.product_field_website_title,
                   iconTitle: const Icon(Icons.link),
                   child: Padding(
-                    padding: EdgeInsetsDirectional.only(
+                    padding: const EdgeInsetsDirectional.only(
                       bottom: MEDIUM_SPACE,
                       start: MEDIUM_SPACE,
                       end: MEDIUM_SPACE,

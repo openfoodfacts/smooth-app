@@ -186,6 +186,7 @@ class SmoothCardWithRoundedHeader extends StatelessWidget {
   }
 }
 
+/// We need this [CustomPainter] to draw the background below the other card
 class _SmoothCardWithRoundedHeaderBackgroundPainter extends CustomPainter {
   _SmoothCardWithRoundedHeaderBackgroundPainter({
     required Color color,
