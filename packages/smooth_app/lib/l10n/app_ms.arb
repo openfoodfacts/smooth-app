@@ -528,7 +528,7 @@
     },
     "ingredients": "Bahan-bahan",
     "@ingredients": {},
-    "ingredients_editing_instructions": "Kekalkan susunan asal. Tunjukkan peratusan apabila dinyatakan. Pisahkan dengan koma atau sempang, gunakan kurungan untuk ramuan sesuatu bahan dan tunjukkan alergen antara garis bawah.",
+    "ingredients_editing_instructions": "Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen and use parentheses for ingredients of an ingredient.",
     "ingredients_editing_error": "Gagal untuk menyimpan ramuan.",
     "ingredients_editing_image_error": "Gagal untuk mendapatkan imej ramuan baharu.",
     "ingredients_editing_title": "Edit Ramuan",
@@ -1407,6 +1407,15 @@
     "edit_product_label_short": "Edit",
     "@edit_product_label_short": {
         "description": "Edit product button short label (only the verb)"
+    },
+    "edit_product_form_item_help": "How to enter \"{value}\"?",
+    "@edit_product_form_item_help": {
+        "description": "Help text for the input field. Eg 'How to enter stores?'",
+        "placeholders": {
+            "value": {
+                "type": "String"
+            }
+        }
     },
     "edit_product_form_item_add_action": "Add a new {itemType}",
     "description": "Tooltip to show when the user long presses the (+) button",
