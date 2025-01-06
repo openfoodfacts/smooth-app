@@ -528,7 +528,7 @@
     },
     "ingredients": "Ingredients",
     "@ingredients": {},
-    "ingredients_editing_instructions": "Mantingueu l'ordre original. Indica el percentatge quan s'especifiqui. Separeu amb una coma o un guionet, feu servir parèntesis per als ingredients d'un ingredient i indiqueu els al·lèrgens entre guions baixos.",
+    "ingredients_editing_instructions": "Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen and use parentheses for ingredients of an ingredient.",
     "ingredients_editing_error": "No s'han pogut desar els ingredients.",
     "ingredients_editing_image_error": "No s'ha pogut obtenir una nova imatge dels ingredients.",
     "ingredients_editing_title": "Edita els ingredients",
@@ -1407,6 +1407,15 @@
     "edit_product_label_short": "Edita",
     "@edit_product_label_short": {
         "description": "Edit product button short label (only the verb)"
+    },
+    "edit_product_form_item_help": "How to enter \"{value}\"?",
+    "@edit_product_form_item_help": {
+        "description": "Help text for the input field. Eg 'How to enter stores?'",
+        "placeholders": {
+            "value": {
+                "type": "String"
+            }
+        }
     },
     "edit_product_form_item_add_action": "Afegeix un nou {itemType}",
     "description": "Informació sobre eines per mostrar quan l'usuari prem el botó (+) durant una estona",
