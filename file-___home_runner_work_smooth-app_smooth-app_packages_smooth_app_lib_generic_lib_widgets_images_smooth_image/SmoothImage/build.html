@@ -77,6 +77,15 @@ Widget build(BuildContext context) {
         fit: fit,
         loadingBuilder: _loadingBuilder,
         errorBuilder: _errorBuilder,
+        frameBuilder: (_, Widget child, int? frame, ____) {
+          if (frame == null) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+
+          return child;
+        },
         cacheWidth: cacheWidth,
         cacheHeight: cacheHeight,
       ),
