@@ -528,7 +528,7 @@
     },
     "ingredients": "성분",
     "@ingredients": {},
-    "ingredients_editing_instructions": "원래의 순서를 지켜라. 지정된 경우 백분율을 나타냅니다. 쉼표나 하이픈으로 구분하고, 성분에 괄호를 사용하고, 밑줄 사이에 알레르기 정보를 표시합니다.",
+    "ingredients_editing_instructions": "Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen and use parentheses for ingredients of an ingredient.",
     "ingredients_editing_error": "재료를 저장하지 못했습니다.",
     "ingredients_editing_image_error": "새로운 재료 이미지를 가져오지 못했습니다.",
     "ingredients_editing_title": "재료 수정",
@@ -1407,6 +1407,15 @@
     "edit_product_label_short": "수정",
     "@edit_product_label_short": {
         "description": "Edit product button short label (only the verb)"
+    },
+    "edit_product_form_item_help": "How to enter \"{value}\"?",
+    "@edit_product_form_item_help": {
+        "description": "Help text for the input field. Eg 'How to enter stores?'",
+        "placeholders": {
+            "value": {
+                "type": "String"
+            }
+        }
     },
     "edit_product_form_item_add_action": "Add a new {itemType}",
     "description": "Tooltip to show when the user long presses the (+) button",
