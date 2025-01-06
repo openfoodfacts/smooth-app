@@ -528,7 +528,7 @@
     },
     "ingredients": "רכיבים",
     "@ingredients": {},
-    "ingredients_editing_instructions": "לשמור על הסדר המקורי. יש לציין את האחוזים כשהם מופיעים. להפריד בפסיקים או מינוסים, להשתמש בסוגריים ברכיבים של רכיב ולכתוב מעוררי רגישות (אלרגנים) בין קווים תחתיים.",
+    "ingredients_editing_instructions": "Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen and use parentheses for ingredients of an ingredient.",
     "ingredients_editing_error": "שמירת הרכיבים נכשלה.",
     "ingredients_editing_image_error": "קבלת תמונת הרכיבים החדשה נכשלה.",
     "ingredients_editing_title": "עריכת רכיבים",
@@ -1407,6 +1407,15 @@
     "edit_product_label_short": "עריכה",
     "@edit_product_label_short": {
         "description": "Edit product button short label (only the verb)"
+    },
+    "edit_product_form_item_help": "How to enter \"{value}\"?",
+    "@edit_product_form_item_help": {
+        "description": "Help text for the input field. Eg 'How to enter stores?'",
+        "placeholders": {
+            "value": {
+                "type": "String"
+            }
+        }
     },
     "edit_product_form_item_add_action": "הוספת {itemType} חדש",
     "description": "חלונית להצגה עם לחיצה ארוכה על הכפתור (+)",
