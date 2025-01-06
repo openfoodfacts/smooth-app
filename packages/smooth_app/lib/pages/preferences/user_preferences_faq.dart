@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:smooth_app/cards/category_cards/svg_cache.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -48,7 +49,7 @@ class UserPreferencesFaq extends AbstractUserPreferences {
         _getListTile(
           title: appLocalizations.faq,
           leadingIconData: Icons.question_mark,
-          url: 'https://support.openfoodfacts.org/help',
+          url: _getFAQUrl(),
         ),
         _getNutriListTile(
           title: appLocalizations.nutriscore_generic,
@@ -339,5 +340,21 @@ class UserPreferencesFaq extends AbstractUserPreferences {
         );
       },
     );
+  }
+
+  String _getFAQUrl() {
+    final OpenFoodFactsLanguage language = ProductQuery.getLanguage();
+
+    return switch (language) {
+      OpenFoodFactsLanguage.FRENCH =>
+        'https://support.openfoodfacts.org/help/fr-fr',
+      OpenFoodFactsLanguage.ITALIAN =>
+        'https://support.openfoodfacts.org/help/it-it',
+      OpenFoodFactsLanguage.GERMAN =>
+        'https://support.openfoodfacts.org/help/de-de',
+      OpenFoodFactsLanguage.SPANISH =>
+        'https://support.openfoodfacts.org/help/es-es',
+      _ => 'https://support.openfoodfacts.org/help',
+    };
   }
 }
