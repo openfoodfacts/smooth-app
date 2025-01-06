@@ -528,7 +528,7 @@
     },
     "ingredients": "Ingredienti",
     "@ingredients": {},
-    "ingredients_editing_instructions": "Mantieni l'ordine originale. Indica la percentuale quando specificato. Separa con una virgola o un trattino, usa le parentesi per gli ingredienti di un ingrediente e indica gli allergeni tra trattini bassi.",
+    "ingredients_editing_instructions": "Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen and use parentheses for ingredients of an ingredient.",
     "ingredients_editing_error": "Impossibile salvare gli ingredienti.",
     "ingredients_editing_image_error": "Impossibile ottenere una nuova immagine degli ingredienti.",
     "ingredients_editing_title": "Modifica ingredienti",
@@ -1407,6 +1407,15 @@
     "edit_product_label_short": "Modifica",
     "@edit_product_label_short": {
         "description": "Edit product button short label (only the verb)"
+    },
+    "edit_product_form_item_help": "How to enter \"{value}\"?",
+    "@edit_product_form_item_help": {
+        "description": "Help text for the input field. Eg 'How to enter stores?'",
+        "placeholders": {
+            "value": {
+                "type": "String"
+            }
+        }
     },
     "edit_product_form_item_add_action": "Aggiungi un nuovo {itemType}",
     "description": "Descrizione del comando per mostrare quando l'utente preme a lungo il pulsante (+)",
