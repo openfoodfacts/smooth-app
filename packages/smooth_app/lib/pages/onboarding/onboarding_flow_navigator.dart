@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/pages/navigator/app_navigator.dart';
-import 'package:smooth_app/pages/onboarding/consent_analytics_page.dart';
 import 'package:smooth_app/pages/onboarding/permissions_page.dart';
 import 'package:smooth_app/pages/onboarding/preferences_page.dart';
 import 'package:smooth_app/pages/onboarding/reinvention_page.dart';
@@ -23,7 +22,6 @@ enum OnboardingPage {
   ECO_CARD_EXAMPLE,
   PREFERENCES_PAGE,
   PERMISSIONS_PAGE,
-  CONSENT_PAGE,
   ONBOARDING_COMPLETE;
 
   OnboardingPage getPrevPage() {
@@ -62,8 +60,6 @@ enum OnboardingPage {
         return const Color(0xFFEBF1FF);
       case OnboardingPage.PERMISSIONS_PAGE:
         return const Color(0xFFEBF1FF);
-      case OnboardingPage.CONSENT_PAGE:
-        return const Color(0xFFFFF2DF);
       case OnboardingPage.ONBOARDING_COMPLETE:
         // whatever, it's not used
         return Colors.black;
@@ -98,11 +94,6 @@ enum OnboardingPage {
         return _wrapWidgetInCustomBackNavigator(
           context,
           PermissionsPage(backgroundColor),
-        );
-      case OnboardingPage.CONSENT_PAGE:
-        return _wrapWidgetInCustomBackNavigator(
-          context,
-          ConsentAnalyticsPage(backgroundColor),
         );
       case OnboardingPage.ONBOARDING_COMPLETE:
         return ExternalScanCarouselManager(child: PageManager());

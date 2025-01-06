@@ -1103,18 +1103,6 @@
     "@hint_knowledge_panel_message": {
         "description": "Hint popup indicating the card is clickable during onboarding"
     },
-    "consent_analytics_title": "Send anonymous analytics",
-    "@consent_analytics_title": {
-        "description": "Title for the consent analytics UI Page"
-    },
-    "consent_analytics_body1": "Help the Open Food Facts volunteers to improve the app. You decide whether to submit anonymous analytics.",
-    "@conset_analytics_body1": {
-        "description": "first paragraph for the consent analytics UI Page"
-    },
-    "consent_analytics_body2": "If you change your mind, this option can be enabled and disabled at any time from the settings.",
-    "@consent_analytics_body2": {
-        "description": "second paragraph for the consent analytics UI Page"
-    },
     "permissions_page_title": "Camera access",
     "@permissions_page_title": {
         "description": "Title for the camera permission's page (onboarding)"
