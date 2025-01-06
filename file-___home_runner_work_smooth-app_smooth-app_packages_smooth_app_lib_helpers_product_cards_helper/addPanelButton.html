@@ -55,6 +55,7 @@
 <span class="name ">addPanelButton</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="addPanelButton-param-label"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">label</span>, </span></li>
 <li><span class="parameter" id="addPanelButton-param-iconData">{<span class="type-annotation">dynamic</span> <span class="parameter-name">iconData</span>, </span></li>
 <li><span class="parameter" id="addPanelButton-param-textAlign"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">textAlign</span>, </span></li>
+<li><span class="parameter" id="addPanelButton-param-padding"><span class="type-annotation">dynamic</span> <span class="parameter-name">padding</span>, </span></li>
 <li><span class="parameter" id="addPanelButton-param-onPressed"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">onPressed</span>(<ol class="parameter-list"></ol>
 )}</span></li>
 </ol>)
@@ -70,6 +71,7 @@
   final String label, {
   final IconData? iconData,
   final String? textAlign,
+  final EdgeInsetsGeometry? padding,
   required final Function() onPressed,
 }) =&gt;
     Padding(
@@ -79,6 +81,7 @@
         icon: iconData ?? Icons.add,
         onPressed: onPressed,
         textAlign: iconData == null ? TextAlign.center : null,
+        padding: padding,
       ),
     );</code></pre>
 </section>
