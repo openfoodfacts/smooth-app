@@ -528,7 +528,7 @@
     },
     "ingredients": "İçindekiler",
     "@ingredients": {},
-    "ingredients_editing_instructions": "Orijinal düzeni koruyun. Belirtildiğinde yüzdeyi belirtin. Virgül veya kısa çizgi ile ayırın, bir bileşenin bileşenleri için parantez kullanın ve alerjenleri alt çizgiler arasında belirtin.",
+    "ingredients_editing_instructions": "Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen and use parentheses for ingredients of an ingredient.",
     "ingredients_editing_error": "Malzemeler kaydedilemedi.",
     "ingredients_editing_image_error": "Yeni malzeme görüntüsü alınamadı.",
     "ingredients_editing_title": "Malzemeleri Düzenle",
@@ -1407,6 +1407,15 @@
     "edit_product_label_short": "Düzenle",
     "@edit_product_label_short": {
         "description": "Edit product button short label (only the verb)"
+    },
+    "edit_product_form_item_help": "How to enter \"{value}\"?",
+    "@edit_product_form_item_help": {
+        "description": "Help text for the input field. Eg 'How to enter stores?'",
+        "placeholders": {
+            "value": {
+                "type": "String"
+            }
+        }
     },
     "edit_product_form_item_add_action": "Yeni bir {itemType} ekle",
     "description": "Kullanıcı (+) düğmesine uzun bastığında gösterilecek araç ipucu",
