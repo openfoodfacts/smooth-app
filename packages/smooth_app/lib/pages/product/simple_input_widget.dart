@@ -167,7 +167,10 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
         ),
-        if (extraWidget != null) extraWidget,
+        if (extraWidget != null)
+          extraWidget
+        else
+          const SizedBox(height: MEDIUM_SPACE),
       ],
     );
 
