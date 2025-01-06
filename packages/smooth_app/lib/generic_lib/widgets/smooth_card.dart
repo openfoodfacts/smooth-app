@@ -109,11 +109,13 @@ class SmoothCardWithRoundedHeader extends StatelessWidget {
     required this.title,
     required this.child,
     this.iconTitle,
+    this.contentPadding,
   });
 
   final String title;
   final Widget? iconTitle;
   final Widget child;
+  final EdgeInsetsGeometry? contentPadding;
 
   @override
   Widget build(BuildContext context) {
@@ -172,9 +174,10 @@ class SmoothCardWithRoundedHeader extends StatelessWidget {
         ),
         SmoothCard(
           margin: EdgeInsets.zero,
-          padding: const EdgeInsetsDirectional.only(
-            top: MEDIUM_SPACE,
-          ),
+          padding: contentPadding ??
+              const EdgeInsetsDirectional.only(
+                top: MEDIUM_SPACE,
+              ),
           color: context.darkTheme() ? extension.primaryUltraBlack : null,
           child: child,
         ),

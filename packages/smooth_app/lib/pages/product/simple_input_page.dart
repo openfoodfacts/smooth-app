@@ -117,12 +117,13 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
               : null,
           body: Scrollbar(
             child: ListView(
-                padding: const EdgeInsetsDirectional.only(
-                  top: MEDIUM_SPACE,
-                  start: MEDIUM_SPACE,
-                  end: MEDIUM_SPACE,
-                ),
-                children: simpleInputs),
+              padding: const EdgeInsetsDirectional.only(
+                top: MEDIUM_SPACE,
+                start: MEDIUM_SPACE,
+                end: MEDIUM_SPACE,
+              ),
+              children: simpleInputs,
+            ),
           ),
           bottomNavigationBar: ProductBottomButtonsBar(
             onSave: () async => _exitPage(
