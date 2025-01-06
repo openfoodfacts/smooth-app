@@ -135,7 +135,10 @@ Widget build(BuildContext context) {
               },
               child: hasPendingOperations
                   ? const ProductPageLoadingIndicator()
-                  : ProductQuestionsWidget(upToDateProduct),
+                  : KeepQuestionWidgetAlive(
+                      keepWidgetAlive: _keepRobotoffQuestionsAlive,
+                      child: ProductQuestionsWidget(upToDateProduct),
+                    ),
             ),
           ),
         ],
