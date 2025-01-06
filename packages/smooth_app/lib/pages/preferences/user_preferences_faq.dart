@@ -344,7 +344,7 @@ class UserPreferencesFaq extends AbstractUserPreferences {
 
   String _getFAQUrl() {
     final OpenFoodFactsLanguage language = ProductQuery.getLanguage();
-
+/// TODO: regularly check for additional translations
     return switch (language) {
       OpenFoodFactsLanguage.FRENCH =>
         'https://support.openfoodfacts.org/help/fr-fr',
