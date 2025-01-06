@@ -76,11 +76,12 @@ Widget build(BuildContext context) =&gt; ElevatedButton(
         padding: const EdgeInsets.all(MEDIUM_SPACE),
         backgroundColor: backgroundColor,
         foregroundColor: foregroundColor,
+        iconColor: foregroundColor,
       ),
       onPressed: onPressed,
       child: Padding(
         padding: iconPadding ?? EdgeInsets.zero,
-        child: Icon(icon),
+        child: icon,
       ),
     );</code></pre>
 </section>

@@ -55,7 +55,8 @@
 <span class="name ">getElementWidget</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="getElementWidget-param-knowledgePanelElement">{<span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">knowledgePanelElement</span>, </span></li>
 <li><span class="parameter" id="getElementWidget-param-product"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">product</span>, </span></li>
 <li><span class="parameter" id="getElementWidget-param-isInitiallyExpanded"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">isInitiallyExpanded</span>, </span></li>
-<li><span class="parameter" id="getElementWidget-param-isClickable"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">isClickable</span>}</span></li>
+<li><span class="parameter" id="getElementWidget-param-isClickable"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">isClickable</span>, </span></li>
+<li><span class="parameter" id="getElementWidget-param-isTextSelectable"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">isTextSelectable</span>}</span></li>
 </ol>)
 
       
@@ -75,12 +76,14 @@
   required final Product product,
   required final bool isInitiallyExpanded,
   required final bool isClickable,
+  required final bool isTextSelectable,
 }) {
   final Widget? result = _getElementWidget(
     element: knowledgePanelElement,
     product: product,
     isInitiallyExpanded: isInitiallyExpanded,
     isClickable: isClickable,
+    isTextSelectable: isTextSelectable,
   );
   if (result == null) {
     return null;

@@ -87,10 +87,10 @@ Widget build(BuildContext context) {
             ),
             backgroundColor: Colors.white,
             foregroundColor: Colors.black,
-            icon: ConstantIcons.instance.getBackIcon(),
-            iconPadding: Platform.isIOS || Platform.isMacOS
-                ? const EdgeInsetsDirectional.only(end: 2.0)
-                : EdgeInsets.zero,
+            icon: Directionality.of(context) == TextDirection.ltr
+                ? const icons.Arrow.left()
+                : const icons.Arrow.right(),
+            iconPadding: EdgeInsets.zero,
           ),
     rightButton: OnboardingBottomButton(
       onPressed: () async {
