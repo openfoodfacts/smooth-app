@@ -528,7 +528,7 @@
     },
     "ingredients": "Ingrediente",
     "@ingredients": {},
-    "ingredients_editing_instructions": "Păstrați ordinea originală. Indicați procentajul atunci când este specificat. Separați cu virgulă sau cratimă, utilizați paranteze pentru ingredientele unui ingredient și indicați alergenii între sublinieri.",
+    "ingredients_editing_instructions": "Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen and use parentheses for ingredients of an ingredient.",
     "ingredients_editing_error": "Salvarea ingredientelor nu a reușit.",
     "ingredients_editing_image_error": "Nu s-a putut obține o imagine nouă a ingredientelor.",
     "ingredients_editing_title": "Editați ingredientele",
@@ -1407,6 +1407,15 @@
     "edit_product_label_short": "Modificare",
     "@edit_product_label_short": {
         "description": "Edit product button short label (only the verb)"
+    },
+    "edit_product_form_item_help": "How to enter \"{value}\"?",
+    "@edit_product_form_item_help": {
+        "description": "Help text for the input field. Eg 'How to enter stores?'",
+        "placeholders": {
+            "value": {
+                "type": "String"
+            }
+        }
     },
     "edit_product_form_item_add_action": "Adăugați un nou {itemType}",
     "description": "Indicator pentru a afișa când utilizatorul apasă lung butonul (+)",
