@@ -528,7 +528,7 @@
     },
     "ingredients": "Συστατικά",
     "@ingredients": {},
-    "ingredients_editing_instructions": "Διατηρήστε την αρχική παραγγελία. Αναφέρετε το ποσοστό όταν αυτό ζητείται. Διαχωρίστε με κόμμα ή παύλα, χρησιμοποιήστε παρενθέσεις για τα συστατικά ενός συστατικού και υποδείξτε τα αλλεργιογόνα ανάμεσα σε κάτω παύλες.",
+    "ingredients_editing_instructions": "Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen and use parentheses for ingredients of an ingredient.",
     "ingredients_editing_error": "Απέτυχε η αποθήκευση του συστατικού.",
     "ingredients_editing_image_error": "Αποτυχία λήψης νέας εικόνας συστατικών.",
     "ingredients_editing_title": "Επεξεργασία Συστατικών",
@@ -1407,6 +1407,15 @@
     "edit_product_label_short": "Επεξεργασία",
     "@edit_product_label_short": {
         "description": "Edit product button short label (only the verb)"
+    },
+    "edit_product_form_item_help": "How to enter \"{value}\"?",
+    "@edit_product_form_item_help": {
+        "description": "Help text for the input field. Eg 'How to enter stores?'",
+        "placeholders": {
+            "value": {
+                "type": "String"
+            }
+        }
     },
     "edit_product_form_item_add_action": "Add a new {itemType}",
     "description": "Tooltip to show when the user long presses the (+) button",
