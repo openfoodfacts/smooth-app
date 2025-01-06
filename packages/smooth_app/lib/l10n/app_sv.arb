@@ -528,7 +528,7 @@
     },
     "ingredients": "Ingredienser",
     "@ingredients": {},
-    "ingredients_editing_instructions": "Behåll den ursprungliga ordningen. Ange procenttalet när det anges. Separera med ett kommatecken eller bindestreck, använd parenteser för ingredienser i en ingrediens och ange allergener mellan understreck.",
+    "ingredients_editing_instructions": "Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen and use parentheses for ingredients of an ingredient.",
     "ingredients_editing_error": "Det gick inte att spara ingredienserna.",
     "ingredients_editing_image_error": "Det gick inte att hämta en ny ingrediensbild.",
     "ingredients_editing_title": "Redigera ingredienser",
@@ -1407,6 +1407,15 @@
     "edit_product_label_short": "Redigera",
     "@edit_product_label_short": {
         "description": "Edit product button short label (only the verb)"
+    },
+    "edit_product_form_item_help": "How to enter \"{value}\"?",
+    "@edit_product_form_item_help": {
+        "description": "Help text for the input field. Eg 'How to enter stores?'",
+        "placeholders": {
+            "value": {
+                "type": "String"
+            }
+        }
     },
     "edit_product_form_item_add_action": "Add a new {itemType}",
     "description": "Tooltip to show when the user long presses the (+) button",
