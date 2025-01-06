@@ -528,7 +528,7 @@
     },
     "ingredients": "Összetevők",
     "@ingredients": {},
-    "ingredients_editing_instructions": "Tartsa meg az eredeti sorrendet. Tüntesse fel a százalékos arányt, ha meg van adva. Az összetevőket vesszővel vagy kötőjellel válassza el, egy összetevő összetevőihez használjon zárójelet, az allergéneket pedig aláhúzások között jelölje.",
+    "ingredients_editing_instructions": "Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen and use parentheses for ingredients of an ingredient.",
     "ingredients_editing_error": "Nem sikerült menteni az összetevőket.",
     "ingredients_editing_image_error": "Nem sikerült új összetevők fényképét beszerezni.",
     "ingredients_editing_title": "Összetevők szerkesztése",
@@ -1407,6 +1407,15 @@
     "edit_product_label_short": "Szerkesztés",
     "@edit_product_label_short": {
         "description": "Edit product button short label (only the verb)"
+    },
+    "edit_product_form_item_help": "How to enter \"{value}\"?",
+    "@edit_product_form_item_help": {
+        "description": "Help text for the input field. Eg 'How to enter stores?'",
+        "placeholders": {
+            "value": {
+                "type": "String"
+            }
+        }
     },
     "edit_product_form_item_add_action": "Új {itemType} hozzáadása",
     "description": "Buboréksúgó, amely akkor jelenik meg, amikor a felhasználó hosszan megnyomja a (+) gombot",
