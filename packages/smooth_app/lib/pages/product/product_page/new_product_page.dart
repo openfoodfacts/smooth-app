@@ -142,7 +142,10 @@ class ProductPageState extends State<ProductPage>
                 },
                 child: hasPendingOperations
                     ? const ProductPageLoadingIndicator()
-                    : ProductQuestionsWidget(upToDateProduct),
+                    : KeepQuestionWidgetAlive(
+                        keepWidgetAlive: _keepRobotoffQuestionsAlive,
+                        child: ProductQuestionsWidget(upToDateProduct),
+                      ),
               ),
             ),
           ],
@@ -194,14 +197,11 @@ class ProductPageState extends State<ProductPage>
               child: HeroMode(
                 enabled: widget.withHeroAnimation &&
                     widget.heroTag?.isNotEmpty == true,
-                child: KeepQuestionWidgetAlive(
-                  keepWidgetAlive: _keepRobotoffQuestionsAlive,
-                  child: SummaryCard(
-                    upToDateProduct,
-                    _productPreferences,
-                    heroTag: widget.heroTag,
-                    isFullVersion: true,
-                  ),
+                child: SummaryCard(
+                  upToDateProduct,
+                  _productPreferences,
+                  heroTag: widget.heroTag,
+                  isFullVersion: true,
                 ),
               ),
             ),
