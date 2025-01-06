@@ -103,10 +103,7 @@ class ProductTitleCard extends StatelessWidget {
                     top: VERY_SMALL_SPACE,
                     bottom: VERY_SMALL_SPACE,
                   ),
-                  child: SelectionArea(
-                    selectionControls: null,
-                    child: child,
-                  ),
+                  child: child,
                 ),
               ),
             ],
@@ -148,7 +145,7 @@ class _ProductTitleCardName extends StatelessWidget {
       getProductName(product, appLocalizations),
       style: dense ? textStyle : textStyle?.copyWith(fontSize: 18.0),
       textAlign: TextAlign.start,
-      maxLines: dense ? 2 : null,
+      maxLines: 2,
       overflow: TextOverflow.ellipsis,
     );
   }

@@ -46,6 +46,7 @@ class SummaryCard extends StatefulWidget {
     this.isPictureVisible = true,
     this.attributeGroupsClickable = true,
     this.scrollableContent = false,
+    this.isTextSelectable,
     this.margin,
     this.contentPadding,
     this.buttonPadding,
@@ -75,6 +76,9 @@ class SummaryCard extends StatefulWidget {
 
   /// If true, all chips / groups are clickable
   final bool attributeGroupsClickable;
+
+  /// If true, the text will be selectable
+  final bool? isTextSelectable;
 
   /// Margin for the card
   final EdgeInsetsGeometry? margin;
@@ -309,7 +313,7 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
       children: <Widget>[
         ProductTitleCard(
           upToDateProduct,
-          widget.isFullVersion,
+          widget.isTextSelectable ?? widget.isFullVersion,
           heroTag: widget.heroTag,
           dense: !widget.isFullVersion,
           isPictureVisible: widget.isPictureVisible,
