@@ -19,7 +19,7 @@ class SmoothSimpleButton extends StatelessWidget {
   final double minWidth;
   final double height;
   final BorderRadius borderRadius;
-  final EdgeInsets padding;
+  final EdgeInsetsGeometry padding;
   final Color? buttonColor;
 
   @override

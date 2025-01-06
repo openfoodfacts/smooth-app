@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 
 /// Renders a Material card with elevation, shadow, Border radius etc...
 /// Note: If the caller updates BoxDecoration of the [header] or [child] widget,
@@ -99,4 +102,122 @@ class SmoothCard extends StatelessWidget {
             child: result,
           );
   }
+}
+
+class SmoothCardWithRoundedHeader extends StatelessWidget {
+  const SmoothCardWithRoundedHeader({
+    required this.title,
+    required this.child,
+    this.iconTitle,
+  });
+
+  final String title;
+  final Widget? iconTitle;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    final ThemeData themeData = Theme.of(context);
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
+
+    final Color color =
+        context.lightTheme() ? extension.primaryBlack : Colors.black;
+
+    return Column(
+      children: <Widget>[
+        Semantics(
+          label: title,
+          excludeSemantics: true,
+          child: CustomPaint(
+            painter: _SmoothCardWithRoundedHeaderBackgroundPainter(
+              color: color,
+              radius: ROUNDED_RADIUS,
+            ),
+            child: Padding(
+              padding: const EdgeInsetsDirectional.symmetric(
+                vertical: MEDIUM_SPACE,
+                horizontal: LARGE_SPACE,
+              ),
+              child: Row(
+                children: <Widget>[
+                  if (iconTitle != null)
+                    DecoratedBox(
+                      decoration: const BoxDecoration(
+                        color: Colors.white,
+                        shape: BoxShape.circle,
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsetsDirectional.all(SMALL_SPACE),
+                        child: IconTheme(
+                          data: IconThemeData(
+                            color: color,
+                            size: 18.0,
+                          ),
+                          child: iconTitle!,
+                        ),
+                      ),
+                    ),
+                  const SizedBox(width: MEDIUM_SPACE),
+                  Text(
+                    title,
+                    style: themeData.textTheme.displaySmall?.copyWith(
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+        SmoothCard(
+          margin: EdgeInsets.zero,
+          padding: const EdgeInsetsDirectional.only(
+            top: MEDIUM_SPACE,
+          ),
+          color: context.darkTheme() ? extension.primaryUltraBlack : null,
+          child: child,
+        ),
+      ],
+    );
+  }
+}
+
+class _SmoothCardWithRoundedHeaderBackgroundPainter extends CustomPainter {
+  _SmoothCardWithRoundedHeaderBackgroundPainter({
+    required Color color,
+    required this.radius,
+  }) : _paint = Paint()..color = color;
+
+  final Radius radius;
+  final Paint _paint;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    canvas.drawRRect(
+      RRect.fromRectAndCorners(
+        Rect.fromLTWH(
+          0.0,
+          0.0,
+          size.width,
+          size.height + ROUNDED_RADIUS.y,
+        ),
+        topLeft: radius,
+        topRight: radius,
+      ),
+      _paint,
+    );
+  }
+
+  @override
+  bool shouldRepaint(
+    _SmoothCardWithRoundedHeaderBackgroundPainter oldDelegate,
+  ) =>
+      false;
+
+  @override
+  bool shouldRebuildSemantics(
+    _SmoothCardWithRoundedHeaderBackgroundPainter oldDelegate,
+  ) =>
+      false;
 }

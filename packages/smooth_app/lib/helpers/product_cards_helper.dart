@@ -310,6 +310,7 @@ Widget addPanelButton(
   final String label, {
   final IconData? iconData,
   final String? textAlign,
+  final EdgeInsetsGeometry? padding,
   required final Function() onPressed,
 }) =>
     Padding(
@@ -319,6 +320,7 @@ Widget addPanelButton(
         icon: iconData ?? Icons.add,
         onPressed: onPressed,
         textAlign: iconData == null ? TextAlign.center : null,
+        padding: padding,
       ),
     );
 

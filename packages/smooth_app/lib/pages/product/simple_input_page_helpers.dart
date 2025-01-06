@@ -122,11 +122,11 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
   ) =>
       Padding(
         padding: const EdgeInsets.symmetric(
-          vertical: VERY_LARGE_SPACE,
+          vertical: SMALL_SPACE,
           horizontal: SMALL_SPACE,
         ),
         child: addPanelButton(
-          title.toUpperCase(),
+          title,
           onPressed: () async => confirmAndUploadNewPicture(
             context,
             imageField: ImageField.OTHER,
@@ -137,6 +137,11 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
             isLoggedInMandatory: false,
           ),
           iconData: Icons.add_a_photo,
+          padding: const EdgeInsetsDirectional.only(
+            top: SMALL_SPACE,
+            bottom: SMALL_SPACE,
+            start: VERY_SMALL_SPACE,
+          ),
         ),
       );
 

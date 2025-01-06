@@ -18,7 +18,7 @@ class SmoothLargeButtonWithIcon extends StatelessWidget {
   final String text;
   final IconData icon;
   final VoidCallback? onPressed;
-  final EdgeInsets? padding;
+  final EdgeInsetsGeometry? padding;
   final IconData? trailing;
   final Color? backgroundColor;
   final Color? foregroundColor;

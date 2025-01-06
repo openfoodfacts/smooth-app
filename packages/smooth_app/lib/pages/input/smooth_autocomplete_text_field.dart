@@ -20,6 +20,8 @@ class SmoothAutocompleteTextField extends StatefulWidget {
     this.minLengthForSuggestions = 1,
     this.allowEmojis = true,
     this.suffixIcon,
+    this.borderRadius,
+    this.padding,
   });
 
   final FocusNode focusNode;
@@ -31,6 +33,8 @@ class SmoothAutocompleteTextField extends StatefulWidget {
   final AutocompleteManager? manager;
   final bool allowEmojis;
   final Widget? suffixIcon;
+  final BorderRadius? borderRadius;
+  final EdgeInsetsGeometry? padding;
 
   @override
   State<SmoothAutocompleteTextField> createState() =>
@@ -86,14 +90,15 @@ class _SmoothAutocompleteTextFieldState
         decoration: InputDecoration(
           suffixIcon: widget.suffixIcon,
           filled: true,
-          border: const OutlineInputBorder(
-            borderRadius: ANGULAR_BORDER_RADIUS,
+          border: OutlineInputBorder(
+            borderRadius: widget.borderRadius ?? ANGULAR_BORDER_RADIUS,
             borderSide: BorderSide.none,
           ),
-          contentPadding: const EdgeInsets.symmetric(
-            horizontal: SMALL_SPACE,
-            vertical: SMALL_SPACE,
-          ),
+          contentPadding: widget.padding ??
+              const EdgeInsets.symmetric(
+                horizontal: SMALL_SPACE,
+                vertical: SMALL_SPACE,
+              ),
           hintText: widget.hintText,
           suffix: Offstage(
             offstage: !_loading,
