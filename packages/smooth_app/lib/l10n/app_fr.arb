@@ -528,7 +528,7 @@
     },
     "ingredients": "Ingrédients",
     "@ingredients": {},
-    "ingredients_editing_instructions": "Conservez l'ordre original. Indiquer le pourcentage lorsque spécifié. Séparez par une virgule ou un trait d'union, utilisez des parenthèses pour les ingrédients d'un ingrédient et indiquez les allergènes entre tirets du bas.",
+    "ingredients_editing_instructions": "Conservez l'ordre original. Indiquer le pourcentage lorsque spécifié. Séparez par une virgule ou un trait d'union, utilisez des parenthèses pour les ingrédients d'un ingrédient.",
     "ingredients_editing_error": "Échec de l’enregistrement des ingrédients.",
     "ingredients_editing_image_error": "Échec de l'obtention d'une nouvelle image d'ingrédients.",
     "ingredients_editing_title": "Modifier les ingrédients",
@@ -1407,6 +1407,15 @@
     "edit_product_label_short": "Modifier",
     "@edit_product_label_short": {
         "description": "Edit product button short label (only the verb)"
+    },
+    "edit_product_form_item_help": "Comment saisir : \"{value}\" ?",
+    "@edit_product_form_item_help": {
+        "description": "Help text for the input field. Eg 'How to enter stores?'",
+        "placeholders": {
+            "value": {
+                "type": "String"
+            }
+        }
     },
     "edit_product_form_item_add_action": "Ajouter un nouveau {itemType}",
     "description": "Infobulle à afficher lorsque l'utilisateur appuie longuement sur le bouton (+)",
