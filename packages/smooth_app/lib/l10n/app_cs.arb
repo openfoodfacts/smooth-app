@@ -528,7 +528,7 @@
     },
     "ingredients": "Složení",
     "@ingredients": {},
-    "ingredients_editing_instructions": "Zachovejte původní řazení. Při specifikaci uveďte procento. Oddělte je čárkou nebo pomlčkou, použijte závorky pro složky přísady a označte alergeny mezi podtržítka.",
+    "ingredients_editing_instructions": "Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen and use parentheses for ingredients of an ingredient.",
     "ingredients_editing_error": "Ingredience se nepodařilo uložit.",
     "ingredients_editing_image_error": "Nepodařilo se získat nový obrázek ingrediencí.",
     "ingredients_editing_title": "Upravit ingredience",
@@ -1407,6 +1407,15 @@
     "edit_product_label_short": "Upravit",
     "@edit_product_label_short": {
         "description": "Edit product button short label (only the verb)"
+    },
+    "edit_product_form_item_help": "How to enter \"{value}\"?",
+    "@edit_product_form_item_help": {
+        "description": "Help text for the input field. Eg 'How to enter stores?'",
+        "placeholders": {
+            "value": {
+                "type": "String"
+            }
+        }
     },
     "edit_product_form_item_add_action": "Přidat nový {itemType}",
     "description": "Popisek, který se zobrazí, když uživatel dlouze stiskne tlačítko (+)",
