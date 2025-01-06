@@ -528,7 +528,7 @@
     },
     "ingredients": "Zutaten",
     "@ingredients": {},
-    "ingredients_editing_instructions": "Behalten Sie die ursprüngliche Reihenfolge. Geben Sie, wenn angegeben, den Prozentsatz an. Trennen Sie mit einem Komma oder Bindestrich, verwenden Sie Klammern für Bestandteile einer Zutat und geben Sie Allergene zwischen Unterstrichen an.",
+    "ingredients_editing_instructions": "Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen and use parentheses for ingredients of an ingredient.",
     "ingredients_editing_error": "Die Zutaten konnten nicht gespeichert werden.",
     "ingredients_editing_image_error": "Fehler beim Abrufen eines neuen Zutatenbildes.",
     "ingredients_editing_title": "Zutaten bearbeiten",
@@ -1407,6 +1407,15 @@
     "edit_product_label_short": "Bearbeiten",
     "@edit_product_label_short": {
         "description": "Edit product button short label (only the verb)"
+    },
+    "edit_product_form_item_help": "How to enter \"{value}\"?",
+    "@edit_product_form_item_help": {
+        "description": "Help text for the input field. Eg 'How to enter stores?'",
+        "placeholders": {
+            "value": {
+                "type": "String"
+            }
+        }
     },
     "edit_product_form_item_add_action": "{itemType} hinzufügen",
     "description": "Tooltip, der angezeigt wird, wenn der Benutzer lange auf die (+)-Taste drückt",
