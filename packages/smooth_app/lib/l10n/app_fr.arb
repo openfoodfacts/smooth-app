@@ -528,7 +528,7 @@
     },
     "ingredients": "Ingrédients",
     "@ingredients": {},
-    "ingredients_editing_instructions": "Conservez l'ordre original. Indiquer le pourcentage lorsque spécifié. Séparez par une virgule ou un trait d'union, utilisez des parenthèses pour les ingrédients d'un ingrédient et indiquez les allergènes entre tirets du bas.",
+    "ingredients_editing_instructions": "Conservez l'ordre original. Indiquer le pourcentage lorsque spécifié. Séparez par une virgule ou un trait d'union, utilisez des parenthèses pour les ingrédients d'un ingrédient.",
     "ingredients_editing_error": "Échec de l’enregistrement des ingrédients.",
     "ingredients_editing_image_error": "Échec de l'obtention d'une nouvelle image d'ingrédients.",
     "ingredients_editing_title": "Modifier les ingrédients",
