@@ -1400,7 +1400,7 @@
     "@permission_photo_denied": {
         "description": "When the camera/photo permission is denied by user"
     },
-    "show_product_pictures": "Show product pictures",
+    "show_product_pictures": "Mostrar imágenes del producto",
     "@show_product_pictures": {
         "description": "Button to show a list of product pictures"
     },
@@ -1421,7 +1421,7 @@
             }
         }
     },
-    "edit_product_form_item_error_empty": "Please enter a non-empty value!",
+    "edit_product_form_item_error_empty": "¡Por favor ingrese un valor!",
     "@edit_product_form_item_error_empty": {
         "description": "Error message when the user tries to submit an empty value"
     },
@@ -1466,7 +1466,7 @@
     "@edit_product_form_item_labels_subtitle": {
         "description": "Product edition - Labels - SubTitle"
     },
-    "edit_product_form_item_labels_hint": "Input a label (eg: NutriScore)",
+    "edit_product_form_item_labels_hint": "Ingrese una etiqueta (por ejemplo: NutriScore)",
     "@edit_product_form_item_labels_hint": {
         "description": "Product edition - Labels - input textfield hint"
     },
@@ -1478,7 +1478,7 @@
     "@edit_product_form_item_stores_title": {
         "description": "Product edition - Stores - Title"
     },
-    "edit_product_form_item_stores_hint": "Input a store",
+    "edit_product_form_item_stores_hint": "Ingrese una tienda",
     "@edit_product_form_item_stores_hint": {
         "description": "Product edition - Stores - input textfield hint"
     },
@@ -1490,7 +1490,7 @@
     "@edit_product_form_item_origins_title": {
         "description": "Product edition - Origins - Title"
     },
-    "edit_product_form_item_origins_hint": "Input an origin (eg: Germany)",
+    "edit_product_form_item_origins_hint": "Ingrese un origen (por ejemplo: Alemania)",
     "@edit_product_form_item_origins_hint": {
         "description": "Product edition - Origins - input textfield hint"
     },
@@ -1510,7 +1510,7 @@
     "@edit_product_form_item_countries_title": {
         "description": "Product edition - Countries - Title"
     },
-    "edit_product_form_item_countries_hint": "Input a country (eg: Germany)",
+    "edit_product_form_item_countries_hint": "Ingrese un país (por ejemplo: Alemania)",
     "@edit_product_form_item_countries_hint": {
         "description": "Product edition - Countries - input textfield hint"
     },
@@ -1526,7 +1526,7 @@
     "@edit_product_form_item_emb_codes_title": {
         "description": "Product edition - Traceability codes - Title"
     },
-    "edit_product_form_item_emb_codes_hint": "Input a code (eg: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522…)",
+    "edit_product_form_item_emb_codes_hint": "Ingrese un código (por ejemplo EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANTE 522...)",
     "@edit_product_form_item_emb_codes_hint": {
         "description": "Product edition - Traceability Codes - input textfield hint"
     },
@@ -1546,7 +1546,7 @@
     "@edit_product_form_item_categories_hint": {
         "description": "Product edition - Categories - input textfield hint"
     },
-    "edit_product_form_item_categories_type": "Input a category (eg: Orange juice)",
+    "edit_product_form_item_categories_type": "Ingrese una categoría (por ejemplo: jugo de naranja)",
     "@edit_product_form_item_categories_type": {
         "description": "Product edition - Categories - input textfield type"
     },
@@ -2317,11 +2317,11 @@
     "basic_details": "Detalles básicos",
     "product_name": "Nombre del producto",
     "add_basic_details_product_name_error": "Por favor, introduce el nombre del producto",
-    "add_basic_details_product_name_hint": "Input the name of the product (eg: Nutella)",
+    "add_basic_details_product_name_hint": "Ingrese el nombre del producto (por ejemplo: Nutella)",
     "brand_name": "Nombre de la marca",
-    "brand_names": "Brand names",
+    "brand_names": "Nombres de la marca",
     "add_basic_details_brand_name_error": "Por favor, introduce el nombre de la marca",
-    "add_basic_details_brand_names_hint": "Input brands (eg: Ferrero)",
+    "add_basic_details_brand_names_hint": "Ingrese las marcas (por ejemplo Ferrero)",
     "quantity": "Cantidad y peso",
     "add_basic_details_quantity_hint": "Input the weight and if needed the quantity (eg : 4x100g)",
     "barcode": "Código de barras",
