@@ -39,8 +39,8 @@ class PriceMetaProduct {
     if (_product != null) {
       return _product!.barcode!;
     }
-    if (_priceProduct != null) {
-      return _priceProduct.code;
+    if (_priceProduct?.code != null) {
+      return _priceProduct!.code;
     }
     return _barcode!;
   }
@@ -53,7 +53,7 @@ class PriceMetaProduct {
       );
     }
     if (_priceProduct != null) {
-      return _priceProduct.name ?? _priceProduct.code;
+      return _priceProduct?.name ?? _priceProduct!.code;
     }
     if (barcode.isEmpty) {
       return appLocalizations.prices_barcode_search_none_yet;
@@ -73,7 +73,7 @@ class PriceMetaProduct {
       );
     }
     if (_priceProduct != null) {
-      final String? imageURL = _priceProduct.imageURL;
+      final String? imageURL = _priceProduct?.imageURL;
       return SmoothImage(
         width: size,
         height: size,

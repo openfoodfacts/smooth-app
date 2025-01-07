@@ -26,6 +26,5 @@ class AppleAppStore extends AppStore {
   }
 
   @override
-  String getEnrollInBetaURL() =>
-      'https://appstoreconnect.apple.com/apps/588797948/testflight/ios';
+  String getEnrollInBetaURL() => 'https://appstoreconnect.apple.com/apps/588797948/testflight/ios';
 }

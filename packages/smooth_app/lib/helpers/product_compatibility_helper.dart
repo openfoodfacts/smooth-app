@@ -75,6 +75,6 @@ class ProductCompatibilityHelper {
       return '0';
     }
 
-    return NumberFormat('00').format(_score.toInt());
+    return NumberFormat('00').format(_score?.toInt());
   }
 }

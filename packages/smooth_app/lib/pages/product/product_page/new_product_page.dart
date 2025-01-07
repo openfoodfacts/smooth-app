@@ -54,8 +54,7 @@ class ProductPage extends StatefulWidget {
   State<ProductPage> createState() => ProductPageState();
 }
 
-class ProductPageState extends State<ProductPage>
-    with TraceableClientMixin, UpToDateMixin {
+class ProductPageState extends State<ProductPage> with TraceableClientMixin, UpToDateMixin {
   final ScrollController _scrollController = ScrollController();
   late ProductPreferences _productPreferences;
   bool _keepRobotoffQuestionsAlive = true;
@@ -78,11 +77,9 @@ class ProductPageState extends State<ProductPage>
 
   @override
   Widget build(BuildContext context) {
-    final ExternalScanCarouselManagerState carouselManager =
-        ExternalScanCarouselManager.read(context);
+    final ExternalScanCarouselManagerState carouselManager = ExternalScanCarouselManager.read(context);
     carouselManager.currentBarcode = barcode;
-    final SmoothColorsThemeExtension themeExtension =
-        Theme.of(context).extension<SmoothColorsThemeExtension>()!;
+    final SmoothColorsThemeExtension themeExtension = Theme.of(context).extension<SmoothColorsThemeExtension>()!;
 
     _productPreferences = context.watch<ProductPreferences>();
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
@@ -93,8 +90,8 @@ class ProductPageState extends State<ProductPage>
       _productPreferences,
     );
 
-    final bool hasPendingOperations = UpToDateChanges(localDatabase)
-        .hasNotTerminatedOperations(upToDateProduct.barcode!);
+    final bool hasPendingOperations =
+        UpToDateChanges(localDatabase).hasNotTerminatedOperations(upToDateProduct.barcode!);
 
     return MultiProvider(
       providers: <SingleChildWidget>[
@@ -117,8 +114,7 @@ class ProductPageState extends State<ProductPage>
         spaceBehindStatusBar: false,
         changeStatusBarBrightness: false,
         statusBarBackgroundColor: Colors.transparent,
-        backgroundColor:
-            !context.darkTheme() ? themeExtension.primaryLight : null,
+        backgroundColor: !context.darkTheme() ? themeExtension.primaryLight : null,
         body: Stack(
           children: <Widget>[
             _buildProductBody(context, bottomPadding),
@@ -195,8 +191,7 @@ class ProductPageState extends State<ProductPage>
                 horizontal: SMALL_SPACE,
               ),
               child: HeroMode(
-                enabled: widget.withHeroAnimation &&
-                    widget.heroTag?.isNotEmpty == true,
+                enabled: widget.withHeroAnimation && widget.heroTag?.isNotEmpty == true,
                 child: SummaryCard(
                   upToDateProduct,
                   _productPreferences,
@@ -205,24 +200,17 @@ class ProductPageState extends State<ProductPage>
                 ),
               ),
             ),
-            if (userPreferences.getFlag(
-                    UserPreferencesDevMode.userPreferencesFlagUserOrderedKP) ??
-                false)
+            if (userPreferences.getFlag(UserPreferencesDevMode.userPreferencesFlagUserOrderedKP) ?? false)
               ReorderedKnowledgePanelCards(upToDateProduct)
             else
               StandardKnowledgePanelCards(upToDateProduct),
             // TODO(monsieurtanuki): include website in reordered knowledge panels
-            if (upToDateProduct.website != null &&
-                upToDateProduct.website!.trim().isNotEmpty)
+            if (upToDateProduct.website != null && upToDateProduct.website!.trim().isNotEmpty)
               WebsiteCard(upToDateProduct.website!),
             PricesCard(upToDateProduct),
-            if (userPreferences.getFlag(
-                    UserPreferencesDevMode.userPreferencesFlagHideFolksonomy) ==
-                false)
+            if (userPreferences.getFlag(UserPreferencesDevMode.userPreferencesFlagHideFolksonomy) == false)
               FolksonomyCard(upToDateProduct),
-            if (userPreferences.getFlag(
-                    UserPreferencesDevMode.userPreferencesFlagUserOrderedKP) ??
-                false)
+            if (userPreferences.getFlag(UserPreferencesDevMode.userPreferencesFlagUserOrderedKP) ?? false)
               Padding(
                 padding: const EdgeInsets.all(SMALL_SPACE),
                 child: SmoothLargeButtonWithIcon(
@@ -231,8 +219,7 @@ class ProductPageState extends State<ProductPage>
                   onPressed: () async => Navigator.push(
                     context,
                     MaterialPageRoute<void>(
-                      builder: (_) =>
-                          ReorderableKnowledgePanelPage(upToDateProduct),
+                      builder: (_) => ReorderableKnowledgePanelPage(upToDateProduct),
                     ),
                   ),
                 ),
@@ -253,8 +240,7 @@ class ProductPageState extends State<ProductPage>
   }
 
   static ProductPageState of(BuildContext context) {
-    final ProductPageState? result =
-        context.findAncestorStateOfType<ProductPageState>();
+    final ProductPageState? result = context.findAncestorStateOfType<ProductPageState>();
     assert(result != null, 'No ProductPageState found in context');
     return result!;
   }
@@ -265,8 +251,7 @@ class ProductPageCompatibility {
     required Color color,
     required MatchedProductV2 matchedProductV2,
   })  : _color = color,
-        score = ProductCompatibilityHelper.product(matchedProductV2)
-            .getFormattedScore();
+        score = ProductCompatibilityHelper.product(matchedProductV2).getFormattedScore();
 
   final Color _color;
   final String? score;
