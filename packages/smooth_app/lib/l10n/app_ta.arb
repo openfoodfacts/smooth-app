@@ -528,7 +528,7 @@
     },
     "ingredients": "Ingredients",
     "@ingredients": {},
-    "ingredients_editing_instructions": "Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen and use parentheses for ingredients of an ingredient.",
+    "ingredients_editing_instructions": "அசல் ஆர்டரை வைத்திருங்கள். குறிப்பிடப்படும்போது சதவீதத்தைக் குறிக்கவும். காற்புள்ளி அல்லது ஹைபனுடன் பிரித்து, மூலப்பொருளின் பொருட்களுக்கு அடைப்புக்குறிகளைப் பயன்படுத்தவும்.",
     "ingredients_editing_error": "Failed to save the ingredients.",
     "ingredients_editing_image_error": "Failed to get a new ingredients image.",
     "ingredients_editing_title": "Edit Ingredients",
@@ -1408,7 +1408,7 @@
     "@edit_product_label_short": {
         "description": "Edit product button short label (only the verb)"
     },
-    "edit_product_form_item_help": "How to enter \"{value}\"?",
+    "edit_product_form_item_help": "\"{value}\"ஐ எப்படி உள்ளிடுவது?",
     "@edit_product_form_item_help": {
         "description": "Help text for the input field. Eg 'How to enter stores?'",
         "placeholders": {
