@@ -35,7 +35,7 @@ extension DefaultTextStyleExtension on DefaultTextStyle {
 class WellSpacedTextHelper {
   const WellSpacedTextHelper._();
 
-  static const double _WELL_SPACED_TEXT_HEIGHT = 1.4;
+  static const double _WELL_SPACED_TEXT_HEIGHT = 1.45;
 
   static const TextStyle TEXT_STYLE_WITH_WELL_SPACED =
       TextStyle(height: _WELL_SPACED_TEXT_HEIGHT);

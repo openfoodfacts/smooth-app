@@ -10,6 +10,7 @@ import 'package:smooth_app/helpers/extension_on_text_helper.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_text.dart';
 
 class KnowledgePanelTitleCard extends StatelessWidget {
@@ -52,7 +53,10 @@ class KnowledgePanelTitleCard extends StatelessWidget {
           flex: IconWidgetSizer.getIconFlex(),
           child: Center(
             child: AbstractCache.best(
-              iconUrl: knowledgePanelTitleElement.iconUrl,
+              iconUrl: _rewriteIconUrl(
+                context,
+                knowledgePanelTitleElement.iconUrl,
+              ),
               width: 36,
               height: 36,
               color: colorFromEvaluation,
@@ -88,6 +92,9 @@ class KnowledgePanelTitleCard extends StatelessWidget {
               flex: IconWidgetSizer.getRemainingWidgetFlex(),
               child: LayoutBuilder(
                 builder: (BuildContext context, BoxConstraints constraints) {
+                  final bool hasSubtitle =
+                      knowledgePanelTitleElement.subtitle != null;
+
                   return Wrap(
                     direction: Axis.vertical,
                     children: <Widget>[
@@ -95,17 +102,28 @@ class KnowledgePanelTitleCard extends StatelessWidget {
                         width: constraints.maxWidth,
                         child: Text(
                           knowledgePanelTitleElement.title,
-                          style: TextStyle(color: colorFromEvaluation),
+                          style: TextStyle(
+                            color: colorFromEvaluation,
+                            fontSize: hasSubtitle ? 15.5 : 15.0,
+                            fontWeight: hasSubtitle
+                                ? FontWeight.w500
+                                : FontWeight.normal,
+                          ),
                         ),
                       ),
-                      if (knowledgePanelTitleElement.subtitle != null)
-                        SizedBox(
-                          width: constraints.maxWidth,
-                          child: Text(
-                            knowledgePanelTitleElement.subtitle!,
-                            style: WellSpacedTextHelper
-                                .TEXT_STYLE_WITH_WELL_SPACED,
-                          ).selectable(isSelectable: !isClickable),
+                      if (hasSubtitle)
+                        Padding(
+                          padding: const EdgeInsetsDirectional.only(
+                            top: VERY_SMALL_SPACE,
+                          ),
+                          child: SizedBox(
+                            width: constraints.maxWidth,
+                            child: Text(
+                              knowledgePanelTitleElement.subtitle!,
+                              style: WellSpacedTextHelper
+                                  .TEXT_STYLE_WITH_WELL_SPACED,
+                            ).selectable(isSelectable: !isClickable),
+                          ),
                         ),
                     ],
                   );
@@ -183,6 +201,18 @@ class KnowledgePanelTitleCard extends StatelessWidget {
     }
 
     return buffer.toString();
+  }
+
+  String? _rewriteIconUrl(BuildContext context, String? iconUrl) {
+    final bool lightTheme = context.lightTheme();
+
+    if (iconUrl ==
+            'https://static.openfoodfacts.org/images/logos/off-logo-icon-light.svg' &&
+        !lightTheme) {
+      return 'https://static.openfoodfacts.org/images/logos/off-logo-icon-dark.svg';
+    }
+
+    return iconUrl;
   }
 
   @override
