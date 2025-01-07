@@ -1588,6 +1588,22 @@
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
     },
+    "edit_product_ingredients_photo_title": "Photo des ingrédients",
+    "@edit_product_ingredients_photo_title": {
+        "description": "Product edition - Ingredients - Title"
+    },
+    "edit_product_ingredients_list_title": "Liste des ingrédients",
+    "@edit_product_ingredients_list_title": {
+        "description": "Product edition - Ingredients - Title"
+    },
+    "edit_product_packaging_photo_title": "Photo du packaging",
+    "@edit_product_packaging_photo_title": {
+        "description": "Product edition - Packaging - Title"
+    },
+    "edit_product_packaging_list_title": "Détails du Packaging",
+    "@edit_product_packaging_list_title": {
+        "description": "Product edition - Packaging - Title"
+    },
     "no_data_available": "Aucune donnée disponible",
     "@no_data_available": {
         "description": "When there are no data to display"
@@ -1602,6 +1618,10 @@
     "edit_ingredients_extract_ingredients_btn_text": "Extraire les ingrédients à partir de la photo",
     "@edit_ingredients_extract_ingredients_btn_text": {
         "description": "Ingredients edition - Extract ingredients"
+    },
+    "edit_ingredients_extract_ingredients_btn_text_short": "Extraire les ingrédients",
+    "@edit_ingredients_extract_ingredients_btn_text_short": {
+        "description": "Ingredients edition - Extract ingredients (short label)"
     },
     "edit_ingredients_extracting_ingredients_btn_text": "Extraction des ingrédients à partir de la photo",
     "@edit_ingredients_extracting_ingredients_btn_text": {
@@ -1623,9 +1643,13 @@
     "@edit_ingredients_refresh_photo_btn_text": {
         "description": "Ingredients edition - Refresh photo"
     },
-    "edit_packaging_extract_btn_text": "Extraire l'emballage",
+    "edit_packaging_extract_btn_text": "Extraire l'emballage de la photo",
     "@edit_packaging_extract_btn_text": {
         "description": "Packaging edition - OCR-Extract packaging"
+    },
+    "edit_packaging_extract_btn_text_short": "Extraire l'emballage",
+    "@edit_packaging_extract_btn_text_short": {
+        "description": "Packaging edition - OCR-Extract packaging (short label)"
     },
     "edit_packaging_extracting_btn_text": "Extraction de l'emballage à partir de la photo",
     "@edit_packaging_extracting_btn_text": {
@@ -1650,6 +1674,14 @@
     "edit_ocr_extract_failed": "Impossible de détecter le texte dans l'image.",
     "@edit_ocr_extract_failed": {
         "description": "OCR extraction - message for failed"
+    },
+    "edit_ocr_extract_disabled_title": "Photo manquante !",
+    "@edit_ocr_extract_disabled_title": {
+        "description": "OCR extraction - title for disabled"
+    },
+    "edit_ocr_extract_disabled_message": "Afin de pouvoir utiliser l'extraction du texte, vous devez d'abord prendre une photo.",
+    "@edit_ocr_extract_disabled_message": {
+        "description": "OCR extraction - message for disabled"
     },
     "user_list_dialog_new_title": "Nouvelle liste de produits",
     "@user_list_dialog_new_title": {

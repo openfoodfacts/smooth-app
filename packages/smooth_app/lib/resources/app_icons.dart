@@ -1001,13 +1001,21 @@ class Milk extends AppIcon {
     super.key,
   }) : super._(_IconsFont.milk);
 
-  const Milk.filled({
+  const Milk.happy({
     super.color,
     super.size,
     super.shadow,
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.milk_filled);
+
+  const Milk.unhappy({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.milk_filled_unhappy);
 
   const Milk.download({
     super.color,
@@ -1016,6 +1024,16 @@ class Milk extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.milk_download);
+}
+
+class Move extends AppIcon {
+  const Move({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.move);
 }
 
 class NoPicture extends AppIcon {
@@ -1044,6 +1062,16 @@ class NutritionFacts extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.nutritional_facts);
+}
+
+class OCR extends AppIcon {
+  const OCR({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.ocr);
 }
 
 class Outdated extends AppIcon {

@@ -189,17 +189,17 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
       leading: widget.helper.getIcon(),
       title: widget.helper.getTitle(appLocalizations),
       trailing: explanations != null && widget.displayTitle
-          ? _ExplanationTitleIcon(
+          ? ExplanationTitleIcon(
               text: explanations,
               type: widget.helper.getTitle(appLocalizations),
             )
           : null,
-      titlePadding: explanations != null
+      titlePadding: explanations != null && widget.displayTitle
           ? const EdgeInsetsDirectional.only(
-              top: SMALL_SPACE,
-              bottom: SMALL_SPACE,
+              top: 2.0,
               start: LARGE_SPACE,
               end: SMALL_SPACE,
+              bottom: 2.0,
             )
           : null,
       child: child,
@@ -253,8 +253,8 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
   }
 }
 
-class _ExplanationTitleIcon extends StatelessWidget {
-  const _ExplanationTitleIcon({
+class ExplanationTitleIcon extends StatelessWidget {
+  const ExplanationTitleIcon({
     required this.type,
     required this.text,
   });
@@ -267,50 +267,26 @@ class _ExplanationTitleIcon extends StatelessWidget {
     final String title =
         AppLocalizations.of(context).edit_product_form_item_help(type);
 
-    return Material(
-      type: MaterialType.transparency,
-      child: Semantics(
-        label: title,
-        button: true,
-        excludeSemantics: true,
-        child: Tooltip(
-          message: title,
-          child: InkWell(
-            customBorder: const CircleBorder(),
-            onTap: () {
-              showSmoothModalSheet(
-                context: context,
-                builder: (BuildContext context) {
-                  return SmoothModalSheet(
-                    title: title,
-                    prefixIndicator: true,
-                    body: Padding(
-                      padding: EdgeInsetsDirectional.only(
-                        start: MEDIUM_SPACE,
-                        end: MEDIUM_SPACE,
-                        top: VERY_SMALL_SPACE,
-                        bottom: VERY_SMALL_SPACE +
-                            MediaQuery.viewPaddingOf(context).bottom,
-                      ),
-                      child: Text(
-                        text,
-                        style: const TextStyle(
-                          fontSize: 15.0,
-                          height: 1.7,
-                        ),
-                      ),
-                    ),
-                  );
-                },
-              );
-            },
-            child: const Padding(
-              padding: EdgeInsetsDirectional.all(MEDIUM_SPACE),
-              child: icons.Help(),
-            ),
-          ),
-        ),
-      ),
+    return SmoothCardHeaderButton(
+      tooltip: title,
+      child: const icons.Help(),
+      onTap: () {
+        showSmoothModalSheet(
+          context: context,
+          builder: (BuildContext context) {
+            return SmoothModalSheet(
+              title: title,
+              prefixIndicator: true,
+              headerBackgroundColor: SmoothCardWithRoundedHeader.getHeaderColor(
+                context,
+              ),
+              body: SmoothModalSheetBodyContainer(
+                child: Text(text),
+              ),
+            );
+          },
+        );
+      },
     );
   }
 }

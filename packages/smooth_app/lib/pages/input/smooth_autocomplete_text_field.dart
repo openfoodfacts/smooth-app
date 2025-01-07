@@ -92,19 +92,25 @@ class _SmoothAutocompleteTextFieldState
         ],
         style: widget.textStyle,
         decoration: InputDecoration(
-          suffixIcon: widget.suffixIcon,
-          filled: true,
-          border: OutlineInputBorder(
-            borderRadius: widget.borderRadius ?? ANGULAR_BORDER_RADIUS,
-            borderSide: BorderSide.none,
-          ),
           contentPadding: widget.padding ??
               const EdgeInsets.symmetric(
                 horizontal: SMALL_SPACE,
                 vertical: SMALL_SPACE,
               ),
-          hintText: widget.hintText,
+          suffixIcon: widget.suffixIcon,
+          filled: true,
           hintStyle: SmoothTextFormField.defaultHintTextStyle(context),
+          hintText: widget.hintText,
+          border: OutlineInputBorder(
+            borderRadius: widget.borderRadius ?? ANGULAR_BORDER_RADIUS,
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: widget.borderRadius ?? CIRCULAR_BORDER_RADIUS,
+            borderSide: const BorderSide(
+              color: Colors.transparent,
+              width: 5.0,
+            ),
+          ),
           suffix: Offstage(
             offstage: !_loading,
             child: SizedBox(

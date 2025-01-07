@@ -34,6 +34,7 @@ class ProductPicture extends StatefulWidget {
     double imageFoundBorder = 0.0,
     double imageNotFoundBorder = 0.0,
     TextStyle? errorTextStyle,
+    WidgetBuilder? noImageBuilder,
   }) : this._(
           transientFile: null,
           product: product,
@@ -49,6 +50,7 @@ class ProductPicture extends StatefulWidget {
           errorTextStyle: errorTextStyle,
           showObsoleteIcon: showObsoleteIcon,
           showOwnerIcon: showOwnerIcon,
+          noImageBuilder: noImageBuilder,
         );
 
   ProductPicture.fromTransientFile({
@@ -66,6 +68,7 @@ class ProductPicture extends StatefulWidget {
     double imageFoundBorder = 0.0,
     double imageNotFoundBorder = 0.0,
     TextStyle? errorTextStyle,
+    WidgetBuilder? noImageBuilder,
   }) : this._(
           transientFile: transientFile,
           product: product,
@@ -81,6 +84,7 @@ class ProductPicture extends StatefulWidget {
           errorTextStyle: errorTextStyle,
           showObsoleteIcon: showObsoleteIcon,
           showOwnerIcon: showOwnerIcon,
+          noImageBuilder: noImageBuilder,
         );
 
   ProductPicture._({
@@ -98,6 +102,7 @@ class ProductPicture extends StatefulWidget {
     this.errorTextStyle,
     this.showObsoleteIcon = false,
     this.showOwnerIcon = false,
+    this.noImageBuilder,
     super.key,
   })  : assert(imageFoundBorder >= 0.0),
         assert(imageNotFoundBorder >= 0.0),
@@ -128,6 +133,9 @@ class ProductPicture extends StatefulWidget {
 
   /// Style when there is no image/an error
   final TextStyle? errorTextStyle;
+
+  /// Allows to change the placeholder
+  final WidgetBuilder? noImageBuilder;
 
   @override
   State<ProductPicture> createState() => _ProductPictureState();
@@ -202,9 +210,12 @@ class _ProductPictureState extends State<ProductPicture> {
 
       child = _ProductPictureAssetsSvg(
         asset: 'assets/product/product_not_found_text.svg',
+        imageOverride: widget.noImageBuilder,
         semanticsLabel: appLocalizations
             .product_page_image_no_image_available_accessibility_label,
-        text: appLocalizations.product_page_image_no_image_available,
+        text: widget.noImageBuilder == null
+            ? appLocalizations.product_page_image_no_image_available
+            : null,
         textStyle: TextStyle(
           color: context.extension<SmoothColorsThemeExtension>().primaryDark,
         ).merge(widget.errorTextStyle ?? const TextStyle()),
@@ -578,6 +589,7 @@ class _ProductPictureAssetsSvg extends StatelessWidget {
     required this.textStyle,
     required this.size,
     required this.child,
+    this.imageOverride,
     this.borderRadius,
     this.border = 0.0,
   })  : assert(asset.isNotEmpty),
@@ -591,6 +603,7 @@ class _ProductPictureAssetsSvg extends StatelessWidget {
   final Widget? child;
   final BorderRadius? borderRadius;
   final double border;
+  final WidgetBuilder? imageOverride;
 
   @override
   Widget build(BuildContext context) {
@@ -603,12 +616,13 @@ class _ProductPictureAssetsSvg extends StatelessWidget {
         child: Stack(
           children: <Widget>[
             Positioned.fill(
-              child: SvgPicture.asset(
-                asset,
-                width: size.width,
-                height: size.height,
-                fit: BoxFit.cover,
-              ),
+              child: imageOverride?.call(context) ??
+                  SvgPicture.asset(
+                    asset,
+                    width: size.width,
+                    height: size.height,
+                    fit: BoxFit.cover,
+                  ),
             ),
             if (text != null)
               Padding(

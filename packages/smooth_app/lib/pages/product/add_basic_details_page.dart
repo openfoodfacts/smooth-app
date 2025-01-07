@@ -53,7 +53,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
   late final TextEditingControllerWithHistory _brandNameController;
   late final TextEditingControllerWithHistory _weightController;
 
-  final double _heightSpace = MEDIUM_SPACE;
+  final double _heightSpace = LARGE_SPACE;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   late final Product _product;
 
@@ -424,7 +424,7 @@ class _ProductMultilingualNameInputWidget extends StatelessWidget {
 
     return _BasicDetailInputWrapper(
       title: appLocalizations.product_name,
-      icon: const icons.Milk.filled(),
+      icon: const icons.Milk.happy(),
       ownerField: ownerField,
       contentPadding: const EdgeInsetsDirectional.only(
         bottom: MEDIUM_SPACE,

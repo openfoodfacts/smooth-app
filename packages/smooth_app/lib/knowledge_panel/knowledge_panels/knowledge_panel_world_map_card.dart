@@ -8,6 +8,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/product/world_map_page.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
+import 'package:smooth_app/widgets/smooth_indicator_icon.dart';
 
 class KnowledgePanelWorldMapCard extends StatelessWidget {
   const KnowledgePanelWorldMapCard(this.mapElement);
@@ -177,24 +178,7 @@ class _ExpandMapIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Align(
       alignment: AlignmentDirectional.bottomEnd,
-      child: Padding(
-        padding: EdgeInsetsDirectional.all(
-          VERY_SMALL_SPACE,
-        ),
-        child: DecoratedBox(
-          decoration: BoxDecoration(
-            color: Colors.black38,
-            shape: BoxShape.circle,
-          ),
-          child: Padding(
-            padding: EdgeInsetsDirectional.all(SMALL_SPACE),
-            child: icons.Expand(
-              size: 15.0,
-              color: Colors.white,
-            ),
-          ),
-        ),
-      ),
+      child: SmoothIndicatorIcon(icon: icons.Expand()),
     );
   }
 }

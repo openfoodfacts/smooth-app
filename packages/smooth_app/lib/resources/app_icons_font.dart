@@ -221,6 +221,8 @@ class _IconsFont {
       IconData(0xe868, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData add_to_list_6 =
       IconData(0xe869, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData ocr =
+      IconData(0xe86a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData add_to_list_7 =
       IconData(0xe86b, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData add_to_list_8 =
@@ -251,6 +253,10 @@ class _IconsFont {
       IconData(0xe87c, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData gallery =
       IconData(0xe87d, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData milk_filled_unhappy =
+      IconData(0xe87e, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData move =
+      IconData(0xe87f, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData share_cupertino =
       IconData(0xe8a4, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData share_material =

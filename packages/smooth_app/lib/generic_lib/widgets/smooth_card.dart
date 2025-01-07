@@ -113,6 +113,7 @@ class SmoothCardWithRoundedHeader extends StatelessWidget {
     this.titleTextStyle,
     this.titlePadding,
     this.contentPadding,
+    this.contentBackgroundColor,
   });
 
   final String title;
@@ -123,6 +124,7 @@ class SmoothCardWithRoundedHeader extends StatelessWidget {
   final TextStyle? titleTextStyle;
   final EdgeInsetsGeometry? titlePadding;
   final EdgeInsetsGeometry? contentPadding;
+  final Color? contentBackgroundColor;
 
   @override
   Widget build(BuildContext context) {
@@ -130,83 +132,104 @@ class SmoothCardWithRoundedHeader extends StatelessWidget {
     final SmoothColorsThemeExtension extension =
         context.extension<SmoothColorsThemeExtension>();
 
-    final Color color =
-        context.lightTheme() ? extension.primaryBlack : Colors.black;
+    final Color color = getHeaderColor(context);
 
-    return Column(
-      children: <Widget>[
-        Semantics(
-          label: title,
-          excludeSemantics: true,
-          child: CustomPaint(
-            painter: _SmoothCardWithRoundedHeaderBackgroundPainter(
-              color: color,
-              radius: ROUNDED_RADIUS,
-            ),
-            child: Padding(
-              padding: titlePadding ??
-                  const EdgeInsetsDirectional.symmetric(
-                    vertical: BALANCED_SPACE,
-                    horizontal: LARGE_SPACE,
-                  ),
-              child: Row(
-                children: <Widget>[
-                  if (leading != null)
-                    IconTheme(
-                      data: IconThemeData(
-                        color: color,
-                        size: 17.0,
-                      ),
-                      child: DecoratedBox(
-                        decoration: const BoxDecoration(
-                          color: Colors.white,
-                          shape: BoxShape.circle,
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsetsDirectional.all(6.0),
-                          child: leading,
-                        ),
-                      ),
+    return DecoratedBox(
+      decoration: const BoxDecoration(
+        borderRadius: ROUNDED_BORDER_RADIUS,
+        boxShadow: <BoxShadow>[
+          BoxShadow(
+            color: Color(0x03000000),
+            blurRadius: 2.0,
+            spreadRadius: 0.0,
+            offset: Offset(0.0, 2.0),
+          ),
+        ],
+      ),
+      child: Column(
+        children: <Widget>[
+          Semantics(
+            label: title,
+            excludeSemantics: true,
+            child: CustomPaint(
+              painter: _SmoothCardWithRoundedHeaderBackgroundPainter(
+                color: color,
+                radius: ROUNDED_RADIUS,
+              ),
+              child: Padding(
+                padding: titlePadding ??
+                    const EdgeInsetsDirectional.symmetric(
+                      vertical: BALANCED_SPACE,
+                      horizontal: LARGE_SPACE,
                     ),
-                  const SizedBox(width: MEDIUM_SPACE),
-                  Expanded(
-                    child: Text(
-                      title,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style:
-                          (titleTextStyle ?? themeData.textTheme.displaySmall)
-                              ?.copyWith(
-                        color: Colors.white,
+                child: Row(
+                  children: <Widget>[
+                    if (leading != null)
+                      IconTheme(
+                        data: IconThemeData(
+                          color: color,
+                          size: 17.0,
+                        ),
+                        child: DecoratedBox(
+                          decoration: const BoxDecoration(
+                            color: Colors.white,
+                            shape: BoxShape.circle,
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsetsDirectional.all(6.0),
+                            child: leading,
+                          ),
+                        ),
                       ),
-                    ),
-                  ),
-                  if (trailing != null) ...<Widget>[
                     const SizedBox(width: MEDIUM_SPACE),
-                    IconTheme(
-                      data: const IconThemeData(
-                        color: Colors.white,
-                        size: 20.0,
+                    Expanded(
+                      child: Text(
+                        title,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style:
+                            (titleTextStyle ?? themeData.textTheme.displaySmall)
+                                ?.copyWith(
+                          color: Colors.white,
+                        ),
                       ),
-                      child: trailing!,
                     ),
+                    if (trailing != null) ...<Widget>[
+                      const SizedBox(width: MEDIUM_SPACE),
+                      IconTheme(
+                        data: const IconThemeData(
+                          color: Colors.white,
+                          size: 20.0,
+                        ),
+                        child: trailing!,
+                      ),
+                    ],
                   ],
-                ],
+                ),
               ),
             ),
           ),
-        ),
-        SmoothCard(
-          margin: EdgeInsets.zero,
-          padding: contentPadding ??
-              const EdgeInsetsDirectional.only(
-                top: MEDIUM_SPACE,
-              ),
-          color: context.darkTheme() ? extension.primaryUltraBlack : null,
-          child: child,
-        ),
-      ],
+          SmoothCard(
+            margin: EdgeInsets.zero,
+            padding: contentPadding ??
+                const EdgeInsetsDirectional.only(
+                  top: MEDIUM_SPACE,
+                ),
+            color: contentBackgroundColor ??
+                (context.darkTheme() ? extension.primaryUltraBlack : null),
+            child: child,
+          ),
+        ],
+      ),
     );
+  }
+
+  static Color getHeaderColor(BuildContext context) {
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
+    return context.lightTheme(listen: false)
+        ? extension.primaryBlack
+        : Colors.black;
   }
 }
 
@@ -248,4 +271,42 @@ class _SmoothCardWithRoundedHeaderBackgroundPainter extends CustomPainter {
     _SmoothCardWithRoundedHeaderBackgroundPainter oldDelegate,
   ) =>
       false;
+}
+
+class SmoothCardHeaderButton extends StatelessWidget {
+  const SmoothCardHeaderButton({
+    required this.tooltip,
+    required this.child,
+    required this.onTap,
+    this.padding,
+    super.key,
+  });
+
+  final String tooltip;
+  final Widget child;
+  final VoidCallback onTap;
+  final EdgeInsetsGeometry? padding;
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      type: MaterialType.transparency,
+      child: Semantics(
+        label: tooltip,
+        button: true,
+        excludeSemantics: true,
+        child: Tooltip(
+          message: tooltip,
+          child: InkWell(
+            customBorder: const CircleBorder(),
+            onTap: onTap,
+            child: Padding(
+              padding: padding ?? const EdgeInsetsDirectional.all(MEDIUM_SPACE),
+              child: child,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
 }

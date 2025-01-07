@@ -182,6 +182,8 @@ class SmoothModalSheet extends StatelessWidget {
     required this.body,
     bool prefixIndicator = false,
     bool closeButton = true,
+    Color? headerBackgroundColor,
+    Color? headerForegroundColor,
     this.bodyPadding,
     this.expandBody = false,
     double? closeButtonSemanticsOrder,
@@ -195,6 +197,8 @@ class SmoothModalSheet extends StatelessWidget {
                   semanticsOrder: closeButtonSemanticsOrder,
                 )
               : null,
+          backgroundColor: headerBackgroundColor,
+          foregroundColor: headerForegroundColor,
         );
 
   final SmoothModalSheetHeader header;
@@ -443,7 +447,7 @@ class SmoothModalSheetHeaderCloseButton extends StatelessWidget
           ),
         ),
         margin: const EdgeInsetsDirectional.all(VERY_SMALL_SPACE),
-        padding: const EdgeInsetsDirectional.all(SMALL_SPACE),
+        padding: const EdgeInsetsDirectional.all(6.0),
         child: const icons.Close(
           size: 13.0,
         ),
@@ -467,13 +471,16 @@ class SmoothModalSheetHeaderCloseButton extends StatelessWidget
         child: Tooltip(
           message: MaterialLocalizations.of(context).closeButtonTooltip,
           enableFeedback: true,
-          child: InkWell(
-            onTap: () {
-              SmoothHapticFeedback.click();
-              Navigator.of(context).pop();
-            },
-            customBorder: const CircleBorder(),
-            child: icon,
+          child: Material(
+            type: MaterialType.transparency,
+            child: InkWell(
+              onTap: () {
+                SmoothHapticFeedback.click();
+                Navigator.of(context).pop();
+              },
+              customBorder: const CircleBorder(),
+              child: icon,
+            ),
           ),
         ),
       ),
@@ -520,4 +527,34 @@ abstract class SizeWidget implements Widget {
   double widgetHeight(BuildContext context);
 
   bool get requiresPadding;
+}
+
+/// With a [SmoothModalSheet], if you want to display simple things (eg: text),
+/// you can use this widget
+class SmoothModalSheetBodyContainer extends StatelessWidget {
+  const SmoothModalSheetBodyContainer({
+    required this.child,
+    super.key,
+  });
+
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsetsDirectional.only(
+        start: MEDIUM_SPACE,
+        end: MEDIUM_SPACE,
+        top: VERY_SMALL_SPACE,
+        bottom: VERY_SMALL_SPACE + MediaQuery.viewPaddingOf(context).bottom,
+      ),
+      child: DefaultTextStyle.merge(
+        style: const TextStyle(
+          fontSize: 15.0,
+          height: 1.7,
+        ),
+        child: child,
+      ),
+    );
+  }
 }

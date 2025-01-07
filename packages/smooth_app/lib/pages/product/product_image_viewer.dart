@@ -100,19 +100,36 @@ class _ProductImageViewerState extends State<ProductImageViewer>
               child: imageProvider == null
                   ? Stack(
                       children: <Widget>[
-                        const SizedBox.expand(child: PictureNotFound()),
-                        Center(
-                          child: Text(
-                            selectedLanguages.isEmpty
-                                ? appLocalizations.edit_photo_language_none
-                                : appLocalizations
-                                    .edit_photo_language_not_this_one,
-                            style: Theme.of(context)
-                                    .textTheme
-                                    .headlineMedium
-                                    ?.copyWith(color: Colors.black) ??
-                                const TextStyle(color: Colors.black),
-                            textAlign: TextAlign.center,
+                        const Positioned.fill(
+                          child: ExcludeSemantics(
+                            child: PictureNotFound(),
+                          ),
+                        ),
+                        Align(
+                          alignment: const Alignment(0.0, -0.8),
+                          child: Container(
+                            decoration: const BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: ROUNDED_BORDER_RADIUS,
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsetsDirectional.symmetric(
+                                horizontal: LARGE_SPACE,
+                                vertical: SMALL_SPACE,
+                              ),
+                              child: Text(
+                                selectedLanguages.isEmpty
+                                    ? appLocalizations.edit_photo_language_none
+                                    : appLocalizations
+                                        .edit_photo_language_not_this_one,
+                                style: Theme.of(context)
+                                        .textTheme
+                                        .headlineMedium
+                                        ?.copyWith(color: Colors.black) ??
+                                    const TextStyle(color: Colors.black),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
                           ),
                         ),
                         Positioned.fill(

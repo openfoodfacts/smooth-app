@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/widgets/smooth_banner.dart';
 import 'package:smooth_app/widgets/widget_height.dart';
@@ -166,4 +167,25 @@ class _AnimatedOwnerFieldBannerState extends State<AnimatedOwnerFieldBanner>
     _controller.dispose();
     super.dispose();
   }
+}
+
+Future<void> showOwnerFieldInfoInModalSheet(
+  BuildContext context, {
+  Color? headerColor,
+}) {
+  final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+  return showSmoothModalSheet<void>(
+    context: context,
+    builder: (BuildContext context) {
+      return SmoothModalSheet(
+        title: appLocalizations.owner_field_info_title,
+        headerBackgroundColor: headerColor,
+        prefixIndicator: true,
+        body: SmoothModalSheetBodyContainer(
+          child: Text(appLocalizations.owner_field_info_message),
+        ),
+      );
+    },
+  );
 }
