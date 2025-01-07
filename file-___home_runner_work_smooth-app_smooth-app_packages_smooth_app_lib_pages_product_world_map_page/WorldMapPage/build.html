@@ -73,14 +73,37 @@
 Widget build(BuildContext context) {
   return SmoothScaffold(
     appBar: AppBar(
-      title: Text(title ?? &#39;&#39;),
+      title: Text(
+        title ?? &#39;&#39;,
+        maxLines: 2,
+      ),
       backgroundColor:
           AppBarTheme.of(context).backgroundColor?.withValues(alpha: 0.8),
     ),
     extendBodyBehindAppBar: true,
     body: FlutterMap(
       options: mapOptions,
-      children: children,
+      children: &lt;Widget&gt;[
+        ...children,
+        SafeArea(
+          child: RichAttributionWidget(
+            animationConfig: const ScaleRAWA(),
+            alignment: Directionality.of(context) == TextDirection.ltr
+                ? AttributionAlignment.bottomRight
+                : AttributionAlignment.bottomLeft,
+            showFlutterMapAttribution: false,
+            attributions: &lt;SourceAttribution&gt;[
+              TextSourceAttribution(
+                AppLocalizations.of(context)
+                    .open_street_map_contributor_attribution,
+                onTap: () =&gt; LaunchUrlHelper.launchURL(
+                  &#39;https:&#47;&#47;www.openstreetmap.org&#47;copyright&#39;,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
     ),
   );
 }</code></pre>
