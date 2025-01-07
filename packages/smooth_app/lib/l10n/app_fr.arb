@@ -562,7 +562,7 @@
     "@add_product_information_button_label": {},
     "new_product": "Nouveau produit",
     "@new_product": {},
-    "new_product_found_title": "New product found!",
+    "new_product_found_title": "Nouveau produit trouvé !",
     "@new_product_found_title": {
         "description": "Title of a dialog that informs the user that a barcode doesn't exist in the database"
     },
@@ -3114,8 +3114,8 @@
     "environmental_score_c": "Green-Score C",
     "environmental_score_d": "Green-Score D",
     "environmental_score_e": "Green-Score E",
-    "environmental_score_unknown": "Unknown Green Score",
-    "environmental_score_not_applicable": "Green Score is not applicable",
+    "environmental_score_unknown": "Green Score inconnu",
+    "environmental_score_not_applicable": "Green Score non applicable",
     "nova_group_generic": "Groupe NOVA",
     "nova_group_1": "Groupe NOVA 1",
     "nova_group_2": "Groupe NOVA 2",
@@ -3489,11 +3489,11 @@
     "@photo_rotate_right": {
         "description": "Button to rotate a photo to the right"
     },
-    "photo_undo_action": "Undo the previous action",
+    "photo_undo_action": "Annuler l'action précédente",
     "@photo_undo_action": {
         "description": "Button to undo the previous action on a photo"
     },
-    "knowledge_panel_world_map_accessibility_label": "A world map of {location}",
+    "knowledge_panel_world_map_accessibility_label": "Une carte de {location}",
     "@knowledge_panel_world_map_accessibility_label": {
         "description": "Accessibility label for the world map in the knowledge panel",
         "placeholders": {
@@ -3502,7 +3502,7 @@
             }
         }
     },
-    "open_street_map_contributor_attribution": "OpenStreetMap contributors",
+    "open_street_map_contributor_attribution": "Contributeurs OpenStreetMap",
     "@open_street_map_contributor_attribution": {
         "description": "Attribution for OpenStreetMap contributors"
     }
