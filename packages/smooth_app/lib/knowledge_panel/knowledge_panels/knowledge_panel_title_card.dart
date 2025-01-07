@@ -37,9 +37,8 @@ class KnowledgePanelTitleCard extends StatelessWidget {
     if (!(userPreferences.getFlag(
             UserPreferencesDevMode.userPreferencesFlagAccessibilityNoColor) ??
         false)) {
-      final ThemeData themeData = Theme.of(context);
       if (knowledgePanelTitleElement.iconColorFromEvaluation ?? false) {
-        if (themeData.brightness == Brightness.dark) {
+        if (context.darkTheme()) {
           colorFromEvaluation = _getColorFromEvaluationDarkMode(evaluation);
         } else {
           colorFromEvaluation = _getColorFromEvaluation(evaluation);
@@ -57,8 +56,8 @@ class KnowledgePanelTitleCard extends StatelessWidget {
                 context,
                 knowledgePanelTitleElement.iconUrl,
               ),
-              width: 36,
-              height: 36,
+              width: 36.0,
+              height: 36.0,
               color: colorFromEvaluation,
             ),
           ),
@@ -163,7 +162,7 @@ class KnowledgePanelTitleCard extends StatelessWidget {
       case null:
       case Evaluation.NEUTRAL:
       case Evaluation.UNKNOWN:
-        return LIGHT_GREY_COLOR;
+        return Colors.white;
     }
   }
 
