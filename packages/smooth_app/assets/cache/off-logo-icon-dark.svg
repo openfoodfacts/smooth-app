@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="124px" height="178px" viewBox="0 0 124 178" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>off-logo-icon-dark</title>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="off-logo-icon-dark" transform="translate(0.77, 0.265)" fill-rule="nonzero">
-            <g id="g2989" transform="translate(-0, 30.75)">
-                <path d="M0,61.23 C0,27.41 27.41,-3.55271368e-15 61.23,-3.55271368e-15 C95.05,-3.55271368e-15 122.46,27.41 122.46,61.23 L0,61.23 Z" id="path2979" fill="#FF8C14"></path>
+<svg width="178px" height="178px" viewBox="0 0 178 178" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Artboard</title>
+    <g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="off-logo-icon-dark" transform="translate(27.77, 0.265)" fill-rule="nonzero">
+            <g id="g2989" transform="translate(0, 30.75)">
+                <path d="M0,61.23 C0,27.41 27.41,-1.19949929e-24 61.23,-1.19949929e-24 C95.05,-1.19949929e-24 122.46,27.41 122.46,61.23 L0,61.23 Z" id="path2979" fill="#FF8C14"></path>
                 <circle id="circle2983" fill="#8C3C00" cx="81.96" cy="21.689999" r="3.3699999"></circle>
                 <circle id="circle2985" fill="#8C3C00" cx="98.36" cy="36.749996" r="3.3699999"></circle>
                 <circle id="circle2987" fill="#8C3C00" cx="79.80999" cy="40.43" r="3.3699999"></circle>
