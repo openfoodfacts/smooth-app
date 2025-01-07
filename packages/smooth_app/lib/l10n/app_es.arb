@@ -2323,7 +2323,7 @@
     "add_basic_details_brand_name_error": "Por favor, introduce el nombre de la marca",
     "add_basic_details_brand_names_hint": "Ingrese las marcas (por ejemplo Ferrero)",
     "quantity": "Cantidad y peso",
-    "add_basic_details_quantity_hint": "Input the weight and if needed the quantity (eg : 4x100g)",
+    "add_basic_details_quantity_hint": "Ingrese el peso y si es necesario la cantidad (por ejemplo: 4x100g)",
     "barcode": "Código de barras",
     "barcode_barcode": "Código de barras: {barcode}",
     "@barcode_barcode": {
@@ -3493,7 +3493,7 @@
     "@photo_undo_action": {
         "description": "Button to undo the previous action on a photo"
     },
-    "knowledge_panel_world_map_accessibility_label": "A world map of {location}",
+    "knowledge_panel_world_map_accessibility_label": "Un mapa mundial de {location}",
     "@knowledge_panel_world_map_accessibility_label": {
         "description": "Accessibility label for the world map in the knowledge panel",
         "placeholders": {
@@ -3502,7 +3502,7 @@
             }
         }
     },
-    "open_street_map_contributor_attribution": "OpenStreetMap contributors",
+    "open_street_map_contributor_attribution": "Colaboradores de OpenStreetMap",
     "@open_street_map_contributor_attribution": {
         "description": "Attribution for OpenStreetMap contributors"
     }
