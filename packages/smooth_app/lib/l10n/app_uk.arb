@@ -528,7 +528,7 @@
     },
     "ingredients": "Інгредієнти",
     "@ingredients": {},
-    "ingredients_editing_instructions": "Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen and use parentheses for ingredients of an ingredient.",
+    "ingredients_editing_instructions": "Зберігайте оригінальне замовлення. Вкажіть відсоток. Розділяйте комами або дефісом і використовуйте дужки для інгредієнтів інгредієнта.",
     "ingredients_editing_error": "Не вдалося зберегти інгредієнти.",
     "ingredients_editing_image_error": "Не вдалося отримати зображення нових інгредієнтів.",
     "ingredients_editing_title": "Редагувати інгредієнти",
@@ -1408,7 +1408,7 @@
     "@edit_product_label_short": {
         "description": "Edit product button short label (only the verb)"
     },
-    "edit_product_form_item_help": "How to enter \"{value}\"?",
+    "edit_product_form_item_help": "Як ввести \"{value}\"?",
     "@edit_product_form_item_help": {
         "description": "Help text for the input field. Eg 'How to enter stores?'",
         "placeholders": {
