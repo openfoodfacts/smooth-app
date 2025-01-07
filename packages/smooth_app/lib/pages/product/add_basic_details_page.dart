@@ -21,6 +21,9 @@ import 'package:smooth_app/pages/product/multilingual_helper.dart';
 import 'package:smooth_app/pages/product/owner_field_info.dart';
 import 'package:smooth_app/pages/text_field_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 import 'package:smooth_app/widgets/will_pop_scope.dart';
 
@@ -112,6 +115,9 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
             title: appLocalizations.basic_details,
             product: _product,
           ),
+          backgroundColor: context.lightTheme()
+              ? context.extension<SmoothColorsThemeExtension>().primaryLight
+              : null,
           body: child,
           bottomNavigationBar: ProductBottomButtonsBar(
             onSave: () async => _exitPage(
@@ -143,8 +149,8 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
             ),
             SizedBox(height: _heightSpace),
             Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: size.width * 0.05,
+              padding: const EdgeInsetsDirectional.symmetric(
+                horizontal: SMALL_SPACE,
               ),
               child: Column(
                 children: <Widget>[
@@ -185,14 +191,29 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                         );
                       } else {
                         return Card(
+                          shape: const RoundedRectangleBorder(
+                            borderRadius: ROUNDED_BORDER_RADIUS,
+                          ),
                           child: Column(
                             children: <Widget>[
                               _multilingualHelper.getLanguageSelector(
                                 setState: setState,
                                 product: _product,
+                                padding: const EdgeInsetsDirectional.symmetric(
+                                  horizontal: MEDIUM_SPACE,
+                                  vertical: SMALL_SPACE,
+                                ),
+                                borderRadius: BorderRadius.vertical(
+                                  top: ROUNDED_BORDER_RADIUS.topLeft,
+                                ),
                               ),
                               Padding(
-                                padding: const EdgeInsets.all(8.0),
+                                padding: const EdgeInsetsDirectional.only(
+                                  start: MEDIUM_SPACE,
+                                  end: MEDIUM_SPACE,
+                                  top: VERY_SMALL_SPACE,
+                                  bottom: MEDIUM_SPACE,
+                                ),
                                 child: SmoothTextFormField(
                                   suffixIcon: _getOwnerFieldIcon(
                                     ProductField.NAME_IN_LANGUAGES,
@@ -219,44 +240,60 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                     },
                   ),
                   SizedBox(height: _heightSpace),
-                  LayoutBuilder(
-                    builder: (
-                      final BuildContext context,
-                      final BoxConstraints constraints,
-                    ) =>
-                        SmoothAutocompleteTextField(
-                      focusNode: _focusNode,
-                      controller: _brandNameController,
-                      autocompleteKey: _autocompleteKey,
-                      allowEmojis: false,
-                      hintText: appLocalizations.brand_name,
-                      constraints: constraints,
-                      suffixIcon: _getOwnerFieldIcon(
-                        ProductField.BRANDS,
-                      ),
-                      manager: AutocompleteManager(
-                        TaxonomyNameAutocompleter(
-                          taxonomyNames: <TaxonomyName>[TaxonomyName.brand],
-                          // for brands, language must be English
-                          language: OpenFoodFactsLanguage.ENGLISH,
-                          user: ProductQuery.getReadUser(),
-                          limit: 25,
-                          fuzziness: Fuzziness.none,
-                          uriHelper: ProductQuery.getUriProductHelper(
-                            productType: _product.productType,
+                  Padding(
+                    padding: const EdgeInsetsDirectional.symmetric(
+                      horizontal: LARGE_SPACE,
+                    ),
+                    child: LayoutBuilder(
+                      builder: (
+                        final BuildContext context,
+                        final BoxConstraints constraints,
+                      ) =>
+                          SmoothAutocompleteTextField(
+                        focusNode: _focusNode,
+                        controller: _brandNameController,
+                        autocompleteKey: _autocompleteKey,
+                        allowEmojis: false,
+                        borderRadius: CIRCULAR_BORDER_RADIUS,
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: LARGE_SPACE,
+                          vertical: SMALL_SPACE,
+                        ),
+                        textStyle: DefaultTextStyle.of(context).style,
+                        hintText: appLocalizations.brand_name,
+                        constraints: constraints,
+                        suffixIcon: _getOwnerFieldIcon(
+                          ProductField.BRANDS,
+                        ),
+                        manager: AutocompleteManager(
+                          TaxonomyNameAutocompleter(
+                            taxonomyNames: <TaxonomyName>[TaxonomyName.brand],
+                            // for brands, language must be English
+                            language: OpenFoodFactsLanguage.ENGLISH,
+                            user: ProductQuery.getReadUser(),
+                            limit: 25,
+                            fuzziness: Fuzziness.none,
+                            uriHelper: ProductQuery.getUriProductHelper(
+                              productType: _product.productType,
+                            ),
                           ),
                         ),
                       ),
                     ),
                   ),
                   SizedBox(height: _heightSpace),
-                  SmoothTextFormField(
-                    suffixIcon: _getOwnerFieldIcon(
-                      ProductField.QUANTITY,
+                  Padding(
+                    padding: const EdgeInsetsDirectional.symmetric(
+                      horizontal: LARGE_SPACE,
                     ),
-                    controller: _weightController,
-                    type: TextFieldTypes.PLAIN_TEXT,
-                    hintText: appLocalizations.quantity,
+                    child: SmoothTextFormField(
+                      suffixIcon: _getOwnerFieldIcon(
+                        ProductField.QUANTITY,
+                      ),
+                      controller: _weightController,
+                      type: TextFieldTypes.PLAIN_TEXT,
+                      hintText: appLocalizations.quantity,
+                    ),
                   ),
                   // in order to be able to scroll suggestions
                   const SizedBox(height: 150),

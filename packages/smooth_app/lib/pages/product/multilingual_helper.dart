@@ -112,9 +112,13 @@ class MultilingualHelper {
   Widget getLanguageSelector({
     required void Function(void Function()) setState,
     required Product product,
+    EdgeInsetsGeometry? padding,
+    BorderRadius? borderRadius,
   }) =>
       LanguageSelector(
         product: product,
+        padding: padding,
+        borderRadius: borderRadius,
         setLanguage: (
           final OpenFoodFactsLanguage? newLanguage,
         ) async {

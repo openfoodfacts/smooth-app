@@ -1417,6 +1417,10 @@
             }
         }
     },
+    "edit_product_form_item_error_empty": "Veuillez saisir une valeur correcte !",
+    "@edit_product_form_item_error_empty": {
+        "description": "Error message when the user tries to submit an empty value"
+    },
     "edit_product_form_item_add_action": "Ajouter un nouveau {itemType}",
     "description": "Infobulle à afficher lorsque l'utilisateur appuie longuement sur le bouton (+)",
     "@edit_product_form_item_add_action": {
@@ -1458,7 +1462,7 @@
     "@edit_product_form_item_labels_subtitle": {
         "description": "Product edition - Labels - SubTitle"
     },
-    "edit_product_form_item_labels_hint": "label",
+    "edit_product_form_item_labels_hint": "Saisir un label (ex : NutriScore)",
     "@edit_product_form_item_labels_hint": {
         "description": "Product edition - Labels - input textfield hint"
     },
@@ -1470,7 +1474,7 @@
     "@edit_product_form_item_stores_title": {
         "description": "Product edition - Stores - Title"
     },
-    "edit_product_form_item_stores_hint": "magasin",
+    "edit_product_form_item_stores_hint": "Saisir un nom de magasin",
     "@edit_product_form_item_stores_hint": {
         "description": "Product edition - Stores - input textfield hint"
     },
@@ -1482,7 +1486,7 @@
     "@edit_product_form_item_origins_title": {
         "description": "Product edition - Origins - Title"
     },
-    "edit_product_form_item_origins_hint": "Espagne",
+    "edit_product_form_item_origins_hint": "Saisir une origine (ex : Espagne)",
     "@edit_product_form_item_origins_hint": {
         "description": "Product edition - Origins - input textfield hint"
     },
@@ -1502,7 +1506,7 @@
     "@edit_product_form_item_countries_title": {
         "description": "Product edition - Countries - Title"
     },
-    "edit_product_form_item_countries_hint": "Espagne",
+    "edit_product_form_item_countries_hint": "Saisir un nom de pays (ex : Espagne)",
     "@edit_product_form_item_countries_hint": {
         "description": "Product edition - Countries - input textfield hint"
     },
@@ -1518,7 +1522,7 @@
     "@edit_product_form_item_emb_codes_title": {
         "description": "Product edition - Traceability codes - Title"
     },
-    "edit_product_form_item_emb_codes_hint": "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522",
+    "edit_product_form_item_emb_codes_hint": "Saisir un code (ex  : EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522…)",
     "@edit_product_form_item_emb_codes_hint": {
         "description": "Product edition - Traceability Codes - input textfield hint"
     },
@@ -1534,7 +1538,7 @@
     "@edit_product_form_item_categories_title": {
         "description": "Product edition - Categories - Title"
     },
-    "edit_product_form_item_categories_hint": "catégorie",
+    "edit_product_form_item_categories_hint": "Saisir une catégorie (ex : Biscuits)",
     "@edit_product_form_item_categories_hint": {
         "description": "Product edition - Categories - input textfield hint"
     },

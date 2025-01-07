@@ -7,6 +7,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/strings_helper.dart';
 import 'package:smooth_app/pages/product/autocomplete.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 
 /// Autocomplete text field.
 class SmoothAutocompleteTextField extends StatefulWidget {
@@ -22,6 +23,7 @@ class SmoothAutocompleteTextField extends StatefulWidget {
     this.suffixIcon,
     this.borderRadius,
     this.padding,
+    this.textStyle,
   });
 
   final FocusNode focusNode;
@@ -35,6 +37,7 @@ class SmoothAutocompleteTextField extends StatefulWidget {
   final Widget? suffixIcon;
   final BorderRadius? borderRadius;
   final EdgeInsetsGeometry? padding;
+  final TextStyle? textStyle;
 
   @override
   State<SmoothAutocompleteTextField> createState() =>
@@ -87,6 +90,7 @@ class _SmoothAutocompleteTextFieldState
           if (!widget.allowEmojis)
             FilteringTextInputFormatter.deny(TextHelper.emojiRegex),
         ],
+        style: widget.textStyle,
         decoration: InputDecoration(
           suffixIcon: widget.suffixIcon,
           filled: true,
@@ -100,6 +104,12 @@ class _SmoothAutocompleteTextFieldState
                 vertical: SMALL_SPACE,
               ),
           hintText: widget.hintText,
+          hintStyle: TextStyle(
+            fontStyle: FontStyle.italic,
+            color: context.lightTheme()
+                ? const Color(0x99000000)
+                : const Color(0xBBFFFFFF),
+          ),
           suffix: Offstage(
             offstage: !_loading,
             child: SizedBox(

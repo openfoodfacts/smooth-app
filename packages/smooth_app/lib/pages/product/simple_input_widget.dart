@@ -4,6 +4,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_snackbar.dart';
 import 'package:smooth_app/helpers/collections_helper.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 import 'package:smooth_app/pages/product/explanation_widget.dart';
@@ -119,8 +120,21 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
                         widget.helper.getTypeLabel(appLocalizations)),
                     child: IconButton(
                       onPressed: _onAddItem,
-                      icon: const Icon(Icons.add_circle),
-                      splashRadius: 20,
+                      splashRadius: 20.0,
+                      icon: ListenableBuilder(
+                        listenable: widget.controller,
+                        builder: (
+                          BuildContext context,
+                          _,
+                        ) =>
+                            Icon(
+                          Icons.add_circle,
+                          color: IconTheme.of(context).color?.withValues(
+                                alpha:
+                                    widget.controller.text.isEmpty ? 0.7 : 1.0,
+                              ),
+                        ),
+                      ),
                     ),
                   )
                 ],
@@ -209,6 +223,19 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
   }
 
   void _onAddItem() {
+    if (widget.controller.text.trim().isEmpty) {
+      final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        SmoothFloatingSnackbar.error(
+          context: context,
+          text: appLocalizations.edit_product_form_item_error_empty,
+        ),
+      );
+
+      return;
+    }
+
     if (widget.helper.addItemsFromController(widget.controller)) {
       // Add new items to the top of our list
       final Iterable<String> newTerms = widget.helper.terms.diff(_localTerms);
