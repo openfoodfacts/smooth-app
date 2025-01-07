@@ -102,7 +102,7 @@ Widget build(BuildContext context) {
         }
         await setLanguage(language);
       },
-      borderRadius: ANGULAR_BORDER_RADIUS,
+      borderRadius: borderRadius ?? ANGULAR_BORDER_RADIUS,
       child: Padding(
         padding: const EdgeInsets.symmetric(
           vertical: SMALL_SPACE,
@@ -131,9 +131,11 @@ Widget build(BuildContext context) {
                 ),
               ),
             ),
-            Icon(
-              icon ?? Icons.arrow_drop_down,
-              color: foregroundColor,
+            IconTheme(
+              data: IconThemeData(
+                color: foregroundColor,
+              ),
+              child: icon ?? const Icon(Icons.arrow_drop_down),
             ),
           ],
         ),
@@ -171,6 +173,7 @@ Widget build(BuildContext context) {
     <li class="section-title">
       <a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_language_selector/LanguageSelector-class.html#instance-properties">Properties</a>
     </li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_language_selector/LanguageSelector/borderRadius.html">borderRadius</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_language_selector/LanguageSelector/displayedLanguage.html">displayedLanguage</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_language_selector/LanguageSelector/foregroundColor.html">foregroundColor</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>

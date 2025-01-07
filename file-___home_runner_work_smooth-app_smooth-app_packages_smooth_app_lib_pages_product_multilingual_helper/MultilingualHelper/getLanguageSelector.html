@@ -56,7 +56,10 @@
 )</span></li>
 </ol>
 ), </span></li>
-<li><span class="parameter" id="getLanguageSelector-param-product"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">product</span>}</span></li>
+<li><span class="parameter" id="getLanguageSelector-param-product"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">product</span>, </span></li>
+<li><span class="parameter" id="getLanguageSelector-param-padding"><span class="type-annotation">dynamic</span> <span class="parameter-name">padding</span>, </span></li>
+<li><span class="parameter" id="getLanguageSelector-param-borderRadius"><span class="type-annotation">dynamic</span> <span class="parameter-name">borderRadius</span>, </span></li>
+<li><span class="parameter" id="getLanguageSelector-param-icon"><span class="type-annotation">dynamic</span> <span class="parameter-name">icon</span>}</span></li>
 </ol>)
 
       
@@ -71,9 +74,15 @@
   <pre class="language-dart"><code class="language-dart">Widget getLanguageSelector({
   required void Function(void Function()) setState,
   required Product product,
+  EdgeInsetsGeometry? padding,
+  BorderRadius? borderRadius,
+  Widget? icon,
 }) =&gt;
     LanguageSelector(
       product: product,
+      icon: icon,
+      padding: padding,
+      borderRadius: borderRadius,
       setLanguage: (
         final OpenFoodFactsLanguage? newLanguage,
       ) async {
