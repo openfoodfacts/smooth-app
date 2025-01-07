@@ -15,7 +15,7 @@ allprojects {
                     kotlinOptions.jvmTarget = JavaVersion.VERSION_21
                 }
                 if (it.android.namespace == null) {
-                    def manifest =  XmlSlurper().parse(file(it.android.sourceSets.main.manifest.srcFile))
+                    def manifest = new XmlSlurper().parse(file(it.android.sourceSets.main.manifest.srcFile))
                     def packageName = manifest.@package.text()
                     android.namespace = packageName
                     println("Updating namespace ${packageName}")
