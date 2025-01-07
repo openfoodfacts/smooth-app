@@ -12,9 +12,6 @@ import 'package:smooth_app/pages/product/owner_field_info.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
 import 'package:smooth_app/pages/product/simple_input_text_field.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
-import 'package:smooth_app/themes/smooth_theme.dart';
-import 'package:smooth_app/themes/smooth_theme_colors.dart';
-import 'package:smooth_app/themes/theme_provider.dart';
 
 /// Simple input widget: we have a list of terms, we add, we remove.
 class SimpleInputWidget extends StatefulWidget {
@@ -61,8 +58,6 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final String? explanations =
         widget.helper.getAddExplanations(appLocalizations);
@@ -190,36 +185,25 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
       ],
     );
 
-    if (widget.displayTitle) {
-      return SmoothCardWithRoundedHeader(
-        leading: widget.helper.getIcon(),
-        title: widget.helper.getTitle(appLocalizations),
-        trailing: explanations != null
-            ? _ExplanationTitleIcon(
-                text: explanations,
-                type: widget.helper.getTitle(appLocalizations),
-              )
-            : null,
-        titlePadding: explanations != null
-            ? const EdgeInsetsDirectional.only(
-                top: SMALL_SPACE,
-                bottom: SMALL_SPACE,
-                start: LARGE_SPACE,
-                end: SMALL_SPACE,
-              )
-            : null,
-        child: child,
-      );
-    } else {
-      return SmoothCard(
-        margin: EdgeInsets.zero,
-        padding: const EdgeInsetsDirectional.only(
-          top: MEDIUM_SPACE,
-        ),
-        color: context.darkTheme() ? extension.primaryUltraBlack : null,
-        child: child,
-      );
-    }
+    return SmoothCardWithRoundedHeader(
+      leading: widget.helper.getIcon(),
+      title: widget.helper.getTitle(appLocalizations),
+      trailing: explanations != null && widget.displayTitle
+          ? _ExplanationTitleIcon(
+              text: explanations,
+              type: widget.helper.getTitle(appLocalizations),
+            )
+          : null,
+      titlePadding: explanations != null
+          ? const EdgeInsetsDirectional.only(
+              top: SMALL_SPACE,
+              bottom: SMALL_SPACE,
+              start: LARGE_SPACE,
+              end: SMALL_SPACE,
+            )
+          : null,
+      child: child,
+    );
   }
 
   void _onAddItem() {
