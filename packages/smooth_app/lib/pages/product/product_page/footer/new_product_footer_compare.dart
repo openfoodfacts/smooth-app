@@ -89,7 +89,6 @@ class ProductFooterCompareButton extends StatelessWidget {
 
   void _showFeatureDisabledDialog(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final ThemeData themeData = Theme.of(context);
 
     ScaffoldMessenger.of(context).showSnackBar(
       SmoothFloatingSnackbar.error(

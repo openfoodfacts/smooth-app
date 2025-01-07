@@ -1400,6 +1400,10 @@
     "@permission_photo_denied": {
         "description": "When the camera/photo permission is denied by user"
     },
+    "show_product_pictures": "Show product pictures",
+    "@show_product_pictures": {
+        "description": "Button to show a list of product pictures"
+    },
     "edit_product_label": "Edit product",
     "@edit_product_label": {
         "description": "Edit product button label"
@@ -2317,6 +2321,7 @@
     "product_name": "Product Name",
     "add_basic_details_product_name_error": "Please enter the product name",
     "brand_name": "Brand name",
+    "brand_names": "Brand names",
     "add_basic_details_brand_name_error": "Please enter the brand name",
     "quantity": "Quantity and weight",
     "barcode": "Barcode",

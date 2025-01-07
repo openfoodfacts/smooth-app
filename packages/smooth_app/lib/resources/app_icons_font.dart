@@ -245,6 +245,12 @@ class _IconsFont {
       IconData(0xe878, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData clear =
       IconData(0xe879, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData scale_alt =
+      IconData(0xe87b, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData scale =
+      IconData(0xe87c, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData gallery =
+      IconData(0xe87d, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData share_cupertino =
       IconData(0xe8a4, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData share_material =

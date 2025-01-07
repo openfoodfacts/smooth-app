@@ -114,9 +114,11 @@ class MultilingualHelper {
     required Product product,
     EdgeInsetsGeometry? padding,
     BorderRadius? borderRadius,
+    Widget? icon,
   }) =>
       LanguageSelector(
         product: product,
+        icon: icon,
         padding: padding,
         borderRadius: borderRadius,
         setLanguage: (

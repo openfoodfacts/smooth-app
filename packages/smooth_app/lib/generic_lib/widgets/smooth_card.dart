@@ -110,14 +110,17 @@ class SmoothCardWithRoundedHeader extends StatelessWidget {
     required this.child,
     this.leading,
     this.trailing,
+    this.titleTextStyle,
     this.titlePadding,
     this.contentPadding,
   });
 
   final String title;
+
   final Widget? leading;
   final Widget? trailing;
   final Widget child;
+  final TextStyle? titleTextStyle;
   final EdgeInsetsGeometry? titlePadding;
   final EdgeInsetsGeometry? contentPadding;
 
@@ -143,7 +146,7 @@ class SmoothCardWithRoundedHeader extends StatelessWidget {
             child: Padding(
               padding: titlePadding ??
                   const EdgeInsetsDirectional.symmetric(
-                    vertical: MEDIUM_SPACE,
+                    vertical: BALANCED_SPACE,
                     horizontal: LARGE_SPACE,
                   ),
               child: Row(
@@ -152,7 +155,7 @@ class SmoothCardWithRoundedHeader extends StatelessWidget {
                     IconTheme(
                       data: IconThemeData(
                         color: color,
-                        size: 18.0,
+                        size: 17.0,
                       ),
                       child: DecoratedBox(
                         decoration: const BoxDecoration(
@@ -160,7 +163,7 @@ class SmoothCardWithRoundedHeader extends StatelessWidget {
                           shape: BoxShape.circle,
                         ),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.all(SMALL_SPACE),
+                          padding: const EdgeInsetsDirectional.all(6.0),
                           child: leading,
                         ),
                       ),
@@ -169,7 +172,11 @@ class SmoothCardWithRoundedHeader extends StatelessWidget {
                   Expanded(
                     child: Text(
                       title,
-                      style: themeData.textTheme.displaySmall?.copyWith(
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style:
+                          (titleTextStyle ?? themeData.textTheme.displaySmall)
+                              ?.copyWith(
                         color: Colors.white,
                       ),
                     ),

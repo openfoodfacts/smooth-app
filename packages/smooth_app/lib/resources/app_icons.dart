@@ -848,6 +848,16 @@ class Help extends AppIcon {
   }) : super._(_IconsFont.help_circled);
 }
 
+class ImageGallery extends AppIcon {
+  const ImageGallery({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.gallery);
+}
+
 class Incognito extends AppIcon {
   const Incognito({
     super.color,
@@ -1192,6 +1202,24 @@ class Salt extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.salt);
+}
+
+class Scale extends AppIcon {
+  const Scale({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.scale);
+
+  const Scale.alt({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.scale_alt);
 }
 
 class Share extends AppIcon {

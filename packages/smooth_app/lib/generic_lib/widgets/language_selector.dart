@@ -34,7 +34,7 @@ class LanguageSelector extends StatelessWidget {
   final OpenFoodFactsLanguage? displayedLanguage;
 
   final Color? foregroundColor;
-  final IconData? icon;
+  final Widget? icon;
   final EdgeInsetsGeometry? padding;
   final BorderRadius? borderRadius;
 
@@ -105,9 +105,11 @@ class LanguageSelector extends StatelessWidget {
                   ),
                 ),
               ),
-              Icon(
-                icon ?? Icons.arrow_drop_down,
-                color: foregroundColor,
+              IconTheme(
+                data: IconThemeData(
+                  color: foregroundColor,
+                ),
+                child: icon ?? const Icon(Icons.arrow_drop_down),
               ),
             ],
           ),
