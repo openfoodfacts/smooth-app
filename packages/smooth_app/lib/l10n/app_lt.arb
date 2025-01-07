@@ -528,7 +528,7 @@
     },
     "ingredients": "Sudėtis",
     "@ingredients": {},
-    "ingredients_editing_instructions": "Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen and use parentheses for ingredients of an ingredient.",
+    "ingredients_editing_instructions": "Išlaikykite pirminį eiliškumą. Nurodykite procentus, jei reikalaujama. Atskirkite kableliu arba brūkšniu ir naudokite skliaustus sudedamosioms ingrediento dalims.",
     "ingredients_editing_error": "Nepavyko išsaugoti ingredientų.",
     "ingredients_editing_image_error": "Nepavyko gauti naujo ingredientų nuotraukos.",
     "ingredients_editing_title": "Redaguoti sudėtį",
@@ -1408,7 +1408,7 @@
     "@edit_product_label_short": {
         "description": "Edit product button short label (only the verb)"
     },
-    "edit_product_form_item_help": "How to enter \"{value}\"?",
+    "edit_product_form_item_help": "Kaip įvesti „{value}“?",
     "@edit_product_form_item_help": {
         "description": "Help text for the input field. Eg 'How to enter stores?'",
         "placeholders": {
