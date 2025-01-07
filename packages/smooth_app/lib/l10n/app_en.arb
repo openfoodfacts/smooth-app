@@ -2320,10 +2320,13 @@
     "basic_details": "Basic Details",
     "product_name": "Product Name",
     "add_basic_details_product_name_error": "Please enter the product name",
+    "add_basic_details_product_name_hint": "Input the name of the product (eg: Nutella)",
     "brand_name": "Brand name",
     "brand_names": "Brand names",
     "add_basic_details_brand_name_error": "Please enter the brand name",
+    "add_basic_details_brand_names_hint": "Input brands (eg: Ferrero)",
     "quantity": "Quantity and weight",
+    "add_basic_details_quantity_hint": "Input the weight and if needed the quantity (eg : 4x100g)",
     "barcode": "Barcode",
     "barcode_barcode": "Barcode: {barcode}",
     "@barcode_barcode": {

@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/helpers/strings_helper.dart';
 import 'package:smooth_app/pages/product/autocomplete.dart';
-import 'package:smooth_app/themes/theme_provider.dart';
 
 /// Autocomplete text field.
 class SmoothAutocompleteTextField extends StatefulWidget {
@@ -104,12 +104,7 @@ class _SmoothAutocompleteTextFieldState
                 vertical: SMALL_SPACE,
               ),
           hintText: widget.hintText,
-          hintStyle: TextStyle(
-            fontStyle: FontStyle.italic,
-            color: context.lightTheme()
-                ? const Color(0x99000000)
-                : const Color(0xBBFFFFFF),
-          ),
+          hintStyle: SmoothTextFormField.defaultHintTextStyle(context),
           suffix: Offstage(
             offstage: !_loading,
             child: SizedBox(

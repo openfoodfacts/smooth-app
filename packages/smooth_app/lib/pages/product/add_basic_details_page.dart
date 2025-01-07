@@ -217,7 +217,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                     ownerField: _isOwnerField(ProductField.QUANTITY),
                   ),
                   // in order to be able to scroll suggestions
-                  const SizedBox(height: 50),
+                  const SizedBox(height: 50.0),
                 ],
               ),
             ),
@@ -390,7 +390,7 @@ class _ProductMonolingualNameInputWidget extends StatelessWidget {
       child: SmoothTextFormField(
         controller: textController,
         type: TextFieldTypes.PLAIN_TEXT,
-        hintText: appLocalizations.product_name,
+        hintText: appLocalizations.add_basic_details_product_name_hint,
         spellCheckConfiguration: (context.read<UserPreferences>().getFlag(
                         UserPreferencesDevMode
                             .userPreferencesFlagSpellCheckerOnOcr) ??
@@ -464,7 +464,8 @@ class _ProductMultilingualNameInputWidget extends StatelessWidget {
             child: SmoothTextFormField(
               controller: textController,
               type: TextFieldTypes.PLAIN_TEXT,
-              hintText: appLocalizations.product_name,
+              hintText: appLocalizations.add_basic_details_product_name_hint,
+              hintTextStyle: SmoothTextFormField.defaultHintTextStyle(context),
               spellCheckConfiguration: (context.read<UserPreferences>().getFlag(
                               UserPreferencesDevMode
                                   .userPreferencesFlagSpellCheckerOnOcr) ??
@@ -518,7 +519,7 @@ class _ProductBrandsInputWidget extends StatelessWidget {
             vertical: SMALL_SPACE,
           ),
           textStyle: DefaultTextStyle.of(context).style,
-          hintText: appLocalizations.brand_names,
+          hintText: appLocalizations.add_basic_details_brand_names_hint,
           constraints: constraints,
           manager: AutocompleteManager(
             TaxonomyNameAutocompleter(
@@ -559,7 +560,8 @@ class _ProductQuantityInputWidget extends StatelessWidget {
       child: SmoothTextFormField(
         controller: textController,
         type: TextFieldTypes.PLAIN_TEXT,
-        hintText: appLocalizations.quantity,
+        hintText: appLocalizations.add_basic_details_quantity_hint,
+        hintTextStyle: SmoothTextFormField.defaultHintTextStyle(context),
       ),
     );
   }
