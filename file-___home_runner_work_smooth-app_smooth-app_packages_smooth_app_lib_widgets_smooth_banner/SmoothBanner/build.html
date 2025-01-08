@@ -71,6 +71,9 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
+  final double bottomPadding =
+      addSafeArea ? MediaQuery.viewPaddingOf(context).bottom : 0.0;
+
   Widget child = IntrinsicHeight(
     child: Row(
       children: &lt;Widget&gt;[
@@ -148,6 +151,7 @@ Widget build(BuildContext context) {
                     color: contentColor ?? const Color(0xFF373737),
                   ),
                 ),
+                if (bottomPadding &gt; 0) SizedBox(height: bottomPadding),
               ],
             ),
           ),
@@ -216,6 +220,7 @@ Widget build(BuildContext context) {
     <li class="section-title">
       <a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_banner/SmoothBanner-class.html#instance-properties">Properties</a>
     </li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_banner/SmoothBanner/addSafeArea.html">addSafeArea</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_banner/SmoothBanner/content.html">content</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_banner/SmoothBanner/contentBackgroundColor.html">contentBackgroundColor</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_banner/SmoothBanner/contentColor.html">contentColor</a></li>
