@@ -4,6 +4,14 @@ import 'package:smooth_app/pages/locations/osm_location.dart';
 
 /// Helper used to set/unset/sort stores as user favorites.
 class FavoriteLocationHelper {
+  factory FavoriteLocationHelper() {
+    _instance ??= const FavoriteLocationHelper._();
+    return _instance!;
+  }
+
+  const FavoriteLocationHelper._();
+
+  static FavoriteLocationHelper? _instance;
   static const String _key = DaoStringList.keyPriceStores;
 
   /// Sets a store as a favorite store (or not, depending on [isFavorite]).
