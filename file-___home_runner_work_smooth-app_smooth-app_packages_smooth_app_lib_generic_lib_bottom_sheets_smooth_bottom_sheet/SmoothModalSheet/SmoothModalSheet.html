@@ -53,6 +53,8 @@
 <li><span class="parameter" id="-param-body"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">body</span>, </span></li>
 <li><span class="parameter" id="-param-prefixIndicator"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">prefixIndicator</span> = <span class="default-value">false</span>, </span></li>
 <li><span class="parameter" id="-param-closeButton"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">closeButton</span> = <span class="default-value">true</span>, </span></li>
+<li><span class="parameter" id="-param-headerBackgroundColor"><span class="type-annotation">dynamic</span> <span class="parameter-name">headerBackgroundColor</span>, </span></li>
+<li><span class="parameter" id="-param-headerForegroundColor"><span class="type-annotation">dynamic</span> <span class="parameter-name">headerForegroundColor</span>, </span></li>
 <li><span class="parameter" id="-param-bodyPadding"><span class="type-annotation">dynamic</span> <span class="parameter-name">bodyPadding</span>, </span></li>
 <li><span class="parameter" id="-param-expandBody"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">expandBody</span> = <span class="default-value">false</span>, </span></li>
 <li><span class="parameter" id="-param-closeButtonSemanticsOrder"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">closeButtonSemanticsOrder</span>}</span></li>
@@ -70,6 +72,8 @@
   required this.body,
   bool prefixIndicator = false,
   bool closeButton = true,
+  Color? headerBackgroundColor,
+  Color? headerForegroundColor,
   this.bodyPadding,
   this.expandBody = false,
   double? closeButtonSemanticsOrder,
@@ -83,6 +87,8 @@
                 semanticsOrder: closeButtonSemanticsOrder,
               )
             : null,
+        backgroundColor: headerBackgroundColor,
+        foregroundColor: headerForegroundColor,
       );</code></pre>
 </section>
 

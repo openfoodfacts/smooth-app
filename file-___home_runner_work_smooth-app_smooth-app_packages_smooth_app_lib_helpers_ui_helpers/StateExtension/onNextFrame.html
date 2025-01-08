@@ -52,7 +52,8 @@
       
 
 <span class="returntype">void</span>
-<span class="name ">onNextFrame</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="onNextFrame-param-callback"><span class="type-annotation">dynamic</span> <span class="parameter-name">callback</span></span></li>
+<span class="name ">onNextFrame</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="onNextFrame-param-callback"><span class="type-annotation">dynamic</span> <span class="parameter-name">callback</span>, </span></li>
+<li><span class="parameter" id="onNextFrame-param-forceRedraw">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">forceRedraw</span> = <span class="default-value">false</span>}</span></li>
 </ol>)
 
       
@@ -64,10 +65,15 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">void onNextFrame(VoidCallback callback) {
-  WidgetsBinding.instance.addPostFrameCallback((_) {
+  <pre class="language-dart"><code class="language-dart">void onNextFrame(VoidCallback callback, {bool forceRedraw = false}) {
+  final WidgetsBinding binding = WidgetsBinding.instance;
+  binding.addPostFrameCallback((_) {
     callback();
   });
+
+  if (forceRedraw) {
+    binding.ensureVisualUpdate();
+  }
 }</code></pre>
 </section>
 

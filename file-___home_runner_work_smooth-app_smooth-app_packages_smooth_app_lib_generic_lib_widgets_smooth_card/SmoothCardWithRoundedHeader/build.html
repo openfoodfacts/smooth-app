@@ -75,82 +75,95 @@ Widget build(BuildContext context) {
   final SmoothColorsThemeExtension extension =
       context.extension&lt;SmoothColorsThemeExtension&gt;();
 
-  final Color color =
-      context.lightTheme() ? extension.primaryBlack : Colors.black;
+  final Color color = getHeaderColor(context);
 
-  return Column(
-    children: &lt;Widget&gt;[
-      Semantics(
-        label: title,
-        excludeSemantics: true,
-        child: CustomPaint(
-          painter: _SmoothCardWithRoundedHeaderBackgroundPainter(
-            color: color,
-            radius: ROUNDED_RADIUS,
-          ),
-          child: Padding(
-            padding: titlePadding ??
-                const EdgeInsetsDirectional.symmetric(
-                  vertical: BALANCED_SPACE,
-                  horizontal: LARGE_SPACE,
-                ),
-            child: Row(
-              children: &lt;Widget&gt;[
-                if (leading != null)
-                  IconTheme(
-                    data: IconThemeData(
-                      color: color,
-                      size: 17.0,
-                    ),
-                    child: DecoratedBox(
-                      decoration: const BoxDecoration(
-                        color: Colors.white,
-                        shape: BoxShape.circle,
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsetsDirectional.all(6.0),
-                        child: leading,
-                      ),
-                    ),
+  return DecoratedBox(
+    decoration: const BoxDecoration(
+      borderRadius: ROUNDED_BORDER_RADIUS,
+      boxShadow: &lt;BoxShadow&gt;[
+        BoxShadow(
+          color: Color(0x03000000),
+          blurRadius: 2.0,
+          spreadRadius: 0.0,
+          offset: Offset(0.0, 2.0),
+        ),
+      ],
+    ),
+    child: Column(
+      children: &lt;Widget&gt;[
+        Semantics(
+          label: title,
+          excludeSemantics: true,
+          child: CustomPaint(
+            painter: _SmoothCardWithRoundedHeaderBackgroundPainter(
+              color: color,
+              radius: ROUNDED_RADIUS,
+            ),
+            child: Padding(
+              padding: titlePadding ??
+                  const EdgeInsetsDirectional.symmetric(
+                    vertical: BALANCED_SPACE,
+                    horizontal: LARGE_SPACE,
                   ),
-                const SizedBox(width: MEDIUM_SPACE),
-                Expanded(
-                  child: Text(
-                    title,
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style:
-                        (titleTextStyle ?? themeData.textTheme.displaySmall)
-                            ?.copyWith(
-                      color: Colors.white,
+              child: Row(
+                children: &lt;Widget&gt;[
+                  if (leading != null)
+                    IconTheme(
+                      data: IconThemeData(
+                        color: color,
+                        size: 17.0,
+                      ),
+                      child: DecoratedBox(
+                        decoration: const BoxDecoration(
+                          color: Colors.white,
+                          shape: BoxShape.circle,
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsetsDirectional.all(6.0),
+                          child: leading,
+                        ),
+                      ),
                     ),
-                  ),
-                ),
-                if (trailing != null) ...&lt;Widget&gt;[
                   const SizedBox(width: MEDIUM_SPACE),
-                  IconTheme(
-                    data: const IconThemeData(
-                      color: Colors.white,
-                      size: 20.0,
+                  Expanded(
+                    child: Text(
+                      title,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style:
+                          (titleTextStyle ?? themeData.textTheme.displaySmall)
+                              ?.copyWith(
+                        color: Colors.white,
+                      ),
                     ),
-                    child: trailing!,
                   ),
+                  if (trailing != null) ...&lt;Widget&gt;[
+                    const SizedBox(width: MEDIUM_SPACE),
+                    IconTheme(
+                      data: const IconThemeData(
+                        color: Colors.white,
+                        size: 20.0,
+                      ),
+                      child: trailing!,
+                    ),
+                  ],
                 ],
-              ],
+              ),
             ),
           ),
         ),
-      ),
-      SmoothCard(
-        margin: EdgeInsets.zero,
-        padding: contentPadding ??
-            const EdgeInsetsDirectional.only(
-              top: MEDIUM_SPACE,
-            ),
-        color: context.darkTheme() ? extension.primaryUltraBlack : null,
-        child: child,
-      ),
-    ],
+        SmoothCard(
+          margin: EdgeInsets.zero,
+          padding: contentPadding ??
+              const EdgeInsetsDirectional.only(
+                top: MEDIUM_SPACE,
+              ),
+          color: contentBackgroundColor ??
+              (context.darkTheme() ? extension.primaryUltraBlack : null),
+          child: child,
+        ),
+      ],
+    ),
   );
 }</code></pre>
 </section>
@@ -184,6 +197,7 @@ Widget build(BuildContext context) {
       <a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_smooth_card/SmoothCardWithRoundedHeader-class.html#instance-properties">Properties</a>
     </li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_smooth_card/SmoothCardWithRoundedHeader/child.html">child</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_smooth_card/SmoothCardWithRoundedHeader/contentBackgroundColor.html">contentBackgroundColor</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_smooth_card/SmoothCardWithRoundedHeader/contentPadding.html">contentPadding</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_smooth_card/SmoothCardWithRoundedHeader/leading.html">leading</a></li>
@@ -203,6 +217,8 @@ Widget build(BuildContext context) {
 
 
 
+        <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_smooth_card/SmoothCardWithRoundedHeader-class.html#static-methods">Static methods</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_smooth_card/SmoothCardWithRoundedHeader/getHeaderColor.html">getHeaderColor</a></li>
 
 </ol>
 
