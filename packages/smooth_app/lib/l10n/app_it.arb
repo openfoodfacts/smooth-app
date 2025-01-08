@@ -1103,18 +1103,6 @@
     "@hint_knowledge_panel_message": {
         "description": "Hint popup indicating the card is clickable during onboarding"
     },
-    "consent_analytics_title": "Invia analitiche anonime",
-    "@consent_analytics_title": {
-        "description": "Title for the consent analytics UI Page"
-    },
-    "consent_analytics_body1": "Aiuta i volontari di Open Food Facts per migliorare l'app. Decidi tu se vuoi inviare le statistiche anonime.",
-    "@conset_analytics_body1": {
-        "description": "first paragraph for the consent analytics UI Page"
-    },
-    "consent_analytics_body2": "Se cambi idea, quest'opzione può essere abilitata e disabilitata in qualsiasi momento dalle impostazioni.",
-    "@consent_analytics_body2": {
-        "description": "second paragraph for the consent analytics UI Page"
-    },
     "permissions_page_title": "Accesso alla fotocamera",
     "@permissions_page_title": {
         "description": "Title for the camera permission's page (onboarding)"
@@ -1588,6 +1576,22 @@
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
     },
+    "edit_product_ingredients_photo_title": "Foto degli ingredienti",
+    "@edit_product_ingredients_photo_title": {
+        "description": "Product edition - Ingredients - Title"
+    },
+    "edit_product_ingredients_list_title": "Lista degli ingredienti",
+    "@edit_product_ingredients_list_title": {
+        "description": "Product edition - Ingredients - Title"
+    },
+    "edit_product_packaging_photo_title": "Packaging photo",
+    "@edit_product_packaging_photo_title": {
+        "description": "Product edition - Packaging - Title"
+    },
+    "edit_product_packaging_list_title": "Packaging list",
+    "@edit_product_packaging_list_title": {
+        "description": "Product edition - Packaging - Title"
+    },
     "no_data_available": "Nessun dato disponibile",
     "@no_data_available": {
         "description": "When there are no data to display"
@@ -1602,6 +1606,10 @@
     "edit_ingredients_extract_ingredients_btn_text": "Estrai gli ingredienti dalla foto",
     "@edit_ingredients_extract_ingredients_btn_text": {
         "description": "Ingredients edition - Extract ingredients"
+    },
+    "edit_ingredients_extract_ingredients_btn_text_short": "Estrai ingredienti",
+    "@edit_ingredients_extract_ingredients_btn_text_short": {
+        "description": "Ingredients edition - Extract ingredients (short label)"
     },
     "edit_ingredients_extracting_ingredients_btn_text": "Estrazione degli ingredienti\ndalla foto",
     "@edit_ingredients_extracting_ingredients_btn_text": {
@@ -1627,6 +1635,10 @@
     "@edit_packaging_extract_btn_text": {
         "description": "Packaging edition - OCR-Extract packaging"
     },
+    "edit_packaging_extract_btn_text_short": "Extract packaging",
+    "@edit_packaging_extract_btn_text_short": {
+        "description": "Packaging edition - OCR-Extract packaging (short label)"
+    },
     "edit_packaging_extracting_btn_text": "Estrazione della confezione dalla foto",
     "@edit_packaging_extracting_btn_text": {
         "description": "Packaging edition - OCR-Extracting packaging"
@@ -1650,6 +1662,14 @@
     "edit_ocr_extract_failed": "Impossibile rilevare del testo nell'immagine.",
     "@edit_ocr_extract_failed": {
         "description": "OCR extraction - message for failed"
+    },
+    "edit_ocr_extract_disabled_title": "No picture!",
+    "@edit_ocr_extract_disabled_title": {
+        "description": "OCR extraction - title for disabled"
+    },
+    "edit_ocr_extract_disabled_message": "In order to use the text extraction feature, you must first take a photo.",
+    "@edit_ocr_extract_disabled_message": {
+        "description": "OCR extraction - message for disabled"
     },
     "user_list_dialog_new_title": "Nuovo elenco di prodotti",
     "@user_list_dialog_new_title": {
