@@ -5,6 +5,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
+import 'package:smooth_app/data_models/up_to_date_changes.dart';
 import 'package:smooth_app/data_models/up_to_date_mixin.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -20,6 +21,7 @@ import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/gallery_view/product_image_gallery_view.dart';
 import 'package:smooth_app/pages/product/nutrition_page_loaded.dart';
 import 'package:smooth_app/pages/product/product_field_editor.dart';
+import 'package:smooth_app/pages/product/product_page/new_product_page_loading_indicator.dart';
 import 'package:smooth_app/pages/product/simple_input_page.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
@@ -54,7 +56,7 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    context.watch<LocalDatabase>();
+    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     refreshUpToDate();
     final ThemeData theme = Theme.of(context);
     final bool lightTheme = context.lightTheme();
@@ -140,6 +142,12 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
         child: Scrollbar(
           controller: _controller,
           child: ListView(
+            padding: const EdgeInsetsDirectional.only(
+              top: SMALL_SPACE,
+              start: VERY_SMALL_SPACE,
+              end: VERY_SMALL_SPACE,
+              bottom: MEDIUM_SPACE,
+            ),
             controller: _controller,
             children: <Widget>[
               if (_ProductBarcode.isAValidBarcode(barcode))
@@ -299,6 +307,12 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
           ),
         ),
       ),
+      bottomNavigationBar: UpToDateChanges(localDatabase)
+              .hasNotTerminatedOperations(upToDateProduct.barcode!)
+          ? const ProductPageLoadingIndicator(
+              addSafeArea: true,
+            )
+          : null,
     );
   }
 
