@@ -75,22 +75,28 @@ Widget getWidget(
   final BuildContext context, {
   final VoidCallback? onDismissItem,
 }) {
-  final LocalDatabase localDatabase = context.read&lt;LocalDatabase&gt;();
-  final bool isFavorite = FavoriteLocationHelper().isFavorite(
-    localDatabase,
-    osmLocation,
-  );
   final String? title = osmLocation.getTitle();
   final String? subtitle = osmLocation.getSubtitle();
   final Widget child = SmoothCard(
     child: ListTile(
-      leading: IconButton(
-        icon: Icon(isFavorite ? Icons.favorite : Icons.favorite_border),
-        onPressed: () async =&gt; FavoriteLocationHelper().setFavorite(
-          localDatabase,
-          osmLocation,
-          !isFavorite,
-        ),
+      leading: Consumer&lt;LocalDatabase&gt;(
+        builder: (BuildContext context, LocalDatabase localDatabase, _) {
+          final bool isFavorite = FavoriteLocationHelper().isFavorite(
+            localDatabase,
+            osmLocation,
+          );
+
+          return IconButton(
+            icon: Icon(
+              isFavorite ? Icons.favorite : Icons.favorite_border,
+            ),
+            onPressed: () async =&gt; FavoriteLocationHelper().setFavorite(
+              localDatabase,
+              osmLocation,
+              !isFavorite,
+            ),
+          );
+        },
       ),
       onTap: () {
         if (popFirst) {
