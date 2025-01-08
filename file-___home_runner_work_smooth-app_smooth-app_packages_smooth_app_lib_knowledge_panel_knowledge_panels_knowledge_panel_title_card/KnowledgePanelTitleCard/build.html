@@ -82,9 +82,8 @@ Widget build(BuildContext context) {
   if (!(userPreferences.getFlag(
           UserPreferencesDevMode.userPreferencesFlagAccessibilityNoColor) ??
       false)) {
-    final ThemeData themeData = Theme.of(context);
     if (knowledgePanelTitleElement.iconColorFromEvaluation ?? false) {
-      if (themeData.brightness == Brightness.dark) {
+      if (context.darkTheme()) {
         colorFromEvaluation = _getColorFromEvaluationDarkMode(evaluation);
       } else {
         colorFromEvaluation = _getColorFromEvaluation(evaluation);
@@ -98,9 +97,12 @@ Widget build(BuildContext context) {
         flex: IconWidgetSizer.getIconFlex(),
         child: Center(
           child: AbstractCache.best(
-            iconUrl: knowledgePanelTitleElement.iconUrl,
-            width: 36,
-            height: 36,
+            iconUrl: _rewriteIconUrl(
+              context,
+              knowledgePanelTitleElement.iconUrl,
+            ),
+            width: 36.0,
+            height: 36.0,
             color: colorFromEvaluation,
           ),
         ),
@@ -134,6 +136,9 @@ Widget build(BuildContext context) {
             flex: IconWidgetSizer.getRemainingWidgetFlex(),
             child: LayoutBuilder(
               builder: (BuildContext context, BoxConstraints constraints) {
+                final bool hasSubtitle =
+                    knowledgePanelTitleElement.subtitle != null;
+
                 return Wrap(
                   direction: Axis.vertical,
                   children: &lt;Widget&gt;[
@@ -141,17 +146,28 @@ Widget build(BuildContext context) {
                       width: constraints.maxWidth,
                       child: Text(
                         knowledgePanelTitleElement.title,
-                        style: TextStyle(color: colorFromEvaluation),
+                        style: TextStyle(
+                          color: colorFromEvaluation,
+                          fontSize: hasSubtitle ? 15.5 : 15.0,
+                          fontWeight: hasSubtitle
+                              ? FontWeight.w500
+                              : FontWeight.normal,
+                        ),
                       ),
                     ),
-                    if (knowledgePanelTitleElement.subtitle != null)
-                      SizedBox(
-                        width: constraints.maxWidth,
-                        child: Text(
-                          knowledgePanelTitleElement.subtitle!,
-                          style: WellSpacedTextHelper
-                              .TEXT_STYLE_WITH_WELL_SPACED,
-                        ).selectable(isSelectable: !isClickable),
+                    if (hasSubtitle)
+                      Padding(
+                        padding: const EdgeInsetsDirectional.only(
+                          top: VERY_SMALL_SPACE,
+                        ),
+                        child: SizedBox(
+                          width: constraints.maxWidth,
+                          child: Text(
+                            knowledgePanelTitleElement.subtitle!,
+                            style: WellSpacedTextHelper
+                                .TEXT_STYLE_WITH_WELL_SPACED,
+                          ).selectable(isSelectable: !isClickable),
+                        ),
                       ),
                   ],
                 );
