@@ -528,7 +528,7 @@
     },
     "ingredients": "bahan",
     "@ingredients": {},
-    "ingredients_editing_instructions": "Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen and use parentheses for ingredients of an ingredient.",
+    "ingredients_editing_instructions": "Pertahankan urutan aslinya. Tunjukkan persentase bila ditentukan. Pisahkan dengan koma atau tanda hubung dan gunakan tanda kurung untuk bahan-bahan dari suatu bahan.",
     "ingredients_editing_error": "Gagal menyimpan komposisi.",
     "ingredients_editing_image_error": "Gagal untuk mendapatkan gambar bahan baru.",
     "ingredients_editing_title": "Sunting Komposisi",
@@ -562,7 +562,7 @@
     "@add_product_information_button_label": {},
     "new_product": "Produk Baru",
     "@new_product": {},
-    "new_product_found_title": "New product found!",
+    "new_product_found_title": "Produk baru ditemukan!",
     "@new_product_found_title": {
         "description": "Title of a dialog that informs the user that a barcode doesn't exist in the database"
     },
@@ -579,11 +579,11 @@
     "@new_product_leave_message": {
         "description": "Alert dialog message when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
     },
-    "new_product_dialog_description": "Please take photos of the packaging to add this product to our common database",
+    "new_product_dialog_description": "Silakan ambil foto kemasan untuk menambahkan produk ini ke basis data umum kami",
     "@new_product_dialog_description": {
         "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
     },
-    "new_product_dialog_illustration_description": "An illustration with unknown Nutri-Score and Green Score",
+    "new_product_dialog_illustration_description": "Ilustrasi untuk Nutri-Score dan GreenScore yang tidak diketahui",
     "@new_product_dialog_illustration_description": {
         "description": "A description for accessibility of two images side by side: a Nutri-Score and an Green Score."
     },
@@ -661,9 +661,9 @@
     "categories_added": "Kategori ditambahkan",
     "new_product_title_nutriscore": "Hitung Nutri-Score",
     "new_product_subtitle_nutriscore": "Dapatkan dengan mengisi kategori makanan dan nilai gizi",
-    "new_product_title_environmental_score": "Compute the Green Score",
-    "new_product_subtitle_environmental_score": "Get it by filling at least a category",
-    "new_product_additional_environmental_score": "Make Green Score computation more precise with origins, packaging & more",
+    "new_product_title_environmental_score": "Menghitung GreenScore",
+    "new_product_subtitle_environmental_score": "Dapatkan dengan mengisi minimal satu kategori",
+    "new_product_additional_environmental_score": "Bbuat perhitungan GreenScore lebih akurat dengan keaslian, kemasan dan lainnya",
     "new_product_title_nova": "Menghitung tingkat pengolahan makanan (NOVA)",
     "new_product_subtitle_nova": "Dapatkan dengan mengisi kategori makanan dan bahan makanan",
     "new_product_desc_nova_unknown": "Tingkat pemrosesan makanan tidak diketahui",
@@ -685,7 +685,7 @@
     "@new_product_done_button_label": {
         "description": "Button at the end of new product page, that takes you to completed product"
     },
-    "hey_incomplete_product_message": "Tap to answer 3 questions NOW to compute Nutri-Score, Green Score & Ultra-processing (NOVA)!",
+    "hey_incomplete_product_message": "Ketuk untuk menjawab 3 pertanyaan SEKARANG untuk menghitung Nutri-Score, GreenScore & Ultra-processing (NOVA)!",
     "hey_incomplete_product_message_beauty": "Ketuk sekarang untuk menjawab 2 pertanyaan untuk membantu menganalisis kosmetik ini!",
     "hey_incomplete_product_message_pet_food": "Ketuk sekarang untuk menjawab 3 pertanyaan untuk membantu menganalisis produk makanan hewan peliharaan ini!",
     "hey_incomplete_product_message_product": "Ketuk sekarang untuk membantu menyelesaikan produk ini!",
@@ -929,7 +929,7 @@
     "@product_improvement_obsolete_nutrition_image": {
         "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
     },
-    "product_improvement_origins_to_be_completed": "The Green Score takes into account the origins of the ingredients. Please take a photo of the ingredient list and/or any geographic claim or edit the product, so they can be taken into account.",
+    "product_improvement_origins_to_be_completed": "Greenscore memperhitungkan asal-usul bahan. Harap ambil foto daftar bahan dan/atau klaim geografis atau sunting produk, agar dapat diperhitungkan.",
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
@@ -1400,7 +1400,7 @@
     "@permission_photo_denied": {
         "description": "When the camera/photo permission is denied by user"
     },
-    "show_product_pictures": "Show product pictures",
+    "show_product_pictures": "Tampilkan gambar produk",
     "@show_product_pictures": {
         "description": "Button to show a list of product pictures"
     },
@@ -1412,7 +1412,7 @@
     "@edit_product_label_short": {
         "description": "Edit product button short label (only the verb)"
     },
-    "edit_product_form_item_help": "How to enter \"{value}\"?",
+    "edit_product_form_item_help": "Bagaimana cara memasukkan “{value}”?",
     "@edit_product_form_item_help": {
         "description": "Help text for the input field. Eg 'How to enter stores?'",
         "placeholders": {
@@ -1421,7 +1421,7 @@
             }
         }
     },
-    "edit_product_form_item_error_empty": "Please enter a non-empty value!",
+    "edit_product_form_item_error_empty": "Harap masukkan nilai yang tidak kosong!",
     "@edit_product_form_item_error_empty": {
         "description": "Error message when the user tries to submit an empty value"
     },
@@ -1466,7 +1466,7 @@
     "@edit_product_form_item_labels_subtitle": {
         "description": "Product edition - Labels - SubTitle"
     },
-    "edit_product_form_item_labels_hint": "Input a label (eg: NutriScore)",
+    "edit_product_form_item_labels_hint": "Masukkan label (misalnya: NutriScore)",
     "@edit_product_form_item_labels_hint": {
         "description": "Product edition - Labels - input textfield hint"
     },
@@ -1478,7 +1478,7 @@
     "@edit_product_form_item_stores_title": {
         "description": "Product edition - Stores - Title"
     },
-    "edit_product_form_item_stores_hint": "Input a store",
+    "edit_product_form_item_stores_hint": "Masukkan toko",
     "@edit_product_form_item_stores_hint": {
         "description": "Product edition - Stores - input textfield hint"
     },
@@ -1490,7 +1490,7 @@
     "@edit_product_form_item_origins_title": {
         "description": "Product edition - Origins - Title"
     },
-    "edit_product_form_item_origins_hint": "Input an origin (eg: Germany)",
+    "edit_product_form_item_origins_hint": "Masukkan negara asal (misalnya: Jerman)",
     "@edit_product_form_item_origins_hint": {
         "description": "Product edition - Origins - input textfield hint"
     },
@@ -1510,7 +1510,7 @@
     "@edit_product_form_item_countries_title": {
         "description": "Product edition - Countries - Title"
     },
-    "edit_product_form_item_countries_hint": "Input a country (eg: Germany)",
+    "edit_product_form_item_countries_hint": "Masukkan negara (misalnya: Jerman)",
     "@edit_product_form_item_countries_hint": {
         "description": "Product edition - Countries - input textfield hint"
     },
@@ -1526,7 +1526,7 @@
     "@edit_product_form_item_emb_codes_title": {
         "description": "Product edition - Traceability codes - Title"
     },
-    "edit_product_form_item_emb_codes_hint": "Input a code (eg: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522…)",
+    "edit_product_form_item_emb_codes_hint": "Masukkan kode (misal: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522…)",
     "@edit_product_form_item_emb_codes_hint": {
         "description": "Product edition - Traceability Codes - input textfield hint"
     },
@@ -1546,7 +1546,7 @@
     "@edit_product_form_item_categories_hint": {
         "description": "Product edition - Categories - input textfield hint"
     },
-    "edit_product_form_item_categories_type": "Input a category (eg: Orange juice)",
+    "edit_product_form_item_categories_type": "Masukkan kategori (misalnya: Jus jeruk)",
     "@edit_product_form_item_categories_type": {
         "description": "Product edition - Categories - input textfield type"
     },
@@ -2033,7 +2033,7 @@
             }
         }
     },
-    "prices_locations_list_length_many_pages": "Top {pageSize} locations (total: {total})",
+    "prices_locations_list_length_many_pages": "{pageSize} lokasi teratas (total: {total})",
     "@prices_locations_list_length_many_pages": {
         "description": "Number of locations for one-page result",
         "placeholders": {
@@ -2045,7 +2045,7 @@
             }
         }
     },
-    "prices_button_count_proof": "{count,plural, =0{No proof} =1{One proof} other{{count} proofs}}",
+    "prices_button_count_proof": "{count,plural, =0{Tidak ada bukti} =1{Satu bukti} other{{count} bukti}}",
     "@prices_button_count_proof": {
         "description": "Number of proofs, for a button",
         "placeholders": {
@@ -2054,7 +2054,7 @@
             }
         }
     },
-    "prices_button_count_product": "{count,plural, =0{No product} =1{One product} other{{count} products}}",
+    "prices_button_count_product": "{count,plural, =0{Tidak ada produk} =1{Satu produk} other{{count} produk}}",
     "@prices_button_count_product": {
         "description": "Number of products, for a button",
         "placeholders": {
@@ -2063,7 +2063,7 @@
             }
         }
     },
-    "prices_button_count_user": "{count,plural, =0{No user} =1{One user} other{{count} users}}",
+    "prices_button_count_user": "{count,plural, =0{Tidak ada pengguna} =1{Satu pengguna} other{{count} pengguna}}",
     "@prices_button_count_user": {
         "description": "Number of users, for a button",
         "placeholders": {
@@ -2072,7 +2072,7 @@
             }
         }
     },
-    "prices_button_count_price": "{count,plural, =0{No price} =1{One price} other{{count} prices}}",
+    "prices_button_count_price": "{count,plural, =0{Tidak ada harga} =1{Satu harga} other{{count} harga}}",
     "@prices_button_count_price": {
         "description": "Number of prices, for a button",
         "placeholders": {
@@ -2121,7 +2121,7 @@
     "@dev_preferences_show_folksonomy_title": {
         "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
     },
-    "dev_mode_hide_environmental_score_title": "Exclude Green Score",
+    "dev_mode_hide_environmental_score_title": "Kecualikan GreenScore",
     "@dev_mode_hide_environmental_score_title": {
         "description": "User dev preferences - Disable Green Score - Title"
     },
@@ -2212,7 +2212,7 @@
     "@all_search_prices_top_location_title": {
         "description": "Top price locations: list tile title"
     },
-    "all_search_prices_top_location_single_title": "Prices in a store",
+    "all_search_prices_top_location_single_title": "Harga di toko",
     "@all_search_prices_top_location_single_title": {
         "description": "Top price locations: list tile title"
     },
@@ -2317,13 +2317,13 @@
     "basic_details": "Informasi Dasar",
     "product_name": "Nama Produk",
     "add_basic_details_product_name_error": "Harap masukkan nama produk",
-    "add_basic_details_product_name_hint": "Input the name of the product (eg: Nutella)",
+    "add_basic_details_product_name_hint": "Masukkan nama produk (misalnya: Nutella)",
     "brand_name": "Nama merek",
-    "brand_names": "Brand names",
+    "brand_names": "Nama merek",
     "add_basic_details_brand_name_error": "Harap masukkan nama merek",
-    "add_basic_details_brand_names_hint": "Input brands (eg: Ferrero)",
+    "add_basic_details_brand_names_hint": "Masukkan merek (mis: Ferrero)",
     "quantity": "Kuantitas dan berat",
-    "add_basic_details_quantity_hint": "Input the weight and if needed the quantity (eg : 4x100g)",
+    "add_basic_details_quantity_hint": "Masukkan berat dan jika diperlukan jumlahnya (misalnya: 4x100g)",
     "barcode": "Kode batang",
     "barcode_barcode": "Kode batang: {barcode}",
     "@barcode_barcode": {
@@ -3114,8 +3114,8 @@
     "environmental_score_c": "Green Score C",
     "environmental_score_d": "Green Score D",
     "environmental_score_e": "Green Score E",
-    "environmental_score_unknown": "Unknown Green Score",
-    "environmental_score_not_applicable": "Green Score is not applicable",
+    "environmental_score_unknown": "Green Score tidak diketahui",
+    "environmental_score_not_applicable": "Green Score tidak berlaku",
     "nova_group_generic": "Pemrosesan ultra - grup NOVA",
     "nova_group_1": "NOVA Kelompok 1",
     "nova_group_2": "NOVA Kelompok 2",
@@ -3489,11 +3489,11 @@
     "@photo_rotate_right": {
         "description": "Button to rotate a photo to the right"
     },
-    "photo_undo_action": "Undo the previous action",
+    "photo_undo_action": "Urungkan tindakan sebelumnya",
     "@photo_undo_action": {
         "description": "Button to undo the previous action on a photo"
     },
-    "knowledge_panel_world_map_accessibility_label": "A world map of {location}",
+    "knowledge_panel_world_map_accessibility_label": "Peta dunia dari {location}",
     "@knowledge_panel_world_map_accessibility_label": {
         "description": "Accessibility label for the world map in the knowledge panel",
         "placeholders": {
@@ -3502,7 +3502,7 @@
             }
         }
     },
-    "open_street_map_contributor_attribution": "OpenStreetMap contributors",
+    "open_street_map_contributor_attribution": "Kontributor OpenStreetMap",
     "@open_street_map_contributor_attribution": {
         "description": "Attribution for OpenStreetMap contributors"
     }
