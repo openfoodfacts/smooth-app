@@ -10,6 +10,7 @@ import 'package:smooth_app/data_models/up_to_date_mixin.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_snackbar.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/image_field_extension.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
@@ -62,10 +63,9 @@ class NutritionPageLoaded extends StatefulWidget {
       if (context.mounted) {
         if (cache == null) {
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(
-                AppLocalizations.of(context).nutrition_cache_loading_error,
-              ),
+            SmoothFloatingSnackbar.error(
+              context: context,
+              text: AppLocalizations.of(context).nutrition_cache_loading_error,
             ),
           );
           return;
@@ -536,7 +536,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
         return false;
       }
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
+        SmoothFloatingSnackbar(
           // here I cheat and I reuse the only invalid case.
           content: Text(appLocalizations.nutrition_page_invalid_number),
         ),
