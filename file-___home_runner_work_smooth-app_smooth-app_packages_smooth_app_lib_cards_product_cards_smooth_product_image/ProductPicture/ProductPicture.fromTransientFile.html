@@ -63,7 +63,8 @@
 <li><span class="parameter" id="fromTransientFile-param-imageFoundBorder"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">imageFoundBorder</span> = <span class="default-value">0.0</span>, </span></li>
 <li><span class="parameter" id="fromTransientFile-param-imageNotFoundBorder"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">imageNotFoundBorder</span> = <span class="default-value">0.0</span>, </span></li>
 <li><span class="parameter" id="fromTransientFile-param-errorTextStyle"><span class="type-annotation">dynamic</span> <span class="parameter-name">errorTextStyle</span>, </span></li>
-<li><span class="parameter" id="fromTransientFile-param-noImageBuilder"><span class="type-annotation">dynamic</span> <span class="parameter-name">noImageBuilder</span>}</span></li>
+<li><span class="parameter" id="fromTransientFile-param-noImageBuilder"><span class="type-annotation">dynamic</span> <span class="parameter-name">noImageBuilder</span>, </span></li>
+<li><span class="parameter" id="fromTransientFile-param-blurFilter"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">blurFilter</span> = <span class="default-value">true</span>}</span></li>
 </ol>)
     </section>
 
@@ -89,6 +90,7 @@
   double imageNotFoundBorder = 0.0,
   TextStyle? errorTextStyle,
   WidgetBuilder? noImageBuilder,
+  bool blurFilter = true,
 }) : this._(
         transientFile: transientFile,
         product: product,
@@ -105,6 +107,7 @@
         showObsoleteIcon: showObsoleteIcon,
         showOwnerIcon: showOwnerIcon,
         noImageBuilder: noImageBuilder,
+        blurFilter: blurFilter,
       );</code></pre>
 </section>
 
@@ -137,6 +140,7 @@
     <li class="section-title">
       <a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_smooth_product_image/ProductPicture-class.html#instance-properties">Properties</a>
     </li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_smooth_product_image/ProductPicture/blurFilter.html">blurFilter</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_smooth_product_image/ProductPicture/borderRadius.html">borderRadius</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_smooth_product_image/ProductPicture/errorTextStyle.html">errorTextStyle</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_cards_product_cards_smooth_product_image/ProductPicture/fallbackUrl.html">fallbackUrl</a></li>

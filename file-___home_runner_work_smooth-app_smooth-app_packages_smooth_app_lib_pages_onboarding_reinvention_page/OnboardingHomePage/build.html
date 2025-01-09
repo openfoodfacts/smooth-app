@@ -85,8 +85,16 @@ Widget build(BuildContext context) {
               final LocalDatabase localDatabase =
                   context.read&lt;LocalDatabase&gt;();
 
-              await OnboardingLoader(localDatabase)
-                  .runAtNextTime(OnboardingPage.HOME_PAGE, context);
+              &#47;&#47;&#47; Enable crash reports and user tracking by default
+              &#47;&#47;&#47; (Can be disabled by the user later in the settings)
+              await userPreferences.setCrashReports(true);
+              await userPreferences.setUserTracking(true);
+
+              if (context.mounted) {
+                await OnboardingLoader(localDatabase)
+                    .runAtNextTime(OnboardingPage.HOME_PAGE, context);
+              }
+
               if (context.mounted) {
                 await OnboardingFlowNavigator(userPreferences).navigateToPage(
                   context,

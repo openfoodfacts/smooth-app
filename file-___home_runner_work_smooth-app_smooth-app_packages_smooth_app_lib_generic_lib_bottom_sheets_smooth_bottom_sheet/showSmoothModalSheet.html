@@ -55,7 +55,8 @@
 <span class="name ">showSmoothModalSheet</span>&lt;<wbr><span class="type-parameter">T</span>&gt;(<wbr><ol class="parameter-list"><li><span class="parameter" id="showSmoothModalSheet-param-context">{<span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">context</span>, </span></li>
 <li><span class="parameter" id="showSmoothModalSheet-param-builder"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">builder</span>, </span></li>
 <li><span class="parameter" id="showSmoothModalSheet-param-minHeight"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">minHeight</span>, </span></li>
-<li><span class="parameter" id="showSmoothModalSheet-param-maxHeight"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">maxHeight</span>}</span></li>
+<li><span class="parameter" id="showSmoothModalSheet-param-maxHeight"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">maxHeight</span>, </span></li>
+<li><span class="parameter" id="showSmoothModalSheet-param-useRootNavigator"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">useRootNavigator</span>}</span></li>
 </ol>)
 
     </section>
@@ -70,6 +71,7 @@
   required WidgetBuilder builder,
   double? minHeight,
   double? maxHeight,
+  bool? useRootNavigator,
 }) {
   BoxConstraints? constraints;
 
@@ -97,6 +99,7 @@
       borderRadius: BorderRadius.vertical(top: ROUNDED_RADIUS),
     ),
     builder: builder,
+    useRootNavigator: useRootNavigator ?? false,
     useSafeArea: true,
   );
 }</code></pre>

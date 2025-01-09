@@ -103,9 +103,6 @@
     case OnboardingPage.ECO_CARD_EXAMPLE:
     case OnboardingPage.PREFERENCES_PAGE:
     case OnboardingPage.PERMISSIONS_PAGE:
-      &#47;&#47; nothing special to do
-      return;
-    case OnboardingPage.CONSENT_PAGE:
       &#47;&#47; that was the last page of onboarding: after that, we clean up
       await _unloadData();
       return;

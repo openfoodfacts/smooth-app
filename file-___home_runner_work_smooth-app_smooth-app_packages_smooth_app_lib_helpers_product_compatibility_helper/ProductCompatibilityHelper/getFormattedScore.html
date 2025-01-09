@@ -52,7 +52,8 @@
       
 
 <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span>
-<span class="name ">getFormattedScore</span>(<wbr>)
+<span class="name ">getFormattedScore</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="getFormattedScore-param-singleDigitAllowed">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">singleDigitAllowed</span> = <span class="default-value">false</span>}</span></li>
+</ol>)
 
       
 
@@ -63,11 +64,11 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">String? getFormattedScore() {
+  <pre class="language-dart"><code class="language-dart">String? getFormattedScore({bool singleDigitAllowed = false}) {
   if (_score == null || status == MatchedProductStatusV2.UNKNOWN_MATCH) {
     return null;
-  } else if (_score == 0) {
-    return &#39;0&#39;;
+  } else if (_score == 0 || (singleDigitAllowed &amp;&amp; _score &lt; 10)) {
+    return _score.toStringAsFixed(0);
   }
 
   return NumberFormat(&#39;00&#39;).format(_score.toInt());

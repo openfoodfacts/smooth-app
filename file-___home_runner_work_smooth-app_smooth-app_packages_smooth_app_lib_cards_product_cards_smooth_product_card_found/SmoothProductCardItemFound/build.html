@@ -72,130 +72,97 @@
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
-  final UserPreferences userPreferences = context.watch&lt;UserPreferences&gt;();
-  final ProductPreferences productPreferences =
-      context.watch&lt;ProductPreferences&gt;();
-  final Size screenSize = MediaQuery.sizeOf(context);
   final ThemeData themeData = Theme.of(context);
-  final bool isDarkMode = themeData.colorScheme.brightness == Brightness.dark;
-  final List&lt;String&gt; excludedAttributeIds =
-      userPreferences.getExcludedAttributeIds();
-  final List&lt;Widget&gt; scores = &lt;Widget&gt;[];
-  final double iconSize = IconWidgetSizer.getIconSizeFromContext(context);
-  final List&lt;Attribute&gt; attributes = getPopulatedAttributes(
-    product,
-    SCORE_ATTRIBUTE_IDS,
-    excludedAttributeIds,
-  );
-  for (final Attribute attribute in attributes) {
-    scores.add(SvgIconChip(attribute.iconUrl!, height: iconSize));
-  }
-  final MatchedProductV2 matchedProduct = MatchedProductV2(
-    product,
-    productPreferences,
-  );
-  final ProductCompatibilityHelper helper =
-      ProductCompatibilityHelper.product(matchedProduct);
-  final Widget child = InkWell(
-    borderRadius: ROUNDED_BORDER_RADIUS,
-    onTap: onTap ??
-        () =&gt; AppNavigator.of(context).push(
-              AppRoutes.PRODUCT(
-                product.barcode!,
-                heroTag: heroTag,
-              ),
-              extra: product,
-            ),
-    onLongPress: () =&gt; onLongPress?.call(),
+
+  Widget child = Padding(
+    padding: const EdgeInsetsDirectional.symmetric(
+      horizontal: LARGE_SPACE,
+      vertical: LARGE_SPACE,
+    ),
     child: Material(
       type: MaterialType.transparency,
-      child: Ink(
-        decoration: BoxDecoration(
-          borderRadius: ROUNDED_BORDER_RADIUS,
-          color:
-              backgroundColor ?? (isDarkMode ? Colors.black : Colors.white),
-        ),
-        child: SmoothCard(
-          elevation: elevation,
-          color: Colors.transparent,
-          padding: const EdgeInsetsDirectional.all(VERY_SMALL_SPACE),
-          child: Row(
-            children: &lt;Widget&gt;[
-              SmoothMainProductImage(
-                product: product,
-                width: screenSize.width * 0.20,
-                height: screenSize.width * 0.20,
-              ),
-              const Padding(
-                padding: EdgeInsetsDirectional.only(start: VERY_SMALL_SPACE),
-              ),
-              Expanded(
-                child: SizedBox(
-                  height: screenSize.width * 0.2,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: &lt;Widget&gt;[
-                      Text(
-                        getProductName(product, appLocalizations),
-                        overflow: TextOverflow.ellipsis,
-                        style: themeData.textTheme.headlineMedium,
+      child: IntrinsicHeight(
+        child: Row(
+          children: &lt;Widget&gt;[
+            const _SmoothProductItemPicture(),
+            const SizedBox(width: BALANCED_SPACE),
+            Expanded(
+              child: SizedBox(
+                height: double.infinity,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: &lt;Widget&gt;[
+                    ConstrainedBox(
+                      constraints: BoxConstraints(
+                        minHeight:
+                            themeData.textTheme.headlineMedium!.fontSize! *
+                                2.0,
                       ),
-                      Text(
-                        getProductBrands(product, appLocalizations),
-                        overflow: TextOverflow.ellipsis,
-                        style: themeData.textTheme.titleMedium,
+                      child: Align(
+                        alignment: AlignmentDirectional.centerStart,
+                        child: Text(
+                          getProductName(product, appLocalizations),
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 2,
+                          style: const TextStyle(
+                            fontSize: 17.0,
+                            fontWeight: FontWeight.w700,
+                            height: 1.3,
+                          ),
+                        ),
                       ),
-                      Row(
-                        children: &lt;Widget&gt;[
-                          Icon(
-                            Icons.circle,
-                            size: 15,
-                            color: helper.getColor(context),
-                          ),
-                          const Padding(
-                            padding: EdgeInsetsDirectional.only(
-                                start: VERY_SMALL_SPACE),
-                          ),
-                          Expanded(
-                            child: FittedBox(
-                              fit: BoxFit.scaleDown,
-                              alignment: AlignmentDirectional.centerStart,
-                              child: Text(
-                                helper.getSubtitle(appLocalizations),
-                                style: themeData.textTheme.bodyMedium,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
+                    ),
+                    const SizedBox(height: VERY_SMALL_SPACE),
+                    Text(
+                      getProductBrands(product, appLocalizations),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: themeData.textTheme.bodyMedium,
+                    ),
+                    const Spacer(),
+                    const _SmoothProductItemScores()
+                  ],
                 ),
               ),
-              const Padding(
-                padding: EdgeInsetsDirectional.only(start: VERY_SMALL_SPACE),
-              ),
-              if (scores.isNotEmpty)
-                Padding(
-                  padding: const EdgeInsetsDirectional.all(VERY_SMALL_SPACE),
-                  child: Column(
-                    children: scores,
-                  ),
-                ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     ),
   );
-  &#47;&#47; TODO(monsieurtanuki): check localDatabase.upToDate.hasPendingChanges and display a &quot;pending changes&quot; mark if relevant
-  return Padding(
-    padding: const EdgeInsetsDirectional.symmetric(
-      horizontal: MEDIUM_SPACE,
-      vertical: SMALL_SPACE,
+
+  if (product.productType != ProductType.food) {
+    child = Stack(
+      children: &lt;Widget&gt;[
+        const PositionedDirectional(
+          bottom: 0.0,
+          end: 0.0,
+          child: _SmoothProductItemTypeIndicator(),
+        ),
+        child,
+      ],
+    );
+  }
+
+  return MultiProvider(
+    providers: &lt;SingleChildWidget&gt;[
+      Provider&lt;Product&gt;(
+        create: (_) =&gt; product,
+      ),
+      Provider&lt;String&gt;.value(value: heroTag),
+    ],
+    child: InkWell(
+      onTap: onTap ??
+          () =&gt; AppNavigator.of(context).push(
+                AppRoutes.PRODUCT(
+                  product.barcode!,
+                  heroTag: heroTag,
+                ),
+                extra: product,
+              ),
+      onLongPress: () =&gt; onLongPress?.call(),
+      child: child,
     ),
-    child: child,
   );
 }</code></pre>
 </section>

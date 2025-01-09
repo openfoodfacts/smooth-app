@@ -75,7 +75,7 @@ Widget build(BuildContext context) {
       ExternalScanCarouselManager.read(context);
   carouselManager.currentBarcode = barcode;
   final SmoothColorsThemeExtension themeExtension =
-      Theme.of(context).extension&lt;SmoothColorsThemeExtension&gt;()!;
+      context.extension&lt;SmoothColorsThemeExtension&gt;();
 
   _productPreferences = context.watch&lt;ProductPreferences&gt;();
   final LocalDatabase localDatabase = context.watch&lt;LocalDatabase&gt;();
