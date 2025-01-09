@@ -1001,6 +1001,22 @@ class Milk extends AppIcon {
     super.key,
   }) : super._(_IconsFont.milk);
 
+  const Milk.add({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.milk_add);
+
+  const Milk.download({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.milk_download);
+
   const Milk.happy({
     super.color,
     super.size,
@@ -1016,14 +1032,6 @@ class Milk extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.milk_filled_unhappy);
-
-  const Milk.download({
-    super.color,
-    super.size,
-    super.shadow,
-    super.semanticLabel,
-    super.key,
-  }) : super._(_IconsFont.milk_download);
 }
 
 class Move extends AppIcon {

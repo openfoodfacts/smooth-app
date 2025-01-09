@@ -5,6 +5,7 @@ class PictureNotFound extends StatelessWidget {
   const PictureNotFound({
     this.backgroundColor,
     this.foregroundColor,
+    this.style = PictureNotFoundStyle.happy,
     super.key,
   })  : backgroundDecoration = null,
         _useInk = false;
@@ -12,6 +13,7 @@ class PictureNotFound extends StatelessWidget {
   const PictureNotFound.decoration({
     this.backgroundDecoration,
     this.foregroundColor,
+    this.style = PictureNotFoundStyle.happy,
     super.key,
   })  : backgroundColor = null,
         _useInk = false;
@@ -19,6 +21,7 @@ class PictureNotFound extends StatelessWidget {
   const PictureNotFound.ink({
     this.backgroundDecoration,
     this.foregroundColor,
+    this.style = PictureNotFoundStyle.happy,
     super.key,
   })  : _useInk = true,
         backgroundColor = null;
@@ -27,6 +30,7 @@ class PictureNotFound extends StatelessWidget {
   final Color? backgroundColor;
   final Color? foregroundColor;
   final bool _useInk;
+  final PictureNotFoundStyle style;
 
   @override
   Widget build(BuildContext context) {
@@ -35,9 +39,14 @@ class PictureNotFound extends StatelessWidget {
         widthFactor: 0.5,
         heightFactor: 0.5,
         child: FittedBox(
-          child: icons.Milk.unhappy(
+          child: icons.AppIconTheme(
             color: foregroundColor ?? const Color(0xFF949494),
             size: 1000,
+            child: switch (style) {
+              PictureNotFoundStyle.happy => const icons.Milk.happy(),
+              PictureNotFoundStyle.sad => const icons.Milk.unhappy(),
+              PictureNotFoundStyle.add => const icons.Milk.add(),
+            },
           ),
         ),
       ),
@@ -77,4 +86,10 @@ class PictureNotFound extends StatelessWidget {
       );
     }
   }
+}
+
+enum PictureNotFoundStyle {
+  happy,
+  sad,
+  add,
 }

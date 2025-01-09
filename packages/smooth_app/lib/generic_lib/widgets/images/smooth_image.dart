@@ -146,7 +146,9 @@ class SmoothImage extends StatelessWidget {
           Colors.grey.withValues(alpha: 0.7),
           BlendMode.srcIn,
         ),
-        child: const SmoothAppLogo(),
+        child: const PictureNotFound(
+          style: PictureNotFoundStyle.sad,
+        ),
       ),
     );
   }

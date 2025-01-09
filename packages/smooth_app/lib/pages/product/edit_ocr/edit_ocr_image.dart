@@ -244,6 +244,7 @@ class _EditOCRImageNotFound extends StatelessWidget {
               backgroundDecoration: BoxDecoration(
                 borderRadius: ROUNDED_BORDER_RADIUS,
               ),
+              style: PictureNotFoundStyle.add,
             ),
           ),
           Align(

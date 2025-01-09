@@ -130,6 +130,7 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
                   builder: (_) => ProductImageSwipeableView.imageField(
                     imageField: _helper.getImageField(),
                     product: upToDateProduct,
+                    initialLanguage: _multilingualHelper.getCurrentLanguage(),
                     isLoggedInMandatory: widget.isLoggedInMandatory,
                   ),
                 ),
