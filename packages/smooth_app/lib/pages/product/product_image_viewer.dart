@@ -238,6 +238,7 @@ class _ProductImageViewerState extends State<ProductImageViewer>
                       displayedLanguage: widget.language,
                       selectedLanguages: selectedLanguages,
                       foregroundColor: Colors.white,
+                      checkedIcon: const Icon(Icons.camera_alt_rounded),
                       padding: const EdgeInsetsDirectional.symmetric(
                         horizontal: 13.0,
                         vertical: SMALL_SPACE,
