@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/data_models/onboarding_data_product.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 
@@ -19,30 +18,15 @@ class OnboardingLoader {
     final OnboardingPage page,
     final BuildContext context,
   ) async {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     switch (page) {
       case OnboardingPage.WELCOME:
-        final bool? downloaded = await LoadingDialog.run<bool>(
+        await LoadingDialog.run<bool>(
           context: context,
-          future: _downloadData(),
+          future: _downloadData().timeout(const Duration(seconds: 4)),
           title: AppLocalizations.of(context)
               .onboarding_welcome_loading_dialog_title,
           dismissible: false,
         );
-        if (downloaded != true) {
-          if (!context.mounted) {
-            return;
-          }
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(appLocalizations.onboarding_welcome_loading_error),
-              duration: SnackBarDuration.short,
-              behavior: SnackBarBehavior.floating,
-              elevation: 0,
-            ),
-          );
-        }
-        return;
       case OnboardingPage.NOT_STARTED:
       case OnboardingPage.HOME_PAGE:
       case OnboardingPage.HEALTH_CARD_EXAMPLE:
