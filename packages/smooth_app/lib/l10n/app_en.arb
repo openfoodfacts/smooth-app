@@ -744,6 +744,7 @@
     "score_add_missing_product_labels": "Add missing product labels",
     "score_add_missing_product_origins": "Add missing product origins",
     "score_add_missing_product_stores": "Add missing product stores",
+    "score_add_missing_product_brands": "Add missing product brands",
     "score_update_nutrition_facts": "Update nutrition facts",
     "nutrition_page_title": "Nutrition Facts",
     "nutrition_page_unspecified": "Nutrition facts are not specified on the product",
@@ -1412,6 +1413,10 @@
     "edit_product_form_item_error_empty": "Please enter a non-empty value!",
     "@edit_product_form_item_error_empty": {
         "description": "Error message when the user tries to submit an empty value"
+    },
+    "edit_product_form_item_error_existing": "This value is already added!",
+    "@edit_product_form_item_error_existing": {
+        "description": "Error message when the user tries to re-submit an existing value"
     },
     "@edit_product_label_short": {
         "description": "Edit product button short label (only the verb)"

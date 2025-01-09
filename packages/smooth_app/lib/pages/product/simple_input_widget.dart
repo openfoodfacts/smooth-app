@@ -20,12 +20,14 @@ class SimpleInputWidget extends StatefulWidget {
     required this.product,
     required this.controller,
     required this.displayTitle,
+    this.newElementsToTop = true,
   });
 
   final AbstractSimpleInputPageHelper helper;
   final Product product;
   final TextEditingController controller;
   final bool displayTitle;
+  final bool newElementsToTop;
 
   @override
   State<SimpleInputWidget> createState() => _SimpleInputWidgetState();
@@ -51,12 +53,6 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
   }
 
   @override
-  void dispose() {
-    _focusNode.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final String? explanations =
@@ -72,8 +68,9 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
       children: <Widget>[
         if (explanations != null && !widget.displayTitle)
           Padding(
-            padding:
-                const EdgeInsetsDirectional.symmetric(horizontal: SMALL_SPACE),
+            padding: const EdgeInsetsDirectional.symmetric(
+              horizontal: SMALL_SPACE,
+            ),
             child: ExplanationWidget(explanations),
           ),
         LayoutBuilder(
@@ -94,6 +91,8 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
                       focusNode: _focusNode,
                       constraints: constraints,
                       tagType: widget.helper.getTagType(),
+                      autocompleteManager:
+                          widget.helper.getAutocompleteManager(),
                       hintText: widget.helper.getAddHint(appLocalizations),
                       controller: widget.controller,
                       padding: const EdgeInsets.symmetric(
@@ -137,47 +136,7 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
             );
           },
         ),
-        AnimatedList(
-          key: _listKey,
-          initialItemCount: _localTerms.length,
-          padding:
-              const EdgeInsetsDirectional.symmetric(horizontal: SMALL_SPACE),
-          itemBuilder: (
-            BuildContext context,
-            int position,
-            Animation<double> animation,
-          ) {
-            final String term = _localTerms[position];
-            final Widget child = Text(term);
-
-            return KeyedSubtree(
-              key: ValueKey<String>(term),
-              child: SizeTransition(
-                sizeFactor: animation,
-                child: ListTile(
-                  trailing: Tooltip(
-                    message: appLocalizations
-                        .edit_product_form_item_remove_item_tooltip,
-                    child: InkWell(
-                      customBorder: const CircleBorder(),
-                      onTap: () => _onRemoveItem(term, child),
-                      child: const Padding(
-                        padding: EdgeInsets.all(SMALL_SPACE),
-                        child: Icon(Icons.delete),
-                      ),
-                    ),
-                  ),
-                  contentPadding: const EdgeInsetsDirectional.only(
-                    start: LARGE_SPACE,
-                  ),
-                  title: child,
-                ),
-              ),
-            );
-          },
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-        ),
+        _getList(appLocalizations),
         if (extraWidget != null)
           extraWidget
         else
@@ -206,14 +165,99 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
     );
   }
 
-  void _onAddItem() {
-    if (widget.controller.text.trim().isEmpty) {
-      final AppLocalizations appLocalizations = AppLocalizations.of(context);
+  Widget _getList(AppLocalizations appLocalizations) {
+    if (!widget.helper.reorderable) {
+      return AnimatedList(
+        key: _listKey,
+        initialItemCount: _localTerms.length,
+        padding: const EdgeInsetsDirectional.symmetric(horizontal: SMALL_SPACE),
+        itemBuilder: (
+          BuildContext context,
+          int position,
+          Animation<double> animation,
+        ) {
+          return KeyedSubtree(
+            key: ValueKey<String>(_localTerms[position]),
+            child: SizeTransition(
+              sizeFactor: animation,
+              child: _getItem(context, position),
+            ),
+          );
+        },
+        shrinkWrap: true,
+        physics: const NeverScrollableScrollPhysics(),
+      );
+    }
 
+    return ReorderableListView.builder(
+      padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
+      buildDefaultDragHandles: false,
+      itemBuilder: (BuildContext context, int index) {
+        return KeyedSubtree(
+          key: ValueKey<String>(_localTerms[index]),
+          child: _getItem(context, index),
+        );
+      },
+      itemCount: _localTerms.length,
+      onReorder: (int oldIndex, int newIndex) {
+        if (oldIndex < newIndex) {
+          newIndex--;
+        }
+
+        final String oldValue = _localTerms[oldIndex];
+        _localTerms.removeAt(oldIndex);
+        _localTerms.insert(newIndex, oldValue);
+        widget.helper.replaceItems(_localTerms);
+        setState(() {});
+      },
+      onReorderStart: (_) => SmoothHapticFeedback.lightNotification(),
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+    );
+  }
+
+  Widget _getItem(
+    BuildContext context,
+    int position,
+  ) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+    final String term = _localTerms[position];
+    final Text child = Text(term);
+
+    return ListTile(
+      leading: widget.helper.reorderable
+          ? ReorderableDelayedDragStartListener(
+              index: position,
+              child: const icons.Menu.hamburger(),
+            )
+          : null,
+      trailing: Tooltip(
+        message: appLocalizations.edit_product_form_item_remove_item_tooltip,
+        child: InkWell(
+          customBorder: const CircleBorder(),
+          onTap: () => _onRemoveItem(term, child),
+          child: const Padding(
+            padding: EdgeInsets.all(SMALL_SPACE),
+            child: Icon(Icons.delete),
+          ),
+        ),
+      ),
+      contentPadding: const EdgeInsetsDirectional.only(
+        start: LARGE_SPACE,
+      ),
+      title: child,
+    );
+  }
+
+  void _onAddItem() {
+    _focusNode.unfocus();
+
+    if (widget.controller.text.trim().isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
         SmoothFloatingSnackbar.error(
           context: context,
-          text: appLocalizations.edit_product_form_item_error_empty,
+          text: AppLocalizations.of(context).edit_product_form_item_error_empty,
         ),
       );
 
@@ -224,20 +268,38 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
       // Add new items to the top of our list
       final Iterable<String> newTerms = widget.helper.terms.diff(_localTerms);
       final int newTermsCount = newTerms.length;
-      _localTerms.insertAll(0, newTerms);
-      _listKey.currentState?.insertAllItems(0, newTermsCount);
-    }
 
-    SmoothHapticFeedback.lightNotification();
+      if (widget.newElementsToTop) {
+        _localTerms.insertAll(0, newTerms);
+        _listKey.currentState?.insertAllItems(0, newTermsCount);
+      } else {
+        _localTerms.addAll(newTerms);
+        _listKey.currentState?.insertItem(_localTerms.length - newTermsCount);
+      }
+
+      SmoothHapticFeedback.lightNotification();
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SmoothFloatingSnackbar.error(
+          context: context,
+          text: AppLocalizations.of(context)
+              .edit_product_form_item_error_existing,
+        ),
+      );
+
+      SmoothHapticFeedback.error();
+    }
   }
 
   void _onRemoveItem(String term, Widget child) {
     if (widget.helper.removeTerm(term)) {
       final int position = _localTerms.indexOf(term);
       if (position >= 0) {
-        _localTerms.remove(term);
-        _listKey.currentState?.removeItem(position,
-            (_, Animation<double> animation) {
+        _localTerms.removeAt(position);
+        _listKey.currentState?.removeItem(position, (
+          _,
+          Animation<double> animation,
+        ) {
           return FadeTransition(
             opacity: animation,
             child: SizeTransition(
@@ -246,10 +308,18 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
             ),
           );
         });
+
+        setState(() {});
       }
 
       SmoothHapticFeedback.lightNotification();
     }
+  }
+
+  @override
+  void dispose() {
+    _focusNode.dispose();
+    super.dispose();
   }
 }
 

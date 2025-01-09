@@ -14,7 +14,6 @@ import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/helpers/provider_helper.dart';
-import 'package:smooth_app/pages/input/smooth_autocomplete_text_field.dart';
 import 'package:smooth_app/pages/input/unfocus_field_when_tap_outside.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/product/common/product_buttons.dart';
@@ -22,6 +21,8 @@ import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
 import 'package:smooth_app/pages/product/multilingual_helper.dart';
 import 'package:smooth_app/pages/product/owner_field_info.dart';
+import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
+import 'package:smooth_app/pages/product/simple_input_widget.dart';
 import 'package:smooth_app/pages/text_field_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
@@ -50,15 +51,16 @@ class AddBasicDetailsPage extends StatefulWidget {
 
 class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
   final TextEditingController _productNameController = TextEditingController();
-  late final TextEditingControllerWithHistory _brandNameController;
+  final TextEditingController _brandsController = TextEditingController();
   late final TextEditingControllerWithHistory _weightController;
 
   final double _heightSpace = LARGE_SPACE;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   late final Product _product;
 
+  final SimpleInputPageBrandsHelper _brandsHelper =
+      SimpleInputPageBrandsHelper();
   late final MultilingualHelper _multilingualHelper;
-  final Key _autocompleteKey = UniqueKey();
   late final FocusNode _focusNode;
 
   /// Only used when there's not enough place
@@ -70,9 +72,6 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
     _product = widget.product;
     _weightController = TextEditingControllerWithHistory(
       text: MultilingualHelper.getCleanText(_product.quantity ?? ''),
-    );
-    _brandNameController = TextEditingControllerWithHistory(
-      text: _formatProductBrands(_product.brands),
     );
     _multilingualHelper = MultilingualHelper(
       controller: _productNameController,
@@ -86,26 +85,16 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
   }
 
   @override
-  void dispose() {
-    _productNameController.dispose();
-    _weightController.dispose();
-    _brandNameController.dispose();
-    _focusNode.dispose();
-    super.dispose();
-  }
-
-  String _formatProductBrands(String? text) => MultilingualHelper.getCleanText(
-        text == null ? '' : formatProductBrands(text),
-      );
-
-  @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-    Widget child = _buildForm(
-      context: context,
-      appLocalizations: appLocalizations,
-      showPhotos: _showPhotosBanner,
+    Widget child = Provider<Product>.value(
+      value: _product,
+      child: _buildForm(
+        context: context,
+        appLocalizations: appLocalizations,
+        showPhotos: _showPhotosBanner,
+      ),
     );
 
     if (_hasOwnerField()) {
@@ -152,6 +141,15 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _productNameController.dispose();
+    _brandsController.dispose();
+    _weightController.dispose();
+    _focusNode.dispose();
+    super.dispose();
   }
 
   Widget _buildForm({
@@ -205,11 +203,8 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                   ),
                   SizedBox(height: _heightSpace),
                   _ProductBrandsInputWidget(
-                    autocompleteKey: _autocompleteKey,
-                    focusNode: _focusNode,
-                    textController: _brandNameController,
-                    productType: _product.productType,
-                    ownerField: _isOwnerField(ProductField.BRANDS),
+                    textController: _brandsController,
+                    helper: _brandsHelper,
                   ),
                   SizedBox(height: _heightSpace),
                   _ProductQuantityInputWidget(
@@ -311,33 +306,38 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
 
   /// Returns a [Product] with the values from the text fields.
   Product? _getMinimalistProduct() {
-    Product? result;
-
-    Product getBasicProduct() => Product(barcode: _product.barcode);
+    final Product result = Product(barcode: _product.barcode);
+    bool hasChanged = false;
 
     if (_weightController.isDifferentFromInitialValue) {
-      result ??= getBasicProduct();
       result.quantity = _weightController.text;
+      hasChanged = true;
     }
-    if (_brandNameController.isDifferentFromInitialValue) {
-      result ??= getBasicProduct();
-      result.brands = _formatProductBrands(_brandNameController.text);
+
+    if (_brandsHelper.getChangedProduct(result)) {
+      hasChanged = true;
     }
+
     if (_multilingualHelper.isMonolingual()) {
       final String? changed = _multilingualHelper.getChangedMonolingualText();
       if (changed != null) {
-        result ??= getBasicProduct();
         result.productName = changed;
+        hasChanged = true;
       }
     } else {
       final Map<OpenFoodFactsLanguage, String>? changed =
           _multilingualHelper.getChangedMultilingualText();
       if (changed != null) {
-        result ??= getBasicProduct();
         result.productNameInLanguages = changed;
+        hasChanged = true;
       }
     }
-    return result;
+
+    if (hasChanged) {
+      return result;
+    } else {
+      return null;
+    }
   }
 
   bool _hasOwnerField() {
@@ -483,60 +483,22 @@ class _ProductMultilingualNameInputWidget extends StatelessWidget {
 
 class _ProductBrandsInputWidget extends StatelessWidget {
   const _ProductBrandsInputWidget({
-    required this.autocompleteKey,
-    required this.focusNode,
     required this.textController,
-    required this.productType,
-    required this.ownerField,
+    required this.helper,
   });
 
-  final Key autocompleteKey;
-  final FocusNode focusNode;
   final TextEditingController textController;
-  final ProductType? productType;
-  final bool ownerField;
+  final SimpleInputPageBrandsHelper helper;
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(builder: (
-      final BuildContext context,
-      final BoxConstraints constraints,
-    ) {
-      final AppLocalizations appLocalizations = AppLocalizations.of(context);
-
-      return _BasicDetailInputWrapper(
-        title: appLocalizations.brand_names,
-        icon: const icons.Fruit(),
-        ownerField: ownerField,
-        child: SmoothAutocompleteTextField(
-          focusNode: focusNode,
-          controller: textController,
-          autocompleteKey: autocompleteKey,
-          allowEmojis: false,
-          borderRadius: CIRCULAR_BORDER_RADIUS,
-          padding: const EdgeInsets.symmetric(
-            horizontal: LARGE_SPACE,
-            vertical: SMALL_SPACE,
-          ),
-          textStyle: DefaultTextStyle.of(context).style,
-          hintText: appLocalizations.add_basic_details_brand_names_hint,
-          constraints: constraints,
-          manager: AutocompleteManager(
-            TaxonomyNameAutocompleter(
-              taxonomyNames: <TaxonomyName>[TaxonomyName.brand],
-              // for brands, language must be English
-              language: OpenFoodFactsLanguage.ENGLISH,
-              user: ProductQuery.getReadUser(),
-              limit: 25,
-              fuzziness: Fuzziness.none,
-              uriHelper: ProductQuery.getUriProductHelper(
-                productType: productType,
-              ),
-            ),
-          ),
-        ),
-      );
-    });
+    return SimpleInputWidget(
+      helper: helper,
+      product: context.watch<Product>(),
+      controller: textController,
+      displayTitle: true,
+      newElementsToTop: false,
+    );
   }
 }
 
