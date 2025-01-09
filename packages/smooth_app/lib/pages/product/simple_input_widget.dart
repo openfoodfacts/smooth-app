@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -211,6 +213,16 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
         setState(() {});
       },
       onReorderStart: (_) => SmoothHapticFeedback.lightNotification(),
+      proxyDecorator: (Widget child, int index, Animation<double> animation) {
+        final double animValue = Curves.easeInOut.transform(animation.value);
+        final double elevation = lerpDouble(0, 1, animValue)!;
+
+        return Material(
+          elevation: elevation,
+          borderRadius: ANGULAR_BORDER_RADIUS,
+          child: child,
+        );
+      },
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
     );
