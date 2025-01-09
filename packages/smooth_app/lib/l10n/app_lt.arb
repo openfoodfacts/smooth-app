@@ -1584,11 +1584,11 @@
     "@edit_product_ingredients_list_title": {
         "description": "Product edition - Ingredients - Title"
     },
-    "edit_product_packaging_photo_title": "Packaging photo",
+    "edit_product_packaging_photo_title": "Pakuotės nuotrauka",
     "@edit_product_packaging_photo_title": {
         "description": "Product edition - Packaging - Title"
     },
-    "edit_product_packaging_list_title": "Packaging list",
+    "edit_product_packaging_list_title": "Pakuotės sąrašas",
     "@edit_product_packaging_list_title": {
         "description": "Product edition - Packaging - Title"
     },
@@ -1635,7 +1635,7 @@
     "@edit_packaging_extract_btn_text": {
         "description": "Packaging edition - OCR-Extract packaging"
     },
-    "edit_packaging_extract_btn_text_short": "Extract packaging",
+    "edit_packaging_extract_btn_text_short": "Pakuotės ištraukimas",
     "@edit_packaging_extract_btn_text_short": {
         "description": "Packaging edition - OCR-Extract packaging (short label)"
     },
@@ -1663,11 +1663,11 @@
     "@edit_ocr_extract_failed": {
         "description": "OCR extraction - message for failed"
     },
-    "edit_ocr_extract_disabled_title": "No picture!",
+    "edit_ocr_extract_disabled_title": "Nėra nuotraukos!",
     "@edit_ocr_extract_disabled_title": {
         "description": "OCR extraction - title for disabled"
     },
-    "edit_ocr_extract_disabled_message": "In order to use the text extraction feature, you must first take a photo.",
+    "edit_ocr_extract_disabled_message": "Kad galėtumėte naudoti teksto ištraukimo funkcija, pirmiausia būtina nufotografuoti.",
     "@edit_ocr_extract_disabled_message": {
         "description": "OCR extraction - message for disabled"
     },
