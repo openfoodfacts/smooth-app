@@ -33,8 +33,11 @@ import 'package:smooth_app/pages/scan/carousel/scan_carousel_manager.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/query/search_products_manager.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
+import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
+import 'package:smooth_app/widgets/smooth_expandable_floating_action_button.dart';
 import 'package:smooth_app/widgets/smooth_menu_button.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 import 'package:smooth_app/widgets/will_pop_scope.dart';
@@ -56,6 +59,7 @@ class ProductListPage extends StatefulWidget {
 class _ProductListPageState extends State<ProductListPage>
     with TraceableClientMixin, UpToDateProductListMixin {
   final Set<String> _selectedBarcodes = <String>{};
+  final ScrollController _scrollController = ScrollController();
   bool _selectionMode = false;
 
   @override
@@ -147,11 +151,20 @@ class _ProductListPageState extends State<ProductListPage>
               )
             : _selectionMode
                 ? null
-                : FloatingActionButton.extended(
+                : SmoothExpandableFloatingActionButton(
+                    scrollController: _scrollController,
                     onPressed: () => setState(() => _selectionMode = true),
-                    label:
-                        Text(appLocalizations.user_lists_action_multi_select),
+                    label: Text(
+                      appLocalizations.user_lists_action_multi_select,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 15.0,
+                      ),
+                    ),
                     icon: const Icon(Icons.checklist),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30.0),
+                    ),
                   ),
         appBar: SmoothAppBar(
           centerTitle: false,
@@ -181,6 +194,15 @@ class _ProductListPageState extends State<ProductListPage>
             onTap: () => _onChangeList(appLocalizations, daoProductList),
             enabled: widget.allowToSwitchBetweenLists,
           ),
+          backgroundColor: _selectionMode
+              ? context.lightTheme()
+                  ? context
+                      .extension<SmoothColorsThemeExtension>()
+                      .primaryMedium
+                  : context
+                      .extension<SmoothColorsThemeExtension>()
+                      .primarySemiDark
+              : null,
           titleSpacing: 0.0,
           actionMode: _selectionMode,
           onLeaveActionMode: () {
@@ -269,7 +291,8 @@ class _ProductListPageState extends State<ProductListPage>
                     localDatabase,
                     appLocalizations,
                   ),
-                  child: ListView.builder(
+                  child: ListView.separated(
+                    controller: _scrollController,
                     itemCount: products.length,
                     itemBuilder: (BuildContext context, int index) =>
                         _buildItem(
@@ -279,6 +302,8 @@ class _ProductListPageState extends State<ProductListPage>
                       localDatabase,
                       appLocalizations,
                     ),
+                    separatorBuilder: (BuildContext context, _) =>
+                        const Divider(),
                   ),
                 ),
               ),
@@ -356,11 +381,11 @@ class _ProductListPageState extends State<ProductListPage>
         direction: DismissDirection.endToStart,
         background: Container(
           alignment: AlignmentDirectional.centerEnd,
-          margin: const EdgeInsets.symmetric(vertical: 14),
           color: RED_COLOR,
-          padding: const EdgeInsetsDirectional.only(end: 30),
+          padding: const EdgeInsetsDirectional.only(end: 30.0),
           child: const Icon(
             Icons.delete,
+            size: 30.0,
             color: Colors.white,
           ),
         ),

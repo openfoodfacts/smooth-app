@@ -17,6 +17,7 @@ import 'package:smooth_app/helpers/extension_on_text_helper.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/provider_helper.dart';
 import 'package:smooth_app/resources/app_icons.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_text.dart';
@@ -72,9 +73,7 @@ class _ScanTagLineLoading extends StatelessWidget {
     final _ScanTagLineDensity density = context.read<_ScanTagLineDensity>();
 
     return Shimmer.fromColors(
-      baseColor: Theme.of(context)
-          .extension<SmoothColorsThemeExtension>()!
-          .primaryMedium,
+      baseColor: context.extension<SmoothColorsThemeExtension>().primaryMedium,
       highlightColor: Colors.white,
       child: SmoothCard(
         margin: EdgeInsets.zero,

@@ -30,11 +30,14 @@ class ProductPicture extends StatefulWidget {
     String? heroTag,
     bool showObsoleteIcon = false,
     bool showOwnerIcon = false,
-    BorderRadius? borderRadius,
+    BorderRadius? borderRadius = const BorderRadius.all(
+      Radius.circular(14.0),
+    ),
     double imageFoundBorder = 0.0,
     double imageNotFoundBorder = 0.0,
     TextStyle? errorTextStyle,
     WidgetBuilder? noImageBuilder,
+    bool blurFilter = true,
   }) : this._(
           transientFile: null,
           product: product,
@@ -51,6 +54,7 @@ class ProductPicture extends StatefulWidget {
           showObsoleteIcon: showObsoleteIcon,
           showOwnerIcon: showOwnerIcon,
           noImageBuilder: noImageBuilder,
+          blurFilter: blurFilter,
         );
 
   ProductPicture.fromTransientFile({
@@ -69,6 +73,7 @@ class ProductPicture extends StatefulWidget {
     double imageNotFoundBorder = 0.0,
     TextStyle? errorTextStyle,
     WidgetBuilder? noImageBuilder,
+    bool blurFilter = true,
   }) : this._(
           transientFile: transientFile,
           product: product,
@@ -85,6 +90,7 @@ class ProductPicture extends StatefulWidget {
           showObsoleteIcon: showObsoleteIcon,
           showOwnerIcon: showOwnerIcon,
           noImageBuilder: noImageBuilder,
+          blurFilter: blurFilter,
         );
 
   ProductPicture._({
@@ -93,6 +99,7 @@ class ProductPicture extends StatefulWidget {
     required this.language,
     required this.transientFile,
     required this.size,
+    required this.blurFilter,
     this.fallbackUrl,
     this.heroTag,
     this.onTap,
@@ -136,6 +143,8 @@ class ProductPicture extends StatefulWidget {
 
   /// Allows to change the placeholder
   final WidgetBuilder? noImageBuilder;
+
+  final bool blurFilter;
 
   @override
   State<ProductPicture> createState() => _ProductPictureState();
@@ -198,6 +207,7 @@ class _ProductPictureState extends State<ProductPicture> {
         showOwner: widget.showOwnerIcon,
         borderRadius: widget.borderRadius,
         border: widget.imageFoundBorder,
+        blurFilter: widget.blurFilter,
         onError: () {
           SchedulerBinding.instance.addPostFrameCallback((_) {
             setState(() => _imageError = true);
@@ -288,6 +298,7 @@ class _ProductPictureWithImageProvider extends StatelessWidget {
     required this.showOutdated,
     required this.showOwner,
     required this.border,
+    required this.blurFilter,
     this.imageField,
     this.borderRadius,
     this.heroTag,
@@ -305,6 +316,7 @@ class _ProductPictureWithImageProvider extends StatelessWidget {
   final BorderRadius? borderRadius;
   final double border;
   final String? heroTag;
+  final bool blurFilter;
 
   @override
   Widget build(BuildContext context) {
@@ -325,9 +337,12 @@ class _ProductPictureWithImageProvider extends StatelessWidget {
                 color: lightTheme ? Colors.white : Colors.black,
                 child: ClipRRect(
                   child: Opacity(
-                    opacity: lightTheme ? 0.3 : 0.55,
+                    opacity: lightTheme
+                        ? (blurFilter ? 0.3 : 0.05)
+                        : (blurFilter ? 0.55 : 0.15),
                     child: ImageFiltered(
                       imageFilter: ImageFilter.blur(sigmaX: 8.0, sigmaY: 8.0),
+                      enabled: blurFilter,
                       child: Image(
                         image: imageProvider,
                         fit: BoxFit.cover,

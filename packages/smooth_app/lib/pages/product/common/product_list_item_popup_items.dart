@@ -50,7 +50,6 @@ abstract class ProductListItemPopupItem {
         icon: getIconData(),
         label: getTitle(appLocalizations),
         enabled: enabled,
-        type: isDestructive() ? SmoothPopupMenuItemType.destructive : null,
       );
 }
 

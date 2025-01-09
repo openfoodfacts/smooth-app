@@ -3528,5 +3528,9 @@
     "open_street_map_contributor_attribution": "OpenStreetMap contributors",
     "@open_street_map_contributor_attribution": {
         "description": "Attribution for OpenStreetMap contributors"
+    },
+    "not_applicable_short": "N/A",
+    "@not_applicable_short": {
+        "description": "Acronym for Not Applicable"
     }
 }

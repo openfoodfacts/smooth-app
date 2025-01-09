@@ -6,8 +6,15 @@ class PictureNotFound extends StatelessWidget {
     this.backgroundColor,
     this.foregroundColor,
     super.key,
-  })  : _useInk = false,
-        backgroundDecoration = null;
+  })  : backgroundDecoration = null,
+        _useInk = false;
+
+  const PictureNotFound.decoration({
+    this.backgroundDecoration,
+    this.foregroundColor,
+    super.key,
+  })  : backgroundColor = null,
+        _useInk = false;
 
   const PictureNotFound.ink({
     this.backgroundDecoration,
@@ -53,8 +60,19 @@ class PictureNotFound extends StatelessWidget {
         child: child,
       );
     } else {
-      return ColoredBox(
-        color: backgroundColor ?? const Color(0xFFE5E5E5),
+      final BoxDecoration decoration;
+      if (backgroundDecoration != null && backgroundDecoration!.color == null) {
+        decoration = backgroundDecoration!.copyWith(
+          color: backgroundColor ?? const Color(0xFFE5E5E5),
+        );
+      } else {
+        decoration = BoxDecoration(
+          color: backgroundColor ?? const Color(0xFFE5E5E5),
+        );
+      }
+
+      return DecoratedBox(
+        decoration: decoration,
         child: child,
       );
     }

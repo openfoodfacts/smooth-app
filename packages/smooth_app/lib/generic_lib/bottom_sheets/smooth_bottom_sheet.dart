@@ -15,6 +15,7 @@ Future<T?> showSmoothModalSheet<T>({
   required WidgetBuilder builder,
   double? minHeight,
   double? maxHeight,
+  bool? useRootNavigator,
 }) {
   BoxConstraints? constraints;
 
@@ -42,6 +43,7 @@ Future<T?> showSmoothModalSheet<T>({
       borderRadius: BorderRadius.vertical(top: ROUNDED_RADIUS),
     ),
     builder: builder,
+    useRootNavigator: useRootNavigator ?? false,
     useSafeArea: true,
   );
 }

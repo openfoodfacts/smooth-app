@@ -83,7 +83,6 @@ class ProductTitleCard extends StatelessWidget {
                     imageFoundBorder: 1.0,
                     imageNotFoundBorder: 1.0,
                     heroTag: heroTag,
-                    borderRadius: BorderRadius.circular(14.0),
                     noImageBuilder: (_) => const PictureNotFound(),
                     onTap: !dense
                         ? () async => Navigator.push<void>(

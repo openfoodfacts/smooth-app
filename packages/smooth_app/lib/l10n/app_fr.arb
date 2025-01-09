@@ -3524,5 +3524,9 @@
     "photo_undo_action": "Undo the previous action",
     "@photo_undo_action": {
         "description": "Button to undo the previous action on a photo"
+    },
+    "not_applicable_short": "N/A",
+    "@not_applicable_short": {
+        "description": "Acronym for Not Applicable"
     }
 }

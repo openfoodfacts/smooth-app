@@ -1,8 +1,7 @@
-import 'dart:io';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 
 /// A Button similar to a [PopupMenuButton] for non Apple platforms.
 /// On iOS and macOS, it's still an [IconButton], but that opens a
@@ -20,9 +19,9 @@ class SmoothPopupMenuButton<T> extends StatefulWidget {
   final void Function(T value) onSelected;
   final Iterable<SmoothPopupMenuItem<T>> Function(BuildContext context)
       itemBuilder;
+  final String? actionsTitle;
   final Icon? buttonIcon;
   final String? buttonLabel;
-  final String? actionsTitle;
 
   @override
   State<SmoothPopupMenuButton<T>> createState() =>
@@ -32,63 +31,52 @@ class SmoothPopupMenuButton<T> extends StatefulWidget {
 class _SmoothPopupMenuButtonState<T> extends State<SmoothPopupMenuButton<T>> {
   @override
   Widget build(BuildContext context) {
-    if (Platform.isIOS || Platform.isMacOS) {
-      return IconButton(
-        icon: widget.buttonIcon ?? Icon(Icons.adaptive.more),
-        tooltip: widget.buttonLabel ??
-            MaterialLocalizations.of(context).showMenuTooltip,
-        onPressed: _openModalSheet,
-      );
-    } else {
-      return PopupMenuButton<T>(
-        icon: widget.buttonIcon ?? Icon(Icons.adaptive.more),
-        tooltip: widget.buttonLabel ??
-            MaterialLocalizations.of(context).showMenuTooltip,
-        onSelected: widget.onSelected,
-        itemBuilder: (BuildContext context) {
-          return widget.itemBuilder(context).map((SmoothPopupMenuItem<T> item) {
-            return PopupMenuItem<T>(
-              value: item.value,
-              enabled: item.enabled,
-              child: ListTile(
-                leading: Icon(item.icon),
-                title: Text(item.label),
-              ),
-            );
-          }).toList(growable: false);
-        },
-      );
-    }
+    return IconButton(
+      icon: widget.buttonIcon ?? Icon(Icons.adaptive.more),
+      tooltip: widget.buttonLabel ??
+          MaterialLocalizations.of(context).showMenuTooltip,
+      onPressed: _openModalSheet,
+    );
   }
 
-  // iOS and macOS behavior
   void _openModalSheet() {
-    showCupertinoModalPopup(
-        context: context,
-        builder: (BuildContext context) {
-          return CupertinoActionSheet(
-            title: Text(
-              widget.actionsTitle ??
-                  AppLocalizations.of(context).menu_button_list_actions,
+    showSmoothModalSheet(
+      context: context,
+      useRootNavigator: true,
+      builder: (BuildContext context) {
+        final Iterable<SmoothPopupMenuItem<T>> list = widget
+            .itemBuilder(context)
+            .where((SmoothPopupMenuItem<T> item) => item.enabled);
+
+        return SmoothModalSheet(
+          title: widget.actionsTitle ??
+              AppLocalizations.of(context).menu_button_list_actions,
+          prefixIndicator: true,
+          bodyPadding: EdgeInsets.zero,
+          body: ListView.separated(
+            padding: EdgeInsetsDirectional.only(
+              bottom: MediaQuery.viewPaddingOf(context).bottom,
             ),
-            actions: widget
-                .itemBuilder(context)
-                .where((SmoothPopupMenuItem<T> item) => item.enabled)
-                .map((SmoothPopupMenuItem<T> item) {
-              return CupertinoActionSheetAction(
-                isDefaultAction:
-                    item.type == SmoothPopupMenuItemType.highlighted,
-                isDestructiveAction:
-                    item.type == SmoothPopupMenuItemType.destructive,
-                onPressed: () {
+            itemCount: widget.itemBuilder(context).length,
+            shrinkWrap: true,
+            itemBuilder: (BuildContext context, int index) {
+              final SmoothPopupMenuItem<T> item = list.elementAt(index);
+
+              return ListTile(
+                leading: item.icon != null ? Icon(item.icon) : null,
+                title: Text(item.label),
+                onTap: () {
                   widget.onSelected(item.value);
                   Navigator.of(context).maybePop();
                 },
-                child: Text(item.label),
               );
-            }).toList(growable: false),
-          );
-        });
+            },
+            separatorBuilder: (BuildContext context, int index) =>
+                const Divider(),
+          ),
+        );
+      },
+    );
   }
 }
 
@@ -97,22 +85,11 @@ class SmoothPopupMenuItem<T> {
     required this.value,
     required this.label,
     this.icon,
-    this.type,
     this.enabled = true,
   }) : assert(label.length > 0);
 
   final T value;
   final String label;
   final IconData? icon;
-  final SmoothPopupMenuItemType? type;
   final bool enabled;
-}
-
-/// The style of an item in the menu
-/// On Material platforms, all values behave the same.
-/// On iOS, the [highlighted] value is in black and [destructive] in red.
-enum SmoothPopupMenuItemType {
-  normal,
-  highlighted,
-  destructive,
 }
