@@ -1414,7 +1414,7 @@
     "@edit_product_form_item_error_empty": {
         "description": "Error message when the user tries to submit an empty value"
     },
-    "edit_product_form_item_error_existing": "This value is already added!",
+    "edit_product_form_item_error_existing": "This value is already there!",
     "@edit_product_form_item_error_existing": {
         "description": "Error message when the user tries to re-submit an existing value"
     },
