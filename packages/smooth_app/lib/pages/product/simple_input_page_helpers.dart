@@ -137,6 +137,7 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
             isLoggedInMandatory: false,
           ),
           iconData: Icons.add_a_photo,
+          elevation: const WidgetStatePropertyAll<double>(0.0),
           padding: const EdgeInsetsDirectional.only(
             top: SMALL_SPACE,
             bottom: SMALL_SPACE,
