@@ -6,6 +6,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
+import 'package:smooth_app/pages/product/multilingual_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 
@@ -32,7 +33,10 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
     notifyListeners();
   }
 
-  final String _separator = ',';
+  String get separator => ',';
+
+  /// Is the list of terms reorderable?
+  bool get reorderable => false;
 
   /// Returns the terms as they were initially in the product.
   ///
@@ -103,6 +107,9 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
   /// Returns the tag type for autocomplete suggestions.
   TagType? getTagType();
 
+  /// Instead of the tag type, returns the autocomplete manager.
+  AutocompleteManager? getAutocompleteManager() => null;
+
   /// Returns the icon data for the list tile.
   Widget getIcon();
 
@@ -164,7 +171,7 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
     if (input.isEmpty) {
       return <String>[];
     }
-    return input.split(_separator);
+    return input.split(separator);
   }
 
   /// Returns the current language.
@@ -188,11 +195,91 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
     return result;
   }
 
+  /// Mainly used when reordering the list.
+  void replaceItems(final List<String> items) {
+    _terms = items;
+    _changed = true;
+    notifyListeners();
+  }
+
   /// Returns the enum to be used for matomo analytics.
   AnalyticsEditEvents getAnalyticsEditEvent();
 
   /// Returns true if the field is an owner field.
   bool isOwnerField(final Product product) => false;
+}
+
+/// Implementation for "Brands" of an [AbstractSimpleInputPageHelper].
+class SimpleInputPageBrandsHelper extends AbstractSimpleInputPageHelper {
+  @override
+  String get separator => ', ';
+
+  @override
+  bool get reorderable => true;
+
+  @override
+  List<String> initTerms(final Product product) => splitString(product.brands);
+
+  @override
+  void changeProduct(final Product changedProduct) =>
+      changedProduct.brands = MultilingualHelper.getCleanText(
+        formatProductBrands(terms.join(separator)),
+      );
+
+  @override
+  String getTitle(final AppLocalizations appLocalizations) =>
+      appLocalizations.brand_names;
+
+  @override
+  String getAddButtonLabel(final AppLocalizations appLocalizations) =>
+      appLocalizations.score_add_missing_product_brands;
+
+  @override
+  String getAddHint(final AppLocalizations appLocalizations) =>
+      appLocalizations.add_basic_details_brand_names_hint;
+
+  @override
+  String getTypeLabel(AppLocalizations appLocalizations) =>
+      appLocalizations.brand_names;
+
+  @override
+  TagType? getTagType() => null;
+
+  @override
+  AutocompleteManager? getAutocompleteManager() => AutocompleteManager(
+        TaxonomyNameAutocompleter(
+          taxonomyNames: <TaxonomyName>[TaxonomyName.brand],
+          // for brands, language must be English
+          language: OpenFoodFactsLanguage.ENGLISH,
+          user: ProductQuery.getReadUser(),
+          limit: 25,
+          fuzziness: Fuzziness.none,
+          uriHelper: ProductQuery.getUriProductHelper(
+            productType: product.productType,
+          ),
+        ),
+      );
+
+  @override
+  Widget getIcon() => const icons.Fruit();
+
+  @override
+  bool isOwnerField(Product product) =>
+      product.getOwnerFieldTimestamp(
+        OwnerField.productField(
+          ProductField.BRANDS,
+          ProductQuery.getLanguage(),
+        ),
+      ) !=
+      null;
+
+  @override
+  BackgroundTaskDetailsStamp getStamp() =>
+      BackgroundTaskDetailsStamp.basicDetails;
+
+  @override
+  AnalyticsEditEvents getAnalyticsEditEvent() =>
+      AnalyticsEditEvents.basicDetails;
 }
 
 /// Implementation for "Stores" of an [AbstractSimpleInputPageHelper].
@@ -202,7 +289,7 @@ class SimpleInputPageStoreHelper extends AbstractSimpleInputPageHelper {
 
   @override
   void changeProduct(final Product changedProduct) =>
-      changedProduct.stores = terms.join(_separator);
+      changedProduct.stores = terms.join(separator);
 
   @override
   String getTitle(final AppLocalizations appLocalizations) =>
@@ -240,7 +327,7 @@ class SimpleInputPageOriginHelper extends AbstractSimpleInputPageHelper {
 
   @override
   void changeProduct(final Product changedProduct) =>
-      changedProduct.origins = terms.join(_separator);
+      changedProduct.origins = terms.join(separator);
 
   @override
   String getTitle(final AppLocalizations appLocalizations) =>
@@ -296,7 +383,7 @@ class SimpleInputPageEmbCodeHelper extends AbstractSimpleInputPageHelper {
 
   @override
   void changeProduct(final Product changedProduct) =>
-      changedProduct.embCodes = terms.join(_separator);
+      changedProduct.embCodes = terms.join(separator);
 
   @override
   String getTitle(final AppLocalizations appLocalizations) =>
@@ -355,7 +442,7 @@ class SimpleInputPageLabelHelper extends AbstractSimpleInputPageHelper {
     changedProduct.labelsTagsInLanguages =
         <OpenFoodFactsLanguage, List<String>>{getLanguage(): terms};
     // for the server - write-only
-    changedProduct.labels = terms.join(_separator);
+    changedProduct.labels = terms.join(separator);
   }
 
   @override
@@ -425,7 +512,7 @@ class SimpleInputPageCategoryHelper extends AbstractSimpleInputPageHelper {
     changedProduct.categoriesTagsInLanguages =
         <OpenFoodFactsLanguage, List<String>>{getLanguage(): terms};
     // for the server - write-only
-    changedProduct.categories = terms.join(_separator);
+    changedProduct.categories = terms.join(separator);
   }
 
   @override
@@ -484,7 +571,7 @@ class SimpleInputPageCountryHelper extends AbstractSimpleInputPageHelper {
     changedProduct.countriesTagsInLanguages =
         <OpenFoodFactsLanguage, List<String>>{getLanguage(): terms};
     // for the server - write-only
-    changedProduct.countries = terms.join(_separator);
+    changedProduct.countries = terms.join(separator);
   }
 
   @override

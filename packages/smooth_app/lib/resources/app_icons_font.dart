@@ -257,6 +257,8 @@ class _IconsFont {
       IconData(0xe87e, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData move =
       IconData(0xe87f, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData milk_add =
+      IconData(0xe880, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData share_cupertino =
       IconData(0xe8a4, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData share_material =
