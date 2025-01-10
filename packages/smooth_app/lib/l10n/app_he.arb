@@ -744,7 +744,7 @@
     "score_add_missing_product_labels": "הוספת תוויות מוצר חסרות",
     "score_add_missing_product_origins": "הוספת מקורות מוצר חסרים",
     "score_add_missing_product_stores": "הוספת חנויות מוצר חסרות",
-    "score_add_missing_product_brands": "Add missing product brands",
+    "score_add_missing_product_brands": "הוספת מותגי מוצרים חסרים",
     "score_update_nutrition_facts": "עדכון העובדות התזונתיות",
     "nutrition_page_title": "מפרט תזונתי",
     "nutrition_page_unspecified": "העובדות התזונתיות לא מופיעות על המוצר",
@@ -795,7 +795,7 @@
     },
     "product_image_outdated": "יכול להיות שהתמונה הזאת לא עדכנית",
     "product_image_outdated_explanations_title": "יכול להיות שהתמונה הזאת לא עדכנית",
-    "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that's it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
+    "product_image_outdated_explanations_content": "התמונה הזאת צולמה לפני יותר משנה.\n**נא לבדוק שהיא עדיין עדכנית**.\n\nזוהי **רק אזהרה**. אם התוכן עדיין זהה, אפשר להתעלם מההודעה הזאת.",
     "@product_image_outdated_explanations_content": {
         "description": "Please keep the ** syntax to make the text bold"
     },
@@ -1415,7 +1415,7 @@
     "@edit_product_form_item_error_empty": {
         "description": "Error message when the user tries to submit an empty value"
     },
-    "edit_product_form_item_error_existing": "This value is already there!",
+    "edit_product_form_item_error_existing": "הערך הזה כבר נמצא במקום!",
     "@edit_product_form_item_error_existing": {
         "description": "Error message when the user tries to re-submit an existing value"
     },
