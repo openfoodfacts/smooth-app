@@ -33,7 +33,6 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
     notifyListeners();
   }
 
-  /// Doesn't need to be overridden (only for brands).
   String get separator => ',';
 
   /// Is the list of terms reorderable?
