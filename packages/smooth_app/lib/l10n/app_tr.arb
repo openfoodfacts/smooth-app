@@ -744,6 +744,7 @@
     "score_add_missing_product_labels": "Eksik ürün etiketlerini ekleyin",
     "score_add_missing_product_origins": "Eksik ürün menşelerini ekleyin",
     "score_add_missing_product_stores": "Eksik ürün mağazalarını ekleyin",
+    "score_add_missing_product_brands": "Add missing product brands",
     "score_update_nutrition_facts": "Besin değerleri bilgilerini güncelle",
     "nutrition_page_title": "Besin Değerleri",
     "nutrition_page_unspecified": "Ürünün üzerinde besin değerleri bilgisi yer almıyor",
@@ -1225,10 +1226,6 @@
     "@onboarding_welcome_loading_dialog_title": {
         "description": "Title for the onboarding loading dialog"
     },
-    "onboarding_welcome_loading_error": "Dilinizde örnek ürün yok gibi görünüyor",
-    "@onboarding_welcome_loading_error": {
-        "description": "Seems like there is no example product in your language"
-    },
     "product_list_your_ranking": "Sıralamanız",
     "@product_list_your_ranking": {
         "description": "Your ranking screen title"
@@ -1417,6 +1414,10 @@
     "edit_product_form_item_error_empty": "Please enter a non-empty value!",
     "@edit_product_form_item_error_empty": {
         "description": "Error message when the user tries to submit an empty value"
+    },
+    "edit_product_form_item_error_existing": "This value is already there!",
+    "@edit_product_form_item_error_existing": {
+        "description": "Error message when the user tries to re-submit an existing value"
     },
     "edit_product_form_item_add_action": "Yeni bir {itemType} ekle",
     "description": "Kullanıcı (+) düğmesine uzun bastığında gösterilecek araç ipucu",
