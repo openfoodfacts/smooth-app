@@ -72,13 +72,14 @@
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
-  return SmoothCard(
-    child: Column(
-      children: &lt;Widget&gt;[
-        Text(appLocalizations.prices_currency_subtitle),
-        PriceCurrencySelector(),
-      ],
+  return SmoothCardWithRoundedHeader(
+    title: appLocalizations.prices_currency_subtitle,
+    leading: const Icon(Icons.price_change),
+    contentPadding: const EdgeInsetsDirectional.symmetric(
+      horizontal: SMALL_SPACE,
+      vertical: MEDIUM_SPACE,
     ),
+    child: PriceCurrencySelector(),
   );
 }</code></pre>
 </section>

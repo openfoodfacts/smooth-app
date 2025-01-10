@@ -73,10 +73,15 @@
 Widget build(BuildContext context) {
   final PriceModel model = context.watch&lt;PriceModel&gt;();
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
-  return SmoothCard(
+  return SmoothCardWithRoundedHeader(
+    title: appLocalizations.prices_proof_subtitle,
+    leading: const Icon(Icons.document_scanner_rounded),
+    contentPadding: const EdgeInsetsDirectional.symmetric(
+      horizontal: SMALL_SPACE,
+      vertical: MEDIUM_SPACE,
+    ),
     child: Column(
       children: &lt;Widget&gt;[
-        Text(appLocalizations.prices_proof_subtitle),
         if (model.proof != null)
           Image(
             image: NetworkImage(
@@ -99,26 +104,31 @@ Widget build(BuildContext context) {
               height: constraints.maxWidth,
             ),
           ),
-        SmoothLargeButtonWithIcon(
-          text: !model.hasImage
-              ? appLocalizations.prices_proof_find
-              : model.proofType == ProofType.receipt
-                  ? appLocalizations.prices_proof_receipt
-                  : appLocalizations.prices_proof_price_tag,
-          icon: !model.hasImage ? _iconTodo : _iconDone,
-          onPressed: model.proof != null
-              ? null
-              : () async {
-                  final _ProofSource? proofSource =
-                      await _ProofSource.select(context);
-                  if (proofSource == null) {
-                    return;
-                  }
-                  if (!context.mounted) {
-                    return;
-                  }
-                  return proofSource.process(context, model);
-                },
+        Padding(
+          padding: const EdgeInsetsDirectional.symmetric(
+            horizontal: SMALL_SPACE,
+          ),
+          child: SmoothLargeButtonWithIcon(
+            text: !model.hasImage
+                ? appLocalizations.prices_proof_find
+                : model.proofType == ProofType.receipt
+                    ? appLocalizations.prices_proof_receipt
+                    : appLocalizations.prices_proof_price_tag,
+            icon: !model.hasImage ? _iconTodo : _iconDone,
+            onPressed: model.proof != null
+                ? null
+                : () async {
+                    final _ProofSource? proofSource =
+                        await _ProofSource.select(context);
+                    if (proofSource == null) {
+                      return;
+                    }
+                    if (!context.mounted) {
+                      return;
+                    }
+                    return proofSource.process(context, model);
+                  },
+          ),
         ),
         LayoutBuilder(
           builder: (BuildContext context, BoxConstraints constraints) =&gt; Row(

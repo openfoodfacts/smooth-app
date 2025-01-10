@@ -75,42 +75,42 @@ Widget build(BuildContext context) {
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
   final String locale = ProductQuery.getLocaleString();
   final DateFormat dateFormat = DateFormat.yMd(locale);
-  return SmoothCard(
-    child: Column(
-      children: &lt;Widget&gt;[
-        Text(appLocalizations.prices_date_subtitle),
-        SmoothLargeButtonWithIcon(
-          text: dateFormat.format(model.date),
-          icon: Icons.calendar_month,
-          onPressed: model.proof != null
-              ? null
-              : () async {
-                  final DateTime? newDate = await showDatePicker(
-                    context: context,
-                    locale: Locale(ProductQuery.getLanguage().offTag),
-                    firstDate: model.firstDate,
-                    lastDate: model.today,
-                    builder:
-                        (final BuildContext context, final Widget? child) {
-                      &#47;&#47; for some reason we don&#39;t have a fine display without that theme.
-                      &#47;&#47; cf. https:&#47;&#47;stackoverflow.com&#47;questions&#47;50321182&#47;how-to-customize-a-date-picker
-                      final ThemeData themeData =
-                          Theme.of(context).brightness == Brightness.light
-                              ? ThemeData.light()
-                              : ThemeData.dark();
-                      return Theme(
-                        data: themeData.copyWith(),
-                        child: child!,
-                      );
-                    },
+  return SmoothCardWithRoundedHeader(
+    title: appLocalizations.prices_date_subtitle,
+    leading: const Icon(Icons.calendar_month),
+    contentPadding: const EdgeInsetsDirectional.symmetric(
+      horizontal: SMALL_SPACE,
+      vertical: MEDIUM_SPACE,
+    ),
+    child: SmoothLargeButtonWithIcon(
+      text: dateFormat.format(model.date),
+      icon: Icons.calendar_month,
+      onPressed: model.proof != null
+          ? null
+          : () async {
+              final DateTime? newDate = await showDatePicker(
+                context: context,
+                locale: Locale(ProductQuery.getLanguage().offTag),
+                firstDate: model.firstDate,
+                lastDate: model.today,
+                builder: (final BuildContext context, final Widget? child) {
+                  &#47;&#47; for some reason we don&#39;t have a fine display without that theme.
+                  &#47;&#47; cf. https:&#47;&#47;stackoverflow.com&#47;questions&#47;50321182&#47;how-to-customize-a-date-picker
+                  final ThemeData themeData =
+                      Theme.of(context).brightness == Brightness.light
+                          ? ThemeData.light()
+                          : ThemeData.dark();
+                  return Theme(
+                    data: themeData.copyWith(),
+                    child: child!,
                   );
-                  if (newDate == null) {
-                    return;
-                  }
-                  model.date = newDate;
                 },
-        ),
-      ],
+              );
+              if (newDate == null) {
+                return;
+              }
+              model.date = newDate;
+            },
     ),
   );
 }</code></pre>
