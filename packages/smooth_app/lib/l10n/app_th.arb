@@ -744,6 +744,7 @@
     "score_add_missing_product_labels": "เพิ่มฉลากผลิตภัณฑ์",
     "score_add_missing_product_origins": "เพิ่มแหล่งที่มาของผลิตภัณฑ์",
     "score_add_missing_product_stores": "เพิ่มร้านค้าสินค้า",
+    "score_add_missing_product_brands": "Add missing product brands",
     "score_update_nutrition_facts": "อัพเดทข้อมูลโภชนาการ",
     "nutrition_page_title": "ข้อมูลโภชนาการ",
     "nutrition_page_unspecified": "ไม่ได้ระบุข้อมูลโภชนาการบนผลิตภัณฑ์",
@@ -1225,10 +1226,6 @@
     "@onboarding_welcome_loading_dialog_title": {
         "description": "Title for the onboarding loading dialog"
     },
-    "onboarding_welcome_loading_error": "Seems like there is no example product in your language",
-    "@onboarding_welcome_loading_error": {
-        "description": "Seems like there is no example product in your language"
-    },
     "product_list_your_ranking": "Your ranking",
     "@product_list_your_ranking": {
         "description": "Your ranking screen title"
@@ -1417,6 +1414,10 @@
     "edit_product_form_item_error_empty": "Please enter a non-empty value!",
     "@edit_product_form_item_error_empty": {
         "description": "Error message when the user tries to submit an empty value"
+    },
+    "edit_product_form_item_error_existing": "This value is already there!",
+    "@edit_product_form_item_error_existing": {
+        "description": "Error message when the user tries to re-submit an existing value"
     },
     "edit_product_form_item_add_action": "Add a new {itemType}",
     "description": "Tooltip to show when the user long presses the (+) button",
