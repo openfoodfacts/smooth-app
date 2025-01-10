@@ -744,7 +744,7 @@
     "score_add_missing_product_labels": "Додайте відсутні етикетки продуктів",
     "score_add_missing_product_origins": "Додати відсутню категорію продукту",
     "score_add_missing_product_stores": "Додайте відсутні магазини продуктів",
-    "score_add_missing_product_brands": "Add missing product brands",
+    "score_add_missing_product_brands": "Додати відсутні бренди товарів",
     "score_update_nutrition_facts": "Оновити поживні речовини",
     "nutrition_page_title": "Детальна харчова цінність",
     "nutrition_page_unspecified": "На продукті не вказані поживні речовини",
@@ -1415,7 +1415,7 @@
     "@edit_product_form_item_error_empty": {
         "description": "Error message when the user tries to submit an empty value"
     },
-    "edit_product_form_item_error_existing": "This value is already there!",
+    "edit_product_form_item_error_existing": "Це значення вже є!",
     "@edit_product_form_item_error_existing": {
         "description": "Error message when the user tries to re-submit an existing value"
     },
