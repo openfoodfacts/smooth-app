@@ -1313,7 +1313,7 @@
         }
     },
     "settings_app_app": "Application",
-    "settings_app_data": "Privacy & monitoring",
+    "settings_app_data": "அம்சங்கள் & செயலிழப்பு கண்காணிப்பு",
     "settings_app_camera": "Camera",
     "settings_app_products": "Products",
     "settings_app_miscellaneous": "Miscellaneous",
@@ -1340,7 +1340,7 @@
     "@app_haptic_feedback_subtitle": {
         "description": "SubTitle for the Haptic feedback toggle"
     },
-    "crash_reporting_toggle_title": "Crash reporting",
+    "crash_reporting_toggle_title": "பிழைகள் மற்றும் செயலிழப்புகளைப் புகாரளிக்கவும்",
     "@crash_reporting_toggle_title": {
         "description": "Title for the Crash reporting toggle"
     },
@@ -1348,11 +1348,11 @@
     "@crash_reporting_toggle_subtitle": {
         "description": "SubTitle for the Crash reporting toggle"
     },
-    "send_anonymous_data_toggle_title": "Send anonymous data",
+    "send_anonymous_data_toggle_title": "அம்சத்தின் பயன்பாட்டை எங்களுக்குத் தெரிவிக்கவும்",
     "@send_anonymous_toggle_title": {
         "description": "Title for the Send anonymous data toggle"
     },
-    "send_anonymous_data_toggle_subtitle": "When enabled, some anonymous information regarding app usage will be sent to the Open Food Facts servers, so that we can understand how and how much features are used in order to improve them.",
+    "send_anonymous_data_toggle_subtitle": "இயக்கப்பட்டால், அம்சத்தைப் பயன்படுத்துவது தொடர்பான கண்டிப்பாக அநாமதேயத் தகவல்கள், ஓபன் ஃபுட் ஃபேக்ட்ஸ் சர்வர்களுக்கு அனுப்பப்படும், இதன் மூலம் அம்சங்களை மேம்படுத்தும் வகையில் அம்சங்கள் எவ்வாறு பயன்படுத்தப்படுகின்றன என்பதை நாம் புரிந்து கொள்ள முடியும். இல்லையெனில், 0 ஐடி அனுப்பப்படும்.",
     "@send_anonymous_toggle_subtitle": {
         "description": "SubTitle for the Send anonymous data toggle"
     },
