@@ -744,6 +744,7 @@
     "score_add_missing_product_labels": "Додайте відсутні етикетки продуктів",
     "score_add_missing_product_origins": "Додати відсутню категорію продукту",
     "score_add_missing_product_stores": "Додайте відсутні магазини продуктів",
+    "score_add_missing_product_brands": "Add missing product brands",
     "score_update_nutrition_facts": "Оновити поживні речовини",
     "nutrition_page_title": "Детальна харчова цінність",
     "nutrition_page_unspecified": "На продукті не вказані поживні речовини",
@@ -794,7 +795,7 @@
     },
     "product_image_outdated": "Це зображення може бути застарілим",
     "product_image_outdated_explanations_title": "Це зображення може бути застарілим",
-    "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that's it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
+    "product_image_outdated_explanations_content": "Це фото зроблено більше року тому.\n**Будь ласка, перевірте, чи воно досі актуальне**.\n\nЦе **лише попередження**. Якщо вміст залишається незмінним, ви можете проігнорувати це повідомлення.",
     "@product_image_outdated_explanations_content": {
         "description": "Please keep the ** syntax to make the text bold"
     },
@@ -1225,10 +1226,6 @@
     "@onboarding_welcome_loading_dialog_title": {
         "description": "Title for the onboarding loading dialog"
     },
-    "onboarding_welcome_loading_error": "Здається, немає прикладу продукту вашою мовою",
-    "@onboarding_welcome_loading_error": {
-        "description": "Seems like there is no example product in your language"
-    },
     "product_list_your_ranking": "Ваш рейтинг",
     "@product_list_your_ranking": {
         "description": "Your ranking screen title"
@@ -1417,6 +1414,10 @@
     "edit_product_form_item_error_empty": "Будь ласка, введіть непорожнє значення!",
     "@edit_product_form_item_error_empty": {
         "description": "Error message when the user tries to submit an empty value"
+    },
+    "edit_product_form_item_error_existing": "This value is already there!",
+    "@edit_product_form_item_error_existing": {
+        "description": "Error message when the user tries to re-submit an existing value"
     },
     "edit_product_form_item_add_action": "Додати новий {itemType}",
     "description": "Підказка, яка показується, коли користувач довго натискає кнопку (+)",
