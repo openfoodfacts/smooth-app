@@ -744,6 +744,7 @@
     "score_add_missing_product_labels": "Thêm nhãn sản phẩm còn thiếu",
     "score_add_missing_product_origins": "Thêm nguồn gốc sản phẩm còn thiếu",
     "score_add_missing_product_stores": "Thêm cửa hàng bán sản phẩm còn thiếu",
+    "score_add_missing_product_brands": "Add missing product brands",
     "score_update_nutrition_facts": "Cập nhật thông tin dinh dưỡng",
     "nutrition_page_title": "Giá trị dinh dưỡng",
     "nutrition_page_unspecified": "Thành phần dinh dưỡng không được chỉ định trên sản phẩm",
@@ -1225,10 +1226,6 @@
     "@onboarding_welcome_loading_dialog_title": {
         "description": "Title for the onboarding loading dialog"
     },
-    "onboarding_welcome_loading_error": "Có vẻ không có sản phẩm mẫu nào bằng ngôn ngữ của bạn",
-    "@onboarding_welcome_loading_error": {
-        "description": "Seems like there is no example product in your language"
-    },
     "product_list_your_ranking": "Xếp hạng của bạn",
     "@product_list_your_ranking": {
         "description": "Your ranking screen title"
@@ -1417,6 +1414,10 @@
     "edit_product_form_item_error_empty": "Please enter a non-empty value!",
     "@edit_product_form_item_error_empty": {
         "description": "Error message when the user tries to submit an empty value"
+    },
+    "edit_product_form_item_error_existing": "This value is already there!",
+    "@edit_product_form_item_error_existing": {
+        "description": "Error message when the user tries to re-submit an existing value"
     },
     "edit_product_form_item_add_action": "Add a new {itemType}",
     "description": "Tooltip to show when the user long presses the (+) button",
