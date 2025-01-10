@@ -744,6 +744,7 @@
     "score_add_missing_product_labels": "Pridėkite trūkstamas produktų eitketes",
     "score_add_missing_product_origins": "Pridėti trūkstamas produktų kilmes",
     "score_add_missing_product_stores": "Pridėti trūkstamas produktų parduotuves",
+    "score_add_missing_product_brands": "Add missing product brands",
     "score_update_nutrition_facts": "Atnaujinkite mitybos faktus",
     "nutrition_page_title": "Maistingumo faktai",
     "nutrition_page_unspecified": "Mitybos faktai ant gaminio nenurodyti",
@@ -794,7 +795,7 @@
     },
     "product_image_outdated": "Ši vaizdas gali būti pasenęs",
     "product_image_outdated_explanations_title": "Ši vaizdas gali būti pasenęs",
-    "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that's it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
+    "product_image_outdated_explanations_content": "Ši nuotrauka daryta seniau negu prieš metus.\n**Patikrinkite, ar jis vis dar aktuali**.\n\nTai **tik įspėjimas**. Jei turinys vis dar toks pat, galite nepaisyti šio pranešimo.",
     "@product_image_outdated_explanations_content": {
         "description": "Please keep the ** syntax to make the text bold"
     },
@@ -1225,10 +1226,6 @@
     "@onboarding_welcome_loading_dialog_title": {
         "description": "Title for the onboarding loading dialog"
     },
-    "onboarding_welcome_loading_error": "Panašu, kad jūsų kalba nėra produkto pavyzdžio",
-    "@onboarding_welcome_loading_error": {
-        "description": "Seems like there is no example product in your language"
-    },
     "product_list_your_ranking": "Jūsų reitingas",
     "@product_list_your_ranking": {
         "description": "Your ranking screen title"
@@ -1417,6 +1414,10 @@
     "edit_product_form_item_error_empty": "Įveskite netuščią vertę!",
     "@edit_product_form_item_error_empty": {
         "description": "Error message when the user tries to submit an empty value"
+    },
+    "edit_product_form_item_error_existing": "This value is already there!",
+    "@edit_product_form_item_error_existing": {
+        "description": "Error message when the user tries to re-submit an existing value"
     },
     "edit_product_form_item_add_action": "Pridėkite naują {itemType}",
     "description": "Tooltip to show when the user long presses the (+) button",
