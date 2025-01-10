@@ -64,7 +64,6 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
       context,
       widget.product,
     );
-    final bool isOwnerField = widget.helper.isOwnerField(widget.product);
 
     final Widget child = Column(
       mainAxisSize: MainAxisSize.min,
@@ -106,7 +105,6 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
                         start: 3.0,
                       ),
                       productType: widget.product.productType,
-                      suffixIcon: !isOwnerField ? null : const OwnerFieldIcon(),
                       borderRadius: const BorderRadius.all(
                         Radius.circular(20.0),
                       ),
@@ -149,16 +147,16 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
       ],
     );
 
+    final Widget? trailingHeader = _getTrailingHeader(
+      explanations,
+      appLocalizations,
+    );
+
     return SmoothCardWithRoundedHeader(
       leading: widget.helper.getIcon(),
       title: widget.helper.getTitle(appLocalizations),
-      trailing: explanations != null && widget.displayTitle
-          ? ExplanationTitleIcon(
-              text: explanations,
-              type: widget.helper.getTitle(appLocalizations),
-            )
-          : null,
-      titlePadding: explanations != null && widget.displayTitle
+      trailing: trailingHeader,
+      titlePadding: trailingHeader != null
           ? const EdgeInsetsDirectional.only(
               top: 2.0,
               start: LARGE_SPACE,
@@ -168,6 +166,36 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
           : null,
       child: child,
     );
+  }
+
+  Widget? _getTrailingHeader(
+    String? explanations,
+    AppLocalizations appLocalizations,
+  ) {
+    if (!widget.displayTitle) {
+      return null;
+    }
+
+    final List<Widget> children = <Widget>[
+      if (widget.helper.isOwnerField(widget.product))
+        const OwnerFieldSmoothCardIcon(),
+      if (explanations != null)
+        ExplanationTitleIcon(
+          text: explanations,
+          type: widget.helper.getTitle(appLocalizations),
+        ),
+    ];
+
+    if (children.isEmpty) {
+      return null;
+    } else if (children.length == 1) {
+      return children.first;
+    } else {
+      return Row(
+        mainAxisSize: MainAxisSize.min,
+        children: children,
+      );
+    }
   }
 
   Widget _getList(AppLocalizations appLocalizations) {

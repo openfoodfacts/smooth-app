@@ -128,9 +128,11 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
     final String title,
   ) =>
       Padding(
-        padding: const EdgeInsets.symmetric(
-          vertical: SMALL_SPACE,
-          horizontal: SMALL_SPACE,
+        padding: const EdgeInsetsDirectional.only(
+          top: 0,
+          start: SMALL_SPACE,
+          end: SMALL_SPACE,
+          bottom: SMALL_SPACE,
         ),
         child: addPanelButton(
           title,
@@ -171,7 +173,9 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
     if (input.isEmpty) {
       return <String>[];
     }
-    return input.split(separator);
+    return input.split(separator.trim()).map((String e) => e.trim()).toList(
+          growable: false,
+        );
   }
 
   /// Returns the current language.
