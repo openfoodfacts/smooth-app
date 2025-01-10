@@ -11,7 +11,6 @@ import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/num_utils.dart';
 import 'package:smooth_app/pages/image/product_image_helper.dart';
 import 'package:smooth_app/pages/product/edit_ocr/edit_ocr_page.dart';
-import 'package:smooth_app/pages/product/edit_ocr/edit_ocr_textfield.dart';
 import 'package:smooth_app/pages/product/edit_ocr/ocr_helper.dart';
 import 'package:smooth_app/pages/product/owner_field_info.dart';
 import 'package:smooth_app/resources/app_animations.dart';

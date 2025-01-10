@@ -329,23 +329,6 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
     }
   }
 
-  bool _hasOwnerField() {
-    if (_multilingualHelper.isMonolingual()) {
-      if (_isOwnerField(ProductField.NAME)) {
-        return true;
-      }
-    } else {
-      if (_isOwnerField(
-        ProductField.NAME_IN_LANGUAGES,
-        language: _multilingualHelper.getCurrentLanguage(),
-      )) {
-        return true;
-      }
-    }
-    return _isOwnerField(ProductField.BRANDS) ||
-        _isOwnerField(ProductField.QUANTITY);
-  }
-
   bool _isOwnerField(
     final ProductField productField, {
     final OpenFoodFactsLanguage? language,
