@@ -107,14 +107,21 @@ Widget build(BuildContext context) {
             color: extension.warning,
             borderRadius: ROUNDED_BORDER_RADIUS,
           ),
-          child: const Padding(
-            padding: EdgeInsetsDirectional.only(
-              top: 6.5,
-              bottom: 7.5,
-              start: 7.0,
-              end: 7.0,
+          child: Material(
+            type: MaterialType.transparency,
+            child: InkWell(
+              customBorder: const CircleBorder(),
+              onTap: () =&gt; _openOutdatedPictureExplanations(context),
+              child: const Padding(
+                padding: EdgeInsetsDirectional.only(
+                  top: 6.5,
+                  bottom: 7.5,
+                  start: 7.0,
+                  end: 7.0,
+                ),
+                child: icons.Outdated(size: 15.0),
+              ),
             ),
-            child: icons.Outdated(size: 15.0),
           ),
         ),
       );

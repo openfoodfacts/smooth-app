@@ -54,7 +54,8 @@
 <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a></span>
 <span class="name ">openLanguageSelector</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="openLanguageSelector-param-context"><span class="type-annotation">dynamic</span> <span class="parameter-name">context</span>, </span></li>
 <li><span class="parameter" id="openLanguageSelector-param-selectedLanguages">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Iterable-class.html">Iterable</a>?</span> <span class="parameter-name">selectedLanguages</span>, </span></li>
-<li><span class="parameter" id="openLanguageSelector-param-languagePriority"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">languagePriority</span>}</span></li>
+<li><span class="parameter" id="openLanguageSelector-param-languagePriority"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">languagePriority</span>, </span></li>
+<li><span class="parameter" id="openLanguageSelector-param-checkedIcon"><span class="type-annotation">dynamic</span> <span class="parameter-name">checkedIcon</span>}</span></li>
 </ol>)
 
       
@@ -75,6 +76,7 @@ static Future&lt;OpenFoodFactsLanguage?&gt; openLanguageSelector(
   final BuildContext context, {
   final Iterable&lt;OpenFoodFactsLanguage&gt;? selectedLanguages,
   required final LanguagePriority languagePriority,
+  final Widget? checkedIcon,
 }) async {
   final ScrollController scrollController = ScrollController();
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
@@ -139,7 +141,8 @@ static Future&lt;OpenFoodFactsLanguage?&gt; openLanguageSelector(
                 selectedLanguages.contains(language);
             return ListTile(
               dense: true,
-              trailing: selected ? const Icon(Icons.check) : null,
+              trailing:
+                  selected ? (checkedIcon ?? const Icon(Icons.check)) : null,
               title: TextHighlighter(
                 text: _getCompleteName(language),
                 filter: languageSelectorController.text,
@@ -196,6 +199,7 @@ static Future&lt;OpenFoodFactsLanguage?&gt; openLanguageSelector(
       <a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_language_selector/LanguageSelector-class.html#instance-properties">Properties</a>
     </li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_language_selector/LanguageSelector/borderRadius.html">borderRadius</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_language_selector/LanguageSelector/checkedIcon.html">checkedIcon</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_language_selector/LanguageSelector/displayedLanguage.html">displayedLanguage</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_language_selector/LanguageSelector/foregroundColor.html">foregroundColor</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>

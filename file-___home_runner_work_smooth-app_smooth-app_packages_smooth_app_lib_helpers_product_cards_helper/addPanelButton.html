@@ -57,7 +57,8 @@
 <li><span class="parameter" id="addPanelButton-param-textAlign"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">textAlign</span>, </span></li>
 <li><span class="parameter" id="addPanelButton-param-padding"><span class="type-annotation">dynamic</span> <span class="parameter-name">padding</span>, </span></li>
 <li><span class="parameter" id="addPanelButton-param-onPressed"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">onPressed</span>(<ol class="parameter-list"></ol>
-)}</span></li>
+), </span></li>
+<li><span class="parameter" id="addPanelButton-param-elevation"><span class="type-annotation">dynamic</span> <span class="parameter-name">elevation</span>}</span></li>
 </ol>)
 
     </section>
@@ -73,12 +74,14 @@
   final String? textAlign,
   final EdgeInsetsGeometry? padding,
   required final Function() onPressed,
+  WidgetStateProperty&lt;double?&gt;? elevation,
 }) =&gt;
     Padding(
       padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
       child: SmoothLargeButtonWithIcon(
         text: label,
         icon: iconData ?? Icons.add,
+        elevation: elevation,
         onPressed: onPressed,
         textAlign: iconData == null ? TextAlign.center : null,
         padding: padding,

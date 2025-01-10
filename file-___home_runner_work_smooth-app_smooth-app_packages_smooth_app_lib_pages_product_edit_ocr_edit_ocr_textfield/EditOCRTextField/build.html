@@ -170,6 +170,8 @@ Widget build(BuildContext context) {
                       ),
                     ),
                   ),
+                  onTapOutside: (_) =&gt;
+                      FocusManager.instance.primaryFocus?.unfocus(),
                 ),
               );
             },
