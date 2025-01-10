@@ -744,7 +744,7 @@
     "score_add_missing_product_labels": "Fehlende Etiketten für Produkte hinzufügen",
     "score_add_missing_product_origins": "Fehlende Herkunft der Produkte hinzufügen",
     "score_add_missing_product_stores": "Fehlende Shops für Produkte hinzufügen",
-    "score_add_missing_product_brands": "Add missing product brands",
+    "score_add_missing_product_brands": "Fehlende Produktmarken hinzufügen",
     "score_update_nutrition_facts": "Nährwertangaben aktualisieren",
     "nutrition_page_title": "Nährwertangaben",
     "nutrition_page_unspecified": "Auf dem Produkt sind keine Nährwertangaben angegeben",
@@ -795,7 +795,7 @@
     },
     "product_image_outdated": "Dieses Bild ist möglicherweise veraltet",
     "product_image_outdated_explanations_title": "Dieses Bild ist möglicherweise veraltet",
-    "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that's it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
+    "product_image_outdated_explanations_content": "Dieses Bild wurde vor mehr als einem Jahr aufgenommen.\n**Bitte prüfen Sie, ob es noch aktuell ist**.\n\nDies ist **nur ein Warnhinweis**. Wenn der Inhalt immer noch derselbe ist, können Sie diese Meldung ignorieren.",
     "@product_image_outdated_explanations_content": {
         "description": "Please keep the ** syntax to make the text bold"
     },
@@ -1415,7 +1415,7 @@
     "@edit_product_form_item_error_empty": {
         "description": "Error message when the user tries to submit an empty value"
     },
-    "edit_product_form_item_error_existing": "This value is already there!",
+    "edit_product_form_item_error_existing": "Dieser Wert ist bereits vorhanden!",
     "@edit_product_form_item_error_existing": {
         "description": "Error message when the user tries to re-submit an existing value"
     },
