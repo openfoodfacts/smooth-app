@@ -744,7 +744,7 @@
     "score_add_missing_product_labels": "Pridėkite trūkstamas produktų eitketes",
     "score_add_missing_product_origins": "Pridėti trūkstamas produktų kilmes",
     "score_add_missing_product_stores": "Pridėti trūkstamas produktų parduotuves",
-    "score_add_missing_product_brands": "Add missing product brands",
+    "score_add_missing_product_brands": "Pridėti trūkstamus produktų prekių ženklus",
     "score_update_nutrition_facts": "Atnaujinkite mitybos faktus",
     "nutrition_page_title": "Maistingumo faktai",
     "nutrition_page_unspecified": "Mitybos faktai ant gaminio nenurodyti",
@@ -1415,7 +1415,7 @@
     "@edit_product_form_item_error_empty": {
         "description": "Error message when the user tries to submit an empty value"
     },
-    "edit_product_form_item_error_existing": "This value is already there!",
+    "edit_product_form_item_error_existing": "Ši vertė jau yra čia!",
     "@edit_product_form_item_error_existing": {
         "description": "Error message when the user tries to re-submit an existing value"
     },
