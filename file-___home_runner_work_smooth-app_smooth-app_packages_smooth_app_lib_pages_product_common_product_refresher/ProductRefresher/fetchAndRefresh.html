@@ -99,22 +99,9 @@ Returns true if successful.</p>
     return false;
   }
   if (context.mounted) {
-    final ThemeData themeData = Theme.of(context);
-
     ScaffoldMessenger.of(context).showSnackBar(
-      SmoothFloatingSnackbar(
-        content: Row(
-          children: &lt;Widget&gt;[
-            Expanded(child: Text(appLocalizations.product_refreshed)),
-            const Icon(
-              Icons.check_circle,
-              color: Colors.white,
-            ),
-          ],
-        ),
-        backgroundColor:
-            themeData.extension&lt;SmoothColorsThemeExtension&gt;()!.green,
-      ),
+      SmoothFloatingSnackbar.positive(
+          context: context, text: appLocalizations.product_refreshed),
     );
   }
   return true;

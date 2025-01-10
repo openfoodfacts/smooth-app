@@ -86,10 +86,9 @@
     if (context.mounted) {
       if (cache == null) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(
-              AppLocalizations.of(context).nutrition_cache_loading_error,
-            ),
+          SmoothFloatingSnackbar.error(
+            context: context,
+            text: AppLocalizations.of(context).nutrition_cache_loading_error,
           ),
         );
         return;

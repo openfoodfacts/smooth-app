@@ -88,7 +88,7 @@ Future&lt;bool&gt; doSomething({
   if (context.mounted) {
     if (cache == null) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
+        SmoothFloatingSnackbar(
           content: Text(
             AppLocalizations.of(context).nutrition_cache_loading_error,
           ),
