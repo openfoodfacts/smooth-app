@@ -51,6 +51,7 @@ class ProductTitleCard extends StatelessWidget {
         const SizedBox(height: SMALL_SPACE),
         _ProductTitleCardBrand(
           selectable: isSelectable,
+          dense: dense,
         ),
         const SizedBox(height: 2.0),
         trailing,
@@ -155,9 +156,11 @@ class _ProductTitleCardName extends StatelessWidget {
 class _ProductTitleCardBrand extends StatelessWidget {
   const _ProductTitleCardBrand({
     required this.selectable,
+    this.dense = false,
   });
 
   final bool selectable;
+  final bool dense;
 
   @override
   Widget build(BuildContext context) {
@@ -168,6 +171,8 @@ class _ProductTitleCardBrand extends StatelessWidget {
 
     return Text(
       brands,
+      maxLines: dense ? 1 : 2,
+      overflow: dense ? TextOverflow.ellipsis : null,
       style: Theme.of(context).textTheme.bodyMedium,
       textAlign: TextAlign.start,
     );
