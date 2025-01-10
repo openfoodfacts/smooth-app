@@ -793,6 +793,11 @@
         }
     },
     "product_image_outdated": "This image may be outdated",
+    "product_image_outdated_explanations_title": "This image may be outdated",
+    "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that's it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
+    "@product_image_outdated_explanations_content": {
+        "description": "Please keep the ** syntax to make the text bold"
+    },
     "product_image_action_replace_photo": "Replace photo ({type})",
     "@product_image_action_replace_photo": {
         "description": "Action on the photo gallery to replace an existing picture",
