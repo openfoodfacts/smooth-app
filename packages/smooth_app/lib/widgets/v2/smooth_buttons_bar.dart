@@ -178,8 +178,7 @@ class _SmoothNegativeButton2 extends StatelessWidget {
 
     return _SmoothBaseButton2(
       data: data,
-      backgroundColor:
-          lightTheme ? colors.primaryMedium : colors.primaryDark,
+      backgroundColor: lightTheme ? colors.primaryMedium : colors.primaryDark,
       foregroundColor: lightTheme ? colors.primaryDark : colors.primaryLight,
     );
   }
