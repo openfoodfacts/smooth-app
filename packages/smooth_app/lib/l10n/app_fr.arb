@@ -744,6 +744,7 @@
     "score_add_missing_product_labels": "Ajouter les labels manquants",
     "score_add_missing_product_origins": "Ajouter les origines manquantes",
     "score_add_missing_product_stores": "Ajouter les magasins de vente manquants",
+    "score_add_missing_product_brands": "Add missing product brands",
     "score_update_nutrition_facts": "Mettre à jour les informations nutritionnelles",
     "nutrition_page_title": "Informations nutritionnelles",
     "nutrition_page_unspecified": "Les valeurs nutritionnelles ne sont pas spécifiées sur le produit",
@@ -1224,10 +1225,6 @@
     "onboarding_welcome_loading_dialog_title": "Chargement de votre premier exemple de produit",
     "@onboarding_welcome_loading_dialog_title": {
         "description": "Title for the onboarding loading dialog"
-    },
-    "onboarding_welcome_loading_error": "Il semble qu'il n'y ait pas de produit d'exemple dans votre langue",
-    "@onboarding_welcome_loading_error": {
-        "description": "Seems like there is no example product in your language"
     },
     "product_list_your_ranking": "Votre classement",
     "@product_list_your_ranking": {
