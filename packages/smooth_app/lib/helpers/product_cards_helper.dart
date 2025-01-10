@@ -310,15 +310,19 @@ Widget addPanelButton(
   final String label, {
   final IconData? iconData,
   final String? textAlign,
+  final EdgeInsetsGeometry? padding,
   required final Function() onPressed,
+  WidgetStateProperty<double?>? elevation,
 }) =>
     Padding(
       padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
       child: SmoothLargeButtonWithIcon(
         text: label,
         icon: iconData ?? Icons.add,
+        elevation: elevation,
         onPressed: onPressed,
         textAlign: iconData == null ? TextAlign.center : null,
+        padding: padding,
       ),
     );
 

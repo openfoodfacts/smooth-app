@@ -12,6 +12,7 @@ class SmoothSimpleButton extends StatelessWidget {
     this.borderRadius = ROUNDED_BORDER_RADIUS,
     this.padding = const EdgeInsets.all(10),
     this.buttonColor,
+    this.elevation,
   });
 
   final Widget child;
@@ -19,8 +20,9 @@ class SmoothSimpleButton extends StatelessWidget {
   final double minWidth;
   final double height;
   final BorderRadius borderRadius;
-  final EdgeInsets padding;
+  final EdgeInsetsGeometry padding;
   final Color? buttonColor;
+  final WidgetStateProperty<double?>? elevation;
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +33,7 @@ class SmoothSimpleButton extends StatelessWidget {
       ),
       child: ElevatedButton(
         style: ButtonStyle(
+          elevation: elevation,
           backgroundColor: buttonColor == null
               ? null
               : WidgetStateProperty.all<Color>(buttonColor!),

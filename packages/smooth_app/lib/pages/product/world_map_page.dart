@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_map/flutter_map.dart';
+import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class WorldMapPage extends StatelessWidget {
@@ -18,14 +20,37 @@ class WorldMapPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SmoothScaffold(
       appBar: AppBar(
-        title: Text(title ?? ''),
+        title: Text(
+          title ?? '',
+          maxLines: 2,
+        ),
         backgroundColor:
             AppBarTheme.of(context).backgroundColor?.withValues(alpha: 0.8),
       ),
       extendBodyBehindAppBar: true,
       body: FlutterMap(
         options: mapOptions,
-        children: children,
+        children: <Widget>[
+          ...children,
+          SafeArea(
+            child: RichAttributionWidget(
+              animationConfig: const ScaleRAWA(),
+              alignment: Directionality.of(context) == TextDirection.ltr
+                  ? AttributionAlignment.bottomRight
+                  : AttributionAlignment.bottomLeft,
+              showFlutterMapAttribution: false,
+              attributions: <SourceAttribution>[
+                TextSourceAttribution(
+                  AppLocalizations.of(context)
+                      .open_street_map_contributor_attribution,
+                  onTap: () => LaunchUrlHelper.launchURL(
+                    'https://www.openstreetmap.org/copyright',
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }

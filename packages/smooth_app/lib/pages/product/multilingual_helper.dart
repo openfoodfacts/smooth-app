@@ -112,28 +112,41 @@ class MultilingualHelper {
   Widget getLanguageSelector({
     required void Function(void Function()) setState,
     required Product product,
+    EdgeInsetsGeometry? padding,
+    BorderRadius? borderRadius,
+    Widget? icon,
   }) =>
       LanguageSelector(
         product: product,
+        icon: icon,
+        padding: padding,
+        borderRadius: borderRadius,
         setLanguage: (
           final OpenFoodFactsLanguage? newLanguage,
         ) async {
-          if (newLanguage == null) {
-            return;
+          if (changeLanguage(newLanguage)) {
+            setState(() {});
           }
-          if (_currentLanguage == newLanguage) {
-            return;
-          }
-          _saveCurrentName();
-          setState(() {
-            _currentLanguage = newLanguage;
-            _currentMultilingualTexts[_currentLanguage] ??= '';
-            controller.text = _currentMultilingualTexts[_currentLanguage]!;
-          });
         },
         selectedLanguages: _currentMultilingualTexts.keys,
         displayedLanguage: _currentLanguage,
       );
+
+  bool changeLanguage(OpenFoodFactsLanguage? newLanguage) {
+    if (newLanguage == null) {
+      return false;
+    }
+    if (_currentLanguage == newLanguage) {
+      return false;
+    }
+    _saveCurrentName();
+
+    _currentLanguage = newLanguage;
+    _currentMultilingualTexts[_currentLanguage] ??= '';
+    controller.text = _currentMultilingualTexts[_currentLanguage]!;
+
+    return true;
+  }
 
   /// Returns the new text, if any change happened.
   String? getChangedMonolingualText() {
@@ -181,6 +194,11 @@ class MultilingualHelper {
 
   OpenFoodFactsLanguage getCurrentLanguage() =>
       isMonolingual() ? ProductQuery.getLanguage() : _currentLanguage;
+
+  Map<OpenFoodFactsLanguage, String> getInitialMultiLingualTexts() {
+    assert(!isMonolingual());
+    return _initialMultilingualTexts;
+  }
 
   static String getCleanText(final String? name) => (name ?? '').trim();
 }

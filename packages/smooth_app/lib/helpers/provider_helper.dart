@@ -211,3 +211,21 @@ class _ConsumerValueNotifierFilterState<T extends ValueNotifier<S>, S>
 extension ValueNotifierExtensions<T> on ValueNotifier<T> {
   void emit(T value) => this.value = value;
 }
+
+extension ProviderExtension on BuildContext {
+  T? readSafe<T>() {
+    try {
+      return read<T>();
+    } catch (_) {
+      return null;
+    }
+  }
+
+  T? watchSafe<T>() {
+    try {
+      return watch<T>();
+    } catch (_) {
+      return null;
+    }
+  }
+}

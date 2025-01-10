@@ -848,6 +848,16 @@ class Help extends AppIcon {
   }) : super._(_IconsFont.help_circled);
 }
 
+class ImageGallery extends AppIcon {
+  const ImageGallery({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.gallery);
+}
+
 class Incognito extends AppIcon {
   const Incognito({
     super.color,
@@ -991,13 +1001,21 @@ class Milk extends AppIcon {
     super.key,
   }) : super._(_IconsFont.milk);
 
-  const Milk.filled({
+  const Milk.happy({
     super.color,
     super.size,
     super.shadow,
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.milk_filled);
+
+  const Milk.unhappy({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.milk_filled_unhappy);
 
   const Milk.download({
     super.color,
@@ -1006,6 +1024,16 @@ class Milk extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.milk_download);
+}
+
+class Move extends AppIcon {
+  const Move({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.move);
 }
 
 class NoPicture extends AppIcon {
@@ -1034,6 +1062,16 @@ class NutritionFacts extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.nutritional_facts);
+}
+
+class OCR extends AppIcon {
+  const OCR({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.ocr);
 }
 
 class Outdated extends AppIcon {
@@ -1192,6 +1230,24 @@ class Salt extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.salt);
+}
+
+class Scale extends AppIcon {
+  const Scale({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.scale);
+
+  const Scale.alt({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.scale_alt);
 }
 
 class Share extends AppIcon {

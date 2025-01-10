@@ -43,7 +43,10 @@ class ThemeProvider with ChangeNotifier {
 
   void finishOnboarding() {
     setOnboardingComplete(true);
-    notifyListeners();
+
+    WidgetsBinding.instance
+      ..addPostFrameCallback((_) => notifyListeners())
+      ..ensureVisualUpdate();
   }
 
   ThemeMode get currentThemeMode {

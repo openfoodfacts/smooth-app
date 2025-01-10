@@ -21,7 +21,9 @@ class KnowledgePanelTextCard extends StatelessWidget {
     final Widget text = MergeSemantics(
       child: SmoothHtmlWidget(
         textElement.html,
-        textStyle: WellSpacedTextHelper.TEXT_STYLE_WITH_WELL_SPACED,
+        textStyle: WellSpacedTextHelper.TEXT_STYLE_WITH_WELL_SPACED.copyWith(
+          fontSize: 15.0,
+        ),
       ),
     );
 

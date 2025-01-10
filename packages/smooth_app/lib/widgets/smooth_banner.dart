@@ -16,6 +16,7 @@ class SmoothBanner extends StatelessWidget {
     this.iconBackgroundColor,
     this.contentBackgroundColor,
     this.onDismissClicked,
+    this.addSafeArea = false,
     this.topShadow = false,
     super.key,
   });
@@ -28,6 +29,7 @@ class SmoothBanner extends StatelessWidget {
   /// If not null, a dismiss button is displayed
   final ValueChanged<SmoothBannerDismissEvent>? onDismissClicked;
   final bool topShadow;
+  final bool addSafeArea;
 
   final Color? iconColor;
   final Color? iconBackgroundColor;
@@ -39,6 +41,9 @@ class SmoothBanner extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final double bottomPadding =
+        addSafeArea ? MediaQuery.viewPaddingOf(context).bottom : 0.0;
+
     Widget child = IntrinsicHeight(
       child: Row(
         children: <Widget>[
@@ -116,6 +121,7 @@ class SmoothBanner extends StatelessWidget {
                       color: contentColor ?? const Color(0xFF373737),
                     ),
                   ),
+                  if (bottomPadding > 0) SizedBox(height: bottomPadding),
                 ],
               ),
             ),

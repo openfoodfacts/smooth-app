@@ -68,7 +68,7 @@ class UserPreferencesLanguageSelector extends StatelessWidget {
           selectedLanguages: <OpenFoodFactsLanguage>[
             ProductQuery.getLanguage(),
           ],
-          icon: Icons.edit,
+          icon: const Icon(Icons.edit),
           padding: const EdgeInsetsDirectional.only(
             start: SMALL_SPACE,
           ),

@@ -49,9 +49,6 @@ class OnboardingLoader {
       case OnboardingPage.ECO_CARD_EXAMPLE:
       case OnboardingPage.PREFERENCES_PAGE:
       case OnboardingPage.PERMISSIONS_PAGE:
-        // nothing special to do
-        return;
-      case OnboardingPage.CONSENT_PAGE:
         // that was the last page of onboarding: after that, we clean up
         await _unloadData();
         return;

@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_snackbar.dart';
 import 'package:smooth_app/helpers/collections_helper.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 import 'package:smooth_app/pages/product/explanation_widget.dart';
 import 'package:smooth_app/pages/product/owner_field_info.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
 import 'package:smooth_app/pages/product/simple_input_text_field.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 
 /// Simple input widget: we have a list of terms, we add, we remove.
 class SimpleInputWidget extends StatefulWidget {
@@ -54,7 +58,6 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
 
   @override
   Widget build(BuildContext context) {
-    final ThemeData themeData = Theme.of(context);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final String? explanations =
         widget.helper.getAddExplanations(appLocalizations);
@@ -64,59 +67,81 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
     );
     final bool isOwnerField = widget.helper.isOwnerField(widget.product);
 
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
+    final Widget child = Column(
+      mainAxisSize: MainAxisSize.min,
       children: <Widget>[
-        if (widget.displayTitle)
-          ListTile(
-            leading: widget.helper.getIcon(),
-            minLeadingWidth: 0.0,
-            horizontalTitleGap: 12.0,
-            title: Text(
-              widget.helper.getTitle(appLocalizations),
-              style: themeData.textTheme.displaySmall,
-            ),
+        if (explanations != null && !widget.displayTitle)
+          Padding(
+            padding:
+                const EdgeInsetsDirectional.symmetric(horizontal: SMALL_SPACE),
+            child: ExplanationWidget(explanations),
           ),
-        if (explanations != null) ExplanationWidget(explanations),
         LayoutBuilder(
           builder: (_, BoxConstraints constraints) {
-            return Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Flexible(
-                  flex: 1,
-                  child: SimpleInputTextField(
-                    autocompleteKey: _autocompleteKey,
-                    focusNode: _focusNode,
-                    constraints: constraints,
-                    tagType: widget.helper.getTagType(),
-                    hintText: widget.helper.getAddHint(appLocalizations),
-                    controller: widget.controller,
-                    padding: const EdgeInsetsDirectional.only(
-                      start: 9.0,
+            return Padding(
+              padding: const EdgeInsetsDirectional.only(
+                start: SMALL_SPACE,
+                end: 4.0,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Flexible(
+                    flex: 1,
+                    child: SimpleInputTextField(
+                      autocompleteKey: _autocompleteKey,
+                      focusNode: _focusNode,
+                      constraints: constraints,
+                      tagType: widget.helper.getTagType(),
+                      hintText: widget.helper.getAddHint(appLocalizations),
+                      controller: widget.controller,
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: MEDIUM_SPACE,
+                        vertical: SMALL_SPACE,
+                      ),
+                      margin: const EdgeInsetsDirectional.only(
+                        start: 3.0,
+                      ),
+                      productType: widget.product.productType,
+                      suffixIcon: !isOwnerField ? null : const OwnerFieldIcon(),
+                      borderRadius: const BorderRadius.all(
+                        Radius.circular(20.0),
+                      ),
                     ),
-                    productType: widget.product.productType,
-                    suffixIcon: !isOwnerField ? null : const OwnerFieldIcon(),
                   ),
-                ),
-                Tooltip(
-                  message: appLocalizations.edit_product_form_item_add_action(
-                      widget.helper.getTypeLabel(appLocalizations)),
-                  child: IconButton(
-                    onPressed: _onAddItem,
-                    icon: const Icon(Icons.add_circle),
-                    splashRadius: 20,
-                  ),
-                )
-              ],
+                  Tooltip(
+                    message: appLocalizations.edit_product_form_item_add_action(
+                        widget.helper.getTypeLabel(appLocalizations)),
+                    child: IconButton(
+                      onPressed: _onAddItem,
+                      splashRadius: 20.0,
+                      icon: ListenableBuilder(
+                        listenable: widget.controller,
+                        builder: (
+                          BuildContext context,
+                          _,
+                        ) =>
+                            Icon(
+                          Icons.add_circle,
+                          color: IconTheme.of(context).color?.withValues(
+                                alpha:
+                                    widget.controller.text.isEmpty ? 0.7 : 1.0,
+                              ),
+                        ),
+                      ),
+                    ),
+                  )
+                ],
+              ),
             );
           },
         ),
         AnimatedList(
           key: _listKey,
           initialItemCount: _localTerms.length,
+          padding:
+              const EdgeInsetsDirectional.symmetric(horizontal: SMALL_SPACE),
           itemBuilder: (
             BuildContext context,
             int position,
@@ -153,12 +178,48 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
         ),
-        if (extraWidget != null) extraWidget,
+        if (extraWidget != null)
+          extraWidget
+        else
+          const SizedBox(height: MEDIUM_SPACE),
       ],
+    );
+
+    return SmoothCardWithRoundedHeader(
+      leading: widget.helper.getIcon(),
+      title: widget.helper.getTitle(appLocalizations),
+      trailing: explanations != null && widget.displayTitle
+          ? ExplanationTitleIcon(
+              text: explanations,
+              type: widget.helper.getTitle(appLocalizations),
+            )
+          : null,
+      titlePadding: explanations != null && widget.displayTitle
+          ? const EdgeInsetsDirectional.only(
+              top: 2.0,
+              start: LARGE_SPACE,
+              end: SMALL_SPACE,
+              bottom: 2.0,
+            )
+          : null,
+      child: child,
     );
   }
 
   void _onAddItem() {
+    if (widget.controller.text.trim().isEmpty) {
+      final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        SmoothFloatingSnackbar.error(
+          context: context,
+          text: appLocalizations.edit_product_form_item_error_empty,
+        ),
+      );
+
+      return;
+    }
+
     if (widget.helper.addItemsFromController(widget.controller)) {
       // Add new items to the top of our list
       final Iterable<String> newTerms = widget.helper.terms.diff(_localTerms);
@@ -189,5 +250,43 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
 
       SmoothHapticFeedback.lightNotification();
     }
+  }
+}
+
+class ExplanationTitleIcon extends StatelessWidget {
+  const ExplanationTitleIcon({
+    required this.type,
+    required this.text,
+  });
+
+  final String type;
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    final String title =
+        AppLocalizations.of(context).edit_product_form_item_help(type);
+
+    return SmoothCardHeaderButton(
+      tooltip: title,
+      child: const icons.Help(),
+      onTap: () {
+        showSmoothModalSheet(
+          context: context,
+          builder: (BuildContext context) {
+            return SmoothModalSheet(
+              title: title,
+              prefixIndicator: true,
+              headerBackgroundColor: SmoothCardWithRoundedHeader.getHeaderColor(
+                context,
+              ),
+              body: SmoothModalSheetBodyContainer(
+                child: Text(text),
+              ),
+            );
+          },
+        );
+      },
+    );
   }
 }

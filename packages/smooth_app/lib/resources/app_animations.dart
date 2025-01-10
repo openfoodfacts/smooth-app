@@ -151,21 +151,6 @@ class CloudUploadAnimation extends StatelessWidget {
   }
 }
 
-class ConsentAnimation extends StatelessWidget {
-  const ConsentAnimation({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return RiveAnimation.direct(
-      AnimationsLoader.of(context)!,
-      artboard: 'Consent',
-      animations: const <String>['Loop'],
-    );
-  }
-}
-
 class DoubleChevronAnimation extends StatefulWidget {
   const DoubleChevronAnimation.animate({
     this.size,

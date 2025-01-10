@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:smooth_app/cards/category_cards/svg_cache.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -48,7 +49,7 @@ class UserPreferencesFaq extends AbstractUserPreferences {
         _getListTile(
           title: appLocalizations.faq,
           leadingIconData: Icons.question_mark,
-          url: 'https://support.openfoodfacts.org/help',
+          url: _getFAQUrl(),
         ),
         _getNutriListTile(
           title: appLocalizations.nutriscore_generic,
@@ -58,25 +59,24 @@ class UserPreferencesFaq extends AbstractUserPreferences {
             false,
           ),
         ),
-        if (userPreferences.userCountryCode != 'fr')
-          _getListTile(
-            title: appLocalizations.faq_nutriscore_nutriscore,
-            leadingSvg: SvgCache.getAssetsCacheForNutriscore(
-              NutriScoreValue.b,
-              true,
-            ),
-            onTap: () => Navigator.of(context, rootNavigator: true).push(
-              MaterialPageRoute<void>(
-                builder: (BuildContext context) => const GuideNutriscoreV2(),
-              ),
-            ),
-
-            /// Hide the icon
-            icon: const Icon(
-              Icons.info,
-              size: 0.0,
+        _getListTile(
+          title: appLocalizations.faq_nutriscore_nutriscore,
+          leadingSvg: SvgCache.getAssetsCacheForNutriscore(
+            NutriScoreValue.b,
+            true,
+          ),
+          onTap: () => Navigator.of(context, rootNavigator: true).push(
+            MaterialPageRoute<void>(
+              builder: (BuildContext context) => const GuideNutriscoreV2(),
             ),
           ),
+
+          /// Hide the icon
+          icon: const Icon(
+            Icons.info,
+            size: 0.0,
+          ),
+        ),
         _getNutriListTile(
           title: appLocalizations.environmental_score_generic,
           url: 'https://world.openfoodfacts.org/ecoscore',
@@ -340,5 +340,22 @@ class UserPreferencesFaq extends AbstractUserPreferences {
         );
       },
     );
+  }
+
+  String _getFAQUrl() {
+    final OpenFoodFactsLanguage language = ProductQuery.getLanguage();
+
+    // TODO(teolemon): regularly check for additional translations
+    return switch (language) {
+      OpenFoodFactsLanguage.FRENCH =>
+        'https://support.openfoodfacts.org/help/fr-fr',
+      OpenFoodFactsLanguage.ITALIAN =>
+        'https://support.openfoodfacts.org/help/it-it',
+      OpenFoodFactsLanguage.GERMAN =>
+        'https://support.openfoodfacts.org/help/de-de',
+      OpenFoodFactsLanguage.SPANISH =>
+        'https://support.openfoodfacts.org/help/es-es',
+      _ => 'https://support.openfoodfacts.org/help',
+    };
   }
 }

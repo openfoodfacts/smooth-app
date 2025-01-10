@@ -134,10 +134,13 @@ class _LocationQueryPageState extends State<LocationQueryPage>
                   ),
                 );
               }
-              return SearchLocationPreloadedItem(
-                _model.displayedResults[index],
-                popFirst: true,
-              ).getWidget(context);
+              return KeyedSubtree(
+                key: ValueKey<int>(_model.displayedResults[index].osmId),
+                child: SearchLocationPreloadedItem(
+                  _model.displayedResults[index],
+                  popFirst: true,
+                ).getWidget(context),
+              );
             },
             itemCount: _model.displayedResults.length +
                 (_model.isOptimized

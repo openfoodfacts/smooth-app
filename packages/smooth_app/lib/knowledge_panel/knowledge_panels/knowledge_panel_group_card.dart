@@ -12,11 +12,13 @@ class KnowledgePanelGroupCard extends StatelessWidget {
     required this.groupElement,
     required this.product,
     required this.isClickable,
+    required this.isTextSelectable,
   });
 
   final KnowledgePanelPanelGroupElement groupElement;
   final Product product;
   final bool isClickable;
+  final bool isTextSelectable;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +26,7 @@ class KnowledgePanelGroupCard extends StatelessWidget {
     final SmoothColorsThemeExtension themeExtension =
         themeData.extension<SmoothColorsThemeExtension>()!;
 
-    return Provider<KnowledgePanelPanelGroupElement>(
+    final Widget child = Provider<KnowledgePanelPanelGroupElement>(
       lazy: true,
       create: (_) => groupElement,
       child: Column(
@@ -56,6 +58,14 @@ class KnowledgePanelGroupCard extends StatelessWidget {
         ],
       ),
     );
+
+    if (isTextSelectable) {
+      return SelectionArea(
+        child: child,
+      );
+    } else {
+      return child;
+    }
   }
 
   @override

@@ -21,7 +21,11 @@ import 'package:smooth_app/pages/prices/price_model.dart';
 import 'package:smooth_app/pages/prices/price_proof_card.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
+import 'package:smooth_app/widgets/smooth_expandable_floating_action_button.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 import 'package:smooth_app/widgets/will_pop_scope.dart';
 
@@ -80,6 +84,7 @@ class ProductPriceAddPage extends StatefulWidget {
 class _ProductPriceAddPageState extends State<ProductPriceAddPage>
     with TraceableClientMixin {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final ScrollController _scrollController = ScrollController();
 
   @override
   Widget build(BuildContext context) {
@@ -117,7 +122,11 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
                   ),
                 ],
               ),
+              backgroundColor: context.lightTheme()
+                  ? context.extension<SmoothColorsThemeExtension>().primaryLight
+                  : null,
               body: SingleChildScrollView(
+                controller: _scrollController,
                 padding: const EdgeInsets.all(LARGE_SPACE),
                 child: Column(
                   children: <Widget>[
@@ -134,13 +143,15 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
                         key: Key(model.elementAt(i).product.barcode),
                         index: i,
                       ),
+                    const SizedBox(height: LARGE_SPACE),
                     const PriceAddProductCard(),
                     // so that the last items don't get hidden by the FAB
                     const SizedBox(height: MINIMUM_TOUCH_SIZE * 2),
                   ],
                 ),
               ),
-              floatingActionButton: FloatingActionButton.extended(
+              floatingActionButton: SmoothExpandableFloatingActionButton(
+                scrollController: _scrollController,
                 onPressed: () async => _exitPage(
                   await _mayExitPage(
                     saving: true,
@@ -151,6 +162,10 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
                 label: Text(
                   appLocalizations.prices_send_n_prices(
                     model.length,
+                  ),
+                  style: const TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 15.0,
                   ),
                 ),
               ),

@@ -4,7 +4,6 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_details.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/collections_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
@@ -77,26 +76,24 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
           padding: i == 0
               ? EdgeInsets.zero
               : const EdgeInsets.only(top: LARGE_SPACE),
-          child: SmoothCard(
-            // This provider will handle the dispose() call for us
-            child: MultiProvider(
-              providers: <ChangeNotifierProvider<dynamic>>[
-                ChangeNotifierProvider<TextEditingController>(
-                  create: (_) {
-                    _controllers.replace(i, TextEditingController());
-                    return _controllers[i];
-                  },
-                ),
-                ChangeNotifierProvider<AbstractSimpleInputPageHelper>(
-                  create: (_) => widget.helpers[i],
-                ),
-              ],
-              child: SimpleInputWidget(
-                helper: widget.helpers[i],
-                product: widget.product,
-                controller: _controllers[i],
-                displayTitle: widget.helpers.length > 1,
+          // This provider will handle the dispose() call for us
+          child: MultiProvider(
+            providers: <ChangeNotifierProvider<dynamic>>[
+              ChangeNotifierProvider<TextEditingController>(
+                create: (_) {
+                  _controllers.replace(i, TextEditingController());
+                  return _controllers[i];
+                },
               ),
+              ChangeNotifierProvider<AbstractSimpleInputPageHelper>(
+                create: (_) => widget.helpers[i],
+              ),
+            ],
+            child: SimpleInputWidget(
+              helper: widget.helpers[i],
+              product: widget.product,
+              controller: _controllers[i],
+              displayTitle: widget.helpers.length > 1,
             ),
           ),
         ),
@@ -118,14 +115,10 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
                   .extension<SmoothColorsThemeExtension>()!
                   .primaryLight
               : null,
-          body: Padding(
-            padding: const EdgeInsetsDirectional.only(
-              top: SMALL_SPACE,
-              start: SMALL_SPACE,
-              end: SMALL_SPACE,
-            ),
-            child: Scrollbar(
-              child: ListView(children: simpleInputs),
+          body: Scrollbar(
+            child: ListView(
+              padding: const EdgeInsetsDirectional.all(MEDIUM_SPACE),
+              children: simpleInputs,
             ),
           ),
           bottomNavigationBar: ProductBottomButtonsBar(

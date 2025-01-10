@@ -3,14 +3,12 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_snackbar.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/product/product_page/footer/new_product_footer.dart';
 import 'package:smooth_app/query/category_product_query.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
-import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
 class ProductFooterCompareButton extends StatelessWidget {
   const ProductFooterCompareButton();
@@ -91,24 +89,11 @@ class ProductFooterCompareButton extends StatelessWidget {
 
   void _showFeatureDisabledDialog(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final ThemeData themeData = Theme.of(context);
 
     ScaffoldMessenger.of(context).showSnackBar(
-      SmoothFloatingSnackbar(
-        content: Row(
-          children: <Widget>[
-            const ExcludeSemantics(
-              child: icons.Warning(
-                color: Colors.white,
-              ),
-            ),
-            const SizedBox(width: LARGE_SPACE),
-            Expanded(
-              child: Text(appLocalizations.product_search_same_category_error),
-            ),
-          ],
-        ),
-        backgroundColor: themeData.extension<SmoothColorsThemeExtension>()!.red,
+      SmoothFloatingSnackbar.error(
+        context: context,
+        text: appLocalizations.product_search_same_category_error,
         action: SnackBarAction(
           label: appLocalizations.okay,
           onPressed: () {

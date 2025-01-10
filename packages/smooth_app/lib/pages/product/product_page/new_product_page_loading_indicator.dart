@@ -1,21 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:provider/provider.dart';
 import 'package:smooth_app/helpers/color_extension.dart';
+import 'package:smooth_app/helpers/provider_helper.dart';
 import 'package:smooth_app/pages/product/product_page/new_product_page.dart';
 import 'package:smooth_app/resources/app_animations.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_banner.dart';
 
 class ProductPageLoadingIndicator extends StatelessWidget {
-  const ProductPageLoadingIndicator({super.key});
+  const ProductPageLoadingIndicator({
+    this.addSafeArea = false,
+    super.key,
+  });
+
+  final bool addSafeArea;
 
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     final bool lightTheme = context.lightTheme();
-    final Color color = context.watch<ProductPageCompatibility>().color ??
+    final Color color = context.watchSafe<ProductPageCompatibility>()?.color ??
         (lightTheme ? Colors.grey : Colors.grey[600]!);
 
     return SmoothBanner(
@@ -31,6 +36,7 @@ class ProductPageLoadingIndicator extends StatelessWidget {
       contentColor: lightTheme ? null : Colors.grey[200],
       topShadow: true,
       content: appLocalizations.product_page_pending_operations_banner_message,
+      addSafeArea: addSafeArea,
     );
   }
 }

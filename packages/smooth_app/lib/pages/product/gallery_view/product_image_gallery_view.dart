@@ -121,7 +121,6 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView>
                   },
                 ),
               ),
-              padding: const EdgeInsetsDirectional.only(start: 55.0),
             ),
           ),
           body: Stack(

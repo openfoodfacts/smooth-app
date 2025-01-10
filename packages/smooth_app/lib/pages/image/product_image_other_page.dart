@@ -85,7 +85,7 @@ class ProductImageOtherPage extends StatefulWidget {
       values: imageFields,
       prefixIcons: imageFields.map((final ImageField imageField) {
         return switch (imageField) {
-          ImageField.FRONT => const icons.Milk.filled(),
+          ImageField.FRONT => const icons.Milk.happy(),
           ImageField.INGREDIENTS => const icons.Ingredients.alt(),
           ImageField.NUTRITION => const icons.NutritionFacts(),
           ImageField.PACKAGING => const icons.Recycling(),

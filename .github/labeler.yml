@@ -242,9 +242,18 @@ Product scan carousel:
 - changed-files:
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/scan/carousel/scan_carousel.dart'
 
+autocomplete:
+- changed-files:
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/input/smooth_autocomplete_text_field.dart'
+
 ✏️ Editing:
 - changed-files:
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/edit_product_page.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/input/smooth_autocomplete_text_field.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/add_other_details_page.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/simple_input_page.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/simple_input_page_helpers.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/simple_input_text_field.dart'
 
 ✏️ Editing - Nutrition input:
 - changed-files:

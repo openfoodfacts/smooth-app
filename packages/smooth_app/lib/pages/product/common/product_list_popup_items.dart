@@ -55,7 +55,6 @@ abstract class ProductListPopupItem {
         value: this,
         icon: getIconData(),
         label: getTitle(appLocalizations),
-        type: isDestructive() ? SmoothPopupMenuItemType.destructive : null,
       );
 
   /// Returns the first possible URL/server that contains at least one product.

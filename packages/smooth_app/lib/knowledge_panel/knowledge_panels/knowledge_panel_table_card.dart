@@ -343,8 +343,8 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
 
     /// Ensure the columns are not too wide or too narrow.
     final int sum = _columnsMaxLength.sum;
-    final int maxWidth = (sum ~/ _columnsMaxLength.length) - 4;
-    final int minWidth = maxWidth ~/ 4;
+    final int maxWidth = math.max((sum ~/ _columnsMaxLength.length) - 4, 1);
+    final int minWidth = math.max(maxWidth ~/ 4, 1);
 
     for (int i = 0; i < _columnsMaxLength.length; i++) {
       if (_columnsType[i] == _TableCellType.PERCENT) {

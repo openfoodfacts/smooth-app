@@ -53,7 +53,7 @@ class ProductQueryPage extends StatefulWidget {
 
 class _ProductQueryPageState extends State<ProductQueryPage>
     with TraceableClientMixin {
-  static const int _OVERSCROLL_TEMPLATE_COUNT = 1;
+  static const int _OVERSCROLL_TEMPLATE_COUNT = 3;
 
   bool _showBackToTopButton = false;
   late ScrollController _scrollController;
@@ -166,55 +166,55 @@ class _ProductQueryPageState extends State<ProductQueryPage>
     final Size screenSize,
     final ThemeData themeData,
     final AppLocalizations appLocalizations,
-  ) =>
-      SmoothSharedAnimationController(
-        child: SmoothScaffold(
-          floatingActionButton: Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: <Widget>[
-              Expanded(
-                child: RankingFloatingActionButton(
-                  onPressed: () =>
-                      Navigator.of(context, rootNavigator: true).push<Widget>(
-                    MaterialPageRoute<Widget>(
-                      builder: (BuildContext context) =>
-                          PersonalizedRankingPage(
-                        barcodes: _model.displayBarcodes,
-                        title: widget.name,
-                      ),
+  ) {
+    final int itemCount = _getItemCount();
+
+    return SmoothSharedAnimationController(
+      child: SmoothScaffold(
+        floatingActionButton: Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: <Widget>[
+            Expanded(
+              child: RankingFloatingActionButton(
+                onPressed: () =>
+                    Navigator.of(context, rootNavigator: true).push<Widget>(
+                  MaterialPageRoute<Widget>(
+                    builder: (BuildContext context) => PersonalizedRankingPage(
+                      barcodes: _model.displayBarcodes,
+                      title: widget.name,
                     ),
                   ),
                 ),
               ),
-              Visibility(
-                visible: _showBackToTopButton,
-                child: AnimatedOpacity(
-                  duration: SmoothAnimationsDuration.short,
-                  opacity: _showBackToTopButton ? 1.0 : 0.0,
-                  child: SmoothRevealAnimation(
-                    animationCurve: Curves.easeInOutBack,
-                    startOffset: const Offset(0.0, 1.0),
-                    child: Padding(
-                      padding: const EdgeInsetsDirectional.only(
-                        start: SMALL_SPACE,
-                      ),
-                      child: SizedBox(
-                        height: MINIMUM_TOUCH_SIZE,
-                        child: ElevatedButton(
-                          onPressed: () {
-                            _scrollToTop();
-                          },
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: themeData.colorScheme.secondary,
-                            foregroundColor: themeData.colorScheme.onSecondary,
-                            shape: const CircleBorder(),
-                            padding: EdgeInsets.zero,
-                          ),
-                          child: Center(
-                            child: Icon(
-                              Icons.arrow_upward,
-                              color: themeData.colorScheme.onSecondary,
-                            ),
+            ),
+            Visibility(
+              visible: _showBackToTopButton,
+              child: AnimatedOpacity(
+                duration: SmoothAnimationsDuration.short,
+                opacity: _showBackToTopButton ? 1.0 : 0.0,
+                child: SmoothRevealAnimation(
+                  animationCurve: Curves.easeInOutBack,
+                  startOffset: const Offset(0.0, 1.0),
+                  child: Padding(
+                    padding: const EdgeInsetsDirectional.only(
+                      start: SMALL_SPACE,
+                    ),
+                    child: SizedBox(
+                      height: MINIMUM_TOUCH_SIZE,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          _scrollToTop();
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: themeData.colorScheme.secondary,
+                          foregroundColor: themeData.colorScheme.onSecondary,
+                          shape: const CircleBorder(),
+                          padding: EdgeInsets.zero,
+                        ),
+                        child: Center(
+                          child: Icon(
+                            Icons.arrow_upward,
+                            color: themeData.colorScheme.onSecondary,
                           ),
                         ),
                       ),
@@ -222,73 +222,89 @@ class _ProductQueryPageState extends State<ProductQueryPage>
                   ),
                 ),
               ),
-            ],
-          ),
-          appBar: widget.includeAppBar
-              ? SmoothAppBar(
-                  backgroundColor: themeData.scaffoldBackgroundColor,
-                  elevation: 2,
-                  automaticallyImplyLeading: false,
-                  leading: const SmoothBackButton(),
-                  title: SearchAppBarTitle(
-                    title: widget.searchResult
-                        ? widget.name
-                        : appLocalizations.product_search_same_category,
-                    editableAppBarTitle: widget.searchResult,
-                    multiLines: !widget.searchResult,
-                  ),
-                  subTitle: !widget.searchResult ? Text(widget.name) : null,
-                )
-              : null,
-          body: RefreshIndicator(
-            onRefresh: () async => _refreshList(),
-            child: ListView.builder(
-              controller: _scrollController,
-              padding: widget.includeAppBar ? null : EdgeInsets.zero,
-              // To allow refresh even when not the whole page is filled
-              physics: const AlwaysScrollableScrollPhysics(),
-              itemBuilder: (BuildContext context, int index) {
-                if (index == 0) {
-                  // on top, a message
-                  return _getTopMessagesCard();
-                }
-                index--;
+            ),
+          ],
+        ),
+        appBar: widget.includeAppBar
+            ? SmoothAppBar(
+                backgroundColor: themeData.scaffoldBackgroundColor,
+                elevation: 2,
+                automaticallyImplyLeading: false,
+                leading: const SmoothBackButton(),
+                title: SearchAppBarTitle(
+                  title: widget.searchResult
+                      ? widget.name
+                      : appLocalizations.product_search_same_category,
+                  editableAppBarTitle: widget.searchResult,
+                  multiLines: !widget.searchResult,
+                ),
+                subTitle: !widget.searchResult ? Text(widget.name) : null,
+              )
+            : null,
+        body: RefreshIndicator(
+          onRefresh: () async => _refreshList(),
+          child: ListView.separated(
+            controller: _scrollController,
+            padding: widget.includeAppBar ? null : EdgeInsets.zero,
+            // To allow refresh even when not the whole page is filled
+            physics: const AlwaysScrollableScrollPhysics(),
+            itemBuilder: (BuildContext context, int index) {
+              if (index == 0) {
+                // on top, a message
+                return _getTopMessagesCard();
+              }
+              index--;
 
-                final int barcodesCount = _model.displayBarcodes.length;
+              final int barcodesCount = _model.displayBarcodes.length;
 
-                // TODO(monsieurtanuki): maybe call it earlier, like for first unknown page index - 5?
-                if (index >= barcodesCount) {
-                  _downloadNextPage();
-                }
+              // TODO(monsieurtanuki): maybe call it earlier, like for first unknown page index - 5?
+              if (index >= barcodesCount) {
+                _downloadNextPage();
+              }
 
-                if (index >= barcodesCount) {
-                  // When scrolling below the last loaded item (index > barcodesCount)
-                  // We first show a [SmoothProductCardTemplate]
-                  // and after that a loading indicator + some space below it as the next item.
+              if (index >= barcodesCount) {
+                // When scrolling below the last loaded item (index > barcodesCount)
+                // We first show a [SmoothProductCardTemplate]
+                // and after that a loading indicator + some space below it as the next item.
 
-                  // The amount you scrolled over the index
-                  final int overscrollIndex =
-                      index - barcodesCount + 1 - _OVERSCROLL_TEMPLATE_COUNT;
+                // The amount you scrolled over the index
+                final int overscrollIndex =
+                    index - barcodesCount + 1 - _OVERSCROLL_TEMPLATE_COUNT;
 
-                  if (overscrollIndex <= 0) {
-                    return const SmoothProductCardTemplate();
-                  }
-                  if (overscrollIndex == 1) {
-                    return const Center(child: CircularProgressIndicator());
-                  }
-                  return SizedBox(
-                    height: MediaQuery.sizeOf(context).height / 4,
+                if (overscrollIndex < _OVERSCROLL_TEMPLATE_COUNT - 2) {
+                  return SmoothProductCardTemplate(
+                    message: appLocalizations.loading_dialog_default_title,
+                  );
+                } else {
+                  return const SafeArea(
+                    top: false,
+                    child: Padding(
+                      padding: EdgeInsetsDirectional.only(
+                        top: VERY_LARGE_SPACE,
+                        bottom: VERY_LARGE_SPACE + 60.0,
+                      ),
+                      child: Center(child: CircularProgressIndicator()),
+                    ),
                   );
                 }
-                return ProductListItemSimple(
-                  barcode: _model.displayBarcodes[index],
-                );
-              },
-              itemCount: _getItemCount(),
-            ),
+              }
+              return ProductListItemSimple(
+                barcode: _model.displayBarcodes[index],
+              );
+            },
+            itemCount: itemCount,
+            separatorBuilder: (BuildContext context, int index) {
+              if (index > 0 && index < itemCount - 1) {
+                return const Divider();
+              } else {
+                return EMPTY_WIDGET;
+              }
+            },
           ),
         ),
-      );
+      ),
+    );
+  }
 
   int _getItemCount() {
     //  1 additional widget, on top of ALL expected products
@@ -299,7 +315,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
     // but only while more are possible
     if (_model.supplier.partialProductList.totalSize >
         _model.displayBarcodes.length) {
-      return count + _OVERSCROLL_TEMPLATE_COUNT + 2;
+      return count + _OVERSCROLL_TEMPLATE_COUNT + 1;
     }
     return count;
   }

@@ -10,7 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  in_app_review: 2.0.9
+  in_app_review: 2.0.10
 
   app_store_shared:
     path: ../shared

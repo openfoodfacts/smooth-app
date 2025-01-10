@@ -138,7 +138,7 @@ class _SearchCard extends StatelessWidget {
             TextWithBoldParts(
               text: localizations.homepage_main_card_subheading,
               textAlign: TextAlign.center,
-              textStyle: const TextStyle(height: 1.3, fontSize: 15.0),
+              textStyle: const TextStyle(height: 1.6, fontSize: 15.0),
             ),
             const SizedBox(height: MEDIUM_SPACE),
             const Padding(

@@ -64,6 +64,7 @@ class ScanProductCardFound extends StatelessWidget {
             vertical: VERY_SMALL_SPACE,
           ),
           scrollableContent: true,
+          isTextSelectable: false,
         ),
       ),
     );

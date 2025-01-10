@@ -13,17 +13,19 @@ class SmoothLargeButtonWithIcon extends StatelessWidget {
     this.foregroundColor,
     this.textAlign,
     this.textStyle,
+    this.elevation,
   });
 
   final String text;
   final IconData icon;
   final VoidCallback? onPressed;
-  final EdgeInsets? padding;
+  final EdgeInsetsGeometry? padding;
   final IconData? trailing;
   final Color? backgroundColor;
   final Color? foregroundColor;
   final TextAlign? textAlign;
   final TextStyle? textStyle;
+  final WidgetStateProperty<double?>? elevation;
 
   Color _getBackgroundColor(final ThemeData themeData) =>
       backgroundColor ?? themeData.colorScheme.secondary;
@@ -44,6 +46,7 @@ class SmoothLargeButtonWithIcon extends StatelessWidget {
       minWidth: double.infinity,
       padding: padding ?? const EdgeInsets.all(10),
       onPressed: onPressed,
+      elevation: elevation,
       buttonColor: _getBackgroundColor(themeData),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
