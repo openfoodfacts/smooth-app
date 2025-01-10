@@ -253,7 +253,7 @@ class _EditLanguageTabBarAddLanguageButton extends StatelessWidget {
                 width: lightTheme ? 1.5 : 2.0,
               ),
             ),
-            color: lightTheme ? theme.primaryDark : theme.primaryNormal,
+            color: lightTheme ? theme.primaryBlack : theme.primaryNormal,
           ),
           child: Material(
             type: MaterialType.transparency,

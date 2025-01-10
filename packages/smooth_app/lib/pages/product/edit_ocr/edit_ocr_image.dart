@@ -19,6 +19,7 @@ import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_indicator_icon.dart';
+import 'package:smooth_app/widgets/smooth_text.dart';
 
 class EditOCRImageWidget extends StatelessWidget {
   const EditOCRImageWidget({
@@ -76,14 +77,21 @@ class EditOCRImageWidget extends StatelessWidget {
               color: extension.warning,
               borderRadius: ROUNDED_BORDER_RADIUS,
             ),
-            child: const Padding(
-              padding: EdgeInsetsDirectional.only(
-                top: 6.5,
-                bottom: 7.5,
-                start: 7.0,
-                end: 7.0,
+            child: Material(
+              type: MaterialType.transparency,
+              child: InkWell(
+                customBorder: const CircleBorder(),
+                onTap: () => _openOutdatedPictureExplanations(context),
+                child: const Padding(
+                  padding: EdgeInsetsDirectional.only(
+                    top: 6.5,
+                    bottom: 7.5,
+                    start: 7.0,
+                    end: 7.0,
+                  ),
+                  child: icons.Outdated(size: 15.0),
+                ),
               ),
-              child: icons.Outdated(size: 15.0),
             ),
           ),
         );
@@ -147,6 +155,26 @@ class EditOCRImageWidget extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  Future<void> _openOutdatedPictureExplanations(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+    return showSmoothModalSheet<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return SmoothModalSheet(
+          title: appLocalizations.product_image_outdated_explanations_title,
+          prefixIndicator: true,
+          body: SmoothModalSheetBodyContainer(
+            child: TextWithBoldParts(
+              text:
+                  appLocalizations.product_image_outdated_explanations_content,
+            ),
+          ),
+        );
+      },
     );
   }
 }
