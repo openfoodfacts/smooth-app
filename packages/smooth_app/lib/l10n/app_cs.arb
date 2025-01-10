@@ -744,6 +744,7 @@
     "score_add_missing_product_labels": "Přidat chybějící štítky produktu",
     "score_add_missing_product_origins": "Přidat chybějící původ produktu",
     "score_add_missing_product_stores": "Přidat chybějící obchody produktů",
+    "score_add_missing_product_brands": "Add missing product brands",
     "score_update_nutrition_facts": "Aktualizujte výživová fakta",
     "nutrition_page_title": "Nutriční hodnoty",
     "nutrition_page_unspecified": "Výživové údaje nejsou u produktu uvedeny",
@@ -1225,10 +1226,6 @@
     "@onboarding_welcome_loading_dialog_title": {
         "description": "Title for the onboarding loading dialog"
     },
-    "onboarding_welcome_loading_error": "Zdá se, že ve vašem jazyce neexistuje žádný příklad produktu",
-    "@onboarding_welcome_loading_error": {
-        "description": "Seems like there is no example product in your language"
-    },
     "product_list_your_ranking": "Vaše hodnocení",
     "@product_list_your_ranking": {
         "description": "Your ranking screen title"
@@ -1417,6 +1414,10 @@
     "edit_product_form_item_error_empty": "Please enter a non-empty value!",
     "@edit_product_form_item_error_empty": {
         "description": "Error message when the user tries to submit an empty value"
+    },
+    "edit_product_form_item_error_existing": "This value is already there!",
+    "@edit_product_form_item_error_existing": {
+        "description": "Error message when the user tries to re-submit an existing value"
     },
     "edit_product_form_item_add_action": "Přidat nový {itemType}",
     "description": "Popisek, který se zobrazí, když uživatel dlouze stiskne tlačítko (+)",
