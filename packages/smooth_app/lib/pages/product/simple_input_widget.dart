@@ -139,7 +139,12 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
         ),
         _getList(appLocalizations),
         if (extraWidget != null)
-          extraWidget
+          Padding(
+            padding: EdgeInsetsDirectional.only(
+              top: _localTerms.isEmpty ? SMALL_SPACE : 0.0,
+            ),
+            child: extraWidget,
+          )
         else if (_localTerms.isEmpty)
           const SizedBox(height: MEDIUM_SPACE)
         else
