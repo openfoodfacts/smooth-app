@@ -132,6 +132,8 @@ class EditOCRTextField extends StatelessWidget {
                         ),
                       ),
                     ),
+                    onTapOutside: (_) =>
+                        FocusManager.instance.primaryFocus?.unfocus(),
                   ),
                 );
               },

@@ -19,6 +19,7 @@ import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_app_logo.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_responsive.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_snackbar.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
 import 'package:smooth_app/pages/all_product_list_modal.dart';
@@ -409,7 +410,7 @@ class _ProductListPageState extends State<ProductListPage>
           }
           ScaffoldMessenger.of(context).hideCurrentSnackBar();
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
+            SmoothFloatingSnackbar(
               content: Text(
                 removed
                     ? appLocalizations.product_removed_list
@@ -463,12 +464,12 @@ class _ProductListPageState extends State<ProductListPage>
         if (!mounted) {
           return;
         }
+
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(
-              appLocalizations.product_list_reloading_success_multiple(
-                products.length,
-              ),
+          SmoothFloatingSnackbar.positive(
+            context: context,
+            text: appLocalizations.product_list_reloading_success_multiple(
+              products.length,
             ),
             duration: SnackBarDuration.short,
           ),

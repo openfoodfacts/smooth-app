@@ -142,11 +142,11 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
         child: Scrollbar(
           controller: _controller,
           child: ListView(
-            padding: const EdgeInsetsDirectional.only(
+            padding: EdgeInsetsDirectional.only(
               top: SMALL_SPACE,
               start: VERY_SMALL_SPACE,
               end: VERY_SMALL_SPACE,
-              bottom: MEDIUM_SPACE,
+              bottom: MEDIUM_SPACE + MediaQuery.viewPaddingOf(context).bottom,
             ),
             controller: _controller,
             children: <Widget>[

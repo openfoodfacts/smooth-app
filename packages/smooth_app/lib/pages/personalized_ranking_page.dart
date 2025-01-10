@@ -11,6 +11,7 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_snackbar.dart';
 import 'package:smooth_app/helpers/product_compatibility_helper.dart';
 import 'package:smooth_app/pages/product/common/loading_status.dart';
 import 'package:smooth_app/pages/product/common/product_list_item_simple.dart';
@@ -67,7 +68,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
     }
     if (added != null && added) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
+        SmoothFloatingSnackbar(
           content: Text(
             appLocalizations.added_to_list_msg,
           ),
@@ -231,7 +232,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
         onDismissed: (final DismissDirection direction) {
           _model.dismiss(matchedProduct.barcode);
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
+            SmoothFloatingSnackbar(
               content: Text(appLocalizations.product_removed_comparison),
               duration: SnackBarDuration.medium,
             ),
@@ -250,6 +251,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
 /// Virtual item in the list: either a product or a status header
 class _VirtualItem {
   const _VirtualItem.score(this.score) : status = null;
+
   const _VirtualItem.status(this.status) : score = null;
   final MatchedScoreV2? score;
   final MatchedProductStatusV2? status;

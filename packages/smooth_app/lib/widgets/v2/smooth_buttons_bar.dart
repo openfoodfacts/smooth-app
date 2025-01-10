@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/helpers/keyboard_helper.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
@@ -152,13 +153,13 @@ class _SmoothPositiveButton2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final SmoothColorsThemeExtension colors =
-        Theme.of(context).extension<SmoothColorsThemeExtension>()!;
+        context.extension<SmoothColorsThemeExtension>();
+    final bool lightTheme = context.lightTheme();
 
     return _SmoothBaseButton2(
       data: data,
-      backgroundColor:
-          context.lightTheme() ? colors.primaryBlack : colors.primaryDark,
-      foregroundColor: Colors.white,
+      backgroundColor: lightTheme ? colors.primaryBlack : colors.primaryLight,
+      foregroundColor: lightTheme ? Colors.white : colors.primaryDark,
     );
   }
 }
@@ -171,12 +172,14 @@ class _SmoothNegativeButton2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final SmoothColorsThemeExtension colors =
-        Theme.of(context).extension<SmoothColorsThemeExtension>()!;
+        context.extension<SmoothColorsThemeExtension>();
+
+    final bool lightTheme = context.lightTheme();
 
     return _SmoothBaseButton2(
       data: data,
-      backgroundColor: colors.primaryMedium,
-      foregroundColor: colors.primaryDark,
+      backgroundColor: lightTheme ? colors.primaryMedium : colors.primaryDark,
+      foregroundColor: lightTheme ? colors.primaryDark : colors.primaryLight,
     );
   }
 }

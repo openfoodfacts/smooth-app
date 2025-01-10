@@ -35,6 +35,44 @@ class SmoothFloatingSnackbar extends SnackBar {
           behavior: SnackBarBehavior.floating,
         );
 
+  SmoothFloatingSnackbar.positive({
+    required BuildContext context,
+    required String text,
+    super.elevation,
+    super.padding,
+    super.width,
+    super.shape,
+    super.hitTestBehavior,
+    super.action,
+    super.actionOverflowThreshold,
+    super.showCloseIcon,
+    super.closeIconColor,
+    super.animation,
+    super.onVisible,
+    super.dismissDirection,
+    super.clipBehavior = Clip.hardEdge,
+    Duration? duration,
+    super.key,
+  }) : super(
+          margin: const EdgeInsetsDirectional.all(SMALL_SPACE),
+          duration: duration ??
+              (action != null
+                  ? const Duration(seconds: 10)
+                  : SnackBarDuration.short),
+          behavior: SnackBarBehavior.floating,
+          backgroundColor:
+              context.extension<SmoothColorsThemeExtension>().success,
+          content: Row(
+            children: <Widget>[
+              Expanded(child: Text(text)),
+              const Icon(
+                Icons.check_circle,
+                color: Colors.white,
+              ),
+            ],
+          ),
+        );
+
   SmoothFloatingSnackbar.error({
     required BuildContext context,
     required String text,

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_snackbar.dart';
 import 'package:smooth_app/helpers/entry_points_helper.dart';
 import 'package:smooth_app/helpers/global_vars.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
@@ -46,13 +47,12 @@ class UserPreferencesRateUs extends StatelessWidget {
 
           final ThemeData themeData = Theme.of(context);
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
+            SmoothFloatingSnackbar(
               content: Text(
                 appLocalizations.error_occurred,
                 textAlign: TextAlign.center,
                 style: TextStyle(color: themeData.colorScheme.surface),
               ),
-              behavior: SnackBarBehavior.floating,
               backgroundColor: themeData.colorScheme.onSurface,
             ),
           );
