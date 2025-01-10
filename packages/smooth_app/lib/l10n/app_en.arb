@@ -1316,7 +1316,7 @@
         }
     },
     "settings_app_app": "Application",
-    "settings_app_data": "Features & Crash monitoring",
+    "settings_app_data": "Privacy & monitoring",
     "settings_app_camera": "Camera",
     "settings_app_products": "Products",
     "settings_app_miscellaneous": "Miscellaneous",
@@ -1343,7 +1343,7 @@
     "@app_haptic_feedback_subtitle": {
         "description": "SubTitle for the Haptic feedback toggle"
     },
-    "crash_reporting_toggle_title": "Report us bugs and crashes",
+    "crash_reporting_toggle_title": "Crash reporting",
     "@crash_reporting_toggle_title": {
         "description": "Title for the Crash reporting toggle"
     },
@@ -1351,11 +1351,11 @@
     "@crash_reporting_toggle_subtitle": {
         "description": "SubTitle for the Crash reporting toggle"
     },
-    "send_anonymous_data_toggle_title": "Report us feature usage",
+    "send_anonymous_data_toggle_title": "Send anonymous data",
     "@send_anonymous_toggle_title": {
         "description": "Title for the Send anonymous data toggle"
     },
-    "send_anonymous_data_toggle_subtitle": "When enabled, strictly anonymous information regarding feature usage will be sent to the Open Food Facts servers, so that we can understand how features are used in order to improve them. Otherwise, a 0 id will be sent.",
+    "send_anonymous_data_toggle_subtitle": "When enabled, some anonymous information regarding app usage will be sent to the Open Food Facts servers, so that we can understand how and how much features are used in order to improve them.",
     "@send_anonymous_toggle_subtitle": {
         "description": "SubTitle for the Send anonymous data toggle"
     },
@@ -1417,9 +1417,6 @@
     "edit_product_form_item_error_empty": "Please enter a non-empty value!",
     "@edit_product_form_item_error_empty": {
         "description": "Error message when the user tries to submit an empty value"
-    },
-    "@edit_product_label_short": {
-        "description": "Edit product button short label (only the verb)"
     },
     "edit_product_form_item_add_action": "Add a new {itemType}",
     "description": "Tooltip to show when the user long presses the (+) button",
