@@ -2604,15 +2604,10 @@
     },
     "clipboard_barcode_copy": "Nukopijuoti brūkšninį kodą",
     "@clipboard_barcode_copied": {
-        "description": "Snackbar label after clipboard copy",
-        "placeholders": {
-            "barcode": {
-                "type": "String",
-                "description": "barcode"
-            }
-        }
+        "description": "Snackbar label after clipboard copy"
     },
     "clipboard_barcode_copied": "Brūkšninis kodas {barcode} nukopijuotas!",
+    "open_product_website": "Open this product on the website",
     "language_picker_label": "Jūsų kalba",
     "@language_picker_label": {
         "description": "Choose Application Language"
