@@ -46,6 +46,7 @@ class _EditProductBarcodeState extends State<EditProductBarcode> {
         padding: const EdgeInsetsDirectional.only(
           top: VERY_SMALL_SPACE,
           bottom: SMALL_SPACE,
+          start: SMALL_SPACE,
         ),
         child: Center(
           child: Row(
