@@ -2604,15 +2604,10 @@
     },
     "clipboard_barcode_copy": "Salin kode batang ke papan klip",
     "@clipboard_barcode_copied": {
-        "description": "Snackbar label after clipboard copy",
-        "placeholders": {
-            "barcode": {
-                "type": "String",
-                "description": "barcode"
-            }
-        }
+        "description": "Snackbar label after clipboard copy"
     },
     "clipboard_barcode_copied": "Kode batang {barcode} disalin ke papan klip!",
+    "open_product_website": "Open this product on the website",
     "language_picker_label": "Bahasa Anda",
     "@language_picker_label": {
         "description": "Choose Application Language"
