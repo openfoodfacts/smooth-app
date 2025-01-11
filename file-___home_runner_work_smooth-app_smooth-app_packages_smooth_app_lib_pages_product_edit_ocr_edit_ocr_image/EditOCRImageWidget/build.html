@@ -131,12 +131,12 @@ Widget build(BuildContext context) {
       reduceHeader = true;
 
       if (headerIcons == null) {
-        headerIcons = const EditOCROwnerFieldIcon();
+        headerIcons = const OwnerFieldSmoothCardIcon();
       } else {
         headerIcons = Row(
           mainAxisSize: MainAxisSize.min,
           children: &lt;Widget&gt;[
-            const EditOCROwnerFieldIcon(),
+            const OwnerFieldSmoothCardIcon(),
             headerIcons,
           ],
         );
