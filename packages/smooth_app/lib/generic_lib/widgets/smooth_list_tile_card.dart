@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/themes/constant_icons.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 
 /// Displays a [ListTile] in a [SmoothCard] wrapped with an [InkWell].
 class SmoothListTileCard extends StatelessWidget {
@@ -10,6 +13,7 @@ class SmoothListTileCard extends StatelessWidget {
     this.subtitle,
     this.onTap,
     this.leading,
+    this.margin,
     super.key,
   });
 
@@ -20,6 +24,7 @@ class SmoothListTileCard extends StatelessWidget {
     Widget? title,
     Widget? subtitle,
     GestureTapCallback? onTap,
+    EdgeInsetsGeometry? margin,
     Key? key,
   }) : this(
           title: title,
@@ -31,28 +36,53 @@ class SmoothListTileCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[icon ?? const Icon(Icons.edit)],
           ),
+          margin: margin,
         );
 
   final Widget? title;
   final Widget? subtitle;
   final Widget? leading;
   final GestureTapCallback? onTap;
+  final EdgeInsetsGeometry? margin;
 
   @override
-  Widget build(BuildContext context) => SmoothCard(
-        padding: EdgeInsets.zero,
-        child: InkWell(
-          borderRadius: ROUNDED_BORDER_RADIUS,
-          onTap: onTap,
-          child: Padding(
-            padding: const EdgeInsets.all(VERY_SMALL_SPACE),
-            child: ListTile(
-              title: title,
-              subtitle: subtitle,
-              leading: leading,
-              trailing: Icon(ConstantIcons.instance.getForwardIcon()),
-            ),
-          ),
+  Widget build(BuildContext context) {
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
+    final bool lightTheme = context.lightTheme();
+
+    return SmoothCard(
+      padding: EdgeInsets.zero,
+      margin: margin ?? const EdgeInsets.all(VERY_SMALL_SPACE),
+      child: InkWell(
+        borderRadius: ROUNDED_BORDER_RADIUS,
+        onTap: onTap,
+        child: ListTile(
+          title: title,
+          subtitle: subtitle,
+          leading: leading != null
+              ? DecoratedBox(
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: lightTheme
+                        ? extension.primaryBlack
+                        : extension.primarySemiDark,
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsetsDirectional.all(BALANCED_SPACE),
+                    child: IconTheme(
+                      data: IconThemeData(
+                        color: lightTheme ? Colors.white : Colors.white,
+                        size: 20.0,
+                      ),
+                      child: leading!,
+                    ),
+                  ),
+                )
+              : null,
+          trailing: Icon(ConstantIcons.instance.getForwardIcon()),
         ),
-      );
+      ),
+    );
+  }
 }

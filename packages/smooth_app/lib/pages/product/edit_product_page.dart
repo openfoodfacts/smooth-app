@@ -1,6 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
@@ -12,12 +11,14 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_list_tile_card.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
+import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/onboarding/currency_selector_helper.dart';
 import 'package:smooth_app/pages/prices/price_meta_product.dart';
 import 'package:smooth_app/pages/prices/product_price_add_page.dart';
 import 'package:smooth_app/pages/product/add_other_details_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
+import 'package:smooth_app/pages/product/edit_product_barcode.dart';
 import 'package:smooth_app/pages/product/gallery_view/product_image_gallery_view.dart';
 import 'package:smooth_app/pages/product/nutrition_page_loaded.dart';
 import 'package:smooth_app/pages/product/product_field_editor.dart';
@@ -28,8 +29,6 @@ import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
-import 'package:smooth_app/widgets/smooth_barcode_widget.dart';
-import 'package:smooth_app/widgets/smooth_floating_message.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Page where we can indirectly edit all data about a product.
@@ -44,7 +43,7 @@ class EditProductPage extends StatefulWidget {
 
 class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
   final ScrollController _controller = ScrollController();
-  bool _barcodeVisibleInAppbar = false;
+  bool _actionsVisibleInAppbar = false;
 
   @override
   void initState() {
@@ -90,7 +89,7 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
                   maxFontSize:
                       theme.textTheme.titleLarge?.fontSize?.clamp(13.0, 20.0) ??
                           18.0,
-                  maxLines: !_barcodeVisibleInAppbar ? 2 : 1,
+                  maxLines: !_actionsVisibleInAppbar ? 2 : 1,
                   style: theme.textTheme.titleLarge?.copyWith(
                     fontWeight: FontWeight.w500,
                   ),
@@ -98,7 +97,7 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
                 if (barcode.isNotEmpty)
                   AnimatedContainer(
                     duration: const Duration(milliseconds: 250),
-                    height: _barcodeVisibleInAppbar ? 14.0 : 0.0,
+                    height: _actionsVisibleInAppbar ? 14.0 : 0.0,
                     child: Text(
                       barcode,
                       style: theme.textTheme.titleMedium?.copyWith(
@@ -114,20 +113,27 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
         actions: <Widget>[
           Semantics(
             button: true,
-            value: appLocalizations.clipboard_barcode_copy,
+            value: appLocalizations.open_product_website,
             excludeSemantics: true,
             child: Builder(builder: (BuildContext context) {
               return IconButton(
-                icon: const Icon(Icons.copy),
-                tooltip: appLocalizations.clipboard_barcode_copy,
+                icon: const icons.ExternalLink(
+                  size: 20.0,
+                ),
+                tooltip: appLocalizations.open_product_website,
                 onPressed: () {
-                  Clipboard.setData(
-                    ClipboardData(text: barcode),
+                  LaunchUrlHelper.launchURL(
+                    switch (upToDateProduct.productType) {
+                      ProductType.beauty =>
+                        'https://world.openbeautyfacts.org/product/${upToDateProduct.barcode}',
+                      ProductType.petFood =>
+                        'https://world.openpetfoodfacts.org/product/${upToDateProduct.barcode}',
+                      ProductType.product =>
+                        'https://world.openproductsfacts.org/product/${upToDateProduct.barcode}',
+                      _ =>
+                        'https://world.openfoodfacts.org/product/${upToDateProduct.barcode}',
+                    },
                   );
-
-                  SmoothFloatingMessage(
-                    message: appLocalizations.clipboard_barcode_copied(barcode),
-                  ).show(context, alignment: AlignmentDirectional.bottomCenter);
                 },
               );
             }),
@@ -144,14 +150,14 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
           child: ListView(
             padding: EdgeInsetsDirectional.only(
               top: SMALL_SPACE,
-              start: VERY_SMALL_SPACE,
-              end: VERY_SMALL_SPACE,
+              start: MEDIUM_SPACE,
+              end: MEDIUM_SPACE,
               bottom: MEDIUM_SPACE + MediaQuery.viewPaddingOf(context).bottom,
             ),
             controller: _controller,
             children: <Widget>[
-              if (_ProductBarcode.isAValidBarcode(barcode))
-                _ProductBarcode(product: upToDateProduct),
+              if (EditProductBarcode.isAValidBarcode(barcode))
+                EditProductBarcode(barcode: upToDateProduct.barcode ?? ''),
               _ListTitleItem(
                 leading: const icons.Edit(size: 18.0),
                 title: appLocalizations.edit_product_form_item_details_title,
@@ -370,11 +376,11 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
 
   void _onScrollChanged() {
     final bool visibleBarcode =
-        _controller.offset > _ProductBarcode._barcodeHeight;
+        _controller.offset > EditProductBarcode.barcodeHeight + 80.0;
 
-    if (visibleBarcode != _barcodeVisibleInAppbar) {
+    if (visibleBarcode != _actionsVisibleInAppbar) {
       setState(() {
-        _barcodeVisibleInAppbar = visibleBarcode;
+        _actionsVisibleInAppbar = visibleBarcode;
       });
     }
   }
@@ -402,48 +408,8 @@ class _ListTitleItem extends SmoothListTileCard {
                 ),
           icon: leading,
           subtitle: subtitle == null ? null : Text(subtitle),
+          margin: const EdgeInsetsDirectional.only(
+            top: SMALL_SPACE,
+          ),
         );
-}
-
-/// Barcodes only allowed have a length of 7, 8, 12 or 13 characters
-class _ProductBarcode extends StatefulWidget {
-  _ProductBarcode({required this.product})
-      : assert(product.barcode?.isNotEmpty == true),
-        assert(isAValidBarcode(product.barcode));
-
-  static const double _barcodeHeight = 120.0;
-
-  final Product product;
-
-  @override
-  State<_ProductBarcode> createState() => _ProductBarcodeState();
-
-  static bool isAValidBarcode(String? barcode) =>
-      barcode != null && <int>[7, 8, 12, 13].contains(barcode.length);
-}
-
-class _ProductBarcodeState extends State<_ProductBarcode> {
-  bool _isAnInvalidBarcode = false;
-
-  @override
-  Widget build(BuildContext context) {
-    final Size screenSize = MediaQuery.sizeOf(context);
-
-    return SmoothBarcodeWidget(
-      padding: EdgeInsets.symmetric(
-        horizontal: screenSize.width / 4,
-        vertical: SMALL_SPACE,
-      ),
-      color: context.lightTheme() ? Colors.black : Colors.white,
-      barcode: widget.product.barcode!,
-      onInvalidBarcode: () {
-        if (!_isAnInvalidBarcode) {
-          WidgetsBinding.instance.addPostFrameCallback((_) {
-            setState(() => _isAnInvalidBarcode = true);
-          });
-        }
-      },
-      height: _isAnInvalidBarcode ? null : _ProductBarcode._barcodeHeight,
-    );
-  }
 }
