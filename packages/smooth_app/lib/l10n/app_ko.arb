@@ -2604,15 +2604,10 @@
     },
     "clipboard_barcode_copy": "바코드를 클립보드에 복사",
     "@clipboard_barcode_copied": {
-        "description": "Snackbar label after clipboard copy",
-        "placeholders": {
-            "barcode": {
-                "type": "String",
-                "description": "barcode"
-            }
-        }
+        "description": "Snackbar label after clipboard copy"
     },
     "clipboard_barcode_copied": "{barcode} 바코드를 클립보드에 복사했습니다!",
+    "open_product_website": "Open this product on the website",
     "language_picker_label": "Your language",
     "@language_picker_label": {
         "description": "Choose Application Language"
