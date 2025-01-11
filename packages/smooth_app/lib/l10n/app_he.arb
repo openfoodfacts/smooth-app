@@ -2607,7 +2607,7 @@
         "description": "Snackbar label after clipboard copy"
     },
     "clipboard_barcode_copied": "הברקוד {barcode} הועתק ללוח הגזירים!",
-    "open_product_website": "Open this product on the website",
+    "open_product_website": "פתיחת המוצר הזה באתר",
     "language_picker_label": "השפה שלך",
     "@language_picker_label": {
         "description": "Choose Application Language"
@@ -3527,7 +3527,7 @@
     "@open_street_map_contributor_attribution": {
         "description": "Attribution for OpenStreetMap contributors"
     },
-    "not_applicable_short": "N/A",
+    "not_applicable_short": "לא זמין",
     "@not_applicable_short": {
         "description": "Acronym for Not Applicable"
     }
