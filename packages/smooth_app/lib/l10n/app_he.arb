@@ -2604,15 +2604,10 @@
     },
     "clipboard_barcode_copy": "העתקת ברקוד ללוח הגזירים",
     "@clipboard_barcode_copied": {
-        "description": "Snackbar label after clipboard copy",
-        "placeholders": {
-            "barcode": {
-                "type": "String",
-                "description": "barcode"
-            }
-        }
+        "description": "Snackbar label after clipboard copy"
     },
     "clipboard_barcode_copied": "הברקוד {barcode} הועתק ללוח הגזירים!",
+    "open_product_website": "Open this product on the website",
     "language_picker_label": "השפה שלך",
     "@language_picker_label": {
         "description": "Choose Application Language"
