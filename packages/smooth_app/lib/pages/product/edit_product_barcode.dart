@@ -56,12 +56,6 @@ class _EditProductBarcodeState extends State<EditProductBarcode> {
               ExcludeSemantics(
                 child: DecoratedBox(
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadiusHelper.fromDirectional(
-                      context: context,
-                      topStart: ROUNDED_RADIUS,
-                      bottomStart: ROUNDED_RADIUS,
-                      topEnd: ROUNDED_RADIUS,
-                    ),
                     border: Border.all(
                       color: color,
                       width: 2.0,
@@ -77,7 +71,7 @@ class _EditProductBarcodeState extends State<EditProductBarcode> {
                       padding: const EdgeInsetsDirectional.only(
                         top: MEDIUM_SPACE,
                         start: 14.0,
-                        end: 19.0,
+                        end: 19.5,
                         bottom: MEDIUM_SPACE,
                       ),
                       color: context.lightTheme() ? Colors.black : Colors.white,
