@@ -95,6 +95,8 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
                       tagType: widget.helper.getTagType(),
                       autocompleteManager:
                           widget.helper.getAutocompleteManager(),
+                      textCapitalization: widget.helper.getTextCapitalization(),
+                      allowEmojis: widget.helper.getAllowEmojis(),
                       hintText: widget.helper.getAddHint(appLocalizations),
                       controller: widget.controller,
                       padding: const EdgeInsets.symmetric(
