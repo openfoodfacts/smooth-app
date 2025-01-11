@@ -2604,15 +2604,10 @@
     },
     "clipboard_barcode_copy": "Copia il codice a barre negli appunti",
     "@clipboard_barcode_copied": {
-        "description": "Snackbar label after clipboard copy",
-        "placeholders": {
-            "barcode": {
-                "type": "String",
-                "description": "barcode"
-            }
-        }
+        "description": "Snackbar label after clipboard copy"
     },
     "clipboard_barcode_copied": "Codice a barre {barcode} copiato negli appunti!",
+    "open_product_website": "Open this product on the website",
     "language_picker_label": "La tua lingua",
     "@language_picker_label": {
         "description": "Choose Application Language"
