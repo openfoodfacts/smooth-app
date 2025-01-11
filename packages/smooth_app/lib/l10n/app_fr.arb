@@ -2613,6 +2613,7 @@
         }
     },
     "clipboard_barcode_copied": "Le code-barres {barcode} a été copié dans le presse-papiers !",
+    "open_product_website": "Ouvrir le produit sur sur le site web",
     "language_picker_label": "Votre langue",
     "@language_picker_label": {
         "description": "Choose Application Language"

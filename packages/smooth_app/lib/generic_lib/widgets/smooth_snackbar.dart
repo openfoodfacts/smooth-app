@@ -65,6 +65,7 @@ class SmoothFloatingSnackbar extends SnackBar {
           content: Row(
             children: <Widget>[
               Expanded(child: Text(text)),
+              const SizedBox(width: SMALL_SPACE),
               const Icon(
                 Icons.check_circle,
                 color: Colors.white,
