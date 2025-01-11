@@ -2604,15 +2604,10 @@
     },
     "clipboard_barcode_copy": "Strichcode in die Zwischenablage kopieren",
     "@clipboard_barcode_copied": {
-        "description": "Snackbar label after clipboard copy",
-        "placeholders": {
-            "barcode": {
-                "type": "String",
-                "description": "barcode"
-            }
-        }
+        "description": "Snackbar label after clipboard copy"
     },
     "clipboard_barcode_copied": "Strichcode „{barcode}“ in die Zwischenablage kopiert!",
+    "open_product_website": "Dieses Produkt auf der Website öffnen",
     "language_picker_label": "Ihre Sprache",
     "@language_picker_label": {
         "description": "Choose Application Language"
