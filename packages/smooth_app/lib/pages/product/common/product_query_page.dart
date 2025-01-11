@@ -447,7 +447,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
   Widget _getLargeButtonWithIcon(final _Action action) =>
       SmoothLargeButtonWithIcon(
         text: action.text,
-        icon: action.iconData,
+        leadingIcon: Icon(action.iconData),
         onPressed: action.onPressed,
       );
 

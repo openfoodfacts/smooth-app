@@ -87,7 +87,7 @@ class _FolksonomyCardList extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
             ),
-            Icon(ConstantIcons.instance.getForwardIcon()),
+            Icon(ConstantIcons.forwardIcon),
           ],
         ),
       );
@@ -117,7 +117,7 @@ class _FolksonomyCardList extends StatelessWidget {
                 ),
               ),
             ),
-            Icon(ConstantIcons.instance.getForwardIcon()),
+            Icon(ConstantIcons.forwardIcon),
           ],
         ),
       );

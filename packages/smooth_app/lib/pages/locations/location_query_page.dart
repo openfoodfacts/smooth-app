@@ -122,7 +122,7 @@ class _LocationQueryPageState extends State<LocationQueryPage>
                   return SmoothCard(
                     child: SmoothLargeButtonWithIcon(
                       text: appLocalizations.prices_location_search_broader,
-                      icon: Icons.search,
+                      leadingIcon: const Icon(Icons.search),
                       onPressed: () => _model.loadMore(),
                     ),
                   );

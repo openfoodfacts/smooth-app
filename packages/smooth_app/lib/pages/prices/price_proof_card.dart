@@ -69,7 +69,9 @@ class PriceProofCard extends StatelessWidget {
                   : model.proofType == ProofType.receipt
                       ? appLocalizations.prices_proof_receipt
                       : appLocalizations.prices_proof_price_tag,
-              icon: !model.hasImage ? _iconTodo : _iconDone,
+              leadingIcon: !model.hasImage
+                  ? const Icon(_iconTodo)
+                  : const Icon(_iconDone),
               onPressed: model.proof != null
                   ? null
                   : () async {

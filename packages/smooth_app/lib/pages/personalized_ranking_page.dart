@@ -132,7 +132,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
                 child: Padding(
                   padding: const EdgeInsets.all(SMALL_SPACE),
                   child: SmoothLargeButtonWithIcon(
-                    icon: Icons.refresh,
+                    leadingIcon: const Icon(Icons.refresh),
                     text: appLocalizations.refresh_with_new_preferences,
                     onPressed: () {
                       _compactPreferences = compactPreferences;

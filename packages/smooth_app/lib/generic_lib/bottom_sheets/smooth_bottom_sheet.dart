@@ -499,18 +499,23 @@ class SmoothModalSheetHeaderCloseButton extends StatelessWidget
 
 class SmoothModalSheetHeaderPrefixIndicator extends StatelessWidget
     implements SizeWidget {
-  const SmoothModalSheetHeaderPrefixIndicator({super.key});
+  const SmoothModalSheetHeaderPrefixIndicator({
+    this.color,
+    super.key,
+  });
+
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsetsDirectional.only(end: VERY_SMALL_SPACE),
+    return Padding(
+      padding: const EdgeInsetsDirectional.only(end: VERY_SMALL_SPACE),
       child: SizedBox(
         width: 10.0,
         height: 10.0,
         child: DecoratedBox(
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: color ?? Colors.white,
             shape: BoxShape.circle,
           ),
         ),

@@ -52,7 +52,9 @@ class KnowledgePanelCard extends StatelessWidget {
           panelId,
         );
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
+      padding: const EdgeInsetsDirectional.symmetric(
+        vertical: SMALL_SPACE,
+      ),
       child: InkWell(
         borderRadius: ANGULAR_BORDER_RADIUS,
         onTap: !improvedIsClickable

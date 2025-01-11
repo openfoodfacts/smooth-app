@@ -173,7 +173,7 @@ class EditOCRExtraButton extends StatelessWidget {
           language: multilingualHelper.getCurrentLanguage(),
           isLoggedInMandatory: isLoggedInMandatory,
         ),
-        iconData: Icons.add_a_photo_rounded,
+        leadingIcon: const Icon(Icons.add_a_photo_rounded),
         padding: const EdgeInsetsDirectional.only(
           top: SMALL_SPACE,
           bottom: SMALL_SPACE,

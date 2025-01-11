@@ -122,7 +122,8 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
                 ),
                 tooltip: appLocalizations.open_product_website,
                 onPressed: () {
-                  LaunchUrlHelper.launchURL(
+                  LaunchUrlHelper.launchURLAndFollowDeepLinks(
+                    context,
                     switch (upToDateProduct.productType) {
                       ProductType.beauty =>
                         'https://world.openbeautyfacts.org/product/${upToDateProduct.barcode}',

@@ -178,7 +178,7 @@ class _BackIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SearchBarIcon(
-      icon: Icon(ConstantIcons.instance.getBackIcon()),
+      icon: Icon(ConstantIcons.backIcon),
       label: MaterialLocalizations.of(context).closeButtonTooltip,
       onTap: () => Navigator.of(context).pop(),
     );

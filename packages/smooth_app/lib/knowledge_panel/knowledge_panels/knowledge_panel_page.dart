@@ -84,39 +84,32 @@ class _KnowledgePanelPageState extends State<KnowledgePanelPage>
       ),
       body: RefreshIndicator(
         onRefresh: () => _refreshProduct(context),
-        child: CustomScrollView(
-          physics: const AlwaysScrollableScrollPhysics(),
-          slivers: <Widget>[
-            SliverToBoxAdapter(
-              child: Column(
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsetsDirectional.only(
-                      bottom: SMALL_SPACE,
-                      top: SMALL_SPACE,
-                    ),
-                    child: SmoothCard(
-                      padding: const EdgeInsetsDirectional.only(
-                        top: SMALL_SPACE,
-                        start: SMALL_SPACE,
-                        end: SMALL_SPACE,
-                        bottom: LARGE_SPACE,
-                      ),
-                      child: DefaultTextStyle.merge(
-                        style: const TextStyle(fontSize: 15.0, height: 1.5),
-                        child: KnowledgePanelExpandedCard(
-                          panelId: widget.panelId,
-                          product: upToDateProduct,
-                          isInitiallyExpanded: true,
-                          isClickable: true,
-                        ),
-                      ),
-                    ),
+        child: Scrollbar(
+          child: ListView(
+            physics: const AlwaysScrollableScrollPhysics(),
+            padding: EdgeInsetsDirectional.only(
+              top: SMALL_SPACE,
+              start: VERY_SMALL_SPACE,
+              end: VERY_SMALL_SPACE,
+              bottom: SMALL_SPACE + MediaQuery.viewPaddingOf(context).bottom,
+            ),
+            children: <Widget>[
+              SmoothCard(
+                padding: const EdgeInsetsDirectional.only(
+                  bottom: LARGE_SPACE,
+                ),
+                child: DefaultTextStyle.merge(
+                  style: const TextStyle(fontSize: 15.0, height: 1.5),
+                  child: KnowledgePanelExpandedCard(
+                    panelId: widget.panelId,
+                    product: upToDateProduct,
+                    isInitiallyExpanded: true,
+                    isClickable: true,
                   ),
-                ],
+                ),
               ),
-            )
-          ],
+            ],
+          ),
         ),
       ),
     );

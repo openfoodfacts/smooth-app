@@ -35,9 +35,9 @@ class PriceLocationCard extends StatelessWidget {
             : location.getTitle() ??
                 location.getSubtitle() ??
                 location.getLatLng().toString(),
-        icon: location == null
-            ? Icons.shopping_cart
-            : PriceButton.locationIconData,
+        leadingIcon: location == null
+            ? const Icon(Icons.shopping_cart)
+            : const Icon(PriceButton.locationIconData),
         onPressed: model.proof != null
             ? null
             : () async {

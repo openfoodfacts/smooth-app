@@ -113,7 +113,9 @@ class SmoothCardWithRoundedHeader extends StatelessWidget {
     this.titleTextStyle,
     this.titlePadding,
     this.contentPadding,
+    this.titleBackgroundColor,
     this.contentBackgroundColor,
+    this.borderRadius,
   });
 
   final String title;
@@ -124,7 +126,9 @@ class SmoothCardWithRoundedHeader extends StatelessWidget {
   final TextStyle? titleTextStyle;
   final EdgeInsetsGeometry? titlePadding;
   final EdgeInsetsGeometry? contentPadding;
+  final Color? titleBackgroundColor;
   final Color? contentBackgroundColor;
+  final BorderRadius? borderRadius;
 
   @override
   Widget build(BuildContext context) {
@@ -132,12 +136,12 @@ class SmoothCardWithRoundedHeader extends StatelessWidget {
     final SmoothColorsThemeExtension extension =
         context.extension<SmoothColorsThemeExtension>();
 
-    final Color color = getHeaderColor(context);
+    final Color color = titleBackgroundColor ?? getHeaderColor(context);
 
     return DecoratedBox(
-      decoration: const BoxDecoration(
-        borderRadius: ROUNDED_BORDER_RADIUS,
-        boxShadow: <BoxShadow>[
+      decoration: BoxDecoration(
+        borderRadius: borderRadius ?? ROUNDED_BORDER_RADIUS,
+        boxShadow: const <BoxShadow>[
           BoxShadow(
             color: Color(0x03000000),
             blurRadius: 2.0,
@@ -154,7 +158,7 @@ class SmoothCardWithRoundedHeader extends StatelessWidget {
             child: CustomPaint(
               painter: _SmoothCardWithRoundedHeaderBackgroundPainter(
                 color: color,
-                radius: ROUNDED_RADIUS,
+                radius: borderRadius?.topRight ?? ROUNDED_RADIUS,
               ),
               child: Padding(
                 padding: titlePadding ??
@@ -215,6 +219,7 @@ class SmoothCardWithRoundedHeader extends StatelessWidget {
                 const EdgeInsetsDirectional.only(
                   top: MEDIUM_SPACE,
                 ),
+            borderRadius: borderRadius ?? ROUNDED_BORDER_RADIUS,
             color: contentBackgroundColor ??
                 (context.darkTheme() ? extension.primaryUltraBlack : null),
             child: child,
@@ -251,7 +256,7 @@ class _SmoothCardWithRoundedHeaderBackgroundPainter extends CustomPainter {
           0.0,
           0.0,
           size.width,
-          size.height + ROUNDED_RADIUS.y,
+          size.height + radius.y,
         ),
         topLeft: radius,
         topRight: radius,

@@ -80,7 +80,7 @@ class SmoothListTileCard extends StatelessWidget {
                   ),
                 )
               : null,
-          trailing: Icon(ConstantIcons.instance.getForwardIcon()),
+          trailing: Icon(ConstantIcons.forwardIcon),
         ),
       ),
     );

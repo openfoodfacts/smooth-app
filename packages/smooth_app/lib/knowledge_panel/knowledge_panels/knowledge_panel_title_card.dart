@@ -45,6 +45,7 @@ class KnowledgePanelTitleCard extends StatelessWidget {
         }
       }
     }
+
     List<Widget> iconWidget;
     if (knowledgePanelTitleElement.iconUrl != null) {
       iconWidget = <Widget>[
@@ -129,7 +130,7 @@ class KnowledgePanelTitleCard extends StatelessWidget {
                 },
               ),
             ),
-            if (isClickable) Icon(ConstantIcons.instance.getForwardIcon()),
+            if (isClickable) Icon(ConstantIcons.forwardIcon),
           ],
         ),
       ),
