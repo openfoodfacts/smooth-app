@@ -1536,7 +1536,7 @@
     "@edit_product_form_item_categories_title": {
         "description": "Product edition - Categories - Title"
     },
-    "edit_product_form_item_categories_hint": "catégorie",
+    "edit_product_form_item_categories_hint": "Saisir une catégorie",
     "@edit_product_form_item_categories_hint": {
         "description": "Product edition - Categories - input textfield hint"
     },
@@ -2604,15 +2604,10 @@
     },
     "clipboard_barcode_copy": "Copier le code-barres dans le presse-papiers",
     "@clipboard_barcode_copied": {
-        "description": "Snackbar label after clipboard copy",
-        "placeholders": {
-            "barcode": {
-                "type": "String",
-                "description": "barcode"
-            }
-        }
+        "description": "Snackbar label after clipboard copy"
     },
     "clipboard_barcode_copied": "Le code-barres {barcode} a été copié dans le presse-papiers !",
+    "open_product_website": "Ouvrir le produit sur sur le site web",
     "language_picker_label": "Votre langue",
     "@language_picker_label": {
         "description": "Choose Application Language"
