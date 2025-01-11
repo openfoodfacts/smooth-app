@@ -2604,15 +2604,10 @@
     },
     "clipboard_barcode_copy": "Vonalkód másolása a vágólapra",
     "@clipboard_barcode_copied": {
-        "description": "Snackbar label after clipboard copy",
-        "placeholders": {
-            "barcode": {
-                "type": "String",
-                "description": "barcode"
-            }
-        }
+        "description": "Snackbar label after clipboard copy"
     },
     "clipboard_barcode_copied": "A(z) {barcode} vonalkód a vágólapra másolva.",
+    "open_product_website": "Open this product on the website",
     "language_picker_label": "Alkalmazás nyelve",
     "@language_picker_label": {
         "description": "Choose Application Language"
