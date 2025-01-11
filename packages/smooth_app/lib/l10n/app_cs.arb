@@ -2604,15 +2604,10 @@
     },
     "clipboard_barcode_copy": "Kopírovat čárový kód do schránky",
     "@clipboard_barcode_copied": {
-        "description": "Snackbar label after clipboard copy",
-        "placeholders": {
-            "barcode": {
-                "type": "String",
-                "description": "barcode"
-            }
-        }
+        "description": "Snackbar label after clipboard copy"
     },
     "clipboard_barcode_copied": "Čárový kód {barcode} zkopírován do schránky!",
+    "open_product_website": "Open this product on the website",
     "language_picker_label": "Váš jazyk",
     "@language_picker_label": {
         "description": "Choose Application Language"
