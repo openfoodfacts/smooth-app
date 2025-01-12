@@ -884,7 +884,7 @@
     "@product_tags_title": {
         "description": "The title for showing product properties, aka folksonomy data"
     },
-    "no_product_tags_found_message": "Aucune propriété de produit trouvée. Les propriétés peuvent être utilisées pour décrire les produits de manière plus détaillée et flexible. Appuyez pour ajouter.",
+    "no_product_tags_found_message": "Aucune propriété de produit trouvée. Les propriétés peuvent être utilisées pour décrire les produits de manière plus détaillée et flexible.",
     "@no_product_tags_found_message": {
         "description": "Message to show if there are no product properties found"
     },

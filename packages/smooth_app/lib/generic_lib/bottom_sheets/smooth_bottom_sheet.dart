@@ -15,6 +15,7 @@ Future<T?> showSmoothModalSheet<T>({
   required WidgetBuilder builder,
   double? minHeight,
   double? maxHeight,
+  bool? isScrollControlled,
   bool? useRootNavigator,
 }) {
   BoxConstraints? constraints;
@@ -37,7 +38,7 @@ Future<T?> showSmoothModalSheet<T>({
 
   return showModalBottomSheet<T>(
     constraints: constraints,
-    isScrollControlled: minHeight != null,
+    isScrollControlled: isScrollControlled ?? minHeight != null,
     context: context,
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.vertical(top: ROUNDED_RADIUS),
@@ -45,6 +46,30 @@ Future<T?> showSmoothModalSheet<T>({
     builder: builder,
     useRootNavigator: useRootNavigator ?? false,
     useSafeArea: true,
+  );
+}
+
+Future<T?> showSmoothModalSheetForTextField<T>({
+  required BuildContext context,
+  required SmoothModalSheetHeader header,
+  required WidgetBuilder bodyBuilder,
+}) {
+  return showSmoothModalSheet<T>(
+    context: context,
+    builder: (BuildContext context) => SizedBox(
+      width: double.infinity,
+      child: ClipRRect(
+        borderRadius: const BorderRadius.vertical(top: ROUNDED_RADIUS),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            header,
+            bodyBuilder(context),
+          ],
+        ),
+      ),
+    ),
+    isScrollControlled: true,
   );
 }
 

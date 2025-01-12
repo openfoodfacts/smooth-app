@@ -6,7 +6,7 @@ import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
-class SmoothTopBar2 extends StatefulWidget {
+class SmoothTopBar2 extends StatefulWidget implements PreferredSizeWidget {
   const SmoothTopBar2({
     required this.title,
     this.leadingAction,
@@ -23,6 +23,9 @@ class SmoothTopBar2 extends StatefulWidget {
 
   @override
   State<SmoothTopBar2> createState() => _SmoothTopBar2State();
+
+  @override
+  Size get preferredSize => Size(double.infinity, kTopBar2Height);
 }
 
 class _SmoothTopBar2State extends State<SmoothTopBar2> {
@@ -112,7 +115,8 @@ class _SmoothTopBar2State extends State<SmoothTopBar2> {
                         children: <Widget>[
                           if (widget.leadingAction != null) ...<Widget>[
                             _SmoothTopBarLeadingButton(
-                                action: widget.leadingAction!),
+                              action: widget.leadingAction!,
+                            ),
                             const SizedBox(width: BALANCED_SPACE)
                           ],
                           Expanded(
