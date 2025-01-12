@@ -2607,7 +2607,7 @@
         "description": "Snackbar label after clipboard copy"
     },
     "clipboard_barcode_copied": "Barcode {barcode} copied to the clipboard!",
-    "open_product_website": "Open this product on the website",
+    "open_product_website": "இந்தத் தயாரிப்பை இணையதளத்தில் திறக்கவும்",
     "language_picker_label": "Your language",
     "@language_picker_label": {
         "description": "Choose Application Language"
