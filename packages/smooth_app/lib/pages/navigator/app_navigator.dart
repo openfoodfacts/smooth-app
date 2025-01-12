@@ -495,7 +495,7 @@ class AppRoutes {
 
   static String get SIGNUP => '/${_InternalAppRoutes.SIGNUP_PAGE}';
 
-  // Open an external link (where path is relative to the OFF website)
+  // Open an external link
   static String EXTERNAL(String path) =>
       '/${_InternalAppRoutes.EXTERNAL_PAGE}?path=${Uri.encodeFull(path)}';
 }

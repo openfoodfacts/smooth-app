@@ -3556,5 +3556,14 @@
     "knowledge_panel_nutriscore_banner_incorrect_score_title": "Pourquoi ce Nutri-Score est-il différent de celui présent sur l'emballage ?",
     "knowledge_panel_nutriscore_banner_incorrect_score_message": "Il y a deux explications possibles :\nLa liste des ingrédients et/ou le tableau nutritionnel ne sont pas à jour.\n\nNous affichons le \"Nouveau calcul\" du Nutri-Score (ou V2). Vérifiez que le libellé \"Nouveau calcul\" est bien sur l'emballage.",
     "knowledge_panel_nutriscore_banner_incorrect_score_button1": "Vérifier les ingredients",
-    "knowledge_panel_nutriscore_banner_incorrect_score_button2": "Vérifier le tableau nutritionnel"
+    "knowledge_panel_nutriscore_banner_incorrect_score_button2": "Vérifier le tableau nutritionnel",
+    "url_not_supported": "Malheureusement, nous ne pouvez pas ouvrir l'adresse :\n{url}",
+    "@url_not_supported": {
+        "description": "Error message when the app can't open a URL",
+        "placeholders": {
+            "url": {
+                "type": "String"
+            }
+        }
+    }
 }

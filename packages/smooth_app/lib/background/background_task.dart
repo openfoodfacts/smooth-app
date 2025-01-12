@@ -146,7 +146,7 @@ abstract class BackgroundTask {
           final String message,
           final AlignmentGeometry alignment,
         )) {
-      SmoothFloatingMessage(message: message).show(
+      SmoothFloatingMessage.loading(message: message).show(
         context,
         duration: SnackBarDuration.medium,
         alignment: alignment,

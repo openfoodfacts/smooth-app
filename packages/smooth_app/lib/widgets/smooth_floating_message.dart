@@ -3,13 +3,30 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
+import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
+import 'package:smooth_app/helpers/ui_helpers.dart';
+import 'package:smooth_app/resources/app_animations.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
 class SmoothFloatingMessage {
   SmoothFloatingMessage({
     required this.message,
+    this.header,
+    this.type = SmoothFloatingMessageType.success,
   });
 
+  SmoothFloatingMessage.loading({
+    required this.message,
+    this.type = SmoothFloatingMessageType.success,
+  }) : header = const Padding(
+          padding: EdgeInsetsDirectional.only(top: SMALL_SPACE),
+          child: CloudUploadAnimation(size: 50.0),
+        );
+
   final String message;
+  final Widget? header;
+  final SmoothFloatingMessageType type;
 
   OverlayEntry? _entry;
   Timer? _autoDismissMessage;
@@ -30,6 +47,9 @@ class SmoothFloatingMessage {
     _entry = OverlayEntry(builder: (BuildContext context) {
       return _SmoothFloatingMessageView(
         message: message,
+        header: header,
+        type: type,
+        onTap: hide,
         alignment: alignment,
         margin: EdgeInsetsDirectional.only(
           top: appBarHeight,
@@ -55,13 +75,19 @@ class SmoothFloatingMessage {
 class _SmoothFloatingMessageView extends StatefulWidget {
   const _SmoothFloatingMessageView({
     required this.message,
+    required this.type,
+    required this.onTap,
+    this.header,
     this.alignment,
     this.margin,
   });
 
   final String message;
+  final SmoothFloatingMessageType type;
+  final Widget? header;
   final AlignmentGeometry? alignment;
   final EdgeInsetsGeometry? margin;
+  final VoidCallback onTap;
 
   @override
   State<_SmoothFloatingMessageView> createState() =>
@@ -76,7 +102,11 @@ class _SmoothFloatingMessageViewState extends State<_SmoothFloatingMessageView>
   void initState() {
     super.initState();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) {
+    onNextFrame(() {
+      if (widget.type == SmoothFloatingMessageType.error) {
+        SmoothHapticFeedback.error();
+      }
+
       setState(() {
         initial = false;
       });
@@ -85,28 +115,52 @@ class _SmoothFloatingMessageViewState extends State<_SmoothFloatingMessageView>
 
   @override
   Widget build(BuildContext context) {
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
+
     final SnackBarThemeData snackBarTheme = Theme.of(context).snackBarTheme;
 
-    return AnimatedOpacity(
-      opacity: initial ? 0.0 : 1.0,
-      duration: SmoothAnimationsDuration.short,
-      child: SafeArea(
-        top: false,
-        child: Container(
-          width: initial ? 0.0 : null,
-          height: initial ? 0.0 : null,
-          margin: widget.margin,
-          alignment: widget.alignment ?? AlignmentDirectional.topCenter,
-          child: Card(
-            elevation: 4.0,
-            shadowColor: Colors.black.withValues(alpha: 0.1),
-            color: snackBarTheme.backgroundColor,
-            child: Container(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                widget.message,
-                textAlign: TextAlign.center,
-                style: snackBarTheme.contentTextStyle,
+    Widget child = Text(
+      widget.message,
+      textAlign: TextAlign.center,
+      style: (snackBarTheme.contentTextStyle ?? const TextStyle()).copyWith(
+        color: Colors.white,
+      ),
+    );
+
+    if (widget.header != null) {
+      child = Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          widget.header!,
+          const SizedBox(height: SMALL_SPACE),
+          child,
+        ],
+      );
+    }
+
+    return GestureDetector(
+      onTap: widget.onTap,
+      child: AnimatedOpacity(
+        opacity: initial ? 0.0 : 1.0,
+        duration: SmoothAnimationsDuration.short,
+        child: SafeArea(
+          top: false,
+          child: Container(
+            width: initial ? 0.0 : null,
+            height: initial ? 0.0 : null,
+            margin: widget.margin,
+            alignment: widget.alignment ?? AlignmentDirectional.topCenter,
+            child: Card(
+              elevation: 4.0,
+              shadowColor: Colors.black.withValues(alpha: 0.1),
+              shape: const RoundedRectangleBorder(
+                borderRadius: ROUNDED_BORDER_RADIUS,
+              ),
+              color: _getColor(extension),
+              child: Container(
+                padding: const EdgeInsets.all(SMALL_SPACE),
+                child: child,
               ),
             ),
           ),
@@ -114,4 +168,16 @@ class _SmoothFloatingMessageViewState extends State<_SmoothFloatingMessageView>
       ),
     );
   }
+
+  Color _getColor(SmoothColorsThemeExtension theme) => switch (widget.type) {
+        SmoothFloatingMessageType.success => theme.success,
+        SmoothFloatingMessageType.error => theme.error,
+        SmoothFloatingMessageType.warning => theme.warning,
+      };
+}
+
+enum SmoothFloatingMessageType {
+  success,
+  error,
+  warning,
 }
