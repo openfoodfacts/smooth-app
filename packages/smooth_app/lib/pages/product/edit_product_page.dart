@@ -11,8 +11,8 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_list_tile_card.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
-import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
+import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/onboarding/currency_selector_helper.dart';
 import 'package:smooth_app/pages/prices/price_meta_product.dart';
 import 'package:smooth_app/pages/prices/product_price_add_page.dart';
@@ -122,18 +122,19 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
                 ),
                 tooltip: appLocalizations.open_product_website,
                 onPressed: () {
-                  LaunchUrlHelper.launchURLAndFollowDeepLinks(
-                    context,
-                    switch (upToDateProduct.productType) {
-                      ProductType.beauty =>
-                        'https://world.openbeautyfacts.org/product/${upToDateProduct.barcode}',
-                      ProductType.petFood =>
-                        'https://world.openpetfoodfacts.org/product/${upToDateProduct.barcode}',
-                      ProductType.product =>
-                        'https://world.openproductsfacts.org/product/${upToDateProduct.barcode}',
-                      _ =>
-                        'https://world.openfoodfacts.org/product/${upToDateProduct.barcode}',
-                    },
+                  AppNavigator.of(context).push(
+                    AppRoutes.EXTERNAL(
+                      switch (upToDateProduct.productType) {
+                        ProductType.beauty =>
+                          'https://world.openbeautyfacts.org/product/${upToDateProduct.barcode}',
+                        ProductType.petFood =>
+                          'https://world.openpetfoodfacts.org/product/${upToDateProduct.barcode}',
+                        ProductType.product =>
+                          'https://world.openproductsfacts.org/product/${upToDateProduct.barcode}',
+                        _ =>
+                          'https://world.openfoodfacts.org/product/${upToDateProduct.barcode}',
+                      },
+                    ),
                   );
                 },
               );
