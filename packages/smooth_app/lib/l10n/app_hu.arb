@@ -528,7 +528,7 @@
     },
     "ingredients": "Összetevők",
     "@ingredients": {},
-    "ingredients_editing_instructions": "Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen and use parentheses for ingredients of an ingredient.",
+    "ingredients_editing_instructions": "Tartsa meg az eredeti sorrendet. Tüntesse fel a százalékos arányt, ha meg van adva. Az összetevőket vesszővel vagy kötőjellel válassza el, és egy összetevő összetevőihez használjon zárójelet.",
     "ingredients_editing_error": "Nem sikerült menteni az összetevőket.",
     "ingredients_editing_image_error": "Nem sikerült új összetevők fényképét beszerezni.",
     "ingredients_editing_title": "Összetevők szerkesztése",
@@ -744,7 +744,7 @@
     "score_add_missing_product_labels": "Hiányzó címkék hozzáadása",
     "score_add_missing_product_origins": "Hiányzó származási helyek hozzáadása",
     "score_add_missing_product_stores": "Hiányzó boltok hozzáadása",
-    "score_add_missing_product_brands": "Add missing product brands",
+    "score_add_missing_product_brands": "Hiányzó márkák hozzáadása",
     "score_update_nutrition_facts": "Tápértékadatok frissítése",
     "nutrition_page_title": "Tápértékadatok",
     "nutrition_page_unspecified": "A tápértékadatok nincsenek feltüntetve a terméken",
@@ -795,7 +795,7 @@
     },
     "product_image_outdated": "Ez a kép elavult lehet",
     "product_image_outdated_explanations_title": "Ez a kép elavult lehet",
-    "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that's it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
+    "product_image_outdated_explanations_content": "Ez a kép több mint egy éve készült.\n**Ellenőrizze, hogy még mindig naprakész-e**.\n\nEz **csak figyelmeztetés**. Ha a tartalom nem változott, figyelmen kívül hagyhatja ezt az üzenetet.",
     "@product_image_outdated_explanations_content": {
         "description": "Please keep the ** syntax to make the text bold"
     },
@@ -1390,7 +1390,7 @@
     "@permission_photo_denied": {
         "description": "When the camera/photo permission is denied by user"
     },
-    "show_product_pictures": "Show product pictures",
+    "show_product_pictures": "Termékfotók megjelenítése",
     "@show_product_pictures": {
         "description": "Button to show a list of product pictures"
     },
@@ -1402,7 +1402,7 @@
     "@edit_product_label_short": {
         "description": "Edit product button short label (only the verb)"
     },
-    "edit_product_form_item_help": "How to enter \"{value}\"?",
+    "edit_product_form_item_help": "Hogyan kell ezt megadni: „{value}”?",
     "@edit_product_form_item_help": {
         "description": "Help text for the input field. Eg 'How to enter stores?'",
         "placeholders": {
@@ -1411,11 +1411,11 @@
             }
         }
     },
-    "edit_product_form_item_error_empty": "Please enter a non-empty value!",
+    "edit_product_form_item_error_empty": "Egy nem üres értéket adjon meg!",
     "@edit_product_form_item_error_empty": {
         "description": "Error message when the user tries to submit an empty value"
     },
-    "edit_product_form_item_error_existing": "This value is already there!",
+    "edit_product_form_item_error_existing": "Ez az érték már meg van adva!",
     "@edit_product_form_item_error_existing": {
         "description": "Error message when the user tries to re-submit an existing value"
     },
@@ -1460,7 +1460,7 @@
     "@edit_product_form_item_labels_subtitle": {
         "description": "Product edition - Labels - SubTitle"
     },
-    "edit_product_form_item_labels_hint": "Input a label (eg: NutriScore)",
+    "edit_product_form_item_labels_hint": "Adjon meg egy címkét (pl. NutriScore)",
     "@edit_product_form_item_labels_hint": {
         "description": "Product edition - Labels - input textfield hint"
     },
@@ -1472,7 +1472,7 @@
     "@edit_product_form_item_stores_title": {
         "description": "Product edition - Stores - Title"
     },
-    "edit_product_form_item_stores_hint": "Input a store",
+    "edit_product_form_item_stores_hint": "Adjon meg egy boltot",
     "@edit_product_form_item_stores_hint": {
         "description": "Product edition - Stores - input textfield hint"
     },
@@ -1484,7 +1484,7 @@
     "@edit_product_form_item_origins_title": {
         "description": "Product edition - Origins - Title"
     },
-    "edit_product_form_item_origins_hint": "Input an origin (eg: Germany)",
+    "edit_product_form_item_origins_hint": "Adjon meg egy származási helyet (pl.: Németország)",
     "@edit_product_form_item_origins_hint": {
         "description": "Product edition - Origins - input textfield hint"
     },
@@ -1504,7 +1504,7 @@
     "@edit_product_form_item_countries_title": {
         "description": "Product edition - Countries - Title"
     },
-    "edit_product_form_item_countries_hint": "Input a country (eg: Germany)",
+    "edit_product_form_item_countries_hint": "Adjon meg egy országot (pl.: Németország)",
     "@edit_product_form_item_countries_hint": {
         "description": "Product edition - Countries - input textfield hint"
     },
@@ -1520,7 +1520,7 @@
     "@edit_product_form_item_emb_codes_title": {
         "description": "Product edition - Traceability codes - Title"
     },
-    "edit_product_form_item_emb_codes_hint": "Input a code (eg: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522…)",
+    "edit_product_form_item_emb_codes_hint": "Adjon meg egy kódot (pl: HU 123 EK, EMB 53062, 84 R 20, 33 RECOLTANT 522…)",
     "@edit_product_form_item_emb_codes_hint": {
         "description": "Product edition - Traceability Codes - input textfield hint"
     },
@@ -1540,7 +1540,7 @@
     "@edit_product_form_item_categories_hint": {
         "description": "Product edition - Categories - input textfield hint"
     },
-    "edit_product_form_item_categories_type": "Input a category (eg: Orange juice)",
+    "edit_product_form_item_categories_type": "Adjon meg egy kategóriát (pl.: narancslé)",
     "@edit_product_form_item_categories_type": {
         "description": "Product edition - Categories - input textfield type"
     },
@@ -1563,15 +1563,15 @@
     "@edit_product_form_item_ingredients_title": {
         "description": "Product edition - Ingredients - Title (note: this section was previously called Ingredients & Origins)"
     },
-    "edit_product_form_item_ingredients_pinch_to_zoom_tooltip": "Zoom in and out by pinching the screen",
+    "edit_product_form_item_ingredients_pinch_to_zoom_tooltip": "Nagyítás és kicsinyítés a képernyő összecsípésével",
     "@edit_product_form_item_ingredients_pinch_to_zoom_tooltip": {
         "description": "Product edition - Ingredients - Pinch to zoom icon explanation"
     },
-    "edit_product_form_item_ingredients_pinch_to_zoom_title": "Zoom in and out the photo",
+    "edit_product_form_item_ingredients_pinch_to_zoom_title": "A fénykép nagyítása és kicsinyítése",
     "@edit_product_form_item_ingredients_pinch_to_zoom_title": {
         "description": "Product edition - Ingredients - Pinch to zoom explanation title"
     },
-    "edit_product_form_item_ingredients_pinch_to_zoom_message": "Using the **Pinch-to-zoom gesture**, you can zoom in or out the photo:",
+    "edit_product_form_item_ingredients_pinch_to_zoom_message": "A **Csippentős nagyítás kézmozdulattal** nagyíthatja vagy kicsinyítheti a fényképet:",
     "@edit_product_form_item_ingredients_pinch_to_zoom_message": {
         "description": "Product edition - Ingredients - Pinch to zoom explanation message"
     },
@@ -1602,11 +1602,11 @@
     "@edit_product_ingredients_list_title": {
         "description": "Product edition - Ingredients - Title"
     },
-    "edit_product_packaging_photo_title": "Packaging photo",
+    "edit_product_packaging_photo_title": "Csomagolás fényképe",
     "@edit_product_packaging_photo_title": {
         "description": "Product edition - Packaging - Title"
     },
-    "edit_product_packaging_list_title": "Packaging list",
+    "edit_product_packaging_list_title": "Csomagolóanyagok listája",
     "@edit_product_packaging_list_title": {
         "description": "Product edition - Packaging - Title"
     },
@@ -1653,7 +1653,7 @@
     "@edit_packaging_extract_btn_text": {
         "description": "Packaging edition - OCR-Extract packaging"
     },
-    "edit_packaging_extract_btn_text_short": "Extract packaging",
+    "edit_packaging_extract_btn_text_short": "Csomagolási adatok kinyerése",
     "@edit_packaging_extract_btn_text_short": {
         "description": "Packaging edition - OCR-Extract packaging (short label)"
     },
@@ -1681,11 +1681,11 @@
     "@edit_ocr_extract_failed": {
         "description": "OCR extraction - message for failed"
     },
-    "edit_ocr_extract_disabled_title": "No picture!",
+    "edit_ocr_extract_disabled_title": "Nincs kép!",
     "@edit_ocr_extract_disabled_title": {
         "description": "OCR extraction - title for disabled"
     },
-    "edit_ocr_extract_disabled_message": "In order to use the text extraction feature, you must first take a photo.",
+    "edit_ocr_extract_disabled_message": "A szövegkinyerés funkció használatához először fényképet kell készítenie.",
     "@edit_ocr_extract_disabled_message": {
         "description": "OCR extraction - message for disabled"
     },
@@ -2355,13 +2355,13 @@
     "basic_details": "Alapadatok",
     "product_name": "Termék neve",
     "add_basic_details_product_name_error": "Adja meg a termék nevét",
-    "add_basic_details_product_name_hint": "Input the name of the product (eg: Nutella)",
+    "add_basic_details_product_name_hint": "Adja meg a termék nevét (pl.: Nutella)",
     "brand_name": "Márkanév",
-    "brand_names": "Brand names",
+    "brand_names": "Márkanevek",
     "add_basic_details_brand_name_error": "Adja meg a márkanevet",
-    "add_basic_details_brand_names_hint": "Input brands (eg: Ferrero)",
+    "add_basic_details_brand_names_hint": "Adja meg a márkaneveket (pl. Ferrero)",
     "quantity": "Mennyiség és súly",
-    "add_basic_details_quantity_hint": "Input the weight and if needed the quantity (eg : 4x100g)",
+    "add_basic_details_quantity_hint": "Adja meg a súlyt és szükség esetén a mennyiséget (pl.: 4x100g)",
     "barcode": "Vonalkód",
     "barcode_barcode": "Vonalkód: {barcode}",
     "@barcode_barcode": {
@@ -2619,7 +2619,7 @@
         "description": "Snackbar label after clipboard copy"
     },
     "clipboard_barcode_copied": "A(z) {barcode} vonalkód a vágólapra másolva.",
-    "open_product_website": "Open this product on the website",
+    "open_product_website": "Termék megnyitása a weboldalon",
     "language_picker_label": "Alkalmazás nyelve",
     "@language_picker_label": {
         "description": "Choose Application Language"
@@ -3526,7 +3526,7 @@
     "@photo_undo_action": {
         "description": "Button to undo the previous action on a photo"
     },
-    "knowledge_panel_world_map_accessibility_label": "A world map of {location}",
+    "knowledge_panel_world_map_accessibility_label": "{location} a világtérképen",
     "@knowledge_panel_world_map_accessibility_label": {
         "description": "Accessibility label for the world map in the knowledge panel",
         "placeholders": {
@@ -3535,7 +3535,7 @@
             }
         }
     },
-    "open_street_map_contributor_attribution": "OpenStreetMap contributors",
+    "open_street_map_contributor_attribution": "OpenStreetMap közreműködők",
     "@open_street_map_contributor_attribution": {
         "description": "Attribution for OpenStreetMap contributors"
     },
@@ -3547,8 +3547,8 @@
     "@knowledge_panel_warning_text": {
         "description": "Warning text at the beginning of a sentence in the knowledge panel (you can find this word on the NutriScore KP of 3033491279300)"
     },
-    "knowledge_panel_nutriscore_banner_incorrect_score_title": "Why is this Nutri-Score different from the one on the package?",
-    "knowledge_panel_nutriscore_banner_incorrect_score_message": "There are two possible explanations:\nThe list of ingredients and/or nutrition facts are not up-to-date.\n\nWe provide the \"New calculation\" of the Nutri-Score (or V2). Please check that you have the banner \"New calculation\" on the package.",
-    "knowledge_panel_nutriscore_banner_incorrect_score_button1": "Check ingredients",
-    "knowledge_panel_nutriscore_banner_incorrect_score_button2": "Check nutrition facts"
+    "knowledge_panel_nutriscore_banner_incorrect_score_title": "Miért különbözik ez a Nutri-Score a csomagoláson lévőtől?",
+    "knowledge_panel_nutriscore_banner_incorrect_score_message": "Két lehetséges magyarázat van:\nAz összetevők listája és/vagy a tápértékadatok nem naprakészek.\n\nMi a Nutri-Score „Új számítás” (vagy V2) verzióját adjuk meg. Ellenőrizze, hogy a csomagon szerepel-e az \"Új számítás\" felirat.",
+    "knowledge_panel_nutriscore_banner_incorrect_score_button1": "Összetevők ellenőrzése",
+    "knowledge_panel_nutriscore_banner_incorrect_score_button2": "Tápértékadatok ellenőrzése"
 }
