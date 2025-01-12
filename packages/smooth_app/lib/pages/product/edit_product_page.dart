@@ -23,8 +23,10 @@ import 'package:smooth_app/pages/product/gallery_view/product_image_gallery_view
 import 'package:smooth_app/pages/product/nutrition_page_loaded.dart';
 import 'package:smooth_app/pages/product/product_field_editor.dart';
 import 'package:smooth_app/pages/product/product_page/new_product_page_loading_indicator.dart';
+import 'package:smooth_app/pages/product/product_type_extensions.dart';
 import 'package:smooth_app/pages/product/simple_input_page.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
+import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -123,18 +125,9 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
                 tooltip: appLocalizations.open_product_website,
                 onPressed: () {
                   AppNavigator.of(context).push(
-                    AppRoutes.EXTERNAL(
-                      switch (upToDateProduct.productType) {
-                        ProductType.beauty =>
-                          'https://world.openbeautyfacts.org/product/${upToDateProduct.barcode}',
-                        ProductType.petFood =>
-                          'https://world.openpetfoodfacts.org/product/${upToDateProduct.barcode}',
-                        ProductType.product =>
-                          'https://world.openproductsfacts.org/product/${upToDateProduct.barcode}',
-                        _ =>
-                          'https://world.openfoodfacts.org/product/${upToDateProduct.barcode}',
-                      },
-                    ),
+                    AppRoutes.EXTERNAL('https://'
+                        '${ProductQuery.getCountry().offTag}.${(upToDateProduct.productType ?? ProductType.food).getDomain()}.org'
+                        '/product/${upToDateProduct.barcode}'),
                   );
                 },
               );
