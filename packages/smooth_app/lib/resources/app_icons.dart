@@ -1164,6 +1164,16 @@ class Picture extends AppIcon {
   }) : super._(_IconsFont.image_error);
 }
 
+class PinchToZoom extends AppIcon {
+  const PinchToZoom({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.pinch_to_zoom);
+}
+
 class Profile extends AppIcon {
   const Profile({
     super.color,

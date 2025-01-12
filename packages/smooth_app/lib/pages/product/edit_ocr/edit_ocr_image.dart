@@ -3,12 +3,14 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
+import 'package:rive/rive.dart' show RiveAnimation;
 import 'package:smooth_app/database/transient_file.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/picture_not_found.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/num_utils.dart';
+import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/pages/image/product_image_helper.dart';
 import 'package:smooth_app/pages/product/edit_ocr/edit_ocr_page.dart';
 import 'package:smooth_app/pages/product/edit_ocr/ocr_helper.dart';
@@ -21,7 +23,7 @@ import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_indicator_icon.dart';
 import 'package:smooth_app/widgets/smooth_text.dart';
 
-class EditOCRImageWidget extends StatelessWidget {
+class EditOCRImageWidget extends StatefulWidget {
   const EditOCRImageWidget({
     required this.helper,
     required this.transientFile,
@@ -40,6 +42,13 @@ class EditOCRImageWidget extends StatelessWidget {
   final VoidCallback onExtractText;
 
   @override
+  State<EditOCRImageWidget> createState() => _EditOCRImageWidgetState();
+}
+
+class _EditOCRImageWidgetState extends State<EditOCRImageWidget> {
+  bool _imageError = false;
+
+  @override
   Widget build(BuildContext context) {
     final SmoothColorsThemeExtension extension =
         context.extension<SmoothColorsThemeExtension>();
@@ -47,7 +56,8 @@ class EditOCRImageWidget extends StatelessWidget {
 
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-    final ImageProvider? imageProvider = transientFile.getImageProvider();
+    final ImageProvider? imageProvider =
+        widget.transientFile.getImageProvider();
     final bool hasImage = imageProvider != null;
 
     final Size screenSize = MediaQuery.sizeOf(context);
@@ -60,15 +70,29 @@ class EditOCRImageWidget extends StatelessWidget {
     /// (this icon already contains the padding)
     bool reduceHeader = false;
 
-    if (hasImage) {
+    if (_imageError) {
+      child = const ClipRRect(
+        child: PictureNotFound.ink(
+          backgroundDecoration: BoxDecoration(
+            borderRadius: ROUNDED_BORDER_RADIUS,
+          ),
+          style: PictureNotFoundStyle.sad,
+        ),
+      );
+    } else if (hasImage) {
       child = SizedBox(
         height: height,
         child: _EditOCRImageFound(
           imageProvider: imageProvider,
+          onError: () {
+            if (!_imageError) {
+              onNextFrame(() => setState(() => _imageError = true));
+            }
+          },
         ),
       );
 
-      if (transientFile.expired) {
+      if (widget.transientFile.expired) {
         headerIcons = Tooltip(
           message: appLocalizations.product_image_outdated_message,
           textAlign: TextAlign.center,
@@ -97,7 +121,7 @@ class EditOCRImageWidget extends StatelessWidget {
         );
       }
 
-      if (ownerField) {
+      if (widget.ownerField) {
         reduceHeader = true;
 
         if (headerIcons == null) {
@@ -114,12 +138,12 @@ class EditOCRImageWidget extends StatelessWidget {
       }
     } else {
       child = _EditOCRImageNotFound(
-        onTap: onTakePicture,
+        onTap: widget.onTakePicture,
       );
     }
 
     return SmoothCardWithRoundedHeader(
-      title: helper.getPhotoTitle(appLocalizations),
+      title: widget.helper.getPhotoTitle(appLocalizations),
       leading: const icons.Camera.happy(),
       trailing: headerIcons,
       titlePadding: reduceHeader
@@ -146,11 +170,12 @@ class EditOCRImageWidget extends StatelessWidget {
               ),
             ),
             _EditOCRImageActions(
-              helper: helper,
+              helper: widget.helper,
               hasImage: hasImage,
-              onTakePicture: onTakePicture,
-              onEditImage: onEditImage,
-              onExtractText: onExtractText,
+              hasError: _imageError,
+              onTakePicture: widget.onTakePicture,
+              onEditImage: widget.onEditImage,
+              onExtractText: widget.onExtractText,
             ),
           ],
         ),
@@ -179,12 +204,30 @@ class EditOCRImageWidget extends StatelessWidget {
   }
 }
 
-class _EditOCRImageFound extends StatelessWidget {
+class _EditOCRImageFound extends StatefulWidget {
   const _EditOCRImageFound({
     required this.imageProvider,
+    required this.onError,
   });
 
   final ImageProvider imageProvider;
+  final VoidCallback onError;
+
+  @override
+  State<_EditOCRImageFound> createState() => _EditOCRImageFoundState();
+}
+
+class _EditOCRImageFoundState extends State<_EditOCRImageFound> {
+  bool _isLoading = true;
+
+  @override
+  void didUpdateWidget(_EditOCRImageFound oldWidget) {
+    super.didUpdateWidget(oldWidget);
+
+    if (oldWidget.imageProvider != widget.imageProvider) {
+      _isLoading = true;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -199,10 +242,11 @@ class _EditOCRImageFound extends StatelessWidget {
                   imageFilter: ImageFilter.blur(sigmaX: 8.0, sigmaY: 8.0),
                   child: Image(
                     fit: BoxFit.cover,
-                    image: imageProvider,
+                    image: widget.imageProvider,
                     opacity: AlwaysStoppedAnimation<double>(
                       context.lightTheme() ? 0.3 : 0.55,
                     ),
+                    errorBuilder: _onError,
                   ),
                 ),
               ),
@@ -215,18 +259,42 @@ class _EditOCRImageFound extends StatelessWidget {
                     maxScale: 5.0,
                     child: Image(
                       fit: BoxFit.contain,
-                      image: imageProvider,
+                      image: widget.imageProvider,
+                      frameBuilder: (
+                        BuildContext context,
+                        Widget child,
+                        int? frame,
+                        bool wasSynchronouslyLoaded,
+                      ) {
+                        if (frame == null) {
+                          return _loadingWidget();
+                        } else if (_isLoading) {
+                          onNextFrame(
+                            () => setState(() => _isLoading = false),
+                          );
+                        }
+                        return child;
+                      },
+                      loadingBuilder: (
+                        BuildContext context,
+                        Widget child,
+                        ImageChunkEvent? loadingProgress,
+                      ) {
+                        if (loadingProgress == null) {
+                          return child;
+                        }
+                        return _loadingWidget();
+                      },
+                      errorBuilder: _onError,
                     ),
                   ),
                 ),
               ),
-              if (state == OcrState.IMAGE_LOADED)
+              if (state == OcrState.IMAGE_LOADED && !_isLoading)
                 const Align(
                   alignment: AlignmentDirectional.bottomEnd,
                   child: ExcludeSemantics(
-                    child: SmoothIndicatorIcon(
-                      icon: icons.Move(),
-                    ),
+                    child: _EditOCRPinchToZoom(),
                   ),
                 )
               else if (state == OcrState.IMAGE_LOADING)
@@ -248,6 +316,80 @@ class _EditOCRImageFound extends StatelessWidget {
             ],
           );
         },
+      ),
+    );
+  }
+
+  ColoredBox _loadingWidget() {
+    return const ColoredBox(
+      color: PictureNotFound.defaultBackgroundColor,
+      child: Center(
+        child: CircularProgressIndicator(),
+      ),
+    );
+  }
+
+  Widget _onError(
+    BuildContext context,
+    Object error,
+    StackTrace? stackTrace,
+  ) {
+    widget.onError.call();
+    return EMPTY_WIDGET;
+  }
+}
+
+class _EditOCRPinchToZoom extends StatelessWidget {
+  const _EditOCRPinchToZoom();
+
+  @override
+  Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+    return Tooltip(
+      message: appLocalizations
+          .edit_product_form_item_ingredients_pinch_to_zoom_tooltip,
+      child: InkWell(
+        customBorder: const CircleBorder(),
+        onTap: () {
+          showSmoothModalSheet(
+            context: context,
+            builder: (BuildContext context) {
+              final double width = MediaQuery.sizeOf(context).width * 0.5;
+
+              return SmoothModalSheet(
+                title: appLocalizations
+                    .edit_product_form_item_ingredients_pinch_to_zoom_title,
+                prefixIndicator: true,
+                body: SafeArea(
+                  child: Column(
+                    children: <Widget>[
+                      TextWithBoldParts(
+                        text: appLocalizations
+                            .edit_product_form_item_ingredients_pinch_to_zoom_message,
+                        textStyle: const TextStyle(fontSize: 15.0),
+                      ),
+                      const SizedBox(height: LARGE_SPACE),
+                      ExcludeSemantics(
+                        child: SizedBox(
+                          width: width,
+                          height: (width * 172.0) / 247.0,
+                          child: const RiveAnimation.asset(
+                            'assets/animations/explanations.riv',
+                            artboard: 'pinch-to-zoom',
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              );
+            },
+          );
+        },
+        child: const SmoothIndicatorIcon(
+          icon: icons.PinchToZoom(),
+        ),
       ),
     );
   }
@@ -293,6 +435,7 @@ class _EditOCRImageActions extends StatelessWidget {
   const _EditOCRImageActions({
     required this.helper,
     required this.hasImage,
+    required this.hasError,
     required this.onTakePicture,
     required this.onEditImage,
     required this.onExtractText,
@@ -300,6 +443,7 @@ class _EditOCRImageActions extends StatelessWidget {
 
   final OcrHelper helper;
   final bool hasImage;
+  final bool hasError;
   final VoidCallback onTakePicture;
   final VoidCallback onEditImage;
   final VoidCallback onExtractText;
@@ -323,6 +467,7 @@ class _EditOCRImageActions extends StatelessWidget {
                 context,
                 appLocalizations,
                 ocrState,
+                hasError,
               ),
               const SizedBox(height: BALANCED_SPACE),
               if (hasImage)
@@ -340,10 +485,13 @@ class _EditOCRImageActions extends StatelessWidget {
     BuildContext context,
     AppLocalizations appLocalizations,
     OcrState state,
+    bool hasError,
   ) {
-    final VoidCallback onTap;
+    final VoidCallback? onTap;
 
-    if (!hasImage) {
+    if (hasError) {
+      onTap = null;
+    } else if (!hasImage) {
       onTap = () => _onImageUnavailable(context);
     } else if (state == OcrState.IMAGE_LOADING) {
       onTap = () => _onImageUpload(context);
@@ -357,7 +505,7 @@ class _EditOCRImageActions extends StatelessWidget {
         size: 18.0,
       ),
       onPressed: onTap,
-      enabled: hasImage && state == OcrState.IMAGE_LOADED,
+      enabled: hasImage && state == OcrState.IMAGE_LOADED && !hasError,
     );
   }
 

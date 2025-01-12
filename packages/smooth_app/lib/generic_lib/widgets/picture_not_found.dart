@@ -32,6 +32,8 @@ class PictureNotFound extends StatelessWidget {
   final bool _useInk;
   final PictureNotFoundStyle style;
 
+  static const Color defaultBackgroundColor = Color(0xFFE5E5E5);
+
   @override
   Widget build(BuildContext context) {
     final Widget child = SizedBox.expand(
@@ -55,7 +57,7 @@ class PictureNotFound extends StatelessWidget {
     if (_useInk) {
       return Ink(
         decoration: BoxDecoration(
-          color: backgroundColor ?? const Color(0xFFE5E5E5),
+          color: backgroundColor ?? defaultBackgroundColor,
         ).copyWith(
           color: backgroundDecoration?.color,
           image: backgroundDecoration?.image,
