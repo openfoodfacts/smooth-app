@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the build method from the PictureNotFound class, for the Dart programming language.">
-  <title>build method - PictureNotFound class - picture_not_found library - Dart API</title>
+  <meta name="description" content="API docs for the defaultBackgroundColor constant from the PictureNotFound class, for the Dart programming language.">
+  <title>defaultBackgroundColor constant - PictureNotFound class - picture_not_found library - Dart API</title>
 
 
   
@@ -31,9 +31,9 @@
     <li><a href="../../index.html">smooth_app</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_picture_not_found/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_picture_not_found-library.html">picture_not_found</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_picture_not_found/PictureNotFound-class.html">PictureNotFound</a></li>
-    <li class="self-crumb">build method</li>
+    <li class="self-crumb">defaultBackgroundColor constant</li>
   </ol>
-  <div class="self-name">build</div>
+  <div class="self-name">defaultBackgroundColor</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -44,85 +44,24 @@
 
   <div id="dartdoc-main-content" class="main-content">
       <div>
-<h1><span class="kind-method">build</span> method 
+<h1><span class="kind-property">defaultBackgroundColor</span> constant 
     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
-    <section class="multi-line-signature">
-      
-<div>
-  <ol class="annotation-list">
-    <li>@<a href="https://api.flutter.dev/flutter/dart-core/override-constant.html">override</a></li>
-  </ol>
-</div>
+        <section class="multi-line-signature">
+          dynamic
+          const <span class="name ">defaultBackgroundColor</span>
+          
 
-<span class="returntype">dynamic</span>
-<span class="name ">build</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="build-param-context"><span class="type-annotation">dynamic</span> <span class="parameter-name">context</span></span></li>
-</ol>)
+        </section>
+        
 
-      
-
-    </section>
-    
-
-
-    
+        
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">@override
-Widget build(BuildContext context) {
-  final Widget child = SizedBox.expand(
-    child: FractionallySizedBox(
-      widthFactor: 0.5,
-      heightFactor: 0.5,
-      child: FittedBox(
-        child: icons.AppIconTheme(
-          color: foregroundColor ?? const Color(0xFF949494),
-          size: 1000,
-          child: switch (style) {
-            PictureNotFoundStyle.happy =&gt; const icons.Milk.happy(),
-            PictureNotFoundStyle.sad =&gt; const icons.Milk.unhappy(),
-            PictureNotFoundStyle.add =&gt; const icons.Milk.add(),
-          },
-        ),
-      ),
-    ),
-  );
+  <pre class="language-dart"><code class="language-dart">static const Color defaultBackgroundColor = Color(0xFFE5E5E5);
 
-  if (_useInk) {
-    return Ink(
-      decoration: BoxDecoration(
-        color: backgroundColor ?? defaultBackgroundColor,
-      ).copyWith(
-        color: backgroundDecoration?.color,
-        image: backgroundDecoration?.image,
-        border: backgroundDecoration?.border,
-        borderRadius: backgroundDecoration?.borderRadius,
-        boxShadow: backgroundDecoration?.boxShadow,
-        gradient: backgroundDecoration?.gradient,
-        backgroundBlendMode: backgroundDecoration?.backgroundBlendMode,
-        shape: BoxShape.rectangle,
-      ),
-      child: child,
-    );
-  } else {
-    final BoxDecoration decoration;
-    if (backgroundDecoration != null &amp;&amp; backgroundDecoration!.color == null) {
-      decoration = backgroundDecoration!.copyWith(
-        color: backgroundColor ?? const Color(0xFFE5E5E5),
-      );
-    } else {
-      decoration = BoxDecoration(
-        color: backgroundColor ?? const Color(0xFFE5E5E5),
-      );
-    }
-
-    return DecoratedBox(
-      decoration: decoration,
-      child: child,
-    );
-  }
-}</code></pre>
+</code></pre>
 </section>
 
 
@@ -139,7 +78,7 @@ Widget build(BuildContext context) {
   <li><a href="../../index.html">smooth_app</a></li>
   <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_picture_not_found/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_picture_not_found-library.html">picture_not_found</a></li>
   <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_picture_not_found/PictureNotFound-class.html">PictureNotFound</a></li>
-  <li class="self-crumb">build method</li>
+  <li class="self-crumb">defaultBackgroundColor constant</li>
 </ol>
 
 
