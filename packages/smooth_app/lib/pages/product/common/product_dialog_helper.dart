@@ -192,6 +192,10 @@ class ProductDialogHelper {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     switch (fetchedProduct.status) {
       case FetchedProductStatus.ok:
+        if (!fetchedProduct.isValid) {
+          _openProductNotFoundDialog();
+          return;
+        }
         throw Exception("You're not supposed to call this if the status is ok");
       case FetchedProductStatus.userCancelled:
         return;

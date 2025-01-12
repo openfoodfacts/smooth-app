@@ -176,6 +176,7 @@ class _ScanPageCarouselState extends State<ScanPageCarousel> {
           onRemoveProduct: (_) => _model.removeBarcode(barcode),
         );
       case ScannedProductState.NOT_FOUND:
+      case ScannedProductState.FOUND_BUT_CONSIDERED_AS_NOT_FOUND:
         return ScanProductCardNotFound(
           barcode: barcode,
           onAddProduct: () async {
