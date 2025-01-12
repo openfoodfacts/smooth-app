@@ -45,7 +45,6 @@ class _ExternalPageState extends State<ExternalPage> {
 
         if (widget.path.startsWith('http')) {
           url = widget.path;
-          throw Exception();
         } else {
           // First let's try with https://{country}.openfoodfacts.org
           final OpenFoodFactsCountry country = ProductQuery.getCountry();
