@@ -35,7 +35,13 @@ class ProductFooterShareButton extends StatelessWidget {
         '${ProductQuery.getCountry().offTag}.openfoodfacts.org'
         '/product/${product.barcode}';
     Share.share(
-      appLocalizations.share_product_text(url),
+      switch (product.productType) {
+        ProductType.beauty => appLocalizations.share_product_text_beauty(url),
+        ProductType.petFood =>
+          appLocalizations.share_product_text_pet_food(url),
+        ProductType.product => appLocalizations.share_product_text_product(url),
+        _ => appLocalizations.share_product_text(url),
+      },
       sharePositionOrigin:
           box == null ? null : box.localToGlobal(Offset.zero) & box.size,
     );
