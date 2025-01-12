@@ -2115,7 +2115,7 @@
     "prices_amount_no_product": "One product is missing!",
     "prices_amount_price_incorrect": "Incorrect value",
     "prices_amount_price_mandatory": "Mandatory value",
-    "prices_currency_subtitle": "Currency",
+    "prices_currency_subtitle": "Валюта",
     "prices_date_subtitle": "Date",
     "prices_location_subtitle": "Shop",
     "prices_location_find": "Find a shop",
