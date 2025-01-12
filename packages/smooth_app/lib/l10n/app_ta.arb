@@ -3535,8 +3535,8 @@
     "@knowledge_panel_warning_text": {
         "description": "Warning text at the beginning of a sentence in the knowledge panel (you can find this word on the NutriScore KP of 3033491279300)"
     },
-    "knowledge_panel_nutriscore_banner_incorrect_score_title": "Why is this Nutri-Score different from the one on the package?",
-    "knowledge_panel_nutriscore_banner_incorrect_score_message": "There are two possible explanations:\nThe list of ingredients and/or nutrition facts are not up-to-date.\n\nWe provide the \"New calculation\" of the Nutri-Score (or V2). Please check that you have the banner \"New calculation\" on the package.",
-    "knowledge_panel_nutriscore_banner_incorrect_score_button1": "Check ingredients",
-    "knowledge_panel_nutriscore_banner_incorrect_score_button2": "Check nutrition facts"
+    "knowledge_panel_nutriscore_banner_incorrect_score_title": "இந்த நியூட்ரி-ஸ்கோர் தொகுப்பில் உள்ள மதிப்பெண்ணிலிருந்து ஏன் வேறுபட்டது?",
+    "knowledge_panel_nutriscore_banner_incorrect_score_message": "இரண்டு சாத்தியமான விளக்கங்கள் உள்ளன:\nபொருட்களின் பட்டியல் மற்றும்/அல்லது ஊட்டச்சத்து உண்மைகள் புதுப்பித்த நிலையில் இல்லை.\n\nநியூட்ரி-ஸ்கோரின் (அல்லது V2) \"புதிய கணக்கீட்டை\" நாங்கள் வழங்குகிறோம். தொகுப்பில் \"புதிய கணக்கீடு\" என்ற பேனர் உள்ளதா எனச் சரிபார்க்கவும்.",
+    "knowledge_panel_nutriscore_banner_incorrect_score_button1": "பொருட்களைச் சரிபார்க்கவும்",
+    "knowledge_panel_nutriscore_banner_incorrect_score_button2": "ஊட்டச்சத்து உண்மைகளைச் சரிபார்க்கவும்"
 }
