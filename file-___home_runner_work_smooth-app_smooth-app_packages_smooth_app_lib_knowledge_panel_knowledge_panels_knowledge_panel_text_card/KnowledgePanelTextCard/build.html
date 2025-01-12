@@ -71,14 +71,35 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  final Widget text = MergeSemantics(
-    child: SmoothHtmlWidget(
-      textElement.html,
-      textStyle: WellSpacedTextHelper.TEXT_STYLE_WITH_WELL_SPACED.copyWith(
-        fontSize: 15.0,
+  final String warningLabel =
+      AppLocalizations.of(context).knowledge_panel_warning_text;
+  final RegExp regExp = RegExp(&#39;$warningLabel\\s?:\\s?&#39;);
+
+  final Widget text;
+
+  if (textElement.html.startsWith(regExp)) {
+    text = _KnowledgePanelWarningTextCard(
+      title: warningLabel,
+      text: textElement.html.replaceFirst(regExp, &#39;&#39;).trim(),
+    );
+  } else {
+    text = Padding(
+      padding: const EdgeInsetsDirectional.only(
+        top: SMALL_SPACE,
+        start: SMALL_SPACE,
+        end: SMALL_SPACE,
       ),
-    ),
-  );
+      child: MergeSemantics(
+        child: SmoothHtmlWidget(
+          textElement.html,
+          textStyle:
+              WellSpacedTextHelper.TEXT_STYLE_WITH_WELL_SPACED.copyWith(
+            fontSize: 15.5,
+          ),
+        ),
+      ),
+    );
+  }
 
   if (!_hasSource) {
     return text;
@@ -98,13 +119,18 @@ Widget build(BuildContext context) {
           size: 0.0,
         ),
         child: addPanelButton(
-          appLocalizations
-              .knowledge_panel_text_source(textElement.sourceText!),
-          iconData: null,
-          onPressed: () async =&gt; LaunchUrlHelper.launchURL(
-            textElement.sourceUrl!,
-          ),
-        ),
+            appLocalizations
+                .knowledge_panel_text_source(textElement.sourceText!),
+            trailingIcon: Icon(ConstantIcons.forwardIcon),
+            onPressed: () async =&gt; LaunchUrlHelper.launchURL(
+                  textElement.sourceUrl!,
+                ),
+            borderRadius: ANGULAR_BORDER_RADIUS,
+            elevation: const WidgetStatePropertyAll&lt;double&gt;(0.5),
+            padding: const EdgeInsetsDirectional.symmetric(
+              horizontal: 0,
+              vertical: BALANCED_SPACE,
+            )),
       ),
     ],
   );

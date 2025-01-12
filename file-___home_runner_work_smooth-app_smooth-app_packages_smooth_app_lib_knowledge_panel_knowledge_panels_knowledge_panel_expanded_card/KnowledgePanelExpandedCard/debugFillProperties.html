@@ -74,7 +74,10 @@ void debugFillProperties(DiagnosticPropertiesBuilder properties) {
   super.debugFillProperties(properties);
   properties.add(StringProperty(&#39;panelId&#39;, panelId));
   properties.add(
-    DiagnosticsProperty&lt;bool&gt;(&#39;initiallyExpanded&#39;, isInitiallyExpanded),
+    DiagnosticsProperty&lt;bool&gt;(
+      &#39;initiallyExpanded&#39;,
+      isInitiallyExpanded,
+    ),
   );
   properties.add(DiagnosticsProperty&lt;bool&gt;(&#39;clickable&#39;, isClickable));
 }</code></pre>

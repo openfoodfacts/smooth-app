@@ -54,7 +54,8 @@
 <span class="returntype">dynamic</span>
 <span class="name ">getPanelSummaryWidget</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="getPanelSummaryWidget-param-knowledgePanel"><span class="type-annotation">dynamic</span> <span class="parameter-name">knowledgePanel</span>, </span></li>
 <li><span class="parameter" id="getPanelSummaryWidget-param-isClickable">{<span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">isClickable</span>, </span></li>
-<li><span class="parameter" id="getPanelSummaryWidget-param-margin"><span class="type-annotation">dynamic</span> <span class="parameter-name">margin</span>}</span></li>
+<li><span class="parameter" id="getPanelSummaryWidget-param-margin"><span class="type-annotation">dynamic</span> <span class="parameter-name">margin</span>, </span></li>
+<li><span class="parameter" id="getPanelSummaryWidget-param-padding"><span class="type-annotation">dynamic</span> <span class="parameter-name">padding</span>}</span></li>
 </ol>)
 
       
@@ -72,7 +73,8 @@
   <pre class="language-dart"><code class="language-dart">static Widget? getPanelSummaryWidget(
   final KnowledgePanel knowledgePanel, {
   required final bool isClickable,
-  final EdgeInsets? margin,
+  final EdgeInsetsGeometry? margin,
+  final EdgeInsetsGeometry? padding,
 }) {
   if (knowledgePanel.titleElement == null) {
     return null;
@@ -89,7 +91,9 @@
     case null:
     case TitleElementType.UNKNOWN:
       return Padding(
-        padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
+        padding: const EdgeInsetsDirectional.symmetric(
+          horizontal: SMALL_SPACE,
+        ).add(padding ?? EdgeInsets.zero),
         child: KnowledgePanelTitleCard(
           knowledgePanelTitleElement: knowledgePanel.titleElement!,
           evaluation: knowledgePanel.evaluation,

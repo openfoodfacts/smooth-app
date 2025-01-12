@@ -130,12 +130,15 @@ Widget build(BuildContext context) {
             Positioned.fill(
               child: IgnorePointer(
                 ignoring: true,
-                child: FlutterMap(
-                  options: mapOptions,
-                  children: &lt;Widget&gt;[
-                    ...children,
-                    const _ExpandMapIcon(),
-                  ],
+                child: ClipRRect(
+                  borderRadius: const BorderRadius.all(Radius.circular(6.0)),
+                  child: FlutterMap(
+                    options: mapOptions,
+                    children: &lt;Widget&gt;[
+                      ...children,
+                      const _ExpandMapIcon(),
+                    ],
+                  ),
                 ),
               ),
             ),

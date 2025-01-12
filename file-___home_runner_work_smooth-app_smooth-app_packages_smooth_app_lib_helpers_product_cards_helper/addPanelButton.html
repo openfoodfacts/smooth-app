@@ -53,11 +53,13 @@
 
 <span class="returntype">dynamic</span>
 <span class="name ">addPanelButton</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="addPanelButton-param-label"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">label</span>, </span></li>
-<li><span class="parameter" id="addPanelButton-param-iconData">{<span class="type-annotation">dynamic</span> <span class="parameter-name">iconData</span>, </span></li>
+<li><span class="parameter" id="addPanelButton-param-leadingIcon">{<span class="type-annotation">dynamic</span> <span class="parameter-name">leadingIcon</span>, </span></li>
+<li><span class="parameter" id="addPanelButton-param-trailingIcon"><span class="type-annotation">dynamic</span> <span class="parameter-name">trailingIcon</span>, </span></li>
 <li><span class="parameter" id="addPanelButton-param-textAlign"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">textAlign</span>, </span></li>
 <li><span class="parameter" id="addPanelButton-param-padding"><span class="type-annotation">dynamic</span> <span class="parameter-name">padding</span>, </span></li>
 <li><span class="parameter" id="addPanelButton-param-onPressed"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">onPressed</span>(<ol class="parameter-list"></ol>
 ), </span></li>
+<li><span class="parameter" id="addPanelButton-param-borderRadius"><span class="type-annotation">dynamic</span> <span class="parameter-name">borderRadius</span>, </span></li>
 <li><span class="parameter" id="addPanelButton-param-elevation"><span class="type-annotation">dynamic</span> <span class="parameter-name">elevation</span>}</span></li>
 </ol>)
 
@@ -70,20 +72,26 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Widget addPanelButton(
   final String label, {
-  final IconData? iconData,
+  final Widget? leadingIcon,
+  final Widget? trailingIcon,
   final String? textAlign,
   final EdgeInsetsGeometry? padding,
   required final Function() onPressed,
+  BorderRadiusGeometry? borderRadius,
   WidgetStateProperty&lt;double?&gt;? elevation,
 }) =&gt;
     Padding(
       padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
       child: SmoothLargeButtonWithIcon(
         text: label,
-        icon: iconData ?? Icons.add,
+        leadingIcon: leadingIcon,
+        trailingIcon: trailingIcon,
+        borderRadius: borderRadius,
         elevation: elevation,
         onPressed: onPressed,
-        textAlign: iconData == null ? TextAlign.center : null,
+        textAlign: leadingIcon == null &amp;&amp; trailingIcon == null
+            ? TextAlign.center
+            : null,
         padding: padding,
       ),
     );</code></pre>

@@ -90,6 +90,7 @@ Widget build(BuildContext context) {
       }
     }
   }
+
   List&lt;Widget&gt; iconWidget;
   if (knowledgePanelTitleElement.iconUrl != null) {
     iconWidget = &lt;Widget&gt;[
@@ -174,7 +175,7 @@ Widget build(BuildContext context) {
               },
             ),
           ),
-          if (isClickable) Icon(ConstantIcons.instance.getForwardIcon()),
+          if (isClickable) Icon(ConstantIcons.forwardIcon),
         ],
       ),
     ),

@@ -80,13 +80,15 @@
   if (rootPanel != null) {
     children.add(KnowledgePanelTitle(title: rootPanel.titleElement!.title));
     if (rootPanel.elements != null) {
-      for (final KnowledgePanelElement element in rootPanel.elements!) {
+      for (int i = 0; i &lt; rootPanel.elements!.length; i++) {
+        final KnowledgePanelElement element = rootPanel.elements![i];
         final Widget? widget = getElementWidget(
           knowledgePanelElement: element,
           product: product,
           isInitiallyExpanded: false,
           isClickable: true,
           isTextSelectable: !onboardingMode,
+          position: i,
         );
         if (widget != null) {
           children.add(widget);

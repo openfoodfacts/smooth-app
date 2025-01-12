@@ -71,29 +71,37 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  final KnowledgePanel panel =
-      KnowledgePanelsBuilder.getKnowledgePanel(product, panelId)!;
+  final KnowledgePanel panel = KnowledgePanelsBuilder.getKnowledgePanel(
+    product,
+    panelId,
+  )!;
+
   final List&lt;Widget&gt; elementWidgets = &lt;Widget&gt;[];
-  final Widget? summary = KnowledgePanelsBuilder.getPanelSummaryWidget(
-    panel,
-    isClickable: false,
-  );
-  if (summary != null) {
-    elementWidgets.add(summary);
+
+  final List&lt;Widget&gt;? summaryWidgets = _getSummary(panel);
+  if (summaryWidgets != null) {
+    elementWidgets.addAll(summaryWidgets);
   }
+
   if (panel.elements != null) {
-    for (final KnowledgePanelElement element in panel.elements!) {
+    for (int i = 0; i &lt; panel.elements!.length; i++) {
+      final KnowledgePanelElement element = panel.elements![i];
       final Widget? elementWidget = KnowledgePanelsBuilder.getElementWidget(
         knowledgePanelElement: element,
         product: product,
         isInitiallyExpanded: isInitiallyExpanded,
         isClickable: isClickable,
         isTextSelectable: true,
+        position: i,
       );
       if (elementWidget != null) {
         elementWidgets.add(
           Padding(
-            padding: const EdgeInsetsDirectional.only(top: VERY_SMALL_SPACE),
+            padding: EdgeInsetsDirectional.only(
+              top: VERY_SMALL_SPACE,
+              start: isInitiallyExpanded ? MEDIUM_SPACE : 0.0,
+              end: isInitiallyExpanded ? MEDIUM_SPACE : 0.0,
+            ),
             child: elementWidget,
           ),
         );

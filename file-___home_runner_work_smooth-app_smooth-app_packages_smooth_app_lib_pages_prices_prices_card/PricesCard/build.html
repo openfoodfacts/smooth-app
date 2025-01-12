@@ -125,7 +125,7 @@ Widget build(BuildContext context) {
                 padding: const EdgeInsets.all(SMALL_SPACE),
                 child: SmoothLargeButtonWithIcon(
                   text: appLocalizations.prices_add_a_price,
-                  icon: Icons.add,
+                  leadingIcon: const Icon(Icons.add),
                   onPressed: () async =&gt; ProductPriceAddPage.showProductPage(
                     context: context,
                     product: PriceMetaProduct.product(product),
