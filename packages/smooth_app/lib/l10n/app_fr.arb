@@ -1556,6 +1556,7 @@
     "@edit_product_form_item_categories_explainer_3": {
         "description": "Product edition - Categories - input explainer, part 3"
     },
+    "edit_product_form_item_exit_title": "Quitter sans sauvegarder ?",
     "edit_product_form_item_exit_confirmation": "Souhaitez-vous enregistrer vos modifications avant de quitter cette page ?",
     "edit_product_form_item_exit_confirmation_positive_button": "Enregistrer les modifications",
     "edit_product_form_item_exit_confirmation_negative_button": "Annuler les modifications",

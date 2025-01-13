@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_simple_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_responsive.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/helpers/keyboard_helper.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
 /// Custom Dialog to use in the app
 ///
@@ -55,8 +58,8 @@ class SmoothAlertDialog extends StatelessWidget {
 
   /// Default value [_defaultInsetPadding] in dialog.dart
   static const EdgeInsets defaultMargin = EdgeInsets.symmetric(
-    horizontal: 40.0,
-    vertical: 24.0,
+    horizontal: MEDIUM_SPACE,
+    vertical: VERY_LARGE_SPACE,
   );
 
   static const EdgeInsetsDirectional _smallContentPadding =
@@ -69,15 +72,14 @@ class SmoothAlertDialog extends StatelessWidget {
 
   static const EdgeInsetsDirectional _contentPadding =
       EdgeInsetsDirectional.only(
-    start: 22.0,
-    top: VERY_LARGE_SPACE,
-    end: 22.0,
-    bottom: 22.0,
+    start: MEDIUM_SPACE,
+    top: SMALL_SPACE,
+    end: MEDIUM_SPACE,
+    bottom: SMALL_SPACE,
   );
 
   @override
   Widget build(BuildContext context) {
-    final Widget content = _buildContent(context);
     final EdgeInsetsDirectional padding =
         contentPadding ?? defaultContentPadding(context);
 
@@ -91,14 +93,11 @@ class SmoothAlertDialog extends StatelessWidget {
         borderRadius: ROUNDED_BORDER_RADIUS,
         child: Scrollbar(
           child: SingleChildScrollView(
-            child: Padding(
-              padding: padding,
-              child: Column(
-                children: <Widget>[
-                  content,
-                  if (hasActions) _buildBottomBar(padding),
-                ],
-              ),
+            child: Column(
+              children: <Widget>[
+                _buildContent(context, padding),
+                if (hasActions) _buildBottomBar(padding),
+              ],
             ),
           ),
         ),
@@ -120,12 +119,15 @@ class SmoothAlertDialog extends StatelessWidget {
     return Padding(
       padding: EdgeInsetsDirectional.only(
         top: padding.bottom,
-        start: (actionsAxis == Axis.horizontal || singleButton)
-            ? SMALL_SPACE
-            : 0.0,
-        end: positiveAction != null && negativeAction != null
-            ? 0.0
-            : SMALL_SPACE,
+        start: padding.start +
+            ((actionsAxis == Axis.horizontal || singleButton)
+                ? SMALL_SPACE
+                : 0.0),
+        end: padding.end +
+            (positiveAction != null && negativeAction != null
+                ? 0.0
+                : SMALL_SPACE),
+        bottom: padding.bottom,
       ),
       child: SmoothActionButtonsBar(
         positiveAction: positiveAction,
@@ -140,18 +142,45 @@ class SmoothAlertDialog extends StatelessWidget {
   bool get hasActions =>
       positiveAction != null || negativeAction != null || neutralAction != null;
 
-  Widget _buildContent(final BuildContext context) => DefaultTextStyle.merge(
-        style: const TextStyle(height: 1.5),
+  Widget _buildContent(
+    final BuildContext context,
+    EdgeInsetsDirectional padding,
+  ) =>
+      DefaultTextStyle.merge(
+        style: const TextStyle(
+          height: 1.5,
+          fontSize: 15.0,
+        ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             if (title != null)
-              _SmoothDialogTitle(
-                label: title!,
-                close: close,
-                leading: leadingTitle,
+              ColoredBox(
+                color:
+                    context.extension<SmoothColorsThemeExtension>().primaryDark,
+                child: Padding(
+                  padding: EdgeInsetsDirectional.only(
+                    start: padding.start,
+                    end: padding.end,
+                    top: padding.top,
+                    bottom: padding.top,
+                  ),
+                  child: _SmoothDialogTitle(
+                    label: title!,
+                    close: close,
+                    leading: leadingTitle,
+                  ),
+                ),
               ),
-            body,
+            const SizedBox(height: MEDIUM_SPACE),
+            Padding(
+              padding: EdgeInsetsDirectional.only(
+                start: padding.start,
+                end: padding.end,
+              ),
+              child: body,
+            ),
+            const SizedBox(height: SMALL_SPACE),
           ],
         ),
       );
@@ -168,99 +197,57 @@ class _SmoothDialogTitle extends StatelessWidget {
     this.leading,
   });
 
-  static const double _titleHeight = 32.0;
-
   final String label;
   final bool close;
   final Widget? leading;
 
   @override
   Widget build(BuildContext context) {
-    final TextStyle textStyle =
-        Theme.of(context).textTheme.displayMedium ?? const TextStyle();
-
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: <Widget>[
-        SizedBox(
-          height: _titleHeight,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              if (leading != null)
-                Padding(
-                  padding: EdgeInsetsDirectional.only(
-                    top: leading is Icon ? 2.0 : 0.0,
-                    end: SMALL_SPACE,
+    return IconTheme(
+      data: const IconThemeData(color: Colors.white, size: 5.0),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          IntrinsicHeight(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                if (leading != null)
+                  Padding(
+                    padding: EdgeInsetsDirectional.only(
+                      top: leading is Icon ? 2.0 : 0.0,
+                      end: SMALL_SPACE,
+                    ),
+                    child: leading,
                   ),
-                  child: IconTheme(
-                      data: IconThemeData(
-                        color: textStyle.color,
+                _buildCross(true),
+                Expanded(
+                  child: FittedBox(
+                    child: Text(
+                      label,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16.0,
+                        color: Colors.white,
                       ),
-                      child: leading!),
-                ),
-              _buildCross(true),
-              Expanded(
-                child: FittedBox(
-                  child: Text(
-                    label,
-                    style: textStyle,
+                    ),
                   ),
                 ),
-              ),
-              _buildCross(false),
-            ],
+                _buildCross(false),
+              ],
+            ),
           ),
-        ),
-        Divider(color: Theme.of(context).colorScheme.onSurface),
-        const SizedBox(height: 12),
-      ],
+        ],
+      ),
     );
   }
 
   Widget _buildCross(final bool isPlaceHolder) {
     if (close) {
-      return _SmoothDialogCrossButton(
-        visible: !isPlaceHolder,
-      );
-    } else {
-      return EMPTY_WIDGET;
-    }
-  }
-}
-
-class _SmoothDialogCrossButton extends StatelessWidget {
-  const _SmoothDialogCrossButton({
-    required this.visible,
-  });
-
-  final bool visible;
-
-  @override
-  Widget build(BuildContext context) {
-    if (visible) {
       return Visibility(
-        maintainSize: true,
-        maintainAnimation: true,
-        maintainState: true,
-        visible: visible,
-        child: Semantics(
-          label: MaterialLocalizations.of(context).closeButtonLabel,
-          button: true,
-          excludeSemantics: true,
-          child: InkWell(
-            customBorder: const CircleBorder(),
-            child: const Padding(
-              padding: EdgeInsets.all(SMALL_SPACE),
-              child: Icon(
-                Icons.close,
-                size: _SmoothDialogTitle._titleHeight - (2 * SMALL_SPACE),
-              ),
-            ),
-            onTap: () => Navigator.of(context, rootNavigator: true).pop(),
-          ),
-        ),
+        visible: !isPlaceHolder,
+        child: const SmoothModalSheetHeaderCloseButton(),
       );
     } else {
       return EMPTY_WIDGET;

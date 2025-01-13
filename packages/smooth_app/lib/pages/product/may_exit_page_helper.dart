@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/helpers/color_extension.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 
 /// Helper class about the "You're leaving the page with unsaved changes" case.
 class MayExitPageHelper {
@@ -13,30 +18,53 @@ class MayExitPageHelper {
   Future<bool?> openSaveBeforeLeavingDialog(
     final BuildContext context, {
     final String? title,
-  }) async =>
-      showDialog<bool>(
-        context: context,
-        builder: (final BuildContext context) {
-          final AppLocalizations appLocalizations =
-              AppLocalizations.of(context);
-          return SmoothAlertDialog(
-            close: true,
-            actionsAxis: Axis.vertical,
-            body:
-                Text(appLocalizations.edit_product_form_item_exit_confirmation),
-            title: title ?? appLocalizations.edit_product_label,
-            negativeAction: SmoothActionButton(
-              text: appLocalizations
-                  .edit_product_form_item_exit_confirmation_negative_button,
-              onPressed: () => Navigator.pop(context, false),
-            ),
-            positiveAction: SmoothActionButton(
-              text: appLocalizations
-                  .edit_product_form_item_exit_confirmation_positive_button,
-              onPressed: () => Navigator.pop(context, true),
-            ),
-            actionsOrder: SmoothButtonsBarOrder.numerical,
-          );
-        },
-      );
+  }) async {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
+
+    const Color color = Color(0xFFB81D1D);
+
+    return showSmoothListOfChoicesModalSheet<bool>(
+      context: context,
+      title: title ?? appLocalizations.edit_product_form_item_exit_title,
+      headerBackgroundColor: color,
+      header: ColoredBox(
+        color: context.lightTheme(listen: false)
+            ? color.lighten(0.55)
+            : color.darken(0.3),
+        child: Padding(
+          padding: const EdgeInsetsDirectional.symmetric(
+            horizontal: LARGE_SPACE,
+            vertical: MEDIUM_SPACE,
+          ),
+          child: Text(
+            appLocalizations.edit_product_form_item_exit_confirmation,
+            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                  fontWeight: FontWeight.w600,
+                ),
+          ),
+        ),
+      ),
+      labels: <String>[
+        appLocalizations
+            .edit_product_form_item_exit_confirmation_positive_button,
+        appLocalizations
+            .edit_product_form_item_exit_confirmation_negative_button,
+      ],
+      values: <bool>[
+        true,
+        false,
+      ],
+      prefixIcons: <Widget>[
+        Icon(Icons.save_rounded, color: extension.success),
+        Icon(Icons.cancel_rounded, color: extension.error),
+      ],
+      dividerPadding: const EdgeInsetsDirectional.symmetric(
+        horizontal: MEDIUM_SPACE,
+      ),
+      textStyle: const TextStyle(fontWeight: FontWeight.w600),
+      safeArea: true,
+    );
+  }
 }

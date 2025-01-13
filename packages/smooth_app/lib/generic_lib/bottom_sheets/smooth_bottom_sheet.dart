@@ -86,6 +86,11 @@ Future<T?> showSmoothListOfChoicesModalSheet<T>({
   List<Widget>? suffixIcons,
   Color? suffixIconTint,
   EdgeInsetsGeometry? padding,
+  EdgeInsetsGeometry? dividerPadding,
+  TextStyle? textStyle,
+  Color? headerBackgroundColor,
+  Color? prefixIndicatorColor,
+  bool safeArea = false,
 }) {
   assert(labels.length == values.length);
   assert(prefixIcons == null || values.length == prefixIcons.length);
@@ -105,11 +110,12 @@ Future<T?> showSmoothListOfChoicesModalSheet<T>({
         leading: prefixIcons != null
             ? IconTheme.merge(
                 data: IconThemeData(color: prefixIconTint),
-                child: prefixIcons[i])
+                child: prefixIcons[i],
+              )
             : null,
         title: Text(
           labels.elementAt(i),
-          style: const TextStyle(fontWeight: FontWeight.w500),
+          style: textStyle ?? const TextStyle(fontWeight: FontWeight.w500),
         ),
         contentPadding: EdgeInsetsDirectional.only(
           start: LARGE_SPACE,
@@ -129,7 +135,13 @@ Future<T?> showSmoothListOfChoicesModalSheet<T>({
     );
 
     if (i < labels.length - 1) {
-      items.add(const Divider(height: 1.0));
+      const Widget divider = Divider(height: 1.0);
+
+      if (dividerPadding != null) {
+        items.add(Padding(padding: dividerPadding, child: divider));
+      } else {
+        items.add(divider);
+      }
     }
   }
 
@@ -137,13 +149,19 @@ Future<T?> showSmoothListOfChoicesModalSheet<T>({
     items.add(footer);
   }
 
-  items.add(SizedBox(height: MediaQuery.of(context).padding.bottom));
+  items.add(SizedBox(height: MediaQuery.paddingOf(context).bottom));
+
+  if (safeArea) {
+    items.add(SizedBox(height: MediaQuery.viewPaddingOf(context).bottom));
+  }
 
   return showSmoothModalSheet<T>(
     context: context,
     builder: (BuildContext context) => SmoothModalSheet(
       title: title,
       prefixIndicator: true,
+      prefixIndicatorColor: prefixIndicatorColor,
+      headerBackgroundColor: headerBackgroundColor,
       bodyPadding: EdgeInsets.zero,
       body: Column(children: items),
     ),
@@ -184,6 +202,7 @@ class SmoothModalSheet extends StatelessWidget {
     required this.body,
     bool prefixIndicator = false,
     bool closeButton = true,
+    Color? prefixIndicatorColor,
     Color? headerBackgroundColor,
     Color? headerForegroundColor,
     this.bodyPadding,
@@ -192,7 +211,9 @@ class SmoothModalSheet extends StatelessWidget {
   }) : header = SmoothModalSheetHeader(
           title: title,
           prefix: prefixIndicator
-              ? const SmoothModalSheetHeaderPrefixIndicator()
+              ? SmoothModalSheetHeaderPrefixIndicator(
+                  color: prefixIndicatorColor,
+                )
               : null,
           suffix: closeButton
               ? SmoothModalSheetHeaderCloseButton(
