@@ -52,7 +52,7 @@ class _PriceAddProductCardState extends State<PriceAddProductCard> {
         children: <Widget>[
           SmoothLargeButtonWithIcon(
             text: appLocalizations.prices_barcode_reader_action,
-            icon: Icons.barcode_reader,
+            leadingIcon: const Icon(Icons.barcode_reader),
             onPressed: () async {
               final UserPreferences userPreferences =
                   context.read<UserPreferences>();
@@ -81,7 +81,7 @@ class _PriceAddProductCardState extends State<PriceAddProductCard> {
           ),
           SmoothLargeButtonWithIcon(
             text: appLocalizations.prices_barcode_enter,
-            icon: Icons.text_fields,
+            leadingIcon: const Icon(Icons.text_fields),
             onPressed: () async {
               final String? barcode = await _textInput(context);
               if (barcode == null) {

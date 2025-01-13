@@ -117,7 +117,7 @@ extension ImageFieldSmoothieExtension on ImageField {
             ),
           ),
         ),
-        icon: Icons.camera_alt,
+        leadingIcon: const Icon(Icons.camera_alt),
         text: getProductImageButtonText(AppLocalizations.of(context)),
       );
 }

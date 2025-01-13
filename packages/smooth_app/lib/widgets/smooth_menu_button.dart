@@ -66,8 +66,8 @@ class _SmoothPopupMenuButtonState<T> extends State<SmoothPopupMenuButton<T>> {
                 leading: item.icon != null ? Icon(item.icon) : null,
                 title: Text(item.label),
                 onTap: () {
+                  Navigator.of(context).pop();
                   widget.onSelected(item.value);
-                  Navigator.of(context).maybePop();
                 },
               );
             },

@@ -7,10 +7,10 @@ class SmoothSimpleButton extends StatelessWidget {
   const SmoothSimpleButton({
     required this.child,
     required this.onPressed,
-    this.minWidth = 15,
-    this.height = 20,
-    this.borderRadius = ROUNDED_BORDER_RADIUS,
-    this.padding = const EdgeInsets.all(10),
+    this.minWidth = 15.0,
+    this.height = 20.0,
+    this.borderRadius,
+    this.padding = const EdgeInsetsDirectional.all(BALANCED_SPACE),
     this.buttonColor,
     this.elevation,
   });
@@ -19,7 +19,7 @@ class SmoothSimpleButton extends StatelessWidget {
   final VoidCallback? onPressed;
   final double minWidth;
   final double height;
-  final BorderRadius borderRadius;
+  final BorderRadiusGeometry? borderRadius;
   final EdgeInsetsGeometry padding;
   final Color? buttonColor;
   final WidgetStateProperty<double?>? elevation;
@@ -38,7 +38,9 @@ class SmoothSimpleButton extends StatelessWidget {
               ? null
               : WidgetStateProperty.all<Color>(buttonColor!),
           shape: WidgetStateProperty.all<RoundedRectangleBorder>(
-            RoundedRectangleBorder(borderRadius: borderRadius),
+            RoundedRectangleBorder(
+              borderRadius: borderRadius ?? ROUNDED_BORDER_RADIUS,
+            ),
           ),
           overlayColor: context.read<ThemeProvider>().isAmoledTheme
               ? WidgetStateProperty.resolveWith((Set<WidgetState> states) {

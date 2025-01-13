@@ -485,7 +485,7 @@ class _ErrorLoadingView extends StatelessWidget {
               const SizedBox(height: VERY_LARGE_SPACE),
               SmoothLargeButtonWithIcon(
                 text: appLocalizations.hunger_games_error_retry_button,
-                icon: Icons.refresh,
+                leadingIcon: const Icon(Icons.refresh),
                 onPressed: onRetry,
                 textStyle: const TextStyle(
                   fontSize: 18.0,

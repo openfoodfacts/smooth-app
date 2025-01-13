@@ -210,6 +210,7 @@ class _SmoothProductItemPicture extends StatelessWidget {
           ProductPicture.fromProduct(
             product: product,
             imageField: ImageField.FRONT,
+            fallbackUrl: product.imageFrontUrl,
             size: Size(size, size - (scoreWidget != null ? 25.0 : 5.0)),
             borderRadius: BorderRadius.vertical(
               top: hasScore ? Radius.zero : const Radius.circular(08.0),

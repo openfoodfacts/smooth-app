@@ -199,7 +199,9 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView>
                                   child: SmoothLargeButtonWithIcon(
                                     text:
                                         appLocalizations.view_more_photo_button,
-                                    icon: Icons.photo_camera_rounded,
+                                    leadingIcon: const Icon(
+                                      Icons.photo_camera_rounded,
+                                    ),
                                     onPressed: () => setState(
                                       () => _clickedOtherPictureButton = true,
                                     ),

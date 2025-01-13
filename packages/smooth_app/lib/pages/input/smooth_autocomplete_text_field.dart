@@ -24,6 +24,7 @@ class SmoothAutocompleteTextField extends StatefulWidget {
     this.borderRadius,
     this.padding,
     this.textStyle,
+    this.textCapitalization,
   });
 
   final FocusNode focusNode;
@@ -38,6 +39,7 @@ class SmoothAutocompleteTextField extends StatefulWidget {
   final BorderRadius? borderRadius;
   final EdgeInsetsGeometry? padding;
   final TextStyle? textStyle;
+  final TextCapitalization? textCapitalization;
 
   @override
   State<SmoothAutocompleteTextField> createState() =>
@@ -90,6 +92,8 @@ class _SmoothAutocompleteTextFieldState
           if (!widget.allowEmojis)
             FilteringTextInputFormatter.deny(TextHelper.emojiRegex),
         ],
+        textCapitalization:
+            widget.textCapitalization ?? TextCapitalization.none,
         style: widget.textStyle,
         decoration: InputDecoration(
           contentPadding: widget.padding ??

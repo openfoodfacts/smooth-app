@@ -153,7 +153,7 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
         ),
         child: addPanelButton(
           appLocalizations.edit_packagings_element_add.toUpperCase(),
-          iconData: Icons.add,
+          leadingIcon: const Icon(Icons.add),
           onPressed: () => setState(
             () => _addPackagingToControllers(
               ProductPackaging(),
@@ -180,7 +180,7 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
             language: ProductQuery.getLanguage(),
             isLoggedInMandatory: widget.isLoggedInMandatory,
           ),
-          iconData: Icons.add_a_photo,
+          leadingIcon: const Icon(Icons.add_a_photo),
         ),
       ),
     );

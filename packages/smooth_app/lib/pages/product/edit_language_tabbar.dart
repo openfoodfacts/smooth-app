@@ -14,6 +14,7 @@ import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_languages_list.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
+import 'package:smooth_app/services/smooth_services.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -359,13 +360,20 @@ class _EditLanguageProvider
     if (mainLanguage != userLanguage) {
       final int index = imageLanguages.indexOf(userLanguage);
 
-      if (forceUserLanguage || index >= 0) {
-        languages.add(userLanguage);
-        states.add(
-          index >= 0
-              ? languagesStates[index]
-              : userLanguageMissingState ?? mainLanguageMissingState,
+      if (mainLanguage == OpenFoodFactsLanguage.UNKNOWN_LANGUAGE &&
+          userLanguage == OpenFoodFactsLanguage.ENGLISH) {
+        Logs.d(
+          'This product has a main unknown language, considering it as English',
         );
+      } else {
+        if (forceUserLanguage || index >= 0) {
+          languages.add(userLanguage);
+          states.add(
+            index >= 0
+                ? languagesStates[index]
+                : userLanguageMissingState ?? mainLanguageMissingState,
+          );
+        }
       }
     }
 

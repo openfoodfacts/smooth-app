@@ -61,6 +61,13 @@ class LanguageSelector extends StatelessWidget {
       selectedLanguages: selectedLanguages,
       daoStringList: daoStringList,
     );
+
+    final TextStyle textStyle = Theme.of(context)
+            .textTheme
+            .bodyMedium
+            ?.copyWith(color: foregroundColor) ??
+        TextStyle(color: foregroundColor);
+
     return Material(
       type: MaterialType.transparency,
       child: InkWell(
@@ -100,17 +107,13 @@ class LanguageSelector extends StatelessWidget {
                     _getCompleteName(language),
                     softWrap: false,
                     overflow: TextOverflow.fade,
-                    style: Theme.of(context)
-                            .textTheme
-                            .bodyMedium
-                            ?.copyWith(color: foregroundColor) ??
-                        TextStyle(color: foregroundColor),
+                    style: textStyle,
                   ),
                 ),
               ),
               IconTheme(
                 data: IconThemeData(
-                  color: foregroundColor,
+                  color: foregroundColor ?? textStyle.color,
                 ),
                 child: icon ?? const Icon(Icons.arrow_drop_down),
               ),

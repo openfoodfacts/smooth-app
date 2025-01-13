@@ -88,24 +88,6 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-    Widget child = Provider<Product>.value(
-      value: _product,
-      child: _buildForm(
-        context: context,
-        appLocalizations: appLocalizations,
-        showPhotos: _showPhotosBanner,
-      ),
-    );
-
-    if (_hasOwnerField()) {
-      child = Column(
-        children: <Widget>[
-          Expanded(child: child),
-          const OwnerFieldBanner(),
-        ],
-      );
-    }
-
     return WillPopScope2(
       onWillPop: () async => (await _mayExitPage(saving: false), null),
       child: UnfocusFieldWhenTapOutside(
@@ -129,7 +111,14 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
           backgroundColor: context.lightTheme()
               ? context.extension<SmoothColorsThemeExtension>().primaryLight
               : null,
-          body: child,
+          body: Provider<Product>.value(
+            value: _product,
+            child: _buildForm(
+              context: context,
+              appLocalizations: appLocalizations,
+              showPhotos: _showPhotosBanner,
+            ),
+          ),
           bottomNavigationBar: ProductBottomButtonsBar(
             onSave: () async => _exitPage(
               await _mayExitPage(saving: true),
@@ -340,23 +329,6 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
     }
   }
 
-  bool _hasOwnerField() {
-    if (_multilingualHelper.isMonolingual()) {
-      if (_isOwnerField(ProductField.NAME)) {
-        return true;
-      }
-    } else {
-      if (_isOwnerField(
-        ProductField.NAME_IN_LANGUAGES,
-        language: _multilingualHelper.getCurrentLanguage(),
-      )) {
-        return true;
-      }
-    }
-    return _isOwnerField(ProductField.BRANDS) ||
-        _isOwnerField(ProductField.QUANTITY);
-  }
-
   bool _isOwnerField(
     final ProductField productField, {
     final OpenFoodFactsLanguage? language,
@@ -398,6 +370,7 @@ class _ProductMonolingualNameInputWidget extends StatelessWidget {
                 (Platform.isAndroid || Platform.isIOS)
             ? const SpellCheckConfiguration()
             : const SpellCheckConfiguration.disabled(),
+        maxLines: 1,
       ),
     );
   }
@@ -524,6 +497,8 @@ class _ProductQuantityInputWidget extends StatelessWidget {
         type: TextFieldTypes.PLAIN_TEXT,
         hintText: appLocalizations.add_basic_details_quantity_hint,
         hintTextStyle: SmoothTextFormField.defaultHintTextStyle(context),
+        allowEmojis: false,
+        maxLines: 1,
       ),
     );
   }
@@ -549,10 +524,13 @@ class _BasicDetailInputWrapper extends StatelessWidget {
     return SmoothCardWithRoundedHeader(
       title: title,
       leading: icon,
-      trailing: ownerField
-          ? const Padding(
-              padding: EdgeInsetsDirectional.only(end: 7.0),
-              child: OwnerFieldIcon(),
+      trailing: ownerField ? const OwnerFieldSmoothCardIcon() : null,
+      titlePadding: ownerField
+          ? const EdgeInsetsDirectional.only(
+              top: 2.0,
+              start: LARGE_SPACE,
+              end: SMALL_SPACE,
+              bottom: 2.0,
             )
           : null,
       contentPadding: EdgeInsets.zero,

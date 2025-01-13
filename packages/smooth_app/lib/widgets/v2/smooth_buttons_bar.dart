@@ -14,6 +14,7 @@ class SmoothButtonsBar2 extends StatefulWidget {
     required this.positiveButton,
     this.negativeButton,
     this.backgroundColor,
+    this.addViewPadding = true,
     this.animate = false,
     super.key,
   });
@@ -21,6 +22,7 @@ class SmoothButtonsBar2 extends StatefulWidget {
   final SmoothActionButton2 positiveButton;
   final SmoothActionButton2? negativeButton;
   final Color? backgroundColor;
+  final bool addViewPadding;
   final bool animate;
 
   @override
@@ -53,7 +55,8 @@ class _SmoothButtonsBar2State extends State<SmoothButtonsBar2>
 
   @override
   Widget build(BuildContext context) {
-    final double viewPadding = MediaQuery.viewPaddingOf(context).bottom;
+    final double viewPadding =
+        widget.addViewPadding ? MediaQuery.viewPaddingOf(context).bottom : 0.0;
     final SmoothColorsThemeExtension? colors =
         Theme.of(context).extension<SmoothColorsThemeExtension>();
 

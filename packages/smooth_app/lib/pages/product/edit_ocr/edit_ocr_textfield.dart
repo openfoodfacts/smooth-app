@@ -59,7 +59,7 @@ class EditOCRTextField extends StatelessWidget {
         trailing: Row(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            if (isOwnerField) const EditOCROwnerFieldIcon(),
+            if (isOwnerField) const OwnerFieldSmoothCardIcon(),
             ExplanationTitleIcon(
               type: helper.getType(appLocalizations),
               text: helper.getInstructions(appLocalizations),
@@ -173,30 +173,12 @@ class EditOCRExtraButton extends StatelessWidget {
           language: multilingualHelper.getCurrentLanguage(),
           isLoggedInMandatory: isLoggedInMandatory,
         ),
-        iconData: Icons.add_a_photo_rounded,
+        leadingIcon: const Icon(Icons.add_a_photo_rounded),
         padding: const EdgeInsetsDirectional.only(
           top: SMALL_SPACE,
           bottom: SMALL_SPACE,
           start: VERY_SMALL_SPACE,
         ),
-      ),
-    );
-  }
-}
-
-class EditOCROwnerFieldIcon extends StatelessWidget {
-  const EditOCROwnerFieldIcon();
-
-  @override
-  Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-
-    return SmoothCardHeaderButton(
-      tooltip: appLocalizations.owner_field_info_title,
-      child: const OwnerFieldIcon(),
-      onTap: () => showOwnerFieldInfoInModalSheet(
-        context,
-        headerColor: SmoothCardWithRoundedHeader.getHeaderColor(context),
       ),
     );
   }

@@ -189,6 +189,7 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                         textInputType: TextInputType.text,
                         controller: passwordController,
                         hintText: appLocalizations.password,
+                        maxLines: 1,
                         prefixIcon: const Icon(Icons.vpn_key),
                         enabled: !_runningQuery,
                         textInputAction: TextInputAction.send,

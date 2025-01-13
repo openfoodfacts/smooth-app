@@ -228,7 +228,7 @@ class ProductPageState extends State<ProductPage>
                 padding: const EdgeInsets.all(SMALL_SPACE),
                 child: SmoothLargeButtonWithIcon(
                   text: appLocalizations.reorder_attribute_action,
-                  icon: Icons.sort,
+                  leadingIcon: const Icon(Icons.sort),
                   onPressed: () async => Navigator.push(
                     context,
                     MaterialPageRoute<void>(

@@ -30,6 +30,7 @@ class SmoothTextFormField extends StatefulWidget {
     this.focusNode,
     this.spellCheckConfiguration,
     this.allowEmojis = true,
+    this.maxLines,
   });
 
   final TextFieldTypes type;
@@ -49,6 +50,7 @@ class SmoothTextFormField extends StatefulWidget {
   final FocusNode? focusNode;
   final SpellCheckConfiguration? spellCheckConfiguration;
   final bool allowEmojis;
+  final int? maxLines;
 
   @override
   State<SmoothTextFormField> createState() => _SmoothTextFormFieldState();
@@ -90,6 +92,7 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
       focusNode: widget.focusNode,
       autofillHints: widget.autofillHints,
       autofocus: widget.autofocus ?? false,
+      maxLines: widget.maxLines,
       autovalidateMode: AutovalidateMode.onUserInteraction,
       onChanged: widget.onChanged ??
           (String data) {
@@ -118,7 +121,7 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
           overflow: TextOverflow.ellipsis,
         ),
         hintText: widget.hintText,
-        hintMaxLines: 2,
+        hintMaxLines: widget.maxLines ?? 2,
         border: const OutlineInputBorder(
           borderRadius: CIRCULAR_BORDER_RADIUS,
         ),
@@ -142,7 +145,7 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
                         : const Icon(Icons.visibility),
                   )
                 : null),
-        errorMaxLines: 2,
+        errorMaxLines: widget.maxLines ?? 2,
       ),
     );
   }

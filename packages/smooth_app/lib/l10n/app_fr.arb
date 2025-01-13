@@ -884,7 +884,7 @@
     "@product_tags_title": {
         "description": "The title for showing product properties, aka folksonomy data"
     },
-    "no_product_tags_found_message": "Aucune propriété de produit trouvée. Les propriétés peuvent être utilisées pour décrire les produits de manière plus détaillée et flexible. Appuyez pour ajouter.",
+    "no_product_tags_found_message": "Aucune propriété de produit trouvée. Les propriétés peuvent être utilisées pour décrire les produits de manière plus détaillée et flexible.",
     "@no_product_tags_found_message": {
         "description": "Message to show if there are no product properties found"
     },
@@ -1398,6 +1398,14 @@
     "@edit_product_label": {
         "description": "Edit product button label"
     },
+    "edit_product_pending_operations_banner_title": "Envoi de vos modifications…",
+    "@edit_product_pending_operations_banner_title": {
+        "description": "When a product has pending edits (being sent to the server), there is a message on the edit page (here is the title of the message)."
+    },
+    "edit_product_pending_operations_banner_message": "Vos modifications sont en cours d'envoi en **arrière-plan** (ou plus tard en cas d'erreur).\nVous pouvez continuer d'éditer d'autres champs du produit.",
+    "@edit_product_pending_operations_banner_message": {
+        "description": "When a product has pending edits (being sent to the server), there is a message on the edit page. Please keep the ** syntax to make the text bold."
+    },
     "edit_product_label_short": "Modifier",
     "@edit_product_label_short": {
         "description": "Edit product button short label (only the verb)"
@@ -1556,6 +1564,7 @@
     "@edit_product_form_item_categories_explainer_3": {
         "description": "Product edition - Categories - input explainer, part 3"
     },
+    "edit_product_form_item_exit_title": "Quitter sans sauvegarder ?",
     "edit_product_form_item_exit_confirmation": "Souhaitez-vous enregistrer vos modifications avant de quitter cette page ?",
     "edit_product_form_item_exit_confirmation_positive_button": "Enregistrer les modifications",
     "edit_product_form_item_exit_confirmation_negative_button": "Annuler les modifications",
@@ -3427,7 +3436,7 @@
     "@product_page_action_bar_item_disable": {
         "description": "Accessibility label to disable action (= make it invisible)"
     },
-    "product_page_pending_operations_banner_title": "Téléversement de vos modifications…",
+    "product_page_pending_operations_banner_title": "Envoi de vos modifications…",
     "@product_page_pending_operations_banner_title": {
         "description": "When a product has pending edits (being sent to the server), there is a message on the product page (here is the title of the message)."
     },
@@ -3550,5 +3559,14 @@
     "knowledge_panel_nutriscore_banner_incorrect_score_title": "Pourquoi ce Nutri-Score est-il différent de celui présent sur l'emballage ?",
     "knowledge_panel_nutriscore_banner_incorrect_score_message": "Il y a deux explications possibles :\nLa liste des ingrédients et/ou le tableau nutritionnel ne sont pas à jour.\n\nNous affichons le \"Nouveau calcul\" du Nutri-Score (ou V2). Vérifiez que le libellé \"Nouveau calcul\" est bien sur l'emballage.",
     "knowledge_panel_nutriscore_banner_incorrect_score_button1": "Vérifier les ingredients",
-    "knowledge_panel_nutriscore_banner_incorrect_score_button2": "Vérifier le tableau nutritionnel"
+    "knowledge_panel_nutriscore_banner_incorrect_score_button2": "Vérifier le tableau nutritionnel",
+    "url_not_supported": "Malheureusement, nous ne pouvez pas ouvrir l'adresse :\n{url}",
+    "@url_not_supported": {
+        "description": "Error message when the app can't open a URL",
+        "placeholders": {
+            "url": {
+                "type": "String"
+            }
+        }
+    }
 }

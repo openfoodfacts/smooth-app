@@ -5,7 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/smooth_html_widget.dart';
+import 'package:smooth_app/generic_lib/html/smooth_html_widget.dart';
 import 'package:smooth_app/helpers/html_extension.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_card.dart';
@@ -113,8 +113,16 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
               value: _buildSemanticsValue(row),
               child: IntrinsicHeight(child: Row(children: row)),
             ),
-          if (withPortionCalculator) const Divider(),
-          if (withPortionCalculator) PortionCalculator(widget.product)
+          if (withPortionCalculator) ...<Widget>[
+            const Padding(
+              padding: EdgeInsetsDirectional.only(
+                top: MEDIUM_SPACE,
+                bottom: LARGE_SPACE,
+              ),
+              child: Divider(),
+            ),
+            PortionCalculator(widget.product),
+          ]
         ],
       );
     });

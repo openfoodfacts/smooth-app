@@ -76,12 +76,15 @@ class KnowledgePanelWorldMapCard extends StatelessWidget {
               Positioned.fill(
                 child: IgnorePointer(
                   ignoring: true,
-                  child: FlutterMap(
-                    options: mapOptions,
-                    children: <Widget>[
-                      ...children,
-                      const _ExpandMapIcon(),
-                    ],
+                  child: ClipRRect(
+                    borderRadius: const BorderRadius.all(Radius.circular(6.0)),
+                    child: FlutterMap(
+                      options: mapOptions,
+                      children: <Widget>[
+                        ...children,
+                        const _ExpandMapIcon(),
+                      ],
+                    ),
                   ),
                 ),
               ),

@@ -79,7 +79,7 @@ class PricesCard extends StatelessWidget {
                   padding: const EdgeInsets.all(SMALL_SPACE),
                   child: SmoothLargeButtonWithIcon(
                     text: appLocalizations.prices_add_a_price,
-                    icon: Icons.add,
+                    leadingIcon: const Icon(Icons.add),
                     onPressed: () async => ProductPriceAddPage.showProductPage(
                       context: context,
                       product: PriceMetaProduct.product(product),
@@ -169,7 +169,7 @@ class _PricesCardViewButtonState extends State<_PricesCardViewButton> {
             ),
             child: SmoothLargeButtonWithIcon(
               text: appLocalizations.prices_view_prices,
-              icon: CupertinoIcons.tag_fill,
+              leadingIcon: const Icon(CupertinoIcons.tag_fill),
               onPressed: () async => Navigator.of(context).push(
                 MaterialPageRoute<void>(
                   builder: (BuildContext context) => PricesPage(

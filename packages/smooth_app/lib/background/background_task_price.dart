@@ -138,7 +138,7 @@ abstract class BackgroundTaskPrice extends BackgroundTask {
           final AppLocalizations appLocalizations) =>
       (
         appLocalizations.add_price_queued,
-        AlignmentDirectional.center,
+        AlignmentDirectional.bottomCenter,
       );
 
   @protected

@@ -23,6 +23,8 @@ class SimpleInputTextField extends StatefulWidget {
     required this.productType,
     this.suffixIcon,
     this.borderRadius,
+    this.textCapitalization,
+    this.allowEmojis,
   });
 
   final FocusNode focusNode;
@@ -41,6 +43,8 @@ class SimpleInputTextField extends StatefulWidget {
   final ProductType? productType;
   final Widget? suffixIcon;
   final BorderRadius? borderRadius;
+  final TextCapitalization? textCapitalization;
+  final bool? allowEmojis;
 
   @override
   State<SimpleInputTextField> createState() => _SimpleInputTextFieldState();
@@ -87,6 +91,8 @@ class _SimpleInputTextFieldState extends State<SimpleInputTextField> {
               focusNode: widget.focusNode,
               controller: widget.controller,
               autocompleteKey: widget.autocompleteKey,
+              textCapitalization: widget.textCapitalization,
+              allowEmojis: widget.allowEmojis ?? true,
               hintText: widget.hintText,
               constraints: widget.constraints,
               manager: _manager,

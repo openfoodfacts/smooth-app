@@ -1,4 +1,6 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 extension Selectable on Text {
   Widget selectable({bool isSelectable = true}) {
@@ -43,9 +45,40 @@ extension StringExtensions on String {
 
     return count;
   }
+
+  String firstLetterInUppercase() {
+    return isNotEmpty ? '${this[0].toUpperCase()}${substring(1)}' : '';
+  }
 }
 
 extension TextScalerExtension on BuildContext {
   /// Returns the text font multiplier
   double textScaler() => MediaQuery.textScalerOf(this).scale(1.0);
+}
+
+extension TextSpanExtension on TextSpan {
+  TextSpan copyWith({
+    TextStyle? style,
+    List<InlineSpan>? children,
+    String? text,
+    GestureRecognizer? recognizer,
+    MouseCursor? mouseCursor,
+    PointerEnterEventListener? onEnter,
+    PointerExitEventListener? onExit,
+    String? semanticsLabel,
+    Locale? locale,
+    bool? spellOut,
+  }) =>
+      TextSpan(
+        style: style ?? this.style,
+        children: children ?? this.children,
+        text: text ?? this.text,
+        recognizer: recognizer ?? this.recognizer,
+        mouseCursor: mouseCursor ?? this.mouseCursor,
+        onEnter: onEnter ?? this.onEnter,
+        onExit: onExit ?? this.onExit,
+        semanticsLabel: semanticsLabel ?? this.semanticsLabel,
+        locale: locale ?? this.locale,
+        spellOut: spellOut ?? this.spellOut,
+      );
 }
