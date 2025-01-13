@@ -901,7 +901,7 @@
     "tag_key_item": "குணம்:",
     "tag_value_item": "மதிப்பு:",
     "tag_key_explanations": "ஒரு சாவி சிறிய எழுத்தாகவும் இடைவெளிகள் இல்லாமலும் இருக்க வேண்டும்.",
-    "tag_key_already_exists": "குணம் {குணம்} உடன் ஒரு குறிச்சொல் ஏற்கனவே உள்ளது!",
+    "tag_key_already_exists": "குணம் {property} உடன் ஒரு குறிச்சொல் ஏற்கனவே உள்ளது!",
     "@tag_key_already_exists": {
         "placeholders": {
             "property": {
