@@ -889,19 +889,19 @@
         "description": "Message to show if there are no product properties found"
     },
     "add_tag": "Додати властивість",
-    "add_tags": "Add properties",
-    "add_edit_tags": "Add or edit properties",
+    "add_tags": "Додати властивості",
+    "add_edit_tags": "Додати або редагувати властивості",
     "edit_tag": "Змінити властивість",
     "remove_tag": "Видалити властивість",
     "tag_key": "Властивість",
-    "tag_key_uneditable": "Property (uneditable)",
-    "tag_key_input_hint": "Input a property",
+    "tag_key_uneditable": "Власність (не можна редагувати)",
+    "tag_key_input_hint": "Введіть властивість",
     "tag_value": "Цінність",
-    "tag_value_input_hint": "Input a value",
-    "tag_key_item": "Property:",
-    "tag_value_item": "Value:",
-    "tag_key_explanations": "A key must be lowercase and without any spaces.",
-    "tag_key_already_exists": "A tag with a property {property} already exists!",
+    "tag_value_input_hint": "Введіть значення",
+    "tag_key_item": "Властивість:",
+    "tag_value_item": "Значення:",
+    "tag_key_explanations": "Ключ повинен бути малим регістром і без пробілів.",
+    "tag_key_already_exists": "Тег із властивістю {property} вже існує!",
     "@tag_key_already_exists": {
         "placeholders": {
             "property": {
@@ -1415,7 +1415,7 @@
     "@edit_product_pending_operations_banner_title": {
         "description": "When a product has pending edits (being sent to the server), there is a message on the edit page (here is the title of the message)."
     },
-    "edit_product_pending_operations_banner_message": "Your edits are being **sent in the background** (or later in case of error).\nYou can continue editing other product fields.",
+    "edit_product_pending_operations_banner_message": "Ваші зміни **надсилаються у фоновому режимі** (або пізніше, у разі помилки).\nВи можете продовжити редагування інших полів продукту.",
     "@edit_product_pending_operations_banner_message": {
         "description": "When a product has pending edits (being sent to the server), there is a message on the edit page. Please keep the ** syntax to make the text bold."
     },
@@ -1577,7 +1577,7 @@
     "@edit_product_form_item_categories_explainer_3": {
         "description": "Product edition - Categories - input explainer, part 3"
     },
-    "edit_product_form_item_exit_title": "Quit without saving?",
+    "edit_product_form_item_exit_title": "Вийти без збереження?",
     "edit_product_form_item_exit_confirmation": "Бажаєте зберегти зміни, перш ніж покинути цю сторінку?",
     "edit_product_form_item_exit_confirmation_positive_button": "Зберегти зміни",
     "edit_product_form_item_exit_confirmation_negative_button": "Скасувати зміни",
@@ -3573,7 +3573,7 @@
     "knowledge_panel_nutriscore_banner_incorrect_score_message": "Є два можливі пояснення:\nСписок інгредієнтів та/або харчова цінність не є актуальною.\n\nМи пропонуємо «Новий розрахунок» Nutri-Score (або V2). Переконайтеся, що у вас на упаковці є банер «Новий розрахунок».",
     "knowledge_panel_nutriscore_banner_incorrect_score_button1": "Перевірка інгредієнтів",
     "knowledge_panel_nutriscore_banner_incorrect_score_button2": "Перевірка фактів харчування",
-    "url_not_supported": "Unfortunately, we can't open the URL:\n{url}",
+    "url_not_supported": "На жаль, ми не можемо відкрити URL:\n{url}",
     "@url_not_supported": {
         "description": "Error message when the app can't open a URL",
         "placeholders": {
