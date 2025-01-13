@@ -231,7 +231,6 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
         direction: DismissDirection.endToStart,
         background: Container(
           alignment: AlignmentDirectional.centerEnd,
-          margin: const EdgeInsets.symmetric(vertical: 14.0),
           color: RED_COLOR,
           padding: const EdgeInsetsDirectional.only(end: 30.0),
           child: const Icon(
