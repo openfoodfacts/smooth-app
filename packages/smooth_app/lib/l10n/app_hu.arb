@@ -889,13 +889,26 @@
         "description": "Message to show if there are no product properties found"
     },
     "add_tag": "Tulajdonság hozzáadása",
+    "add_tags": "Add properties",
+    "add_edit_tags": "Add or edit properties",
     "edit_tag": "Tulajdonság szerkesztése",
     "remove_tag": "Tulajdonság eltávolítása",
     "tag_key": "Tulajdonság",
+    "tag_key_uneditable": "Property (uneditable)",
+    "tag_key_input_hint": "Input a property",
     "tag_value": "Érték",
-    "invalid_key_format": "Érvénytelen tulajdonságformátum. Kisbetűvel és szóközök nélkül kell írni.",
-    "@invalid_key_format": {
-        "description": "Message to show if the property's value for a new product property is invalid. This logic is identical to whats being validated in the Folksonomy API"
+    "tag_value_input_hint": "Input a value",
+    "tag_key_item": "Property:",
+    "tag_value_item": "Value:",
+    "tag_key_explanations": "A key must be lowercase and without any spaces.",
+    "tag_key_already_exists": "A tag with a property {property} already exists!",
+    "@tag_key_already_exists": {
+        "placeholders": {
+            "property": {
+                "type": "String",
+                "description": "The property name"
+            }
+        }
     },
     "product_internet_error": "Hálózati hiba miatt nem lehet információkat lekérni erről a termékről.",
     "cached_results_from": "Ekkori eredmények megjelenítése:",
@@ -1398,6 +1411,14 @@
     "@edit_product_label": {
         "description": "Edit product button label"
     },
+    "edit_product_pending_operations_banner_title": "Szerkesztések feltöltése…",
+    "@edit_product_pending_operations_banner_title": {
+        "description": "When a product has pending edits (being sent to the server), there is a message on the edit page (here is the title of the message)."
+    },
+    "edit_product_pending_operations_banner_message": "Your edits are being **sent in the background** (or later in case of error).\nYou can continue editing other product fields.",
+    "@edit_product_pending_operations_banner_message": {
+        "description": "When a product has pending edits (being sent to the server), there is a message on the edit page. Please keep the ** syntax to make the text bold."
+    },
     "edit_product_label_short": "Szerkesztés",
     "@edit_product_label_short": {
         "description": "Edit product button short label (only the verb)"
@@ -1556,6 +1577,7 @@
     "@edit_product_form_item_categories_explainer_3": {
         "description": "Product edition - Categories - input explainer, part 3"
     },
+    "edit_product_form_item_exit_title": "Quit without saving?",
     "edit_product_form_item_exit_confirmation": "Szeretné menteni a változtatásokat, mielőtt elhagyja ezt az oldalt?",
     "edit_product_form_item_exit_confirmation_positive_button": "Módosítások mentése",
     "edit_product_form_item_exit_confirmation_negative_button": "Módosítások elvetése",
@@ -3550,5 +3572,14 @@
     "knowledge_panel_nutriscore_banner_incorrect_score_title": "Miért különbözik ez a Nutri-Score a csomagoláson lévőtől?",
     "knowledge_panel_nutriscore_banner_incorrect_score_message": "Két lehetséges magyarázat van:\nAz összetevők listája és/vagy a tápértékadatok nem naprakészek.\n\nMi a Nutri-Score „Új számítás” (vagy V2) verzióját adjuk meg. Ellenőrizze, hogy a csomagon szerepel-e az \"Új számítás\" felirat.",
     "knowledge_panel_nutriscore_banner_incorrect_score_button1": "Összetevők ellenőrzése",
-    "knowledge_panel_nutriscore_banner_incorrect_score_button2": "Tápértékadatok ellenőrzése"
+    "knowledge_panel_nutriscore_banner_incorrect_score_button2": "Tápértékadatok ellenőrzése",
+    "url_not_supported": "Unfortunately, we can't open the URL:\n{url}",
+    "@url_not_supported": {
+        "description": "Error message when the app can't open a URL",
+        "placeholders": {
+            "url": {
+                "type": "String"
+            }
+        }
+    }
 }
