@@ -202,12 +202,21 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
   ) {
     final ProductCompatibilityHelper helper =
         ProductCompatibilityHelper.status(status);
-    return Center(
-      child: Padding(
-        padding: const EdgeInsets.all(SMALL_SPACE),
-        child: Text(
-          helper.getHeaderText(appLocalizations),
-          style: Theme.of(context).textTheme.titleMedium,
+    return SizedBox(
+      width: double.infinity,
+      child: ColoredBox(
+        color: helper.getColor(context),
+        child: Padding(
+          padding: const EdgeInsets.all(MEDIUM_SPACE),
+          child: Text(
+            helper.getHeaderText(appLocalizations),
+            textAlign: TextAlign.center,
+            style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                  fontWeight: FontWeight.w600,
+                  fontSize: 15.0,
+                  color: Colors.white,
+                ),
+          ),
         ),
       ),
     );
