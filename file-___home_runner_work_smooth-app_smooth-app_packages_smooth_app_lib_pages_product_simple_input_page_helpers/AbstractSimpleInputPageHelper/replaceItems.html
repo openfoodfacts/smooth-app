@@ -68,7 +68,7 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">void replaceItems(final List&lt;String&gt; items) {
-  _terms = items;
+  _terms = List&lt;String&gt;.of(items);
   _changed = true;
   notifyListeners();
 }</code></pre>
