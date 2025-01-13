@@ -207,7 +207,7 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
 
   /// Mainly used when reordering the list.
   void replaceItems(final List<String> items) {
-    _terms = items;
+    _terms = List<String>.of(items);
     _changed = true;
     notifyListeners();
   }
