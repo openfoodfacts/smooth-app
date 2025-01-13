@@ -519,7 +519,7 @@
     "@front_photo": {
         "description": "Button label: For adding a picture of the front of a product"
     },
-    "outdated_image_accessibility_label": "{imageType} (cette image peut être obsolète)",
+    "outdated_image_accessibility_label": "ma traduction",
     "@outdated_image_accessibility_label": {
         "description": "Accessibility label for images that are outdated (image type may be front/ingredients/nutrition…)",
         "placeholders": {
@@ -889,13 +889,26 @@
         "description": "Message to show if there are no product properties found"
     },
     "add_tag": "Ajouter une propriété",
+    "add_tags": "Add properties",
+    "add_edit_tags": "Add or edit properties",
     "edit_tag": "Modifier la propriété",
     "remove_tag": "Supprimer la propriété",
     "tag_key": "Propriété",
+    "tag_key_uneditable": "Property (uneditable)",
+    "tag_key_input_hint": "Input a property",
     "tag_value": "Valeur",
-    "invalid_key_format": "Format de propriété non valide. Il doit être en minuscules et sans aucun espace.",
-    "@invalid_key_format": {
-        "description": "Message to show if the property's value for a new product property is invalid. This logic is identical to whats being validated in the Folksonomy API"
+    "tag_value_input_hint": "Input a value",
+    "tag_key_item": "Property:",
+    "tag_value_item": "Value:",
+    "tag_key_explanations": "A key must be lowercase and without any spaces.",
+    "tag_key_already_exists": "A tag with a property {property} already exists!",
+    "@tag_key_already_exists": {
+        "placeholders": {
+            "property": {
+                "type": "String",
+                "description": "The property name"
+            }
+        }
     },
     "product_internet_error": "Impossible de récupérer les informations sur ce produit en raison d'une erreur réseau.",
     "cached_results_from": "Résultats mis en cache depuis :",
