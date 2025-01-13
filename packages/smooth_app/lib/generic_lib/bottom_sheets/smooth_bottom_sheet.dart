@@ -149,9 +149,10 @@ Future<T?> showSmoothListOfChoicesModalSheet<T>({
     items.add(footer);
   }
 
-  items.add(SizedBox(height: MediaQuery.paddingOf(context).bottom));
+  final double paddingHeight = MediaQuery.paddingOf(context).bottom;
+  items.add(SizedBox(height: paddingHeight));
 
-  if (safeArea) {
+  if (safeArea && paddingHeight == 0.0) {
     items.add(SizedBox(height: MediaQuery.viewPaddingOf(context).bottom));
   }
 
