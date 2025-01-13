@@ -295,6 +295,7 @@ class _ProductListPageState extends State<ProductListPage>
                   child: ListView.separated(
                     controller: _scrollController,
                     itemCount: products.length,
+                    physics: const AlwaysScrollableScrollPhysics(),
                     itemBuilder: (BuildContext context, int index) =>
                         _buildItem(
                       dismissible,
