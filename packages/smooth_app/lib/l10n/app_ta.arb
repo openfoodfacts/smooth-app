@@ -884,24 +884,24 @@
     "@product_tags_title": {
         "description": "The title for showing product properties, aka folksonomy data"
     },
-    "no_product_tags_found_message": "No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.",
+    "no_product_tags_found_message": "தயாரிப்புப் பண்புகள் இல்லை. தயாரிப்புகளை மேலும் விவரங்களில், நெகிழ்வான முறையில் விவரிக்கப் பண்புகலைப் பயன்படுத்தப்படலாம்.",
     "@no_product_tags_found_message": {
         "description": "Message to show if there are no product properties found"
     },
-    "add_tag": "Add property",
-    "add_tags": "Add properties",
-    "add_edit_tags": "Add or edit properties",
+    "add_tag": "ஒரு குணத்தைச் சேர்க்கவும்",
+    "add_tags": "பண்புகளைச் சேர்க்கவும்",
+    "add_edit_tags": "பண்புகளைச் சேர்க்கவும் அல்லது திருத்தவும்",
     "edit_tag": "Edit property",
     "remove_tag": "Remove property",
     "tag_key": "Property",
-    "tag_key_uneditable": "Property (uneditable)",
-    "tag_key_input_hint": "Input a property",
+    "tag_key_uneditable": "குணம் (திருத்த முடியாதது)",
+    "tag_key_input_hint": "ஒரு குணத்தை உள்ளிடவும்",
     "tag_value": "Value",
-    "tag_value_input_hint": "Input a value",
-    "tag_key_item": "Property:",
-    "tag_value_item": "Value:",
-    "tag_key_explanations": "A key must be lowercase and without any spaces.",
-    "tag_key_already_exists": "A tag with a property {property} already exists!",
+    "tag_value_input_hint": "ஒரு மதிப்பை உள்ளிடவும்",
+    "tag_key_item": "குணம்:",
+    "tag_value_item": "மதிப்பு:",
+    "tag_key_explanations": "ஒரு சாவி சிறிய எழுத்தாகவும் இடைவெளிகள் இல்லாமலும் இருக்க வேண்டும்.",
+    "tag_key_already_exists": "குணம் {குணம்} உடன் ஒரு குறிச்சொல் ஏற்கனவே உள்ளது!",
     "@tag_key_already_exists": {
         "placeholders": {
             "property": {
@@ -1415,7 +1415,7 @@
     "@edit_product_pending_operations_banner_title": {
         "description": "When a product has pending edits (being sent to the server), there is a message on the edit page (here is the title of the message)."
     },
-    "edit_product_pending_operations_banner_message": "Your edits are being **sent in the background** (or later in case of error).\nYou can continue editing other product fields.",
+    "edit_product_pending_operations_banner_message": "உங்கள் திருத்தங்கள் **பின்னணியில் அனுப்பப்படுகின்றன** (அல்லது பின்னர் பிழை ஏற்பட்டால்).\nநீங்கள் பிற தயாரிப்புப் புலங்களைத் தொடர்ந்து திருத்தலாம்.",
     "@edit_product_pending_operations_banner_message": {
         "description": "When a product has pending edits (being sent to the server), there is a message on the edit page. Please keep the ** syntax to make the text bold."
     },
@@ -1577,7 +1577,7 @@
     "@edit_product_form_item_categories_explainer_3": {
         "description": "Product edition - Categories - input explainer, part 3"
     },
-    "edit_product_form_item_exit_title": "Quit without saving?",
+    "edit_product_form_item_exit_title": "சேமிக்காமல் வெளியேறு?",
     "edit_product_form_item_exit_confirmation": "Do you want to save your changes before leaving this page?",
     "edit_product_form_item_exit_confirmation_positive_button": "Save changes",
     "edit_product_form_item_exit_confirmation_negative_button": "Discard changes",
@@ -3573,7 +3573,7 @@
     "knowledge_panel_nutriscore_banner_incorrect_score_message": "இரண்டு சாத்தியமான விளக்கங்கள் உள்ளன:\nபொருட்களின் பட்டியல் மற்றும்/அல்லது ஊட்டச்சத்து உண்மைகள் புதுப்பித்த நிலையில் இல்லை.\n\nநியூட்ரி-ஸ்கோரின் (அல்லது V2) \"புதிய கணக்கீட்டை\" நாங்கள் வழங்குகிறோம். தொகுப்பில் \"புதிய கணக்கீடு\" என்ற பேனர் உள்ளதா எனச் சரிபார்க்கவும்.",
     "knowledge_panel_nutriscore_banner_incorrect_score_button1": "பொருட்களைச் சரிபார்க்கவும்",
     "knowledge_panel_nutriscore_banner_incorrect_score_button2": "ஊட்டச்சத்து உண்மைகளைச் சரிபார்க்கவும்",
-    "url_not_supported": "Unfortunately, we can't open the URL:\n{url}",
+    "url_not_supported": "துரதிருஷ்டவசமாக, எங்களால் URL ஐ திறக்க முடியவில்லை:\n{url}",
     "@url_not_supported": {
         "description": "Error message when the app can't open a URL",
         "placeholders": {
