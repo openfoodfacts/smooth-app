@@ -104,51 +104,65 @@ Widget build(BuildContext context) {
             width: double.infinity,
             color: contentBackgroundColor ?? const Color(0xFFECECEC),
             padding: EdgeInsetsDirectional.only(
-              start: MEDIUM_SPACE,
-              end: MEDIUM_SPACE,
-              top: onDismissClicked != null
-                  ? VERY_SMALL_SPACE
-                  : BALANCED_SPACE,
               bottom: onDismissClicked != null ? LARGE_SPACE : MEDIUM_SPACE,
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: &lt;Widget&gt;[
-                Row(
-                  children: &lt;Widget&gt;[
-                    Expanded(
-                      child: Text(
-                        title,
-                        style: TextStyle(
-                          fontSize: 16.0,
-                          fontWeight: FontWeight.bold,
-                          color: titleColor ?? _titleColor,
-                        ),
-                      ),
+                ColoredBox(
+                  color: titleBackgroundColor ?? Colors.transparent,
+                  child: Padding(
+                    padding: EdgeInsetsDirectional.symmetric(
+                      horizontal: MEDIUM_SPACE,
+                      vertical: onDismissClicked != null
+                          ? VERY_SMALL_SPACE
+                          : BALANCED_SPACE,
                     ),
-                    if (onDismissClicked != null) ...&lt;Widget&gt;[
-                      const SizedBox(width: SMALL_SPACE),
-                      SmoothCloseButton(
-                        onClose: () =&gt; onDismissClicked!.call(
-                          SmoothBannerDismissEvent.fromButton,
+                    child: Row(
+                      children: &lt;Widget&gt;[
+                        Expanded(
+                          child: Text(
+                            title,
+                            style: TextStyle(
+                              fontSize: 16.0,
+                              fontWeight: FontWeight.bold,
+                              color: titleColor ?? _titleColor,
+                            ),
+                          ),
                         ),
-                        circleColor: titleColor ?? _titleColor,
-                        crossColor: Colors.white,
-                        circleSize: 26.0,
-                        crossSize: 12.0,
-                        tooltip: AppLocalizations.of(context)
-                            .owner_field_info_close_button,
-                      ),
-                    ],
-                  ],
+                        if (onDismissClicked != null) ...&lt;Widget&gt;[
+                          const SizedBox(width: SMALL_SPACE),
+                          SmoothCloseButton(
+                            onClose: () =&gt; onDismissClicked!.call(
+                              SmoothBannerDismissEvent.fromButton,
+                            ),
+                            circleColor: titleColor ?? _titleColor,
+                            crossColor: Colors.white,
+                            circleSize: 26.0,
+                            crossSize: 12.0,
+                            tooltip: AppLocalizations.of(context)
+                                .owner_field_info_close_button,
+                          ),
+                        ],
+                      ],
+                    ),
+                  ),
                 ),
                 if (onDismissClicked == null)
-                  const SizedBox(height: VERY_SMALL_SPACE),
-                TextWithBoldParts(
-                  text: content,
-                  textStyle: TextStyle(
-                    fontSize: 14.0,
-                    color: contentColor ?? const Color(0xFF373737),
+                  const SizedBox(
+                    height: VERY_SMALL_SPACE,
+                    width: MEDIUM_SPACE,
+                  ),
+                Padding(
+                  padding: const EdgeInsetsDirectional.symmetric(
+                      horizontal: MEDIUM_SPACE),
+                  child: TextWithBoldParts(
+                    text: content,
+                    textStyle: TextStyle(
+                      fontSize: 14.0,
+                      height: 1.6,
+                      color: contentColor ?? const Color(0xFF373737),
+                    ),
                   ),
                 ),
                 if (bottomPadding &gt; 0) SizedBox(height: bottomPadding),
@@ -160,14 +174,24 @@ Widget build(BuildContext context) {
     ),
   );
 
+  if (borderRadius != null) {
+    child = ClipRRect(
+      borderRadius: borderRadius!,
+      child: child,
+    );
+  }
+
   if (topShadow) {
     child = DecoratedBox(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
+        borderRadius: borderRadius,
         boxShadow: &lt;BoxShadow&gt;[
           BoxShadow(
-            color: Colors.black12,
+            color: context.lightTheme()
+                ? Colors.black12
+                : const Color(0x10FFFFFF),
             blurRadius: 6.0,
-            offset: Offset(0.0, -4.0),
+            offset: const Offset(0.0, -4.0),
           ),
         ],
       ),
@@ -221,6 +245,7 @@ Widget build(BuildContext context) {
       <a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_banner/SmoothBanner-class.html#instance-properties">Properties</a>
     </li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_banner/SmoothBanner/addSafeArea.html">addSafeArea</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_banner/SmoothBanner/borderRadius.html">borderRadius</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_banner/SmoothBanner/content.html">content</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_banner/SmoothBanner/contentBackgroundColor.html">contentBackgroundColor</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_banner/SmoothBanner/contentColor.html">contentColor</a></li>
@@ -232,6 +257,7 @@ Widget build(BuildContext context) {
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_banner/SmoothBanner/onDismissClicked.html">onDismissClicked</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_banner/SmoothBanner/title.html">title</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_banner/SmoothBanner/titleBackgroundColor.html">titleBackgroundColor</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_banner/SmoothBanner/titleColor.html">titleColor</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_banner/SmoothBanner/topShadow.html">topShadow</a></li>
 
