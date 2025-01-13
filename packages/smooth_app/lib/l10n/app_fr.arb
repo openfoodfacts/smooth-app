@@ -519,7 +519,7 @@
     "@front_photo": {
         "description": "Button label: For adding a picture of the front of a product"
     },
-    "outdated_image_accessibility_label": "ma traduction",
+    "outdated_image_accessibility_label": "{imageType} (cette image peut être obsolète)",
     "@outdated_image_accessibility_label": {
         "description": "Accessibility label for images that are outdated (image type may be front/ingredients/nutrition…)",
         "placeholders": {
