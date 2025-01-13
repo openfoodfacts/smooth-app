@@ -217,7 +217,6 @@ class _SmoothProductItemPicture extends StatelessWidget {
               bottom: const Radius.circular(08.0),
             ),
             noImageBuilder: (_) => const PictureNotFound(),
-            heroTag: context.watch<String>(),
             blurFilter: false,
           ),
         ],
