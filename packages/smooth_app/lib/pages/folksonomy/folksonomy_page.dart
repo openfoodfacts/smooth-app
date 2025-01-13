@@ -288,11 +288,6 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
       );
 
       onNextFrame(() => provider.markAsConsumed());
-    } else if (provider.value is FolksonomyStateEditedItem) {
-      final FolksonomyStateEditedItem state =
-          provider.value as FolksonomyStateEditedItem;
     }
-
-    onNextFrame(() => provider.markAsConsumed());
   }
 }
