@@ -9,7 +9,9 @@ import 'package:smooth_app/themes/theme_provider.dart';
 class SmoothTopBar2 extends StatefulWidget implements PreferredSizeWidget {
   const SmoothTopBar2({
     required this.title,
+    this.topWidget,
     this.leadingAction,
+    this.forceMultiLines = false,
     this.elevation = 4.0,
     super.key,
   }) : assert(title.length > 0);
@@ -19,13 +21,16 @@ class SmoothTopBar2 extends StatefulWidget implements PreferredSizeWidget {
 
   final String title;
   final double elevation;
+  final bool forceMultiLines;
+  final PreferredSizeWidget? topWidget;
   final SmoothTopBarLeadingAction? leadingAction;
 
   @override
   State<SmoothTopBar2> createState() => _SmoothTopBar2State();
 
   @override
-  Size get preferredSize => Size(double.infinity, kTopBar2Height);
+  Size get preferredSize => Size(double.infinity,
+      kTopBar2Height + (topWidget?.preferredSize.height ?? 0.0));
 }
 
 class _SmoothTopBar2State extends State<SmoothTopBar2> {
@@ -85,70 +90,97 @@ class _SmoothTopBar2State extends State<SmoothTopBar2> {
             padding: EdgeInsetsDirectional.only(
               top: MediaQuery.viewPaddingOf(context).top,
             ),
-            child: SizedBox(
-              height: SmoothTopBar2.kTopBar2Height,
-              child: Stack(
-                children: <Widget>[
-                  Positioned.directional(
-                    textDirection: textDirection,
-                    bottom: -(imageHeight / 2.1),
-                    end: -imageWidth * 0.15,
-                    child: ExcludeSemantics(
-                      child: SvgPicture.asset(
-                        'assets/product/product_completed_graphic_light.svg',
-                        width: MediaQuery.sizeOf(context).width * 0.22,
-                        height: imageHeight,
-                      ),
-                    ),
+            child: Column(
+              children: <Widget>[
+                if (widget.topWidget != null)
+                  SizedBox.fromSize(
+                    size: widget.topWidget!.preferredSize,
+                    child: widget.topWidget,
                   ),
-                  Positioned.directional(
-                    textDirection: textDirection,
-                    top: MEDIUM_SPACE,
-                    bottom: VERY_LARGE_SPACE,
-                    start: widget.leadingAction != null
-                        ? BALANCED_SPACE
-                        : VERY_LARGE_SPACE,
-                    end: imageWidth * 0.7,
-                    child: Align(
-                      alignment: AlignmentDirectional.topStart,
-                      child: Row(
-                        children: <Widget>[
-                          if (widget.leadingAction != null) ...<Widget>[
-                            _SmoothTopBarLeadingButton(
-                              action: widget.leadingAction!,
-                            ),
-                            const SizedBox(width: BALANCED_SPACE)
-                          ],
-                          Expanded(
-                            child: Padding(
-                              padding: widget.leadingAction != null
-                                  ? const EdgeInsets.only(bottom: 1.56)
-                                  : EdgeInsets.zero,
-                              child: Text(
-                                widget.title,
-                                maxLines: 2,
-                                overflow: TextOverflow.ellipsis,
-                                style: TextStyle(
-                                  color: darkTheme
-                                      ? colors.primaryMedium
-                                      : colors.primaryBlack,
-                                  fontSize: 20.0,
-                                  fontWeight: FontWeight.bold,
+                SizedBox(
+                  height: SmoothTopBar2.kTopBar2Height,
+                  child: Stack(
+                    children: <Widget>[
+                      Positioned.directional(
+                        textDirection: textDirection,
+                        bottom: -(imageHeight / 2.1),
+                        end: -imageWidth * 0.15,
+                        child: ExcludeSemantics(
+                          child: SvgPicture.asset(
+                            'assets/product/product_completed_graphic_light.svg',
+                            width: MediaQuery.sizeOf(context).width * 0.22,
+                            height: imageHeight,
+                          ),
+                        ),
+                      ),
+                      Positioned.directional(
+                        textDirection: textDirection,
+                        top: MEDIUM_SPACE,
+                        bottom: VERY_LARGE_SPACE,
+                        start: widget.leadingAction != null
+                            ? BALANCED_SPACE
+                            : VERY_LARGE_SPACE,
+                        end: imageWidth * 0.7,
+                        child: Align(
+                          alignment: AlignmentDirectional.topStart,
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: <Widget>[
+                              if (widget.leadingAction != null) ...<Widget>[
+                                _SmoothTopBarLeadingButton(
+                                  action: widget.leadingAction!,
+                                ),
+                                const SizedBox(width: BALANCED_SPACE)
+                              ],
+                              Expanded(
+                                child: Padding(
+                                  padding: widget.leadingAction != null
+                                      ? const EdgeInsetsDirectional.only(
+                                          bottom: 1.56,
+                                        )
+                                      : EdgeInsets.zero,
+                                  child: _getText(darkTheme, colors),
                                 ),
                               ),
-                            ),
+                            ],
                           ),
-                        ],
-                      ),
-                    ),
-                  )
-                ],
-              ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ],
             ),
           ),
         ),
       ),
     );
+  }
+
+  Widget _getText(bool darkTheme, SmoothColorsThemeExtension colors) {
+    final Widget text = Text(
+      widget.title,
+      maxLines: 2,
+      overflow: TextOverflow.ellipsis,
+      style: TextStyle(
+        color: darkTheme ? colors.primaryMedium : colors.primaryBlack,
+        fontSize: 20.0,
+        height: 1.5,
+        fontWeight: FontWeight.bold,
+      ),
+    );
+
+    if (widget.forceMultiLines) {
+      return SizedBox(
+        height: (MediaQuery.textScalerOf(context).scale(20.0) * 2.0) * 1.5,
+        child: Align(
+          alignment: AlignmentDirectional.centerStart,
+          child: text,
+        ),
+      );
+    }
+
+    return text;
   }
 }
 
