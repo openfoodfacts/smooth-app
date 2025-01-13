@@ -149,6 +149,7 @@ class _FolksonomyEditTagContentBody extends StatelessWidget {
             ],
             decoration: InputDecoration(
               hintText: appLocalizations.tag_key_input_hint,
+              hintStyle: const TextStyle(fontStyle: FontStyle.italic),
             ),
           ),
           const SizedBox(height: LARGE_SPACE),
@@ -163,6 +164,7 @@ class _FolksonomyEditTagContentBody extends StatelessWidget {
             textInputAction: TextInputAction.send,
             decoration: InputDecoration(
               hintText: appLocalizations.tag_value_input_hint,
+              hintStyle: const TextStyle(fontStyle: FontStyle.italic),
             ),
             onSubmitted: (_) => onSave(),
           ),
