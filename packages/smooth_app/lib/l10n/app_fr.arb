@@ -1398,6 +1398,14 @@
     "@edit_product_label": {
         "description": "Edit product button label"
     },
+    "edit_product_pending_operations_banner_title": "Envoi de vos modifications…",
+    "@edit_product_pending_operations_banner_title": {
+        "description": "When a product has pending edits (being sent to the server), there is a message on the edit page (here is the title of the message)."
+    },
+    "edit_product_pending_operations_banner_message": "Vos modifications sont en cours d'envoi en **arrière-plan** (ou plus tard en cas d'erreur).\nVous pouvez continuer d'éditer d'autres champs du produit.",
+    "@edit_product_pending_operations_banner_message": {
+        "description": "When a product has pending edits (being sent to the server), there is a message on the edit page. Please keep the ** syntax to make the text bold."
+    },
     "edit_product_label_short": "Modifier",
     "@edit_product_label_short": {
         "description": "Edit product button short label (only the verb)"
@@ -3433,7 +3441,7 @@
     "@product_page_action_bar_item_disable": {
         "description": "Accessibility label to disable action (= make it invisible)"
     },
-    "product_page_pending_operations_banner_title": "Téléversement de vos modifications…",
+    "product_page_pending_operations_banner_title": "Envoi de vos modifications…",
     "@product_page_pending_operations_banner_title": {
         "description": "When a product has pending edits (being sent to the server), there is a message on the product page (here is the title of the message)."
     },

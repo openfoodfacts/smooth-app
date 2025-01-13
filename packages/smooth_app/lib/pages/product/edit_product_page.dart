@@ -11,6 +11,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_list_tile_card.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
+import 'package:smooth_app/helpers/color_extension.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/onboarding/currency_selector_helper.dart';
@@ -22,15 +23,17 @@ import 'package:smooth_app/pages/product/edit_product_barcode.dart';
 import 'package:smooth_app/pages/product/gallery_view/product_image_gallery_view.dart';
 import 'package:smooth_app/pages/product/nutrition_page_loaded.dart';
 import 'package:smooth_app/pages/product/product_field_editor.dart';
-import 'package:smooth_app/pages/product/product_page/new_product_page_loading_indicator.dart';
 import 'package:smooth_app/pages/product/product_type_extensions.dart';
 import 'package:smooth_app/pages/product/simple_input_page.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/resources/app_animations.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
+import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
+import 'package:smooth_app/widgets/smooth_banner.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Page where we can indirectly edit all data about a product.
@@ -68,6 +71,9 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
     );
     final String productBrand =
         getProductBrands(upToDateProduct, appLocalizations);
+
+    final bool hasUploadIndicator = UpToDateChanges(localDatabase)
+        .hasNotTerminatedOperations(upToDateProduct.barcode!);
 
     return SmoothScaffold(
       backgroundColor: lightTheme
@@ -147,7 +153,10 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
               top: SMALL_SPACE,
               start: MEDIUM_SPACE,
               end: MEDIUM_SPACE,
-              bottom: MEDIUM_SPACE + MediaQuery.viewPaddingOf(context).bottom,
+              bottom: MEDIUM_SPACE +
+                  (!hasUploadIndicator
+                      ? MediaQuery.viewPaddingOf(context).bottom
+                      : 0.0),
             ),
             controller: _controller,
             children: <Widget>[
@@ -308,12 +317,8 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
           ),
         ),
       ),
-      bottomNavigationBar: UpToDateChanges(localDatabase)
-              .hasNotTerminatedOperations(upToDateProduct.barcode!)
-          ? const ProductPageLoadingIndicator(
-              addSafeArea: true,
-            )
-          : null,
+      bottomNavigationBar:
+          hasUploadIndicator ? const _EditPageLoadingIndicator() : null,
     );
   }
 
@@ -407,4 +412,36 @@ class _ListTitleItem extends SmoothListTileCard {
             top: SMALL_SPACE,
           ),
         );
+}
+
+class _EditPageLoadingIndicator extends StatelessWidget {
+  const _EditPageLoadingIndicator();
+
+  @override
+  Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
+
+    final bool lightTheme = context.lightTheme();
+
+    return SmoothBanner(
+      icon: CloudUploadAnimation(
+        size: MediaQuery.sizeOf(context).width * 0.10,
+      ),
+      iconAlignment: AlignmentDirectional.center,
+      iconBackgroundColor: lightTheme ? extension.primaryBlack : Colors.black,
+      title: appLocalizations.edit_product_pending_operations_banner_title,
+      titleColor: lightTheme ? null : Colors.white,
+      titleBackgroundColor:
+          lightTheme ? extension.primaryMedium : Colors.black26,
+      contentBackgroundColor: lightTheme
+          ? extension.primaryMedium.lighten()
+          : extension.primaryUltraBlack,
+      contentColor: lightTheme ? null : Colors.grey[200],
+      topShadow: true,
+      content: appLocalizations.edit_product_pending_operations_banner_message,
+      addSafeArea: true,
+    );
+  }
 }
