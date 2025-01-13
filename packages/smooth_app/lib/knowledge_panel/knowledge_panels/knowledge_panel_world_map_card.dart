@@ -92,6 +92,7 @@ class KnowledgePanelWorldMapCard extends StatelessWidget {
                 child: Material(
                   color: Colors.transparent,
                   child: InkWell(
+                    borderRadius: const BorderRadius.all(Radius.circular(6.0)),
                     onTap: () {
                       Navigator.of(context).push(
                         MaterialPageRoute<Widget>(
