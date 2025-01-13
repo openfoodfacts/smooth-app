@@ -18,7 +18,12 @@ class MayExitPageHelper {
   Future<bool?> openSaveBeforeLeavingDialog(
     final BuildContext context, {
     final String? title,
+    final bool unfocus = true,
   }) async {
+    if (unfocus) {
+      FocusManager.instance.primaryFocus?.unfocus();
+    }
+
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final SmoothColorsThemeExtension extension =
         context.extension<SmoothColorsThemeExtension>();

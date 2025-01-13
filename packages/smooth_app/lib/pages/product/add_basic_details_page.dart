@@ -61,7 +61,6 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
   final SimpleInputPageBrandsHelper _brandsHelper =
       SimpleInputPageBrandsHelper();
   late final MultilingualHelper _multilingualHelper;
-  late final FocusNode _focusNode;
 
   /// Only used when there's not enough place
   bool _showPhotosBanner = false;
@@ -81,7 +80,6 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
       monolingualText: _product.productName,
       productLanguage: _product.lang,
     );
-    _focusNode = FocusNode();
   }
 
   @override
@@ -137,7 +135,6 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
     _productNameController.dispose();
     _brandsController.dispose();
     _weightController.dispose();
-    _focusNode.dispose();
     super.dispose();
   }
 
