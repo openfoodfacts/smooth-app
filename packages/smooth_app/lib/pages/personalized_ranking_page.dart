@@ -16,6 +16,7 @@ import 'package:smooth_app/helpers/product_compatibility_helper.dart';
 import 'package:smooth_app/pages/product/common/loading_status.dart';
 import 'package:smooth_app/pages/product/common/product_list_item_simple.dart';
 import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
+import 'package:smooth_app/resources/app_icons.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_menu_button.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
@@ -106,6 +107,7 @@ class _PersonalizedRankingPageState extends State<PersonalizedRankingPage>
                 SmoothPopupMenuItem<String>(
                   value: 'add_to_list',
                   label: appLocalizations.user_list_button_add_product,
+                  icon: const AddToList.symbol().icon,
                 ),
               ];
             },

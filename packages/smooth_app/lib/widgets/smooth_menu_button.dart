@@ -57,7 +57,7 @@ class _SmoothPopupMenuButtonState<T> extends State<SmoothPopupMenuButton<T>> {
             padding: EdgeInsetsDirectional.only(
               bottom: MediaQuery.viewPaddingOf(context).bottom,
             ),
-            itemCount: widget.itemBuilder(context).length,
+            itemCount: list.length,
             shrinkWrap: true,
             itemBuilder: (BuildContext context, int index) {
               final SmoothPopupMenuItem<T> item = list.elementAt(index);
