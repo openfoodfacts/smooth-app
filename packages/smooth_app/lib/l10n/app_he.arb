@@ -884,24 +884,24 @@
     "@product_tags_title": {
         "description": "The title for showing product properties, aka folksonomy data"
     },
-    "no_product_tags_found_message": "לא נמצאו מאפיינים מוצר. אפשר להשתמש במאפיינים כדי לתאר את המוצרים בפירוט נוסף, בצורה גמישה. לחיצה להוספה.",
+    "no_product_tags_found_message": "לא נמצאו מאפייני מוצר. אפשר להשתמש במאפיינים כדי לתאר את המוצרים בפירוט נוסף, בצורה גמישה. לחיצה להוספה.",
     "@no_product_tags_found_message": {
         "description": "Message to show if there are no product properties found"
     },
     "add_tag": "הוספת מאפיין",
-    "add_tags": "Add properties",
-    "add_edit_tags": "Add or edit properties",
+    "add_tags": "הוספת מאפיינים",
+    "add_edit_tags": "הוספת או עריכת מאפיינים",
     "edit_tag": "עריכת מאפיין",
     "remove_tag": "הסרת מאפיין",
     "tag_key": "מאפיין",
-    "tag_key_uneditable": "Property (uneditable)",
-    "tag_key_input_hint": "Input a property",
+    "tag_key_uneditable": "מאפיין (נעול)",
+    "tag_key_input_hint": "נא למלא מאפיין",
     "tag_value": "ערך",
-    "tag_value_input_hint": "Input a value",
-    "tag_key_item": "Property:",
-    "tag_value_item": "Value:",
-    "tag_key_explanations": "A key must be lowercase and without any spaces.",
-    "tag_key_already_exists": "A tag with a property {property} already exists!",
+    "tag_value_input_hint": "נא למלא ערך",
+    "tag_key_item": "מאפיין:",
+    "tag_value_item": "ערך:",
+    "tag_key_explanations": "מפתח חייב להיות באותיות קטנות וללא רווחים כלל.",
+    "tag_key_already_exists": "כבר קיימת תגית עם המאפיין {property}!",
     "@tag_key_already_exists": {
         "placeholders": {
             "property": {
@@ -1415,7 +1415,7 @@
     "@edit_product_pending_operations_banner_title": {
         "description": "When a product has pending edits (being sent to the server), there is a message on the edit page (here is the title of the message)."
     },
-    "edit_product_pending_operations_banner_message": "Your edits are being **sent in the background** (or later in case of error).\nYou can continue editing other product fields.",
+    "edit_product_pending_operations_banner_message": "העריכות שלך **נשלחות ברקע** (או בהמשך אם לא מתאפשר).\nאפשר להמשיך לערוך שדות מוצר אחרים.",
     "@edit_product_pending_operations_banner_message": {
         "description": "When a product has pending edits (being sent to the server), there is a message on the edit page. Please keep the ** syntax to make the text bold."
     },
@@ -1577,7 +1577,7 @@
     "@edit_product_form_item_categories_explainer_3": {
         "description": "Product edition - Categories - input explainer, part 3"
     },
-    "edit_product_form_item_exit_title": "Quit without saving?",
+    "edit_product_form_item_exit_title": "לצאת בלי לשמור?",
     "edit_product_form_item_exit_confirmation": "לשמור את השינויים שלך בטרם יציאה מהעמוד הזה?",
     "edit_product_form_item_exit_confirmation_positive_button": "שמירת שינויים",
     "edit_product_form_item_exit_confirmation_negative_button": "התעלמות מהשינויים",
@@ -3573,7 +3573,7 @@
     "knowledge_panel_nutriscore_banner_incorrect_score_message": "יש שני הסברים אפשריים:\nרשימת הרכיבים ו/או העובדות התזונתיות לא עדכניים.\n\nאנו מספקים את ה„חישוב החדש” של Nutri-Score (או V2/גרסה 2). נא לבדוק שמופיע הכיתוב „חישוב חדש/New calculation” על האריזה.",
     "knowledge_panel_nutriscore_banner_incorrect_score_button1": "בדיקת הרכיבים",
     "knowledge_panel_nutriscore_banner_incorrect_score_button2": "בדיקת העובדות התזונתיות",
-    "url_not_supported": "Unfortunately, we can't open the URL:\n{url}",
+    "url_not_supported": "לצערנו, אי אפשר לפתוח את הכתובת: {url}",
     "@url_not_supported": {
         "description": "Error message when the app can't open a URL",
         "placeholders": {
