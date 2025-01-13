@@ -63,7 +63,12 @@
 <li><span class="parameter" id="showSmoothListOfChoicesModalSheet-param-prefixIconTint"><span class="type-annotation">dynamic</span> <span class="parameter-name">prefixIconTint</span>, </span></li>
 <li><span class="parameter" id="showSmoothListOfChoicesModalSheet-param-suffixIcons"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a>?</span> <span class="parameter-name">suffixIcons</span>, </span></li>
 <li><span class="parameter" id="showSmoothListOfChoicesModalSheet-param-suffixIconTint"><span class="type-annotation">dynamic</span> <span class="parameter-name">suffixIconTint</span>, </span></li>
-<li><span class="parameter" id="showSmoothListOfChoicesModalSheet-param-padding"><span class="type-annotation">dynamic</span> <span class="parameter-name">padding</span>}</span></li>
+<li><span class="parameter" id="showSmoothListOfChoicesModalSheet-param-padding"><span class="type-annotation">dynamic</span> <span class="parameter-name">padding</span>, </span></li>
+<li><span class="parameter" id="showSmoothListOfChoicesModalSheet-param-dividerPadding"><span class="type-annotation">dynamic</span> <span class="parameter-name">dividerPadding</span>, </span></li>
+<li><span class="parameter" id="showSmoothListOfChoicesModalSheet-param-textStyle"><span class="type-annotation">dynamic</span> <span class="parameter-name">textStyle</span>, </span></li>
+<li><span class="parameter" id="showSmoothListOfChoicesModalSheet-param-headerBackgroundColor"><span class="type-annotation">dynamic</span> <span class="parameter-name">headerBackgroundColor</span>, </span></li>
+<li><span class="parameter" id="showSmoothListOfChoicesModalSheet-param-prefixIndicatorColor"><span class="type-annotation">dynamic</span> <span class="parameter-name">prefixIndicatorColor</span>, </span></li>
+<li><span class="parameter" id="showSmoothListOfChoicesModalSheet-param-safeArea"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">safeArea</span> = <span class="default-value">false</span>}</span></li>
 </ol>)
 
     </section>
@@ -89,6 +94,11 @@
   List&lt;Widget&gt;? suffixIcons,
   Color? suffixIconTint,
   EdgeInsetsGeometry? padding,
+  EdgeInsetsGeometry? dividerPadding,
+  TextStyle? textStyle,
+  Color? headerBackgroundColor,
+  Color? prefixIndicatorColor,
+  bool safeArea = false,
 }) {
   assert(labels.length == values.length);
   assert(prefixIcons == null || values.length == prefixIcons.length);
@@ -108,11 +118,12 @@
         leading: prefixIcons != null
             ? IconTheme.merge(
                 data: IconThemeData(color: prefixIconTint),
-                child: prefixIcons[i])
+                child: prefixIcons[i],
+              )
             : null,
         title: Text(
           labels.elementAt(i),
-          style: const TextStyle(fontWeight: FontWeight.w500),
+          style: textStyle ?? const TextStyle(fontWeight: FontWeight.w500),
         ),
         contentPadding: EdgeInsetsDirectional.only(
           start: LARGE_SPACE,
@@ -132,7 +143,13 @@
     );
 
     if (i &lt; labels.length - 1) {
-      items.add(const Divider(height: 1.0));
+      const Widget divider = Divider(height: 1.0);
+
+      if (dividerPadding != null) {
+        items.add(Padding(padding: dividerPadding, child: divider));
+      } else {
+        items.add(divider);
+      }
     }
   }
 
@@ -140,13 +157,20 @@
     items.add(footer);
   }
 
-  items.add(SizedBox(height: MediaQuery.of(context).padding.bottom));
+  final double paddingHeight = MediaQuery.paddingOf(context).bottom;
+  items.add(SizedBox(height: paddingHeight));
+
+  if (safeArea &amp;&amp; paddingHeight == 0.0) {
+    items.add(SizedBox(height: MediaQuery.viewPaddingOf(context).bottom));
+  }
 
   return showSmoothModalSheet&lt;T&gt;(
     context: context,
     builder: (BuildContext context) =&gt; SmoothModalSheet(
       title: title,
       prefixIndicator: true,
+      prefixIndicatorColor: prefixIndicatorColor,
+      headerBackgroundColor: headerBackgroundColor,
       bodyPadding: EdgeInsets.zero,
       body: Column(children: items),
     ),
