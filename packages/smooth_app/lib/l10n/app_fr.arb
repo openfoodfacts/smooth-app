@@ -889,19 +889,19 @@
         "description": "Message to show if there are no product properties found"
     },
     "add_tag": "Ajouter une propriété",
-    "add_tags": "Add properties",
-    "add_edit_tags": "Add or edit properties",
+    "add_tags": "Ajouter des propriétés",
+    "add_edit_tags": "Ajouter ou modifier des propriétés",
     "edit_tag": "Modifier la propriété",
     "remove_tag": "Supprimer la propriété",
     "tag_key": "Propriété",
-    "tag_key_uneditable": "Property (uneditable)",
-    "tag_key_input_hint": "Input a property",
+    "tag_key_uneditable": "Propriété (non modifiable)",
+    "tag_key_input_hint": "Saisir une propriété",
     "tag_value": "Valeur",
-    "tag_value_input_hint": "Input a value",
-    "tag_key_item": "Property:",
-    "tag_value_item": "Value:",
-    "tag_key_explanations": "A key must be lowercase and without any spaces.",
-    "tag_key_already_exists": "A tag with a property {property} already exists!",
+    "tag_value_input_hint": "Saisir une valeur",
+    "tag_key_item": "Propriété :",
+    "tag_value_item": "Valeur :",
+    "tag_key_explanations": "Une clé doit être en minuscule et sans espace.",
+    "tag_key_already_exists": "Un tag avec la propriété {property} existe déjà !",
     "@tag_key_already_exists": {
         "placeholders": {
             "property": {
