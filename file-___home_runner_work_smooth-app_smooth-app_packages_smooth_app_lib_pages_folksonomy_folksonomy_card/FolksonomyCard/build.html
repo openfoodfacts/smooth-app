@@ -73,7 +73,10 @@
 Widget build(BuildContext context) {
   return ChangeNotifierProvider&lt;FolksonomyProvider&gt;(
     create: (_) =&gt; FolksonomyProvider(product.barcode!),
-    child: _FolksonomyCard(product),
+    child: Provider&lt;Product&gt;.value(
+      value: product,
+      child: const _FolksonomyCard(),
+    ),
   );
 }</code></pre>
 </section>

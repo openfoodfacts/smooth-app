@@ -56,6 +56,7 @@
 <li><span class="parameter" id="showSmoothModalSheet-param-builder"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">builder</span>, </span></li>
 <li><span class="parameter" id="showSmoothModalSheet-param-minHeight"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">minHeight</span>, </span></li>
 <li><span class="parameter" id="showSmoothModalSheet-param-maxHeight"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">maxHeight</span>, </span></li>
+<li><span class="parameter" id="showSmoothModalSheet-param-isScrollControlled"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">isScrollControlled</span>, </span></li>
 <li><span class="parameter" id="showSmoothModalSheet-param-useRootNavigator"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">useRootNavigator</span>}</span></li>
 </ol>)
 
@@ -71,6 +72,7 @@
   required WidgetBuilder builder,
   double? minHeight,
   double? maxHeight,
+  bool? isScrollControlled,
   bool? useRootNavigator,
 }) {
   BoxConstraints? constraints;
@@ -93,7 +95,7 @@
 
   return showModalBottomSheet&lt;T&gt;(
     constraints: constraints,
-    isScrollControlled: minHeight != null,
+    isScrollControlled: isScrollControlled ?? minHeight != null,
     context: context,
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.vertical(top: ROUNDED_RADIUS),
@@ -141,6 +143,7 @@
   <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_bottom_sheets_smooth_bottom_sheet/showSmoothDraggableModalSheet.html">showSmoothDraggableModalSheet</a></li>
   <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_bottom_sheets_smooth_bottom_sheet/showSmoothListOfChoicesModalSheet.html">showSmoothListOfChoicesModalSheet</a></li>
   <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_bottom_sheets_smooth_bottom_sheet/showSmoothModalSheet.html">showSmoothModalSheet</a></li>
+  <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_bottom_sheets_smooth_bottom_sheet/showSmoothModalSheetForTextField.html">showSmoothModalSheetForTextField</a></li>
 
 
 
