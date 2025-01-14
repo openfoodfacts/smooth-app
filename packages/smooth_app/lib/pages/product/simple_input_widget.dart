@@ -5,6 +5,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_snackbar.dart';
 import 'package:smooth_app/helpers/collections_helper.dart';
@@ -440,14 +441,14 @@ class _SimpleInputListItemState extends State<_SimpleInputListItem> {
     final SmoothColorsThemeExtension extension =
         context.extension<SmoothColorsThemeExtension>();
 
-    final Widget child;
+    Widget child;
     if (widget.editable) {
       child = _getEditableItem();
     } else {
       child = _getItem();
     }
 
-    return ListTile(
+    child = ListTile(
       leading: widget.reorderable
           ? ReorderableDelayedDragStartListener(
               index: widget.position,
@@ -457,7 +458,7 @@ class _SimpleInputListItemState extends State<_SimpleInputListItem> {
       trailing: Row(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          if (_isEditing) ...<Widget>[
+          if (widget.editable) ...<Widget>[
             _SimpleInputListItemAction(
               tooltip: appLocalizations
                   .edit_product_form_item_save_edit_item_tooltip,
@@ -465,6 +466,7 @@ class _SimpleInputListItemState extends State<_SimpleInputListItem> {
                 Icons.check_circle_rounded,
                 color: extension.success,
               ),
+              visible: _isEditing,
               onTap: _saveEdit,
             ),
             _SimpleInputListItemAction(
@@ -474,15 +476,17 @@ class _SimpleInputListItemState extends State<_SimpleInputListItem> {
                 Icons.cancel,
                 color: extension.error,
               ),
+              visible: _isEditing,
               onTap: _cancelEdit,
             )
-          ] else
-            _SimpleInputListItemAction(
-              tooltip:
-                  appLocalizations.edit_product_form_item_remove_item_tooltip,
-              icon: const Icon(Icons.delete),
-              onTap: () => widget.onRemoveItem(widget.term, child),
-            ),
+          ],
+          _SimpleInputListItemAction(
+            tooltip:
+                appLocalizations.edit_product_form_item_remove_item_tooltip,
+            icon: const Icon(Icons.delete),
+            onTap: () => widget.onRemoveItem(widget.term, child),
+            visible: !_isEditing,
+          ),
         ],
       ),
       contentPadding: const EdgeInsetsDirectional.only(
@@ -491,6 +495,12 @@ class _SimpleInputListItemState extends State<_SimpleInputListItem> {
       minTileHeight: 48.0,
       title: child,
     );
+
+    if (widget.editable) {
+      return ClipRRect(child: child);
+    } else {
+      return child;
+    }
   }
 
   Widget _getItem() {
@@ -546,29 +556,98 @@ class _SimpleInputListItemState extends State<_SimpleInputListItem> {
   }
 }
 
-class _SimpleInputListItemAction extends StatelessWidget {
+class _SimpleInputListItemAction extends StatefulWidget {
   const _SimpleInputListItemAction({
     required this.onTap,
     required this.icon,
     required this.tooltip,
+    this.visible = true,
   });
 
   final VoidCallback onTap;
   final Widget icon;
   final String tooltip;
+  final bool visible;
+
+  @override
+  State<_SimpleInputListItemAction> createState() =>
+      _SimpleInputListItemActionState();
+}
+
+class _SimpleInputListItemActionState extends State<_SimpleInputListItemAction>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _opacityAnimation;
+  late Animation<double> _sizeAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _controller = AnimationController(
+      vsync: this,
+      duration: SmoothAnimationsDuration.long,
+    )..addListener(() => setState(() {}));
+
+    if (widget.visible) {
+      _controller.forward(from: 1.0);
+    }
+
+    _opacityAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
+      CurvedAnimation(
+        parent: _controller,
+        curve: Curves.easeInOut,
+      ),
+    );
+
+    _sizeAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
+      CurvedAnimation(
+        parent: _controller,
+        curve: const Interval(0.2, 0.8, curve: Curves.easeInOut),
+      ),
+    );
+  }
+
+  @override
+  void didUpdateWidget(_SimpleInputListItemAction oldWidget) {
+    super.didUpdateWidget(oldWidget);
+
+    if (widget.visible != oldWidget.visible) {
+      if (widget.visible) {
+        _controller.forward(from: 0.0);
+      } else {
+        _controller.reverse(from: 1.0);
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Tooltip(
-      message: tooltip,
-      child: InkWell(
-        customBorder: const CircleBorder(),
-        onTap: onTap,
-        child: Padding(
-          padding: const EdgeInsets.all(SMALL_SPACE),
-          child: icon,
+    return Offstage(
+      offstage: _controller.value == 0.0,
+      child: Opacity(
+        opacity: _opacityAnimation.value,
+        child: SizedBox(
+          width: _sizeAnimation.value * (SMALL_SPACE * 2 + 24.0),
+          child: Tooltip(
+            message: widget.tooltip,
+            child: InkWell(
+              customBorder: const CircleBorder(),
+              onTap: widget.onTap,
+              child: Padding(
+                padding: const EdgeInsets.all(SMALL_SPACE),
+                child: widget.icon,
+              ),
+            ),
+          ),
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 }

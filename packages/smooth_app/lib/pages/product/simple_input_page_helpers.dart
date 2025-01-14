@@ -262,7 +262,7 @@ class SimpleInputPageBrandsHelper extends AbstractSimpleInputPageHelper {
 
   @override
   String getTypeLabel(AppLocalizations appLocalizations) =>
-      appLocalizations.brand_names;
+      appLocalizations.brand_name;
 
   @override
   TagType? getTagType() => null;
