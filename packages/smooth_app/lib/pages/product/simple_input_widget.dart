@@ -586,7 +586,8 @@ class _SimpleInputListItemActionState extends State<_SimpleInputListItemAction>
 
     _controller = AnimationController(
       vsync: this,
-      duration: SmoothAnimationsDuration.long,
+      duration: SmoothAnimationsDuration.medium,
+      reverseDuration: SmoothAnimationsDuration.short,
     )..addListener(() => setState(() {}));
 
     if (widget.visible) {
