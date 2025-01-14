@@ -1796,10 +1796,10 @@ packages:
     dependency: "direct main"
     description:
       name: webview_flutter_android
-      sha256: "3d535126f7244871542b2f0b0fcf94629c9a14883250461f9abe1a6644c1c379"
+      sha256: d1ee28f44894cbabb1d94cc42f9980297f689ff844d067ec50ff88d86e27d63f
       url: "https://pub.dev"
     source: hosted
-    version: "4.2.0"
+    version: "4.3.0"
   webview_flutter_platform_interface:
     dependency: transitive
     description:
