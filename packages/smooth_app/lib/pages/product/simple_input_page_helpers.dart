@@ -38,6 +38,9 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
   /// Is the list of terms reorderable?
   bool get reorderable => false;
 
+  /// Are items editable?
+  bool get editable => false;
+
   /// Returns the terms as they were initially in the product.
   ///
   /// WARNING: this list must be copied; if not you may alter the product.
@@ -212,6 +215,12 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
     notifyListeners();
   }
 
+  void replaceItem(int position, String term) {
+    _terms[position] = term;
+    _changed = true;
+    notifyListeners();
+  }
+
   /// Returns the enum to be used for matomo analytics.
   AnalyticsEditEvents getAnalyticsEditEvent();
 
@@ -226,6 +235,9 @@ class SimpleInputPageBrandsHelper extends AbstractSimpleInputPageHelper {
 
   @override
   bool get reorderable => true;
+
+  @override
+  bool get editable => true;
 
   @override
   List<String> initTerms(final Product product) => splitString(product.brands);

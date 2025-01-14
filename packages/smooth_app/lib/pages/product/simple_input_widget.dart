@@ -13,7 +13,10 @@ import 'package:smooth_app/pages/product/explanation_widget.dart';
 import 'package:smooth_app/pages/product/owner_field_info.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
 import 'package:smooth_app/pages/product/simple_input_text_field.dart';
+import 'package:smooth_app/pages/text_field_helper.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
+import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
 /// Simple input widget: we have a list of terms, we add, we remove.
@@ -271,34 +274,15 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
     BuildContext context,
     int position,
   ) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-
-    final String term = _localTerms[position];
-    final Text child = Text(term);
-
-    return ListTile(
-      leading: widget.helper.reorderable
-          ? ReorderableDelayedDragStartListener(
-              index: position,
-              child: const icons.Menu.hamburger(),
-            )
-          : null,
-      trailing: Tooltip(
-        message: appLocalizations.edit_product_form_item_remove_item_tooltip,
-        child: InkWell(
-          customBorder: const CircleBorder(),
-          onTap: () => _onRemoveItem(term, child),
-          child: const Padding(
-            padding: EdgeInsets.all(SMALL_SPACE),
-            child: Icon(Icons.delete),
-          ),
-        ),
-      ),
-      contentPadding: const EdgeInsetsDirectional.only(
-        start: LARGE_SPACE,
-      ),
-      minTileHeight: 48.0,
-      title: child,
+    return _SimpleInputListItem(
+      term: _localTerms[position],
+      reorderable: widget.helper.reorderable,
+      editable: widget.helper.editable,
+      position: position,
+      onChanged: (int position, String term) {
+        widget.helper.replaceItem(position, term);
+      },
+      onRemoveItem: _onRemoveItem,
     );
   }
 
@@ -409,6 +393,182 @@ class ExplanationTitleIcon extends StatelessWidget {
           },
         );
       },
+    );
+  }
+}
+
+class _SimpleInputListItem extends StatefulWidget {
+  const _SimpleInputListItem({
+    required this.term,
+    required this.reorderable,
+    required this.editable,
+    required this.position,
+    required this.onChanged,
+    required this.onRemoveItem,
+  });
+
+  final String term;
+  final bool reorderable;
+  final bool editable;
+  final int position;
+  final Function(int position, String term) onChanged;
+  final Function(String term, Widget child) onRemoveItem;
+
+  @override
+  State<_SimpleInputListItem> createState() => _SimpleInputListItemState();
+}
+
+class _SimpleInputListItemState extends State<_SimpleInputListItem> {
+  late final TextEditingControllerWithHistory _controller;
+  late final FocusNode _focusNode;
+
+  bool _isEditing = false;
+
+  @override
+  void initState() {
+    super.initState();
+
+    if (widget.editable) {
+      _controller = TextEditingControllerWithHistory(text: widget.term);
+      _focusNode = FocusNode()..addListener(_onFocus);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
+
+    final Widget child;
+    if (widget.editable) {
+      child = _getEditableItem();
+    } else {
+      child = _getItem();
+    }
+
+    return ListTile(
+      leading: widget.reorderable
+          ? ReorderableDelayedDragStartListener(
+              index: widget.position,
+              child: const icons.Menu.hamburger(),
+            )
+          : null,
+      trailing: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          if (_isEditing) ...<Widget>[
+            _SimpleInputListItemAction(
+              tooltip: appLocalizations
+                  .edit_product_form_item_save_edit_item_tooltip,
+              icon: Icon(
+                Icons.check_circle_rounded,
+                color: extension.success,
+              ),
+              onTap: _saveEdit,
+            ),
+            _SimpleInputListItemAction(
+              tooltip: appLocalizations
+                  .edit_product_form_item_cancel_edit_item_tooltip,
+              icon: Icon(
+                Icons.cancel,
+                color: extension.error,
+              ),
+              onTap: _cancelEdit,
+            )
+          ] else
+            _SimpleInputListItemAction(
+              tooltip:
+                  appLocalizations.edit_product_form_item_remove_item_tooltip,
+              icon: const Icon(Icons.delete),
+              onTap: () => widget.onRemoveItem(widget.term, child),
+            ),
+        ],
+      ),
+      contentPadding: const EdgeInsetsDirectional.only(
+        start: LARGE_SPACE,
+      ),
+      minTileHeight: 48.0,
+      title: child,
+    );
+  }
+
+  Widget _getItem() {
+    return Text(widget.term);
+  }
+
+  Widget _getEditableItem() {
+    return TextField(
+      controller: _controller,
+      focusNode: _focusNode,
+      style: TextTheme.of(context).bodyLarge,
+      decoration: const InputDecoration(
+        isDense: true,
+        border: InputBorder.none,
+        contentPadding: EdgeInsets.zero,
+      ),
+      maxLines: 1,
+      onEditingComplete: _saveEdit,
+    );
+  }
+
+  void _saveEdit() {
+    if (_controller.text.trim().isEmpty) {
+      widget.onRemoveItem(widget.term, _getItem());
+    } else {
+      widget.onChanged(widget.position, _controller.text);
+    }
+
+    setState(() => _isEditing = false);
+    _focusNode.unfocus();
+  }
+
+  void _cancelEdit() {
+    _controller.resetToInitialValue();
+    _focusNode.unfocus();
+    setState(() => _isEditing = false);
+  }
+
+  void _onFocus() {
+    if (_focusNode.hasFocus && !_isEditing) {
+      setState(() => _isEditing = true);
+    } else if (!_focusNode.hasFocus && _isEditing) {
+      _cancelEdit();
+    }
+  }
+
+  @override
+  void dispose() {
+    if (widget.editable) {
+      _controller.dispose();
+    }
+    super.dispose();
+  }
+}
+
+class _SimpleInputListItemAction extends StatelessWidget {
+  const _SimpleInputListItemAction({
+    required this.onTap,
+    required this.icon,
+    required this.tooltip,
+  });
+
+  final VoidCallback onTap;
+  final Widget icon;
+  final String tooltip;
+
+  @override
+  Widget build(BuildContext context) {
+    return Tooltip(
+      message: tooltip,
+      child: InkWell(
+        customBorder: const CircleBorder(),
+        onTap: onTap,
+        child: Padding(
+          padding: const EdgeInsets.all(SMALL_SPACE),
+          child: icon,
+        ),
+      ),
     );
   }
 }
