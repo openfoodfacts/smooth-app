@@ -448,7 +448,7 @@
     "@confirmResetPreferences": {
         "description": "Pop up title: Reassuring if the food preferences should really be reset"
     },
-    "myPersonalizedRanking": "My personalised ranking",
+    "myPersonalizedRanking": "My personalized ranking",
     "@myPersonalizedRanking": {
         "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
     },
@@ -892,11 +892,11 @@
     "@product_tags_title": {
         "description": "The title for showing product properties, aka folksonomy data"
     },
-    "no_product_tags_found_message": "No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.",
+    "no_product_tags_found_message": "No product properties found. Properties can be used to describe products in more details, in a flexible way.",
     "@no_product_tags_found_message": {
         "description": "Message to show if there are no product properties found"
     },
-    "add_tag": "Add property",
+    "add_tag": "Add a property",
     "add_tags": "Add properties",
     "add_edit_tags": "Add or edit properties",
     "edit_tag": "Edit property",
@@ -1901,7 +1901,7 @@
     "@dev_preferences_export_history_dialog_title": {
         "description": "User dev preferences - Export history - Dialog title"
     },
-    "dev_preferences_button_positive": "Ok",
+    "dev_preferences_button_positive": "OK",
     "@dev_preferences_button_positive": {
         "description": "User dev preferences - Positive button label"
     },
@@ -3098,7 +3098,7 @@
             }
         }
     },
-    "loading": "Loading...",
+    "loading": "Loading…",
     "@loading": {
         "description": "Loading…"
     },
