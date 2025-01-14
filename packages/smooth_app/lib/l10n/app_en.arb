@@ -440,7 +440,7 @@
     "myPreferences_profile_title": "Your Profile",
     "myPreferences_profile_subtitle": "Manage your Open Food Facts contributor account.",
     "myPreferences_settings_title": "App Settings",
-    "myPreferences_settings_subtitle": "Dark mode, Analytics…",
+    "myPreferences_settings_subtitle": "Dark mode, Languages…",
     "myPreferences_food_title": "Food Preferences",
     "myPreferences_food_subtitle": "Choose what information about food matters most to you.",
     "myPreferences_food_comment": "Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.",
@@ -892,11 +892,11 @@
     "@product_tags_title": {
         "description": "The title for showing product properties, aka folksonomy data"
     },
-    "no_product_tags_found_message": "No product properties found. Properties can be used to describe products in more details, in a flexible way.",
+    "no_product_tags_found_message": "No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.",
     "@no_product_tags_found_message": {
         "description": "Message to show if there are no product properties found"
     },
-    "add_tag": "Add a property",
+    "add_tag": "Add property",
     "add_tags": "Add properties",
     "add_edit_tags": "Add or edit properties",
     "edit_tag": "Edit property",
