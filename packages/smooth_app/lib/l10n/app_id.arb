@@ -440,7 +440,7 @@
     "myPreferences_profile_title": "Profil Anda",
     "myPreferences_profile_subtitle": "Kelola akun kontributor OpenFoodFacts Anda.",
     "myPreferences_settings_title": "Pengaturan Aplikasi",
-    "myPreferences_settings_subtitle": "Mode gelap, Analitis…",
+    "myPreferences_settings_subtitle": "Dark mode, Languages…",
     "myPreferences_food_title": "Preferensi Makanan",
     "myPreferences_food_subtitle": "Pilih informasi tentang makanan yang paling penting bagi anda.",
     "myPreferences_food_comment": "Pilih informasi tentang makanan yang paling penting bagi anda, untuk memberi peringkat makanan sesuai preferensi anda, melihat informasi yang paling anda minati lebih dahulu dan dapatkan ringkasan kompatibilitas. Preferensi makanan tersebut tetap ada di perangkat anda, dan tidak terkait dengan akun kontributor OpenFoodFacts anda jika anda memilikinya.",
@@ -752,7 +752,7 @@
     "score_add_missing_product_labels": "Tambahkan label produk yang kurang",
     "score_add_missing_product_origins": "Tambahkan asal produk yang kurang",
     "score_add_missing_product_stores": "Tambahkan toko produk yang kurang",
-    "score_add_missing_product_brands": "Add missing product brands",
+    "score_add_missing_product_brands": "Tambahkan merek produk yang kurang",
     "score_update_nutrition_facts": "Perbarui informasi nilai gizi",
     "nutrition_page_title": "Informasi nilai gizi",
     "nutrition_page_unspecified": "Informasi nilai gizi tidak ditampilkan pada produk",
@@ -803,7 +803,7 @@
     },
     "product_image_outdated": "Gambar ini mungkin sudah terlalu lama",
     "product_image_outdated_explanations_title": "Gambar ini mungkin sudah terlalu lama",
-    "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that's it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
+    "product_image_outdated_explanations_content": "Gambar ini diambil lebih dari setahun yang lalu. **Harap periksa apakah gambar masih mutakhir**.\n\nIni **hanya peringatan**. Jika kontennya masih sama, Anda dapat mengabaikan pesan ini.",
     "@product_image_outdated_explanations_content": {
         "description": "Please keep the ** syntax to make the text bold"
     },
@@ -897,19 +897,19 @@
         "description": "Message to show if there are no product properties found"
     },
     "add_tag": "Tambahkan properti",
-    "add_tags": "Add properties",
-    "add_edit_tags": "Add or edit properties",
+    "add_tags": "Tambah properti",
+    "add_edit_tags": "Tambah atau sunting properti",
     "edit_tag": "Sunting properti",
     "remove_tag": "Hapus properti",
     "tag_key": "Properti",
-    "tag_key_uneditable": "Property (uneditable)",
-    "tag_key_input_hint": "Input a property",
+    "tag_key_uneditable": "Properti (tidak dapat disunting)",
+    "tag_key_input_hint": "Masukkan properti",
     "tag_value": "Nilai",
-    "tag_value_input_hint": "Input a value",
-    "tag_key_item": "Property:",
-    "tag_value_item": "Value:",
-    "tag_key_explanations": "A key must be lowercase and without any spaces.",
-    "tag_key_already_exists": "A tag with a property {property} already exists!",
+    "tag_value_input_hint": "Masukkan nilai",
+    "tag_key_item": "Properti:",
+    "tag_value_item": "Nilai:",
+    "tag_key_explanations": "Kunci harus berupa huruf kecil dan tanpa spasi.",
+    "tag_key_already_exists": "Tagar dengan properti {property} sudah ada!",
     "@tag_key_already_exists": {
         "placeholders": {
             "property": {
@@ -1423,7 +1423,7 @@
     "@edit_product_pending_operations_banner_title": {
         "description": "When a product has pending edits (being sent to the server), there is a message on the edit page (here is the title of the message)."
     },
-    "edit_product_pending_operations_banner_message": "Your edits are being **sent in the background** (or later in case of error).\nYou can continue editing other product fields.",
+    "edit_product_pending_operations_banner_message": "Hasil suntingan Anda **dikirim di latar belakang** (atau nanti jika terjadi kesalahan).\nAnda dapat terus menyunting bidang produk lainnya.",
     "@edit_product_pending_operations_banner_message": {
         "description": "When a product has pending edits (being sent to the server), there is a message on the edit page. Please keep the ** syntax to make the text bold."
     },
@@ -1444,7 +1444,7 @@
     "@edit_product_form_item_error_empty": {
         "description": "Error message when the user tries to submit an empty value"
     },
-    "edit_product_form_item_error_existing": "This value is already there!",
+    "edit_product_form_item_error_existing": "Nilai ini sudah ada!",
     "@edit_product_form_item_error_existing": {
         "description": "Error message when the user tries to re-submit an existing value"
     },
@@ -1585,7 +1585,7 @@
     "@edit_product_form_item_categories_explainer_3": {
         "description": "Product edition - Categories - input explainer, part 3"
     },
-    "edit_product_form_item_exit_title": "Quit without saving?",
+    "edit_product_form_item_exit_title": "Keluar tanpa menyimpan?",
     "edit_product_form_item_exit_confirmation": "Apa Anda ingin menyimpan perubahan sebelum meninggalkan halaman ini?",
     "edit_product_form_item_exit_confirmation_positive_button": "Simpan perubahan",
     "edit_product_form_item_exit_confirmation_negative_button": "Batalkan perubahan",
@@ -1593,15 +1593,15 @@
     "@edit_product_form_item_ingredients_title": {
         "description": "Product edition - Ingredients - Title (note: this section was previously called Ingredients & Origins)"
     },
-    "edit_product_form_item_ingredients_pinch_to_zoom_tooltip": "Zoom in and out by pinching the screen",
+    "edit_product_form_item_ingredients_pinch_to_zoom_tooltip": "Memperbesar dan memperkecil dengan mencubit layar",
     "@edit_product_form_item_ingredients_pinch_to_zoom_tooltip": {
         "description": "Product edition - Ingredients - Pinch to zoom icon explanation"
     },
-    "edit_product_form_item_ingredients_pinch_to_zoom_title": "Zoom in and out the photo",
+    "edit_product_form_item_ingredients_pinch_to_zoom_title": "Memperbesar dan memperkecil foto",
     "@edit_product_form_item_ingredients_pinch_to_zoom_title": {
         "description": "Product edition - Ingredients - Pinch to zoom explanation title"
     },
-    "edit_product_form_item_ingredients_pinch_to_zoom_message": "Using the **Pinch-to-zoom gesture**, you can zoom in or out the photo:",
+    "edit_product_form_item_ingredients_pinch_to_zoom_message": "Menggunakan **gerakan cubit untuk memperbesar**, Anda dapat memperbesar atau memperkecil foto:",
     "@edit_product_form_item_ingredients_pinch_to_zoom_message": {
         "description": "Product edition - Ingredients - Pinch to zoom explanation message"
     },
@@ -1632,11 +1632,11 @@
     "@edit_product_ingredients_list_title": {
         "description": "Product edition - Ingredients - Title"
     },
-    "edit_product_packaging_photo_title": "Packaging photo",
+    "edit_product_packaging_photo_title": "Foto kemasan",
     "@edit_product_packaging_photo_title": {
         "description": "Product edition - Packaging - Title"
     },
-    "edit_product_packaging_list_title": "Packaging list",
+    "edit_product_packaging_list_title": "Daftar kemasan",
     "@edit_product_packaging_list_title": {
         "description": "Product edition - Packaging - Title"
     },
@@ -1683,7 +1683,7 @@
     "@edit_packaging_extract_btn_text": {
         "description": "Packaging edition - OCR-Extract packaging"
     },
-    "edit_packaging_extract_btn_text_short": "Extract packaging",
+    "edit_packaging_extract_btn_text_short": "Ekstrak kemasan",
     "@edit_packaging_extract_btn_text_short": {
         "description": "Packaging edition - OCR-Extract packaging (short label)"
     },
@@ -1711,11 +1711,11 @@
     "@edit_ocr_extract_failed": {
         "description": "OCR extraction - message for failed"
     },
-    "edit_ocr_extract_disabled_title": "No picture!",
+    "edit_ocr_extract_disabled_title": "Tidak ada gambar!",
     "@edit_ocr_extract_disabled_title": {
         "description": "OCR extraction - title for disabled"
     },
-    "edit_ocr_extract_disabled_message": "In order to use the text extraction feature, you must first take a photo.",
+    "edit_ocr_extract_disabled_message": "Untuk menggunakan fitur ekstraksi teks, Anda harus mengambil foto terlebih dahulu.",
     "@edit_ocr_extract_disabled_message": {
         "description": "OCR extraction - message for disabled"
     },
@@ -2649,7 +2649,7 @@
         "description": "Snackbar label after clipboard copy"
     },
     "clipboard_barcode_copied": "Kode batang {barcode} disalin ke papan klip!",
-    "open_product_website": "Open this product on the website",
+    "open_product_website": "Buka produk ini di situs web",
     "language_picker_label": "Bahasa Anda",
     "@language_picker_label": {
         "description": "Choose Application Language"
@@ -3569,7 +3569,7 @@
     "@open_street_map_contributor_attribution": {
         "description": "Attribution for OpenStreetMap contributors"
     },
-    "not_applicable_short": "N/A",
+    "not_applicable_short": "T/A",
     "@not_applicable_short": {
         "description": "Acronym for Not Applicable"
     },
@@ -3577,10 +3577,10 @@
     "@knowledge_panel_warning_text": {
         "description": "Warning text at the beginning of a sentence in the knowledge panel (you can find this word on the NutriScore KP of 3033491279300)"
     },
-    "knowledge_panel_nutriscore_banner_incorrect_score_title": "Why is this Nutri-Score different from the one on the package?",
-    "knowledge_panel_nutriscore_banner_incorrect_score_message": "There are two possible explanations:\nThe list of ingredients and/or nutrition facts are not up-to-date.\n\nWe provide the \"New calculation\" of the Nutri-Score (or V2). Please check that you have the banner \"New calculation\" on the package.",
-    "knowledge_panel_nutriscore_banner_incorrect_score_button1": "Check ingredients",
-    "knowledge_panel_nutriscore_banner_incorrect_score_button2": "Check nutrition facts",
+    "knowledge_panel_nutriscore_banner_incorrect_score_title": "Mengapa Nutri-Score ini berbeda dengan yang ada di kemasan?",
+    "knowledge_panel_nutriscore_banner_incorrect_score_message": "Ada dua kemungkinan penjelasan:\nDaftar bahan dan/atau fakta gizi tidak mutakhir.\n\nKami menyediakan \"Perhitungan baru\" dari Nutri-Score (atau V2). Harap periksa apakah Anda memiliki spanduk \"Perhitungan baru\" pada kemasannya.",
+    "knowledge_panel_nutriscore_banner_incorrect_score_button1": "Cek bahan-bahan",
+    "knowledge_panel_nutriscore_banner_incorrect_score_button2": "Cek informasi nilai gizi",
     "url_not_supported": "Sayangnya, kami tidak dapat membuka URL:\n{url}",
     "@url_not_supported": {
         "description": "Error message when the app can't open a URL",
