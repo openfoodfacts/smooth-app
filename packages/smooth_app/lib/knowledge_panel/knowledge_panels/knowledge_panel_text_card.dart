@@ -6,8 +6,8 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/html/smooth_html_widget.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/extension_on_text_helper.dart';
+import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
-import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/constant_icons.dart';
 import 'package:smooth_app/widgets/smooth_text.dart';
@@ -73,11 +73,9 @@ class KnowledgePanelTextCard extends StatelessWidget {
             appLocalizations
                 .knowledge_panel_text_source(textElement.sourceText!),
             trailingIcon: Icon(ConstantIcons.forwardIcon),
-            onPressed: () async => AppNavigator.of(context).push(
-              AppRoutes.EXTERNAL_WEBVIEW(
-                textElement.sourceUrl!,
-                pageTitle: textElement.sourceText,
-              ),
+            onPressed: () async => LaunchUrlHelper.launchURLInWebViewOrBrowser(
+              context,
+              textElement.sourceUrl!,
             ),
             borderRadius: ANGULAR_BORDER_RADIUS,
             elevation: const WidgetStatePropertyAll<double>(0.5),

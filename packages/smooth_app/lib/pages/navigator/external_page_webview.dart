@@ -86,8 +86,6 @@ class _ExternalPageInAWebViewState extends State<ExternalPageInAWebView> {
     userAgent.write(packageInfo.buildNumber);
     userAgent.write(')');
 
-    print(userAgent.toString());
-
     _controller.setUserAgent(userAgent.toString());
   }
 

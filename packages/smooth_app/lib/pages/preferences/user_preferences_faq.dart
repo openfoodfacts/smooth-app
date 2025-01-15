@@ -179,7 +179,11 @@ class UserPreferencesFaq extends AbstractUserPreferences {
         labels: <String>[title],
         builder: (_) => UserPreferencesListTile(
           title: Text(title),
-          onTap: onTap ?? () async => LaunchUrlHelper.launchURL(url!),
+          onTap: onTap ??
+              () async => LaunchUrlHelper.launchURLInWebViewOrBrowser(
+                    context,
+                    url!,
+                  ),
           trailing: icon ??
               UserPreferencesListTile.getTintedIcon(Icons.open_in_new, context),
           leading: SizedBox(
@@ -274,7 +278,9 @@ class UserPreferencesFaq extends AbstractUserPreferences {
                       ),
                       const SizedBox(height: VERY_SMALL_SPACE),
                       SmoothAlertContentButton(
-                        onPressed: () async => LaunchUrlHelper.launchURL(
+                        onPressed: () async =>
+                            LaunchUrlHelper.launchURLInWebViewOrBrowser(
+                          context,
                           ProductQuery.replaceSubdomain(
                             'https://world.openfoodfacts.org/who-we-are',
                           ),
@@ -284,7 +290,9 @@ class UserPreferencesFaq extends AbstractUserPreferences {
                       ),
                       const SizedBox(height: VERY_SMALL_SPACE),
                       SmoothAlertContentButton(
-                        onPressed: () async => LaunchUrlHelper.launchURL(
+                        onPressed: () async =>
+                            LaunchUrlHelper.launchURLInWebViewOrBrowser(
+                          context,
                           ProductQuery.replaceSubdomain(
                             'https://world.openfoodfacts.org/terms-of-use',
                           ),
@@ -294,7 +302,9 @@ class UserPreferencesFaq extends AbstractUserPreferences {
                       ),
                       const SizedBox(height: VERY_SMALL_SPACE),
                       SmoothAlertContentButton(
-                        onPressed: () async => LaunchUrlHelper.launchURL(
+                        onPressed: () async =>
+                            LaunchUrlHelper.launchURLInWebViewOrBrowser(
+                          context,
                           ProductQuery.replaceSubdomain(
                             'https://world.openfoodfacts.org/legal',
                           ),
@@ -304,7 +314,9 @@ class UserPreferencesFaq extends AbstractUserPreferences {
                       ),
                       const SizedBox(height: VERY_SMALL_SPACE),
                       SmoothAlertContentButton(
-                        onPressed: () => LaunchUrlHelper.launchURL(
+                        onPressed: () =>
+                            LaunchUrlHelper.launchURLInWebViewOrBrowser(
+                          context,
                           ProductQuery.replaceSubdomain(
                             'https://world.openfoodfacts.org/privacy',
                           ),
