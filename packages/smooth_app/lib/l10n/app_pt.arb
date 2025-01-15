@@ -892,11 +892,11 @@
     "@product_tags_title": {
         "description": "The title for showing product properties, aka folksonomy data"
     },
-    "no_product_tags_found_message": "Não foram encontradas propriedades de produtos. As propriedades podem ser utilizadas para descrever os produtos com mais pormenores, de uma forma flexível. Toque para adicionar.",
+    "no_product_tags_found_message": "No product properties found. Properties can be used to describe products in more details, in a flexible way.",
     "@no_product_tags_found_message": {
         "description": "Message to show if there are no product properties found"
     },
-    "add_tag": "Adicionar propriedade",
+    "add_tag": "Add a property",
     "add_tags": "Adicionar propriedades",
     "add_edit_tags": "Adicionar ou editar propriedades",
     "edit_tag": "Editar propriedade",
@@ -1608,6 +1608,14 @@
     "edit_product_form_item_add_valid_item_tooltip": "Adicionar",
     "edit_product_form_item_add_invalid_item_tooltip": "Introduzir primeiro um texto",
     "edit_product_form_item_remove_item_tooltip": "Eliminar",
+    "edit_product_form_item_save_edit_item_tooltip": "Save your edit",
+    "@edit_product_form_item_save_edit_item_tooltip": {
+        "description": "The user can edit an existing item. This action will save the change."
+    },
+    "edit_product_form_item_cancel_edit_item_tooltip": "Cancel your edit",
+    "@edit_product_form_item_cancel_edit_item_tooltip": {
+        "description": "The user can edit an existing item. This action will cancel the change (and return to the initial value)."
+    },
     "edit_product_form_item_packaging_title": "Fotografia das instruções de reciclagem",
     "@edit_product_form_item_packaging_title": {
         "description": "Product edition - Packaging - Title"
