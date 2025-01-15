@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the previousValue property from the TextEditingControllerWithHistory class, for the Dart programming language.">
-  <title>previousValue property - TextEditingControllerWithHistory class - text_field_helper library - Dart API</title>
+  <meta name="description" content="API docs for the resetToInitialValue method from the TextEditingControllerWithHistory class, for the Dart programming language.">
+  <title>resetToInitialValue method - TextEditingControllerWithHistory class - text_field_helper library - Dart API</title>
 
 
   
@@ -31,9 +31,9 @@
     <li><a href="../../index.html">smooth_app</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_text_field_helper/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_text_field_helper-library.html">text_field_helper</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_text_field_helper/TextEditingControllerWithHistory-class.html">TextEditingControllerWithHistory</a></li>
-    <li class="self-crumb">previousValue property</li>
+    <li class="self-crumb">resetToInitialValue method</li>
   </ol>
-  <div class="self-name">previousValue</div>
+  <div class="self-name">resetToInitialValue</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -44,29 +44,31 @@
 
   <div id="dartdoc-main-content" class="main-content">
       <div>
-<h1><span class="kind-property">previousValue</span> property 
+<h1><span class="kind-method">resetToInitialValue</span> method 
     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
+    <section class="multi-line-signature">
+      
 
-        
-<section id="getter">
+<span class="returntype">void</span>
+<span class="name ">resetToInitialValue</span>(<wbr>)
 
-<section class="multi-line-signature">
-  <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span>
-  <span class="name ">previousValue</span>
-  
+      
 
-</section>
-
-
+    </section>
+    
 
 
+    
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">String? get previousValue =&gt; _previousValue;</code></pre>
-</section>
-
+  <pre class="language-dart"><code class="language-dart">void resetToInitialValue() {
+  assert(_initialValue != null);
+  if (_initialValue != null) {
+    text = _initialValue;
+  }
+}</code></pre>
 </section>
 
 
@@ -83,7 +85,7 @@
   <li><a href="../../index.html">smooth_app</a></li>
   <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_text_field_helper/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_text_field_helper-library.html">text_field_helper</a></li>
   <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_text_field_helper/TextEditingControllerWithHistory-class.html">TextEditingControllerWithHistory</a></li>
-  <li class="self-crumb">previousValue property</li>
+  <li class="self-crumb">resetToInitialValue method</li>
 </ol>
 
 
