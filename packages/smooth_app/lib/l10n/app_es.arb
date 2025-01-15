@@ -892,7 +892,7 @@
     "@product_tags_title": {
         "description": "The title for showing product properties, aka folksonomy data"
     },
-    "no_product_tags_found_message": "No se han encontrado propiedades del producto. Las mismas se pueden utilizar para describir los productos con más detalle, de una manera más flexible. Pulse para añadir.",
+    "no_product_tags_found_message": "No se han encontrado propiedades del producto. Las mismas se pueden utilizar para describir los productos con más detalle, de una manera más flexible.",
     "@no_product_tags_found_message": {
         "description": "Message to show if there are no product properties found"
     },
@@ -1608,11 +1608,11 @@
     "edit_product_form_item_add_valid_item_tooltip": "Añadir",
     "edit_product_form_item_add_invalid_item_tooltip": "Primero escribe algo",
     "edit_product_form_item_remove_item_tooltip": "Eliminar",
-    "edit_product_form_item_save_edit_item_tooltip": "Save your edit",
+    "edit_product_form_item_save_edit_item_tooltip": "Guarda tu edición",
     "@edit_product_form_item_save_edit_item_tooltip": {
         "description": "The user can edit an existing item. This action will save the change."
     },
-    "edit_product_form_item_cancel_edit_item_tooltip": "Cancel your edit",
+    "edit_product_form_item_cancel_edit_item_tooltip": "Cancela tu edición",
     "@edit_product_form_item_cancel_edit_item_tooltip": {
         "description": "The user can edit an existing item. This action will cancel the change (and return to the initial value)."
     },
