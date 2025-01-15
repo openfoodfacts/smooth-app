@@ -4,6 +4,7 @@ import 'package:flutter_widget_from_html_core/flutter_widget_from_html_core.dart
 import 'package:html/dom.dart' as dom;
 import 'package:smooth_app/generic_lib/html/smooth_html_factory.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
+import 'package:smooth_app/pages/navigator/app_navigator.dart';
 
 class SmoothHtmlWidget extends StatelessWidget {
   const SmoothHtmlWidget(
@@ -45,8 +46,13 @@ class SmoothHtmlWidget extends StatelessWidget {
 
         return true;
       },
-      factoryBuilder: () =>
-          isSelectable ? SmoothHtmlWidgetFactory() : WidgetFactory(),
+      factoryBuilder: () => isSelectable
+          ? SmoothHtmlWidgetFactory(onLinkClicked: (String url) {
+              AppNavigator.of(context).push(
+                AppRoutes.EXTERNAL_WEBVIEW(url),
+              );
+            })
+          : WidgetFactory(),
       enableCaching: false,
     );
   }
