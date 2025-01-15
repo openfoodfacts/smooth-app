@@ -178,7 +178,8 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
 
   Future<bool?> _doesAcceptWarning({required final bool justInfo}) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    return showDialog<bool>(
+    return showModalBottomSheet<bool>(
+      useSafeArea: true,
       context: context,
       builder: (final BuildContext context) => SmoothAlertDialog(
         title: appLocalizations.prices_privacy_warning_title,
