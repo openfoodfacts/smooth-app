@@ -1608,6 +1608,14 @@
     "edit_product_form_item_add_valid_item_tooltip": "Hinzufügen",
     "edit_product_form_item_add_invalid_item_tooltip": "Bitte zuerst einen Text eingeben",
     "edit_product_form_item_remove_item_tooltip": "Entfernen",
+    "edit_product_form_item_save_edit_item_tooltip": "Bearbeitung speichern",
+    "@edit_product_form_item_save_edit_item_tooltip": {
+        "description": "The user can edit an existing item. This action will save the change."
+    },
+    "edit_product_form_item_cancel_edit_item_tooltip": "Bearbeitung verwerfen",
+    "@edit_product_form_item_cancel_edit_item_tooltip": {
+        "description": "The user can edit an existing item. This action will cancel the change (and return to the initial value)."
+    },
     "edit_product_form_item_packaging_title": "Foto der Recycling-Anweisungen",
     "@edit_product_form_item_packaging_title": {
         "description": "Product edition - Packaging - Title"
