@@ -97,7 +97,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final List<FocusNode> _focusNodes = <FocusNode>[];
 
-  /// When a nutrient is added, ensure the focus will be on it
+  /// When a nutrient is added, ensure that the focus will be on it
   OrderedNutrient? _nutrientToHighlight;
 
   @override
