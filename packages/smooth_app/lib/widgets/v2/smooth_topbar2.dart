@@ -91,6 +91,7 @@ class _SmoothTopBar2State extends State<SmoothTopBar2> {
               top: MediaQuery.viewPaddingOf(context).top,
             ),
             child: Column(
+              mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 if (widget.topWidget != null)
                   SizedBox.fromSize(
