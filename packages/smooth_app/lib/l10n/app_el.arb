@@ -1948,7 +1948,7 @@
     "@dev_preferences_news_custom_url_empty_value": {
         "description": "Message to show when the custom news URL is not set"
     },
-    "dev_preferences_news_provider_status_title": "Status",
+    "dev_preferences_news_provider_status_title": "Κατάσταση",
     "@dev_preferences_news_provider_status_title": {
         "description": "News dev preferences - Status - Title"
     },
