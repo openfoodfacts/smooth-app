@@ -15,6 +15,7 @@ import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/image_field_extension.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/helpers/text_input_formatters_helper.dart';
+import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/pages/product/common/product_buttons.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
@@ -99,6 +100,9 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
   TextEditingControllerWithHistory? _servingController;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final List<FocusNode> _focusNodes = <FocusNode>[];
+
+  /// When a nutrient is added, ensure the focus will be on it
+  OrderedNutrient? _nutrientToHighlight;
 
   @override
   void initState() {
@@ -231,7 +235,9 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
       children.add(_getServingSwitch(appLocalizations));
 
       if (_focusNodes.length != displayableNutrients.length) {
-        _focusNodes.clear();
+        for (final FocusNode node in _focusNodes) {
+          node.unfocus();
+        }
         _focusNodes.addAll(
           List<FocusNode>.generate(
             displayableNutrients.length,
@@ -265,11 +271,18 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
             ),
           ),
         );
+
+        if (_nutrientToHighlight == orderedNutrient) {
+          onNextFrame(() => _focusNodes[i].requestFocus());
+          _nutrientToHighlight = null;
+        }
       }
       children.add(
         NutritionAddNutrientButton(
           nutritionContainer: _nutritionContainer,
-          refreshParent: () => setState(() {}),
+          onNutrientSelected: (final OrderedNutrient nutrient) {
+            setState(() => _nutrientToHighlight = nutrient);
+          },
         ),
       );
 
@@ -277,6 +290,9 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
         children.add(SizedBox(height: _ownerFieldBannerHeight));
       }
     } else {
+      for (final Nutrient nutrient in _controllers.keys) {
+        _controllers[nutrient]!.dispose();
+      }
       _focusNodes.clear();
     }
     return children;
