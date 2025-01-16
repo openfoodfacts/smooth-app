@@ -2113,7 +2113,7 @@
             }
         }
     },
-    "prices_button_count_proof": "{count,plural, one {} two {{count} הוכחות} many {{count} הוכחות}=0{אין הוכחות} =1{הוכחה} other{{count} הוכחות}}",
+    "prices_button_count_proof": "{count,plural, two {{count} הוכחות} many {{count} הוכחות}=0{אין הוכחות} =1{הוכחה} other{{count} הוכחות}}",
     "@prices_button_count_proof": {
         "description": "Number of proofs, for a button",
         "placeholders": {
@@ -2131,7 +2131,7 @@
             }
         }
     },
-    "prices_button_count_user": "{count,plural, one {} two {{count} משתמשים} many {{count} משתמשים}=0{אין משתמשים} =1{משתמש} other{{count} משתמשים}}",
+    "prices_button_count_user": "{count,plural, two {{count} משתמשים} many {{count} משתמשים}=0{אין משתמשים} =1{משתמש} other{{count} משתמשים}}",
     "@prices_button_count_user": {
         "description": "Number of users, for a button",
         "placeholders": {
@@ -2140,7 +2140,7 @@
             }
         }
     },
-    "prices_button_count_price": "{count,plural, one {} two {{count} מחירים} many {{count} מחירים}=0{אין מחירים} =1{מחיר} other{{count} מחירים}}",
+    "prices_button_count_price": "{count,plural, two {{count} מחירים} many {{count} מחירים}=0{אין מחירים} =1{מחיר} other{{count} מחירים}}",
     "@prices_button_count_price": {
         "description": "Number of prices, for a button",
         "placeholders": {

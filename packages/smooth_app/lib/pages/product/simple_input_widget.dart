@@ -117,8 +117,7 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
                     ),
                   ),
                   Tooltip(
-                    message: appLocalizations.edit_product_form_item_add_action(
-                        widget.helper.getTypeLabel(appLocalizations)),
+                    message: widget.helper.getAddTooltip(appLocalizations),
                     child: IconButton(
                       onPressed: _onAddItem,
                       splashRadius: 20.0,

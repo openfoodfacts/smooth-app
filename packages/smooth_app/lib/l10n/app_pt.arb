@@ -2016,7 +2016,7 @@
             }
         }
     },
-    "prices_list_length_one_page": "{count,plural, one {}=0{Ainda sem preço} =1{Apenas um preço} other{Todos os {count} preços}}",
+    "prices_list_length_one_page": "{count,plural, =0{Ainda sem preço} =1{Apenas um preço} other{Todos os {count} preços}}",
     "@prices_list_length_one_page": {
         "description": "Number of prices for one-page result",
         "placeholders": {

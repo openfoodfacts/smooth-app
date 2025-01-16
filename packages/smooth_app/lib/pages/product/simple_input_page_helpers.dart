@@ -97,6 +97,9 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
   /// Returns the type of the text field (eg: label, category…).
   String getTypeLabel(final AppLocalizations appLocalizations);
 
+  /// Returns the Tooltip for the "add" text field.
+  String getAddTooltip(final AppLocalizations appLocalizations);
+
   /// Returns additional examples about the "add" text field.
   String? getAddExplanations(final AppLocalizations appLocalizations) => null;
 
@@ -261,6 +264,10 @@ class SimpleInputPageBrandsHelper extends AbstractSimpleInputPageHelper {
       appLocalizations.add_basic_details_brand_names_hint;
 
   @override
+  String getAddTooltip(AppLocalizations appLocalizations) =>
+      appLocalizations.edit_product_form_item_add_action_brand;
+
+  @override
   String getTypeLabel(AppLocalizations appLocalizations) =>
       appLocalizations.brand_name;
 
@@ -326,6 +333,10 @@ class SimpleInputPageStoreHelper extends AbstractSimpleInputPageHelper {
       appLocalizations.edit_product_form_item_stores_hint;
 
   @override
+  String getAddTooltip(AppLocalizations appLocalizations) =>
+      appLocalizations.edit_product_form_item_add_action_store;
+
+  @override
   String getTypeLabel(AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_form_item_stores_type;
 
@@ -362,6 +373,10 @@ class SimpleInputPageOriginHelper extends AbstractSimpleInputPageHelper {
   @override
   String getAddHint(final AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_form_item_origins_hint;
+
+  @override
+  String getAddTooltip(AppLocalizations appLocalizations) =>
+      appLocalizations.edit_product_form_item_add_action_origin;
 
   @override
   String getTypeLabel(AppLocalizations appLocalizations) =>
@@ -418,6 +433,10 @@ class SimpleInputPageEmbCodeHelper extends AbstractSimpleInputPageHelper {
   @override
   String getAddHint(final AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_form_item_emb_codes_hint;
+
+  @override
+  String getAddTooltip(AppLocalizations appLocalizations) =>
+      appLocalizations.edit_product_form_item_add_action_emb_code;
 
   @override
   String getTypeLabel(AppLocalizations appLocalizations) =>
@@ -485,6 +504,10 @@ class SimpleInputPageLabelHelper extends AbstractSimpleInputPageHelper {
   @override
   String getAddHint(final AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_form_item_labels_hint;
+
+  @override
+  String getAddTooltip(AppLocalizations appLocalizations) =>
+      appLocalizations.edit_product_form_item_add_action_label;
 
   @override
   String getTypeLabel(AppLocalizations appLocalizations) =>
@@ -561,6 +584,10 @@ class SimpleInputPageCategoryHelper extends AbstractSimpleInputPageHelper {
       appLocalizations.edit_product_form_item_categories_hint;
 
   @override
+  String getAddTooltip(AppLocalizations appLocalizations) =>
+      appLocalizations.edit_product_form_item_add_action_category;
+
+  @override
   String getTypeLabel(AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_form_item_categories_type;
 
@@ -610,6 +637,10 @@ class SimpleInputPageCountryHelper extends AbstractSimpleInputPageHelper {
   @override
   String getAddHint(final AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_form_item_countries_hint;
+
+  @override
+  String getAddTooltip(AppLocalizations appLocalizations) =>
+      appLocalizations.edit_product_form_item_add_action_country;
 
   @override
   String getTypeLabel(AppLocalizations appLocalizations) =>

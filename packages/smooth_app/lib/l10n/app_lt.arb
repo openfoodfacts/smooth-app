@@ -2113,7 +2113,7 @@
             }
         }
     },
-    "prices_button_count_proof": "{count,plural, one {} few {{count} įrodymai} many {{count} įrodymų}=0{No proof} =1{One proof} other{{count} įrodumai}}",
+    "prices_button_count_proof": "{count,plural, few {{count} įrodymai} many {{count} įrodymų}=0{No proof} =1{One proof} other{{count} įrodumai}}",
     "@prices_button_count_proof": {
         "description": "Number of proofs, for a button",
         "placeholders": {

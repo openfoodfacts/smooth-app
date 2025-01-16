@@ -1976,7 +1976,7 @@
     "prices_app_button": "Перейдіть у додаток Ціни",
     "prices_generic_title": "Ціни",
     "prices_add_n_prices": "{count,plural, =1{Додайте ціну} other{Додайте {count} цін}}",
-    "prices_send_n_prices": "{count,plural, one {Надіслати{count} ціну} few {Надіслати {count} ціни} many {Надіслати {count} цін}=1{Надіслати ціну} other{Надіслати {count} ціни}}",
+    "prices_send_n_prices": "{count,plural, =1{Надіслати{count} ціну} few {Надіслати {count} ціни} many {Надіслати {count} цін}=1{Надіслати ціну} other{Надіслати {count} ціни}}",
     "prices_add_an_item": "Додати елемент",
     "prices_add_a_price": "Додати ціну",
     "prices_add_a_receipt": "Додати чек",
