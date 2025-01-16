@@ -116,6 +116,9 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
 
   @override
   void dispose() {
+    for (final FocusNode node in _focusNodes) {
+      node.dispose();
+    }
     _focusNodes.clear();
 
     for (final TextEditingControllerWithHistory controller
@@ -245,7 +248,10 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
         );
 
         if (_nutrientToHighlight == orderedNutrient) {
-          onNextFrame(() => _focusNodes[i].requestFocus());
+          final FocusNode focusNode = _focusNodes[i];
+          onNextFrame(() {
+            return focusNode.requestFocus();
+          });
           _nutrientToHighlight = null;
         }
       }
@@ -258,6 +264,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
         ),
       );
     } else {
+      // Ensure we won't have any memory leak
       for (final Nutrient nutrient in _controllers.keys) {
         _controllers[nutrient]!.dispose();
       }
