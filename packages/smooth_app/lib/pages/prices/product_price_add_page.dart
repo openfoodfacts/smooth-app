@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/database/dao_osm_location.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
@@ -178,23 +179,39 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
 
   Future<bool?> _doesAcceptWarning({required final bool justInfo}) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    return showModalBottomSheet<bool>(
-      useSafeArea: true,
+    return showSmoothModalSheet<bool>(
       context: context,
-      builder: (final BuildContext context) => SmoothAlertDialog(
-        title: appLocalizations.prices_privacy_warning_title,
-        actionsAxis: Axis.vertical,
-        body: Text(appLocalizations.prices_privacy_warning_message),
-        positiveAction: SmoothActionButton(
-          text: appLocalizations.okay,
-          onPressed: () => Navigator.of(context).pop(true),
+      builder: (final BuildContext context) => SafeArea(
+        child: SmoothModalSheet(
+          bodyPadding: const EdgeInsetsDirectional.only(
+            start: BALANCED_SPACE,
+            end: MEDIUM_SPACE,
+            top: LARGE_SPACE,
+            bottom: MEDIUM_SPACE,
+          ),
+          closeButton: false,
+          title: appLocalizations.prices_privacy_warning_title,
+          body: Column(
+            children: <Widget>[
+              Text(appLocalizations.prices_privacy_warning_message),
+              const SizedBox(height: MEDIUM_SPACE),
+              SmoothActionButtonsBar(
+                axis: Axis.vertical,
+                negativeAction: justInfo
+                    ? null
+                    : SmoothActionButton(
+                        text: appLocalizations.refuse_button_label,
+                        onPressed: () => Navigator.of(context).pop(),
+                      ),
+                positiveAction: SmoothActionButton(
+                  text: appLocalizations.okay,
+                  onPressed: () => Navigator.of(context).pop(true),
+                ),
+              )
+            ],
+          ),
+          expandBody: false,
         ),
-        negativeAction: justInfo
-            ? null
-            : SmoothActionButton(
-                text: appLocalizations.cancel,
-                onPressed: () => Navigator.of(context).pop(),
-              ),
       ),
     );
   }
