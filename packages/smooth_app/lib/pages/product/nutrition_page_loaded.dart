@@ -90,10 +90,6 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
     with UpToDateMixin {
   late final NumberFormat _decimalNumberFormat;
   late final NutritionContainer _nutritionContainer;
-  bool _ownerFieldBannerVisible = false;
-
-  /// When the banner is visible, we add a padding to the list
-  double _ownerFieldBannerHeight = 0.0;
 
   final Map<Nutrient, TextEditingControllerWithHistory> _controllers =
       <Nutrient, TextEditingControllerWithHistory>{};
@@ -152,46 +148,22 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
             title: appLocalizations.nutrition_page_title,
             product: upToDateProduct,
           ),
-          body: Stack(
-            children: <Widget>[
-              Positioned.fill(
-                child: Padding(
+          body: Padding(
+            padding: const EdgeInsetsDirectional.symmetric(
+              horizontal: LARGE_SPACE,
+            ),
+            child: Form(
+              key: _formKey,
+              child: Provider<List<FocusNode>>.value(
+                value: _focusNodes,
+                child: ListView(
                   padding: const EdgeInsetsDirectional.symmetric(
-                    horizontal: LARGE_SPACE,
+                    vertical: SMALL_SPACE,
                   ),
-                  child: Form(
-                    key: _formKey,
-                    child: Provider<List<FocusNode>>.value(
-                      value: _focusNodes,
-                      child: ListView(
-                        padding: const EdgeInsetsDirectional.symmetric(
-                          vertical: SMALL_SPACE,
-                        ),
-                        children: children,
-                      ),
-                    ),
-                  ),
+                  children: children,
                 ),
               ),
-              Positioned(
-                bottom: 0.0,
-                left: 0.0,
-                right: 0.0,
-                child: AnimatedOwnerFieldBanner(
-                  visible: _ownerFieldBannerVisible,
-                  shadow: true,
-                  onHeightChanged: (double height) {
-                    _ownerFieldBannerHeight = height;
-                    if (_ownerFieldBannerVisible) {
-                      setState(() {});
-                    }
-                  },
-                  onDismissClicked: () {
-                    setState(() => _ownerFieldBannerVisible = false);
-                  },
-                ),
-              ),
-            ],
+            ),
           ),
           bottomNavigationBar: ProductBottomButtonsBar(
             onSave: () async => _exitPage(
@@ -285,10 +257,6 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
           },
         ),
       );
-
-      if (_ownerFieldBannerVisible) {
-        children.add(SizedBox(height: _ownerFieldBannerHeight));
-      }
     } else {
       for (final Nutrient nutrient in _controllers.keys) {
         _controllers[nutrient]!.dispose();
@@ -346,9 +314,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
         )) !=
         null) {
       return IconButton(
-        onPressed: () {
-          context.read<_NutritionPageLoadedState>().toggleOwnerFieldBanner();
-        },
+        onPressed: () => showOwnerFieldInfoInModalSheet(context),
         icon: const OwnerFieldIcon(),
       );
     }
@@ -573,12 +539,6 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
     );
     return true;
   }
-
-  void toggleOwnerFieldBanner() {
-    setState(() {
-      _ownerFieldBannerVisible = !_ownerFieldBannerVisible;
-    });
-  }
 }
 
 class _NutrientRow extends StatelessWidget {
@@ -672,11 +632,7 @@ class _NutrientValueCell extends StatelessWidget {
                     null
             ? null
             : IconButton(
-                onPressed: () {
-                  context
-                      .read<_NutritionPageLoadedState>()
-                      .toggleOwnerFieldBanner();
-                },
+                onPressed: () => showOwnerFieldInfoInModalSheet(context),
                 icon: const OwnerFieldIcon(),
               ),
       ),
