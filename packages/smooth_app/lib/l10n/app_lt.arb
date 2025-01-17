@@ -892,7 +892,7 @@
     "@product_tags_title": {
         "description": "The title for showing product properties, aka folksonomy data"
     },
-    "no_product_tags_found_message": "Produkto savybių nerasta. Savybes galima naudoti produktams išsamiau ir ankstesniu būdu aprašyti. Bakstelėkite, kad pridėtumėte.",
+    "no_product_tags_found_message": "Jokių produkto savybių nerasta. Savybes galima naudoti produktams išsamiau ir lankstesčiau aprašyti.",
     "@no_product_tags_found_message": {
         "description": "Message to show if there are no product properties found"
     },
@@ -1608,11 +1608,11 @@
     "edit_product_form_item_add_valid_item_tooltip": "Pridėti",
     "edit_product_form_item_add_invalid_item_tooltip": "Pirmiausia įveskite tekstą",
     "edit_product_form_item_remove_item_tooltip": "Pašalinti",
-    "edit_product_form_item_save_edit_item_tooltip": "Save your edit",
+    "edit_product_form_item_save_edit_item_tooltip": "Įrašyti savo korekciją",
     "@edit_product_form_item_save_edit_item_tooltip": {
         "description": "The user can edit an existing item. This action will save the change."
     },
-    "edit_product_form_item_cancel_edit_item_tooltip": "Cancel your edit",
+    "edit_product_form_item_cancel_edit_item_tooltip": "Atšaukti savo korekciją",
     "@edit_product_form_item_cancel_edit_item_tooltip": {
         "description": "The user can edit an existing item. This action will cancel the change (and return to the initial value)."
     },
