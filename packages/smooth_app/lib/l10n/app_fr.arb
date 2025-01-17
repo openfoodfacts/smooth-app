@@ -2723,7 +2723,7 @@
     },
     "scan_header_compare_button_valid_state_tooltip": "Comparer les produits que vous avez scannés",
     "@scan_header_compare_button_valid_state_tooltip": {
-        "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is at least two prodiucts"
+        "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is at least two products"
     },
     "scan_product_loading": "Vous avez scanné\nle code-barres :",
     "@scan_product_loading": {
