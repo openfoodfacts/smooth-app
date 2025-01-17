@@ -623,6 +623,10 @@
     "@crop_page_action_local_message": {
         "description": "The save of the picture locally failed - error dialog message"
     },
+    "crop_page_action_retake": "Retake a photo",
+    "@crop_page_action_retake": {
+        "description": "Button which allows users to retake a photo."
+    },
     "crop_page_too_small_image_title": "The image is too small!",
     "@crop_page_too_small_image_title": {
         "description": "Title of a dialog warning the user that the image is too small for upload"

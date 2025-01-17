@@ -90,7 +90,8 @@ class _PhotoRowDate extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (!transientFile.isImageAvailable()) {
+    if (!transientFile.isImageAvailable() ||
+        transientFile.uploadedDate == null) {
       return EMPTY_WIDGET;
     }
 

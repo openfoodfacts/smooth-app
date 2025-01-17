@@ -261,6 +261,8 @@ class _IconsFont {
       IconData(0xe880, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData pinch_to_zoom =
       IconData(0xe881, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData camera_restart =
+      IconData(0xe882, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData share_cupertino =
       IconData(0xe8a4, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData share_material =
