@@ -398,6 +398,7 @@ class _ProductImageDetailsButton extends StatelessWidget {
                           ),
                           subtitle: Text(image.contributor ?? '-'),
                         ),
+                        const Divider(),
                         ListTile(
                           title: Text(
                               appLocalizations.photo_viewer_details_date_title),
@@ -405,6 +406,7 @@ class _ProductImageDetailsButton extends StatelessWidget {
                               ? DateFormat.yMMMMEEEEd().format(image.uploaded!)
                               : '-'),
                         ),
+                        const Divider(),
                         ListTile(
                           title: Text(
                               appLocalizations.photo_viewer_details_size_title),
@@ -418,7 +420,8 @@ class _ProductImageDetailsButton extends StatelessWidget {
                                 : '-',
                           ),
                         ),
-                        if (url.isNotEmpty)
+                        if (url.isNotEmpty) ...<Widget>[
+                          const Divider(),
                           ListTile(
                             title: Text(appLocalizations
                                 .photo_viewer_details_url_title),
@@ -427,9 +430,11 @@ class _ProductImageDetailsButton extends StatelessWidget {
                             onTap: () {
                               LaunchUrlHelper.launchURL(url);
                             },
-                          ),
+                          )
+                        ],
                         SizedBox(
-                            height: MediaQuery.viewPaddingOf(context).bottom),
+                          height: MediaQuery.viewPaddingOf(context).bottom,
+                        ),
                       ],
                     ),
                   );

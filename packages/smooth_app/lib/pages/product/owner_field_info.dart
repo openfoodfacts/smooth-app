@@ -37,14 +37,20 @@ class OwnerFieldBanner extends StatelessWidget {
 
 /// Standard icon about "owner fields".
 class OwnerFieldIcon extends StatelessWidget {
-  const OwnerFieldIcon({this.size, super.key});
+  const OwnerFieldIcon({
+    this.size,
+    this.color,
+    super.key,
+  });
 
   final double? size;
+  final Color? color;
 
   @override
   Widget build(BuildContext context) => Icon(
         _ownerFieldIconData,
         size: size,
+        color: color,
         semanticLabel: AppLocalizations.of(context).owner_field_info_title,
       );
 }

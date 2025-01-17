@@ -111,10 +111,13 @@ Future<T?> showSmoothListOfChoicesModalSheet<T>({
   List<Widget>? suffixIcons,
   Color? suffixIconTint,
   EdgeInsetsGeometry? padding,
+  EdgeInsetsGeometry? contentPadding,
   EdgeInsetsGeometry? dividerPadding,
   TextStyle? textStyle,
   Color? headerBackgroundColor,
+  Color? footerBackgroundColor,
   Color? prefixIndicatorColor,
+  double footerSpace = 0.0,
   bool safeArea = false,
 }) {
   assert(labels.length == values.length);
@@ -142,10 +145,11 @@ Future<T?> showSmoothListOfChoicesModalSheet<T>({
           labels.elementAt(i),
           style: textStyle ?? const TextStyle(fontWeight: FontWeight.w500),
         ),
-        contentPadding: EdgeInsetsDirectional.only(
-          start: LARGE_SPACE,
-          end: addEndArrowToItems ? 17.0 : LARGE_SPACE,
-        ),
+        contentPadding: contentPadding ??
+            EdgeInsetsDirectional.only(
+              start: LARGE_SPACE,
+              end: addEndArrowToItems ? 17.0 : LARGE_SPACE,
+            ),
         trailing: (suffixIcons != null
             ? IconTheme.merge(
                 data: IconThemeData(color: suffixIconTint),
@@ -170,15 +174,34 @@ Future<T?> showSmoothListOfChoicesModalSheet<T>({
     }
   }
 
-  if (footer != null) {
-    items.add(footer);
+  double bottomPadding = MediaQuery.paddingOf(context).bottom;
+
+  if (safeArea && bottomPadding == 0.0) {
+    bottomPadding = MediaQuery.viewPaddingOf(context).bottom;
   }
 
-  final double paddingHeight = MediaQuery.paddingOf(context).bottom;
-  items.add(SizedBox(height: paddingHeight));
+  if (footer != null) {
+    if (footerSpace > 0.0) {
+      items.add(SizedBox(height: footerSpace));
+    }
 
-  if (safeArea && paddingHeight == 0.0) {
-    items.add(SizedBox(height: MediaQuery.viewPaddingOf(context).bottom));
+    Widget footerChild = Column(
+      children: <Widget>[
+        footer,
+        SizedBox(height: bottomPadding),
+      ],
+    );
+
+    if (footerBackgroundColor != null) {
+      footerChild = ColoredBox(
+        color: footerBackgroundColor,
+        child: footerChild,
+      );
+    }
+
+    items.add(footerChild);
+  } else {
+    items.add(SizedBox(height: bottomPadding));
   }
 
   return showSmoothModalSheet<T>(
