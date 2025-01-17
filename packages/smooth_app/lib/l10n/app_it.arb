@@ -239,7 +239,7 @@
     "sign_up_page_email_error_empty": "L'email è obbligatoria",
     "sign_up_page_email_error_invalid": "Email non valida",
     "sign_up_page_username_hint": "Nome utente: Visibile pubblicamente",
-    "sign_up_page_username_error_empty": "È necessario inserire un nome utente",
+    "sign_up_page_username_error_empty": "Inserisci un nome utente",
     "sign_up_page_username_error_invalid": "Inserisci un nome utente valido",
     "sign_up_page_username_description": "Il nome utente non può contenere spazi, maiuscole o caratteri speciali.",
     "sign_up_page_username_length_invalid": "Il nome utente non può superare {value} caratteri",
@@ -1448,14 +1448,33 @@
     "@edit_product_form_item_error_existing": {
         "description": "Error message when the user tries to re-submit an existing value"
     },
-    "edit_product_form_item_add_action": "Aggiungi un nuovo {itemType}",
-    "description": "Descrizione del comando per mostrare quando l'utente preme a lungo il pulsante (+)",
-    "@edit_product_form_item_add_action": {
-        "placeholders": {
-            "itemType": {
-                "type": "String"
-            }
-        }
+    "edit_product_form_item_add_action_brand": "Add a new brand",
+    "@edit_product_form_item_add_action_brand": {
+        "description": "Tooltip to show when the user long presses the (+) button on a brand"
+    },
+    "edit_product_form_item_add_action_label": "Add a new label",
+    "@edit_product_form_item_add_action_label": {
+        "description": "Tooltip to show when the user long presses the (+) button on a label"
+    },
+    "edit_product_form_item_add_action_store": "Add a new store",
+    "@edit_product_form_item_add_action_store": {
+        "description": "Tooltip to show when the user long presses the (+) button on a store"
+    },
+    "edit_product_form_item_add_action_origin": "Add a new origin",
+    "@edit_product_form_item_add_action_origin": {
+        "description": "Tooltip to show when the user long presses the (+) button on an origin"
+    },
+    "edit_product_form_item_add_action_emb_code": "Add a new traceability code",
+    "@edit_product_form_item_add_action_emb_code": {
+        "description": "Tooltip to show when the user long presses the (+) button on a traceability code"
+    },
+    "edit_product_form_item_add_action_country": "Add a new country",
+    "@edit_product_form_item_add_action_country": {
+        "description": "Tooltip to show when the user long presses the (+) button on a country"
+    },
+    "edit_product_form_item_add_action_category": "Add a new category",
+    "@edit_product_form_item_add_action_category": {
+        "description": "Tooltip to show when the user long presses the (+) button on a category"
     },
     "edit_product_form_item_details_title": "Informazioni base",
     "@edit_product_form_item_details_title": {
@@ -2704,7 +2723,7 @@
     },
     "scan_header_compare_button_valid_state_tooltip": "Clicca per confrontare i prodotti che hai scansionato",
     "@scan_header_compare_button_valid_state_tooltip": {
-        "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is at least two prodiucts"
+        "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is at least two products"
     },
     "scan_product_loading": "Hai scansionato il\ncodice a barre:",
     "@scan_product_loading": {
