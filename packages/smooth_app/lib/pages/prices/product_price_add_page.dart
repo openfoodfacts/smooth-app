@@ -22,12 +22,14 @@ import 'package:smooth_app/pages/prices/price_model.dart';
 import 'package:smooth_app/pages/prices/price_proof_card.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
+import 'package:smooth_app/resources/app_icons.dart' as app_icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_expandable_floating_action_button.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
+import 'package:smooth_app/widgets/smooth_text.dart';
 import 'package:smooth_app/widgets/will_pop_scope.dart';
 
 /// Single page that displays all the elements of price adding.
@@ -179,40 +181,89 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
 
   Future<bool?> _doesAcceptWarning({required final bool justInfo}) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    return showSmoothModalSheet<bool>(
+    const Color color = Color(0xFFB81D1D);
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
+    return showSmoothListOfChoicesModalSheet<bool>(
+      safeArea: true,
       context: context,
-      builder: (final BuildContext context) => SafeArea(
-        child: SmoothModalSheet(
-          bodyPadding: const EdgeInsetsDirectional.only(
-            start: BALANCED_SPACE,
-            end: MEDIUM_SPACE,
-            top: LARGE_SPACE,
-            bottom: MEDIUM_SPACE,
-          ),
-          closeButton: false,
-          title: appLocalizations.prices_privacy_warning_title,
-          body: Column(
-            children: <Widget>[
-              Text(appLocalizations.prices_privacy_warning_message),
-              const SizedBox(height: MEDIUM_SPACE),
-              SmoothActionButtonsBar(
-                axis: Axis.vertical,
-                negativeAction: justInfo
-                    ? null
-                    : SmoothActionButton(
-                        text: appLocalizations.refuse_button_label,
-                        onPressed: () => Navigator.of(context).pop(),
-                      ),
-                positiveAction: SmoothActionButton(
-                  text: appLocalizations.okay,
-                  onPressed: () => Navigator.of(context).pop(true),
-                ),
-              )
-            ],
-          ),
-          expandBody: false,
+      headerBackgroundColor: color,
+      header: Padding(
+        padding: const EdgeInsetsDirectional.symmetric(
+          horizontal: LARGE_SPACE,
+          vertical: MEDIUM_SPACE,
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+            TextWithBoldParts(
+              text: appLocalizations.prices_privacy_warning_message,
+              textStyle: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                    fontWeight: FontWeight.w600,
+                  ),
+            ),
+            _buildBulletPoint(
+              appLocalizations.prices_privacy_warning_message_bullet_1,
+              context,
+            ),
+            const SizedBox(height: MEDIUM_SPACE),
+            _buildBulletPoint(
+              appLocalizations.prices_privacy_warning_message_bullet_2,
+              context,
+            ),
+            const SizedBox(height: MEDIUM_SPACE),
+            Text(
+              appLocalizations.prices_privacy_warning_sub_message,
+              style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                    fontWeight: FontWeight.w600,
+                  ),
+            ),
+          ],
         ),
       ),
+      labels: <String>[
+        appLocalizations.i_accept,
+        appLocalizations.i_refuse,
+      ],
+      values: <bool>[
+        true,
+        false,
+      ],
+      prefixIcons: <Widget>[
+        Icon(Icons.check_circle_rounded, color: extension.success),
+        Icon(Icons.cancel_rounded, color: extension.error),
+      ],
+      title: appLocalizations.prices_privacy_warning_title,
+    );
+  }
+
+  Widget _buildBulletPoint(String text, BuildContext context) {
+    const double defaultIconSize = 7.0;
+    const double radius = 10.0;
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        const SizedBox(width: MEDIUM_SPACE),
+        CircleAvatar(
+          radius: radius,
+          backgroundColor: extension.greyLight,
+          child: const app_icons.Arrow.right(
+            color: Colors.white,
+            size: defaultIconSize,
+          ),
+        ),
+        const SizedBox(width: SMALL_SPACE),
+        Expanded(
+          child: Text(
+            text,
+            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                  fontWeight: FontWeight.w600,
+                ),
+          ),
+        ),
+      ],
     );
   }
 
