@@ -863,6 +863,14 @@
     "@product_image_details_from_producer": {
         "description": "Text to indicate that the image was taken by the producer"
     },
+    "product_image_details_contributor": "Contributor",
+    "@product_image_details_contributor": {
+        "description": "The name of the contributor who uploaded the image"
+    },
+    "product_image_details_contributor_producer": "Contributor (producer)",
+    "@product_image_details_contributor": {
+        "description": "The name of the contributor (and also the owner field) who uploaded the image"
+    },
     "product_image_details_date": "Date",
     "@product_image_details_date": {
         "description": "Text to indicate the date of the image"
