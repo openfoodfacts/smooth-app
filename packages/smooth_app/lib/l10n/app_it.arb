@@ -1448,31 +1448,31 @@
     "@edit_product_form_item_error_existing": {
         "description": "Error message when the user tries to re-submit an existing value"
     },
-    "edit_product_form_item_add_action_brand": "Add a new brand",
+    "edit_product_form_item_add_action_brand": "Aggiungi una nuova marca",
     "@edit_product_form_item_add_action_brand": {
         "description": "Tooltip to show when the user long presses the (+) button on a brand"
     },
-    "edit_product_form_item_add_action_label": "Add a new label",
+    "edit_product_form_item_add_action_label": "Aggiungi nuova etichetta",
     "@edit_product_form_item_add_action_label": {
         "description": "Tooltip to show when the user long presses the (+) button on a label"
     },
-    "edit_product_form_item_add_action_store": "Add a new store",
+    "edit_product_form_item_add_action_store": "Aggiungi un nuovo negozio",
     "@edit_product_form_item_add_action_store": {
         "description": "Tooltip to show when the user long presses the (+) button on a store"
     },
-    "edit_product_form_item_add_action_origin": "Add a new origin",
+    "edit_product_form_item_add_action_origin": "Aggiungi una nuova origine",
     "@edit_product_form_item_add_action_origin": {
         "description": "Tooltip to show when the user long presses the (+) button on an origin"
     },
-    "edit_product_form_item_add_action_emb_code": "Add a new traceability code",
+    "edit_product_form_item_add_action_emb_code": "Aggiungi un nuovo codice di tracciabilità",
     "@edit_product_form_item_add_action_emb_code": {
         "description": "Tooltip to show when the user long presses the (+) button on a traceability code"
     },
-    "edit_product_form_item_add_action_country": "Add a new country",
+    "edit_product_form_item_add_action_country": "Aggiungi un nuovo Paese",
     "@edit_product_form_item_add_action_country": {
         "description": "Tooltip to show when the user long presses the (+) button on a country"
     },
-    "edit_product_form_item_add_action_category": "Add a new category",
+    "edit_product_form_item_add_action_category": "Aggiungi una nuova categoria",
     "@edit_product_form_item_add_action_category": {
         "description": "Tooltip to show when the user long presses the (+) button on a category"
     },
