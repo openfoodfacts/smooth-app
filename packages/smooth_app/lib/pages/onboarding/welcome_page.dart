@@ -105,10 +105,24 @@ class WelcomePage extends StatelessWidget {
                                   padding: const EdgeInsetsDirectional.only(
                                     start: SMALL_SPACE,
                                     end: LARGE_SPACE,
+                                    top: SMALL_SPACE,
+                                    bottom: SMALL_SPACE,
                                   ),
                                   inkWellBorderRadius: ANGULAR_BORDER_RADIUS,
-                                  icon: const icons.Arrow.right(
-                                    size: 15.0,
+                                  icon: const DecoratedBox(
+                                    decoration: BoxDecoration(
+                                      color: Colors.black,
+                                      shape: BoxShape.circle,
+                                    ),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.all(
+                                        SMALL_SPACE,
+                                      ),
+                                      child: icons.Arrow.right(
+                                        size: 15.0,
+                                        color: Colors.white,
+                                      ),
+                                    ),
                                   ),
                                   textStyle:
                                       TextStyle(color: theme.primaryColor),

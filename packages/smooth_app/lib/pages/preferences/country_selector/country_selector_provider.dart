@@ -6,89 +6,48 @@ part of 'country_selector.dart';
 /// * [_CountrySelectorLoadedState]: countries loaded and/or saved
 /// * [_CountrySelectorEditingState]: the user has selected a country
 /// (temporary selection)
-class _CountrySelectorProvider extends ValueNotifier<_CountrySelectorState> {
+class _CountrySelectorProvider extends PreferencesSelectorProvider<Country> {
   _CountrySelectorProvider({
-    required this.preferences,
-    required this.autoValidate,
-  }) : super(const _CountrySelectorInitialState()) {
-    preferences.addListener(_onPreferencesChanged);
-    _onPreferencesChanged();
-  }
+    required super.preferences,
+    required super.autoValidate,
+  });
 
-  final UserPreferences preferences;
-  final bool autoValidate;
   String? userCountryCode;
   String? userAppLanguageCode;
 
-  void changeSelectedCountry(Country country) {
-    final _CountrySelectorLoadedState state =
-        value as _CountrySelectorLoadedState;
-
-    value = _CountrySelectorEditingState.fromLoadedState(
-      loadedState: state,
-      selectedCountry: country,
-    );
-
-    if (autoValidate) {
-      saveSelectedCountry();
-    }
-  }
-
-  Future<void> saveSelectedCountry() async {
-    if (value is! _CountrySelectorEditingState) {
-      return;
-    }
-
-    /// No need to refresh the state here, the [UserPreferences] will notify
-    return preferences.setUserCountryCode(
-      (value as _CountrySelectorEditingState).selectedCountry!.countryCode,
-    );
-  }
-
-  void dismissSelectedCountry() {
-    if (value is _CountrySelectorEditingState) {
-      value = (value as _CountrySelectorEditingState).toLoadedState();
-    }
-  }
-
-  Future<void> _onPreferencesChanged() async {
+  @override
+  Future<void> onPreferencesChanged() async {
     final String? newCountryCode = preferences.userCountryCode;
-    final String? newAppLanguageCode = preferences.appLanguageCode;
+    final String? newLanguageCode = preferences.appLanguageCode;
 
-    if (newAppLanguageCode != userAppLanguageCode) {
-      userAppLanguageCode = newAppLanguageCode;
+    if (newLanguageCode != userAppLanguageCode) {
       userCountryCode = newCountryCode;
-
-      return _loadCountries();
+      userAppLanguageCode = newLanguageCode;
+      return loadValues();
     } else if (newCountryCode != userCountryCode) {
-      userAppLanguageCode = newAppLanguageCode;
       userCountryCode = newCountryCode;
+      userAppLanguageCode = newLanguageCode;
 
-      if (value is _CountrySelectorInitialState) {
-        return _loadCountries();
+      if (value is PreferencesSelectorInitialState<Country>) {
+        return loadValues();
       } else {
-        final _CountrySelectorLoadedState state =
-            value as _CountrySelectorLoadedState;
+        final PreferencesSelectorLoadedState<Country> state =
+            value as PreferencesSelectorLoadedState<Country>;
 
         /// Reorder items
-        final List<Country> countries = state.countries;
+        final List<Country> countries = state.items;
         _reorderCountries(countries, userCountryCode);
 
         value = state.copyWith(
-          country: _getSelectedCountry(state.countries),
-          countries: countries,
+          selectedItem: getSelectedValue(state.items),
+          items: countries,
         );
       }
     }
   }
 
-  Future<void> _loadCountries() async {
-    if (userAppLanguageCode == null) {
-      return;
-    }
-
-    value = const _CountrySelectorLoadingState();
-
+  @override
+  Future<List<Country>> onLoadValues() async {
     List<Country> localizedCountries;
 
     try {
@@ -109,10 +68,7 @@ class _CountrySelectorProvider extends ValueNotifier<_CountrySelectorState> {
       (localizedCountries, userCountryCode),
     );
 
-    value = _CountrySelectorLoadedState(
-      country: _getSelectedCountry(countries),
-      countries: countries,
-    );
+    return countries;
   }
 
   static Future<List<Country>> _reformatCountries(
@@ -129,7 +85,8 @@ class _CountrySelectorProvider extends ValueNotifier<_CountrySelectorState> {
   /// * and providing a fallback English name for countries that are in
   /// [OpenFoodFactsCountry] but not in [localizedCountries].
   static List<Country> _sanitizeCountriesList(
-      List<Country> localizedCountries) {
+    List<Country> localizedCountries,
+  ) {
     final List<Country> finalCountriesList = <Country>[];
     final Map<String, OpenFoodFactsCountry> oFFIsoCodeToCountry =
         <String, OpenFoodFactsCountry>{};
@@ -204,7 +161,8 @@ class _CountrySelectorProvider extends ValueNotifier<_CountrySelectorState> {
     );
   }
 
-  Country _getSelectedCountry(List<Country> countries) {
+  @override
+  Country getSelectedValue(List<Country> countries) {
     if (userCountryCode != null) {
       for (final Country country in countries) {
         if (country.countryCode.toLowerCase() ==
@@ -217,76 +175,7 @@ class _CountrySelectorProvider extends ValueNotifier<_CountrySelectorState> {
   }
 
   @override
-  void dispose() {
-    preferences.removeListener(_onPreferencesChanged);
-    super.dispose();
-  }
-}
-
-@immutable
-sealed class _CountrySelectorState {
-  const _CountrySelectorState();
-}
-
-class _CountrySelectorInitialState extends _CountrySelectorLoadingState {
-  const _CountrySelectorInitialState();
-}
-
-class _CountrySelectorLoadingState extends _CountrySelectorState {
-  const _CountrySelectorLoadingState();
-}
-
-class _CountrySelectorLoadedState extends _CountrySelectorState {
-  const _CountrySelectorLoadedState({
-    required this.country,
-    required this.countries,
-    this.estimatedCountry,
-  });
-
-  final Country? country;
-  final List<Country> countries;
-
-  /// We be used later to provide an estimation based on the IP address.
-  final Country? estimatedCountry;
-
-  _CountrySelectorLoadedState copyWith({
-    Country? country,
-    Country? estimatedCountry,
-    List<Country>? countries,
-  }) =>
-      _CountrySelectorLoadedState(
-        country: country ?? this.country,
-        estimatedCountry: estimatedCountry ?? this.estimatedCountry,
-        countries: countries ?? this.countries,
+  Future<void> onSaveItem(Country country) => preferences.setUserCountryCode(
+        country.countryCode,
       );
-
-  @override
-  String toString() {
-    return '_CountrySelectorLoadedState{country: $country, estimatedCountry: $estimatedCountry, countries: $countries}';
-  }
-}
-
-class _CountrySelectorEditingState extends _CountrySelectorLoadedState {
-  _CountrySelectorEditingState.fromLoadedState({
-    required this.selectedCountry,
-    required _CountrySelectorLoadedState loadedState,
-  }) : super(
-          country: loadedState.country,
-          estimatedCountry: loadedState.estimatedCountry,
-          countries: loadedState.countries,
-        );
-
-  final Country? selectedCountry;
-
-  /// Remove the selected country
-  _CountrySelectorLoadedState toLoadedState() => _CountrySelectorLoadedState(
-        country: country,
-        estimatedCountry: estimatedCountry,
-        countries: countries,
-      );
-
-  @override
-  String toString() {
-    return '_CountrySelectorEditingState{selectedCountry: $selectedCountry}';
-  }
 }

@@ -2681,6 +2681,14 @@
     "@language_picker_label": {
         "description": "Choose Application Language"
     },
+    "country_picker_label": "Votre pays",
+    "@country_picker_label": {
+        "description": "Choose Application Country"
+    },
+    "currency_picker_label": "Votre devise",
+    "@currency_picker_label": {
+        "description": "Choose Application Country"
+    },
     "help_with_openfoodfacts": "Bienvenue sur OpenFoodFacts",
     "@help_with_openfoodfacts": {
         "description": "Label for the email title"
