@@ -293,6 +293,12 @@ class _PhotoRowDate extends StatelessWidget {
       leading: _PhotoRowDetailsIcon(
         color: outdated ? extension.warning : extension.primaryDark,
         icon: outdated ? _outdatedIcon : _successIcon,
+        padding: outdated
+            ? const EdgeInsetsDirectional.only(
+                top: 0.5,
+                end: 1.0,
+              )
+            : null,
       ),
       title: Text(appLocalizations.date),
       trailing: Column(
