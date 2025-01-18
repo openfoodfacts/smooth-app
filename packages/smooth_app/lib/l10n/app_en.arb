@@ -892,11 +892,11 @@
     "@product_tags_title": {
         "description": "The title for showing product properties, aka folksonomy data"
     },
-    "no_product_tags_found_message": "No product properties found. Properties can be used to describe products in more details, in a flexible way.",
+    "no_product_tags_found_message": "No product properties found. Properties can be used to describe products in more details, in a flexible way. Tap to add.",
     "@no_product_tags_found_message": {
         "description": "Message to show if there are no product properties found"
     },
-    "add_tag": "Add a property",
+    "add_tag": "Add property",
     "add_tags": "Add properties",
     "add_edit_tags": "Add or edit properties",
     "edit_tag": "Edit property",
@@ -1448,33 +1448,14 @@
     "@edit_product_form_item_error_existing": {
         "description": "Error message when the user tries to re-submit an existing value"
     },
-    "edit_product_form_item_add_action_brand": "Add a new brand",
-    "@edit_product_form_item_add_action_brand": {
-        "description": "Tooltip to show when the user long presses the (+) button on a brand"
-    },
-    "edit_product_form_item_add_action_label": "Add a new label",
-    "@edit_product_form_item_add_action_label": {
-        "description": "Tooltip to show when the user long presses the (+) button on a label"
-    },
-    "edit_product_form_item_add_action_store": "Add a new store",
-    "@edit_product_form_item_add_action_store": {
-        "description": "Tooltip to show when the user long presses the (+) button on a store"
-    },
-    "edit_product_form_item_add_action_origin": "Add a new origin",
-    "@edit_product_form_item_add_action_origin": {
-        "description": "Tooltip to show when the user long presses the (+) button on an origin"
-    },
-    "edit_product_form_item_add_action_emb_code": "Add a new traceability code",
-    "@edit_product_form_item_add_action_emb_code": {
-        "description": "Tooltip to show when the user long presses the (+) button on a traceability code"
-    },
-    "edit_product_form_item_add_action_country": "Add a new country",
-    "@edit_product_form_item_add_action_country": {
-        "description": "Tooltip to show when the user long presses the (+) button on a country"
-    },
-    "edit_product_form_item_add_action_category": "Add a new category",
-    "@edit_product_form_item_add_action_category": {
-        "description": "Tooltip to show when the user long presses the (+) button on a category"
+    "edit_product_form_item_add_action": "Add a new {itemType}",
+    "description": "Tooltip to show when the user long presses the (+) button",
+    "@edit_product_form_item_add_action": {
+        "placeholders": {
+            "itemType": {
+                "type": "String"
+            }
+        }
     },
     "edit_product_form_item_details_title": "Basic details",
     "@edit_product_form_item_details_title": {
@@ -1532,7 +1513,7 @@
     "@edit_product_form_item_origins_title": {
         "description": "Product edition - Origins - Title"
     },
-    "edit_product_form_item_origins_hint": "Input an origin (eg: Beef from Argentina)",
+    "edit_product_form_item_origins_hint": "Input an origin (eg: Germany)",
     "@edit_product_form_item_origins_hint": {
         "description": "Product edition - Origins - input textfield hint"
     },
@@ -1627,14 +1608,6 @@
     "edit_product_form_item_add_valid_item_tooltip": "Add",
     "edit_product_form_item_add_invalid_item_tooltip": "Please enter a text first",
     "edit_product_form_item_remove_item_tooltip": "Remove",
-    "edit_product_form_item_save_edit_item_tooltip": "Save your edit",
-    "@edit_product_form_item_save_edit_item_tooltip": {
-        "description": "The user can edit an existing item. This action will save the change."
-    },
-    "edit_product_form_item_cancel_edit_item_tooltip": "Cancel your edit",
-    "@edit_product_form_item_cancel_edit_item_tooltip": {
-        "description": "The user can edit an existing item. This action will cancel the change (and return to the initial value)."
-    },
     "edit_product_form_item_packaging_title": "Recycling instructions photo",
     "@edit_product_form_item_packaging_title": {
         "description": "Product edition - Packaging - Title"
@@ -2197,13 +2170,13 @@
     "prices_proof_mandatory": "You need to select a proof!",
     "prices_add_validation_error": "Validation error",
     "prices_privacy_warning_title": "Privacy warning",
+    "prices_unknown_product": "Unknown product",
     "prices_privacy_warning_message": "Prices **will be public**, along with the store they refer to.\n\nThat might allow people who know about your Open Food Facts pseudonym to:\n",
     "prices_privacy_warning_message_bullet_1": "Infer in which area you live",
     "prices_privacy_warning_message_bullet_2": "Know what you are buying",
     "prices_privacy_warning_sub_message": "If you are uneasy with that, please change your pseudonym, or create a new Open Food Facts account and log into the app with it.",
     "i_refuse": "I refuse",
     "i_accept": "I accept",
-    "prices_unknown_product": "Unknown product",
     "@prices_unknown_product": {
         "description": "Very small text, in the context of prices, to say that the product is unknown"
     },
@@ -2726,9 +2699,9 @@
     "@scan_header_compare_button_invalid_state_tooltip": {
         "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is just one product scanned"
     },
-    "scan_header_compare_button_valid_state_tooltip": "Compare the products you have scanned",
+    "scan_header_compare_button_valid_state_tooltip": "Click to compare the products you have scanned",
     "@scan_header_compare_button_valid_state_tooltip": {
-        "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is at least two products"
+        "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is at least two prodiucts"
     },
     "scan_product_loading": "You have scanned\nthe barcode:",
     "@scan_product_loading": {
