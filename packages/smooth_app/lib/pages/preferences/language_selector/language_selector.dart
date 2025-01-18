@@ -233,7 +233,7 @@ class _LanguageSelectorScreen extends StatelessWidget {
         String filter,
       ) {
         return Row(
-          children: [
+          children: <Widget>[
             const Icon(Icons.language),
             const SizedBox(width: LARGE_SPACE),
             Align(
