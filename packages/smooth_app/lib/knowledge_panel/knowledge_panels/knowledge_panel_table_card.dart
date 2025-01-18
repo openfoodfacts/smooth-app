@@ -565,13 +565,18 @@ class _TableCellWidgetState extends State<_TableCellWidget> {
                 );
               }).toList(growable: false),
               onChanged: (KnowledgePanelTableColumn? selectedColumn) {
-                setState(() {
-                  widget.cell.columnGroup!.currentColumn = selectedColumn;
-                });
+                if (selectedColumn == null) {
+                  return;
+                }
+                widget.cell.columnGroup!.currentColumn = selectedColumn;
+
                 int i = 0;
                 for (final KnowledgePanelTableColumn column
                     in widget.tableElement.columns) {
-                  if (column == selectedColumn) {
+                  if (column.text == selectedColumn.text &&
+                      column.textForSmallScreens ==
+                          selectedColumn.textForSmallScreens &&
+                      column.columnGroupId == selectedColumn.columnGroupId) {
                     widget.cell.columnGroup!.currentColumnIndex = i;
                     // Since we have modified [currentColumn], re-rendering the
                     // table will automagically select [selectedColumn].
