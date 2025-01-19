@@ -176,8 +176,8 @@ enum _ProofSource {
         appLocalizations.user_search_proofs_title,
       ],
       prefixIcons: <Widget>[
-        if (hasCamera) const Icon(Icons.camera_alt),
-        const Icon(Icons.photo),
+        if (hasCamera) const Icon(Icons.camera_rounded),
+        const Icon(Icons.perm_media_rounded),
         const Icon(Icons.document_scanner_rounded),
       ],
       addEndArrowToItems: true,
