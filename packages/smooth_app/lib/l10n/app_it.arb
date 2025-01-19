@@ -2229,6 +2229,37 @@
     "prices_privacy_warning_title": "Avviso sulla privacy",
     "prices_privacy_warning_message": "I prezzi saranno pubblici, insieme al negozio a cui si riferiscono.\nQuesto potrebbe permettere alle persone che conoscono il tuo pseudonimo di Open Food Facts di:\n* dedurre in quale zona vivi\n* sapere cosa stai comprando\nSe ti senti a disagio con ciò, cambia il tuo pseudonimo, oppure crea un nuovo account di Open Food Facts e accedi all'app con esso.",
     "prices_unknown_product": "Prodotto sconosciuto",
+    "prices_currency_change_proposal_title": "Change the currency?",
+    "prices_currency_change_proposal_message": "Your current currency is **{currency}**. Would you like to change it to **{newCurrency}**?",
+    "@prices_currency_change_proposal_message": {
+        "description": "Message to ask the user if they want to change the currency",
+        "placeholders": {
+            "currency": {
+                "type": "String"
+            },
+            "newCurrency": {
+                "type": "String"
+            }
+        }
+    },
+    "prices_currency_change_proposal_action_approve": "Yes, use {newCurrency}",
+    "@prices_currency_change_proposal_action_approve": {
+        "description": "Button to approve the currency change",
+        "placeholders": {
+            "newCurrency": {
+                "type": "String"
+            }
+        }
+    },
+    "prices_currency_change_proposal_action_cancel": "No, keep {currency}",
+    "@prices_currency_change_proposal_action_cancel": {
+        "description": "Button to cancel the currency change",
+        "placeholders": {
+            "currency": {
+                "type": "String"
+            }
+        }
+    },
     "@prices_unknown_product": {
         "description": "Very small text, in the context of prices, to say that the product is unknown"
     },
