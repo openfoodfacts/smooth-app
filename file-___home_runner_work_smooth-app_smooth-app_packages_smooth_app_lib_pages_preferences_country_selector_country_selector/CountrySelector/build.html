@@ -79,14 +79,15 @@ Widget build(BuildContext context) {
     child: Consumer&lt;_CountrySelectorProvider&gt;(
       builder: (BuildContext context, _CountrySelectorProvider provider, _) {
         return switch (provider.value) {
-          _CountrySelectorLoadingState _ =&gt; const Center(
-              child: CircularProgressIndicator.adaptive(),
+          PreferencesSelectorLoadingState&lt;Country&gt; _ =&gt; SizedBox(
+              height: loadingHeight,
+              child: const Center(
+                child: CircularProgressIndicator.adaptive(),
+              ),
             ),
-          _CountrySelectorLoadedState _ =&gt; _CountrySelectorButton(
+          PreferencesSelectorLoadedState&lt;Country&gt; _ =&gt; _CountrySelectorButton(
               icon: icon,
-              innerPadding: const EdgeInsetsDirectional.symmetric(
-                vertical: SMALL_SPACE,
-              ).add(padding ?? EdgeInsets.zero),
+              innerPadding: padding ?? EdgeInsets.zero,
               textStyle: textStyle,
               inkWellBorderRadius: inkWellBorderRadius,
               forceCurrencyChange: forceCurrencyChange,
@@ -132,6 +133,7 @@ Widget build(BuildContext context) {
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_country_selector_country_selector/CountrySelector/icon.html">icon</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_country_selector_country_selector/CountrySelector/inkWellBorderRadius.html">inkWellBorderRadius</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_country_selector_country_selector/CountrySelector/loadingHeight.html">loadingHeight</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_country_selector_country_selector/CountrySelector/padding.html">padding</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_country_selector_country_selector/CountrySelector/textStyle.html">textStyle</a></li>

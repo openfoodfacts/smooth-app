@@ -72,11 +72,12 @@
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
-  final UserPreferences userPreferences = context.watch&lt;UserPreferences&gt;();
+  final ThemeData themeData = Theme.of(context);
+
   return ListTile(
     title: Text(
       appLocalizations.language_picker_label,
-      style: Theme.of(context).textTheme.headlineMedium,
+      style: themeData.textTheme.headlineMedium,
     ),
     subtitle: Padding(
       padding: const EdgeInsetsDirectional.only(
@@ -84,36 +85,13 @@ Widget build(BuildContext context) {
         bottom: SMALL_SPACE,
       ),
       child: LanguageSelector(
-        setLanguage: (final OpenFoodFactsLanguage? language) async {
-          if (language == null) {
-            return;
-          }
-          ProductQuery.setLanguage(
-            context,
-            userPreferences,
-            languageCode: language.code,
-          );
-          final ProductPreferences productPreferences =
-              context.read&lt;ProductPreferences&gt;();
-          await BackgroundTaskLanguageRefresh.addTask(
-            context.read&lt;LocalDatabase&gt;(),
-          );
-
-          &#47;&#47; Refresh the news feed
-          if (context.mounted) {
-            context.read&lt;AppNewsProvider&gt;().loadLatestNews();
-          }
-          &#47;&#47; TODO(monsieurtanuki): make it a background task also?
-          &#47;&#47; no await
-          productPreferences.refresh();
-        },
-        selectedLanguages: &lt;OpenFoodFactsLanguage&gt;[
-          ProductQuery.getLanguage(),
-        ],
+        autoValidate: false,
+        textStyle: themeData.textTheme.bodyMedium,
         icon: const Icon(Icons.edit),
         padding: const EdgeInsetsDirectional.only(
           start: SMALL_SPACE,
         ),
+        loadingHeight: 40.0,
       ),
     ),
     minVerticalPadding: MEDIUM_SPACE,
