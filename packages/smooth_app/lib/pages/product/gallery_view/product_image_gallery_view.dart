@@ -77,6 +77,7 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView>
   late OpenFoodFactsLanguage _language;
   late final List<ImageField> _mainImageFields;
   bool _clickedOtherPictureButton = false;
+  bool _hideOtherPhotos = false;
 
   @override
   void initState() {
@@ -177,21 +178,30 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView>
                                 ),
                               ),
                             ),
-                            SliverPadding(
-                              padding: const EdgeInsetsDirectional.symmetric(
-                                vertical: MEDIUM_SPACE,
-                                horizontal: SMALL_SPACE,
-                              ),
-                              sliver: SliverToBoxAdapter(
-                                child: Text(
-                                  appLocalizations.more_photos,
-                                  style:
-                                      Theme.of(context).textTheme.displayMedium,
+                            if (!_hideOtherPhotos)
+                              SliverPadding(
+                                padding: const EdgeInsetsDirectional.symmetric(
+                                  vertical: MEDIUM_SPACE,
+                                  horizontal: SMALL_SPACE,
+                                ),
+                                sliver: SliverToBoxAdapter(
+                                  child: _moreInterestingPhotoWidget(
+                                    appLocalizations,
+                                    context,
+                                  ),
                                 ),
                               ),
-                            ),
                             if (_shouldDisplayRawGallery())
-                              const ProductImageGalleryOtherView()
+                              ProductImageGalleryOtherView(
+                                  onPhotosAvailable: (bool hasPhotos) {
+                                if (_hideOtherPhotos != hasPhotos) {
+                                  onNextFrame(
+                                    () => setState(
+                                      () => _hideOtherPhotos = !hasPhotos,
+                                    ),
+                                  );
+                                }
+                              })
                             else
                               SliverToBoxAdapter(
                                 child: Padding(
@@ -235,6 +245,15 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView>
       ),
     );
   }
+
+  Text _moreInterestingPhotoWidget(
+    AppLocalizations appLocalizations,
+    BuildContext context,
+  ) =>
+      Text(
+        appLocalizations.more_photos,
+        style: Theme.of(context).textTheme.displayMedium,
+      );
 
   bool _shouldDisplayRawGallery() =>
       _clickedOtherPictureButton ||
