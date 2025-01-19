@@ -2229,7 +2229,7 @@
     "prices_privacy_warning_title": "Datenschutzwarnung",
     "prices_privacy_warning_message": "Die Preise werden zusammen mit dem Laden, auf den sie sich beziehen, veröffentlicht.\nDas könnte es Leuten, die Ihr Open Food Facts-Pseudonym kennen, ermöglichen:\n• Rückschlüsse auf Ihre Wohngegend ziehen\n• wissen, was Sie kaufen\nWenn Sie damit nicht einverstanden sind, ändern Sie bitte Ihr Pseudonym oder erstellen Sie ein neues Open Food Facts-Konto und melden Sie sich damit bei der App an.",
     "prices_unknown_product": "Unbekanntes Produkt",
-    "prices_currency_change_proposal_title": "Change the currency?",
+    "prices_currency_change_proposal_title": "Währung ändern?",
     "prices_currency_change_proposal_message": "Your current currency is **{currency}**. Would you like to change it to **{newCurrency}**?",
     "@prices_currency_change_proposal_message": {
         "description": "Message to ask the user if they want to change the currency",
