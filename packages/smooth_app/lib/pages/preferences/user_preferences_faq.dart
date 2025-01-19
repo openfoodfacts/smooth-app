@@ -156,7 +156,7 @@ class UserPreferencesFaq extends AbstractUserPreferences {
                 ? 'assets/app/RVB_ICON_BLACK_BG_OPF.svg'
                 : 'assets/app/RVB_ICON_WHITE_BG_OPF.svg',
             url:
-                'https://play.google.com/store/apps/details?id=org.openpetfoodfacts.scanner&hl=${ProductQuery.getLanguage().offTag}',
+                'https://play.google.com/store/apps/details?id=org.openproductsfacts.scanner&hl=${ProductQuery.getLanguage().offTag}',
           ),
         _getListTile(
           title: appLocalizations.about_this_app,
