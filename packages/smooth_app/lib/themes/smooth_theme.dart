@@ -100,6 +100,7 @@ class SmoothTheme {
           fontWeight: FontWeight.w500,
         ),
         actionTextColor: Colors.white,
+        actionBackgroundColor: smoothExtension.primaryDark,
         backgroundColor: smoothExtension.primaryBlack,
       ),
       bannerTheme: MaterialBannerThemeData(

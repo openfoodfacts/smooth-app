@@ -28,6 +28,14 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
+    "continue_label": "Продолжить",
+    "@continue_label": {
+        "description": "A label on a button that says 'Continue', pressing the button takes the user to the next screen."
+    },
+    "exit_label": "Выход",
+    "@exit_label": {
+        "description": "A label on a button that says 'Exit', pressing the button takes the user to the next screen."
+    },
     "previous_label": "Предыдущая",
     "@previous_label": {
         "description": "A label on a button that says 'Previous', pressing the button takes the user to the previous screen."
@@ -432,7 +440,7 @@
     "myPreferences_profile_title": "Ваш профиль",
     "myPreferences_profile_subtitle": "Управляйте своей учётной записью участника Open Food Facts.",
     "myPreferences_settings_title": "Настройки",
-    "myPreferences_settings_subtitle": "Тёмная тема, аналитика…",
+    "myPreferences_settings_subtitle": "Dark mode, Languages…",
     "myPreferences_food_title": "Предпочтения в еде",
     "myPreferences_food_subtitle": "Выберите, какая информация о еде представляет для вас наибольший интерес.",
     "myPreferences_food_comment": "Выберите информацию о еде, которая представляет для вас наибольший интерес, чтобы отсортировывать еду в соответствии с вашими предпочтениями, показывать нужную вам информацию в первую очередь, а также получать данные о совместимости. Выбранные вами предпочтения останутся на вашем устройстве и никак не связаны с вашим профилем участника Open Food Facts, если таковой имеется.",
@@ -1600,6 +1608,14 @@
     "edit_product_form_item_add_valid_item_tooltip": "Добавить",
     "edit_product_form_item_add_invalid_item_tooltip": "Пожалуйста, сначала введите текст",
     "edit_product_form_item_remove_item_tooltip": "Удалить",
+    "edit_product_form_item_save_edit_item_tooltip": "Save your edit",
+    "@edit_product_form_item_save_edit_item_tooltip": {
+        "description": "The user can edit an existing item. This action will save the change."
+    },
+    "edit_product_form_item_cancel_edit_item_tooltip": "Cancel your edit",
+    "@edit_product_form_item_cancel_edit_item_tooltip": {
+        "description": "The user can edit an existing item. This action will cancel the change (and return to the initial value)."
+    },
     "edit_product_form_item_packaging_title": "Фото инструкции по переработке",
     "@edit_product_form_item_packaging_title": {
         "description": "Product edition - Packaging - Title"

@@ -82,7 +82,7 @@ class SmoothFloatingSnackbar extends SnackBar {
     super.width,
     super.shape,
     super.hitTestBehavior,
-    super.action,
+    SnackBarAction? action,
     super.actionOverflowThreshold,
     super.showCloseIcon,
     super.closeIconColor,
@@ -101,6 +101,10 @@ class SmoothFloatingSnackbar extends SnackBar {
           behavior: SnackBarBehavior.floating,
           backgroundColor:
               context.extension<SmoothColorsThemeExtension>().error,
+          action: action?.copyWith(
+            backgroundColor: Colors.white38,
+            textColor: Colors.white,
+          ),
           content: Row(
             children: <Widget>[
               ExcludeSemantics(
@@ -138,4 +142,25 @@ class SmoothFloatingSnackbar extends SnackBar {
             ],
           ),
         );
+}
+
+extension SnackBarActionExtension on SnackBarAction {
+  SnackBarAction copyWith({
+    String? label,
+    VoidCallback? onPressed,
+    Color? textColor,
+    Color? disabledTextColor,
+    Color? backgroundColor,
+    Color? disabledBackgroundColor,
+  }) {
+    return SnackBarAction(
+      textColor: textColor ?? this.textColor,
+      disabledTextColor: disabledTextColor ?? this.disabledTextColor,
+      backgroundColor: backgroundColor ?? this.backgroundColor,
+      disabledBackgroundColor:
+          disabledBackgroundColor ?? this.disabledBackgroundColor,
+      label: label ?? this.label,
+      onPressed: onPressed ?? this.onPressed,
+    );
+  }
 }

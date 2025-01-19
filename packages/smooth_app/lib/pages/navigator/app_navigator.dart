@@ -11,6 +11,7 @@ import 'package:smooth_app/helpers/extension_on_text_helper.dart';
 import 'package:smooth_app/pages/guides/guide/guide_nutriscore_v2.dart';
 import 'package:smooth_app/pages/navigator/error_page.dart';
 import 'package:smooth_app/pages/navigator/external_page.dart';
+import 'package:smooth_app/pages/navigator/external_page_webview.dart';
 import 'package:smooth_app/pages/navigator/slide_up_transition.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
@@ -272,6 +273,18 @@ class _SmoothGoRouter {
             );
           },
         ),
+        GoRoute(
+          path: '/${_InternalAppRoutes.EXTERNAL_WEBVIEW_PAGE}',
+          pageBuilder: (BuildContext context, GoRouterState state) {
+            return OpenUpwardsPage.getTransition<void>(
+              key: state.pageKey,
+              child: ExternalPageInAWebView(
+                path: Uri.decodeFull(state.uri.queryParameters['path']!),
+                pageName: state.uri.queryParameters['title'],
+              ),
+            );
+          },
+        ),
       ],
       redirect: (BuildContext context, GoRouterState state) {
         final String path = state.matchedLocation;
@@ -433,6 +446,7 @@ class _InternalAppRoutes {
   static const String PREFERENCES_PAGE = '_preferences';
   static const String SEARCH_PAGE = '_search';
   static const String EXTERNAL_PAGE = '_external';
+  static const String EXTERNAL_WEBVIEW_PAGE = '_external_webview';
   static const String SIGNUP_PAGE = '_signup';
 
   static const String _GUIDES = '_guides';
@@ -495,7 +509,11 @@ class AppRoutes {
 
   static String get SIGNUP => '/${_InternalAppRoutes.SIGNUP_PAGE}';
 
-  // Open an external link
+  // Open an external link in the browser or custom tabs
   static String EXTERNAL(String path) =>
       '/${_InternalAppRoutes.EXTERNAL_PAGE}?path=${Uri.encodeFull(path)}';
+
+  // Open an external link in a WebView
+  static String EXTERNAL_WEBVIEW(String path, {String? pageTitle}) =>
+      '/${_InternalAppRoutes.EXTERNAL_WEBVIEW_PAGE}?title=$pageTitle&path=${Uri.encodeFull(path)}';
 }

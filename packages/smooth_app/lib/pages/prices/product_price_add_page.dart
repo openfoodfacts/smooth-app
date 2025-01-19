@@ -137,7 +137,17 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
                     const SizedBox(height: LARGE_SPACE),
                     const PriceDateCard(),
                     const SizedBox(height: LARGE_SPACE),
-                    const PriceLocationCard(),
+                    PriceLocationCard(
+                      onLocationChanged: (
+                        OsmLocation? oldLocation,
+                        OsmLocation location,
+                      ) =>
+                          _updateCurrency(
+                        oldLocation,
+                        location,
+                        model,
+                      ),
+                    ),
                     const SizedBox(height: LARGE_SPACE),
                     const PriceCurrencyCard(),
                     const SizedBox(height: LARGE_SPACE),
@@ -177,6 +187,62 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
         );
       },
     );
+  }
+
+  Future<void> _updateCurrency(
+    OsmLocation? oldLocation,
+    OsmLocation location,
+    PriceModel model,
+  ) async {
+    if (location.countryCode != null) {
+      final Currency? newCurrency =
+          OpenFoodFactsCountry.fromOffTag(location.countryCode)?.currency;
+
+      if (newCurrency != null && model.currency != newCurrency) {
+        final AppLocalizations appLocalizations = AppLocalizations.of(context);
+        final SmoothColorsThemeExtension extension =
+            context.extension<SmoothColorsThemeExtension>();
+
+        final Currency? currency =
+            await showSmoothListOfChoicesModalSheet<Currency?>(
+          context: context,
+          title: appLocalizations.prices_currency_change_proposal_title,
+          header: ColoredBox(
+            color: extension.primaryLight,
+            child: Padding(
+              padding: const EdgeInsetsDirectional.symmetric(
+                horizontal: LARGE_SPACE,
+                vertical: MEDIUM_SPACE,
+              ),
+              child: TextWithBoldParts(
+                text: appLocalizations.prices_currency_change_proposal_message(
+                    model.currency.name, newCurrency.name),
+                textStyle: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                      fontWeight: FontWeight.w500,
+                    ),
+              ),
+            ),
+          ),
+          labels: <String>[
+            appLocalizations.prices_currency_change_proposal_action_approve(
+              newCurrency.name,
+            ),
+            appLocalizations.prices_currency_change_proposal_action_cancel(
+              model.currency.name,
+            ),
+          ],
+          prefixIcons: <Widget>[
+            Icon(Icons.check_circle_rounded, color: extension.success),
+            Icon(Icons.cancel_rounded, color: extension.error),
+          ],
+          values: <Currency?>[newCurrency, null],
+        );
+
+        if (currency != null) {
+          model.currency = currency;
+        }
+      }
+    }
   }
 
   Future<bool?> _doesAcceptWarning({required final bool justInfo}) async {

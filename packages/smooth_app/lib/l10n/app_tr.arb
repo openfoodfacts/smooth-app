@@ -28,6 +28,14 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
+    "continue_label": "Devam et",
+    "@continue_label": {
+        "description": "A label on a button that says 'Continue', pressing the button takes the user to the next screen."
+    },
+    "exit_label": "Çık",
+    "@exit_label": {
+        "description": "A label on a button that says 'Exit', pressing the button takes the user to the next screen."
+    },
     "previous_label": "Önceki",
     "@previous_label": {
         "description": "A label on a button that says 'Previous', pressing the button takes the user to the previous screen."
@@ -432,7 +440,7 @@
     "myPreferences_profile_title": "Profiliniz",
     "myPreferences_profile_subtitle": "Open Food Facts hesabını yönet.",
     "myPreferences_settings_title": "Uygulama Ayarları",
-    "myPreferences_settings_subtitle": "Karanlık mod, Analytics…",
+    "myPreferences_settings_subtitle": "Dark mode, Languages…",
     "myPreferences_food_title": "Yiyecek tercihleri",
     "myPreferences_food_subtitle": "Yiyeceklerle ilgili hangi bilgilerin sizin için en önemli olduğunu seçin.",
     "myPreferences_food_comment": "Yiyecekleri tercihlerinize göre sıralamak, önemsediğiniz bilgileri ilk önce görmek ve uyumluluk özeti almak için yiyeceklerle ilgili sizin için en önemli olan bilgileri seçin. Bu yemek tercihleri cihazınızda kalır ve varsa Open Food Facts hesabınızla ilişkilendirilmez.",
@@ -1600,6 +1608,14 @@
     "edit_product_form_item_add_valid_item_tooltip": "Ekle",
     "edit_product_form_item_add_invalid_item_tooltip": "Lütfen önce bir metin girin",
     "edit_product_form_item_remove_item_tooltip": "Kaldır",
+    "edit_product_form_item_save_edit_item_tooltip": "Save your edit",
+    "@edit_product_form_item_save_edit_item_tooltip": {
+        "description": "The user can edit an existing item. This action will save the change."
+    },
+    "edit_product_form_item_cancel_edit_item_tooltip": "Cancel your edit",
+    "@edit_product_form_item_cancel_edit_item_tooltip": {
+        "description": "The user can edit an existing item. This action will cancel the change (and return to the initial value)."
+    },
     "edit_product_form_item_packaging_title": "Geri dönüşüm talimatları fotoğrafı",
     "@edit_product_form_item_packaging_title": {
         "description": "Product edition - Packaging - Title"

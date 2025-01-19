@@ -16,11 +16,11 @@ import 'package:smooth_app/widgets/smooth_text.dart';
 class NutritionAddNutrientButton extends StatelessWidget {
   const NutritionAddNutrientButton({
     required this.nutritionContainer,
-    required this.refreshParent,
+    required this.onNutrientSelected,
   });
 
   final NutritionContainer nutritionContainer;
-  final VoidCallback refreshParent;
+  final Function(OrderedNutrient nutrient) onNutrientSelected;
 
   @override
   Widget build(BuildContext context) {
@@ -95,7 +95,7 @@ class NutritionAddNutrientButton extends StatelessWidget {
         );
         if (selected != null) {
           nutritionContainer.add(selected);
-          refreshParent.call();
+          onNutrientSelected.call(selected);
         }
       },
       style: ButtonStyle(

@@ -28,6 +28,14 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
+    "continue_label": "Doorgaan",
+    "@continue_label": {
+        "description": "A label on a button that says 'Continue', pressing the button takes the user to the next screen."
+    },
+    "exit_label": "Verlaten",
+    "@exit_label": {
+        "description": "A label on a button that says 'Exit', pressing the button takes the user to the next screen."
+    },
     "previous_label": "Vorige",
     "@previous_label": {
         "description": "A label on a button that says 'Previous', pressing the button takes the user to the previous screen."
@@ -432,7 +440,7 @@
     "myPreferences_profile_title": "Jouw profiel",
     "myPreferences_profile_subtitle": "Beheer je Open Food Facts-bijdragersaccount.",
     "myPreferences_settings_title": "App-instellingen",
-    "myPreferences_settings_subtitle": "Donkere modus, Analytics…",
+    "myPreferences_settings_subtitle": "Dark mode, Languages…",
     "myPreferences_food_title": "Voedselvoorkeuren",
     "myPreferences_food_subtitle": "Kies welke informatie over voedsel voor u het belangrijkst is.",
     "myPreferences_food_comment": "Kies welke informatie over voedsel voor u het belangrijkst is, om voedsel te rangschikken volgens uw voorkeuren, bekijk eerst de informatie die u belangrijk vindt en ontvang een compatibiliteitsoverzicht. Die voedselvoorkeuren blijven op uw apparaat staan en zijn niet gekoppeld aan uw Open Food Facts-bijdragersaccount, als u er een heeft.",
@@ -1077,7 +1085,7 @@
             "count": {}
         }
     },
-    "multiselect_title": "{count,plural, one {}=0{Geen geselecteerd product} =1{Eén geselecteerd product} other{{count} geselecteerde producten}}",
+    "multiselect_title": "{count,plural, =0{Geen geselecteerd product} =1{Eén geselecteerd product} other{{count} geselecteerde producten}}",
     "@multiselect_title": {
         "description": "Page title with the number of selected items",
         "placeholders": {
@@ -1600,6 +1608,14 @@
     "edit_product_form_item_add_valid_item_tooltip": "Toevoegen",
     "edit_product_form_item_add_invalid_item_tooltip": "Voer eerst een tekst in alsjeblieft",
     "edit_product_form_item_remove_item_tooltip": "Verwijderen",
+    "edit_product_form_item_save_edit_item_tooltip": "Save your edit",
+    "@edit_product_form_item_save_edit_item_tooltip": {
+        "description": "The user can edit an existing item. This action will save the change."
+    },
+    "edit_product_form_item_cancel_edit_item_tooltip": "Cancel your edit",
+    "@edit_product_form_item_cancel_edit_item_tooltip": {
+        "description": "The user can edit an existing item. This action will cancel the change (and return to the initial value)."
+    },
     "edit_product_form_item_packaging_title": "Recycling instructies foto",
     "@edit_product_form_item_packaging_title": {
         "description": "Product edition - Packaging - Title"
@@ -1967,8 +1983,8 @@
     "prices_app_dev_mode_flag": "Snelkoppeling naar de Prijzen-app op de productpagina",
     "prices_app_button": "Ga naar de Prijzen-app",
     "prices_generic_title": "Prijzen",
-    "prices_add_n_prices": "{count,plural, one {}=1{Voeg een prijs toe} other{Voeg {count} prijzen toe}}",
-    "prices_send_n_prices": "{count,plural, one {}=1{Verstuur 1 prijs} other{Verstuur {count} prijzen}}",
+    "prices_add_n_prices": "{count,plural, =1{Voeg een prijs toe} other{Voeg {count} prijzen toe}}",
+    "prices_send_n_prices": "{count,plural, =1{Verstuur 1 prijs} other{Verstuur {count} prijzen}}",
     "prices_add_an_item": "Item toevoegen",
     "prices_add_a_price": "Voeg een prijs toe",
     "prices_add_a_receipt": "Een ontvangstbewijs toevoegen",
@@ -1996,7 +2012,7 @@
     "prices_barcode_enter": "Voer de streepjescode in",
     "prices_barcode_reader_action": "Streepjescodelezer",
     "prices_view_prices": "Bekijk de prijzen",
-    "prices_product_accessibility_summary": "{count,plural, one {}=1{1 prijs} other{{count} prijzen}} voor {product}",
+    "prices_product_accessibility_summary": "{count,plural, =1{1 prijs} other{{count} prijzen}} voor {product}",
     "@prices_product_accessibility_summary": {
         "description": "A card summarizing the number of prices for a product",
         "placeholders": {
@@ -2008,7 +2024,7 @@
             }
         }
     },
-    "prices_list_length_one_page": "{count,plural, one {}=0{Nog geen prijs} =1{Slechts één prijs} other{Alle {count} prijzen}}",
+    "prices_list_length_one_page": "{count,plural, =0{Nog geen prijs} =1{Slechts één prijs} other{Alle {count} prijzen}}",
     "@prices_list_length_one_page": {
         "description": "Number of prices for one-page result",
         "placeholders": {
@@ -2060,7 +2076,7 @@
     "@prices_open_proof": {
         "description": "Button to open a proof"
     },
-    "prices_proofs_list_length_one_page": "{count,plural, one {}=0{Nog geen bewijs} =1{Slechts één bewijs} other{Alle {count} bewijzen}}",
+    "prices_proofs_list_length_one_page": "{count,plural, =0{Nog geen bewijs} =1{Slechts één bewijs} other{Alle {count} bewijzen}}",
     "@prices_proofs_list_length_one_page": {
         "description": "Number of proofs for one-page result",
         "placeholders": {
@@ -2105,7 +2121,7 @@
             }
         }
     },
-    "prices_button_count_proof": "{count,plural, one {}=0{Geen bewijs} =1{Eén bewijs} other{{count} bewijzen}}",
+    "prices_button_count_proof": "{count,plural, =0{Geen bewijs} =1{Eén bewijs} other{{count} bewijzen}}",
     "@prices_button_count_proof": {
         "description": "Number of proofs, for a button",
         "placeholders": {
@@ -2114,7 +2130,7 @@
             }
         }
     },
-    "prices_button_count_product": "{count,plural, one {}=0{Geen product} =1{Eén product} other{{count} producten}}",
+    "prices_button_count_product": "{count,plural, =0{Geen product} =1{Eén product} other{{count} producten}}",
     "@prices_button_count_product": {
         "description": "Number of products, for a button",
         "placeholders": {
@@ -2123,7 +2139,7 @@
             }
         }
     },
-    "prices_button_count_user": "{count,plural, one {}=0{Geen gebruiker} =1{Eén gebruiker} other{{count} gebruikers}}",
+    "prices_button_count_user": "{count,plural, =0{Geen gebruiker} =1{Eén gebruiker} other{{count} gebruikers}}",
     "@prices_button_count_user": {
         "description": "Number of users, for a button",
         "placeholders": {
@@ -2132,7 +2148,7 @@
             }
         }
     },
-    "prices_button_count_price": "{count,plural, one {}=0{Geen prijs} =1{Eén prijs} other{{count} prijzen}}",
+    "prices_button_count_price": "{count,plural, =0{Geen prijs} =1{Eén prijs} other{{count} prijzen}}",
     "@prices_button_count_price": {
         "description": "Number of prices, for a button",
         "placeholders": {

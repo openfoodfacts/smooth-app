@@ -15,6 +15,7 @@ import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/image_field_extension.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/helpers/text_input_formatters_helper.dart';
+import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/pages/product/common/product_buttons.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
@@ -89,16 +90,15 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
     with UpToDateMixin {
   late final NumberFormat _decimalNumberFormat;
   late final NutritionContainer _nutritionContainer;
-  bool _ownerFieldBannerVisible = false;
-
-  /// When the banner is visible, we add a padding to the list
-  double _ownerFieldBannerHeight = 0.0;
 
   final Map<Nutrient, TextEditingControllerWithHistory> _controllers =
       <Nutrient, TextEditingControllerWithHistory>{};
   TextEditingControllerWithHistory? _servingController;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final List<FocusNode> _focusNodes = <FocusNode>[];
+
+  /// When a nutrient is added, ensure that the focus will be on it
+  OrderedNutrient? _nutrientToHighlight;
 
   @override
   void initState() {
@@ -116,6 +116,9 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
 
   @override
   void dispose() {
+    for (final FocusNode node in _focusNodes) {
+      node.dispose();
+    }
     _focusNodes.clear();
 
     for (final TextEditingControllerWithHistory controller
@@ -148,46 +151,22 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
             title: appLocalizations.nutrition_page_title,
             product: upToDateProduct,
           ),
-          body: Stack(
-            children: <Widget>[
-              Positioned.fill(
-                child: Padding(
+          body: Padding(
+            padding: const EdgeInsetsDirectional.symmetric(
+              horizontal: LARGE_SPACE,
+            ),
+            child: Form(
+              key: _formKey,
+              child: Provider<List<FocusNode>>.value(
+                value: _focusNodes,
+                child: ListView(
                   padding: const EdgeInsetsDirectional.symmetric(
-                    horizontal: LARGE_SPACE,
+                    vertical: SMALL_SPACE,
                   ),
-                  child: Form(
-                    key: _formKey,
-                    child: Provider<List<FocusNode>>.value(
-                      value: _focusNodes,
-                      child: ListView(
-                        padding: const EdgeInsetsDirectional.symmetric(
-                          vertical: SMALL_SPACE,
-                        ),
-                        children: children,
-                      ),
-                    ),
-                  ),
+                  children: children,
                 ),
               ),
-              Positioned(
-                bottom: 0.0,
-                left: 0.0,
-                right: 0.0,
-                child: AnimatedOwnerFieldBanner(
-                  visible: _ownerFieldBannerVisible,
-                  shadow: true,
-                  onHeightChanged: (double height) {
-                    _ownerFieldBannerHeight = height;
-                    if (_ownerFieldBannerVisible) {
-                      setState(() {});
-                    }
-                  },
-                  onDismissClicked: () {
-                    setState(() => _ownerFieldBannerVisible = false);
-                  },
-                ),
-              ),
-            ],
+            ),
           ),
           bottomNavigationBar: ProductBottomButtonsBar(
             onSave: () async => _exitPage(
@@ -231,7 +210,9 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
       children.add(_getServingSwitch(appLocalizations));
 
       if (_focusNodes.length != displayableNutrients.length) {
-        _focusNodes.clear();
+        for (final FocusNode node in _focusNodes) {
+          node.unfocus();
+        }
         _focusNodes.addAll(
           List<FocusNode>.generate(
             displayableNutrients.length,
@@ -265,18 +246,28 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
             ),
           ),
         );
+
+        if (_nutrientToHighlight == orderedNutrient) {
+          final FocusNode focusNode = _focusNodes[i];
+          onNextFrame(() {
+            return focusNode.requestFocus();
+          });
+          _nutrientToHighlight = null;
+        }
       }
       children.add(
         NutritionAddNutrientButton(
           nutritionContainer: _nutritionContainer,
-          refreshParent: () => setState(() {}),
+          onNutrientSelected: (final OrderedNutrient nutrient) {
+            setState(() => _nutrientToHighlight = nutrient);
+          },
         ),
       );
-
-      if (_ownerFieldBannerVisible) {
-        children.add(SizedBox(height: _ownerFieldBannerHeight));
-      }
     } else {
+      // Ensure we won't have any memory leak
+      for (final Nutrient nutrient in _controllers.keys) {
+        _controllers[nutrient]!.dispose();
+      }
       _focusNodes.clear();
     }
     return children;
@@ -330,9 +321,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
         )) !=
         null) {
       return IconButton(
-        onPressed: () {
-          context.read<_NutritionPageLoadedState>().toggleOwnerFieldBanner();
-        },
+        onPressed: () => showOwnerFieldInfoInModalSheet(context),
         icon: const OwnerFieldIcon(),
       );
     }
@@ -557,12 +546,6 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
     );
     return true;
   }
-
-  void toggleOwnerFieldBanner() {
-    setState(() {
-      _ownerFieldBannerVisible = !_ownerFieldBannerVisible;
-    });
-  }
 }
 
 class _NutrientRow extends StatelessWidget {
@@ -656,11 +639,7 @@ class _NutrientValueCell extends StatelessWidget {
                     null
             ? null
             : IconButton(
-                onPressed: () {
-                  context
-                      .read<_NutritionPageLoadedState>()
-                      .toggleOwnerFieldBanner();
-                },
+                onPressed: () => showOwnerFieldInfoInModalSheet(context),
                 icon: const OwnerFieldIcon(),
               ),
       ),

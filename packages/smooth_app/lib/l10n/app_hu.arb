@@ -28,6 +28,14 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
+    "continue_label": "Folytatás",
+    "@continue_label": {
+        "description": "A label on a button that says 'Continue', pressing the button takes the user to the next screen."
+    },
+    "exit_label": "Kilépés",
+    "@exit_label": {
+        "description": "A label on a button that says 'Exit', pressing the button takes the user to the next screen."
+    },
     "previous_label": "Előző",
     "@previous_label": {
         "description": "A label on a button that says 'Previous', pressing the button takes the user to the previous screen."
@@ -432,7 +440,7 @@
     "myPreferences_profile_title": "Profilom",
     "myPreferences_profile_subtitle": "Kezelje OpenFoodFacts-közreműködői fiókját.",
     "myPreferences_settings_title": "Alkalmazás beállításai",
-    "myPreferences_settings_subtitle": "Sötét mód, analitika…",
+    "myPreferences_settings_subtitle": "Dark mode, Languages…",
     "myPreferences_food_title": "Élelmiszer-preferenciák",
     "myPreferences_food_subtitle": "Válassza ki, hogy mely élelmiszerekkel kapcsolatos információk a legfontosabbak az Ön számára.",
     "myPreferences_food_comment": "Válassza ki, hogy az élelmiszerekkel kapcsolatban mely információk a legfontosabbak az Ön számára, hogy az élelmiszereket a preferenciái szerint rangsorolja, az Ön számára fontos információkat lássa elsőként, és kapjon egy megfelelőségi összefoglalót. Ezek az élelmiszer-preferenciák az Ön készülékén maradnak, és nem kapcsolódnak az Open Food Facts közreműködői fiókjához, ha rendelkezik ilyennel.",
@@ -1600,6 +1608,14 @@
     "edit_product_form_item_add_valid_item_tooltip": "Hozzáadás",
     "edit_product_form_item_add_invalid_item_tooltip": "Először írjon be egy szöveget",
     "edit_product_form_item_remove_item_tooltip": "Eltávolítás",
+    "edit_product_form_item_save_edit_item_tooltip": "Save your edit",
+    "@edit_product_form_item_save_edit_item_tooltip": {
+        "description": "The user can edit an existing item. This action will save the change."
+    },
+    "edit_product_form_item_cancel_edit_item_tooltip": "Cancel your edit",
+    "@edit_product_form_item_cancel_edit_item_tooltip": {
+        "description": "The user can edit an existing item. This action will cancel the change (and return to the initial value)."
+    },
     "edit_product_form_item_packaging_title": "Újrahasznosítási utasítások fényképe",
     "@edit_product_form_item_packaging_title": {
         "description": "Product edition - Packaging - Title"

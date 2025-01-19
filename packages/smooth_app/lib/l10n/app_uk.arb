@@ -28,6 +28,14 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
+    "continue_label": "Продовжити",
+    "@continue_label": {
+        "description": "A label on a button that says 'Continue', pressing the button takes the user to the next screen."
+    },
+    "exit_label": "Вийти",
+    "@exit_label": {
+        "description": "A label on a button that says 'Exit', pressing the button takes the user to the next screen."
+    },
     "previous_label": "Попередній",
     "@previous_label": {
         "description": "A label on a button that says 'Previous', pressing the button takes the user to the previous screen."
@@ -432,7 +440,7 @@
     "myPreferences_profile_title": "Ваш Профіль",
     "myPreferences_profile_subtitle": "Керуйте своїм обліковим записом учасника Open Food Facts.",
     "myPreferences_settings_title": "Налаштування Додатку",
-    "myPreferences_settings_subtitle": "Темний режим, аналітика…",
+    "myPreferences_settings_subtitle": "Темний режим, мови…",
     "myPreferences_food_title": "Харчові вподобання",
     "myPreferences_food_subtitle": "Виберіть інформацію про їжу, яка цікавить Вас понад усе.",
     "myPreferences_food_comment": "Виберіть, яка інформація про продукти харчування є для вас найважливішою, щоб ранжувати продукти відповідно до ваших уподобань, першочергово бачити інформацію, яка вас цікавить, і отримати зведення про сумісність. Ці харчові вподобання залишаються на вашому пристрої та не пов'язані з вашим обліковим записом учасника Open Food Facts, якщо ви його маєте.",
@@ -1600,6 +1608,14 @@
     "edit_product_form_item_add_valid_item_tooltip": "Додати",
     "edit_product_form_item_add_invalid_item_tooltip": "Будь ласка, введіть слово",
     "edit_product_form_item_remove_item_tooltip": "Видалити",
+    "edit_product_form_item_save_edit_item_tooltip": "Зберегти ваше редагування",
+    "@edit_product_form_item_save_edit_item_tooltip": {
+        "description": "The user can edit an existing item. This action will save the change."
+    },
+    "edit_product_form_item_cancel_edit_item_tooltip": "Скасувати редагування",
+    "@edit_product_form_item_cancel_edit_item_tooltip": {
+        "description": "The user can edit an existing item. This action will cancel the change (and return to the initial value)."
+    },
     "edit_product_form_item_packaging_title": "Інструкція з перероблювання",
     "@edit_product_form_item_packaging_title": {
         "description": "Product edition - Packaging - Title"
@@ -1968,7 +1984,7 @@
     "prices_app_button": "Перейдіть у додаток Ціни",
     "prices_generic_title": "Ціни",
     "prices_add_n_prices": "{count,plural, =1{Додайте ціну} other{Додайте {count} цін}}",
-    "prices_send_n_prices": "{count,plural, one {Надіслати{count} ціну} few {Надіслати {count} ціни} many {Надіслати {count} цін}=1{Надіслати ціну} other{Надіслати {count} ціни}}",
+    "prices_send_n_prices": "{count,plural, =1{Надіслати{count} ціну} few {Надіслати {count} ціни} many {Надіслати {count} цін}=1{Надіслати ціну} other{Надіслати {count} ціни}}",
     "prices_add_an_item": "Додати елемент",
     "prices_add_a_price": "Додати ціну",
     "prices_add_a_receipt": "Додати чек",

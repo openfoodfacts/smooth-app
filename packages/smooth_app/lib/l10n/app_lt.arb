@@ -28,6 +28,14 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
+    "continue_label": "Tęsti",
+    "@continue_label": {
+        "description": "A label on a button that says 'Continue', pressing the button takes the user to the next screen."
+    },
+    "exit_label": "Išeiti",
+    "@exit_label": {
+        "description": "A label on a button that says 'Exit', pressing the button takes the user to the next screen."
+    },
     "previous_label": "Ankstesnis",
     "@previous_label": {
         "description": "A label on a button that says 'Previous', pressing the button takes the user to the previous screen."
@@ -432,7 +440,7 @@
     "myPreferences_profile_title": "Jūsų profilis",
     "myPreferences_profile_subtitle": "Tvarkykite savo „Open Food Facts“ paskyrą.",
     "myPreferences_settings_title": "Programos nustatymai",
-    "myPreferences_settings_subtitle": "Tamsusis režimas; Analizė…",
+    "myPreferences_settings_subtitle": "Tamsusis režimas, kalbos…",
     "myPreferences_food_title": "Maisto pasirinkimai",
     "myPreferences_food_subtitle": "Pasirinkite, kokia informacija apie maistą jums yra svarbiausia.",
     "myPreferences_food_comment": "Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.",
@@ -884,24 +892,24 @@
     "@product_tags_title": {
         "description": "The title for showing product properties, aka folksonomy data"
     },
-    "no_product_tags_found_message": "Produkto savybių nerasta. Savybes galima naudoti produktams išsamiau ir ankstesniu būdu aprašyti. Bakstelėkite, kad pridėtumėte.",
+    "no_product_tags_found_message": "Jokių produkto savybių nerasta. Savybes galima naudoti produktams išsamiau ir lankstesčiau aprašyti.",
     "@no_product_tags_found_message": {
         "description": "Message to show if there are no product properties found"
     },
     "add_tag": "Pridėti savybę",
-    "add_tags": "Add properties",
-    "add_edit_tags": "Add or edit properties",
+    "add_tags": "Pridėti savybes",
+    "add_edit_tags": "Pridėti arba redaguoti savybes",
     "edit_tag": "Redaguoti savybę",
     "remove_tag": "Šalinti savybę",
     "tag_key": "Savybė",
-    "tag_key_uneditable": "Property (uneditable)",
-    "tag_key_input_hint": "Input a property",
+    "tag_key_uneditable": "Savybė (neredaguotina)",
+    "tag_key_input_hint": "Įvesti savybę",
     "tag_value": "Vertė",
-    "tag_value_input_hint": "Input a value",
-    "tag_key_item": "Property:",
-    "tag_value_item": "Value:",
-    "tag_key_explanations": "A key must be lowercase and without any spaces.",
-    "tag_key_already_exists": "A tag with a property {property} already exists!",
+    "tag_value_input_hint": "Įvesti vertę",
+    "tag_key_item": "Savybė:",
+    "tag_value_item": "Vertė:",
+    "tag_key_explanations": "Raktas turi būti mažosiomis raidėmis ir be tarpų.",
+    "tag_key_already_exists": "Žyma su savybe {property} jau yra!",
     "@tag_key_already_exists": {
         "placeholders": {
             "property": {
@@ -1415,7 +1423,7 @@
     "@edit_product_pending_operations_banner_title": {
         "description": "When a product has pending edits (being sent to the server), there is a message on the edit page (here is the title of the message)."
     },
-    "edit_product_pending_operations_banner_message": "Your edits are being **sent in the background** (or later in case of error).\nYou can continue editing other product fields.",
+    "edit_product_pending_operations_banner_message": "Jūsų korekcijos **siunčiamos fone** (arba vėliau, jei įvyko klaida).\nGalite toliau redaguoti kitus produkto laukus.",
     "@edit_product_pending_operations_banner_message": {
         "description": "When a product has pending edits (being sent to the server), there is a message on the edit page. Please keep the ** syntax to make the text bold."
     },
@@ -1577,7 +1585,7 @@
     "@edit_product_form_item_categories_explainer_3": {
         "description": "Product edition - Categories - input explainer, part 3"
     },
-    "edit_product_form_item_exit_title": "Quit without saving?",
+    "edit_product_form_item_exit_title": "Išeiti neišsaugojus?",
     "edit_product_form_item_exit_confirmation": "Ar norite išsaugoti pakeitimus prieš išeidami iš šio puslapio?",
     "edit_product_form_item_exit_confirmation_positive_button": "Įrašyti pakeitimus",
     "edit_product_form_item_exit_confirmation_negative_button": "Išmesti pakeitimus",
@@ -1600,6 +1608,14 @@
     "edit_product_form_item_add_valid_item_tooltip": "Pridėti",
     "edit_product_form_item_add_invalid_item_tooltip": "Pirmiausia įveskite tekstą",
     "edit_product_form_item_remove_item_tooltip": "Pašalinti",
+    "edit_product_form_item_save_edit_item_tooltip": "Įrašyti savo korekciją",
+    "@edit_product_form_item_save_edit_item_tooltip": {
+        "description": "The user can edit an existing item. This action will save the change."
+    },
+    "edit_product_form_item_cancel_edit_item_tooltip": "Atšaukti savo korekciją",
+    "@edit_product_form_item_cancel_edit_item_tooltip": {
+        "description": "The user can edit an existing item. This action will cancel the change (and return to the initial value)."
+    },
     "edit_product_form_item_packaging_title": "Perdirbimo instrukcijos nuotrauka",
     "@edit_product_form_item_packaging_title": {
         "description": "Product edition - Packaging - Title"
@@ -2105,7 +2121,7 @@
             }
         }
     },
-    "prices_button_count_proof": "{count,plural, one {} few {{count} įrodymai} many {{count} įrodymų}=0{No proof} =1{One proof} other{{count} įrodumai}}",
+    "prices_button_count_proof": "{count,plural, few {{count} įrodymai} many {{count} įrodymų}=0{No proof} =1{One proof} other{{count} įrodumai}}",
     "@prices_button_count_proof": {
         "description": "Number of proofs, for a button",
         "placeholders": {
@@ -2641,7 +2657,7 @@
         "description": "Snackbar label after clipboard copy"
     },
     "clipboard_barcode_copied": "Brūkšninis kodas {barcode} nukopijuotas!",
-    "open_product_website": "Open this product on the website",
+    "open_product_website": "Atverti šį produktą tinklalapyje",
     "language_picker_label": "Jūsų kalba",
     "@language_picker_label": {
         "description": "Choose Application Language"
@@ -3573,7 +3589,7 @@
     "knowledge_panel_nutriscore_banner_incorrect_score_message": "There are two possible explanations:\nThe list of ingredients and/or nutrition facts are not up-to-date.\n\nWe provide the \"New calculation\" of the Nutri-Score (or V2). Please check that you have the banner \"New calculation\" on the package.",
     "knowledge_panel_nutriscore_banner_incorrect_score_button1": "Check ingredients",
     "knowledge_panel_nutriscore_banner_incorrect_score_button2": "Check nutrition facts",
-    "url_not_supported": "Unfortunately, we can't open the URL:\n{url}",
+    "url_not_supported": "Deja, negalime atverti URL:\n{url}",
     "@url_not_supported": {
         "description": "Error message when the app can't open a URL",
         "placeholders": {

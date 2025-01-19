@@ -28,6 +28,14 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
+    "continue_label": "Continuar",
+    "@continue_label": {
+        "description": "A label on a button that says 'Continue', pressing the button takes the user to the next screen."
+    },
+    "exit_label": "Salir",
+    "@exit_label": {
+        "description": "A label on a button that says 'Exit', pressing the button takes the user to the next screen."
+    },
     "previous_label": "Anterior",
     "@previous_label": {
         "description": "A label on a button that says 'Previous', pressing the button takes the user to the previous screen."
@@ -432,7 +440,7 @@
     "myPreferences_profile_title": "Tu perfil",
     "myPreferences_profile_subtitle": "Administra tu cuenta de colaborador de Open Food Facts.",
     "myPreferences_settings_title": "Ajustes de la aplicación",
-    "myPreferences_settings_subtitle": "Modo oscuro, analíticas…",
+    "myPreferences_settings_subtitle": "Modo oscuro, Idiomas…",
     "myPreferences_food_title": "Preferencias alimentarias",
     "myPreferences_food_subtitle": "Elige qué tipo de información alimentaria es más importante para ti.",
     "myPreferences_food_comment": "Elige qué información alimentaria es la que más te importan para que la aplicación pueda clasificar los alimentos según tus preferencias. Verás la información más relevante primero y obtendrás un resumen de compatibilidad. Esas preferencias alimentarias permanecen en tu dispositivo y no están asociadas a tu cuenta de colaborador de Open Food Facts, si es que la tienes.",
@@ -1600,6 +1608,14 @@
     "edit_product_form_item_add_valid_item_tooltip": "Añadir",
     "edit_product_form_item_add_invalid_item_tooltip": "Primero escribe algo",
     "edit_product_form_item_remove_item_tooltip": "Eliminar",
+    "edit_product_form_item_save_edit_item_tooltip": "Guarda tu edición",
+    "@edit_product_form_item_save_edit_item_tooltip": {
+        "description": "The user can edit an existing item. This action will save the change."
+    },
+    "edit_product_form_item_cancel_edit_item_tooltip": "Cancela tu edición",
+    "@edit_product_form_item_cancel_edit_item_tooltip": {
+        "description": "The user can edit an existing item. This action will cancel the change (and return to the initial value)."
+    },
     "edit_product_form_item_packaging_title": "Foto sobre instrucciones de reciclaje",
     "@edit_product_form_item_packaging_title": {
         "description": "Product edition - Packaging - Title"
