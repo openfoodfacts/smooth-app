@@ -251,6 +251,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
       final bool? pleaseSave =
           await MayExitPageHelper().openSaveBeforeLeavingDialog(context);
       if (pleaseSave == null) {
+        _brandsHelper.restoreItemsBeforeLastAddition();
         return false;
       }
       if (pleaseSave == false) {
@@ -300,6 +301,10 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
       hasChanged = true;
     }
 
+    _brandsHelper.addItemsFromController(
+      _brandsController,
+      clearController: false,
+    );
     if (_brandsHelper.getChangedProduct(result)) {
       hasChanged = true;
     }

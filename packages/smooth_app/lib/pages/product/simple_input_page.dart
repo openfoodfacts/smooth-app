@@ -139,7 +139,10 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
     bool added = false;
     for (int i = 0; i < widget.helpers.length; i++) {
       final AbstractSimpleInputPageHelper helper = widget.helpers[i];
-      if (helper.addItemsFromController(_controllers[i])) {
+      if (helper.addItemsFromController(
+        _controllers[i],
+        clearController: false,
+      )) {
         added = true;
       }
       final Product changedProduct = Product(barcode: widget.product.barcode);
@@ -158,6 +161,9 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
       final bool? pleaseSave =
           await MayExitPageHelper().openSaveBeforeLeavingDialog(context);
       if (pleaseSave == null) {
+        for (int i = 0; i < widget.helpers.length; i++) {
+          widget.helpers[i].restoreItemsBeforeLastAddition();
+        }
         return false;
       }
       if (pleaseSave == false) {

@@ -194,10 +194,17 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
   @protected
   OpenFoodFactsLanguage getLanguage() => ProductQuery.getLanguage();
 
+  List<String>? _itemsBeforeLastAddition;
+
   /// Adds all the non-already existing items from the controller.
   ///
   /// The item separator is the comma.
-  bool addItemsFromController(final TextEditingController controller) {
+  bool addItemsFromController(
+    final TextEditingController controller, {
+    bool clearController = true,
+  }) {
+    _itemsBeforeLastAddition = List<String>.from(_terms);
+
     final List<String> input = controller.text.split(',');
     bool result = false;
     for (final String item in input) {
@@ -205,10 +212,20 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
         result = true;
       }
     }
-    if (result) {
+    if (result && clearController) {
       controller.text = '';
     }
     return result;
+  }
+
+  void restoreItemsBeforeLastAddition() {
+    if (_itemsBeforeLastAddition == null) {
+      return;
+    }
+    _terms = List<String>.from(_itemsBeforeLastAddition!);
+    _changed = true;
+    _itemsBeforeLastAddition = null;
+    notifyListeners();
   }
 
   /// Mainly used when reordering the list.
