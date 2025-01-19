@@ -90,12 +90,14 @@
   }
 
   final PackageInfo app = await PackageInfo.fromPlatform();
+  final int appLaunches = _preferences.appLaunches;
 
   final AppNews? appNews = await Isolate.run(
     () =&gt; _parseJSONAndGetLocalizedContent(
       jsonString!,
       locale,
       app.version,
+      appLaunches,
     ),
   );
   if (appNews == null) {
