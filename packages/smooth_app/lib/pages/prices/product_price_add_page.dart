@@ -197,7 +197,7 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             TextWithBoldParts(
-              text: appLocalizations.prices_privacy_warning_message,
+              text: appLocalizations.prices_privacy_warning_main_message,
               textStyle: Theme.of(context).textTheme.bodyLarge?.copyWith(
                     fontWeight: FontWeight.w600,
                   ),
