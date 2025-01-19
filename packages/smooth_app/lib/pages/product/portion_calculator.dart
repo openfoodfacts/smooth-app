@@ -5,14 +5,23 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_snackbar.dart';
+import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_card.dart';
 import 'package:smooth_app/pages/product/ordered_nutrients_cache.dart';
 import 'package:smooth_app/pages/product/portion_helper.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/widgets/smooth_circle.dart';
 
 /// Displays a portion size selector and a "compute!" button; results as dialog.
 class PortionCalculator extends StatefulWidget {
   const PortionCalculator(this.product);
 
   final Product product;
+
+  static bool isVisible(String panelId) {
+    return panelId == KnowledgePanelCard.PANEL_NUTRITION_TABLE_ID;
+  }
 
   @override
   State<PortionCalculator> createState() => _PortionCalculatorState();
@@ -38,6 +47,8 @@ class _PortionCalculatorState extends State<PortionCalculator> {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
     final bool isQuantityValid = _isInputValid();
 
     return Column(
@@ -48,9 +59,38 @@ class _PortionCalculatorState extends State<PortionCalculator> {
         Semantics(
           value: appLocalizations.portion_calculator_description,
           excludeSemantics: true,
-          child: Text(
-            appLocalizations.portion_calculator_description,
-            style: Theme.of(context).textTheme.headlineMedium,
+          child: DecoratedBox(
+            decoration: BoxDecoration(
+              color: extension.primaryMedium,
+              borderRadius: const BorderRadius.vertical(
+                top: ROUNDED_RADIUS,
+              ),
+            ),
+            child: Padding(
+              padding: const EdgeInsetsDirectional.symmetric(
+                horizontal: LARGE_SPACE,
+                vertical: BALANCED_SPACE,
+              ),
+              child: Row(
+                children: <Widget>[
+                  const SmoothCircle(
+                    color: Colors.white,
+                    padding: EdgeInsets.all(SMALL_SPACE),
+                    child: Icon(
+                      Icons.calculate_rounded,
+                      size: 18.0,
+                    ),
+                  ),
+                  const SizedBox(width: MEDIUM_SPACE),
+                  Expanded(
+                    child: Text(
+                      appLocalizations.portion_calculator_description,
+                      style: Theme.of(context).textTheme.headlineMedium,
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ),
         ),
         const SizedBox(height: MEDIUM_SPACE),
@@ -148,11 +188,13 @@ class _PortionCalculatorState extends State<PortionCalculator> {
   Future<void> _computeAndShow() async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     if (widget.product.nutriments == null) {
+      _onComputationError();
       return;
     }
     final OrderedNutrientsCache? cache =
         await OrderedNutrientsCache.getCache(context);
     if (cache == null) {
+      _onComputationError();
       return;
     }
     if (!mounted) {
@@ -166,6 +208,7 @@ class _PortionCalculatorState extends State<PortionCalculator> {
       quantity,
     );
     if (helper.isEmpty) {
+      _onComputationError();
       return;
     }
     await showSmoothDraggableModalSheet<void>(
@@ -173,7 +216,7 @@ class _PortionCalculatorState extends State<PortionCalculator> {
       header: SmoothModalSheetHeader(
         title: appLocalizations.portion_calculator_result_title(quantity),
       ),
-      initHeight: 0.7,
+      initHeight: 0.6,
       bodyBuilder: (BuildContext context) {
         return SliverList(
           delegate: SliverChildBuilderDelegate(
@@ -191,7 +234,12 @@ class _PortionCalculatorState extends State<PortionCalculator> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
-                          Text(helper.getName(position)),
+                          Text(
+                            helper.getName(position),
+                            style: const TextStyle(
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
                           Text(helper.getValue(position)),
                         ],
                       ),
@@ -204,6 +252,15 @@ class _PortionCalculatorState extends State<PortionCalculator> {
           ),
         );
       },
+    );
+  }
+
+  void _onComputationError() {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SmoothFloatingSnackbar.error(
+        context: context,
+        text: AppLocalizations.of(context).portion_calculator_computation_error,
+      ),
     );
   }
 

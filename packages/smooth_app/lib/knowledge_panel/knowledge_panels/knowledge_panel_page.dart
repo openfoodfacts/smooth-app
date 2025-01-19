@@ -12,6 +12,7 @@ import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_expanded_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
+import 'package:smooth_app/pages/product/portion_calculator.dart';
 import 'package:smooth_app/pages/product/product_field_editor.dart';
 import 'package:smooth_app/pages/scan/carousel/scan_carousel_manager.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
@@ -108,6 +109,13 @@ class _KnowledgePanelPageState extends State<KnowledgePanelPage>
                   ),
                 ),
               ),
+              if (PortionCalculator.isVisible(widget.panelId))
+                SmoothCard(
+                  padding: const EdgeInsetsDirectional.only(
+                    bottom: LARGE_SPACE,
+                  ),
+                  child: PortionCalculator(upToDateProduct),
+                ),
             ],
           ),
         ),
