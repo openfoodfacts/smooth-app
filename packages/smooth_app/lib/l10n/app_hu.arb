@@ -522,6 +522,10 @@
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
+    "label_reload": "Reload",
+    "@label_reload": {
+        "description": "Reload a page"
+    },
     "image": "Kép",
     "front_photo": "Fénykép szemből",
     "@front_photo": {
@@ -533,6 +537,10 @@
         "placeholders": {
             "imageType": {}
         }
+    },
+    "outdated_image_short_label": "may be outdated",
+    "@outdated_image_short_label": {
+        "description": "A label for outdated images"
     },
     "ingredients": "Összetevők",
     "@ingredients": {},
@@ -622,6 +630,10 @@
     "crop_page_action_local_failed_message": "Nem tudjuk a képet helyben feldolgozni, mielőtt elküldenénk a szerverünkre. Próbálja meg később újra, vagy lépjen kapcsolatba velünk, ha a probléma továbbra is fennáll.",
     "@crop_page_action_local_message": {
         "description": "The save of the picture locally failed - error dialog message"
+    },
+    "crop_page_action_retake": "Retake a photo",
+    "@crop_page_action_retake": {
+        "description": "Button which allows users to retake a photo."
     },
     "crop_page_too_small_image_title": "A fénykép túl kicsi!",
     "@crop_page_too_small_image_title": {
@@ -843,6 +855,24 @@
     "@product_image_action_choose_existing_photo": {
         "description": "Replace the existing picture with one from the product's photos"
     },
+    "product_image_details_label": "Information about the photo",
+    "@product_image_details_label": {
+        "description": "Label for the photo details"
+    },
+    "product_image_details_from_producer": "From the producer",
+    "@product_image_details_from_producer": {
+        "description": "Text to indicate that the image was taken by the producer"
+    },
+    "product_image_details_contributor": "Hozzájáruló",
+    "@product_image_details_contributor": {
+        "description": "The name of the contributor (and also the owner field) who uploaded the image"
+    },
+    "product_image_details_contributor_producer": "Contributor (producer)",
+    "product_image_details_date": "Date",
+    "@product_image_details_date": {
+        "description": "Text to indicate the date of the image is unknown"
+    },
+    "product_image_details_date_unknown": "Ismeretlen",
     "homepage_main_card_logo_description": "Üdvözli az Open Food Facts",
     "@homepage_main_card_logo_description": {
         "description": "Description for accessibility of the Open Food Facts logo on the homepage"
@@ -2681,6 +2711,14 @@
     "@language_picker_label": {
         "description": "Choose Application Language"
     },
+    "country_picker_label": "Az Ön országa",
+    "@country_picker_label": {
+        "description": "Choose Application Country"
+    },
+    "currency_picker_label": "Your currency",
+    "@currency_picker_label": {
+        "description": "Choose Application Country"
+    },
     "help_with_openfoodfacts": "OpenFoodFacts segítségkérés",
     "@help_with_openfoodfacts": {
         "description": "Label for the email title"
@@ -2768,6 +2806,10 @@
                 "type": "int"
             }
         }
+    },
+    "portion_calculator_computation_error": "Missing data. Calculation could not be performed.",
+    "@portion_calculator_computation_error": {
+        "description": "Error message to explain that the computation of the portion calculator failed."
     },
     "portion_calculator_result_title": "Tápértékadatok {grams} g-ra (vagy ml)",
     "@portion_calculator_result_title": {
