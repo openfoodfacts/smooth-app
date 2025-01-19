@@ -119,18 +119,20 @@ Widget build(BuildContext context) {
           size: 0.0,
         ),
         child: addPanelButton(
-            appLocalizations
-                .knowledge_panel_text_source(textElement.sourceText!),
-            trailingIcon: Icon(ConstantIcons.forwardIcon),
-            onPressed: () async =&gt; LaunchUrlHelper.launchURL(
-                  textElement.sourceUrl!,
-                ),
-            borderRadius: ANGULAR_BORDER_RADIUS,
-            elevation: const WidgetStatePropertyAll&lt;double&gt;(0.5),
-            padding: const EdgeInsetsDirectional.symmetric(
-              horizontal: 0,
-              vertical: BALANCED_SPACE,
-            )),
+          appLocalizations
+              .knowledge_panel_text_source(textElement.sourceText!),
+          trailingIcon: Icon(ConstantIcons.forwardIcon),
+          onPressed: () async =&gt; LaunchUrlHelper.launchURLInWebViewOrBrowser(
+            context,
+            textElement.sourceUrl!,
+          ),
+          borderRadius: ANGULAR_BORDER_RADIUS,
+          elevation: const WidgetStatePropertyAll&lt;double&gt;(0.5),
+          padding: const EdgeInsetsDirectional.symmetric(
+            horizontal: 0,
+            vertical: BALANCED_SPACE,
+          ),
+        ),
       ),
     ],
   );

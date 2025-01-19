@@ -72,7 +72,7 @@
   assert(url.isNotEmpty);
 
   if (url.startsWith(RegExp(
-    &#39;http(s)?:&#47;&#47;[a-z]*.open(food|beauty|products|petfood)facts.(net|org)&#39;,
+    r&#39;http(s)?:&#47;&#47;[a-z\-]*.open(food|beauty|products|petfood)facts.(net|org)&#39;,
   ))) {
     AnalyticsHelper.trackOutlink(url: url);
     GoRouter.of(context).push(url);
@@ -123,6 +123,7 @@
         <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_launch_url_helper/LaunchUrlHelper-class.html#static-methods">Static methods</a></li>
           <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_launch_url_helper/LaunchUrlHelper/launchURL.html">launchURL</a></li>
           <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_launch_url_helper/LaunchUrlHelper/launchURLAndFollowDeepLinks.html">launchURLAndFollowDeepLinks</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_launch_url_helper/LaunchUrlHelper/launchURLInWebViewOrBrowser.html">launchURLInWebViewOrBrowser</a></li>
 
 </ol>
 

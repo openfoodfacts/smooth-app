@@ -98,8 +98,12 @@ Widget build(BuildContext context) {
 
       return true;
     },
-    factoryBuilder: () =&gt;
-        isSelectable ? SmoothHtmlWidgetFactory() : WidgetFactory(),
+    factoryBuilder: () =&gt; isSelectable
+        ? SmoothHtmlWidgetFactory(
+            onLinkClicked: (String url) =&gt;
+                LaunchUrlHelper.launchURLInWebViewOrBrowser(context, url),
+          )
+        : WidgetFactory(),
     enableCaching: false,
   );
 }</code></pre>
