@@ -83,7 +83,7 @@
   super.width,
   super.shape,
   super.hitTestBehavior,
-  super.action,
+  SnackBarAction? action,
   super.actionOverflowThreshold,
   super.showCloseIcon,
   super.closeIconColor,
@@ -102,6 +102,10 @@
         behavior: SnackBarBehavior.floating,
         backgroundColor:
             context.extension&lt;SmoothColorsThemeExtension&gt;().error,
+        action: action?.copyWith(
+          backgroundColor: Colors.white38,
+          textColor: Colors.white,
+        ),
         content: Row(
           children: &lt;Widget&gt;[
             ExcludeSemantics(
