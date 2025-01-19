@@ -72,8 +72,12 @@
     return FileImage(file);
   }
   if (url != null) {
+    if (imageField == ImageField.FRONT) {
+      return CachedNetworkImageProvider(url!);
+    }
     return NetworkImage(url!);
   }
+
   return null;
 }</code></pre>
 </section>
