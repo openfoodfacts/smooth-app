@@ -12,8 +12,8 @@ import 'package:smooth_app/pages/preferences/user_preferences_languages_list.dar
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_text.dart';
 
-class LanguageSelector extends StatelessWidget {
-  const LanguageSelector({
+class LanguagesSelector extends StatelessWidget {
+  const LanguagesSelector({
     required this.setLanguage,
     this.selectedLanguages,
     this.displayedLanguage,

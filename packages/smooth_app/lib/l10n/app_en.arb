@@ -865,14 +865,20 @@
     },
     "product_image_details_contributor": "Contributor",
     "@product_image_details_contributor": {
-        "description": "The name of the contributor (and also the owner field) who uploaded the image"
+        "description": "The name of the contributor who uploaded the image"
     },
     "product_image_details_contributor_producer": "Contributor (producer)",
+    "@product_image_details_contributor": {
+        "description": "The name of the contributor (and also the owner field) who uploaded the image"
+    },
     "product_image_details_date": "Date",
+    "@product_image_details_date": {
+        "description": "Text to indicate the date of the image"
+    },
+    "product_image_details_date_unknown": "Unknown",
     "@product_image_details_date": {
         "description": "Text to indicate the date of the image is unknown"
     },
-    "product_image_details_date_unknown": "Unknown",
     "homepage_main_card_logo_description": "Welcome to Open Food Facts",
     "@homepage_main_card_logo_description": {
         "description": "Description for accessibility of the Open Food Facts logo on the homepage"

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:smooth_app/generic_lib/widgets/language_selector.dart';
+import 'package:smooth_app/generic_lib/widgets/languages_selector.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 /// Helper for multilingual inputs (e.g. product name).
@@ -116,7 +116,7 @@ class MultilingualHelper {
     BorderRadius? borderRadius,
     Widget? icon,
   }) =>
-      LanguageSelector(
+      LanguagesSelector(
         product: product,
         icon: icon,
         padding: padding,

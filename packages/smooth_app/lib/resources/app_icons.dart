@@ -283,6 +283,14 @@ class Camera extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.camera_happy);
+
+  const Camera.restart({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.camera_restart);
 }
 
 class Categories extends AppIcon {

@@ -6,6 +6,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
+import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
@@ -164,44 +165,27 @@ enum _ProofSource {
 
   static Future<_ProofSource?> select(final BuildContext context) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    return showCupertinoModalPopup<_ProofSource>(
+    final bool hasCamera = CameraHelper.hasACamera;
+
+    return showSmoothListOfChoicesModalSheet<_ProofSource>(
       context: context,
-      builder: (final BuildContext context) => CupertinoActionSheet(
-        title: Text(appLocalizations.prices_proof_find),
-        cancelButton: CupertinoActionSheetAction(
-          onPressed: () => Navigator.of(context).pop(),
-          child: Text(
-            appLocalizations.cancel,
-          ),
-        ),
-        actions: <Widget>[
-          if (CameraHelper.hasACamera)
-            CupertinoActionSheetAction(
-              onPressed: () => Navigator.of(context).pop(
-                _ProofSource.camera,
-              ),
-              child: Text(
-                appLocalizations.settings_app_camera,
-              ),
-            ),
-          CupertinoActionSheetAction(
-            onPressed: () => Navigator.of(context).pop(
-              _ProofSource.gallery,
-            ),
-            child: Text(
-              appLocalizations.gallery_source_label,
-            ),
-          ),
-          CupertinoActionSheetAction(
-            onPressed: () => Navigator.of(context).pop(
-              _ProofSource.history,
-            ),
-            child: Text(
-              appLocalizations.user_search_proofs_title,
-            ),
-          ),
-        ],
-      ),
+      title: appLocalizations.prices_proof_find,
+      labels: <String>[
+        if (hasCamera) appLocalizations.settings_app_camera,
+        appLocalizations.gallery_source_label,
+        appLocalizations.user_search_proofs_title,
+      ],
+      prefixIcons: <Widget>[
+        if (hasCamera) const Icon(Icons.camera_rounded),
+        const Icon(Icons.perm_media_rounded),
+        const Icon(Icons.document_scanner_rounded),
+      ],
+      addEndArrowToItems: true,
+      values: <_ProofSource>[
+        _ProofSource.camera,
+        _ProofSource.gallery,
+        _ProofSource.history,
+      ],
     );
   }
 }
