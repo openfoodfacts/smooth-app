@@ -2229,8 +2229,8 @@
     "prices_privacy_warning_title": "Privacy warning",
     "prices_privacy_warning_message": "Prices will be public, along with the store they refer to.\nThat might allow people who know about your Open Food Facts pseudonym to:\n* infer in which area you live\n* know what you are buying\nIf you are uneasy with that, please change your pseudonym, or create a new Open Food Facts account and log into the app with it.",
     "prices_unknown_product": "Unknown product",
-    "prices_currency_change_proposal_title": "Change the currency?",
-    "prices_currency_change_proposal_message": "Your current currency is **{currency}**. Would you like to change it to **{newCurrency}**?",
+    "prices_currency_change_proposal_title": "நாணயத்தை மாற்றவா?",
+    "prices_currency_change_proposal_message": "உங்கள் தற்போதைய நாணயத்தை **{currency}**. இதை **{newCurrency}** ஆக மாற்ற விரும்புகிறீர்களா?",
     "@prices_currency_change_proposal_message": {
         "description": "Message to ask the user if they want to change the currency",
         "placeholders": {
@@ -2242,7 +2242,7 @@
             }
         }
     },
-    "prices_currency_change_proposal_action_approve": "Yes, use {newCurrency}",
+    "prices_currency_change_proposal_action_approve": "ஆம், {newCurrency} ஐப் பயன்படுத்தவும்",
     "@prices_currency_change_proposal_action_approve": {
         "description": "Button to approve the currency change",
         "placeholders": {
@@ -2251,7 +2251,7 @@
             }
         }
     },
-    "prices_currency_change_proposal_action_cancel": "No, keep {currency}",
+    "prices_currency_change_proposal_action_cancel": "இல்லை, {currency} வைத்திருங்கள்",
     "@prices_currency_change_proposal_action_cancel": {
         "description": "Button to cancel the currency change",
         "placeholders": {
