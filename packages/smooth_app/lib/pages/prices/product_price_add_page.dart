@@ -202,27 +202,17 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
         final SmoothColorsThemeExtension extension =
             context.extension<SmoothColorsThemeExtension>();
 
-        final Currency? currency =
-            await showSmoothListOfChoicesModalSheet<Currency?>(
+        final Currency? currency = await showSmoothAlertModalSheet<Currency?>(
           context: context,
           title: appLocalizations.prices_currency_change_proposal_title,
-          header: ColoredBox(
-            color: extension.primaryLight,
-            child: Padding(
-              padding: const EdgeInsetsDirectional.symmetric(
-                horizontal: LARGE_SPACE,
-                vertical: MEDIUM_SPACE,
-              ),
-              child: TextWithBoldParts(
-                text: appLocalizations.prices_currency_change_proposal_message(
-                    model.currency.name, newCurrency.name),
-                textStyle: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                      fontWeight: FontWeight.w500,
-                    ),
-              ),
-            ),
+          message: TextWithBoldParts(
+            text: appLocalizations.prices_currency_change_proposal_message(
+                model.currency.name, newCurrency.name),
+            textStyle: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                  fontWeight: FontWeight.w500,
+                ),
           ),
-          labels: <String>[
+          actionLabels: <String>[
             appLocalizations.prices_currency_change_proposal_action_approve(
               newCurrency.name,
             ),
@@ -230,11 +220,11 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
               model.currency.name,
             ),
           ],
-          prefixIcons: <Widget>[
+          actionIcons: <Widget>[
             Icon(Icons.check_circle_rounded, color: extension.success),
             Icon(Icons.cancel_rounded, color: extension.error),
           ],
-          values: <Currency?>[newCurrency, null],
+          actionValues: <Currency?>[newCurrency, null],
         );
 
         if (currency != null) {

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/semantics.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_draggable_bottom_sheet_route.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/helpers/color_extension.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
@@ -97,7 +98,7 @@ Future<T?> showSmoothDraggableModalSheet<T>({
   );
 }
 
-/// A modal sheet containing a limited list (no scroll)
+/// A modal sheet with a limited list (no scroll)
 Future<T?> showSmoothListOfChoicesModalSheet<T>({
   required BuildContext context,
   required String title,
@@ -118,6 +119,7 @@ Future<T?> showSmoothListOfChoicesModalSheet<T>({
   Color? footerBackgroundColor,
   Color? prefixIndicatorColor,
   double footerSpace = 0.0,
+  SmoothModalSheetType type = SmoothModalSheetType.info,
   bool safeArea = false,
 }) {
   assert(labels.length == values.length);
@@ -208,12 +210,66 @@ Future<T?> showSmoothListOfChoicesModalSheet<T>({
     context: context,
     builder: (BuildContext context) => SmoothModalSheet(
       title: title,
+      type: type,
       prefixIndicator: true,
       prefixIndicatorColor: prefixIndicatorColor,
       headerBackgroundColor: headerBackgroundColor,
       bodyPadding: EdgeInsets.zero,
       body: Column(children: items),
     ),
+  );
+}
+
+/// A modal sheet asking for a confirmation
+Future<T?> showSmoothAlertModalSheet<T>({
+  required BuildContext context,
+  required String title,
+  required Widget message,
+  required Iterable<String> actionLabels,
+  required Iterable<T> actionValues,
+  required List<Widget> actionIcons,
+  SmoothModalSheetType type = SmoothModalSheetType.info,
+  bool safeArea = true,
+}) {
+  final bool lightTheme = context.lightTheme(listen: false);
+  final Color headerBackgroundColor = switch (type) {
+    SmoothModalSheetType.error when lightTheme =>
+      SmoothModalSheetHeader.ERROR_COLOR.lighten(0.55),
+    SmoothModalSheetType.error =>
+      SmoothModalSheetHeader.ERROR_COLOR.darken(0.3),
+    SmoothModalSheetType.info when lightTheme =>
+      context.extension<SmoothColorsThemeExtension>().primaryLight,
+    SmoothModalSheetType.info =>
+      context.extension<SmoothColorsThemeExtension>().primaryDark.darken(0.1),
+  };
+
+  return showSmoothListOfChoicesModalSheet<T>(
+    context: context,
+    title: title,
+    type: type,
+    header: ColoredBox(
+      color: headerBackgroundColor,
+      child: Padding(
+        padding: const EdgeInsetsDirectional.symmetric(
+          horizontal: LARGE_SPACE,
+          vertical: MEDIUM_SPACE,
+        ),
+        child: DefaultTextStyle.merge(
+          style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                fontWeight: FontWeight.w600,
+              ),
+          child: message,
+        ),
+      ),
+    ),
+    labels: actionLabels,
+    values: actionValues,
+    prefixIcons: actionIcons,
+    dividerPadding: const EdgeInsetsDirectional.symmetric(
+      horizontal: MEDIUM_SPACE,
+    ),
+    textStyle: const TextStyle(fontWeight: FontWeight.w600),
+    safeArea: true,
   );
 }
 
@@ -249,6 +305,7 @@ class SmoothModalSheet extends StatelessWidget {
   SmoothModalSheet({
     required String title,
     required this.body,
+    SmoothModalSheetType type = SmoothModalSheetType.info,
     bool prefixIndicator = false,
     bool closeButton = true,
     Color? prefixIndicatorColor,
@@ -271,6 +328,7 @@ class SmoothModalSheet extends StatelessWidget {
               : null,
           backgroundColor: headerBackgroundColor,
           foregroundColor: headerForegroundColor,
+          type: type,
         );
 
   final SmoothModalSheetHeader header;
@@ -317,20 +375,21 @@ class SmoothModalSheetHeader extends StatelessWidget implements SizeWidget {
     this.suffix,
     this.foregroundColor,
     this.backgroundColor,
+    this.type = SmoothModalSheetType.info,
   });
 
   static const double MIN_HEIGHT = 55.0;
+  static const Color ERROR_COLOR = Color(0xFFB81D1D);
 
   final String title;
   final SizeWidget? prefix;
   final SizeWidget? suffix;
   final Color? foregroundColor;
   final Color? backgroundColor;
+  final SmoothModalSheetType type;
 
   @override
   Widget build(BuildContext context) {
-    final Color primaryColor =
-        context.extension<SmoothColorsThemeExtension>().primaryDark;
     final Color tintColor = foregroundColor ?? Colors.white;
 
     return IconTheme(
@@ -339,7 +398,7 @@ class SmoothModalSheetHeader extends StatelessWidget implements SizeWidget {
         height: suffix is SmoothModalSheetHeaderButton ? double.infinity : null,
         constraints: const BoxConstraints(minHeight: MIN_HEIGHT),
         decoration: BoxDecoration(
-          color: backgroundColor ?? primaryColor,
+          color: _backgroundColor(context),
           boxShadow: <BoxShadow>[
             BoxShadow(
               color: Colors.black.withValues(alpha: 0.2),
@@ -385,6 +444,18 @@ class SmoothModalSheetHeader extends StatelessWidget implements SizeWidget {
         ),
       ),
     );
+  }
+
+  Color _backgroundColor(BuildContext context) {
+    if (backgroundColor != null) {
+      return backgroundColor!;
+    }
+
+    return switch (type) {
+      SmoothModalSheetType.error => ERROR_COLOR,
+      SmoothModalSheetType.info =>
+        context.extension<SmoothColorsThemeExtension>().primaryDark,
+    };
   }
 
   double computeHeight(BuildContext context) {
@@ -634,4 +705,9 @@ class SmoothModalSheetBodyContainer extends StatelessWidget {
       ),
     );
   }
+}
+
+enum SmoothModalSheetType {
+  error,
+  info,
 }
