@@ -52,7 +52,8 @@
       
 
 <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
-<span class="name ">addItemsFromController</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="addItemsFromController-param-controller"><span class="type-annotation">dynamic</span> <span class="parameter-name">controller</span></span></li>
+<span class="name ">addItemsFromController</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="addItemsFromController-param-controller"><span class="type-annotation">dynamic</span> <span class="parameter-name">controller</span>, </span></li>
+<li><span class="parameter" id="addItemsFromController-param-clearController">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">clearController</span> = <span class="default-value">true</span>}</span></li>
 </ol>)
 
       
@@ -68,7 +69,12 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">bool addItemsFromController(final TextEditingController controller) {
+  <pre class="language-dart"><code class="language-dart">bool addItemsFromController(
+  final TextEditingController controller, {
+  bool clearController = true,
+}) {
+  _itemsBeforeLastAddition = List&lt;String&gt;.from(_terms);
+
   final List&lt;String&gt; input = controller.text.split(&#39;,&#39;);
   bool result = false;
   for (final String item in input) {
@@ -76,7 +82,7 @@
       result = true;
     }
   }
-  if (result) {
+  if (result &amp;&amp; clearController) {
     controller.text = &#39;&#39;;
   }
   return result;
@@ -149,6 +155,7 @@
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/AbstractSimpleInputPageHelper/removeTerm.html">removeTerm</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/AbstractSimpleInputPageHelper/replaceItem.html">replaceItem</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/AbstractSimpleInputPageHelper/replaceItems.html">replaceItems</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/AbstractSimpleInputPageHelper/restoreItemsBeforeLastAddition.html">restoreItemsBeforeLastAddition</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/AbstractSimpleInputPageHelper/splitString.html">splitString</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
 

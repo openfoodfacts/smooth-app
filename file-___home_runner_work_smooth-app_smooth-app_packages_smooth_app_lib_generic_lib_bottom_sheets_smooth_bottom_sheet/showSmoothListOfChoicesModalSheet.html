@@ -71,13 +71,14 @@
 <li><span class="parameter" id="showSmoothListOfChoicesModalSheet-param-footerBackgroundColor"><span class="type-annotation">dynamic</span> <span class="parameter-name">footerBackgroundColor</span>, </span></li>
 <li><span class="parameter" id="showSmoothListOfChoicesModalSheet-param-prefixIndicatorColor"><span class="type-annotation">dynamic</span> <span class="parameter-name">prefixIndicatorColor</span>, </span></li>
 <li><span class="parameter" id="showSmoothListOfChoicesModalSheet-param-footerSpace"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">footerSpace</span> = <span class="default-value">0.0</span>, </span></li>
+<li><span class="parameter" id="showSmoothListOfChoicesModalSheet-param-type"><span class="type-annotation"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_bottom_sheets_smooth_bottom_sheet/SmoothModalSheetType.html">SmoothModalSheetType</a></span> <span class="parameter-name">type</span> = <span class="default-value">SmoothModalSheetType.info</span>, </span></li>
 <li><span class="parameter" id="showSmoothListOfChoicesModalSheet-param-safeArea"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">safeArea</span> = <span class="default-value">false</span>}</span></li>
 </ol>)
 
     </section>
     
 <section class="desc markdown">
-  <p>A modal sheet containing a limited list (no scroll)</p>
+  <p>A modal sheet with a limited list (no scroll)</p>
 </section>
 
 
@@ -104,6 +105,7 @@
   Color? footerBackgroundColor,
   Color? prefixIndicatorColor,
   double footerSpace = 0.0,
+  SmoothModalSheetType type = SmoothModalSheetType.info,
   bool safeArea = false,
 }) {
   assert(labels.length == values.length);
@@ -194,6 +196,7 @@
     context: context,
     builder: (BuildContext context) =&gt; SmoothModalSheet(
       title: title,
+      type: type,
       prefixIndicator: true,
       prefixIndicatorColor: prefixIndicatorColor,
       headerBackgroundColor: headerBackgroundColor,
@@ -237,11 +240,14 @@
 
 
   <li class="section-title"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_bottom_sheets_smooth_bottom_sheet/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_bottom_sheets_smooth_bottom_sheet-library.html#functions">Functions</a></li>
+  <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_bottom_sheets_smooth_bottom_sheet/showSmoothAlertModalSheet.html">showSmoothAlertModalSheet</a></li>
   <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_bottom_sheets_smooth_bottom_sheet/showSmoothDraggableModalSheet.html">showSmoothDraggableModalSheet</a></li>
   <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_bottom_sheets_smooth_bottom_sheet/showSmoothListOfChoicesModalSheet.html">showSmoothListOfChoicesModalSheet</a></li>
   <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_bottom_sheets_smooth_bottom_sheet/showSmoothModalSheet.html">showSmoothModalSheet</a></li>
   <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_bottom_sheets_smooth_bottom_sheet/showSmoothModalSheetForTextField.html">showSmoothModalSheetForTextField</a></li>
 
+  <li class="section-title"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_bottom_sheets_smooth_bottom_sheet/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_bottom_sheets_smooth_bottom_sheet-library.html#enums">Enums</a></li>
+  <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_bottom_sheets_smooth_bottom_sheet/SmoothModalSheetType.html">SmoothModalSheetType</a></li>
 
 
 </ol>

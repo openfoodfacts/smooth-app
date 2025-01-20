@@ -88,48 +88,25 @@
   final SmoothColorsThemeExtension extension =
       context.extension&lt;SmoothColorsThemeExtension&gt;();
 
-  const Color color = Color(0xFFB81D1D);
-
-  return showSmoothListOfChoicesModalSheet&lt;bool&gt;(
+  return showSmoothAlertModalSheet&lt;bool&gt;(
     context: context,
     title: title ?? appLocalizations.edit_product_form_item_exit_title,
-    headerBackgroundColor: color,
-    header: ColoredBox(
-      color: context.lightTheme(listen: false)
-          ? color.lighten(0.55)
-          : color.darken(0.3),
-      child: Padding(
-        padding: const EdgeInsetsDirectional.symmetric(
-          horizontal: LARGE_SPACE,
-          vertical: MEDIUM_SPACE,
-        ),
-        child: Text(
-          appLocalizations.edit_product_form_item_exit_confirmation,
-          style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                fontWeight: FontWeight.w600,
-              ),
-        ),
-      ),
-    ),
-    labels: &lt;String&gt;[
+    message: Text(appLocalizations.edit_product_form_item_exit_confirmation),
+    type: SmoothModalSheetType.error,
+    actionLabels: &lt;String&gt;[
       appLocalizations
           .edit_product_form_item_exit_confirmation_positive_button,
       appLocalizations
           .edit_product_form_item_exit_confirmation_negative_button,
     ],
-    values: &lt;bool&gt;[
-      true,
-      false,
-    ],
-    prefixIcons: &lt;Widget&gt;[
+    actionIcons: &lt;Widget&gt;[
       Icon(Icons.save_rounded, color: extension.success),
       Icon(Icons.cancel_rounded, color: extension.error),
     ],
-    dividerPadding: const EdgeInsetsDirectional.symmetric(
-      horizontal: MEDIUM_SPACE,
-    ),
-    textStyle: const TextStyle(fontWeight: FontWeight.w600),
-    safeArea: true,
+    actionValues: &lt;bool&gt;[
+      true,
+      false,
+    ],
   );
 }</code></pre>
 </section>
