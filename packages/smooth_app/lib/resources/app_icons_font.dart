@@ -55,6 +55,8 @@ class _IconsFont {
       IconData(0xe815, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData lifebuoy =
       IconData(0xe816, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData add_circled =
+      IconData(0xe817, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData add_price_british_pound =
       IconData(0xe818, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData add_price_dollar =

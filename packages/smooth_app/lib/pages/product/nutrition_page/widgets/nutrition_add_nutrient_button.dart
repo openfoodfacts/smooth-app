@@ -7,6 +7,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/pages/product/nutrition_page/widgets/nutrition_container_helper.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/widgets/smooth_text.dart';
 
 /// Button that opens an "add nutrient" dialog.
@@ -27,7 +28,7 @@ class NutritionAddNutrientButton extends StatelessWidget {
 
     return SmoothCardHeaderButton(
       tooltip: appLocalizations.nutrition_page_add_nutrient,
-      child: const Icon(Icons.add_circle_outline),
+      child: const icons.Add.circled(),
       onTap: () async {
         final NutritionContainerHelper nutritionContainer =
             context.read<NutritionContainerHelper>();

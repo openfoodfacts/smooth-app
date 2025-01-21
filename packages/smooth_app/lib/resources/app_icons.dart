@@ -13,6 +13,14 @@ class Add extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.add);
+
+  const Add.circled({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.add_circled);
 }
 
 class AddPrice extends AppIcon {
