@@ -415,7 +415,8 @@ class _NutritionPageBodyState extends State<_NutritionPageBody> {
             ExplanationTitleIcon(
               title:
                   appLocalizations.edit_product_form_item_nutrition_facts_title,
-              text: 'TODO',
+              text: appLocalizations
+                  .edit_product_form_item_nutrition_facts_explanation,
             ),
           ],
         ),

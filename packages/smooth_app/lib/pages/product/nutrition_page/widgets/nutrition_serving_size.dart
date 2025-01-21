@@ -44,7 +44,7 @@ class NutritionServingSize extends StatelessWidget {
             ),
             trailing: ExplanationTitleIcon(
               title: appLocalizations.nutrition_page_serving_size,
-              text: 'TODO',
+              text: appLocalizations.nutrition_page_serving_size_explanation,
             ),
             contentPadding: const EdgeInsetsDirectional.only(
               start: LARGE_SPACE,

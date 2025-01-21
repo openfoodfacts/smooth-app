@@ -26,7 +26,7 @@ class NutritionAvailabilityContainer extends StatelessWidget {
           leading: const icons.Milk.happy(),
           trailing: ExplanationTitleIcon(
             title: appLocalizations.nutrition_page_nutritional_info_title,
-            text: 'TODO',
+            text: appLocalizations.nutrition_page_nutritional_info_explanation,
           ),
           contentPadding: const EdgeInsetsDirectional.only(
             start: VERY_LARGE_SPACE,
