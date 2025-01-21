@@ -6,15 +6,19 @@ import 'package:scanner_shared/scanner_shared.dart';
 import 'package:smooth_app/database/transient_file.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/resources/app_icons.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:smooth_app/widgets/smooth_indicator_icon.dart';
 
 class NutritionImageViewer extends StatefulWidget {
   const NutritionImageViewer({
-    super.key,
     required this.visible,
+    required this.onClose,
+    super.key,
   });
 
   final bool visible;
+  final VoidCallback onClose;
 
   @override
   State<NutritionImageViewer> createState() => _NutritionImageViewerState();
@@ -35,18 +39,44 @@ class _NutritionImageViewerState extends State<NutritionImageViewer> {
         width: double.infinity,
         child: ColoredBox(
           color: context.lightTheme() ? Colors.grey[850]! : Colors.grey[800]!,
-          child: InteractiveViewer(
-            child: Image(
-              fit: BoxFit.contain,
-              image: TransientFile.fromProduct(
-                context.watch<Product>(),
-                ImageField.NUTRITION,
-                ProductQuery.getLanguage(),
-              ).getImageProvider()!,
-              frameBuilder: _frameBuilder,
-              loadingBuilder: _loadingBuilder,
-              errorBuilder: _errorBuilder,
-            ),
+          child: Stack(
+            children: <Widget>[
+              Positioned.fill(
+                child: InteractiveViewer(
+                  child: Image(
+                    fit: BoxFit.contain,
+                    image: TransientFile.fromProduct(
+                      context.watch<Product>(),
+                      ImageField.NUTRITION,
+                      ProductQuery.getLanguage(),
+                    ).getImageProvider()!,
+                    frameBuilder: _frameBuilder,
+                    loadingBuilder: _loadingBuilder,
+                    errorBuilder: _errorBuilder,
+                  ),
+                ),
+              ),
+              PositionedDirectional(
+                top: 1.0,
+                end: 2.5,
+                child: Material(
+                  type: MaterialType.transparency,
+                  child: InkWell(
+                    customBorder: const CircleBorder(),
+                    onTap: widget.onClose,
+                    child: Tooltip(
+                      message: AppLocalizations.of(context).close,
+                      child: const SmoothIndicatorIcon(
+                        icon: Padding(
+                          padding: EdgeInsetsDirectional.all(2.0),
+                          child: Close(),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              )
+            ],
           ),
         ),
       ),

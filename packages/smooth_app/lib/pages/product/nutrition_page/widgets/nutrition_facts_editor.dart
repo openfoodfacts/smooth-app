@@ -99,44 +99,51 @@ class _NutrientValueCell extends StatelessWidget {
     final bool isLast = position == focusNodes.length - 1;
     final Nutrient? nutrient = orderedNutrient.nutrient;
 
-    return TextFormField(
-      controller: controller,
-      enabled: controller.isSet,
-      focusNode: focusNodes[orderedNutrient],
-      decoration: InputDecoration(
-        enabledBorder: const UnderlineInputBorder(),
-        labelText: orderedNutrient.name,
-        suffixIcon: nutrient == null ||
-                product.getOwnerFieldTimestamp(OwnerField.nutrient(nutrient)) ==
-                    null
-            ? null
-            : IconButton(
-                onPressed: () => showOwnerFieldInfoInModalSheet(context),
-                icon: const OwnerFieldIcon(),
-              ),
-      ),
-      keyboardType: const TextInputType.numberWithOptions(
-        signed: false,
-        decimal: true,
-      ),
-      textInputAction: isLast ? null : TextInputAction.next,
-      inputFormatters: <TextInputFormatter>[
-        FilteringTextInputFormatter.allow(
-          SimpleInputNumberField.getNumberRegExp(decimal: true),
+    return Semantics(
+      label: orderedNutrient.name,
+      value: controller.text,
+      textField: true,
+      excludeSemantics: true,
+      child: TextFormField(
+        controller: controller,
+        enabled: controller.isSet,
+        focusNode: focusNodes[orderedNutrient],
+        decoration: InputDecoration(
+          enabledBorder: const UnderlineInputBorder(),
+          labelText: orderedNutrient.name,
+          suffixIcon: nutrient == null ||
+                  product.getOwnerFieldTimestamp(
+                          OwnerField.nutrient(nutrient)) ==
+                      null
+              ? null
+              : IconButton(
+                  onPressed: () => showOwnerFieldInfoInModalSheet(context),
+                  icon: const OwnerFieldIcon(),
+                ),
         ),
-        DecimalSeparatorRewriter(decimalNumberFormat),
-      ],
-      validator: (String? value) {
-        if (value == null || value.trim().isEmpty) {
-          return null;
-        }
-        try {
-          decimalNumberFormat.parse(value);
-          return null;
-        } catch (e) {
-          return appLocalizations.nutrition_page_invalid_number;
-        }
-      },
+        keyboardType: const TextInputType.numberWithOptions(
+          signed: false,
+          decimal: true,
+        ),
+        textInputAction: isLast ? null : TextInputAction.next,
+        inputFormatters: <TextInputFormatter>[
+          FilteringTextInputFormatter.allow(
+            SimpleInputNumberField.getNumberRegExp(decimal: true),
+          ),
+          DecimalSeparatorRewriter(decimalNumberFormat),
+        ],
+        validator: (String? value) {
+          if (value == null || value.trim().isEmpty) {
+            return null;
+          }
+          try {
+            decimalNumberFormat.parse(value);
+            return null;
+          } catch (e) {
+            return appLocalizations.nutrition_page_invalid_number;
+          }
+        },
+      ),
     );
   }
 }

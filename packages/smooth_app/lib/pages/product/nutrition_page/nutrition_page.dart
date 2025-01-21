@@ -147,6 +147,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
                 children: <Widget>[
                   NutritionImageViewer(
                     visible: _imageVisible,
+                    onClose: () => setState(() => _imageVisible = false),
                   ),
                   Expanded(
                     child: _NutritionPageBody(
@@ -390,6 +391,12 @@ class _NutritionPageBodyState extends State<_NutritionPageBody> {
       );
     }
 
+    widgets.add(NutritionAddNutrientButton(
+      onNutrientSelected: (final OrderedNutrient nutrient) {
+        setState(() => _nutrientToHighlight = nutrient);
+      },
+    ));
+
     if (_nutrientToHighlight != null) {
       final FocusNode focusNode = _focusNodes[_nutrientToHighlight]!;
       onNextFrame(() {
@@ -400,14 +407,17 @@ class _NutritionPageBodyState extends State<_NutritionPageBody> {
 
     return SliverPadding(
       padding: const EdgeInsetsDirectional.only(
-          start: MEDIUM_SPACE, end: MEDIUM_SPACE, bottom: MEDIUM_SPACE),
+        start: MEDIUM_SPACE,
+        end: MEDIUM_SPACE,
+        bottom: MEDIUM_SPACE,
+      ),
       sliver: SliverCardWithRoundedHeader(
         title: appLocalizations.edit_product_form_item_nutrition_facts_title,
         leading: const NutritionFacts(),
         trailing: Row(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            NutritionAddNutrientButton(
+            NutritionAddNutrientHeaderButton(
               onNutrientSelected: (final OrderedNutrient nutrient) {
                 setState(() => _nutrientToHighlight = nutrient);
               },
@@ -420,7 +430,7 @@ class _NutritionPageBodyState extends State<_NutritionPageBody> {
             ),
           ],
         ),
-        contentPadding: const EdgeInsetsDirectional.only(bottom: LARGE_SPACE),
+        contentPadding: EdgeInsets.zero,
         child: Column(
           children: widgets,
         ),

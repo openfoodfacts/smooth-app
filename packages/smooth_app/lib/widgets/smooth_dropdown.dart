@@ -69,7 +69,7 @@ class SmoothDropdownButton<T> extends StatelessWidget {
       elevation: 4,
       isDense: true,
       underline: EMPTY_WIDGET,
-      borderRadius: CIRCULAR_BORDER_RADIUS,
+      borderRadius: ROUNDED_BORDER_RADIUS,
       padding: const EdgeInsetsDirectional.only(
         start: LARGE_SPACE,
         end: LARGE_SPACE,
