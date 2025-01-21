@@ -796,6 +796,10 @@
     "@nutrition_page_take_serving_size_from_product_quantity": {
         "description": "Button label: Use the product quantity as serving size (nutrition page)"
     },
+    "nutrition_page_photo_error": "Unable to load the photo",
+    "@nutrition_page_photo_error": {
+        "description": "Error message when the nutrition facts photo can't be loaded"
+    },
     "more_photos": "More interesting photos",
     "@more_photos": {},
     "view_more_photo_button": "View all existing photos for this product",
