@@ -257,7 +257,16 @@ autocomplete:
 
 ✏️ Editing - Nutrition input:
 - changed-files:
-  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/nutrition_page.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/nutrition_page/nutrition_page.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/nutrition_page/nutrition_page_loader.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/nutrition_page/widgets/nutrition_add_nutrient_button.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/nutrition_page/widgets/nutrition_availability_container.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/nutrition_page/widgets/nutrition_availability_container.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/nutrition_page/widgets/nutrition_container_helper.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/nutrition_page/widgets/nutrition_facts_editor.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/nutrition_page/widgets/nutrition_image_viewer.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/nutrition_page/widgets/nutrition_serving_size.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/nutrition_page/widgets/nutrition_serving_switch.dart'
 
 #tag picker:
 
