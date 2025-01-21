@@ -767,17 +767,38 @@
     "score_add_missing_product_brands": "Add missing product brands",
     "score_update_nutrition_facts": "Aktualizujte výživová fakta",
     "nutrition_page_title": "Nutriční hodnoty",
-    "nutrition_page_unspecified": "Výživové údaje nejsou u produktu uvedeny",
+    "nutrition_page_nutritional_info_title": "Nutritional information",
+    "nutrition_page_nutritional_info_label": "Values specified on the product:",
+    "nutrition_page_nutritional_info_value_positive": "Ano",
+    "nutrition_page_nutritional_info_value_negative": "Ne",
+    "nutrition_page_nutritional_info_open_photo": "Open photo",
+    "nutrition_page_nutritional_info_explanation": "TODO",
+    "@nutrition_page_nutritional_info_explanation": {
+        "description": "DO NOT TRANSLATE Text to explain when we should set the toggle to off (no nutrition facts)"
+    },
+    "nutrition_page_serving_type_label": "Nutritional values:",
+    "@nutrition_page_serving_type_label": {
+        "description": "Label to let the user choose between per 100g or per serving"
+    },
     "nutrition_page_per_100g": "na 100 g",
     "nutrition_page_per_serving": "v jedné porci",
     "nutrition_page_add_nutrient": "Přidejte živinu",
     "nutrition_page_serving_size": "Velikost porce",
+    "nutrition_page_serving_size_hint": "Input a serving size (eg: 100g)",
+    "nutrition_page_serving_size_explanation": "TODO",
+    "@nutrition_page_serving_size_explanation": {
+        "description": "DO NOT TRANSLATE Text to explain what to input in the serving size"
+    },
     "nutrition_page_invalid_number": "Neplatné číslo",
     "nutrition_page_update_running": "Aktualizace produktu na serveru…",
     "nutrition_page_update_done": "Produkt aktualizován!",
     "nutrition_page_take_serving_size_from_product_quantity": "Použít množství produktu jako velikost porce",
     "@nutrition_page_take_serving_size_from_product_quantity": {
         "description": "Button label: Use the product quantity as serving size (nutrition page)"
+    },
+    "nutrition_page_photo_error": "Unable to load the photo",
+    "@nutrition_page_photo_error": {
+        "description": "Error message when the nutrition facts photo can't be loaded"
     },
     "more_photos": "Další zajímavé fotky",
     "@more_photos": {},
@@ -1676,6 +1697,10 @@
     "edit_product_form_item_nutrition_facts_subtitle": "Výživa, obsah alkoholu…",
     "@edit_product_form_item_nutrition_facts_subtitle": {
         "description": "Product edition - Nutrition facts - SubTitle"
+    },
+    "edit_product_form_item_nutrition_facts_explanation": "TODO",
+    "@edit_product_form_item_nutrition_facts_explanation": {
+        "description": "DO NOT TRANSLATE Text to explain what to input in nutrition facts"
     },
     "edit_product_form_save": "Upravit",
     "@edit_product_form_save": {
