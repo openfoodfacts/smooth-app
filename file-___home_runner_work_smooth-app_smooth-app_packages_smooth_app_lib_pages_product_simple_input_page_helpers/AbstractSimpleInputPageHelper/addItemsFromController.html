@@ -73,19 +73,24 @@
   final TextEditingController controller, {
   bool clearController = true,
 }) {
-  _itemsBeforeLastAddition = List&lt;String&gt;.from(_terms);
+  try {
+    _itemsBeforeLastAddition = List&lt;String&gt;.from(_terms);
 
-  final List&lt;String&gt; input = controller.text.split(&#39;,&#39;);
-  bool result = false;
-  for (final String item in input) {
-    if (addTerm(item.trim())) {
-      result = true;
+    final List&lt;String&gt; input = controller.text.split(&#39;,&#39;);
+    bool result = false;
+    for (final String item in input) {
+      if (addTerm(item.trim())) {
+        result = true;
+      }
     }
+    if (result &amp;&amp; clearController) {
+      controller.text = &#39;&#39;;
+    }
+    return result;
+  } catch (_) {
+    &#47;&#47;&#47; The field was not initialized
+    return false;
   }
-  if (result &amp;&amp; clearController) {
-    controller.text = &#39;&#39;;
-  }
-  return result;
 }</code></pre>
 </section>
 

@@ -72,15 +72,10 @@
   final bool isLoggedInMandatory,
 ) =&gt;
     SmoothLargeButtonWithIcon(
-      onPressed: () async =&gt; Navigator.push(
+      onPressed: () async =&gt; openDetails(
         context,
-        MaterialPageRoute&lt;void&gt;(
-          builder: (_) =&gt; ProductImageSwipeableView.imageField(
-            imageField: this,
-            product: product,
-            isLoggedInMandatory: isLoggedInMandatory,
-          ),
-        ),
+        product,
+        isLoggedInMandatory,
       ),
       leadingIcon: const Icon(Icons.camera_alt),
       text: getProductImageButtonText(AppLocalizations.of(context)),
@@ -119,6 +114,7 @@
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_image_field_extension/ImageFieldSmoothieExtension/getPictureAccessibilityLabel.html">getPictureAccessibilityLabel</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_image_field_extension/ImageFieldSmoothieExtension/getProductImageButtonText.html">getProductImageButtonText</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_image_field_extension/ImageFieldSmoothieExtension/getProductImageTitle.html">getProductImageTitle</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_image_field_extension/ImageFieldSmoothieExtension/openDetails.html">openDetails</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_image_field_extension/ImageFieldSmoothieExtension/setUrl.html">setUrl</a></li>
 
 

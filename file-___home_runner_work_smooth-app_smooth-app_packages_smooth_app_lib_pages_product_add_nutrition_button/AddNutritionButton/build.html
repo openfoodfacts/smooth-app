@@ -72,7 +72,7 @@
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) =&gt; addPanelButton(
       AppLocalizations.of(context).score_add_missing_nutrition_facts,
-      onPressed: () async =&gt; NutritionPageLoaded.showNutritionPage(
+      onPressed: () async =&gt; NutritionPageLoader.showNutritionPage(
         product: product,
         isLoggedInMandatory: true,
         context: context,
