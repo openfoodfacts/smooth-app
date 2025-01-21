@@ -767,17 +767,38 @@
     "score_add_missing_product_brands": "Tambahkan merek produk yang kurang",
     "score_update_nutrition_facts": "Perbarui informasi nilai gizi",
     "nutrition_page_title": "Informasi nilai gizi",
-    "nutrition_page_unspecified": "Informasi nilai gizi tidak ditampilkan pada produk",
+    "nutrition_page_nutritional_info_title": "Nutritional information",
+    "nutrition_page_nutritional_info_label": "Values specified on the product:",
+    "nutrition_page_nutritional_info_value_positive": "Ya",
+    "nutrition_page_nutritional_info_value_negative": "Tidak",
+    "nutrition_page_nutritional_info_open_photo": "Open photo",
+    "nutrition_page_nutritional_info_explanation": "TODO",
+    "@nutrition_page_nutritional_info_explanation": {
+        "description": "DO NOT TRANSLATE Text to explain when we should set the toggle to off (no nutrition facts)"
+    },
+    "nutrition_page_serving_type_label": "Nutritional values:",
+    "@nutrition_page_serving_type_label": {
+        "description": "Label to let the user choose between per 100g or per serving"
+    },
     "nutrition_page_per_100g": "per 100g",
     "nutrition_page_per_serving": "per sajian",
     "nutrition_page_add_nutrient": "Tambahkan nutrisi",
     "nutrition_page_serving_size": "Takaran saji",
+    "nutrition_page_serving_size_hint": "Input a serving size (eg: 100g)",
+    "nutrition_page_serving_size_explanation": "TODO",
+    "@nutrition_page_serving_size_explanation": {
+        "description": "DO NOT TRANSLATE Text to explain what to input in the serving size"
+    },
     "nutrition_page_invalid_number": "Nomor tidak valid",
     "nutrition_page_update_running": "Memperbarui produk di peladen…",
     "nutrition_page_update_done": "Produk diperbarui!",
     "nutrition_page_take_serving_size_from_product_quantity": "Gunakan jumlah produk sebagai takaran saji",
     "@nutrition_page_take_serving_size_from_product_quantity": {
         "description": "Button label: Use the product quantity as serving size (nutrition page)"
+    },
+    "nutrition_page_photo_error": "Unable to load the photo",
+    "@nutrition_page_photo_error": {
+        "description": "Error message when the nutrition facts photo can't be loaded"
     },
     "more_photos": "Lebih banyak foto menarik",
     "@more_photos": {},
@@ -1676,6 +1697,10 @@
     "edit_product_form_item_nutrition_facts_subtitle": "Nutrisi, kandungan alkohol…",
     "@edit_product_form_item_nutrition_facts_subtitle": {
         "description": "Product edition - Nutrition facts - SubTitle"
+    },
+    "edit_product_form_item_nutrition_facts_explanation": "TODO",
+    "@edit_product_form_item_nutrition_facts_explanation": {
+        "description": "DO NOT TRANSLATE Text to explain what to input in nutrition facts"
     },
     "edit_product_form_save": "Sunting",
     "@edit_product_form_save": {
