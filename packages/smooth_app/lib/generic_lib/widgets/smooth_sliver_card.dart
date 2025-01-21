@@ -71,6 +71,7 @@ class _SliverCardWithRoundedHeaderState
         SliverPersistentHeader(
           delegate: _SliverCardWithRoundedHeaderDelegate(
             height: _height!,
+            color: Theme.of(context).scaffoldBackgroundColor,
             child: child,
           ),
           floating: true,
@@ -93,10 +94,12 @@ class _SliverCardWithRoundedHeaderDelegate
     extends SliverPersistentHeaderDelegate {
   _SliverCardWithRoundedHeaderDelegate({
     required this.height,
+    required this.color,
     required this.child,
   });
 
   final double height;
+  final Color color;
   final Widget child;
 
   @override
@@ -113,7 +116,7 @@ class _SliverCardWithRoundedHeaderDelegate
         CustomPaint(
           foregroundPainter: shrinkOffset > 0.0 || overlapsContent
               ? _SliverCardWithRoundedHeaderClipPainter(
-                  color: Theme.of(context).scaffoldBackgroundColor,
+                  color: color,
                   radius: ROUNDED_RADIUS,
                 )
               : null,
@@ -134,8 +137,8 @@ class _SliverCardWithRoundedHeaderDelegate
   double get minExtent => height + MEDIUM_SPACE;
 
   @override
-  bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) =>
-      false;
+  bool shouldRebuild(_SliverCardWithRoundedHeaderDelegate oldDelegate) =>
+      oldDelegate.color != color;
 }
 
 class _SliverCardWithRoundedHeaderClipPainter extends CustomPainter {
@@ -174,7 +177,7 @@ class _SliverCardWithRoundedHeaderClipPainter extends CustomPainter {
   bool shouldRepaint(
     _SliverCardWithRoundedHeaderClipPainter oldDelegate,
   ) =>
-      false;
+      oldDelegate._paint.color != _paint.color;
 
   @override
   bool shouldRebuildSemantics(
