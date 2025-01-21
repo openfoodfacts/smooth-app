@@ -610,7 +610,7 @@ class _EditOCRImageButton extends StatelessWidget {
         onTap: onPressed,
         child: IconTheme(
           data: IconThemeData(
-            color: SmoothCardWithRoundedHeader.getHeaderColor(context),
+            color: SmoothCardWithRoundedHeaderTop.getHeaderColor(context),
           ),
           child: Row(
             children: <Widget>[

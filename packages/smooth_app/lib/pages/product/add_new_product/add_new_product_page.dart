@@ -22,7 +22,7 @@ import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
 import 'package:smooth_app/pages/product/add_new_product/product_type_radio_list_tile.dart';
 import 'package:smooth_app/pages/product/add_new_product_helper.dart';
 import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
-import 'package:smooth_app/pages/product/nutrition_page_loaded.dart';
+import 'package:smooth_app/pages/product/nutrition_page/nutrition_page_loader.dart';
 import 'package:smooth_app/pages/product/product_field_editor.dart';
 import 'package:smooth_app/pages/product/product_image_swipeable_view.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
@@ -463,7 +463,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
         // deactivated when the categories were not set beforehand
         !_categoryEditor.isPopulated(upToDateProduct)
             ? null
-            : () async => NutritionPageLoaded.showNutritionPage(
+            : () async => NutritionPageLoader.showNutritionPage(
                   product: upToDateProduct,
                   isLoggedInMandatory: widget.isLoggedInMandatory,
                   context: context,

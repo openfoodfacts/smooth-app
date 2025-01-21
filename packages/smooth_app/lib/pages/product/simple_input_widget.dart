@@ -111,9 +111,7 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
                         start: 3.0,
                       ),
                       productType: widget.product.productType,
-                      borderRadius: const BorderRadius.all(
-                        Radius.circular(20.0),
-                      ),
+                      borderRadius: ROUNDED_BORDER_RADIUS,
                     ),
                   ),
                   Tooltip(
@@ -166,14 +164,6 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
       leading: widget.helper.getIcon(),
       title: widget.helper.getTitle(appLocalizations),
       trailing: trailingHeader,
-      titlePadding: trailingHeader != null
-          ? const EdgeInsetsDirectional.only(
-              top: 2.0,
-              start: LARGE_SPACE,
-              end: SMALL_SPACE,
-              bottom: 2.0,
-            )
-          : null,
       child: child,
     );
   }
@@ -190,7 +180,7 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
       if (widget.helper.isOwnerField(widget.product))
         const OwnerFieldSmoothCardIcon(),
       if (explanations != null)
-        ExplanationTitleIcon(
+        ExplanationTitleIcon.type(
           text: explanations,
           type: widget.helper.getTitle(appLocalizations),
         ),
@@ -361,17 +351,27 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
 
 class ExplanationTitleIcon extends StatelessWidget {
   const ExplanationTitleIcon({
+    required this.title,
+    required this.text,
+  }) :
+        // ignore: avoid_field_initializers_in_const_classes
+        type = null;
+
+  const ExplanationTitleIcon.type({
     required this.type,
     required this.text,
-  });
+  }) :
+        // ignore: avoid_field_initializers_in_const_classes
+        title = null;
 
-  final String type;
+  final String? title;
+  final String? type;
   final String text;
 
   @override
   Widget build(BuildContext context) {
-    final String title =
-        AppLocalizations.of(context).edit_product_form_item_help(type);
+    final String title = this.title ??
+        AppLocalizations.of(context).edit_product_form_item_help(type!);
 
     return SmoothCardHeaderButton(
       tooltip: title,
@@ -383,11 +383,15 @@ class ExplanationTitleIcon extends StatelessWidget {
             return SmoothModalSheet(
               title: title,
               prefixIndicator: true,
-              headerBackgroundColor: SmoothCardWithRoundedHeader.getHeaderColor(
+              headerBackgroundColor:
+                  SmoothCardWithRoundedHeaderTop.getHeaderColor(
                 context,
               ),
               body: SmoothModalSheetBodyContainer(
-                child: Text(text),
+                child: Align(
+                  alignment: AlignmentDirectional.topStart,
+                  child: Text(text),
+                ),
               ),
             );
           },

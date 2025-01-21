@@ -203,19 +203,24 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
     final TextEditingController controller, {
     bool clearController = true,
   }) {
-    _itemsBeforeLastAddition = List<String>.from(_terms);
+    try {
+      _itemsBeforeLastAddition = List<String>.from(_terms);
 
-    final List<String> input = controller.text.split(',');
-    bool result = false;
-    for (final String item in input) {
-      if (addTerm(item.trim())) {
-        result = true;
+      final List<String> input = controller.text.split(',');
+      bool result = false;
+      for (final String item in input) {
+        if (addTerm(item.trim())) {
+          result = true;
+        }
       }
+      if (result && clearController) {
+        controller.text = '';
+      }
+      return result;
+    } catch (_) {
+      /// The field was not initialized
+      return false;
     }
-    if (result && clearController) {
-      controller.text = '';
-    }
-    return result;
   }
 
   void restoreItemsBeforeLastAddition() {

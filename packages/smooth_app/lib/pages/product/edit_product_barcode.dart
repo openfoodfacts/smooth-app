@@ -38,12 +38,6 @@ class _EditProductBarcodeState extends State<EditProductBarcode> {
       title: appLocalizations.barcode,
       leading: const Barcode.rounded(),
       trailing: _EditProductBarcodeCopyButton(barcode: widget.barcode),
-      titlePadding: const EdgeInsetsDirectional.only(
-        top: 2.0,
-        start: LARGE_SPACE,
-        end: SMALL_SPACE,
-        bottom: 2.0,
-      ),
       contentPadding: const EdgeInsetsDirectional.only(
         top: SMALL_SPACE,
         bottom: VERY_SMALL_SPACE,

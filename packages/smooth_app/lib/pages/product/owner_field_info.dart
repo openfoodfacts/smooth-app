@@ -190,7 +190,7 @@ class OwnerFieldSmoothCardIcon extends StatelessWidget {
       child: const OwnerFieldIcon(),
       onTap: () => showOwnerFieldInfoInModalSheet(
         context,
-        headerColor: SmoothCardWithRoundedHeader.getHeaderColor(context),
+        headerColor: SmoothCardWithRoundedHeaderTop.getHeaderColor(context),
       ),
     );
   }

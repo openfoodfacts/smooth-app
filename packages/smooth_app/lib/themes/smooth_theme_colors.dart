@@ -7,6 +7,7 @@ class SmoothColorsThemeExtension
     required this.primaryBlack,
     required this.primaryDark,
     required this.primarySemiDark,
+    required this.primaryTone,
     required this.primaryNormal,
     required this.primaryMedium,
     required this.primaryLight,
@@ -28,6 +29,7 @@ class SmoothColorsThemeExtension
         primaryBlack = const Color(0xFF341100),
         primaryDark = const Color(0xFF483527),
         primarySemiDark = const Color(0xFF52443D),
+        primaryTone = const Color(0xFF81756C),
         primaryNormal = const Color(0xFFA08D84),
         primaryMedium = const Color(0xFFEDE0DB),
         primaryLight = const Color(0xFFF6F3F0),
@@ -54,6 +56,9 @@ class SmoothColorsThemeExtension
 
   // Mocha
   final Color primarySemiDark;
+
+  // Darker Macchiato (from old palette)
+  final Color primaryTone;
 
   // Macchiato
   final Color primaryNormal;
@@ -83,6 +88,7 @@ class SmoothColorsThemeExtension
     Color? primaryBlack,
     Color? primaryDark,
     Color? primarySemiDark,
+    Color? primaryTone,
     Color? primaryNormal,
     Color? primaryMedium,
     Color? primaryLight,
@@ -103,6 +109,7 @@ class SmoothColorsThemeExtension
       primaryBlack: primaryBlack ?? this.primaryBlack,
       primaryDark: primaryDark ?? this.primaryDark,
       primarySemiDark: primarySemiDark ?? this.primarySemiDark,
+      primaryTone: primaryTone ?? this.primaryTone,
       primaryNormal: primaryNormal ?? this.primaryNormal,
       primaryMedium: primaryMedium ?? this.primaryMedium,
       primaryLight: primaryLight ?? this.primaryLight,
@@ -148,6 +155,11 @@ class SmoothColorsThemeExtension
       primarySemiDark: Color.lerp(
         primarySemiDark,
         other.primarySemiDark,
+        t,
+      )!,
+      primaryTone: Color.lerp(
+        primaryTone,
+        other.primaryTone,
         t,
       )!,
       primaryNormal: Color.lerp(

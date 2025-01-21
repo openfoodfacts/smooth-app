@@ -527,14 +527,6 @@ class _BasicDetailInputWrapper extends StatelessWidget {
       title: title,
       leading: icon,
       trailing: ownerField ? const OwnerFieldSmoothCardIcon() : null,
-      titlePadding: ownerField
-          ? const EdgeInsetsDirectional.only(
-              top: 2.0,
-              start: LARGE_SPACE,
-              end: SMALL_SPACE,
-              bottom: 2.0,
-            )
-          : null,
       contentPadding: EdgeInsets.zero,
       child: Padding(
         padding: contentPadding ??

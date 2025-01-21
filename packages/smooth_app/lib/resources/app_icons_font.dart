@@ -55,8 +55,6 @@ class _IconsFont {
       IconData(0xe815, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData lifebuoy =
       IconData(0xe816, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData nutrition_facts =
-      IconData(0xe817, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData add_price_british_pound =
       IconData(0xe818, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData add_price_dollar =
@@ -263,6 +261,14 @@ class _IconsFont {
       IconData(0xe881, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData camera_restart =
       IconData(0xe882, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData weight_alt =
+      IconData(0xe883, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData weight =
+      IconData(0xe884, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData flag =
+      IconData(0xe885, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData nutrition_facts =
+      IconData(0xe886, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData share_cupertino =
       IconData(0xe8a4, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData share_material =

@@ -21,7 +21,7 @@ import 'package:smooth_app/pages/product/add_other_details_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/edit_product_barcode.dart';
 import 'package:smooth_app/pages/product/gallery_view/product_image_gallery_view.dart';
-import 'package:smooth_app/pages/product/nutrition_page_loaded.dart';
+import 'package:smooth_app/pages/product/nutrition_page/nutrition_page_loader.dart';
 import 'package:smooth_app/pages/product/product_field_editor.dart';
 import 'package:smooth_app/pages/product/product_type_extensions.dart';
 import 'package:smooth_app/pages/product/simple_input_page.dart';
@@ -241,7 +241,7 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
                       if (!context.mounted) {
                         return;
                       }
-                      await NutritionPageLoaded.showNutritionPage(
+                      await NutritionPageLoader.showNutritionPage(
                         product: upToDateProduct,
                         isLoggedInMandatory: true,
                         context: context,

@@ -1,6 +1,6 @@
 import 'package:intl/intl.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:smooth_app/pages/product/nutrition_container.dart';
+import 'package:smooth_app/pages/product/nutrition_page/widgets/nutrition_container_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 /// Helper class that computes the values of each nutrient for a portion.
@@ -46,7 +46,7 @@ class PortionHelper {
   ) {
     for (final OrderedNutrient orderedNutrient in orderedNutrients) {
       final Nutrient? nutrient =
-          NutritionContainer.getNutrient(orderedNutrient);
+          NutritionContainerHelper.getNutrient(orderedNutrient);
       if (nutrient != null) {
         if (orderedNutrient.name != null) {
           try {
@@ -73,7 +73,7 @@ class PortionHelper {
       return;
     }
     final Unit unit = nutrient.typicalUnit;
-    value = NutritionContainer.convertWeightFromG(value, unit);
+    value = NutritionContainerHelper.convertWeightFromG(value, unit);
     if (unit != Unit.PERCENT) {
       // Percents are not impacted by the portion size
       value = value! * grams / 100;

@@ -11,6 +11,7 @@ import 'package:smooth_app/pages/product/ordered_nutrients_cache.dart';
 import 'package:smooth_app/pages/product/portion_helper.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_circle.dart';
 
 /// Displays a portion size selector and a "compute!" button; results as dialog.
@@ -49,6 +50,7 @@ class _PortionCalculatorState extends State<PortionCalculator> {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final SmoothColorsThemeExtension extension =
         context.extension<SmoothColorsThemeExtension>();
+    final bool lightTheme = context.lightTheme();
     final bool isQuantityValid = _isInputValid();
 
     return Column(
@@ -61,7 +63,9 @@ class _PortionCalculatorState extends State<PortionCalculator> {
           excludeSemantics: true,
           child: DecoratedBox(
             decoration: BoxDecoration(
-              color: extension.primaryMedium,
+              color: lightTheme
+                  ? extension.primaryMedium
+                  : extension.primaryUltraBlack,
               borderRadius: const BorderRadius.vertical(
                 top: ROUNDED_RADIUS,
               ),
@@ -73,12 +77,15 @@ class _PortionCalculatorState extends State<PortionCalculator> {
               ),
               child: Row(
                 children: <Widget>[
-                  const SmoothCircle(
+                  SmoothCircle(
                     color: Colors.white,
-                    padding: EdgeInsets.all(SMALL_SPACE),
+                    padding: const EdgeInsetsDirectional.all(SMALL_SPACE),
                     child: Icon(
                       Icons.calculate_rounded,
                       size: 18.0,
+                      color: !context.lightTheme()
+                          ? extension.primaryUltraBlack
+                          : null,
                     ),
                   ),
                   const SizedBox(width: MEDIUM_SPACE),
@@ -98,7 +105,8 @@ class _PortionCalculatorState extends State<PortionCalculator> {
           height:
               MediaQuery.textScalerOf(context).scale(SMALL_SPACE * 2 + 15.0) *
                   1.2,
-          padding: const EdgeInsets.symmetric(horizontal: MEDIUM_SPACE),
+          padding:
+              const EdgeInsetsDirectional.symmetric(horizontal: MEDIUM_SPACE),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.baseline,
@@ -128,7 +136,7 @@ class _PortionCalculatorState extends State<PortionCalculator> {
                         borderRadius: ANGULAR_BORDER_RADIUS,
                         borderSide: BorderSide.none,
                       ),
-                      contentPadding: const EdgeInsets.symmetric(
+                      contentPadding: const EdgeInsetsDirectional.symmetric(
                         horizontal: SMALL_SPACE,
                         vertical: SMALL_SPACE,
                       ),
@@ -225,7 +233,7 @@ class _PortionCalculatorState extends State<PortionCalculator> {
               return Column(
                 children: <Widget>[
                   Padding(
-                    padding: const EdgeInsets.symmetric(
+                    padding: const EdgeInsetsDirectional.symmetric(
                       horizontal: VERY_LARGE_SPACE,
                       vertical: LARGE_SPACE,
                     ),
