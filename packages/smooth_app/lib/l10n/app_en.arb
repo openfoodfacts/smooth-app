@@ -562,6 +562,10 @@
     "@nutrition_facts_photo": {
         "description": "Button label: For adding a picture of the nutrition facts of a product"
     },
+    "nutrition_facts_editing_title": "Edit Nutrition Facts",
+    "@nutrition_facts_editing_title": {
+        "description": "Title of the button where users can edit the nutrition facts of a product"
+    },
     "packaging_information": "Packaging information",
     "@packaging_information": {
         "description": "Button label: For adding a picture of the packaging of a product"
@@ -889,7 +893,7 @@
         "description": "The name of the contributor who uploaded the image"
     },
     "product_image_details_contributor_producer": "Contributor (producer)",
-    "@product_image_details_contributor": {
+    "@product_image_details_contributor_producer": {
         "description": "The name of the contributor (and also the owner field) who uploaded the image"
     },
     "product_image_details_date": "Date",
@@ -897,7 +901,7 @@
         "description": "Text to indicate the date of the image"
     },
     "product_image_details_date_unknown": "Unknown",
-    "@product_image_details_date": {
+    "@product_image_details_date_unknown": {
         "description": "Text to indicate the date of the image is unknown"
     },
     "homepage_main_card_logo_description": "Welcome to Open Food Facts",
@@ -1736,6 +1740,10 @@
     "@product_field_website_title": {
         "description": "Title of a product field: website"
     },
+    "origins_editing_title": "Edit Origins",
+    "@origins_editing_title": {
+        "description": "Title of the button where users can edit the origins of a product"
+    },
     "completed_basic_details_btn_text": "Complete basic details",
     "not_implemented_snackbar_text": "Not implemented yet",
     "category_picker_page_appbar_text": "Categories",
@@ -2257,8 +2265,6 @@
     "prices_proof_price_tag": "Price tag",
     "prices_proof_mandatory": "You need to select a proof!",
     "prices_add_validation_error": "Validation error",
-    "prices_privacy_warning_title": "Privacy warning",
-    "prices_unknown_product": "Unknown product",
     "prices_privacy_warning_title": "Privacy warning",
     "prices_unknown_product": "Unknown product",
     "prices_privacy_warning_main_message": "Prices **will be public**, along with the store they refer to.\n\nThat might allow people who know about your Open Food Facts pseudonym to:\n",
