@@ -767,16 +767,16 @@
     "score_add_missing_product_brands": "Add missing product brands",
     "score_update_nutrition_facts": "Update nutrition facts",
     "nutrition_page_title": "ஊட்டச்சத்து தகவல்கள்",
-    "nutrition_page_nutritional_info_title": "Nutritional information",
-    "nutrition_page_nutritional_info_label": "Values specified on the product:",
+    "nutrition_page_nutritional_info_title": "ஊட்டச்சத்துத் தகவல்",
+    "nutrition_page_nutritional_info_label": "தயாரிப்பில் குறிப்பிடப்பட்ட மதிப்புகள்:",
     "nutrition_page_nutritional_info_value_positive": "ஆம்",
     "nutrition_page_nutritional_info_value_negative": "இல்லை",
-    "nutrition_page_nutritional_info_open_photo": "Open photo",
+    "nutrition_page_nutritional_info_open_photo": "படத்தைத் திறக்கவும்",
     "nutrition_page_nutritional_info_explanation": "TODO",
     "@nutrition_page_nutritional_info_explanation": {
         "description": "DO NOT TRANSLATE Text to explain when we should set the toggle to off (no nutrition facts)"
     },
-    "nutrition_page_serving_type_label": "Nutritional values:",
+    "nutrition_page_serving_type_label": "ஊட்டச்சத்து மதிப்புகள்:",
     "@nutrition_page_serving_type_label": {
         "description": "Label to let the user choose between per 100g or per serving"
     },
@@ -784,7 +784,7 @@
     "nutrition_page_per_serving": "per serving",
     "nutrition_page_add_nutrient": "Add a nutrient",
     "nutrition_page_serving_size": "Serving size",
-    "nutrition_page_serving_size_hint": "Input a serving size (eg: 100g)",
+    "nutrition_page_serving_size_hint": "பரிமாறும் அளவை உள்ளிடவும் (எ. கா: 100 கிராம்)",
     "nutrition_page_serving_size_explanation": "TODO",
     "@nutrition_page_serving_size_explanation": {
         "description": "DO NOT TRANSLATE Text to explain what to input in the serving size"
@@ -796,7 +796,7 @@
     "@nutrition_page_take_serving_size_from_product_quantity": {
         "description": "Button label: Use the product quantity as serving size (nutrition page)"
     },
-    "nutrition_page_photo_error": "Unable to load the photo",
+    "nutrition_page_photo_error": "புகைப்படத்தை ஏற்ற முடியவில்லை",
     "@nutrition_page_photo_error": {
         "description": "Error message when the nutrition facts photo can't be loaded"
     },
