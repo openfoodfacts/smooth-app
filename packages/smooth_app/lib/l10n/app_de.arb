@@ -562,7 +562,7 @@
     "@nutrition_facts_photo": {
         "description": "Button label: For adding a picture of the nutrition facts of a product"
     },
-    "nutrition_facts_editing_title": "Edit Nutrition Facts",
+    "nutrition_facts_editing_title": "Nährwertangaben bearbeiten",
     "@nutrition_facts_editing_title": {
         "description": "Title of the button where users can edit the nutrition facts of a product"
     },
@@ -1589,7 +1589,7 @@
     "@edit_product_form_item_stores_type": {
         "description": "Product edition - Stores - input textfield type"
     },
-    "edit_product_form_item_origins_title": "Herkunfte",
+    "edit_product_form_item_origins_title": "Herkunft",
     "@edit_product_form_item_origins_title": {
         "description": "Product edition - Origins - Title"
     },
@@ -1740,7 +1740,7 @@
     "@product_field_website_title": {
         "description": "Title of a product field: website"
     },
-    "origins_editing_title": "Edit Origins",
+    "origins_editing_title": "Herkunft bearbeiten",
     "@origins_editing_title": {
         "description": "Title of the button where users can edit the origins of a product"
     },
