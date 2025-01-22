@@ -562,7 +562,7 @@
     "@nutrition_facts_photo": {
         "description": "Button label: For adding a picture of the nutrition facts of a product"
     },
-    "nutrition_facts_editing_title": "Edit Nutrition Facts",
+    "nutrition_facts_editing_title": "Редагувати харчові показники",
     "@nutrition_facts_editing_title": {
         "description": "Title of the button where users can edit the nutrition facts of a product"
     },
@@ -1740,7 +1740,7 @@
     "@product_field_website_title": {
         "description": "Title of a product field: website"
     },
-    "origins_editing_title": "Edit Origins",
+    "origins_editing_title": "Редагувати походження",
     "@origins_editing_title": {
         "description": "Title of the button where users can edit the origins of a product"
     },
