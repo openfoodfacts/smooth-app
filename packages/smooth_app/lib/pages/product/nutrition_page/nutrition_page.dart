@@ -120,28 +120,29 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
                   title: appLocalizations.nutrition_page_title,
                   product: upToDateProduct,
                   actions: <Widget>[
-                    IconButton(
-                      icon: const Icon(Icons.image_rounded),
-                      tooltip: ImageField.NUTRITION
-                          .getProductImageButtonText(appLocalizations),
-                      onPressed: () {
-                        if (TransientFile.fromProduct(
-                          upToDateProduct,
-                          ImageField.NUTRITION,
-                          ProductQuery.getLanguage(),
-                        ).isImageAvailable()) {
-                          setState(() {
-                            _imageVisible = !_imageVisible;
-                          });
-                        } else {
-                          ImageField.NUTRITION.openDetails(
-                            context,
+                    if (!_imageVisible)
+                      IconButton(
+                        icon: const Icon(Icons.image_rounded),
+                        tooltip: ImageField.NUTRITION
+                            .getProductImageButtonText(appLocalizations),
+                        onPressed: () {
+                          if (TransientFile.fromProduct(
                             upToDateProduct,
-                            widget.isLoggedInMandatory,
-                          );
-                        }
-                      },
-                    ),
+                            ImageField.NUTRITION,
+                            ProductQuery.getLanguage(),
+                          ).isImageAvailable()) {
+                            setState(() {
+                              _imageVisible = !_imageVisible;
+                            });
+                          } else {
+                            ImageField.NUTRITION.openDetails(
+                              context,
+                              upToDateProduct,
+                              widget.isLoggedInMandatory,
+                            );
+                          }
+                        },
+                      ),
                   ]),
               body: Column(
                 children: <Widget>[
@@ -372,20 +373,15 @@ class _NutritionPageBodyState extends State<_NutritionPageBody> {
       }
 
       widgets.add(
-        Padding(
-          padding: const EdgeInsetsDirectional.only(
-            start: VERY_LARGE_SPACE,
-            end: MEDIUM_SPACE,
-          ),
-          child: ChangeNotifierProvider<TextEditingControllerWithHistory>.value(
-            value: controllers[nutrient]!,
-            child: NutrientRow(
-              nutritionContainer,
-              decimalNumberFormat,
-              orderedNutrient,
-              i,
-              i == displayableNutrients.length - 1,
-            ),
+        ChangeNotifierProvider<TextEditingControllerWithHistory>.value(
+          value: controllers[nutrient]!,
+          child: NutrientRow(
+            nutritionContainer: nutritionContainer,
+            decimalNumberFormat: decimalNumberFormat,
+            orderedNutrient: orderedNutrient,
+            position: i,
+            isLast: i == displayableNutrients.length - 1,
+            highlighted: _nutrientToHighlight == orderedNutrient,
           ),
         ),
       );

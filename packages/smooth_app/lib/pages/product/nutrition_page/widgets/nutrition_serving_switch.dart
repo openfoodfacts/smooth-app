@@ -23,13 +23,13 @@ class NutritionServingSwitch extends StatelessWidget {
       decoration: BoxDecoration(
         color: context.lightTheme()
             ? extension.primaryMedium
-            : extension.primaryUltraBlack.lighten(0.01),
+            : extension.primaryUltraBlack.lighten(0.03),
         borderRadius: const BorderRadius.vertical(top: ROUNDED_RADIUS),
       ),
       child: Padding(
         padding: const EdgeInsetsDirectional.only(
-          start: VERY_LARGE_SPACE,
-          end: LARGE_SPACE,
+          start: LARGE_SPACE,
+          end: MEDIUM_SPACE,
           top: SMALL_SPACE,
           bottom: SMALL_SPACE,
         ),
@@ -41,7 +41,7 @@ class NutritionServingSwitch extends StatelessWidget {
               child: Text(
                 appLocalizations.nutrition_page_serving_type_label,
                 style: const TextStyle(
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.bold,
                   fontSize: 14.5,
                 ),
               ),

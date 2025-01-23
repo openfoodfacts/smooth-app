@@ -5,6 +5,7 @@ import 'package:intl/intl.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/helpers/text_input_formatters_helper.dart';
 import 'package:smooth_app/pages/product/nutrition_page/nutrition_page.dart';
 import 'package:smooth_app/pages/product/nutrition_page/widgets/nutrition_container_helper.dart';
@@ -15,62 +16,128 @@ import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/widgets/smooth_dropdown.dart';
 
-class NutrientRow extends StatelessWidget {
-  const NutrientRow(
-    this.nutritionContainer,
-    this.decimalNumberFormat,
-    this.orderedNutrient,
-    this.position,
-    this.isLast,
-  );
+class NutrientRow extends StatefulWidget {
+  const NutrientRow({
+    required this.nutritionContainer,
+    required this.decimalNumberFormat,
+    required this.orderedNutrient,
+    required this.position,
+    required this.isLast,
+    required this.highlighted,
+  });
 
   final NutritionContainerHelper nutritionContainer;
   final NumberFormat decimalNumberFormat;
   final OrderedNutrient orderedNutrient;
   final int position;
   final bool isLast;
+  final bool highlighted;
+
+  @override
+  State<NutrientRow> createState() => _NutrientRowState();
+}
+
+class _NutrientRowState extends State<NutrientRow>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _controller;
+  Animation<Color?>? _colorAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      duration: SmoothAnimationsDuration.medium,
+      vsync: this,
+    )
+      ..addListener(() => setState(() {}))
+      ..addStatusListener((final AnimationStatus status) {
+        if (status == AnimationStatus.completed) {
+          _colorAnimation = null;
+        }
+      });
+  }
+
+  @override
+  void didUpdateWidget(covariant NutrientRow oldWidget) {
+    super.didUpdateWidget(oldWidget);
+
+    if (oldWidget.highlighted != widget.highlighted && widget.highlighted) {
+      _colorAnimation = ColorTween(
+        begin: _getColor(context.extension<SmoothColorsThemeExtension>()),
+        end: context.extension<SmoothColorsThemeExtension>().secondaryLight,
+      ).animate(_controller);
+      _controller.repeat(count: 4, reverse: true);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    final String key = orderedNutrient.id;
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
+    final String key = widget.orderedNutrient.id;
 
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: <Widget>[
-        Expanded(
-          flex: 6,
-          child: KeyedSubtree(
-            key: Key('$key-value'),
-            child: _NutrientValueCell(
-              decimalNumberFormat,
-              orderedNutrient,
-              position,
-              isLast,
-            ),
-          ),
+    Color color;
+    if (_colorAnimation != null) {
+      color = _colorAnimation!.value!;
+    } else {
+      color = _getColor(extension);
+    }
+
+    return ColoredBox(
+      color: color,
+      child: Padding(
+        padding: const EdgeInsetsDirectional.only(
+          start: MEDIUM_SPACE,
+          end: MEDIUM_SPACE,
         ),
-        Expanded(
-          flex: 5,
-          child: KeyedSubtree(
-            key: Key('$key-unit'),
-            child: IntrinsicHeight(
-              child: Row(
-                children: <Widget>[
-                  Expanded(
-                    child: _NutrientUnitCell(
-                      nutritionContainer,
-                      orderedNutrient,
-                    ),
-                  ),
-                  const _NutrientUnitVisibility()
-                ],
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Expanded(
+              flex: 6,
+              child: KeyedSubtree(
+                key: Key('$key-value'),
+                child: _NutrientValueCell(
+                  widget.decimalNumberFormat,
+                  widget.orderedNutrient,
+                  widget.position,
+                  widget.isLast,
+                ),
               ),
             ),
-          ),
+            Expanded(
+              flex: 5,
+              child: KeyedSubtree(
+                key: Key('$key-unit'),
+                child: IntrinsicHeight(
+                  child: Row(
+                    children: <Widget>[
+                      Expanded(
+                        child: _NutrientUnitCell(
+                          widget.nutritionContainer,
+                          widget.orderedNutrient,
+                        ),
+                      ),
+                      const _NutrientUnitVisibility()
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ],
         ),
-      ],
+      ),
     );
+  }
+
+  Color _getColor(SmoothColorsThemeExtension extension) =>
+      widget.position.isEven ? extension.cellEven : extension.cellOdd;
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 }
 
@@ -99,50 +166,95 @@ class _NutrientValueCell extends StatelessWidget {
     final bool isLast = position == focusNodes.length - 1;
     final Nutrient? nutrient = orderedNutrient.nutrient;
 
+    final bool ownerFieldVisible = nutrient != null &&
+        product.getOwnerFieldTimestamp(OwnerField.nutrient(nutrient)) != null;
+
     return Semantics(
       label: orderedNutrient.name,
       value: controller.text,
       textField: true,
       excludeSemantics: true,
-      child: TextFormField(
-        controller: controller,
-        enabled: controller.isSet,
-        focusNode: focusNodes[orderedNutrient],
-        decoration: InputDecoration(
-          enabledBorder: const UnderlineInputBorder(),
-          labelText: orderedNutrient.name,
-          suffixIcon: nutrient == null ||
-                  product.getOwnerFieldTimestamp(
-                          OwnerField.nutrient(nutrient)) ==
-                      null
-              ? null
-              : IconButton(
-                  onPressed: () => showOwnerFieldInfoInModalSheet(context),
-                  icon: const OwnerFieldIcon(),
-                ),
+      child: Padding(
+        padding: const EdgeInsetsDirectional.only(
+          top: SMALL_SPACE,
+          bottom: SMALL_SPACE,
         ),
-        keyboardType: const TextInputType.numberWithOptions(
-          signed: false,
-          decimal: true,
+        child: Row(
+          children: <Widget>[
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsetsDirectional.only(
+                      start: VERY_SMALL_SPACE,
+                      bottom: VERY_SMALL_SPACE,
+                    ),
+                    child: Text(
+                      orderedNutrient.name!,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 15.0,
+                      ),
+                    ),
+                  ),
+                  DecoratedBox(
+                    decoration: BoxDecoration(
+                      color: controller.isSet
+                          ? Theme.of(context).inputDecorationTheme.fillColor
+                          : Theme.of(context).disabledColor,
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsetsDirectional.symmetric(
+                        horizontal: MEDIUM_SPACE,
+                      ),
+                      child: TextFormField(
+                        controller: controller,
+                        enabled: controller.isSet,
+                        focusNode: focusNodes[orderedNutrient],
+                        decoration: const InputDecoration.collapsed(
+                          hintText: '',
+                        ),
+                        keyboardType: const TextInputType.numberWithOptions(
+                          signed: false,
+                          decimal: true,
+                        ),
+                        textInputAction: isLast ? null : TextInputAction.next,
+                        inputFormatters: <TextInputFormatter>[
+                          FilteringTextInputFormatter.allow(
+                            SimpleInputNumberField.getNumberRegExp(
+                                decimal: true),
+                          ),
+                          DecimalSeparatorRewriter(decimalNumberFormat),
+                        ],
+                        validator: (String? value) {
+                          if (value == null || value.trim().isEmpty) {
+                            return null;
+                          }
+                          try {
+                            decimalNumberFormat.parse(value);
+                            return null;
+                          } catch (e) {
+                            return appLocalizations
+                                .nutrition_page_invalid_number;
+                          }
+                        },
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            if (ownerFieldVisible)
+              IconButton(
+                onPressed: () => showOwnerFieldInfoInModalSheet(context),
+                icon: const OwnerFieldIcon(),
+              )
+            else
+              const SizedBox(width: MEDIUM_SPACE),
+          ],
         ),
-        textInputAction: isLast ? null : TextInputAction.next,
-        inputFormatters: <TextInputFormatter>[
-          FilteringTextInputFormatter.allow(
-            SimpleInputNumberField.getNumberRegExp(decimal: true),
-          ),
-          DecimalSeparatorRewriter(decimalNumberFormat),
-        ],
-        validator: (String? value) {
-          if (value == null || value.trim().isEmpty) {
-            return null;
-          }
-          try {
-            decimalNumberFormat.parse(value);
-            return null;
-          } catch (e) {
-            return appLocalizations.nutrition_page_invalid_number;
-          }
-        },
       ),
     );
   }
@@ -235,7 +347,7 @@ class _NutrientUnitVisibility extends StatelessWidget {
 
         return AspectRatio(
           aspectRatio: 1.0,
-          child: Ink(
+          child: DecoratedBox(
             decoration: ShapeDecoration(
               color: isValueSet
                   ? context
@@ -244,24 +356,27 @@ class _NutrientUnitVisibility extends StatelessWidget {
                   : Theme.of(context).disabledColor,
               shape: const CircleBorder(),
             ),
-            child: InkWell(
-              customBorder: const CircleBorder(),
-              onTap: () {
-                if (isValueSet) {
-                  controller.text = '-';
-                } else {
-                  if (controller.previousValue != '-') {
-                    controller.text = controller.previousValue ?? '-';
+            child: Material(
+              type: MaterialType.transparency,
+              child: InkWell(
+                customBorder: const CircleBorder(),
+                onTap: () {
+                  if (isValueSet) {
+                    controller.text = '-';
                   } else {
-                    controller.text = '';
+                    if (controller.previousValue != '-') {
+                      controller.text = controller.previousValue ?? '-';
+                    } else {
+                      controller.text = '';
+                    }
                   }
-                }
-              },
-              child: Icon(
-                isValueSet
-                    ? Icons.visibility_rounded
-                    : Icons.visibility_off_rounded,
-                color: Colors.white,
+                },
+                child: Icon(
+                  isValueSet
+                      ? Icons.visibility_rounded
+                      : Icons.visibility_off_rounded,
+                  color: Colors.white,
+                ),
               ),
             ),
           ),

@@ -29,8 +29,8 @@ class NutritionAvailabilityContainer extends StatelessWidget {
             text: appLocalizations.nutrition_page_nutritional_info_explanation,
           ),
           contentPadding: const EdgeInsetsDirectional.only(
-            start: VERY_LARGE_SPACE,
-            end: LARGE_SPACE,
+            start: LARGE_SPACE,
+            end: MEDIUM_SPACE,
             top: SMALL_SPACE,
             bottom: SMALL_SPACE,
           ),
