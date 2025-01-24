@@ -635,7 +635,7 @@
     "@crop_page_action_local_message": {
         "description": "The save of the picture locally failed - error dialog message"
     },
-    "crop_page_action_retake": "Retake a photo",
+    "crop_page_action_retake": "Znovu pořídit fotografii",
     "@crop_page_action_retake": {
         "description": "Button which allows users to retake a photo."
     },
@@ -685,9 +685,9 @@
     "categories_added": "Kategorie přidány",
     "new_product_title_nutriscore": "Vypočítejte Nutri-Score",
     "new_product_subtitle_nutriscore": "Získejte jej vyplněním kategorie potravin a výživových hodnot",
-    "new_product_title_environmental_score": "Compute the Green Score",
-    "new_product_subtitle_environmental_score": "Get it by filling at least a category",
-    "new_product_additional_environmental_score": "Make Green Score computation more precise with origins, packaging & more",
+    "new_product_title_environmental_score": "Vypočítejte Green-Score",
+    "new_product_subtitle_environmental_score": "Získejte jej vyplněním alespoň kategorie",
+    "new_product_additional_environmental_score": "Zpřesněte výpočet Green-Score pomocí původu, balení a dalších údajů",
     "new_product_title_nova": "Vypočítejte úroveň zpracování potravin (NOVA)",
     "new_product_subtitle_nova": "Získejte ji vyplněním kategorie potravin a složek",
     "new_product_desc_nova_unknown": "Neznámá úroveň průmyslového zpracování potraviny",
@@ -709,7 +709,7 @@
     "@new_product_done_button_label": {
         "description": "Button at the end of new product page, that takes you to completed product"
     },
-    "hey_incomplete_product_message": "Tap to answer 3 questions NOW to compute Nutri-Score, Green Score & Ultra-processing (NOVA)!",
+    "hey_incomplete_product_message": "Klepnutím odpovězte na 3 otázky k OKAMŽITÉMU výpočtu Nutri-Score, Green-Score & Ultra-zpracování (NOVA)!",
     "hey_incomplete_product_message_beauty": "Klepnutím nyní odpovězte na 2 otázky, které vám pomohou analyzovat tuto kosmetiku!",
     "hey_incomplete_product_message_pet_food": "Klepnutím nyní odpovězte na 3 otázky, které vám pomohou analyzovat toto krmivo pro domácí zvířata!",
     "hey_incomplete_product_message_product": "Klepnutím nyní pomůžete dokončit tento produkt!",
@@ -768,19 +768,19 @@
     "score_add_missing_product_labels": "Přidat chybějící štítky produktu",
     "score_add_missing_product_origins": "Přidat chybějící původ produktu",
     "score_add_missing_product_stores": "Přidat chybějící obchody produktů",
-    "score_add_missing_product_brands": "Add missing product brands",
+    "score_add_missing_product_brands": "Přidat chybějící značky produktů",
     "score_update_nutrition_facts": "Aktualizujte výživová fakta",
     "nutrition_page_title": "Nutriční hodnoty",
-    "nutrition_page_nutritional_info_title": "Nutritional information",
-    "nutrition_page_nutritional_info_label": "Values specified on the product:",
+    "nutrition_page_nutritional_info_title": "Nutriční informace",
+    "nutrition_page_nutritional_info_label": "Hodnoty uvedené na produktu:",
     "nutrition_page_nutritional_info_value_positive": "Ano",
     "nutrition_page_nutritional_info_value_negative": "Ne",
-    "nutrition_page_nutritional_info_open_photo": "Open photo",
+    "nutrition_page_nutritional_info_open_photo": "Otevřít fotografii",
     "nutrition_page_nutritional_info_explanation": "TODO",
     "@nutrition_page_nutritional_info_explanation": {
         "description": "DO NOT TRANSLATE Text to explain when we should set the toggle to off (no nutrition facts)"
     },
-    "nutrition_page_serving_type_label": "Nutritional values:",
+    "nutrition_page_serving_type_label": "Nutriční hodnoty:",
     "@nutrition_page_serving_type_label": {
         "description": "Label to let the user choose between per 100g or per serving"
     },
@@ -788,7 +788,7 @@
     "nutrition_page_per_serving": "v jedné porci",
     "nutrition_page_add_nutrient": "Přidejte živinu",
     "nutrition_page_serving_size": "Velikost porce",
-    "nutrition_page_serving_size_hint": "Input a serving size (eg: 100g)",
+    "nutrition_page_serving_size_hint": "Zadejte velikost porce (např.: 100 g)",
     "nutrition_page_serving_size_explanation": "TODO",
     "@nutrition_page_serving_size_explanation": {
         "description": "DO NOT TRANSLATE Text to explain what to input in the serving size"
@@ -800,7 +800,7 @@
     "@nutrition_page_take_serving_size_from_product_quantity": {
         "description": "Button label: Use the product quantity as serving size (nutrition page)"
     },
-    "nutrition_page_photo_error": "Unable to load the photo",
+    "nutrition_page_photo_error": "Nelze načíst fotografii",
     "@nutrition_page_photo_error": {
         "description": "Error message when the nutrition facts photo can't be loaded"
     },
@@ -840,7 +840,7 @@
     },
     "product_image_outdated": "Tento obrázek může být zastaralý",
     "product_image_outdated_explanations_title": "Tento obrázek může být zastaralý",
-    "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that's it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
+    "product_image_outdated_explanations_content": "Tento snímek byl pořízen před více než rokem.\n**Zkontrolujte prosím, zda je stále aktuální**.\n\nToto je **jen upozornění**. Pokud je obsah stále stejný, můžete tuto zprávu ignorovat.",
     "@product_image_outdated_explanations_content": {
         "description": "Please keep the ** syntax to make the text bold"
     },
@@ -880,11 +880,11 @@
     "@product_image_action_choose_existing_photo": {
         "description": "Replace the existing picture with one from the product's photos"
     },
-    "product_image_details_label": "Information about the photo",
+    "product_image_details_label": "Informace o fotografii",
     "@product_image_details_label": {
         "description": "Label for the photo details"
     },
-    "product_image_details_from_producer": "From the producer",
+    "product_image_details_from_producer": "Od výrobce",
     "@product_image_details_from_producer": {
         "description": "Text to indicate that the image was taken by the producer"
     },
@@ -892,7 +892,7 @@
     "@product_image_details_contributor": {
         "description": "The name of the contributor who uploaded the image"
     },
-    "product_image_details_contributor_producer": "Contributor (producer)",
+    "product_image_details_contributor_producer": "Přispěvatel (výrobce)",
     "@product_image_details_contributor_producer": {
         "description": "The name of the contributor (and also the owner field) who uploaded the image"
     },
@@ -958,19 +958,19 @@
         "description": "Message to show if there are no product properties found"
     },
     "add_tag": "Přidat vlastnost",
-    "add_tags": "Add properties",
-    "add_edit_tags": "Add or edit properties",
+    "add_tags": "Přidat vlastnosti",
+    "add_edit_tags": "Přidat nebo upravit vlastnosti",
     "edit_tag": "Upravit vlastnost",
     "remove_tag": "Odstranit vlastnost",
     "tag_key": "Vlastnosti",
-    "tag_key_uneditable": "Property (uneditable)",
-    "tag_key_input_hint": "Input a property",
+    "tag_key_uneditable": "Vlastnost (neupravitelná)",
+    "tag_key_input_hint": "Zadejte vlastnost",
     "tag_value": "Hodnota",
-    "tag_value_input_hint": "Input a value",
-    "tag_key_item": "Property:",
-    "tag_value_item": "Value:",
-    "tag_key_explanations": "A key must be lowercase and without any spaces.",
-    "tag_key_already_exists": "A tag with a property {property} already exists!",
+    "tag_value_input_hint": "Zadejte hodnotu",
+    "tag_key_item": "Vlastnost:",
+    "tag_value_item": "Hodnota:",
+    "tag_key_explanations": "Klíč musí být malými písmeny a bez mezer.",
+    "tag_key_already_exists": "Značka s vlastností {property} již existuje!",
     "@tag_key_already_exists": {
         "placeholders": {
             "property": {
@@ -1724,11 +1724,11 @@
     "@edit_product_ingredients_list_title": {
         "description": "Product edition - Ingredients - Title"
     },
-    "edit_product_packaging_photo_title": "Packaging photo",
+    "edit_product_packaging_photo_title": "Foto balení",
     "@edit_product_packaging_photo_title": {
         "description": "Product edition - Packaging - Title"
     },
-    "edit_product_packaging_list_title": "Packaging list",
+    "edit_product_packaging_list_title": "Seznam balení",
     "@edit_product_packaging_list_title": {
         "description": "Product edition - Packaging - Title"
     },
@@ -1740,7 +1740,7 @@
     "@product_field_website_title": {
         "description": "Title of a product field: website"
     },
-    "origins_editing_title": "Edit Origins",
+    "origins_editing_title": "Upravit původ",
     "@origins_editing_title": {
         "description": "Title of the button where users can edit the origins of a product"
     },
@@ -1779,7 +1779,7 @@
     "@edit_packaging_extract_btn_text": {
         "description": "Packaging edition - OCR-Extract packaging"
     },
-    "edit_packaging_extract_btn_text_short": "Extract packaging",
+    "edit_packaging_extract_btn_text_short": "Rozpoznat balení",
     "@edit_packaging_extract_btn_text_short": {
         "description": "Packaging edition - OCR-Extract packaging (short label)"
     },
@@ -1807,11 +1807,11 @@
     "@edit_ocr_extract_failed": {
         "description": "OCR extraction - message for failed"
     },
-    "edit_ocr_extract_disabled_title": "No picture!",
+    "edit_ocr_extract_disabled_title": "Žádný obrázek!",
     "@edit_ocr_extract_disabled_title": {
         "description": "OCR extraction - title for disabled"
     },
-    "edit_ocr_extract_disabled_message": "In order to use the text extraction feature, you must first take a photo.",
+    "edit_ocr_extract_disabled_message": "Chcete-li použít funkci rozpoznání textu, musíte nejprve pořídit fotografii.",
     "@edit_ocr_extract_disabled_message": {
         "description": "OCR extraction - message for disabled"
     },
