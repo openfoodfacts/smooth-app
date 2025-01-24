@@ -562,6 +562,10 @@
     "@nutrition_facts_photo": {
         "description": "Button label: For adding a picture of the nutrition facts of a product"
     },
+    "nutrition_facts_editing_title": "Nährwertangaben bearbeiten",
+    "@nutrition_facts_editing_title": {
+        "description": "Title of the button where users can edit the nutrition facts of a product"
+    },
     "packaging_information": "Angaben zur Verpackung",
     "@packaging_information": {
         "description": "Button label: For adding a picture of the packaging of a product"
@@ -767,17 +771,38 @@
     "score_add_missing_product_brands": "Fehlende Produktmarken hinzufügen",
     "score_update_nutrition_facts": "Nährwertangaben aktualisieren",
     "nutrition_page_title": "Nährwertangaben",
-    "nutrition_page_unspecified": "Auf dem Produkt sind keine Nährwertangaben angegeben",
+    "nutrition_page_nutritional_info_title": "Nährwert-Information",
+    "nutrition_page_nutritional_info_label": "Auf dem Produkt angegebene Werte:",
+    "nutrition_page_nutritional_info_value_positive": "Ja",
+    "nutrition_page_nutritional_info_value_negative": "Nein",
+    "nutrition_page_nutritional_info_open_photo": "Foto öffnen",
+    "nutrition_page_nutritional_info_explanation": "Zu erledigen",
+    "@nutrition_page_nutritional_info_explanation": {
+        "description": "DO NOT TRANSLATE Text to explain when we should set the toggle to off (no nutrition facts)"
+    },
+    "nutrition_page_serving_type_label": "Nährwertangaben:",
+    "@nutrition_page_serving_type_label": {
+        "description": "Label to let the user choose between per 100g or per serving"
+    },
     "nutrition_page_per_100g": "pro 100g",
     "nutrition_page_per_serving": "pro Portion",
     "nutrition_page_add_nutrient": "Nährstoff hinzufügen",
     "nutrition_page_serving_size": "Portionsgröße",
+    "nutrition_page_serving_size_hint": "Portionsgröße eingeben (z.B.: 100g)",
+    "nutrition_page_serving_size_explanation": "Zu erledigen",
+    "@nutrition_page_serving_size_explanation": {
+        "description": "DO NOT TRANSLATE Text to explain what to input in the serving size"
+    },
     "nutrition_page_invalid_number": "Ungültige Nummer",
     "nutrition_page_update_running": "Produkt wird auf dem Server aktualisiert…",
     "nutrition_page_update_done": "Produkt aktualisiert!",
     "nutrition_page_take_serving_size_from_product_quantity": "Verwenden Sie die Produktmenge als Portionsgröße",
     "@nutrition_page_take_serving_size_from_product_quantity": {
         "description": "Button label: Use the product quantity as serving size (nutrition page)"
+    },
+    "nutrition_page_photo_error": "Foto konnte nicht geladen werden",
+    "@nutrition_page_photo_error": {
+        "description": "Error message when the nutrition facts photo can't be loaded"
     },
     "more_photos": "Weitere interessante Fotos",
     "@more_photos": {},
@@ -865,14 +890,20 @@
     },
     "product_image_details_contributor": "Mitwirkende(r)",
     "@product_image_details_contributor": {
-        "description": "The name of the contributor (and also the owner field) who uploaded the image"
+        "description": "The name of the contributor who uploaded the image"
     },
     "product_image_details_contributor_producer": "Mitwirkende (Produzent)",
+    "@product_image_details_contributor_producer": {
+        "description": "The name of the contributor (and also the owner field) who uploaded the image"
+    },
     "product_image_details_date": "Datum",
     "@product_image_details_date": {
-        "description": "Text to indicate the date of the image is unknown"
+        "description": "Text to indicate the date of the image"
     },
     "product_image_details_date_unknown": "Unbekannt",
+    "@product_image_details_date_unknown": {
+        "description": "Text to indicate the date of the image is unknown"
+    },
     "homepage_main_card_logo_description": "Willkommen bei Open Food Facts",
     "@homepage_main_card_logo_description": {
         "description": "Description for accessibility of the Open Food Facts logo on the homepage"
@@ -1558,7 +1589,7 @@
     "@edit_product_form_item_stores_type": {
         "description": "Product edition - Stores - input textfield type"
     },
-    "edit_product_form_item_origins_title": "Herkunfte",
+    "edit_product_form_item_origins_title": "Herkunft",
     "@edit_product_form_item_origins_title": {
         "description": "Product edition - Origins - Title"
     },
@@ -1677,6 +1708,10 @@
     "@edit_product_form_item_nutrition_facts_subtitle": {
         "description": "Product edition - Nutrition facts - SubTitle"
     },
+    "edit_product_form_item_nutrition_facts_explanation": "Zu erledigen",
+    "@edit_product_form_item_nutrition_facts_explanation": {
+        "description": "DO NOT TRANSLATE Text to explain what to input in nutrition facts"
+    },
     "edit_product_form_save": "Bearbeiten",
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
@@ -1704,6 +1739,10 @@
     "product_field_website_title": "Website",
     "@product_field_website_title": {
         "description": "Title of a product field: website"
+    },
+    "origins_editing_title": "Herkunft bearbeiten",
+    "@origins_editing_title": {
+        "description": "Title of the button where users can edit the origins of a product"
     },
     "completed_basic_details_btn_text": "Allgemeine Angaben vervollständigen",
     "not_implemented_snackbar_text": "Noch nicht implementiert",
@@ -2227,8 +2266,13 @@
     "prices_proof_mandatory": "Sie müssen einen Nachweis auswählen!",
     "prices_add_validation_error": "Überprüfungsfehler",
     "prices_privacy_warning_title": "Datenschutzwarnung",
-    "prices_privacy_warning_message": "Die Preise werden zusammen mit dem Laden, auf den sie sich beziehen, veröffentlicht.\nDas könnte es Leuten, die Ihr Open Food Facts-Pseudonym kennen, ermöglichen:\n• Rückschlüsse auf Ihre Wohngegend ziehen\n• wissen, was Sie kaufen\nWenn Sie damit nicht einverstanden sind, ändern Sie bitte Ihr Pseudonym oder erstellen Sie ein neues Open Food Facts-Konto und melden Sie sich damit bei der App an.",
     "prices_unknown_product": "Unbekanntes Produkt",
+    "prices_privacy_warning_main_message": "Die Preise **werden zusammen mit dem Geschäft, auf das sie sich beziehen, öffentlich** sein.\n\nDas könnte es Leuten, die Ihr Pseudonym auf Open Food Facts kennen, ermöglichen:\n",
+    "prices_privacy_warning_message_bullet_1": "Ermitteln, in welcher Gegend Sie leben",
+    "prices_privacy_warning_message_bullet_2": "Erfahren, was Sie kaufen",
+    "prices_privacy_warning_sub_message": "Wenn Ihnen das unangenehm ist, ändern Sie bitte Ihr Pseudonym oder erstellen Sie ein neues Open Food Facts-Konto und melden Sie sich damit in der App an.",
+    "i_refuse": "Ablehnen",
+    "i_accept": "Akzeptieren",
     "prices_currency_change_proposal_title": "Währung ändern?",
     "prices_currency_change_proposal_message": "Ihre aktuelle Währung ist **{currency}**. Möchten Sie diese in **{newCurrency}** ändern?",
     "@prices_currency_change_proposal_message": {

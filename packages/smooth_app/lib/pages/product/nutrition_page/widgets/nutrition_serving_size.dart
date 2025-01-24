@@ -47,7 +47,7 @@ class NutritionServingSize extends StatelessWidget {
               text: appLocalizations.nutrition_page_serving_size_explanation,
             ),
             contentPadding: const EdgeInsetsDirectional.only(
-              start: LARGE_SPACE,
+              start: MEDIUM_SPACE,
               end: MEDIUM_SPACE,
               top: SMALL_SPACE,
               bottom: SMALL_SPACE,

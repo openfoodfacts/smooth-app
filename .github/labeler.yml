@@ -104,7 +104,8 @@ History:
 ⚙️🥗 Food preferences:
 - changed-files:
   - any-glob-to-any-file: 'packages/smooth_app/lib/widgets/attribute_button.dart'
-
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/preferences/user_preferences_attribute_group.dart'
+  
 🤗 Onboarding:
 - changed-files:
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/onboarding/**/*'

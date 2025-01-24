@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sliver_tools/sliver_tools.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
+import 'package:smooth_app/helpers/num_utils.dart';
 import 'package:smooth_app/widgets/widget_height.dart';
 
 class SliverCardWithRoundedHeader extends StatefulWidget {
@@ -125,7 +126,10 @@ class _SliverCardWithRoundedHeaderDelegate
             width: double.infinity,
           ),
         ),
-        child,
+        SmoothCardWithRoundedHeaderTopShadowProvider(
+          shadow: shrinkOffset.progressAndClamp(0.0, 30.0, 1.0),
+          child: child,
+        ),
       ],
     );
   }

@@ -562,6 +562,10 @@
     "@nutrition_facts_photo": {
         "description": "Button label: For adding a picture of the nutrition facts of a product"
     },
+    "nutrition_facts_editing_title": "Edit Nutrition Facts",
+    "@nutrition_facts_editing_title": {
+        "description": "Title of the button where users can edit the nutrition facts of a product"
+    },
     "packaging_information": "Packaging information",
     "@packaging_information": {
         "description": "Button label: For adding a picture of the packaging of a product"
@@ -767,17 +771,38 @@
     "score_add_missing_product_brands": "Add missing product brands",
     "score_update_nutrition_facts": "Update nutrition facts",
     "nutrition_page_title": "Nutrition Facts",
-    "nutrition_page_unspecified": "Nutrition facts are not specified on the product",
+    "nutrition_page_nutritional_info_title": "Nutritional information",
+    "nutrition_page_nutritional_info_label": "Values specified on the product:",
+    "nutrition_page_nutritional_info_value_positive": "Иә",
+    "nutrition_page_nutritional_info_value_negative": "Жоқ",
+    "nutrition_page_nutritional_info_open_photo": "Open photo",
+    "nutrition_page_nutritional_info_explanation": "TODO",
+    "@nutrition_page_nutritional_info_explanation": {
+        "description": "DO NOT TRANSLATE Text to explain when we should set the toggle to off (no nutrition facts)"
+    },
+    "nutrition_page_serving_type_label": "Nutritional values:",
+    "@nutrition_page_serving_type_label": {
+        "description": "Label to let the user choose between per 100g or per serving"
+    },
     "nutrition_page_per_100g": "per 100g",
     "nutrition_page_per_serving": "per serving",
     "nutrition_page_add_nutrient": "Add a nutrient",
     "nutrition_page_serving_size": "Порция мөлшері",
+    "nutrition_page_serving_size_hint": "Input a serving size (eg: 100g)",
+    "nutrition_page_serving_size_explanation": "TODO",
+    "@nutrition_page_serving_size_explanation": {
+        "description": "DO NOT TRANSLATE Text to explain what to input in the serving size"
+    },
     "nutrition_page_invalid_number": "Invalid number",
     "nutrition_page_update_running": "Updating the product on the server…",
     "nutrition_page_update_done": "Product updated!",
     "nutrition_page_take_serving_size_from_product_quantity": "Use the product quantity as serving size",
     "@nutrition_page_take_serving_size_from_product_quantity": {
         "description": "Button label: Use the product quantity as serving size (nutrition page)"
+    },
+    "nutrition_page_photo_error": "Unable to load the photo",
+    "@nutrition_page_photo_error": {
+        "description": "Error message when the nutrition facts photo can't be loaded"
     },
     "more_photos": "More interesting photos",
     "@more_photos": {},
@@ -865,14 +890,20 @@
     },
     "product_image_details_contributor": "Contributor",
     "@product_image_details_contributor": {
-        "description": "The name of the contributor (and also the owner field) who uploaded the image"
+        "description": "The name of the contributor who uploaded the image"
     },
     "product_image_details_contributor_producer": "Contributor (producer)",
+    "@product_image_details_contributor_producer": {
+        "description": "The name of the contributor (and also the owner field) who uploaded the image"
+    },
     "product_image_details_date": "Date",
     "@product_image_details_date": {
-        "description": "Text to indicate the date of the image is unknown"
+        "description": "Text to indicate the date of the image"
     },
     "product_image_details_date_unknown": "Unknown",
+    "@product_image_details_date_unknown": {
+        "description": "Text to indicate the date of the image is unknown"
+    },
     "homepage_main_card_logo_description": "Welcome to Open Food Facts",
     "@homepage_main_card_logo_description": {
         "description": "Description for accessibility of the Open Food Facts logo on the homepage"
@@ -1677,6 +1708,10 @@
     "@edit_product_form_item_nutrition_facts_subtitle": {
         "description": "Product edition - Nutrition facts - SubTitle"
     },
+    "edit_product_form_item_nutrition_facts_explanation": "TODO",
+    "@edit_product_form_item_nutrition_facts_explanation": {
+        "description": "DO NOT TRANSLATE Text to explain what to input in nutrition facts"
+    },
     "edit_product_form_save": "Edit",
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
@@ -1704,6 +1739,10 @@
     "product_field_website_title": "Website",
     "@product_field_website_title": {
         "description": "Title of a product field: website"
+    },
+    "origins_editing_title": "Edit Origins",
+    "@origins_editing_title": {
+        "description": "Title of the button where users can edit the origins of a product"
     },
     "completed_basic_details_btn_text": "Complete basic details",
     "not_implemented_snackbar_text": "Not implemented yet",
@@ -2227,8 +2266,13 @@
     "prices_proof_mandatory": "You need to select a proof!",
     "prices_add_validation_error": "Validation error",
     "prices_privacy_warning_title": "Privacy warning",
-    "prices_privacy_warning_message": "Prices will be public, along with the store they refer to.\nThat might allow people who know about your Open Food Facts pseudonym to:\n* infer in which area you live\n* know what you are buying\nIf you are uneasy with that, please change your pseudonym, or create a new Open Food Facts account and log into the app with it.",
     "prices_unknown_product": "Unknown product",
+    "prices_privacy_warning_main_message": "Prices **will be public**, along with the store they refer to.\n\nThat might allow people who know about your Open Food Facts pseudonym to:\n",
+    "prices_privacy_warning_message_bullet_1": "Infer in which area you live",
+    "prices_privacy_warning_message_bullet_2": "Know what you are buying",
+    "prices_privacy_warning_sub_message": "If you are uneasy with that, please change your pseudonym, or create a new Open Food Facts account and log into the app with it.",
+    "i_refuse": "I refuse",
+    "i_accept": "I accept",
     "prices_currency_change_proposal_title": "Change the currency?",
     "prices_currency_change_proposal_message": "Your current currency is **{currency}**. Would you like to change it to **{newCurrency}**?",
     "@prices_currency_change_proposal_message": {
