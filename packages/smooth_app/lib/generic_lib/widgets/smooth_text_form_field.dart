@@ -31,6 +31,8 @@ class SmoothTextFormField extends StatefulWidget {
     this.spellCheckConfiguration,
     this.allowEmojis = true,
     this.maxLines,
+    this.borderRadius,
+    this.contentPadding,
   });
 
   final TextFieldTypes type;
@@ -51,6 +53,8 @@ class SmoothTextFormField extends StatefulWidget {
   final SpellCheckConfiguration? spellCheckConfiguration;
   final bool allowEmojis;
   final int? maxLines;
+  final BorderRadius? borderRadius;
+  final EdgeInsetsGeometry? contentPadding;
 
   @override
   State<SmoothTextFormField> createState() => _SmoothTextFormFieldState();
@@ -76,7 +80,9 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
   Widget build(BuildContext context) {
     final bool enableSuggestions = widget.type == TextFieldTypes.PLAIN_TEXT;
     final bool autocorrect = widget.type == TextFieldTypes.PLAIN_TEXT;
-    final TextStyle textStyle = DefaultTextStyle.of(context).style;
+    final TextStyle textStyle = DefaultTextStyle.of(context).style.copyWith(
+          fontSize: 15.0,
+        );
     final double textSize = textStyle.fontSize ?? 20.0;
     final AppLocalizations appLocalization = AppLocalizations.of(context);
 
@@ -111,10 +117,12 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
           FilteringTextInputFormatter.deny(TextHelper.emojiRegex),
       ],
       decoration: InputDecoration(
-        contentPadding: const EdgeInsets.symmetric(
-          horizontal: LARGE_SPACE,
-          vertical: SMALL_SPACE,
-        ),
+        contentPadding: widget.contentPadding ??
+            const EdgeInsets.symmetric(
+              horizontal: LARGE_SPACE,
+              vertical: SMALL_SPACE,
+            ),
+        isDense: widget.contentPadding != null,
         prefixIcon: widget.prefixIcon,
         filled: true,
         hintStyle: (widget.hintTextStyle ?? const TextStyle()).apply(
@@ -122,12 +130,12 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
         ),
         hintText: widget.hintText,
         hintMaxLines: widget.maxLines ?? 2,
-        border: const OutlineInputBorder(
-          borderRadius: CIRCULAR_BORDER_RADIUS,
+        border: OutlineInputBorder(
+          borderRadius: widget.borderRadius ?? CIRCULAR_BORDER_RADIUS,
         ),
-        enabledBorder: const OutlineInputBorder(
-          borderRadius: CIRCULAR_BORDER_RADIUS,
-          borderSide: BorderSide(
+        enabledBorder: OutlineInputBorder(
+          borderRadius: widget.borderRadius ?? CIRCULAR_BORDER_RADIUS,
+          borderSide: const BorderSide(
             color: Colors.transparent,
             width: 5.0,
           ),

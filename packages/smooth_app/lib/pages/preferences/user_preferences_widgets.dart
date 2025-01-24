@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/helpers/paint_helper.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -29,43 +30,12 @@ class UserPreferencesListItemDivider extends StatelessWidget {
           double.infinity,
           1.0,
         ),
-        painter: _DashedLinePainter(
+        painter: DashedLinePainter(
           color: Theme.of(context).dividerColor,
         ),
       ),
     );
   }
-}
-
-class _DashedLinePainter extends CustomPainter {
-  _DashedLinePainter({
-    required Color color,
-  }) : _paint = Paint()
-          ..color = color
-          ..strokeWidth = 1.0;
-
-  static const double _DASHED_WIDTH = 3.0;
-  static const double _DASHED_SPACE = 3.0;
-
-  final Paint _paint;
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    double startX = 0.0;
-
-    while (startX < size.width) {
-      canvas.drawLine(
-        Offset(startX, 0),
-        Offset(startX + _DASHED_WIDTH, 0),
-        _paint,
-      );
-
-      startX += _DASHED_WIDTH + _DASHED_SPACE;
-    }
-  }
-
-  @override
-  bool shouldRepaint(CustomPainter oldDelegate) => false;
 }
 
 class UserPreferencesSwitchWidget extends StatelessWidget {

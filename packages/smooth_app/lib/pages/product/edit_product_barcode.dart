@@ -42,6 +42,7 @@ class _EditProductBarcodeState extends State<EditProductBarcode> {
         top: SMALL_SPACE,
         bottom: VERY_SMALL_SPACE,
       ),
+      includeShadow: false,
       child: MergeSemantics(
         child: Padding(
           padding: const EdgeInsetsDirectional.only(

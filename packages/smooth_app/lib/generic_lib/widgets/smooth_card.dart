@@ -118,6 +118,7 @@ class SmoothCardWithRoundedHeader extends StatelessWidget {
     this.titleBackgroundColor,
     this.contentBackgroundColor,
     this.borderRadius,
+    this.includeShadow = true,
     super.key,
   });
 
@@ -133,20 +134,23 @@ class SmoothCardWithRoundedHeader extends StatelessWidget {
   final Color? titleBackgroundColor;
   final Color? contentBackgroundColor;
   final BorderRadius? borderRadius;
+  final bool includeShadow;
 
   @override
   Widget build(BuildContext context) {
     return DecoratedBox(
       decoration: BoxDecoration(
         borderRadius: borderRadius ?? ROUNDED_BORDER_RADIUS,
-        boxShadow: const <BoxShadow>[
-          BoxShadow(
-            color: Color(0x03000000),
-            blurRadius: 2.0,
-            spreadRadius: 0.0,
-            offset: Offset(0.0, 2.0),
-          ),
-        ],
+        boxShadow: includeShadow
+            ? const <BoxShadow>[
+                BoxShadow(
+                  color: Color(0x10000000),
+                  blurRadius: 2.0,
+                  spreadRadius: 0.0,
+                  offset: Offset(0.0, 2.0),
+                ),
+              ]
+            : null,
       ),
       child: Column(
         children: <Widget>[

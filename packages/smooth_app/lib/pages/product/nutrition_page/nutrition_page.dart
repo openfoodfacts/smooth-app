@@ -18,12 +18,12 @@ import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/pages/input/unfocus_field_when_tap_outside.dart';
 import 'package:smooth_app/pages/product/common/product_buttons.dart';
+import 'package:smooth_app/pages/product/edit_product_image_viewer.dart';
 import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
 import 'package:smooth_app/pages/product/nutrition_page/widgets/nutrition_add_nutrient_button.dart';
 import 'package:smooth_app/pages/product/nutrition_page/widgets/nutrition_availability_container.dart';
 import 'package:smooth_app/pages/product/nutrition_page/widgets/nutrition_container_helper.dart';
 import 'package:smooth_app/pages/product/nutrition_page/widgets/nutrition_facts_editor.dart';
-import 'package:smooth_app/pages/product/nutrition_page/widgets/nutrition_image_viewer.dart';
 import 'package:smooth_app/pages/product/nutrition_page/widgets/nutrition_serving_size.dart';
 import 'package:smooth_app/pages/product/nutrition_page/widgets/nutrition_serving_switch.dart';
 import 'package:smooth_app/pages/product/simple_input_number_field.dart';
@@ -146,7 +146,9 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
                   ]),
               body: Column(
                 children: <Widget>[
-                  NutritionImageViewer(
+                  EditProductImageViewer(
+                    imageField: ImageField.NUTRITION,
+                    language: ProductQuery.getLanguage(),
                     visible: _imageVisible,
                     onClose: () => setState(() => _imageVisible = false),
                   ),

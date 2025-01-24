@@ -104,14 +104,14 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
                       hintText: widget.helper.getAddHint(appLocalizations),
                       controller: widget.controller,
                       padding: const EdgeInsets.symmetric(
-                        horizontal: MEDIUM_SPACE,
-                        vertical: SMALL_SPACE,
+                        horizontal: LARGE_SPACE,
+                        vertical: MEDIUM_SPACE,
                       ),
                       margin: const EdgeInsetsDirectional.only(
                         start: 3.0,
                       ),
                       productType: widget.product.productType,
-                      borderRadius: ROUNDED_BORDER_RADIUS,
+                      borderRadius: CIRCULAR_BORDER_RADIUS,
                     ),
                   ),
                   Tooltip(
@@ -164,6 +164,9 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
       leading: widget.helper.getIcon(),
       title: widget.helper.getTitle(appLocalizations),
       trailing: trailingHeader,
+      contentPadding: const EdgeInsetsDirectional.only(
+        top: BALANCED_SPACE,
+      ),
       child: child,
     );
   }
