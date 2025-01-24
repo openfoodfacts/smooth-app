@@ -45,61 +45,149 @@ class UserPreferencesAttributeGroup {
         labels: <String>[],
         builder: (_) => InkWell(
           onTap: () async => userPreferences.setActiveAttributeGroup(group.id!),
-          child: AttributeGroupListTile(
-            title: Text(
-              group.name ?? appLocalizations.unknown,
-              style: themeData.textTheme.titleLarge,
-            ),
-            icon: collapsed!
-                ? const Icon(Icons.keyboard_arrow_right)
-                : const Icon(Icons.keyboard_arrow_down),
+          child: UserPreferencesExpandableWidget(
+            userPreferences: userPreferences,
+            group: group,
+            appLocalizations: appLocalizations,
+            themeData: themeData,
+            productPreferences: productPreferences,
+
+            // title: Text(
+            //   group.name ?? appLocalizations.unknown,
+            //   style: themeData.textTheme.titleLarge,
+            // ),
+            // icon: collapsed!
+            //     ? const Icon(Icons.keyboard_arrow_right)
+            //     : const Icon(Icons.keyboard_arrow_down),
           ),
         ),
       ),
     );
-    if (collapsed) {
-      return result;
-    }
-    if (group.warning != null) {
-      result.add(
-        UserPreferencesItemSimple(
-          labels: <String>[group.warning!],
-          builder: (final BuildContext context) {
-            final ColorScheme colorScheme = Theme.of(context).colorScheme;
-            return Container(
-              color: colorScheme.error,
-              width: double.infinity,
-              padding: const EdgeInsets.all(LARGE_SPACE),
-              margin: const EdgeInsets.all(LARGE_SPACE),
-              child: Text(
-                group.warning!,
-                style: TextStyle(
-                  color: colorScheme.onError,
-                ),
-              ),
-            );
-          },
-        ),
-      );
-    }
-    final List<String> excludedAttributeIds =
-        userPreferences.getExcludedAttributeIds();
-    for (final Attribute attribute in group.attributes!) {
-      if (excludedAttributeIds.contains(attribute.id)) {
-        continue;
-      }
-      result.add(
-        UserPreferencesItemSimple(
-          labels: <String>[
-            if (attribute.settingNote != null) attribute.settingNote!,
-            if (attribute.settingName != null) attribute.settingName!,
-            if (attribute.id != null) attribute.id!,
-            if (attribute.name != null) attribute.name!,
-          ],
-          builder: (_) => AttributeButton(attribute, productPreferences),
-        ),
-      );
-    }
+    // if (collapsed) {
+    //   return result;
+    // }
+    // if (group.warning != null) {
+    //   result.add(
+    //     UserPreferencesItemSimple(
+    //       labels: <String>[group.warning!],
+    //       builder: (final BuildContext context) {
+    //         final ColorScheme colorScheme = Theme.of(context).colorScheme;
+    //         return Container(
+    //           color: colorScheme.error,
+    //           width: double.infinity,
+    //           padding: const EdgeInsets.all(LARGE_SPACE),
+    //           margin: const EdgeInsets.all(LARGE_SPACE),
+    //           child: Text(
+    //             group.warning!,
+    //             style: TextStyle(
+    //               color: colorScheme.onError,
+    //             ),
+    //           ),
+    //         );
+    //       },
+    //     ),
+    //   );
+    // }
+    // final List<String> excludedAttributeIds =
+    //     userPreferences.getExcludedAttributeIds();
+    // for (final Attribute attribute in group.attributes!) {
+    //   if (excludedAttributeIds.contains(attribute.id)) {
+    //     continue;
+    //   }
+    //   result.add(
+    //     UserPreferencesItemSimple(
+    //       labels: <String>[
+    //         if (attribute.settingNote != null) attribute.settingNote!,
+    //         if (attribute.settingName != null) attribute.settingName!,
+    //         if (attribute.id != null) attribute.id!,
+    //         if (attribute.name != null) attribute.name!,
+    //       ],
+    //       builder: (_) => AttributeButton(attribute, productPreferences),
+    //     ),
+    //   );
+    // }
     return result;
+  }
+}
+
+class UserPreferencesExpandableWidget extends StatefulWidget {
+  final UserPreferences userPreferences;
+  final AttributeGroup group;
+  final AppLocalizations appLocalizations;
+  final ThemeData themeData;
+  final ProductPreferences productPreferences;
+
+  const UserPreferencesExpandableWidget({
+    required this.userPreferences,
+    required this.group,
+    required this.appLocalizations,
+    required this.themeData,
+    required this.productPreferences,
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  _UserPreferencesExpandableWidgetState createState() => _UserPreferencesExpandableWidgetState();
+}
+
+class _UserPreferencesExpandableWidgetState extends State<UserPreferencesExpandableWidget> {
+  bool _isExpanded = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return ExpansionTile(
+      // initiallyExpanded: true,
+      title: Text(
+        widget.group.name ?? widget.appLocalizations.unknown,
+        style: widget.themeData.textTheme.titleLarge,
+      ),
+      // leading: Icon(
+      //   _isExpanded ? Icons.keyboard_arrow_down : Icons.keyboard_arrow_right,
+      // ),
+      onExpansionChanged: (bool expanded) {
+        setState(() {
+          _isExpanded = expanded;
+          if (expanded) {
+            widget.userPreferences.setActiveAttributeGroup(widget.group.id!);
+          }
+        });
+      },
+      children: [
+        if (widget.group.warning != null)
+          Container(
+            color: Theme.of(context).colorScheme.error,
+            width: double.infinity,
+            padding: const EdgeInsets.all(LARGE_SPACE),
+            margin: const EdgeInsets.all(LARGE_SPACE),
+            child: Text(
+              widget.group.warning!,
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.onError,
+              ),
+            ),
+          ),
+        ..._buildAttributes(),
+      ],
+    );
+  }
+
+  List<Widget> _buildAttributes() {
+    final List<String> excludedAttributeIds =
+        widget.userPreferences.getExcludedAttributeIds();
+    final List<Widget> attributeWidgets = [];
+
+    for (final Attribute attribute in widget.group.attributes!) {
+      if (excludedAttributeIds.contains(attribute.id)) continue;
+
+      attributeWidgets.add(
+        Column(
+          children: [
+            AttributeButton(attribute, widget.productPreferences),
+          ],
+        ),
+      );
+    }
+
+    return attributeWidgets;
   }
 }
