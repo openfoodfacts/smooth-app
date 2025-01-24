@@ -80,6 +80,10 @@ Widget build(BuildContext context) {
       painter: _SmoothCardWithRoundedHeaderBackgroundPainter(
         color: color,
         radius: borderRadius?.topRight ?? ROUNDED_RADIUS,
+        shadowElevation:
+            SmoothCardWithRoundedHeaderTopShadowProvider.of(context)
+                    ?.shadow ??
+                0.0,
       ),
       child: Padding(
         padding: titlePadding ??

@@ -75,7 +75,9 @@
 <li><span class="parameter" id="copyWith-param-red"><span class="type-annotation">dynamic</span> <span class="parameter-name">red</span>, </span></li>
 <li><span class="parameter" id="copyWith-param-greyDark"><span class="type-annotation">dynamic</span> <span class="parameter-name">greyDark</span>, </span></li>
 <li><span class="parameter" id="copyWith-param-greyNormal"><span class="type-annotation">dynamic</span> <span class="parameter-name">greyNormal</span>, </span></li>
-<li><span class="parameter" id="copyWith-param-greyLight"><span class="type-annotation">dynamic</span> <span class="parameter-name">greyLight</span>}</span></li>
+<li><span class="parameter" id="copyWith-param-greyLight"><span class="type-annotation">dynamic</span> <span class="parameter-name">greyLight</span>, </span></li>
+<li><span class="parameter" id="copyWith-param-cellOdd"><span class="type-annotation">dynamic</span> <span class="parameter-name">cellOdd</span>, </span></li>
+<li><span class="parameter" id="copyWith-param-cellEven"><span class="type-annotation">dynamic</span> <span class="parameter-name">cellEven</span>}</span></li>
 </ol>)
 
       
@@ -108,6 +110,8 @@ ThemeExtension&lt;SmoothColorsThemeExtension&gt; copyWith({
   Color? greyDark,
   Color? greyNormal,
   Color? greyLight,
+  Color? cellOdd,
+  Color? cellEven,
 }) {
   return SmoothColorsThemeExtension(
     primaryUltraBlack: primaryUltraBlack ?? this.primaryUltraBlack,
@@ -129,6 +133,8 @@ ThemeExtension&lt;SmoothColorsThemeExtension&gt; copyWith({
     greyDark: greyDark ?? this.greyDark,
     greyNormal: greyDark ?? this.greyDark,
     greyLight: greyLight ?? this.greyLight,
+    cellOdd: cellOdd ?? this.cellOdd,
+    cellEven: cellEven ?? this.cellEven,
   );
 }</code></pre>
 </section>
@@ -162,6 +168,8 @@ ThemeExtension&lt;SmoothColorsThemeExtension&gt; copyWith({
     <li class="section-title">
       <a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_themes_smooth_theme_colors/SmoothColorsThemeExtension-class.html#instance-properties">Properties</a>
     </li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_themes_smooth_theme_colors/SmoothColorsThemeExtension/cellEven.html">cellEven</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_themes_smooth_theme_colors/SmoothColorsThemeExtension/cellOdd.html">cellOdd</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_themes_smooth_theme_colors/SmoothColorsThemeExtension/error.html">error</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_themes_smooth_theme_colors/SmoothColorsThemeExtension/green.html">green</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_themes_smooth_theme_colors/SmoothColorsThemeExtension/greyDark.html">greyDark</a></li>
