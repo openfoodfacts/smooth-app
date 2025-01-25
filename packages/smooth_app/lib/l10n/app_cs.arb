@@ -440,7 +440,7 @@
     "myPreferences_profile_title": "Váš profil",
     "myPreferences_profile_subtitle": "Spravujte svůj účet přispěvatele Open Food Facts.",
     "myPreferences_settings_title": "Nastavení aplikace",
-    "myPreferences_settings_subtitle": "Dark mode, Languages…",
+    "myPreferences_settings_subtitle": "Tmavý režim, Jazyky…",
     "myPreferences_food_title": "Předvolby jídla",
     "myPreferences_food_subtitle": "Vyberte si, které informace o jídle jsou pro vás nejdůležitější.",
     "myPreferences_food_comment": "Vyberte si, na kterých informacích o potravinách vám nejvíce záleží, abyste mohli seřadit potraviny podle svých preferencí, prohlédněte si informace, které vás zajímají, jako první a získejte přehled kompatibility. Tyto preference jídla zůstanou ve vašem zařízení a nejsou spojeny s vaším účtem přispěvatele Open Food Facts, pokud jej máte.",
@@ -522,7 +522,7 @@
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
-    "label_reload": "Reload",
+    "label_reload": "Znovu načíst",
     "@label_reload": {
         "description": "Reload a page"
     },
@@ -538,7 +538,7 @@
             "imageType": {}
         }
     },
-    "outdated_image_short_label": "may be outdated",
+    "outdated_image_short_label": "mohou být zastaralé",
     "@outdated_image_short_label": {
         "description": "A label for outdated images"
     },
@@ -582,7 +582,7 @@
     "@add_product_information_button_label": {},
     "new_product": "Nový produkt",
     "@new_product": {},
-    "new_product_found_title": "New product found!",
+    "new_product_found_title": "Nalezen nový produkt!",
     "@new_product_found_title": {
         "description": "Title of a dialog that informs the user that a barcode doesn't exist in the database"
     },
@@ -1017,7 +1017,7 @@
     "@product_improvement_obsolete_nutrition_image": {
         "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
     },
-    "product_improvement_origins_to_be_completed": "The Green Score takes into account the origins of the ingredients. Please take a photo of the ingredient list and/or any geographic claim or edit the product, so they can be taken into account.",
+    "product_improvement_origins_to_be_completed": "Green-Score bere v úvahu původ ingrediencí. Vyfoťte prosím seznam složek a/nebo jakékoli geografické tvrzení nebo úpravy produktu, aby mohly být zohledněny.",
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
@@ -1472,7 +1472,7 @@
     "@permission_photo_denied": {
         "description": "When the camera/photo permission is denied by user"
     },
-    "show_product_pictures": "Show product pictures",
+    "show_product_pictures": "Zobrazit obrázky produktů",
     "@show_product_pictures": {
         "description": "Button to show a list of product pictures"
     },
@@ -1492,7 +1492,7 @@
     "@edit_product_label_short": {
         "description": "Edit product button short label (only the verb)"
     },
-    "edit_product_form_item_help": "How to enter \"{value}\"?",
+    "edit_product_form_item_help": "Jak zadat \"{value}\"?",
     "@edit_product_form_item_help": {
         "description": "Help text for the input field. Eg 'How to enter stores?'",
         "placeholders": {
@@ -1501,39 +1501,39 @@
             }
         }
     },
-    "edit_product_form_item_error_empty": "Please enter a non-empty value!",
+    "edit_product_form_item_error_empty": "Zadejte prosím neprázdnou hodnotu!",
     "@edit_product_form_item_error_empty": {
         "description": "Error message when the user tries to submit an empty value"
     },
-    "edit_product_form_item_error_existing": "This value is already there!",
+    "edit_product_form_item_error_existing": "Tato hodnota již existuje!",
     "@edit_product_form_item_error_existing": {
         "description": "Error message when the user tries to re-submit an existing value"
     },
-    "edit_product_form_item_add_action_brand": "Add a new brand",
+    "edit_product_form_item_add_action_brand": "Přidat novou značku",
     "@edit_product_form_item_add_action_brand": {
         "description": "Tooltip to show when the user long presses the (+) button on a brand"
     },
-    "edit_product_form_item_add_action_label": "Add a new label",
+    "edit_product_form_item_add_action_label": "Přidat nový štítek",
     "@edit_product_form_item_add_action_label": {
         "description": "Tooltip to show when the user long presses the (+) button on a label"
     },
-    "edit_product_form_item_add_action_store": "Add a new store",
+    "edit_product_form_item_add_action_store": "Přidat nový obchod",
     "@edit_product_form_item_add_action_store": {
         "description": "Tooltip to show when the user long presses the (+) button on a store"
     },
-    "edit_product_form_item_add_action_origin": "Add a new origin",
+    "edit_product_form_item_add_action_origin": "Přidat nový původ",
     "@edit_product_form_item_add_action_origin": {
         "description": "Tooltip to show when the user long presses the (+) button on an origin"
     },
-    "edit_product_form_item_add_action_emb_code": "Add a new traceability code",
+    "edit_product_form_item_add_action_emb_code": "Přidat nový kód sledovatelnosti",
     "@edit_product_form_item_add_action_emb_code": {
         "description": "Tooltip to show when the user long presses the (+) button on a traceability code"
     },
-    "edit_product_form_item_add_action_country": "Add a new country",
+    "edit_product_form_item_add_action_country": "Přidat novou zemi",
     "@edit_product_form_item_add_action_country": {
         "description": "Tooltip to show when the user long presses the (+) button on a country"
     },
-    "edit_product_form_item_add_action_category": "Add a new category",
+    "edit_product_form_item_add_action_category": "Přidá novou kategorii",
     "@edit_product_form_item_add_action_category": {
         "description": "Tooltip to show when the user long presses the (+) button on a category"
     },
@@ -1688,11 +1688,11 @@
     "edit_product_form_item_add_valid_item_tooltip": "Přidat",
     "edit_product_form_item_add_invalid_item_tooltip": "Nejprve prosím zadejte text",
     "edit_product_form_item_remove_item_tooltip": "Odstranit",
-    "edit_product_form_item_save_edit_item_tooltip": "Save your edit",
+    "edit_product_form_item_save_edit_item_tooltip": "Uložte své úpravy",
     "@edit_product_form_item_save_edit_item_tooltip": {
         "description": "The user can edit an existing item. This action will save the change."
     },
-    "edit_product_form_item_cancel_edit_item_tooltip": "Cancel your edit",
+    "edit_product_form_item_cancel_edit_item_tooltip": "Zrušte svou úpravu",
     "@edit_product_form_item_cancel_edit_item_tooltip": {
         "description": "The user can edit an existing item. This action will cancel the change (and return to the initial value)."
     },
