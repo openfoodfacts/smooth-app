@@ -2267,14 +2267,14 @@
     "prices_add_validation_error": "Chyba ověření",
     "prices_privacy_warning_title": "Upozornění na soukromí",
     "prices_unknown_product": "Neznámý produkt",
-    "prices_privacy_warning_main_message": "Prices **will be public**, along with the store they refer to.\n\nThat might allow people who know about your Open Food Facts pseudonym to:\n",
-    "prices_privacy_warning_message_bullet_1": "Infer in which area you live",
-    "prices_privacy_warning_message_bullet_2": "Know what you are buying",
-    "prices_privacy_warning_sub_message": "If you are uneasy with that, please change your pseudonym, or create a new Open Food Facts account and log into the app with it.",
-    "i_refuse": "I refuse",
-    "i_accept": "I accept",
-    "prices_currency_change_proposal_title": "Change the currency?",
-    "prices_currency_change_proposal_message": "Your current currency is **{currency}**. Would you like to change it to **{newCurrency}**?",
+    "prices_privacy_warning_main_message": "Ceny **budou veřejné** spolu s obchodem, na který odkazují.\n\nTo by mohlo umožnit lidem, kteří vědí o vašem pseudonymu Open Food Facts:\n",
+    "prices_privacy_warning_message_bullet_1": "Odhadnout, ve které oblasti žijete",
+    "prices_privacy_warning_message_bullet_2": "Vědět, co kupujete",
+    "prices_privacy_warning_sub_message": "Pokud s tím nejste spokojeni, změňte si prosím svůj pseudonym nebo si vytvořte nový účet Open Food Facts a přihlaste se pomocí něj do aplikace.",
+    "i_refuse": "Odmítám",
+    "i_accept": "Přijímám",
+    "prices_currency_change_proposal_title": "Změnit měnu?",
+    "prices_currency_change_proposal_message": "Vaše současná měna je **{currency}**. Chcete ji změnit na **{newCurrency}**?",
     "@prices_currency_change_proposal_message": {
         "description": "Message to ask the user if they want to change the currency",
         "placeholders": {
@@ -2286,7 +2286,7 @@
             }
         }
     },
-    "prices_currency_change_proposal_action_approve": "Yes, use {newCurrency}",
+    "prices_currency_change_proposal_action_approve": "Ano, použít {newCurrency}",
     "@prices_currency_change_proposal_action_approve": {
         "description": "Button to approve the currency change",
         "placeholders": {
@@ -2295,7 +2295,7 @@
             }
         }
     },
-    "prices_currency_change_proposal_action_cancel": "No, keep {currency}",
+    "prices_currency_change_proposal_action_cancel": "Ne, ponechat {currency}",
     "@prices_currency_change_proposal_action_cancel": {
         "description": "Button to cancel the currency change",
         "placeholders": {
@@ -2321,7 +2321,7 @@
     "@dev_preferences_show_folksonomy_title": {
         "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
     },
-    "dev_mode_hide_environmental_score_title": "Exclude Green Score",
+    "dev_mode_hide_environmental_score_title": "Vyloučit Green-Score",
     "@dev_mode_hide_environmental_score_title": {
         "description": "User dev preferences - Disable Green Score - Title"
     },
@@ -2517,13 +2517,13 @@
     "basic_details": "Základní detaily",
     "product_name": "Název produktu",
     "add_basic_details_product_name_error": "Zadejte název produktu",
-    "add_basic_details_product_name_hint": "Input the name of the product (eg: Nutella)",
+    "add_basic_details_product_name_hint": "Zadejte název produktu (např.: Nutella)",
     "brand_name": "Název značky",
-    "brand_names": "Brand names",
+    "brand_names": "Názvy značek",
     "add_basic_details_brand_name_error": "Zadejte název značky",
-    "add_basic_details_brand_names_hint": "Input brands (eg: Ferrero)",
+    "add_basic_details_brand_names_hint": "Zadejte značky (např.: Ferrero)",
     "quantity": "Množství a hmotnost",
-    "add_basic_details_quantity_hint": "Input the weight and if needed the quantity (eg : 4x100g)",
+    "add_basic_details_quantity_hint": "Zadejte hmotnost a v případě potřeby množství (např.: 4x100g)",
     "barcode": "Čárový kód",
     "barcode_barcode": "Čárový kód: {barcode}",
     "@barcode_barcode": {
@@ -2781,7 +2781,7 @@
         "description": "Snackbar label after clipboard copy"
     },
     "clipboard_barcode_copied": "Čárový kód {barcode} zkopírován do schránky!",
-    "open_product_website": "Open this product on the website",
+    "open_product_website": "Otevřete tento produkt na webu",
     "language_picker_label": "Váš jazyk",
     "@language_picker_label": {
         "description": "Choose Application Language"
@@ -2790,7 +2790,7 @@
     "@country_picker_label": {
         "description": "Choose Application Country"
     },
-    "currency_picker_label": "Your currency",
+    "currency_picker_label": "Vaše měna",
     "@currency_picker_label": {
         "description": "Choose Application Country"
     },
@@ -2882,7 +2882,7 @@
             }
         }
     },
-    "portion_calculator_computation_error": "Missing data. Calculation could not be performed.",
+    "portion_calculator_computation_error": "Chybějící data. Výpočet nebylo možné provést.",
     "@portion_calculator_computation_error": {
         "description": "Error message to explain that the computation of the portion calculator failed."
     },
@@ -3315,14 +3315,14 @@
     "nutriscore_unknown_new_formula": "Neznámé Nutri-Score (Nový výpočet)",
     "nutriscore_not_applicable": "Nutri-Score nelze použít",
     "nutriscore_not_applicable_new_formula": "Nutri-Score nelze použít (Nový výpočet)",
-    "environmental_score_generic": "Green Score",
-    "environmental_score_a": "Green Score A",
-    "environmental_score_b": "Green Score B",
-    "environmental_score_c": "Green Score C",
-    "environmental_score_d": "Green Score D",
-    "environmental_score_e": "Green Score E",
-    "environmental_score_unknown": "Unknown Green Score",
-    "environmental_score_not_applicable": "Green Score is not applicable",
+    "environmental_score_generic": "Green-Score",
+    "environmental_score_a": "Green-Score A",
+    "environmental_score_b": "Green-Score B",
+    "environmental_score_c": "Green-Score C",
+    "environmental_score_d": "Green-Score D",
+    "environmental_score_e": "Green-Score E",
+    "environmental_score_unknown": "Neznámé Green-Score",
+    "environmental_score_not_applicable": "Green-Score nelze použít",
     "nova_group_generic": "Ultra-zpracování - skupiny NOVA",
     "nova_group_1": "Skupina NOVA 1",
     "nova_group_2": "Skupina NOVA 2",
@@ -3696,11 +3696,11 @@
     "@photo_rotate_right": {
         "description": "Button to rotate a photo to the right"
     },
-    "photo_undo_action": "Undo the previous action",
+    "photo_undo_action": "Vrátit předchozí akci",
     "@photo_undo_action": {
         "description": "Button to undo the previous action on a photo"
     },
-    "knowledge_panel_world_map_accessibility_label": "A world map of {location}",
+    "knowledge_panel_world_map_accessibility_label": "Mapa světa {location}",
     "@knowledge_panel_world_map_accessibility_label": {
         "description": "Accessibility label for the world map in the knowledge panel",
         "placeholders": {
@@ -3709,11 +3709,11 @@
             }
         }
     },
-    "open_street_map_contributor_attribution": "OpenStreetMap contributors",
+    "open_street_map_contributor_attribution": "Přispěvatelé OpenStreetMap",
     "@open_street_map_contributor_attribution": {
         "description": "Attribution for OpenStreetMap contributors"
     },
-    "not_applicable_short": "N/A",
+    "not_applicable_short": "Nedostupné",
     "@not_applicable_short": {
         "description": "Acronym for Not Applicable"
     },
@@ -3721,11 +3721,11 @@
     "@knowledge_panel_warning_text": {
         "description": "Warning text at the beginning of a sentence in the knowledge panel (you can find this word on the NutriScore KP of 3033491279300)"
     },
-    "knowledge_panel_nutriscore_banner_incorrect_score_title": "Why is this Nutri-Score different from the one on the package?",
-    "knowledge_panel_nutriscore_banner_incorrect_score_message": "There are two possible explanations:\nThe list of ingredients and/or nutrition facts are not up-to-date.\n\nWe provide the \"New calculation\" of the Nutri-Score (or V2). Please check that you have the banner \"New calculation\" on the package.",
-    "knowledge_panel_nutriscore_banner_incorrect_score_button1": "Check ingredients",
-    "knowledge_panel_nutriscore_banner_incorrect_score_button2": "Check nutrition facts",
-    "url_not_supported": "Unfortunately, we can't open the URL:\n{url}",
+    "knowledge_panel_nutriscore_banner_incorrect_score_title": "Proč se toto Nutri-Score liší od Nutri-Score na obalu?",
+    "knowledge_panel_nutriscore_banner_incorrect_score_message": "Existují dvě možná vysvětlení:\nSeznam ingrediencí a/nebo výživových údajů není aktuální.\n\nPoskytujeme \"Nový výpočet\" Nutri-Score (nebo V2). Zkontrolujte, zda máte na obalu nápis \"Nový výpočet\".",
+    "knowledge_panel_nutriscore_banner_incorrect_score_button1": "Zkontrolovat ingredience",
+    "knowledge_panel_nutriscore_banner_incorrect_score_button2": "Zkontrolovat výživové údaje",
+    "url_not_supported": "Bohužel nemůžeme otevřít adresu URL:\n{url}",
     "@url_not_supported": {
         "description": "Error message when the app can't open a URL",
         "placeholders": {
