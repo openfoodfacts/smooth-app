@@ -1169,7 +1169,7 @@
     "@select_none_products_mode": {
         "description": "Button to switch to 'select no products'"
     },
-    "compare_products_appbar_title": "Compare products",
+    "compare_products_appbar_title": "مقارنة المنتجات",
     "@compare_products_appbar_title": {
         "description": "AppBar title when in comparison mode "
     },
