@@ -2516,8 +2516,21 @@
     },
     "basic_details": "Základní detaily",
     "product_name": "Název produktu",
+    "product_names": "Product Names",
+    "add_basic_details_product_name_add_translation": "Add a new translation",
+    "add_basic_details_product_name_open_photo": "View front photo",
+    "add_basic_details_product_name_take_photo": "Take front photo",
     "add_basic_details_product_name_error": "Zadejte název produktu",
     "add_basic_details_product_name_hint": "Zadejte název produktu (např.: Nutella)",
+    "add_basic_details_product_name_other_translations": "{count,plural, one{{count} other translation} other{{count} other translations}}",
+    "@add_basic_details_product_name_other_translations": {
+        "description": "The number of other translations for a product name (count is always >= 1)",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
     "brand_name": "Název značky",
     "brand_names": "Názvy značek",
     "add_basic_details_brand_name_error": "Zadejte název značky",
