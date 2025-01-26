@@ -2072,7 +2072,7 @@
     "prices_app_button": "Перейдіть у додаток Ціни",
     "prices_generic_title": "Ціни",
     "prices_add_n_prices": "{count,plural, =1{Додайте ціну} other{Додайте {count} цін}}",
-    "prices_send_n_prices": "{count,plural, =1{Надіслати{count} ціну} few {Надіслати {count} ціни} many {Надіслати {count} цін}=1{Надіслати ціну} other{Надіслати {count} ціни}}",
+    "prices_send_n_prices": "{count,plural, =1{Надіслати{count} ціну} few {Надіслати {count} ціни} many {Надіслати {count} цін}other{Надіслати {count} ціни}}",
     "prices_add_an_item": "Додати елемент",
     "prices_add_a_price": "Додати ціну",
     "prices_add_a_receipt": "Додати чек",
@@ -2516,8 +2516,21 @@
     },
     "basic_details": "Основні деталі",
     "product_name": "Назва продукту",
+    "product_names": "Product Names",
+    "add_basic_details_product_name_add_translation": "Add a new translation",
+    "add_basic_details_product_name_open_photo": "View front photo",
+    "add_basic_details_product_name_take_photo": "Take front photo",
     "add_basic_details_product_name_error": "Будь ласка, введіть назву продукту",
     "add_basic_details_product_name_hint": "Введіть назву продукту (наприклад, Nutella)",
+    "add_basic_details_product_name_other_translations": "{count,plural, one{{count} other translation} other{{count} other translations}}",
+    "@add_basic_details_product_name_other_translations": {
+        "description": "The number of other translations for a product name (count is always >= 1)",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
     "brand_name": "Назва бренду",
     "brand_names": "Торгові марки",
     "add_basic_details_brand_name_error": "Будь ласка, введіть назву бренду",
