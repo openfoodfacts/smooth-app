@@ -2516,8 +2516,21 @@
     },
     "basic_details": "Basic Details",
     "product_name": "Product Name",
+    "product_names": "Product Names",
+    "add_basic_details_product_name_add_translation": "Add a new translation",
+    "add_basic_details_product_name_open_photo": "View front photo",
+    "add_basic_details_product_name_take_photo": "Take front photo",
     "add_basic_details_product_name_error": "Please enter the product name",
     "add_basic_details_product_name_hint": "Input the name of the product (eg: Nutella)",
+    "add_basic_details_product_name_other_translations": "{count,plural, one{{count} other translation} other{{count} other translations}}",
+    "@add_basic_details_product_name_other_translations": {
+        "description": "The number of other translations for a product name (count is always >= 1)",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
     "brand_name": "Brand name",
     "brand_names": "Brand names",
     "add_basic_details_brand_name_error": "Please enter the brand name",
