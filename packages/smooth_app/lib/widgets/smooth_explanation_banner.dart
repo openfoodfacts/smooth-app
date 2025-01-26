@@ -145,60 +145,12 @@ class ExplanationBodyTitle extends StatelessWidget {
 class ExplanationBodyInfo extends StatelessWidget {
   const ExplanationBodyInfo({
     required this.text,
+    this.icon = true,
     this.safeArea = false,
-    super.key,
   });
 
   final String text;
-  final bool safeArea;
-
-  @override
-  Widget build(BuildContext context) {
-    return _ExplanationBodyText(
-      text: text,
-      icon: Transform.translate(
-        offset: const Offset(-17.0, 09.0),
-        child: const icons.Info(size: 55.0),
-      ),
-      safeArea: safeArea,
-    );
-  }
-}
-
-class ExplanationBodyWarning extends StatelessWidget {
-  const ExplanationBodyWarning({
-    required this.text,
-    this.safeArea = false,
-    super.key,
-  });
-
-  final String text;
-  final bool safeArea;
-
-  @override
-  Widget build(BuildContext context) {
-    return _ExplanationBodyText(
-      text: text,
-      icon: Transform.translate(
-        offset: const Offset(-19.0, -06.0),
-        child: const icons.Warning(
-          size: 55.0,
-        ),
-      ),
-      safeArea: safeArea,
-    );
-  }
-}
-
-class _ExplanationBodyText extends StatelessWidget {
-  const _ExplanationBodyText({
-    required this.text,
-    required this.icon,
-    required this.safeArea,
-  });
-
-  final String text;
-  final Widget icon;
+  final bool icon;
   final bool safeArea;
 
   @override
@@ -217,18 +169,23 @@ class _ExplanationBodyText extends StatelessWidget {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: <Widget>[
-              Align(
-                alignment: AlignmentDirectional.bottomCenter,
-                child: icons.AppIconTheme(
+              if (icon)
+                Align(
+                  alignment: AlignmentDirectional.bottomCenter,
+                  child: icons.AppIconTheme(
                     color: lightTheme
                         ? extension.primaryNormal
                         : extension.primaryMedium,
-                    child: icon),
-              ),
+                    child: Transform.translate(
+                      offset: const Offset(-17.0, 09.0),
+                      child: const icons.Info(size: 55.0),
+                    ),
+                  ),
+                ),
               Expanded(
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.only(
-                    start: SMALL_SPACE,
+                  padding: EdgeInsetsDirectional.only(
+                    start: icon ? SMALL_SPACE : LARGE_SPACE,
                     end: LARGE_SPACE,
                     top: MEDIUM_SPACE,
                     bottom: MEDIUM_SPACE,

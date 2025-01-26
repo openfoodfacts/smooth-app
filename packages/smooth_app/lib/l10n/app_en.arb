@@ -2548,7 +2548,7 @@
     "@add_basic_details_product_name_help_info1": {
         "description": "Text explaining how to write the product name"
     },
-    "add_basic_details_product_name_help_info2": "Please don't add a translation **if the language is not present on the packaging**.",
+    "add_basic_details_product_name_help_info2": "**Note:** Please don't add a translation **if the language is not present on the packaging**.",
     "@add_basic_details_product_name_help_info2": {
         "description": "Text explaining how to write the product name"
     },

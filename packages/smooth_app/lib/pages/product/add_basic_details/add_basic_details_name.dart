@@ -495,8 +495,9 @@ class _ProductNameExplanation extends StatelessWidget {
             ],
           ),
           const SizedBox(height: VERY_LARGE_SPACE),
-          ExplanationBodyWarning(
+          ExplanationBodyInfo(
             text: appLocalizations.add_basic_details_product_name_help_info2,
+            icon: false,
             safeArea: true,
           ),
         ],
