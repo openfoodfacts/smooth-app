@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'dart:io';
 import 'dart:isolate';
 
-import 'package:collection/collection.dart';
 import 'package:flutter/widgets.dart';
 import 'package:http/http.dart' as http;
 import 'package:package_info_plus/package_info_plus.dart';
@@ -68,12 +67,14 @@ class AppNewsProvider extends ChangeNotifier {
     }
 
     final PackageInfo app = await PackageInfo.fromPlatform();
+    final int appLaunches = _preferences.appLaunches;
 
     final AppNews? appNews = await Isolate.run(
       () => _parseJSONAndGetLocalizedContent(
         jsonString!,
         locale,
         app.version,
+        appLaunches,
       ),
     );
     if (appNews == null) {
@@ -98,12 +99,13 @@ class AppNewsProvider extends ChangeNotifier {
     String json,
     String locale,
     String appVersion,
+    int appLaunches,
   ) async {
     try {
       final _TagLineJSON tagLineJSON = _TagLineJSON.fromJson(
         jsonDecode(json) as Map<dynamic, dynamic>,
       );
-      return tagLineJSON.toTagLine(locale, appVersion);
+      return tagLineJSON.toTagLine(locale, appVersion, appLaunches);
     } catch (_) {
       return null;
     }

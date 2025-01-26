@@ -177,9 +177,11 @@ class _SmoothNavigationBarItemState extends State<_SmoothNavigationBarItem>
     final bool lightTheme = context.lightTheme();
 
     return Padding(
-      padding: const EdgeInsets.symmetric(
-        vertical: MEDIUM_SPACE,
-        horizontal: SMALL_SPACE,
+      padding: const EdgeInsetsDirectional.only(
+        start: MEDIUM_SPACE,
+        end: MEDIUM_SPACE,
+        top: SMALL_SPACE,
+        bottom: 6.0,
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -199,7 +201,7 @@ class _SmoothNavigationBarItemState extends State<_SmoothNavigationBarItem>
                       painter: _SmoothNavigationBarIconPainter(
                         defaultColor: lightTheme
                             ? const Color(0xFFEEDAD3)
-                            : extension.primarySemiDark.withOpacity(0.4),
+                            : extension.primarySemiDark.withValues(alpha: 0.4),
                         selectedColor: lightTheme
                             ? extension.primaryDark
                             : extension.primaryMedium,
@@ -226,7 +228,11 @@ class _SmoothNavigationBarItemState extends State<_SmoothNavigationBarItem>
               fontSize: 14.5,
               fontWeight: widget.selected ? FontWeight.w700 : FontWeight.w600,
             ),
-            child: Text(widget.destination.label),
+            child: Text(
+              widget.destination.label,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+            ),
           ),
         ],
       ),
@@ -271,7 +277,7 @@ class _SmoothNavigationBarIconPainter extends CustomPainter {
       );
     }
 
-    paint.color = selectedColor.withOpacity(progress);
+    paint.color = selectedColor.withValues(alpha: progress);
     if (progress == 1.0) {
       _paintSelected(canvas, size, paint);
     } else if (progress > 0.0) {

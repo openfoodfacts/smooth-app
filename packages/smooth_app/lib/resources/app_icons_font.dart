@@ -55,7 +55,7 @@ class _IconsFont {
       IconData(0xe815, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData lifebuoy =
       IconData(0xe816, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData nutrition_facts =
+  static const IconData add_circled =
       IconData(0xe817, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData add_price_british_pound =
       IconData(0xe818, fontFamily: _kFontFam, fontPackage: _kFontPkg);
@@ -221,6 +221,8 @@ class _IconsFont {
       IconData(0xe868, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData add_to_list_6 =
       IconData(0xe869, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData ocr =
+      IconData(0xe86a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData add_to_list_7 =
       IconData(0xe86b, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData add_to_list_8 =
@@ -243,6 +245,32 @@ class _IconsFont {
       IconData(0xe877, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData clock =
       IconData(0xe878, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData clear =
+      IconData(0xe879, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData scale_alt =
+      IconData(0xe87b, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData scale =
+      IconData(0xe87c, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData gallery =
+      IconData(0xe87d, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData milk_filled_unhappy =
+      IconData(0xe87e, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData move =
+      IconData(0xe87f, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData milk_add =
+      IconData(0xe880, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData pinch_to_zoom =
+      IconData(0xe881, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData camera_restart =
+      IconData(0xe882, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData weight_alt =
+      IconData(0xe883, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData weight =
+      IconData(0xe884, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData flag =
+      IconData(0xe885, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData nutrition_facts =
+      IconData(0xe886, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData share_cupertino =
       IconData(0xe8a4, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData share_material =

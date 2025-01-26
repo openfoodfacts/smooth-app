@@ -101,9 +101,9 @@ class AddNewProductButton extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
       child: SmoothLargeButtonWithIcon(
         text: label,
-        icon: iconData,
+        leadingIcon: Icon(iconData),
         onPressed: onPressed,
-        trailing: showTrailing ? Icons.edit : null,
+        trailingIcon: showTrailing ? const Icon(Icons.edit) : null,
         backgroundColor: onPressed == null
             ? (dark ? darkGrey : lightGrey)
             : done

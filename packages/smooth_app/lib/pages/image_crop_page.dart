@@ -181,7 +181,7 @@ class _ImageSourcePickerState extends State<_ImageSourcePicker> {
             child: InkWell(
               onTap: () => setState(() => rememberChoice = !rememberChoice),
               borderRadius: ANGULAR_BORDER_RADIUS,
-              splashColor: primaryColor.withOpacity(0.2),
+              splashColor: primaryColor.withValues(alpha: 0.2),
               child: Row(
                 children: <Widget>[
                   IgnorePointer(
@@ -311,14 +311,17 @@ Future<CropParameters?> confirmAndUploadNewImage(
   if (!context.mounted) {
     return null;
   }
-  return Navigator.push<CropParameters>(
-    context,
+  return Navigator.of(context).push<CropParameters>(
     MaterialPageRoute<CropParameters>(
       builder: (BuildContext context) => CropPage(
         inputFile: File(fullPhoto.path),
         initiallyDifferent: true,
         isLoggedInMandatory: isLoggedInMandatory,
         cropHelper: cropHelper,
+        onRetakePhoto: () => pickImageFile(
+          context,
+          forcedSource: forcedSource,
+        ).then((XFile? file) => file != null ? File(file.path) : null),
       ),
       fullscreenDialog: true,
     ),

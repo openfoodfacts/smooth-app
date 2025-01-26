@@ -85,7 +85,7 @@ class ProductImageOtherPage extends StatefulWidget {
       values: imageFields,
       prefixIcons: imageFields.map((final ImageField imageField) {
         return switch (imageField) {
-          ImageField.FRONT => const icons.Milk.filled(),
+          ImageField.FRONT => const icons.Milk.happy(),
           ImageField.INGREDIENTS => const icons.Ingredients.alt(),
           ImageField.NUTRITION => const icons.NutritionFacts(),
           ImageField.PACKAGING => const icons.Recycling(),
@@ -324,7 +324,7 @@ class _ProductImageOutdatedLabel extends StatelessWidget {
         height: double.infinity,
         child: DecoratedBox(
           decoration: BoxDecoration(
-            color: colors.red.withOpacity(0.9),
+            color: colors.red.withValues(alpha: 0.9),
             borderRadius: CIRCULAR_BORDER_RADIUS,
           ),
           child: Padding(
@@ -398,6 +398,7 @@ class _ProductImageDetailsButton extends StatelessWidget {
                           ),
                           subtitle: Text(image.contributor ?? '-'),
                         ),
+                        const Divider(),
                         ListTile(
                           title: Text(
                               appLocalizations.photo_viewer_details_date_title),
@@ -405,6 +406,7 @@ class _ProductImageDetailsButton extends StatelessWidget {
                               ? DateFormat.yMMMMEEEEd().format(image.uploaded!)
                               : '-'),
                         ),
+                        const Divider(),
                         ListTile(
                           title: Text(
                               appLocalizations.photo_viewer_details_size_title),
@@ -418,7 +420,8 @@ class _ProductImageDetailsButton extends StatelessWidget {
                                 : '-',
                           ),
                         ),
-                        if (url.isNotEmpty)
+                        if (url.isNotEmpty) ...<Widget>[
+                          const Divider(),
                           ListTile(
                             title: Text(appLocalizations
                                 .photo_viewer_details_url_title),
@@ -427,9 +430,11 @@ class _ProductImageDetailsButton extends StatelessWidget {
                             onTap: () {
                               LaunchUrlHelper.launchURL(url);
                             },
-                          ),
+                          )
+                        ],
                         SizedBox(
-                            height: MediaQuery.viewPaddingOf(context).bottom),
+                          height: MediaQuery.viewPaddingOf(context).bottom,
+                        ),
                       ],
                     ),
                   );
@@ -479,7 +484,7 @@ class _ProductImagePageIndicator extends StatelessWidget {
   Widget build(BuildContext context) {
     return DecoratedBox(
       decoration: BoxDecoration(
-        color: Colors.black.withOpacity(0.5),
+        color: Colors.black.withValues(alpha: 0.5),
         borderRadius: CIRCULAR_BORDER_RADIUS,
       ),
       child: Padding(

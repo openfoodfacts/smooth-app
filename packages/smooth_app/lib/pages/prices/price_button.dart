@@ -16,20 +16,35 @@ class PriceButton extends StatelessWidget {
   final VoidCallback? onPressed;
   final String? tooltip;
 
+  static const IconData priceIconData = Icons.label;
+  static const IconData userIconData = Icons.account_box;
+  static const IconData proofIconData = Icons.image;
+  static const IconData locationIconData = Icons.location_on;
+  static const IconData historyIconData = Icons.history;
+  static const IconData productIconData = Icons.category;
+  static const IconData warningIconData = Icons.warning;
+
   @override
   Widget build(BuildContext context) {
     final Widget widget;
 
+    ButtonStyle? buttonStyleOverride;
+    if (buttonStyle != null && buttonStyle!.foregroundColor != null) {
+      buttonStyleOverride = buttonStyle!.copyWith(
+        iconColor: buttonStyle!.foregroundColor,
+      );
+    }
+
     if (iconData == null) {
       widget = ElevatedButton(
         onPressed: onPressed,
-        style: buttonStyle,
+        style: buttonStyleOverride ?? buttonStyle,
         child: Text(title!),
       );
     } else if (title == null) {
       widget = ElevatedButton(
         onPressed: onPressed,
-        style: buttonStyle,
+        style: buttonStyleOverride ?? buttonStyle,
         child: Icon(iconData),
       );
     } else {
@@ -37,7 +52,7 @@ class PriceButton extends StatelessWidget {
         onPressed: onPressed,
         icon: Icon(iconData),
         label: Text(title!),
-        style: buttonStyle,
+        style: buttonStyleOverride ?? buttonStyle,
       );
     }
 

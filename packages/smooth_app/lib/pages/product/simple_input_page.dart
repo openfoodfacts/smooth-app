@@ -4,14 +4,12 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_details.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/collections_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/input/unfocus_field_when_tap_outside.dart';
 import 'package:smooth_app/pages/product/common/product_buttons.dart';
 import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
-import 'package:smooth_app/pages/product/owner_field_info.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
 import 'package:smooth_app/pages/product/simple_input_widget.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
@@ -59,17 +57,6 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
     final List<Widget> simpleInputs = <Widget>[];
     final List<String> titles = <String>[];
 
-    bool hasOwnerField = false;
-    for (final AbstractSimpleInputPageHelper helper in widget.helpers) {
-      if (helper.isOwnerField(widget.product)) {
-        hasOwnerField = true;
-        break;
-      }
-    }
-
-    if (hasOwnerField) {
-      simpleInputs.add(const OwnerFieldInfo());
-    }
     for (int i = 0; i < widget.helpers.length; i++) {
       titles.add(widget.helpers[i].getTitle(appLocalizations));
       simpleInputs.add(
@@ -77,26 +64,24 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
           padding: i == 0
               ? EdgeInsets.zero
               : const EdgeInsets.only(top: LARGE_SPACE),
-          child: SmoothCard(
-            // This provider will handle the dispose() call for us
-            child: MultiProvider(
-              providers: <ChangeNotifierProvider<dynamic>>[
-                ChangeNotifierProvider<TextEditingController>(
-                  create: (_) {
-                    _controllers.replace(i, TextEditingController());
-                    return _controllers[i];
-                  },
-                ),
-                ChangeNotifierProvider<AbstractSimpleInputPageHelper>(
-                  create: (_) => widget.helpers[i],
-                ),
-              ],
-              child: SimpleInputWidget(
-                helper: widget.helpers[i],
-                product: widget.product,
-                controller: _controllers[i],
-                displayTitle: widget.helpers.length > 1,
+          // This provider will handle the dispose() call for us
+          child: MultiProvider(
+            providers: <ChangeNotifierProvider<dynamic>>[
+              ChangeNotifierProvider<TextEditingController>(
+                create: (_) {
+                  _controllers.replace(i, TextEditingController());
+                  return _controllers[i];
+                },
               ),
+              ChangeNotifierProvider<AbstractSimpleInputPageHelper>(
+                create: (_) => widget.helpers[i],
+              ),
+            ],
+            child: SimpleInputWidget(
+              helper: widget.helpers[i],
+              product: widget.product,
+              controller: _controllers[i],
+              displayTitle: true,
             ),
           ),
         ),
@@ -118,14 +103,10 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
                   .extension<SmoothColorsThemeExtension>()!
                   .primaryLight
               : null,
-          body: Padding(
-            padding: const EdgeInsetsDirectional.only(
-              top: SMALL_SPACE,
-              start: SMALL_SPACE,
-              end: SMALL_SPACE,
-            ),
-            child: Scrollbar(
-              child: ListView(children: simpleInputs),
+          body: Scrollbar(
+            child: ListView(
+              padding: const EdgeInsetsDirectional.all(MEDIUM_SPACE),
+              children: simpleInputs,
             ),
           ),
           bottomNavigationBar: ProductBottomButtonsBar(
@@ -158,7 +139,10 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
     bool added = false;
     for (int i = 0; i < widget.helpers.length; i++) {
       final AbstractSimpleInputPageHelper helper = widget.helpers[i];
-      if (helper.addItemsFromController(_controllers[i])) {
+      if (helper.addItemsFromController(
+        _controllers[i],
+        clearController: false,
+      )) {
         added = true;
       }
       final Product changedProduct = Product(barcode: widget.product.barcode);
@@ -177,6 +161,9 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
       final bool? pleaseSave =
           await MayExitPageHelper().openSaveBeforeLeavingDialog(context);
       if (pleaseSave == null) {
+        for (int i = 0; i < widget.helpers.length; i++) {
+          widget.helpers[i].restoreItemsBeforeLastAddition();
+        }
         return false;
       }
       if (pleaseSave == false) {

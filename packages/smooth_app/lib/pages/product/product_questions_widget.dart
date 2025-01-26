@@ -9,6 +9,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
+import 'package:smooth_app/helpers/robotoff_question_helper.dart';
 import 'package:smooth_app/pages/hunger_games/question_page.dart';
 import 'package:smooth_app/query/product_questions_query.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -76,36 +77,63 @@ class _ProductQuestionsWidgetState extends State<ProductQuestionsWidget>
   Future<void> _openQuestions() async {
     _trackEvent(AnalyticsEvent.questionClicked);
 
-    await openQuestionPage(
+    final int? answeredQuestions = await openQuestionPage(
       context,
       product: widget.product,
-      questions: (_state as _ProductQuestionsWithQuestions).questions.toList(
-            growable: false,
-          ),
-      updateProductUponAnswers: _updateProductUponAnswers,
+      questions: (_state as _ProductQuestionsWithQuestions)
+          .questions
+          .toList(growable: false),
     );
 
-    if (context.mounted) {
-      return _reloadQuestions(silentCheck: true);
+    if (context.mounted && answeredQuestions != null && answeredQuestions > 0) {
+      return _reloadQuestions(
+        updateInsightAnnotations: true,
+        ignoreExistingQuestions: true,
+      );
     }
   }
 
   Future<void> _reloadQuestions({
-    bool silentCheck = false,
+    bool updateInsightAnnotations = false,
+    bool ignoreExistingQuestions = false,
   }) async {
-    if (!silentCheck) {
-      setState(() => _state = const _ProductQuestionsLoading());
-    }
+    final List<RobotoffQuestion>? currentQuestions =
+        _state is _ProductQuestionsWithQuestions
+            ? (_state as _ProductQuestionsWithQuestions).questions
+            : null;
 
-    final List<RobotoffQuestion>? list = await _loadProductQuestions();
+    setState(() => _state = const _ProductQuestionsLoading());
+
+    final List<RobotoffQuestion> questions =
+        await _loadProductQuestions() ?? <RobotoffQuestion>[];
 
     if (!mounted) {
       return;
     }
 
-    if (list?.isNotEmpty == true && !_annotationVoted) {
-      setState(() => _state = _ProductQuestionsWithQuestions(list!));
-      _trackEvent(AnalyticsEvent.questionVisible);
+    if (updateInsightAnnotations) {
+      final LocalDatabase localDatabase = context.read<LocalDatabase>();
+      final RobotoffInsightHelper robotoffInsightHelper =
+          RobotoffInsightHelper(localDatabase);
+
+      if (questions.isEmpty) {
+        await robotoffInsightHelper
+            .removeInsightAnnotationsSavedForProduct(widget.product.barcode!);
+      }
+
+      _annotationVoted =
+          await robotoffInsightHelper.areQuestionsAlreadyVoted(questions);
+    }
+
+    if (questions.isNotEmpty == true && !_annotationVoted) {
+      if (ignoreExistingQuestions &&
+          currentQuestions != null &&
+          questions.areSameAs(currentQuestions)) {
+        setState(() => _state = const _ProductQuestionsWithoutQuestions());
+      } else {
+        setState(() => _state = _ProductQuestionsWithQuestions(questions));
+        _trackEvent(AnalyticsEvent.questionVisible);
+      }
     } else {
       setState(() => _state = const _ProductQuestionsWithoutQuestions());
     }
@@ -137,25 +165,6 @@ class _ProductQuestionsWidgetState extends State<ProductQuestionsWidget>
     } catch (_) {
       return null;
     }
-  }
-
-  Future<void> _updateProductUponAnswers() async {
-    // Reload the product questions, they might have been answered.
-    // Or the backend may have new ones.
-    final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    final List<RobotoffQuestion> questions =
-        await _loadProductQuestions() ?? <RobotoffQuestion>[];
-    if (!mounted) {
-      return;
-    }
-    final RobotoffInsightHelper robotoffInsightHelper =
-        RobotoffInsightHelper(localDatabase);
-    if (questions.isEmpty) {
-      await robotoffInsightHelper
-          .removeInsightAnnotationsSavedForProdcut(widget.product.barcode!);
-    }
-    _annotationVoted =
-        await robotoffInsightHelper.areQuestionsAlreadyVoted(questions);
   }
 
   @override
@@ -193,7 +202,7 @@ class _ProductQuestionBanner extends StatelessWidget {
         decoration: BoxDecoration(
           boxShadow: <BoxShadow>[
             BoxShadow(
-              color: theme.shadowColor.withOpacity(darkTheme ? 0.5 : 0.2),
+              color: theme.shadowColor.withValues(alpha: darkTheme ? 0.5 : 0.2),
               blurRadius: 2.5,
               offset: const Offset(0.0, -4.0),
             ),

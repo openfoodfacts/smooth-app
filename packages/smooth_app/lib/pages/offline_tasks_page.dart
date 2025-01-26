@@ -80,6 +80,8 @@ class _OfflineTaskState extends State<OfflineTaskPage> {
                   info = '';
                 }
                 final BackgroundTaskQueue queue = queues[taskId]!;
+                final String? productType =
+                    OperationType.getProductType(taskId);
                 return ListTile(
                   leading: Icon(queue.iconData),
                   onTap: () async {
@@ -110,7 +112,8 @@ class _OfflineTaskState extends State<OfflineTaskPage> {
                     '$info'
                     '(${OperationType.getOperationType(taskId)?.getLabel(
                           appLocalizations,
-                        ) ?? appLocalizations.background_task_operation_unknown})',
+                        ) ?? appLocalizations.background_task_operation_unknown})'
+                    '${productType == null ? '' : ' ($productType)'}',
                   ),
                   subtitle: Text(_getMessage(status, appLocalizations)),
                   trailing: const Icon(Icons.clear),

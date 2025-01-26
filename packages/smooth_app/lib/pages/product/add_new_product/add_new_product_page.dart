@@ -22,14 +22,17 @@ import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
 import 'package:smooth_app/pages/product/add_new_product/product_type_radio_list_tile.dart';
 import 'package:smooth_app/pages/product/add_new_product_helper.dart';
 import 'package:smooth_app/pages/product/common/product_dialog_helper.dart';
-import 'package:smooth_app/pages/product/nutrition_page_loaded.dart';
+import 'package:smooth_app/pages/product/nutrition_page/nutrition_page_loader.dart';
 import 'package:smooth_app/pages/product/product_field_editor.dart';
 import 'package:smooth_app/pages/product/product_image_swipeable_view.dart';
-import 'package:smooth_app/pages/product/product_type_extensions.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 import 'package:smooth_app/widgets/v2/smooth_buttons_bar.dart';
+import 'package:smooth_app/widgets/v2/smooth_topbar2.dart';
 import 'package:smooth_app/widgets/will_pop_scope.dart';
 
 /// "Create a product we couldn't find on the server" page.
@@ -98,6 +101,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
       (widget.displayPictures ? 1 : 0);
 
   double get _progress => (_pageNumber + 1) / _totalPages;
+
   bool get _isLastPage => (_pageNumber + 1) == _totalPages;
   ProductType? _inputProductType;
   late ColorScheme _colorScheme;
@@ -105,6 +109,8 @@ class _AddNewProductPageState extends State<AddNewProductPage>
   late DaoProductList _daoProductList;
 
   final ProductList _history = ProductList.history();
+
+  List<String>? _appBarTitles;
 
   final ProductFieldEditor _packagingEditor = ProductFieldPackagingEditor();
   final ProductFieldEditor _ingredientsEditor =
@@ -124,7 +130,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
 
   bool _alreadyPushedToHistory = false;
 
-  bool _ecoscoreExpanded = false;
+  bool _environmentalScoreExpanded = false;
 
   int get _pageNumber =>
       _pageController.hasClients ? _pageController.page!.round() : 0;
@@ -137,6 +143,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
     super.initState();
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     initUpToDate(widget.product, localDatabase);
+
     _editors = <ProductFieldEditor>[
       _packagingEditor,
       _ingredientsEditor,
@@ -174,7 +181,17 @@ class _AddNewProductPageState extends State<AddNewProductPage>
       widget.events[EditProductAction.openPage]!,
       product: upToDateProduct,
     );
-    _pageController.addListener(() => setState(() {}));
+    _pageController.addListener(_onPageChanged);
+  }
+
+  void _onPageChanged() {
+    if (widget.displayProductType &&
+        _inputProductType != null &&
+        _pageController.page != null &&
+        _pageController.page! <= 1) {
+      _pageController.jumpToPage(1);
+    }
+    setState(() {});
   }
 
   Future<bool> _onWillPop() async {
@@ -215,14 +232,10 @@ class _AddNewProductPageState extends State<AddNewProductPage>
   }
 
   @override
-  void dispose() {
-    _pageController.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     _colorScheme = Theme.of(context).colorScheme;
+    _appBarTitles ??= _generateAppBarTitles(AppLocalizations.of(context));
+
     context.watch<LocalDatabase>();
     refreshUpToDate();
     _inputProductType ??= upToDateProduct.productType;
@@ -232,42 +245,63 @@ class _AddNewProductPageState extends State<AddNewProductPage>
       tracker.track();
     }
 
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
+    final bool lightTheme = context.lightTheme();
+
     return WillPopScope2(
       onWillPop: () async => (await _onWillPop(), null),
       child: SmoothScaffold(
+        appBar: SmoothTopBar2(
+          title: _appBarTitles![_pageNumber],
+          forceMultiLines: true,
+          leadingAction: SmoothTopBarLeadingAction.back,
+          topWidget: PreferredSize(
+            preferredSize: const Size(
+              double.infinity,
+              10.0 + SMALL_SPACE + VERY_SMALL_SPACE,
+            ),
+            child: Padding(
+              padding: const EdgeInsetsDirectional.only(
+                start: MEDIUM_SPACE,
+                end: MEDIUM_SPACE,
+                top: SMALL_SPACE,
+                bottom: VERY_SMALL_SPACE,
+              ),
+              child: FAProgressBar(
+                animatedDuration: SmoothAnimationsDuration.short,
+                progressColor: lightTheme
+                    ? extension.primaryDark
+                    : extension.primaryNormal,
+                backgroundColor: lightTheme
+                    ? extension.primaryLight
+                    : extension.primarySemiDark,
+                currentValue: _progress,
+                maxValue: 1,
+              ),
+            ),
+          ),
+        ),
         body: SafeArea(
+          bottom: false,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Container(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: <Color>[
-                      _colorScheme.inversePrimary,
-                      _colorScheme.secondary
-                    ],
-                  ),
-                ),
-                child: FAProgressBar(
-                  animatedDuration: SmoothAnimationsDuration.short,
-                  backgroundColor: _colorScheme.secondary,
-                  size: 8,
-                  currentValue: _progress,
-                  maxValue: 1,
-                  progressColor: _colorScheme.inversePrimary,
-                ),
-              ),
-              _backButton(),
               Expanded(
                 child: PageView(
                   controller: _pageController,
+                  physics:
+                      widget.displayProductType && _inputProductType == null
+                          ? const NeverScrollableScrollPhysics()
+                          : null,
                   children: <Widget>[
                     if (widget.displayProductType)
                       _buildCard(_getProductTypes(context)),
                     if (widget.displayPictures)
                       _buildCard(_getImageRows(context)),
                     if (_probablyFood) _buildCard(_getNutriscoreRows(context)),
-                    if (_probablyFood) _buildCard(_getEcoscoreRows(context)),
+                    if (_probablyFood)
+                      _buildCard(_getEnvironmentalScoreRows(context)),
                     if (_probablyFood) _buildCard(_getNovaRows(context)),
                     if (!_probablyFood) _buildCard(_getOxFRows(context)),
                     if (_probablyFood && widget.displayMisc)
@@ -281,6 +315,26 @@ class _AddNewProductPageState extends State<AddNewProductPage>
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
+
+  List<String> _generateAppBarTitles(AppLocalizations appLocalizations) {
+    return <String>[
+      if (widget.displayProductType)
+        appLocalizations.product_type_selection_subtitle,
+      if (widget.displayPictures) appLocalizations.new_product_title_pictures,
+      if (_probablyFood) appLocalizations.new_product_title_nutriscore,
+      if (_probablyFood) appLocalizations.new_product_title_environmental_score,
+      if (_probablyFood) appLocalizations.new_product_title_nova,
+      if (!_probablyFood) appLocalizations.new_product_title_misc,
+      if (_probablyFood && widget.displayMisc)
+        appLocalizations.new_product_title_misc,
+    ];
   }
 
   /// Adds the product to history if at least one of the fields is set.
@@ -326,59 +380,34 @@ class _AddNewProductPageState extends State<AddNewProductPage>
   Attribute? _getAttribute(final String tag) =>
       upToDateProduct.getAttributes(<String>[tag])[tag];
 
-  Widget _backButton() {
-    return Container(
-      margin: const EdgeInsetsDirectional.only(
-        start: BALANCED_SPACE,
-        end: BALANCED_SPACE,
-        top: BALANCED_SPACE,
-        bottom: 0.0,
-      ),
-      width: 20.0,
-      height: 20.0,
-      child: IconButton(
-        onPressed: () => Navigator.of(context).maybePop(),
-        alignment: Alignment.center,
-        padding: EdgeInsets.zero,
-        icon: const Icon(Icons.arrow_back),
-      ),
-    );
-  }
-
   Widget _getButtons() {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
+    String negativeLabel;
+    if (_pageNumber == 0) {
+      negativeLabel = appLocalizations.cancel;
+    } else if (widget.displayProductType && _pageNumber == 1) {
+      negativeLabel = appLocalizations.close;
+    } else {
+      negativeLabel = appLocalizations.previous_label;
+    }
+
     return SmoothButtonsBar2(
       negativeButton: SmoothActionButton2(
-        text: _pageNumber >= 1
-            ? appLocalizations.previous_label
-            : appLocalizations.cancel,
+        text: negativeLabel,
         onPressed: () async {
           if (_pageNumber == 0) {
             Navigator.of(context).maybePop();
             return;
           }
           if (widget.displayProductType && _pageNumber == 1) {
-            return showDialog(
-              context: context,
-              builder: (final BuildContext context) => SmoothAlertDialog(
-                title: appLocalizations.product_type_selection_title,
-                body: Text(
-                  appLocalizations.product_type_selection_already(
-                    upToDateProduct.productType!.getLabel(appLocalizations),
-                  ),
-                ),
-                positiveAction: SmoothActionButton(
-                  text: appLocalizations.okay,
-                  onPressed: () => Navigator.of(context).pop(),
-                ),
-              ),
+            Navigator.of(context).pop();
+          } else {
+            _pageController.previousPage(
+              duration: SmoothAnimationsDuration.short,
+              curve: Curves.easeOut,
             );
           }
-          _pageController.previousPage(
-            duration: SmoothAnimationsDuration.short,
-            curve: Curves.easeOut,
-          );
         },
       ),
       positiveButton: SmoothActionButton2(
@@ -425,8 +454,6 @@ class _AddNewProductPageState extends State<AddNewProductPage>
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final Attribute? attribute = _getAttribute(Attribute.ATTRIBUTE_NUTRISCORE);
     return <Widget>[
-      AddNewProductTitle(appLocalizations.new_product_title_nutriscore),
-      const SizedBox(height: 15.0),
       AddNewProductSubTitle(appLocalizations.new_product_subtitle_nutriscore),
       const SizedBox(height: 15.0),
       _buildCategoriesButton(context),
@@ -436,7 +463,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
         // deactivated when the categories were not set beforehand
         !_categoryEditor.isPopulated(upToDateProduct)
             ? null
-            : () async => NutritionPageLoaded.showNutritionPage(
+            : () async => NutritionPageLoader.showNutritionPage(
                   product: upToDateProduct,
                   isLoggedInMandatory: widget.isLoggedInMandatory,
                   context: context,
@@ -458,34 +485,41 @@ class _AddNewProductPageState extends State<AddNewProductPage>
     ];
   }
 
-  List<Widget> _getEcoscoreRows(final BuildContext context) {
+  List<Widget> _getEnvironmentalScoreRows(final BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
+
     final Attribute? attribute = _getAttribute(Attribute.ATTRIBUTE_ECOSCORE);
     return <Widget>[
-      AddNewProductTitle(appLocalizations.new_product_title_ecoscore),
       const SizedBox(height: 15.0),
-      AddNewProductSubTitle(appLocalizations.new_product_subtitle_ecoscore),
+      AddNewProductSubTitle(
+          appLocalizations.new_product_subtitle_environmental_score),
       const SizedBox(height: 15.0),
       _buildCategoriesButton(context),
       Center(
         child: AddNewProductScoreIcon(
           iconUrl: attribute?.iconUrl,
-          defaultIconUrl: ProductDialogHelper.unknownSvgEcoscore,
+          defaultIconUrl: ProductDialogHelper.unknownSvgEnvironmentalScore,
         ),
       ),
       const SizedBox(height: 15.0),
-      GestureDetector(
+      InkWell(
+        borderRadius: ROUNDED_BORDER_RADIUS,
         onTap: () {
-          setState(() => _ecoscoreExpanded = !_ecoscoreExpanded);
+          setState(
+              () => _environmentalScoreExpanded = !_environmentalScoreExpanded);
         },
-        child: Container(
+        child: Ink(
           padding: const EdgeInsets.symmetric(
             vertical: BALANCED_SPACE,
             horizontal: 15.0,
           ),
           decoration: BoxDecoration(
             borderRadius: ROUNDED_BORDER_RADIUS,
-            color: _colorScheme.surface,
+            color: context.lightTheme()
+                ? extension.primaryNormal
+                : extension.primaryMedium,
           ),
           child: Row(
             children: <Widget>[
@@ -496,7 +530,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
               const SizedBox(width: 15.0),
               Flexible(
                 child: Text(
-                  appLocalizations.new_product_additional_ecoscore,
+                  appLocalizations.new_product_additional_environmental_score,
                   style: TextStyle(
                     color: _colorScheme.onPrimary,
                   ),
@@ -504,32 +538,34 @@ class _AddNewProductPageState extends State<AddNewProductPage>
               ),
               const SizedBox(width: 5.0),
               Icon(
-                _ecoscoreExpanded ? Icons.expand_less : Icons.expand_more,
+                _environmentalScoreExpanded
+                    ? Icons.expand_less
+                    : Icons.expand_more,
                 color: _colorScheme.onPrimary,
               ),
             ],
           ),
         ),
       ),
-      if (_ecoscoreExpanded)
+      if (_environmentalScoreExpanded)
         AddNewProductEditorButton(
           upToDateProduct,
           _originEditor,
           isLoggedInMandatory: widget.isLoggedInMandatory,
         ),
-      if (_ecoscoreExpanded)
+      if (_environmentalScoreExpanded)
         AddNewProductEditorButton(
           upToDateProduct,
           _labelEditor,
           isLoggedInMandatory: widget.isLoggedInMandatory,
         ),
-      if (_ecoscoreExpanded)
+      if (_environmentalScoreExpanded)
         AddNewProductEditorButton(
           upToDateProduct,
           _packagingEditor,
           isLoggedInMandatory: widget.isLoggedInMandatory,
         ),
-      if (_ecoscoreExpanded) _buildIngredientsButton(context),
+      if (_environmentalScoreExpanded) _buildIngredientsButton(context),
     ];
   }
 
@@ -537,8 +573,6 @@ class _AddNewProductPageState extends State<AddNewProductPage>
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final Attribute? attribute = _getAttribute(Attribute.ATTRIBUTE_NOVA);
     return <Widget>[
-      AddNewProductTitle(appLocalizations.new_product_title_nova),
-      const SizedBox(height: 15.0),
       AddNewProductSubTitle(appLocalizations.new_product_subtitle_nova),
       const SizedBox(height: 15.0),
       _buildCategoriesButton(context),
@@ -568,13 +602,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
   }
 
   List<Widget> _getProductTypes(final BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-
     final List<Widget> rows = <Widget>[];
-    rows.add(
-      AddNewProductTitle(appLocalizations.product_type_selection_subtitle),
-    );
-
     for (final ProductType productType in ProductType.values) {
       rows.add(
         ProductTypeRadioListTile(
@@ -592,7 +620,6 @@ class _AddNewProductPageState extends State<AddNewProductPage>
   /// More compact, for non-FOOD only.
   List<Widget> _getOxFRows(final BuildContext context) {
     return <Widget>[
-      AddNewProductTitle(AppLocalizations.of(context).new_product_title_misc),
       AddNewProductEditorButton(
         upToDateProduct,
         _categoryEditor,
@@ -617,9 +644,6 @@ class _AddNewProductPageState extends State<AddNewProductPage>
   List<Widget> _getImageRows(final BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final List<Widget> rows = <Widget>[];
-    rows.add(
-      AddNewProductTitle(appLocalizations.new_product_title_pictures),
-    );
     rows.add(const SizedBox(height: 15.0));
     rows.add(
       AddNewProductSubTitle(

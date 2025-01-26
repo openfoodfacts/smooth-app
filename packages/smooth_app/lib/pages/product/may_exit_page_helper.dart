@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
 /// Helper class about the "You're leaving the page with unsaved changes" case.
 class MayExitPageHelper {
@@ -13,30 +15,35 @@ class MayExitPageHelper {
   Future<bool?> openSaveBeforeLeavingDialog(
     final BuildContext context, {
     final String? title,
-  }) async =>
-      showDialog<bool>(
-        context: context,
-        builder: (final BuildContext context) {
-          final AppLocalizations appLocalizations =
-              AppLocalizations.of(context);
-          return SmoothAlertDialog(
-            close: true,
-            actionsAxis: Axis.vertical,
-            body:
-                Text(appLocalizations.edit_product_form_item_exit_confirmation),
-            title: title ?? appLocalizations.edit_product_label,
-            negativeAction: SmoothActionButton(
-              text: appLocalizations
-                  .edit_product_form_item_exit_confirmation_negative_button,
-              onPressed: () => Navigator.pop(context, false),
-            ),
-            positiveAction: SmoothActionButton(
-              text: appLocalizations
-                  .edit_product_form_item_exit_confirmation_positive_button,
-              onPressed: () => Navigator.pop(context, true),
-            ),
-            actionsOrder: SmoothButtonsBarOrder.numerical,
-          );
-        },
-      );
+    final bool unfocus = true,
+  }) async {
+    if (unfocus) {
+      FocusManager.instance.primaryFocus?.unfocus();
+    }
+
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
+
+    return showSmoothAlertModalSheet<bool>(
+      context: context,
+      title: title ?? appLocalizations.edit_product_form_item_exit_title,
+      message: Text(appLocalizations.edit_product_form_item_exit_confirmation),
+      type: SmoothModalSheetType.error,
+      actionLabels: <String>[
+        appLocalizations
+            .edit_product_form_item_exit_confirmation_positive_button,
+        appLocalizations
+            .edit_product_form_item_exit_confirmation_negative_button,
+      ],
+      actionIcons: <Widget>[
+        Icon(Icons.save_rounded, color: extension.success),
+        Icon(Icons.cancel_rounded, color: extension.error),
+      ],
+      actionValues: <bool>[
+        true,
+        false,
+      ],
+    );
+  }
 }

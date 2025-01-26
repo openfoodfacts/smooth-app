@@ -345,54 +345,64 @@ class DaoProduct extends AbstractSqlDao implements BulkDeletable {
     required final List<String> excludeBarcodes,
     required final ProductType productType,
   }) async {
-    /// Unfortunately, some SQFlite implementations don't support "nulls last"
-    String getRawQuery(final bool withNullsLast) =>
-        'select p.$_TABLE_PRODUCT_COLUMN_GZIPPED_JSON '
-        'from'
-        ' $_TABLE_PRODUCT p'
-        ' left outer join ${DaoProductLastAccess.TABLE} a'
-        '  on p.$_TABLE_PRODUCT_COLUMN_BARCODE = a.${DaoProductLastAccess.COLUMN_BARCODE} '
-        'where'
-        ' p.$_TABLE_PRODUCT_COLUMN_LANGUAGE is null'
-        ' or p.$_TABLE_PRODUCT_COLUMN_LANGUAGE != ? '
-        'order by a.${DaoProductLastAccess.COLUMN_LAST_ACCESS} desc ${withNullsLast ? 'nulls last' : ''} ';
-
-    List<Map<String, dynamic>> queryResults = <Map<String, dynamic>>[];
-    try {
-      queryResults = await localDatabase.database.rawQuery(
-        getRawQuery(true),
-        <Object>[
-          language.offTag,
-        ],
-      );
-    } catch (e) {
-      if (!e.toString().startsWith(
-            'DatabaseException(near "nulls": syntax error (code 1 SQLITE_ERROR',
-          )) {
-        rethrow;
-      }
-      queryResults = await localDatabase.database.rawQuery(
-        getRawQuery(false),
-        <Object>[
-          language.offTag,
-        ],
-      );
-    }
-
     final List<String> result = <String>[];
 
-    for (final Map<String, dynamic> row in queryResults) {
-      final Product product = _getProductFromQueryResult(row);
-      final String barcode = product.barcode!;
-      if (excludeBarcodes.contains(barcode)) {
-        continue;
-      }
-      if ((product.productType ?? ProductType.food) != productType) {
-        continue;
-      }
-      result.add(barcode);
-      if (result.length == limit) {
-        break;
+    const String tableJoin =
+        'p.$_TABLE_PRODUCT_COLUMN_BARCODE = a.${DaoProductLastAccess.COLUMN_BARCODE}';
+    final String languageCondition = ' ('
+        'p.$_TABLE_PRODUCT_COLUMN_LANGUAGE is null '
+        "or p.$_TABLE_PRODUCT_COLUMN_LANGUAGE != '${language.offTag}'"
+        ') ';
+
+    final String queryWithLastAccess =
+        'select p.$_TABLE_PRODUCT_COLUMN_GZIPPED_JSON '
+        'from'
+        ' $_TABLE_PRODUCT p '
+        ' inner join ${DaoProductLastAccess.TABLE} a'
+        '  on $tableJoin '
+        'where'
+        ' $languageCondition '
+        'order by a.${DaoProductLastAccess.COLUMN_LAST_ACCESS} desc';
+
+    final String queryWithoutLastAccess =
+        'select p.$_TABLE_PRODUCT_COLUMN_GZIPPED_JSON '
+        'from'
+        ' $_TABLE_PRODUCT p '
+        'where'
+        ' not exists('
+        '  select null'
+        '  from ${DaoProductLastAccess.TABLE} a '
+        '  where $tableJoin '
+        ' ) '
+        ' and $languageCondition';
+
+    // optimization: using 2 more simple queries than a "left join" that proved
+    // more expensive (less than .1s for each simple query, .5s for "left join")
+    final List<String> queries = <String>[
+      queryWithLastAccess,
+      queryWithoutLastAccess,
+    ];
+    for (final String query in queries) {
+      // optimization: using a cursor, as we don't want all the rows,
+      // and we don't know how many rows we'll need.
+      final QueryCursor queryCursor =
+          await localDatabase.database.rawQueryCursor(
+        query,
+        null,
+      );
+      while (await queryCursor.moveNext()) {
+        final Product product = _getProductFromQueryResult(queryCursor.current);
+        final String barcode = product.barcode!;
+        if (excludeBarcodes.contains(barcode)) {
+          continue;
+        }
+        if ((product.productType ?? ProductType.food) != productType) {
+          continue;
+        }
+        result.add(barcode);
+        if (result.length == limit) {
+          return result;
+        }
       }
     }
 

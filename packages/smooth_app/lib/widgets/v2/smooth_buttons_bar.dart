@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/helpers/keyboard_helper.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
@@ -13,6 +14,7 @@ class SmoothButtonsBar2 extends StatefulWidget {
     required this.positiveButton,
     this.negativeButton,
     this.backgroundColor,
+    this.addViewPadding = true,
     this.animate = false,
     super.key,
   });
@@ -20,6 +22,7 @@ class SmoothButtonsBar2 extends StatefulWidget {
   final SmoothActionButton2 positiveButton;
   final SmoothActionButton2? negativeButton;
   final Color? backgroundColor;
+  final bool addViewPadding;
   final bool animate;
 
   @override
@@ -52,7 +55,8 @@ class _SmoothButtonsBar2State extends State<SmoothButtonsBar2>
 
   @override
   Widget build(BuildContext context) {
-    final double viewPadding = MediaQuery.viewPaddingOf(context).bottom;
+    final double viewPadding =
+        widget.addViewPadding ? MediaQuery.viewPaddingOf(context).bottom : 0.0;
     final SmoothColorsThemeExtension? colors =
         Theme.of(context).extension<SmoothColorsThemeExtension>();
 
@@ -152,13 +156,13 @@ class _SmoothPositiveButton2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final SmoothColorsThemeExtension colors =
-        Theme.of(context).extension<SmoothColorsThemeExtension>()!;
+        context.extension<SmoothColorsThemeExtension>();
+    final bool lightTheme = context.lightTheme();
 
     return _SmoothBaseButton2(
       data: data,
-      backgroundColor:
-          context.lightTheme() ? colors.primaryBlack : colors.primaryDark,
-      foregroundColor: Colors.white,
+      backgroundColor: lightTheme ? colors.primaryBlack : colors.primaryLight,
+      foregroundColor: lightTheme ? Colors.white : colors.primaryDark,
     );
   }
 }
@@ -171,12 +175,14 @@ class _SmoothNegativeButton2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final SmoothColorsThemeExtension colors =
-        Theme.of(context).extension<SmoothColorsThemeExtension>()!;
+        context.extension<SmoothColorsThemeExtension>();
+
+    final bool lightTheme = context.lightTheme();
 
     return _SmoothBaseButton2(
       data: data,
-      backgroundColor: colors.primaryMedium,
-      foregroundColor: colors.primaryDark,
+      backgroundColor: lightTheme ? colors.primaryMedium : colors.primaryDark,
+      foregroundColor: lightTheme ? colors.primaryDark : colors.primaryLight,
     );
   }
 }

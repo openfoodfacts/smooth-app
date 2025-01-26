@@ -43,6 +43,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
   static const String userPreferencesFlagProd = '__devWorkingOnProd';
   static const String userPreferencesFlagPriceProd = '__devWorkingOnPricesProd';
   static const String userPreferencesTestEnvDomain = '__testEnvHost';
+  static const String userPreferencesFolksonomyHost = '__folksonomyHost';
   static const String userPreferencesFlagEditIngredients = '__editIngredients';
   static const String userPreferencesFlagHideFolksonomy = '__hideFolksonomy';
   static const String userPreferencesFlagBoostedComparison =
@@ -54,6 +55,8 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
   static const String userPreferencesFlagAccessibilityEmoji =
       '__accessibilityEmoji';
   static const String userPreferencesFlagUserOrderedKP = '__userOrderedKP';
+  static const String userPreferencesFlagPricesReceiptMultiSelection =
+      '__pricesReceiptMultiSelection';
   static const String userPreferencesFlagSpellCheckerOnOcr =
       '__spellcheckerOcr';
   static const String userPreferencesCustomNewsJSONURI = '__newsJsonURI';
@@ -292,6 +295,14 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
             ],
           ),
         ),
+        const UserPreferencesItemSection(
+          label: 'Folksonomy Server configuration',
+        ),
+        UserPreferencesItemTile(
+          title: 'Folksonomy host',
+          subtitle: ProductQuery.uriFolksonomyHelper.host,
+          onTap: () async => _changeFolksonomyHost(),
+        ),
         UserPreferencesItemSection(
           label: appLocalizations.dev_mode_section_news,
         ),
@@ -349,7 +360,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           },
         ),
         UserPreferencesItemSwitch(
-          title: appLocalizations.dev_mode_hide_ecoscore_title,
+          title: appLocalizations.dev_mode_hide_environmental_score_title,
           value: userPreferences
               .getExcludedAttributeIds()
               .contains(Attribute.ATTRIBUTE_ECOSCORE),
@@ -421,6 +432,19 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
         ),
         UserPreferencesItemSection(
           label: appLocalizations.dev_mode_section_experimental_features,
+        ),
+        UserPreferencesItemSwitch(
+          title: 'Multi-products selection for prices',
+          value: userPreferences
+                  .getFlag(userPreferencesFlagPricesReceiptMultiSelection) ??
+              false,
+          onChanged: (bool value) async {
+            await userPreferences.setFlag(
+              userPreferencesFlagPricesReceiptMultiSelection,
+              value,
+            );
+            _showSuccessMessage();
+          },
         ),
         UserPreferencesItemSwitch(
           title: 'User ordered knowledge panels',
@@ -531,6 +555,32 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
     if (result == true) {
       await userPreferences.setDevModeString(
           userPreferencesTestEnvDomain, _textFieldController.text);
+      ProductQuery.setQueryType(userPreferences);
+    }
+  }
+
+  Future<void> _changeFolksonomyHost() async {
+    _textFieldController.text = ProductQuery.uriFolksonomyHelper.host;
+    final String? result = await showDialog<String>(
+      context: context,
+      builder: (final BuildContext context) => SmoothAlertDialog(
+        title: 'Folksonomy host',
+        body: TextField(controller: _textFieldController),
+        negativeAction: SmoothActionButton(
+          text: appLocalizations.cancel,
+          onPressed: () => Navigator.pop(context),
+        ),
+        positiveAction: SmoothActionButton(
+          text: appLocalizations.okay,
+          onPressed: () => Navigator.pop(context, _textFieldController.text),
+        ),
+      ),
+    );
+    if (result != null) {
+      await userPreferences.setDevModeString(
+        userPreferencesFolksonomyHost,
+        result,
+      );
       ProductQuery.setQueryType(userPreferences);
     }
   }

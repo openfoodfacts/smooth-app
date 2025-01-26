@@ -31,6 +31,7 @@ class KnowledgePanelCard extends StatelessWidget {
     final UserPreferences userPreferences = context.watch<UserPreferences>();
     final KnowledgePanel? panel =
         KnowledgePanelsBuilder.getKnowledgePanel(product, panelId);
+
     if (panel == null) {
       return EMPTY_WIDGET;
     }
@@ -51,7 +52,9 @@ class KnowledgePanelCard extends StatelessWidget {
           panelId,
         );
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
+      padding: const EdgeInsetsDirectional.symmetric(
+        vertical: SMALL_SPACE,
+      ),
       child: InkWell(
         borderRadius: ANGULAR_BORDER_RADIUS,
         onTap: !improvedIsClickable

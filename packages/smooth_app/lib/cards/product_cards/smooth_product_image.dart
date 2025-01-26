@@ -9,7 +9,9 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/database/transient_file.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/helpers/image_field_extension.dart';
 import 'package:smooth_app/pages/image/product_image_helper.dart';
+import 'package:smooth_app/pages/product/owner_field_info.dart';
 import 'package:smooth_app/pages/product/product_page/new_product_page.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
@@ -26,11 +28,16 @@ class ProductPicture extends StatefulWidget {
     String? fallbackUrl,
     VoidCallback? onTap,
     String? heroTag,
-    bool? showObsoleteIcon,
-    BorderRadius? borderRadius,
-    double? imageFoundBorder,
-    double? imageNotFoundBorder,
+    bool showObsoleteIcon = false,
+    bool showOwnerIcon = false,
+    BorderRadius? borderRadius = const BorderRadius.all(
+      Radius.circular(14.0),
+    ),
+    double imageFoundBorder = 0.0,
+    double imageNotFoundBorder = 0.0,
     TextStyle? errorTextStyle,
+    WidgetBuilder? noImageBuilder,
+    bool blurFilter = true,
   }) : this._(
           transientFile: null,
           product: product,
@@ -41,37 +48,49 @@ class ProductPicture extends StatefulWidget {
           heroTag: heroTag,
           onTap: onTap,
           borderRadius: borderRadius,
-          imageFoundBorder: imageFoundBorder ?? 0.0,
-          imageNotFoundBorder: imageNotFoundBorder ?? 0.0,
+          imageFoundBorder: imageFoundBorder,
+          imageNotFoundBorder: imageNotFoundBorder,
           errorTextStyle: errorTextStyle,
-          showObsoleteIcon: showObsoleteIcon ?? false,
+          showObsoleteIcon: showObsoleteIcon,
+          showOwnerIcon: showOwnerIcon,
+          noImageBuilder: noImageBuilder,
+          blurFilter: blurFilter,
         );
 
   ProductPicture.fromTransientFile({
     required TransientFile transientFile,
     required Size size,
+    OpenFoodFactsLanguage? language,
+    Product? product,
+    ImageField? imageField,
     String? fallbackUrl,
     VoidCallback? onTap,
     String? heroTag,
-    bool? showObsoleteIcon,
+    bool showObsoleteIcon = false,
+    bool showOwnerIcon = false,
     BorderRadius? borderRadius,
-    double? imageFoundBorder,
-    double? imageNotFoundBorder,
+    double imageFoundBorder = 0.0,
+    double imageNotFoundBorder = 0.0,
     TextStyle? errorTextStyle,
+    WidgetBuilder? noImageBuilder,
+    bool blurFilter = true,
   }) : this._(
           transientFile: transientFile,
-          product: null,
-          imageField: null,
-          language: null,
+          product: product,
+          imageField: imageField,
+          language: language,
           size: size,
           fallbackUrl: fallbackUrl,
           heroTag: heroTag,
           onTap: onTap,
           borderRadius: borderRadius,
-          imageFoundBorder: imageFoundBorder ?? 0.0,
-          imageNotFoundBorder: imageNotFoundBorder ?? 0.0,
+          imageFoundBorder: imageFoundBorder,
+          imageNotFoundBorder: imageNotFoundBorder,
           errorTextStyle: errorTextStyle,
-          showObsoleteIcon: showObsoleteIcon ?? false,
+          showObsoleteIcon: showObsoleteIcon,
+          showOwnerIcon: showOwnerIcon,
+          noImageBuilder: noImageBuilder,
+          blurFilter: blurFilter,
         );
 
   ProductPicture._({
@@ -80,6 +99,7 @@ class ProductPicture extends StatefulWidget {
     required this.language,
     required this.transientFile,
     required this.size,
+    required this.blurFilter,
     this.fallbackUrl,
     this.heroTag,
     this.onTap,
@@ -88,6 +108,8 @@ class ProductPicture extends StatefulWidget {
     this.imageNotFoundBorder = 0.0,
     this.errorTextStyle,
     this.showObsoleteIcon = false,
+    this.showOwnerIcon = false,
+    this.noImageBuilder,
     super.key,
   })  : assert(imageFoundBorder >= 0.0),
         assert(imageNotFoundBorder >= 0.0),
@@ -108,6 +130,9 @@ class ProductPicture extends StatefulWidget {
   /// Show the obsolete icon on top of the image
   final bool showObsoleteIcon;
 
+  /// Show the owner icon on top of the image
+  final bool showOwnerIcon;
+
   /// Rounded borders around the image
   final BorderRadius? borderRadius;
   final double imageFoundBorder;
@@ -115,6 +140,11 @@ class ProductPicture extends StatefulWidget {
 
   /// Style when there is no image/an error
   final TextStyle? errorTextStyle;
+
+  /// Allows to change the placeholder
+  final WidgetBuilder? noImageBuilder;
+
+  final bool blurFilter;
 
   @override
   State<ProductPicture> createState() => _ProductPictureState();
@@ -147,8 +177,11 @@ class _ProductPictureState extends State<ProductPicture> {
       child = _ProductPictureAssetsSvg(
         asset: 'assets/product/product_error.svg',
         semanticsLabel:
-            appLocalizations.product_page_image_error_accessibility_label,
-        text: appLocalizations.product_page_image_error,
+            appLocalizations.product_image_error_accessibility_label(
+          widget.imageField?.getPictureAccessibilityLabel(appLocalizations) ??
+              appLocalizations.product_image_front_accessibility_label,
+        ),
+        text: appLocalizations.product_image_error,
         textStyle: TextStyle(
           color: context.extension<SmoothColorsThemeExtension>().red,
         ).merge(widget.errorTextStyle ?? const TextStyle()),
@@ -160,12 +193,21 @@ class _ProductPictureState extends State<ProductPicture> {
     } else if (imageProvider?.$1 != null) {
       child = _ProductPictureWithImageProvider(
         imageProvider: imageProvider!.$1!,
+        imageField: widget.imageField,
         outdated: imageProvider.$2,
+        locked: widget.imageField != null &&
+            widget.product?.isImageLocked(
+                  widget.imageField!,
+                  widget.language ?? ProductQuery.getLanguage(),
+                ) ==
+                true,
         heroTag: widget.heroTag,
         size: widget.size,
         showOutdated: widget.showObsoleteIcon,
+        showOwner: widget.showOwnerIcon,
         borderRadius: widget.borderRadius,
         border: widget.imageFoundBorder,
+        blurFilter: widget.blurFilter,
         onError: () {
           SchedulerBinding.instance.addPostFrameCallback((_) {
             setState(() => _imageError = true);
@@ -178,9 +220,12 @@ class _ProductPictureState extends State<ProductPicture> {
 
       child = _ProductPictureAssetsSvg(
         asset: 'assets/product/product_not_found_text.svg',
+        imageOverride: widget.noImageBuilder,
         semanticsLabel: appLocalizations
             .product_page_image_no_image_available_accessibility_label,
-        text: appLocalizations.product_page_image_no_image_available,
+        text: widget.noImageBuilder == null
+            ? appLocalizations.product_page_image_no_image_available
+            : null,
         textStyle: TextStyle(
           color: context.extension<SmoothColorsThemeExtension>().primaryDark,
         ).merge(widget.errorTextStyle ?? const TextStyle()),
@@ -204,7 +249,10 @@ class _ProductPictureState extends State<ProductPicture> {
   /// The splash tries to use the product compatibility as the accent color
   Color? _getSplashColor(BuildContext context) {
     try {
-      return context.read<ProductPageCompatibility>().color?.withOpacity(0.5);
+      return context
+          .read<ProductPageCompatibility>()
+          .color
+          ?.withValues(alpha: 0.5);
     } catch (_) {
       return null;
     }
@@ -243,24 +291,32 @@ class _ProductPictureWithImageProvider extends StatelessWidget {
   const _ProductPictureWithImageProvider({
     required this.imageProvider,
     required this.outdated,
+    required this.locked,
     required this.size,
     required this.child,
     required this.onError,
     required this.showOutdated,
+    required this.showOwner,
     required this.border,
+    required this.blurFilter,
+    this.imageField,
     this.borderRadius,
     this.heroTag,
   });
 
   final ImageProvider imageProvider;
+  final ImageField? imageField;
   final bool outdated;
+  final bool locked;
   final Size size;
   final Widget? child;
   final VoidCallback onError;
   final bool showOutdated;
+  final bool showOwner;
   final BorderRadius? borderRadius;
   final double border;
   final String? heroTag;
+  final bool blurFilter;
 
   @override
   Widget build(BuildContext context) {
@@ -268,7 +324,8 @@ class _ProductPictureWithImageProvider extends StatelessWidget {
     final bool lightTheme = context.lightTheme();
 
     final Widget image = Semantics(
-      label: appLocalizations.product_page_image_front_accessibility_label,
+      label: imageField?.getPictureAccessibilityLabel(appLocalizations) ??
+          appLocalizations.product_image_front_accessibility_label,
       image: true,
       excludeSemantics: true,
       child: SizedBox.fromSize(
@@ -280,9 +337,12 @@ class _ProductPictureWithImageProvider extends StatelessWidget {
                 color: lightTheme ? Colors.white : Colors.black,
                 child: ClipRRect(
                   child: Opacity(
-                    opacity: lightTheme ? 0.3 : 0.55,
+                    opacity: lightTheme
+                        ? (blurFilter ? 0.3 : 0.05)
+                        : (blurFilter ? 0.55 : 0.15),
                     child: ImageFiltered(
                       imageFilter: ImageFilter.blur(sigmaX: 8.0, sigmaY: 8.0),
+                      enabled: blurFilter,
                       child: Image(
                         image: imageProvider,
                         fit: BoxFit.cover,
@@ -318,43 +378,54 @@ class _ProductPictureWithImageProvider extends StatelessWidget {
       ),
     );
 
-    if (showOutdated && outdated) {
-      return Semantics(
-        label: appLocalizations
-            .product_page_image_front_outdated_message_accessibility_label,
-        image: true,
-        excludeSemantics: true,
-        child: Tooltip(
-          message: appLocalizations.product_page_image_front_outdated_message,
-          child: Stack(
-            children: <Widget>[
-              image,
-              Positioned.directional(
-                bottom: 2.0,
-                end: 2.0,
-                textDirection: Directionality.of(context),
-                child: DecoratedBox(
-                  decoration: BoxDecoration(
-                    color: Colors.white54,
-                    borderRadius: borderRadius,
-                  ),
-                  child: const Padding(
-                    padding: EdgeInsetsDirectional.only(
-                      top: 4.5,
-                      bottom: 5.5,
-                      start: 5.0,
-                      end: 5.0,
-                    ),
-                    child: icons.Outdated(
-                      size: 15.0,
-                      color: Color(0xFF616161),
-                    ),
-                  ),
-                ),
+    final Widget? iconOutdated = showOutdated && outdated
+        ? _OutdatedProductPictureIcon(
+            appLocalizations: appLocalizations,
+            borderRadius: borderRadius,
+            imageField: imageField,
+          )
+        : null;
+
+    final Widget? iconLocked = showOwner && locked
+        ? _LockedProductPictureIcon(
+            appLocalizations: appLocalizations,
+            borderRadius: borderRadius,
+            imageField: imageField,
+          )
+        : null;
+
+    Widget? icons;
+    if (iconOutdated == null) {
+      icons = iconLocked;
+    } else if (iconLocked == null) {
+      icons = iconOutdated;
+    } else {
+      icons = Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          iconOutdated,
+          const SizedBox(height: SMALL_SPACE),
+          iconLocked,
+        ],
+      );
+    }
+
+    if (icons != null) {
+      return Stack(
+        children: <Widget>[
+          image,
+          Positioned.directional(
+            bottom: 2.0,
+            end: 2.0,
+            textDirection: Directionality.of(context),
+            child: IconTheme(
+              data: const IconThemeData(
+                color: Color(0xFF616161),
               ),
-            ],
+              child: icons,
+            ),
           ),
-        ),
+        ],
       );
     }
 
@@ -367,18 +438,34 @@ class _ProductPictureWithImageProvider extends StatelessWidget {
       height: size.height,
       fit: BoxFit.contain,
       image: imageProvider,
-      loadingBuilder: (_, Widget child, ImageChunkEvent? loadingProgress) {
+      loadingBuilder: (
+        BuildContext context,
+        Widget child,
+        ImageChunkEvent? loadingProgress,
+      ) {
         if (loadingProgress == null) {
           return child;
         }
 
-        return const Center(
-          child: CircularProgressIndicator(),
-        );
+        return _loadingPlaceholder(context);
       },
       errorBuilder: (_, __, ___) {
         onError.call();
         return EMPTY_WIDGET;
+      },
+      frameBuilder: (
+        BuildContext context,
+        Widget child,
+        int? frame,
+        _,
+      ) {
+        /// Force a loader, as the [loadingBuilder] has a [loadingProgress] of null,
+        /// which is not expected.
+        if (frame == null) {
+          return _loadingPlaceholder(context);
+        }
+
+        return child;
       },
     );
 
@@ -391,6 +478,122 @@ class _ProductPictureWithImageProvider extends StatelessWidget {
       return image;
     }
   }
+
+  Widget _loadingPlaceholder(BuildContext context) => DecoratedBox(
+        decoration: BoxDecoration(
+          borderRadius: borderRadius,
+          border: border > 0.0
+              ? Border.all(
+                  color: Theme.of(context).dividerColor,
+                  width: 1.0,
+                )
+              : null,
+        ),
+        child: const Center(
+          child: CircularProgressIndicator(),
+        ),
+      );
+}
+
+class _OutdatedProductPictureIcon extends StatelessWidget {
+  const _OutdatedProductPictureIcon({
+    required this.appLocalizations,
+    required this.borderRadius,
+    this.imageField,
+  });
+
+  final ImageField? imageField;
+  final AppLocalizations appLocalizations;
+  final BorderRadius? borderRadius;
+
+  @override
+  Widget build(BuildContext context) {
+    return _ProductPictureIcon(
+      semanticsLabel:
+          appLocalizations.product_image_outdated_message_accessibility_label(
+        imageField?.getPictureAccessibilityLabel(appLocalizations) ??
+            appLocalizations.product_image_front_accessibility_label,
+      ),
+      icon: const icons.Outdated(size: 15.0),
+      padding: const EdgeInsetsDirectional.only(
+        top: 4.5,
+        bottom: 5.5,
+        start: 5.0,
+        end: 5.0,
+      ),
+      borderRadius: borderRadius,
+    );
+  }
+}
+
+class _LockedProductPictureIcon extends StatelessWidget {
+  const _LockedProductPictureIcon({
+    required this.appLocalizations,
+    required this.borderRadius,
+    this.imageField,
+  });
+
+  final ImageField? imageField;
+  final AppLocalizations appLocalizations;
+  final BorderRadius? borderRadius;
+
+  @override
+  Widget build(BuildContext context) {
+    return _ProductPictureIcon(
+      semanticsLabel:
+          appLocalizations.product_image_locked_message_accessibility_label(
+        imageField?.getPictureAccessibilityLabel(appLocalizations) ??
+            appLocalizations.product_image_front_accessibility_label,
+      ),
+      icon: IconTheme.merge(
+        data: const IconThemeData(size: 16.0),
+        child: const OwnerFieldIcon(),
+      ),
+      padding: const EdgeInsetsDirectional.only(
+        top: 4.5,
+        bottom: 5.5,
+        start: 5.0,
+        end: 5.0,
+      ),
+      borderRadius: borderRadius,
+    );
+  }
+}
+
+class _ProductPictureIcon extends StatelessWidget {
+  const _ProductPictureIcon({
+    required this.semanticsLabel,
+    required this.icon,
+    required this.padding,
+    this.borderRadius,
+  });
+
+  final String semanticsLabel;
+  final Widget icon;
+  final EdgeInsetsGeometry padding;
+  final BorderRadius? borderRadius;
+
+  @override
+  Widget build(BuildContext context) {
+    return Semantics(
+      label: semanticsLabel,
+      image: true,
+      excludeSemantics: true,
+      child: Tooltip(
+        message: semanticsLabel,
+        child: DecoratedBox(
+          decoration: BoxDecoration(
+            color: Colors.white54,
+            borderRadius: borderRadius,
+          ),
+          child: Padding(
+            padding: padding,
+            child: icon,
+          ),
+        ),
+      ),
+    );
+  }
 }
 
 class _ProductPictureAssetsSvg extends StatelessWidget {
@@ -401,6 +604,7 @@ class _ProductPictureAssetsSvg extends StatelessWidget {
     required this.textStyle,
     required this.size,
     required this.child,
+    this.imageOverride,
     this.borderRadius,
     this.border = 0.0,
   })  : assert(asset.isNotEmpty),
@@ -414,6 +618,7 @@ class _ProductPictureAssetsSvg extends StatelessWidget {
   final Widget? child;
   final BorderRadius? borderRadius;
   final double border;
+  final WidgetBuilder? imageOverride;
 
   @override
   Widget build(BuildContext context) {
@@ -426,12 +631,13 @@ class _ProductPictureAssetsSvg extends StatelessWidget {
         child: Stack(
           children: <Widget>[
             Positioned.fill(
-              child: SvgPicture.asset(
-                asset,
-                width: size.width,
-                height: size.height,
-                fit: BoxFit.cover,
-              ),
+              child: imageOverride?.call(context) ??
+                  SvgPicture.asset(
+                    asset,
+                    width: size.width,
+                    height: size.height,
+                    fit: BoxFit.cover,
+                  ),
             ),
             if (text != null)
               Padding(
@@ -455,7 +661,7 @@ class _ProductPictureAssetsSvg extends StatelessWidget {
                       ? Border.all(
                           color: (textStyle?.color ??
                                   Theme.of(context).dividerColor)
-                              .withOpacity(0.2),
+                              .withValues(alpha: 0.2),
                           width: 1.0,
                         )
                       : null,

@@ -25,6 +25,7 @@ class KnowledgePanelPageTemplate extends StatefulWidget {
     required this.backgroundColor,
     required this.svgAsset,
     required this.nextKey,
+    this.selectableText = false,
   });
 
   final String headerTitle;
@@ -37,6 +38,8 @@ class KnowledgePanelPageTemplate extends StatefulWidget {
   final Color backgroundColor;
   final String svgAsset;
   final Key nextKey;
+
+  final bool selectableText;
 
   @override
   State<KnowledgePanelPageTemplate> createState() =>
@@ -76,6 +79,7 @@ class _KnowledgePanelPageTemplateState
           if (snapshot.connectionState != ConnectionState.done) {
             return const Center(child: CircularProgressIndicator.adaptive());
           }
+
           final List<Widget> children = KnowledgePanelsBuilder.getChildren(
             context,
             panelElement: KnowledgePanelsBuilder.getRootPanelElement(
@@ -152,7 +156,7 @@ class _KnowledgePanelPageTemplateState
       key: const Key('toolTipPopUp'),
       child: Card(
         margin: const EdgeInsets.symmetric(horizontal: 30),
-        color: Theme.of(context).hintColor.withOpacity(0.9),
+        color: Theme.of(context).hintColor.withValues(alpha: 0.9),
         shape: const TooltipShapeBorder(arrowArc: 0.5),
         child: Container(
           margin: const EdgeInsetsDirectional.only(

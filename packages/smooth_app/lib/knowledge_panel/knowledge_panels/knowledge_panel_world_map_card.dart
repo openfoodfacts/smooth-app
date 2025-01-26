@@ -1,10 +1,14 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/helpers/launch_url_helper.dart';
+import 'package:smooth_app/pages/product/world_map_page.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
+import 'package:smooth_app/widgets/smooth_indicator_icon.dart';
 
 class KnowledgePanelWorldMapCard extends StatelessWidget {
   const KnowledgePanelWorldMapCard(this.mapElement);
@@ -20,6 +24,7 @@ class KnowledgePanelWorldMapCard extends StatelessWidget {
     const double markerSize = 30;
     final List<Marker> markers = <Marker>[];
     final List<LatLng> coordinates = <LatLng>[];
+
     void addCoordinate(final LatLng latLng) {
       coordinates.add(latLng);
       markers.add(
@@ -40,11 +45,96 @@ class KnowledgePanelWorldMapCard extends StatelessWidget {
       }
     }
 
+    final MapOptions mapOptions = _generateMapOptions(
+      coordinates: coordinates,
+      markerSize: markerSize,
+      interactive: false,
+    );
+
+    final List<Widget> children = <Widget>[
+      TileLayer(
+        urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+        userAgentPackageName: 'org.openfoodfacts.app',
+      ),
+      MarkerLayer(markers: markers),
+    ];
+
+    final String? kpTitle = _getTitle(context);
+
+    return Padding(
+      padding: const EdgeInsetsDirectional.only(bottom: MEDIUM_SPACE),
+      child: Semantics(
+        label: AppLocalizations.of(context)
+            .knowledge_panel_world_map_accessibility_label(kpTitle ?? '?'),
+        image: true,
+        button: true,
+        child: SizedBox(
+          width: double.infinity,
+          height: 200.0,
+          child: Stack(
+            children: <Widget>[
+              Positioned.fill(
+                child: IgnorePointer(
+                  ignoring: true,
+                  child: ClipRRect(
+                    borderRadius: const BorderRadius.all(Radius.circular(6.0)),
+                    child: FlutterMap(
+                      options: mapOptions,
+                      children: <Widget>[
+                        ...children,
+                        const _ExpandMapIcon(),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              Positioned.fill(
+                child: Material(
+                  color: Colors.transparent,
+                  child: InkWell(
+                    borderRadius: const BorderRadius.all(Radius.circular(6.0)),
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute<Widget>(
+                          builder: (_) {
+                            return WorldMapPage(
+                              title: kpTitle,
+                              mapOptions: _generateMapOptions(
+                                coordinates: coordinates,
+                                markerSize: markerSize,
+                                initialZoom: 12.0,
+                                interactive: true,
+                              ),
+                              children: children,
+                            );
+                          },
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  MapOptions _generateMapOptions({
+    required List<LatLng> coordinates,
+    required double markerSize,
+    double initialZoom = 6.0,
+    bool interactive = false,
+  }) {
     final MapOptions mapOptions;
     if (coordinates.length == 1) {
       mapOptions = MapOptions(
         initialCenter: coordinates.first,
-        initialZoom: 6.0,
+        initialZoom: initialZoom,
+        interactionOptions: InteractionOptions(
+          flags: interactive ? InteractiveFlag.all : InteractiveFlag.none,
+        ),
       );
     } else {
       mapOptions = MapOptions(
@@ -52,39 +142,22 @@ class KnowledgePanelWorldMapCard extends StatelessWidget {
           coordinates: coordinates,
           maxZoom: 13.0,
           forceIntegerZoomLevel: true,
-          padding: const EdgeInsets.all(markerSize),
+          padding: EdgeInsets.all(markerSize),
+        ),
+        interactionOptions: InteractionOptions(
+          flags: interactive ? InteractiveFlag.all : InteractiveFlag.none,
         ),
       );
     }
-    return Padding(
-      padding: const EdgeInsetsDirectional.only(bottom: MEDIUM_SPACE),
-      child: SizedBox(
-        height: 200,
-        child: FlutterMap(
-          options: mapOptions,
-          children: <Widget>[
-            TileLayer(
-              urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-              userAgentPackageName: 'org.openfoodfacts.app',
-            ),
-            MarkerLayer(markers: markers),
-            RichAttributionWidget(
-              popupInitialDisplayDuration: const Duration(seconds: 5),
-              animationConfig: const ScaleRAWA(),
-              showFlutterMapAttribution: false,
-              attributions: <SourceAttribution>[
-                TextSourceAttribution(
-                  'OpenStreetMap contributors',
-                  onTap: () => LaunchUrlHelper.launchURL(
-                    'https://www.openstreetmap.org/copyright',
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
+    return mapOptions;
+  }
+
+  String? _getTitle(BuildContext context) {
+    try {
+      return context.read<KnowledgePanel>().titleElement?.title;
+    } catch (_) {
+      return null;
+    }
   }
 
   @override
@@ -98,6 +171,18 @@ class KnowledgePanelWorldMapCard extends StatelessWidget {
               pointer.geo?.toJson().toString(),
         ),
       ),
+    );
+  }
+}
+
+class _ExpandMapIcon extends StatelessWidget {
+  const _ExpandMapIcon();
+
+  @override
+  Widget build(BuildContext context) {
+    return const Align(
+      alignment: AlignmentDirectional.bottomEnd,
+      child: SmoothIndicatorIcon(icon: icons.Expand()),
     );
   }
 }

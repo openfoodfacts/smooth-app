@@ -11,7 +11,9 @@ import 'package:smooth_app/pages/prices/get_prices_model.dart';
 import 'package:smooth_app/pages/prices/price_meta_product.dart';
 import 'package:smooth_app/pages/prices/prices_page.dart';
 import 'package:smooth_app/pages/prices/product_price_add_page.dart';
+import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
+import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
@@ -71,26 +73,13 @@ class PricesCard extends StatelessWidget {
               children: <Widget>[
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
-                  child: SmoothLargeButtonWithIcon(
-                    text: appLocalizations.prices_view_prices,
-                    icon: CupertinoIcons.tag_fill,
-                    onPressed: () async => Navigator.of(context).push(
-                      MaterialPageRoute<void>(
-                        builder: (BuildContext context) => PricesPage(
-                          GetPricesModel.product(
-                            product: PriceMetaProduct.product(product),
-                            context: context,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
+                  child: _PricesCardViewButton(product),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(SMALL_SPACE),
                   child: SmoothLargeButtonWithIcon(
                     text: appLocalizations.prices_add_a_price,
-                    icon: Icons.add,
+                    leadingIcon: const Icon(Icons.add),
                     onPressed: () async => ProductPriceAddPage.showProductPage(
                       context: context,
                       product: PriceMetaProduct.product(product),
@@ -125,8 +114,83 @@ class _PricesCardTitleIcon extends StatelessWidget {
       child: icons.Lab(
         size: 100.0,
         color: themeExtension?.orange
-            .withOpacity(context.lightTheme() ? 0.15 : 0.4),
+            .withValues(alpha: context.lightTheme() ? 0.15 : 0.4),
       ),
+    );
+  }
+}
+
+class _PricesCardViewButton extends StatefulWidget {
+  const _PricesCardViewButton(this.product);
+
+  final Product product;
+
+  @override
+  State<_PricesCardViewButton> createState() => _PricesCardViewButtonState();
+}
+
+class _PricesCardViewButtonState extends State<_PricesCardViewButton> {
+  late final GetPricesModel _model;
+  late final Future<MaybeError<GetPricesResult>> _prices = _showProductPrices();
+
+  @override
+  Widget build(BuildContext context) =>
+      FutureBuilder<MaybeError<GetPricesResult>>(
+        future: _prices,
+        builder: (
+          final BuildContext context,
+          final AsyncSnapshot<MaybeError<GetPricesResult>> snapshot,
+        ) {
+          final AppLocalizations appLocalizations =
+              AppLocalizations.of(context);
+          GetPricesResult? pricesResult;
+          if (snapshot.hasData && !snapshot.data!.isError) {
+            pricesResult = snapshot.data!.value;
+          }
+          return Badge(
+            offset: Offset.zero,
+            isLabelVisible: pricesResult?.total != null,
+            backgroundColor:
+                context.extension<SmoothColorsThemeExtension>().secondaryNormal,
+            label: Padding(
+              padding: const EdgeInsetsDirectional.only(
+                start: VERY_SMALL_SPACE,
+                end: VERY_SMALL_SPACE,
+                top: VERY_SMALL_SPACE,
+                bottom: 6.0,
+              ),
+              child: Text(
+                '${pricesResult?.total}',
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            child: SmoothLargeButtonWithIcon(
+              text: appLocalizations.prices_view_prices,
+              leadingIcon: const Icon(CupertinoIcons.tag_fill),
+              onPressed: () async => Navigator.of(context).push(
+                MaterialPageRoute<void>(
+                  builder: (BuildContext context) => PricesPage(
+                    _model,
+                    pricesResult: pricesResult,
+                  ),
+                ),
+              ),
+            ),
+          );
+        },
+      );
+
+  Future<MaybeError<GetPricesResult>> _showProductPrices() async {
+    _model = GetPricesModel.product(
+      product: PriceMetaProduct.product(widget.product),
+      context: context,
+    );
+    return OpenPricesAPIClient.getPrices(
+      _model.parameters,
+      uriHelper: ProductQuery.uriPricesHelper,
     );
   }
 }

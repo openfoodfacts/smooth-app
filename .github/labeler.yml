@@ -104,7 +104,8 @@ History:
 ⚙️🥗 Food preferences:
 - changed-files:
   - any-glob-to-any-file: 'packages/smooth_app/lib/widgets/attribute_button.dart'
-
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/preferences/user_preferences_attribute_group.dart'
+  
 🤗 Onboarding:
 - changed-files:
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/onboarding/**/*'
@@ -155,6 +156,16 @@ Product addition:
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/standard_knowledge_panel_cards.dart'
   - any-glob-to-any-file: 'packages/smooth_app/lib/knowledge_panel/knowledge_panels/knowledge_panel_card.dart'
   - any-glob-to-any-file: 'packages/smooth_app/lib/knowledge_panel/knowledge_panels/knowledge_panel_page.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/knowledge_panel/knowledge_panels/knowledge_panel_table_card.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/knowledge_panel/knowledge_panels/knowledge_panel_world_map_card.dart'
+
+📖 Knowledge panels - Table widget:
+- changed-files:
+  - any-glob-to-any-file: 'packages/smooth_app/lib/knowledge_panel/knowledge_panels/knowledge_panel_table_card.dart'
+
+📖 Knowledge panels - Map widget:
+- changed-files:
+  - any-glob-to-any-file: 'packages/smooth_app/lib/knowledge_panel/knowledge_panels/knowledge_panel_world_map_card.dart'
   
 🤖 Robotoff:
 - changed-files:
@@ -232,13 +243,31 @@ Product scan carousel:
 - changed-files:
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/scan/carousel/scan_carousel.dart'
 
+autocomplete:
+- changed-files:
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/input/smooth_autocomplete_text_field.dart'
+
 ✏️ Editing:
 - changed-files:
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/edit_product_page.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/input/smooth_autocomplete_text_field.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/add_other_details_page.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/simple_input_page.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/simple_input_page_helpers.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/simple_input_text_field.dart'
 
 ✏️ Editing - Nutrition input:
 - changed-files:
-  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/nutrition_page_loaded.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/nutrition_page/nutrition_page.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/nutrition_page/nutrition_page_loader.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/nutrition_page/widgets/nutrition_add_nutrient_button.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/nutrition_page/widgets/nutrition_availability_container.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/nutrition_page/widgets/nutrition_availability_container.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/nutrition_page/widgets/nutrition_container_helper.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/nutrition_page/widgets/nutrition_facts_editor.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/nutrition_page/widgets/nutrition_image_viewer.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/nutrition_page/widgets/nutrition_serving_size.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/nutrition_page/widgets/nutrition_serving_switch.dart'
 
 #tag picker:
 
@@ -279,7 +308,6 @@ Prices:
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/prices/price_amount_card.dart'
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/prices/price_amount_field.dart'
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/prices/price_button.dart'
-  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/prices/price_count_widget.dart'
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/prices/price_currency_card.dart'
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/prices/price_currency_selector.dart'
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/prices/price_data_widget.dart'
@@ -291,9 +319,10 @@ Prices:
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/prices/price_proof_card.dart'
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/prices/prices_card.dart'
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/prices/product_price_add_page.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/prices/price_add_product_card.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/prices/price_scan_page.dart'
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/onboarding/currency_selector.dart'
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/onboarding/currency_selector_helper.dart'
-
 router:
 - changed-files:
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/navigator/app_navigator.dart'

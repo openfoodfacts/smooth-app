@@ -85,7 +85,7 @@ class PageManagerState extends State<PageManager> {
       decoration: BoxDecoration(
         boxShadow: <BoxShadow>[
           BoxShadow(
-            color: Theme.of(context).shadowColor.withOpacity(0.3),
+            color: Theme.of(context).shadowColor.withValues(alpha: 0.3),
             offset: Offset.zero,
             blurRadius: 10.0,
             spreadRadius: 1.0,

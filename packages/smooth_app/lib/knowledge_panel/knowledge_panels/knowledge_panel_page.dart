@@ -12,11 +12,16 @@ import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_expanded_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
+import 'package:smooth_app/pages/product/nutrition_page/nutrition_page_loader.dart';
+import 'package:smooth_app/pages/product/portion_calculator.dart';
+import 'package:smooth_app/pages/product/product_field_editor.dart';
+import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
 import 'package:smooth_app/pages/scan/carousel/scan_carousel_manager.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
+import 'package:smooth_app/widgets/smooth_menu_button.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Detail page of knowledge panels (if you click on the forward/more button).
@@ -45,7 +50,8 @@ class _KnowledgePanelPageState extends State<KnowledgePanelPage>
   }
 
   static KnowledgePanelPanelGroupElement? _groupElementOf(
-      BuildContext context) {
+    BuildContext context,
+  ) {
     try {
       return Provider.of<KnowledgePanelPanelGroupElement>(context);
     } catch (_) {
@@ -60,54 +66,64 @@ class _KnowledgePanelPageState extends State<KnowledgePanelPage>
 
     context.watch<LocalDatabase>();
     refreshUpToDate();
-    return SmoothScaffold(
-      backgroundColor: context.lightTheme()
-          ? context.extension<SmoothColorsThemeExtension>().primaryLight
-          : null,
-      appBar: SmoothAppBar(
-        title: Semantics(
-          label: _getTitleForAccessibility(appLocalizations, title),
-          child: Text(
-            title,
+    return Provider<Product>.value(
+      value: upToDateProduct,
+      child: SmoothScaffold(
+        backgroundColor: context.lightTheme()
+            ? context.extension<SmoothColorsThemeExtension>().primaryLight
+            : null,
+        appBar: SmoothAppBar(
+          title: Semantics(
+            label: _getTitleForAccessibility(appLocalizations, title),
+            child: Text(
+              title,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+            ),
+          ),
+          subTitle: Text(
+            getProductNameAndBrands(upToDateProduct, appLocalizations),
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
           ),
+          actions: _actions(),
         ),
-        subTitle: Text(
-          getProductNameAndBrands(upToDateProduct, appLocalizations),
-          maxLines: 1,
-          overflow: TextOverflow.ellipsis,
-        ),
-      ),
-      body: RefreshIndicator(
-        onRefresh: () => _refreshProduct(context),
-        child: CustomScrollView(
-          physics: const AlwaysScrollableScrollPhysics(),
-          slivers: <Widget>[
-            SliverToBoxAdapter(
-              child: Column(
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.only(
-                      bottom: SMALL_SPACE,
-                      top: SMALL_SPACE,
-                    ),
-                    child: SmoothCard(
-                      padding: const EdgeInsets.all(
-                        SMALL_SPACE,
-                      ),
-                      child: KnowledgePanelExpandedCard(
-                        panelId: widget.panelId,
-                        product: upToDateProduct,
-                        isInitiallyExpanded: true,
-                        isClickable: true,
-                      ),
+        body: RefreshIndicator(
+          onRefresh: () => _refreshProduct(context),
+          child: Scrollbar(
+            child: ListView(
+              physics: const AlwaysScrollableScrollPhysics(),
+              padding: EdgeInsetsDirectional.only(
+                top: SMALL_SPACE,
+                start: VERY_SMALL_SPACE,
+                end: VERY_SMALL_SPACE,
+                bottom: SMALL_SPACE + MediaQuery.viewPaddingOf(context).bottom,
+              ),
+              children: <Widget>[
+                SmoothCard(
+                  padding: const EdgeInsetsDirectional.only(
+                    bottom: LARGE_SPACE,
+                  ),
+                  child: DefaultTextStyle.merge(
+                    style: const TextStyle(fontSize: 15.0, height: 1.5),
+                    child: KnowledgePanelExpandedCard(
+                      panelId: widget.panelId,
+                      product: upToDateProduct,
+                      isInitiallyExpanded: true,
+                      isClickable: true,
                     ),
                   ),
-                ],
-              ),
-            )
-          ],
+                ),
+                if (PortionCalculator.isVisible(widget.panelId))
+                  SmoothCard(
+                    padding: const EdgeInsetsDirectional.only(
+                      bottom: LARGE_SPACE,
+                    ),
+                    child: PortionCalculator(upToDateProduct),
+                  ),
+              ],
+            ),
+          ),
         ),
       ),
     );
@@ -164,9 +180,87 @@ class _KnowledgePanelPageState extends State<KnowledgePanelPage>
     }
   }
 
+  List<Widget>? _actions() {
+    if (<String>['ingredients', 'ingredients_analysis_details']
+        .contains(widget.panelId)) {
+      return <Widget>[
+        _KnowledgePanelPageEditAction(
+          tooltip: AppLocalizations.of(context).ingredients_editing_title,
+          onPressed: () async => ProductFieldOcrIngredientEditor().edit(
+            context: context,
+            product: upToDateProduct,
+          ),
+        ),
+      ];
+    } else if (widget.panelId == 'nutrition_facts_table') {
+      return <Widget>[
+        _KnowledgePanelPageEditAction(
+          tooltip: AppLocalizations.of(context).nutrition_facts_editing_title,
+          onPressed: () async => NutritionPageLoader.showNutritionPage(
+            product: upToDateProduct,
+            isLoggedInMandatory: true,
+            context: context,
+          ),
+        ),
+      ];
+    } else if (<String>[
+      'origins_of_ingredients',
+      'environmental_score_origins_of_ingredients'
+    ].contains(widget.panelId)) {
+      return <Widget>[
+        _KnowledgePanelPageEditAction(
+          tooltip: AppLocalizations.of(context).origins_editing_title,
+          onPressed: () async =>
+              ProductFieldSimpleEditor(SimpleInputPageOriginHelper()).edit(
+            context: context,
+            product: upToDateProduct,
+          ),
+        ),
+      ];
+    } else if (widget.panelId == 'environmental_score_packaging') {
+      return <Widget>[
+        _KnowledgePanelPageEditAction(
+          tooltip: AppLocalizations.of(context).origins_editing_title,
+          onPressed: () async => ProductFieldPackagingEditor().edit(
+            context: context,
+            product: upToDateProduct,
+          ),
+        ),
+      ];
+    }
+
+    return null;
+  }
+
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties.add(StringProperty('panelId', widget.panelId));
+  }
+}
+
+class _KnowledgePanelPageEditAction extends StatelessWidget {
+  const _KnowledgePanelPageEditAction({
+    required this.tooltip,
+    required this.onPressed,
+  });
+
+  final String tooltip;
+  final VoidCallback onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return SmoothPopupMenuButton<void>(
+        buttonIcon: const Icon(Icons.more_vert),
+        onSelected: (_) => onPressed(),
+        itemBuilder: (BuildContext context) {
+          return <SmoothPopupMenuItem<void>>[
+            SmoothPopupMenuItem<void>(
+              label: tooltip,
+              value: null,
+              icon: Icons.edit,
+            ),
+          ];
+        });
   }
 }
