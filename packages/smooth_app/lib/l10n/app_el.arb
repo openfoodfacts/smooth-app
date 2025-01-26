@@ -28,7 +28,7 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
-    "continue_label": "Continue",
+    "continue_label": "Συνέχεια",
     "@continue_label": {
         "description": "A label on a button that says 'Continue', pressing the button takes the user to the next screen."
     },
@@ -1303,7 +1303,7 @@
     "@onboarding_home_welcome_text2": {
         "description": "Onboarding home screen welcome text, text surrounded by * will be bold"
     },
-    "onboarding_continue_button": "Continue",
+    "onboarding_continue_button": "Συνέχεια",
     "onboarding_welcome_loading_dialog_title": "Φόρτωση του πρώτου παραδείγματος προϊόντος σας",
     "@onboarding_welcome_loading_dialog_title": {
         "description": "Title for the onboarding loading dialog"
@@ -2416,15 +2416,15 @@
     "@all_search_prices_top_location_single_title": {
         "description": "Top price locations: list tile title"
     },
-    "all_search_prices_top_product_title": "Products with the most prices",
+    "all_search_prices_top_product_title": "Προϊόντα με τις περισσότερες τιμές",
     "@all_search_prices_top_product_title": {
         "description": "Top price products: list tile title"
     },
-    "all_search_to_be_completed_title": "All to-be-completed products",
+    "all_search_to_be_completed_title": "Όλα τα προς ολοκλήρωση προϊόντα",
     "@all_search_to_be_completed_title": {
         "description": "All products to be completed: list tile title"
     },
-    "categorize_products_country_title": "Help categorize products in your country",
+    "categorize_products_country_title": "Βοηθήστε στην κατηγοριοποίηση των προϊόντων στη χώρα σας",
     "@categorize_products_country_title": {
         "description": "Help categorize products in your country: list tile title"
     },
@@ -2440,7 +2440,7 @@
     "@edit_product_action_confirm": {
         "description": "Product edition - FAB actions - confirm"
     },
-    "signup_page_terms_of_use_line1": "I agree to the Open Food Facts ",
+    "signup_page_terms_of_use_line1": "Συμφωνώ με το Open Food Facts ",
     "@signup_page_terms_of_use_line1": {
         "description": "User consent for terms of use (line 1)"
     },
@@ -2478,7 +2478,7 @@
     "@edit_photo_button_label": {
         "description": "Edit photo button label"
     },
-    "edit_photo_unselect_button_label": "Unselect photo",
+    "edit_photo_unselect_button_label": "Αποεπιλογή φωτογραφίας",
     "@edit_photo_unselect_button_label": {
         "description": "Edit 'unselect photo' button label"
     },
@@ -2761,41 +2761,41 @@
     },
     "expand_ingredients_body": "Keep the ingredients panel expanded",
     "search_product_filter_visibility_title": "Show a filter in the search",
-    "search_product_filter_visibility_subtitle": "Select search site: Open Food Facts, Open Beauty Facts, Open Pet Food Facts or Open Products Facts",
+    "search_product_filter_visibility_subtitle": "Επιλέξτε ιστότοπο αναζήτησης: Open Food Facts, Open Beauty Facts, Open Pet Food Facts ή Open Product Facts",
     "@search_product_filter_visibility_subtitle": {
         "description": "Label for showing the product type filter in the search bar"
     },
-    "no_internet_connection": "No internet connection",
+    "no_internet_connection": "Χωρίς σύνδεση στο διαδίκτυο",
     "@no_internet_connection": {
         "description": "Message when there is no internet connection"
     },
-    "world_results_label": "Entire world",
+    "world_results_label": "Όλος ο κόσμος",
     "@world_results_label": {
         "description": "Label describing the current source of the results: the entire world. Keep it short"
     },
-    "world_results_action": "Extend your search to the world",
+    "world_results_action": "Επέκταση της αναζήτησής σας στον κόσμο",
     "@world_results_action": {
         "description": "Label for the action button that displays the results from the entire world"
     },
-    "copy_to_clipboard": "Copy",
+    "copy_to_clipboard": "Αντιγραφή",
     "@copy_to_clipboard": {
         "description": "Copy to clipboard button description"
     },
-    "paste_from_clipboard": "Paste from clipboard",
+    "paste_from_clipboard": "Επικόλληση από το πρόχειρο",
     "@paste_from_clipboard": {
         "description": "Paste the content of the clipboard"
     },
-    "no_data_available_in_clipboard": "No data available in your clipboard",
+    "no_data_available_in_clipboard": "Δεν υπάρχουν διαθέσιμα δεδομένα στο πρόχειρό σας",
     "@no_data_available_in_clipboard": {
         "description": "No data available in your clipboard"
     },
-    "clipboard_barcode_copy": "Copy barcode to clipboard",
+    "clipboard_barcode_copy": "Αντιγράψτε τον γραμμωτό κώδικα στο πρόχειρο",
     "@clipboard_barcode_copied": {
         "description": "Snackbar label after clipboard copy"
     },
     "clipboard_barcode_copied": "Ο γραμμωτός κώδικας {barcode} αντιγράφηκε στο πρόχειρο!",
-    "open_product_website": "Open this product on the website",
-    "language_picker_label": "Your language",
+    "open_product_website": "Ανοίξτε αυτό το προϊόν στον ιστότοπο",
+    "language_picker_label": "Η γλώσσα σας",
     "@language_picker_label": {
         "description": "Choose Application Language"
     },
@@ -2803,7 +2803,7 @@
     "@country_picker_label": {
         "description": "Choose Application Country"
     },
-    "currency_picker_label": "Your currency",
+    "currency_picker_label": "Το νόμισμά σας",
     "@currency_picker_label": {
         "description": "Choose Application Country"
     },
@@ -2811,25 +2811,25 @@
     "@help_with_openfoodfacts": {
         "description": "Label for the email title"
     },
-    "product_task_background_schedule": "The product will be updated in the background as soon as possible.",
+    "product_task_background_schedule": "Το προϊόν θα ενημερωθεί στο παρασκήνιο το συντομότερο δυνατό.",
     "@product_task_background_schedule": {
         "description": "Message when a product is scheduled for background update"
     },
-    "no_email_client_available_dialog_title": "No email apps!",
+    "no_email_client_available_dialog_title": "Χωρίς εφαρμογές email!",
     "@no_email_client_available_dialog_title": {
         "description": "Title for the dialog when no email client is installed on the device"
     },
-    "no_email_client_available_dialog_content": "Please send us manually an email to mobile@openfoodfacts.org",
+    "no_email_client_available_dialog_content": "Στείλτε μας χειροκίνητα ένα email στο mobile@openfoodfacts.org",
     "@no_email_client_available_dialog_content": {
         "description": "Content for the dialog when no email client is installed on the device"
     },
-    "all_images": "All Images",
-    "selected_images": "Selected Images",
-    "product_card_remove_product_tooltip": "Remove product",
+    "all_images": "Όλες Οι Εικόνες",
+    "selected_images": "Επιλεγμένες εικόνες",
+    "product_card_remove_product_tooltip": "Αφαίρεση προϊόντος",
     "@product_card_remove_product_tooltip": {
         "description": "Tooltip (message visible with a long-press) on a product item in the carousel"
     },
-    "scan_announce_new_barcode": "New barcode scanned: {barcode}",
+    "scan_announce_new_barcode": "Σαρώθηκε νέος γραμμωτός κώδικας: {barcode}",
     "@scan_announce_new_barcode": {
         "description": "Text to pronounce by the Accessibility tool when a new barcode is decoded",
         "placeholders": {
@@ -2839,11 +2839,11 @@
             }
         }
     },
-    "scan_header_clear_button_tooltip": "Remove all products from the carousel",
+    "scan_header_clear_button_tooltip": "Αφαιρέστε όλα τα προϊόντα από το καρουζέλ",
     "@scan_header_clear_button_tooltip": {
         "description": "Tooltip (message visible with a long-press) on the Clear button on top of the scanner"
     },
-    "scan_header_compare_button_invalid_state_tooltip": "Please scan at least two products to compare them",
+    "scan_header_compare_button_invalid_state_tooltip": "Παρακαλούμε σαρώστε τουλάχιστον δύο προϊόντα για να τα συγκρίνετε",
     "@scan_header_compare_button_invalid_state_tooltip": {
         "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is just one product scanned"
     },
@@ -2851,23 +2851,23 @@
     "@scan_header_compare_button_valid_state_tooltip": {
         "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is at least two products"
     },
-    "scan_product_loading": "You have scanned\nthe barcode:",
+    "scan_product_loading": "Έχετε σαρώσει\nτον γραμμωτό κώδικα:",
     "@scan_product_loading": {
         "description": "Title when a product is loading (carousel card). Please ensure to keep the line break."
     },
-    "scan_product_loading_initial": "We're looking for this product!\nPlease wait a few seconds…",
+    "scan_product_loading_initial": "Ψάχνουμε αυτό το προϊόν!\nΠεριμένετε μερικά δευτερόλεπτα…",
     "@scan_product_loading_initial": {
         "description": "Message when a product is loading (carousel card). Please ensure to keep the line break."
     },
-    "scan_product_loading_long_request": "We're still looking for this product!\nDo you find it takes a long time to load? So are we…",
+    "scan_product_loading_long_request": "Ακόμα ψάχνουμε το προϊόν!\nΘεωρείτε ότι χρειάζεται πολύς χρόνος για να φορτώσει; Το ίδιο και εμείς…",
     "@scan_product_loading_long_request": {
         "description": "Message when a product is long to load (carousel card). Please ensure to keep the line break."
     },
-    "scan_product_loading_unresponsive": "We're still looking for this product.\nWould you like to restart the search?",
+    "scan_product_loading_unresponsive": "Εξακολουθούμε να ψάχνουμε για αυτό το προϊόν.\nΘέλετε να επανεκκινήσετε την αναζήτηση;",
     "@scan_product_loading_unresponsive": {
         "description": "Message when a product is too long to load (carousel card). Please ensure to keep the line break."
     },
-    "scan_product_loading_restart_button": "Restart search",
+    "scan_product_loading_restart_button": "Επανεκκίνηση αναζήτησης",
     "@scan_product_loading_restart_button": {
         "description": "Button to force restart a product search"
     },
@@ -2875,15 +2875,15 @@
     "@portion_calculator_description": {
         "description": "Sort of title that describes the portion calculator."
     },
-    "portion_calculator_hint": "Quantity in",
+    "portion_calculator_hint": "Ποσότητα εντός",
     "@portion_calculator_hint": {
         "description": "Hint to show when a quantity is empty in the portion calculator."
     },
-    "portion_calculator_accessibility": "Input a quantity to calculate nutrition facts",
+    "portion_calculator_accessibility": "Εισαγάγετε μια ποσότητα για τον υπολογισμό των διατροφικών στοιχείων",
     "@portion_calculator_accessibility": {
         "description": "Hint for the acessibility to explain to enter a quantity."
     },
-    "portion_calculator_error": "Please enter a quantity between {min} and {max} g",
+    "portion_calculator_error": "Εισαγάγετε μια ποσότητα μεταξύ {min} και {max} g",
     "@portion_calculator_error": {
         "description": "Error message to explain that the quantity is invalid.",
         "placeholders": {
@@ -2895,11 +2895,11 @@
             }
         }
     },
-    "portion_calculator_computation_error": "Missing data. Calculation could not be performed.",
+    "portion_calculator_computation_error": "Λείπουν δεδομένα. Δεν ήταν δυνατός ο υπολογισμός.",
     "@portion_calculator_computation_error": {
         "description": "Error message to explain that the computation of the portion calculator failed."
     },
-    "portion_calculator_result_title": "Nutrition facts for {grams} g (or ml)",
+    "portion_calculator_result_title": "Διατροφικά στοιχεία για {grams} g (ή ml)",
     "@portion_calculator_result_title": {
         "description": "Title of the results of the portion calculator.",
         "placeholders": {
@@ -2908,15 +2908,15 @@
             }
         }
     },
-    "offline_data": "Offline Data",
+    "offline_data": "Δεδομένα Χωρίς Σύνδεση",
     "@offline_data": {
         "description": "App bar title for the offline data page"
     },
-    "ocr_image_upload_instruction": "Upload an image to automatically extract the information it contains.",
+    "ocr_image_upload_instruction": "Ανεβάστε μια εικόνα για να εξαγάγετε αυτόματα τις πληροφορίες που περιέχει.",
     "@ocr_image_upload_instruction": {
         "description": "Message shown when there is no image on the OCR extraction page for ingredients or recycling instructions"
     },
-    "upload_image": "Upload Photo",
+    "upload_image": "Μεταφόρτωση Φωτογραφίας",
     "@upload_image": {
         "description": "Message shown on asking to upload image"
     },
@@ -2928,62 +2928,62 @@
     "@word_separator": {
         "description": "Word separator string. In English, this is a comma followed by a space: ', '"
     },
-    "image_download_error": "Failed to download image",
+    "image_download_error": "Αποτυχία λήψης εικόνας",
     "@image_download_error": {
         "description": "Error message, when image download fails"
     },
-    "image_edit_url_error": "Failed to edit image because the image URL was not set.",
+    "image_edit_url_error": "Η επεξεργασία της εικόνας απέτυχε επειδή δεν είχε οριστεί η διεύθυνση URL της εικόνας.",
     "@image_edit_url_error": {
         "description": "Error message, when editing image fails, due to missing url."
     },
-    "user_picture_source_remember": "Remember my choice",
+    "user_picture_source_remember": "Απομνημόνευση επιλογής",
     "@user_picture_source_remember": {
         "description": "Checkbox label when select a picture source"
     },
-    "user_picture_source_ask": "Ask each time",
+    "user_picture_source_ask": "Ερώτηση κάθε φορά",
     "@user_picture_source_ask": {
         "description": "Choice of asking the picture source every time"
     },
-    "robotoff_continue": "Continue",
+    "robotoff_continue": "Συνέχεια",
     "@robotoff_continue": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering"
     },
-    "robotoff_next_n_questions": "Next {count,plural,  =1{question} other{{count} questions}}",
+    "robotoff_next_n_questions": "{count,plural,  one {}=1{Επόμενη ερώτηση} other{Επόμενες {count} ερωτήσεις}}",
     "@robotoff_next_n_questions": {
         "description": "Shown when robotoff question are all answered and user wants to continue answering",
         "placeholders": {
             "count": {}
         }
     },
-    "show_password": "Show Password",
+    "show_password": "Εμφάνιση Κωδικού Πρόσβασης",
     "@show_password": {
         "description": "Show hidden password in password field"
     },
-    "rate_app": "Rate the app",
+    "rate_app": "Βαθμολογία εφαρμογής",
     "app_rating_dialog_title": "Τέλεια! Πείτε και σε άλλους την άποψη σας για αυτή την εφαρμογή!",
-    "app_rating_dialog_positive_action": "Rate the app",
+    "app_rating_dialog_positive_action": "Βαθμολογία εφαρμογής",
     "app_rating_dialog_negative_action": "Later",
     "app_rating_dialog_title_enjoying_app": "Σας αρέσει η εφαρμογή;",
-    "app_rating_dialog_title_enjoying_positive_actions": "Yeah!",
-    "not_really": "Not really",
-    "app_rating_dialog_title_not_enjoying_app": "We are so sorry to hear that! Could you tell us what happened?",
-    "owner_field_info_title": "Producer provided values",
+    "app_rating_dialog_title_enjoying_positive_actions": "Ναι!",
+    "not_really": "Μπα",
+    "app_rating_dialog_title_not_enjoying_app": "Λυπούμαστε πολύ που το ακούμε! Μπορείς να μας πεις τι έγινε;",
+    "owner_field_info_title": "Τιμές παρεχόμενες από παραγωγό",
     "@owner_field_info_title": {
         "description": "Title of the 'producer provided' info list-tile"
     },
-    "owner_field_info_message": "With that logo we highlight data provided by the producer, and that may not be editable.",
+    "owner_field_info_message": "Με αυτό το λογότυπο επισημαίνουμε δεδομένα που παρέχονται από τον παραγωγό και ενδέχεται να μην είναι επεξεργάσιμα.",
     "@owner_field_info_message": {
         "description": "Title of the 'producer provided' info list-tile"
     },
-    "owner_field_info_close_button": "Close this info",
+    "owner_field_info_close_button": "Κλείσιμο των πληροφοριών",
     "@owner_field_info_close_button": {
         "description": "The owner info may be shown in a closeable dialog. This is the label of the button (used on a long press event and for the accessibility label)."
     },
-    "owner_field_image": "This image is provided by the producer. It may not be editable.",
+    "owner_field_image": "Αυτή η εικόνα παρέχεται από τον παραγωγό. Μπορεί να μην είναι επεξεργάσιμη.",
     "@owner_field_image": {
         "description": "An image is directly provided by the producer. It may be locked and not be editable."
     },
-    "edit_packagings_title": "Packaging components",
+    "edit_packagings_title": "Μέρη συσκευασίας",
     "@edit_packagings_title": {
         "description": "Title of the structured packagings page"
     },
@@ -3138,23 +3138,23 @@
     "@contrast_high": {
         "description": "High Contrast Text Color"
     },
-    "contrast_medium": "Medium",
+    "contrast_medium": "Μεσαία",
     "@contrast_medium": {
         "description": "Medium Contrast Text Color"
     },
-    "contrast_low": "Low",
+    "contrast_low": "Χαμηλή",
     "@contrast_low": {
         "description": "Low Contrast Text Color"
     },
-    "product_refresher_internet_not_found": "Product not found!",
+    "product_refresher_internet_not_found": "Το προϊόν δεν βρέθηκε!",
     "@product_refresher_internet_not_found": {
         "description": "When refreshing a product that does not exist on the server. Label is the body of a dialog."
     },
-    "product_refresher_internet_not_connected": "You are not connected to internet!",
+    "product_refresher_internet_not_connected": "Δεν είστε συνδεδεμένοι στο διαδίκτυο!",
     "@product_refresher_internet_not_connected": {
         "description": "When refreshing a product and you're not even connected to internet. Label is the body of a dialog."
     },
-    "product_refresher_internet_no_ping": "Server down ({host})",
+    "product_refresher_internet_no_ping": "Διακομιστής εκτός λειτουργίας ({host})",
     "@product_refresher_internet_no_ping": {
         "description": "When refreshing a product and you cannot even ping the server. Label is the body of a dialog.",
         "placeholders": {
@@ -3163,7 +3163,7 @@
             }
         }
     },
-    "product_refresher_internet_error": "Server error ({exception})",
+    "product_refresher_internet_error": "Σφάλμα διακομιστή ({exception})",
     "@product_refresher_internet_error": {
         "description": "When refreshing a product and the server returned an exception. Label is the body of a dialog.",
         "placeholders": {
@@ -3172,11 +3172,11 @@
             }
         }
     },
-    "product_loader_not_found_title": "Product not found!",
+    "product_loader_not_found_title": "Το προϊόν δεν βρέθηκε!",
     "@product_loader_not_found_title": {
         "description": "When fetching a product opened via a link and it doesn't exist"
     },
-    "product_loader_not_found_message": "A product with the following barcode doesn't exist in our database: {barcode}",
+    "product_loader_not_found_message": "Δεν υπάρχει προϊόν με τον ακόλουθο γραμμικό κώδικα στη βάση δεδομένων μας: {barcode}",
     "@product_loader_not_found_message": {
         "description": "When fetching a product opened via a link, it doesn't exist",
         "placeholders": {
@@ -3185,31 +3185,31 @@
             }
         }
     },
-    "product_loader_network_error_title": "No internet connection!",
+    "product_loader_network_error_title": "Δεν υπάρχει σύνδεση στο διαδίκτυο!",
     "@product_loader_network_error_title": {
         "description": "When fetching a product opened via a link and there is no connection"
     },
-    "product_loader_network_error_message": "Please check that your smartphone is on a WiFi network or has mobile data enabled",
+    "product_loader_network_error_message": "Παρακαλώ ελέγξτε ότι το smartphone σας βρίσκεται σε δίκτυο WiFi ή διαθέτει ενεργοποιημένα δεδομένα κινητής τηλεφωνίας",
     "@product_loader_network_error_message": {
         "description": "When fetching a product opened via a link and there is no connection"
     },
-    "page_not_found_title": "Page not found!",
+    "page_not_found_title": "Η σελίδα δεν βρέθηκε!",
     "@page_not_found_title": {
         "description": "Title for a page not found (when an URL is not recognized)"
     },
-    "page_not_found_button": "Go back to the homepage",
+    "page_not_found_button": "Πηγαίνετε πίσω στην αρχική σελίδα",
     "@page_not_found_button": {
         "description": "Button to go back to the homepage"
     },
-    "download_data": "Download data",
+    "download_data": "Λήψη δεδομένων",
     "@download_data": {
         "description": "App bar title for the download data page"
     },
-    "download_top_products": "Download the top 1000 products in your country for instant scanning",
+    "download_top_products": "Κατεβάστε τα κορυφαία 1000 προϊόντα στη χώρα σας για άμεση σάρωση",
     "@download_top_products": {
         "description": "Download the top 1000 products in your country for instant scanning"
     },
-    "download_top_n_products": "Download the top {count,plural,  other{{count} products}} in your country for instant scanning",
+    "download_top_n_products": "Κατεβάστε τα κορυφαία {count,plural,  other{{count} προϊόντα}} στη χώρα σας για άμεση σάρωση",
     "@download_top_n_products": {
         "placeholders": {
             "count": {
@@ -3217,11 +3217,11 @@
             }
         }
     },
-    "download_in_progress": "Downloading data\nThis may take a while",
+    "download_in_progress": "Λήψη δεδομένων\nΑυτό μπορεί να διαρκέσει λίγο",
     "@download_in_progress": {
         "description": "Download in progress"
     },
-    "downloaded_products": "{num} products added",
+    "downloaded_products": "Προστέθηκαν {num} προϊόντα",
     "@downloaded_products": {
         "description": "text to show when products added",
         "placeholders": {
@@ -3230,23 +3230,23 @@
             }
         }
     },
-    "update_offline_data": "Update offline product data",
+    "update_offline_data": "Ενημέρωση των εκτός σύνδεσης δεδομένων προϊόντων",
     "@update_offline_data": {
         "description": "List tile title for the update offline data page"
     },
-    "update_local_database_sub": "Update the local product database with the latest data from Open Food Facts",
+    "update_local_database_sub": "Ενημερώστε την τοπική βάση δεδομένων προϊόντων με τα πιο πρόσφατα δεδομένα από το Open Food Facts",
     "@update_local_database_sub": {
         "description": "Update the local product database with the latest data from server"
     },
-    "clear_local_database": "Clear offline product data",
+    "clear_local_database": "Εκκαθάριση των χωρίς σύνδεση δεδομένων προϊόντων",
     "@clear_local_database": {
         "description": "List tile title for the clear local database page"
     },
-    "clear_local_database_sub": "Clear all local product data from your app to free up space",
+    "clear_local_database_sub": "Καθαρισμός όλων των τοπικών δεδομένων προϊόντων από την εφαρμογή σας για να ελευθερώσετε χώρο",
     "@clear_local_database_sub": {
         "description": "Clear all local product data from your app to free up space"
     },
-    "deleted_products": "{num} products deleted",
+    "deleted_products": "διαγράφηκαν {num} προϊόντα",
     "@deleted_products": {
         "description": "text to show when products are deleted from local databse",
         "placeholders": {
@@ -3259,15 +3259,15 @@
     "@loading": {
         "description": "Loading…"
     },
-    "know_more": "Know More",
+    "know_more": "Know Περισσότερα",
     "@know_more": {
         "description": "Know More"
     },
-    "offline_data_desc": "Click to know more about offline data",
+    "offline_data_desc": "Κάντε κλικ για να μάθετε περισσότερα σχετικά με τα δεδομένα εκτός σύνδεσης",
     "@offline_data_desc": {
         "description": "Click to know more about offline data"
     },
-    "offline_product_data_title": "Offline product data",
+    "offline_product_data_title": "Δεδομένα προϊόντος εκτός σύνδεσης",
     "@offline_product_data_title": {
         "description": "Offline Product Data"
     },
