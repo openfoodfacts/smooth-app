@@ -3271,7 +3271,7 @@
     "@offline_product_data_title": {
         "description": "Offline Product Data"
     },
-    "available_for_download": "{num} products available for immediate scaning",
+    "available_for_download": "{num} προϊόντα διαθέσιμα για άμεση σάρωση",
     "@available_for_download": {
         "description": "text to show details of products available for download",
         "placeholders": {
@@ -3280,15 +3280,15 @@
             }
         }
     },
-    "country_selector_title": "Select your country:",
+    "country_selector_title": "Επιλέξτε τη χώρα σας:",
     "@country_selector_title": {
         "description": "Label written as the title of the dialog to select the user country"
     },
-    "currency_selector_title": "Select your currency:",
+    "currency_selector_title": "Επιλέξτε το νόμισμά σας:",
     "@currency_selector_title": {
         "description": "Label written as the title of the dialog to select the user currency"
     },
-    "language_selector_title": "Select your language:",
+    "language_selector_title": "Επιλέξτε τη γλώσσα σας:",
     "@language_selector_title": {
         "description": "Label written as the title of the dialog to select the user language"
     },
@@ -3296,7 +3296,7 @@
     "@action_delete_list": {
         "description": "Delete a list action in a menu"
     },
-    "action_change_list": "Change the current list",
+    "action_change_list": "Αλλάξτε την τρέχουσα λίστα",
     "@action_change_list": {
         "description": "Action to change the current visible list"
     },
@@ -3314,7 +3314,7 @@
     "nutriscore_c": "Nutri-Score C",
     "nutriscore_d": "Nutri-Score D",
     "nutriscore_e": "Nutri-Score E",
-    "nutriscore_new_formula": "Nutri-Score {letter} (New calculation)",
+    "nutriscore_new_formula": "Nutri-Score {letter} (Νέος υπολογισμός)",
     "@nutriscore_new_formula": {
         "description": "A generic string to define a Nutri-Score V2 with a letter [eg: \"Nutri-Score A (New calculation)\"]",
         "placeholders": {
@@ -3323,40 +3323,40 @@
             }
         }
     },
-    "nutriscore_new_formula_title": "Nutri-Score (New calculation)",
-    "nutriscore_unknown": "Unknown Nutri-Score",
-    "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
-    "nutriscore_not_applicable": "Nutri-Score is not applicable",
-    "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
-    "environmental_score_generic": "Green Score",
-    "environmental_score_a": "Green Score A",
-    "environmental_score_b": "Green Score B",
-    "environmental_score_c": "Green Score C",
-    "environmental_score_d": "Green Score D",
-    "environmental_score_e": "Green Score E",
-    "environmental_score_unknown": "Unknown Green Score",
-    "environmental_score_not_applicable": "Green Score is not applicable",
-    "nova_group_generic": "Ultra-processing - NOVA groups",
-    "nova_group_1": "NOVA Group 1",
-    "nova_group_2": "NOVA Group 2",
-    "nova_group_3": "NOVA Group 3",
-    "nova_group_4": "NOVA Group 4",
-    "nova_group_unknown": "Unknown NOVA Group",
-    "nutrition_facts": "Nutrient Levels",
-    "faq_title_partners": "Partners & Patrons of the NGO",
-    "faq_title_vision": "The Open Food Facts Vision, Mission, Values and Programs",
-    "faq_title_install_beauty": "Install Open Beauty Facts to create a cosmetic database",
-    "faq_title_install_pet": "Install Open Pet Food Facts to create a pet food database",
-    "faq_title_install_product": "Install Open Products Facts to create a products database to extend the life of objects",
-    "faq_nutriscore_nutriscore": "New calculation of the Nutri-Score: what's new?",
-    "contact_title_pro_page": "Pro? Import your products in Open Food Facts",
-    "contact_title_pro_email": "Producer Contact",
-    "contact_title_press_page": "Press Page",
-    "contact_title_press_email": "Press Contact",
+    "nutriscore_new_formula_title": "Nutri-Score (Νέος υπολογισμός)",
+    "nutriscore_unknown": "Άγνωστο Nutri-Score",
+    "nutriscore_unknown_new_formula": "Άγνωστο Nutri-Score (Νέος υπολογισμός)",
+    "nutriscore_not_applicable": "Το Nutri-Score δεν είναι εφαρμόσιμο",
+    "nutriscore_not_applicable_new_formula": "Το Nutri-Score δεν είναι εφαρμόσιμο (Νέος υπολογισμός)",
+    "environmental_score_generic": "Green-Score",
+    "environmental_score_a": "Green-Score A",
+    "environmental_score_b": "Green-Score B",
+    "environmental_score_c": "Green-Score C",
+    "environmental_score_d": "Green-Score D",
+    "environmental_score_e": "Green-Score E",
+    "environmental_score_unknown": "Άγνωστο Green-Score",
+    "environmental_score_not_applicable": "Το Green-Score δεν είναι εφαρμόσιμο",
+    "nova_group_generic": "Υπερεπεξεργασία - ομάδες NOVA",
+    "nova_group_1": "Ομάδα 1 NOVA",
+    "nova_group_2": "Ομάδα 2 NOVA",
+    "nova_group_3": "Ομάδα 3 NOVA",
+    "nova_group_4": "Ομάδα 4 NOVA",
+    "nova_group_unknown": "Άγνωστη Ομάδα NOVA",
+    "nutrition_facts": "Επίπεδα Θρεπτικών Ουσιών",
+    "faq_title_partners": "Συνεργάτες & Προστάτες της ΜΚΟ",
+    "faq_title_vision": "Όραμα, αποστολή, Αξίες και Προγράμματα Open Food Facts",
+    "faq_title_install_beauty": "Εγκαταστήστε το Open Beauty Facts για να δημιουργήσετε μια βάση δεδομένων καλλυντικών",
+    "faq_title_install_pet": "Εγκαταστήστε το Open Pet Food Facts για να δημιουργήσετε μια βάση δεδομένων τροφών για κατοικίδια",
+    "faq_title_install_product": "Εγκαταστήστε το Open Products Facts για να δημιουργήσετε μια βάση δεδομένων προϊόντων για να παρατείνετε τη διάρκεια ζωής των αντικειμένων",
+    "faq_nutriscore_nutriscore": "Νέος υπολογισμός του Nutri-Score: τι νέο υπάρχει;",
+    "contact_title_pro_page": "Επαγγελματίας; Εισαγάγετε τα προϊόντα σας στο Open Food Facts",
+    "contact_title_pro_email": "Επικοινωνία Παραγωγού",
+    "contact_title_press_page": "Σελίδα Τύπου",
+    "contact_title_press_email": "Επικοινωνία Τύπου",
     "contact_title_newsletter": "Εγγραφείτε στο ενημερωτικό μας δελτίο",
-    "hunger_games_loading_line1": "Please give us a few seconds…",
-    "hunger_games_loading_line2": "We're downloading the questions!",
-    "hunger_games_error_label": "Argh! Something went wrong… and we couldn't load the questions.",
+    "hunger_games_loading_line1": "Δώστε μας λίγα δευτερόλεπτα…",
+    "hunger_games_loading_line2": "Κατεβάζουμε τις ερωτήσεις!",
+    "hunger_games_error_label": "Πω! Κάτι πήγε στραβά… και δεν μπορέσαμε να φορτώσουμε τις ερωτήσεις.",
     "hunger_games_error_retry_button": "Let's retry!",
     "reorder_attribute_action": "Reorder the attributes",
     "@reorder_attribute_action": {
@@ -3669,37 +3669,37 @@
         "description": "Please keep the ** syntax to make the text bold"
     },
     "carousel_unknown_product_button": "Προσθέστε αυτό το προϊόν",
-    "carousel_loading_header": "Loading information...",
+    "carousel_loading_header": "Φόρτωση πληροφοριών...",
     "@carousel_loading_header": {
         "description": "A label on top of the carousel card when data about the product is loading"
     },
-    "carousel_loading_title": "You've just scanned a product with the following barcode:",
-    "carousel_loading_text": "We are searching for it in our database of more than **3 million products!**",
+    "carousel_loading_title": "Μόλις σαρώσατε ένα προϊόν με τον ακόλουθο γραμμωτό κώδικα:",
+    "carousel_loading_text": "Το αναζητούμε στη βάση δεδομένων μας με περισσότερα από **3 εκατομμύρια προϊόντα!**",
     "@carousel_loading_text": {
         "description": "Please keep the ** syntax to make the text bold"
     },
-    "product_type_subtitle_food": "Vegetables, fruits, frozen food…",
+    "product_type_subtitle_food": "Λαχανικά, φρούτα, κατεψυγμένα τρόφιμα…",
     "@product_type_subtitle_food": {
         "description": "Example of products for food category"
     },
-    "product_type_subtitle_beauty": "Makeup, soaps, toothpastes…",
+    "product_type_subtitle_beauty": "Μακιγιάζ, σαπούνια, οδοντόκρεμες…",
     "@product_type_subtitle_beauty": {
         "description": "Example of products for beauty category"
     },
-    "product_type_subtitle_pet_food": "Food for dogs, cats…",
+    "product_type_subtitle_pet_food": "Τροφή για σκύλους, γάτες…",
     "@product_type_subtitle_pet_food": {
         "description": "Example of products for pet food category"
     },
-    "product_type_subtitle_product": "Smartphones, furniture…",
+    "product_type_subtitle_product": "Smartphones, έπιπλα…",
     "@product_type_subtitle_product": {
         "description": "Example of products for other categories"
     },
-    "photo_field_front": "Product photo",
+    "photo_field_front": "Φωτογραφία προϊόντος",
     "photo_field_ingredients": "Φωτογραφία συστατικών",
-    "photo_field_nutrition": "Nutrition photo",
+    "photo_field_nutrition": "Φωτογραφία διατροφής",
     "photo_field_packaging": "Φωτογραφία πληροφοριών συσκευασίας",
-    "photo_already_exists": "This photo already exists",
-    "photo_missing": "This photo is missing",
+    "photo_already_exists": "Αυτή η φωτογραφία υπάρχει ήδη",
+    "photo_missing": "Αυτή η φωτογραφία λείπει",
     "date": "Date",
     "photo_rotate_left": "Περιστροφή αριστερά",
     "@photo_rotate_left": {
@@ -3709,11 +3709,11 @@
     "@photo_rotate_right": {
         "description": "Button to rotate a photo to the right"
     },
-    "photo_undo_action": "Undo the previous action",
+    "photo_undo_action": "Αναίρεση της προηγούμενης ενέργειας",
     "@photo_undo_action": {
         "description": "Button to undo the previous action on a photo"
     },
-    "knowledge_panel_world_map_accessibility_label": "A world map of {location}",
+    "knowledge_panel_world_map_accessibility_label": "Ένας παγκόσμιος χάρτης του {location}",
     "@knowledge_panel_world_map_accessibility_label": {
         "description": "Accessibility label for the world map in the knowledge panel",
         "placeholders": {
@@ -3722,11 +3722,11 @@
             }
         }
     },
-    "open_street_map_contributor_attribution": "OpenStreetMap contributors",
+    "open_street_map_contributor_attribution": "Συνεισφέροντες OpenStreetMap",
     "@open_street_map_contributor_attribution": {
         "description": "Attribution for OpenStreetMap contributors"
     },
-    "not_applicable_short": "N/A",
+    "not_applicable_short": "Μ/Δ",
     "@not_applicable_short": {
         "description": "Acronym for Not Applicable"
     },
@@ -3734,11 +3734,11 @@
     "@knowledge_panel_warning_text": {
         "description": "Warning text at the beginning of a sentence in the knowledge panel (you can find this word on the NutriScore KP of 3033491279300)"
     },
-    "knowledge_panel_nutriscore_banner_incorrect_score_title": "Why is this Nutri-Score different from the one on the package?",
-    "knowledge_panel_nutriscore_banner_incorrect_score_message": "There are two possible explanations:\nThe list of ingredients and/or nutrition facts are not up-to-date.\n\nWe provide the \"New calculation\" of the Nutri-Score (or V2). Please check that you have the banner \"New calculation\" on the package.",
-    "knowledge_panel_nutriscore_banner_incorrect_score_button1": "Check ingredients",
-    "knowledge_panel_nutriscore_banner_incorrect_score_button2": "Check nutrition facts",
-    "url_not_supported": "Unfortunately, we can't open the URL:\n{url}",
+    "knowledge_panel_nutriscore_banner_incorrect_score_title": "Γιατί αυτό το Nutri-Score είναι διαφορετικό από αυτό στη συσκευασία;",
+    "knowledge_panel_nutriscore_banner_incorrect_score_message": "Υπάρχουν δύο πιθανές εξηγήσεις:\nΟ κατάλογος των συστατικών ή/και τα στοιχεία διατροφής δεν είναι ενημερωμένα.\n\nΠαρέχουμε τον \"Νέο υπολογισμό\" του Nutri-Score (ή V2). Βεβαιωθείτε ότι έχετε το σημάδι «Νέος υπολογισμός» στη συσκευασία.",
+    "knowledge_panel_nutriscore_banner_incorrect_score_button1": "Έλεγχος συστατικών",
+    "knowledge_panel_nutriscore_banner_incorrect_score_button2": "Έλεγχος διατροφικών στοιχείων",
+    "url_not_supported": "Δυστυχώς, δεν μπορούμε να ανοίξουμε το URL:\n{url}",
     "@url_not_supported": {
         "description": "Error message when the app can't open a URL",
         "placeholders": {
