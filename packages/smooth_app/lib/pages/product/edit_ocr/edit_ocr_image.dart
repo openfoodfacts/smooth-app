@@ -633,7 +633,9 @@ class _ExtractTextAnimationState extends State<_ExtractTextAnimation>
     _controller = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 1200),
-    )
+    );
+
+    _controller
       ..addListener(() => setState(() {}))
       ..addStatusListener((AnimationStatus status) {
         if (_controller.isCompleted) {
