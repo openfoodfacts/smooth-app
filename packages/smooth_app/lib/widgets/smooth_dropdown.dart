@@ -3,6 +3,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 
 class SmoothDropdownButton<T> extends StatelessWidget {
   const SmoothDropdownButton({
@@ -45,7 +46,7 @@ class SmoothDropdownButton<T> extends StatelessWidget {
         ),
       );
     } else {
-      child = _createDropdownMenu();
+      child = _createDropdownMenu(context);
     }
 
     return DecoratedBox(
@@ -60,7 +61,7 @@ class SmoothDropdownButton<T> extends StatelessWidget {
     );
   }
 
-  DropdownButton<dynamic> _createDropdownMenu() {
+  DropdownButton<dynamic> _createDropdownMenu(BuildContext context) {
     return DropdownButton<T>(
       icon: const icons.Chevron.down(
         color: Colors.white,
@@ -100,9 +101,9 @@ class SmoothDropdownButton<T> extends StatelessWidget {
           );
         }).toList(growable: false);
       },
-      style: const TextStyle(
+      style: TextStyle(
         fontSize: 14.0,
-        color: Colors.black,
+        color: context.lightTheme() ? Colors.black : null,
       ),
       items: items
           .map(

@@ -33,7 +33,7 @@ class NutritionAddNutrientButton extends StatelessWidget {
 
     return Padding(
       padding: const EdgeInsetsDirectional.only(
-        top: LARGE_SPACE,
+        top: BALANCED_SPACE,
         start: MEDIUM_SPACE,
         end: MEDIUM_SPACE,
         bottom: MEDIUM_SPACE,

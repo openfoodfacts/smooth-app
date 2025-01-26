@@ -41,7 +41,9 @@ class SmoothTheme {
     }
 
     final SmoothColorsThemeExtension smoothExtension =
-        SmoothColorsThemeExtension.defaultValues();
+        SmoothColorsThemeExtension.defaultValues(
+      brightness == Brightness.light,
+    );
 
     final TextTheme textTheme = brightness == Brightness.dark
         ? getTextTheme(themeProvider, textContrastProvider)

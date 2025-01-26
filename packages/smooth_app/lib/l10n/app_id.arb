@@ -440,7 +440,7 @@
     "myPreferences_profile_title": "Profil Anda",
     "myPreferences_profile_subtitle": "Kelola akun kontributor OpenFoodFacts Anda.",
     "myPreferences_settings_title": "Pengaturan Aplikasi",
-    "myPreferences_settings_subtitle": "Dark mode, Languages…",
+    "myPreferences_settings_subtitle": "Mode gelap, Bahasa…",
     "myPreferences_food_title": "Preferensi Makanan",
     "myPreferences_food_subtitle": "Pilih informasi tentang makanan yang paling penting bagi anda.",
     "myPreferences_food_comment": "Pilih informasi tentang makanan yang paling penting bagi anda, untuk memberi peringkat makanan sesuai preferensi anda, melihat informasi yang paling anda minati lebih dahulu dan dapatkan ringkasan kompatibilitas. Preferensi makanan tersebut tetap ada di perangkat anda, dan tidak terkait dengan akun kontributor OpenFoodFacts anda jika anda memilikinya.",
@@ -522,7 +522,7 @@
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
-    "label_reload": "Reload",
+    "label_reload": "Muat ulang",
     "@label_reload": {
         "description": "Reload a page"
     },
@@ -538,7 +538,7 @@
             "imageType": {}
         }
     },
-    "outdated_image_short_label": "may be outdated",
+    "outdated_image_short_label": "mungkin kedaluwarsa",
     "@outdated_image_short_label": {
         "description": "A label for outdated images"
     },
@@ -561,6 +561,10 @@
     "nutrition_facts_photo": "Foto kandungan gizi",
     "@nutrition_facts_photo": {
         "description": "Button label: For adding a picture of the nutrition facts of a product"
+    },
+    "nutrition_facts_editing_title": "Ubah informasi nilai gizi",
+    "@nutrition_facts_editing_title": {
+        "description": "Title of the button where users can edit the nutrition facts of a product"
     },
     "packaging_information": "Informasi kemasan",
     "@packaging_information": {
@@ -631,7 +635,7 @@
     "@crop_page_action_local_message": {
         "description": "The save of the picture locally failed - error dialog message"
     },
-    "crop_page_action_retake": "Retake a photo",
+    "crop_page_action_retake": "Ambil ulang foto",
     "@crop_page_action_retake": {
         "description": "Button which allows users to retake a photo."
     },
@@ -767,17 +771,38 @@
     "score_add_missing_product_brands": "Tambahkan merek produk yang kurang",
     "score_update_nutrition_facts": "Perbarui informasi nilai gizi",
     "nutrition_page_title": "Informasi nilai gizi",
-    "nutrition_page_unspecified": "Informasi nilai gizi tidak ditampilkan pada produk",
+    "nutrition_page_nutritional_info_title": "Info Nutrisi",
+    "nutrition_page_nutritional_info_label": "Nilai yang tertera pada produk:",
+    "nutrition_page_nutritional_info_value_positive": "Ya",
+    "nutrition_page_nutritional_info_value_negative": "Tidak",
+    "nutrition_page_nutritional_info_open_photo": "Buka foto",
+    "nutrition_page_nutritional_info_explanation": "TODO",
+    "@nutrition_page_nutritional_info_explanation": {
+        "description": "DO NOT TRANSLATE Text to explain when we should set the toggle to off (no nutrition facts)"
+    },
+    "nutrition_page_serving_type_label": "Nilai gizi:",
+    "@nutrition_page_serving_type_label": {
+        "description": "Label to let the user choose between per 100g or per serving"
+    },
     "nutrition_page_per_100g": "per 100g",
     "nutrition_page_per_serving": "per sajian",
     "nutrition_page_add_nutrient": "Tambahkan nutrisi",
     "nutrition_page_serving_size": "Takaran saji",
+    "nutrition_page_serving_size_hint": "Tambahkan ukuran porsi (contoh: 100g)",
+    "nutrition_page_serving_size_explanation": "TODO",
+    "@nutrition_page_serving_size_explanation": {
+        "description": "DO NOT TRANSLATE Text to explain what to input in the serving size"
+    },
     "nutrition_page_invalid_number": "Nomor tidak valid",
     "nutrition_page_update_running": "Memperbarui produk di peladen…",
     "nutrition_page_update_done": "Produk diperbarui!",
     "nutrition_page_take_serving_size_from_product_quantity": "Gunakan jumlah produk sebagai takaran saji",
     "@nutrition_page_take_serving_size_from_product_quantity": {
         "description": "Button label: Use the product quantity as serving size (nutrition page)"
+    },
+    "nutrition_page_photo_error": "Foto tidak dapat dimuat",
+    "@nutrition_page_photo_error": {
+        "description": "Error message when the nutrition facts photo can't be loaded"
     },
     "more_photos": "Lebih banyak foto menarik",
     "@more_photos": {},
@@ -855,24 +880,30 @@
     "@product_image_action_choose_existing_photo": {
         "description": "Replace the existing picture with one from the product's photos"
     },
-    "product_image_details_label": "Information about the photo",
+    "product_image_details_label": "Informasi tentang foto",
     "@product_image_details_label": {
         "description": "Label for the photo details"
     },
-    "product_image_details_from_producer": "From the producer",
+    "product_image_details_from_producer": "Dari produsen",
     "@product_image_details_from_producer": {
         "description": "Text to indicate that the image was taken by the producer"
     },
     "product_image_details_contributor": "Kontributor",
     "@product_image_details_contributor": {
+        "description": "The name of the contributor who uploaded the image"
+    },
+    "product_image_details_contributor_producer": "Kontributor (produsen)",
+    "@product_image_details_contributor_producer": {
         "description": "The name of the contributor (and also the owner field) who uploaded the image"
     },
-    "product_image_details_contributor_producer": "Contributor (producer)",
     "product_image_details_date": "Tanggal",
     "@product_image_details_date": {
-        "description": "Text to indicate the date of the image is unknown"
+        "description": "Text to indicate the date of the image"
     },
     "product_image_details_date_unknown": "Tidak diketahui",
+    "@product_image_details_date_unknown": {
+        "description": "Text to indicate the date of the image is unknown"
+    },
     "homepage_main_card_logo_description": "Selamat datang di Open Food Facts",
     "@homepage_main_card_logo_description": {
         "description": "Description for accessibility of the Open Food Facts logo on the homepage"
@@ -1478,31 +1509,31 @@
     "@edit_product_form_item_error_existing": {
         "description": "Error message when the user tries to re-submit an existing value"
     },
-    "edit_product_form_item_add_action_brand": "Add a new brand",
+    "edit_product_form_item_add_action_brand": "Tambah merek baru",
     "@edit_product_form_item_add_action_brand": {
         "description": "Tooltip to show when the user long presses the (+) button on a brand"
     },
-    "edit_product_form_item_add_action_label": "Add a new label",
+    "edit_product_form_item_add_action_label": "Tambah label baru",
     "@edit_product_form_item_add_action_label": {
         "description": "Tooltip to show when the user long presses the (+) button on a label"
     },
-    "edit_product_form_item_add_action_store": "Add a new store",
+    "edit_product_form_item_add_action_store": "Tambah toko baru",
     "@edit_product_form_item_add_action_store": {
         "description": "Tooltip to show when the user long presses the (+) button on a store"
     },
-    "edit_product_form_item_add_action_origin": "Add a new origin",
+    "edit_product_form_item_add_action_origin": "Tambah sumber baru",
     "@edit_product_form_item_add_action_origin": {
         "description": "Tooltip to show when the user long presses the (+) button on an origin"
     },
-    "edit_product_form_item_add_action_emb_code": "Add a new traceability code",
+    "edit_product_form_item_add_action_emb_code": "Tambah kode penelusuran baru",
     "@edit_product_form_item_add_action_emb_code": {
         "description": "Tooltip to show when the user long presses the (+) button on a traceability code"
     },
-    "edit_product_form_item_add_action_country": "Add a new country",
+    "edit_product_form_item_add_action_country": "Tambah negara baru",
     "@edit_product_form_item_add_action_country": {
         "description": "Tooltip to show when the user long presses the (+) button on a country"
     },
-    "edit_product_form_item_add_action_category": "Add a new category",
+    "edit_product_form_item_add_action_category": "Tambah kategori baru",
     "@edit_product_form_item_add_action_category": {
         "description": "Tooltip to show when the user long presses the (+) button on a category"
     },
@@ -1657,11 +1688,11 @@
     "edit_product_form_item_add_valid_item_tooltip": "Tambahkan",
     "edit_product_form_item_add_invalid_item_tooltip": "Harap masukkan teks",
     "edit_product_form_item_remove_item_tooltip": "Hapus",
-    "edit_product_form_item_save_edit_item_tooltip": "Save your edit",
+    "edit_product_form_item_save_edit_item_tooltip": "Simpan suntingan Anda",
     "@edit_product_form_item_save_edit_item_tooltip": {
         "description": "The user can edit an existing item. This action will save the change."
     },
-    "edit_product_form_item_cancel_edit_item_tooltip": "Cancel your edit",
+    "edit_product_form_item_cancel_edit_item_tooltip": "Batalkan suntingan Anda",
     "@edit_product_form_item_cancel_edit_item_tooltip": {
         "description": "The user can edit an existing item. This action will cancel the change (and return to the initial value)."
     },
@@ -1676,6 +1707,10 @@
     "edit_product_form_item_nutrition_facts_subtitle": "Nutrisi, kandungan alkohol…",
     "@edit_product_form_item_nutrition_facts_subtitle": {
         "description": "Product edition - Nutrition facts - SubTitle"
+    },
+    "edit_product_form_item_nutrition_facts_explanation": "TODO",
+    "@edit_product_form_item_nutrition_facts_explanation": {
+        "description": "DO NOT TRANSLATE Text to explain what to input in nutrition facts"
     },
     "edit_product_form_save": "Sunting",
     "@edit_product_form_save": {
@@ -1704,6 +1739,10 @@
     "product_field_website_title": "Situs Web",
     "@product_field_website_title": {
         "description": "Title of a product field: website"
+    },
+    "origins_editing_title": "Ubah Sumber",
+    "@origins_editing_title": {
+        "description": "Title of the button where users can edit the origins of a product"
     },
     "completed_basic_details_btn_text": "Lengkapi informasi dasar",
     "not_implemented_snackbar_text": "Belum diimplementasi",
@@ -2227,10 +2266,15 @@
     "prices_proof_mandatory": "Anda harus memilih bukti!",
     "prices_add_validation_error": "Kesalahan validasi",
     "prices_privacy_warning_title": "Peringatan privasi",
-    "prices_privacy_warning_message": "Harga akan dipublikasikan, bersama dengan toko yang dirujuk.\nHal ini memungkinkan orang-orang yang mengetahui nama samaran Open Food Facts Anda untuk:\n* menyimpulkan di daerah mana Anda tinggal\n* mengetahui apa yang Anda beli\nJika Anda merasa tidak nyaman dengan hal tersebut, silakan ubah nama samaran Anda, atau buat akun Open Food Facts yang baru dan masuk ke dalam aplikasi dengan akun tersebut.",
     "prices_unknown_product": "Produk tidak diketahui",
-    "prices_currency_change_proposal_title": "Change the currency?",
-    "prices_currency_change_proposal_message": "Your current currency is **{currency}**. Would you like to change it to **{newCurrency}**?",
+    "prices_privacy_warning_main_message": "Harga **akan dipublikasikan**, beserta toko yang dirujuk.\n\nHal ini memungkinkan orang yang mengetahui nama samaran Open Food Facts Anda untuk:\n",
+    "prices_privacy_warning_message_bullet_1": "Menebak di area mana Anda tinggal",
+    "prices_privacy_warning_message_bullet_2": "Mengetahui apa yang Anda beli",
+    "prices_privacy_warning_sub_message": "Jika Anda merasa tidak nyaman dengan hal itu, silakan ganti nama samaran Anda, atau buat akun Open Food Facts baru dan masuk ke aplikasi menggunakan akun tersebut.",
+    "i_refuse": "Saya menolak",
+    "i_accept": "Saya setuju",
+    "prices_currency_change_proposal_title": "Ubah mata uang?",
+    "prices_currency_change_proposal_message": "Mata uang Anda saat ini adalah **{currency}**. Apa Anda mau mengubahnya ke **{newCurrency}**?",
     "@prices_currency_change_proposal_message": {
         "description": "Message to ask the user if they want to change the currency",
         "placeholders": {
@@ -2242,7 +2286,7 @@
             }
         }
     },
-    "prices_currency_change_proposal_action_approve": "Yes, use {newCurrency}",
+    "prices_currency_change_proposal_action_approve": "Ya, gunakan {newCurrency}",
     "@prices_currency_change_proposal_action_approve": {
         "description": "Button to approve the currency change",
         "placeholders": {
@@ -2251,7 +2295,7 @@
             }
         }
     },
-    "prices_currency_change_proposal_action_cancel": "No, keep {currency}",
+    "prices_currency_change_proposal_action_cancel": "Tidak, simpan {currency}",
     "@prices_currency_change_proposal_action_cancel": {
         "description": "Button to cancel the currency change",
         "placeholders": {
@@ -2746,7 +2790,7 @@
     "@country_picker_label": {
         "description": "Choose Application Country"
     },
-    "currency_picker_label": "Your currency",
+    "currency_picker_label": "Mata uang Anda",
     "@currency_picker_label": {
         "description": "Choose Application Country"
     },
@@ -2838,7 +2882,7 @@
             }
         }
     },
-    "portion_calculator_computation_error": "Missing data. Calculation could not be performed.",
+    "portion_calculator_computation_error": "Data tidak ditemukan. Perhitungan tidak dapat dilakukan.",
     "@portion_calculator_computation_error": {
         "description": "Error message to explain that the computation of the portion calculator failed."
     },

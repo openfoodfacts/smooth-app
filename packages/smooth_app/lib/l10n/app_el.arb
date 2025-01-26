@@ -562,6 +562,10 @@
     "@nutrition_facts_photo": {
         "description": "Button label: For adding a picture of the nutrition facts of a product"
     },
+    "nutrition_facts_editing_title": "Edit Nutrition Facts",
+    "@nutrition_facts_editing_title": {
+        "description": "Title of the button where users can edit the nutrition facts of a product"
+    },
     "packaging_information": "Πληροφορίες συσκευασίας",
     "@packaging_information": {
         "description": "Button label: For adding a picture of the packaging of a product"
@@ -767,17 +771,38 @@
     "score_add_missing_product_brands": "Add missing product brands",
     "score_update_nutrition_facts": "Ενημέρωση διατροφικών στοιχείων",
     "nutrition_page_title": "Διατροφικά Στοιχεία",
-    "nutrition_page_unspecified": "Τα διατροφικά στοιχεία δεν αναφέρονται στο προϊόν",
+    "nutrition_page_nutritional_info_title": "Nutritional information",
+    "nutrition_page_nutritional_info_label": "Values specified on the product:",
+    "nutrition_page_nutritional_info_value_positive": "Ναι",
+    "nutrition_page_nutritional_info_value_negative": "Όχι",
+    "nutrition_page_nutritional_info_open_photo": "Open photo",
+    "nutrition_page_nutritional_info_explanation": "TODO",
+    "@nutrition_page_nutritional_info_explanation": {
+        "description": "DO NOT TRANSLATE Text to explain when we should set the toggle to off (no nutrition facts)"
+    },
+    "nutrition_page_serving_type_label": "Nutritional values:",
+    "@nutrition_page_serving_type_label": {
+        "description": "Label to let the user choose between per 100g or per serving"
+    },
     "nutrition_page_per_100g": "ανά 100g",
     "nutrition_page_per_serving": "ανά μερίδα",
     "nutrition_page_add_nutrient": "Προσθέστε ένα θρεπτικό συστατικό",
     "nutrition_page_serving_size": "Μέγεθος μερίδας",
+    "nutrition_page_serving_size_hint": "Input a serving size (eg: 100g)",
+    "nutrition_page_serving_size_explanation": "TODO",
+    "@nutrition_page_serving_size_explanation": {
+        "description": "DO NOT TRANSLATE Text to explain what to input in the serving size"
+    },
     "nutrition_page_invalid_number": "Μη έγκυρος αριθμός",
     "nutrition_page_update_running": "Updating the product on the server…",
     "nutrition_page_update_done": "Το προϊόν ενημερώθηκε!",
     "nutrition_page_take_serving_size_from_product_quantity": "Use the product quantity as serving size",
     "@nutrition_page_take_serving_size_from_product_quantity": {
         "description": "Button label: Use the product quantity as serving size (nutrition page)"
+    },
+    "nutrition_page_photo_error": "Unable to load the photo",
+    "@nutrition_page_photo_error": {
+        "description": "Error message when the nutrition facts photo can't be loaded"
     },
     "more_photos": "Περισσότερες ενδιαφέρουσες φωτογραφίες",
     "@more_photos": {},
@@ -865,14 +890,20 @@
     },
     "product_image_details_contributor": "Συνεισφέρων",
     "@product_image_details_contributor": {
-        "description": "The name of the contributor (and also the owner field) who uploaded the image"
+        "description": "The name of the contributor who uploaded the image"
     },
     "product_image_details_contributor_producer": "Contributor (producer)",
+    "@product_image_details_contributor_producer": {
+        "description": "The name of the contributor (and also the owner field) who uploaded the image"
+    },
     "product_image_details_date": "Date",
     "@product_image_details_date": {
-        "description": "Text to indicate the date of the image is unknown"
+        "description": "Text to indicate the date of the image"
     },
     "product_image_details_date_unknown": "Άγνωστος",
+    "@product_image_details_date_unknown": {
+        "description": "Text to indicate the date of the image is unknown"
+    },
     "homepage_main_card_logo_description": "Welcome to Open Food Facts",
     "@homepage_main_card_logo_description": {
         "description": "Description for accessibility of the Open Food Facts logo on the homepage"
@@ -1677,6 +1708,10 @@
     "@edit_product_form_item_nutrition_facts_subtitle": {
         "description": "Product edition - Nutrition facts - SubTitle"
     },
+    "edit_product_form_item_nutrition_facts_explanation": "TODO",
+    "@edit_product_form_item_nutrition_facts_explanation": {
+        "description": "DO NOT TRANSLATE Text to explain what to input in nutrition facts"
+    },
     "edit_product_form_save": "Επεξεργασία",
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
@@ -1704,6 +1739,10 @@
     "product_field_website_title": "Website",
     "@product_field_website_title": {
         "description": "Title of a product field: website"
+    },
+    "origins_editing_title": "Edit Origins",
+    "@origins_editing_title": {
+        "description": "Title of the button where users can edit the origins of a product"
     },
     "completed_basic_details_btn_text": "Συμπληρώστε τις βασικές λεπτομέρειες",
     "not_implemented_snackbar_text": "Δεν έχει υλοποιηθεί ακόμη",
@@ -2013,7 +2052,7 @@
     "product_type_label_food": "Food",
     "product_type_label_beauty": "Personal care",
     "product_type_label_pet_food": "Pet food",
-    "product_type_label_product": "Other",
+    "product_type_label_product": "Άλλο",
     "product_type_selection_title": "Product type",
     "product_type_selection_subtitle": "Select the type of this product",
     "product_type_selection_empty": "You need to select a product type first!",
@@ -2047,7 +2086,7 @@
             }
         }
     },
-    "prices_barcode_search_not_found": "Product not found",
+    "prices_barcode_search_not_found": "Το προϊόν δεν βρέθηκε",
     "prices_barcode_search_none_yet": "No product yet",
     "prices_barcode_search_running": "Looking for {barcode}",
     "@prices_barcode_search_running": {
@@ -2227,8 +2266,13 @@
     "prices_proof_mandatory": "You need to select a proof!",
     "prices_add_validation_error": "Validation error",
     "prices_privacy_warning_title": "Privacy warning",
-    "prices_privacy_warning_message": "Prices will be public, along with the store they refer to.\nThat might allow people who know about your Open Food Facts pseudonym to:\n* infer in which area you live\n* know what you are buying\nIf you are uneasy with that, please change your pseudonym, or create a new Open Food Facts account and log into the app with it.",
     "prices_unknown_product": "Unknown product",
+    "prices_privacy_warning_main_message": "Prices **will be public**, along with the store they refer to.\n\nThat might allow people who know about your Open Food Facts pseudonym to:\n",
+    "prices_privacy_warning_message_bullet_1": "Infer in which area you live",
+    "prices_privacy_warning_message_bullet_2": "Know what you are buying",
+    "prices_privacy_warning_sub_message": "If you are uneasy with that, please change your pseudonym, or create a new Open Food Facts account and log into the app with it.",
+    "i_refuse": "I refuse",
+    "i_accept": "I accept",
     "prices_currency_change_proposal_title": "Change the currency?",
     "prices_currency_change_proposal_message": "Your current currency is **{currency}**. Would you like to change it to **{newCurrency}**?",
     "@prices_currency_change_proposal_message": {
@@ -3347,7 +3391,7 @@
     "@guide_nutriscore_v2_file_language": {
         "description": "The logo is only available in de/en/fr/ln/nl. Please use en if not available (in lowercase, please)."
     },
-    "guide_nutriscore_v2_what_is_nutriscore_title": "What is the Nutri-Score?",
+    "guide_nutriscore_v2_what_is_nutriscore_title": "Τι είναι το Nutri-Score;",
     "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "The Nutri-Score is a logo which aims to inform you about the **nutritional quality of foods**.",
     "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
         "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
