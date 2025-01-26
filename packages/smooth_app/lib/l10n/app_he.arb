@@ -2516,13 +2516,13 @@
     },
     "basic_details": "פרטים בסיסיים",
     "product_name": "שם המוצר",
-    "product_names": "Product Names",
-    "add_basic_details_product_name_add_translation": "Add a new translation",
-    "add_basic_details_product_name_open_photo": "View front photo",
-    "add_basic_details_product_name_take_photo": "Take front photo",
+    "product_names": "שמות מוצרים",
+    "add_basic_details_product_name_add_translation": "הוספת תרגום חדש",
+    "add_basic_details_product_name_open_photo": "הצגת תמונת החזית",
+    "add_basic_details_product_name_take_photo": "צילום תמונת חזית",
     "add_basic_details_product_name_error": "נא למלא את שם המוצר",
     "add_basic_details_product_name_hint": "Input the name of the product (eg: Nutella)",
-    "add_basic_details_product_name_other_translations": "{count,plural, one{{count} other translation} other{{count} other translations}}",
+    "add_basic_details_product_name_other_translations": "{count,plural, one{תרגום נוסף} two {{count} תרגומים נוספים} many {{count} תרגומים נוספים} other{{count} תרגומים נוספים}}",
     "@add_basic_details_product_name_other_translations": {
         "description": "The number of other translations for a product name (count is always >= 1)",
         "placeholders": {
