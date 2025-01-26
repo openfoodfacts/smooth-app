@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/database/dao_osm_location.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
@@ -21,12 +22,14 @@ import 'package:smooth_app/pages/prices/price_model.dart';
 import 'package:smooth_app/pages/prices/price_proof_card.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
+import 'package:smooth_app/resources/app_icons.dart' as app_icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_expandable_floating_action_button.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
+import 'package:smooth_app/widgets/smooth_text.dart';
 import 'package:smooth_app/widgets/will_pop_scope.dart';
 
 /// Single page that displays all the elements of price adding.
@@ -134,7 +137,17 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
                     const SizedBox(height: LARGE_SPACE),
                     const PriceDateCard(),
                     const SizedBox(height: LARGE_SPACE),
-                    const PriceLocationCard(),
+                    PriceLocationCard(
+                      onLocationChanged: (
+                        OsmLocation? oldLocation,
+                        OsmLocation location,
+                      ) =>
+                          _updateCurrency(
+                        oldLocation,
+                        location,
+                        model,
+                      ),
+                    ),
                     const SizedBox(height: LARGE_SPACE),
                     const PriceCurrencyCard(),
                     const SizedBox(height: LARGE_SPACE),
@@ -176,25 +189,137 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
     );
   }
 
+  Future<void> _updateCurrency(
+    OsmLocation? oldLocation,
+    OsmLocation location,
+    PriceModel model,
+  ) async {
+    if (location.countryCode != null) {
+      final Currency? newCurrency =
+          OpenFoodFactsCountry.fromOffTag(location.countryCode)?.currency;
+
+      if (newCurrency != null && model.currency != newCurrency) {
+        final AppLocalizations appLocalizations = AppLocalizations.of(context);
+        final SmoothColorsThemeExtension extension =
+            context.extension<SmoothColorsThemeExtension>();
+
+        final Currency? currency = await showSmoothAlertModalSheet<Currency?>(
+          context: context,
+          title: appLocalizations.prices_currency_change_proposal_title,
+          message: TextWithBoldParts(
+            text: appLocalizations.prices_currency_change_proposal_message(
+                model.currency.name, newCurrency.name),
+            textStyle: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                  fontWeight: FontWeight.w500,
+                ),
+          ),
+          actionLabels: <String>[
+            appLocalizations.prices_currency_change_proposal_action_approve(
+              newCurrency.name,
+            ),
+            appLocalizations.prices_currency_change_proposal_action_cancel(
+              model.currency.name,
+            ),
+          ],
+          actionIcons: <Widget>[
+            Icon(Icons.check_circle_rounded, color: extension.success),
+            Icon(Icons.cancel_rounded, color: extension.error),
+          ],
+          actionValues: <Currency?>[newCurrency, null],
+        );
+
+        if (currency != null) {
+          model.currency = currency;
+        }
+      }
+    }
+  }
+
   Future<bool?> _doesAcceptWarning({required final bool justInfo}) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    return showDialog<bool>(
+    const Color color = Color(0xFFB81D1D);
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
+    return showSmoothListOfChoicesModalSheet<bool>(
+      safeArea: true,
       context: context,
-      builder: (final BuildContext context) => SmoothAlertDialog(
-        title: appLocalizations.prices_privacy_warning_title,
-        actionsAxis: Axis.vertical,
-        body: Text(appLocalizations.prices_privacy_warning_message),
-        positiveAction: SmoothActionButton(
-          text: appLocalizations.okay,
-          onPressed: () => Navigator.of(context).pop(true),
+      headerBackgroundColor: color,
+      header: Padding(
+        padding: const EdgeInsetsDirectional.symmetric(
+          horizontal: LARGE_SPACE,
+          vertical: MEDIUM_SPACE,
         ),
-        negativeAction: justInfo
-            ? null
-            : SmoothActionButton(
-                text: appLocalizations.cancel,
-                onPressed: () => Navigator.of(context).pop(),
-              ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+            TextWithBoldParts(
+              text: appLocalizations.prices_privacy_warning_main_message,
+              textStyle: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                    fontWeight: FontWeight.w600,
+                  ),
+            ),
+            _buildBulletPoint(
+              appLocalizations.prices_privacy_warning_message_bullet_1,
+              context,
+            ),
+            const SizedBox(height: MEDIUM_SPACE),
+            _buildBulletPoint(
+              appLocalizations.prices_privacy_warning_message_bullet_2,
+              context,
+            ),
+            const SizedBox(height: MEDIUM_SPACE),
+            Text(
+              appLocalizations.prices_privacy_warning_sub_message,
+              style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                    fontWeight: FontWeight.w600,
+                  ),
+            ),
+          ],
+        ),
       ),
+      labels: <String>[
+        appLocalizations.i_accept,
+        appLocalizations.i_refuse,
+      ],
+      values: <bool>[
+        true,
+        false,
+      ],
+      prefixIcons: <Widget>[
+        Icon(Icons.check_circle_rounded, color: extension.success),
+        Icon(Icons.cancel_rounded, color: extension.error),
+      ],
+      title: appLocalizations.prices_privacy_warning_title,
+    );
+  }
+
+  Widget _buildBulletPoint(String text, BuildContext context) {
+    const double defaultIconSize = 7.0;
+    const double radius = 10.0;
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        const SizedBox(width: MEDIUM_SPACE),
+        CircleAvatar(
+          radius: radius,
+          backgroundColor: extension.greyLight,
+          child: const app_icons.Arrow.right(
+            color: Colors.white,
+            size: defaultIconSize,
+          ),
+        ),
+        const SizedBox(width: SMALL_SPACE),
+        Expanded(
+          child: Text(
+            text,
+            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                  fontWeight: FontWeight.w600,
+                ),
+          ),
+        ),
+      ],
     );
   }
 

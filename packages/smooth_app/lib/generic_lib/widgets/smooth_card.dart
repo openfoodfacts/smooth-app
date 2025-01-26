@@ -109,6 +109,8 @@ class SmoothCardWithRoundedHeader extends StatelessWidget {
     required this.title,
     required this.child,
     this.leading,
+    this.leadingIconSize,
+    this.leadingPadding,
     this.trailing,
     this.titleTextStyle,
     this.titlePadding,
@@ -116,11 +118,13 @@ class SmoothCardWithRoundedHeader extends StatelessWidget {
     this.titleBackgroundColor,
     this.contentBackgroundColor,
     this.borderRadius,
+    super.key,
   });
 
   final String title;
-
   final Widget? leading;
+  final double? leadingIconSize;
+  final EdgeInsetsGeometry? leadingPadding;
   final Widget? trailing;
   final Widget child;
   final TextStyle? titleTextStyle;
@@ -132,12 +136,6 @@ class SmoothCardWithRoundedHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ThemeData themeData = Theme.of(context);
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
-
-    final Color color = titleBackgroundColor ?? getHeaderColor(context);
-
     return DecoratedBox(
       decoration: BoxDecoration(
         borderRadius: borderRadius ?? ROUNDED_BORDER_RADIUS,
@@ -152,79 +150,129 @@ class SmoothCardWithRoundedHeader extends StatelessWidget {
       ),
       child: Column(
         children: <Widget>[
-          Semantics(
-            label: title,
-            excludeSemantics: true,
-            child: CustomPaint(
-              painter: _SmoothCardWithRoundedHeaderBackgroundPainter(
-                color: color,
-                radius: borderRadius?.topRight ?? ROUNDED_RADIUS,
-              ),
-              child: Padding(
-                padding: titlePadding ??
-                    const EdgeInsetsDirectional.symmetric(
-                      vertical: BALANCED_SPACE,
-                      horizontal: LARGE_SPACE,
-                    ),
-                child: Row(
-                  children: <Widget>[
-                    if (leading != null)
-                      IconTheme(
-                        data: IconThemeData(
-                          color: color,
-                          size: 17.0,
-                        ),
-                        child: DecoratedBox(
-                          decoration: const BoxDecoration(
-                            color: Colors.white,
-                            shape: BoxShape.circle,
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsetsDirectional.all(6.0),
-                            child: leading,
-                          ),
-                        ),
-                      ),
-                    const SizedBox(width: MEDIUM_SPACE),
-                    Expanded(
-                      child: Text(
-                        title,
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style:
-                            (titleTextStyle ?? themeData.textTheme.displaySmall)
-                                ?.copyWith(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                    if (trailing != null) ...<Widget>[
-                      const SizedBox(width: MEDIUM_SPACE),
-                      IconTheme(
-                        data: const IconThemeData(
-                          color: Colors.white,
-                          size: 20.0,
-                        ),
-                        child: trailing!,
-                      ),
-                    ],
-                  ],
-                ),
-              ),
-            ),
+          SmoothCardWithRoundedHeaderTop(
+            title: title,
+            titleBackgroundColor: titleBackgroundColor,
+            leading: leading,
+            leadingIconSize: leadingIconSize,
+            leadingPadding: leadingPadding,
+            trailing: trailing,
+            titleTextStyle: titleTextStyle,
+            titlePadding: titlePadding,
+            borderRadius: borderRadius,
           ),
-          SmoothCard(
-            margin: EdgeInsets.zero,
-            padding: contentPadding ??
-                const EdgeInsetsDirectional.only(
-                  top: MEDIUM_SPACE,
-                ),
-            borderRadius: borderRadius ?? ROUNDED_BORDER_RADIUS,
-            color: contentBackgroundColor ??
-                (context.darkTheme() ? extension.primaryUltraBlack : null),
+          SmoothCardWithRoundedHeaderBody(
+            contentBackgroundColor: contentBackgroundColor,
+            contentPadding: contentPadding,
+            borderRadius: borderRadius,
             child: child,
           ),
         ],
+      ),
+    );
+  }
+}
+
+class SmoothCardWithRoundedHeaderTop extends StatelessWidget {
+  const SmoothCardWithRoundedHeaderTop({
+    required this.title,
+    this.titleBackgroundColor,
+    this.leading,
+    this.leadingIconSize,
+    this.leadingPadding,
+    this.trailing,
+    this.titleTextStyle,
+    this.titlePadding,
+    this.borderRadius,
+  });
+
+  final String title;
+  final Color? titleBackgroundColor;
+  final Widget? leading;
+  final double? leadingIconSize;
+  final EdgeInsetsGeometry? leadingPadding;
+  final Widget? trailing;
+  final TextStyle? titleTextStyle;
+  final EdgeInsetsGeometry? titlePadding;
+  final BorderRadius? borderRadius;
+
+  static const double _DEFAULT_LEADING_ICON_SIZE = 17.0;
+
+  @override
+  Widget build(BuildContext context) {
+    final Color color = titleBackgroundColor ?? getHeaderColor(context);
+
+    return Semantics(
+      label: title,
+      excludeSemantics: true,
+      child: CustomPaint(
+        painter: _SmoothCardWithRoundedHeaderBackgroundPainter(
+          color: color,
+          radius: borderRadius?.topRight ?? ROUNDED_RADIUS,
+          shadowElevation:
+              SmoothCardWithRoundedHeaderTopShadowProvider.of(context)
+                      ?.shadow ??
+                  0.0,
+        ),
+        child: Padding(
+          padding: titlePadding ??
+              (trailing != null
+                  ? const EdgeInsetsDirectional.only(
+                      top: 2.0,
+                      start: LARGE_SPACE,
+                      end: SMALL_SPACE,
+                      bottom: 2.0,
+                    )
+                  : const EdgeInsetsDirectional.symmetric(
+                      vertical: BALANCED_SPACE,
+                      horizontal: LARGE_SPACE,
+                    )),
+          child: Row(
+            children: <Widget>[
+              if (leading != null)
+                IconTheme(
+                  data: IconThemeData(
+                    color: titleBackgroundColor,
+                    size: leadingIconSize ?? _DEFAULT_LEADING_ICON_SIZE,
+                  ),
+                  child: DecoratedBox(
+                    decoration: const BoxDecoration(
+                      color: Colors.white,
+                      shape: BoxShape.circle,
+                    ),
+                    child: Padding(
+                      padding: leadingPadding ??
+                          const EdgeInsetsDirectional.all(6.0),
+                      child: leading,
+                    ),
+                  ),
+                ),
+              const SizedBox(width: MEDIUM_SPACE),
+              Expanded(
+                child: Text(
+                  title,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: (titleTextStyle ??
+                          Theme.of(context).textTheme.displaySmall)
+                      ?.copyWith(
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+              if (trailing != null) ...<Widget>[
+                const SizedBox(width: MEDIUM_SPACE),
+                IconTheme(
+                  data: const IconThemeData(
+                    color: Colors.white,
+                    size: 20.0,
+                  ),
+                  child: trailing!,
+                ),
+              ],
+            ],
+          ),
+        ),
       ),
     );
   }
@@ -238,38 +286,121 @@ class SmoothCardWithRoundedHeader extends StatelessWidget {
   }
 }
 
+class SmoothCardWithRoundedHeaderTopShadowProvider extends InheritedWidget {
+  const SmoothCardWithRoundedHeaderTopShadowProvider({
+    required this.shadow,
+    required super.child,
+    super.key,
+  });
+
+  final double shadow;
+
+  static SmoothCardWithRoundedHeaderTopShadowProvider? of(
+      BuildContext context) {
+    final SmoothCardWithRoundedHeaderTopShadowProvider? result =
+        context.dependOnInheritedWidgetOfExactType<
+            SmoothCardWithRoundedHeaderTopShadowProvider>();
+    return result;
+  }
+
+  @override
+  bool updateShouldNotify(
+      SmoothCardWithRoundedHeaderTopShadowProvider oldWidget) {
+    return oldWidget.shadow != shadow;
+  }
+}
+
+class SmoothCardWithRoundedHeaderBody extends StatelessWidget {
+  const SmoothCardWithRoundedHeaderBody({
+    required this.child,
+    this.contentPadding,
+    this.contentBackgroundColor,
+    this.borderRadius,
+  });
+
+  final Widget child;
+  final EdgeInsetsGeometry? contentPadding;
+  final Color? contentBackgroundColor;
+  final BorderRadius? borderRadius;
+
+  @override
+  Widget build(BuildContext context) {
+    return SmoothCard(
+      margin: EdgeInsets.zero,
+      padding: contentPadding ??
+          const EdgeInsetsDirectional.only(
+            top: MEDIUM_SPACE,
+          ),
+      borderRadius: borderRadius ?? ROUNDED_BORDER_RADIUS,
+      color: contentBackgroundColor ??
+          (context.darkTheme()
+              ? context
+                  .extension<SmoothColorsThemeExtension>()
+                  .primaryUltraBlack
+              : null),
+      child: child,
+    );
+  }
+}
+
 /// We need this [CustomPainter] to draw the background below the other card
 class _SmoothCardWithRoundedHeaderBackgroundPainter extends CustomPainter {
   _SmoothCardWithRoundedHeaderBackgroundPainter({
     required Color color,
     required this.radius,
+    required this.shadowElevation,
   }) : _paint = Paint()..color = color;
 
   final Radius radius;
   final Paint _paint;
+  final double shadowElevation;
 
   @override
   void paint(Canvas canvas, Size size) {
-    canvas.drawRRect(
-      RRect.fromRectAndCorners(
-        Rect.fromLTWH(
-          0.0,
-          0.0,
-          size.width,
-          size.height + radius.y,
-        ),
-        topLeft: radius,
-        topRight: radius,
-      ),
-      _paint,
-    );
+    final Path path = Path()
+      ..moveTo(0, radius.y)
+      ..lineTo(0, size.height + radius.y)
+      ..arcToPoint(
+        Offset(radius.x, size.height),
+        radius: radius,
+        clockwise: true,
+      )
+      ..lineTo(size.width - radius.x, size.height)
+      ..arcToPoint(
+        Offset(size.width, size.height + radius.y),
+        radius: radius,
+        clockwise: true,
+      )
+      ..lineTo(size.width, radius.y)
+      ..arcToPoint(
+        Offset(size.width - radius.x, 0),
+        radius: radius,
+        clockwise: false,
+      )
+      ..lineTo(radius.x, 0)
+      ..arcToPoint(
+        Offset(0, radius.y),
+        radius: radius,
+        clockwise: false,
+      )
+      ..close();
+
+    if (shadowElevation > 0.0) {
+      canvas.drawShadow(
+        path,
+        Colors.black.withValues(alpha: shadowElevation),
+        2.0,
+        false,
+      );
+    }
+    canvas.drawPath(path, _paint);
   }
 
   @override
   bool shouldRepaint(
     _SmoothCardWithRoundedHeaderBackgroundPainter oldDelegate,
   ) =>
-      false;
+      shadowElevation != oldDelegate.shadowElevation;
 
   @override
   bool shouldRebuildSemantics(

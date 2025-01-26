@@ -107,17 +107,28 @@ extension ImageFieldSmoothieExtension on ImageField {
     final bool isLoggedInMandatory,
   ) =>
       SmoothLargeButtonWithIcon(
-        onPressed: () async => Navigator.push(
+        onPressed: () async => openDetails(
           context,
-          MaterialPageRoute<void>(
-            builder: (_) => ProductImageSwipeableView.imageField(
-              imageField: this,
-              product: product,
-              isLoggedInMandatory: isLoggedInMandatory,
-            ),
-          ),
+          product,
+          isLoggedInMandatory,
         ),
         leadingIcon: const Icon(Icons.camera_alt),
         text: getProductImageButtonText(AppLocalizations.of(context)),
+      );
+
+  Future<void> openDetails(
+    final BuildContext context,
+    final Product product,
+    final bool isLoggedInMandatory,
+  ) =>
+      Navigator.push(
+        context,
+        MaterialPageRoute<void>(
+          builder: (_) => ProductImageSwipeableView.imageField(
+            imageField: this,
+            product: product,
+            isLoggedInMandatory: isLoggedInMandatory,
+          ),
+        ),
       );
 }

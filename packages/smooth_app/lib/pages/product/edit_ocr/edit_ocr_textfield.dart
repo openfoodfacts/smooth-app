@@ -60,17 +60,11 @@ class EditOCRTextField extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             if (isOwnerField) const OwnerFieldSmoothCardIcon(),
-            ExplanationTitleIcon(
+            ExplanationTitleIcon.type(
               type: helper.getType(appLocalizations),
               text: helper.getInstructions(appLocalizations),
             ),
           ],
-        ),
-        titlePadding: const EdgeInsetsDirectional.only(
-          top: 2.0,
-          start: LARGE_SPACE,
-          end: SMALL_SPACE,
-          bottom: 2.0,
         ),
         contentPadding: const EdgeInsetsDirectional.all(
           MEDIUM_SPACE,

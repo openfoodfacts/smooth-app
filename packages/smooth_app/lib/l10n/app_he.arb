@@ -28,6 +28,14 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
+    "continue_label": "להמשיך",
+    "@continue_label": {
+        "description": "A label on a button that says 'Continue', pressing the button takes the user to the next screen."
+    },
+    "exit_label": "יציאה",
+    "@exit_label": {
+        "description": "A label on a button that says 'Exit', pressing the button takes the user to the next screen."
+    },
     "previous_label": "הקודם",
     "@previous_label": {
         "description": "A label on a button that says 'Previous', pressing the button takes the user to the previous screen."
@@ -432,7 +440,7 @@
     "myPreferences_profile_title": "הפרופיל שלך",
     "myPreferences_profile_subtitle": "ניהול חשבון התרומה שלך ב־Open Food Facts.",
     "myPreferences_settings_title": "הגדרות היישומון",
-    "myPreferences_settings_subtitle": "מצב כהה, ניתוח נתונים…",
+    "myPreferences_settings_subtitle": "Dark mode, Languages…",
     "myPreferences_food_title": "העדפות מזון",
     "myPreferences_food_subtitle": "נא לבחור איזה מידע על מזון הכי חשוב לך.",
     "myPreferences_food_comment": "נא לבחור איזה מידע על מזון מעניין אותך, כדי לדרג מזון לפי העדפותיך, לראות את המידע שמעניין אותך תחילה ולקבל תקציר תאימות. העדפות המזון האלו נשארות במכשיר שלך ואינן משויכות לחשבון התרומה שלך ל־Open Food Facts, אם יש לך חשבון כזה.",
@@ -514,6 +522,10 @@
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
+    "label_reload": "Reload",
+    "@label_reload": {
+        "description": "Reload a page"
+    },
     "image": "תמונה",
     "front_photo": "תמונת חזית",
     "@front_photo": {
@@ -525,6 +537,10 @@
         "placeholders": {
             "imageType": {}
         }
+    },
+    "outdated_image_short_label": "may be outdated",
+    "@outdated_image_short_label": {
+        "description": "A label for outdated images"
     },
     "ingredients": "רכיבים",
     "@ingredients": {},
@@ -545,6 +561,10 @@
     "nutrition_facts_photo": "תמונת פירוט תזונתי",
     "@nutrition_facts_photo": {
         "description": "Button label: For adding a picture of the nutrition facts of a product"
+    },
+    "nutrition_facts_editing_title": "עריכת עובדות תזונתיות",
+    "@nutrition_facts_editing_title": {
+        "description": "Title of the button where users can edit the nutrition facts of a product"
     },
     "packaging_information": "פרטי אריזה",
     "@packaging_information": {
@@ -614,6 +634,10 @@
     "crop_page_action_local_failed_message": "לא הצלחנו לעבד את התמונה מקומית, בטרם שליחתה לשרתינו. נא לנסות שוב מאוחר יותר או ליצור אתנו קשר אם התקלה נמשכת.",
     "@crop_page_action_local_message": {
         "description": "The save of the picture locally failed - error dialog message"
+    },
+    "crop_page_action_retake": "Retake a photo",
+    "@crop_page_action_retake": {
+        "description": "Button which allows users to retake a photo."
     },
     "crop_page_too_small_image_title": "התמונה קטנה מדי!",
     "@crop_page_too_small_image_title": {
@@ -747,17 +771,38 @@
     "score_add_missing_product_brands": "הוספת מותגי מוצרים חסרים",
     "score_update_nutrition_facts": "עדכון העובדות התזונתיות",
     "nutrition_page_title": "מפרט תזונתי",
-    "nutrition_page_unspecified": "העובדות התזונתיות לא מופיעות על המוצר",
+    "nutrition_page_nutritional_info_title": "Nutritional information",
+    "nutrition_page_nutritional_info_label": "Values specified on the product:",
+    "nutrition_page_nutritional_info_value_positive": "כן",
+    "nutrition_page_nutritional_info_value_negative": "לא",
+    "nutrition_page_nutritional_info_open_photo": "Open photo",
+    "nutrition_page_nutritional_info_explanation": "TODO",
+    "@nutrition_page_nutritional_info_explanation": {
+        "description": "DO NOT TRANSLATE Text to explain when we should set the toggle to off (no nutrition facts)"
+    },
+    "nutrition_page_serving_type_label": "Nutritional values:",
+    "@nutrition_page_serving_type_label": {
+        "description": "Label to let the user choose between per 100g or per serving"
+    },
     "nutrition_page_per_100g": "ל־100 ג׳",
     "nutrition_page_per_serving": "לכל הגשה",
     "nutrition_page_add_nutrient": "הוספת רכיב תזונתי",
     "nutrition_page_serving_size": "גודל ההגשה",
+    "nutrition_page_serving_size_hint": "Input a serving size (eg: 100g)",
+    "nutrition_page_serving_size_explanation": "TODO",
+    "@nutrition_page_serving_size_explanation": {
+        "description": "DO NOT TRANSLATE Text to explain what to input in the serving size"
+    },
     "nutrition_page_invalid_number": "מספר שגוי",
     "nutrition_page_update_running": "המוצר מתעדכן בשרת…",
     "nutrition_page_update_done": "המוצר עודכן!",
     "nutrition_page_take_serving_size_from_product_quantity": "להשתמש בכמות המוצר כגודל מנה",
     "@nutrition_page_take_serving_size_from_product_quantity": {
         "description": "Button label: Use the product quantity as serving size (nutrition page)"
+    },
+    "nutrition_page_photo_error": "Unable to load the photo",
+    "@nutrition_page_photo_error": {
+        "description": "Error message when the nutrition facts photo can't be loaded"
     },
     "more_photos": "תמונות מעניינות נוספות",
     "@more_photos": {},
@@ -834,6 +879,30 @@
     "product_image_action_choose_existing_photo": "בחירת מתמונות המוצר",
     "@product_image_action_choose_existing_photo": {
         "description": "Replace the existing picture with one from the product's photos"
+    },
+    "product_image_details_label": "Information about the photo",
+    "@product_image_details_label": {
+        "description": "Label for the photo details"
+    },
+    "product_image_details_from_producer": "From the producer",
+    "@product_image_details_from_producer": {
+        "description": "Text to indicate that the image was taken by the producer"
+    },
+    "product_image_details_contributor": "תרומה",
+    "@product_image_details_contributor": {
+        "description": "The name of the contributor who uploaded the image"
+    },
+    "product_image_details_contributor_producer": "Contributor (producer)",
+    "@product_image_details_contributor_producer": {
+        "description": "The name of the contributor (and also the owner field) who uploaded the image"
+    },
+    "product_image_details_date": "תאריך",
+    "@product_image_details_date": {
+        "description": "Text to indicate the date of the image"
+    },
+    "product_image_details_date_unknown": "לא ידוע",
+    "@product_image_details_date_unknown": {
+        "description": "Text to indicate the date of the image is unknown"
     },
     "homepage_main_card_logo_description": "ברוך בואך ל־Open Food Facts",
     "@homepage_main_card_logo_description": {
@@ -1440,14 +1509,33 @@
     "@edit_product_form_item_error_existing": {
         "description": "Error message when the user tries to re-submit an existing value"
     },
-    "edit_product_form_item_add_action": "הוספת {itemType} חדש",
-    "description": "חלונית להצגה עם לחיצה ארוכה על הכפתור (+)",
-    "@edit_product_form_item_add_action": {
-        "placeholders": {
-            "itemType": {
-                "type": "String"
-            }
-        }
+    "edit_product_form_item_add_action_brand": "Add a new brand",
+    "@edit_product_form_item_add_action_brand": {
+        "description": "Tooltip to show when the user long presses the (+) button on a brand"
+    },
+    "edit_product_form_item_add_action_label": "Add a new label",
+    "@edit_product_form_item_add_action_label": {
+        "description": "Tooltip to show when the user long presses the (+) button on a label"
+    },
+    "edit_product_form_item_add_action_store": "Add a new store",
+    "@edit_product_form_item_add_action_store": {
+        "description": "Tooltip to show when the user long presses the (+) button on a store"
+    },
+    "edit_product_form_item_add_action_origin": "Add a new origin",
+    "@edit_product_form_item_add_action_origin": {
+        "description": "Tooltip to show when the user long presses the (+) button on an origin"
+    },
+    "edit_product_form_item_add_action_emb_code": "Add a new traceability code",
+    "@edit_product_form_item_add_action_emb_code": {
+        "description": "Tooltip to show when the user long presses the (+) button on a traceability code"
+    },
+    "edit_product_form_item_add_action_country": "Add a new country",
+    "@edit_product_form_item_add_action_country": {
+        "description": "Tooltip to show when the user long presses the (+) button on a country"
+    },
+    "edit_product_form_item_add_action_category": "Add a new category",
+    "@edit_product_form_item_add_action_category": {
+        "description": "Tooltip to show when the user long presses the (+) button on a category"
     },
     "edit_product_form_item_details_title": "פרטים בסיסיים",
     "@edit_product_form_item_details_title": {
@@ -1600,6 +1688,14 @@
     "edit_product_form_item_add_valid_item_tooltip": "הוספה",
     "edit_product_form_item_add_invalid_item_tooltip": "נא למלא טקסט תחילה",
     "edit_product_form_item_remove_item_tooltip": "הסרה",
+    "edit_product_form_item_save_edit_item_tooltip": "Save your edit",
+    "@edit_product_form_item_save_edit_item_tooltip": {
+        "description": "The user can edit an existing item. This action will save the change."
+    },
+    "edit_product_form_item_cancel_edit_item_tooltip": "Cancel your edit",
+    "@edit_product_form_item_cancel_edit_item_tooltip": {
+        "description": "The user can edit an existing item. This action will cancel the change (and return to the initial value)."
+    },
     "edit_product_form_item_packaging_title": "תמונת הנחיות מיחזור",
     "@edit_product_form_item_packaging_title": {
         "description": "Product edition - Packaging - Title"
@@ -1611,6 +1707,10 @@
     "edit_product_form_item_nutrition_facts_subtitle": "תזונה, הרכב אלכוהול…",
     "@edit_product_form_item_nutrition_facts_subtitle": {
         "description": "Product edition - Nutrition facts - SubTitle"
+    },
+    "edit_product_form_item_nutrition_facts_explanation": "TODO",
+    "@edit_product_form_item_nutrition_facts_explanation": {
+        "description": "DO NOT TRANSLATE Text to explain what to input in nutrition facts"
     },
     "edit_product_form_save": "עריכה",
     "@edit_product_form_save": {
@@ -1639,6 +1739,10 @@
     "product_field_website_title": "אתר",
     "@product_field_website_title": {
         "description": "Title of a product field: website"
+    },
+    "origins_editing_title": "עריכת מקורות",
+    "@origins_editing_title": {
+        "description": "Title of the button where users can edit the origins of a product"
     },
     "completed_basic_details_btn_text": "השלמת הפרטים הבסיסיים",
     "not_implemented_snackbar_text": "לא מיושם עדיין",
@@ -2105,7 +2209,7 @@
             }
         }
     },
-    "prices_button_count_proof": "{count,plural, one {} two {{count} הוכחות} many {{count} הוכחות}=0{אין הוכחות} =1{הוכחה} other{{count} הוכחות}}",
+    "prices_button_count_proof": "{count,plural, two {{count} הוכחות} many {{count} הוכחות}=0{אין הוכחות} =1{הוכחה} other{{count} הוכחות}}",
     "@prices_button_count_proof": {
         "description": "Number of proofs, for a button",
         "placeholders": {
@@ -2123,7 +2227,7 @@
             }
         }
     },
-    "prices_button_count_user": "{count,plural, one {} two {{count} משתמשים} many {{count} משתמשים}=0{אין משתמשים} =1{משתמש} other{{count} משתמשים}}",
+    "prices_button_count_user": "{count,plural, two {{count} משתמשים} many {{count} משתמשים}=0{אין משתמשים} =1{משתמש} other{{count} משתמשים}}",
     "@prices_button_count_user": {
         "description": "Number of users, for a button",
         "placeholders": {
@@ -2132,7 +2236,7 @@
             }
         }
     },
-    "prices_button_count_price": "{count,plural, one {} two {{count} מחירים} many {{count} מחירים}=0{אין מחירים} =1{מחיר} other{{count} מחירים}}",
+    "prices_button_count_price": "{count,plural, two {{count} מחירים} many {{count} מחירים}=0{אין מחירים} =1{מחיר} other{{count} מחירים}}",
     "@prices_button_count_price": {
         "description": "Number of prices, for a button",
         "placeholders": {
@@ -2162,8 +2266,44 @@
     "prices_proof_mandatory": "חובה לבחור הוכחה!",
     "prices_add_validation_error": "שגיאת אימות",
     "prices_privacy_warning_title": "אזהרת פרטיות",
-    "prices_privacy_warning_message": "המחירים יהיו גלויים לציבור, לצד החנויות שקשורות אליהם.\nכך יכולים אנשים שמכירים את הכינוי שלך ב־Open Food Facts:\n* להסיק מה אזור המגורים שלך\n* לדעת מה בסל הקניות שלך\nאם לא נוח לך לחשוף מידע שכזה, נא לשנות את הכינוי שלך או ליצור חשבון חדש ב־Open Food Facts ולהיכנס אליו ביישומון.",
     "prices_unknown_product": "מוצר לא ידוע",
+    "prices_privacy_warning_main_message": "Prices **will be public**, along with the store they refer to.\n\nThat might allow people who know about your Open Food Facts pseudonym to:\n",
+    "prices_privacy_warning_message_bullet_1": "Infer in which area you live",
+    "prices_privacy_warning_message_bullet_2": "Know what you are buying",
+    "prices_privacy_warning_sub_message": "If you are uneasy with that, please change your pseudonym, or create a new Open Food Facts account and log into the app with it.",
+    "i_refuse": "I refuse",
+    "i_accept": "I accept",
+    "prices_currency_change_proposal_title": "Change the currency?",
+    "prices_currency_change_proposal_message": "Your current currency is **{currency}**. Would you like to change it to **{newCurrency}**?",
+    "@prices_currency_change_proposal_message": {
+        "description": "Message to ask the user if they want to change the currency",
+        "placeholders": {
+            "currency": {
+                "type": "String"
+            },
+            "newCurrency": {
+                "type": "String"
+            }
+        }
+    },
+    "prices_currency_change_proposal_action_approve": "Yes, use {newCurrency}",
+    "@prices_currency_change_proposal_action_approve": {
+        "description": "Button to approve the currency change",
+        "placeholders": {
+            "newCurrency": {
+                "type": "String"
+            }
+        }
+    },
+    "prices_currency_change_proposal_action_cancel": "No, keep {currency}",
+    "@prices_currency_change_proposal_action_cancel": {
+        "description": "Button to cancel the currency change",
+        "placeholders": {
+            "currency": {
+                "type": "String"
+            }
+        }
+    },
     "@prices_unknown_product": {
         "description": "Very small text, in the context of prices, to say that the product is unknown"
     },
@@ -2646,6 +2786,14 @@
     "@language_picker_label": {
         "description": "Choose Application Language"
     },
+    "country_picker_label": "המדינה שלך",
+    "@country_picker_label": {
+        "description": "Choose Application Country"
+    },
+    "currency_picker_label": "Your currency",
+    "@currency_picker_label": {
+        "description": "Choose Application Country"
+    },
     "help_with_openfoodfacts": "עזרה עם OpenFoodFacts",
     "@help_with_openfoodfacts": {
         "description": "Label for the email title"
@@ -2688,7 +2836,7 @@
     },
     "scan_header_compare_button_valid_state_tooltip": "לחיצה תשווה בין המוצרים שסרקת",
     "@scan_header_compare_button_valid_state_tooltip": {
-        "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is at least two prodiucts"
+        "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is at least two products"
     },
     "scan_product_loading": "סרקת את\nהברקוד:",
     "@scan_product_loading": {
@@ -2733,6 +2881,10 @@
                 "type": "int"
             }
         }
+    },
+    "portion_calculator_computation_error": "Missing data. Calculation could not be performed.",
+    "@portion_calculator_computation_error": {
+        "description": "Error message to explain that the computation of the portion calculator failed."
     },
     "portion_calculator_result_title": "עובדות תזונתיות ל־{grams} ג׳ (או מ״ל)",
     "@portion_calculator_result_title": {

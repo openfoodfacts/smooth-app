@@ -15,6 +15,8 @@ import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
+import 'package:smooth_app/pages/input/unfocus_field_when_tap_outside.dart';
+import 'package:smooth_app/pages/product/common/product_buttons.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/edit_ocr/edit_ocr_image.dart';
 import 'package:smooth_app/pages/product/edit_ocr/edit_ocr_tabbar.dart';
@@ -27,7 +29,6 @@ import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
-import 'package:smooth_app/widgets/v2/smooth_buttons_bar.dart';
 
 /// Editing with OCR a product field and the corresponding image.
 ///
@@ -89,88 +90,85 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
           value: _extractState(transientFile),
         ),
       ],
-      child: SmoothScaffold(
-        extendBodyBehindAppBar: false,
-        appBar: buildEditProductAppBar(
-          context: context,
-          title: _helper.getTitle(appLocalizations),
-          product: upToDateProduct,
-          bottom: !_multilingualHelper.isMonolingual()
-              ? EditOcrTabBar(
-                  onTabChanged: (OpenFoodFactsLanguage language) {
-                    if (_multilingualHelper.changeLanguage(language)) {
-                      onNextFrame(
-                        () => setState(() {}),
-                        forceRedraw: true,
-                      );
-                    }
-                  },
-                  imageField: _helper.getImageField(),
-                  languagesWithText: _getLanguagesWithText(),
-                )
-              : null,
-        ),
-        backgroundColor: context.lightTheme()
-            ? context.extension<SmoothColorsThemeExtension>().primaryLight
-            : null,
-        body: ListView(
-          padding: const EdgeInsetsDirectional.all(MEDIUM_SPACE),
-          children: <Widget>[
-            EditOCRImageWidget(
-              helper: _helper,
-              transientFile: transientFile,
-              ownerField: upToDateProduct.isImageLocked(
-                    _helper.getImageField(),
-                    _multilingualHelper.getCurrentLanguage(),
-                  ) ??
-                  false,
-              onEditImage: () async => Navigator.push(
-                context,
-                MaterialPageRoute<void>(
-                  builder: (_) => ProductImageSwipeableView.imageField(
+      child: UnfocusFieldWhenTapOutside(
+        child: SmoothScaffold(
+          extendBodyBehindAppBar: false,
+          appBar: buildEditProductAppBar(
+            context: context,
+            title: _helper.getTitle(appLocalizations),
+            product: upToDateProduct,
+            bottom: !_multilingualHelper.isMonolingual()
+                ? EditOcrTabBar(
+                    onTabChanged: (OpenFoodFactsLanguage language) {
+                      if (_multilingualHelper.changeLanguage(language)) {
+                        onNextFrame(
+                          () => setState(() {}),
+                          forceRedraw: true,
+                        );
+                      }
+                    },
                     imageField: _helper.getImageField(),
-                    product: upToDateProduct,
-                    initialLanguage: _multilingualHelper.getCurrentLanguage(),
-                    isLoggedInMandatory: widget.isLoggedInMandatory,
+                    languagesWithText: _getLanguagesWithText(),
+                  )
+                : null,
+          ),
+          backgroundColor: context.lightTheme()
+              ? context.extension<SmoothColorsThemeExtension>().primaryLight
+              : null,
+          body: ListView(
+            padding: const EdgeInsetsDirectional.all(MEDIUM_SPACE),
+            children: <Widget>[
+              EditOCRImageWidget(
+                helper: _helper,
+                transientFile: transientFile,
+                ownerField: upToDateProduct.isImageLocked(
+                      _helper.getImageField(),
+                      _multilingualHelper.getCurrentLanguage(),
+                    ) ??
+                    false,
+                onEditImage: () async => Navigator.push(
+                  context,
+                  MaterialPageRoute<void>(
+                    builder: (_) => ProductImageSwipeableView.imageField(
+                      imageField: _helper.getImageField(),
+                      product: upToDateProduct,
+                      initialLanguage: _multilingualHelper.getCurrentLanguage(),
+                      isLoggedInMandatory: widget.isLoggedInMandatory,
+                    ),
                   ),
                 ),
+                onExtractText: () async => _extractData(),
+                onTakePicture: () async => _takePicture(),
               ),
-              onExtractText: () async => _extractData(),
-              onTakePicture: () async => _takePicture(),
-            ),
-            const SizedBox(height: MEDIUM_SPACE),
-            EditOCRTextField(
-              helper: _helper,
-              controller: _controller,
-              extraButton: _helper.hasAddExtraPhotoButton()
-                  ? EditOCRExtraButton(
-                      barcode: upToDateProduct.barcode!,
-                      productType: upToDateProduct.productType,
-                      multilingualHelper: _multilingualHelper,
-                      isLoggedInMandatory: widget.isLoggedInMandatory,
-                    )
-                  : null,
-              isOwnerField: _helper.isOwnerField(
-                upToDateProduct,
-                _multilingualHelper.getCurrentLanguage(),
+              const SizedBox(height: MEDIUM_SPACE),
+              EditOCRTextField(
+                helper: _helper,
+                controller: _controller,
+                extraButton: _helper.hasAddExtraPhotoButton()
+                    ? EditOCRExtraButton(
+                        barcode: upToDateProduct.barcode!,
+                        productType: upToDateProduct.productType,
+                        multilingualHelper: _multilingualHelper,
+                        isLoggedInMandatory: widget.isLoggedInMandatory,
+                      )
+                    : null,
+                isOwnerField: _helper.isOwnerField(
+                  upToDateProduct,
+                  _multilingualHelper.getCurrentLanguage(),
+                ),
               ),
-            ),
-          ],
-        ),
-        bottomNavigationBar: SmoothButtonsBar2(
-          positiveButton: SmoothActionButton2(
-            text: appLocalizations.save,
-            onPressed: () async {
+            ],
+          ),
+          resizeToAvoidBottomInset: true,
+          bottomNavigationBar: ProductBottomButtonsBar(
+            onSave: () async {
               await _updateText();
               if (!context.mounted) {
                 return;
               }
-              Navigator.pop(context);
+              Navigator.of(context).pop();
             },
-          ),
-          negativeButton: SmoothActionButton2(
-            text: appLocalizations.cancel,
-            onPressed: () => Navigator.pop(context),
+            onCancel: () => Navigator.of(context).pop(),
           ),
         ),
       ),

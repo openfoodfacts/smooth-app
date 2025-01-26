@@ -7,7 +7,7 @@ import 'package:smooth_app/database/dao_string_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/language_priority.dart';
-import 'package:smooth_app/generic_lib/widgets/language_selector.dart';
+import 'package:smooth_app/generic_lib/widgets/languages_selector.dart';
 import 'package:smooth_app/helpers/border_radius_helper.dart';
 import 'package:smooth_app/helpers/provider_helper.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
@@ -292,7 +292,7 @@ class _EditLanguageTabBarAddLanguageButton extends StatelessWidget {
     );
 
     final OpenFoodFactsLanguage? language =
-        await LanguageSelector.openLanguageSelector(
+        await LanguagesSelector.openLanguageSelector(
       context,
       selectedLanguages: selectedLanguages,
       languagePriority: languagePriority,

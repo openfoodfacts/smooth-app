@@ -9,6 +9,7 @@ import 'package:scanner_shared/scanner_shared.dart';
 import 'package:smooth_app/cards/category_cards/svg_cache.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 import 'package:smooth_app/services/smooth_services.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
 /// Widget to inject in the hierarchy to have a single instance of the RiveFile
@@ -468,6 +469,80 @@ class _TorchAnimationState extends State<TorchAnimation> {
         },
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _controller?.dispose();
+    super.dispose();
+  }
+}
+
+class ScaleAnimation extends StatefulWidget {
+  const ScaleAnimation({
+    required this.animated,
+    this.size,
+    super.key,
+  });
+
+  final double? size;
+  final bool animated;
+
+  @override
+  State<ScaleAnimation> createState() => _ScaleAnimationState();
+}
+
+class _ScaleAnimationState extends State<ScaleAnimation> {
+  StateMachineController? _controller;
+
+  @override
+  void didUpdateWidget(covariant ScaleAnimation oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    _changeAnimation(widget.animated);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final IconThemeData iconTheme = IconTheme.of(context);
+    final double size = widget.size ?? iconTheme.size ?? 24.0;
+    final Color color = iconTheme.color!;
+
+    return SizedBox.square(
+      dimension: size,
+      child: RiveAnimation.direct(
+        AnimationsLoader.of(context)!,
+        artboard: 'Scale',
+        onInit: (Artboard artboard) {
+          _controller = StateMachineController.fromArtboard(
+            artboard,
+            'State Machine',
+          );
+
+          artboard.addController(_controller!);
+
+          _controller!.artboard!.forEachComponent((Component child) {
+            if (child is RuntimeNestedArtboard) {
+              child.sourceArtboard!.forEachComponent(
+                (Component nestedChild) {
+                  if (nestedChild is SolidColor) {
+                    nestedChild.colorValue = color.intValue;
+                  }
+                },
+              );
+            }
+          });
+
+          _changeAnimation(widget.animated);
+        },
+      ),
+    );
+  }
+
+  void _changeAnimation(bool animated) {
+    final SMIBool toggle = _controller!.findInput<bool>('anim')! as SMIBool;
+    if (toggle.value != animated) {
+      toggle.value = animated;
+    }
   }
 
   @override

@@ -45,8 +45,12 @@ class SmoothHtmlWidget extends StatelessWidget {
 
         return true;
       },
-      factoryBuilder: () =>
-          isSelectable ? SmoothHtmlWidgetFactory() : WidgetFactory(),
+      factoryBuilder: () => isSelectable
+          ? SmoothHtmlWidgetFactory(
+              onLinkClicked: (String url) =>
+                  LaunchUrlHelper.launchURLInWebViewOrBrowser(context, url),
+            )
+          : WidgetFactory(),
       enableCaching: false,
     );
   }

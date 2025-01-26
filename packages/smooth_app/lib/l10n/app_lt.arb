@@ -28,6 +28,14 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
+    "continue_label": "Tęsti",
+    "@continue_label": {
+        "description": "A label on a button that says 'Continue', pressing the button takes the user to the next screen."
+    },
+    "exit_label": "Išeiti",
+    "@exit_label": {
+        "description": "A label on a button that says 'Exit', pressing the button takes the user to the next screen."
+    },
     "previous_label": "Ankstesnis",
     "@previous_label": {
         "description": "A label on a button that says 'Previous', pressing the button takes the user to the previous screen."
@@ -432,7 +440,7 @@
     "myPreferences_profile_title": "Jūsų profilis",
     "myPreferences_profile_subtitle": "Tvarkykite savo „Open Food Facts“ paskyrą.",
     "myPreferences_settings_title": "Programos nustatymai",
-    "myPreferences_settings_subtitle": "Tamsusis režimas; Analizė…",
+    "myPreferences_settings_subtitle": "Tamsusis režimas, kalbos…",
     "myPreferences_food_title": "Maisto pasirinkimai",
     "myPreferences_food_subtitle": "Pasirinkite, kokia informacija apie maistą jums yra svarbiausia.",
     "myPreferences_food_comment": "Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.",
@@ -514,6 +522,10 @@
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
+    "label_reload": "Reload",
+    "@label_reload": {
+        "description": "Reload a page"
+    },
     "image": "Vaizdas",
     "front_photo": "Priekio nuotrauka",
     "@front_photo": {
@@ -525,6 +537,10 @@
         "placeholders": {
             "imageType": {}
         }
+    },
+    "outdated_image_short_label": "may be outdated",
+    "@outdated_image_short_label": {
+        "description": "A label for outdated images"
     },
     "ingredients": "Sudėtis",
     "@ingredients": {},
@@ -545,6 +561,10 @@
     "nutrition_facts_photo": "Maistingumo deklaracijos nuotrauka",
     "@nutrition_facts_photo": {
         "description": "Button label: For adding a picture of the nutrition facts of a product"
+    },
+    "nutrition_facts_editing_title": "Redaguoti maistinę vertę",
+    "@nutrition_facts_editing_title": {
+        "description": "Title of the button where users can edit the nutrition facts of a product"
     },
     "packaging_information": "Informacija apie pakuotę",
     "@packaging_information": {
@@ -614,6 +634,10 @@
     "crop_page_action_local_failed_message": "Negalime apdoroti vaizdo vietoje, prieš išsiųsdami jį į savo serverį. Bandykite dar kartą vėliau arba susisiekite su mumis, jei problema nedingsta.",
     "@crop_page_action_local_message": {
         "description": "The save of the picture locally failed - error dialog message"
+    },
+    "crop_page_action_retake": "Retake a photo",
+    "@crop_page_action_retake": {
+        "description": "Button which allows users to retake a photo."
     },
     "crop_page_too_small_image_title": "Paveikslėlis per mažas!",
     "@crop_page_too_small_image_title": {
@@ -747,17 +771,38 @@
     "score_add_missing_product_brands": "Pridėti trūkstamus produktų prekių ženklus",
     "score_update_nutrition_facts": "Atnaujinkite mitybos faktus",
     "nutrition_page_title": "Maistingumo faktai",
-    "nutrition_page_unspecified": "Mitybos faktai ant gaminio nenurodyti",
+    "nutrition_page_nutritional_info_title": "Nutritional information",
+    "nutrition_page_nutritional_info_label": "Values specified on the product:",
+    "nutrition_page_nutritional_info_value_positive": "Taip",
+    "nutrition_page_nutritional_info_value_negative": "Ne",
+    "nutrition_page_nutritional_info_open_photo": "Open photo",
+    "nutrition_page_nutritional_info_explanation": "TODO",
+    "@nutrition_page_nutritional_info_explanation": {
+        "description": "DO NOT TRANSLATE Text to explain when we should set the toggle to off (no nutrition facts)"
+    },
+    "nutrition_page_serving_type_label": "Nutritional values:",
+    "@nutrition_page_serving_type_label": {
+        "description": "Label to let the user choose between per 100g or per serving"
+    },
     "nutrition_page_per_100g": "už 100 g",
     "nutrition_page_per_serving": "porcijoje",
     "nutrition_page_add_nutrient": "Pridėti maistinę medžiagą",
     "nutrition_page_serving_size": "Porcijos dydis",
+    "nutrition_page_serving_size_hint": "Input a serving size (eg: 100g)",
+    "nutrition_page_serving_size_explanation": "TODO",
+    "@nutrition_page_serving_size_explanation": {
+        "description": "DO NOT TRANSLATE Text to explain what to input in the serving size"
+    },
     "nutrition_page_invalid_number": "Neteisingas numeris",
     "nutrition_page_update_running": "Atnaujinamas produktas serveryje…",
     "nutrition_page_update_done": "Produktas atnaujintas!",
     "nutrition_page_take_serving_size_from_product_quantity": "Naudoti produkto kiekį kaip pateikiamą porciją",
     "@nutrition_page_take_serving_size_from_product_quantity": {
         "description": "Button label: Use the product quantity as serving size (nutrition page)"
+    },
+    "nutrition_page_photo_error": "Unable to load the photo",
+    "@nutrition_page_photo_error": {
+        "description": "Error message when the nutrition facts photo can't be loaded"
     },
     "more_photos": "Daugiau įdomių nuotraukų",
     "@more_photos": {},
@@ -835,6 +880,30 @@
     "@product_image_action_choose_existing_photo": {
         "description": "Replace the existing picture with one from the product's photos"
     },
+    "product_image_details_label": "Information about the photo",
+    "@product_image_details_label": {
+        "description": "Label for the photo details"
+    },
+    "product_image_details_from_producer": "From the producer",
+    "@product_image_details_from_producer": {
+        "description": "Text to indicate that the image was taken by the producer"
+    },
+    "product_image_details_contributor": "Pagalbininkas",
+    "@product_image_details_contributor": {
+        "description": "The name of the contributor who uploaded the image"
+    },
+    "product_image_details_contributor_producer": "Contributor (producer)",
+    "@product_image_details_contributor_producer": {
+        "description": "The name of the contributor (and also the owner field) who uploaded the image"
+    },
+    "product_image_details_date": "Data",
+    "@product_image_details_date": {
+        "description": "Text to indicate the date of the image"
+    },
+    "product_image_details_date_unknown": "Nežinoma",
+    "@product_image_details_date_unknown": {
+        "description": "Text to indicate the date of the image is unknown"
+    },
     "homepage_main_card_logo_description": "Sveiki atvykę į „Open Food Facts“",
     "@homepage_main_card_logo_description": {
         "description": "Description for accessibility of the Open Food Facts logo on the homepage"
@@ -884,24 +953,24 @@
     "@product_tags_title": {
         "description": "The title for showing product properties, aka folksonomy data"
     },
-    "no_product_tags_found_message": "Produkto savybių nerasta. Savybes galima naudoti produktams išsamiau ir ankstesniu būdu aprašyti. Bakstelėkite, kad pridėtumėte.",
+    "no_product_tags_found_message": "Jokių produkto savybių nerasta. Savybes galima naudoti produktams išsamiau ir lankstesčiau aprašyti.",
     "@no_product_tags_found_message": {
         "description": "Message to show if there are no product properties found"
     },
     "add_tag": "Pridėti savybę",
-    "add_tags": "Add properties",
-    "add_edit_tags": "Add or edit properties",
+    "add_tags": "Pridėti savybes",
+    "add_edit_tags": "Pridėti arba redaguoti savybes",
     "edit_tag": "Redaguoti savybę",
     "remove_tag": "Šalinti savybę",
     "tag_key": "Savybė",
-    "tag_key_uneditable": "Property (uneditable)",
-    "tag_key_input_hint": "Input a property",
+    "tag_key_uneditable": "Savybė (neredaguotina)",
+    "tag_key_input_hint": "Įvesti savybę",
     "tag_value": "Vertė",
-    "tag_value_input_hint": "Input a value",
-    "tag_key_item": "Property:",
-    "tag_value_item": "Value:",
-    "tag_key_explanations": "A key must be lowercase and without any spaces.",
-    "tag_key_already_exists": "A tag with a property {property} already exists!",
+    "tag_value_input_hint": "Įvesti vertę",
+    "tag_key_item": "Savybė:",
+    "tag_value_item": "Vertė:",
+    "tag_key_explanations": "Raktas turi būti mažosiomis raidėmis ir be tarpų.",
+    "tag_key_already_exists": "Žyma su savybe {property} jau yra!",
     "@tag_key_already_exists": {
         "placeholders": {
             "property": {
@@ -1415,7 +1484,7 @@
     "@edit_product_pending_operations_banner_title": {
         "description": "When a product has pending edits (being sent to the server), there is a message on the edit page (here is the title of the message)."
     },
-    "edit_product_pending_operations_banner_message": "Your edits are being **sent in the background** (or later in case of error).\nYou can continue editing other product fields.",
+    "edit_product_pending_operations_banner_message": "Jūsų korekcijos **siunčiamos fone** (arba vėliau, jei įvyko klaida).\nGalite toliau redaguoti kitus produkto laukus.",
     "@edit_product_pending_operations_banner_message": {
         "description": "When a product has pending edits (being sent to the server), there is a message on the edit page. Please keep the ** syntax to make the text bold."
     },
@@ -1440,14 +1509,33 @@
     "@edit_product_form_item_error_existing": {
         "description": "Error message when the user tries to re-submit an existing value"
     },
-    "edit_product_form_item_add_action": "Pridėkite naują {itemType}",
-    "description": "Tooltip to show when the user long presses the (+) button",
-    "@edit_product_form_item_add_action": {
-        "placeholders": {
-            "itemType": {
-                "type": "String"
-            }
-        }
+    "edit_product_form_item_add_action_brand": "Pridėti naują prekės ženklą",
+    "@edit_product_form_item_add_action_brand": {
+        "description": "Tooltip to show when the user long presses the (+) button on a brand"
+    },
+    "edit_product_form_item_add_action_label": "Pridėti naują etiketę",
+    "@edit_product_form_item_add_action_label": {
+        "description": "Tooltip to show when the user long presses the (+) button on a label"
+    },
+    "edit_product_form_item_add_action_store": "Pridėti naują parduotuvę",
+    "@edit_product_form_item_add_action_store": {
+        "description": "Tooltip to show when the user long presses the (+) button on a store"
+    },
+    "edit_product_form_item_add_action_origin": "Pridėti naują kilmę",
+    "@edit_product_form_item_add_action_origin": {
+        "description": "Tooltip to show when the user long presses the (+) button on an origin"
+    },
+    "edit_product_form_item_add_action_emb_code": "Pridėti naują atsekamumo kodą",
+    "@edit_product_form_item_add_action_emb_code": {
+        "description": "Tooltip to show when the user long presses the (+) button on a traceability code"
+    },
+    "edit_product_form_item_add_action_country": "Pridėti naują šalį",
+    "@edit_product_form_item_add_action_country": {
+        "description": "Tooltip to show when the user long presses the (+) button on a country"
+    },
+    "edit_product_form_item_add_action_category": "Pridėti naują kategoriją",
+    "@edit_product_form_item_add_action_category": {
+        "description": "Tooltip to show when the user long presses the (+) button on a category"
     },
     "edit_product_form_item_details_title": "Pagrindinės detalės",
     "@edit_product_form_item_details_title": {
@@ -1505,7 +1593,7 @@
     "@edit_product_form_item_origins_title": {
         "description": "Product edition - Origins - Title"
     },
-    "edit_product_form_item_origins_hint": "Įvesti kilmę (pvz., Vokietija)",
+    "edit_product_form_item_origins_hint": "Įvesti kilmę (pvz., jautiena iš Argentinos)",
     "@edit_product_form_item_origins_hint": {
         "description": "Product edition - Origins - input textfield hint"
     },
@@ -1577,7 +1665,7 @@
     "@edit_product_form_item_categories_explainer_3": {
         "description": "Product edition - Categories - input explainer, part 3"
     },
-    "edit_product_form_item_exit_title": "Quit without saving?",
+    "edit_product_form_item_exit_title": "Išeiti neišsaugojus?",
     "edit_product_form_item_exit_confirmation": "Ar norite išsaugoti pakeitimus prieš išeidami iš šio puslapio?",
     "edit_product_form_item_exit_confirmation_positive_button": "Įrašyti pakeitimus",
     "edit_product_form_item_exit_confirmation_negative_button": "Išmesti pakeitimus",
@@ -1600,6 +1688,14 @@
     "edit_product_form_item_add_valid_item_tooltip": "Pridėti",
     "edit_product_form_item_add_invalid_item_tooltip": "Pirmiausia įveskite tekstą",
     "edit_product_form_item_remove_item_tooltip": "Pašalinti",
+    "edit_product_form_item_save_edit_item_tooltip": "Įrašyti savo korekciją",
+    "@edit_product_form_item_save_edit_item_tooltip": {
+        "description": "The user can edit an existing item. This action will save the change."
+    },
+    "edit_product_form_item_cancel_edit_item_tooltip": "Atšaukti savo korekciją",
+    "@edit_product_form_item_cancel_edit_item_tooltip": {
+        "description": "The user can edit an existing item. This action will cancel the change (and return to the initial value)."
+    },
     "edit_product_form_item_packaging_title": "Perdirbimo instrukcijos nuotrauka",
     "@edit_product_form_item_packaging_title": {
         "description": "Product edition - Packaging - Title"
@@ -1611,6 +1707,10 @@
     "edit_product_form_item_nutrition_facts_subtitle": "Maistingumas, alkoholio kiekis…",
     "@edit_product_form_item_nutrition_facts_subtitle": {
         "description": "Product edition - Nutrition facts - SubTitle"
+    },
+    "edit_product_form_item_nutrition_facts_explanation": "TODO",
+    "@edit_product_form_item_nutrition_facts_explanation": {
+        "description": "DO NOT TRANSLATE Text to explain what to input in nutrition facts"
     },
     "edit_product_form_save": "Redaguoti",
     "@edit_product_form_save": {
@@ -1639,6 +1739,10 @@
     "product_field_website_title": "Interneto svetainė",
     "@product_field_website_title": {
         "description": "Title of a product field: website"
+    },
+    "origins_editing_title": "Redaguoti kilmę",
+    "@origins_editing_title": {
+        "description": "Title of the button where users can edit the origins of a product"
     },
     "completed_basic_details_btn_text": "Užpildyti pagrindinę informaciją",
     "not_implemented_snackbar_text": "Dar neįgyvendinta",
@@ -2105,7 +2209,7 @@
             }
         }
     },
-    "prices_button_count_proof": "{count,plural, one {} few {{count} įrodymai} many {{count} įrodymų}=0{No proof} =1{One proof} other{{count} įrodumai}}",
+    "prices_button_count_proof": "{count,plural, few {{count} įrodymai} many {{count} įrodymų}=0{No proof} =1{One proof} other{{count} įrodumai}}",
     "@prices_button_count_proof": {
         "description": "Number of proofs, for a button",
         "placeholders": {
@@ -2162,8 +2266,44 @@
     "prices_proof_mandatory": "You need to select a proof!",
     "prices_add_validation_error": "Validation error",
     "prices_privacy_warning_title": "Privacy warning",
-    "prices_privacy_warning_message": "Kainos bus skelbiamos viešai, kartu pateikiant informaciją apie parduotuvę, kurioje produktas buvo pirktas.\nTai gali leisti žmonėms, žinantiems jūsų „Open Food Facts“ slapyvardį:\n* padaryti išvadą, kurioje vietovėje gyvenate\n* sužinoti, ką perkate\nJei tai jums nepatinka, galite pakeisti savo slapyvardį arba sukurti naują „Open Food Facts“ paskyrą ir su ja prisijungti prie programėlės.",
     "prices_unknown_product": "Nežinomas produktas",
+    "prices_privacy_warning_main_message": "Prices **will be public**, along with the store they refer to.\n\nThat might allow people who know about your Open Food Facts pseudonym to:\n",
+    "prices_privacy_warning_message_bullet_1": "Infer in which area you live",
+    "prices_privacy_warning_message_bullet_2": "Know what you are buying",
+    "prices_privacy_warning_sub_message": "If you are uneasy with that, please change your pseudonym, or create a new Open Food Facts account and log into the app with it.",
+    "i_refuse": "I refuse",
+    "i_accept": "I accept",
+    "prices_currency_change_proposal_title": "Change the currency?",
+    "prices_currency_change_proposal_message": "Your current currency is **{currency}**. Would you like to change it to **{newCurrency}**?",
+    "@prices_currency_change_proposal_message": {
+        "description": "Message to ask the user if they want to change the currency",
+        "placeholders": {
+            "currency": {
+                "type": "String"
+            },
+            "newCurrency": {
+                "type": "String"
+            }
+        }
+    },
+    "prices_currency_change_proposal_action_approve": "Yes, use {newCurrency}",
+    "@prices_currency_change_proposal_action_approve": {
+        "description": "Button to approve the currency change",
+        "placeholders": {
+            "newCurrency": {
+                "type": "String"
+            }
+        }
+    },
+    "prices_currency_change_proposal_action_cancel": "No, keep {currency}",
+    "@prices_currency_change_proposal_action_cancel": {
+        "description": "Button to cancel the currency change",
+        "placeholders": {
+            "currency": {
+                "type": "String"
+            }
+        }
+    },
     "@prices_unknown_product": {
         "description": "Very small text, in the context of prices, to say that the product is unknown"
     },
@@ -2641,10 +2781,18 @@
         "description": "Snackbar label after clipboard copy"
     },
     "clipboard_barcode_copied": "Brūkšninis kodas {barcode} nukopijuotas!",
-    "open_product_website": "Open this product on the website",
+    "open_product_website": "Atverti šį produktą tinklalapyje",
     "language_picker_label": "Jūsų kalba",
     "@language_picker_label": {
         "description": "Choose Application Language"
+    },
+    "country_picker_label": "Jūsų šalis",
+    "@country_picker_label": {
+        "description": "Choose Application Country"
+    },
+    "currency_picker_label": "Your currency",
+    "@currency_picker_label": {
+        "description": "Choose Application Country"
     },
     "help_with_openfoodfacts": "Pagalba su OpenFoodFacts",
     "@help_with_openfoodfacts": {
@@ -2686,9 +2834,9 @@
     "@scan_header_compare_button_invalid_state_tooltip": {
         "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is just one product scanned"
     },
-    "scan_header_compare_button_valid_state_tooltip": "Spustelėkite, kad palygintumėte nuskaitytus produktus",
+    "scan_header_compare_button_valid_state_tooltip": "Palyginkite produktus, kuriuos nuskaitėte",
     "@scan_header_compare_button_valid_state_tooltip": {
-        "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is at least two prodiucts"
+        "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is at least two products"
     },
     "scan_product_loading": "Jūs nuskaitėte\nbrūkšninį kodą:",
     "@scan_product_loading": {
@@ -2733,6 +2881,10 @@
                 "type": "int"
             }
         }
+    },
+    "portion_calculator_computation_error": "Missing data. Calculation could not be performed.",
+    "@portion_calculator_computation_error": {
+        "description": "Error message to explain that the computation of the portion calculator failed."
     },
     "portion_calculator_result_title": "{grams} g (arba ml) maistingumas",
     "@portion_calculator_result_title": {
@@ -3573,7 +3725,7 @@
     "knowledge_panel_nutriscore_banner_incorrect_score_message": "There are two possible explanations:\nThe list of ingredients and/or nutrition facts are not up-to-date.\n\nWe provide the \"New calculation\" of the Nutri-Score (or V2). Please check that you have the banner \"New calculation\" on the package.",
     "knowledge_panel_nutriscore_banner_incorrect_score_button1": "Check ingredients",
     "knowledge_panel_nutriscore_banner_incorrect_score_button2": "Check nutrition facts",
-    "url_not_supported": "Unfortunately, we can't open the URL:\n{url}",
+    "url_not_supported": "Deja, negalime atverti URL:\n{url}",
     "@url_not_supported": {
         "description": "Error message when the app can't open a URL",
         "placeholders": {

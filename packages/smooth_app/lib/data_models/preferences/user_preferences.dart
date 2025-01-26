@@ -40,6 +40,7 @@ class UserPreferences extends ChangeNotifier {
       : _sharedPreferences = sharedPreferences {
     onCrashReportingChanged = ValueNotifier<bool>(crashReports);
     onAnalyticsChanged = ValueNotifier<bool>(userTracking);
+    _incrementAppLaunches();
   }
 
   /// Singleton
@@ -68,6 +69,7 @@ class UserPreferences extends ChangeNotifier {
   /// The current version of preferences
   static const String _TAG_VERSION = 'prefs_version';
   static const int _PREFS_CURRENT_VERSION = 3;
+  static const String _TAG_APP_LAUNCHES = 'appLaunches';
   static const String _TAG_PREFIX_IMPORTANCE = 'IMPORTANCE_AS_STRING';
   static const String _TAG_CURRENT_THEME_MODE = 'currentThemeMode';
   static const String _TAG_CURRENT_COLOR_SCHEME = 'currentColorScheme';
@@ -148,6 +150,13 @@ class UserPreferences extends ChangeNotifier {
       _TAG_VERSION,
       UserPreferences._PREFS_CURRENT_VERSION,
     );
+  }
+
+  int get appLaunches => _sharedPreferences.getInt(_TAG_APP_LAUNCHES) ?? 0;
+
+  Future<void> _incrementAppLaunches() async {
+    await _sharedPreferences.setInt(_TAG_APP_LAUNCHES, appLaunches + 1);
+    // No need to call notifyListeners here
   }
 
   String _getImportanceTag(final String variable) =>

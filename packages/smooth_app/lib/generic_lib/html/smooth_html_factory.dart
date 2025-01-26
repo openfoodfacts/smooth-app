@@ -5,7 +5,11 @@ import 'package:smooth_app/generic_lib/html/smooth_html_marker_chip.dart';
 import 'package:smooth_app/generic_lib/html/smooth_html_marker_decimal.dart';
 
 class SmoothHtmlWidgetFactory extends WidgetFactory {
-  SmoothHtmlWidgetFactory();
+  SmoothHtmlWidgetFactory({
+    required this.onLinkClicked,
+  });
+
+  final Function(String link) onLinkClicked;
 
   @override
   Widget buildText(
@@ -53,5 +57,11 @@ class SmoothHtmlWidgetFactory extends WidgetFactory {
     } else {
       return super.buildListMarker(tree, resolved, listStyleType, index)!;
     }
+  }
+
+  @override
+  Future<bool> onTapUrl(String url) async {
+    onLinkClicked(url);
+    return true;
   }
 }
