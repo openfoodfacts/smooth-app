@@ -1625,15 +1625,15 @@
     "@edit_product_form_item_countries_explanations": {
         "description": "Product edition - Countries - explanations"
     },
-    "edit_product_form_item_emb_codes_title": "Traceability codes",
+    "edit_product_form_item_emb_codes_title": "Κωδικοί ιχνηλασιμότητας",
     "@edit_product_form_item_emb_codes_title": {
         "description": "Product edition - Traceability codes - Title"
     },
-    "edit_product_form_item_emb_codes_hint": "Input a code (eg: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522…)",
+    "edit_product_form_item_emb_codes_hint": "Εισαγάγετε έναν κωδικό (πχ: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522…)",
     "@edit_product_form_item_emb_codes_hint": {
         "description": "Product edition - Traceability Codes - input textfield hint"
     },
-    "edit_product_form_item_emb_codes_type": "traceability code",
+    "edit_product_form_item_emb_codes_type": "κωδικός ιχνηλασιμότητας",
     "@edit_product_form_item_emb_codes_type": {
         "description": "Product edition - Traceability Codes - input textfield type"
     },
@@ -1649,54 +1649,54 @@
     "@edit_product_form_item_categories_hint": {
         "description": "Product edition - Categories - input textfield hint"
     },
-    "edit_product_form_item_categories_type": "Input a category (eg: Orange juice)",
+    "edit_product_form_item_categories_type": "Εισαγάγετε μια κατηγορία (πχ: χυμός πορτοκαλιού)",
     "@edit_product_form_item_categories_type": {
         "description": "Product edition - Categories - input textfield type"
     },
-    "edit_product_form_item_categories_explainer_1": "Indicate only the most specific category. Parent categories will be automatically added.",
+    "edit_product_form_item_categories_explainer_1": "Αναφέρετε μόνο την πιο συγκεκριμένη κατηγορία. Οι γονικές κατηγορίες θα προστεθούν αυτόματα.",
     "@edit_product_form_item_categories_explainer_1": {
         "description": "Product edition - Categories - input explainer, part 1"
     },
-    "edit_product_form_item_categories_explainer_2": "In case a category is not available in autocomplete, feel free to add it anyway, that will help us improve Open Food Facts in your country.",
+    "edit_product_form_item_categories_explainer_2": "Σε περίπτωση που μια κατηγορία δεν είναι διαθέσιμη σε αυτόματη συμπλήρωση, μη διστάσετε να την προσθέσετε ούτως ή άλλως, θα μας βοηθήσει να βελτιώσουμε το Open Food Facts στη χώρα σας.",
     "@edit_product_form_item_categories_explainer_2": {
         "description": "Product edition - Categories - input explainer, part 2"
     },
-    "edit_product_form_item_categories_explainer_3": "Examples: Sardines in olive oil, Orange juice from concentrate",
+    "edit_product_form_item_categories_explainer_3": "Παραδείγματα: Σαρδέλες σε ελαιόλαδο, Χυμός πορτοκάλι από συμπυκνωμένο χυμό",
     "@edit_product_form_item_categories_explainer_3": {
         "description": "Product edition - Categories - input explainer, part 3"
     },
-    "edit_product_form_item_exit_title": "Quit without saving?",
+    "edit_product_form_item_exit_title": "Έξοδος χωρίς αποθήκευση;",
     "edit_product_form_item_exit_confirmation": "Θέλετε να αποθηκεύσετε τις αλλαγές σας πριν από την έξοδο από αυτή τη σελίδα;",
-    "edit_product_form_item_exit_confirmation_positive_button": "Save changes",
-    "edit_product_form_item_exit_confirmation_negative_button": "Discard changes",
+    "edit_product_form_item_exit_confirmation_positive_button": "Αποθήκευση αλλαγών",
+    "edit_product_form_item_exit_confirmation_negative_button": "Απόρριψη αλλαγών",
     "edit_product_form_item_ingredients_title": "Συστατικά",
     "@edit_product_form_item_ingredients_title": {
         "description": "Product edition - Ingredients - Title (note: this section was previously called Ingredients & Origins)"
     },
-    "edit_product_form_item_ingredients_pinch_to_zoom_tooltip": "Zoom in and out by pinching the screen",
+    "edit_product_form_item_ingredients_pinch_to_zoom_tooltip": "Μεγέθυνση και σμίκρυνση τσιμπώντας την οθόνη",
     "@edit_product_form_item_ingredients_pinch_to_zoom_tooltip": {
         "description": "Product edition - Ingredients - Pinch to zoom icon explanation"
     },
-    "edit_product_form_item_ingredients_pinch_to_zoom_title": "Zoom in and out the photo",
+    "edit_product_form_item_ingredients_pinch_to_zoom_title": "Μεγέθυνση και σμίκρυνση της φωτογραφίας",
     "@edit_product_form_item_ingredients_pinch_to_zoom_title": {
         "description": "Product edition - Ingredients - Pinch to zoom explanation title"
     },
-    "edit_product_form_item_ingredients_pinch_to_zoom_message": "Using the **Pinch-to-zoom gesture**, you can zoom in or out the photo:",
+    "edit_product_form_item_ingredients_pinch_to_zoom_message": "Χρησιμοποιώντας τη χειρονομία **Pinch-to-zoom**, μπορείτε να κάνετε μεγέθυνση ή σμίκρυνση της φωτογραφίας:",
     "@edit_product_form_item_ingredients_pinch_to_zoom_message": {
         "description": "Product edition - Ingredients - Pinch to zoom explanation message"
     },
     "edit_product_form_item_add_valid_item_tooltip": "Προσθήκη",
-    "edit_product_form_item_add_invalid_item_tooltip": "Please enter a text first",
-    "edit_product_form_item_remove_item_tooltip": "Remove",
-    "edit_product_form_item_save_edit_item_tooltip": "Save your edit",
+    "edit_product_form_item_add_invalid_item_tooltip": "Παρακαλώ εισάγετε ένα κείμενο πρώτα",
+    "edit_product_form_item_remove_item_tooltip": "Αφαίρεση",
+    "edit_product_form_item_save_edit_item_tooltip": "Αποθηκεύστε την επεξεργασία σας",
     "@edit_product_form_item_save_edit_item_tooltip": {
         "description": "The user can edit an existing item. This action will save the change."
     },
-    "edit_product_form_item_cancel_edit_item_tooltip": "Cancel your edit",
+    "edit_product_form_item_cancel_edit_item_tooltip": "Ακυρώστε την επεξεργασία σας",
     "@edit_product_form_item_cancel_edit_item_tooltip": {
         "description": "The user can edit an existing item. This action will cancel the change (and return to the initial value)."
     },
-    "edit_product_form_item_packaging_title": "Recycling instructions photo",
+    "edit_product_form_item_packaging_title": "Φωτογραφία οδηγιών ανακύκλωσης",
     "@edit_product_form_item_packaging_title": {
         "description": "Product edition - Packaging - Title"
     },
@@ -1724,30 +1724,30 @@
     "@edit_product_ingredients_list_title": {
         "description": "Product edition - Ingredients - Title"
     },
-    "edit_product_packaging_photo_title": "Packaging photo",
+    "edit_product_packaging_photo_title": "Φωτογραφία συσκευασίας",
     "@edit_product_packaging_photo_title": {
         "description": "Product edition - Packaging - Title"
     },
-    "edit_product_packaging_list_title": "Packaging list",
+    "edit_product_packaging_list_title": "Λίστα συσκευασίας",
     "@edit_product_packaging_list_title": {
         "description": "Product edition - Packaging - Title"
     },
-    "no_data_available": "No data available",
+    "no_data_available": "Δεν υπάρχουν διαθέσιμα δεδομένα",
     "@no_data_available": {
         "description": "When there are no data to display"
     },
-    "product_field_website_title": "Website",
+    "product_field_website_title": "Ιστοσελίδα",
     "@product_field_website_title": {
         "description": "Title of a product field: website"
     },
-    "origins_editing_title": "Edit Origins",
+    "origins_editing_title": "Επεξεργασία Προέλευσης",
     "@origins_editing_title": {
         "description": "Title of the button where users can edit the origins of a product"
     },
     "completed_basic_details_btn_text": "Συμπληρώστε βασικές λεπτομέρειες",
     "not_implemented_snackbar_text": "Δεν έχει υλοποιηθεί ακόμη",
     "category_picker_page_appbar_text": "Κατηγορίες",
-    "edit_ingredients_extract_ingredients_btn_text": "Extract ingredients from the photo",
+    "edit_ingredients_extract_ingredients_btn_text": "Εξαγωγή συστατικών από τη φωτογραφία",
     "@edit_ingredients_extract_ingredients_btn_text": {
         "description": "Ingredients edition - Extract ingredients"
     },
@@ -1755,19 +1755,19 @@
     "@edit_ingredients_extract_ingredients_btn_text_short": {
         "description": "Ingredients edition - Extract ingredients (short label)"
     },
-    "edit_ingredients_extracting_ingredients_btn_text": "Extracting ingredients\nfrom the photo",
+    "edit_ingredients_extracting_ingredients_btn_text": "Εξαγωγή συστατικών\nαπό τη φωτογραφία",
     "@edit_ingredients_extracting_ingredients_btn_text": {
         "description": "Ingredients edition - Extracting ingredients"
     },
-    "edit_ingredients_loading_photo_btn_text": "Loading photo…",
+    "edit_ingredients_loading_photo_btn_text": "Φόρτωση φωτογραφίας…",
     "@edit_ingredients_loading_photo_btn_text": {
         "description": "Ingredients edition - Loading photo from the server"
     },
-    "edit_ingredients_loading_photo_help_dialog_title": "Why do I see this message?",
+    "edit_ingredients_loading_photo_help_dialog_title": "Γιατί βλέπω αυτό το μήνυμα;",
     "@edit_ingredients_loading_photo_help_dialog_title": {
         "description": "Ingredients edition - Dialog explaining why the photo is loading - Title"
     },
-    "edit_ingredients_loading_photo_help_dialog_body": "To use the \"Extract ingredients\" feature, the photo needs to be uploaded first.\n\nPlease wait a few seconds or enter them manually.",
+    "edit_ingredients_loading_photo_help_dialog_body": "Για να χρησιμοποιήσετε τη λειτουργία \"Εξαγωγή συστατικών\", πρέπει πρώτα να ανεβάσετε τη φωτογραφία.\n\nΠεριμένετε μερικά δευτερόλεπτα ή εισάγετέ τα χειροκίνητα.",
     "@edit_ingredients_loading_photo_help_dialog_body": {
         "description": "Ingredients edition - Dialog explaining why the photo is loading - Content"
     },
@@ -1775,27 +1775,27 @@
     "@edit_ingredients_refresh_photo_btn_text": {
         "description": "Ingredients edition - Refresh photo"
     },
-    "edit_packaging_extract_btn_text": "Extract packaging\nfrom the photo",
+    "edit_packaging_extract_btn_text": "Εξαγωγή συσκευασίας\nαπό τη φωτογραφία",
     "@edit_packaging_extract_btn_text": {
         "description": "Packaging edition - OCR-Extract packaging"
     },
-    "edit_packaging_extract_btn_text_short": "Extract packaging",
+    "edit_packaging_extract_btn_text_short": "Εξαγωγή συσκευασίας",
     "@edit_packaging_extract_btn_text_short": {
         "description": "Packaging edition - OCR-Extract packaging (short label)"
     },
-    "edit_packaging_extracting_btn_text": "Extracting packaging from the photo",
+    "edit_packaging_extracting_btn_text": "Γίνεται εξαγωγή συσκευασίας από τη φωτογραφία",
     "@edit_packaging_extracting_btn_text": {
         "description": "Packaging edition - OCR-Extracting packaging"
     },
-    "edit_packaging_loading_photo_btn_text": "Loading photo…",
+    "edit_packaging_loading_photo_btn_text": "Φόρτωση φωτογραφίας…",
     "@edit_packaging_loading_photo_btn_text": {
         "description": "Packaging edition - Loading photo from the server"
     },
-    "edit_packaging_loading_photo_help_dialog_title": "Why do I see this message?",
+    "edit_packaging_loading_photo_help_dialog_title": "Γιατί βλέπω αυτό το μήνυμα;",
     "@edit_packaging_loading_photo_help_dialog_title": {
         "description": "Packaging edition - Dialog explaining why the photo is loading - Title"
     },
-    "edit_packaging_loading_photo_help_dialog_body": "To use the \"Extract packaging\" feature, the photo needs to be uploaded first.\n\nPlease wait a few seconds or enter them manually.",
+    "edit_packaging_loading_photo_help_dialog_body": "Για να χρησιμοποιήσετε τη λειτουργία \"Εξαγωγή συσκευασίας\", πρέπει πρώτα να μεταφορτωθεί η φωτογραφία.\n\nΠεριμένετε μερικά δευτερόλεπτα ή εισάγετέ τα χειροκίνητα.",
     "@edit_packaging_loading_photo_help_dialog_body": {
         "description": "Packaging edition - Dialog explaining why the photo is loading - Content"
     },
@@ -2227,7 +2227,7 @@
             }
         }
     },
-    "prices_button_count_user": "{count,plural, =0{No user} =1{One user} other{{count} users}}",
+    "prices_button_count_user": "{count,plural, one {}=0{Κανένας χρήστης} =1{Ένας χρήστης} other{{count} χρήστες}}",
     "@prices_button_count_user": {
         "description": "Number of users, for a button",
         "placeholders": {
@@ -2236,7 +2236,7 @@
             }
         }
     },
-    "prices_button_count_price": "{count,plural, =0{No price} =1{One price} other{{count} prices}}",
+    "prices_button_count_price": "{count,plural, one {}=0{Καμία τιμή} =1{Μία τιμή} other{{count} τιμές}}",
     "@prices_button_count_price": {
         "description": "Number of prices, for a button",
         "placeholders": {
@@ -2245,36 +2245,36 @@
             }
         }
     },
-    "prices_amount_subtitle": "Amount",
-    "prices_amount_is_discounted": "Is discounted?",
+    "prices_amount_subtitle": "Ποσότητα",
+    "prices_amount_is_discounted": "Σε έκπτωση;",
     "prices_amount_price_normal": "Price",
     "prices_amount_price_discounted": "Discounted price",
-    "prices_amount_price_not_discounted": "Original price",
-    "prices_amount_no_product": "One product is missing!",
-    "prices_amount_price_incorrect": "Incorrect value",
-    "prices_amount_price_mandatory": "Mandatory value",
+    "prices_amount_price_not_discounted": "Αρχική τιμή",
+    "prices_amount_no_product": "Ένα προϊόν λείπει!",
+    "prices_amount_price_incorrect": "Λάθος τιμή",
+    "prices_amount_price_mandatory": "Υποχρεωτική τιμή",
     "prices_currency_subtitle": "Currency",
     "prices_date_subtitle": "Date",
-    "prices_location_subtitle": "Shop",
-    "prices_location_find": "Find a shop",
-    "prices_location_mandatory": "You need to select a shop!",
-    "prices_location_search_broader": "Couldn't find what you were looking for? Let's try a broader search!",
+    "prices_location_subtitle": "Κατάστημα",
+    "prices_location_find": "Βρείτε ένα κατάστημα",
+    "prices_location_mandatory": "Πρέπει να επιλέξετε ένα κατάστημα!",
+    "prices_location_search_broader": "Δεν βρήκατε αυτό που ψάχνατε; Ας δοκιμάσουμε μια ευρύτερη αναζήτηση!",
     "prices_proof_subtitle": "Proof",
-    "prices_proof_find": "Select a proof",
+    "prices_proof_find": "Επιλέξτε μια απόδειξη",
     "prices_proof_receipt": "Receipt",
     "prices_proof_price_tag": "Price tag",
-    "prices_proof_mandatory": "You need to select a proof!",
-    "prices_add_validation_error": "Validation error",
-    "prices_privacy_warning_title": "Privacy warning",
+    "prices_proof_mandatory": "Πρέπει να επιλέξετε μια απόδειξη!",
+    "prices_add_validation_error": "Σφάλμα επικύρωσης",
+    "prices_privacy_warning_title": "Ειδοποίηση απορρήτου",
     "prices_unknown_product": "Unknown product",
-    "prices_privacy_warning_main_message": "Prices **will be public**, along with the store they refer to.\n\nThat might allow people who know about your Open Food Facts pseudonym to:\n",
-    "prices_privacy_warning_message_bullet_1": "Infer in which area you live",
-    "prices_privacy_warning_message_bullet_2": "Know what you are buying",
-    "prices_privacy_warning_sub_message": "If you are uneasy with that, please change your pseudonym, or create a new Open Food Facts account and log into the app with it.",
-    "i_refuse": "I refuse",
-    "i_accept": "I accept",
-    "prices_currency_change_proposal_title": "Change the currency?",
-    "prices_currency_change_proposal_message": "Your current currency is **{currency}**. Would you like to change it to **{newCurrency}**?",
+    "prices_privacy_warning_main_message": "Οι τιμές **θα είναι δημόσιες**, μαζί με το κατάστημα στο οποίο αναφέρονται.\n\nΑυτό μπορεί να επιτρέψει σε άτομα που γνωρίζουν το ψευδώνυμό σας Open Food Facts να:\n",
+    "prices_privacy_warning_message_bullet_1": "Συμπεράνει σε ποια περιοχή μένετε",
+    "prices_privacy_warning_message_bullet_2": "Μάθει τι αγοράζετε",
+    "prices_privacy_warning_sub_message": "Εάν νιώθετε άβολα με αυτό, αλλάξτε το ψευδώνυμό σας ή δημιουργήστε έναν νέο λογαριασμό Open Food Facts και συνδεθείτε στην εφαρμογή με αυτόν.",
+    "i_refuse": "Αρνούμαι",
+    "i_accept": "Αποδέχομαι",
+    "prices_currency_change_proposal_title": "Αλλαγή του νομίσματος;",
+    "prices_currency_change_proposal_message": "Το τρέχον νόμισμά σας είναι **{currency}**. Θέλετε να το αλλάξετε σε **{newCurrency}**;",
     "@prices_currency_change_proposal_message": {
         "description": "Message to ask the user if they want to change the currency",
         "placeholders": {
@@ -2286,7 +2286,7 @@
             }
         }
     },
-    "prices_currency_change_proposal_action_approve": "Yes, use {newCurrency}",
+    "prices_currency_change_proposal_action_approve": "Ναι, χρήση του {newCurrency}",
     "@prices_currency_change_proposal_action_approve": {
         "description": "Button to approve the currency change",
         "placeholders": {
@@ -2295,7 +2295,7 @@
             }
         }
     },
-    "prices_currency_change_proposal_action_cancel": "No, keep {currency}",
+    "prices_currency_change_proposal_action_cancel": "Όχι, διατήρηση του {currency}",
     "@prices_currency_change_proposal_action_cancel": {
         "description": "Button to cancel the currency change",
         "placeholders": {
@@ -2307,33 +2307,33 @@
     "@prices_unknown_product": {
         "description": "Very small text, in the context of prices, to say that the product is unknown"
     },
-    "dev_preferences_import_history_result_success": "Done",
+    "dev_preferences_import_history_result_success": "Τέλος",
     "@dev_preferences_import_history_result_success": {
         "description": "User dev preferences - Import history - Result successful"
     },
-    "dev_mode_section_server": "Server configuration",
-    "dev_mode_section_news": "News provider configuration",
-    "dev_mode_section_product_page": "Product page",
-    "dev_mode_section_ui": "User Interface",
+    "dev_mode_section_server": "Διαμόρφωση διακομιστή",
+    "dev_mode_section_news": "Διαμόρφωση παρόχου ειδήσεων",
+    "dev_mode_section_product_page": "Σελίδα προϊόντος",
+    "dev_mode_section_ui": "Διεπαφή Χρήστη",
     "dev_mode_section_data": "Δεδομένα",
-    "dev_mode_section_experimental_features": "Experimental features",
-    "dev_preferences_show_folksonomy_title": "Exclude Folksonomy",
+    "dev_mode_section_experimental_features": "Πειραματικές δυνατότητες",
+    "dev_preferences_show_folksonomy_title": "Εξαίρεση του Folksonomy",
     "@dev_preferences_show_folksonomy_title": {
         "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
     },
-    "dev_mode_hide_environmental_score_title": "Exclude Green Score",
+    "dev_mode_hide_environmental_score_title": "Εξαίρεση του Green-Score",
     "@dev_mode_hide_environmental_score_title": {
         "description": "User dev preferences - Disable Green Score - Title"
     },
-    "dev_mode_spellchecker_for_ocr_title": "Use a spellchecker for OCR screens",
+    "dev_mode_spellchecker_for_ocr_title": "Χρήση ορθογραφικού ελέγχου για οθόνες OCR",
     "@dev_mode_spellchecker_for_ocr_title": {
         "description": "User dev preferences - Enable Spellchecker on OCR screens - Title"
     },
-    "dev_mode_spellchecker_for_ocr_subtitle": "(Ingredients and packaging)",
+    "dev_mode_spellchecker_for_ocr_subtitle": "(Συστατικά και συσκευασία)",
     "@dev_mode_spellchecker_for_ocr_subtitle": {
         "description": "User dev preferences - Enable Spellchecker on OCR screens - Subtitle"
     },
-    "search_history_item_edit_tooltip": "Reuse and edit this search",
+    "search_history_item_edit_tooltip": "Επαναχρησιμοποίηση και επεξεργασία αυτής της αναζήτησης",
     "@search_history_item_edit_tooltip": {
         "description": "A tooltip to explain the Pen button near a search term -> it allows to reuse the item"
     },
@@ -2361,7 +2361,7 @@
             }
         }
     },
-    "product_search_loading_message": "Your search of {search} is in progress.\n\nPlease wait a few seconds…",
+    "product_search_loading_message": "Η αναζήτησή σας για {search} είναι σε εξέλιξη.\n\nΠεριμένετε λίγα δευτερόλεπτα…",
     "@product_search_loading_message": {
         "description": "This message will be displayed when a search is in progress.",
         "search": {
@@ -2380,7 +2380,7 @@
     "@user_search_photographer_title": {
         "description": "User search (photographer): list tile title"
     },
-    "user_search_to_be_completed_title": "My to-be-completed products",
+    "user_search_to_be_completed_title": "Τα προς ολοκλήρωση προϊόντα μου",
     "@user_search_to_be_completed_title": {
         "description": "User search (to be completed): list tile title"
     },
@@ -2392,27 +2392,27 @@
     "@user_search_proofs_title": {
         "description": "User proofs: list tile title"
     },
-    "user_search_proof_title": "My proof",
+    "user_search_proof_title": "Η απόδειξή μου",
     "@user_search_proof_title": {
         "description": "User proof: page title"
     },
-    "user_any_search_prices_title": "Contributor prices",
+    "user_any_search_prices_title": "Τιμές συνεισφερόντων",
     "@user_any_search_prices_title": {
         "description": "User prices (everybody except me): list tile title"
     },
-    "all_search_prices_latest_title": "Latest Prices added",
+    "all_search_prices_latest_title": "Προστέθηκαν οι πιο Πρόσφατες Τιμές",
     "@all_search_prices_latest_title": {
         "description": "Latest prices: list tile title"
     },
-    "all_search_prices_top_user_title": "Top price contributors",
+    "all_search_prices_top_user_title": "Κορυφαίοι συνεισφέροντες τιμών",
     "@all_search_prices_top_user_title": {
         "description": "Top price users: list tile title"
     },
-    "all_search_prices_top_location_title": "Stores with the most prices",
+    "all_search_prices_top_location_title": "Καταστήματα με τις περισσότερες τιμές",
     "@all_search_prices_top_location_title": {
         "description": "Top price locations: list tile title"
     },
-    "all_search_prices_top_location_single_title": "Prices in a store",
+    "all_search_prices_top_location_single_title": "Τιμές σε ένα κατάστημα",
     "@all_search_prices_top_location_single_title": {
         "description": "Top price locations: list tile title"
     },
@@ -2516,8 +2516,21 @@
     },
     "basic_details": "Βασικές Λεπτομέρειες",
     "product_name": "Όνομα Προϊόντος",
+    "product_names": "Product Names",
+    "add_basic_details_product_name_add_translation": "Add a new translation",
+    "add_basic_details_product_name_open_photo": "View front photo",
+    "add_basic_details_product_name_take_photo": "Take front photo",
     "add_basic_details_product_name_error": "Παρακαλώ εισάγετε το όνομα του προϊόντος",
     "add_basic_details_product_name_hint": "Input the name of the product (eg: Nutella)",
+    "add_basic_details_product_name_other_translations": "{count,plural, one{{count} other translation} other{{count} other translations}}",
+    "@add_basic_details_product_name_other_translations": {
+        "description": "The number of other translations for a product name (count is always >= 1)",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
     "brand_name": "Μάρκα",
     "brand_names": "Brand names",
     "add_basic_details_brand_name_error": "Παρακαλώ εισάγετε το όνομα της μάρκας",
