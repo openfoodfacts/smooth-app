@@ -74,14 +74,16 @@ Widget build(BuildContext context) {
   return DecoratedBox(
     decoration: BoxDecoration(
       borderRadius: borderRadius ?? ROUNDED_BORDER_RADIUS,
-      boxShadow: const &lt;BoxShadow&gt;[
-        BoxShadow(
-          color: Color(0x03000000),
-          blurRadius: 2.0,
-          spreadRadius: 0.0,
-          offset: Offset(0.0, 2.0),
-        ),
-      ],
+      boxShadow: includeShadow
+          ? const &lt;BoxShadow&gt;[
+              BoxShadow(
+                color: Color(0x10000000),
+                blurRadius: 2.0,
+                spreadRadius: 0.0,
+                offset: Offset(0.0, 2.0),
+              ),
+            ]
+          : null,
     ),
     child: Column(
       children: &lt;Widget&gt;[
@@ -141,6 +143,7 @@ Widget build(BuildContext context) {
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_smooth_card/SmoothCardWithRoundedHeader/contentBackgroundColor.html">contentBackgroundColor</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_smooth_card/SmoothCardWithRoundedHeader/contentPadding.html">contentPadding</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_smooth_card/SmoothCardWithRoundedHeader/includeShadow.html">includeShadow</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_smooth_card/SmoothCardWithRoundedHeader/leading.html">leading</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_smooth_card/SmoothCardWithRoundedHeader/leadingIconSize.html">leadingIconSize</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_widgets_smooth_card/SmoothCardWithRoundedHeader/leadingPadding.html">leadingPadding</a></li>
