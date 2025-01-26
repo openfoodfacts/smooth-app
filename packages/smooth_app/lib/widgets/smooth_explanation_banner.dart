@@ -149,9 +149,10 @@ class ExplanationBodyInfo extends StatelessWidget {
   Widget build(BuildContext context) {
     final SmoothColorsThemeExtension extension =
         context.extension<SmoothColorsThemeExtension>();
+    final bool lightTheme = context.lightTheme();
 
     return ColoredBox(
-      color: extension.primaryMedium,
+      color: lightTheme ? extension.primaryMedium : extension.primaryTone,
       child: ClipRect(
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.end,
@@ -162,7 +163,9 @@ class ExplanationBodyInfo extends StatelessWidget {
                 offset: const Offset(-17.0, 09.0),
                 child: icons.Info(
                   size: 55.0,
-                  color: extension.primaryNormal,
+                  color: lightTheme
+                      ? extension.primaryNormal
+                      : extension.primaryMedium,
                 ),
               ),
             ),
@@ -174,7 +177,12 @@ class ExplanationBodyInfo extends StatelessWidget {
                   top: MEDIUM_SPACE,
                   bottom: MEDIUM_SPACE,
                 ),
-                child: TextWithBoldParts(text: text),
+                child: TextWithBoldParts(
+                  text: text,
+                  textStyle: TextStyle(
+                    color: lightTheme ? extension.primaryDark : Colors.white,
+                  ),
+                ),
               ),
             ),
           ],
@@ -357,7 +365,9 @@ class _ExplanationBodyListItem extends StatelessWidget {
                   child: Text(
                     explanation!,
                     style: TextStyle(
-                      color: extension.primaryDark,
+                      color: lightTheme
+                          ? extension.primaryDark
+                          : extension.primaryLight,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -368,7 +378,7 @@ class _ExplanationBodyListItem extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: lightTheme
                       ? extension.primaryLight
-                      : extension.primaryLight,
+                      : extension.primaryMedium,
                   borderRadius: ROUNDED_BORDER_RADIUS,
                 ),
                 child: Padding(
@@ -376,7 +386,10 @@ class _ExplanationBodyListItem extends StatelessWidget {
                     horizontal: MEDIUM_SPACE,
                     vertical: BALANCED_SPACE,
                   ),
-                  child: TextWithBoldParts(text: example),
+                  child: TextWithBoldParts(
+                    text: example,
+                    textStyle: const TextStyle(color: Colors.black),
+                  ),
                 ),
               )
             ],
