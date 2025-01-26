@@ -47,7 +47,8 @@ class UserPreferencesConnect extends AbstractUserPreferences {
   List<UserPreferencesItem> getChildren() => <UserPreferencesItem>[
         _getListTile(
           title: appLocalizations.contact_title_newsletter,
-          url: 'https://link.openfoodfacts.org/newsletter-en?utm_source=off&utf_medium=mobile_app&utm_campaign=settings_contact',
+          url:
+              'https://link.openfoodfacts.org/newsletter-en?utm_source=off&utf_medium=mobile_app&utm_campaign=settings_contact',
           leadingIconData: CupertinoIcons.news_solid,
         ),
         _getListTile(
@@ -112,18 +113,21 @@ class UserPreferencesConnect extends AbstractUserPreferences {
         ),
         _getListTile(
           title: appLocalizations.blog,
-          url: 'https://blog.openfoodfacts.org/?utm_source=off&utf_medium=mobile_app&utm_campaign=settings_contact',
+          url:
+              'https://blog.openfoodfacts.org/?utm_source=off&utf_medium=mobile_app&utm_campaign=settings_contact',
           leadingIconData: Icons.newspaper,
         ),
         _getDivider(),
         _getListTile(
           title: appLocalizations.support_via_forum,
-          url: 'https://forum.openfoodfacts.org/?utm_source=off&utf_medium=mobile_app&utm_campaign=settings_contact',
+          url:
+              'https://forum.openfoodfacts.org/?utm_source=off&utf_medium=mobile_app&utm_campaign=settings_contact',
           leadingIconData: Icons.forum,
         ),
         _getListTile(
           title: appLocalizations.support_join_slack,
-          url: 'https://slack.openfoodfacts.org/?utm_source=off&utf_medium=mobile_app&utm_campaign=settings_contact',
+          url:
+              'https://slack.openfoodfacts.org/?utm_source=off&utf_medium=mobile_app&utm_campaign=settings_contact',
           leadingIconData: Icons.chat,
         ),
         _getDivider(),
