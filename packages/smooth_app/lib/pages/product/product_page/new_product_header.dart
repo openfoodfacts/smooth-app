@@ -175,7 +175,7 @@ class _ProductHeaderBackButton extends StatelessWidget {
             child: SizedBox.expand(
               child: backButtonType == ProductPageBackButton.minimize
                   ? const icons.Chevron.down(size: 16.0)
-                  : Icon(ConstantIcons.instance.getBackIcon()),
+                  : Icon(ConstantIcons.backIcon),
             ),
           ),
         ),

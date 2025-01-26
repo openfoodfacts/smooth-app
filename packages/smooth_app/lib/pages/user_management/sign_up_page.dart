@@ -165,6 +165,7 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
                 focusNode: _password1FocusNode,
                 textInputAction: TextInputAction.next,
                 hintText: appLocalizations.sign_up_page_password_hint,
+                maxLines: 1,
                 onFieldSubmitted: (_) =>
                     FocusScope.of(context).requestFocus(_password2FocusNode),
                 prefixIcon: const Icon(Icons.vpn_key),
@@ -188,6 +189,7 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
                 focusNode: _password2FocusNode,
                 textInputAction: TextInputAction.send,
                 hintText: appLocalizations.sign_up_page_confirm_password_hint,
+                maxLines: 1,
                 prefixIcon: const Icon(Icons.vpn_key),
                 autofillHints: const <String>[
                   AutofillHints.newPassword,

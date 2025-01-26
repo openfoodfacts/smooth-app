@@ -15,7 +15,6 @@ import 'package:smooth_app/pages/user_management/login_page.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/query/search_products_manager.dart';
 import 'package:smooth_app/services/smooth_services.dart';
-import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
 /// Refreshes a product on the BE then on the local database.
 class ProductRefresher {
@@ -146,22 +145,9 @@ class ProductRefresher {
       return false;
     }
     if (context.mounted) {
-      final ThemeData themeData = Theme.of(context);
-
       ScaffoldMessenger.of(context).showSnackBar(
-        SmoothFloatingSnackbar(
-          content: Row(
-            children: <Widget>[
-              Expanded(child: Text(appLocalizations.product_refreshed)),
-              const Icon(
-                Icons.check_circle,
-                color: Colors.white,
-              ),
-            ],
-          ),
-          backgroundColor:
-              themeData.extension<SmoothColorsThemeExtension>()!.green,
-        ),
+        SmoothFloatingSnackbar.positive(
+            context: context, text: appLocalizations.product_refreshed),
       );
     }
     return true;

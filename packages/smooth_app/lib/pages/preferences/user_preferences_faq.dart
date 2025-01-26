@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:smooth_app/cards/category_cards/svg_cache.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -48,7 +49,7 @@ class UserPreferencesFaq extends AbstractUserPreferences {
         _getListTile(
           title: appLocalizations.faq,
           leadingIconData: Icons.question_mark,
-          url: 'https://support.openfoodfacts.org/help',
+          url: _getFAQUrl(),
         ),
         _getNutriListTile(
           title: appLocalizations.nutriscore_generic,
@@ -155,7 +156,7 @@ class UserPreferencesFaq extends AbstractUserPreferences {
                 ? 'assets/app/RVB_ICON_BLACK_BG_OPF.svg'
                 : 'assets/app/RVB_ICON_WHITE_BG_OPF.svg',
             url:
-                'https://play.google.com/store/apps/details?id=org.openpetfoodfacts.scanner&hl=${ProductQuery.getLanguage().offTag}',
+                'https://play.google.com/store/apps/details?id=org.openproductsfacts.scanner&hl=${ProductQuery.getLanguage().offTag}',
           ),
         _getListTile(
           title: appLocalizations.about_this_app,
@@ -178,7 +179,11 @@ class UserPreferencesFaq extends AbstractUserPreferences {
         labels: <String>[title],
         builder: (_) => UserPreferencesListTile(
           title: Text(title),
-          onTap: onTap ?? () async => LaunchUrlHelper.launchURL(url!),
+          onTap: onTap ??
+              () async => LaunchUrlHelper.launchURLInWebViewOrBrowser(
+                    context,
+                    url!,
+                  ),
           trailing: icon ??
               UserPreferencesListTile.getTintedIcon(Icons.open_in_new, context),
           leading: SizedBox(
@@ -273,7 +278,9 @@ class UserPreferencesFaq extends AbstractUserPreferences {
                       ),
                       const SizedBox(height: VERY_SMALL_SPACE),
                       SmoothAlertContentButton(
-                        onPressed: () async => LaunchUrlHelper.launchURL(
+                        onPressed: () async =>
+                            LaunchUrlHelper.launchURLInWebViewOrBrowser(
+                          context,
                           ProductQuery.replaceSubdomain(
                             'https://world.openfoodfacts.org/who-we-are',
                           ),
@@ -283,7 +290,9 @@ class UserPreferencesFaq extends AbstractUserPreferences {
                       ),
                       const SizedBox(height: VERY_SMALL_SPACE),
                       SmoothAlertContentButton(
-                        onPressed: () async => LaunchUrlHelper.launchURL(
+                        onPressed: () async =>
+                            LaunchUrlHelper.launchURLInWebViewOrBrowser(
+                          context,
                           ProductQuery.replaceSubdomain(
                             'https://world.openfoodfacts.org/terms-of-use',
                           ),
@@ -293,7 +302,9 @@ class UserPreferencesFaq extends AbstractUserPreferences {
                       ),
                       const SizedBox(height: VERY_SMALL_SPACE),
                       SmoothAlertContentButton(
-                        onPressed: () async => LaunchUrlHelper.launchURL(
+                        onPressed: () async =>
+                            LaunchUrlHelper.launchURLInWebViewOrBrowser(
+                          context,
                           ProductQuery.replaceSubdomain(
                             'https://world.openfoodfacts.org/legal',
                           ),
@@ -303,7 +314,9 @@ class UserPreferencesFaq extends AbstractUserPreferences {
                       ),
                       const SizedBox(height: VERY_SMALL_SPACE),
                       SmoothAlertContentButton(
-                        onPressed: () => LaunchUrlHelper.launchURL(
+                        onPressed: () =>
+                            LaunchUrlHelper.launchURLInWebViewOrBrowser(
+                          context,
                           ProductQuery.replaceSubdomain(
                             'https://world.openfoodfacts.org/privacy',
                           ),
@@ -339,5 +352,22 @@ class UserPreferencesFaq extends AbstractUserPreferences {
         );
       },
     );
+  }
+
+  String _getFAQUrl() {
+    final OpenFoodFactsLanguage language = ProductQuery.getLanguage();
+
+    // TODO(teolemon): regularly check for additional translations
+    return switch (language) {
+      OpenFoodFactsLanguage.FRENCH =>
+        'https://support.openfoodfacts.org/help/fr-fr',
+      OpenFoodFactsLanguage.ITALIAN =>
+        'https://support.openfoodfacts.org/help/it-it',
+      OpenFoodFactsLanguage.GERMAN =>
+        'https://support.openfoodfacts.org/help/de-de',
+      OpenFoodFactsLanguage.SPANISH =>
+        'https://support.openfoodfacts.org/help/es-es',
+      _ => 'https://support.openfoodfacts.org/help',
+    };
   }
 }

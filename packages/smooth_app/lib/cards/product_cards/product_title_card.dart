@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_base_card.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_image.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/widgets/picture_not_found.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/product/gallery_view/product_image_gallery_view.dart';
 
@@ -50,6 +51,7 @@ class ProductTitleCard extends StatelessWidget {
         const SizedBox(height: SMALL_SPACE),
         _ProductTitleCardBrand(
           selectable: isSelectable,
+          dense: dense,
         ),
         const SizedBox(height: 2.0),
         trailing,
@@ -82,7 +84,7 @@ class ProductTitleCard extends StatelessWidget {
                     imageFoundBorder: 1.0,
                     imageNotFoundBorder: 1.0,
                     heroTag: heroTag,
-                    borderRadius: BorderRadius.circular(14.0),
+                    noImageBuilder: (_) => const PictureNotFound(),
                     onTap: !dense
                         ? () async => Navigator.push<void>(
                               context,
@@ -103,10 +105,7 @@ class ProductTitleCard extends StatelessWidget {
                     top: VERY_SMALL_SPACE,
                     bottom: VERY_SMALL_SPACE,
                   ),
-                  child: SelectionArea(
-                    selectionControls: null,
-                    child: child,
-                  ),
+                  child: child,
                 ),
               ),
             ],
@@ -148,7 +147,7 @@ class _ProductTitleCardName extends StatelessWidget {
       getProductName(product, appLocalizations),
       style: dense ? textStyle : textStyle?.copyWith(fontSize: 18.0),
       textAlign: TextAlign.start,
-      maxLines: dense ? 2 : null,
+      maxLines: 2,
       overflow: TextOverflow.ellipsis,
     );
   }
@@ -157,9 +156,11 @@ class _ProductTitleCardName extends StatelessWidget {
 class _ProductTitleCardBrand extends StatelessWidget {
   const _ProductTitleCardBrand({
     required this.selectable,
+    this.dense = false,
   });
 
   final bool selectable;
+  final bool dense;
 
   @override
   Widget build(BuildContext context) {
@@ -170,6 +171,8 @@ class _ProductTitleCardBrand extends StatelessWidget {
 
     return Text(
       brands,
+      maxLines: dense ? 1 : 2,
+      overflow: dense ? TextOverflow.ellipsis : null,
       style: Theme.of(context).textTheme.bodyMedium,
       textAlign: TextAlign.start,
     );

@@ -38,46 +38,237 @@ Future<_PhotoRowActions?> _showPhotoBanner({
       const Icon(Icons.perm_media_rounded),
       const Icon(Icons.image_search_rounded),
     ],
-    addEndArrowToItems: true,
-    footer: _PhotoRowBanner(
-      children: <Widget>[
-        _PhotoRowDate(transientFile: transientFile),
-        _PhotoRowLockedStatus(
-          product: product,
-          imageField: imageField,
-          language: language,
-        ),
-      ],
+    contentPadding: const EdgeInsetsDirectional.symmetric(
+      horizontal: LARGE_SPACE,
     ),
+    addEndArrowToItems: true,
+    footerBackgroundColor: lightTheme ? extension.primaryLight : null,
+    footerSpace: VERY_SMALL_SPACE,
+    footer: transientFile.isImageAvailable()
+        ? _PhotoRowBanner(
+            product: product,
+            imageField: imageField,
+            language: language,
+            transientFile: transientFile,
+          )
+        : null,
   );
 
   return action;
-}
-
-class _PhotoRowBanner extends StatelessWidget {
-  const _PhotoRowBanner({required this.children});
-
-  final List<Widget> children;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsetsDirectional.only(
-        top: MEDIUM_SPACE,
-        bottom: !(Platform.isIOS || Platform.isMacOS) ? 0.0 : VERY_SMALL_SPACE,
-      ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: children,
-      ),
-    );
-  }
 }
 
 enum _PhotoRowActions {
   takePicture,
   selectFromGallery,
   selectFromProductPhotos,
+}
+
+class _PhotoRowBanner extends StatefulWidget {
+  const _PhotoRowBanner({
+    required this.product,
+    required this.imageField,
+    required this.language,
+    required this.transientFile,
+  });
+
+  final Product product;
+  final ImageField imageField;
+  final OpenFoodFactsLanguage language;
+  final TransientFile transientFile;
+
+  @override
+  State<_PhotoRowBanner> createState() => _PhotoRowBannerState();
+}
+
+class _PhotoRowBannerState extends State<_PhotoRowBanner> {
+  late bool _expanded;
+  late final bool _dateInitiallyVisible;
+  late final bool _contributorInitiallyVisible;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _dateInitiallyVisible = _PhotoRowDate.isVisible(widget.transientFile);
+    _contributorInitiallyVisible = _PhotoRowContributor.isVisible(
+      widget.product,
+      widget.imageField,
+      widget.language,
+    );
+    _expanded = _dateInitiallyVisible && _contributorInitiallyVisible;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
+    final bool lightTheme = context.lightTheme();
+
+    return ListTileTheme.merge(
+      titleTextStyle: TextStyle(
+        inherit: true,
+        fontSize: 16.0,
+        fontWeight: FontWeight.w500,
+        color: lightTheme ? Colors.black : Colors.white,
+        fontFamily: 'OpenSans',
+      ),
+      leadingAndTrailingTextStyle: TextStyle(
+        fontSize: 16.0,
+        fontWeight: FontWeight.w500,
+        color: lightTheme ? Colors.black : Colors.white,
+        fontFamily: 'OpenSans',
+      ),
+      contentPadding: const EdgeInsetsDirectional.only(
+        start: BALANCED_SPACE,
+        end: LARGE_SPACE,
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Material(
+            type: MaterialType.transparency,
+            child: InkWell(
+              onTap: !_expanded
+                  ? () => setState(() => _expanded = !_expanded)
+                  : null,
+              child: Ink(
+                width: double.infinity,
+                color: extension.primaryDark,
+                padding: const EdgeInsetsDirectional.symmetric(
+                  horizontal: MEDIUM_SPACE,
+                  vertical: MEDIUM_SPACE,
+                ),
+                child: Row(
+                  children: <Widget>[
+                    Expanded(
+                      child: Text(
+                        AppLocalizations.of(context)
+                            .product_image_details_label,
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 17.0,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    if (!_expanded)
+                      Padding(
+                        padding: const EdgeInsetsDirectional.only(
+                          end: 9.0,
+                        ),
+                        child: Semantics(
+                          value: MaterialLocalizations.of(context)
+                              .expandedIconTapHint,
+                          excludeSemantics: true,
+                          child: const icons.Chevron.down(
+                            size: 18.0,
+                            color: Colors.white,
+                          ),
+                        ),
+                      )
+                  ],
+                ),
+              ),
+            ),
+          ),
+          if (_expanded || _dateInitiallyVisible)
+            _PhotoRowDate(
+              transientFile: widget.transientFile,
+            ),
+          if (_expanded) const Divider(color: Colors.white),
+          if (_expanded || _contributorInitiallyVisible)
+            _PhotoRowContributor(
+              product: widget.product,
+              imageField: widget.imageField,
+              language: widget.language,
+            ),
+        ],
+      ),
+    );
+  }
+}
+
+class _PhotoRowContributor extends StatelessWidget {
+  const _PhotoRowContributor({
+    required this.product,
+    required this.imageField,
+    required this.language,
+  });
+
+  final Product product;
+  final ImageField imageField;
+  final OpenFoodFactsLanguage language;
+
+  static bool isVisible(Product product, ImageField imageField,
+          OpenFoodFactsLanguage language) =>
+      product.isImageLocked(imageField, language) == true;
+
+  @override
+  Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
+
+    final bool isLocked = isVisible(product, imageField, language);
+    final String? contributor = _contributor;
+
+    final String title;
+    final String value;
+    final Widget icon;
+    final EdgeInsetsGeometry padding;
+
+    if (contributor?.isNotEmpty == true) {
+      title = isLocked
+          ? appLocalizations.product_image_details_contributor_producer
+          : appLocalizations.product_image_details_contributor;
+      value = contributor!;
+    } else {
+      title = appLocalizations.product_image_details_from_producer;
+      value = isLocked ? appLocalizations.yes : appLocalizations.no;
+    }
+
+    if (isLocked) {
+      icon = const OwnerFieldIcon(size: 19.0);
+      padding = const EdgeInsetsDirectional.only(bottom: 1.0, end: 1.0);
+    } else {
+      icon = const Icon(Icons.person);
+      padding = EdgeInsets.zero;
+    }
+
+    return ListTile(
+      leading: _PhotoRowDetailsIcon(
+        color: extension.primaryDark,
+        icon: icon,
+        padding: padding,
+      ),
+      title: Text(title),
+      trailing: Text(value),
+    );
+  }
+
+  String? get _contributor {
+    if (product.images == null) {
+      return null;
+    }
+
+    for (final ProductImage productImage in product.images!) {
+      if (productImage.field == imageField &&
+          productImage.language == language) {
+        if (productImage.contributor != null) {
+          /// Always null in my tests
+          return productImage.contributor;
+        }
+
+        /// Let's try to find by the image id
+        return product.images!.firstWhereOrNull((ProductImage img) {
+          return productImage.imgid == img.imgid;
+        })?.contributor;
+      }
+    }
+
+    return null;
+  }
 }
 
 /// The date of the photo (used in the modal sheet)
@@ -88,47 +279,43 @@ class _PhotoRowDate extends StatelessWidget {
 
   final TransientFile transientFile;
 
+  static bool isVisible(TransientFile transientFile) => transientFile.expired;
+
   @override
   Widget build(BuildContext context) {
-    if (!transientFile.isImageAvailable()) {
-      return EMPTY_WIDGET;
-    }
-
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final SmoothColorsThemeExtension extension =
         context.extension<SmoothColorsThemeExtension>();
-    final bool outdated = transientFile.expired;
 
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final bool outdated = isVisible(transientFile);
 
-    return _PhotoRowInfo(
-      icon: outdated ? _outdatedIcon : _successIcon,
-      iconBackgroundColor: outdated ? extension.warning : extension.success,
-      text: Padding(
-        /// Padding required by the use of [RichText]
-        padding: const EdgeInsetsDirectional.only(bottom: 2.75),
-        child: RichText(
-          text: TextSpan(
-            children: <TextSpan>[
-              TextSpan(
-                text: '${appLocalizations.date}${appLocalizations.sep}: ',
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              TextSpan(
-                text: DateFormat.yMd(ProductQuery.getLocaleString())
-                    .format(transientFile.uploadedDate!),
-              ),
-            ],
-            style: DefaultTextStyle.of(context).style.merge(
-                  const TextStyle(
-                    fontSize: 15.0,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.white,
-                  ),
-                ),
+    return ListTile(
+      leading: _PhotoRowDetailsIcon(
+        color: outdated ? extension.warning : extension.primaryDark,
+        icon: outdated ? _outdatedIcon : _successIcon,
+        padding: outdated
+            ? const EdgeInsetsDirectional.only(
+                top: 0.5,
+                end: 1.0,
+              )
+            : null,
+      ),
+      title: Text(appLocalizations.date),
+      trailing: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: <Widget>[
+          Text(
+            transientFile.uploadedDate != null
+                ? DateFormat.yMd().format(transientFile.uploadedDate!)
+                : appLocalizations.product_image_details_date_unknown,
           ),
-        ),
+          if (outdated)
+            Text(
+              '(${appLocalizations.outdated_image_short_label})',
+              style: const TextStyle(fontSize: 15.0),
+            ),
+        ],
       ),
     );
   }
@@ -138,145 +325,43 @@ class _PhotoRowDate extends StatelessWidget {
           bottom: 1.5,
           start: 1.5,
         ),
-        child: icons.Outdated(
-          color: Colors.white,
-          size: 19.0,
-        ),
+        child: icons.Outdated(size: 19.0),
       );
 
   Widget get _successIcon => const Padding(
-        padding: EdgeInsetsDirectional.only(
-          bottom: 0.5,
-          start: 0.5,
-        ),
-        child: icons.Clock(
-          color: Colors.white,
-          size: 19.0,
-        ),
+        padding: EdgeInsetsDirectional.only(bottom: 0.5),
+        child: icons.Clock(size: 19.0),
       );
 }
 
-/// If the photo is locked by the owner (used in the modal sheet)
-class _PhotoRowLockedStatus extends StatelessWidget {
-  const _PhotoRowLockedStatus({
-    required this.product,
-    required this.imageField,
-    required this.language,
-  });
-
-  final Product product;
-  final ImageField imageField;
-  final OpenFoodFactsLanguage language;
-
-  @override
-  Widget build(BuildContext context) {
-    if (product.isImageLocked(imageField, language) != true) {
-      return EMPTY_WIDGET;
-    }
-
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
-
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-
-    return Padding(
-      padding: const EdgeInsetsDirectional.only(top: SMALL_SPACE),
-      child: _PhotoRowInfo(
-        icon: const IconTheme(
-          data: IconThemeData(
-            size: 19.0,
-            color: Colors.white,
-          ),
-          child: Padding(
-            padding: EdgeInsetsDirectional.only(bottom: 2.0),
-            child: OwnerFieldIcon(),
-          ),
-        ),
-        iconBackgroundColor: extension.warning,
-        text: Text(
-          appLocalizations.owner_field_image,
-          style: const TextStyle(
-            fontWeight: FontWeight.w600,
-            color: Colors.white,
-          ),
-        ),
-        wrapTextInExpanded: true,
-      ),
-    );
-  }
-}
-
-/// Show an info in the modal sheet
-class _PhotoRowInfo extends StatelessWidget {
-  const _PhotoRowInfo({
+class _PhotoRowDetailsIcon extends StatelessWidget {
+  const _PhotoRowDetailsIcon({
     required this.icon,
-    required this.iconBackgroundColor,
-    required this.text,
-    this.wrapTextInExpanded = false,
+    required this.color,
+    this.padding,
   });
 
   final Widget icon;
-  final Color iconBackgroundColor;
-  final Widget text;
-  final bool wrapTextInExpanded;
+  final Color color;
+  final EdgeInsetsGeometry? padding;
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
-
-    return Padding(
-      padding: const EdgeInsetsDirectional.symmetric(horizontal: SMALL_SPACE),
-      child: DecoratedBox(
-        decoration: BoxDecoration(
-          color: extension.primaryDark,
-          borderRadius: BorderRadius.all(
-            Radius.circular(MediaQuery.of(context).size.height),
-          ),
-        ),
-        child: ConstrainedBox(
-          constraints: BoxConstraints(
-            minHeight: 47.5,
-            maxWidth: MediaQuery.sizeOf(context).width * 0.95,
-          ),
-          child: IntrinsicHeight(
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                SizedBox.square(
-                  dimension: 47.5,
-                  child: DecoratedBox(
-                    decoration: BoxDecoration(
-                      color: iconBackgroundColor,
-                      shape: BoxShape.circle,
-                    ),
-                    child: Center(child: icon),
-                  ),
-                ),
-                _textWidget,
-              ],
-            ),
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        color: color,
+        shape: BoxShape.circle,
+      ),
+      child: SizedBox.square(
+        dimension: 35.0,
+        child: Padding(
+          padding: padding ?? const EdgeInsetsDirectional.all(SMALL_SPACE),
+          child: IconTheme.merge(
+            data: const IconThemeData(color: Colors.white),
+            child: icon,
           ),
         ),
       ),
     );
-  }
-
-  Widget get _textWidget {
-    final Widget textWidget = Padding(
-      padding: const EdgeInsetsDirectional.only(
-        start: MEDIUM_SPACE,
-        end: VERY_LARGE_SPACE,
-      ),
-      child: text,
-    );
-
-    if (wrapTextInExpanded) {
-      return Expanded(
-        child: textWidget,
-      );
-    }
-
-    return textWidget;
   }
 }

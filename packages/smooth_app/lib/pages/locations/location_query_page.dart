@@ -122,7 +122,7 @@ class _LocationQueryPageState extends State<LocationQueryPage>
                   return SmoothCard(
                     child: SmoothLargeButtonWithIcon(
                       text: appLocalizations.prices_location_search_broader,
-                      icon: Icons.search,
+                      leadingIcon: const Icon(Icons.search),
                       onPressed: () => _model.loadMore(),
                     ),
                   );
@@ -134,10 +134,13 @@ class _LocationQueryPageState extends State<LocationQueryPage>
                   ),
                 );
               }
-              return SearchLocationPreloadedItem(
-                _model.displayedResults[index],
-                popFirst: true,
-              ).getWidget(context);
+              return KeyedSubtree(
+                key: ValueKey<int>(_model.displayedResults[index].osmId),
+                child: SearchLocationPreloadedItem(
+                  _model.displayedResults[index],
+                  popFirst: true,
+                ).getWidget(context),
+              );
             },
             itemCount: _model.displayedResults.length +
                 (_model.isOptimized

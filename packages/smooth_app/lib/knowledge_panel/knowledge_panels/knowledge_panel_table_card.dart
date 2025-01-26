@@ -5,11 +5,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/smooth_html_widget.dart';
+import 'package:smooth_app/generic_lib/html/smooth_html_widget.dart';
 import 'package:smooth_app/helpers/html_extension.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
-import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_card.dart';
-import 'package:smooth_app/pages/product/portion_calculator.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -95,29 +93,26 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
 
   @override
   Widget build(BuildContext context) {
-    final bool withPortionCalculator =
-        widget.tableElement.id == KnowledgePanelCard.PANEL_NUTRITION_TABLE_ID;
+    return LayoutBuilder(
+      builder: (
+        BuildContext context,
+        BoxConstraints constraints,
+      ) {
+        final List<List<Widget>> rowsWidgets =
+            _buildRowWidgets(_buildRowCells(), constraints);
 
-    return LayoutBuilder(builder: (
-      BuildContext context,
-      BoxConstraints constraints,
-    ) {
-      final List<List<Widget>> rowsWidgets =
-          _buildRowWidgets(_buildRowCells(), constraints);
-
-      return Column(
-        children: <Widget>[
-          for (final List<Widget> row in rowsWidgets)
-            Semantics(
-              excludeSemantics: true,
-              value: _buildSemanticsValue(row),
-              child: IntrinsicHeight(child: Row(children: row)),
-            ),
-          if (withPortionCalculator) const Divider(),
-          if (withPortionCalculator) PortionCalculator(widget.product)
-        ],
-      );
-    });
+        return Column(
+          children: <Widget>[
+            for (final List<Widget> row in rowsWidgets)
+              Semantics(
+                excludeSemantics: true,
+                value: _buildSemanticsValue(row),
+                child: IntrinsicHeight(child: Row(children: row)),
+              ),
+          ],
+        );
+      },
+    );
   }
 
   List<List<TableCell>> _buildRowCells() {
@@ -343,8 +338,8 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
 
     /// Ensure the columns are not too wide or too narrow.
     final int sum = _columnsMaxLength.sum;
-    final int maxWidth = (sum ~/ _columnsMaxLength.length) - 4;
-    final int minWidth = maxWidth ~/ 4;
+    final int maxWidth = math.max((sum ~/ _columnsMaxLength.length) - 4, 1);
+    final int minWidth = math.max(maxWidth ~/ 4, 1);
 
     for (int i = 0; i < _columnsMaxLength.length; i++) {
       if (_columnsType[i] == _TableCellType.PERCENT) {
@@ -557,13 +552,18 @@ class _TableCellWidgetState extends State<_TableCellWidget> {
                 );
               }).toList(growable: false),
               onChanged: (KnowledgePanelTableColumn? selectedColumn) {
-                setState(() {
-                  widget.cell.columnGroup!.currentColumn = selectedColumn;
-                });
+                if (selectedColumn == null) {
+                  return;
+                }
+                widget.cell.columnGroup!.currentColumn = selectedColumn;
+
                 int i = 0;
                 for (final KnowledgePanelTableColumn column
                     in widget.tableElement.columns) {
-                  if (column == selectedColumn) {
+                  if (column.text == selectedColumn.text &&
+                      column.textForSmallScreens ==
+                          selectedColumn.textForSmallScreens &&
+                      column.columnGroupId == selectedColumn.columnGroupId) {
                     widget.cell.columnGroup!.currentColumnIndex = i;
                     // Since we have modified [currentColumn], re-rendering the
                     // table will automagically select [selectedColumn].

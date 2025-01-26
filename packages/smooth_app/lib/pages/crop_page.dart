@@ -26,6 +26,7 @@ import 'package:smooth_app/pages/prices/eraser_painter.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/edit_image_button.dart';
 import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 import 'package:smooth_app/widgets/will_pop_scope.dart';
@@ -39,6 +40,7 @@ class CropPage extends StatefulWidget {
     required this.isLoggedInMandatory,
     this.initialCropRect,
     this.initialRotation,
+    this.onRetakePhoto,
   });
 
   /// The initial input file we start with.
@@ -54,6 +56,8 @@ class CropPage extends StatefulWidget {
   final bool isLoggedInMandatory;
 
   final CropHelper cropHelper;
+
+  final Future<File?> Function()? onRetakePhoto;
 
   @override
   State<CropPage> createState() => _CropPageState();
@@ -166,6 +170,32 @@ class _CropPageState extends State<CropPage> {
             widget.cropHelper.getPageTitle(appLocalizations),
             maxLines: 2,
           ),
+          actions: <Widget>[
+            if (widget.onRetakePhoto != null)
+              Padding(
+                padding: const EdgeInsetsDirectional.only(end: 8.5),
+                child: IconButton(
+                  icon: const icons.Camera.restart(),
+                  tooltip: appLocalizations.crop_page_action_retake,
+                  onPressed: () async {
+                    final File? file = await widget.onRetakePhoto?.call();
+                    if (file != null && context.mounted) {
+                      Navigator.of(context).pushReplacement(
+                        MaterialPageRoute<CropParameters>(
+                          builder: (BuildContext context) => CropPage(
+                            inputFile: file,
+                            initiallyDifferent: widget.initiallyDifferent,
+                            cropHelper: widget.cropHelper,
+                            isLoggedInMandatory: widget.isLoggedInMandatory,
+                            onRetakePhoto: widget.onRetakePhoto,
+                          ),
+                        ),
+                      );
+                    }
+                  },
+                ),
+              ),
+          ],
         ),
         backgroundColor: Colors.black,
         body: _progress != null

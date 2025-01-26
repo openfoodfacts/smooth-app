@@ -35,12 +35,15 @@ class KnowledgePanelsBuilder {
     if (rootPanel != null) {
       children.add(KnowledgePanelTitle(title: rootPanel.titleElement!.title));
       if (rootPanel.elements != null) {
-        for (final KnowledgePanelElement element in rootPanel.elements!) {
+        for (int i = 0; i < rootPanel.elements!.length; i++) {
+          final KnowledgePanelElement element = rootPanel.elements![i];
           final Widget? widget = getElementWidget(
             knowledgePanelElement: element,
             product: product,
             isInitiallyExpanded: false,
             isClickable: true,
+            isTextSelectable: !onboardingMode,
+            position: i,
           );
           if (widget != null) {
             children.add(widget);
@@ -164,12 +167,16 @@ class KnowledgePanelsBuilder {
     required final Product product,
     required final bool isInitiallyExpanded,
     required final bool isClickable,
+    required final bool isTextSelectable,
+    required final int position,
   }) {
     final Widget? result = _getElementWidget(
       element: knowledgePanelElement,
       product: product,
       isInitiallyExpanded: isInitiallyExpanded,
       isClickable: isClickable,
+      isTextSelectable: isTextSelectable,
+      position: position,
     );
     if (result == null) {
       return null;
@@ -180,10 +187,15 @@ class KnowledgePanelsBuilder {
     ].contains(knowledgePanelElement.elementType)) {
       return result;
     }
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
-      child: result,
-    );
+
+    if (result is KnowledgePanelTextCard) {
+      return result;
+    } else {
+      return Padding(
+        padding: const EdgeInsetsDirectional.symmetric(horizontal: SMALL_SPACE),
+        child: result,
+      );
+    }
   }
 
   /// Returns the widget that displays the KP element, or rarely null.
@@ -194,6 +206,8 @@ class KnowledgePanelsBuilder {
     required final Product product,
     required final bool isInitiallyExpanded,
     required final bool isClickable,
+    required final bool isTextSelectable,
+    required final int position,
   }) {
     switch (element.elementType) {
       case KnowledgePanelElementType.TEXT:
@@ -233,6 +247,8 @@ class KnowledgePanelsBuilder {
           groupElement: element.panelGroupElement!,
           product: product,
           isClickable: isClickable,
+          isTextSelectable: isTextSelectable,
+          position: position,
         );
 
       case KnowledgePanelElementType.TABLE:
@@ -287,7 +303,8 @@ class KnowledgePanelsBuilder {
   static Widget? getPanelSummaryWidget(
     final KnowledgePanel knowledgePanel, {
     required final bool isClickable,
-    final EdgeInsets? margin,
+    final EdgeInsetsGeometry? margin,
+    final EdgeInsetsGeometry? padding,
   }) {
     if (knowledgePanel.titleElement == null) {
       return null;
@@ -304,7 +321,9 @@ class KnowledgePanelsBuilder {
       case null:
       case TitleElementType.UNKNOWN:
         return Padding(
-          padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
+          padding: const EdgeInsetsDirectional.symmetric(
+            horizontal: SMALL_SPACE,
+          ).add(padding ?? EdgeInsets.zero),
           child: KnowledgePanelTitleCard(
             knowledgePanelTitleElement: knowledgePanel.titleElement!,
             evaluation: knowledgePanel.evaluation,

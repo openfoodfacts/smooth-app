@@ -41,7 +41,9 @@ class SmoothTheme {
     }
 
     final SmoothColorsThemeExtension smoothExtension =
-        SmoothColorsThemeExtension.defaultValues();
+        SmoothColorsThemeExtension.defaultValues(
+      brightness == Brightness.light,
+    );
 
     final TextTheme textTheme = brightness == Brightness.dark
         ? getTextTheme(themeProvider, textContrastProvider)
@@ -69,7 +71,7 @@ class SmoothTheme {
                 ? Colors.white
                 : myColorScheme.onPrimary,
           ),
-          iconColor: WidgetStateProperty.all<Color>(Colors.white),
+          iconColor: WidgetStateProperty.all<Color>(myColorScheme.onPrimary),
         ),
       ),
       floatingActionButtonTheme: FloatingActionButtonThemeData(
@@ -83,7 +85,11 @@ class SmoothTheme {
         systemOverlayStyle: SystemUiOverlayStyle.light,
         titleTextStyle: textTheme.titleLarge,
       ),
-      dividerColor: const Color(0xFFdfdfdf),
+      dividerTheme: const DividerThemeData(
+        color: Color(0xFFECECEC),
+        space: 1.0,
+      ),
+      dividerColor: const Color(0xFFDFDFDF),
       inputDecorationTheme: InputDecorationTheme(
         fillColor: myColorScheme.secondary,
       ),
@@ -96,6 +102,7 @@ class SmoothTheme {
           fontWeight: FontWeight.w500,
         ),
         actionTextColor: Colors.white,
+        actionBackgroundColor: smoothExtension.primaryDark,
         backgroundColor: smoothExtension.primaryBlack,
       ),
       bannerTheme: MaterialBannerThemeData(

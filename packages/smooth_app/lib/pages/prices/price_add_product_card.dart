@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
@@ -40,17 +41,18 @@ class _PriceAddProductCardState extends State<PriceAddProductCard> {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    return SmoothCard(
+    return SmoothCardWithRoundedHeader(
+      title: appLocalizations.prices_add_an_item,
+      leading: const Icon(Icons.add_circle_outlined),
+      contentPadding: const EdgeInsetsDirectional.symmetric(
+        horizontal: SMALL_SPACE,
+        vertical: MEDIUM_SPACE,
+      ),
       child: Column(
         children: <Widget>[
-          ListTile(
-            title: Text(
-              appLocalizations.prices_add_an_item,
-            ),
-          ),
           SmoothLargeButtonWithIcon(
             text: appLocalizations.prices_barcode_reader_action,
-            icon: Icons.barcode_reader,
+            leadingIcon: const Icon(Icons.barcode_reader),
             onPressed: () async {
               final UserPreferences userPreferences =
                   context.read<UserPreferences>();
@@ -79,7 +81,7 @@ class _PriceAddProductCardState extends State<PriceAddProductCard> {
           ),
           SmoothLargeButtonWithIcon(
             text: appLocalizations.prices_barcode_enter,
-            icon: Icons.text_fields,
+            leadingIcon: const Icon(Icons.text_fields),
             onPressed: () async {
               final String? barcode = await _textInput(context);
               if (barcode == null) {

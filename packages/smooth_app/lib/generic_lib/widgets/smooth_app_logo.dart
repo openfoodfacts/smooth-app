@@ -29,7 +29,9 @@ class _SmoothAnimatedLogoState extends State<SmoothAnimatedLogo>
     super.initState();
 
     SchedulerBinding.instance.addPostFrameCallback((_) {
-      _attachAnimation();
+      if (mounted) {
+        _attachAnimation();
+      }
     });
   }
 

@@ -17,6 +17,7 @@ import 'package:smooth_app/helpers/extension_on_text_helper.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/provider_helper.dart';
 import 'package:smooth_app/resources/app_icons.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_text.dart';
@@ -72,9 +73,7 @@ class _ScanTagLineLoading extends StatelessWidget {
     final _ScanTagLineDensity density = context.read<_ScanTagLineDensity>();
 
     return Shimmer.fromColors(
-      baseColor: Theme.of(context)
-          .extension<SmoothColorsThemeExtension>()!
-          .primaryMedium,
+      baseColor: context.extension<SmoothColorsThemeExtension>().primaryMedium,
       highlightColor: Colors.white,
       child: SmoothCard(
         margin: EdgeInsets.zero,
@@ -312,6 +311,11 @@ class _TagLineContentBody extends StatefulWidget {
 class _TagLineContentBodyState extends State<_TagLineContentBody> {
   bool _imageError = false;
 
+  static const EdgeInsetsGeometry _contentPadding = EdgeInsetsDirectional.only(
+    top: SMALL_SPACE,
+    bottom: VERY_SMALL_SPACE,
+  );
+
   @override
   Widget build(BuildContext context) {
     final ThemeProvider themeProvider = context.watch<ThemeProvider>();
@@ -333,16 +337,16 @@ class _TagLineContentBodyState extends State<_TagLineContentBody> {
       ),
     );
 
-    if (widget.image == null) {
-      return text;
+    if (widget.image == null || _imageError) {
+      return Padding(
+        padding: _contentPadding,
+        child: text,
+      );
     }
 
     final int imageFlex = ((widget.image!.width ?? 0.2) * 10).toInt();
     return Padding(
-      padding: const EdgeInsetsDirectional.only(
-        top: SMALL_SPACE,
-        bottom: VERY_SMALL_SPACE,
-      ),
+      padding: _contentPadding,
       child: Row(
         children: <Widget>[
           if (!_imageError) ...<Widget>[
@@ -375,6 +379,7 @@ class _TagLineContentBodyState extends State<_TagLineContentBody> {
         widget.image!.src,
         semanticsLabel: widget.image!.alt,
         loadingBuilder: (_) => _onLoading(),
+        errorBuilder: (_, __) => _onError(),
       );
     } else {
       return Image.network(

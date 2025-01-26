@@ -29,4 +29,21 @@ class BorderRadiusHelper {
           : bottomStart ?? Radius.zero,
     );
   }
+
+  static BorderRadius horizontalDirectional({
+    required BuildContext context,
+    Radius? start,
+    Radius? end,
+  }) {
+    final TextDirection textDirection = Directionality.of(context);
+
+    return BorderRadius.horizontal(
+      left: textDirection == TextDirection.ltr
+          ? start ?? Radius.zero
+          : end ?? Radius.zero,
+      right: textDirection == TextDirection.ltr
+          ? end ?? Radius.zero
+          : start ?? Radius.zero,
+    );
+  }
 }
