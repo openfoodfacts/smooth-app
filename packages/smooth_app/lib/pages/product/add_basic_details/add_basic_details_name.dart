@@ -66,9 +66,9 @@ class _AddProductNameInputWidgetState extends State<AddProductNameInputWidget> {
         trailing: Row(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            const _ProductNameAddNewLanguage(),
             if (widget.product.hasOwnerField(ProductField.NAME_IN_LANGUAGES))
               const OwnerFieldSmoothCardIcon(),
+            const _ProductNameAddNewLanguage(),
             const _ProductNameExplanation(),
           ],
         ),
