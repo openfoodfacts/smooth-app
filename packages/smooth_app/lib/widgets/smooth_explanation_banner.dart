@@ -232,7 +232,7 @@ class ExplanationBadExamplesContainer extends StatelessWidget {
     return Column(
       children: <Widget>[
         _ExplanationContainerTitle(
-          label: AppLocalizations.of(context).explanation_section_good_examples,
+          label: AppLocalizations.of(context).explanation_section_bad_examples,
           foregroundColor: Colors.white,
           backgroundColor: extension.error,
         ),
