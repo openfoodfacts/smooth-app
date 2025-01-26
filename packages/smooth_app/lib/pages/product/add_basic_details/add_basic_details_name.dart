@@ -254,7 +254,7 @@ class _ProductNameInputWidgetState extends State<_ProductNameInputWidget> {
         padding: const EdgeInsetsDirectional.only(
           top: BALANCED_SPACE,
           start: 11.0,
-          end: VERY_SMALL_SPACE,
+          end: 6.0,
         ),
         child: IconButtonTheme(
           data: const IconButtonThemeData(
@@ -366,6 +366,7 @@ class _ProductNameCollapsedSection extends StatelessWidget {
   Widget build(BuildContext context) {
     final SmoothColorsThemeExtension extension =
         context.extension<SmoothColorsThemeExtension>();
+    final bool lightTheme = context.lightTheme();
 
     final _ProductNameEditorProviderState state =
         context.watch<ProductNameEditorProvider>().value;
@@ -390,7 +391,9 @@ class _ProductNameCollapsedSection extends StatelessWidget {
                 bottomLeft: ROUNDED_RADIUS,
                 bottomRight: ROUNDED_RADIUS,
               ),
-              color: extension.primaryLight,
+              color: lightTheme
+                  ? extension.primaryLight
+                  : extension.primarySemiDark,
             ),
             child: InkWell(
               onTap: onTap,
@@ -403,7 +406,8 @@ class _ProductNameCollapsedSection extends StatelessWidget {
                   vertical: SMALL_SPACE,
                 ),
                 child: icons.AppIconTheme(
-                  color: extension.greyLight,
+                  color:
+                      lightTheme ? extension.greyLight : extension.primaryLight,
                   size: 8.0,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -419,7 +423,9 @@ class _ProductNameCollapsedSection extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 15.0,
                           fontStyle: FontStyle.italic,
-                          color: extension.primaryDark,
+                          color: lightTheme
+                              ? extension.primaryDark
+                              : extension.primaryMedium,
                         ),
                       ),
                       const SizedBox(width: MEDIUM_SPACE),
