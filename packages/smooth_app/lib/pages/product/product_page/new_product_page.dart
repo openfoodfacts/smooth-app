@@ -7,6 +7,7 @@ import 'package:provider/single_child_widget.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
+import 'package:smooth_app/data_models/up_to_date_changes.dart';
 import 'package:smooth_app/data_models/up_to_date_mixin.dart';
 import 'package:smooth_app/database/dao_product_last_access.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
@@ -20,6 +21,7 @@ import 'package:smooth_app/pages/prices/prices_card.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/product_page/footer/new_product_footer.dart';
 import 'package:smooth_app/pages/product/product_page/new_product_header.dart';
+import 'package:smooth_app/pages/product/product_page/new_product_page_loading_indicator.dart';
 import 'package:smooth_app/pages/product/product_questions_widget.dart';
 import 'package:smooth_app/pages/product/reorderable_knowledge_panel_page.dart';
 import 'package:smooth_app/pages/product/reordered_knowledge_panel_cards.dart';
@@ -27,6 +29,7 @@ import 'package:smooth_app/pages/product/standard_knowledge_panel_cards.dart';
 import 'package:smooth_app/pages/product/summary_card.dart';
 import 'package:smooth_app/pages/product/website_card.dart';
 import 'package:smooth_app/pages/scan/carousel/scan_carousel_manager.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
@@ -56,7 +59,6 @@ class ProductPageState extends State<ProductPage>
     with TraceableClientMixin, UpToDateMixin {
   final ScrollController _scrollController = ScrollController();
   late ProductPreferences _productPreferences;
-  late ProductQuestionsLayout questionsLayout;
   bool _keepRobotoffQuestionsAlive = true;
 
   double bottomPadding = 0.0;
@@ -70,7 +72,6 @@ class ProductPageState extends State<ProductPage>
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     initUpToDate(widget.product, localDatabase);
     DaoProductLastAccess(localDatabase).put(barcode);
-    questionsLayout = getUserQuestionsLayout(context.read<UserPreferences>());
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _updateLocalDatabaseWithProductHistory(context);
     });
@@ -82,16 +83,19 @@ class ProductPageState extends State<ProductPage>
         ExternalScanCarouselManager.read(context);
     carouselManager.currentBarcode = barcode;
     final SmoothColorsThemeExtension themeExtension =
-        Theme.of(context).extension<SmoothColorsThemeExtension>()!;
+        context.extension<SmoothColorsThemeExtension>();
 
     _productPreferences = context.watch<ProductPreferences>();
-    context.watch<LocalDatabase>();
+    final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     refreshUpToDate();
 
     final MatchedProductV2 matchedProductV2 = MatchedProductV2(
       upToDateProduct,
       _productPreferences,
     );
+
+    final bool hasPendingOperations = UpToDateChanges(localDatabase)
+        .hasNotTerminatedOperations(upToDateProduct.barcode!);
 
     return MultiProvider(
       providers: <SingleChildWidget>[
@@ -127,23 +131,24 @@ class ProductPageState extends State<ProductPage>
                 backButtonType: widget.backButton,
               ),
             ),
-            if (questionsLayout == ProductQuestionsLayout.banner)
-              Positioned(
-                left: 0.0,
-                right: 0.0,
-                bottom: 0.0,
-                child: MeasureSize(
-                  onChange: (Size size) {
-                    if (size.height != bottomPadding) {
-                      setState(() => bottomPadding = size.height);
-                    }
-                  },
-                  child: ProductQuestionsWidget(
-                    upToDateProduct,
-                    layout: ProductQuestionsLayout.banner,
-                  ),
-                ),
+            Positioned(
+              left: 0.0,
+              right: 0.0,
+              bottom: 0.0,
+              child: MeasureSize(
+                onChange: (Size size) {
+                  if (size.height != bottomPadding) {
+                    setState(() => bottomPadding = size.height);
+                  }
+                },
+                child: hasPendingOperations
+                    ? const ProductPageLoadingIndicator()
+                    : KeepQuestionWidgetAlive(
+                        keepWidgetAlive: _keepRobotoffQuestionsAlive,
+                        child: ProductQuestionsWidget(upToDateProduct),
+                      ),
               ),
+            ),
           ],
         ),
         bottomNavigationBar: const ProductFooter(),
@@ -193,15 +198,11 @@ class ProductPageState extends State<ProductPage>
               child: HeroMode(
                 enabled: widget.withHeroAnimation &&
                     widget.heroTag?.isNotEmpty == true,
-                child: KeepQuestionWidgetAlive(
-                  keepWidgetAlive: _keepRobotoffQuestionsAlive,
-                  child: SummaryCard(
-                    upToDateProduct,
-                    _productPreferences,
-                    heroTag: widget.heroTag,
-                    isFullVersion: true,
-                    showQuestionsBanner: true,
-                  ),
+                child: SummaryCard(
+                  upToDateProduct,
+                  _productPreferences,
+                  heroTag: widget.heroTag,
+                  isFullVersion: true,
                 ),
               ),
             ),
@@ -227,7 +228,7 @@ class ProductPageState extends State<ProductPage>
                 padding: const EdgeInsets.all(SMALL_SPACE),
                 child: SmoothLargeButtonWithIcon(
                   text: appLocalizations.reorder_attribute_action,
-                  icon: Icons.sort,
+                  leadingIcon: const Icon(Icons.sort),
                   onPressed: () async => Navigator.push(
                     context,
                     MaterialPageRoute<void>(

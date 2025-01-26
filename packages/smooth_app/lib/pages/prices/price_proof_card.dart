@@ -6,7 +6,9 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
+import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/pages/crop_parameters.dart';
@@ -27,10 +29,15 @@ class PriceProofCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final PriceModel model = context.watch<PriceModel>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    return SmoothCard(
+    return SmoothCardWithRoundedHeader(
+      title: appLocalizations.prices_proof_subtitle,
+      leading: const Icon(Icons.document_scanner_rounded),
+      contentPadding: const EdgeInsetsDirectional.symmetric(
+        horizontal: SMALL_SPACE,
+        vertical: MEDIUM_SPACE,
+      ),
       child: Column(
         children: <Widget>[
-          Text(appLocalizations.prices_proof_subtitle),
           if (model.proof != null)
             Image(
               image: NetworkImage(
@@ -53,24 +60,33 @@ class PriceProofCard extends StatelessWidget {
                 height: constraints.maxWidth,
               ),
             ),
-          SmoothLargeButtonWithIcon(
-            text: !model.hasImage
-                ? appLocalizations.prices_proof_find
-                : model.proofType == ProofType.receipt
-                    ? appLocalizations.prices_proof_receipt
-                    : appLocalizations.prices_proof_price_tag,
-            icon: !model.hasImage ? _iconTodo : _iconDone,
-            onPressed: () async {
-              final _ProofSource? proofSource =
-                  await _ProofSource.select(context);
-              if (proofSource == null) {
-                return;
-              }
-              if (!context.mounted) {
-                return;
-              }
-              return proofSource.process(context, model);
-            },
+          Padding(
+            padding: const EdgeInsetsDirectional.symmetric(
+              horizontal: SMALL_SPACE,
+            ),
+            child: SmoothLargeButtonWithIcon(
+              text: !model.hasImage
+                  ? appLocalizations.prices_proof_find
+                  : model.proofType == ProofType.receipt
+                      ? appLocalizations.prices_proof_receipt
+                      : appLocalizations.prices_proof_price_tag,
+              leadingIcon: !model.hasImage
+                  ? const Icon(_iconTodo)
+                  : const Icon(_iconDone),
+              onPressed: model.proof != null
+                  ? null
+                  : () async {
+                      final _ProofSource? proofSource =
+                          await _ProofSource.select(context);
+                      if (proofSource == null) {
+                        return;
+                      }
+                      if (!context.mounted) {
+                        return;
+                      }
+                      return proofSource.process(context, model);
+                    },
+            ),
           ),
           LayoutBuilder(
             builder: (BuildContext context, BoxConstraints constraints) => Row(
@@ -149,44 +165,27 @@ enum _ProofSource {
 
   static Future<_ProofSource?> select(final BuildContext context) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    return showCupertinoModalPopup<_ProofSource>(
+    final bool hasCamera = CameraHelper.hasACamera;
+
+    return showSmoothListOfChoicesModalSheet<_ProofSource>(
       context: context,
-      builder: (final BuildContext context) => CupertinoActionSheet(
-        title: Text(appLocalizations.prices_proof_find),
-        cancelButton: CupertinoActionSheetAction(
-          onPressed: () => Navigator.of(context).pop(),
-          child: Text(
-            appLocalizations.cancel,
-          ),
-        ),
-        actions: <Widget>[
-          if (CameraHelper.hasACamera)
-            CupertinoActionSheetAction(
-              onPressed: () => Navigator.of(context).pop(
-                _ProofSource.camera,
-              ),
-              child: Text(
-                appLocalizations.settings_app_camera,
-              ),
-            ),
-          CupertinoActionSheetAction(
-            onPressed: () => Navigator.of(context).pop(
-              _ProofSource.gallery,
-            ),
-            child: Text(
-              appLocalizations.gallery_source_label,
-            ),
-          ),
-          CupertinoActionSheetAction(
-            onPressed: () => Navigator.of(context).pop(
-              _ProofSource.history,
-            ),
-            child: Text(
-              appLocalizations.user_search_proofs_title,
-            ),
-          ),
-        ],
-      ),
+      title: appLocalizations.prices_proof_find,
+      labels: <String>[
+        if (hasCamera) appLocalizations.settings_app_camera,
+        appLocalizations.gallery_source_label,
+        appLocalizations.user_search_proofs_title,
+      ],
+      prefixIcons: <Widget>[
+        if (hasCamera) const Icon(Icons.camera_rounded),
+        const Icon(Icons.perm_media_rounded),
+        const Icon(Icons.document_scanner_rounded),
+      ],
+      addEndArrowToItems: true,
+      values: <_ProofSource>[
+        _ProofSource.camera,
+        _ProofSource.gallery,
+        _ProofSource.history,
+      ],
     );
   }
 }

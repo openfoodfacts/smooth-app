@@ -1,8 +1,10 @@
 import 'dart:io';
 
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:intl/intl.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_image.dart';
@@ -14,13 +16,16 @@ import 'package:smooth_app/helpers/image_field_extension.dart';
 import 'package:smooth_app/pages/crop_parameters.dart';
 import 'package:smooth_app/pages/image/product_image_helper.dart';
 import 'package:smooth_app/pages/product/gallery_view/product_image_gallery_view.dart';
+import 'package:smooth_app/pages/product/owner_field_info.dart';
 import 'package:smooth_app/pages/product/product_image_server_button.dart';
 import 'package:smooth_app/pages/product/product_image_swipeable_view.dart';
 import 'package:smooth_app/resources/app_animations.dart';
-import 'package:smooth_app/resources/app_icons.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
+
+part 'product_image_gallery_details_banner.dart';
 
 class ImageGalleryPhotoRow extends StatefulWidget {
   const ImageGalleryPhotoRow({
@@ -72,119 +77,129 @@ class _ImageGalleryPhotoRowState extends State<ImageGalleryPhotoRow> {
     final SmoothColorsThemeExtension extension =
         context.extension<SmoothColorsThemeExtension>();
 
-    return Semantics(
-      image: true,
-      button: true,
-      label: expired
-          ? appLocalizations.product_image_outdated_accessibility_label(label)
-          : label,
-      excludeSemantics: true,
-      child: Material(
-        elevation: 1.0,
-        type: MaterialType.card,
-        shadowColor: Colors.white,
-        color: extension.primaryBlack,
-        borderRadius: ANGULAR_BORDER_RADIUS,
-        child: InkWell(
+    return Provider<TransientFile>(
+      create: (_) => transientFile,
+      child: Semantics(
+        image: true,
+        button: true,
+        label: expired
+            ? appLocalizations.product_image_outdated_accessibility_label(label)
+            : label,
+        excludeSemantics: true,
+        child: Material(
+          elevation: 1.0,
+          type: MaterialType.card,
+          shadowColor: Colors.white,
+          color: extension.primaryBlack,
           borderRadius: ANGULAR_BORDER_RADIUS,
-          onTap: () => _onTap(
-            context: context,
-            product: product,
-            transientFile: transientFile,
-            initialImageIndex: widget.position,
-          ),
-          onLongPress: () => _onLongTap(
-            context: context,
-            product: product,
-            transientFile: transientFile,
-          ),
-          child: ClipRRect(
+          child: InkWell(
             borderRadius: ANGULAR_BORDER_RADIUS,
-            child: Column(
-              children: <Widget>[
-                SizedBox(
-                  height: ImageGalleryPhotoRow.itemHeight,
-                  child: Row(
-                    children: <Widget>[
-                      _PhotoRowIndicator(transientFile: transientFile),
-                      Expanded(
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: SMALL_SPACE,
-                          ),
-                          child: Row(
-                            children: <Widget>[
-                              Expanded(
-                                child: AutoSizeText(
-                                  label,
-                                  maxLines: 2,
-                                  minFontSize: 10.0,
-                                  style: const TextStyle(
-                                    fontSize: 15.0,
-                                    height: 1.2,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white,
+            onTap: () => _onTap(
+              context: context,
+              product: product,
+              transientFile: transientFile,
+              initialImageIndex: widget.position,
+            ),
+            onLongPress: () => _onLongTap(
+              context: context,
+              product: product,
+              transientFile: transientFile,
+              language: widget.language,
+            ),
+            child: ClipRRect(
+              borderRadius: ANGULAR_BORDER_RADIUS,
+              child: Column(
+                children: <Widget>[
+                  SizedBox(
+                    height: ImageGalleryPhotoRow.itemHeight,
+                    child: Row(
+                      children: <Widget>[
+                        _PhotoRowIndicator(transientFile: transientFile),
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: SMALL_SPACE,
+                            ),
+                            child: Row(
+                              children: <Widget>[
+                                Expanded(
+                                  child: AutoSizeText(
+                                    label,
+                                    maxLines: 2,
+                                    minFontSize: 10.0,
+                                    style: const TextStyle(
+                                      fontSize: 15.0,
+                                      height: 1.2,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
                                   ),
                                 ),
-                              ),
-                              const SizedBox(width: SMALL_SPACE),
-                              CircledArrow.right(
-                                color: extension.primaryDark,
-                                type: CircledArrowType.normal,
-                                circleColor: Colors.white,
-                                size: 20.0,
-                              ),
-                            ],
+                                const SizedBox(width: SMALL_SPACE),
+                                icons.CircledArrow.right(
+                                  color: extension.primaryDark,
+                                  type: icons.CircledArrowType.normal,
+                                  circleColor: Colors.white,
+                                  size: 20.0,
+                                ),
+                              ],
+                            ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-                Expanded(
-                  child: Stack(
-                    children: <Widget>[
-                      Positioned.fill(
-                        child: LayoutBuilder(
-                          builder: (BuildContext context, BoxConstraints box) {
-                            if (_temporaryFile != null) {
-                              return Image.file(
-                                _temporaryFile!,
-                                fit: BoxFit.contain,
-                              );
-                            }
+                  Expanded(
+                    child: Stack(
+                      children: <Widget>[
+                        Positioned.fill(
+                          child: LayoutBuilder(
+                            builder:
+                                (BuildContext context, BoxConstraints box) {
+                              if (_temporaryFile != null) {
+                                return Image.file(
+                                  _temporaryFile!,
+                                  fit: BoxFit.contain,
+                                );
+                              }
 
-                            return ProductPicture.fromTransientFile(
-                              transientFile: transientFile,
-                              size: Size(box.maxWidth, box.maxHeight),
-                              onTap: null,
-                              errorTextStyle: const TextStyle(
-                                fontSize: 16.0,
-                                fontWeight: FontWeight.w600,
-                              ),
-                              heroTag: ProductPicture.generateHeroTag(
-                                product.barcode!,
-                                widget.imageField,
-                              ),
-                            );
-                          },
+                              return ProductPicture.fromTransientFile(
+                                product: product,
+                                imageField: widget.imageField,
+                                language: widget.language,
+                                transientFile: transientFile,
+                                size: Size(box.maxWidth, box.maxHeight),
+                                onTap: null,
+                                errorTextStyle: const TextStyle(
+                                  fontSize: 16.0,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                                heroTag: ProductPicture.generateHeroTag(
+                                  product.barcode!,
+                                  widget.imageField,
+                                ),
+                                showObsoleteIcon: false,
+                                showOwnerIcon: true,
+                              );
+                            },
+                          ),
                         ),
-                      ),
-                      // Border
-                      const Positioned.fill(
-                        child: _PhotoBorder(),
-                      ),
-                      // Upload animation
-                      if (_temporaryFile != null ||
-                          transientFile.isImageAvailable() &&
-                              !transientFile.isServerImage())
-                        const Center(
-                          child: CloudUploadAnimation.circle(size: 50.0),
+                        // Border
+                        const Positioned.fill(
+                          child: _PhotoBorder(),
                         ),
-                    ],
+                        // Upload animation
+                        if (_temporaryFile != null ||
+                            transientFile.isImageAvailable() &&
+                                !transientFile.isServerImage())
+                          const Center(
+                            child: CloudUploadAnimation.circle(size: 50.0),
+                          ),
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),
@@ -216,39 +231,15 @@ class _ImageGalleryPhotoRowState extends State<ImageGalleryPhotoRow> {
   Future<void> _onLongTap({
     required final BuildContext context,
     required final Product product,
+    required final OpenFoodFactsLanguage language,
     required final TransientFile transientFile,
   }) async {
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
-    final bool lightTheme = context.lightTheme(listen: false);
-    final bool imageAvailable = transientFile.isImageAvailable();
-
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-
-    final _PhotoRowActions? action =
-        await showSmoothListOfChoicesModalSheet<_PhotoRowActions>(
+    final _PhotoRowActions? action = await _showPhotoBanner(
       context: context,
-      title: imageAvailable
-          ? appLocalizations.product_image_action_replace_photo(
-              widget.imageField.getProductImageTitle(appLocalizations))
-          : appLocalizations.product_image_action_add_photo(
-              widget.imageField.getProductImageTitle(appLocalizations)),
-      values: _PhotoRowActions.values,
-      labels: <String>[
-        if (imageAvailable)
-          appLocalizations.product_image_action_take_new_picture
-        else
-          appLocalizations.product_image_action_take_picture,
-        appLocalizations.product_image_action_from_gallery,
-        appLocalizations.product_image_action_choose_existing_photo,
-      ],
-      prefixIconTint:
-          lightTheme ? extension.primaryDark : extension.primaryMedium,
-      prefixIcons: <Widget>[
-        const Icon(Icons.camera),
-        const Icon(Icons.perm_media_rounded),
-        const Icon(Icons.image_search_rounded),
-      ],
+      product: product,
+      imageField: widget.imageField,
+      language: language,
+      transientFile: transientFile,
     );
 
     if (!context.mounted || action == null) {
@@ -340,12 +331,6 @@ class _ImageGalleryPhotoRowState extends State<ImageGalleryPhotoRow> {
       );
 }
 
-enum _PhotoRowActions {
-  takePicture,
-  selectFromGallery,
-  selectFromProductPhotos,
-}
-
 class _PhotoRowIndicator extends StatelessWidget {
   const _PhotoRowIndicator({
     required this.transientFile,
@@ -367,7 +352,9 @@ class _PhotoRowIndicator extends StatelessWidget {
             context.extension<SmoothColorsThemeExtension>(),
           ),
         ),
-        child: Center(child: child()),
+        child: Center(
+          child: child(),
+        ),
       ),
     );
   }
@@ -375,7 +362,7 @@ class _PhotoRowIndicator extends StatelessWidget {
   Widget? child() {
     if (transientFile.isImageAvailable()) {
       if (transientFile.expired) {
-        return const Outdated(
+        return const icons.Outdated(
           size: 18.0,
           color: Colors.white,
         );
@@ -383,7 +370,7 @@ class _PhotoRowIndicator extends StatelessWidget {
         return null;
       }
     } else {
-      return const Warning(
+      return const icons.Warning(
         size: 15.0,
         color: Colors.white,
       );

@@ -93,7 +93,7 @@ class OnboardingBottomHills extends StatelessWidget {
                     ),
                   ),
                   shadowColor: WidgetStateProperty.all<Color>(
-                    Colors.black.withOpacity(0.50),
+                    Colors.black.withValues(alpha: 0.50),
                   ),
                 ),
                 onPressed: onTap,

@@ -2,6 +2,7 @@ import 'dart:ui' as ui;
 
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/num_utils.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
@@ -14,6 +15,8 @@ class SmoothTabBar<T> extends StatefulWidget {
     required this.items,
     required this.onTabChanged,
     this.padding,
+    this.leadingItems,
+    this.trailingItems,
     super.key,
   }) : assert(items.length > 0);
 
@@ -21,6 +24,8 @@ class SmoothTabBar<T> extends StatefulWidget {
 
   final TabController tabController;
   final Iterable<SmoothTabBarItem<T>> items;
+  final Iterable<Widget?>? leadingItems;
+  final Iterable<Widget?>? trailingItems;
   final Function(T) onTabChanged;
   final EdgeInsetsGeometry? padding;
 
@@ -65,6 +70,8 @@ class _SmoothTabBarState<T> extends State<SmoothTabBar<T>> {
                 .mapIndexed(
                   (int position, SmoothTabBarItem<T> item) => _SmoothTab<T>(
                     item: item,
+                    leading: widget.leadingItems?.elementAtOrNull(position),
+                    trailing: widget.trailingItems?.elementAtOrNull(position),
                     selected: widget.tabController.index == position,
                   ),
                 )
@@ -75,8 +82,8 @@ class _SmoothTabBarState<T> extends State<SmoothTabBar<T>> {
             tabAlignment: TabAlignment.start,
             overlayColor: WidgetStatePropertyAll<Color>(
               lightTheme
-                  ? theme.primaryNormal.withOpacity(0.2)
-                  : theme.primaryLight.withOpacity(0.2),
+                  ? theme.primaryNormal.withValues(alpha: 0.2)
+                  : theme.primaryLight.withValues(alpha: 0.2),
             ),
             splashBorderRadius: const BorderRadius.vertical(
               top: Radius.circular(5.0),
@@ -128,18 +135,45 @@ class _SmoothTab<T> extends StatelessWidget {
   const _SmoothTab({
     required this.item,
     required this.selected,
+    this.leading,
+    this.trailing,
   });
 
   final SmoothTabBarItem<T> item;
+  final Widget? leading;
+  final Widget? trailing;
   final bool selected;
 
   @override
   Widget build(BuildContext context) {
+    final Widget child;
+    if (leading == null && trailing == null) {
+      child = Text(item.label);
+    } else {
+      child = IconTheme(
+        data: IconThemeData(
+          color: DefaultTextStyle.of(context).style.color,
+          size: 15.0,
+        ),
+        child: Row(
+          children: <Widget>[
+            if (leading != null) leading!,
+            Padding(
+              padding: EdgeInsetsDirectional.only(
+                start: leading != null ? SMALL_SPACE : 0.0,
+                end: trailing != null ? SMALL_SPACE : 0.0,
+              ),
+              child: Text(item.label),
+            ),
+            if (trailing != null) trailing!,
+          ],
+        ),
+      );
+    }
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 18.0),
-      child: Center(
-        child: Text(item.label),
-      ),
+      child: Center(child: child),
     );
   }
 }
@@ -167,8 +201,8 @@ class _ProductHeaderTabBarPainter extends CustomPainter {
         Offset.zero,
         Offset(gradientSize, 0.0),
         <Color>[
-          primaryColor.withOpacity(
-            progress.progressAndClamp(0.0, 0.3, 1.0),
+          primaryColor.withValues(
+            alpha: progress.progressAndClamp(0.0, 0.3, 1.0),
           ),
           backgroundColor,
         ],
@@ -191,8 +225,8 @@ class _ProductHeaderTabBarPainter extends CustomPainter {
         Offset(size.width, 0.0),
         <Color>[
           backgroundColor,
-          primaryColor.withOpacity(
-            1 - progress.progressAndClamp(0.7, 1.0, 1.0),
+          primaryColor.withValues(
+            alpha: 1 - progress.progressAndClamp(0.7, 1.0, 1.0),
           ),
         ],
       );

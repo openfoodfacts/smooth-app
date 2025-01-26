@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/database/transient_file.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/helpers/image_field_extension.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/crop_parameters.dart';
@@ -37,6 +38,92 @@ class ProductImageOtherPage extends StatefulWidget {
 
   @override
   State<ProductImageOtherPage> createState() => _ProductImageOtherPageState();
+
+  static Future<ProductImagePageResult?> usePhotoAs({
+    required final BuildContext context,
+    required final Product product,
+    required final OpenFoodFactsLanguage language,
+    required final ProductImage productImage,
+  }) async {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
+
+    final List<ImageField> imageFields =
+        ImageFieldSmoothieExtension.getOrderedMainImageFields(
+      product.productType,
+    );
+
+    final Widget existingPictureIcon = icons.Picture.checkAlt(
+      color: extension.success,
+      semanticLabel: appLocalizations.photo_already_exists,
+    );
+    final Widget missingPictureIcon = icons.Picture.error(
+      color: extension.error,
+      semanticLabel: appLocalizations.photo_missing,
+    );
+
+    final ImageField? selectedImageField =
+        await showSmoothListOfChoicesModalSheet<ImageField>(
+      context: context,
+      title: appLocalizations.photo_viewer_use_picture_as_title(
+        Languages().getNameInLanguage(language),
+      ),
+      padding: const EdgeInsetsDirectional.only(
+        start: 15.0,
+        end: 19.0,
+      ),
+      labels: imageFields.map((final ImageField imageField) {
+        return switch (imageField) {
+          ImageField.FRONT => appLocalizations.photo_field_front,
+          ImageField.INGREDIENTS => appLocalizations.photo_field_ingredients,
+          ImageField.NUTRITION => appLocalizations.photo_field_nutrition,
+          ImageField.PACKAGING => appLocalizations.photo_field_packaging,
+          ImageField.OTHER => throw UnimplementedError(),
+        };
+      }).toList(growable: false),
+      values: imageFields,
+      prefixIcons: imageFields.map((final ImageField imageField) {
+        return switch (imageField) {
+          ImageField.FRONT => const icons.Milk.happy(),
+          ImageField.INGREDIENTS => const icons.Ingredients.alt(),
+          ImageField.NUTRITION => const icons.NutritionFacts(),
+          ImageField.PACKAGING => const icons.Recycling(),
+          ImageField.OTHER => throw UnimplementedError(),
+        };
+      }).toList(growable: false),
+      suffixIcons: imageFields.map((final ImageField imageField) {
+        final bool exists = TransientFile.fromProduct(
+          product,
+          imageField,
+          language,
+        ).isImageAvailable();
+        return exists ? existingPictureIcon : missingPictureIcon;
+      }).toList(growable: false),
+    );
+
+    if (context.mounted && selectedImageField != null) {
+      final CropParameters? cropParameters =
+          await UploadedImageGallery.useExistingPhotoFor(
+        context: context,
+        rawImage: productImage,
+        barcode: product.barcode!,
+        imageField: selectedImageField,
+        isLoggedInMandatory: true,
+        productType: product.productType,
+        language: language,
+      );
+
+      if (cropParameters != null) {
+        return ProductImagePageResult(
+          cropParameters: cropParameters,
+          imageField: selectedImageField,
+        );
+      }
+    }
+
+    return null;
+  }
 }
 
 class _ProductImageOtherPageState extends State<ProductImageOtherPage> {
@@ -122,76 +209,15 @@ class _ProductImageOtherPageState extends State<ProductImageOtherPage> {
   }
 
   Future<void> _usePhotoAs() async {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
-
-    final List<ImageField> imageFields = <ImageField>[
-      ImageField.FRONT,
-      ImageField.INGREDIENTS,
-      ImageField.NUTRITION,
-      ImageField.PACKAGING,
-    ];
-
-    final Widget existingPictureIcon = icons.Picture.checkAlt(
-      color: extension.success,
-      semanticLabel: appLocalizations.photo_already_exists,
-    );
-    final Widget missingPictureIcon = icons.Picture.error(
-      color: extension.error,
-      semanticLabel: appLocalizations.photo_missing,
-    );
-
-    final ImageField? selectedImageField =
-        await showSmoothListOfChoicesModalSheet<ImageField>(
+    final ProductImagePageResult? res = await ProductImageOtherPage.usePhotoAs(
       context: context,
-      title: appLocalizations.photo_viewer_use_picture_as_title(
-        Languages().getNameInLanguage(widget.language),
-      ),
-      padding: const EdgeInsetsDirectional.only(
-        start: 15.0,
-        end: 19.0,
-      ),
-      labels: <String>[
-        appLocalizations.photo_field_front,
-        appLocalizations.photo_field_ingredients,
-        appLocalizations.photo_field_nutrition,
-        appLocalizations.photo_field_packaging,
-      ],
-      values: imageFields,
-      prefixIcons: <Widget>[
-        const icons.Milk.filled(),
-        const icons.Ingredients.alt(),
-        const icons.NutritionFacts(),
-        const icons.Recycling(),
-      ],
-      suffixIcons: imageFields.map((final ImageField imageField) {
-        final bool exists = TransientFile.fromProduct(
-          widget.product,
-          imageField,
-          widget.language,
-        ).isImageAvailable();
-        return exists ? existingPictureIcon : missingPictureIcon;
-      }).toList(growable: false),
+      product: widget.product,
+      language: widget.language,
+      productImage: widget.currentImage,
     );
 
-    if (mounted && selectedImageField != null) {
-      final CropParameters? parameters =
-          await UploadedImageGallery.useExistingPhotoFor(
-        context: context,
-        rawImage: widget.currentImage,
-        barcode: widget.product.barcode!,
-        imageField: selectedImageField,
-        isLoggedInMandatory: true,
-        productType: widget.product.productType,
-        language: widget.language,
-      );
-
-      if (mounted && parameters != null) {
-        Navigator.of(context).pop<ProductImagePageResult>(
-          ProductImagePageResult(parameters, selectedImageField),
-        );
-      }
+    if (mounted && res != null) {
+      Navigator.of(context).pop<ProductImagePageResult>(res);
     }
   }
 }
@@ -298,7 +324,7 @@ class _ProductImageOutdatedLabel extends StatelessWidget {
         height: double.infinity,
         child: DecoratedBox(
           decoration: BoxDecoration(
-            color: colors.red.withOpacity(0.9),
+            color: colors.red.withValues(alpha: 0.9),
             borderRadius: CIRCULAR_BORDER_RADIUS,
           ),
           child: Padding(
@@ -372,6 +398,7 @@ class _ProductImageDetailsButton extends StatelessWidget {
                           ),
                           subtitle: Text(image.contributor ?? '-'),
                         ),
+                        const Divider(),
                         ListTile(
                           title: Text(
                               appLocalizations.photo_viewer_details_date_title),
@@ -379,6 +406,7 @@ class _ProductImageDetailsButton extends StatelessWidget {
                               ? DateFormat.yMMMMEEEEd().format(image.uploaded!)
                               : '-'),
                         ),
+                        const Divider(),
                         ListTile(
                           title: Text(
                               appLocalizations.photo_viewer_details_size_title),
@@ -392,7 +420,8 @@ class _ProductImageDetailsButton extends StatelessWidget {
                                 : '-',
                           ),
                         ),
-                        if (url.isNotEmpty)
+                        if (url.isNotEmpty) ...<Widget>[
+                          const Divider(),
                           ListTile(
                             title: Text(appLocalizations
                                 .photo_viewer_details_url_title),
@@ -401,9 +430,11 @@ class _ProductImageDetailsButton extends StatelessWidget {
                             onTap: () {
                               LaunchUrlHelper.launchURL(url);
                             },
-                          ),
+                          )
+                        ],
                         SizedBox(
-                            height: MediaQuery.viewPaddingOf(context).bottom),
+                          height: MediaQuery.viewPaddingOf(context).bottom,
+                        ),
                       ],
                     ),
                   );
@@ -453,7 +484,7 @@ class _ProductImagePageIndicator extends StatelessWidget {
   Widget build(BuildContext context) {
     return DecoratedBox(
       decoration: BoxDecoration(
-        color: Colors.black.withOpacity(0.5),
+        color: Colors.black.withValues(alpha: 0.5),
         borderRadius: CIRCULAR_BORDER_RADIUS,
       ),
       child: Padding(
@@ -488,7 +519,10 @@ class _ProductImagePageIndicator extends StatelessWidget {
 }
 
 class ProductImagePageResult {
-  ProductImagePageResult(this.cropParameters, this.imageField);
+  ProductImagePageResult({
+    required this.cropParameters,
+    required this.imageField,
+  });
 
   final CropParameters cropParameters;
   final ImageField imageField;

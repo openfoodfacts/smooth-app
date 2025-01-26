@@ -1,0 +1,24 @@
+name: Run Translation Scripts
+
+on:
+  push:
+    branches:
+      - l10n_develop
+
+jobs:
+  run-scripts:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run iOS translation script
+        run: |
+          chmod +x packages/smooth_app/ios/Runner/remove.sh
+          packages/smooth_app/ios/Runner/remove.sh
+
+      - name: Run l10n translation script
+        run: |
+          chmod +x packages/smooth_app/lib/l10n/remove_3_letter_locales.sh
+          packages/smooth_app/lib/l10n/remove_3_letter_locales.sh

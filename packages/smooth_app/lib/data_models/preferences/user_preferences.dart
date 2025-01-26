@@ -40,6 +40,7 @@ class UserPreferences extends ChangeNotifier {
       : _sharedPreferences = sharedPreferences {
     onCrashReportingChanged = ValueNotifier<bool>(crashReports);
     onAnalyticsChanged = ValueNotifier<bool>(userTracking);
+    _incrementAppLaunches();
   }
 
   /// Singleton
@@ -68,6 +69,7 @@ class UserPreferences extends ChangeNotifier {
   /// The current version of preferences
   static const String _TAG_VERSION = 'prefs_version';
   static const int _PREFS_CURRENT_VERSION = 3;
+  static const String _TAG_APP_LAUNCHES = 'appLaunches';
   static const String _TAG_PREFIX_IMPORTANCE = 'IMPORTANCE_AS_STRING';
   static const String _TAG_CURRENT_THEME_MODE = 'currentThemeMode';
   static const String _TAG_CURRENT_COLOR_SCHEME = 'currentColorScheme';
@@ -84,7 +86,6 @@ class UserPreferences extends ChangeNotifier {
   static const String _TAG_CRASH_REPORTS = 'crash_reports';
   static const String _TAG_PRICES_FEEDBACK_FORM = 'prices_feedback_form';
   static const String _TAG_EXCLUDED_ATTRIBUTE_IDS = 'excluded_attributes';
-  static const String _TAG_USER_GROUP = '_user_group';
   static const String _TAG_UNIQUE_RANDOM = '_unique_random';
   static const String _TAG_LAZY_COUNT_PREFIX = '_lazy_count_prefix';
   static const String _TAG_LATEST_PRODUCT_TYPE = '_latest_product_type';
@@ -151,6 +152,13 @@ class UserPreferences extends ChangeNotifier {
     );
   }
 
+  int get appLaunches => _sharedPreferences.getInt(_TAG_APP_LAUNCHES) ?? 0;
+
+  Future<void> _incrementAppLaunches() async {
+    await _sharedPreferences.setInt(_TAG_APP_LAUNCHES, appLaunches + 1);
+    // No need to call notifyListeners here
+  }
+
   String _getImportanceTag(final String variable) =>
       _TAG_PREFIX_IMPORTANCE + variable;
 
@@ -211,9 +219,6 @@ class UserPreferences extends ChangeNotifier {
 
   bool get userTracking =>
       _sharedPreferences.getBool(_TAG_USER_TRACKING) ?? false;
-
-  /// A random int between 0 and 10 (a naive implementation to allow A/B testing)
-  int get userGroup => _sharedPreferences.getInt(_TAG_USER_GROUP)!;
 
   /// Returns a huge random value that will be computed just once.
   Future<int> getUniqueRandom() async {

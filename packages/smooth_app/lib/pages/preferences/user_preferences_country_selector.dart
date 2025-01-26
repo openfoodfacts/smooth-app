@@ -12,9 +12,7 @@ class UserPreferencesCountrySelector extends StatelessWidget {
   ) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return UserPreferencesItemSimple(
-      labels: <String>[
-        appLocalizations.country_chooser_label,
-      ],
+      labels: <String>[appLocalizations.country_picker_label],
       builder: (_) => const UserPreferencesCountrySelector(),
     );
   }
@@ -25,7 +23,7 @@ class UserPreferencesCountrySelector extends StatelessWidget {
     final ThemeData themeData = Theme.of(context);
     return ListTile(
       title: Text(
-        appLocalizations.country_chooser_label,
+        appLocalizations.country_picker_label,
         style: themeData.textTheme.headlineMedium,
       ),
       subtitle: Padding(
@@ -38,9 +36,7 @@ class UserPreferencesCountrySelector extends StatelessWidget {
           forceCurrencyChange: false,
           textStyle: themeData.textTheme.bodyMedium,
           icon: const Icon(Icons.edit),
-          padding: const EdgeInsetsDirectional.only(
-            start: SMALL_SPACE,
-          ),
+          loadingHeight: 40.0,
         ),
       ),
       minVerticalPadding: MEDIUM_SPACE,

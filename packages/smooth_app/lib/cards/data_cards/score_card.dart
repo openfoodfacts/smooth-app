@@ -78,10 +78,10 @@ class ScoreCard extends StatelessWidget {
         ? 1
         : SmoothTheme.ADDITIONAL_OPACITY_FOR_DARK;
     final Color backgroundColor =
-        cardEvaluation.backgroundColor.withOpacity(opacity);
+        cardEvaluation.backgroundColor.withValues(alpha: opacity);
     final Color textColor = themeData.brightness == Brightness.dark
         ? Colors.white
-        : cardEvaluation.textColor.withOpacity(opacity);
+        : cardEvaluation.textColor.withValues(alpha: opacity);
     final SvgIconChip? iconChip =
         iconUrl == null ? null : SvgIconChip(iconUrl!, height: iconHeight);
 
@@ -120,7 +120,7 @@ class ScoreCard extends StatelessWidget {
                   ),
                 ),
               ),
-              if (isClickable) Icon(ConstantIcons.instance.getForwardIcon()),
+              if (isClickable) Icon(ConstantIcons.forwardIcon),
             ],
           ),
         ),

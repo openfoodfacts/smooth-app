@@ -4,24 +4,20 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
+import 'package:smooth_app/helpers/robotoff_question_helper.dart';
 import 'package:smooth_app/pages/hunger_games/question_page.dart';
 import 'package:smooth_app/query/product_questions_query.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
 class ProductQuestionsWidget extends StatefulWidget {
-  const ProductQuestionsWidget(
-    this.product, {
-    this.layout = ProductQuestionsLayout.button,
-  });
+  const ProductQuestionsWidget(this.product);
 
   final Product product;
-  final ProductQuestionsLayout layout;
 
   @override
   State<ProductQuestionsWidget> createState() => _ProductQuestionsWidgetState();
@@ -72,51 +68,72 @@ class _ProductQuestionsWidgetState extends State<ProductQuestionsWidget>
     // Mandatory to call with an [AutomaticKeepAliveClientMixin]
     super.build(context);
 
-    return switch (widget.layout) {
-      ProductQuestionsLayout.button => _ProductQuestionButton(
-          state: _state,
-          openQuestionsCallback: _openQuestions,
-        ),
-      ProductQuestionsLayout.banner => _ProductQuestionBanner(
-          state: _state,
-          openQuestionsCallback: _openQuestions,
-        ),
-    };
+    return _ProductQuestionBanner(
+      state: _state,
+      openQuestionsCallback: _openQuestions,
+    );
   }
 
   Future<void> _openQuestions() async {
     _trackEvent(AnalyticsEvent.questionClicked);
 
-    await openQuestionPage(
+    final int? answeredQuestions = await openQuestionPage(
       context,
       product: widget.product,
-      questions: (_state as _ProductQuestionsWithQuestions).questions.toList(
-            growable: false,
-          ),
-      updateProductUponAnswers: _updateProductUponAnswers,
+      questions: (_state as _ProductQuestionsWithQuestions)
+          .questions
+          .toList(growable: false),
     );
 
-    if (context.mounted) {
-      return _reloadQuestions(silentCheck: true);
+    if (context.mounted && answeredQuestions != null && answeredQuestions > 0) {
+      return _reloadQuestions(
+        updateInsightAnnotations: true,
+        ignoreExistingQuestions: true,
+      );
     }
   }
 
   Future<void> _reloadQuestions({
-    bool silentCheck = false,
+    bool updateInsightAnnotations = false,
+    bool ignoreExistingQuestions = false,
   }) async {
-    if (!silentCheck) {
-      setState(() => _state = const _ProductQuestionsLoading());
-    }
+    final List<RobotoffQuestion>? currentQuestions =
+        _state is _ProductQuestionsWithQuestions
+            ? (_state as _ProductQuestionsWithQuestions).questions
+            : null;
 
-    final List<RobotoffQuestion>? list = await _loadProductQuestions();
+    setState(() => _state = const _ProductQuestionsLoading());
+
+    final List<RobotoffQuestion> questions =
+        await _loadProductQuestions() ?? <RobotoffQuestion>[];
 
     if (!mounted) {
       return;
     }
 
-    if (list?.isNotEmpty == true && !_annotationVoted) {
-      setState(() => _state = _ProductQuestionsWithQuestions(list!));
-      _trackEvent(AnalyticsEvent.questionVisible);
+    if (updateInsightAnnotations) {
+      final LocalDatabase localDatabase = context.read<LocalDatabase>();
+      final RobotoffInsightHelper robotoffInsightHelper =
+          RobotoffInsightHelper(localDatabase);
+
+      if (questions.isEmpty) {
+        await robotoffInsightHelper
+            .removeInsightAnnotationsSavedForProduct(widget.product.barcode!);
+      }
+
+      _annotationVoted =
+          await robotoffInsightHelper.areQuestionsAlreadyVoted(questions);
+    }
+
+    if (questions.isNotEmpty == true && !_annotationVoted) {
+      if (ignoreExistingQuestions &&
+          currentQuestions != null &&
+          questions.areSameAs(currentQuestions)) {
+        setState(() => _state = const _ProductQuestionsWithoutQuestions());
+      } else {
+        setState(() => _state = _ProductQuestionsWithQuestions(questions));
+        _trackEvent(AnalyticsEvent.questionVisible);
+      }
     } else {
       setState(() => _state = const _ProductQuestionsWithoutQuestions());
     }
@@ -124,10 +141,7 @@ class _ProductQuestionsWidgetState extends State<ProductQuestionsWidget>
 
   void _trackEvent(AnalyticsEvent event) => AnalyticsHelper.trackProductEvent(
         event,
-        eventValue: switch (widget.layout) {
-          ProductQuestionsLayout.button => 0,
-          ProductQuestionsLayout.banner => 1,
-        },
+        eventValue: 1,
         product: widget.product,
       );
 
@@ -153,154 +167,8 @@ class _ProductQuestionsWidgetState extends State<ProductQuestionsWidget>
     }
   }
 
-  Future<void> _updateProductUponAnswers() async {
-    // Reload the product questions, they might have been answered.
-    // Or the backend may have new ones.
-    final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    final List<RobotoffQuestion> questions =
-        await _loadProductQuestions() ?? <RobotoffQuestion>[];
-    if (!mounted) {
-      return;
-    }
-    final RobotoffInsightHelper robotoffInsightHelper =
-        RobotoffInsightHelper(localDatabase);
-    if (questions.isEmpty) {
-      await robotoffInsightHelper
-          .removeInsightAnnotationsSavedForProdcut(widget.product.barcode!);
-    }
-    _annotationVoted =
-        await robotoffInsightHelper.areQuestionsAlreadyVoted(questions);
-  }
-
   @override
   bool get wantKeepAlive => _keepWidgetAlive;
-}
-
-/// A naive implementation to have a half of the user base using a button and
-/// the other half, the banner
-ProductQuestionsLayout getUserQuestionsLayout(UserPreferences preferences) {
-  return preferences.userGroup.isEven
-      ? ProductQuestionsLayout.button
-      : ProductQuestionsLayout.banner;
-}
-
-enum ProductQuestionsLayout {
-  button,
-  banner,
-}
-
-class _ProductQuestionButton extends StatelessWidget {
-  const _ProductQuestionButton({
-    required this.state,
-    required this.openQuestionsCallback,
-  });
-
-  final _ProductQuestionsState state;
-  final VoidCallback openQuestionsCallback;
-
-  @override
-  Widget build(BuildContext context) {
-    return AnimatedCrossFade(
-      crossFadeState: state is _ProductQuestionsWithoutQuestions
-          ? CrossFadeState.showFirst
-          : CrossFadeState.showSecond,
-      duration: SmoothAnimationsDuration.long,
-      firstChild: EMPTY_WIDGET,
-      secondChild: Builder(builder: (BuildContext context) {
-        final AppLocalizations appLocalizations = AppLocalizations.of(context);
-        final Widget child = _buildContent(context, appLocalizations);
-
-        // We need to differentiate with / without a Shimmer, because
-        // [Shimmer] doesn't support [Ink]
-        final Color backgroundColor = Theme.of(context).colorScheme.primary;
-
-        if (state is _ProductQuestionsWithQuestions) {
-          return Semantics(
-            value: appLocalizations.tap_to_answer_hint,
-            button: true,
-            excludeSemantics: true,
-            child: InkWell(
-              borderRadius: ANGULAR_BORDER_RADIUS,
-              onTap: openQuestionsCallback,
-              child: Ink(
-                decoration: BoxDecoration(
-                  color: backgroundColor,
-                  borderRadius: ANGULAR_BORDER_RADIUS,
-                ),
-                padding: const EdgeInsetsDirectional.all(
-                  SMALL_SPACE,
-                ),
-                child: child,
-              ),
-            ),
-          );
-        } else {
-          return Semantics(
-            value: appLocalizations.robotoff_questions_loading_hint,
-            excludeSemantics: true,
-            child: Shimmer.fromColors(
-              baseColor: backgroundColor,
-              highlightColor: WHITE_COLOR.withOpacity(0.5),
-              period: SmoothAnimationsDuration.long * 2,
-              child: Container(
-                decoration: BoxDecoration(
-                  color: backgroundColor,
-                  borderRadius: ANGULAR_BORDER_RADIUS,
-                ),
-                padding: const EdgeInsetsDirectional.all(
-                  SMALL_SPACE,
-                ),
-                child: child,
-              ),
-            ),
-          );
-        }
-      }),
-    );
-  }
-
-  Widget _buildContent(
-    BuildContext context,
-    AppLocalizations appLocalizations,
-  ) {
-    final bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
-
-    return SizedBox(
-      width: double.infinity,
-      child: Column(
-        children: <Widget>[
-          Row(
-            children: <Widget>[
-              const _ProductQuestionIcon(),
-              Expanded(
-                child: RichText(
-                  text: TextSpan(
-                    text: '${appLocalizations.tap_to_answer}\n',
-                    style:
-                        Theme.of(context).primaryTextTheme.bodyLarge!.copyWith(
-                              color: isDarkMode ? Colors.black : WHITE_COLOR,
-                              height: 1.5,
-                            ),
-                    children: <TextSpan>[
-                      TextSpan(
-                        text: appLocalizations.contribute_to_get_rewards,
-                        style: Theme.of(context)
-                            .primaryTextTheme
-                            .bodyMedium!
-                            .copyWith(
-                              color: isDarkMode ? Colors.black : WHITE_COLOR,
-                            ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
 }
 
 class _ProductQuestionBanner extends StatelessWidget {
@@ -334,7 +202,7 @@ class _ProductQuestionBanner extends StatelessWidget {
         decoration: BoxDecoration(
           boxShadow: <BoxShadow>[
             BoxShadow(
-              color: theme.shadowColor.withOpacity(darkTheme ? 0.5 : 0.2),
+              color: theme.shadowColor.withValues(alpha: darkTheme ? 0.5 : 0.2),
               blurRadius: 2.5,
               offset: const Offset(0.0, -4.0),
             ),

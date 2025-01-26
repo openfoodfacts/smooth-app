@@ -66,8 +66,7 @@ jobs:
 
       - name: Set output
         id: set_output
-        run: echo "::set-output name=VERSION_NAME::${{ env.VERSION_NAME }}" && echo "::set-output name=VERSION_CODE::${{ env.VERSION_CODE }}"
-
+        run: echo "VERSION_CODE=${{ env.VERSION_CODE }}" >> $GITHUB_OUTPUT && echo "VERSION_NAME=${{ env.VERSION_NAME }}" >> $GITHUB_OUTPUT
   android-release:
     concurrency: 
       group: android-release

@@ -13,6 +13,14 @@ class Add extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.add);
+
+  const Add.circled({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.add_circled);
 }
 
 class AddPrice extends AppIcon {
@@ -283,6 +291,14 @@ class Camera extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.camera_happy);
+
+  const Camera.restart({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.camera_restart);
 }
 
 class Categories extends AppIcon {
@@ -382,12 +398,23 @@ class ClearText extends AppIcon {
   }
 }
 
+class Clear extends AppIcon {
+  const Clear({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.clear);
+}
+
 class CircledArrow extends AppIcon {
   const CircledArrow.right({
     CircledArrowType? type,
     Color? circleColor,
     Color? color,
     double? size,
+    EdgeInsetsGeometry? padding,
     Shadow? shadow,
     String? semanticLabel,
     Key? key,
@@ -397,6 +424,7 @@ class CircledArrow extends AppIcon {
           circleColor: circleColor,
           color: color,
           size: size,
+          padding: padding,
           shadow: shadow,
           semanticLabel: semanticLabel,
           key: key,
@@ -407,6 +435,7 @@ class CircledArrow extends AppIcon {
     Color? circleColor,
     Color? color,
     double? size,
+    EdgeInsetsGeometry? padding,
     Shadow? shadow,
     String? semanticLabel,
     Key? key,
@@ -416,6 +445,7 @@ class CircledArrow extends AppIcon {
           circleColor: circleColor,
           color: color,
           size: size,
+          padding: padding,
           shadow: shadow,
           semanticLabel: semanticLabel,
           key: key,
@@ -426,6 +456,7 @@ class CircledArrow extends AppIcon {
     Color? circleColor,
     Color? color,
     double? size,
+    EdgeInsetsGeometry? padding,
     Shadow? shadow,
     String? semanticLabel,
     Key? key,
@@ -435,6 +466,7 @@ class CircledArrow extends AppIcon {
           circleColor: circleColor,
           color: color,
           size: size,
+          padding: padding,
           shadow: shadow,
           semanticLabel: semanticLabel,
           key: key,
@@ -445,6 +477,7 @@ class CircledArrow extends AppIcon {
     Color? circleColor,
     Color? color,
     double? size,
+    EdgeInsetsGeometry? padding,
     Shadow? shadow,
     String? semanticLabel,
     Key? key,
@@ -454,6 +487,7 @@ class CircledArrow extends AppIcon {
           circleColor: circleColor,
           color: color,
           size: size,
+          padding: padding,
           shadow: shadow,
           semanticLabel: semanticLabel,
           key: key,
@@ -465,6 +499,7 @@ class CircledArrow extends AppIcon {
     this.circleColor,
     super.color,
     super.size,
+    this.padding,
     super.shadow,
     super.semanticLabel,
     super.key,
@@ -484,6 +519,7 @@ class CircledArrow extends AppIcon {
   final int turns;
   final CircledArrowType type;
   final Color? circleColor;
+  final EdgeInsetsGeometry? padding;
 
   @override
   Widget build(BuildContext context) {
@@ -498,7 +534,7 @@ class CircledArrow extends AppIcon {
           shape: BoxShape.circle,
           color: circleColor,
         ),
-        padding: const EdgeInsets.all(4.0),
+        padding: padding ?? const EdgeInsets.all(4.0),
         child: child,
       );
     } else {
@@ -514,6 +550,16 @@ class CircledArrow extends AppIcon {
 enum CircledArrowType {
   thin,
   normal,
+}
+
+class Clock extends AppIcon {
+  const Clock({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.clock);
 }
 
 class Close extends AppIcon {
@@ -758,6 +804,16 @@ class Fish extends AppIcon {
   }) : super._(_IconsFont.fish);
 }
 
+class Flag extends AppIcon {
+  const Flag({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.flag);
+}
+
 class Fruit extends AppIcon {
   const Fruit({
     super.color,
@@ -816,6 +872,16 @@ class Help extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.help_circled);
+}
+
+class ImageGallery extends AppIcon {
+  const ImageGallery({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.gallery);
 }
 
 class Incognito extends AppIcon {
@@ -961,13 +1027,47 @@ class Milk extends AppIcon {
     super.key,
   }) : super._(_IconsFont.milk);
 
-  const Milk.filled({
+  const Milk.add({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.milk_add);
+
+  const Milk.download({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.milk_download);
+
+  const Milk.happy({
     super.color,
     super.size,
     super.shadow,
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.milk_filled);
+
+  const Milk.unhappy({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.milk_filled_unhappy);
+}
+
+class Move extends AppIcon {
+  const Move({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.move);
 }
 
 class NoPicture extends AppIcon {
@@ -996,6 +1096,16 @@ class NutritionFacts extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.nutritional_facts);
+}
+
+class OCR extends AppIcon {
+  const OCR({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.ocr);
 }
 
 class Outdated extends AppIcon {
@@ -1080,6 +1190,16 @@ class Picture extends AppIcon {
   }) : super._(_IconsFont.image_error);
 }
 
+class PinchToZoom extends AppIcon {
+  const PinchToZoom({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.pinch_to_zoom);
+}
+
 class Profile extends AppIcon {
   const Profile({
     super.color,
@@ -1154,6 +1274,24 @@ class Salt extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.salt);
+}
+
+class Scale extends AppIcon {
+  const Scale({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.scale);
+
+  const Scale.alt({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.scale_alt);
 }
 
 class Share extends AppIcon {
@@ -1388,6 +1526,24 @@ class Warning extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.warning);
+}
+
+class Weight extends AppIcon {
+  const Weight({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.weight);
+
+  const Weight.alt({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.weight_alt);
 }
 
 abstract class AppIcon extends StatelessWidget {

@@ -64,6 +64,7 @@ class ScanProductCardFound extends StatelessWidget {
             vertical: VERY_SMALL_SPACE,
           ),
           scrollableContent: true,
+          isTextSelectable: false,
         ),
       ),
     );
@@ -80,6 +81,7 @@ class ScanProductCardFound extends StatelessWidget {
         product.barcode!,
         heroTag: _heroTag,
         backButtonType: ProductPageBackButton.minimize,
+        transition: ProductPageTransition.slideUp,
       ),
       extra: product,
     );

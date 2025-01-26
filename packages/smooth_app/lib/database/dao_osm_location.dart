@@ -69,7 +69,7 @@ class DaoOsmLocation extends AbstractSqlDao {
       final String column,
     ) =>
         e.toString().startsWith(
-            'DatabaseException(duplicate column name: $column (code 1 SQLITE_ERROR)');
+            'DatabaseException(duplicate column name: $column (code 1 SQLITE_ERROR');
 
     if (oldVersion < 7) {
       try {

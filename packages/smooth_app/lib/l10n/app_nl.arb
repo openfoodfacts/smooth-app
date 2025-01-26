@@ -28,6 +28,14 @@
     "@next_label": {
         "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
     },
+    "continue_label": "Doorgaan",
+    "@continue_label": {
+        "description": "A label on a button that says 'Continue', pressing the button takes the user to the next screen."
+    },
+    "exit_label": "Verlaten",
+    "@exit_label": {
+        "description": "A label on a button that says 'Exit', pressing the button takes the user to the next screen."
+    },
     "previous_label": "Vorige",
     "@previous_label": {
         "description": "A label on a button that says 'Previous', pressing the button takes the user to the previous screen."
@@ -276,7 +284,6 @@
     "sign_up_page_email_already_exists": "bestaat al, log in op het account of probeer het met een ander e-mailadres.",
     "sign_up_page_provide_valid_email": "Voer een geldig e-mailadres in alsjeblieft.",
     "sign_up_page_server_busy": "Het spijt ons zeer erg, we hebben wat technische problemen bij het aanmaken van uw account. Probeer het later opnieuw.",
-    "@Settings": {},
     "settingsTitle": "Instellingen",
     "@settingsTitle": {
         "description": "The title of the Settings page"
@@ -433,7 +440,7 @@
     "myPreferences_profile_title": "Jouw profiel",
     "myPreferences_profile_subtitle": "Beheer je Open Food Facts-bijdragersaccount.",
     "myPreferences_settings_title": "App-instellingen",
-    "myPreferences_settings_subtitle": "Donkere modus, Analytics…",
+    "myPreferences_settings_subtitle": "Dark mode, Languages…",
     "myPreferences_food_title": "Voedselvoorkeuren",
     "myPreferences_food_subtitle": "Kies welke informatie over voedsel voor u het belangrijkst is.",
     "myPreferences_food_comment": "Kies welke informatie over voedsel voor u het belangrijkst is, om voedsel te rangschikken volgens uw voorkeuren, bekijk eerst de informatie die u belangrijk vindt en ontvang een compatibiliteitsoverzicht. Die voedselvoorkeuren blijven op uw apparaat staan en zijn niet gekoppeld aan uw Open Food Facts-bijdragersaccount, als u er een heeft.",
@@ -499,7 +506,7 @@
     "@search": {
         "description": "Hint text of a search text input field"
     },
-    "search_store": "Search for a store",
+    "search_store": "Zoeken naar een winkel",
     "@search_store": {
         "description": "Hint text of a search store text input field"
     },
@@ -515,21 +522,29 @@
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
+    "label_reload": "Reload",
+    "@label_reload": {
+        "description": "Reload a page"
+    },
     "image": "Afbeelding",
     "front_photo": "Foto voorzijde",
     "@front_photo": {
         "description": "Button label: For adding a picture of the front of a product"
     },
-    "outdated_image_accessibility_label": "{imageType} (this image may be outdated)",
+    "outdated_image_accessibility_label": "{imageType} (deze afbeelding is mogelijk verouderd)",
     "@outdated_image_accessibility_label": {
         "description": "Accessibility label for images that are outdated (image type may be front/ingredients/nutrition…)",
         "placeholders": {
             "imageType": {}
         }
     },
+    "outdated_image_short_label": "may be outdated",
+    "@outdated_image_short_label": {
+        "description": "A label for outdated images"
+    },
     "ingredients": "Ingrediënten",
     "@ingredients": {},
-    "ingredients_editing_instructions": "Bewaar de originele volgorde. Vermeld het percentage indien gespecificeerd. Scheid met een komma of koppelteken, gebruik haakjes voor ingrediënten van een ingrediënt en geef allergenen aan tussen onderstrepingstekens.",
+    "ingredients_editing_instructions": "Behoud de originele volgorde. Geef het percentage aan indien gespecificeerd. Scheid met een komma of koppelteken en gebruik haakjes voor ingrediënten van een ingrediënt.",
     "ingredients_editing_error": "Kan de ingrediënten niet opslaan.",
     "ingredients_editing_image_error": "Kan geen afbeelding voor de nieuwe ingrediënten ophalen.",
     "ingredients_editing_title": "Ingrediënten bewerken",
@@ -547,6 +562,10 @@
     "@nutrition_facts_photo": {
         "description": "Button label: For adding a picture of the nutrition facts of a product"
     },
+    "nutrition_facts_editing_title": "Edit Nutrition Facts",
+    "@nutrition_facts_editing_title": {
+        "description": "Title of the button where users can edit the nutrition facts of a product"
+    },
     "packaging_information": "Verpakkingsinformatie",
     "@packaging_information": {
         "description": "Button label: For adding a picture of the packaging of a product"
@@ -563,10 +582,15 @@
     "@add_product_information_button_label": {},
     "new_product": "Nieuw Product",
     "@new_product": {},
-    "new_product_dialog_title": "Je hebt zojuist een nieuw product gevonden!",
-    "@new_product_dialog_title": {
-        "description": "Please keep it short, like 50 characters. Title of the dialog when the user searched for an unknown barcode."
+    "new_product_found_title": "Nieuw product gevonden!",
+    "@new_product_found_title": {
+        "description": "Title of a dialog that informs the user that a barcode doesn't exist in the database"
     },
+    "new_product_found_text": "Onze gezamenlijke database bevat meer dan **3 miljoen producten**, maar deze streepjescode bestaat niet: ",
+    "@new_product_found_text": {
+        "description": "Please keep the ** syntax to make the text bold"
+    },
+    "new_product_found_button": "Voeg dit product toe",
     "new_product_leave_title": "Deze pagina verlaten?",
     "@new_product_leave_title": {
         "description": "Alert dialog title when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
@@ -579,9 +603,9 @@
     "@new_product_dialog_description": {
         "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
     },
-    "new_product_dialog_illustration_description": "Een illustratie met onbekende Nutri-Score en Eco-Score",
+    "new_product_dialog_illustration_description": "An illustration with unknown Nutri-Score and Green Score",
     "@new_product_dialog_illustration_description": {
-        "description": "A description for accessibility of two images side by side: a Nutri-Score and an EcoScore."
+        "description": "A description for accessibility of two images side by side: a Nutri-Score and an Green Score."
     },
     "front_packaging_photo_button_label": "Foto van voorkant verpakking",
     "@front_packaging_photo_button_label": {},
@@ -610,6 +634,10 @@
     "crop_page_action_local_failed_message": "We kunnen de afbeelding niet lokaal verwerken voordat deze naar onze server wordt verzonden. Probeer het later opnieuw of neem contact met ons op als het probleem aanhoudt.",
     "@crop_page_action_local_message": {
         "description": "The save of the picture locally failed - error dialog message"
+    },
+    "crop_page_action_retake": "Retake a photo",
+    "@crop_page_action_retake": {
+        "description": "Button which allows users to retake a photo."
     },
     "crop_page_too_small_image_title": "De afbeelding is te klein!",
     "@crop_page_too_small_image_title": {
@@ -657,9 +685,9 @@
     "categories_added": "Categorieën toegevoegd",
     "new_product_title_nutriscore": "Bereken de Nutri-Score",
     "new_product_subtitle_nutriscore": "Help ons door minimaal een categorie en voedingswaarden in te vullen",
-    "new_product_title_ecoscore": "Bereken de Ecoscore",
-    "new_product_subtitle_ecoscore": "Krijg het door minstens één categorie in te vullen",
-    "new_product_additional_ecoscore": "Maak de Eco-Score-berekening nauwkeuriger door herkomst, verpakking en meer toe te voegen",
+    "new_product_title_environmental_score": "Bereken de Green-Score",
+    "new_product_subtitle_environmental_score": "Ontvang het door ten minste één categorie in te vullen",
+    "new_product_additional_environmental_score": "Maak Green-Score-berekening nauwkeuriger met oorsprong, verpakking en meer",
     "new_product_title_nova": "Bereken het voedselverwerkingsniveau (NOVA)",
     "new_product_subtitle_nova": "Krijg het door het invullen van de voedselcategorie en ingrediënten",
     "new_product_desc_nova_unknown": "Voedselverwerkingsniveau onbekend",
@@ -681,10 +709,10 @@
     "@new_product_done_button_label": {
         "description": "Button at the end of new product page, that takes you to completed product"
     },
-    "hey_incomplete_product_message": "Tik om 3 vragen NU te beantwoorden om de Nutri-Score, de Eco-Score & de Ultra-verwerking (NOVA) te berekenen!",
-    "hey_incomplete_product_message_beauty": "Tap now to answer 2 questions to help analyze this cosmetic!",
-    "hey_incomplete_product_message_pet_food": "Tap now to answer 3 questions to help analyze this pet food product!",
-    "hey_incomplete_product_message_product": "Tap now to help complete this product!",
+    "hey_incomplete_product_message": "Tap to answer 3 questions NOW to compute Nutri-Score, Green Score & Ultra-processing (NOVA)!",
+    "hey_incomplete_product_message_beauty": "Tik nu om 2 vragen te beantwoorden en zo dit cosmeticaproduct te analyseren!",
+    "hey_incomplete_product_message_pet_food": "Tik nu om 3 vragen te beantwoorden en zo dit diervoederproduct te analyseren!",
+    "hey_incomplete_product_message_product": "Tik nu om dit product te voltooien!",
     "nutritional_facts_photo_uploaded": "Foto van voedingswaarden geüpload",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "Foto van recyclen",
@@ -740,16 +768,42 @@
     "score_add_missing_product_labels": "Voeg ontbrekende productlabels toe",
     "score_add_missing_product_origins": "Voeg ontbrekende productherkomsten toe",
     "score_add_missing_product_stores": "Voeg ontbrekende productwinkels toe",
+    "score_add_missing_product_brands": "Add missing product brands",
     "score_update_nutrition_facts": "Voedingswaarden bijwerken",
     "nutrition_page_title": "Voedingswaarden",
-    "nutrition_page_unspecified": "De voedingswaarden zijn niet op het product vermeld",
+    "nutrition_page_nutritional_info_title": "Nutritional information",
+    "nutrition_page_nutritional_info_label": "Values specified on the product:",
+    "nutrition_page_nutritional_info_value_positive": "Ja",
+    "nutrition_page_nutritional_info_value_negative": "Nee",
+    "nutrition_page_nutritional_info_open_photo": "Open photo",
+    "nutrition_page_nutritional_info_explanation": "TODO",
+    "@nutrition_page_nutritional_info_explanation": {
+        "description": "DO NOT TRANSLATE Text to explain when we should set the toggle to off (no nutrition facts)"
+    },
+    "nutrition_page_serving_type_label": "Nutritional values:",
+    "@nutrition_page_serving_type_label": {
+        "description": "Label to let the user choose between per 100g or per serving"
+    },
     "nutrition_page_per_100g": "per 100g",
     "nutrition_page_per_serving": "per portie",
     "nutrition_page_add_nutrient": "Voeg voedingsstof toe",
     "nutrition_page_serving_size": "Grootte van een portie",
+    "nutrition_page_serving_size_hint": "Input a serving size (eg: 100g)",
+    "nutrition_page_serving_size_explanation": "TODO",
+    "@nutrition_page_serving_size_explanation": {
+        "description": "DO NOT TRANSLATE Text to explain what to input in the serving size"
+    },
     "nutrition_page_invalid_number": "Ongeldig nummer",
     "nutrition_page_update_running": "Het product bijwerken op de server…",
     "nutrition_page_update_done": "Product bijgewerkt!",
+    "nutrition_page_take_serving_size_from_product_quantity": "Gebruik de producthoeveelheid als portiegrootte",
+    "@nutrition_page_take_serving_size_from_product_quantity": {
+        "description": "Button label: Use the product quantity as serving size (nutrition page)"
+    },
+    "nutrition_page_photo_error": "Unable to load the photo",
+    "@nutrition_page_photo_error": {
+        "description": "Error message when the nutrition facts photo can't be loaded"
+    },
     "more_photos": "Meer interessante foto's",
     "@more_photos": {},
     "view_more_photo_button": "Bekijk alle bestaande foto's voor dit product",
@@ -784,7 +838,72 @@
             }
         }
     },
-    "product_image_outdated": "This image may be outdated",
+    "product_image_outdated": "Deze afbeelding is mogelijk verouderd",
+    "product_image_outdated_explanations_title": "Deze afbeelding is mogelijk verouderd",
+    "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that's it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
+    "@product_image_outdated_explanations_content": {
+        "description": "Please keep the ** syntax to make the text bold"
+    },
+    "product_image_action_replace_photo": "Foto vervangen ({type})",
+    "@product_image_action_replace_photo": {
+        "description": "Action on the photo gallery to replace an existing picture",
+        "placeholders": {
+            "type": {
+                "type": "String",
+                "description": "The type of the photo (eg: ingredients)"
+            }
+        }
+    },
+    "product_image_action_add_photo": "Voeg een foto toe ({type})",
+    "@product_image_action_add_photo": {
+        "description": "Action on the photo gallery to add a photo (eg: ingredients)",
+        "placeholders": {
+            "type": {
+                "type": "String",
+                "description": "The type of the photo (eg: ingredients)"
+            }
+        }
+    },
+    "product_image_action_take_new_picture": "Maak een nieuwe foto",
+    "@product_image_action_take_new_picture": {
+        "description": "Replace the existing picture with a new one"
+    },
+    "product_image_action_take_picture": "Maak een foto",
+    "@product_image_action_take_picture": {
+        "description": "Take a picture (eg: for ingredients) when there is no one"
+    },
+    "product_image_action_from_gallery": "Selecteer uit de galerij van uw telefoon",
+    "@product_image_action_from_gallery": {
+        "description": "Replace the existing picture with one from the device's gallery"
+    },
+    "product_image_action_choose_existing_photo": "Selecteer uit de productfoto's",
+    "@product_image_action_choose_existing_photo": {
+        "description": "Replace the existing picture with one from the product's photos"
+    },
+    "product_image_details_label": "Information about the photo",
+    "@product_image_details_label": {
+        "description": "Label for the photo details"
+    },
+    "product_image_details_from_producer": "From the producer",
+    "@product_image_details_from_producer": {
+        "description": "Text to indicate that the image was taken by the producer"
+    },
+    "product_image_details_contributor": "Bijdrager",
+    "@product_image_details_contributor": {
+        "description": "The name of the contributor who uploaded the image"
+    },
+    "product_image_details_contributor_producer": "Contributor (producer)",
+    "@product_image_details_contributor_producer": {
+        "description": "The name of the contributor (and also the owner field) who uploaded the image"
+    },
+    "product_image_details_date": "Datum",
+    "@product_image_details_date": {
+        "description": "Text to indicate the date of the image"
+    },
+    "product_image_details_date_unknown": "Onbekend",
+    "@product_image_details_date_unknown": {
+        "description": "Text to indicate the date of the image is unknown"
+    },
     "homepage_main_card_logo_description": "Welkom bij Open Food Facts",
     "@homepage_main_card_logo_description": {
         "description": "Description for accessibility of the Open Food Facts logo on the homepage"
@@ -830,14 +949,42 @@
             }
         }
     },
+    "product_tags_title": "Producteigenschappen",
+    "@product_tags_title": {
+        "description": "The title for showing product properties, aka folksonomy data"
+    },
+    "no_product_tags_found_message": "Geen producteigenschappen gevonden. Eigenschappen kunnen worden gebruikt om producten op een flexibele manier gedetailleerder te beschrijven. Tik om toe te voegen.",
+    "@no_product_tags_found_message": {
+        "description": "Message to show if there are no product properties found"
+    },
+    "add_tag": "Eigenschap toevoegen",
+    "add_tags": "Add properties",
+    "add_edit_tags": "Add or edit properties",
+    "edit_tag": "Eigenschap bewerken",
+    "remove_tag": "Eigenschap verwijderen",
+    "tag_key": "Eigenschap",
+    "tag_key_uneditable": "Property (uneditable)",
+    "tag_key_input_hint": "Input a property",
+    "tag_value": "Waarde",
+    "tag_value_input_hint": "Input a value",
+    "tag_key_item": "Property:",
+    "tag_value_item": "Value:",
+    "tag_key_explanations": "A key must be lowercase and without any spaces.",
+    "tag_key_already_exists": "A tag with a property {property} already exists!",
+    "@tag_key_already_exists": {
+        "placeholders": {
+            "property": {
+                "type": "String",
+                "description": "The property name"
+            }
+        }
+    },
     "product_internet_error": "Onmogelijk om informatie over dit product op te halen vanwege een netwerkfout.",
     "cached_results_from": "Resultaten weergeven van:",
     "@cached_results_from": {
         "description": "Cached results from: x time ago (time ago should not be added to the string)"
     },
     "@Product Addition": {},
-    "added_product_thanks": "Bedankt voor het toevoegen van dit product!",
-    "@added_product_thanks": {},
     "product_search_same_category": "Vergelijk met categorie",
     "@product_search_same_category": {
         "description": "Button looking for the other products within the same category. Less than 30 characters"
@@ -846,7 +993,7 @@
     "@product_search_same_category_short": {
         "description": "Button looking for the other products within the same category. Just the verb compare"
     },
-    "product_search_same_category_error": "This feature can only be used for products with a category.\n\nPlease edit the product to add a category.",
+    "product_search_same_category_error": "Deze functie kan alleen worden gebruikt voor producten met een categorie.\n\nBewerk het product om een categorie toe te voegen.",
     "@product_search_same_category_error": {
         "description": "Button looking for the other products within the same category. Just the verb compare"
     },
@@ -870,7 +1017,7 @@
     "@product_improvement_obsolete_nutrition_image": {
         "description": "Message for ProductImprovement.OBSOLETE_NUTRITION_IMAGE"
     },
-    "product_improvement_origins_to_be_completed": "De Eco-Score houdt rekening met de oorsprong van de ingrediënten. Neem een foto van de ingrediëntenlijst en/of elke geografische claim of bewerk het product, zodat er rekening mee kan worden gehouden.",
+    "product_improvement_origins_to_be_completed": "The Green Score takes into account the origins of the ingredients. Please take a photo of the ingredient list and/or any geographic claim or edit the product, so they can be taken into account.",
     "@product_improvement_origins_to_be_completed": {
         "description": "Message for ProductImprovement.ORIGINS_TO_BE_COMPLETED"
     },
@@ -999,9 +1146,28 @@
             "count": {}
         }
     },
-    "compare_products_mode": "Producten vergelijken",
+    "multiselect_title": "{count,plural, one {}=0{Geen geselecteerd product} =1{Eén geselecteerd product} other{{count} geselecteerde producten}}",
+    "@multiselect_title": {
+        "description": "Page title with the number of selected items",
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "compare_products_mode": "Vergelijk geselecteerde producten",
     "@compare_products_mode": {
         "description": "Button to switch to 'compare products mode'"
+    },
+    "delete_products_mode": "Geselecteerde producten verwijderen",
+    "@delete_products_mode": {
+        "description": "Button to switch to 'delete products'"
+    },
+    "select_all_products_mode": "Selecteer alle producten",
+    "@select_all_products_mode": {
+        "description": "Button to switch to 'select all products'"
+    },
+    "select_none_products_mode": "Niets selecteren",
+    "@select_none_products_mode": {
+        "description": "Button to switch to 'select no products'"
     },
     "compare_products_appbar_title": "Producten vergelijken",
     "@compare_products_appbar_title": {
@@ -1024,18 +1190,6 @@
     "hint_knowledge_panel_message": "U kunt op elk deel van de kaart tikken om meer details te krijgen over wat u ziet. Probeer het nu!",
     "@hint_knowledge_panel_message": {
         "description": "Hint popup indicating the card is clickable during onboarding"
-    },
-    "consent_analytics_title": "Stuur anonieme analyses",
-    "@consent_analytics_title": {
-        "description": "Title for the consent analytics UI Page"
-    },
-    "consent_analytics_body1": "Help de vrijwilligers van Open Food Facts om de app te verbeteren. U beslist of u anonieme analyses wilt indienen.",
-    "@conset_analytics_body1": {
-        "description": "first paragraph for the consent analytics UI Page"
-    },
-    "consent_analytics_body2": "Als u van gedachten verandert, kan deze optie op elk moment in de instellingen worden aan- en uitgeschakeld.",
-    "@consent_analytics_body2": {
-        "description": "second paragraph for the consent analytics UI Page"
     },
     "permissions_page_title": "Cameratoegang",
     "@permissions_page_title": {
@@ -1153,10 +1307,6 @@
     "onboarding_welcome_loading_dialog_title": "Uw eerste voorbeeldproduct wordt geladen",
     "@onboarding_welcome_loading_dialog_title": {
         "description": "Title for the onboarding loading dialog"
-    },
-    "onboarding_welcome_loading_error": "Het lijkt erop dat er geen voorbeeldproduct is in uw taal",
-    "@onboarding_welcome_loading_error": {
-        "description": "Seems like there is no example product in your language"
     },
     "product_list_your_ranking": "Jouw ranking",
     "@product_list_your_ranking": {
@@ -1322,26 +1472,70 @@
     "@permission_photo_denied": {
         "description": "When the camera/photo permission is denied by user"
     },
+    "show_product_pictures": "Toon productafbeeldingen",
+    "@show_product_pictures": {
+        "description": "Button to show a list of product pictures"
+    },
     "edit_product_label": "Bewerk product",
     "@edit_product_label": {
         "description": "Edit product button label"
+    },
+    "edit_product_pending_operations_banner_title": "Bewerkingen uploaden…",
+    "@edit_product_pending_operations_banner_title": {
+        "description": "When a product has pending edits (being sent to the server), there is a message on the edit page (here is the title of the message)."
+    },
+    "edit_product_pending_operations_banner_message": "Your edits are being **sent in the background** (or later in case of error).\nYou can continue editing other product fields.",
+    "@edit_product_pending_operations_banner_message": {
+        "description": "When a product has pending edits (being sent to the server), there is a message on the edit page. Please keep the ** syntax to make the text bold."
     },
     "edit_product_label_short": "Bewerken",
     "@edit_product_label_short": {
         "description": "Edit product button short label (only the verb)"
     },
-    "edit_product_form_item_add_action": "Voeg een nieuw(e) {itemType} toe",
-    "description": "Tooltip om te laten zien wanneer de gebruiker lang op de (+) knop drukt",
-    "@edit_product_form_item_add_action": {
+    "edit_product_form_item_help": "Hoe voer ik \"{value}\" in?",
+    "@edit_product_form_item_help": {
+        "description": "Help text for the input field. Eg 'How to enter stores?'",
         "placeholders": {
-            "itemType": {
+            "value": {
                 "type": "String"
             }
         }
     },
-    "edit_product_form_item_barcode": "Streepjescode",
-    "@edit_product_form_item_barcode": {
-        "description": "Product edition - Barcode"
+    "edit_product_form_item_error_empty": "Please enter a non-empty value!",
+    "@edit_product_form_item_error_empty": {
+        "description": "Error message when the user tries to submit an empty value"
+    },
+    "edit_product_form_item_error_existing": "This value is already there!",
+    "@edit_product_form_item_error_existing": {
+        "description": "Error message when the user tries to re-submit an existing value"
+    },
+    "edit_product_form_item_add_action_brand": "Add a new brand",
+    "@edit_product_form_item_add_action_brand": {
+        "description": "Tooltip to show when the user long presses the (+) button on a brand"
+    },
+    "edit_product_form_item_add_action_label": "Add a new label",
+    "@edit_product_form_item_add_action_label": {
+        "description": "Tooltip to show when the user long presses the (+) button on a label"
+    },
+    "edit_product_form_item_add_action_store": "Add a new store",
+    "@edit_product_form_item_add_action_store": {
+        "description": "Tooltip to show when the user long presses the (+) button on a store"
+    },
+    "edit_product_form_item_add_action_origin": "Add a new origin",
+    "@edit_product_form_item_add_action_origin": {
+        "description": "Tooltip to show when the user long presses the (+) button on an origin"
+    },
+    "edit_product_form_item_add_action_emb_code": "Add a new traceability code",
+    "@edit_product_form_item_add_action_emb_code": {
+        "description": "Tooltip to show when the user long presses the (+) button on a traceability code"
+    },
+    "edit_product_form_item_add_action_country": "Add a new country",
+    "@edit_product_form_item_add_action_country": {
+        "description": "Tooltip to show when the user long presses the (+) button on a country"
+    },
+    "edit_product_form_item_add_action_category": "Add a new category",
+    "@edit_product_form_item_add_action_category": {
+        "description": "Tooltip to show when the user long presses the (+) button on a category"
     },
     "edit_product_form_item_details_title": "Basisdetails",
     "@edit_product_form_item_details_title": {
@@ -1375,7 +1569,7 @@
     "@edit_product_form_item_labels_subtitle": {
         "description": "Product edition - Labels - SubTitle"
     },
-    "edit_product_form_item_labels_hint": "keurmerk",
+    "edit_product_form_item_labels_hint": "Voer een label in (bijv.: NutriScore)",
     "@edit_product_form_item_labels_hint": {
         "description": "Product edition - Labels - input textfield hint"
     },
@@ -1387,7 +1581,7 @@
     "@edit_product_form_item_stores_title": {
         "description": "Product edition - Stores - Title"
     },
-    "edit_product_form_item_stores_hint": "winkel",
+    "edit_product_form_item_stores_hint": "Voer een winkel in",
     "@edit_product_form_item_stores_hint": {
         "description": "Product edition - Stores - input textfield hint"
     },
@@ -1399,7 +1593,7 @@
     "@edit_product_form_item_origins_title": {
         "description": "Product edition - Origins - Title"
     },
-    "edit_product_form_item_origins_hint": "Voer een oorsprong in",
+    "edit_product_form_item_origins_hint": "Voer een herkomst in (bijv. Duitsland)",
     "@edit_product_form_item_origins_hint": {
         "description": "Product edition - Origins - input textfield hint"
     },
@@ -1419,7 +1613,7 @@
     "@edit_product_form_item_countries_title": {
         "description": "Product edition - Countries - Title"
     },
-    "edit_product_form_item_countries_hint": "Voer een land in",
+    "edit_product_form_item_countries_hint": "Voer een land in (bijv. Duitsland)",
     "@edit_product_form_item_countries_hint": {
         "description": "Product edition - Countries - input textfield hint"
     },
@@ -1435,7 +1629,7 @@
     "@edit_product_form_item_emb_codes_title": {
         "description": "Product edition - Traceability codes - Title"
     },
-    "edit_product_form_item_emb_codes_hint": "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522",
+    "edit_product_form_item_emb_codes_hint": "Input a code (eg: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522…)",
     "@edit_product_form_item_emb_codes_hint": {
         "description": "Product edition - Traceability Codes - input textfield hint"
     },
@@ -1455,7 +1649,7 @@
     "@edit_product_form_item_categories_hint": {
         "description": "Product edition - Categories - input textfield hint"
     },
-    "edit_product_form_item_categories_type": "categorie",
+    "edit_product_form_item_categories_type": "Input a category (eg: Orange juice)",
     "@edit_product_form_item_categories_type": {
         "description": "Product edition - Categories - input textfield type"
     },
@@ -1471,6 +1665,7 @@
     "@edit_product_form_item_categories_explainer_3": {
         "description": "Product edition - Categories - input explainer, part 3"
     },
+    "edit_product_form_item_exit_title": "Quit without saving?",
     "edit_product_form_item_exit_confirmation": "Wilt u uw wijzigingen opslaan voordat u deze pagina verlaat?",
     "edit_product_form_item_exit_confirmation_positive_button": "Wijzigingen opslaan",
     "edit_product_form_item_exit_confirmation_negative_button": "Wijzigingen negeren",
@@ -1478,9 +1673,29 @@
     "@edit_product_form_item_ingredients_title": {
         "description": "Product edition - Ingredients - Title (note: this section was previously called Ingredients & Origins)"
     },
+    "edit_product_form_item_ingredients_pinch_to_zoom_tooltip": "Zoom in and out by pinching the screen",
+    "@edit_product_form_item_ingredients_pinch_to_zoom_tooltip": {
+        "description": "Product edition - Ingredients - Pinch to zoom icon explanation"
+    },
+    "edit_product_form_item_ingredients_pinch_to_zoom_title": "Zoom in and out the photo",
+    "@edit_product_form_item_ingredients_pinch_to_zoom_title": {
+        "description": "Product edition - Ingredients - Pinch to zoom explanation title"
+    },
+    "edit_product_form_item_ingredients_pinch_to_zoom_message": "Using the **Pinch-to-zoom gesture**, you can zoom in or out the photo:",
+    "@edit_product_form_item_ingredients_pinch_to_zoom_message": {
+        "description": "Product edition - Ingredients - Pinch to zoom explanation message"
+    },
     "edit_product_form_item_add_valid_item_tooltip": "Toevoegen",
     "edit_product_form_item_add_invalid_item_tooltip": "Voer eerst een tekst in alsjeblieft",
     "edit_product_form_item_remove_item_tooltip": "Verwijderen",
+    "edit_product_form_item_save_edit_item_tooltip": "Save your edit",
+    "@edit_product_form_item_save_edit_item_tooltip": {
+        "description": "The user can edit an existing item. This action will save the change."
+    },
+    "edit_product_form_item_cancel_edit_item_tooltip": "Cancel your edit",
+    "@edit_product_form_item_cancel_edit_item_tooltip": {
+        "description": "The user can edit an existing item. This action will cancel the change (and return to the initial value)."
+    },
     "edit_product_form_item_packaging_title": "Recycling instructies foto",
     "@edit_product_form_item_packaging_title": {
         "description": "Product edition - Packaging - Title"
@@ -1493,9 +1708,29 @@
     "@edit_product_form_item_nutrition_facts_subtitle": {
         "description": "Product edition - Nutrition facts - SubTitle"
     },
+    "edit_product_form_item_nutrition_facts_explanation": "TODO",
+    "@edit_product_form_item_nutrition_facts_explanation": {
+        "description": "DO NOT TRANSLATE Text to explain what to input in nutrition facts"
+    },
     "edit_product_form_save": "Bewerken",
     "@edit_product_form_save": {
         "description": "Product edition - Nutrition facts - Save button"
+    },
+    "edit_product_ingredients_photo_title": "Foto van de ingrediëntenlijst",
+    "@edit_product_ingredients_photo_title": {
+        "description": "Product edition - Ingredients - Title"
+    },
+    "edit_product_ingredients_list_title": "Lijst van ingrediënten",
+    "@edit_product_ingredients_list_title": {
+        "description": "Product edition - Ingredients - Title"
+    },
+    "edit_product_packaging_photo_title": "Verpakkingsfoto",
+    "@edit_product_packaging_photo_title": {
+        "description": "Product edition - Packaging - Title"
+    },
+    "edit_product_packaging_list_title": "Verpakkingslijst",
+    "@edit_product_packaging_list_title": {
+        "description": "Product edition - Packaging - Title"
     },
     "no_data_available": "Geen gegevens beschikbaar",
     "@no_data_available": {
@@ -1505,12 +1740,20 @@
     "@product_field_website_title": {
         "description": "Title of a product field: website"
     },
+    "origins_editing_title": "Edit Origins",
+    "@origins_editing_title": {
+        "description": "Title of the button where users can edit the origins of a product"
+    },
     "completed_basic_details_btn_text": "Basisdetails aanvullen",
     "not_implemented_snackbar_text": "Nog niet geïmplementeerd",
     "category_picker_page_appbar_text": "Categorieën",
     "edit_ingredients_extract_ingredients_btn_text": "Detecteer de ingrediënten op de foto",
     "@edit_ingredients_extract_ingredients_btn_text": {
         "description": "Ingredients edition - Extract ingredients"
+    },
+    "edit_ingredients_extract_ingredients_btn_text_short": "Extract ingrediënten",
+    "@edit_ingredients_extract_ingredients_btn_text_short": {
+        "description": "Ingredients edition - Extract ingredients (short label)"
     },
     "edit_ingredients_extracting_ingredients_btn_text": "Detecteer de ingrediënten\nop de foto",
     "@edit_ingredients_extracting_ingredients_btn_text": {
@@ -1536,6 +1779,10 @@
     "@edit_packaging_extract_btn_text": {
         "description": "Packaging edition - OCR-Extract packaging"
     },
+    "edit_packaging_extract_btn_text_short": "Extract packaging",
+    "@edit_packaging_extract_btn_text_short": {
+        "description": "Packaging edition - OCR-Extract packaging (short label)"
+    },
     "edit_packaging_extracting_btn_text": "Detecteer de verpakking op de foto",
     "@edit_packaging_extracting_btn_text": {
         "description": "Packaging edition - OCR-Extracting packaging"
@@ -1559,6 +1806,14 @@
     "edit_ocr_extract_failed": "Detecteren van tekst in afbeelding mislukt.",
     "@edit_ocr_extract_failed": {
         "description": "OCR extraction - message for failed"
+    },
+    "edit_ocr_extract_disabled_title": "Geen afbeelding!",
+    "@edit_ocr_extract_disabled_title": {
+        "description": "OCR extraction - title for disabled"
+    },
+    "edit_ocr_extract_disabled_message": "Om de tekstextractiefunctie te kunnen gebruiken, moet u eerst een foto maken.",
+    "@edit_ocr_extract_disabled_message": {
+        "description": "OCR extraction - message for disabled"
     },
     "user_list_dialog_new_title": "Nieuwe lijst met producten",
     "@user_list_dialog_new_title": {
@@ -1584,7 +1839,7 @@
     "@user_list_button_new": {
         "description": "Short label of a 'create a new list' button"
     },
-    "user_list_empty_label": "Er is nog geen lijst beschikbaar, maak er eerst een aan",
+    "user_list_empty_label": "Er is nog geen lijst beschikbaar!\nBegin met het maken van een lijst.",
     "@user_list_empty_label": {
         "description": "Content displayed when there is no list"
     },
@@ -1620,7 +1875,7 @@
     "@user_list_name_error_same": {
         "description": "Validation error about the renamed name that is the same as the initial list name"
     },
-    "user_list_name_input_hint": "Name of the list",
+    "user_list_name_input_hint": "Naam van de lijst",
     "@user_list_name_input_hint": {
         "description": "A hint to indicate that the user should input a name of a list"
     },
@@ -1795,16 +2050,16 @@
         }
     },
     "product_type_label_food": "Voedsel",
-    "product_type_label_beauty": "Personal care",
+    "product_type_label_beauty": "Persoonlijke verzorging",
     "product_type_label_pet_food": "Dierenvoeding",
     "product_type_label_product": "Andere",
-    "product_type_selection_title": "Product type",
-    "product_type_selection_subtitle": "Select the type of this product",
-    "product_type_selection_empty": "You need to select a product type first!",
+    "product_type_selection_title": "Producttype",
+    "product_type_selection_subtitle": "Selecteer het type van dit product",
+    "product_type_selection_empty": "U moet eerst een producttype selecteren!",
     "@product_type_selection_empty": {
         "description": "Error message about product type that needs to be set"
     },
-    "product_type_selection_already": "You cannot change the product type ({productType})!",
+    "product_type_selection_already": "U kunt het producttype niet wijzigen ({productType})!",
     "@product_type_selection_already": {
         "description": "Error message about product type that cannot be set again",
         "placeholders": {
@@ -1816,13 +2071,13 @@
     "prices_app_dev_mode_flag": "Snelkoppeling naar de Prijzen-app op de productpagina",
     "prices_app_button": "Ga naar de Prijzen-app",
     "prices_generic_title": "Prijzen",
-    "prices_add_n_prices": "{count,plural, one {}=1{Voeg 1 prijs toe} other{Voeg {count} prijzen toe}}",
+    "prices_add_n_prices": "{count,plural, one {}=1{Voeg een prijs toe} other{Voeg {count} prijzen toe}}",
     "prices_send_n_prices": "{count,plural, one {}=1{Verstuur 1 prijs} other{Verstuur {count} prijzen}}",
     "prices_add_an_item": "Item toevoegen",
     "prices_add_a_price": "Voeg een prijs toe",
     "prices_add_a_receipt": "Een ontvangstbewijs toevoegen",
     "prices_add_price_tags": "Voeg prijskaartjes toe",
-    "prices_barcode_already": "This barcode ({barcode}) is already in the list!",
+    "prices_barcode_already": "Deze streepjescode ({barcode}) staat al in de lijst!",
     "@prices_barcode_already": {
         "description": "Error message about barcode being already there",
         "placeholders": {
@@ -1842,7 +2097,7 @@
             }
         }
     },
-    "prices_barcode_enter": "Enter the Barcode",
+    "prices_barcode_enter": "Voer de streepjescode in",
     "prices_barcode_reader_action": "Streepjescodelezer",
     "prices_view_prices": "Bekijk de prijzen",
     "prices_product_accessibility_summary": "{count,plural, one {}=1{1 prijs} other{{count} prijzen}} voor {product}",
@@ -1942,6 +2197,54 @@
             }
         }
     },
+    "prices_locations_list_length_many_pages": "Top {pageSize} locaties (totaal: {total})",
+    "@prices_locations_list_length_many_pages": {
+        "description": "Number of locations for one-page result",
+        "placeholders": {
+            "pageSize": {
+                "type": "int"
+            },
+            "total": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_button_count_proof": "{count,plural, one {}=0{Geen bewijs} =1{Eén bewijs} other{{count} bewijzen}}",
+    "@prices_button_count_proof": {
+        "description": "Number of proofs, for a button",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_button_count_product": "{count,plural, one {}=0{Geen product} =1{Eén product} other{{count} producten}}",
+    "@prices_button_count_product": {
+        "description": "Number of products, for a button",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_button_count_user": "{count,plural, one {}=0{Geen gebruiker} =1{Eén gebruiker} other{{count} gebruikers}}",
+    "@prices_button_count_user": {
+        "description": "Number of users, for a button",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "prices_button_count_price": "{count,plural, one {}=0{Geen prijs} =1{Eén prijs} other{{count} prijzen}}",
+    "@prices_button_count_price": {
+        "description": "Number of prices, for a button",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
     "prices_amount_subtitle": "Hoeveelheid",
     "prices_amount_is_discounted": "Wordt er korting gegeven?",
     "prices_amount_price_normal": "Prijs",
@@ -1955,7 +2258,7 @@
     "prices_location_subtitle": "Winkel",
     "prices_location_find": "Zoek een winkel",
     "prices_location_mandatory": "Je moet een winkel selecteren!",
-    "prices_location_search_broader": "Couldn't find what you were looking for? Let's try a broader search!",
+    "prices_location_search_broader": "Niet gevonden wat u zocht? Probeer een bredere zoekopdracht!",
     "prices_proof_subtitle": "Bewijs",
     "prices_proof_find": "Selecteer een bewijs",
     "prices_proof_receipt": "Bon",
@@ -1963,8 +2266,44 @@
     "prices_proof_mandatory": "Je moet een bewijs selecteren!",
     "prices_add_validation_error": "Validatiefout",
     "prices_privacy_warning_title": "Privacywaarschuwing",
-    "prices_privacy_warning_message": "De prijzen zijn openbaar, samen met de winkel waarnaar ze verwijzen.\nHierdoor kunnen mensen die uw Open Food Facts-pseudoniem kennen het volgende doen:\n* afleiden in welk gebied u woont\n* weten wat u koopt\n$Als u zich daar niet prettig bij voelt, wijzig dan uw pseudoniem of maak een nieuw Open Food Facts-account aan en log daarmee in op de app.",
     "prices_unknown_product": "Onbekend product",
+    "prices_privacy_warning_main_message": "Prices **will be public**, along with the store they refer to.\n\nThat might allow people who know about your Open Food Facts pseudonym to:\n",
+    "prices_privacy_warning_message_bullet_1": "Infer in which area you live",
+    "prices_privacy_warning_message_bullet_2": "Know what you are buying",
+    "prices_privacy_warning_sub_message": "If you are uneasy with that, please change your pseudonym, or create a new Open Food Facts account and log into the app with it.",
+    "i_refuse": "I refuse",
+    "i_accept": "I accept",
+    "prices_currency_change_proposal_title": "Change the currency?",
+    "prices_currency_change_proposal_message": "Your current currency is **{currency}**. Would you like to change it to **{newCurrency}**?",
+    "@prices_currency_change_proposal_message": {
+        "description": "Message to ask the user if they want to change the currency",
+        "placeholders": {
+            "currency": {
+                "type": "String"
+            },
+            "newCurrency": {
+                "type": "String"
+            }
+        }
+    },
+    "prices_currency_change_proposal_action_approve": "Yes, use {newCurrency}",
+    "@prices_currency_change_proposal_action_approve": {
+        "description": "Button to approve the currency change",
+        "placeholders": {
+            "newCurrency": {
+                "type": "String"
+            }
+        }
+    },
+    "prices_currency_change_proposal_action_cancel": "No, keep {currency}",
+    "@prices_currency_change_proposal_action_cancel": {
+        "description": "Button to cancel the currency change",
+        "placeholders": {
+            "currency": {
+                "type": "String"
+            }
+        }
+    },
     "@prices_unknown_product": {
         "description": "Very small text, in the context of prices, to say that the product is unknown"
     },
@@ -1978,9 +2317,13 @@
     "dev_mode_section_ui": "Gebruikersinterface",
     "dev_mode_section_data": "Gegevens",
     "dev_mode_section_experimental_features": "Experimentele functies",
-    "dev_mode_hide_ecoscore_title": "Eco-Score uitsluiten",
-    "@dev_mode_hide_ecoscore_title": {
-        "description": "User dev preferences - Disable Ecoscore - Title"
+    "dev_preferences_show_folksonomy_title": "Uitsluiten van Folksonomie",
+    "@dev_preferences_show_folksonomy_title": {
+        "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
+    },
+    "dev_mode_hide_environmental_score_title": "Exclude Green Score",
+    "@dev_mode_hide_environmental_score_title": {
+        "description": "User dev preferences - Disable Green Score - Title"
     },
     "dev_mode_spellchecker_for_ocr_title": "Gebruik een spellingcontrole voor OCR-schermen",
     "@dev_mode_spellchecker_for_ocr_title": {
@@ -2069,6 +2412,10 @@
     "@all_search_prices_top_location_title": {
         "description": "Top price locations: list tile title"
     },
+    "all_search_prices_top_location_single_title": "Prijzen in een winkel",
+    "@all_search_prices_top_location_single_title": {
+        "description": "Top price locations: list tile title"
+    },
     "all_search_prices_top_product_title": "Producten met de meeste prijzen",
     "@all_search_prices_top_product_title": {
         "description": "Top price products: list tile title"
@@ -2143,6 +2490,10 @@
     "@edit_photo_select_existing_all_label": {
         "description": "Page title"
     },
+    "edit_photo_select_existing_all_subtitle": "Selecteer een afbeelding door erop te klikken",
+    "@edit_photo_select_existing_all_subtitle": {
+        "description": "Page title"
+    },
     "edit_photo_select_existing_download_label": "Bestaande afbeeldingen ophalen…",
     "@edit_photo_select_existing_download_label": {
         "description": "Dialog label"
@@ -2166,9 +2517,13 @@
     "basic_details": "Basisdetails",
     "product_name": "Productnaam",
     "add_basic_details_product_name_error": "Voer de productnaam in",
+    "add_basic_details_product_name_hint": "Input the name of the product (eg: Nutella)",
     "brand_name": "Merknaam",
+    "brand_names": "Merknaam",
     "add_basic_details_brand_name_error": "Vul a. u. b. de merknaam in",
+    "add_basic_details_brand_names_hint": "Input brands (eg: Ferrero)",
     "quantity": "Hoeveelheid en gewicht",
+    "add_basic_details_quantity_hint": "Voer het gewicht in en indien nodig de hoeveelheid (bijv.: 4x100g)",
     "barcode": "Streepjescode",
     "barcode_barcode": "Streepjescode: {barcode}",
     "@barcode_barcode": {
@@ -2318,7 +2673,7 @@
             }
         }
     },
-    "share_product_text_beauty": "Have a look at this product on Open Beauty Facts: {url}",
+    "share_product_text_beauty": "Bekijk dit product op Open Beauty Facts: {url}",
     "@share_product_text_beauty": {
         "description": "The content which is send, when sharing a 'beauty' product",
         "placeholders": {
@@ -2327,7 +2682,7 @@
             }
         }
     },
-    "share_product_text_pet_food": "Have a look at this product on Open PetFood Facts: {url}",
+    "share_product_text_pet_food": "Bekijk dit product op Open PetFood Facts: {url}",
     "@share_product_text_pet_food": {
         "description": "The content which is send, when sharing a 'pet food' product",
         "placeholders": {
@@ -2336,7 +2691,7 @@
             }
         }
     },
-    "share_product_text_product": "Have a look at this product on Open Products Facts: {url}",
+    "share_product_text_product": "Bekijk dit product op Open Products Facts: {url}",
     "@share_product_text_product": {
         "description": "The content which is send, when sharing a 'products' product",
         "placeholders": {
@@ -2392,6 +2747,11 @@
         "description": "Label for expanding nutrition facts table in application setting"
     },
     "expand_ingredients_body": "Houd het ingrediëntenpaneel uitgevouwen",
+    "search_product_filter_visibility_title": "Filter weergeven in de zoekopdracht",
+    "search_product_filter_visibility_subtitle": "Selecteer de zoeksite: Open Food Facts, Open Beauty Facts, Open Pet Food Facts of Open Products Facts",
+    "@search_product_filter_visibility_subtitle": {
+        "description": "Label for showing the product type filter in the search bar"
+    },
     "no_internet_connection": "Geen internetverbinding",
     "@no_internet_connection": {
         "description": "Message when there is no internet connection"
@@ -2418,18 +2778,21 @@
     },
     "clipboard_barcode_copy": "Kopieer de barcode naar het klembord",
     "@clipboard_barcode_copied": {
-        "description": "Snackbar label after clipboard copy",
-        "placeholders": {
-            "barcode": {
-                "type": "String",
-                "description": "barcode"
-            }
-        }
+        "description": "Snackbar label after clipboard copy"
     },
     "clipboard_barcode_copied": "Barcode {barcode} gekopieerd naar het klembord!",
+    "open_product_website": "Open this product on the website",
     "language_picker_label": "Uw taal",
     "@language_picker_label": {
         "description": "Choose Application Language"
+    },
+    "country_picker_label": "Uw land",
+    "@country_picker_label": {
+        "description": "Choose Application Country"
+    },
+    "currency_picker_label": "Your currency",
+    "@currency_picker_label": {
+        "description": "Choose Application Country"
     },
     "help_with_openfoodfacts": "Help met OpenFoodFacts",
     "@help_with_openfoodfacts": {
@@ -2473,7 +2836,7 @@
     },
     "scan_header_compare_button_valid_state_tooltip": "Klik om de door u gescande producten te vergelijken",
     "@scan_header_compare_button_valid_state_tooltip": {
-        "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is at least two prodiucts"
+        "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is at least two products"
     },
     "scan_product_loading": "U heeft\nde barcode gescand:",
     "@scan_product_loading": {
@@ -2519,6 +2882,10 @@
             }
         }
     },
+    "portion_calculator_computation_error": "Missing data. Calculation could not be performed.",
+    "@portion_calculator_computation_error": {
+        "description": "Error message to explain that the computation of the portion calculator failed."
+    },
     "portion_calculator_result_title": "Voedingswaarden voor {grams} g (of ml)",
     "@portion_calculator_result_title": {
         "description": "Title of the results of the portion calculator.",
@@ -2560,7 +2927,7 @@
     "@user_picture_source_remember": {
         "description": "Checkbox label when select a picture source"
     },
-    "user_picture_source_ask": "Ask each time",
+    "user_picture_source_ask": "Telkens opnieuw vragen",
     "@user_picture_source_ask": {
         "description": "Choice of asking the picture source every time"
     },
@@ -2587,6 +2954,22 @@
     "app_rating_dialog_title_enjoying_positive_actions": "Ja!",
     "not_really": "Niet echt",
     "app_rating_dialog_title_not_enjoying_app": "Het spijt ons dat te horen! Kunt u ons vertellen wat er is gebeurd?",
+    "owner_field_info_title": "Door de producent verstrekte waarden",
+    "@owner_field_info_title": {
+        "description": "Title of the 'producer provided' info list-tile"
+    },
+    "owner_field_info_message": "Met dat logo benadrukken we de gegevens die de producent aanlevert en die mogelijk niet bewerkt kunnen worden.",
+    "@owner_field_info_message": {
+        "description": "Title of the 'producer provided' info list-tile"
+    },
+    "owner_field_info_close_button": "Sluit deze info",
+    "@owner_field_info_close_button": {
+        "description": "The owner info may be shown in a closeable dialog. This is the label of the button (used on a long press event and for the accessibility label)."
+    },
+    "owner_field_image": "Deze afbeelding is geleverd door de producent. Het is mogelijk niet bewerkbaar.",
+    "@owner_field_image": {
+        "description": "An image is directly provided by the producer. It may be locked and not be editable."
+    },
     "edit_packagings_title": "Verpakkingsonderdelen",
     "@edit_packagings_title": {
         "description": "Title of the structured packagings page"
@@ -2932,14 +3315,14 @@
     "nutriscore_unknown_new_formula": "Onbekende Nutri-Score (Nieuwe berekening)",
     "nutriscore_not_applicable": "Nutri-Score is niet van toepassing",
     "nutriscore_not_applicable_new_formula": "Nutri-Score is niet van toepassing (Nieuwe berekening)",
-    "ecoscore_generic": "Eco-Score",
-    "ecoscore_a": "Eco-Score A",
-    "ecoscore_b": "Eco-Score B",
-    "ecoscore_c": "Eco-Score C",
-    "ecoscore_d": "Eco-Score D",
-    "ecoscore_e": "Eco-Score E",
-    "ecoscore_unknown": "Onbekende Eco-Score",
-    "ecoscore_not_applicable": "Eco-Score is niet van toepassing",
+    "environmental_score_generic": "Green-Score",
+    "environmental_score_a": "Green-Score A",
+    "environmental_score_b": "Green-Score B",
+    "environmental_score_c": "Green -Score C",
+    "environmental_score_d": "Green-Score D",
+    "environmental_score_e": "Green-Score E",
+    "environmental_score_unknown": "Onbekende Green-Score",
+    "environmental_score_not_applicable": "Green-Score is niet van toepassing",
     "nova_group_generic": "Ultra-verwerking - NOVA-groepen",
     "nova_group_1": "NOVA Groep 1",
     "nova_group_2": "NOVA Groep 2",
@@ -3053,23 +3436,36 @@
     "@prices_feedback_form": {
         "description": "A button to send feedback about the prices feature"
     },
-    "menu_button_list_actions": "Select an action",
+    "menu_button_list_actions": "Selecteer een actie",
     "@menu_button_list_actions": {
         "description": "Button to select an action in a list (eg: Share, Delete, …)"
     },
-    "error_loading_photo": "Error loading photo",
+    "error_loading_photo": "Fout bij het laden van de foto",
     "@error_loading_photo": {
         "description": "Error message when loading a photo fails to load"
+    },
+    "photo_viewer_action_use_picture_as": "Gebruiken als…",
+    "@photo_viewer_action_use_picture_as": {
+        "description": "An action to use the current picture to be used as front/ingredients…"
+    },
+    "photo_viewer_use_picture_as_title": "Gebruik deze afbeelding als… ({language})",
+    "@photo_viewer_use_picture_as": {
+        "description": "The title of a dialog to use the current picture as front/ingredients…",
+        "placeholders": {
+            "language": {
+                "type": "String"
+            }
+        }
     },
     "photo_viewer_details_button": "Details",
     "@photo_viewer_details_button": {
         "description": "Button to show details of the photo"
     },
-    "photo_viewer_details_button_accessibility_label": "Details of this photo",
+    "photo_viewer_details_button_accessibility_label": "Details van deze foto",
     "@photo_viewer_details_button_accessibility_label": {
         "description": "Accessibility label for the Details button on a photo"
     },
-    "photo_viewer_details_title": "Details of the photo",
+    "photo_viewer_details_title": "Details van de foto",
     "@photo_viewer_details_title": {
         "description": "Title of the photo details dialog"
     },
@@ -3077,7 +3473,7 @@
     "@photo_viewer_details_contributor_title": {
         "description": "Label for the author of a photo"
     },
-    "photo_viewer_details_size_title": "Size",
+    "photo_viewer_details_size_title": "Grootte",
     "@photo_viewer_details_size_title": {
         "description": "Label for the size of a photo"
     },
@@ -3101,8 +3497,241 @@
     "@photo_viewer_details_url_title": {
         "description": "Label for the link of a photo"
     },
-    "product_page_compatibility_score": "Compatible",
+    "product_page_compatibility_score": "Compatibel",
     "@product_page_compatibility_score": {
         "description": "Compatibility score on top of the product page. The sentence is \"100%\" Compatible"
+    },
+    "user_lists_action_multi_select": "Meervoudige selectie",
+    "@user_lists_action_multi_select": {
+        "description": "The button label for multi-selecting products in a user list"
+    },
+    "product_page_compatibility_score_tooltip": "Jouw compatibiliteitsscore: {score}%",
+    "@product_page_compatibility_score_tooltip": {
+        "description": "Message explaining that the score is the compatibility score",
+        "placeholders": {
+            "score": {
+                "type": "String"
+            }
+        }
+    },
+    "product_image_front_accessibility_label": "Foto van het product (voorzijde)",
+    "@product_image_front_accessibility_label": {
+        "description": "Accessibility label for the image on the product page"
+    },
+    "product_image_ingredients_accessibility_label": "Foto van de ingrediëntenlijst",
+    "@product_image_ingredients_accessibility_label": {
+        "description": "Accessibility label for the image of ingredients"
+    },
+    "product_image_nutrition_accessibility_label": "Foto van voedingswaarde",
+    "@product_image_nutrition_accessibility_label": {
+        "description": "Accessibility label for the image of the nutrition"
+    },
+    "product_image_packaging_accessibility_label": "Verpakkingsfoto",
+    "@product_image_packaging_accessibility_label": {
+        "description": "Accessibility label for the image of the packaging"
+    },
+    "product_image_other_accessibility_label": "Andere foto",
+    "@product_image_other_accessibility_label": {
+        "description": "Accessibility label for an image"
+    },
+    "product_image_outdated_message": "Deze afbeelding is mogelijk verouderd",
+    "@product_image_outdated_message": {
+        "description": "Small message to indicate that the image may be outdated"
+    },
+    "product_image_outdated_message_accessibility_label": "{type} (deze afbeelding kan verouderd zijn)",
+    "@product_image_outdated_message_accessibility_label": {
+        "description": "Accessibility label for the image on the product page when it may be outdated",
+        "placeholders": {
+            "type": {
+                "type": "String"
+            }
+        }
+    },
+    "product_image_locked_message_accessibility_label": "{type} (deze afbeelding is mogelijk vergrendeld door de producent)",
+    "@product_image_locked_message_accessibility_label": {
+        "description": "Accessibility label for the image on the product page when it may be locked (producer provided)",
+        "placeholders": {
+            "type": {
+                "type": "String"
+            }
+        }
+    },
+    "product_image_error": "De afbeelding kan niet worden geladen!",
+    "@product_image_error": {
+        "description": "Small message that will be displayed above the picture (please keep it short)"
+    },
+    "product_image_error_accessibility_label": "Kan {type} niet laden (netwerkfout?)",
+    "@product_image_error_accessibility_label": {
+        "description": "Accessibility label for the image on the product page when it fails to load",
+        "placeholders": {
+            "type": {
+                "type": "String"
+            }
+        }
+    },
+    "product_page_image_no_image_available": "Geen\nafbeelding!",
+    "@product_page_image_no_image_available": {
+        "description": "Small message that will be displayed above the picture (please keep it short) when there is no image available on the database. A line break is not mandatory."
+    },
+    "product_page_image_no_image_available_accessibility_label": "Er is geen afbeelding beschikbaar voor dit product",
+    "@product_page_image_no_image_available_accessibility_label": {
+        "description": "Accessibility label for the image on the product page when there is no image available on the database"
+    },
+    "product_page_action_bar_settings_accessibility_label": "Acties opnieuw ordenen of verbergen",
+    "@product_page_action_bar_settings_accessibility_label": {
+        "description": "Accessibility label for the Settings icon in the action bar (= bottom bar) on the product page"
+    },
+    "product_page_action_bar_setting_modal_title": "Acties bewerken",
+    "@product_page_action_bar_setting_modal_title": {
+        "description": "Title for the modal allowing to show and reorder actions"
+    },
+    "product_page_action_bar_item_move_up": "Verplaats naar omhoog",
+    "@product_page_action_bar_item_move_up": {
+        "description": "Accessibility label to move up an action"
+    },
+    "product_page_action_bar_item_move_down": "Verplaats naar beneden",
+    "@product_page_action_bar_item_move_down": {
+        "description": "Accessibility label to move down an action"
+    },
+    "product_page_action_bar_item_enable": "Actie inschakelen",
+    "@product_page_action_bar_item_enable": {
+        "description": "Accessibility label to enable action (= make it visible)"
+    },
+    "product_page_action_bar_item_disable": "Actie uitschakelen",
+    "@product_page_action_bar_item_disable": {
+        "description": "Accessibility label to disable action (= make it invisible)"
+    },
+    "product_page_pending_operations_banner_title": "Bewerkingen uploaden…",
+    "@product_page_pending_operations_banner_title": {
+        "description": "When a product has pending edits (being sent to the server), there is a message on the product page (here is the title of the message)."
+    },
+    "product_page_pending_operations_banner_message": "De gegevens die op deze pagina worden weergegeven, weerspiegelen uw wijzigingen nog niet.\nWacht een paar seconden…",
+    "@product_page_pending_operations_banner_message": {
+        "description": "When a product has pending edits (being sent to the server), there is a message on the product page. Please keep the ** syntax to make the text bold."
+    },
+    "product_add_a_language": "Een taal toevoegen",
+    "@product_add_a_language": {
+        "description": "Button to add a language (eg: for photos) to a product"
+    },
+    "barcode_accessibility_label": "Streepjescode {barcode}",
+    "@barcode_accessibility_label": {
+        "description": "Accessibility label for a barcode image",
+        "placeholders": {
+            "barcode": {
+                "type": "String"
+            }
+        }
+    },
+    "carousel_close_tooltip": "Verwijder dit product uit de carrousel",
+    "@carousel_close_tooltip": {
+        "description": "A message explaining the goal of the Close button on a card of the carousel"
+    },
+    "carousel_unsupported_header": "Niet-ondersteunde streepjescode!",
+    "@carousel_unsupported_header": {
+        "description": "A label on top of the carousel card when the barcode is not supported by the app"
+    },
+    "carousel_unsupported_title": "Oeps!",
+    "carousel_unsupported_text": "De gescande streepjescode wordt niet ondersteund door Open Food Facts!",
+    "carousel_error_header": "Fout!",
+    "@carousel_error_header": {
+        "description": "A label on top of the carousel card when there is an error (mainly network issues)"
+    },
+    "carousel_error_title": "Wat jammer!",
+    "carousel_error_text_1": "We konden geen informatie over deze streepjescode downloaden:",
+    "carousel_error_text_2": "Controleer uw internetverbinding of klik op deze knop:",
+    "@carousel_error_text_2": {
+        "description": "Please keep the ** syntax to make the text bold"
+    },
+    "carousel_error_button": "Opnieuw proberen",
+    "carousel_unknown_product_header": "Onbekend product",
+    "@carousel_unknown_product_header": {
+        "description": "A label on top of the carousel card when the product is not in the database (= it needs to be created)"
+    },
+    "carousel_unknown_product_title": "Gefeliciteerd!\nJe hebt __de zeldzame edelsteen gevonden!__",
+    "@carousel_unknown_product_title": {
+        "description": "Please keep the __ syntax to underline the text"
+    },
+    "carousel_unknown_product_text": "Onze gezamenlijke database bevat meer dan **3 miljoen producten**, maar deze streepjescode bestaat niet: ",
+    "@carousel_unknown_product_text": {
+        "description": "Please keep the ** syntax to make the text bold"
+    },
+    "carousel_unknown_product_button": "Voeg dit product toe",
+    "carousel_loading_header": "Informatie wordt geladen...",
+    "@carousel_loading_header": {
+        "description": "A label on top of the carousel card when data about the product is loading"
+    },
+    "carousel_loading_title": "U heeft zojuist een product gescand met de volgende streepjescode:",
+    "carousel_loading_text": "We zijn er naar op zoek in onze database van meer dan **3 miljoen producten!**",
+    "@carousel_loading_text": {
+        "description": "Please keep the ** syntax to make the text bold"
+    },
+    "product_type_subtitle_food": "Groenten, fruit, diepvriesproducten…",
+    "@product_type_subtitle_food": {
+        "description": "Example of products for food category"
+    },
+    "product_type_subtitle_beauty": "Make-up, zeep, tandpasta…",
+    "@product_type_subtitle_beauty": {
+        "description": "Example of products for beauty category"
+    },
+    "product_type_subtitle_pet_food": "Voedsel voor honden, katten…",
+    "@product_type_subtitle_pet_food": {
+        "description": "Example of products for pet food category"
+    },
+    "product_type_subtitle_product": "Smartphones, meubels…",
+    "@product_type_subtitle_product": {
+        "description": "Example of products for other categories"
+    },
+    "photo_field_front": "Productfoto",
+    "photo_field_ingredients": "Foto van de ingrediëntenlijst",
+    "photo_field_nutrition": "Voedingswaarde foto",
+    "photo_field_packaging": "Foto van verpakkingsinformatie",
+    "photo_already_exists": "Deze foto bestaat al",
+    "photo_missing": "Deze foto ontbreekt",
+    "date": "Datum",
+    "photo_rotate_left": "Naar links draaien",
+    "@photo_rotate_left": {
+        "description": "Button to rotate a photo to the left"
+    },
+    "photo_rotate_right": "Naar rechts draaien",
+    "@photo_rotate_right": {
+        "description": "Button to rotate a photo to the right"
+    },
+    "photo_undo_action": "Vorige actie ongedaan maken",
+    "@photo_undo_action": {
+        "description": "Button to undo the previous action on a photo"
+    },
+    "knowledge_panel_world_map_accessibility_label": "Een wereldkaart van {location}",
+    "@knowledge_panel_world_map_accessibility_label": {
+        "description": "Accessibility label for the world map in the knowledge panel",
+        "placeholders": {
+            "location": {
+                "type": "String"
+            }
+        }
+    },
+    "open_street_map_contributor_attribution": "OpenStreetMap bijdragers",
+    "@open_street_map_contributor_attribution": {
+        "description": "Attribution for OpenStreetMap contributors"
+    },
+    "not_applicable_short": "n.v.t.",
+    "@not_applicable_short": {
+        "description": "Acronym for Not Applicable"
+    },
+    "knowledge_panel_warning_text": "Waarschuwing",
+    "@knowledge_panel_warning_text": {
+        "description": "Warning text at the beginning of a sentence in the knowledge panel (you can find this word on the NutriScore KP of 3033491279300)"
+    },
+    "knowledge_panel_nutriscore_banner_incorrect_score_title": "Why is this Nutri-Score different from the one on the package?",
+    "knowledge_panel_nutriscore_banner_incorrect_score_message": "There are two possible explanations:\nThe list of ingredients and/or nutrition facts are not up-to-date.\n\nWe provide the \"New calculation\" of the Nutri-Score (or V2). Please check that you have the banner \"New calculation\" on the package.",
+    "knowledge_panel_nutriscore_banner_incorrect_score_button1": "Check ingredients",
+    "knowledge_panel_nutriscore_banner_incorrect_score_button2": "Check nutrition facts",
+    "url_not_supported": "Unfortunately, we can't open the URL:\n{url}",
+    "@url_not_supported": {
+        "description": "Error message when the app can't open a URL",
+        "placeholders": {
+            "url": {
+                "type": "String"
+            }
+        }
     }
 }

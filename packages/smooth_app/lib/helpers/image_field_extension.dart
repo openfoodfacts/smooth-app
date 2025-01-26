@@ -85,23 +85,50 @@ extension ImageFieldSmoothieExtension on ImageField {
         ImageField.OTHER => appLocalizations.take_more_photo_button_label,
       };
 
+  String getPictureAccessibilityLabel(
+    final AppLocalizations appLocalizations,
+  ) =>
+      switch (this) {
+        ImageField.FRONT =>
+          appLocalizations.product_image_front_accessibility_label,
+        ImageField.INGREDIENTS =>
+          appLocalizations.product_image_ingredients_accessibility_label,
+        ImageField.NUTRITION =>
+          appLocalizations.product_image_nutrition_accessibility_label,
+        ImageField.PACKAGING =>
+          appLocalizations.product_image_packaging_accessibility_label,
+        ImageField.OTHER =>
+          appLocalizations.product_image_other_accessibility_label,
+      };
+
   Widget getPhotoButton(
     final BuildContext context,
     final Product product,
     final bool isLoggedInMandatory,
   ) =>
       SmoothLargeButtonWithIcon(
-        onPressed: () async => Navigator.push(
+        onPressed: () async => openDetails(
           context,
-          MaterialPageRoute<void>(
-            builder: (_) => ProductImageSwipeableView.imageField(
-              imageField: this,
-              product: product,
-              isLoggedInMandatory: isLoggedInMandatory,
-            ),
+          product,
+          isLoggedInMandatory,
+        ),
+        leadingIcon: const Icon(Icons.camera_alt),
+        text: getProductImageButtonText(AppLocalizations.of(context)),
+      );
+
+  Future<void> openDetails(
+    final BuildContext context,
+    final Product product,
+    final bool isLoggedInMandatory,
+  ) =>
+      Navigator.push(
+        context,
+        MaterialPageRoute<void>(
+          builder: (_) => ProductImageSwipeableView.imageField(
+            imageField: this,
+            product: product,
+            isLoggedInMandatory: isLoggedInMandatory,
           ),
         ),
-        icon: Icons.camera_alt,
-        text: getProductImageButtonText(AppLocalizations.of(context)),
       );
 }

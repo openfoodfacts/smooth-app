@@ -281,6 +281,8 @@ class _AppBarTitle extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         DefaultTextStyle(
+          maxLines: subTitle != null ? 1 : 2,
+          overflow: TextOverflow.ellipsis,
           style: (titleTextStyle ??
                   AppBarTheme.of(context).titleTextStyle ??
                   theme.appBarTheme.titleTextStyle?.copyWith(

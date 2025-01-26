@@ -11,7 +11,7 @@ import 'package:smooth_app/generic_lib/widgets/smooth_product_image.dart';
 import 'package:smooth_app/helpers/attributes_card_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/helpers/product_compatibility_helper.dart';
-import 'package:smooth_app/pages/product/nutrition_container.dart';
+import 'package:smooth_app/pages/product/nutrition_page/widgets/nutrition_container_helper.dart';
 import 'package:smooth_app/pages/product/ordered_nutrients_cache.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
@@ -49,14 +49,15 @@ class _CompareProducts3PageState extends State<CompareProducts3Page> {
     PreferenceImportance.ID_IMPORTANT,
   ];
 
-  final List<NutritionContainer> _nutritionContainers = <NutritionContainer>[];
+  final List<NutritionContainerHelper> _nutritionContainers =
+      <NutritionContainerHelper>[];
 
   @override
   void initState() {
     super.initState();
     for (final Product product in widget.products) {
       _nutritionContainers.add(
-        NutritionContainer(
+        NutritionContainerHelper(
           orderedNutrients: widget.orderedNutrientsCache.orderedNutrients,
           product: product,
         ),
@@ -134,12 +135,12 @@ class _CompareProducts3PageState extends State<CompareProducts3Page> {
     }
 
     final List<Widget> nutrientValues = <Widget>[];
-    final NutritionContainer backBone = _nutritionContainers.first;
+    final NutritionContainerHelper backBone = _nutritionContainers.first;
     for (final OrderedNutrient orderedNutrient in backBone.allNutrients) {
       final Nutrient nutrient = _getNutrient(orderedNutrient);
       final List<double?> values = <double?>[];
       bool notNull = false;
-      for (final NutritionContainer nutritionContainer
+      for (final NutritionContainerHelper nutritionContainer
           in _nutritionContainers) {
         final double? value = nutritionContainer.getValue(nutrient);
         values.add(value);

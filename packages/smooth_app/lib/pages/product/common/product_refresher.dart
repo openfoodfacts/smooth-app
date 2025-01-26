@@ -15,7 +15,6 @@ import 'package:smooth_app/pages/user_management/login_page.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/query/search_products_manager.dart';
 import 'package:smooth_app/services/smooth_services.dart';
-import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
 /// Refreshes a product on the BE then on the local database.
 class ProductRefresher {
@@ -84,6 +83,7 @@ class ProductRefresher {
         language: language,
         country: ProductQuery.getCountry(),
         version: ProductQuery.productQueryVersion,
+        productTypeFilter: ProductTypeFilter.all,
       );
 
   /// Returns the standard configuration for several barcodes product query.
@@ -145,22 +145,9 @@ class ProductRefresher {
       return false;
     }
     if (context.mounted) {
-      final ThemeData themeData = Theme.of(context);
-
       ScaffoldMessenger.of(context).showSnackBar(
-        SmoothFloatingSnackbar(
-          content: Row(
-            children: <Widget>[
-              Expanded(child: Text(appLocalizations.product_refreshed)),
-              const Icon(
-                Icons.check_circle,
-                color: Colors.white,
-              ),
-            ],
-          ),
-          backgroundColor:
-              themeData.extension<SmoothColorsThemeExtension>()!.green,
-        ),
+        SmoothFloatingSnackbar.positive(
+            context: context, text: appLocalizations.product_refreshed),
       );
     }
     return true;
@@ -175,27 +162,6 @@ class ProductRefresher {
     return localProduct?.productType;
   }
 
-  /// Returns the list of types to use for that barcode.
-  Future<List<ProductType>> getOrderedProductTypes({
-    required final LocalDatabase localDatabase,
-    required final String barcode,
-  }) async {
-    final List<ProductType> result = <ProductType>[];
-    final ProductType? productType = await getCurrentProductType(
-      localDatabase: localDatabase,
-      barcode: barcode,
-    );
-    if (productType != null) {
-      result.add(productType);
-    }
-    for (final ProductType value in ProductType.values) {
-      if (!result.contains(value)) {
-        result.add(value);
-      }
-    }
-    return result;
-  }
-
   /// Fetches the product from the server and refreshes the local database.
   ///
   /// Silent version.
@@ -203,41 +169,37 @@ class ProductRefresher {
     required final LocalDatabase localDatabase,
     required final String barcode,
   }) async {
-    final List<ProductType> productTypes = await getOrderedProductTypes(
-      localDatabase: localDatabase,
-      barcode: barcode,
+    // Now we let "food" redirect the queries if needed, as we use
+    // ProductTypeFilter.all
+    const ProductType productType = ProductType.food;
+    final UriProductHelper uriProductHelper = ProductQuery.getUriProductHelper(
+      productType: productType,
     );
-    late UriProductHelper uriProductHelper;
-    final OpenFoodFactsLanguage language = ProductQuery.getLanguage();
     try {
-      for (final ProductType productType in productTypes) {
-        uriProductHelper = ProductQuery.getUriProductHelper(
+      final OpenFoodFactsLanguage language = ProductQuery.getLanguage();
+      final ProductResultV3 result = await OpenFoodAPIClient.getProductV3(
+        getBarcodeQueryConfiguration(
+          barcode,
+          language,
+        ),
+        uriHelper: uriProductHelper,
+        user: ProductQuery.getReadUser(),
+      );
+      if (result.product != null) {
+        await DaoProduct(localDatabase).put(
+          result.product!,
+          language,
           productType: productType,
         );
-        final ProductResultV3 result = await OpenFoodAPIClient.getProductV3(
-          getBarcodeQueryConfiguration(
-            barcode,
-            language,
-          ),
-          uriHelper: uriProductHelper,
-          user: ProductQuery.getReadUser(),
-        );
-        if (result.product != null) {
-          await DaoProduct(localDatabase).put(
-            result.product!,
-            language,
-            productType: productType,
-          );
-          localDatabase.upToDate.setLatestDownloadedProduct(result.product!);
-          return FetchedProduct.found(result.product!);
-        }
+        localDatabase.upToDate.setLatestDownloadedProduct(result.product!);
+        return FetchedProduct.found(result.product!);
       }
       return const FetchedProduct.internetNotFound();
     } catch (e) {
       Logs.e('Refresh from server error', ex: e);
-      final ConnectivityResult connectivityResult =
+      final List<ConnectivityResult> connectivityResult =
           await Connectivity().checkConnectivity();
-      if (connectivityResult == ConnectivityResult.none) {
+      if (connectivityResult.contains(ConnectivityResult.none)) {
         return FetchedProduct.error(
           exceptionString: e.toString(),
           isConnected: false,

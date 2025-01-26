@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/helpers/strings_helper.dart';
 import 'package:smooth_app/pages/product/autocomplete.dart';
 
@@ -20,6 +21,10 @@ class SmoothAutocompleteTextField extends StatefulWidget {
     this.minLengthForSuggestions = 1,
     this.allowEmojis = true,
     this.suffixIcon,
+    this.borderRadius,
+    this.padding,
+    this.textStyle,
+    this.textCapitalization,
   });
 
   final FocusNode focusNode;
@@ -31,6 +36,10 @@ class SmoothAutocompleteTextField extends StatefulWidget {
   final AutocompleteManager? manager;
   final bool allowEmojis;
   final Widget? suffixIcon;
+  final BorderRadius? borderRadius;
+  final EdgeInsetsGeometry? padding;
+  final TextStyle? textStyle;
+  final TextCapitalization? textCapitalization;
 
   @override
   State<SmoothAutocompleteTextField> createState() =>
@@ -83,18 +92,29 @@ class _SmoothAutocompleteTextFieldState
           if (!widget.allowEmojis)
             FilteringTextInputFormatter.deny(TextHelper.emojiRegex),
         ],
+        textCapitalization:
+            widget.textCapitalization ?? TextCapitalization.none,
+        style: widget.textStyle,
         decoration: InputDecoration(
+          contentPadding: widget.padding ??
+              const EdgeInsets.symmetric(
+                horizontal: SMALL_SPACE,
+                vertical: SMALL_SPACE,
+              ),
           suffixIcon: widget.suffixIcon,
           filled: true,
-          border: const OutlineInputBorder(
-            borderRadius: ANGULAR_BORDER_RADIUS,
-            borderSide: BorderSide.none,
-          ),
-          contentPadding: const EdgeInsets.symmetric(
-            horizontal: SMALL_SPACE,
-            vertical: SMALL_SPACE,
-          ),
+          hintStyle: SmoothTextFormField.defaultHintTextStyle(context),
           hintText: widget.hintText,
+          border: OutlineInputBorder(
+            borderRadius: widget.borderRadius ?? ANGULAR_BORDER_RADIUS,
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: widget.borderRadius ?? CIRCULAR_BORDER_RADIUS,
+            borderSide: const BorderSide(
+              color: Colors.transparent,
+              width: 5.0,
+            ),
+          ),
           suffix: Offstage(
             offstage: !_loading,
             child: SizedBox(
@@ -151,7 +171,11 @@ class _SmoothAutocompleteTextFieldState
   void _setLoading(bool loading) {
     if (_loading != loading) {
       WidgetsBinding.instance.addPostFrameCallback(
-        (_) => setState(() => _loading = loading),
+        (_) {
+          if (context.mounted) {
+            setState(() => _loading = loading);
+          }
+        },
       );
     }
   }

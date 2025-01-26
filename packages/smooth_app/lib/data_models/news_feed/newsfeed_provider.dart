@@ -2,9 +2,9 @@ import 'dart:convert';
 import 'dart:io';
 import 'dart:isolate';
 
-import 'package:collection/collection.dart';
 import 'package:flutter/widgets.dart';
 import 'package:http/http.dart' as http;
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:smooth_app/data_models/news_feed/newsfeed_model.dart';
@@ -66,8 +66,17 @@ class AppNewsProvider extends ChangeNotifier {
       return;
     }
 
+    final PackageInfo app = await PackageInfo.fromPlatform();
+    final int appLaunches = _preferences.appLaunches;
+
     final AppNews? appNews = await Isolate.run(
-        () => _parseJSONAndGetLocalizedContent(jsonString!, locale));
+      () => _parseJSONAndGetLocalizedContent(
+        jsonString!,
+        locale,
+        app.version,
+        appLaunches,
+      ),
+    );
     if (appNews == null) {
       _emit(const AppNewsStateError('Unable to parse the JSON news file'));
       Logs.e('Unable to parse the JSON news file');
@@ -79,9 +88,9 @@ class AppNewsProvider extends ChangeNotifier {
 
   void _emit(AppNewsState state) {
     _state = state;
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      notifyListeners();
-    });
+    WidgetsBinding.instance
+      ..addPostFrameCallback((_) => notifyListeners())
+      ..ensureVisualUpdate();
   }
 
   AppNewsState get state => _state;
@@ -89,11 +98,14 @@ class AppNewsProvider extends ChangeNotifier {
   static Future<AppNews?> _parseJSONAndGetLocalizedContent(
     String json,
     String locale,
+    String appVersion,
+    int appLaunches,
   ) async {
     try {
-      final _TagLineJSON tagLineJSON =
-          _TagLineJSON.fromJson(jsonDecode(json) as Map<dynamic, dynamic>);
-      return tagLineJSON.toTagLine(locale);
+      final _TagLineJSON tagLineJSON = _TagLineJSON.fromJson(
+        jsonDecode(json) as Map<dynamic, dynamic>,
+      );
+      return tagLineJSON.toTagLine(locale, appVersion, appLaunches);
     } catch (_) {
       return null;
     }

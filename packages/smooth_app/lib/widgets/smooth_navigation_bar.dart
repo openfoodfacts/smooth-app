@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:math' as math;
 
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
@@ -41,8 +42,11 @@ class _SmoothNavigationBarState extends State<SmoothNavigationBar> {
               : Theme.of(context).scaffoldBackgroundColor,
           child: Padding(
             padding: EdgeInsetsDirectional.only(
-              bottom: MediaQuery.of(context).padding.bottom -
-                  (Platform.isIOS ? 5.0 : 0.0),
+              bottom: math.max(
+                0,
+                MediaQuery.viewPaddingOf(context).bottom -
+                    (Platform.isIOS ? 5.0 : 0.0),
+              ),
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -173,9 +177,11 @@ class _SmoothNavigationBarItemState extends State<_SmoothNavigationBarItem>
     final bool lightTheme = context.lightTheme();
 
     return Padding(
-      padding: const EdgeInsets.symmetric(
-        vertical: MEDIUM_SPACE,
-        horizontal: SMALL_SPACE,
+      padding: const EdgeInsetsDirectional.only(
+        start: MEDIUM_SPACE,
+        end: MEDIUM_SPACE,
+        top: SMALL_SPACE,
+        bottom: 6.0,
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -195,7 +201,7 @@ class _SmoothNavigationBarItemState extends State<_SmoothNavigationBarItem>
                       painter: _SmoothNavigationBarIconPainter(
                         defaultColor: lightTheme
                             ? const Color(0xFFEEDAD3)
-                            : extension.primarySemiDark.withOpacity(0.4),
+                            : extension.primarySemiDark.withValues(alpha: 0.4),
                         selectedColor: lightTheme
                             ? extension.primaryDark
                             : extension.primaryMedium,
@@ -222,7 +228,11 @@ class _SmoothNavigationBarItemState extends State<_SmoothNavigationBarItem>
               fontSize: 14.5,
               fontWeight: widget.selected ? FontWeight.w700 : FontWeight.w600,
             ),
-            child: Text(widget.destination.label),
+            child: Text(
+              widget.destination.label,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+            ),
           ),
         ],
       ),
@@ -267,7 +277,7 @@ class _SmoothNavigationBarIconPainter extends CustomPainter {
       );
     }
 
-    paint.color = selectedColor.withOpacity(progress);
+    paint.color = selectedColor.withValues(alpha: progress);
     if (progress == 1.0) {
       _paintSelected(canvas, size, paint);
     } else if (progress > 0.0) {

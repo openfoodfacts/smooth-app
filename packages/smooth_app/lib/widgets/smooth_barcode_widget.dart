@@ -62,7 +62,7 @@ class SmoothBarcodeWidget extends StatelessWidget {
                     horizontal: SMALL_SPACE,
                     vertical: SMALL_SPACE,
                   ),
-                  color: Colors.grey.withOpacity(0.2),
+                  color: Colors.grey.withValues(alpha: 0.2),
                   child: Text(
                     '<$barcode>',
                     style: TextStyle(

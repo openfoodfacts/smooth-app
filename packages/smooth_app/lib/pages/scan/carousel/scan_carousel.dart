@@ -148,6 +148,21 @@ class _ScanPageCarouselState extends State<ScanPageCarousel> {
     }
 
     final String barcode = barcodes[index];
+
+    return LayoutBuilder(builder: (
+      BuildContext context,
+      BoxConstraints constraints,
+    ) {
+      final bool dense = constraints.maxHeight <= 400.0;
+
+      return Provider<ScanCardDensity>(
+        create: (_) => dense ? ScanCardDensity.DENSE : ScanCardDensity.NORMAL,
+        child: _cardWidget(barcode),
+      );
+    });
+  }
+
+  Widget _cardWidget(final String barcode) {
     switch (_model.getBarcodeState(barcode)!) {
       case ScannedProductState.FOUND:
       case ScannedProductState.CACHED:
@@ -173,6 +188,7 @@ class _ScanPageCarouselState extends State<ScanPageCarousel> {
         return ScanProductCardError(
           barcode: barcode,
           errorType: ScannedProductState.ERROR_INTERNET,
+          onRemoveProduct: (_) => _model.removeBarcode(barcode),
         );
       case ScannedProductState.ERROR_INVALID_CODE:
         return ScanProductCardNotSupported(
@@ -195,3 +211,5 @@ class _ScanPageCarouselState extends State<ScanPageCarousel> {
         screenWidth;
   }
 }
+
+enum ScanCardDensity { DENSE, NORMAL }
