@@ -4,9 +4,9 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/pages/product/nutrition_page/widgets/nutrition_container_helper.dart';
-import 'package:smooth_app/pages/product/simple_input_widget.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/widgets/smooth_dropdown.dart';
+import 'package:smooth_app/widgets/smooth_explanation_banner.dart';
 
 /// A toggle to indicate whether a product has nutrition facts.
 class NutritionAvailabilityContainer extends StatelessWidget {
@@ -24,7 +24,7 @@ class NutritionAvailabilityContainer extends StatelessWidget {
         child: SmoothCardWithRoundedHeader(
           title: appLocalizations.nutrition_page_nutritional_info_title,
           leading: const icons.Milk.happy(),
-          trailing: ExplanationTitleIcon(
+          trailing: ExplanationTitleIcon.text(
             title: appLocalizations.nutrition_page_nutritional_info_title,
             text: appLocalizations.nutrition_page_nutritional_info_explanation,
           ),

@@ -17,6 +17,7 @@ import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/helpers/paint_helper.dart';
 import 'package:smooth_app/helpers/provider_helper.dart';
 import 'package:smooth_app/pages/input/debounced_text_editing_controller.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_languages_list.dart';
 import 'package:smooth_app/pages/product/gallery_view/product_image_gallery_view.dart';
 import 'package:smooth_app/pages/product/multilingual_helper.dart';
 import 'package:smooth_app/pages/product/owner_field_info.dart';
@@ -24,7 +25,9 @@ import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:smooth_app/widgets/smooth_explanation_banner.dart';
 
+/// Widget to edit the product name in multiple languages
 class AddProductNameInputWidget extends StatefulWidget {
   const AddProductNameInputWidget({
     required this.product,
@@ -66,6 +69,7 @@ class _AddProductNameInputWidgetState extends State<AddProductNameInputWidget> {
             const _ProductNameAddNewLanguage(),
             if (widget.product.hasOwnerField(ProductField.NAME_IN_LANGUAGES))
               const OwnerFieldSmoothCardIcon(),
+            const _ProductNameExplanation(),
           ],
         ),
         contentPadding: EdgeInsets.zero,
@@ -268,18 +272,23 @@ class _ProductNameInputWidgetState extends State<_ProductNameInputWidget> {
               children: <Widget>[
                 AspectRatio(
                   aspectRatio: 1.0,
-                  child: CircleAvatar(
-                    backgroundColor: lightTheme
-                        ? extension.primaryMedium
-                        : extension.primarySemiDark,
-                    child: AutoSizeText(
-                      widget.productName.language.offTag.toUpperCase(),
-                      style: TextStyle(
-                        color: lightTheme
-                            ? extension.primaryDark
-                            : extension.primaryLight,
-                        fontWeight: FontWeight.w700,
-                        fontSize: 17.0,
+                  child: Tooltip(
+                    message: Languages().getNameInEnglish(
+                      widget.productName.language,
+                    ),
+                    child: CircleAvatar(
+                      backgroundColor: lightTheme
+                          ? extension.primaryMedium
+                          : extension.primarySemiDark,
+                      child: AutoSizeText(
+                        widget.productName.language.offTag.toUpperCase(),
+                        style: TextStyle(
+                          color: lightTheme
+                              ? extension.primaryDark
+                              : extension.primaryLight,
+                          fontWeight: FontWeight.w700,
+                          fontSize: 17.0,
+                        ),
                       ),
                     ),
                   ),
@@ -423,6 +432,73 @@ class _ProductNameCollapsedSection extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+}
+
+class _ProductNameExplanation extends StatelessWidget {
+  const _ProductNameExplanation();
+
+  @override
+  Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+    return ExplanationTitleIcon(
+      title: appLocalizations.add_basic_details_product_name_help_title,
+      margin: EdgeInsets.zero,
+      padding: EdgeInsets.zero,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          ExplanationBodyInfo(
+            text: appLocalizations.add_basic_details_product_name_help_info,
+          ),
+          ExplanationGoodExamplesContainer(
+            items: <String>[
+              appLocalizations
+                  .add_basic_details_product_name_help_good_examples_1,
+              appLocalizations
+                  .add_basic_details_product_name_help_good_examples_2,
+            ],
+          ),
+          const SizedBox(height: SMALL_SPACE),
+          ExplanationBadExamplesContainer(
+            items: <String>[
+              appLocalizations
+                  .add_basic_details_product_name_help_bad_examples_1_example,
+              appLocalizations
+                  .add_basic_details_product_name_help_bad_examples_2_example,
+            ],
+            explanations: <String>[
+              appLocalizations
+                  .add_basic_details_product_name_help_bad_examples_1_explanation,
+              appLocalizations
+                  .add_basic_details_product_name_help_bad_examples_2_explanation,
+            ],
+          ),
+
+          /*ExplanationBodyTitle(
+            label:
+                appLocalizations.add_basic_details_product_name_help_section1,
+          ),
+          ExplanationBodyList(
+            items: appLocalizations
+                .add_basic_details_product_name_help_section1_l1
+                .split('\n'),
+          ),
+          ExplanationBodyTitle(
+            label:
+                appLocalizations.add_basic_details_product_name_help_section2,
+          ),
+          ExplanationBodyList(
+            items: <String>[
+              appLocalizations.add_basic_details_product_name_help_section2_l1,
+              appLocalizations.add_basic_details_product_name_help_section2_l2,
+            ],
+            boldParts: true,
+          ),*/
+        ],
+      ),
     );
   }
 }

@@ -3,7 +3,6 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
@@ -19,6 +18,7 @@ import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:smooth_app/widgets/smooth_explanation_banner.dart';
 
 /// Simple input widget: we have a list of terms, we add, we remove.
 class SimpleInputWidget extends StatefulWidget {
@@ -349,58 +349,6 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
   void dispose() {
     _focusNode.dispose();
     super.dispose();
-  }
-}
-
-class ExplanationTitleIcon extends StatelessWidget {
-  const ExplanationTitleIcon({
-    required this.title,
-    required this.text,
-  }) :
-        // ignore: avoid_field_initializers_in_const_classes
-        type = null;
-
-  const ExplanationTitleIcon.type({
-    required this.type,
-    required this.text,
-  }) :
-        // ignore: avoid_field_initializers_in_const_classes
-        title = null;
-
-  final String? title;
-  final String? type;
-  final String text;
-
-  @override
-  Widget build(BuildContext context) {
-    final String title = this.title ??
-        AppLocalizations.of(context).edit_product_form_item_help(type!);
-
-    return SmoothCardHeaderButton(
-      tooltip: title,
-      child: const icons.Help(),
-      onTap: () {
-        showSmoothModalSheet(
-          context: context,
-          builder: (BuildContext context) {
-            return SmoothModalSheet(
-              title: title,
-              prefixIndicator: true,
-              headerBackgroundColor:
-                  SmoothCardWithRoundedHeaderTop.getHeaderColor(
-                context,
-              ),
-              body: SmoothModalSheetBodyContainer(
-                child: Align(
-                  alignment: AlignmentDirectional.topStart,
-                  child: Text(text),
-                ),
-              ),
-            );
-          },
-        );
-      },
-    );
   }
 }
 

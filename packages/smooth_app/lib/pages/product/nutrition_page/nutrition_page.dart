@@ -27,12 +27,12 @@ import 'package:smooth_app/pages/product/nutrition_page/widgets/nutrition_facts_
 import 'package:smooth_app/pages/product/nutrition_page/widgets/nutrition_serving_size.dart';
 import 'package:smooth_app/pages/product/nutrition_page/widgets/nutrition_serving_switch.dart';
 import 'package:smooth_app/pages/product/simple_input_number_field.dart';
-import 'package:smooth_app/pages/product/simple_input_widget.dart';
 import 'package:smooth_app/pages/text_field_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:smooth_app/widgets/smooth_explanation_banner.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 import 'package:smooth_app/widgets/will_pop_scope.dart';
 
@@ -420,7 +420,7 @@ class _NutritionPageBodyState extends State<_NutritionPageBody> {
                 setState(() => _nutrientToHighlight = nutrient);
               },
             ),
-            ExplanationTitleIcon(
+            ExplanationTitleIcon.text(
               title:
                   appLocalizations.edit_product_form_item_nutrition_facts_title,
               text: appLocalizations
