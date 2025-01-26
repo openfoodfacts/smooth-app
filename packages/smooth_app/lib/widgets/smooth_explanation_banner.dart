@@ -16,6 +16,7 @@ class ExplanationTitleIcon extends StatelessWidget {
     required Widget child,
     this.margin,
     this.padding,
+    this.safeArea = true,
   })  :
         // ignore: avoid_field_initializers_in_const_classes
         type = null,
@@ -29,6 +30,7 @@ class ExplanationTitleIcon extends StatelessWidget {
         type = null,
         margin = null,
         padding = null,
+        safeArea = true,
         _child = Text(text);
 
   ExplanationTitleIcon.type({
@@ -39,6 +41,7 @@ class ExplanationTitleIcon extends StatelessWidget {
         title = null,
         margin = null,
         padding = null,
+        safeArea = true,
         _child = Text(text);
 
   final String? title;
@@ -46,6 +49,7 @@ class ExplanationTitleIcon extends StatelessWidget {
   final EdgeInsetsGeometry? margin;
   final EdgeInsetsGeometry? padding;
   final Widget _child;
+  final bool safeArea;
 
   @override
   Widget build(BuildContext context) {
@@ -70,6 +74,7 @@ class ExplanationTitleIcon extends StatelessWidget {
               bodyPadding: margin,
               body: SmoothModalSheetBodyContainer(
                 padding: padding,
+                safeArea: safeArea,
                 child: Align(
                   alignment: AlignmentDirectional.topStart,
                   child: _child,
@@ -140,10 +145,61 @@ class ExplanationBodyTitle extends StatelessWidget {
 class ExplanationBodyInfo extends StatelessWidget {
   const ExplanationBodyInfo({
     required this.text,
+    this.safeArea = false,
     super.key,
   });
 
   final String text;
+  final bool safeArea;
+
+  @override
+  Widget build(BuildContext context) {
+    return _ExplanationBodyText(
+      text: text,
+      icon: Transform.translate(
+        offset: const Offset(-17.0, 09.0),
+        child: const icons.Info(size: 55.0),
+      ),
+      safeArea: safeArea,
+    );
+  }
+}
+
+class ExplanationBodyWarning extends StatelessWidget {
+  const ExplanationBodyWarning({
+    required this.text,
+    this.safeArea = false,
+    super.key,
+  });
+
+  final String text;
+  final bool safeArea;
+
+  @override
+  Widget build(BuildContext context) {
+    return _ExplanationBodyText(
+      text: text,
+      icon: Transform.translate(
+        offset: const Offset(-19.0, -06.0),
+        child: const icons.Warning(
+          size: 55.0,
+        ),
+      ),
+      safeArea: safeArea,
+    );
+  }
+}
+
+class _ExplanationBodyText extends StatelessWidget {
+  const _ExplanationBodyText({
+    required this.text,
+    required this.icon,
+    required this.safeArea,
+  });
+
+  final String text;
+  final Widget icon;
+  final bool safeArea;
 
   @override
   Widget build(BuildContext context) {
@@ -154,38 +210,39 @@ class ExplanationBodyInfo extends StatelessWidget {
     return ColoredBox(
       color: lightTheme ? extension.primaryMedium : extension.primaryTone,
       child: ClipRect(
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: <Widget>[
-            Align(
-              alignment: AlignmentDirectional.bottomCenter,
-              child: Transform.translate(
-                offset: const Offset(-17.0, 09.0),
-                child: icons.Info(
-                  size: 55.0,
-                  color: lightTheme
-                      ? extension.primaryNormal
-                      : extension.primaryMedium,
-                ),
+        child: Padding(
+          padding: EdgeInsetsDirectional.only(
+            bottom: safeArea ? MediaQuery.viewPaddingOf(context).bottom : 0.0,
+          ),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: <Widget>[
+              Align(
+                alignment: AlignmentDirectional.bottomCenter,
+                child: icons.AppIconTheme(
+                    color: lightTheme
+                        ? extension.primaryNormal
+                        : extension.primaryMedium,
+                    child: icon),
               ),
-            ),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsetsDirectional.only(
-                  start: SMALL_SPACE,
-                  end: LARGE_SPACE,
-                  top: MEDIUM_SPACE,
-                  bottom: MEDIUM_SPACE,
-                ),
-                child: TextWithBoldParts(
-                  text: text,
-                  textStyle: TextStyle(
-                    color: lightTheme ? extension.primaryDark : Colors.white,
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsetsDirectional.only(
+                    start: SMALL_SPACE,
+                    end: LARGE_SPACE,
+                    top: MEDIUM_SPACE,
+                    bottom: MEDIUM_SPACE,
+                  ),
+                  child: TextWithBoldParts(
+                    text: text,
+                    textStyle: TextStyle(
+                      color: lightTheme ? extension.primaryDark : Colors.white,
+                    ),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

@@ -128,6 +128,10 @@ class UserPreferences extends ChangeNotifier {
       'taglineFeedNewsDisplayed';
   static const String _TAG_TAGLINE_FEED_NEWS_CLICKED = 'taglineFeedNewsClicked';
 
+  /// Info messages
+  static const String _TAG_SHOW_BANNER_INPUT_PRODUCT_NAME =
+      'bannerInputProductName';
+
   Future<void> init(final ProductPreferences productPreferences) async {
     await _onMigrate();
 
@@ -481,6 +485,17 @@ class UserPreferences extends ChangeNotifier {
         clickedNews,
       );
     }
+  }
+
+  bool showInputProductNameBanner() =>
+      _sharedPreferences.getBool(_TAG_SHOW_BANNER_INPUT_PRODUCT_NAME) ?? true;
+
+  Future<void> hideInputProductNameBanner() async {
+    await _sharedPreferences.setBool(
+      _TAG_SHOW_BANNER_INPUT_PRODUCT_NAME,
+      false,
+    );
+    notifyListeners();
   }
 
   ProductType get latestProductType =>
