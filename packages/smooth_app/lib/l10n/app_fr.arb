@@ -2524,7 +2524,7 @@
     "@add_basic_details_product_name_add_translation": {
         "description": "Button to add a new translation for the product name"
     },
-    "add_basic_details_product_name_warning_translations": "Before validating, please ensure you only add a translation **if the language is not present on the packaging**",
+    "add_basic_details_product_name_warning_translations": "Avant de valider, assurez-vous que vous n'ajoutez qu'une traduction **si la langue n'est pas présente sur l'emballage**",
     "@add_basic_details_product_name_warning_translations": {
         "description": "Warning message displayed on top of new translations for the product name"
     },
@@ -2540,23 +2540,23 @@
     "@add_basic_details_product_name_hint": {
         "description": "Placeholder when the product name text-field is empty"
     },
-    "add_basic_details_product_name_help_title": "Good practices: product name",
+    "add_basic_details_product_name_help_title": "Bonnes pratiques : nom du produit",
     "@add_basic_details_product_name_help_title": {
         "description": "Title for the help section about the product name"
     },
-    "add_basic_details_product_name_help_info1": "The product name is the **main name printed on the packaging**. It can be a registered trademark.",
+    "add_basic_details_product_name_help_info1": "Le nom du produit est le **nom principal imprimé sur l'emballage**. Il peut s'agir d'une marque déposée.",
     "@add_basic_details_product_name_help_info1": {
         "description": "Text explaining how to write the product name"
     },
-    "add_basic_details_product_name_help_info2": "**Note:** Please don't add a translation **if the language is not present on the packaging**.",
+    "add_basic_details_product_name_help_info2": "**Note:** Veuillez ne pas ajouter de traduction **si la langue n'est pas présente sur l'emballage**.",
     "@add_basic_details_product_name_help_info2": {
         "description": "Text explaining how to write the product name"
     },
-    "explanation_section_good_examples": "Good examples",
+    "explanation_section_good_examples": "Bon exemple",
     "@explanation_section_good_examples": {
         "description": "Title for the section with good examples"
     },
-    "explanation_section_bad_examples": "Bad examples",
+    "explanation_section_bad_examples": "Mauvais exemple",
     "@explanation_section_bad_examples": {
         "description": "Title for the section with bad examples"
     },
@@ -2564,19 +2564,19 @@
     "@add_basic_details_product_name_help_good_examples_1": {
         "description": "A 1st good example for the product name (you can change it if necessary)"
     },
-    "add_basic_details_product_name_help_good_examples_2": "Tomato Ketchup",
+    "add_basic_details_product_name_help_good_examples_2": "Ketchup",
     "@add_basic_details_product_name_help_good_examples_2": {
         "description": "A 2nd good example for the product name (you can change it if necessary)"
     },
-    "add_basic_details_product_name_help_bad_examples_1_explanation": "Don't include the brand in the name",
+    "add_basic_details_product_name_help_bad_examples_1_explanation": "Ne pas inclure la marque dans le nom",
     "@add_basic_details_product_name_help_bad_examples_1_explanation": {
         "description": "Explanation for the first bad example"
     },
-    "add_basic_details_product_name_help_bad_examples_1_example": "Tomato Ketchup **by Heinz**",
+    "add_basic_details_product_name_help_bad_examples_1_example": "Ketchup aux tomates **par Heinz**",
     "@add_basic_details_product_name_help_bad_examples_1_example": {
         "description": "First bad example for the product name"
     },
-    "add_basic_details_product_name_help_bad_examples_2_explanation": "Don't use symbols ®, ™, © or similar",
+    "add_basic_details_product_name_help_bad_examples_2_explanation": "N'utilisez pas de symboles ®, ™, © ou similaires",
     "@add_basic_details_product_name_help_bad_examples_2_explanation": {
         "description": "Explanation for the second bad example"
     },
