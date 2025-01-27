@@ -69,6 +69,11 @@
 ) =&gt;
     _clearString(product.productNameInLanguages?[ProductQuery.getLanguage()]) ??
     _clearString(product.productName) ??
+
+    &#47;&#47;&#47; Fallback to the first language available
+    _clearString(
+        product.productNameInLanguages![OpenFoodFactsLanguage.ENGLISH]) ??
+    _clearString(product.productNameInLanguages?.values.firstOrNull) ??
     appLocalizations.unknownProductName;</code></pre>
 </section>
 
