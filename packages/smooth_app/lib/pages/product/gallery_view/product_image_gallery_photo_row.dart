@@ -167,6 +167,7 @@ class _ImageGalleryPhotoRowState extends State<ImageGalleryPhotoRow> {
                                 product: product,
                                 imageField: widget.imageField,
                                 language: widget.language,
+                                allowAlternativeLanguage: false,
                                 transientFile: transientFile,
                                 size: Size(box.maxWidth, box.maxHeight),
                                 onTap: null,

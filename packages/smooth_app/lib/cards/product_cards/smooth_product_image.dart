@@ -25,6 +25,7 @@ class ProductPicture extends StatefulWidget {
     required ImageField imageField,
     required Size size,
     OpenFoodFactsLanguage? language,
+    bool allowAlternativeLanguage = false,
     String? fallbackUrl,
     VoidCallback? onTap,
     String? heroTag,
@@ -43,6 +44,7 @@ class ProductPicture extends StatefulWidget {
           product: product,
           imageField: imageField,
           language: language ?? ProductQuery.getLanguage(),
+          allowAlternativeLanguage: allowAlternativeLanguage,
           size: size,
           fallbackUrl: fallbackUrl,
           heroTag: heroTag,
@@ -61,6 +63,7 @@ class ProductPicture extends StatefulWidget {
     required TransientFile transientFile,
     required Size size,
     OpenFoodFactsLanguage? language,
+    bool allowAlternativeLanguage = false,
     Product? product,
     ImageField? imageField,
     String? fallbackUrl,
@@ -79,6 +82,7 @@ class ProductPicture extends StatefulWidget {
           product: product,
           imageField: imageField,
           language: language,
+          allowAlternativeLanguage: allowAlternativeLanguage,
           size: size,
           fallbackUrl: fallbackUrl,
           heroTag: heroTag,
@@ -97,6 +101,7 @@ class ProductPicture extends StatefulWidget {
     required this.product,
     required this.imageField,
     required this.language,
+    required this.allowAlternativeLanguage,
     required this.transientFile,
     required this.size,
     required this.blurFilter,
@@ -126,6 +131,10 @@ class ProductPicture extends StatefulWidget {
   final VoidCallback? onTap;
 
   final String? heroTag;
+
+  /// When an image is unavailable in the [language] or product main language,
+  /// we try to find another one in an alternative language.
+  final bool allowAlternativeLanguage;
 
   /// Show the obsolete icon on top of the image
   final bool showObsoleteIcon;
@@ -161,6 +170,7 @@ class _ProductPictureState extends State<ProductPicture> {
     final (ImageProvider?, bool)? imageProvider = _getImageProvider(
       widget.product,
       widget.transientFile,
+      widget.allowAlternativeLanguage,
     );
 
     final Widget? inkWell = widget.onTap != null
@@ -264,6 +274,7 @@ class _ProductPictureState extends State<ProductPicture> {
   (ImageProvider?, bool)? _getImageProvider(
     Product? product,
     TransientFile? transientFile,
+    bool allowAlternativeLanguage,
   ) {
     if (transientFile != null) {
       return (transientFile.getImageProvider(), transientFile.expired);
@@ -279,8 +290,44 @@ class _ProductPictureState extends State<ProductPicture> {
 
     if (imageProvider != null) {
       return (imageProvider, productTransientFile.expired);
-    } else if (widget.fallbackUrl?.isNotEmpty == true) {
+    }
+
+    if (widget.fallbackUrl?.isNotEmpty == true) {
       return (NetworkImage(widget.fallbackUrl!), false);
+    } else if (allowAlternativeLanguage) {
+      Iterable<ProductImage>? images = widget.product?.images?.where(
+        (ProductImage image) =>
+            image.field == widget.imageField && image.url != null,
+      );
+
+      if (images == null || images.isEmpty) {
+        return null;
+      }
+
+      /// Let's try with English images
+      final Iterable<ProductImage> englishImages = images.where(
+        (ProductImage image) => image.language == OpenFoodFactsLanguage.ENGLISH,
+      );
+
+      if (englishImages.isNotEmpty) {
+        images = englishImages;
+      }
+
+      /// We prefer a display image
+      ProductImage? productImage;
+
+      for (final ProductImage image in images) {
+        if (image.size == ImageSize.DISPLAY) {
+          productImage = image;
+          break;
+        } else if (image.size == ImageSize.ORIGINAL) {
+          productImage = image;
+        }
+      }
+
+      productImage ??= images.first;
+
+      return (NetworkImage(productImage.url!), false);
     } else {
       return null;
     }
