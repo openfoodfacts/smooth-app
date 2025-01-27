@@ -2517,11 +2517,73 @@
     "basic_details": "Basic Details",
     "product_name": "Product Name",
     "product_names": "Product Names",
+    "@product_names": {
+        "description": "Title for the section to edit the product name (in multiple languages)"
+    },
     "add_basic_details_product_name_add_translation": "Add a new translation",
+    "@add_basic_details_product_name_add_translation": {
+        "description": "Button to add a new translation for the product name"
+    },
+    "add_basic_details_product_name_warning_translations": "Before validating, please ensure you only add a translation **if the language is not present on the packaging**",
+    "@add_basic_details_product_name_warning_translations": {
+        "description": "Warning message displayed on top of new translations for the product name"
+    },
     "add_basic_details_product_name_open_photo": "View front photo",
+    "@add_basic_details_product_name_open_photo": {
+        "description": "Button to view the front photo of the product (on top of the screen)"
+    },
     "add_basic_details_product_name_take_photo": "Take front photo",
-    "add_basic_details_product_name_error": "Please enter the product name",
+    "@add_basic_details_product_name_take_photo": {
+        "description": "Button to take a photo of the front of the product (when there is no photo yet)"
+    },
     "add_basic_details_product_name_hint": "Input the name of the product (eg: Nutella)",
+    "@add_basic_details_product_name_hint": {
+        "description": "Placeholder when the product name text-field is empty"
+    },
+    "add_basic_details_product_name_help_title": "Good practices: product name",
+    "@add_basic_details_product_name_help_title": {
+        "description": "Title for the help section about the product name"
+    },
+    "add_basic_details_product_name_help_info1": "The product name is the **main name printed on the packaging**. It can be a registered trademark.",
+    "@add_basic_details_product_name_help_info1": {
+        "description": "Text explaining how to write the product name"
+    },
+    "add_basic_details_product_name_help_info2": "**Note:** Please don't add a translation **if the language is not present on the packaging**.",
+    "@add_basic_details_product_name_help_info2": {
+        "description": "Text explaining how to write the product name"
+    },
+    "explanation_section_good_examples": "Good examples",
+    "@explanation_section_good_examples": {
+        "description": "Title for the section with good examples"
+    },
+    "explanation_section_bad_examples": "Bad examples",
+    "@explanation_section_bad_examples": {
+        "description": "Title for the section with bad examples"
+    },
+    "add_basic_details_product_name_help_good_examples_1": "Nesquik",
+    "@add_basic_details_product_name_help_good_examples_1": {
+        "description": "A 1st good example for the product name (you can change it if necessary)"
+    },
+    "add_basic_details_product_name_help_good_examples_2": "Tomato Ketchup",
+    "@add_basic_details_product_name_help_good_examples_2": {
+        "description": "A 2nd good example for the product name (you can change it if necessary)"
+    },
+    "add_basic_details_product_name_help_bad_examples_1_explanation": "Don't include the brand in the name",
+    "@add_basic_details_product_name_help_bad_examples_1_explanation": {
+        "description": "Explanation for the first bad example"
+    },
+    "add_basic_details_product_name_help_bad_examples_1_example": "Tomato Ketchup **by Heinz**",
+    "@add_basic_details_product_name_help_bad_examples_1_example": {
+        "description": "First bad example for the product name"
+    },
+    "add_basic_details_product_name_help_bad_examples_2_explanation": "Don't use symbols ®, ™, © or similar",
+    "@add_basic_details_product_name_help_bad_examples_2_explanation": {
+        "description": "Explanation for the second bad example"
+    },
+    "add_basic_details_product_name_help_bad_examples_2_example": "Nesquik**®**",
+    "@add_basic_details_product_name_help_bad_examples_2_example": {
+        "description": "Second bad example for the product name"
+    },
     "add_basic_details_product_name_other_translations": "{count,plural, one{{count} other translation} other{{count} other translations}}",
     "@add_basic_details_product_name_other_translations": {
         "description": "The number of other translations for a product name (count is always >= 1)",
