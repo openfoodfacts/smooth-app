@@ -785,6 +785,7 @@
         "description": "Label to let the user choose between per 100g or per serving"
     },
     "nutrition_page_per_100g": "100gあたり",
+    "nutrition_page_per_100g_100ml": "per 100g/ml",
     "nutrition_page_per_serving": "一食当たり",
     "nutrition_page_add_nutrient": "栄養成分を追加",
     "nutrition_page_serving_size": "一人前の分量",
