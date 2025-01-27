@@ -99,7 +99,7 @@ class _ProductFooterButtonsBar extends StatelessWidget {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20.0),
             ),
-            side: BorderSide(color: themeExtension.greyLight),
+            side: BorderSide(color: themeExtension.greyMedium),
             padding: const EdgeInsetsDirectional.symmetric(
               horizontal: 19.0,
             ),

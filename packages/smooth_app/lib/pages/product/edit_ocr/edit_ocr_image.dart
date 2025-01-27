@@ -96,24 +96,33 @@ class _EditOCRImageWidgetState extends State<EditOCRImageWidget> {
         headerIcons = Tooltip(
           message: appLocalizations.product_image_outdated_message,
           textAlign: TextAlign.center,
-          child: DecoratedBox(
-            decoration: BoxDecoration(
-              color: extension.warning,
-              borderRadius: ROUNDED_BORDER_RADIUS,
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(
+              minHeight: 40.0,
+              minWidth: 40.0,
             ),
-            child: Material(
-              type: MaterialType.transparency,
-              child: InkWell(
-                customBorder: const CircleBorder(),
-                onTap: () => _openOutdatedPictureExplanations(context),
-                child: const Padding(
-                  padding: EdgeInsetsDirectional.only(
-                    top: 6.5,
-                    bottom: 7.5,
-                    start: 7.0,
-                    end: 7.0,
+            child: Padding(
+              padding: const EdgeInsetsDirectional.all(VERY_SMALL_SPACE),
+              child: Material(
+                type: MaterialType.transparency,
+                child: InkWell(
+                  customBorder: const CircleBorder(),
+                  onTap: () => _openOutdatedPictureExplanations(context),
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(
+                      color: extension.warning,
+                      borderRadius: ROUNDED_BORDER_RADIUS,
+                    ),
+                    child: const Padding(
+                      padding: EdgeInsetsDirectional.only(
+                        top: 6.5,
+                        bottom: 7.5,
+                        start: 7.0,
+                        end: 7.0,
+                      ),
+                      child: icons.Outdated(size: 15.0),
+                    ),
                   ),
-                  child: icons.Outdated(size: 15.0),
                 ),
               ),
             ),
@@ -610,10 +619,10 @@ class _ExtractTextAnimation extends StatefulWidget {
   final Color tintColorGradient;
 
   @override
-  State<_ExtractTextAnimation> createState() => __ExtractTextAnimationState();
+  State<_ExtractTextAnimation> createState() => _ExtractTextAnimationState();
 }
 
-class __ExtractTextAnimationState extends State<_ExtractTextAnimation>
+class _ExtractTextAnimationState extends State<_ExtractTextAnimation>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _progress;
@@ -624,7 +633,9 @@ class __ExtractTextAnimationState extends State<_ExtractTextAnimation>
     _controller = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 1200),
-    )
+    );
+
+    _controller
       ..addListener(() => setState(() {}))
       ..addStatusListener((AnimationStatus status) {
         if (_controller.isCompleted) {

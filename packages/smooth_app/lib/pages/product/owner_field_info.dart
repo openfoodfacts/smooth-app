@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
+import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_banner.dart';
 import 'package:smooth_app/widgets/widget_height.dart';
 
@@ -193,5 +195,20 @@ class OwnerFieldSmoothCardIcon extends StatelessWidget {
         headerColor: SmoothCardWithRoundedHeaderTop.getHeaderColor(context),
       ),
     );
+  }
+}
+
+extension OwnerFieldProductExtension on Product {
+  bool hasOwnerField(
+    ProductField productField, {
+    OpenFoodFactsLanguage? language,
+  }) {
+    return getOwnerFieldTimestamp(
+          OwnerField.productField(
+            productField,
+            language ?? ProductQuery.getLanguage(),
+          ),
+        ) !=
+        null;
   }
 }

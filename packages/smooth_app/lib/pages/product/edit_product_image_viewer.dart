@@ -12,21 +12,25 @@ import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_indicator_icon.dart';
 
-class NutritionImageViewer extends StatefulWidget {
-  const NutritionImageViewer({
+class EditProductImageViewer extends StatefulWidget {
+  const EditProductImageViewer({
     required this.visible,
     required this.onClose,
+    required this.imageField,
+    this.language,
     super.key,
   });
 
   final bool visible;
   final VoidCallback onClose;
+  final ImageField imageField;
+  final OpenFoodFactsLanguage? language;
 
   @override
-  State<NutritionImageViewer> createState() => _NutritionImageViewerState();
+  State<EditProductImageViewer> createState() => _EditProductImageViewerState();
 }
 
-class _NutritionImageViewerState extends State<NutritionImageViewer>
+class _EditProductImageViewerState extends State<EditProductImageViewer>
     with SingleTickerProviderStateMixin {
   late final AnimationController _controller;
   late final Animation<double> _animation;
@@ -47,7 +51,7 @@ class _NutritionImageViewerState extends State<NutritionImageViewer>
   }
 
   @override
-  void didUpdateWidget(covariant NutritionImageViewer oldWidget) {
+  void didUpdateWidget(covariant EditProductImageViewer oldWidget) {
     super.didUpdateWidget(oldWidget);
 
     if (widget.visible) {
@@ -82,8 +86,8 @@ class _NutritionImageViewerState extends State<NutritionImageViewer>
                       fit: BoxFit.contain,
                       image: TransientFile.fromProduct(
                         context.watch<Product>(),
-                        ImageField.NUTRITION,
-                        ProductQuery.getLanguage(),
+                        widget.imageField,
+                        widget.language ?? ProductQuery.getLanguage(),
                       ).getImageProvider()!,
                       frameBuilder: _frameBuilder,
                       loadingBuilder: _loadingBuilder,

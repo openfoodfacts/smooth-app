@@ -7,6 +7,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/helpers/strings_helper.dart';
+import 'package:smooth_app/pages/input/debounced_text_editing_controller.dart';
 import 'package:smooth_app/pages/product/autocomplete.dart';
 
 /// Autocomplete text field.
@@ -52,12 +53,14 @@ class _SmoothAutocompleteTextFieldState
   bool _loading = false;
   String? _selectedSearch;
 
-  late _DebouncedTextEditingController _debouncedController;
+  late DebouncedTextEditingController _debouncedController;
 
   @override
   void initState() {
     super.initState();
-    _debouncedController = _DebouncedTextEditingController(widget.controller);
+    _debouncedController = DebouncedTextEditingController(
+      controller: widget.controller,
+    );
   }
 
   @override
@@ -94,13 +97,15 @@ class _SmoothAutocompleteTextFieldState
         ],
         textCapitalization:
             widget.textCapitalization ?? TextCapitalization.none,
-        style: widget.textStyle,
+        style: widget.textStyle ??
+            DefaultTextStyle.of(context).style.copyWith(fontSize: 15.0),
         decoration: InputDecoration(
           contentPadding: widget.padding ??
               const EdgeInsets.symmetric(
                 horizontal: SMALL_SPACE,
                 vertical: SMALL_SPACE,
               ),
+          isDense: widget.padding != null,
           suffixIcon: widget.suffixIcon,
           filled: true,
           hintStyle: SmoothTextFormField.defaultHintTextStyle(context),
@@ -232,50 +237,4 @@ class _SearchResults extends DelegatingList<String> {
 
   @override
   int get hashCode => _uniqueId;
-}
-
-class _DebouncedTextEditingController extends TextEditingController {
-  _DebouncedTextEditingController(TextEditingController controller) {
-    replaceWith(controller);
-  }
-
-  TextEditingController? _controller;
-  Timer? _debounce;
-
-  void replaceWith(TextEditingController controller) {
-    _controller?.removeListener(_onWrappedTextEditingControllerChanged);
-    _controller = controller;
-    _controller?.addListener(_onWrappedTextEditingControllerChanged);
-  }
-
-  void _onWrappedTextEditingControllerChanged() {
-    if (_debounce?.isActive == true) {
-      _debounce!.cancel();
-    }
-
-    _debounce = Timer(const Duration(milliseconds: 500), () {
-      super.notifyListeners();
-    });
-  }
-
-  @override
-  set text(String newText) => _controller?.value = value;
-
-  @override
-  String get text => _controller?.text ?? '';
-
-  @override
-  TextEditingValue get value => _controller?.value ?? TextEditingValue.empty;
-
-  @override
-  set value(TextEditingValue newValue) => _controller?.value = newValue;
-
-  @override
-  void clear() => _controller?.clear();
-
-  @override
-  void dispose() {
-    _debounce?.cancel();
-    super.dispose();
-  }
 }

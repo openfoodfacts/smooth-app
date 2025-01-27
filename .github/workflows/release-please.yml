@@ -20,13 +20,22 @@ jobs:
       tag_name: ${{ steps.release_please.outputs.tag_name }}
     steps:
       - name: Release-please
-        uses: googleapis/release-please-action@v4
+        uses: googleapis/release-please-action@v4.1.1
         id: release_please
         with:
            token: ${{ secrets.GITHUB_TOKEN }}
            release-type: simple
            pull-request-title-pattern: "chore${scope}: 🚀 Open Food Facts Mobile app - Release${component} ${version}."
-           changelog-types: '[{"type":"feat","section":"🚀 Features","hidden":false},{"type":"fix","section":"🐛 Bug Fixes","hidden":false},{"type":"docs","section":"📖 Documentation","hidden":false},{"type":"ci","section":"🤖 Automation","hidden":false},{"type":"refactor","section":"👷 Refactoring","hidden":false},{"type":"chore","section":"🛠 Miscellaneous","hidden":false},{"type":"l10n","section":"🌍 Translations","hidden":false}]'
+           changelog-types: |
+            [
+            {"type":"feat","section":"🚀 Features","hidden":false},
+            {"type":"fix","section":"🐛 Bug Fixes","hidden":false},
+            {"type":"docs","section":"📖 Documentation","hidden":false},
+            {"type":"ci","section":"🤖 Automation","hidden":false},
+            {"type":"refactor","section":"👷 Refactoring","hidden":false},
+            {"type":"chore","section":"🛠 Miscellaneous","hidden":false},
+            {"type":"l10n","section":"🌍 Translations","hidden":false}
+            ]
 
   create-release:
     concurrency: 

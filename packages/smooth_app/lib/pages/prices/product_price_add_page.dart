@@ -304,7 +304,7 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
         const SizedBox(width: MEDIUM_SPACE),
         CircleAvatar(
           radius: radius,
-          backgroundColor: extension.greyLight,
+          backgroundColor: extension.greyMedium,
           child: const app_icons.Arrow.right(
             color: Colors.white,
             size: defaultIconSize,

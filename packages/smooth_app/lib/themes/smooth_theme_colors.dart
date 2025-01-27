@@ -21,6 +21,7 @@ class SmoothColorsThemeExtension
     required this.red,
     required this.greyDark,
     required this.greyNormal,
+    required this.greyMedium,
     required this.greyLight,
     required this.cellOdd,
     required this.cellEven,
@@ -45,7 +46,8 @@ class SmoothColorsThemeExtension
         red = const Color(0xFFEB5757),
         greyDark = const Color(0xFF666666),
         greyNormal = const Color(0xFF6C6C6C),
-        greyLight = const Color(0xFF8F8F8F),
+        greyMedium = const Color(0xFF8F8F8F),
+        greyLight = const Color(0xFFE0E0E0),
         cellOdd =
             lightTheme ? const Color(0xFFFAF8F6) : const Color(0xFF2D251E),
         cellEven =
@@ -84,8 +86,10 @@ class SmoothColorsThemeExtension
   final Color green;
   final Color orange;
   final Color red;
+
   final Color greyDark;
   final Color greyNormal;
+  final Color greyMedium;
   final Color greyLight;
 
   final Color cellOdd;
@@ -111,6 +115,7 @@ class SmoothColorsThemeExtension
     Color? red,
     Color? greyDark,
     Color? greyNormal,
+    Color? greyMedium,
     Color? greyLight,
     Color? cellOdd,
     Color? cellEven,
@@ -134,6 +139,7 @@ class SmoothColorsThemeExtension
       red: red ?? this.red,
       greyDark: greyDark ?? this.greyDark,
       greyNormal: greyDark ?? this.greyDark,
+      greyMedium: greyMedium ?? this.greyMedium,
       greyLight: greyLight ?? this.greyLight,
       cellOdd: cellOdd ?? this.cellOdd,
       cellEven: cellEven ?? this.cellEven,
@@ -238,6 +244,11 @@ class SmoothColorsThemeExtension
       greyNormal: Color.lerp(
         greyNormal,
         other.greyNormal,
+        t,
+      )!,
+      greyMedium: Color.lerp(
+        greyMedium,
+        other.greyMedium,
         t,
       )!,
       greyLight: Color.lerp(
