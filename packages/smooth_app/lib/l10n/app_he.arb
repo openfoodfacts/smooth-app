@@ -2267,14 +2267,14 @@
     "prices_add_validation_error": "שגיאת אימות",
     "prices_privacy_warning_title": "אזהרת פרטיות",
     "prices_unknown_product": "מוצר לא ידוע",
-    "prices_privacy_warning_main_message": "Prices **will be public**, along with the store they refer to.\n\nThat might allow people who know about your Open Food Facts pseudonym to:\n",
+    "prices_privacy_warning_main_message": "המחירים **יהיו גלויים לציבור**, לצד החנות אליהם מתייחסים.\n\nזה עלול לאפשר לאנשים שמכירים את הכינוי שלך ב־Open Food Facts:\n",
     "prices_privacy_warning_message_bullet_1": "הסקה בנוגע לאזור מגוריך",
     "prices_privacy_warning_message_bullet_2": "לדעת מה רכשת",
     "prices_privacy_warning_sub_message": "אם לא נוח לך עם זה, נא לשנות את הכינוי שלך או ליצור חשבון Open Food Facts חדש ולהיכנס איתו ליישום.",
     "i_refuse": "לא מקובל",
     "i_accept": "מקובל",
     "prices_currency_change_proposal_title": "להחליף את המטבע?",
-    "prices_currency_change_proposal_message": "Your current currency is **{currency}**. Would you like to change it to **{newCurrency}**?",
+    "prices_currency_change_proposal_message": "המטבע הנוכחי שלך הוא **{currency}**. לשנות אותו למטבע **{newCurrency}**?",
     "@prices_currency_change_proposal_message": {
         "description": "Message to ask the user if they want to change the currency",
         "placeholders": {
@@ -2540,7 +2540,7 @@
     "@add_basic_details_product_name_hint": {
         "description": "Placeholder when the product name text-field is empty"
     },
-    "add_basic_details_product_name_help_title": "Good practices: product name",
+    "add_basic_details_product_name_help_title": "דגשים חיוביים: שם המוצר",
     "@add_basic_details_product_name_help_title": {
         "description": "Title for the help section about the product name"
     },
@@ -2598,7 +2598,7 @@
     "add_basic_details_brand_name_error": "נא למלא את שם המותג",
     "add_basic_details_brand_names_hint": "נא למלא מותגים (למשל: תנובה)",
     "quantity": "כמות ומשקל",
-    "add_basic_details_quantity_hint": "Input the weight and if needed the quantity (eg : 4x100g)",
+    "add_basic_details_quantity_hint": "נא למלא את המשקל ואת הכמות במידת הצורך (למשל: 4×100 גרם)",
     "barcode": "ברקוד",
     "barcode_barcode": "ברקוד: {barcode}",
     "@barcode_barcode": {
