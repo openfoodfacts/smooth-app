@@ -67,7 +67,7 @@ String getProductName(
 
     /// Fallback to the first language available
     _clearString(
-        product.productNameInLanguages![OpenFoodFactsLanguage.ENGLISH]) ??
+        product.productNameInLanguages?[OpenFoodFactsLanguage.ENGLISH]) ??
     _clearString(product.productNameInLanguages?.values.firstOrNull) ??
     appLocalizations.unknownProductName;
 
