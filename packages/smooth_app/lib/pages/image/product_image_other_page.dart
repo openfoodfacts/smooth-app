@@ -150,6 +150,7 @@ class _ProductImageOtherPageState extends State<ProductImageOtherPage> {
           actions: <Widget>[
             IconButton(
               onPressed: () => _usePhotoAs(),
+              tooltip: appLocalizations.photo_viewer_action_use_picture_as,
               icon: const Icon(Icons.more_vert_rounded),
             ),
           ],
