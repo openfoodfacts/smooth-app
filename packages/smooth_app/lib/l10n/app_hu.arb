@@ -440,7 +440,7 @@
     "myPreferences_profile_title": "Profilom",
     "myPreferences_profile_subtitle": "Kezelje OpenFoodFacts-közreműködői fiókját.",
     "myPreferences_settings_title": "Alkalmazás beállításai",
-    "myPreferences_settings_subtitle": "Dark mode, Languages…",
+    "myPreferences_settings_subtitle": "Sötét mód, nyelvek…",
     "myPreferences_food_title": "Élelmiszer-preferenciák",
     "myPreferences_food_subtitle": "Válassza ki, hogy mely élelmiszerekkel kapcsolatos információk a legfontosabbak az Ön számára.",
     "myPreferences_food_comment": "Válassza ki, hogy az élelmiszerekkel kapcsolatban mely információk a legfontosabbak az Ön számára, hogy az élelmiszereket a preferenciái szerint rangsorolja, az Ön számára fontos információkat lássa elsőként, és kapjon egy megfelelőségi összefoglalót. Ezek az élelmiszer-preferenciák az Ön készülékén maradnak, és nem kapcsolódnak az Open Food Facts közreműködői fiókjához, ha rendelkezik ilyennel.",
@@ -522,7 +522,7 @@
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
-    "label_reload": "Reload",
+    "label_reload": "Újratöltés",
     "@label_reload": {
         "description": "Reload a page"
     },
@@ -538,7 +538,7 @@
             "imageType": {}
         }
     },
-    "outdated_image_short_label": "may be outdated",
+    "outdated_image_short_label": "elavult lehet",
     "@outdated_image_short_label": {
         "description": "A label for outdated images"
     },
@@ -562,7 +562,7 @@
     "@nutrition_facts_photo": {
         "description": "Button label: For adding a picture of the nutrition facts of a product"
     },
-    "nutrition_facts_editing_title": "Edit Nutrition Facts",
+    "nutrition_facts_editing_title": "Tápértékadatok szerkesztése",
     "@nutrition_facts_editing_title": {
         "description": "Title of the button where users can edit the nutrition facts of a product"
     },
@@ -635,7 +635,7 @@
     "@crop_page_action_local_message": {
         "description": "The save of the picture locally failed - error dialog message"
     },
-    "crop_page_action_retake": "Retake a photo",
+    "crop_page_action_retake": "Újrafényképezés",
     "@crop_page_action_retake": {
         "description": "Button which allows users to retake a photo."
     },
@@ -771,25 +771,25 @@
     "score_add_missing_product_brands": "Hiányzó márkák hozzáadása",
     "score_update_nutrition_facts": "Tápértékadatok frissítése",
     "nutrition_page_title": "Tápértékadatok",
-    "nutrition_page_nutritional_info_title": "Nutritional information",
-    "nutrition_page_nutritional_info_label": "Values specified on the product:",
+    "nutrition_page_nutritional_info_title": "Tápanyag-információ",
+    "nutrition_page_nutritional_info_label": "A terméken feltüntetett értékek:",
     "nutrition_page_nutritional_info_value_positive": "Igen",
     "nutrition_page_nutritional_info_value_negative": "Nem",
-    "nutrition_page_nutritional_info_open_photo": "Open photo",
+    "nutrition_page_nutritional_info_open_photo": "Fénykép megnyitása",
     "nutrition_page_nutritional_info_explanation": "TODO",
     "@nutrition_page_nutritional_info_explanation": {
         "description": "DO NOT TRANSLATE Text to explain when we should set the toggle to off (no nutrition facts)"
     },
-    "nutrition_page_serving_type_label": "Nutritional values:",
+    "nutrition_page_serving_type_label": "Tápértékek:",
     "@nutrition_page_serving_type_label": {
         "description": "Label to let the user choose between per 100g or per serving"
     },
     "nutrition_page_per_100g": "100g-ra",
-    "nutrition_page_per_100g_100ml": "per 100g/ml",
+    "nutrition_page_per_100g_100ml": "100 g/ml-re vonatkozik",
     "nutrition_page_per_serving": "adagonként",
     "nutrition_page_add_nutrient": "Tápanyag hozzáadása",
     "nutrition_page_serving_size": "Adag",
-    "nutrition_page_serving_size_hint": "Input a serving size (eg: 100g)",
+    "nutrition_page_serving_size_hint": "Adj meg egy adag méretét (pl.: 100 g)",
     "nutrition_page_serving_size_explanation": "TODO",
     "@nutrition_page_serving_size_explanation": {
         "description": "DO NOT TRANSLATE Text to explain what to input in the serving size"
@@ -801,7 +801,7 @@
     "@nutrition_page_take_serving_size_from_product_quantity": {
         "description": "Button label: Use the product quantity as serving size (nutrition page)"
     },
-    "nutrition_page_photo_error": "Unable to load the photo",
+    "nutrition_page_photo_error": "Nem sikerült betölteni a fényképet",
     "@nutrition_page_photo_error": {
         "description": "Error message when the nutrition facts photo can't be loaded"
     },
@@ -881,11 +881,11 @@
     "@product_image_action_choose_existing_photo": {
         "description": "Replace the existing picture with one from the product's photos"
     },
-    "product_image_details_label": "Information about the photo",
+    "product_image_details_label": "Információk a fényképről",
     "@product_image_details_label": {
         "description": "Label for the photo details"
     },
-    "product_image_details_from_producer": "From the producer",
+    "product_image_details_from_producer": "A gyártótól",
     "@product_image_details_from_producer": {
         "description": "Text to indicate that the image was taken by the producer"
     },
@@ -893,7 +893,7 @@
     "@product_image_details_contributor": {
         "description": "The name of the contributor who uploaded the image"
     },
-    "product_image_details_contributor_producer": "Contributor (producer)",
+    "product_image_details_contributor_producer": "Közreműködő (gyártó)",
     "@product_image_details_contributor_producer": {
         "description": "The name of the contributor (and also the owner field) who uploaded the image"
     },
@@ -959,17 +959,17 @@
         "description": "Message to show if there are no product properties found"
     },
     "add_tag": "Tulajdonság hozzáadása",
-    "add_tags": "Add properties",
-    "add_edit_tags": "Add or edit properties",
+    "add_tags": "Tulajdonságok hozzáadása",
+    "add_edit_tags": "Tulajdonságok hozzáadása vagy szerkesztése",
     "edit_tag": "Tulajdonság szerkesztése",
     "remove_tag": "Tulajdonság eltávolítása",
     "tag_key": "Tulajdonság",
-    "tag_key_uneditable": "Property (uneditable)",
-    "tag_key_input_hint": "Input a property",
+    "tag_key_uneditable": "Tulajdonság (nem szerkeszthető)",
+    "tag_key_input_hint": "Adjon meg egy tulajdonságot",
     "tag_value": "Érték",
-    "tag_value_input_hint": "Input a value",
-    "tag_key_item": "Property:",
-    "tag_value_item": "Value:",
+    "tag_value_input_hint": "Adjon meg egy értéket",
+    "tag_key_item": "Tulajdonság:",
+    "tag_value_item": "Érték:",
     "tag_key_explanations": "A key must be lowercase and without any spaces.",
     "tag_key_already_exists": "A tag with a property {property} already exists!",
     "@tag_key_already_exists": {
