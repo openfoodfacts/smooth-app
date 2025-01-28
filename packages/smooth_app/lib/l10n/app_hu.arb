@@ -970,8 +970,8 @@
     "tag_value_input_hint": "Adjon meg egy értéket",
     "tag_key_item": "Tulajdonság:",
     "tag_value_item": "Érték:",
-    "tag_key_explanations": "A key must be lowercase and without any spaces.",
-    "tag_key_already_exists": "A tag with a property {property} already exists!",
+    "tag_key_explanations": "A kulcsnak kisbetűsnek kell lennie, szóközök nélkül.",
+    "tag_key_already_exists": "Már van egy címke {property} tulajdonsággal.",
     "@tag_key_already_exists": {
         "placeholders": {
             "property": {
@@ -1485,7 +1485,7 @@
     "@edit_product_pending_operations_banner_title": {
         "description": "When a product has pending edits (being sent to the server), there is a message on the edit page (here is the title of the message)."
     },
-    "edit_product_pending_operations_banner_message": "Your edits are being **sent in the background** (or later in case of error).\nYou can continue editing other product fields.",
+    "edit_product_pending_operations_banner_message": "Szerkesztéseit a rendszer **a háttérben küldi el** (hiba esetén később).\nFolytathatja a termék többi mezőjének szerkesztését.",
     "@edit_product_pending_operations_banner_message": {
         "description": "When a product has pending edits (being sent to the server), there is a message on the edit page. Please keep the ** syntax to make the text bold."
     },
@@ -1510,31 +1510,31 @@
     "@edit_product_form_item_error_existing": {
         "description": "Error message when the user tries to re-submit an existing value"
     },
-    "edit_product_form_item_add_action_brand": "Add a new brand",
+    "edit_product_form_item_add_action_brand": "Új márka hozzáadása",
     "@edit_product_form_item_add_action_brand": {
         "description": "Tooltip to show when the user long presses the (+) button on a brand"
     },
-    "edit_product_form_item_add_action_label": "Add a new label",
+    "edit_product_form_item_add_action_label": "Új címke hozzáadása",
     "@edit_product_form_item_add_action_label": {
         "description": "Tooltip to show when the user long presses the (+) button on a label"
     },
-    "edit_product_form_item_add_action_store": "Add a new store",
+    "edit_product_form_item_add_action_store": "Új üzlet hozzáadása",
     "@edit_product_form_item_add_action_store": {
         "description": "Tooltip to show when the user long presses the (+) button on a store"
     },
-    "edit_product_form_item_add_action_origin": "Add a new origin",
+    "edit_product_form_item_add_action_origin": "Új származási hely hozzáadása",
     "@edit_product_form_item_add_action_origin": {
         "description": "Tooltip to show when the user long presses the (+) button on an origin"
     },
-    "edit_product_form_item_add_action_emb_code": "Add a new traceability code",
+    "edit_product_form_item_add_action_emb_code": "Új üzemkód hozzáadása",
     "@edit_product_form_item_add_action_emb_code": {
         "description": "Tooltip to show when the user long presses the (+) button on a traceability code"
     },
-    "edit_product_form_item_add_action_country": "Add a new country",
+    "edit_product_form_item_add_action_country": "Új ország hozzáadása",
     "@edit_product_form_item_add_action_country": {
         "description": "Tooltip to show when the user long presses the (+) button on a country"
     },
-    "edit_product_form_item_add_action_category": "Add a new category",
+    "edit_product_form_item_add_action_category": "Új kategória hozzáadása",
     "@edit_product_form_item_add_action_category": {
         "description": "Tooltip to show when the user long presses the (+) button on a category"
     },
@@ -1666,7 +1666,7 @@
     "@edit_product_form_item_categories_explainer_3": {
         "description": "Product edition - Categories - input explainer, part 3"
     },
-    "edit_product_form_item_exit_title": "Quit without saving?",
+    "edit_product_form_item_exit_title": "Kilép mentés nélkül?",
     "edit_product_form_item_exit_confirmation": "Szeretné menteni a változtatásokat, mielőtt elhagyja ezt az oldalt?",
     "edit_product_form_item_exit_confirmation_positive_button": "Módosítások mentése",
     "edit_product_form_item_exit_confirmation_negative_button": "Módosítások elvetése",
@@ -1689,11 +1689,11 @@
     "edit_product_form_item_add_valid_item_tooltip": "Hozzáadás",
     "edit_product_form_item_add_invalid_item_tooltip": "Először írjon be egy szöveget",
     "edit_product_form_item_remove_item_tooltip": "Eltávolítás",
-    "edit_product_form_item_save_edit_item_tooltip": "Save your edit",
+    "edit_product_form_item_save_edit_item_tooltip": "Szerkesztések mentése",
     "@edit_product_form_item_save_edit_item_tooltip": {
         "description": "The user can edit an existing item. This action will save the change."
     },
-    "edit_product_form_item_cancel_edit_item_tooltip": "Cancel your edit",
+    "edit_product_form_item_cancel_edit_item_tooltip": "Szerkesztések törlése",
     "@edit_product_form_item_cancel_edit_item_tooltip": {
         "description": "The user can edit an existing item. This action will cancel the change (and return to the initial value)."
     },
@@ -1741,7 +1741,7 @@
     "@product_field_website_title": {
         "description": "Title of a product field: website"
     },
-    "origins_editing_title": "Edit Origins",
+    "origins_editing_title": "Származási helyek szerkesztése",
     "@origins_editing_title": {
         "description": "Title of the button where users can edit the origins of a product"
     },
@@ -2268,14 +2268,14 @@
     "prices_add_validation_error": "Érvényesítési hiba",
     "prices_privacy_warning_title": "Adatvédelmi figyelmeztetés",
     "prices_unknown_product": "Unknown product",
-    "prices_privacy_warning_main_message": "Prices **will be public**, along with the store they refer to.\n\nThat might allow people who know about your Open Food Facts pseudonym to:\n",
-    "prices_privacy_warning_message_bullet_1": "Infer in which area you live",
-    "prices_privacy_warning_message_bullet_2": "Know what you are buying",
-    "prices_privacy_warning_sub_message": "If you are uneasy with that, please change your pseudonym, or create a new Open Food Facts account and log into the app with it.",
-    "i_refuse": "I refuse",
-    "i_accept": "I accept",
-    "prices_currency_change_proposal_title": "Change the currency?",
-    "prices_currency_change_proposal_message": "Your current currency is **{currency}**. Would you like to change it to **{newCurrency}**?",
+    "prices_privacy_warning_main_message": "Az árak **nyilvánosak lesznek** a hivatkozott üzlettel együtt.\n\nEz lehetővé teheti azoknak, akik ismerik az ön Open Food Facts felhasználónevét, hogy:\n",
+    "prices_privacy_warning_message_bullet_1": "Megállapítsák, ön merre felé él",
+    "prices_privacy_warning_message_bullet_2": "Megtudják, hogy mit vásárol",
+    "prices_privacy_warning_sub_message": "Ha ez nyugtalanítja, változtassa meg felhasználónevét, vagy hozzon létre egy új Open Food Facts fiókot, és jelentkezzen be vele az alkalmazásba.",
+    "i_refuse": "Elutasítom",
+    "i_accept": "Elfogadom",
+    "prices_currency_change_proposal_title": "Módosítja a pénznemet?",
+    "prices_currency_change_proposal_message": "Jelenlegi pénzneme **{currency}**. Szeretné módosítani a következőre: **{newCurrency}**?",
     "@prices_currency_change_proposal_message": {
         "description": "Message to ask the user if they want to change the currency",
         "placeholders": {
@@ -2287,7 +2287,7 @@
             }
         }
     },
-    "prices_currency_change_proposal_action_approve": "Yes, use {newCurrency}",
+    "prices_currency_change_proposal_action_approve": "Igen, váltás erre: {newCurrency}",
     "@prices_currency_change_proposal_action_approve": {
         "description": "Button to approve the currency change",
         "placeholders": {
@@ -2296,7 +2296,7 @@
             }
         }
     },
-    "prices_currency_change_proposal_action_cancel": "No, keep {currency}",
+    "prices_currency_change_proposal_action_cancel": "Nem, maradjon {currency}",
     "@prices_currency_change_proposal_action_cancel": {
         "description": "Button to cancel the currency change",
         "placeholders": {
@@ -2517,11 +2517,11 @@
     },
     "basic_details": "Alapadatok",
     "product_name": "Termék neve",
-    "product_names": "Product Names",
+    "product_names": "Terméknevek",
     "@product_names": {
         "description": "Title for the section to edit the product name (in multiple languages)"
     },
-    "add_basic_details_product_name_add_translation": "Add a new translation",
+    "add_basic_details_product_name_add_translation": "Új fordítás hozzáadása",
     "@add_basic_details_product_name_add_translation": {
         "description": "Button to add a new translation for the product name"
     },
@@ -2529,11 +2529,11 @@
     "@add_basic_details_product_name_warning_translations": {
         "description": "Warning message displayed on top of new translations for the product name"
     },
-    "add_basic_details_product_name_open_photo": "View front photo",
+    "add_basic_details_product_name_open_photo": "Elülső oldal fényképének megtekintése",
     "@add_basic_details_product_name_open_photo": {
         "description": "Button to view the front photo of the product (on top of the screen)"
     },
-    "add_basic_details_product_name_take_photo": "Take front photo",
+    "add_basic_details_product_name_take_photo": "Fénykép készítése szemből",
     "@add_basic_details_product_name_take_photo": {
         "description": "Button to take a photo of the front of the product (when there is no photo yet)"
     },
@@ -2541,23 +2541,23 @@
     "@add_basic_details_product_name_hint": {
         "description": "Placeholder when the product name text-field is empty"
     },
-    "add_basic_details_product_name_help_title": "Good practices: product name",
+    "add_basic_details_product_name_help_title": "Jó tanácsok: terméknév",
     "@add_basic_details_product_name_help_title": {
         "description": "Title for the help section about the product name"
     },
-    "add_basic_details_product_name_help_info1": "The product name is the **main name printed on the packaging**. It can be a registered trademark.",
+    "add_basic_details_product_name_help_info1": "A termék neve a **a csomagolásra nyomtatott fő név**. Ez lehet bejegyzett védjegy.",
     "@add_basic_details_product_name_help_info1": {
         "description": "Text explaining how to write the product name"
     },
-    "add_basic_details_product_name_help_info2": "**Note:** Please don't add a translation **if the language is not present on the packaging**.",
+    "add_basic_details_product_name_help_info2": "**Megjegyzés:** Kérjük, ne fordítsa le, **ha a nyelv nem szerepel a csomagoláson**.",
     "@add_basic_details_product_name_help_info2": {
         "description": "Text explaining how to write the product name"
     },
-    "explanation_section_good_examples": "Good examples",
+    "explanation_section_good_examples": "Jó példák",
     "@explanation_section_good_examples": {
         "description": "Title for the section with good examples"
     },
-    "explanation_section_bad_examples": "Bad examples",
+    "explanation_section_bad_examples": "Rossz példák",
     "@explanation_section_bad_examples": {
         "description": "Title for the section with bad examples"
     },
@@ -2569,15 +2569,15 @@
     "@add_basic_details_product_name_help_good_examples_2": {
         "description": "A 2nd good example for the product name (you can change it if necessary)"
     },
-    "add_basic_details_product_name_help_bad_examples_1_explanation": "Don't include the brand in the name",
+    "add_basic_details_product_name_help_bad_examples_1_explanation": "A névben ne szerepeljen a márka",
     "@add_basic_details_product_name_help_bad_examples_1_explanation": {
         "description": "Explanation for the first bad example"
     },
-    "add_basic_details_product_name_help_bad_examples_1_example": "Tomato Ketchup **by Heinz**",
+    "add_basic_details_product_name_help_bad_examples_1_example": "** Heinz** Ketchup",
     "@add_basic_details_product_name_help_bad_examples_1_example": {
         "description": "First bad example for the product name"
     },
-    "add_basic_details_product_name_help_bad_examples_2_explanation": "Don't use symbols ®, ™, © or similar",
+    "add_basic_details_product_name_help_bad_examples_2_explanation": "Ne használjon ®, ™, © vagy hasonló szimbólumokat",
     "@add_basic_details_product_name_help_bad_examples_2_explanation": {
         "description": "Explanation for the second bad example"
     },
