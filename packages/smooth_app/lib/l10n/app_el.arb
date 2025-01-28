@@ -591,19 +591,19 @@
         "description": "Please keep the ** syntax to make the text bold"
     },
     "new_product_found_button": "Προσθέστε αυτό το προϊόν",
-    "new_product_leave_title": "Leave this page?",
+    "new_product_leave_title": "Έξοδος από τη σελίδα;",
     "@new_product_leave_title": {
         "description": "Alert dialog title when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
     },
-    "new_product_leave_message": "It looks like you didn't input anything. Do you really want to leave this page?",
+    "new_product_leave_message": "Φαίνεται ότι δεν εισαγάγατε τίποτα. Θέλετε πραγματικά να φύγετε από αυτήν τη σελίδα;",
     "@new_product_leave_message": {
         "description": "Alert dialog message when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
     },
-    "new_product_dialog_description": "Please take photos of the packaging to add this product to our common database",
+    "new_product_dialog_description": "Παρακαλώ τραβήξτε φωτογραφίες της συσκευασίας για να προσθέσετε αυτό το προϊόν στην κοινή μας βάση δεδομένων",
     "@new_product_dialog_description": {
         "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
     },
-    "new_product_dialog_illustration_description": "An illustration with unknown Nutri-Score and Green Score",
+    "new_product_dialog_illustration_description": "Μια απεικόνιση με άγνωστο Nutri-Score και Green Score",
     "@new_product_dialog_illustration_description": {
         "description": "A description for accessibility of two images side by side: a Nutri-Score and an Green Score."
     },
@@ -614,36 +614,36 @@
         "description": "Button clicking on which confirms the picture of the front of product that user just took."
     },
     "confirm_button_label": "Επιβεβαίωση",
-    "send_image_button_label": "Send image",
-    "crop_page_action_saving": "Saving the image…",
+    "send_image_button_label": "Αποστολή εικόνας",
+    "crop_page_action_saving": "Αποθήκευση της εικόνας…",
     "@crop_page_action_saving": {
         "description": "Action being performed on the crop page"
     },
-    "crop_page_action_cropping": "Cropping the image…",
+    "crop_page_action_cropping": "Περικοπή της εικόνας…",
     "@crop_page_action_cropping": {
         "description": "Action being performed on the crop page"
     },
-    "crop_page_action_local": "Saving a local version…",
+    "crop_page_action_local": "Αποθήκευση τοπικής έκδοσης…",
     "@crop_page_action_local": {
         "description": "Action being performed on the crop page"
     },
-    "crop_page_action_local_failed_title": "Oops… there's something with your photo!",
+    "crop_page_action_local_failed_title": "Ωχ… συμβαίνει κάτι με τη φωτογραφία σας!",
     "@crop_page_action_local_title": {
         "description": "The save of the picture locally failed - error dialog message"
     },
-    "crop_page_action_local_failed_message": "We are unable to process the image locally, before sending it to our server. Please try again later or contact-us if the issue persists.",
+    "crop_page_action_local_failed_message": "Δεν μπορούμε να επεξεργαστούμε την εικόνα τοπικά, πριν την στείλουμε στον διακομιστή μας. Δοκιμάστε ξανά αργότερα ή επικοινωνήστε μαζί μας εάν το πρόβλημα παραμένει.",
     "@crop_page_action_local_message": {
         "description": "The save of the picture locally failed - error dialog message"
     },
-    "crop_page_action_retake": "Retake a photo",
+    "crop_page_action_retake": "Επανάληψη φωτογραφίας",
     "@crop_page_action_retake": {
         "description": "Button which allows users to retake a photo."
     },
-    "crop_page_too_small_image_title": "The image is too small!",
+    "crop_page_too_small_image_title": "Η εικόνα είναι πολύ μικρή!",
     "@crop_page_too_small_image_title": {
         "description": "Title of a dialog warning the user that the image is too small for upload"
     },
-    "crop_page_too_small_image_message": "The minimum size in pixels for picture upload is {expectedMinWidth}x{expectedMinHeight}. The current picture is {actualWidth}x{actualHeight}.",
+    "crop_page_too_small_image_message": "Το ελάχιστο μέγεθος σε pixel για μεταφόρτωση εικόνας είναι {expectedMinWidth}x{expectedMinHeight}. Η τρέχουσα εικόνα είναι {actualWidth}x{actualHeight}.",
     "@crop_page_too_small_image_message": {
         "description": "Message of a dialog warning the user that the image is too small for upload",
         "placeholders": {
@@ -661,13 +661,13 @@
             }
         }
     },
-    "crop_page_action_server": "Preparing a call to the server…",
+    "crop_page_action_server": "Προετοιμασία κλήσης προς τον διακομιστή…",
     "@crop_page_action_server": {
         "description": "Action being performed on the crop page"
     },
     "front_packaging_photo_title": "Φωτογραφία Μπροστινής Συσκευασίας",
     "ingredients_photo_title": "Φωτογραφία Συστατικών",
-    "nutritional_facts_photo_title": "Nutrition Facts Photo",
+    "nutritional_facts_photo_title": "Φωτογραφία Διατροφικών Στοιχείων",
     "recycling_photo_title": "Φωτογραφία Ανακύκλωσης",
     "take_photo_title": "Τραβήξτε μια φωτογραφία",
     "take_more_photo_title": "Τραβήξτε περισσότερες φωτογραφίες",
@@ -682,19 +682,19 @@
     "@nutritional_facts_photo_button_label": {},
     "nutritional_facts_input_button_label": "Προσθήκη διατροφικών στοιχείων",
     "nutritional_facts_added": "Προστέθηκαν διατροφικά στοιχεία",
-    "categories_added": "Categories added",
-    "new_product_title_nutriscore": "Compute the Nutri-Score",
-    "new_product_subtitle_nutriscore": "Help us by filling at least a category and nutritional values",
-    "new_product_title_environmental_score": "Compute the Green Score",
-    "new_product_subtitle_environmental_score": "Get it by filling at least a category",
-    "new_product_additional_environmental_score": "Make Green Score computation more precise with origins, packaging & more",
-    "new_product_title_nova": "Compute the food processing level (NOVA)",
-    "new_product_subtitle_nova": "Get it by filling the food category and ingredients",
-    "new_product_desc_nova_unknown": "Food processing level unknown",
-    "new_product_title_pictures": "New product",
-    "new_product_title_pictures_details": "Please take the following photos and the Open Food Facts engine can work out the rest!",
-    "new_product_title_misc": "And some basic data…",
-    "new_product_done_msg": "Thanks for your contribution “{username}”!",
+    "categories_added": "Προστέθηκαν κατηγορίες",
+    "new_product_title_nutriscore": "Υπολογίστε το Nutri-Score",
+    "new_product_subtitle_nutriscore": "Βοηθήστε μας συμπληρώνοντας τουλάχιστον μια κατηγορία και διατροφικές τιμές",
+    "new_product_title_environmental_score": "Υπολογίστε το Green Score",
+    "new_product_subtitle_environmental_score": "Αποκτήστε το συμπληρώνοντας τουλάχιστον μια κατηγορία",
+    "new_product_additional_environmental_score": "Κάντε τον υπολογισμό του Green Score πιο ακριβές με την προέλευση, τη συσκευασία και άλλα",
+    "new_product_title_nova": "Υπολογίστε το επίπεδο επεξεργασίας τροφίμων (NOVA)",
+    "new_product_subtitle_nova": "Αποκτήστε το συμπληρώνοντας την κατηγορία τροφίμων και τα συστατικά",
+    "new_product_desc_nova_unknown": "Άγνωστο επίπεδο επεξεργασίας τροφίμων",
+    "new_product_title_pictures": "Νέο προϊόν",
+    "new_product_title_pictures_details": "Παρακαλώ τραβήξτε τις παρακάτω φωτογραφίες και η μηχανή Open Food Facts θα κάνει τα υπόλοιπα!",
+    "new_product_title_misc": "Και μερικά βασικά δεδομένα…",
+    "new_product_done_msg": "Ευχαριστούμε για τη συνεισφορά σας \"{username}\"!",
     "@new_product_done_msg": {
         "description": "Thank you message on the end of new product page, after finish adding a new product.",
         "placeholders": {
@@ -704,15 +704,15 @@
             }
         }
     },
-    "new_product_done_msg_no_user": "Thanks for your contribution!",
-    "new_product_done_button_label": "Discover the completed product",
+    "new_product_done_msg_no_user": "Ευχαριστούμε για τη συνεισφορά σας!",
+    "new_product_done_button_label": "Ανακαλύψτε το ολοκληρωμένο προϊόν",
     "@new_product_done_button_label": {
         "description": "Button at the end of new product page, that takes you to completed product"
     },
-    "hey_incomplete_product_message": "Tap to answer 3 questions NOW to compute Nutri-Score, Green Score & Ultra-processing (NOVA)!",
-    "hey_incomplete_product_message_beauty": "Tap now to answer 2 questions to help analyze this cosmetic!",
-    "hey_incomplete_product_message_pet_food": "Tap now to answer 3 questions to help analyze this pet food product!",
-    "hey_incomplete_product_message_product": "Tap now to help complete this product!",
+    "hey_incomplete_product_message": "Πατήστε για να απαντήσετε σε 3 ερωτήσεις ΤΩΡΑ και να υπολογίσετε τα Nutri-Score, Green Score & την Υπερεπεξεργασία (NOVA)!",
+    "hey_incomplete_product_message_beauty": "Πατήστε τώρα για να απαντήσετε σε 2 ερωτήσεις που θα βοηθήσουν στην ανάλυση αυτού του καλλυντικού!",
+    "hey_incomplete_product_message_pet_food": "Πατήστε τώρα για να απαντήσετε σε 3 ερωτήσεις που θα βοηθήσουν στην ανάλυση αυτού του προϊόντος τροφής για κατοικίδια!",
+    "hey_incomplete_product_message_product": "Πατήστε τώρα για να ολοκληρώσετε αυτό το προϊόν!",
     "nutritional_facts_photo_uploaded": "Η φωτογραφία διατροφικών στοιχείων μεταφορτώθηκε",
     "@nutritional_facts_photo_uploaded": {},
     "recycling_photo_button_label": "Φωτογραφία πληροφοριών ανακύκλωσης",
@@ -723,7 +723,7 @@
     "@take_more_photo_button_label": {},
     "other_photo_uploaded": "Η φωτογραφίας στην κατηγορία διάφορα μεταφορτώθηκε",
     "@other_photo_uploaded": {},
-    "retake_photo_button_label": "Retake",
+    "retake_photo_button_label": "Νέα λήψη",
     "@retake_photo_button_label": {
         "description": "Button clicking on which allows users to retake the last photo they took."
     },
@@ -735,44 +735,44 @@
     "@uploading_image": {
         "description": "Message when a new picture is uploading to the server"
     },
-    "uploading_image_type_front": "Uploading front image to Open Food Facts",
+    "uploading_image_type_front": "Μεταφόρτωση μπροστινής εικόνας στο Open Food Facts",
     "@uploading_image_type_front": {
         "description": "Message when a new front picture is being uploaded to the server"
     },
-    "uploading_image_type_ingredients": "Uploading ingredients image to Open Food Facts",
+    "uploading_image_type_ingredients": "Μεταφόρτωση εικόνας συστατικών στο Open Food Facts",
     "@uploading_image_type_ingredients": {
         "description": "Message when a new ingredients picture is being uploaded to the server"
     },
-    "uploading_image_type_nutrition": "Uploading nutrition image to Open Food Facts",
+    "uploading_image_type_nutrition": "Μεταφόρτωση εικόνας διατροφής στο Open Food Facts",
     "@uploading_image_type_nutrition": {
         "description": "Message when a new nutrition picture is being uploaded to the server"
     },
-    "uploading_image_type_packaging": "Uploading packaging image to Open Food Facts",
+    "uploading_image_type_packaging": "Μεταφόρτωση εικόνας συσκευασίας στο Open Food Facts",
     "@uploading_image_type_packaging": {
         "description": "Message when a new packaging picture is being uploaded to the server"
     },
-    "uploading_image_type_other": "Uploading other image to Open Food Facts",
+    "uploading_image_type_other": "Μεταφόρτωση άλλης εικόνας στο Open Food Facts",
     "@uploading_image_type_other": {
         "description": "Message when a new other picture is being uploaded to the server"
     },
-    "uploading_image_type_generic": "Uploading image to Open Food Facts",
+    "uploading_image_type_generic": "Μεταφόρτωση εικόνας στο Open Food Facts",
     "@uploading_image_type_generic": {
         "description": "Message when a new picture is being uploaded to the server"
     },
     "score_add_missing_ingredients": "Προσθήκη συστατικών που λείπουν",
-    "score_add_missing_packaging_image": "Add missing packaging image",
+    "score_add_missing_packaging_image": "Προσθήκη εικόνας συσκευασίας που λείπει",
     "score_add_missing_nutrition_facts": "Προσθήκη διατροφικών στοιχείων που λείπουν",
     "score_add_missing_product_category": "Προσθήκη κατηγορίας",
-    "score_add_missing_product_countries": "Add missing product countries",
-    "score_add_missing_product_emb": "Add missing product traceability codes",
-    "score_add_missing_product_labels": "Add missing product labels",
-    "score_add_missing_product_origins": "Add missing product origins",
-    "score_add_missing_product_stores": "Add missing product stores",
-    "score_add_missing_product_brands": "Add missing product brands",
+    "score_add_missing_product_countries": "Προσθήκη χωρών προϊόντος που λείπουν",
+    "score_add_missing_product_emb": "Προσθήκη κωδικών ιχνηλασιμότητας προϊόντος που λείπουν",
+    "score_add_missing_product_labels": "Προσθήκη ετικετών προϊόντος που λείπουν",
+    "score_add_missing_product_origins": "Προσθήκη προέλευσης προϊόντος που λείπουν",
+    "score_add_missing_product_stores": "Προσθήκη καταστημάτων προϊόντος που λείπουν",
+    "score_add_missing_product_brands": "Προσθήκη επωνυμιών προϊόντος που λείπουν",
     "score_update_nutrition_facts": "Ενημέρωση διατροφικών στοιχείων",
     "nutrition_page_title": "Διατροφικά Στοιχεία",
-    "nutrition_page_nutritional_info_title": "Nutritional information",
-    "nutrition_page_nutritional_info_label": "Values specified on the product:",
+    "nutrition_page_nutritional_info_title": "Διατροφικές πληροφορίες",
+    "nutrition_page_nutritional_info_label": "Τιμές που καθορίζονται στο προϊόν:",
     "nutrition_page_nutritional_info_value_positive": "Ναι",
     "nutrition_page_nutritional_info_value_negative": "Όχι",
     "nutrition_page_nutritional_info_open_photo": "Άνοιγμα φωτογραφίας",
@@ -1485,7 +1485,7 @@
     "@edit_product_pending_operations_banner_title": {
         "description": "When a product has pending edits (being sent to the server), there is a message on the edit page (here is the title of the message)."
     },
-    "edit_product_pending_operations_banner_message": "Your edits are being **sent in the background** (or later in case of error).\nYou can continue editing other product fields.",
+    "edit_product_pending_operations_banner_message": "Οι αλλαγές σας **αποστέλλονται στο παρασκήνιο** (ή αργότερα σε περίπτωση σφάλματος).\nΜπορείτε να συνεχίσετε την επεξεργασία άλλων πεδίων προϊόντος.",
     "@edit_product_pending_operations_banner_message": {
         "description": "When a product has pending edits (being sent to the server), there is a message on the edit page. Please keep the ** syntax to make the text bold."
     },
@@ -1804,15 +1804,15 @@
     "@edit_packaging_refresh_photo_btn_text": {
         "description": "Packaging edition - Refresh photo"
     },
-    "edit_ocr_extract_failed": "Failed to detect text in image.",
+    "edit_ocr_extract_failed": "Αποτυχία εντοπισμού κειμένου στην εικόνα.",
     "@edit_ocr_extract_failed": {
         "description": "OCR extraction - message for failed"
     },
-    "edit_ocr_extract_disabled_title": "No picture!",
+    "edit_ocr_extract_disabled_title": "Καμία εικόνα!",
     "@edit_ocr_extract_disabled_title": {
         "description": "OCR extraction - title for disabled"
     },
-    "edit_ocr_extract_disabled_message": "In order to use the text extraction feature, you must first take a photo.",
+    "edit_ocr_extract_disabled_message": "Για να χρησιμοποιήσετε τη δυνατότητα εξαγωγής κειμένου, πρέπει πρώτα να τραβήξετε μια φωτογραφία.",
     "@edit_ocr_extract_disabled_message": {
         "description": "OCR extraction - message for disabled"
     },
@@ -1832,7 +1832,7 @@
     "@user_list_title": {
         "description": "Label for the user lists (when the user wants to add a product to a list)"
     },
-    "user_list_add_product": "Add the product to your lists",
+    "user_list_add_product": "Προσθέστε το προϊόν στις λίστες σας",
     "@user_list_add_product": {
         "description": "Label for the dialog to add a product to a list"
     },
@@ -1848,11 +1848,11 @@
     "@user_list_button_add_product": {
         "description": "Short label of an 'add to list' button from a product context"
     },
-    "added_to_list_msg": "Added to list",
+    "added_to_list_msg": "Προστέθηκε στη λίστα",
     "@added_to_list_msg": {
         "description": "Message when products have been successfully added to a list"
     },
-    "user_list_popup_clear": "Clear your history",
+    "user_list_popup_clear": "Διαγράψτε το ιστορικό σας",
     "@user_list_popup_clear": {
         "description": "Short label of a 'clear your history list' popup"
     },
@@ -1860,7 +1860,7 @@
     "@user_list_popup_rename": {
         "description": "Short label of a 'rename list' popup"
     },
-    "user_list_name_hint": "My list",
+    "user_list_name_hint": "Η λίστα μου",
     "@user_list_name_hint": {
         "description": "Hint of a user list name text-field in a 'user list' dialog"
     },
@@ -1876,7 +1876,7 @@
     "@user_list_name_error_same": {
         "description": "Validation error about the renamed name that is the same as the initial list name"
     },
-    "user_list_name_input_hint": "Name of the list",
+    "user_list_name_input_hint": "Όνομα της λίστας",
     "@user_list_name_input_hint": {
         "description": "A hint to indicate that the user should input a name of a list"
     },
@@ -1897,11 +1897,11 @@
             }
         }
     },
-    "camera_toggle_camera": "Switch between back and front camera",
+    "camera_toggle_camera": "Εναλλαγή μεταξύ πίσω και μπροστινής κάμερας",
     "@camera_toggle_camera": {
         "description": "Explanation for the icon to switch between cameras"
     },
-    "camera_toggle_flash": "Turn ON or OFF the flash of the camera",
+    "camera_toggle_flash": "Ενεργοποιήστε ή απενεργοποιήστε το φλας της κάμερας",
     "@camera_toggle_flash": {
         "description": "Explanation for the icon to turn on/off the flash"
     },
@@ -1913,11 +1913,11 @@
     "@camera_disable_flash": {
         "description": "Disable flash (tooltip)"
     },
-    "camera_flash_error_dialog_title": "An error occurred!",
+    "camera_flash_error_dialog_title": "Προέκυψε σφάλμα!",
     "@camera_flash_error_dialog_title": {
         "description": "Title of the dialog explaining that an error happened while enabling/disabling the flash of the camera"
     },
-    "camera_flash_error_dialog_message": "An error occurred while changing the state of your flash. Please ensure your smartphone has not the torch already enabled.",
+    "camera_flash_error_dialog_message": "Παρουσιάστηκε σφάλμα κατά την αλλαγή της κατάστασης του φλας. Βεβαιωθείτε ότι το smartphone σας δεν έχει ήδη ενεργοποιημένο τον φακό.",
     "@camera_flash_error_dialog_message": {
         "description": "Content of the dialog explaining that an error happened while enabling/disabling the flash of the camera"
     },
@@ -1925,7 +1925,7 @@
     "@category_picker_no_category_found_button": {
         "description": "Button label when no category is available"
     },
-    "user_preferences_item_accessibility_hint": "Click to open in your browser or in the application (if installed)",
+    "user_preferences_item_accessibility_hint": "Κάντε κλικ για να ανοίξετε στο πρόγραμμα περιήγησής σας ή στην εφαρμογή (αν είναι εγκατεστημένη)",
     "@user_preferences_item_accessibility_hint": {
         "description": "A hint for screen readers to explain how external links work"
     },
@@ -1937,7 +1937,7 @@
     "@dev_preferences_reset_onboarding_title": {
         "description": "User dev preferences - Reset onboarding - Title"
     },
-    "dev_preferences_reset_onboarding_subtitle": "You then have to restart the App to see it again.",
+    "dev_preferences_reset_onboarding_subtitle": "Στη συνέχεια, πρέπει να επανεκκινήσετε την εφαρμογή για να το δείτε ξανά.",
     "@dev_preferences_reset_onboarding_subtitle": {
         "description": "User dev preferences - Reset onboarding - Subtitle"
     },
@@ -1945,7 +1945,7 @@
     "@dev_preferences_environment_switch_title": {
         "description": "User dev preferences - Environment (prod/test) switcher - Title"
     },
-    "dev_preferences_test_environment_title": "Test environment parameters",
+    "dev_preferences_test_environment_title": "Παράμετροι περιβάλλοντος δοκιμής",
     "@dev_preferences_test_environment_title": {
         "description": "User dev preferences - Info about test environment - Title"
     },
@@ -1958,7 +1958,7 @@
             }
         }
     },
-    "dev_preferences_test_environment_dialog_title": "Test environment host",
+    "dev_preferences_test_environment_dialog_title": "Οικοδεσπότης περιβάλλοντος δοκιμής",
     "@dev_preferences_test_environment_dialog_title": {
         "description": "User dev preferences - Info about test environment - Dialog title"
     },
@@ -2025,15 +2025,15 @@
     "@dev_preferences_import_history_subtitle": {
         "description": "User dev preferences - Import history - Subtitle"
     },
-    "dev_preferences_news_custom_url_title": "Custom URL for news",
+    "dev_preferences_news_custom_url_title": "Προσαρμοσμένη διεύθυνση URL για ειδήσεις",
     "@dev_preferences_news_custom_url_title": {
         "description": "News dev preferences - Custom URL for news - Title"
     },
-    "dev_preferences_news_custom_url_subtitle": "URL of the JSON file:",
+    "dev_preferences_news_custom_url_subtitle": "URL του αρχείου JSON:",
     "@dev_preferences_news_custom_url_subtitle": {
         "description": "News dev preferences - Custom URL for news - Title"
     },
-    "dev_preferences_news_custom_url_empty_value": "Not set",
+    "dev_preferences_news_custom_url_empty_value": "Δεν ορίστηκε",
     "@dev_preferences_news_custom_url_empty_value": {
         "description": "Message to show when the custom news URL is not set"
     },
@@ -2041,7 +2041,7 @@
     "@dev_preferences_news_provider_status_title": {
         "description": "News dev preferences - Status - Title"
     },
-    "dev_preferences_news_provider_status_subtitle": "Last refresh: {date}",
+    "dev_preferences_news_provider_status_subtitle": "Τελευταία ανανέωση: {date}",
     "@dev_preferences_news_provider_status_subtitle": {
         "description": "News dev preferences - Custom URL for news - Subtitle",
         "placeholders": {
@@ -2051,16 +2051,16 @@
         }
     },
     "product_type_label_food": "Food",
-    "product_type_label_beauty": "Personal care",
+    "product_type_label_beauty": "Προσωπική φροντίδα",
     "product_type_label_pet_food": "Pet food",
     "product_type_label_product": "Άλλο",
-    "product_type_selection_title": "Product type",
-    "product_type_selection_subtitle": "Select the type of this product",
-    "product_type_selection_empty": "You need to select a product type first!",
+    "product_type_selection_title": "Τύπος προϊόντος",
+    "product_type_selection_subtitle": "Επιλέξτε τον τύπο αυτού του προϊόντος",
+    "product_type_selection_empty": "Πρέπει πρώτα να επιλέξετε έναν τύπο προϊόντος!",
     "@product_type_selection_empty": {
         "description": "Error message about product type that needs to be set"
     },
-    "product_type_selection_already": "You cannot change the product type ({productType})!",
+    "product_type_selection_already": "Δεν μπορείτε να αλλάξετε τον τύπο προϊόντος ({productType})!",
     "@product_type_selection_already": {
         "description": "Error message about product type that cannot be set again",
         "placeholders": {
@@ -2069,16 +2069,16 @@
             }
         }
     },
-    "prices_app_dev_mode_flag": "Shortcut to Prices app on product page",
-    "prices_app_button": "Go to Prices app",
+    "prices_app_dev_mode_flag": "Συντόμευση στην εφαρμογή Τιμές στη σελίδα προϊόντος",
+    "prices_app_button": "Μεταβείτε στην εφαρμογή Τιμές",
     "prices_generic_title": "Prices",
-    "prices_add_n_prices": "{count,plural, =1{Add a price} other{Add {count} prices}}",
-    "prices_send_n_prices": "{count,plural, =1{Send the price} other{Send {count} prices}}",
-    "prices_add_an_item": "Add an item",
+    "prices_add_n_prices": "{count,plural, one {}=1{Προσθήκη τιμής} other{Προσθήκη {count} τιμών}}",
+    "prices_send_n_prices": "{count,plural, one {}=1{Στείλτε την τιμή} other{Στείλτε {count} τιμές}}",
+    "prices_add_an_item": "Προσθήκη αντικειμένου",
     "prices_add_a_price": "Add a price",
-    "prices_add_a_receipt": "Add a receipt",
-    "prices_add_price_tags": "Add price tags",
-    "prices_barcode_already": "This barcode ({barcode}) is already in the list!",
+    "prices_add_a_receipt": "Προσθήκη απόδειξης",
+    "prices_add_price_tags": "Προσθήκη ετικετών τιμής",
+    "prices_barcode_already": "Αυτός ο γραμμωτός κώδικας ({barcode}) είναι ήδη στη λίστα!",
     "@prices_barcode_already": {
         "description": "Error message about barcode being already there",
         "placeholders": {
@@ -2088,8 +2088,8 @@
         }
     },
     "prices_barcode_search_not_found": "Το προϊόν δεν βρέθηκε",
-    "prices_barcode_search_none_yet": "No product yet",
-    "prices_barcode_search_running": "Looking for {barcode}",
+    "prices_barcode_search_none_yet": "Κανένα προϊόν ακόμα",
+    "prices_barcode_search_running": "Αναζήτηση για {barcode}",
     "@prices_barcode_search_running": {
         "description": "Dialog title about barcode look-up",
         "placeholders": {
@@ -2098,9 +2098,9 @@
             }
         }
     },
-    "prices_barcode_enter": "Enter the Barcode",
-    "prices_barcode_reader_action": "Barcode reader",
-    "prices_view_prices": "View the prices",
+    "prices_barcode_enter": "Εισαγάγετε τον Γραμμωτό κώδικα",
+    "prices_barcode_reader_action": "Αναγνώστης γραμμωτού κώδικα",
+    "prices_view_prices": "Δείτε τις τιμές",
     "prices_product_accessibility_summary": "{count,plural, =1{1 price} other{{count} prices}} for {product}",
     "@prices_product_accessibility_summary": {
         "description": "A card summarizing the number of prices for a product",
