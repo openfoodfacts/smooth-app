@@ -17,7 +17,6 @@ import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
-import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Full page display of a raw product image.
@@ -139,8 +138,6 @@ class _ProductImageOtherPageState extends State<ProductImageOtherPage> {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     return ChangeNotifierProvider<PageController>.value(
@@ -151,28 +148,10 @@ class _ProductImageOtherPageState extends State<ProductImageOtherPage> {
           title: appLocalizations.edit_product_form_item_photos_title,
           product: widget.product,
           actions: <Widget>[
-            PopupMenuButton<int>(
-              icon: const Icon(Icons.more_vert),
-              color: context.lightTheme()
-                  ? extension.primaryLight
-                  : extension.primarySemiDark,
-              menuPadding: EdgeInsets.zero,
-              offset: const Offset(0, 46.0),
-              itemBuilder: (BuildContext context) {
-                return <PopupMenuEntry<int>>[
-                  PopupMenuItem<int>(
-                    value: 1,
-                    child: ListTile(
-                      leading: const icons.Select.photo(),
-                      title: Text(
-                        appLocalizations.photo_viewer_action_use_picture_as,
-                        style: const TextStyle(fontWeight: FontWeight.w600),
-                      ),
-                    ),
-                  ),
-                ];
-              },
-              onSelected: (int value) => _usePhotoAs(),
+            IconButton(
+              onPressed: () => _usePhotoAs(),
+              tooltip: appLocalizations.photo_viewer_action_use_picture_as,
+              icon: const Icon(Icons.more_vert_rounded),
             ),
           ],
         ),
@@ -386,9 +365,10 @@ class _ProductImageDetailsButton extends StatelessWidget {
           onTap: () {
             showSmoothModalSheet(
                 context: context,
-                builder: (BuildContext context) {
+                builder: (BuildContext lContext) {
                   return SmoothModalSheet(
                     title: appLocalizations.photo_viewer_details_title,
+                    bodyPadding: EdgeInsets.zero,
                     body: Column(
                       children: <Widget>[
                         ListTile(

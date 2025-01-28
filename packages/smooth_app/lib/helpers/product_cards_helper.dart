@@ -64,6 +64,11 @@ String getProductName(
 ) =>
     _clearString(product.productNameInLanguages?[ProductQuery.getLanguage()]) ??
     _clearString(product.productName) ??
+
+    /// Fallback to the first language available
+    _clearString(
+        product.productNameInLanguages?[OpenFoodFactsLanguage.ENGLISH]) ??
+    _clearString(product.productNameInLanguages?.values.firstOrNull) ??
     appLocalizations.unknownProductName;
 
 String getProductBrands(

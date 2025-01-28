@@ -1,31 +1,24 @@
 import 'dart:io';
 
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:intl/intl.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_image.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/database/transient_file.dart';
-import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/image_field_extension.dart';
-import 'package:smooth_app/pages/crop_parameters.dart';
 import 'package:smooth_app/pages/image/product_image_helper.dart';
+import 'package:smooth_app/pages/product/common/product_picture_banner.dart';
 import 'package:smooth_app/pages/product/gallery_view/product_image_gallery_view.dart';
-import 'package:smooth_app/pages/product/owner_field_info.dart';
-import 'package:smooth_app/pages/product/product_image_server_button.dart';
 import 'package:smooth_app/pages/product/product_image_swipeable_view.dart';
 import 'package:smooth_app/resources/app_animations.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
-
-part 'product_image_gallery_details_banner.dart';
 
 class ImageGalleryPhotoRow extends StatefulWidget {
   const ImageGalleryPhotoRow({
@@ -167,6 +160,7 @@ class _ImageGalleryPhotoRowState extends State<ImageGalleryPhotoRow> {
                                 product: product,
                                 imageField: widget.imageField,
                                 language: widget.language,
+                                allowAlternativeLanguage: false,
                                 transientFile: transientFile,
                                 size: Size(box.maxWidth, box.maxHeight),
                                 onTap: null,
@@ -220,11 +214,17 @@ class _ImageGalleryPhotoRowState extends State<ImageGalleryPhotoRow> {
         initialImageIndex: initialImageIndex,
       );
     } else {
-      await _takePicture(
+      final File? file = await ProductImageGalleryView.takePicture(
         context: context,
         product: product,
+        language: widget.language,
+        imageField: widget.imageField,
         pictureSource: UserPictureSource.SELECT,
       );
+
+      if (file != null) {
+        setState(() => _temporaryFile = file);
+      }
     }
   }
 
@@ -234,7 +234,7 @@ class _ImageGalleryPhotoRowState extends State<ImageGalleryPhotoRow> {
     required final OpenFoodFactsLanguage language,
     required final TransientFile transientFile,
   }) async {
-    final _PhotoRowActions? action = await _showPhotoBanner(
+    final File? file = await showPhotoBanner(
       context: context,
       product: product,
       imageField: widget.imageField,
@@ -242,44 +242,8 @@ class _ImageGalleryPhotoRowState extends State<ImageGalleryPhotoRow> {
       transientFile: transientFile,
     );
 
-    if (!context.mounted || action == null) {
-      return;
-    }
-
-    return switch (action) {
-      _PhotoRowActions.takePicture => _takePicture(
-          context: context,
-          product: product,
-          pictureSource: UserPictureSource.CAMERA,
-        ),
-      _PhotoRowActions.selectFromGallery => _takePicture(
-          context: context,
-          product: product,
-          pictureSource: UserPictureSource.GALLERY,
-        ),
-      _PhotoRowActions.selectFromProductPhotos =>
-        _selectPictureFromProductGallery(
-          context: context,
-          product: product,
-        ),
-    };
-  }
-
-  Future<void> _takePicture({
-    required final BuildContext context,
-    required final Product product,
-    required final UserPictureSource pictureSource,
-  }) async {
-    _temporaryFile = await ProductImageGalleryView.takePicture(
-      context: context,
-      product: product,
-      language: widget.language,
-      imageField: widget.imageField,
-      pictureSource: pictureSource,
-    );
-
-    if (_temporaryFile != null) {
-      setState(() {});
+    if (file != null) {
+      setState(() => _temporaryFile = file);
     }
   }
 
@@ -299,26 +263,6 @@ class _ImageGalleryPhotoRowState extends State<ImageGalleryPhotoRow> {
           ),
         ),
       );
-
-  Future<void> _selectPictureFromProductGallery({
-    required final BuildContext context,
-    required final Product product,
-  }) async {
-    final CropParameters? parameters =
-        await ProductImageServerButton.selectImageFromGallery(
-      context: context,
-      product: product,
-      imageField: widget.imageField,
-      language: widget.language,
-      isLoggedInMandatory: true,
-    );
-
-    if (parameters?.smallCroppedFile != null) {
-      setState(() {
-        _temporaryFile = parameters!.smallCroppedFile;
-      });
-    }
-  }
 
   TransientFile _getTransientFile(
     final Product product,

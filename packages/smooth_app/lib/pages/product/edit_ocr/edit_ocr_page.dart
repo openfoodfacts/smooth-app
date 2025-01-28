@@ -17,6 +17,7 @@ import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/pages/input/unfocus_field_when_tap_outside.dart';
 import 'package:smooth_app/pages/product/common/product_buttons.dart';
+import 'package:smooth_app/pages/product/common/product_picture_banner.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/edit_ocr/edit_ocr_image.dart';
 import 'package:smooth_app/pages/product/edit_ocr/edit_ocr_tabbar.dart';
@@ -126,19 +127,10 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
                       _multilingualHelper.getCurrentLanguage(),
                     ) ??
                     false,
-                onEditImage: () async => Navigator.push(
-                  context,
-                  MaterialPageRoute<void>(
-                    builder: (_) => ProductImageSwipeableView.imageField(
-                      imageField: _helper.getImageField(),
-                      product: upToDateProduct,
-                      initialLanguage: _multilingualHelper.getCurrentLanguage(),
-                      isLoggedInMandatory: widget.isLoggedInMandatory,
-                    ),
-                  ),
-                ),
+                onEditImage: () async => _openImageViewer(),
                 onExtractText: () async => _extractData(),
                 onTakePicture: () async => _takePicture(),
+                onTakePictureWithChoices: () async => _listPictureChoices(),
               ),
               const SizedBox(height: MEDIUM_SPACE),
               EditOCRTextField(
@@ -170,6 +162,20 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
             },
             onCancel: () => Navigator.of(context).pop(),
           ),
+        ),
+      ),
+    );
+  }
+
+  Future<void> _openImageViewer() {
+    return Navigator.push(
+      context,
+      MaterialPageRoute<void>(
+        builder: (_) => ProductImageSwipeableView.imageField(
+          imageField: _helper.getImageField(),
+          product: upToDateProduct,
+          initialLanguage: _multilingualHelper.getCurrentLanguage(),
+          isLoggedInMandatory: widget.isLoggedInMandatory,
         ),
       ),
     );
@@ -214,6 +220,15 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
       language: _multilingualHelper.getCurrentLanguage(),
       imageField: _helper.getImageField(),
       pictureSource: UserPictureSource.SELECT,
+    );
+  }
+
+  Future<void> _listPictureChoices() async {
+    showPhotoBanner(
+      context: context,
+      product: upToDateProduct,
+      imageField: _helper.getImageField(),
+      language: _multilingualHelper.getCurrentLanguage(),
     );
   }
 

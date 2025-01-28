@@ -785,6 +785,7 @@
         "description": "Label to let the user choose between per 100g or per serving"
     },
     "nutrition_page_per_100g": "pour 100g",
+    "nutrition_page_per_100g_100ml": "pour 100g/ml",
     "nutrition_page_per_serving": "par portion",
     "nutrition_page_add_nutrient": "Ajouter un nutriment",
     "nutrition_page_serving_size": "Taille d'une portion",

@@ -10,6 +10,7 @@ import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/image/product_image_other_page.dart';
 import 'package:smooth_app/pages/image/product_image_widget.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
+import 'package:smooth_app/widgets/smooth_indicator_icon.dart';
 
 /// Number of columns for the grid.
 const int _columns = 3;
@@ -160,13 +161,31 @@ class _RawGridGallery extends StatelessWidget {
                         heroTag: heroTag!,
                         language: language,
                       ),
-                      onLongPress: () async => _usePhotoAs(
-                        context: context,
-                        product: product,
-                        rawImages: rawImages,
-                        productImage: productImage,
-                        heroTag: heroTag!,
-                        language: language,
+                    ),
+                  ),
+                ),
+                PositionedDirectional(
+                  top: 0.0,
+                  end: 0.0,
+                  child: Tooltip(
+                    message: AppLocalizations.of(context)
+                        .photo_viewer_use_picture_as_tooltip,
+                    child: Material(
+                      type: MaterialType.transparency,
+                      child: InkWell(
+                        customBorder: const CircleBorder(),
+                        onTap: () async => _usePhotoAs(
+                          context: context,
+                          product: product,
+                          rawImages: rawImages,
+                          productImage: productImage,
+                          heroTag: heroTag!,
+                          language: language,
+                        ),
+                        child: const SmoothIndicatorIcon(
+                          padding: EdgeInsetsDirectional.all(VERY_SMALL_SPACE),
+                          icon: Icon(Icons.more_vert_outlined, size: 17.0),
+                        ),
                       ),
                     ),
                   ),

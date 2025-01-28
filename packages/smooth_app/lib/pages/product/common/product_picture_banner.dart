@@ -1,28 +1,125 @@
-part of 'package:smooth_app/pages/product/gallery_view/product_image_gallery_photo_row.dart';
+import 'dart:io';
 
-Future<_PhotoRowActions?> _showPhotoBanner({
+import 'package:collection/collection.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:intl/intl.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/data_models/preferences/user_preferences.dart';
+import 'package:smooth_app/database/transient_file.dart';
+import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/helpers/image_field_extension.dart';
+import 'package:smooth_app/pages/crop_parameters.dart';
+import 'package:smooth_app/pages/image/product_image_helper.dart';
+import 'package:smooth_app/pages/product/gallery_view/product_image_gallery_view.dart';
+import 'package:smooth_app/pages/product/owner_field_info.dart';
+import 'package:smooth_app/pages/product/product_image_server_button.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
+import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
+
+Future<File?> showPhotoBanner({
   required final BuildContext context,
   required final Product product,
   required final ImageField imageField,
   required final OpenFoodFactsLanguage language,
-  required final TransientFile transientFile,
+  final TransientFile? transientFile,
+}) async {
+  final PhotoRowActions? action = await _showPhotoBanner(
+    context: context,
+    product: product,
+    imageField: imageField,
+    language: language,
+    transientFile: transientFile,
+  );
+
+  if (!context.mounted || action == null) {
+    return null;
+  }
+
+  return switch (action) {
+    PhotoRowActions.takePicture => _takePicture(
+        context: context,
+        product: product,
+        imageField: imageField,
+        language: language,
+        pictureSource: UserPictureSource.CAMERA,
+      ),
+    PhotoRowActions.selectFromGallery => _takePicture(
+        context: context,
+        product: product,
+        imageField: imageField,
+        language: language,
+        pictureSource: UserPictureSource.GALLERY,
+      ),
+    PhotoRowActions.selectFromProductPhotos => _selectPictureFromProductGallery(
+        context: context,
+        product: product,
+        imageField: imageField,
+        language: language,
+      ),
+  };
+}
+
+Future<File?> _takePicture({
+  required final BuildContext context,
+  required final Product product,
+  required final ImageField imageField,
+  required final OpenFoodFactsLanguage language,
+  required final UserPictureSource pictureSource,
+}) async {
+  return ProductImageGalleryView.takePicture(
+    context: context,
+    product: product,
+    language: language,
+    imageField: imageField,
+    pictureSource: pictureSource,
+  );
+}
+
+Future<File?> _selectPictureFromProductGallery({
+  required final BuildContext context,
+  required final Product product,
+  required final ImageField imageField,
+  required final OpenFoodFactsLanguage language,
+}) async {
+  final CropParameters? parameters =
+      await ProductImageServerButton.selectImageFromGallery(
+    context: context,
+    product: product,
+    imageField: imageField,
+    language: language,
+    isLoggedInMandatory: true,
+  );
+
+  return parameters?.smallCroppedFile;
+}
+
+Future<PhotoRowActions?> _showPhotoBanner({
+  required final BuildContext context,
+  required final Product product,
+  required final ImageField imageField,
+  required final OpenFoodFactsLanguage language,
+  required TransientFile? transientFile,
 }) async {
   final SmoothColorsThemeExtension extension =
       context.extension<SmoothColorsThemeExtension>();
   final bool lightTheme = context.lightTheme(listen: false);
-  final bool imageAvailable = transientFile.isImageAvailable();
+  final bool imageAvailable = transientFile?.isImageAvailable() ?? false;
 
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-  final _PhotoRowActions? action =
-      await showSmoothListOfChoicesModalSheet<_PhotoRowActions>(
+  final PhotoRowActions? action =
+      await showSmoothListOfChoicesModalSheet<PhotoRowActions>(
     context: context,
     title: imageAvailable
         ? appLocalizations.product_image_action_replace_photo(
             imageField.getProductImageTitle(appLocalizations))
         : appLocalizations.product_image_action_add_photo(
             imageField.getProductImageTitle(appLocalizations)),
-    values: _PhotoRowActions.values,
+    values: PhotoRowActions.values,
     labels: <String>[
       if (imageAvailable)
         appLocalizations.product_image_action_take_new_picture
@@ -44,12 +141,12 @@ Future<_PhotoRowActions?> _showPhotoBanner({
     addEndArrowToItems: true,
     footerBackgroundColor: lightTheme ? extension.primaryLight : null,
     footerSpace: VERY_SMALL_SPACE,
-    footer: transientFile.isImageAvailable()
+    footer: transientFile?.isImageAvailable() == true
         ? _PhotoRowBanner(
             product: product,
             imageField: imageField,
             language: language,
-            transientFile: transientFile,
+            transientFile: transientFile!,
           )
         : null,
   );
@@ -57,7 +154,7 @@ Future<_PhotoRowActions?> _showPhotoBanner({
   return action;
 }
 
-enum _PhotoRowActions {
+enum PhotoRowActions {
   takePicture,
   selectFromGallery,
   selectFromProductPhotos,

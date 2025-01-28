@@ -29,6 +29,7 @@ class EditOCRImageWidget extends StatefulWidget {
     required this.transientFile,
     required this.ownerField,
     required this.onTakePicture,
+    required this.onTakePictureWithChoices,
     required this.onEditImage,
     required this.onExtractText,
   });
@@ -38,6 +39,7 @@ class EditOCRImageWidget extends StatefulWidget {
   final bool ownerField;
 
   final VoidCallback onTakePicture;
+  final VoidCallback onTakePictureWithChoices;
   final VoidCallback onEditImage;
   final VoidCallback onExtractText;
 
@@ -147,7 +149,7 @@ class _EditOCRImageWidgetState extends State<EditOCRImageWidget> {
       }
     } else {
       child = _EditOCRImageNotFound(
-        onTap: widget.onTakePicture,
+        onTap: widget.onTakePictureWithChoices,
       );
     }
 
@@ -183,6 +185,7 @@ class _EditOCRImageWidgetState extends State<EditOCRImageWidget> {
               hasImage: hasImage,
               hasError: _imageError,
               onTakePicture: widget.onTakePicture,
+              onTakePictureWithChoices: widget.onTakePictureWithChoices,
               onEditImage: widget.onEditImage,
               onExtractText: widget.onExtractText,
             ),
@@ -372,7 +375,8 @@ class _EditOCRImageNotFound extends StatelessWidget {
             alignment: AlignmentDirectional.bottomEnd,
             child: ExcludeSemantics(
               child: SmoothIndicatorIcon(
-                icon: Icon(Icons.add_a_photo_rounded),
+                padding: EdgeInsetsDirectional.all(6.0),
+                icon: Icon(Icons.more_vert_outlined, size: 19.0),
               ),
             ),
           ),
@@ -388,6 +392,7 @@ class _EditOCRImageActions extends StatelessWidget {
     required this.hasImage,
     required this.hasError,
     required this.onTakePicture,
+    required this.onTakePictureWithChoices,
     required this.onEditImage,
     required this.onExtractText,
   });
@@ -396,6 +401,7 @@ class _EditOCRImageActions extends StatelessWidget {
   final bool hasImage;
   final bool hasError;
   final VoidCallback onTakePicture;
+  final VoidCallback onTakePictureWithChoices;
   final VoidCallback onEditImage;
   final VoidCallback onExtractText;
 

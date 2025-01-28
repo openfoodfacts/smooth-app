@@ -785,6 +785,7 @@
         "description": "Label to let the user choose between per 100g or per serving"
     },
     "nutrition_page_per_100g": "per 100g",
+    "nutrition_page_per_100g_100ml": "per 100g/ml",
     "nutrition_page_per_serving": "per serving",
     "nutrition_page_add_nutrient": "Add a nutrient",
     "nutrition_page_serving_size": "Serving size",
@@ -3523,8 +3524,12 @@
     "@photo_viewer_action_use_picture_as": {
         "description": "An action to use the current picture to be used as front/ingredients…"
     },
+    "photo_viewer_use_picture_as_tooltip": "Use this picture as…",
+    "@photo_viewer_use_picture_as_tooltip": {
+        "description": "Message explaining what the three dots (…) button on \"More interesting photos\" does"
+    },
     "photo_viewer_use_picture_as_title": "Use this picture as… ({language})",
-    "@photo_viewer_use_picture_as": {
+    "@photo_viewer_use_picture_as_title": {
         "description": "The title of a dialog to use the current picture as front/ingredients…",
         "placeholders": {
             "language": {
