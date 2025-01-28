@@ -785,7 +785,7 @@
         "description": "Label to let the user choose between per 100g or per serving"
     },
     "nutrition_page_per_100g": "pro 100g",
-    "nutrition_page_per_100g_100ml": "per 100g/ml",
+    "nutrition_page_per_100g_100ml": "pro 100g/ml",
     "nutrition_page_per_serving": "pro Portion",
     "nutrition_page_add_nutrient": "Nährstoff hinzufügen",
     "nutrition_page_serving_size": "Portionsgröße",
@@ -3524,7 +3524,7 @@
     "@photo_viewer_action_use_picture_as": {
         "description": "An action to use the current picture to be used as front/ingredients…"
     },
-    "photo_viewer_use_picture_as_tooltip": "Use this picture as…",
+    "photo_viewer_use_picture_as_tooltip": "Dieses Bild verwenden als …",
     "@photo_viewer_use_picture_as_tooltip": {
         "description": "Message explaining what the three dots (…) button on \"More interesting photos\" does"
     },
