@@ -1,5 +1,8 @@
 import 'dart:async';
+import 'dart:convert';
+import 'dart:io';
 
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -11,6 +14,7 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/temp_product_list_share_helper.dart';
+import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
 import 'package:smooth_app/widgets/smooth_menu_button.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -21,6 +25,8 @@ enum ProductListPopupMenuEntry {
   openInBrowser,
   rename,
   clear,
+  export,
+  import,
   delete,
 }
 
@@ -121,6 +127,112 @@ class ProductListPopupClear extends ProductListPopupItem {
       await daoProductList.get(productList);
       return productList;
     }
+    return null;
+  }
+}
+
+/// Popup menu item for the product list page: export list.
+class ProductListPopupExport extends ProductListPopupItem {
+  @override
+  String getTitle(final AppLocalizations appLocalizations) =>
+      appLocalizations.product_list_export;
+
+  @override
+  IconData getIconData() => Icons.download;
+
+  @override
+  ProductListPopupMenuEntry getEntry() => ProductListPopupMenuEntry.export;
+
+  @override
+  bool isDestructive() => false;
+
+  @override
+  Future<ProductList?> doSomething({
+    required final ProductList productList,
+    required final LocalDatabase localDatabase,
+    required final BuildContext context,
+  }) async {
+    final String listName = ProductQueryPageHelper.getProductListLabel(
+      productList,
+      AppLocalizations.of(context),
+    );
+    final String fileName =
+        "${listName.replaceAll(' ', '-').toLowerCase()}_${DateTime.now().millisecondsSinceEpoch}.csv";
+    final StringBuffer csv = StringBuffer('Barcode,Name,Brand\n');
+
+    for (final String barcode in productList.barcodes) {
+      final Product? product = await DaoProduct(localDatabase).get(barcode);
+      if (product != null) {
+        final String name = (product.productName ?? '').replaceAll(';', '');
+        final String brand = (product.brands ?? '').replaceAll(';', '');
+        csv.write('"$barcode";"$name";"$brand"\n');
+      }
+    }
+
+    unawaited(
+      Share.shareXFiles(
+        <XFile>[
+          XFile.fromData(
+            utf8.encode(csv.toString()),
+            name: '$fileName.csv',
+            mimeType: 'text/csv',
+          ),
+        ],
+        fileNameOverrides: <String>['$fileName.csv'],
+      ),
+    );
+
+    return null;
+  }
+}
+
+/// Popup menu item for the product list page: import list.
+class ProductListPopupImport extends ProductListPopupItem {
+  @override
+  String getTitle(final AppLocalizations appLocalizations) =>
+      'Import'; //appLocalizations.product_list_import;
+
+  @override
+  IconData getIconData() => Icons.upload;
+
+  @override
+  ProductListPopupMenuEntry getEntry() => ProductListPopupMenuEntry.import;
+
+  @override
+  bool isDestructive() => false;
+
+  @override
+  Future<ProductList?> doSomething({
+    required final ProductList productList,
+    required final LocalDatabase localDatabase,
+    required final BuildContext context,
+  }) async {
+    FilePicker.platform.pickFiles(
+      type: FileType.custom,
+      allowedExtensions: <String>['csv'],
+    ).then((final FilePickerResult? result) {
+      if (result == null) {
+        return;
+      }
+      final File file = File(result.files.single.path!);
+      final String content = file.readAsStringSync();
+      final List<String> lines = content.split('\n');
+      final List<String> barcodes = <String>[];
+      for (final String line in lines) {
+        final List<String> parts = line.split(';');
+        if (parts.length < 3) {
+          continue;
+        }
+        final String barcode = parts[0].replaceAll('"', '');
+        barcodes.add(barcode);
+      }
+      DaoProductList(localDatabase).bulkSet(
+        productList,
+        barcodes,
+        include: true,
+      );
+    });
+
     return null;
   }
 }

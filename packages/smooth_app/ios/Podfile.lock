@@ -10,6 +10,40 @@ PODS:
     - FlutterMacOS
   - device_info_plus (0.0.1):
     - Flutter
+  - DKImagePickerController/Core (4.3.9):
+    - DKImagePickerController/ImageDataManager
+    - DKImagePickerController/Resource
+  - DKImagePickerController/ImageDataManager (4.3.9)
+  - DKImagePickerController/PhotoGallery (4.3.9):
+    - DKImagePickerController/Core
+    - DKPhotoGallery
+  - DKImagePickerController/Resource (4.3.9)
+  - DKPhotoGallery (0.0.19):
+    - DKPhotoGallery/Core (= 0.0.19)
+    - DKPhotoGallery/Model (= 0.0.19)
+    - DKPhotoGallery/Preview (= 0.0.19)
+    - DKPhotoGallery/Resource (= 0.0.19)
+    - SDWebImage
+    - SwiftyGif
+  - DKPhotoGallery/Core (0.0.19):
+    - DKPhotoGallery/Model
+    - DKPhotoGallery/Preview
+    - SDWebImage
+    - SwiftyGif
+  - DKPhotoGallery/Model (0.0.19):
+    - SDWebImage
+    - SwiftyGif
+  - DKPhotoGallery/Preview (0.0.19):
+    - DKPhotoGallery/Model
+    - DKPhotoGallery/Resource
+    - SDWebImage
+    - SwiftyGif
+  - DKPhotoGallery/Resource (0.0.19):
+    - SDWebImage
+    - SwiftyGif
+  - file_picker (0.0.1):
+    - DKImagePickerController/PhotoGallery
+    - Flutter
   - Flutter (1.0.0)
   - flutter_custom_tabs_ios (2.0.0):
     - Flutter
@@ -130,6 +164,7 @@ PODS:
   - sqflite_darwin (0.0.4):
     - Flutter
     - FlutterMacOS
+  - SwiftyGif (5.4.5)
   - torch_light (0.0.1):
     - Flutter
   - url_launcher_ios (0.0.1):
@@ -144,6 +179,7 @@ DEPENDENCIES:
   - camera_avfoundation (from `.symlinks/plugins/camera_avfoundation/ios`)
   - connectivity_plus (from `.symlinks/plugins/connectivity_plus/darwin`)
   - device_info_plus (from `.symlinks/plugins/device_info_plus/ios`)
+  - file_picker (from `.symlinks/plugins/file_picker/ios`)
   - Flutter (from `Flutter`)
   - flutter_custom_tabs_ios (from `.symlinks/plugins/flutter_custom_tabs_ios/ios`)
   - flutter_email_sender (from `.symlinks/plugins/flutter_email_sender/ios`)
@@ -171,6 +207,8 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - DKImagePickerController
+    - DKPhotoGallery
     - GoogleDataTransport
     - GoogleMLKit
     - GoogleToolboxForMac
@@ -188,6 +226,7 @@ SPEC REPOS:
     - SDWebImage
     - SDWebImageWebPCoder
     - Sentry
+    - SwiftyGif
 
 EXTERNAL SOURCES:
   app_settings:
@@ -200,6 +239,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/connectivity_plus/darwin"
   device_info_plus:
     :path: ".symlinks/plugins/device_info_plus/ios"
+  file_picker:
+    :path: ".symlinks/plugins/file_picker/ios"
   Flutter:
     :path: Flutter
   flutter_custom_tabs_ios:
@@ -255,6 +296,9 @@ SPEC CHECKSUMS:
   camera_avfoundation: dd002b0330f4981e1bbcb46ae9b62829237459a4
   connectivity_plus: 18382e7311ba19efcaee94442b23b32507b20695
   device_info_plus: 97af1d7e84681a90d0693e63169a5d50e0839a0d
+  DKImagePickerController: 946cec48c7873164274ecc4624d19e3da4c1ef3c
+  DKPhotoGallery: b3834fecb755ee09a593d7c9e389d8b5d6deed60
+  file_picker: 09aa5ec1ab24135ccd7a1621c46c84134bfd6655
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
   flutter_custom_tabs_ios: a651b18786388923b62de8c0537607de87c2eccf
   flutter_email_sender: 10a22605f92809a11ef52b2f412db806c6082d40
@@ -293,6 +337,7 @@ SPEC CHECKSUMS:
   share_plus: 8b6f8b3447e494cca5317c8c3073de39b3600d1f
   shared_preferences_foundation: fcdcbc04712aee1108ac7fda236f363274528f78
   sqflite_darwin: 5a7236e3b501866c1c9befc6771dfd73ffb8702d
+  SwiftyGif: 706c60cf65fa2bc5ee0313beece843c8eb8194d4
   torch_light: 682062fa12102172fa38b6b14c106d93b060f83e
   url_launcher_ios: 5334b05cef931de560670eeae103fd3e431ac3fe
   webview_flutter_wkwebview: 0982481e3d9c78fd5c6f62a002fcd24fc791f1e4

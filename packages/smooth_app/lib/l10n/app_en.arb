@@ -3832,5 +3832,9 @@
     "dev_preferences_use_product_tabs_title": "Use tabs",
     "@dev_preferences_use_product_tabs_title": {
         "description": "Title for the preference to use tabs on the product page"
+    },
+    "product_list_export": "Export",
+    "@product_list_export": {
+        "description": "Action label to export a product list"
     }
 }

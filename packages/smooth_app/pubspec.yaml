@@ -72,6 +72,7 @@ dependencies:
   email_validator: 3.0.0
   sliver_tools: 0.2.12
   cached_network_image: 3.4.1
+  file_picker: 8.1.7
 
   # According to the build variant, only one "app store" implementation must be added when building a release
   # Call "flutter pub remove xxxx" to remove unused dependencies

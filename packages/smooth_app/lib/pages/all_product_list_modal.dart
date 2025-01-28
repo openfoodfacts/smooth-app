@@ -117,6 +117,8 @@ class _ModalProductListItem extends StatelessWidget {
                   if (hasProducts) ProductListPopupShare(),
                   if (hasProducts) ProductListPopupOpenInWeb(),
                   if (hasProducts) ProductListPopupClear(),
+                  if (hasProducts) ProductListPopupExport(),
+                  if (productList.isEditable) ProductListPopupImport(),
                   if (productList.isEditable) ProductListPopupDelete(),
                 ];
                 final List<PopupMenuEntry<ProductListPopupMenuEntry>> result =
