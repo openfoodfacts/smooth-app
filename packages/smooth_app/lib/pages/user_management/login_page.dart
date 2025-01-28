@@ -167,7 +167,6 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                         // Moves focus to the next field
                         textInputAction: TextInputAction.next,
                         autofillHints: const <String>[
-                          AutofillHints.username,
                           AutofillHints.email,
                         ],
                         validator: (String? value) {
