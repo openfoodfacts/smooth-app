@@ -2585,7 +2585,7 @@
     "@add_basic_details_product_name_help_bad_examples_2_example": {
         "description": "Second bad example for the product name"
     },
-    "add_basic_details_product_name_other_translations": "{count,plural, one{{count} other translation} other{{count} other translations}}",
+    "add_basic_details_product_name_other_translations": "{count,plural, one{{count} további fordítás} other{{count} további fordítás}}",
     "@add_basic_details_product_name_other_translations": {
         "description": "The number of other translations for a product name (count is always >= 1)",
         "placeholders": {
@@ -2866,7 +2866,7 @@
     "@country_picker_label": {
         "description": "Choose Application Country"
     },
-    "currency_picker_label": "Your currency",
+    "currency_picker_label": "Az Ön pénzneme",
     "@currency_picker_label": {
         "description": "Choose Application Country"
     },
@@ -2958,7 +2958,7 @@
             }
         }
     },
-    "portion_calculator_computation_error": "Missing data. Calculation could not be performed.",
+    "portion_calculator_computation_error": "Hiányzó adatok miatt a számítást nem lehetett elvégezni.",
     "@portion_calculator_computation_error": {
         "description": "Error message to explain that the computation of the portion calculator failed."
     },
@@ -3524,7 +3524,7 @@
     "@photo_viewer_action_use_picture_as": {
         "description": "An action to use the current picture to be used as front/ingredients…"
     },
-    "photo_viewer_use_picture_as_tooltip": "Use this picture as…",
+    "photo_viewer_use_picture_as_tooltip": "Kép használata mint…",
     "@photo_viewer_use_picture_as_tooltip": {
         "description": "Message explaining what the three dots (…) button on \"More interesting photos\" does"
     },
@@ -3805,7 +3805,7 @@
     "knowledge_panel_nutriscore_banner_incorrect_score_message": "Két lehetséges magyarázat van:\nAz összetevők listája és/vagy a tápértékadatok nem naprakészek.\n\nMi a Nutri-Score „Új számítás” (vagy V2) verzióját adjuk meg. Ellenőrizze, hogy a csomagon szerepel-e az \"Új számítás\" felirat.",
     "knowledge_panel_nutriscore_banner_incorrect_score_button1": "Összetevők ellenőrzése",
     "knowledge_panel_nutriscore_banner_incorrect_score_button2": "Tápértékadatok ellenőrzése",
-    "url_not_supported": "Unfortunately, we can't open the URL:\n{url}",
+    "url_not_supported": "Sajnos nem tudjuk megnyitni az URL-t:\n{url}",
     "@url_not_supported": {
         "description": "Error message when the app can't open a URL",
         "placeholders": {
