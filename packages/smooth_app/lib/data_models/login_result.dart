@@ -1,5 +1,7 @@
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/data_models/preferences/user_preferences.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 /// How did the login attempt work?
@@ -34,12 +36,19 @@ class LoginResult {
       text.startsWith('Failed host lookup: ');
 
   /// Checks credentials. Returns null if OK, or an error message.
-  static Future<LoginResult> getLoginResult(final User user) async {
+  static Future<LoginResult> getLoginResult(
+    final User user,
+    final UserPreferences userPreferences,
+  ) async {
     try {
+      final bool prodUrl = userPreferences
+              .getFlag(UserPreferencesDevMode.userPreferencesFlagProd) ??
+          true;
+
       final LoginStatus? loginStatus = await OpenFoodAPIClient.login2(
         user,
         uriHelper: ProductQuery.getUriProductHelper(
-          productType: ProductType.food,
+          productType: prodUrl ? ProductType.food : null,
         ),
       );
       if (loginStatus == null) {

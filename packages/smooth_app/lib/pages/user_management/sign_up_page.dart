@@ -12,6 +12,7 @@ import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/user_management_helper.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
@@ -331,6 +332,11 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
       userId: _userController.trimmedText,
       password: _password1Controller.text,
     );
+    final bool prodUrl = context
+            .read<UserPreferences>()
+            .getFlag(UserPreferencesDevMode.userPreferencesFlagProd) ??
+        true;
+
     final SignUpStatus? status = await LoadingDialog.run<SignUpStatus>(
       context: context,
       future: OpenFoodAPIClient.register(
@@ -342,7 +348,7 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
         country: ProductQuery.getCountry(),
         language: ProductQuery.getLanguage(),
         uriHelper: ProductQuery.getUriProductHelper(
-          productType: ProductType.food,
+          productType: prodUrl ? ProductType.food : null,
         ),
       ),
       title: appLocalisations.sign_up_page_action_doing_it,

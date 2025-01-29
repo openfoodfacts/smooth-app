@@ -55,6 +55,7 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
         userId: userIdController.text,
         password: passwordController.text,
       ),
+      context.read<UserPreferences>(),
     );
     if (!context.mounted) {
       return;
