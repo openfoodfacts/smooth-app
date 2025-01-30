@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -8,33 +7,30 @@ import 'package:smooth_app/data_models/up_to_date_changes.dart';
 import 'package:smooth_app/data_models/up_to_date_mixin.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_list_tile_card.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/color_extension.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
-import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/onboarding/currency_selector_helper.dart';
 import 'package:smooth_app/pages/prices/price_meta_product.dart';
 import 'package:smooth_app/pages/prices/product_price_add_page.dart';
 import 'package:smooth_app/pages/product/add_other_details_page.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
-import 'package:smooth_app/pages/product/edit_product_barcode.dart';
+import 'package:smooth_app/pages/product/edit_product/edit_product_footer.dart';
 import 'package:smooth_app/pages/product/gallery_view/product_image_gallery_view.dart';
 import 'package:smooth_app/pages/product/nutrition_page/nutrition_page_loader.dart';
 import 'package:smooth_app/pages/product/product_field_editor.dart';
-import 'package:smooth_app/pages/product/product_type_extensions.dart';
+import 'package:smooth_app/pages/product/product_page/footer/new_product_footer.dart';
 import 'package:smooth_app/pages/product/simple_input_page.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
-import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_animations.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
-import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_banner.dart';
-import 'package:smooth_app/widgets/smooth_scaffold.dart';
+import 'package:smooth_app/widgets/v2/smooth_scaffold2.dart';
+import 'package:smooth_app/widgets/v2/smooth_topbar2.dart';
 
 /// Page where we can indirectly edit all data about a product.
 class EditProductPage extends StatefulWidget {
@@ -47,121 +43,62 @@ class EditProductPage extends StatefulWidget {
 }
 
 class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
-  final ScrollController _controller = ScrollController();
-  bool _actionsVisibleInAppbar = false;
-
   @override
   void initState() {
     super.initState();
     initUpToDate(widget.product, context.read<LocalDatabase>());
-    _controller.addListener(_onScrollChanged);
   }
 
   @override
   Widget build(BuildContext context) {
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
+    final bool lightTheme = context.lightTheme();
+
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     refreshUpToDate();
-    final ThemeData theme = Theme.of(context);
-    final bool lightTheme = context.lightTheme();
 
     final String productName = getProductName(
       upToDateProduct,
       appLocalizations,
     );
-    final String productBrand =
+    final String productBrands =
         getProductBrands(upToDateProduct, appLocalizations);
-
     final bool hasUploadIndicator = UpToDateChanges(localDatabase)
         .hasNotTerminatedOperations(upToDateProduct.barcode!);
 
-    return SmoothScaffold(
-      backgroundColor: lightTheme
-          ? theme.extension<SmoothColorsThemeExtension>()!.primaryLight
-          : null,
-      appBar: SmoothAppBar(
-        centerTitle: false,
-        leading: const SmoothBackButton(),
-        backgroundColor: lightTheme ? Colors.white : null,
-        title: Semantics(
-          value: productName,
-          child: ExcludeSemantics(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                AutoSizeText(
-                  '${productName.trim()}, ${productBrand.trim()}',
-                  minFontSize:
-                      theme.textTheme.titleLarge?.fontSize?.clamp(10.0, 13.0) ??
-                          13.0,
-                  maxFontSize:
-                      theme.textTheme.titleLarge?.fontSize?.clamp(13.0, 20.0) ??
-                          18.0,
-                  maxLines: !_actionsVisibleInAppbar ? 2 : 1,
-                  style: theme.textTheme.titleLarge?.copyWith(
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-                if (barcode.isNotEmpty)
-                  AnimatedContainer(
-                    duration: const Duration(milliseconds: 250),
-                    height: _actionsVisibleInAppbar ? 14.0 : 0.0,
-                    child: Text(
-                      barcode,
-                      style: theme.textTheme.titleMedium?.copyWith(
-                        fontWeight: FontWeight.normal,
-                        height: 0.9,
-                      ),
-                    ),
-                  ),
-              ],
-            ),
-          ),
+    return Provider<Product>.value(
+      value: upToDateProduct,
+      child: SmoothScaffold2(
+        backgroundColor: lightTheme ? extension.primaryLight : null,
+        brightness: Brightness.light,
+        topBar: SmoothTopBar2(
+          title: AppLocalizations.of(context).edit_product_label,
+          subTitle: '$productName, $productBrands',
+          leadingAction: SmoothTopBarLeadingAction.back,
+          backgroundColor:
+              lightTheme ? extension.primaryBlack : extension.primaryUltraBlack,
+          foregroundColor: lightTheme ? Colors.white : null,
+          elevationColor: lightTheme ? Colors.black54 : Colors.white12,
+          elevationOnScroll: false,
+          productType: upToDateProduct.productType,
+          reducedHeightOnScroll: true,
         ),
-        actions: <Widget>[
-          Semantics(
-            button: true,
-            value: appLocalizations.open_product_website,
-            excludeSemantics: true,
-            child: Builder(builder: (BuildContext context) {
-              return IconButton(
-                icon: const icons.ExternalLink(
-                  size: 20.0,
-                ),
-                tooltip: appLocalizations.open_product_website,
-                onPressed: () {
-                  AppNavigator.of(context).push(
-                    AppRoutes.EXTERNAL('https://'
-                        '${ProductQuery.getCountry().offTag}.${(upToDateProduct.productType ?? ProductType.food).getDomain()}.org'
-                        '/product/${upToDateProduct.barcode}'),
-                  );
-                },
-              );
-            }),
-          )
-        ],
-      ),
-      body: RefreshIndicator(
-        onRefresh: () async => ProductRefresher().fetchAndRefresh(
-          barcode: barcode,
-          context: context,
+        padding: const EdgeInsetsDirectional.only(
+          top: VERY_SMALL_SPACE,
+          start: MEDIUM_SPACE,
+          end: MEDIUM_SPACE,
+          bottom: MEDIUM_SPACE + ProductFooter.kHeight + LARGE_SPACE,
         ),
-        child: Scrollbar(
-          controller: _controller,
-          child: ListView(
-            padding: EdgeInsetsDirectional.only(
-              top: SMALL_SPACE,
-              start: MEDIUM_SPACE,
-              end: MEDIUM_SPACE,
-              bottom: MEDIUM_SPACE +
-                  (!hasUploadIndicator
-                      ? MediaQuery.viewPaddingOf(context).bottom
-                      : 0.0),
-            ),
-            controller: _controller,
+        bottomSafeArea: true,
+        floatingBottomBar: const EditProductFooter(),
+        bottomBar:
+            hasUploadIndicator ? const _EditPageLoadingIndicator() : null,
+        children: <Widget>[
+          SliverList.list(
             children: <Widget>[
-              if (EditProductBarcode.isAValidBarcode(barcode))
-                EditProductBarcode(barcode: upToDateProduct.barcode ?? ''),
               _ListTitleItem(
                 leading: const icons.Edit(size: 18.0),
                 title: appLocalizations.edit_product_form_item_details_title,
@@ -315,10 +252,8 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
               ),
             ],
           ),
-        ),
+        ],
       ),
-      bottomNavigationBar:
-          hasUploadIndicator ? const _EditPageLoadingIndicator() : null,
     );
   }
 
@@ -372,24 +307,6 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
         );
       },
     );
-  }
-
-  void _onScrollChanged() {
-    final bool visibleBarcode =
-        _controller.offset > EditProductBarcode.barcodeHeight + 80.0;
-
-    if (visibleBarcode != _actionsVisibleInAppbar) {
-      setState(() {
-        _actionsVisibleInAppbar = visibleBarcode;
-      });
-    }
-  }
-
-  @override
-  void dispose() {
-    _controller.removeListener(_onScrollChanged);
-    _controller.dispose();
-    super.dispose();
   }
 }
 

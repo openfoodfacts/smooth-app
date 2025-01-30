@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sliver_tools/sliver_tools.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 import 'package:smooth_app/widgets/v2/smooth_topbar2.dart';
@@ -8,14 +9,24 @@ class SmoothScaffold2 extends StatefulWidget {
     required this.children,
     this.topBar,
     this.bottomBar,
+    this.backgroundColor,
+    this.padding,
+    this.brightness,
     this.injectPaddingInBody = true,
+    this.floatingBottomBar,
+    this.bottomSafeArea = true,
     super.key,
   });
 
   final SmoothTopBar2? topBar;
   final List<Widget> children;
   final Widget? bottomBar;
+  final Widget? floatingBottomBar;
   final bool injectPaddingInBody;
+  final bool bottomSafeArea;
+  final Color? backgroundColor;
+  final EdgeInsetsGeometry? padding;
+  final Brightness? brightness;
 
   @override
   State<SmoothScaffold2> createState() => _SmoothScaffold2State();
@@ -29,6 +40,8 @@ class _SmoothScaffold2State extends State<SmoothScaffold2> {
     final EdgeInsets viewPadding = MediaQuery.viewPaddingOf(context);
 
     return SmoothScaffold(
+      backgroundColor: widget.backgroundColor,
+      brightness: widget.brightness,
       body: PrimaryScrollController(
         controller: _controller,
         child: CustomMultiChildLayout(
@@ -46,16 +59,23 @@ class _SmoothScaffold2State extends State<SmoothScaffold2> {
                     SliverPadding(
                       padding: EdgeInsetsDirectional.only(
                         top: widget.topBar != null
-                            ? HEADER_ROUNDED_RADIUS.x + MEDIUM_SPACE
+                            ? HEADER_ROUNDED_RADIUS.x
                             : viewPadding.top,
                       ),
                     ),
-                  ...widget.children,
-                  SliverPadding(
-                    padding: EdgeInsetsDirectional.only(
-                      bottom: viewPadding.bottom,
-                    ),
-                  )
+                  if (widget.padding != null)
+                    SliverPadding(
+                      padding: widget.padding!,
+                      sliver: MultiSliver(children: widget.children),
+                    )
+                  else
+                    ...widget.children,
+                  if (widget.bottomBar == null || widget.bottomSafeArea)
+                    SliverPadding(
+                      padding: EdgeInsetsDirectional.only(
+                        bottom: viewPadding.bottom,
+                      ),
+                    )
                 ],
               ),
             ),
@@ -69,6 +89,11 @@ class _SmoothScaffold2State extends State<SmoothScaffold2> {
                 id: _SmoothScaffold2Widget.bottomBar,
                 child: widget.bottomBar!,
               ),
+            if (widget.floatingBottomBar != null)
+              LayoutId(
+                id: _SmoothScaffold2Widget.floattingBottomBar,
+                child: widget.floatingBottomBar!,
+              ),
           ],
         ),
       ),
@@ -80,6 +105,7 @@ enum _SmoothScaffold2Widget {
   topBar,
   body,
   bottomBar,
+  floattingBottomBar,
 }
 
 class _SmoothScaffold2Layout extends MultiChildLayoutDelegate {
@@ -107,7 +133,7 @@ class _SmoothScaffold2Layout extends MultiChildLayoutDelegate {
 
     double bottomBarHeight;
 
-    // Top bar
+    // Bottom bar
     if (hasChild(_SmoothScaffold2Widget.bottomBar)) {
       bottomBarHeight = layoutChild(
         _SmoothScaffold2Widget.bottomBar,
@@ -117,6 +143,20 @@ class _SmoothScaffold2Layout extends MultiChildLayoutDelegate {
       ).height;
     } else {
       bottomBarHeight = 0.0;
+    }
+
+    double floatingBottomBarHeight;
+
+    // Floating Bottom bar
+    if (hasChild(_SmoothScaffold2Widget.floattingBottomBar)) {
+      floatingBottomBarHeight = layoutChild(
+        _SmoothScaffold2Widget.floattingBottomBar,
+        BoxConstraints.loose(
+          size,
+        ),
+      ).height;
+    } else {
+      floatingBottomBarHeight = 0.0;
     }
 
     // Body
@@ -142,6 +182,12 @@ class _SmoothScaffold2Layout extends MultiChildLayoutDelegate {
       positionChild(
         _SmoothScaffold2Widget.bottomBar,
         Offset(0.0, size.height - bottomBarHeight),
+      );
+    }
+    if (floatingBottomBarHeight > 0.0) {
+      positionChild(
+        _SmoothScaffold2Widget.floattingBottomBar,
+        Offset(0.0, size.height - bottomBarHeight - floatingBottomBarHeight),
       );
     }
   }

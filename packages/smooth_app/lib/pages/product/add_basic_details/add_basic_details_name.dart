@@ -7,11 +7,8 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
-import 'package:smooth_app/database/dao_string_list.dart';
-import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
-import 'package:smooth_app/generic_lib/widgets/language_priority.dart';
 import 'package:smooth_app/generic_lib/widgets/languages_selector.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
@@ -206,7 +203,6 @@ class _ProductNameAddNewLanguage extends StatelessWidget {
   Future<void> _openLanguagePicker(BuildContext context) async {
     final ProductNameEditorProvider provider =
         context.read<ProductNameEditorProvider>();
-    final Product product = context.read<Product>();
 
     final List<OpenFoodFactsLanguage> selectedLanguages = provider
         .value.productNames
@@ -217,11 +213,8 @@ class _ProductNameAddNewLanguage extends StatelessWidget {
         await LanguagesSelector.openLanguageSelector(
       context,
       selectedLanguages: selectedLanguages,
-      languagePriority: LanguagePriority(
-        product: product,
-        selectedLanguages: selectedLanguages,
-        daoStringList: DaoStringList(context.read<LocalDatabase>()),
-      ),
+      title: AppLocalizations.of(context)
+          .add_basic_details_product_name_add_translation,
     );
 
     if (language != null) {

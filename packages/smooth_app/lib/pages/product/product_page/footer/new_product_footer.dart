@@ -8,8 +8,13 @@ import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 import 'package:smooth_app/helpers/provider_helper.dart';
 import 'package:smooth_app/pages/product/product_page/footer/new_product_footer_add_price.dart';
 import 'package:smooth_app/pages/product/product_page/footer/new_product_footer_add_to_lists.dart';
+import 'package:smooth_app/pages/product/product_page/footer/new_product_footer_barcode.dart';
 import 'package:smooth_app/pages/product/product_page/footer/new_product_footer_compare.dart';
+import 'package:smooth_app/pages/product/product_page/footer/new_product_footer_data_contributor_guide.dart';
+import 'package:smooth_app/pages/product/product_page/footer/new_product_footer_data_quality.dart';
 import 'package:smooth_app/pages/product/product_page/footer/new_product_footer_edit.dart';
+import 'package:smooth_app/pages/product/product_page/footer/new_product_footer_open_website.dart';
+import 'package:smooth_app/pages/product/product_page/footer/new_product_footer_report.dart';
 import 'package:smooth_app/pages/product/product_page/footer/new_product_footer_settings.dart';
 import 'package:smooth_app/pages/product/product_page/footer/new_product_footer_share.dart';
 import 'package:smooth_app/pages/product/product_page/new_product_page.dart';
@@ -19,9 +24,18 @@ import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
 class ProductFooter extends StatelessWidget {
-  const ProductFooter({super.key});
+  const ProductFooter({
+    super.key,
+    this.actions,
+    this.showSettings = true,
+    this.highlightFirstItem = true,
+  });
 
   static const double kHeight = 48.0;
+
+  final List<ProductFooterActionBar>? actions;
+  final bool showSettings;
+  final bool highlightFirstItem;
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +51,11 @@ class ProductFooter extends StatelessWidget {
           ),
         ],
       ),
-      child: const _ProductFooterButtonsBar(),
+      child: _ProductFooterButtonsBar(
+        actions: actions,
+        showSettings: showSettings,
+        highlightFirstItem: highlightFirstItem,
+      ),
     );
   }
 }
@@ -48,7 +66,12 @@ enum ProductFooterActionBar {
   compare('compare'),
   addToList('add_to_list'),
   share('share'),
-  settings('settings');
+  settings('settings'),
+  barcode('barcode'),
+  openWebsite('open_website'),
+  report('report_product'),
+  contributionGuide('contribution_guide'),
+  dataQuality('data_quality');
 
   const ProductFooterActionBar(this.key);
 
@@ -62,6 +85,9 @@ enum ProductFooterActionBar {
       'add_to_list' => ProductFooterActionBar.addToList,
       'share' => ProductFooterActionBar.share,
       'settings' => ProductFooterActionBar.settings,
+      'barcode' => ProductFooterActionBar.barcode,
+      'open_website' => ProductFooterActionBar.openWebsite,
+      'flag' => ProductFooterActionBar.report,
       _ => throw Exception('Unknown key $key'),
     };
   }
@@ -78,7 +104,15 @@ enum ProductFooterActionBar {
 }
 
 class _ProductFooterButtonsBar extends StatelessWidget {
-  const _ProductFooterButtonsBar();
+  const _ProductFooterButtonsBar({
+    required this.showSettings,
+    required this.highlightFirstItem,
+    this.actions,
+  });
+
+  final List<ProductFooterActionBar>? actions;
+  final bool showSettings;
+  final bool highlightFirstItem;
 
   @override
   Widget build(BuildContext context) {
@@ -105,54 +139,93 @@ class _ProductFooterButtonsBar extends StatelessWidget {
             ),
           ),
         ),
-        child: ConsumerFilter<UserPreferences>(
-          buildWhen: (UserPreferences? previous, UserPreferences current) =>
-              previous?.productPageActions != current.productPageActions,
-          builder: (BuildContext context, UserPreferences userPreferences, _) {
-            final List<ProductFooterActionBar> productPageActions =
-                userPreferences.productPageActions;
+        child: actions != null
+            ? _ProductFooterButtonsBarItems(
+                actions: actions!,
+                showSettings: showSettings,
+                highlightFirstItem: highlightFirstItem,
+                bottomPadding: bottomPadding,
+              )
+            : ConsumerFilter<UserPreferences>(
+                buildWhen: (UserPreferences? previous,
+                        UserPreferences current) =>
+                    previous?.productPageActions != current.productPageActions,
+                builder:
+                    (BuildContext context, UserPreferences userPreferences, _) {
+                  final List<ProductFooterActionBar> productPageActions =
+                      userPreferences.productPageActions;
 
-            return ListView.separated(
-              padding: EdgeInsetsDirectional.only(
-                start: SMALL_SPACE,
-                end: SMALL_SPACE,
-                top: LARGE_SPACE,
-                bottom: bottomPadding,
+                  return _ProductFooterButtonsBarItems(
+                    actions: productPageActions,
+                    showSettings: showSettings,
+                    highlightFirstItem: highlightFirstItem,
+                    bottomPadding: bottomPadding,
+                  );
+                },
               ),
-              scrollDirection: Axis.horizontal,
-              itemCount: productPageActions.length + 1,
-              itemBuilder: (BuildContext context, int index) {
-                final ProductFooterActionBar action =
-                    index == productPageActions.length
-                        ? ProductFooterActionBar.settings
-                        : productPageActions[index];
-
-                return Provider<_ProductFooterButtonType>.value(
-                  value: index == 0
-                      ? _ProductFooterButtonType.filled
-                      : _ProductFooterButtonType.outlined,
-                  child: switch (action) {
-                    ProductFooterActionBar.addPrice =>
-                      const ProductFooterAddPriceButton(),
-                    ProductFooterActionBar.addToList =>
-                      const ProductFooterAddToListButton(),
-                    ProductFooterActionBar.compare =>
-                      const ProductFooterCompareButton(),
-                    ProductFooterActionBar.edit =>
-                      const ProductFooterEditButton(),
-                    ProductFooterActionBar.share =>
-                      const ProductFooterShareButton(),
-                    ProductFooterActionBar.settings =>
-                      const ProductFooterSettingsButton(),
-                  },
-                );
-              },
-              separatorBuilder: (_, __) =>
-                  const SizedBox(width: BALANCED_SPACE),
-            );
-          },
-        ),
       ),
+    );
+  }
+}
+
+class _ProductFooterButtonsBarItems extends StatelessWidget {
+  const _ProductFooterButtonsBarItems({
+    required this.actions,
+    required this.showSettings,
+    required this.highlightFirstItem,
+    required this.bottomPadding,
+  });
+
+  final List<ProductFooterActionBar> actions;
+  final bool showSettings;
+  final bool highlightFirstItem;
+  final double bottomPadding;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.separated(
+      padding: EdgeInsetsDirectional.only(
+        start: SMALL_SPACE,
+        end: SMALL_SPACE,
+        top: LARGE_SPACE,
+        bottom: bottomPadding,
+      ),
+      scrollDirection: Axis.horizontal,
+      itemCount: actions.length + (showSettings ? 1 : 0),
+      itemBuilder: (BuildContext context, int index) {
+        final ProductFooterActionBar action =
+            index == actions.length && showSettings
+                ? ProductFooterActionBar.settings
+                : actions[index];
+
+        return Provider<_ProductFooterButtonType>.value(
+          value: index == 0 && highlightFirstItem
+              ? _ProductFooterButtonType.filled
+              : _ProductFooterButtonType.outlined,
+          child: switch (action) {
+            ProductFooterActionBar.addPrice =>
+              const ProductFooterAddPriceButton(),
+            ProductFooterActionBar.addToList =>
+              const ProductFooterAddToListButton(),
+            ProductFooterActionBar.compare =>
+              const ProductFooterCompareButton(),
+            ProductFooterActionBar.edit => const ProductFooterEditButton(),
+            ProductFooterActionBar.share => const ProductFooterShareButton(),
+            ProductFooterActionBar.settings =>
+              const ProductFooterSettingsButton(),
+            ProductFooterActionBar.barcode =>
+              const ProductFooterBarcodeButton(),
+            ProductFooterActionBar.openWebsite =>
+              const ProductFooterOpenWebsiteButton(),
+            ProductFooterActionBar.report => const ProductFooterReportButton(),
+            ProductFooterActionBar.contributionGuide =>
+              const ProductFooterContributorGuideButton(),
+            ProductFooterActionBar.dataQuality =>
+              const ProductFooterDataQualityButton(),
+          },
+        );
+      },
+      separatorBuilder: (_, __) => const SizedBox(width: BALANCED_SPACE),
     );
   }
 }
@@ -240,12 +313,15 @@ class _ProductFooterFilledButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final SmoothColorsThemeExtension themeExtension =
         context.extension<SmoothColorsThemeExtension>();
-    final ProductPageCompatibility compatibility =
-        context.watch<ProductPageCompatibility>();
+
+    ProductPageCompatibility? compatibility;
+    try {
+      compatibility = context.watch<ProductPageCompatibility>();
+    } catch (_) {}
 
     final bool lightTheme = context.lightTheme();
-    final Color contentColor = compatibility.color != null
-        ? compatibility.color!
+    final Color contentColor = compatibility?.color != null
+        ? compatibility!.color!
         : lightTheme
             ? themeExtension.primaryBlack
             : themeExtension.primarySemiDark;

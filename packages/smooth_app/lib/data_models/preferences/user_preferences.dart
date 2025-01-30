@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
@@ -92,6 +93,7 @@ class UserPreferences extends ChangeNotifier {
   static const String _TAG_SEARCH_SHOW_PRODUCT_TYPE_FILTER =
       '_search_show_product_type_filter';
   static const String _TAG_PRODUCT_PAGE_ACTIONS = '_product_page_actions';
+  static const String _TAG_LANGUAGES_USAGE = '_languages_usage';
 
   /// Camera preferences
 
@@ -543,5 +545,31 @@ class UserPreferences extends ChangeNotifier {
           .toList(growable: false),
     );
     notifyListeners();
+  }
+
+  void increaseLanguageUsage(final OpenFoodFactsLanguage language) {
+    final String? usage = _sharedPreferences.getString(_TAG_LANGUAGES_USAGE);
+    final Map<String, int> languages;
+    if (usage == null || usage.isEmpty) {
+      languages = <String, int>{};
+    } else {
+      languages = Map<String, int>.from(jsonDecode(usage));
+    }
+
+    languages[language.code] = (languages[language.code] ?? 0) + 1;
+    unawaited(
+      _sharedPreferences.setString(
+        _TAG_LANGUAGES_USAGE,
+        jsonEncode(languages),
+      ),
+    );
+  }
+
+  Map<String, int> get languagesUsage {
+    final String? usage = _sharedPreferences.getString(_TAG_LANGUAGES_USAGE);
+    if (usage == null || usage.isEmpty) {
+      return <String, int>{};
+    }
+    return Map<String, int>.from(jsonDecode(usage));
   }
 }

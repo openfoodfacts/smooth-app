@@ -114,6 +114,7 @@ class UserPreferencesItemTile implements UserPreferencesItem {
     this.onTap,
     this.leading,
     this.trailing,
+    this.visibleWhen,
   });
 
   final String title;
@@ -121,6 +122,7 @@ class UserPreferencesItemTile implements UserPreferencesItem {
   final VoidCallback? onTap;
   final Widget? leading;
   final Widget? trailing;
+  final bool Function(BuildContext context)? visibleWhen;
 
   @override
   List<String> get labels => <String>[
@@ -129,13 +131,19 @@ class UserPreferencesItemTile implements UserPreferencesItem {
       ];
 
   @override
-  WidgetBuilder get builder => (final BuildContext context) => ListTile(
-        title: Text(title),
-        subtitle: subtitle == null ? null : Text(subtitle!),
-        onTap: onTap,
-        leading: leading,
-        trailing: trailing,
-      );
+  WidgetBuilder get builder => (final BuildContext context) {
+        if (visibleWhen?.call(context) == false) {
+          return EMPTY_WIDGET;
+        }
+
+        return ListTile(
+          title: Text(title),
+          subtitle: subtitle == null ? null : Text(subtitle!),
+          onTap: onTap,
+          leading: leading,
+          trailing: trailing,
+        );
+      };
 }
 
 /// Same as [UserPreferencesItemTile] but with [WidgetBuilder].

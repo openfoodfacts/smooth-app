@@ -271,6 +271,20 @@ class _IconsFont {
       IconData(0xe885, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData nutrition_facts =
       IconData(0xe886, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData checklist =
+      IconData(0xe887, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData copy =
+      IconData(0xe888, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData creative_commons_attribution =
+      IconData(0xe889, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData creative_commons_share_alike =
+      IconData(0xe88a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData creative_commons =
+      IconData(0xe88b, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData message_edit =
+      IconData(0xe88c, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData drag_start =
+      IconData(0xe88d, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData share_cupertino =
       IconData(0xe8a4, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData share_material =
