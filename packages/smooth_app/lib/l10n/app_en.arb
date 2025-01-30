@@ -3813,5 +3813,29 @@
                 "type": "String"
             }
         }
+    },
+    "product_footer_action_barcode": "View barcode",
+    "@product_footer_action_barcode": {
+        "description": "Action to see the barcode of a product"
+    },
+    "product_footer_action_barcode_short": "Barcode",
+    "@product_footer_action_barcode_short": {
+        "description": "Action to see the barcode of a product (short text)"
+    },
+    "product_footer_action_open_website": "Open website",
+    "@product_footer_action_open_website": {
+        "description": "Action to see to open the OxF website of the given product"
+    },
+    "product_footer_action_report": "Report",
+    "@product_footer_action_report": {
+        "description": "Action to see to report a product"
+    },
+    "product_footer_action_contributor_guide": "Help",
+    "@product_footer_action_contributor_guide": {
+        "description": "Action to open the contributor's guide. If you are in a non-English language, please translate this sentence instead: \"Help (EN)\""
+    },
+    "product_footer_action_data_quality_tags": "Data quality",
+    "@product_footer_action_data_quality_tags": {
+        "description": "Action to view data quality warnings"
     }
 }

@@ -64,7 +64,7 @@ class ProductFooterSettingsButton extends StatelessWidget {
         _ProductActionBarModalEditorState.PADDING.vertical +
         (_ProductActionBarModalItemEditorState.MIN_HEIGHT +
                 _ProductActionBarModalEditorState.SEPARATOR_SIZE) *
-            (ProductFooterActionBar.values.length - 1) +
+            (ProductFooterActionBar.defaultOrder().length) +
         MediaQuery.viewPaddingOf(context).bottom;
   }
 }
@@ -318,6 +318,11 @@ class _ProductActionBarModalItemEditorState
       ProductFooterActionBar.compare => const icons.Compare(),
       ProductFooterActionBar.addToList => const icons.AddToList.symbol(),
       ProductFooterActionBar.share => icons.Share(),
+      ProductFooterActionBar.barcode => const icons.Barcode.rounded(),
+      ProductFooterActionBar.openWebsite => const icons.ExternalLink(),
+      ProductFooterActionBar.report => const icons.Flag(),
+      ProductFooterActionBar.contributionGuide => const icons.Lifebuoy(),
+      ProductFooterActionBar.dataQuality => const icons.CheckList(),
       ProductFooterActionBar.settings =>
         throw Exception('This item should not be displayed'),
     };
@@ -332,6 +337,16 @@ class _ProductActionBarModalItemEditorState
       ProductFooterActionBar.addToList =>
         appLocalizations.user_list_button_add_product,
       ProductFooterActionBar.share => appLocalizations.share,
+      ProductFooterActionBar.barcode =>
+        appLocalizations.product_footer_action_barcode_short,
+      ProductFooterActionBar.openWebsite =>
+        appLocalizations.product_footer_action_open_website,
+      ProductFooterActionBar.report =>
+        appLocalizations.product_footer_action_report,
+      ProductFooterActionBar.contributionGuide =>
+        appLocalizations.product_footer_action_contributor_guide,
+      ProductFooterActionBar.dataQuality =>
+        appLocalizations.product_footer_action_data_quality_tags,
       ProductFooterActionBar.settings =>
         throw Exception('This item should not be displayed'),
     };
