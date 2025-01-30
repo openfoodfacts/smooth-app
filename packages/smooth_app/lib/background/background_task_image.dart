@@ -308,68 +308,59 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
   /// Uploads the product image.
   @override
   Future<void> upload() async {
-    try {
-      final String? path = await cropIfNeeded(
-        fullPath: fullPath,
-        croppedPath: getCroppedPath(fullPath),
-        rotationDegrees: rotationDegrees,
-        cropX1: cropX1,
-        cropY1: cropY1,
-        cropX2: cropX2,
-        cropY2: cropY2,
-        compressQuality: 100,
-        forceCompression: false,
-      );
-      if (path == null) {
-        // TODO(monsieurtanuki): maybe something more refined when we dismiss the picture, like alerting the user, though it's not supposed to happen anymore from upstream.
-        return;
-      }
-      final ImageField imageField = ImageField.fromOffTag(this.imageField)!;
-      final OpenFoodFactsLanguage language = getLanguage();
-      final User user = getUser();
-      final SendImage image = SendImage(
-        lang: language,
+    final String? path = await cropIfNeeded(
+      fullPath: fullPath,
+      croppedPath: getCroppedPath(fullPath),
+      rotationDegrees: rotationDegrees,
+      cropX1: cropX1,
+      cropY1: cropY1,
+      cropX2: cropX2,
+      cropY2: cropY2,
+      compressQuality: 100,
+      forceCompression: false,
+    );
+    if (path == null) {
+      // TODO(monsieurtanuki): maybe something more refined when we dismiss the picture, like alerting the user, though it's not supposed to happen anymore from upstream.
+      return;
+    }
+    final ImageField imageField = ImageField.fromOffTag(this.imageField)!;
+    final OpenFoodFactsLanguage language = getLanguage();
+    final User user = getUser();
+    final SendImage image = SendImage(
+      lang: language,
+      barcode: barcode,
+      imageField: imageField,
+      imageUri: Uri.parse(path),
+    );
+
+    final Status status = await OpenFoodAPIClient.addProductImage(
+      user,
+      image,
+      uriHelper: uriProductHelper,
+    );
+    if (status.status == 'status ok') {
+      // successfully uploaded a new picture and set it as field+language
+      return;
+    }
+    final int? imageId = status.imageId;
+    if (status.status == 'status not ok' && imageId != null) {
+      // The very same image was already uploaded and therefore was rejected.
+      // We just have to select this image, with no angle.
+      final String? imageUrl = await OpenFoodAPIClient.setProductImageAngle(
         barcode: barcode,
         imageField: imageField,
-        imageUri: Uri.parse(path),
-      );
-
-      final Status status = await OpenFoodAPIClient.addProductImage(
-        user,
-        image,
+        language: language,
+        imgid: '$imageId',
+        angle: ImageAngle.NOON,
+        user: user,
         uriHelper: uriProductHelper,
       );
-      if (status.status == 'status ok') {
-        // successfully uploaded a new picture and set it as field+language
-        return;
+      if (imageUrl == null) {
+        throw Exception('Could not select picture');
       }
-      final int? imageId = status.imageId;
-      if (status.status == 'status not ok' && imageId != null) {
-        // The very same image was already uploaded and therefore was rejected.
-        // We just have to select this image, with no angle.
-        final String? imageUrl = await OpenFoodAPIClient.setProductImageAngle(
-          barcode: barcode,
-          imageField: imageField,
-          language: language,
-          imgid: '$imageId',
-          angle: ImageAngle.NOON,
-          user: user,
-          uriHelper: uriProductHelper,
-        );
-        if (imageUrl == null) {
-          throw Exception('Could not select picture');
-        }
-        return;
-      }
-
-      throw Exception(
-          'Could not upload picture: ${status.status} / ${status.error}');
-    } catch (e) {
-      if (e is PathNotFoundException) {
-        /// The file doesn't exist anymore
-        return;
-      }
-      rethrow;
+      return;
     }
+    throw Exception(
+        'Could not upload picture: ${status.status} / ${status.error}');
   }
 }
