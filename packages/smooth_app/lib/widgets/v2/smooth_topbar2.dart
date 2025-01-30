@@ -54,6 +54,7 @@ class SmoothTopBar2 extends StatefulWidget implements PreferredSizeWidget {
 
 class _SmoothTopBar2State extends State<SmoothTopBar2> {
   late double _progress = 0.0;
+  late double _elevation = 0.0;
 
   @override
   void initState() {
@@ -66,6 +67,10 @@ class _SmoothTopBar2State extends State<SmoothTopBar2> {
         ),
       );
     }
+
+    if (!widget.elevationOnScroll) {
+      _elevation = widget.elevation;
+    }
   }
 
   void _onScroll() {
@@ -77,7 +82,14 @@ class _SmoothTopBar2State extends State<SmoothTopBar2> {
     );
 
     if (newProgress != _progress) {
-      setState(() => _progress = newProgress);
+      setState(() {
+        if (widget.elevationOnScroll) {
+          _elevation = widget.elevation * newProgress;
+        }
+        if (widget.reducedHeightOnScroll) {
+          _progress = newProgress;
+        }
+      });
     }
   }
 
@@ -99,7 +111,7 @@ class _SmoothTopBar2State extends State<SmoothTopBar2> {
 
     return PhysicalModel(
       color: Colors.transparent,
-      elevation: _computeElevation(),
+      elevation: _elevation,
       shadowColor: widget.elevationColor ??
           (darkTheme ? Colors.white10 : Colors.black12),
       borderRadius: borderRadius,
@@ -180,13 +192,6 @@ class _SmoothTopBar2State extends State<SmoothTopBar2> {
         ),
       ),
     );
-  }
-
-  double _computeElevation() {
-    if (!widget.elevationOnScroll) {
-      return widget.elevation;
-    }
-    return widget.elevation * _progress;
   }
 
   double _computeHeight() =>
