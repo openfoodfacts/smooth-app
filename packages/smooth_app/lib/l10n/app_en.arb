@@ -3355,6 +3355,14 @@
     "@language_selector_title": {
         "description": "Label written as the title of the dialog to select the user language"
     },
+    "language_selector_section_selected": "Selected languages",
+    "@language_selector_title": {
+        "description": "Label to highlight the selected languages"
+    },
+    "language_selector_section_frequently_used": "Frequently used",
+    "@language_selector_title": {
+        "description": "Label to highlight the frequently used languages"
+    },
     "action_delete_list": "Delete",
     "@action_delete_list": {
         "description": "Delete a list action in a menu"

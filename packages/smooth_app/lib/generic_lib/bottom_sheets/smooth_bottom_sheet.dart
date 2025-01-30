@@ -54,9 +54,13 @@ Future<T?> showSmoothModalSheetForTextField<T>({
   required BuildContext context,
   required SmoothModalSheetHeader header,
   required WidgetBuilder bodyBuilder,
+  double? minHeight,
+  double? maxHeight,
 }) {
   return showSmoothModalSheet<T>(
     context: context,
+    minHeight: minHeight,
+    maxHeight: maxHeight,
     builder: (BuildContext context) => SizedBox(
       width: double.infinity,
       child: ClipRRect(

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:smooth_app/generic_lib/widgets/languages_selector.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 /// Helper for multilingual inputs (e.g. product name).
@@ -108,29 +107,6 @@ class MultilingualHelper {
 
   // TODO(monsieurtanuki): we would be better off always never monolingual
   bool isMonolingual() => _initialMultilingualTexts.isEmpty;
-
-  Widget getLanguageSelector({
-    required void Function(void Function()) setState,
-    required Product product,
-    EdgeInsetsGeometry? padding,
-    BorderRadius? borderRadius,
-    Widget? icon,
-  }) =>
-      LanguagesSelector(
-        product: product,
-        icon: icon,
-        padding: padding,
-        borderRadius: borderRadius,
-        setLanguage: (
-          final OpenFoodFactsLanguage? newLanguage,
-        ) async {
-          if (changeLanguage(newLanguage)) {
-            setState(() {});
-          }
-        },
-        selectedLanguages: _currentMultilingualTexts.keys,
-        displayedLanguage: _currentLanguage,
-      );
 
   bool changeLanguage(OpenFoodFactsLanguage? newLanguage) {
     if (newLanguage == null) {
