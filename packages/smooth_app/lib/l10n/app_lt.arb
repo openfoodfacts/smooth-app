@@ -785,7 +785,7 @@
         "description": "Label to let the user choose between per 100g or per serving"
     },
     "nutrition_page_per_100g": "už 100 g",
-    "nutrition_page_per_100g_100ml": "per 100g/ml",
+    "nutrition_page_per_100g_100ml": "100 g/ml",
     "nutrition_page_per_serving": "porcijoje",
     "nutrition_page_add_nutrient": "Pridėti maistinę medžiagą",
     "nutrition_page_serving_size": "Porcijos dydis",
@@ -2517,11 +2517,11 @@
     },
     "basic_details": "Pagrindinės detalės",
     "product_name": "Produkto pavadinimas",
-    "product_names": "Product Names",
+    "product_names": "Produktų pavadinimai",
     "@product_names": {
         "description": "Title for the section to edit the product name (in multiple languages)"
     },
-    "add_basic_details_product_name_add_translation": "Add a new translation",
+    "add_basic_details_product_name_add_translation": "Pridėti naują vertimą",
     "@add_basic_details_product_name_add_translation": {
         "description": "Button to add a new translation for the product name"
     },
@@ -2529,11 +2529,11 @@
     "@add_basic_details_product_name_warning_translations": {
         "description": "Warning message displayed on top of new translations for the product name"
     },
-    "add_basic_details_product_name_open_photo": "View front photo",
+    "add_basic_details_product_name_open_photo": "Žiūrėti priekio nuotrauką",
     "@add_basic_details_product_name_open_photo": {
         "description": "Button to view the front photo of the product (on top of the screen)"
     },
-    "add_basic_details_product_name_take_photo": "Take front photo",
+    "add_basic_details_product_name_take_photo": "Nufotografuoti priekį",
     "@add_basic_details_product_name_take_photo": {
         "description": "Button to take a photo of the front of the product (when there is no photo yet)"
     },
@@ -2585,7 +2585,7 @@
     "@add_basic_details_product_name_help_bad_examples_2_example": {
         "description": "Second bad example for the product name"
     },
-    "add_basic_details_product_name_other_translations": "{count,plural, one{{count} other translation} other{{count} other translations}}",
+    "add_basic_details_product_name_other_translations": "{count,plural, one{{count} kitas vertimas} few {{count} kiti vertimai} many {{count} kitų vertimų} other{{count} kiti vertimai}}",
     "@add_basic_details_product_name_other_translations": {
         "description": "The number of other translations for a product name (count is always >= 1)",
         "placeholders": {
@@ -3524,7 +3524,7 @@
     "@photo_viewer_action_use_picture_as": {
         "description": "An action to use the current picture to be used as front/ingredients…"
     },
-    "photo_viewer_use_picture_as_tooltip": "Use this picture as…",
+    "photo_viewer_use_picture_as_tooltip": "Naudoti šią nuotrauką kaip…",
     "@photo_viewer_use_picture_as_tooltip": {
         "description": "Message explaining what the three dots (…) button on \"More interesting photos\" does"
     },
