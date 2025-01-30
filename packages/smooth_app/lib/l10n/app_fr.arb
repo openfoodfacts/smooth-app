@@ -522,7 +522,7 @@
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
-    "label_reload": "Reload",
+    "label_reload": "Recharger",
     "@label_reload": {
         "description": "Reload a page"
     },
@@ -538,7 +538,7 @@
             "imageType": {}
         }
     },
-    "outdated_image_short_label": "may be outdated",
+    "outdated_image_short_label": "peut-être obsolète",
     "@outdated_image_short_label": {
         "description": "A label for outdated images"
     },
@@ -562,7 +562,7 @@
     "@nutrition_facts_photo": {
         "description": "Button label: For adding a picture of the nutrition facts of a product"
     },
-    "nutrition_facts_editing_title": "Edit Nutrition Facts",
+    "nutrition_facts_editing_title": "Modifier les informations nutritionnelles",
     "@nutrition_facts_editing_title": {
         "description": "Title of the button where users can edit the nutrition facts of a product"
     },
@@ -635,7 +635,7 @@
     "@crop_page_action_local_message": {
         "description": "The save of the picture locally failed - error dialog message"
     },
-    "crop_page_action_retake": "Retake a photo",
+    "crop_page_action_retake": "Reprendre une photo",
     "@crop_page_action_retake": {
         "description": "Button which allows users to retake a photo."
     },
@@ -771,16 +771,16 @@
     "score_add_missing_product_brands": "Ajouter les marques manquantes",
     "score_update_nutrition_facts": "Mettre à jour les informations nutritionnelles",
     "nutrition_page_title": "Informations nutritionnelles",
-    "nutrition_page_nutritional_info_title": "Nutritional information",
-    "nutrition_page_nutritional_info_label": "Values specified on the product:",
+    "nutrition_page_nutritional_info_title": "Informations nutritionnelles",
+    "nutrition_page_nutritional_info_label": "Valeurs indiquées sur le produit :",
     "nutrition_page_nutritional_info_value_positive": "Oui",
     "nutrition_page_nutritional_info_value_negative": "Non",
-    "nutrition_page_nutritional_info_open_photo": "Open photo",
+    "nutrition_page_nutritional_info_open_photo": "Voir la photo",
     "nutrition_page_nutritional_info_explanation": "TODO",
     "@nutrition_page_nutritional_info_explanation": {
         "description": "DO NOT TRANSLATE Text to explain when we should set the toggle to off (no nutrition facts)"
     },
-    "nutrition_page_serving_type_label": "Nutritional values:",
+    "nutrition_page_serving_type_label": "Valeurs nutritionnelles :",
     "@nutrition_page_serving_type_label": {
         "description": "Label to let the user choose between per 100g or per serving"
     },
@@ -789,7 +789,7 @@
     "nutrition_page_per_serving": "par portion",
     "nutrition_page_add_nutrient": "Ajouter un nutriment",
     "nutrition_page_serving_size": "Taille d'une portion",
-    "nutrition_page_serving_size_hint": "Input a serving size (eg: 100g)",
+    "nutrition_page_serving_size_hint": "Indiquez une taille de portion (ex : 100g)",
     "nutrition_page_serving_size_explanation": "TODO",
     "@nutrition_page_serving_size_explanation": {
         "description": "DO NOT TRANSLATE Text to explain what to input in the serving size"
@@ -801,7 +801,7 @@
     "@nutrition_page_take_serving_size_from_product_quantity": {
         "description": "Button label: Use the product quantity as serving size (nutrition page)"
     },
-    "nutrition_page_photo_error": "Unable to load the photo",
+    "nutrition_page_photo_error": "Impossible de charger la photo",
     "@nutrition_page_photo_error": {
         "description": "Error message when the nutrition facts photo can't be loaded"
     },
@@ -881,7 +881,7 @@
     "@product_image_action_choose_existing_photo": {
         "description": "Replace the existing picture with one from the product's photos"
     },
-    "product_image_details_label": "Information about the photo",
+    "product_image_details_label": "Informations sur la photo",
     "@product_image_details_label": {
         "description": "Label for the photo details"
     },
@@ -893,7 +893,7 @@
     "@product_image_details_contributor": {
         "description": "The name of the contributor who uploaded the image"
     },
-    "product_image_details_contributor_producer": "Contributor (producer)",
+    "product_image_details_contributor_producer": "Contributeur (producteur)",
     "@product_image_details_contributor_producer": {
         "description": "The name of the contributor (and also the owner field) who uploaded the image"
     },
@@ -1741,7 +1741,7 @@
     "@product_field_website_title": {
         "description": "Title of a product field: website"
     },
-    "origins_editing_title": "Edit Origins",
+    "origins_editing_title": "Modifier les origines",
     "@origins_editing_title": {
         "description": "Title of the button where users can edit the origins of a product"
     },
@@ -2272,8 +2272,8 @@
     "prices_privacy_warning_message_bullet_1": "Infer in which area you live",
     "prices_privacy_warning_message_bullet_2": "Know what you are buying",
     "prices_privacy_warning_sub_message": "If you are uneasy with that, please change your pseudonym, or create a new Open Food Facts account and log into the app with it.",
-    "i_refuse": "I refuse",
-    "i_accept": "I accept",
+    "i_refuse": "Je refuse",
+    "i_accept": "J'accepte",
     "prices_currency_change_proposal_title": "Change the currency?",
     "prices_currency_change_proposal_message": "Your current currency is **{currency}**. Would you like to change it to **{newCurrency}**?",
     "@prices_currency_change_proposal_message": {
@@ -2521,7 +2521,7 @@
     "@product_names": {
         "description": "Title for the section to edit the product name (in multiple languages)"
     },
-    "add_basic_details_product_name_add_translation": "Add a new translation",
+    "add_basic_details_product_name_add_translation": "Ajouter une nouvelle traduction",
     "@add_basic_details_product_name_add_translation": {
         "description": "Button to add a new translation for the product name"
     },
@@ -2585,7 +2585,7 @@
     "@add_basic_details_product_name_help_bad_examples_2_example": {
         "description": "Second bad example for the product name"
     },
-    "add_basic_details_product_name_other_translations": "{count,plural, one{{count} other translation} other{{count} other translations}}",
+    "add_basic_details_product_name_other_translations": "{count,plural, one{{count} autre traduction} other{{count} autres traductions}}",
     "@add_basic_details_product_name_other_translations": {
         "description": "The number of other translations for a product name (count is always >= 1)",
         "placeholders": {
@@ -2958,7 +2958,7 @@
             }
         }
     },
-    "portion_calculator_computation_error": "Missing data. Calculation could not be performed.",
+    "portion_calculator_computation_error": "Données manquantes. Le calcul n'a pas pu être effectué.",
     "@portion_calculator_computation_error": {
         "description": "Error message to explain that the computation of the portion calculator failed."
     },
@@ -3493,7 +3493,7 @@
     "guide_nutriscore_v2_new_logo_text": "Désormais le logo peut arborer une mention \"**Nouveau calcul**\" pour clarifier qu'il s'agit bien du nouveau calcul.",
     "guide_nutriscore_v2_new_logo_image_caption": "Le logo du nouveau Nutri-Score",
     "guide_nutriscore_v2_where_title": "Où trouver le nouveau calcul du Nutri-Score ?",
-    "guide_nutriscore_v2_where_paragraph1": "Le Nutri-Score est en application dans plusieurs pays : l'Allemagne, la Belgique, l'Espagne, la France, le Luxembourg, les Pays-Bas et la Suisse.",
+    "guide_nutriscore_v2_where_paragraph1": "Le Nutri-Score est en application dans plusieurs pays : l'Allemagne, la Belgique, l'Espagne, le Luxembourg, les Pays-Bas et la Suisse. Il le sera prochainement en France (en attente d'un décret).",
     "guide_nutriscore_v2_where_paragraph2": "Les fabricants ont jusqu'en **2026** au plus tard **pour remplacer** l'ancien calcul par le nouveau.",
     "guide_nutriscore_v2_where_paragraph3": "Sans attendre, vous **retrouvez déjà dans l'application Open Food Facts**, le nouveau calcul, y compris si les fabriquants n’ont pas mis à jour le score.",
     "guide_nutriscore_v2_unchanged_title": "Ce qui ne change pas",
@@ -3524,7 +3524,7 @@
     "@photo_viewer_action_use_picture_as": {
         "description": "An action to use the current picture to be used as front/ingredients…"
     },
-    "photo_viewer_use_picture_as_tooltip": "Use this picture as…",
+    "photo_viewer_use_picture_as_tooltip": "Utilisez cette image comme…",
     "@photo_viewer_use_picture_as_tooltip": {
         "description": "Message explaining what the three dots (…) button on \"More interesting photos\" does"
     },
