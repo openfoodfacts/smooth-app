@@ -16,7 +16,7 @@ import 'package:smooth_app/pages/navigator/slide_up_transition.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/product/add_new_product/add_new_product_page.dart';
-import 'package:smooth_app/pages/product/edit_product_page.dart';
+import 'package:smooth_app/pages/product/edit_product/edit_product_page.dart';
 import 'package:smooth_app/pages/product/product_loader_page.dart';
 import 'package:smooth_app/pages/product/product_page/new_product_header.dart';
 import 'package:smooth_app/pages/product/product_page/new_product_page.dart';
