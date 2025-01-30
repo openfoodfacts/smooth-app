@@ -11,6 +11,7 @@ import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_indicator_icon.dart';
+import 'package:smooth_app/widgets/smooth_interactive_viewer.dart';
 
 class EditProductImageViewer extends StatefulWidget {
   const EditProductImageViewer({
@@ -81,7 +82,7 @@ class _EditProductImageViewerState extends State<EditProductImageViewer>
             child: Stack(
               children: <Widget>[
                 Positioned.fill(
-                  child: InteractiveViewer(
+                  child: SmoothInteractiveViewer(
                     child: Image(
                       fit: BoxFit.contain,
                       image: TransientFile.fromProduct(
