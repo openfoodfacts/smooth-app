@@ -152,9 +152,14 @@ List&lt;UserPreferencesItem&gt; getChildren() {
       ),
       PriceButton.locationIconData,
     ),
-    _getPriceListTile(
+    _getListTile(
       appLocalizations.all_search_prices_top_product_title,
-      &#39;products&#39;,
+      () async =&gt; Navigator.of(context).push(
+        MaterialPageRoute&lt;void&gt;(
+          builder: (BuildContext context) =&gt; const PricesProductsPage(),
+        ),
+      ),
+      PriceButton.productIconData,
     ),
   ];
 }</code></pre>
