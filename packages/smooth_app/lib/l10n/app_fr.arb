@@ -2971,6 +2971,60 @@
     "@owner_field_image": {
         "description": "An image is directly provided by the producer. It may be locked and not be editable."
     },
+    "owner_field_image_short": "Cette image est fournie par le producteur",
+    "@owner_field_image_short": {
+        "description": "On the details view, a short message to explain this photo is provided by the producer."
+    },
+    "product_report_photo": "Signaler cette photo",
+    "@product_report_photo": {
+        "description": "Label to report a photo"
+    },
+    "report_product_title": "Signaler un produit",
+    "@report_product_title": {
+        "description": "Title of the report product page"
+    },
+    "report_product_photo_title": "Signaler une photo",
+    "@report_product_title": {
+        "description": "Title of the report product page (with a photo)"
+    },
+    "report_product_header_title": "Photo signalée",
+    "@report_product_header_title": {
+        "description": "Title of the reported product section"
+    },
+    "report_product_header_contributor": "Contributeur : {contributor}",
+    "@report_product_header_contributor": {
+        "description": "Contributor of the reported product",
+        "placeholders": {
+            "contributor": {
+                "type": "String"
+            }
+        }
+    },
+    "report_product_header_date": "Date : {date}",
+    "@report_product_header_date": {
+        "description": "Date of the reported product",
+        "placeholders": {
+            "date": {
+                "type": "String"
+            }
+        }
+    },
+    "report_product_reason_title": "Sélectionner une motif",
+    "@report_product_reason_title": {
+        "description": "Title of the report product page"
+    },
+    "report_product_reasons_photo_dont_match_product": "La photo ne correspond pas au produit",
+    "@report_product_reasons_photo_dont_match_product": {
+        "description": "Reason to report a photo: the photo doesn't match the product"
+    },
+    "report_product_reasons_photo_inappropriate": "La photo est problématique",
+    "@report_product_reasons_photo_inappropriate": {
+        "description": "Reason to report a photo: the photo is inappropriate"
+    },
+    "report_product_reasons_photo_other": "Une autre raison",
+    "@report_product_reasons_photo_other": {
+        "description": "Reason to report a photo: another reason"
+    },
     "edit_packagings_title": "Composants d'emballage",
     "@edit_packagings_title": {
         "description": "Title of the structured packagings page"

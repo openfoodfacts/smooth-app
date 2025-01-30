@@ -5,14 +5,16 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/up_to_date_mixin.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/helpers/image_field_extension.dart';
 import 'package:smooth_app/pages/product/owner_field_info.dart';
 import 'package:smooth_app/pages/product/product_image_viewer.dart';
+import 'package:smooth_app/pages/product/report_product/report_product_page.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
+import 'package:smooth_app/widgets/smooth_menu_button.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Widget to display swipeable product images of particular category.
@@ -91,19 +93,44 @@ class _ProductImageSwipeableViewState extends State<ProductImageSwipeableView>
           valueListenable: _currentImageDataIndex,
           builder: (_, int index, __) => Text(
             _imageFields[index].getImagePageTitle(appLocalizations),
-            maxLines: 2,
+            maxLines: 1,
           ),
         ),
+        subTitle: ValueListenableBuilder<int>(
+            valueListenable: _currentImageDataIndex,
+            builder: (_, int index, __) {
+              return _ownerFieldSubTitle(_imageFields[index]);
+            }),
         leading: SmoothBackButton(
           iconColor: Colors.white,
           onPressed: () => Navigator.maybePop(context),
         ),
         actions: <Widget>[
-          ValueListenableBuilder<int>(
-              valueListenable: _currentImageDataIndex,
-              builder: (_, int index, __) {
-                return _lockedIcon(_imageFields[index]);
-              })
+          SmoothPopupMenuButton<_ProductImageSwipeableViewAction>(
+            onSelected: (_ProductImageSwipeableViewAction action) {
+              if (action == _ProductImageSwipeableViewAction.reportProduct) {
+                Navigator.of(context).push(
+                  MaterialPageRoute<void>(
+                    builder: (BuildContext context) => ReportProductPage.image(
+                      product: upToDateProduct,
+                      image: ProductImage(
+                        field: _imageFields[_currentImageDataIndex.value],
+                        language: _currentLanguage,
+                      ),
+                    ),
+                  ),
+                );
+              }
+            },
+            itemBuilder: (BuildContext context) =>
+                <SmoothPopupMenuItem<_ProductImageSwipeableViewAction>>[
+              SmoothPopupMenuItem<_ProductImageSwipeableViewAction>(
+                value: _ProductImageSwipeableViewAction.reportProduct,
+                label: appLocalizations.product_report_photo,
+                icon: const icons.Flag().icon,
+              ),
+            ],
+          ),
         ],
       ),
       body: PageView.builder(
@@ -127,47 +154,26 @@ class _ProductImageSwipeableViewState extends State<ProductImageSwipeableView>
     );
   }
 
-  Widget _lockedIcon(ImageField imageField) {
+  Widget _ownerFieldSubTitle(ImageField imageField) {
     if (widget.product.isImageLocked(imageField, _currentLanguage) != true) {
       return EMPTY_WIDGET;
     } else {
       final AppLocalizations appLocalizations = AppLocalizations.of(context);
-      return IconButton(
-        onPressed: () {
-          showSmoothModalSheet(
-              context: context,
-              builder: (BuildContext context) {
-                return SmoothModalSheet(
-                  title: appLocalizations.owner_field_info_title,
-                  prefixIndicator: true,
-                  body: SafeArea(
-                    top: false,
-                    child: Column(
-                      children: <Widget>[
-                        Container(
-                          decoration: BoxDecoration(
-                            color: Theme.of(context).colorScheme.secondary,
-                            shape: BoxShape.circle,
-                          ),
-                          padding: const EdgeInsetsDirectional.all(LARGE_SPACE),
-                          child: const OwnerFieldIcon(
-                            size: 30.0,
-                          ),
-                        ),
-                        const SizedBox(height: MEDIUM_SPACE),
-                        Text(
-                          appLocalizations.owner_field_info_message,
-                          style: const TextStyle(fontSize: 15.0),
-                        ),
-                      ],
-                    ),
-                  ),
-                );
-              });
-        },
-        tooltip: appLocalizations.owner_field_info_title,
-        icon: const OwnerFieldIcon(),
+
+      return Row(
+        children: <Widget>[
+          const OwnerFieldIcon(size: 18.0),
+          const SizedBox(width: SMALL_SPACE),
+          Text(appLocalizations.owner_field_image_short),
+        ],
       );
     }
   }
+}
+
+enum _ProductImageSwipeableViewAction {
+  // TODO(g123k): implement viewLicences
+  // ignore: unused_field
+  viewLicences,
+  reportProduct,
 }
