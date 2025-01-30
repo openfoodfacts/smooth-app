@@ -3839,5 +3839,17 @@
     "product_footer_action_data_quality_tags": "Data quality",
     "@product_footer_action_data_quality_tags": {
         "description": "Action to view data quality warnings"
+    },
+    "prices_products_list_length_many_pages": "Top {pageSize} products (total: {total})",
+    "@prices_products_list_length_many_pages": {
+        "description": "Number of products for one-page result",
+        "placeholders": {
+            "pageSize": {
+                "type": "int"
+            },
+            "total": {
+                "type": "int"
+            }
+        }
     }
 }
