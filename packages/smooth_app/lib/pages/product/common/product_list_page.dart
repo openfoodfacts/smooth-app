@@ -76,6 +76,7 @@ class _ProductListPageState extends State<ProductListPage>
   final ProductListPopupItem _clear = ProductListPopupClear();
   final ProductListPopupItem _openInWeb = ProductListPopupOpenInWeb();
   final ProductListPopupItem _share = ProductListPopupShare();
+  final ProductListPopupItem _stats = ProductListPopupStats();
   final ProductListItemPopupItem _deleteItems = ProductListItemPopupDelete();
   final ProductListItemPopupItem _rankItems = ProductListItemPopupRank();
   final ProductListItemPopupItem _sideBySideItems =
@@ -186,6 +187,7 @@ class _ProductListPageState extends State<ProductListPage>
                 if (enableRename) _rename.getMenuItem(appLocalizations),
                 _share.getMenuItem(appLocalizations),
                 _openInWeb.getMenuItem(appLocalizations),
+                _stats.getMenuItem(appLocalizations),
                 if (enableClear) _clear.getMenuItem(appLocalizations),
               ],
             ),

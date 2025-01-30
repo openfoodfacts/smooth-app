@@ -9,6 +9,7 @@ import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_snackbar.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/temp_product_list_share_helper.dart';
 import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
@@ -22,6 +23,7 @@ enum ProductListPopupMenuEntry {
   rename,
   clear,
   delete,
+  stats,
 }
 
 /// Popup menu items for the product list page.
@@ -34,9 +36,6 @@ abstract class ProductListPopupItem {
 
   /// Popup menu entry of the popup menu item.
   ProductListPopupMenuEntry getEntry();
-
-  /// Is-it a destructive action?
-  bool isDestructive() => false;
 
   /// Action of the popup menu item.
   ///
@@ -85,9 +84,6 @@ class ProductListPopupClear extends ProductListPopupItem {
 
   @override
   ProductListPopupMenuEntry getEntry() => ProductListPopupMenuEntry.clear;
-
-  @override
-  bool isDestructive() => true;
 
   @override
   Future<ProductList?> doSomething({
@@ -238,5 +234,47 @@ class ProductListPopupDelete extends ProductListPopupItem {
         await ProductListUserDialogHelper(DaoProductList(localDatabase))
             .showDeleteUserListDialog(context, productList);
     return deleted ? null : productList;
+  }
+}
+
+/// Dirty popup menu item for the product list page: stats, including nova4.
+class ProductListPopupStats extends ProductListPopupItem {
+  @override
+  String getTitle(final AppLocalizations appLocalizations) => 'Stats';
+
+  @override
+  IconData getIconData() => Icons.query_stats;
+
+  @override
+  ProductListPopupMenuEntry getEntry() => ProductListPopupMenuEntry.stats;
+
+  @override
+  Future<ProductList?> doSomething({
+    required final ProductList productList,
+    required final LocalDatabase localDatabase,
+    required final BuildContext context,
+  }) async {
+    final ScaffoldMessengerState state = ScaffoldMessenger.of(context);
+    final DaoProduct daoProduct = DaoProduct(localDatabase);
+    final Map<String, Product> products =
+        await daoProduct.getAll(productList.barcodes);
+    int count = 0;
+    int countNova4 = 0;
+    for (final Product product in products.values) {
+      count++;
+      final Attribute? attribute =
+          product.getAttribute(Attribute.ATTRIBUTE_NOVA);
+      if (attribute?.iconUrl?.contains('nova-group-4.svg') == true) {
+        countNova4++;
+      }
+    }
+    state.showSnackBar(
+      SmoothFloatingSnackbar(
+        content: Text(
+          'nova4: $countNova4 / $count',
+        ),
+      ),
+    );
+    return null;
   }
 }
