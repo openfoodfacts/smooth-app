@@ -89,6 +89,7 @@ Widget build(BuildContext context) {
           leadingAction: provider.autoValidate
               ? SmoothTopBarLeadingAction.minimize
               : SmoothTopBarLeadingAction.close,
+          elevationOnScroll: false,
         ),
         bottomBar: !provider.autoValidate
             ? _SmoothSelectorScreenBottomBar&lt;T&gt;(

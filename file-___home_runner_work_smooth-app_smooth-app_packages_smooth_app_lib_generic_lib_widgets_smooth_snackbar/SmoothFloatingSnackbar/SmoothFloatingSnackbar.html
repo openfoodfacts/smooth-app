@@ -52,6 +52,7 @@
       <span class="name ">SmoothFloatingSnackbar</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-content">{<span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">content</span>, </span></li>
 <li><span class="parameter" id="-param-backgroundColor"><span class="type-annotation">dynamic</span> <span class="parameter-name">backgroundColor</span>, </span></li>
 <li><span class="parameter" id="-param-elevation"><span class="type-annotation">dynamic</span> <span class="parameter-name">elevation</span>, </span></li>
+<li><span class="parameter" id="-param-margin"><span class="type-annotation">dynamic</span> <span class="parameter-name">margin</span>, </span></li>
 <li><span class="parameter" id="-param-padding"><span class="type-annotation">dynamic</span> <span class="parameter-name">padding</span>, </span></li>
 <li><span class="parameter" id="-param-width"><span class="type-annotation">dynamic</span> <span class="parameter-name">width</span>, </span></li>
 <li><span class="parameter" id="-param-shape"><span class="type-annotation">dynamic</span> <span class="parameter-name">shape</span>, </span></li>
@@ -79,6 +80,7 @@
   required super.content,
   super.backgroundColor,
   super.elevation,
+  EdgeInsetsGeometry? margin,
   super.padding,
   super.width,
   super.shape,
@@ -94,7 +96,7 @@
   Duration? duration,
   super.key,
 }) : super(
-        margin: const EdgeInsetsDirectional.all(SMALL_SPACE),
+        margin: margin ?? const EdgeInsetsDirectional.all(SMALL_SPACE),
         duration: duration ??
             (action != null
                 ? const Duration(seconds: 10)

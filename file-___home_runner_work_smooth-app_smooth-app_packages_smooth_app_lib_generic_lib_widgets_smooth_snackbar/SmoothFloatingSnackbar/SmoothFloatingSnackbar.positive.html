@@ -52,6 +52,7 @@
       <span class="name ">SmoothFloatingSnackbar.positive</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="positive-param-context">{<span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">context</span>, </span></li>
 <li><span class="parameter" id="positive-param-text"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">text</span>, </span></li>
 <li><span class="parameter" id="positive-param-elevation"><span class="type-annotation">dynamic</span> <span class="parameter-name">elevation</span>, </span></li>
+<li><span class="parameter" id="positive-param-margin"><span class="type-annotation">dynamic</span> <span class="parameter-name">margin</span>, </span></li>
 <li><span class="parameter" id="positive-param-padding"><span class="type-annotation">dynamic</span> <span class="parameter-name">padding</span>, </span></li>
 <li><span class="parameter" id="positive-param-width"><span class="type-annotation">dynamic</span> <span class="parameter-name">width</span>, </span></li>
 <li><span class="parameter" id="positive-param-shape"><span class="type-annotation">dynamic</span> <span class="parameter-name">shape</span>, </span></li>
@@ -79,6 +80,7 @@
   required BuildContext context,
   required String text,
   super.elevation,
+  EdgeInsetsGeometry? margin,
   super.padding,
   super.width,
   super.shape,
@@ -94,7 +96,7 @@
   Duration? duration,
   super.key,
 }) : super(
-        margin: const EdgeInsetsDirectional.all(SMALL_SPACE),
+        margin: margin ?? const EdgeInsetsDirectional.all(SMALL_SPACE),
         duration: duration ??
             (action != null
                 ? const Duration(seconds: 10)
