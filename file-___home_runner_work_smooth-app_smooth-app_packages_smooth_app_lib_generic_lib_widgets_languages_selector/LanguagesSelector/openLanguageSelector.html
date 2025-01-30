@@ -53,9 +53,10 @@
 
 <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a></span>
 <span class="name ">openLanguageSelector</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="openLanguageSelector-param-context"><span class="type-annotation">dynamic</span> <span class="parameter-name">context</span>, </span></li>
-<li><span class="parameter" id="openLanguageSelector-param-selectedLanguages">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Iterable-class.html">Iterable</a>?</span> <span class="parameter-name">selectedLanguages</span>, </span></li>
-<li><span class="parameter" id="openLanguageSelector-param-languagePriority"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">languagePriority</span>, </span></li>
-<li><span class="parameter" id="openLanguageSelector-param-checkedIcon"><span class="type-annotation">dynamic</span> <span class="parameter-name">checkedIcon</span>}</span></li>
+<li><span class="parameter" id="openLanguageSelector-param-selectedLanguages">{<span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Iterable-class.html">Iterable</a>?</span> <span class="parameter-name">selectedLanguages</span>, </span></li>
+<li><span class="parameter" id="openLanguageSelector-param-showSelectedLanguages"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">showSelectedLanguages</span> = <span class="default-value">false</span>, </span></li>
+<li><span class="parameter" id="openLanguageSelector-param-checkedIcon"><span class="type-annotation">dynamic</span> <span class="parameter-name">checkedIcon</span>, </span></li>
+<li><span class="parameter" id="openLanguageSelector-param-title"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">title</span>}</span></li>
 </ol>)
 
       
@@ -64,109 +65,85 @@
     
 <section class="desc markdown">
   <p>Returns the language selected by the user.</p>
-<p><code>selectedLanguages</code> have a specific "more important" display.</p>
+<p><code>selectedLanguages</code> will be displayed first if <code>showSelectedLanguages</code> is <code>true</code>.
+Otherwise, they will be filtered</p>
 </section>
 
 
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">&#47;&#47; TODO(g123k): Improve the language selector to usable without the Widget
-static Future&lt;OpenFoodFactsLanguage?&gt; openLanguageSelector(
+  <pre class="language-dart"><code class="language-dart">static Future&lt;OpenFoodFactsLanguage?&gt; openLanguageSelector(
   final BuildContext context, {
-  final Iterable&lt;OpenFoodFactsLanguage&gt;? selectedLanguages,
-  required final LanguagePriority languagePriority,
+  required final Iterable&lt;OpenFoodFactsLanguage&gt;? selectedLanguages,
+  final bool showSelectedLanguages = false,
   final Widget? checkedIcon,
+  final String? title,
 }) async {
-  final ScrollController scrollController = ScrollController();
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
-  final TextEditingController languageSelectorController =
-      TextEditingController();
-  final List&lt;OpenFoodFactsLanguage&gt; leftovers =
+  final UserPreferences userPreferences = context.read&lt;UserPreferences&gt;();
+
+  final List&lt;OpenFoodFactsLanguage&gt; allLanguages =
       _languages.getSupportedLanguagesNameInEnglish();
-  leftovers.sort(
-    (OpenFoodFactsLanguage a, OpenFoodFactsLanguage b) {
-      final int? compare = languagePriority.compare(a, b);
-      if (compare != null) {
-        return compare;
+
+  &#47;&#47;&#47; Take the 3 most popular languages
+  final Iterable&lt;MapEntry&lt;String, int&gt;&gt; popularList = userPreferences
+      .languagesUsage.entries
+      .sorted((final MapEntry&lt;String, int&gt; entry1,
+          final MapEntry&lt;String, int&gt; entry2) {
+    return entry1.value.compareTo(entry2.value);
+  }).take(3);
+
+  final List&lt;OpenFoodFactsLanguage&gt; selectedLanguagesList =
+      &lt;OpenFoodFactsLanguage&gt;[];
+  final List&lt;OpenFoodFactsLanguage&gt; popularLanguagesList =
+      &lt;OpenFoodFactsLanguage&gt;[];
+  final List&lt;OpenFoodFactsLanguage&gt; otherLanguagesList =
+      &lt;OpenFoodFactsLanguage&gt;[];
+
+  for (final OpenFoodFactsLanguage language in allLanguages) {
+    if (selectedLanguages?.contains(language) == true) {
+      if (!showSelectedLanguages) {
+        continue;
+      } else {
+        selectedLanguagesList.add(language);
       }
-      &#47;&#47; Sorted in English
-      return _languages
-          .getNameInEnglish(a)
-          .compareTo(_languages.getNameInEnglish(b));
+    } else if (popularList.any(
+        (final MapEntry&lt;String, int&gt; entry) =&gt; entry.key == language.code)) {
+      popularLanguagesList.add(language);
+    } else {
+      otherLanguagesList.add(language);
+    }
+  }
+
+  final Languages languagesHelper = Languages();
+  _sortLanguages(selectedLanguagesList, languagesHelper);
+  _sortLanguages(popularLanguagesList, languagesHelper);
+  _sortLanguages(otherLanguagesList, languagesHelper);
+
+  final OpenFoodFactsLanguage? language =
+      await showSmoothModalSheetForTextField&lt;OpenFoodFactsLanguage&gt;(
+    context: context,
+    header: SmoothModalSheetHeader(
+      title: title ?? appLocalizations.language_selector_title,
+      prefix: const SmoothModalSheetHeaderPrefixIndicator(),
+      suffix: const SmoothModalSheetHeaderCloseButton(),
+    ),
+    bodyBuilder: (BuildContext context) {
+      return _LanguagesList(
+        selectedLanguages: selectedLanguagesList,
+        popularLanguages: popularLanguagesList,
+        otherLanguages: otherLanguagesList,
+        checkedIcon: checkedIcon,
+      );
     },
   );
-  List&lt;OpenFoodFactsLanguage&gt; filteredList = leftovers;
-  return showDialog&lt;OpenFoodFactsLanguage&gt;(
-    context: context,
-    builder: (BuildContext context) =&gt; StatefulBuilder(
-      builder: (
-        BuildContext context,
-        void Function(VoidCallback fn) setState,
-      ) =&gt;
-          SmoothListAlertDialog(
-        title: appLocalizations.language_selector_title,
-        header: SmoothTextFormField(
-          type: TextFieldTypes.PLAIN_TEXT,
-          hintText: appLocalizations.search,
-          prefixIcon: const Icon(Icons.search),
-          controller: languageSelectorController,
-          onChanged: (String? query) {
-            query = query!.trim().getComparisonSafeString();
 
-            setState(
-              () {
-                filteredList = leftovers
-                    .where((OpenFoodFactsLanguage item) =&gt;
-                        _languages
-                            .getNameInEnglish(item)
-                            .getComparisonSafeString()
-                            .contains(query!.toLowerCase()) ||
-                        _languages
-                            .getNameInLanguage(item)
-                            .getComparisonSafeString()
-                            .contains(query.toLowerCase()) ||
-                        item.code.contains(query))
-                    .toList();
-              },
-            );
-          },
-        ),
-        scrollController: scrollController,
-        list: ListView.separated(
-          controller: scrollController,
-          itemBuilder: (BuildContext context, int index) {
-            final OpenFoodFactsLanguage language = filteredList[index];
-            final bool selected = selectedLanguages != null &amp;&amp;
-                selectedLanguages.contains(language);
-            return ListTile(
-              dense: true,
-              trailing:
-                  selected ? (checkedIcon ?? const Icon(Icons.check)) : null,
-              title: TextHighlighter(
-                text: _getCompleteName(language),
-                filter: languageSelectorController.text,
-                selected: selected,
-              ),
-              onTap: () =&gt; Navigator.of(context).pop(language),
-            );
-          },
-          separatorBuilder: (_, __) =&gt; const Divider(
-            height: 1.0,
-          ),
-          itemCount: filteredList.length,
-          shrinkWrap: true,
-        ),
-        positiveAction: SmoothActionButton(
-          onPressed: () {
-            languageSelectorController.clear();
-            Navigator.of(context).pop();
-          },
-          text: appLocalizations.cancel,
-        ),
-      ),
-    ),
-  );
+  if (language != null) {
+    userPreferences.increaseLanguageUsage(language);
+  }
+
+  return language;
 }</code></pre>
 </section>
 

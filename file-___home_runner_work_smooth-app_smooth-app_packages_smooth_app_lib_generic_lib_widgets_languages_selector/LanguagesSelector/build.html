@@ -80,11 +80,6 @@ Widget build(BuildContext context) {
   }
   final DaoStringList daoStringList =
       DaoStringList(context.read&lt;LocalDatabase&gt;());
-  final LanguagePriority languagePriority = LanguagePriority(
-    product: product,
-    selectedLanguages: selectedLanguages,
-    daoStringList: daoStringList,
-  );
 
   final TextStyle textStyle = Theme.of(context)
           .textTheme
@@ -99,7 +94,7 @@ Widget build(BuildContext context) {
         final OpenFoodFactsLanguage? language = await openLanguageSelector(
           context,
           selectedLanguages: selectedLanguages,
-          languagePriority: languagePriority,
+          showSelectedLanguages: true,
           checkedIcon: checkedIcon,
         );
         if (language != null) {
