@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_snackbar.dart';
+import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 import 'package:smooth_app/pages/product/product_page/footer/new_product_footer.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
@@ -59,6 +60,8 @@ class ProductFooterBarcodeButton extends StatelessWidget {
                   Clipboard.setData(
                     ClipboardData(text: barcode),
                   );
+
+                  SmoothHapticFeedback.click();
 
                   ScaffoldMessenger.of(context).showSnackBar(
                     SmoothFloatingSnackbar.positive(
