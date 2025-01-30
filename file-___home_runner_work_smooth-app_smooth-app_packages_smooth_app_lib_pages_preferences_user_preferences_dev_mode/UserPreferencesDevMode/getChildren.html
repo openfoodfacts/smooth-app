@@ -248,6 +248,9 @@ List&lt;UserPreferencesItem&gt; getChildren() =&gt; &lt;UserPreferencesItem&gt;[
               .getPostUri(path: &#39;&#39;)
               .toString(),
         ),
+        visibleWhen: (BuildContext context) {
+          return userPreferences.getFlag(userPreferencesFlagProd) == false;
+        },
         onTap: () async =&gt; _changeTestEnvDomain(),
       ),
       const UserPreferencesItemSection(
