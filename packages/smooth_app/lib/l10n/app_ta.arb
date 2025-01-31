@@ -3355,8 +3355,8 @@
     "@language_selector_title": {
         "description": "Label to highlight the frequently used languages"
     },
-    "language_selector_section_selected": "Selected languages",
-    "language_selector_section_frequently_used": "Frequently used",
+    "language_selector_section_selected": "தேர்ந்தெடுக்கப்பட்ட மொழிகள்",
+    "language_selector_section_frequently_used": "அடிக்கடி பயன்படுத்தப்படுபவை",
     "action_delete_list": "நீக்கு",
     "@action_delete_list": {
         "description": "Delete a list action in a menu"
@@ -3816,7 +3816,7 @@
             }
         }
     },
-    "product_footer_action_barcode": "View barcode",
+    "product_footer_action_barcode": "பார்கோடைப் பார்க்கவும்",
     "@product_footer_action_barcode": {
         "description": "Action to see the barcode of a product"
     },
@@ -3824,11 +3824,11 @@
     "@product_footer_action_barcode_short": {
         "description": "Action to see the barcode of a product (short text)"
     },
-    "product_footer_action_open_website": "Open website",
+    "product_footer_action_open_website": "இணையதளத்தைத் திறக்கவும்",
     "@product_footer_action_open_website": {
         "description": "Action to see to open the OxF website of the given product"
     },
-    "product_footer_action_report": "Report",
+    "product_footer_action_report": "அறிக்கை",
     "@product_footer_action_report": {
         "description": "Action to see to report a product"
     },
@@ -3836,7 +3836,7 @@
     "@product_footer_action_contributor_guide": {
         "description": "Action to open the contributor's guide. If you are in a non-English language, please translate this sentence instead: \"Help (EN)\""
     },
-    "product_footer_action_data_quality_tags": "Data quality",
+    "product_footer_action_data_quality_tags": "தரவுகளின் தரம்",
     "@product_footer_action_data_quality_tags": {
         "description": "Action to view data quality warnings"
     },
