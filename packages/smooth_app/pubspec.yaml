@@ -45,7 +45,7 @@ dependencies:
   diacritic: 0.1.6
   app_store_shared:
     path: ../app_store/shared
-  audioplayers: 6.1.0
+  audioplayers: 6.1.1
   flutter_email_sender: 6.0.3
   flutter_native_splash: 2.4.4
   image: 4.5.2
