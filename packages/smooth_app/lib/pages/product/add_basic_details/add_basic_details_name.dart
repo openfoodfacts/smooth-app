@@ -300,6 +300,7 @@ class _ProductNameInputWidgetState extends State<_ProductNameInputWidget> {
                   child: SmoothTextFormField(
                     controller: widget.controller,
                     type: TextFieldTypes.PLAIN_TEXT,
+                    textCapitalization: TextCapitalization.sentences,
                     hintText:
                         appLocalizations.add_basic_details_product_name_hint,
                     hintTextStyle:
@@ -316,7 +317,7 @@ class _ProductNameInputWidgetState extends State<_ProductNameInputWidget> {
                 const SizedBox(width: 2.0),
                 if (widget.productName.hasPhoto || _photoTaken)
                   IconButton(
-                    icon: icons.Picture.checkAlt(
+                    icon: icons.Picture.check(
                       color: extension.success,
                     ),
                     tooltip: appLocalizations
@@ -490,7 +491,6 @@ class _ProductNameExplanation extends StatelessWidget {
           const SizedBox(height: VERY_LARGE_SPACE),
           ExplanationBodyInfo(
             text: appLocalizations.add_basic_details_product_name_help_info2,
-            icon: false,
             safeArea: true,
           ),
         ],

@@ -159,10 +159,6 @@ class _IconsFont {
       IconData(0xe849, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData delete_trash =
       IconData(0xe84a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData image_check =
-      IconData(0xe84b, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData image_add =
-      IconData(0xe84c, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData app_store =
       IconData(0xe84d, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData document =
@@ -237,8 +233,6 @@ class _IconsFont {
       IconData(0xe870, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData photo_select =
       IconData(0xe871, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData image_check_alt =
-      IconData(0xe875, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData image_error =
       IconData(0xe876, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData milk_download =
@@ -251,8 +245,6 @@ class _IconsFont {
       IconData(0xe87b, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData scale =
       IconData(0xe87c, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData gallery =
-      IconData(0xe87d, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData milk_filled_unhappy =
       IconData(0xe87e, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData move =
@@ -285,6 +277,14 @@ class _IconsFont {
       IconData(0xe88c, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData drag_start =
       IconData(0xe88d, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData image_add =
+      IconData(0xe88e, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData image_check =
+      IconData(0xe88f, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData gallery =
+      IconData(0xe890, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData image_open =
+      IconData(0xe891, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData share_cupertino =
       IconData(0xe8a4, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData share_material =

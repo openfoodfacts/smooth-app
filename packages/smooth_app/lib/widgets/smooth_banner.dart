@@ -8,10 +8,12 @@ import 'package:smooth_app/widgets/smooth_text.dart';
 class SmoothBanner extends StatelessWidget {
   const SmoothBanner({
     required this.icon,
-    required this.title,
     required this.content,
+    this.title,
     this.titleColor,
+    this.titleStyle,
     this.contentColor,
+    this.contentStyle,
     this.iconAlignment,
     this.iconColor,
     this.iconBackgroundColor,
@@ -26,7 +28,7 @@ class SmoothBanner extends StatelessWidget {
 
   final AlignmentGeometry? iconAlignment;
   final Widget icon;
-  final String title;
+  final String? title;
   final String content;
 
   /// If not null, a dismiss button is displayed
@@ -39,7 +41,9 @@ class SmoothBanner extends StatelessWidget {
   final Color? iconColor;
   final Color? iconBackgroundColor;
   final Color? titleColor;
+  final TextStyle? titleStyle;
   final Color? contentColor;
+  final TextStyle? contentStyle;
   final Color? titleBackgroundColor;
   final Color? contentBackgroundColor;
 
@@ -96,16 +100,18 @@ class SmoothBanner extends StatelessWidget {
                       ),
                       child: Row(
                         children: <Widget>[
-                          Expanded(
-                            child: Text(
-                              title,
-                              style: TextStyle(
-                                fontSize: 16.0,
-                                fontWeight: FontWeight.bold,
-                                color: titleColor ?? _titleColor,
+                          if (title != null)
+                            Expanded(
+                              child: Text(
+                                title!,
+                                style: (titleStyle ??
+                                        const TextStyle(
+                                          fontSize: 16.0,
+                                          fontWeight: FontWeight.bold,
+                                        ))
+                                    .copyWith(color: titleColor ?? _titleColor),
                               ),
                             ),
-                          ),
                           if (onDismissClicked != null) ...<Widget>[
                             const SizedBox(width: SMALL_SPACE),
                             SmoothCloseButton(
@@ -131,12 +137,13 @@ class SmoothBanner extends StatelessWidget {
                     ),
                   Padding(
                     padding: const EdgeInsetsDirectional.symmetric(
-                        horizontal: MEDIUM_SPACE),
+                      horizontal: MEDIUM_SPACE,
+                    ),
                     child: TextWithBoldParts(
                       text: content,
-                      textStyle: TextStyle(
-                        fontSize: 14.0,
-                        height: 1.6,
+                      textStyle: (contentStyle ??
+                              const TextStyle(fontSize: 14.0, height: 1.6))
+                          .copyWith(
                         color: contentColor ?? const Color(0xFF373737),
                       ),
                     ),

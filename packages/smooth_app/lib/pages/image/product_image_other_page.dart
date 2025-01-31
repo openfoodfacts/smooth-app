@@ -53,7 +53,7 @@ class ProductImageOtherPage extends StatefulWidget {
       product.productType,
     );
 
-    final Widget existingPictureIcon = icons.Picture.checkAlt(
+    final Widget existingPictureIcon = icons.Picture.check(
       color: extension.success,
       semanticLabel: appLocalizations.photo_already_exists,
     );

@@ -231,6 +231,7 @@ class TextWithBoldParts extends StatelessWidget {
   const TextWithBoldParts({
     required this.text,
     this.textStyle,
+    this.highlightedTextStyle,
     this.textAlign,
     this.overflow,
     this.maxLines,
@@ -238,6 +239,7 @@ class TextWithBoldParts extends StatelessWidget {
 
   final String text;
   final TextStyle? textStyle;
+  final TextStyle? highlightedTextStyle;
   final TextAlign? textAlign;
   final TextOverflow? overflow;
   final int? maxLines;
@@ -257,7 +259,8 @@ class TextWithBoldParts extends StatelessWidget {
             symbol: r'\*\*',
             symbolLength: 2,
             defaultStyle: defaultTextStyle,
-            highlightedStyle: const TextStyle(fontWeight: FontWeight.bold),
+            highlightedStyle: highlightedTextStyle ??
+                const TextStyle(fontWeight: FontWeight.bold),
           ).map(
             ((String, TextStyle?) part) {
               return TextSpan(

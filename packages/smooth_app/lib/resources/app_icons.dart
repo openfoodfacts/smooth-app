@@ -1239,14 +1239,6 @@ class Picture extends AppIcon {
     super.key,
   }) : super._(_IconsFont.image_check);
 
-  const Picture.checkAlt({
-    super.color,
-    super.size,
-    super.shadow,
-    super.semanticLabel,
-    super.key,
-  }) : super._(_IconsFont.image_check_alt);
-
   const Picture.error({
     super.color,
     super.size,
@@ -1254,6 +1246,14 @@ class Picture extends AppIcon {
     super.semanticLabel,
     super.key,
   }) : super._(_IconsFont.image_error);
+
+  const Picture.open({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.image_open);
 }
 
 class PinchToZoom extends AppIcon {

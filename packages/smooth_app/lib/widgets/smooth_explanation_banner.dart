@@ -145,12 +145,10 @@ class ExplanationBodyTitle extends StatelessWidget {
 class ExplanationBodyInfo extends StatelessWidget {
   const ExplanationBodyInfo({
     required this.text,
-    this.icon = true,
     this.safeArea = false,
   });
 
   final String text;
-  final bool icon;
   final bool safeArea;
 
   @override
@@ -160,45 +158,23 @@ class ExplanationBodyInfo extends StatelessWidget {
     final bool lightTheme = context.lightTheme();
 
     return ColoredBox(
-      color: lightTheme ? extension.primaryMedium : extension.primaryTone,
+      color: lightTheme ? extension.primaryLight : extension.primarySemiDark,
       child: ClipRect(
         child: Padding(
           padding: EdgeInsetsDirectional.only(
             bottom: safeArea ? MediaQuery.viewPaddingOf(context).bottom : 0.0,
           ),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: <Widget>[
-              if (icon)
-                Align(
-                  alignment: AlignmentDirectional.bottomCenter,
-                  child: icons.AppIconTheme(
-                    color: lightTheme
-                        ? extension.primaryNormal
-                        : extension.primaryMedium,
-                    child: Transform.translate(
-                      offset: const Offset(-17.0, 09.0),
-                      child: const icons.Info(size: 55.0),
-                    ),
-                  ),
-                ),
-              Expanded(
-                child: Padding(
-                  padding: EdgeInsetsDirectional.only(
-                    start: icon ? SMALL_SPACE : LARGE_SPACE,
-                    end: LARGE_SPACE,
-                    top: MEDIUM_SPACE,
-                    bottom: MEDIUM_SPACE,
-                  ),
-                  child: TextWithBoldParts(
-                    text: text,
-                    textStyle: TextStyle(
-                      color: lightTheme ? extension.primaryDark : Colors.white,
-                    ),
-                  ),
-                ),
+          child: Padding(
+            padding: const EdgeInsetsDirectional.symmetric(
+              horizontal: LARGE_SPACE,
+              vertical: MEDIUM_SPACE,
+            ),
+            child: TextWithBoldParts(
+              text: text,
+              textStyle: TextStyle(
+                color: lightTheme ? extension.primaryDark : Colors.white,
               ),
-            ],
+            ),
           ),
         ),
       ),
@@ -290,6 +266,7 @@ class _ExplanationContainerTitle extends StatelessWidget {
         start: LARGE_SPACE,
         end: LARGE_SPACE,
         top: MEDIUM_SPACE,
+        bottom: VERY_SMALL_SPACE,
       ),
       child: DecoratedBox(
         decoration: BoxDecoration(
@@ -312,6 +289,7 @@ class _ExplanationContainerTitle extends StatelessWidget {
                   label,
                   style: TextStyle(
                     color: foregroundColor,
+                    fontSize: 16.0,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -390,9 +368,7 @@ class _ExplanationBodyListItem extends StatelessWidget {
               ],
               DecoratedBox(
                 decoration: BoxDecoration(
-                  color: lightTheme
-                      ? extension.primaryLight
-                      : extension.primaryMedium,
+                  color: iconBackgroundColor,
                   borderRadius: ROUNDED_BORDER_RADIUS,
                 ),
                 child: Padding(
@@ -402,7 +378,14 @@ class _ExplanationBodyListItem extends StatelessWidget {
                   ),
                   child: TextWithBoldParts(
                     text: example,
-                    textStyle: const TextStyle(color: Colors.black),
+                    textStyle: const TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w600,
+                    ),
+                    highlightedTextStyle: const TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w900,
+                    ),
                   ),
                 ),
               )

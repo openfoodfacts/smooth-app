@@ -9,7 +9,6 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_list_tile_card.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
-import 'package:smooth_app/helpers/color_extension.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/onboarding/currency_selector_helper.dart';
 import 'package:smooth_app/pages/prices/price_meta_product.dart';
@@ -23,12 +22,10 @@ import 'package:smooth_app/pages/product/product_field_editor.dart';
 import 'package:smooth_app/pages/product/product_page/footer/new_product_footer.dart';
 import 'package:smooth_app/pages/product/simple_input_page.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
-import 'package:smooth_app/resources/app_animations.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
-import 'package:smooth_app/widgets/smooth_banner.dart';
 import 'package:smooth_app/widgets/v2/smooth_scaffold2.dart';
 import 'package:smooth_app/widgets/v2/smooth_topbar2.dart';
 
@@ -93,9 +90,9 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
           bottom: MEDIUM_SPACE + ProductFooter.kHeight + LARGE_SPACE,
         ),
         bottomSafeArea: true,
-        floatingBottomBar: const EditProductFooter(),
-        bottomBar:
-            hasUploadIndicator ? const _EditPageLoadingIndicator() : null,
+        floatingBottomBar: EditProductFooter(
+          uploadIndicator: hasUploadIndicator,
+        ),
         children: <Widget>[
           SliverList.list(
             children: <Widget>[
@@ -329,36 +326,4 @@ class _ListTitleItem extends SmoothListTileCard {
             top: SMALL_SPACE,
           ),
         );
-}
-
-class _EditPageLoadingIndicator extends StatelessWidget {
-  const _EditPageLoadingIndicator();
-
-  @override
-  Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
-
-    final bool lightTheme = context.lightTheme();
-
-    return SmoothBanner(
-      icon: CloudUploadAnimation(
-        size: MediaQuery.sizeOf(context).width * 0.10,
-      ),
-      iconAlignment: AlignmentDirectional.center,
-      iconBackgroundColor: lightTheme ? extension.primaryBlack : Colors.black,
-      title: appLocalizations.edit_product_pending_operations_banner_title,
-      titleColor: lightTheme ? null : Colors.white,
-      titleBackgroundColor:
-          lightTheme ? extension.primaryMedium : Colors.black26,
-      contentBackgroundColor: lightTheme
-          ? extension.primaryMedium.lighten()
-          : extension.primaryUltraBlack,
-      contentColor: lightTheme ? null : Colors.grey[200],
-      topShadow: true,
-      content: appLocalizations.edit_product_pending_operations_banner_message,
-      addSafeArea: true,
-    );
-  }
 }

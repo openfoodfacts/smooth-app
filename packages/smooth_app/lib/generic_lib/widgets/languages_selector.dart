@@ -268,24 +268,31 @@ class _LanguagesListState extends State<_LanguagesList> {
           width: double.infinity,
           height: MediaQuery.sizeOf(context).height *
               (widget.selectedLanguages.isNotEmpty ? 0.4 : 0.3),
-          child: Scrollbar(
-            child: ListView.separated(
-              padding: EdgeInsets.zero,
-              itemBuilder: (BuildContext context, int index) {
-                final (OpenFoodFactsLanguage? language, _LanguageType type) =
-                    _findItem(index);
+          child: Theme(
+            data: Theme.of(context).copyWith(
+              dividerTheme: DividerThemeData(
+                color: context.lightTheme() ? null : extension.greyDark,
+              ),
+            ),
+            child: Scrollbar(
+              child: ListView.separated(
+                padding: EdgeInsets.zero,
+                itemBuilder: (BuildContext context, int index) {
+                  final (OpenFoodFactsLanguage? language, _LanguageType type) =
+                      _findItem(index);
 
-                if (type == _LanguageType.selectedTitle ||
-                    type == _LanguageType.popularTitle) {
-                  return _buildSection(extension, type, appLocalizations);
-                }
+                  if (type == _LanguageType.selectedTitle ||
+                      type == _LanguageType.popularTitle) {
+                    return _buildSection(extension, type, appLocalizations);
+                  }
 
-                return _buildLanguageTile(language, type);
-              },
-              itemCount: _countItems(),
-              shrinkWrap: true,
-              separatorBuilder: (_, __) => const Divider(height: 1.0),
-              reverse: true,
+                  return _buildLanguageTile(language, type);
+                },
+                itemCount: _countItems(),
+                shrinkWrap: true,
+                separatorBuilder: (_, __) => const Divider(height: 1.0),
+                reverse: true,
+              ),
             ),
           ),
         ),
@@ -328,7 +335,7 @@ class _LanguagesListState extends State<_LanguagesList> {
     return Container(
       color: context.lightTheme()
           ? extension.primaryMedium
-          : extension.primaryNormal,
+          : extension.primarySemiDark,
       padding: const EdgeInsetsDirectional.symmetric(
         horizontal: VERY_LARGE_SPACE,
         vertical: VERY_SMALL_SPACE,

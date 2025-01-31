@@ -122,7 +122,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
                   actions: <Widget>[
                     if (!_imageVisible)
                       IconButton(
-                        icon: const Icon(Icons.image_rounded),
+                        icon: const Picture.open(),
                         tooltip: ImageField.NUTRITION
                             .getProductImageButtonText(appLocalizations),
                         onPressed: () {

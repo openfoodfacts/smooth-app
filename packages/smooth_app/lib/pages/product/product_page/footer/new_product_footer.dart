@@ -27,6 +27,7 @@ class ProductFooter extends StatelessWidget {
   const ProductFooter({
     super.key,
     this.actions,
+    this.scrollController,
     this.showSettings = true,
     this.highlightFirstItem = true,
   });
@@ -36,6 +37,7 @@ class ProductFooter extends StatelessWidget {
   final List<ProductFooterActionBar>? actions;
   final bool showSettings;
   final bool highlightFirstItem;
+  final ScrollController? scrollController;
 
   @override
   Widget build(BuildContext context) {
@@ -53,6 +55,7 @@ class ProductFooter extends StatelessWidget {
       ),
       child: _ProductFooterButtonsBar(
         actions: actions,
+        scrollController: scrollController,
         showSettings: showSettings,
         highlightFirstItem: highlightFirstItem,
       ),
@@ -108,9 +111,11 @@ class _ProductFooterButtonsBar extends StatelessWidget {
     required this.showSettings,
     required this.highlightFirstItem,
     this.actions,
+    this.scrollController,
   });
 
   final List<ProductFooterActionBar>? actions;
+  final ScrollController? scrollController;
   final bool showSettings;
   final bool highlightFirstItem;
 
@@ -142,6 +147,7 @@ class _ProductFooterButtonsBar extends StatelessWidget {
         child: actions != null
             ? _ProductFooterButtonsBarItems(
                 actions: actions!,
+                scrollController: scrollController,
                 showSettings: showSettings,
                 highlightFirstItem: highlightFirstItem,
                 bottomPadding: bottomPadding,
@@ -157,6 +163,7 @@ class _ProductFooterButtonsBar extends StatelessWidget {
 
                   return _ProductFooterButtonsBarItems(
                     actions: productPageActions,
+                    scrollController: scrollController,
                     showSettings: showSettings,
                     highlightFirstItem: highlightFirstItem,
                     bottomPadding: bottomPadding,
@@ -174,9 +181,11 @@ class _ProductFooterButtonsBarItems extends StatelessWidget {
     required this.showSettings,
     required this.highlightFirstItem,
     required this.bottomPadding,
+    this.scrollController,
   });
 
   final List<ProductFooterActionBar> actions;
+  final ScrollController? scrollController;
   final bool showSettings;
   final bool highlightFirstItem;
   final double bottomPadding;
@@ -184,6 +193,7 @@ class _ProductFooterButtonsBarItems extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
+      controller: scrollController,
       padding: EdgeInsetsDirectional.only(
         start: SMALL_SPACE,
         end: SMALL_SPACE,

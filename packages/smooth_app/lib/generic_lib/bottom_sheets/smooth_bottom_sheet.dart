@@ -457,8 +457,9 @@ class SmoothModalSheetHeader extends StatelessWidget implements SizeWidget {
 
     return switch (type) {
       SmoothModalSheetType.error => ERROR_COLOR,
-      SmoothModalSheetType.info =>
-        context.extension<SmoothColorsThemeExtension>().primaryDark,
+      SmoothModalSheetType.info => context.lightTheme()
+          ? context.extension<SmoothColorsThemeExtension>().primaryBlack
+          : Colors.black,
     };
   }
 

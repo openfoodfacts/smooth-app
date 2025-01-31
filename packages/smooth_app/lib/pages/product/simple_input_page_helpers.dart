@@ -290,6 +290,9 @@ class SimpleInputPageBrandsHelper extends AbstractSimpleInputPageHelper {
       appLocalizations.edit_product_form_item_add_action_brand;
 
   @override
+  TextCapitalization? getTextCapitalization() => TextCapitalization.sentences;
+
+  @override
   String getTypeLabel(AppLocalizations appLocalizations) =>
       appLocalizations.brand_name;
 
@@ -359,6 +362,9 @@ class SimpleInputPageStoreHelper extends AbstractSimpleInputPageHelper {
       appLocalizations.edit_product_form_item_add_action_store;
 
   @override
+  TextCapitalization? getTextCapitalization() => TextCapitalization.sentences;
+
+  @override
   String getTypeLabel(AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_form_item_stores_type;
 
@@ -399,6 +405,9 @@ class SimpleInputPageOriginHelper extends AbstractSimpleInputPageHelper {
   @override
   String getAddTooltip(AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_form_item_add_action_origin;
+
+  @override
+  TextCapitalization? getTextCapitalization() => TextCapitalization.sentences;
 
   @override
   String getTypeLabel(AppLocalizations appLocalizations) =>
@@ -532,6 +541,9 @@ class SimpleInputPageLabelHelper extends AbstractSimpleInputPageHelper {
       appLocalizations.edit_product_form_item_add_action_label;
 
   @override
+  TextCapitalization? getTextCapitalization() => TextCapitalization.sentences;
+
+  @override
   String getTypeLabel(AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_form_item_labels_type;
 
@@ -610,6 +622,9 @@ class SimpleInputPageCategoryHelper extends AbstractSimpleInputPageHelper {
       appLocalizations.edit_product_form_item_add_action_category;
 
   @override
+  TextCapitalization? getTextCapitalization() => TextCapitalization.sentences;
+
+  @override
   String getTypeLabel(AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_form_item_categories_type;
 
@@ -663,6 +678,9 @@ class SimpleInputPageCountryHelper extends AbstractSimpleInputPageHelper {
   @override
   String getAddTooltip(AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_form_item_add_action_country;
+
+  @override
+  TextCapitalization? getTextCapitalization() => TextCapitalization.sentences;
 
   @override
   String getTypeLabel(AppLocalizations appLocalizations) =>
