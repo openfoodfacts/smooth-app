@@ -785,7 +785,7 @@
         "description": "Label to let the user choose between per 100g or per serving"
     },
     "nutrition_page_per_100g": "ανά 100g",
-    "nutrition_page_per_100g_100ml": "per 100g/ml",
+    "nutrition_page_per_100g_100ml": "ανά 100g/ml",
     "nutrition_page_per_serving": "ανά μερίδα",
     "nutrition_page_add_nutrient": "Προσθέστε ένα θρεπτικό συστατικό",
     "nutrition_page_serving_size": "Μέγεθος μερίδας",
@@ -1030,11 +1030,11 @@
     "@currency_chooser_label": {
         "description": "Label shown above a selector where the user can select their currency (in the preferences)"
     },
-    "country_change_message": "You have just changed countries.",
+    "country_change_message": "Μόλις αλλάξατε χώρα.",
     "@country_change_message": {
         "description": "Message stating the change of countries"
     },
-    "currency_auto_change_message": "Do you want to change the currency from {previousCurrency} to {possibleCurrency}?",
+    "currency_auto_change_message": "Θέλετε να αλλάξετε το νόμισμα από {previousCurrency} σε {possibleCurrency};",
     "@currency_auto_change_message": {
         "description": "Message asking to confirm the change of currencies",
         "placeholders": {
@@ -1048,11 +1048,11 @@
             }
         }
     },
-    "onboarding_country_chooser_label": "Please choose a country:",
+    "onboarding_country_chooser_label": "Παρακαλώ επιλέξτε μια χώρα:",
     "@onboarding_country_chooser_label": {
         "description": "The label shown above a selector where the user can select their country (in the onboarding)"
     },
-    "country_chooser_label_from_settings": "Your country",
+    "country_chooser_label_from_settings": "Η χώρα σας",
     "@country_chooser_label_from_settings": {
         "description": "Label to use in the settings to change the user country"
     },
@@ -1064,11 +1064,11 @@
     "@product_removed_comparison": {
         "description": "Product got removed from comparison list"
     },
-    "native_app_settings": "Native App Settings",
+    "native_app_settings": "Εγγενείς Ρυθμίσεις Εφαρμογής",
     "@native_app_settings": {
         "description": "Native App Settings in app settings"
     },
-    "native_app_description": "Open systems settings for Open Food Facts",
+    "native_app_description": "Ανοίξτε τις ρυθμίσεις συστήματος για Open Food Facts",
     "@native_app_description": {
         "description": "Native App description in app settings"
     },
@@ -1076,7 +1076,7 @@
     "@product_removed_history": {
         "description": "Product got removed from history"
     },
-    "product_removed_list": "Product removed from list",
+    "product_removed_list": "Το προϊόν αφαιρέθηκε από τη λίστα",
     "@product_removed_list": {
         "description": "Product got removed from list"
     },
@@ -1087,12 +1087,12 @@
     "@Lists": {},
     "no_prodcut_in_list": "Δεν υπάρχει προϊόν σε αυτή τη λίστα",
     "no_product_in_section": "Δεν υπάρχει προϊόν σε αυτήν την ενότητα",
-    "recently_seen_products": "All viewed products",
+    "recently_seen_products": "Όλα τα προβεβλημένα προϊόντα",
     "clear": "Εκκαθάριση",
     "@clear": {
         "description": "Clears a product list (short label)"
     },
-    "clear_long": "Empty the list",
+    "clear_long": "Άδειασμα λίστας",
     "@clear_long": {
         "description": "Clears a product list (long label)"
     },
@@ -1105,21 +1105,21 @@
             "percent": {}
         }
     },
-    "plural_ago_days": "{count,plural,  =1{one day ago} other{{count} days ago}}",
+    "plural_ago_days": "{count,plural, one {} =1{μια μέρα πριν} other{{count} μέρες πριν}}",
     "@plural_ago_days": {
         "description": "Cached results from: x days ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_hours": "{count,plural,  =1{one hour ago} other{{count} hours ago}}",
+    "plural_ago_hours": "{count,plural, one {} =1{μία ώρα πριν} other{{count} ώρες πριν}}",
     "@plural_ago_hours": {
         "description": "Cached results from: x hours ago",
         "placeholders": {
             "count": {}
         }
     },
-    "plural_ago_minutes": "{count,plural,  =0{less than a minute ago} =1{one minute ago} other{{count} minutes ago}}",
+    "plural_ago_minutes": "{count,plural, =0{λιγότερο από πριν ένα λεπτό} =1{ένα λεπτό πριν} other{{count} λεπτά πριν}}",
     "@plural_ago_minutes": {
         "description": "Cached results from: x minutes ago",
         "placeholders": {
@@ -2862,7 +2862,7 @@
     "@language_picker_label": {
         "description": "Choose Application Language"
     },
-    "country_picker_label": "Your country",
+    "country_picker_label": "Η χώρα σας",
     "@country_picker_label": {
         "description": "Choose Application Country"
     },
