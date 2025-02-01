@@ -603,7 +603,7 @@
     "@new_product_dialog_description": {
         "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
     },
-    "new_product_dialog_illustration_description": "An illustration with unknown Nutri-Score and Green Score",
+    "new_product_dialog_illustration_description": "Ilustrace s neznámým Nutri-Score a Green Score",
     "@new_product_dialog_illustration_description": {
         "description": "A description for accessibility of two images side by side: a Nutri-Score and an Green Score."
     },
@@ -785,7 +785,7 @@
         "description": "Label to let the user choose between per 100g or per serving"
     },
     "nutrition_page_per_100g": "na 100 g",
-    "nutrition_page_per_100g_100ml": "per 100g/ml",
+    "nutrition_page_per_100g_100ml": "na 100 g/ml",
     "nutrition_page_per_serving": "v jedné porci",
     "nutrition_page_add_nutrient": "Přidejte živinu",
     "nutrition_page_serving_size": "Velikost porce",
@@ -1570,7 +1570,7 @@
     "@edit_product_form_item_labels_subtitle": {
         "description": "Product edition - Labels - SubTitle"
     },
-    "edit_product_form_item_labels_hint": "Input a label (eg: NutriScore)",
+    "edit_product_form_item_labels_hint": "Zadejte štítek (např.: NutriScore)",
     "@edit_product_form_item_labels_hint": {
         "description": "Product edition - Labels - input textfield hint"
     },
@@ -1582,7 +1582,7 @@
     "@edit_product_form_item_stores_title": {
         "description": "Product edition - Stores - Title"
     },
-    "edit_product_form_item_stores_hint": "Input a store",
+    "edit_product_form_item_stores_hint": "Zadejte obchod",
     "@edit_product_form_item_stores_hint": {
         "description": "Product edition - Stores - input textfield hint"
     },
@@ -1614,7 +1614,7 @@
     "@edit_product_form_item_countries_title": {
         "description": "Product edition - Countries - Title"
     },
-    "edit_product_form_item_countries_hint": "Input a country (eg: Germany)",
+    "edit_product_form_item_countries_hint": "Zadejte zemi (např.: Německo)",
     "@edit_product_form_item_countries_hint": {
         "description": "Product edition - Countries - input textfield hint"
     },
@@ -1630,7 +1630,7 @@
     "@edit_product_form_item_emb_codes_title": {
         "description": "Product edition - Traceability codes - Title"
     },
-    "edit_product_form_item_emb_codes_hint": "Input a code (eg: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522…)",
+    "edit_product_form_item_emb_codes_hint": "Zadejte kód (např.: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522…)",
     "@edit_product_form_item_emb_codes_hint": {
         "description": "Product edition - Traceability Codes - input textfield hint"
     },
@@ -1650,7 +1650,7 @@
     "@edit_product_form_item_categories_hint": {
         "description": "Product edition - Categories - input textfield hint"
     },
-    "edit_product_form_item_categories_type": "Input a category (eg: Orange juice)",
+    "edit_product_form_item_categories_type": "Zadejte kategorii (např.: Pomerančový džus)",
     "@edit_product_form_item_categories_type": {
         "description": "Product edition - Categories - input textfield type"
     },
@@ -1666,7 +1666,7 @@
     "@edit_product_form_item_categories_explainer_3": {
         "description": "Product edition - Categories - input explainer, part 3"
     },
-    "edit_product_form_item_exit_title": "Quit without saving?",
+    "edit_product_form_item_exit_title": "Ukončit bez uložení?",
     "edit_product_form_item_exit_confirmation": "Chcete uložit změny před opuštěním této stránky?",
     "edit_product_form_item_exit_confirmation_positive_button": "Uložit změny",
     "edit_product_form_item_exit_confirmation_negative_button": "Zrušit změny",
@@ -1678,7 +1678,7 @@
     "@edit_product_form_item_ingredients_pinch_to_zoom_tooltip": {
         "description": "Product edition - Ingredients - Pinch to zoom icon explanation"
     },
-    "edit_product_form_item_ingredients_pinch_to_zoom_title": "Zoom in and out the photo",
+    "edit_product_form_item_ingredients_pinch_to_zoom_title": "Přiblížení a oddálení fotky",
     "@edit_product_form_item_ingredients_pinch_to_zoom_title": {
         "description": "Product edition - Ingredients - Pinch to zoom explanation title"
     },
@@ -2517,11 +2517,11 @@
     },
     "basic_details": "Základní detaily",
     "product_name": "Název produktu",
-    "product_names": "Product Names",
+    "product_names": "Názvy produktů",
     "@product_names": {
         "description": "Title for the section to edit the product name (in multiple languages)"
     },
-    "add_basic_details_product_name_add_translation": "Add a new translation",
+    "add_basic_details_product_name_add_translation": "Přidat nový překlad",
     "@add_basic_details_product_name_add_translation": {
         "description": "Button to add a new translation for the product name"
     },
@@ -2529,11 +2529,11 @@
     "@add_basic_details_product_name_warning_translations": {
         "description": "Warning message displayed on top of new translations for the product name"
     },
-    "add_basic_details_product_name_open_photo": "View front photo",
+    "add_basic_details_product_name_open_photo": "Zobrazit přední fotku",
     "@add_basic_details_product_name_open_photo": {
         "description": "Button to view the front photo of the product (on top of the screen)"
     },
-    "add_basic_details_product_name_take_photo": "Take front photo",
+    "add_basic_details_product_name_take_photo": "Vyfoťte přední stranu",
     "@add_basic_details_product_name_take_photo": {
         "description": "Button to take a photo of the front of the product (when there is no photo yet)"
     },
@@ -2541,23 +2541,23 @@
     "@add_basic_details_product_name_hint": {
         "description": "Placeholder when the product name text-field is empty"
     },
-    "add_basic_details_product_name_help_title": "Good practices: product name",
+    "add_basic_details_product_name_help_title": "Osvědčené postupy: název produktu",
     "@add_basic_details_product_name_help_title": {
         "description": "Title for the help section about the product name"
     },
-    "add_basic_details_product_name_help_info1": "The product name is the **main name printed on the packaging**. It can be a registered trademark.",
+    "add_basic_details_product_name_help_info1": "Název produktu je **hlavní název vytištěný na obalu**. Může to být registrovaná ochranná známka.",
     "@add_basic_details_product_name_help_info1": {
         "description": "Text explaining how to write the product name"
     },
-    "add_basic_details_product_name_help_info2": "**Note:** Please don't add a translation **if the language is not present on the packaging**.",
+    "add_basic_details_product_name_help_info2": "**Poznámka:** Nepřidávejte překlad, **pokud na obalu není uveden jazyk**.",
     "@add_basic_details_product_name_help_info2": {
         "description": "Text explaining how to write the product name"
     },
-    "explanation_section_good_examples": "Good examples",
+    "explanation_section_good_examples": "Dobré příklady",
     "@explanation_section_good_examples": {
         "description": "Title for the section with good examples"
     },
-    "explanation_section_bad_examples": "Bad examples",
+    "explanation_section_bad_examples": "Špatné příklady",
     "@explanation_section_bad_examples": {
         "description": "Title for the section with bad examples"
     },
@@ -2565,19 +2565,19 @@
     "@add_basic_details_product_name_help_good_examples_1": {
         "description": "A 1st good example for the product name (you can change it if necessary)"
     },
-    "add_basic_details_product_name_help_good_examples_2": "Tomato Ketchup",
+    "add_basic_details_product_name_help_good_examples_2": "Rajčatový kečup",
     "@add_basic_details_product_name_help_good_examples_2": {
         "description": "A 2nd good example for the product name (you can change it if necessary)"
     },
-    "add_basic_details_product_name_help_bad_examples_1_explanation": "Don't include the brand in the name",
+    "add_basic_details_product_name_help_bad_examples_1_explanation": "Neuvádějte značku v názvu",
     "@add_basic_details_product_name_help_bad_examples_1_explanation": {
         "description": "Explanation for the first bad example"
     },
-    "add_basic_details_product_name_help_bad_examples_1_example": "Tomato Ketchup **by Heinz**",
+    "add_basic_details_product_name_help_bad_examples_1_example": "Rajčatový kečup **od Heinze**",
     "@add_basic_details_product_name_help_bad_examples_1_example": {
         "description": "First bad example for the product name"
     },
-    "add_basic_details_product_name_help_bad_examples_2_explanation": "Don't use symbols ®, ™, © or similar",
+    "add_basic_details_product_name_help_bad_examples_2_explanation": "Nepoužívejte symboly ®, ™, © nebo podobné",
     "@add_basic_details_product_name_help_bad_examples_2_explanation": {
         "description": "Explanation for the second bad example"
     },
@@ -3355,8 +3355,8 @@
     "@language_selector_title": {
         "description": "Label to highlight the frequently used languages"
     },
-    "language_selector_section_selected": "Selected languages",
-    "language_selector_section_frequently_used": "Frequently used",
+    "language_selector_section_selected": "Vybrané jazyky",
+    "language_selector_section_frequently_used": "Často používané",
     "action_delete_list": "Odstranit",
     "@action_delete_list": {
         "description": "Delete a list action in a menu"
@@ -3526,7 +3526,7 @@
     "@photo_viewer_action_use_picture_as": {
         "description": "An action to use the current picture to be used as front/ingredients…"
     },
-    "photo_viewer_use_picture_as_tooltip": "Use this picture as…",
+    "photo_viewer_use_picture_as_tooltip": "Použijte tento obrázek jako…",
     "@photo_viewer_use_picture_as_tooltip": {
         "description": "Message explaining what the three dots (…) button on \"More interesting photos\" does"
     },
@@ -3816,7 +3816,7 @@
             }
         }
     },
-    "product_footer_action_barcode": "View barcode",
+    "product_footer_action_barcode": "Zobrazit čárový kód",
     "@product_footer_action_barcode": {
         "description": "Action to see the barcode of a product"
     },
@@ -3824,11 +3824,11 @@
     "@product_footer_action_barcode_short": {
         "description": "Action to see the barcode of a product (short text)"
     },
-    "product_footer_action_open_website": "Open website",
+    "product_footer_action_open_website": "Otevřít web",
     "@product_footer_action_open_website": {
         "description": "Action to see to open the OxF website of the given product"
     },
-    "product_footer_action_report": "Report",
+    "product_footer_action_report": "Zpráva",
     "@product_footer_action_report": {
         "description": "Action to see to report a product"
     },
