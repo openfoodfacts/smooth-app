@@ -2786,7 +2786,7 @@
     "@add_basic_details_product_brand_help_info2_content": {
         "description": "Text explaining how to write brands"
     },
-    "add_basic_details_product_brand_help_info3_title": "Other brands:",
+    "add_basic_details_product_brand_help_info3_title": "Other brands",
     "@add_basic_details_product_brand_help_info3_title": {
         "description": "Text explaining how to write brands"
     },

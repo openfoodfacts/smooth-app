@@ -572,17 +572,4 @@ class UserPreferences extends ChangeNotifier {
     }
     return Map<String, int>.from(jsonDecode(usage));
   }
-
-  List<String> get productPageTabs =>
-      _sharedPreferences.getStringList(_TAG_PRODUCT_PAGE_TABS) ?? <String>[];
-
-  Future<void> setProductPageTabs(
-    final List<String> value,
-  ) async {
-    await _sharedPreferences.setStringList(
-      _TAG_PRODUCT_PAGE_TABS,
-      value,
-    );
-    notifyListeners();
-  }
 }
