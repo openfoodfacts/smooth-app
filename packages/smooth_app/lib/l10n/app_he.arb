@@ -785,7 +785,7 @@
         "description": "Label to let the user choose between per 100g or per serving"
     },
     "nutrition_page_per_100g": "ל־100 ג׳",
-    "nutrition_page_per_100g_100ml": "per 100g/ml",
+    "nutrition_page_per_100g_100ml": "ל־100 ג׳/מ״ל",
     "nutrition_page_per_serving": "לכל הגשה",
     "nutrition_page_add_nutrient": "הוספת רכיב תזונתי",
     "nutrition_page_serving_size": "גודל ההגשה",
@@ -3355,8 +3355,8 @@
     "@language_selector_title": {
         "description": "Label to highlight the frequently used languages"
     },
-    "language_selector_section_selected": "Selected languages",
-    "language_selector_section_frequently_used": "Frequently used",
+    "language_selector_section_selected": "השפות הנבחרות",
+    "language_selector_section_frequently_used": "בשימוש תדיר",
     "action_delete_list": "מחיקה",
     "@action_delete_list": {
         "description": "Delete a list action in a menu"
@@ -3526,7 +3526,7 @@
     "@photo_viewer_action_use_picture_as": {
         "description": "An action to use the current picture to be used as front/ingredients…"
     },
-    "photo_viewer_use_picture_as_tooltip": "Use this picture as…",
+    "photo_viewer_use_picture_as_tooltip": "להשתמש בתמונה הזאת בתור…",
     "@photo_viewer_use_picture_as_tooltip": {
         "description": "Message explaining what the three dots (…) button on \"More interesting photos\" does"
     },
@@ -3816,7 +3816,7 @@
             }
         }
     },
-    "product_footer_action_barcode": "View barcode",
+    "product_footer_action_barcode": "הצגת ברקוד",
     "@product_footer_action_barcode": {
         "description": "Action to see the barcode of a product"
     },
@@ -3824,11 +3824,11 @@
     "@product_footer_action_barcode_short": {
         "description": "Action to see the barcode of a product (short text)"
     },
-    "product_footer_action_open_website": "Open website",
+    "product_footer_action_open_website": "פתיחת האתר",
     "@product_footer_action_open_website": {
         "description": "Action to see to open the OxF website of the given product"
     },
-    "product_footer_action_report": "Report",
+    "product_footer_action_report": "דיווח",
     "@product_footer_action_report": {
         "description": "Action to see to report a product"
     },
@@ -3836,11 +3836,11 @@
     "@product_footer_action_contributor_guide": {
         "description": "Action to open the contributor's guide. If you are in a non-English language, please translate this sentence instead: \"Help (EN)\""
     },
-    "product_footer_action_data_quality_tags": "Data quality",
+    "product_footer_action_data_quality_tags": "איכות נתונים",
     "@product_footer_action_data_quality_tags": {
         "description": "Action to view data quality warnings"
     },
-    "prices_products_list_length_many_pages": "Top {pageSize} products (total: {total})",
+    "prices_products_list_length_many_pages": "{pageSize} המוצרים המובילים (סך הכול: {total})",
     "@prices_products_list_length_many_pages": {
         "description": "Number of products for one-page result",
         "placeholders": {
