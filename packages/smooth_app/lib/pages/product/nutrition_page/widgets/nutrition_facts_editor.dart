@@ -6,6 +6,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
+import 'package:smooth_app/helpers/collections_helper.dart';
 import 'package:smooth_app/helpers/text_input_formatters_helper.dart';
 import 'package:smooth_app/pages/product/nutrition_page/nutrition_page.dart';
 import 'package:smooth_app/pages/product/nutrition_page/widgets/nutrition_container_helper.dart';
@@ -115,8 +116,8 @@ class _NutrientRowState extends State<NutrientRow>
                     children: <Widget>[
                       Expanded(
                         child: _NutrientUnitCell(
-                          widget.nutritionContainer,
-                          widget.orderedNutrient,
+                          nutritionContainer: widget.nutritionContainer,
+                          orderedNutrient: widget.orderedNutrient,
                         ),
                       ),
                       const _NutrientUnitVisibility()
@@ -228,6 +229,19 @@ class _NutrientValueCell extends StatelessWidget {
                           ),
                           DecimalSeparatorRewriter(decimalNumberFormat),
                         ],
+                        onFieldSubmitted: (final String value) {
+                          focusNodes[orderedNutrient]?.unfocus();
+
+                          if (isLast) {
+                            return;
+                          }
+
+                          final int position =
+                              focusNodes.keys.indexOf(orderedNutrient);
+
+                          focusNodes[focusNodes.keys.elementAt(position + 1)]
+                              ?.requestFocus();
+                        },
                         validator: (String? value) {
                           if (value == null || value.trim().isEmpty) {
                             return null;
@@ -261,10 +275,10 @@ class _NutrientValueCell extends StatelessWidget {
 }
 
 class _NutrientUnitCell extends StatefulWidget {
-  const _NutrientUnitCell(
-    this.nutritionContainer,
-    this.orderedNutrient,
-  );
+  const _NutrientUnitCell({
+    required this.nutritionContainer,
+    required this.orderedNutrient,
+  });
 
   final NutritionContainerHelper nutritionContainer;
   final OrderedNutrient orderedNutrient;
