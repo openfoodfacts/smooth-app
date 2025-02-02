@@ -186,16 +186,22 @@ class _NutrientValueCell extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsetsDirectional.only(
-                      start: VERY_SMALL_SPACE,
-                      bottom: VERY_SMALL_SPACE,
-                    ),
-                    child: Text(
-                      orderedNutrient.name!,
-                      style: const TextStyle(
-                        fontWeight: FontWeight.w600,
-                        fontSize: 15.0,
+                  GestureDetector(
+                    onTap: () => focusNodes[orderedNutrient]?.requestFocus(),
+                    child: SizedBox(
+                      width: double.infinity,
+                      child: Padding(
+                        padding: const EdgeInsetsDirectional.only(
+                          start: VERY_SMALL_SPACE,
+                          bottom: VERY_SMALL_SPACE,
+                        ),
+                        child: Text(
+                          orderedNutrient.name!,
+                          style: const TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 15.0,
+                          ),
+                        ),
                       ),
                     ),
                   ),
