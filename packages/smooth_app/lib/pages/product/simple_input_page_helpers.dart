@@ -9,6 +9,7 @@ import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/multilingual_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
+import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_explanation_banner.dart';
 
 /// Abstract helper for Simple Input Page.
@@ -537,11 +538,67 @@ class SimpleInputPageEmbCodeHelper extends AbstractSimpleInputPageHelper {
       appLocalizations.edit_product_form_item_emb_codes_type;
 
   @override
+  String? getAddExplanationsTitle(AppLocalizations appLocalizations) =>
+      appLocalizations.edit_product_form_item_emb_help_title;
+
+  @override
   WidgetBuilder? getAddExplanationsContent() => (BuildContext context) {
         final AppLocalizations appLocalizations = AppLocalizations.of(context);
-        return ExplanationBodyInfo(
-            text:
-                appLocalizations.edit_product_form_item_emb_codes_explanations);
+
+        return Column(
+          children: <Widget>[
+            ExplanationBodyInfo(
+              text: appLocalizations.edit_product_form_item_emb_help_info1,
+              icon: false,
+            ),
+            ExplanationTextContainer(
+              title:
+                  appLocalizations.edit_product_form_item_emb_help_info2_title,
+              items: <ExplanationTextContainerContent>[
+                ExplanationTextContainerContentItem(
+                  text: appLocalizations
+                      .edit_product_form_item_emb_help_info2_item1_text,
+                  example: appLocalizations
+                      .edit_product_form_item_emb_help_info2_item1_explanation,
+                  visualExamplePosition:
+                      ExplanationVisualExamplePosition.afterTitle,
+                  visualExample: Container(
+                    width: 104.0,
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color:
+                            context.lightTheme() ? Colors.black : Colors.white,
+                        width: 1.0,
+                      ),
+                      borderRadius: const BorderRadius.all(
+                        Radius.elliptical(100, 50),
+                      ),
+                    ),
+                    padding: const EdgeInsetsDirectional.symmetric(
+                      vertical: VERY_SMALL_SPACE,
+                    ),
+                    child: Text(
+                      appLocalizations
+                          .edit_product_form_item_emb_help_info2_item1_example,
+                      textAlign: TextAlign.center,
+                      textScaler: TextScaler.noScaling,
+                      style: const TextStyle(
+                        fontSize: 12.0,
+                        height: 1.2,
+                      ),
+                    ),
+                  ),
+                ),
+                ExplanationTextContainerContentItem(
+                  text: appLocalizations
+                      .edit_product_form_item_emb_help_info2_item2_text,
+                  example: appLocalizations
+                      .edit_product_form_item_emb_help_info2_item2_explanation,
+                ),
+              ],
+            ),
+          ],
+        );
       };
 
   @override

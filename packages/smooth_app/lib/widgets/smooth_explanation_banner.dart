@@ -208,41 +208,49 @@ class ExplanationTextContainer extends StatelessWidget {
       children: <Widget>[
         _ExplanationContainerTitle(
           label: title,
-          foregroundColor: lightTheme ? Colors.black : Colors.white,
+          foregroundColor: Colors.white,
           backgroundColor:
-              lightTheme ? extension.primaryMedium : extension.primaryDark,
+              lightTheme ? extension.primarySemiDark : extension.primaryDark,
         ),
-        ...items
-            .mapIndexed((int position, ExplanationTextContainerContent item) {
-          return switch (item) {
-            ExplanationTextContainerContentText() => Padding(
-                padding: const EdgeInsetsDirectional.only(
-                  start: LARGE_SPACE,
-                  end: LARGE_SPACE,
-                  top: MEDIUM_SPACE,
-                  bottom: VERY_SMALL_SPACE,
-                ),
-                child: TextWithBoldParts(
-                  text: item.text,
-                  textStyle: TextStyle(
-                    color: lightTheme ? extension.primaryDark : Colors.white,
+        ...items.mapIndexed(
+          (int position, ExplanationTextContainerContent item) {
+            return switch (item) {
+              ExplanationTextContainerContentText() => Padding(
+                  padding: const EdgeInsetsDirectional.only(
+                    start: LARGE_SPACE,
+                    end: LARGE_SPACE,
+                    top: MEDIUM_SPACE,
+                    bottom: VERY_SMALL_SPACE,
+                  ),
+                  child: TextWithBoldParts(
+                    text: item.text,
+                    textStyle: TextStyle(
+                      color: lightTheme ? extension.primaryDark : Colors.white,
+                    ),
                   ),
                 ),
-              ),
-            ExplanationTextContainerContentItem() => Padding(
-                padding: const EdgeInsetsDirectional.only(
-                  top: SMALL_SPACE,
+              ExplanationTextContainerContentItem() => Padding(
+                  padding: const EdgeInsetsDirectional.only(
+                    top: SMALL_SPACE,
+                  ),
+                  child: _ExplanationBodyListItem(
+                    icon: icons.Arrow.right(
+                      size: 11.0,
+                      color: lightTheme ? null : extension.primarySemiDark,
+                    ),
+                    iconBackgroundColor: lightTheme
+                        ? extension.primarySemiDark
+                        : extension.primaryLight,
+                    iconPadding: EdgeInsets.zero,
+                    title: item.text,
+                    text: item.example,
+                    visualExample: item.visualExample,
+                    visualExamplePosition: item.visualExamplePosition,
+                  ),
                 ),
-                child: _ExplanationBodyListItem(
-                  icon: const icons.Arrow.right(size: 11.0),
-                  iconBackgroundColor: extension.greyNormal,
-                  iconPadding: EdgeInsets.zero,
-                  text: item.example,
-                  explanation: item.text,
-                ),
-              ),
-          };
-        }),
+            };
+          },
+        ),
       ],
     );
   }
@@ -261,11 +269,15 @@ class ExplanationTextContainerContentItem
     extends ExplanationTextContainerContent {
   ExplanationTextContainerContentItem({
     required this.text,
-    required this.example,
+    this.example,
+    this.visualExample,
+    this.visualExamplePosition,
   });
 
   final String text;
-  final String example;
+  final String? example;
+  final Widget? visualExample;
+  final ExplanationVisualExamplePosition? visualExamplePosition;
 }
 
 class ExplanationGoodExamplesContainer extends StatelessWidget {
@@ -328,7 +340,7 @@ class ExplanationBadExamplesContainer extends StatelessWidget {
             iconBackgroundColor: extension.error,
             iconPadding: EdgeInsetsDirectional.zero,
             text: item,
-            explanation: explanations[position],
+            title: explanations[position],
           ),
         ),
       ],
@@ -395,15 +407,19 @@ class _ExplanationBodyListItem extends StatelessWidget {
     required this.icon,
     required this.iconBackgroundColor,
     required this.iconPadding,
-    required this.text,
-    this.explanation,
+    this.title,
+    this.text,
+    this.visualExample,
+    this.visualExamplePosition = ExplanationVisualExamplePosition.afterExample,
   });
 
   final Widget icon;
   final Color iconBackgroundColor;
   final EdgeInsetsGeometry iconPadding;
-  final String text;
-  final String? explanation;
+  final String? text;
+  final String? title;
+  final Widget? visualExample;
+  final ExplanationVisualExamplePosition? visualExamplePosition;
 
   @override
   Widget build(BuildContext context) {
@@ -418,7 +434,7 @@ class _ExplanationBodyListItem extends StatelessWidget {
         top: 10.0,
       ),
       child: Row(
-        crossAxisAlignment: explanation == null
+        crossAxisAlignment: title == null
             ? CrossAxisAlignment.center
             : CrossAxisAlignment.start,
         children: <Widget>[
@@ -435,16 +451,16 @@ class _ExplanationBodyListItem extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(width: explanation != null ? 11.0 : 13.0),
+          SizedBox(width: title != null ? 11.0 : 13.0),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                if (explanation != null) ...<Widget>[
+                if (title != null) ...<Widget>[
                   Padding(
                     padding: const EdgeInsetsDirectional.only(start: 2.0),
                     child: TextWithBoldParts(
-                      text: explanation!,
+                      text: title!,
                       textStyle: TextStyle(
                         color: lightTheme
                             ? extension.primaryDark
@@ -463,24 +479,42 @@ class _ExplanationBodyListItem extends StatelessWidget {
                   ),
                   const SizedBox(height: VERY_SMALL_SPACE),
                 ],
-                DecoratedBox(
-                  decoration: BoxDecoration(
-                    color: lightTheme
-                        ? extension.primaryLight
-                        : extension.primaryMedium,
-                    borderRadius: ROUNDED_BORDER_RADIUS,
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsetsDirectional.symmetric(
-                      horizontal: MEDIUM_SPACE,
-                      vertical: BALANCED_SPACE,
+                if (visualExample != null &&
+                    visualExamplePosition ==
+                        ExplanationVisualExamplePosition.afterTitle)
+                  Padding(
+                    padding: const EdgeInsetsDirectional.only(
+                      top: VERY_SMALL_SPACE,
+                      bottom: BALANCED_SPACE,
                     ),
-                    child: TextWithBoldParts(
-                      text: text,
-                      textStyle: const TextStyle(color: Colors.black),
+                    child: visualExample,
+                  ),
+                if (text != null)
+                  DecoratedBox(
+                    decoration: BoxDecoration(
+                      color: lightTheme
+                          ? extension.primaryLight
+                          : extension.primaryMedium,
+                      borderRadius: ROUNDED_BORDER_RADIUS,
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsetsDirectional.symmetric(
+                        horizontal: MEDIUM_SPACE,
+                        vertical: BALANCED_SPACE,
+                      ),
+                      child: TextWithBoldParts(
+                        text: text!,
+                        textStyle: const TextStyle(color: Colors.black),
+                      ),
                     ),
                   ),
-                )
+                if (visualExample != null &&
+                    visualExamplePosition ==
+                        ExplanationVisualExamplePosition
+                            .afterExample) ...<Widget>[
+                  const SizedBox(height: VERY_SMALL_SPACE),
+                  visualExample!,
+                ],
               ],
             ),
           ),
@@ -488,4 +522,9 @@ class _ExplanationBodyListItem extends StatelessWidget {
       ),
     );
   }
+}
+
+enum ExplanationVisualExamplePosition {
+  afterTitle,
+  afterExample,
 }
