@@ -1427,7 +1427,7 @@
     "@crash_reporting_toggle_title": {
         "description": "Title for the Crash reporting toggle"
     },
-    "crash_reporting_toggle_subtitle": "When enabled, crash reports are automatically submitted to Open Food Facts' error tracking system, so that bugs can be fixed and thus improve the app.",
+    "crash_reporting_toggle_subtitle": "Όταν είναι ενεργό, οι αναφορές σφαλμάτων υποβάλλονται αυτόματα στο σύστημα εντοπισμού σφαλμάτων του Open Food Facts, έτσι ώστε τα σφάλματα να μπορούν να διορθωθούν και συνεπώς να βελτιωθεί η εφαρμογή.",
     "@crash_reporting_toggle_subtitle": {
         "description": "SubTitle for the Crash reporting toggle"
     },
@@ -1443,7 +1443,7 @@
     "@product_edit_photo_title": {
         "description": "Toolbar Title while editing a photo (Android only)"
     },
-    "permission_photo_error": "Error",
+    "permission_photo_error": "Σφάλμα",
     "@permission_photo_error": {
         "description": "When the camera/photo permission failed to be acquired (!= denied)"
     },
@@ -1465,7 +1465,7 @@
     "permission_photo_denied_dialog_settings_message": "Καθώς έχετε αρνηθεί στο παρελθόν την άδεια της κάμερας, πρέπει να την επιτρέψετε χειροκίνητα από τις Ρυθμίσεις.",
     "permission_photo_denied_dialog_settings_button_open": "Ανοίξτε τις ρυθμίσεις",
     "permission_photo_denied_dialog_settings_button_cancel": "Ακύρωση",
-    "permission_photo_none_found": "No camera detected",
+    "permission_photo_none_found": "Δεν εντοπίστηκε κάμερα",
     "@permission_photo_none_found": {
         "description": "Message for the user when no camera was detected, replacing the barcode scanner"
     },
@@ -1473,7 +1473,7 @@
     "@permission_photo_denied": {
         "description": "When the camera/photo permission is denied by user"
     },
-    "show_product_pictures": "Show product pictures",
+    "show_product_pictures": "Εμφάνιση εικόνων προϊόντων",
     "@show_product_pictures": {
         "description": "Button to show a list of product pictures"
     },
@@ -2101,7 +2101,7 @@
     "prices_barcode_enter": "Εισαγάγετε τον Γραμμωτό κώδικα",
     "prices_barcode_reader_action": "Αναγνώστης γραμμωτού κώδικα",
     "prices_view_prices": "Δείτε τις τιμές",
-    "prices_product_accessibility_summary": "{count,plural, =1{1 price} other{{count} prices}} for {product}",
+    "prices_product_accessibility_summary": "{count,plural, =1{1 τιμή} other{{count} τιμές}} για {product}",
     "@prices_product_accessibility_summary": {
         "description": "A card summarizing the number of prices for a product",
         "placeholders": {
@@ -2113,7 +2113,7 @@
             }
         }
     },
-    "prices_list_length_one_page": "{count,plural, =0{No price yet} =1{Only one price} other{All {count} prices}}",
+    "prices_list_length_one_page": "{count,plural, one {}=0{Καμία τιμή ακόμα} =1{Μόνο μία τιμή} other{Και οι {count} τιμές}}",
     "@prices_list_length_one_page": {
         "description": "Number of prices for one-page result",
         "placeholders": {
@@ -2122,7 +2122,7 @@
             }
         }
     },
-    "prices_list_length_many_pages": "Latest {pageSize} prices (total: {total})",
+    "prices_list_length_many_pages": "Τελευταίες {pageSize} τιμές (σύνολο: {total})",
     "@prices_list_length_many_pages": {
         "description": "Number of prices for one-page result",
         "placeholders": {
@@ -2134,7 +2134,7 @@
             }
         }
     },
-    "prices_entry_accessibility_label": "Price: {price} / Store: \"{location}\" / Published on {date} by \"{user}\"",
+    "prices_entry_accessibility_label": "Τιμή: {price} / Κατάστημα: \"{location}\" / Δημοσιεύθηκε στις {date} από \"{user}\"",
     "@prices_entry_accessibility_label": {
         "description": "Accessibility label for a price entry",
         "placeholders": {
@@ -2152,7 +2152,7 @@
             }
         }
     },
-    "prices_open_user_proofs": "Open proofs of \"{user}\"",
+    "prices_open_user_proofs": "Άνοιγμα αποδείξεων του \"{user}\"",
     "@prices_open_user_proofs": {
         "description": "Button to open the proofs of a user",
         "placeholders": {
@@ -2161,11 +2161,11 @@
             }
         }
     },
-    "prices_open_proof": "Open price proof",
+    "prices_open_proof": "Άνοιγμα απόδειξης τιμής",
     "@prices_open_proof": {
         "description": "Button to open a proof"
     },
-    "prices_proofs_list_length_one_page": "{count,plural, =0{No proof yet} =1{Only one proof} other{All {count} proofs}}",
+    "prices_proofs_list_length_one_page": "{count,plural, one {}=0{Καμία απόδειξη ακόμα} =1{Μόνο μία απόδειξη} other{Και οι {count} αποδείξεις}}",
     "@prices_proofs_list_length_one_page": {
         "description": "Number of proofs for one-page result",
         "placeholders": {
@@ -2174,7 +2174,7 @@
             }
         }
     },
-    "prices_proofs_list_length_many_pages": "Latest {pageSize} proofs (total: {total})",
+    "prices_proofs_list_length_many_pages": "Τελευταίες {pageSize} proofs (σύνολο: {total})",
     "@prices_proofs_list_length_many_pages": {
         "description": "Number of proofs for one-page result",
         "placeholders": {
@@ -2186,7 +2186,7 @@
             }
         }
     },
-    "prices_users_list_length_many_pages": "Top {pageSize} contributors (total: {total})",
+    "prices_users_list_length_many_pages": "Κορυφαίοι {pageSize} συνεισφέροντες (σύνολο: {total})",
     "@prices_users_list_length_many_pages": {
         "description": "Number of users for one-page result",
         "placeholders": {
@@ -2198,7 +2198,7 @@
             }
         }
     },
-    "prices_locations_list_length_many_pages": "Top {pageSize} locations (total: {total})",
+    "prices_locations_list_length_many_pages": "Κορυφαίες {pageSize} τοποθεσίες (σύνολο: {total})",
     "@prices_locations_list_length_many_pages": {
         "description": "Number of locations for one-page result",
         "placeholders": {
@@ -2210,7 +2210,7 @@
             }
         }
     },
-    "prices_button_count_proof": "{count,plural, =0{No proof} =1{One proof} other{{count} proofs}}",
+    "prices_button_count_proof": "{count,plural, one {}=0{Καμία απόδειξη} =1{Μία απόδειξη} other{{count} αποδείξεις}}",
     "@prices_button_count_proof": {
         "description": "Number of proofs, for a button",
         "placeholders": {
@@ -2219,7 +2219,7 @@
             }
         }
     },
-    "prices_button_count_product": "{count,plural, =0{No product} =1{One product} other{{count} products}}",
+    "prices_button_count_product": "{count,plural, one {}=0{Κανένα προϊόν} =1{Ένα προϊόν} other{{count} προϊόντα}}",
     "@prices_button_count_product": {
         "description": "Number of products, for a button",
         "placeholders": {
@@ -2483,7 +2483,7 @@
     "@edit_photo_unselect_button_label": {
         "description": "Edit 'unselect photo' button label"
     },
-    "edit_photo_select_existing_button_label": "Select an existing image",
+    "edit_photo_select_existing_button_label": "Επιλέξτε μια υπάρχουσα εικόνα",
     "@edit_photo_select_existing_button_label": {
         "description": "Edit 'select existing image' button label"
     },
@@ -2491,23 +2491,23 @@
     "@edit_photo_select_existing_all_label": {
         "description": "Page title"
     },
-    "edit_photo_select_existing_all_subtitle": "Select an image by clicking on it",
+    "edit_photo_select_existing_all_subtitle": "Επιλέξτε μια εικόνα κάνοντας κλικ πάνω της",
     "@edit_photo_select_existing_all_subtitle": {
         "description": "Page title"
     },
-    "edit_photo_select_existing_download_label": "Retrieving existing images…",
+    "edit_photo_select_existing_download_label": "Ανάκτηση υπαρχουσών εικόνων…",
     "@edit_photo_select_existing_download_label": {
         "description": "Dialog label"
     },
-    "edit_photo_select_existing_downloaded_none": "There are no images previously uploaded related to this product.",
+    "edit_photo_select_existing_downloaded_none": "Δεν υπάρχουν εικόνες που έχουν μεταφορτωθεί στο παρελθόν σχετικά με αυτό το προϊόν.",
     "@edit_photo_select_existing_downloaded_none": {
         "description": "Error message"
     },
-    "edit_photo_language_not_this_one": "No image in that language yet",
+    "edit_photo_language_not_this_one": "Δεν υπάρχει ακόμα εικόνα σε αυτή τη γλώσσα",
     "@edit_photo_language_not_this_one": {
         "description": "Warning message: for this product and this field, there are 'translated' images, but not in that language"
     },
-    "edit_photo_language_none": "No image yet",
+    "edit_photo_language_none": "Καμία εικόνα ακόμα",
     "@edit_photo_language_none": {
         "description": "Warning message: for this product and this field, there are no images at all, in any language"
     },
@@ -2517,47 +2517,47 @@
     },
     "basic_details": "Βασικές Λεπτομέρειες",
     "product_name": "Όνομα Προϊόντος",
-    "product_names": "Product Names",
+    "product_names": "Ονόματα Προϊόντων",
     "@product_names": {
         "description": "Title for the section to edit the product name (in multiple languages)"
     },
-    "add_basic_details_product_name_add_translation": "Add a new translation",
+    "add_basic_details_product_name_add_translation": "Προσθήκη νέας μετάφρασης",
     "@add_basic_details_product_name_add_translation": {
         "description": "Button to add a new translation for the product name"
     },
-    "add_basic_details_product_name_warning_translations": "Before validating, please ensure you only add a translation **if the language is not present on the packaging**",
+    "add_basic_details_product_name_warning_translations": "Πριν από την επικύρωση, βεβαιωθείτε ότι προσθέτετε μία μετάφραση μόνο **εάν η γλώσσα δεν υπάρχει στη συσκευασία**",
     "@add_basic_details_product_name_warning_translations": {
         "description": "Warning message displayed on top of new translations for the product name"
     },
-    "add_basic_details_product_name_open_photo": "View front photo",
+    "add_basic_details_product_name_open_photo": "Προβολή μπροστινής φωτογραφίας",
     "@add_basic_details_product_name_open_photo": {
         "description": "Button to view the front photo of the product (on top of the screen)"
     },
-    "add_basic_details_product_name_take_photo": "Take front photo",
+    "add_basic_details_product_name_take_photo": "Λήψη μπροστινής φωτογραφίας",
     "@add_basic_details_product_name_take_photo": {
         "description": "Button to take a photo of the front of the product (when there is no photo yet)"
     },
-    "add_basic_details_product_name_hint": "Input the name of the product (eg: Nutella)",
+    "add_basic_details_product_name_hint": "Εισαγάγετε το όνομα του προϊόντος (πχ Nutella)",
     "@add_basic_details_product_name_hint": {
         "description": "Placeholder when the product name text-field is empty"
     },
-    "add_basic_details_product_name_help_title": "Good practices: product name",
+    "add_basic_details_product_name_help_title": "Καλές πρακτικές: όνομα προϊόντος",
     "@add_basic_details_product_name_help_title": {
         "description": "Title for the help section about the product name"
     },
-    "add_basic_details_product_name_help_info1": "The product name is the **main name printed on the packaging**. It can be a registered trademark.",
+    "add_basic_details_product_name_help_info1": "Το όνομα του προϊόντος είναι το **κύριο όνομα που αναγράφεται στη συσκευασία**. Μπορεί να είναι σήμα κατατεθέν.",
     "@add_basic_details_product_name_help_info1": {
         "description": "Text explaining how to write the product name"
     },
-    "add_basic_details_product_name_help_info2": "**Note:** Please don't add a translation **if the language is not present on the packaging**.",
+    "add_basic_details_product_name_help_info2": "**Σημείωση:** Μην προσθέτετε μετάφραση **εάν η γλώσσα δεν υπάρχει στη συσκευασία**.",
     "@add_basic_details_product_name_help_info2": {
         "description": "Text explaining how to write the product name"
     },
-    "explanation_section_good_examples": "Good examples",
+    "explanation_section_good_examples": "Καλά παραδείγματα",
     "@explanation_section_good_examples": {
         "description": "Title for the section with good examples"
     },
-    "explanation_section_bad_examples": "Bad examples",
+    "explanation_section_bad_examples": "Κακά παραδείγματα",
     "@explanation_section_bad_examples": {
         "description": "Title for the section with bad examples"
     },
@@ -2565,19 +2565,19 @@
     "@add_basic_details_product_name_help_good_examples_1": {
         "description": "A 1st good example for the product name (you can change it if necessary)"
     },
-    "add_basic_details_product_name_help_good_examples_2": "Tomato Ketchup",
+    "add_basic_details_product_name_help_good_examples_2": "Κέτσαπ ντομάτας",
     "@add_basic_details_product_name_help_good_examples_2": {
         "description": "A 2nd good example for the product name (you can change it if necessary)"
     },
-    "add_basic_details_product_name_help_bad_examples_1_explanation": "Don't include the brand in the name",
+    "add_basic_details_product_name_help_bad_examples_1_explanation": "Μην συμπεριλάβετε την επωνυμία στο όνομα",
     "@add_basic_details_product_name_help_bad_examples_1_explanation": {
         "description": "Explanation for the first bad example"
     },
-    "add_basic_details_product_name_help_bad_examples_1_example": "Tomato Ketchup **by Heinz**",
+    "add_basic_details_product_name_help_bad_examples_1_example": "Κέτσαπ ντομάτας **από Heinz**",
     "@add_basic_details_product_name_help_bad_examples_1_example": {
         "description": "First bad example for the product name"
     },
-    "add_basic_details_product_name_help_bad_examples_2_explanation": "Don't use symbols ®, ™, © or similar",
+    "add_basic_details_product_name_help_bad_examples_2_explanation": "Μην χρησιμοποιείτε σύμβολα ®, ™, © ή παρόμοια",
     "@add_basic_details_product_name_help_bad_examples_2_explanation": {
         "description": "Explanation for the second bad example"
     },
