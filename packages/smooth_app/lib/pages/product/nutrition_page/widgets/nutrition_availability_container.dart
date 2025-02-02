@@ -24,10 +24,7 @@ class NutritionAvailabilityContainer extends StatelessWidget {
         child: SmoothCardWithRoundedHeader(
           title: appLocalizations.nutrition_page_nutritional_info_title,
           leading: const icons.Milk.happy(),
-          trailing: ExplanationTitleIcon.text(
-            title: appLocalizations.nutrition_page_nutritional_info_title,
-            text: appLocalizations.nutrition_page_nutritional_info_explanation,
-          ),
+          trailing: const _NutritionAvailabilityExplanation(),
           contentPadding: const EdgeInsetsDirectional.only(
             start: LARGE_SPACE,
             end: MEDIUM_SPACE,
@@ -80,6 +77,30 @@ class NutritionAvailabilityContainer extends StatelessWidget {
             ),
           ),
         ),
+      ),
+    );
+  }
+}
+
+class _NutritionAvailabilityExplanation extends StatelessWidget {
+  const _NutritionAvailabilityExplanation();
+
+  @override
+  Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+    return ExplanationTitleIcon(
+      title: appLocalizations.nutrition_page_nutritional_info_explanation_title,
+      safeArea: false,
+      child: Column(
+        children: <Widget>[
+          ExplanationBodyInfo(
+            text: appLocalizations
+                .nutrition_page_nutritional_info_explanation_info1,
+            icon: false,
+            safeArea: true,
+          ),
+        ],
       ),
     );
   }

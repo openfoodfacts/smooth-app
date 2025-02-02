@@ -14,8 +14,8 @@ class ExplanationTitleIcon extends StatelessWidget {
   const ExplanationTitleIcon({
     required this.title,
     required Widget child,
-    this.margin,
-    this.padding,
+    this.margin = EdgeInsets.zero,
+    this.padding = EdgeInsets.zero,
     this.safeArea = true,
   })  :
         // ignore: avoid_field_initializers_in_const_classes
@@ -230,9 +230,10 @@ class ExplanationTextContainer extends StatelessWidget {
                   ),
                 ),
               ExplanationTextContainerContentItem() => Padding(
-                  padding: const EdgeInsetsDirectional.only(
-                    top: SMALL_SPACE,
-                  ),
+                  padding: item.padding ??
+                      const EdgeInsetsDirectional.only(
+                        top: SMALL_SPACE,
+                      ),
                   child: _ExplanationBodyListItem(
                     icon: icons.Arrow.right(
                       size: 11.0,
@@ -272,12 +273,14 @@ class ExplanationTextContainerContentItem
     this.example,
     this.visualExample,
     this.visualExamplePosition,
+    this.padding,
   });
 
   final String text;
   final String? example;
   final Widget? visualExample;
   final ExplanationVisualExamplePosition? visualExamplePosition;
+  final EdgeInsetsGeometry? padding;
 }
 
 class ExplanationGoodExamplesContainer extends StatelessWidget {

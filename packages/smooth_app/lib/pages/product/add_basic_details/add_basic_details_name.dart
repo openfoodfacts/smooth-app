@@ -456,14 +456,13 @@ class _ProductNameExplanation extends StatelessWidget {
 
     return ExplanationTitleIcon(
       title: appLocalizations.add_basic_details_product_name_help_title,
-      margin: EdgeInsets.zero,
-      padding: EdgeInsets.zero,
       safeArea: false,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           ExplanationBodyInfo(
             text: appLocalizations.add_basic_details_product_name_help_info1,
+            icon: false,
           ),
           ExplanationGoodExamplesContainer(
             items: <String>[

@@ -32,7 +32,6 @@ import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
-import 'package:smooth_app/widgets/smooth_explanation_banner.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 import 'package:smooth_app/widgets/will_pop_scope.dart';
 
@@ -420,12 +419,7 @@ class _NutritionPageBodyState extends State<_NutritionPageBody> {
                 setState(() => _nutrientToHighlight = nutrient);
               },
             ),
-            ExplanationTitleIcon.text(
-              title:
-                  appLocalizations.edit_product_form_item_nutrition_facts_title,
-              text: appLocalizations
-                  .edit_product_form_item_nutrition_facts_explanation,
-            ),
+            const NutritionFactsEditorExplanation(),
           ],
         ),
         contentPadding: EdgeInsets.zero,

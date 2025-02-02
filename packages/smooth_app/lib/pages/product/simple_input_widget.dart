@@ -178,8 +178,6 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
       if (explanations != null)
         ExplanationTitleIcon(
           title: title ?? widget.helper.getTitle(appLocalizations),
-          margin: EdgeInsets.zero,
-          padding: EdgeInsets.zero,
           child: explanations(context),
         ),
     ];

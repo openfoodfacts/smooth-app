@@ -16,6 +16,7 @@ import 'package:smooth_app/pages/text_field_helper.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/widgets/smooth_dropdown.dart';
+import 'package:smooth_app/widgets/smooth_explanation_banner.dart';
 
 class NutrientRow extends StatefulWidget {
   const NutrientRow({
@@ -437,6 +438,66 @@ class _NutritionCellTextWatcher extends StatelessWidget {
           TextEditingControllerWithHistory controller, _) {
         return builder(context, controller);
       },
+    );
+  }
+}
+
+class NutritionFactsEditorExplanation extends StatelessWidget {
+  const NutritionFactsEditorExplanation({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+    return ExplanationTitleIcon(
+      title: appLocalizations
+          .edit_product_form_item_nutrition_facts_explanation_title,
+      child: Column(
+        children: <Widget>[
+          ExplanationTextContainer(
+            title: appLocalizations
+                .edit_product_form_item_nutrition_facts_explanation_info1_title,
+            items: <ExplanationTextContainerContent>[
+              ExplanationTextContainerContentText(
+                text: appLocalizations
+                    .edit_product_form_item_nutrition_facts_explanation_info1_content,
+              ),
+              ExplanationTextContainerContentItem(
+                text: appLocalizations.nutrition_page_per_100g,
+                padding: EdgeInsets.zero,
+              ),
+              ExplanationTextContainerContentItem(
+                text: appLocalizations.nutrition_page_per_100g_100ml,
+                padding: const EdgeInsetsDirectional.only(
+                  bottom: VERY_SMALL_SPACE,
+                ),
+              ),
+            ],
+          ),
+          ExplanationTextContainer(
+            title: appLocalizations
+                .edit_product_form_item_nutrition_facts_explanation_info2_title,
+            items: <ExplanationTextContainerContent>[
+              ExplanationTextContainerContentText(
+                text: appLocalizations
+                    .edit_product_form_item_nutrition_facts_explanation_info2_content,
+              ),
+            ],
+          ),
+          ExplanationTextContainer(
+            title: appLocalizations
+                .edit_product_form_item_nutrition_facts_explanation_info3_title,
+            items: <ExplanationTextContainerContent>[
+              ExplanationTextContainerContentText(
+                text: appLocalizations
+                    .edit_product_form_item_nutrition_facts_explanation_info3_content,
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }

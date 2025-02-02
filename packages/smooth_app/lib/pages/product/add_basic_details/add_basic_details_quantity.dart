@@ -59,8 +59,6 @@ class _ProductQuantityExplanation extends StatelessWidget {
 
     return ExplanationTitleIcon(
       title: appLocalizations.add_basic_details_product_quantity_help_title,
-      margin: EdgeInsets.zero,
-      padding: EdgeInsets.zero,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
