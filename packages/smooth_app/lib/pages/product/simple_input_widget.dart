@@ -9,7 +9,6 @@ import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_snackbar.dart';
 import 'package:smooth_app/helpers/collections_helper.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
-import 'package:smooth_app/pages/product/explanation_widget.dart';
 import 'package:smooth_app/pages/product/owner_field_info.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
 import 'package:smooth_app/pages/product/simple_input_text_field.dart';
@@ -62,8 +61,7 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final String? explanations =
-        widget.helper.getAddExplanations(appLocalizations);
+
     final Widget? extraWidget = widget.helper.getExtraWidget(
       context,
       widget.product,
@@ -72,13 +70,6 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
     final Widget child = Column(
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
-        if (explanations != null && !widget.displayTitle)
-          Padding(
-            padding: const EdgeInsetsDirectional.symmetric(
-              horizontal: SMALL_SPACE,
-            ),
-            child: ExplanationWidget(explanations),
-          ),
         LayoutBuilder(
           builder: (_, BoxConstraints constraints) {
             return Padding(
@@ -156,7 +147,8 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
     );
 
     final Widget? trailingHeader = _getTrailingHeader(
-      explanations,
+      widget.helper.getAddExplanationsTitle(appLocalizations),
+      widget.helper.getAddExplanationsContent(),
       appLocalizations,
     );
 
@@ -172,7 +164,8 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
   }
 
   Widget? _getTrailingHeader(
-    String? explanations,
+    String? title,
+    WidgetBuilder? explanations,
     AppLocalizations appLocalizations,
   ) {
     if (!widget.displayTitle) {
@@ -183,9 +176,11 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
       if (widget.helper.isOwnerField(widget.product))
         const OwnerFieldSmoothCardIcon(),
       if (explanations != null)
-        ExplanationTitleIcon.type(
-          text: explanations,
-          type: widget.helper.getTitle(appLocalizations),
+        ExplanationTitleIcon(
+          title: title ?? widget.helper.getTitle(appLocalizations),
+          margin: EdgeInsets.zero,
+          padding: EdgeInsets.zero,
+          child: explanations(context),
         ),
     ];
 

@@ -145,10 +145,14 @@ class ExplanationBodyTitle extends StatelessWidget {
 class ExplanationBodyInfo extends StatelessWidget {
   const ExplanationBodyInfo({
     required this.text,
+    this.icon = true,
+    this.backgroundColor,
     this.safeArea = false,
   });
 
   final String text;
+  final Color? backgroundColor;
+  final bool icon;
   final bool safeArea;
 
   @override
@@ -158,7 +162,8 @@ class ExplanationBodyInfo extends StatelessWidget {
     final bool lightTheme = context.lightTheme();
 
     return ColoredBox(
-      color: lightTheme ? extension.primaryLight : extension.primarySemiDark,
+      color: backgroundColor ??
+          (lightTheme ? extension.primaryMedium : extension.primaryTone),
       child: ClipRect(
         child: Padding(
           padding: EdgeInsetsDirectional.only(
@@ -182,9 +187,92 @@ class ExplanationBodyInfo extends StatelessWidget {
   }
 }
 
+class ExplanationTextContainer extends StatelessWidget {
+  const ExplanationTextContainer({
+    super.key,
+    required this.title,
+    required this.items,
+  });
+
+  final String title;
+  final List<ExplanationTextContainerContent> items;
+
+  @override
+  Widget build(BuildContext context) {
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
+    final bool lightTheme = context.lightTheme();
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        _ExplanationContainerTitle(
+          label: title,
+          foregroundColor: lightTheme ? Colors.black : Colors.white,
+          backgroundColor:
+              lightTheme ? extension.primaryMedium : extension.primaryDark,
+        ),
+        ...items
+            .mapIndexed((int position, ExplanationTextContainerContent item) {
+          return switch (item) {
+            ExplanationTextContainerContentText() => Padding(
+                padding: const EdgeInsetsDirectional.only(
+                  start: LARGE_SPACE,
+                  end: LARGE_SPACE,
+                  top: MEDIUM_SPACE,
+                  bottom: VERY_SMALL_SPACE,
+                ),
+                child: TextWithBoldParts(
+                  text: item.text,
+                  textStyle: TextStyle(
+                    color: lightTheme ? extension.primaryDark : Colors.white,
+                  ),
+                ),
+              ),
+            ExplanationTextContainerContentItem() => Padding(
+                padding: const EdgeInsetsDirectional.only(
+                  top: SMALL_SPACE,
+                ),
+                child: _ExplanationBodyListItem(
+                  icon: const icons.Arrow.right(size: 11.0),
+                  iconBackgroundColor: extension.greyNormal,
+                  iconPadding: EdgeInsets.zero,
+                  text: item.example,
+                  explanation: item.text,
+                ),
+              ),
+          };
+        }),
+      ],
+    );
+  }
+}
+
+sealed class ExplanationTextContainerContent {}
+
+class ExplanationTextContainerContentText
+    extends ExplanationTextContainerContent {
+  ExplanationTextContainerContentText({required this.text});
+
+  final String text;
+}
+
+class ExplanationTextContainerContentItem
+    extends ExplanationTextContainerContent {
+  ExplanationTextContainerContentItem({
+    required this.text,
+    required this.example,
+  });
+
+  final String text;
+  final String example;
+}
+
 class ExplanationGoodExamplesContainer extends StatelessWidget {
-  const ExplanationGoodExamplesContainer({required this.items, super.key})
-      : assert(items.length > 0);
+  const ExplanationGoodExamplesContainer({
+    required this.items,
+    super.key,
+  }) : assert(items.length > 0);
 
   final List<String> items;
 
@@ -205,7 +293,7 @@ class ExplanationGoodExamplesContainer extends StatelessWidget {
             icon: const icons.Check(size: 11.0),
             iconBackgroundColor: extension.success,
             iconPadding: EdgeInsets.zero,
-            example: item,
+            text: item,
           ),
         ),
       ],
@@ -239,7 +327,7 @@ class ExplanationBadExamplesContainer extends StatelessWidget {
             icon: const icons.Close(size: 11.0),
             iconBackgroundColor: extension.error,
             iconPadding: EdgeInsetsDirectional.zero,
-            example: item,
+            text: item,
             explanation: explanations[position],
           ),
         ),
@@ -307,14 +395,14 @@ class _ExplanationBodyListItem extends StatelessWidget {
     required this.icon,
     required this.iconBackgroundColor,
     required this.iconPadding,
-    required this.example,
+    required this.text,
     this.explanation,
   });
 
   final Widget icon;
   final Color iconBackgroundColor;
   final EdgeInsetsGeometry iconPadding;
-  final String example;
+  final String text;
   final String? explanation;
 
   @override
@@ -348,49 +436,54 @@ class _ExplanationBodyListItem extends StatelessWidget {
             ),
           ),
           SizedBox(width: explanation != null ? 11.0 : 13.0),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              if (explanation != null) ...<Widget>[
-                Padding(
-                  padding: const EdgeInsetsDirectional.only(start: 2.0),
-                  child: Text(
-                    explanation!,
-                    style: TextStyle(
-                      color: lightTheme
-                          ? extension.primaryDark
-                          : extension.primaryLight,
-                      fontWeight: FontWeight.bold,
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                if (explanation != null) ...<Widget>[
+                  Padding(
+                    padding: const EdgeInsetsDirectional.only(start: 2.0),
+                    child: TextWithBoldParts(
+                      text: explanation!,
+                      textStyle: TextStyle(
+                        color: lightTheme
+                            ? extension.primaryDark
+                            : extension.primaryLight,
+                        fontWeight: FontWeight.w600,
+                      ),
+                      boldTextStyle: TextStyle(
+                        color: lightTheme
+                            ? extension.primaryUltraBlack
+                            : Colors.white,
+                        fontWeight: FontWeight.bold,
+                        decoration: TextDecoration.underline,
+                        decorationThickness: 2.5,
+                      ),
                     ),
                   ),
-                ),
-                const SizedBox(height: VERY_SMALL_SPACE),
+                  const SizedBox(height: VERY_SMALL_SPACE),
+                ],
+                DecoratedBox(
+                  decoration: BoxDecoration(
+                    color: lightTheme
+                        ? extension.primaryLight
+                        : extension.primaryMedium,
+                    borderRadius: ROUNDED_BORDER_RADIUS,
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsetsDirectional.symmetric(
+                      horizontal: MEDIUM_SPACE,
+                      vertical: BALANCED_SPACE,
+                    ),
+                    child: TextWithBoldParts(
+                      text: text,
+                      textStyle: const TextStyle(color: Colors.black),
+                    ),
+                  ),
+                )
               ],
-              DecoratedBox(
-                decoration: BoxDecoration(
-                  color: iconBackgroundColor,
-                  borderRadius: ROUNDED_BORDER_RADIUS,
-                ),
-                child: Padding(
-                  padding: const EdgeInsetsDirectional.symmetric(
-                    horizontal: MEDIUM_SPACE,
-                    vertical: BALANCED_SPACE,
-                  ),
-                  child: TextWithBoldParts(
-                    text: example,
-                    textStyle: const TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w600,
-                    ),
-                    highlightedTextStyle: const TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w900,
-                    ),
-                  ),
-                ),
-              )
-            ],
-          )
+            ),
+          ),
         ],
       ),
     );

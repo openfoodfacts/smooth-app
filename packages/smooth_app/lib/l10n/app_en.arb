@@ -2545,6 +2545,14 @@
     "@add_basic_details_product_name_hint": {
         "description": "Placeholder when the product name text-field is empty"
     },
+    "explanation_section_good_examples": "Good examples",
+    "@explanation_section_good_examples": {
+        "description": "Title for the section with good examples"
+    },
+    "explanation_section_bad_examples": "Bad examples",
+    "@explanation_section_bad_examples": {
+        "description": "Title for the section with bad examples"
+    },
     "add_basic_details_product_name_help_title": "Good practices: product name",
     "@add_basic_details_product_name_help_title": {
         "description": "Title for the help section about the product name"
@@ -2556,14 +2564,6 @@
     "add_basic_details_product_name_help_info2": "**Note:** Please don't add a translation **if the language is not present on the packaging**.",
     "@add_basic_details_product_name_help_info2": {
         "description": "Text explaining how to write the product name"
-    },
-    "explanation_section_good_examples": "Good examples",
-    "@explanation_section_good_examples": {
-        "description": "Title for the section with good examples"
-    },
-    "explanation_section_bad_examples": "Bad examples",
-    "@explanation_section_bad_examples": {
-        "description": "Title for the section with bad examples"
     },
     "add_basic_details_product_name_help_good_examples_1": "Nesquik",
     "@add_basic_details_product_name_help_good_examples_1": {
@@ -2602,8 +2602,72 @@
     "brand_names": "Brand names",
     "add_basic_details_brand_name_error": "Please enter the brand name",
     "add_basic_details_brand_names_hint": "Input brands (eg: Ferrero)",
+    "add_basic_details_product_brand_help_title": "Good practices: brands",
+    "@add_basic_details_product_brand_help_title": {
+        "description": "Title for the help section about the product brands"
+    },
+    "add_basic_details_product_brand_help_info1": "Input **all the brands of the product**.",
+    "@add_basic_details_product_brand_help_info1": {
+        "description": "Text explaining how to write brands"
+    },
+    "add_basic_details_product_brand_help_info2_title": "Main brand",
+    "@add_basic_details_product_brand_help_info2_title": {
+        "description": "Text explaining how to write brands"
+    },
+    "add_basic_details_product_brand_help_info2_content": "The **main brand**, generally clearly displayed on the front pack, should be **entered first**.",
+    "@add_basic_details_product_brand_help_info2_content": {
+        "description": "Text explaining how to write brands"
+    },
+    "add_basic_details_product_brand_help_info3_title": "Other brands:",
+    "@add_basic_details_product_brand_help_info3_title": {
+        "description": "Text explaining how to write brands"
+    },
+    "add_basic_details_product_brand_help_info3_item1_text": "When sold **by a big company**:",
+    "@add_basic_details_product_brand_help_info3_item1_text": {
+        "description": "Text explaining how to write brands"
+    },
+    "add_basic_details_product_brand_help_info3_item1_explanation": "**Actimel** is sold by **Danone**",
+    "@add_basic_details_product_brand_help_info3_item1_explanation": {
+        "description": "Text explaining how to write brands"
+    },
+    "add_basic_details_product_brand_help_info3_item2_text": "When sold with its brand **translated in multiple languages**:",
+    "@add_basic_details_product_brand_help_info3_item2_text": {
+        "description": "Text explaining how to write brands"
+    },
+    "add_basic_details_product_brand_help_info3_item2_explanation": "**Nature Valley** is sometimes written **Val Nature**",
+    "@add_basic_details_product_brand_help_info3_item2_explanation": {
+        "description": "Text explaining how to write brands"
+    },
+    "add_basic_details_product_brand_help_good_examples_1": "Nutella",
+    "@add_basic_details_product_brand_help_good_examples_1": {
+        "description": "A 1st good example for the brand name (you can change it if necessary)"
+    },
+    "add_basic_details_product_brand_help_good_examples_2": "Oreo, Mondelez",
+    "@add_basic_details_product_brand_help_good_examples_2": {
+        "description": "A 2nd good example for the brand name (you can change it if necessary)"
+    },
     "quantity": "Quantity and weight",
     "add_basic_details_quantity_hint": "Input the weight and if needed the quantity (eg : 4x100g)",
+    "add_basic_details_product_quantity_help_title": "Good practices: quantity",
+    "@add_basic_details_product_quantity_help_title": {
+        "description": "Title for the help section about the product quantity"
+    },
+    "add_basic_details_product_quantity_help_info1": "Copy the value indicated on the product and **don't forget the units**.",
+    "@add_basic_details_product_quantity_help_info1": {
+        "description": "Text explaining how to write quantity"
+    },
+    "add_basic_details_product_quantity_help_good_examples_1": "**230g** or **230 g**",
+    "@add_basic_details_product_quantity_help_good_examples_1": {
+        "description": "A 1st good example for the quantity (you can change it if necessary)"
+    },
+    "add_basic_details_product_quantity_help_good_examples_2": "**6** (for 6 eggs)",
+    "@add_basic_details_product_quantity_help_good_examples_2": {
+        "description": "A 2nd good example for the quantity (you can change it if necessary)"
+    },
+    "add_basic_details_product_quantity_help_good_examples_3": "**3 x 150g**\n(for a product with 3 boxes, each of 150g)",
+    "@add_basic_details_product_quantity_help_good_examples_3": {
+        "description": "A 2nd good example for the quantity (you can change it if necessary)"
+    },
     "barcode": "Barcode",
     "barcode_barcode": "Barcode: {barcode}",
     "@barcode_barcode": {

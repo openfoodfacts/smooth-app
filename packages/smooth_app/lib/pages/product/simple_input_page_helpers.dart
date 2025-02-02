@@ -9,6 +9,7 @@ import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/multilingual_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
+import 'package:smooth_app/widgets/smooth_explanation_banner.dart';
 
 /// Abstract helper for Simple Input Page.
 ///
@@ -101,7 +102,11 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
   String getAddTooltip(final AppLocalizations appLocalizations);
 
   /// Returns additional examples about the "add" text field.
-  String? getAddExplanations(final AppLocalizations appLocalizations) => null;
+  String? getAddExplanationsTitle(final AppLocalizations appLocalizations) =>
+      null;
+
+  /// Returns additional examples about the "add" text field.
+  WidgetBuilder? getAddExplanationsContent() => null;
 
   /// Stamp to identify similar updates on the same product.
   BackgroundTaskDetailsStamp getStamp();
@@ -290,6 +295,60 @@ class SimpleInputPageBrandsHelper extends AbstractSimpleInputPageHelper {
       appLocalizations.edit_product_form_item_add_action_brand;
 
   @override
+  String? getAddExplanationsTitle(AppLocalizations appLocalizations) =>
+      appLocalizations.add_basic_details_product_brand_help_title;
+
+  @override
+  WidgetBuilder? getAddExplanationsContent() => (BuildContext context) {
+        final AppLocalizations appLocalizations = AppLocalizations.of(context);
+        return Column(
+          children: <Widget>[
+            ExplanationBodyInfo(
+              text: appLocalizations.add_basic_details_product_brand_help_info1,
+              icon: false,
+            ),
+            ExplanationTextContainer(
+              title: appLocalizations
+                  .add_basic_details_product_brand_help_info2_title,
+              items: <ExplanationTextContainerContent>[
+                ExplanationTextContainerContentText(
+                  text: appLocalizations
+                      .add_basic_details_product_brand_help_info2_content,
+                ),
+              ],
+            ),
+            ExplanationTextContainer(
+              title: appLocalizations
+                  .add_basic_details_product_brand_help_info3_title,
+              items: <ExplanationTextContainerContent>[
+                ExplanationTextContainerContentItem(
+                  text: appLocalizations
+                      .add_basic_details_product_brand_help_info3_item1_text,
+                  example: appLocalizations
+                      .add_basic_details_product_brand_help_info3_item1_explanation,
+                ),
+                ExplanationTextContainerContentItem(
+                  text: appLocalizations
+                      .add_basic_details_product_brand_help_info3_item2_text,
+                  example: appLocalizations
+                      .add_basic_details_product_brand_help_info3_item2_explanation,
+                ),
+              ],
+            ),
+            const SizedBox(height: MEDIUM_SPACE),
+            ExplanationGoodExamplesContainer(
+              items: <String>[
+                appLocalizations
+                    .add_basic_details_product_brand_help_good_examples_1,
+                appLocalizations
+                    .add_basic_details_product_brand_help_good_examples_2,
+              ],
+            ),
+          ],
+        );
+      };
+
+  @override
   TextCapitalization? getTextCapitalization() => TextCapitalization.sentences;
 
   @override
@@ -414,10 +473,14 @@ class SimpleInputPageOriginHelper extends AbstractSimpleInputPageHelper {
       appLocalizations.edit_product_form_item_origins_type;
 
   @override
-  String? getAddExplanations(final AppLocalizations appLocalizations) =>
-      '${appLocalizations.edit_product_form_item_origins_explainer_1}'
-      '\n'
-      '${appLocalizations.edit_product_form_item_origins_explainer_2}';
+  WidgetBuilder? getAddExplanationsContent() => (BuildContext context) {
+        final AppLocalizations appLocalizations = AppLocalizations.of(context);
+        return ExplanationBodyInfo(
+            text:
+                '${appLocalizations.edit_product_form_item_origins_explainer_1}'
+                '\n'
+                '${appLocalizations.edit_product_form_item_origins_explainer_2}');
+      };
 
   @override
   TagType? getTagType() => TagType.ORIGINS;
@@ -474,8 +537,12 @@ class SimpleInputPageEmbCodeHelper extends AbstractSimpleInputPageHelper {
       appLocalizations.edit_product_form_item_emb_codes_type;
 
   @override
-  String getAddExplanations(final AppLocalizations appLocalizations) =>
-      appLocalizations.edit_product_form_item_emb_codes_explanations;
+  WidgetBuilder? getAddExplanationsContent() => (BuildContext context) {
+        final AppLocalizations appLocalizations = AppLocalizations.of(context);
+        return ExplanationBodyInfo(
+            text:
+                appLocalizations.edit_product_form_item_emb_codes_explanations);
+      };
 
   @override
   TagType? getTagType() => TagType.EMB_CODES;
@@ -606,12 +673,16 @@ class SimpleInputPageCategoryHelper extends AbstractSimpleInputPageHelper {
       appLocalizations.score_add_missing_product_category;
 
   @override
-  String? getAddExplanations(final AppLocalizations appLocalizations) =>
-      '${appLocalizations.edit_product_form_item_categories_explainer_1}'
-      '\n'
-      '${appLocalizations.edit_product_form_item_categories_explainer_2}'
-      '\n'
-      '${appLocalizations.edit_product_form_item_categories_explainer_3}';
+  WidgetBuilder? getAddExplanationsContent() => (BuildContext context) {
+        final AppLocalizations appLocalizations = AppLocalizations.of(context);
+        return ExplanationBodyInfo(
+            text:
+                '${appLocalizations.edit_product_form_item_categories_explainer_1}'
+                '\n'
+                '${appLocalizations.edit_product_form_item_categories_explainer_2}'
+                '\n'
+                '${appLocalizations.edit_product_form_item_categories_explainer_3}');
+      };
 
   @override
   String getAddHint(final AppLocalizations appLocalizations) =>
@@ -687,8 +758,13 @@ class SimpleInputPageCountryHelper extends AbstractSimpleInputPageHelper {
       appLocalizations.edit_product_form_item_countries_type;
 
   @override
-  String getAddExplanations(final AppLocalizations appLocalizations) =>
-      appLocalizations.edit_product_form_item_countries_explanations;
+  @override
+  WidgetBuilder? getAddExplanationsContent() => (BuildContext context) {
+        final AppLocalizations appLocalizations = AppLocalizations.of(context);
+        return ExplanationBodyInfo(
+            text:
+                appLocalizations.edit_product_form_item_countries_explanations);
+      };
 
   @override
   TagType? getTagType() => TagType.COUNTRIES;
