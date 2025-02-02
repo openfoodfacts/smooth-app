@@ -1174,15 +1174,15 @@
     "@compare_products_appbar_title": {
         "description": "AppBar title when in comparison mode "
     },
-    "compare_products_appbar_subtitle": "Please select at least two products",
+    "compare_products_appbar_subtitle": "Παρακαλώ επιλέξτε τουλάχιστον δύο προϊόντα",
     "@compare_products_appbar_subtitle": {
         "description": "AppBar subtitle when in comparison mode"
     },
     "retry_button_label": "Προσπαθήστε ξανά",
     "connect_with_us": "Συνδεθείτε μαζί μας",
-    "instagram": "Follow us on Instagram",
+    "instagram": "Ακολουθήστε μας στο Instagram",
     "instagram_link": "https://instagram.com/open.food.facts",
-    "twitter": "Follow us on X (formerly Twitter)",
+    "twitter": "Ακολουθήστε μας στο X (πρώην Twitter)",
     "twitter_link": "https://www.twitter.com/openfoodfacts",
     "blog": "Ιστολόγιο",
     "faq": "Συχνές ερωτήσεις",
@@ -1192,11 +1192,11 @@
     "@hint_knowledge_panel_message": {
         "description": "Hint popup indicating the card is clickable during onboarding"
     },
-    "permissions_page_title": "Camera access",
+    "permissions_page_title": "Πρόσβαση στην Κάμερα",
     "@permissions_page_title": {
         "description": "Title for the camera permission's page (onboarding)"
     },
-    "permissions_page_body1": "To scan barcodes with your phone's camera, please Authorise the access.",
+    "permissions_page_body1": "Για να σαρώσετε γραμμικούς κώδικες με την κάμερα του τηλεφώνου σας, παρακαλούμε Εξουσιοδοτήστε την πρόσβαση.",
     "@permissions_page_body1": {
         "description": "first paragraph for the camera permission's page (onboarding)"
     },
@@ -1204,7 +1204,7 @@
     "@permissions_page_body2": {
         "description": "second paragraph for the camera permission's page (onboarding)"
     },
-    "contact_form_body_android": "OS: Android (SDK Int: {sdkInt} / Release: {release})\nModel: {model}\nProduct: {product}\nDevice: {device}\nBrand:{brand}",
+    "contact_form_body_android": "OS: Android (SDK Int: {sdkInt} / Έκδοση: {release})\nΜοντέλο: {model}\nΠροϊόν: {product}\nΣυσκευή: {device}\nΜάρκα:{brand}",
     "@contact_form_body_android": {
         "description": "Contact form content for Android devices",
         "placeholders": {
