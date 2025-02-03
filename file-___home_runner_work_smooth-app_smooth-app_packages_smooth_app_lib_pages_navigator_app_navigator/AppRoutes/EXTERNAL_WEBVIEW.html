@@ -66,7 +66,7 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static String EXTERNAL_WEBVIEW(String path, {String? pageTitle}) =&gt;
-    &#39;&#47;${_InternalAppRoutes.EXTERNAL_WEBVIEW_PAGE}?title=$pageTitle&amp;path=${Uri.encodeFull(path)}&#39;;</code></pre>
+    &#39;&#47;${_InternalAppRoutes.EXTERNAL_WEBVIEW_PAGE}?title=$pageTitle&amp;path=${_encodePath(path)}&#39;;</code></pre>
 </section>
 
 
