@@ -542,7 +542,7 @@
     "@outdated_image_short_label": {
         "description": "A label for outdated images"
     },
-    "ingredients": "İçindekiler",
+    "ingredients": "Malzemeler",
     "@ingredients": {},
     "ingredients_editing_instructions": "Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen and use parentheses for ingredients of an ingredient.",
     "ingredients_editing_error": "Malzemeler kaydedilemedi.",
@@ -1489,6 +1489,10 @@
     "@edit_product_pending_operations_banner_message": {
         "description": "When a product has pending edits (being sent to the server), there is a message on the edit page. Please keep the ** syntax to make the text bold."
     },
+    "edit_product_pending_operations_banner_short_message": "Your edits are being **sent in the background** (or later in case of error).",
+    "@edit_product_pending_operations_banner_short_message": {
+        "description": "When a product has pending edits (being sent to the server), there is a message on the edit page. Please keep the ** syntax to make the text bold."
+    },
     "edit_product_label_short": "Düzenle",
     "@edit_product_label_short": {
         "description": "Edit product button short label (only the verb)"
@@ -1670,7 +1674,7 @@
     "edit_product_form_item_exit_confirmation": "Sayfadan ayrılmadan önce değişiklikleri kaydetmek istiyor musunuz?",
     "edit_product_form_item_exit_confirmation_positive_button": "Değişiklikleri kaydet",
     "edit_product_form_item_exit_confirmation_negative_button": "Değişiklileri yoksay",
-    "edit_product_form_item_ingredients_title": "İçindekiler",
+    "edit_product_form_item_ingredients_title": "Malzemeler",
     "@edit_product_form_item_ingredients_title": {
         "description": "Product edition - Ingredients - Title (note: this section was previously called Ingredients & Origins)"
     },
