@@ -1489,6 +1489,10 @@
     "@edit_product_pending_operations_banner_message": {
         "description": "When a product has pending edits (being sent to the server), there is a message on the edit page. Please keep the ** syntax to make the text bold."
     },
+    "edit_product_pending_operations_banner_short_message": "Your edits are being **sent in the background** (or later in case of error).",
+    "@edit_product_pending_operations_banner_short_message": {
+        "description": "When a product has pending edits (being sent to the server), there is a message on the edit page. Please keep the ** syntax to make the text bold."
+    },
     "edit_product_label_short": "Edit",
     "@edit_product_label_short": {
         "description": "Edit product button short label (only the verb)"
