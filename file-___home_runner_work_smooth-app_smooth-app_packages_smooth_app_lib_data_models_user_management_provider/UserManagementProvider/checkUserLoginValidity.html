@@ -52,7 +52,8 @@
       
 
 <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
-<span class="name ">checkUserLoginValidity</span>(<wbr>)
+<span class="name ">checkUserLoginValidity</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="checkUserLoginValidity-param-preferences"><span class="type-annotation">dynamic</span> <span class="parameter-name">preferences</span></span></li>
+</ol>)
 
       
 
@@ -67,7 +68,7 @@ If not, the user is logged out</p>
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; checkUserLoginValidity() async {
+  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; checkUserLoginValidity(UserPreferences preferences) async {
   if (!ProductQuery.isLoggedIn()) {
     return;
   }
@@ -77,6 +78,7 @@ If not, the user is logged out</p>
       userId: user.userId,
       password: user.password,
     ),
+    preferences,
   );
 
   if (loginResult.type == LoginResultType.unsuccessful) {

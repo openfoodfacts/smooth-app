@@ -52,7 +52,8 @@
       
 
 <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a></span>
-<span class="name ">login</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="login-param-user"><span class="type-annotation">dynamic</span> <span class="parameter-name">user</span></span></li>
+<span class="name ">login</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="login-param-user"><span class="type-annotation">dynamic</span> <span class="parameter-name">user</span>, </span></li>
+<li><span class="parameter" id="login-param-preferences"><span class="type-annotation">dynamic</span> <span class="parameter-name">preferences</span></span></li>
 </ol>)
 
       
@@ -67,8 +68,14 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;LoginResult&gt; login(final User user) async {
-  final LoginResult loginResult = await LoginResult.getLoginResult(user);
+  <pre class="language-dart"><code class="language-dart">Future&lt;LoginResult&gt; login(
+  final User user,
+  final UserPreferences preferences,
+) async {
+  final LoginResult loginResult = await LoginResult.getLoginResult(
+    user,
+    preferences,
+  );
   if (loginResult.type != LoginResultType.successful) {
     return loginResult;
   }

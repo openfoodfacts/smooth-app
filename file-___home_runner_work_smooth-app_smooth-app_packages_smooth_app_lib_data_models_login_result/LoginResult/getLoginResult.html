@@ -52,7 +52,8 @@
       
 
 <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_login_result/LoginResult-class.html">LoginResult</a></span>&gt;</span></span>
-<span class="name ">getLoginResult</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="getLoginResult-param-user"><span class="type-annotation">dynamic</span> <span class="parameter-name">user</span></span></li>
+<span class="name ">getLoginResult</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="getLoginResult-param-user"><span class="type-annotation">dynamic</span> <span class="parameter-name">user</span>, </span></li>
+<li><span class="parameter" id="getLoginResult-param-userPreferences"><span class="type-annotation">dynamic</span> <span class="parameter-name">userPreferences</span></span></li>
 </ol>)
 
       
@@ -67,12 +68,19 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">static Future&lt;LoginResult&gt; getLoginResult(final User user) async {
+  <pre class="language-dart"><code class="language-dart">static Future&lt;LoginResult&gt; getLoginResult(
+  final User user,
+  final UserPreferences userPreferences,
+) async {
   try {
+    final bool prodUrl = userPreferences
+            .getFlag(UserPreferencesDevMode.userPreferencesFlagProd) ??
+        true;
+
     final LoginStatus? loginStatus = await OpenFoodAPIClient.login2(
       user,
       uriHelper: ProductQuery.getUriProductHelper(
-        productType: ProductType.food,
+        productType: prodUrl ? ProductType.food : null,
       ),
     );
     if (loginStatus == null) {
