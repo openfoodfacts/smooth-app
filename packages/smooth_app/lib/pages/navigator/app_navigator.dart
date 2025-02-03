@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -269,7 +271,7 @@ class _SmoothGoRouter {
           path: '/${_InternalAppRoutes.EXTERNAL_PAGE}',
           builder: (BuildContext context, GoRouterState state) {
             return ExternalPage(
-              path: Uri.decodeFull(state.uri.queryParameters['path']!),
+              path: _decodePath(state.uri.queryParameters['path']!),
             );
           },
         ),
@@ -279,7 +281,7 @@ class _SmoothGoRouter {
             return OpenUpwardsPage.getTransition<void>(
               key: state.pageKey,
               child: ExternalPageInAWebView(
-                path: Uri.decodeFull(state.uri.queryParameters['path']!),
+                path: _decodePath(state.uri.queryParameters['path']!),
                 pageName: state.uri.queryParameters['title'],
               ),
             );
@@ -342,7 +344,7 @@ class _SmoothGoRouter {
         }
 
         if (externalLink) {
-          return _openExternalLink(path);
+          return _openExternalLink(state.uri.toString());
         } else if (path.isEmpty) {
           // Force the Homepage
           return _InternalAppRoutes.HOME_PAGE;
@@ -511,9 +513,13 @@ class AppRoutes {
 
   // Open an external link in the browser or custom tabs
   static String EXTERNAL(String path) =>
-      '/${_InternalAppRoutes.EXTERNAL_PAGE}?path=${Uri.encodeFull(path)}';
+      '/${_InternalAppRoutes.EXTERNAL_PAGE}?path=${_encodePath(path)}';
 
   // Open an external link in a WebView
   static String EXTERNAL_WEBVIEW(String path, {String? pageTitle}) =>
-      '/${_InternalAppRoutes.EXTERNAL_WEBVIEW_PAGE}?title=$pageTitle&path=${Uri.encodeFull(path)}';
+      '/${_InternalAppRoutes.EXTERNAL_WEBVIEW_PAGE}?title=$pageTitle&path=${_encodePath(path)}';
 }
+
+String _encodePath(String path) => base64Encode(utf8.encode(path));
+
+String _decodePath(String path) => utf8.decode(base64Decode(path));
