@@ -120,16 +120,18 @@ Widget build(BuildContext context) {
                     ),
                     child: Row(
                       children: &lt;Widget&gt;[
-                        Expanded(
-                          child: Text(
-                            title,
-                            style: TextStyle(
-                              fontSize: 16.0,
-                              fontWeight: FontWeight.bold,
-                              color: titleColor ?? _titleColor,
+                        if (title != null)
+                          Expanded(
+                            child: Text(
+                              title!,
+                              style: (titleStyle ??
+                                      const TextStyle(
+                                        fontSize: 16.0,
+                                        fontWeight: FontWeight.bold,
+                                      ))
+                                  .copyWith(color: titleColor ?? _titleColor),
                             ),
                           ),
-                        ),
                         if (onDismissClicked != null) ...&lt;Widget&gt;[
                           const SizedBox(width: SMALL_SPACE),
                           SmoothCloseButton(
@@ -155,12 +157,13 @@ Widget build(BuildContext context) {
                   ),
                 Padding(
                   padding: const EdgeInsetsDirectional.symmetric(
-                      horizontal: MEDIUM_SPACE),
+                    horizontal: MEDIUM_SPACE,
+                  ),
                   child: TextWithBoldParts(
                     text: content,
-                    textStyle: TextStyle(
-                      fontSize: 14.0,
-                      height: 1.6,
+                    textStyle: (contentStyle ??
+                            const TextStyle(fontSize: 14.0, height: 1.6))
+                        .copyWith(
                       color: contentColor ?? const Color(0xFF373737),
                     ),
                   ),
@@ -249,6 +252,7 @@ Widget build(BuildContext context) {
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_banner/SmoothBanner/content.html">content</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_banner/SmoothBanner/contentBackgroundColor.html">contentBackgroundColor</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_banner/SmoothBanner/contentColor.html">contentColor</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_banner/SmoothBanner/contentStyle.html">contentStyle</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_banner/SmoothBanner/icon.html">icon</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_banner/SmoothBanner/iconAlignment.html">iconAlignment</a></li>
@@ -259,6 +263,7 @@ Widget build(BuildContext context) {
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_banner/SmoothBanner/title.html">title</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_banner/SmoothBanner/titleBackgroundColor.html">titleBackgroundColor</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_banner/SmoothBanner/titleColor.html">titleColor</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_banner/SmoothBanner/titleStyle.html">titleStyle</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_banner/SmoothBanner/topShadow.html">topShadow</a></li>
 
     <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_banner/SmoothBanner-class.html#instance-methods">Methods</a></li>
