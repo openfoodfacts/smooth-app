@@ -74,8 +74,6 @@ Widget build(BuildContext context) {
   final ExternalScanCarouselManagerState carouselManager =
       ExternalScanCarouselManager.read(context);
   carouselManager.currentBarcode = barcode;
-  final SmoothColorsThemeExtension themeExtension =
-      context.extension&lt;SmoothColorsThemeExtension&gt;();
 
   _productPreferences = context.watch&lt;ProductPreferences&gt;();
   final LocalDatabase localDatabase = context.watch&lt;LocalDatabase&gt;();
@@ -88,6 +86,11 @@ Widget build(BuildContext context) {
 
   final bool hasPendingOperations = UpToDateChanges(localDatabase)
       .hasNotTerminatedOperations(upToDateProduct.barcode!);
+
+  final UserPreferences userPreferences = context.watch&lt;UserPreferences&gt;();
+  final bool useTabView = userPreferences.getFlag(
+          UserPreferencesDevMode.userPreferencesFlagUseProductTabs) ??
+      false;
 
   return MultiProvider(
     providers: &lt;SingleChildWidget&gt;[
@@ -105,46 +108,9 @@ Widget build(BuildContext context) {
         value: _scrollController,
       ),
     ],
-    child: SmoothScaffold(
-      contentBehindStatusBar: true,
-      spaceBehindStatusBar: false,
-      changeStatusBarBrightness: false,
-      statusBarBackgroundColor: Colors.transparent,
-      backgroundColor:
-          !context.darkTheme() ? themeExtension.primaryLight : null,
-      body: Stack(
-        children: &lt;Widget&gt;[
-          _buildProductBody(context, bottomPadding),
-          Positioned(
-            left: 0.0,
-            right: 0.0,
-            top: 0.0,
-            child: ProductHeader(
-              backButtonType: widget.backButton,
-            ),
-          ),
-          Positioned(
-            left: 0.0,
-            right: 0.0,
-            bottom: 0.0,
-            child: MeasureSize(
-              onChange: (Size size) {
-                if (size.height != bottomPadding) {
-                  setState(() =&gt; bottomPadding = size.height);
-                }
-              },
-              child: hasPendingOperations
-                  ? const ProductPageLoadingIndicator()
-                  : KeepQuestionWidgetAlive(
-                      keepWidgetAlive: _keepRobotoffQuestionsAlive,
-                      child: ProductQuestionsWidget(upToDateProduct),
-                    ),
-            ),
-          ),
-        ],
-      ),
-      bottomNavigationBar: const ProductFooter(),
-    ),
+    child: useTabView
+        ? _buildTabLayout(hasPendingOperations)
+        : _buildOldLayout(userPreferences, hasPendingOperations),
   );
 }</code></pre>
 </section>

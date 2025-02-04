@@ -70,6 +70,19 @@
     return &lt;String, int&gt;{};
   }
   return Map&lt;String, int&gt;.from(jsonDecode(usage));
+
+List&lt;String&gt; get productPageTabs =&gt;
+    _sharedPreferences.getStringList(_TAG_PRODUCT_PAGE_TABS) ?? &lt;String&gt;[];
+
+Future&lt;void&gt; setProductPageTabs(
+  final List&lt;String&gt; value,
+) async {
+  await _sharedPreferences.setStringList(
+    _TAG_PRODUCT_PAGE_TABS,
+    value,
+  );
+  notifyListeners();
+}
 }</code></pre>
 </section>
 

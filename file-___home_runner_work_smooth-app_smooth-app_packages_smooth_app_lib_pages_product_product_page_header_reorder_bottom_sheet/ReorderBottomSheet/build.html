@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the build method from the ReorderBottomSheet class, for the Dart programming language.">
+  <title>build method - ReorderBottomSheet class - reorder_bottom_sheet library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="../../" data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">smooth_app</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_product_page_header_reorder_bottom_sheet/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_product_page_header_reorder_bottom_sheet-library.html">reorder_bottom_sheet</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_product_page_header_reorder_bottom_sheet/ReorderBottomSheet-class.html">ReorderBottomSheet<span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></a></li>
+    <li class="self-crumb">build method</li>
+  </ol>
+  <div class="self-name">build</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div>
+<h1><span class="kind-method">build</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+<div>
+  <ol class="annotation-list">
+    <li>@<a href="https://api.flutter.dev/flutter/dart-core/override-constant.html">override</a></li>
+  </ol>
+</div>
+
+<span class="returntype">dynamic</span>
+<span class="name ">build</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="build-param-context"><span class="type-annotation">dynamic</span> <span class="parameter-name">context</span></span></li>
+</ol>)
+
+      
+
+    </section>
+    
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">@override
+Widget build(BuildContext context) {
+  final SmoothColorsThemeExtension theme =
+      context.extension&lt;SmoothColorsThemeExtension&gt;();
+
+  return ChangeNotifierProvider&lt;_ReorderBottomSheetProvider&lt;T&gt;&gt;(
+    create: (_) =&gt; _ReorderBottomSheetProvider&lt;T&gt;(_items),
+    child: Consumer&lt;_ReorderBottomSheetProvider&lt;T&gt;&gt;(
+      builder:
+          (BuildContext context, _ReorderBottomSheetProvider&lt;T&gt; provider, _) {
+        return DraggableScrollableSheet(
+          expand: false,
+          initialChildSize: 0.6,
+          maxChildSize: 0.9,
+          minChildSize: 0.4,
+          builder: (_, ScrollController scrollController) {
+            return ClipRRect(
+              borderRadius: const BorderRadius.vertical(top: ROUNDED_RADIUS),
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  color: Theme.of(context).canvasColor,
+                  borderRadius: const BorderRadius.vertical(
+                    top: Radius.circular(16),
+                  ),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: &lt;Widget&gt;[
+                    SmoothModalSheetHeader(
+                      title: title,
+                    ),
+                    Expanded(
+                      child: ReorderableListView.builder(
+                        scrollController: scrollController,
+                        padding: const EdgeInsets.all(MEDIUM_SPACE),
+                        proxyDecorator: (
+                          Widget child,
+                          int index,
+                          Animation&lt;double&gt; animation,
+                        ) =&gt;
+                            Transform.scale(
+                          scale: 1.0 + (0.05 * animation.value),
+                          child: Opacity(
+                            opacity: 0.8,
+                            child: child,
+                          ),
+                        ),
+                        itemBuilder: (BuildContext context, int index) {
+                          final _ReorderableItem&lt;T&gt; item =
+                              provider.items[index];
+                          return Container(
+                            key: ValueKey&lt;T&gt;(item.data),
+                            margin: const EdgeInsetsDirectional.only(
+                              bottom: MEDIUM_SPACE,
+                            ),
+                            padding:
+                                const EdgeInsetsDirectional.all(MEDIUM_SPACE),
+                            decoration: BoxDecoration(
+                              color: item.visible
+                                  ? theme.primaryMedium
+                                  : theme.primaryLight,
+                              borderRadius: ROUNDED_BORDER_RADIUS,
+                            ),
+                            child: Row(
+                              children: &lt;Widget&gt;[
+                                if (onVisibilityToggle != null)
+                                  Container(
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      color: theme.primarySemiDark,
+                                    ),
+                                    child: IconButton(
+                                      visualDensity: VisualDensity.compact,
+                                      iconSize: 16.0,
+                                      icon: const icons.Eye.visible(
+                                        color: Colors.white,
+                                      ),
+                                      onPressed: () =&gt;
+                                          onVisibilityToggle?.call(item.data),
+                                    ),
+                                  ),
+                                if (onVisibilityToggle != null)
+                                  const SizedBox(width: MEDIUM_SPACE),
+                                labelBuilder(context, item.data, index),
+                                const Spacer(),
+                                Icon(
+                                  Icons.drag_handle,
+                                  color: theme.primaryDark,
+                                ),
+                              ],
+                            ),
+                          );
+                        },
+                        itemCount: provider.items.length,
+                        onReorder: (int oldIndex, int newIndex) {
+                          provider.reorder(oldIndex, newIndex);
+                          onReorder(provider.items
+                              .map((_ReorderableItem&lt;T&gt; item) =&gt; item.data)
+                              .toList(growable: false));
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            );
+          },
+        );
+      },
+    ),
+  );
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../../index.html">smooth_app</a></li>
+  <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_product_page_header_reorder_bottom_sheet/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_product_page_header_reorder_bottom_sheet-library.html">reorder_bottom_sheet</a></li>
+  <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_product_page_header_reorder_bottom_sheet/ReorderBottomSheet-class.html">ReorderBottomSheet<span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></a></li>
+  <li class="self-crumb">build method</li>
+</ol>
+
+
+    <h5>ReorderBottomSheet class</h5>
+    <ol>
+
+        <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_product_page_header_reorder_bottom_sheet/ReorderBottomSheet-class.html#constructors">Constructors</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_product_page_header_reorder_bottom_sheet/ReorderBottomSheet/ReorderBottomSheet.html">ReorderBottomSheet</a></li>
+
+
+    <li class="section-title">
+      <a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_product_page_header_reorder_bottom_sheet/ReorderBottomSheet-class.html#instance-properties">Properties</a>
+    </li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_product_page_header_reorder_bottom_sheet/ReorderBottomSheet/labelBuilder.html">labelBuilder</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_product_page_header_reorder_bottom_sheet/ReorderBottomSheet/onReorder.html">onReorder</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_product_page_header_reorder_bottom_sheet/ReorderBottomSheet/onVisibilityToggle.html">onVisibilityToggle</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_product_page_header_reorder_bottom_sheet/ReorderBottomSheet/title.html">title</a></li>
+
+    <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_product_page_header_reorder_bottom_sheet/ReorderBottomSheet-class.html#instance-methods">Methods</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_product_page_header_reorder_bottom_sheet/ReorderBottomSheet/build.html">build</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
+
+    <li class="section-title inherited"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_product_page_header_reorder_bottom_sheet/ReorderBottomSheet-class.html#operators">Operators</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">operator ==</a></li>
+
+
+
+
+</ol>
+
+  </div><!--/.sidebar-offcanvas-->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    smooth_app
+      0.0.0+734
+  </span>
+
+  
+</footer>
+
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
+
+
+
+</body>
+
+</html>
+
