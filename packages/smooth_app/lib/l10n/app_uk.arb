@@ -1678,7 +1678,7 @@
     "@edit_product_form_item_ingredients_title": {
         "description": "Product edition - Ingredients - Title (note: this section was previously called Ingredients & Origins)"
     },
-    "edit_product_form_item_ingredients_pinch_to_zoom_tooltip": "Zoom in and out by pinching the screen",
+    "edit_product_form_item_ingredients_pinch_to_zoom_tooltip": "Збільшуйте та зменшуйте масштаб, притиснувши екран",
     "@edit_product_form_item_ingredients_pinch_to_zoom_tooltip": {
         "description": "Product edition - Ingredients - Pinch to zoom icon explanation"
     },
