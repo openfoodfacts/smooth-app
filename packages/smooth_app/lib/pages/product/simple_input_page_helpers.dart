@@ -926,6 +926,7 @@ class SimpleInputPageCountryHelper extends AbstractSimpleInputPageHelper {
         return ExplanationBodyInfo(
           text: appLocalizations
               .edit_product_form_item_countries_explanations_info1,
+          safeArea: true,
         );
       };
 

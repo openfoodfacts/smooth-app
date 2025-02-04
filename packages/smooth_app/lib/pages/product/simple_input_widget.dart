@@ -165,12 +165,14 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
 
   Widget? _getTrailingHeader(
     String? title,
-    WidgetBuilder? explanations,
+    WidgetBuilder? explanationsBuilder,
     AppLocalizations appLocalizations,
   ) {
     if (!widget.displayTitle) {
       return null;
     }
+
+    final Widget? explanations = explanationsBuilder?.call(context);
 
     final List<Widget> children = <Widget>[
       if (widget.helper.isOwnerField(widget.product))
@@ -178,7 +180,8 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget> {
       if (explanations != null)
         ExplanationTitleIcon(
           title: title ?? widget.helper.getTitle(appLocalizations),
-          child: explanations(context),
+          safeArea: explanations is! ExplanationBodyInfo,
+          child: explanations,
         ),
     ];
 
