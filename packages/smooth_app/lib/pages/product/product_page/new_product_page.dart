@@ -20,7 +20,6 @@ import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/prices/prices_card.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/product_page/footer/new_product_footer.dart';
-import 'package:smooth_app/pages/product/product_page/header/product_page_tabs.dart';
 import 'package:smooth_app/pages/product/product_page/new_product_header.dart';
 import 'package:smooth_app/pages/product/product_page/new_product_page_loading_indicator.dart';
 import 'package:smooth_app/pages/product/product_questions_widget.dart';
@@ -57,12 +56,8 @@ class ProductPage extends StatefulWidget {
 }
 
 class ProductPageState extends State<ProductPage>
-    with TraceableClientMixin, UpToDateMixin, SingleTickerProviderStateMixin {
+    with TraceableClientMixin, UpToDateMixin {
   final ScrollController _scrollController = ScrollController();
-
-  late final TabController _tabController;
-  late List<ProductPageTab> _tabs;
-
   late ProductPreferences _productPreferences;
   bool _keepRobotoffQuestionsAlive = true;
 
@@ -77,18 +72,6 @@ class ProductPageState extends State<ProductPage>
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     initUpToDate(widget.product, localDatabase);
     DaoProductLastAccess(localDatabase).put(barcode);
-
-    _tabs = ProductPageTabBar.extractTabsFromProduct(
-      context: context,
-      product: upToDateProduct,
-    );
-
-    _tabController = TabController(
-      length: _tabs.length,
-      vsync: this,
-      initialIndex: 1,
-    );
-
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _updateLocalDatabaseWithProductHistory(context);
     });
@@ -99,6 +82,8 @@ class ProductPageState extends State<ProductPage>
     final ExternalScanCarouselManagerState carouselManager =
         ExternalScanCarouselManager.read(context);
     carouselManager.currentBarcode = barcode;
+    final SmoothColorsThemeExtension themeExtension =
+        context.extension<SmoothColorsThemeExtension>();
 
     _productPreferences = context.watch<ProductPreferences>();
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
@@ -111,11 +96,6 @@ class ProductPageState extends State<ProductPage>
 
     final bool hasPendingOperations = UpToDateChanges(localDatabase)
         .hasNotTerminatedOperations(upToDateProduct.barcode!);
-
-    final UserPreferences userPreferences = context.watch<UserPreferences>();
-    final bool useTabView = userPreferences.getFlag(
-            UserPreferencesDevMode.userPreferencesFlagUseProductTabs) ??
-        false;
 
     return MultiProvider(
       providers: <SingleChildWidget>[
@@ -133,126 +113,58 @@ class ProductPageState extends State<ProductPage>
           value: _scrollController,
         ),
       ],
-      child: useTabView
-          ? _buildTabLayout(hasPendingOperations)
-          : _buildOldLayout(userPreferences, hasPendingOperations),
-    );
-  }
-
-  Widget _buildTabLayout(bool hasPendingOperations) {
-    return SmoothScaffold(
-      contentBehindStatusBar: true,
-      spaceBehindStatusBar: false,
-      changeStatusBarBrightness: false,
-      statusBarBackgroundColor: Colors.transparent,
-      body: NestedScrollView(
-        controller: _scrollController,
-        headerSliverBuilder: (BuildContext context, bool value) {
-          return <Widget>[
-            SliverAppBar(
-              floating: false,
-              pinned: true,
-              leading: EMPTY_WIDGET,
-              leadingWidth: 0.0,
-              titleSpacing: 0.0,
-              title: ProductHeader(
+      child: SmoothScaffold(
+        contentBehindStatusBar: true,
+        spaceBehindStatusBar: false,
+        changeStatusBarBrightness: false,
+        statusBarBackgroundColor: Colors.transparent,
+        backgroundColor:
+            !context.darkTheme() ? themeExtension.primaryLight : null,
+        body: Stack(
+          children: <Widget>[
+            _buildProductBody(context, bottomPadding),
+            Positioned(
+              left: 0.0,
+              right: 0.0,
+              top: 0.0,
+              child: ProductHeader(
                 backButtonType: widget.backButton,
               ),
             ),
-            SliverToBoxAdapter(
-              child: HeroMode(
-                enabled: widget.withHeroAnimation &&
-                    widget.heroTag?.isNotEmpty == true,
-                child: SummaryCard(upToDateProduct, _productPreferences),
+            Positioned(
+              left: 0.0,
+              right: 0.0,
+              bottom: 0.0,
+              child: MeasureSize(
+                onChange: (Size size) {
+                  if (size.height != bottomPadding) {
+                    setState(() => bottomPadding = size.height);
+                  }
+                },
+                child: hasPendingOperations
+                    ? const ProductPageLoadingIndicator()
+                    : KeepQuestionWidgetAlive(
+                        keepWidgetAlive: _keepRobotoffQuestionsAlive,
+                        child: ProductQuestionsWidget(upToDateProduct),
+                      ),
               ),
             ),
-            ProductPageTabBar(
-              tabController: _tabController,
-              tabs: _tabs,
-            ),
-          ];
-        },
-        body: TabBarView(
-          controller: _tabController,
-          children: _tabs
-              .map(
-                (ProductPageTab tab) => tab.builder(
-                  context,
-                  upToDateProduct,
-                ),
-              )
-              .toList(growable: false),
+          ],
         ),
-      ),
-      bottomNavigationBar: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          MeasureSize(
-            onChange: (Size size) {
-              if (size.height != bottomPadding) {
-                setState(() => bottomPadding = size.height);
-              }
-            },
-            child: hasPendingOperations
-                ? const ProductPageLoadingIndicator()
-                : KeepQuestionWidgetAlive(
-                    keepWidgetAlive: _keepRobotoffQuestionsAlive,
-                    child: ProductQuestionsWidget(upToDateProduct),
-                  ),
-          ),
-          const ProductFooter(),
-        ],
+        bottomNavigationBar: const ProductFooter(),
       ),
     );
   }
 
-  Widget _buildOldLayout(
-    UserPreferences userPreferences,
-    bool hasPendingOperations,
-  ) {
-    final SmoothColorsThemeExtension themeExtension =
-        context.extension<SmoothColorsThemeExtension>();
-
-    return SmoothScaffold(
-      contentBehindStatusBar: true,
-      spaceBehindStatusBar: false,
-      changeStatusBarBrightness: false,
-      statusBarBackgroundColor: Colors.transparent,
-      backgroundColor:
-          !context.darkTheme() ? themeExtension.primaryLight : null,
-      body: Stack(
-        children: <Widget>[
-          _buildProductBody(context, bottomPadding),
-          Positioned(
-            left: 0.0,
-            right: 0.0,
-            top: 0.0,
-            child: ProductHeader(
-              backButtonType: widget.backButton,
-            ),
-          ),
-          Positioned(
-            left: 0.0,
-            right: 0.0,
-            bottom: 0.0,
-            child: MeasureSize(
-              onChange: (Size size) {
-                if (size.height != bottomPadding) {
-                  setState(() => bottomPadding = size.height);
-                }
-              },
-              child: hasPendingOperations
-                  ? const ProductPageLoadingIndicator()
-                  : KeepQuestionWidgetAlive(
-                      keepWidgetAlive: _keepRobotoffQuestionsAlive,
-                      child: ProductQuestionsWidget(upToDateProduct),
-                    ),
-            ),
-          ),
-        ],
-      ),
-      bottomNavigationBar: const ProductFooter(),
+  Future<void> _updateLocalDatabaseWithProductHistory(
+    final BuildContext context,
+  ) async {
+    final LocalDatabase localDatabase = context.read<LocalDatabase>();
+    await DaoProductList(localDatabase).push(
+      ProductList.history(),
+      barcode,
     );
+    localDatabase.notifyListeners();
   }
 
   Widget _buildProductBody(BuildContext context, double bottomPadding) {
@@ -331,17 +243,6 @@ class ProductPageState extends State<ProductPage>
         ),
       ),
     );
-  }
-
-  Future<void> _updateLocalDatabaseWithProductHistory(
-    final BuildContext context,
-  ) async {
-    final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    await DaoProductList(localDatabase).push(
-      ProductList.history(),
-      barcode,
-    );
-    localDatabase.notifyListeners();
   }
 
   void startRobotoffQuestion() {

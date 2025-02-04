@@ -3850,45 +3850,20 @@
     "@product_footer_action_data_quality_tags": {
         "description": "Action to view data quality warnings"
     },
-    "all_search_prices_top_product_title": "Products with the most prices",
-    "@all_search_prices_top_product_title": {
-      "description": "Top price products: list tile title"
-    },
-    "prices_products_list_length_many_pages": "Top {pageSize} products (total: {total})",
-    "@prices_products_list_length_many_pages": {
-      "description": "Number of products for one-page result",
-      "placeholders": {
-        "pageSize": {
-          "type": "int"
-        },
-        "total": {
-          "type": "int"
-        }
+  "all_search_prices_top_product_title": "Products with the most prices",
+  "@all_search_prices_top_product_title": {
+    "description": "Top price products: list tile title"
+  },
+  "prices_products_list_length_many_pages": "Top {pageSize} products (total: {total})",
+  "@prices_products_list_length_many_pages": {
+    "description": "Number of products for one-page result",
+    "placeholders": {
+      "pageSize": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
       }
-    },
-    "product_page_tab_for_me": "For me",
-    "@product_page_tab_for_me": {
-        "description": "Label of the for me tab on the product page"
-    },
-    "product_page_tab_website": "Website",
-    "@product_page_tab_website": {
-        "description": "Label of the website tab on the product page"
-    },
-    "product_page_tab_prices": "Prices",
-    "@product_page_tab_prices": {
-        "description": "Label of the prices tab on the product page"
-    },
-    "product_page_tab_folksonomy": "Folksonomy",
-    "@product_page_tab_folksonomy": {
-        "description": "Label of the folksonomy tab on the product page"
-    },
-    "product_page_reorder_tabs": "Reorder tabs",
-    "@product_page_reorder_tabs": {
-        "description": "Used for reorder tabs button and bottom sheet"
-    },
-    "dev_preferences_use_product_tabs_title": "Use tabs",
-    "@dev_preferences_use_product_tabs_title": {
-        "description": "Title for the preference to use tabs on the product page"
     }
   }
 }

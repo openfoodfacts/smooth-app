@@ -94,7 +94,6 @@ class UserPreferences extends ChangeNotifier {
       '_search_show_product_type_filter';
   static const String _TAG_PRODUCT_PAGE_ACTIONS = '_product_page_actions';
   static const String _TAG_LANGUAGES_USAGE = '_languages_usage';
-  static const String _TAG_PRODUCT_PAGE_TABS = '_product_page_tabs';
 
   /// Camera preferences
 
@@ -572,17 +571,5 @@ class UserPreferences extends ChangeNotifier {
       return <String, int>{};
     }
     return Map<String, int>.from(jsonDecode(usage));
-
-  List<String> get productPageTabs =>
-      _sharedPreferences.getStringList(_TAG_PRODUCT_PAGE_TABS) ?? <String>[];
-
-  Future<void> setProductPageTabs(
-    final List<String> value,
-  ) async {
-    await _sharedPreferences.setStringList(
-      _TAG_PRODUCT_PAGE_TABS,
-      value,
-    );
-    notifyListeners();
   }
 }
