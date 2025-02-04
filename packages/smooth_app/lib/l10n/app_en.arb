@@ -1598,7 +1598,7 @@
     "@edit_product_form_item_origins_title": {
         "description": "Product edition - Origins - Title"
     },
-    "edit_product_form_item_origins_hint": "Input an origin (eg: Beef from Argentina)",
+    "edit_product_form_item_origins_hint": "Input an origin (eg: Germany)",
     "@edit_product_form_item_origins_hint": {
         "description": "Product edition - Origins - input textfield hint"
     },
@@ -2914,7 +2914,7 @@
     "@scan_header_compare_button_invalid_state_tooltip": {
         "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is just one product scanned"
     },
-    "scan_header_compare_button_valid_state_tooltip": "Compare the products you have scanned",
+    "scan_header_compare_button_valid_state_tooltip": "Click to compare the products you have scanned",
     "@scan_header_compare_button_valid_state_tooltip": {
         "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is at least two products"
     },
