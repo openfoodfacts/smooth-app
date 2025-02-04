@@ -165,19 +165,22 @@ class ExplanationBodyInfo extends StatelessWidget {
       color: backgroundColor ??
           (lightTheme ? extension.primaryMedium : extension.primaryTone),
       child: ClipRect(
-        child: Padding(
-          padding: EdgeInsetsDirectional.only(
-            bottom: safeArea ? MediaQuery.viewPaddingOf(context).bottom : 0.0,
-          ),
+        child: SizedBox(
+          width: double.infinity,
           child: Padding(
-            padding: const EdgeInsetsDirectional.symmetric(
-              horizontal: LARGE_SPACE,
-              vertical: MEDIUM_SPACE,
+            padding: EdgeInsetsDirectional.only(
+              bottom: safeArea ? MediaQuery.viewPaddingOf(context).bottom : 0.0,
             ),
-            child: TextWithBoldParts(
-              text: text,
-              textStyle: TextStyle(
-                color: lightTheme ? extension.primaryDark : Colors.white,
+            child: Padding(
+              padding: const EdgeInsetsDirectional.symmetric(
+                horizontal: LARGE_SPACE,
+                vertical: MEDIUM_SPACE,
+              ),
+              child: TextWithBoldParts(
+                text: text,
+                textStyle: TextStyle(
+                  color: lightTheme ? extension.primaryDark : Colors.white,
+                ),
               ),
             ),
           ),
