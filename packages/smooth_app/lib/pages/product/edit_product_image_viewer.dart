@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:scanner_shared/scanner_shared.dart';
 import 'package:smooth_app/database/transient_file.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
+import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/pages/product/helpers/pinch_to_zoom_indicator.dart';
 import 'package:smooth_app/query/product_query.dart';
@@ -85,11 +86,7 @@ class _EditProductImageViewerState extends State<EditProductImageViewer>
                   child: SmoothInteractiveViewer(
                     child: Image(
                       fit: BoxFit.contain,
-                      image: TransientFile.fromProduct(
-                        context.watch<Product>(),
-                        widget.imageField,
-                        widget.language ?? ProductQuery.getLanguage(),
-                      ).getImageProvider()!,
+                      image: _getImageProvider(context),
                       frameBuilder: _frameBuilder,
                       loadingBuilder: _loadingBuilder,
                       errorBuilder: _errorBuilder,
@@ -132,6 +129,32 @@ class _EditProductImageViewerState extends State<EditProductImageViewer>
         ),
       ),
     );
+  }
+
+  ImageProvider<Object> _getImageProvider(BuildContext context) {
+    final Product product = context.watch<Product>();
+
+    final Iterable<OpenFoodFactsLanguage> languages = getProductImageLanguages(
+      product,
+      ImageField.NUTRITION,
+    );
+
+    for (final OpenFoodFactsLanguage language in <OpenFoodFactsLanguage?>[
+      widget.language,
+      ProductQuery.getLanguage(),
+      OpenFoodFactsLanguage.ENGLISH,
+      languages.first,
+    ].nonNulls) {
+      if (languages.contains(language)) {
+        return TransientFile.fromProduct(
+          product,
+          widget.imageField,
+          language,
+        ).getImageProvider()!;
+      }
+    }
+
+    return NetworkImage(product.imageNutritionUrl ?? '');
   }
 
   Widget _frameBuilder(
