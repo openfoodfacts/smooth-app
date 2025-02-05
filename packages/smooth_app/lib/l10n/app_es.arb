@@ -822,7 +822,7 @@
     "@nutrition_page_serving_size_explanation_bad_example1_example": {
         "description": "Example of an incorrect serving size"
     },
-    "nutrition_page_serving_size_explanation_bad_example2_explanation": "Invalid units",
+    "nutrition_page_serving_size_explanation_bad_example2_explanation": "Unidades no válidas",
     "@nutrition_page_serving_size_explanation_bad_example2_explanation": {
         "description": "Example of an incorrect serving size"
     },
@@ -830,7 +830,7 @@
     "@nutrition_page_serving_size_explanation_bad_example2_example": {
         "description": "Example of an incorrect serving size"
     },
-    "nutrition_page_serving_size_explanation_bad_example3_explanation": "Missing unit",
+    "nutrition_page_serving_size_explanation_bad_example3_explanation": "Unidad faltante",
     "@nutrition_page_serving_size_explanation_bad_example3_explanation": {
         "description": "Example of an incorrect serving size"
     },
@@ -1586,6 +1586,10 @@
     "@edit_product_form_item_add_action_category": {
         "description": "Tooltip to show when the user long presses the (+) button on a category"
     },
+    "edit_product_form_item_add_suggestion": "Añadir una sugerencia",
+    "@edit_product_form_item_add_suggestion": {
+        "description": "Tooltip to show when the user long presses the (+) button on a suggestion"
+    },
     "edit_product_form_item_details_title": "Detalles básicos",
     "@edit_product_form_item_details_title": {
         "description": "Product edition - Basic Details - Title"
@@ -1666,7 +1670,7 @@
     "@edit_product_form_item_stores_type": {
         "description": "Product edition - Stores - input textfield type"
     },
-    "edit_product_form_item_stores_explanation_title": "Good practices: Stores",
+    "edit_product_form_item_stores_explanation_title": "Buenas prácticas: Tiendas",
     "@edit_product_form_item_stores_explanation_title": {
         "description": "Product edition - Stores - Explanation"
     },
@@ -1698,7 +1702,7 @@
     "@edit_product_form_item_origins_type": {
         "description": "Product edition - Origins - input textfield type"
     },
-    "edit_product_form_item_origins_explanation_title": "Good practices: Origins",
+    "edit_product_form_item_origins_explanation_title": "Buenas prácticas: Orígenes",
     "@edit_product_form_item_origins_explanation_title": {
         "description": "Product edition - Origins - input explainer, part 1"
     },
@@ -1706,7 +1710,7 @@
     "@edit_product_form_item_origins_explanation_info1": {
         "description": "Product edition - Origins - input explainer, part 1"
     },
-    "edit_product_form_item_origins_explanation_good_examples_1": "Beef from Argentina",
+    "edit_product_form_item_origins_explanation_good_examples_1": "Carne de vaca de Argentina",
     "@edit_product_form_item_origins_explanation_good_examples_1": {
         "description": "Product edition - Origins - input explainer, part 2"
     },
@@ -1726,7 +1730,7 @@
     "@edit_product_form_item_countries_type": {
         "description": "Product edition - Countries - input textfield type"
     },
-    "edit_product_form_item_countries_explanations_title": "Good practices: Countries",
+    "edit_product_form_item_countries_explanations_title": "Buenas prácticas: Países",
     "@edit_product_form_item_countries_explanations_title": {
         "description": "Product edition - Countries - explanations"
     },
@@ -1770,7 +1774,7 @@
     "@edit_product_form_item_emb_help_info2_item1_explanation": {
         "description": "Example of an EC code (shouldn't be translated)"
     },
-    "edit_product_form_item_emb_help_info2_item2_text": "**EMB codes** used in France:",
+    "edit_product_form_item_emb_help_info2_item2_text": "**Códigos EMB** usados en Francia:",
     "@edit_product_form_item_emb_help_info2_item2_text": {
         "description": "Explanation about EMB codes"
     },
@@ -1790,7 +1794,7 @@
     "@edit_product_form_item_categories_type": {
         "description": "Product edition - Categories - input textfield type"
     },
-    "edit_product_form_item_categories_explanation_title": "Good practices: Categories",
+    "edit_product_form_item_categories_explanation_title": "Buenas prácticas: Categorías",
     "@edit_product_form_item_categories_explanation_title": {
         "description": "Product edition - Categories - input explainer, title"
     },
@@ -2778,7 +2782,7 @@
     "@add_basic_details_product_brand_help_info1": {
         "description": "Text explaining how to write brands"
     },
-    "add_basic_details_product_brand_help_info2_title": "Main brand",
+    "add_basic_details_product_brand_help_info2_title": "Marca principal",
     "@add_basic_details_product_brand_help_info2_title": {
         "description": "Text explaining how to write brands"
     },
@@ -2786,7 +2790,7 @@
     "@add_basic_details_product_brand_help_info2_content": {
         "description": "Text explaining how to write brands"
     },
-    "add_basic_details_product_brand_help_info3_title": "Other brands",
+    "add_basic_details_product_brand_help_info3_title": "Otras marcas",
     "@add_basic_details_product_brand_help_info3_title": {
         "description": "Text explaining how to write brands"
     },
@@ -2816,7 +2820,7 @@
     },
     "quantity": "Cantidad y peso",
     "add_basic_details_quantity_hint": "Ingrese el peso y si es necesario la cantidad (por ejemplo: 4x100g)",
-    "add_basic_details_product_quantity_help_title": "Good practices: Quantity",
+    "add_basic_details_product_quantity_help_title": "Buenas prácticas: Cantidad",
     "@add_basic_details_product_quantity_help_title": {
         "description": "Title for the help section about the product quantity"
     },
@@ -2824,11 +2828,11 @@
     "@add_basic_details_product_quantity_help_info1": {
         "description": "Text explaining how to write quantity"
     },
-    "add_basic_details_product_quantity_help_good_examples_1": "**230g** or **230 g**",
+    "add_basic_details_product_quantity_help_good_examples_1": "**230g** o **230 g**",
     "@add_basic_details_product_quantity_help_good_examples_1": {
         "description": "A 1st good example for the quantity (you can change it if necessary)"
     },
-    "add_basic_details_product_quantity_help_good_examples_2": "**6** (for 6 eggs)",
+    "add_basic_details_product_quantity_help_good_examples_2": "**6** (por 6 huevos)",
     "@add_basic_details_product_quantity_help_good_examples_2": {
         "description": "A 2nd good example for the quantity (you can change it if necessary)"
     },
