@@ -93,10 +93,7 @@ Widget build(BuildContext context) {
             end: 4.0,
             bottom: 4.5,
           ),
-          trailing: ExplanationTitleIcon.text(
-            title: appLocalizations.nutrition_page_serving_size,
-            text: appLocalizations.nutrition_page_serving_size_explanation,
-          ),
+          trailing: const _NutritionServingSizeExplanation(),
           contentPadding: const EdgeInsetsDirectional.only(
             start: MEDIUM_SPACE,
             end: MEDIUM_SPACE,

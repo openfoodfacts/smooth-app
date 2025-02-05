@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the getAddExplanations method from the SimpleInputPageCountryHelper class, for the Dart programming language.">
-  <title>getAddExplanations method - SimpleInputPageCountryHelper class - simple_input_page_helpers library - Dart API</title>
+  <meta name="description" content="API docs for the getAddExplanationsContent method from the SimpleInputPageOriginHelper class, for the Dart programming language.">
+  <title>getAddExplanationsContent method - SimpleInputPageOriginHelper class - simple_input_page_helpers library - Dart API</title>
 
 
   
@@ -30,10 +30,10 @@
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../../index.html">smooth_app</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers-library.html">simple_input_page_helpers</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/SimpleInputPageCountryHelper-class.html">SimpleInputPageCountryHelper</a></li>
-    <li class="self-crumb">getAddExplanations method</li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/SimpleInputPageOriginHelper-class.html">SimpleInputPageOriginHelper</a></li>
+    <li class="self-crumb">getAddExplanationsContent method</li>
   </ol>
-  <div class="self-name">getAddExplanations</div>
+  <div class="self-name">getAddExplanationsContent</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -44,7 +44,7 @@
 
   <div id="dartdoc-main-content" class="main-content">
       <div>
-<h1><span class="kind-method">getAddExplanations</span> method 
+<h1><span class="kind-method">getAddExplanationsContent</span> method 
     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
@@ -56,9 +56,8 @@
   </ol>
 </div>
 
-<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
-<span class="name ">getAddExplanations</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="getAddExplanations-param-appLocalizations"><span class="type-annotation">dynamic</span> <span class="parameter-name">appLocalizations</span></span></li>
-</ol>)
+<span class="returntype">dynamic</span>
+<span class="name ">getAddExplanationsContent</span>(<wbr>)
 
       <div class="features">override</div>
 
@@ -73,8 +72,27 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
-String getAddExplanations(final AppLocalizations appLocalizations) =&gt;
-    appLocalizations.edit_product_form_item_countries_explanations;</code></pre>
+WidgetBuilder? getAddExplanationsContent() =&gt; (BuildContext context) {
+      final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+      return Column(
+        children: &lt;Widget&gt;[
+          ExplanationBodyInfo(
+            text: appLocalizations
+                .edit_product_form_item_origins_explanation_info1,
+            icon: false,
+          ),
+          ExplanationGoodExamplesContainer(
+            items: &lt;String&gt;[
+              appLocalizations
+                  .edit_product_form_item_origins_explanation_good_examples_1,
+              appLocalizations
+                  .edit_product_form_item_origins_explanation_good_examples_2,
+            ],
+          ),
+        ],
+      );
+    };</code></pre>
 </section>
 
 
@@ -90,20 +108,20 @@ String getAddExplanations(final AppLocalizations appLocalizations) =&gt;
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
   <li><a href="../../index.html">smooth_app</a></li>
   <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers-library.html">simple_input_page_helpers</a></li>
-  <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/SimpleInputPageCountryHelper-class.html">SimpleInputPageCountryHelper</a></li>
-  <li class="self-crumb">getAddExplanations method</li>
+  <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/SimpleInputPageOriginHelper-class.html">SimpleInputPageOriginHelper</a></li>
+  <li class="self-crumb">getAddExplanationsContent method</li>
 </ol>
 
 
-    <h5>SimpleInputPageCountryHelper class</h5>
+    <h5>SimpleInputPageOriginHelper class</h5>
     <ol>
 
-        <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/SimpleInputPageCountryHelper-class.html#constructors">Constructors</a></li>
-          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/SimpleInputPageCountryHelper/SimpleInputPageCountryHelper.html">SimpleInputPageCountryHelper</a></li>
+        <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/SimpleInputPageOriginHelper-class.html#constructors">Constructors</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/SimpleInputPageOriginHelper/SimpleInputPageOriginHelper.html">SimpleInputPageOriginHelper</a></li>
 
 
     <li class="section-title inherited">
-      <a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/SimpleInputPageCountryHelper-class.html#instance-properties">Properties</a>
+      <a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/SimpleInputPageOriginHelper-class.html#instance-properties">Properties</a>
     </li>
     <li class="inherited"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/AbstractSimpleInputPageHelper/editable.html">editable</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
@@ -113,29 +131,30 @@ String getAddExplanations(final AppLocalizations appLocalizations) =&gt;
     <li class="inherited"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/AbstractSimpleInputPageHelper/separator.html">separator</a></li>
     <li class="inherited"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/AbstractSimpleInputPageHelper/terms.html">terms</a></li>
 
-    <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/SimpleInputPageCountryHelper-class.html#instance-methods">Methods</a></li>
+    <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/SimpleInputPageOriginHelper-class.html#instance-methods">Methods</a></li>
     <li class="inherited"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/AbstractSimpleInputPageHelper/addItemsFromController.html">addItemsFromController</a></li>
     <li class="inherited"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/AbstractSimpleInputPageHelper/addTerm.html">addTerm</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/SimpleInputPageCountryHelper/changeProduct.html">changeProduct</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/SimpleInputPageCountryHelper/getAddButtonLabel.html">getAddButtonLabel</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/SimpleInputPageCountryHelper/getAddExplanations.html">getAddExplanations</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/SimpleInputPageCountryHelper/getAddHint.html">getAddHint</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/SimpleInputPageCountryHelper/getAddTooltip.html">getAddTooltip</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/SimpleInputPageOriginHelper/changeProduct.html">changeProduct</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/SimpleInputPageOriginHelper/getAddButtonLabel.html">getAddButtonLabel</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/SimpleInputPageOriginHelper/getAddExplanationsContent.html">getAddExplanationsContent</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/SimpleInputPageOriginHelper/getAddExplanationsTitle.html">getAddExplanationsTitle</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/SimpleInputPageOriginHelper/getAddHint.html">getAddHint</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/SimpleInputPageOriginHelper/getAddTooltip.html">getAddTooltip</a></li>
     <li class="inherited"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/AbstractSimpleInputPageHelper/getAllowEmojis.html">getAllowEmojis</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/SimpleInputPageCountryHelper/getAnalyticsEditEvent.html">getAnalyticsEditEvent</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/SimpleInputPageOriginHelper/getAnalyticsEditEvent.html">getAnalyticsEditEvent</a></li>
     <li class="inherited"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/AbstractSimpleInputPageHelper/getAutocompleteManager.html">getAutocompleteManager</a></li>
     <li class="inherited"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/AbstractSimpleInputPageHelper/getChangedProduct.html">getChangedProduct</a></li>
     <li class="inherited"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/AbstractSimpleInputPageHelper/getExtraPhotoWidget.html">getExtraPhotoWidget</a></li>
-    <li class="inherited"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/AbstractSimpleInputPageHelper/getExtraWidget.html">getExtraWidget</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/SimpleInputPageCountryHelper/getIcon.html">getIcon</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/SimpleInputPageOriginHelper/getExtraWidget.html">getExtraWidget</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/SimpleInputPageOriginHelper/getIcon.html">getIcon</a></li>
     <li class="inherited"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/AbstractSimpleInputPageHelper/getLanguage.html">getLanguage</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/SimpleInputPageCountryHelper/getStamp.html">getStamp</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/SimpleInputPageOriginHelper/getStamp.html">getStamp</a></li>
     <li class="inherited"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/AbstractSimpleInputPageHelper/getSubtitle.html">getSubtitle</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/SimpleInputPageCountryHelper/getTagType.html">getTagType</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/SimpleInputPageCountryHelper/getTextCapitalization.html">getTextCapitalization</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/SimpleInputPageCountryHelper/getTitle.html">getTitle</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/SimpleInputPageCountryHelper/getTypeLabel.html">getTypeLabel</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/SimpleInputPageCountryHelper/initTerms.html">initTerms</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/SimpleInputPageOriginHelper/getTagType.html">getTagType</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/SimpleInputPageOriginHelper/getTextCapitalization.html">getTextCapitalization</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/SimpleInputPageOriginHelper/getTitle.html">getTitle</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/SimpleInputPageOriginHelper/getTypeLabel.html">getTypeLabel</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/SimpleInputPageOriginHelper/initTerms.html">initTerms</a></li>
     <li class="inherited"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/AbstractSimpleInputPageHelper/isOwnerField.html">isOwnerField</a></li>
     <li class="inherited"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/AbstractSimpleInputPageHelper/isPopulated.html">isPopulated</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
@@ -147,7 +166,7 @@ String getAddExplanations(final AppLocalizations appLocalizations) =&gt;
     <li class="inherited"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/AbstractSimpleInputPageHelper/splitString.html">splitString</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
 
-    <li class="section-title inherited"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/SimpleInputPageCountryHelper-class.html#operators">Operators</a></li>
+    <li class="section-title inherited"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/SimpleInputPageOriginHelper-class.html#operators">Operators</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">operator ==</a></li>
 
 

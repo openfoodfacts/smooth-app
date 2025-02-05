@@ -79,10 +79,7 @@ Widget build(BuildContext context) {
       child: SmoothCardWithRoundedHeader(
         title: appLocalizations.nutrition_page_nutritional_info_title,
         leading: const icons.Milk.happy(),
-        trailing: ExplanationTitleIcon.text(
-          title: appLocalizations.nutrition_page_nutritional_info_title,
-          text: appLocalizations.nutrition_page_nutritional_info_explanation,
-        ),
+        trailing: const _NutritionAvailabilityExplanation(),
         contentPadding: const EdgeInsetsDirectional.only(
           start: LARGE_SPACE,
           end: MEDIUM_SPACE,

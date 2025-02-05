@@ -51,8 +51,8 @@
     <section class="multi-line-signature">const
       <span class="name ">ExplanationTitleIcon</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-title">{<span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">title</span>, </span></li>
 <li><span class="parameter" id="-param-child"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">child</span>, </span></li>
-<li><span class="parameter" id="-param-margin"><span class="type-annotation">dynamic</span> <span class="parameter-name">margin</span>, </span></li>
-<li><span class="parameter" id="-param-padding"><span class="type-annotation">dynamic</span> <span class="parameter-name">padding</span>, </span></li>
+<li><span class="parameter" id="-param-margin"><span class="type-annotation">dynamic</span> <span class="parameter-name">margin</span> = <span class="default-value">EdgeInsets.zero</span>, </span></li>
+<li><span class="parameter" id="-param-padding"><span class="type-annotation">dynamic</span> <span class="parameter-name">padding</span> = <span class="default-value">EdgeInsets.zero</span>, </span></li>
 <li><span class="parameter" id="-param-safeArea"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">safeArea</span> = <span class="default-value">true</span>}</span></li>
 </ol>)
     </section>
@@ -66,8 +66,8 @@
   <pre class="language-dart"><code class="language-dart">const ExplanationTitleIcon({
   required this.title,
   required Widget child,
-  this.margin,
-  this.padding,
+  this.margin = EdgeInsets.zero,
+  this.padding = EdgeInsets.zero,
   this.safeArea = true,
 })  :
       &#47;&#47; ignore: avoid_field_initializers_in_const_classes
