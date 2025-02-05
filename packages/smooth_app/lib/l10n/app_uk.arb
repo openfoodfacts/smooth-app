@@ -1586,7 +1586,7 @@
     "@edit_product_form_item_add_action_category": {
         "description": "Tooltip to show when the user long presses the (+) button on a category"
     },
-    "edit_product_form_item_add_suggestion": "Add suggestion",
+    "edit_product_form_item_add_suggestion": "Додати пропозицію",
     "@edit_product_form_item_add_suggestion": {
         "description": "Tooltip to show when the user long presses the (+) button on a suggestion"
     },
