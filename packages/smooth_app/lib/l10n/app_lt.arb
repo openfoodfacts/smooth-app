@@ -794,7 +794,7 @@
     "nutrition_page_add_nutrient": "Pridėti maistinę medžiagą",
     "nutrition_page_serving_size": "Porcijos dydis",
     "nutrition_page_serving_size_hint": "Input a serving size (eg: 100g)",
-    "nutrition_page_serving_size_explanation_title": "Good practices: Serving size",
+    "nutrition_page_serving_size_explanation_title": "Geroji praktika. Porcijos dydis",
     "@nutrition_page_serving_size_explanation_title": {
         "description": "Title for the help section about Nutritional information"
     },
@@ -806,19 +806,19 @@
     "@nutrition_page_serving_size_explanation_info2": {
         "description": "Text explaining why the serving size is important"
     },
-    "nutrition_page_serving_size_explanation_good_example1": "**60 g**, **60g** or **60 G** (prefer the first one)",
+    "nutrition_page_serving_size_explanation_good_example1": "**60 g**, **60g** ar **60 g** (pageidautinas pirmasis)",
     "@nutrition_page_serving_size_explanation_good_example1": {
         "description": "Example of a correct serving size"
     },
-    "nutrition_page_serving_size_explanation_good_example2": "**1000 ml** or **1L**",
+    "nutrition_page_serving_size_explanation_good_example2": "**1000 ml** arba **1 l**",
     "@nutrition_page_serving_size_explanation_good_example2": {
         "description": "Example of a correct serving size"
     },
-    "nutrition_page_serving_size_explanation_bad_example1_explanation": "Invalid unit",
+    "nutrition_page_serving_size_explanation_bad_example1_explanation": "Netinkamas vienetas",
     "@nutrition_page_serving_size_explanation_bad_example1_explanation": {
         "description": "Example of an incorrect serving size"
     },
-    "nutrition_page_serving_size_explanation_bad_example1_example": "30 **gr**",
+    "nutrition_page_serving_size_explanation_bad_example1_example": "30 **g**",
     "@nutrition_page_serving_size_explanation_bad_example1_example": {
         "description": "Example of an incorrect serving size"
     },
@@ -1586,6 +1586,10 @@
     "@edit_product_form_item_add_action_category": {
         "description": "Tooltip to show when the user long presses the (+) button on a category"
     },
+    "edit_product_form_item_add_suggestion": "Pridėti pasiūlymą",
+    "@edit_product_form_item_add_suggestion": {
+        "description": "Tooltip to show when the user long presses the (+) button on a suggestion"
+    },
     "edit_product_form_item_details_title": "Pagrindinės detalės",
     "@edit_product_form_item_details_title": {
         "description": "Product edition - Basic Details - Title"
@@ -1626,7 +1630,7 @@
     "@edit_product_form_item_labels_type": {
         "description": "Product edition - Labels - input textfield label"
     },
-    "edit_product_form_item_labels_explanation_title": "Good practices: Labels",
+    "edit_product_form_item_labels_explanation_title": "Geroji praktika. Etiketės",
     "@edit_product_form_item_labels_explanation_title": {
         "description": "Product edition - Labels - explanation"
     },
