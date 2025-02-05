@@ -776,11 +776,11 @@
     "nutrition_page_nutritional_info_value_positive": "Sim",
     "nutrition_page_nutritional_info_value_negative": "Não",
     "nutrition_page_nutritional_info_open_photo": "Abrir fotografia",
-    "nutrition_page_nutritional_info_explanation_title": "Good practices: Nutritional information",
+    "nutrition_page_nutritional_info_explanation_title": "Boas práticas: Informação nutricional",
     "@nutrition_page_nutritional_info_explanation_title": {
         "description": "Title for the help section about Nutritional information"
     },
-    "nutrition_page_nutritional_info_explanation_info1": "Sometimes nutrition facts are **not specified on the packaging** or on a document given with the product. In this case, and only in this case, you can set the value to **NO**.",
+    "nutrition_page_nutritional_info_explanation_info1": "Às vezes, informações nutricionais **não são especificadas na embalagem** ou em um documento de determinado produto. Nesse caso, e apenas nele, você pode definir o valor para **NÃO**.",
     "@nutrition_page_nutritional_info_explanation_info1": {
         "description": "Text explaining when to set the nutritional information to NO"
     },
@@ -794,27 +794,27 @@
     "nutrition_page_add_nutrient": "Adicionar um nutriente",
     "nutrition_page_serving_size": "Tamanho da porção",
     "nutrition_page_serving_size_hint": "Insira o tamanho da porção (por exemplo: 100g)",
-    "nutrition_page_serving_size_explanation_title": "Good practices: Serving size",
+    "nutrition_page_serving_size_explanation_title": "Boas práticas: Tamanho da porção",
     "@nutrition_page_serving_size_explanation_title": {
         "description": "Title for the help section about Nutritional information"
     },
-    "nutrition_page_serving_size_explanation_info1": "This value helps to **make a proportional calculation of each nutrient per serving size**.",
+    "nutrition_page_serving_size_explanation_info1": "Este valor ajuda a **fazer um cálculo proporcional de cada nutriente por porção**.",
     "@nutrition_page_serving_size_explanation_info1": {
         "description": "Text explaining why the serving size is important"
     },
-    "nutrition_page_serving_size_explanation_info2": "**Allowed units** are: kg, g, mg, µg, oz, l, dl, cl, ml, fl.oz, fl oz, г, мг, кг, л, дл, кл, мл, 毫克, 公斤, 毫升, 公升, 吨.",
+    "nutrition_page_serving_size_explanation_info2": "**Unidade permitidas** são: kg, g, mg, µg, oz, l, dl, cl, ml, fl.oz, fl oz, г, мг, кг, л, дл, кл, мл, 毫克, 公斤, 毫升, 公升, 吨.",
     "@nutrition_page_serving_size_explanation_info2": {
         "description": "Text explaining why the serving size is important"
     },
-    "nutrition_page_serving_size_explanation_good_example1": "**60 g**, **60g** or **60 G** (prefer the first one)",
+    "nutrition_page_serving_size_explanation_good_example1": "**60 g**, **60g** ou **60 G** (preferencialmente o primeiro)",
     "@nutrition_page_serving_size_explanation_good_example1": {
         "description": "Example of a correct serving size"
     },
-    "nutrition_page_serving_size_explanation_good_example2": "**1000 ml** or **1L**",
+    "nutrition_page_serving_size_explanation_good_example2": "**1000 ml** ou **1L**",
     "@nutrition_page_serving_size_explanation_good_example2": {
         "description": "Example of a correct serving size"
     },
-    "nutrition_page_serving_size_explanation_bad_example1_explanation": "Invalid unit",
+    "nutrition_page_serving_size_explanation_bad_example1_explanation": "Unidade inválida",
     "@nutrition_page_serving_size_explanation_bad_example1_explanation": {
         "description": "Example of an incorrect serving size"
     },
@@ -822,11 +822,11 @@
     "@nutrition_page_serving_size_explanation_bad_example1_example": {
         "description": "Example of an incorrect serving size"
     },
-    "nutrition_page_serving_size_explanation_bad_example2_explanation": "Invalid units",
+    "nutrition_page_serving_size_explanation_bad_example2_explanation": "Unidades inválidas",
     "@nutrition_page_serving_size_explanation_bad_example2_explanation": {
         "description": "Example of an incorrect serving size"
     },
-    "nutrition_page_serving_size_explanation_bad_example2_example": "9 **candies** and 2 **biscuits**",
+    "nutrition_page_serving_size_explanation_bad_example2_example": "9 **doces** e 2 **biscoitos**",
     "@nutrition_page_serving_size_explanation_bad_example2_example": {
         "description": "Example of an incorrect serving size"
     },
