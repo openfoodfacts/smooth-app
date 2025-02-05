@@ -776,7 +776,7 @@
     "nutrition_page_nutritional_info_value_positive": "Taip",
     "nutrition_page_nutritional_info_value_negative": "Ne",
     "nutrition_page_nutritional_info_open_photo": "Open photo",
-    "nutrition_page_nutritional_info_explanation_title": "Good practices: Nutritional information",
+    "nutrition_page_nutritional_info_explanation_title": "Geroji praktika: informacija apie maistingumą",
     "@nutrition_page_nutritional_info_explanation_title": {
         "description": "Title for the help section about Nutritional information"
     },
@@ -2440,12 +2440,12 @@
     "prices_add_validation_error": "Validation error",
     "prices_privacy_warning_title": "Privacy warning",
     "prices_unknown_product": "Nežinomas produktas",
-    "prices_privacy_warning_main_message": "Prices **will be public**, along with the store they refer to.\n\nThat might allow people who know about your Open Food Facts pseudonym to:\n",
-    "prices_privacy_warning_message_bullet_1": "Infer in which area you live",
-    "prices_privacy_warning_message_bullet_2": "Know what you are buying",
-    "prices_privacy_warning_sub_message": "If you are uneasy with that, please change your pseudonym, or create a new Open Food Facts account and log into the app with it.",
-    "i_refuse": "I refuse",
-    "i_accept": "I accept",
+    "prices_privacy_warning_main_message": "Kainos **bus viešos** kartu su parduotuve, su kuria jos susijusios.\n\nTai gali leisti žmonėms, žinantiems jūsų „Open Food Facts“ pseudonimą:\n",
+    "prices_privacy_warning_message_bullet_1": "Nurodykite, kurioje teritorijoje gyvenate",
+    "prices_privacy_warning_message_bullet_2": "Žinokite, ką perkate",
+    "prices_privacy_warning_sub_message": "Jei jums tai kelia abejonių, pakeiskite savo pseudonimą arba susikurkite naują „Open Food Facts“ paskyrą ir prisijunkite prie programėlės.",
+    "i_refuse": "Aš atsisakau",
+    "i_accept": "Aš sutinku",
     "prices_currency_change_proposal_title": "Keisti valiutą?",
     "prices_currency_change_proposal_message": "Jūsų dabartinė valiuta yra **{currency}**. Ar norėtumėte ją pakeisti į **{newCurrency}**?",
     "@prices_currency_change_proposal_message": {
