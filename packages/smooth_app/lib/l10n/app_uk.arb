@@ -776,7 +776,7 @@
     "nutrition_page_nutritional_info_value_positive": "Так",
     "nutrition_page_nutritional_info_value_negative": "Ні",
     "nutrition_page_nutritional_info_open_photo": "Відкрити фото",
-    "nutrition_page_nutritional_info_explanation_title": "Good practices: Nutritional information",
+    "nutrition_page_nutritional_info_explanation_title": "Належні практики: інформація про харчування",
     "@nutrition_page_nutritional_info_explanation_title": {
         "description": "Title for the help section about Nutritional information"
     },
@@ -1585,6 +1585,10 @@
     "edit_product_form_item_add_action_category": "Додати нову категорію",
     "@edit_product_form_item_add_action_category": {
         "description": "Tooltip to show when the user long presses the (+) button on a category"
+    },
+    "edit_product_form_item_add_suggestion": "Add suggestion",
+    "@edit_product_form_item_add_suggestion": {
+        "description": "Tooltip to show when the user long presses the (+) button on a suggestion"
     },
     "edit_product_form_item_details_title": "Основні деталі",
     "@edit_product_form_item_details_title": {
