@@ -1750,15 +1750,15 @@
     "@edit_product_form_item_emb_help_title": {
         "description": "Title for the help section about traceability codes"
     },
-    "edit_product_form_item_emb_help_info1": "In this section, you can input codes related to **packaging marks**, **identification marks** or **health marks**.",
+    "edit_product_form_item_emb_help_info1": "In diesem Abschnitt können Sie Codes für **Verpackungsmarken**, **Identifikationsmarken** oder **Gesundheitsmarken** eingeben.",
     "@edit_product_form_item_emb_help_info1": {
         "description": "Text explaining how to write a traceability code"
     },
-    "edit_product_form_item_emb_help_info2_title": "Examples of traceability codes",
+    "edit_product_form_item_emb_help_info2_title": "Beispiele für Rückverfolgbarkeitscodes",
     "@edit_product_form_item_emb_help_info2_title": {
         "description": "Explanation about EMB/EC… codes"
     },
-    "edit_product_form_item_emb_help_info2_item1_text": "**EC codes** used in the European Community to identify food producers or packagers:",
+    "edit_product_form_item_emb_help_info2_item1_text": "**EC-Codes**, die in der Europäischen Gemeinschaft zur Kennzeichnung von Lebensmittelherstellern oder -verpackern verwendet werden:",
     "@edit_product_form_item_emb_help_info2_item1_text": {
         "description": "Explanation about EC codes"
     },
@@ -1766,11 +1766,11 @@
     "@edit_product_form_item_emb_help_info2_item1_example": {
         "description": "Example of an EC code (you can change with a valid code in another european country)"
     },
-    "edit_product_form_item_emb_help_info2_item1_explanation": "**FR**: country code of **France**\n**72.264.002**: geographic data\n**CE**: European Community",
+    "edit_product_form_item_emb_help_info2_item1_explanation": "**FR**: Ländercode von **France**\n**72.264.002**: geografische Daten\n**CE**: Europäische Gemeinschaft",
     "@edit_product_form_item_emb_help_info2_item1_explanation": {
         "description": "Example of an EC code (shouldn't be translated)"
     },
-    "edit_product_form_item_emb_help_info2_item2_text": "**EMB codes** used in France:",
+    "edit_product_form_item_emb_help_info2_item2_text": "In Frankreich verwendete **EMB-Codes**:",
     "@edit_product_form_item_emb_help_info2_item2_text": {
         "description": "Explanation about EMB codes"
     },
@@ -1794,23 +1794,23 @@
     "@edit_product_form_item_categories_explanation_title": {
         "description": "Product edition - Categories - input explainer, title"
     },
-    "edit_product_form_item_categories_explanation_info1": "Indicate **only the most specific category**.\nParent categories will be automatically added.",
+    "edit_product_form_item_categories_explanation_info1": "Geben Sie **nur die wichtigste Kategorie** an.\nDie übergeordneten Kategorien werden automatisch hinzugefügt.",
     "@edit_product_form_item_categories_explanation_info1": {
         "description": "Product edition - Categories - input explainer, part 1"
     },
-    "edit_product_form_item_categories_explanation_info2_title": "Missing category?",
+    "edit_product_form_item_categories_explanation_info2_title": "Fehlende Kategorie?",
     "@edit_product_form_item_categories_explanation_info2_title": {
         "description": "Product edition - Categories - input explainer, part 2"
     },
-    "edit_product_form_item_categories_explanation_info2_content": "In case a category is **not available in autocomplete**, feel free to add it anyway.\nThis will help us improve Open Food Facts in your country.",
+    "edit_product_form_item_categories_explanation_info2_content": "Sollte eine Kategorie **nicht in der Autovervollständigung** enthalten sein, können Sie sie trotzdem hinzufügen.\nDies wird uns helfen, Open Food Facts in Ihrem Land zu verbessern.",
     "@edit_product_form_item_categories_explanation_info2_content": {
         "description": "Product edition - Categories - input explainer, part 2"
     },
-    "edit_product_form_item_categories_explanation_good_examples_1": "Sardines in olive oil",
+    "edit_product_form_item_categories_explanation_good_examples_1": "Sardinen in Olivenöl",
     "@edit_product_form_item_categories_explanation_good_examples_1": {
         "description": "Product edition - Categories - input explainer, part 3"
     },
-    "edit_product_form_item_categories_explanation_good_examples_2": "Orange juice from concentrate",
+    "edit_product_form_item_categories_explanation_good_examples_2": "Orangensaft aus Konzentrat",
     "@edit_product_form_item_categories_explanation_good_examples_2": {
         "description": "Product edition - Categories - input explainer, part 3"
     },
@@ -1861,11 +1861,11 @@
     "@edit_product_form_item_nutrition_facts_explanation_title": {
         "description": "Title for the help section about Nutritional facts"
     },
-    "edit_product_form_item_nutrition_facts_explanation_info1_title": "Nutritional values",
+    "edit_product_form_item_nutrition_facts_explanation_info1_title": "Nährwertangaben",
     "@edit_product_form_item_nutrition_facts_explanation_info1_title": {
         "description": "Text explaining the selector of nutritional values."
     },
-    "edit_product_form_item_nutrition_facts_explanation_info1_content": "First, select if the **values are provided**:",
+    "edit_product_form_item_nutrition_facts_explanation_info1_content": "Wählen Sie zunächst aus, ob die **Werte bereitgestellt werden**:",
     "@edit_product_form_item_nutrition_facts_explanation_info1_content": {
         "description": "Text explaining the selector of nutritional values."
     },
@@ -1873,15 +1873,15 @@
     "@edit_product_form_item_nutrition_facts_explanation_info2_title": {
         "description": "Text explaining how to input nutritional values."
     },
-    "edit_product_form_item_nutrition_facts_explanation_info2_content": "Then, input the nutritional values **as indicated on the packaging**. If there is no value, you can click on the \"Eye\" icon.",
+    "edit_product_form_item_nutrition_facts_explanation_info2_content": "Geben Sie dann die Nährwertangaben **wie auf der Verpackung angegeben** ein. Wenn es keinen Wert gibt, können Sie auf das Symbol „Auge“ klicken.",
     "@edit_product_form_item_nutrition_facts_explanation_info2_content": {
         "description": "Text explaining how to input nutritional values."
     },
-    "edit_product_form_item_nutrition_facts_explanation_info3_title": "Missing field?",
+    "edit_product_form_item_nutrition_facts_explanation_info3_title": "Fehlendes Feld?",
     "@edit_product_form_item_nutrition_facts_explanation_info3_title": {
         "description": "Text explaining what to input when a nutritional value is missing."
     },
-    "edit_product_form_item_nutrition_facts_explanation_info3_content": "If an entry is missing, you can **click on the \"Plus\" icon** to add it (eg: vitamin D, magnesium…).",
+    "edit_product_form_item_nutrition_facts_explanation_info3_content": "Wenn ein Eintrag fehlt, können Sie **auf das Symbol „Plus“ klicken**, um ihn hinzuzufügen (z. B.: Vitamin D, Magnesium …).",
     "@edit_product_form_item_nutrition_facts_explanation_info3_content": {
         "description": "Text explaining what to input when a nutritional value is missing."
     },
@@ -2774,35 +2774,35 @@
     "@add_basic_details_product_brand_help_title": {
         "description": "Title for the help section about the product brands"
     },
-    "add_basic_details_product_brand_help_info1": "Input **all the brands of the product**.",
+    "add_basic_details_product_brand_help_info1": "Geben Sie **alle Marken des Produkts** ein.",
     "@add_basic_details_product_brand_help_info1": {
         "description": "Text explaining how to write brands"
     },
-    "add_basic_details_product_brand_help_info2_title": "Main brand",
+    "add_basic_details_product_brand_help_info2_title": "Wichtigste Marke",
     "@add_basic_details_product_brand_help_info2_title": {
         "description": "Text explaining how to write brands"
     },
-    "add_basic_details_product_brand_help_info2_content": "The **main brand**, generally clearly displayed on the front pack, should be **entered first**.",
+    "add_basic_details_product_brand_help_info2_content": "Die **Wichtigste Marke**, die in der Regel deutlich auf der Vorderseite der Packung zu sehen ist, sollte zuerst **eingetragen** werden.",
     "@add_basic_details_product_brand_help_info2_content": {
         "description": "Text explaining how to write brands"
     },
-    "add_basic_details_product_brand_help_info3_title": "Other brands",
+    "add_basic_details_product_brand_help_info3_title": "Weitere Marken",
     "@add_basic_details_product_brand_help_info3_title": {
         "description": "Text explaining how to write brands"
     },
-    "add_basic_details_product_brand_help_info3_item1_text": "When sold **by a big company**:",
+    "add_basic_details_product_brand_help_info3_item1_text": "Wenn sie **von einem großen Unternehmen** verkauft werden:",
     "@add_basic_details_product_brand_help_info3_item1_text": {
         "description": "Text explaining how to write brands"
     },
-    "add_basic_details_product_brand_help_info3_item1_explanation": "**Actimel** is sold by **Danone**",
+    "add_basic_details_product_brand_help_info3_item1_explanation": "**Actimel** wird von **Danone** verkauft",
     "@add_basic_details_product_brand_help_info3_item1_explanation": {
         "description": "Text explaining how to write brands"
     },
-    "add_basic_details_product_brand_help_info3_item2_text": "When sold with its brand **translated in multiple languages**:",
+    "add_basic_details_product_brand_help_info3_item2_text": "Beim Verkauf mit seiner Marke **übersetzt in mehrere Sprachen**:",
     "@add_basic_details_product_brand_help_info3_item2_text": {
         "description": "Text explaining how to write brands"
     },
-    "add_basic_details_product_brand_help_info3_item2_explanation": "**Nature Valley** is sometimes written **Val Nature**",
+    "add_basic_details_product_brand_help_info3_item2_explanation": "**Nature Valley** wird manchmal auch als **Val Nature** geschrieben",
     "@add_basic_details_product_brand_help_info3_item2_explanation": {
         "description": "Text explaining how to write brands"
     },
@@ -2820,19 +2820,19 @@
     "@add_basic_details_product_quantity_help_title": {
         "description": "Title for the help section about the product quantity"
     },
-    "add_basic_details_product_quantity_help_info1": "Copy the value indicated on the product and **don't forget the units**.",
+    "add_basic_details_product_quantity_help_info1": "Übernehmen Sie den auf dem Produkt angegebenen Wert und **vergessen Sie nicht die Einheiten**.",
     "@add_basic_details_product_quantity_help_info1": {
         "description": "Text explaining how to write quantity"
     },
-    "add_basic_details_product_quantity_help_good_examples_1": "**230g** or **230 g**",
+    "add_basic_details_product_quantity_help_good_examples_1": "**230g** oder **230 g**",
     "@add_basic_details_product_quantity_help_good_examples_1": {
         "description": "A 1st good example for the quantity (you can change it if necessary)"
     },
-    "add_basic_details_product_quantity_help_good_examples_2": "**6** (for 6 eggs)",
+    "add_basic_details_product_quantity_help_good_examples_2": "**6** (für 6 Eier)",
     "@add_basic_details_product_quantity_help_good_examples_2": {
         "description": "A 2nd good example for the quantity (you can change it if necessary)"
     },
-    "add_basic_details_product_quantity_help_good_examples_3": "**3 x 150g**\n(for a product with 3 boxes, each of 150g)",
+    "add_basic_details_product_quantity_help_good_examples_3": "**3 x 150g**\n(für ein Produkt mit 3 Schachteln zu je 150g)",
     "@add_basic_details_product_quantity_help_good_examples_3": {
         "description": "A 2nd good example for the quantity (you can change it if necessary)"
     },
