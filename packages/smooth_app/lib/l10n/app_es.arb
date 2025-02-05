@@ -810,11 +810,11 @@
     "@nutrition_page_serving_size_explanation_good_example1": {
         "description": "Example of a correct serving size"
     },
-    "nutrition_page_serving_size_explanation_good_example2": "**1000 ml** or **1L**",
+    "nutrition_page_serving_size_explanation_good_example2": "**1000 ml** o **1L**",
     "@nutrition_page_serving_size_explanation_good_example2": {
         "description": "Example of a correct serving size"
     },
-    "nutrition_page_serving_size_explanation_bad_example1_explanation": "Invalid unit",
+    "nutrition_page_serving_size_explanation_bad_example1_explanation": "Unidad no válida",
     "@nutrition_page_serving_size_explanation_bad_example1_explanation": {
         "description": "Example of an incorrect serving size"
     },
