@@ -814,7 +814,7 @@
     "@nutrition_page_serving_size_explanation_good_example2": {
         "description": "Example of a correct serving size"
     },
-    "nutrition_page_serving_size_explanation_bad_example1_explanation": "Invalid unit",
+    "nutrition_page_serving_size_explanation_bad_example1_explanation": "יחידה שגויה",
     "@nutrition_page_serving_size_explanation_bad_example1_explanation": {
         "description": "Example of an incorrect serving size"
     },
@@ -822,15 +822,15 @@
     "@nutrition_page_serving_size_explanation_bad_example1_example": {
         "description": "Example of an incorrect serving size"
     },
-    "nutrition_page_serving_size_explanation_bad_example2_explanation": "Invalid units",
+    "nutrition_page_serving_size_explanation_bad_example2_explanation": "יחידות שגויות",
     "@nutrition_page_serving_size_explanation_bad_example2_explanation": {
         "description": "Example of an incorrect serving size"
     },
-    "nutrition_page_serving_size_explanation_bad_example2_example": "9 **candies** and 2 **biscuits**",
+    "nutrition_page_serving_size_explanation_bad_example2_example": "9 **סוכריות** ו־2 **ביסקוויטים**",
     "@nutrition_page_serving_size_explanation_bad_example2_example": {
         "description": "Example of an incorrect serving size"
     },
-    "nutrition_page_serving_size_explanation_bad_example3_explanation": "Missing unit",
+    "nutrition_page_serving_size_explanation_bad_example3_explanation": "חסרה יחידה",
     "@nutrition_page_serving_size_explanation_bad_example3_explanation": {
         "description": "Example of an incorrect serving size"
     },
@@ -1670,19 +1670,19 @@
     "@edit_product_form_item_stores_explanation_title": {
         "description": "Product edition - Stores - Explanation"
     },
-    "edit_product_form_item_stores_explanation_info1": "Input the store where you bought the product.",
+    "edit_product_form_item_stores_explanation_info1": "נא למלא את החנות בה רכשת את המוצר.",
     "@edit_product_form_item_stores_explanation_info1": {
         "description": "Product edition - Stores - Explanation"
     },
-    "edit_product_form_item_stores_explanation_good_examples_1": "Walmart",
+    "edit_product_form_item_stores_explanation_good_examples_1": "שופרסל",
     "@edit_product_form_item_stores_explanation_good_examples_1": {
         "description": "An example of store (you can change it with a more accurate one)"
     },
-    "edit_product_form_item_stores_explanation_good_examples_2": "Carrefour",
+    "edit_product_form_item_stores_explanation_good_examples_2": "טיב טעם",
     "@edit_product_form_item_stores_explanation_good_examples_2": {
         "description": "An example of store (you can change it with a more accurate one)"
     },
-    "edit_product_form_item_stores_explanation_good_examples_3": "Lidl",
+    "edit_product_form_item_stores_explanation_good_examples_3": "שפע יששכר",
     "@edit_product_form_item_stores_explanation_good_examples_3": {
         "description": "An example of store (you can change it with a more accurate one)"
     },
@@ -1702,15 +1702,15 @@
     "@edit_product_form_item_origins_explanation_title": {
         "description": "Product edition - Origins - input explainer, part 1"
     },
-    "edit_product_form_item_origins_explanation_info1": "Add **any indications of origins you can find on the packaging**.\nYou need not worry about origins indicated directly in the ingredient list.",
+    "edit_product_form_item_origins_explanation_info1": "יש להוסיף **כל סימון שיכול להעיד על מקורות שניתן למצוא על האריזה**. אין חשש ממקורות של רכיבים שמצוינים ישירות ברשימת הרכיבים.",
     "@edit_product_form_item_origins_explanation_info1": {
         "description": "Product edition - Origins - input explainer, part 1"
     },
-    "edit_product_form_item_origins_explanation_good_examples_1": "Beef from Argentina",
+    "edit_product_form_item_origins_explanation_good_examples_1": "בשר בקר מארגנטינה",
     "@edit_product_form_item_origins_explanation_good_examples_1": {
         "description": "Product edition - Origins - input explainer, part 2"
     },
-    "edit_product_form_item_origins_explanation_good_examples_2": "The soy does not come from the European Union",
+    "edit_product_form_item_origins_explanation_good_examples_2": "מקורה של הסויה הוא לא מהאיחוד האירופי",
     "@edit_product_form_item_origins_explanation_good_examples_2": {
         "description": "Product edition - Origins - input explainer, part 2"
     },
@@ -1798,7 +1798,7 @@
     "@edit_product_form_item_categories_explanation_info1": {
         "description": "Product edition - Categories - input explainer, part 1"
     },
-    "edit_product_form_item_categories_explanation_info2_title": "Missing category?",
+    "edit_product_form_item_categories_explanation_info2_title": "חסרה קטגוריה?",
     "@edit_product_form_item_categories_explanation_info2_title": {
         "description": "Product edition - Categories - input explainer, part 2"
     },
@@ -1806,11 +1806,11 @@
     "@edit_product_form_item_categories_explanation_info2_content": {
         "description": "Product edition - Categories - input explainer, part 2"
     },
-    "edit_product_form_item_categories_explanation_good_examples_1": "Sardines in olive oil",
+    "edit_product_form_item_categories_explanation_good_examples_1": "סרדינים בשמן זית",
     "@edit_product_form_item_categories_explanation_good_examples_1": {
         "description": "Product edition - Categories - input explainer, part 3"
     },
-    "edit_product_form_item_categories_explanation_good_examples_2": "Orange juice from concentrate",
+    "edit_product_form_item_categories_explanation_good_examples_2": "מיץ תפוזים מתרכיז",
     "@edit_product_form_item_categories_explanation_good_examples_2": {
         "description": "Product edition - Categories - input explainer, part 3"
     },
@@ -1861,11 +1861,11 @@
     "@edit_product_form_item_nutrition_facts_explanation_title": {
         "description": "Title for the help section about Nutritional facts"
     },
-    "edit_product_form_item_nutrition_facts_explanation_info1_title": "Nutritional values",
+    "edit_product_form_item_nutrition_facts_explanation_info1_title": "ערכים תזונתיים",
     "@edit_product_form_item_nutrition_facts_explanation_info1_title": {
         "description": "Text explaining the selector of nutritional values."
     },
-    "edit_product_form_item_nutrition_facts_explanation_info1_content": "First, select if the **values are provided**:",
+    "edit_product_form_item_nutrition_facts_explanation_info1_content": "קודם כל, יש לציין האם **הערכים צוינו**:",
     "@edit_product_form_item_nutrition_facts_explanation_info1_content": {
         "description": "Text explaining the selector of nutritional values."
     },
@@ -1877,7 +1877,7 @@
     "@edit_product_form_item_nutrition_facts_explanation_info2_content": {
         "description": "Text explaining how to input nutritional values."
     },
-    "edit_product_form_item_nutrition_facts_explanation_info3_title": "Missing field?",
+    "edit_product_form_item_nutrition_facts_explanation_info3_title": "חסר שדה?",
     "@edit_product_form_item_nutrition_facts_explanation_info3_title": {
         "description": "Text explaining what to input when a nutritional value is missing."
     },
@@ -2774,11 +2774,11 @@
     "@add_basic_details_product_brand_help_title": {
         "description": "Title for the help section about the product brands"
     },
-    "add_basic_details_product_brand_help_info1": "Input **all the brands of the product**.",
+    "add_basic_details_product_brand_help_info1": "יש למלא **את כל המותגים של המוצר**.",
     "@add_basic_details_product_brand_help_info1": {
         "description": "Text explaining how to write brands"
     },
-    "add_basic_details_product_brand_help_info2_title": "Main brand",
+    "add_basic_details_product_brand_help_info2_title": "מותג ראשי",
     "@add_basic_details_product_brand_help_info2_title": {
         "description": "Text explaining how to write brands"
     },
@@ -2786,7 +2786,7 @@
     "@add_basic_details_product_brand_help_info2_content": {
         "description": "Text explaining how to write brands"
     },
-    "add_basic_details_product_brand_help_info3_title": "Other brands",
+    "add_basic_details_product_brand_help_info3_title": "מותגים אחרים",
     "@add_basic_details_product_brand_help_info3_title": {
         "description": "Text explaining how to write brands"
     },
