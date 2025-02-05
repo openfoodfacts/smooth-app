@@ -776,9 +776,13 @@
     "nutrition_page_nutritional_info_value_positive": "Yes",
     "nutrition_page_nutritional_info_value_negative": "No",
     "nutrition_page_nutritional_info_open_photo": "Open photo",
-    "nutrition_page_nutritional_info_explanation": "TODO",
-    "@nutrition_page_nutritional_info_explanation": {
-        "description": "DO NOT TRANSLATE Text to explain when we should set the toggle to off (no nutrition facts)"
+    "nutrition_page_nutritional_info_explanation_title": "Good practices: Nutritional information",
+    "@nutrition_page_nutritional_info_explanation_title": {
+        "description": "Title for the help section about Nutritional information"
+    },
+    "nutrition_page_nutritional_info_explanation_info1": "Sometimes nutrition facts are **not specified on the packaging** or on a document given with the product. In this case, and only in this case, you can set the value to **NO**.",
+    "@nutrition_page_nutritional_info_explanation_info1": {
+        "description": "Text explaining when to set the nutritional information to NO"
     },
     "nutrition_page_serving_type_label": "Nutritional values:",
     "@nutrition_page_serving_type_label": {
@@ -790,9 +794,49 @@
     "nutrition_page_add_nutrient": "Add a nutrient",
     "nutrition_page_serving_size": "Serving size",
     "nutrition_page_serving_size_hint": "Input a serving size (eg: 100g)",
-    "nutrition_page_serving_size_explanation": "TODO",
-    "@nutrition_page_serving_size_explanation": {
-        "description": "DO NOT TRANSLATE Text to explain what to input in the serving size"
+    "nutrition_page_serving_size_explanation_title": "Good practices: Serving size",
+    "@nutrition_page_serving_size_explanation_title": {
+        "description": "Title for the help section about Nutritional information"
+    },
+    "nutrition_page_serving_size_explanation_info1": "This value helps to **make a proportional calculation of each nutrient per serving size**.",
+    "@nutrition_page_serving_size_explanation_info1": {
+        "description": "Text explaining why the serving size is important"
+    },
+    "nutrition_page_serving_size_explanation_info2": "**Allowed units** are: kg, g, mg, µg, oz, l, dl, cl, ml, fl.oz, fl oz, г, мг, кг, л, дл, кл, мл, 毫克, 公斤, 毫升, 公升, 吨.",
+    "@nutrition_page_serving_size_explanation_info2": {
+        "description": "Text explaining why the serving size is important"
+    },
+    "nutrition_page_serving_size_explanation_good_example1": "**60 g**, **60g** or **60 G** (prefer the first one)",
+    "@nutrition_page_serving_size_explanation_good_example1": {
+        "description": "Example of a correct serving size"
+    },
+    "nutrition_page_serving_size_explanation_good_example2": "**1000 ml** or **1L**",
+    "@nutrition_page_serving_size_explanation_good_example2": {
+        "description": "Example of a correct serving size"
+    },
+    "nutrition_page_serving_size_explanation_bad_example1_explanation": "Invalid unit",
+    "@nutrition_page_serving_size_explanation_bad_example1_explanation": {
+        "description": "Example of an incorrect serving size"
+    },
+    "nutrition_page_serving_size_explanation_bad_example1_example": "30 **gr**",
+    "@nutrition_page_serving_size_explanation_bad_example1_example": {
+        "description": "Example of an incorrect serving size"
+    },
+    "nutrition_page_serving_size_explanation_bad_example2_explanation": "Invalid units",
+    "@nutrition_page_serving_size_explanation_bad_example2_explanation": {
+        "description": "Example of an incorrect serving size"
+    },
+    "nutrition_page_serving_size_explanation_bad_example2_example": "9 **candies** and 2 **biscuits**",
+    "@nutrition_page_serving_size_explanation_bad_example2_example": {
+        "description": "Example of an incorrect serving size"
+    },
+    "nutrition_page_serving_size_explanation_bad_example3_explanation": "Missing unit",
+    "@nutrition_page_serving_size_explanation_bad_example3_explanation": {
+        "description": "Example of an incorrect serving size"
+    },
+    "nutrition_page_serving_size_explanation_bad_example3_example": "**30**",
+    "@nutrition_page_serving_size_explanation_bad_example3_example": {
+        "description": "Example of an incorrect serving size"
     },
     "nutrition_page_invalid_number": "Invalid number",
     "nutrition_page_update_running": "Updating the product on the server…",
@@ -1582,6 +1626,34 @@
     "@edit_product_form_item_labels_type": {
         "description": "Product edition - Labels - input textfield label"
     },
+    "edit_product_form_item_labels_explanation_title": "Good practices: Labels",
+    "@edit_product_form_item_labels_explanation_title": {
+        "description": "Product edition - Labels - explanation"
+    },
+    "edit_product_form_item_labels_explanation_info1": "Any characteristic of the product **which is factual** and different from the other fields.",
+    "@edit_product_form_item_labels_explanation_info1": {
+        "description": "Product edition - Labels - explanation"
+    },
+    "edit_product_form_item_labels_explanation_good_examples_1": "Nutri-Score, NOVA…",
+    "@edit_product_form_item_labels_explanation_good_examples_1": {
+        "description": "Product edition - Labels - explanation"
+    },
+    "edit_product_form_item_labels_explanation_good_examples_2": "Made in Belgium, produced in Brittany…",
+    "@edit_product_form_item_labels_explanation_good_examples_2": {
+        "description": "Product edition - Labels - explanation"
+    },
+    "edit_product_form_item_labels_explanation_good_examples_3": "ISO 9001, ISO 22000…",
+    "@edit_product_form_item_labels_explanation_good_examples_3": {
+        "description": "Product edition - Labels - explanation"
+    },
+    "edit_product_form_item_labels_explanation_good_examples_4": "Rich in fiber, source of iron…",
+    "@edit_product_form_item_labels_explanation_good_examples_4": {
+        "description": "Product edition - Labels - explanation"
+    },
+    "edit_product_form_item_labels_explanation_good_examples_5": "Fair trade, Max Havelaar…",
+    "@edit_product_form_item_labels_explanation_good_examples_5": {
+        "description": "Product edition - Labels - explanation"
+    },
     "edit_product_form_item_stores_title": "Stores",
     "@edit_product_form_item_stores_title": {
         "description": "Product edition - Stores - Title"
@@ -1593,6 +1665,26 @@
     "edit_product_form_item_stores_type": "store",
     "@edit_product_form_item_stores_type": {
         "description": "Product edition - Stores - input textfield type"
+    },
+    "edit_product_form_item_stores_explanation_title": "Good practices: Stores",
+    "@edit_product_form_item_stores_explanation_title": {
+        "description": "Product edition - Stores - Explanation"
+    },
+    "edit_product_form_item_stores_explanation_info1": "Input the store where you bought the product.",
+    "@edit_product_form_item_stores_explanation_info1": {
+        "description": "Product edition - Stores - Explanation"
+    },
+    "edit_product_form_item_stores_explanation_good_examples_1": "Walmart",
+    "@edit_product_form_item_stores_explanation_good_examples_1": {
+        "description": "An example of store (you can change it with a more accurate one)"
+    },
+    "edit_product_form_item_stores_explanation_good_examples_2": "Carrefour",
+    "@edit_product_form_item_stores_explanation_good_examples_2": {
+        "description": "An example of store (you can change it with a more accurate one)"
+    },
+    "edit_product_form_item_stores_explanation_good_examples_3": "Lidl",
+    "@edit_product_form_item_stores_explanation_good_examples_3": {
+        "description": "An example of store (you can change it with a more accurate one)"
     },
     "edit_product_form_item_origins_title": "Origins",
     "@edit_product_form_item_origins_title": {
@@ -1606,12 +1698,20 @@
     "@edit_product_form_item_origins_type": {
         "description": "Product edition - Origins - input textfield type"
     },
-    "edit_product_form_item_origins_explainer_1": "Add any indications of origins you can find on the packaging. You need not worry about origins indicated directly in the ingredient list.",
-    "@edit_product_form_item_origins_explainer_1": {
+    "edit_product_form_item_origins_explanation_title": "Good practices: Origins",
+    "@edit_product_form_item_origins_explanation_title": {
         "description": "Product edition - Origins - input explainer, part 1"
     },
-    "edit_product_form_item_origins_explainer_2": "Examples: Beef from Argentina, The soy does not come from the European Union",
-    "@edit_product_form_item_origins_explainer_2": {
+    "edit_product_form_item_origins_explanation_info1": "Add **any indications of origins you can find on the packaging**.\nYou need not worry about origins indicated directly in the ingredient list.",
+    "@edit_product_form_item_origins_explanation_info1": {
+        "description": "Product edition - Origins - input explainer, part 1"
+    },
+    "edit_product_form_item_origins_explanation_good_examples_1": "Beef from Argentina",
+    "@edit_product_form_item_origins_explanation_good_examples_1": {
+        "description": "Product edition - Origins - input explainer, part 2"
+    },
+    "edit_product_form_item_origins_explanation_good_examples_2": "The soy does not come from the European Union",
+    "@edit_product_form_item_origins_explanation_good_examples_2": {
         "description": "Product edition - Origins - input explainer, part 2"
     },
     "edit_product_form_item_countries_title": "Country",
@@ -1626,8 +1726,12 @@
     "@edit_product_form_item_countries_type": {
         "description": "Product edition - Countries - input textfield type"
     },
-    "edit_product_form_item_countries_explanations": "Countries where the product is widely available (not including stores specialising in foreign products).",
-    "@edit_product_form_item_countries_explanations": {
+    "edit_product_form_item_countries_explanations_title": "Good practices: Countries",
+    "@edit_product_form_item_countries_explanations_title": {
+        "description": "Product edition - Countries - explanations"
+    },
+    "edit_product_form_item_countries_explanations_info1": "**Countries where the product is widely available** (not including stores specialising in foreign products).",
+    "@edit_product_form_item_countries_explanations_info1": {
         "description": "Product edition - Countries - explanations"
     },
     "edit_product_form_item_emb_codes_title": "Traceability codes",
@@ -1642,9 +1746,37 @@
     "@edit_product_form_item_emb_codes_type": {
         "description": "Product edition - Traceability Codes - input textfield type"
     },
-    "edit_product_form_item_emb_codes_explanations": "In Europe, code in an ellipse with the 2 country initials followed by a number and CE.\nExamples: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522",
-    "@edit_product_form_item_emb_codes_examples": {
-        "description": "Product edition - EMB Codes - explanations"
+    "edit_product_form_item_emb_help_title": "Good practices: Traceability codes",
+    "@edit_product_form_item_emb_help_title": {
+        "description": "Title for the help section about traceability codes"
+    },
+    "edit_product_form_item_emb_help_info1": "In this section, you can input codes related to **packaging marks**, **identification marks** or **health marks**.",
+    "@edit_product_form_item_emb_help_info1": {
+        "description": "Text explaining how to write a traceability code"
+    },
+    "edit_product_form_item_emb_help_info2_title": "Examples of traceability codes",
+    "@edit_product_form_item_emb_help_info2_title": {
+        "description": "Explanation about EMB/EC… codes"
+    },
+    "edit_product_form_item_emb_help_info2_item1_text": "**EC codes** used in the European Community to identify food producers or packagers:",
+    "@edit_product_form_item_emb_help_info2_item1_text": {
+        "description": "Explanation about EC codes"
+    },
+    "edit_product_form_item_emb_help_info2_item1_example": "FR\n72.264.002\nCE",
+    "@edit_product_form_item_emb_help_info2_item1_example": {
+        "description": "Example of an EC code (you can change with a valid code in another european country)"
+    },
+    "edit_product_form_item_emb_help_info2_item1_explanation": "**FR**: country code of **France**\n**72.264.002**: geographic data\n**CE**: European Community",
+    "@edit_product_form_item_emb_help_info2_item1_explanation": {
+        "description": "Example of an EC code (shouldn't be translated)"
+    },
+    "edit_product_form_item_emb_help_info2_item2_text": "**EMB codes** used in France:",
+    "@edit_product_form_item_emb_help_info2_item2_text": {
+        "description": "Explanation about EMB codes"
+    },
+    "edit_product_form_item_emb_help_info2_item2_explanation": "EMB 72264",
+    "@edit_product_form_item_emb_help_info2_item2_explanation": {
+        "description": "Example of an EMB code"
     },
     "edit_product_form_item_categories_title": "Categories",
     "@edit_product_form_item_categories_title": {
@@ -1658,16 +1790,28 @@
     "@edit_product_form_item_categories_type": {
         "description": "Product edition - Categories - input textfield type"
     },
-    "edit_product_form_item_categories_explainer_1": "Indicate only the most specific category. Parent categories will be automatically added.",
-    "@edit_product_form_item_categories_explainer_1": {
+    "edit_product_form_item_categories_explanation_title": "Good practices: Categories",
+    "@edit_product_form_item_categories_explanation_title": {
+        "description": "Product edition - Categories - input explainer, title"
+    },
+    "edit_product_form_item_categories_explanation_info1": "Indicate **only the most specific category**.\nParent categories will be automatically added.",
+    "@edit_product_form_item_categories_explanation_info1": {
         "description": "Product edition - Categories - input explainer, part 1"
     },
-    "edit_product_form_item_categories_explainer_2": "In case a category is not available in autocomplete, feel free to add it anyway, that will help us improve Open Food Facts in your country.",
-    "@edit_product_form_item_categories_explainer_2": {
+    "edit_product_form_item_categories_explanation_info2_title": "Missing category?",
+    "@edit_product_form_item_categories_explanation_info2_title": {
         "description": "Product edition - Categories - input explainer, part 2"
     },
-    "edit_product_form_item_categories_explainer_3": "Examples: Sardines in olive oil, Orange juice from concentrate",
-    "@edit_product_form_item_categories_explainer_3": {
+    "edit_product_form_item_categories_explanation_info2_content": "In case a category is **not available in autocomplete**, feel free to add it anyway.\nThis will help us improve Open Food Facts in your country.",
+    "@edit_product_form_item_categories_explanation_info2_content": {
+        "description": "Product edition - Categories - input explainer, part 2"
+    },
+    "edit_product_form_item_categories_explanation_good_examples_1": "Sardines in olive oil",
+    "@edit_product_form_item_categories_explanation_good_examples_1": {
+        "description": "Product edition - Categories - input explainer, part 3"
+    },
+    "edit_product_form_item_categories_explanation_good_examples_2": "Orange juice from concentrate",
+    "@edit_product_form_item_categories_explanation_good_examples_2": {
         "description": "Product edition - Categories - input explainer, part 3"
     },
     "edit_product_form_item_exit_title": "Quit without saving?",
@@ -1713,9 +1857,33 @@
     "@edit_product_form_item_nutrition_facts_subtitle": {
         "description": "Product edition - Nutrition facts - SubTitle"
     },
-    "edit_product_form_item_nutrition_facts_explanation": "TODO",
-    "@edit_product_form_item_nutrition_facts_explanation": {
-        "description": "DO NOT TRANSLATE Text to explain what to input in nutrition facts"
+    "edit_product_form_item_nutrition_facts_explanation_title": "Good practices: Nutrition facts",
+    "@edit_product_form_item_nutrition_facts_explanation_title": {
+        "description": "Title for the help section about Nutritional facts"
+    },
+    "edit_product_form_item_nutrition_facts_explanation_info1_title": "Nutritional values",
+    "@edit_product_form_item_nutrition_facts_explanation_info1_title": {
+        "description": "Text explaining the selector of nutritional values."
+    },
+    "edit_product_form_item_nutrition_facts_explanation_info1_content": "First, select if the **values are provided**:",
+    "@edit_product_form_item_nutrition_facts_explanation_info1_content": {
+        "description": "Text explaining the selector of nutritional values."
+    },
+    "edit_product_form_item_nutrition_facts_explanation_info2_title": "Nutrition facts",
+    "@edit_product_form_item_nutrition_facts_explanation_info2_title": {
+        "description": "Text explaining how to input nutritional values."
+    },
+    "edit_product_form_item_nutrition_facts_explanation_info2_content": "Then, input the nutritional values **as indicated on the packaging**. If there is no value, you can click on the \"Eye\" icon.",
+    "@edit_product_form_item_nutrition_facts_explanation_info2_content": {
+        "description": "Text explaining how to input nutritional values."
+    },
+    "edit_product_form_item_nutrition_facts_explanation_info3_title": "Missing field?",
+    "@edit_product_form_item_nutrition_facts_explanation_info3_title": {
+        "description": "Text explaining what to input when a nutritional value is missing."
+    },
+    "edit_product_form_item_nutrition_facts_explanation_info3_content": "If an entry is missing, you can **click on the \"Plus\" icon** to add it (eg: vitamin D, magnesium…).",
+    "@edit_product_form_item_nutrition_facts_explanation_info3_content": {
+        "description": "Text explaining what to input when a nutritional value is missing."
     },
     "edit_product_form_save": "Edit",
     "@edit_product_form_save": {
@@ -2545,7 +2713,15 @@
     "@add_basic_details_product_name_hint": {
         "description": "Placeholder when the product name text-field is empty"
     },
-    "add_basic_details_product_name_help_title": "Good practices: product name",
+    "explanation_section_good_examples": "Good examples",
+    "@explanation_section_good_examples": {
+        "description": "Title for the section with good examples"
+    },
+    "explanation_section_bad_examples": "Bad examples",
+    "@explanation_section_bad_examples": {
+        "description": "Title for the section with bad examples"
+    },
+    "add_basic_details_product_name_help_title": "Good practices: Product name",
     "@add_basic_details_product_name_help_title": {
         "description": "Title for the help section about the product name"
     },
@@ -2556,14 +2732,6 @@
     "add_basic_details_product_name_help_info2": "**Note:** Please don't add a translation **if the language is not present on the packaging**.",
     "@add_basic_details_product_name_help_info2": {
         "description": "Text explaining how to write the product name"
-    },
-    "explanation_section_good_examples": "Good examples",
-    "@explanation_section_good_examples": {
-        "description": "Title for the section with good examples"
-    },
-    "explanation_section_bad_examples": "Bad examples",
-    "@explanation_section_bad_examples": {
-        "description": "Title for the section with bad examples"
     },
     "add_basic_details_product_name_help_good_examples_1": "Nesquik",
     "@add_basic_details_product_name_help_good_examples_1": {
@@ -2602,8 +2770,72 @@
     "brand_names": "Brand names",
     "add_basic_details_brand_name_error": "Please enter the brand name",
     "add_basic_details_brand_names_hint": "Input brands (eg: Ferrero)",
+    "add_basic_details_product_brand_help_title": "Good practices: Brands",
+    "@add_basic_details_product_brand_help_title": {
+        "description": "Title for the help section about the product brands"
+    },
+    "add_basic_details_product_brand_help_info1": "Input **all the brands of the product**.",
+    "@add_basic_details_product_brand_help_info1": {
+        "description": "Text explaining how to write brands"
+    },
+    "add_basic_details_product_brand_help_info2_title": "Main brand",
+    "@add_basic_details_product_brand_help_info2_title": {
+        "description": "Text explaining how to write brands"
+    },
+    "add_basic_details_product_brand_help_info2_content": "The **main brand**, generally clearly displayed on the front pack, should be **entered first**.",
+    "@add_basic_details_product_brand_help_info2_content": {
+        "description": "Text explaining how to write brands"
+    },
+    "add_basic_details_product_brand_help_info3_title": "Other brands",
+    "@add_basic_details_product_brand_help_info3_title": {
+        "description": "Text explaining how to write brands"
+    },
+    "add_basic_details_product_brand_help_info3_item1_text": "When sold **by a big company**:",
+    "@add_basic_details_product_brand_help_info3_item1_text": {
+        "description": "Text explaining how to write brands"
+    },
+    "add_basic_details_product_brand_help_info3_item1_explanation": "**Actimel** is sold by **Danone**",
+    "@add_basic_details_product_brand_help_info3_item1_explanation": {
+        "description": "Text explaining how to write brands"
+    },
+    "add_basic_details_product_brand_help_info3_item2_text": "When sold with its brand **translated in multiple languages**:",
+    "@add_basic_details_product_brand_help_info3_item2_text": {
+        "description": "Text explaining how to write brands"
+    },
+    "add_basic_details_product_brand_help_info3_item2_explanation": "**Nature Valley** is sometimes written **Val Nature**",
+    "@add_basic_details_product_brand_help_info3_item2_explanation": {
+        "description": "Text explaining how to write brands"
+    },
+    "add_basic_details_product_brand_help_good_examples_1": "Nutella",
+    "@add_basic_details_product_brand_help_good_examples_1": {
+        "description": "A 1st good example for the brand name (you can change it if necessary)"
+    },
+    "add_basic_details_product_brand_help_good_examples_2": "Oreo, Mondelez",
+    "@add_basic_details_product_brand_help_good_examples_2": {
+        "description": "A 2nd good example for the brand name (you can change it if necessary)"
+    },
     "quantity": "Quantity and weight",
     "add_basic_details_quantity_hint": "Input the weight and if needed the quantity (eg : 4x100g)",
+    "add_basic_details_product_quantity_help_title": "Good practices: Quantity",
+    "@add_basic_details_product_quantity_help_title": {
+        "description": "Title for the help section about the product quantity"
+    },
+    "add_basic_details_product_quantity_help_info1": "Copy the value indicated on the product and **don't forget the units**.",
+    "@add_basic_details_product_quantity_help_info1": {
+        "description": "Text explaining how to write quantity"
+    },
+    "add_basic_details_product_quantity_help_good_examples_1": "**230g** or **230 g**",
+    "@add_basic_details_product_quantity_help_good_examples_1": {
+        "description": "A 1st good example for the quantity (you can change it if necessary)"
+    },
+    "add_basic_details_product_quantity_help_good_examples_2": "**6** (for 6 eggs)",
+    "@add_basic_details_product_quantity_help_good_examples_2": {
+        "description": "A 2nd good example for the quantity (you can change it if necessary)"
+    },
+    "add_basic_details_product_quantity_help_good_examples_3": "**3 x 150g**\n(for a product with 3 boxes, each of 150g)",
+    "@add_basic_details_product_quantity_help_good_examples_3": {
+        "description": "A 2nd good example for the quantity (you can change it if necessary)"
+    },
     "barcode": "Barcode",
     "barcode_barcode": "Barcode: {barcode}",
     "@barcode_barcode": {
