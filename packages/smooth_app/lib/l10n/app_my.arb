@@ -1586,6 +1586,10 @@
     "@edit_product_form_item_add_action_category": {
         "description": "Tooltip to show when the user long presses the (+) button on a category"
     },
+    "edit_product_form_item_add_suggestion": "Add suggestion",
+    "@edit_product_form_item_add_suggestion": {
+        "description": "Tooltip to show when the user long presses the (+) button on a suggestion"
+    },
     "edit_product_form_item_details_title": "Basic details",
     "@edit_product_form_item_details_title": {
         "description": "Product edition - Basic Details - Title"
