@@ -69,11 +69,11 @@
       context.extension&lt;SmoothColorsThemeExtension&gt;();
 
   return switch (status) {
-    MatchedProductStatusV2.VERY_GOOD_MATCH =&gt; theme.green,
-    MatchedProductStatusV2.GOOD_MATCH =&gt; theme.green,
-    MatchedProductStatusV2.POOR_MATCH =&gt; theme.orange,
-    MatchedProductStatusV2.MAY_NOT_MATCH =&gt; theme.orange,
-    MatchedProductStatusV2.DOES_NOT_MATCH =&gt; theme.red,
+    MatchedProductStatusV2.VERY_GOOD_MATCH =&gt; theme.success,
+    MatchedProductStatusV2.GOOD_MATCH =&gt; theme.success,
+    MatchedProductStatusV2.POOR_MATCH =&gt; theme.warning,
+    MatchedProductStatusV2.MAY_NOT_MATCH =&gt; theme.warning,
+    MatchedProductStatusV2.DOES_NOT_MATCH =&gt; theme.error,
     MatchedProductStatusV2.UNKNOWN_MATCH =&gt; theme.greyNormal,
   };
 }</code></pre>

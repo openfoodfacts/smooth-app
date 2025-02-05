@@ -73,7 +73,7 @@
 Widget build(BuildContext context) {
   final List&lt;Widget&gt; actionWidgets = &lt;Widget&gt;[];
   for (final String action in element.actions) {
-    final Widget? button = _getButton(action);
+    final Widget? button = _getButton(context, action);
     if (button != null) {
       actionWidgets.add(button);
     }
