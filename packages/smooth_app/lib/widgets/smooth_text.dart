@@ -361,7 +361,7 @@ class TextWithBubbleParts extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Color backgroundColor = this.backgroundColor ??
-        context.extension<SmoothColorsThemeExtension>().orange;
+        context.extension<SmoothColorsThemeExtension>().secondaryNormal;
 
     return RichText(
       textScaler: MediaQuery.textScalerOf(context),

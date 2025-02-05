@@ -445,7 +445,7 @@ class _ProductActionBarModalItemActionVisibility extends StatelessWidget {
           : localizations.product_page_action_bar_item_enable,
       enabledColor: (visible
           ? null
-          : Theme.of(context).extension<SmoothColorsThemeExtension>()!.red),
+          : Theme.of(context).extension<SmoothColorsThemeExtension>()!.error),
       enabled: true,
       onTap: onTap,
     );

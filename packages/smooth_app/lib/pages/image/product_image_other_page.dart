@@ -303,7 +303,7 @@ class _ProductImageOutdatedLabel extends StatelessWidget {
         height: double.infinity,
         child: DecoratedBox(
           decoration: BoxDecoration(
-            color: colors.red.withValues(alpha: 0.9),
+            color: colors.error.withValues(alpha: 0.9),
             borderRadius: CIRCULAR_BORDER_RADIUS,
           ),
           child: Padding(

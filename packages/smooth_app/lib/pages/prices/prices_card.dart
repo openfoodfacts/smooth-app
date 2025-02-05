@@ -37,7 +37,7 @@ class PricesCard extends StatelessWidget {
             start: LARGE_SPACE,
             child: Container(
               decoration: BoxDecoration(
-                color: themeExtension.orange,
+                color: themeExtension.secondaryVibrant,
                 shape: BoxShape.circle,
               ),
               padding: const EdgeInsetsDirectional.only(
@@ -113,7 +113,7 @@ class _PricesCardTitleIcon extends StatelessWidget {
       angle: -pi / 6,
       child: icons.Lab(
         size: 100.0,
-        color: themeExtension?.orange
+        color: themeExtension?.secondaryVibrant
             .withValues(alpha: context.lightTheme() ? 0.15 : 0.4),
       ),
     );

@@ -1,6 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:provider/provider.dart';
+import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/html/smooth_html_widget.dart';
 import 'package:smooth_app/pages/product/add_nutrition_button.dart';
@@ -22,7 +24,7 @@ class KnowledgePanelActionCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<Widget> actionWidgets = <Widget>[];
     for (final String action in element.actions) {
-      final Widget? button = _getButton(action);
+      final Widget? button = _getButton(context, action);
       if (button != null) {
         actionWidgets.add(button);
       }
@@ -38,7 +40,10 @@ class KnowledgePanelActionCard extends StatelessWidget {
     );
   }
 
-  Widget? _getButton(final String action) {
+  Widget? _getButton(
+    final BuildContext context,
+    final String action,
+  ) {
     final KnowledgePanelAction? kpAction =
         KnowledgePanelAction.fromOffTag(action);
     if (kpAction == null) {
@@ -46,7 +51,7 @@ class KnowledgePanelActionCard extends StatelessWidget {
       return null;
     }
     final AbstractSimpleInputPageHelper? simpleInputPageHelper =
-        _getSimpleInputPageHelper(kpAction);
+        _getSimpleInputPageHelper(context, kpAction);
     if (simpleInputPageHelper != null) {
       return AddSimpleInputButton(
         product: product,
@@ -74,6 +79,7 @@ class KnowledgePanelActionCard extends StatelessWidget {
   }
 
   AbstractSimpleInputPageHelper? _getSimpleInputPageHelper(
+    final BuildContext context,
     final KnowledgePanelAction action,
   ) {
     switch (action) {
@@ -86,7 +92,9 @@ class KnowledgePanelActionCard extends StatelessWidget {
       case KnowledgePanelAction.addLabels:
         return SimpleInputPageLabelHelper();
       case KnowledgePanelAction.addCountries:
-        return SimpleInputPageCountryHelper();
+        return SimpleInputPageCountryHelper(
+          context.read<UserPreferences>(),
+        );
       default:
         return null;
     }

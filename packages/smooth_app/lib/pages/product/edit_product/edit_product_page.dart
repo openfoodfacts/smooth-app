@@ -134,7 +134,9 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
                   SimpleInputPageStoreHelper(),
                   SimpleInputPageOriginHelper(),
                   SimpleInputPageEmbCodeHelper(),
-                  SimpleInputPageCountryHelper(),
+                  SimpleInputPageCountryHelper(
+                    context.read<UserPreferences>(),
+                  ),
                   SimpleInputPageCategoryHelper(),
                 ],
               ),
@@ -201,7 +203,9 @@ class _EditProductPageState extends State<EditProductPage> with UpToDateMixin {
               _getSimpleListTileItem(SimpleInputPageStoreHelper()),
               _getSimpleListTileItem(SimpleInputPageOriginHelper()),
               _getSimpleListTileItem(SimpleInputPageEmbCodeHelper()),
-              _getSimpleListTileItem(SimpleInputPageCountryHelper()),
+              _getSimpleListTileItem(SimpleInputPageCountryHelper(
+                context.read<UserPreferences>(),
+              )),
               _ListTitleItem(
                 title:
                     appLocalizations.edit_product_form_item_other_details_title,

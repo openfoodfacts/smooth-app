@@ -1,11 +1,15 @@
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:iso_countries/country.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/background/background_task_details.dart';
+import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
+import 'package:smooth_app/pages/preferences/country_selector/country_selector.dart';
 import 'package:smooth_app/pages/product/multilingual_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
@@ -115,6 +119,12 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
   /// Impacts a product in order to take the changes into account.
   @protected
   void changeProduct(final Product changedProduct);
+
+  /// Allows to provide some suggestions to the user.
+  ValueNotifier<SimpleInputSuggestionsState> getSuggestions() =>
+      ValueNotifier<SimpleInputSuggestionsState>(
+        const SimpleInputSuggestionsNoSuggestion(),
+      );
 
   /// Returns the tag type for autocomplete suggestions.
   TagType? getTagType();
@@ -257,6 +267,26 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
 
   /// Returns true if the field is an owner field.
   bool isOwnerField(final Product product) => false;
+}
+
+sealed class SimpleInputSuggestionsState {
+  const SimpleInputSuggestionsState();
+}
+
+class SimpleInputSuggestionsLoading extends SimpleInputSuggestionsState {
+  const SimpleInputSuggestionsLoading();
+}
+
+class SimpleInputSuggestionsNoSuggestion extends SimpleInputSuggestionsState {
+  const SimpleInputSuggestionsNoSuggestion();
+}
+
+class SimpleInputSuggestionsLoaded extends SimpleInputSuggestionsState {
+  const SimpleInputSuggestionsLoaded({
+    required this.suggestions,
+  });
+
+  final List<String> suggestions;
 }
 
 /// Implementation for "Brands" of an [AbstractSimpleInputPageHelper].
@@ -883,9 +913,57 @@ class SimpleInputPageCategoryNotFoodHelper
 
 /// Implementation for "Countries" of an [AbstractSimpleInputPageHelper].
 class SimpleInputPageCountryHelper extends AbstractSimpleInputPageHelper {
+  SimpleInputPageCountryHelper(UserPreferences userPreferences)
+      : _userCountryCode = userPreferences.userCountryCode ?? 'en' {
+    CountriesHelper.getCountries(
+      getLanguage().offTag,
+    ).then((List<Country>? countries) {
+      _countries = countries ?? <Country>[];
+    });
+  }
+
+  final String _userCountryCode;
+
+  ValueNotifier<SimpleInputSuggestionsState> _suggestionsNotifier =
+      ValueNotifier<SimpleInputSuggestionsState>(
+    const SimpleInputSuggestionsLoading(),
+  );
+  List<Country>? _countries;
+
   @override
   List<String> initTerms(final Product product) =>
       product.countriesTagsInLanguages?[getLanguage()] ?? <String>[];
+
+  @override
+  void reInit(Product product) {
+    super.reInit(product);
+
+    try {
+      _suggestionsNotifier.notifyListeners();
+    } catch (_) {
+      // The Notifier was disposed
+      _suggestionsNotifier = ValueNotifier<SimpleInputSuggestionsState>(
+        const SimpleInputSuggestionsLoading(),
+      );
+    }
+
+    _reloadSuggestions();
+  }
+
+  @override
+  bool addItemsFromController(
+    final TextEditingController controller, {
+    bool clearController = true,
+  }) {
+    final bool result = super.addItemsFromController(
+      controller,
+      clearController: clearController,
+    );
+    if (result) {
+      _reloadSuggestions();
+    }
+    return result;
+  }
 
   @override
   void changeProduct(final Product changedProduct) {
@@ -894,6 +972,35 @@ class SimpleInputPageCountryHelper extends AbstractSimpleInputPageHelper {
         <OpenFoodFactsLanguage, List<String>>{getLanguage(): terms};
     // for the server - write-only
     changedProduct.countries = terms.join(separator);
+  }
+
+  @override
+  ValueNotifier<SimpleInputSuggestionsState> getSuggestions() =>
+      _suggestionsNotifier;
+
+  Future<void> _reloadSuggestions() async {
+    _countries ??= await CountriesHelper.getCountries(
+      getLanguage().offTag,
+    );
+    if (_countries == null) {
+      _suggestionsNotifier.value = const SimpleInputSuggestionsNoSuggestion();
+      return;
+    }
+
+    final Country? country = _countries!.firstWhereOrNull(
+      (Country country) => country.countryCode == _userCountryCode,
+    );
+
+    if (country == null || _terms.contains(country.name) == true) {
+      _suggestionsNotifier.value = const SimpleInputSuggestionsLoaded(
+        suggestions: <String>[],
+      );
+      return;
+    }
+
+    _suggestionsNotifier.value = SimpleInputSuggestionsLoaded(
+      suggestions: <String>[country.name],
+    );
   }
 
   @override
@@ -941,4 +1048,14 @@ class SimpleInputPageCountryHelper extends AbstractSimpleInputPageHelper {
 
   @override
   AnalyticsEditEvents getAnalyticsEditEvent() => AnalyticsEditEvents.country;
+
+  @override
+  void dispose() {
+    try {
+      _suggestionsNotifier.dispose();
+    } catch (_) {
+      // The Notifier was already disposed
+    }
+    super.dispose();
+  }
 }
