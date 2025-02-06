@@ -11,7 +11,6 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_app_logo.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/border_radius_helper.dart';
 import 'package:smooth_app/helpers/image_field_extension.dart';
@@ -102,146 +101,140 @@ class _ProductImageGalleryViewState extends State<ProductImageGalleryView>
           value: _language,
         ),
       ],
-      child: SmoothSharedAnimationController(
-        child: SmoothScaffold(
-          appBar: buildEditProductAppBar(
-            context: context,
-            title: appLocalizations.edit_product_form_item_photos_title,
-            product: upToDateProduct,
-            bottom: ProductImageGalleryTabBar(
-              onTabChanged: (final OpenFoodFactsLanguage language) =>
-                  onNextFrame(
-                () => setState(
-                  () {
-                    _language = language;
-                    _scrollController.animateTo(
-                      0.0,
-                      duration: SmoothAnimationsDuration.short,
-                      curve: Curves.easeInOut,
-                    );
-                  },
-                ),
+      child: SmoothScaffold(
+        appBar: buildEditProductAppBar(
+          context: context,
+          title: appLocalizations.edit_product_form_item_photos_title,
+          product: upToDateProduct,
+          bottom: ProductImageGalleryTabBar(
+            onTabChanged: (final OpenFoodFactsLanguage language) => onNextFrame(
+              () => setState(
+                () {
+                  _language = language;
+                  _scrollController.animateTo(
+                    0.0,
+                    duration: SmoothAnimationsDuration.short,
+                    curve: Curves.easeInOut,
+                  );
+                },
               ),
             ),
           ),
-          body: Stack(
-            children: <Widget>[
-              Positioned.fill(
-                child: Column(
-                  children: <Widget>[
-                    Expanded(
-                      child: RefreshIndicator(
-                        onRefresh: () async =>
-                            ProductRefresher().fetchAndRefresh(
-                          barcode: barcode,
-                          context: context,
-                        ),
-                        child: CustomScrollView(
-                          controller: _scrollController,
-                          slivers: <Widget>[
-                            SliverPadding(
-                              padding: const EdgeInsetsDirectional.only(
-                                top: VERY_SMALL_SPACE,
+        ),
+        body: Stack(
+          children: <Widget>[
+            Positioned.fill(
+              child: Column(
+                children: <Widget>[
+                  Expanded(
+                    child: RefreshIndicator(
+                      onRefresh: () async => ProductRefresher().fetchAndRefresh(
+                        barcode: barcode,
+                        context: context,
+                      ),
+                      child: CustomScrollView(
+                        controller: _scrollController,
+                        slivers: <Widget>[
+                          SliverPadding(
+                            padding: const EdgeInsetsDirectional.only(
+                              top: VERY_SMALL_SPACE,
+                            ),
+                            sliver: SliverGrid(
+                              gridDelegate:
+                                  SliverGridDelegateWithFixedCrossAxisCountAndFixedHeight(
+                                crossAxisCount: 2,
+                                height:
+                                    (MediaQuery.sizeOf(context).width / 2.15) +
+                                        ImageGalleryPhotoRow.itemHeight,
                               ),
-                              sliver: SliverGrid(
-                                gridDelegate:
-                                    SliverGridDelegateWithFixedCrossAxisCountAndFixedHeight(
-                                  crossAxisCount: 2,
-                                  height: (MediaQuery.sizeOf(context).width /
-                                          2.15) +
-                                      ImageGalleryPhotoRow.itemHeight,
-                                ),
-                                delegate: SliverChildBuilderDelegate(
-                                  (BuildContext context, int index) {
-                                    return Padding(
-                                      padding: EdgeInsetsDirectional.only(
-                                        top: VERY_SMALL_SPACE,
-                                        start: index.isOdd
-                                            ? VERY_SMALL_SPACE / 2
-                                            : VERY_SMALL_SPACE,
-                                        end: index.isOdd
-                                            ? VERY_SMALL_SPACE
-                                            : VERY_SMALL_SPACE / 2,
+                              delegate: SliverChildBuilderDelegate(
+                                (BuildContext context, int index) {
+                                  return Padding(
+                                    padding: EdgeInsetsDirectional.only(
+                                      top: VERY_SMALL_SPACE,
+                                      start: index.isOdd
+                                          ? VERY_SMALL_SPACE / 2
+                                          : VERY_SMALL_SPACE,
+                                      end: index.isOdd
+                                          ? VERY_SMALL_SPACE
+                                          : VERY_SMALL_SPACE / 2,
+                                    ),
+                                    child: ImageGalleryPhotoRow(
+                                      key: Key(
+                                        '${_mainImageFields[index]}_${_language.offTag}}',
                                       ),
-                                      child: ImageGalleryPhotoRow(
-                                        key: Key(
-                                          '${_mainImageFields[index]}_${_language.offTag}}',
-                                        ),
-                                        position: index,
-                                        imageField: _mainImageFields[index],
-                                        language: _language,
-                                      ),
-                                    );
-                                  },
-                                  childCount: _mainImageFields.length,
-                                  addAutomaticKeepAlives: false,
+                                      position: index,
+                                      imageField: _mainImageFields[index],
+                                      language: _language,
+                                    ),
+                                  );
+                                },
+                                childCount: _mainImageFields.length,
+                                addAutomaticKeepAlives: false,
+                              ),
+                            ),
+                          ),
+                          if (!_hideOtherPhotos)
+                            SliverPadding(
+                              padding: const EdgeInsetsDirectional.symmetric(
+                                vertical: MEDIUM_SPACE,
+                                horizontal: SMALL_SPACE,
+                              ),
+                              sliver: SliverToBoxAdapter(
+                                child: _moreInterestingPhotoWidget(
+                                  appLocalizations,
+                                  context,
                                 ),
                               ),
                             ),
-                            if (!_hideOtherPhotos)
-                              SliverPadding(
-                                padding: const EdgeInsetsDirectional.symmetric(
-                                  vertical: MEDIUM_SPACE,
-                                  horizontal: SMALL_SPACE,
-                                ),
-                                sliver: SliverToBoxAdapter(
-                                  child: _moreInterestingPhotoWidget(
-                                    appLocalizations,
-                                    context,
+                          if (_shouldDisplayRawGallery())
+                            ProductImageGalleryOtherView(
+                                onPhotosAvailable: (bool hasPhotos) {
+                              if (_hideOtherPhotos != !hasPhotos) {
+                                onNextFrame(
+                                  () => setState(
+                                    () => _hideOtherPhotos = !hasPhotos,
                                   ),
-                                ),
-                              ),
-                            if (_shouldDisplayRawGallery())
-                              ProductImageGalleryOtherView(
-                                  onPhotosAvailable: (bool hasPhotos) {
-                                if (_hideOtherPhotos != hasPhotos) {
-                                  onNextFrame(
-                                    () => setState(
-                                      () => _hideOtherPhotos = !hasPhotos,
-                                    ),
-                                  );
-                                }
-                              })
-                            else
-                              SliverToBoxAdapter(
-                                child: Padding(
-                                  padding: const EdgeInsets.all(SMALL_SPACE),
-                                  child: SmoothLargeButtonWithIcon(
-                                    text:
-                                        appLocalizations.view_more_photo_button,
-                                    leadingIcon: const Icon(
-                                      Icons.photo_camera_rounded,
-                                    ),
-                                    onPressed: () => setState(
-                                      () => _clickedOtherPictureButton = true,
-                                    ),
-                                  ),
-                                ),
-                              ),
+                                );
+                              }
+                            })
+                          else
                             SliverToBoxAdapter(
-                              child: SizedBox(
-                                height:
-                                    MediaQuery.viewPaddingOf(context).bottom +
-                                        (VERY_LARGE_SPACE * 2.5),
+                              child: Padding(
+                                padding: const EdgeInsets.all(SMALL_SPACE),
+                                child: SmoothLargeButtonWithIcon(
+                                  text: appLocalizations.view_more_photo_button,
+                                  leadingIcon: const Icon(
+                                    Icons.photo_camera_rounded,
+                                  ),
+                                  onPressed: () => setState(
+                                    () => _clickedOtherPictureButton = true,
+                                  ),
+                                ),
                               ),
-                            )
-                          ],
-                        ),
+                            ),
+                          SliverToBoxAdapter(
+                            child: SizedBox(
+                              height: MediaQuery.viewPaddingOf(context).bottom +
+                                  (VERY_LARGE_SPACE * 2.5),
+                            ),
+                          )
+                        ],
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-              Positioned.directional(
-                textDirection: Directionality.of(context),
-                bottom: 0.0,
-                end: 0.0,
-                child: const _ProductImageGalleryFooterButton(),
-              ),
-            ],
-          ),
-          persistentFooterAlignment: AlignmentDirectional.bottomEnd,
+            ),
+            Positioned.directional(
+              textDirection: Directionality.of(context),
+              bottom: 0.0,
+              end: 0.0,
+              child: const _ProductImageGalleryFooterButton(),
+            ),
+          ],
         ),
+        persistentFooterAlignment: AlignmentDirectional.bottomEnd,
       ),
     );
   }
