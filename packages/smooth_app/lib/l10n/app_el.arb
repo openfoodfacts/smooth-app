@@ -586,7 +586,7 @@
     "@new_product_found_title": {
         "description": "Title of a dialog that informs the user that a barcode doesn't exist in the database"
     },
-    "new_product_found_text": "Our collaborative database contains more than **3 million products**, but this barcode doesn't exist: ",
+    "new_product_found_text": "Η συνεργατική βάση δεδομένων μας περιέχει περισσότερα από **3 εκατομμύρια προϊόντα**, αλλά αυτός ο γραμμωτός κώδικας δεν υπάρχει: ",
     "@new_product_found_text": {
         "description": "Please keep the ** syntax to make the text bold"
     },
@@ -776,11 +776,11 @@
     "nutrition_page_nutritional_info_value_positive": "Ναι",
     "nutrition_page_nutritional_info_value_negative": "Όχι",
     "nutrition_page_nutritional_info_open_photo": "Άνοιγμα φωτογραφίας",
-    "nutrition_page_nutritional_info_explanation_title": "Good practices: Nutritional information",
+    "nutrition_page_nutritional_info_explanation_title": "Καλές πρακτικές: Διατροφικές πληροφορίες",
     "@nutrition_page_nutritional_info_explanation_title": {
         "description": "Title for the help section about Nutritional information"
     },
-    "nutrition_page_nutritional_info_explanation_info1": "Sometimes nutrition facts are **not specified on the packaging** or on a document given with the product. In this case, and only in this case, you can set the value to **NO**.",
+    "nutrition_page_nutritional_info_explanation_info1": "Μερικές φορές τα στοιχεία διατροφής **δεν προσδιορίζονται στη συσκευασία** ή σε ένα έγγραφο που παρέχεται με το προϊόν. Σε αυτήν την περίπτωση, και μόνο σε αυτήν την περίπτωση, μπορείτε να ορίσετε την τιμή σε **NO**.",
     "@nutrition_page_nutritional_info_explanation_info1": {
         "description": "Text explaining when to set the nutritional information to NO"
     },
@@ -794,27 +794,27 @@
     "nutrition_page_add_nutrient": "Προσθέστε ένα θρεπτικό συστατικό",
     "nutrition_page_serving_size": "Μέγεθος μερίδας",
     "nutrition_page_serving_size_hint": "Εισαγάγετε ένα μέγεθος μερίδας (πχ. 100g)",
-    "nutrition_page_serving_size_explanation_title": "Good practices: Serving size",
+    "nutrition_page_serving_size_explanation_title": "Καλές πρακτικές: Μέγεθος μερίδας",
     "@nutrition_page_serving_size_explanation_title": {
         "description": "Title for the help section about Nutritional information"
     },
-    "nutrition_page_serving_size_explanation_info1": "This value helps to **make a proportional calculation of each nutrient per serving size**.",
+    "nutrition_page_serving_size_explanation_info1": "Αυτή η τιμή βοηθά να **κάνουμε έναν ανάλογο υπολογισμό κάθε θρεπτικού συστατικού ανά μέγεθος μερίδας**.",
     "@nutrition_page_serving_size_explanation_info1": {
         "description": "Text explaining why the serving size is important"
     },
-    "nutrition_page_serving_size_explanation_info2": "**Allowed units** are: kg, g, mg, µg, oz, l, dl, cl, ml, fl.oz, fl oz, г, мг, кг, л, дл, кл, мл, 毫克, 公斤, 毫升, 公升, 吨.",
+    "nutrition_page_serving_size_explanation_info2": "**Επιτρεπόμενες μονάδες** είναι: kg, g, mg, μg, oz, l, dl, cl, ml, fl.oz, fl oz, г, мг, кг, л, дл, кл, мл, 毫克, 公斤, 毫升, 公公.",
     "@nutrition_page_serving_size_explanation_info2": {
         "description": "Text explaining why the serving size is important"
     },
-    "nutrition_page_serving_size_explanation_good_example1": "**60 g**, **60g** or **60 G** (prefer the first one)",
+    "nutrition_page_serving_size_explanation_good_example1": "**60 g**, **60 g** ή **60 g** (προτιμήστε το πρώτο)",
     "@nutrition_page_serving_size_explanation_good_example1": {
         "description": "Example of a correct serving size"
     },
-    "nutrition_page_serving_size_explanation_good_example2": "**1000 ml** or **1L**",
+    "nutrition_page_serving_size_explanation_good_example2": "**1000 ml** ή **1L**",
     "@nutrition_page_serving_size_explanation_good_example2": {
         "description": "Example of a correct serving size"
     },
-    "nutrition_page_serving_size_explanation_bad_example1_explanation": "Invalid unit",
+    "nutrition_page_serving_size_explanation_bad_example1_explanation": "Μη έγκυρη μονάδα",
     "@nutrition_page_serving_size_explanation_bad_example1_explanation": {
         "description": "Example of an incorrect serving size"
     },
@@ -822,15 +822,15 @@
     "@nutrition_page_serving_size_explanation_bad_example1_example": {
         "description": "Example of an incorrect serving size"
     },
-    "nutrition_page_serving_size_explanation_bad_example2_explanation": "Invalid units",
+    "nutrition_page_serving_size_explanation_bad_example2_explanation": "Μη έγκυρες μονάδες",
     "@nutrition_page_serving_size_explanation_bad_example2_explanation": {
         "description": "Example of an incorrect serving size"
     },
-    "nutrition_page_serving_size_explanation_bad_example2_example": "9 **candies** and 2 **biscuits**",
+    "nutrition_page_serving_size_explanation_bad_example2_example": "9 **καραμέλες** και 2 **μπισκότα**",
     "@nutrition_page_serving_size_explanation_bad_example2_example": {
         "description": "Example of an incorrect serving size"
     },
-    "nutrition_page_serving_size_explanation_bad_example3_explanation": "Missing unit",
+    "nutrition_page_serving_size_explanation_bad_example3_explanation": "Απουσία μονάδας",
     "@nutrition_page_serving_size_explanation_bad_example3_explanation": {
         "description": "Example of an incorrect serving size"
     },
@@ -1533,7 +1533,7 @@
     "@edit_product_pending_operations_banner_message": {
         "description": "When a product has pending edits (being sent to the server), there is a message on the edit page. Please keep the ** syntax to make the text bold."
     },
-    "edit_product_pending_operations_banner_short_message": "Your edits are being **sent in the background** (or later in case of error).",
+    "edit_product_pending_operations_banner_short_message": "Οι τροποποιήσεις σας **αποστέλλονται στο παρασκήνιο** (ή αργότερα σε περίπτωση σφάλματος).",
     "@edit_product_pending_operations_banner_short_message": {
         "description": "When a product has pending edits (being sent to the server), there is a message on the edit page. Please keep the ** syntax to make the text bold."
     },
@@ -1586,7 +1586,7 @@
     "@edit_product_form_item_add_action_category": {
         "description": "Tooltip to show when the user long presses the (+) button on a category"
     },
-    "edit_product_form_item_add_suggestion": "Add suggestion",
+    "edit_product_form_item_add_suggestion": "Προσθήκη πρότασης",
     "@edit_product_form_item_add_suggestion": {
         "description": "Tooltip to show when the user long presses the (+) button on a suggestion"
     },
@@ -1630,11 +1630,11 @@
     "@edit_product_form_item_labels_type": {
         "description": "Product edition - Labels - input textfield label"
     },
-    "edit_product_form_item_labels_explanation_title": "Good practices: Labels",
+    "edit_product_form_item_labels_explanation_title": "Καλές πρακτικές: Ετικέτες",
     "@edit_product_form_item_labels_explanation_title": {
         "description": "Product edition - Labels - explanation"
     },
-    "edit_product_form_item_labels_explanation_info1": "Any characteristic of the product **which is factual** and different from the other fields.",
+    "edit_product_form_item_labels_explanation_info1": "Οποιοδήποτε χαρακτηριστικό του προϊόντος **το οποίο είναι πραγματικό** και διαφορετικό από τα άλλα πεδία.",
     "@edit_product_form_item_labels_explanation_info1": {
         "description": "Product edition - Labels - explanation"
     },
@@ -1642,7 +1642,7 @@
     "@edit_product_form_item_labels_explanation_good_examples_1": {
         "description": "Product edition - Labels - explanation"
     },
-    "edit_product_form_item_labels_explanation_good_examples_2": "Made in Belgium, produced in Brittany…",
+    "edit_product_form_item_labels_explanation_good_examples_2": "Κατασκευάζεται στο Βέλγιο, παράγεται στη Βρετάνη…",
     "@edit_product_form_item_labels_explanation_good_examples_2": {
         "description": "Product edition - Labels - explanation"
     },
@@ -1650,11 +1650,11 @@
     "@edit_product_form_item_labels_explanation_good_examples_3": {
         "description": "Product edition - Labels - explanation"
     },
-    "edit_product_form_item_labels_explanation_good_examples_4": "Rich in fiber, source of iron…",
+    "edit_product_form_item_labels_explanation_good_examples_4": "Πλούσιο σε φυτικές ίνες, πηγή σιδήρου…",
     "@edit_product_form_item_labels_explanation_good_examples_4": {
         "description": "Product edition - Labels - explanation"
     },
-    "edit_product_form_item_labels_explanation_good_examples_5": "Fair trade, Max Havelaar…",
+    "edit_product_form_item_labels_explanation_good_examples_5": "Δίκαιο εμπόριο, Max Havelaar…",
     "@edit_product_form_item_labels_explanation_good_examples_5": {
         "description": "Product edition - Labels - explanation"
     },
@@ -1670,11 +1670,11 @@
     "@edit_product_form_item_stores_type": {
         "description": "Product edition - Stores - input textfield type"
     },
-    "edit_product_form_item_stores_explanation_title": "Good practices: Stores",
+    "edit_product_form_item_stores_explanation_title": "Καλές πρακτικές: Καταστήματα",
     "@edit_product_form_item_stores_explanation_title": {
         "description": "Product edition - Stores - Explanation"
     },
-    "edit_product_form_item_stores_explanation_info1": "Input the store where you bought the product.",
+    "edit_product_form_item_stores_explanation_info1": "Εισαγάγετε το κατάστημα από το οποίο αγοράσατε το προϊόν.",
     "@edit_product_form_item_stores_explanation_info1": {
         "description": "Product edition - Stores - Explanation"
     },
@@ -1702,19 +1702,19 @@
     "@edit_product_form_item_origins_type": {
         "description": "Product edition - Origins - input textfield type"
     },
-    "edit_product_form_item_origins_explanation_title": "Good practices: Origins",
+    "edit_product_form_item_origins_explanation_title": "Καλές πρακτικές: Προέλευση",
     "@edit_product_form_item_origins_explanation_title": {
         "description": "Product edition - Origins - input explainer, part 1"
     },
-    "edit_product_form_item_origins_explanation_info1": "Add **any indications of origins you can find on the packaging**.\nYou need not worry about origins indicated directly in the ingredient list.",
+    "edit_product_form_item_origins_explanation_info1": "Προσθέστε **τυχόν ενδείξεις προέλευσης που μπορείτε να βρείτε στη συσκευασία**.\nΔεν χρειάζεται να ανησυχείτε για την προέλευση που αναφέρεται απευθείας στη λίστα συστατικών.",
     "@edit_product_form_item_origins_explanation_info1": {
         "description": "Product edition - Origins - input explainer, part 1"
     },
-    "edit_product_form_item_origins_explanation_good_examples_1": "Beef from Argentina",
+    "edit_product_form_item_origins_explanation_good_examples_1": "Βοδινό κρέας από την Αργεντινή",
     "@edit_product_form_item_origins_explanation_good_examples_1": {
         "description": "Product edition - Origins - input explainer, part 2"
     },
-    "edit_product_form_item_origins_explanation_good_examples_2": "The soy does not come from the European Union",
+    "edit_product_form_item_origins_explanation_good_examples_2": "Η σόγια δεν προέρχεται από την Ευρωπαϊκή Ένωση",
     "@edit_product_form_item_origins_explanation_good_examples_2": {
         "description": "Product edition - Origins - input explainer, part 2"
     },
@@ -1730,11 +1730,11 @@
     "@edit_product_form_item_countries_type": {
         "description": "Product edition - Countries - input textfield type"
     },
-    "edit_product_form_item_countries_explanations_title": "Good practices: Countries",
+    "edit_product_form_item_countries_explanations_title": "Καλές πρακτικές: Χώρες",
     "@edit_product_form_item_countries_explanations_title": {
         "description": "Product edition - Countries - explanations"
     },
-    "edit_product_form_item_countries_explanations_info1": "**Countries where the product is widely available** (not including stores specialising in foreign products).",
+    "edit_product_form_item_countries_explanations_info1": "**Χώρες όπου το προϊόν είναι ευρέως διαθέσιμο** (εκτός από καταστήματα που ειδικεύονται σε ξένα προϊόντα).",
     "@edit_product_form_item_countries_explanations_info1": {
         "description": "Product edition - Countries - explanations"
     },
@@ -1750,19 +1750,19 @@
     "@edit_product_form_item_emb_codes_type": {
         "description": "Product edition - Traceability Codes - input textfield type"
     },
-    "edit_product_form_item_emb_help_title": "Good practices: Traceability codes",
+    "edit_product_form_item_emb_help_title": "Ορθές πρακτικές: Κωδικοί ιχνηλασιμότητας",
     "@edit_product_form_item_emb_help_title": {
         "description": "Title for the help section about traceability codes"
     },
-    "edit_product_form_item_emb_help_info1": "In this section, you can input codes related to **packaging marks**, **identification marks** or **health marks**.",
+    "edit_product_form_item_emb_help_info1": "Σε αυτήν την ενότητα, μπορείτε να εισαγάγετε κωδικούς που σχετίζονται με **σήματα συσκευασίας**, **σήματα αναγνώρισης** ή **σήματα υγείας**.",
     "@edit_product_form_item_emb_help_info1": {
         "description": "Text explaining how to write a traceability code"
     },
-    "edit_product_form_item_emb_help_info2_title": "Examples of traceability codes",
+    "edit_product_form_item_emb_help_info2_title": "Παραδείγματα κωδικών ιχνηλασιμότητας",
     "@edit_product_form_item_emb_help_info2_title": {
         "description": "Explanation about EMB/EC… codes"
     },
-    "edit_product_form_item_emb_help_info2_item1_text": "**EC codes** used in the European Community to identify food producers or packagers:",
+    "edit_product_form_item_emb_help_info2_item1_text": "**Κωδικοί EC** που χρησιμοποιούνται στην Ευρωπαϊκή Κοινότητα για την αναγνώριση των παραγωγών ή των συσκευαστών τροφίμων:",
     "@edit_product_form_item_emb_help_info2_item1_text": {
         "description": "Explanation about EC codes"
     },
@@ -1770,11 +1770,11 @@
     "@edit_product_form_item_emb_help_info2_item1_example": {
         "description": "Example of an EC code (you can change with a valid code in another european country)"
     },
-    "edit_product_form_item_emb_help_info2_item1_explanation": "**FR**: country code of **France**\n**72.264.002**: geographic data\n**CE**: European Community",
+    "edit_product_form_item_emb_help_info2_item1_explanation": "**FR**: κωδικός χώρας **Γαλλία**\n**72.264.002**: γεωγραφικά στοιχεία\n**CE**: Ευρωπαϊκή Κοινότητα",
     "@edit_product_form_item_emb_help_info2_item1_explanation": {
         "description": "Example of an EC code (shouldn't be translated)"
     },
-    "edit_product_form_item_emb_help_info2_item2_text": "**EMB codes** used in France:",
+    "edit_product_form_item_emb_help_info2_item2_text": "**Κωδικοί EMB** που χρησιμοποιούνται στη Γαλλία:",
     "@edit_product_form_item_emb_help_info2_item2_text": {
         "description": "Explanation about EMB codes"
     },
@@ -1794,27 +1794,27 @@
     "@edit_product_form_item_categories_type": {
         "description": "Product edition - Categories - input textfield type"
     },
-    "edit_product_form_item_categories_explanation_title": "Good practices: Categories",
+    "edit_product_form_item_categories_explanation_title": "Καλές πρακτικές: Κατηγορίες",
     "@edit_product_form_item_categories_explanation_title": {
         "description": "Product edition - Categories - input explainer, title"
     },
-    "edit_product_form_item_categories_explanation_info1": "Indicate **only the most specific category**.\nParent categories will be automatically added.",
+    "edit_product_form_item_categories_explanation_info1": "Υποδείξτε **μόνο την πιο συγκεκριμένη κατηγορία**.\nΟι γονικές κατηγορίες θα προστεθούν αυτόματα.",
     "@edit_product_form_item_categories_explanation_info1": {
         "description": "Product edition - Categories - input explainer, part 1"
     },
-    "edit_product_form_item_categories_explanation_info2_title": "Missing category?",
+    "edit_product_form_item_categories_explanation_info2_title": "Λείπει κατηγορία;",
     "@edit_product_form_item_categories_explanation_info2_title": {
         "description": "Product edition - Categories - input explainer, part 2"
     },
-    "edit_product_form_item_categories_explanation_info2_content": "In case a category is **not available in autocomplete**, feel free to add it anyway.\nThis will help us improve Open Food Facts in your country.",
+    "edit_product_form_item_categories_explanation_info2_content": "Σε περίπτωση που μια κατηγορία **δεν είναι διαθέσιμη στην αυτόματη συμπλήρωση**, μη διστάσετε να την προσθέσετε ούτως ή άλλως.\nΑυτό θα μας βοηθήσει να βελτιώσουμε τα Open Food Facts στη χώρα σας.",
     "@edit_product_form_item_categories_explanation_info2_content": {
         "description": "Product edition - Categories - input explainer, part 2"
     },
-    "edit_product_form_item_categories_explanation_good_examples_1": "Sardines in olive oil",
+    "edit_product_form_item_categories_explanation_good_examples_1": "Σαρδέλες σε ελαιόλαδο",
     "@edit_product_form_item_categories_explanation_good_examples_1": {
         "description": "Product edition - Categories - input explainer, part 3"
     },
-    "edit_product_form_item_categories_explanation_good_examples_2": "Orange juice from concentrate",
+    "edit_product_form_item_categories_explanation_good_examples_2": "Χυμός πορτοκαλιού από συμπύκνωμα",
     "@edit_product_form_item_categories_explanation_good_examples_2": {
         "description": "Product edition - Categories - input explainer, part 3"
     },
@@ -1861,15 +1861,15 @@
     "@edit_product_form_item_nutrition_facts_subtitle": {
         "description": "Product edition - Nutrition facts - SubTitle"
     },
-    "edit_product_form_item_nutrition_facts_explanation_title": "Good practices: Nutrition facts",
+    "edit_product_form_item_nutrition_facts_explanation_title": "Καλές πρακτικές: Διατροφικά στοιχεία",
     "@edit_product_form_item_nutrition_facts_explanation_title": {
         "description": "Title for the help section about Nutritional facts"
     },
-    "edit_product_form_item_nutrition_facts_explanation_info1_title": "Nutritional values",
+    "edit_product_form_item_nutrition_facts_explanation_info1_title": "Διατροφικές τιμές",
     "@edit_product_form_item_nutrition_facts_explanation_info1_title": {
         "description": "Text explaining the selector of nutritional values."
     },
-    "edit_product_form_item_nutrition_facts_explanation_info1_content": "First, select if the **values are provided**:",
+    "edit_product_form_item_nutrition_facts_explanation_info1_content": "Αρχικά, επιλέξτε εάν παρέχονται οι **τιμές**:",
     "@edit_product_form_item_nutrition_facts_explanation_info1_content": {
         "description": "Text explaining the selector of nutritional values."
     },
@@ -1877,15 +1877,15 @@
     "@edit_product_form_item_nutrition_facts_explanation_info2_title": {
         "description": "Text explaining how to input nutritional values."
     },
-    "edit_product_form_item_nutrition_facts_explanation_info2_content": "Then, input the nutritional values **as indicated on the packaging**. If there is no value, you can click on the \"Eye\" icon.",
+    "edit_product_form_item_nutrition_facts_explanation_info2_content": "Στη συνέχεια, εισάγετε τις θρεπτικές αξίες **όπως αναγράφονται στη συσκευασία**. Εάν δεν υπάρχει τιμή, μπορείτε να κάνετε κλικ στο εικονίδιο \"Μάτι\".",
     "@edit_product_form_item_nutrition_facts_explanation_info2_content": {
         "description": "Text explaining how to input nutritional values."
     },
-    "edit_product_form_item_nutrition_facts_explanation_info3_title": "Missing field?",
+    "edit_product_form_item_nutrition_facts_explanation_info3_title": "Λείπει πεδίο;",
     "@edit_product_form_item_nutrition_facts_explanation_info3_title": {
         "description": "Text explaining what to input when a nutritional value is missing."
     },
-    "edit_product_form_item_nutrition_facts_explanation_info3_content": "If an entry is missing, you can **click on the \"Plus\" icon** to add it (eg: vitamin D, magnesium…).",
+    "edit_product_form_item_nutrition_facts_explanation_info3_content": "Εάν λείπει μια καταχώριση, μπορείτε **κάντε κλικ στο εικονίδιο \"Συν\"** για να την προσθέσετε (πχ: βιταμίνη D, μαγνήσιο…).",
     "@edit_product_form_item_nutrition_facts_explanation_info3_content": {
         "description": "Text explaining what to input when a nutritional value is missing."
     },
@@ -2725,7 +2725,7 @@
     "@explanation_section_bad_examples": {
         "description": "Title for the section with bad examples"
     },
-    "add_basic_details_product_name_help_title": "Good practices: Product name",
+    "add_basic_details_product_name_help_title": "Καλές πρακτικές: Όνομα προϊόντος",
     "@add_basic_details_product_name_help_title": {
         "description": "Title for the help section about the product name"
     },
@@ -2761,7 +2761,7 @@
     "@add_basic_details_product_name_help_bad_examples_2_example": {
         "description": "Second bad example for the product name"
     },
-    "add_basic_details_product_name_other_translations": "{count,plural, one{{count} other translation} other{{count} other translations}}",
+    "add_basic_details_product_name_other_translations": "{count,plural, one{{count} άλλη μετάφραση} other{{count} άλλες μεταφράσεις}}",
     "@add_basic_details_product_name_other_translations": {
         "description": "The number of other translations for a product name (count is always >= 1)",
         "placeholders": {
@@ -2771,42 +2771,42 @@
         }
     },
     "brand_name": "Μάρκα",
-    "brand_names": "Brand names",
+    "brand_names": "Επωνυμίες",
     "add_basic_details_brand_name_error": "Παρακαλώ εισάγετε το όνομα της μάρκας",
-    "add_basic_details_brand_names_hint": "Input brands (eg: Ferrero)",
-    "add_basic_details_product_brand_help_title": "Good practices: Brands",
+    "add_basic_details_brand_names_hint": "Εισάγετε επωνυμίες (πχ: Ferrero)",
+    "add_basic_details_product_brand_help_title": "Καλές πρακτικές: Μάρκες",
     "@add_basic_details_product_brand_help_title": {
         "description": "Title for the help section about the product brands"
     },
-    "add_basic_details_product_brand_help_info1": "Input **all the brands of the product**.",
+    "add_basic_details_product_brand_help_info1": "Εισαγάγετε **όλες τις μάρκες του προϊόντος**.",
     "@add_basic_details_product_brand_help_info1": {
         "description": "Text explaining how to write brands"
     },
-    "add_basic_details_product_brand_help_info2_title": "Main brand",
+    "add_basic_details_product_brand_help_info2_title": "Κύρια μάρκα",
     "@add_basic_details_product_brand_help_info2_title": {
         "description": "Text explaining how to write brands"
     },
-    "add_basic_details_product_brand_help_info2_content": "The **main brand**, generally clearly displayed on the front pack, should be **entered first**.",
+    "add_basic_details_product_brand_help_info2_content": "Η **κύρια μάρκα**, που εμφανίζεται γενικά καθαρά στο μπροστινό πακέτο, θα πρέπει να εισαχθεί πρώτα**.",
     "@add_basic_details_product_brand_help_info2_content": {
         "description": "Text explaining how to write brands"
     },
-    "add_basic_details_product_brand_help_info3_title": "Other brands",
+    "add_basic_details_product_brand_help_info3_title": "Άλλες μάρκες",
     "@add_basic_details_product_brand_help_info3_title": {
         "description": "Text explaining how to write brands"
     },
-    "add_basic_details_product_brand_help_info3_item1_text": "When sold **by a big company**:",
+    "add_basic_details_product_brand_help_info3_item1_text": "Όταν πουλήθηκε **από μια μεγάλη εταιρεία**:",
     "@add_basic_details_product_brand_help_info3_item1_text": {
         "description": "Text explaining how to write brands"
     },
-    "add_basic_details_product_brand_help_info3_item1_explanation": "**Actimel** is sold by **Danone**",
+    "add_basic_details_product_brand_help_info3_item1_explanation": "Το **Actimel** πωλείται από την **Danone**",
     "@add_basic_details_product_brand_help_info3_item1_explanation": {
         "description": "Text explaining how to write brands"
     },
-    "add_basic_details_product_brand_help_info3_item2_text": "When sold with its brand **translated in multiple languages**:",
+    "add_basic_details_product_brand_help_info3_item2_text": "Όταν πωλείται με την επωνυμία του **μεταφρασμένο σε πολλές γλώσσες**:",
     "@add_basic_details_product_brand_help_info3_item2_text": {
         "description": "Text explaining how to write brands"
     },
-    "add_basic_details_product_brand_help_info3_item2_explanation": "**Nature Valley** is sometimes written **Val Nature**",
+    "add_basic_details_product_brand_help_info3_item2_explanation": "Η **Nature Valley** μερικές φορές γράφεται **Val Nature**",
     "@add_basic_details_product_brand_help_info3_item2_explanation": {
         "description": "Text explaining how to write brands"
     },
@@ -2819,24 +2819,24 @@
         "description": "A 2nd good example for the brand name (you can change it if necessary)"
     },
     "quantity": "Ποσότητα και βάρος",
-    "add_basic_details_quantity_hint": "Input the weight and if needed the quantity (eg : 4x100g)",
-    "add_basic_details_product_quantity_help_title": "Good practices: Quantity",
+    "add_basic_details_quantity_hint": "Εισαγάγετε το βάρος και εάν χρειάζεται την ποσότητα (πχ: 4x100g)",
+    "add_basic_details_product_quantity_help_title": "Καλές πρακτικές: Ποσότητα",
     "@add_basic_details_product_quantity_help_title": {
         "description": "Title for the help section about the product quantity"
     },
-    "add_basic_details_product_quantity_help_info1": "Copy the value indicated on the product and **don't forget the units**.",
+    "add_basic_details_product_quantity_help_info1": "Αντιγράψτε την τιμή που αναγράφεται στο προϊόν και **μην ξεχνάτε τις μονάδες**.",
     "@add_basic_details_product_quantity_help_info1": {
         "description": "Text explaining how to write quantity"
     },
-    "add_basic_details_product_quantity_help_good_examples_1": "**230g** or **230 g**",
+    "add_basic_details_product_quantity_help_good_examples_1": "**230g** ή **230 g**",
     "@add_basic_details_product_quantity_help_good_examples_1": {
         "description": "A 1st good example for the quantity (you can change it if necessary)"
     },
-    "add_basic_details_product_quantity_help_good_examples_2": "**6** (for 6 eggs)",
+    "add_basic_details_product_quantity_help_good_examples_2": "**6** (για 6 αυγά)",
     "@add_basic_details_product_quantity_help_good_examples_2": {
         "description": "A 2nd good example for the quantity (you can change it if necessary)"
     },
-    "add_basic_details_product_quantity_help_good_examples_3": "**3 x 150g**\n(for a product with 3 boxes, each of 150g)",
+    "add_basic_details_product_quantity_help_good_examples_3": "**3 x 150g**\n(για ένα προϊόν με 3 κουτιά, το καθένα των 150g)",
     "@add_basic_details_product_quantity_help_good_examples_3": {
         "description": "A 2nd good example for the quantity (you can change it if necessary)"
     },
@@ -2850,23 +2850,23 @@
             }
         }
     },
-    "barcode_invalid_error": "Invalid barcode",
-    "basic_details_add_success": "Basic details added successfully",
+    "barcode_invalid_error": "Μη έγκυρος γραμμικός κώδικας",
+    "basic_details_add_success": "Οι βασικές λεπτομέρειες προστέθηκαν με επιτυχία",
     "basic_details_add_error": "Δεν είναι δυνατή η προσθήκη βασικών λεπτομερειών. Παρακαλώ προσπαθήστε ξανά μετά από κάποιο χρονικό διάστημα",
     "@basic_details_add_error": {
         "description": "Error message when error occurs while submitting basic details"
     },
-    "clear_search": "Clear your search",
+    "clear_search": "Καθαρίστε την αναζήτησή σας",
     "@confirm_clearclear_search": {
         "description": "Tooltip to explain that the X button clears the content of the search"
     },
-    "confirm_clear": "You're about to clear your entire history: are you sure you want to continue?",
+    "confirm_clear": "Πρόκειται να διαγράψετε ολόκληρο το ιστορικό σας: είστε βέβαιοι ότι θέλετε να συνεχίσετε;",
     "@confirm_clear": {
         "description": "Asking about whether to clear the history list or not"
     },
-    "alert_clear_selected_user_list": "You're about to clear selected items in your history",
-    "confirm_clear_selected_user_list": "Are you sure you want to continue?",
-    "alert_select_items_to_clear": "Please select one or more items to clear",
+    "alert_clear_selected_user_list": "Πρόκειται να διαγράψετε επιλεγμένα στοιχεία από το ιστορικό σας",
+    "confirm_clear_selected_user_list": "Είστε βέβαιοι ότι θέλετε να συνεχίσετε;",
+    "alert_select_items_to_clear": "Επιλέξτε ένα ή περισσότερα στοιχεία για εκκαθάριση",
     "confirm_clear_user_list": "You're about to clear this list ({name}): are you sure you want to continue?",
     "@confirm_clear_user_list": {
         "description": "Asking about whether to clear the list or not",
@@ -3037,33 +3037,33 @@
     "@choose_from_gallery": {
         "description": "Button label for choosing a photo from gallery"
     },
-    "image_upload_queued": "The image will be uploaded in the background as soon as possible.",
+    "image_upload_queued": "Η εικόνα θα μεταφορτωθεί στο παρασκήνιο το συντομότερο δυνατό.",
     "@image_upload_queued": {
         "description": "Message when a photo is queued for upload"
     },
-    "add_price_queued": "The price will be sent to the server as soon as possible.",
+    "add_price_queued": "Η τιμή θα σταλεί στον διακομιστή το συντομότερο δυνατό.",
     "@add_price_queued": {
         "description": "Message when an added price is queued for the server"
     },
-    "background_task_title_full_refresh": "Starting the refresh of all the products locally stored",
+    "background_task_title_full_refresh": "Έναρξη ανανέωσης όλων των προϊόντων που είναι αποθηκευμένα τοπικά",
     "@background_task_title_full_refresh": {
         "description": "Snackbar message when a full refresh is started"
     },
-    "background_task_title_top_n": "Starting the download of the most popular products",
+    "background_task_title_top_n": "Έναρξη λήψης των πιο δημοφιλών προϊόντων",
     "@background_task_title_top_n": {
         "description": "Snackbar message when a download of the most popular products is started"
     },
-    "expand_nutrition_facts": "Expand nutrition facts table",
+    "expand_nutrition_facts": "Επέκταση πίνακα διατροφικών στοιχείων",
     "@expand_nutrition_facts": {
         "description": "Label for expanding nutrition facts table in application setting"
     },
-    "expand_nutrition_facts_body": "Keep the nutrition facts table expanded",
-    "expand_ingredients": "Expand ingredients",
+    "expand_nutrition_facts_body": "Διατήρηση πίνακα διατροφικών στοιχείων εκτεταμένο",
+    "expand_ingredients": "Επέκταση συστατικών",
     "@expand_ingredients": {
         "description": "Label for expanding nutrition facts table in application setting"
     },
-    "expand_ingredients_body": "Keep the ingredients panel expanded",
-    "search_product_filter_visibility_title": "Show a filter in the search",
+    "expand_ingredients_body": "Διατήρηση πίνακα συστατικών εκτεταμένο",
+    "search_product_filter_visibility_title": "Εμφάνιση φίλτρου στην αναζήτηση",
     "search_product_filter_visibility_subtitle": "Επιλέξτε ιστότοπο αναζήτησης: Open Food Facts, Open Beauty Facts, Open Pet Food Facts ή Open Product Facts",
     "@search_product_filter_visibility_subtitle": {
         "description": "Label for showing the product type filter in the search bar"
@@ -3290,12 +3290,12 @@
     "@edit_packagings_title": {
         "description": "Title of the structured packagings page"
     },
-    "edit_packagings_element_add": "Add a packaging component",
+    "edit_packagings_element_add": "Προσθήκη μέρους συσκευασίας",
     "@edit_packagings_element_add": {
         "description": "Button label"
     },
-    "edit_packagings_completed": "The packaging is complete",
-    "edit_packagings_element_title": "Packaging component #{index}",
+    "edit_packagings_completed": "Η συσκευασία είναι πλήρης",
+    "edit_packagings_element_title": "Μέρος συσκευασίας #{index}",
     "@edit_packagings_element_title": {
         "description": "Element title. Please do not change the index placeholder",
         "placeholders": {
@@ -3304,88 +3304,88 @@
             }
         }
     },
-    "edit_packagings_element_field_units": "Number of units",
+    "edit_packagings_element_field_units": "Αριθμός μονάδων",
     "@edit_packagings_element_field_units": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_units": "Enter the number of packaging units of the same shape and material contained in the product.",
+    "edit_packagings_element_hint_units": "Εισαγάγετε τον αριθμό των μονάδων συσκευασίας του ίδιου σχήματος και υλικού που περιέχονται στο προϊόν.",
     "@edit_packagings_element_hint_units": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
-    "edit_packagings_element_field_shape": "Shape",
+    "edit_packagings_element_field_shape": "Σχήμα",
     "@edit_packagings_element_field_shape": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_shape": "Enter the shape name listed in the recycling instructions if they are available, or select a shape.",
+    "edit_packagings_element_hint_shape": "Εισάγετε το όνομα σχήματος που αναγράφεται στις οδηγίες ανακύκλωσης, εάν είναι διαθέσιμες, ή επιλέξτε ένα σχήμα.",
     "@edit_packagings_element_hint_shape": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
-    "edit_packagings_element_example_shape": "Bottle",
+    "edit_packagings_element_example_shape": "Μπουκάλι",
     "@edit_packagings_element_example_shape": {
         "description": "Text field hint"
     },
-    "edit_packagings_element_field_material": "Material",
+    "edit_packagings_element_field_material": "Υλικό",
     "@edit_packagings_element_field_material": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_material": "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure.",
+    "edit_packagings_element_hint_material": "Εισαγάγετε το συγκεκριμένο υλικό εάν μπορεί να προσδιοριστεί (ένας κωδικός υλικού μέσα σε ένα τρίγωνο μπορεί συχνά να βρεθεί στα μέρη της συσκευασίας) ή ένα γενικό υλικό (για παράδειγμα πλαστικό ή μέταλλο) εάν δεν είστε σίγουροι.",
     "@edit_packagings_element_hint_material": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
-    "edit_packagings_element_example_material": "Glass",
+    "edit_packagings_element_example_material": "Γυαλί",
     "@edit_packagings_element_example_material": {
         "description": "Text field hint"
     },
-    "edit_packagings_element_field_recycling": "Recycling instruction",
+    "edit_packagings_element_field_recycling": "Οδηγίες ανακύκλωσης",
     "@edit_packagings_element_field_recycling": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_recycling": "Enter recycling instructions only if they are listed on the product.",
+    "edit_packagings_element_hint_recycling": "Εισαγάγετε οδηγίες ανακύκλωσης μόνο εάν αναγράφονται στο προϊόν.",
     "@edit_packagings_element_hint_recycling": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
-    "edit_packagings_element_example_recycling": "Recycle",
+    "edit_packagings_element_example_recycling": "Ανακύκλωση",
     "@edit_packagings_element_example_recycling": {
         "description": "Text field hint"
     },
-    "edit_packagings_element_field_quantity": "Net quantity of product per unit",
+    "edit_packagings_element_field_quantity": "Καθαρή ποσότητα προϊόντος ανά μονάδα",
     "@edit_packagings_element_field_quantity": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_quantity": "Enter the net weight or net volume and indicate the unit (for example g or ml).",
+    "edit_packagings_element_hint_quantity": "Εισαγάγετε το καθαρό βάρος ή τον καθαρό όγκο και υποδείξτε τη μονάδα (για παράδειγμα g ή ml).",
     "@edit_packagings_element_hint_quantity": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
-    "edit_packagings_element_field_weight": "Weight of one empty unit (g)",
+    "edit_packagings_element_field_weight": "Βάρος μιας άδειας μονάδας (g)",
     "@edit_packagings_element_field_weight": {
         "description": "Field label"
     },
-    "edit_packagings_element_hint_weight": "Remove any remaining food and wash and dry the packaging part before weighing. If possible, use a scale with 0.1g or 0.01g precision.",
+    "edit_packagings_element_hint_weight": "Αφαιρέστε τυχόν υπολείμματα τροφίμων, πλύνετε και στεγνώστε το μέρος της συσκευασίας πριν το ζύγισμα. Εάν είναι δυνατόν, χρησιμοποιήστε ζυγαριά με ακρίβεια 0,1 g ή 0,01 g.",
     "@edit_packagings_element_hint_weight": {
         "description": "Field verbose hint, more like an info than a text field hint"
     },
-    "background_task_title": "Pending contributions",
-    "background_task_subtitle": "Your contributions are automatically saved to our server, but not always in real-time.",
-    "background_task_list_empty": "No Pending Background Tasks",
-    "background_task_error_server_time_out": "Server timeout",
-    "background_task_error_no_internet": "Internet connection error. Try later.",
-    "background_task_operation_unknown": "unknown operation type",
-    "background_task_operation_details": "detailed changes",
-    "background_task_operation_image": "photo upload",
-    "background_task_operation_refresh": "refresh delayed after photo upload",
-    "background_task_run_started": "started",
-    "background_task_run_not_started": "not started yet",
-    "background_task_run_to_be_deleted": "to be deleted",
-    "background_task_question_stop": "Do you want to stop that task ASAP?",
-    "feed_back": "Feedback",
-    "undo": "Undo",
-    "copy_email_to_clip_board": "Copy email to clipboard",
+    "background_task_title": "Εκκρεμείς συνεισφορές",
+    "background_task_subtitle": "Οι συνεισφορές σας αποθηκεύονται αυτόματα στον διακομιστή μας, αλλά όχι πάντα σε πραγματικό χρόνο.",
+    "background_task_list_empty": "Καμία Εκκρεμής Εργασία Παρασκηνίου",
+    "background_task_error_server_time_out": "Λήξη χρονικού ορίου διακομιστή",
+    "background_task_error_no_internet": "Σφάλμα σύνδεσης στο διαδίκτυο. Δοκιμάστε αργότερα.",
+    "background_task_operation_unknown": "άγνωστος τύπος λειτουργίας",
+    "background_task_operation_details": "λεπτομερείς αλλαγές",
+    "background_task_operation_image": "μεταφόρτωση φωτογραφίας",
+    "background_task_operation_refresh": "η ανανέωση καθυστερεί μετά την μεταφόρτωση φωτογραφίας",
+    "background_task_run_started": "ξεκίνησε",
+    "background_task_run_not_started": "δεν έχει ξεκινήσει ακόμα",
+    "background_task_run_to_be_deleted": "προς διαγραφή",
+    "background_task_question_stop": "Θέλετε να σταματήσετε αυτήν την εργασία το συντομότερο δυνατόν;",
+    "feed_back": "Σχόλια",
+    "undo": "Αναίρεση",
+    "copy_email_to_clip_board": "Αντιγραφή email στο πρόχειρο",
     "@copy_email_to_clip_board": {
         "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
     },
-    "please_send_us_an_email_to": "Please send us manually an email to",
-    "email_copied_to_clip_board": "Email copied to clipboard!",
-    "select_accent_color": "Select Accent Color",
+    "please_send_us_an_email_to": "Στείλτε μας χειροκίνητα ένα email στο",
+    "email_copied_to_clip_board": "Το email αντιγράφηκε στο πρόχειρο!",
+    "select_accent_color": "Επιλέξτε Χρώμα Έμφασης",
     "@select_accent_color": {
         "description": "Accent Color for the application in AMOLED mode."
     },
@@ -3393,15 +3393,15 @@
     "@theme_amoled": {
         "description": "AMOLED theme mode."
     },
-    "color_blue": "Blue",
+    "color_blue": "Μπλε",
     "@color_blue": {
         "description": "Color Blue"
     },
-    "color_cyan": "Cyan",
+    "color_cyan": "Κυανό",
     "@color_cyan": {
         "description": "Color Cyan"
     },
-    "color_green": "Green",
+    "color_green": "Πράσινο",
     "@color_green": {
         "description": "Color Green"
     },
@@ -3931,11 +3931,11 @@
     "@product_page_pending_operations_banner_message": {
         "description": "When a product has pending edits (being sent to the server), there is a message on the product page. Please keep the ** syntax to make the text bold."
     },
-    "product_add_a_language": "Add a language",
+    "product_add_a_language": "Προσθήκη γλώσσας",
     "@product_add_a_language": {
         "description": "Button to add a language (eg: for photos) to a product"
     },
-    "barcode_accessibility_label": "Barcode {barcode}",
+    "barcode_accessibility_label": "Γραμμωτός κωδικός {barcode}",
     "@barcode_accessibility_label": {
         "description": "Accessibility label for a barcode image",
         "placeholders": {
@@ -3944,23 +3944,23 @@
             }
         }
     },
-    "carousel_close_tooltip": "Remove this product from the carousel",
+    "carousel_close_tooltip": "Αφαιρέστε αυτό το προϊόν από το καρουζέλ",
     "@carousel_close_tooltip": {
         "description": "A message explaining the goal of the Close button on a card of the carousel"
     },
-    "carousel_unsupported_header": "Unsupported barcode!",
+    "carousel_unsupported_header": "Μη υποστηριζόμενος γραμμωτός κώδικας!",
     "@carousel_unsupported_header": {
         "description": "A label on top of the carousel card when the barcode is not supported by the app"
     },
-    "carousel_unsupported_title": "Ooops!",
-    "carousel_unsupported_text": "The barcode scanned is not supported by Open Food Facts!",
-    "carousel_error_header": "Error!",
+    "carousel_unsupported_title": "Ουπς!",
+    "carousel_unsupported_text": "Ο γραμμωτός κώδικας που σαρώθηκε δεν υποστηρίζεται από το Open Food Facts!",
+    "carousel_error_header": "Σφάλμα!",
     "@carousel_error_header": {
         "description": "A label on top of the carousel card when there is an error (mainly network issues)"
     },
-    "carousel_error_title": "It's a bummer!",
-    "carousel_error_text_1": "We couldn't download information on this barcode:",
-    "carousel_error_text_2": "Please check your Internet connection or click this button:",
+    "carousel_error_title": "Κρίμα!",
+    "carousel_error_text_1": "Δεν ήταν δυνατή η λήψη πληροφοριών για αυτόν τον γραμμωτό κώδικα:",
+    "carousel_error_text_2": "Ελέγξτε τη σύνδεσή σας στο Διαδίκτυο ή κάντε κλικ σε αυτό το κουμπί:",
     "@carousel_error_text_2": {
         "description": "Please keep the ** syntax to make the text bold"
     },
@@ -3969,11 +3969,11 @@
     "@carousel_unknown_product_header": {
         "description": "A label on top of the carousel card when the product is not in the database (= it needs to be created)"
     },
-    "carousel_unknown_product_title": "Congratulations!\nYou've found __the rare gem!__",
+    "carousel_unknown_product_title": "Συγχαρητήρια!\nΒρήκες __το σπάνιο στολίδι!__",
     "@carousel_unknown_product_title": {
         "description": "Please keep the __ syntax to underline the text"
     },
-    "carousel_unknown_product_text": "Our collaborative database contains more than **3 million products**, but this barcode doesn't exist: ",
+    "carousel_unknown_product_text": "Η συνεργατική βάση δεδομένων μας περιέχει περισσότερα από **3 εκατομμύρια προϊόντα**, αλλά αυτός ο γραμμωτός κώδικας δεν υπάρχει: ",
     "@carousel_unknown_product_text": {
         "description": "Please keep the ** syntax to make the text bold"
     },
@@ -4056,7 +4056,7 @@
             }
         }
     },
-    "product_footer_action_barcode": "View barcode",
+    "product_footer_action_barcode": "Προβολή γραμμωτού κώδικα",
     "@product_footer_action_barcode": {
         "description": "Action to see the barcode of a product"
     },
@@ -4064,11 +4064,11 @@
     "@product_footer_action_barcode_short": {
         "description": "Action to see the barcode of a product (short text)"
     },
-    "product_footer_action_open_website": "Open website",
+    "product_footer_action_open_website": "Άνοιγμα ιστοσελίδας",
     "@product_footer_action_open_website": {
         "description": "Action to see to open the OxF website of the given product"
     },
-    "product_footer_action_report": "Report",
+    "product_footer_action_report": "Αναφορά",
     "@product_footer_action_report": {
         "description": "Action to see to report a product"
     },
@@ -4076,11 +4076,11 @@
     "@product_footer_action_contributor_guide": {
         "description": "Action to open the contributor's guide. If you are in a non-English language, please translate this sentence instead: \"Help (EN)\""
     },
-    "product_footer_action_data_quality_tags": "Data quality",
+    "product_footer_action_data_quality_tags": "Ποιότητα δεδομένων",
     "@product_footer_action_data_quality_tags": {
         "description": "Action to view data quality warnings"
     },
-    "prices_products_list_length_many_pages": "Top {pageSize} products (total: {total})",
+    "prices_products_list_length_many_pages": "Κορυφαία {pageSize} προϊόντα (σύνολο: {total})",
     "@prices_products_list_length_many_pages": {
         "description": "Number of products for one-page result",
         "placeholders": {
