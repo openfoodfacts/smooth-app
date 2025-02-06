@@ -1766,15 +1766,15 @@
     "@edit_product_form_item_emb_help_info2_item1_text": {
         "description": "Explanation about EC codes"
     },
-    "edit_product_form_item_emb_help_info2_item1_example": "FR\n72.264.002\nCE",
+    "edit_product_form_item_emb_help_info2_item1_example": "PT\nDLT-1\nCE",
     "@edit_product_form_item_emb_help_info2_item1_example": {
         "description": "Example of an EC code (you can change with a valid code in another european country)"
     },
-    "edit_product_form_item_emb_help_info2_item1_explanation": "**FR**: country code of **France**\n**72.264.002**: geographic data\n**CE**: European Community",
+    "edit_product_form_item_emb_help_info2_item1_explanation": "**PT**: código do país **Portugal**\n**DLT-1**: dados geográficos\n**CE**: Comunidade Europeia",
     "@edit_product_form_item_emb_help_info2_item1_explanation": {
         "description": "Example of an EC code (shouldn't be translated)"
     },
-    "edit_product_form_item_emb_help_info2_item2_text": "**EMB codes** used in France:",
+    "edit_product_form_item_emb_help_info2_item2_text": "**Códigos EMB** usados em Portugal:",
     "@edit_product_form_item_emb_help_info2_item2_text": {
         "description": "Explanation about EMB codes"
     },
