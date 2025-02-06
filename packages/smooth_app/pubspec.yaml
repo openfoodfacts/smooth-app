@@ -41,7 +41,7 @@ dependencies:
   sqflite_common_ffi: 2.3.4+4
   url_launcher: 6.3.1
   visibility_detector: 0.4.0+2
-  app_settings: 5.1.1
+  app_settings: 5.2.0
   diacritic: 0.1.6
   app_store_shared:
     path: ../app_store/shared
