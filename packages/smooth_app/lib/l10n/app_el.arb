@@ -1525,7 +1525,7 @@
     "@edit_product_label": {
         "description": "Edit product button label"
     },
-    "edit_product_pending_operations_banner_title": "Uploading your edits…",
+    "edit_product_pending_operations_banner_title": "Μεταφόρτωση των αλλαγών σας…",
     "@edit_product_pending_operations_banner_title": {
         "description": "When a product has pending edits (being sent to the server), there is a message on the edit page (here is the title of the message)."
     },
@@ -2867,7 +2867,7 @@
     "alert_clear_selected_user_list": "Πρόκειται να διαγράψετε επιλεγμένα στοιχεία από το ιστορικό σας",
     "confirm_clear_selected_user_list": "Είστε βέβαιοι ότι θέλετε να συνεχίσετε;",
     "alert_select_items_to_clear": "Επιλέξτε ένα ή περισσότερα στοιχεία για εκκαθάριση",
-    "confirm_clear_user_list": "You're about to clear this list ({name}): are you sure you want to continue?",
+    "confirm_clear_user_list": "Πρόκειται να διαγράψετε αυτήν τη λίστα ({name}): είστε βέβαιοι ότι θέλετε να συνεχίσετε;",
     "@confirm_clear_user_list": {
         "description": "Asking about whether to clear the list or not",
         "placeholders": {
@@ -2876,11 +2876,11 @@
             }
         }
     },
-    "confirm_delete_user_list_title": "Delete the list?",
+    "confirm_delete_user_list_title": "Διαγραφή της λίστας;",
     "@confirm_delete_user_list_title": {
         "description": "Title when asking about whether to delete the list or not"
     },
-    "confirm_delete_user_list_message": "You're about to delete the list \"{name}\".\nAre you sure you want to continue?",
+    "confirm_delete_user_list_message": "Πρόκειται να διαγράψετε τη λίστα \"{name}\". Είστε βέβαιοι ότι θέλετε να συνεχίσετε;",
     "@confirm_delete_user_list_message": {
         "description": "Message when asking about whether to delete the list or not",
         "placeholders": {
@@ -2889,7 +2889,7 @@
             }
         }
     },
-    "confirm_delete_user_list_button": "Yes, I confirm",
+    "confirm_delete_user_list_button": "Ναι, το επιβεβαιώνω",
     "@confirm_delete_user_list_button": {
         "description": "Button to delete a list"
     },
@@ -2909,11 +2909,11 @@
     "@user_list_all_title": {
         "description": "Title about the user lists in the user preferences"
     },
-    "user_list_all_empty": "Create your first list",
+    "user_list_all_empty": "Δημιουργήστε την πρώτη σας λίστα",
     "@user_list_all_empty": {
         "description": "Small message when there are no user lists"
     },
-    "product_list_select": "Select a list",
+    "product_list_select": "Επιλέξτε μία λίστα",
     "@product_list_select": {
         "description": "Top title for the selection of a list"
     },
@@ -2928,7 +2928,7 @@
     "@add_list_label": {
         "description": "Label for the add list button"
     },
-    "open_food_preferences_tooltip": "Edit your food preferences",
+    "open_food_preferences_tooltip": "Επεξεργαστείτε τις διατροφικές σας προτιμήσεις",
     "@open_food_preferences_tooltip": {
         "description": "Tooltip (message displayed on long press) to open the user food preferences"
     },
@@ -2936,19 +2936,19 @@
     "@add_photo_button_label": {
         "description": "Label for the add photo button"
     },
-    "add_packaging_photo_button_label": "Take photos of any packaging/recycling information",
+    "add_packaging_photo_button_label": "Λήψη φωτογραφιών για πληροφορίες συσκευασίας/ανακύκλωσης",
     "@add_packaging_photo_button_label": {
         "description": "Label for the add PACKAGING photo button"
     },
-    "add_origin_photo_button_label": "Take photos of any origin information",
+    "add_origin_photo_button_label": "Τραβήξτε φωτογραφίες οποιασδήποτε πληροφορίας προέλευσης",
     "@add_origin_photo_button_label": {
         "description": "Label for the add ORIGIN photo button"
     },
-    "add_emb_photo_button_label": "Take photos of any traceability code information",
+    "add_emb_photo_button_label": "Τραβήξτε φωτογραφίες οποιασδήποτε πληροφορίας κωδικού ιχνηλασιμότητας",
     "@add_emb_photo_button_label": {
         "description": "Label for the add EMB photo button"
     },
-    "add_label_photo_button_label": "Take photos of any labels & certifications information",
+    "add_label_photo_button_label": "Τραβήξτε φωτογραφίες για πληροφορίες ετικετών & πιστοποιήσεων",
     "@add_label_photo_button_label": {
         "description": "Label for the add LABELS photo button"
     },
@@ -2964,15 +2964,15 @@
     "@gallery_source_label": {
         "description": "Label for the gallery image source"
     },
-    "gallery_source_access_denied_dialog_title": "Access denied",
+    "gallery_source_access_denied_dialog_title": "Δεν επιτρέπεται η πρόσβαση",
     "@gallery_source_access_denied_dialog_title": {
         "description": "On iOS, the user has refused to give the permission (title of the dialog)"
     },
-    "gallery_source_access_denied_dialog_message_ios": "Unfortunately, the application can't access your gallery, as you have previously denied the permission.\n\nPlease go to the app settings in your phone Settings -> Photos",
+    "gallery_source_access_denied_dialog_message_ios": "Δυστυχώς, η εφαρμογή δεν μπορεί να έχει πρόσβαση στη συλλογή σας, καθώς έχετε αρνηθεί στο παρελθόν την άδεια.\n\nΜεταβείτε στις ρυθμίσεις της εφαρμογής στις Ρυθμίσεις του τηλεφώνου σας -> Φωτογραφίες",
     "@gallery_source_access_denied_dialog_message_ios": {
         "description": "On iOS, the user has refused to give the permission"
     },
-    "gallery_source_access_denied_dialog_button": "Open the Settings",
+    "gallery_source_access_denied_dialog_button": "Ανοίξτε τις Ρυθμίσεις",
     "@gallery_source_access_denied_dialog_button": {
         "description": "Button to open the app settings"
     },
@@ -2980,7 +2980,7 @@
     "@share": {
         "description": "Button label for sharing something on another app. For example sharing the link to a product via Email"
     },
-    "share_product_text": "Have a look at this product on Open Food Facts: {url}",
+    "share_product_text": "Ρίξτε μια ματιά σε αυτό το προϊόν στο Open Food Facts: {url}",
     "@share_product_text": {
         "description": "The content which is send, when sharing a 'food' product",
         "placeholders": {
@@ -2989,7 +2989,7 @@
             }
         }
     },
-    "share_product_text_beauty": "Have a look at this product on Open Beauty Facts: {url}",
+    "share_product_text_beauty": "Ρίξτε μια ματιά σε αυτό το προϊόν στο Open Beauty Facts: {url}",
     "@share_product_text_beauty": {
         "description": "The content which is send, when sharing a 'beauty' product",
         "placeholders": {
@@ -2998,7 +2998,7 @@
             }
         }
     },
-    "share_product_text_pet_food": "Have a look at this product on Open PetFood Facts: {url}",
+    "share_product_text_pet_food": "Ρίξτε μια ματιά σε αυτό το προϊόν στο Open PetFood Facts: {url}",
     "@share_product_text_pet_food": {
         "description": "The content which is send, when sharing a 'pet food' product",
         "placeholders": {
@@ -3007,7 +3007,7 @@
             }
         }
     },
-    "share_product_text_product": "Have a look at this product on Open Products Facts: {url}",
+    "share_product_text_product": "Ρίξτε μια ματιά σε αυτό το προϊόν στο Open Products Facts: {url}",
     "@share_product_text_product": {
         "description": "The content which is send, when sharing a 'products' product",
         "placeholders": {
@@ -3016,7 +3016,7 @@
             }
         }
     },
-    "share_product_list_text": "Have a look at my list of products on Open Food Facts: {url}",
+    "share_product_list_text": "Ρίξτε μια ματιά στη λίστα των προϊόντων μου στο Open Food Facts: {url}",
     "@share_product_list_text": {
         "description": "The content which is send, when sharing a product list",
         "placeholders": {
@@ -3405,39 +3405,39 @@
     "@color_green": {
         "description": "Color Green"
     },
-    "color_light_brown": "Default",
+    "color_light_brown": "Προεπιλογή",
     "@color_light_brown": {
         "description": "Color Light Brown, Default Open Food Facts Color"
     },
-    "color_magenta": "Magenta",
+    "color_magenta": "Ματζέντα",
     "@color_magenta": {
         "description": "Color Magenta"
     },
-    "color_orange": "Orange",
+    "color_orange": "Πορτοκαλί",
     "@color_orange": {
         "description": "Color Orange"
     },
-    "color_pink": "Pink",
+    "color_pink": "Ροζ",
     "@color_pink": {
         "description": "Color Pink"
     },
-    "color_red": "Red",
+    "color_red": "Κόκκινο",
     "@color_red": {
         "description": "Color Red"
     },
-    "color_rust": "Rust",
+    "color_rust": "Σκουριά",
     "@color_rust": {
         "description": "Color Rust"
     },
-    "color_teal": "Teal",
+    "color_teal": "Τιρκουάζ",
     "@color_teal": {
         "description": "Color Teal"
     },
-    "text_contrast_mode": "Text Contrast",
+    "text_contrast_mode": "Αντίθεση Κειμένου",
     "@text_contrast_mode": {
         "description": "Text Contrast Color Mode"
     },
-    "contrast_high": "High",
+    "contrast_high": "Υψηλή",
     "@contrast_high": {
         "description": "High Contrast Text Color"
     },
@@ -3595,8 +3595,8 @@
     "@language_selector_title": {
         "description": "Label to highlight the frequently used languages"
     },
-    "language_selector_section_selected": "Selected languages",
-    "language_selector_section_frequently_used": "Frequently used",
+    "language_selector_section_selected": "Επιλεγμένες γλώσσες",
+    "language_selector_section_frequently_used": "Χρησιμοποιείται συχνά",
     "action_delete_list": "Διαγραφή",
     "@action_delete_list": {
         "description": "Delete a list action in a menu"
@@ -3662,16 +3662,16 @@
     "hunger_games_loading_line1": "Δώστε μας λίγα δευτερόλεπτα…",
     "hunger_games_loading_line2": "Κατεβάζουμε τις ερωτήσεις!",
     "hunger_games_error_label": "Πω! Κάτι πήγε στραβά… και δεν μπορέσαμε να φορτώσουμε τις ερωτήσεις.",
-    "hunger_games_error_retry_button": "Let's retry!",
-    "reorder_attribute_action": "Reorder the attributes",
+    "hunger_games_error_retry_button": "Ας προσπαθήσουμε ξανά!",
+    "reorder_attribute_action": "Αναδιάταξη των χαρακτηριστικών",
     "@reorder_attribute_action": {
         "description": "An action button or a page title about reordering the attributes (e.g. 'is vegan?', 'nutrition facts', ...)"
     },
-    "link_cant_be_opened": "This link can't be opened on your device. Please check that you have a browser installed.",
+    "link_cant_be_opened": "Αυτός ο σύνδεσμος δεν μπορεί να ανοίξει στη συσκευή σας. Ελέγξτε ότι έχετε εγκαταστήσει ένα πρόγραμμα περιήγησης.",
     "@link_cant_be_opened": {
         "description": "An error may happen if the device doesn't have a browser installed."
     },
-    "knowledge_panel_page_title_no_title": "Details for {productName}",
+    "knowledge_panel_page_title_no_title": "Λεπτομέρειες για {productName}",
     "@knowledge_panel_page_title_no_title": {
         "description": "The title of the page when we click on an item in the product page and this page is unnamed",
         "placeholders": {
@@ -3680,7 +3680,7 @@
             }
         }
     },
-    "knowledge_panel_page_title": "Details for {pageName} with {productName}",
+    "knowledge_panel_page_title": "Λεπτομέρειες για {pageName} με {productName}",
     "@knowledge_panel_page_title": {
         "description": "The title of the page when we click on an item in the product page",
         "placeholders": {
@@ -3734,43 +3734,43 @@
     "guide_nutriscore_v2_new_logo_title": "How to differentiate old Nutri-Score and new calculation?",
     "guide_nutriscore_v2_new_logo_text": "From now on, the logo can display a mention \"**New calculation**\" to clarify that this is indeed the new calculation.",
     "guide_nutriscore_v2_new_logo_image_caption": "The logo of the new Nutri-Score",
-    "guide_nutriscore_v2_where_title": "Where to find the new Nutri-Score calculation?",
+    "guide_nutriscore_v2_where_title": "Πού θα βρείτε τον νέο υπολογισμό Nutri-Score;",
     "guide_nutriscore_v2_where_paragraph1": "The Nutri-Score is applied in several countries: Germany, Belgium, Spain, France, Luxembourg, the Netherlands and Switzerland.",
     "guide_nutriscore_v2_where_paragraph2": "Manufacturers have until **2026** at the latest **to replace** the old calculation with the new one.",
     "guide_nutriscore_v2_where_paragraph3": "Without waiting, you **will already find in the OpenFoodFacts application**, the new calculation, including if the manufacturers have not updated the score.",
     "guide_nutriscore_v2_unchanged_title": "What doesn't change",
     "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
     "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
-    "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
+    "guide_nutriscore_v2_share_link": "https://gr.openfoodfacts.org/nutriscore-v2",
     "guide_nutriscore_v2_share_message": "",
     "@guide_nutriscore_v2_share_message": {
         "description": "Please let empty for now (maybe use in the future)"
     },
-    "preview_badge": "Preview",
+    "preview_badge": "Προεπισκόπηση",
     "@preview_badge": {
         "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
     },
-    "prices_feedback_form": "Click here to send us your feedback about this new feature!",
+    "prices_feedback_form": "Κάντε κλικ εδώ για να μας στείλετε τα σχόλιά σας σχετικά με αυτή τη νέα λειτουργία!",
     "@prices_feedback_form": {
         "description": "A button to send feedback about the prices feature"
     },
-    "menu_button_list_actions": "Select an action",
+    "menu_button_list_actions": "Επιλέξτε μια ενέργεια",
     "@menu_button_list_actions": {
         "description": "Button to select an action in a list (eg: Share, Delete, …)"
     },
-    "error_loading_photo": "Error loading photo",
+    "error_loading_photo": "Σφάλμα φόρτωσης φωτογραφίας",
     "@error_loading_photo": {
         "description": "Error message when loading a photo fails to load"
     },
-    "photo_viewer_action_use_picture_as": "Use as…",
+    "photo_viewer_action_use_picture_as": "Χρήση ως…",
     "@photo_viewer_action_use_picture_as": {
         "description": "An action to use the current picture to be used as front/ingredients…"
     },
-    "photo_viewer_use_picture_as_tooltip": "Use this picture as…",
+    "photo_viewer_use_picture_as_tooltip": "Χρησιμοποιήστε αυτήν την εικόνα ως…",
     "@photo_viewer_use_picture_as_tooltip": {
         "description": "Message explaining what the three dots (…) button on \"More interesting photos\" does"
     },
-    "photo_viewer_use_picture_as_title": "Use this picture as… ({language})",
+    "photo_viewer_use_picture_as_title": "Χρήση αυτής της εικόνας ως… ({language})",
     "@photo_viewer_use_picture_as_title": {
         "description": "The title of a dialog to use the current picture as front/ingredients…",
         "placeholders": {
@@ -3783,11 +3783,11 @@
     "@photo_viewer_details_button": {
         "description": "Button to show details of the photo"
     },
-    "photo_viewer_details_button_accessibility_label": "Details of this photo",
+    "photo_viewer_details_button_accessibility_label": "Λεπτομέρειες αυτής της φωτογραφίας",
     "@photo_viewer_details_button_accessibility_label": {
         "description": "Accessibility label for the Details button on a photo"
     },
-    "photo_viewer_details_title": "Details of the photo",
+    "photo_viewer_details_title": "Λεπτομέρειες της φωτογραφίας",
     "@photo_viewer_details_title": {
         "description": "Title of the photo details dialog"
     },
@@ -3795,7 +3795,7 @@
     "@photo_viewer_details_contributor_title": {
         "description": "Label for the author of a photo"
     },
-    "photo_viewer_details_size_title": "Size",
+    "photo_viewer_details_size_title": "Μέγεθος",
     "@photo_viewer_details_size_title": {
         "description": "Label for the size of a photo"
     },
@@ -3819,15 +3819,15 @@
     "@photo_viewer_details_url_title": {
         "description": "Label for the link of a photo"
     },
-    "product_page_compatibility_score": "Compatible",
+    "product_page_compatibility_score": "Συμβατό",
     "@product_page_compatibility_score": {
         "description": "Compatibility score on top of the product page. The sentence is \"100%\" Compatible"
     },
-    "user_lists_action_multi_select": "Multi-select",
+    "user_lists_action_multi_select": "Πολλαπλή επιλογή",
     "@user_lists_action_multi_select": {
         "description": "The button label for multi-selecting products in a user list"
     },
-    "product_page_compatibility_score_tooltip": "Your compatibility score: {score}%",
+    "product_page_compatibility_score_tooltip": "Η βαθμολογία συμβατότητάς σας: {score}%",
     "@product_page_compatibility_score_tooltip": {
         "description": "Message explaining that the score is the compatibility score",
         "placeholders": {
@@ -3844,23 +3844,23 @@
     "@product_image_ingredients_accessibility_label": {
         "description": "Accessibility label for the image of ingredients"
     },
-    "product_image_nutrition_accessibility_label": "Nutrition picture",
+    "product_image_nutrition_accessibility_label": "Φωτογραφία διατροφής",
     "@product_image_nutrition_accessibility_label": {
         "description": "Accessibility label for the image of the nutrition"
     },
-    "product_image_packaging_accessibility_label": "Packaging picture",
+    "product_image_packaging_accessibility_label": "Εικόνα συσκευασίας",
     "@product_image_packaging_accessibility_label": {
         "description": "Accessibility label for the image of the packaging"
     },
-    "product_image_other_accessibility_label": "Other picture",
+    "product_image_other_accessibility_label": "Άλλη εικόνα",
     "@product_image_other_accessibility_label": {
         "description": "Accessibility label for an image"
     },
-    "product_image_outdated_message": "This picture may be outdated",
+    "product_image_outdated_message": "Αυτή η εικόνα μπορεί να είναι ξεπερασμένη",
     "@product_image_outdated_message": {
         "description": "Small message to indicate that the image may be outdated"
     },
-    "product_image_outdated_message_accessibility_label": "{type} (this image may be outdated)",
+    "product_image_outdated_message_accessibility_label": "{type} (αυτή η εικόνα μπορεί να είναι ξεπερασμένη)",
     "@product_image_outdated_message_accessibility_label": {
         "description": "Accessibility label for the image on the product page when it may be outdated",
         "placeholders": {
@@ -3869,7 +3869,7 @@
             }
         }
     },
-    "product_image_locked_message_accessibility_label": "{type} (this image may be locked by the producer)",
+    "product_image_locked_message_accessibility_label": "{type} (αυτή η εικόνα μπορεί να είναι κλειδωμένη από τον παραγωγό)",
     "@product_image_locked_message_accessibility_label": {
         "description": "Accessibility label for the image on the product page when it may be locked (producer provided)",
         "placeholders": {
@@ -3878,11 +3878,11 @@
             }
         }
     },
-    "product_image_error": "Unable to load the image!",
+    "product_image_error": "Αδυναμία φόρτωσης εικόνας!",
     "@product_image_error": {
         "description": "Small message that will be displayed above the picture (please keep it short)"
     },
-    "product_image_error_accessibility_label": "Unable to load the {type} (network error?)",
+    "product_image_error_accessibility_label": "Αδυναμία φόρτωσης {type} (σφάλμα δικτύου;)",
     "@product_image_error_accessibility_label": {
         "description": "Accessibility label for the image on the product page when it fails to load",
         "placeholders": {
@@ -3891,43 +3891,43 @@
             }
         }
     },
-    "product_page_image_no_image_available": "No\nimage!",
+    "product_page_image_no_image_available": "Καμία\nεικόνα!",
     "@product_page_image_no_image_available": {
         "description": "Small message that will be displayed above the picture (please keep it short) when there is no image available on the database. A line break is not mandatory."
     },
-    "product_page_image_no_image_available_accessibility_label": "No picture available for this product",
+    "product_page_image_no_image_available_accessibility_label": "Δεν υπάρχει διαθέσιμη εικόνα για αυτό το προϊόν",
     "@product_page_image_no_image_available_accessibility_label": {
         "description": "Accessibility label for the image on the product page when there is no image available on the database"
     },
-    "product_page_action_bar_settings_accessibility_label": "Reorder or hide actions",
+    "product_page_action_bar_settings_accessibility_label": "Αναδιάταξη ή απόκρυψη ενεργειών",
     "@product_page_action_bar_settings_accessibility_label": {
         "description": "Accessibility label for the Settings icon in the action bar (= bottom bar) on the product page"
     },
-    "product_page_action_bar_setting_modal_title": "Edit actions",
+    "product_page_action_bar_setting_modal_title": "Επεξεργασία ενεργειών",
     "@product_page_action_bar_setting_modal_title": {
         "description": "Title for the modal allowing to show and reorder actions"
     },
-    "product_page_action_bar_item_move_up": "Move up",
+    "product_page_action_bar_item_move_up": "Μετακίνηση επάνω",
     "@product_page_action_bar_item_move_up": {
         "description": "Accessibility label to move up an action"
     },
-    "product_page_action_bar_item_move_down": "Move down",
+    "product_page_action_bar_item_move_down": "Μετακίνηση κάτω",
     "@product_page_action_bar_item_move_down": {
         "description": "Accessibility label to move down an action"
     },
-    "product_page_action_bar_item_enable": "Enable action",
+    "product_page_action_bar_item_enable": "Ενεργοποίηση ενέργειας",
     "@product_page_action_bar_item_enable": {
         "description": "Accessibility label to enable action (= make it visible)"
     },
-    "product_page_action_bar_item_disable": "Disable action",
+    "product_page_action_bar_item_disable": "Απενεργοποίηση ενέργειας",
     "@product_page_action_bar_item_disable": {
         "description": "Accessibility label to disable action (= make it invisible)"
     },
-    "product_page_pending_operations_banner_title": "Uploading your edits…",
+    "product_page_pending_operations_banner_title": "Μεταφόρτωση των αλλαγών σας…",
     "@product_page_pending_operations_banner_title": {
         "description": "When a product has pending edits (being sent to the server), there is a message on the product page (here is the title of the message)."
     },
-    "product_page_pending_operations_banner_message": "The data displayed on this page **does not yet reflect your modifications**.\nPlease wait a few seconds…",
+    "product_page_pending_operations_banner_message": "Τα δεδομένα που εμφανίζονται σε αυτήν τη σελίδα **δεν αντικατοπτρίζουν ακόμη τις τροποποιήσεις σας**.\nΠεριμένετε μερικά δευτερόλεπτα…",
     "@product_page_pending_operations_banner_message": {
         "description": "When a product has pending edits (being sent to the server), there is a message on the product page. Please keep the ** syntax to make the text bold."
     },
