@@ -10,6 +10,7 @@ import 'package:smooth_app/pages/product/report_product/report_product_comment.d
 import 'package:smooth_app/pages/product/report_product/report_product_explanations.dart';
 import 'package:smooth_app/pages/product/report_product/report_product_header.dart';
 import 'package:smooth_app/pages/product/report_product/report_product_reason.dart';
+import 'package:smooth_app/pages/product/report_product/wizard/report_product_wizard.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/widgets/v2/smooth_scaffold2.dart';
 import 'package:smooth_app/widgets/v2/smooth_topbar2.dart';
@@ -18,16 +19,18 @@ class ReportProductPage extends StatelessWidget {
   const ReportProductPage({
     required this.product,
     super.key,
-  }) : image = null;
+  })  : image = null,
+        wizard = const ReportProductWizardPhoto();
 
   const ReportProductPage.image({
     required this.product,
     required this.image,
     super.key,
-  });
+  }) : wizard = const ReportProductWizardPhoto();
 
   final Product product;
   final ProductImage? image;
+  final ReportProductWizard wizard;
 
   @override
   Widget build(BuildContext context) {
@@ -41,6 +44,9 @@ class ReportProductPage extends StatelessWidget {
         Provider<ProductImage?>(
           create: (_) => image,
         ),
+        Provider<ReportProductWizard>(
+          create: (_) => wizard,
+        ),
       ],
       child: SmoothScaffold2(
         topBar: SmoothTopBar2(
@@ -51,7 +57,7 @@ class ReportProductPage extends StatelessWidget {
         ),
         bottomBar: ProductBottomButtonsBar(
           onSave: () {
-            // TODO: Envoyer la requête à Nutripatrol
+            // TODO(g123k): Envoyer la requête à Nutripatrol
             showSmoothModalSheet(
               context: context,
               builder: (BuildContext lContext) {
@@ -74,7 +80,8 @@ class ReportProductPage extends StatelessWidget {
                         child: Align(
                           alignment: Alignment.centerLeft,
                           child: Text(
-                              appLocalizations.report_product_success_thanks),
+                            appLocalizations.report_product_success_thanks,
+                          ),
                         ),
                       ),
                       Padding(
@@ -83,8 +90,9 @@ class ReportProductPage extends StatelessWidget {
                         ),
                         child: Align(
                           alignment: Alignment.centerLeft,
-                          child: Text(appLocalizations
-                              .report_product_success_secondary),
+                          child: Text(
+                            appLocalizations.report_product_success_secondary,
+                          ),
                         ),
                       ),
                     ],

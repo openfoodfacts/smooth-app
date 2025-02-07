@@ -43,47 +43,55 @@ class _ReportProductHeaderPhoto extends StatelessWidget {
     final Product product = context.read<Product>();
     final ProductImage image = context.read<ProductImage?>()!;
 
-    return SliverToBoxAdapter(
-      child: SmoothCardWithRoundedHeader(
-        title: appLocalizations.report_product_header_title,
-        leading: const icons.Flag(),
-        contentPadding: const EdgeInsetsDirectional.symmetric(
-          horizontal: LARGE_SPACE,
-          vertical: MEDIUM_SPACE,
-        ),
-        child: Row(
-          children: <Widget>[
-            ProductPicture.fromProduct(
-              product: product,
-              imageField: image.field!,
-              size: const Size.square(90.0),
-              borderRadius: const BorderRadius.all(Radius.circular(15.0)),
-              imageFoundBorder: 1.0,
-              imageNotFoundBorder: 1.0,
-            ),
-            const SizedBox(width: SMALL_SPACE),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text(
-                  image.field!.getImagePageTitle(appLocalizations),
-                  style: const TextStyle(fontWeight: FontWeight.bold),
-                ),
-                const SizedBox(height: MEDIUM_SPACE),
-                Text(
-                  appLocalizations.report_product_header_contributor(
-                      image.contributor ?? '-'),
-                ),
-                Text(
-                  appLocalizations.report_product_header_date(
-                    image.uploaded != null
-                        ? DateFormat.yMMMMEEEEd().format(image.uploaded!)
-                        : '-',
+    return SliverPadding(
+      padding: const EdgeInsetsDirectional.only(
+        start: MEDIUM_SPACE,
+        end: MEDIUM_SPACE,
+        bottom: MEDIUM_SPACE,
+      ),
+      sliver: SliverToBoxAdapter(
+        child: SmoothCardWithRoundedHeader(
+          title: appLocalizations.report_product_header_title,
+          leading: const icons.Flag(),
+          contentPadding: const EdgeInsetsDirectional.symmetric(
+            horizontal: LARGE_SPACE,
+            vertical: MEDIUM_SPACE,
+          ),
+          child: Row(
+            children: <Widget>[
+              ProductPicture.fromProduct(
+                product: product,
+                imageField: image.field!,
+                size: const Size.square(90.0),
+                borderRadius: const BorderRadius.all(Radius.circular(15.0)),
+                imageFoundBorder: 1.0,
+                imageNotFoundBorder: 1.0,
+              ),
+              const SizedBox(width: SMALL_SPACE),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    image.field!.getImagePageTitle(appLocalizations),
+                    style: const TextStyle(fontWeight: FontWeight.bold),
                   ),
-                ),
-              ],
-            )
-          ],
+                  const SizedBox(height: MEDIUM_SPACE),
+                  Text(
+                    appLocalizations.report_product_header_contributor(
+                      image.contributor ?? '-',
+                    ),
+                  ),
+                  Text(
+                    appLocalizations.report_product_header_date(
+                      image.uploaded != null
+                          ? DateFormat.yMMMMEEEEd().format(image.uploaded!)
+                          : '-',
+                    ),
+                  ),
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );
