@@ -164,7 +164,9 @@ class _ProductImageSwipeableViewState extends State<ProductImageSwipeableView>
         children: <Widget>[
           const OwnerFieldIcon(size: 18.0),
           const SizedBox(width: SMALL_SPACE),
-          Text(appLocalizations.owner_field_image_short),
+          Expanded(
+            child: Text(appLocalizations.owner_field_image_short),
+          ),
         ],
       );
     }

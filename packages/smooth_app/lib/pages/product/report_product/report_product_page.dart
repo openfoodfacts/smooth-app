@@ -3,8 +3,14 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
+import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/product/common/product_buttons.dart';
+import 'package:smooth_app/pages/product/report_product/report_product_comment.dart';
+import 'package:smooth_app/pages/product/report_product/report_product_explanations.dart';
 import 'package:smooth_app/pages/product/report_product/report_product_header.dart';
+import 'package:smooth_app/pages/product/report_product/report_product_reason.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/widgets/v2/smooth_scaffold2.dart';
 import 'package:smooth_app/widgets/v2/smooth_topbar2.dart';
 
@@ -46,6 +52,46 @@ class ReportProductPage extends StatelessWidget {
         bottomBar: ProductBottomButtonsBar(
           onSave: () {
             // TODO: Envoyer la requête à Nutripatrol
+            showSmoothModalSheet(
+              context: context,
+              builder: (BuildContext lContext) {
+                return SmoothModalSheet(
+                  title: 'Signalement envoyé',
+                  body: Column(
+                    children: <Widget>[
+                      const Padding(
+                        padding: EdgeInsetsDirectional.symmetric(
+                          vertical: LARGE_SPACE,
+                        ),
+                        child: icons.Check(
+                          color: LIGHT_GREEN_COLOR,
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsetsDirectional.symmetric(
+                          vertical: MEDIUM_SPACE,
+                        ),
+                        child: Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                              appLocalizations.report_product_success_thanks),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsetsDirectional.symmetric(
+                          vertical: MEDIUM_SPACE,
+                        ),
+                        child: Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(appLocalizations
+                              .report_product_success_secondary),
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            );
           },
           onCancel: () {
             Navigator.of(context).pop();
@@ -53,6 +99,9 @@ class ReportProductPage extends StatelessWidget {
         ),
         children: const <Widget>[
           ReportProductHeader(),
+          ReportProductReason(),
+          ReportProductExplanations(),
+          ReportProductComment(),
         ],
       ),
     );

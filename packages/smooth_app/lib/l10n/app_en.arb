@@ -3100,6 +3100,42 @@
     "@report_product_reasons_photo_other": {
         "description": "Reason to report a photo: another reason"
     },
+    "report_product_explanations_title" : "Explanations",
+    "@report_product_explanations_title": {
+        "description": "Title of the explanations section of the report product page"
+    },
+    "report_product_explanations_main_text": "Open Food Facts is a database of more than 3 million products powered by contributors (like Wikipedia)",
+    "@report_product_explanations_main_text": {
+        "description": "Explain Open Food Facts work like wikipedia with the contributors help"
+    },
+    "report_product_explanations_secondary_text": "If you own the product, you can take a photo to correct it",
+        "@report_product_explanations_secondary_text": {
+            "description": "Text to explain consumers can contribute to the database to fix product"
+    },
+    "report_product_explanations_take_picture": "I take a photo of the product",
+        "@report_product_explanations_take_picture": {
+            "description": "Give user choice to take a picture to fix the product"
+    },
+    "report_product_explanations_report": "I still want to make a report",
+        "@report_product_explanations_take_picture": {
+            "description": "Give user choice to report the product"
+    },
+    "report_product_comment_title": "Comment",
+        "@report_product_explanations_take_picture": {
+            "description": "Comment section title"
+    },
+    "report_product_comment_hint": "Explain your report as precisely as possible",
+        "@report_product_explanations_take_picture": {
+            "description": "Hint of the comment section"
+    },
+    "report_product_success_thanks": "Thank you for your report",
+        "@report_product_success_thanks": {
+            "description": "Short message to thank contributor for his report"
+    },
+    "report_product_success_secondary": "The product will soon be reviewed by our moderators",
+        "@report_product_success_secondary": {
+            "description": "Second text of the thanks modal"
+    },
     "edit_packagings_title": "Packaging components",
     "@edit_packagings_title": {
         "description": "Title of the structured packagings page"
