@@ -10,7 +10,7 @@ import 'package:smooth_app/query/product_query.dart';
 /// Typically, the old version will be used with "old" data, that have not
 /// downloaded yet the more "recent" multilingual fields
 /// (e.g. [ProductField.NAME_ALL_LANGUAGES]).
-class MultilingualHelper {
+class MultilingualHelper extends ChangeNotifier {
   MultilingualHelper({required this.controller});
 
   final TextEditingController controller;
@@ -165,8 +165,10 @@ class MultilingualHelper {
   }
 
   /// Saves the current input for the current language.
-  void _saveCurrentName() =>
-      _currentMultilingualTexts[_currentLanguage] = controller.text;
+  void _saveCurrentName() {
+    _currentMultilingualTexts[_currentLanguage] = controller.text;
+    notifyListeners();
+  }
 
   OpenFoodFactsLanguage getCurrentLanguage() =>
       isMonolingual() ? ProductQuery.getLanguage() : _currentLanguage;
@@ -177,4 +179,25 @@ class MultilingualHelper {
   }
 
   static String getCleanText(final String? name) => (name ?? '').trim();
+
+  bool hasChanged() {
+    if (isMonolingual()) {
+      return getChangedMonolingualText() != null;
+    } else if (_initialMultilingualTexts.length !=
+        _currentMultilingualTexts.length) {
+      return true;
+    } else if (_initialMultilingualTexts[_currentLanguage] != controller.text) {
+      return true;
+    }
+
+    for (final OpenFoodFactsLanguage language
+        in _initialMultilingualTexts.keys) {
+      if (getCleanText(_initialMultilingualTexts[language]) !=
+          getCleanText(_currentMultilingualTexts[language])) {
+        return true;
+      }
+    }
+
+    return false;
+  }
 }

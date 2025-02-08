@@ -58,6 +58,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
 
   late final TextEditingControllerWithHistory _servingController;
   late final NutritionContainerHelper _nutritionContainer;
+  late final WillPopScope2Controller _willPopScope2Controller;
   late final NumberFormat _decimalNumberFormat;
 
   bool _imageVisible = false;
@@ -66,13 +67,16 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
   void initState() {
     super.initState();
     initUpToDate(widget.product, context.read<LocalDatabase>());
+    _willPopScope2Controller = WillPopScope2Controller(canPop: true);
+
     _nutritionContainer = NutritionContainerHelper(
       orderedNutrients: widget.orderedNutrients,
       product: upToDateProduct,
-    );
+    )..addListener(_onChanged);
 
     _servingController =
-        TextEditingControllerWithHistory(text: _nutritionContainer.servingSize);
+        TextEditingControllerWithHistory(text: _nutritionContainer.servingSize)
+          ..addListener(_onChanged);
     _servingController.selection =
         TextSelection.collapsed(offset: _servingController.text.length - 1);
     _decimalNumberFormat =
@@ -87,6 +91,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
 
     return WillPopScope2(
       onWillPop: () async => (await _mayExitPage(saving: false), null),
+      controller: _willPopScope2Controller,
       child: MultiProvider(
         providers: <SingleChildWidget>[
           ChangeNotifierProvider<NutritionContainerHelper>(
@@ -139,6 +144,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
                     child: _NutritionPageBody(
                       servingController: _servingController,
                       formKey: _formKey,
+                      onNutrientChanged: _onChanged,
                     ),
                   ),
                 ],
@@ -204,6 +210,10 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
     }
     _nutritionContainer.setServingText(_servingController.text);
     return _nutritionContainer.getChangedProduct(product);
+  }
+
+  void _onChanged() {
+    _willPopScope2Controller.canPop(!_isEdited());
   }
 
   /// Exits the page if the [flag] is `true`.
@@ -273,6 +283,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
       controller.dispose();
     }
     _servingController.dispose();
+    _willPopScope2Controller.dispose();
     super.dispose();
   }
 }
@@ -281,10 +292,12 @@ class _NutritionPageBody extends StatefulWidget {
   const _NutritionPageBody({
     required this.formKey,
     required this.servingController,
+    required this.onNutrientChanged,
   });
 
   final GlobalKey<FormState> formKey;
   final TextEditingControllerWithHistory servingController;
+  final VoidCallback onNutrientChanged;
 
   @override
   State<_NutritionPageBody> createState() => _NutritionPageBodyState();
@@ -371,7 +384,7 @@ class _NutritionPageBodyState extends State<_NutritionPageBody> {
         final double? value = nutritionContainer.getValue(nutrient);
         controllers[nutrient] = TextEditingControllerWithHistory(
           text: value == null ? '' : decimalNumberFormat.format(value),
-        );
+        )..addListener(widget.onNutrientChanged);
       }
 
       widgets.add(

@@ -6,6 +6,7 @@ import 'package:smooth_app/background/background_task_details.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
+import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/pages/input/unfocus_field_when_tap_outside.dart';
 import 'package:smooth_app/pages/product/add_basic_details/add_basic_details_name.dart';
 import 'package:smooth_app/pages/product/add_basic_details/add_basic_details_quantity.dart';
@@ -43,16 +44,15 @@ class AddBasicDetailsPage extends StatefulWidget {
 }
 
 class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
-  final TextEditingController _productNameController = TextEditingController();
-  final TextEditingController _brandsController = TextEditingController();
+  late final TextEditingController _brandsController;
   late final TextEditingControllerWithHistory _weightController;
+  late final WillPopScope2Controller _willPopScope2Controller;
 
   final double _heightSpace = LARGE_SPACE;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   late final Product _product;
+  late final SimpleInputPageBrandsHelper _brandsHelper;
 
-  final SimpleInputPageBrandsHelper _brandsHelper =
-      SimpleInputPageBrandsHelper();
   final ProductNameEditorProvider _productNameEditorProvider =
       ProductNameEditorProvider();
 
@@ -63,9 +63,15 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
   void initState() {
     super.initState();
     _product = widget.product;
+
+    _brandsHelper = SimpleInputPageBrandsHelper()..addListener(_onValueChanged);
+    _brandsController = TextEditingController()..addListener(_onValueChanged);
+    _productNameEditorProvider.addListener(_onValueChanged);
     _weightController = TextEditingControllerWithHistory(
       text: MultilingualHelper.getCleanText(_product.quantity ?? ''),
-    );
+    )..addListener(_onValueChanged);
+
+    _willPopScope2Controller = WillPopScope2Controller(canPop: true);
   }
 
   @override
@@ -74,6 +80,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
 
     return WillPopScope2(
       onWillPop: () async => (await _mayExitPage(saving: false), null),
+      controller: _willPopScope2Controller,
       child: UnfocusFieldWhenTapOutside(
         child: ChangeNotifierProvider<ProductNameEditorProvider>(
           create: (_) => _productNameEditorProvider
@@ -115,9 +122,9 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
 
   @override
   void dispose() {
-    _productNameController.dispose();
     _brandsController.dispose();
     _weightController.dispose();
+    _willPopScope2Controller.dispose();
     super.dispose();
   }
 
@@ -232,6 +239,18 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
 
     return true;
   }
+
+  void _onValueChanged() {
+    onNextFrame(
+      () => _willPopScope2Controller.canPop(!_hasProductChanged()),
+    );
+  }
+
+  bool _hasProductChanged() =>
+      _weightController.isDifferentFromInitialValue ||
+      _brandsController.text.isNotEmpty ||
+      _brandsHelper.hasChanged() ||
+      _productNameEditorProvider.hasChanged();
 
   /// Returns a [Product] with the values from the text fields.
   Product? _getMinimalistProduct() {
