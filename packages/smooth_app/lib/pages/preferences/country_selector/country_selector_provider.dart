@@ -48,9 +48,10 @@ class _CountrySelectorProvider extends PreferencesSelectorProvider<Country> {
 
   @override
   Future<List<Country>> onLoadValues() async {
-    final List<Country> localizedCountries = CountriesHelper.getCountries(
-      userAppLanguageCode,
-    ) as List<Country>;
+    final List<Country> localizedCountries = await CountriesHelper.getCountries(
+          userAppLanguageCode,
+        ) ??
+        <Country>[];
 
     final List<Country> countries = await compute(
       _reformatCountries,
@@ -183,7 +184,8 @@ class CountriesHelper {
         const Country(name: 'Germany', countryCode: 'DE'),
         const Country(name: 'India', countryCode: 'IN'),
       ];
-    } catch (_) {
+    } catch (e) {
+      Logs.e('Failed to load countries', ex: e);
       return null;
     }
   }
