@@ -544,7 +544,7 @@
     },
     "ingredients": "Složení",
     "@ingredients": {},
-    "ingredients_editing_instructions": "Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen and use parentheses for ingredients of an ingredient.",
+    "ingredients_editing_instructions": "Zachovejte původní řazení. Při specifikaci uveďte procento. Oddělte je čárkou nebo pomlčkou, použijte závorky pro složky přísady a označte alergeny mezi podtržítka.",
     "ingredients_editing_error": "Ingredience se nepodařilo uložit.",
     "ingredients_editing_image_error": "Nepodařilo se získat nový obrázek ingrediencí.",
     "ingredients_editing_title": "Upravit ingredience",
@@ -562,7 +562,7 @@
     "@nutrition_facts_photo": {
         "description": "Button label: For adding a picture of the nutrition facts of a product"
     },
-    "nutrition_facts_editing_title": "Edit Nutrition Facts",
+    "nutrition_facts_editing_title": "Upravit nutriční fakta",
     "@nutrition_facts_editing_title": {
         "description": "Title of the button where users can edit the nutrition facts of a product"
     },
@@ -599,7 +599,7 @@
     "@new_product_leave_message": {
         "description": "Alert dialog message when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
     },
-    "new_product_dialog_description": "Please take photos of the packaging to add this product to our common database",
+    "new_product_dialog_description": "Pro přidání tohoto produktu do naší společné databáze prosím vyfoťte obal",
     "@new_product_dialog_description": {
         "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
     },
@@ -776,11 +776,11 @@
     "nutrition_page_nutritional_info_value_positive": "Ano",
     "nutrition_page_nutritional_info_value_negative": "Ne",
     "nutrition_page_nutritional_info_open_photo": "Otevřít fotografii",
-    "nutrition_page_nutritional_info_explanation_title": "Good practices: Nutritional information",
+    "nutrition_page_nutritional_info_explanation_title": "Osvědčené postupy: Nutriční informace",
     "@nutrition_page_nutritional_info_explanation_title": {
         "description": "Title for the help section about Nutritional information"
     },
-    "nutrition_page_nutritional_info_explanation_info1": "Sometimes nutrition facts are **not specified on the packaging** or on a document given with the product. In this case, and only in this case, you can set the value to **NO**.",
+    "nutrition_page_nutritional_info_explanation_info1": "Výživová fakta jsou někdy **nespecifikována na balení** ani na dokumentu předloženém s tímto produktem. V tomto případě, a pouze v tomto případě, můžete nastavit hodnotu na **NE**.",
     "@nutrition_page_nutritional_info_explanation_info1": {
         "description": "Text explaining when to set the nutritional information to NO"
     },
@@ -794,27 +794,27 @@
     "nutrition_page_add_nutrient": "Přidejte živinu",
     "nutrition_page_serving_size": "Velikost porce",
     "nutrition_page_serving_size_hint": "Zadejte velikost porce (např.: 100 g)",
-    "nutrition_page_serving_size_explanation_title": "Good practices: Serving size",
+    "nutrition_page_serving_size_explanation_title": "Osvědčené postupy: Velikost porce",
     "@nutrition_page_serving_size_explanation_title": {
         "description": "Title for the help section about Nutritional information"
     },
-    "nutrition_page_serving_size_explanation_info1": "This value helps to **make a proportional calculation of each nutrient per serving size**.",
+    "nutrition_page_serving_size_explanation_info1": "Tato hodnota pomáhá **proporcionálně vypočítat každou živinu na velikost porce**.",
     "@nutrition_page_serving_size_explanation_info1": {
         "description": "Text explaining why the serving size is important"
     },
-    "nutrition_page_serving_size_explanation_info2": "**Allowed units** are: kg, g, mg, µg, oz, l, dl, cl, ml, fl.oz, fl oz, г, мг, кг, л, дл, кл, мл, 毫克, 公斤, 毫升, 公升, 吨.",
+    "nutrition_page_serving_size_explanation_info2": "**Povolené jednotky** jsou: kg, g, mg, µg, oz, l, dl, cl, ml, fl.oz, fl oz, г, мг, кг, л, дл, кл, мл, 毫克, 公斤, 毫升, 公升, 吨.",
     "@nutrition_page_serving_size_explanation_info2": {
         "description": "Text explaining why the serving size is important"
     },
-    "nutrition_page_serving_size_explanation_good_example1": "**60 g**, **60g** or **60 G** (prefer the first one)",
+    "nutrition_page_serving_size_explanation_good_example1": "**60 g**, **60g** nebo **60 G** (preferujte první)",
     "@nutrition_page_serving_size_explanation_good_example1": {
         "description": "Example of a correct serving size"
     },
-    "nutrition_page_serving_size_explanation_good_example2": "**1000 ml** or **1L**",
+    "nutrition_page_serving_size_explanation_good_example2": "**1000 ml** nebo **1L**",
     "@nutrition_page_serving_size_explanation_good_example2": {
         "description": "Example of a correct serving size"
     },
-    "nutrition_page_serving_size_explanation_bad_example1_explanation": "Invalid unit",
+    "nutrition_page_serving_size_explanation_bad_example1_explanation": "Neplatná jednotka",
     "@nutrition_page_serving_size_explanation_bad_example1_explanation": {
         "description": "Example of an incorrect serving size"
     },
@@ -822,19 +822,19 @@
     "@nutrition_page_serving_size_explanation_bad_example1_example": {
         "description": "Example of an incorrect serving size"
     },
-    "nutrition_page_serving_size_explanation_bad_example2_explanation": "Invalid units",
+    "nutrition_page_serving_size_explanation_bad_example2_explanation": "Neplatné jednotky",
     "@nutrition_page_serving_size_explanation_bad_example2_explanation": {
         "description": "Example of an incorrect serving size"
     },
-    "nutrition_page_serving_size_explanation_bad_example2_example": "9 **candies** and 2 **biscuits**",
+    "nutrition_page_serving_size_explanation_bad_example2_example": "9**bonbonů** a 2**sušenky**",
     "@nutrition_page_serving_size_explanation_bad_example2_example": {
         "description": "Example of an incorrect serving size"
     },
-    "nutrition_page_serving_size_explanation_bad_example3_explanation": "Missing unit",
+    "nutrition_page_serving_size_explanation_bad_example3_explanation": "Chybějící jednotka",
     "@nutrition_page_serving_size_explanation_bad_example3_explanation": {
         "description": "Example of an incorrect serving size"
     },
-    "nutrition_page_serving_size_explanation_bad_example3_example": "**30**",
+    "nutrition_page_serving_size_explanation_bad_example3_example": "***30**",
     "@nutrition_page_serving_size_explanation_bad_example3_example": {
         "description": "Example of an incorrect serving size"
     },
@@ -1586,7 +1586,7 @@
     "@edit_product_form_item_add_action_category": {
         "description": "Tooltip to show when the user long presses the (+) button on a category"
     },
-    "edit_product_form_item_add_suggestion": "Add suggestion",
+    "edit_product_form_item_add_suggestion": "Přidat návrh",
     "@edit_product_form_item_add_suggestion": {
         "description": "Tooltip to show when the user long presses the (+) button on a suggestion"
     },
@@ -1630,11 +1630,11 @@
     "@edit_product_form_item_labels_type": {
         "description": "Product edition - Labels - input textfield label"
     },
-    "edit_product_form_item_labels_explanation_title": "Good practices: Labels",
+    "edit_product_form_item_labels_explanation_title": "Osvědčené postupy: Štítky",
     "@edit_product_form_item_labels_explanation_title": {
         "description": "Product edition - Labels - explanation"
     },
-    "edit_product_form_item_labels_explanation_info1": "Any characteristic of the product **which is factual** and different from the other fields.",
+    "edit_product_form_item_labels_explanation_info1": "Jakákoli charakteristika produktu, **která je faktická** a liší se od ostatních polí.",
     "@edit_product_form_item_labels_explanation_info1": {
         "description": "Product edition - Labels - explanation"
     },
@@ -1642,7 +1642,7 @@
     "@edit_product_form_item_labels_explanation_good_examples_1": {
         "description": "Product edition - Labels - explanation"
     },
-    "edit_product_form_item_labels_explanation_good_examples_2": "Made in Belgium, produced in Brittany…",
+    "edit_product_form_item_labels_explanation_good_examples_2": "Vyrobeno v Belgii, vyrobeno v Bretani…",
     "@edit_product_form_item_labels_explanation_good_examples_2": {
         "description": "Product edition - Labels - explanation"
     },
@@ -1650,7 +1650,7 @@
     "@edit_product_form_item_labels_explanation_good_examples_3": {
         "description": "Product edition - Labels - explanation"
     },
-    "edit_product_form_item_labels_explanation_good_examples_4": "Rich in fiber, source of iron…",
+    "edit_product_form_item_labels_explanation_good_examples_4": "Bohatý na vlákninu, zdroj železa…",
     "@edit_product_form_item_labels_explanation_good_examples_4": {
         "description": "Product edition - Labels - explanation"
     },
@@ -1670,11 +1670,11 @@
     "@edit_product_form_item_stores_type": {
         "description": "Product edition - Stores - input textfield type"
     },
-    "edit_product_form_item_stores_explanation_title": "Good practices: Stores",
+    "edit_product_form_item_stores_explanation_title": "Osvědčené postupy: Obchody",
     "@edit_product_form_item_stores_explanation_title": {
         "description": "Product edition - Stores - Explanation"
     },
-    "edit_product_form_item_stores_explanation_info1": "Input the store where you bought the product.",
+    "edit_product_form_item_stores_explanation_info1": "Zadejte obchod, kde jste produkt zakoupili.",
     "@edit_product_form_item_stores_explanation_info1": {
         "description": "Product edition - Stores - Explanation"
     },
@@ -1702,7 +1702,7 @@
     "@edit_product_form_item_origins_type": {
         "description": "Product edition - Origins - input textfield type"
     },
-    "edit_product_form_item_origins_explanation_title": "Good practices: Origins",
+    "edit_product_form_item_origins_explanation_title": "Osvědčené postupy: Původ",
     "@edit_product_form_item_origins_explanation_title": {
         "description": "Product edition - Origins - input explainer, part 1"
     },
