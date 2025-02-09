@@ -3090,7 +3090,7 @@
     "@copy_to_clipboard": {
         "description": "Copy to clipboard button description"
     },
-    "paste_from_clipboard": "Aus Zwischenspeicher einfügen",
+    "paste_from_clipboard": "Aus Zwischenablage einfügen",
     "@paste_from_clipboard": {
         "description": "Paste the content of the clipboard"
     },
