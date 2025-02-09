@@ -1710,11 +1710,11 @@
     "@edit_product_form_item_origins_explanation_info1": {
         "description": "Product edition - Origins - input explainer, part 1"
     },
-    "edit_product_form_item_origins_explanation_good_examples_1": "Beef from Argentina",
+    "edit_product_form_item_origins_explanation_good_examples_1": "Hovězí maso z Argentiny",
     "@edit_product_form_item_origins_explanation_good_examples_1": {
         "description": "Product edition - Origins - input explainer, part 2"
     },
-    "edit_product_form_item_origins_explanation_good_examples_2": "The soy does not come from the European Union",
+    "edit_product_form_item_origins_explanation_good_examples_2": "Sója nepochází z Evropské unie",
     "@edit_product_form_item_origins_explanation_good_examples_2": {
         "description": "Product edition - Origins - input explainer, part 2"
     },
@@ -1730,11 +1730,11 @@
     "@edit_product_form_item_countries_type": {
         "description": "Product edition - Countries - input textfield type"
     },
-    "edit_product_form_item_countries_explanations_title": "Good practices: Countries",
+    "edit_product_form_item_countries_explanations_title": "Osvědčené postupy: Země",
     "@edit_product_form_item_countries_explanations_title": {
         "description": "Product edition - Countries - explanations"
     },
-    "edit_product_form_item_countries_explanations_info1": "**Countries where the product is widely available** (not including stores specialising in foreign products).",
+    "edit_product_form_item_countries_explanations_info1": "**Země, kde je produkt široce dostupný** (nezahrnuje obchody specializované na zahraniční produkty).",
     "@edit_product_form_item_countries_explanations_info1": {
         "description": "Product edition - Countries - explanations"
     },
@@ -1750,19 +1750,19 @@
     "@edit_product_form_item_emb_codes_type": {
         "description": "Product edition - Traceability Codes - input textfield type"
     },
-    "edit_product_form_item_emb_help_title": "Good practices: Traceability codes",
+    "edit_product_form_item_emb_help_title": "Osvědčené postupy: Kódy sledovatelnosti",
     "@edit_product_form_item_emb_help_title": {
         "description": "Title for the help section about traceability codes"
     },
-    "edit_product_form_item_emb_help_info1": "In this section, you can input codes related to **packaging marks**, **identification marks** or **health marks**.",
+    "edit_product_form_item_emb_help_info1": "V této části můžete zadat kódy pro **značky balení**, **identifikační značky** nebo **značky zdravotní nezávadnosti**.",
     "@edit_product_form_item_emb_help_info1": {
         "description": "Text explaining how to write a traceability code"
     },
-    "edit_product_form_item_emb_help_info2_title": "Examples of traceability codes",
+    "edit_product_form_item_emb_help_info2_title": "Příklady kódů sledovatelnosti",
     "@edit_product_form_item_emb_help_info2_title": {
         "description": "Explanation about EMB/EC… codes"
     },
-    "edit_product_form_item_emb_help_info2_item1_text": "**EC codes** used in the European Community to identify food producers or packagers:",
+    "edit_product_form_item_emb_help_info2_item1_text": "**Kódy EC** používané v Evropském společenství k identifikaci výrobců potravin nebo balíren:",
     "@edit_product_form_item_emb_help_info2_item1_text": {
         "description": "Explanation about EC codes"
     },
@@ -1770,11 +1770,11 @@
     "@edit_product_form_item_emb_help_info2_item1_example": {
         "description": "Example of an EC code (you can change with a valid code in another european country)"
     },
-    "edit_product_form_item_emb_help_info2_item1_explanation": "**FR**: country code of **France**\n**72.264.002**: geographic data\n**CE**: European Community",
+    "edit_product_form_item_emb_help_info2_item1_explanation": "**FR**: Kód země **Francie**\n**72.264.002**: geografická data\n**CE**: Evropské společenství",
     "@edit_product_form_item_emb_help_info2_item1_explanation": {
         "description": "Example of an EC code (shouldn't be translated)"
     },
-    "edit_product_form_item_emb_help_info2_item2_text": "**EMB codes** used in France:",
+    "edit_product_form_item_emb_help_info2_item2_text": "**Kódy EMB** používané ve Francii:",
     "@edit_product_form_item_emb_help_info2_item2_text": {
         "description": "Explanation about EMB codes"
     },
@@ -1794,19 +1794,19 @@
     "@edit_product_form_item_categories_type": {
         "description": "Product edition - Categories - input textfield type"
     },
-    "edit_product_form_item_categories_explanation_title": "Good practices: Categories",
+    "edit_product_form_item_categories_explanation_title": "Osvědčené postupy: Kategorie",
     "@edit_product_form_item_categories_explanation_title": {
         "description": "Product edition - Categories - input explainer, title"
     },
-    "edit_product_form_item_categories_explanation_info1": "Indicate **only the most specific category**.\nParent categories will be automatically added.",
+    "edit_product_form_item_categories_explanation_info1": "Uveďte **pouze nejkonkrétnější kategorii**.\nNadřazené kategorie budou přidány automaticky.",
     "@edit_product_form_item_categories_explanation_info1": {
         "description": "Product edition - Categories - input explainer, part 1"
     },
-    "edit_product_form_item_categories_explanation_info2_title": "Missing category?",
+    "edit_product_form_item_categories_explanation_info2_title": "Chybí kategorie?",
     "@edit_product_form_item_categories_explanation_info2_title": {
         "description": "Product edition - Categories - input explainer, part 2"
     },
-    "edit_product_form_item_categories_explanation_info2_content": "In case a category is **not available in autocomplete**, feel free to add it anyway.\nThis will help us improve Open Food Facts in your country.",
+    "edit_product_form_item_categories_explanation_info2_content": "V případě, že kategorie **není dostupná v automatickém doplňování**, klidně ji i tak přidejte.\nTo nám pomůže vylepšit Open Food Facts ve vaší zemi.",
     "@edit_product_form_item_categories_explanation_info2_content": {
         "description": "Product edition - Categories - input explainer, part 2"
     },
