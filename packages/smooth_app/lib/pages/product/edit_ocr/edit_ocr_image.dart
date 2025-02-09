@@ -21,6 +21,7 @@ import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_indicator_icon.dart';
+import 'package:smooth_app/widgets/smooth_interactive_viewer.dart';
 import 'package:smooth_app/widgets/smooth_text.dart';
 
 class EditOCRImageWidget extends StatefulWidget {
@@ -265,7 +266,7 @@ class _EditOCRImageFoundState extends State<_EditOCRImageFound> {
               Positioned.fill(
                 child: AbsorbPointer(
                   absorbing: state == OcrState.EXTRACTING_DATA,
-                  child: InteractiveViewer(
+                  child: SmoothInteractiveViewer(
                     interactionEndFrictionCoefficient: double.infinity,
                     minScale: 0.1,
                     maxScale: 5.0,

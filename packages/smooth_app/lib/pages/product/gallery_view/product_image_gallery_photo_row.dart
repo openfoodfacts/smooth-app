@@ -324,12 +324,12 @@ class _PhotoRowIndicator extends StatelessWidget {
   Color _getColor(SmoothColorsThemeExtension extension) {
     if (transientFile.isImageAvailable()) {
       if (transientFile.expired) {
-        return extension.orange;
+        return extension.warning;
       } else {
-        return extension.green;
+        return extension.success;
       }
     } else {
-      return extension.red;
+      return extension.error;
     }
   }
 }

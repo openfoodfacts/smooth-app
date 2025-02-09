@@ -193,7 +193,7 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
                       Container(
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: themeExtension.orange,
+                          color: themeExtension.secondaryVibrant,
                         ),
                         padding: const EdgeInsets.all(VERY_SMALL_SPACE),
                         child: const icons.Arrow.right(

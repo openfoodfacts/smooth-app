@@ -14,8 +14,8 @@ class ExplanationTitleIcon extends StatelessWidget {
   const ExplanationTitleIcon({
     required this.title,
     required Widget child,
-    this.margin,
-    this.padding,
+    this.margin = EdgeInsets.zero,
+    this.padding = EdgeInsets.zero,
     this.safeArea = true,
   })  :
         // ignore: avoid_field_initializers_in_const_classes
@@ -146,10 +146,12 @@ class ExplanationBodyInfo extends StatelessWidget {
   const ExplanationBodyInfo({
     required this.text,
     this.icon = true,
+    this.backgroundColor,
     this.safeArea = false,
   });
 
   final String text;
+  final Color? backgroundColor;
   final bool icon;
   final bool safeArea;
 
@@ -160,45 +162,27 @@ class ExplanationBodyInfo extends StatelessWidget {
     final bool lightTheme = context.lightTheme();
 
     return ColoredBox(
-      color: lightTheme ? extension.primaryMedium : extension.primaryTone,
+      color: backgroundColor ??
+          (lightTheme ? extension.primaryMedium : extension.primaryTone),
       child: ClipRect(
-        child: Padding(
-          padding: EdgeInsetsDirectional.only(
-            bottom: safeArea ? MediaQuery.viewPaddingOf(context).bottom : 0.0,
-          ),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: <Widget>[
-              if (icon)
-                Align(
-                  alignment: AlignmentDirectional.bottomCenter,
-                  child: icons.AppIconTheme(
-                    color: lightTheme
-                        ? extension.primaryNormal
-                        : extension.primaryMedium,
-                    child: Transform.translate(
-                      offset: const Offset(-17.0, 09.0),
-                      child: const icons.Info(size: 55.0),
-                    ),
-                  ),
-                ),
-              Expanded(
-                child: Padding(
-                  padding: EdgeInsetsDirectional.only(
-                    start: icon ? SMALL_SPACE : LARGE_SPACE,
-                    end: LARGE_SPACE,
-                    top: MEDIUM_SPACE,
-                    bottom: MEDIUM_SPACE,
-                  ),
-                  child: TextWithBoldParts(
-                    text: text,
-                    textStyle: TextStyle(
-                      color: lightTheme ? extension.primaryDark : Colors.white,
-                    ),
-                  ),
+        child: SizedBox(
+          width: double.infinity,
+          child: Padding(
+            padding: EdgeInsetsDirectional.only(
+              bottom: safeArea ? MediaQuery.viewPaddingOf(context).bottom : 0.0,
+            ),
+            child: Padding(
+              padding: const EdgeInsetsDirectional.symmetric(
+                horizontal: LARGE_SPACE,
+                vertical: MEDIUM_SPACE,
+              ),
+              child: TextWithBoldParts(
+                text: text,
+                textStyle: TextStyle(
+                  color: lightTheme ? extension.primaryDark : Colors.white,
                 ),
               ),
-            ],
+            ),
           ),
         ),
       ),
@@ -206,9 +190,107 @@ class ExplanationBodyInfo extends StatelessWidget {
   }
 }
 
+class ExplanationTextContainer extends StatelessWidget {
+  const ExplanationTextContainer({
+    super.key,
+    required this.title,
+    required this.items,
+  });
+
+  final String title;
+  final List<ExplanationTextContainerContent> items;
+
+  @override
+  Widget build(BuildContext context) {
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
+    final bool lightTheme = context.lightTheme();
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        _ExplanationContainerTitle(
+          label: title,
+          foregroundColor: Colors.white,
+          backgroundColor:
+              lightTheme ? extension.primarySemiDark : extension.primaryDark,
+        ),
+        ...items.mapIndexed(
+          (int position, ExplanationTextContainerContent item) {
+            return switch (item) {
+              ExplanationTextContainerContentText() => Padding(
+                  padding: const EdgeInsetsDirectional.only(
+                    start: LARGE_SPACE,
+                    end: LARGE_SPACE,
+                    top: MEDIUM_SPACE,
+                    bottom: VERY_SMALL_SPACE,
+                  ),
+                  child: TextWithBoldParts(
+                    text: item.text,
+                    textStyle: TextStyle(
+                      color: lightTheme ? extension.primaryDark : Colors.white,
+                    ),
+                  ),
+                ),
+              ExplanationTextContainerContentItem() => Padding(
+                  padding: item.padding ??
+                      const EdgeInsetsDirectional.only(
+                        top: SMALL_SPACE,
+                      ),
+                  child: _ExplanationBodyListItem(
+                    icon: icons.Arrow.right(
+                      size: 11.0,
+                      color: lightTheme ? null : extension.primarySemiDark,
+                    ),
+                    iconBackgroundColor: lightTheme
+                        ? extension.primarySemiDark
+                        : extension.primaryLight,
+                    iconPadding: EdgeInsets.zero,
+                    title: item.text,
+                    text: item.example,
+                    visualExample: item.visualExample,
+                    visualExamplePosition: item.visualExamplePosition,
+                  ),
+                ),
+            };
+          },
+        ),
+      ],
+    );
+  }
+}
+
+sealed class ExplanationTextContainerContent {}
+
+class ExplanationTextContainerContentText
+    extends ExplanationTextContainerContent {
+  ExplanationTextContainerContentText({required this.text});
+
+  final String text;
+}
+
+class ExplanationTextContainerContentItem
+    extends ExplanationTextContainerContent {
+  ExplanationTextContainerContentItem({
+    required this.text,
+    this.example,
+    this.visualExample,
+    this.visualExamplePosition,
+    this.padding,
+  });
+
+  final String text;
+  final String? example;
+  final Widget? visualExample;
+  final ExplanationVisualExamplePosition? visualExamplePosition;
+  final EdgeInsetsGeometry? padding;
+}
+
 class ExplanationGoodExamplesContainer extends StatelessWidget {
-  const ExplanationGoodExamplesContainer({required this.items, super.key})
-      : assert(items.length > 0);
+  const ExplanationGoodExamplesContainer({
+    required this.items,
+    super.key,
+  }) : assert(items.length > 0);
 
   final List<String> items;
 
@@ -229,7 +311,7 @@ class ExplanationGoodExamplesContainer extends StatelessWidget {
             icon: const icons.Check(size: 11.0),
             iconBackgroundColor: extension.success,
             iconPadding: EdgeInsets.zero,
-            example: item,
+            text: item,
           ),
         ),
       ],
@@ -263,8 +345,8 @@ class ExplanationBadExamplesContainer extends StatelessWidget {
             icon: const icons.Close(size: 11.0),
             iconBackgroundColor: extension.error,
             iconPadding: EdgeInsetsDirectional.zero,
-            example: item,
-            explanation: explanations[position],
+            text: item,
+            title: explanations[position],
           ),
         ),
       ],
@@ -290,6 +372,7 @@ class _ExplanationContainerTitle extends StatelessWidget {
         start: LARGE_SPACE,
         end: LARGE_SPACE,
         top: MEDIUM_SPACE,
+        bottom: VERY_SMALL_SPACE,
       ),
       child: DecoratedBox(
         decoration: BoxDecoration(
@@ -312,6 +395,7 @@ class _ExplanationContainerTitle extends StatelessWidget {
                   label,
                   style: TextStyle(
                     color: foregroundColor,
+                    fontSize: 16.0,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -329,15 +413,19 @@ class _ExplanationBodyListItem extends StatelessWidget {
     required this.icon,
     required this.iconBackgroundColor,
     required this.iconPadding,
-    required this.example,
-    this.explanation,
+    this.title,
+    this.text,
+    this.visualExample,
+    this.visualExamplePosition = ExplanationVisualExamplePosition.afterExample,
   });
 
   final Widget icon;
   final Color iconBackgroundColor;
   final EdgeInsetsGeometry iconPadding;
-  final String example;
-  final String? explanation;
+  final String? text;
+  final String? title;
+  final Widget? visualExample;
+  final ExplanationVisualExamplePosition? visualExamplePosition;
 
   @override
   Widget build(BuildContext context) {
@@ -352,7 +440,7 @@ class _ExplanationBodyListItem extends StatelessWidget {
         top: 10.0,
       ),
       child: Row(
-        crossAxisAlignment: explanation == null
+        crossAxisAlignment: title == null
             ? CrossAxisAlignment.center
             : CrossAxisAlignment.start,
         children: <Widget>[
@@ -369,47 +457,80 @@ class _ExplanationBodyListItem extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(width: explanation != null ? 11.0 : 13.0),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              if (explanation != null) ...<Widget>[
-                Padding(
-                  padding: const EdgeInsetsDirectional.only(start: 2.0),
-                  child: Text(
-                    explanation!,
-                    style: TextStyle(
-                      color: lightTheme
-                          ? extension.primaryDark
-                          : extension.primaryLight,
-                      fontWeight: FontWeight.bold,
+          SizedBox(width: title != null ? 11.0 : 13.0),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                if (title != null) ...<Widget>[
+                  Padding(
+                    padding: const EdgeInsetsDirectional.only(start: 2.0),
+                    child: TextWithBoldParts(
+                      text: title!,
+                      textStyle: TextStyle(
+                        color: lightTheme
+                            ? extension.primaryDark
+                            : extension.primaryLight,
+                        fontWeight: FontWeight.w600,
+                      ),
+                      boldTextStyle: TextStyle(
+                        color: lightTheme
+                            ? extension.primaryUltraBlack
+                            : Colors.white,
+                        fontWeight: FontWeight.bold,
+                        decoration: TextDecoration.underline,
+                        decorationThickness: 2.5,
+                      ),
                     ),
                   ),
-                ),
-                const SizedBox(height: VERY_SMALL_SPACE),
+                  const SizedBox(height: VERY_SMALL_SPACE),
+                ],
+                if (visualExample != null &&
+                    visualExamplePosition ==
+                        ExplanationVisualExamplePosition.afterTitle)
+                  Padding(
+                    padding: const EdgeInsetsDirectional.only(
+                      top: VERY_SMALL_SPACE,
+                      bottom: BALANCED_SPACE,
+                    ),
+                    child: visualExample,
+                  ),
+                if (text != null)
+                  DecoratedBox(
+                    decoration: BoxDecoration(
+                      color: lightTheme
+                          ? extension.primaryLight
+                          : extension.primaryMedium,
+                      borderRadius: ROUNDED_BORDER_RADIUS,
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsetsDirectional.symmetric(
+                        horizontal: MEDIUM_SPACE,
+                        vertical: BALANCED_SPACE,
+                      ),
+                      child: TextWithBoldParts(
+                        text: text!,
+                        textStyle: const TextStyle(color: Colors.black),
+                      ),
+                    ),
+                  ),
+                if (visualExample != null &&
+                    visualExamplePosition ==
+                        ExplanationVisualExamplePosition
+                            .afterExample) ...<Widget>[
+                  const SizedBox(height: VERY_SMALL_SPACE),
+                  visualExample!,
+                ],
               ],
-              DecoratedBox(
-                decoration: BoxDecoration(
-                  color: lightTheme
-                      ? extension.primaryLight
-                      : extension.primaryMedium,
-                  borderRadius: ROUNDED_BORDER_RADIUS,
-                ),
-                child: Padding(
-                  padding: const EdgeInsetsDirectional.symmetric(
-                    horizontal: MEDIUM_SPACE,
-                    vertical: BALANCED_SPACE,
-                  ),
-                  child: TextWithBoldParts(
-                    text: example,
-                    textStyle: const TextStyle(color: Colors.black),
-                  ),
-                ),
-              )
-            ],
-          )
+            ),
+          ),
         ],
       ),
     );
   }
+}
+
+enum ExplanationVisualExamplePosition {
+  afterTitle,
+  afterExample,
 }

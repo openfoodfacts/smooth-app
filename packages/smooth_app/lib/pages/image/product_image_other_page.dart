@@ -53,7 +53,7 @@ class ProductImageOtherPage extends StatefulWidget {
       product.productType,
     );
 
-    final Widget existingPictureIcon = icons.Picture.checkAlt(
+    final Widget existingPictureIcon = icons.Picture.check(
       color: extension.success,
       semanticLabel: appLocalizations.photo_already_exists,
     );
@@ -303,7 +303,7 @@ class _ProductImageOutdatedLabel extends StatelessWidget {
         height: double.infinity,
         child: DecoratedBox(
           decoration: BoxDecoration(
-            color: colors.red.withValues(alpha: 0.9),
+            color: colors.error.withValues(alpha: 0.9),
             borderRadius: CIRCULAR_BORDER_RADIUS,
           ),
           child: Padding(

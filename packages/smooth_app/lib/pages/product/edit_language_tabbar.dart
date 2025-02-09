@@ -3,10 +3,7 @@ import 'package:flutter/material.dart' hide Listener;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/database/dao_string_list.dart';
-import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/widgets/language_priority.dart';
 import 'package:smooth_app/generic_lib/widgets/languages_selector.dart';
 import 'package:smooth_app/helpers/border_radius_helper.dart';
 import 'package:smooth_app/helpers/provider_helper.dart';
@@ -278,24 +275,13 @@ class _EditLanguageTabBarAddLanguageButton extends StatelessWidget {
   }
 
   Future<void> _addLanguage(BuildContext context) async {
-    // TODO(g123k): Improve the language selector
-    final DaoStringList daoStringList =
-        DaoStringList(context.read<LocalDatabase>());
-
     final List<OpenFoodFactsLanguage>? selectedLanguages =
         context.read<_EditLanguageProvider>().value.languages;
-
-    final LanguagePriority languagePriority = LanguagePriority(
-      product: context.read<Product>(),
-      selectedLanguages: selectedLanguages,
-      daoStringList: daoStringList,
-    );
 
     final OpenFoodFactsLanguage? language =
         await LanguagesSelector.openLanguageSelector(
       context,
       selectedLanguages: selectedLanguages,
-      languagePriority: languagePriority,
     );
 
     if (language != null && context.mounted) {

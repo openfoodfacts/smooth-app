@@ -4,12 +4,11 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_details.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/input/unfocus_field_when_tap_outside.dart';
 import 'package:smooth_app/pages/product/add_basic_details/add_basic_details_name.dart';
+import 'package:smooth_app/pages/product/add_basic_details/add_basic_details_quantity.dart';
 import 'package:smooth_app/pages/product/common/product_buttons.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/edit_product_image_viewer.dart';
@@ -20,7 +19,6 @@ import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
 import 'package:smooth_app/pages/product/simple_input_widget.dart';
 import 'package:smooth_app/pages/text_field_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
-import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -159,7 +157,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                     helper: _brandsHelper,
                   ),
                   SizedBox(height: _heightSpace),
-                  _ProductQuantityInputWidget(
+                  ProductQuantityInputWidget(
                     textController: _weightController,
                     ownerField: _isOwnerField(ProductField.QUANTITY),
                   ),
@@ -290,68 +288,6 @@ class _ProductBrandsInputWidget extends StatelessWidget {
       controller: textController,
       displayTitle: true,
       newElementsToTop: false,
-    );
-  }
-}
-
-class _ProductQuantityInputWidget extends StatelessWidget {
-  const _ProductQuantityInputWidget({
-    required this.textController,
-    required this.ownerField,
-  });
-
-  final TextEditingController textController;
-  final bool ownerField;
-
-  @override
-  Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-
-    return _BasicDetailInputWrapper(
-      title: appLocalizations.quantity,
-      icon: const icons.Scale.alt(),
-      ownerField: ownerField,
-      child: SmoothTextFormField(
-        controller: textController,
-        type: TextFieldTypes.PLAIN_TEXT,
-        hintText: appLocalizations.add_basic_details_quantity_hint,
-        hintTextStyle: SmoothTextFormField.defaultHintTextStyle(context),
-        allowEmojis: false,
-        borderRadius: CIRCULAR_BORDER_RADIUS,
-        contentPadding: const EdgeInsets.symmetric(
-          horizontal: LARGE_SPACE,
-          vertical: MEDIUM_SPACE,
-        ),
-        maxLines: 1,
-      ),
-    );
-  }
-}
-
-class _BasicDetailInputWrapper extends StatelessWidget {
-  const _BasicDetailInputWrapper({
-    required this.title,
-    required this.icon,
-    required this.child,
-    required this.ownerField,
-  });
-
-  final String title;
-  final Widget icon;
-  final Widget child;
-  final bool ownerField;
-
-  @override
-  Widget build(BuildContext context) {
-    return SmoothCardWithRoundedHeader(
-      title: title,
-      leading: icon,
-      trailing: ownerField ? const OwnerFieldSmoothCardIcon() : null,
-      contentPadding: EdgeInsets.zero,
-      child: Padding(
-        padding: const EdgeInsetsDirectional.all(MEDIUM_SPACE),
-        child: child,
-      ),
     );
   }
 }

@@ -144,7 +144,7 @@ Future<bool> _init1() async {
     daoString: DaoString(_localDatabase),
   );
   ProductQuery.setQueryType(_userPreferences);
-  UserManagementProvider().checkUserLoginValidity();
+  UserManagementProvider().checkUserLoginValidity(_userPreferences);
 
   await AnalyticsHelper.linkPreferences(_userPreferences);
 

@@ -42,10 +42,7 @@ class NutritionServingSize extends StatelessWidget {
               end: 4.0,
               bottom: 4.5,
             ),
-            trailing: ExplanationTitleIcon.text(
-              title: appLocalizations.nutrition_page_serving_size,
-              text: appLocalizations.nutrition_page_serving_size_explanation,
-            ),
+            trailing: const _NutritionServingSizeExplanation(),
             contentPadding: const EdgeInsetsDirectional.only(
               start: MEDIUM_SPACE,
               end: MEDIUM_SPACE,
@@ -81,4 +78,60 @@ class NutritionServingSize extends StatelessWidget {
         ProductQuery.getLanguage(),
       )) !=
       null;
+}
+
+class _NutritionServingSizeExplanation extends StatelessWidget {
+  const _NutritionServingSizeExplanation();
+
+  @override
+  Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+    return ExplanationTitleIcon(
+      title: appLocalizations.nutrition_page_serving_size_explanation_title,
+      safeArea: false,
+      child: Column(
+        children: <Widget>[
+          ExplanationBodyInfo(
+            text:
+                appLocalizations.nutrition_page_serving_size_explanation_info1,
+            icon: false,
+          ),
+          ExplanationGoodExamplesContainer(
+            items: <String>[
+              appLocalizations
+                  .nutrition_page_serving_size_explanation_good_example1,
+              appLocalizations
+                  .nutrition_page_serving_size_explanation_good_example2,
+            ],
+          ),
+          ExplanationBadExamplesContainer(
+            items: <String>[
+              appLocalizations
+                  .nutrition_page_serving_size_explanation_bad_example1_example,
+              appLocalizations
+                  .nutrition_page_serving_size_explanation_bad_example2_example,
+              appLocalizations
+                  .nutrition_page_serving_size_explanation_bad_example3_example,
+            ],
+            explanations: <String>[
+              appLocalizations
+                  .nutrition_page_serving_size_explanation_bad_example1_explanation,
+              appLocalizations
+                  .nutrition_page_serving_size_explanation_bad_example2_explanation,
+              appLocalizations
+                  .nutrition_page_serving_size_explanation_bad_example3_explanation,
+            ],
+          ),
+          const SizedBox(height: BALANCED_SPACE),
+          ExplanationBodyInfo(
+            text:
+                appLocalizations.nutrition_page_serving_size_explanation_info2,
+            icon: false,
+            safeArea: true,
+          ),
+        ],
+      ),
+    );
+  }
 }

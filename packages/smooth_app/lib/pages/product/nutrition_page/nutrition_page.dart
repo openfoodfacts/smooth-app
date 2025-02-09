@@ -8,7 +8,6 @@ import 'package:sliver_tools/sliver_tools.dart';
 import 'package:smooth_app/background/background_task_details.dart';
 import 'package:smooth_app/data_models/up_to_date_mixin.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/database/transient_file.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_sliver_card.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_snackbar.dart';
@@ -32,7 +31,6 @@ import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
-import 'package:smooth_app/widgets/smooth_explanation_banner.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 import 'package:smooth_app/widgets/will_pop_scope.dart';
 
@@ -116,34 +114,19 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
             child: SmoothScaffold(
               fixKeyboard: true,
               appBar: buildEditProductAppBar(
-                  context: context,
-                  title: appLocalizations.nutrition_page_title,
-                  product: upToDateProduct,
-                  actions: <Widget>[
-                    if (!_imageVisible)
-                      IconButton(
-                        icon: const Icon(Icons.image_rounded),
-                        tooltip: ImageField.NUTRITION
-                            .getProductImageButtonText(appLocalizations),
-                        onPressed: () {
-                          if (TransientFile.fromProduct(
-                            upToDateProduct,
-                            ImageField.NUTRITION,
-                            ProductQuery.getLanguage(),
-                          ).isImageAvailable()) {
-                            setState(() {
-                              _imageVisible = !_imageVisible;
-                            });
-                          } else {
-                            ImageField.NUTRITION.openDetails(
-                              context,
-                              upToDateProduct,
-                              widget.isLoggedInMandatory,
-                            );
-                          }
-                        },
-                      ),
-                  ]),
+                context: context,
+                title: appLocalizations.nutrition_page_title,
+                product: upToDateProduct,
+                actions: <Widget>[
+                  if (!_imageVisible)
+                    IconButton(
+                      icon: const Picture.open(),
+                      tooltip: ImageField.NUTRITION
+                          .getProductImageButtonText(appLocalizations),
+                      onPressed: () => _openProductImage(context),
+                    ),
+                ],
+              ),
               body: Column(
                 children: <Widget>[
                   EditProductImageViewer(
@@ -173,6 +156,23 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
         ),
       ),
     );
+  }
+
+  void _openProductImage(BuildContext context) {
+    final Iterable<OpenFoodFactsLanguage> languages =
+        getProductImageLanguages(upToDateProduct, ImageField.NUTRITION);
+
+    if (languages.isNotEmpty) {
+      setState(() {
+        _imageVisible = !_imageVisible;
+      });
+    } else {
+      ImageField.NUTRITION.openDetails(
+        context,
+        upToDateProduct,
+        widget.isLoggedInMandatory,
+      );
+    }
   }
 
   /// Returns `true` if any value differs with initial state.
@@ -420,12 +420,7 @@ class _NutritionPageBodyState extends State<_NutritionPageBody> {
                 setState(() => _nutrientToHighlight = nutrient);
               },
             ),
-            ExplanationTitleIcon.text(
-              title:
-                  appLocalizations.edit_product_form_item_nutrition_facts_title,
-              text: appLocalizations
-                  .edit_product_form_item_nutrition_facts_explanation,
-            ),
+            const NutritionFactsEditorExplanation(),
           ],
         ),
         contentPadding: EdgeInsets.zero,

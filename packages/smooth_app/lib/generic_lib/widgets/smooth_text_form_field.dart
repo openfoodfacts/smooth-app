@@ -17,6 +17,7 @@ class SmoothTextFormField extends StatefulWidget {
     required this.controller,
     this.enabled,
     this.textInputAction,
+    this.textCapitalization,
     this.validator,
     this.autofillHints,
     required this.hintText,
@@ -43,6 +44,7 @@ class SmoothTextFormField extends StatefulWidget {
   final Widget? suffixIcon;
   final bool? enabled;
   final TextInputAction? textInputAction;
+  final TextCapitalization? textCapitalization;
   final String? Function(String?)? validator;
   final Iterable<String>? autofillHints;
   final TextInputType? textInputType;
@@ -91,6 +93,7 @@ class _SmoothTextFormFieldState extends State<SmoothTextFormField> {
       controller: widget.controller,
       enabled: widget.enabled,
       textInputAction: widget.textInputAction,
+      textCapitalization: widget.textCapitalization ?? TextCapitalization.none,
       validator: widget.validator,
       obscureText: _obscureText,
       enableSuggestions: enableSuggestions,

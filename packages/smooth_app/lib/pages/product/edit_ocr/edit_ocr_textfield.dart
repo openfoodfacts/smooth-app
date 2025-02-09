@@ -102,6 +102,7 @@ class EditOCRTextField extends StatelessWidget {
                     maxLines: null,
                     controller: controller,
                     textInputAction: TextInputAction.newline,
+                    textCapitalization: TextCapitalization.sentences,
                     spellCheckConfiguration: (prefs.getFlag(
                                     UserPreferencesDevMode
                                         .userPreferencesFlagSpellCheckerOnOcr) ??

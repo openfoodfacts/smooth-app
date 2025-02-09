@@ -12,13 +12,14 @@ class SmoothColorsThemeExtension
     required this.primaryMedium,
     required this.primaryLight,
     required this.secondaryNormal,
+    required this.secondaryVibrant,
     required this.secondaryLight,
     required this.error,
+    required this.successBackground,
     required this.warning,
+    required this.warningBackground,
     required this.success,
-    required this.green,
-    required this.orange,
-    required this.red,
+    required this.errorBackground,
     required this.greyDark,
     required this.greyNormal,
     required this.greyMedium,
@@ -37,13 +38,14 @@ class SmoothColorsThemeExtension
         primaryMedium = const Color(0xFFEDE0DB),
         primaryLight = const Color(0xFFF6F3F0),
         secondaryNormal = const Color(0xFFF2994A),
+        secondaryVibrant = const Color(0xFFFB8229),
         secondaryLight = const Color(0xFFEE8858),
         success = const Color(0xFF219653),
+        successBackground = const Color(0xFFDEEDDB),
         warning = const Color(0xFFFB8229),
+        warningBackground = const Color(0xFFF2E2D6),
         error = const Color(0xFFEB5757),
-        green = const Color(0xFF219653),
-        orange = const Color(0xFFFB8229),
-        red = const Color(0xFFEB5757),
+        errorBackground = const Color(0xFFF6E4E4),
         greyDark = const Color(0xFF666666),
         greyNormal = const Color(0xFF6C6C6C),
         greyMedium = const Color(0xFF8F8F8F),
@@ -77,15 +79,15 @@ class SmoothColorsThemeExtension
   // Latte
   final Color primaryLight;
   final Color secondaryNormal;
+  final Color secondaryVibrant;
   final Color secondaryLight;
 
   final Color error;
+  final Color errorBackground;
   final Color warning;
+  final Color warningBackground;
   final Color success;
-
-  final Color green;
-  final Color orange;
-  final Color red;
+  final Color successBackground;
 
   final Color greyDark;
   final Color greyNormal;
@@ -107,12 +109,13 @@ class SmoothColorsThemeExtension
     Color? primaryLight,
     Color? secondaryNormal,
     Color? secondaryLight,
+    Color? secondaryVibrant,
     Color? error,
+    Color? errorBackground,
     Color? warning,
+    Color? warningBackground,
     Color? success,
-    Color? green,
-    Color? orange,
-    Color? red,
+    Color? successBackground,
     Color? greyDark,
     Color? greyNormal,
     Color? greyMedium,
@@ -131,12 +134,13 @@ class SmoothColorsThemeExtension
       primaryLight: primaryLight ?? this.primaryLight,
       secondaryNormal: secondaryNormal ?? this.secondaryNormal,
       secondaryLight: secondaryLight ?? this.secondaryLight,
+      secondaryVibrant: secondaryVibrant ?? this.secondaryVibrant,
       error: error ?? this.error,
+      errorBackground: errorBackground ?? this.errorBackground,
       warning: warning ?? this.warning,
+      warningBackground: warningBackground ?? this.warningBackground,
       success: success ?? this.success,
-      green: green ?? this.green,
-      orange: orange ?? this.orange,
-      red: red ?? this.red,
+      successBackground: successBackground ?? this.successBackground,
       greyDark: greyDark ?? this.greyDark,
       greyNormal: greyDark ?? this.greyDark,
       greyMedium: greyMedium ?? this.greyMedium,
@@ -206,9 +210,19 @@ class SmoothColorsThemeExtension
         other.secondaryLight,
         t,
       )!,
+      secondaryVibrant: Color.lerp(
+        secondaryVibrant,
+        other.secondaryVibrant,
+        t,
+      )!,
       error: Color.lerp(
         error,
         other.error,
+        t,
+      )!,
+      errorBackground: Color.lerp(
+        errorBackground,
+        other.errorBackground,
         t,
       )!,
       warning: Color.lerp(
@@ -216,24 +230,19 @@ class SmoothColorsThemeExtension
         other.warning,
         t,
       )!,
+      warningBackground: Color.lerp(
+        warningBackground,
+        other.warningBackground,
+        t,
+      )!,
       success: Color.lerp(
         success,
         other.success,
         t,
       )!,
-      green: Color.lerp(
-        green,
-        other.green,
-        t,
-      )!,
-      orange: Color.lerp(
-        orange,
-        other.orange,
-        t,
-      )!,
-      red: Color.lerp(
-        red,
-        other.red,
+      successBackground: Color.lerp(
+        successBackground,
+        other.successBackground,
         t,
       )!,
       greyDark: Color.lerp(

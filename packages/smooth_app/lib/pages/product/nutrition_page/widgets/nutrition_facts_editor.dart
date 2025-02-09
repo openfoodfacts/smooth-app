@@ -6,6 +6,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
+import 'package:smooth_app/helpers/collections_helper.dart';
 import 'package:smooth_app/helpers/text_input_formatters_helper.dart';
 import 'package:smooth_app/pages/product/nutrition_page/nutrition_page.dart';
 import 'package:smooth_app/pages/product/nutrition_page/widgets/nutrition_container_helper.dart';
@@ -15,6 +16,7 @@ import 'package:smooth_app/pages/text_field_helper.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/widgets/smooth_dropdown.dart';
+import 'package:smooth_app/widgets/smooth_explanation_banner.dart';
 
 class NutrientRow extends StatefulWidget {
   const NutrientRow({
@@ -115,8 +117,8 @@ class _NutrientRowState extends State<NutrientRow>
                     children: <Widget>[
                       Expanded(
                         child: _NutrientUnitCell(
-                          widget.nutritionContainer,
-                          widget.orderedNutrient,
+                          nutritionContainer: widget.nutritionContainer,
+                          orderedNutrient: widget.orderedNutrient,
                         ),
                       ),
                       const _NutrientUnitVisibility()
@@ -185,16 +187,22 @@ class _NutrientValueCell extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsetsDirectional.only(
-                      start: VERY_SMALL_SPACE,
-                      bottom: VERY_SMALL_SPACE,
-                    ),
-                    child: Text(
-                      orderedNutrient.name!,
-                      style: const TextStyle(
-                        fontWeight: FontWeight.w600,
-                        fontSize: 15.0,
+                  GestureDetector(
+                    onTap: () => focusNodes[orderedNutrient]?.requestFocus(),
+                    child: SizedBox(
+                      width: double.infinity,
+                      child: Padding(
+                        padding: const EdgeInsetsDirectional.only(
+                          start: VERY_SMALL_SPACE,
+                          bottom: VERY_SMALL_SPACE,
+                        ),
+                        child: Text(
+                          orderedNutrient.name!,
+                          style: const TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 15.0,
+                          ),
+                        ),
                       ),
                     ),
                   ),
@@ -228,6 +236,19 @@ class _NutrientValueCell extends StatelessWidget {
                           ),
                           DecimalSeparatorRewriter(decimalNumberFormat),
                         ],
+                        onFieldSubmitted: (final String value) {
+                          focusNodes[orderedNutrient]?.unfocus();
+
+                          if (isLast) {
+                            return;
+                          }
+
+                          final int position =
+                              focusNodes.keys.indexOf(orderedNutrient);
+
+                          focusNodes[focusNodes.keys.elementAt(position + 1)]
+                              ?.requestFocus();
+                        },
                         validator: (String? value) {
                           if (value == null || value.trim().isEmpty) {
                             return null;
@@ -261,10 +282,10 @@ class _NutrientValueCell extends StatelessWidget {
 }
 
 class _NutrientUnitCell extends StatefulWidget {
-  const _NutrientUnitCell(
-    this.nutritionContainer,
-    this.orderedNutrient,
-  );
+  const _NutrientUnitCell({
+    required this.nutritionContainer,
+    required this.orderedNutrient,
+  });
 
   final NutritionContainerHelper nutritionContainer;
   final OrderedNutrient orderedNutrient;
@@ -417,6 +438,66 @@ class _NutritionCellTextWatcher extends StatelessWidget {
           TextEditingControllerWithHistory controller, _) {
         return builder(context, controller);
       },
+    );
+  }
+}
+
+class NutritionFactsEditorExplanation extends StatelessWidget {
+  const NutritionFactsEditorExplanation({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+    return ExplanationTitleIcon(
+      title: appLocalizations
+          .edit_product_form_item_nutrition_facts_explanation_title,
+      child: Column(
+        children: <Widget>[
+          ExplanationTextContainer(
+            title: appLocalizations
+                .edit_product_form_item_nutrition_facts_explanation_info1_title,
+            items: <ExplanationTextContainerContent>[
+              ExplanationTextContainerContentText(
+                text: appLocalizations
+                    .edit_product_form_item_nutrition_facts_explanation_info1_content,
+              ),
+              ExplanationTextContainerContentItem(
+                text: appLocalizations.nutrition_page_per_100g,
+                padding: EdgeInsets.zero,
+              ),
+              ExplanationTextContainerContentItem(
+                text: appLocalizations.nutrition_page_per_100g_100ml,
+                padding: const EdgeInsetsDirectional.only(
+                  bottom: VERY_SMALL_SPACE,
+                ),
+              ),
+            ],
+          ),
+          ExplanationTextContainer(
+            title: appLocalizations
+                .edit_product_form_item_nutrition_facts_explanation_info2_title,
+            items: <ExplanationTextContainerContent>[
+              ExplanationTextContainerContentText(
+                text: appLocalizations
+                    .edit_product_form_item_nutrition_facts_explanation_info2_content,
+              ),
+            ],
+          ),
+          ExplanationTextContainer(
+            title: appLocalizations
+                .edit_product_form_item_nutrition_facts_explanation_info3_title,
+            items: <ExplanationTextContainerContent>[
+              ExplanationTextContainerContentText(
+                text: appLocalizations
+                    .edit_product_form_item_nutrition_facts_explanation_info3_content,
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }

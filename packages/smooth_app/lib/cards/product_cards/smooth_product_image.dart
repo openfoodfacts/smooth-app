@@ -193,7 +193,7 @@ class _ProductPictureState extends State<ProductPicture> {
         ),
         text: appLocalizations.product_image_error,
         textStyle: TextStyle(
-          color: context.extension<SmoothColorsThemeExtension>().red,
+          color: context.extension<SmoothColorsThemeExtension>().error,
         ).merge(widget.errorTextStyle ?? const TextStyle()),
         size: widget.size,
         borderRadius: widget.borderRadius,

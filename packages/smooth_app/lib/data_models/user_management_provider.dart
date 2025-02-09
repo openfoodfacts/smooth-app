@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/login_result.dart';
+import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/database/dao_secured_string.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/services/smooth_services.dart';
@@ -14,8 +15,14 @@ class UserManagementProvider with ChangeNotifier {
   static const String _COOKIE = 'user_cookie';
 
   /// Checks credentials and conditionally saves them.
-  Future<LoginResult> login(final User user) async {
-    final LoginResult loginResult = await LoginResult.getLoginResult(user);
+  Future<LoginResult> login(
+    final User user,
+    final UserPreferences preferences,
+  ) async {
+    final LoginResult loginResult = await LoginResult.getLoginResult(
+      user,
+      preferences,
+    );
     if (loginResult.type != LoginResultType.successful) {
       return loginResult;
     }
@@ -101,7 +108,7 @@ class UserManagementProvider with ChangeNotifier {
 
   /// Check if the user is still logged in and the credentials are still valid
   /// If not, the user is logged out
-  Future<void> checkUserLoginValidity() async {
+  Future<void> checkUserLoginValidity(UserPreferences preferences) async {
     if (!ProductQuery.isLoggedIn()) {
       return;
     }
@@ -111,6 +118,7 @@ class UserManagementProvider with ChangeNotifier {
         userId: user.userId,
         password: user.password,
       ),
+      preferences,
     );
 
     if (loginResult.type == LoginResultType.unsuccessful) {

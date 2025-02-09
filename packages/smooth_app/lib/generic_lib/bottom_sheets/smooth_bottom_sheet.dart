@@ -54,9 +54,13 @@ Future<T?> showSmoothModalSheetForTextField<T>({
   required BuildContext context,
   required SmoothModalSheetHeader header,
   required WidgetBuilder bodyBuilder,
+  double? minHeight,
+  double? maxHeight,
 }) {
   return showSmoothModalSheet<T>(
     context: context,
+    minHeight: minHeight,
+    maxHeight: maxHeight,
     builder: (BuildContext context) => SizedBox(
       width: double.infinity,
       child: ClipRRect(
@@ -453,8 +457,9 @@ class SmoothModalSheetHeader extends StatelessWidget implements SizeWidget {
 
     return switch (type) {
       SmoothModalSheetType.error => ERROR_COLOR,
-      SmoothModalSheetType.info =>
-        context.extension<SmoothColorsThemeExtension>().primaryDark,
+      SmoothModalSheetType.info => context.lightTheme()
+          ? context.extension<SmoothColorsThemeExtension>().primaryBlack
+          : Colors.black,
     };
   }
 

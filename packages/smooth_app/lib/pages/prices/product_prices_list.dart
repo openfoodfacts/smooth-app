@@ -82,7 +82,7 @@ class _ProductPricesListState extends State<ProductPricesList>
                 SmoothCard(
                   child: PriceProductWidget(
                     priceProduct,
-                    model: widget.model,
+                    enableCountButton: widget.model.enableCountButton,
                   ),
                 ),
               );
@@ -116,7 +116,7 @@ class _ProductPricesListState extends State<ProductPricesList>
                     if (widget.model.displayEachProduct && priceProduct != null)
                       PriceProductWidget(
                         priceProduct,
-                        model: widget.model,
+                        enableCountButton: widget.model.enableCountButton,
                       ),
                     PriceDataWidget(
                       price,

@@ -343,3 +343,8 @@ tagline:
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/image/product_image_other_page.dart'
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/gallery_view/product_image_gallery_view.dart'
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/gallery_view/product_image_gallery_tabs.dart'
+
+moderation:
+- changed-files:
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/report_product/report_product_header.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/report_product/report_product_page.dart'
