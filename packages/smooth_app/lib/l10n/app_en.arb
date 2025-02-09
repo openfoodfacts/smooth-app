@@ -1224,10 +1224,16 @@
     },
     "retry_button_label": "Retry",
     "connect_with_us": "Connect with us",
+    "tiktok": "Follow us on TikTok",
+    "tiktok_link": "https://www.tiktok.com/@openfoodfacts",
     "instagram": "Follow us on Instagram",
     "instagram_link": "https://instagram.com/open.food.facts",
     "twitter": "Follow us on X (formerly Twitter)",
     "twitter_link": "https://www.twitter.com/openfoodfacts",
+    "mastodon": "Follow us on Mastodon",
+    "mastodon_link": "https://mastodon.social/@openfoodfacts",
+    "bsky": "Follow us on BlueSky",
+    "bsky_link": "https://bsky.app/profile/openfoodfacts.bsky.social",
     "blog": "Blog",
     "faq": "FAQ",
     "discover": "Discover",
@@ -1694,7 +1700,7 @@
     "@edit_product_form_item_origins_title": {
         "description": "Product edition - Origins - Title"
     },
-    "edit_product_form_item_origins_hint": "Input an origin (eg: Germany)",
+    "edit_product_form_item_origins_hint": "Input an origin (eg: Beef from Argentina)",
     "@edit_product_form_item_origins_hint": {
         "description": "Product edition - Origins - input textfield hint"
     },
@@ -3150,7 +3156,7 @@
     "@scan_header_compare_button_invalid_state_tooltip": {
         "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is just one product scanned"
     },
-    "scan_header_compare_button_valid_state_tooltip": "Click to compare the products you have scanned",
+    "scan_header_compare_button_valid_state_tooltip": "Compare the products you have scanned",
     "@scan_header_compare_button_valid_state_tooltip": {
         "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is at least two products"
     },
