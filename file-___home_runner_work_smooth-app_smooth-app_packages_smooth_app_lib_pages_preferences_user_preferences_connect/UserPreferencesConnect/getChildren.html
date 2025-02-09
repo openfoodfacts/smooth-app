@@ -114,6 +114,15 @@ List&lt;UserPreferencesItem&gt; getChildren() =&gt; &lt;UserPreferencesItem&gt;[
       ),
       _getDivider(),
       _getListTile(
+        title: appLocalizations.tiktok,
+        url: appLocalizations.tiktok_link,
+        leadingWidget: SvgPicture.asset(
+          &#39;assets&#47;preferences&#47;tiktok-logo.svg&#39;,
+          width: DEFAULT_ICON_SIZE,
+          package: AppHelper.APP_PACKAGE,
+        ),
+      ),
+      _getListTile(
         title: appLocalizations.instagram,
         url: appLocalizations.instagram_link,
         leadingWidget: SvgPicture.asset(
@@ -132,6 +141,24 @@ List&lt;UserPreferencesItem&gt; getChildren() =&gt; &lt;UserPreferencesItem&gt;[
             Theme.of(context).colorScheme.onSurface,
             ui.BlendMode.srcIn,
           ),
+          package: AppHelper.APP_PACKAGE,
+        ),
+      ),
+      _getListTile(
+        title: appLocalizations.mastodon,
+        url: appLocalizations.mastodon_link,
+        leadingWidget: SvgPicture.asset(
+          &#39;assets&#47;preferences&#47;mastodon-logo.svg&#39;,
+          width: DEFAULT_ICON_SIZE,
+          package: AppHelper.APP_PACKAGE,
+        ),
+      ),
+      _getListTile(
+        title: appLocalizations.bsky,
+        url: appLocalizations.bsky_link,
+        leadingWidget: SvgPicture.asset(
+          &#39;assets&#47;preferences&#47;bluesky-logo.svg&#39;,
+          width: DEFAULT_ICON_SIZE,
           package: AppHelper.APP_PACKAGE,
         ),
       ),
