@@ -153,7 +153,8 @@ class _ScanPageCarouselState extends State<ScanPageCarousel> {
       BuildContext context,
       BoxConstraints constraints,
     ) {
-      final bool dense = constraints.maxHeight <= 400.0;
+      final bool dense = constraints.maxHeight <= 400.0 ||
+          MediaQuery.textScalerOf(context).scale(1.0) >= 1.30;
 
       return Provider<ScanCardDensity>(
         create: (_) => dense ? ScanCardDensity.DENSE : ScanCardDensity.NORMAL,
