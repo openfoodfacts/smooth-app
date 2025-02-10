@@ -75,7 +75,8 @@
       const Country(name: &#39;Germany&#39;, countryCode: &#39;DE&#39;),
       const Country(name: &#39;India&#39;, countryCode: &#39;IN&#39;),
     ];
-  } catch (_) {
+  } catch (e) {
+    Logs.e(&#39;Failed to load countries&#39;, ex: e);
     return null;
   }
 }</code></pre>
