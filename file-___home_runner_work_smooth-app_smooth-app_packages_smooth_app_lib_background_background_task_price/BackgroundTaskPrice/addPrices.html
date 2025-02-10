@@ -53,7 +53,8 @@
 
 <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
 <span class="name ">addPrices</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="addPrices-param-bearerToken">{<span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">bearerToken</span>, </span></li>
-<li><span class="parameter" id="addPrices-param-proofId"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">proofId</span>}</span></li>
+<li><span class="parameter" id="addPrices-param-proofId"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">proofId</span>, </span></li>
+<li><span class="parameter" id="addPrices-param-localDatabase"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">localDatabase</span>}</span></li>
 </ol>)
 
       
@@ -69,8 +70,10 @@
 Future&lt;void&gt; addPrices({
   required final String bearerToken,
   required final int proofId,
+  required final LocalDatabase localDatabase,
 }) async {
   for (int i = 0; i &lt; barcodes.length; i++) {
+    final String barcode = barcodes[i];
     final Price newPrice = Price()
       ..date = date
       ..currency = currency
@@ -80,7 +83,7 @@ Future&lt;void&gt; addPrices({
       ..priceIsDiscounted = pricesAreDiscounted[i]
       ..price = prices[i]
       ..priceWithoutDiscount = pricesWithoutDiscount[i]
-      ..productCode = barcodes[i];
+      ..productCode = barcode;
 
     &#47;&#47; create price
     final MaybeError&lt;Price?&gt; addedPrice =
@@ -92,7 +95,9 @@ Future&lt;void&gt; addPrices({
     if (addedPrice.isError) {
       throw Exception(&#39;Could not add price: ${addedPrice.error}&#39;);
     }
+    ProductPriceRefresher.setLatestUpdate(barcode);
   }
+  localDatabase.notifyListeners();
 }</code></pre>
 </section>
 
