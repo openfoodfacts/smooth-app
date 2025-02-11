@@ -3268,14 +3268,6 @@
     "@show_password": {
         "description": "Show hidden password in password field"
     },
-    "rate_app": "Valora l'aplicació",
-    "app_rating_dialog_title": "Perfecte! Feu que d'altres coneguin la vostra opinió d'aquesta aplicació!",
-    "app_rating_dialog_positive_action": "Valora l'aplicació",
-    "app_rating_dialog_negative_action": "Més tard",
-    "app_rating_dialog_title_enjoying_app": "Estàs gaudint d'aquesta aplicació?",
-    "app_rating_dialog_title_enjoying_positive_actions": "Sí!",
-    "not_really": "No ben bé",
-    "app_rating_dialog_title_not_enjoying_app": "Ens sap molt greu escoltar-ho! Ens podries explicar què ha passat?",
     "owner_field_info_title": "Producer provided values",
     "@owner_field_info_title": {
         "description": "Title of the 'producer provided' info list-tile"
@@ -4097,5 +4089,37 @@
                 "type": "int"
             }
         }
+    },
+    "app_review_title": "Are you enjoying this app?",
+    "@app_review_title": {
+        "description": "Title for the app review card in the tagline"
+    },
+    "app_review_low": "Could do better",
+    "@app_review_low": {
+        "description": "Item in the app review card with the lowest rating"
+    },
+    "app_review_medium": "Not bad",
+    "@app_review_medium": {
+        "description": "Item in the app review card with an average rating"
+    },
+    "app_review_high": "I love it!",
+    "@app_review_high": {
+        "description": "Item in the app review card with the highest rating"
+    },
+    "app_review_feedback_modal_title": "Help us improve our application",
+    "@app_review_feedback_modal_title": {
+        "description": "Title of the modal sheet displayed when the user has not selected the highest value"
+    },
+    "app_review_feedback_modal_content": "If you have a few minutes, could you answer this form so that **we can improve in future updates**:",
+    "@app_review_feedback_modal_content": {
+        "description": "Content of the modal sheet displayed when the user has not selected the highest value"
+    },
+    "app_review_feedback_modal_open_form": "Answer the form",
+    "@app_review_feedback_modal_open_form": {
+        "description": "Answer the form button"
+    },
+    "app_review_feedback_modal_later": "Pregunta-m'ho després",
+    "@app_review_feedback_modal_later": {
+        "description": "Ask me later button"
     }
 }
