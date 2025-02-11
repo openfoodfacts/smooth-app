@@ -1592,7 +1592,7 @@
     "@edit_product_form_item_add_action_category": {
         "description": "Tooltip to show when the user long presses the (+) button on a category"
     },
-    "edit_product_form_item_add_suggestion": "Add suggestion",
+    "edit_product_form_item_add_suggestion": "הוספת הצעה",
     "@edit_product_form_item_add_suggestion": {
         "description": "Tooltip to show when the user long presses the (+) button on a suggestion"
     },
@@ -1740,7 +1740,7 @@
     "@edit_product_form_item_countries_explanations_title": {
         "description": "Product edition - Countries - explanations"
     },
-    "edit_product_form_item_countries_explanations_info1": "**Countries where the product is widely available** (not including stores specialising in foreign products).",
+    "edit_product_form_item_countries_explanations_info1": "**מדיניות שבהן המוצר זמין לקהל הרחב** (לא כולל חנויות שמתמחות במוצרים זרים).",
     "@edit_product_form_item_countries_explanations_info1": {
         "description": "Product edition - Countries - explanations"
     },
@@ -2800,11 +2800,11 @@
     "@add_basic_details_product_brand_help_info3_title": {
         "description": "Text explaining how to write brands"
     },
-    "add_basic_details_product_brand_help_info3_item1_text": "When sold **by a big company**:",
+    "add_basic_details_product_brand_help_info3_item1_text": "כאשר נמכר על ידי **חברה גדולה**:",
     "@add_basic_details_product_brand_help_info3_item1_text": {
         "description": "Text explaining how to write brands"
     },
-    "add_basic_details_product_brand_help_info3_item1_explanation": "**Actimel** is sold by **Danone**",
+    "add_basic_details_product_brand_help_info3_item1_explanation": "**גמדים** נמכרת על ידי **שטראוס**",
     "@add_basic_details_product_brand_help_info3_item1_explanation": {
         "description": "Text explaining how to write brands"
     },
@@ -4090,31 +4090,31 @@
             }
         }
     },
-    "app_review_title": "Are you enjoying this app?",
+    "app_review_title": "היישומון הזה נושא חן בעיניך?",
     "@app_review_title": {
         "description": "Title for the app review card in the tagline"
     },
-    "app_review_low": "Could do better",
+    "app_review_low": "יכול להשתפר",
     "@app_review_low": {
         "description": "Item in the app review card with the lowest rating"
     },
-    "app_review_medium": "Not bad",
+    "app_review_medium": "סבבה יחסית",
     "@app_review_medium": {
         "description": "Item in the app review card with an average rating"
     },
-    "app_review_high": "I love it!",
+    "app_review_high": "מעולה!!!!",
     "@app_review_high": {
         "description": "Item in the app review card with the highest rating"
     },
-    "app_review_feedback_modal_title": "Help us improve our application",
+    "app_review_feedback_modal_title": "נשמח לעזרתך בשיפור היישומון",
     "@app_review_feedback_modal_title": {
         "description": "Title of the modal sheet displayed when the user has not selected the highest value"
     },
-    "app_review_feedback_modal_content": "If you have a few minutes, could you answer this form so that **we can improve in future updates**:",
+    "app_review_feedback_modal_content": "אם יש לך כמה דקות, אפשר לבקש ממך לענות על הטופס הזה כדי ש**נוכל לשפר את העדכונים העתידיים**:",
     "@app_review_feedback_modal_content": {
         "description": "Content of the modal sheet displayed when the user has not selected the highest value"
     },
-    "app_review_feedback_modal_open_form": "Answer the form",
+    "app_review_feedback_modal_open_form": "מענה לטופס",
     "@app_review_feedback_modal_open_form": {
         "description": "Answer the form button"
     },
