@@ -131,4 +131,12 @@ extension ImageFieldSmoothieExtension on ImageField {
           ),
         ),
       );
+
+  String? getImageUrl(Product product) => switch (this) {
+        ImageField.FRONT => product.imageFrontUrl,
+        ImageField.INGREDIENTS => product.imageIngredientsUrl,
+        ImageField.NUTRITION => product.imageNutritionUrl,
+        ImageField.PACKAGING => product.imagePackagingUrl,
+        ImageField.OTHER => null,
+      };
 }
