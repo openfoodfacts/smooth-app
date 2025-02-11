@@ -78,7 +78,7 @@ Widget build(BuildContext context) {
     },
     builder: (BuildContext context, AppNewsProvider newsFeed, _) {
       if (!newsFeed.hasContent) {
-        return const _SearchCard(
+        return const ScanSearchCard(
           expandedMode: true,
         );
       } else {
@@ -96,16 +96,16 @@ Widget build(BuildContext context) {
                     ConstrainedBox(
                       constraints: BoxConstraints(
                         minHeight: math.max(
-                          _SearchCard.computeMinSize(context),
+                          ScanSearchCard.computeMinSize(context),
                           constraints.maxHeight * 0.5,
                         ),
                       ),
-                      child: const _SearchCard(
+                      child: const ScanSearchCard(
                         expandedMode: false,
                       ),
                     ),
                     const SizedBox(height: SMALL_SPACE),
-                    const ScanTagLine(dense: true),
+                    const ScanBottomCard(dense: true),
                   ],
                 );
               } else {
@@ -113,14 +113,14 @@ Widget build(BuildContext context) {
                   children: &lt;Widget&gt;[
                     Expanded(
                       flex: 6,
-                      child: _SearchCard(
+                      child: ScanSearchCard(
                         expandedMode: false,
                       ),
                     ),
                     SizedBox(height: SMALL_SPACE),
                     Expanded(
                       flex: 4,
-                      child: ScanTagLine(dense: false),
+                      child: ScanBottomCard(dense: false),
                     ),
                   ],
                 );
