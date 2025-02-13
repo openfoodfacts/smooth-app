@@ -59,7 +59,7 @@ void main() {
               );
               await productPreferences.init(PlatformAssetBundle());
               await userPreferences.init(productPreferences);
-              await ProductQuery.setCountry(userPreferences, 'fr'); 
+              await ProductQuery.setCountry(userPreferences, 'fr');
               themeProvider = ThemeProvider(userPreferences);
               colorProvider = ColorProvider(userPreferences);
               textContrastProvider = TextContrastProvider(userPreferences);
