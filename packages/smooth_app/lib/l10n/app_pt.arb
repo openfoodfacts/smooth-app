@@ -1712,15 +1712,15 @@
     "@edit_product_form_item_origins_explanation_title": {
         "description": "Product edition - Origins - input explainer, part 1"
     },
-    "edit_product_form_item_origins_explanation_info1": "Add **any indications of origins you can find on the packaging**.\nYou need not worry about origins indicated directly in the ingredient list.",
+    "edit_product_form_item_origins_explanation_info1": "Adicione **qualquer indicação de origem que conseguir encontrar na embalagem**.\nDesconsidere as origens indicadas diretamente na lista de ingredientes.",
     "@edit_product_form_item_origins_explanation_info1": {
         "description": "Product edition - Origins - input explainer, part 1"
     },
-    "edit_product_form_item_origins_explanation_good_examples_1": "Beef from Argentina",
+    "edit_product_form_item_origins_explanation_good_examples_1": "Carne da Argentina",
     "@edit_product_form_item_origins_explanation_good_examples_1": {
         "description": "Product edition - Origins - input explainer, part 2"
     },
-    "edit_product_form_item_origins_explanation_good_examples_2": "The soy does not come from the European Union",
+    "edit_product_form_item_origins_explanation_good_examples_2": "A soja não vem da União Europeia",
     "@edit_product_form_item_origins_explanation_good_examples_2": {
         "description": "Product edition - Origins - input explainer, part 2"
     },
@@ -1736,11 +1736,11 @@
     "@edit_product_form_item_countries_type": {
         "description": "Product edition - Countries - input textfield type"
     },
-    "edit_product_form_item_countries_explanations_title": "Good practices: Countries",
+    "edit_product_form_item_countries_explanations_title": "Boas práticas: Países",
     "@edit_product_form_item_countries_explanations_title": {
         "description": "Product edition - Countries - explanations"
     },
-    "edit_product_form_item_countries_explanations_info1": "**Countries where the product is widely available** (not including stores specialising in foreign products).",
+    "edit_product_form_item_countries_explanations_info1": "**Países em que os produtos são abundantes** (exceto lojas especializada em produtos importados).",
     "@edit_product_form_item_countries_explanations_info1": {
         "description": "Product edition - Countries - explanations"
     },
@@ -1756,19 +1756,19 @@
     "@edit_product_form_item_emb_codes_type": {
         "description": "Product edition - Traceability Codes - input textfield type"
     },
-    "edit_product_form_item_emb_help_title": "Good practices: Traceability codes",
+    "edit_product_form_item_emb_help_title": "Boas práticas: Códigos de rastreio",
     "@edit_product_form_item_emb_help_title": {
         "description": "Title for the help section about traceability codes"
     },
-    "edit_product_form_item_emb_help_info1": "In this section, you can input codes related to **packaging marks**, **identification marks** or **health marks**.",
+    "edit_product_form_item_emb_help_info1": "Nesta seção, você consegue inserir códigos relacionados a **marcas de embalagem**, **marcas de identificação** ou **marcas de saúde**.",
     "@edit_product_form_item_emb_help_info1": {
         "description": "Text explaining how to write a traceability code"
     },
-    "edit_product_form_item_emb_help_info2_title": "Examples of traceability codes",
+    "edit_product_form_item_emb_help_info2_title": "Exemplos de códigos de rastreio",
     "@edit_product_form_item_emb_help_info2_title": {
         "description": "Explanation about EMB/EC… codes"
     },
-    "edit_product_form_item_emb_help_info2_item1_text": "**EC codes** used in the European Community to identify food producers or packagers:",
+    "edit_product_form_item_emb_help_info2_item1_text": "**Códigos EC** usados na Comunidade Europeia para identificar produtores ou embaladores de alimentos:",
     "@edit_product_form_item_emb_help_info2_item1_text": {
         "description": "Explanation about EC codes"
     },
@@ -1776,11 +1776,11 @@
     "@edit_product_form_item_emb_help_info2_item1_example": {
         "description": "Example of an EC code (you can change with a valid code in another european country)"
     },
-    "edit_product_form_item_emb_help_info2_item1_explanation": "**FR**: country code of **France**\n**72.264.002**: geographic data\n**CE**: European Community",
+    "edit_product_form_item_emb_help_info2_item1_explanation": "**FR**: código de país da **França**\n**72.264.002**: dados geográficos\n**CE**: Comunidade Europeia",
     "@edit_product_form_item_emb_help_info2_item1_explanation": {
         "description": "Example of an EC code (shouldn't be translated)"
     },
-    "edit_product_form_item_emb_help_info2_item2_text": "**EMB codes** used in France:",
+    "edit_product_form_item_emb_help_info2_item2_text": "**Códigos EMB** usados na França:",
     "@edit_product_form_item_emb_help_info2_item2_text": {
         "description": "Explanation about EMB codes"
     },
@@ -1800,27 +1800,27 @@
     "@edit_product_form_item_categories_type": {
         "description": "Product edition - Categories - input textfield type"
     },
-    "edit_product_form_item_categories_explanation_title": "Good practices: Categories",
+    "edit_product_form_item_categories_explanation_title": "Boas práticas: Categorias",
     "@edit_product_form_item_categories_explanation_title": {
         "description": "Product edition - Categories - input explainer, title"
     },
-    "edit_product_form_item_categories_explanation_info1": "Indicate **only the most specific category**.\nParent categories will be automatically added.",
+    "edit_product_form_item_categories_explanation_info1": "Indicar apenas a categoria mais específica.\nAs categorias principais serão adicionadas automaticamente.",
     "@edit_product_form_item_categories_explanation_info1": {
         "description": "Product edition - Categories - input explainer, part 1"
     },
-    "edit_product_form_item_categories_explanation_info2_title": "Missing category?",
+    "edit_product_form_item_categories_explanation_info2_title": "Ausência de categoria?",
     "@edit_product_form_item_categories_explanation_info2_title": {
         "description": "Product edition - Categories - input explainer, part 2"
     },
-    "edit_product_form_item_categories_explanation_info2_content": "In case a category is **not available in autocomplete**, feel free to add it anyway.\nThis will help us improve Open Food Facts in your country.",
+    "edit_product_form_item_categories_explanation_info2_content": "No caso de ausência de preenchimento automático de alguma categoria, pode adicioná-la mesmo assim.\nEstará nos ajudando a melhorar o OpenFoodFacts no seu país.",
     "@edit_product_form_item_categories_explanation_info2_content": {
         "description": "Product edition - Categories - input explainer, part 2"
     },
-    "edit_product_form_item_categories_explanation_good_examples_1": "Sardines in olive oil",
+    "edit_product_form_item_categories_explanation_good_examples_1": "Sardinhas ao óleo",
     "@edit_product_form_item_categories_explanation_good_examples_1": {
         "description": "Product edition - Categories - input explainer, part 3"
     },
-    "edit_product_form_item_categories_explanation_good_examples_2": "Orange juice from concentrate",
+    "edit_product_form_item_categories_explanation_good_examples_2": "Suco de laranja concentrado",
     "@edit_product_form_item_categories_explanation_good_examples_2": {
         "description": "Product edition - Categories - input explainer, part 3"
     },
@@ -1867,15 +1867,15 @@
     "@edit_product_form_item_nutrition_facts_subtitle": {
         "description": "Product edition - Nutrition facts - SubTitle"
     },
-    "edit_product_form_item_nutrition_facts_explanation_title": "Good practices: Nutrition facts",
+    "edit_product_form_item_nutrition_facts_explanation_title": "Boas práticas: Informação nutricional",
     "@edit_product_form_item_nutrition_facts_explanation_title": {
         "description": "Title for the help section about Nutritional facts"
     },
-    "edit_product_form_item_nutrition_facts_explanation_info1_title": "Nutritional values",
+    "edit_product_form_item_nutrition_facts_explanation_info1_title": "Valores nutricionais",
     "@edit_product_form_item_nutrition_facts_explanation_info1_title": {
         "description": "Text explaining the selector of nutritional values."
     },
-    "edit_product_form_item_nutrition_facts_explanation_info1_content": "First, select if the **values are provided**:",
+    "edit_product_form_item_nutrition_facts_explanation_info1_content": "Primeiro, selecione se os valores são fornecidos:",
     "@edit_product_form_item_nutrition_facts_explanation_info1_content": {
         "description": "Text explaining the selector of nutritional values."
     },
@@ -1883,15 +1883,15 @@
     "@edit_product_form_item_nutrition_facts_explanation_info2_title": {
         "description": "Text explaining how to input nutritional values."
     },
-    "edit_product_form_item_nutrition_facts_explanation_info2_content": "Then, input the nutritional values **as indicated on the packaging**. If there is no value, you can click on the \"Eye\" icon.",
+    "edit_product_form_item_nutrition_facts_explanation_info2_content": "Depois, insira os valores nutricionais conforme indicado na embalagem. Se não houver valor, clique no ícone do olho.",
     "@edit_product_form_item_nutrition_facts_explanation_info2_content": {
         "description": "Text explaining how to input nutritional values."
     },
-    "edit_product_form_item_nutrition_facts_explanation_info3_title": "Missing field?",
+    "edit_product_form_item_nutrition_facts_explanation_info3_title": "Campos em falta?",
     "@edit_product_form_item_nutrition_facts_explanation_info3_title": {
         "description": "Text explaining what to input when a nutritional value is missing."
     },
-    "edit_product_form_item_nutrition_facts_explanation_info3_content": "If an entry is missing, you can **click on the \"Plus\" icon** to add it (eg: vitamin D, magnesium…).",
+    "edit_product_form_item_nutrition_facts_explanation_info3_content": "Se algum campo estiver em falta, você pode clicar no ícone de \"mais\" para adicioná-lo (ex: vitamina D, magnésio...).",
     "@edit_product_form_item_nutrition_facts_explanation_info3_content": {
         "description": "Text explaining what to input when a nutritional value is missing."
     },
@@ -2731,7 +2731,7 @@
     "@explanation_section_bad_examples": {
         "description": "Title for the section with bad examples"
     },
-    "add_basic_details_product_name_help_title": "Good practices: Product name",
+    "add_basic_details_product_name_help_title": "Boas práticas: Nome do produto",
     "@add_basic_details_product_name_help_title": {
         "description": "Title for the help section about the product name"
     },
@@ -2780,7 +2780,7 @@
     "brand_names": "Marcas",
     "add_basic_details_brand_name_error": "Introduza o nome da marca",
     "add_basic_details_brand_names_hint": "Marcas (por exemplo: Ferrero)",
-    "add_basic_details_product_brand_help_title": "Good practices: Brands",
+    "add_basic_details_product_brand_help_title": "Boas práticas: Marcas",
     "@add_basic_details_product_brand_help_title": {
         "description": "Title for the help section about the product brands"
     },
