@@ -66,6 +66,9 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">void replaceItem(int position, String term) {
+  if (_terms[position] == term) {
+    return;
+  }
   _terms[position] = term;
   _changed = true;
   notifyListeners();
@@ -132,6 +135,7 @@
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/AbstractSimpleInputPageHelper/getTextCapitalization.html">getTextCapitalization</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/AbstractSimpleInputPageHelper/getTitle.html">getTitle</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/AbstractSimpleInputPageHelper/getTypeLabel.html">getTypeLabel</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/AbstractSimpleInputPageHelper/hasChanged.html">hasChanged</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/AbstractSimpleInputPageHelper/initTerms.html">initTerms</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/AbstractSimpleInputPageHelper/isOwnerField.html">isOwnerField</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/AbstractSimpleInputPageHelper/isPopulated.html">isPopulated</a></li>

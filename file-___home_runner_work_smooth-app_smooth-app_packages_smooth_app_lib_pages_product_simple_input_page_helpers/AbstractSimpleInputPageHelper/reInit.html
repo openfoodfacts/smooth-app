@@ -70,6 +70,7 @@
   <pre class="language-dart"><code class="language-dart">void reInit(final Product product) {
   this.product = product;
   _terms = List&lt;String&gt;.from(initTerms(this.product));
+  _initTerms = List&lt;String&gt;.from(_terms);
   _changed = false;
   notifyListeners();
 }</code></pre>
@@ -135,6 +136,7 @@
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/AbstractSimpleInputPageHelper/getTextCapitalization.html">getTextCapitalization</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/AbstractSimpleInputPageHelper/getTitle.html">getTitle</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/AbstractSimpleInputPageHelper/getTypeLabel.html">getTypeLabel</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/AbstractSimpleInputPageHelper/hasChanged.html">hasChanged</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/AbstractSimpleInputPageHelper/initTerms.html">initTerms</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/AbstractSimpleInputPageHelper/isOwnerField.html">isOwnerField</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_product_simple_input_page_helpers/AbstractSimpleInputPageHelper/isPopulated.html">isPopulated</a></li>
