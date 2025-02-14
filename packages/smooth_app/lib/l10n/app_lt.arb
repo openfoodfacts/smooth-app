@@ -185,7 +185,7 @@
     "@sign_in_mandatory": {
         "description": "Error message: for some features like product edits you need to be signed in"
     },
-    "help_improve_country": "Help improve Open Food Facts in your country",
+    "help_improve_country": "Padėkite tobulinti „Open Food Facts“ savo šalyje",
     "@help_improve_country": {
         "description": "label for a tile that is on the contribute tile"
     },
@@ -1228,15 +1228,15 @@
     },
     "retry_button_label": "Bandyti dar kartą",
     "connect_with_us": "Susisiekite su mumis",
-    "tiktok": "Follow us on TikTok",
+    "tiktok": "Sekite mus „TikTok“",
     "tiktok_link": "https://www.tiktok.com/@openfoodfacts",
     "instagram": "Sekite mus „Instagram“",
     "instagram_link": "https://instagram.com/open.food.facts",
     "twitter": "Sekite mus X (anksčiau – „Twitter“)",
     "twitter_link": "https://www.twitter.com/openfoodfacts",
-    "mastodon": "Follow us on Mastodon",
+    "mastodon": "Sekite mus platformoje „Mastodon“",
     "mastodon_link": "https://mastodon.social/@openfoodfacts",
-    "bsky": "Follow us on BlueSky",
+    "bsky": "Sekite mus „BlueSky“",
     "bsky_link": "https://bsky.app/profile/openfoodfacts.bsky.social",
     "blog": "Blogas",
     "faq": "DUK",
