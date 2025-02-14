@@ -69,89 +69,107 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
-List&lt;UserPreferencesItem&gt; getChildren() =&gt; &lt;UserPreferencesItem&gt;[
-      _getListTile(
-        &#39;Hunger Games&#39;,
-        () async =&gt; _hungerGames(),
-        Icons.games,
-      ),
-      _getListTile(
-        appLocalizations.contribute_improve_header,
-        () async =&gt; _contribute(),
-        Icons.data_saver_on,
-      ),
-      _getListTile(
-        appLocalizations.contribute_sw_development,
-        () async =&gt; _develop(),
-        Icons.app_shortcut,
-      ),
-      _getListTile(
-        appLocalizations.contribute_translate_header,
-        () async =&gt; _translate(),
-        Icons.translate,
-      ),
-      _getListTile(
-        appLocalizations.how_to_contribute,
-        () async =&gt; LaunchUrlHelper.launchURL(
-          ProductQuery.replaceSubdomain(
-            &#39;https:&#47;&#47;world.openfoodfacts.org&#47;contribute&#39;,
-          ),
+List&lt;UserPreferencesItem&gt; getChildren() {
+  final OpenFoodFactsCountry country = ProductQuery.getCountry();
+
+  final TmpCountryWikiLinks links = TmpCountryWikiLinks();
+  return &lt;UserPreferencesItem&gt;[
+    _getListTile(
+      &#39;Hunger Games&#39;,
+      () async =&gt; _hungerGames(),
+      Icons.games,
+    ),
+    _getListTile(
+      appLocalizations.contribute_improve_header,
+      () async =&gt; _contribute(),
+      Icons.data_saver_on,
+    ),
+    _getListTile(
+      appLocalizations.contribute_sw_development,
+      () async =&gt; _develop(),
+      Icons.app_shortcut,
+    ),
+    _getListTile(
+      appLocalizations.contribute_translate_header,
+      () async =&gt; _translate(),
+      Icons.translate,
+    ),
+    _getListTile(
+      appLocalizations.how_to_contribute,
+      () async =&gt; LaunchUrlHelper.launchURL(
+        ProductQuery.replaceSubdomain(
+          &#39;https:&#47;&#47;world.openfoodfacts.org&#47;contribute&#39;,
         ),
-        Icons.volunteer_activism_outlined,
+      ),
+      Icons.volunteer_activism_outlined,
+      externalLink: true,
+    ),
+    _getListTile(
+      appLocalizations.contribute_join_skill_pool,
+      () async =&gt; LaunchUrlHelper.launchURL(
+        &#39;https:&#47;&#47;connect.openfoodfacts.org&#47;join-the-contributor-skill-pool-open-food-facts&#39;,
+      ),
+      Icons.group,
+      externalLink: true,
+    ),
+    _getListTile(
+      appLocalizations.contribute_share_header,
+      () async =&gt; _share(appLocalizations.contribute_share_content),
+      Icons.adaptive.share,
+    ),
+    if (links.wikiLinks.containsKey(country))
+      _getListTile(
+        appLocalizations.help_improve_country,
+        () async {
+          LaunchUrlHelper.launchURL(links.wikiLinks[country]!);
+        },
+        Icons.language,
+        icon: UserPreferencesListTile.getTintedIcon(
+          Icons.open_in_new,
+          context,
+        ),
         externalLink: true,
       ),
+    if (GlobalVars.appStore.getEnrollInBetaURL() != null)
       _getListTile(
-        appLocalizations.contribute_join_skill_pool,
-        () async =&gt; LaunchUrlHelper.launchURL(
-          &#39;https:&#47;&#47;connect.openfoodfacts.org&#47;join-the-contributor-skill-pool-open-food-facts&#39;,
-        ),
-        Icons.group,
-        externalLink: true,
-      ),
-      _getListTile(
-        appLocalizations.contribute_share_header,
-        () async =&gt; _share(appLocalizations.contribute_share_content),
-        Icons.adaptive.share,
-      ),
-      if (GlobalVars.appStore.getEnrollInBetaURL() != null)
-        _getListTile(
-          appLocalizations.contribute_enroll_alpha,
-          () async {
-            final bool? result = await showDialog&lt;bool&gt;(
-              context: context,
-              builder: (BuildContext context) =&gt; SmoothAlertDialog(
-                title: appLocalizations.contribute_enroll_alpha,
-                body: Text(appLocalizations.contribute_enroll_alpha_warning),
-                negativeAction: SmoothActionButton(
-                  text: appLocalizations.close,
-                  onPressed: () =&gt; Navigator.pop(context, false),
-                ),
-                positiveAction: SmoothActionButton(
-                  text: appLocalizations.okay,
-                  onPressed: () =&gt; Navigator.pop(context, true),
-                ),
+        appLocalizations.contribute_enroll_alpha,
+        () async {
+          final bool? result = await showDialog&lt;bool&gt;(
+            context: context,
+            builder: (BuildContext context) =&gt; SmoothAlertDialog(
+              title: appLocalizations.contribute_enroll_alpha,
+              body: Text(appLocalizations.contribute_enroll_alpha_warning),
+              negativeAction: SmoothActionButton(
+                text: appLocalizations.close,
+                onPressed: () =&gt; Navigator.pop(context, false),
               ),
+              positiveAction: SmoothActionButton(
+                text: appLocalizations.okay,
+                onPressed: () =&gt; Navigator.pop(context, true),
+              ),
+            ),
+          );
+          if (result == true) {
+            await LaunchUrlHelper.launchURL(
+              GlobalVars.appStore.getEnrollInBetaURL()!,
             );
-            if (result == true) {
-              await LaunchUrlHelper.launchURL(
-                GlobalVars.appStore.getEnrollInBetaURL()!,
-              );
-            }
-          },
-          CupertinoIcons.lab_flask_solid,
-          icon: UserPreferencesListTile.getTintedIcon(
-            Icons.open_in_new,
-            context,
-          ),
-          externalLink: true,
+          }
+        },
+        CupertinoIcons.lab_flask_solid,
+        icon: UserPreferencesListTile.getTintedIcon(
+          Icons.open_in_new,
+          context,
         ),
-      _getListTile(
-        appLocalizations.contributors_label,
-        () async =&gt; _contributors(),
-        Icons.emoji_people,
-        description: appLocalizations.contributors_description,
+        externalLink: true,
       ),
-    ];</code></pre>
+    _getListTile(
+      appLocalizations.contributors_label,
+      () async =&gt; _contributors(),
+      Icons.emoji_people,
+      description: appLocalizations.contributors_description,
+    ),
+  ];
+}</code></pre>
 </section>
 
 
