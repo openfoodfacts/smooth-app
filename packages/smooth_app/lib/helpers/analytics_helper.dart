@@ -237,6 +237,7 @@ class AnalyticsHelper {
         options
           ..tracesSampleRate = 1.0
           ..beforeSend = _beforeSend
+          ..captureFailedRequests = false
           ..environment =
               '${GlobalVars.storeLabel.name}-${GlobalVars.scannerLabel.name}';
       },
