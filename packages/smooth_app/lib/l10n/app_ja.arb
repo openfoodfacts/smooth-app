@@ -925,7 +925,7 @@
     "@product_image_action_from_gallery": {
         "description": "Replace the existing picture with one from the device's gallery"
     },
-    "product_image_action_choose_existing_photo": "Select from the product photos",
+    "product_image_action_choose_existing_photo": "商品写真から選択",
     "@product_image_action_choose_existing_photo": {
         "description": "Replace the existing picture with one from the product's photos"
     },
@@ -1465,7 +1465,7 @@
     "@camera_play_sound_subtitle": {
         "description": "SubTitle for the Camera play sound toggle"
     },
-    "camera_window_accessibility_label": "Scan a barcode with your camera",
+    "camera_window_accessibility_label": "カメラでバーコードをスキャンする",
     "@camera_window_accessibility_label": {
         "description": "Accessibility label for the camera window"
     },
