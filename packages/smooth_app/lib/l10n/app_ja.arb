@@ -3893,7 +3893,7 @@
             }
         }
     },
-    "product_page_image_no_image_available": "No\nimage!",
+    "product_page_image_no_image_available": "画像なし！",
     "@product_page_image_no_image_available": {
         "description": "Small message that will be displayed above the picture (please keep it short) when there is no image available on the database. A line break is not mandatory."
     },
