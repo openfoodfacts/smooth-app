@@ -2747,7 +2747,7 @@
     "@add_basic_details_product_name_help_info2": {
         "description": "Text explaining how to write the product name"
     },
-    "add_basic_details_product_name_help_good_examples_1": "Nesquik",
+    "add_basic_details_product_name_help_good_examples_1": "ネスクイック",
     "@add_basic_details_product_name_help_good_examples_1": {
         "description": "A 1st good example for the product name (you can change it if necessary)"
     },
@@ -2781,7 +2781,7 @@
         }
     },
     "brand_name": "ブランド名",
-    "brand_names": "Brand names",
+    "brand_names": "ブランド名",
     "add_basic_details_brand_name_error": "ブランド名を入力してください",
     "add_basic_details_brand_names_hint": "Input brands (eg: Ferrero)",
     "add_basic_details_product_brand_help_title": "Good practices: Brands",
@@ -2954,7 +2954,7 @@
     "@add_origin_photo_button_label": {
         "description": "Label for the add ORIGIN photo button"
     },
-    "add_emb_photo_button_label": "トレーサビリティコード情報の写真を撮ります",
+    "add_emb_photo_button_label": "トレーサビリティコード情報の写真を撮る",
     "@add_emb_photo_button_label": {
         "description": "Label for the add EMB photo button"
     },
