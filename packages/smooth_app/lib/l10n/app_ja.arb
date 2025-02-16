@@ -3946,7 +3946,7 @@
             }
         }
     },
-    "carousel_close_tooltip": "Remove this product from the carousel",
+    "carousel_close_tooltip": "この商品をカルーセルから削除する",
     "@carousel_close_tooltip": {
         "description": "A message explaining the goal of the Close button on a card of the carousel"
     },
