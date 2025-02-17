@@ -34,12 +34,10 @@ enum AttributeEvaluation {
 }
 
 Widget getAttributeDisplayIcon(final Attribute attribute) {
-  final Color color = getAttributeDisplayBackgroundColor(attribute);
-  final IconData iconData = getAttributeDisplayIconData(attribute);
   return Padding(
     padding: const EdgeInsetsDirectional.only(end: VERY_SMALL_SPACE),
     child: attribute.getCircledIcon(
-      backgroundColor: color,
+      backgroundColor: getAttributeDisplayBackgroundColor(attribute),
       size: 32.0,
     ),
   );
