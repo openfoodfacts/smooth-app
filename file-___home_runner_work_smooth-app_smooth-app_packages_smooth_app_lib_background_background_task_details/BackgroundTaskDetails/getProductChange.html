@@ -72,8 +72,6 @@
 Product getProductChange() {
   final Product result =
       Product.fromJson(json.decode(inputMap) as Map&lt;String, dynamic&gt;);
-  &#47;&#47; for good multilingual management
-  result.lang = getLanguage();
   return result;
 }</code></pre>
 </section>
