@@ -611,7 +611,7 @@
     "@new_product_dialog_illustration_description": {
         "description": "A description for accessibility of two images side by side: a Nutri-Score and an Green Score."
     },
-    "front_packaging_photo_button_label": "製品の正面画像",
+    "front_packaging_photo_button_label": "パッケージ正面の写真",
     "@front_packaging_photo_button_label": {},
     "confirm_front_packaging_photo_button_label": "製品の正面画像のアップロードを確認する",
     "@confirm_front_packaging_photo_button_label": {
@@ -2461,7 +2461,7 @@
     "i_refuse": "I refuse",
     "i_accept": "I accept",
     "prices_currency_change_proposal_title": "Change the currency?",
-    "prices_currency_change_proposal_message": "Your current currency is **{currency}**. Would you like to change it to **{newCurrency}**?",
+    "prices_currency_change_proposal_message": "現在の通貨は**{currency}** です。**{newCurrency}**に変更しますか？",
     "@prices_currency_change_proposal_message": {
         "description": "Message to ask the user if they want to change the currency",
         "placeholders": {
