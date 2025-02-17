@@ -435,7 +435,7 @@ class _AddNewProductPageState extends State<AddNewProductPage>
               );
             }
 
-            /// TODO(g123k): Add a selector for the language in the UI
+            // TODO(g123k): Add a selector for the language in the UI
             await BackgroundTaskDetails.addTask(
               Product(barcode: barcode)
                 ..lang = ProductQuery.getLanguage()
