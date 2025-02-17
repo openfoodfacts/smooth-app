@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:scanner_shared/scanner_shared.dart';
 import 'package:smooth_app/database/transient_file.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
+import 'package:smooth_app/helpers/image_field_extension.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/pages/product/helpers/pinch_to_zoom_indicator.dart';
@@ -136,14 +137,14 @@ class _EditProductImageViewerState extends State<EditProductImageViewer>
 
     final Iterable<OpenFoodFactsLanguage> languages = getProductImageLanguages(
       product,
-      ImageField.NUTRITION,
+      widget.imageField,
     );
 
     for (final OpenFoodFactsLanguage language in <OpenFoodFactsLanguage?>[
       widget.language,
       ProductQuery.getLanguage(),
       OpenFoodFactsLanguage.ENGLISH,
-      languages.first,
+      if (languages.isNotEmpty) languages.first,
     ].nonNulls) {
       if (languages.contains(language)) {
         return TransientFile.fromProduct(
@@ -154,7 +155,7 @@ class _EditProductImageViewerState extends State<EditProductImageViewer>
       }
     }
 
-    return NetworkImage(product.imageNutritionUrl ?? '');
+    return NetworkImage(widget.imageField.getImageUrl(product) ?? '');
   }
 
   Widget _frameBuilder(

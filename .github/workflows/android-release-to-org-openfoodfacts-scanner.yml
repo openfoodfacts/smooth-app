@@ -121,7 +121,7 @@ jobs:
           VERSION_CODE: ${{ inputs.VERSION_CODE }}
 
       - name: Build app
-        run: echo $SIGN_STORE_PATH && pwd && cd ./packages/smooth_app/ && pwd && flutter build ${{ inputs.BUILD_TYPE }} --release -t lib/entrypoints/android/${{ inputs.FLAVOR }}.dart
+        run: echo $SIGN_STORE_PATH && pwd && cd ./packages/smooth_app/ && pwd && flutter build ${{ inputs.BUILD_TYPE }} --release -t lib/entrypoints/android/${{ inputs.FLAVOR }}.dart --target-platform android-arm,android-arm64
         env:
          SIGN_STORE_PATH: ./../fastlane/envfiles/keystore.jks
          SIGN_STORE_PASSWORD: ${{ secrets.SIGN_STORE_PASSWORD }}

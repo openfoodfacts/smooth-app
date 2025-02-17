@@ -29,6 +29,7 @@ import 'package:smooth_app/helpers/entry_points_helper.dart';
 import 'package:smooth_app/helpers/global_vars.dart';
 import 'package:smooth_app/helpers/network_config.dart';
 import 'package:smooth_app/helpers/permission_helper.dart';
+import 'package:smooth_app/pages/app_review.dart';
 import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/query/product_query.dart';
@@ -236,6 +237,9 @@ class _SmoothAppState extends State<SmoothApp> {
             /// Only used after the onboarding
             _lazyProvide<AppNewsProvider>(
               (_) => AppNewsProvider(_userPreferences),
+            ),
+            _lazyProvide<AppReviewProvider>(
+              (_) => AppReviewProvider(_userPreferences),
             ),
           ],
           child: AnimationsLoader(

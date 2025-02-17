@@ -22,7 +22,8 @@ enum AnalyticsCategory {
   robotoff(tag: 'robotoff'),
   list(tag: 'list'),
   deepLink(tag: 'deep link'),
-  hungerGame(tag: 'hunger game');
+  hungerGame(tag: 'hunger game'),
+  appRating(tag: 'app rating');
 
   const AnalyticsCategory({required this.tag});
 
@@ -147,6 +148,18 @@ enum AnalyticsEvent {
   hungerGameOpened(
     tag: 'hunger game opened',
     category: AnalyticsCategory.hungerGame,
+  ),
+  appRatingSatisfied(
+    tag: 'satisfied',
+    category: AnalyticsCategory.appRating,
+  ),
+  appRatingNeutral(
+    tag: 'neutral',
+    category: AnalyticsCategory.appRating,
+  ),
+  appRatingNotSatisfied(
+    tag: 'not satisfied',
+    category: AnalyticsCategory.appRating,
   );
 
   const AnalyticsEvent({required this.tag, required this.category});

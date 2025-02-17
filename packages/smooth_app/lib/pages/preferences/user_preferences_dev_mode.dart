@@ -60,6 +60,7 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
   static const String userPreferencesFlagSpellCheckerOnOcr =
       '__spellcheckerOcr';
   static const String userPreferencesCustomNewsJSONURI = '__newsJsonURI';
+  static const String userPreferencesFlagUseProductTabs = '__useProductTabs';
 
   final TextEditingController _textFieldController = TextEditingController();
 
@@ -456,6 +457,18 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           onChanged: (bool value) async {
             await userPreferences.setFlag(
                 userPreferencesFlagUserOrderedKP, value);
+            _showSuccessMessage();
+          },
+        ),
+        UserPreferencesItemSwitch(
+          title: appLocalizations.dev_preferences_use_product_tabs_title,
+          value: userPreferences.getFlag(userPreferencesFlagUseProductTabs) ??
+              false,
+          onChanged: (bool value) async {
+            await userPreferences.setFlag(
+              userPreferencesFlagUseProductTabs,
+              value,
+            );
             _showSuccessMessage();
           },
         ),

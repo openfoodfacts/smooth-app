@@ -25,7 +25,10 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
   /// Product we are about to edit.
   late Product product;
 
-  /// Terms as they were initially then edited by the user.
+  /// Terms as they were initially
+  late List<String> _initTerms;
+
+  /// Current terms edited by the user.
   late List<String> _terms;
 
   /// "Have the terms been changed?"
@@ -35,6 +38,7 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
   void reInit(final Product product) {
     this.product = product;
     _terms = List<String>.from(initTerms(this.product));
+    _initTerms = List<String>.from(_terms);
     _changed = false;
     notifyListeners();
   }
@@ -70,7 +74,7 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
       return false;
     }
     _terms.add(term);
-    _changed = true;
+    _changed = !const DeepCollectionEquality().equals(_terms, _initTerms);
     notifyListeners();
     return true;
   }
@@ -81,7 +85,7 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
   /// as we remove existing items.
   bool removeTerm(final String term) {
     if (_terms.remove(term)) {
-      _changed = true;
+      _changed = !const DeepCollectionEquality().equals(_terms, _initTerms);
       notifyListeners();
       return true;
     }
@@ -192,6 +196,8 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
     return true;
   }
 
+  bool hasChanged() => _changed;
+
   @protected
   List<String> splitString(String? input) {
     if (input == null) {
@@ -244,19 +250,25 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
       return;
     }
     _terms = List<String>.from(_itemsBeforeLastAddition!);
-    _changed = true;
     _itemsBeforeLastAddition = null;
     notifyListeners();
   }
 
   /// Mainly used when reordering the list.
   void replaceItems(final List<String> items) {
+    if (const DeepCollectionEquality().equals(_terms, items)) {
+      return;
+    }
+
     _terms = List<String>.of(items);
     _changed = true;
     notifyListeners();
   }
 
   void replaceItem(int position, String term) {
+    if (_terms[position] == term) {
+      return;
+    }
     _terms[position] = term;
     _changed = true;
     notifyListeners();

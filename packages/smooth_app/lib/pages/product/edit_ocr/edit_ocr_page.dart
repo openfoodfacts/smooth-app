@@ -24,12 +24,14 @@ import 'package:smooth_app/pages/product/edit_ocr/edit_ocr_tabbar.dart';
 import 'package:smooth_app/pages/product/edit_ocr/edit_ocr_textfield.dart';
 import 'package:smooth_app/pages/product/edit_ocr/ocr_helper.dart';
 import 'package:smooth_app/pages/product/gallery_view/product_image_gallery_view.dart';
+import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
 import 'package:smooth_app/pages/product/multilingual_helper.dart';
 import 'package:smooth_app/pages/product/product_image_swipeable_view.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
+import 'package:smooth_app/widgets/will_pop_scope.dart';
 
 /// Editing with OCR a product field and the corresponding image.
 ///
@@ -50,8 +52,9 @@ class EditOcrPage extends StatefulWidget {
 }
 
 class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
-  final TextEditingController _controller = TextEditingController();
+  late final TextEditingController _controller;
   late final MultilingualHelper _multilingualHelper;
+  late final WillPopScope2Controller _willPopScope2Controller;
 
   OcrHelper get _helper => widget.helper;
   bool _extractingData = false;
@@ -60,6 +63,10 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
   void initState() {
     super.initState();
     initUpToDate(widget.product, context.read<LocalDatabase>());
+
+    _willPopScope2Controller = WillPopScope2Controller(canPop: true);
+    _controller = TextEditingController()..addListener(_onValueChanged);
+
     _multilingualHelper = MultilingualHelper(controller: _controller);
     _multilingualHelper.init(
       multilingualTexts: _helper.getMultilingualTexts(upToDateProduct),
@@ -68,6 +75,7 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
       imageField: _helper.getImageField(),
       productLanguage: upToDateProduct.lang,
     );
+    _multilingualHelper.addListener(_onValueChanged);
   }
 
   @override
@@ -81,86 +89,87 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
       _multilingualHelper.getCurrentLanguage(),
     );
 
-    // TODO(monsieurtanuki): add WillPopScope / MayExitPage system
-    return MultiProvider(
-      providers: <SingleChildWidget>[
-        Provider<Product>(
-          create: (BuildContext context) => upToDateProduct,
-        ),
-        Provider<OcrState>.value(
-          value: _extractState(transientFile),
-        ),
-      ],
-      child: UnfocusFieldWhenTapOutside(
-        child: SmoothScaffold(
-          extendBodyBehindAppBar: false,
-          appBar: buildEditProductAppBar(
-            context: context,
-            title: _helper.getTitle(appLocalizations),
-            product: upToDateProduct,
-            bottom: !_multilingualHelper.isMonolingual()
-                ? EditOcrTabBar(
-                    onTabChanged: (OpenFoodFactsLanguage language) {
-                      if (_multilingualHelper.changeLanguage(language)) {
-                        onNextFrame(
-                          () => setState(() {}),
-                          forceRedraw: true,
-                        );
-                      }
-                    },
-                    imageField: _helper.getImageField(),
-                    languagesWithText: _getLanguagesWithText(),
-                  )
+    return WillPopScope2(
+      onWillPop: () async => (await _mayExitPage(saving: false), null),
+      controller: _willPopScope2Controller,
+      child: MultiProvider(
+        providers: <SingleChildWidget>[
+          Provider<Product>(
+            create: (BuildContext context) => upToDateProduct,
+          ),
+          Provider<OcrState>.value(
+            value: _extractState(transientFile),
+          ),
+        ],
+        child: UnfocusFieldWhenTapOutside(
+          child: SmoothScaffold(
+            extendBodyBehindAppBar: false,
+            appBar: buildEditProductAppBar(
+              context: context,
+              title: _helper.getTitle(appLocalizations),
+              product: upToDateProduct,
+              bottom: !_multilingualHelper.isMonolingual()
+                  ? EditOcrTabBar(
+                      onTabChanged: (OpenFoodFactsLanguage language) {
+                        if (_multilingualHelper.changeLanguage(language)) {
+                          onNextFrame(
+                            () => setState(() {}),
+                            forceRedraw: true,
+                          );
+                        }
+                      },
+                      imageField: _helper.getImageField(),
+                      languagesWithText: _getLanguagesWithText(),
+                    )
+                  : null,
+            ),
+            backgroundColor: context.lightTheme()
+                ? context.extension<SmoothColorsThemeExtension>().primaryLight
                 : null,
-          ),
-          backgroundColor: context.lightTheme()
-              ? context.extension<SmoothColorsThemeExtension>().primaryLight
-              : null,
-          body: ListView(
-            padding: const EdgeInsetsDirectional.all(MEDIUM_SPACE),
-            children: <Widget>[
-              EditOCRImageWidget(
-                helper: _helper,
-                transientFile: transientFile,
-                ownerField: upToDateProduct.isImageLocked(
-                      _helper.getImageField(),
-                      _multilingualHelper.getCurrentLanguage(),
-                    ) ??
-                    false,
-                onEditImage: () async => _openImageViewer(),
-                onExtractText: () async => _extractData(),
-                onTakePicture: () async => _takePicture(),
-                onTakePictureWithChoices: () async => _listPictureChoices(),
-              ),
-              const SizedBox(height: MEDIUM_SPACE),
-              EditOCRTextField(
-                helper: _helper,
-                controller: _controller,
-                extraButton: _helper.hasAddExtraPhotoButton()
-                    ? EditOCRExtraButton(
-                        barcode: upToDateProduct.barcode!,
-                        productType: upToDateProduct.productType,
-                        multilingualHelper: _multilingualHelper,
-                        isLoggedInMandatory: widget.isLoggedInMandatory,
-                      )
-                    : null,
-                isOwnerField: _helper.isOwnerField(
-                  upToDateProduct,
-                  _multilingualHelper.getCurrentLanguage(),
+            body: ListView(
+              padding: const EdgeInsetsDirectional.all(MEDIUM_SPACE),
+              children: <Widget>[
+                EditOCRImageWidget(
+                  helper: _helper,
+                  transientFile: transientFile,
+                  ownerField: upToDateProduct.isImageLocked(
+                        _helper.getImageField(),
+                        _multilingualHelper.getCurrentLanguage(),
+                      ) ??
+                      false,
+                  onEditImage: () async => _openImageViewer(),
+                  onExtractText: () async => _extractData(),
+                  onTakePicture: () async => _takePicture(),
+                  onTakePictureWithChoices: () async => _listPictureChoices(),
                 ),
+                const SizedBox(height: MEDIUM_SPACE),
+                EditOCRTextField(
+                  helper: _helper,
+                  controller: _controller,
+                  extraButton: _helper.hasAddExtraPhotoButton()
+                      ? EditOCRExtraButton(
+                          barcode: upToDateProduct.barcode!,
+                          productType: upToDateProduct.productType,
+                          multilingualHelper: _multilingualHelper,
+                          isLoggedInMandatory: widget.isLoggedInMandatory,
+                        )
+                      : null,
+                  isOwnerField: _helper.isOwnerField(
+                    upToDateProduct,
+                    _multilingualHelper.getCurrentLanguage(),
+                  ),
+                ),
+              ],
+            ),
+            resizeToAvoidBottomInset: true,
+            bottomNavigationBar: ProductBottomButtonsBar(
+              onSave: () async => _exitPage(
+                await _mayExitPage(saving: true),
               ),
-            ],
-          ),
-          resizeToAvoidBottomInset: true,
-          bottomNavigationBar: ProductBottomButtonsBar(
-            onSave: () async {
-              await _updateText();
-              if (!context.mounted) {
-                return;
-              }
-              Navigator.of(context).pop();
-            },
-            onCancel: () => Navigator.of(context).pop(),
+              onCancel: () async => _exitPage(
+                await _mayExitPage(saving: false),
+              ),
+            ),
           ),
         ),
       ),
@@ -232,8 +241,41 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
     );
   }
 
+  /// Exits the page if the [flag] is `true`.
+  void _exitPage(final bool flag) {
+    if (flag) {
+      Navigator.of(context).pop();
+    }
+  }
+
+  /// Returns `true` if we should really exit the page.
+  ///
+  /// Parameter [saving] tells about the context: are we leaving the page,
+  /// or have we clicked on the "save" button?
+  Future<bool> _mayExitPage({required final bool saving}) async {
+    final Product? changedProduct = _getMinimalistProduct();
+    if (changedProduct == null) {
+      return true;
+    }
+
+    if (!saving) {
+      final bool? pleaseSave =
+          await MayExitPageHelper().openSaveBeforeLeavingDialog(context);
+
+      if (pleaseSave == false) {
+        return true;
+      }
+      if (!mounted) {
+        return false;
+      }
+    }
+
+    await _saveChanges();
+    return true;
+  }
+
   /// Updates the product field on the server.
-  Future<void> _updateText() async {
+  Future<void> _saveChanges() async {
     final Product? changedProduct = _getMinimalistProduct();
     if (changedProduct == null) {
       return;
@@ -299,6 +341,10 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
     return result;
   }
 
+  void _onValueChanged() {
+    _willPopScope2Controller.canPop(!_multilingualHelper.hasChanged());
+  }
+
   OcrState _extractState(TransientFile transientFile) {
     if (_extractingData) {
       return OcrState.EXTRACTING_DATA;
@@ -309,6 +355,14 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
     } else {
       return OcrState.OTHER;
     }
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    _multilingualHelper.dispose();
+    _willPopScope2Controller.dispose();
+    super.dispose();
   }
 }
 

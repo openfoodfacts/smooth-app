@@ -6,6 +6,7 @@ import 'package:smooth_app/generic_lib/bottom_sheets/smooth_draggable_bottom_she
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/color_extension.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
+import 'package:smooth_app/pages/product/product_page/header/reorder_bottom_sheet.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
@@ -274,6 +275,27 @@ Future<T?> showSmoothAlertModalSheet<T>({
     ),
     textStyle: const TextStyle(fontWeight: FontWeight.w600),
     safeArea: true,
+  );
+}
+
+void showSmoothReorderBottomSheet<T>(
+  BuildContext context, {
+  required List<T> items,
+  required ValueChanged<List<T>> onReorder,
+  ValueChanged<T>? onVisibilityToggle,
+  required LabelBuilder<T> labelBuilder,
+  required String title,
+}) {
+  showSmoothModalSheet(
+    context: context,
+    minHeight: 0.6,
+    builder: (_) => ReorderBottomSheet<T>(
+      items: items,
+      onReorder: onReorder,
+      onVisibilityToggle: onVisibilityToggle,
+      labelBuilder: labelBuilder,
+      title: title,
+    ),
   );
 }
 

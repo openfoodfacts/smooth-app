@@ -41,14 +41,21 @@ class SimpleInputPage extends StatefulWidget {
 
 class _SimpleInputPageState extends State<SimpleInputPage> {
   final List<TextEditingController> _controllers = <TextEditingController>[];
+  late final WillPopScope2Controller _willPopScope2Controller;
 
   @override
   void initState() {
     super.initState();
 
     for (int i = 0; i < widget.helpers.length; i++) {
-      _controllers.add(TextEditingController());
+      _controllers.add(
+        TextEditingController()..addListener(_onChanged),
+      );
+
+      widget.helpers[i].addListener(_onChanged);
     }
+
+    _willPopScope2Controller = WillPopScope2Controller(canPop: true);
   }
 
   @override
@@ -90,6 +97,7 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
 
     return WillPopScope2(
       onWillPop: () async => (await _mayExitPage(saving: false), null),
+      controller: _willPopScope2Controller,
       child: UnfocusFieldWhenTapOutside(
         child: SmoothScaffold(
           fixKeyboard: true,
@@ -127,6 +135,24 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
     if (flag) {
       Navigator.of(context).pop();
     }
+  }
+
+  void _onChanged() {
+    for (final AbstractSimpleInputPageHelper helper in widget.helpers) {
+      if (helper.hasChanged()) {
+        _willPopScope2Controller.canPop(false);
+        return;
+      }
+    }
+
+    for (final TextEditingController controller in _controllers) {
+      if (controller.text.isNotEmpty) {
+        _willPopScope2Controller.canPop(false);
+        return;
+      }
+    }
+
+    _willPopScope2Controller.canPop(true);
   }
 
   /// Returns `true` if we should really exit the page.
@@ -212,7 +238,11 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
     for (final TextEditingController controller in _controllers) {
       controller.dispose();
     }
+    for (final AbstractSimpleInputPageHelper helper in widget.helpers) {
+      helper.removeListener(_onChanged);
+    }
     _controllers.clear();
+    _willPopScope2Controller.dispose();
     super.dispose();
   }
 }
