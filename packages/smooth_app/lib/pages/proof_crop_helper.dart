@@ -48,7 +48,7 @@ class ProofCropHelper extends CropHelper {
     required final File smallCroppedFile,
     required final Directory directory,
     required final int sequenceNumber,
-    final List<Offset>? offsets,
+    required final List<Offset> offsets,
   }) async {
     // It's a brand new picture, with crop parameters.
     // For performance reasons, we do not crop the image full-size here,
