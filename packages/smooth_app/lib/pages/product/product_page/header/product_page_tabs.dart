@@ -9,6 +9,7 @@ import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
 import 'package:smooth_app/pages/folksonomy/folksonomy_card.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/prices/prices_card.dart';
+import 'package:smooth_app/pages/product/product_page/raw_data/product_raw_data_page.dart';
 import 'package:smooth_app/pages/product/website_card.dart';
 import 'package:smooth_app/widgets/smooth_tabbar.dart';
 
@@ -211,7 +212,26 @@ class ProductPageTabBar extends StatelessWidget {
       );
     }
 
+    _addRawDataTabs(context, product, tabs);
+
     return tabs;
+  }
+
+  static List<ProductPageTab> _addRawDataTabs(
+    BuildContext context,
+    Product product,
+    List<ProductPageTab> tabs,
+  ){
+    tabs.add(
+      ProductPageTab(
+        id: 'raw_data',
+        labelBuilder: (BuildContext context) =>
+              AppLocalizations.of(context).product_page_tab_raw_data,
+      builder: (_, Product product) => ProductRawDataPage(product)
+      ),
+    );
+    return tabs;
+
   }
 }
 
