@@ -308,7 +308,7 @@
     "@darkmode_system_default": {
         "description": "Indicator inside the darkmode switch (system default)"
     },
-    "thanks_for_contributing": "Thanks for contributing!",
+    "thanks_for_contributing": "Спасибо за вклад!",
     "contributors_label": "Они создают приложение",
     "@contributors_label": {
         "description": "Button label: Opens a pop up window where all contributors of this app are shown"
@@ -343,7 +343,7 @@
     "@legalNotices": {
         "description": "A link to open the legal notices on the website"
     },
-    "privacy_policy": "Privacy policy",
+    "privacy_policy": "Политика конфиденциальности",
     "@privacy_policy": {
         "description": "A link to open the privacy policy on the website"
     },
@@ -368,7 +368,7 @@
     "contribute_develop_dev_mode_subtitle": "Активировать Режим Разработчика",
     "contribute_donate_title": "Поддержать",
     "@contribute_donate_title": {},
-    "contribute_donate_header": "Donate to Open Food Facts",
+    "contribute_donate_header": "Поддержите Open Food Facts",
     "@contribute_donate_header": {},
     "contribute_enroll_alpha": "Enroll in internal alpha version",
     "@contribute_enroll_alpha": {},
@@ -779,7 +779,7 @@
     "nutrition_page_nutritional_info_label": "Values specified on the product:",
     "nutrition_page_nutritional_info_value_positive": "Да",
     "nutrition_page_nutritional_info_value_negative": "Нет",
-    "nutrition_page_nutritional_info_open_photo": "Open photo",
+    "nutrition_page_nutritional_info_open_photo": "Открыть фото",
     "nutrition_page_nutritional_info_explanation_title": "Good practices: Nutritional information",
     "@nutrition_page_nutritional_info_explanation_title": {
         "description": "Title for the help section about Nutritional information"
@@ -830,7 +830,7 @@
     "@nutrition_page_serving_size_explanation_bad_example2_explanation": {
         "description": "Example of an incorrect serving size"
     },
-    "nutrition_page_serving_size_explanation_bad_example2_example": "9 **candies** and 2 **biscuits**",
+    "nutrition_page_serving_size_explanation_bad_example2_example": "9 **конфет** and 2 **печеньки**",
     "@nutrition_page_serving_size_explanation_bad_example2_example": {
         "description": "Example of an incorrect serving size"
     },
@@ -945,7 +945,7 @@
     "@product_image_details_contributor_producer": {
         "description": "The name of the contributor (and also the owner field) who uploaded the image"
     },
-    "product_image_details_date": "Date",
+    "product_image_details_date": "Дата",
     "@product_image_details_date": {
         "description": "Text to indicate the date of the image"
     },
@@ -2261,7 +2261,7 @@
     "prices_add_n_prices": "{count,plural, =1{Add a price} other{Add {count} prices}}",
     "prices_send_n_prices": "{count,plural, =1{Send the price} other{Send {count} prices}}",
     "prices_add_an_item": "Add an item",
-    "prices_add_a_price": "Add a price",
+    "prices_add_a_price": "Добавить цену",
     "prices_add_a_receipt": "Add a receipt",
     "prices_add_price_tags": "Add price tags",
     "prices_barcode_already": "This barcode ({barcode}) is already in the list!",
@@ -2441,7 +2441,7 @@
     "prices_amount_price_incorrect": "Incorrect value",
     "prices_amount_price_mandatory": "Mandatory value",
     "prices_currency_subtitle": "Валюта",
-    "prices_date_subtitle": "Date",
+    "prices_date_subtitle": "Дата",
     "prices_location_subtitle": "Shop",
     "prices_location_find": "Find a shop",
     "prices_location_mandatory": "You need to select a shop!",
@@ -2639,7 +2639,7 @@
     "@analytics_consent_image_semantic_label": {
         "description": "Consent Analytics icon semantics label"
     },
-    "knowledge_panel_page_loading_error": "Fatal Error: {error}",
+    "knowledge_panel_page_loading_error": "Критическая ошибка: {error}",
     "@knowledge_panel_page_loading_error": {
         "description": "Knowledge panel page template - Error while loading future",
         "placeholders": {
@@ -2648,7 +2648,7 @@
             }
         }
     },
-    "preferences_page_loading_error": "Fatal Error: {error}",
+    "preferences_page_loading_error": "Критическая ошибка: {error}",
     "@preferences_page_loading_error": {
         "description": "Preferences page - Error while loading future",
         "placeholders": {
@@ -2829,7 +2829,7 @@
         "description": "A 2nd good example for the brand name (you can change it if necessary)"
     },
     "quantity": "Количество и вес",
-    "add_basic_details_quantity_hint": "Input the weight and if needed the quantity (eg : 4x100g)",
+    "add_basic_details_quantity_hint": "Введите вес и при необходимости количество (например, 4x100гр)",
     "add_basic_details_product_quantity_help_title": "Good practices: Quantity",
     "@add_basic_details_product_quantity_help_title": {
         "description": "Title for the help section about the product quantity"
@@ -2886,7 +2886,7 @@
             }
         }
     },
-    "confirm_delete_user_list_title": "Delete the list?",
+    "confirm_delete_user_list_title": "Удалить список?",
     "@confirm_delete_user_list_title": {
         "description": "Title when asking about whether to delete the list or not"
     },
@@ -3813,7 +3813,7 @@
             }
         }
     },
-    "photo_viewer_details_date_title": "Date",
+    "photo_viewer_details_date_title": "Дата",
     "@photo_viewer_details_date_title": {
         "description": "Label for the uploaded date of a photo"
     },
@@ -4011,7 +4011,7 @@
     "photo_field_packaging": "Фото информации об упаковке",
     "photo_already_exists": "This photo already exists",
     "photo_missing": "This photo is missing",
-    "date": "Date",
+    "date": "Дата",
     "photo_rotate_left": "Поворот влево",
     "@photo_rotate_left": {
         "description": "Button to rotate a photo to the left"
