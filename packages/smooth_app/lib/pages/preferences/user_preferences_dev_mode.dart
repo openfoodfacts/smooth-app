@@ -265,6 +265,9 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
                 .getPostUri(path: '')
                 .toString(),
           ),
+          visibleWhen: (BuildContext context) {
+            return userPreferences.getFlag(userPreferencesFlagProd) == false;
+          },
           onTap: () async => _changeTestEnvDomain(),
         ),
         const UserPreferencesItemSection(

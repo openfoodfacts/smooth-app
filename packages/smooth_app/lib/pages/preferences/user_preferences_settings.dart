@@ -15,7 +15,6 @@ import 'package:smooth_app/pages/preferences/user_preferences_image_source.dart'
 import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_language_selector.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
-import 'package:smooth_app/pages/preferences/user_preferences_rate_us.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_share_with_friends.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -131,7 +130,6 @@ class UserPreferencesSettings extends AbstractUserPreferences {
       _getDivider(),
       UserPreferencesAdvancedSettings.getUserPreferencesItem(context),
       _getDivider(),
-      UserPreferencesRateUs.getUserPreferencesItem(context),
       UserPreferencesShareWithFriends.getUserPreferencesItem(context),
     ];
   }

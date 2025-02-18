@@ -10,6 +10,7 @@ import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/image/product_image_other_page.dart';
 import 'package:smooth_app/pages/image/product_image_widget.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
+import 'package:smooth_app/widgets/smooth_indicator_icon.dart';
 
 /// Number of columns for the grid.
 const int _columns = 3;
@@ -23,8 +24,11 @@ double _getSquareSize(final BuildContext context) {
 /// Display of the other pictures of a product.
 class ProductImageGalleryOtherView extends StatefulWidget {
   const ProductImageGalleryOtherView({
+    required this.onPhotosAvailable,
     super.key,
   });
+
+  final Function(bool hasPhotos) onPhotosAvailable;
 
   @override
   State<ProductImageGalleryOtherView> createState() =>
@@ -49,7 +53,9 @@ class _ProductImageGalleryOtherViewState
       product,
       ImageSize.DISPLAY,
     );
+
     if (rawImages.isNotEmpty) {
+      widget.onPhotosAvailable(true);
       return _RawGridGallery(product, rawImages);
     }
     final double squareSize = _getSquareSize(context);
@@ -61,10 +67,12 @@ class _ProductImageGalleryOtherViewState
       ) {
         if (snapshot.connectionState != ConnectionState.done) {
           return SliverToBoxAdapter(
-            child: SizedBox(
-              width: squareSize,
-              height: squareSize,
-              child: const CircularProgressIndicator.adaptive(),
+            child: Center(
+              child: SizedBox(
+                width: squareSize,
+                height: squareSize,
+                child: const CircularProgressIndicator.adaptive(),
+              ),
             ),
           );
         }
@@ -84,16 +92,15 @@ class _ProductImageGalleryOtherViewState
           );
         }
         if (rawImages.isNotEmpty) {
+          widget.onPhotosAvailable(true);
           return _RawGridGallery(
             fetchedProduct.product ?? product,
             rawImages,
           );
         }
-        return SliverToBoxAdapter(
-          child: Text(
-            appLocalizations.edit_photo_select_existing_downloaded_none,
-          ),
-        );
+
+        widget.onPhotosAvailable(false);
+        return const SliverToBoxAdapter(child: EMPTY_WIDGET);
       },
     );
   }
@@ -154,13 +161,31 @@ class _RawGridGallery extends StatelessWidget {
                         heroTag: heroTag!,
                         language: language,
                       ),
-                      onLongPress: () async => _usePhotoAs(
-                        context: context,
-                        product: product,
-                        rawImages: rawImages,
-                        productImage: productImage,
-                        heroTag: heroTag!,
-                        language: language,
+                    ),
+                  ),
+                ),
+                PositionedDirectional(
+                  top: 0.0,
+                  end: 0.0,
+                  child: Tooltip(
+                    message: AppLocalizations.of(context)
+                        .photo_viewer_use_picture_as_tooltip,
+                    child: Material(
+                      type: MaterialType.transparency,
+                      child: InkWell(
+                        customBorder: const CircleBorder(),
+                        onTap: () async => _usePhotoAs(
+                          context: context,
+                          product: product,
+                          rawImages: rawImages,
+                          productImage: productImage,
+                          heroTag: heroTag!,
+                          language: language,
+                        ),
+                        child: const SmoothIndicatorIcon(
+                          padding: EdgeInsetsDirectional.all(VERY_SMALL_SPACE),
+                          icon: Icon(Icons.more_vert_outlined, size: 17.0),
+                        ),
                       ),
                     ),
                   ),

@@ -15,8 +15,8 @@ import 'package:smooth_app/pages/product/edit_ocr/edit_ocr_page.dart';
 import 'package:smooth_app/pages/product/edit_ocr/ocr_helper.dart';
 import 'package:smooth_app/pages/product/multilingual_helper.dart';
 import 'package:smooth_app/pages/product/owner_field_info.dart';
-import 'package:smooth_app/pages/product/simple_input_widget.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:smooth_app/widgets/smooth_explanation_banner.dart';
 
 class EditOCRTextField extends StatelessWidget {
   const EditOCRTextField({
@@ -60,17 +60,11 @@ class EditOCRTextField extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             if (isOwnerField) const OwnerFieldSmoothCardIcon(),
-            ExplanationTitleIcon(
+            ExplanationTitleIcon.type(
               type: helper.getType(appLocalizations),
               text: helper.getInstructions(appLocalizations),
             ),
           ],
-        ),
-        titlePadding: const EdgeInsetsDirectional.only(
-          top: 2.0,
-          start: LARGE_SPACE,
-          end: SMALL_SPACE,
-          bottom: 2.0,
         ),
         contentPadding: const EdgeInsetsDirectional.all(
           MEDIUM_SPACE,
@@ -108,6 +102,7 @@ class EditOCRTextField extends StatelessWidget {
                     maxLines: null,
                     controller: controller,
                     textInputAction: TextInputAction.newline,
+                    textCapitalization: TextCapitalization.sentences,
                     spellCheckConfiguration: (prefs.getFlag(
                                     UserPreferencesDevMode
                                         .userPreferencesFlagSpellCheckerOnOcr) ??

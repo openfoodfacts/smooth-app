@@ -17,11 +17,11 @@ import 'package:smooth_app/pages/prices/prices_page.dart';
 class PriceProductWidget extends StatelessWidget {
   const PriceProductWidget(
     this.priceProduct, {
-    required this.model,
+    required this.enableCountButton,
   });
 
   final PriceProduct priceProduct;
-  final GetPricesModel model;
+  final bool enableCountButton;
 
   @override
   Widget build(BuildContext context) {
@@ -77,7 +77,7 @@ class PriceProductWidget extends StatelessWidget {
                   children: <Widget>[
                     PriceCountWidget(
                       count: priceCount,
-                      onPressed: !model.enableCountButton
+                      onPressed: !enableCountButton
                           ? null
                           : () async {
                               final LocalDatabase localDatabase =

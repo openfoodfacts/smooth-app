@@ -19,7 +19,7 @@ class SmoothHtmlDecimal extends StatelessWidget {
     return CustomPaint(
       painter: _HtmlDecimalPainter(
         color:
-            context.lightTheme() ? extension.greyLight : extension.greyNormal,
+            context.lightTheme() ? extension.greyMedium : extension.greyNormal,
         index: index,
         textDirection: Directionality.of(context),
         textStyle: const TextStyle(

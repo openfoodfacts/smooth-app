@@ -249,6 +249,10 @@ abstract class ProductQuery {
     );
   }
 
+  static String getProductTypeFromDomain(UriProductHelper uriProductHelper) {
+    return uriProductHelper.domain;
+  }
+
   static List<ProductField> get fields => const <ProductField>[
         ProductField.NAME,
         ProductField.NAME_ALL_LANGUAGES,

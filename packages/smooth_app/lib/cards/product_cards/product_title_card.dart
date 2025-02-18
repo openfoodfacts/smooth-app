@@ -79,6 +79,7 @@ class ProductTitleCard extends StatelessWidget {
                     product: product,
                     imageField: ImageField.FRONT,
                     fallbackUrl: product.imageFrontUrl,
+                    allowAlternativeLanguage: true,
                     size: imageSize,
                     showObsoleteIcon: true,
                     imageFoundBorder: 1.0,

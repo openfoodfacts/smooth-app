@@ -256,6 +256,7 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
     await addPrices(
       bearerToken: bearerToken,
       proofId: uploadProof.value.id,
+      localDatabase: localDatabase,
     );
 
     await closeSession(bearerToken: bearerToken);

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -77,6 +79,7 @@ class _KnowledgePanelPageTemplateState
           if (snapshot.connectionState != ConnectionState.done) {
             return const Center(child: CircularProgressIndicator.adaptive());
           }
+
           final List<Widget> children = KnowledgePanelsBuilder.getChildren(
             context,
             panelElement: KnowledgePanelsBuilder.getRootPanelElement(
@@ -89,7 +92,7 @@ class _KnowledgePanelPageTemplateState
           return ColoredBox(
             color: widget.backgroundColor,
             child: SafeArea(
-              bottom: false,
+              bottom: Platform.isAndroid,
               child: Stack(
                 fit: StackFit.expand,
                 children: <Widget>[

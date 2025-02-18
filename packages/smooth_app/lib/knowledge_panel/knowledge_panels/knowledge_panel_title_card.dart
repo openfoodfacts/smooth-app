@@ -106,7 +106,9 @@ class KnowledgePanelTitleCard extends StatelessWidget {
                             color: colorFromEvaluation,
                             fontSize: hasSubtitle ? 15.5 : 15.0,
                             fontWeight: hasSubtitle
-                                ? FontWeight.w500
+                                ? isClickable
+                                    ? FontWeight.w600
+                                    : FontWeight.bold
                                 : FontWeight.normal,
                           ),
                         ),
@@ -121,7 +123,10 @@ class KnowledgePanelTitleCard extends StatelessWidget {
                             child: Text(
                               knowledgePanelTitleElement.subtitle!,
                               style: WellSpacedTextHelper
-                                  .TEXT_STYLE_WITH_WELL_SPACED,
+                                  .TEXT_STYLE_WITH_WELL_SPACED
+                                  .copyWith(
+                                fontWeight: FontWeight.w500,
+                              ),
                             ).selectable(isSelectable: !isClickable),
                           ),
                         ),

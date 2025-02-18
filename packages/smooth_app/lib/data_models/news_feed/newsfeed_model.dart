@@ -37,6 +37,7 @@ class AppNewsItem {
     required this.message,
     required this.url,
     this.buttonLabel,
+    this.minLaunches,
     this.startDate,
     this.endDate,
     this.minAppVersion,
@@ -50,6 +51,7 @@ class AppNewsItem {
   final String message;
   final String url;
   final String? buttonLabel;
+  final int? minLaunches;
   final DateTime? startDate;
   final DateTime? endDate;
   final String? minAppVersion;
@@ -59,7 +61,7 @@ class AppNewsItem {
 
   @override
   String toString() {
-    return 'AppNewsItem{id: $id, title: $title, message: $message, url: $url, buttonLabel: $buttonLabel, startDate: $startDate, endDate: $endDate, minAppVersion: $minAppVersion, maxAppVersion: $maxAppVersion, image: $image, style: $style}';
+    return 'AppNewsItem{id: $id, title: $title, message: $message, url: $url, buttonLabel: $buttonLabel, minLaunches: $minLaunches, startDate: $startDate, endDate: $endDate, minAppVersion: $minAppVersion, maxAppVersion: $maxAppVersion, image: $image, style: $style}';
   }
 }
 

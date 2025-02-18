@@ -220,7 +220,7 @@ class _GuidesParagraphArrow extends StatelessWidget {
       dimension: 20.0,
       child: DecoratedBox(
         decoration: BoxDecoration(
-          color: colors.orange,
+          color: colors.secondaryVibrant,
           shape: BoxShape.circle,
         ),
         child: const Arrow.right(
@@ -387,7 +387,7 @@ class _GuidesTextTitle extends StatelessWidget {
     return DecoratedBox(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15.0),
-        color: colors.orange,
+        color: colors.secondaryVibrant,
       ),
       child: Row(
         children: <Widget>[

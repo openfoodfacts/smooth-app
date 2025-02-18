@@ -296,7 +296,7 @@ class _AddToProductListAddNewListState
 
     _colorAnimation = ColorTween(
       begin: lightTheme ? extension.primaryLight : extension.primarySemiDark,
-      end: extension.red,
+      end: extension.error,
     ).animate(_animationController)
       ..addListener(() {
         setState(() {});

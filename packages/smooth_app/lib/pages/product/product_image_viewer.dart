@@ -10,7 +10,7 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/transient_file.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
-import 'package:smooth_app/generic_lib/widgets/language_selector.dart';
+import 'package:smooth_app/generic_lib/widgets/languages_selector.dart';
 import 'package:smooth_app/generic_lib/widgets/picture_not_found.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
@@ -233,7 +233,7 @@ class _ProductImageViewerState extends State<ProductImageViewer>
                         width: 3,
                       ),
                     ),
-                    child: LanguageSelector(
+                    child: LanguagesSelector(
                       setLanguage: widget.setLanguage,
                       displayedLanguage: widget.language,
                       selectedLanguages: selectedLanguages,

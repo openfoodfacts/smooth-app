@@ -16,7 +16,7 @@ class SmoothHtmlChip extends StatelessWidget {
     return CustomPaint(
       painter: _HtmlChipPainter(
         color:
-            context.lightTheme() ? extension.greyLight : extension.greyNormal,
+            context.lightTheme() ? extension.greyMedium : extension.greyNormal,
         textDirection: Directionality.of(context),
       ),
       child: const SizedBox.square(dimension: 10.0),

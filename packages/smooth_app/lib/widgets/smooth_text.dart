@@ -231,6 +231,7 @@ class TextWithBoldParts extends StatelessWidget {
   const TextWithBoldParts({
     required this.text,
     this.textStyle,
+    this.boldTextStyle,
     this.textAlign,
     this.overflow,
     this.maxLines,
@@ -238,6 +239,7 @@ class TextWithBoldParts extends StatelessWidget {
 
   final String text;
   final TextStyle? textStyle;
+  final TextStyle? boldTextStyle;
   final TextAlign? textAlign;
   final TextOverflow? overflow;
   final int? maxLines;
@@ -257,7 +259,8 @@ class TextWithBoldParts extends StatelessWidget {
             symbol: r'\*\*',
             symbolLength: 2,
             defaultStyle: defaultTextStyle,
-            highlightedStyle: const TextStyle(fontWeight: FontWeight.bold),
+            highlightedStyle:
+                boldTextStyle ?? const TextStyle(fontWeight: FontWeight.bold),
           ).map(
             ((String, TextStyle?) part) {
               return TextSpan(
@@ -281,6 +284,7 @@ class TextWithUnderlinedParts extends StatelessWidget {
   const TextWithUnderlinedParts({
     required this.text,
     this.textStyle,
+    this.underlineTextStyle,
     this.textAlign,
     this.overflow,
     this.maxLines,
@@ -288,6 +292,7 @@ class TextWithUnderlinedParts extends StatelessWidget {
 
   final String text;
   final TextStyle? textStyle;
+  final TextStyle? underlineTextStyle;
   final TextAlign? textAlign;
   final TextOverflow? overflow;
   final int? maxLines;
@@ -308,9 +313,10 @@ class TextWithUnderlinedParts extends StatelessWidget {
             symbol: r'\_\_',
             symbolLength: 2,
             defaultStyle: defaultTextStyle,
-            highlightedStyle: const TextStyle(
-              decoration: TextDecoration.underline,
-            ),
+            highlightedStyle: underlineTextStyle ??
+                const TextStyle(
+                  decoration: TextDecoration.underline,
+                ),
           ).map(
             ((String, TextStyle?) part) {
               return TextSpan(
@@ -355,7 +361,7 @@ class TextWithBubbleParts extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Color backgroundColor = this.backgroundColor ??
-        context.extension<SmoothColorsThemeExtension>().orange;
+        context.extension<SmoothColorsThemeExtension>().secondaryNormal;
 
     return RichText(
       textScaler: MediaQuery.textScalerOf(context),

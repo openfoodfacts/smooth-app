@@ -7,6 +7,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/collections_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
+import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/pages/input/unfocus_field_when_tap_outside.dart';
 import 'package:smooth_app/pages/product/common/product_buttons.dart';
 import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
@@ -41,14 +42,21 @@ class SimpleInputPage extends StatefulWidget {
 
 class _SimpleInputPageState extends State<SimpleInputPage> {
   final List<TextEditingController> _controllers = <TextEditingController>[];
+  late final WillPopScope2Controller _willPopScope2Controller;
 
   @override
   void initState() {
     super.initState();
 
     for (int i = 0; i < widget.helpers.length; i++) {
-      _controllers.add(TextEditingController());
+      _controllers.add(
+        TextEditingController()..addListener(_onChanged),
+      );
+
+      widget.helpers[i].addListener(_onChanged);
     }
+
+    _willPopScope2Controller = WillPopScope2Controller(canPop: true);
   }
 
   @override
@@ -90,6 +98,7 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
 
     return WillPopScope2(
       onWillPop: () async => (await _mayExitPage(saving: false), null),
+      controller: _willPopScope2Controller,
       child: UnfocusFieldWhenTapOutside(
         child: SmoothScaffold(
           fixKeyboard: true,
@@ -129,6 +138,29 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
     }
   }
 
+  void _onChanged() {
+    for (final AbstractSimpleInputPageHelper helper in widget.helpers) {
+      if (helper.hasChanged()) {
+        _willPopScope2Controller.canPop(false);
+        return;
+      }
+    }
+
+    for (final TextEditingController controller in _controllers) {
+      if (controller.text.isNotEmpty) {
+        _willPopScope2Controller.canPop(false);
+        return;
+      }
+    }
+
+    onNextFrame(() {
+      if (!mounted) {
+        return;
+      }
+      _willPopScope2Controller.canPop(true);
+    });
+  }
+
   /// Returns `true` if we should really exit the page.
   ///
   /// Parameter [saving] tells about the context: are we leaving the page,
@@ -139,7 +171,10 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
     bool added = false;
     for (int i = 0; i < widget.helpers.length; i++) {
       final AbstractSimpleInputPageHelper helper = widget.helpers[i];
-      if (helper.addItemsFromController(_controllers[i])) {
+      if (helper.addItemsFromController(
+        _controllers[i],
+        clearController: false,
+      )) {
         added = true;
       }
       final Product changedProduct = Product(barcode: widget.product.barcode);
@@ -158,6 +193,9 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
       final bool? pleaseSave =
           await MayExitPageHelper().openSaveBeforeLeavingDialog(context);
       if (pleaseSave == null) {
+        for (int i = 0; i < widget.helpers.length; i++) {
+          widget.helpers[i].restoreItemsBeforeLastAddition();
+        }
         return false;
       }
       if (pleaseSave == false) {
@@ -206,7 +244,11 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
     for (final TextEditingController controller in _controllers) {
       controller.dispose();
     }
+    for (final AbstractSimpleInputPageHelper helper in widget.helpers) {
+      helper.removeListener(_onChanged);
+    }
     _controllers.clear();
+    _willPopScope2Controller.dispose();
     super.dispose();
   }
 }

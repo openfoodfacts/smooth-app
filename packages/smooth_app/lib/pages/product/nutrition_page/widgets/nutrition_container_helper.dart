@@ -1,13 +1,14 @@
+import 'package:flutter/foundation.dart';
 import 'package:intl/intl.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 
 /// Nutrition data, for nutrient order and conversions.
-class NutritionContainer {
-  NutritionContainer({
+class NutritionContainerHelper extends ChangeNotifier {
+  NutritionContainerHelper({
     required final OrderedNutrients orderedNutrients,
     required final Product product,
   }) {
-    _initialPerSize = perSize =
+    _initialPerSize = _perSize =
         PerSize.fromOffTag(product.nutrimentDataPer) ?? PerSize.oneHundredGrams;
     _loadNutrients(orderedNutrients.nutrients);
     _loadUnits();
@@ -16,7 +17,7 @@ class NutritionContainer {
     }
     setServingText(product.servingSize);
     _initialNoNutritionData =
-        noNutritionData = product.noNutritionData ?? false;
+        _noNutritionData = product.noNutritionData ?? false;
   }
 
   /// Returns the [Nutrient] that matches the [orderedNutrient].
@@ -54,11 +55,24 @@ class NutritionContainer {
 
   late String servingSize;
 
-  late bool noNutritionData;
+  late bool _noNutritionData;
   late bool _initialNoNutritionData;
 
-  late PerSize perSize;
+  bool get noNutritionData => _noNutritionData;
+
+  set noNutritionData(final bool value) {
+    _noNutritionData = value;
+    notifyListeners();
+  }
+
+  late PerSize _perSize;
   late PerSize _initialPerSize;
+  PerSize get perSize => _perSize;
+
+  set perSize(final PerSize value) {
+    _perSize = value;
+    notifyListeners();
+  }
 
   /// Returns the not interesting nutrients, for a "Please add me!" list.
   Iterable<OrderedNutrient> getLeftoverNutrients() => _nutrients.where(
@@ -86,7 +100,7 @@ class NutritionContainer {
       final double? value = entry.value;
       nutriments.setValue(
         nutrient,
-        perSize,
+        _perSize,
         convertWeightToG(value, getUnit(nutrient)),
       );
     }
@@ -125,6 +139,20 @@ class NutritionContainer {
     final Nutrient nutrient = orderedNutrient.nutrient!;
     final Unit unit = getUnit(nutrient);
     _setUnit(nutrient, _nextWeightUnits[unit] ?? unit, init: false);
+  }
+
+  List<Unit> getUnits(final Nutrient nutrient) {
+    final List<Unit> units = <Unit>[
+      Unit.G,
+      Unit.MILLI_G,
+      Unit.MICRO_G,
+    ];
+
+    if (units.contains(getUnit(nutrient))) {
+      return units;
+    } else {
+      return <Unit>[];
+    }
   }
 
   /// Returns the nutrient [Unit].
@@ -240,8 +268,8 @@ class NutritionContainer {
       final Unit unit = getUnit(nutrient);
       final double? value = convertWeightFromG(
         nutrient == Nutrient.energyKJ
-            ? nutriments.getComputedKJ(perSize)?.roundToDouble()
-            : nutriments.getValue(nutrient, perSize),
+            ? nutriments.getComputedKJ(_perSize)?.roundToDouble()
+            : nutriments.getValue(nutrient, _perSize),
         unit,
       );
       if (value != null) {
@@ -252,10 +280,10 @@ class NutritionContainer {
 
   /// Returns true if the user edited something.
   bool isEdited() {
-    if (noNutritionData != _initialNoNutritionData) {
+    if (_noNutritionData != _initialNoNutritionData) {
       return true;
     }
-    if (perSize != _initialPerSize) {
+    if (_perSize != _initialPerSize) {
       return true;
     }
     for (final Nutrient nutrient in _units.keys) {
@@ -268,8 +296,8 @@ class NutritionContainer {
 
   /// Returns a [Product] with changed nutrients data.
   Product getChangedProduct(Product product) {
-    product.noNutritionData = noNutritionData;
-    product.nutrimentDataPer = perSize.offTag;
+    product.noNutritionData = _noNutritionData;
+    product.nutrimentDataPer = _perSize.offTag;
     product.nutriments = _getNutriments();
     product.servingSize = servingSize;
     return product;

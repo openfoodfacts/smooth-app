@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/lazy_counter.dart';
@@ -14,6 +13,7 @@ import 'package:smooth_app/pages/prices/price_button.dart';
 import 'package:smooth_app/pages/prices/price_user_button.dart';
 import 'package:smooth_app/pages/prices/prices_locations_page.dart';
 import 'package:smooth_app/pages/prices/prices_page.dart';
+import 'package:smooth_app/pages/prices/prices_products_page.dart';
 import 'package:smooth_app/pages/prices/prices_proofs_page.dart';
 import 'package:smooth_app/pages/prices/prices_users_page.dart';
 import 'package:smooth_app/pages/prices/product_price_add_page.dart';
@@ -121,9 +121,14 @@ class UserPreferencesPrices extends AbstractUserPreferences {
         ),
         PriceButton.locationIconData,
       ),
-      _getPriceListTile(
+      _getListTile(
         appLocalizations.all_search_prices_top_product_title,
-        'products',
+        () async => Navigator.of(context).push(
+          MaterialPageRoute<void>(
+            builder: (BuildContext context) => const PricesProductsPage(),
+          ),
+        ),
+        PriceButton.productIconData,
       ),
     ];
   }
@@ -132,21 +137,6 @@ class UserPreferencesPrices extends AbstractUserPreferences {
   @override
   Future<void> runHeaderAction() async => AppNavigator.of(context).push(
         AppRoutes.PREFERENCES(PreferencePageType.PRICES),
-      );
-
-  UserPreferencesItem _getPriceListTile(
-    final String title,
-    final String path,
-  ) =>
-      _getListTile(
-        title,
-        () async => LaunchUrlHelper.launchURL(
-          OpenPricesAPIClient.getUri(
-            path: path,
-            uriHelper: ProductQuery.uriPricesHelper,
-          ).toString(),
-        ),
-        Icons.open_in_new,
       );
 
   UserPreferencesItem _getListTile(

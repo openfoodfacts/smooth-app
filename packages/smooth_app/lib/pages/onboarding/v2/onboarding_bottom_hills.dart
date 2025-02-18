@@ -81,10 +81,10 @@ class OnboardingBottomHills extends StatelessWidget {
                   ),
                   elevation: WidgetStateProperty.all<double>(4.0),
                   iconColor: WidgetStateProperty.all<Color>(
-                    colors.orange,
+                    colors.secondaryVibrant,
                   ),
                   foregroundColor: WidgetStateProperty.all<Color>(
-                    colors.orange,
+                    colors.secondaryVibrant,
                   ),
                   iconSize: WidgetStateProperty.all<double>(21.0),
                   shape: WidgetStateProperty.all<OutlinedBorder>(

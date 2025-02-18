@@ -41,7 +41,9 @@ class SmoothTheme {
     }
 
     final SmoothColorsThemeExtension smoothExtension =
-        SmoothColorsThemeExtension.defaultValues();
+        SmoothColorsThemeExtension.defaultValues(
+      brightness == Brightness.light,
+    );
 
     final TextTheme textTheme = brightness == Brightness.dark
         ? getTextTheme(themeProvider, textContrastProvider)
@@ -100,6 +102,7 @@ class SmoothTheme {
           fontWeight: FontWeight.w500,
         ),
         actionTextColor: Colors.white,
+        actionBackgroundColor: smoothExtension.primaryDark,
         backgroundColor: smoothExtension.primaryBlack,
       ),
       bannerTheme: MaterialBannerThemeData(

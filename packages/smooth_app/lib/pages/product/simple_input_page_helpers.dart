@@ -1,14 +1,20 @@
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:iso_countries/country.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/background/background_task_details.dart';
+import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
+import 'package:smooth_app/pages/preferences/country_selector/country_selector.dart';
 import 'package:smooth_app/pages/product/multilingual_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
+import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:smooth_app/widgets/smooth_explanation_banner.dart';
 
 /// Abstract helper for Simple Input Page.
 ///
@@ -19,7 +25,10 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
   /// Product we are about to edit.
   late Product product;
 
-  /// Terms as they were initially then edited by the user.
+  /// Terms as they were initially
+  late List<String> _initTerms;
+
+  /// Current terms edited by the user.
   late List<String> _terms;
 
   /// "Have the terms been changed?"
@@ -29,6 +38,7 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
   void reInit(final Product product) {
     this.product = product;
     _terms = List<String>.from(initTerms(this.product));
+    _initTerms = List<String>.from(_terms);
     _changed = false;
     notifyListeners();
   }
@@ -64,7 +74,7 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
       return false;
     }
     _terms.add(term);
-    _changed = true;
+    _changed = !const DeepCollectionEquality().equals(_terms, _initTerms);
     notifyListeners();
     return true;
   }
@@ -75,7 +85,7 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
   /// as we remove existing items.
   bool removeTerm(final String term) {
     if (_terms.remove(term)) {
-      _changed = true;
+      _changed = !const DeepCollectionEquality().equals(_terms, _initTerms);
       notifyListeners();
       return true;
     }
@@ -97,8 +107,15 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
   /// Returns the type of the text field (eg: label, category…).
   String getTypeLabel(final AppLocalizations appLocalizations);
 
+  /// Returns the Tooltip for the "add" text field.
+  String getAddTooltip(final AppLocalizations appLocalizations);
+
   /// Returns additional examples about the "add" text field.
-  String? getAddExplanations(final AppLocalizations appLocalizations) => null;
+  String? getAddExplanationsTitle(final AppLocalizations appLocalizations) =>
+      null;
+
+  /// Returns additional examples about the "add" text field.
+  WidgetBuilder? getAddExplanationsContent() => null;
 
   /// Stamp to identify similar updates on the same product.
   BackgroundTaskDetailsStamp getStamp();
@@ -106,6 +123,12 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
   /// Impacts a product in order to take the changes into account.
   @protected
   void changeProduct(final Product changedProduct);
+
+  /// Allows to provide some suggestions to the user.
+  ValueNotifier<SimpleInputSuggestionsState> getSuggestions() =>
+      ValueNotifier<SimpleInputSuggestionsState>(
+        const SimpleInputSuggestionsNoSuggestion(),
+      );
 
   /// Returns the tag type for autocomplete suggestions.
   TagType? getTagType();
@@ -173,6 +196,8 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
     return true;
   }
 
+  bool hasChanged() => _changed;
+
   @protected
   List<String> splitString(String? input) {
     if (input == null) {
@@ -191,31 +216,59 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
   @protected
   OpenFoodFactsLanguage getLanguage() => ProductQuery.getLanguage();
 
+  List<String>? _itemsBeforeLastAddition;
+
   /// Adds all the non-already existing items from the controller.
   ///
   /// The item separator is the comma.
-  bool addItemsFromController(final TextEditingController controller) {
-    final List<String> input = controller.text.split(',');
-    bool result = false;
-    for (final String item in input) {
-      if (addTerm(item.trim())) {
-        result = true;
+  bool addItemsFromController(
+    final TextEditingController controller, {
+    bool clearController = true,
+  }) {
+    try {
+      _itemsBeforeLastAddition = List<String>.from(_terms);
+
+      final List<String> input = controller.text.split(',');
+      bool result = false;
+      for (final String item in input) {
+        if (addTerm(item.trim())) {
+          result = true;
+        }
       }
+      if (result && clearController) {
+        controller.text = '';
+      }
+      return result;
+    } catch (_) {
+      /// The field was not initialized
+      return false;
     }
-    if (result) {
-      controller.text = '';
+  }
+
+  void restoreItemsBeforeLastAddition() {
+    if (_itemsBeforeLastAddition == null) {
+      return;
     }
-    return result;
+    _terms = List<String>.from(_itemsBeforeLastAddition!);
+    _itemsBeforeLastAddition = null;
+    notifyListeners();
   }
 
   /// Mainly used when reordering the list.
   void replaceItems(final List<String> items) {
+    if (const DeepCollectionEquality().equals(_terms, items)) {
+      return;
+    }
+
     _terms = List<String>.of(items);
     _changed = true;
     notifyListeners();
   }
 
   void replaceItem(int position, String term) {
+    if (_terms[position] == term) {
+      return;
+    }
     _terms[position] = term;
     _changed = true;
     notifyListeners();
@@ -226,6 +279,26 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
 
   /// Returns true if the field is an owner field.
   bool isOwnerField(final Product product) => false;
+}
+
+sealed class SimpleInputSuggestionsState {
+  const SimpleInputSuggestionsState();
+}
+
+class SimpleInputSuggestionsLoading extends SimpleInputSuggestionsState {
+  const SimpleInputSuggestionsLoading();
+}
+
+class SimpleInputSuggestionsNoSuggestion extends SimpleInputSuggestionsState {
+  const SimpleInputSuggestionsNoSuggestion();
+}
+
+class SimpleInputSuggestionsLoaded extends SimpleInputSuggestionsState {
+  const SimpleInputSuggestionsLoaded({
+    required this.suggestions,
+  });
+
+  final List<String> suggestions;
 }
 
 /// Implementation for "Brands" of an [AbstractSimpleInputPageHelper].
@@ -259,6 +332,67 @@ class SimpleInputPageBrandsHelper extends AbstractSimpleInputPageHelper {
   @override
   String getAddHint(final AppLocalizations appLocalizations) =>
       appLocalizations.add_basic_details_brand_names_hint;
+
+  @override
+  String getAddTooltip(AppLocalizations appLocalizations) =>
+      appLocalizations.edit_product_form_item_add_action_brand;
+
+  @override
+  String? getAddExplanationsTitle(AppLocalizations appLocalizations) =>
+      appLocalizations.add_basic_details_product_brand_help_title;
+
+  @override
+  WidgetBuilder? getAddExplanationsContent() => (BuildContext context) {
+        final AppLocalizations appLocalizations = AppLocalizations.of(context);
+        return Column(
+          children: <Widget>[
+            ExplanationBodyInfo(
+              text: appLocalizations.add_basic_details_product_brand_help_info1,
+              icon: false,
+            ),
+            ExplanationTextContainer(
+              title: appLocalizations
+                  .add_basic_details_product_brand_help_info2_title,
+              items: <ExplanationTextContainerContent>[
+                ExplanationTextContainerContentText(
+                  text: appLocalizations
+                      .add_basic_details_product_brand_help_info2_content,
+                ),
+              ],
+            ),
+            ExplanationTextContainer(
+              title: appLocalizations
+                  .add_basic_details_product_brand_help_info3_title,
+              items: <ExplanationTextContainerContent>[
+                ExplanationTextContainerContentItem(
+                  text: appLocalizations
+                      .add_basic_details_product_brand_help_info3_item1_text,
+                  example: appLocalizations
+                      .add_basic_details_product_brand_help_info3_item1_explanation,
+                ),
+                ExplanationTextContainerContentItem(
+                  text: appLocalizations
+                      .add_basic_details_product_brand_help_info3_item2_text,
+                  example: appLocalizations
+                      .add_basic_details_product_brand_help_info3_item2_explanation,
+                ),
+              ],
+            ),
+            const SizedBox(height: MEDIUM_SPACE),
+            ExplanationGoodExamplesContainer(
+              items: <String>[
+                appLocalizations
+                    .add_basic_details_product_brand_help_good_examples_1,
+                appLocalizations
+                    .add_basic_details_product_brand_help_good_examples_2,
+              ],
+            ),
+          ],
+        );
+      };
+
+  @override
+  TextCapitalization? getTextCapitalization() => TextCapitalization.sentences;
 
   @override
   String getTypeLabel(AppLocalizations appLocalizations) =>
@@ -326,8 +460,44 @@ class SimpleInputPageStoreHelper extends AbstractSimpleInputPageHelper {
       appLocalizations.edit_product_form_item_stores_hint;
 
   @override
+  String getAddTooltip(AppLocalizations appLocalizations) =>
+      appLocalizations.edit_product_form_item_add_action_store;
+
+  @override
+  TextCapitalization? getTextCapitalization() => TextCapitalization.sentences;
+
+  @override
   String getTypeLabel(AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_form_item_stores_type;
+
+  @override
+  String? getAddExplanationsTitle(AppLocalizations appLocalizations) =>
+      appLocalizations.edit_product_form_item_stores_explanation_title;
+
+  @override
+  @override
+  WidgetBuilder? getAddExplanationsContent() => (BuildContext context) {
+        final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+        return Column(
+          children: <Widget>[
+            ExplanationBodyInfo(
+              text: appLocalizations
+                  .edit_product_form_item_stores_explanation_info1,
+            ),
+            ExplanationGoodExamplesContainer(
+              items: <String>[
+                appLocalizations
+                    .edit_product_form_item_stores_explanation_good_examples_1,
+                appLocalizations
+                    .edit_product_form_item_stores_explanation_good_examples_2,
+                appLocalizations
+                    .edit_product_form_item_stores_explanation_good_examples_3,
+              ],
+            ),
+          ],
+        );
+      };
 
   @override
   TagType? getTagType() => null;
@@ -364,14 +534,42 @@ class SimpleInputPageOriginHelper extends AbstractSimpleInputPageHelper {
       appLocalizations.edit_product_form_item_origins_hint;
 
   @override
+  String getAddTooltip(AppLocalizations appLocalizations) =>
+      appLocalizations.edit_product_form_item_add_action_origin;
+
+  @override
+  TextCapitalization? getTextCapitalization() => TextCapitalization.sentences;
+
+  @override
   String getTypeLabel(AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_form_item_origins_type;
 
   @override
-  String? getAddExplanations(final AppLocalizations appLocalizations) =>
-      '${appLocalizations.edit_product_form_item_origins_explainer_1}'
-      '\n'
-      '${appLocalizations.edit_product_form_item_origins_explainer_2}';
+  String? getAddExplanationsTitle(AppLocalizations appLocalizations) =>
+      appLocalizations.edit_product_form_item_origins_explanation_title;
+
+  @override
+  WidgetBuilder? getAddExplanationsContent() => (BuildContext context) {
+        final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+        return Column(
+          children: <Widget>[
+            ExplanationBodyInfo(
+              text: appLocalizations
+                  .edit_product_form_item_origins_explanation_info1,
+              icon: false,
+            ),
+            ExplanationGoodExamplesContainer(
+              items: <String>[
+                appLocalizations
+                    .edit_product_form_item_origins_explanation_good_examples_1,
+                appLocalizations
+                    .edit_product_form_item_origins_explanation_good_examples_2,
+              ],
+            ),
+          ],
+        );
+      };
 
   @override
   TagType? getTagType() => TagType.ORIGINS;
@@ -420,12 +618,76 @@ class SimpleInputPageEmbCodeHelper extends AbstractSimpleInputPageHelper {
       appLocalizations.edit_product_form_item_emb_codes_hint;
 
   @override
+  String getAddTooltip(AppLocalizations appLocalizations) =>
+      appLocalizations.edit_product_form_item_add_action_emb_code;
+
+  @override
   String getTypeLabel(AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_form_item_emb_codes_type;
 
   @override
-  String getAddExplanations(final AppLocalizations appLocalizations) =>
-      appLocalizations.edit_product_form_item_emb_codes_explanations;
+  String? getAddExplanationsTitle(AppLocalizations appLocalizations) =>
+      appLocalizations.edit_product_form_item_emb_help_title;
+
+  @override
+  WidgetBuilder? getAddExplanationsContent() => (BuildContext context) {
+        final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+        return Column(
+          children: <Widget>[
+            ExplanationBodyInfo(
+              text: appLocalizations.edit_product_form_item_emb_help_info1,
+              icon: false,
+            ),
+            ExplanationTextContainer(
+              title:
+                  appLocalizations.edit_product_form_item_emb_help_info2_title,
+              items: <ExplanationTextContainerContent>[
+                ExplanationTextContainerContentItem(
+                  text: appLocalizations
+                      .edit_product_form_item_emb_help_info2_item1_text,
+                  example: appLocalizations
+                      .edit_product_form_item_emb_help_info2_item1_explanation,
+                  visualExamplePosition:
+                      ExplanationVisualExamplePosition.afterTitle,
+                  visualExample: Container(
+                    width: 104.0,
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color:
+                            context.lightTheme() ? Colors.black : Colors.white,
+                        width: 1.0,
+                      ),
+                      borderRadius: const BorderRadius.all(
+                        Radius.elliptical(100, 50),
+                      ),
+                    ),
+                    padding: const EdgeInsetsDirectional.symmetric(
+                      vertical: VERY_SMALL_SPACE,
+                    ),
+                    child: Text(
+                      appLocalizations
+                          .edit_product_form_item_emb_help_info2_item1_example,
+                      textAlign: TextAlign.center,
+                      textScaler: TextScaler.noScaling,
+                      style: const TextStyle(
+                        fontSize: 12.0,
+                        height: 1.2,
+                      ),
+                    ),
+                  ),
+                ),
+                ExplanationTextContainerContentItem(
+                  text: appLocalizations
+                      .edit_product_form_item_emb_help_info2_item2_text,
+                  example: appLocalizations
+                      .edit_product_form_item_emb_help_info2_item2_explanation,
+                ),
+              ],
+            ),
+          ],
+        );
+      };
 
   @override
   TagType? getTagType() => TagType.EMB_CODES;
@@ -487,8 +749,49 @@ class SimpleInputPageLabelHelper extends AbstractSimpleInputPageHelper {
       appLocalizations.edit_product_form_item_labels_hint;
 
   @override
+  String getAddTooltip(AppLocalizations appLocalizations) =>
+      appLocalizations.edit_product_form_item_add_action_label;
+
+  @override
+  TextCapitalization? getTextCapitalization() => TextCapitalization.sentences;
+
+  @override
   String getTypeLabel(AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_form_item_labels_type;
+
+  @override
+  String? getAddExplanationsTitle(AppLocalizations appLocalizations) =>
+      appLocalizations.edit_product_form_item_labels_explanation_title;
+
+  @override
+  @override
+  WidgetBuilder? getAddExplanationsContent() => (BuildContext context) {
+        final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+        return Column(
+          children: <Widget>[
+            ExplanationBodyInfo(
+              text: appLocalizations
+                  .edit_product_form_item_labels_explanation_info1,
+              icon: false,
+            ),
+            ExplanationGoodExamplesContainer(
+              items: <String>[
+                appLocalizations
+                    .edit_product_form_item_labels_explanation_good_examples_1,
+                appLocalizations
+                    .edit_product_form_item_labels_explanation_good_examples_2,
+                appLocalizations
+                    .edit_product_form_item_labels_explanation_good_examples_3,
+                appLocalizations
+                    .edit_product_form_item_labels_explanation_good_examples_4,
+                appLocalizations
+                    .edit_product_form_item_labels_explanation_good_examples_5,
+              ],
+            ),
+          ],
+        );
+      };
 
   @override
   TagType? getTagType() => TagType.LABELS;
@@ -549,16 +852,52 @@ class SimpleInputPageCategoryHelper extends AbstractSimpleInputPageHelper {
       appLocalizations.score_add_missing_product_category;
 
   @override
-  String? getAddExplanations(final AppLocalizations appLocalizations) =>
-      '${appLocalizations.edit_product_form_item_categories_explainer_1}'
-      '\n'
-      '${appLocalizations.edit_product_form_item_categories_explainer_2}'
-      '\n'
-      '${appLocalizations.edit_product_form_item_categories_explainer_3}';
+  String? getAddExplanationsTitle(AppLocalizations appLocalizations) =>
+      appLocalizations.edit_product_form_item_categories_explanation_title;
+
+  @override
+  WidgetBuilder? getAddExplanationsContent() => (BuildContext context) {
+        final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+        return Column(
+          children: <Widget>[
+            ExplanationBodyInfo(
+              text: appLocalizations
+                  .edit_product_form_item_categories_explanation_info1,
+              icon: false,
+            ),
+            ExplanationTextContainer(
+              title: appLocalizations
+                  .edit_product_form_item_categories_explanation_info2_title,
+              items: <ExplanationTextContainerContent>[
+                ExplanationTextContainerContentText(
+                  text: appLocalizations
+                      .edit_product_form_item_categories_explanation_info2_content,
+                ),
+              ],
+            ),
+            ExplanationGoodExamplesContainer(
+              items: <String>[
+                appLocalizations
+                    .edit_product_form_item_categories_explanation_good_examples_1,
+                appLocalizations
+                    .edit_product_form_item_categories_explanation_good_examples_2,
+              ],
+            ),
+          ],
+        );
+      };
 
   @override
   String getAddHint(final AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_form_item_categories_hint;
+
+  @override
+  String getAddTooltip(AppLocalizations appLocalizations) =>
+      appLocalizations.edit_product_form_item_add_action_category;
+
+  @override
+  TextCapitalization? getTextCapitalization() => TextCapitalization.sentences;
 
   @override
   String getTypeLabel(AppLocalizations appLocalizations) =>
@@ -586,9 +925,57 @@ class SimpleInputPageCategoryNotFoodHelper
 
 /// Implementation for "Countries" of an [AbstractSimpleInputPageHelper].
 class SimpleInputPageCountryHelper extends AbstractSimpleInputPageHelper {
+  SimpleInputPageCountryHelper(UserPreferences userPreferences)
+      : _userCountryCode = userPreferences.userCountryCode ?? 'en' {
+    CountriesHelper.getCountries(
+      getLanguage().offTag,
+    ).then((List<Country>? countries) {
+      _countries = countries ?? <Country>[];
+    });
+  }
+
+  final String _userCountryCode;
+
+  ValueNotifier<SimpleInputSuggestionsState> _suggestionsNotifier =
+      ValueNotifier<SimpleInputSuggestionsState>(
+    const SimpleInputSuggestionsLoading(),
+  );
+  List<Country>? _countries;
+
   @override
   List<String> initTerms(final Product product) =>
       product.countriesTagsInLanguages?[getLanguage()] ?? <String>[];
+
+  @override
+  void reInit(Product product) {
+    super.reInit(product);
+
+    try {
+      _suggestionsNotifier.notifyListeners();
+    } catch (_) {
+      // The Notifier was disposed
+      _suggestionsNotifier = ValueNotifier<SimpleInputSuggestionsState>(
+        const SimpleInputSuggestionsLoading(),
+      );
+    }
+
+    _reloadSuggestions();
+  }
+
+  @override
+  bool addItemsFromController(
+    final TextEditingController controller, {
+    bool clearController = true,
+  }) {
+    final bool result = super.addItemsFromController(
+      controller,
+      clearController: clearController,
+    );
+    if (result) {
+      _reloadSuggestions();
+    }
+    return result;
+  }
 
   @override
   void changeProduct(final Product changedProduct) {
@@ -597,6 +984,35 @@ class SimpleInputPageCountryHelper extends AbstractSimpleInputPageHelper {
         <OpenFoodFactsLanguage, List<String>>{getLanguage(): terms};
     // for the server - write-only
     changedProduct.countries = terms.join(separator);
+  }
+
+  @override
+  ValueNotifier<SimpleInputSuggestionsState> getSuggestions() =>
+      _suggestionsNotifier;
+
+  Future<void> _reloadSuggestions() async {
+    _countries ??= await CountriesHelper.getCountries(
+      getLanguage().offTag,
+    );
+    if (_countries == null) {
+      _suggestionsNotifier.value = const SimpleInputSuggestionsNoSuggestion();
+      return;
+    }
+
+    final Country? country = _countries!.firstWhereOrNull(
+      (Country country) => country.countryCode == _userCountryCode,
+    );
+
+    if (country == null || _terms.contains(country.name) == true) {
+      _suggestionsNotifier.value = const SimpleInputSuggestionsLoaded(
+        suggestions: <String>[],
+      );
+      return;
+    }
+
+    _suggestionsNotifier.value = SimpleInputSuggestionsLoaded(
+      suggestions: <String>[country.name],
+    );
   }
 
   @override
@@ -612,12 +1028,26 @@ class SimpleInputPageCountryHelper extends AbstractSimpleInputPageHelper {
       appLocalizations.edit_product_form_item_countries_hint;
 
   @override
-  String getTypeLabel(AppLocalizations appLocalizations) =>
-      appLocalizations.edit_product_form_item_countries_type;
+  String getAddTooltip(AppLocalizations appLocalizations) =>
+      appLocalizations.edit_product_form_item_add_action_country;
 
   @override
-  String getAddExplanations(final AppLocalizations appLocalizations) =>
-      appLocalizations.edit_product_form_item_countries_explanations;
+  TextCapitalization? getTextCapitalization() => TextCapitalization.sentences;
+
+  @override
+  String getTypeLabel(AppLocalizations appLocalizations) =>
+      appLocalizations.edit_product_form_item_countries_explanations_title;
+
+  @override
+  @override
+  WidgetBuilder? getAddExplanationsContent() => (BuildContext context) {
+        final AppLocalizations appLocalizations = AppLocalizations.of(context);
+        return ExplanationBodyInfo(
+          text: appLocalizations
+              .edit_product_form_item_countries_explanations_info1,
+          safeArea: true,
+        );
+      };
 
   @override
   TagType? getTagType() => TagType.COUNTRIES;
@@ -630,4 +1060,14 @@ class SimpleInputPageCountryHelper extends AbstractSimpleInputPageHelper {
 
   @override
   AnalyticsEditEvents getAnalyticsEditEvent() => AnalyticsEditEvents.country;
+
+  @override
+  void dispose() {
+    try {
+      _suggestionsNotifier.dispose();
+    } catch (_) {
+      // The Notifier was already disposed
+    }
+    super.dispose();
+  }
 }

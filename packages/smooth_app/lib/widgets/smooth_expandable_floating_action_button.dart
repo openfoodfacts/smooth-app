@@ -75,3 +75,6 @@ class _SmoothExpandableFloatingActionButtonState
     super.dispose();
   }
 }
+
+/// This value is not exposed by the Flutter SDK
+const double kFloatingActionButtonHeight = 56.0;

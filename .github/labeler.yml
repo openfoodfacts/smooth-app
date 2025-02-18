@@ -104,7 +104,8 @@ History:
 ⚙️🥗 Food preferences:
 - changed-files:
   - any-glob-to-any-file: 'packages/smooth_app/lib/widgets/attribute_button.dart'
-
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/preferences/user_preferences_attribute_group.dart'
+  
 🤗 Onboarding:
 - changed-files:
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/onboarding/**/*'
@@ -254,10 +255,19 @@ autocomplete:
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/simple_input_page.dart'
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/simple_input_page_helpers.dart'
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/simple_input_text_field.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/nutrition_page/widgets/edit_product_image_viewer.dart'
 
 ✏️ Editing - Nutrition input:
 - changed-files:
-  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/nutrition_page_loaded.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/nutrition_page/nutrition_page.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/nutrition_page/nutrition_page_loader.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/nutrition_page/widgets/nutrition_add_nutrient_button.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/nutrition_page/widgets/nutrition_availability_container.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/nutrition_page/widgets/nutrition_availability_container.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/nutrition_page/widgets/nutrition_container_helper.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/nutrition_page/widgets/nutrition_facts_editor.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/nutrition_page/widgets/nutrition_serving_size.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/nutrition_page/widgets/nutrition_serving_switch.dart'
 
 #tag picker:
 
@@ -333,3 +343,8 @@ tagline:
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/image/product_image_other_page.dart'
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/gallery_view/product_image_gallery_view.dart'
   - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/gallery_view/product_image_gallery_tabs.dart'
+
+moderation:
+- changed-files:
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/report_product/report_product_header.dart'
+  - any-glob-to-any-file: 'packages/smooth_app/lib/pages/product/report_product/report_product_page.dart'

@@ -6,9 +6,10 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
 import 'package:http/http.dart' as http;
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:path/path.dart' as path;
+import 'package:path/path.dart' as path_lib;
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
+import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/services/smooth_services.dart';
@@ -32,6 +33,44 @@ class ExternalPage extends StatefulWidget {
 
   @override
   State<ExternalPage> createState() => _ExternalPageState();
+
+  static Future<String> rewritePath(String pathUrl) async {
+    if (pathUrl.startsWith('http')) {
+      return pathUrl;
+    }
+    // First let's try with https://{country}.openfoodfacts.org
+    final OpenFoodFactsCountry country = ProductQuery.getCountry();
+
+    String? url = path_lib.join(
+      'https://${country.offTag}.openfoodfacts.org',
+      pathUrl,
+    );
+
+    if (await _testUrl(url)) {
+      url = null;
+    }
+
+    // If that's not OK, let's try with world.openfoodfacts.org?lc={language}
+    if (url == null) {
+      final OpenFoodFactsLanguage language = ProductQuery.getLanguage();
+
+      url = path_lib.join(
+        'https://world.openfoodfacts.org',
+        pathUrl,
+      );
+
+      url = '$url?lc=${language.offTag}';
+    }
+
+    return url;
+  }
+
+  /// Check if an URL exist
+  static Future<bool> _testUrl(String url) {
+    return http
+        .head(Uri.parse(url))
+        .then((http.Response value) => value.statusCode != 404);
+  }
 }
 
 class _ExternalPageState extends State<ExternalPage> {
@@ -39,37 +78,9 @@ class _ExternalPageState extends State<ExternalPage> {
   void initState() {
     super.initState();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) async {
+    onNextFrame(() async {
       try {
-        String? url;
-
-        if (widget.path.startsWith('http')) {
-          url = widget.path;
-        } else {
-          // First let's try with https://{country}.openfoodfacts.org
-          final OpenFoodFactsCountry country = ProductQuery.getCountry();
-
-          url = path.join(
-            'https://${country.offTag}.openfoodfacts.org',
-            widget.path,
-          );
-
-          if (await _testUrl(url)) {
-            url = null;
-          }
-
-          // If that's not OK, let's try with world.openfoodfacts.org?lc={language}
-          if (url == null) {
-            final OpenFoodFactsLanguage language = ProductQuery.getLanguage();
-
-            url = path.join(
-              'https://world.openfoodfacts.org',
-              widget.path,
-            );
-
-            url = '$url?lc=${language.offTag}';
-          }
-        }
+        final String url = await ExternalPage.rewritePath(widget.path);
 
         if (Platform.isAndroid) {
           /// Custom tabs
@@ -77,8 +88,8 @@ class _ExternalPageState extends State<ExternalPage> {
           await tabs.launchUrl(
             Uri.parse(url),
             customTabsOptions: const tabs.CustomTabsOptions(
-              showTitle: true,
-            ),
+                showTitle: true,
+                browser: tabs.CustomTabsBrowserConfiguration()),
           );
         } else {
           /// The default browser
@@ -120,12 +131,5 @@ class _ExternalPageState extends State<ExternalPage> {
         child: CircularProgressIndicator.adaptive(),
       ),
     );
-  }
-
-  /// Check if an URL exist
-  Future<bool> _testUrl(String url) {
-    return http
-        .head(Uri.parse(url))
-        .then((http.Response value) => value.statusCode != 404);
   }
 }

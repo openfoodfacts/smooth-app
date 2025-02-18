@@ -54,6 +54,7 @@ class SmoothListTileCard extends StatelessWidget {
     return SmoothCard(
       padding: EdgeInsets.zero,
       margin: margin ?? const EdgeInsets.all(VERY_SMALL_SPACE),
+      elevation: 4.0,
       child: InkWell(
         borderRadius: ROUNDED_BORDER_RADIUS,
         onTap: onTap,

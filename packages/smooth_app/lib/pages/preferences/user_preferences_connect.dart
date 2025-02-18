@@ -89,6 +89,15 @@ class UserPreferencesConnect extends AbstractUserPreferences {
         ),
         _getDivider(),
         _getListTile(
+          title: appLocalizations.tiktok,
+          url: appLocalizations.tiktok_link,
+          leadingWidget: SvgPicture.asset(
+            'assets/preferences/tiktok-logo.svg',
+            width: DEFAULT_ICON_SIZE,
+            package: AppHelper.APP_PACKAGE,
+          ),
+        ),
+        _getListTile(
           title: appLocalizations.instagram,
           url: appLocalizations.instagram_link,
           leadingWidget: SvgPicture.asset(
@@ -107,6 +116,24 @@ class UserPreferencesConnect extends AbstractUserPreferences {
               Theme.of(context).colorScheme.onSurface,
               ui.BlendMode.srcIn,
             ),
+            package: AppHelper.APP_PACKAGE,
+          ),
+        ),
+        _getListTile(
+          title: appLocalizations.mastodon,
+          url: appLocalizations.mastodon_link,
+          leadingWidget: SvgPicture.asset(
+            'assets/preferences/mastodon-logo.svg',
+            width: DEFAULT_ICON_SIZE,
+            package: AppHelper.APP_PACKAGE,
+          ),
+        ),
+        _getListTile(
+          title: appLocalizations.bsky,
+          url: appLocalizations.bsky_link,
+          leadingWidget: SvgPicture.asset(
+            'assets/preferences/bluesky-logo.svg',
+            width: DEFAULT_ICON_SIZE,
             package: AppHelper.APP_PACKAGE,
           ),
         ),

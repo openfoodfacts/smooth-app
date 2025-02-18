@@ -15,13 +15,19 @@ import 'package:smooth_app/pages/search/search_page.dart';
 
 /// Card that displays the location for price adding.
 class PriceLocationCard extends StatelessWidget {
-  const PriceLocationCard();
+  const PriceLocationCard({
+    required this.onLocationChanged,
+  });
+
+  final Function(OsmLocation? oldLocation, OsmLocation location)
+      onLocationChanged;
 
   @override
   Widget build(BuildContext context) {
     final PriceModel model = context.watch<PriceModel>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final OsmLocation? location = model.location;
+
     return SmoothCardWithRoundedHeader(
       title: appLocalizations.prices_location_subtitle,
       leading: const Icon(Icons.shopping_cart),
@@ -73,6 +79,8 @@ class PriceLocationCard extends StatelessWidget {
                 final List<OsmLocation> newOsmLocations =
                     await daoOsmLocation.getAll();
                 model.locations = newOsmLocations;
+
+                onLocationChanged.call(location, model.location!);
               },
       ),
     );
