@@ -179,12 +179,12 @@ abstract class AttributeIcon extends StatelessWidget {
   const AttributeIcon._({
     required this.icon,
     required this.backgroundColor,
-    this.size,
-    this.iconSize,
+    required this.size,
+    this.iconSizeFactor,
     this.angle,
-    this.offset,
+    this.offsetFactor,
     Color? foregroundColor,
-    this.padding,
+    this.paddingFactor,
     this.semanticsLabel,
     this.clip = false,
   }) : foregroundColor = foregroundColor ?? Colors.white;
@@ -192,11 +192,11 @@ abstract class AttributeIcon extends StatelessWidget {
   final Widget icon;
   final Color backgroundColor;
   final Color foregroundColor;
-  final double? size;
+  final double size;
   final double? angle;
-  final Offset? offset;
-  final double? iconSize;
-  final EdgeInsetsGeometry? padding;
+  final Offset? offsetFactor;
+  final double? iconSizeFactor;
+  final EdgeInsetsDirectional? paddingFactor;
   final String? semanticsLabel;
   final bool? clip;
 
@@ -211,12 +211,24 @@ abstract class AttributeIcon extends StatelessWidget {
           color: backgroundColor,
         ),
         child: Padding(
-          padding: padding ?? EdgeInsets.zero,
+          padding: paddingFactor != null
+              ? EdgeInsetsDirectional.only(
+                  start: paddingFactor!.start * size,
+                  end: paddingFactor!.end * size,
+                  top: paddingFactor!.top * size,
+                  bottom: paddingFactor!.bottom * size,
+                )
+              : EdgeInsets.zero,
           child: Transform.translate(
-            offset: offset ?? Offset.zero,
+            offset: offsetFactor != null
+                ? Offset(
+                    size * offsetFactor!.dx,
+                    size * offsetFactor!.dy,
+                  )
+                : Offset.zero,
             child: AppIconTheme(
               color: foregroundColor,
-              size: iconSize,
+              size: size * (iconSizeFactor ?? 1.0),
               child: icon,
             ),
           ),
@@ -237,379 +249,374 @@ abstract class AttributeIcon extends StatelessWidget {
       );
     }
 
-    if (size != null) {
-      return SizedBox.square(
-        dimension: size,
-        child: child,
-      );
-    }
-    return child;
+    return SizedBox.square(
+      dimension: size,
+      child: child,
+    );
   }
 }
 
 class _AttributeAdditivesIcon extends AttributeIcon {
-  _AttributeAdditivesIcon({
+  const _AttributeAdditivesIcon({
     required super.backgroundColor,
     required super.size,
     super.foregroundColor,
     super.semanticsLabel,
   }) : super._(
           icon: const FoodIcons.additives(),
-          iconSize: size! * 0.6,
-          padding: EdgeInsetsDirectional.only(bottom: size * 0.05),
+          iconSizeFactor: 0.6,
+          paddingFactor: const EdgeInsetsDirectional.only(bottom: 0.05),
         );
 }
 
 class _AttributeCeleryIcon extends AttributeIcon {
-  _AttributeCeleryIcon({
+  const _AttributeCeleryIcon({
     required super.backgroundColor,
     required super.size,
     super.foregroundColor,
     super.semanticsLabel,
   }) : super._(
           icon: const FoodIcons.celery(),
-          iconSize: size! * 0.95,
-          offset: Offset(size * -0.1, 0.0),
+          iconSizeFactor: 0.95,
+          offsetFactor: const Offset(-0.1, 0.0),
           clip: true,
-          padding: EdgeInsetsDirectional.only(top: size * 0.15),
+          paddingFactor: const EdgeInsetsDirectional.only(top: 0.15),
         );
 }
 
 class _AttributeCrustaceansIcon extends AttributeIcon {
-  _AttributeCrustaceansIcon({
+  const _AttributeCrustaceansIcon({
     required super.backgroundColor,
     required super.size,
     super.foregroundColor,
     super.semanticsLabel,
   }) : super._(
           icon: const FoodIcons.crustaceans(),
-          iconSize: size! * 0.95,
+          iconSizeFactor: 0.95,
           clip: true,
-          padding: EdgeInsetsDirectional.only(
-            top: size * 0.15,
-          ),
+          paddingFactor: const EdgeInsetsDirectional.only(top: 0.15),
         );
 }
 
 class _AttributeEggsIcon extends AttributeIcon {
-  _AttributeEggsIcon({
+  const _AttributeEggsIcon({
     required super.backgroundColor,
     required super.size,
     super.foregroundColor,
     super.semanticsLabel,
   }) : super._(
           icon: const FoodIcons.eggs(),
-          iconSize: size! * 0.65,
-          padding: const EdgeInsetsDirectional.only(top: 1.0),
+          iconSizeFactor: 0.65,
+          paddingFactor: const EdgeInsetsDirectional.only(top: 0.01),
         );
 }
 
 class _AttributeFishIcon extends AttributeIcon {
-  _AttributeFishIcon({
+  const _AttributeFishIcon({
     required super.backgroundColor,
     required super.size,
     super.foregroundColor,
     super.semanticsLabel,
   }) : super._(
           icon: const FoodIcons.fish(),
-          iconSize: size! * 0.8,
-          padding: EdgeInsetsDirectional.only(
-            top: size * 0.06,
-            start: size * 0.02,
+          iconSizeFactor: 0.8,
+          paddingFactor: const EdgeInsetsDirectional.only(
+            top: 0.06,
+            start: 0.02,
           ),
         );
 }
 
 class _AttributeGlutenIcon extends AttributeIcon {
-  _AttributeGlutenIcon({
+  const _AttributeGlutenIcon({
     required super.backgroundColor,
     required super.size,
     super.foregroundColor,
     super.semanticsLabel,
   }) : super._(
           icon: const FoodIcons.gluten(),
-          iconSize: size! * 0.6,
-          padding: EdgeInsetsDirectional.only(
-            top: size * 0.04,
-            end: size * 0.01,
+          iconSizeFactor: 0.6,
+          paddingFactor: const EdgeInsetsDirectional.only(
+            top: 0.04,
+            end: 0.01,
           ),
         );
 }
 
 class _AttributeFairTradeIcon extends AttributeIcon {
-  _AttributeFairTradeIcon({
+  const _AttributeFairTradeIcon({
     required super.backgroundColor,
     required super.size,
     super.foregroundColor,
     super.semanticsLabel,
   }) : super._(
           icon: const FoodIcons.fairTrade(),
-          iconSize: size! * 0.8,
-          padding: EdgeInsetsDirectional.only(
-            top: size * 0.1,
-            start: size * 0.01,
+          iconSizeFactor: 0.8,
+          paddingFactor: const EdgeInsetsDirectional.only(
+            top: 0.1,
+            start: 0.01,
           ),
         );
 }
 
 class _AttributeFatIcon extends AttributeIcon {
-  _AttributeFatIcon({
+  const _AttributeFatIcon({
     required super.backgroundColor,
     required super.size,
     super.foregroundColor,
     super.semanticsLabel,
   }) : super._(
           icon: const FoodIcons.fat(),
-          iconSize: size! * 0.7,
+          iconSizeFactor: 0.7,
         );
 }
 
 class _AttributeForestFootprintIcon extends AttributeIcon {
-  _AttributeForestFootprintIcon({
+  const _AttributeForestFootprintIcon({
     required super.backgroundColor,
     required super.size,
     super.foregroundColor,
     super.semanticsLabel,
   }) : super._(
           icon: const FoodIcons.forestFootprint(),
-          iconSize: size! * 0.68,
+          iconSizeFactor: 0.68,
         );
 }
 
 class _AttributeLupinIcon extends AttributeIcon {
-  _AttributeLupinIcon({
+  const _AttributeLupinIcon({
     required super.backgroundColor,
     required super.size,
     super.foregroundColor,
     super.semanticsLabel,
   }) : super._(
           icon: const FoodIcons.lupin(),
-          iconSize: size! * 0.7,
-          padding: EdgeInsetsDirectional.only(
-            start: size * 0.05,
-            top: size * 0.06,
+          iconSizeFactor: 0.7,
+          paddingFactor: const EdgeInsetsDirectional.only(
+            start: 0.05,
+            top: 0.06,
           ),
         );
 }
 
 class _AttributeMilkIcon extends AttributeIcon {
-  _AttributeMilkIcon({
+  const _AttributeMilkIcon({
     required super.backgroundColor,
     required super.size,
     super.foregroundColor,
     super.semanticsLabel,
   }) : super._(
           icon: const FoodIcons.milk(),
-          iconSize: size! * 1.02,
+          iconSizeFactor: 1.02,
           clip: true,
-          padding: EdgeInsetsDirectional.only(
-            top: size * 0.25,
+          paddingFactor: const EdgeInsetsDirectional.only(
+            top: 0.25,
           ),
         );
 }
 
 class _AttributeMolluscsIcon extends AttributeIcon {
-  _AttributeMolluscsIcon({
+  const _AttributeMolluscsIcon({
     required super.backgroundColor,
     required super.size,
     super.foregroundColor,
     super.semanticsLabel,
   }) : super._(
           icon: const FoodIcons.molluscs(),
-          iconSize: size! * 0.7,
+          iconSizeFactor: 0.7,
         );
 }
 
 class _AttributeMustardIcon extends AttributeIcon {
-  _AttributeMustardIcon({
+  const _AttributeMustardIcon({
     required super.backgroundColor,
     required super.size,
     super.foregroundColor,
     super.semanticsLabel,
   }) : super._(
           icon: const FoodIcons.mustard(),
-          iconSize: size! * 1.2,
+          iconSizeFactor: 1.2,
           angle: math.pi / 6,
-          offset: Offset(size * -0.1, 0.0),
+          offsetFactor: const Offset(-0.1, 0.0),
           clip: true,
-          padding: EdgeInsetsDirectional.only(
-            top: size * 0.12,
-            end: size * 0.1,
+          paddingFactor: const EdgeInsetsDirectional.only(
+            top: 0.12,
+            end: 0.1,
           ),
         );
 }
 
 class _AttributeNutsIcon extends AttributeIcon {
-  _AttributeNutsIcon({
+  const _AttributeNutsIcon({
     required super.backgroundColor,
     required super.size,
     super.foregroundColor,
     super.semanticsLabel,
   }) : super._(
           icon: const FoodIcons.nuts(),
-          iconSize: size! * 0.7,
-          padding: EdgeInsetsDirectional.only(top: size * 0.005),
+          iconSizeFactor: 0.7,
+          paddingFactor: const EdgeInsetsDirectional.only(top: 0.005),
         );
 }
 
 class _AttributeNOVAIcon extends AttributeIcon {
-  _AttributeNOVAIcon({
+  const _AttributeNOVAIcon({
     required super.backgroundColor,
     required super.size,
     super.foregroundColor,
     super.semanticsLabel,
   }) : super._(
           icon: const FoodIcons.nova(),
-          iconSize: size! * 0.75,
+          iconSizeFactor: 0.75,
         );
 }
 
 class _AttributeOrganicFarmingIcon extends AttributeIcon {
-  _AttributeOrganicFarmingIcon({
+  const _AttributeOrganicFarmingIcon({
     required super.backgroundColor,
     required super.size,
     super.foregroundColor,
     super.semanticsLabel,
   }) : super._(
           icon: const FoodIcons.organicFarming(),
-          iconSize: size! * 0.8,
+          iconSizeFactor: 0.8,
           clip: true,
-          padding: EdgeInsetsDirectional.only(bottom: size * 0.1),
+          paddingFactor: const EdgeInsetsDirectional.only(bottom: 0.1),
         );
 }
 
 class _AttributePalmOilIcon extends AttributeIcon {
-  _AttributePalmOilIcon({
+  const _AttributePalmOilIcon({
     required super.backgroundColor,
     required super.size,
     super.foregroundColor,
     super.semanticsLabel,
   }) : super._(
           icon: const FoodIcons.palmOil(),
-          iconSize: size! * 0.75,
-          padding: EdgeInsetsDirectional.only(top: size * 0.04),
+          iconSizeFactor: 0.75,
+          paddingFactor: const EdgeInsetsDirectional.only(top: 0.04),
         );
 }
 
 class _AttributePeanutsIcon extends AttributeIcon {
-  _AttributePeanutsIcon({
+  const _AttributePeanutsIcon({
     required super.backgroundColor,
     required super.size,
     super.foregroundColor,
     super.semanticsLabel,
   }) : super._(
           icon: const FoodIcons.peanuts(),
-          iconSize: size! * 0.7,
-          padding: EdgeInsetsDirectional.only(bottom: size * 0.03),
+          iconSizeFactor: 0.7,
+          paddingFactor: const EdgeInsetsDirectional.only(bottom: 0.03),
         );
 }
 
 class _AttributeSaltIcon extends AttributeIcon {
-  _AttributeSaltIcon({
+  const _AttributeSaltIcon({
     required super.backgroundColor,
     required super.size,
     super.foregroundColor,
     super.semanticsLabel,
   }) : super._(
           icon: const FoodIcons.salt(),
-          iconSize: size! * 1.1,
+          iconSizeFactor: 1.1,
           clip: true,
-          offset: Offset(size * -0.3, size * -0.3),
+          offsetFactor: const Offset(-0.3, -0.3),
         );
 }
 
 class _AttributeSaturatedFatIcon extends AttributeIcon {
-  _AttributeSaturatedFatIcon({
+  const _AttributeSaturatedFatIcon({
     required super.backgroundColor,
     required super.size,
     super.foregroundColor,
     super.semanticsLabel,
   }) : super._(
           icon: const FoodIcons.saturatedFat(),
-          iconSize: size! * 0.75,
+          iconSizeFactor: 0.75,
         );
 }
 
 class _AttributeSesameSeedsIcon extends AttributeIcon {
-  _AttributeSesameSeedsIcon({
+  const _AttributeSesameSeedsIcon({
     required super.backgroundColor,
     required super.size,
     super.foregroundColor,
     super.semanticsLabel,
   }) : super._(
           icon: const FoodIcons.sesameSeeds(),
-          iconSize: size! * 0.81,
-          padding: EdgeInsetsDirectional.only(bottom: size * 0.02),
+          iconSizeFactor: 0.81,
+          paddingFactor: const EdgeInsetsDirectional.only(bottom: 0.02),
         );
 }
 
 class _AttributeSoybeansIcon extends AttributeIcon {
-  _AttributeSoybeansIcon({
+  const _AttributeSoybeansIcon({
     required super.backgroundColor,
     required super.size,
     super.foregroundColor,
     super.semanticsLabel,
   }) : super._(
           icon: const FoodIcons.soybeans(),
-          iconSize: size! * 0.7,
-          padding: EdgeInsetsDirectional.only(
-            top: size * 0.05,
-            end: size * 0.07,
+          iconSizeFactor: 0.7,
+          paddingFactor: const EdgeInsetsDirectional.only(
+            top: 0.05,
+            end: 0.07,
           ),
         );
 }
 
 class _AttributeSugarIcon extends AttributeIcon {
-  _AttributeSugarIcon({
+  const _AttributeSugarIcon({
     required super.backgroundColor,
     required super.size,
     super.foregroundColor,
     super.semanticsLabel,
   }) : super._(
           icon: const FoodIcons.sugar(),
-          iconSize: size! * 0.65,
-          padding: EdgeInsetsDirectional.only(bottom: size * 0.1),
+          iconSizeFactor: 0.65,
+          paddingFactor: const EdgeInsetsDirectional.only(bottom: 0.1),
         );
 }
 
 class _AttributeSulphitesIcon extends AttributeIcon {
-  _AttributeSulphitesIcon({
+  const _AttributeSulphitesIcon({
     required super.backgroundColor,
     required super.size,
     super.foregroundColor,
     super.semanticsLabel,
   }) : super._(
           icon: const FoodIcons.sulphites(),
-          iconSize: size! * 0.9,
+          iconSizeFactor: 0.9,
           clip: true,
         );
 }
 
 class _AttributeVeganIcon extends AttributeIcon {
-  _AttributeVeganIcon({
+  const _AttributeVeganIcon({
     required super.backgroundColor,
     required super.size,
     super.foregroundColor,
     super.semanticsLabel,
   }) : super._(
           icon: const FoodIcons.vegan(),
-          iconSize: size! * 0.7,
-          padding: EdgeInsetsDirectional.only(top: size * 0.07),
+          iconSizeFactor: 0.7,
+          paddingFactor: const EdgeInsetsDirectional.only(top: 0.07),
         );
 }
 
 class _AttributeVegetarianIcon extends AttributeIcon {
-  _AttributeVegetarianIcon({
+  const _AttributeVegetarianIcon({
     required super.backgroundColor,
     required super.size,
     super.foregroundColor,
     super.semanticsLabel,
   }) : super._(
           icon: const FoodIcons.vegetarian(),
-          iconSize: size! * 0.65,
-          padding: EdgeInsetsDirectional.only(
-            bottom: size * 0.04,
-            end: size * 0.06,
+          iconSizeFactor: 0.65,
+          paddingFactor: const EdgeInsetsDirectional.only(
+            bottom: 0.04,
+            end: 0.06,
           ),
         );
 }
