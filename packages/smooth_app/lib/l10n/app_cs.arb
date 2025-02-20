@@ -185,7 +185,7 @@
     "@sign_in_mandatory": {
         "description": "Error message: for some features like product edits you need to be signed in"
     },
-    "help_improve_country": "Help improve Open Food Facts in your country",
+    "help_improve_country": "Pomozte vylepšit Open Food Facts ve vaší zemi",
     "@help_improve_country": {
         "description": "label for a tile that is on the contribute tile"
     },
@@ -1228,15 +1228,15 @@
     },
     "retry_button_label": "Opakovat",
     "connect_with_us": "Spojte se s námi",
-    "tiktok": "Follow us on TikTok",
+    "tiktok": "Sledujte nás na TikToku",
     "tiktok_link": "https://www.tiktok.com/@openfoodfacts",
     "instagram": "Sledujte nás na Instagramu",
     "instagram_link": "https://instagram.com/open.food.facts",
     "twitter": "Sledujte nás na X (dříve Twitter)",
     "twitter_link": "https://www.twitter.com/openfoodfacts",
-    "mastodon": "Follow us on Mastodon",
+    "mastodon": "Sledujte nás na Mastodonu",
     "mastodon_link": "https://mastodon.social/@openfoodfacts",
-    "bsky": "Follow us on BlueSky",
+    "bsky": "Sledujte nás na BlueSky",
     "bsky_link": "https://bsky.app/profile/openfoodfacts.bsky.social",
     "blog": "Blog",
     "faq": "Často kladené otázky",
@@ -1539,11 +1539,11 @@
     "@edit_product_pending_operations_banner_title": {
         "description": "When a product has pending edits (being sent to the server), there is a message on the edit page (here is the title of the message)."
     },
-    "edit_product_pending_operations_banner_message": "Your edits are being **sent in the background** (or later in case of error).\nYou can continue editing other product fields.",
+    "edit_product_pending_operations_banner_message": "Tvé úpravy jsou **odeslány na pozadí** (nebo později v případě chyby).\nMůžeš pokračovat v úpravách ostatních produktových polí.",
     "@edit_product_pending_operations_banner_message": {
         "description": "When a product has pending edits (being sent to the server), there is a message on the edit page. Please keep the ** syntax to make the text bold."
     },
-    "edit_product_pending_operations_banner_short_message": "Your edits are being **sent in the background** (or later in case of error).",
+    "edit_product_pending_operations_banner_short_message": "Tvé úpravy jsou **odeslány na pozadí** (nebo později v případě chyby).",
     "@edit_product_pending_operations_banner_short_message": {
         "description": "When a product has pending edits (being sent to the server), there is a message on the edit page. Please keep the ** syntax to make the text bold."
     },
@@ -1716,7 +1716,7 @@
     "@edit_product_form_item_origins_explanation_title": {
         "description": "Product edition - Origins - input explainer, part 1"
     },
-    "edit_product_form_item_origins_explanation_info1": "Add **any indications of origins you can find on the packaging**.\nYou need not worry about origins indicated directly in the ingredient list.",
+    "edit_product_form_item_origins_explanation_info1": "Přidejte **údaje o původu, které najdete na balení**.\nNemusíte se starat o původ uvedený přímo v seznamu ingrediencí.",
     "@edit_product_form_item_origins_explanation_info1": {
         "description": "Product edition - Origins - input explainer, part 1"
     },
@@ -1820,11 +1820,11 @@
     "@edit_product_form_item_categories_explanation_info2_content": {
         "description": "Product edition - Categories - input explainer, part 2"
     },
-    "edit_product_form_item_categories_explanation_good_examples_1": "Sardines in olive oil",
+    "edit_product_form_item_categories_explanation_good_examples_1": "Sardinky v olivovém oleji",
     "@edit_product_form_item_categories_explanation_good_examples_1": {
         "description": "Product edition - Categories - input explainer, part 3"
     },
-    "edit_product_form_item_categories_explanation_good_examples_2": "Orange juice from concentrate",
+    "edit_product_form_item_categories_explanation_good_examples_2": "Pomerančová šťáva z koncentrátu",
     "@edit_product_form_item_categories_explanation_good_examples_2": {
         "description": "Product edition - Categories - input explainer, part 3"
     },
@@ -1836,7 +1836,7 @@
     "@edit_product_form_item_ingredients_title": {
         "description": "Product edition - Ingredients - Title (note: this section was previously called Ingredients & Origins)"
     },
-    "edit_product_form_item_ingredients_pinch_to_zoom_tooltip": "Zoom in and out by pinching the screen",
+    "edit_product_form_item_ingredients_pinch_to_zoom_tooltip": "Přiblížení a oddálení dotekem obrazovky",
     "@edit_product_form_item_ingredients_pinch_to_zoom_tooltip": {
         "description": "Product edition - Ingredients - Pinch to zoom icon explanation"
     },
@@ -1844,7 +1844,7 @@
     "@edit_product_form_item_ingredients_pinch_to_zoom_title": {
         "description": "Product edition - Ingredients - Pinch to zoom explanation title"
     },
-    "edit_product_form_item_ingredients_pinch_to_zoom_message": "Using the **Pinch-to-zoom gesture**, you can zoom in or out the photo:",
+    "edit_product_form_item_ingredients_pinch_to_zoom_message": "Pomocí **gesta Pinch-to-zoom**, můžete fotku oddálit nebo oddálit:",
     "@edit_product_form_item_ingredients_pinch_to_zoom_message": {
         "description": "Product edition - Ingredients - Pinch to zoom explanation message"
     },
@@ -1871,15 +1871,15 @@
     "@edit_product_form_item_nutrition_facts_subtitle": {
         "description": "Product edition - Nutrition facts - SubTitle"
     },
-    "edit_product_form_item_nutrition_facts_explanation_title": "Good practices: Nutrition facts",
+    "edit_product_form_item_nutrition_facts_explanation_title": "Osvědčené postupy: Fakta o výživě",
     "@edit_product_form_item_nutrition_facts_explanation_title": {
         "description": "Title for the help section about Nutritional facts"
     },
-    "edit_product_form_item_nutrition_facts_explanation_info1_title": "Nutritional values",
+    "edit_product_form_item_nutrition_facts_explanation_info1_title": "Nutriční hodnoty",
     "@edit_product_form_item_nutrition_facts_explanation_info1_title": {
         "description": "Text explaining the selector of nutritional values."
     },
-    "edit_product_form_item_nutrition_facts_explanation_info1_content": "First, select if the **values are provided**:",
+    "edit_product_form_item_nutrition_facts_explanation_info1_content": "Nejprve vyberte, zda jsou uvedeny **hodnoty**:",
     "@edit_product_form_item_nutrition_facts_explanation_info1_content": {
         "description": "Text explaining the selector of nutritional values."
     },
@@ -1887,11 +1887,11 @@
     "@edit_product_form_item_nutrition_facts_explanation_info2_title": {
         "description": "Text explaining how to input nutritional values."
     },
-    "edit_product_form_item_nutrition_facts_explanation_info2_content": "Then, input the nutritional values **as indicated on the packaging**. If there is no value, you can click on the \"Eye\" icon.",
+    "edit_product_form_item_nutrition_facts_explanation_info2_content": "Poté zadejte nutriční hodnoty **jak je uvedeno na obalu**. Pokud není žádná hodnota, můžete kliknout na ikonu \"Oko\".",
     "@edit_product_form_item_nutrition_facts_explanation_info2_content": {
         "description": "Text explaining how to input nutritional values."
     },
-    "edit_product_form_item_nutrition_facts_explanation_info3_title": "Missing field?",
+    "edit_product_form_item_nutrition_facts_explanation_info3_title": "Chybí pole?",
     "@edit_product_form_item_nutrition_facts_explanation_info3_title": {
         "description": "Text explaining what to input when a nutritional value is missing."
     },
@@ -2838,15 +2838,15 @@
     "@add_basic_details_product_quantity_help_info1": {
         "description": "Text explaining how to write quantity"
     },
-    "add_basic_details_product_quantity_help_good_examples_1": "**230g** or **230 g**",
+    "add_basic_details_product_quantity_help_good_examples_1": "**230g** nebo **230 g**",
     "@add_basic_details_product_quantity_help_good_examples_1": {
         "description": "A 1st good example for the quantity (you can change it if necessary)"
     },
-    "add_basic_details_product_quantity_help_good_examples_2": "**6** (for 6 eggs)",
+    "add_basic_details_product_quantity_help_good_examples_2": "**6** (pro 6 vajec)",
     "@add_basic_details_product_quantity_help_good_examples_2": {
         "description": "A 2nd good example for the quantity (you can change it if necessary)"
     },
-    "add_basic_details_product_quantity_help_good_examples_3": "**3 x 150g**\n(for a product with 3 boxes, each of 150g)",
+    "add_basic_details_product_quantity_help_good_examples_3": "**3 x 150 g**\n(pro produkt se 3 krabičkami, každá po 150 g)",
     "@add_basic_details_product_quantity_help_good_examples_3": {
         "description": "A 2nd good example for the quantity (you can change it if necessary)"
     },
@@ -4078,7 +4078,7 @@
     "@product_footer_action_contributor_guide": {
         "description": "Action to open the contributor's guide. If you are in a non-English language, please translate this sentence instead: \"Help (EN)\""
     },
-    "product_footer_action_data_quality_tags": "Data quality",
+    "product_footer_action_data_quality_tags": "Kvalita dat",
     "@product_footer_action_data_quality_tags": {
         "description": "Action to view data quality warnings"
     },
