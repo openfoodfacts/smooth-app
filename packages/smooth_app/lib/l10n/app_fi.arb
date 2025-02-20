@@ -236,7 +236,7 @@
     "@sign_up_page_action_doing_it": {
         "description": "Progress indicator dialog during the actual signing up process"
     },
-    "sign_up_page_action_ok": "Onnittelut! Tilisi on luotu.",
+    "sign_up_page_action_ok": "Onnittelut! Tilisi on nyt luotu.",
     "sign_up_page_display_name_hint": "Nimi",
     "sign_up_page_display_name_error_empty": "Lisää haluamasi julkinen nimi",
     "sign_up_page_email_hint": "Sähköpostiosoite",
@@ -1954,7 +1954,7 @@
     "@edit_ingredients_loading_photo_help_dialog_title": {
         "description": "Ingredients edition - Dialog explaining why the photo is loading - Title"
     },
-    "edit_ingredients_loading_photo_help_dialog_body": "Jotta voit käyttää \"Ota ainesosat\" -ominaisuutta, valokuva on ensin ladattava.\n\nOdota muutama sekunti tai kirjoita ne manuaalisesti.",
+    "edit_ingredients_loading_photo_help_dialog_body": "Käyttääksesi toimintoa \"Poimi valmistusaineet kuvasta\", valokuva täytyy ensin ladata palveluun.\n\nOdota muutama sekunti tai syötä ne käsin.",
     "@edit_ingredients_loading_photo_help_dialog_body": {
         "description": "Ingredients edition - Dialog explaining why the photo is loading - Content"
     },
@@ -4102,7 +4102,7 @@
     "@app_review_low": {
         "description": "Item in the app review card with the lowest rating"
     },
-    "app_review_medium": "Not bad",
+    "app_review_medium": "Ei huono",
     "@app_review_medium": {
         "description": "Item in the app review card with an average rating"
     },
