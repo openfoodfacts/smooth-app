@@ -522,7 +522,7 @@
     "@unknownBrand": {},
     "unknownProductName": "Unknown product name",
     "@unknownProductName": {},
-    "label_refresh": "Refresh",
+    "label_refresh": "रीफ्रेश करें",
     "@label_refresh": {
         "description": "Refresh the cached product"
     },
