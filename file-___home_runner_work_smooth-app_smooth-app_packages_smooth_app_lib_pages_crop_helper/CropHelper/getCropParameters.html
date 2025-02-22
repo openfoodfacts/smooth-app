@@ -55,7 +55,7 @@
 <span class="name ">getCropParameters</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="getCropParameters-param-controller">{<span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">controller</span>, </span></li>
 <li><span class="parameter" id="getCropParameters-param-fullFile"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-io/File-class.html">File</a>?</span> <span class="parameter-name">fullFile</span>, </span></li>
 <li><span class="parameter" id="getCropParameters-param-smallCroppedFile"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-io/File-class.html">File</a></span> <span class="parameter-name">smallCroppedFile</span>, </span></li>
-<li><span class="parameter" id="getCropParameters-param-offsets"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a>?</span> <span class="parameter-name">offsets</span>}</span></li>
+<li><span class="parameter" id="getCropParameters-param-offsets"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a></span> <span class="parameter-name">offsets</span>}</span></li>
 </ol>)
 
       
@@ -72,16 +72,10 @@ CropParameters getCropParameters({
   required final CropController controller,
   required final File? fullFile,
   required final File smallCroppedFile,
-  final List&lt;Offset&gt;? offsets,
+  required final List&lt;Offset&gt; offsets,
 }) {
   final Rect cropRect = getLocalCropRect(controller);
-  final List&lt;double&gt; eraserCoordinates = &lt;double&gt;[];
-  if (offsets != null) {
-    for (final Offset offset in offsets) {
-      eraserCoordinates.add(offset.dx);
-      eraserCoordinates.add(offset.dy);
-    }
-  }
+  final List&lt;double&gt; eraserCoordinates = getEraserCoordinates(offsets);
   return CropParameters(
     fullFile: fullFile,
     smallCroppedFile: smallCroppedFile,
@@ -144,6 +138,9 @@ CropParameters getCropParameters({
 
 
 
+        <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_crop_helper/CropHelper-class.html#static-methods">Static methods</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_crop_helper/CropHelper/getEraserCoordinates.html">getEraserCoordinates</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_crop_helper/CropHelper/getOffsets.html">getOffsets</a></li>
 
 </ol>
 

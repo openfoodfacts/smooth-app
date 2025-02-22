@@ -71,19 +71,8 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Future&lt;void&gt; execute(final LocalDatabase localDatabase) async {
-  final List&lt;Offset&gt; offsets = &lt;Offset&gt;[];
-  if (eraserCoordinates != null) {
-    for (int i = 0; i &lt; eraserCoordinates!.length; i += 2) {
-      final Offset offset = Offset(
-        eraserCoordinates![i],
-        eraserCoordinates![i + 1],
-      );
-      offsets.add(offset);
-    }
-  }
   final String? path = await BackgroundTaskImage.cropIfNeeded(
     fullPath: fullPath,
-    croppedPath: BackgroundTaskImage.getCroppedPath(fullPath),
     rotationDegrees: rotationDegrees,
     cropX1: cropX1,
     cropY1: cropY1,
@@ -91,20 +80,7 @@ Future&lt;void&gt; execute(final LocalDatabase localDatabase) async {
     cropY2: cropY2,
     compressQuality: 80,
     forceCompression: true,
-    overlayPainter: offsets.isEmpty
-        ? null
-        : EraserPainter(
-            eraserModel: EraserModel(
-              rotation: CropRotationExtension.fromDegrees(rotationDegrees)!,
-              offsets: offsets,
-            ),
-            cropRect: BackgroundTaskImage.getDownsizedRect(
-              cropX1,
-              cropY1,
-              cropX2,
-              cropY2,
-            ),
-          ),
+    eraserCoordinates: eraserCoordinates,
   );
   if (path == null) {
     &#47;&#47; TODO(monsieurtanuki): maybe something more refined when we dismiss the picture, like alerting the user, though it&#39;s not supposed to happen anymore from upstream.

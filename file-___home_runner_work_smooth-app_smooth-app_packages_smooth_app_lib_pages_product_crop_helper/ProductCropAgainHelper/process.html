@@ -64,7 +64,7 @@
 <li><span class="parameter" id="process-param-smallCroppedFile"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-io/File-class.html">File</a></span> <span class="parameter-name">smallCroppedFile</span>, </span></li>
 <li><span class="parameter" id="process-param-directory"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-io/Directory-class.html">Directory</a></span> <span class="parameter-name">directory</span>, </span></li>
 <li><span class="parameter" id="process-param-sequenceNumber"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">sequenceNumber</span>, </span></li>
-<li><span class="parameter" id="process-param-offsets"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a>?</span> <span class="parameter-name">offsets</span>}</span></li>
+<li><span class="parameter" id="process-param-offsets"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a></span> <span class="parameter-name">offsets</span>}</span></li>
 </ol>)
 
       
@@ -85,7 +85,7 @@ Future&lt;CropParameters?&gt; process({
   required final File smallCroppedFile,
   required final Directory directory,
   required final int sequenceNumber,
-  final List&lt;Offset&gt;? offsets,
+  required final List&lt;Offset&gt; offsets,
 }) async {
   &#47;&#47; in this case, it&#39;s an existing picture, with crop parameters.
   &#47;&#47; we let the server do everything: better performance, and no privacy
@@ -113,6 +113,7 @@ Future&lt;CropParameters?&gt; process({
     controller: controller,
     fullFile: null,
     smallCroppedFile: smallCroppedFile,
+    offsets: offsets,
   );
 }</code></pre>
 </section>
