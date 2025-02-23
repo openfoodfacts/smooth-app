@@ -818,7 +818,7 @@
     "@nutrition_page_serving_size_explanation_good_example2": {
         "description": "Example of a correct serving size"
     },
-    "nutrition_page_serving_size_explanation_bad_example1_explanation": "Invalid unit",
+    "nutrition_page_serving_size_explanation_bad_example1_explanation": "Помилкова одиниця",
     "@nutrition_page_serving_size_explanation_bad_example1_explanation": {
         "description": "Example of an incorrect serving size"
     },
@@ -826,7 +826,7 @@
     "@nutrition_page_serving_size_explanation_bad_example1_example": {
         "description": "Example of an incorrect serving size"
     },
-    "nutrition_page_serving_size_explanation_bad_example2_explanation": "Invalid units",
+    "nutrition_page_serving_size_explanation_bad_example2_explanation": "Помилкові одиниці",
     "@nutrition_page_serving_size_explanation_bad_example2_explanation": {
         "description": "Example of an incorrect serving size"
     },
@@ -834,7 +834,7 @@
     "@nutrition_page_serving_size_explanation_bad_example2_example": {
         "description": "Example of an incorrect serving size"
     },
-    "nutrition_page_serving_size_explanation_bad_example3_explanation": "Missing unit",
+    "nutrition_page_serving_size_explanation_bad_example3_explanation": "Відсутня одиниця",
     "@nutrition_page_serving_size_explanation_bad_example3_explanation": {
         "description": "Example of an incorrect serving size"
     },
