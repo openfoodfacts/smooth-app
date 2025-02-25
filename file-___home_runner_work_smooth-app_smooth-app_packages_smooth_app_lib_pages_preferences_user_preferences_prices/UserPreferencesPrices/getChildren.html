@@ -161,6 +161,13 @@ List&lt;UserPreferencesItem&gt; getChildren() {
       ),
       PriceButton.productIconData,
     ),
+    _getListTile(
+      appLocalizations.prices_contribution_assistant,
+      () async =&gt; LaunchUrlHelper.launchURL(
+        &#39;https:&#47;&#47;prices.openfoodfacts.org&#47;experiments&#47;contribution-assistant&#39;,
+      ),
+      Icons.open_in_new,
+    ),
   ];
 }</code></pre>
 </section>
