@@ -2599,7 +2599,7 @@
   "@all_search_prices_top_location_title": {
     "description": "Top price locations: list tile title"
   },
-  "prices_contribution_assistant": "Price Contribution Assistant",
+  "prices_contribution_assistant": "Помічник внеску цін",
   "all_search_prices_top_location_single_title": "Ціни в магазині",
   "@all_search_prices_top_location_single_title": {
     "description": "Top price locations: list tile title"
