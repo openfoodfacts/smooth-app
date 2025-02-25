@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
+import 'package:smooth_app/data_models/location_osm_type_extension.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/pages/locations/osm_location.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
@@ -54,6 +55,11 @@ class LocationMapPage extends StatelessWidget {
                     context,
                     '${osmLocation.latitude}, ${osmLocation.longitude}',
                     'Coordinates',
+                  ),
+                  _getItem(
+                    context,
+                    '${osmLocation.osmType.short}${osmLocation.osmId}',
+                    'OSM',
                   ),
                 ],
               ),
