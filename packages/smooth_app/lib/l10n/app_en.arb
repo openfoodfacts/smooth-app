@@ -3599,11 +3599,11 @@
     "description": "Label written as the title of the dialog to select the user language"
   },
   "language_selector_section_selected": "Selected languages",
-  "@language_selector_title": {
+  "@language_selector_section_selected": {
     "description": "Label to highlight the selected languages"
   },
   "language_selector_section_frequently_used": "Frequently used",
-  "@language_selector_title": {
+  "@language_selector_section_frequently_used": {
     "description": "Label to highlight the frequently used languages"
   },
   "action_delete_list": "Delete",
@@ -4096,10 +4096,6 @@
   "product_footer_action_data_quality_tags": "Data quality",
   "@product_footer_action_data_quality_tags": {
     "description": "Action to view data quality warnings"
-  },
-  "all_search_prices_top_product_title": "Products with the most prices",
-  "@all_search_prices_top_product_title": {
-    "description": "Top price products: list tile title"
   },
   "prices_products_list_length_many_pages": "Top {pageSize} products (total: {total})",
   "@prices_products_list_length_many_pages": {
