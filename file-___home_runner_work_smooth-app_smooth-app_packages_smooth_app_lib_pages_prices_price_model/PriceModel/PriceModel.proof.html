@@ -49,7 +49,8 @@
 </h1></div>
 
     <section class="multi-line-signature">
-      <span class="name ">PriceModel.proof</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="proof-param-proof">{<span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">proof</span>}</span></li>
+      <span class="name ">PriceModel.proof</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="proof-param-proof">{<span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">proof</span>, </span></li>
+<li><span class="parameter" id="proof-param-existingPrices"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a>?</span> <span class="parameter-name">existingPrices</span>}</span></li>
 </ol>)
     </section>
 
@@ -61,6 +62,7 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">PriceModel.proof({
   required Proof proof,
+  this.existingPrices,
 }) : _priceAmountModels = &lt;PriceAmountModel&gt;[] {
   setProof(proof, init: true);
 }</code></pre>
@@ -98,6 +100,7 @@
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_prices_price_model/PriceModel/cropParameters.html">cropParameters</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_prices_price_model/PriceModel/currency.html">currency</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_prices_price_model/PriceModel/date.html">date</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_prices_price_model/PriceModel/existingPrices.html">existingPrices</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_prices_price_model/PriceModel/firstDate.html">firstDate</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_prices_price_model/PriceModel/hasChanged.html">hasChanged</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
