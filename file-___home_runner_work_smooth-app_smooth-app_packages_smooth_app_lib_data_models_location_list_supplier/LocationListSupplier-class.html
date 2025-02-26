@@ -30,7 +30,7 @@
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../index.html">smooth_app</a></li>
     <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_location_list_supplier/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_location_list_supplier-library.html">location_list_supplier</a></li>
-    <li class="self-crumb">LocationListSupplier class</li>
+    <li class="self-crumb">LocationListSupplier abstract class</li>
   </ol>
   <div class="self-name">LocationListSupplier</div>
   <form class="search navbar-right" role="search">
@@ -61,7 +61,7 @@
 
     <dl class="constructor-summary-list">
         <dt id="LocationListSupplier" class="callable">
-          <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_location_list_supplier/LocationListSupplier/LocationListSupplier.html">LocationListSupplier</a></span><span class="signature">(<span class="parameter" id="-param-query"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">query</span>, </span><span class="parameter" id="-param-optimizedSearch"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">optimizedSearch</span></span>)</span>
+          <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_location_list_supplier/LocationListSupplier/LocationListSupplier.html">LocationListSupplier</a></span><span class="signature">()</span>
         </dt>
         <dd>
           
@@ -73,6 +73,17 @@
       <h2>Properties</h2>
 
       <dl class="properties">
+        <dt id="alternateSupplier" class="property">
+  <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_location_list_supplier/LocationListSupplier/alternateSupplier.html">alternateSupplier</a></span>
+  <span class="signature">&#8594; <a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_location_list_supplier/LocationListSupplier-class.html">LocationListSupplier</a>?</span> 
+
+</dt>
+<dd>
+  Returns a possible alternate supplier, probably less restrictive.
+  <div class="features">read-only</div>
+
+</dd>
+
         <dt id="hashCode" class="property inherited">
   <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></span>
   <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> 
@@ -91,28 +102,6 @@
 </dt>
 <dd>
   Locations as result.
-  <div class="features">final</div>
-
-</dd>
-
-        <dt id="optimizedSearch" class="property">
-  <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_location_list_supplier/LocationListSupplier/optimizedSearch.html">optimizedSearch</a></span>
-  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> 
-
-</dt>
-<dd>
-  True if we want to focus on shops.
-  <div class="features">final</div>
-
-</dd>
-
-        <dt id="query" class="property">
-  <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_location_list_supplier/LocationListSupplier/query.html">query</a></span>
-  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> 
-
-</dt>
-<dd>
-  Query text.
   <div class="features">final</div>
 
 </dd>
@@ -201,6 +190,24 @@
   </section>
     
     
+  <section class="summary offset-anchor" id="static-methods">
+    <h2>Static Methods</h2>
+    <dl class="callables">
+        <dt id="getBestInitialSupplier" class="callable">
+  <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_location_list_supplier/LocationListSupplier/getBestInitialSupplier.html">getBestInitialSupplier</a></span><span class="signature">(<wbr><span class="parameter" id="getBestInitialSupplier-param-query"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">query</span></span>)
+    <span class="returntype parameter">&#8594; <a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_location_list_supplier/LocationListSupplier-class.html">LocationListSupplier</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+    </dl>
+  </section>
     
 
 
@@ -216,7 +223,7 @@
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
   <li><a href="../index.html">smooth_app</a></li>
   <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_location_list_supplier/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_location_list_supplier-library.html">location_list_supplier</a></li>
-  <li class="self-crumb">LocationListSupplier class</li>
+  <li class="self-crumb">LocationListSupplier abstract class</li>
 </ol>
 
 
@@ -246,10 +253,9 @@
     <li class="section-title">
       <a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_location_list_supplier/LocationListSupplier-class.html#instance-properties">Properties</a>
     </li>
+    <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_location_list_supplier/LocationListSupplier/alternateSupplier.html">alternateSupplier</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
     <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_location_list_supplier/LocationListSupplier/locations.html">locations</a></li>
-    <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_location_list_supplier/LocationListSupplier/optimizedSearch.html">optimizedSearch</a></li>
-    <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_location_list_supplier/LocationListSupplier/query.html">query</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
 
     <li class="section-title"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_location_list_supplier/LocationListSupplier-class.html#instance-methods">Methods</a></li>
@@ -262,6 +268,8 @@
 
 
 
+        <li class="section-title"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_location_list_supplier/LocationListSupplier-class.html#static-methods">Static methods</a></li>
+          <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_location_list_supplier/LocationListSupplier/getBestInitialSupplier.html">getBestInitialSupplier</a></li>
 
 </ol>
 

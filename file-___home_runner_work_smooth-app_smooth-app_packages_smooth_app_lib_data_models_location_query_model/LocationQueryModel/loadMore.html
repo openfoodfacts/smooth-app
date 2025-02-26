@@ -52,7 +52,8 @@
       
 
 <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
-<span class="name ">loadMore</span>(<wbr>)
+<span class="name ">loadMore</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="loadMore-param-supplier"><span class="type-annotation">dynamic</span> <span class="parameter-name">supplier</span></span></li>
+</ol>)
 
       
 
@@ -63,9 +64,9 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; loadMore() async {
-  _isOptimized = false;
-  _asyncLoad(_supplierBroader);
+  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; loadMore(final LocationListSupplier supplier) async {
+  _currentSupplier = supplier;
+  await _asyncLoad();
 }</code></pre>
 </section>
 
@@ -97,9 +98,9 @@
     <li class="section-title">
       <a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_location_query_model/LocationQueryModel-class.html#instance-properties">Properties</a>
     </li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_location_query_model/LocationQueryModel/alternateSupplier.html">alternateSupplier</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_location_query_model/LocationQueryModel/displayedResults.html">displayedResults</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_location_query_model/LocationQueryModel/isOptimized.html">isOptimized</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_location_query_model/LocationQueryModel/loadingError.html">loadingError</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_location_query_model/LocationQueryModel/loadingStatus.html">loadingStatus</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_location_query_model/LocationQueryModel/query.html">query</a></li>

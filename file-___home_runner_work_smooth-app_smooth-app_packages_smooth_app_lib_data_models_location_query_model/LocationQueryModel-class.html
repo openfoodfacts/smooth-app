@@ -50,12 +50,7 @@
 
     
 <section class="desc markdown">
-  <p>Location query model.</p>
-<p>We use 2 location suppliers:</p>
-<ul>
-<li>the first one optimized on shops, as it's what we want</li>
-<li>an optional one with no restrictions, in case OSM data is a bit clumsy</li>
-</ul>
+  <p>Location query model, from location suppliers.</p>
 </section>
 
 
@@ -78,6 +73,17 @@
       <h2>Properties</h2>
 
       <dl class="properties">
+        <dt id="alternateSupplier" class="property">
+  <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_location_query_model/LocationQueryModel/alternateSupplier.html">alternateSupplier</a></span>
+  <span class="signature">&#8594; dynamic</span> 
+
+</dt>
+<dd>
+  
+  <div class="features">read-only</div>
+
+</dd>
+
         <dt id="displayedResults" class="property">
   <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_location_query_model/LocationQueryModel/displayedResults.html">displayedResults</a></span>
   <span class="signature">&#8596; <a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a></span> 
@@ -97,17 +103,6 @@
 <dd class="inherited">
   The hash code for this object.
   <div class="features">read-only, inherited</div>
-
-</dd>
-
-        <dt id="isOptimized" class="property">
-  <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_location_query_model/LocationQueryModel/isOptimized.html">isOptimized</a></span>
-  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> 
-
-</dt>
-<dd>
-  
-  <div class="features">read-only</div>
 
 </dd>
 
@@ -178,7 +173,7 @@
 </dd>
 
         <dt id="loadMore" class="callable">
-  <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_location_query_model/LocationQueryModel/loadMore.html">loadMore</a></span><span class="signature">(<wbr>)
+  <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_location_query_model/LocationQueryModel/loadMore.html">loadMore</a></span><span class="signature">(<wbr><span class="parameter" id="loadMore-param-supplier"><span class="type-annotation">dynamic</span> <span class="parameter-name">supplier</span></span>)
     <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
   </span>
   
@@ -286,9 +281,9 @@
     <li class="section-title">
       <a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_location_query_model/LocationQueryModel-class.html#instance-properties">Properties</a>
     </li>
+    <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_location_query_model/LocationQueryModel/alternateSupplier.html">alternateSupplier</a></li>
     <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_location_query_model/LocationQueryModel/displayedResults.html">displayedResults</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
-    <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_location_query_model/LocationQueryModel/isOptimized.html">isOptimized</a></li>
     <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_location_query_model/LocationQueryModel/loadingError.html">loadingError</a></li>
     <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_location_query_model/LocationQueryModel/loadingStatus.html">loadingStatus</a></li>
     <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_location_query_model/LocationQueryModel/query.html">query</a></li>

@@ -107,6 +107,11 @@ Widget build(BuildContext context) {
                   &#39;${osmLocation.latitude}, ${osmLocation.longitude}&#39;,
                   &#39;Coordinates&#39;,
                 ),
+                _getItem(
+                  context,
+                  &#39;${osmLocation.osmType.short}${osmLocation.osmId}&#39;,
+                  &#39;OSM&#39;,
+                ),
               ],
             ),
           ),
