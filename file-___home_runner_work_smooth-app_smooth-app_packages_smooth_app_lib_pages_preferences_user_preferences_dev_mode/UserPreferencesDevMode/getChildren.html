@@ -510,6 +510,17 @@ List&lt;UserPreferencesItem&gt; getChildren() =&gt; &lt;UserPreferencesItem&gt;[
           _showSuccessMessage();
         },
       ),
+      UserPreferencesItemSwitch(
+        title: &#39;Product list import&#39;,
+        value:
+            userPreferences.getFlag(userPreferencesFlagProductListImport) ??
+                false,
+        onChanged: (bool value) async {
+          await userPreferences.setFlag(
+              userPreferencesFlagProductListImport, value);
+          _showSuccessMessage();
+        },
+      ),
     ];</code></pre>
 </section>
 
@@ -572,6 +583,7 @@ List&lt;UserPreferencesItem&gt; getChildren() =&gt; &lt;UserPreferencesItem&gt;[
           <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_dev_mode/UserPreferencesDevMode/userPreferencesFlagPriceProd-constant.html">userPreferencesFlagPriceProd</a></li>
           <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_dev_mode/UserPreferencesDevMode/userPreferencesFlagPricesReceiptMultiSelection-constant.html">userPreferencesFlagPricesReceiptMultiSelection</a></li>
           <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_dev_mode/UserPreferencesDevMode/userPreferencesFlagProd-constant.html">userPreferencesFlagProd</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_dev_mode/UserPreferencesDevMode/userPreferencesFlagProductListImport-constant.html">userPreferencesFlagProductListImport</a></li>
           <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_dev_mode/UserPreferencesDevMode/userPreferencesFlagSpellCheckerOnOcr-constant.html">userPreferencesFlagSpellCheckerOnOcr</a></li>
           <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_dev_mode/UserPreferencesDevMode/userPreferencesFlagUserOrderedKP-constant.html">userPreferencesFlagUserOrderedKP</a></li>
           <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_user_preferences_dev_mode/UserPreferencesDevMode/userPreferencesFolksonomyHost-constant.html">userPreferencesFolksonomyHost</a></li>
