@@ -388,6 +388,10 @@
   "@contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },
+  "contribute_data_quality": "Data Quality",
+  "@contribute_data_quality": {
+    "description": "Button label + pop up window title: Shows information about helping by translating"
+  },
   "contribute_translate_link_text": "Start Translating",
   "@contribute_translate_link_text": {
     "description": "Button label: Opens the Crowdin translation portal"

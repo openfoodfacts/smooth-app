@@ -77,6 +77,14 @@ class UserPreferencesContribute extends AbstractUserPreferences {
         Icons.translate,
       ),
       _getListTile(
+        appLocalizations.contribute_data_quality,
+        () async => LaunchUrlHelper.launchURL(
+          'https://wiki.openfoodfacts.org/Data_quality',
+        ),
+        Icons.high_quality_outlined,
+        externalLink: true,
+      ),
+      _getListTile(
         appLocalizations.how_to_contribute,
         () async => LaunchUrlHelper.launchURL(
           ProductQuery.replaceSubdomain(
