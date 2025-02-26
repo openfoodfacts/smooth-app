@@ -390,7 +390,7 @@
   },
   "contribute_data_quality": "Data Quality",
   "@contribute_data_quality": {
-    "description": "Button label + pop up window title: Shows information about helping by translating"
+    "description": "label for a tile that is on the contribute page linking to the Data Quality wiki page"
   },
   "contribute_translate_link_text": "Start Translating",
   "@contribute_translate_link_text": {
