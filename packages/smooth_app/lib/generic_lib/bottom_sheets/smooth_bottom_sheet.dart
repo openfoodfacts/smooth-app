@@ -220,6 +220,7 @@ Future<T?> showSmoothListOfChoicesModalSheet<T>({
       headerBackgroundColor: headerBackgroundColor,
       bodyPadding: EdgeInsets.zero,
       body: Column(children: items),
+      expandBody: true,
     ),
   );
 }
@@ -348,7 +349,7 @@ class SmoothModalSheet extends StatelessWidget {
     );
 
     if (expandBody) {
-      bodyChild = Expanded(child: bodyChild);
+      bodyChild = Expanded(child: SingleChildScrollView(child: bodyChild));
     }
 
     return ClipRRect(
