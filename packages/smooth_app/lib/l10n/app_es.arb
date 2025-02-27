@@ -4065,11 +4065,11 @@
       }
     }
   },
-  "product_list_export": "Export",
+  "product_list_export": "Exportar",
   "@product_list_export": {
     "description": "Product list popup menu item to export the list"
   },
-  "product_list_import": "Import",
+  "product_list_import": "Importar",
   "@product_list_import": {
     "description": "Product list popup menu item to import a list"
   },
