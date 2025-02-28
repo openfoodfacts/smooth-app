@@ -412,7 +412,8 @@ class UserPreferences extends ChangeNotifier {
     notifyListeners();
   }
 
-  bool isAttributeGroupActive(final String id) => _sharedPreferences.getBool(id) ?? false;
+  bool isAttributeGroupActive(final String id) =>
+      _sharedPreferences.getBool(id) ?? false;
 
   UserPictureSource get userPictureSource => UserPictureSource.fromString(
         _sharedPreferences.getString(_TAG_USER_PICTURE_SOURCE) ??
