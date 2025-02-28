@@ -63,7 +63,7 @@ class UserPreferencesFood extends AbstractUserPreferences {
           title: appLocalizations.reset_food_prefs,
           onTap: () async => _confirmReset(),
         ),
-        ..._getOnboardingBody(collapsed: false)
+        ..._getOnboardingBody()
       ];
 
   List<AttributeGroup> _reorderGroups(List<AttributeGroup> groups) {
@@ -116,7 +116,7 @@ class UserPreferencesFood extends AbstractUserPreferences {
     return result;
   }
 
-  List<UserPreferencesItem> _getOnboardingBody({final bool? collapsed}) {
+  List<UserPreferencesItem> _getOnboardingBody() {
     final List<AttributeGroup> groups =
         _reorderGroups(productPreferences.attributeGroups!);
     final List<UserPreferencesItem> result = <UserPreferencesItem>[
@@ -139,7 +139,7 @@ class UserPreferencesFood extends AbstractUserPreferences {
           userPreferences: userPreferences,
           appLocalizations: appLocalizations,
           themeData: themeData,
-        ).getItems(collapsed: collapsed),
+        ).getItems(),
       );
     }
     return result;

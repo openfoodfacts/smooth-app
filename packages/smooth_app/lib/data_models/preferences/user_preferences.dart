@@ -109,9 +109,6 @@ class UserPreferences extends ChangeNotifier {
   /// Price privacy warning
   static const String TAG_PRICE_PRIVACY_WARNING = 'price_privacy_warning';
 
-  /// Attribute group that is not collapsed
-  static const String _TAG_ACTIVE_ATTRIBUTE_GROUP = 'activeAttributeGroup';
-
   /// User picture source
   static const String _TAG_USER_PICTURE_SOURCE = 'userPictureSource';
 
@@ -408,14 +405,14 @@ class UserPreferences extends ChangeNotifier {
   String? getDevModeString(final String tag) =>
       _sharedPreferences.getString(tag);
 
-  Future<void> setActiveAttributeGroup(final String value) async {
-    await _sharedPreferences.setString(_TAG_ACTIVE_ATTRIBUTE_GROUP, value);
+  Future<void> toggleAttributeGroup(final String id) async {
+    final bool currentValue = _sharedPreferences.getBool(id) ?? false;
+    final bool newValue = !currentValue;
+    await _sharedPreferences.setBool(id, newValue);
     notifyListeners();
   }
 
-  String get activeAttributeGroup =>
-      _sharedPreferences.getString(_TAG_ACTIVE_ATTRIBUTE_GROUP) ??
-      AttributeGroup.ATTRIBUTE_GROUP_NUTRITIONAL_QUALITY;
+  bool isAttributeGroupActive(final String id) => _sharedPreferences.getBool(id) ?? false;
 
   UserPictureSource get userPictureSource => UserPictureSource.fromString(
         _sharedPreferences.getString(_TAG_USER_PICTURE_SOURCE) ??
