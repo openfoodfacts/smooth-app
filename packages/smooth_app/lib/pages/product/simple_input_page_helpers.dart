@@ -279,30 +279,6 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
 
   /// Returns true if the field is an owner field.
   bool isOwnerField(final Product product) => false;
-
-  Future<List<RobotoffQuestion>> getRobotoffQuestions() async {
-    return <RobotoffQuestion>[];
-  }
-
-  Future<List<RobotoffQuestion>> _getRobotoffQuestions({
-    List<InsightType>? types,
-  }) async {
-    if (types == null || types.isEmpty) {
-      return <RobotoffQuestion>[];
-    }
-
-    try {
-      return (await RobotoffAPIClient.getProductQuestions(
-            product.barcode!,
-            getLanguage(),
-            insightTypes: types,
-          ))
-              .questions ??
-          <RobotoffQuestion>[];
-    } catch (e) {
-      return <RobotoffQuestion>[];
-    }
-  }
 }
 
 sealed class SimpleInputSuggestionsState {
@@ -534,13 +510,6 @@ class SimpleInputPageStoreHelper extends AbstractSimpleInputPageHelper {
 
   @override
   AnalyticsEditEvents getAnalyticsEditEvent() => AnalyticsEditEvents.stores;
-
-  @override
-  Future<List<RobotoffQuestion>> getRobotoffQuestions() async {
-    return _getRobotoffQuestions(
-      types: <InsightType>[InsightType.STORE],
-    );
-  }
 }
 
 /// Implementation for "Origins" of an [AbstractSimpleInputPageHelper].
@@ -847,13 +816,6 @@ class SimpleInputPageLabelHelper extends AbstractSimpleInputPageHelper {
         product,
         AppLocalizations.of(context).add_label_photo_button_label,
       );
-
-  @override
-  Future<List<RobotoffQuestion>> getRobotoffQuestions() async {
-    return _getRobotoffQuestions(
-      types: <InsightType>[InsightType.LABEL],
-    );
-  }
 }
 
 /// Implementation for "Categories" of an [AbstractSimpleInputPageHelper].
@@ -953,13 +915,6 @@ class SimpleInputPageCategoryHelper extends AbstractSimpleInputPageHelper {
 
   @override
   AnalyticsEditEvents getAnalyticsEditEvent() => AnalyticsEditEvents.categories;
-
-  @override
-  Future<List<RobotoffQuestion>> getRobotoffQuestions() async {
-    return _getRobotoffQuestions(
-      types: <InsightType>[InsightType.CATEGORY],
-    );
-  }
 }
 
 class SimpleInputPageCategoryNotFoodHelper

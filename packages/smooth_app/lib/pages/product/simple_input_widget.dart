@@ -4,14 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/background/background_task_hunger_games.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_snackbar.dart';
 import 'package:smooth_app/helpers/collections_helper.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
-import 'package:smooth_app/pages/hunger_games/question_image_full_page.dart';
 import 'package:smooth_app/pages/product/owner_field_info.dart';
 import 'package:smooth_app/pages/product/simple_input_page_helpers.dart';
 import 'package:smooth_app/pages/product/simple_input_text_field.dart';
@@ -54,33 +52,18 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget>
   final GlobalKey<AnimatedListState> _listKey = GlobalKey<AnimatedListState>();
   final Key _autocompleteKey = UniqueKey();
 
-  final List<RobotoffQuestion> _robotoffQuestions = <RobotoffQuestion>[];
-  final List<String> _answeredRobotoffQuestions = <String>[];
-
   @override
   void initState() {
     super.initState();
     _focusNode = FocusNode();
     widget.helper.reInit(widget.product);
     _localTerms = List<String>.of(widget.helper.terms);
-
-    _loadRobotoffQuestions();
-  }
-
-  Future<void> _loadRobotoffQuestions() async {
-    final List<RobotoffQuestion> questions =
-        await widget.helper.getRobotoffQuestions();
-    setState(() {
-      _robotoffQuestions.addAll(questions);
-    });
   }
 
   @override
   Widget build(BuildContext context) {
     super.build(context);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
 
     final Widget? extraWidget = widget.helper.getExtraWidget(
       context,
@@ -178,133 +161,15 @@ class _SimpleInputWidgetState extends State<SimpleInputWidget>
       appLocalizations,
     );
 
-    return Column(
-      children: <Widget>[
-        SmoothCardWithRoundedHeader(
-          leading: widget.helper.getIcon(),
-          title: widget.helper.getTitle(appLocalizations),
-          trailing: trailingHeader,
-          contentPadding: const EdgeInsetsDirectional.only(
-            top: BALANCED_SPACE,
-          ),
-          child: child,
-        ),
-        const SizedBox(height: MEDIUM_SPACE),
-        ..._robotoffQuestions.map<Widget>((RobotoffQuestion question) {
-          if (_answeredRobotoffQuestions.contains(question.insightId)) {
-            return Container(
-              padding: const EdgeInsetsDirectional.all(MEDIUM_SPACE),
-              decoration: BoxDecoration(
-                color: extension.successBackground,
-                borderRadius: ANGULAR_BORDER_RADIUS,
-              ),
-              child: Row(
-                children: <Widget>[
-                  const Icon(Icons.check_circle_rounded),
-                  const SizedBox(width: MEDIUM_SPACE),
-                  Text(
-                    appLocalizations.product_edit_robotoff_question_answered,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
-              ),
-            );
-          }
-
-          return SmoothCard(
-            margin: EdgeInsets.zero,
-            padding: const EdgeInsetsDirectional.all(MEDIUM_SPACE),
-            child: Column(
-              children: <Widget>[
-                Row(
-                  children: <Widget>[
-                    Expanded(
-                      child: Text(
-                        question.question!,
-                        style: const TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                    IconButton(
-                      onPressed: () {
-                        Navigator.of(context).push<void>(
-                          MaterialPageRoute<void>(
-                            builder: (BuildContext context) =>
-                                QuestionImageFullPage(question),
-                            fullscreenDialog: true,
-                          ),
-                        );
-                      },
-                      icon: const Icon(
-                        Icons.image_rounded,
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: <Widget>[
-                    Expanded(
-                      child: Text(
-                        question.value ?? '',
-                      ),
-                    ),
-                    IconButton(
-                      onPressed: () {
-                        _answerQuestion(
-                          question,
-                          InsightAnnotation.YES,
-                        );
-                      },
-                      icon: Icon(
-                        Icons.check_circle_rounded,
-                        color: extension.success,
-                      ),
-                    ),
-                    IconButton(
-                      onPressed: () {
-                        _answerQuestion(
-                          question,
-                          InsightAnnotation.NO,
-                        );
-                      },
-                      icon: Icon(
-                        Icons.cancel_rounded,
-                        color: extension.error,
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          );
-        }),
-      ],
+    return SmoothCardWithRoundedHeader(
+      leading: widget.helper.getIcon(),
+      title: widget.helper.getTitle(appLocalizations),
+      trailing: trailingHeader,
+      contentPadding: const EdgeInsetsDirectional.only(
+        top: BALANCED_SPACE,
+      ),
+      child: child,
     );
-  }
-
-  Future<void> _answerQuestion(
-    RobotoffQuestion question,
-    InsightAnnotation annotation,
-  ) async {
-    final String? barcode = question.barcode;
-    final String? insightId = question.insightId;
-    if (barcode == null || insightId == null) {
-      return;
-    }
-
-    await BackgroundTaskHungerGames.addTask(
-      barcode: barcode,
-      insightId: insightId,
-      insightAnnotation: annotation,
-      context: context,
-    );
-
-    setState(() {
-      _answeredRobotoffQuestions.add(insightId);
-    });
   }
 
   Widget? _getTrailingHeader(

@@ -66,8 +66,7 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
     final List<String> titles = <String>[];
 
     for (int i = 0; i < widget.helpers.length; i++) {
-      final AbstractSimpleInputPageHelper helper = widget.helpers[i];
-      titles.add(helper.getTitle(appLocalizations));
+      titles.add(widget.helpers[i].getTitle(appLocalizations));
       simpleInputs.add(
         Padding(
           padding: i == 0
@@ -83,11 +82,11 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
                 },
               ),
               ChangeNotifierProvider<AbstractSimpleInputPageHelper>(
-                create: (_) => helper,
+                create: (_) => widget.helpers[i],
               ),
             ],
             child: SimpleInputWidget(
-              helper: helper,
+              helper: widget.helpers[i],
               product: widget.product,
               controller: _controllers[i],
               displayTitle: true,

@@ -4140,9 +4140,5 @@
   "app_review_feedback_modal_later": "Ask me later",
   "@app_review_feedback_modal_later": {
     "description": "Ask me later button"
-  },
-  "product_edit_robotoff_question_answered": "Question answered!",
-  "@product_edit_robotoff_question_answered": {
-    "description": "Message displayed when a question from the Robotoff is answered"
   }
 }
