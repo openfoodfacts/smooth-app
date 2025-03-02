@@ -1,7 +1,10 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/data_models/location_list_supplier.dart';
 import 'package:smooth_app/data_models/location_query_model.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -69,7 +72,7 @@ class _LocationQueryPageState extends State<LocationQueryPage>
             }
             break;
           case LoadingStatus.LOADED:
-            if (_model.isEmpty() && !_model.isOptimized) {
+            if (_model.isEmpty() && _model.alternateSupplier == null) {
               return SearchEmptyScreen(
                 name: widget.query,
                 emptiness: _getEmptyText(
@@ -118,12 +121,13 @@ class _LocationQueryPageState extends State<LocationQueryPage>
           child: ListView.builder(
             itemBuilder: (BuildContext context, int index) {
               if (index >= _model.displayedResults.length) {
-                if (_model.isOptimized) {
+                final LocationListSupplier? supplier = _model.alternateSupplier;
+                if (supplier != null) {
                   return SmoothCard(
                     child: SmoothLargeButtonWithIcon(
                       text: appLocalizations.prices_location_search_broader,
                       leadingIcon: const Icon(Icons.search),
-                      onPressed: () => _model.loadMore(),
+                      onPressed: () => unawaited(_model.loadMore(supplier)),
                     ),
                   );
                 }
@@ -143,7 +147,7 @@ class _LocationQueryPageState extends State<LocationQueryPage>
               );
             },
             itemCount: _model.displayedResults.length +
-                (_model.isOptimized
+                (_model.alternateSupplier != null
                     ? 1
                     : _model.loadingStatus == LoadingStatus.LOADING
                         ? 1

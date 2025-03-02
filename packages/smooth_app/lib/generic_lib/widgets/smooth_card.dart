@@ -177,6 +177,31 @@ class SmoothCardWithRoundedHeader extends StatelessWidget {
   }
 }
 
+class SmoothCardWithRoundedHeaderBanner extends StatelessWidget {
+  const SmoothCardWithRoundedHeaderBanner({
+    required this.child,
+  });
+
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
+
+    return CustomPaint(
+      painter: _SmoothCardWithRoundedHeaderBackgroundPainter(
+        color: context.lightTheme() ? extension.greyLight : extension.greyDark,
+        radius: ROUNDED_RADIUS,
+        shadowElevation:
+            SmoothCardWithRoundedHeaderTopShadowProvider.of(context)?.shadow ??
+                0.0,
+      ),
+      child: child,
+    );
+  }
+}
+
 class SmoothCardWithRoundedHeaderTop extends StatelessWidget {
   const SmoothCardWithRoundedHeaderTop({
     required this.title,
@@ -188,6 +213,7 @@ class SmoothCardWithRoundedHeaderTop extends StatelessWidget {
     this.titleTextStyle,
     this.titlePadding,
     this.borderRadius,
+    this.banner,
   });
 
   final String title;
@@ -199,6 +225,7 @@ class SmoothCardWithRoundedHeaderTop extends StatelessWidget {
   final TextStyle? titleTextStyle;
   final EdgeInsetsGeometry? titlePadding;
   final BorderRadius? borderRadius;
+  final Widget? banner;
 
   static const double _DEFAULT_LEADING_ICON_SIZE = 17.0;
 
@@ -209,74 +236,79 @@ class SmoothCardWithRoundedHeaderTop extends StatelessWidget {
     return Semantics(
       label: title,
       excludeSemantics: true,
-      child: CustomPaint(
-        painter: _SmoothCardWithRoundedHeaderBackgroundPainter(
-          color: color,
-          radius: borderRadius?.topRight ?? ROUNDED_RADIUS,
-          shadowElevation:
-              SmoothCardWithRoundedHeaderTopShadowProvider.of(context)
-                      ?.shadow ??
-                  0.0,
-        ),
-        child: Padding(
-          padding: titlePadding ??
-              (trailing != null
-                  ? const EdgeInsetsDirectional.only(
-                      top: 2.0,
-                      start: LARGE_SPACE,
-                      end: SMALL_SPACE,
-                      bottom: 2.0,
-                    )
-                  : const EdgeInsetsDirectional.symmetric(
-                      vertical: BALANCED_SPACE,
-                      horizontal: LARGE_SPACE,
-                    )),
-          child: Row(
-            children: <Widget>[
-              if (leading != null)
-                IconTheme(
-                  data: IconThemeData(
-                    color: titleBackgroundColor,
-                    size: leadingIconSize ?? _DEFAULT_LEADING_ICON_SIZE,
-                  ),
-                  child: DecoratedBox(
-                    decoration: const BoxDecoration(
-                      color: Colors.white,
-                      shape: BoxShape.circle,
+      child: Column(
+        children: <Widget>[
+          if (banner != null) SmoothCardWithRoundedHeaderBanner(child: banner!),
+          CustomPaint(
+            painter: _SmoothCardWithRoundedHeaderBackgroundPainter(
+              color: color,
+              radius: borderRadius?.topRight ?? ROUNDED_RADIUS,
+              shadowElevation:
+                  SmoothCardWithRoundedHeaderTopShadowProvider.of(context)
+                          ?.shadow ??
+                      0.0,
+            ),
+            child: Padding(
+              padding: titlePadding ??
+                  (trailing != null
+                      ? const EdgeInsetsDirectional.only(
+                          top: 2.0,
+                          start: LARGE_SPACE,
+                          end: SMALL_SPACE,
+                          bottom: 2.0,
+                        )
+                      : const EdgeInsetsDirectional.symmetric(
+                          vertical: BALANCED_SPACE,
+                          horizontal: LARGE_SPACE,
+                        )),
+              child: Row(
+                children: <Widget>[
+                  if (leading != null)
+                    IconTheme(
+                      data: IconThemeData(
+                        color: titleBackgroundColor,
+                        size: leadingIconSize ?? _DEFAULT_LEADING_ICON_SIZE,
+                      ),
+                      child: DecoratedBox(
+                        decoration: const BoxDecoration(
+                          color: Colors.white,
+                          shape: BoxShape.circle,
+                        ),
+                        child: Padding(
+                          padding: leadingPadding ??
+                              const EdgeInsetsDirectional.all(6.0),
+                          child: leading,
+                        ),
+                      ),
                     ),
-                    child: Padding(
-                      padding: leadingPadding ??
-                          const EdgeInsetsDirectional.all(6.0),
-                      child: leading,
+                  const SizedBox(width: MEDIUM_SPACE),
+                  Expanded(
+                    child: Text(
+                      title,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: (titleTextStyle ??
+                              Theme.of(context).textTheme.displaySmall)
+                          ?.copyWith(
+                        color: Colors.white,
+                      ),
                     ),
                   ),
-                ),
-              const SizedBox(width: MEDIUM_SPACE),
-              Expanded(
-                child: Text(
-                  title,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: (titleTextStyle ??
-                          Theme.of(context).textTheme.displaySmall)
-                      ?.copyWith(
-                    color: Colors.white,
-                  ),
-                ),
+                  if (trailing != null) ...<Widget>[
+                    const SizedBox(width: MEDIUM_SPACE),
+                    IconTheme(
+                      data: const IconThemeData(
+                        color: Colors.white,
+                        size: 20.0,
+                      ),
+                      child: trailing!,
+                    ),
+                  ],
+                ],
               ),
-              if (trailing != null) ...<Widget>[
-                const SizedBox(width: MEDIUM_SPACE),
-                IconTheme(
-                  data: const IconThemeData(
-                    color: Colors.white,
-                    size: 20.0,
-                  ),
-                  child: trailing!,
-                ),
-              ],
-            ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }

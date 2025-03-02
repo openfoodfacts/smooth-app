@@ -20,6 +20,7 @@ class PriceModel with ChangeNotifier {
     required final Currency currency,
     final PriceMetaProduct? initialProduct,
   })  : _proof = null,
+        existingPrices = null,
         _proofType = proofType,
         _date = DateTime.now(),
         _currency = currency,
@@ -30,6 +31,7 @@ class PriceModel with ChangeNotifier {
 
   PriceModel.proof({
     required Proof proof,
+    this.existingPrices,
   }) : _priceAmountModels = <PriceAmountModel>[] {
     setProof(proof, init: true);
   }
@@ -79,6 +81,8 @@ class PriceModel with ChangeNotifier {
   bool get hasImage => _proof != null || _cropParameters != null;
 
   final List<PriceAmountModel> _priceAmountModels;
+
+  final List<Price>? existingPrices;
 
   void add(final PriceAmountModel priceAmountModel) {
     _hasChanged = true;
