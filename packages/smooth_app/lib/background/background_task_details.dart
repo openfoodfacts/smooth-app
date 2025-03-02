@@ -125,8 +125,6 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode
   Product getProductChange() {
     final Product result =
         Product.fromJson(json.decode(inputMap) as Map<String, dynamic>);
-    // for good multilingual management
-    result.lang = getLanguage();
     return result;
   }
 

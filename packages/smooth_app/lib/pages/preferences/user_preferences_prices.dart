@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
 import 'package:smooth_app/pages/preferences/lazy_counter.dart';
@@ -129,6 +130,13 @@ class UserPreferencesPrices extends AbstractUserPreferences {
           ),
         ),
         PriceButton.productIconData,
+      ),
+      _getListTile(
+        appLocalizations.prices_contribution_assistant,
+        () async => LaunchUrlHelper.launchURL(
+          'https://prices.openfoodfacts.org/experiments/contribution-assistant',
+        ),
+        Icons.open_in_new,
       ),
     ];
   }

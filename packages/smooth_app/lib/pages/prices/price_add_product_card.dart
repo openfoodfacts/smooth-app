@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/database/local_database.dart';
@@ -115,6 +116,13 @@ class _PriceAddProductCardState extends State<PriceAddProductCard> {
         final PriceAmountModel model = priceModel.elementAt(i);
         if (model.product.barcode == barcode) {
           return true;
+        }
+      }
+      if (priceModel.existingPrices != null) {
+        for (final Price price in priceModel.existingPrices!) {
+          if (price.productCode == barcode) {
+            return true;
+          }
         }
       }
       return false;

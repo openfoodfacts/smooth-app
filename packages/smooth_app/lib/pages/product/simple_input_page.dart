@@ -7,6 +7,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/collections_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
+import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/pages/input/unfocus_field_when_tap_outside.dart';
 import 'package:smooth_app/pages/product/common/product_buttons.dart';
 import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
@@ -152,7 +153,12 @@ class _SimpleInputPageState extends State<SimpleInputPage> {
       }
     }
 
-    _willPopScope2Controller.canPop(true);
+    onNextFrame(() {
+      if (!mounted) {
+        return;
+      }
+      _willPopScope2Controller.canPop(true);
+    });
   }
 
   /// Returns `true` if we should really exit the page.
