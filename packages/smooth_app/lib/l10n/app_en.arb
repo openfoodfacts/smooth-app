@@ -2600,6 +2600,10 @@
     "description": "Top price locations: list tile title"
   },
   "prices_contribution_assistant": "Price Contribution Assistant",
+  "prices_validation_assistant": "Price Validation Assistant",
+  "prices_challenges_page": "Challenges",
+  "prices_multiple_proof_addition_system": "Add Multiple Proofs",
+
   "all_search_prices_top_location_single_title": "Prices in a store",
   "@all_search_prices_top_location_single_title": {
     "description": "Top price locations: list tile title"
