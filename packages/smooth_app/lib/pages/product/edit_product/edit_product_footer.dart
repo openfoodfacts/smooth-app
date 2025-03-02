@@ -166,9 +166,7 @@ class _EditProductFooterState extends State<EditProductFooter>
                       ),
                       child: SizedBox(
                         width: BUTTON_WIDTH,
-                        height: ProductFooter.kHeight +
-                            LARGE_SPACE +
-                            MediaQuery.viewPaddingOf(context).bottom,
+                        height: _height,
                         child: Padding(
                           padding: EdgeInsetsDirectional.only(
                             top: LARGE_SPACE,
