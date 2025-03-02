@@ -109,6 +109,7 @@ Widget build(BuildContext context) {
               _,
             ) {
               return SmoothDropdownButton&lt;PerSize&gt;(
+                  loading: nutritionContainer.loadingRobotoffExtraction,
                   value: nutritionContainer.perSize,
                   items: &lt;SmoothDropdownItem&lt;PerSize&gt;&gt;[
                     SmoothDropdownItem&lt;PerSize&gt;(
