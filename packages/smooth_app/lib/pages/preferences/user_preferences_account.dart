@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
@@ -237,12 +238,21 @@ class UserPreferencesAccount extends AbstractUserPreferences {
       ),
       _getListTile(
         appLocalizations.account_delete,
-        () async => Navigator.push<void>(
-          context,
-          MaterialPageRoute<void>(
-            builder: (BuildContext context) => AccountDeletionWebview(),
-          ),
-        ),
+        () async {
+          // Track Matomo event for clicking on Delete Account
+          MatomoTracker.instance.trackEvent(
+            eventInfo: EventInfo(
+                category: 'User Action',
+                action: 'User attempted account deletion',
+                name: 'Clicked Delete Account'),
+          );
+          Navigator.push<void>(
+            context,
+            MaterialPageRoute<void>(
+              builder: (BuildContext context) => AccountDeletionWebview(),
+            ),
+          );
+        },
         Icons.delete,
       ),
       _getListTile(
