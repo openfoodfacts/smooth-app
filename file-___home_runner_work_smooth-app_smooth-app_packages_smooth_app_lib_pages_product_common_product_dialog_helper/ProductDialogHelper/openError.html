@@ -71,6 +71,10 @@
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
   switch (fetchedProduct.status) {
     case FetchedProductStatus.ok:
+      if (!fetchedProduct.isValid) {
+        _openProductNotFoundDialog();
+        return;
+      }
       throw Exception(&quot;You&#39;re not supposed to call this if the status is ok&quot;);
     case FetchedProductStatus.userCancelled:
       return;
