@@ -71,22 +71,32 @@
   final BuildContext context,
 ) async {
   final OrderedNutrientsCache cache = OrderedNutrientsCache._();
-  cache._orderedNutrients = await cache._get();
-  if (cache._orderedNutrients == null) {
-    if (context.mounted) {
-      cache._orderedNutrients = await LoadingDialog.run&lt;OrderedNutrients&gt;(
-        context: context,
-        future: cache._download(),
-      );
-    }
+  final LocalDatabase localDatabase = context.read&lt;LocalDatabase&gt;();
+  &#47;&#47; quickest
+  cache._orderedNutrients = await cache._getStaticVersion();
+  if (cache._orderedNutrients != null) {
+    return cache;
   }
-  if (cache._orderedNutrients == null) {
-    if (context.mounted) {
-      await LoadingDialog.error(context: context);
-    }
+  &#47;&#47; less quick, but still local
+  cache._orderedNutrients = await cache._getDatabaseVersion(localDatabase);
+  if (cache._orderedNutrients != null) {
+    return cache;
+  }
+  &#47;&#47; server version, the very first time
+  if (!context.mounted) {
     return null;
   }
-  return cache;
+  cache._orderedNutrients = await LoadingDialog.run&lt;OrderedNutrients&gt;(
+    context: context,
+    future: cache._download(localDatabase),
+  );
+  if (cache._orderedNutrients != null) {
+    return cache;
+  }
+  if (context.mounted) {
+    await LoadingDialog.error(context: context);
+  }
+  return null;
 }</code></pre>
 </section>
 
