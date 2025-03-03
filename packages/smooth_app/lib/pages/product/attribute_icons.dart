@@ -183,11 +183,11 @@ abstract class AttributeIcon extends StatelessWidget {
     this.iconSizeFactor,
     this.angle,
     this.offsetFactor,
-    Color foregroundColor = Colors.white,
+    Color? foregroundColor,
     this.paddingFactor,
     this.semanticsLabel,
     this.clip = false,
-  });
+  }) : foregroundColor = foregroundColor ?? Colors.white;
 
   final Widget icon;
   final Color backgroundColor;
