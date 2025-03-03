@@ -6,6 +6,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/collections_helper.dart';
 import 'package:smooth_app/helpers/text_input_formatters_helper.dart';
 import 'package:smooth_app/pages/product/nutrition_page/nutrition_page.dart';
@@ -13,6 +14,7 @@ import 'package:smooth_app/pages/product/nutrition_page/widgets/nutrition_contai
 import 'package:smooth_app/pages/product/owner_field_info.dart';
 import 'package:smooth_app/pages/product/simple_input_number_field.dart';
 import 'package:smooth_app/pages/text_field_helper.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/widgets/smooth_dropdown.dart';
@@ -85,6 +87,15 @@ class _NutrientRowState extends State<NutrientRow>
       color = _getColor(extension);
     }
 
+    final TextEditingControllerWithHistory controller =
+        context.watch<TextEditingControllerWithHistory>();
+
+    final RobotoffNutrientEntity? robotoffNutrientEntity =
+        widget.nutritionContainer.robotoffNutrientExtraction?.getNutrientEntity(
+      widget.orderedNutrient.nutrient!,
+      PerSize.oneHundredGrams,
+    );
+
     return ColoredBox(
       color: color,
       child: Padding(
@@ -92,41 +103,109 @@ class _NutrientRowState extends State<NutrientRow>
           start: MEDIUM_SPACE,
           end: MEDIUM_SPACE,
         ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.center,
+        child: Column(
           children: <Widget>[
-            Expanded(
-              flex: 6,
-              child: KeyedSubtree(
-                key: Key('$key-value'),
-                child: _NutrientValueCell(
-                  widget.decimalNumberFormat,
-                  widget.orderedNutrient,
-                  widget.position,
-                  widget.isLast,
-                ),
-              ),
-            ),
-            Expanded(
-              flex: 5,
-              child: KeyedSubtree(
-                key: Key('$key-unit'),
-                child: IntrinsicHeight(
-                  child: Row(
-                    children: <Widget>[
-                      Expanded(
-                        child: _NutrientUnitCell(
-                          nutritionContainer: widget.nutritionContainer,
-                          orderedNutrient: widget.orderedNutrient,
-                        ),
-                      ),
-                      const _NutrientUnitVisibility()
-                    ],
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Expanded(
+                  flex: 6,
+                  child: KeyedSubtree(
+                    key: Key('$key-value'),
+                    child: _NutrientValueCell(
+                      controller,
+                      widget.decimalNumberFormat,
+                      widget.orderedNutrient,
+                      widget.position,
+                      widget.isLast,
+                    ),
                   ),
                 ),
-              ),
+                Expanded(
+                  flex: 5,
+                  child: KeyedSubtree(
+                    key: Key('$key-unit'),
+                    child: IntrinsicHeight(
+                      child: Row(
+                        children: <Widget>[
+                          Expanded(
+                            child: _NutrientUnitCell(
+                              nutritionContainer: widget.nutritionContainer,
+                              orderedNutrient: widget.orderedNutrient,
+                            ),
+                          ),
+                          const _NutrientUnitVisibility()
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
+            if (robotoffNutrientEntity?.value != null &&
+                robotoffNutrientEntity!.value! != controller.text)
+              Container(
+                margin: const EdgeInsetsDirectional.only(
+                  bottom: SMALL_SPACE,
+                ),
+                padding: const EdgeInsetsDirectional.only(
+                  start: MEDIUM_SPACE,
+                ),
+                decoration: BoxDecoration(
+                  color: extension.successBackground,
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    ExcludeSemantics(
+                      child: icons.Sparkles(
+                        color: extension.success,
+                        size: 18.0,
+                      ),
+                    ),
+                    Text(
+                      robotoffNutrientEntity.text!,
+                      style: TextStyle(
+                        color: extension.success,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Tooltip(
+                      message: AppLocalizations.of(context)
+                          .edit_product_form_item_add_suggestion,
+                      child: IconButton(
+                        onPressed: () {
+                          controller.text = robotoffNutrientEntity.value!;
+
+                          // This is temporary, waiting for the update of openfoodfacts-dart
+                          final Unit? unit = UnitHelper.stringToUnit(
+                            robotoffNutrientEntity.unit,
+                          );
+                          if (unit != null) {
+                            widget.nutritionContainer.setNutrientUnit(
+                              widget.orderedNutrient.nutrient!,
+                              unit,
+                            );
+                            AnalyticsHelper.trackRobotoffExtraction(
+                              AnalyticsRobotoffEvents
+                                  .robotoffNutritionInsightAccepted,
+                              widget.orderedNutrient.nutrient!,
+                              context.read<Product>(),
+                            );
+                          }
+                        },
+                        icon: Icon(
+                          Icons.add_circle_rounded,
+                          color: extension.success,
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              )
           ],
         ),
       ),
@@ -145,12 +224,14 @@ class _NutrientRowState extends State<NutrientRow>
 
 class _NutrientValueCell extends StatelessWidget {
   const _NutrientValueCell(
+    this.controller,
     this.decimalNumberFormat,
     this.orderedNutrient,
     this.position,
     this.isLast,
   );
 
+  final TextEditingControllerWithHistory controller;
   final NumberFormat decimalNumberFormat;
   final OrderedNutrient orderedNutrient;
   final int position;
@@ -161,8 +242,6 @@ class _NutrientValueCell extends StatelessWidget {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final Map<OrderedNutrient, FocusNode> focusNodes =
         context.watch<Map<OrderedNutrient, FocusNode>>();
-    final TextEditingControllerWithHistory controller =
-        context.watch<TextEditingControllerWithHistory>();
 
     final Product product = context.watch<Product>();
     final bool isLast = position == focusNodes.length - 1;

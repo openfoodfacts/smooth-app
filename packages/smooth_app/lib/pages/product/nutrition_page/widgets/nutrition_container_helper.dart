@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:intl/intl.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 
 /// Nutrition data, for nutrient order and conversions.
 class NutritionContainerHelper extends ChangeNotifier {
@@ -72,6 +73,56 @@ class NutritionContainerHelper extends ChangeNotifier {
   set perSize(final PerSize value) {
     _perSize = value;
     notifyListeners();
+  }
+
+  bool _loadingRobotoffExtraction = false;
+
+  bool get loadingRobotoffExtraction => _loadingRobotoffExtraction;
+
+  RobotoffNutrientExtractionResult? _robotoffNutrientExtraction;
+
+  RobotoffNutrientExtractionResult? get robotoffNutrientExtraction =>
+      _robotoffNutrientExtraction;
+
+  // Fetch the robotoff extraction for the product, return true if the extraction was successful
+  Future<bool> fetchRobotoffExtraction(final Product product) async {
+    if (product.barcode == null) {
+      return false;
+    }
+
+    _loadingRobotoffExtraction = true;
+    _robotoffNutrientExtraction = null;
+    notifyListeners();
+
+    final RobotoffNutrientExtractionResult extractionResult =
+        await RobotoffAPIClient.getNutrientExtraction(product.barcode!);
+
+    final bool extractionSuccessful = extractionResult.status == 'found';
+
+    if (extractionSuccessful) {
+      // When using Robotoff extraction we enforce the perSize to 100g
+      perSize = PerSize.oneHundredGrams;
+
+      for (final OrderedNutrient orderedNutrient in _nutrients) {
+        final Nutrient nutrient = getNutrient(orderedNutrient)!;
+        final RobotoffNutrientEntity? robotoffNutrientEntity =
+            extractionResult.getNutrientEntity(nutrient, perSize);
+        if (robotoffNutrientEntity != null) {
+          AnalyticsHelper.trackRobotoffExtraction(
+            AnalyticsRobotoffEvents.robotoffNutritionExtracted,
+            nutrient,
+            product,
+          );
+        }
+      }
+
+      _robotoffNutrientExtraction = extractionResult;
+    }
+
+    _loadingRobotoffExtraction = false;
+    notifyListeners();
+
+    return extractionSuccessful;
   }
 
   /// Returns the not interesting nutrients, for a "Please add me!" list.
@@ -168,6 +219,10 @@ class NutritionContainerHelper extends ChangeNotifier {
     if (init) {
       _initialUnits[nutrient] = unit;
     }
+  }
+
+  void setNutrientUnit(final Nutrient nutrient, final Unit unit) {
+    _setUnit(nutrient, unit, init: false);
   }
 
   /// To be used when an [OrderedNutrient] is added to the input list

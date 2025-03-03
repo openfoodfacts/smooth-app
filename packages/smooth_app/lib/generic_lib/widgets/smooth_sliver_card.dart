@@ -19,6 +19,7 @@ class SliverCardWithRoundedHeader extends StatefulWidget {
     this.titleBackgroundColor,
     this.contentBackgroundColor,
     this.borderRadius,
+    this.banner,
     super.key,
   });
 
@@ -34,6 +35,7 @@ class SliverCardWithRoundedHeader extends StatefulWidget {
   final Color? titleBackgroundColor;
   final Color? contentBackgroundColor;
   final BorderRadius? borderRadius;
+  final Widget? banner;
 
   @override
   State<SliverCardWithRoundedHeader> createState() =>
@@ -43,6 +45,19 @@ class SliverCardWithRoundedHeader extends StatefulWidget {
 class _SliverCardWithRoundedHeaderState
     extends State<SliverCardWithRoundedHeader> {
   double? _height;
+  double? _bannerHeight;
+
+  @override
+  void didUpdateWidget(SliverCardWithRoundedHeader oldWidget) {
+    super.didUpdateWidget(oldWidget);
+
+    if (oldWidget.banner != null && widget.banner == null) {
+      if (_height != null && _bannerHeight != null) {
+        _height = _height! - _bannerHeight!;
+        _bannerHeight = null;
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -56,15 +71,25 @@ class _SliverCardWithRoundedHeaderState
       titleTextStyle: widget.titleTextStyle,
       titlePadding: widget.titlePadding,
       borderRadius: widget.borderRadius,
+      banner: widget.banner,
     );
 
     if (_height == null) {
       return SliverToBoxAdapter(
-        child: MeasureSize(
-          onChange: (Size size) => setState(() => _height = size.height),
-          child: Opacity(opacity: 0.0, child: child),
-        ),
-      );
+          child: Column(
+        children: <Widget>[
+          if (widget.banner != null)
+            MeasureSize(
+              onChange: (Size size) =>
+                  setState(() => _bannerHeight = size.height),
+              child: widget.banner!,
+            ),
+          MeasureSize(
+            onChange: (Size size) => setState(() => _height = size.height),
+            child: Opacity(opacity: 0.0, child: child),
+          ),
+        ],
+      ));
     }
 
     return MultiSliver(

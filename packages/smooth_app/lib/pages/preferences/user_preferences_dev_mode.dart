@@ -48,6 +48,8 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
   static const String userPreferencesFlagHideFolksonomy = '__hideFolksonomy';
   static const String userPreferencesFlagBoostedComparison =
       '__boostedComparison';
+  static const String userPreferencesFlagProductListImport =
+      '__productListImport';
   static const String userPreferencesEnumScanMode = '__scanMode';
   static const String userPreferencesAppLanguageCode = '__appLanguage';
   static const String userPreferencesFlagAccessibilityNoColor =
@@ -524,6 +526,17 @@ class UserPreferencesDevMode extends AbstractUserPreferences {
           onChanged: (bool value) async {
             await userPreferences.setFlag(
                 userPreferencesFlagBoostedComparison, value);
+            _showSuccessMessage();
+          },
+        ),
+        UserPreferencesItemSwitch(
+          title: 'Product list import',
+          value:
+              userPreferences.getFlag(userPreferencesFlagProductListImport) ??
+                  false,
+          onChanged: (bool value) async {
+            await userPreferences.setFlag(
+                userPreferencesFlagProductListImport, value);
             _showSuccessMessage();
           },
         ),
