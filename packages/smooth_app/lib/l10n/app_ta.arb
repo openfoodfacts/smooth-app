@@ -3161,7 +3161,7 @@
   "@scan_header_compare_button_invalid_state_tooltip": {
     "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is just one product scanned"
   },
-  "scan_header_compare_button_valid_state_tooltip": "Click to compare the products you have scanned",
+  "scan_header_compare_button_valid_state_tooltip": "நீங்கள் ஸ்கேன் செய்த தயாரிப்புகளை ஒப்பிடக் கிளிக் செய்யவும்.",
   "@scan_header_compare_button_valid_state_tooltip": {
     "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is at least two products"
   },
