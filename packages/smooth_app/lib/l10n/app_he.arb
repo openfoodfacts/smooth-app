@@ -1704,7 +1704,7 @@
   "@edit_product_form_item_origins_title": {
     "description": "Product edition - Origins - Title"
   },
-  "edit_product_form_item_origins_hint": "Input an origin (eg: Germany)",
+  "edit_product_form_item_origins_hint": "נא למלא מקור (למשל: ישראל)",
   "@edit_product_form_item_origins_hint": {
     "description": "Product edition - Origins - input textfield hint"
   },
