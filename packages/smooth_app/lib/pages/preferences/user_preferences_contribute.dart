@@ -81,7 +81,7 @@ class UserPreferencesContribute extends AbstractUserPreferences {
         () async => LaunchUrlHelper.launchURL(
           'https://wiki.openfoodfacts.org/Data_quality',
         ),
-        Icons.high_quality_outlined,
+        Icons.cleaning_services,
         externalLink: true,
       ),
       _getListTile(
