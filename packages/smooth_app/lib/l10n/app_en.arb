@@ -1704,7 +1704,7 @@
   "@edit_product_form_item_origins_title": {
     "description": "Product edition - Origins - Title"
   },
-  "edit_product_form_item_origins_hint": "Input an origin (eg: Beef from Argentina)",
+  "edit_product_form_item_origins_hint": "Input an origin (eg: Germany)",
   "@edit_product_form_item_origins_hint": {
     "description": "Product edition - Origins - input textfield hint"
   },
@@ -3161,7 +3161,7 @@
   "@scan_header_compare_button_invalid_state_tooltip": {
     "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is just one product scanned"
   },
-  "scan_header_compare_button_valid_state_tooltip": "Compare the products you have scanned",
+  "scan_header_compare_button_valid_state_tooltip": "Click to compare the products you have scanned",
   "@scan_header_compare_button_valid_state_tooltip": {
     "description": "Tooltip (message visible with a long-press) on the Compare button on top of the scanner, when there is at least two products"
   },
@@ -4143,18 +4143,18 @@
   },
   "nutrition_facts_extract_new": "NEW: You can automatically extract the nutrients from the picture!",
   "@nutrition_facts_extract_new": {
-      "description": "Message to indicate that user can now extract of nutrients from a picture"
+    "description": "Message to indicate that user can now extract of nutrients from a picture"
   },
   "nutrition_facts_extract_button_text": "Extract now",
   "@nutrition_facts_extract_button_text": {
-      "description": "Button to extraction of nutrients from a picture"
+    "description": "Button to extraction of nutrients from a picture"
   },
   "nutrition_facts_extract_succesful": "Extraction succesful",
   "@nutrition_facts_extract_succesful": {
-      "description": "Message to indicate that the extraction of nutrients from a picture was succesful"
+    "description": "Message to indicate that the extraction of nutrients from a picture was succesful"
   },
   "nutrition_facts_extract_failed": "Failed to extract nutrients from picture",
   "@nutrition_facts_extract_failed": {
-      "description": "Message to indicate that the extraction of nutrients from a picture failed"
+    "description": "Message to indicate that the extraction of nutrients from a picture failed"
   }
 }
