@@ -240,12 +240,7 @@ class UserPreferencesAccount extends AbstractUserPreferences {
         appLocalizations.account_delete,
         () async {
           // Track Matomo event using the enum
-            MatomoTracker.instance.trackEvent(
-              eventInfo: EventInfo(
-                  category: AnalyticsEvent.accountDeletion.category.tag,
-                  action: AnalyticsEvent.accountDeletion.tag,
-                  name: 'Clicked Delete Account'),
-            );
+          AnalyticsHelper.trackEvent(AnalyticsEvent.accountDeletion);
           Navigator.push<void>(
             context,
             MaterialPageRoute<void>(
